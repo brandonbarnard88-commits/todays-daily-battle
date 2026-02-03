@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Daily Battle - Bible Tool for Life's Struggles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Today's Daily Battle</h1>
+        <p>Battle daily struggles with God's Word (KJV). Search by verse, keyword, or feeling/topic.</p>
+    </header>
+    <main>
+        <select id="tier">
+            <option value="kid">Kid</option>
+            <option value="teen">Teen</option>
+            <option value="adult" selected>Adult</option>
+            <option value="pastor">Pastor</option>
+        </select>
+        <input type="text" id="query" placeholder="e.g., John 3:16, anger, search keyword">
+        <button id="search-btn">Battle It</button>
+        <button id="daily-btn">Today's Battle</button>
+        <div id="output"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

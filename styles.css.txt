@@ -1,0 +1,11 @@
+body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; color: #333; }
+header { text-align: center; }
+main { max-width: 800px; margin: auto; }
+#query { width: 70%; padding: 10px; }
+button { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; }
+button:hover { background: #0056b3; }
+#output { margin-top: 20px; }
+.verse-card { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.guidance { font-style: italic; margin-top: 10px; }
+.trace { font-size: 0.8em; color: #666; margin-top: 10px; }
+.highlight { background: yellow; }

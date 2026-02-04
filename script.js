@@ -191,3 +191,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('search-btn').click(); // Temp trigger search
   });
 });
+document.getElementById('daily-btn').addEventListener('click', () => {
+  const today = new Date().toDateString();
+  const topicKeys = Object.keys(topics);
+  const index = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % topicKeys.length;
+  const dailyTopic = topicKeys[index];
+  document.getElementById('query').value = dailyTopic;
+  const tier = document.getElementById('tier').value;
+  const parsed = parseQuery(dailyTopic);
+  const results = executeQuery(parsed, tier);
+  renderResults(results);
+  const message = document.createElement('div');
+  message.textContent = "Today's battle is against " + dailyTopic.toUpperCase() + ". Conquer it with God's Word!";
+  document.getElementById('output').prepend(message);
+});

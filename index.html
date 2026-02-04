@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today's Daily Battle - Bible Tool for Life's Struggles</title>
@@ -11,6 +12,13 @@
         <h1>Today's Daily Battle</h1>
         <p>Battle daily struggles with God's Word (KJV). Search by verse, keyword, or feeling/topic.</p>
     </header>
+<div id="auth">
+  <input id="email" placeholder="Email" type="email">
+  <input id="password" placeholder="Password" type="password">
+  <button id="signup-btn">Sign Up</button>
+  <button id="login-btn">Log In</button>
+  <button id="logout-btn" style="display:none">Log Out</button>
+</div>
     <main>
         <select id="tier">
             <option value="kid">Kid</option>
@@ -25,4 +33,7 @@
     </main>
     <script src="script.js"></script>
 </body>
+<footer style="text-align:center; margin-top:20px;">
+  Powered by God's Word (KJV) | Contact: brandon@todaysdailybattle.com
+</footer>
 </html>

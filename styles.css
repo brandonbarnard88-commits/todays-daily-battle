@@ -9,3 +9,15 @@ button:hover { background: #0056b3; }
 .guidance { font-style: italic; margin-top: 10px; }
 .trace { font-size: 0.8em; color: #666; margin-top: 10px; }
 .highlight { background: yellow; }
+.hero { text-align: center; margin-bottom: 20px; }
+button { margin: 5px; }
+@media (max-width: 600px) { main { padding: 10px; } #query { width: 100%; } }
+.dark-mode { background: #333; color: #fff; }
+.dark-mode .verse-card { background: #444; }
+.dark-mode .highlight { background: #ff0; }
+.hero { text-align: center; margin-bottom: 20px; }
+button { margin: 5px; }
+@media (max-width: 600px) { main { padding: 10px; } #query { width: 100%; } }
+.dark-mode { background: #333; color: #fff; }
+.dark-mode .verse-card { background: #444; }
+.dark-mode .highlight { background: #ff0; }

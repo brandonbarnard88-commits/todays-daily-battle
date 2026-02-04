@@ -1,3 +1,6 @@
+const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace
+const supabaseKey = 'YOUR_ANON_KEY'; // Replace
+const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
 let bible = {}; // Loaded KJV
 const topics = {
   anger: {
@@ -209,3 +212,35 @@ const toggle = document.createElement('button');
 toggle.textContent = "Dark Mode";
 toggle.onclick = () => document.body.classList.toggle('dark-mode');
 document.body.appendChild(toggle);
+async function signUp() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const tier = document.getElementById('tier').value; // Save tier at signup
+  const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { tier } } });
+  if (error) alert(error.message);
+  else alert('Signed up! Check email to confirm.');
+}
+
+async function logIn() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) alert(error.message);
+  else {
+    const tier = data.user.user_metadata.tier || 'adult';
+    document.getElementById('tier').value = tier;
+    document.getElementById('logout-btn').style.display = 'block';
+    alert('Logged in!');
+  }
+}
+
+async function logOut() {
+  await supabase.auth.signOut();
+  document.getElementById('logout-btn').style.display = 'none';
+  alert('Logged out!');
+}
+
+// In DOMContentLoaded:
+document.getElementById('signup-btn').addEventListener('click', signUp);
+document.getElementById('login-btn').addEventListener('click', logIn);
+document.getElementById('logout-btn').addEventListener('click', logOut);

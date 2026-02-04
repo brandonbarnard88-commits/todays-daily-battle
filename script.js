@@ -205,3 +205,7 @@ document.getElementById('daily-btn').addEventListener('click', () => {
   message.textContent = "Today's battle is against " + dailyTopic.toUpperCase() + ". Conquer it with God's Word!";
   document.getElementById('output').prepend(message);
 });
+const toggle = document.createElement('button');
+toggle.textContent = "Dark Mode";
+toggle.onclick = () => document.body.classList.toggle('dark-mode');
+document.body.appendChild(toggle);

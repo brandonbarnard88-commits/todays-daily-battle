@@ -1,44 +1,40 @@
 :root {
-  --bg: #f8f9fa;
-  --text: #2c3e50;
-  --card: rgba(255,255,255,0.85);
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.7);
   --accent: #6366f1;
   --accent-dark: #4f46e5;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .dark-mode {
   --bg: #0f172a;
   --text: #e2e8f0;
-  --card: rgba(30,41,59,0.85);
+  --card-bg: rgba(30, 41, 59, 0.7);
   --accent: #a5b4fc;
   --accent-dark: #818cf8;
+  --shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
-  transition: background 0.4s, color 0.4s;
+  transition: all 0.4s ease;
 }
 
 .hero {
-  position: relative;
   height: 60vh;
   min-height: 400px;
-  background: linear-gradient(to bottom right, #1e3a8a, #3b82f6);
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  overflow: hidden;
 }
 
 .hero-overlay {
@@ -55,37 +51,37 @@ body {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-size: clamp(3rem, 8vw, 6rem);
   margin-bottom: 0.5rem;
   text-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .hero p {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   opacity: 0.95;
 }
 
 .container {
-  max-width: 900px;
-  margin: -80px auto 40px;
+  max-width: 1000px;
+  margin: -120px auto 60px;
   padding: 0 20px;
 }
 
 .glass {
-  background: var(--card);
+  background: var(--card-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 32px;
 }
 
-.auth-card {
-  margin-bottom: 24px;
+.auth {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
   justify-content: center;
 }
 
@@ -99,76 +95,71 @@ h1 {
 .controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: 16px;
   justify-content: center;
 }
 
 input, select {
-  padding: 14px 16px;
+  padding: 16px;
   border: none;
   border-radius: 12px;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.25);
   color: var(--text);
-  font-size: 1rem;
-  min-width: 220px;
-  flex: 1 1 220px;
+  font-size: 1.1rem;
+  min-width: 240px;
+  flex: 1 1 240px;
 }
 
 button {
-  padding: 14px 28px;
+  padding: 16px 32px;
   background: var(--accent);
   color: white;
   border: none;
   border-radius: 12px;
   font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.25s;
 }
 
-button:hover {
-  background: var(--accent-dark);
-  transform: translateY(-2px);
-}
+button:hover { background: var(--accent-dark); transform: translateY(-3px); }
 
 #dark-toggle {
   background: rgba(255,255,255,0.2);
   font-size: 1.3rem;
-  padding: 12px 16px;
+  padding: 14px 20px;
 }
 
 .loading {
   text-align: center;
-  padding: 60px 20px;
-  color: var(--text);
+  padding: 80px 20px;
+  font-size: 1.3rem;
 }
 
 .spinner {
-  width: 48px;
-  height: 48px;
-  border: 5px solid rgba(99,102,241,0.2);
-  border-top: 5px solid var(--accent);
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(99,102,241,0.2);
+  border-top: 6px solid var(--accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: 0 auto 16px;
+  margin: 0 auto 20px;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 .results {
   display: grid;
-  gap: 24px;
+  gap: 28px;
 }
 
 .verse-card {
-  background: var(--card);
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
   border-radius: 16px;
-  padding: 24px;
+  padding: 28px;
   border: 1px solid rgba(255,255,255,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
 }
 
 .verse-card:hover {
@@ -178,29 +169,30 @@ button:hover {
 
 .verse-card strong {
   display: block;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-bottom: 12px;
   color: var(--accent);
 }
 
 .guidance {
-  margin-top: 16px;
-  padding: 16px;
+  margin-top: 20px;
+  padding: 20px;
   background: rgba(255,255,255,0.15);
   border-radius: 12px;
   font-style: italic;
+  line-height: 1.6;
 }
 
 footer {
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
   color: #94a3b8;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .hero { height: 50vh; min-height: 320px; }
-  h1 { font-size: 2.8rem; }
-  .controls { flex-direction: column; }
+  h1 { font-size: 3rem; }
+  .controls { flex-direction: column; align-items: stretch; }
   input, select, button { width: 100%; }
 }

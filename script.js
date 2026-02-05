@@ -1,5 +1,26 @@
+async function loadBible() {
+  try {
+    const response = await fetch('kjv.json');
+    console.log('Fetch status for kjv.json:', response.status);
+    if (!response.ok) throw new Error('Fetch failed with status ' + response.status);
+    bible = await response.json();
+    console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
+  } catch (err) {
+    console.error('Error loading kjv.json:', err.message);
+  }
+}
 let bible = {}; // Loaded KJV
-
+document.getElementById('search-btn').addEventListener('click', () => {
+  document.getElementById('loading').style.display = 'block';
+  setTimeout(() => {
+    const input = document.getElementById('query').value;
+    const tier = document.getElementById('tier').value;
+    const parsed = parseQuery(input);
+    const results = executeQuery(parsed, tier);
+    renderResults(results);
+    document.getElementById('loading').style.display = 'none';
+  }, 0); // Async sim for loading
+});
 const topics = {
   anger: {
     synonyms: ['angry', 'wrath', 'mad', 'furious', 'rage'],
@@ -148,6 +169,14 @@ function executeQuery(parsed, tier) {
 function renderResults(results) {
   const output = document.getElementById('output');
   output.innerHTML = '';
+const shareBtn = document.createElement('button');
+shareBtn.className = 'share-btn';
+shareBtn.textContent = 'Share';
+shareBtn.onclick = () => {
+  navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
+  alert('Verse copied to clipboard!');
+};
+card.appendChild(shareBtn);
   if (results.verses.length === 0) {
     output.innerHTML = '<p>No results found. Try another query!</p>';
     return;

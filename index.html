@@ -8,57 +8,55 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Today's Daily Battle</h1>
-      <p>Face every struggle with the sword of the Spirit</p>
+      <p>Arm yourself with God's Word against every struggle</p>
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <!-- Auth -->
-      <div class="auth-card glass">
-        <input id="email" placeholder="Email" type="email"/>
-        <input id="password" placeholder="Password" type="password"/>
-        <div class="auth-buttons">
-          <button id="signup-btn">Sign Up</button>
-          <button id="login-btn">Log In</button>
-          <button id="logout-btn" style="display:none">Log Out</button>
-        </div>
+  <main class="container">
+    <!-- Auth -->
+    <div class="auth glass">
+      <input id="email" placeholder="Email" type="email"/>
+      <input id="password" placeholder="Password" type="password"/>
+      <div class="auth-buttons">
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="logout-btn" style="display:none">Log Out</button>
       </div>
-
-      <!-- Controls -->
-      <div class="controls glass">
-        <select id="tier">
-          <option value="kid">Kid</option>
-          <option value="teen">Teen</option>
-          <option value="adult" selected>Adult</option>
-          <option value="pastor">Pastor / Teacher</option>
-        </select>
-        <input id="query" placeholder="Search anger, fear, John 3:16..."/>
-        <button id="search-btn">Battle Now</button>
-        <button id="daily-btn">Today's Battle</button>
-        <button id="dark-toggle">🌙</button>
-      </div>
-
-      <!-- Loading -->
-      <div id="loading" class="loading" style="display:none">
-        <div class="spinner"></div>
-        <p>Searching the Scriptures...</p>
-      </div>
-
-      <!-- Results -->
-      <div id="output" class="results"></div>
     </div>
+
+    <!-- Controls -->
+    <div class="controls glass">
+      <select id="tier">
+        <option value="kid">Kid</option>
+        <option value="teen">Teen</option>
+        <option value="adult" selected>Adult</option>
+        <option value="pastor">Pastor</option>
+      </select>
+      <input id="query" placeholder="Type anger, fear, John 3:16..."/>
+      <button id="search-btn">Battle It</button>
+      <button id="daily-btn">Today's Battle</button>
+      <button id="dark-toggle">🌙 Dark Mode</button>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" class="loading" style="display:none">
+      <div class="spinner"></div>
+      <p>Searching the Scriptures...</p>
+    </div>
+
+    <!-- Results -->
+    <div id="output" class="results"></div>
   </main>
 
   <footer>
-    Powered by the King James Bible | <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
   </footer>
 
   <script src="script.js"></script>

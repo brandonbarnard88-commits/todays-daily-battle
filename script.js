@@ -181,6 +181,9 @@ document.getElementById('daily-btn').addEventListener('click', () => {
   message.style.fontWeight = 'bold';
   message.style.marginBottom = '10px';
   message.textContent = `Today's battle is against ${dailyTopic.toUpperCase()}! Conquer it with God's Word.`;
+document.getElementById('dark-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
   document.getElementById('output').prepend(message);
 });
   });

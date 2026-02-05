@@ -21,3 +21,26 @@ button { margin: 5px; }
 .dark-mode { background: #333; color: #fff; }
 .dark-mode .verse-card { background: #444; }
 .dark-mode .highlight { background: #ff0; }
+body.dark-mode {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+body.dark-mode .verse-card {
+  background: #2c2c2c;
+  border-color: #444;
+}
+body.dark-mode .guidance {
+  color: #a0d0ff;
+}
+.highlight {
+  background: #ffeb3b;
+  color: #000;
+}
+#dark-toggle {
+  margin: 10px;
+  padding: 8px 16px;
+  background: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

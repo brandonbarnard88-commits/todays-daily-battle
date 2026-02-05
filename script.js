@@ -1,7 +1,17 @@
-const supabaseUrl = 'https://your-project-id.supabase.co'; // REPLACE with your URL
-const supabaseKey = 'eyJ...'; // REPLACE with your anon key
+const supabaseUrl = 'https://your-project-ref.supabase.co';
+const supabaseKey = 'eyJ...'; // anon key
 const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
-let bible = {}; // Loaded KJV
+let bible = {}; // async function loadBible() {
+  try {
+    const response = await fetch('kjv.json');
+    console.log('Fetch status:', response.status);
+    if (!response.ok) throw new Error('Fetch failed: ' + response.status);
+    bible = await response.json();
+    console.log('Bible loaded - verses count:', Object.keys(bible).length);
+  } catch (err) {
+    console.error('loadBible error:', err);
+  }
+}
 const topics = {
   anger: {
     synonyms: ['angry', 'wrath', 'mad', 'furious', 'rage'],

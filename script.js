@@ -271,6 +271,19 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
   });
   if (error) alert(error.message);
   else alert('Signed up! Check your email to confirm.');
+document.getElementById('signup-btn').addEventListener('click', async () => {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const { error } = await supabase.auth.signUp({ email, password });
+  alert(error ? error.message : 'Signed up! Check your email.');
+});
+
+document.getElementById('login-btn').addEventListener('click', async () => {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  alert(error ? error.message : 'Logged in!');
+});
 });
 
 // Log In

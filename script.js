@@ -1,15 +1,20 @@
 const supabaseUrl = 'https://your-project-ref.supabase.co';
 const supabaseKey = 'eyJ...'; // anon key
 const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
-let bible = {}; // async function loadBible() {
+const supabaseUrl = import.meta.env.SUPABASE_URL;
+const supabaseKey = import.meta.env.SUPABASE_ANON_KEY;
+const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
+async function loadBible() {
   try {
     const response = await fetch('kjv.json');
-    console.log('Fetch status:', response.status);
-    if (!response.ok) throw new Error('Fetch failed: ' + response.status);
+    console.log('Fetch status for kjv.json:', response.status);
+    if (!response.ok) throw new Error('Fetch failed with status ' + response.status);
     bible = await response.json();
-    console.log('Bible loaded - verses count:', Object.keys(bible).length);
+    console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
   } catch (err) {
-    console.error('loadBible error:', err);
+    console.error('Error loading kjv.json:', err.message);
+  }
+
   }
 }
 const topics = {

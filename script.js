@@ -1,5 +1,5 @@
-const supabaseUrl = 'YOUR_SUPABASE_URL'; // Replace
-const supabaseKey = 'YOUR_ANON_KEY'; // Replace
+const supabaseUrl = 'https://your-project-id.supabase.co'; // REPLACE with your URL
+const supabaseKey = 'eyJ...'; // REPLACE with your anon key
 const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
 let bible = {}; // Loaded KJV
 const topics = {
@@ -244,3 +244,29 @@ async function logOut() {
 document.getElementById('signup-btn').addEventListener('click', signUp);
 document.getElementById('login-btn').addEventListener('click', logIn);
 document.getElementById('logout-btn').addEventListener('click', logOut);
+// Sign Up
+document.getElementById('signup-btn').addEventListener('click', async () => {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const tier = document.getElementById('tier').value;
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: { data: { tier } }
+  });
+  if (error) alert(error.message);
+  else alert('Signed up! Check your email to confirm.');
+});
+
+// Log In
+document.getElementById('login-btn').addEventListener('click', async () => {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) alert(error.message);
+  else {
+    const userTier = data.user.user_metadata.tier || 'adult';
+    document.getElementById('tier').value = userTier;
+    alert('Logged in as ' + userTier + '!');
+  }
+});

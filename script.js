@@ -166,14 +166,22 @@ function renderResults(results) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadBible();
-
-  document.getElementById('search-btn').addEventListener('click', () => {
-    const input = document.getElementById('query').value;
-    const tier = document.getElementById('tier').value;
-    const parsed = parseQuery(input);
-    const results = executeQuery(parsed, tier);
-    renderResults(results);
+document.getElementById('daily-btn').addEventListener('click', () => {
+  const today = new Date().toDateString();
+  const topicKeys = Object.keys(topics);
+  const seed = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  const index = seed % topicKeys.length;
+  const dailyTopic = topicKeys[index];
+  document.getElementById('query').value = dailyTopic;
+  const tier = document.getElementById('tier').value;
+  const parsed = parseQuery(dailyTopic);
+  const results = executeQuery(parsed, tier);
+  renderResults(results);
+  const message = document.createElement('div');
+  message.style.fontWeight = 'bold';
+  message.style.marginBottom = '10px';
+  message.textContent = `Today's battle is against ${dailyTopic.toUpperCase()}! Conquer it with God's Word.`;
+  document.getElementById('output').prepend(message);
+});
   });
 });

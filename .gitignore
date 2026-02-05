@@ -1,0 +1,4 @@
+*.txt
+token*
+*.key
+.env

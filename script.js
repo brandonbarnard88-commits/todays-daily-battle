@@ -1,22 +1,5 @@
-const supabaseUrl = 'https://your-project-ref.supabase.co';
-const supabaseKey = 'eyJ...'; // anon key
-const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
-const supabaseUrl = import.meta.env.SUPABASE_URL;
-const supabaseKey = import.meta.env.SUPABASE_ANON_KEY;
-const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
-async function loadBible() {
-  try {
-    const response = await fetch('kjv.json');
-    console.log('Fetch status for kjv.json:', response.status);
-    if (!response.ok) throw new Error('Fetch failed with status ' + response.status);
-    bible = await response.json();
-    console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
-  } catch (err) {
-    console.error('Error loading kjv.json:', err.message);
-  }
+let bible = {}; // Loaded KJV
 
-  }
-}
 const topics = {
   anger: {
     synonyms: ['angry', 'wrath', 'mad', 'furious', 'rage'],
@@ -80,40 +63,34 @@ const topics = {
   }
 };
 
-const bookSynonyms = {
-  'gen': 'Genesis', 'ex': 'Exodus', 'lev': 'Leviticus', 'num': 'Numbers', 'deut': 'Deuteronomy',
-  // Add all book synonyms as before - I trimmed for brevity, copy from earlier messages if needed
-  'jn': 'John', 'st john': 'John', 'i john': '1 John'
-};
-
 async function loadBible() {
-  const response = await fetch('kjv.json');
-  bible = await response.json();
-  // Clean keys if needed
+  try {
+    const response = await fetch('kjv.json');
+    console.log('Fetch status for kjv.json:', response.status);
+    if (!response.ok) throw new Error('Fetch failed with status ' + response.status);
+    bible = await response.json();
+    console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
+  } catch (err) {
+    console.error('Error loading kjv.json:', err.message);
+  }
 }
 
 function normalizeInput(input) {
   return input.toLowerCase().trim().replace(/\s+/g, ' ').replace(/[^\w\s]/g, '');
 }
 
-function normalizeBookName(raw) {
-  const lower = normalizeInput(raw);
-  return bookSynonyms[lower] || raw.charAt(0).toUpperCase() + raw.slice(1);
-}
-
 function parseQuery(input) {
   const normalized = normalizeInput(input);
   const tokens = normalized.split(' ');
 
-  // Reference: e.g., "john 3:16"
-  const refRegex = /^(\w+) \d+:\d+$/;
+  // Detect reference e.g. "john 3:16"
+  const refRegex = /^(\w+)\s*\d+:\d+$/;
   const match = normalized.match(refRegex);
   if (match) {
-    const book = normalizeBookName(match[1]);
-    return { intent: 'reference', payload: normalized.replace(match[0], book) };
+    return { intent: 'reference', payload: normalized };
   }
 
-  // Topic: score against synonyms
+  // Topic scoring
   const topicScores = {};
   Object.keys(topics).forEach(topic => {
     let score = 0;
@@ -127,7 +104,7 @@ function parseQuery(input) {
     return { intent: 'topic', payload: { topic: topTopic } };
   }
 
-  // Default: keyword
+  // Default keyword
   return { intent: 'keyword', payload: { keywords: tokens } };
 }
 
@@ -139,15 +116,13 @@ function executeQuery(parsed, tier) {
     if (bible[key]) {
       results.verses.push({ ref: key, text: bible[key] });
       results.trace.push(`Matched reference: ${key}`);
-    } else {
-      results.trace.push(`No match for ${key}`);
     }
   } else if (parsed.intent === 'topic') {
     const topic = topics[parsed.payload.topic];
     topic.verses.forEach(ref => {
       if (bible[ref]) results.verses.push({ ref, text: bible[ref] });
     });
-    results.guidance = topic.guidance[tier] || topic.guidance.adult; // Default to adult
+    results.guidance = topic.guidance[tier] || topic.guidance.adult;
     results.trace.push(`Detected topic: ${parsed.payload.topic}`);
   } else { // keyword
     const keywords = parsed.payload.keywords;
@@ -164,7 +139,7 @@ function executeQuery(parsed, tier) {
       .sort((a,b) => b.score - a.score)
       .slice(0, 10);
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
-    results.trace.push(`Keyword matches: ${matches.length} found, top 10 shown`);
+    results.trace.push(`Keyword matches: ${matches.length} found`);
   }
 
   return results;
@@ -189,14 +164,11 @@ function renderResults(results) {
     guide.textContent = results.guidance;
     output.appendChild(guide);
   }
-  const trace = document.createElement('div');
-  trace.className = 'trace';
-  trace.textContent = `Trace: ${results.trace.join('; ')}`;
-  output.appendChild(trace);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadBible();
+
   document.getElementById('search-btn').addEventListener('click', () => {
     const input = document.getElementById('query').value;
     const tier = document.getElementById('tier').value;
@@ -204,97 +176,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     const results = executeQuery(parsed, tier);
     renderResults(results);
   });
-  document.getElementById('daily-btn').addEventListener('click', () => {
-    // Add daily logic in next section
-    document.getElementById('search-btn').click(); // Temp trigger search
-  });
-});
-document.getElementById('daily-btn').addEventListener('click', () => {
-  const today = new Date().toDateString();
-  const topicKeys = Object.keys(topics);
-  const index = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0) % topicKeys.length;
-  const dailyTopic = topicKeys[index];
-  document.getElementById('query').value = dailyTopic;
-  const tier = document.getElementById('tier').value;
-  const parsed = parseQuery(dailyTopic);
-  const results = executeQuery(parsed, tier);
-  renderResults(results);
-  const message = document.createElement('div');
-  message.textContent = "Today's battle is against " + dailyTopic.toUpperCase() + ". Conquer it with God's Word!";
-  document.getElementById('output').prepend(message);
-});
-const toggle = document.createElement('button');
-toggle.textContent = "Dark Mode";
-toggle.onclick = () => document.body.classList.toggle('dark-mode');
-document.body.appendChild(toggle);
-async function signUp() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const tier = document.getElementById('tier').value; // Save tier at signup
-  const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { tier } } });
-  if (error) alert(error.message);
-  else alert('Signed up! Check email to confirm.');
-}
-
-async function logIn() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) alert(error.message);
-  else {
-    const tier = data.user.user_metadata.tier || 'adult';
-    document.getElementById('tier').value = tier;
-    document.getElementById('logout-btn').style.display = 'block';
-    alert('Logged in!');
-  }
-}
-
-async function logOut() {
-  await supabase.auth.signOut();
-  document.getElementById('logout-btn').style.display = 'none';
-  alert('Logged out!');
-}
-
-// In DOMContentLoaded:
-document.getElementById('signup-btn').addEventListener('click', signUp);
-document.getElementById('login-btn').addEventListener('click', logIn);
-document.getElementById('logout-btn').addEventListener('click', logOut);
-// Sign Up
-document.getElementById('signup-btn').addEventListener('click', async () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const tier = document.getElementById('tier').value;
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: { data: { tier } }
-  });
-  if (error) alert(error.message);
-  else alert('Signed up! Check your email to confirm.');
-document.getElementById('signup-btn').addEventListener('click', async () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const { error } = await supabase.auth.signUp({ email, password });
-  alert(error ? error.message : 'Signed up! Check your email.');
-});
-
-document.getElementById('login-btn').addEventListener('click', async () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  alert(error ? error.message : 'Logged in!');
-});
-});
-
-// Log In
-document.getElementById('login-btn').addEventListener('click', async () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) alert(error.message);
-  else {
-    const userTier = data.user.user_metadata.tier || 'adult';
-    document.getElementById('tier').value = userTier;
-    alert('Logged in as ' + userTier + '!');
-  }
 });

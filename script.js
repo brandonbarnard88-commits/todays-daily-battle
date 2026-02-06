@@ -1,26 +1,5 @@
-async function loadBible() {
-  try {
-    const response = await fetch('kjv.json');
-    console.log('Fetch status for kjv.json:', response.status);
-    if (!response.ok) throw new Error('Fetch failed with status ' + response.status);
-    bible = await response.json();
-    console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
-  } catch (err) {
-    console.error('Error loading kjv.json:', err.message);
-  }
-}
 let bible = {}; // Loaded KJV
-document.getElementById('search-btn').addEventListener('click', () => {
-  document.getElementById('loading').style.display = 'block';
-  setTimeout(() => {
-    const input = document.getElementById('query').value;
-    const tier = document.getElementById('tier').value;
-    const parsed = parseQuery(input);
-    const results = executeQuery(parsed, tier);
-    renderResults(results);
-    document.getElementById('loading').style.display = 'none';
-  }, 0); // Async sim for loading
-});
+
 const topics = {
   anger: {
     synonyms: ['angry', 'wrath', 'mad', 'furious', 'rage'],
@@ -81,8 +60,42 @@ const topics = {
       adult: "True leadership is servant-hearted, not lording over others.",
       pastor: "Oversee the flock diligently; seek counsel for wise guidance."
     }
+  },
+  anxiety: {
+    synonyms: ['worry', 'stress', 'anxious', 'nervous'],
+    verses: ['Philippians 4:6', 'Matthew 6:34', '1 Peter 5:7', 'Psalms 94:19', 'Isaiah 41:10'],
+    guidance: {
+      kid: "Don't worry, God cares for you like a dad.",
+      teen: "Pray about your worries; God will give peace.",
+      adult: "Cast all your cares on Him; He cares for you.",
+      pastor: "Teach on surrendering anxiety to God in prayer."
+    }
+  },
+  faith: {
+    synonyms: ['belief', 'trust', 'confidence'],
+    verses: ['Hebrews 11:1', 'Matthew 17:20', 'Romans 10:17', 'Ephesians 2:8', '2 Corinthians 5:7'],
+    guidance: {
+      kid: "Faith is trusting God even when you can't see.",
+      teen: "Faith moves mountains; trust God in tough times.",
+      adult: "Walk by faith, not by sight; it's the substance of things hoped for.",
+      pastor: "Use for sermons on building faith through God's Word."
+    }
+  },
+  forgiveness: {
+    synonyms: ['forgive', 'pardon', 'mercy'],
+    verses: ['Ephesians 4:32', 'Matthew 6:14', 'Colossians 3:13', 'Luke 6:37', 'Acts 7:60'],
+    guidance: {
+      kid: "Forgive others, just like God forgives you.",
+      teen: "Let go of grudges; forgiveness frees you.",
+      adult: "Forgive as the Lord forgave you; it's essential for prayer.",
+      pastor: "Emphasize the power of forgiveness in reconciliation."
+    }
   }
 };
+
+const supabaseUrl = 'https://your-project-ref.supabase.co'; // REPLACE
+const supabaseKey = 'eyJ...'; // REPLACE
+const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
 
 async function loadBible() {
   try {
@@ -104,14 +117,13 @@ function parseQuery(input) {
   const normalized = normalizeInput(input);
   const tokens = normalized.split(' ');
 
-  // Detect reference e.g. "john 3:16"
+  // Reference like "john 3:16"
   const refRegex = /^(\w+)\s*\d+:\d+$/;
-  const match = normalized.match(refRegex);
-  if (match) {
+  if (normalized.match(refRegex)) {
     return { intent: 'reference', payload: normalized };
   }
 
-  // Topic scoring
+  // Topic match
   const topicScores = {};
   Object.keys(topics).forEach(topic => {
     let score = 0;
@@ -125,7 +137,7 @@ function parseQuery(input) {
     return { intent: 'topic', payload: { topic: topTopic } };
   }
 
-  // Default keyword
+  // Keyword default
   return { intent: 'keyword', payload: { keywords: tokens } };
 }
 
@@ -145,7 +157,7 @@ function executeQuery(parsed, tier) {
     });
     results.guidance = topic.guidance[tier] || topic.guidance.adult;
     results.trace.push(`Detected topic: ${parsed.payload.topic}`);
-  } else { // keyword
+  } else {
     const keywords = parsed.payload.keywords;
     const matches = Object.entries(bible)
       .map(([ref, text]) => {
@@ -169,14 +181,6 @@ function executeQuery(parsed, tier) {
 function renderResults(results) {
   const output = document.getElementById('output');
   output.innerHTML = '';
-const shareBtn = document.createElement('button');
-shareBtn.className = 'share-btn';
-shareBtn.textContent = 'Share';
-shareBtn.onclick = () => {
-  navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
-  alert('Verse copied to clipboard!');
-};
-card.appendChild(shareBtn);
   if (results.verses.length === 0) {
     output.innerHTML = '<p>No results found. Try another query!</p>';
     return;
@@ -185,6 +189,14 @@ card.appendChild(shareBtn);
     const card = document.createElement('div');
     card.className = 'verse-card';
     card.innerHTML = `<strong>${v.ref}</strong>: ${v.text}`;
+    const shareBtn = document.createElement('button');
+    shareBtn.className = 'share-btn';
+    shareBtn.textContent = 'Share';
+    shareBtn.onclick = () => {
+      navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
+      alert('Verse copied to clipboard!');
+    };
+    card.appendChild(shareBtn);
     output.appendChild(card);
   });
   if (results.guidance) {
@@ -195,25 +207,87 @@ card.appendChild(shareBtn);
   }
 }
 
-document.getElementById('daily-btn').addEventListener('click', () => {
-  const today = new Date().toDateString();
-  const topicKeys = Object.keys(topics);
-  const seed = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-  const index = seed % topicKeys.length;
-  const dailyTopic = topicKeys[index];
-  document.getElementById('query').value = dailyTopic;
-  const tier = document.getElementById('tier').value;
-  const parsed = parseQuery(dailyTopic);
-  const results = executeQuery(parsed, tier);
-  renderResults(results);
-  const message = document.createElement('div');
-  message.style.fontWeight = 'bold';
-  message.style.marginBottom = '10px';
-  message.textContent = `Today's battle is against ${dailyTopic.toUpperCase()}! Conquer it with God's Word.`;
-document.getElementById('dark-toggle').addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-});
-  document.getElementById('output').prepend(message);
-});
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadBible();
+
+  document.getElementById('search-btn').addEventListener('click', () => {
+    document.getElementById('loading').style.display = 'block';
+    setTimeout(() => {
+      const input = document.getElementById('query').value;
+      const tier = document.getElementById('tier').value;
+      const parsed = parseQuery(input);
+      const results = executeQuery(parsed, tier);
+      renderResults(results);
+      document.getElementById('loading').style.display = 'none';
+    }, 0);
+  });
+
+  document.getElementById('daily-btn').addEventListener('click', () => {
+    document.getElementById('loading').style.display = 'block';
+    setTimeout(() => {
+      const today = new Date().toDateString();
+      const topicKeys = Object.keys(topics);
+      const seed = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+      const index = seed % topicKeys.length;
+      const dailyTopic = topicKeys[index];
+      document.getElementById('query').value = dailyTopic;
+      const tier = document.getElementById('tier').value;
+      const parsed = parseQuery(dailyTopic);
+      const results = executeQuery(parsed, tier);
+      renderResults(results);
+      const message = document.createElement('div');
+      message.className = 'daily-message';
+      message.textContent = `Today's battle is against ${dailyTopic.toUpperCase()}! Conquer it with God's Word.`;
+      document.getElementById('output').prepend(message);
+      document.getElementById('loading').style.display = 'none';
+    }, 0);
+  });
+
+  document.getElementById('dark-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+
+  // Login/Signup/Logout
+  document.getElementById('signup-btn').addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const tier = document.getElementById('tier').value;
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { tier } }
+    });
+    if (error) alert('Sign up failed: ' + error.message);
+    else alert('Signed up! Check email to confirm.');
+  });
+
+  document.getElementById('login-btn').addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) alert('Login failed: ' + error.message);
+    else {
+      const userTier = data.user.user_metadata.tier || 'adult';
+      document.getElementById('tier').value = userTier;
+      alert('Logged in as ' + userTier + '!');
+      document.getElementById('logout-btn').style.display = 'inline-block';
+    }
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) alert('Logout failed: ' + error.message);
+    else {
+      alert('Logged out!');
+      document.getElementById('logout-btn').style.display = 'none';
+    }
+  });
+
+  // Auto-complete suggestions for query input
+  document.getElementById('query').addEventListener('input', (e) => {
+    const value = e.target.value.toLowerCase();
+    const suggestions = Object.keys(topics).filter(t => t.startsWith(value));
+    // You can add a datalist or dropdown here for suggestions if desired
+    console.log('Suggestions:', suggestions); // For now, log to console
   });
 });

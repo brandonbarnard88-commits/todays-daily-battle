@@ -1,4 +1,18 @@
 let bible = {};
+let bibleVersions = {};
+let currentVersion = 'KJV';
+let chapterIndex = {};
+let bookIndex = {};
+let lastResults = null;
+let currentUserId = null;
+let currentUserRole = 'member';
+let currentChurch = null;
+let lastQueryInput = '';
+const STOP_WORDS = new Set([
+  'the', 'and', 'a', 'an', 'of', 'to', 'in', 'is', 'it', 'for', 'on', 'with',
+  'that', 'this', 'be', 'as', 'at', 'by', 'from', 'or', 'are', 'was', 'were',
+  'but', 'not', 'your', 'you', 'me', 'my', 'we', 'our', 'his', 'her', 'their', 'them'
+]);
 
 const topics = {
   anger: {
@@ -9,6 +23,10 @@ const topics = {
       teen: "Anger is normal, but don't let it make you sin. Talk it out with a friend or pray.",
       adult: "Control your wrath, as it doesn't lead to righteousness. Seek peace quickly.",
       pastor: "Use these verses to teach on managing anger in sermons; emphasize forgiveness and self-control."
+    },
+    explain: {
+      kid: "Anger can make us do hurtful things. God wants us to slow down and choose peace.",
+      teen: "Anger is real, but God gives power to respond with patience and forgiveness."
     }
   },
   fear: {
@@ -19,6 +37,10 @@ const topics = {
       teen: "Fear can feel big, but God gives power and love. Trust Him.",
       adult: "Cast out fear with perfect love; God hasn't given a spirit of fear.",
       pastor: "Preach on fear as a snare; use these for counseling anxious congregants."
+    },
+    explain: {
+      kid: "When you feel scared, God is close and He is stronger than fear.",
+      teen: "Fear shrinks when we remember God is with us and gives courage."
     }
   },
   grief: {
@@ -29,6 +51,10 @@ const topics = {
       teen: "It's okay to grieve; God comforts those who are hurting.",
       adult: "The Lord binds up wounds and is near the brokenhearted.",
       pastor: "Incorporate into grief ministry; highlight eternal hope without sorrow."
+    },
+    explain: {
+      kid: "God sees your tears and stays close when you are sad.",
+      teen: "Grief is hard, but God comforts and gives hope."
     }
   },
   lust: {
@@ -39,6 +65,10 @@ const topics = {
       teen: "Flee from wrong desires; walk in the Spirit instead.",
       adult: "Guard your heart against lust of the flesh; it's not from God.",
       pastor: "Address in purity teachings; stress fleeing and pursuing righteousness."
+    },
+    explain: {
+      kid: "God wants our hearts and minds to be pure and kind.",
+      teen: "God helps us turn away from wrong desires and choose what is right."
     }
   },
   discipline: {
@@ -49,6 +79,10 @@ const topics = {
       teen: "Discipline might hurt now, but it leads to good things later.",
       adult: "Embrace correction; it yields peaceful fruit of righteousness.",
       pastor: "Use for parenting classes; model godly discipline in leadership."
+    },
+    explain: {
+      kid: "Discipline is like training that helps you grow stronger.",
+      teen: "God uses discipline to shape our character and help us grow."
     }
   },
   leadership: {
@@ -59,6 +93,10 @@ const topics = {
       teen: "Lead by serving others, like Jesus did.",
       adult: "True leadership is servant-hearted, not lording over others.",
       pastor: "Oversee the flock diligently; seek counsel for wise guidance."
+    },
+    explain: {
+      kid: "Leaders are kind helpers who set a good example.",
+      teen: "Godly leaders serve others and stay humble."
     }
   },
   anxiety: {
@@ -69,6 +107,10 @@ const topics = {
       teen: "Pray when anxious, and God's peace will guard your heart.",
       adult: "Do not be anxious; cast your cares on Him.",
       pastor: "Teach believers to replace anxiety with prayer and thanksgiving."
+    },
+    explain: {
+      kid: "You can tell God your worries and He will help you feel safe.",
+      teen: "Anxiety is heavy, but prayer helps us carry it with God."
     }
   },
   faith: {
@@ -79,6 +121,10 @@ const topics = {
       teen: "Grow your faith by hearing God's Word.",
       adult: "Walk by faith, not by sight.",
       pastor: "Encourage faith as the victory that overcomes the world."
+    },
+    explain: {
+      kid: "Faith means trusting God even when you can't see the answer yet.",
+      teen: "Faith grows as you listen to God's Word and follow Him."
     }
   },
   forgiveness: {
@@ -89,6 +135,10 @@ const topics = {
       teen: "Let go of grudges; forgiveness sets you free.",
       adult: "Forgive as the Lord forgave you.",
       pastor: "Preach forgiveness as essential for spiritual health."
+    },
+    explain: {
+      kid: "Forgiveness means letting go of a hurt and choosing love.",
+      teen: "Forgiveness frees your heart and keeps bitterness away."
     }
   },
   strength: {
@@ -99,6 +149,10 @@ const topics = {
       teen: "Wait on the Lord to renew your strength.",
       adult: "Be strong in the Lord and in His mighty power.",
       pastor: "Teach reliance on God's strength, not our own."
+    },
+    explain: {
+      kid: "God helps you be brave and strong when you feel weak.",
+      teen: "God's strength can carry you when you are tired."
     }
   },
   love: {
@@ -109,6 +163,10 @@ const topics = {
       teen: "Love is patient and kind; show it to others.",
       adult: "Walk in love, as Christ loved us.",
       pastor: "Emphasize God's love as the foundation of faith."
+    },
+    explain: {
+      kid: "God's love is big and always with you.",
+      teen: "God's love teaches us to be patient and kind to others."
     }
   },
   hope: {
@@ -119,6 +177,10 @@ const topics = {
       teen: "Hope in God; He renews your strength.",
       adult: "Hope does not disappoint because God's love is poured out in our hearts.",
       pastor: "Preach hope as an anchor for the soul."
+    },
+    explain: {
+      kid: "Hope means believing God will help you in the future.",
+      teen: "Hope keeps your heart strong because God keeps His promises."
     }
   },
   peace: {
@@ -129,21 +191,156 @@ const topics = {
       teen: "God's peace guards your heart and mind.",
       adult: "The peace of God surpasses all understanding.",
       pastor: "Teach on peace as a gift from the Prince of Peace."
+    },
+    explain: {
+      kid: "God can make your heart feel calm and safe.",
+      teen: "God's peace can steady you when life feels loud."
     }
   }
   // You can keep adding more here
 };
 
-const supabaseUrl = 'https://your-project-ref.supabase.co'; // ← REPLACE WITH YOUR REAL SUPABASE URL
-const supabaseKey = 'eyJ...'; // ← REPLACE WITH YOUR REAL ANON KEY
+const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
+const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
 const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
+const isSupabaseConfigured = !supabaseUrl.includes('your-project-ref') && supabaseKey && !supabaseKey.includes('...');
+const SHARE_STORAGE_KEY = 'shareLinks';
+const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
+const LESSONS_STORAGE_KEY = 'lessonPlans';
+const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
+const LESSONS_STORAGE_KEY = 'lessonPlans';
+const templates = [
+  {
+    title: 'Gospel Clarity',
+    theme: 'Salvation by grace through faith',
+    textRef: 'Ephesians 2:8-9',
+    outline: 'I. The gift of grace\nII. Faith receives the gift\nIII. Good works follow the gift',
+    points: 'Illustration: Gift vs wages. Cross refs: Romans 6:23, Titus 3:5.',
+    application: 'Call to trust Christ alone and respond with obedience.',
+    prayer: 'Lord, open hearts to receive Your grace.'
+  },
+  {
+    title: 'Peace in the Storm',
+    theme: 'Christ-centered peace',
+    textRef: 'John 16:33',
+    outline: 'I. Trouble is real\nII. Christ is victorious\nIII. Peace is promised',
+    points: 'Illustration: Anchor in a storm. Cross refs: Philippians 4:7, Isaiah 26:3.',
+    application: 'Invite the church to cast anxiety on Christ.',
+    prayer: 'Jesus, be our peace in every trial.'
+  },
+  {
+    title: 'Forgiveness That Frees',
+    theme: 'Forgive as Christ forgave',
+    textRef: 'Ephesians 4:32',
+    outline: 'I. Forgiveness commanded\nII. Forgiveness modeled\nIII. Forgiveness releases',
+    points: 'Illustration: Debt canceled. Cross refs: Matthew 6:14, Colossians 3:13.',
+    application: 'Lead the church in confession and reconciliation.',
+    prayer: 'Father, help us forgive from the heart.'
+  }
+];
 
-async function loadBible() {
+const versionFiles = {
+  KJV: 'kjv.json',
+  NIV: 'niv.json',
+  ESV: 'esv.json',
+  NLT: 'nlt.json',
+  NKJV: 'nkjv.json'
+};
+
+const defaultChurches = [
+  { id: 'tdb-community', name: 'Today\'s Daily Battle Church', city: 'Online', state: 'Online', is_online: true },
+  { id: 'grace-chapel', name: 'Grace Chapel', city: 'Tampa', state: 'FL', is_online: false },
+  { id: 'hope-community', name: 'Hope Community Church', city: 'Orlando', state: 'FL', is_online: false }
+];
+
+let localSermons = {
+  'tdb-community': [
+    { title: 'Stand Firm in Faith', date: '2026-02-02', summary: 'Faith that overcomes fear.' },
+    { title: 'Peace in the Storm', date: '2026-01-26', summary: 'Jesus gives peace in trials.' }
+  ],
+  'grace-chapel': [
+    { title: 'The Power of Forgiveness', date: '2026-02-02', summary: 'Forgive as Christ forgave.' }
+  ],
+  'hope-community': [
+    { title: 'Hope That Anchors', date: '2026-02-02', summary: 'Hope in God that does not fail.' }
+  ]
+};
+
+const coloringStories = [
+  {
+    id: 'creation',
+    title: 'Creation (Genesis 1)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <circle cx="160" cy="140" r="60" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M80 240 C140 200, 220 200, 280 240" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M620 120 C700 40, 820 80, 840 180" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M600 200 C700 160, 820 220, 860 320" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="720" cy="420" r="70" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M120 420 C180 360, 300 360, 360 420" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M360 420 C420 480, 540 480, 600 420" fill="none" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">God made the world and everything in it.</text>
+      </svg>
+    `
+  },
+  {
+    id: 'noah',
+    title: 'Noah\'s Ark (Genesis 6-9)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <path d="M100 420 L800 420 L720 520 L180 520 Z" fill="none" stroke="black" stroke-width="4"/>
+        <rect x="300" y="300" width="300" height="120" fill="none" stroke="black" stroke-width="4"/>
+        <rect x="360" y="320" width="60" height="40" fill="none" stroke="black" stroke-width="4"/>
+        <rect x="480" y="320" width="60" height="40" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M150 200 C220 140, 320 140, 390 200" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M520 200 C600 140, 720 140, 790 200" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="150" cy="140" r="50" fill="none" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">God kept Noah safe in the ark.</text>
+      </svg>
+    `
+  },
+  {
+    id: 'david',
+    title: 'David and Goliath (1 Samuel 17)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <circle cx="250" cy="200" r="60" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="250" y1="260" x2="250" y2="420" stroke="black" stroke-width="4"/>
+        <line x1="250" y1="320" x2="190" y2="380" stroke="black" stroke-width="4"/>
+        <line x1="250" y1="320" x2="310" y2="380" stroke="black" stroke-width="4"/>
+        <line x1="250" y1="420" x2="200" y2="520" stroke="black" stroke-width="4"/>
+        <line x1="250" y1="420" x2="300" y2="520" stroke="black" stroke-width="4"/>
+        <circle cx="620" cy="140" r="80" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="620" y1="220" x2="620" y2="520" stroke="black" stroke-width="4"/>
+        <line x1="620" y1="300" x2="540" y2="380" stroke="black" stroke-width="4"/>
+        <line x1="620" y1="300" x2="700" y2="380" stroke="black" stroke-width="4"/>
+        <line x1="620" y1="520" x2="560" y2="580" stroke="black" stroke-width="4"/>
+        <line x1="620" y1="520" x2="680" y2="580" stroke="black" stroke-width="4"/>
+        <circle cx="360" cy="360" r="18" fill="none" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">God gave David courage.</text>
+      </svg>
+    `
+  }
+];
+
+async function loadBible(version = currentVersion) {
   try {
-    const response = await fetch('kjv.json');
-    console.log('Fetch status for kjv.json:', response.status);
-    if (!response.ok) throw new Error('Fetch failed with status ' + response.status);
+    const file = versionFiles[version] || versionFiles.KJV;
+    const response = await fetch(file);
+    console.log(`Fetch status for ${file}:`, response.status);
+    if (!response.ok) {
+      if (version !== 'KJV') {
+        alert(`${version} is not available yet. Showing KJV.`);
+        return loadBible('KJV');
+      }
+      throw new Error('Fetch failed with status ' + response.status);
+    }
     bible = await response.json();
+    bibleVersions[version] = bible;
+    currentVersion = version;
     console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
   } catch (err) {
     console.error('Error loading kjv.json:', err.message);
@@ -151,23 +348,919 @@ async function loadBible() {
   }
 }
 
+function simplifyText(text) {
+  let simplified = text
+    .replace(/\[[^\]]*]/g, '')
+    .replace(/\([^)]*\)/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const replacements = [
+    ['thee', 'you'],
+    ['thou', 'you'],
+    ['thy', 'your'],
+    ['thine', 'yours'],
+    ['shalt', 'will'],
+    ['hath', 'has'],
+    ['doth', 'does'],
+    ['ye', 'you'],
+    ['art', 'are'],
+    ['unto', 'to'],
+    ['wherefore', 'therefore'],
+    ['whosoever', 'anyone who']
+  ];
+  replacements.forEach(([from, to]) => {
+    simplified = simplified.replace(new RegExp(`\\b${from}\\b`, 'gi'), to);
+  });
+  const first = simplified.split(/[.;:]/)[0] || simplified;
+  return first.trim();
+}
+
+function getEasyExplanation(text, tier) {
+  const simple = simplifyText(text);
+  if (!simple) return '';
+  return tier === 'kid' ? `Easy meaning: ${simple}` : `Simple meaning: ${simple}`;
+}
+
+function canUseSupabase() {
+  return isSupabaseConfigured && currentUserId;
+}
+
+function generateUuid() {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
+function buildChapterIndex() {
+  const index = {};
+  const books = {};
+  Object.entries(bible).forEach(([ref, text]) => {
+    const match = ref.match(/^(.+)\s(\d+):(\d+)$/);
+    if (!match) return;
+    const book = match[1];
+    const chapter = match[2];
+    const verseNum = Number(match[3]);
+    const key = `${book} ${chapter}`;
+    if (!index[key]) index[key] = [];
+    index[key].push({ ref, text, verseNum });
+    if (!books[book]) books[book] = new Set();
+    books[book].add(Number(chapter));
+  });
+  Object.values(index).forEach(list => list.sort((a, b) => a.verseNum - b.verseNum));
+  chapterIndex = index;
+  bookIndex = Object.fromEntries(
+    Object.entries(books).map(([book, chapters]) => [book, Array.from(chapters).sort((a, b) => a - b)])
+  );
+}
+
+function refreshBibleView() {
+  buildChapterIndex();
+  populateReaderBooks();
+  const firstBook = Object.keys(bookIndex)[0];
+  if (firstBook) {
+    populateReaderChapters(firstBook);
+    const firstChapter = bookIndex[firstBook][0];
+    if (firstChapter) {
+      selectReaderChapter(firstBook, firstChapter);
+    }
+  }
+}
+
 function normalizeInput(input) {
   return input.toLowerCase().trim().replace(/\s+/g, ' ').replace(/[^\w\s]/g, '');
 }
 
-function parseQuery(input) {
-  const normalized = normalizeInput(input);
-  const tokens = normalized.split(' ');
+function toTitleCase(str) {
+  return str.replace(/\b([a-z])/g, (m) => m.toUpperCase());
+}
 
-  const refRegex = /^(\w+)\s*\d+:\d+$/;
-  if (normalized.match(refRegex)) {
-    return { intent: 'reference', payload: normalized };
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function buildWordRegex(terms) {
+  const safe = terms.map(escapeRegExp).filter(Boolean);
+  if (safe.length === 0) return null;
+  return new RegExp(`\\b(${safe.join('|')})\\b`, 'gi');
+}
+
+function countWordMatches(text, regex) {
+  if (!regex) return 0;
+  const matches = text.match(regex);
+  return matches ? matches.length : 0;
+}
+
+function parseReference(rawInput) {
+  const trimmed = rawInput.trim();
+  const refMatch = trimmed.match(/^(\d?\s*[a-zA-Z]+)\s+(\d+)\s*:\s*(\d+)$/);
+  if (!refMatch) return null;
+
+  const bookRaw = refMatch[1].replace(/\s+/g, ' ').trim();
+  const chapter = refMatch[2];
+  const verse = refMatch[3];
+  const book = toTitleCase(bookRaw.toLowerCase());
+  return `${book} ${chapter}:${verse}`;
+}
+
+function getChapterKey(ref) {
+  const match = ref.match(/^(.+)\s(\d+):(\d+)$/);
+  if (!match) return null;
+  return `${match[1]} ${match[2]}`;
+}
+
+function parseChapterKey(key) {
+  const match = key.match(/^(.+)\s(\d+)$/);
+  if (!match) return null;
+  return { book: match[1], chapter: match[2] };
+}
+
+function renderContextBlock(ref, radius = 3) {
+  const chapterKey = getChapterKey(ref);
+  if (!chapterKey || !chapterIndex[chapterKey]) return null;
+  const verses = chapterIndex[chapterKey];
+  const idx = verses.findIndex(v => v.ref === ref);
+  if (idx === -1) return null;
+  const start = Math.max(0, idx - radius);
+  const end = Math.min(verses.length - 1, idx + radius);
+  const container = document.createElement('div');
+  container.className = 'context-block';
+  for (let i = start; i <= end; i++) {
+    const line = document.createElement('div');
+    line.className = 'context-line';
+    line.innerHTML = `<strong>${verses[i].ref}</strong> ${verses[i].text}`;
+    container.appendChild(line);
   }
+  return container;
+}
+
+function renderChapterBlock(ref) {
+  const chapterKey = getChapterKey(ref);
+  if (!chapterKey || !chapterIndex[chapterKey]) return null;
+  const verses = chapterIndex[chapterKey];
+  const container = document.createElement('div');
+  container.className = 'chapter-block';
+  const heading = document.createElement('div');
+  heading.className = 'chapter-title';
+  heading.textContent = chapterKey;
+  container.appendChild(heading);
+  verses.forEach(v => {
+    const line = document.createElement('div');
+    line.className = 'context-line';
+    line.innerHTML = `<strong>${v.ref}</strong> ${v.text}`;
+    container.appendChild(line);
+  });
+  return container;
+}
+
+function loadSavedVerses() {
+  try {
+    return JSON.parse(localStorage.getItem('savedVerses') || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveSavedVerses(items) {
+  localStorage.setItem('savedVerses', JSON.stringify(items));
+}
+
+function loadNotes() {
+  try {
+    return JSON.parse(localStorage.getItem('studyNotes') || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveNotes(items) {
+  localStorage.setItem('studyNotes', JSON.stringify(items));
+}
+
+function loadSermonDraft() {
+  try {
+    return JSON.parse(localStorage.getItem('sermonDraft') || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function saveSermonDraft(draft) {
+  localStorage.setItem('sermonDraft', JSON.stringify(draft));
+}
+
+function loadLessons() {
+  try {
+    return JSON.parse(localStorage.getItem(LESSONS_STORAGE_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveLessons(items) {
+  localStorage.setItem(LESSONS_STORAGE_KEY, JSON.stringify(items));
+}
+
+async function syncUserData() {
+  if (!canUseSupabase()) return;
+  const [notesData, versesData, sermonsData, lessonsData] = await Promise.all([
+    supabase.from('notes').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
+    supabase.from('saved_verses').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
+    supabase.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
+    supabase.from('lessons').select('id, audience, content, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false })
+  ]);
+
+  if (!notesData.error && Array.isArray(notesData.data)) {
+    const notes = notesData.data.map(note => ({ id: note.id, ref: note.ref || 'General', text: note.text }));
+    saveNotes(notes);
+    renderNotes();
+  }
+
+  if (!versesData.error && Array.isArray(versesData.data)) {
+    const verses = versesData.data.map(item => ({ id: item.id, ref: item.ref, text: item.text }));
+    saveSavedVerses(verses);
+    renderSavedVerses();
+  }
+
+  if (!sermonsData.error && Array.isArray(sermonsData.data) && sermonsData.data[0]) {
+    const sermon = sermonsData.data[0];
+    localStorage.setItem(SERMON_DRAFT_ID_KEY, sermon.id);
+    const draft = {
+      title: sermon.title || '',
+      theme: sermon.theme || '',
+      textRef: sermon.text_ref || '',
+      outline: sermon.outline || '',
+      points: sermon.points || '',
+      application: sermon.application || '',
+      prayer: sermon.prayer || ''
+    };
+    saveSermonDraft(draft);
+    applySermonDraft(draft);
+  }
+
+  if (!lessonsData.error && Array.isArray(lessonsData.data)) {
+    const lessons = lessonsData.data.map(item => ({
+      id: item.id,
+      audience: item.audience,
+      content: item.content
+    }));
+    saveLessons(lessons);
+  }
+}
+
+async function loadChurches(query) {
+  const nameQuery = (query || '').trim();
+  const state = (document.getElementById('church-state')?.value || '').trim().toLowerCase();
+  const onlineOnly = Boolean(document.getElementById('church-online')?.checked);
+  if (isSupabaseConfigured) {
+    let req = supabase.from('churches').select('id, name, city, state, is_online');
+    if (nameQuery) {
+      req = req.or(`name.ilike.%${nameQuery}%,city.ilike.%${nameQuery}%`);
+    }
+    if (state) {
+      req = req.ilike('state', `%${state}%`);
+    }
+    if (onlineOnly) {
+      req = req.eq('is_online', true);
+    }
+    const { data, error } = await req;
+    if (!error && Array.isArray(data)) return data;
+  }
+  return defaultChurches.filter(church => {
+    const matchQuery =
+      !nameQuery ||
+      church.name.toLowerCase().includes(nameQuery.toLowerCase()) ||
+      church.city.toLowerCase().includes(nameQuery.toLowerCase());
+    const matchState = !state || (church.state || '').toLowerCase().includes(state);
+    const matchOnline = !onlineOnly || church.is_online;
+    return matchQuery && matchState && matchOnline;
+  });
+}
+
+async function loadChurchSermons(churchId) {
+  if (isSupabaseConfigured) {
+    const { data, error } = await supabase
+      .from('church_sermons')
+      .select('title, date, summary')
+      .eq('church_id', churchId)
+      .order('date', { ascending: false })
+      .limit(12);
+    if (!error && Array.isArray(data)) return data;
+  }
+  return localSermons[churchId] || [];
+}
+
+async function setUserChurch(church) {
+  currentChurch = church;
+  localStorage.setItem('userChurch', JSON.stringify(church));
+  if (canUseSupabase()) {
+    await supabase.auth.updateUser({ data: { church_id: church.id, church_name: church.name } });
+  }
+  const churchIdInput = document.getElementById('sermon-church-id');
+  if (churchIdInput) churchIdInput.value = church.id;
+}
+
+async function joinChurch(church) {
+  if (canUseSupabase()) {
+    const { data: existing } = await supabase
+      .from('church_members')
+      .select('church_id')
+      .eq('church_id', church.id)
+      .eq('user_id', currentUserId)
+      .maybeSingle();
+    if (!existing) {
+      await supabase.from('church_members').insert({
+        church_id: church.id,
+        user_id: currentUserId,
+        role: 'member'
+      });
+    }
+  }
+  await setUserChurch(church);
+}
+
+function loadUserChurch() {
+  try {
+    return JSON.parse(localStorage.getItem('userChurch') || 'null');
+  } catch {
+    return null;
+  }
+}
+
+function loadLocalSermons() {
+  try {
+    const stored = JSON.parse(localStorage.getItem('localChurchSermons') || 'null');
+    if (stored && typeof stored === 'object') {
+      localSermons = stored;
+    }
+  } catch {
+    // ignore
+  }
+}
+
+function saveLocalSermons() {
+  localStorage.setItem('localChurchSermons', JSON.stringify(localSermons));
+}
+
+async function addChurchSermon(churchId, sermon) {
+  if (isSupabaseConfigured) {
+    const { error } = await supabase.from('church_sermons').insert({
+      church_id: churchId,
+      title: sermon.title,
+      date: sermon.date,
+      summary: sermon.summary
+    });
+    return !error;
+  }
+  if (!localSermons[churchId]) localSermons[churchId] = [];
+  localSermons[churchId].unshift(sermon);
+  saveLocalSermons();
+  return true;
+}
+
+function renderDashboard(role) {
+  const container = document.getElementById('dashboard-content');
+  const title = document.getElementById('dashboard-title');
+  container.innerHTML = '';
+  title.textContent = `Welcome, ${role.charAt(0).toUpperCase() + role.slice(1)}`;
+
+  const cards = [];
+  if (role === 'pastor') {
+    cards.push(
+      { title: 'Sermon Builder', text: 'Create outlines and share with your congregation.', action: () => { setView('search'); document.getElementById('sermon-builder').scrollIntoView({ behavior: 'smooth' }); } },
+      { title: 'Church Sermons', text: 'Add weekly sermons for your church.', action: () => document.getElementById('church-center').scrollIntoView({ behavior: 'smooth' }) }
+    );
+  }
+  if (role === 'teacher') {
+    cards.push(
+      { title: 'Lesson Plan Builder', text: 'Create lessons for students and classes.', action: () => { setView('search'); document.getElementById('study-tools').scrollIntoView({ behavior: 'smooth' }); } },
+      { title: 'Saved Lessons', text: 'Build and save lessons for reuse.', action: () => { setView('search'); document.getElementById('study-tools').scrollIntoView({ behavior: 'smooth' }); } }
+    );
+  }
+  if (role === 'adult' || role === 'family' || role === 'member') {
+    cards.push(
+      { title: 'Daily Battle', text: 'Get guidance and verses for today.', action: () => { setView('search'); document.getElementById('daily-btn').click(); } },
+      { title: 'Saved Verses & Notes', text: 'Review your saved verses and notes.', action: () => { setView('search'); document.getElementById('study-tools').scrollIntoView({ behavior: 'smooth' }); } }
+    );
+  }
+  cards.push(
+    { title: 'Find Your Church', text: 'Search churches and view sermons.', action: () => document.getElementById('church-center').scrollIntoView({ behavior: 'smooth' }) }
+  );
+
+  cards.forEach(card => {
+    const box = document.createElement('div');
+    box.className = 'dashboard-card';
+    box.innerHTML = `<strong>${card.title}</strong><p>${card.text}</p>`;
+    const btn = document.createElement('button');
+    btn.textContent = 'Open';
+    btn.onclick = card.action;
+    box.appendChild(btn);
+    container.appendChild(box);
+  });
+}
+
+function renderFeaturedChurches() {
+  const container = document.getElementById('church-featured');
+  if (!container) return;
+  const featured = defaultChurches.slice(0, 3);
+  container.innerHTML = '';
+  featured.forEach(church => {
+    const row = document.createElement('div');
+    row.className = 'featured-item';
+    row.innerHTML = `<strong>${church.name}</strong><span>${church.city}${church.state ? `, ${church.state}` : ''}</span>`;
+    container.appendChild(row);
+  });
+}
+
+function setView(state) {
+  const mainSearch = document.getElementById('main-search');
+  const output = document.getElementById('output');
+  const dashboard = document.getElementById('dashboard');
+  const churchCenter = document.getElementById('church-center');
+  const studyTools = document.getElementById('study-tools');
+  const chapterReader = document.getElementById('chapter-reader');
+  const sermonBuilder = document.getElementById('sermon-builder');
+  const pastorResources = document.getElementById('pastor-resources');
+  const coloringStories = document.getElementById('coloring-stories');
+  const showDashboard = state === 'dashboard';
+  mainSearch.style.display = showDashboard ? 'none' : 'block';
+  output.style.display = showDashboard ? 'none' : 'grid';
+  dashboard.style.display = showDashboard ? 'block' : 'none';
+  churchCenter.style.display = showDashboard ? 'block' : 'none';
+  studyTools.style.display = showDashboard ? 'none' : 'block';
+  chapterReader.style.display = showDashboard ? 'none' : 'block';
+  sermonBuilder.style.display = showDashboard ? 'none' : 'block';
+  pastorResources.style.display = showDashboard ? 'none' : 'block';
+  coloringStories.style.display = showDashboard ? 'none' : 'block';
+}
+
+function updateRoleViews() {
+  const churchAdmin = document.getElementById('church-admin');
+  if (churchAdmin) {
+    churchAdmin.style.display = currentUserRole === 'pastor' ? 'block' : 'none';
+  }
+}
+
+async function saveNoteToSupabase(note) {
+  if (!canUseSupabase()) return note;
+  const { data, error } = await supabase
+    .from('notes')
+    .insert({ user_id: currentUserId, ref: note.ref, text: note.text })
+    .select('id, ref, text')
+    .single();
+  if (error || !data) return note;
+  return { id: data.id, ref: data.ref || note.ref, text: data.text || note.text };
+}
+
+async function deleteNoteFromSupabase(noteId) {
+  if (!canUseSupabase() || !noteId) return;
+  await supabase.from('notes').delete().eq('id', noteId);
+}
+
+async function saveVerseToSupabase(verse) {
+  if (!canUseSupabase()) return verse;
+  const existing = await supabase
+    .from('saved_verses')
+    .select('id')
+    .eq('user_id', currentUserId)
+    .eq('ref', verse.ref)
+    .maybeSingle();
+  if (existing.data?.id) return { ...verse, id: existing.data.id };
+
+  const { data, error } = await supabase
+    .from('saved_verses')
+    .insert({ user_id: currentUserId, ref: verse.ref, text: verse.text })
+    .select('id, ref, text')
+    .single();
+  if (error || !data) return verse;
+  return { id: data.id, ref: data.ref, text: data.text };
+}
+
+async function deleteVerseFromSupabase(verseId) {
+  if (!canUseSupabase() || !verseId) return;
+  await supabase.from('saved_verses').delete().eq('id', verseId);
+}
+
+function applySermonDraft(draft) {
+  document.getElementById('sermon-title').value = draft.title || '';
+  document.getElementById('sermon-theme').value = draft.theme || '';
+  document.getElementById('sermon-text-ref').value = draft.textRef || '';
+  document.getElementById('sermon-outline').value = draft.outline || '';
+  document.getElementById('sermon-points').value = draft.points || '';
+  document.getElementById('sermon-application').value = draft.application || '';
+  document.getElementById('sermon-prayer').value = draft.prayer || '';
+}
+
+async function saveSermonDraftToSupabase(draft) {
+  if (!canUseSupabase()) return null;
+  const existingId = localStorage.getItem(SERMON_DRAFT_ID_KEY);
+  const id = existingId || generateUuid();
+  const payload = {
+    id,
+    user_id: currentUserId,
+    title: draft.title,
+    theme: draft.theme,
+    text_ref: draft.textRef,
+    outline: draft.outline,
+    points: draft.points,
+    application: draft.application,
+    prayer: draft.prayer,
+    updated_at: new Date().toISOString()
+  };
+  const { data, error } = await supabase.from('sermons').upsert(payload).select('id').single();
+  if (!error && data?.id) {
+    localStorage.setItem(SERMON_DRAFT_ID_KEY, data.id);
+    return data.id;
+  }
+  return null;
+}
+
+async function saveLessonPlanToSupabase(audience, content) {
+  if (!canUseSupabase()) return null;
+  await supabase.from('lessons').insert({
+    user_id: currentUserId,
+    audience,
+    content
+  });
+  return true;
+}
+
+function loadShareStore() {
+  try {
+    return JSON.parse(localStorage.getItem(SHARE_STORAGE_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function saveShareStore(store) {
+  localStorage.setItem(SHARE_STORAGE_KEY, JSON.stringify(store));
+}
+
+function generateShareId() {
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function buildShareUrl(id) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('share', id);
+  return url.toString();
+}
+
+async function createShareLink(type, payload) {
+  const id = generateShareId();
+  if (isSupabaseConfigured) {
+    const { error } = await supabase.from('shares').insert({ id, payload, type });
+    if (error) {
+      alert('Sharing failed. Please check your Supabase table named "shares".');
+      return null;
+    }
+  } else {
+    const store = loadShareStore();
+    store[id] = { type, payload };
+    saveShareStore(store);
+  }
+  return buildShareUrl(id);
+}
+
+async function loadShareById(id) {
+  if (isSupabaseConfigured) {
+    const { data, error } = await supabase.from('shares').select('payload, type').eq('id', id).single();
+    if (error || !data) return null;
+    return data;
+  }
+  const store = loadShareStore();
+  return store[id] || null;
+}
+
+function applySharePayload(data) {
+  if (!data) return;
+  if (data.type === 'sermon') {
+    const draft = data.payload;
+    applySermonDraft(draft);
+  }
+  if (data.type === 'study') {
+    const { results, notes, savedVerses } = data.payload;
+    if (results) renderResults(results);
+    if (Array.isArray(notes)) {
+      saveNotes(notes);
+      renderNotes();
+    }
+    if (Array.isArray(savedVerses)) {
+      saveSavedVerses(savedVerses);
+      renderSavedVerses();
+    }
+  }
+}
+
+function populateTemplateList() {
+  const container = document.getElementById('template-list');
+  container.innerHTML = '';
+  templates.forEach(template => {
+    const card = document.createElement('div');
+    card.className = 'template-card';
+    card.innerHTML = `<strong>${template.title}</strong><p>${template.theme}</p>`;
+    const btn = document.createElement('button');
+    btn.textContent = 'Use Template';
+    btn.onclick = () => {
+      document.getElementById('sermon-title').value = template.title;
+      document.getElementById('sermon-theme').value = template.theme;
+      document.getElementById('sermon-text-ref').value = template.textRef;
+      document.getElementById('sermon-outline').value = template.outline;
+      document.getElementById('sermon-points').value = template.points;
+      document.getElementById('sermon-application').value = template.application;
+      document.getElementById('sermon-prayer').value = template.prayer;
+    };
+    card.appendChild(btn);
+    container.appendChild(card);
+  });
+}
+
+function populateReaderBooks() {
+  const bookSelect = document.getElementById('reader-book');
+  bookSelect.innerHTML = '';
+  Object.keys(bookIndex).forEach(book => {
+    const opt = document.createElement('option');
+    opt.value = book;
+    opt.textContent = book;
+    bookSelect.appendChild(opt);
+  });
+}
+
+function populateReaderChapters(book) {
+  const chapterSelect = document.getElementById('reader-chapter');
+  chapterSelect.innerHTML = '';
+  const chapters = bookIndex[book] || [];
+  chapters.forEach(ch => {
+    const opt = document.createElement('option');
+    opt.value = String(ch);
+    opt.textContent = String(ch);
+    chapterSelect.appendChild(opt);
+  });
+}
+
+function renderReaderChapter(book, chapter) {
+  const output = document.getElementById('reader-output');
+  output.innerHTML = '';
+  const key = `${book} ${chapter}`;
+  const verses = chapterIndex[key];
+  if (!verses) {
+    output.innerHTML = '<p class="empty">Chapter not found.</p>';
+    return;
+  }
+  const heading = document.createElement('div');
+  heading.className = 'chapter-title';
+  heading.textContent = key;
+  output.appendChild(heading);
+  verses.forEach(v => {
+    const line = document.createElement('div');
+    line.className = 'context-line';
+    line.innerHTML = `<strong>${v.ref}</strong> ${v.text}`;
+    output.appendChild(line);
+  });
+}
+
+function selectReaderChapter(book, chapter) {
+  document.getElementById('reader-book').value = book;
+  populateReaderChapters(book);
+  document.getElementById('reader-chapter').value = String(chapter);
+  renderReaderChapter(book, String(chapter));
+}
+
+function buildLessonPlan(results, audience) {
+  const output = [];
+  if (!results || results.verses.length === 0) {
+    output.push('Select verses or search a topic to build a lesson plan.');
+    return output;
+  }
+  const topVerses = results.verses.slice(0, 3);
+  const memoryVerse = topVerses[0];
+  const guidance = results.guidance || 'Use these verses to encourage and strengthen faith.';
+  const audienceNotes = {
+    kid: 'Keep it short, visual, and repeat key truths.',
+    teen: 'Connect to real struggles and allow honest questions.',
+    adult: 'Focus on theology, application, and accountability.',
+    family: 'Make it interactive and include everyone.',
+    church: 'Provide corporate application and pastoral care.'
+  };
+
+  output.push(`Big Idea: ${guidance}`);
+  output.push(`Memory Verse: ${memoryVerse.ref}`);
+  output.push('Opening: Pray and read the passage aloud together.');
+  output.push(`Discussion: ${audienceNotes[audience] || audienceNotes.adult}`);
+  output.push('Questions:');
+  output.push('1) What does this teach about God?');
+  output.push('2) What does it teach about us?');
+  output.push('3) How should we respond this week?');
+  output.push('Activity: Write one encouragement or action step and share it.');
+  output.push('Prayer: Pray the promises of the passage back to God.');
+  return output;
+}
+
+function populateColoringStories() {
+  const select = document.getElementById('story-select');
+  select.innerHTML = '';
+  coloringStories.forEach(story => {
+    const opt = document.createElement('option');
+    opt.value = story.id;
+    opt.textContent = story.title;
+    select.appendChild(opt);
+  });
+}
+
+function getStoryById(id) {
+  return coloringStories.find(story => story.id === id) || coloringStories[0];
+}
+
+function loadStoryIntoCanvas(story) {
+  const canvas = document.getElementById('coloring-canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const img = new Image();
+  const svgBlob = new Blob([story.svg], { type: 'image/svg+xml' });
+  const url = URL.createObjectURL(svgBlob);
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+}
+
+function setupColoringCanvas() {
+  const canvas = document.getElementById('coloring-canvas');
+  const ctx = canvas.getContext('2d');
+  const colorInput = document.getElementById('paint-color');
+  const sizeInput = document.getElementById('brush-size');
+  let painting = false;
+
+  function getPos(evt) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+      x: (evt.clientX - rect.left) * scaleX,
+      y: (evt.clientY - rect.top) * scaleY
+    };
+  }
+
+  function startPaint(evt) {
+    painting = true;
+    draw(evt);
+  }
+
+  function endPaint() {
+    painting = false;
+    ctx.beginPath();
+  }
+
+  function draw(evt) {
+    if (!painting) return;
+    const { x, y } = getPos(evt);
+    ctx.lineWidth = Number(sizeInput.value);
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = colorInput.value;
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
+
+  canvas.addEventListener('mousedown', startPaint);
+  canvas.addEventListener('mouseup', endPaint);
+  canvas.addEventListener('mouseleave', endPaint);
+  canvas.addEventListener('mousemove', draw);
+
+  canvas.addEventListener('touchstart', (evt) => {
+    evt.preventDefault();
+    startPaint(evt.touches[0]);
+  }, { passive: false });
+  canvas.addEventListener('touchend', endPaint);
+  canvas.addEventListener('touchmove', (evt) => {
+    evt.preventDefault();
+    draw(evt.touches[0]);
+  }, { passive: false });
+}
+
+function updateNoteSelect(results) {
+  const select = document.getElementById('note-verse-select');
+  select.innerHTML = '';
+  const general = document.createElement('option');
+  general.value = 'General';
+  general.textContent = 'General';
+  select.appendChild(general);
+  if (results?.verses?.length) {
+    results.verses.forEach(v => {
+      const opt = document.createElement('option');
+      opt.value = v.ref;
+      opt.textContent = v.ref;
+      select.appendChild(opt);
+    });
+  }
+}
+
+function renderSavedVerses() {
+  const container = document.getElementById('saved-verses');
+  container.innerHTML = '';
+  const items = loadSavedVerses();
+  if (items.length === 0) {
+    container.innerHTML = '<p class="empty">No saved verses yet.</p>';
+    return;
+  }
+  items.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'list-item';
+    row.innerHTML = `<div><strong>${item.ref}</strong><p>${item.text}</p></div>`;
+    const actions = document.createElement('div');
+    actions.className = 'item-actions';
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = 'Copy';
+    copyBtn.onclick = () => navigator.clipboard.writeText(`${item.ref}: ${item.text}`);
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.onclick = async () => {
+      const next = loadSavedVerses().filter(v => (item.id ? v.id !== item.id : v.ref !== item.ref));
+      saveSavedVerses(next);
+      await deleteVerseFromSupabase(item.id);
+      renderSavedVerses();
+    };
+    actions.appendChild(copyBtn);
+    actions.appendChild(removeBtn);
+    row.appendChild(actions);
+    container.appendChild(row);
+  });
+}
+
+function renderNotes() {
+  const container = document.getElementById('notes-list');
+  container.innerHTML = '';
+  const notes = loadNotes();
+  if (notes.length === 0) {
+    container.innerHTML = '<p class="empty">No notes yet.</p>';
+    return;
+  }
+  notes.forEach(note => {
+    const row = document.createElement('div');
+    row.className = 'list-item';
+    row.innerHTML = `<div><strong>${note.ref}</strong><p>${note.text}</p></div>`;
+    const actions = document.createElement('div');
+    actions.className = 'item-actions';
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = 'Copy';
+    copyBtn.onclick = () => navigator.clipboard.writeText(`${note.ref}: ${note.text}`);
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
+    removeBtn.onclick = async () => {
+      const next = loadNotes().filter(n => n.id !== note.id);
+      saveNotes(next);
+      await deleteNoteFromSupabase(note.id);
+      renderNotes();
+    };
+    actions.appendChild(copyBtn);
+    actions.appendChild(removeBtn);
+    row.appendChild(actions);
+    container.appendChild(row);
+  });
+}
+
+function updateGroupPrompts(results) {
+  const list = document.getElementById('group-prompts');
+  if (!list) return;
+  list.innerHTML = '';
+  const prompts = [
+    'What does this passage reveal about God?',
+    'What does it reveal about people or our hearts?',
+    'What is one step of obedience we can take this week?',
+    'How can we pray this truth over our family or church?',
+    'Who can we encourage with this passage?'
+  ];
+  if (results?.intent === 'topic') {
+    const topic = results.topic ? results.topic.toUpperCase() : 'this struggle';
+    prompts.unshift(`How does God help us through ${topic}?`);
+  }
+  prompts.slice(0, 5).forEach(text => {
+    const li = document.createElement('li');
+    li.textContent = text;
+    list.appendChild(li);
+  });
+}
+function parseQuery(input) {
+  const trimmed = input.trim();
+  if (!trimmed) {
+    return { intent: 'empty', payload: null };
+  }
+
+  const referenceKey = parseReference(trimmed);
+  if (referenceKey) {
+    return { intent: 'reference', payload: referenceKey };
+  }
+
+  const normalized = normalizeInput(trimmed);
+  const rawTokens = normalized.split(' ').filter(Boolean);
+  const tokens = rawTokens.filter(token => !STOP_WORDS.has(token));
+  const keywords = tokens.length > 0 ? tokens : rawTokens;
 
   const topicScores = {};
   Object.keys(topics).forEach(topic => {
     let score = 0;
-    tokens.forEach(token => {
+    keywords.forEach(token => {
       if (topic.includes(token) || topics[topic].synonyms.some(syn => syn.includes(token))) score++;
     });
     if (score > 0) topicScores[topic] = score;
@@ -176,29 +1269,36 @@ function parseQuery(input) {
   const topTopic = Object.keys(topicScores).sort((a,b) => topicScores[b] - topicScores[a])[0];
   if (topTopic) return { intent: 'topic', payload: { topic: topTopic } };
 
-  return { intent: 'keyword', payload: { keywords: tokens } };
+  return { intent: 'keyword', payload: { keywords, phrase: normalized } };
 }
 
 function executeQuery(parsed, tier) {
   const results = { intent: parsed.intent, tier, verses: [], guidance: null };
 
+  if (parsed.intent === 'empty') {
+    return results;
+  }
   if (parsed.intent === 'reference') {
     const key = parsed.payload;
     if (bible[key]) results.verses.push({ ref: key, text: bible[key] });
   } else if (parsed.intent === 'topic') {
     const topic = topics[parsed.payload.topic];
+    results.topic = parsed.payload.topic;
     topic.verses.forEach(ref => {
       if (bible[ref]) results.verses.push({ ref, text: bible[ref] });
     });
     results.guidance = topic.guidance[tier] || topic.guidance.adult;
   } else {
     const keywords = parsed.payload.keywords;
+    const phrase = parsed.payload.phrase;
+    const wordRegex = buildWordRegex(keywords);
     const matches = Object.entries(bible)
       .map(([ref, text]) => {
         const normText = normalizeInput(text);
-        const score = keywords.reduce((acc, kw) => acc + (normText.includes(kw) ? 1 : 0), 0);
+        let score = countWordMatches(normText, wordRegex);
+        if (phrase && phrase.length > 3 && normText.includes(phrase)) score += 2;
         if (score > 0) {
-          const snippet = text.replace(new RegExp(keywords.join('|'), 'gi'), '<span class="highlight">$&</span>');
+          const snippet = wordRegex ? text.replace(wordRegex, '<span class="highlight">$&</span>') : text;
           return { ref, text: snippet, score };
         }
       })
@@ -214,23 +1314,103 @@ function executeQuery(parsed, tier) {
 function renderResults(results) {
   const output = document.getElementById('output');
   output.innerHTML = '';
+  lastResults = results;
+  updateNoteSelect(results);
+  updateGroupPrompts(results);
+  if (results.intent === 'empty') {
+    output.innerHTML = '<p style="text-align:center; color:#888;">Type a topic, keyword, or Bible reference to begin.</p>';
+    return;
+  }
   if (results.verses.length === 0) {
     output.innerHTML = '<p style="text-align:center; color:#888;">No results found. Try another search!</p>';
     return;
+  }
+  if (results.intent === 'topic' && (results.tier === 'kid' || results.tier === 'teen')) {
+    const topic = topics[results.topic];
+    if (topic?.explain?.[results.tier]) {
+      const banner = document.createElement('div');
+      banner.className = 'topic-explain';
+      banner.textContent = topic.explain[results.tier];
+      output.appendChild(banner);
+    }
   }
   results.verses.forEach(v => {
     const card = document.createElement('div');
     card.className = 'verse-card';
     card.innerHTML = `<strong>${v.ref}</strong><p>${v.text}</p>`;
+    const buttonRow = document.createElement('div');
+    buttonRow.className = 'card-actions';
+
     const shareBtn = document.createElement('button');
-    shareBtn.textContent = 'Share';
+    shareBtn.textContent = 'Copy';
     shareBtn.onclick = () => {
       navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
       alert('Verse copied!');
     };
-    card.appendChild(shareBtn);
+
+    const saveBtn = document.createElement('button');
+    saveBtn.textContent = 'Save';
+    saveBtn.onclick = async () => {
+      const current = loadSavedVerses();
+      if (!current.some(item => item.ref === v.ref)) {
+        const verse = { ref: v.ref, text: v.text.replace(/<[^>]+>/g, '') };
+        const saved = await saveVerseToSupabase(verse);
+        current.push(saved);
+        saveSavedVerses(current);
+        renderSavedVerses();
+      }
+    };
+
+    const contextBtn = document.createElement('button');
+    contextBtn.textContent = 'Context';
+    contextBtn.onclick = () => {
+      const existing = card.querySelector('.context-block');
+      if (existing) {
+        existing.remove();
+        return;
+      }
+      const block = renderContextBlock(v.ref, 3);
+      if (block) card.appendChild(block);
+    };
+
+    const chapterBtn = document.createElement('button');
+    chapterBtn.textContent = 'Chapter';
+    chapterBtn.onclick = () => {
+      const existing = card.querySelector('.chapter-block');
+      if (existing) {
+        existing.remove();
+        return;
+      }
+      const block = renderChapterBlock(v.ref);
+      if (block) card.appendChild(block);
+      const chapterKey = getChapterKey(v.ref);
+      const parsed = chapterKey ? parseChapterKey(chapterKey) : null;
+      if (parsed) {
+        selectReaderChapter(parsed.book, parsed.chapter);
+        document.getElementById('chapter-reader').scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    buttonRow.appendChild(shareBtn);
+    buttonRow.appendChild(saveBtn);
+    buttonRow.appendChild(contextBtn);
+    buttonRow.appendChild(chapterBtn);
+    card.appendChild(buttonRow);
+    if (results.tier === 'kid' || results.tier === 'teen') {
+      const explanation = getEasyExplanation(v.text.replace(/<[^>]+>/g, ''), results.tier);
+      if (explanation) {
+        const easy = document.createElement('div');
+        easy.className = 'easy-explain';
+        easy.textContent = explanation;
+        card.appendChild(easy);
+      }
+    }
     output.appendChild(card);
   });
+  const contextNote = document.createElement('div');
+  contextNote.className = 'context-note';
+  contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';
+  output.appendChild(contextNote);
   if (results.guidance) {
     const guide = document.createElement('div');
     guide.className = 'guidance';
@@ -240,7 +1420,38 @@ function renderResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await loadBible();
+  loadLocalSermons();
+  const versionSelect = document.getElementById('version');
+  await loadBible(versionSelect.value);
+  refreshBibleView();
+  const { data: sessionData } = await supabase.auth.getSession();
+  if (sessionData?.session) {
+    currentUserId = sessionData.session.user.id;
+    currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
+    document.getElementById('logout-btn').style.display = 'inline-block';
+    const userTier = sessionData.session.user.user_metadata?.tier || 'adult';
+    document.getElementById('tier').value = userTier;
+    await syncUserData();
+    updateRoleViews();
+    renderDashboard(currentUserRole);
+    setView('dashboard');
+  }
+
+  supabase.auth.onAuthStateChange(async (_event, session) => {
+    currentUserId = session?.user?.id || null;
+    document.getElementById('logout-btn').style.display = session ? 'inline-block' : 'none';
+    if (session) {
+      const userTier = session.user.user_metadata?.tier || 'adult';
+      currentUserRole = session.user.user_metadata?.role || 'member';
+      document.getElementById('tier').value = userTier;
+      await syncUserData();
+      updateRoleViews();
+      renderDashboard(currentUserRole);
+      setView('dashboard');
+    } else {
+      setView('search');
+    }
+  });
 
   document.getElementById('search-btn').addEventListener('click', () => {
     document.getElementById('loading').style.display = 'block';
@@ -248,6 +1459,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setTimeout(() => {
       const input = document.getElementById('query').value;
       const tier = document.getElementById('tier').value;
+      lastQueryInput = input;
       const parsed = parseQuery(input);
       const results = executeQuery(parsed, tier);
       renderResults(results);
@@ -265,6 +1477,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const index = seed % topicKeys.length;
       const dailyTopic = topicKeys[index];
       document.getElementById('query').value = dailyTopic;
+      lastQueryInput = dailyTopic;
       const tier = document.getElementById('tier').value;
       const parsed = parseQuery(dailyTopic);
       const results = executeQuery(parsed, tier);
@@ -281,14 +1494,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.body.classList.toggle('dark-mode');
   });
 
+  versionSelect.addEventListener('change', async (e) => {
+    await loadBible(e.target.value);
+    refreshBibleView();
+    const input = document.getElementById('query').value.trim();
+    if (input) {
+      const tier = document.getElementById('tier').value;
+      const parsed = parseQuery(input);
+      const results = executeQuery(parsed, tier);
+      renderResults(results);
+    } else if (lastQueryInput) {
+      document.getElementById('query').value = lastQueryInput;
+      const tier = document.getElementById('tier').value;
+      const parsed = parseQuery(lastQueryInput);
+      const results = executeQuery(parsed, tier);
+      renderResults(results);
+    }
+  });
+
   document.getElementById('signup-btn').addEventListener('click', async () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const tier = document.getElementById('tier').value;
+    const role = document.getElementById('account-type').value;
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { tier } }
+      options: { data: { tier, role } }
     });
     alert(error ? error.message : 'Signed up! Check your email.');
   });
@@ -300,15 +1532,320 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (error) alert(error.message);
     else {
       const userTier = data.user.user_metadata.tier || 'adult';
+      currentUserRole = data.user.user_metadata.role || 'member';
       document.getElementById('tier').value = userTier;
       alert('Logged in!');
-      document.getElementById('logout-btn').style.display = 'inline-block';
+      updateRoleViews();
+      renderDashboard(currentUserRole);
+      setView('dashboard');
     }
   });
 
   document.getElementById('logout-btn').addEventListener('click', async () => {
     const { error } = await supabase.auth.signOut();
     alert(error ? error.message : 'Logged out!');
-    document.getElementById('logout-btn').style.display = 'none';
   });
+
+  renderSavedVerses();
+  renderNotes();
+  populateTemplateList();
+  populateColoringStories();
+  setupColoringCanvas();
+  loadStoryIntoCanvas(getStoryById(document.getElementById('story-select').value));
+  renderFeaturedChurches();
+  const sermonDateInput = document.getElementById('sermon-date-input');
+  if (sermonDateInput && !sermonDateInput.value) {
+    sermonDateInput.value = new Date().toISOString().slice(0, 10);
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const shareId = params.get('share');
+  if (shareId) {
+    const data = await loadShareById(shareId);
+    if (data) {
+      applySharePayload(data);
+    } else {
+      alert('Share link not found.');
+    }
+  }
+
+  document.getElementById('save-note').addEventListener('click', () => {
+    const select = document.getElementById('note-verse-select');
+    const textArea = document.getElementById('note-text');
+    const text = textArea.value.trim();
+    if (!text) return;
+    (async () => {
+      const notes = loadNotes();
+      const localNote = {
+        id: generateUuid(),
+        ref: select.value || 'General',
+        text
+      };
+      const saved = await saveNoteToSupabase(localNote);
+      notes.unshift(saved);
+      saveNotes(notes);
+      textArea.value = '';
+      renderNotes();
+    })();
+  });
+
+  document.getElementById('save-sermon').addEventListener('click', () => {
+    const draft = {
+      title: document.getElementById('sermon-title').value.trim(),
+      theme: document.getElementById('sermon-theme').value.trim(),
+      textRef: document.getElementById('sermon-text-ref').value.trim(),
+      outline: document.getElementById('sermon-outline').value.trim(),
+      points: document.getElementById('sermon-points').value.trim(),
+      application: document.getElementById('sermon-application').value.trim(),
+      prayer: document.getElementById('sermon-prayer').value.trim()
+    };
+    saveSermonDraft(draft);
+    saveSermonDraftToSupabase(draft);
+    alert('Sermon draft saved.');
+  });
+
+  document.getElementById('load-sermon').addEventListener('click', () => {
+    const draft = loadSermonDraft();
+    applySermonDraft(draft);
+  });
+
+  document.getElementById('export-sermon').addEventListener('click', () => {
+    const draft = loadSermonDraft();
+    const lines = [
+      `Title: ${draft.title || ''}`,
+      `Theme: ${draft.theme || ''}`,
+      `Primary Text: ${draft.textRef || ''}`,
+      '',
+      'Outline:',
+      draft.outline || '',
+      '',
+      'Key Points & Illustrations:',
+      draft.points || '',
+      '',
+      'Application:',
+      draft.application || '',
+      '',
+      'Closing Prayer:',
+      draft.prayer || ''
+    ];
+    navigator.clipboard.writeText(lines.join('\n'));
+    alert('Sermon copied for sharing.');
+  });
+
+  document.getElementById('share-sermon').addEventListener('click', () => {
+    const draft = loadSermonDraft();
+    const subject = encodeURIComponent(draft.title || 'Sermon Draft');
+    const body = encodeURIComponent(
+      `Theme: ${draft.theme || ''}\n` +
+      `Primary Text: ${draft.textRef || ''}\n\n` +
+      `Outline:\n${draft.outline || ''}\n\n` +
+      `Key Points & Illustrations:\n${draft.points || ''}\n\n` +
+      `Application:\n${draft.application || ''}\n\n` +
+      `Closing Prayer:\n${draft.prayer || ''}`
+    );
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  });
+
+  document.getElementById('share-sermon-link').addEventListener('click', async () => {
+    const draft = loadSermonDraft();
+    const link = await createShareLink('sermon', draft);
+    if (link) {
+      document.getElementById('sermon-share-link').value = link;
+    }
+  });
+
+  document.getElementById('open-sermon-link').addEventListener('click', async () => {
+    const linkInput = document.getElementById('sermon-share-link').value.trim();
+    if (!linkInput) return;
+    const url = new URL(linkInput);
+    const id = url.searchParams.get('share');
+    if (!id) return;
+    const data = await loadShareById(id);
+    if (data) applySharePayload(data);
+  });
+
+  document.getElementById('share-study').addEventListener('click', async () => {
+    const payload = {
+      results: lastResults,
+      notes: loadNotes(),
+      savedVerses: loadSavedVerses()
+    };
+    const link = await createShareLink('study', payload);
+    if (link) {
+      document.getElementById('share-link').value = link;
+    }
+  });
+
+  document.getElementById('build-lesson').addEventListener('click', () => {
+    const audience = document.getElementById('lesson-audience').value;
+    const output = document.getElementById('lesson-output');
+    output.innerHTML = '';
+    const plan = buildLessonPlan(lastResults, audience);
+    const lessons = loadLessons();
+    const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString() };
+    lessons.unshift(lessonRecord);
+    saveLessons(lessons);
+    saveLessonPlanToSupabase(audience, plan);
+    plan.forEach(line => {
+      const item = document.createElement('div');
+      item.className = 'list-item';
+      item.textContent = line;
+      output.appendChild(item);
+    });
+    if (canUseSupabase()) {
+      const savedNote = document.createElement('div');
+      savedNote.className = 'list-item';
+      savedNote.textContent = 'Lesson saved to your account.';
+      output.appendChild(savedNote);
+    }
+  });
+
+  document.getElementById('reader-book').addEventListener('change', (e) => {
+    populateReaderChapters(e.target.value);
+    const chapters = bookIndex[e.target.value] || [];
+    if (chapters[0]) {
+      selectReaderChapter(e.target.value, chapters[0]);
+    }
+  });
+
+  document.getElementById('reader-open').addEventListener('click', () => {
+    const book = document.getElementById('reader-book').value;
+    const chapter = document.getElementById('reader-chapter').value;
+    renderReaderChapter(book, chapter);
+  });
+
+  document.getElementById('reader-prev').addEventListener('click', () => {
+    const book = document.getElementById('reader-book').value;
+    const chapters = bookIndex[book] || [];
+    const current = Number(document.getElementById('reader-chapter').value);
+    const idx = chapters.indexOf(current);
+    if (idx > 0) selectReaderChapter(book, chapters[idx - 1]);
+  });
+
+  document.getElementById('reader-next').addEventListener('click', () => {
+    const book = document.getElementById('reader-book').value;
+    const chapters = bookIndex[book] || [];
+    const current = Number(document.getElementById('reader-chapter').value);
+    const idx = chapters.indexOf(current);
+    if (idx >= 0 && idx < chapters.length - 1) selectReaderChapter(book, chapters[idx + 1]);
+  });
+
+  document.getElementById('back-to-search').addEventListener('click', () => {
+    setView('search');
+  });
+
+  document.getElementById('church-search-btn').addEventListener('click', async () => {
+    const query = document.getElementById('church-query').value.trim();
+    const results = await loadChurches(query || '');
+    const container = document.getElementById('church-results');
+    const sermonContainer = document.getElementById('church-sermons');
+    container.innerHTML = '';
+    sermonContainer.innerHTML = '';
+    if (results.length === 0) {
+      container.innerHTML = '<p class="empty">No churches found.</p>';
+      return;
+    }
+    results.forEach(church => {
+      const row = document.createElement('div');
+      row.className = 'list-item';
+      row.innerHTML = `<div><strong>${church.name}</strong><p>${church.city}${church.state ? `, ${church.state}` : ''}</p></div>`;
+      const actions = document.createElement('div');
+      actions.className = 'item-actions';
+      const viewBtn = document.createElement('button');
+      viewBtn.textContent = 'View Sermons';
+      viewBtn.onclick = async () => {
+        const sermons = await loadChurchSermons(church.id);
+        sermonContainer.innerHTML = '';
+        if (sermons.length === 0) {
+          sermonContainer.innerHTML = '<p class="empty">No sermons available yet.</p>';
+          return;
+        }
+        sermons.forEach(sermon => {
+          const sermonRow = document.createElement('div');
+          sermonRow.className = 'list-item';
+          sermonRow.innerHTML = `<div><strong>${sermon.title}</strong><p>${sermon.date} • ${sermon.summary || ''}</p></div>`;
+          sermonContainer.appendChild(sermonRow);
+        });
+      };
+      const setBtn = document.createElement('button');
+      setBtn.textContent = 'Join Church';
+      setBtn.onclick = async () => {
+        await joinChurch(church);
+        alert(`Joined ${church.name}`);
+      };
+      actions.appendChild(viewBtn);
+      actions.appendChild(setBtn);
+      row.appendChild(actions);
+      container.appendChild(row);
+    });
+  });
+
+  let churchSearchTimer = null;
+  document.getElementById('church-query').addEventListener('input', () => {
+    clearTimeout(churchSearchTimer);
+    churchSearchTimer = setTimeout(() => {
+      document.getElementById('church-search-btn').click();
+    }, 350);
+  });
+  document.getElementById('church-state').addEventListener('input', () => {
+    clearTimeout(churchSearchTimer);
+    churchSearchTimer = setTimeout(() => {
+      document.getElementById('church-search-btn').click();
+    }, 350);
+  });
+  document.getElementById('church-online').addEventListener('change', () => {
+    document.getElementById('church-search-btn').click();
+  });
+
+  document.getElementById('add-sermon-btn').addEventListener('click', async () => {
+    const churchId = document.getElementById('sermon-church-id').value.trim();
+    const title = document.getElementById('sermon-title-input').value.trim();
+    const date = document.getElementById('sermon-date-input').value;
+    const summary = document.getElementById('sermon-summary-input').value.trim();
+    if (!churchId || !title || !date) {
+      alert('Please select a church and fill in title and date.');
+      return;
+    }
+    const sermon = { title, date, summary };
+    const ok = await addChurchSermon(churchId, sermon);
+    if (ok) {
+      document.getElementById('sermon-title-input').value = '';
+      document.getElementById('sermon-summary-input').value = '';
+      const sermonContainer = document.getElementById('church-sermons');
+      const sermons = await loadChurchSermons(churchId);
+      sermonContainer.innerHTML = '';
+      sermons.forEach(item => {
+        const sermonRow = document.createElement('div');
+        sermonRow.className = 'list-item';
+        sermonRow.innerHTML = `<div><strong>${item.title}</strong><p>${item.date} • ${item.summary || ''}</p></div>`;
+        sermonContainer.appendChild(sermonRow);
+      });
+    }
+  });
+
+  document.getElementById('story-select').addEventListener('change', (e) => {
+    const story = getStoryById(e.target.value);
+    loadStoryIntoCanvas(story);
+  });
+
+  document.getElementById('clear-canvas').addEventListener('click', () => {
+    const story = getStoryById(document.getElementById('story-select').value);
+    loadStoryIntoCanvas(story);
+  });
+
+  document.getElementById('download-canvas').addEventListener('click', () => {
+    const canvas = document.getElementById('coloring-canvas');
+    const link = document.createElement('a');
+    link.download = 'bible-coloring.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  });
+
+  const savedChurch = loadUserChurch();
+  if (savedChurch) {
+    currentChurch = savedChurch;
+    const churchIdInput = document.getElementById('sermon-church-id');
+    if (churchIdInput) churchIdInput.value = savedChurch.id;
+  }
+  if (!currentUserId) setView('search');
 });

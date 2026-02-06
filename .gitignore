@@ -2,3 +2,4 @@
 token*
 *.key
 .env
+.DS_Store

@@ -146,6 +146,12 @@ button:hover {
   gap: 1.5rem;
 }
 
+.highlight {
+  background: rgba(109, 40, 217, 0.2);
+  padding: 0 4px;
+  border-radius: 6px;
+}
+
 .verse-card {
   background: var(--card-light);
   backdrop-filter: blur(12px);
@@ -172,6 +178,48 @@ button:hover {
   margin-bottom: 0.8rem;
 }
 
+.easy-explain {
+  margin-top: 0.8rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  background: rgba(34, 197, 94, 0.12);
+  font-size: 0.95rem;
+}
+
+.topic-explain {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: rgba(109, 40, 217, 0.12);
+  font-weight: 600;
+  text-align: center;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.context-block,
+.chapter-block {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: rgba(109, 40, 217, 0.08);
+  max-height: 280px;
+  overflow: auto;
+}
+
+.chapter-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.context-line {
+  padding: 0.3rem 0;
+}
+
 .guidance {
   margin-top: 1.2rem;
   padding: 1rem;
@@ -180,8 +228,250 @@ button:hover {
   font-style: italic;
 }
 
+.context-note {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.study-tools,
+.sermon-builder {
+  margin-top: 2.5rem;
+}
+
+.section-note {
+  color: #64748b;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.study-grid,
+.sermon-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.study-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.study-card {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1.2rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  background: rgba(255,255,255,0.6);
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.empty {
+  color: #94a3b8;
+  text-align: center;
+}
+
+.prompts {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.sermon-grid input,
+.sermon-grid textarea {
+  width: 100%;
+  margin: 0.3rem 0 0.8rem;
+}
+
+.sermon-full {
+  grid-column: 1 / -1;
+}
+
+.sermon-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.chapter-reader,
+.pastor-resources {
+  margin-top: 2.5rem;
+}
+
+.reader-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.reader-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.chapter-output {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  max-height: 420px;
+  overflow: auto;
+}
+
+.template-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.template-card {
+  background: rgba(255,255,255,0.6);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: grid;
+  gap: 0.6rem;
+}
+
 .dark-mode .guidance {
   background: rgba(165,180,252,0.1);
+}
+
+.dark-mode .study-card,
+.dark-mode .list-item,
+.dark-mode .context-block,
+.dark-mode .chapter-block,
+.dark-mode .chapter-output,
+.dark-mode .template-card {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.coloring-stories {
+  margin-top: 2.5rem;
+}
+
+.coloring-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.coloring-canvas-wrap {
+  margin-top: 1.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.6);
+  padding: 1rem;
+  overflow: auto;
+}
+
+#coloring-canvas {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.dark-mode .coloring-canvas-wrap {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.dashboard,
+.church-center {
+  margin-top: 2.5rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-content {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1.2rem;
+}
+
+.dashboard-card {
+  background: rgba(255,255,255,0.6);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: grid;
+  gap: 0.6rem;
+}
+
+.church-search {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.inline-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.featured-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.featured-item {
+  background: rgba(255,255,255,0.6);
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: grid;
+  gap: 0.4rem;
+}
+
+.church-admin {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.dark-mode .dashboard-card,
+.dark-mode .church-center,
+.dark-mode .church-admin,
+.dark-mode .featured-item {
+  background: rgba(30, 41, 59, 0.6);
 }
 
 footer {

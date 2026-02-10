@@ -207,8 +207,6 @@ const isSupabaseConfigured = !supabaseUrl.includes('your-project-ref') && supaba
 const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
 const LESSONS_STORAGE_KEY = 'lessonPlans';
-const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
-const LESSONS_STORAGE_KEY = 'lessonPlans';
 const templates = [
   {
     title: 'Gospel Clarity',
@@ -784,12 +782,16 @@ function setView(state) {
   mainSearch.style.display = showDashboard ? 'none' : 'block';
   output.style.display = showDashboard ? 'none' : 'grid';
   dashboard.style.display = showDashboard ? 'block' : 'none';
-  churchCenter.style.display = showDashboard ? 'block' : 'none';
-  studyTools.style.display = showDashboard ? 'none' : 'block';
-  chapterReader.style.display = showDashboard ? 'none' : 'block';
-  sermonBuilder.style.display = showDashboard ? 'none' : 'block';
-  pastorResources.style.display = showDashboard ? 'none' : 'block';
-  coloringStories.style.display = showDashboard ? 'none' : 'block';
+  if (showDashboard) {
+    churchCenter.style.display = 'block';
+    studyTools.style.display = 'none';
+    chapterReader.style.display = 'none';
+    sermonBuilder.style.display = 'none';
+    pastorResources.style.display = 'none';
+    coloringStories.style.display = 'none';
+  } else {
+    applyRoleAccess();
+  }
 }
 
 function updateRoleViews() {
@@ -797,6 +799,33 @@ function updateRoleViews() {
   if (churchAdmin) {
     churchAdmin.style.display = currentUserRole === 'pastor' ? 'block' : 'none';
   }
+  applyRoleAccess();
+}
+
+function applyRoleAccess() {
+  const role = currentUserRole || 'member';
+  const showFor = {
+    pastor: ['sermon-builder', 'pastor-resources', 'church-center', 'study-tools', 'chapter-reader', 'coloring-stories'],
+    teacher: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
+    adult: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
+    family: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
+    member: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center']
+  };
+  const allowed = new Set(showFor[role] || showFor.member);
+  const sections = [
+    'study-tools',
+    'chapter-reader',
+    'sermon-builder',
+    'pastor-resources',
+    'coloring-stories',
+    'church-center'
+  ];
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.style.display = allowed.has(id) ? 'block' : 'none';
+    }
+  });
 }
 
 async function saveNoteToSupabase(note) {
@@ -1454,12 +1483,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   document.getElementById('search-btn').addEventListener('click', () => {
+    setView('search');
     document.getElementById('loading').style.display = 'block';
     document.getElementById('output').innerHTML = '';
-    setTimeout(() => {
+    setTimeout(async () => {
       const input = document.getElementById('query').value;
       const tier = document.getElementById('tier').value;
       lastQueryInput = input;
+      if (Object.keys(bible).length === 0) {
+        await loadBible(currentVersion);
+        refreshBibleView();
+      }
+      if (Object.keys(bible).length === 0) {
+        document.getElementById('output').innerHTML =
+          '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
+        document.getElementById('loading').style.display = 'none';
+        return;
+      }
       const parsed = parseQuery(input);
       const results = executeQuery(parsed, tier);
       renderResults(results);
@@ -1468,9 +1508,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   document.getElementById('daily-btn').addEventListener('click', () => {
+    setView('search');
     document.getElementById('loading').style.display = 'block';
     document.getElementById('output').innerHTML = '';
-    setTimeout(() => {
+    setTimeout(async () => {
+      if (Object.keys(bible).length === 0) {
+        await loadBible(currentVersion);
+        refreshBibleView();
+      }
+      if (Object.keys(bible).length === 0) {
+        document.getElementById('output').innerHTML =
+          '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
+        document.getElementById('loading').style.display = 'none';
+        return;
+      }
       const today = new Date().toDateString();
       const topicKeys = Object.keys(topics);
       const seed = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
@@ -1847,5 +1898,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const churchIdInput = document.getElementById('sermon-church-id');
     if (churchIdInput) churchIdInput.value = savedChurch.id;
   }
-  if (!currentUserId) setView('search');
+  if (!currentUserId) {
+    currentUserRole = 'member';
+    applyRoleAccess();
+    setView('search');
+  }
 });

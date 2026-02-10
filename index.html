@@ -18,23 +18,6 @@
   </header>
 
   <main class="container">
-    <section id="auth-section" class="auth-card glass">
-      <input id="email" placeholder="Email" type="email">
-      <input id="password" placeholder="Password" type="password">
-      <select id="account-type">
-        <option value="member" selected>Church Member</option>
-        <option value="adult">Adult</option>
-        <option value="family">Family</option>
-        <option value="teacher">Teacher</option>
-        <option value="pastor">Pastor</option>
-      </select>
-      <div class="auth-buttons">
-        <button id="signup-btn">Sign Up</button>
-        <button id="login-btn">Log In</button>
-        <button id="logout-btn" style="display:none">Log Out</button>
-      </div>
-    </section>
-
     <section id="main-search" class="controls glass">
       <select id="version">
         <option value="KJV" selected>KJV</option>
@@ -53,6 +36,23 @@
       <button id="search-btn">Battle It!</button>
       <button id="daily-btn">Today's Battle</button>
       <button id="dark-toggle">Toggle Dark Mode</button>
+    </section>
+
+    <section id="auth-section" class="auth-card glass compact">
+      <input id="email" placeholder="Email" type="email">
+      <input id="password" placeholder="Password" type="password">
+      <select id="account-type">
+        <option value="member" selected>Church Member</option>
+        <option value="adult">Adult</option>
+        <option value="family">Family</option>
+        <option value="teacher">Teacher</option>
+        <option value="pastor">Pastor</option>
+      </select>
+      <div class="auth-buttons">
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="logout-btn" style="display:none">Log Out</button>
+      </div>
     </section>
 
     <div id="loading" class="loading" style="display:none">

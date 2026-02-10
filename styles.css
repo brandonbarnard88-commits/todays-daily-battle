@@ -103,6 +103,20 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.auth-card.compact {
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.auth-card.compact .auth-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
 input, select, textarea {
   padding: 1rem;
   margin: 0.5rem;

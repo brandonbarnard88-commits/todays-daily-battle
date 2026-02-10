@@ -202,7 +202,7 @@ const topics = {
 
 const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
 const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
-const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
+const supabaseClient = Supabase.createClient(supabaseUrl, supabaseKey);
 const isSupabaseConfigured = !supabaseUrl.includes('your-project-ref') && supabaseKey && !supabaseKey.includes('...');
 const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
@@ -560,10 +560,10 @@ function saveLessons(items) {
 async function syncUserData() {
   if (!canUseSupabase()) return;
   const [notesData, versesData, sermonsData, lessonsData] = await Promise.all([
-    supabase.from('notes').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
-    supabase.from('saved_verses').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
-    supabase.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
-    supabase.from('lessons').select('id, audience, content, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false })
+    supabaseClient.from('notes').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
+    supabaseClient.from('saved_verses').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
+    supabaseClient.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
+    supabaseClient.from('lessons').select('id, audience, content, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false })
   ]);
 
   if (!notesData.error && Array.isArray(notesData.data)) {
@@ -609,7 +609,7 @@ async function loadChurches(query) {
   const state = (document.getElementById('church-state')?.value || '').trim().toLowerCase();
   const onlineOnly = Boolean(document.getElementById('church-online')?.checked);
   if (isSupabaseConfigured) {
-    let req = supabase.from('churches').select('id, name, city, state, is_online');
+    let req = supabaseClient.from('churches').select('id, name, city, state, is_online');
     if (nameQuery) {
       req = req.or(`name.ilike.%${nameQuery}%,city.ilike.%${nameQuery}%`);
     }
@@ -635,7 +635,7 @@ async function loadChurches(query) {
 
 async function loadChurchSermons(churchId) {
   if (isSupabaseConfigured) {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
       .from('church_sermons')
       .select('title, date, summary')
       .eq('church_id', churchId)
@@ -650,7 +650,7 @@ async function setUserChurch(church) {
   currentChurch = church;
   localStorage.setItem('userChurch', JSON.stringify(church));
   if (canUseSupabase()) {
-    await supabase.auth.updateUser({ data: { church_id: church.id, church_name: church.name } });
+    await supabaseClient.auth.updateUser({ data: { church_id: church.id, church_name: church.name } });
   }
   const churchIdInput = document.getElementById('sermon-church-id');
   if (churchIdInput) churchIdInput.value = church.id;
@@ -658,14 +658,14 @@ async function setUserChurch(church) {
 
 async function joinChurch(church) {
   if (canUseSupabase()) {
-    const { data: existing } = await supabase
+    const { data: existing } = await supabaseClient
       .from('church_members')
       .select('church_id')
       .eq('church_id', church.id)
       .eq('user_id', currentUserId)
       .maybeSingle();
     if (!existing) {
-      await supabase.from('church_members').insert({
+      await supabaseClient.from('church_members').insert({
         church_id: church.id,
         user_id: currentUserId,
         role: 'member'
@@ -700,7 +700,7 @@ function saveLocalSermons() {
 
 async function addChurchSermon(churchId, sermon) {
   if (isSupabaseConfigured) {
-    const { error } = await supabase.from('church_sermons').insert({
+    const { error } = await supabaseClient.from('church_sermons').insert({
       church_id: churchId,
       title: sermon.title,
       date: sermon.date,
@@ -830,7 +830,7 @@ function applyRoleAccess() {
 
 async function saveNoteToSupabase(note) {
   if (!canUseSupabase()) return note;
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('notes')
     .insert({ user_id: currentUserId, ref: note.ref, text: note.text })
     .select('id, ref, text')
@@ -841,12 +841,12 @@ async function saveNoteToSupabase(note) {
 
 async function deleteNoteFromSupabase(noteId) {
   if (!canUseSupabase() || !noteId) return;
-  await supabase.from('notes').delete().eq('id', noteId);
+  await supabaseClient.from('notes').delete().eq('id', noteId);
 }
 
 async function saveVerseToSupabase(verse) {
   if (!canUseSupabase()) return verse;
-  const existing = await supabase
+  const existing = await supabaseClient
     .from('saved_verses')
     .select('id')
     .eq('user_id', currentUserId)
@@ -854,7 +854,7 @@ async function saveVerseToSupabase(verse) {
     .maybeSingle();
   if (existing.data?.id) return { ...verse, id: existing.data.id };
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('saved_verses')
     .insert({ user_id: currentUserId, ref: verse.ref, text: verse.text })
     .select('id, ref, text')
@@ -865,7 +865,7 @@ async function saveVerseToSupabase(verse) {
 
 async function deleteVerseFromSupabase(verseId) {
   if (!canUseSupabase() || !verseId) return;
-  await supabase.from('saved_verses').delete().eq('id', verseId);
+  await supabaseClient.from('saved_verses').delete().eq('id', verseId);
 }
 
 function applySermonDraft(draft) {
@@ -894,7 +894,7 @@ async function saveSermonDraftToSupabase(draft) {
     prayer: draft.prayer,
     updated_at: new Date().toISOString()
   };
-  const { data, error } = await supabase.from('sermons').upsert(payload).select('id').single();
+  const { data, error } = await supabaseClient.from('sermons').upsert(payload).select('id').single();
   if (!error && data?.id) {
     localStorage.setItem(SERMON_DRAFT_ID_KEY, data.id);
     return data.id;
@@ -904,7 +904,7 @@ async function saveSermonDraftToSupabase(draft) {
 
 async function saveLessonPlanToSupabase(audience, content) {
   if (!canUseSupabase()) return null;
-  await supabase.from('lessons').insert({
+  await supabaseClient.from('lessons').insert({
     user_id: currentUserId,
     audience,
     content
@@ -937,7 +937,7 @@ function buildShareUrl(id) {
 async function createShareLink(type, payload) {
   const id = generateShareId();
   if (isSupabaseConfigured) {
-    const { error } = await supabase.from('shares').insert({ id, payload, type });
+    const { error } = await supabaseClient.from('shares').insert({ id, payload, type });
     if (error) {
       alert('Sharing failed. Please check your Supabase table named "shares".');
       return null;
@@ -952,7 +952,7 @@ async function createShareLink(type, payload) {
 
 async function loadShareById(id) {
   if (isSupabaseConfigured) {
-    const { data, error } = await supabase.from('shares').select('payload, type').eq('id', id).single();
+    const { data, error } = await supabaseClient.from('shares').select('payload, type').eq('id', id).single();
     if (error || !data) return null;
     return data;
   }
@@ -1453,7 +1453,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const versionSelect = document.getElementById('version');
   await loadBible(versionSelect.value);
   refreshBibleView();
-  const { data: sessionData } = await supabase.auth.getSession();
+  const { data: sessionData } = await supabaseClient.auth.getSession();
   if (sessionData?.session) {
     currentUserId = sessionData.session.user.id;
     currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
@@ -1466,7 +1466,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setView('dashboard');
   }
 
-  supabase.auth.onAuthStateChange(async (_event, session) => {
+  supabaseClient.auth.onAuthStateChange(async (_event, session) => {
     currentUserId = session?.user?.id || null;
     document.getElementById('logout-btn').style.display = session ? 'inline-block' : 'none';
     if (session) {
@@ -1568,7 +1568,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const password = document.getElementById('password').value;
     const tier = document.getElementById('tier').value;
     const role = document.getElementById('account-type').value;
-    const { error } = await supabase.auth.signUp({
+    const { error } = await supabaseClient.auth.signUp({
       email,
       password,
       options: { data: { tier, role } }
@@ -1579,7 +1579,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('login-btn').addEventListener('click', async () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
     if (error) alert(error.message);
     else {
       const userTier = data.user.user_metadata.tier || 'adult';
@@ -1593,7 +1593,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   document.getElementById('logout-btn').addEventListener('click', async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabaseClient.auth.signOut();
     alert(error ? error.message : 'Logged out!');
   });
 

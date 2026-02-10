@@ -8,6 +8,7 @@ let currentUserId = null;
 let currentUserRole = 'member';
 let currentChurch = null;
 let lastQueryInput = '';
+let subscriptionTier = 'free';
 const STOP_WORDS = new Set([
   'the', 'and', 'a', 'an', 'of', 'to', 'in', 'is', 'it', 'for', 'on', 'with',
   'that', 'this', 'be', 'as', 'at', 'by', 'from', 'or', 'are', 'was', 'were',
@@ -207,6 +208,7 @@ const isSupabaseConfigured = !supabaseUrl.includes('your-project-ref') && supaba
 const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
 const LESSONS_STORAGE_KEY = 'lessonPlans';
+const MESSAGE_STORAGE_KEY = 'messageBoard';
 const templates = [
   {
     title: 'Gospel Clarity',
@@ -244,6 +246,193 @@ const versionFiles = {
   NLT: 'nlt.json',
   NKJV: 'nkjv.json'
 };
+
+const curriculum = {
+  kid: [
+    {
+      week: 'Week 1: God Made Everything',
+      focus: 'Creation',
+      memory: 'Genesis 1:1',
+      passage: 'Genesis 1',
+      bigIdea: 'God created everything and it was good.',
+      activities: [
+        'Create a “creation collage” with pictures of things God made.',
+        'Go on a short nature walk and thank God for what you see.',
+        'Draw your favorite day of creation.'
+      ],
+      questions: [
+        'What did God make first?',
+        'What does creation teach us about God?',
+        'How can we take care of what God made?'
+      ]
+    },
+    {
+      week: 'Week 2: Jesus Loves Us',
+      focus: 'God’s love',
+      memory: 'John 3:16',
+      passage: 'John 3:16',
+      bigIdea: 'God loves us so much He sent Jesus.',
+      activities: [
+        'Write or draw a “God loves you” card for someone.',
+        'Make a heart craft and add one way you can show love.',
+        'Share one thing you’re thankful for about Jesus.'
+      ],
+      questions: [
+        'How do we know God loves us?',
+        'Who did God give for us?',
+        'How can we show love today?'
+      ]
+    },
+    {
+      week: 'Week 3: Be Brave with God',
+      focus: 'Courage',
+      memory: 'Joshua 1:9',
+      passage: '1 Samuel 17',
+      bigIdea: 'God gives us courage like David.',
+      activities: [
+        'Practice a “brave prayer” for something scary.',
+        'Make a paper sling and talk about David’s trust.',
+        'Role-play being brave with God’s help.'
+      ],
+      questions: [
+        'Why wasn’t David afraid?',
+        'What helps you be brave?',
+        'How can we trust God this week?'
+      ]
+    }
+  ],
+  teen: [
+    {
+      week: 'Week 1: Identity in Christ',
+      focus: 'Who we are in Jesus',
+      memory: '2 Corinthians 5:17',
+      passage: 'Ephesians 1:3-14',
+      bigIdea: 'Our identity is secure in Christ.',
+      activities: [
+        'Write a list of “who God says I am” statements.',
+        'Discuss how identity affects choices and habits.',
+        'Memorize the verse with a partner.'
+      ],
+      questions: [
+        'What does it mean to be new in Christ?',
+        'How does your identity shape your decisions?',
+        'Where do you look for identity besides Jesus?'
+      ]
+    },
+    {
+      week: 'Week 2: Peace in Anxiety',
+      focus: 'Anxiety and trust',
+      memory: 'Philippians 4:6-7',
+      passage: 'Philippians 4:4-9',
+      bigIdea: 'God offers peace when we pray.',
+      activities: [
+        'Write a prayer list and pray together.',
+        'Replace an anxious thought with a promise from God.',
+        'Create a “peace plan” for stressful moments.'
+      ],
+      questions: [
+        'What does Paul say to do with anxiety?',
+        'How does prayer change our hearts?',
+        'What promise can you hold onto this week?'
+      ]
+    },
+    {
+      week: 'Week 3: Faith in Action',
+      focus: 'Living out faith',
+      memory: 'James 2:17',
+      passage: 'James 2:14-26',
+      bigIdea: 'Real faith shows up in real life.',
+      activities: [
+        'Plan one act of service you can do this week.',
+        'Discuss how faith changes relationships.',
+        'Share a testimony of God at work.'
+      ],
+      questions: [
+        'What does it mean that faith without works is dead?',
+        'How can we serve someone this week?',
+        'What is one step of obedience you can take?'
+      ]
+    }
+  ]
+};
+
+function getDailyVerseRef() {
+  const refs = Object.keys(bible);
+  if (!refs.length) return null;
+  const seed = new Date().toDateString().split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  return refs[seed % refs.length];
+}
+
+function renderDailyVerse() {
+  const card = document.getElementById('daily-verse-card');
+  if (!card) return;
+  if (!Object.keys(bible).length) {
+    card.innerHTML = '<p class="empty">Bible data not loaded.</p>';
+    return;
+  }
+  const ref = getDailyVerseRef();
+  if (!ref || !bible[ref]) {
+    card.innerHTML = '<p class="empty">Verse not available.</p>';
+    return;
+  }
+  card.innerHTML = `<strong>${ref}</strong><p>${bible[ref]}</p>`;
+}
+
+function loadMessagesLocal() {
+  try {
+    return JSON.parse(localStorage.getItem(MESSAGE_STORAGE_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveMessagesLocal(items) {
+  localStorage.setItem(MESSAGE_STORAGE_KEY, JSON.stringify(items));
+}
+
+async function loadMessages() {
+  if (isSupabaseConfigured) {
+    const { data, error } = await supabaseClient
+      .from('messages')
+      .select('id, user_id, text, created_at')
+      .order('created_at', { ascending: false })
+      .limit(50);
+    if (!error && Array.isArray(data)) return data;
+  }
+  return loadMessagesLocal();
+}
+
+async function postMessage(text) {
+  if (isSupabaseConfigured) {
+    const { data, error } = await supabaseClient
+      .from('messages')
+      .insert({ user_id: currentUserId, text })
+      .select('id, user_id, text, created_at')
+      .single();
+    if (!error && data) return data;
+  }
+  const local = loadMessagesLocal();
+  const item = { id: generateUuid(), user_id: currentUserId || 'guest', text, created_at: new Date().toISOString() };
+  local.unshift(item);
+  saveMessagesLocal(local);
+  return item;
+}
+
+function renderMessages(items) {
+  const list = document.getElementById('message-list');
+  if (!list) return;
+  list.innerHTML = '';
+  if (!items.length) {
+    list.innerHTML = '<p class="empty">No messages yet. Be the first to encourage someone.</p>';
+    return;
+  }
+  items.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'list-item';
+    row.innerHTML = `<div><strong>Member</strong><p>${item.text}</p></div>`;
+    list.appendChild(row);
+  });
+}
 
 const defaultChurches = [
   { id: 'tdb-community', name: 'Today\'s Daily Battle Church', city: 'Online', state: 'Online', is_online: true },
@@ -791,6 +980,9 @@ function setView(state) {
     coloringStories.style.display = 'none';
   } else {
     applyRoleAccess();
+    const firstVisible = document.querySelector('#feature-nav [data-section][style*="inline-flex"]');
+    const target = firstVisible ? firstVisible.getAttribute('data-section') : 'study-tools';
+    showFeature(target);
   }
 }
 
@@ -805,25 +997,52 @@ function updateRoleViews() {
 function applyRoleAccess() {
   const role = currentUserRole || 'member';
   const showFor = {
-    pastor: ['sermon-builder', 'pastor-resources', 'church-center', 'study-tools', 'chapter-reader', 'coloring-stories'],
-    teacher: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
-    adult: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
-    family: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
-    member: ['study-tools', 'chapter-reader', 'coloring-stories', 'church-center']
+    pastor: ['verse-of-day', 'message-board', 'sermon-builder', 'pastor-resources', 'church-center', 'study-tools', 'chapter-reader', 'coloring-stories'],
+    teacher: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
+    adult: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
+    family: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
+    member: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center']
   };
   const allowed = new Set(showFor[role] || showFor.member);
   const sections = [
+    'verse-of-day',
     'study-tools',
     'chapter-reader',
     'sermon-builder',
     'pastor-resources',
     'coloring-stories',
-    'church-center'
+    'church-center',
+    'message-board'
   ];
   sections.forEach(id => {
     const section = document.getElementById(id);
     if (section) {
       section.style.display = allowed.has(id) ? 'block' : 'none';
+    }
+  });
+
+  const navButtons = document.querySelectorAll('#feature-nav [data-section]');
+  navButtons.forEach(button => {
+    const sectionId = button.getAttribute('data-section');
+    button.style.display = allowed.has(sectionId) ? 'inline-flex' : 'none';
+  });
+}
+
+function showFeature(sectionId) {
+  const sections = [
+    'verse-of-day',
+    'study-tools',
+    'chapter-reader',
+    'sermon-builder',
+    'pastor-resources',
+    'coloring-stories',
+    'church-center',
+    'message-board'
+  ];
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.style.display = id === sectionId ? 'block' : 'none';
     }
   });
 }
@@ -1082,6 +1301,45 @@ function buildLessonPlan(results, audience) {
   output.push('Activity: Write one encouragement or action step and share it.');
   output.push('Prayer: Pray the promises of the passage back to God.');
   return output;
+}
+
+function populateCurriculumWeeks(audience) {
+  const select = document.getElementById('curriculum-week');
+  select.innerHTML = '';
+  const weeks = curriculum[audience] || [];
+  weeks.forEach((item, idx) => {
+    const opt = document.createElement('option');
+    opt.value = String(idx);
+    opt.textContent = item.week;
+    select.appendChild(opt);
+  });
+}
+
+function renderCurriculumWeek(audience, index) {
+  const output = document.getElementById('curriculum-output');
+  output.innerHTML = '';
+  const weeks = curriculum[audience] || [];
+  const item = weeks[Number(index)];
+  if (!item) {
+    output.innerHTML = '<p class="empty">No curriculum available.</p>';
+    return;
+  }
+  const lines = [
+    `Focus: ${item.focus}`,
+    `Big Idea: ${item.bigIdea}`,
+    `Passage: ${item.passage}`,
+    `Memory Verse: ${item.memory}`,
+    'Activities:',
+    ...item.activities.map(act => `• ${act}`),
+    'Questions:',
+    ...item.questions.map(q => `• ${q}`)
+  ];
+  lines.forEach(line => {
+    const row = document.createElement('div');
+    row.className = 'list-item';
+    row.textContent = line;
+    output.appendChild(row);
+  });
 }
 
 function populateColoringStories() {
@@ -1453,10 +1711,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const versionSelect = document.getElementById('version');
   await loadBible(versionSelect.value);
   refreshBibleView();
+  renderDailyVerse();
   const { data: sessionData } = await supabaseClient.auth.getSession();
   if (sessionData?.session) {
     currentUserId = sessionData.session.user.id;
     currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
+    subscriptionTier = sessionData.session.user.user_metadata?.subscription || 'free';
     document.getElementById('logout-btn').style.display = 'inline-block';
     const userTier = sessionData.session.user.user_metadata?.tier || 'adult';
     document.getElementById('tier').value = userTier;
@@ -1464,6 +1724,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateRoleViews();
     renderDashboard(currentUserRole);
     setView('dashboard');
+    loadMessages().then(renderMessages);
   }
 
   supabaseClient.auth.onAuthStateChange(async (_event, session) => {
@@ -1472,12 +1733,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (session) {
       const userTier = session.user.user_metadata?.tier || 'adult';
       currentUserRole = session.user.user_metadata?.role || 'member';
+      subscriptionTier = session.user.user_metadata?.subscription || 'free';
       document.getElementById('tier').value = userTier;
       await syncUserData();
       updateRoleViews();
       renderDashboard(currentUserRole);
       setView('dashboard');
+      loadMessages().then(renderMessages);
     } else {
+      subscriptionTier = 'free';
       setView('search');
     }
   });
@@ -1751,6 +2015,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
+  const curriculumAudience = document.getElementById('curriculum-audience');
+  populateCurriculumWeeks(curriculumAudience.value);
+  renderCurriculumWeek(curriculumAudience.value, 0);
+
+  curriculumAudience.addEventListener('change', (e) => {
+    populateCurriculumWeeks(e.target.value);
+    renderCurriculumWeek(e.target.value, 0);
+  });
+
+  document.getElementById('load-curriculum').addEventListener('click', () => {
+    const audience = curriculumAudience.value;
+    const weekIndex = document.getElementById('curriculum-week').value;
+    renderCurriculumWeek(audience, weekIndex);
+  });
+
   document.getElementById('reader-book').addEventListener('change', (e) => {
     populateReaderChapters(e.target.value);
     const chapters = bookIndex[e.target.value] || [];
@@ -1890,6 +2169,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     link.download = 'bible-coloring.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
+  });
+
+  document.querySelectorAll('#feature-nav [data-section]').forEach(button => {
+    button.addEventListener('click', () => {
+      showFeature(button.getAttribute('data-section'));
+      setView('search');
+    });
+  });
+
+  const messageNote = document.getElementById('message-board-note');
+  const postButton = document.getElementById('post-message');
+  const messageInput = document.getElementById('message-text');
+
+  const refreshMessageNote = () => {
+    if (!currentUserId) {
+      messageNote.textContent = 'Log in to view and post messages.';
+      postButton.disabled = true;
+      messageInput.disabled = true;
+      return;
+    }
+    if (subscriptionTier !== 'monthly') {
+      messageNote.textContent = 'Posting is available for monthly subscribers. You can still read messages.';
+      postButton.disabled = true;
+      messageInput.disabled = true;
+      return;
+    }
+    messageNote.textContent = 'Monthly member posting enabled.';
+    postButton.disabled = false;
+    messageInput.disabled = false;
+  };
+
+  refreshMessageNote();
+  loadMessages().then(renderMessages);
+
+  postButton.addEventListener('click', async () => {
+    const text = messageInput.value.trim();
+    if (!text) return;
+    await postMessage(text);
+    messageInput.value = '';
+    loadMessages().then(renderMessages);
   });
 
   const savedChurch = loadUserChurch();

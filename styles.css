@@ -140,6 +140,55 @@ input:focus, select:focus, textarea:focus {
   align-items: center;
 }
 
+.filter-stack {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 140px;
+}
+
+.compact-select {
+  min-width: 140px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+.search-stack {
+  display: grid;
+  flex: 1;
+  gap: 0.6rem;
+  min-width: 240px;
+}
+
+.search-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.feature-nav {
+  margin-bottom: 2rem;
+}
+
+.feature-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.verse-of-day {
+  margin-top: 2rem;
+}
+
+.message-board {
+  margin-top: 2rem;
+}
+
+.message-form {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
 button {
   padding: 1rem 2rem;
   background: var(--primary);
@@ -540,4 +589,5 @@ footer {
   input, select, textarea, button { width: 100%; margin: 0.35rem 0; }
   .controls { flex-direction: column; align-items: stretch; }
   .auth-card, .controls { padding: 1.5rem; }
+  .feature-buttons { flex-direction: column; }
 }

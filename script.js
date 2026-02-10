@@ -203,8 +203,13 @@ const topics = {
 
 const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
 const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
-const supabaseClient = Supabase.createClient(supabaseUrl, supabaseKey);
-const isSupabaseConfigured = !supabaseUrl.includes('your-project-ref') && supabaseKey && !supabaseKey.includes('...');
+const supabaseClient = typeof Supabase !== 'undefined'
+  ? Supabase.createClient(supabaseUrl, supabaseKey)
+  : null;
+const isSupabaseConfigured = Boolean(supabaseClient) &&
+  !supabaseUrl.includes('your-project-ref') &&
+  supabaseKey &&
+  !supabaseKey.includes('...');
 const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
 const LESSONS_STORAGE_KEY = 'lessonPlans';
@@ -1721,7 +1726,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadBible(versionSelect.value);
   refreshBibleView();
   renderDailyVerse();
-  const { data: sessionData } = await supabaseClient.auth.getSession();
+  if (!supabaseClient) {
+    const authSection = document.getElementById('auth-section');
+    if (authSection) {
+      const note = document.createElement('p');
+      note.className = 'section-note';
+      note.textContent = 'Login is unavailable right now. Please check the Supabase script load.';
+      authSection.prepend(note);
+    }
+  }
+  const { data: sessionData } = supabaseClient
+    ? await supabaseClient.auth.getSession()
+    : { data: null };
   if (sessionData?.session) {
     currentUserId = sessionData.session.user.id;
     currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
@@ -1736,7 +1752,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadMessages().then(renderMessages);
   }
 
-  supabaseClient.auth.onAuthStateChange(async (_event, session) => {
+  if (supabaseClient) {
+    supabaseClient.auth.onAuthStateChange(async (_event, session) => {
     currentUserId = session?.user?.id || null;
     document.getElementById('logout-btn').style.display = session ? 'inline-block' : 'none';
     if (session) {
@@ -1753,7 +1770,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       subscriptionTier = 'free';
       setView('search');
     }
-  });
+    });
+  }
 
   document.getElementById('search-btn').addEventListener('click', () => {
     setView('search');
@@ -1841,6 +1859,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const password = document.getElementById('password').value;
     const tier = document.getElementById('tier').value;
     const role = document.getElementById('account-type').value;
+    if (!supabaseClient) {
+      alert('Login is unavailable right now. Please refresh the page.');
+      return;
+    }
     const { error } = await supabaseClient.auth.signUp({
       email,
       password,
@@ -1852,6 +1874,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('login-btn').addEventListener('click', async () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    if (!supabaseClient) {
+      alert('Login is unavailable right now. Please refresh the page.');
+      return;
+    }
     const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
     if (error) alert(error.message);
     else {
@@ -1866,6 +1892,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   document.getElementById('logout-btn').addEventListener('click', async () => {
+    if (!supabaseClient) {
+      alert('Login is unavailable right now. Please refresh the page.');
+      return;
+    }
     const { error } = await supabaseClient.auth.signOut();
     alert(error ? error.message : 'Logged out!');
   });

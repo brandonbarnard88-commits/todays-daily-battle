@@ -169,10 +169,26 @@ input:focus, select:focus, textarea:focus {
   margin-bottom: 2rem;
 }
 
-.feature-buttons {
+.feature-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
+}
+
+.feature-tabs button[role="tab"] {
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgba(109,40,217,0.25);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.feature-tabs button[role="tab"][aria-selected="true"] {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(109,40,217,0.25);
 }
 
 .verse-of-day {
@@ -589,5 +605,5 @@ footer {
   input, select, textarea, button { width: 100%; margin: 0.35rem 0; }
   .controls { flex-direction: column; align-items: stretch; }
   .auth-card, .controls { padding: 1.5rem; }
-  .feature-buttons { flex-direction: column; }
+  .feature-tabs { flex-direction: column; }
 }

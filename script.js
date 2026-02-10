@@ -980,7 +980,7 @@ function setView(state) {
     coloringStories.style.display = 'none';
   } else {
     applyRoleAccess();
-    const firstVisible = document.querySelector('#feature-nav [data-section][style*="inline-flex"]');
+    const firstVisible = document.querySelector('#feature-nav [role="tab"][style*="inline-flex"]');
     const target = firstVisible ? firstVisible.getAttribute('data-section') : 'study-tools';
     showFeature(target);
   }
@@ -1028,6 +1028,14 @@ function applyRoleAccess() {
   });
 }
 
+function setActiveTab(sectionId) {
+  const tabs = document.querySelectorAll('#feature-nav [role="tab"]');
+  tabs.forEach(tab => {
+    const active = tab.getAttribute('data-section') === sectionId;
+    tab.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+}
+
 function showFeature(sectionId) {
   const sections = [
     'verse-of-day',
@@ -1045,6 +1053,7 @@ function showFeature(sectionId) {
       section.style.display = id === sectionId ? 'block' : 'none';
     }
   });
+  setActiveTab(sectionId);
 }
 
 async function saveNoteToSupabase(note) {

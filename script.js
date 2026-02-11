@@ -1186,6 +1186,7 @@ function applySharePayload(data) {
 
 function populateTemplateList() {
   const container = document.getElementById('template-list');
+  if (!container) return;
   container.innerHTML = '';
   templates.forEach(template => {
     const card = document.createElement('div');

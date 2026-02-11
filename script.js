@@ -1336,6 +1336,7 @@ function renderCurriculumWeek(audience, index) {
 
 function populateColoringStories() {
   const select = document.getElementById('story-select');
+  if (!select) return;
   select.innerHTML = '';
   coloringStories.forEach(story => {
     const opt = document.createElement('option');

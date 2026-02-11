@@ -1928,7 +1928,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   populateTemplateList();
   populateColoringStories();
   setupColoringCanvas();
-  loadStoryIntoCanvas(getStoryById(document.getElementById('story-select').value));
+  const storySelect = document.getElementById('story-select');
+  if (storySelect) {
+    loadStoryIntoCanvas(getStoryById(storySelect.value));
+  }
   renderFeaturedChurches();
   const sermonDateInput = document.getElementById('sermon-date-input');
   if (sermonDateInput && !sermonDateInput.value) {

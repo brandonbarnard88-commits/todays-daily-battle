@@ -167,6 +167,7 @@ input:focus, select:focus, textarea:focus {
   margin: 0.5rem 0 1.5rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  justify-content: center;
 }
 
 .site-nav a {
@@ -178,6 +179,7 @@ input:focus, select:focus, textarea:focus {
   background: #fde68a;
   border: 1px solid #f59e0b;
   opacity: 1;
+  white-space: nowrap;
 }
 
 .site-nav a:hover {

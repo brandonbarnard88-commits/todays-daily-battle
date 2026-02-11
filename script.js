@@ -243,6 +243,14 @@ const supabaseScriptUrls = [
 function getSupabaseGlobal() {
   if (typeof Supabase !== 'undefined') return Supabase;
   if (typeof supabase !== 'undefined') return supabase;
+  if (typeof globalThis !== 'undefined') {
+    if (globalThis.Supabase) return globalThis.Supabase;
+    if (globalThis.supabase) return globalThis.supabase;
+  }
+  if (typeof window !== 'undefined') {
+    if (window.Supabase) return window.Supabase;
+    if (window.supabase) return window.supabase;
+  }
   return null;
 }
 
@@ -319,6 +327,11 @@ async function ensureSupabaseLoaded() {
       setAuthStatus('Auth ready.', 'success');
       return true;
     }
+  }
+  const delayedReady = await waitForSupabaseReady(8000);
+  if (delayedReady) {
+    setAuthStatus('Auth ready.', 'success');
+    return true;
   }
   await reportSupabaseDiagnostics();
   return false;

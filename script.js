@@ -278,20 +278,41 @@ function loadSupabaseScript(url) {
   });
 }
 
+async function waitForSupabaseReady(timeoutMs = 10000) {
+  const started = Date.now();
+  while (Date.now() - started < timeoutMs) {
+    if (initSupabaseClient()) return true;
+    await new Promise(resolve => setTimeout(resolve, 500));
+  }
+  return false;
+}
+
 async function ensureSupabaseLoaded() {
   if (initSupabaseClient()) {
     setAuthStatus('Auth ready.', 'success');
     return true;
   }
-  if (document.querySelector('script[data-supabase-sdk="true"]')) return;
+  const existing = document.querySelector('script[data-supabase-sdk="true"]');
+  if (existing) {
+    const ready = await waitForSupabaseReady(10000);
+    if (ready) {
+      setAuthStatus('Auth ready.', 'success');
+      return true;
+    }
+  }
   for (const url of supabaseScriptUrls) {
     const ok = await loadSupabaseScript(url);
     if (ok && initSupabaseClient()) {
       setAuthStatus('Auth ready.', 'success');
       return true;
     }
+    const ready = await waitForSupabaseReady(8000);
+    if (ready) {
+      setAuthStatus('Auth ready.', 'success');
+      return true;
+    }
   }
-  setAuthStatus('Auth failed to load.', 'error');
+  setAuthStatus('Auth failed to load. Check CDN access.', 'error');
   return false;
 }
 

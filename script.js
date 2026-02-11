@@ -548,6 +548,104 @@ const coloringStories = [
         <text x="40" y="560" font-size="28" font-family="Arial" fill="black">God gave David courage.</text>
       </svg>
     `
+  },
+  {
+    id: 'moses',
+    title: 'Moses and the Red Sea (Exodus 14)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <path d="M40 140 C180 60, 280 80, 360 140" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M540 140 C620 80, 720 60, 860 140" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M80 200 C200 120, 300 140, 380 200" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M520 200 C600 140, 700 120, 820 200" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M120 460 L360 260 L540 260 L780 460" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="260" x2="450" y2="500" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="500" x2="380" y2="560" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="500" x2="520" y2="560" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="340" x2="520" y2="300" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="340" x2="380" y2="300" stroke="black" stroke-width="4"/>
+        <line x1="520" y1="300" x2="560" y2="240" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">God made a way through the sea.</text>
+      </svg>
+    `
+  },
+  {
+    id: 'jonah',
+    title: 'Jonah and the Big Fish (Jonah 1-2)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <path d="M80 360 Q260 220 440 280 Q520 220 700 260 Q820 320 760 400 Q660 500 480 460 Q320 520 200 460 Q80 420 80 360 Z" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="720" cy="320" r="18" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="720" cy="320" r="4" fill="black"/>
+        <path d="M140 360 Q200 330 260 360" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="520" cy="360" r="24" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="520" y1="384" x2="520" y2="440" stroke="black" stroke-width="4"/>
+        <line x1="520" y1="410" x2="480" y2="430" stroke="black" stroke-width="4"/>
+        <line x1="520" y1="410" x2="560" y2="430" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">God rescued Jonah and gave him another chance.</text>
+      </svg>
+    `
+  },
+  {
+    id: 'daniel',
+    title: 'Daniel in the Lions’ Den (Daniel 6)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <circle cx="260" cy="360" r="120" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="640" cy="360" r="120" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="260" cy="320" r="28" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="640" cy="320" r="28" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="252" cy="318" r="4" fill="black"/>
+        <circle cx="632" cy="318" r="4" fill="black"/>
+        <circle cx="450" cy="300" r="22" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="322" x2="450" y2="420" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="360" x2="400" y2="380" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="360" x2="500" y2="380" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="420" x2="410" y2="480" stroke="black" stroke-width="4"/>
+        <line x1="450" y1="420" x2="490" y2="480" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">God protected Daniel when he prayed.</text>
+      </svg>
+    `
+  },
+  {
+    id: 'storm',
+    title: 'Jesus Calms the Storm (Mark 4)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <path d="M120 420 C200 380, 280 380, 360 420" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M360 420 C440 460, 520 460, 600 420" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M600 420 C680 380, 760 380, 840 420" fill="none" stroke="black" stroke-width="4"/>
+        <path d="M260 360 L640 360 L600 440 L300 440 Z" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="360" y1="360" x2="360" y2="300" stroke="black" stroke-width="4"/>
+        <path d="M360 300 L430 320 L360 340 Z" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="520" cy="340" r="18" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="520" y1="358" x2="520" y2="400" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">Jesus spoke peace to the storm.</text>
+      </svg>
+    `
+  },
+  {
+    id: 'samaritan',
+    title: 'The Good Samaritan (Luke 10)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <circle cx="260" cy="260" r="24" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="260" y1="284" x2="260" y2="380" stroke="black" stroke-width="4"/>
+        <line x1="260" y1="320" x2="220" y2="360" stroke="black" stroke-width="4"/>
+        <line x1="260" y1="320" x2="300" y2="360" stroke="black" stroke-width="4"/>
+        <line x1="260" y1="380" x2="230" y2="440" stroke="black" stroke-width="4"/>
+        <line x1="260" y1="380" x2="290" y2="440" stroke="black" stroke-width="4"/>
+        <rect x="430" y="320" width="220" height="100" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="470" cy="350" r="12" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="610" cy="350" r="12" fill="none" stroke="black" stroke-width="4"/>
+        <text x="40" y="560" font-size="28" font-family="Arial" fill="black">Show kindness to your neighbor.</text>
+      </svg>
+    `
   }
 ];
 

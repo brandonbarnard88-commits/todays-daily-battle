@@ -1366,6 +1366,7 @@ function loadStoryIntoCanvas(story) {
 
 function setupColoringCanvas() {
   const canvas = document.getElementById('coloring-canvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const colorInput = document.getElementById('paint-color');
   const sizeInput = document.getElementById('brush-size');

@@ -163,7 +163,7 @@ input:focus, select:focus, textarea:focus {
 
 .site-nav {
   display: grid;
-  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0.8rem;
   margin: 0.5rem auto 1.5rem;
   padding: 0.7rem 0.9rem 0.9rem;
@@ -173,7 +173,8 @@ input:focus, select:focus, textarea:focus {
   border-radius: 14px;
   position: relative;
   z-index: 3;
-  max-width: 980px;
+  max-width: 100%;
+  overflow: visible;
 }
 
 .site-nav a {
@@ -188,6 +189,7 @@ input:focus, select:focus, textarea:focus {
   white-space: nowrap;
   width: 100%;
   text-align: center;
+  min-width: 0;
 }
 
 .site-nav a:hover {

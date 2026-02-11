@@ -396,7 +396,8 @@ const curriculum = {
 function getDailyVerseRef() {
   const refs = Object.keys(bible);
   if (!refs.length) return null;
-  const seed = new Date().toDateString().split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  const dayKey = new Date().toISOString().slice(0, 10);
+  const seed = dayKey.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
   return refs[seed % refs.length];
 }
 
@@ -566,6 +567,7 @@ async function loadBible(version = currentVersion) {
     bibleVersions[version] = bible;
     currentVersion = version;
     console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
+    renderDailyVerse();
   } catch (err) {
     console.error('Error loading kjv.json:', err.message);
     alert('Could not load Bible data. Please try refreshing the page.');
@@ -1816,7 +1818,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   loadLocalSermons();
   const versionSelect = document.getElementById('version');
-  await loadBible(versionSelect.value);
+  await loadBible(versionSelect ? versionSelect.value : currentVersion);
   refreshBibleView();
   renderDailyVerse();
   if (!supabaseClient) {

@@ -235,7 +235,10 @@ const topics = {
 
 const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
 const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
-const supabaseScriptUrl = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+const supabaseScriptUrls = [
+  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
+  'https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js'
+];
 let supabaseClient = typeof Supabase !== 'undefined'
   ? Supabase.createClient(supabaseUrl, supabaseKey)
   : null;
@@ -254,27 +257,42 @@ function initSupabaseClient() {
   return Boolean(supabaseClient);
 }
 
-function ensureSupabaseLoaded() {
+function loadSupabaseScript(url) {
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    script.defer = true;
+    script.setAttribute('data-cfasync', 'false');
+    script.setAttribute('data-supabase-sdk', 'true');
+    const timeout = setTimeout(() => resolve(false), 8000);
+    script.onload = () => {
+      clearTimeout(timeout);
+      resolve(true);
+    };
+    script.onerror = () => {
+      clearTimeout(timeout);
+      resolve(false);
+    };
+    document.head.appendChild(script);
+  });
+}
+
+async function ensureSupabaseLoaded() {
   if (initSupabaseClient()) {
     setAuthStatus('Auth ready.', 'success');
-    return;
+    return true;
   }
   if (document.querySelector('script[data-supabase-sdk="true"]')) return;
-  const script = document.createElement('script');
-  script.src = supabaseScriptUrl;
-  script.async = true;
-  script.defer = true;
-  script.setAttribute('data-cfasync', 'false');
-  script.setAttribute('data-supabase-sdk', 'true');
-  script.onload = () => {
-    if (initSupabaseClient()) {
+  for (const url of supabaseScriptUrls) {
+    const ok = await loadSupabaseScript(url);
+    if (ok && initSupabaseClient()) {
       setAuthStatus('Auth ready.', 'success');
-    } else {
-      setAuthStatus('Auth failed to load.', 'error');
+      return true;
     }
-  };
-  script.onerror = () => setAuthStatus('Auth failed to load.', 'error');
-  document.head.appendChild(script);
+  }
+  setAuthStatus('Auth failed to load.', 'error');
+  return false;
 }
 
 function getAuthStatusEl() {

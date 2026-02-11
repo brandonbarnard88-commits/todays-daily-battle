@@ -14,6 +14,20 @@
     <div class="hero-content">
       <h1>Today's Daily Battle</h1>
       <p>Face every struggle with the sword of God's Word (KJV)</p>
+      <div id="auth-section" class="auth-inline">
+        <input id="email" placeholder="Email" type="email">
+        <input id="password" placeholder="Password" type="password">
+        <select id="account-type">
+          <option value="member" selected>Member</option>
+          <option value="adult">Adult</option>
+          <option value="family">Family</option>
+          <option value="teacher">Teacher</option>
+          <option value="pastor">Pastor</option>
+        </select>
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="logout-btn" style="display:none">Log Out</button>
+      </div>
     </div>
   </header>
 
@@ -47,28 +61,11 @@
       </div>
       <div class="search-stack">
         <input id="query" placeholder="Search anger, fear, John 3:16, love...">
-        <div class="search-actions">
-          <button id="search-btn">Battle It!</button>
+      <div class="search-actions">
+        <button id="search-btn">Search</button>
           <button id="daily-btn">Today's Battle</button>
           <button id="dark-toggle">Toggle Dark Mode</button>
         </div>
-      </div>
-    </section>
-
-    <section id="auth-section" class="auth-card glass compact">
-      <input id="email" placeholder="Email" type="email">
-      <input id="password" placeholder="Password" type="password">
-      <select id="account-type">
-        <option value="member" selected>Church Member</option>
-        <option value="adult">Adult</option>
-        <option value="family">Family</option>
-        <option value="teacher">Teacher</option>
-        <option value="pastor">Pastor</option>
-      </select>
-      <div class="auth-buttons">
-        <button id="signup-btn">Sign Up</button>
-        <button id="login-btn">Log In</button>
-        <button id="logout-btn" style="display:none">Log Out</button>
       </div>
     </section>
 

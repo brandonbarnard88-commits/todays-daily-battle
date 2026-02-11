@@ -16,7 +16,6 @@ body {
   color: var(--text-light);
   transition: background 0.4s, color 0.4s;
   min-height: 100vh;
-  line-height: 1.6;
 }
 
 .container h2 {
@@ -61,6 +60,26 @@ body {
   animation: fadeUp 1.2s ease-out;
 }
 
+.auth-inline {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.auth-inline input,
+.auth-inline select {
+  min-width: 140px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+}
+
+.auth-inline button {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+}
+
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(3.5rem, 8vw, 7rem);
@@ -85,10 +104,6 @@ h1 {
   padding: 0 20px;
 }
 
-.container > section {
-  margin-top: 2rem;
-}
-
 .glass {
   background: var(--card-light);
   backdrop-filter: blur(16px);
@@ -98,7 +113,6 @@ h1 {
   box-shadow: 0 8px 32px rgba(0,0,0,0.15);
   border: 1px solid rgba(255,255,255,0.18);
   transition: transform 0.3s;
-  overflow: hidden;
 }
 
 .dark-mode .glass {
@@ -405,7 +419,6 @@ button:hover {
   padding: 0.8rem;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.2);
-  flex-wrap: wrap;
 }
 
 .item-actions {

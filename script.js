@@ -313,7 +313,7 @@ async function ensureSupabaseLoaded() {
       return true;
     }
   }
-  setAuthStatus('Auth failed to load. Check CDN access.', 'error');
+  await reportSupabaseDiagnostics();
   return false;
 }
 
@@ -342,6 +342,19 @@ function setAuthStatus(message, type = 'info') {
   };
   status.style.color = colors[type] || colors.info;
   status.textContent = message;
+}
+
+async function reportSupabaseDiagnostics() {
+  try {
+    const res = await fetch('vendor/supabase-js.js', { cache: 'no-store' });
+    if (!res.ok) {
+      setAuthStatus(`Auth failed: local SDK missing (status ${res.status}).`, 'error');
+      return;
+    }
+    setAuthStatus('Auth failed: SDK loaded but not initialized.', 'error');
+  } catch {
+    setAuthStatus('Auth failed: could not fetch local SDK.', 'error');
+  }
 }
 const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
@@ -2030,6 +2043,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     setAuthStatus('Auth not ready. Loading...', 'error');
     ensureSupabaseLoaded();
+    setTimeout(() => {
+      const status = document.getElementById('auth-status');
+      if (status && status.textContent.includes('Loading')) {
+        reportSupabaseDiagnostics();
+      }
+    }, 12000);
   }
   const { data: sessionData } = supabaseClient
     ? await supabaseClient.auth.getSession()

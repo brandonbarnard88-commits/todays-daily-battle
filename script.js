@@ -1966,132 +1966,176 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  document.getElementById('search-btn').addEventListener('click', () => {
-    setView('search');
-    document.getElementById('loading').style.display = 'block';
-    document.getElementById('output').innerHTML = '';
-    setTimeout(async () => {
-      const input = document.getElementById('query').value;
-      const tier = document.getElementById('tier').value;
-      lastQueryInput = input;
-      if (Object.keys(bible).length === 0) {
-        await loadBible(currentVersion);
-        refreshBibleView();
-      }
-      if (Object.keys(bible).length === 0) {
-        document.getElementById('output').innerHTML =
-          '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
-        document.getElementById('loading').style.display = 'none';
-        return;
-      }
-      const parsed = parseQuery(input);
-      const results = executeQuery(parsed, tier);
-      renderResults(results);
-      document.getElementById('loading').style.display = 'none';
-    }, 600);
-  });
-
-  document.getElementById('daily-btn').addEventListener('click', () => {
-    setView('search');
-    document.getElementById('loading').style.display = 'block';
-    document.getElementById('output').innerHTML = '';
-    setTimeout(async () => {
-      if (Object.keys(bible).length === 0) {
-        await loadBible(currentVersion);
-        refreshBibleView();
-      }
-      if (Object.keys(bible).length === 0) {
-        document.getElementById('output').innerHTML =
-          '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
-        document.getElementById('loading').style.display = 'none';
-        return;
-      }
-      const today = new Date().toDateString();
-      const topicKeys = Object.keys(topics);
-      const seed = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-      const index = seed % topicKeys.length;
-      const dailyTopic = topicKeys[index];
-      document.getElementById('query').value = dailyTopic;
-      lastQueryInput = dailyTopic;
-      const tier = document.getElementById('tier').value;
-      const parsed = parseQuery(dailyTopic);
-      const results = executeQuery(parsed, tier);
-      renderResults(results);
-      const msg = document.createElement('div');
-      msg.style = 'text-align:center; font-weight:bold; margin:1rem 0; font-size:1.2rem;';
-      msg.textContent = `Today's battle is against ${dailyTopic.toUpperCase()}! Conquer it with God's Word.`;
-      document.getElementById('output').prepend(msg);
-      document.getElementById('loading').style.display = 'none';
-    }, 600);
-  });
-
-  document.getElementById('dark-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-  });
-
-  versionSelect.addEventListener('change', async (e) => {
-    await loadBible(e.target.value);
-    refreshBibleView();
-    const input = document.getElementById('query').value.trim();
-    if (input) {
-      const tier = document.getElementById('tier').value;
-      const parsed = parseQuery(input);
-      const results = executeQuery(parsed, tier);
-      renderResults(results);
-    } else if (lastQueryInput) {
-      document.getElementById('query').value = lastQueryInput;
-      const tier = document.getElementById('tier').value;
-      const parsed = parseQuery(lastQueryInput);
-      const results = executeQuery(parsed, tier);
-      renderResults(results);
-    }
-  });
-
-  document.getElementById('signup-btn').addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const tier = document.getElementById('tier').value;
-    const role = document.getElementById('account-type').value;
-    if (!supabaseClient) {
-      alert('Login is unavailable right now. Please refresh the page.');
-      return;
-    }
-    const { error } = await supabaseClient.auth.signUp({
-      email,
-      password,
-      options: { data: { tier, role } }
+  const searchBtn = document.getElementById('search-btn');
+  if (searchBtn) {
+    searchBtn.addEventListener('click', () => {
+      setView('search');
+      const loadingEl = document.getElementById('loading');
+      const outputEl = document.getElementById('output');
+      if (loadingEl) loadingEl.style.display = 'block';
+      if (outputEl) outputEl.innerHTML = '';
+      setTimeout(async () => {
+        const queryEl = document.getElementById('query');
+        const tierEl = document.getElementById('tier');
+        const input = queryEl ? queryEl.value : '';
+        const tier = tierEl ? tierEl.value : 'adult';
+        lastQueryInput = input;
+        if (Object.keys(bible).length === 0) {
+          await loadBible(currentVersion);
+          refreshBibleView();
+        }
+        if (Object.keys(bible).length === 0) {
+          if (outputEl) {
+            outputEl.innerHTML =
+              '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
+          }
+          if (loadingEl) loadingEl.style.display = 'none';
+          return;
+        }
+        const parsed = parseQuery(input);
+        const results = executeQuery(parsed, tier);
+        renderResults(results);
+        if (loadingEl) loadingEl.style.display = 'none';
+      }, 600);
     });
-    alert(error ? error.message : 'Signed up! Check your email.');
-  });
+  }
 
-  document.getElementById('login-btn').addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    if (!supabaseClient) {
-      alert('Login is unavailable right now. Please refresh the page.');
-      return;
-    }
-    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-    if (error) alert(error.message);
-    else {
-      const userTier = data.user.user_metadata.tier || 'adult';
-      currentUserRole = data.user.user_metadata.role || 'member';
-      document.getElementById('tier').value = userTier;
-      alert('Logged in!');
-      updateRoleViews();
-      renderDashboard(currentUserRole);
-      setView('dashboard');
-    }
-  });
+  const dailyBtn = document.getElementById('daily-btn');
+  if (dailyBtn) {
+    dailyBtn.addEventListener('click', () => {
+      setView('search');
+      const loadingEl = document.getElementById('loading');
+      const outputEl = document.getElementById('output');
+      if (loadingEl) loadingEl.style.display = 'block';
+      if (outputEl) outputEl.innerHTML = '';
+      setTimeout(async () => {
+        if (Object.keys(bible).length === 0) {
+          await loadBible(currentVersion);
+          refreshBibleView();
+        }
+        if (Object.keys(bible).length === 0) {
+          if (outputEl) {
+            outputEl.innerHTML =
+              '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
+          }
+          if (loadingEl) loadingEl.style.display = 'none';
+          return;
+        }
+        const today = new Date().toDateString();
+        const topicKeys = Object.keys(topics);
+        const seed = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+        const index = seed % topicKeys.length;
+        const dailyTopic = topicKeys[index];
+        const queryEl = document.getElementById('query');
+        if (queryEl) queryEl.value = dailyTopic;
+        lastQueryInput = dailyTopic;
+        const tierEl = document.getElementById('tier');
+        const tier = tierEl ? tierEl.value : 'adult';
+        const parsed = parseQuery(dailyTopic);
+        const results = executeQuery(parsed, tier);
+        renderResults(results);
+        if (outputEl) {
+          const msg = document.createElement('div');
+          msg.style = 'text-align:center; font-weight:bold; margin:1rem 0; font-size:1.2rem;';
+          msg.textContent = `Today's battle is against ${dailyTopic.toUpperCase()}! Conquer it with God's Word.`;
+          outputEl.prepend(msg);
+        }
+        if (loadingEl) loadingEl.style.display = 'none';
+      }, 600);
+    });
+  }
 
-  document.getElementById('logout-btn').addEventListener('click', async () => {
-    if (!supabaseClient) {
-      alert('Login is unavailable right now. Please refresh the page.');
-      return;
-    }
-    const { error } = await supabaseClient.auth.signOut();
-    alert(error ? error.message : 'Logged out!');
-  });
+  const darkToggle = document.getElementById('dark-toggle');
+  if (darkToggle) {
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  }
+
+  if (versionSelect) {
+    versionSelect.addEventListener('change', async (e) => {
+      await loadBible(e.target.value);
+      refreshBibleView();
+      const queryEl = document.getElementById('query');
+      const input = queryEl ? queryEl.value.trim() : '';
+      if (input) {
+        const tierEl = document.getElementById('tier');
+        const tier = tierEl ? tierEl.value : 'adult';
+        const parsed = parseQuery(input);
+        const results = executeQuery(parsed, tier);
+        renderResults(results);
+      } else if (lastQueryInput) {
+        if (queryEl) queryEl.value = lastQueryInput;
+        const tierEl = document.getElementById('tier');
+        const tier = tierEl ? tierEl.value : 'adult';
+        const parsed = parseQuery(lastQueryInput);
+        const results = executeQuery(parsed, tier);
+        renderResults(results);
+      }
+    });
+  }
+
+  const signupBtn = document.getElementById('signup-btn');
+  if (signupBtn) {
+    signupBtn.addEventListener('click', async () => {
+      const emailEl = document.getElementById('email');
+      const passwordEl = document.getElementById('password');
+      const tierEl = document.getElementById('tier');
+      const roleEl = document.getElementById('account-type');
+      const email = emailEl ? emailEl.value : '';
+      const password = passwordEl ? passwordEl.value : '';
+      const tier = tierEl ? tierEl.value : 'adult';
+      const role = roleEl ? roleEl.value : 'member';
+      if (!supabaseClient) {
+        alert('Login is unavailable right now. Please refresh the page.');
+        return;
+      }
+      const { error } = await supabaseClient.auth.signUp({
+        email,
+        password,
+        options: { data: { tier, role } }
+      });
+      alert(error ? error.message : 'Signed up! Check your email.');
+    });
+  }
+
+  const loginBtn = document.getElementById('login-btn');
+  if (loginBtn) {
+    loginBtn.addEventListener('click', async () => {
+      const emailEl = document.getElementById('email');
+      const passwordEl = document.getElementById('password');
+      const email = emailEl ? emailEl.value : '';
+      const password = passwordEl ? passwordEl.value : '';
+      if (!supabaseClient) {
+        alert('Login is unavailable right now. Please refresh the page.');
+        return;
+      }
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      if (error) alert(error.message);
+      else {
+        const userTier = data.user.user_metadata.tier || 'adult';
+        currentUserRole = data.user.user_metadata.role || 'member';
+        const tierEl = document.getElementById('tier');
+        if (tierEl) tierEl.value = userTier;
+        alert('Logged in!');
+        updateRoleViews();
+        renderDashboard(currentUserRole);
+        setView('dashboard');
+      }
+    });
+  }
+
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      if (!supabaseClient) {
+        alert('Login is unavailable right now. Please refresh the page.');
+        return;
+      }
+      const { error } = await supabaseClient.auth.signOut();
+      alert(error ? error.message : 'Logged out!');
+    });
+  }
 
   renderSavedVerses();
   renderNotes();
@@ -2119,274 +2163,353 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  document.getElementById('save-note').addEventListener('click', () => {
-    const select = document.getElementById('note-verse-select');
-    const textArea = document.getElementById('note-text');
-    const text = textArea.value.trim();
-    if (!text) return;
-    (async () => {
-      const notes = loadNotes();
-      const localNote = {
-        id: generateUuid(),
-        ref: select.value || 'General',
-        text
-      };
-      const saved = await saveNoteToSupabase(localNote);
-      notes.unshift(saved);
-      saveNotes(notes);
-      textArea.value = '';
-      renderNotes();
-    })();
-  });
-
-  document.getElementById('save-sermon').addEventListener('click', () => {
-    const draft = {
-      title: document.getElementById('sermon-title').value.trim(),
-      theme: document.getElementById('sermon-theme').value.trim(),
-      textRef: document.getElementById('sermon-text-ref').value.trim(),
-      outline: document.getElementById('sermon-outline').value.trim(),
-      points: document.getElementById('sermon-points').value.trim(),
-      application: document.getElementById('sermon-application').value.trim(),
-      prayer: document.getElementById('sermon-prayer').value.trim()
-    };
-    saveSermonDraft(draft);
-    saveSermonDraftToSupabase(draft);
-    alert('Sermon draft saved.');
-  });
-
-  document.getElementById('load-sermon').addEventListener('click', () => {
-    const draft = loadSermonDraft();
-    applySermonDraft(draft);
-  });
-
-  document.getElementById('export-sermon').addEventListener('click', () => {
-    const draft = loadSermonDraft();
-    const lines = [
-      `Title: ${draft.title || ''}`,
-      `Theme: ${draft.theme || ''}`,
-      `Primary Text: ${draft.textRef || ''}`,
-      '',
-      'Outline:',
-      draft.outline || '',
-      '',
-      'Key Points & Illustrations:',
-      draft.points || '',
-      '',
-      'Application:',
-      draft.application || '',
-      '',
-      'Closing Prayer:',
-      draft.prayer || ''
-    ];
-    navigator.clipboard.writeText(lines.join('\n'));
-    alert('Sermon copied for sharing.');
-  });
-
-  document.getElementById('share-sermon').addEventListener('click', () => {
-    const draft = loadSermonDraft();
-    const subject = encodeURIComponent(draft.title || 'Sermon Draft');
-    const body = encodeURIComponent(
-      `Theme: ${draft.theme || ''}\n` +
-      `Primary Text: ${draft.textRef || ''}\n\n` +
-      `Outline:\n${draft.outline || ''}\n\n` +
-      `Key Points & Illustrations:\n${draft.points || ''}\n\n` +
-      `Application:\n${draft.application || ''}\n\n` +
-      `Closing Prayer:\n${draft.prayer || ''}`
-    );
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
-  });
-
-  document.getElementById('share-sermon-link').addEventListener('click', async () => {
-    const draft = loadSermonDraft();
-    const link = await createShareLink('sermon', draft);
-    if (link) {
-      document.getElementById('sermon-share-link').value = link;
-    }
-  });
-
-  document.getElementById('open-sermon-link').addEventListener('click', async () => {
-    const linkInput = document.getElementById('sermon-share-link').value.trim();
-    if (!linkInput) return;
-    const url = new URL(linkInput);
-    const id = url.searchParams.get('share');
-    if (!id) return;
-    const data = await loadShareById(id);
-    if (data) applySharePayload(data);
-  });
-
-  document.getElementById('share-study').addEventListener('click', async () => {
-    const payload = {
-      results: lastResults,
-      notes: loadNotes(),
-      savedVerses: loadSavedVerses()
-    };
-    const link = await createShareLink('study', payload);
-    if (link) {
-      document.getElementById('share-link').value = link;
-    }
-  });
-
-  document.getElementById('build-lesson').addEventListener('click', () => {
-    const audience = document.getElementById('lesson-audience').value;
-    const output = document.getElementById('lesson-output');
-    output.innerHTML = '';
-    const plan = buildLessonPlan(lastResults, audience);
-    const lessons = loadLessons();
-    const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString() };
-    lessons.unshift(lessonRecord);
-    saveLessons(lessons);
-    saveLessonPlanToSupabase(audience, plan);
-    plan.forEach(line => {
-      const item = document.createElement('div');
-      item.className = 'list-item';
-      item.textContent = line;
-      output.appendChild(item);
+  const saveNoteBtn = document.getElementById('save-note');
+  if (saveNoteBtn) {
+    saveNoteBtn.addEventListener('click', () => {
+      const select = document.getElementById('note-verse-select');
+      const textArea = document.getElementById('note-text');
+      if (!textArea) return;
+      const text = textArea.value.trim();
+      if (!text) return;
+      (async () => {
+        const notes = loadNotes();
+        const localNote = {
+          id: generateUuid(),
+          ref: select ? select.value : 'General',
+          text
+        };
+        const saved = await saveNoteToSupabase(localNote);
+        notes.unshift(saved);
+        saveNotes(notes);
+        textArea.value = '';
+        renderNotes();
+      })();
     });
-    if (canUseSupabase()) {
-      const savedNote = document.createElement('div');
-      savedNote.className = 'list-item';
-      savedNote.textContent = 'Lesson saved to your account.';
-      output.appendChild(savedNote);
-    }
-  });
+  }
+
+  const saveSermonBtn = document.getElementById('save-sermon');
+  if (saveSermonBtn) {
+    saveSermonBtn.addEventListener('click', () => {
+      const draft = {
+        title: document.getElementById('sermon-title')?.value.trim() || '',
+        theme: document.getElementById('sermon-theme')?.value.trim() || '',
+        textRef: document.getElementById('sermon-text-ref')?.value.trim() || '',
+        outline: document.getElementById('sermon-outline')?.value.trim() || '',
+        points: document.getElementById('sermon-points')?.value.trim() || '',
+        application: document.getElementById('sermon-application')?.value.trim() || '',
+        prayer: document.getElementById('sermon-prayer')?.value.trim() || ''
+      };
+      saveSermonDraft(draft);
+      saveSermonDraftToSupabase(draft);
+      alert('Sermon draft saved.');
+    });
+  }
+
+  const loadSermonBtn = document.getElementById('load-sermon');
+  if (loadSermonBtn) {
+    loadSermonBtn.addEventListener('click', () => {
+      const draft = loadSermonDraft();
+      applySermonDraft(draft);
+    });
+  }
+
+  const exportSermonBtn = document.getElementById('export-sermon');
+  if (exportSermonBtn) {
+    exportSermonBtn.addEventListener('click', () => {
+      const draft = loadSermonDraft();
+      const lines = [
+        `Title: ${draft.title || ''}`,
+        `Theme: ${draft.theme || ''}`,
+        `Primary Text: ${draft.textRef || ''}`,
+        '',
+        'Outline:',
+        draft.outline || '',
+        '',
+        'Key Points & Illustrations:',
+        draft.points || '',
+        '',
+        'Application:',
+        draft.application || '',
+        '',
+        'Closing Prayer:',
+        draft.prayer || ''
+      ];
+      navigator.clipboard.writeText(lines.join('\n'));
+      alert('Sermon copied for sharing.');
+    });
+  }
+
+  const shareSermonBtn = document.getElementById('share-sermon');
+  if (shareSermonBtn) {
+    shareSermonBtn.addEventListener('click', () => {
+      const draft = loadSermonDraft();
+      const subject = encodeURIComponent(draft.title || 'Sermon Draft');
+      const body = encodeURIComponent(
+        `Theme: ${draft.theme || ''}\n` +
+        `Primary Text: ${draft.textRef || ''}\n\n` +
+        `Outline:\n${draft.outline || ''}\n\n` +
+        `Key Points & Illustrations:\n${draft.points || ''}\n\n` +
+        `Application:\n${draft.application || ''}\n\n` +
+        `Closing Prayer:\n${draft.prayer || ''}`
+      );
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    });
+  }
+
+  const shareSermonLinkBtn = document.getElementById('share-sermon-link');
+  if (shareSermonLinkBtn) {
+    shareSermonLinkBtn.addEventListener('click', async () => {
+      const draft = loadSermonDraft();
+      const link = await createShareLink('sermon', draft);
+      if (link) {
+        const linkInput = document.getElementById('sermon-share-link');
+        if (linkInput) linkInput.value = link;
+      }
+    });
+  }
+
+  const openSermonLinkBtn = document.getElementById('open-sermon-link');
+  if (openSermonLinkBtn) {
+    openSermonLinkBtn.addEventListener('click', async () => {
+      const linkInputEl = document.getElementById('sermon-share-link');
+      const linkInput = linkInputEl ? linkInputEl.value.trim() : '';
+      if (!linkInput) return;
+      const url = new URL(linkInput);
+      const id = url.searchParams.get('share');
+      if (!id) return;
+      const data = await loadShareById(id);
+      if (data) applySharePayload(data);
+    });
+  }
+
+  const shareStudyBtn = document.getElementById('share-study');
+  if (shareStudyBtn) {
+    shareStudyBtn.addEventListener('click', async () => {
+      const payload = {
+        results: lastResults,
+        notes: loadNotes(),
+        savedVerses: loadSavedVerses()
+      };
+      const link = await createShareLink('study', payload);
+      if (link) {
+        const linkEl = document.getElementById('share-link');
+        if (linkEl) linkEl.value = link;
+      }
+    });
+  }
+
+  const buildLessonBtn = document.getElementById('build-lesson');
+  if (buildLessonBtn) {
+    buildLessonBtn.addEventListener('click', () => {
+      const audienceEl = document.getElementById('lesson-audience');
+      const output = document.getElementById('lesson-output');
+      if (!output) return;
+      const audience = audienceEl ? audienceEl.value : 'kids';
+      output.innerHTML = '';
+      const plan = buildLessonPlan(lastResults, audience);
+      const lessons = loadLessons();
+      const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString() };
+      lessons.unshift(lessonRecord);
+      saveLessons(lessons);
+      saveLessonPlanToSupabase(audience, plan);
+      plan.forEach(line => {
+        const item = document.createElement('div');
+        item.className = 'list-item';
+        item.textContent = line;
+        output.appendChild(item);
+      });
+      if (canUseSupabase()) {
+        const savedNote = document.createElement('div');
+        savedNote.className = 'list-item';
+        savedNote.textContent = 'Lesson saved to your account.';
+        output.appendChild(savedNote);
+      }
+    });
+  }
 
   const curriculumAudience = document.getElementById('curriculum-audience');
-  populateCurriculumWeeks(curriculumAudience.value);
-  renderCurriculumWeek(curriculumAudience.value, 0);
-
-  curriculumAudience.addEventListener('change', (e) => {
-    populateCurriculumWeeks(e.target.value);
-    renderCurriculumWeek(e.target.value, 0);
-  });
-
-  document.getElementById('load-curriculum').addEventListener('click', () => {
-    const audience = curriculumAudience.value;
-    const weekIndex = document.getElementById('curriculum-week').value;
-    renderCurriculumWeek(audience, weekIndex);
-  });
-
-  document.getElementById('reader-book').addEventListener('change', (e) => {
-    populateReaderChapters(e.target.value);
-    const chapters = bookIndex[e.target.value] || [];
-    if (chapters[0]) {
-      selectReaderChapter(e.target.value, chapters[0]);
-    }
-  });
-
-  document.getElementById('reader-open').addEventListener('click', () => {
-    const book = document.getElementById('reader-book').value;
-    const chapter = document.getElementById('reader-chapter').value;
-    renderReaderChapter(book, chapter);
-  });
-
-  document.getElementById('reader-prev').addEventListener('click', () => {
-    const book = document.getElementById('reader-book').value;
-    const chapters = bookIndex[book] || [];
-    const current = Number(document.getElementById('reader-chapter').value);
-    const idx = chapters.indexOf(current);
-    if (idx > 0) selectReaderChapter(book, chapters[idx - 1]);
-  });
-
-  document.getElementById('reader-next').addEventListener('click', () => {
-    const book = document.getElementById('reader-book').value;
-    const chapters = bookIndex[book] || [];
-    const current = Number(document.getElementById('reader-chapter').value);
-    const idx = chapters.indexOf(current);
-    if (idx >= 0 && idx < chapters.length - 1) selectReaderChapter(book, chapters[idx + 1]);
-  });
-
-  document.getElementById('back-to-search').addEventListener('click', () => {
-    setView('search');
-  });
-
-  document.getElementById('church-search-btn').addEventListener('click', async () => {
-    const query = document.getElementById('church-query').value.trim();
-    const results = await loadChurches(query || '');
-    const container = document.getElementById('church-results');
-    const sermonContainer = document.getElementById('church-sermons');
-    container.innerHTML = '';
-    sermonContainer.innerHTML = '';
-    if (results.length === 0) {
-      container.innerHTML = '<p class="empty">No churches found.</p>';
-      return;
-    }
-    results.forEach(church => {
-      const row = document.createElement('div');
-      row.className = 'list-item';
-      row.innerHTML = `<div><strong>${church.name}</strong><p>${church.city}${church.state ? `, ${church.state}` : ''}</p></div>`;
-      const actions = document.createElement('div');
-      actions.className = 'item-actions';
-      const viewBtn = document.createElement('button');
-      viewBtn.textContent = 'View Sermons';
-      viewBtn.onclick = async () => {
-        const sermons = await loadChurchSermons(church.id);
-        sermonContainer.innerHTML = '';
-        if (sermons.length === 0) {
-          sermonContainer.innerHTML = '<p class="empty">No sermons available yet.</p>';
-          return;
-        }
-        sermons.forEach(sermon => {
-          const sermonRow = document.createElement('div');
-          sermonRow.className = 'list-item';
-          sermonRow.innerHTML = `<div><strong>${sermon.title}</strong><p>${sermon.date} • ${sermon.summary || ''}</p></div>`;
-          sermonContainer.appendChild(sermonRow);
-        });
-      };
-      const setBtn = document.createElement('button');
-      setBtn.textContent = 'Join Church';
-      setBtn.onclick = async () => {
-        await joinChurch(church);
-        alert(`Joined ${church.name}`);
-      };
-      actions.appendChild(viewBtn);
-      actions.appendChild(setBtn);
-      row.appendChild(actions);
-      container.appendChild(row);
+  if (curriculumAudience) {
+    populateCurriculumWeeks(curriculumAudience.value);
+    renderCurriculumWeek(curriculumAudience.value, 0);
+    curriculumAudience.addEventListener('change', (e) => {
+      populateCurriculumWeeks(e.target.value);
+      renderCurriculumWeek(e.target.value, 0);
     });
-  });
+  }
+
+  const loadCurriculumBtn = document.getElementById('load-curriculum');
+  if (loadCurriculumBtn && curriculumAudience) {
+    loadCurriculumBtn.addEventListener('click', () => {
+      const audience = curriculumAudience.value;
+      const weekSelect = document.getElementById('curriculum-week');
+      const weekIndex = weekSelect ? weekSelect.value : 0;
+      renderCurriculumWeek(audience, weekIndex);
+    });
+  }
+
+  const readerBook = document.getElementById('reader-book');
+  if (readerBook) {
+    readerBook.addEventListener('change', (e) => {
+      populateReaderChapters(e.target.value);
+      const chapters = bookIndex[e.target.value] || [];
+      if (chapters[0]) {
+        selectReaderChapter(e.target.value, chapters[0]);
+      }
+    });
+  }
+
+  const readerOpen = document.getElementById('reader-open');
+  if (readerOpen) {
+    readerOpen.addEventListener('click', () => {
+      const book = document.getElementById('reader-book')?.value;
+      const chapter = document.getElementById('reader-chapter')?.value;
+      if (book && chapter) renderReaderChapter(book, chapter);
+    });
+  }
+
+  const readerPrev = document.getElementById('reader-prev');
+  if (readerPrev) {
+    readerPrev.addEventListener('click', () => {
+      const book = document.getElementById('reader-book')?.value;
+      const chapterVal = document.getElementById('reader-chapter')?.value;
+      if (!book || !chapterVal) return;
+      const chapters = bookIndex[book] || [];
+      const current = Number(chapterVal);
+      const idx = chapters.indexOf(current);
+      if (idx > 0) selectReaderChapter(book, chapters[idx - 1]);
+    });
+  }
+
+  const readerNext = document.getElementById('reader-next');
+  if (readerNext) {
+    readerNext.addEventListener('click', () => {
+      const book = document.getElementById('reader-book')?.value;
+      const chapterVal = document.getElementById('reader-chapter')?.value;
+      if (!book || !chapterVal) return;
+      const chapters = bookIndex[book] || [];
+      const current = Number(chapterVal);
+      const idx = chapters.indexOf(current);
+      if (idx >= 0 && idx < chapters.length - 1) selectReaderChapter(book, chapters[idx + 1]);
+    });
+  }
+
+  const backToSearch = document.getElementById('back-to-search');
+  if (backToSearch) {
+    backToSearch.addEventListener('click', () => {
+      setView('search');
+    });
+  }
+
+  const churchSearchBtn = document.getElementById('church-search-btn');
+  if (churchSearchBtn) {
+    churchSearchBtn.addEventListener('click', async () => {
+      const query = document.getElementById('church-query')?.value.trim() || '';
+      const results = await loadChurches(query || '');
+      const container = document.getElementById('church-results');
+      const sermonContainer = document.getElementById('church-sermons');
+      if (!container || !sermonContainer) return;
+      container.innerHTML = '';
+      sermonContainer.innerHTML = '';
+      if (results.length === 0) {
+        container.innerHTML = '<p class="empty">No churches found.</p>';
+        return;
+      }
+      results.forEach(church => {
+        const row = document.createElement('div');
+        row.className = 'list-item';
+        row.innerHTML = `<div><strong>${church.name}</strong><p>${church.city}${church.state ? `, ${church.state}` : ''}</p></div>`;
+        const actions = document.createElement('div');
+        actions.className = 'item-actions';
+        const viewBtn = document.createElement('button');
+        viewBtn.textContent = 'View Sermons';
+        viewBtn.onclick = async () => {
+          const sermons = await loadChurchSermons(church.id);
+          sermonContainer.innerHTML = '';
+          if (sermons.length === 0) {
+            sermonContainer.innerHTML = '<p class="empty">No sermons available yet.</p>';
+            return;
+          }
+          sermons.forEach(sermon => {
+            const sermonRow = document.createElement('div');
+            sermonRow.className = 'list-item';
+            sermonRow.innerHTML = `<div><strong>${sermon.title}</strong><p>${sermon.date} • ${sermon.summary || ''}</p></div>`;
+            sermonContainer.appendChild(sermonRow);
+          });
+        };
+        const setBtn = document.createElement('button');
+        setBtn.textContent = 'Join Church';
+        setBtn.onclick = async () => {
+          await joinChurch(church);
+          alert(`Joined ${church.name}`);
+        };
+        actions.appendChild(viewBtn);
+        actions.appendChild(setBtn);
+        row.appendChild(actions);
+        container.appendChild(row);
+      });
+    });
+  }
 
   let churchSearchTimer = null;
-  document.getElementById('church-query').addEventListener('input', () => {
-    clearTimeout(churchSearchTimer);
-    churchSearchTimer = setTimeout(() => {
-      document.getElementById('church-search-btn').click();
-    }, 350);
-  });
-  document.getElementById('church-state').addEventListener('input', () => {
-    clearTimeout(churchSearchTimer);
-    churchSearchTimer = setTimeout(() => {
-      document.getElementById('church-search-btn').click();
-    }, 350);
-  });
-  document.getElementById('church-online').addEventListener('change', () => {
-    document.getElementById('church-search-btn').click();
-  });
+  const churchQueryInput = document.getElementById('church-query');
+  if (churchQueryInput && churchSearchBtn) {
+    churchQueryInput.addEventListener('input', () => {
+      clearTimeout(churchSearchTimer);
+      churchSearchTimer = setTimeout(() => {
+        churchSearchBtn.click();
+      }, 350);
+    });
+  }
+  const churchStateInput = document.getElementById('church-state');
+  if (churchStateInput && churchSearchBtn) {
+    churchStateInput.addEventListener('input', () => {
+      clearTimeout(churchSearchTimer);
+      churchSearchTimer = setTimeout(() => {
+        churchSearchBtn.click();
+      }, 350);
+    });
+  }
+  const churchOnlineToggle = document.getElementById('church-online');
+  if (churchOnlineToggle && churchSearchBtn) {
+    churchOnlineToggle.addEventListener('change', () => {
+      churchSearchBtn.click();
+    });
+  }
 
-  document.getElementById('add-sermon-btn').addEventListener('click', async () => {
-    const churchId = document.getElementById('sermon-church-id').value.trim();
-    const title = document.getElementById('sermon-title-input').value.trim();
-    const date = document.getElementById('sermon-date-input').value;
-    const summary = document.getElementById('sermon-summary-input').value.trim();
-    if (!churchId || !title || !date) {
-      alert('Please select a church and fill in title and date.');
-      return;
-    }
-    const sermon = { title, date, summary };
-    const ok = await addChurchSermon(churchId, sermon);
-    if (ok) {
-      document.getElementById('sermon-title-input').value = '';
-      document.getElementById('sermon-summary-input').value = '';
-      const sermonContainer = document.getElementById('church-sermons');
-      const sermons = await loadChurchSermons(churchId);
-      sermonContainer.innerHTML = '';
-      sermons.forEach(item => {
-        const sermonRow = document.createElement('div');
-        sermonRow.className = 'list-item';
-        sermonRow.innerHTML = `<div><strong>${item.title}</strong><p>${item.date} • ${item.summary || ''}</p></div>`;
-        sermonContainer.appendChild(sermonRow);
-      });
-    }
-  });
+  const addSermonBtn = document.getElementById('add-sermon-btn');
+  if (addSermonBtn) {
+    addSermonBtn.addEventListener('click', async () => {
+      const churchIdEl = document.getElementById('sermon-church-id');
+      const titleEl = document.getElementById('sermon-title-input');
+      const dateEl = document.getElementById('sermon-date-input');
+      const summaryEl = document.getElementById('sermon-summary-input');
+      const churchId = churchIdEl ? churchIdEl.value.trim() : '';
+      const title = titleEl ? titleEl.value.trim() : '';
+      const date = dateEl ? dateEl.value : '';
+      const summary = summaryEl ? summaryEl.value.trim() : '';
+      if (!churchId || !title || !date) {
+        alert('Please select a church and fill in title and date.');
+        return;
+      }
+      const sermon = { title, date, summary };
+      const ok = await addChurchSermon(churchId, sermon);
+      if (ok) {
+        if (titleEl) titleEl.value = '';
+        if (summaryEl) summaryEl.value = '';
+        const sermonContainer = document.getElementById('church-sermons');
+        const sermons = await loadChurchSermons(churchId);
+        if (sermonContainer) {
+          sermonContainer.innerHTML = '';
+          sermons.forEach(item => {
+            const sermonRow = document.createElement('div');
+            sermonRow.className = 'list-item';
+            sermonRow.innerHTML = `<div><strong>${item.title}</strong><p>${item.date} • ${item.summary || ''}</p></div>`;
+            sermonContainer.appendChild(sermonRow);
+          });
+        }
+      }
+    });
+  }
 
   const storySelectEl = document.getElementById('story-select');
   if (storySelectEl) {

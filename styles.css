@@ -171,20 +171,22 @@ input:focus, select:focus, textarea:focus {
 
 .site-nav a {
   text-decoration: none;
-  color: inherit;
-  padding: 0.4rem 0.2rem;
+  color: #1f2937;
+  padding: 0.5rem 0.9rem;
   font-weight: 600;
-  border-bottom: 3px solid transparent;
-  opacity: 0.75;
+  border-radius: 999px;
+  background: #fde68a;
+  border: 1px solid #f59e0b;
+  opacity: 1;
 }
 
 .site-nav a:hover {
-  opacity: 1;
+  background: #fcd34d;
 }
 
 .site-nav a.active {
-  border-bottom-color: var(--primary);
-  opacity: 1;
+  background: #fbbf24;
+  border-color: #d97706;
 }
 
 .filter-stack {

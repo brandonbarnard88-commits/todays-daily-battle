@@ -1352,7 +1352,9 @@ function getStoryById(id) {
 
 function loadStoryIntoCanvas(story) {
   const canvas = document.getElementById('coloring-canvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const img = new Image();
   const svgBlob = new Blob([story.svg], { type: 'image/svg+xml' });
@@ -1368,8 +1370,10 @@ function setupColoringCanvas() {
   const canvas = document.getElementById('coloring-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
   const colorInput = document.getElementById('paint-color');
   const sizeInput = document.getElementById('brush-size');
+  if (!colorInput || !sizeInput) return;
   let painting = false;
 
   function getPos(evt) {

@@ -2221,19 +2221,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   const messageInput = document.getElementById('message-text');
 
   const refreshMessageNote = () => {
+    if (!messageNote || !postButton || !messageInput) return;
     if (!currentUserId) {
       messageNote.textContent = 'Log in to view and post messages.';
       postButton.disabled = true;
       messageInput.disabled = true;
       return;
     }
-    if (subscriptionTier !== 'monthly') {
-      messageNote.textContent = 'Posting is available for monthly subscribers. You can still read messages.';
-      postButton.disabled = true;
-      messageInput.disabled = true;
-      return;
-    }
-    messageNote.textContent = 'Monthly member posting enabled.';
+    messageNote.textContent = 'Posting as member.';
     postButton.disabled = false;
     messageInput.disabled = false;
   };

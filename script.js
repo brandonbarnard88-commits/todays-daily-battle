@@ -242,6 +242,33 @@ const isSupabaseConfigured = Boolean(supabaseClient) &&
   !supabaseUrl.includes('your-project-ref') &&
   supabaseKey &&
   !supabaseKey.includes('...');
+
+function getAuthStatusEl() {
+  const authSection = document.getElementById('auth-section');
+  if (!authSection) return null;
+  let status = document.getElementById('auth-status');
+  if (!status) {
+    status = document.createElement('div');
+    status.id = 'auth-status';
+    status.style.marginTop = '0.6rem';
+    status.style.fontSize = '0.9rem';
+    status.style.textAlign = 'center';
+    authSection.appendChild(status);
+  }
+  return status;
+}
+
+function setAuthStatus(message, type = 'info') {
+  const status = getAuthStatusEl();
+  if (!status) return;
+  const colors = {
+    info: '#0f172a',
+    success: '#15803d',
+    error: '#b91c1c'
+  };
+  status.style.color = colors[type] || colors.info;
+  status.textContent = message;
+}
 const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
 const LESSONS_STORAGE_KEY = 'lessonPlans';
@@ -1927,6 +1954,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       note.textContent = 'Login is unavailable right now. Please check the Supabase script load.';
       authSection.prepend(note);
     }
+    setAuthStatus('Auth not ready. Please refresh.', 'error');
   }
   const { data: sessionData } = supabaseClient
     ? await supabaseClient.auth.getSession()
@@ -2096,6 +2124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       if (!supabaseClient) {
         alert('Login is unavailable right now. Please refresh the page.');
+        setAuthStatus('Login unavailable. Refresh and try again.', 'error');
         return;
       }
       const { data, error } = await supabaseClient.auth.signUp({
@@ -2105,12 +2134,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
       if (error) {
         alert(error.message);
+        setAuthStatus(error.message, 'error');
         return;
       }
       if (data?.session) {
         alert('Signed up and logged in!');
+        setAuthStatus('Signed up and logged in!', 'success');
       } else {
         alert('Signed up! Check your email to confirm.');
+        setAuthStatus('Signed up! Check your email to confirm.', 'success');
       }
     });
   }
@@ -2128,16 +2160,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       if (!supabaseClient) {
         alert('Login is unavailable right now. Please refresh the page.');
+        setAuthStatus('Login unavailable. Refresh and try again.', 'error');
         return;
       }
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-      if (error) alert(error.message);
+      if (error) {
+        alert(error.message);
+        setAuthStatus(error.message, 'error');
+        return;
+      }
       else {
         const userTier = data.user.user_metadata.tier || 'adult';
         currentUserRole = data.user.user_metadata.role || 'member';
         const tierEl = document.getElementById('tier');
         if (tierEl) tierEl.value = userTier;
         alert('Logged in!');
+        setAuthStatus('Logged in!', 'success');
         updateRoleViews();
         renderDashboard(currentUserRole);
         setView('dashboard');
@@ -2150,10 +2188,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     logoutBtn.addEventListener('click', async () => {
       if (!supabaseClient) {
         alert('Login is unavailable right now. Please refresh the page.');
+      setAuthStatus('Login unavailable. Refresh and try again.', 'error');
         return;
       }
       const { error } = await supabaseClient.auth.signOut();
       alert(error ? error.message : 'Logged out!');
+    setAuthStatus(error ? error.message : 'Logged out!', error ? 'error' : 'success');
     });
   }
 

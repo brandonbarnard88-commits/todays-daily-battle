@@ -240,8 +240,14 @@ const supabaseScriptUrls = [
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
   'https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js'
 ];
-let supabaseClient = typeof Supabase !== 'undefined'
-  ? Supabase.createClient(supabaseUrl, supabaseKey)
+function getSupabaseGlobal() {
+  if (typeof Supabase !== 'undefined') return Supabase;
+  if (typeof supabase !== 'undefined') return supabase;
+  return null;
+}
+
+let supabaseClient = getSupabaseGlobal()
+  ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey)
   : null;
 
 function isSupabaseConfigured() {
@@ -253,8 +259,9 @@ function isSupabaseConfigured() {
 
 function initSupabaseClient() {
   if (supabaseClient) return true;
-  if (typeof Supabase === 'undefined') return false;
-  supabaseClient = Supabase.createClient(supabaseUrl, supabaseKey);
+  const sdk = getSupabaseGlobal();
+  if (!sdk) return false;
+  supabaseClient = sdk.createClient(supabaseUrl, supabaseKey);
   return Boolean(supabaseClient);
 }
 

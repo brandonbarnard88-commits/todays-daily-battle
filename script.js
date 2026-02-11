@@ -1727,6 +1727,17 @@ function renderResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const navLinks = document.querySelectorAll('.site-nav a');
+  if (navLinks.length) {
+    const path = window.location.pathname.replace(/\/+$/, '');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const normalized = href === 'index.html' ? '' : `/${href}`.replace(/\/+$/, '');
+      const isActive = path === normalized || (normalized === '' && (path === '' || path === '/index.html'));
+      link.classList.toggle('active', isActive);
+    });
+  }
   loadLocalSermons();
   const versionSelect = document.getElementById('version');
   await loadBible(versionSelect.value);

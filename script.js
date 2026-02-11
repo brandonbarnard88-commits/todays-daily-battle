@@ -605,7 +605,9 @@ function buildChapterIndex() {
 }
 
 function refreshBibleView() {
+  const hasReader = document.getElementById('reader-book');
   buildChapterIndex();
+  if (!hasReader) return;
   populateReaderBooks();
   const firstBook = Object.keys(bookIndex)[0];
   if (firstBook) {
@@ -1207,6 +1209,7 @@ function populateTemplateList() {
 
 function populateReaderBooks() {
   const bookSelect = document.getElementById('reader-book');
+  if (!bookSelect) return;
   bookSelect.innerHTML = '';
   Object.keys(bookIndex).forEach(book => {
     const opt = document.createElement('option');
@@ -1218,6 +1221,7 @@ function populateReaderBooks() {
 
 function populateReaderChapters(book) {
   const chapterSelect = document.getElementById('reader-chapter');
+  if (!chapterSelect) return;
   chapterSelect.innerHTML = '';
   const chapters = bookIndex[book] || [];
   chapters.forEach(ch => {
@@ -1230,6 +1234,7 @@ function populateReaderChapters(book) {
 
 function renderReaderChapter(book, chapter) {
   const output = document.getElementById('reader-output');
+  if (!output) return;
   output.innerHTML = '';
   const key = `${book} ${chapter}`;
   const verses = chapterIndex[key];
@@ -1250,9 +1255,12 @@ function renderReaderChapter(book, chapter) {
 }
 
 function selectReaderChapter(book, chapter) {
-  document.getElementById('reader-book').value = book;
+  const bookSelect = document.getElementById('reader-book');
+  const chapterSelect = document.getElementById('reader-chapter');
+  if (!bookSelect || !chapterSelect) return;
+  bookSelect.value = book;
   populateReaderChapters(book);
-  document.getElementById('reader-chapter').value = String(chapter);
+  chapterSelect.value = String(chapter);
   renderReaderChapter(book, String(chapter));
 }
 

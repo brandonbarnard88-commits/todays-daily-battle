@@ -15,6 +15,38 @@ const STOP_WORDS = new Set([
   'but', 'not', 'your', 'you', 'me', 'my', 'we', 'our', 'his', 'her', 'their', 'them'
 ]);
 
+const MEANING_MAP = {
+  love: ['charity', 'compassion', 'kindness', 'affection'],
+  faith: ['belief', 'trust', 'confidence', 'assurance'],
+  hope: ['expectation', 'confidence', 'assurance'],
+  peace: ['rest', 'calm', 'stillness', 'quietness'],
+  joy: ['gladness', 'delight', 'rejoice'],
+  grace: ['favor', 'kindness', 'mercy'],
+  mercy: ['compassion', 'pity', 'kindness'],
+  truth: ['faithfulness', 'honesty', 'reality'],
+  wisdom: ['understanding', 'knowledge', 'insight'],
+  fear: ['afraid', 'anxious', 'worry', 'dread'],
+  anger: ['wrath', 'rage', 'fury'],
+  sin: ['evil', 'wrongdoing', 'transgression'],
+  salvation: ['rescue', 'deliverance', 'save']
+};
+
+const ACTION_MAP = {
+  forgive: ['forgive', 'forgave', 'forgiven', 'forgiving', 'pardon'],
+  pray: ['pray', 'prayer', 'praying', 'prayed', 'supplication'],
+  serve: ['serve', 'serving', 'served', 'service', 'minister'],
+  give: ['give', 'giving', 'gave', 'given', 'generosity'],
+  believe: ['believe', 'believed', 'believing', 'faith'],
+  repent: ['repent', 'repented', 'repenting', 'repentance', 'turn'],
+  obey: ['obey', 'obeyed', 'obeying', 'obedience'],
+  help: ['help', 'helped', 'helping', 'aid', 'rescue'],
+  heal: ['heal', 'healed', 'healing', 'restore'],
+  save: ['save', 'saved', 'saving', 'deliver', 'deliverance'],
+  lead: ['lead', 'led', 'leading', 'guide', 'shepherd'],
+  teach: ['teach', 'taught', 'teaching', 'instruct'],
+  worship: ['worship', 'praise', 'adoration', 'glorify']
+};
+
 const topics = {
   anger: {
     synonyms: ['angry', 'wrath', 'mad', 'furious', 'rage'],
@@ -629,6 +661,43 @@ function toTitleCase(str) {
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function stemWord(word) {
+  if (!word || word.length <= 3) return word;
+  const rules = [/ing$/, /ed$/, /es$/, /s$/];
+  for (const rule of rules) {
+    if (rule.test(word)) {
+      const stem = word.replace(rule, '');
+      if (stem.length >= 3) return stem;
+    }
+  }
+  return word;
+}
+
+function expandKeywords(keywords) {
+  const expanded = new Set();
+  keywords.forEach(token => {
+    const base = token.toLowerCase();
+    expanded.add(base);
+    const stem = stemWord(base);
+    if (stem) expanded.add(stem);
+    const meaning = MEANING_MAP[base];
+    if (meaning) meaning.forEach(word => expanded.add(word));
+    const action = ACTION_MAP[base];
+    if (action) action.forEach(word => expanded.add(word));
+  });
+
+  Object.keys(topics).forEach(topic => {
+    const synonyms = topics[topic].synonyms || [];
+    const all = [topic, ...synonyms];
+    const hasMatch = all.some(word => expanded.has(word));
+    if (hasMatch) {
+      all.forEach(word => expanded.add(word));
+    }
+  });
+
+  return Array.from(expanded).filter(Boolean);
 }
 
 function buildWordRegex(terms) {
@@ -1544,11 +1613,12 @@ function parseQuery(input) {
   const rawTokens = normalized.split(' ').filter(Boolean);
   const tokens = rawTokens.filter(token => !STOP_WORDS.has(token));
   const keywords = tokens.length > 0 ? tokens : rawTokens;
+  const expandedKeywords = expandKeywords(keywords);
 
   const topicScores = {};
   Object.keys(topics).forEach(topic => {
     let score = 0;
-    keywords.forEach(token => {
+    expandedKeywords.forEach(token => {
       if (topic.includes(token) || topics[topic].synonyms.some(syn => syn.includes(token))) score++;
     });
     if (score > 0) topicScores[topic] = score;
@@ -1557,7 +1627,7 @@ function parseQuery(input) {
   const topTopic = Object.keys(topicScores).sort((a,b) => topicScores[b] - topicScores[a])[0];
   if (topTopic) return { intent: 'topic', payload: { topic: topTopic } };
 
-  return { intent: 'keyword', payload: { keywords, phrase: normalized } };
+  return { intent: 'keyword', payload: { keywords: expandedKeywords, phrase: normalized } };
 }
 
 function executeQuery(parsed, tier) {
@@ -2218,23 +2288,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  document.getElementById('story-select').addEventListener('change', (e) => {
-    const story = getStoryById(e.target.value);
-    loadStoryIntoCanvas(story);
-  });
+  const storySelectEl = document.getElementById('story-select');
+  if (storySelectEl) {
+    storySelectEl.addEventListener('change', (e) => {
+      const story = getStoryById(e.target.value);
+      loadStoryIntoCanvas(story);
+    });
+  }
 
-  document.getElementById('clear-canvas').addEventListener('click', () => {
-    const story = getStoryById(document.getElementById('story-select').value);
-    loadStoryIntoCanvas(story);
-  });
+  const clearCanvasBtn = document.getElementById('clear-canvas');
+  if (clearCanvasBtn && storySelectEl) {
+    clearCanvasBtn.addEventListener('click', () => {
+      const story = getStoryById(storySelectEl.value);
+      loadStoryIntoCanvas(story);
+    });
+  }
 
-  document.getElementById('download-canvas').addEventListener('click', () => {
-    const canvas = document.getElementById('coloring-canvas');
-    const link = document.createElement('a');
-    link.download = 'bible-coloring.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  });
+  const downloadCanvasBtn = document.getElementById('download-canvas');
+  if (downloadCanvasBtn) {
+    downloadCanvasBtn.addEventListener('click', () => {
+      const canvas = document.getElementById('coloring-canvas');
+      if (!canvas) return;
+      const link = document.createElement('a');
+      link.download = 'bible-coloring.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  }
 
   const messageNote = document.getElementById('message-board-note');
   const postButton = document.getElementById('post-message');

@@ -1419,6 +1419,7 @@ function setupColoringCanvas() {
 
 function updateNoteSelect(results) {
   const select = document.getElementById('note-verse-select');
+  if (!select) return;
   select.innerHTML = '';
   const general = document.createElement('option');
   general.value = 'General';
@@ -1436,6 +1437,7 @@ function updateNoteSelect(results) {
 
 function renderSavedVerses() {
   const container = document.getElementById('saved-verses');
+  if (!container) return;
   container.innerHTML = '';
   const items = loadSavedVerses();
   if (items.length === 0) {
@@ -1468,6 +1470,7 @@ function renderSavedVerses() {
 
 function renderNotes() {
   const container = document.getElementById('notes-list');
+  if (!container) return;
   container.innerHTML = '';
   const notes = loadNotes();
   if (notes.length === 0) {

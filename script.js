@@ -2579,13 +2579,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   refreshMessageNote();
   loadMessages().then(renderMessages);
 
-  postButton.addEventListener('click', async () => {
-    const text = messageInput.value.trim();
-    if (!text) return;
-    await postMessage(text);
-    messageInput.value = '';
-    loadMessages().then(renderMessages);
-  });
+  if (postButton && messageInput) {
+    postButton.addEventListener('click', async () => {
+      const text = messageInput.value.trim();
+      if (!text) return;
+      await postMessage(text);
+      messageInput.value = '';
+      loadMessages().then(renderMessages);
+    });
+  }
 
   const savedChurch = loadUserChurch();
   if (savedChurch) {

@@ -235,13 +235,47 @@ const topics = {
 
 const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
 const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
-const supabaseClient = typeof Supabase !== 'undefined'
+const supabaseScriptUrl = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+let supabaseClient = typeof Supabase !== 'undefined'
   ? Supabase.createClient(supabaseUrl, supabaseKey)
   : null;
-const isSupabaseConfigured = Boolean(supabaseClient) &&
-  !supabaseUrl.includes('your-project-ref') &&
-  supabaseKey &&
-  !supabaseKey.includes('...');
+
+function isSupabaseConfigured() {
+  return Boolean(supabaseClient) &&
+    !supabaseUrl.includes('your-project-ref') &&
+    supabaseKey &&
+    !supabaseKey.includes('...');
+}
+
+function initSupabaseClient() {
+  if (supabaseClient) return true;
+  if (typeof Supabase === 'undefined') return false;
+  supabaseClient = Supabase.createClient(supabaseUrl, supabaseKey);
+  return Boolean(supabaseClient);
+}
+
+function ensureSupabaseLoaded() {
+  if (initSupabaseClient()) {
+    setAuthStatus('Auth ready.', 'success');
+    return;
+  }
+  if (document.querySelector('script[data-supabase-sdk="true"]')) return;
+  const script = document.createElement('script');
+  script.src = supabaseScriptUrl;
+  script.async = true;
+  script.defer = true;
+  script.setAttribute('data-cfasync', 'false');
+  script.setAttribute('data-supabase-sdk', 'true');
+  script.onload = () => {
+    if (initSupabaseClient()) {
+      setAuthStatus('Auth ready.', 'success');
+    } else {
+      setAuthStatus('Auth failed to load.', 'error');
+    }
+  };
+  script.onerror = () => setAuthStatus('Auth failed to load.', 'error');
+  document.head.appendChild(script);
+}
 
 function getAuthStatusEl() {
   const authSection = document.getElementById('auth-section');
@@ -456,7 +490,7 @@ function saveMessagesLocal(items) {
 }
 
 async function loadMessages() {
-  if (isSupabaseConfigured) {
+  if (isSupabaseConfigured()) {
     const { data, error } = await supabaseClient
       .from('messages')
       .select('id, user_id, text, created_at')
@@ -468,7 +502,7 @@ async function loadMessages() {
 }
 
 async function postMessage(text) {
-  if (isSupabaseConfigured) {
+  if (isSupabaseConfigured()) {
     const { data, error } = await supabaseClient
       .from('messages')
       .insert({ user_id: currentUserId, text })
@@ -733,7 +767,7 @@ function getEasyExplanation(text, tier) {
 }
 
 function canUseSupabase() {
-  return isSupabaseConfigured && currentUserId;
+  return isSupabaseConfigured() && currentUserId;
 }
 
 function generateUuid() {
@@ -1000,7 +1034,7 @@ async function loadChurches(query) {
   const nameQuery = (query || '').trim();
   const state = (document.getElementById('church-state')?.value || '').trim().toLowerCase();
   const onlineOnly = Boolean(document.getElementById('church-online')?.checked);
-  if (isSupabaseConfigured) {
+  if (isSupabaseConfigured()) {
     let req = supabaseClient.from('churches').select('id, name, city, state, is_online');
     if (nameQuery) {
       req = req.or(`name.ilike.%${nameQuery}%,city.ilike.%${nameQuery}%`);
@@ -1026,7 +1060,7 @@ async function loadChurches(query) {
 }
 
 async function loadChurchSermons(churchId) {
-  if (isSupabaseConfigured) {
+  if (isSupabaseConfigured()) {
     const { data, error } = await supabaseClient
       .from('church_sermons')
       .select('title, date, summary')
@@ -1091,7 +1125,7 @@ function saveLocalSermons() {
 }
 
 async function addChurchSermon(churchId, sermon) {
-  if (isSupabaseConfigured) {
+  if (isSupabaseConfigured()) {
     const { error } = await supabaseClient.from('church_sermons').insert({
       church_id: churchId,
       title: sermon.title,
@@ -1336,7 +1370,7 @@ function buildShareUrl(id) {
 
 async function createShareLink(type, payload) {
   const id = generateShareId();
-  if (isSupabaseConfigured) {
+  if (isSupabaseConfigured()) {
     const { error } = await supabaseClient.from('shares').insert({ id, payload, type });
     if (error) {
       alert('Sharing failed. Please check your Supabase table named "shares".');
@@ -1351,7 +1385,7 @@ async function createShareLink(type, payload) {
 }
 
 async function loadShareById(id) {
-  if (isSupabaseConfigured) {
+  if (isSupabaseConfigured()) {
     const { data, error } = await supabaseClient.from('shares').select('payload, type').eq('id', id).single();
     if (error || !data) return null;
     return data;
@@ -1954,7 +1988,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       note.textContent = 'Login is unavailable right now. Please check the Supabase script load.';
       authSection.prepend(note);
     }
-    setAuthStatus('Auth not ready. Please refresh.', 'error');
+    setAuthStatus('Auth not ready. Loading...', 'error');
+    ensureSupabaseLoaded();
   }
   const { data: sessionData } = supabaseClient
     ? await supabaseClient.auth.getSession()
@@ -2123,8 +2158,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       if (!supabaseClient) {
-        alert('Login is unavailable right now. Please refresh the page.');
-        setAuthStatus('Login unavailable. Refresh and try again.', 'error');
+        ensureSupabaseLoaded();
+        alert('Auth is still loading. Try again in a moment.');
+        setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
       const { data, error } = await supabaseClient.auth.signUp({
@@ -2159,8 +2195,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       if (!supabaseClient) {
-        alert('Login is unavailable right now. Please refresh the page.');
-        setAuthStatus('Login unavailable. Refresh and try again.', 'error');
+        ensureSupabaseLoaded();
+        alert('Auth is still loading. Try again in a moment.');
+        setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
@@ -2186,11 +2223,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const logoutBtn = document.getElementById('logout-btn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', async () => {
-      if (!supabaseClient) {
-        alert('Login is unavailable right now. Please refresh the page.');
-      setAuthStatus('Login unavailable. Refresh and try again.', 'error');
-        return;
-      }
+    if (!supabaseClient) {
+      ensureSupabaseLoaded();
+      alert('Auth is still loading. Try again in a moment.');
+      setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+      return;
+    }
       const { error } = await supabaseClient.auth.signOut();
       alert(error ? error.message : 'Logged out!');
     setAuthStatus(error ? error.message : 'Logged out!', error ? 'error' : 'success');

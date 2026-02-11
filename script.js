@@ -236,6 +236,7 @@ const topics = {
 const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
 const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
 const supabaseScriptUrls = [
+  'vendor/supabase-js.js?v=20260210s',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
   'https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js'
 ];

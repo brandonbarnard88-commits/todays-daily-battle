@@ -317,6 +317,13 @@ button:hover {
 
 .view-more {
   width: fit-content;
+  align-self: flex-start;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: #fff3c4;
+  color: #5b3a00;
+  border: 1px solid #f59e0b;
+  font-weight: 600;
 }
 
 .highlight {

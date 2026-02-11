@@ -2006,11 +2006,11 @@ function renderResults(results) {
     if (verses.length > limit) {
       const toggle = document.createElement('button');
       toggle.className = 'view-more';
-      toggle.textContent = 'View more';
+      toggle.textContent = 'See more';
       toggle.onclick = () => {
         const expanded = toggle.getAttribute('data-expanded') === 'true';
         renderCards(expanded ? initial : verses);
-        toggle.textContent = expanded ? 'View more' : 'Show less';
+        toggle.textContent = expanded ? 'See more' : 'Show less';
         toggle.setAttribute('data-expanded', expanded ? 'false' : 'true');
       };
       section.appendChild(toggle);

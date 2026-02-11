@@ -18,6 +18,17 @@
   </header>
 
   <main class="container">
+    <nav class="site-nav">
+      <a href="index.html" data-section="search">Search</a>
+      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+      <a href="study.html" data-section="study-tools">Study Tools</a>
+      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+      <a href="church.html" data-section="church-center">Church Center</a>
+      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+      <a href="message.html" data-section="message-board">Message Board</a>
+    </nav>
     <section id="main-search" class="controls glass">
       <div class="filter-stack">
         <select id="version" class="compact-select">
@@ -41,20 +52,6 @@
           <button id="daily-btn">Today's Battle</button>
           <button id="dark-toggle">Toggle Dark Mode</button>
         </div>
-      </div>
-    </section>
-
-    <section id="feature-nav" class="feature-nav glass">
-      <p class="section-note">Choose a section to explore.</p>
-      <div class="feature-tabs" role="tablist">
-        <button role="tab" aria-selected="false" data-section="verse-of-day">Verse of the Day</button>
-        <button role="tab" aria-selected="false" data-section="study-tools">Study Tools</button>
-        <button role="tab" aria-selected="false" data-section="chapter-reader">Chapter Reader</button>
-        <button role="tab" aria-selected="false" data-section="church-center">Church Center</button>
-        <button role="tab" aria-selected="false" data-section="coloring-stories">Coloring</button>
-        <button role="tab" aria-selected="false" data-section="sermon-builder">Sermon Builder</button>
-        <button role="tab" aria-selected="false" data-section="pastor-resources">Pastor Resources</button>
-        <button role="tab" aria-selected="false" data-section="message-board">Message Board</button>
       </div>
     </section>
 
@@ -82,201 +79,6 @@
 
     <div id="output" class="results"></div>
 
-    <section id="verse-of-day" class="verse-of-day glass">
-      <h2>Verse of the Day</h2>
-      <p class="section-note">A daily reminder from God's Word.</p>
-      <div id="daily-verse-card" class="verse-card"></div>
-    </section>
-
-    <section id="dashboard" class="dashboard glass" style="display:none">
-      <div class="dashboard-header">
-        <h2 id="dashboard-title">Your Dashboard</h2>
-        <button id="back-to-search">Back to Search</button>
-      </div>
-      <div id="dashboard-content" class="dashboard-content"></div>
-    </section>
-
-    <section id="church-center" class="church-center glass" style="display:none">
-      <h2>Find Your Church</h2>
-      <p class="section-note">Search churches and view weekly sermons.</p>
-      <div class="church-search">
-        <input id="church-query" placeholder="Search by church name or city...">
-        <input id="church-state" placeholder="State (optional)">
-        <label class="inline-toggle">
-          <input id="church-online" type="checkbox">
-          Online only
-        </label>
-        <button id="church-search-btn">Search</button>
-      </div>
-      <div id="church-featured" class="featured-list"></div>
-      <div id="church-admin" class="church-admin" style="display:none">
-        <h3>Add Weekly Sermon (Pastors)</h3>
-        <input id="sermon-church-id" placeholder="Church ID (select a church first)" readonly>
-        <input id="sermon-title-input" placeholder="Sermon title">
-        <input id="sermon-date-input" type="date">
-        <textarea id="sermon-summary-input" rows="3" placeholder="Short summary"></textarea>
-        <button id="add-sermon-btn">Add Sermon</button>
-      </div>
-      <div id="church-results" class="list"></div>
-      <div id="church-sermons" class="list"></div>
-    </section>
-
-    <section id="study-tools" class="study-tools glass">
-      <h2>Study Tools</h2>
-      <p class="section-note">This tool supports study and discipleship. Read full passages in your Bible for context.</p>
-      <div class="study-grid">
-        <div class="study-card">
-          <h3>Notes</h3>
-          <label for="note-verse-select">Attach note to</label>
-          <select id="note-verse-select"></select>
-          <textarea id="note-text" rows="4" placeholder="Write a note, prayer, or insight..."></textarea>
-          <button id="save-note">Save Note</button>
-          <div id="notes-list" class="list"></div>
-        </div>
-        <div class="study-card">
-          <h3>Saved Verses</h3>
-          <div id="saved-verses" class="list"></div>
-        </div>
-        <div class="study-card">
-          <h3>Family & Group Prompts</h3>
-          <ul id="group-prompts" class="prompts">
-            <li>What does this passage reveal about God's character?</li>
-            <li>How can we apply this today as a family or group?</li>
-            <li>What is one truth we can pray over together?</li>
-          </ul>
-        </div>
-        <div class="study-card">
-          <h3>Lesson Plan Builder</h3>
-          <label for="lesson-audience">Audience</label>
-          <select id="lesson-audience">
-            <option value="kid">Kids</option>
-            <option value="teen">Teens</option>
-            <option value="adult" selected>Adults</option>
-            <option value="family">Families</option>
-            <option value="church">Church</option>
-          </select>
-          <button id="build-lesson">Build Lesson</button>
-          <div id="lesson-output" class="list"></div>
-        </div>
-        <div class="study-card">
-          <h3>Kids & Teens Curriculum</h3>
-          <label for="curriculum-audience">Audience</label>
-          <select id="curriculum-audience">
-            <option value="kid">Kids</option>
-            <option value="teen">Teens</option>
-          </select>
-          <label for="curriculum-week">Week</label>
-          <select id="curriculum-week"></select>
-          <button id="load-curriculum">Load Week</button>
-          <div id="curriculum-output" class="list"></div>
-        </div>
-        <div class="study-card">
-          <h3>Share Study Pack</h3>
-          <p class="section-note">Share today's verses, notes, and prompts with your group.</p>
-          <button id="share-study">Create Share Link</button>
-          <input id="share-link" placeholder="Share link will appear here" readonly>
-        </div>
-      </div>
-    </section>
-
-    <section id="chapter-reader" class="chapter-reader glass">
-      <h2>Chapter Reader</h2>
-      <div class="reader-controls">
-        <div>
-          <label for="reader-book">Book</label>
-          <select id="reader-book"></select>
-        </div>
-        <div>
-          <label for="reader-chapter">Chapter</label>
-          <select id="reader-chapter"></select>
-        </div>
-        <div class="reader-actions">
-          <button id="reader-prev">Prev</button>
-          <button id="reader-next">Next</button>
-          <button id="reader-open">Open Chapter</button>
-        </div>
-      </div>
-      <div id="reader-output" class="chapter-output"></div>
-    </section>
-
-    <section id="sermon-builder" class="sermon-builder glass">
-      <h2>Sermon Builder (Pastors)</h2>
-      <div class="sermon-grid">
-        <div>
-          <label for="sermon-title">Title</label>
-          <input id="sermon-title" placeholder="Sermon title">
-        </div>
-        <div>
-          <label for="sermon-theme">Theme</label>
-          <input id="sermon-theme" placeholder="Main theme or aim">
-        </div>
-        <div>
-          <label for="sermon-text-ref">Primary Text</label>
-          <input id="sermon-text-ref" placeholder="Book Chapter:Verse (e.g., John 3:16)">
-        </div>
-        <div class="sermon-full">
-          <label for="sermon-outline">Outline</label>
-          <textarea id="sermon-outline" rows="4" placeholder="I. Point one...&#10;II. Point two..."></textarea>
-        </div>
-        <div class="sermon-full">
-          <label for="sermon-points">Key Points & Illustrations</label>
-          <textarea id="sermon-points" rows="4" placeholder="Key points, cross references, and illustrations..."></textarea>
-        </div>
-        <div class="sermon-full">
-          <label for="sermon-application">Application</label>
-          <textarea id="sermon-application" rows="3" placeholder="Call to action and application for the congregation..."></textarea>
-        </div>
-        <div class="sermon-full">
-          <label for="sermon-prayer">Closing Prayer</label>
-          <textarea id="sermon-prayer" rows="3" placeholder="Short closing prayer..."></textarea>
-        </div>
-        <div class="sermon-actions">
-          <button id="save-sermon">Save Draft</button>
-          <button id="load-sermon">Load Draft</button>
-          <button id="export-sermon">Copy for Sharing</button>
-          <button id="share-sermon">Email to Congregation</button>
-          <button id="share-sermon-link">Create Share Link</button>
-          <button id="open-sermon-link">Open Share Link</button>
-        </div>
-        <input id="sermon-share-link" placeholder="Sermon share link will appear here" readonly>
-        <p class="section-note">Tip: Copy the draft and share it with your team or congregation.</p>
-      </div>
-    </section>
-
-    <section id="pastor-resources" class="pastor-resources glass">
-      <h2>Pastor Resources</h2>
-      <p class="section-note">Select a template to jumpstart sermon creation.</p>
-      <div id="template-list" class="template-list"></div>
-    </section>
-
-    <section id="coloring-stories" class="coloring-stories glass">
-      <h2>Bible Story Coloring</h2>
-      <p class="section-note">Choose a story and color it right here. Great for kids and families.</p>
-      <div class="coloring-controls">
-        <label for="story-select">Story</label>
-        <select id="story-select"></select>
-        <label for="paint-color">Color</label>
-        <input id="paint-color" type="color" value="#6d28d9">
-        <label for="brush-size">Brush</label>
-        <input id="brush-size" type="range" min="2" max="30" value="8">
-        <button id="clear-canvas">Clear</button>
-        <button id="download-canvas">Download</button>
-      </div>
-      <div class="coloring-canvas-wrap">
-        <canvas id="coloring-canvas" width="900" height="600"></canvas>
-      </div>
-    </section>
-
-    <section id="message-board" class="message-board glass">
-      <h2>Message Board</h2>
-      <p class="section-note">Encourage one another with prayer requests and testimonies.</p>
-      <div id="message-board-note" class="section-note"></div>
-      <div class="message-form">
-        <textarea id="message-text" rows="3" placeholder="Share an encouragement, prayer request, or testimony..."></textarea>
-        <button id="post-message">Post Message</button>
-      </div>
-      <div id="message-list" class="list"></div>
-    </section>
   </main>
 
   <footer>

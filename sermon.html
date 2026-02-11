@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sermon Builder • Today's Daily Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Sermon Builder</h1>
+      <p>Craft and share sermon outlines</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="site-nav">
+      <a href="index.html" data-section="search">Search</a>
+      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+      <a href="study.html" data-section="study-tools">Study Tools</a>
+      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+      <a href="church.html" data-section="church-center">Church Center</a>
+      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+      <a href="message.html" data-section="message-board">Message Board</a>
+    </nav>
+
+    <section id="sermon-builder" class="sermon-builder glass">
+      <h2>Sermon Builder (Pastors)</h2>
+      <div class="sermon-grid">
+        <div>
+          <label for="sermon-title">Title</label>
+          <input id="sermon-title" placeholder="Sermon title">
+        </div>
+        <div>
+          <label for="sermon-theme">Theme</label>
+          <input id="sermon-theme" placeholder="Main theme or aim">
+        </div>
+        <div>
+          <label for="sermon-text-ref">Primary Text</label>
+          <input id="sermon-text-ref" placeholder="Book Chapter:Verse (e.g., John 3:16)">
+        </div>
+        <div class="sermon-full">
+          <label for="sermon-outline">Outline</label>
+          <textarea id="sermon-outline" rows="4" placeholder="I. Point one...&#10;II. Point two..."></textarea>
+        </div>
+        <div class="sermon-full">
+          <label for="sermon-points">Key Points & Illustrations</label>
+          <textarea id="sermon-points" rows="4" placeholder="Key points, cross references, and illustrations..."></textarea>
+        </div>
+        <div class="sermon-full">
+          <label for="sermon-application">Application</label>
+          <textarea id="sermon-application" rows="3" placeholder="Call to action and application for the congregation..."></textarea>
+        </div>
+        <div class="sermon-full">
+          <label for="sermon-prayer">Closing Prayer</label>
+          <textarea id="sermon-prayer" rows="3" placeholder="Short closing prayer..."></textarea>
+        </div>
+        <div class="sermon-actions">
+          <button id="save-sermon">Save Draft</button>
+          <button id="load-sermon">Load Draft</button>
+          <button id="export-sermon">Copy for Sharing</button>
+          <button id="share-sermon">Email to Congregation</button>
+          <button id="share-sermon-link">Create Share Link</button>
+          <button id="open-sermon-link">Open Share Link</button>
+        </div>
+        <input id="sermon-share-link" placeholder="Sermon share link will appear here" readonly>
+        <p class="section-note">Tip: Copy the draft and share it with your team or congregation.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+  </footer>
+
+  <script src="script.js?v=20260210"></script>
+</body>
+</html>

@@ -140,6 +140,27 @@ input:focus, select:focus, textarea:focus {
   align-items: center;
 }
 
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(109,40,217,0.25);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.6);
+}
+
+.site-nav a:hover {
+  border-color: var(--primary);
+}
+
 .filter-stack {
   display: grid;
   gap: 0.4rem;

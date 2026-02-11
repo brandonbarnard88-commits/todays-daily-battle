@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coloring • Today's Daily Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Bible Story Coloring</h1>
+      <p>Color Bible stories with a simple paint tool</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="site-nav">
+      <a href="index.html" data-section="search">Search</a>
+      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+      <a href="study.html" data-section="study-tools">Study Tools</a>
+      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+      <a href="church.html" data-section="church-center">Church Center</a>
+      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+      <a href="message.html" data-section="message-board">Message Board</a>
+    </nav>
+
+    <section id="coloring-stories" class="coloring-stories glass">
+      <h2>Bible Story Coloring</h2>
+      <p class="section-note">Choose a story and color it right here. Great for kids and families.</p>
+      <div class="coloring-controls">
+        <label for="story-select">Story</label>
+        <select id="story-select"></select>
+        <label for="paint-color">Color</label>
+        <input id="paint-color" type="color" value="#6d28d9">
+        <label for="brush-size">Brush</label>
+        <input id="brush-size" type="range" min="2" max="30" value="8">
+        <button id="clear-canvas">Clear</button>
+        <button id="download-canvas">Download</button>
+      </div>
+      <div class="coloring-canvas-wrap">
+        <canvas id="coloring-canvas" width="900" height="600"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+  </footer>
+
+  <script src="script.js?v=20260210"></script>
+</body>
+</html>

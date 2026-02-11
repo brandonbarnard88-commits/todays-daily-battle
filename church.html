@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church Center • Today's Daily Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Church Center</h1>
+      <p>Find your church and stay connected</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="site-nav">
+      <a href="index.html" data-section="search">Search</a>
+      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+      <a href="study.html" data-section="study-tools">Study Tools</a>
+      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+      <a href="church.html" data-section="church-center">Church Center</a>
+      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+      <a href="message.html" data-section="message-board">Message Board</a>
+    </nav>
+
+    <section id="church-center" class="church-center glass">
+      <h2>Find Your Church</h2>
+      <p class="section-note">Search churches and view weekly sermons.</p>
+      <div class="church-search">
+        <input id="church-query" placeholder="Search by church name or city...">
+        <input id="church-state" placeholder="State (optional)">
+        <label class="inline-toggle">
+          <input id="church-online" type="checkbox">
+          Online only
+        </label>
+        <button id="church-search-btn">Search</button>
+      </div>
+      <div id="church-featured" class="featured-list"></div>
+      <div id="church-admin" class="church-admin" style="display:none">
+        <h3>Add Weekly Sermon (Pastors)</h3>
+        <input id="sermon-church-id" placeholder="Church ID (select a church first)" readonly>
+        <input id="sermon-title-input" placeholder="Sermon title">
+        <input id="sermon-date-input" type="date">
+        <textarea id="sermon-summary-input" rows="3" placeholder="Short summary"></textarea>
+        <button id="add-sermon-btn">Add Sermon</button>
+      </div>
+      <div id="church-results" class="list"></div>
+      <div id="church-sermons" class="list"></div>
+    </section>
+  </main>
+
+  <footer>
+    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+  </footer>
+
+  <script src="script.js?v=20260210"></script>
+</body>
+</html>

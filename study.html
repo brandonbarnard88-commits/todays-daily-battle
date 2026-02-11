@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Tools • Today's Daily Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Study Tools</h1>
+      <p>Notes, lessons, and resources for growth</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="site-nav">
+      <a href="index.html" data-section="search">Search</a>
+      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+      <a href="study.html" data-section="study-tools">Study Tools</a>
+      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+      <a href="church.html" data-section="church-center">Church Center</a>
+      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+      <a href="message.html" data-section="message-board">Message Board</a>
+    </nav>
+
+    <section id="study-tools" class="study-tools glass">
+      <h2>Study Tools</h2>
+      <p class="section-note">This tool supports study and discipleship. Read full passages in your Bible for context.</p>
+      <div class="study-grid">
+        <div class="study-card">
+          <h3>Notes</h3>
+          <label for="note-verse-select">Attach note to</label>
+          <select id="note-verse-select"></select>
+          <textarea id="note-text" rows="4" placeholder="Write a note, prayer, or insight..."></textarea>
+          <button id="save-note">Save Note</button>
+          <div id="notes-list" class="list"></div>
+        </div>
+        <div class="study-card">
+          <h3>Saved Verses</h3>
+          <div id="saved-verses" class="list"></div>
+        </div>
+        <div class="study-card">
+          <h3>Family & Group Prompts</h3>
+          <ul id="group-prompts" class="prompts">
+            <li>What does this passage reveal about God's character?</li>
+            <li>How can we apply this today as a family or group?</li>
+            <li>What is one truth we can pray over together?</li>
+          </ul>
+        </div>
+        <div class="study-card">
+          <h3>Lesson Plan Builder</h3>
+          <label for="lesson-audience">Audience</label>
+          <select id="lesson-audience">
+            <option value="kid">Kids</option>
+            <option value="teen">Teens</option>
+            <option value="adult" selected>Adults</option>
+            <option value="family">Families</option>
+            <option value="church">Church</option>
+          </select>
+          <button id="build-lesson">Build Lesson</button>
+          <div id="lesson-output" class="list"></div>
+        </div>
+        <div class="study-card">
+          <h3>Kids & Teens Curriculum</h3>
+          <label for="curriculum-audience">Audience</label>
+          <select id="curriculum-audience">
+            <option value="kid">Kids</option>
+            <option value="teen">Teens</option>
+          </select>
+          <label for="curriculum-week">Week</label>
+          <select id="curriculum-week"></select>
+          <button id="load-curriculum">Load Week</button>
+          <div id="curriculum-output" class="list"></div>
+        </div>
+        <div class="study-card">
+          <h3>Share Study Pack</h3>
+          <p class="section-note">Share today's verses, notes, and prompts with your group.</p>
+          <button id="share-study">Create Share Link</button>
+          <input id="share-link" placeholder="Share link will appear here" readonly>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+  </footer>
+
+  <script src="script.js?v=20260210"></script>
+</body>
+</html>

@@ -973,21 +973,18 @@ function setView(state) {
   const pastorResources = document.getElementById('pastor-resources');
   const coloringStories = document.getElementById('coloring-stories');
   const showDashboard = state === 'dashboard';
-  mainSearch.style.display = showDashboard ? 'none' : 'block';
-  output.style.display = showDashboard ? 'none' : 'grid';
-  dashboard.style.display = showDashboard ? 'block' : 'none';
+  if (mainSearch) mainSearch.style.display = showDashboard ? 'none' : 'block';
+  if (output) output.style.display = showDashboard ? 'none' : 'grid';
+  if (dashboard) dashboard.style.display = showDashboard ? 'block' : 'none';
   if (showDashboard) {
-    churchCenter.style.display = 'block';
-    studyTools.style.display = 'none';
-    chapterReader.style.display = 'none';
-    sermonBuilder.style.display = 'none';
-    pastorResources.style.display = 'none';
-    coloringStories.style.display = 'none';
+    if (churchCenter) churchCenter.style.display = 'block';
+    if (studyTools) studyTools.style.display = 'none';
+    if (chapterReader) chapterReader.style.display = 'none';
+    if (sermonBuilder) sermonBuilder.style.display = 'none';
+    if (pastorResources) pastorResources.style.display = 'none';
+    if (coloringStories) coloringStories.style.display = 'none';
   } else {
     applyRoleAccess();
-    const firstVisible = document.querySelector('#feature-nav [role="tab"][style*="inline-flex"]');
-    const target = firstVisible ? firstVisible.getAttribute('data-section') : 'study-tools';
-    showFeature(target);
   }
 }
 
@@ -1026,39 +1023,11 @@ function applyRoleAccess() {
     }
   });
 
-  const navButtons = document.querySelectorAll('#feature-nav [data-section]');
-  navButtons.forEach(button => {
-    const sectionId = button.getAttribute('data-section');
-    button.style.display = allowed.has(sectionId) ? 'inline-flex' : 'none';
+  const navLinks = document.querySelectorAll('.site-nav [data-section]');
+  navLinks.forEach(link => {
+    const sectionId = link.getAttribute('data-section');
+    link.style.display = allowed.has(sectionId) ? 'inline-flex' : 'none';
   });
-}
-
-function setActiveTab(sectionId) {
-  const tabs = document.querySelectorAll('#feature-nav [role="tab"]');
-  tabs.forEach(tab => {
-    const active = tab.getAttribute('data-section') === sectionId;
-    tab.setAttribute('aria-selected', active ? 'true' : 'false');
-  });
-}
-
-function showFeature(sectionId) {
-  const sections = [
-    'verse-of-day',
-    'study-tools',
-    'chapter-reader',
-    'sermon-builder',
-    'pastor-resources',
-    'coloring-stories',
-    'church-center',
-    'message-board'
-  ];
-  sections.forEach(id => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.style.display = id === sectionId ? 'block' : 'none';
-    }
-  });
-  setActiveTab(sectionId);
 }
 
 async function saveNoteToSupabase(note) {
@@ -2208,13 +2177,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     link.download = 'bible-coloring.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
-  });
-
-  document.querySelectorAll('#feature-nav [data-section]').forEach(button => {
-    button.addEventListener('click', () => {
-      showFeature(button.getAttribute('data-section'));
-      setView('search');
-    });
   });
 
   const messageNote = document.getElementById('message-board-note');

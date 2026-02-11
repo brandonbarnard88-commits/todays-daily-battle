@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter Reader • Today's Daily Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Chapter Reader</h1>
+      <p>Read full chapters in context</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="site-nav">
+      <a href="index.html" data-section="search">Search</a>
+      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+      <a href="study.html" data-section="study-tools">Study Tools</a>
+      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+      <a href="church.html" data-section="church-center">Church Center</a>
+      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+      <a href="message.html" data-section="message-board">Message Board</a>
+    </nav>
+
+    <section id="chapter-reader" class="chapter-reader glass">
+      <h2>Chapter Reader</h2>
+      <div class="reader-controls">
+        <div>
+          <label for="reader-book">Book</label>
+          <select id="reader-book"></select>
+        </div>
+        <div>
+          <label for="reader-chapter">Chapter</label>
+          <select id="reader-chapter"></select>
+        </div>
+        <div class="reader-actions">
+          <button id="reader-prev">Prev</button>
+          <button id="reader-next">Next</button>
+          <button id="reader-open">Open Chapter</button>
+        </div>
+      </div>
+      <div id="reader-output" class="chapter-output"></div>
+    </section>
+  </main>
+
+  <footer>
+    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+  </footer>
+
+  <script src="script.js?v=20260210"></script>
+</body>
+</html>

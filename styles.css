@@ -102,6 +102,7 @@ h1 {
   max-width: 1100px;
   margin: -100px auto 60px;
   padding: 0 20px;
+  position: relative;
 }
 
 .glass {
@@ -168,6 +169,11 @@ input:focus, select:focus, textarea:focus {
   padding-bottom: 0.6rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
   justify-content: center;
+  background: rgba(255,255,255,0.85);
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  position: relative;
+  z-index: 3;
 }
 
 .site-nav a {

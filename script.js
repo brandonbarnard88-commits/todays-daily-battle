@@ -1555,7 +1555,14 @@ function parseQuery(input) {
 }
 
 function executeQuery(parsed, tier) {
-  const results = { intent: parsed.intent, tier, verses: [], guidance: null };
+  const results = {
+    intent: parsed.intent,
+    tier,
+    verses: [],
+    guidance: null,
+    phraseMatches: [],
+    relatedMatches: []
+  };
 
   if (parsed.intent === 'empty') {
     return results;
@@ -1574,6 +1581,42 @@ function executeQuery(parsed, tier) {
     const keywords = parsed.payload.keywords;
     const phrase = parsed.payload.phrase;
     const wordRegex = buildWordRegex(keywords);
+    const phraseRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'gi') : null;
+    const relatedTopicScores = {};
+    Object.keys(topics).forEach(topic => {
+      let score = 0;
+      keywords.forEach(token => {
+        if (topic.includes(token) || topics[topic].synonyms.some(syn => syn.includes(token))) score++;
+      });
+      if (score > 0) relatedTopicScores[topic] = score;
+    });
+    const relatedTopics = Object.keys(relatedTopicScores)
+      .sort((a, b) => relatedTopicScores[b] - relatedTopicScores[a])
+      .slice(0, 2);
+
+    if (phraseRegex) {
+      const phraseMatches = Object.entries(bible)
+        .map(([ref, text]) => {
+          if (!phraseRegex.test(text)) return null;
+          const snippet = text.replace(phraseRegex, '<span class="highlight">$&</span>');
+          return { ref, text: snippet };
+        })
+        .filter(Boolean)
+        .slice(0, 20);
+      results.phraseMatches = phraseMatches;
+    }
+
+    if (relatedTopics.length) {
+      const relatedRefs = new Set();
+      relatedTopics.forEach(topicKey => {
+        topics[topicKey].verses.forEach(ref => relatedRefs.add(ref));
+      });
+      results.relatedMatches = Array.from(relatedRefs)
+        .map(ref => (bible[ref] ? { ref, text: bible[ref] } : null))
+        .filter(Boolean)
+        .slice(0, 20);
+    }
+
     const matches = Object.entries(bible)
       .map(([ref, text]) => {
         const normText = normalizeInput(text);
@@ -1616,79 +1659,61 @@ function renderResults(results) {
       output.appendChild(banner);
     }
   }
-  results.verses.forEach(v => {
-    const card = document.createElement('div');
-    card.className = 'verse-card';
-    card.innerHTML = `<strong>${v.ref}</strong><p>${v.text}</p>`;
-    const buttonRow = document.createElement('div');
-    buttonRow.className = 'card-actions';
 
-    const shareBtn = document.createElement('button');
-    shareBtn.textContent = 'Copy';
-    shareBtn.onclick = () => {
-      navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
-      alert('Verse copied!');
+  const renderSection = (title, verses, limit = 5) => {
+    if (!verses || verses.length === 0) return;
+    const section = document.createElement('div');
+    section.className = 'result-section';
+    const heading = document.createElement('h3');
+    heading.textContent = title;
+    section.appendChild(heading);
+
+    const list = document.createElement('div');
+    list.className = 'results';
+    const initial = verses.slice(0, limit);
+    const renderCards = (items) => {
+      list.innerHTML = '';
+      items.forEach(v => {
+        const card = document.createElement('div');
+        card.className = 'verse-card';
+        card.innerHTML = `<strong>${v.ref}</strong><p>${v.text}</p>`;
+        const buttonRow = document.createElement('div');
+        buttonRow.className = 'card-actions';
+        const copyBtn = document.createElement('button');
+        copyBtn.textContent = 'Copy';
+        copyBtn.onclick = () => {
+          navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
+          alert('Verse copied!');
+        };
+        buttonRow.appendChild(copyBtn);
+        card.appendChild(buttonRow);
+        list.appendChild(card);
+      });
     };
+    renderCards(initial);
+    section.appendChild(list);
 
-    const saveBtn = document.createElement('button');
-    saveBtn.textContent = 'Save';
-    saveBtn.onclick = async () => {
-      const current = loadSavedVerses();
-      if (!current.some(item => item.ref === v.ref)) {
-        const verse = { ref: v.ref, text: v.text.replace(/<[^>]+>/g, '') };
-        const saved = await saveVerseToSupabase(verse);
-        current.push(saved);
-        saveSavedVerses(current);
-        renderSavedVerses();
-      }
-    };
-
-    const contextBtn = document.createElement('button');
-    contextBtn.textContent = 'Context';
-    contextBtn.onclick = () => {
-      const existing = card.querySelector('.context-block');
-      if (existing) {
-        existing.remove();
-        return;
-      }
-      const block = renderContextBlock(v.ref, 3);
-      if (block) card.appendChild(block);
-    };
-
-    const chapterBtn = document.createElement('button');
-    chapterBtn.textContent = 'Chapter';
-    chapterBtn.onclick = () => {
-      const existing = card.querySelector('.chapter-block');
-      if (existing) {
-        existing.remove();
-        return;
-      }
-      const block = renderChapterBlock(v.ref);
-      if (block) card.appendChild(block);
-      const chapterKey = getChapterKey(v.ref);
-      const parsed = chapterKey ? parseChapterKey(chapterKey) : null;
-      if (parsed) {
-        selectReaderChapter(parsed.book, parsed.chapter);
-        document.getElementById('chapter-reader').scrollIntoView({ behavior: 'smooth' });
-      }
-    };
-
-    buttonRow.appendChild(shareBtn);
-    buttonRow.appendChild(saveBtn);
-    buttonRow.appendChild(contextBtn);
-    buttonRow.appendChild(chapterBtn);
-    card.appendChild(buttonRow);
-    if (results.tier === 'kid' || results.tier === 'teen') {
-      const explanation = getEasyExplanation(v.text.replace(/<[^>]+>/g, ''), results.tier);
-      if (explanation) {
-        const easy = document.createElement('div');
-        easy.className = 'easy-explain';
-        easy.textContent = explanation;
-        card.appendChild(easy);
-      }
+    if (verses.length > limit) {
+      const toggle = document.createElement('button');
+      toggle.className = 'view-more';
+      toggle.textContent = 'View more';
+      toggle.onclick = () => {
+        const expanded = toggle.getAttribute('data-expanded') === 'true';
+        renderCards(expanded ? initial : verses);
+        toggle.textContent = expanded ? 'View more' : 'Show less';
+        toggle.setAttribute('data-expanded', expanded ? 'false' : 'true');
+      };
+      section.appendChild(toggle);
     }
-    output.appendChild(card);
-  });
+    output.appendChild(section);
+  };
+
+  if (results.intent === 'keyword') {
+    renderSection('Phrase Matches', results.phraseMatches, 4);
+    renderSection('Related Topics', results.relatedMatches, 4);
+  }
+
+  renderSection(results.intent === 'keyword' ? 'Keyword Matches' : 'Results', results.verses, 6);
   const contextNote = document.createElement('div');
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';

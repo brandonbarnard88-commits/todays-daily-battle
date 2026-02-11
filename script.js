@@ -1935,9 +1935,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     currentUserId = sessionData.session.user.id;
     currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
     subscriptionTier = sessionData.session.user.user_metadata?.subscription || 'free';
-    document.getElementById('logout-btn').style.display = 'inline-block';
+    const logoutBtnEl = document.getElementById('logout-btn');
+    if (logoutBtnEl) logoutBtnEl.style.display = 'inline-block';
     const userTier = sessionData.session.user.user_metadata?.tier || 'adult';
-    document.getElementById('tier').value = userTier;
+    const tierEl = document.getElementById('tier');
+    if (tierEl) tierEl.value = userTier;
     await syncUserData();
     updateRoleViews();
     renderDashboard(currentUserRole);
@@ -1948,12 +1950,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (supabaseClient) {
     supabaseClient.auth.onAuthStateChange(async (_event, session) => {
     currentUserId = session?.user?.id || null;
-    document.getElementById('logout-btn').style.display = session ? 'inline-block' : 'none';
+    const logoutBtnEl = document.getElementById('logout-btn');
+    if (logoutBtnEl) logoutBtnEl.style.display = session ? 'inline-block' : 'none';
     if (session) {
       const userTier = session.user.user_metadata?.tier || 'adult';
       currentUserRole = session.user.user_metadata?.role || 'member';
       subscriptionTier = session.user.user_metadata?.subscription || 'free';
-      document.getElementById('tier').value = userTier;
+      const tierEl = document.getElementById('tier');
+      if (tierEl) tierEl.value = userTier;
       await syncUserData();
       updateRoleViews();
       renderDashboard(currentUserRole);
@@ -2086,16 +2090,28 @@ document.addEventListener('DOMContentLoaded', async () => {
       const password = passwordEl ? passwordEl.value : '';
       const tier = tierEl ? tierEl.value : 'adult';
       const role = roleEl ? roleEl.value : 'member';
+      if (!email || !password) {
+        alert('Please enter an email and password.');
+        return;
+      }
       if (!supabaseClient) {
         alert('Login is unavailable right now. Please refresh the page.');
         return;
       }
-      const { error } = await supabaseClient.auth.signUp({
+      const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
         options: { data: { tier, role } }
       });
-      alert(error ? error.message : 'Signed up! Check your email.');
+      if (error) {
+        alert(error.message);
+        return;
+      }
+      if (data?.session) {
+        alert('Signed up and logged in!');
+      } else {
+        alert('Signed up! Check your email to confirm.');
+      }
     });
   }
 
@@ -2106,6 +2122,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       const passwordEl = document.getElementById('password');
       const email = emailEl ? emailEl.value : '';
       const password = passwordEl ? passwordEl.value : '';
+      if (!email || !password) {
+        alert('Please enter your email and password.');
+        return;
+      }
       if (!supabaseClient) {
         alert('Login is unavailable right now. Please refresh the page.');
         return;

@@ -166,7 +166,7 @@ input:focus, select:focus, textarea:focus {
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0.8rem;
   margin: 0.5rem auto 1.5rem;
-  padding: 0.7rem 0.9rem 0.9rem;
+  padding: 0.9rem 0.9rem 1rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
   justify-items: center;
   align-content: start;
@@ -178,6 +178,7 @@ input:focus, select:focus, textarea:focus {
   max-width: 100%;
   overflow: visible;
   min-height: 120px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
 .site-nav a {
@@ -690,13 +691,13 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .hero { height: 40vh; min-height: 260px; }
+  .hero { height: auto; min-height: 240px; padding: 2.5rem 0 2rem; }
   h1 { font-size: 2.2rem; }
   .hero p { font-size: 1.1rem; }
   .container { margin-top: -40px; padding: 0 14px; }
   .glass { padding: 1.2rem; }
   .site-nav { grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 0.6rem; }
-  .site-nav a { padding: 0.45rem 0.6rem; font-size: 0.92rem; }
+  .site-nav a { padding: 0.45rem 0.6rem; font-size: 0.88rem; }
   .auth-inline { gap: 0.4rem; }
   .auth-inline input, .auth-inline select, .auth-inline button { min-width: 0; }
   .search-actions { flex-direction: column; }

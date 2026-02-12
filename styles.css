@@ -688,3 +688,22 @@ footer {
   .feature-tabs { flex-direction: column; }
   .site-nav { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
 }
+
+@media (max-width: 480px) {
+  .hero { height: 40vh; min-height: 260px; }
+  h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1.1rem; }
+  .container { margin-top: -40px; padding: 0 14px; }
+  .glass { padding: 1.2rem; }
+  .site-nav { grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 0.6rem; }
+  .site-nav a { padding: 0.45rem 0.6rem; font-size: 0.92rem; }
+  .auth-inline { gap: 0.4rem; }
+  .auth-inline input, .auth-inline select, .auth-inline button { min-width: 0; }
+  .search-actions { flex-direction: column; }
+  .search-actions button { width: 100%; }
+  .list-item { flex-direction: column; align-items: flex-start; }
+  .item-actions { width: 100%; }
+  .item-actions button { width: 100%; }
+  .verse-card { padding: 1.2rem; }
+  .chapter-output { max-height: 320px; }
+}

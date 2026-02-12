@@ -563,7 +563,7 @@ function saveMessagesLocal(items) {
 }
 
 async function loadMessages() {
-  if (isSupabaseConfigured()) {
+  if (isSupabaseConfigured() && currentUserId) {
     const { data, error } = await supabaseClient
       .from('messages')
       .select('id, user_id, text, created_at')
@@ -575,7 +575,7 @@ async function loadMessages() {
 }
 
 async function postMessage(text) {
-  if (isSupabaseConfigured()) {
+  if (isSupabaseConfigured() && currentUserId) {
     const { data, error } = await supabaseClient
       .from('messages')
       .insert({ user_id: currentUserId, text })

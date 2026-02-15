@@ -60,6 +60,23 @@ body {
   animation: fadeUp 1.2s ease-out;
 }
 
+.auth-compact {
+  margin-bottom: 1rem;
+  gap: 0.4rem;
+}
+
+.auth-compact input,
+.auth-compact select {
+  padding: 0.45rem 0.6rem;
+  font-size: 0.85rem;
+  min-width: 120px;
+}
+
+.auth-compact button {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.85rem;
+}
+
 .auth-inline {
   margin-top: 1.5rem;
   display: flex;
@@ -163,8 +180,8 @@ input:focus, select:focus, textarea:focus {
 
 .site-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.4rem;
   margin: 0.5rem auto 1.5rem;
   padding: 0.9rem 0.9rem 1rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
@@ -177,24 +194,25 @@ input:focus, select:focus, textarea:focus {
   z-index: 3;
   max-width: 100%;
   overflow: visible;
-  min-height: 140px;
+  min-height: 160px;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
 .site-nav a {
   text-decoration: none;
   color: #1f2937;
-  padding: 0.4rem 0.6rem;
+  padding: 0.35rem 0.5rem;
   font-weight: 600;
   border-radius: 999px;
   background: #fde68a;
   border: 1px solid #f59e0b;
   opacity: 1;
-  white-space: nowrap;
+  white-space: normal;
   width: 100%;
   text-align: center;
   min-width: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
 }
 
 .site-nav a:hover {
@@ -688,7 +706,7 @@ footer {
   .controls { flex-direction: column; align-items: stretch; }
   .auth-card, .controls { padding: 1.5rem; }
   .feature-tabs { flex-direction: column; }
-  .site-nav { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+  .site-nav { grid-template-columns: repeat(2, minmax(110px, 1fr)); }
 }
 
 @media (max-width: 480px) {
@@ -697,8 +715,12 @@ footer {
   .hero p { font-size: 1.1rem; }
   .container { margin-top: -40px; padding: 0 14px; }
   .glass { padding: 1.2rem; }
-  .site-nav { grid-template-columns: repeat(2, minmax(110px, 1fr)); gap: 0.5rem; }
-  .site-nav a { padding: 0.4rem 0.55rem; font-size: 0.82rem; }
+  .site-nav { grid-template-columns: repeat(2, minmax(100px, 1fr)); gap: 0.45rem; }
+  .site-nav a { padding: 0.35rem 0.5rem; font-size: 0.78rem; }
+  .auth-compact { margin-bottom: 0.6rem; }
+  .auth-compact input,
+  .auth-compact select,
+  .auth-compact button { width: 100%; }
   .auth-inline { gap: 0.4rem; }
   .auth-inline input, .auth-inline select, .auth-inline button { min-width: 0; }
   .search-actions { flex-direction: column; }

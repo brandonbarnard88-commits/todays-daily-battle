@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Today's Daily Battle</title>
-  <link rel="stylesheet" href="styles.css?v=20260210n">
+  <link rel="stylesheet" href="styles.css?v=20260210o">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -12,9 +12,7 @@
   <header class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1>Today's Daily Battle</h1>
-      <p>Face every struggle with the sword of God's Word (KJV)</p>
-      <div id="auth-section" class="auth-inline">
+      <div id="auth-section" class="auth-inline auth-compact">
         <input id="email" placeholder="Email" type="email">
         <input id="password" placeholder="Password" type="password">
         <select id="account-type">
@@ -28,6 +26,8 @@
         <button id="login-btn">Log In</button>
         <button id="logout-btn" style="display:none">Log Out</button>
       </div>
+      <h1>Today's Daily Battle</h1>
+      <p>Face every struggle with the sword of God's Word (KJV)</p>
     </div>
   </header>
 
@@ -44,6 +44,14 @@
       <a href="message.html" data-section="message-board">Message Board</a>
     </nav>
     <section id="main-search" class="controls glass">
+      <div class="search-stack">
+        <input id="query" placeholder="Search anger, fear, John 3:16, love...">
+        <div class="search-actions">
+          <button id="search-btn">Search</button>
+          <button id="daily-btn">Today's Battle</button>
+          <button id="dark-toggle">Toggle Dark Mode</button>
+        </div>
+      </div>
       <div class="filter-stack">
         <select id="version" class="compact-select">
           <option value="KJV" selected>KJV</option>
@@ -58,14 +66,6 @@
           <option value="adult" selected>Adult</option>
           <option value="pastor">Pastor</option>
         </select>
-      </div>
-      <div class="search-stack">
-        <input id="query" placeholder="Search anger, fear, John 3:16, love...">
-      <div class="search-actions">
-        <button id="search-btn">Search</button>
-          <button id="daily-btn">Today's Battle</button>
-          <button id="dark-toggle">Toggle Dark Mode</button>
-        </div>
       </div>
     </section>
 
@@ -82,6 +82,6 @@
     Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
   </footer>
 
-  <script src="script.js?v=20260210y" data-cfasync="false"></script>
+  <script src="script.js?v=20260210aa" data-cfasync="false"></script>
 </body>
 </html>

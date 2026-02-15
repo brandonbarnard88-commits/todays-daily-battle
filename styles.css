@@ -180,21 +180,22 @@ input:focus, select:focus, textarea:focus {
 
 .site-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.4rem;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 0.5rem;
   margin: 0.5rem auto 1.5rem;
   padding: 0.9rem 0.9rem 1rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
   justify-items: center;
   align-content: start;
   grid-auto-flow: row;
+  grid-auto-rows: minmax(34px, auto);
   background: rgba(255,255,255,0.85);
   border-radius: 14px;
   position: relative;
   z-index: 3;
-  max-width: 100%;
+  max-width: 980px;
   overflow: visible;
-  min-height: 160px;
+  min-height: 0;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
@@ -706,7 +707,7 @@ footer {
   .controls { flex-direction: column; align-items: stretch; }
   .auth-card, .controls { padding: 1.5rem; }
   .feature-tabs { flex-direction: column; }
-  .site-nav { grid-template-columns: repeat(2, minmax(110px, 1fr)); }
+  .site-nav { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
 }
 
 @media (max-width: 480px) {
@@ -715,7 +716,7 @@ footer {
   .hero p { font-size: 1.1rem; }
   .container { margin-top: -40px; padding: 0 14px; }
   .glass { padding: 1.2rem; }
-  .site-nav { grid-template-columns: repeat(2, minmax(100px, 1fr)); gap: 0.45rem; }
+  .site-nav { grid-template-columns: repeat(2, minmax(110px, 1fr)); gap: 0.45rem; }
   .site-nav a { padding: 0.35rem 0.5rem; font-size: 0.78rem; }
   .auth-compact { margin-bottom: 0.6rem; }
   .auth-compact input,

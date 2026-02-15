@@ -163,8 +163,8 @@ input:focus, select:focus, textarea:focus {
 
 .site-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
   margin: 0.5rem auto 1.5rem;
   padding: 0.9rem 0.9rem 1rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.35);
@@ -177,14 +177,14 @@ input:focus, select:focus, textarea:focus {
   z-index: 3;
   max-width: 100%;
   overflow: visible;
-  min-height: 120px;
+  min-height: 140px;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
 .site-nav a {
   text-decoration: none;
   color: #1f2937;
-  padding: 0.5rem 0.9rem;
+  padding: 0.4rem 0.6rem;
   font-weight: 600;
   border-radius: 999px;
   background: #fde68a;
@@ -194,6 +194,7 @@ input:focus, select:focus, textarea:focus {
   width: 100%;
   text-align: center;
   min-width: 0;
+  font-size: 0.9rem;
 }
 
 .site-nav a:hover {
@@ -687,7 +688,7 @@ footer {
   .controls { flex-direction: column; align-items: stretch; }
   .auth-card, .controls { padding: 1.5rem; }
   .feature-tabs { flex-direction: column; }
-  .site-nav { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+  .site-nav { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
 }
 
 @media (max-width: 480px) {
@@ -696,8 +697,8 @@ footer {
   .hero p { font-size: 1.1rem; }
   .container { margin-top: -40px; padding: 0 14px; }
   .glass { padding: 1.2rem; }
-  .site-nav { grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 0.6rem; }
-  .site-nav a { padding: 0.45rem 0.6rem; font-size: 0.88rem; }
+  .site-nav { grid-template-columns: repeat(2, minmax(110px, 1fr)); gap: 0.5rem; }
+  .site-nav a { padding: 0.4rem 0.55rem; font-size: 0.82rem; }
   .auth-inline { gap: 0.4rem; }
   .auth-inline input, .auth-inline select, .auth-inline button { min-width: 0; }
   .search-actions { flex-direction: column; }

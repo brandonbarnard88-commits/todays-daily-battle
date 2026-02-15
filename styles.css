@@ -65,6 +65,18 @@ body {
   gap: 0.4rem;
 }
 
+.auth-field {
+  display: grid;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.auth-field label {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: rgba(226, 232, 240, 0.9);
+}
+
 .auth-compact input,
 .auth-compact select {
   padding: 0.45rem 0.6rem;

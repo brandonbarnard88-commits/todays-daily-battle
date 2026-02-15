@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Today's Daily Battle</title>
-  <link rel="stylesheet" href="styles.css?v=20260210r">
+  <link rel="stylesheet" href="styles.css?v=20260210s">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,15 +13,24 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
       <div id="auth-section" class="auth-inline auth-compact">
-        <input id="email" placeholder="Email" type="email">
-        <input id="password" placeholder="Password" type="password">
-        <select id="account-type">
+        <div class="auth-field">
+          <label for="email">Email</label>
+          <input id="email" placeholder="Email" type="email">
+        </div>
+        <div class="auth-field">
+          <label for="password">Password</label>
+          <input id="password" placeholder="Password" type="password">
+        </div>
+        <div class="auth-field">
+          <label for="account-type">Account Type</label>
+          <select id="account-type">
           <option value="member" selected>Member</option>
           <option value="adult">Adult</option>
           <option value="family">Family</option>
           <option value="teacher">Teacher</option>
           <option value="pastor">Pastor</option>
-        </select>
+          </select>
+        </div>
         <button id="signup-btn">Sign Up</button>
         <button id="login-btn">Log In</button>
         <button id="logout-btn" style="display:none">Log Out</button>

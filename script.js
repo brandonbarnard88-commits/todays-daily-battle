@@ -1302,15 +1302,16 @@ function updateRoleViews() {
 }
 
 function applyRoleAccess() {
-  const role = currentUserRole || 'member';
-  const showFor = {
-    pastor: ['verse-of-day', 'message-board', 'sermon-builder', 'pastor-resources', 'church-center', 'study-tools', 'chapter-reader', 'coloring-stories'],
-    teacher: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
-    adult: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
-    family: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center'],
-    member: ['verse-of-day', 'message-board', 'study-tools', 'chapter-reader', 'coloring-stories', 'church-center']
-  };
-  const allowed = new Set(showFor[role] || showFor.member);
+  const allowed = new Set([
+    'verse-of-day',
+    'study-tools',
+    'chapter-reader',
+    'sermon-builder',
+    'pastor-resources',
+    'coloring-stories',
+    'church-center',
+    'message-board'
+  ]);
   const sections = [
     'verse-of-day',
     'study-tools',
@@ -1330,8 +1331,7 @@ function applyRoleAccess() {
 
   const navLinks = document.querySelectorAll('.site-nav [data-section]');
   navLinks.forEach(link => {
-    const sectionId = link.getAttribute('data-section');
-    link.style.display = allowed.has(sectionId) ? 'inline-flex' : 'none';
+    link.style.display = 'inline-flex';
   });
 }
 

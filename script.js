@@ -1940,7 +1940,7 @@ function executeQuery(parsed, tier) {
       })
       .filter(Boolean)
       .sort((a,b) => b.score - a.score)
-      .slice(0, 10);
+      .slice(0, 30);
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
   }
 
@@ -2007,11 +2007,11 @@ function renderResults(results) {
     if (verses.length > limit) {
       const toggle = document.createElement('button');
       toggle.className = 'view-more';
-      toggle.textContent = 'See more';
+      toggle.textContent = 'View more results';
       toggle.onclick = () => {
         const expanded = toggle.getAttribute('data-expanded') === 'true';
         renderCards(expanded ? initial : verses);
-        toggle.textContent = expanded ? 'See more' : 'Show less';
+        toggle.textContent = expanded ? 'View more results' : 'Show less';
         toggle.setAttribute('data-expanded', expanded ? 'false' : 'true');
       };
       section.appendChild(toggle);

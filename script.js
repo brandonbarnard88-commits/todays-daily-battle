@@ -27,6 +27,7 @@ const MEANING_MAP = {
   wisdom: ['understanding', 'knowledge', 'insight'],
   fear: ['afraid', 'anxious', 'worry', 'dread'],
   anger: ['wrath', 'rage', 'fury'],
+  heartache: ['grief', 'sorrow', 'sadness', 'brokenhearted', 'mourning'],
   sin: ['evil', 'wrongdoing', 'transgression'],
   salvation: ['rescue', 'deliverance', 'save']
 };
@@ -77,7 +78,7 @@ const topics = {
     }
   },
   grief: {
-    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken'],
+    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted'],
     verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3'],
     guidance: {
       kid: "When you're sad, God is close and will make you feel better.",

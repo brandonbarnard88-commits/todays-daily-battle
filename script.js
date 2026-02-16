@@ -1953,6 +1953,7 @@ function renderResults(results) {
   lastResults = results;
   updateNoteSelect(results);
   updateGroupPrompts(results);
+  const queryText = normalizeInput(lastQueryInput || '');
   if (results.intent === 'empty') {
     output.innerHTML = '<p style="text-align:center; color:#888;">Type a topic, keyword, or Bible reference to begin.</p>';
     return;
@@ -1960,6 +1961,12 @@ function renderResults(results) {
   if (results.verses.length === 0) {
     output.innerHTML = '<p style="text-align:center; color:#888;">No results found. Try another search!</p>';
     return;
+  }
+  if (queryText.includes('heartache') || queryText.includes('heart ache')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You are not alone. God sees your pain and draws near to the brokenhearted.';
+    output.appendChild(gentle);
   }
   if (results.intent === 'topic' && (results.tier === 'kid' || results.tier === 'teen')) {
     const topic = topics[results.topic];

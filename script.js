@@ -1969,6 +1969,30 @@ function renderResults(results) {
     gentle.textContent = 'You are not alone. God sees your pain and draws near to the brokenhearted.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('grief') || queryText.includes('grieving') || queryText.includes('sorrow')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Grief can feel heavy, but God is near and will comfort you.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('anxiety') || queryText.includes('anxious') || queryText.includes('worry')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Take a breath. God cares for you and invites you to bring Him every worry.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('depression') || queryText.includes('depressed') || queryText.includes('hopeless')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You matter, and there is hope. God has not forgotten you.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('fear') || queryText.includes('afraid') || queryText.includes('panic')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You are safe with God. He gives courage and peace in the middle of fear.';
+    output.appendChild(gentle);
+  }
   if (results.intent === 'topic' && (results.tier === 'kid' || results.tier === 'teen')) {
     const topic = topics[results.topic];
     if (topic?.explain?.[results.tier]) {

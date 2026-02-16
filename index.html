@@ -4,92 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Today's Daily Battle</title>
-  <link rel="stylesheet" href="styles.css?v=20260210t">
+  <link rel="stylesheet" href="styles.css?v=20260210x">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode">
-  <header class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="index.html">Today's Daily Battle</a>
+        <span class="brand-subtitle">Battle every day with God's Word</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">Menu</button>
       <div id="auth-section" class="auth-inline auth-compact">
-        <div class="auth-field">
-          <label for="email">Email</label>
-          <input id="email" placeholder="Email" type="email">
-        </div>
-        <div class="auth-field">
-          <label for="password">Password</label>
-          <input id="password" placeholder="Password" type="password">
-        </div>
-        <div class="auth-field">
-          <label for="account-type">Account Type</label>
-          <select id="account-type">
+        <input id="email" placeholder="Email" type="email" aria-label="Email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password">
+        <select id="account-type" aria-label="Account Type">
           <option value="member" selected>Member</option>
           <option value="adult">Adult</option>
           <option value="family">Family</option>
           <option value="teacher">Teacher</option>
           <option value="pastor">Pastor</option>
-          </select>
-        </div>
+        </select>
         <button id="signup-btn">Sign Up</button>
         <button id="login-btn">Log In</button>
         <button id="logout-btn" style="display:none">Log Out</button>
       </div>
-      <h1>Today's Daily Battle</h1>
-      <p>Face every struggle with the sword of God's Word (KJV)</p>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <nav class="site-nav">
-      <a href="index.html" data-section="search">Search</a>
-      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
-      <a href="study.html" data-section="study-tools">Study Tools</a>
-      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
-      <a href="church.html" data-section="church-center">Church Center</a>
-      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
-      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
-      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
-      <a href="message.html" data-section="message-board">Message Board</a>
-    </nav>
-    <section id="main-search" class="controls glass">
-      <div class="search-stack">
-        <input id="query" placeholder="Search anger, fear, John 3:16, love...">
-        <div class="search-actions">
-          <button id="search-btn">Search</button>
-          <button id="daily-btn">Today's Battle</button>
-          <button id="dark-toggle">Toggle Dark Mode</button>
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a href="index.html" data-section="search">Search</a>
+        <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+        <a href="study.html" data-section="study-tools">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+        <a href="church.html" data-section="church-center">Church Center</a>
+        <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+        <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+        <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+        <a href="message.html" data-section="message-board">Message Board</a>
+      </nav>
+    </aside>
+
+    <main class="app-content">
+      <div class="content-inner">
+        <header class="page-header">
+          <h1>Today's Daily Battle</h1>
+          <p>Face every struggle with the sword of God's Word.</p>
+        </header>
+        <section id="main-search" class="controls glass">
+          <div class="search-stack">
+            <input id="query" placeholder="Search anger, fear, John 3:16, love...">
+            <div class="search-actions">
+              <button id="search-btn">Search</button>
+              <button id="daily-btn">Today's Battle</button>
+              <button id="dark-toggle">Toggle Dark Mode</button>
+            </div>
+          </div>
+          <div class="filter-stack">
+            <select id="version" class="compact-select">
+              <option value="KJV" selected>KJV</option>
+              <option value="NIV">NIV</option>
+              <option value="ESV">ESV</option>
+              <option value="NLT">NLT</option>
+              <option value="NKJV">NKJV</option>
+            </select>
+            <select id="tier" class="compact-select">
+              <option value="kid">Kid</option>
+              <option value="teen">Teen</option>
+              <option value="adult" selected>Adult</option>
+              <option value="pastor">Pastor</option>
+            </select>
+          </div>
+        </section>
+
+        <div id="loading" class="loading" style="display:none">
+          <div class="spinner"></div>
+          <p>Seeking God's truth...</p>
         </div>
+
+        <div id="output" class="results"></div>
       </div>
-      <div class="filter-stack">
-        <select id="version" class="compact-select">
-          <option value="KJV" selected>KJV</option>
-          <option value="NIV">NIV</option>
-          <option value="ESV">ESV</option>
-          <option value="NLT">NLT</option>
-          <option value="NKJV">NKJV</option>
-        </select>
-        <select id="tier" class="compact-select">
-          <option value="kid">Kid</option>
-          <option value="teen">Teen</option>
-          <option value="adult" selected>Adult</option>
-          <option value="pastor">Pastor</option>
-        </select>
-      </div>
-    </section>
+    </main>
 
-    <div id="loading" class="loading" style="display:none">
-      <div class="spinner"></div>
-      <p>Seeking God's truth...</p>
-    </div>
-
-    <div id="output" class="results"></div>
-
-  </main>
-
-  <footer>
-    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
-  </footer>
+    <footer class="site-footer">
+      Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+    </footer>
+  </div>
 
   <script src="script.js?v=20260210aa" data-cfasync="false"></script>
 </body>

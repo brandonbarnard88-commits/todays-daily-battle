@@ -4,61 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Church Center • Today's Daily Battle</title>
-  <link rel="stylesheet" href="styles.css?v=20260210t">
+  <link rel="stylesheet" href="styles.css?v=20260210x">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode">
-  <header class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <h1>Church Center</h1>
-      <p>Find your church and stay connected</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <nav class="site-nav">
-      <a href="index.html" data-section="search">Search</a>
-      <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
-      <a href="study.html" data-section="study-tools">Study Tools</a>
-      <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
-      <a href="church.html" data-section="church-center">Church Center</a>
-      <a href="coloring.html" data-section="coloring-stories">Coloring</a>
-      <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
-      <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
-      <a href="message.html" data-section="message-board">Message Board</a>
-    </nav>
-
-    <section id="church-center" class="church-center glass">
-      <h2>Find Your Church</h2>
-      <p class="section-note">Search churches and view weekly sermons.</p>
-      <div class="church-search">
-        <input id="church-query" placeholder="Search by church name or city...">
-        <input id="church-state" placeholder="State (optional)">
-        <label class="inline-toggle">
-          <input id="church-online" type="checkbox">
-          Online only
-        </label>
-        <button id="church-search-btn">Search</button>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="index.html">Today's Daily Battle</a>
+        <span class="brand-subtitle">Find your church and stay connected</span>
       </div>
-      <div id="church-featured" class="featured-list"></div>
-      <div id="church-admin" class="church-admin" style="display:none">
-        <h3>Add Weekly Sermon (Pastors)</h3>
-        <input id="sermon-church-id" placeholder="Church ID (select a church first)" readonly>
-        <input id="sermon-title-input" placeholder="Sermon title">
-        <input id="sermon-date-input" type="date">
-        <textarea id="sermon-summary-input" rows="3" placeholder="Short summary"></textarea>
-        <button id="add-sermon-btn">Add Sermon</button>
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">Menu</button>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password">
+        <select id="account-type" aria-label="Account Type">
+          <option value="member" selected>Member</option>
+          <option value="adult">Adult</option>
+          <option value="family">Family</option>
+          <option value="teacher">Teacher</option>
+          <option value="pastor">Pastor</option>
+        </select>
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="logout-btn" style="display:none">Log Out</button>
       </div>
-      <div id="church-results" class="list"></div>
-      <div id="church-sermons" class="list"></div>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
-  </footer>
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a href="index.html" data-section="search">Search</a>
+        <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
+        <a href="study.html" data-section="study-tools">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
+        <a href="church.html" data-section="church-center">Church Center</a>
+        <a href="coloring.html" data-section="coloring-stories">Coloring</a>
+        <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
+        <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
+        <a href="message.html" data-section="message-board">Message Board</a>
+      </nav>
+    </aside>
+
+    <main class="app-content">
+      <div class="content-inner">
+        <header class="page-header">
+          <h1>Church Center</h1>
+          <p>Find your church and stay connected.</p>
+        </header>
+        <section id="church-center" class="church-center glass">
+          <h2>Find Your Church</h2>
+          <p class="section-note">Search churches and view weekly sermons.</p>
+          <div class="church-search">
+            <input id="church-query" placeholder="Search by church name or city...">
+            <input id="church-state" placeholder="State (optional)">
+            <label class="inline-toggle">
+              <input id="church-online" type="checkbox">
+              Online only
+            </label>
+            <button id="church-search-btn">Search</button>
+          </div>
+          <div id="church-featured" class="featured-list"></div>
+          <div id="church-admin" class="church-admin" style="display:none">
+            <h3>Add Weekly Sermon (Pastors)</h3>
+            <input id="sermon-church-id" placeholder="Church ID (select a church first)" readonly>
+            <input id="sermon-title-input" placeholder="Sermon title">
+            <input id="sermon-date-input" type="date">
+            <textarea id="sermon-summary-input" rows="3" placeholder="Short summary"></textarea>
+            <button id="add-sermon-btn">Add Sermon</button>
+          </div>
+          <div id="church-results" class="list"></div>
+          <div id="church-sermons" class="list"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+    </footer>
+  </div>
 
   <script src="script.js?v=20260210aa" data-cfasync="false"></script>
 </body>

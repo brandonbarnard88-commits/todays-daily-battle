@@ -530,7 +530,8 @@ const curriculum = {
 function getDailyVerseRef() {
   const refs = Object.keys(bible);
   if (!refs.length) return null;
-  const dayKey = new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const dayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
   const seed = dayKey.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
   return refs[seed % refs.length];
 }
@@ -2037,7 +2038,7 @@ function renderResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const navLinks = document.querySelectorAll('.site-nav a');
+  const navLinks = document.querySelectorAll('.side-nav a, .site-nav a');
   if (navLinks.length) {
     const path = window.location.pathname.replace(/\/+$/, '');
     navLinks.forEach(link => {
@@ -2046,6 +2047,23 @@ document.addEventListener('DOMContentLoaded', async () => {
       const normalized = href === 'index.html' ? '' : `/${href}`.replace(/\/+$/, '');
       const isActive = path === normalized || (normalized === '' && (path === '' || path === '/index.html'));
       link.classList.toggle('active', isActive);
+    });
+  }
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const appShell = document.querySelector('.app-shell');
+  if (sidebarToggle && appShell) {
+    sidebarToggle.addEventListener('click', () => {
+      appShell.classList.toggle('sidebar-open');
+    });
+  }
+  const sideNavLinks = document.querySelectorAll('.side-nav a');
+  if (sideNavLinks.length && appShell) {
+    sideNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          appShell.classList.remove('sidebar-open');
+        }
+      });
     });
   }
   loadLocalSermons();

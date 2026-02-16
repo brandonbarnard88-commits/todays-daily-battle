@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Tools • Today's Daily Battle</title>
-  <link rel="stylesheet" href="styles.css?v=20260210x">
+  <link rel="stylesheet" href="styles.css?v=20260210ab">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -34,26 +34,30 @@
 
     <aside class="sidebar">
       <nav class="side-nav">
-        <a href="index.html" data-section="search">Search</a>
-        <a href="verse.html" data-section="verse-of-day">Verse of the Day</a>
-        <a href="study.html" data-section="study-tools">Study Tools</a>
-        <a href="reader.html" data-section="chapter-reader">Chapter Reader</a>
-        <a href="church.html" data-section="church-center">Church Center</a>
-        <a href="coloring.html" data-section="coloring-stories">Coloring</a>
-        <a href="sermon.html" data-section="sermon-builder">Sermon Builder</a>
-        <a href="resources.html" data-section="pastor-resources">Pastor Resources</a>
-        <a href="message.html" data-section="message-board">Message Board</a>
+        <a href="index.html" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="coloring-stories" data-icon="CL">Coloring</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
       </nav>
     </aside>
 
     <main class="app-content">
       <div class="content-inner">
-        <header class="page-header">
+        <header class="hero-banner">
           <h1>Study Tools</h1>
           <p>Notes, lessons, and resources for growth.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="index.html">Go to Search</a>
+            <a class="btn btn-secondary" href="reader.html">Read a Chapter</a>
+          </div>
         </header>
         <section id="study-tools" class="study-tools glass">
-          <h2>Study Tools</h2>
+          <h2 class="section-divider">Study Tools</h2>
           <p class="section-note">This tool supports study and discipleship. Read full passages in your Bible for context.</p>
           <div class="study-grid">
             <div class="study-card">

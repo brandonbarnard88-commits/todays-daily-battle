@@ -19,6 +19,34 @@ body {
 }
 
 .app-shell {
+  position: relative;
+}
+
+.app-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app-shell::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.78), rgba(2, 6, 23, 0.9));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.app-shell > * {
+  position: relative;
+  z-index: 2;
+}
+
+.app-shell {
   display: grid;
   grid-template-columns: 240px 1fr;
   grid-template-rows: auto 1fr auto;
@@ -74,6 +102,8 @@ body {
   background: rgba(15, 23, 42, 0.92);
   border-right: 1px solid rgba(148, 163, 184, 0.2);
   padding: 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .side-nav {
@@ -91,6 +121,22 @@ body {
   font-weight: 600;
   font-size: 0.9rem;
   line-height: 1.2;
+}
+
+.side-nav a::before {
+  content: attr(data-icon);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-right: 0.5rem;
+  border-radius: 999px;
+  background: rgba(109, 40, 217, 0.5);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .side-nav a:hover {
@@ -112,6 +158,62 @@ body {
   margin: 0 auto;
   display: grid;
   gap: 1.2rem;
+}
+
+.hero-banner {
+  padding: 1.6rem 1.8rem;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.35);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero-banner h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+}
+
+.hero-banner p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: rgba(109, 40, 217, 0.5);
+  box-shadow: 0 10px 24px rgba(109, 40, 217, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(148, 163, 184, 0.15);
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.section-divider {
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .page-header h1 {
@@ -271,7 +373,7 @@ h1 {
   -webkit-backdrop-filter: blur(16px);
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18);
   border: 1px solid rgba(255,255,255,0.18);
   transition: transform 0.3s;
 }
@@ -630,6 +732,7 @@ button:hover {
   padding: 1.2rem;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
 }
 
 .list {
@@ -646,6 +749,7 @@ button:hover {
   padding: 0.8rem;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
 }
 
 .item-actions {
@@ -906,6 +1010,32 @@ button:hover {
   .app-content {
     padding: 1.1rem 1rem 2rem;
   }
+  .hero-banner {
+    padding: 1.2rem;
+  }
+  .cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn {
+    width: 100%;
+  }
+  .brand-title {
+    font-size: 1rem;
+  }
+  .brand-subtitle {
+    display: none;
+  }
+  .side-nav a {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.6rem;
+  }
+  .side-nav a::before {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.4rem;
+    font-size: 0.65rem;
+  }
   .hero { height: 45vh; min-height: 300px; }
   h1 { font-size: 2.8rem; }
   .container { margin-top: 0; }
@@ -917,11 +1047,17 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+  .app-content { padding: 0.9rem 0.8rem 1.6rem; }
+  .app-shell::before { opacity: 0.12; }
+  .app-shell::after { background: linear-gradient(180deg, rgba(2, 6, 23, 0.82), rgba(2, 6, 23, 0.95)); }
+  .sidebar { width: 220px; }
+  .side-nav { gap: 0.3rem; }
+  .hero-banner { padding: 1rem; }
+  .glass { padding: 1.2rem; }
   .hero { height: auto; min-height: 240px; padding: 2.5rem 0 2.8rem; }
   h1 { font-size: 2.2rem; }
   .hero p { font-size: 1.1rem; }
   .container { margin-top: 0; padding: 0 14px 40px; }
-  .glass { padding: 1.2rem; }
   .site-nav { grid-template-columns: repeat(2, minmax(90px, 1fr)); gap: 0.3rem; }
   .site-nav a { padding: 0.2rem 0.36rem; font-size: 0.7rem; }
   .auth-compact { margin-bottom: 0.6rem; }

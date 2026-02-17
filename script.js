@@ -641,6 +641,64 @@ const LESSONS_STORAGE_KEY = 'lessonPlans';
 const MESSAGE_STORAGE_KEY = 'messageBoard';
 const NEWSLETTER_STORAGE_KEY = 'newsletterSignups';
 const STATS_STORAGE_KEY = 'siteStats';
+const KID_ACTIVITIES = {
+  fear: {
+    kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
+    teen: ['Write one fear and one promise from God that answers it.', 'Pray with a friend for courage.']
+  },
+  anxiety: {
+    kid: ['Make a worry jar and pray over each worry.', 'Take three deep breaths and thank God for three things.'],
+    teen: ['Write a short prayer for your biggest worry.', 'Take a 5-minute quiet break and read Philippians 4:6-7.']
+  },
+  grief: {
+    kid: ['Draw a heart and write one comfort verse inside.', 'Tell God one thing you miss and one thing you’re thankful for.'],
+    teen: ['Write a short journal prayer about your loss.', 'Share a memory and thank God for it.']
+  },
+  hope: {
+    kid: ['Make a “hope list” of 3 good things coming up.', 'Say Romans 15:13 together.'],
+    teen: ['Write one promise from God and put it on your mirror.', 'Pray for hope for a friend.']
+  },
+  peace: {
+    kid: ['Color a calm scene and thank God for peace.', 'Whisper a short peace prayer before bed.'],
+    teen: ['Create a “peace playlist” of worship songs.', 'Read John 16:33 and breathe slowly for 60 seconds.']
+  },
+  forgiveness: {
+    kid: ['Write “I forgive” on a paper and pray over it.', 'Do one kind act for someone today.'],
+    teen: ['Pray for the person who hurt you.', 'Write a letter you don’t have to send.']
+  },
+  courage: {
+    kid: ['Act out being brave with a 30-second skit.', 'Pick one small brave step to do today.'],
+    teen: ['Write a courageous next step and tell a friend.', 'Pray for boldness before a hard conversation.']
+  },
+  gratitude: {
+    kid: ['Say three thank-you prayers in a row.', 'Make a thank-you card for someone.'],
+    teen: ['List five gifts from God you noticed today.', 'Text a thank-you to someone who helped you.']
+  },
+  kindness: {
+    kid: ['Do one secret kind act today.', 'Say one encouraging sentence to someone.'],
+    teen: ['Choose one person to encourage this week.', 'Pray for someone you find hard to love.']
+  },
+  prayer: {
+    kid: ['Pray a simple “thank you, help me, sorry” prayer.', 'Draw your prayer and share it.'],
+    teen: ['Set a 2-minute timer and pray honestly.', 'Pray one verse from the Psalms.']
+  },
+  patience: {
+    kid: ['Practice waiting 60 seconds without complaining.', 'Pray for patience before a hard moment.'],
+    teen: ['Write one area you need patience and ask God for help.', 'Choose to pause before you respond.']
+  },
+  trust: {
+    kid: ['Tell God one thing you’re trusting Him with.', 'Draw a “trust bridge” and walk your finger across it.'],
+    teen: ['Write “I trust You” and put it where you’ll see it.', 'Pray Proverbs 3:5 out loud.']
+  },
+  friendship: {
+    kid: ['Do one kind thing for a friend today.', 'Say a prayer for your friends by name.'],
+    teen: ['Invite a friend to read a verse with you.', 'Ask God to help you be loyal and honest.']
+  },
+  family: {
+    kid: ['Pray for each person in your family.', 'Do one helpful thing at home.'],
+    teen: ['Write one way to honor your family this week.', 'Pray for peace at home.']
+  }
+};
 
 function loadStats() {
   try {
@@ -2354,6 +2412,7 @@ function executeQuery(parsed, tier) {
     tier,
     verses: [],
     guidance: null,
+    activities: null,
     phraseMatches: [],
     relatedMatches: []
   };
@@ -2371,6 +2430,9 @@ function executeQuery(parsed, tier) {
       if (bible[ref]) results.verses.push({ ref, text: bible[ref] });
     });
     results.guidance = topic.guidance[tier] || topic.guidance.adult;
+    if (tier === 'kid' || tier === 'teen') {
+      results.activities = KID_ACTIVITIES[results.topic]?.[tier] || null;
+    }
   } else {
     const keywords = parsed.payload.keywords;
     const phrase = parsed.payload.phrase;
@@ -2387,6 +2449,9 @@ function executeQuery(parsed, tier) {
     const relatedTopics = Object.keys(relatedTopicScores)
       .sort((a, b) => relatedTopicScores[b] - relatedTopicScores[a])
       .slice(0, 2);
+    if ((tier === 'kid' || tier === 'teen') && relatedTopics.length) {
+      results.activities = KID_ACTIVITIES[relatedTopics[0]]?.[tier] || null;
+    }
 
     if (phraseRegex) {
       const phraseMatches = Object.entries(bible)
@@ -2578,6 +2643,13 @@ function renderResults(results) {
     guide.className = 'guidance';
     guide.textContent = results.guidance;
     output.appendChild(guide);
+  }
+  if (results.activities && results.activities.length) {
+    const activityBox = document.createElement('div');
+    activityBox.className = 'activity-box';
+    const items = results.activities.map(item => `<li>${item}</li>`).join('');
+    activityBox.innerHTML = `<strong>Kid/Teen Activity Ideas</strong><ul>${items}</ul>`;
+    output.appendChild(activityBox);
   }
 }
 

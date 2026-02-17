@@ -838,6 +838,26 @@ button:hover {
   font-style: italic;
 }
 
+.activity-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #1f2937;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+.dark-mode .activity-box {
+  background: rgba(37, 99, 235, 0.2);
+  color: #e2e8f0;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.activity-box ul {
+  margin: 0.6rem 0 0 1.1rem;
+  padding: 0;
+}
+
 .context-note {
   text-align: center;
   color: #64748b;

@@ -949,6 +949,21 @@ function renderDailyVerse() {
   card.innerHTML = `<strong>${ref}</strong><p>${bible[ref]}</p>`;
 }
 
+function renderDailyBattleCard() {
+  const card = document.getElementById('daily-battle-card');
+  if (!card) return;
+  if (!Object.keys(bible).length) {
+    card.innerHTML = '<p class="empty">Bible data not loaded.</p>';
+    return;
+  }
+  const ref = getDailyVerseRef();
+  if (!ref || !bible[ref]) {
+    card.innerHTML = '<p class="empty">Verse not available.</p>';
+    return;
+  }
+  card.innerHTML = `<strong>${ref}</strong><p>${bible[ref]}</p>`;
+}
+
 function loadMessagesLocal() {
   try {
     return JSON.parse(localStorage.getItem(MESSAGE_STORAGE_KEY) || '[]');
@@ -2962,6 +2977,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadBible(versionSelect ? versionSelect.value : currentVersion);
   refreshBibleView();
   renderDailyVerse();
+  renderDailyBattleCard();
   if (!supabaseClient) {
     const authSection = document.getElementById('auth-section');
     if (authSection) {
@@ -3067,6 +3083,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const results = executeQuery(parsed, tier);
         renderResults(results);
         if (loadingEl) loadingEl.style.display = 'none';
+      renderDailyBattleCard();
       }, 600);
     });
   }

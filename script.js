@@ -348,6 +348,146 @@ const topics = {
       kid: "God sees when people are mean and wants to help you.",
       teen: "God cares and gives courage to stand up the right way."
     }
+  },
+  courage: {
+    synonyms: ['brave', 'bold', 'fearless', 'courageous'],
+    verses: ['Joshua 1:9', '2 Timothy 1:7', 'Psalms 27:1', 'Isaiah 41:10', 'Deuteronomy 31:6'],
+    guidance: {
+      kid: "God is with you, so you can be brave.",
+      teen: "Courage grows when you trust God and take the next step.",
+      adult: "Be strong in the Lord; He goes before you.",
+      pastor: "Call people to courageous faith and obedience."
+    },
+    explain: {
+      kid: "Courage means doing the right thing even when you're scared.",
+      teen: "Courage is choosing faith over fear because God is with you."
+    }
+  },
+  gratitude: {
+    synonyms: ['thankful', 'thanks', 'praise', 'appreciate'],
+    verses: ['1 Thessalonians 5:18', 'Psalms 100:4', 'Colossians 3:15', 'Philippians 4:6', 'Psalms 136:1'],
+    guidance: {
+      kid: "Say thank you to God for something today.",
+      teen: "Gratitude shifts your focus from worry to worship.",
+      adult: "Give thanks in all things; it guards your heart.",
+      pastor: "Teach gratitude as a daily discipline."
+    },
+    explain: {
+      kid: "Gratitude means saying thank you for God's gifts.",
+      teen: "Gratitude helps you see God's goodness even on hard days."
+    }
+  },
+  kindness: {
+    synonyms: ['kind', 'gentle', 'compassion', 'care'],
+    verses: ['Ephesians 4:32', 'Galatians 5:22', 'Proverbs 19:17', 'Colossians 3:12', 'Luke 6:31'],
+    guidance: {
+      kid: "Be kind like Jesus and help someone today.",
+      teen: "Kindness is strength; choose it on purpose.",
+      adult: "Put on kindness and compassion daily.",
+      pastor: "Encourage tangible acts of kindness in the church."
+    },
+    explain: {
+      kid: "Kindness is using gentle words and helping hands.",
+      teen: "Kindness reflects Jesus and changes how people feel."
+    }
+  },
+  prayer: {
+    synonyms: ['pray', 'prayer', 'talk to god', 'ask'],
+    verses: ['Philippians 4:6', 'Matthew 6:9', '1 Thessalonians 5:17', 'Jeremiah 33:3', 'Psalms 34:17'],
+    guidance: {
+      kid: "Talk to God like a loving Father.",
+      teen: "Pray honestly; God listens and cares.",
+      adult: "Pray without ceasing; bring every request to God.",
+      pastor: "Lead the church to deeper prayer habits."
+    },
+    explain: {
+      kid: "Prayer is talking to God about anything.",
+      teen: "Prayer is honest conversation with God who loves you."
+    }
+  },
+  wisdom: {
+    synonyms: ['wise', 'understanding', 'discernment', 'good choices'],
+    verses: ['James 1:5', 'Proverbs 3:5', 'Proverbs 9:10', 'Proverbs 2:6', 'Colossians 1:9'],
+    guidance: {
+      kid: "Ask God to help you make good choices.",
+      teen: "God gives wisdom when you ask and listen.",
+      adult: "Seek the Lord for wisdom in every decision.",
+      pastor: "Teach wisdom as a daily pursuit."
+    },
+    explain: {
+      kid: "Wisdom is choosing what is right and good.",
+      teen: "Wisdom is God's help to make the best choices."
+    }
+  },
+  obedience: {
+    synonyms: ['obey', 'listen', 'follow', 'submit'],
+    verses: ['John 14:15', 'Deuteronomy 5:33', 'Ephesians 6:1', 'James 1:22', '1 Samuel 15:22'],
+    guidance: {
+      kid: "Obey God and your parents because it is right.",
+      teen: "Obedience is love in action.",
+      adult: "Walk in obedience; it leads to blessing.",
+      pastor: "Call people to obey God's Word with joy."
+    },
+    explain: {
+      kid: "Obedience means listening and doing the right thing.",
+      teen: "Obedience shows love for God in everyday choices."
+    }
+  },
+  patience: {
+    synonyms: ['wait', 'endure', 'slow', 'steady'],
+    verses: ['Galatians 5:22', 'James 1:4', 'Romans 12:12', 'Psalms 27:14', 'Colossians 3:12'],
+    guidance: {
+      kid: "Waiting can be hard, but God helps you be patient.",
+      teen: "Patience grows when you trust God's timing.",
+      adult: "Let patience have its full work.",
+      pastor: "Teach patience as a fruit of the Spirit."
+    },
+    explain: {
+      kid: "Patience is waiting without complaining.",
+      teen: "Patience is staying steady while God works."
+    }
+  },
+  trust: {
+    synonyms: ['trust', 'rely', 'depend', 'confidence'],
+    verses: ['Proverbs 3:5', 'Psalms 56:3', 'Isaiah 26:3', 'Jeremiah 17:7', 'Psalms 37:5'],
+    guidance: {
+      kid: "Trust God like you trust a loving parent.",
+      teen: "Trust God with what you cannot control.",
+      adult: "Commit your way to the Lord; trust Him.",
+      pastor: "Encourage trust in God's faithfulness."
+    },
+    explain: {
+      kid: "Trust means believing God will take care of you.",
+      teen: "Trust is leaning on God even when you are unsure."
+    }
+  },
+  friendship: {
+    synonyms: ['friends', 'friend', 'companionship', 'together'],
+    verses: ['Proverbs 17:17', 'Ecclesiastes 4:9', 'John 15:13', '1 Thessalonians 5:11', 'Proverbs 27:17'],
+    guidance: {
+      kid: "Be a good friend who is kind and loyal.",
+      teen: "Choose friends who build you up and point you to Jesus.",
+      adult: "Encourage one another and stay faithful in friendship.",
+      pastor: "Foster community and healthy friendships in the church."
+    },
+    explain: {
+      kid: "Friends love you and help you do what is right.",
+      teen: "Friendship is about loyalty, honesty, and encouragement."
+    }
+  },
+  family: {
+    synonyms: ['home', 'parents', 'siblings', 'household'],
+    verses: ['Joshua 24:15', 'Ephesians 6:1', 'Colossians 3:13', 'Psalms 127:3', 'Proverbs 22:6'],
+    guidance: {
+      kid: "Love your family and help at home.",
+      teen: "Honor your family even when it is hard.",
+      adult: "Build a home of grace, truth, and prayer.",
+      pastor: "Strengthen families through discipleship and care."
+    },
+    explain: {
+      kid: "Family is a place to love, forgive, and grow.",
+      teen: "Family is where you learn love and faith together."
+    }
   }
   // You can keep adding more here
 };

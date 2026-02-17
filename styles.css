@@ -283,6 +283,12 @@ body {
   margin-bottom: 1.2rem;
 }
 
+.message-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
 .section-divider {
   margin: 0;
   padding-bottom: 0.5rem;

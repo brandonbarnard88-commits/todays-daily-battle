@@ -644,6 +644,7 @@ const STATS_STORAGE_KEY = 'siteStats';
 const DAILY_KIDS_STORAGE_KEY = 'dailyKidsPrompt';
 const MESSAGE_NAME_KEY = 'messageDisplayName';
 const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
+const DAILY_KIDS_HISTORY_KEY = 'dailyKidsHistory';
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -738,6 +739,12 @@ function getDailyKidsPrompt() {
   const seed = key.split('').reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
   const item = DAILY_KIDS_PROMPTS[seed % DAILY_KIDS_PROMPTS.length];
   localStorage.setItem(DAILY_KIDS_STORAGE_KEY, JSON.stringify({ key, item }));
+  try {
+    const history = JSON.parse(localStorage.getItem(DAILY_KIDS_HISTORY_KEY) || '[]');
+    const next = history.filter(entry => entry.key !== key);
+    next.unshift({ key, item });
+    localStorage.setItem(DAILY_KIDS_HISTORY_KEY, JSON.stringify(next.slice(0, 14)));
+  } catch {}
   return item;
 }
 
@@ -1092,6 +1099,21 @@ function renderMessages(items) {
     row.className = 'list-item';
     const displayName = item.display_name || nameMap[item.user_id] || 'Member';
     row.innerHTML = `<div><strong>${displayName}</strong><p>${item.text}</p></div>`;
+    const actions = document.createElement('div');
+    actions.className = 'message-actions';
+    const reportBtn = document.createElement('button');
+    reportBtn.textContent = 'Report';
+    reportBtn.onclick = async () => {
+      const ok = await reportMessageItem(item);
+      if (ok) {
+        reportBtn.textContent = 'Reported';
+        reportBtn.disabled = true;
+      } else {
+        alert('Unable to report message.');
+      }
+    };
+    actions.appendChild(reportBtn);
+    row.appendChild(actions);
     list.appendChild(row);
   });
 }
@@ -1812,6 +1834,25 @@ async function hideMessageItem(item) {
   const local = loadMessagesLocal();
   const next = local.map(row => row.id === item.id ? { ...row, hidden: true } : row);
   saveMessagesLocal(next);
+  return true;
+}
+
+async function reportMessageItem(item) {
+  if (!item) return false;
+  const report = { id: item.id, text: item.text, created_at: new Date().toISOString() };
+  try {
+    const local = JSON.parse(localStorage.getItem('messageReports') || '[]');
+    local.unshift(report);
+    localStorage.setItem('messageReports', JSON.stringify(local.slice(0, 50)));
+  } catch {}
+  if (isSupabaseConfigured()) {
+    try {
+      await supabaseClient.from('message_reports').insert({
+        message_id: item.id,
+        text: item.text
+      });
+    } catch {}
+  }
   return true;
 }
 
@@ -3255,6 +3296,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const kidsVerseEl = document.getElementById('kids-daily-verse');
   const kidsDoneBtn = document.getElementById('kids-done');
   const kidsStreakEl = document.getElementById('kids-streak');
+  const kidsHistoryEl = document.getElementById('kids-history');
   if (kidsTitleEl && kidsPromptEl && kidsVerseEl && kidsDoneBtn && kidsStreakEl) {
     const prompt = getDailyKidsPrompt();
     kidsTitleEl.textContent = prompt.title;
@@ -3283,6 +3325,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       kidsDoneBtn.textContent = 'Completed Today';
       kidsDoneBtn.disabled = true;
     });
+  }
+  if (kidsHistoryEl) {
+    try {
+      const history = JSON.parse(localStorage.getItem(DAILY_KIDS_HISTORY_KEY) || '[]').slice(0, 7);
+      if (history.length) {
+        kidsHistoryEl.innerHTML = history.map(entry => (
+          `<div class="list-item"><div><strong>${entry.item.title}</strong><p>${entry.item.prompt}</p><p class="section-note">Verse: ${entry.item.verse}</p></div></div>`
+        )).join('');
+      } else {
+        kidsHistoryEl.innerHTML = '<p class="section-note">History will appear here after a few days.</p>';
+      }
+    } catch {
+      kidsHistoryEl.innerHTML = '<p class="section-note">History will appear here after a few days.</p>';
+    }
   }
 
   const newsletterExportBtn = document.getElementById('newsletter-export');
@@ -3317,6 +3373,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       ].join('\n');
       navigator.clipboard.writeText(email);
       if (dailyEmailStatus) dailyEmailStatus.textContent = 'Daily email copied to clipboard.';
+    });
+  }
+
+  const weeklyEmailCopyBtn = document.getElementById('weekly-email-copy');
+  if (weeklyEmailCopyBtn) {
+    weeklyEmailCopyBtn.addEventListener('click', () => {
+      const templateEl = document.getElementById('weekly-email-template');
+      if (!templateEl) return;
+      navigator.clipboard.writeText(templateEl.textContent.trim());
+      alert('Weekly template copied.');
     });
   }
 
@@ -3517,6 +3583,45 @@ document.addEventListener('DOMContentLoaded', async () => {
       ].join('\n');
       navigator.clipboard.writeText(slides);
       alert('Slide outline copied.');
+    });
+  }
+
+  const printSermonBtn = document.getElementById('print-sermon');
+  if (printSermonBtn) {
+    printSermonBtn.addEventListener('click', () => {
+      const draft = loadSermonDraft();
+      const html = `
+        <html>
+          <head>
+            <title>${draft.title || 'Sermon'}</title>
+            <style>
+              body { font-family: Arial, sans-serif; padding: 24px; }
+              h1 { margin-bottom: 4px; }
+              h3 { margin-top: 20px; }
+              p { white-space: pre-wrap; }
+            </style>
+          </head>
+          <body>
+            <h1>${draft.title || 'Sermon Title'}</h1>
+            <p><strong>Theme:</strong> ${draft.theme || ''}</p>
+            <p><strong>Primary Text:</strong> ${draft.textRef || ''}</p>
+            <h3>Outline</h3>
+            <p>${draft.outline || ''}</p>
+            <h3>Key Points & Illustrations</h3>
+            <p>${draft.points || ''}</p>
+            <h3>Application</h3>
+            <p>${draft.application || ''}</p>
+            <h3>Closing Prayer</h3>
+            <p>${draft.prayer || ''}</p>
+          </body>
+        </html>
+      `;
+      const win = window.open('', '_blank');
+      if (!win) return;
+      win.document.write(html);
+      win.document.close();
+      win.focus();
+      win.print();
     });
   }
 

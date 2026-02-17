@@ -2196,6 +2196,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const quickTopics = document.querySelectorAll('.quick-topic');
+  if (quickTopics.length) {
+    quickTopics.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const topic = btn.getAttribute('data-topic');
+        const queryEl = document.getElementById('query');
+        if (queryEl && topic) {
+          queryEl.value = topic;
+          searchBtn?.click();
+        }
+      });
+    });
+  }
+
   const dailyBtn = document.getElementById('daily-btn');
   if (dailyBtn) {
     dailyBtn.addEventListener('click', () => {

@@ -210,6 +210,23 @@ body {
   border-color: rgba(148, 163, 184, 0.3);
 }
 
+.quick-start {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.quick-actions,
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.quick-actions .btn,
+.quick-links .btn {
+  min-width: 140px;
+}
+
 .section-divider {
   margin: 0;
   padding-bottom: 0.5rem;
@@ -1019,6 +1036,16 @@ button:hover {
   }
   .btn {
     width: 100%;
+  }
+  .quick-actions,
+  .quick-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .quick-actions .btn,
+  .quick-links .btn {
+    width: 100%;
+    min-width: 0;
   }
   .brand-title {
     font-size: 1rem;

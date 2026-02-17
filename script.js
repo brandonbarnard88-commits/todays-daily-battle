@@ -2624,6 +2624,36 @@ function renderResults(results) {
     gentle.textContent = 'God cares about your home. He brings grace, patience, and peace to families.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('wisdom') || queryText.includes('wise') || queryText.includes('discern')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God gives wisdom generously when you ask. You are not alone in your decisions.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('obedience') || queryText.includes('obey') || queryText.includes('listen')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Obedience is love in action. God honors faithful steps, even small ones.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('faith') || queryText.includes('believe') || queryText.includes('belief')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Faith grows as you lean on God one step at a time.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('strength') || queryText.includes('weak') || queryText.includes('tired')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'When you feel weak, God’s strength can carry you.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('discipline') || queryText.includes('self-control') || queryText.includes('self control')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God uses discipline to shape us with love and wisdom.';
+    output.appendChild(gentle);
+  }
   if (queryText.includes('love') || queryText.includes('loving') || queryText.includes('loved')) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';

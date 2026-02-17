@@ -2038,6 +2038,36 @@ function renderResults(results) {
     gentle.textContent = 'You are safe with God. He gives courage and peace in the middle of fear.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('hope') || queryText.includes('hopeless')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'There is hope. God is working even when you cannot see it.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('forgiveness') || queryText.includes('forgive') || queryText.includes('forgiven')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Forgiveness is hard, but God gives grace to let go and heal.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('peace') || queryText.includes('calm') || queryText.includes('rest')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God offers peace that steadies your heart and mind.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('love') || queryText.includes('loving') || queryText.includes('loved')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You are loved by God and never beyond His reach.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('lonely') || queryText.includes('loneliness') || queryText.includes('alone')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You are not alone. God is with you and for you.';
+    output.appendChild(gentle);
+  }
   if (results.intent === 'topic' && (results.tier === 'kid' || results.tier === 'teen')) {
     const topic = topics[results.topic];
     if (topic?.explain?.[results.tier]) {

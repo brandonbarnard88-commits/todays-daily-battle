@@ -642,6 +642,8 @@ const MESSAGE_STORAGE_KEY = 'messageBoard';
 const NEWSLETTER_STORAGE_KEY = 'newsletterSignups';
 const STATS_STORAGE_KEY = 'siteStats';
 const DAILY_KIDS_STORAGE_KEY = 'dailyKidsPrompt';
+const MESSAGE_NAME_KEY = 'messageDisplayName';
+const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -748,6 +750,26 @@ function bumpStat(key) {
   stats[key] = (stats[key] || 0) + 1;
   stats.lastActivity = new Date().toISOString();
   saveStats(stats);
+}
+
+function loadMessageDisplayName() {
+  return localStorage.getItem(MESSAGE_NAME_KEY) || '';
+}
+
+function saveMessageDisplayName(name) {
+  localStorage.setItem(MESSAGE_NAME_KEY, name || '');
+}
+
+function loadMessageNameMap() {
+  try {
+    return JSON.parse(localStorage.getItem(MESSAGE_NAME_MAP_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function saveMessageNameMap(map) {
+  localStorage.setItem(MESSAGE_NAME_MAP_KEY, JSON.stringify(map));
 }
 const templates = [
   {
@@ -988,25 +1010,51 @@ async function loadMessages() {
   if (isSupabaseConfigured() && currentUserId) {
     const { data, error } = await supabaseClient
       .from('messages')
-      .select('id, user_id, text, created_at, hidden')
+      .select('id, user_id, text, created_at, hidden, display_name')
       .order('created_at', { ascending: false })
       .limit(50);
     if (!error && Array.isArray(data)) return data;
+    if (error) {
+      const fallback = await supabaseClient
+        .from('messages')
+        .select('id, user_id, text, created_at, hidden')
+        .order('created_at', { ascending: false })
+        .limit(50);
+      if (!fallback.error && Array.isArray(fallback.data)) return fallback.data;
+    }
   }
   return loadMessagesLocal();
 }
 
 async function postMessage(text) {
+  const displayName = loadMessageDisplayName();
   if (isSupabaseConfigured() && currentUserId) {
-    const { data, error } = await supabaseClient
+    const payload = { user_id: currentUserId, text };
+    if (displayName) payload.display_name = displayName;
+    let { data, error } = await supabaseClient
       .from('messages')
-      .insert({ user_id: currentUserId, text })
+      .insert(payload)
       .select('id, user_id, text, created_at')
       .single();
+    if (error && payload.display_name) {
+      const retry = await supabaseClient
+        .from('messages')
+        .insert({ user_id: currentUserId, text })
+        .select('id, user_id, text, created_at')
+        .single();
+      data = retry.data;
+      error = retry.error;
+    }
     if (!error && data) return data;
   }
   const local = loadMessagesLocal();
-  const item = { id: generateUuid(), user_id: currentUserId || 'guest', text, created_at: new Date().toISOString() };
+  const item = {
+    id: generateUuid(),
+    user_id: currentUserId || 'guest',
+    text,
+    display_name: displayName || '',
+    created_at: new Date().toISOString()
+  };
   local.unshift(item);
   saveMessagesLocal(local);
   bumpStat('messagePosts');
@@ -1038,10 +1086,12 @@ function renderMessages(items) {
     list.innerHTML = '<p class="empty">No messages yet. Be the first to encourage someone.</p>';
     return;
   }
+  const nameMap = loadMessageNameMap();
   visible.forEach(item => {
     const row = document.createElement('div');
     row.className = 'list-item';
-    row.innerHTML = `<div><strong>Member</strong><p>${item.text}</p></div>`;
+    const displayName = item.display_name || nameMap[item.user_id] || 'Member';
+    row.innerHTML = `<div><strong>${displayName}</strong><p>${item.text}</p></div>`;
     list.appendChild(row);
   });
 }
@@ -3242,6 +3292,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const dailyEmailBtn = document.getElementById('daily-email-copy');
+  const dailyEmailStatus = document.getElementById('daily-email-status');
+  if (dailyEmailBtn) {
+    dailyEmailBtn.addEventListener('click', () => {
+      const ref = getDailyVerseRef();
+      const verseText = ref && bible[ref] ? bible[ref] : '';
+      if (!ref || !verseText) {
+        if (dailyEmailStatus) dailyEmailStatus.textContent = 'Bible data not ready yet.';
+        return;
+      }
+      const kidsPrompt = getDailyKidsPrompt();
+      const email = [
+        'Subject: Today’s Daily Battle — Daily Encouragement',
+        '',
+        `Verse of the Day — ${ref}`,
+        verseText,
+        '',
+        `Kids Prompt: ${kidsPrompt.title}`,
+        kidsPrompt.prompt,
+        `Verse: ${kidsPrompt.verse}`,
+        '',
+        'Have a blessed day.'
+      ].join('\n');
+      navigator.clipboard.writeText(email);
+      if (dailyEmailStatus) dailyEmailStatus.textContent = 'Daily email copied to clipboard.';
+    });
+  }
+
   const resetForm = document.getElementById('reset-form');
   if (resetForm) {
     const resetStatus = document.getElementById('reset-status');
@@ -3395,6 +3473,50 @@ document.addEventListener('DOMContentLoaded', async () => {
       ];
       navigator.clipboard.writeText(lines.join('\n'));
       alert('Sermon copied for sharing.');
+    });
+  }
+
+  const exportSermonEmailBtn = document.getElementById('export-sermon-email');
+  if (exportSermonEmailBtn) {
+    exportSermonEmailBtn.addEventListener('click', () => {
+      const draft = loadSermonDraft();
+      const email = [
+        `Subject: ${draft.title || 'Sunday Message'}`,
+        '',
+        `Theme: ${draft.theme || ''}`,
+        `Primary Text: ${draft.textRef || ''}`,
+        '',
+        'Outline:',
+        draft.outline || '',
+        '',
+        'Key Points:',
+        draft.points || '',
+        '',
+        'Application:',
+        draft.application || '',
+        '',
+        'Closing Prayer:',
+        draft.prayer || ''
+      ].join('\n');
+      navigator.clipboard.writeText(email);
+      alert('Email-ready sermon copied.');
+    });
+  }
+
+  const exportSermonSlidesBtn = document.getElementById('export-sermon-slides');
+  if (exportSermonSlidesBtn) {
+    exportSermonSlidesBtn.addEventListener('click', () => {
+      const draft = loadSermonDraft();
+      const slides = [
+        `Slide 1: ${draft.title || 'Sermon Title'}`,
+        `Slide 2: Theme — ${draft.theme || ''}`,
+        `Slide 3: Primary Text — ${draft.textRef || ''}`,
+        '',
+        'Slides 4+: Outline points',
+        draft.outline || ''
+      ].join('\n');
+      navigator.clipboard.writeText(slides);
+      alert('Slide outline copied.');
     });
   }
 
@@ -3756,6 +3878,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const messageNote = document.getElementById('message-board-note');
   const postButton = document.getElementById('post-message');
   const messageInput = document.getElementById('message-text');
+  const messageNameInput = document.getElementById('message-name');
 
   const refreshMessageNote = () => {
     if (!messageNote || !postButton || !messageInput) return;
@@ -3770,13 +3893,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     messageInput.disabled = false;
   };
 
+  if (messageNameInput) {
+    messageNameInput.value = loadMessageDisplayName();
+    messageNameInput.addEventListener('input', () => {
+      saveMessageDisplayName(messageNameInput.value.trim());
+    });
+  }
+
   refreshMessageNote();
   loadMessages().then(renderMessages);
 
   if (postButton && messageInput) {
     postButton.addEventListener('click', async () => {
+      if (messageNameInput) {
+        saveMessageDisplayName(messageNameInput.value.trim());
+      }
       const text = messageInput.value.trim();
       if (!text) return;
+      if (currentUserId) {
+        const map = loadMessageNameMap();
+        const name = loadMessageDisplayName();
+        if (name) {
+          map[currentUserId] = name;
+          saveMessageNameMap(map);
+        }
+      }
       await postMessage(text);
       messageInput.value = '';
       loadMessages().then(renderMessages);

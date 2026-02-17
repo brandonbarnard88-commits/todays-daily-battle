@@ -9,6 +9,34 @@ let currentUserRole = 'member';
 let currentChurch = null;
 let lastQueryInput = '';
 let subscriptionTier = 'free';
+const MASTER_EMAILS = new Set([
+  'brandonbarnard88@yahoo.com'
+]);
+let isMasterUser = false;
+
+function updateMasterStatus(user) {
+  const email = (user?.email || '').toLowerCase();
+  isMasterUser = MASTER_EMAILS.has(email);
+  const authSection = document.getElementById('auth-section');
+  if (!authSection) return;
+  let badge = document.getElementById('master-badge');
+  if (isMasterUser) {
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.id = 'master-badge';
+      badge.textContent = 'Master';
+      badge.style.padding = '0.2rem 0.6rem';
+      badge.style.borderRadius = '999px';
+      badge.style.background = 'rgba(109, 40, 217, 0.25)';
+      badge.style.color = '#e2e8f0';
+      badge.style.fontSize = '0.75rem';
+      badge.style.fontWeight = '600';
+      authSection.appendChild(badge);
+    }
+  } else if (badge) {
+    badge.remove();
+  }
+}
 const STOP_WORDS = new Set([
   'the', 'and', 'a', 'an', 'of', 'to', 'in', 'is', 'it', 'for', 'on', 'with',
   'that', 'this', 'be', 'as', 'at', 'by', 'from', 'or', 'are', 'was', 'were',
@@ -1298,7 +1326,7 @@ function setView(state) {
 function updateRoleViews() {
   const churchAdmin = document.getElementById('church-admin');
   if (churchAdmin) {
-    churchAdmin.style.display = currentUserRole === 'pastor' ? 'block' : 'none';
+    churchAdmin.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
   }
   applyRoleAccess();
 }
@@ -2200,8 +2228,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     : { data: null };
   if (sessionData?.session) {
     currentUserId = sessionData.session.user.id;
+    updateMasterStatus(sessionData.session.user);
     currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
     subscriptionTier = sessionData.session.user.user_metadata?.subscription || 'free';
+    if (isMasterUser) {
+      currentUserRole = 'pastor';
+      subscriptionTier = 'supporter';
+    }
     const logoutBtnEl = document.getElementById('logout-btn');
     if (logoutBtnEl) logoutBtnEl.style.display = 'inline-block';
     const userTier = sessionData.session.user.user_metadata?.tier || 'adult';
@@ -2217,12 +2250,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (supabaseClient) {
     supabaseClient.auth.onAuthStateChange(async (_event, session) => {
     currentUserId = session?.user?.id || null;
+    updateMasterStatus(session?.user || null);
     const logoutBtnEl = document.getElementById('logout-btn');
     if (logoutBtnEl) logoutBtnEl.style.display = session ? 'inline-block' : 'none';
     if (session) {
       const userTier = session.user.user_metadata?.tier || 'adult';
       currentUserRole = session.user.user_metadata?.role || 'member';
       subscriptionTier = session.user.user_metadata?.subscription || 'free';
+      if (isMasterUser) {
+        currentUserRole = 'pastor';
+        subscriptionTier = 'supporter';
+      }
       const tierEl = document.getElementById('tier');
       if (tierEl) tierEl.value = userTier;
       await syncUserData();

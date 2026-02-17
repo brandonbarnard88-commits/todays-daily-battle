@@ -3,19 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Church Center • Today's Daily Battle</title>
-  <meta name="description" content="Find churches, view sermons, and stay connected with the Church Center.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/church.html">
-  <meta property="og:title" content="Church Center • Today's Daily Battle">
-  <meta property="og:description" content="Find churches, view sermons, and stay connected with the Church Center.">
-  <meta property="og:url" content="https://todaysdailybattle.com/church.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Church Center • Today's Daily Battle">
-  <meta name="twitter:description" content="Find churches, view sermons, and stay connected with the Church Center.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <title>Admin • Today's Daily Battle</title>
+  <meta name="description" content="Admin tools and site health for Today's Daily Battle.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/admin.html">
   <link rel="stylesheet" href="styles.css?v=20260210ag">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +18,7 @@
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="index.html">Today's Daily Battle</a>
-        <span class="brand-subtitle">Find your church and stay connected</span>
+        <span class="brand-subtitle">Admin & site health</span>
       </div>
       <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">Menu</button>
       <div id="auth-section" class="auth-inline auth-compact">
@@ -67,36 +58,19 @@
     <main class="app-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Church Center</h1>
-          <p>Find your church and stay connected.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="index.html">Go to Search</a>
-            <a class="btn btn-secondary" href="sermon.html">Sermon Builder</a>
-          </div>
+          <h1>Admin Panel</h1>
+          <p>Site health, content overview, and moderation tools.</p>
         </header>
-        <section id="church-center" class="church-center glass">
-          <h2 class="section-divider">Find Your Church</h2>
-          <p class="section-note">Search churches and view weekly sermons.</p>
-          <div class="church-search">
-            <input id="church-query" placeholder="Search by church name or city...">
-            <input id="church-state" placeholder="State (optional)">
-            <label class="inline-toggle">
-              <input id="church-online" type="checkbox">
-              Online only
-            </label>
-            <button id="church-search-btn">Search</button>
-          </div>
-          <div id="church-featured" class="featured-list"></div>
-          <div id="church-admin" class="church-admin" style="display:none">
-            <h3>Add Weekly Sermon (Pastors)</h3>
-            <input id="sermon-church-id" placeholder="Church ID (select a church first)" readonly>
-            <input id="sermon-title-input" placeholder="Sermon title">
-            <input id="sermon-date-input" type="date">
-            <textarea id="sermon-summary-input" rows="3" placeholder="Short summary"></textarea>
-            <button id="add-sermon-btn">Add Sermon</button>
-          </div>
-          <div id="church-results" class="list"></div>
-          <div id="church-sermons" class="list"></div>
+        <section id="admin-panel" class="glass">
+          <p id="admin-access-warning" class="section-note" style="display:none">
+            This area is available to the master account only.
+          </p>
+          <h2 class="section-divider">Site Health</h2>
+          <div id="admin-health" class="admin-grid"></div>
+          <h2 class="section-divider">Content Overview</h2>
+          <div id="admin-overview" class="admin-grid"></div>
+          <h2 class="section-divider">Message Moderation</h2>
+          <div id="admin-messages" class="list"></div>
         </section>
       </div>
     </main>

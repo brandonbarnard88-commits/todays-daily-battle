@@ -13,9 +13,11 @@ const MASTER_EMAILS = new Set([
   'brandonbarnard88@yahoo.com'
 ]);
 let isMasterUser = false;
+let currentUserEmail = '';
 
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
+  currentUserEmail = email;
   isMasterUser = MASTER_EMAILS.has(email);
   const authSection = document.getElementById('auth-section');
   if (!authSection) return;
@@ -36,6 +38,10 @@ function updateMasterStatus(user) {
   } else if (badge) {
     badge.remove();
   }
+  const adminLinks = document.querySelectorAll('.admin-link');
+  adminLinks.forEach(link => {
+    link.style.display = isMasterUser ? 'block' : 'none';
+  });
 }
 const STOP_WORDS = new Set([
   'the', 'and', 'a', 'an', 'of', 'to', 'in', 'is', 'it', 'for', 'on', 'with',
@@ -1331,6 +1337,95 @@ function updateRoleViews() {
   applyRoleAccess();
 }
 
+async function deleteMessageItem(item) {
+  if (!item) return false;
+  if (isSupabaseConfigured() && currentUserId) {
+    const { error } = await supabaseClient.from('messages').delete().eq('id', item.id);
+    if (!error) return true;
+  }
+  const local = loadMessagesLocal();
+  const next = local.filter(row => row.id !== item.id);
+  saveMessagesLocal(next);
+  return true;
+}
+
+async function renderAdminPanel() {
+  const adminRoot = document.getElementById('admin-panel');
+  if (!adminRoot) return;
+  const warning = document.getElementById('admin-access-warning');
+  if (!isMasterUser) {
+    if (warning) warning.style.display = 'block';
+    return;
+  }
+  if (warning) warning.style.display = 'none';
+
+  const health = document.getElementById('admin-health');
+  if (health) {
+    const bibleCount = Object.keys(bible).length;
+    const items = [
+      { label: 'Supabase configured', value: isSupabaseConfigured() ? 'Yes' : 'No' },
+      { label: 'Auth ready', value: supabaseClient ? 'Yes' : 'No' },
+      { label: 'Bible loaded', value: bibleCount ? `Yes (${bibleCount})` : 'No' },
+      { label: 'Current version', value: currentVersion || 'KJV' },
+      { label: 'Signed in as', value: currentUserEmail || 'Unknown' }
+    ];
+    health.innerHTML = items.map(item => (
+      `<div class="admin-card"><strong>${item.label}</strong><p>${item.value}</p></div>`
+    )).join('');
+  }
+
+  const overview = document.getElementById('admin-overview');
+  if (overview) {
+    const notes = loadNotes();
+    const verses = loadSavedVerses();
+    const lessons = loadLessons();
+    const draft = localStorage.getItem('sermonDraft');
+    const draftCount = draft ? 1 : 0;
+    const churchSermonCount = Object.values(localSermons || {})
+      .reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0);
+    const items = [
+      { label: 'Saved notes', value: notes.length },
+      { label: 'Saved verses', value: verses.length },
+      { label: 'Lesson plans', value: lessons.length },
+      { label: 'Sermon draft', value: draftCount },
+      { label: 'Church sermons', value: churchSermonCount }
+    ];
+    overview.innerHTML = items.map(item => (
+      `<div class="admin-card"><strong>${item.label}</strong><p>${item.value}</p></div>`
+    )).join('');
+  }
+
+  const messagesWrap = document.getElementById('admin-messages');
+  if (messagesWrap) {
+    const messages = await loadMessages();
+    if (!messages.length) {
+      messagesWrap.innerHTML = '<p class="empty">No messages to review.</p>';
+      return;
+    }
+    messagesWrap.innerHTML = '';
+    messages.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'list-item';
+      row.innerHTML = `<div><strong>${item.user_id || 'Member'}</strong><p>${item.text}</p></div>`;
+      const actions = document.createElement('div');
+      actions.className = 'item-actions';
+      const delBtn = document.createElement('button');
+      delBtn.textContent = 'Delete';
+      delBtn.onclick = async () => {
+        const ok = await deleteMessageItem(item);
+        if (ok) {
+          row.remove();
+        } else {
+          alert('Unable to delete message. Check permissions.');
+        }
+      };
+      actions.appendChild(delBtn);
+      row.appendChild(actions);
+      messagesWrap.appendChild(row);
+    });
+  }
+}
+
 function applyRoleAccess() {
   const allowed = new Set([
     'verse-of-day',
@@ -2245,6 +2340,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderDashboard(currentUserRole);
     setView('dashboard');
     loadMessages().then(renderMessages);
+    renderAdminPanel();
   }
 
   if (supabaseClient) {
@@ -2268,12 +2364,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderDashboard(currentUserRole);
       setView('dashboard');
       loadMessages().then(renderMessages);
+      renderAdminPanel();
     } else {
       subscriptionTier = 'free';
       setView('search');
+      renderAdminPanel();
     }
     });
   }
+
+  renderAdminPanel();
 
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {

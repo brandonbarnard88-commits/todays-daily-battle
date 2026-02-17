@@ -123,6 +123,10 @@ body {
   line-height: 1.2;
 }
 
+.admin-link {
+  display: none;
+}
+
 .side-nav a::before {
   content: attr(data-icon);
   display: inline-flex;
@@ -263,6 +267,13 @@ body {
 .highlight-card {
   border-color: rgba(109, 40, 217, 0.6);
   box-shadow: 0 18px 34px rgba(109, 40, 217, 0.3);
+}
+
+.admin-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 1rem;
 }
 
 .section-divider {

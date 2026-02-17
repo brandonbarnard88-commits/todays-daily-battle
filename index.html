@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="Today's Daily Battle">
   <meta name="twitter:description" content="Bible search, daily verse, study tools, sermon builder, and encouragement for families, churches, and communities.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <link rel="stylesheet" href="styles.css?v=20260210aj">
+  <link rel="stylesheet" href="styles.css?v=20260210ak">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,32 +98,6 @@
             <a class="btn btn-secondary" href="study.html">Study Tools</a>
           </div>
         </header>
-        <section class="quick-start glass">
-          <h2 class="section-divider">Quick Start</h2>
-          <p class="section-note">Choose a topic or jump straight into a tool.</p>
-          <div class="quick-actions">
-            <button class="btn btn-primary quick-topic" data-topic="heartache">Heartache</button>
-            <button class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
-            <button class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
-            <button class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
-            <button class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
-            <button class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
-          </div>
-          <div class="quick-links">
-            <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
-            <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
-            <a class="btn btn-secondary" href="message.html">Encourage Someone</a>
-          </div>
-        </section>
-      <section class="glass newsletter">
-        <h2 class="section-divider">Weekly Encouragement</h2>
-        <p class="section-note">Get one short, hope-filled email each week. No account required.</p>
-        <div class="newsletter-form">
-          <input id="newsletter-email" type="email" placeholder="Email address" autocomplete="email" aria-label="Newsletter email">
-          <button id="newsletter-submit" class="btn btn-secondary" type="button">Join Newsletter</button>
-        </div>
-        <p id="newsletter-status" class="section-note"></p>
-      </section>
         <section id="main-search" class="controls glass">
           <div class="search-stack">
             <input id="query" placeholder="Search anger, fear, John 3:16, love..." aria-label="Search query">
@@ -148,6 +122,32 @@
               <option value="pastor">Pastor</option>
             </select>
           </div>
+        </section>
+        <section class="quick-start glass">
+          <h2 class="section-divider">Quick Start</h2>
+          <p class="section-note">Choose a topic or jump straight into a tool.</p>
+          <div class="quick-actions">
+            <button class="btn btn-primary quick-topic" data-topic="heartache">Heartache</button>
+            <button class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
+            <button class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
+            <button class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
+            <button class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
+            <button class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
+          </div>
+          <div class="quick-links">
+            <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
+            <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
+            <a class="btn btn-secondary" href="message.html">Encourage Someone</a>
+          </div>
+        </section>
+        <section class="glass newsletter">
+          <h2 class="section-divider">Weekly Encouragement</h2>
+          <p class="section-note">Get one short, hope-filled email each week. No account required.</p>
+          <div class="newsletter-form">
+            <input id="newsletter-email" type="email" placeholder="Email address" autocomplete="email" aria-label="Newsletter email">
+            <button id="newsletter-submit" class="btn btn-secondary" type="button">Join Newsletter</button>
+          </div>
+          <p id="newsletter-status" class="section-note"></p>
         </section>
 
         <div id="loading" class="loading" style="display:none">

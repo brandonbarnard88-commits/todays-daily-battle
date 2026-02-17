@@ -7,7 +7,7 @@
   <meta name="description" content="Admin tools and site health for Today's Daily Battle.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://todaysdailybattle.com/admin.html">
-  <link rel="stylesheet" href="styles.css?v=20260210ai">
+  <link rel="stylesheet" href="styles.css?v=20260210aj">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,8 +68,13 @@
           </p>
           <h2 class="section-divider">Site Health</h2>
           <div id="admin-health" class="admin-grid"></div>
+          <h2 class="section-divider">Growth Stats</h2>
+          <div id="admin-stats" class="admin-grid"></div>
           <h2 class="section-divider">Content Overview</h2>
           <div id="admin-overview" class="admin-grid"></div>
+          <div class="admin-actions">
+            <button id="newsletter-export" class="btn btn-secondary" type="button">Export Newsletter CSV</button>
+          </div>
           <h2 class="section-divider">Message Moderation</h2>
           <div id="admin-messages" class="list"></div>
         </section>
@@ -81,6 +86,6 @@
     </footer>
   </div>
 
-  <script src="script.js?v=20260210ap" data-cfasync="false"></script>
+  <script src="script.js?v=20260210aq" data-cfasync="false"></script>
 </body>
 </html>

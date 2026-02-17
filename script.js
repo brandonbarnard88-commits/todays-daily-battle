@@ -500,6 +500,26 @@ const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
 const LESSONS_STORAGE_KEY = 'lessonPlans';
 const MESSAGE_STORAGE_KEY = 'messageBoard';
 const NEWSLETTER_STORAGE_KEY = 'newsletterSignups';
+const STATS_STORAGE_KEY = 'siteStats';
+
+function loadStats() {
+  try {
+    return JSON.parse(localStorage.getItem(STATS_STORAGE_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function saveStats(stats) {
+  localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(stats));
+}
+
+function bumpStat(key) {
+  const stats = loadStats();
+  stats[key] = (stats[key] || 0) + 1;
+  stats.lastActivity = new Date().toISOString();
+  saveStats(stats);
+}
 const templates = [
   {
     title: 'Gospel Clarity',
@@ -695,6 +715,28 @@ function saveNewsletterSignups(items) {
   localStorage.setItem(NEWSLETTER_STORAGE_KEY, JSON.stringify(items));
 }
 
+function exportNewsletterCsv() {
+  const items = loadNewsletterSignups();
+  if (!items.length) {
+    alert('No newsletter signups to export yet.');
+    return;
+  }
+  const header = ['email', 'created_at'];
+  const rows = items.map(item => [item.email, item.created_at]);
+  const csv = [header, ...rows]
+    .map(row => row.map(value => `"${String(value || '').replace(/"/g, '""')}"`).join(','))
+    .join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'newsletter-signups.csv';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
 async function loadMessages() {
   if (isSupabaseConfigured() && currentUserId) {
     const { data, error } = await supabaseClient
@@ -720,6 +762,7 @@ async function postMessage(text) {
   const item = { id: generateUuid(), user_id: currentUserId || 'guest', text, created_at: new Date().toISOString() };
   local.unshift(item);
   saveMessagesLocal(local);
+  bumpStat('messagePosts');
   return item;
 }
 
@@ -728,6 +771,7 @@ async function saveNewsletterSignup(email) {
   const local = loadNewsletterSignups();
   local.unshift(entry);
   saveNewsletterSignups(local);
+  bumpStat('newsletterSignups');
   if (isSupabaseConfigured()) {
     try {
       await supabaseClient.from('newsletter_signups').insert({ email });
@@ -1505,6 +1549,22 @@ async function renderAdminPanel() {
       { label: 'Church sermons', value: churchSermonCount }
     ];
     overview.innerHTML = items.map(item => (
+      `<div class="admin-card"><strong>${item.label}</strong><p>${item.value}</p></div>`
+    )).join('');
+  }
+
+  const statsWrap = document.getElementById('admin-stats');
+  if (statsWrap) {
+    const stats = loadStats();
+    const items = [
+      { label: 'Searches', value: stats.searches || 0 },
+      { label: 'Message posts', value: stats.messagePosts || 0 },
+      { label: 'Logins', value: stats.logins || 0 },
+      { label: 'Signups', value: stats.signups || 0 },
+      { label: 'Password resets', value: stats.passwordResets || 0 },
+      { label: 'Last activity', value: stats.lastActivity ? new Date(stats.lastActivity).toLocaleString() : '—' }
+    ];
+    statsWrap.innerHTML = items.map(item => (
       `<div class="admin-card"><strong>${item.label}</strong><p>${item.value}</p></div>`
     )).join('');
   }
@@ -2503,6 +2563,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const input = queryEl ? queryEl.value : '';
         const tier = tierEl ? tierEl.value : 'adult';
         lastQueryInput = input;
+        bumpStat('searches');
         if (Object.keys(bible).length === 0) {
           await loadBible(currentVersion);
           refreshBibleView();
@@ -2649,9 +2710,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (data?.session) {
         alert('Signed up and logged in!');
         setAuthStatus('Signed up and logged in!', 'success');
+        bumpStat('signups');
       } else {
         alert('Signed up! Check your email to confirm.');
         setAuthStatus('Signed up! Check your email to confirm.', 'success');
+        bumpStat('signups');
       }
     });
   }
@@ -2686,6 +2749,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (tierEl) tierEl.value = userTier;
         alert('Logged in!');
         setAuthStatus('Logged in!', 'success');
+        bumpStat('logins');
         updateRoleViews();
         renderDashboard(currentUserRole);
         setView('dashboard');
@@ -2740,6 +2804,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const newsletterExportBtn = document.getElementById('newsletter-export');
+  if (newsletterExportBtn) {
+    newsletterExportBtn.addEventListener('click', () => {
+      exportNewsletterCsv();
+    });
+  }
+
   const resetForm = document.getElementById('reset-form');
   if (resetForm) {
     const resetStatus = document.getElementById('reset-status');
@@ -2772,6 +2843,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       if (resetStatus) resetStatus.textContent = 'Password updated. You can log in now.';
+      bumpStat('passwordResets');
     });
   }
 

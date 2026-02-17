@@ -3074,12 +3074,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const refreshMessageNote = () => {
     if (!messageNote || !postButton || !messageInput) return;
     if (!currentUserId) {
-      messageNote.textContent = 'Log in to view and post messages.';
+      messageNote.textContent = 'Log in to post messages (free accounts can post).';
       postButton.disabled = true;
       messageInput.disabled = true;
       return;
     }
-    messageNote.textContent = 'Posting as member.';
+    messageNote.textContent = 'Posting as member (free accounts can post).';
     postButton.disabled = false;
     messageInput.disabled = false;
   };

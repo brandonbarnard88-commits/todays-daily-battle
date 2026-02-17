@@ -1600,6 +1600,51 @@ function buildLessonPlan(results, audience) {
   return output;
 }
 
+function buildPastorToolkit(results) {
+  if (!results || !results.verses || results.verses.length === 0) {
+    return {
+      title: '',
+      theme: '',
+      textRef: '',
+      outline: 'Select verses or search a topic to build the toolkit.',
+      points: '',
+      application: '',
+      prayer: '',
+      guide: 'No results found yet.'
+    };
+  }
+  const topVerses = results.verses.slice(0, 3);
+  const topicName = results.intent === 'topic' ? results.topic : 'Hope';
+  const title = results.intent === 'topic'
+    ? `Hope in ${topicName.charAt(0).toUpperCase()}${topicName.slice(1)}`
+    : 'Hope and Strength for Today';
+  const theme = results.intent === 'topic'
+    ? `God meets us in ${topicName}`
+    : 'God’s Word brings hope and direction';
+  const textRef = topVerses[0]?.ref || '';
+  const outline = [
+    `I. God sees and understands our need (${topVerses[0]?.ref || ''})`,
+    `II. God draws near and strengthens us (${topVerses[1]?.ref || ''})`,
+    `III. God gives a path forward (${topVerses[2]?.ref || ''})`
+  ].join('\n');
+  const points = topVerses
+    .map(v => `- ${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`)
+    .join('\n');
+  const application = results.guidance
+    ? `Application: ${results.guidance}`
+    : 'Application: Identify one step of trust or obedience for this week.';
+  const prayer = 'Prayer: Lord, meet us in our need, strengthen our faith, and guide our steps today. Amen.';
+  const guide = [
+    'Small Group Guide',
+    '1) Opener: Share a recent moment when you needed encouragement.',
+    `2) Read: ${topVerses.map(v => v.ref).filter(Boolean).join(', ')}`,
+    '3) Discuss: What stands out? What does this teach us about God?',
+    '4) Apply: What is one step of trust you can take this week?',
+    '5) Pray: Ask God to meet each person’s need.'
+  ].join('\n');
+  return { title, theme, textRef, outline, points, application, prayer, guide };
+}
+
 function populateCurriculumWeeks(audience) {
   const select = document.getElementById('curriculum-week');
   select.innerHTML = '';
@@ -2480,6 +2525,46 @@ document.addEventListener('DOMContentLoaded', async () => {
       ];
       navigator.clipboard.writeText(lines.join('\n'));
       alert('Sermon copied for sharing.');
+    });
+  }
+
+  const pastorToolkitBtn = document.getElementById('pastor-toolkit');
+  if (pastorToolkitBtn) {
+    pastorToolkitBtn.addEventListener('click', () => {
+      const toolkit = buildPastorToolkit(lastResults);
+      const titleEl = document.getElementById('sermon-title');
+      const themeEl = document.getElementById('sermon-theme');
+      const textRefEl = document.getElementById('sermon-text-ref');
+      const outlineEl = document.getElementById('sermon-outline');
+      const pointsEl = document.getElementById('sermon-points');
+      const applicationEl = document.getElementById('sermon-application');
+      const prayerEl = document.getElementById('sermon-prayer');
+      if (titleEl) titleEl.value = toolkit.title;
+      if (themeEl) themeEl.value = toolkit.theme;
+      if (textRefEl) textRefEl.value = toolkit.textRef;
+      if (outlineEl) outlineEl.value = toolkit.outline;
+      if (pointsEl) pointsEl.value = toolkit.points;
+      if (applicationEl) applicationEl.value = toolkit.application;
+      if (prayerEl) prayerEl.value = toolkit.prayer;
+      const fullPacket = [
+        `Title: ${toolkit.title}`,
+        `Theme: ${toolkit.theme}`,
+        `Primary Text: ${toolkit.textRef}`,
+        '',
+        'Outline',
+        toolkit.outline,
+        '',
+        'Key Points',
+        toolkit.points,
+        '',
+        toolkit.application,
+        '',
+        toolkit.prayer,
+        '',
+        toolkit.guide
+      ].join('\n');
+      navigator.clipboard.writeText(fullPacket);
+      alert('Pastor Toolkit created and copied to clipboard.');
     });
   }
 

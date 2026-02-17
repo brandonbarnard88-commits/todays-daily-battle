@@ -949,6 +949,19 @@ function renderDailyVerse() {
   card.innerHTML = `<strong>${ref}</strong><p>${bible[ref]}</p>`;
 }
 
+function shareDailyBattle() {
+  const ref = getDailyVerseRef();
+  const text = ref && bible[ref] ? `${ref}: ${bible[ref]}` : '';
+  if (!text) return;
+  const shareText = `Today’s Daily Battle — ${text}`;
+  if (navigator.share) {
+    navigator.share({ text: shareText, url: window.location.href }).catch(() => {});
+    return;
+  }
+  navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
+  alert('Copied! Share it with someone who needs hope.');
+}
+
 function renderDailyBattleCard() {
   const card = document.getElementById('daily-battle-card');
   if (!card) return;
@@ -3400,6 +3413,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!templateEl) return;
       navigator.clipboard.writeText(templateEl.textContent.trim());
       alert('Weekly template copied.');
+    });
+  }
+
+  const shareDailyBtn = document.getElementById('share-daily-battle');
+  if (shareDailyBtn) {
+    shareDailyBtn.addEventListener('click', () => {
+      shareDailyBattle();
     });
   }
 

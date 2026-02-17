@@ -227,6 +227,44 @@ body {
   min-width: 140px;
 }
 
+.pricing-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.pricing-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1.4rem;
+  display: grid;
+  gap: 0.7rem;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.25);
+}
+
+.pricing-card h3 {
+  margin: 0;
+}
+
+.pricing-card .price {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.pricing-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.highlight-card {
+  border-color: rgba(109, 40, 217, 0.6);
+  box-shadow: 0 18px 34px rgba(109, 40, 217, 0.3);
+}
+
 .section-divider {
   margin: 0;
   padding-bottom: 0.5rem;

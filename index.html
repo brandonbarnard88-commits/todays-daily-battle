@@ -16,8 +16,10 @@
   <meta name="twitter:title" content="Today's Daily Battle">
   <meta name="twitter:description" content="Bible search, daily verse, study tools, sermon builder, and encouragement for families, churches, and communities.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <link rel="stylesheet" href="styles.css?v=20260210ae">
+  <link rel="stylesheet" href="styles.css?v=20260210af">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
     {
@@ -112,7 +114,7 @@
         </section>
         <section id="main-search" class="controls glass">
           <div class="search-stack">
-            <input id="query" placeholder="Search anger, fear, John 3:16, love...">
+            <input id="query" placeholder="Search anger, fear, John 3:16, love..." aria-label="Search query">
             <div class="search-actions">
               <button id="search-btn">Search</button>
               <button id="daily-btn">Today's Battle</button>
@@ -120,14 +122,14 @@
             </div>
           </div>
           <div class="filter-stack">
-            <select id="version" class="compact-select">
+            <select id="version" class="compact-select" aria-label="Bible version">
               <option value="KJV" selected>KJV</option>
               <option value="NIV">NIV</option>
               <option value="ESV">ESV</option>
               <option value="NLT">NLT</option>
               <option value="NKJV">NKJV</option>
             </select>
-            <select id="tier" class="compact-select">
+            <select id="tier" class="compact-select" aria-label="Audience">
               <option value="kid">Kid</option>
               <option value="teen">Teen</option>
               <option value="adult" selected>Adult</option>

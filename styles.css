@@ -433,6 +433,15 @@ input:focus, select:focus, textarea:focus {
   outline-offset: 2px;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(109, 40, 217, 0.65);
+  outline-offset: 2px;
+}
+
 .controls {
   display: flex;
   flex-wrap: wrap;

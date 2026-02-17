@@ -3162,8 +3162,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (resetStatus) resetStatus.textContent = error.message;
         return;
       }
-      if (resetStatus) resetStatus.textContent = 'Password updated. You can log in now.';
+      if (resetStatus) resetStatus.textContent = 'Password updated. Redirecting to login...';
       bumpStat('passwordResets');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1800);
     });
   }
 
@@ -3621,6 +3624,21 @@ document.addEventListener('DOMContentLoaded', async () => {
       link.download = 'bible-coloring.png';
       link.href = canvas.toDataURL('image/png');
       link.click();
+    });
+  }
+
+  const printCanvasBtn = document.getElementById('print-canvas');
+  if (printCanvasBtn) {
+    printCanvasBtn.addEventListener('click', () => {
+      const canvas = document.getElementById('coloring-canvas');
+      if (!canvas) return;
+      const dataUrl = canvas.toDataURL('image/png');
+      const win = window.open('', '_blank');
+      if (!win) return;
+      win.document.write(`<html><head><title>Print Coloring</title></head><body style="margin:0;padding:20px;text-align:center;"><img src="${dataUrl}" style="max-width:100%;height:auto;" /></body></html>`);
+      win.document.close();
+      win.focus();
+      win.print();
     });
   }
 

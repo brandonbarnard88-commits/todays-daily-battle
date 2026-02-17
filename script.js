@@ -2579,6 +2579,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const forgotBtn = document.getElementById('forgot-btn');
+  if (forgotBtn) {
+    forgotBtn.addEventListener('click', async () => {
+      const emailEl = document.getElementById('email');
+      const email = emailEl ? emailEl.value : '';
+      if (!email) {
+        alert('Please enter your email first.');
+        return;
+      }
+      if (!supabaseClient) {
+        ensureSupabaseLoaded();
+        alert('Auth is still loading. Try again in a moment.');
+        setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+        return;
+      }
+      const redirectUrl = window.location.hostname.includes('localhost')
+        ? 'https://todaysdailybattle.com'
+        : window.location.origin;
+      const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo: redirectUrl
+      });
+      if (error) {
+        alert(error.message);
+        setAuthStatus(error.message, 'error');
+        return;
+      }
+      alert('Password reset email sent. Check your inbox.');
+      setAuthStatus('Password reset email sent. Check your inbox.', 'success');
+    });
+  }
+
   const logoutBtn = document.getElementById('logout-btn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', async () => {

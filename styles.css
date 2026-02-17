@@ -365,6 +365,20 @@ body {
   font-size: 0.85rem;
 }
 
+.link-button {
+  background: none;
+  border: 0;
+  color: #93c5fd;
+  text-decoration: underline;
+  padding: 0.35rem 0.4rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: #bfdbfe;
+}
+
 .auth-compact input::placeholder {
   color: rgba(226, 232, 240, 0.85);
 }

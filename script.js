@@ -2292,10 +2292,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
+      const redirectUrl = window.location.hostname.includes('localhost')
+        ? 'https://todaysdailybattle.com'
+        : window.location.origin;
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
-        options: { data: { tier, role } }
+        options: { data: { tier, role }, emailRedirectTo: redirectUrl }
       });
       if (error) {
         alert(error.message);

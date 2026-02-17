@@ -2600,6 +2600,30 @@ function renderResults(results) {
     gentle.textContent = 'God hears you. Bring Him your heart in simple, honest prayer.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('identity') || queryText.includes('worth') || queryText.includes('value')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Your value is secure in God’s love. You are seen and chosen.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('purpose') || queryText.includes('calling') || queryText.includes('direction')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God has a purpose for you. Keep taking faithful steps forward.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('friendship') || queryText.includes('friends') || queryText.includes('friend')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Healthy friendships bring life. Ask God to guide and strengthen your relationships.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('family') || queryText.includes('parents') || queryText.includes('home')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God cares about your home. He brings grace, patience, and peace to families.';
+    output.appendChild(gentle);
+  }
   if (queryText.includes('love') || queryText.includes('loving') || queryText.includes('loved')) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';

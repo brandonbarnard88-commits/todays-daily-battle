@@ -2558,6 +2558,48 @@ function renderResults(results) {
     gentle.textContent = 'God offers peace that steadies your heart and mind.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('patience') || queryText.includes('wait') || queryText.includes('waiting')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Waiting is hard, but God is working while you wait.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('stress') || queryText.includes('overwhelmed') || queryText.includes('burnout')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You don’t have to carry it alone. God offers rest and steady help.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('courage') || queryText.includes('brave') || queryText.includes('bold')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God is with you. You can take the next brave step.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('gratitude') || queryText.includes('thankful') || queryText.includes('thanks')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Gratitude opens our eyes to God’s goodness today.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('kindness') || queryText.includes('kind') || queryText.includes('compassion')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Kindness reflects God’s heart and changes the atmosphere around you.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('trust') || queryText.includes('rely') || queryText.includes('depend')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You can trust God with what you cannot control.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('prayer') || queryText.includes('pray')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God hears you. Bring Him your heart in simple, honest prayer.';
+    output.appendChild(gentle);
+  }
   if (queryText.includes('love') || queryText.includes('loving') || queryText.includes('loved')) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';

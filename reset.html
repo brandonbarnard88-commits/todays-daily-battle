@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin • Today's Daily Battle</title>
-  <meta name="description" content="Admin tools and site health for Today's Daily Battle.">
+  <title>Reset Password • Today's Daily Battle</title>
+  <meta name="description" content="Reset your password for Today's Daily Battle.">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://todaysdailybattle.com/admin.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/reset.html">
   <link rel="stylesheet" href="styles.css?v=20260210ai">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,24 +18,9 @@
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="index.html">Today's Daily Battle</a>
-        <span class="brand-subtitle">Admin & site health</span>
+        <span class="brand-subtitle">Reset your password</span>
       </div>
       <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">Menu</button>
-      <div id="auth-section" class="auth-inline auth-compact">
-        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
-        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
-        <select id="account-type" aria-label="Account Type">
-          <option value="member" selected>Member</option>
-          <option value="adult">Adult</option>
-          <option value="family">Family</option>
-          <option value="teacher">Teacher</option>
-          <option value="pastor">Pastor</option>
-        </select>
-        <button id="signup-btn">Sign Up</button>
-        <button id="login-btn">Log In</button>
-        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
-        <button id="logout-btn" style="display:none">Log Out</button>
-      </div>
     </header>
 
     <aside class="sidebar">
@@ -59,19 +44,19 @@
     <main class="app-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Admin Panel</h1>
-          <p>Site health, content overview, and moderation tools.</p>
+          <h1>Reset Password</h1>
+          <p>Enter a new password below to finish resetting your account.</p>
         </header>
-        <section id="admin-panel" class="glass">
-          <p id="admin-access-warning" class="section-note" style="display:none">
-            This area is available to the master account only.
-          </p>
-          <h2 class="section-divider">Site Health</h2>
-          <div id="admin-health" class="admin-grid"></div>
-          <h2 class="section-divider">Content Overview</h2>
-          <div id="admin-overview" class="admin-grid"></div>
-          <h2 class="section-divider">Message Moderation</h2>
-          <div id="admin-messages" class="list"></div>
+        <section class="glass">
+          <form id="reset-form" class="reset-form">
+            <label class="section-note" for="reset-password">New password</label>
+            <input id="reset-password" type="password" autocomplete="new-password" placeholder="New password">
+            <label class="section-note" for="reset-password-confirm">Confirm password</label>
+            <input id="reset-password-confirm" type="password" autocomplete="new-password" placeholder="Confirm password">
+            <button class="btn btn-primary" type="submit">Update Password</button>
+            <p id="reset-status" class="section-note"></p>
+          </form>
+          <p class="section-note">If the link expired, request a new reset from the login bar.</p>
         </section>
       </div>
     </main>

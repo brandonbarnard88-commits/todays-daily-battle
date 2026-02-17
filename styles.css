@@ -379,6 +379,32 @@ body {
   color: #bfdbfe;
 }
 
+.newsletter {
+  text-align: left;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.newsletter-form input {
+  flex: 1 1 220px;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.65);
+  color: #f8fafc;
+}
+
+.reset-form {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 420px;
+}
+
 .auth-compact input::placeholder {
   color: rgba(226, 232, 240, 0.85);
 }

@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="Today's Daily Battle">
   <meta name="twitter:description" content="Bible search, daily verse, study tools, sermon builder, and encouragement for families, churches, and communities.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <link rel="stylesheet" href="styles.css?v=20260210ah">
+  <link rel="stylesheet" href="styles.css?v=20260210ai">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,8 +53,8 @@
       </div>
       <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">Menu</button>
       <div id="auth-section" class="auth-inline auth-compact">
-        <input id="email" placeholder="Email" type="email" aria-label="Email">
-        <input id="password" placeholder="Password" type="password" aria-label="Password">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
         <select id="account-type" aria-label="Account Type">
           <option value="member" selected>Member</option>
           <option value="adult">Adult</option>
@@ -115,6 +115,15 @@
             <a class="btn btn-secondary" href="message.html">Encourage Someone</a>
           </div>
         </section>
+      <section class="glass newsletter">
+        <h2 class="section-divider">Weekly Encouragement</h2>
+        <p class="section-note">Get one short, hope-filled email each week. No account required.</p>
+        <div class="newsletter-form">
+          <input id="newsletter-email" type="email" placeholder="Email address" autocomplete="email" aria-label="Newsletter email">
+          <button id="newsletter-submit" class="btn btn-secondary" type="button">Join Newsletter</button>
+        </div>
+        <p id="newsletter-status" class="section-note"></p>
+      </section>
         <section id="main-search" class="controls glass">
           <div class="search-stack">
             <input id="query" placeholder="Search anger, fear, John 3:16, love..." aria-label="Search query">
@@ -155,6 +164,6 @@
     </footer>
   </div>
 
-  <script src="script.js?v=20260210ao" data-cfasync="false"></script>
+  <script src="script.js?v=20260210ap" data-cfasync="false"></script>
 </body>
 </html>

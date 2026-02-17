@@ -264,6 +264,90 @@ const topics = {
       kid: "God can make your heart feel calm and safe.",
       teen: "God's peace can steady you when life feels loud."
     }
+  },
+  depression: {
+    synonyms: ['down', 'hopeless', 'sad', 'despair', 'empty'],
+    verses: ['Psalms 42:11', 'Psalms 34:18', 'Isaiah 41:10', 'Matthew 11:28', 'Romans 15:13'],
+    guidance: {
+      kid: "When you feel really sad, tell God and a safe adult.",
+      teen: "Depression feels heavy, but you are not alone. Pray and reach out.",
+      adult: "God draws near to the brokenhearted and offers rest.",
+      pastor: "Use for counseling; encourage prayer, community, and wise help."
+    },
+    explain: {
+      kid: "God stays close when your heart hurts and gives you hope.",
+      teen: "God cares about your pain and gives hope through His people."
+    }
+  },
+  lonely: {
+    synonyms: ['alone', 'isolated', 'left out', 'abandoned'],
+    verses: ['Psalms 27:10', 'Hebrews 13:5', 'Deuteronomy 31:6', 'Psalms 68:6', 'Matthew 28:20'],
+    guidance: {
+      kid: "God is with you even when you feel alone.",
+      teen: "Loneliness is real, but God promises He will not leave you.",
+      adult: "The Lord is near; seek community and remember His presence.",
+      pastor: "Address isolation and connect people to the body of Christ."
+    },
+    explain: {
+      kid: "God is a friend who never leaves you.",
+      teen: "God stays with you and gives you people who care."
+    }
+  },
+  stress: {
+    synonyms: ['overwhelmed', 'pressure', 'busy', 'burnout'],
+    verses: ['Matthew 11:28', 'Psalms 46:10', 'Philippians 4:6', 'Isaiah 26:3', '1 Peter 5:7'],
+    guidance: {
+      kid: "Take a breath and ask God to help you.",
+      teen: "When stress builds, pray and take a healthy break.",
+      adult: "Cast your cares on the Lord; He sustains you.",
+      pastor: "Encourage rhythms of rest and trust in God."
+    },
+    explain: {
+      kid: "God helps you calm down when life feels too much.",
+      teen: "God helps you slow down and carry the load with Him."
+    }
+  },
+  identity: {
+    synonyms: ['who am i', 'worth', 'value', 'belong'],
+    verses: ['Genesis 1:27', '1 Peter 2:9', 'Ephesians 2:10', 'Romans 8:1', 'Galatians 2:20'],
+    guidance: {
+      kid: "You are God's special creation.",
+      teen: "Your identity is in Christ, not in likes or labels.",
+      adult: "You are chosen and loved in Christ.",
+      pastor: "Preach identity in Christ; combat shame and confusion."
+    },
+    explain: {
+      kid: "God made you on purpose and loves you.",
+      teen: "You belong to Jesus, and He gives you value."
+    }
+  },
+  purpose: {
+    synonyms: ['calling', 'why', 'direction', 'mission'],
+    verses: ['Jeremiah 29:11', 'Ephesians 2:10', 'Proverbs 3:5', 'Romans 12:2', 'Matthew 28:19'],
+    guidance: {
+      kid: "God has good plans for your life.",
+      teen: "Ask God to guide your steps and use your gifts.",
+      adult: "Trust God with your path and serve others.",
+      pastor: "Teach purpose as faithfulness in daily obedience."
+    },
+    explain: {
+      kid: "God has a plan for you and helps you do good.",
+      teen: "God guides your path and gives you a mission."
+    }
+  },
+  bullying: {
+    synonyms: ['mean', 'hurtful', 'teasing', 'mocking'],
+    verses: ['Psalms 34:18', 'Romans 12:17', 'Matthew 5:44', 'Proverbs 15:1', '2 Timothy 1:7'],
+    guidance: {
+      kid: "Tell a trusted adult and ask God for help.",
+      teen: "You don't have to face bullying alone; seek help and pray.",
+      adult: "Respond with wisdom and protect the vulnerable.",
+      pastor: "Equip families to respond with courage and compassion."
+    },
+    explain: {
+      kid: "God sees when people are mean and wants to help you.",
+      teen: "God cares and gives courage to stand up the right way."
+    }
   }
   // You can keep adding more here
 };
@@ -415,6 +499,7 @@ const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
 const LESSONS_STORAGE_KEY = 'lessonPlans';
 const MESSAGE_STORAGE_KEY = 'messageBoard';
+const NEWSLETTER_STORAGE_KEY = 'newsletterSignups';
 const templates = [
   {
     title: 'Gospel Clarity',
@@ -598,6 +683,18 @@ function saveMessagesLocal(items) {
   localStorage.setItem(MESSAGE_STORAGE_KEY, JSON.stringify(items));
 }
 
+function loadNewsletterSignups() {
+  try {
+    return JSON.parse(localStorage.getItem(NEWSLETTER_STORAGE_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveNewsletterSignups(items) {
+  localStorage.setItem(NEWSLETTER_STORAGE_KEY, JSON.stringify(items));
+}
+
 async function loadMessages() {
   if (isSupabaseConfigured() && currentUserId) {
     const { data, error } = await supabaseClient
@@ -624,6 +721,21 @@ async function postMessage(text) {
   local.unshift(item);
   saveMessagesLocal(local);
   return item;
+}
+
+async function saveNewsletterSignup(email) {
+  const entry = { id: generateUuid(), email, created_at: new Date().toISOString() };
+  const local = loadNewsletterSignups();
+  local.unshift(entry);
+  saveNewsletterSignups(local);
+  if (isSupabaseConfigured()) {
+    try {
+      await supabaseClient.from('newsletter_signups').insert({ email });
+    } catch {
+      // Table may not exist; local storage acts as fallback.
+    }
+  }
+  return entry;
 }
 
 function renderMessages(items) {
@@ -1381,6 +1493,7 @@ async function renderAdminPanel() {
     const lessons = loadLessons();
     const draft = localStorage.getItem('sermonDraft');
     const draftCount = draft ? 1 : 0;
+    const newsletterCount = loadNewsletterSignups().length;
     const churchSermonCount = Object.values(localSermons || {})
       .reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0);
     const items = [
@@ -1388,6 +1501,7 @@ async function renderAdminPanel() {
       { label: 'Saved verses', value: verses.length },
       { label: 'Lesson plans', value: lessons.length },
       { label: 'Sermon draft', value: draftCount },
+      { label: 'Newsletter signups', value: newsletterCount },
       { label: 'Church sermons', value: churchSermonCount }
     ];
     overview.innerHTML = items.map(item => (
@@ -2594,11 +2708,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
-      const redirectUrl = window.location.hostname.includes('localhost')
+      const baseUrl = window.location.hostname.includes('localhost')
         ? 'https://todaysdailybattle.com'
         : window.location.origin;
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: redirectUrl
+        redirectTo: `${baseUrl}/reset.html`
       });
       if (error) {
         alert(error.message);
@@ -2607,6 +2721,57 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       alert('Password reset email sent. Check your inbox.');
       setAuthStatus('Password reset email sent. Check your inbox.', 'success');
+    });
+  }
+
+  const newsletterBtn = document.getElementById('newsletter-submit');
+  if (newsletterBtn) {
+    newsletterBtn.addEventListener('click', async () => {
+      const emailEl = document.getElementById('newsletter-email');
+      const statusEl = document.getElementById('newsletter-status');
+      const email = emailEl ? emailEl.value.trim() : '';
+      if (!email || !email.includes('@')) {
+        if (statusEl) statusEl.textContent = 'Enter a valid email to subscribe.';
+        return;
+      }
+      await saveNewsletterSignup(email);
+      if (emailEl) emailEl.value = '';
+      if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
+    });
+  }
+
+  const resetForm = document.getElementById('reset-form');
+  if (resetForm) {
+    const resetStatus = document.getElementById('reset-status');
+    resetForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const passEl = document.getElementById('reset-password');
+      const confirmEl = document.getElementById('reset-password-confirm');
+      const password = passEl ? passEl.value : '';
+      const confirm = confirmEl ? confirmEl.value : '';
+      if (!password || password.length < 6) {
+        if (resetStatus) resetStatus.textContent = 'Password must be at least 6 characters.';
+        return;
+      }
+      if (password !== confirm) {
+        if (resetStatus) resetStatus.textContent = 'Passwords do not match.';
+        return;
+      }
+      if (!supabaseClient) {
+        if (resetStatus) resetStatus.textContent = 'Auth is still loading. Try again in a moment.';
+        return;
+      }
+      const { data } = await supabaseClient.auth.getSession();
+      if (!data?.session) {
+        if (resetStatus) resetStatus.textContent = 'Reset link expired. Request a new one.';
+        return;
+      }
+      const { error } = await supabaseClient.auth.updateUser({ password });
+      if (error) {
+        if (resetStatus) resetStatus.textContent = error.message;
+        return;
+      }
+      if (resetStatus) resetStatus.textContent = 'Password updated. You can log in now.';
     });
   }
 

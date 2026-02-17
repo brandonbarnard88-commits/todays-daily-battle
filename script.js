@@ -2654,6 +2654,18 @@ function renderResults(results) {
     gentle.textContent = 'God uses discipline to shape us with love and wisdom.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('leadership') || queryText.includes('leader') || queryText.includes('lead')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Godly leadership serves others with humility and courage.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('purity') || queryText.includes('lust') || queryText.includes('temptation')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God offers strength to choose what is pure and life‑giving.';
+    output.appendChild(gentle);
+  }
   if (queryText.includes('love') || queryText.includes('loving') || queryText.includes('loved')) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';

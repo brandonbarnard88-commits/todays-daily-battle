@@ -641,6 +641,7 @@ const LESSONS_STORAGE_KEY = 'lessonPlans';
 const MESSAGE_STORAGE_KEY = 'messageBoard';
 const NEWSLETTER_STORAGE_KEY = 'newsletterSignups';
 const STATS_STORAGE_KEY = 'siteStats';
+const DAILY_KIDS_STORAGE_KEY = 'dailyKidsPrompt';
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -706,6 +707,36 @@ function loadStats() {
   } catch {
     return {};
   }
+}
+
+function getDailyKey() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+const DAILY_KIDS_PROMPTS = [
+  { title: 'Be Kind Today', verse: 'Ephesians 4:32', prompt: 'Do one kind act and tell God thank you.' },
+  { title: 'Brave Step', verse: 'Joshua 1:9', prompt: 'Take one brave step and pray before you do.' },
+  { title: 'Thankful Heart', verse: '1 Thessalonians 5:18', prompt: 'Name three things you are thankful for.' },
+  { title: 'Peace Moment', verse: 'Philippians 4:6-7', prompt: 'Take three deep breaths and pray for peace.' },
+  { title: 'Help at Home', verse: 'Colossians 3:23', prompt: 'Help someone at home without being asked.' },
+  { title: 'Encourage a Friend', verse: '1 Thessalonians 5:11', prompt: 'Say one encouraging sentence to a friend.' },
+  { title: 'Listen and Obey', verse: 'Ephesians 6:1', prompt: 'Practice quick obedience today.' }
+];
+
+function getDailyKidsPrompt() {
+  const key = getDailyKey();
+  const stored = localStorage.getItem(DAILY_KIDS_STORAGE_KEY);
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored);
+      if (parsed?.key === key && parsed?.item) return parsed.item;
+    } catch {}
+  }
+  const seed = key.split('').reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+  const item = DAILY_KIDS_PROMPTS[seed % DAILY_KIDS_PROMPTS.length];
+  localStorage.setItem(DAILY_KIDS_STORAGE_KEY, JSON.stringify({ key, item }));
+  return item;
 }
 
 function saveStats(stats) {
@@ -916,9 +947,27 @@ function saveNewsletterSignups(items) {
 function exportNewsletterCsv() {
   const items = loadNewsletterSignups();
   if (!items.length) {
+    if (isSupabaseConfigured()) {
+      supabaseClient
+        .from('newsletter_signups')
+        .select('email, created_at')
+        .order('created_at', { ascending: false })
+        .then(({ data, error }) => {
+          if (error || !data?.length) {
+            alert('No newsletter signups to export yet.');
+            return;
+          }
+          exportCsvRows(data);
+        });
+      return;
+    }
     alert('No newsletter signups to export yet.');
     return;
   }
+  exportCsvRows(items);
+}
+
+function exportCsvRows(items) {
   const header = ['email', 'created_at'];
   const rows = items.map(item => [item.email, item.created_at]);
   const csv = [header, ...rows]
@@ -939,7 +988,7 @@ async function loadMessages() {
   if (isSupabaseConfigured() && currentUserId) {
     const { data, error } = await supabaseClient
       .from('messages')
-      .select('id, user_id, text, created_at')
+      .select('id, user_id, text, created_at, hidden')
       .order('created_at', { ascending: false })
       .limit(50);
     if (!error && Array.isArray(data)) return data;
@@ -984,11 +1033,12 @@ function renderMessages(items) {
   const list = document.getElementById('message-list');
   if (!list) return;
   list.innerHTML = '';
-  if (!items.length) {
+  const visible = items.filter(item => !item.hidden);
+  if (!visible.length) {
     list.innerHTML = '<p class="empty">No messages yet. Be the first to encourage someone.</p>';
     return;
   }
-  items.forEach(item => {
+  visible.forEach(item => {
     const row = document.createElement('div');
     row.className = 'list-item';
     row.innerHTML = `<div><strong>Member</strong><p>${item.text}</p></div>`;
@@ -1703,6 +1753,18 @@ async function deleteMessageItem(item) {
   return true;
 }
 
+async function hideMessageItem(item) {
+  if (!item) return false;
+  if (isSupabaseConfigured() && currentUserId) {
+    const { error } = await supabaseClient.from('messages').update({ hidden: true }).eq('id', item.id);
+    if (!error) return true;
+  }
+  const local = loadMessagesLocal();
+  const next = local.map(row => row.id === item.id ? { ...row, hidden: true } : row);
+  saveMessagesLocal(next);
+  return true;
+}
+
 async function renderAdminPanel() {
   const adminRoot = document.getElementById('admin-panel');
   if (!adminRoot) return;
@@ -1781,6 +1843,19 @@ async function renderAdminPanel() {
       row.innerHTML = `<div><strong>${item.user_id || 'Member'}</strong><p>${item.text}</p></div>`;
       const actions = document.createElement('div');
       actions.className = 'item-actions';
+      const hideBtn = document.createElement('button');
+      hideBtn.textContent = item.hidden ? 'Hidden' : 'Hide';
+      hideBtn.disabled = Boolean(item.hidden);
+      hideBtn.onclick = async () => {
+        const ok = await hideMessageItem(item);
+        if (ok) {
+          hideBtn.textContent = 'Hidden';
+          hideBtn.disabled = true;
+          row.style.opacity = '0.6';
+        } else {
+          alert('Unable to hide message. Check permissions.');
+        }
+      };
       const delBtn = document.createElement('button');
       delBtn.textContent = 'Delete';
       delBtn.onclick = async () => {
@@ -1791,6 +1866,7 @@ async function renderAdminPanel() {
           alert('Unable to delete message. Check permissions.');
         }
       };
+      actions.appendChild(hideBtn);
       actions.appendChild(delBtn);
       row.appendChild(actions);
       messagesWrap.appendChild(row);
@@ -3121,6 +3197,41 @@ document.addEventListener('DOMContentLoaded', async () => {
       await saveNewsletterSignup(email);
       if (emailEl) emailEl.value = '';
       if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
+    });
+  }
+
+  const kidsTitleEl = document.getElementById('kids-daily-title');
+  const kidsPromptEl = document.getElementById('kids-daily-prompt');
+  const kidsVerseEl = document.getElementById('kids-daily-verse');
+  const kidsDoneBtn = document.getElementById('kids-done');
+  const kidsStreakEl = document.getElementById('kids-streak');
+  if (kidsTitleEl && kidsPromptEl && kidsVerseEl && kidsDoneBtn && kidsStreakEl) {
+    const prompt = getDailyKidsPrompt();
+    kidsTitleEl.textContent = prompt.title;
+    kidsPromptEl.textContent = prompt.prompt;
+    kidsVerseEl.textContent = `Verse: ${prompt.verse}`;
+    const streakData = JSON.parse(localStorage.getItem('kidsStreak') || '{}');
+    const todayKey = getDailyKey();
+    const lastKey = streakData.lastKey || '';
+    const streak = Number(streakData.count || 0);
+    kidsStreakEl.textContent = `Streak: ${streak} day${streak === 1 ? '' : 's'}`;
+    if (lastKey === todayKey) {
+      kidsDoneBtn.textContent = 'Completed Today';
+      kidsDoneBtn.disabled = true;
+    }
+    kidsDoneBtn.addEventListener('click', () => {
+      const data = JSON.parse(localStorage.getItem('kidsStreak') || '{}');
+      const last = data.lastKey || '';
+      const count = Number(data.count || 0);
+      const today = getDailyKey();
+      let nextCount = count;
+      if (last !== today) {
+        nextCount = last ? count + 1 : 1;
+      }
+      localStorage.setItem('kidsStreak', JSON.stringify({ lastKey: today, count: nextCount }));
+      kidsStreakEl.textContent = `Streak: ${nextCount} day${nextCount === 1 ? '' : 's'}`;
+      kidsDoneBtn.textContent = 'Completed Today';
+      kidsDoneBtn.disabled = true;
     });
   }
 

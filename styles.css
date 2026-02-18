@@ -569,6 +569,9 @@ textarea:focus-visible {
 }
 
 #main-search {
+  display: grid;
+  gap: 0.8rem;
+  align-items: stretch;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.35));
   box-shadow: 0 22px 45px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(109, 40, 217, 0.15);

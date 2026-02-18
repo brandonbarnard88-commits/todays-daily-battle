@@ -62,7 +62,7 @@ Deno.serve(async (req) => {
 
     const battle = await getDailyBattle();
     const subject = type === "weekly"
-      ? "Weekly Encouragement — Today’s Daily Battle"
+      ? "Weekly Battle Plan — Today’s Daily Battle"
       : "Today’s Battle — Daily Encouragement";
     const content = [
       "Hello friend,",
@@ -73,6 +73,7 @@ Deno.serve(async (req) => {
       "",
       battle?.prayer ? `Prayer: ${battle.prayer}` : "Prayer: Lord, guide and strengthen us today. Amen.",
       "",
+      "Start today’s battle: https://todaysdailybattle.com/",
       "Today’s Daily Battle"
     ].join("\n");
 

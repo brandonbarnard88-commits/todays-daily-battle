@@ -818,6 +818,29 @@ function getDailyBattleFallback() {
   };
 }
 
+function normalizeBibleRef(ref) {
+  if (!ref) return '';
+  let cleaned = ref.replace(/\u00A0/g, ' ').trim();
+  cleaned = cleaned.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");
+  cleaned = cleaned.replace(/\s+/g, ' ');
+  cleaned = cleaned.replace(/\s*(?:\(|\[).*(?:\)|\])\s*$/, '');
+  cleaned = cleaned.replace(/[,;].*$/, '');
+  cleaned = cleaned.replace(/\s*[-–—].*$/, '');
+  cleaned = cleaned.replace(/[.]+$/, '');
+  cleaned = cleaned.replace(/^Ps\.?\b/i, 'Psalms');
+  cleaned = cleaned.replace(/^Psalm\b/i, 'Psalms');
+  cleaned = cleaned.replace(/^Psalms(\d)/i, 'Psalms $1');
+  return cleaned.trim();
+}
+
+function getBibleVerseText(ref) {
+  if (!ref) return '';
+  if (bible[ref]) return bible[ref];
+  const normalized = normalizeBibleRef(ref);
+  if (normalized && bible[normalized]) return bible[normalized];
+  return '';
+}
+
 const DAILY_KIDS_PROMPTS = [
   { title: 'Be Kind Today', verse: 'Ephesians 4:32', prompt: 'Do one kind act and tell God thank you.' },
   { title: 'Brave Step', verse: 'Joshua 1:9', prompt: 'Take one brave step and pray before you do.' },
@@ -1078,7 +1101,7 @@ async function renderDailyBattleCard() {
     card.innerHTML = '<p class="empty">Verse not available.</p>';
     return;
   }
-  const verseText = bible[battle.ref] || '';
+  const verseText = getBibleVerseText(battle.ref);
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
   if (reflectionEl) reflectionEl.textContent = battle.reflection ? `Reflection: ${battle.reflection}` : '';
   if (prayerEl) prayerEl.textContent = battle.prayer ? `Prayer: ${battle.prayer}` : '';
@@ -3386,6 +3409,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (loadingEl) loadingEl.style.display = 'none';
       }, 600);
+    });
+  }
+  const dailyPlanBtn = document.getElementById('daily-plan-btn');
+  if (dailyPlanBtn) {
+    dailyPlanBtn.addEventListener('click', () => {
+      dailyBtn?.click();
     });
   }
 

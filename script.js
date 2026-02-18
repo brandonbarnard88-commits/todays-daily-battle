@@ -746,6 +746,9 @@ function showAuthRedirectMessage() {
     setAuthStatus(message, 'error');
   }
   const type = params.get('type') || hashParams.get('type');
+  if (type === 'signup' || type === 'email_change') {
+    setAuthStatus('Email confirmed. Please log in.', 'success');
+  }
   const resetStatus = document.getElementById('reset-status');
   if (type === 'recovery' && resetStatus) {
     resetStatus.textContent = 'Set your new password below.';

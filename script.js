@@ -14,6 +14,8 @@ const MASTER_EMAILS = new Set([
 ]);
 let isMasterUser = false;
 let currentUserEmail = '';
+let deferredInstallPrompt = null;
+const CF_ANALYTICS_TOKEN = '';
 
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
@@ -716,6 +718,56 @@ function loadStats() {
 function getDailyKey() {
   const now = new Date();
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+function getAuthRedirectBase() {
+  if (window.location.protocol === 'file:') {
+    return 'https://todaysdailybattle.com';
+  }
+  return window.location.origin;
+}
+
+function wireAnalyticsBeacon() {
+  if (!CF_ANALYTICS_TOKEN) return;
+  const script = document.createElement('script');
+  script.defer = true;
+  script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  script.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
+  document.head.appendChild(script);
+}
+
+function showAuthRedirectMessage() {
+  const params = new URLSearchParams(window.location.search);
+  const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  const error = params.get('error') || params.get('error_code') || hashParams.get('error');
+  const errorDescription = params.get('error_description') || hashParams.get('error_description');
+  if (error || errorDescription) {
+    const message = errorDescription ? decodeURIComponent(errorDescription) : `Auth error: ${error}`;
+    setAuthStatus(message, 'error');
+  }
+  const type = params.get('type') || hashParams.get('type');
+  const resetStatus = document.getElementById('reset-status');
+  if (type === 'recovery' && resetStatus) {
+    resetStatus.textContent = 'Set your new password below.';
+  }
+}
+
+function wireInstallPrompt() {
+  const installCta = document.getElementById('install-cta');
+  const installBtn = document.getElementById('install-app');
+  if (!installCta || !installBtn) return;
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    installCta.classList.add('show');
+  });
+  installBtn.addEventListener('click', async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    installCta.classList.remove('show');
+  });
 }
 
 function updateDailyBattleStreak() {
@@ -2091,6 +2143,49 @@ async function renderAdminPanel() {
   }
 }
 
+function wireDailyBattleSeedForm() {
+  const form = document.getElementById('daily-battle-seed-form');
+  if (!form) return;
+  const statusEl = document.getElementById('daily-battle-seed-status');
+  const dateEl = document.getElementById('daily-battle-date');
+  const verseEl = document.getElementById('daily-battle-verse');
+  const reflectionEl = document.getElementById('daily-battle-reflection-input');
+  const prayerEl = document.getElementById('daily-battle-prayer-input');
+  if (dateEl && !dateEl.value) {
+    dateEl.value = getDailyKey();
+  }
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!isMasterUser) {
+      if (statusEl) statusEl.textContent = 'Master account required.';
+      return;
+    }
+    if (!supabaseClient) {
+      if (statusEl) statusEl.textContent = 'Supabase not ready yet.';
+      ensureSupabaseLoaded();
+      return;
+    }
+    const date = dateEl ? dateEl.value : '';
+    const verse_ref = verseEl ? verseEl.value.trim() : '';
+    const reflection = reflectionEl ? reflectionEl.value.trim() : '';
+    const prayer = prayerEl ? prayerEl.value.trim() : '';
+    if (!date || !verse_ref) {
+      if (statusEl) statusEl.textContent = 'Date and verse reference are required.';
+      return;
+    }
+    const { error } = await supabaseClient
+      .from('daily_battles')
+      .upsert({ date, verse_ref, reflection, prayer });
+    if (error) {
+      if (statusEl) statusEl.textContent = error.message;
+      return;
+    }
+    if (statusEl) statusEl.textContent = 'Daily battle saved.';
+    if (reflectionEl) reflectionEl.value = '';
+    if (prayerEl) prayerEl.value = '';
+  });
+}
+
 function applyRoleAccess() {
   const allowed = new Set([
     'verse-of-day',
@@ -3058,6 +3153,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js').catch(() => {});
   }
+  wireAnalyticsBeacon();
+  showAuthRedirectMessage();
   const navLinks = document.querySelectorAll('.side-nav a, .site-nav a');
   if (navLinks.length) {
     const path = window.location.pathname.replace(/\/+$/, '');
@@ -3165,6 +3262,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   renderAdminPanel();
+  wireDailyBattleSeedForm();
+  wireInstallPrompt();
 
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {
@@ -3312,9 +3411,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
-      const redirectUrl = window.location.hostname.includes('localhost')
-        ? 'https://todaysdailybattle.com'
-        : window.location.origin;
+      const redirectUrl = getAuthRedirectBase();
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
@@ -3390,9 +3487,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
-      const baseUrl = window.location.hostname.includes('localhost')
-        ? 'https://todaysdailybattle.com'
-        : window.location.origin;
+      const baseUrl = getAuthRedirectBase();
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
         redirectTo: `${baseUrl}/reset.html`
       });

@@ -190,6 +190,19 @@ body {
   gap: 0.8rem;
 }
 
+.install-cta {
+  display: none;
+  align-items: center;
+}
+
+.install-cta.show {
+  display: flex;
+}
+
+.install-cta .section-note {
+  margin: 0;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

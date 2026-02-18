@@ -84,6 +84,10 @@
             <span id="daily-email-status" class="section-note"></span>
           </div>
           <p class="section-note">Edge function file: supabase/functions/send-reminders (daily/weekly).</p>
+          <div class="list">
+            <div class="list-item"><div><strong>Daily schedule</strong><p>Supabase cron → POST send-reminders with {"type":"daily"} each morning.</p></div></div>
+            <div class="list-item"><div><strong>Weekly schedule</strong><p>Supabase cron → POST send-reminders with {"type":"weekly"} each week.</p></div></div>
+          </div>
           <h2 class="section-divider">Supabase Checklist</h2>
           <div class="list">
             <div class="list-item"><div><strong>messages.hidden (boolean)</strong><p>Used for message moderation hide/unhide.</p></div></div>
@@ -93,6 +97,20 @@
             <div class="list-item"><div><strong>newsletter_signups.daily_opt_in / weekly_opt_in</strong><p>Stores reminder preferences.</p></div></div>
             <div class="list-item"><div><strong>daily_battles table</strong><p>Run SQL from supabase-daily-battles.sql for daily featured content.</p></div></div>
           </div>
+          <h2 class="section-divider">Analytics</h2>
+          <div class="list">
+            <div class="list-item"><div><strong>Cloudflare Web Analytics</strong><p>Set CF_ANALYTICS_TOKEN in script.js to enable the beacon.</p></div></div>
+          </div>
+          <h2 class="section-divider">Daily Battle Seed Helper</h2>
+          <p class="section-note">Add or update the featured battle for a specific date.</p>
+          <form id="daily-battle-seed-form" class="newsletter-form">
+            <input id="daily-battle-date" type="date" aria-label="Daily battle date">
+            <input id="daily-battle-verse" type="text" placeholder="Verse ref (e.g., Psalm 46:1)" aria-label="Daily battle verse">
+            <input id="daily-battle-reflection-input" type="text" placeholder="Short reflection" aria-label="Daily battle reflection">
+            <input id="daily-battle-prayer-input" type="text" placeholder="Short prayer" aria-label="Daily battle prayer">
+            <button class="btn btn-secondary" type="submit">Save daily battle</button>
+          </form>
+          <p id="daily-battle-seed-status" class="section-note"></p>
           <h2 class="section-divider">Message Moderation</h2>
           <div id="admin-messages" class="list"></div>
           <h2 class="section-divider">Reported Messages</h2>
@@ -102,10 +120,10 @@
     </main>
 
     <footer class="site-footer">
-      Powered by the King James Bible • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
+      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="privacy.html">Privacy</a> • <a href="mailto:brandon@todaysdailybattle.com">Contact</a>
     </footer>
   </div>
 
-  <script src="script.js?v=20260210ba" data-cfasync="false"></script>
+  <script src="script.js?v=20260210bd" data-cfasync="false"></script>
 </body>
 </html>

@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://todaysdailybattle.com/</loc></url>
+  <url><loc>https://todaysdailybattle.com/about.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/faq.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/pricing.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/privacy.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/verse.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/study.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/reader.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/church.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/coloring.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/sermon.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/resources.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/message.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/topic-anxiety.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/topic-grief.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/topic-parenting.html</loc></url>
+</urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://todaysdailybattle.com/</loc>
   </url>

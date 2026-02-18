@@ -243,6 +243,10 @@ body {
   margin-top: 0.8rem;
 }
 
+.controls .quick-links {
+  margin-top: 0.4rem;
+}
+
 .quick-actions .btn,
 .quick-links .btn {
   min-width: 140px;

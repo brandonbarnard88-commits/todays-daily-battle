@@ -1884,6 +1884,25 @@ async function reportMessageItem(item) {
   return true;
 }
 
+async function loadMessageReports() {
+  const local = (() => {
+    try {
+      return JSON.parse(localStorage.getItem('messageReports') || '[]');
+    } catch {
+      return [];
+    }
+  })();
+  if (isSupabaseConfigured() && currentUserId) {
+    const { data, error } = await supabaseClient
+      .from('message_reports')
+      .select('id, message_id, text, created_at')
+      .order('created_at', { ascending: false })
+      .limit(50);
+    if (!error && Array.isArray(data)) return data;
+  }
+  return local;
+}
+
 async function renderAdminPanel() {
   const adminRoot = document.getElementById('admin-panel');
   if (!adminRoot) return;
@@ -1989,6 +2008,22 @@ async function renderAdminPanel() {
       actions.appendChild(delBtn);
       row.appendChild(actions);
       messagesWrap.appendChild(row);
+    });
+  }
+
+  const reportsWrap = document.getElementById('admin-reports');
+  if (reportsWrap) {
+    const reports = await loadMessageReports();
+    if (!reports.length) {
+      reportsWrap.innerHTML = '<p class="empty">No reports yet.</p>';
+      return;
+    }
+    reportsWrap.innerHTML = '';
+    reports.forEach(report => {
+      const row = document.createElement('div');
+      row.className = 'list-item';
+      row.innerHTML = `<div><strong>Report</strong><p>${report.text}</p><p class="section-note">Message ID: ${report.message_id || report.id}</p></div>`;
+      reportsWrap.appendChild(row);
     });
   }
 }

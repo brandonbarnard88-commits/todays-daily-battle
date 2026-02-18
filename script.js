@@ -2911,6 +2911,7 @@ function executeQuery(parsed, tier) {
 
 function renderResults(results) {
   const output = document.getElementById('output');
+  if (!output) return;
   output.innerHTML = '';
   lastResults = results;
   updateNoteSelect(results);
@@ -3350,6 +3351,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (loadingEl) loadingEl.style.display = 'none';
         await renderDailyBattleCard();
       }, 600);
+    });
+  }
+
+  const queryInput = document.getElementById('query');
+  if (queryInput) {
+    queryInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        searchBtn?.click();
+      }
     });
   }
 

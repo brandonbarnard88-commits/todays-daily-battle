@@ -2899,6 +2899,32 @@ function renderResults(results) {
   }
   if (results.verses.length === 0) {
     output.innerHTML = '<p style="text-align:center; color:#888;">No results found. Try another search!</p>';
+    const suggestions = document.createElement('div');
+    suggestions.className = 'quick-start';
+    suggestions.innerHTML = `
+      <p class="section-note">Try a topic:</p>
+      <div class="quick-topics">
+        <button class="quick-topic" type="button" data-topic="heartache">Heartache</button>
+        <button class="quick-topic" type="button" data-topic="grief">Grief</button>
+        <button class="quick-topic" type="button" data-topic="anxiety">Anxiety</button>
+        <button class="quick-topic" type="button" data-topic="fear">Fear</button>
+        <button class="quick-topic" type="button" data-topic="hope">Hope</button>
+        <button class="quick-topic" type="button" data-topic="forgiveness">Forgiveness</button>
+        <button class="quick-topic" type="button" data-topic="patience">Patience</button>
+      </div>
+    `;
+    output.appendChild(suggestions);
+    const queryEl = document.getElementById('query');
+    const searchBtn = document.getElementById('search-btn');
+    suggestions.querySelectorAll('.quick-topic').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const topic = btn.getAttribute('data-topic');
+        if (queryEl && topic) {
+          queryEl.value = topic;
+          searchBtn?.click();
+        }
+      });
+    });
     return;
   }
   if (queryText.includes('heartache') || queryText.includes('heart ache')) {
@@ -3405,12 +3431,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       const tier = tierEl ? tierEl.value : 'adult';
       const role = roleEl ? roleEl.value : 'member';
       if (!email || !password) {
-        alert('Please enter an email and password.');
+        setAuthStatus('Please enter an email and password.', 'error');
         return;
       }
       if (!supabaseClient) {
         ensureSupabaseLoaded();
-        alert('Auth is still loading. Try again in a moment.');
         setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
@@ -3421,16 +3446,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         options: { data: { tier, role }, emailRedirectTo: redirectUrl }
       });
       if (error) {
-        alert(error.message);
         setAuthStatus(error.message, 'error');
         return;
       }
       if (data?.session) {
-        alert('Signed up and logged in!');
         setAuthStatus('Signed up and logged in!', 'success');
         bumpStat('signups');
       } else {
-        alert('Signed up! Check your email to confirm.');
         setAuthStatus('Signed up! Check your email to confirm.', 'success');
         bumpStat('signups');
       }
@@ -3445,18 +3467,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       const email = emailEl ? emailEl.value : '';
       const password = passwordEl ? passwordEl.value : '';
       if (!email || !password) {
-        alert('Please enter your email and password.');
+        setAuthStatus('Please enter your email and password.', 'error');
         return;
       }
       if (!supabaseClient) {
         ensureSupabaseLoaded();
-        alert('Auth is still loading. Try again in a moment.');
         setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
       if (error) {
-        alert(error.message);
         setAuthStatus(error.message, 'error');
         return;
       }
@@ -3465,7 +3485,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentUserRole = data.user.user_metadata.role || 'member';
         const tierEl = document.getElementById('tier');
         if (tierEl) tierEl.value = userTier;
-        alert('Logged in!');
         setAuthStatus('Logged in!', 'success');
         bumpStat('logins');
         updateRoleViews();
@@ -3481,12 +3500,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       const emailEl = document.getElementById('email');
       const email = emailEl ? emailEl.value : '';
       if (!email) {
-        alert('Please enter your email first.');
+        setAuthStatus('Please enter your email first.', 'error');
         return;
       }
       if (!supabaseClient) {
         ensureSupabaseLoaded();
-        alert('Auth is still loading. Try again in a moment.');
         setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
         return;
       }
@@ -3495,11 +3513,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         redirectTo: `${baseUrl}/reset.html`
       });
       if (error) {
-        alert(error.message);
         setAuthStatus(error.message, 'error');
         return;
       }
-      alert('Password reset email sent. Check your inbox.');
       setAuthStatus('Password reset email sent. Check your inbox.', 'success');
     });
   }
@@ -3674,12 +3690,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     logoutBtn.addEventListener('click', async () => {
     if (!supabaseClient) {
       ensureSupabaseLoaded();
-      alert('Auth is still loading. Try again in a moment.');
       setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
       return;
     }
       const { error } = await supabaseClient.auth.signOut();
-      alert(error ? error.message : 'Logged out!');
     setAuthStatus(error ? error.message : 'Logged out!', error ? 'error' : 'success');
     });
   }

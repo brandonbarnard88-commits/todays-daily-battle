@@ -645,6 +645,7 @@ const DAILY_KIDS_STORAGE_KEY = 'dailyKidsPrompt';
 const MESSAGE_NAME_KEY = 'messageDisplayName';
 const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
 const DAILY_KIDS_HISTORY_KEY = 'dailyKidsHistory';
+const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -715,6 +716,51 @@ function loadStats() {
 function getDailyKey() {
   const now = new Date();
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+function updateDailyBattleStreak() {
+  const streakEl = document.getElementById('daily-battle-streak');
+  if (!streakEl) return;
+  const today = getDailyKey();
+  let data = {};
+  try {
+    data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
+  } catch {}
+  const lastKey = data.lastKey || '';
+  const count = Number(data.count || 0);
+  let nextCount = count;
+  if (lastKey !== today) {
+    nextCount = lastKey ? count + 1 : 1;
+    localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify({ lastKey: today, count: nextCount }));
+  }
+  streakEl.textContent = `Streak: ${nextCount} day${nextCount === 1 ? '' : 's'}`;
+}
+
+async function getDailyBattleFromSupabase() {
+  if (!isSupabaseConfigured()) return null;
+  const key = getDailyKey();
+  const { data, error } = await supabaseClient
+    .from('daily_battles')
+    .select('date, verse_ref, reflection, prayer')
+    .eq('date', key)
+    .limit(1)
+    .single();
+  if (error || !data) return null;
+  return {
+    ref: data.verse_ref,
+    reflection: data.reflection || '',
+    prayer: data.prayer || ''
+  };
+}
+
+function getDailyBattleFallback() {
+  const ref = getDailyVerseRef();
+  if (!ref || !bible[ref]) return null;
+  return {
+    ref,
+    reflection: 'When the battle feels heavy today, remember God is near and faithful.',
+    prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.'
+  };
 }
 
 const DAILY_KIDS_PROMPTS = [
@@ -962,19 +1008,26 @@ function shareDailyBattle() {
   alert('Copied! Share it with someone who needs hope.');
 }
 
-function renderDailyBattleCard() {
+async function renderDailyBattleCard() {
   const card = document.getElementById('daily-battle-card');
+  const reflectionEl = document.getElementById('daily-battle-reflection');
+  const prayerEl = document.getElementById('daily-battle-prayer');
   if (!card) return;
   if (!Object.keys(bible).length) {
     card.innerHTML = '<p class="empty">Bible data not loaded.</p>';
     return;
   }
-  const ref = getDailyVerseRef();
-  if (!ref || !bible[ref]) {
+  const supaBattle = await getDailyBattleFromSupabase();
+  const battle = supaBattle || getDailyBattleFallback();
+  if (!battle || !battle.ref) {
     card.innerHTML = '<p class="empty">Verse not available.</p>';
     return;
   }
-  card.innerHTML = `<strong>${ref}</strong><p>${bible[ref]}</p>`;
+  const verseText = bible[battle.ref] || '';
+  card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
+  if (reflectionEl) reflectionEl.textContent = battle.reflection ? `Reflection: ${battle.reflection}` : '';
+  if (prayerEl) prayerEl.textContent = battle.prayer ? `Prayer: ${battle.prayer}` : '';
+  updateDailyBattleStreak();
 }
 
 function loadMessagesLocal() {
@@ -1096,15 +1149,25 @@ async function postMessage(text) {
   return item;
 }
 
-async function saveNewsletterSignup(email) {
-  const entry = { id: generateUuid(), email, created_at: new Date().toISOString() };
+async function saveNewsletterSignup(email, prefs) {
+  const entry = {
+    id: generateUuid(),
+    email,
+    daily_opt_in: Boolean(prefs?.daily),
+    weekly_opt_in: Boolean(prefs?.weekly),
+    created_at: new Date().toISOString()
+  };
   const local = loadNewsletterSignups();
   local.unshift(entry);
   saveNewsletterSignups(local);
   bumpStat('newsletterSignups');
   if (isSupabaseConfigured()) {
     try {
-      await supabaseClient.from('newsletter_signups').insert({ email });
+      await supabaseClient.from('newsletter_signups').insert({
+        email,
+        daily_opt_in: Boolean(prefs?.daily),
+        weekly_opt_in: Boolean(prefs?.weekly)
+      });
     } catch {
       // Table may not exist; local storage acts as fallback.
     }
@@ -2992,6 +3055,9 @@ function renderResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+  }
   const navLinks = document.querySelectorAll('.side-nav a, .site-nav a');
   if (navLinks.length) {
     const path = window.location.pathname.replace(/\/+$/, '');
@@ -3025,7 +3091,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadBible(versionSelect ? versionSelect.value : currentVersion);
   refreshBibleView();
   renderDailyVerse();
-  renderDailyBattleCard();
+  await renderDailyBattleCard();
   if (!supabaseClient) {
     const authSection = document.getElementById('auth-section');
     if (authSection) {
@@ -3131,7 +3197,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const results = executeQuery(parsed, tier);
         renderResults(results);
         if (loadingEl) loadingEl.style.display = 'none';
-      renderDailyBattleCard();
+        await renderDailyBattleCard();
       }, 600);
     });
   }
@@ -3345,12 +3411,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     newsletterBtn.addEventListener('click', async () => {
       const emailEl = document.getElementById('newsletter-email');
       const statusEl = document.getElementById('newsletter-status');
+      const weeklyEl = document.getElementById('newsletter-weekly');
+      const dailyEl = document.getElementById('newsletter-daily');
       const email = emailEl ? emailEl.value.trim() : '';
+      const weekly = weeklyEl ? weeklyEl.checked : true;
+      const daily = dailyEl ? dailyEl.checked : false;
       if (!email || !email.includes('@')) {
         if (statusEl) statusEl.textContent = 'Enter a valid email to subscribe.';
         return;
       }
-      await saveNewsletterSignup(email);
+      if (!weekly && !daily) {
+        if (statusEl) statusEl.textContent = 'Select weekly or daily reminders.';
+        return;
+      }
+      await saveNewsletterSignup(email, { weekly, daily });
       if (emailEl) emailEl.value = '';
       if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
     });

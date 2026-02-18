@@ -17,6 +17,7 @@
   <meta name="twitter:description" content="Bible search, daily verse, study tools, sermon builder, and encouragement for families, churches, and communities.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="stylesheet" href="styles.css?v=20260210ak">
+  <link rel="manifest" href="manifest.json">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +120,9 @@
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">A daily verse and theme to anchor your day.</p>
           <div id="daily-battle-card" class="verse-card"></div>
+          <div id="daily-battle-reflection" class="section-note"></div>
+          <div id="daily-battle-prayer" class="section-note"></div>
+          <p class="section-note" id="daily-battle-streak">Streak: 0 days</p>
           <div class="cta-group">
             <button id="share-daily-battle" class="btn btn-secondary" type="button">Share Today’s Battle</button>
           </div>
@@ -150,6 +154,16 @@
             <input id="newsletter-email" type="email" placeholder="Email address" autocomplete="email" aria-label="Newsletter email">
             <button id="newsletter-submit" class="btn btn-secondary" type="button">Join Free Newsletter</button>
           </div>
+          <div class="newsletter-form">
+            <label class="inline-toggle">
+              <input id="newsletter-weekly" type="checkbox" checked>
+              Weekly encouragement
+            </label>
+            <label class="inline-toggle">
+              <input id="newsletter-daily" type="checkbox">
+              Daily battle alert
+            </label>
+          </div>
           <p id="newsletter-status" class="section-note"></p>
         </section>
 
@@ -167,6 +181,6 @@
     </footer>
   </div>
 
-  <script src="script.js?v=20260210ax" data-cfasync="false"></script>
+  <script src="script.js?v=20260210ba" data-cfasync="false"></script>
 </body>
 </html>

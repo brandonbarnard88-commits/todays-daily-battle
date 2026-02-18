@@ -577,6 +577,11 @@ textarea:focus-visible {
   box-shadow: 0 22px 45px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(109, 40, 217, 0.15);
 }
 
+#main-search #output {
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  padding-top: 0.9rem;
+}
+
 .search-stack input {
   padding: 0.75rem 0.9rem;
   font-size: 1rem;

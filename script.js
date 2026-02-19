@@ -1524,6 +1524,18 @@ function renderDailyEncouragement() {
   `;
 }
 
+function copyDailyEncouragement() {
+  const fallback = currentDailyBattle?.ref ? currentDailyBattle : getDailyBattleFallback();
+  const ref = fallback?.ref || getDailyVerseRef();
+  const verseText = ref && bible[ref] ? bible[ref] : '';
+  if (!ref || !verseText) {
+    alert('Daily encouragement is not ready yet.');
+    return;
+  }
+  const text = `Daily Encouragement\n${ref}\n${verseText}`;
+  navigator.clipboard.writeText(text);
+}
+
 const defaultChurches = [
   { id: 'tdb-community', name: 'Today\'s Daily Battle Church', city: 'Online', state: 'Online', is_online: true },
   { id: 'grace-chapel', name: 'Grace Chapel', city: 'Tampa', state: 'FL', is_online: false },
@@ -5109,6 +5121,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         scheduleMessageLoad();
       }
+    });
+  }
+
+  const copyEncouragementBtn = document.getElementById('copy-daily-encouragement');
+  if (copyEncouragementBtn) {
+    copyEncouragementBtn.addEventListener('click', () => {
+      copyDailyEncouragement();
     });
   }
 

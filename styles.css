@@ -982,6 +982,10 @@ button:hover {
   margin-bottom: 1rem;
 }
 
+.message-toolbar .btn {
+  white-space: nowrap;
+}
+
 .daily-encouragement {
   flex: 1 1 260px;
   padding: 0.8rem;

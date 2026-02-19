@@ -4110,7 +4110,16 @@ function executeQuery(parsed, tier, filters) {
 }
 
 function renderResults(results) {
-  const output = document.getElementById('output');
+  var output = document.getElementById('output');
+  if (!output) {
+    var searchStack = document.querySelector('#main-search .search-stack');
+    if (searchStack && searchStack.parentNode) {
+      output = document.createElement('div');
+      output.id = 'output';
+      output.className = 'results';
+      searchStack.parentNode.insertBefore(output, searchStack.nextSibling);
+    }
+  }
   if (!output) return;
   output.innerHTML = '';
   lastResults = results;
@@ -4729,45 +4738,67 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   setTimeout(() => showDailyReminderIfNeeded(), 2000);
 
+  function ensureOutputElement() {
+    var el = document.getElementById('output');
+    if (el) return el;
+    var searchStack = document.querySelector('#main-search .search-stack');
+    if (searchStack && searchStack.parentNode) {
+      el = document.createElement('div');
+      el.id = 'output';
+      el.className = 'results';
+      searchStack.parentNode.insertBefore(el, searchStack.nextSibling);
+      return el;
+    }
+    return null;
+  }
+
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {
     searchBtn.addEventListener('click', () => {
       setView('search');
       const loadingEl = document.getElementById('loading');
-      const outputEl = document.getElementById('output');
+      const outputEl = ensureOutputElement();
       if (loadingEl) loadingEl.style.display = 'block';
       if (outputEl) outputEl.innerHTML = '';
       setTimeout(async () => {
-        const queryEl = document.getElementById('query');
-        const tierEl = document.getElementById('tier');
-        const input = queryEl ? queryEl.value : '';
-        const tier = tierEl ? tierEl.value : 'adult';
-        lastQueryInput = input;
-        bumpStat('searches');
-        if (Object.keys(bible).length === 0) {
-          await loadBible(currentVersion);
-          refreshBibleView();
-        }
-        if (Object.keys(bible).length === 0) {
-          if (outputEl) {
-            outputEl.innerHTML =
-              '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p><p class="section-note" style="text-align:center;">Having trouble? Try opening <a href="https://todaysdailybattle.com">todaysdailybattle.com</a> in your browser.</p>';
+        try {
+          const queryEl = document.getElementById('query');
+          const tierEl = document.getElementById('tier');
+          const input = queryEl ? queryEl.value : '';
+          const tier = tierEl ? tierEl.value : 'adult';
+          lastQueryInput = input;
+          bumpStat('searches');
+          if (Object.keys(bible).length === 0) {
+            await loadBible(currentVersion);
+            refreshBibleView();
           }
+          const out = document.getElementById('output');
+          if (Object.keys(bible).length === 0) {
+            if (out) {
+              out.innerHTML =
+                '<p style="text-align:center; color:#888;">Bible data didn’t load. Check your connection and refresh the page.</p><p class="section-note" style="text-align:center;">If it keeps happening, try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a> in a private window or another browser.</p>';
+            }
+            return;
+          }
+          const filters = getSearchFilters();
+          const cacheKey = `${tier}|${filters.testament}|${filters.book}|${input.trim().toLowerCase()}`;
+          if (cacheKey && searchCache.has(cacheKey)) {
+            renderResults(searchCache.get(cacheKey));
+          } else {
+            const parsed = parseQuery(input);
+            const results = executeQuery(parsed, tier, filters);
+            if (cacheKey) searchCache.set(cacheKey, results);
+            renderResults(results);
+          }
+          await renderDailyBattleCard();
+        } catch (err) {
+          var out = document.getElementById('output');
+          if (out) {
+            out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh the page and try again.</p>';
+          }
+        } finally {
           if (loadingEl) loadingEl.style.display = 'none';
-          return;
         }
-        const filters = getSearchFilters();
-        const cacheKey = `${tier}|${filters.testament}|${filters.book}|${input.trim().toLowerCase()}`;
-        if (cacheKey && searchCache.has(cacheKey)) {
-          renderResults(searchCache.get(cacheKey));
-        } else {
-          const parsed = parseQuery(input);
-          const results = executeQuery(parsed, tier, filters);
-          if (cacheKey) searchCache.set(cacheKey, results);
-          renderResults(results);
-        }
-        if (loadingEl) loadingEl.style.display = 'none';
-        await renderDailyBattleCard();
       }, 150);
     });
   }

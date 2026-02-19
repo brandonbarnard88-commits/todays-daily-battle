@@ -4556,7 +4556,24 @@ function renderResults(results) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+    navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+      var checkForUpdates = function () {
+        registration.update();
+      };
+      registration.addEventListener('updatefound', function () {
+        var newWorker = registration.installing;
+        if (!newWorker) return;
+        newWorker.addEventListener('statechange', function () {
+          if (newWorker.state === 'installed') newWorker.postMessage({ type: 'SKIP_WAITING' });
+        });
+      });
+      if (registration.waiting) registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        window.location.reload();
+      });
+      setInterval(checkForUpdates, 60 * 1000);
+      window.addEventListener('focus', checkForUpdates);
+    }).catch(function () {});
   }
   wireAnalyticsBeacon();
   showAuthRedirectMessage();

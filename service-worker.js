@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tdb-static-v27';
+const CACHE_NAME = 'tdb-static-v28';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -20,6 +20,10 @@ self.addEventListener('activate', (event) => {
       keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
     ))
   );
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('fetch', (event) => {

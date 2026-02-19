@@ -307,6 +307,11 @@ body {
   box-shadow: 0 18px 34px rgba(15, 23, 42, 0.3);
 }
 
+@media (max-width: 768px) {
+  .pricing-grid { gap: 1rem; }
+  .pricing-card { padding: 1.2rem; min-height: auto; }
+}
+
 .pricing-card h3 {
   margin: 0;
 }
@@ -560,6 +565,64 @@ h1 {
 
 .dark-mode .glass {
   background: var(--card-dark);
+}
+
+/* Content pages (about, faq, pricing, etc.): readability and spacing */
+.content-inner .glass {
+  margin-bottom: 0.5rem;
+}
+.content-inner .glass p {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+  max-width: 65ch;
+}
+.content-inner .glass p:last-child {
+  margin-bottom: 0;
+}
+.content-inner .list .list-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  margin-bottom: 0;
+}
+.content-inner .list .list-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.content-inner .list .list-item strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+  color: var(--text-dark, #e2e8f0);
+}
+.dark-mode .content-inner .list .list-item strong {
+  color: #e2e8f0;
+}
+.content-inner .glass a {
+  color: #a78bfa;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.content-inner .glass a:hover {
+  color: #c4b5fd;
+}
+.hero-banner {
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+.hero-banner h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+.hero-banner p {
+  margin: 0 0 1rem;
+  opacity: 0.9;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-banner .cta-group {
+  gap: 0.75rem;
+  justify-content: center;
 }
 
 .auth-card, .controls {
@@ -1785,4 +1848,16 @@ body.red-letter-off .red-letter-card {
   .newsletter-tagline { font-size: 0.9rem; }
   .reader-pickers { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
   .reader-actions button { font-size: 0.85rem; }
+  /* Content pages mobile */
+  .content-inner .glass { padding: 1.1rem; }
+  .content-inner .list .list-item { padding: 0.9rem 0; }
+  .content-inner .list .list-item strong { font-size: 1rem; }
+  .hero-banner { padding: 1rem 0.9rem; }
+  .hero-banner .cta-group .btn { min-height: 44px; }
+  .site-footer a {
+    display: inline-block;
+    padding: 0.35rem 0.5rem;
+    min-height: 44px;
+    line-height: 44px;
+  }
 }

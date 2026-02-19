@@ -2449,6 +2449,15 @@ async function renderAdminPanel() {
     const draft = localStorage.getItem('sermonDraft');
     const draftCount = draft ? 1 : 0;
     const newsletterCount = loadNewsletterSignups().length;
+    let waitlistCount = loadSupporterWaitlist().length;
+    if (isSupabaseConfigured()) {
+      const { data, error } = await supabaseClient
+        .from('supporter_waitlist')
+        .select('id')
+        .order('created_at', { ascending: false })
+        .limit(2000);
+      if (!error && Array.isArray(data)) waitlistCount = data.length;
+    }
     const churchSermonCount = Object.values(localSermons || {})
       .reduce((sum, list) => sum + (Array.isArray(list) ? list.length : 0), 0);
     const items = [
@@ -2459,6 +2468,7 @@ async function renderAdminPanel() {
       { label: 'Lesson plans', value: lessons.length },
       { label: 'Sermon draft', value: draftCount },
       { label: 'Newsletter signups', value: newsletterCount },
+      { label: 'Supporter waitlist', value: waitlistCount },
       { label: 'Church sermons', value: churchSermonCount }
     ];
     overview.innerHTML = items.map(item => (

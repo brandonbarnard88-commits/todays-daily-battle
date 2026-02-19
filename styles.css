@@ -915,6 +915,14 @@ button:active {
   padding: 0.35rem 0.4rem;
 }
 
+.red-letter {
+  color: #dc2626;
+}
+
+.red-letter-card {
+  border-color: rgba(220, 38, 38, 0.35);
+}
+
 .guidance {
   margin-top: 1.2rem;
   padding: 1rem;

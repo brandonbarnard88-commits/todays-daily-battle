@@ -1381,6 +1381,13 @@ async function renderDailyBattleCard() {
   }
   const verseText = getBibleVerseText(battle.ref);
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
+  if (isRedLetterLike(battle.ref, verseText || '')) {
+    card.classList.add('red-letter-card');
+    const verseEl = card.querySelector('p');
+    if (verseEl) verseEl.classList.add('red-letter');
+  } else {
+    card.classList.remove('red-letter-card');
+  }
   if (reflectionEl) reflectionEl.textContent = battle.reflection ? `Reflection: ${battle.reflection}` : '';
   if (prayerEl) prayerEl.textContent = battle.prayer ? `Prayer: ${battle.prayer}` : '';
   if (redLetterEl) {
@@ -3169,6 +3176,9 @@ function renderReaderChapter(book, chapter) {
     line.className = 'context-line';
     line.dataset.ref = v.ref;
     line.innerHTML = `<strong>${v.ref}</strong> ${v.text}`;
+    if (isRedLetterLike(v.ref, v.text)) {
+      line.classList.add('red-letter');
+    }
     output.appendChild(line);
   });
 }
@@ -4150,6 +4160,11 @@ function renderResults(results) {
         const card = document.createElement('div');
         card.className = 'verse-card';
         card.innerHTML = `<strong>${v.ref}</strong><p>${v.text}</p>`;
+        if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) {
+          card.classList.add('red-letter-card');
+          const verseText = card.querySelector('p');
+          if (verseText) verseText.classList.add('red-letter');
+        }
         const buttonRow = document.createElement('div');
         buttonRow.className = 'card-actions';
         const copyBtn = document.createElement('button');

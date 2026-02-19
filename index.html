@@ -84,7 +84,7 @@
       </details>
       <div class="toggle-inline">
         <label class="inline-toggle">
-          <input id="red-letter-toggle" type="checkbox" checked>
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
           Red letters
         </label>
       </div>
@@ -124,8 +124,8 @@
           <div class="search-stack">
             <input id="query" placeholder="Search anger, fear, John 3:16, love..." aria-label="Search query">
             <div class="search-actions">
-              <button id="search-btn">Search</button>
-              <button id="dark-toggle">Toggle Dark Mode</button>
+              <button id="search-btn" class="btn btn-primary" type="button">Search</button>
+              <button id="dark-toggle" class="btn btn-secondary" type="button" aria-label="Toggle dark mode">Dark mode</button>
             </div>
           </div>
           <div id="output" class="results"></div>
@@ -277,11 +277,11 @@
           </div>
           <div class="newsletter-form newsletter-options">
             <label class="inline-toggle">
-              <input id="newsletter-weekly" type="checkbox" checked>
+              <input id="newsletter-weekly" type="checkbox" checked aria-label="Weekly encouragement">
               Weekly encouragement
             </label>
             <label class="inline-toggle">
-              <input id="newsletter-daily" type="checkbox">
+              <input id="newsletter-daily" type="checkbox" aria-label="Daily battle alert">
               Daily battle alert
             </label>
           </div>

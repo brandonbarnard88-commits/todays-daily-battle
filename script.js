@@ -4245,11 +4245,11 @@ function renderResults(results) {
   updateGroupPrompts(results);
   const queryText = normalizeInput(lastQueryInput || '');
   if (results.intent === 'empty') {
-    output.innerHTML = '<p style="text-align:center; color:#888;">Type a topic, keyword, or Bible reference to begin.</p>';
+    output.innerHTML = '<p class="empty">Type a topic, keyword, or Bible reference to begin.</p>';
     return;
   }
   if (results.verses.length === 0) {
-    output.innerHTML = '<p style="text-align:center; color:#888;">No results found. Try another search!</p>';
+    output.innerHTML = '<p class="empty">No results found. Try another search!</p>';
     const suggestions = document.createElement('div');
     suggestions.className = 'quick-start';
     suggestions.innerHTML = `

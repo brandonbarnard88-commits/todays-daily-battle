@@ -23,7 +23,8 @@
   border-radius: 8px;
   transition: top 0.2s ease;
 }
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 0.75rem;
   outline: 2px solid #fff;
   outline-offset: 2px;
@@ -136,6 +137,11 @@ body {
 .top-nav a:hover {
   color: #c4b5fd;
 }
+.top-nav a:focus-visible {
+  outline: 2px solid rgba(196, 181, 253, 0.9);
+  outline-offset: 2px;
+  color: #c4b5fd;
+}
 
 .sidebar-toggle {
   display: none;
@@ -195,6 +201,10 @@ body {
 
 .side-nav a:hover {
   background: rgba(148, 163, 184, 0.2);
+}
+.side-nav a:focus-visible {
+  outline: 2px solid rgba(196, 181, 253, 0.8);
+  outline-offset: 2px;
 }
 
 .side-nav a.active {
@@ -278,6 +288,13 @@ body {
   background: rgba(148, 163, 184, 0.15);
   color: #e2e8f0;
   border-color: rgba(148, 163, 184, 0.3);
+}
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
 }
 
 .quick-start {
@@ -397,6 +414,21 @@ body {
   color: #94a3b8;
   background: rgba(15, 23, 42, 0.9);
   border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+.site-footer a {
+  color: #94a3b8;
+  text-decoration: none;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.site-footer a:hover {
+  color: #c4b5fd;
+}
+.site-footer a:focus-visible {
+  outline: 2px solid rgba(196, 181, 253, 0.7);
+  outline-offset: 2px;
+  color: #c4b5fd;
 }
 
 .container h2 {
@@ -623,6 +655,11 @@ h1 {
   text-underline-offset: 2px;
 }
 .content-inner .glass a:hover {
+  color: #c4b5fd;
+}
+.content-inner .glass a:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.6);
+  outline-offset: 2px;
   color: #c4b5fd;
 }
 .hero-banner {
@@ -911,8 +948,10 @@ button:active {
   text-align: center;
   padding: 4rem 0;
   font-size: 1.3rem;
+  color: rgba(226, 232, 240, 0.9);
   animation: pulse 2s infinite;
 }
+.dark-mode #loading { color: rgba(226, 232, 240, 0.9); }
 
 .spinner {
   width: 50px;
@@ -937,17 +976,32 @@ button:active {
   display: grid;
   gap: 0.8rem;
 }
+.result-section h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  color: rgba(226, 232, 240, 0.95);
+}
 
 .view-more {
   width: fit-content;
   align-self: flex-start;
-  padding: 0.45rem 0.9rem;
+  padding: 0.5rem 1rem;
   border-radius: 999px;
-  background: #fff3c4;
-  color: #5b3a00;
-  border: 1px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.5);
   font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
+.view-more:hover { background: rgba(245, 158, 11, 0.3); }
+.view-more:focus-visible { outline: 2px solid rgba(245, 158, 11, 0.8); outline-offset: 2px; }
+.dark-mode .view-more {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.4);
+}
+.dark-mode .view-more:hover { background: rgba(245, 158, 11, 0.25); }
 
 .highlight {
   background: rgba(109, 40, 217, 0.2);
@@ -999,6 +1053,7 @@ button:active {
   background: rgba(109, 40, 217, 0.12);
   font-weight: 600;
   text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .related-verses {
@@ -1015,6 +1070,10 @@ button:active {
 }
 .related-ref:hover {
   text-decoration: underline;
+}
+.related-ref:focus-visible {
+  outline: 2px solid rgba(109, 40, 217, 0.6);
+  outline-offset: 2px;
 }
 
 .reading-plan-row {
@@ -1167,6 +1226,9 @@ body.red-letter-off .red-letter-card {
   color: #64748b;
   font-size: 0.95rem;
   margin-top: 0.5rem;
+}
+.dark-mode .context-note {
+  color: #94a3b8;
 }
 
 .refresh-order-btn {
@@ -1350,6 +1412,8 @@ body.red-letter-off .red-letter-card {
 .empty {
   color: #94a3b8;
   text-align: center;
+  margin: 0.75rem 0;
+  font-size: 1rem;
 }
 
 .prompts {

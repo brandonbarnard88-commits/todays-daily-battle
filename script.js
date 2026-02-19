@@ -9,6 +9,7 @@ let currentUserRole = 'member';
 let currentChurch = null;
 let lastQueryInput = '';
 let subscriptionTier = 'free';
+const searchCache = new Map();
 const MASTER_EMAILS = new Set([
   'brandonbarnard88@yahoo.com'
 ]);
@@ -1479,6 +1480,7 @@ async function loadBible(version = currentVersion) {
     bible = await response.json();
     bibleVersions[version] = bible;
     currentVersion = version;
+    searchCache.clear();
     console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
     renderDailyVerse();
   } catch (err) {
@@ -3345,9 +3347,15 @@ document.addEventListener('DOMContentLoaded', async () => {
           if (loadingEl) loadingEl.style.display = 'none';
           return;
         }
-        const parsed = parseQuery(input);
-        const results = executeQuery(parsed, tier);
-        renderResults(results);
+        const cacheKey = `${tier}|${input.trim().toLowerCase()}`;
+        if (cacheKey && searchCache.has(cacheKey)) {
+          renderResults(searchCache.get(cacheKey));
+        } else {
+          const parsed = parseQuery(input);
+          const results = executeQuery(parsed, tier);
+          if (cacheKey) searchCache.set(cacheKey, results);
+          renderResults(results);
+        }
         if (loadingEl) loadingEl.style.display = 'none';
         await renderDailyBattleCard();
       }, 600);
@@ -3440,6 +3448,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     versionSelect.addEventListener('change', async (e) => {
       await loadBible(e.target.value);
       refreshBibleView();
+      searchCache.clear();
       const queryEl = document.getElementById('query');
       const input = queryEl ? queryEl.value.trim() : '';
       if (input) {

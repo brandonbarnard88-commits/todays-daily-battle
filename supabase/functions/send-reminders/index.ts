@@ -11,6 +11,18 @@ const smtpFrom = Deno.env.get("SMTP_FROM") ?? smtpUser;
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+function getConfigIssues() {
+  const issues = [];
+  if (!supabaseUrl) issues.push("SUPABASE_URL");
+  if (!supabaseKey) issues.push("SUPABASE_SERVICE_ROLE_KEY");
+  if (!smtpHost) issues.push("SMTP_HOST");
+  if (!smtpPort) issues.push("SMTP_PORT");
+  if (!smtpUser) issues.push("SMTP_USER");
+  if (!smtpPass) issues.push("SMTP_PASS");
+  if (!smtpFrom) issues.push("SMTP_FROM");
+  return issues;
+}
+
 function getTodayKey() {
   const now = new Date();
   const yyyy = now.getFullYear();
@@ -27,6 +39,25 @@ async function getDailyBattle() {
     .limit(1)
     .single();
   return data || null;
+}
+
+async function getRecipients(optColumn: "weekly_opt_in" | "daily_opt_in") {
+  const batchSize = 200;
+  let start = 0;
+  const all: { email: string }[] = [];
+  while (true) {
+    const { data, error } = await supabase
+      .from("newsletter_signups")
+      .select("email")
+      .eq(optColumn, true)
+      .range(start, start + batchSize - 1);
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    all.push(...data);
+    if (data.length < batchSize) break;
+    start += batchSize;
+  }
+  return all.filter(row => row.email);
 }
 
 async function sendEmail(to: string[], subject: string, content: string) {
@@ -48,13 +79,14 @@ async function sendEmail(to: string[], subject: string, content: string) {
 
 Deno.serve(async (req) => {
   try {
+    const issues = getConfigIssues();
+    if (issues.length) {
+      return new Response(JSON.stringify({ error: "Missing config", issues }), { status: 500 });
+    }
     const body = await req.json().catch(() => ({}));
     const type = body.type === "weekly" ? "weekly" : "daily";
     const optColumn = type === "weekly" ? "weekly_opt_in" : "daily_opt_in";
-    const { data: recipients } = await supabase
-      .from("newsletter_signups")
-      .select("email")
-      .eq(optColumn, true);
+    const recipients = await getRecipients(optColumn);
 
     if (!recipients || recipients.length === 0) {
       return new Response(JSON.stringify({ sent: 0 }), { status: 200 });
@@ -74,15 +106,24 @@ Deno.serve(async (req) => {
       battle?.prayer ? `Prayer: ${battle.prayer}` : "Prayer: Lord, guide and strengthen us today. Amen.",
       "",
       "Start today’s battle: https://todaysdailybattle.com/",
+      "Reply with 'unsubscribe' if you want to be removed.",
       "Today’s Daily Battle"
     ].join("\n");
 
-    const emails = recipients.map((row) => row.email);
-    for (const email of emails) {
-      await sendEmail([email], subject, content);
+    let sent = 0;
+    const failures: string[] = [];
+    for (const row of recipients) {
+      const email = row.email;
+      if (!email) continue;
+      try {
+        await sendEmail([email], subject, content);
+        sent += 1;
+      } catch {
+        failures.push(email);
+      }
     }
 
-    return new Response(JSON.stringify({ sent: emails.length }), { status: 200 });
+    return new Response(JSON.stringify({ sent, failed: failures.length, failures }), { status: 200 });
   } catch (error) {
     return new Response(JSON.stringify({ error: String(error) }), { status: 500 });
   }

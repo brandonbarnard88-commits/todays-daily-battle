@@ -565,6 +565,34 @@ const topics = {
       kid: "Gratitude is saying thank you to God.",
       teen: "Gratitude helps you see God's goodness every day."
     }
+  },
+  joy: {
+    synonyms: ['rejoice', 'glad', 'gladness', 'delight', 'joyful'],
+    verses: ['Philippians 4:4', 'Psalms 16:11', 'John 15:11', 'Romans 15:13', 'Nehemiah 8:10'],
+    guidance: {
+      kid: "Joy is a happy heart from God. Ask Him to fill you with joy.",
+      teen: "Joy comes from Jesus, not just circumstances. Choose to rejoice.",
+      adult: "Rejoice in the Lord; His joy strengthens you.",
+      pastor: "Teach joy as rooted in Christ, not in changing feelings."
+    },
+    explain: {
+      kid: "Joy is God helping your heart be glad.",
+      teen: "Joy is deep gladness that comes from God."
+    }
+  },
+  relationships: {
+    synonyms: ['marriage', 'friendship', 'family', 'community', 'reconcile'],
+    verses: ['Ephesians 4:2-3', 'Colossians 3:13', 'Romans 12:18', 'Proverbs 27:17', '1 Corinthians 13:4-7'],
+    guidance: {
+      kid: "Be kind and forgive quickly in your relationships.",
+      teen: "Fight for peace, speak truth in love, and forgive freely.",
+      adult: "Pursue unity, humility, and forgiveness in every relationship.",
+      pastor: "Shepherd healthy relationships and teach reconciliation."
+    },
+    explain: {
+      kid: "Relationships grow when we are kind and forgiving.",
+      teen: "Healthy relationships need grace, truth, and patience."
+    }
   }
   // You can keep adding more here
 };
@@ -770,6 +798,10 @@ const KID_ACTIVITIES = {
     kid: ['Say three thank-you prayers in a row.', 'Make a thank-you card for someone.'],
     teen: ['List five gifts from God you noticed today.', 'Text a thank-you to someone who helped you.']
   },
+  joy: {
+    kid: ['Draw a joy face and list three good things.', 'Sing a joyful worship song.'],
+    teen: ['Write one reason to rejoice today.', 'Read Philippians 4:4 and pray it back to God.']
+  },
   kindness: {
     kid: ['Do one secret kind act today.', 'Say one encouraging sentence to someone.'],
     teen: ['Choose one person to encourage this week.', 'Pray for someone you find hard to love.']
@@ -789,6 +821,10 @@ const KID_ACTIVITIES = {
   friendship: {
     kid: ['Do one kind thing for a friend today.', 'Say a prayer for your friends by name.'],
     teen: ['Invite a friend to read a verse with you.', 'Ask God to help you be loyal and honest.']
+  },
+  relationships: {
+    kid: ['Say “I’m sorry” quickly when you mess up.', 'Do one kind thing for your family.'],
+    teen: ['Text someone to reconcile or encourage them.', 'Pray for peace in one relationship.']
   },
   family: {
     kid: ['Pray for each person in your family.', 'Do one helpful thing at home.'],
@@ -3834,6 +3870,9 @@ function renderResults(results) {
         <button class="quick-topic" type="button" data-topic="hope">Hope</button>
         <button class="quick-topic" type="button" data-topic="forgiveness">Forgiveness</button>
         <button class="quick-topic" type="button" data-topic="patience">Patience</button>
+        <button class="quick-topic" type="button" data-topic="anger">Anger</button>
+        <button class="quick-topic" type="button" data-topic="joy">Joy</button>
+        <button class="quick-topic" type="button" data-topic="relationships">Relationships</button>
       </div>
     `;
     output.appendChild(suggestions);

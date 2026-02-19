@@ -509,6 +509,62 @@ const topics = {
       kid: "Family is a place to love, forgive, and grow.",
       teen: "Family is where you learn love and faith together."
     }
+  },
+  peace: {
+    synonyms: ['calm', 'rest', 'stillness', 'quiet', 'shalom'],
+    verses: ['John 14:27', 'Philippians 4:7', 'Isaiah 26:3', 'Psalms 29:11', 'Colossians 3:15'],
+    guidance: {
+      kid: "God gives peace to your heart when you are worried.",
+      teen: "Ask Jesus for His peace when life feels loud.",
+      adult: "Let the peace of Christ rule your heart and mind.",
+      pastor: "Teach peace as a fruit of trust and prayer."
+    },
+    explain: {
+      kid: "Peace is God helping your heart feel safe and calm.",
+      teen: "Peace is God's calm in the middle of chaos."
+    }
+  },
+  loneliness: {
+    synonyms: ['alone', 'isolated', 'friendless', 'abandoned'],
+    verses: ['Psalms 68:6', 'Hebrews 13:5', 'Psalms 23:4', 'Matthew 28:20', 'Isaiah 41:10'],
+    guidance: {
+      kid: "God is always with you, even when you feel alone.",
+      teen: "God stays close when you feel isolated; reach out to someone safe.",
+      adult: "The Lord does not leave you; seek community and pray.",
+      pastor: "Encourage connection and remind believers of God's presence."
+    },
+    explain: {
+      kid: "You are never alone because God is with you.",
+      teen: "Loneliness is real, but God stays with you and provides people."
+    }
+  },
+  purpose: {
+    synonyms: ['calling', 'plan', 'mission', 'direction'],
+    verses: ['Ephesians 2:10', 'Jeremiah 29:11', 'Proverbs 3:6', 'Romans 8:28', '2 Timothy 1:9'],
+    guidance: {
+      kid: "God made you for good things; ask Him what to do today.",
+      teen: "Your life has purpose; follow God's lead one step at a time.",
+      adult: "Walk in the good works God prepared for you.",
+      pastor: "Teach calling as faithful obedience, not just platform."
+    },
+    explain: {
+      kid: "Purpose means God made you special with good things to do.",
+      teen: "Purpose is trusting God's plan and serving others."
+    }
+  },
+  gratitude: {
+    synonyms: ['thankful', 'thanks', 'thankfulness', 'grateful'],
+    verses: ['1 Thessalonians 5:18', 'Psalms 107:1', 'Colossians 3:17', 'Psalms 100:4', 'James 1:17'],
+    guidance: {
+      kid: "Thank God for three good gifts today.",
+      teen: "Gratitude shifts your heart; thank God even in hard times.",
+      adult: "Give thanks in everything; it keeps your heart steady.",
+      pastor: "Lead congregations to gratitude and worship."
+    },
+    explain: {
+      kid: "Gratitude is saying thank you to God.",
+      teen: "Gratitude helps you see God's goodness every day."
+    }
   }
   // You can keep adding more here
 };
@@ -701,6 +757,14 @@ const KID_ACTIVITIES = {
   courage: {
     kid: ['Act out being brave with a 30-second skit.', 'Pick one small brave step to do today.'],
     teen: ['Write a courageous next step and tell a friend.', 'Pray for boldness before a hard conversation.']
+  },
+  loneliness: {
+    kid: ['Write a note to a friend or family member.', 'Pray and thank God He is always with you.'],
+    teen: ['Text someone you trust and share how you feel.', 'Read Psalm 23 and circle the comforting words.']
+  },
+  purpose: {
+    kid: ['Write one good thing you can do for someone today.', 'Ask God to show you one way to help.'],
+    teen: ['Write one gift God gave you and how you can use it.', 'Pray Jeremiah 29:11 and take one small step.']
   },
   gratitude: {
     kid: ['Say three thank-you prayers in a row.', 'Make a thank-you card for someone.'],
@@ -1356,6 +1420,21 @@ function exportCsvRows(items) {
   URL.revokeObjectURL(url);
 }
 
+function exportCsvWithHeader(header, rows, filename) {
+  const csv = [header, ...rows]
+    .map(row => row.map(value => `"${String(value || '').replace(/"/g, '""')}"`).join(','))
+    .join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename || 'export.csv';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
 function exportWaitlistCsv() {
   const items = loadSupporterWaitlist();
   if (!items.length) {
@@ -1377,6 +1456,84 @@ function exportWaitlistCsv() {
     return;
   }
   exportCsvRows(items);
+}
+
+async function exportMessagesCsv() {
+  const header = ['id', 'user_id', 'text', 'created_at', 'hidden'];
+  if (isSupabaseConfigured()) {
+    const { data, error } = await supabaseClient
+      .from('messages')
+      .select('id, user_id, text, created_at, hidden')
+      .order('created_at', { ascending: false })
+      .limit(2000);
+    if (!error && Array.isArray(data) && data.length) {
+      const rows = data.map(item => [item.id, item.user_id, item.text, item.created_at, item.hidden]);
+      exportCsvWithHeader(header, rows, 'messages.csv');
+      return;
+    }
+  }
+  const local = loadMessagesLocal();
+  if (!local.length) {
+    alert('No messages to export yet.');
+    return;
+  }
+  const rows = local.map(item => [item.id, item.user_id, item.text, item.created_at, item.hidden || false]);
+  exportCsvWithHeader(header, rows, 'messages.csv');
+}
+
+async function exportReportsCsv() {
+  const header = ['message_id', 'text', 'created_at'];
+  const local = await loadMessageReports();
+  if (isSupabaseConfigured()) {
+    const { data, error } = await supabaseClient
+      .from('message_reports')
+      .select('message_id, text, created_at')
+      .order('created_at', { ascending: false })
+      .limit(2000);
+    if (!error && Array.isArray(data) && data.length) {
+      const rows = data.map(item => [item.message_id, item.text, item.created_at]);
+      exportCsvWithHeader(header, rows, 'message-reports.csv');
+      return;
+    }
+  }
+  if (!local.length) {
+    alert('No reports to export yet.');
+    return;
+  }
+  const rows = local.map(item => [item.message_id || item.id, item.text, item.created_at]);
+  exportCsvWithHeader(header, rows, 'message-reports.csv');
+}
+
+async function runAdminHealthChecks() {
+  const container = document.getElementById('admin-health-checks');
+  if (!container) return;
+  container.innerHTML = '<p class="section-note">Running checks...</p>';
+  const checks = [];
+  checks.push({ label: 'Supabase configured', ok: isSupabaseConfigured() });
+  checks.push({ label: 'Bible loaded', ok: Object.keys(bible).length > 0 });
+  if (isSupabaseConfigured()) {
+    const key = getDailyKey();
+    const daily = await supabaseClient
+      .from('daily_battles')
+      .select('date')
+      .eq('date', key)
+      .limit(1)
+      .single();
+    checks.push({ label: 'Daily battle for today', ok: !daily.error && Boolean(daily.data) });
+    const waitlist = await supabaseClient
+      .from('supporter_waitlist')
+      .select('id')
+      .limit(1);
+    checks.push({ label: 'Supporter waitlist table', ok: !waitlist.error });
+    const reports = await supabaseClient
+      .from('message_reports')
+      .select('id')
+      .limit(1);
+    checks.push({ label: 'Message reports table', ok: !reports.error });
+  }
+  container.innerHTML = checks.map(check => (
+    `<div class="list-item"><div><strong>${check.label}</strong><p class="${check.ok ? 'check-ok' : 'check-bad'}">${check.ok ? 'OK' : 'Needs attention'}</p></div></div>`
+  )).join('');
 }
 
 async function loadMessages() {
@@ -1481,6 +1638,8 @@ function renderMessages(items) {
     const bTime = new Date(b.created_at || 0).getTime();
     return sortValue === 'oldest' ? aTime - bTime : bTime - aTime;
   });
+  const pinned = buildPinnedEncouragementItem();
+  if (pinned) list.appendChild(pinned);
   sorted.forEach(item => {
     const row = document.createElement('div');
     row.className = 'list-item';
@@ -1530,6 +1689,23 @@ function renderDailyEncouragement() {
     <strong>Daily Encouragement</strong>
     <p>${ref} — ${verseText}</p>
   `;
+}
+
+function buildPinnedEncouragementItem() {
+  const fallback = currentDailyBattle?.ref ? currentDailyBattle : getDailyBattleFallback();
+  const ref = fallback?.ref || getDailyVerseRef();
+  const verseText = ref && bible[ref] ? bible[ref] : '';
+  if (!ref || !verseText) return null;
+  const row = document.createElement('div');
+  row.className = 'list-item pinned-message';
+  row.innerHTML = `
+    <div>
+      <span class="pin-badge">Pinned</span>
+      <strong>Daily Encouragement</strong>
+      <p>${ref} — ${verseText}</p>
+    </div>
+  `;
+  return row;
 }
 
 function copyDailyEncouragement() {
@@ -1848,6 +2024,7 @@ function refreshBibleView() {
   const hasReader = document.getElementById('reader-book');
   buildChapterIndex();
   populateBookFilter();
+  renderFilterChips();
   if (!hasReader) return;
   populateReaderBooks();
   const firstBook = Object.keys(bookIndex)[0];
@@ -3308,6 +3485,20 @@ function downloadCollectionPdf(collectionId) {
   win.print();
 }
 
+function buildCollectionShareText(payload, link) {
+  const lines = [`${payload.collection.name} — Saved Verses`];
+  payload.items.forEach(item => {
+    lines.push(`${item.ref}: ${item.text}`);
+  });
+  if (link) lines.push(`\nView link: ${link}`);
+  return lines.join('\n');
+}
+
+function setCollectionShareStatus(text) {
+  const status = document.getElementById('collection-share-status');
+  if (status) status.textContent = text;
+}
+
 function applySharedCollection(payload) {
   if (!payload?.collection || !Array.isArray(payload.items)) return;
   const collections = loadSavedCollections();
@@ -3479,6 +3670,50 @@ function syncBookFilterWithTestament() {
   if (!book) return;
   if (testament === 'ot' && !OT_BOOKS.has(book)) bookSelect.value = '';
   if (testament === 'nt' && !NT_BOOKS.has(book)) bookSelect.value = '';
+}
+
+function renderFilterChips() {
+  const chips = document.getElementById('filter-chips');
+  if (!chips) return;
+  chips.innerHTML = '';
+  const { testament, book } = getSearchFilters();
+  const items = [];
+  if (testament === 'ot') items.push({ key: 'testament', label: 'Old Testament' });
+  if (testament === 'nt') items.push({ key: 'testament', label: 'New Testament' });
+  if (book) items.push({ key: 'book', label: book });
+  items.forEach(item => {
+    const chip = document.createElement('button');
+    chip.className = 'filter-chip';
+    chip.type = 'button';
+    chip.textContent = `${item.label} ×`;
+    chip.addEventListener('click', () => {
+      if (item.key === 'testament') {
+        const testamentEl = document.getElementById('testament-filter');
+        if (testamentEl) testamentEl.value = 'all';
+      }
+      if (item.key === 'book') {
+        const bookEl = document.getElementById('book-filter');
+        if (bookEl) bookEl.value = '';
+      }
+      handleSearchFilterChange();
+    });
+    chips.appendChild(chip);
+  });
+}
+
+function handleSearchFilterChange() {
+  syncBookFilterWithTestament();
+  renderFilterChips();
+  const queryInput = document.getElementById('query');
+  const searchBtn = document.getElementById('search-btn');
+  if (queryInput && queryInput.value.trim()) {
+    searchBtn?.click();
+    return;
+  }
+  if (lastQueryInput) {
+    if (queryInput) queryInput.value = lastQueryInput;
+    searchBtn?.click();
+  }
 }
 
 function executeQuery(parsed, tier, filters) {
@@ -4082,19 +4317,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const testamentFilter = document.getElementById('testament-filter');
   const bookFilter = document.getElementById('book-filter');
-  const handleFilterChange = () => {
-    syncBookFilterWithTestament();
-    if (queryInput && queryInput.value.trim()) {
-      searchBtn?.click();
-      return;
-    }
-    if (lastQueryInput) {
-      if (queryInput) queryInput.value = lastQueryInput;
-      searchBtn?.click();
-    }
-  };
-  testamentFilter?.addEventListener('change', handleFilterChange);
-  bookFilter?.addEventListener('change', handleFilterChange);
+  testamentFilter?.addEventListener('change', handleSearchFilterChange);
+  bookFilter?.addEventListener('change', handleSearchFilterChange);
+
+  const clearFiltersBtn = document.getElementById('clear-filters');
+  if (clearFiltersBtn) {
+    clearFiltersBtn.addEventListener('click', () => {
+      if (testamentFilter) testamentFilter.value = 'all';
+      if (bookFilter) bookFilter.value = '';
+      handleSearchFilterChange();
+    });
+  }
 
   const quickTopics = document.querySelectorAll('.quick-topic');
   if (quickTopics.length) {
@@ -4397,6 +4630,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (waitlistExportBtn) {
     waitlistExportBtn.addEventListener('click', () => {
       exportWaitlistCsv();
+    });
+  }
+
+  const messagesExportBtn = document.getElementById('messages-export');
+  if (messagesExportBtn) {
+    messagesExportBtn.addEventListener('click', () => {
+      exportMessagesCsv();
+    });
+  }
+
+  const reportsExportBtn = document.getElementById('reports-export');
+  if (reportsExportBtn) {
+    reportsExportBtn.addEventListener('click', () => {
+      exportReportsCsv();
+    });
+  }
+
+  const adminHealthRun = document.getElementById('admin-health-run');
+  if (adminHealthRun) {
+    adminHealthRun.addEventListener('click', () => {
+      runAdminHealthChecks();
     });
   }
 
@@ -4817,13 +5071,55 @@ document.addEventListener('DOMContentLoaded', async () => {
       const collectionId = getActiveCollectionId();
       const payload = buildCollectionSharePayload(collectionId);
       if (!payload) {
-        alert('Select a collection with saved verses to share.');
+        setCollectionShareStatus('Select a collection with saved verses to share.');
         return;
       }
       const link = await createShareLink('collection', payload);
       if (link) {
         const linkEl = document.getElementById('collection-share-link');
         if (linkEl) linkEl.value = link;
+        setCollectionShareStatus('Share link ready.');
+      }
+    });
+  }
+
+  const copyCollectionLinkBtn = document.getElementById('copy-collection-link');
+  if (copyCollectionLinkBtn) {
+    copyCollectionLinkBtn.addEventListener('click', () => {
+      const linkEl = document.getElementById('collection-share-link');
+      const link = linkEl ? linkEl.value.trim() : '';
+      if (!link) {
+        setCollectionShareStatus('Create a share link first.');
+        return;
+      }
+      navigator.clipboard.writeText(link);
+      setCollectionShareStatus('Link copied to clipboard.');
+    });
+  }
+
+  const shareCollectionTextBtn = document.getElementById('share-collection-text');
+  if (shareCollectionTextBtn) {
+    shareCollectionTextBtn.addEventListener('click', async () => {
+      const collectionId = getActiveCollectionId();
+      const payload = buildCollectionSharePayload(collectionId);
+      if (!payload) {
+        setCollectionShareStatus('Select a collection with saved verses to share.');
+        return;
+      }
+      let link = '';
+      const linkEl = document.getElementById('collection-share-link');
+      if (linkEl?.value) {
+        link = linkEl.value.trim();
+      } else {
+        link = await createShareLink('collection', payload) || '';
+        if (linkEl && link) linkEl.value = link;
+      }
+      const text = buildCollectionShareText(payload, link);
+      if (navigator.share) {
+        navigator.share({ text }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(text);
+        setCollectionShareStatus('Share text copied to clipboard.');
       }
     });
   }

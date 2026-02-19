@@ -667,6 +667,31 @@ textarea:focus-visible {
   min-width: 140px;
 }
 
+.filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-chip {
+  border: 1px solid rgba(109, 40, 217, 0.35);
+  background: rgba(109, 40, 217, 0.18);
+  color: #f8fafc;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
 .compact-select {
   min-width: 140px;
   padding: 0.7rem 0.9rem;
@@ -994,6 +1019,36 @@ button:active {
 .list-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 24px rgba(15, 23, 42, 0.16);
+}
+
+.pinned-message {
+  border-color: rgba(109, 40, 217, 0.35);
+  background: rgba(109, 40, 217, 0.12);
+}
+
+.pin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f8fafc;
+  background: rgba(109, 40, 217, 0.75);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+}
+
+.check-ok {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.check-bad {
+  color: #dc2626;
+  font-weight: 700;
 }
 
 .item-actions {

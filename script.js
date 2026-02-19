@@ -1803,6 +1803,21 @@ function speakVerse(ref, text) {
   window.speechSynthesis.speak(utterance);
 }
 
+function buildVerseShareText(ref, text) {
+  const clean = text.replace(/<[^>]+>/g, '');
+  return `Battling today? Here’s hope from God’s Word:\n${ref}\n${clean}\n\n${window.location.origin}`;
+}
+
+function shareVerse(ref, text) {
+  const shareText = buildVerseShareText(ref, text);
+  if (navigator.share) {
+    navigator.share({ text: shareText, url: window.location.origin }).catch(() => {});
+    return;
+  }
+  navigator.clipboard.writeText(shareText);
+  alert('Share text copied.');
+}
+
 const defaultChurches = [
   { id: 'tdb-community', name: 'Today\'s Daily Battle Church', city: 'Online', state: 'Online', is_online: true },
   { id: 'grace-chapel', name: 'Grace Chapel', city: 'Tampa', state: 'FL', is_online: false },
@@ -4266,7 +4281,14 @@ function renderResults(results) {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
           speakVerse(v.ref, cleanText);
         };
+        const shareBtn = document.createElement('button');
+        shareBtn.textContent = 'Share';
+        shareBtn.onclick = () => {
+          const cleanText = v.text.replace(/<[^>]+>/g, '');
+          shareVerse(v.ref, cleanText);
+        };
         buttonRow.appendChild(copyBtn);
+        buttonRow.appendChild(shareBtn);
         buttonRow.appendChild(listenBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);

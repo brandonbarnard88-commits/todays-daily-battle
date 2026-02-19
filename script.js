@@ -3653,6 +3653,9 @@ function parseQuery(input) {
   }
 
   const normalized = normalizeInput(trimmed);
+  if (normalized.includes('jesus said') || normalized.includes('what jesus said') || normalized.includes('red letter')) {
+    return { intent: 'jesus_said', payload: null };
+  }
   const rawTokens = normalized.split(' ').filter(Boolean);
   const tokens = rawTokens.filter(token => !STOP_WORDS.has(token));
   const keywords = tokens.length > 0 ? tokens : rawTokens;
@@ -3696,6 +3699,10 @@ function filterVerseList(list, filters) {
     if (testament === 'nt' && !NT_BOOKS.has(refBook)) return false;
     return true;
   });
+}
+
+function isGospelBook(ref) {
+  return ref.startsWith('Matthew ') || ref.startsWith('Mark ') || ref.startsWith('Luke ') || ref.startsWith('John ');
 }
 
 function syncBookFilterWithTestament() {
@@ -3764,6 +3771,17 @@ function executeQuery(parsed, tier, filters) {
   };
 
   if (parsed.intent === 'empty') {
+    return results;
+  }
+  if (parsed.intent === 'jesus_said') {
+    const speechRegex = /(jesus said|jesus saith|then said jesus|and jesus said|jesus answered|jesus cried|jesus spake|verily,? verily|i say unto you)/i;
+    const matches = bibleEntries
+      .filter(([ref]) => isGospelBook(ref))
+      .map(([ref, text]) => (speechRegex.test(text) ? { ref, text } : null))
+      .filter(Boolean)
+      .slice(0, 40);
+    results.verses = matches;
+    results.guidance = 'Words of Jesus from the Gospels (red-letter style).';
     return results;
   }
   if (parsed.intent === 'reference') {
@@ -3873,6 +3891,7 @@ function renderResults(results) {
         <button class="quick-topic" type="button" data-topic="anger">Anger</button>
         <button class="quick-topic" type="button" data-topic="joy">Joy</button>
         <button class="quick-topic" type="button" data-topic="relationships">Relationships</button>
+        <button class="quick-topic" type="button" data-topic="jesus said">Jesus Said</button>
       </div>
     `;
     output.appendChild(suggestions);
@@ -3947,6 +3966,12 @@ function renderResults(results) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';
     gentle.textContent = 'Healthy relationships grow with grace, truth, and forgiveness.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('jesus said') || queryText.includes('red letter')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Red-letter focus: the words of Jesus from the Gospels.';
     output.appendChild(gentle);
   }
   if (queryText.includes('peace') || queryText.includes('calm') || queryText.includes('rest')) {

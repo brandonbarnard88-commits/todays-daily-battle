@@ -1032,6 +1032,12 @@ body.red-letter-off .red-letter-card {
   margin-top: 0.5rem;
 }
 
+.refresh-order-btn {
+  display: block;
+  margin: 1rem auto 0;
+  max-width: 280px;
+}
+
 .streak-calendar {
   display: grid;
   grid-template-columns: repeat(10, minmax(0, 1fr));

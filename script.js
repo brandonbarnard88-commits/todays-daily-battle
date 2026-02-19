@@ -2265,6 +2265,14 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+function shuffleArray(arr) {
+  if (!arr || arr.length < 2) return;
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
 function stemWord(word) {
   if (!word || word.length <= 3) return word;
   const rules = [/ing$/, /ed$/, /es$/, /s$/];
@@ -4147,6 +4155,25 @@ function renderResults(results) {
     });
     return;
   }
+  var verses = [...results.verses];
+  var SHOWN_REFS_KEY = 'tdb_shown_refs';
+  try {
+    var shownJson = sessionStorage.getItem(SHOWN_REFS_KEY);
+    var shownSet = new Set(shownJson ? JSON.parse(shownJson) : []);
+    var notShown = verses.filter(function (v) { return !shownSet.has(v.ref); });
+    var alreadyShown = verses.filter(function (v) { return shownSet.has(v.ref); });
+    shuffleArray(notShown);
+    shuffleArray(alreadyShown);
+    verses = notShown.concat(alreadyShown);
+    var toRecord = verses.slice(0, 6).map(function (v) { return v.ref; });
+    toRecord.forEach(function (ref) { return shownSet.add(ref); });
+    if (shownSet.size >= results.verses.length) shownSet.clear();
+    sessionStorage.setItem(SHOWN_REFS_KEY, JSON.stringify(Array.from(shownSet)));
+  } catch (e) { shuffleArray(verses); }
+  var phraseMatches = results.phraseMatches && results.phraseMatches.length ? [...results.phraseMatches] : [];
+  var relatedMatches = results.relatedMatches && results.relatedMatches.length ? [...results.relatedMatches] : [];
+  if (phraseMatches.length) shuffleArray(phraseMatches);
+  if (relatedMatches.length) shuffleArray(relatedMatches);
   if (queryText.includes('heartache') || queryText.includes('heart ache')) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';
@@ -4494,15 +4521,24 @@ function renderResults(results) {
   };
 
   if (results.intent === 'keyword') {
-    renderSection('Phrase Matches', results.phraseMatches, 4);
-    renderSection('Related Topics', results.relatedMatches, 4);
+    renderSection('Phrase Matches', phraseMatches, 4);
+    renderSection('Related Topics', relatedMatches, 4);
   }
 
-  renderSection(results.intent === 'keyword' ? 'Keyword Matches' : 'Results', results.verses, 6);
+  renderSection(results.intent === 'keyword' ? 'Keyword Matches' : 'Results', verses, 6);
   const contextNote = document.createElement('div');
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';
   output.appendChild(contextNote);
+  const refreshOrderBtn = document.createElement('button');
+  refreshOrderBtn.type = 'button';
+  refreshOrderBtn.className = 'btn btn-secondary refresh-order-btn';
+  refreshOrderBtn.textContent = 'See different verses';
+  refreshOrderBtn.title = 'Shuffle the order of results for a fresh angle';
+  refreshOrderBtn.addEventListener('click', () => {
+    if (lastResults && lastResults.verses && lastResults.verses.length) renderResults(lastResults);
+  });
+  output.appendChild(refreshOrderBtn);
   if (results.guidance) {
     const guide = document.createElement('div');
     guide.className = 'guidance';
@@ -4524,6 +4560,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   wireAnalyticsBeacon();
   showAuthRedirectMessage();
+  var quickActions = document.querySelector('.quick-actions');
+  if (quickActions) {
+    var buttons = Array.from(quickActions.querySelectorAll('.btn'));
+    if (buttons.length > 1) {
+      shuffleArray(buttons);
+      buttons.forEach(function (el) { quickActions.appendChild(el); });
+    }
+  }
+  document.querySelectorAll('.content-inner .list').forEach(function (listEl) {
+    var section = listEl.closest('section');
+    var heading = section && section.querySelector('h2');
+    if (heading && heading.textContent.indexOf('How It Works') !== -1) return;
+    var items = Array.from(listEl.querySelectorAll('.list-item'));
+    if (items.length > 1) {
+      shuffleArray(items);
+      items.forEach(function (el) { listEl.appendChild(el); });
+    }
+  });
   const navLinks = document.querySelectorAll('.side-nav a, .site-nav a');
   if (navLinks.length) {
     const path = window.location.pathname.replace(/\/+$/, '');

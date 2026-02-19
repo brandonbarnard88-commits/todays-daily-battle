@@ -83,6 +83,10 @@
             <button id="daily-email-copy" class="btn btn-secondary" type="button">Copy Daily Email Draft</button>
             <span id="daily-email-status" class="section-note"></span>
           </div>
+          <div class="admin-actions">
+            <button id="daily-email-preview-btn" class="btn btn-secondary" type="button">Preview Daily Email</button>
+          </div>
+          <pre id="daily-email-preview" class="list-item" style="white-space: pre-wrap;"></pre>
           <p class="section-note">Edge function file: supabase/functions/send-reminders (daily/weekly).</p>
           <div class="list">
             <div class="list-item"><div><strong>Daily schedule</strong><p>Supabase cron → POST send-reminders with {"type":"daily"} each morning.</p></div></div>
@@ -128,6 +132,6 @@
     </footer>
   </div>
 
-  <script src="script.js?v=20260210bq" data-cfasync="false"></script>
+  <script src="script.js?v=20260205ca" data-cfasync="false"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ let currentChurch = null;
 let lastQueryInput = '';
 let subscriptionTier = 'free';
 let currentDailyBattle = null;
+let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
@@ -21,6 +22,19 @@ let isMasterUser = false;
 let currentUserEmail = '';
 let deferredInstallPrompt = null;
 const CF_ANALYTICS_TOKEN = '';
+const OT_BOOKS = new Set([
+  'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
+  '1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah',
+  'Esther','Job','Psalms','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah',
+  'Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum',
+  'Habakkuk','Zephaniah','Haggai','Zechariah','Malachi'
+]);
+const NT_BOOKS = new Set([
+  'Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians',
+  'Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy',
+  '2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John',
+  '3 John','Jude','Revelation'
+]);
 
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
@@ -651,6 +665,7 @@ const STATS_STORAGE_KEY = 'siteStats';
 const DAILY_KIDS_STORAGE_KEY = 'dailyKidsPrompt';
 const MESSAGE_NAME_KEY = 'messageDisplayName';
 const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
+const MESSAGE_AMEN_KEY = 'messageAmenCounts';
 const DAILY_KIDS_HISTORY_KEY = 'dailyKidsHistory';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const KID_ACTIVITIES = {
@@ -948,6 +963,18 @@ function loadMessageNameMap() {
 function saveMessageNameMap(map) {
   localStorage.setItem(MESSAGE_NAME_MAP_KEY, JSON.stringify(map));
 }
+
+function loadAmenCounts() {
+  try {
+    return JSON.parse(localStorage.getItem(MESSAGE_AMEN_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function saveAmenCounts(map) {
+  localStorage.setItem(MESSAGE_AMEN_KEY, JSON.stringify(map));
+}
 const templates = [
   {
     title: 'Gospel Clarity',
@@ -1229,6 +1256,7 @@ async function renderDailyBattleCard() {
     prayer: battle.prayer || ''
   };
   updateDailyBattleStreak();
+  renderDailyEncouragement();
 }
 
 function loadMessagesLocal() {
@@ -1380,19 +1408,40 @@ function renderMessages(items) {
   const list = document.getElementById('message-list');
   if (!list) return;
   list.innerHTML = '';
+  lastMessageItems = items;
   const visible = items.filter(item => !item.hidden);
   if (!visible.length) {
     list.innerHTML = '<p class="empty">No messages yet. Be the first to encourage someone.</p>';
     return;
   }
   const nameMap = loadMessageNameMap();
-  visible.forEach(item => {
+  const amenCounts = loadAmenCounts();
+  const sortValue = document.getElementById('message-sort')?.value || 'newest';
+  const sorted = [...visible].sort((a, b) => {
+    if (sortValue === 'popular') {
+      return (amenCounts[b.id] || 0) - (amenCounts[a.id] || 0);
+    }
+    const aTime = new Date(a.created_at || 0).getTime();
+    const bTime = new Date(b.created_at || 0).getTime();
+    return sortValue === 'oldest' ? aTime - bTime : bTime - aTime;
+  });
+  sorted.forEach(item => {
     const row = document.createElement('div');
     row.className = 'list-item';
     const displayName = item.display_name || nameMap[item.user_id] || 'Member';
     row.innerHTML = `<div><strong>${displayName}</strong><p>${item.text}</p></div>`;
     const actions = document.createElement('div');
     actions.className = 'message-actions';
+    const amenBtn = document.createElement('button');
+    const amenCount = amenCounts[item.id] || 0;
+    amenBtn.textContent = amenCount ? `Amen (${amenCount})` : 'Amen';
+    amenBtn.onclick = () => {
+      const next = loadAmenCounts();
+      next[item.id] = (next[item.id] || 0) + 1;
+      saveAmenCounts(next);
+      renderMessages(items);
+    };
+    actions.appendChild(amenBtn);
     const reportBtn = document.createElement('button');
     reportBtn.textContent = 'Report';
     reportBtn.onclick = async () => {
@@ -1408,6 +1457,23 @@ function renderMessages(items) {
     row.appendChild(actions);
     list.appendChild(row);
   });
+  renderDailyEncouragement();
+}
+
+function renderDailyEncouragement() {
+  const container = document.getElementById('daily-encouragement');
+  if (!container) return;
+  const fallback = currentDailyBattle?.ref ? currentDailyBattle : getDailyBattleFallback();
+  const ref = fallback?.ref || getDailyVerseRef();
+  const verseText = ref && bible[ref] ? bible[ref] : '';
+  if (!ref || !verseText) {
+    container.innerHTML = '<strong>Daily Encouragement</strong><p>Loading today’s verse...</p>';
+    return;
+  }
+  container.innerHTML = `
+    <strong>Daily Encouragement</strong>
+    <p>${ref} — ${verseText}</p>
+  `;
 }
 
 const defaultChurches = [
@@ -1696,9 +1762,24 @@ function buildChapterIndex() {
   );
 }
 
+function populateBookFilter() {
+  const select = document.getElementById('book-filter');
+  if (!select) return;
+  const selected = select.value;
+  select.innerHTML = '<option value="">All Books</option>';
+  Object.keys(bookIndex).forEach(book => {
+    const option = document.createElement('option');
+    option.value = book;
+    option.textContent = book;
+    select.appendChild(option);
+  });
+  if (selected) select.value = selected;
+}
+
 function refreshBibleView() {
   const hasReader = document.getElementById('reader-book');
   buildChapterIndex();
+  populateBookFilter();
   if (!hasReader) return;
   populateReaderBooks();
   const firstBook = Object.keys(bookIndex)[0];
@@ -2707,6 +2788,9 @@ function applySharePayload(data) {
       renderSavedVerses();
     }
   }
+  if (data.type === 'collection') {
+    applySharedCollection(data.payload);
+  }
 }
 
 function populateTemplateList() {
@@ -3102,6 +3186,43 @@ function renderCollectionSelect() {
   if (defaultId) select.value = defaultId;
 }
 
+function buildCollectionSharePayload(collectionId) {
+  const collections = loadSavedCollections();
+  const collection = collections.find(col => col.id === collectionId);
+  if (!collection) return null;
+  const items = loadSavedCollectionItems().filter(item => item.collection_id === collectionId);
+  if (!items.length) return null;
+  return { collection: { name: collection.name }, items };
+}
+
+function applySharedCollection(payload) {
+  if (!payload?.collection || !Array.isArray(payload.items)) return;
+  const collections = loadSavedCollections();
+  const existing = collections.find(col => col.name.toLowerCase() === payload.collection.name.toLowerCase());
+  const newId = existing ? existing.id : generateUuid();
+  if (!existing) {
+    collections.push({ id: newId, name: payload.collection.name });
+    saveSavedCollections(collections);
+  }
+  const currentItems = loadSavedCollectionItems();
+  const merged = payload.items
+    .filter(item => item?.ref && item?.text)
+    .map(item => ({ id: item.id, ref: item.ref, text: item.text, collection_id: newId }));
+  const dedupe = new Map();
+  currentItems.filter(item => item.collection_id === newId).forEach(item => {
+    dedupe.set(item.ref, item);
+  });
+  merged.forEach(item => {
+    if (!dedupe.has(item.ref)) dedupe.set(item.ref, item);
+  });
+  const next = [...Array.from(dedupe.values()), ...currentItems.filter(item => item.collection_id !== newId)];
+  saveSavedCollectionItems(next);
+  renderCollectionSelect();
+  const select = document.getElementById('collection-select');
+  if (select) select.value = newId;
+  renderSavedVerses();
+}
+
 function getActiveCollectionId() {
   const select = document.getElementById('collection-select');
   if (select && select.value) return select.value;
@@ -3212,7 +3333,42 @@ function parseQuery(input) {
   return { intent: 'keyword', payload: { keywords: expandedKeywords, phrase: normalized } };
 }
 
-function executeQuery(parsed, tier) {
+function getSearchFilters() {
+  const testament = document.getElementById('testament-filter')?.value || 'all';
+  const book = document.getElementById('book-filter')?.value || '';
+  return { testament, book };
+}
+
+function parseBookFromRef(ref) {
+  const match = ref.match(/^(.+?)\s\d+:/);
+  return match ? match[1] : '';
+}
+
+function filterVerseList(list, filters) {
+  if (!filters) return list;
+  const { testament, book } = filters;
+  if (!book && testament === 'all') return list;
+  return list.filter(item => {
+    const refBook = parseBookFromRef(item.ref);
+    if (!refBook) return false;
+    if (book && refBook !== book) return false;
+    if (testament === 'ot' && !OT_BOOKS.has(refBook)) return false;
+    if (testament === 'nt' && !NT_BOOKS.has(refBook)) return false;
+    return true;
+  });
+}
+
+function syncBookFilterWithTestament() {
+  const testament = document.getElementById('testament-filter')?.value || 'all';
+  const bookSelect = document.getElementById('book-filter');
+  if (!bookSelect) return;
+  const book = bookSelect.value;
+  if (!book) return;
+  if (testament === 'ot' && !OT_BOOKS.has(book)) bookSelect.value = '';
+  if (testament === 'nt' && !NT_BOOKS.has(book)) bookSelect.value = '';
+}
+
+function executeQuery(parsed, tier, filters) {
   const results = {
     intent: parsed.intent,
     tier,
@@ -3298,6 +3454,9 @@ function executeQuery(parsed, tier) {
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
   }
 
+  results.verses = filterVerseList(results.verses, filters);
+  results.phraseMatches = filterVerseList(results.phraseMatches, filters);
+  results.relatedMatches = filterVerseList(results.relatedMatches, filters);
   return results;
 }
 
@@ -3782,12 +3941,13 @@ document.addEventListener('DOMContentLoaded', async () => {
           if (loadingEl) loadingEl.style.display = 'none';
           return;
         }
-        const cacheKey = `${tier}|${input.trim().toLowerCase()}`;
+        const filters = getSearchFilters();
+        const cacheKey = `${tier}|${filters.testament}|${filters.book}|${input.trim().toLowerCase()}`;
         if (cacheKey && searchCache.has(cacheKey)) {
           renderResults(searchCache.get(cacheKey));
         } else {
           const parsed = parseQuery(input);
-          const results = executeQuery(parsed, tier);
+          const results = executeQuery(parsed, tier, filters);
           if (cacheKey) searchCache.set(cacheKey, results);
           renderResults(results);
         }
@@ -3806,6 +3966,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
   }
+
+  const testamentFilter = document.getElementById('testament-filter');
+  const bookFilter = document.getElementById('book-filter');
+  const handleFilterChange = () => {
+    syncBookFilterWithTestament();
+    if (queryInput && queryInput.value.trim()) {
+      searchBtn?.click();
+      return;
+    }
+    if (lastQueryInput) {
+      if (queryInput) queryInput.value = lastQueryInput;
+      searchBtn?.click();
+    }
+  };
+  testamentFilter?.addEventListener('change', handleFilterChange);
+  bookFilter?.addEventListener('change', handleFilterChange);
 
   const quickTopics = document.querySelectorAll('.quick-topic');
   if (quickTopics.length) {
@@ -3853,7 +4029,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const tierEl = document.getElementById('tier');
         const tier = tierEl ? tierEl.value : 'adult';
         const parsed = parseQuery(dailyTopic);
-        const results = executeQuery(parsed, tier);
+        const filters = getSearchFilters();
+        const results = executeQuery(parsed, tier, filters);
         renderResults(results);
         if (outputEl) {
           const msg = document.createElement('div');
@@ -3906,14 +4083,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         const tierEl = document.getElementById('tier');
         const tier = tierEl ? tierEl.value : 'adult';
         const parsed = parseQuery(input);
-        const results = executeQuery(parsed, tier);
+        const filters = getSearchFilters();
+        const results = executeQuery(parsed, tier, filters);
         renderResults(results);
       } else if (lastQueryInput) {
         if (queryEl) queryEl.value = lastQueryInput;
         const tierEl = document.getElementById('tier');
         const tier = tierEl ? tierEl.value : 'adult';
         const parsed = parseQuery(lastQueryInput);
-        const results = executeQuery(parsed, tier);
+        const filters = getSearchFilters();
+        const results = executeQuery(parsed, tier, filters);
         renderResults(results);
       }
     });
@@ -4101,31 +4280,55 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  function buildDailyEmailDraft() {
+    const ref = getDailyVerseRef();
+    const verseText = ref && bible[ref] ? bible[ref] : '';
+    if (!ref || !verseText) return null;
+    const kidsPrompt = getDailyKidsPrompt();
+    const reflection = currentDailyBattle?.reflection ? `Reflection: ${currentDailyBattle.reflection}` : '';
+    const prayer = currentDailyBattle?.prayer ? `Prayer: ${currentDailyBattle.prayer}` : '';
+    return [
+      'Subject: Today’s Daily Battle — Daily Encouragement',
+      '',
+      `Verse of the Day — ${ref}`,
+      verseText,
+      '',
+      reflection,
+      prayer,
+      '',
+      `Kids Prompt: ${kidsPrompt.title}`,
+      kidsPrompt.prompt,
+      `Verse: ${kidsPrompt.verse}`,
+      '',
+      'Have a blessed day.'
+    ].filter(Boolean).join('\n');
+  }
+
   const dailyEmailBtn = document.getElementById('daily-email-copy');
   const dailyEmailStatus = document.getElementById('daily-email-status');
   if (dailyEmailBtn) {
     dailyEmailBtn.addEventListener('click', () => {
-      const ref = getDailyVerseRef();
-      const verseText = ref && bible[ref] ? bible[ref] : '';
-      if (!ref || !verseText) {
+      const email = buildDailyEmailDraft();
+      if (!email) {
         if (dailyEmailStatus) dailyEmailStatus.textContent = 'Bible data not ready yet.';
         return;
       }
-      const kidsPrompt = getDailyKidsPrompt();
-      const email = [
-        'Subject: Today’s Daily Battle — Daily Encouragement',
-        '',
-        `Verse of the Day — ${ref}`,
-        verseText,
-        '',
-        `Kids Prompt: ${kidsPrompt.title}`,
-        kidsPrompt.prompt,
-        `Verse: ${kidsPrompt.verse}`,
-        '',
-        'Have a blessed day.'
-      ].join('\n');
       navigator.clipboard.writeText(email);
       if (dailyEmailStatus) dailyEmailStatus.textContent = 'Daily email copied to clipboard.';
+    });
+  }
+
+  const dailyEmailPreviewBtn = document.getElementById('daily-email-preview-btn');
+  if (dailyEmailPreviewBtn) {
+    dailyEmailPreviewBtn.addEventListener('click', () => {
+      const preview = document.getElementById('daily-email-preview');
+      if (!preview) return;
+      const email = buildDailyEmailDraft();
+      if (!email) {
+        preview.textContent = 'Bible data not ready yet.';
+        return;
+      }
+      preview.textContent = email;
     });
   }
 
@@ -4488,6 +4691,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const shareCollectionBtn = document.getElementById('share-collection');
+  if (shareCollectionBtn) {
+    shareCollectionBtn.addEventListener('click', async () => {
+      const collectionId = getActiveCollectionId();
+      const payload = buildCollectionSharePayload(collectionId);
+      if (!payload) {
+        alert('Select a collection with saved verses to share.');
+        return;
+      }
+      const link = await createShareLink('collection', payload);
+      if (link) {
+        const linkEl = document.getElementById('collection-share-link');
+        if (linkEl) linkEl.value = link;
+      }
+    });
+  }
+
   const buildLessonBtn = document.getElementById('build-lesson');
   if (buildLessonBtn) {
     buildLessonBtn.addEventListener('click', () => {
@@ -4771,6 +4991,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   refreshMessageNote();
   scheduleMessageLoad();
+  renderDailyEncouragement();
+
+  const messageSort = document.getElementById('message-sort');
+  if (messageSort) {
+    messageSort.addEventListener('change', () => {
+      if (lastMessageItems.length) {
+        renderMessages(lastMessageItems);
+      } else {
+        scheduleMessageLoad();
+      }
+    });
+  }
 
   if (postButton && messageInput) {
     postButton.addEventListener('click', async () => {

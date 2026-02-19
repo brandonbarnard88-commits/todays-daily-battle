@@ -974,6 +974,26 @@ button:hover {
   gap: 0.4rem;
 }
 
+.message-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.daily-encouragement {
+  flex: 1 1 260px;
+  padding: 0.8rem;
+  border-radius: 12px;
+  background: rgba(109, 40, 217, 0.12);
+}
+
+.daily-encouragement strong {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
 .collection-controls {
   display: grid;
   gap: 0.6rem;
@@ -989,6 +1009,12 @@ button:hover {
 .collection-create input {
   flex: 1;
   min-width: 180px;
+}
+
+.collection-share {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
 .empty {

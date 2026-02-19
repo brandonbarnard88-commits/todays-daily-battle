@@ -202,6 +202,34 @@ const topics = {
       teen: "Anxiety is heavy, but prayer helps us carry it with God."
     }
   },
+  addiction: {
+    synonyms: ['addicted', 'bondage', 'habit', 'freedom', 'sober', 'temptation', 'overcome'],
+    verses: ['John 8:36', '1 Corinthians 10:13', '2 Corinthians 5:17', 'Galatians 5:1', 'Philippians 4:13', 'Romans 6:14'],
+    guidance: {
+      kid: "God is stronger than any habit. Ask Him for help every day.",
+      teen: "You don't have to fight alone. God gives a way out and strength to walk in freedom.",
+      adult: "If the Son sets you free, you are free indeed. His grace is enough for every step.",
+      pastor: "Point to Christ as the source of freedom; pair Scripture with pastoral care and professional help."
+    },
+    explain: {
+      kid: "God loves you and can help you make better choices.",
+      teen: "Freedom is real. God meets you where you are and walks with you out of bondage."
+    }
+  },
+  trauma: {
+    synonyms: ['traumatized', 'wounded', 'hurt', 'healing', 'ptsd', 'abuse', 'refuge', 'safe'],
+    verses: ['Psalms 34:18', 'Psalms 147:3', 'Isaiah 41:10', '2 Corinthians 1:3', 'Revelation 21:4', 'Psalms 46:1'],
+    guidance: {
+      kid: "When something really scary happened, God is close and wants to help you feel safe.",
+      teen: "God heals the brokenhearted. You don't have to carry this alone; He is your refuge.",
+      adult: "The Lord is near the brokenhearted and binds up wounds. Healing may take time; He walks with you.",
+      pastor: "Comfort with Scripture; encourage professional care and community support alongside pastoral care."
+    },
+    explain: {
+      kid: "God sees your hurt and stays with you. He is safe and kind.",
+      teen: "Trauma is real, but so is God's comfort. He is near and He heals."
+    }
+  },
   faith: {
     synonyms: ['belief', 'trust', 'confidence', 'assurance'],
     verses: ['Hebrews 11:1', 'Matthew 17:20', 'Romans 10:17', 'Ephesians 2:8', '2 Corinthians 5:7'],
@@ -597,6 +625,7 @@ const topics = {
   // You can keep adding more here
 };
 
+// Ensure Supabase RLS is enabled for all tables. Key is publishable (client-safe).
 const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
 const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
 const supabaseScriptUrls = [
@@ -1811,7 +1840,7 @@ function renderMessages(items) {
     const row = document.createElement('div');
     row.className = 'list-item';
     const displayName = item.display_name || nameMap[item.user_id] || 'Member';
-    row.innerHTML = `<div><strong>${displayName}</strong><p>${item.text}</p></div>`;
+    row.innerHTML = '<div><strong>' + escapeHtml(displayName) + '</strong><p>' + escapeHtml(item.text) + '</p></div>';
     const actions = document.createElement('div');
     actions.className = 'message-actions';
     const amenBtn = document.createElement('button');
@@ -2291,6 +2320,17 @@ function toTitleCase(str) {
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function escapeHtml(str) {
+  if (str == null || str === '') return '';
+  var s = String(str);
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function shuffleArray(arr) {
@@ -2786,7 +2826,7 @@ function renderFeaturedChurches() {
   featured.forEach(church => {
     const row = document.createElement('div');
     row.className = 'featured-item';
-    row.innerHTML = `<strong>${church.name}</strong><span>${church.city}${church.state ? `, ${church.state}` : ''}</span>`;
+    row.innerHTML = '<strong>' + escapeHtml(church.name) + '</strong><span>' + escapeHtml(church.city) + (church.state ? ', ' + escapeHtml(church.state) : '') + '</span>';
     container.appendChild(row);
   });
 }
@@ -2990,7 +3030,7 @@ async function renderAdminPanel() {
     messages.forEach(item => {
       const row = document.createElement('div');
       row.className = 'list-item';
-      row.innerHTML = `<div><strong>${item.user_id || 'Member'}</strong><p>${item.text}</p></div>`;
+      row.innerHTML = '<div><strong>' + escapeHtml(item.user_id || 'Member') + '</strong><p>' + escapeHtml(item.text) + '</p></div>';
       const actions = document.createElement('div');
       actions.className = 'item-actions';
       const hideBtn = document.createElement('button');
@@ -3033,7 +3073,7 @@ async function renderAdminPanel() {
     reports.forEach(report => {
       const row = document.createElement('div');
       row.className = 'list-item';
-      row.innerHTML = `<div><strong>Report</strong><p>${report.text}</p><p class="section-note">Message ID: ${report.message_id || report.id}</p></div>`;
+      row.innerHTML = '<div><strong>Report</strong><p>' + escapeHtml(report.text) + '</p><p class="section-note">Message ID: ' + escapeHtml(String(report.message_id || report.id || '')) + '</p></div>';
       const actions = document.createElement('div');
       actions.className = 'item-actions';
       const target = messageMap.get(report.message_id);
@@ -3702,12 +3742,12 @@ function renderSavedVerses() {
     group.items.forEach(item => {
       const row = document.createElement('div');
       row.className = 'list-item';
-      row.innerHTML = `<div><strong>${item.ref}</strong><p>${item.text}</p></div>`;
+      row.innerHTML = '<div><strong>' + escapeHtml(item.ref) + '</strong><p>' + escapeHtml(item.text) + '</p></div>';
       const actions = document.createElement('div');
       actions.className = 'item-actions';
       const copyBtn = document.createElement('button');
       copyBtn.textContent = 'Copy';
-      copyBtn.onclick = () => navigator.clipboard.writeText(`${item.ref}: ${item.text}`);
+      copyBtn.onclick = () => navigator.clipboard.writeText(item.ref + ': ' + item.text);
       const removeBtn = document.createElement('button');
       removeBtn.textContent = 'Remove';
       removeBtn.onclick = async () => {
@@ -3868,7 +3908,7 @@ function renderNotes() {
   notes.forEach(note => {
     const row = document.createElement('div');
     row.className = 'list-item';
-    row.innerHTML = `<div><strong>${note.ref}</strong><p>${note.text}</p></div>`;
+    row.innerHTML = '<div><strong>' + escapeHtml(note.ref) + '</strong><p>' + escapeHtml(note.text) + '</p></div>';
     const actions = document.createElement('div');
     actions.className = 'item-actions';
     const copyBtn = document.createElement('button');
@@ -4174,6 +4214,8 @@ function renderResults(results) {
         <button class="quick-topic" type="button" data-topic="patience">Patience</button>
         <button class="quick-topic" type="button" data-topic="anger">Anger</button>
         <button class="quick-topic" type="button" data-topic="joy">Joy</button>
+        <button class="quick-topic" type="button" data-topic="addiction">Addiction</button>
+        <button class="quick-topic" type="button" data-topic="trauma">Trauma</button>
         <button class="quick-topic" type="button" data-topic="relationships">Relationships</button>
         <button class="quick-topic" type="button" data-topic="jesus said">Jesus Said</button>
       </div>
@@ -4221,6 +4263,18 @@ function renderResults(results) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';
     gentle.textContent = 'Grief can feel heavy, but God is near and will comfort you.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('addiction') || queryText.includes('addicted') || queryText.includes('bondage')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'You are not defined by your struggle. God offers freedom and walks with you one step at a time.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('trauma') || queryText.includes('traumatized') || queryText.includes('wounded') || queryText.includes('ptsd')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God is near the brokenhearted. He sees your pain, He heals, and He is a safe place for you.';
     output.appendChild(gentle);
   }
   if (queryText.includes('anxiety') || queryText.includes('anxious') || queryText.includes('worry')) {
@@ -5804,7 +5858,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       results.forEach(church => {
         const row = document.createElement('div');
         row.className = 'list-item';
-        row.innerHTML = `<div><strong>${church.name}</strong><p>${church.city}${church.state ? `, ${church.state}` : ''}</p></div>`;
+        row.innerHTML = '<div><strong>' + escapeHtml(church.name) + '</strong><p>' + escapeHtml(church.city) + (church.state ? ', ' + escapeHtml(church.state) : '') + '</p></div>';
         const actions = document.createElement('div');
         actions.className = 'item-actions';
         const viewBtn = document.createElement('button');
@@ -5819,7 +5873,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           sermons.forEach(sermon => {
             const sermonRow = document.createElement('div');
             sermonRow.className = 'list-item';
-            sermonRow.innerHTML = `<div><strong>${sermon.title}</strong><p>${sermon.date} • ${sermon.summary || ''}</p></div>`;
+            sermonRow.innerHTML = '<div><strong>' + escapeHtml(sermon.title) + '</strong><p>' + escapeHtml(sermon.date) + ' • ' + escapeHtml(sermon.summary || '') + '</p></div>';
             sermonContainer.appendChild(sermonRow);
           });
         };
@@ -5890,7 +5944,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           sermons.forEach(item => {
             const sermonRow = document.createElement('div');
             sermonRow.className = 'list-item';
-            sermonRow.innerHTML = `<div><strong>${item.title}</strong><p>${item.date} • ${item.summary || ''}</p></div>`;
+            sermonRow.innerHTML = '<div><strong>' + escapeHtml(item.title) + '</strong><p>' + escapeHtml(item.date) + ' • ' + escapeHtml(item.summary || '') + '</p></div>';
             sermonContainer.appendChild(sermonRow);
           });
         }

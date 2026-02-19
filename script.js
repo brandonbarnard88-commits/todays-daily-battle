@@ -2015,6 +2015,18 @@ function shareVerse(ref, text) {
   alert('Share text copied.');
 }
 
+function buildTweetShareUrl(ref, text) {
+  const clean = text.replace(/<[^>]+>/g, '');
+  const msg = `"${clean.substring(0, 200)}${clean.length > 200 ? '…' : ''}" — ${ref}\n\n${window.location.origin}`;
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(msg)}`;
+}
+
+function buildFacebookShareUrl(ref) {
+  const base = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || '';
+  const verseUrl = `${base.replace(/\/$/, '')}/?ref=${encodeURIComponent(ref)}`;
+  return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(verseUrl)}`;
+}
+
 function buildKjvAudioUrl(ref) {
   const encoded = encodeURIComponent(ref);
   return `https://www.biblegateway.com/passage/?search=${encoded}&version=KJV`;
@@ -4596,6 +4608,21 @@ function renderResults(results) {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
           shareVerse(v.ref, cleanText);
         };
+        const tweetBtn = document.createElement('button');
+        tweetBtn.className = 'btn-share-social btn-share-tweet';
+        tweetBtn.textContent = 'Tweet';
+        tweetBtn.setAttribute('aria-label', 'Share this verse on X (Twitter)');
+        tweetBtn.onclick = () => {
+          const cleanText = v.text.replace(/<[^>]+>/g, '');
+          window.open(buildTweetShareUrl(v.ref, cleanText), '_blank', 'noopener,noreferrer');
+        };
+        const fbBtn = document.createElement('button');
+        fbBtn.className = 'btn-share-social btn-share-facebook';
+        fbBtn.textContent = 'Facebook';
+        fbBtn.setAttribute('aria-label', 'Share this verse on Facebook');
+        fbBtn.onclick = () => {
+          window.open(buildFacebookShareUrl(v.ref), '_blank', 'noopener,noreferrer');
+        };
         const audioBtn = document.createElement('button');
         audioBtn.className = 'btn btn-secondary btn-kjv-audio';
         audioBtn.textContent = 'KJV Audio';
@@ -4606,6 +4633,8 @@ function renderResults(results) {
         buttonRow.appendChild(copyBtn);
         buttonRow.appendChild(copyLinkBtn);
         buttonRow.appendChild(shareBtn);
+        buttonRow.appendChild(tweetBtn);
+        buttonRow.appendChild(fbBtn);
         buttonRow.appendChild(listenBtn);
         buttonRow.appendChild(audioBtn);
         buttonRow.appendChild(saveBtn);

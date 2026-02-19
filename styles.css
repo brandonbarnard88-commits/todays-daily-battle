@@ -1037,6 +1037,16 @@ button:active {
 
 .card-actions .btn { min-height: 36px; }
 
+.btn-share-social {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  min-height: 36px;
+}
+.btn-share-tweet { color: #0ea5e9; }
+.btn-share-tweet:hover { color: #38bdf8; }
+.btn-share-facebook { color: #1877f2; }
+.btn-share-facebook:hover { color: #3b8ad4; }
+
 .audio-tools-row {
   display: flex;
   flex-wrap: wrap;

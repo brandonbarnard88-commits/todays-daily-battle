@@ -57,7 +57,9 @@
         <span class="brand-subtitle">Battle every day with God's Word</span>
       </div>
       <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">Menu</button>
-      <div id="auth-section" class="auth-inline auth-compact">
+      <details class="auth-details-mobile" id="auth-details">
+        <summary class="auth-summary">Log in</summary>
+        <div id="auth-section" class="auth-inline auth-compact">
         <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
         <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
         <select id="account-type" aria-label="Account Type">
@@ -72,6 +74,7 @@
         <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
         <button id="logout-btn" style="display:none">Log Out</button>
       </div>
+      </details>
       <div class="toggle-inline">
         <label class="inline-toggle">
           <input id="red-letter-toggle" type="checkbox" checked>
@@ -103,8 +106,8 @@
       <div class="content-inner">
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
-          <p>Search Scripture, find daily hope, and build lessons fast for families and churches.</p>
-          <div class="cta-group">
+          <p class="hero-tagline">Search Scripture, find daily hope, and build lessons fast for families and churches.</p>
+          <div class="cta-group hero-cta">
             <a class="btn btn-primary" href="#main-search">Start Searching</a>
             <a class="btn btn-secondary" href="verse.html">Verse of the Day</a>
             <a class="btn btn-secondary" href="study.html">Study Tools</a>
@@ -118,7 +121,7 @@
               <button id="dark-toggle">Toggle Dark Mode</button>
             </div>
           </div>
-          <p class="section-note">Quick searches</p>
+          <p class="section-note mobile-label-topics">Try a topic</p>
           <div class="quick-actions">
             <button class="btn btn-primary quick-topic" data-topic="heartache">Heartache</button>
             <button class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
@@ -132,8 +135,8 @@
             <button class="btn btn-secondary quick-topic" data-topic="relationships">Relationships</button>
             <button class="btn btn-secondary quick-topic" data-topic="jesus said">Jesus Said</button>
           </div>
-          <p class="section-note">More topics: <a href="topic-hope.html">Hope</a> · <a href="topic-fear.html">Fear</a> · <a href="topic-forgiveness.html">Forgiveness</a> · <a href="topic-strength.html">Strength</a> · <a href="topic-grief.html">Grief</a> · <a href="topic-anxiety.html">Anxiety</a></p>
-          <p class="section-note">Quick tools</p>
+          <p class="section-note mobile-hide more-topics-note">More: <a href="topic-hope.html">Hope</a> · <a href="topic-fear.html">Fear</a> · <a href="topic-forgiveness.html">Forgiveness</a> · <a href="topic-strength.html">Strength</a> · <a href="topic-grief.html">Grief</a> · <a href="topic-anxiety.html">Anxiety</a></p>
+          <p class="section-note mobile-label-tools">Tools</p>
           <div class="quick-links">
             <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
             <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
@@ -141,7 +144,9 @@
             <a class="btn btn-secondary" href="coloring.html">Kids Activities</a>
             <button id="daily-btn" class="btn btn-secondary" type="button">Today’s Battle</button>
           </div>
-          <p class="section-note">Red letters show the words spoken by Jesus—direct from our Savior.</p>
+          <p class="section-note mobile-hide red-letter-note">Red letters show the words spoken by Jesus.</p>
+          <details class="mobile-collapse filters-details">
+            <summary class="mobile-collapse-summary">Filters</summary>
           <div class="filter-stack">
             <select id="tier" class="compact-select" aria-label="Audience">
               <option value="kid">Kid</option>
@@ -162,6 +167,9 @@
             <div id="filter-chips" class="filter-chips"></div>
             <button id="clear-filters" class="btn btn-secondary" type="button">Clear Filters</button>
           </div>
+          </details>
+          <details class="mobile-collapse audio-details">
+            <summary class="mobile-collapse-summary">Audio & verse size</summary>
           <div class="filter-actions">
             <label class="inline-toggle" for="verse-font-size">Verse size</label>
             <input id="verse-font-size" type="range" min="16" max="24" step="1" value="18">
@@ -176,6 +184,7 @@
               <option value="">Default voice</option>
             </select>
           </div>
+          </details>
           <div id="output" class="results"></div>
         </section>
         <section class="glass">
@@ -187,14 +196,14 @@
           <div id="daily-battle-red-letter" class="section-note"></div>
           <p class="section-note" id="daily-battle-streak">Streak: 0 days</p>
           <div id="daily-battle-calendar" class="streak-calendar"></div>
-          <div class="cta-group">
-            <button id="share-daily-battle" class="btn btn-secondary" type="button">Share Today’s Battle</button>
-            <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy a link to this verse">Copy link</button>
-            <button id="share-daily-battle-image" class="btn btn-secondary" type="button">Share Image</button>
-            <button id="listen-daily-battle" class="btn btn-secondary" type="button" title="Listen to this verse read aloud here (text-to-speech)">Listen (KJV)</button>
-            <button id="daily-kjv-audio" class="btn btn-secondary" type="button" title="Open KJV audio in a new tab">KJV Audio</button>
+          <div class="cta-group daily-battle-actions">
+            <button id="share-daily-battle" class="btn btn-secondary" type="button">Share</button>
+            <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
+            <button id="share-daily-battle-image" class="btn btn-secondary" type="button">Share image</button>
+            <button id="listen-daily-battle" class="btn btn-secondary" type="button" title="Listen here">Listen</button>
+            <button id="daily-kjv-audio" class="btn btn-secondary" type="button" title="KJV audio in new tab">KJV Audio</button>
           </div>
-          <div class="cta-group">
+          <div class="cta-group daily-battle-extra">
             <label class="inline-toggle">
               <input id="daily-reminder-toggle" type="checkbox" aria-label="Notify me when I open the site">
               Notify me when I open the site
@@ -251,12 +260,12 @@
         </section>
         <section class="glass newsletter" id="newsletter">
           <h2 class="section-divider">Weekly Encouragement</h2>
-          <p class="section-note">One short, hope-filled email each week. No spam. Unsubscribe anytime.</p>
+          <p class="section-note newsletter-tagline">One short, hope-filled email each week. No spam.</p>
           <div class="newsletter-form">
             <input id="newsletter-email" type="email" placeholder="Email address" autocomplete="email" aria-label="Newsletter email">
             <button id="newsletter-submit" class="btn btn-secondary" type="button">Join Free Newsletter</button>
           </div>
-          <div class="newsletter-form">
+          <div class="newsletter-form newsletter-options">
             <label class="inline-toggle">
               <input id="newsletter-weekly" type="checkbox" checked>
               Weekly encouragement

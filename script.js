@@ -1,6 +1,7 @@
 let bible = {};
 let bibleVersions = {};
 let currentVersion = 'KJV';
+let bibleEntries = [];
 let chapterIndex = {};
 let bookIndex = {};
 let lastResults = null;
@@ -1480,6 +1481,7 @@ async function loadBible(version = currentVersion) {
     bible = await response.json();
     bibleVersions[version] = bible;
     currentVersion = version;
+    bibleEntries = Object.entries(bible);
     searchCache.clear();
     console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
     renderDailyVerse();
@@ -1534,7 +1536,7 @@ function generateUuid() {
 function buildChapterIndex() {
   const index = {};
   const books = {};
-  Object.entries(bible).forEach(([ref, text]) => {
+  bibleEntries.forEach(([ref, text]) => {
     const match = ref.match(/^(.+)\s(\d+):(\d+)$/);
     if (!match) return;
     const book = match[1];
@@ -2870,7 +2872,7 @@ function executeQuery(parsed, tier) {
     }
 
     if (phraseRegex) {
-      const phraseMatches = Object.entries(bible)
+      const phraseMatches = bibleEntries
         .map(([ref, text]) => {
           if (!phraseRegex.test(text)) return null;
           const snippet = text.replace(phraseRegex, '<span class="highlight">$&</span>');
@@ -2892,7 +2894,7 @@ function executeQuery(parsed, tier) {
         .slice(0, 20);
     }
 
-    const matches = Object.entries(bible)
+    const matches = bibleEntries
       .map(([ref, text]) => {
         const normText = normalizeInput(text);
         let score = countWordMatches(normText, wordRegex);

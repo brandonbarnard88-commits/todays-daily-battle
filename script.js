@@ -757,6 +757,8 @@ const STRIPE_SUPPORTER_YEARLY_URL = '';
 const STRIPE_CHURCH_MONTHLY_URL = '';
 const STRIPE_CHURCH_YEARLY_URL = '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
+const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
+const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
 const VERSE_SIZE_KEY = 'verseFontSize';
 const TTS_RATE_KEY = 'ttsRate';
@@ -881,6 +883,37 @@ function showAuthRedirectMessage() {
   const resetStatus = document.getElementById('reset-status');
   if (type === 'recovery' && resetStatus) {
     resetStatus.textContent = 'Set your new password below.';
+  }
+}
+
+function isDailyReminderEnabled() {
+  return localStorage.getItem(DAILY_REMINDER_KEY) === 'true';
+}
+
+function setDailyReminderEnabled(value) {
+  localStorage.setItem(DAILY_REMINDER_KEY, value ? 'true' : 'false');
+}
+
+function showDailyReminderIfNeeded() {
+  if (!isDailyReminderEnabled()) return;
+  if (!('Notification' in window)) return;
+  const today = new Date().toDateString();
+  if (localStorage.getItem(LAST_NOTIFICATION_DATE_KEY) === today) return;
+  if (Notification.permission === 'granted') {
+    try {
+      const n = new Notification('Your daily verse is ready', {
+        body: 'Open Today\'s Daily Battle for today\'s verse, reflection, and prayer.',
+        icon: '/icon.svg'
+      });
+      n.onclick = () => { window.focus(); n.close(); };
+      localStorage.setItem(LAST_NOTIFICATION_DATE_KEY, today);
+    } catch (_) {}
+    return;
+  }
+  if (Notification.permission === 'default') {
+    Notification.requestPermission().then((p) => {
+      if (p === 'granted') showDailyReminderIfNeeded();
+    });
   }
 }
 
@@ -1393,10 +1426,33 @@ function shareDailyBattleImage() {
   ctx.font = '600 28px Inter, sans-serif';
   ctx.fillText('todaysdailybattle.com', 80, 1010);
 
-  const link = document.createElement('a');
-  link.download = 'todays-daily-battle.png';
-  link.href = canvas.toDataURL('image/png');
-  link.click();
+  canvas.toBlob((blob) => {
+    if (!blob) {
+      const a = document.createElement('a');
+      a.download = 'todays-daily-battle.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+      return;
+    }
+    const file = new File([blob], 'todays-daily-battle.png', { type: 'image/png' });
+    const tryShare = () => {
+      if (navigator.share) {
+        return navigator.share({
+          files: [file],
+          title: 'Today\'s Daily Battle',
+          text: currentDailyBattle.ref
+        });
+      }
+      return Promise.reject(new Error('Share not supported'));
+    };
+    tryShare().catch(() => {
+      const a = document.createElement('a');
+      a.download = 'todays-daily-battle.png';
+      a.href = URL.createObjectURL(blob);
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }, 'image/png');
 }
 
 function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -2332,6 +2388,22 @@ function applySearchFromQuery() {
   const mainSearch = document.getElementById('main-search');
   if (mainSearch) mainSearch.scrollIntoView({ behavior: 'smooth', block: 'start' });
   searchBtn.click();
+}
+
+function getRelatedRefs(ref, count = 3) {
+  const chapterKey = getChapterKey(ref);
+  if (!chapterKey || !chapterIndex[chapterKey]) return [];
+  const verses = chapterIndex[chapterKey];
+  const idx = verses.findIndex(v => v.ref === ref);
+  if (idx === -1) return [];
+  const half = Math.floor(count / 2);
+  const start = Math.max(0, idx - half);
+  const end = Math.min(verses.length - 1, idx + half);
+  const out = [];
+  for (let i = start; i <= end; i++) {
+    if (verses[i].ref !== ref) out.push(verses[i].ref);
+  }
+  return out.slice(0, count);
 }
 
 function renderContextBlock(ref, radius = 3) {
@@ -4352,6 +4424,12 @@ function renderResults(results) {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
           speakVerse(v.ref, cleanText);
         };
+        const copyLinkBtn = document.createElement('button');
+        copyLinkBtn.textContent = 'Copy link';
+        copyLinkBtn.onclick = () => {
+          const url = `${window.location.origin}${window.location.pathname.replace(/\/[^/]+$/, '') || ''}/?ref=${encodeURIComponent(v.ref)}`.replace(/\/?$/, '/');
+          navigator.clipboard.writeText(url).then(() => { copyLinkBtn.textContent = 'Link copied!'; setTimeout(() => { copyLinkBtn.textContent = 'Copy link'; }, 2000); }).catch(() => {});
+        };
         const shareBtn = document.createElement('button');
         shareBtn.textContent = 'Share';
         shareBtn.onclick = () => {
@@ -4364,12 +4442,35 @@ function renderResults(results) {
           window.open(buildKjvAudioUrl(v.ref), '_blank');
         };
         buttonRow.appendChild(copyBtn);
+        buttonRow.appendChild(copyLinkBtn);
         buttonRow.appendChild(shareBtn);
         buttonRow.appendChild(listenBtn);
         buttonRow.appendChild(audioBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
         buttonRow.appendChild(openBtn);
+        const relatedRefs = getRelatedRefs(v.ref, 3);
+        if (relatedRefs.length > 0) {
+          const relatedEl = document.createElement('div');
+          relatedEl.className = 'related-verses';
+          relatedEl.innerHTML = '<span class="related-label">Related: </span>' + relatedRefs.map(r => `<a href="#" class="related-ref" data-ref="${r}">${r}</a>`).join(' · ');
+          relatedEl.querySelectorAll('.related-ref').forEach(link => {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              const ref = link.getAttribute('data-ref');
+              if (!ref) return;
+              const queryEl = document.getElementById('query');
+              const tierEl = document.getElementById('tier');
+              if (queryEl) queryEl.value = ref;
+              lastQueryInput = ref;
+              const filters = getSearchFilters();
+              const parsed = parseQuery(ref);
+              const results = executeQuery(parsed, tierEl ? tierEl.value : 'adult', filters);
+              renderResults(results);
+            });
+          });
+          card.appendChild(relatedEl);
+        }
         card.appendChild(buttonRow);
         list.appendChild(card);
       });
@@ -4543,6 +4644,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderDailyBattleCard();
     }
   });
+
+  const dailyReminderToggle = document.getElementById('daily-reminder-toggle');
+  if (dailyReminderToggle) {
+    dailyReminderToggle.checked = isDailyReminderEnabled();
+    dailyReminderToggle.addEventListener('change', () => {
+      const enable = dailyReminderToggle.checked;
+      setDailyReminderEnabled(enable);
+      if (enable && 'Notification' in window && Notification.permission === 'default') {
+        Notification.requestPermission();
+      }
+    });
+  }
+  setTimeout(() => showDailyReminderIfNeeded(), 2000);
 
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {
@@ -5008,6 +5122,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (shareDailyImageBtn) {
     shareDailyImageBtn.addEventListener('click', () => {
       shareDailyBattleImage();
+    });
+  }
+  const shareDailyCopyLinkBtn = document.getElementById('share-daily-battle-copy-link');
+  if (shareDailyCopyLinkBtn) {
+    shareDailyCopyLinkBtn.addEventListener('click', () => {
+      if (!currentDailyBattle?.ref) return;
+      const base = window.location.origin + (window.location.pathname.replace(/\/[^/]+$/, '') || '') + '/';
+      const url = base.replace(/\/?$/, '/') + '?ref=' + encodeURIComponent(currentDailyBattle.ref);
+      navigator.clipboard.writeText(url).then(() => {
+        shareDailyCopyLinkBtn.textContent = 'Link copied!';
+        setTimeout(() => { shareDailyCopyLinkBtn.textContent = 'Copy link'; }, 2000);
+      }).catch(() => {});
     });
   }
 

@@ -3,19 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter Reader • Today's Daily Battle</title>
-  <meta name="description" content="Read full Bible chapters in context with the chapter reader.">
+  <title>7-Day Reading Plan • Today's Daily Battle</title>
+  <meta name="description" content="A simple 7-day Bible reading plan—one verse a day to build a habit.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/reader.html">
-  <meta property="og:title" content="Chapter Reader • Today's Daily Battle">
-  <meta property="og:description" content="Read full Bible chapters in context with the chapter reader.">
-  <meta property="og:url" content="https://todaysdailybattle.com/reader.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/reading-plan.html">
+  <meta property="og:title" content="7-Day Reading Plan • Today's Daily Battle">
+  <meta property="og:description" content="A simple 7-day Bible reading plan—one verse a day to build a habit.">
+  <meta property="og:url" content="https://todaysdailybattle.com/reading-plan.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chapter Reader • Today's Daily Battle">
-  <meta name="twitter:description" content="Read full Bible chapters in context with the chapter reader.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260210ak">
   <link rel="manifest" href="manifest.json">
@@ -29,7 +24,7 @@
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Read full chapters in context</span>
+        <span class="brand-subtitle">7-day reading plan</span>
       </div>
       <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">Menu</button>
       <div id="auth-section" class="auth-inline auth-compact">
@@ -53,7 +48,6 @@
       <nav class="side-nav">
         <a href="/" data-section="search" data-icon="SR">Search</a>
         <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
-        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
         <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
         <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
         <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
@@ -71,38 +65,20 @@
     <main class="app-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Chapter Reader</h1>
-          <p>Read full chapters in a clean, focused layout.</p>
+          <h1>7-Day Reading Plan</h1>
+          <p>One verse a day. Build the habit in a week.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Search Scripture</a>
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
           </div>
         </header>
-        <section id="chapter-reader" class="chapter-reader glass">
-          <h2 class="section-divider">Chapter Reader</h2>
-          <p class="section-note">Choose a book and chapter, then open to read in context.</p>
-          <div class="reader-controls">
-            <div>
-              <label for="reader-book">Book</label>
-              <select id="reader-book"></select>
-            </div>
-            <div>
-              <label for="reader-chapter">Chapter</label>
-              <select id="reader-chapter"></select>
-            </div>
-            <div class="reader-actions">
-              <label class="inline-toggle reader-red-letter">
-                <input id="reader-red-letter-toggle" type="checkbox" checked aria-label="Show red letters (words of Jesus)">
-                Red letters
-              </label>
-              <button id="reader-prev">Prev</button>
-              <button id="reader-next">Next</button>
-              <button id="reader-open">Open Chapter</button>
-              <button id="reader-listen">Listen</button>
-              <button id="reader-audio">KJV Audio</button>
-            </div>
+        <section id="reading-plan" class="glass">
+          <h2 class="section-divider">Your 7 Days</h2>
+          <p class="section-note">Check off each day when you've read the verse. Your progress is saved on this device.</p>
+          <div id="reading-plan-list" class="list"></div>
+          <div class="cta-group" style="margin-top:1.5rem">
+            <button id="reading-plan-reset" type="button" class="btn btn-secondary">Reset progress</button>
           </div>
-          <div id="reader-output" class="chapter-output"></div>
         </section>
       </div>
     </main>
@@ -113,5 +89,64 @@
   </div>
 
   <script src="script.js?v=20260205cp" data-cfasync="false"></script>
+  <script>
+  (function() {
+    const READING_PLAN_KEY = 'readingPlanProgress';
+    const PLAN = [
+      { day: 1, ref: 'Psalm 23:1', theme: 'The Lord is my shepherd' },
+      { day: 2, ref: 'Proverbs 3:5', theme: 'Trust in the Lord' },
+      { day: 3, ref: 'Matthew 11:28', theme: 'Come unto me' },
+      { day: 4, ref: 'Philippians 4:13', theme: 'I can do all things' },
+      { day: 5, ref: 'Isaiah 40:31', theme: 'They that wait upon the Lord' },
+      { day: 6, ref: 'John 3:16', theme: 'For God so loved the world' },
+      { day: 7, ref: 'Romans 8:28', theme: 'All things work together for good' }
+    ];
+    function loadProgress() {
+      try {
+        return JSON.parse(localStorage.getItem(READING_PLAN_KEY) || '{}');
+      } catch { return {}; }
+    }
+    function saveProgress(progress) {
+      localStorage.setItem(READING_PLAN_KEY, JSON.stringify(progress));
+    }
+    function renderList() {
+      const container = document.getElementById('reading-plan-list');
+      if (!container) return;
+      const progress = loadProgress();
+      container.innerHTML = '';
+      PLAN.forEach(function(item) {
+        const done = !!progress[String(item.day)];
+        const row = document.createElement('div');
+        row.className = 'list-item';
+        row.innerHTML = '<div class="reading-plan-row">' +
+          '<label class="reading-plan-check"><input type="checkbox" data-day="' + item.day + '" ' + (done ? 'checked' : '') + '><span>Day ' + item.day + '</span></label>' +
+          '<div><strong>' + item.ref + '</strong><p>' + item.theme + '</p></div>' +
+          '<a href="/?ref=' + encodeURIComponent(item.ref) + '" class="btn btn-secondary">Read</a>' +
+          '</div>';
+        container.appendChild(row);
+        const cb = row.querySelector('input[type=checkbox]');
+        if (cb) {
+          cb.addEventListener('change', function() {
+            const p = loadProgress();
+            p[String(item.day)] = cb.checked;
+            saveProgress(p);
+          });
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      renderList();
+      const resetBtn = document.getElementById('reading-plan-reset');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+          if (confirm('Clear all checkmarks? Your progress will be reset.')) {
+            saveProgress({});
+            renderList();
+          }
+        });
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

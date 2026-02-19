@@ -84,6 +84,7 @@
       <nav class="side-nav">
         <a href="/" data-section="search" data-icon="SR">Search</a>
         <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
         <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
         <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
         <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
@@ -188,9 +189,17 @@
           <div id="daily-battle-calendar" class="streak-calendar"></div>
           <div class="cta-group">
             <button id="share-daily-battle" class="btn btn-secondary" type="button">Share Today’s Battle</button>
+            <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy a link to this verse">Copy link</button>
             <button id="share-daily-battle-image" class="btn btn-secondary" type="button">Share Image</button>
             <button id="listen-daily-battle" class="btn btn-secondary" type="button" title="Listen to this verse read aloud here (text-to-speech)">Listen (KJV)</button>
             <button id="daily-kjv-audio" class="btn btn-secondary" type="button" title="Open KJV audio in a new tab">KJV Audio</button>
+          </div>
+          <div class="cta-group">
+            <label class="inline-toggle">
+              <input id="daily-reminder-toggle" type="checkbox" aria-label="Notify me when I open the site">
+              Notify me when I open the site
+            </label>
+            <span class="section-note">Get a gentle reminder so you don't miss your daily verse.</span>
           </div>
           <div id="install-cta" class="cta-group install-cta">
             <button id="install-app" class="btn btn-secondary" type="button">Install App</button>
@@ -207,6 +216,7 @@
           </div>
           <div class="cta-group">
             <a class="btn btn-primary" href="#newsletter">Join the Battle Plan</a>
+            <a class="btn btn-secondary" href="reading-plan.html">7-Day Reading Plan</a>
             <button id="daily-plan-btn" class="btn btn-secondary" type="button">Today’s Battle</button>
           </div>
         </section>

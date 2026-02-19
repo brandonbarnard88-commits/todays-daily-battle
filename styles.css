@@ -918,6 +918,33 @@ button:active {
   text-align: center;
 }
 
+.related-verses {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.85);
+}
+.related-label {
+  margin-right: 0.25rem;
+}
+.related-ref {
+  color: var(--primary);
+  text-decoration: none;
+}
+.related-ref:hover {
+  text-decoration: underline;
+}
+
+.reading-plan-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.reading-plan-row .list-item { flex: 1; }
+.reading-plan-check { display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+.reading-plan-check input { width: auto; margin: 0; }
+
 .card-actions {
   display: flex;
   flex-wrap: wrap;

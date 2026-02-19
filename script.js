@@ -759,6 +759,8 @@ const STRIPE_CHURCH_YEARLY_URL = '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
 const VERSE_SIZE_KEY = 'verseFontSize';
+const TTS_RATE_KEY = 'ttsRate';
+const TTS_VOICE_KEY = 'ttsVoice';
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -1116,6 +1118,36 @@ function applyVerseSize(size) {
   localStorage.setItem(VERSE_SIZE_KEY, String(value));
   const label = document.getElementById('verse-font-size-value');
   if (label) label.textContent = `${value}px`;
+}
+
+function applyTtsRate(value) {
+  const rate = Math.min(1.2, Math.max(0.8, Number(value) || 1));
+  localStorage.setItem(TTS_RATE_KEY, String(rate));
+  const label = document.getElementById('tts-rate-value');
+  if (label) label.textContent = `${rate.toFixed(2)}x`;
+  return rate;
+}
+
+function getSelectedVoice() {
+  const stored = localStorage.getItem(TTS_VOICE_KEY);
+  if (!stored) return null;
+  const voices = window.speechSynthesis?.getVoices?.() || [];
+  return voices.find(v => v.name === stored) || null;
+}
+
+function populateVoiceSelect() {
+  const select = document.getElementById('tts-voice');
+  if (!select || !('speechSynthesis' in window)) return;
+  const voices = window.speechSynthesis.getVoices();
+  const stored = localStorage.getItem(TTS_VOICE_KEY) || '';
+  select.innerHTML = '<option value="">Default voice</option>';
+  voices.forEach(voice => {
+    const opt = document.createElement('option');
+    opt.value = voice.name;
+    opt.textContent = `${voice.name} (${voice.lang})`;
+    select.appendChild(opt);
+  });
+  if (stored) select.value = stored;
 }
 
 function loadSupporterWaitlist() {
@@ -1798,8 +1830,10 @@ function speakVerse(ref, text) {
   }
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(`${ref}. ${text}`);
-  utterance.rate = 1;
+  utterance.rate = Number(localStorage.getItem(TTS_RATE_KEY) || 1);
   utterance.pitch = 1;
+  const voice = getSelectedVoice();
+  if (voice) utterance.voice = voice;
   window.speechSynthesis.speak(utterance);
 }
 
@@ -1816,6 +1850,11 @@ function shareVerse(ref, text) {
   }
   navigator.clipboard.writeText(shareText);
   alert('Share text copied.');
+}
+
+function buildKjvAudioUrl(ref) {
+  const encoded = encodeURIComponent(ref);
+  return `https://www.biblegateway.com/passage/?search=${encoded}&version=KJV`;
 }
 
 const defaultChurches = [
@@ -4287,9 +4326,15 @@ function renderResults(results) {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
           shareVerse(v.ref, cleanText);
         };
+        const audioBtn = document.createElement('button');
+        audioBtn.textContent = 'KJV Audio';
+        audioBtn.onclick = () => {
+          window.open(buildKjvAudioUrl(v.ref), '_blank');
+        };
         buttonRow.appendChild(copyBtn);
         buttonRow.appendChild(shareBtn);
         buttonRow.appendChild(listenBtn);
+        buttonRow.appendChild(audioBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
         buttonRow.appendChild(openBtn);
@@ -5653,6 +5698,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     verseSizeSlider.addEventListener('input', () => {
       applyVerseSize(verseSizeSlider.value);
     });
+  }
+
+  const ttsRateSlider = document.getElementById('tts-rate');
+  if (ttsRateSlider) {
+    const savedRate = localStorage.getItem(TTS_RATE_KEY) || ttsRateSlider.value;
+    ttsRateSlider.value = savedRate;
+    applyTtsRate(savedRate);
+    ttsRateSlider.addEventListener('input', () => {
+      applyTtsRate(ttsRateSlider.value);
+    });
+  }
+
+  const ttsVoiceSelect = document.getElementById('tts-voice');
+  if (ttsVoiceSelect) {
+    populateVoiceSelect();
+    ttsVoiceSelect.addEventListener('change', () => {
+      const value = ttsVoiceSelect.value;
+      if (value) {
+        localStorage.setItem(TTS_VOICE_KEY, value);
+      } else {
+        localStorage.removeItem(TTS_VOICE_KEY);
+      }
+    });
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = populateVoiceSelect;
+    }
   }
 
   const redLetterToggle = document.getElementById('red-letter-toggle');

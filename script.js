@@ -1367,6 +1367,7 @@ async function renderDailyBattleCard() {
   const card = document.getElementById('daily-battle-card');
   const reflectionEl = document.getElementById('daily-battle-reflection');
   const prayerEl = document.getElementById('daily-battle-prayer');
+  const redLetterEl = document.getElementById('daily-battle-red-letter');
   if (!card) return;
   if (!Object.keys(bible).length) {
     card.innerHTML = '<p class="empty">Bible data not loaded.</p>';
@@ -1382,6 +1383,11 @@ async function renderDailyBattleCard() {
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
   if (reflectionEl) reflectionEl.textContent = battle.reflection ? `Reflection: ${battle.reflection}` : '';
   if (prayerEl) prayerEl.textContent = battle.prayer ? `Prayer: ${battle.prayer}` : '';
+  if (redLetterEl) {
+    redLetterEl.textContent = isRedLetterLike(battle.ref, verseText)
+      ? 'Red letters show the words spoken by Jesus—direct from our Savior.'
+      : '';
+  }
   currentDailyBattle = {
     ref: battle.ref,
     verse: verseText || '',
@@ -2042,12 +2048,23 @@ function buildChapterIndex() {
   );
 }
 
+function getBibleBookOrder() {
+  const books = Object.keys(bookIndex);
+  const gospels = ['Matthew', 'Mark', 'Luke', 'John'];
+  const gospelSet = new Set(gospels);
+  const ordered = [
+    ...gospels.filter(book => books.includes(book)),
+    ...books.filter(book => !gospelSet.has(book))
+  ];
+  return ordered;
+}
+
 function populateBookFilter() {
   const select = document.getElementById('book-filter');
   if (!select) return;
   const selected = select.value;
   select.innerHTML = '<option value="">All Books</option>';
-  Object.keys(bookIndex).forEach(book => {
+  getBibleBookOrder().forEach(book => {
     const option = document.createElement('option');
     option.value = book;
     option.textContent = book;
@@ -2063,7 +2080,7 @@ function refreshBibleView() {
   renderFilterChips();
   if (!hasReader) return;
   populateReaderBooks();
-  const firstBook = Object.keys(bookIndex)[0];
+  const firstBook = getBibleBookOrder()[0];
   if (firstBook) {
     populateReaderChapters(firstBook);
     const firstChapter = bookIndex[firstBook][0];
@@ -3112,7 +3129,7 @@ function populateReaderBooks() {
   const bookSelect = document.getElementById('reader-book');
   if (!bookSelect) return;
   bookSelect.innerHTML = '';
-  Object.keys(bookIndex).forEach(book => {
+  getBibleBookOrder().forEach(book => {
     const opt = document.createElement('option');
     opt.value = book;
     opt.textContent = book;
@@ -3703,6 +3720,12 @@ function filterVerseList(list, filters) {
 
 function isGospelBook(ref) {
   return ref.startsWith('Matthew ') || ref.startsWith('Mark ') || ref.startsWith('Luke ') || ref.startsWith('John ');
+}
+
+function isRedLetterLike(ref, text) {
+  if (!isGospelBook(ref)) return false;
+  const speechRegex = /(jesus said|jesus saith|then said jesus|and jesus said|jesus answered|jesus cried|jesus spake|verily,? verily|i say unto you)/i;
+  return speechRegex.test(text);
 }
 
 function syncBookFilterWithTestament() {

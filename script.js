@@ -3931,6 +3931,24 @@ function renderResults(results) {
     gentle.textContent = 'Forgiveness is hard, but God gives grace to let go and heal.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('anger') || queryText.includes('angry') || queryText.includes('rage')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God is patient with you. Ask Him for calm and self-control.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('joy') || queryText.includes('rejoice') || queryText.includes('glad')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Joy is deeper than circumstances. God gives lasting joy.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('relationship') || queryText.includes('relationships') || queryText.includes('marriage') || queryText.includes('friend')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Healthy relationships grow with grace, truth, and forgiveness.';
+    output.appendChild(gentle);
+  }
   if (queryText.includes('peace') || queryText.includes('calm') || queryText.includes('rest')) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';

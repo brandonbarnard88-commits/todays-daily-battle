@@ -977,6 +977,14 @@ function openStripeCheckout(url) {
   window.location.href = url;
 }
 
+function scrollToWaitlist() {
+  const input = document.getElementById('supporter-waitlist-email');
+  if (input) {
+    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    input.focus();
+  }
+}
+
 function loadAmenCounts() {
   try {
     return JSON.parse(localStorage.getItem(MESSAGE_AMEN_KEY) || '{}');
@@ -5169,11 +5177,28 @@ document.addEventListener('DOMContentLoaded', async () => {
   const churchMonthlyBtn = document.getElementById('pricing-church-monthly');
   const churchYearlyBtn = document.getElementById('pricing-church-yearly');
   const supporterCtaBtn = document.getElementById('pricing-supporter-cta');
+  const pricingNote = document.getElementById('pricing-availability-note');
+
+  if (supporterMonthlyBtn && !STRIPE_SUPPORTER_MONTHLY_URL) supporterMonthlyBtn.disabled = true;
+  if (supporterYearlyBtn && !STRIPE_SUPPORTER_YEARLY_URL) supporterYearlyBtn.disabled = true;
+  if (churchMonthlyBtn && !STRIPE_CHURCH_MONTHLY_URL) churchMonthlyBtn.disabled = true;
+  if (churchYearlyBtn && !STRIPE_CHURCH_YEARLY_URL) churchYearlyBtn.disabled = true;
+
+  if (pricingNote && (!STRIPE_SUPPORTER_MONTHLY_URL || !STRIPE_SUPPORTER_YEARLY_URL || !STRIPE_CHURCH_MONTHLY_URL || !STRIPE_CHURCH_YEARLY_URL)) {
+    pricingNote.textContent = 'Subscriptions open soon — join the waitlist below.';
+  }
+
   supporterMonthlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL));
   supporterYearlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_YEARLY_URL));
   churchMonthlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_CHURCH_MONTHLY_URL));
   churchYearlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_CHURCH_YEARLY_URL));
-  supporterCtaBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL));
+  supporterCtaBtn?.addEventListener('click', () => {
+    if (!STRIPE_SUPPORTER_MONTHLY_URL) {
+      scrollToWaitlist();
+      return;
+    }
+    openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL);
+  });
 
   const waitlistBtn = document.getElementById('supporter-waitlist-btn');
   const waitlistEmail = document.getElementById('supporter-waitlist-email');

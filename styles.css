@@ -212,6 +212,7 @@ body {
   font-weight: 600;
   text-decoration: none;
   border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .btn-primary {
@@ -266,6 +267,12 @@ body {
   display: grid;
   gap: 0.7rem;
   box-shadow: 0 14px 28px rgba(15, 23, 42, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.3);
 }
 
 .pricing-card h3 {
@@ -745,8 +752,13 @@ button {
 
 button:hover {
   background: var(--primary-dark);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(109,40,217,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(109,40,217,0.28);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(109,40,217,0.22);
 }
 
 #loading {
@@ -933,6 +945,10 @@ button:hover {
   margin: 0.5rem 0 1.5rem;
 }
 
+.dark-mode .section-note {
+  color: rgba(226, 232, 240, 0.75);
+}
+
 .study-grid,
 .sermon-grid {
   display: grid;
@@ -949,6 +965,12 @@ button:hover {
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.study-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 26px rgba(15, 23, 42, 0.16);
 }
 
 .list {
@@ -966,6 +988,12 @@ button:hover {
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.16);
 }
 
 .item-actions {
@@ -984,6 +1012,11 @@ button:hover {
 
 .message-toolbar .btn {
   white-space: nowrap;
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .daily-encouragement {
@@ -1092,6 +1125,12 @@ button:hover {
   border: 1px solid rgba(255,255,255,0.2);
   display: grid;
   gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.template-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.16);
 }
 
 .study-card p,
@@ -1172,6 +1211,12 @@ button:hover {
   border: 1px solid rgba(255,255,255,0.2);
   display: grid;
   gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.16);
 }
 
 .dashboard-card p {
@@ -1207,6 +1252,12 @@ button:hover {
   border: 1px solid rgba(255,255,255,0.2);
   display: grid;
   gap: 0.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featured-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.14);
 }
 
 .church-admin {

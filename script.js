@@ -3158,7 +3158,42 @@ function renderResults(results) {
           navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
           alert('Verse copied!');
         };
+        const saveBtn = document.createElement('button');
+        saveBtn.textContent = 'Save';
+        saveBtn.onclick = async () => {
+          const cleanText = v.text.replace(/<[^>]+>/g, '');
+          const existing = loadSavedVerses().some(item => item.ref === v.ref);
+          if (existing) {
+            saveBtn.textContent = 'Saved';
+            saveBtn.disabled = true;
+            return;
+          }
+          const saved = await saveVerseToSupabase({ ref: v.ref, text: cleanText });
+          const next = loadSavedVerses().filter(item => item.ref !== v.ref);
+          next.unshift(saved);
+          saveSavedVerses(next);
+          renderSavedVerses();
+          saveBtn.textContent = 'Saved';
+          saveBtn.disabled = true;
+        };
+        const contextBtn = document.createElement('button');
+        contextBtn.textContent = 'Context';
+        contextBtn.onclick = () => {
+          const existing = card.querySelector('.context-block');
+          if (existing) {
+            existing.remove();
+            contextBtn.textContent = 'Context';
+            return;
+          }
+          const context = renderContextBlock(v.ref, 2);
+          if (context) {
+            card.appendChild(context);
+            contextBtn.textContent = 'Hide context';
+          }
+        };
         buttonRow.appendChild(copyBtn);
+        buttonRow.appendChild(saveBtn);
+        buttonRow.appendChild(contextBtn);
         card.appendChild(buttonRow);
         list.appendChild(card);
       });

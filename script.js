@@ -4720,14 +4720,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   loadLocalSermons();
   const versionSelect = document.getElementById('version');
-  await loadBible(versionSelect ? versionSelect.value : currentVersion);
-  refreshBibleView();
-  applyReaderFromQuery();
-  renderDailyVerse();
-  await renderDailyBattleCard();
-  renderCollectionSelect();
-  renderSavedVerses();
-  applySearchFromQuery();
+  try {
+    await loadBible(versionSelect ? versionSelect.value : currentVersion);
+    refreshBibleView();
+    applyReaderFromQuery();
+    renderDailyVerse();
+    await renderDailyBattleCard();
+    renderCollectionSelect();
+    renderSavedVerses();
+    applySearchFromQuery();
+  } catch (err) {
+    var card = document.getElementById('daily-battle-card');
+    if (card && card.textContent.indexOf('Loading') !== -1) {
+      card.innerHTML = '<p class="empty">Something went wrong loading the page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+    }
+  }
+  setTimeout(function () {
+    var card = document.getElementById('daily-battle-card');
+    if (card && card.textContent.indexOf('Loading') !== -1) {
+      renderDailyBattleCard();
+    }
+  }, 6000);
   if (!supabaseClient) {
     const authSection = document.getElementById('auth-section');
     if (authSection) {
@@ -4807,7 +4820,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.body.addEventListener('click', (e) => {
     if (e.target && e.target.id === 'daily-battle-try-again') {
       e.preventDefault();
-      renderDailyBattleCard();
+      var btn = e.target;
+      if (btn) btn.disabled = true;
+      (async function () {
+        try {
+          if (!Object.keys(bible).length) await loadBible(currentVersion);
+          refreshBibleView();
+          await renderDailyBattleCard();
+        } catch (err) {}
+        if (btn) btn.disabled = false;
+      })();
     }
   });
 

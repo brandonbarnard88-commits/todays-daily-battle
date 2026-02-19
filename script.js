@@ -4321,7 +4321,7 @@ function renderResults(results) {
     gentle.textContent = 'You are not defined by your struggle. God offers freedom and walks with you one step at a time.';
     output.appendChild(gentle);
   }
-  if (queryText.includes('trauma') || queryText.includes('traumatized') || queryText.includes('wounded') || queryText.includes('ptsd')) {
+  if (queryText.includes('trauma') || queryText.includes('trama') || queryText.includes('traumatized') || queryText.includes('wounded') || queryText.includes('ptsd')) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';
     gentle.textContent = 'God is near the brokenhearted. He sees your pain, He heals, and He is a safe place for you.';

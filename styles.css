@@ -69,6 +69,7 @@ body {
   border-bottom: 1px solid rgba(148, 163, 184, 0.2);
   position: relative;
   z-index: 5;
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -916,11 +917,19 @@ button:active {
 }
 
 .red-letter {
-  color: #dc2626;
+  color: #b91c1c;
 }
 
 .red-letter-card {
-  border-color: rgba(220, 38, 38, 0.35);
+  border-color: rgba(185, 28, 28, 0.35);
+}
+
+body.red-letter-off .red-letter {
+  color: inherit;
+}
+
+body.red-letter-off .red-letter-card {
+  border-color: rgba(148, 163, 184, 0.2);
 }
 
 .guidance {
@@ -1308,6 +1317,14 @@ button:active {
   align-items: center;
   gap: 0.4rem;
   font-size: 0.95rem;
+}
+
+.toggle-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #e2e8f0;
+  font-size: 0.85rem;
 }
 
 .featured-list {

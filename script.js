@@ -757,6 +757,7 @@ const STRIPE_SUPPORTER_YEARLY_URL = '';
 const STRIPE_CHURCH_MONTHLY_URL = '';
 const STRIPE_CHURCH_YEARLY_URL = '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
+const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -1095,6 +1096,17 @@ function loadAmenCounts() {
 
 function saveAmenCounts(map) {
   localStorage.setItem(MESSAGE_AMEN_KEY, JSON.stringify(map));
+}
+
+function isRedLetterEnabled() {
+  const stored = localStorage.getItem(RED_LETTER_TOGGLE_KEY);
+  if (stored === null) return true;
+  return stored === 'true';
+}
+
+function setRedLetterEnabled(value) {
+  localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
+  document.body.classList.toggle('red-letter-off', !value);
 }
 
 function loadSupporterWaitlist() {
@@ -3209,6 +3221,10 @@ function buildLessonPlan(results, audience) {
   const topVerses = results.verses.slice(0, 3);
   const memoryVerse = topVerses[0];
   const guidance = results.guidance || 'Use these verses to encourage and strengthen faith.';
+  const redLetterNote = topVerses
+    .filter(v => isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, '')))
+    .map(v => `${v.ref} (Jesus’ words)`)
+    .join(', ');
   const audienceNotes = {
     kid: 'Keep it short, visual, and repeat key truths.',
     teen: 'Connect to real struggles and allow honest questions.',
@@ -3219,6 +3235,7 @@ function buildLessonPlan(results, audience) {
 
   output.push(`Big Idea: ${guidance}`);
   output.push(`Memory Verse: ${memoryVerse.ref}`);
+  if (redLetterNote) output.push(`Red letters: ${redLetterNote}`);
   output.push('Opening: Pray and read the passage aloud together.');
   output.push(`Discussion: ${audienceNotes[audience] || audienceNotes.adult}`);
   output.push('Questions:');
@@ -3244,6 +3261,10 @@ function buildPastorToolkit(results) {
     };
   }
   const topVerses = results.verses.slice(0, 3);
+  const redLetterNote = topVerses
+    .filter(v => isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, '')))
+    .map(v => `${v.ref} (Jesus’ words)`)
+    .join(', ');
   const topicName = results.intent === 'topic' ? results.topic : 'Hope';
   const title = results.intent === 'topic'
     ? `Hope in ${topicName.charAt(0).toUpperCase()}${topicName.slice(1)}`
@@ -3258,7 +3279,11 @@ function buildPastorToolkit(results) {
     `III. God gives a path forward (${topVerses[2]?.ref || ''})`
   ].join('\n');
   const points = topVerses
-    .map(v => `- ${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`)
+    .map(v => {
+      const clean = v.text.replace(/<[^>]+>/g, '');
+      const tag = isRedLetterLike(v.ref, clean) ? ' (Jesus’ words)' : '';
+      return `- ${v.ref}${tag}: ${clean}`;
+    })
     .join('\n');
   const application = results.guidance
     ? `Application: ${results.guidance}`
@@ -3268,6 +3293,7 @@ function buildPastorToolkit(results) {
     'Small Group Guide',
     '1) Opener: Share a recent moment when you needed encouragement.',
     `2) Read: ${topVerses.map(v => v.ref).filter(Boolean).join(', ')}`,
+    redLetterNote ? `Red letters: ${redLetterNote}` : '',
     '3) Discuss: What stands out? What does this teach us about God?',
     '4) Apply: What is one step of trust you can take this week?',
     '5) Pray: Ask God to meet each person’s need.'
@@ -5552,6 +5578,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (copyEncouragementBtn) {
     copyEncouragementBtn.addEventListener('click', () => {
       copyDailyEncouragement();
+    });
+  }
+
+  const redLetterToggle = document.getElementById('red-letter-toggle');
+  if (redLetterToggle) {
+    const enabled = isRedLetterEnabled();
+    redLetterToggle.checked = enabled;
+    setRedLetterEnabled(enabled);
+    redLetterToggle.addEventListener('change', () => {
+      setRedLetterEnabled(redLetterToggle.checked);
     });
   }
 

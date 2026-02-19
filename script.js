@@ -1422,14 +1422,15 @@ async function renderDailyBattleCard() {
   const prayerEl = document.getElementById('daily-battle-prayer');
   const redLetterEl = document.getElementById('daily-battle-red-letter');
   if (!card) return;
+  card.innerHTML = '<p class="daily-battle-loading">Loading today\'s verse…</p>';
   if (!Object.keys(bible).length) {
-    card.innerHTML = '<p class="empty">Bible data not loaded.</p>';
+    card.innerHTML = '<p class="empty">Bible data not loaded.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     return;
   }
   const supaBattle = await getDailyBattleFromSupabase();
   const battle = supaBattle || getDailyBattleFallback();
   if (!battle || !battle.ref) {
-    card.innerHTML = '<p class="empty">Verse not available.</p>';
+    card.innerHTML = '<p class="empty">Verse not available.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     return;
   }
   const verseText = getBibleVerseText(battle.ref);
@@ -1837,6 +1838,17 @@ function speakVerse(ref, text) {
   window.speechSynthesis.speak(utterance);
 }
 
+function speakChapter(book, chapter) {
+  const key = `${book} ${chapter}`;
+  const verses = chapterIndex[key];
+  if (!verses || !verses.length) {
+    alert('Chapter not ready yet.');
+    return;
+  }
+  const text = verses.map(v => v.text).join(' ');
+  speakVerse(`${key}`, text);
+}
+
 function buildVerseShareText(ref, text) {
   const clean = text.replace(/<[^>]+>/g, '');
   return `Battling today? Here’s hope from God’s Word:\n${ref}\n${clean}\n\n${window.location.origin}`;
@@ -2055,7 +2067,7 @@ async function loadBible(version = currentVersion) {
     renderDailyVerse();
   } catch (err) {
     console.error('Error loading kjv.json:', err.message);
-    alert('Could not load Bible data. Please try refreshing the page.');
+    alert('Could not load Bible data. Please try refreshing the page. If you opened this from a file, try visiting https://todaysdailybattle.com instead.');
   }
 }
 
@@ -2300,6 +2312,25 @@ function applyReaderFromQuery() {
   if (book && chapter && bookIndex[book]) {
     selectReaderChapter(book, chapter, refParam);
   }
+}
+
+function applySearchFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (!q) return;
+  const queryEl = document.getElementById('query');
+  const searchBtn = document.getElementById('search-btn');
+  if (!queryEl || !searchBtn) return;
+  try {
+    queryEl.value = decodeURIComponent(q).trim();
+  } catch {
+    queryEl.value = q.trim();
+  }
+  if (!queryEl.value) return;
+  setView('search');
+  const mainSearch = document.getElementById('main-search');
+  if (mainSearch) mainSearch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  searchBtn.click();
 }
 
 function renderContextBlock(ref, radius = 3) {
@@ -3264,7 +3295,7 @@ function renderReaderChapter(book, chapter) {
     line.className = 'context-line';
     line.dataset.ref = v.ref;
     line.innerHTML = `<strong>${v.ref}</strong> ${v.text}`;
-    if (isRedLetterLike(v.ref, v.text)) {
+    if (isRedLetterEnabled() && isRedLetterLike(v.ref, v.text)) {
       line.classList.add('red-letter');
     }
     output.appendChild(line);
@@ -4428,6 +4459,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await renderDailyBattleCard();
   renderCollectionSelect();
   renderSavedVerses();
+  applySearchFromQuery();
   if (!supabaseClient) {
     const authSection = document.getElementById('auth-section');
     if (authSection) {
@@ -4504,6 +4536,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireDailyBattleSeedForm();
   wireInstallPrompt();
 
+  document.body.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'daily-battle-try-again') {
+      e.preventDefault();
+      renderDailyBattleCard();
+    }
+  });
+
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {
     searchBtn.addEventListener('click', () => {
@@ -4526,7 +4565,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (Object.keys(bible).length === 0) {
           if (outputEl) {
             outputEl.innerHTML =
-              '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
+              '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p><p class="section-note" style="text-align:center;">Having trouble? Try opening <a href="https://todaysdailybattle.com">todaysdailybattle.com</a> in your browser.</p>';
           }
           if (loadingEl) loadingEl.style.display = 'none';
           return;
@@ -4543,7 +4582,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (loadingEl) loadingEl.style.display = 'none';
         await renderDailyBattleCard();
-      }, 600);
+      }, 150);
     });
   }
 
@@ -4601,7 +4640,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (Object.keys(bible).length === 0) {
           if (outputEl) {
             outputEl.innerHTML =
-              '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p>';
+              '<p style="text-align:center; color:#888;">Bible data not loaded. Please use a local server and refresh.</p><p class="section-note" style="text-align:center;">Having trouble? Try opening <a href="https://todaysdailybattle.com">todaysdailybattle.com</a> in your browser.</p>';
           }
           if (loadingEl) loadingEl.style.display = 'none';
           return;
@@ -4627,7 +4666,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           outputEl.prepend(msg);
         }
         if (loadingEl) loadingEl.style.display = 'none';
-      }, 600);
+      }, 150);
     });
   }
   const dailyPlanBtn = document.getElementById('daily-plan-btn');
@@ -5469,6 +5508,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const readerRedLetterToggle = document.getElementById('reader-red-letter-toggle');
+  if (readerRedLetterToggle) {
+    readerRedLetterToggle.checked = isRedLetterEnabled();
+    readerRedLetterToggle.addEventListener('change', () => {
+      setRedLetterEnabled(readerRedLetterToggle.checked);
+      const book = document.getElementById('reader-book')?.value;
+      const chapter = document.getElementById('reader-chapter')?.value;
+      if (book && chapter) renderReaderChapter(book, chapter);
+    });
+  }
+
   const backToSearch = document.getElementById('back-to-search');
   if (backToSearch) {
     backToSearch.addEventListener('click', () => {
@@ -5690,6 +5740,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const dailyKjvAudioBtn = document.getElementById('daily-kjv-audio');
+  if (dailyKjvAudioBtn) {
+    dailyKjvAudioBtn.addEventListener('click', () => {
+      const ref = currentDailyBattle?.ref || getDailyVerseRef();
+      if (!ref) {
+        alert('Daily verse is not ready yet.');
+        return;
+      }
+      window.open(buildKjvAudioUrl(ref), '_blank');
+    });
+  }
+
   const verseSizeSlider = document.getElementById('verse-font-size');
   if (verseSizeSlider) {
     const savedSize = localStorage.getItem(VERSE_SIZE_KEY) || verseSizeSlider.value;
@@ -5697,6 +5759,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     applyVerseSize(savedSize);
     verseSizeSlider.addEventListener('input', () => {
       applyVerseSize(verseSizeSlider.value);
+    });
+  }
+
+  const readerListenBtn = document.getElementById('reader-listen');
+  if (readerListenBtn) {
+    readerListenBtn.addEventListener('click', () => {
+      const book = document.getElementById('reader-book')?.value;
+      const chapter = document.getElementById('reader-chapter')?.value;
+      if (!book || !chapter) return;
+      speakChapter(book, chapter);
+    });
+  }
+
+  const readerAudioBtn = document.getElementById('reader-audio');
+  if (readerAudioBtn) {
+    readerAudioBtn.addEventListener('click', () => {
+      const book = document.getElementById('reader-book')?.value;
+      const chapter = document.getElementById('reader-chapter')?.value;
+      if (!book || !chapter) return;
+      window.open(buildKjvAudioUrl(`${book} ${chapter}`), '_blank');
     });
   }
 

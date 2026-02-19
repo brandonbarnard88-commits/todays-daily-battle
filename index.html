@@ -48,6 +48,7 @@
   </script>
 </head>
 <body class="dark-mode">
+  <a href="#main-search" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
       <div class="brand">
@@ -177,7 +178,7 @@
         <section class="glass">
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">A daily verse and theme to anchor your day.</p>
-          <div id="daily-battle-card" class="verse-card"></div>
+          <div id="daily-battle-card" class="verse-card" aria-live="polite"><p class="daily-battle-loading">Loading today's verse…</p></div>
           <div id="daily-battle-reflection" class="section-note"></div>
           <div id="daily-battle-prayer" class="section-note"></div>
           <div id="daily-battle-red-letter" class="section-note"></div>
@@ -187,6 +188,7 @@
             <button id="share-daily-battle" class="btn btn-secondary" type="button">Share Today’s Battle</button>
             <button id="share-daily-battle-image" class="btn btn-secondary" type="button">Share Image</button>
             <button id="listen-daily-battle" class="btn btn-secondary" type="button">Listen (KJV)</button>
+            <button id="daily-kjv-audio" class="btn btn-secondary" type="button">KJV Audio</button>
           </div>
           <div id="install-cta" class="cta-group install-cta">
             <button id="install-app" class="btn btn-secondary" type="button">Install App</button>
@@ -252,7 +254,7 @@
           <p id="newsletter-status" class="section-note"></p>
         </section>
 
-        <div id="loading" class="loading" style="display:none">
+        <div id="loading" class="loading" style="display:none" aria-live="polite" aria-atomic="true">
           <div class="spinner"></div>
           <p>Seeking God's truth...</p>
         </div>

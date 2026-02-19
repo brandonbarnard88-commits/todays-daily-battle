@@ -10,6 +10,31 @@
   --verse-size: 18px;
 }
 
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0.75rem;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.daily-battle-loading {
+  color: rgba(226, 232, 240, 0.8);
+  font-style: italic;
+  margin: 0;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;

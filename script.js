@@ -1351,6 +1351,20 @@ function exportCsvRows(items) {
 function exportWaitlistCsv() {
   const items = loadSupporterWaitlist();
   if (!items.length) {
+    if (isSupabaseConfigured()) {
+      supabaseClient
+        .from('supporter_waitlist')
+        .select('email, created_at')
+        .order('created_at', { ascending: false })
+        .then(({ data, error }) => {
+          if (error || !data?.length) {
+            alert('No waitlist entries yet.');
+            return;
+          }
+          exportCsvRows(data);
+        });
+      return;
+    }
     alert('No waitlist entries yet.');
     return;
   }
@@ -5149,6 +5163,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       items.unshift({ email, created_at: new Date().toISOString() });
       saveSupporterWaitlist(items);
+      if (isSupabaseConfigured()) {
+        supabaseClient.from('supporter_waitlist').insert({ email }).then(() => {});
+      }
       waitlistEmail.value = '';
       if (waitlistStatus) waitlistStatus.textContent = 'Thanks! We will email you when it is live.';
     });

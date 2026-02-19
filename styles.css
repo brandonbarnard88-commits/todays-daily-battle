@@ -952,6 +952,41 @@ button:active {
   margin-top: 1rem;
 }
 
+.card-actions .btn { min-height: 36px; }
+
+.audio-tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.audio-tools-row input[type="range"] {
+  width: 100px;
+  max-width: 120px;
+  vertical-align: middle;
+}
+
+.audio-tools-row .compact-select {
+  min-width: 140px;
+}
+
+.audio-helper {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted, #64748b);
+}
+
+.btn-tts-stop {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+body.tts-playing .btn-listen {
+  outline: 2px solid var(--primary, #6366f1);
+  outline-offset: 2px;
+}
+
 .context-block,
 .chapter-block {
   margin-top: 1rem;

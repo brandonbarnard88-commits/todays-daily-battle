@@ -173,18 +173,20 @@
             <summary class="mobile-collapse-summary">Audio & verse size</summary>
           <div class="filter-actions">
             <label class="inline-toggle" for="verse-font-size">Verse size</label>
-            <input id="verse-font-size" type="range" min="16" max="24" step="1" value="18">
+            <input id="verse-font-size" type="range" min="16" max="24" step="1" value="18" aria-label="Verse text size">
             <span id="verse-font-size-value" class="section-note">18px</span>
           </div>
-          <div class="filter-actions">
-            <label class="inline-toggle" for="tts-rate">Audio speed</label>
-            <input id="tts-rate" type="range" min="0.8" max="1.2" step="0.05" value="1">
+          <div class="filter-actions audio-tools-row">
+            <label class="inline-toggle" for="tts-rate">Read-aloud speed</label>
+            <input id="tts-rate" type="range" min="0.5" max="1.5" step="0.1" value="1" aria-label="Read-aloud speed">
             <span id="tts-rate-value" class="section-note">1.0x</span>
             <label class="inline-toggle" for="tts-voice">Voice</label>
-            <select id="tts-voice" class="compact-select" aria-label="Audio voice">
-              <option value="">Default voice</option>
+            <select id="tts-voice" class="compact-select" aria-label="Read-aloud voice">
+              <option value="">System default</option>
             </select>
+            <button id="tts-stop" type="button" class="btn btn-secondary btn-tts-stop" style="display:none" aria-label="Stop read-aloud">Stop</button>
           </div>
+          <p class="section-note audio-helper">Listen reads aloud here using your device’s voice. KJV Audio opens Bible Gateway in a new tab.</p>
           </details>
         </section>
         <section class="glass">
@@ -200,8 +202,8 @@
             <button id="share-daily-battle" class="btn btn-secondary" type="button">Share</button>
             <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
             <button id="share-daily-battle-image" class="btn btn-secondary" type="button">Share image</button>
-            <button id="listen-daily-battle" class="btn btn-secondary" type="button" title="Listen here">Listen</button>
-            <button id="daily-kjv-audio" class="btn btn-secondary" type="button" title="KJV audio in new tab">KJV Audio</button>
+            <button id="listen-daily-battle" class="btn btn-secondary btn-listen" type="button" title="Read this verse aloud here" aria-label="Read this verse aloud">Listen</button>
+            <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
           </div>
           <div class="cta-group daily-battle-extra">
             <label class="inline-toggle">

@@ -1154,10 +1154,10 @@ function applyVerseSize(size) {
 }
 
 function applyTtsRate(value) {
-  const rate = Math.min(1.2, Math.max(0.8, Number(value) || 1));
+  var rate = Math.min(1.5, Math.max(0.5, Number(value) || 1));
   localStorage.setItem(TTS_RATE_KEY, String(rate));
-  const label = document.getElementById('tts-rate-value');
-  if (label) label.textContent = `${rate.toFixed(2)}x`;
+  var label = document.getElementById('tts-rate-value');
+  if (label) label.textContent = rate === 1 ? '1.0x' : rate.toFixed(1) + 'x';
   return rate;
 }
 
@@ -1169,15 +1169,23 @@ function getSelectedVoice() {
 }
 
 function populateVoiceSelect() {
-  const select = document.getElementById('tts-voice');
+  var select = document.getElementById('tts-voice');
   if (!select || !('speechSynthesis' in window)) return;
-  const voices = window.speechSynthesis.getVoices();
-  const stored = localStorage.getItem(TTS_VOICE_KEY) || '';
-  select.innerHTML = '<option value="">Default voice</option>';
-  voices.forEach(voice => {
-    const opt = document.createElement('option');
+  var voices = window.speechSynthesis.getVoices().slice();
+  var stored = localStorage.getItem(TTS_VOICE_KEY) || '';
+  voices.sort(function (a, b) {
+    if (a.default && !b.default) return -1;
+    if (!a.default && b.default) return 1;
+    var enA = (a.lang || '').toLowerCase().startsWith('en') ? 0 : 1;
+    var enB = (b.lang || '').toLowerCase().startsWith('en') ? 0 : 1;
+    if (enA !== enB) return enA - enB;
+    return (a.name || '').localeCompare(b.name || '');
+  });
+  select.innerHTML = '<option value="">System default</option>';
+  voices.forEach(function (voice) {
+    var opt = document.createElement('option');
     opt.value = voice.name;
-    opt.textContent = `${voice.name} (${voice.lang})`;
+    opt.textContent = voice.name + (voice.lang ? ' (' + voice.lang + ')' : '');
     select.appendChild(opt);
   });
   if (stored) select.value = stored;
@@ -1879,19 +1887,39 @@ function copyDailyEncouragement() {
   navigator.clipboard.writeText(text);
 }
 
+var ttsPlaying = false;
+
+function setTtsPlaying(playing) {
+  ttsPlaying = playing;
+  document.body.classList.toggle('tts-playing', playing);
+  var stopBtn = document.getElementById('tts-stop');
+  if (stopBtn) stopBtn.style.display = playing ? 'inline-flex' : 'none';
+}
+
+function stopTts() {
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  setTtsPlaying(false);
+}
+
 function speakVerse(ref, text) {
   if (!ref || !text) return;
   if (!('speechSynthesis' in window)) {
-    alert('Audio is not supported in this browser.');
+    alert('Read-aloud is not supported in this browser. Try the "KJV Audio" button to open audio in a new tab.');
     return;
   }
   window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(`${ref}. ${text}`);
+  var cleanText = (typeof text === 'string' ? text : '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!cleanText) return;
+  var utterance = new SpeechSynthesisUtterance(ref + '. ' + cleanText);
   utterance.rate = Number(localStorage.getItem(TTS_RATE_KEY) || 1);
   utterance.pitch = 1;
-  const voice = getSelectedVoice();
+  var voice = getSelectedVoice();
   if (voice) utterance.voice = voice;
+  utterance.onstart = function () { setTtsPlaying(true); };
+  utterance.onend = function () { setTtsPlaying(false); };
+  utterance.onerror = function () { setTtsPlaying(false); };
   window.speechSynthesis.speak(utterance);
+  setTtsPlaying(true);
 }
 
 function speakChapter(book, chapter) {
@@ -4455,7 +4483,9 @@ function renderResults(results) {
           window.location.href = buildReaderUrl(v.ref);
         };
         const listenBtn = document.createElement('button');
+        listenBtn.className = 'btn btn-secondary btn-listen';
         listenBtn.textContent = 'Listen';
+        listenBtn.setAttribute('aria-label', 'Read this verse aloud');
         listenBtn.onclick = () => {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
           speakVerse(v.ref, cleanText);
@@ -4473,7 +4503,9 @@ function renderResults(results) {
           shareVerse(v.ref, cleanText);
         };
         const audioBtn = document.createElement('button');
+        audioBtn.className = 'btn btn-secondary btn-kjv-audio';
         audioBtn.textContent = 'KJV Audio';
+        audioBtn.setAttribute('aria-label', 'Open KJV audio in new tab');
         audioBtn.onclick = () => {
           window.open(buildKjvAudioUrl(v.ref), '_blank');
         };
@@ -6035,6 +6067,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.onvoiceschanged = populateVoiceSelect;
     }
+  }
+  const ttsStopBtn = document.getElementById('tts-stop');
+  if (ttsStopBtn) {
+    ttsStopBtn.addEventListener('click', stopTts);
   }
 
   const redLetterToggle = document.getElementById('red-letter-toggle');

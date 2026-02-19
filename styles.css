@@ -906,6 +906,23 @@ button:hover {
   margin-top: 0.5rem;
 }
 
+.streak-calendar {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+}
+
+.streak-day {
+  height: 14px;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.25);
+}
+
+.streak-day.active {
+  background: rgba(109, 40, 217, 0.6);
+}
+
 .study-tools,
 .sermon-builder {
   margin-top: 2.5rem;
@@ -955,6 +972,23 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+.collection-controls {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.collection-create {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.collection-create input {
+  flex: 1;
+  min-width: 180px;
 }
 
 .empty {

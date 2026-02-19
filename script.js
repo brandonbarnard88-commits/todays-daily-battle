@@ -10,7 +10,10 @@ let currentUserRole = 'member';
 let currentChurch = null;
 let lastQueryInput = '';
 let subscriptionTier = 'free';
+let currentDailyBattle = null;
 const searchCache = new Map();
+const SAVED_COLLECTIONS_KEY = 'savedCollections';
+const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
 const MASTER_EMAILS = new Set([
   'brandonbarnard88@yahoo.com'
 ]);
@@ -777,6 +780,7 @@ function wireInstallPrompt() {
 
 function updateDailyBattleStreak() {
   const streakEl = document.getElementById('daily-battle-streak');
+  const calendarEl = document.getElementById('daily-battle-calendar');
   if (!streakEl) return;
   const today = getDailyKey();
   let data = {};
@@ -784,13 +788,53 @@ function updateDailyBattleStreak() {
     data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
   } catch {}
   const lastKey = data.lastKey || '';
-  const count = Number(data.count || 0);
-  let nextCount = count;
-  if (lastKey !== today) {
-    nextCount = lastKey ? count + 1 : 1;
-    localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify({ lastKey: today, count: nextCount }));
+  const dates = Array.isArray(data.dates) ? data.dates : [];
+  const normalized = new Set(dates);
+  normalized.add(today);
+  const nextDates = Array.from(normalized).sort();
+  const nextCount = calculateStreak(nextDates, today);
+  if (lastKey !== today || data.count !== nextCount || dates.length !== nextDates.length) {
+    localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify({ lastKey: today, count: nextCount, dates: nextDates }));
   }
   streakEl.textContent = `Streak: ${nextCount} day${nextCount === 1 ? '' : 's'}`;
+  if (calendarEl) renderStreakCalendar(calendarEl, nextDates);
+}
+
+function calculateStreak(dates, todayKey) {
+  const set = new Set(dates);
+  let count = 0;
+  let cursor = todayKey;
+  while (set.has(cursor)) {
+    count += 1;
+    cursor = shiftDailyKey(cursor, -1);
+  }
+  return count;
+}
+
+function shiftDailyKey(key, deltaDays) {
+  const [y, m, d] = key.split('-').map(Number);
+  const date = new Date(y, m - 1, d);
+  date.setDate(date.getDate() + deltaDays);
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function renderStreakCalendar(container, dates) {
+  container.innerHTML = '';
+  const today = getDailyKey();
+  const recent = [];
+  for (let i = 29; i >= 0; i -= 1) {
+    recent.push(shiftDailyKey(today, -i));
+  }
+  const set = new Set(dates);
+  recent.forEach(day => {
+    const cell = document.createElement('div');
+    cell.className = `streak-day${set.has(day) ? ' active' : ''}`;
+    cell.title = day;
+    container.appendChild(cell);
+  });
 }
 
 async function getDailyBattleFromSupabase() {
@@ -1076,16 +1120,87 @@ function renderDailyVerse() {
 }
 
 function shareDailyBattle() {
-  const ref = getDailyVerseRef();
-  const text = ref && bible[ref] ? `${ref}: ${bible[ref]}` : '';
-  if (!text) return;
-  const shareText = `Today’s Daily Battle — ${text}`;
+  const shareText = buildDailyBattleShareText();
+  if (!shareText) return;
   if (navigator.share) {
     navigator.share({ text: shareText, url: window.location.href }).catch(() => {});
     return;
   }
   navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
   alert('Copied! Share it with someone who needs hope.');
+}
+
+function buildDailyBattleShareText() {
+  if (currentDailyBattle?.ref) {
+    const verseLine = currentDailyBattle.verse
+      ? `${currentDailyBattle.ref}: ${currentDailyBattle.verse}`
+      : currentDailyBattle.ref;
+    return `Today’s Daily Battle — ${verseLine}`;
+  }
+  const ref = getDailyVerseRef();
+  return ref && bible[ref] ? `Today’s Daily Battle — ${ref}: ${bible[ref]}` : '';
+}
+
+function shareDailyBattleImage() {
+  if (!currentDailyBattle?.ref) return;
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1080;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  gradient.addColorStop(0, '#0f172a');
+  gradient.addColorStop(1, '#4c1d95');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '700 52px Inter, sans-serif';
+  ctx.fillText('Today’s Daily Battle', 80, 120);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 64px Playfair Display, serif';
+  ctx.fillText(currentDailyBattle.ref, 80, 220);
+
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '400 36px Inter, sans-serif';
+  const text = currentDailyBattle.verse || '';
+  wrapCanvasText(ctx, text, 80, 290, 920, 46);
+
+  ctx.fillStyle = '#cbd5f5';
+  ctx.font = '400 32px Inter, sans-serif';
+  if (currentDailyBattle.reflection) {
+    wrapCanvasText(ctx, `Reflection: ${currentDailyBattle.reflection}`, 80, 560, 920, 44);
+  }
+  if (currentDailyBattle.prayer) {
+    wrapCanvasText(ctx, `Prayer: ${currentDailyBattle.prayer}`, 80, 720, 920, 44);
+  }
+
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '600 28px Inter, sans-serif';
+  ctx.fillText('todaysdailybattle.com', 80, 1010);
+
+  const link = document.createElement('a');
+  link.download = 'todays-daily-battle.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+  let offsetY = 0;
+  words.forEach(word => {
+    const test = line ? `${line} ${word}` : word;
+    if (ctx.measureText(test).width > maxWidth) {
+      ctx.fillText(line, x, y + offsetY);
+      line = word;
+      offsetY += lineHeight;
+    } else {
+      line = test;
+    }
+  });
+  if (line) ctx.fillText(line, x, y + offsetY);
 }
 
 async function renderDailyBattleCard() {
@@ -1107,6 +1222,12 @@ async function renderDailyBattleCard() {
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
   if (reflectionEl) reflectionEl.textContent = battle.reflection ? `Reflection: ${battle.reflection}` : '';
   if (prayerEl) prayerEl.textContent = battle.prayer ? `Prayer: ${battle.prayer}` : '';
+  currentDailyBattle = {
+    ref: battle.ref,
+    verse: verseText || '',
+    reflection: battle.reflection || '',
+    prayer: battle.prayer || ''
+  };
   updateDailyBattleStreak();
 }
 
@@ -1533,6 +1654,26 @@ function generateUuid() {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
+function runIdle(task) {
+  if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+    window.requestIdleCallback(task, { timeout: 1200 });
+  } else {
+    setTimeout(task, 150);
+  }
+}
+
+function scheduleAdminPanel() {
+  const adminRoot = document.getElementById('admin-panel');
+  if (!adminRoot) return;
+  runIdle(() => renderAdminPanel());
+}
+
+function scheduleMessageLoad() {
+  const list = document.getElementById('message-list');
+  if (!list) return;
+  runIdle(() => loadMessages().then(renderMessages));
+}
+
 function buildChapterIndex() {
   const index = {};
   const books = {};
@@ -1727,7 +1868,9 @@ function renderChapterBlock(ref) {
 
 function loadSavedVerses() {
   try {
-    return JSON.parse(localStorage.getItem('savedVerses') || '[]');
+    const legacy = JSON.parse(localStorage.getItem('savedVerses') || '[]');
+    const collectionItems = loadSavedCollectionItems();
+    return collectionItems.length ? collectionItems : legacy;
   } catch {
     return [];
   }
@@ -1735,6 +1878,38 @@ function loadSavedVerses() {
 
 function saveSavedVerses(items) {
   localStorage.setItem('savedVerses', JSON.stringify(items));
+}
+
+function loadSavedCollections() {
+  try {
+    return JSON.parse(localStorage.getItem(SAVED_COLLECTIONS_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveSavedCollections(items) {
+  localStorage.setItem(SAVED_COLLECTIONS_KEY, JSON.stringify(items));
+}
+
+function loadSavedCollectionItems() {
+  try {
+    return JSON.parse(localStorage.getItem(SAVED_COLLECTION_ITEMS_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveSavedCollectionItems(items) {
+  localStorage.setItem(SAVED_COLLECTION_ITEMS_KEY, JSON.stringify(items));
+}
+
+function ensureDefaultCollection() {
+  const collections = loadSavedCollections();
+  if (collections.length) return collections[0].id;
+  const general = { id: generateUuid(), name: 'General' };
+  saveSavedCollections([general]);
+  return general.id;
 }
 
 function loadNotes() {
@@ -1775,11 +1950,13 @@ function saveLessons(items) {
 
 async function syncUserData() {
   if (!canUseSupabase()) return;
-  const [notesData, versesData, sermonsData, lessonsData] = await Promise.all([
+  const [notesData, versesData, sermonsData, lessonsData, collectionsData, collectionItemsData] = await Promise.all([
     supabaseClient.from('notes').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('saved_verses').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
-    supabaseClient.from('lessons').select('id, audience, content, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false })
+    supabaseClient.from('lessons').select('id, audience, content, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
+    supabaseClient.from('saved_collections').select('id, name, created_at').eq('user_id', currentUserId).order('created_at', { ascending: true }),
+    supabaseClient.from('saved_verse_collections').select('id, collection_id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false })
   ]);
 
   if (!notesData.error && Array.isArray(notesData.data)) {
@@ -1791,8 +1968,24 @@ async function syncUserData() {
   if (!versesData.error && Array.isArray(versesData.data)) {
     const verses = versesData.data.map(item => ({ id: item.id, ref: item.ref, text: item.text }));
     saveSavedVerses(verses);
-    renderSavedVerses();
   }
+
+  if (!collectionsData.error && Array.isArray(collectionsData.data)) {
+    const collections = collectionsData.data.map(item => ({ id: item.id, name: item.name }));
+    saveSavedCollections(collections);
+  }
+
+  if (!collectionItemsData.error && Array.isArray(collectionItemsData.data)) {
+    const items = collectionItemsData.data.map(item => ({
+      id: item.id,
+      ref: item.ref,
+      text: item.text,
+      collection_id: item.collection_id
+    }));
+    saveSavedCollectionItems(items);
+  }
+
+  renderSavedVerses();
 
   if (!sermonsData.error && Array.isArray(sermonsData.data) && sermonsData.data[0]) {
     const sermon = sermonsData.data[0];
@@ -2042,6 +2235,18 @@ async function hideMessageItem(item) {
   return true;
 }
 
+async function unhideMessageItem(item) {
+  if (!item) return false;
+  if (isSupabaseConfigured() && currentUserId) {
+    const { error } = await supabaseClient.from('messages').update({ hidden: false }).eq('id', item.id);
+    if (!error) return true;
+  }
+  const local = loadMessagesLocal();
+  const next = local.map(row => row.id === item.id ? { ...row, hidden: false } : row);
+  saveMessagesLocal(next);
+  return true;
+}
+
 async function reportMessageItem(item) {
   if (!item) return false;
   const report = { id: item.id, text: item.text, created_at: new Date().toISOString() };
@@ -2109,6 +2314,8 @@ async function renderAdminPanel() {
   if (overview) {
     const notes = loadNotes();
     const verses = loadSavedVerses();
+    const collections = loadSavedCollections();
+    const collectionItems = loadSavedCollectionItems();
     const lessons = loadLessons();
     const draft = localStorage.getItem('sermonDraft');
     const draftCount = draft ? 1 : 0;
@@ -2118,6 +2325,8 @@ async function renderAdminPanel() {
     const items = [
       { label: 'Saved notes', value: notes.length },
       { label: 'Saved verses', value: verses.length },
+      { label: 'Collections', value: collections.length },
+      { label: 'Collection items', value: collectionItems.length },
       { label: 'Lesson plans', value: lessons.length },
       { label: 'Sermon draft', value: draftCount },
       { label: 'Newsletter signups', value: newsletterCount },
@@ -2144,9 +2353,11 @@ async function renderAdminPanel() {
     )).join('');
   }
 
+  const messageMap = new Map();
   const messagesWrap = document.getElementById('admin-messages');
   if (messagesWrap) {
     const messages = await loadMessages();
+    messages.forEach(item => messageMap.set(item.id, item));
     if (!messages.length) {
       messagesWrap.innerHTML = '<p class="empty">No messages to review.</p>';
       return;
@@ -2159,14 +2370,13 @@ async function renderAdminPanel() {
       const actions = document.createElement('div');
       actions.className = 'item-actions';
       const hideBtn = document.createElement('button');
-      hideBtn.textContent = item.hidden ? 'Hidden' : 'Hide';
-      hideBtn.disabled = Boolean(item.hidden);
+      hideBtn.textContent = item.hidden ? 'Unhide' : 'Hide';
       hideBtn.onclick = async () => {
-        const ok = await hideMessageItem(item);
+        const ok = item.hidden ? await unhideMessageItem(item) : await hideMessageItem(item);
         if (ok) {
-          hideBtn.textContent = 'Hidden';
-          hideBtn.disabled = true;
-          row.style.opacity = '0.6';
+          item.hidden = !item.hidden;
+          hideBtn.textContent = item.hidden ? 'Unhide' : 'Hide';
+          row.style.opacity = item.hidden ? '0.6' : '1';
         } else {
           alert('Unable to hide message. Check permissions.');
         }
@@ -2200,6 +2410,35 @@ async function renderAdminPanel() {
       const row = document.createElement('div');
       row.className = 'list-item';
       row.innerHTML = `<div><strong>Report</strong><p>${report.text}</p><p class="section-note">Message ID: ${report.message_id || report.id}</p></div>`;
+      const actions = document.createElement('div');
+      actions.className = 'item-actions';
+      const target = messageMap.get(report.message_id);
+      if (target) {
+        const hideBtn = document.createElement('button');
+        hideBtn.textContent = target.hidden ? 'Unhide' : 'Hide';
+        hideBtn.onclick = async () => {
+          const ok = target.hidden ? await unhideMessageItem(target) : await hideMessageItem(target);
+          if (ok) {
+            target.hidden = !target.hidden;
+            hideBtn.textContent = target.hidden ? 'Unhide' : 'Hide';
+          } else {
+            alert('Unable to update message.');
+          }
+        };
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.onclick = async () => {
+          const ok = await deleteMessageItem(target);
+          if (ok) {
+            row.remove();
+          } else {
+            alert('Unable to delete message.');
+          }
+        };
+        actions.appendChild(hideBtn);
+        actions.appendChild(delBtn);
+        row.appendChild(actions);
+      }
       reportsWrap.appendChild(row);
     });
   }
@@ -2320,6 +2559,42 @@ async function saveVerseToSupabase(verse) {
 async function deleteVerseFromSupabase(verseId) {
   if (!canUseSupabase() || !verseId) return;
   await supabaseClient.from('saved_verses').delete().eq('id', verseId);
+}
+
+async function createCollectionToSupabase(name) {
+  if (!canUseSupabase()) return null;
+  const { data, error } = await supabaseClient
+    .from('saved_collections')
+    .insert({ user_id: currentUserId, name })
+    .select('id, name')
+    .single();
+  if (error || !data) return null;
+  return data;
+}
+
+async function saveCollectionItemToSupabase(collectionId, verse) {
+  if (!canUseSupabase()) return verse;
+  const existing = await supabaseClient
+    .from('saved_verse_collections')
+    .select('id')
+    .eq('user_id', currentUserId)
+    .eq('collection_id', collectionId)
+    .eq('ref', verse.ref)
+    .maybeSingle();
+  if (existing.data?.id) return { ...verse, id: existing.data.id, collection_id: collectionId };
+
+  const { data, error } = await supabaseClient
+    .from('saved_verse_collections')
+    .insert({ user_id: currentUserId, collection_id: collectionId, ref: verse.ref, text: verse.text })
+    .select('id, ref, text, collection_id')
+    .single();
+  if (error || !data) return { ...verse, collection_id: collectionId };
+  return { id: data.id, ref: data.ref, text: data.text, collection_id: data.collection_id };
+}
+
+async function deleteCollectionItemFromSupabase(itemId) {
+  if (!canUseSupabase() || !itemId) return;
+  await supabaseClient.from('saved_verse_collections').delete().eq('id', itemId);
 }
 
 function applySermonDraft(draft) {
@@ -2749,33 +3024,106 @@ function renderSavedVerses() {
   const container = document.getElementById('saved-verses');
   if (!container) return;
   container.innerHTML = '';
-  const items = loadSavedVerses();
-  if (items.length === 0) {
+  let collections = loadSavedCollections();
+  let items = loadSavedCollectionItems();
+  if (collections.length === 0 && items.length === 0) {
+    const legacy = loadSavedVerses();
+    if (legacy.length) {
+      const generalId = ensureDefaultCollection();
+      collections = loadSavedCollections();
+      items = legacy.map(item => ({ ...item, collection_id: generalId }));
+      saveSavedCollectionItems(items);
+    }
+  }
+  if (collections.length === 0 && items.length === 0) {
     container.innerHTML = '<p class="empty">No saved verses yet.</p>';
     return;
   }
+
+  const grouped = new Map();
+  collections.forEach(col => grouped.set(col.id, { name: col.name, items: [] }));
   items.forEach(item => {
-    const row = document.createElement('div');
-    row.className = 'list-item';
-    row.innerHTML = `<div><strong>${item.ref}</strong><p>${item.text}</p></div>`;
-    const actions = document.createElement('div');
-    actions.className = 'item-actions';
-    const copyBtn = document.createElement('button');
-    copyBtn.textContent = 'Copy';
-    copyBtn.onclick = () => navigator.clipboard.writeText(`${item.ref}: ${item.text}`);
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remove';
-    removeBtn.onclick = async () => {
-      const next = loadSavedVerses().filter(v => (item.id ? v.id !== item.id : v.ref !== item.ref));
-      saveSavedVerses(next);
-      await deleteVerseFromSupabase(item.id);
-      renderSavedVerses();
-    };
-    actions.appendChild(copyBtn);
-    actions.appendChild(removeBtn);
-    row.appendChild(actions);
-    container.appendChild(row);
+    const bucket = grouped.get(item.collection_id);
+    if (bucket) bucket.items.push(item);
   });
+
+  grouped.forEach((group) => {
+    if (!group.items.length) return;
+    const section = document.createElement('div');
+    section.className = 'list';
+    const heading = document.createElement('div');
+    heading.className = 'section-note';
+    heading.textContent = group.name;
+    section.appendChild(heading);
+    group.items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'list-item';
+      row.innerHTML = `<div><strong>${item.ref}</strong><p>${item.text}</p></div>`;
+      const actions = document.createElement('div');
+      actions.className = 'item-actions';
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.onclick = () => navigator.clipboard.writeText(`${item.ref}: ${item.text}`);
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.onclick = async () => {
+        const next = loadSavedCollectionItems().filter(v => (item.id ? v.id !== item.id : v.ref !== item.ref));
+        saveSavedCollectionItems(next);
+        await deleteCollectionItemFromSupabase(item.id);
+        renderSavedVerses();
+      };
+      actions.appendChild(copyBtn);
+      actions.appendChild(removeBtn);
+      row.appendChild(actions);
+      section.appendChild(row);
+    });
+    container.appendChild(section);
+  });
+}
+
+function renderCollectionSelect() {
+  const select = document.getElementById('collection-select');
+  if (!select) return;
+  const collections = loadSavedCollections();
+  const defaultId = ensureDefaultCollection();
+  select.innerHTML = '';
+  collections.forEach(col => {
+    const opt = document.createElement('option');
+    opt.value = col.id;
+    opt.textContent = col.name;
+    select.appendChild(opt);
+  });
+  if (select.options.length === 0) {
+    const fallback = document.createElement('option');
+    fallback.value = defaultId;
+    fallback.textContent = 'General';
+    select.appendChild(fallback);
+  }
+  if (defaultId) select.value = defaultId;
+}
+
+function getActiveCollectionId() {
+  const select = document.getElementById('collection-select');
+  if (select && select.value) return select.value;
+  return ensureDefaultCollection();
+}
+
+async function createCollection(name) {
+  const trimmed = name.trim();
+  if (!trimmed) return null;
+  const existing = loadSavedCollections().find(col => col.name.toLowerCase() === trimmed.toLowerCase());
+  if (existing) return existing;
+  const local = { id: generateUuid(), name: trimmed };
+  const collections = loadSavedCollections();
+  collections.push(local);
+  saveSavedCollections(collections);
+  const remote = await createCollectionToSupabase(trimmed);
+  if (remote?.id) {
+    const refreshed = loadSavedCollections().map(col => col.id === local.id ? { ...col, id: remote.id } : col);
+    saveSavedCollections(refreshed);
+    return { ...local, id: remote.id };
+  }
+  return local;
 }
 
 function renderNotes() {
@@ -3202,16 +3550,17 @@ function renderResults(results) {
         saveBtn.textContent = 'Save';
         saveBtn.onclick = async () => {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
-          const existing = loadSavedVerses().some(item => item.ref === v.ref);
+          const collectionId = getActiveCollectionId();
+          const existing = loadSavedCollectionItems().some(item => item.ref === v.ref && item.collection_id === collectionId);
           if (existing) {
             saveBtn.textContent = 'Saved';
             saveBtn.disabled = true;
             return;
           }
-          const saved = await saveVerseToSupabase({ ref: v.ref, text: cleanText });
-          const next = loadSavedVerses().filter(item => item.ref !== v.ref);
-          next.unshift(saved);
-          saveSavedVerses(next);
+          const saved = await saveCollectionItemToSupabase(collectionId, { ref: v.ref, text: cleanText });
+          const next = loadSavedCollectionItems().filter(item => item.ref !== v.ref || item.collection_id !== collectionId);
+          next.unshift({ ...saved, collection_id: collectionId });
+          saveSavedCollectionItems(next);
           renderSavedVerses();
           saveBtn.textContent = 'Saved';
           saveBtn.disabled = true;
@@ -3328,6 +3677,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   applyReaderFromQuery();
   renderDailyVerse();
   await renderDailyBattleCard();
+  renderCollectionSelect();
+  renderSavedVerses();
   if (!supabaseClient) {
     const authSection = document.getElementById('auth-section');
     if (authSection) {
@@ -3366,8 +3717,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateRoleViews();
     renderDashboard(currentUserRole);
     setView('dashboard');
-    loadMessages().then(renderMessages);
-    renderAdminPanel();
+    scheduleMessageLoad();
+    scheduleAdminPanel();
   }
 
   if (supabaseClient) {
@@ -3390,17 +3741,17 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateRoleViews();
       renderDashboard(currentUserRole);
       setView('dashboard');
-      loadMessages().then(renderMessages);
-      renderAdminPanel();
+      scheduleMessageLoad();
+      scheduleAdminPanel();
     } else {
       subscriptionTier = 'free';
       setView('search');
-      renderAdminPanel();
+      scheduleAdminPanel();
     }
     });
   }
 
-  renderAdminPanel();
+  scheduleAdminPanel();
   wireDailyBattleSeedForm();
   wireInstallPrompt();
 
@@ -3518,6 +3869,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (dailyPlanBtn) {
     dailyPlanBtn.addEventListener('click', () => {
       dailyBtn?.click();
+    });
+  }
+
+  const createCollectionBtn = document.getElementById('create-collection');
+  if (createCollectionBtn) {
+    createCollectionBtn.addEventListener('click', async () => {
+      const input = document.getElementById('collection-name');
+      if (!input) return;
+      const created = await createCollection(input.value);
+      if (created) {
+        input.value = '';
+        renderCollectionSelect();
+        const select = document.getElementById('collection-select');
+        if (select) select.value = created.id;
+        renderSavedVerses();
+      }
     });
   }
 
@@ -3776,6 +4143,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (shareDailyBtn) {
     shareDailyBtn.addEventListener('click', () => {
       shareDailyBattle();
+    });
+  }
+  const shareDailyImageBtn = document.getElementById('share-daily-battle-image');
+  if (shareDailyImageBtn) {
+    shareDailyImageBtn.addEventListener('click', () => {
+      shareDailyBattleImage();
     });
   }
 
@@ -4397,7 +4770,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   refreshMessageNote();
-  loadMessages().then(renderMessages);
+  scheduleMessageLoad();
 
   if (postButton && messageInput) {
     postButton.addEventListener('click', async () => {
@@ -4416,7 +4789,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       await postMessage(text);
       messageInput.value = '';
-      loadMessages().then(renderMessages);
+      scheduleMessageLoad();
     });
   }
 

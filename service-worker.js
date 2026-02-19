@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tdb-static-v9';
+const CACHE_NAME = 'tdb-static-v10';
 const CORE_ASSETS = [
   '/',
   '/index.html',

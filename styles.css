@@ -1017,6 +1017,10 @@ button:hover {
   margin-bottom: 0.8rem;
 }
 
+.collection-share button {
+  width: fit-content;
+}
+
 .empty {
   color: #94a3b8;
   text-align: center;

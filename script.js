@@ -3195,6 +3195,41 @@ function buildCollectionSharePayload(collectionId) {
   return { collection: { name: collection.name }, items };
 }
 
+function downloadCollectionPdf(collectionId) {
+  const payload = buildCollectionSharePayload(collectionId);
+  if (!payload) {
+    alert('Select a collection with saved verses to export.');
+    return;
+  }
+  const { collection, items } = payload;
+  const win = window.open('', '_blank');
+  if (!win) return;
+  const rows = items.map(item => (
+    `<div class="verse"><strong>${item.ref}</strong><p>${item.text}</p></div>`
+  )).join('');
+  const html = `
+    <html>
+      <head>
+        <title>${collection.name} — Saved Verses</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 32px; color: #0f172a; }
+          h1 { font-size: 22px; margin-bottom: 16px; }
+          .verse { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; }
+          .verse p { margin: 6px 0 0; }
+        </style>
+      </head>
+      <body>
+        <h1>${collection.name} — Saved Verses</h1>
+        ${rows}
+      </body>
+    </html>
+  `;
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  win.print();
+}
+
 function applySharedCollection(payload) {
   if (!payload?.collection || !Array.isArray(payload.items)) return;
   const collections = loadSavedCollections();
@@ -4705,6 +4740,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const linkEl = document.getElementById('collection-share-link');
         if (linkEl) linkEl.value = link;
       }
+    });
+  }
+
+  const downloadCollectionBtn = document.getElementById('download-collection-pdf');
+  if (downloadCollectionBtn) {
+    downloadCollectionBtn.addEventListener('click', () => {
+      const collectionId = getActiveCollectionId();
+      downloadCollectionPdf(collectionId);
     });
   }
 

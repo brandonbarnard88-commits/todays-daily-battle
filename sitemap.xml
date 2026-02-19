@@ -16,6 +16,10 @@
   <url><loc>https://todaysdailybattle.com/topic-anxiety.html</loc></url>
   <url><loc>https://todaysdailybattle.com/topic-grief.html</loc></url>
   <url><loc>https://todaysdailybattle.com/topic-parenting.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/topic-hope.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/topic-fear.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/topic-forgiveness.html</loc></url>
+  <url><loc>https://todaysdailybattle.com/topic-strength.html</loc></url>
 </urlset>
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -63,5 +67,17 @@
   </url>
   <url>
     <loc>https://todaysdailybattle.com/topic-parenting.html</loc>
+  </url>
+  <url>
+    <loc>https://todaysdailybattle.com/topic-hope.html</loc>
+  </url>
+  <url>
+    <loc>https://todaysdailybattle.com/topic-fear.html</loc>
+  </url>
+  <url>
+    <loc>https://todaysdailybattle.com/topic-forgiveness.html</loc>
+  </url>
+  <url>
+    <loc>https://todaysdailybattle.com/topic-strength.html</loc>
   </url>
 </urlset>

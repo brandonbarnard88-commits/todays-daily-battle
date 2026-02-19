@@ -1,10 +1,9 @@
-const CACHE_NAME = 'tdb-static-v26';
+const CACHE_NAME = 'tdb-static-v27';
 const CORE_ASSETS = [
   '/',
   '/index.html',
   '/styles.css',
   '/script.js',
-  '/kjv.json',
   '/manifest.json',
   '/icon.svg'
 ];
@@ -24,6 +23,19 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+  if (url.pathname.endsWith('kjv.json') || url.pathname.endsWith('/kjv.json')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          const clone = res.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          return res;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => cached || fetch(event.request))
   );

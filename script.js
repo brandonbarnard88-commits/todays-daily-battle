@@ -2316,17 +2316,18 @@ function applyReaderFromQuery() {
 
 function applySearchFromQuery() {
   const params = new URLSearchParams(window.location.search);
-  const q = params.get('q');
-  if (!q) return;
+  let value = params.get('q') || params.get('ref');
+  if (!value) return;
   const queryEl = document.getElementById('query');
   const searchBtn = document.getElementById('search-btn');
   if (!queryEl || !searchBtn) return;
   try {
-    queryEl.value = decodeURIComponent(q).trim();
+    value = decodeURIComponent(value).trim().replace(/\s+/g, ' ');
   } catch {
-    queryEl.value = q.trim();
+    value = value.trim();
   }
-  if (!queryEl.value) return;
+  if (!value) return;
+  queryEl.value = value;
   setView('search');
   const mainSearch = document.getElementById('main-search');
   if (mainSearch) mainSearch.scrollIntoView({ behavior: 'smooth', block: 'start' });

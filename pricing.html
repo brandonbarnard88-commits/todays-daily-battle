@@ -101,7 +101,10 @@
                 <li>Shareable links</li>
                 <li>Priority updates</li>
               </ul>
-              <a class="btn btn-primary" href="mailto:brandon@todaysdailybattle.com?subject=Supporter%20Plan">Join Supporter</a>
+              <div class="cta-group">
+                <button class="btn btn-primary" id="pricing-supporter-monthly" type="button">Subscribe $5/mo</button>
+                <button class="btn btn-secondary" id="pricing-supporter-yearly" type="button">Subscribe $50/yr</button>
+              </div>
             </div>
             <div class="pricing-card">
               <h3>Church/Team</h3>
@@ -113,7 +116,10 @@
                 <li>Priority support</li>
                 <li>Save 2 months annually</li>
               </ul>
-              <a class="btn btn-secondary" href="mailto:brandon@todaysdailybattle.com?subject=Church%20Plan">Talk to Us</a>
+              <div class="cta-group">
+                <button class="btn btn-secondary" id="pricing-church-monthly" type="button">Subscribe $20/mo</button>
+                <button class="btn btn-secondary" id="pricing-church-yearly" type="button">Subscribe $200/yr</button>
+              </div>
             </div>
           </div>
         </section>
@@ -121,9 +127,18 @@
           <h2 class="section-divider">Why Support?</h2>
           <p class="section-note">Your support keeps search free for everyone and funds new daily tools.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="mailto:brandon@todaysdailybattle.com?subject=Supporter%20Plan">Become a Supporter</a>
+            <button class="btn btn-primary" id="pricing-supporter-cta" type="button">Become a Supporter</button>
             <a class="btn btn-secondary" href="index.html#newsletter">Join the Battle Plan</a>
           </div>
+        </section>
+        <section class="glass">
+          <h2 class="section-divider">Supporter Waitlist</h2>
+          <p class="section-note">We’ll email you as soon as subscriptions go live.</p>
+          <div class="newsletter-form">
+            <input id="supporter-waitlist-email" type="email" placeholder="Email address" aria-label="Supporter waitlist email" autocomplete="email">
+            <button id="supporter-waitlist-btn" class="btn btn-secondary" type="button">Notify Me</button>
+          </div>
+          <p id="supporter-waitlist-status" class="section-note"></p>
         </section>
       </div>
     </main>

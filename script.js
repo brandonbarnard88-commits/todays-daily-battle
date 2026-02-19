@@ -667,6 +667,11 @@ const MESSAGE_NAME_KEY = 'messageDisplayName';
 const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
 const MESSAGE_AMEN_KEY = 'messageAmenCounts';
 const DAILY_KIDS_HISTORY_KEY = 'dailyKidsHistory';
+const SUPPORTER_WAITLIST_KEY = 'supporterWaitlist';
+const STRIPE_SUPPORTER_MONTHLY_URL = '';
+const STRIPE_SUPPORTER_YEARLY_URL = '';
+const STRIPE_CHURCH_MONTHLY_URL = '';
+const STRIPE_CHURCH_YEARLY_URL = '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const KID_ACTIVITIES = {
   fear: {
@@ -964,6 +969,14 @@ function saveMessageNameMap(map) {
   localStorage.setItem(MESSAGE_NAME_MAP_KEY, JSON.stringify(map));
 }
 
+function openStripeCheckout(url) {
+  if (!url) {
+    alert('Checkout is not configured yet. Add your Stripe payment links in script.js.');
+    return;
+  }
+  window.location.href = url;
+}
+
 function loadAmenCounts() {
   try {
     return JSON.parse(localStorage.getItem(MESSAGE_AMEN_KEY) || '{}');
@@ -974,6 +987,18 @@ function loadAmenCounts() {
 
 function saveAmenCounts(map) {
   localStorage.setItem(MESSAGE_AMEN_KEY, JSON.stringify(map));
+}
+
+function loadSupporterWaitlist() {
+  try {
+    return JSON.parse(localStorage.getItem(SUPPORTER_WAITLIST_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function saveSupporterWaitlist(items) {
+  localStorage.setItem(SUPPORTER_WAITLIST_KEY, JSON.stringify(items));
 }
 const templates = [
   {
@@ -1321,6 +1346,15 @@ function exportCsvRows(items) {
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
+}
+
+function exportWaitlistCsv() {
+  const items = loadSupporterWaitlist();
+  if (!items.length) {
+    alert('No waitlist entries yet.');
+    return;
+  }
+  exportCsvRows(items);
 }
 
 async function loadMessages() {
@@ -4315,6 +4349,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const waitlistExportBtn = document.getElementById('waitlist-export');
+  if (waitlistExportBtn) {
+    waitlistExportBtn.addEventListener('click', () => {
+      exportWaitlistCsv();
+    });
+  }
+
   function buildDailyEmailDraft() {
     const ref = getDailyVerseRef();
     const verseText = ref && bible[ref] ? bible[ref] : '';
@@ -5078,5 +5119,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     currentUserRole = 'member';
     applyRoleAccess();
     setView('search');
+  }
+
+  const supporterMonthlyBtn = document.getElementById('pricing-supporter-monthly');
+  const supporterYearlyBtn = document.getElementById('pricing-supporter-yearly');
+  const churchMonthlyBtn = document.getElementById('pricing-church-monthly');
+  const churchYearlyBtn = document.getElementById('pricing-church-yearly');
+  const supporterCtaBtn = document.getElementById('pricing-supporter-cta');
+  supporterMonthlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL));
+  supporterYearlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_YEARLY_URL));
+  churchMonthlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_CHURCH_MONTHLY_URL));
+  churchYearlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_CHURCH_YEARLY_URL));
+  supporterCtaBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL));
+
+  const waitlistBtn = document.getElementById('supporter-waitlist-btn');
+  const waitlistEmail = document.getElementById('supporter-waitlist-email');
+  const waitlistStatus = document.getElementById('supporter-waitlist-status');
+  if (waitlistBtn && waitlistEmail) {
+    waitlistBtn.addEventListener('click', () => {
+      const email = waitlistEmail.value.trim().toLowerCase();
+      if (!email || !email.includes('@')) {
+        if (waitlistStatus) waitlistStatus.textContent = 'Please enter a valid email.';
+        return;
+      }
+      const items = loadSupporterWaitlist();
+      if (items.some(item => item.email === email)) {
+        if (waitlistStatus) waitlistStatus.textContent = 'You are already on the waitlist.';
+        return;
+      }
+      items.unshift({ email, created_at: new Date().toISOString() });
+      saveSupporterWaitlist(items);
+      waitlistEmail.value = '';
+      if (waitlistStatus) waitlistStatus.textContent = 'Thanks! We will email you when it is live.';
+    });
   }
 });

@@ -880,6 +880,27 @@ function getDailyKey() {
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
 
+var ANCHOR_VERSE_REFS = [
+  'Ephesians 6:10',
+  'Ephesians 6:11',
+  '2 Timothy 1:7',
+  'Psalms 23:4',
+  'Isaiah 41:10',
+  'Joshua 1:9',
+  'Philippians 4:13'
+];
+
+function getAnchorVerseForDay() {
+  if (!Object.keys(bible).length) return null;
+  var key = getDailyKey();
+  var seed = key.split('').reduce(function (a, c) { return a + c.charCodeAt(0); }, 0);
+  for (var i = 0; i < ANCHOR_VERSE_REFS.length; i++) {
+    var ref = ANCHOR_VERSE_REFS[(seed + i) % ANCHOR_VERSE_REFS.length];
+    if (bible[ref]) return { ref: ref, text: bible[ref] };
+  }
+  return null;
+}
+
 function getAuthRedirectBase() {
   if (window.location.protocol === 'file:') {
     return 'https://todaysdailybattle.com';
@@ -1514,6 +1535,8 @@ async function renderDailyBattleCard() {
   const reflectionEl = document.getElementById('daily-battle-reflection');
   const prayerEl = document.getElementById('daily-battle-prayer');
   const redLetterEl = document.getElementById('daily-battle-red-letter');
+  var anchorTryEl = document.getElementById('daily-battle-anchor-try');
+  if (anchorTryEl) anchorTryEl.remove();
   if (!card) return;
   card.innerHTML = '<p class="daily-battle-loading">Loading today\'s verse…</p>';
   if (!Object.keys(bible).length) {
@@ -1521,13 +1544,28 @@ async function renderDailyBattleCard() {
     return;
   }
   const supaBattle = await getDailyBattleFromSupabase();
-  const battle = supaBattle || getDailyBattleFallback();
+  let battle = supaBattle || getDailyBattleFallback();
+  var usedAnchorVerse = false;
   if (!battle || !battle.ref) {
-    card.innerHTML = '<p class="empty">Verse not available.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
-    return;
+    const anchor = getAnchorVerseForDay();
+    if (anchor) {
+      usedAnchorVerse = true;
+      battle = { ref: anchor.ref, reflection: 'When today\'s verse isn\'t loading, anchor here. God\'s Word is your strength.', prayer: 'Lord, help me put on Your armour and stand firm today. Amen.' };
+    } else {
+      card.innerHTML = '<p class="empty">Verse not available.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+      return;
+    }
   }
   const verseText = getBibleVerseText(battle.ref);
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
+  if (usedAnchorVerse && prayerEl) {
+    var tryAgainWrap = document.createElement('p');
+    tryAgainWrap.id = 'daily-battle-anchor-try';
+    tryAgainWrap.className = 'section-note';
+    tryAgainWrap.innerHTML = 'Today\'s verse didn\'t load from the server. <button type="button" class="link-button" id="daily-battle-try-again">Try again</button>';
+    tryAgainWrap.style.marginTop = '0.5rem';
+    prayerEl.after(tryAgainWrap);
+  }
   if (isRedLetterLike(battle.ref, verseText || '')) {
     card.classList.add('red-letter-card');
     const verseEl = card.querySelector('p');

@@ -10,6 +10,22 @@
 
 ---
 
+## Hosting / getting the deploy live
+
+Your repo doesn’t have a host config file (no `netlify.toml`, `vercel.json`, etc.), so the live site is likely one of:
+
+- **Netlify** – Connect the GitHub repo in Netlify dashboard; deploys usually run on every push to `main`. Check **Deploys** → latest should be “Published.”
+- **Vercel** – Same idea: connect repo, auto-deploy on push. Check **Deployments** → latest commit “Ready.”
+- **Cloudflare Pages** – Connect repo or upload; **Deployments** tab shows build status.
+- **GitHub Pages** – Repo **Settings → Pages** → source branch (e.g. `main`). Build can take 1–2 min. Check **Actions** tab if you use a workflow.
+- **Other** – FTP, cPanel, or a custom server: you have to upload or pull the latest files yourself after each push.
+
+**If deploy isn’t automatic:** Push to `main`, then in the host’s dashboard trigger a new deploy (e.g. “Deploy site” / “Redeploy”) so the latest commit is built and published.
+
+**Verify it’s live:** View Page Source on todaysdailybattle.com → search for `Addiction`, `Trauma`, `Listen`, `KJV Audio`. If they’re in the HTML, the new build is live.
+
+---
+
 ## Checklist after deploy
 
 1. **Deploy** the latest code to todaysdailybattle.com (push to your host and confirm the build completed).

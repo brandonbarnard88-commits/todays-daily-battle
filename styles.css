@@ -865,6 +865,12 @@ button:hover {
   padding: 0.3rem 0;
 }
 
+.context-highlight {
+  background: rgba(109, 40, 217, 0.22);
+  border-radius: 8px;
+  padding: 0.35rem 0.4rem;
+}
+
 .guidance {
   margin-top: 1.2rem;
   padding: 1rem;

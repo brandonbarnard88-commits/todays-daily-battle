@@ -1655,6 +1655,38 @@ function parseChapterKey(key) {
   return { book: match[1], chapter: match[2] };
 }
 
+function buildReaderUrl(ref) {
+  const chapterKey = getChapterKey(ref);
+  const parsed = chapterKey ? parseChapterKey(chapterKey) : null;
+  if (!parsed) return 'reader.html';
+  const params = new URLSearchParams({
+    book: parsed.book,
+    chapter: parsed.chapter,
+    ref
+  });
+  return `reader.html?${params.toString()}`;
+}
+
+function applyReaderFromQuery() {
+  const bookSelect = document.getElementById('reader-book');
+  if (!bookSelect) return;
+  const params = new URLSearchParams(window.location.search);
+  const refParam = params.get('ref') || '';
+  let book = params.get('book') || '';
+  let chapter = params.get('chapter') || '';
+  if (!book || !chapter) {
+    const chapterKey = refParam ? getChapterKey(refParam) : null;
+    const parsed = chapterKey ? parseChapterKey(chapterKey) : null;
+    if (parsed) {
+      book = parsed.book;
+      chapter = parsed.chapter;
+    }
+  }
+  if (book && chapter && bookIndex[book]) {
+    selectReaderChapter(book, chapter, refParam);
+  }
+}
+
 function renderContextBlock(ref, radius = 3) {
   const chapterKey = getChapterKey(ref);
   if (!chapterKey || !chapterIndex[chapterKey]) return null;
@@ -2468,12 +2500,13 @@ function renderReaderChapter(book, chapter) {
   verses.forEach(v => {
     const line = document.createElement('div');
     line.className = 'context-line';
+    line.dataset.ref = v.ref;
     line.innerHTML = `<strong>${v.ref}</strong> ${v.text}`;
     output.appendChild(line);
   });
 }
 
-function selectReaderChapter(book, chapter) {
+function selectReaderChapter(book, chapter, highlightRef = '') {
   const bookSelect = document.getElementById('reader-book');
   const chapterSelect = document.getElementById('reader-chapter');
   if (!bookSelect || !chapterSelect) return;
@@ -2481,6 +2514,13 @@ function selectReaderChapter(book, chapter) {
   populateReaderChapters(book);
   chapterSelect.value = String(chapter);
   renderReaderChapter(book, String(chapter));
+  if (highlightRef) {
+    const highlight = document.querySelector(`.context-line[data-ref="${highlightRef}"]`);
+    if (highlight) {
+      highlight.classList.add('context-highlight');
+      highlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
 }
 
 function buildLessonPlan(results, audience) {
@@ -3191,9 +3231,15 @@ function renderResults(results) {
             contextBtn.textContent = 'Hide context';
           }
         };
+        const openBtn = document.createElement('button');
+        openBtn.textContent = 'Open chapter';
+        openBtn.onclick = () => {
+          window.location.href = buildReaderUrl(v.ref);
+        };
         buttonRow.appendChild(copyBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
+        buttonRow.appendChild(openBtn);
         card.appendChild(buttonRow);
         list.appendChild(card);
       });
@@ -3279,6 +3325,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const versionSelect = document.getElementById('version');
   await loadBible(versionSelect ? versionSelect.value : currentVersion);
   refreshBibleView();
+  applyReaderFromQuery();
   renderDailyVerse();
   await renderDailyBattleCard();
   if (!supabaseClient) {

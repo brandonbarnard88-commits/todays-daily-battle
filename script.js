@@ -4505,10 +4505,12 @@ function renderResults(results) {
     }
   }
 
-  const renderSection = (title, verses, limit = 5) => {
+  const isJesusSaidQuery = queryText.includes('jesus said') || queryText.includes('red letter');
+  const renderSection = (title, verses, limit = 5, forceRedLetter = false) => {
     if (!verses || verses.length === 0) return;
     const section = document.createElement('div');
     section.className = 'result-section';
+    if (forceRedLetter) section.classList.add('jesus-said-results');
     const heading = document.createElement('h3');
     heading.textContent = title;
     section.appendChild(heading);
@@ -4654,11 +4656,11 @@ function renderResults(results) {
   };
 
   if (results.intent === 'keyword') {
-    renderSection('Phrase Matches', phraseMatches, 4);
-    renderSection('Related Topics', relatedMatches, 4);
+    renderSection('Phrase Matches', phraseMatches, 4, isJesusSaidQuery);
+    renderSection('Related Topics', relatedMatches, 4, isJesusSaidQuery);
   }
 
-  renderSection(results.intent === 'keyword' ? 'Keyword Matches' : 'Results', verses, 6);
+  renderSection(results.intent === 'keyword' ? 'Keyword Matches' : 'Results', verses, 6, isJesusSaidQuery);
   const contextNote = document.createElement('div');
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';

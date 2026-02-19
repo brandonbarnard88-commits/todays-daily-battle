@@ -1115,6 +1115,15 @@ body.red-letter-off .red-letter-card {
   border-color: rgba(148, 163, 184, 0.2);
 }
 
+/* Jesus Said search: always show red lettering regardless of global toggle */
+.jesus-said-results .red-letter {
+  color: #b91c1c;
+}
+
+.jesus-said-results .red-letter-card {
+  border-color: rgba(185, 28, 28, 0.35);
+}
+
 .guidance {
   margin-top: 1.2rem;
   padding: 1rem;

@@ -7,6 +7,7 @@
   --text-dark: #e2e8f0;
   --card-light: rgba(255, 255, 255, 0.85);
   --card-dark: rgba(30, 41, 59, 0.85);
+  --verse-size: 18px;
 }
 
 body {
@@ -868,6 +869,10 @@ button:active {
   margin-bottom: 0.8rem;
 }
 
+.verse-card p {
+  font-size: var(--verse-size);
+}
+
 .easy-explain {
   margin-top: 0.8rem;
   padding: 0.7rem;
@@ -908,6 +913,10 @@ button:active {
 
 .context-line {
   padding: 0.3rem 0;
+}
+
+.context-line {
+  font-size: var(--verse-size);
 }
 
 .context-highlight {

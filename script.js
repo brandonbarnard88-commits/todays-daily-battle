@@ -758,6 +758,7 @@ const STRIPE_CHURCH_MONTHLY_URL = '';
 const STRIPE_CHURCH_YEARLY_URL = '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
+const VERSE_SIZE_KEY = 'verseFontSize';
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -1107,6 +1108,14 @@ function isRedLetterEnabled() {
 function setRedLetterEnabled(value) {
   localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
   document.body.classList.toggle('red-letter-off', !value);
+}
+
+function applyVerseSize(size) {
+  const value = Math.min(24, Math.max(16, Number(size) || 18));
+  document.documentElement.style.setProperty('--verse-size', `${value}px`);
+  localStorage.setItem(VERSE_SIZE_KEY, String(value));
+  const label = document.getElementById('verse-font-size-value');
+  if (label) label.textContent = `${value}px`;
 }
 
 function loadSupporterWaitlist() {
@@ -1779,6 +1788,19 @@ function copyDailyEncouragement() {
   }
   const text = `Daily Encouragement\n${ref}\n${verseText}`;
   navigator.clipboard.writeText(text);
+}
+
+function speakVerse(ref, text) {
+  if (!ref || !text) return;
+  if (!('speechSynthesis' in window)) {
+    alert('Audio is not supported in this browser.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(`${ref}. ${text}`);
+  utterance.rate = 1;
+  utterance.pitch = 1;
+  window.speechSynthesis.speak(utterance);
 }
 
 const defaultChurches = [
@@ -4238,7 +4260,14 @@ function renderResults(results) {
         openBtn.onclick = () => {
           window.location.href = buildReaderUrl(v.ref);
         };
+        const listenBtn = document.createElement('button');
+        listenBtn.textContent = 'Listen';
+        listenBtn.onclick = () => {
+          const cleanText = v.text.replace(/<[^>]+>/g, '');
+          speakVerse(v.ref, cleanText);
+        };
         buttonRow.appendChild(copyBtn);
+        buttonRow.appendChild(listenBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
         buttonRow.appendChild(openBtn);
@@ -5578,6 +5607,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (copyEncouragementBtn) {
     copyEncouragementBtn.addEventListener('click', () => {
       copyDailyEncouragement();
+    });
+  }
+
+  const listenDailyBtn = document.getElementById('listen-daily-battle');
+  if (listenDailyBtn) {
+    listenDailyBtn.addEventListener('click', () => {
+      const ref = currentDailyBattle?.ref || getDailyVerseRef();
+      const text = currentDailyBattle?.verse || (ref && bible[ref] ? bible[ref] : '');
+      if (!ref || !text) {
+        alert('Daily verse is not ready yet.');
+        return;
+      }
+      speakVerse(ref, text);
+    });
+  }
+
+  const verseSizeSlider = document.getElementById('verse-font-size');
+  if (verseSizeSlider) {
+    const savedSize = localStorage.getItem(VERSE_SIZE_KEY) || verseSizeSlider.value;
+    verseSizeSlider.value = savedSize;
+    applyVerseSize(savedSize);
+    verseSizeSlider.addEventListener('input', () => {
+      applyVerseSize(verseSizeSlider.value);
     });
   }
 

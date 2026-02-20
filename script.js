@@ -4722,15 +4722,15 @@ function renderResults(results) {
         };
         const tweetBtn = document.createElement('button');
         tweetBtn.className = 'btn-share-social btn-share-tweet';
-        tweetBtn.textContent = 'Tweet';
-        tweetBtn.setAttribute('aria-label', 'Share this verse on X (Twitter)');
+        tweetBtn.innerHTML = '<svg class="btn-share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>';
+        tweetBtn.setAttribute('aria-label', 'Share this verse on X');
         tweetBtn.onclick = () => {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
           window.open(buildTweetShareUrl(v.ref, cleanText), '_blank', 'noopener,noreferrer');
         };
         const fbBtn = document.createElement('button');
         fbBtn.className = 'btn-share-social btn-share-facebook';
-        fbBtn.textContent = 'Facebook';
+        fbBtn.innerHTML = '<svg class="btn-share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>';
         fbBtn.setAttribute('aria-label', 'Share this verse on Facebook');
         fbBtn.onclick = () => {
           window.open(buildFacebookShareUrl(v.ref), '_blank', 'noopener,noreferrer');

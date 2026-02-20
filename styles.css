@@ -1229,6 +1229,14 @@ button:active {
   font-size: 0.85rem;
   padding: 0.35rem 0.6rem;
   min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-share-social .btn-share-icon {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: middle;
 }
 .btn-share-tweet { color: #0ea5e9; }
 .btn-share-tweet:hover { color: #38bdf8; }

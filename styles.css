@@ -100,6 +100,8 @@ body {
   flex-wrap: wrap;
 }
 .top-bar .auth-details-mobile { flex-shrink: 0; }
+.top-bar .auth-details-inline { flex-shrink: 0; display: flex; align-items: center; }
+.top-bar .auth-details-inline #auth-section { display: flex !important; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
 
 .header-menu-link {
   color: rgba(226, 232, 240, 0.9);

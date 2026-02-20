@@ -128,6 +128,18 @@ body {
 .sidebar-options .inline-toggle {
   font-size: 0.9rem;
   color: rgba(226, 232, 240, 0.85);
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  cursor: pointer;
+}
+.sidebar-options .inline-toggle input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  min-width: 1.15rem;
+  min-height: 1.15rem;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .brand {
@@ -620,6 +632,16 @@ body {
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-top: 0.5rem;
+}
+.newsletter-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 0.75rem;
+}
+.newsletter-options .inline-toggle {
+  gap: 0.5rem;
 }
 
 .newsletter-form input {
@@ -1185,8 +1207,22 @@ button:active {
   width: 100%;
 }
 .reading-plan-row .list-item { flex: 1; }
-.reading-plan-check { display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; }
-.reading-plan-check input { width: auto; margin: 0; }
+.reading-plan-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.35rem 0;
+}
+.reading-plan-check input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  min-width: 1.1rem;
+  min-height: 1.1rem;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
 
 .card-actions {
   display: flex;
@@ -1360,10 +1396,19 @@ body.tts-playing .btn-listen {
 
 .red-letter {
   color: #b91c1c;
+  line-height: 1.5;
 }
 
 .red-letter-card {
   border-color: rgba(185, 28, 28, 0.35);
+}
+.red-letter-card p {
+  margin: 0.35em 0 0;
+  line-height: 1.55;
+}
+.red-letter-card strong {
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 body.red-letter-off .red-letter {
@@ -1777,8 +1822,18 @@ body.red-letter-off .red-letter-card {
 .inline-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   font-size: 0.95rem;
+  cursor: pointer;
+}
+.inline-toggle input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  min-width: 1.1rem;
+  min-height: 1.1rem;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .toggle-inline {

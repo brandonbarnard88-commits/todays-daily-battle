@@ -621,6 +621,62 @@ const topics = {
       kid: "Relationships grow when we are kind and forgiving.",
       teen: "Healthy relationships need grace, truth, and patience."
     }
+  },
+  finances: {
+    synonyms: ['money', 'provision', 'need', 'bills', 'wealth', 'give'],
+    verses: ['Philippians 4:19', 'Matthew 6:33', 'Proverbs 3:9', 'Malachi 3:10', 'Hebrews 13:5'],
+    guidance: {
+      kid: "God gives us what we need; we can share with others.",
+      teen: "Put God first; He promises to provide what you need.",
+      adult: "Seek first the kingdom; God will add what you need.",
+      pastor: "Teach stewardship, generosity, and trust in God's provision."
+    },
+    explain: {
+      kid: "God takes care of us and wants us to be generous.",
+      teen: "God provides; we can trust Him and give to others."
+    }
+  },
+  spiritualwarfare: {
+    synonyms: ['armor', 'ephesians 6', 'spiritual battle', 'stand firm', 'devil'],
+    verses: ['Ephesians 6:10', 'Ephesians 6:11', 'James 4:7', '2 Corinthians 10:4', '1 Peter 5:8'],
+    guidance: {
+      kid: "God gives us armor to stand strong against lies.",
+      teen: "Put on the full armor of God and stand firm.",
+      adult: "Be strong in the Lord; resist the devil and he will flee.",
+      pastor: "Preach the full armor of God and spiritual readiness."
+    },
+    explain: {
+      kid: "God helps you be brave and stand for what is right.",
+      teen: "God's armor protects your heart and mind in the battle."
+    }
+  },
+  sleep: {
+    synonyms: ['rest', 'insomnia', 'peace at night', 'calm', 'sleepless'],
+    verses: ['Psalms 4:8', 'Proverbs 3:24', 'Psalms 127:2', 'Matthew 11:28', 'Philippians 4:6'],
+    guidance: {
+      kid: "God gives you rest; tell Him your worries before bed.",
+      teen: "Cast your cares on God; He gives peace so you can rest.",
+      adult: "The Lord gives sleep to those He loves; rest in His peace.",
+      pastor: "Point to Scripture for rest and peace at night."
+    },
+    explain: {
+      kid: "God can help your mind be calm when you go to sleep.",
+      teen: "God offers peace so you can rest instead of worry."
+    }
+  },
+  marriage: {
+    synonyms: ['spouse', 'husband', 'wife', 'conflict', 'unity', 'covenant'],
+    verses: ['Ephesians 5:25', 'Colossians 3:19', 'Proverbs 15:1', '1 Peter 3:7', 'Ephesians 4:32'],
+    guidance: {
+      kid: "Families love and forgive each other.",
+      teen: "Honor your parents and learn how to love well.",
+      adult: "Love your spouse as Christ loves the church; pursue peace.",
+      pastor: "Teach marriage as covenant, grace, and mutual submission."
+    },
+    explain: {
+      kid: "God wants families to love and forgive each other.",
+      teen: "God designed marriage for love, respect, and forgiveness."
+    }
   }
   // You can keep adding more here
 };
@@ -1004,6 +1060,12 @@ function updateDailyBattleStreak() {
     localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify({ lastKey: today, count: nextCount, dates: nextDates }));
   }
   streakEl.textContent = `Streak: ${nextCount} day${nextCount === 1 ? '' : 's'}`;
+  const milestoneEl = document.getElementById('daily-battle-milestone');
+  if (milestoneEl) {
+    if (nextCount >= 30) milestoneEl.textContent = '🏆 30-Day Champion! You\'re building a strong habit.';
+    else if (nextCount >= 7) milestoneEl.textContent = '⚔️ Warrior Week! Seven days in a row—keep going!';
+    else milestoneEl.textContent = '';
+  }
   if (calendarEl) renderStreakCalendar(calendarEl, nextDates);
 }
 
@@ -2025,6 +2087,12 @@ function buildFacebookShareUrl(ref) {
   const base = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || '';
   const verseUrl = `${base.replace(/\/$/, '')}/?ref=${encodeURIComponent(ref)}`;
   return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(verseUrl)}`;
+}
+
+function buildPrayerFromVerse(ref, text) {
+  const clean = (text || '').replace(/<[^>]+>/g, '').trim();
+  const short = clean.length > 80 ? clean.substring(0, 77) + '…' : clean;
+  return `Lord, thank You for Your Word in ${ref}. Let this truth sink into my heart: "${short}" Help me live by it today. Amen.`;
 }
 
 function buildKjvAudioUrl(ref) {
@@ -4266,6 +4334,10 @@ function renderResults(results) {
         <button class="quick-topic" type="button" data-topic="joy">Joy</button>
         <button class="quick-topic" type="button" data-topic="addiction">Addiction</button>
         <button class="quick-topic" type="button" data-topic="trauma">Trauma</button>
+        <button class="quick-topic" type="button" data-topic="finances">Finances</button>
+        <button class="quick-topic" type="button" data-topic="spiritualwarfare">Spiritual Warfare</button>
+        <button class="quick-topic" type="button" data-topic="sleep">Sleep & Rest</button>
+        <button class="quick-topic" type="button" data-topic="marriage">Marriage</button>
         <button class="quick-topic" type="button" data-topic="relationships">Relationships</button>
         <button class="quick-topic" type="button" data-topic="jesus said">Jesus Said</button>
       </div>
@@ -4507,6 +4579,30 @@ function renderResults(results) {
     gentle.textContent = 'You are not alone. God is with you and for you.';
     output.appendChild(gentle);
   }
+  if (queryText.includes('finances') || queryText.includes('money') || queryText.includes('provision')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God promises to supply what you need. Seek Him first.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('spiritualwarfare') || queryText.includes('armor') || queryText.includes('spiritual battle')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'Stand firm in the Lord. Put on the full armor of God.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('sleep') || queryText.includes('rest') || queryText.includes('insomnia')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'The Lord gives His beloved sleep. Rest in His peace.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('marriage') || queryText.includes('spouse') || queryText.includes('husband') || queryText.includes('wife')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God designed marriage for love, grace, and forgiveness.';
+    output.appendChild(gentle);
+  }
   if (results.intent === 'topic' && (results.tier === 'kid' || results.tier === 'teen')) {
     const topic = topics[results.topic];
     if (topic?.explain?.[results.tier]) {
@@ -4608,6 +4704,18 @@ function renderResults(results) {
           const cleanText = v.text.replace(/<[^>]+>/g, '');
           shareVerse(v.ref, cleanText);
         };
+        const prayBtn = document.createElement('button');
+        prayBtn.className = 'btn btn-secondary btn-pray';
+        prayBtn.textContent = 'Pray This';
+        prayBtn.setAttribute('aria-label', 'Copy a short prayer based on this verse');
+        prayBtn.onclick = () => {
+          const cleanText = v.text.replace(/<[^>]+>/g, '');
+          const prayer = buildPrayerFromVerse(v.ref, cleanText);
+          navigator.clipboard.writeText(prayer).then(() => {
+            prayBtn.textContent = 'Copied!';
+            setTimeout(() => { prayBtn.textContent = 'Pray This'; }, 2000);
+          }).catch(() => {});
+        };
         const tweetBtn = document.createElement('button');
         tweetBtn.className = 'btn-share-social btn-share-tweet';
         tweetBtn.textContent = 'Tweet';
@@ -4633,6 +4741,7 @@ function renderResults(results) {
         buttonRow.appendChild(copyBtn);
         buttonRow.appendChild(copyLinkBtn);
         buttonRow.appendChild(shareBtn);
+        buttonRow.appendChild(prayBtn);
         buttonRow.appendChild(tweetBtn);
         buttonRow.appendChild(fbBtn);
         buttonRow.appendChild(listenBtn);

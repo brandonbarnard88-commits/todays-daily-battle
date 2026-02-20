@@ -4643,16 +4643,40 @@ function renderResults(results) {
         }
         const buttonRow = document.createElement('div');
         buttonRow.className = 'card-actions';
-        const copyBtn = document.createElement('button');
-        copyBtn.textContent = 'Copy';
-        copyBtn.onclick = () => {
-          navigator.clipboard.writeText(`${v.ref}: ${v.text.replace(/<[^>]+>/g, '')}`);
-          alert('Verse copied!');
-        };
+        const cleanText = () => v.text.replace(/<[^>]+>/g, '');
+        const verseUrl = () => `${window.location.origin}${window.location.pathname.replace(/\/[^/]+$/, '') || ''}/?ref=${encodeURIComponent(v.ref)}`.replace(/\/?$/, '/');
+        const copyWrap = document.createElement('div');
+        copyWrap.className = 'card-action-dropdown';
+        const copyTrigger = document.createElement('button');
+        copyTrigger.className = 'btn btn-secondary';
+        copyTrigger.textContent = 'Copy';
+        copyTrigger.setAttribute('aria-label', 'Copy verse or link');
+        copyTrigger.setAttribute('aria-haspopup', 'true');
+        copyTrigger.setAttribute('aria-expanded', 'false');
+        const copyMenu = document.createElement('div');
+        copyMenu.className = 'card-action-dropdown-menu';
+        copyMenu.setAttribute('role', 'menu');
+        const copyVerseItem = document.createElement('button');
+        copyVerseItem.type = 'button';
+        copyVerseItem.setAttribute('role', 'menuitem');
+        copyVerseItem.textContent = 'Verse';
+        copyVerseItem.onclick = (e) => { e.stopPropagation(); navigator.clipboard.writeText(`${v.ref}: ${cleanText()}`).then(() => { copyTrigger.textContent = 'Copied!'; setTimeout(() => { copyTrigger.textContent = 'Copy'; }, 2000); }).catch(() => {}); copyWrap.classList.remove('card-action-dropdown-open'); copyTrigger.setAttribute('aria-expanded', 'false'); };
+        const copyLinkItem = document.createElement('button');
+        copyLinkItem.type = 'button';
+        copyLinkItem.setAttribute('role', 'menuitem');
+        copyLinkItem.textContent = 'Link';
+        copyLinkItem.onclick = (e) => { e.stopPropagation(); navigator.clipboard.writeText(verseUrl()).then(() => { copyTrigger.textContent = 'Link copied!'; setTimeout(() => { copyTrigger.textContent = 'Copy'; }, 2000); }).catch(() => {}); copyWrap.classList.remove('card-action-dropdown-open'); copyTrigger.setAttribute('aria-expanded', 'false'); };
+        copyMenu.appendChild(copyVerseItem);
+        copyMenu.appendChild(copyLinkItem);
+        copyWrap.appendChild(copyTrigger);
+        copyWrap.appendChild(copyMenu);
+        copyTrigger.onclick = (e) => { e.stopPropagation(); card.querySelectorAll('.card-action-dropdown-open').forEach(el => { el.classList.remove('card-action-dropdown-open'); const exp = el.querySelector('[aria-expanded]'); if (exp) exp.setAttribute('aria-expanded', 'false'); }); copyWrap.classList.toggle('card-action-dropdown-open'); copyTrigger.setAttribute('aria-expanded', copyWrap.classList.contains('card-action-dropdown-open')); };
         const saveBtn = document.createElement('button');
+        saveBtn.className = 'btn btn-secondary';
         saveBtn.textContent = 'Save';
+        saveBtn.setAttribute('aria-label', 'Save verse to collection');
         saveBtn.onclick = async () => {
-          const cleanText = v.text.replace(/<[^>]+>/g, '');
+          const text = cleanText();
           const collectionId = getActiveCollectionId();
           const existing = loadSavedCollectionItems().some(item => item.ref === v.ref && item.collection_id === collectionId);
           if (existing) {
@@ -4660,7 +4684,7 @@ function renderResults(results) {
             saveBtn.disabled = true;
             return;
           }
-          const saved = await saveCollectionItemToSupabase(collectionId, { ref: v.ref, text: cleanText });
+          const saved = await saveCollectionItemToSupabase(collectionId, { ref: v.ref, text });
           const next = loadSavedCollectionItems().filter(item => item.ref !== v.ref || item.collection_id !== collectionId);
           next.unshift({ ...saved, collection_id: collectionId });
           saveSavedCollectionItems(next);
@@ -4669,7 +4693,9 @@ function renderResults(results) {
           saveBtn.disabled = true;
         };
         const contextBtn = document.createElement('button');
+        contextBtn.className = 'btn btn-secondary';
         contextBtn.textContent = 'Context';
+        contextBtn.setAttribute('aria-label', 'Show surrounding verses');
         contextBtn.onclick = () => {
           const existing = card.querySelector('.context-block');
           if (existing) {
@@ -4684,7 +4710,9 @@ function renderResults(results) {
           }
         };
         const openBtn = document.createElement('button');
-        openBtn.textContent = 'Open chapter';
+        openBtn.className = 'btn btn-secondary';
+        openBtn.textContent = 'Read chapter';
+        openBtn.setAttribute('aria-label', 'Open full chapter in reader');
         openBtn.onclick = () => {
           window.location.href = buildReaderUrl(v.ref);
         };
@@ -4692,48 +4720,49 @@ function renderResults(results) {
         listenBtn.className = 'btn btn-secondary btn-listen';
         listenBtn.textContent = 'Listen';
         listenBtn.setAttribute('aria-label', 'Read this verse aloud');
-        listenBtn.onclick = () => {
-          const cleanText = v.text.replace(/<[^>]+>/g, '');
-          speakVerse(v.ref, cleanText);
-        };
-        const copyLinkBtn = document.createElement('button');
-        copyLinkBtn.textContent = 'Copy link';
-        copyLinkBtn.onclick = () => {
-          const url = `${window.location.origin}${window.location.pathname.replace(/\/[^/]+$/, '') || ''}/?ref=${encodeURIComponent(v.ref)}`.replace(/\/?$/, '/');
-          navigator.clipboard.writeText(url).then(() => { copyLinkBtn.textContent = 'Link copied!'; setTimeout(() => { copyLinkBtn.textContent = 'Copy link'; }, 2000); }).catch(() => {});
-        };
-        const shareBtn = document.createElement('button');
-        shareBtn.textContent = 'Share';
-        shareBtn.onclick = () => {
-          const cleanText = v.text.replace(/<[^>]+>/g, '');
-          shareVerse(v.ref, cleanText);
-        };
+        listenBtn.onclick = () => { speakVerse(v.ref, cleanText()); };
+        const shareWrap = document.createElement('div');
+        shareWrap.className = 'card-action-dropdown';
+        const shareTrigger = document.createElement('button');
+        shareTrigger.className = 'btn btn-secondary';
+        shareTrigger.textContent = 'Share';
+        shareTrigger.setAttribute('aria-label', 'Share verse');
+        shareTrigger.setAttribute('aria-haspopup', 'true');
+        shareTrigger.setAttribute('aria-expanded', 'false');
+        const shareMenu = document.createElement('div');
+        shareMenu.className = 'card-action-dropdown-menu';
+        shareMenu.setAttribute('role', 'menu');
+        const shareNativeItem = document.createElement('button');
+        shareNativeItem.type = 'button';
+        shareNativeItem.setAttribute('role', 'menuitem');
+        shareNativeItem.textContent = 'Share…';
+        shareNativeItem.onclick = (e) => { e.stopPropagation(); shareVerse(v.ref, cleanText()); shareWrap.classList.remove('card-action-dropdown-open'); shareTrigger.setAttribute('aria-expanded', 'false'); };
+        const shareXItem = document.createElement('button');
+        shareXItem.type = 'button';
+        shareXItem.setAttribute('role', 'menuitem');
+        shareXItem.innerHTML = '<svg class="btn-share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg> X';
+        shareXItem.onclick = (e) => { e.stopPropagation(); window.open(buildTweetShareUrl(v.ref, cleanText()), '_blank', 'noopener,noreferrer'); shareWrap.classList.remove('card-action-dropdown-open'); shareTrigger.setAttribute('aria-expanded', 'false'); };
+        const shareFbItem = document.createElement('button');
+        shareFbItem.type = 'button';
+        shareFbItem.setAttribute('role', 'menuitem');
+        shareFbItem.innerHTML = '<svg class="btn-share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook';
+        shareFbItem.onclick = (e) => { e.stopPropagation(); window.open(buildFacebookShareUrl(v.ref), '_blank', 'noopener,noreferrer'); shareWrap.classList.remove('card-action-dropdown-open'); shareTrigger.setAttribute('aria-expanded', 'false'); };
+        shareMenu.appendChild(shareNativeItem);
+        shareMenu.appendChild(shareXItem);
+        shareMenu.appendChild(shareFbItem);
+        shareWrap.appendChild(shareTrigger);
+        shareWrap.appendChild(shareMenu);
+        shareTrigger.onclick = (e) => { e.stopPropagation(); card.querySelectorAll('.card-action-dropdown-open').forEach(el => { el.classList.remove('card-action-dropdown-open'); const exp = el.querySelector('[aria-expanded]'); if (exp) exp.setAttribute('aria-expanded', 'false'); }); shareWrap.classList.toggle('card-action-dropdown-open'); shareTrigger.setAttribute('aria-expanded', shareWrap.classList.contains('card-action-dropdown-open')); };
         const prayBtn = document.createElement('button');
         prayBtn.className = 'btn btn-secondary btn-pray';
         prayBtn.textContent = 'Pray This';
         prayBtn.setAttribute('aria-label', 'Copy a short prayer based on this verse');
         prayBtn.onclick = () => {
-          const cleanText = v.text.replace(/<[^>]+>/g, '');
-          const prayer = buildPrayerFromVerse(v.ref, cleanText);
+          const prayer = buildPrayerFromVerse(v.ref, cleanText());
           navigator.clipboard.writeText(prayer).then(() => {
             prayBtn.textContent = 'Copied!';
             setTimeout(() => { prayBtn.textContent = 'Pray This'; }, 2000);
           }).catch(() => {});
-        };
-        const tweetBtn = document.createElement('button');
-        tweetBtn.className = 'btn-share-social btn-share-tweet';
-        tweetBtn.innerHTML = '<svg class="btn-share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>';
-        tweetBtn.setAttribute('aria-label', 'Share this verse on X');
-        tweetBtn.onclick = () => {
-          const cleanText = v.text.replace(/<[^>]+>/g, '');
-          window.open(buildTweetShareUrl(v.ref, cleanText), '_blank', 'noopener,noreferrer');
-        };
-        const fbBtn = document.createElement('button');
-        fbBtn.className = 'btn-share-social btn-share-facebook';
-        fbBtn.innerHTML = '<svg class="btn-share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>';
-        fbBtn.setAttribute('aria-label', 'Share this verse on Facebook');
-        fbBtn.onclick = () => {
-          window.open(buildFacebookShareUrl(v.ref), '_blank', 'noopener,noreferrer');
         };
         const audioBtn = document.createElement('button');
         audioBtn.className = 'btn btn-secondary btn-kjv-audio';
@@ -4742,17 +4771,18 @@ function renderResults(results) {
         audioBtn.onclick = () => {
           window.open(buildKjvAudioUrl(v.ref), '_blank');
         };
-        buttonRow.appendChild(copyBtn);
-        buttonRow.appendChild(copyLinkBtn);
-        buttonRow.appendChild(shareBtn);
+        buttonRow.appendChild(copyWrap);
+        buttonRow.appendChild(shareWrap);
         buttonRow.appendChild(prayBtn);
-        buttonRow.appendChild(tweetBtn);
-        buttonRow.appendChild(fbBtn);
         buttonRow.appendChild(listenBtn);
         buttonRow.appendChild(audioBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
         buttonRow.appendChild(openBtn);
+        const closeOpenDropdowns = () => { card.querySelectorAll('.card-action-dropdown-open').forEach(el => el.classList.remove('card-action-dropdown-open')); card.querySelectorAll('[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false')); };
+        const bindCloseOnOutside = () => setTimeout(() => { document.addEventListener('click', function one() { closeOpenDropdowns(); document.removeEventListener('click', one); }); });
+        copyTrigger.addEventListener('click', () => { if (copyWrap.classList.contains('card-action-dropdown-open')) bindCloseOnOutside(); });
+        shareTrigger.addEventListener('click', () => { if (shareWrap.classList.contains('card-action-dropdown-open')) bindCloseOnOutside(); });
         const helpfulKey = 'verse_helpful_' + (v.ref || '').replace(/\s+/g, '_');
         const helpfulRow = document.createElement('div');
         helpfulRow.className = 'card-helpful';

@@ -1191,11 +1191,64 @@ button:active {
 .card-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
   margin-top: 1rem;
 }
 
+.card-actions button {
+  min-height: 36px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
 .card-actions .btn { min-height: 36px; }
+
+.card-action-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.card-action-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 2px;
+  min-width: 10rem;
+  padding: 0.25rem 0;
+  background: rgba(30, 41, 59, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  display: none;
+}
+.card-action-dropdown-open .card-action-dropdown-menu {
+  display: block;
+}
+.card-action-dropdown-menu [role="menuitem"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.875rem;
+  color: #e2e8f0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.12s ease;
+}
+.card-action-dropdown-menu [role="menuitem"]:hover {
+  background: rgba(148, 163, 184, 0.2);
+}
+.card-action-dropdown-menu .btn-share-icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
 
 .card-helpful {
   margin-top: 0.75rem;

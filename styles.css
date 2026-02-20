@@ -633,24 +633,38 @@ body {
   gap: 0.6rem;
   margin-top: 0.5rem;
 }
-.newsletter-options {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.5rem;
-  margin-top: 0.75rem;
-}
-.newsletter-options .inline-toggle {
-  gap: 0.5rem;
-}
-
-.newsletter-form input {
+.newsletter-form:not(.newsletter-options) input {
   flex: 1 1 220px;
   padding: 0.55rem 0.8rem;
   border-radius: 10px;
   border: 1px solid rgba(148, 163, 184, 0.5);
   background: rgba(15, 23, 42, 0.65);
   color: #f8fafc;
+}
+
+.newsletter-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: 1.25rem;
+}
+.newsletter-options .inline-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.newsletter-options .inline-toggle input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .reset-form {
@@ -2151,13 +2165,21 @@ body.red-letter-off .red-letter-card {
     flex-direction: column;
     gap: 0.5rem;
   }
-  .newsletter-form input {
+  .newsletter-form:not(.newsletter-options) input {
     width: 100%;
     min-height: 44px;
     font-size: 1rem;
   }
   .newsletter-form .btn { width: 100%; min-height: 44px; }
-  .newsletter-options { flex-direction: column; gap: 0.4rem; margin-top: 0.5rem; }
+  .newsletter-options {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .newsletter-options .inline-toggle {
+    gap: 0.6rem;
+    padding: 0.4rem 0;
+  }
   .verse-card { padding: 1.2rem; }
   .verse-card strong { font-size: 1.2rem; }
   .verse-card p { font-size: 1rem; }

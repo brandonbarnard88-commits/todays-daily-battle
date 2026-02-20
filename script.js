@@ -1,3 +1,9 @@
+/**
+ * Today's Daily Battle — main app script.
+ * Section index (for future split): globals ~1, error handling ~25, auth/config ~710,
+ * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
+ * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
+ */
 let bible = {};
 let bibleVersions = {};
 let currentVersion = 'KJV';
@@ -42,15 +48,25 @@ let isMasterUser = false;
     dismissBtn.addEventListener('click', function () { bar.remove(); });
     document.body.appendChild(bar);
   }
+  function reportErrorToServer(payload) {
+    try {
+      var url = typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.ERROR_REPORT_URL;
+      if (!url) return;
+      fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true }).catch(function () {});
+    } catch (e) {}
+  }
   window.onerror = function (msg, url, line, col, err) {
     lastError = err || { message: msg, stack: url ? url + ':' + line + (col ? ':' + col : '') : '' };
+    reportErrorToServer({ message: lastError.message, stack: lastError.stack || '', url: window.location.href });
     showErrorBar('Something went wrong. You can copy error details to report it.', lastError.message + '\n' + (lastError.stack || ''));
     return false;
   };
   window.onunhandledrejection = function (e) {
     lastError = e.reason;
     var text = (e.reason && (e.reason.message || String(e.reason))) || 'Unknown error';
-    showErrorBar('Something went wrong. You can copy error details to report it.', text + (e.reason && e.reason.stack ? '\n' + e.reason.stack : ''));
+    var stack = e.reason && e.reason.stack ? e.reason.stack : '';
+    reportErrorToServer({ message: text, stack: stack, url: window.location.href });
+    showErrorBar('Something went wrong. You can copy error details to report it.', text + (stack ? '\n' + stack : ''));
   };
 })();
 let currentUserEmail = '';
@@ -2116,15 +2132,21 @@ function speakChapter(book, chapter) {
   speakVerse(`${key}`, text);
 }
 
+function getVersePageUrl(ref) {
+  var base = window.location.origin + ((window.location.pathname || '/').replace(/\/[^/]*$/, '') || '/');
+  if (!base.endsWith('/')) base += '/';
+  return base + (base.endsWith('index.html') ? '' : 'index.html') + '?ref=' + encodeURIComponent(ref);
+}
+
 function buildVerseShareText(ref, text) {
   const clean = text.replace(/<[^>]+>/g, '');
-  return `Battling today? Here’s hope from God’s Word:\n${ref}\n${clean}\n\n${window.location.origin}`;
+  return `Battling today? Here’s hope from God’s Word:\n${ref}\n${clean}\n\n${getVersePageUrl(ref)}`;
 }
 
 function shareVerse(ref, text) {
   const shareText = buildVerseShareText(ref, text);
   if (navigator.share) {
-    navigator.share({ text: shareText, url: window.location.origin }).catch(() => {});
+    navigator.share({ text: shareText, url: getVersePageUrl(ref) }).catch(() => {});
     return;
   }
   navigator.clipboard.writeText(shareText);
@@ -2622,15 +2644,20 @@ function applySearchFromQuery() {
   const params = new URLSearchParams(window.location.search);
   let value = params.get('q') || params.get('ref');
   if (!value) return;
-  const queryEl = document.getElementById('query');
-  const searchBtn = document.getElementById('search-btn');
-  if (!queryEl || !searchBtn) return;
   try {
     value = decodeURIComponent(value).trim().replace(/\s+/g, ' ');
   } catch {
     value = value.trim();
   }
   if (!value) return;
+  const queryEl = document.getElementById('query');
+  const searchBtn = document.getElementById('search-btn');
+  if (!queryEl || !searchBtn) {
+    var base = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
+    if (!base.endsWith('/')) base += '/';
+    window.location.href = base + 'index.html?q=' + encodeURIComponent(value);
+    return;
+  }
   queryEl.value = value;
   setView('search');
   const mainSearch = document.getElementById('main-search');
@@ -5053,6 +5080,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (card && (card.textContent.indexOf('Loading') !== -1 || card.textContent.indexOf('Arming') !== -1)) {
       card.innerHTML = '<p class="empty">Something went wrong loading the page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     }
+  }
+  var walkthroughLink = document.getElementById('walkthrough-video');
+  var walkthroughComing = document.getElementById('walkthrough-coming');
+  if (walkthroughLink && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
+    walkthroughLink.href = window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL;
+    walkthroughLink.target = '_blank';
+    walkthroughLink.rel = 'noopener noreferrer';
+    if (walkthroughComing) walkthroughComing.style.display = 'none';
   }
   function isDailyCardStillLoading(card) {
     if (!card) return false;

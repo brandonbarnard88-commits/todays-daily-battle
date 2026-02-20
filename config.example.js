@@ -10,5 +10,9 @@ window.TDB_CONFIG = {
   // Supabase anon (publishable) key — keep RLS enabled
   SUPABASE_ANON_KEY: 'your-anon-key',
   // Master admin emails (get admin/Master badge and admin link)
-  MASTER_EMAILS: ['your@email.com']
+  MASTER_EMAILS: ['your@email.com'],
+  // 60-second walkthrough video URL (e.g. Loom). If set, "Watch the 60-second walkthrough" links here.
+  WALKTHROUGH_VIDEO_URL: '',
+  // Optional: POST uncaught errors here (e.g. Sentry or your backend). Payload: { message, stack, url }.
+  ERROR_REPORT_URL: ''
 };

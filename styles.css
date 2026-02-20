@@ -1536,15 +1536,60 @@ body.red-letter-off .red-letter-card {
 
 .study-grid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem 1.75rem;
 }
 
 .study-card {
   background: rgba(255, 255, 255, 0.6);
-  padding: 1.2rem;
+  padding: 1.35rem;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.study-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+}
+
+.study-card label {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.dark-mode .study-card label {
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.study-card select,
+.study-card input[type="text"],
+.study-card input[type="email"] {
+  margin-bottom: 0.75rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.study-card textarea {
+  margin-bottom: 0.75rem;
+  width: 100%;
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.study-card > button:not(.link-button) {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.study-card .list {
+  margin-top: 1rem;
+}
+
+.study-card .section-note {
+  margin: 0.5rem 0 0.75rem;
 }
 
 .study-card:hover {
@@ -1643,14 +1688,19 @@ body.red-letter-off .red-letter-card {
 
 .collection-controls {
   display: grid;
-  gap: 0.6rem;
-  margin-bottom: 0.8rem;
+  gap: 0.5rem 0;
+  margin-bottom: 1rem;
+}
+
+.collection-controls label {
+  margin-bottom: 0.25rem;
 }
 
 .collection-create {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .collection-create input {
@@ -1659,13 +1709,20 @@ body.red-letter-off .red-letter-card {
 }
 
 .collection-share {
-  display: grid;
-  gap: 0.6rem;
-  margin-bottom: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  align-items: center;
 }
 
 .collection-share button {
   width: fit-content;
+}
+
+.collection-share input {
+  width: 100%;
+  margin-top: 0.25rem;
 }
 
 .empty {
@@ -1676,8 +1733,17 @@ body.red-letter-off .red-letter-card {
 }
 
 .prompts {
-  margin: 0;
-  padding-left: 1.2rem;
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  line-height: 1.5;
+}
+
+.prompts li {
+  margin-bottom: 0.5rem;
+}
+
+.prompts li:last-child {
+  margin-bottom: 0;
 }
 
 .sermon-grid input,

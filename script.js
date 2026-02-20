@@ -4960,16 +4960,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     applySearchFromQuery();
   } catch (err) {
     var card = document.getElementById('daily-battle-card');
-    if (card && card.textContent.indexOf('Loading') !== -1) {
+    if (card && (card.textContent.indexOf('Loading') !== -1 || card.textContent.indexOf('Arming') !== -1)) {
       card.innerHTML = '<p class="empty">Something went wrong loading the page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     }
   }
+  function isDailyCardStillLoading(card) {
+    if (!card) return false;
+    var t = card.textContent || '';
+    return t.indexOf('Loading') !== -1 || t.indexOf('Arming') !== -1;
+  }
   setTimeout(function () {
     var card = document.getElementById('daily-battle-card');
-    if (card && card.textContent.indexOf('Loading') !== -1) {
+    if (card && isDailyCardStillLoading(card)) {
       renderDailyBattleCard();
     }
   }, 6000);
+  setTimeout(function () {
+    var card = document.getElementById('daily-battle-card');
+    if (!card || !isDailyCardStillLoading(card) || !Object.keys(bible).length) return;
+    var ref = '2 Timothy 1:7';
+    var text = bible[ref] || 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
+    card.innerHTML = '<strong>' + ref + '</strong><p>' + text + '</p>';
+    card.classList.remove('red-letter-card');
+    var reflectionEl = document.getElementById('daily-battle-reflection');
+    var prayerEl = document.getElementById('daily-battle-prayer');
+    if (reflectionEl) reflectionEl.textContent = 'Reflection: When today\'s verse didn\'t load in time, anchor here. God has not given us a spirit of fear.';
+    if (prayerEl) prayerEl.textContent = 'Prayer: Lord, help me walk in power, love, and a sound mind today. Amen.';
+    currentDailyBattle = { ref: ref, verse: text, reflection: '', prayer: '' };
+    updateDailyBattleStreak();
+  }, 10000);
   if (!supabaseClient) {
     const authSection = document.getElementById('auth-section');
     if (authSection) {

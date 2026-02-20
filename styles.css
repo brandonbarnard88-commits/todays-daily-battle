@@ -98,6 +98,7 @@ body {
   z-index: 5;
   flex-wrap: wrap;
 }
+.top-bar .auth-details-mobile { flex-shrink: 0; }
 
 .brand {
   display: grid;
@@ -1652,6 +1653,10 @@ body.red-letter-off .red-letter-card {
 /* Desktop: auth always visible, collapse summary hidden */
 .auth-details-mobile .auth-summary { display: none; }
 .auth-details-mobile[open] .auth-summary { display: none; }
+@media (min-width: 769px) {
+  .auth-details-mobile { display: block; }
+  .auth-details-mobile #auth-section { display: flex !important; flex-shrink: 0; flex-wrap: wrap; }
+}
 
 /* Desktop: Filters & Audio always visible, no summary */
 .mobile-collapse-summary { display: none; }

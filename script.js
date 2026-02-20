@@ -4933,8 +4933,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   const sidebarToggle = document.getElementById('sidebar-toggle');
   const appShell = document.querySelector('.app-shell');
   if (sidebarToggle && appShell) {
-    sidebarToggle.addEventListener('click', () => {
+    sidebarToggle.addEventListener('click', (e) => {
+      if (sidebarToggle.tagName === 'A') e.preventDefault();
       appShell.classList.toggle('sidebar-open');
+      if (appShell.classList.contains('sidebar-open') && window.innerWidth <= 768) {
+        var closeOnOutside = function (ev) {
+          if (!appShell.querySelector('.sidebar').contains(ev.target) && ev.target !== sidebarToggle) {
+            appShell.classList.remove('sidebar-open');
+            document.removeEventListener('click', closeOnOutside);
+          }
+        };
+        setTimeout(function () { document.addEventListener('click', closeOnOutside); }, 100);
+      }
     });
   }
   const sideNavLinks = document.querySelectorAll('.side-nav a');

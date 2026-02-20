@@ -34,6 +34,7 @@
   color: rgba(226, 232, 240, 0.8);
   font-style: italic;
   margin: 0;
+  animation: pulse 2s infinite;
 }
 
 body {
@@ -1150,6 +1151,25 @@ button:active {
 }
 
 .card-actions .btn { min-height: 36px; }
+
+.card-helpful {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.75);
+}
+.card-helpful .helpful-label { margin-right: 0.25rem; }
+.card-helpful .helpful-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0 0.2rem;
+  font-size: inherit;
+  text-decoration: underline;
+}
+.card-helpful .helpful-btn:hover { color: #c4b5fd; }
+.card-helpful .helpful-thanks { font-style: italic; }
+.auth-benefit { margin: 0 0 0.5rem; font-size: 0.9rem; }
 
 .btn-share-social {
   font-size: 0.85rem;

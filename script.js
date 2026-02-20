@@ -1600,11 +1600,12 @@ async function renderDailyBattleCard() {
   var anchorTryEl = document.getElementById('daily-battle-anchor-try');
   if (anchorTryEl) anchorTryEl.remove();
   if (!card) return;
-  card.innerHTML = '<p class="daily-battle-loading">Loading today\'s verse…</p>';
+  card.innerHTML = '<p class="daily-battle-loading">Arming you with God\'s Word…</p>';
   if (!Object.keys(bible).length) {
     card.innerHTML = '<p class="empty">Bible data not loaded.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     return;
   }
+  const DEFAULT_DAILY_VERSE_REF = '2 Timothy 1:7';
   const supaBattle = await getDailyBattleFromSupabase();
   let battle = supaBattle || getDailyBattleFallback();
   var usedAnchorVerse = false;
@@ -1613,6 +1614,9 @@ async function renderDailyBattleCard() {
     if (anchor) {
       usedAnchorVerse = true;
       battle = { ref: anchor.ref, reflection: 'When today\'s verse isn\'t loading, anchor here. God\'s Word is your strength.', prayer: 'Lord, help me put on Your armour and stand firm today. Amen.' };
+    } else if (bible[DEFAULT_DAILY_VERSE_REF]) {
+      usedAnchorVerse = true;
+      battle = { ref: DEFAULT_DAILY_VERSE_REF, reflection: 'When today\'s verse isn\'t loading, anchor here. God has not given us a spirit of fear.', prayer: 'Lord, help me walk in power, love, and a sound mind today. Amen.' };
     } else {
       card.innerHTML = '<p class="empty">Verse not available.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
       return;
@@ -1978,7 +1982,7 @@ function renderDailyEncouragement() {
   const ref = fallback?.ref || getDailyVerseRef();
   const verseText = ref && bible[ref] ? bible[ref] : '';
   if (!ref || !verseText) {
-    container.innerHTML = '<strong>Daily Encouragement</strong><p>Loading today’s verse...</p>';
+    container.innerHTML = '<strong>Daily Encouragement</strong><p>Arming you with God\'s Word…</p>';
     return;
   }
   container.innerHTML = `
@@ -4749,6 +4753,46 @@ function renderResults(results) {
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
         buttonRow.appendChild(openBtn);
+        const helpfulKey = 'verse_helpful_' + (v.ref || '').replace(/\s+/g, '_');
+        const helpfulRow = document.createElement('div');
+        helpfulRow.className = 'card-helpful';
+        helpfulRow.setAttribute('aria-label', 'Was this verse helpful?');
+        const helpfulLabel = document.createElement('span');
+        helpfulLabel.className = 'helpful-label';
+        helpfulLabel.textContent = 'Was this helpful? ';
+        const yesBtn = document.createElement('button');
+        yesBtn.type = 'button';
+        yesBtn.className = 'btn-link helpful-btn';
+        yesBtn.textContent = 'Yes';
+        const noBtn = document.createElement('button');
+        noBtn.type = 'button';
+        noBtn.className = 'btn-link helpful-btn';
+        noBtn.textContent = 'No';
+        const markHelpful = function (value) {
+          try { localStorage.setItem(helpfulKey, value); } catch (e) {}
+          helpfulRow.innerHTML = '<span class="helpful-thanks">Thanks for your feedback!</span>';
+        };
+        try {
+          const existing = localStorage.getItem(helpfulKey);
+          if (existing === 'yes' || existing === 'no') {
+            helpfulRow.innerHTML = '<span class="helpful-thanks">Thanks for your feedback!</span>';
+          } else {
+            helpfulRow.appendChild(helpfulLabel);
+            helpfulRow.appendChild(yesBtn);
+            helpfulRow.appendChild(document.createTextNode(' '));
+            helpfulRow.appendChild(noBtn);
+            yesBtn.onclick = function () { markHelpful('yes'); };
+            noBtn.onclick = function () { markHelpful('no'); };
+          }
+        } catch (e) {
+          helpfulRow.appendChild(helpfulLabel);
+          helpfulRow.appendChild(yesBtn);
+          helpfulRow.appendChild(document.createTextNode(' '));
+          helpfulRow.appendChild(noBtn);
+          yesBtn.onclick = function () { markHelpful('yes'); };
+          noBtn.onclick = function () { markHelpful('no'); };
+        }
+        card.appendChild(helpfulRow);
         const relatedRefs = getRelatedRefs(v.ref, 3);
         if (relatedRefs.length > 0) {
           const relatedEl = document.createElement('div');
@@ -4850,6 +4894,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   wireAnalyticsBeacon();
   showAuthRedirectMessage();
+  var authSection = document.getElementById('auth-section');
+  if (authSection && !authSection.querySelector('.auth-benefit')) {
+    var benefit = document.createElement('p');
+    benefit.className = 'auth-benefit section-note';
+    benefit.textContent = 'Log in to save your streak, favorite verses, and custom plans across devices.';
+    authSection.insertBefore(benefit, authSection.firstChild);
+  }
   var quickActions = document.querySelector('.quick-actions');
   if (quickActions) {
     var buttons = Array.from(quickActions.querySelectorAll('.btn'));

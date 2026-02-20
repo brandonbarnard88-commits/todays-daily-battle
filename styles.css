@@ -1181,6 +1181,15 @@ button:active {
 .card-helpful .helpful-btn:hover { color: #c4b5fd; }
 .card-helpful .helpful-thanks { font-style: italic; }
 .auth-benefit { margin: 0 0 0.5rem; font-size: 0.9rem; }
+.auth-benefit-inline {
+  margin: 0 0 0.25rem;
+  font-size: 0.8rem;
+  color: rgba(226, 232, 240, 0.85);
+  max-width: 22em;
+}
+@media (max-width: 768px) {
+  .auth-benefit-inline { font-size: 0.75rem; max-width: 18em; }
+}
 
 .btn-share-social {
   font-size: 0.85rem;

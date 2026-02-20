@@ -34,7 +34,11 @@
   color: rgba(226, 232, 240, 0.8);
   font-style: italic;
   margin: 0;
-  animation: pulse 2s infinite;
+  animation: tdb-loading-pulse 2s ease-in-out infinite;
+}
+@keyframes tdb-loading-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
 body {

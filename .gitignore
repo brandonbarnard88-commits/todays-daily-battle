@@ -2,6 +2,7 @@
 token*
 *.key
 .env
+config.js
 .DS_Store
 node_modules/
 android/

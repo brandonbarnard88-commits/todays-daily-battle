@@ -15,10 +15,44 @@ let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
-const MASTER_EMAILS = new Set([
-  'brandonbarnard88@yahoo.com'
-]);
+const MASTER_EMAILS = new Set(
+  (typeof window !== 'undefined' && window.TDB_CONFIG && Array.isArray(window.TDB_CONFIG.MASTER_EMAILS) && window.TDB_CONFIG.MASTER_EMAILS.length)
+    ? window.TDB_CONFIG.MASTER_EMAILS
+    : ['brandonbarnard88@yahoo.com']
+);
 let isMasterUser = false;
+
+(function () {
+  var lastError = null;
+  function showErrorBar(message, copyText) {
+    if (document.getElementById('tdb-error-bar')) return;
+    var bar = document.createElement('div');
+    bar.id = 'tdb-error-bar';
+    bar.setAttribute('role', 'alert');
+    bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:rgba(185,28,28,0.95);color:#fff;padding:0.5rem 1rem;font-size:0.875rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-wrap:wrap;z-index:9999;box-shadow:0 -2px 10px rgba(0,0,0,0.2);';
+    bar.innerHTML = '<span>' + message + '</span><button type="button" style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);color:#fff;padding:0.25rem 0.5rem;border-radius:4px;cursor:pointer;font-size:0.8rem;">Copy details</button><button type="button" aria-label="Dismiss" style="background:transparent;border:none;color:#fff;cursor:pointer;padding:0.25rem;">×</button>';
+    var copyBtn = bar.querySelector('button');
+    var dismissBtn = bar.querySelector('button[aria-label="Dismiss"]');
+    copyBtn.addEventListener('click', function () {
+      try {
+        navigator.clipboard.writeText(copyText || (lastError ? lastError.message + '\n' + (lastError.stack || '') : 'No details'));
+        copyBtn.textContent = 'Copied';
+      } catch (e) {}
+    });
+    dismissBtn.addEventListener('click', function () { bar.remove(); });
+    document.body.appendChild(bar);
+  }
+  window.onerror = function (msg, url, line, col, err) {
+    lastError = err || { message: msg, stack: url ? url + ':' + line + (col ? ':' + col : '') : '' };
+    showErrorBar('Something went wrong. You can copy error details to report it.', lastError.message + '\n' + (lastError.stack || ''));
+    return false;
+  };
+  window.onunhandledrejection = function (e) {
+    lastError = e.reason;
+    var text = (e.reason && (e.reason.message || String(e.reason))) || 'Unknown error';
+    showErrorBar('Something went wrong. You can copy error details to report it.', text + (e.reason && e.reason.stack ? '\n' + e.reason.stack : ''));
+  };
+})();
 let currentUserEmail = '';
 let deferredInstallPrompt = null;
 const CF_ANALYTICS_TOKEN = '';
@@ -681,9 +715,10 @@ const topics = {
   // You can keep adding more here
 };
 
-// Ensure Supabase RLS is enabled for all tables. Key is publishable (client-safe).
-const supabaseUrl = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
-const supabaseKey = 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
+// Supabase: use window.TDB_CONFIG if set (e.g. from config.js); else defaults. Keep RLS enabled.
+const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || 'https://rixsnhpwrlbvvymkfamj.supabase.co';
+const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
 const supabaseScriptUrls = [
   'vendor/supabase-js.js?v=20260210s',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
@@ -1106,21 +1141,36 @@ function renderStreakCalendar(container, dates) {
   });
 }
 
+function withTimeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))
+  ]);
+}
+
 async function getDailyBattleFromSupabase() {
   if (!isSupabaseConfigured()) return null;
   const key = getDailyKey();
-  const { data, error } = await supabaseClient
-    .from('daily_battles')
-    .select('date, verse_ref, reflection, prayer')
-    .eq('date', key)
-    .limit(1)
-    .single();
-  if (error || !data) return null;
-  return {
-    ref: data.verse_ref,
-    reflection: data.reflection || '',
-    prayer: data.prayer || ''
-  };
+  try {
+    const result = await withTimeout(
+      supabaseClient
+        .from('daily_battles')
+        .select('date, verse_ref, reflection, prayer')
+        .eq('date', key)
+        .limit(1)
+        .single(),
+      5000
+    );
+    const { data, error } = result;
+    if (error || !data) return null;
+    return {
+      ref: data.verse_ref,
+      reflection: data.reflection || '',
+      prayer: data.prayer || ''
+    };
+  } catch (e) {
+    return null;
+  }
 }
 
 function getDailyBattleFallback() {
@@ -5009,17 +5059,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     var t = card.textContent || '';
     return t.indexOf('Loading') !== -1 || t.indexOf('Arming') !== -1;
   }
+  var FALLBACK_VERSE_REF = '2 Timothy 1:7';
+  var FALLBACK_VERSE_TEXT = 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
   setTimeout(function () {
     var card = document.getElementById('daily-battle-card');
     if (card && isDailyCardStillLoading(card)) {
       renderDailyBattleCard();
     }
-  }, 6000);
+  }, 5000);
   setTimeout(function () {
     var card = document.getElementById('daily-battle-card');
-    if (!card || !isDailyCardStillLoading(card) || !Object.keys(bible).length) return;
-    var ref = '2 Timothy 1:7';
-    var text = bible[ref] || 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
+    if (!card || !isDailyCardStillLoading(card)) return;
+    var ref = FALLBACK_VERSE_REF;
+    var text = bible[ref] || FALLBACK_VERSE_TEXT;
     card.innerHTML = '<strong>' + ref + '</strong><p>' + text + '</p>';
     card.classList.remove('red-letter-card');
     var reflectionEl = document.getElementById('daily-battle-reflection');
@@ -5028,7 +5080,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (prayerEl) prayerEl.textContent = 'Prayer: Lord, help me walk in power, love, and a sound mind today. Amen.';
     currentDailyBattle = { ref: ref, verse: text, reflection: '', prayer: '' };
     updateDailyBattleStreak();
-  }, 10000);
+    var anchorTryEl = document.getElementById('daily-battle-anchor-try');
+    if (anchorTryEl) anchorTryEl.remove();
+    var tryAgainWrap = document.createElement('p');
+    tryAgainWrap.id = 'daily-battle-anchor-try';
+    tryAgainWrap.className = 'section-note';
+    tryAgainWrap.innerHTML = 'Today\'s verse didn\'t load from the server. <button type="button" class="link-button" id="daily-battle-try-again">Try again</button>';
+    tryAgainWrap.style.marginTop = '0.5rem';
+    if (prayerEl && prayerEl.parentNode) prayerEl.parentNode.insertBefore(tryAgainWrap, prayerEl.nextSibling);
+  }, 8000);
   if (!supabaseClient) {
     const authSection = document.getElementById('auth-section');
     if (authSection) {

@@ -486,6 +486,17 @@ body {
   outline-offset: 2px;
   color: #c4b5fd;
 }
+.footer-copyright {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(148, 163, 184, 0.85);
+}
+.site-footer .footer-copyright {
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .container h2 {
   margin: 0 0 0.6rem;

@@ -9,7 +9,9 @@ window.TDB_CONFIG = {
   SUPABASE_URL: 'https://your-project-ref.supabase.co',
   // Supabase anon (publishable) key — keep RLS enabled
   SUPABASE_ANON_KEY: 'your-anon-key',
-  // Master admin emails (get admin/Master badge and admin link)
+  // Sole admin: set exactly one email. Only this account gets Admin panel and Master badge.
+  MASTER_EMAIL: 'your@email.com',
+  // Or use first entry of MASTER_EMAILS as the only admin (legacy)
   MASTER_EMAILS: ['your@email.com'],
   // 60-second walkthrough video URL (e.g. Loom). If set, "Watch the 60-second walkthrough" links here.
   WALKTHROUGH_VIDEO_URL: '',

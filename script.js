@@ -21,11 +21,15 @@ let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
-const MASTER_EMAILS = new Set(
-  (typeof window !== 'undefined' && window.TDB_CONFIG && Array.isArray(window.TDB_CONFIG.MASTER_EMAILS) && window.TDB_CONFIG.MASTER_EMAILS.length)
-    ? window.TDB_CONFIG.MASTER_EMAILS
-    : ['brandonbarnard88@yahoo.com']
-);
+// Single admin only: MASTER_EMAIL (one string) or first entry of MASTER_EMAILS. No other emails get admin.
+(function () {
+  var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+  var one = (cfg && typeof cfg.MASTER_EMAIL === 'string' && cfg.MASTER_EMAIL.trim()) ? cfg.MASTER_EMAIL.trim().toLowerCase() : null;
+  var list = (cfg && Array.isArray(cfg.MASTER_EMAILS) && cfg.MASTER_EMAILS.length) ? cfg.MASTER_EMAILS : ['brandonbarnard88@yahoo.com'];
+  var sole = one || (list[0] && String(list[0]).trim().toLowerCase()) || '';
+  window._TDB_MASTER_EMAILS = new Set(sole ? [sole] : []);
+})();
+const MASTER_EMAILS = window._TDB_MASTER_EMAILS || new Set(['brandonbarnard88@yahoo.com']);
 let isMasterUser = false;
 
 (function () {
@@ -5192,7 +5196,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return base === 'admin' || base === 'admin.html';
   }
   if (isOnAdminPage() && !isMasterUser) {
-    window.location.replace('/');
+    window.location.replace('/404-admin.html');
     return;
   }
 
@@ -5201,7 +5205,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     currentUserId = session?.user?.id || null;
     updateMasterStatus(session?.user || null);
     if (isOnAdminPage() && !isMasterUser) {
-      window.location.replace('/');
+      window.location.replace('/404-admin.html');
       return;
     }
     const logoutBtnEl = document.getElementById('logout-btn');

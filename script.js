@@ -2165,6 +2165,21 @@ function buildFacebookShareUrl(ref) {
   return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(verseUrl)}`;
 }
 
+function buildWhatsAppShareUrl(ref, text) {
+  const clean = (text || '').replace(/<[^>]+>/g, '').trim();
+  const url = getVersePageUrl(ref);
+  const msg = `Battling today? Here's hope from God's Word:\n${ref}\n${clean}\n\n${url}`;
+  return 'https://wa.me/?text=' + encodeURIComponent(msg);
+}
+
+function buildEmailShareUrl(ref, text) {
+  const clean = (text || '').replace(/<[^>]+>/g, '').trim();
+  const url = getVersePageUrl(ref);
+  const subject = encodeURIComponent('A verse for you from Today\'s Daily Battle');
+  const body = encodeURIComponent(`Battling today? Here's hope from God's Word:\n\n${ref}\n${clean}\n\n${url}`);
+  return 'mailto:?subject=' + subject + '&body=' + body;
+}
+
 function buildPrayerFromVerse(ref, text) {
   const clean = (text || '').replace(/<[^>]+>/g, '').trim();
   const short = clean.length > 80 ? clean.substring(0, 77) + '…' : clean;
@@ -5120,7 +5135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     var tryAgainWrap = document.createElement('p');
     tryAgainWrap.id = 'daily-battle-anchor-try';
     tryAgainWrap.className = 'section-note';
-    tryAgainWrap.innerHTML = 'Today\'s verse didn\'t load from the server. <button type="button" class="link-button" id="daily-battle-try-again">Try again</button>';
+    tryAgainWrap.innerHTML = 'Verse loading—<button type="button" class="link-button" id="daily-battle-try-again">Try again</button> or <a href="#main-search">try a topic below</a>.';
     tryAgainWrap.style.marginTop = '0.5rem';
     if (prayerEl && prayerEl.parentNode) prayerEl.parentNode.insertBefore(tryAgainWrap, prayerEl.nextSibling);
   }, 8000);

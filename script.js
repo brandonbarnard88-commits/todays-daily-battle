@@ -731,10 +731,10 @@ const topics = {
   // You can keep adding more here
 };
 
-// Supabase: use window.TDB_CONFIG if set (e.g. from config.js); else defaults. Keep RLS enabled.
+// Supabase: use window.TDB_CONFIG from config.js only. No hardcoded keys—config.js is required for auth.
 const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
-const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || 'https://rixsnhpwrlbvvymkfamj.supabase.co';
-const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || 'sb_publishable_CCScqOHsDludLTrf9iIIqg_lKgrQxjG';
+const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || '';
+const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || '';
 const supabaseScriptUrls = [
   'vendor/supabase-js.js?v=20260210s',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
@@ -754,7 +754,7 @@ function getSupabaseGlobal() {
   return null;
 }
 
-let supabaseClient = getSupabaseGlobal()
+let supabaseClient = (getSupabaseGlobal() && supabaseUrl && supabaseKey)
   ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey)
   : null;
 
@@ -768,7 +768,7 @@ function isSupabaseConfigured() {
 function initSupabaseClient() {
   if (supabaseClient) return true;
   const sdk = getSupabaseGlobal();
-  if (!sdk) return false;
+  if (!sdk || !supabaseUrl || !supabaseKey) return false;
   supabaseClient = sdk.createClient(supabaseUrl, supabaseKey);
   return Boolean(supabaseClient);
 }
@@ -3081,6 +3081,7 @@ function updateRoleViews() {
 
 async function deleteMessageItem(item) {
   if (!item) return false;
+  if (!isMasterUser) return false;
   if (isSupabaseConfigured() && currentUserId) {
     const { error } = await supabaseClient.from('messages').delete().eq('id', item.id);
     if (!error) return true;
@@ -3093,6 +3094,7 @@ async function deleteMessageItem(item) {
 
 async function hideMessageItem(item) {
   if (!item) return false;
+  if (!isMasterUser) return false;
   if (isSupabaseConfigured() && currentUserId) {
     const { error } = await supabaseClient.from('messages').update({ hidden: true }).eq('id', item.id);
     if (!error) return true;
@@ -3105,6 +3107,7 @@ async function hideMessageItem(item) {
 
 async function unhideMessageItem(item) {
   if (!item) return false;
+  if (!isMasterUser) return false;
   if (isSupabaseConfigured() && currentUserId) {
     const { error } = await supabaseClient.from('messages').update({ hidden: false }).eq('id', item.id);
     if (!error) return true;
@@ -3159,8 +3162,10 @@ async function renderAdminPanel() {
   const warning = document.getElementById('admin-access-warning');
   if (!isMasterUser) {
     if (warning) warning.style.display = 'block';
+    adminRoot.style.visibility = 'visible';
     return;
   }
+  adminRoot.style.visibility = 'visible';
   if (warning) warning.style.display = 'none';
 
   const health = document.getElementById('admin-health');
@@ -5181,10 +5186,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     scheduleAdminPanel();
   }
 
+  function isOnAdminPage() {
+    const path = (window.location.pathname || '').replace(/\/+$/, '') || '/';
+    const base = path.split('/').pop() || '';
+    return base === 'admin' || base === 'admin.html';
+  }
+  if (isOnAdminPage() && !isMasterUser) {
+    window.location.replace('/');
+    return;
+  }
+
   if (supabaseClient) {
     supabaseClient.auth.onAuthStateChange(async (_event, session) => {
     currentUserId = session?.user?.id || null;
     updateMasterStatus(session?.user || null);
+    if (isOnAdminPage() && !isMasterUser) {
+      window.location.replace('/');
+      return;
+    }
     const logoutBtnEl = document.getElementById('logout-btn');
     if (logoutBtnEl) logoutBtnEl.style.display = session ? 'inline-block' : 'none';
     if (session) {

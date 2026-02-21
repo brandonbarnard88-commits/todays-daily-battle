@@ -3004,24 +3004,24 @@ function renderDashboard(role) {
   const cards = [];
   if (role === 'pastor') {
     cards.push(
-      { title: 'Sermon Builder', text: 'Create outlines and share with your congregation.', action: () => { setView('search'); document.getElementById('sermon-builder').scrollIntoView({ behavior: 'smooth' }); } },
-      { title: 'Church Sermons', text: 'Add weekly sermons for your church.', action: () => document.getElementById('church-center').scrollIntoView({ behavior: 'smooth' }) }
+      { title: 'Sermon Builder', text: 'Create outlines and share with your congregation.', action: () => { setView('search'); document.getElementById('sermon-builder')?.scrollIntoView({ behavior: 'smooth' }); } },
+      { title: 'Church Sermons', text: 'Add weekly sermons for your church.', action: () => document.getElementById('church-center')?.scrollIntoView({ behavior: 'smooth' }) }
     );
   }
   if (role === 'teacher') {
     cards.push(
-      { title: 'Lesson Plan Builder', text: 'Create lessons for students and classes.', action: () => { setView('search'); document.getElementById('study-tools').scrollIntoView({ behavior: 'smooth' }); } },
-      { title: 'Saved Lessons', text: 'Build and save lessons for reuse.', action: () => { setView('search'); document.getElementById('study-tools').scrollIntoView({ behavior: 'smooth' }); } }
+      { title: 'Lesson Plan Builder', text: 'Create lessons for students and classes.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } },
+      { title: 'Saved Lessons', text: 'Build and save lessons for reuse.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } }
     );
   }
   if (role === 'adult' || role === 'family' || role === 'member') {
     cards.push(
-      { title: 'Daily Battle', text: 'Get guidance and verses for today.', action: () => { setView('search'); document.getElementById('daily-btn').click(); } },
-      { title: 'Saved Verses & Notes', text: 'Review your saved verses and notes.', action: () => { setView('search'); document.getElementById('study-tools').scrollIntoView({ behavior: 'smooth' }); } }
+      { title: 'Daily Battle', text: 'Get guidance and verses for today.', action: () => { setView('search'); document.getElementById('daily-btn')?.click(); } },
+      { title: 'Saved Verses & Notes', text: 'Review your saved verses and notes.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } }
     );
   }
   cards.push(
-    { title: 'Find Your Church', text: 'Search churches and view sermons.', action: () => document.getElementById('church-center').scrollIntoView({ behavior: 'smooth' }) }
+    { title: 'Find Your Church', text: 'Search churches and view sermons.', action: () => document.getElementById('church-center')?.scrollIntoView({ behavior: 'smooth' }) }
   );
 
   cards.forEach(card => {
@@ -3485,13 +3485,13 @@ async function deleteCollectionItemFromSupabase(itemId) {
 }
 
 function applySermonDraft(draft) {
-  document.getElementById('sermon-title').value = draft.title || '';
-  document.getElementById('sermon-theme').value = draft.theme || '';
-  document.getElementById('sermon-text-ref').value = draft.textRef || '';
-  document.getElementById('sermon-outline').value = draft.outline || '';
-  document.getElementById('sermon-points').value = draft.points || '';
-  document.getElementById('sermon-application').value = draft.application || '';
-  document.getElementById('sermon-prayer').value = draft.prayer || '';
+  var el = document.getElementById('sermon-title'); if (el) el.value = draft.title || '';
+  el = document.getElementById('sermon-theme'); if (el) el.value = draft.theme || '';
+  el = document.getElementById('sermon-text-ref'); if (el) el.value = draft.textRef || '';
+  el = document.getElementById('sermon-outline'); if (el) el.value = draft.outline || '';
+  el = document.getElementById('sermon-points'); if (el) el.value = draft.points || '';
+  el = document.getElementById('sermon-application'); if (el) el.value = draft.application || '';
+  el = document.getElementById('sermon-prayer'); if (el) el.value = draft.prayer || '';
 }
 
 async function saveSermonDraftToSupabase(draft) {
@@ -3610,13 +3610,13 @@ function populateTemplateList() {
     const btn = document.createElement('button');
     btn.textContent = 'Use Template';
     btn.onclick = () => {
-      document.getElementById('sermon-title').value = template.title;
-      document.getElementById('sermon-theme').value = template.theme;
-      document.getElementById('sermon-text-ref').value = template.textRef;
-      document.getElementById('sermon-outline').value = template.outline;
-      document.getElementById('sermon-points').value = template.points;
-      document.getElementById('sermon-application').value = template.application;
-      document.getElementById('sermon-prayer').value = template.prayer;
+      var e = document.getElementById('sermon-title'); if (e) e.value = template.title;
+      e = document.getElementById('sermon-theme'); if (e) e.value = template.theme;
+      e = document.getElementById('sermon-text-ref'); if (e) e.value = template.textRef;
+      e = document.getElementById('sermon-outline'); if (e) e.value = template.outline;
+      e = document.getElementById('sermon-points'); if (e) e.value = template.points;
+      e = document.getElementById('sermon-application'); if (e) e.value = template.application;
+      e = document.getElementById('sermon-prayer'); if (e) e.value = template.prayer;
     };
     card.appendChild(btn);
     container.appendChild(card);

@@ -3,20 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forgiveness • Today's Daily Battle</title>
-  <meta name="description" content="Bible verses on forgiveness—forgive as the Lord forgave you.">
+  <title>Contact • Today's Daily Battle</title>
+  <meta name="description" content="Contact Today's Daily Battle—questions, feedback, or support.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/topic-forgiveness.html">
-  <meta property="og:title" content="Forgiveness • Today's Daily Battle">
-  <meta property="og:description" content="Bible verses on forgiveness—forgive as the Lord forgave you.">
-  <meta property="og:url" content="https://todaysdailybattle.com/topic-forgiveness.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/contact.html">
+  <meta property="og:title" content="Contact • Today's Daily Battle">
+  <meta property="og:description" content="Contact Today's Daily Battle—questions, feedback, or support.">
+  <meta property="og:url" content="https://todaysdailybattle.com/contact.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Forgiveness • Today's Daily Battle">
-  <meta name="twitter:description" content="Bible verses on forgiveness—forgive as the Lord forgave you.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260210ak">
   <link rel="manifest" href="manifest.json">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
@@ -30,7 +24,7 @@
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Forgive as the Lord forgave you</span>
+        <span class="brand-subtitle">Contact us</span>
       </div>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu">Menu</a>
       <div id="auth-section" class="auth-inline auth-compact">
@@ -78,24 +72,36 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Forgiveness</h1>
-          <p>Let go of grudges. Forgive as the Lord forgave you.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="/?q=forgiveness">Search Forgiveness</a>
-            <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
-          </div>
+          <h1>Contact Us</h1>
+          <p>Questions, feedback, or support—we're here.</p>
         </header>
         <section class="glass">
-          <h2 class="section-divider">Key Verses</h2>
-          <div class="list">
-            <div class="list-item"><div><strong>Ephesians 4:32</strong><p>And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.</p></div></div>
-            <div class="list-item"><div><strong>Matthew 6:14</strong><p>For if ye forgive men their trespasses, your heavenly Father will also forgive you.</p></div></div>
-            <div class="list-item"><div><strong>Colossians 3:13</strong><p>Forbearing one another, and forgiving one another, if any man have a quarrel against any.</p></div></div>
-          </div>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">A Gentle Word</h2>
-          <p class="section-note">Forgiveness sets you free. It doesn't excuse what happened—it releases your heart from the weight of bitterness.</p>
+          <h2 class="section-divider">Send a message</h2>
+          <p class="section-note">Use the form below to open your email client, or write to <a href="mailto:brandon@todaysdailybattle.com">brandon@todaysdailybattle.com</a> directly.</p>
+          <form class="contact-form" id="contact-form" method="get">
+            <label for="contact-name">Your name (optional)</label>
+            <input id="contact-name" type="text" placeholder="Your name" aria-label="Your name">
+            <label for="contact-email">Your email</label>
+            <input id="contact-email" type="email" placeholder="you@example.com" required aria-label="Your email">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" rows="5" placeholder="Your question or feedback..." required aria-label="Message"></textarea>
+            <button type="submit" class="btn btn-primary">Open email to send</button>
+          </form>
+          <script>
+            (function() {
+              var form = document.getElementById('contact-form');
+              if (form) form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var name = document.getElementById('contact-name').value.trim();
+                var email = document.getElementById('contact-email').value.trim();
+                var msg = document.getElementById('contact-message').value.trim();
+                var body = (name ? 'Name: ' + name + '\n\n' : '') + (email ? 'From: ' + email + '\n\n' : '') + msg;
+                var url = 'mailto:brandon@todaysdailybattle.com?subject=' + encodeURIComponent('Today\'s Daily Battle – Contact') + '&body=' + encodeURIComponent(body);
+                window.location.href = url;
+              });
+            })();
+          </script>
+          <p class="section-note" style="margin-top:1rem;">You can also <a href="mailto:brandon@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">suggest a topic or battle</a> for the site.</p>
         </section>
       </div>
     </main>

@@ -21,6 +21,7 @@ let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
+const PRAYER_LIST_KEY = 'tdb_prayer_list';
 // Single admin only: MASTER_EMAIL or first entry of MASTER_EMAILS from config.js. No fallback email in repo.
 (function () {
   var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
@@ -1694,6 +1695,88 @@ function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
   if (line) ctx.fillText(line, x, y + offsetY);
 }
 
+function createVerseCardImage(ref, text) {
+  const clean = (typeof text === 'string' ? text : '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!ref || !clean) return;
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1080;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  gradient.addColorStop(0, '#0f172a');
+  gradient.addColorStop(1, '#4c1d95');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '700 52px Inter, sans-serif';
+  ctx.fillText('Today\'s Daily Battle', 80, 120);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 64px Playfair Display, serif';
+  ctx.fillText(ref, 80, 220);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '400 36px Inter, sans-serif';
+  wrapCanvasText(ctx, clean, 80, 290, 920, 46);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '600 28px Inter, sans-serif';
+  ctx.fillText('todaysdailybattle.com', 80, 1010);
+  canvas.toBlob(function (blob) {
+    if (!blob) {
+      const a = document.createElement('a');
+      a.download = 'verse-card-' + (ref || 'verse').replace(/\s+/g, '-') + '.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+      return;
+    }
+    const file = new File([blob], 'verse-card.png', { type: 'image/png' });
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], title: ref, text: clean }).catch(function () {
+        downloadVerseCardBlob(blob, ref);
+      });
+    } else {
+      downloadVerseCardBlob(blob, ref);
+    }
+  }, 'image/png');
+}
+
+function downloadVerseCardBlob(blob, ref) {
+  const a = document.createElement('a');
+  a.download = 'verse-card-' + (ref || 'verse').replace(/\s+/g, '-') + '.png';
+  a.href = URL.createObjectURL(blob);
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+var TOPIC_OF_DAY_LIST = [
+  'Hope', 'Peace', 'Strength', 'Courage', 'Trust', 'Rest', 'Grace', 'Joy',
+  'Faith', 'Love', 'Forgiveness', 'Patience', 'Wisdom', 'Comfort', 'Peace', 'Anxiety',
+  'Fear', 'Grief', 'Healing', 'Provision', 'Guidance', 'Identity', 'Purpose', 'Family',
+  'Prayer', 'Obedience', 'Gratitude', 'Kindness', 'Perseverance', 'Salvation', 'Mercy'
+];
+
+var BATTLE_REFLECTION_QUESTIONS = [
+  'How can you lean on this promise today?',
+  'What one step will you take in response?',
+  'Where do you need this truth most right now?',
+  'How might you share this with someone who needs it?',
+  'What does this reveal about God\'s heart for you?',
+  'How can you pray this back to God today?',
+  'What would it look like to live this verse today?',
+  'What fear or worry does this verse speak to?'
+];
+
+function getTopicOfDay() {
+  const key = getDailyKey();
+  const seed = key.split('').reduce(function (a, c) { return a + c.charCodeAt(0); }, 0);
+  return TOPIC_OF_DAY_LIST[seed % TOPIC_OF_DAY_LIST.length];
+}
+
+function getBattleQuestionOfDay() {
+  const key = getDailyKey();
+  const seed = key.split('').reduce(function (a, c) { return a + c.charCodeAt(0); }, 0);
+  return BATTLE_REFLECTION_QUESTIONS[seed % BATTLE_REFLECTION_QUESTIONS.length];
+}
+
 async function renderDailyBattleCard() {
   const card = document.getElementById('daily-battle-card');
   const reflectionEl = document.getElementById('daily-battle-reflection');
@@ -1741,8 +1824,18 @@ async function renderDailyBattleCard() {
   } else {
     card.classList.remove('red-letter-card');
   }
-  if (reflectionEl) reflectionEl.textContent = battle.reflection ? `Reflection: ${battle.reflection}` : '';
-  if (prayerEl) prayerEl.textContent = battle.prayer ? `Prayer: ${battle.prayer}` : '';
+  var topicEl = document.getElementById('daily-battle-topic');
+  var questionEl = document.getElementById('daily-battle-question');
+  if (topicEl) {
+    topicEl.textContent = '';
+    topicEl.innerHTML = '<strong>Topic of the day:</strong> ' + getTopicOfDay();
+  }
+  if (questionEl) {
+    questionEl.textContent = '';
+    questionEl.innerHTML = '<strong>Reflection question:</strong> ' + getBattleQuestionOfDay();
+  }
+  if (reflectionEl) reflectionEl.textContent = battle.reflection ? 'Reflection: ' + battle.reflection : '';
+  if (prayerEl) prayerEl.textContent = battle.prayer ? 'Prayer: ' + battle.prayer : '';
   if (redLetterEl) {
     redLetterEl.textContent = isRedLetterLike(battle.ref, verseText)
       ? 'Red letters show the words spoken by Jesus—direct from our Savior.'
@@ -1768,6 +1861,44 @@ function loadMessagesLocal() {
 
 function saveMessagesLocal(items) {
   localStorage.setItem(MESSAGE_STORAGE_KEY, JSON.stringify(items));
+}
+
+function loadPrayerList() {
+  try {
+    return JSON.parse(localStorage.getItem(PRAYER_LIST_KEY) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function savePrayerList(items) {
+  localStorage.setItem(PRAYER_LIST_KEY, JSON.stringify(items));
+}
+
+function renderPrayerList() {
+  const listEl = document.getElementById('prayer-list');
+  const emptyEl = document.getElementById('prayer-list-empty');
+  if (!listEl) return;
+  const items = loadPrayerList();
+  listEl.innerHTML = '';
+  if (emptyEl) emptyEl.style.display = items.length ? 'none' : 'block';
+  items.forEach(function (item, index) {
+    const li = document.createElement('li');
+    li.innerHTML = '<div><span class="prayer-text">' + (item.text || '').replace(/</g, '&lt;') + '</span>' +
+      (item.ref ? '<div class="prayer-verse">' + (item.ref || '').replace(/</g, '&lt;') + '</div>' : '') + '</div>';
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'btn btn-secondary';
+    delBtn.textContent = 'Remove';
+    delBtn.setAttribute('aria-label', 'Remove from prayer list');
+    delBtn.onclick = function () {
+      const next = loadPrayerList().filter(function (_, i) { return i !== index; });
+      savePrayerList(next);
+      renderPrayerList();
+    };
+    li.appendChild(delBtn);
+    listEl.appendChild(li);
+  });
 }
 
 function loadNewsletterSignups() {
@@ -3713,6 +3844,13 @@ function renderReaderChapter(book, chapter) {
     }
     output.appendChild(line);
   });
+  const totalWords = verses.reduce((sum, v) => sum + (v.text || '').replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length, 0);
+  const readMins = Math.max(1, Math.ceil(totalWords / 200));
+  const readNote = document.createElement('p');
+  readNote.className = 'section-note reading-time-note';
+  readNote.textContent = '~' + readMins + ' min read';
+  readNote.setAttribute('aria-label', 'Estimated reading time');
+  output.appendChild(readNote);
 }
 
 function selectReaderChapter(book, chapter, highlightRef = '') {
@@ -4865,6 +5003,37 @@ function renderResults(results) {
         listenBtn.textContent = 'Listen';
         listenBtn.setAttribute('aria-label', 'Read this verse aloud');
         listenBtn.onclick = () => { speakVerse(v.ref, cleanText()); };
+        const cardBtn = document.createElement('button');
+        cardBtn.className = 'btn btn-secondary';
+        cardBtn.textContent = 'Card';
+        cardBtn.setAttribute('aria-label', 'Create verse card image');
+        cardBtn.onclick = () => { createVerseCardImage(v.ref, cleanText()); };
+        const memoryBtn = document.createElement('button');
+        memoryBtn.className = 'btn btn-secondary';
+        memoryBtn.textContent = 'Memory';
+        memoryBtn.setAttribute('aria-label', 'Memory verse mode: tap words to reveal');
+        memoryBtn.onclick = function () {
+          const p = card.querySelector('.verse-card p');
+          if (!p) return;
+          if (p.classList.contains('memory-mode')) {
+            p.classList.remove('memory-mode');
+            p.innerHTML = v.text;
+            if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) p.classList.add('red-letter');
+            memoryBtn.textContent = 'Memory';
+            return;
+          }
+          const raw = cleanText();
+          const words = raw.trim().split(/\s+/).filter(Boolean);
+          p.classList.add('memory-mode');
+          p.innerHTML = words.map(function (w) {
+            return '<span class="memory-word" tabindex="0" role="button">' + w + '</span>';
+          }).join(' ');
+          p.querySelectorAll('.memory-word').forEach(function (span) {
+            span.addEventListener('click', function () { span.classList.add('revealed'); });
+            span.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); span.classList.add('revealed'); } });
+          });
+          memoryBtn.textContent = 'Show all';
+        };
         const shareWrap = document.createElement('div');
         shareWrap.className = 'card-action-dropdown';
         const shareTrigger = document.createElement('button');
@@ -4917,6 +5086,8 @@ function renderResults(results) {
         };
         buttonRow.appendChild(copyWrap);
         buttonRow.appendChild(shareWrap);
+        buttonRow.appendChild(cardBtn);
+        buttonRow.appendChild(memoryBtn);
         buttonRow.appendChild(prayBtn);
         buttonRow.appendChild(listenBtn);
         buttonRow.appendChild(audioBtn);
@@ -5653,6 +5824,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const prayerListAdd = document.getElementById('prayer-list-add');
+  const prayerListInput = document.getElementById('prayer-list-input');
+  const prayerListVerse = document.getElementById('prayer-list-verse');
+  if (prayerListAdd && prayerListInput) {
+    renderPrayerList();
+    prayerListAdd.addEventListener('click', function () {
+      const text = (prayerListInput.value || '').trim();
+      if (!text) return;
+      const ref = (prayerListVerse && prayerListVerse.value) ? prayerListVerse.value.trim() : '';
+      const items = loadPrayerList();
+      items.push({ text: text, ref: ref || undefined });
+      savePrayerList(items);
+      renderPrayerList();
+      prayerListInput.value = '';
+      if (prayerListVerse) prayerListVerse.value = '';
+    });
+  }
+
   const kidsTitleEl = document.getElementById('kids-daily-title');
   const kidsPromptEl = document.getElementById('kids-daily-prompt');
   const kidsVerseEl = document.getElementById('kids-daily-verse');
@@ -5810,6 +5999,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (shareDailyImageBtn) {
     shareDailyImageBtn.addEventListener('click', () => {
       shareDailyBattleImage();
+    });
+  }
+  const shareDailyCopyVerseBtn = document.getElementById('share-daily-battle-copy-verse');
+  if (shareDailyCopyVerseBtn) {
+    shareDailyCopyVerseBtn.addEventListener('click', () => {
+      const ref = currentDailyBattle?.ref;
+      const verse = currentDailyBattle?.verse || (ref && bible[ref] ? bible[ref] : '');
+      if (!ref || !verse) return;
+      const text = ref + ': ' + verse.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      navigator.clipboard.writeText(text).then(() => {
+        shareDailyCopyVerseBtn.textContent = 'Copied!';
+        setTimeout(() => { shareDailyCopyVerseBtn.textContent = 'Copy verse'; }, 2000);
+      }).catch(() => {});
     });
   }
   const shareDailyCopyLinkBtn = document.getElementById('share-daily-battle-copy-link');

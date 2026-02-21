@@ -807,6 +807,38 @@ body {
   text-align: left;
 }
 
+.prayer-list-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+.prayer-list-form input[type="text"]:first-of-type {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.prayer-list-form input[type="text"]:last-of-type {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+.prayer-list-form .btn { flex-shrink: 0; }
+.prayer-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+.prayer-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.prayer-list li .prayer-text { flex: 1; }
+.prayer-list li .prayer-verse { font-size: 0.9rem; color: var(--primary); margin-top: 0.2rem; }
+.prayer-list li button { flex-shrink: 0; padding: 0.35rem 0.6rem; font-size: 0.85rem; }
+
 .newsletter-form {
   display: flex;
   flex-wrap: wrap;
@@ -1431,6 +1463,21 @@ button:active {
   font-family: var(--font-body);
   font-size: var(--verse-size);
   font-weight: 500;
+}
+.verse-card p.memory-mode .memory-word {
+  cursor: pointer;
+  border-bottom: 1px solid var(--primary);
+  margin: 0 0.15em;
+  user-select: none;
+  transition: color 0.2s, opacity 0.2s;
+}
+.verse-card p.memory-mode .memory-word:not(.revealed) {
+  color: transparent;
+  border-bottom-color: rgba(148, 163, 184, 0.5);
+}
+.verse-card p.memory-mode .memory-word.revealed {
+  color: inherit;
+  border-bottom-color: transparent;
   line-height: 1.7;
 }
 

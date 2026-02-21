@@ -195,6 +195,8 @@
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">One verse, one theme—your anchor for the day.</p>
           <div id="daily-battle-card" class="verse-card" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
+          <p id="daily-battle-topic" class="section-note" aria-live="polite"></p>
+          <p id="daily-battle-question" class="section-note" aria-live="polite"></p>
           <div id="daily-battle-reflection" class="section-note"></div>
           <div id="daily-battle-prayer" class="section-note"></div>
           <div id="daily-battle-red-letter" class="section-note"></div>
@@ -203,6 +205,7 @@
           <div id="daily-battle-calendar" class="streak-calendar"></div>
           <div class="cta-group daily-battle-actions">
             <button id="share-daily-battle" class="btn btn-secondary" type="button">Share</button>
+            <button id="share-daily-battle-copy-verse" class="btn btn-secondary" type="button" title="Copy verse + reference">Copy verse</button>
             <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
             <button id="share-daily-battle-image" class="btn btn-secondary" type="button">Share image</button>
             <button id="listen-daily-battle" class="btn btn-secondary btn-listen" type="button" title="Read this verse aloud here" aria-label="Read this verse aloud">Listen</button>
@@ -262,6 +265,17 @@
             <div class="list-item"><div><strong>“My sermon prep got faster.”</strong><p>The search + outlines saved me hours.</p></div></div>
           </div>
           <p class="section-note">Want to share your story? Email <a href="mailto:brandon@todaysdailybattle.com">brandon@todaysdailybattle.com</a>.</p>
+        </section>
+        <section class="glass" id="prayer-list-section">
+          <h2 class="section-divider">Prayer List</h2>
+          <p class="section-note">Add names or intentions. Optionally link a verse. Saved on this device.</p>
+          <div class="prayer-list-form">
+            <input id="prayer-list-input" type="text" placeholder="Name or intention…" aria-label="Prayer list item">
+            <input id="prayer-list-verse" type="text" placeholder="Verse (optional, e.g. Psalm 23:1)" aria-label="Optional verse reference">
+            <button id="prayer-list-add" type="button" class="btn btn-primary">Add</button>
+          </div>
+          <ul id="prayer-list" class="prayer-list list"></ul>
+          <p id="prayer-list-empty" class="section-note empty-note" style="display:none">No items yet. Add one above.</p>
         </section>
         <section class="glass newsletter" id="newsletter">
           <h2 class="section-divider">Weekly Encouragement</h2>

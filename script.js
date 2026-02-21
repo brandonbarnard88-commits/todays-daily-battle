@@ -21,15 +21,15 @@ let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
-// Single admin only: MASTER_EMAIL (one string) or first entry of MASTER_EMAILS. No other emails get admin.
+// Single admin only: MASTER_EMAIL or first entry of MASTER_EMAILS from config.js. No fallback email in repo.
 (function () {
   var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
   var one = (cfg && typeof cfg.MASTER_EMAIL === 'string' && cfg.MASTER_EMAIL.trim()) ? cfg.MASTER_EMAIL.trim().toLowerCase() : null;
-  var list = (cfg && Array.isArray(cfg.MASTER_EMAILS) && cfg.MASTER_EMAILS.length) ? cfg.MASTER_EMAILS : ['brandonbarnard88@yahoo.com'];
+  var list = (cfg && Array.isArray(cfg.MASTER_EMAILS) && cfg.MASTER_EMAILS.length) ? cfg.MASTER_EMAILS : [];
   var sole = one || (list[0] && String(list[0]).trim().toLowerCase()) || '';
   window._TDB_MASTER_EMAILS = new Set(sole ? [sole] : []);
 })();
-const MASTER_EMAILS = window._TDB_MASTER_EMAILS || new Set(['brandonbarnard88@yahoo.com']);
+const MASTER_EMAILS = window._TDB_MASTER_EMAILS || new Set();
 let isMasterUser = false;
 
 (function () {

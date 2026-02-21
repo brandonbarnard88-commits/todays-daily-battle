@@ -21,7 +21,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swapfamily=Playfair+Display:wght@700family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swapfamily=Inter:wght@400;500;600;700family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swapdisplay=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -77,7 +77,7 @@
       <div class="content-inner">
         <header class="hero-banner">
           <h1>Pricing</h1>
-          <p>Search is always free. Plans for individuals, families, and churches—so you can grow together.</p>
+          <p class="hero-tagline">Search is always free. Elite tools for every plan—more for supporters and churches.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Start Searching</a>
             <a class="btn btn-secondary" href="message.html">Encourage Someone</a>
@@ -91,22 +91,32 @@
             <div class="pricing-card">
               <h3>Free</h3>
               <p class="price">$0</p>
+              <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">Elite tools included</p>
               <ul class="pricing-list">
                 <li>Search by topic or verse</li>
-                <li>Verse of the Day</li>
-                <li>Notes & highlights</li>
+                <li>Verse of the Day + streak</li>
+                <li>7-day reading plan</li>
+                <li>Chapter reader</li>
+                <li>Notes & saved verses</li>
                 <li>Message board (read + post)</li>
+                <li>Kids coloring activities</li>
+                <li>Share verse & listen (TTS)</li>
               </ul>
               <button class="btn btn-secondary">Always Free</button>
             </div>
             <div class="pricing-card highlight-card">
               <h3>Supporter</h3>
               <p class="price">$5/mo or $50/yr</p>
+              <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">All Free tools + elite extras</p>
               <ul class="pricing-list">
                 <li>Daily Battle Plan emails</li>
-                <li>Sermon toolkit + builder</li>
-                <li>Lesson builder + saved drafts</li>
-                <li>Shareable links</li>
+                <li>Sermon Builder + templates</li>
+                <li>Lesson Builder + saved drafts</li>
+                <li>Shareable sermon/lesson links</li>
+                <li>Export to PDF & email</li>
+                <li>Curriculum builder</li>
+                <li>Church Center access</li>
+                <li>Sync across devices</li>
                 <li>Priority updates</li>
               </ul>
               <div class="cta-group">
@@ -117,11 +127,13 @@
             <div class="pricing-card">
               <h3>Church/Team</h3>
               <p class="price">$20/mo or $200/yr</p>
-              <p class="section-note" style="margin-bottom: 0.75rem;">Team sermon collab + shared encouragements.</p>
+              <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">All Supporter tools + team features</p>
               <ul class="pricing-list">
+                <li>Everything in Supporter</li>
                 <li>Team logins</li>
                 <li>Shared lesson library</li>
                 <li>Church branding + hub</li>
+                <li>Shared encouragements</li>
                 <li>Priority support</li>
                 <li>Save 2 months annually</li>
               </ul>
@@ -130,6 +142,15 @@
                 <button class="btn btn-secondary" id="pricing-church-yearly" type="button">Subscribe $200/yr</button>
               </div>
             </div>
+          </div>
+        </section>
+        <section class="glass">
+          <h2 class="section-divider">Elite tools by plan</h2>
+          <p class="section-note">Every account gets elite-level tools. Free includes search, daily verse, reading plan, reader, notes, message board, and kids activities. Supporter and Church add sermon/lesson builders, exports, curriculum, and—for Church—team features and shared libraries.</p>
+          <div class="list">
+            <div class="list-item"><div><strong>Free</strong><p>Topic search, Verse of the Day, 7-day plan, chapter reader, saved verses & notes, message board, kids coloring, share & listen.</p></div></div>
+            <div class="list-item"><div><strong>Supporter</strong><p>Everything in Free plus Daily Battle emails, Sermon Builder, Lesson Builder, shareable links, PDF/email export, curriculum builder, Church Center access, sync.</p></div></div>
+            <div class="list-item"><div><strong>Church/Team</strong><p>Everything in Supporter plus team logins, shared lesson library, church hub and branding, priority support.</p></div></div>
           </div>
         </section>
         <section class="glass">
@@ -161,6 +182,6 @@
 
   <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script src="config.js"></script>
-  <script src="script.js?v=20260205cp" data-cfasync="false"></script>
+  <script src="script.js?v=20260220" data-cfasync="false"></script>
 </body>
 </html>

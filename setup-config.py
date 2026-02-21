@@ -11,8 +11,8 @@ import os
 
 def main():
     print("Enter your Supabase values (from Dashboard → Project Settings → API).\n")
-    url = (os.environ.get("SUPABASE_URL") or input("SUPABASE_URL (e.g. https://xxxx.supabase.co): ")).strip()
-    key = (os.environ.get("SUPABASE_ANON_KEY") or input("SUPABASE_ANON_KEY (anon public key): ")).strip()
+    url = (os.environ.get("SUPABASE_URL") or input("Project URL (e.g. https://xxxx.supabase.co): ")).strip()
+    key = (os.environ.get("SUPABASE_ANON_KEY") or input("Anon / publishable key (long key starting with eyJ...): ")).strip()
     email = (os.environ.get("MASTER_EMAIL") or input("MASTER_EMAIL (your admin email): ")).strip()
 
     if not url or not key or not email:

@@ -1435,6 +1435,7 @@ const versionFiles = {
   NLT: 'nlt.json',
   NKJV: 'nkjv.json'
 };
+const BIBLE_DATA_ORIGIN = 'https://todaysdailybattle.com';
 
 const curriculum = {
   kid: [
@@ -2387,27 +2388,35 @@ const coloringStories = [
 ];
 
 async function loadBible(version = currentVersion) {
-  try {
-    const file = versionFiles[version] || versionFiles.KJV;
-    const response = await fetch(file);
-    console.log(`Fetch status for ${file}:`, response.status);
-    if (!response.ok) {
-      if (version !== 'KJV') {
-        alert(`${version} is not available yet. Showing KJV.`);
+  const file = versionFiles[version] || versionFiles.KJV;
+  const isFileProtocol = typeof location !== 'undefined' && location.protocol === 'file:';
+  const urlsToTry = isFileProtocol
+    ? [BIBLE_DATA_ORIGIN + '/' + file]
+    : [file, BIBLE_DATA_ORIGIN + '/' + file];
+  for (let i = 0; i < urlsToTry.length; i++) {
+    try {
+      const response = await fetch(urlsToTry[i]);
+      if (!response.ok) throw new Error('status ' + response.status);
+      bible = await response.json();
+      bibleVersions[version] = bible;
+      currentVersion = version;
+      bibleEntries = Object.entries(bible);
+      searchCache.clear();
+      if (typeof console !== 'undefined' && console.log) {
+        console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
+      }
+      renderDailyVerse();
+      return;
+    } catch (err) {
+      if (i === 0 && version !== 'KJV') {
         return loadBible('KJV');
       }
-      throw new Error('Fetch failed with status ' + response.status);
+      if (i < urlsToTry.length - 1) continue;
+      if (typeof console !== 'undefined' && console.error) {
+        console.error('Error loading Bible data:', err.message);
+      }
+      alert('Could not load Bible data. Please try refreshing the page, or visit ' + BIBLE_DATA_ORIGIN + ' if you opened this from a file.');
     }
-    bible = await response.json();
-    bibleVersions[version] = bible;
-    currentVersion = version;
-    bibleEntries = Object.entries(bible);
-    searchCache.clear();
-    console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
-    renderDailyVerse();
-  } catch (err) {
-    console.error('Error loading kjv.json:', err.message);
-    alert('Could not load Bible data. Please try refreshing the page. If you opened this from a file, try visiting https://todaysdailybattle.com instead.');
   }
 }
 
@@ -3012,8 +3021,9 @@ async function addChurchSermon(churchId, sermon) {
 function renderDashboard(role) {
   const container = document.getElementById('dashboard-content');
   const title = document.getElementById('dashboard-title');
+  if (!container) return;
   container.innerHTML = '';
-  title.textContent = `Welcome, ${role.charAt(0).toUpperCase() + role.slice(1)}`;
+  if (title) title.textContent = `Welcome, ${role.charAt(0).toUpperCase() + role.slice(1)}`;
 
   const cards = [];
   if (role === 'pastor') {
@@ -3073,7 +3083,7 @@ function setView(state) {
   const sermonBuilder = document.getElementById('sermon-builder');
   const pastorResources = document.getElementById('pastor-resources');
   const coloringStories = document.getElementById('coloring-stories');
-  const showDashboard = state === 'dashboard';
+  const showDashboard = state === 'dashboard' && dashboard;
   if (mainSearch) mainSearch.style.display = showDashboard ? 'none' : 'block';
   if (output) output.style.display = showDashboard ? 'none' : 'grid';
   if (dashboard) dashboard.style.display = showDashboard ? 'block' : 'none';
@@ -3796,6 +3806,7 @@ function buildPastorToolkit(results) {
 
 function populateCurriculumWeeks(audience) {
   const select = document.getElementById('curriculum-week');
+  if (!select) return;
   select.innerHTML = '';
   const weeks = curriculum[audience] || [];
   weeks.forEach((item, idx) => {
@@ -3808,6 +3819,7 @@ function populateCurriculumWeeks(audience) {
 
 function renderCurriculumWeek(audience, index) {
   const output = document.getElementById('curriculum-output');
+  if (!output) return;
   output.innerHTML = '';
   const weeks = curriculum[audience] || [];
   const item = weeks[Number(index)];

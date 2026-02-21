@@ -1015,6 +1015,23 @@ var ANCHOR_VERSE_REFS = [
   'Philippians 4:13'
 ];
 
+/** Curated refs for daily verse / fallback—family-safe, encouraging. Avoids context-heavy or adult passages. */
+var DAILY_VERSE_SAFE_REFS = [
+  'Psalms 23:1', 'Psalms 23:4', 'Psalms 27:1', 'Psalms 34:4', 'Psalms 46:1', 'Psalms 91:1', 'Psalms 121:1', 'Psalms 138:3',
+  'Proverbs 3:5', 'Proverbs 12:25', 'Proverbs 16:3', 'Proverbs 22:6',
+  'Isaiah 40:31', 'Isaiah 41:10', 'Isaiah 43:2', 'Isaiah 54:10',
+  'Jeremiah 29:11', 'Jeremiah 33:3',
+  'Joshua 1:9', 'Deuteronomy 31:6',
+  'Matthew 5:14', 'Matthew 6:34', 'Matthew 11:28', 'Matthew 28:20',
+  'John 3:16', 'John 14:27', 'John 15:12', 'John 16:33',
+  'Romans 8:28', 'Romans 8:38', 'Romans 12:12', 'Romans 15:13',
+  'Philippians 4:6', 'Philippians 4:7', 'Philippians 4:13', 'Philippians 4:19',
+  'Colossians 3:2', 'Colossians 3:23',
+  '2 Timothy 1:7', 'Hebrews 11:1', 'Hebrews 13:5', 'James 1:2', 'James 1:12',
+  '1 Peter 5:7', '1 John 4:18', '1 John 4:19', 'Revelation 21:4',
+  'Ephesians 6:10', 'Ephesians 6:11', 'Galatians 5:22', 'Romans 8:1'
+];
+
 function getAnchorVerseForDay() {
   if (!Object.keys(bible).length) return null;
   var key = getDailyKey();
@@ -1547,12 +1564,12 @@ const curriculum = {
 };
 
 function getDailyVerseRef() {
-  const refs = Object.keys(bible);
-  if (!refs.length) return null;
-  const now = new Date();
-  const dayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  if (!Object.keys(bible).length) return null;
+  const dayKey = getDailyKey();
   const seed = dayKey.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-  return refs[seed % refs.length];
+  const safeRefs = DAILY_VERSE_SAFE_REFS.filter(function (ref) { return bible[ref]; });
+  if (safeRefs.length) return safeRefs[seed % safeRefs.length];
+  return ANCHOR_VERSE_REFS.find(function (ref) { return bible[ref]; }) || null;
 }
 
 function renderDailyVerse() {
@@ -5185,7 +5202,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       note.className = 'section-note';
       note.style.margin = '0';
       if (!hasConfig) {
-        note.textContent = 'Sign-in is not configured. Add config.js with your Supabase URL and anon key (see config.example.js) to enable login.';
+        note.textContent = 'Sign-in is optional. To enable accounts and streaks, add config.js with your Supabase URL and anon key (see config.example.js).';
         authSection.querySelectorAll('input, select, button').forEach(function (el) { el.style.display = 'none'; });
       } else {
         note.textContent = 'Sign-in loading… If this persists, check that vendor/supabase-js.js loads.';
@@ -5200,7 +5217,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       authSection.prepend(note);
     }
     if (!hasConfig) {
-      setAuthStatus('Sign-in not configured.', 'info');
+      setAuthStatus('Sign-in is optional. Add config.js to enable accounts.', 'info');
     } else {
       setAuthStatus('Auth not ready. Loading...', 'error');
     }

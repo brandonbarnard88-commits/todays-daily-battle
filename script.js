@@ -114,9 +114,20 @@ function updateMasterStatus(user) {
     badge.remove();
   }
   const adminLinks = document.querySelectorAll('.admin-link');
-  adminLinks.forEach(link => {
-    link.style.display = isMasterUser ? 'block' : 'none';
-  });
+  const sideNav = document.querySelector('.side-nav');
+  if (isMasterUser) {
+    if (adminLinks.length === 0 && sideNav) {
+      const adminLink = document.createElement('a');
+      adminLink.href = 'admin.html';
+      adminLink.className = 'admin-link';
+      adminLink.setAttribute('data-section', 'admin');
+      adminLink.setAttribute('data-icon', 'AD');
+      adminLink.textContent = 'Admin';
+      sideNav.appendChild(adminLink);
+    }
+  } else {
+    adminLinks.forEach(link => link.remove());
+  }
 }
 const STOP_WORDS = new Set([
   'the', 'and', 'a', 'an', 'of', 'to', 'in', 'is', 'it', 'for', 'on', 'with',

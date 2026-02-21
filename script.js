@@ -735,7 +735,10 @@ const topics = {
   // You can keep adding more here
 };
 
-// Supabase: use window.TDB_CONFIG from config.js only. No hardcoded keys—config.js is required for auth.
+// Supabase: use window.TDB_CONFIG from config.js. Stub if missing so the app never breaks.
+if (typeof window !== 'undefined' && (window.TDB_CONFIG == null || typeof window.TDB_CONFIG !== 'object')) {
+  window.TDB_CONFIG = {};
+}
 const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
 const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || '';
 const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || '';
@@ -5149,21 +5152,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (prayerEl && prayerEl.parentNode) prayerEl.parentNode.insertBefore(tryAgainWrap, prayerEl.nextSibling);
   }, 8000);
   if (!supabaseClient) {
+    var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+    var hasConfig = cfg && cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY &&
+      !String(cfg.SUPABASE_URL).includes('your-project-ref') &&
+      !String(cfg.SUPABASE_ANON_KEY).includes('your-anon');
     const authSection = document.getElementById('auth-section');
     if (authSection) {
       const note = document.createElement('p');
       note.className = 'section-note';
-      note.textContent = 'Login is unavailable right now. Please check the Supabase script load.';
+      note.style.margin = '0';
+      if (!hasConfig) {
+        note.textContent = 'Sign-in is not configured. Add config.js with your Supabase URL and anon key (see config.example.js) to enable login.';
+        authSection.querySelectorAll('input, select, button').forEach(function (el) { el.style.display = 'none'; });
+      } else {
+        note.textContent = 'Sign-in loading… If this persists, check that vendor/supabase-js.js loads.';
+        ensureSupabaseLoaded();
+        setTimeout(function () {
+          var status = document.getElementById('auth-status');
+          if (status && status.textContent && status.textContent.indexOf('Loading') !== -1) {
+            reportSupabaseDiagnostics();
+          }
+        }, 12000);
+      }
       authSection.prepend(note);
     }
-    setAuthStatus('Auth not ready. Loading...', 'error');
-    ensureSupabaseLoaded();
-    setTimeout(() => {
-      const status = document.getElementById('auth-status');
-      if (status && status.textContent.includes('Loading')) {
-        reportSupabaseDiagnostics();
-      }
-    }, 12000);
+    if (!hasConfig) {
+      setAuthStatus('Sign-in not configured.', 'info');
+    } else {
+      setAuthStatus('Auth not ready. Loading...', 'error');
+    }
   }
   const { data: sessionData } = supabaseClient
     ? await supabaseClient.auth.getSession()

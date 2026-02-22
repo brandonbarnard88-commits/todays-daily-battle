@@ -5499,6 +5499,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     walkthroughLink.target = '_blank';
     walkthroughLink.rel = 'noopener noreferrer';
     if (walkthroughComing) walkthroughComing.style.display = 'none';
+  } else if (walkthroughLink) {
+    walkthroughLink.addEventListener('click', function (e) { e.preventDefault(); });
+    walkthroughLink.setAttribute('aria-disabled', 'true');
+    walkthroughLink.title = 'Video coming soon';
   }
   function isDailyCardStillLoading(card) {
     if (!card) return false;

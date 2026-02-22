@@ -37,7 +37,7 @@ Execute in this order. **ACTIVATION.md** has the checklist and copy-paste announ
 3. **Daily habit loop** — PWA push reminders (when ready); "Streak saved!" toast on login.
 
 ### Week 1–2: Virality (shares & users)
-4. **Maximize sharing** — Visible X/FB (and IG where possible) below daily battle; hashtags #TodaysDailyBattle #BibleHabit #SpiritualWarfare; test "Send to a friend" mailto; shareable verse graphics with branding.
+4. **Maximize sharing** — Share Image preview thumbnail + X/FB/Instagram (copy-for-IG) below daily battle; hashtags #TodaysDailyBattle #DailyBattle #BibleHabit #SpiritualWarfare; test "Send to a friend" mailto; shareable verse graphics with branding. Post one battle daily on X/IG: "Today's win: [Topic]. Who's with me?"
 5. **Promotion blitz** — DM 10–20 pastors: "Free Pastor Toolkit + Sermon Builder + new plans—feedback welcome!" Post daily battles on X/IG; Blaze for 10–15 graphics (verse promos, sermon builder story, mug tease).
 6. **Target 100–500 active** — 50–100 waitlist/streak starts this week; track with CF Analytics once token set.
 
@@ -47,10 +47,25 @@ Execute in this order. **ACTIVATION.md** has the checklist and copy-paste announ
 9. **Announce** — Email + social: "Battle Pro & Shop are here!"; Blaze launch graphics.
 
 ### Ongoing / scale
-10. **Depth** — Reader: version toggle (KJV + public domain); highlight daily verse on load.
-11. **SEO/content** — Google verification; /blog (3–5 posts: "Winning Fear in 2026," Lent guide).
+10. **Depth** — Reader: ESV/NIV toggle (free API e.g. API.Bible); "Why this verse?" blurb from public-domain commentary for scholarly cred; highlight daily verse on load.
+11. **SEO/content** — Google Search Console verification (config meta); /blog (3–5 posts: "Winning Fear in 2026," Lent guide).
 12. **Community** — Public prayer wall or "Battle Wins" story submissions.
 13. **Metrics** — Daily actives, streak length, plan completions, share clicks, waitlist→subs (target 10–20%).
+
+---
+
+## Quick lifts (implemented or one-line config)
+
+| Lift | Status / action |
+|------|------------------|
+| Share Image preview thumbnail | ✅ Next to X/FB buttons on daily battle |
+| Share to Instagram | ✅ Copies verse + link + hashtags for Stories/post |
+| #DailyBattle in shares | ✅ Included in daily battle share text |
+| First 50 get free month (bold) | ✅ Pricing page: **First 50 subscribers get 1 month free.** |
+| Newsletter alt line | "Sync everything now—never lose your progress!" (optional; full sync line in ACTIVATION) |
+| Revenue flip | Set Stripe links → banner auto-changes; set BATTLE_MUG_URL → mug "Buy now" |
+| Visibility | Verify Google Search Console (GOOGLE_SITE_VERIFICATION in config); post one battle daily; DM pastors—offer free Supporter trial for reviews |
+| Depth (later) | Reader ESV/NIV toggle (free API); "Why this verse?" from public-domain commentary |
 
 ---
 

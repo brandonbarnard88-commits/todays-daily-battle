@@ -491,6 +491,29 @@ body {
 
 .social-share-links {
   margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.share-preview-thumb {
+  flex-shrink: 0;
+}
+
+.share-preview-thumb-img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.12));
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.pricing-launch-perk-bold {
+  font-weight: 600;
+  font-size: 1.05rem;
 }
 
 .btn {

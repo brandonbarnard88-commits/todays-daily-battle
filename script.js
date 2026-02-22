@@ -1616,7 +1616,7 @@ function buildDailyBattleShareText() {
     base = ref && bible[ref] ? `Today’s Daily Battle — ${ref}: ${bible[ref]}` : '';
   }
   if (!base) return '';
-  return base + ' Less scroll. More soul. #TodaysDailyBattle #BibleHabit #SpiritualWarfare';
+  return base + ' Less scroll. More soul. #TodaysDailyBattle #DailyBattle #BibleHabit #SpiritualWarfare';
 }
 
 function updateSocialShareLinks() {
@@ -1626,6 +1626,72 @@ function updateSocialShareLinks() {
   var fbEl = document.getElementById('share-daily-to-facebook');
   if (xEl && text) xEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + ' ' + url);
   if (fbEl) fbEl.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+  updateSharePreviewThumb();
+}
+
+function updateSharePreviewThumb() {
+  var el = document.getElementById('share-preview-thumb');
+  if (!el || !currentDailyBattle?.ref) {
+    if (el) el.innerHTML = '';
+    return;
+  }
+  var canvas = document.createElement('canvas');
+  canvas.width = 120;
+  canvas.height = 120;
+  var ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  var g = ctx.createLinearGradient(0, 0, 120, 120);
+  g.addColorStop(0, '#0f172a');
+  g.addColorStop(1, '#4c1d95');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 120, 120);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '600 10px Inter, sans-serif';
+  ctx.fillText('Today\'s Daily Battle', 6, 14);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 12px Playfair Display, serif';
+  var ref = currentDailyBattle.ref;
+  ctx.fillText(ref.length > 18 ? ref.slice(0, 16) + '…' : ref, 6, 28);
+  ctx.fillStyle = '#cbd5e1';
+  ctx.font = '400 9px Inter, sans-serif';
+  var line = (currentDailyBattle.verse || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 32);
+  if (line) ctx.fillText(line + (line.length >= 32 ? '…' : ''), 6, 42);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '500 7px Inter, sans-serif';
+  ctx.fillText('todaysdailybattle.com', 6, 112);
+  var img = document.createElement('img');
+  img.src = canvas.toDataURL('image/png');
+  img.alt = '';
+  img.width = 120;
+  img.height = 120;
+  img.className = 'share-preview-thumb-img';
+  el.innerHTML = '';
+  el.appendChild(img);
+}
+
+function copyDailyBattleForInstagram() {
+  var text = buildDailyBattleShareText();
+  var url = window.location.href;
+  var copy = (text || '') + ' ' + url;
+  if (!navigator.clipboard || !navigator.clipboard.writeText) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = copy;
+      ta.setAttribute('readonly', '');
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    } catch (e) {}
+  } else {
+    navigator.clipboard.writeText(copy);
+  }
+  var btn = document.getElementById('share-daily-to-instagram');
+  if (btn) {
+    var orig = btn.textContent;
+    btn.textContent = 'Copied! Paste into Instagram.';
+    setTimeout(function () { btn.textContent = orig; }, 2500);
+  }
 }
 
 function shareDailyBattleImage() {
@@ -6293,8 +6359,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   updateSocialShareLinks();
   var shareToXEl = document.getElementById('share-daily-to-x');
   var shareToFbEl = document.getElementById('share-daily-to-facebook');
+  var shareToIgEl = document.getElementById('share-daily-to-instagram');
   if (shareToXEl) shareToXEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
   if (shareToFbEl) shareToFbEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
+  if (shareToIgEl) shareToIgEl.addEventListener('click', function () { copyDailyBattleForInstagram(); });
 
   const resetForm = document.getElementById('reset-form');
   if (resetForm) {

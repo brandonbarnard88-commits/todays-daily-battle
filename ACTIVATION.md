@@ -35,7 +35,7 @@ Execute in order to unlock sync/sharing value, then monetization. See **ROADMAP.
 - [ ] Check off a day → refresh or reopen on another tab (same account) → progress persists (if plans are synced via Supabase). If plans are localStorage-only, note that for later sync.
 
 ### 1.6 Go live
-- [ ] Once E2E passes: **Newsletter blast** — “Accounts are live—sign in free to never lose your streak!” (CONFIG.md and ROADMAP mention this; send when ready.)
+- [ ] Once E2E passes: **Newsletter blast** — “Accounts are live—sign in free to sync streaks, drafts, prayers, and plans across phone and computer!” (Full copy in Copy-paste section below; send when ready.)
 
 ---
 
@@ -100,21 +100,52 @@ Execute in order to unlock sync/sharing value, then monetization. See **ROADMAP.
 
 ---
 
+## Immediate wins (this week — low effort, high retention/virality)
+
+- [ ] **Activate Supabase** — Real SUPABASE_URL + ANON_KEY in config.js → run §1 E2E (sign up → streak/draft/prayer/plan → cross-device). Test RLS + Forgot password. Then send the newsletter blast below.
+- [ ] **Test sharing** — Click Share to X / Share to Facebook on daily battle → confirm pre-fill (verse + link + #TodaysDailyBattle #BibleHabit #SpiritualWarfare). Test "Send to a friend" mailto.
+- [ ] **Post today's battle** — Use the social post template below. DM 5–10 pastors with the short pastor DM below.
+
+---
+
 ## Copy-paste: announcements
 
-Use these when you hit each milestone. Edit the links/names as needed.
+Use these when you hit each milestone. Edit verse/link/names as needed.
 
 ### When Supabase accounts go live (newsletter / social)
 **Subject (email):** Accounts are live — sign in free, never lose your streak
 
 **Body (short):**  
-We just turned on free accounts for Today's Daily Battle. Sign in once and your streak, saved verses, and notes sync across devices. No more losing your progress when you switch phones or browsers. [Sign in free here →](https://todaysdailybattle.com)
+Accounts are live—sign in free to sync streaks, drafts, prayers, and plans across phone and computer! [Sign in free here →](https://todaysdailybattle.com)
 
 Less scroll. More soul. ⚔️
 
 ---
 
-### Pastor / small-group DM (toolkit + plans)
+### Post today's battle (social — edit verse/ref to match today)
+**Copy-paste:**  
+Today's battle: Obedience (Romans 15:13). Less scroll, more soul. Join me: https://todaysdailybattle.com ⚔️
+
+#TodaysDailyBattle #BibleHabit #SpiritualWarfare
+
+**Alternate (shorter):**  
+Today's win: Obedience. Who's with me? https://todaysdailybattle.com #TodaysDailyBattle #DailyBattle
+
+---
+
+### Pastor DM (short — for 5–10 people)
+**Copy-paste:**  
+Free Pastor Toolkit + Sermon Builder + new plans (Victory Over Fear, Lent 2026)—would love your feedback! https://todaysdailybattle.com/pastor-toolkit.html
+
+---
+
+### Pastor DM (offer free Supporter trial for reviews)
+**Copy-paste:**  
+Free Pastor Toolkit + Sermon Builder + new plans. I’d love your feedback—happy to comp a free Supporter trial for an honest review. https://todaysdailybattle.com/pastor-toolkit.html
+
+---
+
+### Pastor DM (longer pitch)
 **Copy-paste:**  
 Hey [Name], I run a free Bible companion called Today's Daily Battle — one verse, one moment, every day. We just added a full Pastor Toolkit (build a sermon from a topic in one click) and new reading plans like Victory Over Fear (21 days) and Lent 2026 (40 days). Would love your feedback if you have 5 minutes. [Check it out →](https://todaysdailybattle.com/pastor-toolkit.html)
 
@@ -149,6 +180,6 @@ Battle Pro just launched. Get offline downloads, premium devotionals, and your y
 | Battle Mug buy link     | `config.js` BATTLE_MUG_URL |
 | Analytics               | `config.js` CF_ANALYTICS_TOKEN |
 | Google verification     | index.html meta or config.js GOOGLE_SITE_VERIFICATION + script |
-| Newsletter blast line   | “Accounts are live—sign in free to never lose your streak!” |
+| Newsletter blast line   | “Accounts are live—sign in free to sync streaks, drafts, prayers, and plans across phone and computer!” |
 
 Once accounts are live, the full loop (sync + plans + sharing + subs) clicks.

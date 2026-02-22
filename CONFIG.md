@@ -46,14 +46,7 @@ The featured verse is date-based: the app loads today's row from the `daily_batt
 
 ## Stripe (paid plans)
 
-Subscribe buttons use Stripe Checkout. In **script.js** (top of file), set these constants to your Stripe Payment Link URLs:
-
-- `STRIPE_SUPPORTER_MONTHLY_URL`
-- `STRIPE_SUPPORTER_YEARLY_URL`
-- `STRIPE_CHURCH_MONTHLY_URL`
-- `STRIPE_CHURCH_YEARLY_URL`
-
-If any are empty, the buttons show "Notify me" and scroll to the waitlist instead of opening checkout.
+Subscribe buttons use Stripe Checkout. Set these in **config.js** (see `config.example.js`) or at the top of **script.js**: `STRIPE_SUPPORTER_MONTHLY_URL`, `STRIPE_SUPPORTER_YEARLY_URL`, `STRIPE_CHURCH_MONTHLY_URL`, `STRIPE_CHURCH_YEARLY_URL`. If any are empty, the buttons show "Notify me" and scroll to the waitlist instead of opening checkout.
 
 ## Walkthrough video
 
@@ -61,18 +54,22 @@ The homepage shows "Watch the 60-second walkthrough (video coming soon)." When y
 
 ## Analytics
 
-Cloudflare Web Analytics is wired in **script.js**. Set `CF_ANALYTICS_TOKEN` (top of script.js) to your Cloudflare Web Analytics beacon token. If empty, the analytics script is not loaded.
+Cloudflare Web Analytics is wired in **script.js**. Set `CF_ANALYTICS_TOKEN` in **config.js** (see `config.example.js`) or at the top of script.js. If empty, the analytics script is not loaded.
 
 ## Search Console / verification
 
-To verify the site with Google Search Console or Bing Webmaster Tools, add their meta tag or HTML file as instructed by each service. A common approach is to add a meta tag in `<head>` of `index.html`, e.g. `<meta name="google-site-verification" content="YOUR_CODE">`. Submit `https://todaysdailybattle.com/sitemap.xml` in the Search Console sitemaps section (sitemap is already referenced in `robots.txt`).
+To verify the site with Google Search Console or Bing Webmaster Tools, add their meta tag in `<head>` of `index.html`, e.g. `<meta name="google-site-verification" content="YOUR_CODE">`. You can set `GOOGLE_SITE_VERIFICATION` in config.js and the site can inject it if you add the hook in index.html. Submit `https://todaysdailybattle.com/sitemap.xml` in the Search Console sitemaps section (sitemap is already referenced in `robots.txt`).
+
+## PWA verse-of-the-day push (optional)
+
+To send a daily push notification ("Today's verse is ready"), you need: (1) request notification permission in the PWA (e.g. in script.js when user opts in), (2) a backend or scheduled job that triggers the push (e.g. Supabase Edge Function + VAPID/web-push). Document your chosen provider in CONFIG when you implement.
 
 ## Email sending (newsletter & daily verse)
 
 Newsletter and "Daily battle alert" signups are stored in Supabase (`newsletter_signups`; optional `preferred_time` column). The site does **not** send emails itself. To send weekly or daily emails you need:
 
-1. **A sender**: e.g. Resend, SendGrid, Mailchimp, or ConvertKit.
-2. **A scheduled job**: e.g. a Supabase Edge Function (or cron) that runs on a schedule, reads from `newsletter_signups` and optionally `daily_battles`, and calls your email provider's API. Use `preferred_time` when building the send schedule if you want time-of-day delivery.
-3. (Optional) A simple "daily verse" Edge Function that runs once per day, fetches today's row from `daily_battles`, and emails subscribers who opted into the daily alert.
+1. **A sender**: e.g. Resend, SendGrid, Mailchimp, or ConvertKit. The existing **send-reminders** Edge Function uses SMTP (set `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` in Supabase secrets). For Resend, you can swap the send logic to use Resend's API instead of SMTP.
+2. **A scheduled job**: Call the Edge Function on a schedule. In Supabase Dashboard → Edge Functions → send-reminders, add a cron trigger (e.g. daily at 6:00 AM for daily verse: `POST` with `{ "type": "daily" }`; weekly: `{ "type": "weekly" }`). Or use an external cron (e.g. cron-job.org) that POSTs to your function URL with the correct body.
+3. **Database**: Ensure `newsletter_signups` has `daily_opt_in` and `weekly_opt_in` columns (see `supabase-newsletter-columns.sql`). The send-reminders function reads from `daily_battles` for today's verse and from `newsletter_signups` for recipients.
 
 To hit retention goals (see **STRATEGY.md**), prioritize sending a weekly recap and/or the daily verse to subscribers.

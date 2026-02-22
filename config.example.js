@@ -15,6 +15,14 @@ window.TDB_CONFIG = {
   MASTER_EMAILS: ['your@email.com'],
   // 60-second walkthrough video URL (e.g. Loom). If set, "Watch the 60-second walkthrough" links here.
   WALKTHROUGH_VIDEO_URL: '',
+  // Stripe Payment Link URLs (pricing page). If all set, Subscribe buttons open checkout.
+  STRIPE_SUPPORTER_MONTHLY_URL: '',
+  STRIPE_SUPPORTER_YEARLY_URL: '',
+  STRIPE_CHURCH_MONTHLY_URL: '',
+  STRIPE_CHURCH_YEARLY_URL: '',
+  CF_ANALYTICS_TOKEN: '',
+  GOOGLE_SITE_VERIFICATION: '',
+  BATTLE_MUG_URL: '',
   // Optional: POST uncaught errors here (e.g. Sentry or your backend). Payload: { message, stack, url }.
   ERROR_REPORT_URL: ''
 };

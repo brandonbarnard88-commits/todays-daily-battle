@@ -77,7 +77,7 @@ let isMasterUser = false;
 let currentUserEmail = '';
 let deferredInstallPrompt = null;
 // Set to your Cloudflare Web Analytics beacon token to enable analytics; leave '' to disable.
-const CF_ANALYTICS_TOKEN = '';
+const CF_ANALYTICS_TOKEN = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.CF_ANALYTICS_TOKEN) || '';
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
   '1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah',
@@ -908,11 +908,11 @@ const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
 const MESSAGE_AMEN_KEY = 'messageAmenCounts';
 const DAILY_KIDS_HISTORY_KEY = 'dailyKidsHistory';
 const SUPPORTER_WAITLIST_KEY = 'supporterWaitlist';
-// Paste your Stripe Payment Link URLs below; leave empty to show "Notify me" + waitlist instead of checkout.
-const STRIPE_SUPPORTER_MONTHLY_URL = '';
-const STRIPE_SUPPORTER_YEARLY_URL = '';
-const STRIPE_CHURCH_MONTHLY_URL = '';
-const STRIPE_CHURCH_YEARLY_URL = '';
+// Stripe Payment Link URLs (or set in config.js as TDB_CONFIG.STRIPE_*). Leave empty to show "Notify me" + waitlist.
+const STRIPE_SUPPORTER_MONTHLY_URL = (_cfg && _cfg.STRIPE_SUPPORTER_MONTHLY_URL) || '';
+const STRIPE_SUPPORTER_YEARLY_URL = (_cfg && _cfg.STRIPE_SUPPORTER_YEARLY_URL) || '';
+const STRIPE_CHURCH_MONTHLY_URL = (_cfg && _cfg.STRIPE_CHURCH_MONTHLY_URL) || '';
+const STRIPE_CHURCH_YEARLY_URL = (_cfg && _cfg.STRIPE_CHURCH_YEARLY_URL) || '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
@@ -5518,6 +5518,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     walkthroughLink.setAttribute('aria-disabled', 'true');
     walkthroughLink.title = 'Video coming soon';
   }
+  var shopBattleMugCta = document.getElementById('shop-battle-mug-cta');
+  if (shopBattleMugCta && typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.BATTLE_MUG_URL) {
+    shopBattleMugCta.href = window.TDB_CONFIG.BATTLE_MUG_URL;
+    shopBattleMugCta.textContent = 'Buy now';
+    shopBattleMugCta.target = '_blank';
+    shopBattleMugCta.rel = 'noopener noreferrer';
+  }
   function isDailyCardStillLoading(card) {
     if (!card) return false;
     var t = card.textContent || '';
@@ -6208,6 +6215,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       shareDailyBattleImage();
     });
   }
+  const shareDailySendFriendBtn = document.getElementById('share-daily-battle-send-friend');
+  if (shareDailySendFriendBtn) {
+    shareDailySendFriendBtn.addEventListener('click', () => {
+      const ref = currentDailyBattle?.ref;
+      const verse = currentDailyBattle?.verse || (ref && bible[ref] ? bible[ref] : '');
+      if (!ref || !verse) return;
+      const plainVerse = verse.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      const base = window.location.origin + (window.location.pathname.replace(/\/[^/]+$/, '') || '') + '/';
+      const url = base.replace(/\/?$/, '/');
+      const subject = encodeURIComponent("Today's verse — " + ref);
+      const body = encodeURIComponent(
+        "Hi,\n\nI wanted to share this verse with you:\n\n" + ref + ": " + plainVerse + "\n\n— From Today's Daily Battle: " + url + "\nLess scroll. More soul."
+      );
+      window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+    });
+  }
   const shareDailyCopyVerseBtn = document.getElementById('share-daily-battle-copy-verse');
   if (shareDailyCopyVerseBtn) {
     shareDailyCopyVerseBtn.addEventListener('click', () => {
@@ -6890,6 +6913,96 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('readingPlanCustom', JSON.stringify({ items, title: 'Battle Anxiety in 40 Days' }));
         window.dispatchEvent(new CustomEvent('reading-plan-updated'));
         if (document.getElementById('custom-plan-status')) document.getElementById('custom-plan-status').textContent = 'Battle Anxiety in 40 Days loaded. Your plan is below.';
+      } catch (e) {}
+    });
+  }
+
+  const FEAR_21_POOL = [
+    { ref: '2 Timothy 1:7', theme: 'Spirit of power, love, and a sound mind' },
+    { ref: 'Isaiah 41:10', theme: 'Fear not, I am with thee' },
+    { ref: 'Psalm 56:3', theme: 'What time I am afraid, I will trust in thee' },
+    { ref: 'Joshua 1:9', theme: 'Be strong and of a good courage' },
+    { ref: 'Psalm 27:1', theme: 'The Lord is my light and salvation' },
+    { ref: 'Isaiah 35:4', theme: 'Say to them that are of a fearful heart' },
+    { ref: 'Psalm 118:6', theme: 'The Lord is on my side; I will not fear' },
+    { ref: '1 John 4:18', theme: 'Perfect love casteth out fear' },
+    { ref: 'Psalm 34:4', theme: 'Delivered from all my fears' },
+    { ref: 'Hebrews 13:5', theme: 'I will never leave thee nor forsake thee' },
+    { ref: 'Psalm 91:1', theme: 'He that dwelleth in the secret place' },
+    { ref: 'Isaiah 12:2', theme: 'I will trust, and not be afraid' },
+    { ref: 'Romans 8:31', theme: 'If God be for us, who can be against us' },
+    { ref: 'Psalm 23:4', theme: 'I will fear no evil' },
+    { ref: 'Deuteronomy 31:6', theme: 'Be strong and of a good courage, fear not' },
+    { ref: 'Psalm 46:1', theme: 'God is our refuge and strength' },
+    { ref: 'Proverbs 29:25', theme: 'The fear of man bringeth a snare' },
+    { ref: 'Isaiah 43:2', theme: 'When thou passest through the waters' },
+    { ref: 'Psalm 121:1', theme: 'I will lift up mine eyes unto the hills' },
+    { ref: 'Matthew 10:28', theme: 'Fear him which is able to destroy' },
+    { ref: 'Psalm 94:19', theme: 'In the multitude of my thoughts within me' }
+  ];
+  const themedPlanFear21 = document.getElementById('themed-plan-fear-21');
+  if (themedPlanFear21) {
+    themedPlanFear21.addEventListener('click', () => {
+      const items = FEAR_21_POOL.map((v, i) => ({ day: i + 1, ref: v.ref, theme: v.theme }));
+      try {
+        localStorage.setItem('readingPlanCustom', JSON.stringify({ items, title: 'Victory Over Fear (21 Days)' }));
+        window.dispatchEvent(new CustomEvent('reading-plan-updated'));
+        if (document.getElementById('custom-plan-status')) document.getElementById('custom-plan-status').textContent = 'Victory Over Fear loaded. Your plan is below.';
+      } catch (e) {}
+    });
+  }
+
+  const LENT_40_POOL = [
+    { ref: 'Matthew 4:4', theme: 'Man shall not live by bread alone' },
+    { ref: 'Joel 2:12', theme: 'Turn ye even to me with all your heart' },
+    { ref: 'Psalm 51:10', theme: 'Create in me a clean heart' },
+    { ref: 'Isaiah 58:6', theme: 'Loose the bands of wickedness' },
+    { ref: 'Matthew 6:33', theme: 'Seek ye first the kingdom of God' },
+    { ref: 'Psalm 139:23', theme: 'Search me, O God, and know my heart' },
+    { ref: '2 Chronicles 7:14', theme: 'Humble themselves, and pray' },
+    { ref: 'Matthew 5:6', theme: 'Blessed are they which do hunger and thirst' },
+    { ref: 'Psalm 27:8', theme: 'Seek his face' },
+    { ref: 'Jeremiah 29:13', theme: 'Ye shall seek me, and find me' },
+    { ref: 'Psalm 42:1', theme: 'As the hart panteth after the water brooks' },
+    { ref: 'Matthew 11:28', theme: 'Come unto me, all ye that labour' },
+    { ref: 'Isaiah 55:6', theme: 'Seek ye the Lord while he may be found' },
+    { ref: 'Psalm 63:1', theme: 'O God, thou art my God; early will I seek thee' },
+    { ref: 'Luke 9:23', theme: 'Take up his cross daily' },
+    { ref: 'Psalm 119:105', theme: 'Thy word is a lamp unto my feet' },
+    { ref: 'Matthew 16:24', theme: 'Deny himself, and take up his cross' },
+    { ref: 'Isaiah 40:31', theme: 'They that wait upon the Lord' },
+    { ref: 'Psalm 46:10', theme: 'Be still, and know that I am God' },
+    { ref: 'Matthew 6:6', theme: 'Enter into thy closet, and pray' },
+    { ref: 'Psalm 91:1', theme: 'He that dwelleth in the secret place' },
+    { ref: 'John 15:5', theme: 'Without me ye can do nothing' },
+    { ref: 'Psalm 23:1', theme: 'The Lord is my shepherd' },
+    { ref: 'Matthew 4:17', theme: 'Repent: for the kingdom of heaven is at hand' },
+    { ref: 'Isaiah 53:5', theme: 'With his stripes we are healed' },
+    { ref: 'Psalm 22:1', theme: 'My God, my God, why hast thou forsaken me' },
+    { ref: 'Matthew 27:46', theme: 'Eli, Eli, lama sabachthani' },
+    { ref: 'Isaiah 53:6', theme: 'All we like sheep have gone astray' },
+    { ref: 'Psalm 34:18', theme: 'The Lord is nigh unto them that are of a broken heart' },
+    { ref: 'John 3:16', theme: 'God so loved the world' },
+    { ref: 'Isaiah 53:12', theme: 'He bare the sin of many' },
+    { ref: 'Psalm 118:22', theme: 'The stone which the builders refused' },
+    { ref: 'Matthew 28:6', theme: 'He is not here: for he is risen' },
+    { ref: 'Romans 6:4', theme: 'Walk in newness of life' },
+    { ref: 'Psalm 118:24', theme: 'This is the day the Lord hath made' },
+    { ref: 'John 11:25', theme: 'I am the resurrection, and the life' },
+    { ref: 'Isaiah 25:8', theme: 'He will swallow up death in victory' },
+    { ref: 'Psalm 16:11', theme: 'In thy presence is fulness of joy' },
+    { ref: 'Romans 8:11', theme: 'Quickened by his Spirit' },
+    { ref: 'Matthew 28:20', theme: 'Lo, I am with you alway' },
+    { ref: 'Psalm 150:6', theme: 'Let every thing that hath breath praise the Lord' }
+  ];
+  const themedPlanLent40 = document.getElementById('themed-plan-lent-40');
+  if (themedPlanLent40) {
+    themedPlanLent40.addEventListener('click', () => {
+      const items = LENT_40_POOL.map((v, i) => ({ day: i + 1, ref: v.ref, theme: v.theme }));
+      try {
+        localStorage.setItem('readingPlanCustom', JSON.stringify({ items, title: 'Lent 2026 (40 Days)' }));
+        window.dispatchEvent(new CustomEvent('reading-plan-updated'));
+        if (document.getElementById('custom-plan-status')) document.getElementById('custom-plan-status').textContent = 'Lent 2026 plan loaded. Your plan is below.';
       } catch (e) {}
     });
   }

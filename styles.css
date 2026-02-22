@@ -191,6 +191,21 @@ body {
   outline-offset: 2px;
 }
 
+.header-signin-nudge {
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.85);
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+.header-signin-nudge a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.header-signin-nudge a:hover {
+  text-decoration: underline;
+}
+
 .sidebar-options {
   padding: 0.75rem 1rem;
   border-top: 1px solid rgba(148, 163, 184, 0.2);

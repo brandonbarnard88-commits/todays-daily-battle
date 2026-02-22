@@ -36,6 +36,10 @@ The **Admin** panel (admin.html) is only available to the **master account**. To
 
 **If you still can't get in:** Confirm `config.js` exists and is loaded before `script.js`, and that the email in `MASTER_EMAIL` matches your login email exactly (case doesn't matter). Check the browser console for errors.
 
+## Web Push (8 AM streak reminder)
+
+Users can opt in to **8 AM streak reminder** ("Day 12—your verse is ready! 🔥"). Set **VAPID_PUBLIC_KEY** in config.js (generate with `npx web-push generate-vapid-keys`). The client subscribes and stores the subscription in localStorage (key `tdb_push_subscription`). To send at 8 AM: your backend must read subscriptions (e.g. from Supabase if you persist them), then use the VAPID private key and a Web Push library to send a payload like `{ "title": "Today's Daily Battle", "body": "Day 12—your verse is waiting! 🔥", "url": "/" }`. Schedule a cron (e.g. 8:00 AM user local or 13:00 UTC) to trigger the send.
+
 ## Service worker cache (deploy checklist)
 
 When you deploy new JS or CSS, bump the cache name in `service-worker.js` (e.g. `CACHE_NAME = 'tdb-static-YYYYMMDD'`) so returning visitors get the latest assets.

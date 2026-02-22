@@ -27,6 +27,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -110,6 +111,11 @@
 
     <main class="app-content">
       <div class="content-inner">
+        <div id="challenge-30-banner" class="challenge-30-banner glass">
+          <h2 class="challenge-30-title">Join the 30-Day Battle Challenge – Free</h2>
+          <p class="challenge-30-text">Start today: Romans 15:13. Track your streak. Share daily. Tag #30DayBattle</p>
+          <button id="challenge-start-day-1" type="button" class="btn btn-primary challenge-30-cta"><span class="challenge-flame" aria-hidden="true">🔥</span> Start Day 1</button>
+        </div>
         <div id="signin-nudge-banner" class="signin-nudge-banner glass" role="complementary">
           Save your streak? <a href="#auth-details">Sign in</a>—optional, no pressure.
         </div>
@@ -233,6 +239,7 @@
               <button id="share-my-streak" type="button" class="btn btn-secondary">Share my streak</button>
             </div>
           </div>
+          <div id="badges-section" class="glass badges-section" aria-label="Badges"></div>
           <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Sign in to save your streak and sync across devices.</p>
           <div class="cta-group daily-battle-signin-cta">
             <a href="#auth-details" class="btn btn-primary">Sign In Free – Save Your Streak Forever &amp; Sync Devices</a>
@@ -246,6 +253,7 @@
             <button id="share-daily-battle-copy-verse" class="btn btn-secondary" type="button" title="Copy verse + reference">Copy verse</button>
             <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
             <button id="share-daily-battle-image" class="btn btn-secondary" type="button" title="One-tap: Instagram-ready graphic with today's verse + logo">Save card for Instagram</button>
+            <button id="generate-share-card-30" type="button" class="btn btn-primary">Generate Share Card</button>
             <button id="listen-daily-battle" class="btn btn-secondary btn-listen" type="button" title="Read this verse aloud here" aria-label="Read this verse aloud">Listen</button>
             <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
           </div>
@@ -255,6 +263,7 @@
             <div id="share-preview-thumb" class="share-preview-thumb" aria-hidden="true"></div>
             <a id="share-daily-to-x" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)" title="Share to X"><span class="share-icon share-icon-x" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
             <a id="share-daily-to-facebook" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to Facebook" title="Share to Facebook"><span class="share-icon share-icon-fb" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span></a>
+            <a id="share-daily-to-whatsapp" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to WhatsApp" title="Share to WhatsApp"><span class="share-icon share-icon-wa" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
             <button id="share-daily-to-instagram" type="button" class="btn btn-icon social-share-btn" aria-label="Copy for Instagram" title="Copy for Instagram"><span class="share-icon share-icon-ig" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.766 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span></button>
           </div>
           <div class="cta-group daily-battle-extra">
@@ -262,6 +271,15 @@
               <input id="daily-reminder-toggle" type="checkbox" aria-label="Notify me when I open the site">
               Notify me when I open the site
             </label>
+            <label class="inline-toggle streak-push-wrap">
+              <input id="streak-push-toggle" type="checkbox" aria-label="8 AM streak reminder">
+              8 AM streak reminder — "Your verse is ready! 🔥"
+            </label>
+            <button id="streak-push-test" type="button" class="btn btn-secondary btn-small" style="display:none">Test notification</button>
+            <div id="streak-repair-wrap" class="streak-repair-wrap" style="display:none">
+              <button id="streak-repair-btn" type="button" class="btn btn-secondary btn-small">Repair streak (1 free this month)</button>
+              <span class="section-note">Forgive one missed day. Resets monthly.</span>
+            </div>
             <span class="section-note">Get a gentle reminder so you don't miss your daily verse.</span>
           </div>
           <div id="install-cta" class="cta-group install-cta">
@@ -327,16 +345,33 @@
             <div class="list-item"><div><strong>“Perfect for family devotions.”</strong><p>We finally have something short we can do together.</p></div></div>
             <div class="list-item"><div><strong>“My sermon prep got faster.”</strong><p>The search + outlines saved me hours.</p></div></div>
           </div>
-          <p class="section-note">Want to share your story? Email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>. Swap in real testimonials as they roll in.</p>
+          <p class="section-note">Want to share your story? <a href="mailto:support@todaysdailybattle.com?subject=Testimonial%20for%20Today%27s%20Daily%20Battle">Submit your story</a> — we may feature it here.</p>
         </section>
         <section class="glass beta-testers-section">
           <h2 class="section-divider">Beta testers</h2>
-          <p class="section-note">Five people get <strong>Supporter free</strong> for feedback. You'll help shape the app—and evangelize for us.</p>
+          <p class="section-note">Join beta, get <strong>Supporter free for 3 months</strong>. Sign up here—you'll help shape the app and evangelize for us.</p>
           <div class="beta-testers-form">
             <input id="beta-email" type="email" placeholder="Your email" aria-label="Email for beta" autocomplete="email">
             <button id="beta-apply" type="button" class="btn btn-primary">Apply</button>
           </div>
           <p id="beta-status" class="section-note"></p>
+        </section>
+        <section class="glass leaderboard-section">
+          <h2 class="section-divider">Today's Top Streaks</h2>
+          <ul id="leaderboard-list" class="leaderboard-list"></ul>
+          <div class="leaderboard-add">
+            <input id="leaderboard-nickname" type="text" placeholder="Your nickname" maxlength="24" aria-label="Nickname for leaderboard">
+            <button id="leaderboard-submit" type="button" class="btn btn-secondary">Add my streak</button>
+          </div>
+        </section>
+        <section class="glass invite-section">
+          <h2 class="section-divider">Invite a friend</h2>
+          <p class="section-note">Share your link—when a friend joins, you both get 1 streak repair.</p>
+          <div class="invite-form">
+            <input id="invite-nickname" type="text" placeholder="Your nickname (for link)" maxlength="32" aria-label="Nickname for invite link">
+            <button id="invite-copy" type="button" class="btn btn-primary">Copy my link</button>
+          </div>
+          <p id="invite-status" class="section-note"></p>
         </section>
         <section class="glass" id="prayer-list-section">
           <h2 class="section-divider">Prayer List</h2>
@@ -380,6 +415,7 @@
           <p id="newsletter-status" class="section-note"></p>
         </section>
 
+        <div id="elite-toast" class="elite-toast" role="status" aria-live="polite" style="display:none"></div>
         <div id="loading" class="loading" style="display:none" aria-live="polite" aria-atomic="true">
           <div class="spinner"></div>
           <p>Seeking God's truth...</p>

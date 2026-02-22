@@ -915,6 +915,9 @@ const STRIPE_SUPPORTER_YEARLY_URL = (_cfg && _cfg.STRIPE_SUPPORTER_YEARLY_URL) |
 const STRIPE_CHURCH_MONTHLY_URL = (_cfg && _cfg.STRIPE_CHURCH_MONTHLY_URL) || '';
 const STRIPE_CHURCH_YEARLY_URL = (_cfg && _cfg.STRIPE_CHURCH_YEARLY_URL) || '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
+const CHALLENGE_30_STARTED_KEY = 'challenge30Started';
+const LEADERBOARD_KEY = 'tdb_leaderboard';
+const LEADERBOARD_MAX = 50;
 const PRAYER_WALL_KEY = 'prayerWall';
 const PRAYER_WALL_HEARTS_KEY = 'prayerWallHearts';
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
@@ -1133,6 +1136,66 @@ function wireInstallPrompt() {
   });
 }
 
+function startChallenge() {
+  var today = getDailyKey();
+  var data = { lastKey: today, count: 1, dates: [today] };
+  try {
+    localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(data));
+    localStorage.setItem(CHALLENGE_30_STARTED_KEY, '1');
+    var unlocked = getUnlockedBadges();
+    if (unlocked.indexOf('new-warrior') === -1) {
+      unlocked.push('new-warrior');
+      localStorage.setItem(BADGES_STORAGE_KEY, JSON.stringify(unlocked));
+      var dates = getBadgeUnlockDates();
+      dates['new-warrior'] = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      localStorage.setItem(BADGES_DATES_KEY, JSON.stringify(dates));
+    }
+  } catch (e) {}
+  updateDailyBattleStreak();
+  var section = document.getElementById('daily-battle-section');
+  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  showEliteToast('Welcome to the fight! Here\'s your first badge: New Warrior 🔥');
+  (function day1SurpriseConfetti() {
+    if (typeof confetti !== 'function') return;
+    confetti({ particleCount: 80, spread: 70, origin: { y: 0.65 } });
+    var end = Date.now() + 5000;
+    (function frame() {
+      if (Date.now() > end) return;
+      confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: Math.random(), y: 0.7 }, colors: ['#a78bfa', '#fbbf24', '#34d399', '#f87171'] });
+      confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: Math.random(), y: 0.7 }, colors: ['#a78bfa', '#fbbf24', '#34d399', '#f87171'] });
+      requestAnimationFrame(frame);
+    })();
+  })();
+  updateChallengeBannerState();
+  (function applyReferrerRepair() {
+    try {
+      if (!localStorage.getItem('tdb_referrer')) return;
+      localStorage.removeItem('tdb_referrer');
+      var repairData = JSON.parse(localStorage.getItem(STREAK_REPAIR_KEY) || '{}');
+      var now = new Date();
+      var monthKey = now.getFullYear() + '-' + (now.getMonth() + 1);
+      if (repairData.month !== monthKey) repairData = { month: monthKey, used: 0 };
+      repairData.used = Math.max(0, (repairData.used || 0) - 1);
+      localStorage.setItem(STREAK_REPAIR_KEY, JSON.stringify(repairData));
+      showEliteToast('Referred! You got 1 bonus streak repair.');
+    } catch (e) {}
+  })();
+}
+
+function updateChallengeBannerState() {
+  var banner = document.getElementById('challenge-30-banner');
+  var cta = document.getElementById('challenge-start-day-1');
+  if (!banner || !cta) return;
+  var count = window.__currentStreakCount || 0;
+  var started = false;
+  try { started = localStorage.getItem(CHALLENGE_30_STARTED_KEY) === '1'; } catch (e) {}
+  if (started && count >= 1) {
+    cta.textContent = count <= 30 ? 'Day ' + count + '/30 – keep going! 🔥' : 'Day ' + count + ' – keep going! 🔥';
+    cta.disabled = true;
+    cta.setAttribute('aria-label', 'Challenge in progress');
+  }
+}
+
 function updateDailyBattleStreak() {
   const streakEl = document.getElementById('daily-battle-streak');
   const calendarEl = document.getElementById('daily-battle-calendar');
@@ -1152,7 +1215,9 @@ function updateDailyBattleStreak() {
     localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify({ lastKey: today, count: nextCount, dates: nextDates }));
   }
   var streakText = nextCount >= 1
-    ? (nextCount === 1 ? 'Day 1 — you started! 🔥' : `Day ${nextCount} — keep it going! 🔥`)
+    ? (nextCount <= 30
+        ? (nextCount === 1 ? 'Day 1/30 — you started! 🔥' : `Day ${nextCount}/30 — keep it going! 🔥`)
+        : (nextCount === 1 ? 'Day 1 — you started! 🔥' : `Day ${nextCount} — keep it going! 🔥`))
     : 'Streak: 0 days';
   streakEl.textContent = streakText;
   var shareStreakWrap = document.getElementById('share-streak-wrap');
@@ -1168,6 +1233,144 @@ function updateDailyBattleStreak() {
   }
   if (calendarEl) renderStreakCalendar(calendarEl, nextDates);
   window.__currentStreakCount = nextCount;
+  updateChallengeBannerState();
+  var milestoneToast = [7, 14, 30, 60].indexOf(nextCount) >= 0;
+  try {
+    var lastMilestone = parseInt(localStorage.getItem('tdb_last_milestone_toast') || '0', 10);
+    if (milestoneToast && nextCount > lastMilestone) {
+      showEliteToast('You\'re on fire! 🔥');
+      localStorage.setItem('tdb_last_milestone_toast', String(nextCount));
+    }
+  } catch (e) {}
+  checkStreakRepairVisibility();
+  updateUnlockedBadges(nextCount);
+}
+
+function showEliteToast(message) {
+  var el = document.getElementById('elite-toast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'elite-toast';
+    el.className = 'elite-toast';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    document.body.appendChild(el);
+  }
+  el.textContent = message;
+  el.style.display = 'block';
+  el.classList.add('elite-toast-show');
+  clearTimeout(window._eliteToastTimeout);
+  window._eliteToastTimeout = setTimeout(function () {
+    el.classList.remove('elite-toast-show');
+    setTimeout(function () { el.style.display = 'none'; }, 300);
+  }, 2800);
+}
+
+var STREAK_BADGES = [
+  { id: 'new-warrior', name: 'New Warrior', days: 1 },
+  { id: 'hope-hero', name: 'Hope Hero', days: 7 },
+  { id: 'obedience-overcomer', name: 'Obedience Overcomer', days: 14 },
+  { id: 'battle-master', name: 'Battle Master', days: 30 }
+];
+var BADGES_STORAGE_KEY = 'tdb_unlocked_badges';
+var BADGES_DATES_KEY = 'tdb_badge_dates';
+
+function getUnlockedBadges() {
+  try { return JSON.parse(localStorage.getItem(BADGES_STORAGE_KEY) || '[]'); } catch (e) { return []; }
+}
+
+function getBadgeUnlockDates() {
+  try { return JSON.parse(localStorage.getItem(BADGES_DATES_KEY) || '{}'); } catch (e) { return {}; }
+}
+
+function updateUnlockedBadges(streakCount) {
+  var unlocked = getUnlockedBadges();
+  if (unlocked.indexOf('freedom-fighter') >= 0) {
+    unlocked = unlocked.filter(function (id) { return id !== 'freedom-fighter'; });
+    unlocked.push('battle-master');
+  }
+  var dates = getBadgeUnlockDates();
+  var changed = false;
+  var todayStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  STREAK_BADGES.forEach(function (b) {
+    if (streakCount >= b.days && unlocked.indexOf(b.id) === -1) {
+      unlocked.push(b.id);
+      dates[b.id] = todayStr;
+      changed = true;
+    }
+  });
+  if (changed) {
+    localStorage.setItem(BADGES_STORAGE_KEY, JSON.stringify(unlocked));
+    localStorage.setItem(BADGES_DATES_KEY, JSON.stringify(dates));
+  }
+  renderBadgesSection();
+}
+
+function renderBadgesSection() {
+  var container = document.getElementById('badges-section');
+  if (!container) return;
+  var unlocked = getUnlockedBadges();
+  var dates = getBadgeUnlockDates();
+  if (unlocked.length === 0) {
+    container.innerHTML = '<p class="section-note">Unlock New Warrior (Day 1), then Hope Hero, Obedience Overcomer, and Battle Master at 7, 14, 30 days.</p>';
+    return;
+  }
+  var html = '<div class="badges-list">';
+  STREAK_BADGES.forEach(function (b) {
+    var has = unlocked.indexOf(b.id) >= 0;
+    var dateStr = has && dates[b.id] ? ' – Unlocked ' + dates[b.id] : '';
+    html += '<span class="badge-pill ' + (has ? 'badge-unlocked' : 'badge-locked') + '" title="' + (has ? b.name + dateStr : b.days + ' days') + '">' + (has ? '🏆 ' + b.name + (dates[b.id] ? ' <small>(' + dates[b.id] + ')</small>' : '') : '🔒 ' + b.days + 'd') + '</span>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+var STREAK_REPAIR_KEY = 'tdb_streak_repair';
+
+function checkStreakRepairVisibility() {
+  var wrap = document.getElementById('streak-repair-wrap');
+  if (!wrap) return;
+  var today = getDailyKey();
+  var yesterday = shiftDailyKey(today, -1);
+  var data = {};
+  try { data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}'); } catch (e) {}
+  var dates = Array.isArray(data.dates) ? data.dates : [];
+  var set = new Set(dates);
+  var hasToday = set.has(today);
+  var hasYesterday = set.has(yesterday);
+  var repairData = {};
+  try { repairData = JSON.parse(localStorage.getItem(STREAK_REPAIR_KEY) || '{}'); } catch (e) {}
+  var now = new Date();
+  var monthKey = now.getFullYear() + '-' + (now.getMonth() + 1);
+  if (repairData.month !== monthKey) repairData = { month: monthKey, used: 0 };
+  var canRepair = hasToday && !hasYesterday && repairData.used < 1;
+  wrap.style.display = canRepair ? 'block' : 'none';
+}
+
+function useStreakRepair() {
+  var today = getDailyKey();
+  var yesterday = shiftDailyKey(today, -1);
+  var data = {};
+  try { data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}'); } catch (e) {}
+  var dates = Array.isArray(data.dates) ? data.dates : [];
+  var set = new Set(dates);
+  if (!set.has(today) || set.has(yesterday)) return;
+  var repairData = {};
+  try { repairData = JSON.parse(localStorage.getItem(STREAK_REPAIR_KEY) || '{}'); } catch (e) {}
+  var now = new Date();
+  var monthKey = now.getFullYear() + '-' + (now.getMonth() + 1);
+  if (repairData.month !== monthKey) repairData = { month: monthKey, used: 0 };
+  if (repairData.used >= 1) return;
+  dates.push(yesterday);
+  dates.sort();
+  data.dates = dates;
+  data.count = calculateStreak(dates, today);
+  data.lastKey = today;
+  localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(data));
+  repairData.used = 1;
+  localStorage.setItem(STREAK_REPAIR_KEY, JSON.stringify(repairData));
+  updateDailyBattleStreak();
+  showEliteToast('Streak repaired! 🔥');
 }
 
 function calculateStreak(dates, todayKey) {
@@ -1628,13 +1831,28 @@ function buildDailyBattleShareText() {
   return base + ' Less scroll. More soul. #TodaysDailyBattle #DailyBattle #BibleHabit #SpiritualWarfare';
 }
 
+function updateDailyBattleMetaDesc(verseRef) {
+  if (!document.querySelector) return;
+  var desc = 'Join the 30-Day Battle Challenge. Verse, prayer, streak—free. #30DayBattle';
+  var meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute('content', desc);
+  var og = document.querySelector('meta[property="og:description"]');
+  if (og) og.setAttribute('content', desc);
+  var tw = document.querySelector('meta[name="twitter:description"]');
+  if (tw) tw.setAttribute('content', desc);
+}
+
 function updateSocialShareLinks() {
   var text = buildDailyBattleShareText();
   var url = window.location.href;
+  var ref = currentDailyBattle?.ref || '';
+  var verse = (currentDailyBattle?.verse || '').replace(/<[^>]+>/g, ' ').trim();
   var xEl = document.getElementById('share-daily-to-x');
   var fbEl = document.getElementById('share-daily-to-facebook');
+  var waEl = document.getElementById('share-daily-to-whatsapp');
   if (xEl && text) xEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + ' ' + url);
   if (fbEl) fbEl.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+  if (waEl) waEl.href = buildWhatsAppShareUrl(ref, verse);
   updateSharePreviewThumb();
 }
 
@@ -1738,9 +1956,18 @@ function shareDailyBattleImage() {
     wrapCanvasText(ctx, `Prayer: ${currentDailyBattle.prayer}`, 80, 720, 920, 44);
   }
 
-  ctx.fillStyle = '#e2e8f0';
+  var todayLabel = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  ctx.fillStyle = 'rgba(226, 232, 240, 0.9)';
   ctx.font = '600 28px Inter, sans-serif';
   ctx.fillText('todaysdailybattle.com', 80, 1010);
+  ctx.fillText(todayLabel, 80, 1045);
+  ctx.save();
+  ctx.globalAlpha = 0.06;
+  ctx.translate(540, 540);
+  ctx.rotate(-0.25 * Math.PI);
+  ctx.font = '400 48px Inter, sans-serif';
+  ctx.fillText('Today\'s Daily Battle', -200, 0);
+  ctx.restore();
 
   canvas.toBlob((blob) => {
     if (!blob) {
@@ -1769,6 +1996,60 @@ function shareDailyBattleImage() {
       URL.revokeObjectURL(a.href);
     });
   }, 'image/png');
+}
+
+function generateShareCard30() {
+  if (!currentDailyBattle?.ref) return;
+  var count = window.__currentStreakCount || 0;
+  var dayLabel = count <= 30 ? 'Day ' + count + '/30' : 'Day ' + count;
+  var todayStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  var canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1080;
+  var ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  var g = ctx.createLinearGradient(0, 0, 1080, 1080);
+  g.addColorStop(0, '#0f172a');
+  g.addColorStop(1, '#4c1d95');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 1080, 1080);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '700 44px Inter, sans-serif';
+  ctx.fillText(dayLabel + ' – Today\'s Daily Battle', 80, 100);
+  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.font = '700 56px Playfair Display, serif';
+  ctx.fillText(currentDailyBattle.ref, 80, 200);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '400 34px Inter, sans-serif';
+  var verseText = (currentDailyBattle.verse || '').replace(/<[^>]+>/g, ' ').trim();
+  wrapCanvasText(ctx, verseText, 80, 280, 920, 44);
+  if (currentDailyBattle.reflection) {
+    ctx.fillStyle = '#cbd5e1';
+    ctx.font = '400 30px Inter, sans-serif';
+    wrapCanvasText(ctx, currentDailyBattle.reflection, 80, 580, 920, 38);
+  }
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '600 26px Inter, sans-serif';
+  ctx.fillText(todayStr + '  🔥', 80, 1000);
+  ctx.fillText('todaysdailybattle.com', 80, 1040);
+  ctx.save();
+  ctx.globalAlpha = 0.08;
+  ctx.translate(540, 540);
+  ctx.rotate(-0.25 * Math.PI);
+  ctx.font = '400 42px Inter, sans-serif';
+  ctx.fillText('todaysdailybattle.com', -180, 0);
+  ctx.restore();
+  var dataUrl = canvas.toDataURL('image/png');
+  var a = document.createElement('a');
+  a.download = '30DayBattle-Day' + (count || 1) + '.png';
+  a.href = dataUrl;
+  a.click();
+  var url = (window.location.origin || '') + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
+  var shareText = 'Day ' + (count || 1) + ' of #30DayBattle – join me? ' + url;
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText);
+  var w = window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText), '_blank');
+  if (!w) showEliteToast('Card saved! Copy: ' + shareText.substring(0, 40) + '…');
+  else showEliteToast('Card saved! Share on X opened.');
 }
 
 function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -1967,6 +2248,7 @@ async function renderDailyBattleCard() {
     prayer: battle.prayer || ''
   };
   updateDailyBattleStreak();
+  updateDailyBattleMetaDesc(battle.ref);
   renderDailyEncouragement();
   if (typeof updateSocialShareLinks === 'function') updateSocialShareLinks();
 }
@@ -5513,6 +5795,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (ogTitle) ogTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
     var twTitle = document.querySelector('meta[name="twitter:title"]');
     if (twTitle) twTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', 'Join the 30-Day Battle Challenge. Verse, prayer, streak—free. #30DayBattle');
+    var ref = (window.location.search || '').replace(/^\?/, '').split('&').filter(function (p) { return p.indexOf('ref=') === 0; })[0];
+    if (ref) {
+      try { localStorage.setItem('tdb_referrer', ref.replace('ref=', '')); } catch (e) {}
+    }
+    updateChallengeBannerState();
   }
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
@@ -5671,6 +5960,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (prayerEl) prayerEl.textContent = 'Prayer: Lord, help me walk in power, love, and a sound mind today. Amen.';
     currentDailyBattle = { ref: ref, verse: text, reflection: '', prayer: '' };
     updateDailyBattleStreak();
+    updateDailyBattleMetaDesc(ref);
     var anchorTryEl = document.getElementById('daily-battle-anchor-try');
     if (anchorTryEl) anchorTryEl.remove();
     var tryAgainWrap = document.createElement('p');
@@ -6339,6 +6629,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       shareDailyBattleImage();
     });
   }
+  var generateCard30Btn = document.getElementById('generate-share-card-30');
+  if (generateCard30Btn) generateCard30Btn.addEventListener('click', function () { generateShareCard30(); });
+  var challengeStartBtn = document.getElementById('challenge-start-day-1');
+  if (challengeStartBtn) challengeStartBtn.addEventListener('click', startChallenge);
   const shareDailySendFriendBtn = document.getElementById('share-daily-battle-send-friend');
   if (shareDailySendFriendBtn) {
     shareDailySendFriendBtn.addEventListener('click', () => {
@@ -6387,6 +6681,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (shareToXEl) shareToXEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
   if (shareToFbEl) shareToFbEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
   if (shareToIgEl) shareToIgEl.addEventListener('click', function () { copyDailyBattleForInstagram(); });
+  var shareToWaEl = document.getElementById('share-daily-to-whatsapp');
+  if (shareToWaEl) shareToWaEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
 
   var shareMyStreakBtn = document.getElementById('share-my-streak');
   if (shareMyStreakBtn) {
@@ -6416,6 +6712,68 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  setTimeout(function () {
+    if (typeof renderBadgesSection === 'function') renderBadgesSection();
+  }, 500);
+
+  (function initLeaderboard() {
+    function getList() {
+      try { return JSON.parse(localStorage.getItem(LEADERBOARD_KEY) || '[]'); } catch (e) { return []; }
+    }
+    function setList(arr) {
+      try { localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(arr.slice(0, LEADERBOARD_MAX))); } catch (e) {}
+    }
+    function render() {
+      var list = getList().sort(function (a, b) { return (b.days || 0) - (a.days || 0); });
+      var el = document.getElementById('leaderboard-list');
+      if (!el) return;
+      el.innerHTML = list.slice(0, 5).map(function (e, i) {
+        return '<li class="leaderboard-item">' + (i + 1) + '. ' + escapeHtml(e.name || 'Anonymous') + ' – ' + (e.days || 0) + ' days</li>';
+      }).join('') || '<li class="section-note">No entries yet. Add your streak above!</li>';
+    }
+    var submit = document.getElementById('leaderboard-submit');
+    var nickname = document.getElementById('leaderboard-nickname');
+    if (submit && nickname) {
+      submit.addEventListener('click', function () {
+        var name = (nickname.value || '').trim().replace(/</g, '').slice(0, 24) || 'Anonymous';
+        var days = window.__currentStreakCount || 0;
+        var list = getList();
+        list.push({ id: Date.now(), name: name, days: days });
+        setList(list);
+        render();
+        nickname.value = '';
+        showEliteToast('Added to leaderboard!');
+      });
+    }
+    render();
+    setInterval(render, 5 * 60 * 1000);
+  })();
+
+  (function initInvite() {
+    var input = document.getElementById('invite-nickname');
+    var btn = document.getElementById('invite-copy');
+    var status = document.getElementById('invite-status');
+    try {
+      var saved = localStorage.getItem('tdb_my_ref');
+      if (saved && input) input.value = saved;
+    } catch (e) {}
+    if (btn && input) {
+      btn.addEventListener('click', function () {
+        var name = (input.value || '').trim().replace(/[?&=#]/g, '').slice(0, 32) || 'friend';
+        try { localStorage.setItem('tdb_my_ref', name); } catch (e) {}
+        var base = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
+        var url = (base + (base.endsWith('/') ? '' : '/') + '?ref=' + encodeURIComponent(name));
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+          });
+        } else {
+          if (status) status.textContent = 'Copy: ' + url;
+        }
+      });
+    }
+  })();
+
   (function initTestimonialsCarousel() {
     var slidesContainer = document.getElementById('testimonial-slides');
     var dotsContainer = document.querySelector('#testimonials-carousel .testimonial-dots');
@@ -6425,7 +6783,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       { quote: 'First time I prayed daily.', body: 'Two minutes. No guilt. It actually stuck.' },
       { quote: 'I open this more than Instagram now.', body: 'Two minutes here and I feel grounded. The streak keeps me coming back.' },
       { quote: 'This helped me breathe again.', body: 'The verses felt like a lifeline in a hard week.' },
-      { quote: 'Perfect for family devotions.', body: 'We finally have something short we can do together.' },
       { quote: 'My sermon prep got faster.', body: 'The search + outlines saved me hours.' }
     ];
     testimonials.forEach(function (t, i) {
@@ -6456,8 +6813,61 @@ document.addEventListener('DOMContentLoaded', async () => {
     setInterval(function () {
       current += 1;
       goTo(current);
-    }, 5000);
+    }, 8000);
   })();
+
+  var streakRepairBtn = document.getElementById('streak-repair-btn');
+  if (streakRepairBtn) streakRepairBtn.addEventListener('click', useStreakRepair);
+
+  var streakPushToggle = document.getElementById('streak-push-toggle');
+  var streakPushTest = document.getElementById('streak-push-test');
+  if (streakPushToggle) {
+    try {
+      var pushOn = localStorage.getItem('tdb_streak_push') === '1';
+      streakPushToggle.checked = pushOn;
+      if (streakPushTest) streakPushTest.style.display = pushOn ? 'inline-block' : 'none';
+    } catch (e) {}
+    streakPushToggle.addEventListener('change', function () {
+      var enable = this.checked;
+      try { localStorage.setItem('tdb_streak_push', enable ? '1' : '0'); } catch (e) {}
+      if (streakPushTest) streakPushTest.style.display = enable ? 'inline-block' : 'none';
+      if (enable) {
+        if (!('Notification' in window)) return;
+        if (Notification.permission === 'granted') requestPushSubscription();
+        else if (Notification.permission !== 'denied') Notification.requestPermission().then(function (p) { if (p === 'granted') requestPushSubscription(); });
+      }
+    });
+  }
+  if (streakPushTest) streakPushTest.addEventListener('click', function () {
+    if (!('Notification' in window) || Notification.permission !== 'granted') return;
+    var count = window.__currentStreakCount || 0;
+    var body = count >= 1 ? 'Day ' + (count <= 30 ? count + '/30' : count) + '—your verse is ready! 🔥' : 'Your verse is ready! 🔥';
+    new Notification('Today\'s Daily Battle', { body: body, icon: '/icon.svg' });
+  });
+
+  function requestPushSubscription() {
+    if (!('serviceWorker' in navigator) || !navigator.serviceWorker.ready) return;
+    navigator.serviceWorker.ready.then(function (reg) {
+      if (!reg.pushManager) return;
+      var vapid = (window.TDB_CONFIG && window.TDB_CONFIG.VAPID_PUBLIC_KEY) ? window.TDB_CONFIG.VAPID_PUBLIC_KEY : null;
+      if (!vapid) return;
+      reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlBase64ToUint8Array(vapid) })
+        .then(function (sub) {
+          try { localStorage.setItem('tdb_push_subscription', JSON.stringify(sub.toJSON())); } catch (e) {}
+        })
+        .catch(function () {});
+    });
+  }
+  function urlBase64ToUint8Array(base64String) {
+    var padding = '='.repeat((4 - base64String.length % 4) % 4);
+    var base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+    try {
+      var rawData = atob(base64);
+      var output = new Uint8Array(rawData.length);
+      for (var i = 0; i < rawData.length; i++) output[i] = rawData.charCodeAt(i);
+      return output;
+    } catch (e) { return new Uint8Array(0); }
+  }
 
   var betaApply = document.getElementById('beta-apply');
   var betaEmail = document.getElementById('beta-email');
@@ -6493,10 +6903,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     function render() {
       var items = getItems();
       var hearts = getHearts();
+      items.sort(function (a, b) { return (b.hearts || 0) - (a.hearts || 0); });
       listEl.innerHTML = '';
-      items.forEach(function (item) {
+      items.forEach(function (item, idx) {
         var li = document.createElement('li');
-        li.className = 'prayer-wall-item';
+        li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '');
         var iHearted = hearts[item.id];
         li.innerHTML = '<button type="button" class="prayer-wall-heart ' + (iHearted ? 'hearted' : '') + '" data-id="' + item.id + '" aria-label="Pray">♥</button> <span class="prayer-wall-count">' + (item.hearts || 0) + '</span> <span class="prayer-wall-text">' + escapeHtml(item.text) + '</span>';
         listEl.appendChild(li);

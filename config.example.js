@@ -24,5 +24,7 @@ window.TDB_CONFIG = {
   GOOGLE_SITE_VERIFICATION: '',
   BATTLE_MUG_URL: '',
   // Optional: POST uncaught errors here (e.g. Sentry or your backend). Payload: { message, stack, url }.
-  ERROR_REPORT_URL: ''
+  ERROR_REPORT_URL: '',
+  // Web Push: VAPID public key for 8 AM streak notifications. Generate with: npx web-push generate-vapid-keys
+  VAPID_PUBLIC_KEY: ''
 };

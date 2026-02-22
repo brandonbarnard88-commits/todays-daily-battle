@@ -27,6 +27,35 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
+self.addEventListener('push', (event) => {
+  let data = { title: 'Your verse is ready! 🔥', body: 'Day 12/30—your verse is waiting.', url: '/' };
+  try {
+    if (event.data) data = { ...data, ...event.data.json() };
+  } catch (_) {}
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'Today\'s Daily Battle', {
+      body: data.body || 'Your verse is ready. Tap to open.',
+      icon: '/icon.svg',
+      badge: '/icon.svg',
+      tag: 'streak-reminder',
+      renotify: true,
+      data: { url: data.url || '/' },
+      requireInteraction: false
+    })
+  );
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const url = event.notification.data?.url || '/';
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+      if (list.length) list[0].focus().then(() => list[0].navigate(url));
+      else if (clients.openWindow) clients.openWindow(url);
+    })
+  );
+});
+
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   if (url.pathname.endsWith('kjv.json') || url.pathname.endsWith('/kjv.json')) {

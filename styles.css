@@ -468,6 +468,21 @@ body {
   margin: 0;
 }
 
+.challenge-30-banner {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-radius: 14px;
+}
+.challenge-30-title { font-size: 1.35rem; margin: 0 0 0.35rem; font-weight: 700; }
+.challenge-30-text { font-size: 0.95rem; margin: 0 0 0.75rem; opacity: 0.95; }
+.challenge-30-cta { background: #fff; color: #4f46e5; }
+.challenge-30-cta:hover { background: #eef2ff; transform: scale(1.02); }
+.challenge-30-cta:disabled { opacity: 0.9; cursor: default; }
+.challenge-flame { display: inline-block; animation: streak-flame-pulse 2s ease-in-out infinite; }
+
 .signin-nudge-banner {
   padding: 0.5rem 1rem;
   margin-bottom: 0.75rem;
@@ -563,6 +578,7 @@ body {
   color: var(--text-muted);
 }
 .prayer-wall-text { flex: 1; }
+.prayer-wall-item.prayer-wall-top { border-left: 3px solid rgba(168, 85, 247, 0.6); padding-left: 0.5rem; }
 .prayer-wall-note { font-size: 0.9rem; margin-top: 0.5rem; }
 
 .testimonials-carousel { margin-bottom: 0.75rem; }
@@ -598,6 +614,65 @@ body {
   margin-bottom: 0.5rem;
 }
 .beta-testers-form input { flex: 1; min-width: 0; }
+
+.elite-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  z-index: 9999;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.elite-toast.elite-toast-show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.streak-counter-text { animation: streak-flame-pulse 2s ease-in-out infinite; }
+@keyframes streak-flame-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.02); }
+}
+
+.badges-section { padding: 0.75rem 1rem; margin-top: 0.5rem; }
+.badges-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.badge-pill {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+}
+.badge-pill.badge-unlocked {
+  background: rgba(168, 85, 247, 0.25);
+  color: #e9d5ff;
+  animation: badge-pop 0.4s ease;
+}
+@keyframes badge-pop {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.streak-push-wrap { display: block; margin-top: 0.35rem; }
+.streak-repair-wrap { margin-top: 0.5rem; }
+.btn-small { padding: 0.4rem 0.8rem; font-size: 0.9rem; min-height: 36px; }
+
+.leaderboard-list { list-style: none; margin: 0 0 0.75rem; padding: 0; }
+.leaderboard-item { padding: 0.35rem 0; font-weight: 500; }
+.leaderboard-add { display: flex; gap: 0.5rem; }
+.leaderboard-add input { flex: 1; min-width: 0; }
+.invite-form { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+.invite-form input { flex: 1; min-width: 0; }
 
 .daily-battle-signin-cta {
   margin-top: 0.5rem;

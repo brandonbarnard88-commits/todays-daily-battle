@@ -1,5 +1,7 @@
 # Optional configuration
 
+For product and growth strategy (benchmark vs. leaders, next 6–12 months, monetization), see **STRATEGY.md**.
+
 ## config.js (optional)
 
 To override Supabase or master emails without editing `script.js`:
@@ -48,3 +50,5 @@ Newsletter and "Daily battle alert" signups are stored in Supabase (`newsletter_
 1. **A sender**: e.g. Resend, SendGrid, Mailchimp, or ConvertKit.
 2. **A scheduled job**: e.g. a Supabase Edge Function (or cron) that runs on a schedule, reads from `newsletter_signups` and optionally `daily_battles`, and calls your email provider's API. Use `preferred_time` when building the send schedule if you want time-of-day delivery.
 3. (Optional) A simple "daily verse" Edge Function that runs once per day, fetches today's row from `daily_battles`, and emails subscribers who opted into the daily alert.
+
+To hit retention goals (see **STRATEGY.md**), prioritize sending a weekly recap and/or the daily verse to subscribers.

@@ -433,6 +433,21 @@ body {
   letter-spacing: 0.04em;
 }
 
+.hero-banner .hero-email-cta {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+}
+
+.hero-banner .hero-email-cta a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero-banner .hero-email-cta a:hover {
+  text-decoration: underline;
+}
+
 .cta-group {
   display: flex;
   flex-wrap: wrap;

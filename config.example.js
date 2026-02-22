@@ -26,5 +26,9 @@ window.TDB_CONFIG = {
   // Optional: POST uncaught errors here (e.g. Sentry or your backend). Payload: { message, stack, url }.
   ERROR_REPORT_URL: '',
   // Web Push: VAPID public key for 8 AM streak notifications. Generate with: npx web-push generate-vapid-keys
-  VAPID_PUBLIC_KEY: ''
+  VAPID_PUBLIC_KEY: '',
+  // Optional: POST push subscription to this URL when user opts in (Start Day 1). Your backend stores it to send 8 AM notifications.
+  PUSH_SUBSCRIBE_URL: '',
+  // Stats page (stats.html): password to view private dashboard. If empty, stats page shows "Set STATS_PASSWORD in config.js".
+  STATS_PASSWORD: ''
 };

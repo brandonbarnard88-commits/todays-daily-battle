@@ -78,6 +78,8 @@ let currentUserEmail = '';
 let deferredInstallPrompt = null;
 // Set to your Cloudflare Web Analytics beacon token to enable analytics; leave '' to disable.
 const CF_ANALYTICS_TOKEN = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.CF_ANALYTICS_TOKEN) || '';
+const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
+const INSTALL_PROMPT_SEEN_KEY = 'tdb_seen_install';
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
   '1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah',
@@ -1118,14 +1120,54 @@ function showDailyReminderIfNeeded() {
   }
 }
 
+function urlBase64ToUint8Array(base64Key) {
+  const padding = '='.repeat((4 - (base64Key.length % 4)) % 4);
+  const base64 = (base64Key + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const raw = atob(base64);
+  const out = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i++) out[i] = raw.charCodeAt(i);
+  return out;
+}
+
+async function sendSubscriptionToBackend(subscription) {
+  const url = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PUSH_SUBSCRIBE_URL) || '';
+  if (!url || !subscription) return;
+  try {
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(subscription.toJSON())
+    });
+  } catch (_) {}
+}
+
+function requestPushPermissionAndSubscribe() {
+  (async () => {
+    if (Notification.permission !== 'default') return;
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission !== 'granted' || !('serviceWorker' in navigator)) return;
+      const reg = await navigator.serviceWorker.ready;
+      if (!reg.pushManager) return;
+      let sub = await reg.pushManager.getSubscription();
+      const vapid = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.VAPID_PUBLIC_KEY) || '';
+      if (!sub && vapid) {
+        sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlBase64ToUint8Array(vapid) });
+        await sendSubscriptionToBackend(sub);
+      }
+    } catch (_) {}
+  })();
+}
+
 function wireInstallPrompt() {
   const installCta = document.getElementById('install-cta');
   const installBtn = document.getElementById('install-app');
+  const installNotNow = document.getElementById('install-not-now');
   if (!installCta || !installBtn) return;
   window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     deferredInstallPrompt = event;
-    installCta.classList.add('show');
+    if (!localStorage.getItem(INSTALL_PROMPT_SEEN_KEY)) installCta.classList.add('show');
   });
   installBtn.addEventListener('click', async () => {
     if (!deferredInstallPrompt) return;
@@ -1133,7 +1175,14 @@ function wireInstallPrompt() {
     await deferredInstallPrompt.userChoice;
     deferredInstallPrompt = null;
     installCta.classList.remove('show');
+    try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
   });
+  if (installNotNow) {
+    installNotNow.addEventListener('click', () => {
+      installCta.classList.remove('show');
+      try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
+    });
+  }
 }
 
 function startChallenge() {
@@ -1167,6 +1216,7 @@ function startChallenge() {
     })();
   })();
   updateChallengeBannerState();
+  requestPushPermissionAndSubscribe();
   (function applyReferrerRepair() {
     try {
       if (!localStorage.getItem('tdb_referrer')) return;
@@ -2172,8 +2222,25 @@ async function renderDailyBattleCard() {
     return;
   }
   const DEFAULT_DAILY_VERSE_REF = '2 Timothy 1:7';
+  const key = getDailyKey();
+  let battle = null;
+  let verseTextFromCache = '';
+  if (!navigator.onLine) {
+    try {
+      const raw = localStorage.getItem(OFFLINE_BATTLE_KEY_PREFIX + key);
+      if (raw) {
+        const c = JSON.parse(raw);
+        if (c && c.ref) {
+          battle = { ref: c.ref, reflection: c.reflection || '', prayer: c.prayer || '' };
+          verseTextFromCache = c.verse || '';
+        }
+      }
+    } catch (_) {}
+  }
+  if (!battle) {
   const supaBattle = await getDailyBattleFromSupabase();
-  let battle = supaBattle || getDailyBattleFallback();
+  battle = supaBattle || getDailyBattleFallback();
+  }
   var usedAnchorVerse = false;
   if (!battle || !battle.ref) {
     const anchor = getAnchorVerseForDay();
@@ -2188,15 +2255,17 @@ async function renderDailyBattleCard() {
       return;
     }
   }
-  const verseText = getBibleVerseText(battle.ref);
+  const verseText = verseTextFromCache || getBibleVerseText(battle.ref);
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
   card.classList.add('verse-card-loaded');
   var nextStepsEl = document.getElementById('daily-battle-next-steps');
   if (nextStepsEl && battle.ref) {
     var topicOfDay = getTopicOfDay();
     var readerUrl = buildReaderUrl(battle.ref);
-    var searchUrl = (window.location.pathname || '/') + '?q=' + encodeURIComponent(topicOfDay.toLowerCase());
-    nextStepsEl.innerHTML = '<a href="' + readerUrl + '">Read full chapter</a> &middot; <a href="' + searchUrl + '">More verses on ' + topicOfDay + '</a>';
+    var basePath = (window.location.pathname || '/').replace(/\/[^/]*$/, '') || '/';
+    var searchUrl = basePath + '?q=' + encodeURIComponent(topicOfDay.toLowerCase());
+    nextStepsEl.innerHTML = '<a href="' + readerUrl + '">Read full chapter</a> &middot; <a href="' + searchUrl + '">More verses on ' + topicOfDay + '</a>' +
+      '<p class="daily-battle-suggest section-note">Next: <a href="' + basePath + '?q=anxiety">Anxiety</a>? <a href="' + basePath + '?q=hope">Hope</a>? <a href="' + basePath + '?q=spiritual%20warfare">Spiritual Warfare</a>?</p>';
   }
   var testimonyEl = document.getElementById('daily-battle-testimony');
   if (testimonyEl) {
@@ -2247,6 +2316,9 @@ async function renderDailyBattleCard() {
     reflection: battle.reflection || '',
     prayer: battle.prayer || ''
   };
+  try {
+    localStorage.setItem(OFFLINE_BATTLE_KEY_PREFIX + key, JSON.stringify(currentDailyBattle));
+  } catch (_) {}
   updateDailyBattleStreak();
   updateDailyBattleMetaDesc(battle.ref);
   renderDailyEncouragement();
@@ -8048,11 +8120,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (listenDailyBtn) {
     listenDailyBtn.addEventListener('click', () => {
       const ref = currentDailyBattle?.ref || getDailyVerseRef();
-      const text = currentDailyBattle?.verse || (ref && bible[ref] ? bible[ref] : '');
+      let text = currentDailyBattle?.verse || (ref && bible[ref] ? bible[ref] : '');
       if (!ref || !text) {
         alert('Daily verse is not ready yet.');
         return;
       }
+      text = (text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()) + ' Fight on.';
       speakVerse(ref, text);
     });
   }

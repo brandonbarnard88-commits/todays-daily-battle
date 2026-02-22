@@ -1,5 +1,6 @@
 // Bump this when you deploy new JS/CSS so clients get fresh assets (e.g. tdb-static-YYYYMMDD).
 const CACHE_NAME = 'tdb-static-20260221';
+const CACHE_API = 'tdb-api-20260221';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -64,6 +65,18 @@ self.addEventListener('fetch', (event) => {
         .then((res) => {
           const clone = res.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          return res;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+  if (event.request.method === 'GET' && url.href.includes('daily_battles')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          const clone = res.clone();
+          caches.open(CACHE_API).then((cache) => cache.put(event.request, clone));
           return res;
         })
         .catch(() => caches.match(event.request))

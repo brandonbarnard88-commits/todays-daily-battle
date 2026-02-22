@@ -468,6 +468,11 @@ body {
   margin: 0;
 }
 
+.install-cta #install-not-now {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
 .challenge-30-banner {
   background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
   color: #fff;

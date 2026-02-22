@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stats — Today's Daily Battle</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260221elite">
+  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script src="config.js"></script>
+  <style>
+    .stats-wrap { max-width: 560px; margin: 2rem auto; padding: 1.5rem; }
+    .stats-login { background: var(--glass-bg, rgba(15,23,42,0.6)); border-radius: 12px; padding: 1.5rem; }
+    .stats-dashboard { background: var(--glass-bg, rgba(15,23,42,0.6)); border-radius: 12px; padding: 1.5rem; }
+    .stats-dashboard h2 { margin-top: 0; }
+    .stats-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+    .stats-card { flex: 1; min-width: 140px; padding: 1rem; background: rgba(109,40,217,0.15); border-radius: 8px; }
+    .stats-card strong { display: block; font-size: 1.5rem; }
+    .stats-note { font-size: 0.9rem; color: var(--muted, #94a3b8); margin-top: 1rem; }
+  </style>
+</head>
+<body class="theme-dark">
+  <div class="stats-wrap">
+    <div id="stats-login" class="stats-login glass">
+      <h2>Stats</h2>
+      <p class="section-note">Private. Enter password to view.</p>
+      <form id="stats-form">
+        <input type="password" id="stats-password" placeholder="Password" autocomplete="current-password" class="input" style="margin-bottom: 0.75rem; width: 100%; max-width: 240px;">
+        <button type="submit" class="btn btn-primary">View</button>
+      </form>
+    </div>
+    <div id="stats-dashboard" class="stats-dashboard glass" style="display: none;">
+      <h2>Dashboard</h2>
+      <div class="stats-row">
+        <div class="stats-card"><strong id="stat-active">—</strong> Active today</div>
+        <div class="stats-card"><strong id="stat-shares">—</strong> Shares</div>
+      </div>
+      <p class="stats-note">Connect Cloudflare Analytics (or your backend) to show real numbers. See CONFIG.md for CF_ANALYTICS_TOKEN and API usage.</p>
+      <p><a href="index.html" class="btn btn-secondary">Back to site</a></p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var AUTH_KEY = 'tdb_stats_auth';
+      var dash = document.getElementById('stats-dashboard');
+      var login = document.getElementById('stats-login');
+      var passwordRequired = (window.TDB_CONFIG && window.TDB_CONFIG.STATS_PASSWORD) || '';
+      if (!passwordRequired) {
+        login.querySelector('.section-note').textContent = 'Set STATS_PASSWORD in config.js to enable.';
+        document.getElementById('stats-form').style.display = 'none';
+        return;
+      }
+      if (sessionStorage.getItem(AUTH_KEY)) {
+        login.style.display = 'none';
+        dash.style.display = 'block';
+        return;
+      }
+      document.getElementById('stats-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = document.getElementById('stats-password');
+        if (input && input.value === passwordRequired) {
+          sessionStorage.setItem(AUTH_KEY, '1');
+          login.style.display = 'none';
+          dash.style.display = 'block';
+        } else {
+          alert('Wrong password.');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

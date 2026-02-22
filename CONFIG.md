@@ -38,7 +38,7 @@ The **Admin** panel (admin.html) is only available to the **master account**. To
 
 ## Web Push (8 AM streak reminder)
 
-Users can opt in to **8 AM streak reminder** ("Day 12—your verse is ready! 🔥"). Set **VAPID_PUBLIC_KEY** in config.js (generate with `npx web-push generate-vapid-keys`). The client subscribes and stores the subscription in localStorage (key `tdb_push_subscription`). To send at 8 AM: your backend must read subscriptions (e.g. from Supabase if you persist them), then use the VAPID private key and a Web Push library to send a payload like `{ "title": "Today's Daily Battle", "body": "Day 12—your verse is waiting! 🔥", "url": "/" }`. Schedule a cron (e.g. 8:00 AM user local or 13:00 UTC) to trigger the send.
+Users are prompted for notification permission **once** when they click **Start Day 1** (optional). Set **VAPID_PUBLIC_KEY** in config.js (generate with `npx web-push generate-vapid-keys`). The client subscribes and, if **PUSH_SUBSCRIBE_URL** is set in config.js, POSTs the subscription JSON to your backend so you can send 8 AM pushes. To send at 8 AM: your backend stores subscriptions (e.g. in Supabase), then uses the VAPID private key and a Web Push library to send a payload like `{ "title": "Day 2—your battle verse is ready! 🔥", "body": "Your verse is waiting.", "url": "/" }`. Schedule a cron (e.g. 8:00 AM) to trigger the send. Firebase Cloud Messaging (FCM) or any Web Push–compatible service works.
 
 ## Service worker cache (deploy checklist)
 
@@ -59,6 +59,10 @@ The homepage shows "Watch the 60-second walkthrough (video coming soon)." When y
 ## Analytics
 
 Cloudflare Web Analytics is wired in **script.js**. Set `CF_ANALYTICS_TOKEN` in **config.js** (see `config.example.js`) or at the top of script.js. If empty, the analytics script is not loaded.
+
+## Stats page (private)
+
+**/stats** (e.g. `stats.html`) shows a simple dashboard: "Today: X active, Y shares." It is password-protected. Set **STATS_PASSWORD** in config.js; if unset, the stats page asks you to set it. After login (stored in sessionStorage for the session), the page shows placeholders; plug in Cloudflare API or your own analytics to display real numbers (see Cloudflare Analytics API or Workers Analytics if you use CF).
 
 ## Search Console / verification
 

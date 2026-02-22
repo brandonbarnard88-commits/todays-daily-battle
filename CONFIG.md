@@ -12,6 +12,8 @@ To override Supabase or master emails without editing `script.js`:
 
 If `config.js` is missing, the app uses built-in defaults and still works. Add `config.js` to `.gitignore` if you don’t want to commit your keys (it’s already listed there).
 
+**User accounts (login/sync):** Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` in `config.js` so sign-in works out of the box. Then test streaks, favorites, and prayer list syncing across devices. The homepage prompts: "Sign in to save your streak, favorites, and custom plans across devices."
+
 ## Service worker cache (deploy checklist)
 
 When you deploy new JS or CSS, bump the cache name in `service-worker.js` (e.g. `CACHE_NAME = 'tdb-static-YYYYMMDD'`) so returning visitors get the latest assets.

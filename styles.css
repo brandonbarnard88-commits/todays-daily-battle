@@ -467,6 +467,31 @@ body {
   margin: 0;
 }
 
+.battle-pro-banner {
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.battle-pro-banner a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.battle-pro-banner a:hover {
+  text-decoration: underline;
+}
+
+.daily-battle-signin-cta {
+  margin-top: 0.5rem;
+}
+
+.social-share-links {
+  margin-top: 0.5rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

@@ -78,6 +78,24 @@ Prioritized evolution from "quick daily verse tool" to a habit-forming Bible com
 
 ---
 
+## Activation & launch checklist (momentum toward 1K users)
+
+Order: impact/ease. Do in this order.
+
+1. **Get user accounts live & tested (this week)**  
+   Add real Supabase URL + anon key to `config.js` (use config.example.js as template). Test: create account → streak saves/syncs across browser or device → favorite a verse → persists after logout/reopen. Fix any bugs (clear error/help link if login fails). Homepage has prominent **Sign In (Free) to Save Your Streak & Sync Everything** button near streak. Once stable, email early users: "Your streak is saved—keep the battle going!"
+
+2. **Activate sharing for virality (1–2 days)**  
+   **Done:** Share text includes verse + "Less scroll. More soul. #TodaysDailyBattle #BibleHabit #SpiritualWarfare"; **Share to X** and **Share to Facebook** one-tap links below daily content. Share image button generates verse card with branding. Post today's battle from your own X/Instagram to seed: "Today's battle: [theme] ([ref]). Join the fight: [link]." Track shares via analytics.
+
+3. **Launch Battle Pro subscriptions (target: 2–4 weeks)**  
+   Integrate Stripe (see CONFIG.md)—start in test mode. Update /pricing to "Subscribe Now" when live (script shows "Notify me" until Stripe URLs are set). Homepage has Battle Pro banner ("Coming soon—join the waitlist") and 30-Day section tease. Optional: first 100 subscribers get 1 month free or exclusive devotional. Announce in newsletter: "Subscriptions launching soon—here's what you'll get."
+
+4. **Minor polish & growth (ongoing)**  
+   **Reader:** Optional version selector (KJV + one more via API), verse highlight when opening from daily link. **Analytics:** Google Analytics or Cloudflare to track uniques, streak engagement, shares, /pricing visits. **Marketing:** Blaze AI or similar for 7–10 social posts/emails; email waitlist "Accounts live, Pro coming—try it!"; reach out to 5–10 small churches with toolkit link. **SEO/blog:** 2–3 short posts (e.g. "Winning the Daily Battle Against Anxiety") with verse + tool links.
+
+---
+
 ## Summary
 
 - **Phase 1:** Full Bible visible, verse sharing, themed plans (Anxiety 40 done), PWA push, Supabase sync.

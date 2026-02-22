@@ -1605,14 +1605,27 @@ function shareDailyBattle() {
 }
 
 function buildDailyBattleShareText() {
+  var base = '';
   if (currentDailyBattle?.ref) {
     const verseLine = currentDailyBattle.verse
       ? `${currentDailyBattle.ref}: ${currentDailyBattle.verse}`
       : currentDailyBattle.ref;
-    return `Today’s Daily Battle — ${verseLine}`;
+    base = `Today’s Daily Battle — ${verseLine}`;
+  } else {
+    const ref = getDailyVerseRef();
+    base = ref && bible[ref] ? `Today’s Daily Battle — ${ref}: ${bible[ref]}` : '';
   }
-  const ref = getDailyVerseRef();
-  return ref && bible[ref] ? `Today’s Daily Battle — ${ref}: ${bible[ref]}` : '';
+  if (!base) return '';
+  return base + ' Less scroll. More soul. #TodaysDailyBattle #BibleHabit #SpiritualWarfare';
+}
+
+function updateSocialShareLinks() {
+  var text = buildDailyBattleShareText();
+  var url = window.location.href;
+  var xEl = document.getElementById('share-daily-to-x');
+  var fbEl = document.getElementById('share-daily-to-facebook');
+  if (xEl && text) xEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + ' ' + url);
+  if (fbEl) fbEl.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
 }
 
 function shareDailyBattleImage() {
@@ -1880,6 +1893,7 @@ async function renderDailyBattleCard() {
   };
   updateDailyBattleStreak();
   renderDailyEncouragement();
+  if (typeof updateSocialShareLinks === 'function') updateSocialShareLinks();
 }
 
 function loadMessagesLocal() {
@@ -6219,6 +6233,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       }).catch(() => {});
     });
   }
+  updateSocialShareLinks();
+  var shareToXEl = document.getElementById('share-daily-to-x');
+  var shareToFbEl = document.getElementById('share-daily-to-facebook');
+  if (shareToXEl) shareToXEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
+  if (shareToFbEl) shareToFbEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
 
   const resetForm = document.getElementById('reset-form');
   if (resetForm) {

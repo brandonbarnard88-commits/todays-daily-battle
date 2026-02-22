@@ -4481,6 +4481,16 @@ function parseQuery(input) {
   const keywords = tokens.length > 0 ? tokens : rawTokens;
   const expandedKeywords = expandKeywords(keywords);
 
+  // Single-word query: if it exactly matches a topic synonym, use that topic (e.g. "selfless" -> love)
+  const singleWord = rawTokens.length === 1 ? normalized : null;
+  if (singleWord) {
+    for (const topic of Object.keys(topics)) {
+      if (topics[topic].synonyms.some(function (syn) { return syn === singleWord; })) {
+        return { intent: 'topic', payload: { topic: topic } };
+      }
+    }
+  }
+
   const topicScores = {};
   Object.keys(topics).forEach(topic => {
     let score = 0;
@@ -4632,7 +4642,7 @@ function executeQuery(parsed, tier, filters) {
     Object.keys(topics).forEach(topic => {
       let score = 0;
       keywords.forEach(token => {
-        if (topic.includes(token) || topics[topic].synonyms.some(syn => syn.includes(token))) score++;
+        if (topic.includes(token) || topics[topic].synonyms.some(syn => syn.includes(token) || (token && syn === token))) score++;
       });
       if (score > 0) relatedTopicScores[topic] = score;
     });
@@ -4680,11 +4690,30 @@ function executeQuery(parsed, tier, filters) {
       .sort((a,b) => b.score - a.score)
       .slice(0, 30);
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
+    if (results.verses.length === 0 && results.relatedMatches && results.relatedMatches.length > 0) {
+      results.verses = results.relatedMatches.slice(0, 15);
+      results.relatedMatches = [];
+    }
   }
 
   results.verses = filterVerseList(results.verses, filters);
   results.phraseMatches = filterVerseList(results.phraseMatches, filters);
   results.relatedMatches = filterVerseList(results.relatedMatches, filters);
+
+  if (results.verses.length === 0) {
+    var fallbackRefs = [];
+    ['hope', 'love', 'peace'].forEach(function (t) {
+      if (topics[t] && topics[t].verses) {
+        topics[t].verses.forEach(function (ref) { fallbackRefs.push(ref); });
+      }
+    });
+    fallbackRefs = fallbackRefs.filter(function (ref, i, arr) { return arr.indexOf(ref) === i; });
+    fallbackRefs.slice(0, 12).forEach(function (ref) {
+      if (bible[ref]) results.verses.push({ ref: ref, text: bible[ref] });
+    });
+    results.verses = filterVerseList(results.verses, filters);
+    if (results.verses.length > 0) results.fallback = true;
+  }
   return results;
 }
 
@@ -4710,7 +4739,7 @@ function renderResults(results) {
     return;
   }
   if (results.verses.length === 0) {
-    output.innerHTML = '<p class="empty">No results found. Try another search!</p>';
+    output.innerHTML = '<p class="empty topic-explain">We didn\'t find a match for that search, but you\'re not alone. God\'s Word is for you—here are some verses we hope meet you where you are. Try a topic below or search again anytime.</p>';
     const suggestions = document.createElement('div');
     suggestions.className = 'quick-start';
     suggestions.innerHTML = `
@@ -4721,6 +4750,7 @@ function renderResults(results) {
         <button class="quick-topic" type="button" data-topic="anxiety">Anxiety</button>
         <button class="quick-topic" type="button" data-topic="fear">Fear</button>
         <button class="quick-topic" type="button" data-topic="hope">Hope</button>
+        <button class="quick-topic" type="button" data-topic="love">Love</button>
         <button class="quick-topic" type="button" data-topic="forgiveness">Forgiveness</button>
         <button class="quick-topic" type="button" data-topic="patience">Patience</button>
         <button class="quick-topic" type="button" data-topic="anger">Anger</button>
@@ -4748,6 +4778,12 @@ function renderResults(results) {
       });
     });
     return;
+  }
+  if (results.fallback) {
+    var fallbackMsg = document.createElement('p');
+    fallbackMsg.className = 'topic-explain';
+    fallbackMsg.textContent = 'We didn\'t find an exact match for that search, but we hope these verses meet you where you are. You\'re not alone—God\'s Word is for you.';
+    output.appendChild(fallbackMsg);
   }
   var verses = [...results.verses];
   var SHOWN_REFS_KEY = 'tdb_shown_refs';
@@ -4790,6 +4826,12 @@ function renderResults(results) {
     const gentle = document.createElement('div');
     gentle.className = 'topic-explain';
     gentle.textContent = 'God is near the brokenhearted. He sees your pain, He heals, and He is a safe place for you.';
+    output.appendChild(gentle);
+  }
+  if (queryText.includes('love') || queryText.includes('selfless') || queryText.includes('giving') || queryText.includes('servant') || queryText.includes('sacrifice') || queryText.includes('compassion') || queryText.includes('kindness')) {
+    const gentle = document.createElement('div');
+    gentle.className = 'topic-explain';
+    gentle.textContent = 'God loves you with a love that never gives up. May these verses encourage you to receive it and to love others well.';
     output.appendChild(gentle);
   }
   if (queryText.includes('anxiety') || queryText.includes('anxious') || queryText.includes('worry')) {

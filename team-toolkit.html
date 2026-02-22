@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Toolkit • Today's Daily Battle</title>
+  <meta name="description" content="Team tools for ministry: shared prayer, assign reading, groups, message board, shared content, and check-ins. Like Microsoft Teams for your church or small group.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/team-toolkit.html">
+  <meta property="og:title" content="Team Toolkit • Today's Daily Battle">
+  <meta property="og:description" content="Team tools for ministry: shared prayer, assignments, groups, communication, and shared content—all in one place.">
+  <meta property="og:url" content="https://todaysdailybattle.com/team-toolkit.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Team Toolkit • Today's Daily Battle">
+  <meta name="twitter:description" content="Team tools for ministry: shared prayer, assignments, groups, and communication.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <link rel="stylesheet" href="styles.css?v=20260221elite">
+  <link rel="manifest" href="manifest.json">
+  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Team Toolkit</span>
+      </div>
+      <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu">Menu</a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <select id="account-type" aria-label="Account Type">
+          <option value="member" selected>Member</option>
+          <option value="adult">Adult</option>
+          <option value="family">Family</option>
+          <option value="teacher">Teacher</option>
+          <option value="pastor">Pastor</option>
+        </select>
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" style="display:none">Log Out</button>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="coloring-stories" data-icon="KA">Kids Activities</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options">
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+      </div>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>Team Toolkit</h1>
+          <p class="hero-tagline">Everything your ministry team needs to work together—shared prayer, assignments, groups, communication, and shared content. Like Microsoft Teams for your church or small group.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="church.html">Church Center</a>
+            <a class="btn btn-secondary" href="message.html">Message Board</a>
+          </div>
+        </header>
+
+        <section class="glass">
+          <h2 class="section-divider">Channels & groups</h2>
+          <p class="section-note">Organize by church or group so everyone stays on the same page.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="church.html">Find your church</a></strong><p>Search by name or city. Join your church to see the church verse of the day, shared prayer list, and assignments.</p></div></div>
+            <div class="list-item"><div><strong><a href="church.html">Assign reading by group</a></strong><p>Leaders assign a passage or plan to a group (e.g. Youth, Class A, Men's Group). Everyone in that group sees it under "My assigned reading."</p></div></div>
+            <div class="list-item"><div><strong>Group progress</strong><p>On Church plan: see how your group is doing on assigned reading. Keep accountability without the clutter.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Assignments & tasks</h2>
+          <p class="section-note">Assign work, track completion, and keep the team moving.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="church.html">Assign reading</a></strong><p>Pastors and leaders: assign a passage (e.g. John 1–3 or Psalm 119) to a group. Add a group name so members know it's for them.</p></div></div>
+            <div class="list-item"><div><strong><a href="church.html">My assigned reading</a></strong><p>See what's been assigned to you. Mark passages complete when you're done. No more "did we have homework?"</p></div></div>
+            <div class="list-item"><div><strong><a href="reading-plan.html">Reading plans for the team</a></strong><p>Share the 7-day plan or create a custom 7/14/21/30-day plan. Send the link in your team chat or email so everyone follows the same plan.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Chat & communication</h2>
+          <p class="section-note">Stay connected without leaving the site.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="message.html">Message Board</a></strong><p>Post encouragements, prayer requests, or short updates. Your team can reply and pray together. No separate app required.</p></div></div>
+            <div class="list-item"><div><strong><a href="message.html">Encourage Someone</a></strong><p>Send a verse or note to the board or share a link with a teammate. Perfect for "thinking of you" or follow-up after a meeting.</p></div></div>
+            <div class="list-item"><div><strong><a href="weekly-email-template.html">Weekly email template</a></strong><p>Copy-paste a short weekly encouragement to send via your own email or newsletter. Sync with your existing email list.</p></div></div>
+            <div class="list-item"><div><strong>Use with Teams, Slack, or email</strong><p>Copy any verse, daily battle, or share link and paste into Microsoft Teams, Slack, or email. We play nice with your existing tools.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Shared content & files</h2>
+          <p class="section-note">One place for verses, prayers, and handouts.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="church.html">Shared prayer list</a></strong><p>Add prayer requests as a team. Mark items "prayed" when you've prayed. Everyone sees the same list.</p></div></div>
+            <div class="list-item"><div><strong><a href="church.html">Church verse of the day</a></strong><p>Your pastor or leader sets one verse for the whole church. Great for daily focus and announcements.</p></div></div>
+            <div class="list-item"><div><strong><a href="study.html">Share study links</a></strong><p>Build a lesson or collection of verses in Study Tools, then create a share link. Send the link to your team—they get the same verses and notes.</p></div></div>
+            <div class="list-item"><div><strong>Export to PDF</strong><p>In <a href="study.html">Study Tools</a>: export all verses and notes to one PDF. Use for handouts, meeting prep, or email attachments.</p></div></div>
+            <div class="list-item"><div><strong>Church-branded exports</strong><p>On Church plan: create verse cards and exports with your church name. Share on social or in your app.</p></div></div>
+            <div class="list-item"><div><strong>Shared lesson library</strong><p>On Church plan: save and share lessons across your team so teachers and small group leaders reuse content.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Meetings & check-ins</h2>
+          <p class="section-note">Run better meetings and small groups.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="church.html">This week's assigned reading</a></strong><p>See what's assigned to your group. Use it as the focus for your next meeting or check-in.</p></div></div>
+            <div class="list-item"><div><strong><a href="/">Featured Today's Battle</a></strong><p>One verse, reflection, and prayer. Use as the opening for team devotions or a quick "focus for the week" in your standup.</p></div></div>
+            <div class="list-item"><div><strong>Discussion prompts</strong><p>Use <a href="/">topic search</a> (e.g. hope, fear, forgiveness) to get verses, then ask: "Where do you need this today?" or "How can we apply this as a team?"</p></div></div>
+            <div class="list-item"><div><strong><a href="church.html">Weekly sermons</a></strong><p>View your church's weekly sermon list. Link to past messages for catch-up or recap.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Calendar & this week</h2>
+          <p class="section-note">Keep the week visible.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="church.html">My assigned reading</a></strong><p>Your list of assigned passages. Mark complete as you go. Use it like a simple task list for the week.</p></div></div>
+            <div class="list-item"><div><strong><a href="reading-plan.html">7-day plan</a></strong><p>One verse a day for seven days. Share the link with your team so you're all on the same rhythm.</p></div></div>
+            <div class="list-item"><div><strong>Add to your calendar</strong><p>Copy the link to today's verse or the daily battle and paste into your calendar as a daily reminder. Works with Google Calendar, Outlook, or Apple Calendar.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Announcements</h2>
+          <p class="section-note">One place for what the whole team needs to know.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="church.html">Church verse of the day</a></strong><p>Leaders set one verse; everyone sees it. Use it as the daily or weekly announcement.</p></div></div>
+            <div class="list-item"><div><strong>Verse + announcement</strong><p>On Church plan: pair the church verse with a short announcement (event, prayer focus, or update) for your congregation.</p></div></div>
+            <div class="list-item"><div><strong><a href="message.html">Message Board</a></strong><p>Pin or post important updates so the team sees them when they open the site.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Quick start for team leads</h2>
+          <p class="section-note">Get your team going in three steps.</p>
+          <div class="list">
+            <div class="list-item"><div><strong>1. Set your church</strong><p>Go to <a href="church.html">Church Center</a>, find your church, and join. Then your team sees the same verse and prayer list.</p></div></div>
+            <div class="list-item"><div><strong>2. Assign reading</strong><p>Assign a passage and group name (e.g. "Youth," "Sunday Class"). Members see it under My assigned reading and can mark complete.</p></div></div>
+            <div class="list-item"><div><strong>3. Share the link</strong><p>Send your team the link to <a href="church.html">Church Center</a> or <a href="team-toolkit.html">Team Toolkit</a>. They bookmark it and check in daily or weekly.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Need more?</h2>
+          <p class="section-note">Church plan adds team logins, shared lesson library, assign reading, group progress, church verse of the day, verse + announcement, and church-branded exports. <a href="pricing.html">See Pricing</a>. For preaching and teaching tools, use the <a href="pastor-toolkit.html">Pastor Toolkit</a>. Questions? <a href="contact.html">Contact us</a>.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:brandon@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a>
+      <p class="footer-copyright">© 2026 Brandon / Today's Daily Battle. All rights reserved.</p>
+      <p class="footer-updated">Updated February 2026.</p>
+    </footer>
+  </div>
+
+  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script src="config.js"></script>
+  <script src="script.js?v=20260220" data-cfasync="false"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pastor Toolkit • Today's Daily Battle</title>
+  <meta name="description" content="Every tool pastors need: sermon builder, lesson builder, church center, topic search, verse cards, reading plans, weekly email template, and more. One hub for ministry.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/pastor-toolkit.html">
+  <meta property="og:title" content="Pastor Toolkit • Today's Daily Battle">
+  <meta property="og:description" content="Every tool pastors need: sermon prep, teaching, church, and communication—all in one place.">
+  <meta property="og:url" content="https://todaysdailybattle.com/pastor-toolkit.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pastor Toolkit • Today's Daily Battle">
+  <meta name="twitter:description" content="Every tool pastors need: sermon prep, teaching, church, and communication—all in one place.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <link rel="stylesheet" href="styles.css?v=20260221elite">
+  <link rel="manifest" href="manifest.json">
+  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Pastor Toolkit</span>
+      </div>
+      <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu">Menu</a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <select id="account-type" aria-label="Account Type">
+          <option value="member" selected>Member</option>
+          <option value="adult">Adult</option>
+          <option value="family">Family</option>
+          <option value="teacher">Teacher</option>
+          <option value="pastor">Pastor</option>
+        </select>
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" style="display:none">Log Out</button>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="coloring-stories" data-icon="KA">Kids Activities</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options">
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+      </div>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>Pastor Toolkit</h1>
+          <p class="hero-tagline">Every tool you need for preaching, teaching, and shepherding—in one place. Search Scripture, build sermons and lessons, lead your church, and communicate well.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="sermon.html">Build a Sermon</a>
+            <a class="btn btn-secondary" href="/">Search by Topic</a>
+          </div>
+        </header>
+
+        <section class="glass">
+          <h2 class="section-divider">Preaching & sermon prep</h2>
+          <p class="section-note">From text to outline to delivery.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="/">Topic search</a></strong><p>Find verses by theme (hope, fear, obedience, grace). Type a word or pick a topic chip.</p></div></div>
+            <div class="list-item"><div><strong><a href="verse.html">Verse of the Day</a></strong><p>Daily verse, reflection, and prayer—use as a preaching seed or personal anchor.</p></div></div>
+            <div class="list-item"><div><strong><a href="reader.html">Chapter reader</a></strong><p>Read full chapters in context. Red-letter option for words of Jesus.</p></div></div>
+            <div class="list-item"><div><strong><a href="sermon.html">Sermon Builder</a></strong><p>Title, theme, primary text, outline points, application, closing prayer. Print, save as PDF, or email to yourself.</p></div></div>
+            <div class="list-item"><div><strong><a href="resources.html">Sermon & lesson templates</a></strong><p>Pre-built templates to jumpstart your next message or lesson.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Teaching & lessons</h2>
+          <p class="section-note">Lessons, curriculum, and age-specific content.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="study.html">Study Tools / Lesson Builder</a></strong><p>Notes, saved verses, collections. Build lessons, export to PDF, share links. Curriculum builder and bulk export.</p></div></div>
+            <div class="list-item"><div><strong><a href="coloring.html">Kids Activities</a></strong><p>Coloring and kids content tied to verses—for Sunday school or family ministry.</p></div></div>
+            <div class="list-item"><div><strong><a href="reading-plan.html">7-Day & custom reading plans</a></strong><p>Ready-made 7-day plan or create a custom 7/14/21/30-day plan for a class or small group.</p></div></div>
+            <div class="list-item"><div><strong>Shareable topic pages</strong><p>Send your congregation to focused pages: <a href="topic-grief.html">Grief</a>, <a href="topic-anxiety.html">Anxiety</a>, <a href="topic-hope.html">Hope</a>, <a href="topic-fear.html">Fear</a>, <a href="topic-forgiveness.html">Forgiveness</a>, <a href="topic-strength.html">Strength</a>, <a href="topic-parenting.html">Parenting</a>.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Church & congregation</h2>
+          <p class="section-note">Lead your church with verse, prayer, and assignments.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="church.html">Church Center</a></strong><p>Set your church verse of the day, shared prayer list, assign reading to groups. Add weekly sermons. Find your church.</p></div></div>
+            <div class="list-item"><div><strong><a href="message.html">Encourage Someone / Message Board</a></strong><p>Post encouragement, share verses, or point people to the board for community support.</p></div></div>
+            <div class="list-item"><div><strong>Church-branded verse cards</strong><p>On Church plan: create shareable verse images with your church name. Use from <a href="/">home</a> or <a href="study.html">Study Tools</a>.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Content & communication</h2>
+          <p class="section-note">Emails, graphics, and shareable content.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="weekly-email-template.html">Weekly email template</a></strong><p>Copy-paste template for a short weekly encouragement to your list.</p></div></div>
+            <div class="list-item"><div><strong>Verse cards & share image</strong><p>From the <a href="/">daily battle</a> or <a href="study.html">Study Tools</a>: create a shareable verse image (with optional church name on Church plan).</p></div></div>
+            <div class="list-item"><div><strong>Bulk export to PDF</strong><p>In <a href="study.html">Study Tools</a>: export all saved verses and notes to one PDF for handouts or personal use.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Study & personal prep</h2>
+          <p class="section-note">Your own study flow and devotion.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="study.html">Notes & saved verses</a></strong><p>Save verses and private notes. Sync across devices when signed in. Use for sermon prep or quiet time.</p></div></div>
+            <div class="list-item"><div><strong><a href="/">Featured Today's Battle</a></strong><p>On the homepage: one verse, theme, reflection, and prayer. Start your day here before you prep.</p></div></div>
+            <div class="list-item"><div><strong>Red letters</strong><p>Toggle in the sidebar to highlight the words of Jesus in search and reader.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Before you preach or teach</h2>
+          <p class="section-note">A short prayer for pastors.</p>
+          <div class="pastor-prep-prayer section-note">
+            <p><em>Lord, open Your Word to me so I may serve Your people with clarity and love. Guard my heart from pride; fill my mouth with truth. Let this message come from You, for Your glory. Amen.</em></p>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Helpful external links</h2>
+          <p class="section-note">Trusted sites for deeper study, commentaries, and audio.</p>
+          <div class="list">
+            <div class="list-item"><div><strong><a href="https://www.biblegateway.com" target="_blank" rel="noopener noreferrer">Bible Gateway</a></strong><p>Multiple versions, audio, devotionals, and search.</p></div></div>
+            <div class="list-item"><div><strong><a href="https://www.blueletterbible.org" target="_blank" rel="noopener noreferrer">Blue Letter Bible</a></strong><p>Commentaries, concordance, and original language tools.</p></div></div>
+            <div class="list-item"><div><strong><a href="https://www.biblestudytools.com" target="_blank" rel="noopener noreferrer">Bible Study Tools</a></strong><p>Commentaries, dictionaries, and study resources.</p></div></div>
+          </div>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Need more?</h2>
+          <p class="section-note">Supporter and Church plans add custom reading plans, verse image generator, choose email time, bulk export, private notes, assign reading, group progress, church verse of the day, and church-branded exports. <a href="pricing.html">See Pricing</a>. Questions? <a href="contact.html">Contact us</a>.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:brandon@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a>
+      <p class="footer-copyright">© 2026 Brandon / Today's Daily Battle. All rights reserved.</p>
+      <p class="footer-updated">Updated February 2026.</p>
+    </footer>
+  </div>
+
+  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script src="config.js"></script>
+  <script src="script.js?v=20260220" data-cfasync="false"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Activation checklist — ROADMAP execution
 
-Execute in order to unlock sync/sharing value, then monetization. See **ROADMAP.md** for phases; **CONFIG.md** for keys and tech setup.
+Execute in order to unlock sync/sharing value, then monetization. See **ROADMAP.md** for phases; **CONFIG.md** for keys and tech setup; **ROADMAP-STARS.md** for the full "roadmap to the stars" (prioritized week-by-week).
 
 ---
 

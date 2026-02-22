@@ -2,7 +2,7 @@
 
 Prioritized evolution from "quick daily verse tool" to a habit-forming Bible companion with depth, community, and sustainable monetization. Keeps the "battle" angle (spiritual warfare + daily wins) as the differentiator.
 
-**See also:** [STRATEGY.md](STRATEGY.md) for benchmark comparison and 6–12 month focus. [CONFIG.md](CONFIG.md) for technical setup.
+**See also:** [STRATEGY.md](STRATEGY.md) for benchmark comparison and 6–12 month focus. [CONFIG.md](CONFIG.md) for technical setup. [ROADMAP-STARS.md](ROADMAP-STARS.md) for the prioritized "roadmap to the stars" (10K+ users, virality, revenue) with week-by-week actions.
 
 ---
 

@@ -421,6 +421,14 @@ body {
   margin-right: auto;
 }
 
+.hero-banner .hero-sub {
+  margin: 0.5rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--elite-gold, var(--accent));
+  letter-spacing: 0.04em;
+}
+
 .cta-group {
   display: flex;
   flex-wrap: wrap;

@@ -83,6 +83,12 @@
           </div>
         </header>
         <section class="glass">
+          <h2 class="section-divider">Themed plans</h2>
+          <p class="section-note">One verse a day for 40 days—focused on a single battle.</p>
+          <button id="themed-plan-anxiety-40" type="button" class="btn btn-primary">Start Battle Anxiety in 40 Days</button>
+          <p class="section-note" style="margin-top:0.5rem">Peace, rest, and courage from Scripture. Check off each day as you go.</p>
+        </section>
+        <section class="glass">
           <h2 class="section-divider">Create custom plan</h2>
           <p class="section-note">Build a plan with 7–30 days. Verses are drawn from a curated list.</p>
           <label for="custom-plan-days">Number of days</label>
@@ -136,6 +142,13 @@
       } catch (e) {}
       return DEFAULT_PLAN;
     }
+    function getPlanTitle() {
+      try {
+        var c = JSON.parse(localStorage.getItem(CUSTOM_PLAN_KEY));
+        if (c && c.title) return c.title;
+      } catch (e) {}
+      return null;
+    }
     var PLAN = getPlan();
     function loadProgress() {
       try {
@@ -175,11 +188,13 @@
       window.addEventListener('reading-plan-updated', function() {
         PLAN = getPlan();
         var titleEl = document.getElementById('reading-plan-title');
-        if (titleEl) titleEl.textContent = PLAN.length === 7 ? 'Your 7 Days' : 'Your ' + PLAN.length + ' days';
+        var customTitle = getPlanTitle();
+        if (titleEl) titleEl.textContent = customTitle || (PLAN.length === 7 ? 'Your 7 Days' : 'Your ' + PLAN.length + ' days');
         renderList();
       });
       var titleEl = document.getElementById('reading-plan-title');
-      if (titleEl) titleEl.textContent = PLAN.length === 7 ? 'Your 7 Days' : 'Your ' + PLAN.length + ' days';
+      var customTitle = getPlanTitle();
+      if (titleEl) titleEl.textContent = customTitle || (PLAN.length === 7 ? 'Your 7 Days' : 'Your ' + PLAN.length + ' days');
       const resetBtn = document.getElementById('reading-plan-reset');
       if (resetBtn) {
         resetBtn.addEventListener('click', function() {

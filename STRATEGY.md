@@ -63,7 +63,7 @@ Product and growth direction relative to top Bible sites (BibleGateway, YouVersi
 - **Shareability:** Verse images and clear share CTA (“One tap to share—post to your story or send to a friend”) drive word of mouth.
 - **Simplicity:** “Two minutes that fill you up” stays the core promise; new features should support that, not dilute it.
 
-For technical setup (Stripe, analytics, email senders, service worker, daily battle seeding), see **CONFIG.md**.
+For technical setup (Stripe, analytics, email senders, service worker, daily battle seeding), see **CONFIG.md**. For the full phased roadmap (Phase 1–3, themed plans, Battle Pro), see **ROADMAP.md**.
 
 ---
 

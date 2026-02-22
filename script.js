@@ -6821,6 +6821,60 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const themedPlanAnxiety40 = document.getElementById('themed-plan-anxiety-40');
+  if (themedPlanAnxiety40) {
+    const ANXIETY_40_POOL = [
+      { ref: 'Philippians 4:6', theme: 'Be careful for nothing' },
+      { ref: 'Philippians 4:7', theme: 'Peace that passeth understanding' },
+      { ref: 'Matthew 11:28', theme: 'Come unto me, all ye that labour' },
+      { ref: '1 Peter 5:7', theme: 'Casting all your care upon him' },
+      { ref: 'Isaiah 41:10', theme: 'Fear not, I am with thee' },
+      { ref: 'Psalm 46:1', theme: 'God is our refuge and strength' },
+      { ref: '2 Timothy 1:7', theme: 'Spirit of power, love, and a sound mind' },
+      { ref: 'John 14:27', theme: 'Peace I leave with you' },
+      { ref: 'Psalm 23:1', theme: 'The Lord is my shepherd' },
+      { ref: 'Psalm 34:4', theme: 'Delivered from all my fears' },
+      { ref: 'Isaiah 26:3', theme: 'Thou wilt keep him in perfect peace' },
+      { ref: 'Romans 8:28', theme: 'All things work together for good' },
+      { ref: 'Psalm 27:1', theme: 'The Lord is my light and salvation' },
+      { ref: 'Proverbs 3:5', theme: 'Trust in the Lord with all thine heart' },
+      { ref: 'Psalm 121:1', theme: 'I will lift up mine eyes unto the hills' },
+      { ref: 'Romans 8:38', theme: 'Neither death nor life shall separate us' },
+      { ref: 'Joshua 1:9', theme: 'Be strong and of a good courage' },
+      { ref: 'Psalm 56:3', theme: 'What time I am afraid, I will trust in thee' },
+      { ref: 'Isaiah 40:31', theme: 'They that wait upon the Lord' },
+      { ref: 'Matthew 6:34', theme: 'Take therefore no thought for the morrow' },
+      { ref: 'Psalm 94:19', theme: 'In the multitude of my thoughts within me' },
+      { ref: 'Hebrews 13:5', theme: 'I will never leave thee nor forsake thee' },
+      { ref: 'Psalm 91:1', theme: 'He that dwelleth in the secret place' },
+      { ref: 'John 16:33', theme: 'In the world ye shall have tribulation' },
+      { ref: 'Romans 15:13', theme: 'God of hope fill you with all joy' },
+      { ref: 'Psalm 118:6', theme: 'The Lord is on my side; I will not fear' },
+      { ref: 'Nahum 1:7', theme: 'The Lord is good, a strong hold' },
+      { ref: 'Psalm 55:22', theme: 'Cast thy burden upon the Lord' },
+      { ref: 'Isaiah 43:2', theme: 'When thou passest through the waters' },
+      { ref: 'Psalm 23:4', theme: 'I will fear no evil' },
+      { ref: '2 Corinthians 12:9', theme: 'My grace is sufficient for thee' },
+      { ref: 'Psalm 37:5', theme: 'Commit thy way unto the Lord' },
+      { ref: 'Proverbs 12:25', theme: 'Heaviness in the heart of man' },
+      { ref: 'Isaiah 35:4', theme: 'Say to them that are of a fearful heart' },
+      { ref: 'Psalm 34:17', theme: 'The righteous cry, and the Lord heareth' },
+      { ref: 'Romans 8:31', theme: 'If God be for us, who can be against us' },
+      { ref: 'Psalm 138:3', theme: 'In the day when I cried thou answeredst me' },
+      { ref: 'Isaiah 12:2', theme: 'I will trust, and not be afraid' },
+      { ref: 'Psalm 42:11', theme: 'Hope thou in God' },
+      { ref: 'Philippians 4:13', theme: 'I can do all things through Christ' }
+    ];
+    themedPlanAnxiety40.addEventListener('click', () => {
+      const items = ANXIETY_40_POOL.map((v, i) => ({ day: i + 1, ref: v.ref, theme: v.theme }));
+      try {
+        localStorage.setItem('readingPlanCustom', JSON.stringify({ items, title: 'Battle Anxiety in 40 Days' }));
+        window.dispatchEvent(new CustomEvent('reading-plan-updated'));
+        if (document.getElementById('custom-plan-status')) document.getElementById('custom-plan-status').textContent = 'Battle Anxiety in 40 Days loaded. Your plan is below.';
+      } catch (e) {}
+    });
+  }
+
   const churchSearchBtn = document.getElementById('church-search-btn');
   if (churchSearchBtn) {
     churchSearchBtn.addEventListener('click', async () => {

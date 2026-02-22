@@ -5525,6 +5525,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     shopBattleMugCta.target = '_blank';
     shopBattleMugCta.rel = 'noopener noreferrer';
   }
+  var battleProBanner = document.getElementById('battle-pro-banner');
+  if (battleProBanner && STRIPE_SUPPORTER_MONTHLY_URL && STRIPE_SUPPORTER_YEARLY_URL && STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL) {
+    battleProBanner.innerHTML = '<strong>Battle Pro</strong> now available—offline, premium devotionals, your 2026 Wins Report. <a href="pricing.html">Unlock now</a>';
+  }
+  if (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.GOOGLE_SITE_VERIFICATION) {
+    var meta = document.createElement('meta');
+    meta.name = 'google-site-verification';
+    meta.content = window.TDB_CONFIG.GOOGLE_SITE_VERIFICATION;
+    document.head.appendChild(meta);
+  }
   function isDailyCardStillLoading(card) {
     if (!card) return false;
     var t = card.textContent || '';

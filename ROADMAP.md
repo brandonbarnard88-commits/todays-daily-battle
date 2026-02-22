@@ -80,6 +80,8 @@ Prioritized evolution from "quick daily verse tool" to a habit-forming Bible com
 
 ## Activation & launch checklist (momentum toward 1K users)
 
+**Detailed steps:** See **[ACTIVATION.md](ACTIVATION.md)** for the full checklist (Supabase E2E, RLS, forgot password, sharing tests, themed plans, Battle Pro launch, BATTLE_MUG_URL, Blaze/polish).
+
 Order: impact/ease. Do in this order.
 
 1. **Activate Supabase accounts (today/this week – #1 priority)**  

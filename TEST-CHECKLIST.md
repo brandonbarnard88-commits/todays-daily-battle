@@ -21,8 +21,9 @@ Use this when you want to **test the site hard** in a real browser.
 - [ ] Log in → session persists on refresh
 - [ ] Forgot password → flow works or shows message
 - [ ] Log out → clears session
+- [ ] Cross-device: sign in on second tab/device → streak, favorites, notes persist (if synced)
 
-## 3. Key pages
+## 4. Key pages
 - [ ] **Terms** (`terms.html`) – Full ToS, footer link works from any page
 - [ ] **Pricing** – Subscribe / Notify me, “By subscribing you agree to Terms and Privacy” link
 - [ ] **Study** – Notes list, add note, Private checkbox, Export PDF
@@ -31,12 +32,12 @@ Use this when you want to **test the site hard** in a real browser.
 - [ ] **Sermon** – Print/PDF label, Email sermon
 - [ ] **Reading plan** – 7-day plan, Custom plan (days + Generate)
 
-## 4. Footer & nav
+## 5. Footer & nav
 - [ ] Every page has **Terms** in footer next to Privacy
 - [ ] Sidebar opens (Menu), all nav links go to correct page
 - [ ] Dark mode toggle works
 
-## 5. Mobile / responsive
+## 6. Mobile / responsive
 - [ ] Homepage search and quick topics usable on narrow width
 - [ ] Sidebar works (hamburger)
 

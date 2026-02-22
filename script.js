@@ -76,6 +76,7 @@ let isMasterUser = false;
 })();
 let currentUserEmail = '';
 let deferredInstallPrompt = null;
+// Set to your Cloudflare Web Analytics beacon token to enable analytics; leave '' to disable.
 const CF_ANALYTICS_TOKEN = '';
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
@@ -907,6 +908,7 @@ const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
 const MESSAGE_AMEN_KEY = 'messageAmenCounts';
 const DAILY_KIDS_HISTORY_KEY = 'dailyKidsHistory';
 const SUPPORTER_WAITLIST_KEY = 'supporterWaitlist';
+// Paste your Stripe Payment Link URLs below; leave empty to show "Notify me" + waitlist instead of checkout.
 const STRIPE_SUPPORTER_MONTHLY_URL = '';
 const STRIPE_SUPPORTER_YEARLY_URL = '';
 const STRIPE_CHURCH_MONTHLY_URL = '';

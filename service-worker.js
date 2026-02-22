@@ -1,5 +1,5 @@
 // Bump this when you deploy new JS/CSS so clients get fresh assets (e.g. tdb-static-YYYYMMDD).
-const CACHE_NAME = 'tdb-static-20260220';
+const CACHE_NAME = 'tdb-static-20260221';
 const CORE_ASSETS = [
   '/',
   '/index.html',

@@ -110,8 +110,12 @@
 
     <main class="app-content">
       <div class="content-inner">
+        <div id="signin-nudge-banner" class="signin-nudge-banner glass" role="complementary">
+          Save your streak? <a href="#auth-details">Sign in</a>—optional, no pressure.
+        </div>
         <div id="battle-pro-banner" class="battle-pro-banner glass">
-          <strong>Battle Pro</strong> coming soon—offline, premium devotionals, your 2026 Wins Report. <a href="pricing.html">Join the waitlist</a>
+          <strong>Battle Pro</strong> coming soon—offline, premium devotionals, your 2026 Wins Report. <span class="coming-soon-eta">ETA: March</span> <a href="pricing.html">Join the waitlist</a>
+          <div class="coming-soon-progress" aria-hidden="true"><div class="coming-soon-progress-fill"></div></div>
         </div>
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
@@ -120,6 +124,14 @@
           <p class="hero-email-cta"><a href="#newsletter">Get today's verse by email</a> · <a href="reader.html">Read any chapter</a></p>
         </header>
         <section id="main-search" class="controls glass">
+          <div class="focus-mode-wrap">
+            <label for="focus-mode" class="focus-mode-label">Focus mode</label>
+            <select id="focus-mode" class="compact-select" aria-label="Verse style: Morning, Evening, or Warrior">
+              <option value="morning">Morning Energy — short, upbeat</option>
+              <option value="evening">Evening Wind-Down — reflective</option>
+              <option value="warrior">Warrior Mode — battle verses only</option>
+            </select>
+          </div>
           <div class="search-stack">
             <input id="query" placeholder="Search anger, fear, John 3:16, love..." aria-label="Search query">
             <div class="search-actions">
@@ -214,8 +226,14 @@
           <div id="daily-battle-prayer" class="section-note"></div>
           <div id="daily-battle-red-letter" class="section-note"></div>
           <div id="daily-battle-next-steps" class="section-note daily-battle-next-steps" aria-live="polite"></div>
-          <p class="section-note" id="daily-battle-streak">Streak: 0 days</p>
-          <p id="daily-battle-milestone" class="section-note streak-milestone" aria-live="polite"></p>
+          <div id="streak-counter-block" class="streak-counter-block glass">
+            <span id="daily-battle-streak" class="streak-counter-text" aria-live="polite">Streak: 0 days</span>
+            <p id="daily-battle-milestone" class="section-note streak-milestone" aria-live="polite"></p>
+            <div id="share-streak-wrap" class="cta-group share-streak-wrap" style="display: none;">
+              <button id="share-my-streak" type="button" class="btn btn-secondary">Share my streak</button>
+            </div>
+          </div>
+          <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Sign in to save your streak and sync across devices.</p>
           <div class="cta-group daily-battle-signin-cta">
             <a href="#auth-details" class="btn btn-primary">Sign In Free – Save Your Streak Forever &amp; Sync Devices</a>
             <p class="section-note" style="margin-top: 0.35rem;">Sync streaks, drafts, prayers, and plans—across phone and computer.</p>
@@ -227,17 +245,17 @@
             <button id="share-daily-battle-send-friend" class="btn btn-secondary" type="button" title="Email this verse to a friend">Send to a friend</button>
             <button id="share-daily-battle-copy-verse" class="btn btn-secondary" type="button" title="Copy verse + reference">Copy verse</button>
             <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
-            <button id="share-daily-battle-image" class="btn btn-secondary" type="button">Share image</button>
+            <button id="share-daily-battle-image" class="btn btn-secondary" type="button" title="One-tap: Instagram-ready graphic with today's verse + logo">Save card for Instagram</button>
             <button id="listen-daily-battle" class="btn btn-secondary btn-listen" type="button" title="Read this verse aloud here" aria-label="Read this verse aloud">Listen</button>
             <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
           </div>
           <p class="section-note share-verse-cta">One tap to share—post to your story or send to a friend. Share today's battle: verse + link. Less scroll. More soul.</p>
-          <p class="section-note" style="margin-bottom: 0.25rem;">Share to social:</p>
+          <p class="section-note" style="margin-bottom: 0.25rem;">Share (one tap):</p>
           <div class="cta-group social-share-links" aria-label="Share to social">
             <div id="share-preview-thumb" class="share-preview-thumb" aria-hidden="true"></div>
-            <a id="share-daily-to-x" href="#" class="btn btn-secondary social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)">Share to X</a>
-            <a id="share-daily-to-facebook" href="#" class="btn btn-secondary social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to Facebook">Share to Facebook</a>
-            <button id="share-daily-to-instagram" type="button" class="btn btn-secondary social-share-btn" aria-label="Copy for Instagram">Share to Instagram</button>
+            <a id="share-daily-to-x" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)" title="Share to X"><span class="share-icon share-icon-x" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
+            <a id="share-daily-to-facebook" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to Facebook" title="Share to Facebook"><span class="share-icon share-icon-fb" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span></a>
+            <button id="share-daily-to-instagram" type="button" class="btn btn-icon social-share-btn" aria-label="Copy for Instagram" title="Copy for Instagram"><span class="share-icon share-icon-ig" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.766 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span></button>
           </div>
           <div class="cta-group daily-battle-extra">
             <label class="inline-toggle">
@@ -284,18 +302,41 @@
             <a href="study.html" class="list-item list-item-link"><div><strong>3. Save or share</strong><p>Use Study Tools to save verses, build lessons, or share with someone who needs it.</p></div></a>
             <a href="#newsletter" class="list-item list-item-link"><div><strong>4. Come back tomorrow</strong><p>Build a streak and let the Battle Plan keep you grounded.</p></div></a>
           </div>
-          <p class="section-note"><a id="walkthrough-video" href="#" class="btn-link">Watch the 60-second walkthrough</a> <span id="walkthrough-coming">(video coming soon)</span></p>
+          <p class="section-note"><a id="walkthrough-video" href="#" class="btn-link">Watch the 60-second walkthrough</a> <span id="walkthrough-coming">(video coming soon — ETA: March)</span></p>
         </section>
-        <section class="glass">
+        <section class="glass" id="prayer-wall">
+          <h2 class="section-divider">Prayer Wall</h2>
+          <p class="section-note">Anonymous one-line requests. Tap ♥ to pray—no comments, no drama.</p>
+          <div class="prayer-wall-form">
+            <input id="prayer-wall-input" type="text" placeholder="e.g. Job interview tomorrow" maxlength="120" aria-label="One-line prayer request">
+            <button id="prayer-wall-add" type="button" class="btn btn-primary">Add</button>
+          </div>
+          <ul id="prayer-wall-list" class="prayer-wall-list"></ul>
+          <p class="section-note prayer-wall-note">Saved on this device. When accounts are live, the wall will sync and top prayers will be highlighted daily.</p>
+        </section>
+        <section class="glass testimonials-section">
           <h2 class="section-divider">Stories of Hope</h2>
           <p class="section-note">People are choosing this over the feed. Here's what they say.</p>
-          <div class="list">
+          <div class="testimonials-carousel" id="testimonials-carousel" aria-label="Testimonials">
+            <div class="testimonial-slides" id="testimonial-slides"></div>
+            <div class="testimonial-dots" role="tablist" aria-label="Choose testimonial"></div>
+          </div>
+          <div class="list" aria-hidden="true" style="display:none">
             <div class="list-item"><div><strong>"I open this more than Instagram now."</strong><p>Two minutes here and I feel grounded. The streak keeps me coming back.</p></div></div>
             <div class="list-item"><div><strong>“This helped me breathe again.”</strong><p>The verses felt like a lifeline in a hard week.</p></div></div>
             <div class="list-item"><div><strong>“Perfect for family devotions.”</strong><p>We finally have something short we can do together.</p></div></div>
             <div class="list-item"><div><strong>“My sermon prep got faster.”</strong><p>The search + outlines saved me hours.</p></div></div>
           </div>
-          <p class="section-note">Want to share your story? Email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</p>
+          <p class="section-note">Want to share your story? Email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>. Swap in real testimonials as they roll in.</p>
+        </section>
+        <section class="glass beta-testers-section">
+          <h2 class="section-divider">Beta testers</h2>
+          <p class="section-note">Five people get <strong>Supporter free</strong> for feedback. You'll help shape the app—and evangelize for us.</p>
+          <div class="beta-testers-form">
+            <input id="beta-email" type="email" placeholder="Your email" aria-label="Email for beta" autocomplete="email">
+            <button id="beta-apply" type="button" class="btn btn-primary">Apply</button>
+          </div>
+          <p id="beta-status" class="section-note"></p>
         </section>
         <section class="glass" id="prayer-list-section">
           <h2 class="section-divider">Prayer List</h2>

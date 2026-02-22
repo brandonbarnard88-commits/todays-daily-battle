@@ -34,6 +34,9 @@ Execute in order to unlock sync/sharing value, then monetization. See **ROADMAP.
 - [ ] Sign in → go to **Reading Plan** → start **Battle Anxiety in 40 Days** (or Victory Over Fear / Lent 2026).
 - [ ] Check off a day → refresh or reopen on another tab (same account) → progress persists (if plans are synced via Supabase). If plans are localStorage-only, note that for later sync.
 
+### 1.5b Prayer list sync (when accounts are live)
+- [ ] Church Center prayer list is local-only until sync is wired; once Supabase accounts are live, sync prayer list per user so it follows them across devices (same as streaks/plans).
+
 ### 1.6 Go live
 - [ ] Once E2E passes: **Newsletter blast** — “Accounts are live—sign in free to sync streaks, drafts, prayers, and plans across phone and computer!” (Full copy in Copy-paste section below; send when ready.)
 

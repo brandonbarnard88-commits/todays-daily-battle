@@ -23,7 +23,23 @@ Use this when you want to **test the site hard** in a real browser.
 - [ ] Log out → clears session
 - [ ] Cross-device: sign in on second tab/device → streak, favorites, notes persist (if synced)
 
-## 4. Key pages
+## 3. Tools (all working, not just copy)
+- [ ] **Pastor Toolkit build-from-topic** – pastor-toolkit.html → enter topic (e.g. hope) → "Build toolkit & open Sermon Builder" → redirects to sermon.html with outline/title/theme filled
+- [ ] **Sermon Builder** – Save Draft, Load Draft, Print/PDF, Email sermon, Copy for Sharing; "Pastor Toolkit" with no prior search shows friendly message
+- [ ] **Resources templates** – resources.html → "Use Template" on any template → opens sermon.html with template applied
+- [ ] **Church Center** – Prayer list: Add, Mark Prayed (works even before joining a church). Assign reading (pastors). My assigned reading + Mark complete
+- [ ] **Message board** – Post Message → appears in list; sort; Amen
+- [ ] **Reader** – Book + chapter → verse text; Listen, KJV Audio
+- [ ] **Coloring** – Story dropdown, color/brush, Clear, Download, Print; Kids Daily Prompt + Mark Done
+- [ ] **Study** – Add note, Save verse, collections, Export PDF, Share link
+
+## 4. Sharing & engagement
+- [ ] **Send to a friend** – Daily battle → "Send to a friend" → mailto with verse, ref, link
+- [ ] **Share image** – verse + link correct
+- [ ] **Share to X / Facebook** – Hashtags and site link present
+- [ ] **Themed plans** – Victory Over Fear, Lent 2026 → Start → plan loads; check-offs work
+
+## 5. Key pages
 - [ ] **Terms** (`terms.html`) – Full ToS, footer link works from any page
 - [ ] **Pricing** – Subscribe / Notify me, “By subscribing you agree to Terms and Privacy” link
 - [ ] **Study** – Notes list, add note, Private checkbox, Export PDF
@@ -32,12 +48,12 @@ Use this when you want to **test the site hard** in a real browser.
 - [ ] **Sermon** – Print/PDF label, Email sermon
 - [ ] **Reading plan** – 7-day plan, Custom plan (days + Generate)
 
-## 5. Footer & nav
+## 6. Footer & nav
 - [ ] Every page has **Terms** in footer next to Privacy
 - [ ] Sidebar opens (Menu), all nav links go to correct page
 - [ ] Dark mode toggle works
 
-## 6. Mobile / responsive
+## 7. Mobile / responsive
 - [ ] Homepage search and quick topics usable on narrow width
 - [ ] Sidebar works (hamburger)
 

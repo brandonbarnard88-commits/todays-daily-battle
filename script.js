@@ -3883,13 +3883,19 @@ function populateTemplateList() {
     const btn = document.createElement('button');
     btn.textContent = 'Use Template';
     btn.onclick = () => {
-      var e = document.getElementById('sermon-title'); if (e) e.value = template.title;
-      e = document.getElementById('sermon-theme'); if (e) e.value = template.theme;
-      e = document.getElementById('sermon-text-ref'); if (e) e.value = template.textRef;
-      e = document.getElementById('sermon-outline'); if (e) e.value = template.outline;
-      e = document.getElementById('sermon-points'); if (e) e.value = template.points;
-      e = document.getElementById('sermon-application'); if (e) e.value = template.application;
-      e = document.getElementById('sermon-prayer'); if (e) e.value = template.prayer;
+      var titleEl = document.getElementById('sermon-title');
+      if (titleEl) {
+        titleEl.value = template.title || '';
+        var e = document.getElementById('sermon-theme'); if (e) e.value = template.theme || '';
+        e = document.getElementById('sermon-text-ref'); if (e) e.value = template.textRef || '';
+        e = document.getElementById('sermon-outline'); if (e) e.value = template.outline || '';
+        e = document.getElementById('sermon-points'); if (e) e.value = template.points || '';
+        e = document.getElementById('sermon-application'); if (e) e.value = template.application || '';
+        e = document.getElementById('sermon-prayer'); if (e) e.value = template.prayer || '';
+      } else {
+        saveSermonDraft({ title: template.title || '', theme: template.theme || '', textRef: template.textRef || '', outline: template.outline || '', points: template.points || '', application: template.application || '', prayer: template.prayer || '' });
+        window.location.href = 'sermon.html?load=1';
+      }
     };
     card.appendChild(btn);
     container.appendChild(card);
@@ -4548,6 +4554,24 @@ function getSearchFilters() {
   const testament = document.getElementById('testament-filter')?.value || 'all';
   const book = document.getElementById('book-filter')?.value || '';
   return { testament, book };
+}
+
+/** Run a topic search from any page (e.g. Pastor Toolkit). Sets lastResults and returns them. */
+async function runTopicSearch(query) {
+  const input = (query || '').trim();
+  if (!input) return null;
+  if (Object.keys(bible).length === 0) {
+    await loadBible(currentVersion);
+    refreshBibleView();
+  }
+  if (Object.keys(bible).length === 0) return null;
+  lastQueryInput = input;
+  const filters = getSearchFilters();
+  const tier = document.getElementById('tier')?.value || 'adult';
+  const parsed = parseQuery(input);
+  const results = executeQuery(parsed, tier, filters);
+  lastResults = results;
+  return results;
 }
 
 function parseBookFromRef(ref) {
@@ -6349,6 +6373,39 @@ document.addEventListener('DOMContentLoaded', async () => {
       alert('Share link not found.');
     }
   }
+  if (params.get('load') === '1') {
+    const draft = loadSermonDraft();
+    if (draft && (draft.title || draft.textRef || draft.outline)) applySermonDraft(draft);
+  }
+
+  var ptBuildBtn = document.getElementById('pt-build');
+  var ptTopicInput = document.getElementById('pt-topic');
+  if (ptBuildBtn && ptTopicInput) {
+    ptBuildBtn.addEventListener('click', async () => {
+      var topic = ptTopicInput.value.trim();
+      if (!topic) {
+        alert('Enter a topic (e.g. hope, fear, anxiety).');
+        return;
+      }
+      ptBuildBtn.disabled = true;
+      ptBuildBtn.textContent = 'Building…';
+      try {
+        var results = await runTopicSearch(topic);
+        if (!results || !results.verses || results.verses.length === 0) {
+          alert('No verses found for that topic. Try hope, fear, or anxiety.');
+          return;
+        }
+        var toolkit = buildPastorToolkit(results);
+        saveSermonDraft({ title: toolkit.title, theme: toolkit.theme, textRef: toolkit.textRef, outline: toolkit.outline, points: toolkit.points, application: toolkit.application, prayer: toolkit.prayer });
+        window.location.href = 'sermon.html?load=1';
+      } catch (e) {
+        alert('Something went wrong. Try again.');
+      } finally {
+        ptBuildBtn.disabled = false;
+        ptBuildBtn.textContent = 'Build toolkit & open Sermon Builder';
+      }
+    });
+  }
 
   const saveNoteBtn = document.getElementById('save-note');
   if (saveNoteBtn) {
@@ -6543,6 +6600,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const pastorToolkitBtn = document.getElementById('pastor-toolkit');
   if (pastorToolkitBtn) {
     pastorToolkitBtn.addEventListener('click', () => {
+      if (!lastResults || !lastResults.verses || lastResults.verses.length === 0) {
+        alert('No search results yet. Search a topic on the homepage first, or use "Build from topic" on the Pastor Toolkit page.');
+        return;
+      }
       const toolkit = buildPastorToolkit(lastResults);
       const titleEl = document.getElementById('sermon-title');
       const themeEl = document.getElementById('sermon-theme');
@@ -7100,17 +7161,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     const assignWrap = document.getElementById('church-assign-wrap');
     if (verseAdmin) verseAdmin.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
     if (assignWrap) assignWrap.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
-    if (currentChurch && verseEl) {
-      const data = loadChurchVerseOfDay();
-      if (data && data.ref) {
-        const text = (typeof bible !== 'undefined' && bible[data.ref]) ? bible[data.ref] : '';
-        verseEl.innerHTML = '<strong>' + escapeHtml(data.ref) + '</strong>' + (text ? '<p>' + escapeHtml(text) + '</p>' : '<p class="section-note"><a href="/?ref=' + encodeURIComponent(data.ref) + '">Read ' + escapeHtml(data.ref) + '</a></p>');
+    if (verseEl) {
+      if (currentChurch) {
+        const data = loadChurchVerseOfDay();
+        if (data && data.ref) {
+          const text = (typeof bible !== 'undefined' && bible[data.ref]) ? bible[data.ref] : '';
+          verseEl.innerHTML = '<strong>' + escapeHtml(data.ref) + '</strong>' + (text ? '<p>' + escapeHtml(text) + '</p>' : '<p class="section-note"><a href="/?ref=' + encodeURIComponent(data.ref) + '">Read ' + escapeHtml(data.ref) + '</a></p>');
+        } else {
+          verseEl.innerHTML = '<p class="section-note">No church verse set. Pastors can set one above.</p>';
+        }
       } else {
-        verseEl.innerHTML = '<p class="section-note">No church verse set. Pastors can set one above.</p>';
+        verseEl.innerHTML = '<p class="section-note">Join a church below to see your church\'s verse of the day.</p>';
       }
     }
     const prayerList = document.getElementById('church-prayer-list');
-    if (currentChurch && prayerList) {
+    if (prayerList) {
       const items = loadChurchPrayerList();
       prayerList.innerHTML = '';
       items.forEach((item, i) => {
@@ -7133,7 +7198,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above.</p>';
     }
     const assignedList = document.getElementById('church-assigned-list');
-    if (currentChurch && assignedList) {
+    if (assignedList) {
       const assignments = loadChurchAssignments();
       const completed = loadChurchCompletedAssignments();
       assignedList.innerHTML = '';

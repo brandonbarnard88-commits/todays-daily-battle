@@ -48,6 +48,10 @@
   .hero-banner {
     animation: none;
   }
+  .verse-card.verse-card-loaded strong,
+  .verse-card.verse-card-loaded p {
+    animation: none;
+  }
 }
 
 .skip-link {
@@ -1496,6 +1500,16 @@ button:active {
   box-shadow: var(--shadow-card-hover), inset 0 1px 0 var(--elite-cream-strong), 0 0 32px var(--elite-gold-dim);
 }
 
+.verse-card.verse-card-loaded strong,
+.verse-card.verse-card-loaded p {
+  animation: verseFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes verseFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .verse-card strong {
   font-family: var(--font-display);
   color: var(--primary);
@@ -1854,6 +1868,30 @@ body.red-letter-off .red-letter-card {
 
 .streak-day.active {
   background: rgba(109, 40, 217, 0.6);
+}
+
+.daily-battle-next-steps {
+  margin-top: 0.5rem;
+}
+
+.daily-battle-next-steps a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.daily-battle-next-steps a:hover {
+  text-decoration: underline;
+}
+
+.dark-mode .daily-battle-next-steps a {
+  color: var(--accent);
+}
+
+.daily-battle-testimony {
+  font-style: italic;
+  opacity: 0.92;
+  margin-top: 0.5rem;
 }
 
 .study-tools,

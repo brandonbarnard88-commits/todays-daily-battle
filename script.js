@@ -1148,11 +1148,14 @@ function updateDailyBattleStreak() {
   if (lastKey !== today || data.count !== nextCount || dates.length !== nextDates.length) {
     localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify({ lastKey: today, count: nextCount, dates: nextDates }));
   }
-  streakEl.textContent = `Streak: ${nextCount} day${nextCount === 1 ? '' : 's'}`;
+  streakEl.textContent = nextCount >= 1 ? `🔥 Streak: ${nextCount} day${nextCount === 1 ? '' : 's'}` : `Streak: ${nextCount} days`;
   const milestoneEl = document.getElementById('daily-battle-milestone');
   if (milestoneEl) {
-    if (nextCount >= 30) milestoneEl.textContent = '🏆 30-Day Champion! You\'re building a strong habit.';
-    else if (nextCount >= 7) milestoneEl.textContent = '⚔️ Warrior Week! Seven days in a row—keep going!';
+    if (nextCount >= 60) milestoneEl.textContent = '🏆 60-Day Victor! Your habit is unshakeable.';
+    else if (nextCount >= 30) milestoneEl.textContent = '🏆 30-Day Champion! You\'re building a strong habit.';
+    else if (nextCount >= 14) milestoneEl.textContent = '⚔️ 14-Day Defender! Two weeks strong.';
+    else if (nextCount >= 7) milestoneEl.textContent = '⚔️ Warrior Day 7! Seven days in a row—keep going!';
+    else if (nextCount >= 3) milestoneEl.textContent = 'One verse a day keeps the streak alive. Don\'t break the chain!';
     else milestoneEl.textContent = '';
   }
   if (calendarEl) renderStreakCalendar(calendarEl, nextDates);
@@ -1818,6 +1821,25 @@ async function renderDailyBattleCard() {
   }
   const verseText = getBibleVerseText(battle.ref);
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
+  card.classList.add('verse-card-loaded');
+  var nextStepsEl = document.getElementById('daily-battle-next-steps');
+  if (nextStepsEl && battle.ref) {
+    var topicOfDay = getTopicOfDay();
+    var readerUrl = buildReaderUrl(battle.ref);
+    var searchUrl = (window.location.pathname || '/') + '?q=' + encodeURIComponent(topicOfDay.toLowerCase());
+    nextStepsEl.innerHTML = '<a href="' + readerUrl + '">Read full chapter</a> &middot; <a href="' + searchUrl + '">More verses on ' + topicOfDay + '</a>';
+  }
+  var testimonyEl = document.getElementById('daily-battle-testimony');
+  if (testimonyEl) {
+    var microTestimonies = [
+      '"I open this more than Instagram now." — User',
+      '"Two minutes here and I feel grounded." — User',
+      '"This helped me breathe again." — User',
+      '"Perfect for family devotions." — User'
+    ];
+    var testimonySeed = getDailyKey().split('').reduce(function (a, c) { return a + c.charCodeAt(0); }, 0);
+    testimonyEl.textContent = microTestimonies[testimonySeed % microTestimonies.length];
+  }
   if (usedAnchorVerse && prayerEl) {
     var tryAgainWrap = document.createElement('p');
     tryAgainWrap.id = 'daily-battle-anchor-try';

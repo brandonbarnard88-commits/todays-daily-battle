@@ -339,7 +339,7 @@ const topics = {
     }
   },
   love: {
-    synonyms: ['affection', 'charity', 'compassion', 'kindness'],
+    synonyms: ['affection', 'charity', 'compassion', 'kindness', 'selfless', 'servant', 'sacrifice', 'giving'],
     verses: ['1 Corinthians 13:4', 'John 3:16', 'Romans 5:8', '1 John 4:8', 'Ephesians 5:2'],
     guidance: {
       kid: "God loves you so much!",
@@ -1719,7 +1719,14 @@ function createVerseCardImage(ref, text) {
   wrapCanvasText(ctx, clean, 80, 290, 920, 46);
   ctx.fillStyle = '#e2e8f0';
   ctx.font = '600 28px Inter, sans-serif';
-  ctx.fillText('todaysdailybattle.com', 80, 1010);
+  let footerY = 1010;
+  if (currentChurch && currentChurch.name) {
+    ctx.font = '600 24px Inter, sans-serif';
+    ctx.fillText(currentChurch.name, 80, 980);
+    footerY = 1010;
+  }
+  ctx.font = '600 28px Inter, sans-serif';
+  ctx.fillText('todaysdailybattle.com', 80, footerY);
   canvas.toBlob(function (blob) {
     if (!blob) {
       const a = document.createElement('a');
@@ -2130,6 +2137,7 @@ async function saveNewsletterSignup(email, prefs) {
     email,
     daily_opt_in: Boolean(prefs?.daily),
     weekly_opt_in: Boolean(prefs?.weekly),
+    preferred_time: prefs?.preferredTime || '',
     created_at: new Date().toISOString()
   };
   const local = loadNewsletterSignups();
@@ -2141,10 +2149,11 @@ async function saveNewsletterSignup(email, prefs) {
       await supabaseClient.from('newsletter_signups').insert({
         email,
         daily_opt_in: Boolean(prefs?.daily),
-        weekly_opt_in: Boolean(prefs?.weekly)
+        weekly_opt_in: Boolean(prefs?.weekly),
+        preferred_time: prefs?.preferredTime || null
       });
     } catch {
-      // Table may not exist; local storage acts as fallback.
+      // Table may not exist or missing column; local storage acts as fallback.
     }
   }
   return entry;
@@ -3003,7 +3012,14 @@ async function syncUserData() {
   ]);
 
   if (!notesData.error && Array.isArray(notesData.data)) {
-    const notes = notesData.data.map(note => ({ id: note.id, ref: note.ref || 'General', text: note.text }));
+    const localNotes = loadNotes();
+    const privateById = new Map(localNotes.filter(n => n.private).map(n => [n.id, true]));
+    const notes = notesData.data.map(note => ({
+      id: note.id,
+      ref: note.ref || 'General',
+      text: note.text,
+      private: !!privateById.get(note.id)
+    }));
     saveNotes(notes);
     renderNotes();
   }
@@ -3133,6 +3149,53 @@ function loadUserChurch() {
   } catch {
     return null;
   }
+}
+
+function churchStorageKey(suffix) {
+  const id = (currentChurch && currentChurch.id) ? currentChurch.id : 'default';
+  return 'church_' + id + '_' + suffix;
+}
+
+function loadChurchVerseOfDay() {
+  try {
+    return JSON.parse(localStorage.getItem(churchStorageKey('verse')) || 'null');
+  } catch { return null; }
+}
+
+function saveChurchVerseOfDay(ref) {
+  if (!ref || !ref.trim()) return;
+  const key = churchStorageKey('verse');
+  localStorage.setItem(key, JSON.stringify({ ref: ref.trim(), date: new Date().toDateString() }));
+}
+
+function loadChurchPrayerList() {
+  try {
+    return JSON.parse(localStorage.getItem(churchStorageKey('prayer')) || '[]');
+  } catch { return []; }
+}
+
+function saveChurchPrayerList(items) {
+  localStorage.setItem(churchStorageKey('prayer'), JSON.stringify(items));
+}
+
+function loadChurchAssignments() {
+  try {
+    return JSON.parse(localStorage.getItem(churchStorageKey('assignments')) || '[]');
+  } catch { return []; }
+}
+
+function saveChurchAssignments(items) {
+  localStorage.setItem(churchStorageKey('assignments'), JSON.stringify(items));
+}
+
+function loadChurchCompletedAssignments() {
+  try {
+    return JSON.parse(localStorage.getItem(churchStorageKey('completed')) || '{}');
+  } catch { return {}; }
+}
+
+function saveChurchCompletedAssignments(obj) {
+  localStorage.setItem(churchStorageKey('completed'), JSON.stringify(obj));
 }
 
 function loadLocalSermons() {
@@ -4209,12 +4272,12 @@ function downloadCollectionPdf(collectionId) {
   const win = window.open('', '_blank');
   if (!win) return;
   const rows = items.map(item => (
-    `<div class="verse"><strong>${item.ref}</strong><p>${item.text}</p></div>`
+    `<div class="verse"><strong>${escapeHtml(item.ref)}</strong><p>${escapeHtml(item.text)}</p></div>`
   )).join('');
   const html = `
     <html>
       <head>
-        <title>${collection.name} — Saved Verses</title>
+        <title>${escapeHtml(collection.name)} — Saved Verses</title>
         <style>
           body { font-family: Arial, sans-serif; padding: 32px; color: #0f172a; }
           h1 { font-size: 22px; margin-bottom: 16px; }
@@ -4223,8 +4286,52 @@ function downloadCollectionPdf(collectionId) {
         </style>
       </head>
       <body>
-        <h1>${collection.name} — Saved Verses</h1>
+        <h1>${escapeHtml(collection.name)} — Saved Verses</h1>
         ${rows}
+      </body>
+    </html>
+  `;
+  win.document.write(html);
+  win.document.close();
+  win.focus();
+  win.print();
+}
+
+function bulkExportAllToPdf() {
+  const collections = loadSavedCollections();
+  const allItems = loadSavedCollectionItems();
+  const notes = loadNotes();
+  const verseRows = collections.map(col => {
+    const items = allItems.filter(item => item.collection_id === col.id);
+    if (!items.length) return '';
+    const rows = items.map(item => `<div class="verse"><strong>${escapeHtml(item.ref)}</strong><p>${escapeHtml(item.text)}</p></div>`).join('');
+    return `<h2 class="section">${escapeHtml(col.name)}</h2>${rows}`;
+  }).filter(Boolean).join('');
+  const noteRows = notes.length
+    ? '<h2 class="section">Notes</h2>' + notes.map(n => `<div class="verse"><strong>${escapeHtml(n.ref)}</strong><p>${escapeHtml(n.text)}</p></div>`).join('')
+    : '';
+  if (!verseRows && !noteRows) {
+    alert('No saved verses or notes to export. Save some verses or notes first.');
+    return;
+  }
+  const win = window.open('', '_blank');
+  if (!win) return;
+  const html = `
+    <html>
+      <head>
+        <title>My verses and notes — Today's Daily Battle</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 32px; color: #0f172a; }
+          h1 { font-size: 22px; margin-bottom: 16px; }
+          h2.section { font-size: 18px; margin: 24px 0 12px; }
+          .verse { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; }
+          .verse p { margin: 6px 0 0; }
+        </style>
+      </head>
+      <body>
+        <h1>My Verses &amp; Notes — Today's Daily Battle</h1>
+        ${verseRows}
+        ${noteRows}
       </body>
     </html>
   `;
@@ -5715,9 +5822,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       if (!supabaseClient) {
-        ensureSupabaseLoaded();
-        setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
-        return;
+        setAuthStatus('Loading sign-in…', 'info');
+        const ready = await ensureSupabaseLoaded();
+        if (!ready || !supabaseClient) {
+          setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+          return;
+        }
       }
       const redirectUrl = getAuthRedirectBase();
       const { data, error } = await supabaseClient.auth.signUp({
@@ -5744,20 +5854,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     loginBtn.addEventListener('click', async () => {
       const emailEl = document.getElementById('email');
       const passwordEl = document.getElementById('password');
-      const email = emailEl ? emailEl.value : '';
+      const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
       const password = passwordEl ? passwordEl.value : '';
       if (!email || !password) {
         setAuthStatus('Please enter your email and password.', 'error');
         return;
       }
       if (!supabaseClient) {
-        ensureSupabaseLoaded();
-        setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
-        return;
+        setAuthStatus('Loading sign-in…', 'info');
+        const ready = await ensureSupabaseLoaded();
+        if (!ready || !supabaseClient) {
+          setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+          return;
+        }
       }
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
       if (error) {
-        setAuthStatus(error.message, 'error');
+        const msg = (error.message || '').toLowerCase();
+        if (msg.includes('invalid') && msg.includes('credential')) {
+          setAuthStatus('Invalid email or password. New user? Check your email to confirm your account, or use Forgot password?', 'error');
+        } else {
+          setAuthStatus(error.message, 'error');
+        }
         return;
       }
       else {
@@ -5784,9 +5902,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       if (!supabaseClient) {
-        ensureSupabaseLoaded();
-        setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
-        return;
+        setAuthStatus('Loading sign-in…', 'info');
+        const ready = await ensureSupabaseLoaded();
+        if (!ready || !supabaseClient) {
+          setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+          return;
+        }
       }
       const baseUrl = getAuthRedirectBase();
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
@@ -5818,7 +5939,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (statusEl) statusEl.textContent = 'Select weekly or daily reminders.';
         return;
       }
-      await saveNewsletterSignup(email, { weekly, daily });
+      const timeEl = document.getElementById('newsletter-time');
+      const preferredTime = timeEl && timeEl.value ? timeEl.value : '';
+      await saveNewsletterSignup(email, { weekly, daily, preferredTime });
       if (emailEl) emailEl.value = '';
       if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
     });
@@ -6110,6 +6233,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     saveNoteBtn.addEventListener('click', () => {
       const select = document.getElementById('note-verse-select');
       const textArea = document.getElementById('note-text');
+      const privateCheck = document.getElementById('note-private');
       if (!textArea) return;
       const text = textArea.value.trim();
       if (!text) return;
@@ -6118,12 +6242,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const localNote = {
           id: generateUuid(),
           ref: select ? select.value : 'General',
-          text
+          text,
+          private: !!(privateCheck && privateCheck.checked)
         };
         const saved = await saveNoteToSupabase(localNote);
-        notes.unshift(saved);
+        const withPrivate = { ...saved, private: localNote.private };
+        notes.unshift(withPrivate);
         saveNotes(notes);
         textArea.value = '';
+        if (privateCheck) privateCheck.checked = false;
         renderNotes();
       })();
     });
@@ -6264,6 +6391,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const emailSermonBtn = document.getElementById('email-sermon');
+  if (emailSermonBtn) {
+    emailSermonBtn.addEventListener('click', () => {
+      const draft = loadSermonDraft();
+      const body = [
+        (draft.title || 'Sermon Title') + '\n',
+        'Theme: ' + (draft.theme || ''),
+        'Primary Text: ' + (draft.textRef || ''),
+        '',
+        'Outline:',
+        draft.outline || '',
+        '',
+        'Key Points:',
+        draft.points || '',
+        '',
+        'Application:',
+        draft.application || '',
+        '',
+        'Closing Prayer:',
+        draft.prayer || ''
+      ].join('\n');
+      const subject = encodeURIComponent(draft.title || 'Sunday Message');
+      const mailtoBody = encodeURIComponent(body);
+      window.location.href = `mailto:?subject=${subject}&body=${mailtoBody}`;
+    });
+  }
+
   const pastorToolkitBtn = document.getElementById('pastor-toolkit');
   if (pastorToolkitBtn) {
     pastorToolkitBtn.addEventListener('click', () => {
@@ -6350,9 +6504,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   const shareStudyBtn = document.getElementById('share-study');
   if (shareStudyBtn) {
     shareStudyBtn.addEventListener('click', async () => {
+      const allNotes = loadNotes();
+      const publicNotes = allNotes.filter(n => !n.private);
       const payload = {
         results: lastResults,
-        notes: loadNotes(),
+        notes: publicNotes,
         savedVerses: loadSavedVerses()
       };
       const link = await createShareLink('study', payload);
@@ -6428,6 +6584,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       const collectionId = getActiveCollectionId();
       downloadCollectionPdf(collectionId);
     });
+  }
+  const bulkExportBtn = document.getElementById('bulk-export-pdf');
+  if (bulkExportBtn) {
+    bulkExportBtn.addEventListener('click', () => bulkExportAllToPdf());
   }
 
   const buildLessonBtn = document.getElementById('build-lesson');
@@ -6543,6 +6703,54 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const customPlanGenerate = document.getElementById('custom-plan-generate');
+  const customPlanDays = document.getElementById('custom-plan-days');
+  const customPlanStatus = document.getElementById('custom-plan-status');
+  if (customPlanGenerate && customPlanDays) {
+    const CUSTOM_PLAN_VERSE_POOL = [
+      { ref: 'Psalm 23:1', theme: 'The Lord is my shepherd' },
+      { ref: 'Proverbs 3:5', theme: 'Trust in the Lord' },
+      { ref: 'Matthew 11:28', theme: 'Come unto me' },
+      { ref: 'Philippians 4:13', theme: 'I can do all things' },
+      { ref: 'Isaiah 40:31', theme: 'They that wait upon the Lord' },
+      { ref: 'John 3:16', theme: 'For God so loved the world' },
+      { ref: 'Romans 8:28', theme: 'All things work together for good' },
+      { ref: 'Psalm 46:1', theme: 'God is our refuge' },
+      { ref: 'Joshua 1:9', theme: 'Be strong and courageous' },
+      { ref: '2 Timothy 1:7', theme: 'Spirit of power and love' },
+      { ref: 'Isaiah 41:10', theme: 'Fear not, I am with thee' },
+      { ref: 'Philippians 4:6', theme: 'Be careful for nothing' },
+      { ref: 'Romans 15:13', theme: 'God of hope' },
+      { ref: 'Psalm 27:1', theme: 'The Lord is my light' },
+      { ref: 'Matthew 6:33', theme: 'Seek first the kingdom' },
+      { ref: 'Proverbs 22:6', theme: 'Train up a child' },
+      { ref: '1 Corinthians 13:4', theme: 'Charity suffereth long' },
+      { ref: 'Galatians 5:22', theme: 'Fruit of the Spirit' },
+      { ref: 'Hebrews 11:1', theme: 'Faith is the substance' },
+      { ref: 'James 1:5', theme: 'Ask of God for wisdom' },
+      { ref: 'Psalm 119:105', theme: 'Thy word is a lamp' },
+      { ref: 'Romans 12:2', theme: 'Be not conformed' },
+      { ref: 'Colossians 3:23', theme: 'Do it heartily as to the Lord' },
+      { ref: '1 Peter 5:7', theme: 'Casting all your care' },
+      { ref: 'Psalm 34:4', theme: 'Delivered from fears' },
+      { ref: 'John 14:27', theme: 'Peace I leave with you' },
+      { ref: 'Ephesians 4:32', theme: 'Kind one to another' },
+      { ref: 'Psalm 121:1', theme: 'I will lift up mine eyes' },
+      { ref: 'Romans 8:38', theme: 'Neither death nor life' }
+    ];
+    customPlanGenerate.addEventListener('click', () => {
+      const days = Math.min(30, Math.max(7, parseInt(customPlanDays.value, 10) || 7));
+      const items = CUSTOM_PLAN_VERSE_POOL.slice(0, days).map((v, i) => ({ day: i + 1, ref: v.ref, theme: v.theme }));
+      try {
+        localStorage.setItem('readingPlanCustom', JSON.stringify({ items }));
+        window.dispatchEvent(new CustomEvent('reading-plan-updated'));
+        if (customPlanStatus) customPlanStatus.textContent = 'Plan generated. Your ' + days + '-day plan is below.';
+      } catch (e) {
+        if (customPlanStatus) customPlanStatus.textContent = 'Could not save plan.';
+      }
+    });
+  }
+
   const churchSearchBtn = document.getElementById('church-search-btn');
   if (churchSearchBtn) {
     churchSearchBtn.addEventListener('click', async () => {
@@ -6583,6 +6791,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setBtn.textContent = 'Join Church';
         setBtn.onclick = async () => {
           await joinChurch(church);
+          if (typeof renderChurchExtras === 'function') renderChurchExtras();
           alert(`Joined ${church.name}`);
         };
         actions.appendChild(viewBtn);
@@ -6617,6 +6826,116 @@ document.addEventListener('DOMContentLoaded', async () => {
     churchOnlineToggle.addEventListener('change', () => {
       churchSearchBtn.click();
     });
+  }
+
+  function renderChurchExtras() {
+    const verseEl = document.getElementById('church-verse-of-day');
+    const verseAdmin = document.getElementById('church-verse-admin');
+    const assignWrap = document.getElementById('church-assign-wrap');
+    if (verseAdmin) verseAdmin.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
+    if (assignWrap) assignWrap.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
+    if (currentChurch && verseEl) {
+      const data = loadChurchVerseOfDay();
+      if (data && data.ref) {
+        const text = (typeof bible !== 'undefined' && bible[data.ref]) ? bible[data.ref] : '';
+        verseEl.innerHTML = '<strong>' + escapeHtml(data.ref) + '</strong>' + (text ? '<p>' + escapeHtml(text) + '</p>' : '<p class="section-note"><a href="/?ref=' + encodeURIComponent(data.ref) + '">Read ' + escapeHtml(data.ref) + '</a></p>');
+      } else {
+        verseEl.innerHTML = '<p class="section-note">No church verse set. Pastors can set one above.</p>';
+      }
+    }
+    const prayerList = document.getElementById('church-prayer-list');
+    if (currentChurch && prayerList) {
+      const items = loadChurchPrayerList();
+      prayerList.innerHTML = '';
+      items.forEach((item, i) => {
+        const row = document.createElement('div');
+        row.className = 'list-item';
+        row.innerHTML = '<div><span class="' + (item.prayed ? 'prayer-prayed' : '') + '">' + escapeHtml(item.text) + '</span></div>';
+        const actions = document.createElement('div');
+        actions.className = 'item-actions';
+        const markBtn = document.createElement('button');
+        markBtn.textContent = item.prayed ? 'Unmark' : 'Prayed';
+        markBtn.onclick = () => {
+          items[i].prayed = !items[i].prayed;
+          saveChurchPrayerList(items);
+          renderChurchExtras();
+        };
+        actions.appendChild(markBtn);
+        row.appendChild(actions);
+        prayerList.appendChild(row);
+      });
+      if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above.</p>';
+    }
+    const assignedList = document.getElementById('church-assigned-list');
+    if (currentChurch && assignedList) {
+      const assignments = loadChurchAssignments();
+      const completed = loadChurchCompletedAssignments();
+      assignedList.innerHTML = '';
+      assignments.forEach(a => {
+        const row = document.createElement('div');
+        row.className = 'list-item';
+        const done = !!completed[a.id];
+        row.innerHTML = '<div><strong>' + escapeHtml(a.passage) + '</strong> <span class="section-note">' + escapeHtml(a.groupName) + '</span>' + (done ? ' <span class="section-note">✓ Done</span>' : '') + '</div>';
+        const actions = document.createElement('div');
+        actions.className = 'item-actions';
+        const btn = document.createElement('button');
+        btn.textContent = done ? 'Mark not done' : 'Mark complete';
+        btn.onclick = () => {
+          const c = loadChurchCompletedAssignments();
+          c[a.id] = done ? false : true;
+          saveChurchCompletedAssignments(c);
+          renderChurchExtras();
+        };
+        actions.appendChild(btn);
+        row.appendChild(actions);
+        assignedList.appendChild(row);
+      });
+      if (!assignments.length) assignedList.innerHTML = '<p class="empty">No assigned reading. Your pastor can assign passages above.</p>';
+    }
+  }
+
+  const churchVerseSet = document.getElementById('church-verse-set');
+  const churchVerseRef = document.getElementById('church-verse-ref');
+  if (churchVerseSet && churchVerseRef) {
+    churchVerseSet.addEventListener('click', () => {
+      const ref = churchVerseRef.value.trim();
+      if (!ref) return;
+      saveChurchVerseOfDay(ref);
+      churchVerseRef.value = '';
+      renderChurchExtras();
+    });
+  }
+  const churchPrayerAdd = document.getElementById('church-prayer-add');
+  const churchPrayerInput = document.getElementById('church-prayer-input');
+  if (churchPrayerAdd && churchPrayerInput) {
+    churchPrayerAdd.addEventListener('click', () => {
+      const text = churchPrayerInput.value.trim();
+      if (!text) return;
+      const items = loadChurchPrayerList();
+      items.push({ id: generateUuid(), text, prayed: false });
+      saveChurchPrayerList(items);
+      churchPrayerInput.value = '';
+      renderChurchExtras();
+    });
+  }
+  const churchAssignBtn = document.getElementById('church-assign-btn');
+  const churchAssignPassage = document.getElementById('church-assign-passage');
+  const churchAssignGroup = document.getElementById('church-assign-group');
+  if (churchAssignBtn && churchAssignPassage && churchAssignGroup) {
+    churchAssignBtn.addEventListener('click', () => {
+      const passage = churchAssignPassage.value.trim();
+      const groupName = churchAssignGroup.value.trim();
+      if (!passage || !groupName) return;
+      const items = loadChurchAssignments();
+      items.push({ id: generateUuid(), passage, groupName, date: new Date().toISOString() });
+      saveChurchAssignments(items);
+      churchAssignPassage.value = '';
+      churchAssignGroup.value = '';
+      renderChurchExtras();
+    });
+  }
+  if (document.getElementById('church-verse-of-day')) {
+    renderChurchExtras();
   }
 
   const addSermonBtn = document.getElementById('add-sermon-btn');
@@ -6879,19 +7198,31 @@ document.addEventListener('DOMContentLoaded', async () => {
   const supporterCtaBtn = document.getElementById('pricing-supporter-cta');
   const pricingNote = document.getElementById('pricing-availability-note');
 
-  if (supporterMonthlyBtn && !STRIPE_SUPPORTER_MONTHLY_URL) supporterMonthlyBtn.disabled = true;
-  if (supporterYearlyBtn && !STRIPE_SUPPORTER_YEARLY_URL) supporterYearlyBtn.disabled = true;
-  if (churchMonthlyBtn && !STRIPE_CHURCH_MONTHLY_URL) churchMonthlyBtn.disabled = true;
-  if (churchYearlyBtn && !STRIPE_CHURCH_YEARLY_URL) churchYearlyBtn.disabled = true;
-
-  if (pricingNote && (!STRIPE_SUPPORTER_MONTHLY_URL || !STRIPE_SUPPORTER_YEARLY_URL || !STRIPE_CHURCH_MONTHLY_URL || !STRIPE_CHURCH_YEARLY_URL)) {
-    pricingNote.textContent = 'Subscriptions open soon — join the waitlist below.';
+  const stripeReady = STRIPE_SUPPORTER_MONTHLY_URL && STRIPE_SUPPORTER_YEARLY_URL && STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL;
+  if (!stripeReady) {
+    if (pricingNote) pricingNote.textContent = 'Subscriptions open soon — join the waitlist below to get notified.';
+    if (supporterMonthlyBtn) { supporterMonthlyBtn.textContent = 'Notify me'; supporterMonthlyBtn.disabled = false; }
+    if (supporterYearlyBtn) { supporterYearlyBtn.textContent = 'Notify me'; supporterYearlyBtn.disabled = false; }
+    if (churchMonthlyBtn) { churchMonthlyBtn.textContent = 'Notify me'; churchMonthlyBtn.disabled = false; }
+    if (churchYearlyBtn) { churchYearlyBtn.textContent = 'Notify me'; churchYearlyBtn.disabled = false; }
   }
 
-  supporterMonthlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL));
-  supporterYearlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_SUPPORTER_YEARLY_URL));
-  churchMonthlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_CHURCH_MONTHLY_URL));
-  churchYearlyBtn?.addEventListener('click', () => openStripeCheckout(STRIPE_CHURCH_YEARLY_URL));
+  supporterMonthlyBtn?.addEventListener('click', () => {
+    if (STRIPE_SUPPORTER_MONTHLY_URL) openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL);
+    else scrollToWaitlist();
+  });
+  supporterYearlyBtn?.addEventListener('click', () => {
+    if (STRIPE_SUPPORTER_YEARLY_URL) openStripeCheckout(STRIPE_SUPPORTER_YEARLY_URL);
+    else scrollToWaitlist();
+  });
+  churchMonthlyBtn?.addEventListener('click', () => {
+    if (STRIPE_CHURCH_MONTHLY_URL) openStripeCheckout(STRIPE_CHURCH_MONTHLY_URL);
+    else scrollToWaitlist();
+  });
+  churchYearlyBtn?.addEventListener('click', () => {
+    if (STRIPE_CHURCH_YEARLY_URL) openStripeCheckout(STRIPE_CHURCH_YEARLY_URL);
+    else scrollToWaitlist();
+  });
   supporterCtaBtn?.addEventListener('click', () => {
     if (!STRIPE_SUPPORTER_MONTHLY_URL) {
       scrollToWaitlist();

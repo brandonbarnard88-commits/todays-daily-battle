@@ -80,8 +80,21 @@
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
           </div>
         </header>
+        <section class="glass">
+          <h2 class="section-divider">Create custom plan</h2>
+          <p class="section-note">Build a plan with 7–30 days. Verses are drawn from a curated list.</p>
+          <label for="custom-plan-days">Number of days</label>
+          <select id="custom-plan-days">
+            <option value="7">7 days</option>
+            <option value="14">14 days</option>
+            <option value="21">21 days</option>
+            <option value="30">30 days</option>
+          </select>
+          <button id="custom-plan-generate" type="button" class="btn btn-secondary">Generate plan</button>
+          <p id="custom-plan-status" class="section-note"></p>
+        </section>
         <section id="reading-plan" class="glass">
-          <h2 class="section-divider">Your 7 Days</h2>
+          <h2 class="section-divider" id="reading-plan-title">Your plan</h2>
           <p class="section-note">Check off each day when you've read the verse. Your progress is saved on this device.</p>
           <div id="reading-plan-list" class="list"></div>
           <div class="cta-group" style="margin-top:1.5rem">
@@ -104,7 +117,8 @@
   <script>
   (function() {
     const READING_PLAN_KEY = 'readingPlanProgress';
-    const PLAN = [
+    const CUSTOM_PLAN_KEY = 'readingPlanCustom';
+    const DEFAULT_PLAN = [
       { day: 1, ref: 'Psalm 23:1', theme: 'The Lord is my shepherd' },
       { day: 2, ref: 'Proverbs 3:5', theme: 'Trust in the Lord' },
       { day: 3, ref: 'Matthew 11:28', theme: 'Come unto me' },
@@ -113,6 +127,14 @@
       { day: 6, ref: 'John 3:16', theme: 'For God so loved the world' },
       { day: 7, ref: 'Romans 8:28', theme: 'All things work together for good' }
     ];
+    function getPlan() {
+      try {
+        var c = JSON.parse(localStorage.getItem(CUSTOM_PLAN_KEY));
+        if (c && c.items && c.items.length) return c.items;
+      } catch (e) {}
+      return DEFAULT_PLAN;
+    }
+    var PLAN = getPlan();
     function loadProgress() {
       try {
         return JSON.parse(localStorage.getItem(READING_PLAN_KEY) || '{}');
@@ -148,6 +170,14 @@
     }
     document.addEventListener('DOMContentLoaded', function() {
       renderList();
+      window.addEventListener('reading-plan-updated', function() {
+        PLAN = getPlan();
+        var titleEl = document.getElementById('reading-plan-title');
+        if (titleEl) titleEl.textContent = PLAN.length === 7 ? 'Your 7 Days' : 'Your ' + PLAN.length + ' days';
+        renderList();
+      });
+      var titleEl = document.getElementById('reading-plan-title');
+      if (titleEl) titleEl.textContent = PLAN.length === 7 ? 'Your 7 Days' : 'Your ' + PLAN.length + ' days';
       const resetBtn = document.getElementById('reading-plan-reset');
       if (resetBtn) {
         resetBtn.addEventListener('click', function() {

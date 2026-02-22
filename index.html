@@ -191,7 +191,7 @@
           <p class="section-note audio-helper">Listen reads aloud here using your device’s voice. KJV Audio opens Bible Gateway in a new tab.</p>
           </details>
         </section>
-        <section class="glass">
+        <section class="glass" id="daily-battle-section">
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">One verse, one theme—your anchor for the day.</p>
           <div id="daily-battle-card" class="verse-card" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
@@ -241,19 +241,19 @@
           <h2 class="section-divider">How It Helps</h2>
           <p class="section-note">Built for real moments—when life hits hard and you need God's Word fast.</p>
           <div class="list">
-            <div class="list-item"><div><strong>Find the right verse fast</strong><p>Search by topic, emotion, or reference; use verse cards and Battle of the day.</p></div></div>
-            <div class="list-item"><div><strong>Build in minutes</strong><p>Quick tools for lessons, sermons, encouragement, and prayer lists.</p></div></div>
-            <div class="list-item"><div><strong>Stay grounded daily</strong><p>Verse of the Day, Battle of the day, and streaks keep the habit alive.</p></div></div>
+            <a href="#main-search" class="list-item list-item-link"><div><strong>Find the right verse fast</strong><p>Search by topic, emotion, or reference; use verse cards and Battle of the day.</p></div></a>
+            <a href="study.html" class="list-item list-item-link"><div><strong>Build in minutes</strong><p>Quick tools for lessons, sermons, encouragement, and prayer lists.</p></div></a>
+            <a href="#daily-battle-section" class="list-item list-item-link"><div><strong>Stay grounded daily</strong><p>Verse of the Day, Battle of the day, and streaks keep the habit alive.</p></div></a>
           </div>
         </section>
         <section class="glass">
           <h2 class="section-divider">How It Works</h2>
           <p class="section-note">From “I need hope” to God’s Word in under a minute.</p>
           <div class="list">
-            <div class="list-item"><div><strong>1. Search or pick a topic</strong><p>Type a word (hope, fear, John 3:16) or tap a quick topic above.</p></div></div>
-            <div class="list-item"><div><strong>2. Read today’s verse</strong><p>Check Featured Today’s Battle for a daily verse, reflection, and prayer.</p></div></div>
-            <div class="list-item"><div><strong>3. Save or share</strong><p>Use Study Tools to save verses, build lessons, or share with someone who needs it.</p></div></div>
-            <div class="list-item"><div><strong>4. Come back tomorrow</strong><p>Build a streak and let the Battle Plan keep you grounded.</p></div></div>
+            <a href="#main-search" class="list-item list-item-link"><div><strong>1. Search or pick a topic</strong><p>Type a word (hope, fear, John 3:16) or tap a quick topic above.</p></div></a>
+            <a href="#daily-battle-section" class="list-item list-item-link"><div><strong>2. Read today’s verse</strong><p>Check Featured Today’s Battle for a daily verse, reflection, and prayer.</p></div></a>
+            <a href="study.html" class="list-item list-item-link"><div><strong>3. Save or share</strong><p>Use Study Tools to save verses, build lessons, or share with someone who needs it.</p></div></a>
+            <a href="#newsletter" class="list-item list-item-link"><div><strong>4. Come back tomorrow</strong><p>Build a streak and let the Battle Plan keep you grounded.</p></div></a>
           </div>
           <p class="section-note"><a id="walkthrough-video" href="#" class="btn-link">Watch the 60-second walkthrough</a> <span id="walkthrough-coming">(video coming soon)</span></p>
         </section>
@@ -293,6 +293,16 @@
               <input id="newsletter-daily" type="checkbox" aria-label="Daily battle alert">
               Daily battle alert
             </label>
+            <label for="newsletter-time">Preferred time</label>
+            <select id="newsletter-time" aria-label="Preferred email time">
+              <option value="">Any time</option>
+              <option value="6">6:00 AM</option>
+              <option value="7">7:00 AM</option>
+              <option value="8">8:00 AM</option>
+              <option value="9">9:00 AM</option>
+              <option value="12">12:00 PM</option>
+              <option value="18">6:00 PM</option>
+            </select>
           </div>
           <p id="newsletter-status" class="section-note"></p>
         </section>

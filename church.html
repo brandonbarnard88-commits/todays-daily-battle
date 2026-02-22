@@ -85,6 +85,33 @@
           </div>
         </header>
         <section id="church-center" class="church-center glass">
+          <h2 class="section-divider">Church Verse of the Day</h2>
+          <p class="section-note">Your church's chosen verse for today. Pastors can set it below.</p>
+          <div id="church-verse-of-day" class="verse-card" style="min-height:60px;"><p class="section-note">Join a church to see the church verse of the day.</p></div>
+          <div id="church-verse-admin" style="display:none; margin-top:0.75rem;">
+            <label for="church-verse-ref">Set verse (e.g. Psalm 23:1)</label>
+            <input id="church-verse-ref" type="text" placeholder="Verse reference">
+            <button id="church-verse-set" type="button" class="btn btn-secondary">Set Church Verse</button>
+          </div>
+
+          <h2 class="section-divider">Shared Prayer List</h2>
+          <p class="section-note">Pray together as a church. Add requests; mark when prayed.</p>
+          <div id="church-prayer-wrap">
+            <input id="church-prayer-input" type="text" placeholder="Prayer request or name...">
+            <button id="church-prayer-add" type="button" class="btn btn-primary">Add</button>
+            <ul id="church-prayer-list" class="list"></ul>
+          </div>
+
+          <h2 class="section-divider">Assign Reading (Pastors)</h2>
+          <p class="section-note">Assign a passage or plan to a group. Members see it under "My assigned reading."</p>
+          <div id="church-assign-wrap" style="display:none;">
+            <input id="church-assign-passage" type="text" placeholder="e.g. John 1–3 or Psalm 119">
+            <input id="church-assign-group" type="text" placeholder="Group name (e.g. Youth, Class A)">
+            <button id="church-assign-btn" type="button" class="btn btn-secondary">Assign</button>
+          </div>
+          <h3 class="section-divider">My assigned reading</h3>
+          <div id="church-assigned-list" class="list"></div>
+
           <h2 class="section-divider">Find Your Church</h2>
           <p class="section-note">Search by name or city and view weekly sermons.</p>
           <div class="church-search">

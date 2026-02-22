@@ -93,6 +93,10 @@
               <label for="note-verse-select">Attach note to</label>
               <select id="note-verse-select"></select>
               <textarea id="note-text" rows="4" placeholder="Write a note, prayer, or insight..."></textarea>
+              <label class="inline-toggle" style="display:block; margin-top:0.5rem;">
+                <input id="note-private" type="checkbox" aria-label="Private note (excluded from shared links)">
+                Private (excluded from shared links)
+              </label>
               <button id="save-note">Save Note</button>
               <div id="notes-list" class="list"></div>
             </div>
@@ -111,6 +115,7 @@
                 <button id="copy-collection-link" type="button">Copy Link</button>
                 <button id="share-collection-text" type="button">Share Text</button>
                 <button id="download-collection-pdf" type="button">Download PDF</button>
+                <button id="bulk-export-pdf" type="button">Export all verses &amp; notes to PDF</button>
                 <input id="collection-share-link" placeholder="Share link will appear here" readonly>
               </div>
               <p id="collection-share-status" class="section-note"></p>

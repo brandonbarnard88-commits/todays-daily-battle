@@ -42,7 +42,7 @@ When you deploy new JS or CSS, bump the cache name in `service-worker.js` (e.g. 
 
 ## Daily battle seeding
 
-The featured verse is date-based: the app loads today's row from the `daily_battles` table (Supabase). If there is no row for today’s date, the app shows a fallback verse. To avoid that, ensure “today” is always seeded: run your seed script or SQL (e.g. from `supabase-daily-battles-seed.sql`) **on a schedule**—e.g. cron or a Supabase Edge Function that runs daily and inserts/updates the row for today (and optionally a few days ahead). Without this, users may see the fallback verse on unseeded days.
+The featured verse is date-based: the app loads today's row from the `daily_battles` table (Supabase). If there is no row for today’s date, the app shows a fallback verse. To avoid that, ensure “today” is always seeded: (1) Deploy and schedule the **seed-daily-battle** Edge Function — see `supabase/functions/seed-daily-battle/README.md` (e.g. schedule `0 0 * * *` or `0 6 * * *` UTC). (2) Or run SQL from `supabase-daily-battles-seed.sql` on a cron. Without this, users may see the fallback verse on unseeded days.
 
 ## Stripe (paid plans)
 

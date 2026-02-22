@@ -83,7 +83,8 @@ Execute in order to unlock sync/sharing value, then monetization. See **ROADMAP.
 
 ### 4.1 Analytics & verification
 - [ ] **CF_ANALYTICS_TOKEN** — Set in `config.js` (Cloudflare Web Analytics). Script loads beacon when set.
-- [ ] **Google Search Console** — Add verification meta tag to index.html when you have the code (see CONFIG.md). Optional: set `GOOGLE_SITE_VERIFICATION` in config and use script to inject meta (implemented in script.js when value is set).
+- [ ] **Google Search Console** — Add verification meta tag to index.html when you have the code (see CONFIG.md). Or set `GOOGLE_SITE_VERIFICATION` in config (script injects meta when set).
+- [ ] **60-second walkthrough** — Record a short Loom/YouTube; set `WALKTHROUGH_VIDEO_URL` in config so the homepage link opens it and "(video coming soon)" hides.
 
 ### 4.2 Blaze (or equivalent) — 5–7 pieces
 - [ ] Themed plan spotlights (Victory Over Fear, Lent 2026, Battle Anxiety 40).
@@ -96,6 +97,44 @@ Execute in order to unlock sync/sharing value, then monetization. See **ROADMAP.
 ### 4.3 Monitor & tune
 - [ ] **Waitlist growth** and **streak starts** (Supabase + optional analytics).
 - [ ] Once 100+ active users/streaks, refine: promo copy, email reminder timing, announcement timing.
+
+---
+
+## Copy-paste: announcements
+
+Use these when you hit each milestone. Edit the links/names as needed.
+
+### When Supabase accounts go live (newsletter / social)
+**Subject (email):** Accounts are live — sign in free, never lose your streak
+
+**Body (short):**  
+We just turned on free accounts for Today's Daily Battle. Sign in once and your streak, saved verses, and notes sync across devices. No more losing your progress when you switch phones or browsers. [Sign in free here →](https://todaysdailybattle.com)
+
+Less scroll. More soul. ⚔️
+
+---
+
+### Pastor / small-group DM (toolkit + plans)
+**Copy-paste:**  
+Hey [Name], I run a free Bible companion called Today's Daily Battle — one verse, one moment, every day. We just added a full Pastor Toolkit (build a sermon from a topic in one click) and new reading plans like Victory Over Fear (21 days) and Lent 2026 (40 days). Would love your feedback if you have 5 minutes. [Check it out →](https://todaysdailybattle.com/pastor-toolkit.html)
+
+---
+
+### Social post (today’s battle + plan)
+**Copy-paste:**  
+Today’s verse hit different. [Link to todaysdailybattle.com or share the verse image from the site.]
+
+New: 21-day “Victory Over Fear” and 40-day Lent plans — one verse a day, no app required. Less scroll. More soul. [Start a plan →](https://todaysdailybattle.com/reading-plan.html)
+
+#TodaysDailyBattle #BibleHabit #SpiritualWarfare
+
+---
+
+### When Battle Pro goes live (email / social)
+**Subject:** Battle Pro is here — unlock offline, premium devotionals, and your 2026 Wins Report
+
+**Body (short):**  
+Battle Pro just launched. Get offline downloads, premium devotionals, and your year-in-review “2026 Wins Report.” First 50–100 subscribers get [1 month free / an exclusive devotional]. [Unlock now →](https://todaysdailybattle.com/pricing.html)
 
 ---
 

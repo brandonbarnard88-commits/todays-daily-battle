@@ -12,7 +12,29 @@ To override Supabase or master emails without editing `script.js`:
 
 If `config.js` is missing, the app uses built-in defaults and still works. Add `config.js` to `.gitignore` if you don’t want to commit your keys (it’s already listed there).
 
-**User accounts (login/sync):** Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` in `config.js` so sign-in works out of the box. Then test streaks, favorites, and prayer list syncing across devices. The homepage prompts: "Sign in to save your streak, favorites, and custom plans across devices."
+**User accounts (login/sync):** Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` in `config.js` so sign-in works out of the box. Test E2E: sign up → login → build streak/favorite/note → logout/reopen on another tab or device → verify persistence. Troubleshoot: console errors, Supabase dashboard (auth enabled? RLS policies?), test "Forgot password?" flow. Once stable, ensure the "Sign In Free – Save Your Streak Forever & Sync Devices" button is visible (`.daily-battle-signin-cta` in index.html). Promote in next newsletter: "Accounts are live—sign in free to never lose your streak!"
+
+## Immediate next steps (activation focus)
+
+1. **Activate Supabase (today/this week):** Add real `SUPABASE_URL` and `SUPABASE_ANON_KEY` to `config.js`. Test E2E; then flip from "promising prototype" to "growing habit platform."
+2. **Sharing:** Test share flow end-to-end (Share image/verse → confirm hashtags, link, card quality). X/FB links are in `.social-share-links` (X: twitter.com/intent/tweet, FB: facebook.com/sharer). Manual push: post today's battle on your X/FB/IG; DM 3–5 pastors/small group leaders: "Check out the free Pastor Toolkit—would love your feedback!" **Target:** 50–100 waitlist signups or streak starts in the next week.
+3. **Battle Pro / Stripe (target: 1–2 weeks):** Stripe in test mode → real subscribe buttons on /pricing (replace "Notify Me" with checkout). When live: update banners to **"Battle Pro Now Available – Unlock Offline + More"**. Add launch perk to /pricing copy: first 50–100 get 1 month free or exclusive devotional. Announce: email waitlist + social ("Battle Pro is here—join the deeper fight!"); use Blaze AI for promo graphics/emails.
+4. **Polish & tracking:** Google Analytics (or CF_ANALYTICS_TOKEN) for uniques, /pricing visits, streak engagement. Blaze: 5–7 pieces (daily verse promos, "Why I Built This" story, toolkit spotlight). Monitor waitlist growth—once 100+ active users/streaks, subs will convert naturally. Post-activation: fine-tune promo copy, announcement timing, or features like email reminders.
+
+## Admin panel
+
+The **Admin** panel (admin.html) is only available to the **master account**. To view it:
+
+1. **Set your master email in config.js**  
+   In `config.js`, set `MASTER_EMAIL` to the email you use to sign in (e.g. `MASTER_EMAIL: 'support@todaysdailybattle.com'`). You can use `config.example.js` as a template. If `MASTER_EMAIL` is missing or wrong, the Admin link will not appear and visiting admin.html will redirect to the access-denied page.
+
+2. **Sign in with that email**  
+   On the site, use **Sign In Free** (or the header login) and log in with the same email you set as `MASTER_EMAIL`.
+
+3. **Open Admin**  
+   After login, an **Admin** link appears in the sidebar (only for the master account). You can also go directly to `admin.html`. If you're not the master user, you'll be redirected to the access-denied page.
+
+**If you still can't get in:** Confirm `config.js` exists and is loaded before `script.js`, and that the email in `MASTER_EMAIL` matches your login email exactly (case doesn't matter). Check the browser console for errors.
 
 ## Service worker cache (deploy checklist)
 

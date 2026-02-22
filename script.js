@@ -5615,7 +5615,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return base === 'admin' || base === 'admin.html';
   }
   if (isOnAdminPage() && !isMasterUser) {
-    window.location.replace('/404-admin.html');
+    window.location.replace('404-admin.html');
     return;
   }
 
@@ -5624,7 +5624,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     currentUserId = session?.user?.id || null;
     updateMasterStatus(session?.user || null);
     if (isOnAdminPage() && !isMasterUser) {
-      window.location.replace('/404-admin.html');
+      window.location.replace('404-admin.html');
       return;
     }
     const logoutBtnEl = document.getElementById('logout-btn');

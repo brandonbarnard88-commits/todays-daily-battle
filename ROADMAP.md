@@ -82,17 +82,17 @@ Prioritized evolution from "quick daily verse tool" to a habit-forming Bible com
 
 Order: impact/ease. Do in this order.
 
-1. **Get user accounts live & tested (this week)**  
-   Add real Supabase URL + anon key to `config.js` (use config.example.js as template). Test: create account → streak saves/syncs across browser or device → favorite a verse → persists after logout/reopen. Fix any bugs (clear error/help link if login fails). Homepage has prominent **Sign In (Free) to Save Your Streak & Sync Everything** button near streak. Once stable, email early users: "Your streak is saved—keep the battle going!"
+1. **Activate Supabase accounts (today/this week – #1 priority)**  
+   Plug in real `SUPABASE_URL` and anon key to `config.js`. Run E2E: sign up → login → build streak/favorite/note → logout/reopen on another tab/device → verify persistence. Troubleshoot: console, Supabase dashboard (auth enabled? policies?), "Forgot password?" flow. Once stable: ensure **Sign In Free – Save Your Streak Forever & Sync Devices** is visible (`.daily-battle-signin-cta`). Newsletter: "Accounts are live—sign in free to never lose your streak!"
 
-2. **Activate sharing for virality (1–2 days)**  
-   **Done:** Share text includes verse + "Less scroll. More soul. #TodaysDailyBattle #BibleHabit #SpiritualWarfare"; **Share to X** and **Share to Facebook** one-tap links below daily content. Share image button generates verse card with branding. Post today's battle from your own X/Instagram to seed: "Today's battle: [theme] ([ref]). Join the fight: [link]." Track shares via analytics.
+2. **Boost sharing & initial traction**  
+   Test share flow: Share image/verse → confirm hashtags (#TodaysDailyBattle #BibleHabit #SpiritualWarfare), link, card quality. Social icons in `.social-share-links` (X, FB). Manual push: post today's battle on X/FB/IG; DM 3–5 pastors: "Check out the free Pastor Toolkit—would love your feedback!" **Target:** 50–100 waitlist signups or streak starts in the next week.
 
-3. **Launch Battle Pro subscriptions (target: 2–4 weeks)**  
-   Integrate Stripe (see CONFIG.md)—start in test mode. Update /pricing to "Subscribe Now" when live (script shows "Notify me" until Stripe URLs are set). Homepage has Battle Pro banner ("Coming soon—join the waitlist") and 30-Day section tease. Optional: first 100 subscribers get 1 month free or exclusive devotional. Announce in newsletter: "Subscriptions launching soon—here's what you'll get."
+3. **Prep & launch Battle Pro (1–2 weeks)**  
+   Stripe in test mode → real subscribe buttons on /pricing (replace "Notify Me" with checkout). When live: update banners to **"Battle Pro Now Available – Unlock Offline + More"**. Add to /pricing copy: first 50–100 get 1 month free or exclusive devotional. Announce: email waitlist + social ("Battle Pro is here—join the deeper fight!"); Blaze AI for promo graphics/emails.
 
-4. **Minor polish & growth (ongoing)**  
-   **Reader:** Optional version selector (KJV + one more via API), verse highlight when opening from daily link. **Analytics:** Google Analytics or Cloudflare to track uniques, streak engagement, shares, /pricing visits. **Marketing:** Blaze AI or similar for 7–10 social posts/emails; email waitlist "Accounts live, Pro coming—try it!"; reach out to 5–10 small churches with toolkit link. **SEO/blog:** 2–3 short posts (e.g. "Winning the Daily Battle Against Anxiety") with verse + tool links.
+4. **Light polish & tracking (ongoing)**  
+   Google Analytics (or CF token) for uniques, /pricing visits, streak engagement. Blaze: 5–7 pieces (daily verse promos, "Why I Built This," toolkit spotlight). Monitor waitlist—once 100+ active users/streaks, subs convert naturally. Post-activation: fine-tune promo copy, announcement timing, or features like email reminders.
 
 ---
 

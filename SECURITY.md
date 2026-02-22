@@ -61,7 +61,7 @@ Optional: **Content-Security-Policy** — only add after testing; it can break i
 ### 5. Your admin account
 
 - Use a **strong, unique password** for the master admin (and for Supabase dashboard).
-- Prefer a **dedicated email** for admin (e.g. admin@ or brandon@) and use it only in `MASTER_EMAIL` in `config.js`.
+- Prefer a **dedicated email** for admin (e.g. admin@ or a personal address) and use it only in `MASTER_EMAIL` in `config.js`.
 - If Supabase supports it, enable **MFA** on the project for the dashboard.
 
 ### 6. Account holders (users)

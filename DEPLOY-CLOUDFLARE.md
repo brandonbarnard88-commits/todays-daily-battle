@@ -8,14 +8,15 @@ Your site is static and `config.js` is in `.gitignore`, so the live site never g
 
 ## 2. Cloudflare Pages settings
 
-In **Cloudflare Dashboard** → **Pages** → your project → **Settings** → **Builds & deployments**:
+In **Cloudflare Dashboard** → **Workers & Pages** → your project → **Settings** → **Builds & deployments** (or **Build configuration**):
 
 | Setting | Value |
 |--------|--------|
-| **Build command** | `node build-config.js` |
-| **Build output directory** | `.` (root) |
+| **Framework preset** | **None** |
+| **Build command** | `npm run build` (or `node build-config.js`) |
+| **Build output directory** | `.` (one period = root; or leave blank if it says "root") |
 
-(If you use a **Framework preset**, switch to **None** so the build command is just the one above and output is the current directory.)
+The repo has a `package.json` so `npm run build` runs the script that creates `config.js`. Without these settings, the build never runs and `config.js` is never created (404 on the live site).
 
 ## 3. Environment variables
 

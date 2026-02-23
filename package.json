@@ -1,0 +1,7 @@
+{
+  "name": "todaysdailybattle-site",
+  "private": true,
+  "scripts": {
+    "build": "node build-config.js"
+  }
+}

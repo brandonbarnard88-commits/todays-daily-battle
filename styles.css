@@ -1241,6 +1241,8 @@ body {
   color: var(--text-dark);
   --color-bg: var(--bg-dark);
   --color-text: var(--text-dark);
+  --card-light: var(--card-dark);
+  --border-subtle: rgba(255, 255, 255, 0.08);
 }
 
 .hero {

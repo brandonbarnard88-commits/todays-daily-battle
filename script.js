@@ -816,7 +816,14 @@ function getSupabaseGlobal() {
   return null;
 }
 
-var supabaseGlobalOptions = { global: { headers: { Accept: 'application/json', 'Content-Type': 'application/json' } } };
+function supabaseFetch(url, options) {
+  var opts = options || {};
+  var headers = new Headers(opts.headers || {});
+  if (!headers.has('Accept')) headers.set('Accept', 'application/json');
+  if (!headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
+  return fetch(url, Object.assign({}, opts, { headers: headers }));
+}
+var supabaseGlobalOptions = { fetch: supabaseFetch };
 let supabaseClient = (getSupabaseGlobal() && supabaseUrl && supabaseKey)
   ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions)
   : null;

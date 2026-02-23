@@ -1382,6 +1382,17 @@ function updateDailyBattleStreak() {
   } catch (e) {}
   checkStreakRepairVisibility();
   updateUnlockedBadges(nextCount);
+  var resetNudgeEl = document.getElementById('daily-battle-reset-nudge');
+  if (resetNudgeEl) {
+    var started = false;
+    try { started = localStorage.getItem(CHALLENGE_30_STARTED_KEY) === '1'; } catch (e) {}
+    if (nextCount === 0 && started) {
+      resetNudgeEl.textContent = 'Missed a day? Your quick reset is today\'s verse above. Tap "Start Day 1" when you\'re ready to build a new streak.';
+      resetNudgeEl.style.display = 'block';
+    } else {
+      resetNudgeEl.style.display = 'none';
+    }
+  }
 }
 
 function showEliteToast(message) {

@@ -53,6 +53,14 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --transition-smooth: 0.01ms;
@@ -2980,11 +2988,13 @@ body.red-letter-off .red-letter-card {
 .audio-details .filter-actions { display: block; }
 
 @media (max-width: 768px) {
-  /* Legible text, thumb-friendly taps */
-  html { font-size: 18px; }
-  body { font-size: 20px; }
+  /* Legible text, thumb-friendly taps, no horizontal scroll */
+  html { font-size: 18px; overflow-x: hidden; }
+  body { font-size: 20px; overflow-x: hidden; max-width: 100vw; }
   h1 { font-size: 2.5rem; }
-  .card { width: 100%; }
+  .card { width: 100%; max-width: 100%; }
+  .app-content { max-width: 100%; }
+  .content-inner { max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
   .card-actions .btn,
   .daily-battle-actions .btn,
   .verse-card .btn,
@@ -2993,6 +3003,9 @@ body.red-letter-off .red-letter-card {
     font-size: 1.2rem;
     padding: 1rem 2rem;
   }
+  .verse-card strong { font-size: clamp(1.25rem, 4vw, 1.5rem); }
+  .verse-card p,
+  .section-note { font-size: 1.05rem; min-height: 1.4em; }
   .app-shell {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -3357,32 +3370,50 @@ body.red-letter-off .red-letter-card {
   }
 }
 
-/* Small phones (480px) – override anything tiny, full-width tap targets */
+/* Small phones (480px) – readable text, tap targets, no overflow */
 @media (max-width: 480px) {
+  html { font-size: 18px; }
   body {
-    font-size: 18px !important;
+    font-size: 20px !important;
     line-height: 1.6;
-    padding: 15px;
-    box-sizing: border-box;
+    max-width: 100vw;
+  }
+  .app-content {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .content-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   .card,
-  .content-inner,
   .glass,
-  .section,
-  .content {
-    width: 100% !important;
-    max-width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  button,
-  a.button,
-  .btn,
-  input:not([type="checkbox"]):not([type="radio"]) {
+  .verse-card {
     width: 100%;
-    min-width: 0;
-    padding: 14px;
-    font-size: 16px;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .card-actions .btn,
+  .daily-battle-actions .btn,
+  .verse-card .btn,
+  .share-btn,
+  .pray-btn {
+    width: 100%;
+    min-height: 52px;
+    padding: 0.875rem 1.25rem;
+    font-size: 1.1rem;
+  }
+  .btn {
     min-height: 48px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+  input:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    font-size: 16px;
   }
 }

@@ -409,6 +409,7 @@ body {
 .content-inner {
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 2rem;
   display: grid;
   gap: var(--space-2xl);
 }
@@ -567,6 +568,68 @@ body {
 }
 .signin-nudge-banner a:hover { text-decoration: underline; }
 .signin-nudge-banner.hidden { display: none; }
+
+.offline-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted, #94a3b8);
+  border-left: 3px solid var(--muted, #64748b);
+}
+.offline-banner-icon { font-size: 1.1rem; }
+.offline-banner-dismiss {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.25rem;
+  opacity: 0.8;
+}
+.offline-banner-dismiss:hover { opacity: 1; }
+
+.offline-prefetch-wrap {
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem;
+}
+.btn-offline-prefetch {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-offline-prefetch:hover:not(:disabled) {
+  background: #43a047;
+  transform: translateY(-1px);
+}
+.btn-offline-prefetch:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.offline-prefetch-progress {
+  margin-top: 0.75rem;
+}
+.offline-prefetch-bar {
+  height: 6px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.35rem;
+}
+.offline-prefetch-fill {
+  height: 100%;
+  width: 0%;
+  background: #4CAF50;
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+#offline-prefetch-status { margin: 0; font-size: 0.9rem; }
 
 .battle-pro-banner {
   padding: 0.6rem 1rem;

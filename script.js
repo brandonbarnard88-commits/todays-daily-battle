@@ -100,6 +100,8 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
   }
 })();
 const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
+const OFFLINE_PREFETCH_LAST_KEY = 'tdb_offline_prefetch_last';
+const OFFLINE_PREFETCH_DAYS = 7;
 const INSTALL_PROMPT_SEEN_KEY = 'tdb_seen_install';
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
@@ -114,6 +116,10 @@ const NT_BOOKS = new Set([
   '2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John',
   '3 John','Jude','Revelation'
 ]);
+
+function isProUser() {
+  return subscriptionTier === 'pro' || subscriptionTier === 'supporter' || isMasterUser;
+}
 
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
@@ -1318,6 +1324,69 @@ function wireInstallPrompt() {
   }
 }
 
+function wireOfflineBanner() {
+  const banner = document.getElementById('offline-banner');
+  const dismiss = document.getElementById('offline-banner-dismiss');
+  if (!banner) return;
+  function showBanner() {
+    banner.style.display = 'flex';
+    if (typeof trackEvent === 'function') {
+      try {
+        if (!sessionStorage.getItem('tdb_offline_view_sent')) {
+          trackEvent('offline_view');
+          sessionStorage.setItem('tdb_offline_view_sent', '1');
+        }
+      } catch (_) {}
+    }
+  }
+  function hideBanner() {
+    banner.style.display = 'none';
+    try { sessionStorage.removeItem('tdb_offline_view_sent'); } catch (_) {}
+  }
+  if (!navigator.onLine) showBanner();
+  window.addEventListener('online', hideBanner);
+  window.addEventListener('offline', showBanner);
+  if (dismiss) dismiss.addEventListener('click', () => { banner.style.display = 'none'; });
+}
+
+function updateOfflinePrefetchUI() {
+  const wrap = document.getElementById('offline-prefetch-wrap');
+  if (!wrap) return;
+  wrap.style.display = (typeof isProUser === 'function' && isProUser()) ? 'block' : 'none';
+}
+
+function wireOfflinePrefetch() {
+  const wrap = document.getElementById('offline-prefetch-wrap');
+  const btn = document.getElementById('offline-prefetch-btn');
+  const progressWrap = document.getElementById('offline-prefetch-progress');
+  const fill = document.getElementById('offline-prefetch-fill');
+  const status = document.getElementById('offline-prefetch-status');
+  updateOfflinePrefetchUI();
+  if (!btn || !progressWrap || !fill || !status) return;
+  btn.addEventListener('click', async () => {
+    if (!Object.keys(bible).length) {
+      if (typeof showEliteToast === 'function') showEliteToast('Loading Bible… try again in a moment.');
+      return;
+    }
+    btn.disabled = true;
+    progressWrap.style.display = 'block';
+    fill.style.width = '0%';
+    status.textContent = 'Preparing…';
+    const result = await prefetchOfflineVerses(OFFLINE_PREFETCH_DAYS, (current, total) => {
+      const pct = total ? Math.round((current / total) * 100) : 0;
+      fill.style.width = pct + '%';
+      status.textContent = 'Downloading… ' + current + ' of ' + total + ' days';
+    });
+    progressWrap.style.display = 'none';
+    btn.disabled = false;
+    if (result.ok && typeof showEliteToast === 'function') {
+      showEliteToast('Ready for offline – ' + (result.count || OFFLINE_PREFETCH_DAYS) + ' days cached.');
+    } else if (!result.ok && result.error && typeof showEliteToast === 'function') {
+      showEliteToast(result.error || 'Download failed. Try again.');
+    }
+  });
+}
+
 function startChallenge() {
   var today = getDailyKey();
   var data = { lastKey: today, count: 1, dates: [today] };
@@ -1623,9 +1692,8 @@ function withTimeout(promise, ms) {
   ]);
 }
 
-async function getDailyBattleFromSupabase() {
+async function getDailyBattleFromSupabaseForKey(key) {
   if (!isSupabaseConfigured()) return null;
-  const key = getDailyKey();
   try {
     const result = await withTimeout(
       supabaseClient
@@ -1649,15 +1717,64 @@ async function getDailyBattleFromSupabase() {
   }
 }
 
-function getDailyBattleFallback() {
-  const ref = getDailyVerseRef();
+async function getDailyBattleFromSupabase() {
+  return getDailyBattleFromSupabaseForKey(getDailyKey());
+}
+
+function getDailyBattleFallbackForKey(key) {
+  const ref = getDailyVerseRefForKey(key);
   if (!ref || !bible[ref]) return null;
   return {
     ref,
     reflection: 'When the battle feels heavy today, remember God is near and faithful.',
     prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.',
-    plain_meaning: getPlainMeaning(ref) || ''
+    plain_meaning: (typeof getPlainMeaning === 'function' ? getPlainMeaning(ref) : '') || ''
   };
+}
+
+function getDailyBattleFallback() {
+  return getDailyBattleFallbackForKey(getDailyKey());
+}
+
+/**
+ * Prefetch next N days of daily battles for offline use (Pro). Saves to localStorage under OFFLINE_BATTLE_KEY_PREFIX.
+ * @param {number} days - number of days to prefetch (default OFFLINE_PREFETCH_DAYS)
+ * @param {function(number, number)?} onProgress - callback(current, total) for UI progress
+ * @returns {Promise<{ ok: boolean, count: number, error?: string }>}
+ */
+async function prefetchOfflineVerses(days, onProgress) {
+  const total = typeof days === 'number' && days > 0 ? days : OFFLINE_PREFETCH_DAYS;
+  if (!Object.keys(bible).length) return { ok: false, count: 0, error: 'Bible not loaded' };
+  let count = 0;
+  try {
+    for (let i = 0; i < total; i++) {
+      const key = shiftDailyKey(getDailyKey(), i);
+      const battle = await getDailyBattleFromSupabaseForKey(key) || getDailyBattleFallbackForKey(key);
+      if (battle && battle.ref) {
+        const verseText = getBibleVerseText(battle.ref);
+        const plainMeaning = (typeof getPlainMeaning === 'function' ? getPlainMeaning(battle.ref) : '') || '';
+        const payload = {
+          ref: battle.ref,
+          verse: verseText || '',
+          reflection: battle.reflection || '',
+          prayer: battle.prayer || '',
+          plain_meaning: battle.plain_meaning || plainMeaning
+        };
+        try {
+          localStorage.setItem(OFFLINE_BATTLE_KEY_PREFIX + key, JSON.stringify(payload));
+          count++;
+        } catch (_) {}
+      }
+      if (typeof onProgress === 'function') onProgress(i + 1, total);
+    }
+    try {
+      localStorage.setItem(OFFLINE_PREFETCH_LAST_KEY, new Date().toISOString());
+    } catch (_) {}
+    if (typeof trackEvent === 'function') trackEvent('offline_prefetch', { days: total });
+    return { ok: true, count };
+  } catch (e) {
+    return { ok: false, count, error: (e && e.message) || 'Prefetch failed' };
+  }
 }
 
 function normalizeBibleRef(ref) {
@@ -1997,8 +2114,11 @@ const curriculum = {
 };
 
 function getDailyVerseRef() {
-  if (!Object.keys(bible).length) return null;
-  const dayKey = getDailyKey();
+  return getDailyVerseRefForKey(getDailyKey());
+}
+
+function getDailyVerseRefForKey(dayKey) {
+  if (!dayKey || !Object.keys(bible).length) return null;
   const seed = dayKey.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
   const safeRefs = DAILY_VERSE_SAFE_REFS.filter(function (ref) { return bible[ref]; });
   if (safeRefs.length) return safeRefs[seed % safeRefs.length];
@@ -6465,8 +6585,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     setView(isMasterUser ? 'dashboard' : 'search');
     scheduleMessageLoad();
     scheduleAdminPanel();
+    if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
   } else {
     updateAuthUI(null);
+    if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
   }
 
   function isOnAdminPage() {
@@ -6506,12 +6628,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       setView(isMasterUser ? 'dashboard' : 'search');
       scheduleMessageLoad();
       scheduleAdminPanel();
+      if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     } else {
       currentUserId = null;
       subscriptionTier = 'free';
       updateAuthUI(null);
       setView('search');
       scheduleAdminPanel();
+      if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     }
     });
   }
@@ -6519,6 +6643,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   scheduleAdminPanel();
   wireDailyBattleSeedForm();
   wireInstallPrompt();
+  wireOfflineBanner();
+  wireOfflinePrefetch();
 
   document.body.addEventListener('click', (e) => {
     if (e.target && e.target.id === 'daily-battle-try-again') {

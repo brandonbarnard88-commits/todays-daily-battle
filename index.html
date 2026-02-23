@@ -40,7 +40,7 @@
   </script>
 </head>
 <body class="dark-mode">
-  <a href="#main-search" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
       <div class="brand">
@@ -95,8 +95,13 @@
       </div>
     </aside>
 
-    <main class="app-content">
+    <main class="app-content" id="main-content">
       <div class="content-inner">
+        <div id="offline-banner" class="offline-banner glass" role="status" aria-live="polite" style="display: none;">
+          <span class="offline-banner-icon" aria-hidden="true">📴</span>
+          <span>Offline – using cached content.</span>
+          <button type="button" class="offline-banner-dismiss btn-link" id="offline-banner-dismiss" aria-label="Dismiss">×</button>
+        </div>
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
           <p class="hero-tagline">The Bible companion built for real life. One verse, one moment, every day—so you show up here instead of the feed.</p>
@@ -202,7 +207,7 @@
           <button id="challenge-start-day-1" type="button" class="btn btn-primary challenge-30-cta"><span class="challenge-flame" aria-hidden="true">🔥</span> Start Day 1</button>
         </div>
         <div id="battle-pro-banner" class="battle-pro-banner glass">
-          <strong>Battle Pro</strong> coming soon—offline, premium devotionals, your 2026 Wins Report. <span class="coming-soon-eta">ETA: March</span> <a href="pricing.html">Join the waitlist</a>
+          <strong>Battle Pro</strong> coming March 2026—offline, premium devotionals, your Wins Report. <a href="pricing.html">Join the waitlist</a>
           <div class="coming-soon-progress" aria-hidden="true"><div class="coming-soon-progress-fill"></div></div>
         </div>
         <section class="glass" id="daily-battle-section">
@@ -228,6 +233,16 @@
             <p id="daily-battle-reset-nudge" class="section-note streak-reset-nudge" style="display: none;" aria-live="polite"></p>
           </div>
           <div id="badges-section" class="glass badges-section" aria-label="Badges"></div>
+          <div id="offline-prefetch-wrap" class="offline-prefetch-wrap glass" style="display: none;" aria-label="Offline download">
+            <p class="section-note" style="margin-bottom: 0.5rem;">Download the next 7 days of verses for travel or spotty connectivity.</p>
+            <div class="cta-group">
+              <button id="offline-prefetch-btn" type="button" class="btn btn-offline-prefetch">Download for offline (Pro)</button>
+            </div>
+            <div id="offline-prefetch-progress" class="offline-prefetch-progress" style="display: none;" role="status" aria-live="polite">
+              <div class="offline-prefetch-bar"><div id="offline-prefetch-fill" class="offline-prefetch-fill"></div></div>
+              <span id="offline-prefetch-status" class="section-note">Preparing…</span>
+            </div>
+          </div>
           <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Log in to save your streak, favorite verses, and custom plans across devices.</p>
           <div class="cta-group daily-battle-signin-cta">
             <a href="#auth-details" class="btn btn-primary">Sign In Free – Save Your Streak Forever &amp; Sync Devices</a>
@@ -289,7 +304,7 @@
             <a class="btn btn-secondary" href="reading-plan.html">7-Day Reading Plan</a>
             <a class="btn btn-secondary" href="pricing.html">Plans &amp; Pricing</a>
           </div>
-          <p class="section-note" style="margin-top:0.75rem">Coming soon: <strong>Battle Pro</strong>—offline downloads, premium devotionals, your 2026 Wins Report. <a href="pricing.html">See plans</a>.</p>
+          <p class="section-note" style="margin-top:0.75rem">Battle Pro (offline + Wins Report) launches March 2026. <a href="pricing.html">See plans</a>.</p>
         </section>
         <section class="glass">
           <h2 class="section-divider">How It Helps</h2>
@@ -415,7 +430,7 @@
 
     <footer class="site-footer">
       Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a>
-      <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience—e.g., which verses and features help most. No personal data is sold or shared. Prayers and lists stay on your device (sync with Battle Pro). <a href="privacy.html">Learn more</a></p>
+      <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience—e.g., which verses and features help most. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Updated February 2026.</p>
     </footer>

@@ -45,3 +45,7 @@ create index if not exists user_sync_data_user_id_idx on public.user_sync_data(u
 | `challenge30`   | `"1"` if 30-day challenge started            |
 
 After running the SQL, the site will sync these when users are logged in and persist to Supabase on change; on other devices, the next login pulls the latest data into local storage so the UI behaves the same.
+
+**Best practices:** RLS is enabled; policies restrict access to `auth.uid() = user_id`. The index on `user_id` keeps lookups fast. To add master/admin read-all, use a separate policy with a helper (e.g. `USING (auth.jwt() ->> 'email' = current_setting('app.master_email') OR auth.uid() = user_id)`); avoid complex joins in policies.
+
+**Testing:** With the anon key, unauthenticated requests to `user_sync_data` should return no rows. Test sync: sign in on Device A, add streak + prayer list item; sign in on Device B with same account and confirm data appears. See TESTING-SYNC.md for the full test sequence.

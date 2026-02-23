@@ -1771,20 +1771,30 @@ function withTimeout(promise, ms) {
   ]);
 }
 
+function fetchDailyBattleRaw(dateKey) {
+  if (!supabaseUrl || !supabaseKey) return Promise.resolve(null);
+  var url = supabaseUrl.replace(/\/$/, '') + '/rest/v1/daily_battles?date=eq.' + encodeURIComponent(dateKey) + '&select=date,verse_ref,reflection,prayer&limit=1';
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      'apikey': supabaseKey,
+      'Authorization': 'Bearer ' + supabaseKey,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }).then(function (r) {
+    if (!r.ok) return null;
+    return r.json();
+  }).then(function (arr) {
+    return Array.isArray(arr) && arr.length ? arr[0] : null;
+  }).catch(function () { return null; });
+}
+
 async function getDailyBattleFromSupabaseForKey(key) {
   if (!isSupabaseConfigured()) return null;
   try {
-    const result = await withTimeout(
-      supabaseClient
-        .from('daily_battles')
-        .select('date, verse_ref, reflection, prayer')
-        .eq('date', key)
-        .limit(1)
-        .single(),
-      5000
-    );
-    const { data, error } = result;
-    if (error || !data) return null;
+    var data = await withTimeout(fetchDailyBattleRaw(key), 5000);
+    if (!data) return null;
     return {
       ref: data.verse_ref,
       reflection: data.reflection || '',

@@ -1116,6 +1116,20 @@ body {
   outline-offset: 2px;
   color: var(--accent-hover);
 }
+.footer-analytics-note {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(148, 163, 184, 0.8);
+  max-width: 42em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-analytics-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .footer-copyright {
   margin: 1.25rem 0 0;
   font-size: 0.9rem;

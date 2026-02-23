@@ -2450,6 +2450,7 @@ if (c && c.ref) {
           plainMeaningEl.style.display = expanded ? 'none' : 'block';
           plainMeaningToggle.textContent = expanded ? 'Tap for plain meaning' : 'Hide plain meaning';
           plainMeaningToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          trackEvent('plain_meaning_toggle', { action: expanded ? 'collapse' : 'expand', verse_ref: (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : '' });
         };
       }
     } else {
@@ -6359,6 +6360,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             plainMeaningEl.style.display = expanded ? 'none' : 'block';
             plainMeaningToggle.textContent = expanded ? 'Tap for plain meaning' : 'Hide plain meaning';
             plainMeaningToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            trackEvent('plain_meaning_toggle', { action: expanded ? 'collapse' : 'expand', verse_ref: (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : '' });
           };
         }
       } else {
@@ -6563,14 +6565,16 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
           const filters = getSearchFilters();
           const cacheKey = `${tier}|${filters.testament}|${filters.book}|${input.trim().toLowerCase()}`;
+          const parsed = parseQuery(input);
+          var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
           if (cacheKey && searchCache.has(cacheKey)) {
             renderResults(searchCache.get(cacheKey));
           } else {
-            const parsed = parseQuery(input);
             const results = executeQuery(parsed, tier, filters);
             if (cacheKey) searchCache.set(cacheKey, results);
             renderResults(results);
           }
+          if (input && typeof trackEvent === 'function') trackEvent('search_query', { query: input, topic: searchTopic });
           await renderDailyBattleCard();
         } catch (err) {
           var out = document.getElementById('output');
@@ -6889,6 +6893,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderPrayerList();
       prayerListInput.value = '';
       if (prayerListVerse) prayerListVerse.value = '';
+      trackEvent('prayer_list_add');
     });
   }
 
@@ -7363,6 +7368,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         saveItems(items);
         inputEl.value = '';
         render();
+        if (typeof trackEvent === 'function') trackEvent('prayer_wall_add');
       });
     }
     render();

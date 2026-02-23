@@ -7122,7 +7122,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
       const password = passwordEl ? passwordEl.value : '';
       const tier = tierEl ? tierEl.value : 'adult';
-      const role = roleEl ? roleEl.value : 'member';
       if (!email || !password) {
         setAuthStatus('Please enter an email and password.', 'error');
         return;
@@ -7138,10 +7137,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       const redirectUrl = getAuthRedirectBase();
       signupBtn.disabled = true;
       setAuthStatus('Creating account…', 'info');
+      /* Security: always send role 'member' on signup. Do not trust client role; promote to pastor/admin server-side only. */
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
-        options: { data: { tier, role }, emailRedirectTo: redirectUrl }
+        options: { data: { tier, role: 'member' }, emailRedirectTo: redirectUrl }
       });
       signupBtn.disabled = false;
       if (error) {

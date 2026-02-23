@@ -6197,18 +6197,18 @@ document.addEventListener('DOMContentLoaded', async () => {
       card.innerHTML = '<p class="empty">Something went wrong loading the page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     }
   }
-  var walkthroughLink = document.getElementById('walkthrough-video');
-  var walkthroughComing = document.getElementById('walkthrough-coming');
-  if (walkthroughLink && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
-    walkthroughLink.href = window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL;
-    walkthroughLink.target = '_blank';
-    walkthroughLink.rel = 'noopener noreferrer';
-    if (walkthroughComing) walkthroughComing.style.display = 'none';
-  } else if (walkthroughLink) {
-    walkthroughLink.addEventListener('click', function (e) { e.preventDefault(); });
-    walkthroughLink.setAttribute('aria-disabled', 'true');
-    walkthroughLink.title = 'Video coming soon';
+  var walkthroughWrap = document.getElementById('walkthrough-wrap');
+  if (walkthroughWrap && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
+    var a = document.createElement('a');
+    a.id = 'walkthrough-video';
+    a.href = window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = 'btn-link';
+    a.textContent = 'Watch the 60-second walkthrough';
+    walkthroughWrap.parentNode.replaceChild(a, walkthroughWrap);
   }
+  // When no URL: wrap already shows "60-second walkthrough — coming March" as plain text
   var shopBattleMugCta = document.getElementById('shop-battle-mug-cta');
   if (shopBattleMugCta && typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.BATTLE_MUG_URL) {
     shopBattleMugCta.href = window.TDB_CONFIG.BATTLE_MUG_URL;
@@ -7031,7 +7031,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!el) return;
       el.innerHTML = list.slice(0, 5).map(function (e, i) {
         return '<li class="leaderboard-item">' + (i + 1) + '. ' + escapeHtml(e.name || 'Anonymous') + ' – ' + (e.days || 0) + ' days</li>';
-      }).join('') || '<li class="section-note">No entries yet. Add your streak above!</li>';
+      }).join('') || '<li class="section-note">Be the first! Complete today\'s verse above, then add your streak here.</li>';
     }
     var submit = document.getElementById('leaderboard-submit');
     var nickname = document.getElementById('leaderboard-nickname');

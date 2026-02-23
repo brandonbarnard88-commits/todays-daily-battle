@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wins Report • Today's Daily Battle</title>
+  <meta name="description" content="Your 2026 Wins—streak, verses, and growth. Share your progress. Part of Battle Pro.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/wins-report.html">
+  <link rel="stylesheet" href="styles.css?v=20260221elite">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Your 2026 Wins</span>
+      </div>
+      <a href="/" class="header-menu-link">Home</a>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>Your 2026 Wins</h1>
+          <p class="hero-tagline">A snapshot of your daily battle habit—streak, engagement, and growth. Share it.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/">Daily Battle</a>
+            <a class="btn btn-secondary" href="pricing.html">Battle Pro</a>
+          </div>
+        </header>
+
+        <section class="glass wins-report-section">
+          <h2 class="section-divider">This year so far</h2>
+          <div id="wins-stats" class="wins-stats" aria-live="polite">
+            <p class="section-note">Loading your wins…</p>
+          </div>
+          <div class="cta-group" id="wins-actions" style="display: none;">
+            <button type="button" id="wins-copy-btn" class="btn btn-primary">Copy my Wins</button>
+            <a href="/" class="btn btn-secondary">Back to Daily Battle</a>
+          </div>
+          <p id="wins-copy-status" class="section-note" style="margin-top: 0.5rem; display: none;" role="status"></p>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Battle Pro</h2>
+          <p class="section-note">The full Wins Report at year’s end—shareable graphic, verses engaged, topics that helped most—is part of <a href="pricing.html">Battle Pro</a> (early March 2026). This page gives you a quick shareable summary today.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="privacy.html">Privacy</a> • <a href="contact.html">Contact</a>
+      <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      var STREAK_KEY = 'dailyBattleStreak';
+      var PRAYER_KEY = 'tdb_prayer_list';
+      var statsEl = document.getElementById('wins-stats');
+      var actionsEl = document.getElementById('wins-actions');
+      var copyBtn = document.getElementById('wins-copy-btn');
+      var copyStatus = document.getElementById('wins-copy-status');
+
+      function loadWins() {
+        var streakCount = 0;
+        var lastKey = '';
+        var prayerCount = 0;
+        try {
+          var streakRaw = localStorage.getItem(STREAK_KEY);
+          if (streakRaw) {
+            var data = JSON.parse(streakRaw);
+            streakCount = Number(data.count) || 0;
+            lastKey = data.lastKey || '';
+          }
+          var listRaw = localStorage.getItem(PRAYER_KEY);
+          if (listRaw) {
+            var list = JSON.parse(listRaw);
+            prayerCount = Array.isArray(list) ? list.length : 0;
+          }
+        } catch (e) {}
+
+        var html = '<p class="section-note"><strong>Current streak:</strong> ' + streakCount + ' day' + (streakCount === 1 ? '' : 's') + '</p>';
+        if (lastKey) html += '<p class="section-note"><strong>Last verse day:</strong> ' + lastKey + '</p>';
+        if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
+        if (streakCount === 0 && !lastKey) html = '<p class="section-note">No streak yet. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
+
+        statsEl.innerHTML = html;
+        if (streakCount > 0 || prayerCount > 0) actionsEl.style.display = 'flex';
+      }
+
+      function buildShareText() {
+        var streakCount = 0;
+        try {
+          var raw = localStorage.getItem(STREAK_KEY);
+          if (raw) streakCount = Number(JSON.parse(raw).count) || 0;
+        } catch (e) {}
+        return 'My 2026 Wins: ' + streakCount + ' day streak on Today\'s Daily Battle. Less scroll, more soul. https://todaysdailybattle.com #TodaysDailyBattle';
+      }
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+          var text = buildShareText();
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function() {
+              copyStatus.textContent = 'Copied! Paste anywhere to share.';
+              copyStatus.style.display = 'block';
+              setTimeout(function() { copyStatus.style.display = 'none'; }, 3000);
+            }).catch(function() {
+              copyStatus.textContent = 'Could not copy. Select and copy manually.';
+              copyStatus.style.display = 'block';
+            });
+          } else {
+            copyStatus.textContent = 'Select the text below and copy.';
+            copyStatus.style.display = 'block';
+          }
+        });
+      }
+
+      loadWins();
+    })();
+  </script>
+</body>
+</html>

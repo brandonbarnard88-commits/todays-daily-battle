@@ -1394,7 +1394,15 @@ function wireOfflineBanner() {
     try { sessionStorage.removeItem('tdb_offline_view_sent'); } catch (_) {}
   }
   if (!navigator.onLine) showBanner();
-  window.addEventListener('online', hideBanner);
+  window.addEventListener('online', function() {
+    hideBanner();
+    if (typeof canUseSupabase === 'function' && canUseSupabase() && currentUserId && typeof syncUserData === 'function') {
+      syncUserData().then(function() {
+        if (typeof updateSyncStatusUI === 'function') updateSyncStatusUI();
+        if (typeof showEliteToast === 'function') showEliteToast('Back online. Your data is synced.');
+      }).catch(function() {});
+    }
+  });
   window.addEventListener('offline', showBanner);
   if (dismiss) dismiss.addEventListener('click', () => { banner.style.display = 'none'; });
 }
@@ -3722,6 +3730,7 @@ function applySearchFromQuery() {
   }
   queryEl.value = value;
   setView('search');
+  if (typeof searchCache !== 'undefined' && searchCache.clear) searchCache.clear();
   const mainSearch = document.getElementById('main-search');
   if (mainSearch) mainSearch.scrollIntoView({ behavior: 'smooth', block: 'start' });
   searchBtn.click();

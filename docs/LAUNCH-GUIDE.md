@@ -27,6 +27,14 @@ You're one normal deploy + three quick actions from launch. This doc has the exa
 
 **Result:** RLS is on for `daily_battles`, `messages`, `message_reports`, `newsletter_signups`, `saved_verses`, `saved_collections`, `saved_verse_collections`. Anon can’t read/write; authenticated users only see their own rows.
 
+**Verify — confirm anon sees 0 rows (do both after running the script):**
+
+- **Check 1 (app):** Log out or incognito. Open site. Try Prayer Wall, Prayer List, saved verses, messages. Expected: empty only. If you see rows, RLS not applied.
+- **Check 2 (API):** `curl -X GET 'https://YOUR_REF.supabase.co/rest/v1/messages?select=id' -H "apikey: YOUR_ANON_KEY" -H "Authorization: Bearer YOUR_ANON_KEY"` → expected `[]`.
+- **Bonus:** Log in; confirm you still see/edit your own data (ownership works).
+
+**Why #1 first:** Biggest risk without RLS; under 10 min; script idempotent. After this, anon blocked.
+
 ---
 
 ## 2. Firebase deploy command line

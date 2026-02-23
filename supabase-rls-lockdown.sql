@@ -113,100 +113,35 @@ CREATE POLICY "newsletter_signups_update_own"
   WITH CHECK (email = (SELECT email FROM auth.users WHERE id = auth.uid()));
 
 -- -----------------------------------------------------------------------------
--- 5. saved_verses (user_id = owner)
+-- 5. saved_verses (user_id = owner) — UNCOMMENT when table exists
 -- -----------------------------------------------------------------------------
-ALTER TABLE public.saved_verses ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "saved_verses_select_own"
-  ON public.saved_verses
-  FOR SELECT
-  TO authenticated
-  USING (user_id = auth.uid());
-
-CREATE POLICY "saved_verses_insert_own"
-  ON public.saved_verses
-  FOR INSERT
-  TO authenticated
-  WITH CHECK (user_id = auth.uid());
-
-CREATE POLICY "saved_verses_update_own"
-  ON public.saved_verses
-  FOR UPDATE
-  TO authenticated
-  USING (user_id = auth.uid())
-  WITH CHECK (user_id = auth.uid());
-
-CREATE POLICY "saved_verses_delete_own"
-  ON public.saved_verses
-  FOR DELETE
-  TO authenticated
-  USING (user_id = auth.uid());
+-- ALTER TABLE public.saved_verses ENABLE ROW LEVEL SECURITY;
+-- CREATE POLICY "saved_verses_select_own" ON public.saved_verses FOR SELECT TO authenticated USING (user_id = auth.uid());
+-- CREATE POLICY "saved_verses_insert_own" ON public.saved_verses FOR INSERT TO authenticated WITH CHECK (user_id = auth.uid());
+-- CREATE POLICY "saved_verses_update_own" ON public.saved_verses FOR UPDATE TO authenticated USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid());
+-- CREATE POLICY "saved_verses_delete_own" ON public.saved_verses FOR DELETE TO authenticated USING (user_id = auth.uid());
 
 -- -----------------------------------------------------------------------------
--- 6. saved_collections (already has user_id; ensure no anon, owner-only)
+-- 6. saved_collections — UNCOMMENT when table exists
 -- -----------------------------------------------------------------------------
-ALTER TABLE public.saved_collections ENABLE ROW LEVEL SECURITY;
-
-DROP POLICY IF EXISTS "saved_collections_owner_read" ON public.saved_collections;
-DROP POLICY IF EXISTS "saved_collections_owner_write" ON public.saved_collections;
-
-CREATE POLICY "saved_collections_select_own"
-  ON public.saved_collections
-  FOR SELECT
-  TO authenticated
-  USING (user_id = auth.uid());
-
-CREATE POLICY "saved_collections_insert_own"
-  ON public.saved_collections
-  FOR INSERT
-  TO authenticated
-  WITH CHECK (user_id = auth.uid());
-
-CREATE POLICY "saved_collections_update_own"
-  ON public.saved_collections
-  FOR UPDATE
-  TO authenticated
-  USING (user_id = auth.uid())
-  WITH CHECK (user_id = auth.uid());
-
-CREATE POLICY "saved_collections_delete_own"
-  ON public.saved_collections
-  FOR DELETE
-  TO authenticated
-  USING (user_id = auth.uid());
+-- ALTER TABLE public.saved_collections ENABLE ROW LEVEL SECURITY;
+-- DROP POLICY IF EXISTS "saved_collections_owner_read" ON public.saved_collections;
+-- DROP POLICY IF EXISTS "saved_collections_owner_write" ON public.saved_collections;
+-- CREATE POLICY "saved_collections_select_own" ON public.saved_collections FOR SELECT TO authenticated USING (user_id = auth.uid());
+-- CREATE POLICY "saved_collections_insert_own" ON public.saved_collections FOR INSERT TO authenticated WITH CHECK (user_id = auth.uid());
+-- CREATE POLICY "saved_collections_update_own" ON public.saved_collections FOR UPDATE TO authenticated USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid());
+-- CREATE POLICY "saved_collections_delete_own" ON public.saved_collections FOR DELETE TO authenticated USING (user_id = auth.uid());
 
 -- -----------------------------------------------------------------------------
--- 7. saved_verse_collections (user_id = owner)
+-- 7. saved_verse_collections — UNCOMMENT when table exists
 -- -----------------------------------------------------------------------------
-ALTER TABLE public.saved_verse_collections ENABLE ROW LEVEL SECURITY;
-
-DROP POLICY IF EXISTS "saved_verse_collections_owner_read" ON public.saved_verse_collections;
-DROP POLICY IF EXISTS "saved_verse_collections_owner_write" ON public.saved_verse_collections;
-
-CREATE POLICY "saved_verse_collections_select_own"
-  ON public.saved_verse_collections
-  FOR SELECT
-  TO authenticated
-  USING (user_id = auth.uid());
-
-CREATE POLICY "saved_verse_collections_insert_own"
-  ON public.saved_verse_collections
-  FOR INSERT
-  TO authenticated
-  WITH CHECK (user_id = auth.uid());
-
-CREATE POLICY "saved_verse_collections_update_own"
-  ON public.saved_verse_collections
-  FOR UPDATE
-  TO authenticated
-  USING (user_id = auth.uid())
-  WITH CHECK (user_id = auth.uid());
-
-CREATE POLICY "saved_verse_collections_delete_own"
-  ON public.saved_verse_collections
-  FOR DELETE
-  TO authenticated
-  USING (user_id = auth.uid());
+-- ALTER TABLE public.saved_verse_collections ENABLE ROW LEVEL SECURITY;
+-- DROP POLICY IF EXISTS "saved_verse_collections_owner_read" ON public.saved_verse_collections;
+-- DROP POLICY IF EXISTS "saved_verse_collections_owner_write" ON public.saved_verse_collections;
+-- CREATE POLICY "saved_verse_collections_select_own" ON public.saved_verse_collections FOR SELECT TO authenticated USING (user_id = auth.uid());
+-- CREATE POLICY "saved_verse_collections_insert_own" ON public.saved_verse_collections FOR INSERT TO authenticated WITH CHECK (user_id = auth.uid());
+-- CREATE POLICY "saved_verse_collections_update_own" ON public.saved_verse_collections FOR UPDATE TO authenticated USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid());
+-- CREATE POLICY "saved_verse_collections_delete_own" ON public.saved_verse_collections FOR DELETE TO authenticated USING (user_id = auth.uid());
 
 -- =============================================================================
 -- Notes:

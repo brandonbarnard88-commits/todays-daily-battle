@@ -6573,48 +6573,62 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   if ('serviceWorker' in navigator) {
     (function () {
-      var registration = null;
       function safeUpdate() {
-        try {
-          if (registration && typeof registration.update === 'function') {
-            registration.update();
-          }
-        } catch (e) {
-          if (typeof console !== 'undefined' && console.error) {
-            console.error('Service Worker update failed:', e);
-          }
-        }
-      }
-      navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-        .then(function (reg) {
-          registration = reg;
-          if (!registration) return;
-          if (typeof console !== 'undefined' && console.log) {
-            console.log('Service Worker registered with scope:', registration.scope);
-          }
-          registration.addEventListener('updatefound', function () {
-            var newWorker = registration.installing;
-            if (!newWorker) return;
-            if (typeof console !== 'undefined' && console.log) {
-              console.log('New SW version found – installing...');
+        navigator.serviceWorker.getRegistration('/').then(function (reg) {
+          if (!reg || typeof reg.update !== 'function') return;
+          try {
+            reg.update();
+          } catch (e) {
+            if (typeof console !== 'undefined' && console.error) {
+              console.error('Service Worker update failed:', e);
             }
-            newWorker.addEventListener('statechange', function () {
-              if (newWorker.state === 'installed') newWorker.postMessage({ type: 'SKIP_WAITING' });
-            });
-          });
-          if (registration.waiting) registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-          navigator.serviceWorker.addEventListener('controllerchange', function () {
-            window.location.reload();
-          });
-          setInterval(safeUpdate, 60 * 1000);
-          window.addEventListener('focus', safeUpdate);
-          safeUpdate();
-        })
-        .catch(function (err) {
-          if (typeof console !== 'undefined' && console.error) {
-            console.error('Service Worker registration failed:', err);
           }
-        });
+        }).catch(function () {});
+      }
+      function initSW() {
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+          .then(function (reg) {
+            if (!reg) return;
+            if (typeof console !== 'undefined' && console.log) {
+              console.log('SW registered, scope:', reg.scope);
+            }
+            reg.addEventListener('updatefound', function () {
+              try {
+                var newWorker = reg.installing;
+                if (!newWorker) return;
+                if (typeof console !== 'undefined' && console.log) {
+                  console.log('New SW version found – installing...');
+                }
+                newWorker.addEventListener('statechange', function () {
+                  try {
+                    if (newWorker && newWorker.state === 'installed') newWorker.postMessage({ type: 'SKIP_WAITING' });
+                  } catch (e) {}
+                });
+              } catch (e) {}
+            });
+            if (reg.waiting) reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+              window.location.reload();
+            });
+            setInterval(safeUpdate, 60 * 1000);
+            window.addEventListener('focus', safeUpdate);
+            navigator.serviceWorker.getRegistration('/').then(function (freshReg) {
+              if (freshReg && typeof freshReg.update === 'function') {
+                try { freshReg.update(); } catch (e) {}
+              }
+            }).catch(function () {});
+          })
+          .catch(function (err) {
+            if (typeof console !== 'undefined' && console.error) {
+              console.error('SW failed:', err);
+            }
+          });
+      }
+      if (document.readyState === 'complete') {
+        initSW();
+      } else {
+        window.addEventListener('load', initSW);
+      }
     })();
   }
   wireAnalyticsBeacon();

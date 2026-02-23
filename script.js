@@ -6053,7 +6053,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       note.className = 'section-note';
       note.style.margin = '0';
       if (!hasConfig) {
-        note.textContent = 'Sign-in is optional. To enable accounts and streaks, add config.js with your Supabase URL and anon key (see config.example.js).';
+        note.textContent = 'Sign-in is optional. Log in to save your streak, favorite verses, and custom plans across devices.';
         authSection.querySelectorAll('input, select, button').forEach(function (el) { el.style.display = 'none'; });
       } else {
         note.textContent = 'Sign-in loading… If this persists, check that vendor/supabase-js.js loads.';
@@ -6068,7 +6068,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       authSection.prepend(note);
     }
     if (!hasConfig) {
-      setAuthStatus('Sign-in is optional. Add config.js to enable accounts.', 'info');
+      setAuthStatus('Sign-in is optional. Log in to save your streak, favorite verses, and custom plans across devices.', 'info');
     } else {
       setAuthStatus('Auth not ready. Loading...', 'error');
     }

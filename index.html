@@ -22,10 +22,9 @@
   <link rel="stylesheet" href="styles.css?v=20260221elite">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#6d28d9">
-  <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> when you have a verification code. Or set GOOGLE_SITE_VERIFICATION in config.js and inject via script. -->
+  <!-- Set GOOGLE_SITE_VERIFICATION in config for Search Console -->
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
-  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script>window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL":"brandon@todaysdailybattle.com","MASTER_EMAILS":["brandon@todaysdailybattle.com"],"WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script src="config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -76,8 +75,8 @@
             <option value="teacher">Teacher</option>
             <option value="pastor">Pastor</option>
           </select>
-          <button id="signup-btn">Sign Up</button>
-          <button id="login-btn">Log In</button>
+          <button id="signup-btn" type="button">Sign Up</button>
+          <button id="login-btn" type="button">Log In</button>
           <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
           <button id="logout-btn" style="display:none">Log Out</button>
         </div>

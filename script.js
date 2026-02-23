@@ -866,6 +866,8 @@ function getAuthStatusEl() {
   if (!status) {
     status = document.createElement('div');
     status.id = 'auth-status';
+    status.setAttribute('aria-live', 'polite');
+    status.setAttribute('role', 'status');
     status.style.marginTop = '0.6rem';
     status.style.fontSize = '0.9rem';
     status.style.textAlign = 'center';

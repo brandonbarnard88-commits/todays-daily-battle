@@ -216,30 +216,30 @@ const topics = {
   },
   fear: {
     synonyms: ['afraid', 'anxious', 'worried', 'scared', 'panic'],
-    verses: ['Isaiah 41:10', '2 Timothy 1:7', '1 John 4:18', 'Psalms 34:4', 'Proverbs 29:25'],
+    verses: ['Isaiah 41:10', '2 Timothy 1:7', '1 John 4:18', 'Psalms 34:4', 'Psalms 27:1', 'Psalms 91:1', 'Proverbs 29:25', 'Deuteronomy 31:6'],
     guidance: {
-      kid: "God is with you, so don't be scared. He's like a big hug!",
-      teen: "Fear can feel big, but God gives power and love. Trust Him.",
-      adult: "Cast out fear with perfect love; God hasn't given a spirit of fear.",
-      pastor: "Preach on fear as a snare; use these for counseling anxious congregants."
+      kid: "God is with you, so don't be scared. He's like a big hug and He's stronger than anything.",
+      teen: "Fear can feel big, but God gives power, love, and a sound mind. Trust Him one step at a time.",
+      adult: "God has not given us a spirit of fear but of power, love, and self-discipline. Perfect love drives out fear.",
+      pastor: "Preach on fear as a snare; use these verses for counseling anxious congregants and for assurance of God's presence."
     },
     explain: {
-      kid: "When you feel scared, God is close and He is stronger than fear.",
-      teen: "Fear shrinks when we remember God is with us and gives courage."
+      kid: "When you feel scared, God is close and He is stronger than fear. You can talk to Him anytime.",
+      teen: "Fear shrinks when we remember God is with us and gives courage. He hasn't left you to face it alone."
     }
   },
   grief: {
     synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted'],
-    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3'],
+    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38'],
     guidance: {
-      kid: "When you're sad, God is close and will make you feel better.",
-      teen: "It's okay to grieve; God comforts those who are hurting.",
-      adult: "The Lord binds up wounds and is near the brokenhearted.",
-      pastor: "Incorporate into grief ministry; highlight eternal hope without sorrow."
+      kid: "When you're sad, God is close and will comfort you. It's okay to cry; He sees your tears.",
+      teen: "It's okay to grieve. God comforts those who are hurting and promises that nothing can separate you from His love.",
+      adult: "The Lord is near the brokenhearted and binds up their wounds. One day He will wipe away every tear; until then, He holds you.",
+      pastor: "Incorporate into grief ministry; highlight God's nearness, His comfort, and eternal hope without minimizing pain."
     },
     explain: {
-      kid: "God sees your tears and stays close when you are sad.",
-      teen: "Grief is hard, but God comforts and gives hope."
+      kid: "God sees your tears and stays close when you are sad. He is the God of all comfort.",
+      teen: "Grief is hard, but God comforts and gives hope. His love and compassion are new every morning."
     }
   },
   lust: {
@@ -286,16 +286,16 @@ const topics = {
   },
   anxiety: {
     synonyms: ['worry', 'stress', 'anxious', 'nervous'],
-    verses: ['Philippians 4:6', 'Matthew 6:34', '1 Peter 5:7', 'Psalms 55:22', 'Isaiah 41:10'],
+    verses: ['Philippians 4:6', 'Philippians 4:7', 'Matthew 6:34', '1 Peter 5:7', 'Psalms 55:22', 'Isaiah 41:10', 'Psalms 94:19', 'Isaiah 26:3'],
     guidance: {
-      kid: "Give your worries to God, He cares for you.",
-      teen: "Pray when anxious, and God's peace will guard your heart.",
-      adult: "Do not be anxious; cast your cares on Him.",
-      pastor: "Teach believers to replace anxiety with prayer and thanksgiving."
+      kid: "Give your worries to God—He cares for you. Tell Him what's scary and ask for peace.",
+      teen: "Pray when anxious; God's peace can guard your heart. You don't have to carry it alone.",
+      adult: "Do not be anxious about anything; in prayer and thanksgiving present your requests to God. His peace surpasses understanding.",
+      pastor: "Teach believers to replace anxiety with prayer and thanksgiving; point to God's nearness and the promise of peace."
     },
     explain: {
-      kid: "You can tell God your worries and He will help you feel safe.",
-      teen: "Anxiety is heavy, but prayer helps us carry it with God."
+      kid: "You can tell God your worries and He will help you feel safe. He never gets tired of listening.",
+      teen: "Anxiety is heavy, but prayer helps us carry it with God. He offers peace that doesn't depend on everything being fixed."
     }
   },
   addiction: {
@@ -356,44 +356,44 @@ const topics = {
   },
   strength: {
     synonyms: ['power', 'might', 'fortitude', 'resilience'],
-    verses: ['Philippians 4:13', 'Isaiah 40:31', 'Ephesians 6:10', 'Psalms 28:7', '2 Timothy 4:17'],
+    verses: ['Philippians 4:13', 'Isaiah 40:31', 'Ephesians 6:10', 'Psalms 28:7', '2 Timothy 4:17', '2 Corinthians 12:9', 'Psalms 46:1', 'Nehemiah 8:10'],
     guidance: {
-      kid: "God gives you strength when you're weak.",
-      teen: "Wait on the Lord to renew your strength.",
-      adult: "Be strong in the Lord and in His mighty power.",
-      pastor: "Teach reliance on God's strength, not our own."
+      kid: "God gives you strength when you're weak. You can do hard things with His help.",
+      teen: "Wait on the Lord to renew your strength. His power shows up best when we're honest about our weakness.",
+      adult: "Be strong in the Lord and in His mighty power. His grace is sufficient; His strength is made perfect in weakness.",
+      pastor: "Teach reliance on God's strength, not our own; pair with the armor of God and the promise of renewal."
     },
     explain: {
-      kid: "God helps you be brave and strong when you feel weak.",
-      teen: "God's strength can carry you when you are tired."
+      kid: "God helps you be brave and strong when you feel weak. He never gets tired.",
+      teen: "God's strength can carry you when you are tired. Those who hope in Him will soar like eagles."
     }
   },
   love: {
     synonyms: ['affection', 'charity', 'compassion', 'kindness', 'selfless', 'servant', 'sacrifice', 'giving'],
-    verses: ['1 Corinthians 13:4', 'John 3:16', 'Romans 5:8', '1 John 4:8', 'Ephesians 5:2'],
+    verses: ['1 Corinthians 13:4', 'John 3:16', 'Romans 5:8', '1 John 4:8', 'Ephesians 5:2', 'John 15:13', '1 John 4:18', 'Romans 8:38'],
     guidance: {
-      kid: "God loves you so much!",
-      teen: "Love is patient and kind; show it to others.",
-      adult: "Walk in love, as Christ loved us.",
-      pastor: "Emphasize God's love as the foundation of faith."
+      kid: "God loves you so much! He showed it by sending Jesus. You can share that love by being kind.",
+      teen: "Love is patient and kind; it doesn't keep a record of wrongs. Show it to others the way God has shown it to you.",
+      adult: "Walk in love, as Christ loved us and gave Himself for us. Nothing can separate you from God's love.",
+      pastor: "Emphasize God's love as the foundation of faith; use these verses for assurance, evangelism, and pastoral care."
     },
     explain: {
-      kid: "God's love is big and always with you.",
-      teen: "God's love teaches us to be patient and kind to others."
+      kid: "God's love is big and always with you. He loves you no matter what.",
+      teen: "God's love teaches us to be patient and kind. Perfect love drives out fear and changes how we treat others."
     }
   },
   hope: {
     synonyms: ['hope', 'expectation', 'confidence'],
-    verses: ['Romans 15:13', 'Jeremiah 29:11', 'Psalms 42:11', 'Romans 5:5', 'Hebrews 6:19'],
+    verses: ['Romans 15:13', 'Jeremiah 29:11', 'Psalms 42:11', 'Romans 5:5', 'Hebrews 6:19', 'Lamentations 3:22', 'Isaiah 40:31', 'Romans 8:28'],
     guidance: {
-      kid: "God has good plans for you!",
-      teen: "Hope in God; He renews your strength.",
-      adult: "Hope does not disappoint because God's love is poured out in our hearts.",
-      pastor: "Preach hope as an anchor for the soul."
+      kid: "God has good plans for you! Hope means trusting that He will help you and never leave you.",
+      teen: "Hope in God; He renews your strength. Hope is an anchor—steady and sure when life feels shaky.",
+      adult: "Hope does not disappoint because God's love is poured out in our hearts. He works all things for good for those who love Him.",
+      pastor: "Preach hope as an anchor for the soul; tie it to God's character and His promises so people have something solid to hold."
     },
     explain: {
-      kid: "Hope means believing God will help you in the future.",
-      teen: "Hope keeps your heart strong because God keeps His promises."
+      kid: "Hope means believing God will help you in the future. His love never runs out.",
+      teen: "Hope keeps your heart strong because God keeps His promises. His compassion is new every morning."
     }
   },
   peace: {
@@ -1171,7 +1171,57 @@ var VERSE_PLAIN_MEANINGS = {
   'Proverbs 3:5': 'Trust the Lord with all your heart; don\'t rely on your own understanding.',
   'Isaiah 54:10': 'God\'s love and peace won\'t leave you—He has promised.',
   'Matthew 5:14': 'You are the light of the world—let your life point others to God.',
-  'Matthew 28:20': 'Jesus is with you always, to the very end of the age.'
+  'Matthew 28:20': 'Jesus is with you always, to the very end of the age.',
+  'Psalms 37:8': 'Don\'t let anger take over; step back and trust God to make things right.',
+  'Proverbs 14:29': 'Being slow to get angry shows wisdom and understanding.',
+  'James 1:20': 'Human anger doesn\'t produce the right living God wants—so pause before you react.',
+  'Ephesians 4:26': 'It\'s okay to be angry, but don\'t let it turn into sin or bitterness.',
+  'Proverbs 15:1': 'A gentle answer turns away anger; harsh words make things worse.',
+  'Revelation 21:4': 'One day God will wipe away every tear; no more death, grief, or pain.',
+  'Matthew 5:4': 'Those who mourn will be comforted by God.',
+  'Psalms 147:3': 'God heals the brokenhearted and binds up their wounds.',
+  '2 Corinthians 1:3': 'God is the Father of compassion and the One who comforts us in our troubles.',
+  'Psalms 34:18': 'The Lord is close to the brokenhearted and saves those who are crushed in spirit.',
+  'Psalms 55:22': 'Cast your cares on the Lord and He will sustain you.',
+  'Psalms 42:11': 'Put your hope in God; you will again praise Him for His help.',
+  'Romans 5:5': 'Hope doesn\'t disappoint us because God has poured out His love into our hearts.',
+  'Hebrews 6:19': 'Hope is an anchor for the soul—steady and sure.',
+  'Ephesians 4:32': 'Be kind and compassionate; forgive others as God forgave you.',
+  'Matthew 6:14': 'If you forgive others, your heavenly Father will forgive you.',
+  'Colossians 3:13': 'Bear with each other and forgive one another as the Lord forgave you.',
+  'Luke 6:37': 'Do not judge, and you won\'t be judged; forgive, and you will be forgiven.',
+  'Psalms 28:7': 'The Lord is my strength and my shield; my heart trusts in Him.',
+  '1 Corinthians 13:4': 'Love is patient and kind; it doesn\'t envy, boast, or keep a record of wrongs.',
+  'Romans 5:8': 'God showed His love by sending Christ to die for us while we were still sinners.',
+  '1 John 4:8': 'God is love—whoever lives in love lives in God.',
+  'Ephesians 5:2': 'Walk in love, just as Christ loved us and gave Himself for us.',
+  'Isaiah 26:3': 'God keeps in perfect peace those whose minds stay fixed on Him.',
+  'Psalms 4:8': 'In peace I will lie down and sleep, for the Lord alone makes me dwell in safety.',
+  'Deuteronomy 31:6': 'Be strong and courageous; the Lord goes with you and will never leave you.',
+  'Psalms 46:10': 'Be still and know that I am God; I will be exalted.',
+  'Genesis 1:27': 'God created mankind in His own image—you have dignity and worth.',
+  '1 Peter 2:9': 'You are chosen and belonging to God—declare His praises.',
+  'Romans 8:1': 'There is no condemnation for those who are in Christ Jesus.',
+  'Galatians 2:20': 'I no longer live, but Christ lives in me; I live by faith in the Son of God.',
+  'Proverbs 3:6': 'Acknowledge God in all your ways and He will direct your paths.',
+  'Romans 12:2': 'Don\'t copy the world; let God transform you by renewing your mind.',
+  'Matthew 28:19': 'Go and make disciples of all nations—Jesus sends you with purpose.',
+  'Proverbs 17:17': 'A friend loves at all times; a brother is born for adversity.',
+  'John 15:13': 'Greater love has no one than this: to lay down one\'s life for one\'s friends.',
+  '1 Thessalonians 5:18': 'Give thanks in all circumstances; this is God\'s will for you.',
+  'Psalms 100:4': 'Enter His gates with thanksgiving and His courts with praise.',
+  'Philippians 4:4': 'Rejoice in the Lord always; I will say it again: rejoice.',
+  'Psalms 16:11': 'In God\'s presence there is fullness of joy.',
+  'John 15:11': 'Jesus wants His joy to be in you so your joy may be complete.',
+  'James 4:7': 'Submit to God; resist the devil and he will flee from you.',
+  'Ephesians 6:11': 'Put on the full armor of God so you can stand against the devil\'s schemes.',
+  '1 Peter 5:8': 'Be alert; the devil prowls like a roaring lion looking for someone to devour.',
+  'Proverbs 3:24': 'When you lie down you will not be afraid; your sleep will be sweet.',
+  'Colossians 3:19': 'Husbands, love your wives and do not be harsh with them.',
+  'Ephesians 2:10': 'We are God\'s handiwork, created in Christ to do good works He prepared for us.',
+  '2 Timothy 1:9': 'God saved us and called us to a holy life—not because of what we did but because of His purpose.',
+  'Psalms 94:19': 'When anxiety was great within me, Your consolation brought me joy—God meets us in the overwhelm.',
+  'Nehemiah 8:10': 'The joy of the Lord is your strength—His gladness in you fuels you for the day.'
 };
 
 function getPlainMeaning(ref) {
@@ -1740,9 +1790,10 @@ function getDailyBattleFallback() {
  * Prefetch next N days of daily battles for offline use (Pro). Saves to localStorage under OFFLINE_BATTLE_KEY_PREFIX.
  * @param {number} days - number of days to prefetch (default OFFLINE_PREFETCH_DAYS)
  * @param {function(number, number)?} onProgress - callback(current, total) for UI progress
+ * @param {boolean} [isAuto=false] - if true, tracks offline_auto_prefetch and used by background auto-prefetch
  * @returns {Promise<{ ok: boolean, count: number, error?: string }>}
  */
-async function prefetchOfflineVerses(days, onProgress) {
+async function prefetchOfflineVerses(days, onProgress, isAuto) {
   const total = typeof days === 'number' && days > 0 ? days : OFFLINE_PREFETCH_DAYS;
   if (!Object.keys(bible).length) return { ok: false, count: 0, error: 'Bible not loaded' };
   let count = 0;
@@ -1770,11 +1821,34 @@ async function prefetchOfflineVerses(days, onProgress) {
     try {
       localStorage.setItem(OFFLINE_PREFETCH_LAST_KEY, new Date().toISOString());
     } catch (_) {}
-    if (typeof trackEvent === 'function') trackEvent('offline_prefetch', { days: total });
+    if (typeof trackEvent === 'function') trackEvent(isAuto ? 'offline_auto_prefetch' : 'offline_prefetch', { days: total });
     return { ok: true, count };
   } catch (e) {
     return { ok: false, count, error: (e && e.message) || 'Prefetch failed' };
   }
+}
+
+const OFFLINE_PREFETCH_THRESHOLD_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * Run 7-day offline prefetch in background if user is Pro, online, and last prefetch was >24h ago (or never).
+ * Called after sync completes. No UI progress; optional subtle toast on success.
+ */
+function runAutoPrefetchIfNeeded() {
+  if (typeof isProUser !== 'function' || !isProUser() || !navigator.onLine) return;
+  const lastRaw = localStorage.getItem(OFFLINE_PREFETCH_LAST_KEY);
+  if (lastRaw) {
+    const lastMs = new Date(lastRaw).getTime();
+    if (!isNaN(lastMs) && (Date.now() - lastMs) < OFFLINE_PREFETCH_THRESHOLD_MS) return;
+  }
+  (async function () {
+    try {
+      if (!Object.keys(bible).length && typeof loadBible === 'function') await loadBible(currentVersion);
+      if (!Object.keys(bible).length) return;
+      const result = await prefetchOfflineVerses(OFFLINE_PREFETCH_DAYS, null, true);
+      if (result.ok && typeof showEliteToast === 'function') showEliteToast('Offline cache updated.');
+    } catch (_) {}
+  })();
 }
 
 function normalizeBibleRef(ref) {
@@ -5463,8 +5537,11 @@ function isGospelBook(ref) {
   return ref.startsWith('Matthew ') || ref.startsWith('Mark ') || ref.startsWith('Luke ') || ref.startsWith('John ');
 }
 
+/** Only Gospels contain Jesus' direct words (red-letter). James, Hebrews, etc. are never red-letter. */
 function isRedLetterLike(ref, text) {
+  if (!ref || !text) return false;
   if (!isGospelBook(ref)) return false;
+  if (ref.startsWith('James ') || ref.startsWith('Jude ') || ref.startsWith('Hebrews ') || ref.startsWith('Revelation ')) return false;
   const speechRegex = /(jesus said|jesus saith|then said jesus|and jesus said|jesus answered|jesus cried|jesus spake|verily,? verily|i say unto you)/i;
   return speechRegex.test(text);
 }
@@ -5558,7 +5635,10 @@ function executeQuery(parsed, tier, filters) {
     if (topic && topic.verses && Array.isArray(topic.verses)) {
       topic.verses.forEach(ref => {
         const text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
-        if (text) results.verses.push({ ref, text: text });
+        if (text) {
+          const plainMeaning = (typeof getPlainMeaning === 'function' ? getPlainMeaning(ref) : '') || '';
+          results.verses.push({ ref, text: text, plain_meaning: plainMeaning });
+        }
       });
     }
     if (topic) results.guidance = topic.guidance[tier] || topic.guidance.adult;
@@ -6586,6 +6666,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     scheduleMessageLoad();
     scheduleAdminPanel();
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
+    if (typeof runAutoPrefetchIfNeeded === 'function') runAutoPrefetchIfNeeded();
   } else {
     updateAuthUI(null);
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
@@ -6629,6 +6710,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       scheduleMessageLoad();
       scheduleAdminPanel();
       if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
+      if (typeof runAutoPrefetchIfNeeded === 'function') runAutoPrefetchIfNeeded();
     } else {
       currentUserId = null;
       subscriptionTier = 'free';

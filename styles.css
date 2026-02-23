@@ -2553,6 +2553,23 @@ body.red-letter-off .red-letter-card {
   transition: opacity 0.2s ease;
 }
 
+.wins-graphic-wrap {
+  margin: var(--spacing-md) 0;
+}
+
+.wins-graphic-wrap canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.wins-report-section .cta-group {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .pinned-message {
   border-color: rgba(109, 40, 217, 0.35);
   background: rgba(109, 40, 217, 0.12);

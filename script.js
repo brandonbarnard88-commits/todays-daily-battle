@@ -4136,8 +4136,18 @@ function renderChurchPrayerListUI(items) {
     actions.className = 'item-actions';
     const markBtn = document.createElement('button');
     markBtn.textContent = prayed ? 'Unmark' : 'Prayed';
-    markBtn.onclick = () => {
-      if (sharedPrayersFromSupabase !== null) return;
+    markBtn.onclick = async () => {
+      if (sharedPrayersFromSupabase !== null && supabaseClient && row.id) {
+        const { error } = await supabaseClient.from('church_prayer_list').update({ prayed: !prayed }).eq('id', row.id);
+        if (!error) {
+          const idx = sharedPrayersFromSupabase.findIndex(function (r) { return r.id === row.id; });
+          if (idx >= 0) {
+            sharedPrayersFromSupabase[idx].prayed = !prayed;
+            renderChurchPrayerListUI(sharedPrayersFromSupabase);
+          }
+        }
+        return;
+      }
       const localItems = loadChurchPrayerList();
       const idx = localItems.findIndex(function (it) { return (it.id || it.id) === (row.id || row.id); });
       if (idx >= 0) {
@@ -8667,9 +8677,26 @@ document.addEventListener('DOMContentLoaded', async () => {
   const churchPrayerAdd = document.getElementById('church-prayer-add');
   const churchPrayerInput = document.getElementById('church-prayer-input');
   if (churchPrayerAdd && churchPrayerInput) {
-    churchPrayerAdd.addEventListener('click', () => {
+    churchPrayerAdd.addEventListener('click', async () => {
       const text = churchPrayerInput.value.trim();
       if (!text) return;
+      const useSupabase = sharedPrayersFromSupabase !== null && supabaseClient && currentChurch && currentChurch.id && currentUserId && typeof canUseSupabase === 'function' && canUseSupabase();
+      if (useSupabase) {
+        const { error } = await supabaseClient.from('church_prayer_list').insert({
+          church_id: currentChurch.id,
+          item: text,
+          prayed: false,
+          added_by_user_id: currentUserId
+        });
+        if (error) {
+          if (typeof showEliteToast === 'function') showEliteToast('Could not add prayer. Try again.');
+          return;
+        }
+        churchPrayerInput.value = '';
+        if (typeof showEliteToast === 'function') showEliteToast('Prayer added – shared live.');
+        if (typeof trackEvent === 'function') trackEvent('church_prayer_added', {});
+        return;
+      }
       const items = loadChurchPrayerList();
       items.push({ id: generateUuid(), text, prayed: false });
       saveChurchPrayerList(items);
@@ -8695,6 +8722,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   if (document.getElementById('church-verse-of-day')) {
+    if (typeof trackEvent === 'function') trackEvent('church_page_view', {});
     renderChurchExtras();
     if (currentChurch && currentChurch.id && currentUserId && typeof canUseSupabase === 'function' && canUseSupabase()) {
       subscribeToSharedPrayers(currentChurch.id);

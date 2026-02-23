@@ -1,11 +1,19 @@
 // Bump this when you deploy new JS/CSS so clients get fresh assets (e.g. tdb-static-YYYYMMDD).
-const CACHE_NAME = 'tdb-static-20260224';
+const CACHE_NAME = 'tdb-static-20260225';
 const CACHE_API = 'tdb-api-20260221';
 const CORE_ASSETS = [
   '/',
   '/index.html',
   '/wins-report.html',
   '/church.html',
+  '/reading-plan.html',
+  '/topic-anxiety.html',
+  '/topic-hope.html',
+  '/topic-strength.html',
+  '/topic-forgiveness.html',
+  '/topic-fear.html',
+  '/topic-grief.html',
+  '/topic-parenting.html',
   '/styles.css',
   '/script.js',
   '/manifest.json',

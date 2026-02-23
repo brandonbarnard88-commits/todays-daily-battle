@@ -87,10 +87,10 @@
             <a class="btn btn-secondary" href="sermon.html">Sermon Builder</a>
           </div>
         </header>
-        <section id="church-center" class="church-center glass">
-          <h2 class="section-divider">Church Verse of the Day</h2>
+        <section id="church-center" class="church-center glass" role="region" aria-labelledby="church-center-heading">
+          <h2 id="church-center-heading" class="section-divider">Church Verse of the Day</h2>
           <p class="section-note">Your church's chosen verse for today. Pastors can set it below.</p>
-          <div id="church-verse-of-day" class="verse-card" style="min-height:60px;"><p class="section-note">Join a church to see the church verse of the day.</p></div>
+          <div id="church-verse-of-day" class="verse-card" style="min-height:60px;" aria-live="polite" aria-atomic="true"><p class="section-note">Join a church to see the church verse of the day.</p></div>
           <div id="church-verse-admin" style="display:none; margin-top:0.75rem;">
             <label for="church-verse-ref">Set verse (e.g. Psalm 23:1)</label>
             <input id="church-verse-ref" type="text" placeholder="Verse reference">
@@ -114,7 +114,7 @@
             <button id="church-assign-btn" type="button" class="btn btn-secondary">Assign</button>
           </div>
           <h3 class="section-divider">My assigned reading</h3>
-          <div id="church-assigned-list" class="list"></div>
+          <div id="church-assigned-list" class="list" role="list" aria-label="Assigned reading list"></div>
 
           <h2 class="section-divider">Find Your Church</h2>
           <p class="section-note">Search by name or city and view weekly sermons.</p>

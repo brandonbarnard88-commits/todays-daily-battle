@@ -42,8 +42,14 @@
           <div id="wins-stats" class="wins-stats" aria-live="polite">
             <p class="section-note">Loading your wins…</p>
           </div>
+          <div id="wins-graphic-wrap" class="wins-graphic-wrap" style="display: none;">
+            <p class="section-note">Shareable graphic</p>
+            <canvas id="wins-graphic-canvas" width="800" height="400" aria-hidden="true"></canvas>
+          </div>
           <div class="cta-group" id="wins-actions" style="display: none;">
             <button type="button" id="wins-copy-btn" class="btn btn-primary">Copy my Wins</button>
+            <button type="button" id="wins-copy-short-btn" class="btn btn-secondary">Copy short share</button>
+            <button type="button" id="wins-download-btn" class="btn btn-secondary">Download image</button>
             <a href="/" class="btn btn-secondary">Back to Daily Battle</a>
           </div>
           <p id="wins-copy-status" class="section-note" style="margin-top: 0.5rem; display: none;" role="status"></p>
@@ -71,57 +77,129 @@
       var copyBtn = document.getElementById('wins-copy-btn');
       var copyStatus = document.getElementById('wins-copy-status');
 
+      var winsData = { streakCount: 0, lastKey: '', prayerCount: 0 };
+
       function loadWins() {
-        var streakCount = 0;
-        var lastKey = '';
-        var prayerCount = 0;
         try {
           var streakRaw = localStorage.getItem(STREAK_KEY);
           if (streakRaw) {
             var data = JSON.parse(streakRaw);
-            streakCount = Number(data.count) || 0;
-            lastKey = data.lastKey || '';
+            winsData.streakCount = Number(data.count) || 0;
+            winsData.lastKey = data.lastKey || '';
           }
           var listRaw = localStorage.getItem(PRAYER_KEY);
           if (listRaw) {
             var list = JSON.parse(listRaw);
-            prayerCount = Array.isArray(list) ? list.length : 0;
+            winsData.prayerCount = Array.isArray(list) ? list.length : 0;
           }
         } catch (e) {}
 
-        var html = '<p class="section-note"><strong>Current streak:</strong> ' + streakCount + ' day' + (streakCount === 1 ? '' : 's') + '</p>';
+        var sc = winsData.streakCount;
+        var lastKey = winsData.lastKey;
+        var prayerCount = winsData.prayerCount;
+
+        var html = '<p class="section-note"><strong>Current streak:</strong> ' + sc + ' day' + (sc === 1 ? '' : 's') + '</p>';
         if (lastKey) html += '<p class="section-note"><strong>Last verse day:</strong> ' + lastKey + '</p>';
         if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
-        if (streakCount === 0 && !lastKey) html = '<p class="section-note">No streak yet. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
+        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak yet. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
 
         statsEl.innerHTML = html;
-        if (streakCount > 0 || prayerCount > 0) actionsEl.style.display = 'flex';
+        if (sc > 0 || prayerCount > 0) {
+          actionsEl.style.display = 'flex';
+          var wrap = document.getElementById('wins-graphic-wrap');
+          if (wrap) {
+            wrap.style.display = 'block';
+            drawWinsGraphic(winsData);
+          }
+        }
+      }
+
+      function drawWinsGraphic(data) {
+        var canvas = document.getElementById('wins-graphic-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var w = canvas.width;
+        var h = canvas.height;
+
+        var grad = ctx.createLinearGradient(0, 0, w, h);
+        grad.addColorStop(0, '#0f172a');
+        grad.addColorStop(0.5, '#1e293b');
+        grad.addColorStop(1, '#0f172a');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.fillStyle = 'rgba(76, 175, 80, 0.15)';
+        ctx.fillRect(0, h * 0.6, w, h * 0.4);
+
+        ctx.fillStyle = '#e2e8f0';
+        ctx.font = 'bold 72px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(String(data.streakCount), w / 2, h * 0.38);
+        ctx.font = '28px Georgia, serif';
+        ctx.fillStyle = 'rgba(226, 232, 240, 0.9)';
+        ctx.fillText('day streak', w / 2, h * 0.48);
+        ctx.font = '22px Georgia, serif';
+        ctx.fillStyle = 'rgba(226, 232, 240, 0.75)';
+        ctx.fillText('Less scroll, more soul.', w / 2, h * 0.58);
+        ctx.font = '18px Georgia, serif';
+        ctx.fillStyle = 'rgba(148, 163, 184, 0.9)';
+        ctx.fillText('Today\'s Daily Battle • 2026', w / 2, h * 0.72);
       }
 
       function buildShareText() {
-        var streakCount = 0;
-        try {
-          var raw = localStorage.getItem(STREAK_KEY);
-          if (raw) streakCount = Number(JSON.parse(raw).count) || 0;
-        } catch (e) {}
-        return 'My 2026 Wins: ' + streakCount + ' day streak on Today\'s Daily Battle. Less scroll, more soul. https://todaysdailybattle.com #TodaysDailyBattle';
+        var sc = winsData.streakCount;
+        return 'My 2026 Wins: ' + sc + ' day streak on Today\'s Daily Battle. Less scroll, more soul. https://todaysdailybattle.com #TodaysDailyBattle';
+      }
+
+      function buildShortShareText() {
+        var sc = winsData.streakCount;
+        return sc + ' day streak @ TodaysDailyBattle • https://todaysdailybattle.com';
+      }
+
+      function doCopy(text, successMsg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() {
+            copyStatus.textContent = successMsg || 'Copied!';
+            copyStatus.style.display = 'block';
+            setTimeout(function() { copyStatus.style.display = 'none'; }, 3000);
+            if (window.gtag) window.gtag('event', 'wins_copy', {});
+          }).catch(function() {
+            copyStatus.textContent = 'Could not copy. Select and copy manually.';
+            copyStatus.style.display = 'block';
+          });
+        } else {
+          copyStatus.textContent = 'Select the text below and copy.';
+          copyStatus.style.display = 'block';
+        }
       }
 
       if (copyBtn) {
         copyBtn.addEventListener('click', function() {
-          var text = buildShareText();
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function() {
-              copyStatus.textContent = 'Copied! Paste anywhere to share.';
-              copyStatus.style.display = 'block';
-              setTimeout(function() { copyStatus.style.display = 'none'; }, 3000);
-              if (window.gtag) window.gtag('event', 'wins_copy', {});
-            }).catch(function() {
-              copyStatus.textContent = 'Could not copy. Select and copy manually.';
-              copyStatus.style.display = 'block';
-            });
-          } else {
-            copyStatus.textContent = 'Select the text below and copy.';
+          doCopy(buildShareText(), 'Copied! Paste anywhere to share.');
+        });
+      }
+
+      var copyShortBtn = document.getElementById('wins-copy-short-btn');
+      if (copyShortBtn) {
+        copyShortBtn.addEventListener('click', function() {
+          doCopy(buildShortShareText(), 'Short share copied!');
+        });
+      }
+
+      var downloadBtn = document.getElementById('wins-download-btn');
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+          drawWinsGraphic(winsData);
+          var canvas = document.getElementById('wins-graphic-canvas');
+          if (!canvas) return;
+          try {
+            var link = document.createElement('a');
+            link.download = 'my-wins-todaysdailybattle.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            if (window.gtag) window.gtag('event', 'wins_download', {});
+          } catch (e) {
+            copyStatus.textContent = 'Download not supported in this browser.';
             copyStatus.style.display = 'block';
           }
         });

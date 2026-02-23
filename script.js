@@ -5255,9 +5255,10 @@ function parseQuery(input) {
   const keywords = tokens.length > 0 ? tokens : rawTokens;
   const expandedKeywords = expandKeywords(keywords);
 
-  // Single-word query: if it exactly matches a topic synonym, use that topic (e.g. "selfless" -> love)
+  // Single-word query: if it exactly matches a topic name or synonym, use that topic (e.g. "anxiety" -> anxiety, "selfless" -> love)
   const singleWord = rawTokens.length === 1 ? normalized : null;
   if (singleWord) {
+    if (topics[singleWord]) return { intent: 'topic', payload: { topic: singleWord } };
     for (const topic of Object.keys(topics)) {
       if (topics[topic].synonyms.some(function (syn) { return syn === singleWord; })) {
         return { intent: 'topic', payload: { topic: topic } };
@@ -5416,12 +5417,16 @@ function executeQuery(parsed, tier, filters) {
     const key = parsed.payload;
     if (bible[key]) results.verses.push({ ref: key, text: bible[key] });
   } else if (parsed.intent === 'topic') {
-    const topic = topics[parsed.payload.topic];
-    results.topic = parsed.payload.topic;
-    topic.verses.forEach(ref => {
-      if (bible[ref]) results.verses.push({ ref, text: bible[ref] });
-    });
-    results.guidance = topic.guidance[tier] || topic.guidance.adult;
+    const topicKey = parsed.payload && parsed.payload.topic;
+    const topic = topicKey ? topics[topicKey] : null;
+    results.topic = topicKey;
+    if (topic && topic.verses && Array.isArray(topic.verses)) {
+      topic.verses.forEach(ref => {
+        const text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+        if (text) results.verses.push({ ref, text: text });
+      });
+    }
+    if (topic) results.guidance = topic.guidance[tier] || topic.guidance.adult;
     if (tier === 'kid' || tier === 'teen') {
       results.activities = KID_ACTIVITIES[results.topic]?.[tier] || null;
     }
@@ -6135,7 +6140,13 @@ function renderResults(results) {
     renderSection('Related Topics', relatedMatches, 4, isJesusSaidQuery);
   }
 
-  renderSection(results.intent === 'keyword' ? 'Keyword Matches' : 'Results', verses, 6, isJesusSaidQuery);
+  var resultsTitle = 'Results';
+  if (results.intent === 'topic' && results.topic) {
+    resultsTitle = 'Verses on ' + (results.topic.charAt(0).toUpperCase() + results.topic.slice(1));
+  } else if (results.intent === 'keyword') {
+    resultsTitle = 'Keyword Matches';
+  }
+  renderSection(resultsTitle, verses, 6, isJesusSaidQuery);
   const contextNote = document.createElement('div');
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';

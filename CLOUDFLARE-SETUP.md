@@ -23,3 +23,7 @@ That way Cloudflare deploys the whole repo as-is and config.js is included. If y
 
 ## 4. After build succeeds
 Open https://todaysdailybattle.com/config.js — you should see `window.TDB_CONFIG = { ... }`. Then sign-in will work on the site.
+
+## 5. Supabase Auth (Dashboard)
+- **Redirect URLs:** In Supabase → Authentication → URL Configuration, add your site URL and the reset page, e.g. `https://todaysdailybattle.com` and `https://todaysdailybattle.com/reset.html`, so sign-up and “Forgot password” links work.
+- **Optional – instant sign-in:** If you want new users to use the app without verifying email first, in Authentication → Providers → Email turn **off** “Confirm email”. Otherwise they must click the link in the verification email before they can log in.

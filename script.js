@@ -866,11 +866,9 @@ function getAuthStatusEl() {
   if (!status) {
     status = document.createElement('div');
     status.id = 'auth-status';
+    status.className = 'auth-status-message';
     status.setAttribute('aria-live', 'polite');
     status.setAttribute('role', 'status');
-    status.style.marginTop = '0.6rem';
-    status.style.fontSize = '0.9rem';
-    status.style.textAlign = 'center';
     authSection.appendChild(status);
   }
   return status;
@@ -878,15 +876,74 @@ function getAuthStatusEl() {
 
 function setAuthStatus(message, type = 'info') {
   const status = getAuthStatusEl();
-  if (!status) return;
-  const colors = {
-    info: '#0f172a',
-    success: '#15803d',
-    error: '#b91c1c'
-  };
-  status.style.color = colors[type] || colors.info;
-  status.style.fontWeight = (message && message.indexOf('Sign-in is optional') !== -1) ? '600' : '';
-  status.textContent = message;
+  if (status) {
+    const colors = {
+      info: 'var(--text-muted)',
+      success: '#22c55e',
+      error: '#ef4444'
+    };
+    status.style.color = colors[type] || colors.info;
+    status.style.fontWeight = (message && message.indexOf('Sign-in is optional') !== -1) ? '600' : '';
+    status.textContent = message;
+    status.style.display = message ? 'block' : 'none';
+    // Scroll into view so user sees feedback (e.g. after Forgot password)
+    const details = document.getElementById('auth-details');
+    if (details && message && (type === 'success' || type === 'error')) {
+      details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  } else if (message && (type === 'success' || type === 'error')) {
+    // Fallback when auth-section is missing (e.g. some pages): show alert so something happens
+    window.alert(message);
+  }
+}
+
+function showResendVerificationUI(email) {
+  const authSection = document.getElementById('auth-section');
+  if (!authSection) return;
+  let wrap = document.getElementById('auth-resend-wrap');
+  if (!wrap) {
+    wrap = document.createElement('div');
+    wrap.id = 'auth-resend-wrap';
+    wrap.className = 'auth-resend-wrap';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'link-button';
+    btn.id = 'auth-resend-btn';
+    btn.textContent = 'Resend verification email';
+    wrap.appendChild(btn);
+    authSection.appendChild(wrap);
+    btn.addEventListener('click', async () => {
+      const em = (document.getElementById('email') && document.getElementById('email').value) ? document.getElementById('email').value.trim().toLowerCase() : (wrap._lastEmail || '');
+      if (!em) {
+        setAuthStatus('Enter your email above, then click Resend.', 'error');
+        return;
+      }
+      if (!supabaseClient) {
+        setAuthStatus('Loading…', 'info');
+        const ready = await ensureSupabaseLoaded();
+        if (!ready || !supabaseClient) {
+          setAuthStatus('Try again in a moment.', 'error');
+          return;
+        }
+      }
+      btn.disabled = true;
+      setAuthStatus('Sending again…', 'info');
+      const { error } = await supabaseClient.auth.resend({ type: 'signup', email: em });
+      btn.disabled = false;
+      if (error) {
+        setAuthStatus(error.message, 'error');
+        return;
+      }
+      setAuthStatus('Verification email sent again. Check your inbox and spam.', 'success');
+    });
+  }
+  wrap._lastEmail = email;
+  wrap.style.display = 'block';
+}
+
+function hideResendVerificationUI() {
+  const wrap = document.getElementById('auth-resend-wrap');
+  if (wrap) wrap.style.display = 'none';
 }
 
 async function reportSupabaseDiagnostics() {
@@ -3766,6 +3823,7 @@ function updateAuthUI(session) {
   const authStatus = document.getElementById('auth-status');
   let loggedInEl = document.getElementById('auth-logged-in');
   if (session) {
+    hideResendVerificationUI();
     if (emailEl) emailEl.style.display = 'none';
     if (passwordEl) passwordEl.style.display = 'none';
     if (accountTypeEl) accountTypeEl.style.display = 'none';
@@ -6456,6 +6514,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       const redirectUrl = getAuthRedirectBase();
       signupBtn.disabled = true;
+      setAuthStatus('Creating account…', 'info');
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
@@ -6467,12 +6526,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       if (data?.session) {
-        setAuthStatus('Signed up and logged in!', 'success');
+        setAuthStatus("You're in! Account created and you're logged in.", 'success');
         bumpStat('signups');
         updateAuthUI(data.session);
       } else {
-        setAuthStatus('Signed up! Check your email to confirm.', 'success');
+        setAuthStatus('Account created! Check your inbox at ' + email + ' for a verification link. Check spam too.', 'success');
         bumpStat('signups');
+        showResendVerificationUI(email);
       }
     });
   }
@@ -6497,29 +6557,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       }
       loginBtn.disabled = true;
+      setAuthStatus('Signing in…', 'info');
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
       loginBtn.disabled = false;
       if (error) {
         const msg = (error.message || '').toLowerCase();
-        if (msg.includes('invalid') && msg.includes('credential')) {
-          setAuthStatus('Invalid email or password. New user? Check your email to confirm your account, or use Forgot password?', 'error');
+        if (msg.includes('invalid') && (msg.includes('credential') || msg.includes('credentials'))) {
+          setAuthStatus('Wrong email or password. New? Check your inbox for the verification link, or use Forgot password below.', 'error');
         } else {
           setAuthStatus(error.message, 'error');
         }
         return;
       }
-      else {
-        const userTier = data.user.user_metadata.tier || 'adult';
-        currentUserRole = data.user.user_metadata.role || 'member';
-        const tierEl = document.getElementById('tier');
-        if (tierEl) tierEl.value = userTier;
-        setAuthStatus('Logged in!', 'success');
-        bumpStat('logins');
-        updateAuthUI(data.session);
-        updateRoleViews();
-        renderDashboard(currentUserRole);
-        setView('dashboard');
-      }
+      const userTier = data.user.user_metadata.tier || 'adult';
+      currentUserRole = data.user.user_metadata.role || 'member';
+      const tierEl = document.getElementById('tier');
+      if (tierEl) tierEl.value = userTier;
+      setAuthStatus("You're in! Welcome back.", 'success');
+      bumpStat('logins');
+      updateAuthUI(data.session);
+      updateRoleViews();
+      renderDashboard(currentUserRole);
+      setView('dashboard');
     });
   }
 
@@ -6527,28 +6586,31 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (forgotBtn) {
     forgotBtn.addEventListener('click', async () => {
       const emailEl = document.getElementById('email');
-      const email = emailEl ? emailEl.value : '';
-      if (!email) {
-        setAuthStatus('Please enter your email first.', 'error');
+      const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
+      if (!email || !email.includes('@')) {
+        setAuthStatus('Enter your email above, then click Forgot password.', 'error');
         return;
       }
       if (!supabaseClient) {
-        setAuthStatus('Loading sign-in…', 'info');
+        setAuthStatus('Loading…', 'info');
         const ready = await ensureSupabaseLoaded();
         if (!ready || !supabaseClient) {
-          setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+          setAuthStatus('Sign-in is still loading. Try again in a moment.', 'error');
           return;
         }
       }
+      setAuthStatus('Sending reset link…', 'info');
+      forgotBtn.disabled = true;
       const baseUrl = getAuthRedirectBase();
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
         redirectTo: `${baseUrl}/reset.html`
       });
+      forgotBtn.disabled = false;
       if (error) {
         setAuthStatus(error.message, 'error');
         return;
       }
-      setAuthStatus('Password reset email sent. Check your inbox.', 'success');
+      setAuthStatus('Reset link sent! Check your inbox (and spam) for ' + email, 'success');
     });
   }
 

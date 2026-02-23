@@ -6560,8 +6560,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+      if (!registration) return;
       var checkForUpdates = function () {
-        registration.update();
+        try {
+          if (registration) registration.update();
+        } catch (e) {}
       };
       registration.addEventListener('updatefound', function () {
         var newWorker = registration.installing;

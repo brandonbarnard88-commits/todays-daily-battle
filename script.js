@@ -4106,6 +4106,7 @@ function saveChurchPrayerList(items) {
 
 let churchPrayerRealtimeChannel = null;
 let sharedPrayersFromSupabase = null;
+let churchVerseFromSupabase = null;
 
 function unsubscribeFromSharedPrayers() {
   if (churchPrayerRealtimeChannel && supabaseClient) {
@@ -4115,6 +4116,7 @@ function unsubscribeFromSharedPrayers() {
     churchPrayerRealtimeChannel = null;
   }
   sharedPrayersFromSupabase = null;
+  churchVerseFromSupabase = null;
 }
 
 function renderChurchPrayerListUI(items) {
@@ -4179,6 +4181,29 @@ function updatePrayerListFromPayload(payload) {
     sharedPrayersFromSupabase = sharedPrayersFromSupabase.filter(function (r) { return r.id !== oldId; });
   }
   renderChurchPrayerListUI(sharedPrayersFromSupabase);
+  refreshChurchProgress();
+}
+
+function refreshChurchProgress() {
+  const wrap = document.getElementById('church-progress-wrap');
+  const textEl = document.getElementById('church-progress-text');
+  const fillEl = document.getElementById('church-progress-fill');
+  const barEl = document.querySelector('.church-progress-bar');
+  if (!wrap || !textEl || !fillEl) return;
+  if (!Array.isArray(sharedPrayersFromSupabase) || sharedPrayersFromSupabase.length === 0) {
+    wrap.style.display = 'none';
+    return;
+  }
+  const total = sharedPrayersFromSupabase.length;
+  const prayed = sharedPrayersFromSupabase.filter(function (r) { return r.prayed; }).length;
+  const pct = total ? Math.round((prayed / total) * 100) : 0;
+  wrap.style.display = 'block';
+  textEl.textContent = prayed + ' of ' + total + ' prayers prayed';
+  if (barEl) {
+    barEl.setAttribute('aria-valuenow', pct);
+    barEl.setAttribute('aria-valuemax', 100);
+  }
+  fillEl.style.width = pct + '%';
 }
 
 function subscribeToSharedPrayers(churchId) {
@@ -4190,13 +4215,29 @@ function subscribeToSharedPrayers(churchId) {
     .on('postgres_changes', { event: '*', schema: 'public', table: 'church_prayer_list', filter: 'church_id=eq.' + churchId }, function (payload) {
       updatePrayerListFromPayload(payload);
     })
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'church_verse_of_day', filter: 'church_id=eq.' + churchId }, function (payload) {
+      const row = payload.new;
+      if (row && row.verse_ref) {
+        churchVerseFromSupabase = { ref: row.verse_ref };
+        renderChurchExtras();
+      } else {
+        churchVerseFromSupabase = null;
+        renderChurchExtras();
+      }
+    })
     .subscribe(function (status) {
       if (status === 'SUBSCRIBED') {
         supabaseClient.from('church_prayer_list').select('id, item, prayed, created_at').eq('church_id', churchId).order('created_at', { ascending: true }).then(function (result) {
           if (result.data && Array.isArray(result.data)) {
             sharedPrayersFromSupabase = result.data.map(function (r) { return { id: r.id, text: r.item, item: r.item, prayed: !!r.prayed, created_at: r.created_at }; });
             renderChurchPrayerListUI(sharedPrayersFromSupabase);
+            refreshChurchProgress();
           }
+        }).catch(function () {});
+        supabaseClient.from('church_verse_of_day').select('verse_ref').eq('church_id', churchId).maybeSingle().then(function (r) {
+          if (r.data && r.data.verse_ref) churchVerseFromSupabase = { ref: r.data.verse_ref };
+          else churchVerseFromSupabase = null;
+          renderChurchExtras();
         }).catch(function () {});
       }
     });
@@ -8595,7 +8636,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (assignWrap) assignWrap.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
     if (verseEl) {
       if (currentChurch) {
-        const data = loadChurchVerseOfDay();
+        const data = (churchVerseFromSupabase && churchVerseFromSupabase.ref) ? churchVerseFromSupabase : loadChurchVerseOfDay();
         if (data && data.ref) {
           const text = (typeof bible !== 'undefined' && bible[data.ref]) ? bible[data.ref] : '';
           verseEl.innerHTML = '<strong>' + escapeHtml(data.ref) + '</strong>' + (text ? '<p>' + escapeHtml(text) + '</p>' : '<p class="section-note"><a href="/?ref=' + encodeURIComponent(data.ref) + '">Read ' + escapeHtml(data.ref) + '</a></p>');
@@ -8665,11 +8706,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   const churchVerseSet = document.getElementById('church-verse-set');
   const churchVerseRef = document.getElementById('church-verse-ref');
   if (churchVerseSet && churchVerseRef) {
-    churchVerseSet.addEventListener('click', () => {
+    churchVerseSet.addEventListener('click', async () => {
       const ref = churchVerseRef.value.trim();
       if (!ref) return;
       saveChurchVerseOfDay(ref);
       churchVerseRef.value = '';
+      const useSupabase = supabaseClient && currentChurch && currentChurch.id && currentUserId && typeof canUseSupabase === 'function' && canUseSupabase();
+      if (useSupabase) {
+        const { error } = await supabaseClient.from('church_verse_of_day').upsert(
+          { church_id: currentChurch.id, verse_ref: ref, set_by_user_id: currentUserId },
+          { onConflict: 'church_id' }
+        );
+        if (!error) {
+          churchVerseFromSupabase = { ref: ref };
+          if (typeof showEliteToast === 'function') showEliteToast('Verse updated – shared with your church.');
+        }
+      }
       renderChurchExtras();
       if (typeof trackEvent === 'function') trackEvent('church_verse_set', { verse_ref: ref });
     });

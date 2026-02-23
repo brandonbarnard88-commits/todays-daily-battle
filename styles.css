@@ -2553,6 +2553,26 @@ body.red-letter-off .red-letter-card {
   transition: opacity 0.2s ease;
 }
 
+.church-progress-wrap {
+  margin: var(--spacing-md) 0;
+}
+
+.church-progress-bar {
+  height: 8px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 0.35rem;
+}
+
+.church-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-accent);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
 .wins-graphic-wrap {
   margin: var(--spacing-md) 0;
 }

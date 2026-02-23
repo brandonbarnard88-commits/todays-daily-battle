@@ -104,6 +104,13 @@
             <button id="church-prayer-add" type="button" class="btn btn-primary">Add</button>
             <ul id="church-prayer-list" class="list" aria-live="polite" aria-atomic="false"></ul>
           </div>
+          <div id="church-progress-wrap" class="church-progress-wrap" style="display: none;" aria-live="polite">
+            <h3 class="section-divider">Group Prayer Progress</h3>
+            <p id="church-progress-text" class="section-note">—</p>
+            <div class="church-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Prayers prayed">
+              <div id="church-progress-fill" class="church-progress-fill"></div>
+            </div>
+          </div>
           <p class="section-note prayer-sync-note">Saved on this device. Sign in to sync your prayer list across phone and computer.</p>
 
           <h2 class="section-divider">Assign Reading (Pastors)</h2>

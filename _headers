@@ -3,6 +3,6 @@
 # If fonts or CDN scripts break, add style-src/font-src/script-src origins (see docs/SECURITY-HARDENING.md).
 /*
   Strict-Transport-Security: max-age=31536000
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self' https://*.supabase.co https://rixsnhpwrlbvvymkfamj.supabase.co wss://*.supabase.co; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self' https://*.supabase.co https://rixsnhpwrlbvvymkfamj.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

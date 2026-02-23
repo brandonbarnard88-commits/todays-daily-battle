@@ -816,8 +816,9 @@ function getSupabaseGlobal() {
   return null;
 }
 
+var supabaseGlobalOptions = { global: { headers: { Accept: 'application/json', 'Content-Type': 'application/json' } } };
 let supabaseClient = (getSupabaseGlobal() && supabaseUrl && supabaseKey)
-  ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey)
+  ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions)
   : null;
 
 function isSupabaseConfigured() {
@@ -831,7 +832,7 @@ function initSupabaseClient() {
   if (supabaseClient) return true;
   const sdk = getSupabaseGlobal();
   if (!sdk || !supabaseUrl || !supabaseKey) return false;
-  supabaseClient = sdk.createClient(supabaseUrl, supabaseKey);
+  supabaseClient = sdk.createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions);
   return Boolean(supabaseClient);
 }
 
@@ -6573,61 +6574,44 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   if ('serviceWorker' in navigator) {
     (function () {
-      function safeUpdate() {
-        navigator.serviceWorker.getRegistration('/').then(function (reg) {
-          if (!reg || typeof reg.update !== 'function') return;
-          try {
-            reg.update();
-          } catch (e) {
-            if (typeof console !== 'undefined' && console.error) {
-              console.error('Service Worker update failed:', e);
-            }
+      function registerSW() {
+        return new Promise(function (resolve, reject) {
+          if (typeof console !== 'undefined' && console.log) {
+            console.log('Trying to register SW...');
           }
-        }).catch(function () {});
-      }
-      function initSW() {
-        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-          .then(function (reg) {
-            if (!reg) return;
-            if (typeof console !== 'undefined' && console.log) {
-              console.log('SW registered, scope:', reg.scope);
-            }
-            reg.addEventListener('updatefound', function () {
-              try {
-                var newWorker = reg.installing;
-                if (!newWorker) return;
-                if (typeof console !== 'undefined' && console.log) {
-                  console.log('New SW version found – installing...');
-                }
-                newWorker.addEventListener('statechange', function () {
-                  try {
-                    if (newWorker && newWorker.state === 'installed') newWorker.postMessage({ type: 'SKIP_WAITING' });
-                  } catch (e) {}
-                });
-              } catch (e) {}
-            });
-            if (reg.waiting) reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-            navigator.serviceWorker.addEventListener('controllerchange', function () {
-              window.location.reload();
-            });
-            setInterval(safeUpdate, 60 * 1000);
-            window.addEventListener('focus', safeUpdate);
-            navigator.serviceWorker.getRegistration('/').then(function (freshReg) {
-              if (freshReg && typeof freshReg.update === 'function') {
-                try { freshReg.update(); } catch (e) {}
+          navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then(function (reg) {
+              if (!reg) { resolve(null); return; }
+              if (typeof console !== 'undefined' && console.log) {
+                console.log('Success! Scope:', reg.scope);
               }
-            }).catch(function () {});
-          })
-          .catch(function (err) {
-            if (typeof console !== 'undefined' && console.error) {
-              console.error('SW failed:', err);
-            }
-          });
+              navigator.serviceWorker.getRegistration('/').then(function (fresh) {
+                if (fresh && (fresh.active || fresh.installing || fresh.waiting)) {
+                  try {
+                    fresh.update().then(function () {
+                      if (typeof console !== 'undefined' && console.log) console.log('Updated!');
+                    }).catch(function () {});
+                  } catch (e) {}
+                } else {
+                  if (typeof console !== 'undefined' && console.log) {
+                    console.log('No active SW yet – skipping update');
+                  }
+                }
+                resolve(reg);
+              }).catch(function () { resolve(reg); });
+            })
+            .catch(function (e) {
+              if (typeof console !== 'undefined' && console.error) {
+                console.error('SW registration failed:', e.message);
+              }
+              reject(e);
+            });
+        });
       }
       if (document.readyState === 'complete') {
-        initSW();
+        registerSW();
       } else {
-        window.addEventListener('load', initSW);
+        window.addEventListener('load', function () { registerSW(); });
       }
     })();
   }

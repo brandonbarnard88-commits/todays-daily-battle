@@ -1635,7 +1635,8 @@ input, select, textarea {
   background: rgba(255,255,255,0.4);
   color: inherit;
   font-size: 1.1rem;
-  min-width: 220px;
+  min-width: 0;
+  max-width: 100%;
   line-height: 1.4;
 }
 
@@ -1803,7 +1804,7 @@ textarea:focus-visible {
   display: grid;
   flex: 1;
   gap: 0.6rem;
-  min-width: 240px;
+  min-width: 0;
 }
 
 .search-actions {
@@ -2989,23 +2990,61 @@ body.red-letter-off .red-letter-card {
 
 @media (max-width: 768px) {
   /* Legible text, thumb-friendly taps, no horizontal scroll */
-  html { font-size: 18px; overflow-x: hidden; }
-  body { font-size: 20px; overflow-x: hidden; max-width: 100vw; }
-  h1 { font-size: 2.5rem; }
+  html { font-size: 16px; overflow-x: hidden; }
+  body { font-size: 1rem; overflow-x: hidden; max-width: 100vw; }
+  h1 { font-size: 1.75rem; }
   .card { width: 100%; max-width: 100%; }
-  .app-content { max-width: 100%; }
-  .content-inner { max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
+  .app-content { max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
+  .content-inner { max-width: 100%; padding-left: 0.75rem; padding-right: 0.75rem; }
+  #main-search,
+  .controls.glass,
+  .glass {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.25rem 1rem;
+  }
+  .search-stack { width: 100%; min-width: 0; }
+  .search-stack input {
+    width: 100%;
+    min-height: 52px;
+    font-size: 18px;
+    padding: 0.875rem 1rem;
+  }
+  .search-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+  .search-actions .btn { width: 100%; min-height: 52px; font-size: 1.1rem; }
+  input, select, textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    font-size: 18px;
+    padding: 0.75rem 1rem;
+  }
   .card-actions .btn,
   .daily-battle-actions .btn,
   .verse-card .btn,
   .share-btn, .pray-btn {
-    min-height: 60px;
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
+    min-height: 56px;
+    font-size: 1.15rem;
+    padding: 1rem 1.5rem;
   }
-  .verse-card strong { font-size: clamp(1.25rem, 4vw, 1.5rem); }
-  .verse-card p,
-  .section-note { font-size: 1.05rem; min-height: 1.4em; }
+  .verse-card {
+    padding: 1.5rem 1.25rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  .verse-card strong { font-size: 1.5rem; line-height: 1.3; }
+  .verse-card p { font-size: 1.15rem; line-height: 1.65; }
+  .section-note { font-size: 1.05rem; line-height: 1.5; }
+  .hero-banner {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+  .hero-banner h1 { font-size: 1.85rem; margin: 0 0 0.35rem; }
+  .hero-banner .hero-tagline,
+  .hero-banner p { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .top-bar { padding: 0.75rem 0.75rem; }
+  .brand-title { font-size: 1.1rem; }
   .app-shell {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -3310,50 +3349,61 @@ body.red-letter-off .red-letter-card {
 }
 
 @media (max-width: 480px) {
-  .app-content { padding: 1rem 0.85rem 1.75rem; padding-bottom: max(1.75rem, env(safe-area-inset-bottom)); }
+  .app-content {
+    padding: 1rem 0.75rem 1.75rem;
+    padding-bottom: max(1.75rem, env(safe-area-inset-bottom));
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
   .app-shell::before { opacity: 0.35; }
   .app-shell::after { background: linear-gradient(180deg, rgba(2, 6, 23, 0.45), rgba(2, 6, 23, 0.7)); }
   .sidebar { width: 220px; }
   .side-nav { gap: 0.35rem; }
   .side-nav a { padding: 0.5rem 0.6rem; font-size: 0.9rem; min-height: 48px; }
-  .hero-banner { padding: 1rem 1.1rem; }
-  .glass { padding: 1.15rem; }
-  .hero { height: auto; min-height: 220px; padding: 2rem 0 2.2rem; }
-  h1 { font-size: 2.1rem; }
+  .hero-banner { padding: 1rem 0.75rem; }
+  .glass { padding: 1rem; max-width: 100%; }
+  .hero { height: auto; min-height: 200px; padding: 1.5rem 0 1.75rem; }
+  h1 { font-size: 1.85rem; }
   .hero p { font-size: 1.1rem; }
-  .container { margin-top: 0; padding: 0 14px 40px; }
+  .container { margin-top: 0; padding: 0 0.75rem 2rem; max-width: 100%; }
   .site-nav { grid-template-columns: repeat(2, minmax(90px, 1fr)); gap: 0.4rem; }
-  .auth-compact { margin-bottom: 0.5rem; }
+  .auth-compact { margin-bottom: 0.5rem; width: 100%; }
   .auth-compact input,
   .auth-compact select,
-  .auth-compact button { width: 100%; min-height: 48px; font-size: 1rem; }
-  .auth-inline { gap: 0.5rem; }
-  .auth-inline input, .auth-inline select, .auth-inline button { min-width: 0; }
-  .search-actions { grid-template-columns: 1fr; }
-  .search-actions button { width: 100%; min-height: 48px; font-size: 1rem; }
+  .auth-compact button { width: 100%; min-width: 0; min-height: 52px; font-size: 18px; }
+  .auth-inline { gap: 0.5rem; flex-wrap: wrap; }
+  .auth-inline input, .auth-inline select, .auth-inline button { min-width: 0; width: 100%; }
+  #main-search, .controls.glass { padding: 1rem 0.75rem; width: 100%; }
+  .search-stack { width: 100%; min-width: 0; }
+  .search-stack input { width: 100%; min-width: 0; min-height: 52px; font-size: 18px; }
+  .search-actions { grid-template-columns: 1fr; gap: 0.5rem; }
+  .search-actions button { width: 100%; min-height: 52px; font-size: 1.1rem; }
   .list-item { flex-direction: column; align-items: flex-start; padding: 0.85rem; font-size: 1.02rem; }
   .item-actions { width: 100%; }
   .item-actions button { width: 100%; min-height: 48px; font-size: 1rem; }
-  .verse-card { padding: 1.2rem; }
-  .verse-card strong { font-size: 1.3rem; }
-  .verse-card p { font-size: 1.08rem; }
+  .verse-card {
+    padding: 1.35rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .verse-card strong { font-size: 1.4rem; line-height: 1.35; }
+  .verse-card p { font-size: 1.12rem; line-height: 1.6; }
   .card-actions { gap: 0.5rem; margin-top: 0.85rem; }
-  .card-actions button { min-height: 48px; padding: 0.5rem 0.75rem; font-size: 0.95rem; }
-  .related-verses { font-size: 0.95rem; margin-top: 0.6rem; }
+  .card-actions button { min-height: 52px; padding: 0.75rem 1rem; font-size: 1rem; }
+  .related-verses { font-size: 1rem; margin-top: 0.6rem; }
   .chapter-output { max-height: 320px; }
   .section-divider { font-size: 1.3rem; }
-  .daily-battle-actions .btn { font-size: 0.95rem; min-height: 48px; }
+  .daily-battle-actions .btn { font-size: 1rem; min-height: 52px; }
   .newsletter-tagline { font-size: 1rem; }
   .reader-pickers { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
   .reader-pickers label { font-size: 0.95rem; }
-  .reader-actions button { font-size: 0.95rem; min-height: 48px; }
-  /* Content pages mobile */
-  .content-inner .glass { padding: 1.2rem; }
+  .reader-actions button { font-size: 1rem; min-height: 52px; }
+  .content-inner .glass { padding: 1rem; max-width: 100%; }
   .content-inner .list .list-item { padding: 1rem 0; }
   .content-inner .list .list-item strong { font-size: 1.1rem; }
-  .hero-banner { padding: 1.1rem 1rem; }
-  .hero-banner h1 { font-size: clamp(1.85rem, 6vw, 2.25rem); }
-  .hero-banner .cta-group .btn { min-height: 48px; font-size: 1rem; }
+  .hero-banner h1 { font-size: 1.75rem; }
+  .hero-banner .cta-group .btn { min-height: 52px; font-size: 1.05rem; }
   .site-footer a {
     display: inline-block;
     padding: 0.35rem 0.5rem;
@@ -3372,12 +3422,14 @@ body.red-letter-off .red-letter-card {
 
 /* Small phones (480px) – readable text, tap targets, no overflow */
 @media (max-width: 480px) {
-  html { font-size: 18px; }
+  html { font-size: 16px; overflow-x: hidden; }
   body {
-    font-size: 20px !important;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.55;
     max-width: 100vw;
+    overflow-x: hidden;
   }
+  img, video, iframe { max-width: 100%; height: auto; }
   .app-content {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -3387,6 +3439,7 @@ body.red-letter-off .red-letter-card {
     max-width: 100%;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    box-sizing: border-box;
   }
   .card,
   .glass,
@@ -3395,6 +3448,7 @@ body.red-letter-off .red-letter-card {
     max-width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+    box-sizing: border-box;
   }
   .card-actions .btn,
   .daily-battle-actions .btn,
@@ -3404,7 +3458,7 @@ body.red-letter-off .red-letter-card {
     width: 100%;
     min-height: 52px;
     padding: 0.875rem 1.25rem;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
   .btn {
     min-height: 48px;
@@ -3415,5 +3469,7 @@ body.red-letter-off .red-letter-card {
     min-height: 48px;
     padding: 0.75rem 1rem;
     font-size: 16px;
+    min-width: 0;
+    box-sizing: border-box;
   }
 }

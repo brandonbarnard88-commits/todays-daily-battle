@@ -2,9 +2,14 @@
 
 PASTE THESE IN CLOUDFLARE (Workers & Pages → your project → Settings)
 
-## 1. BUILD CONFIGURATION
-- **Build command:** `npm run build`
-- **Build output dir:** `.`
+## 1. BUILD CONFIGURATION (important)
+
+Because **config.js is now in the repo**, you do **not** need a build step. Set:
+
+- **Build command:** leave **empty** (or type `exit 0`)
+- **Build output directory:** leave **empty**
+
+That way Cloudflare deploys the whole repo as-is and config.js is included. If you have a build command like `npm run build`, Cloudflare may only deploy "build output" and omit config.js, causing 404.
 
 ## 2. ENVIRONMENT VARIABLES (Production) — Add each
 

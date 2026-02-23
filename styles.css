@@ -100,16 +100,27 @@
 body {
   margin: 0;
   font-family: var(--font-ui);
-  font-size: 16px;
+  font-size: 18px;
   background: var(--color-bg);
   color: var(--color-text);
   transition: background 0.4s, color 0.4s;
   min-height: 100vh;
-  line-height: 1.65;
+  line-height: 1.6;
   letter-spacing: 0.015em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode) {
+    background: #121212;
+    color: #e0e0e0;
+  }
+  body:not(.light-mode) .card {
+    background: #1e1e1e;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
 }
 
 .app-shell {
@@ -2537,10 +2548,11 @@ body.red-letter-off .red-letter-card {
 /* Base card for consistent panels (verse cards, prayer list, progress blocks) */
 .card {
   background: var(--card-light);
-  border-radius: var(--border-radius);
+  border-radius: 12px;
   padding: var(--spacing-md);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
+  margin-bottom: 1.5rem;
 }
 
 .dark-mode .card {
@@ -2968,8 +2980,19 @@ body.red-letter-off .red-letter-card {
 .audio-details .filter-actions { display: block; }
 
 @media (max-width: 768px) {
-  /* Slightly larger base so mobile text is easier to read */
+  /* Legible text, thumb-friendly taps */
   html { font-size: 18px; }
+  body { font-size: 20px; }
+  h1 { font-size: 2.5rem; }
+  .card { width: 100%; }
+  .card-actions .btn,
+  .daily-battle-actions .btn,
+  .verse-card .btn,
+  .share-btn, .pray-btn {
+    min-height: 60px;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
   .app-shell {
     grid-template-columns: 1fr;
     grid-template-areas:

@@ -1916,6 +1916,46 @@ button:active {
   font-size: var(--verse-size);
   font-weight: 500;
 }
+
+.verse-plain-meaning-wrap {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.plain-meaning-toggle {
+  font-size: 0.9rem;
+  color: var(--muted, #64748b);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.plain-meaning-toggle:hover {
+  color: var(--primary, #6366f1);
+}
+.dark-mode .plain-meaning-toggle {
+  color: rgba(148, 163, 184, 0.9);
+}
+.dark-mode .plain-meaning-toggle:hover {
+  color: var(--primary);
+}
+
+.verse-plain-meaning,
+#daily-battle-plain-meaning.verse-plain-meaning {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted, #64748b);
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.dark-mode .verse-plain-meaning,
+.dark-mode #daily-battle-plain-meaning.verse-plain-meaning {
+  color: rgba(148, 163, 184, 0.85);
+}
+
 .verse-card p.memory-mode .memory-word {
   cursor: pointer;
   border-bottom: 1px solid var(--primary);

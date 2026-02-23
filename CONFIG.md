@@ -48,6 +48,8 @@ When you deploy new JS or CSS, bump the cache name in `service-worker.js` (e.g. 
 
 The featured verse is date-based: the app loads today's row from the `daily_battles` table (Supabase). If there is no row for today’s date, the app shows a fallback verse. To avoid that, ensure “today” is always seeded: (1) Deploy and schedule the **seed-daily-battle** Edge Function — see `supabase/functions/seed-daily-battle/README.md` (e.g. schedule `0 0 * * *` or `0 6 * * *` UTC). (2) Or run SQL from `supabase-daily-battles-seed.sql` on a cron. Without this, users may see the fallback verse on unseeded days.
 
+**Plain-English meaning:** The app shows a short **Plain English:** paraphrase for many verses (daily card + search/topic results) using **script.js** (`VERSE_PLAIN_MEANINGS`; label `PLAIN_MEANING_LABEL`). Daily card: collapsible "Tap for plain meaning". Search cards: inline below KJV when the verse is in the map. To add more: batch-write ref + paraphrase in a spreadsheet, then paste into `VERSE_PLAIN_MEANINGS`. Optional DB: add `plain_meaning text` to `daily_battles` and include it in `getDailyBattleFromSupabase()` select to override per day. **Rollout:** Search results show meanings first (high visibility); daily card is toggleable to keep the card minimal. **Monetization (optional):** Free = 1-sentence meaning; Battle Pro = deeper notes, side-by-side translation, or expert insights.
+
 ## Stripe (paid plans)
 
 Subscribe buttons use Stripe Checkout. Set these in **config.js** (see `config.example.js`) or at the top of **script.js**: `STRIPE_SUPPORTER_MONTHLY_URL`, `STRIPE_SUPPORTER_YEARLY_URL`, `STRIPE_CHURCH_MONTHLY_URL`, `STRIPE_CHURCH_YEARLY_URL`. If any are empty, the buttons show "Notify me" and scroll to the waitlist instead of opening checkout.

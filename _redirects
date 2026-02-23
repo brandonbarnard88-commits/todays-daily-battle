@@ -1,0 +1,15 @@
+# Topic pages: /topic-x and /topic-x/ serve the static .html (200 rewrite)
+/topic-anxiety    /topic-anxiety.html    200
+/topic-anxiety/   /topic-anxiety.html    200
+/topic-forgiveness    /topic-forgiveness.html    200
+/topic-forgiveness/   /topic-forgiveness.html    200
+/topic-fear    /topic-fear.html    200
+/topic-fear/   /topic-fear.html    200
+/topic-grief    /topic-grief.html    200
+/topic-grief/   /topic-grief.html    200
+/topic-hope    /topic-hope.html    200
+/topic-hope/   /topic-hope.html    200
+/topic-parenting    /topic-parenting.html    200
+/topic-parenting/   /topic-parenting.html    200
+/topic-strength    /topic-strength.html    200
+/topic-strength/   /topic-strength.html    200

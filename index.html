@@ -209,6 +209,10 @@
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">Your daily anchor. One verse, one theme—start here, not the feed. Two minutes that actually fill you up.</p>
           <div id="daily-battle-card" class="verse-card" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
+          <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap" style="display: none;" aria-live="polite">
+            <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
+            <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note" style="display: none;"></p>
+          </div>
           <p id="daily-battle-topic" class="section-note" aria-live="polite"></p>
           <p id="daily-battle-question" class="section-note" aria-live="polite"></p>
           <div id="daily-battle-reflection" class="section-note"></div>
@@ -305,7 +309,7 @@
             <a href="study.html" class="list-item list-item-link"><div><strong>3. Save or share</strong><p>Use Study Tools to save verses, build lessons, or share with someone who needs it.</p></div></a>
             <a href="#newsletter" class="list-item list-item-link"><div><strong>4. Come back tomorrow</strong><p>Build a streak and let the Battle Plan keep you grounded.</p></div></a>
           </div>
-          <p class="section-note"><span id="walkthrough-wrap">60-second walkthrough — coming March</span></p>
+          <p class="section-note" id="walkthrough-para"><span id="walkthrough-wrap">New here? A 60-second walkthrough is coming in March—follow the 4 steps above to get started.</span></p>
         </section>
         <section class="glass" id="prayer-wall">
           <h2 class="section-divider">Prayer Wall</h2>
@@ -315,7 +319,7 @@
             <button id="prayer-wall-add" type="button" class="btn btn-primary">Add</button>
           </div>
           <ul id="prayer-wall-list" class="prayer-wall-list"></ul>
-          <p class="section-note prayer-wall-note">Saved on this device. When accounts are live, the wall will sync and top prayers will be highlighted daily.</p>
+          <p class="section-note prayer-wall-note">Saved on this device.</p>
         </section>
         <section class="glass testimonials-section">
           <h2 class="section-divider">Stories of Hope</h2>
@@ -367,7 +371,7 @@
             <button id="prayer-list-add" type="button" class="btn btn-primary">Add</button>
           </div>
           <ul id="prayer-list" class="prayer-list list"></ul>
-          <p id="prayer-list-empty" class="section-note empty-note" style="display:none">Add a name or intention above—your list stays here (or syncs when you're signed in).</p>
+          <p id="prayer-list-empty" class="section-note empty-note" style="display:none">Add a name or intention above—your list stays here.</p>
         </section>
         <section class="glass newsletter" id="newsletter">
           <h2 class="section-divider">Weekly Encouragement &amp; Daily Verse</h2>

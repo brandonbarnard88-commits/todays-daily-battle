@@ -1123,6 +1123,59 @@ var DAILY_VERSE_SAFE_REFS = [
   'Ephesians 6:10', 'Ephesians 6:11', 'Galatians 5:22', 'Romans 8:1'
 ];
 
+/** Label for the plain-meaning block (e.g. "Plain English:" or "In plain words:"). */
+var PLAIN_MEANING_LABEL = 'Plain English:';
+
+/** Plain-English meanings for KJV verses (1–2 sentences). Unpacks archaic wording for quick understanding.
+ * Batch-write in a spreadsheet (ref | simple_meaning) then paste here. Start with 20–30 key verses (Anxiety, Hope, Strength, Gratitude, etc.). */
+var VERSE_PLAIN_MEANINGS = {
+  'James 1:5': 'God gives wisdom to anyone who asks—generously and without making you feel foolish.',
+  'Philippians 4:13': 'Christ gives me the strength to face whatever I\'m going through today.',
+  'Psalms 46:1': 'God is our safe place and our strength; He is right here with us when trouble comes.',
+  '2 Timothy 1:7': 'God didn\'t give us a spirit of fear, but of power, love, and a sound mind.',
+  'Philippians 4:6': 'Don\'t let worry take over—pray and thank God, and tell Him what you need.',
+  'Philippians 4:7': 'God\'s peace can guard your heart and mind when you bring your worries to Him.',
+  'John 3:16': 'God loved the world so much He gave His Son so everyone who trusts Him has eternal life.',
+  'Romans 8:28': 'God works through everything—even the hard things—for the good of those who love Him.',
+  'Romans 15:13': 'God fills you with hope and peace as you trust Him.',
+  'Matthew 11:28': 'Jesus invites anyone who is tired and weighed down to come to Him and find rest.',
+  'Isaiah 41:10': 'God tells us not to fear—He is with us, strengthens us, and holds us up.',
+  'Joshua 1:9': 'Be strong and courageous; God is with you wherever you go.',
+  '1 Peter 5:7': 'Give God your worries—He cares about you.',
+  'Psalms 23:1': 'The Lord takes care of me; I have everything I need.',
+  'Psalms 23:4': 'Even in the darkest valley I don\'t have to be afraid—You are with me.',
+  'John 14:27': 'Jesus gives peace that the world can\'t give—so we don\'t need to be afraid.',
+  'Hebrews 13:5': 'God will never leave you or turn His back on you.',
+  'Matthew 6:34': 'Focus on today; don\'t borrow trouble from tomorrow.',
+  'Jeremiah 29:11': 'God has good plans for you—plans to give you hope and a future.',
+  'Psalms 34:4': 'I came to the Lord and He heard me; He set me free from my fears.',
+  'Psalms 91:1': 'When you stay close to God, you rest in His protection and care.',
+  'Isaiah 40:31': 'Those who wait on the Lord get new strength—they don\'t give out.',
+  'Isaiah 43:2': 'When you go through hard times, God is with you—you won\'t be overcome.',
+  'Lamentations 3:22': 'God\'s love never runs out; His compassion is new every morning.',
+  'John 16:33': 'In this world you\'ll have trouble—but take heart; Jesus has overcome the world.',
+  'Romans 8:38': 'Nothing can separate us from God\'s love—not trouble, not death, nothing.',
+  'Romans 12:12': 'Stay full of hope, be patient in hardship, and keep praying.',
+  '2 Corinthians 12:9': 'God\'s power shows up best when we\'re weak—His grace is enough.',
+  'Ephesians 6:10': 'Draw your strength from the Lord and from His mighty power.',
+  'Hebrews 11:1': 'Faith is being sure of what we hope for and certain of what we don\'t see yet.',
+  '1 John 4:18': 'Perfect love drives out fear—so we don\'t have to be afraid.',
+  'Psalms 27:1': 'The Lord is my light and my rescue—whom shall I fear?',
+  'Psalms 121:1': 'I look to the hills—my help comes from the Lord who made heaven and earth.',
+  'Proverbs 3:5': 'Trust the Lord with all your heart; don\'t rely on your own understanding.',
+  'Isaiah 54:10': 'God\'s love and peace won\'t leave you—He has promised.',
+  'Matthew 5:14': 'You are the light of the world—let your life point others to God.',
+  'Matthew 28:20': 'Jesus is with you always, to the very end of the age.'
+};
+
+function getPlainMeaning(ref) {
+  if (!ref) return '';
+  var r = (ref || '').trim();
+  if (VERSE_PLAIN_MEANINGS[r]) return VERSE_PLAIN_MEANINGS[r];
+  var norm = normalizeBibleRef(r);
+  return (norm && VERSE_PLAIN_MEANINGS[norm]) ? VERSE_PLAIN_MEANINGS[norm] : '';
+}
+
 function getAnchorVerseForDay() {
   if (!Object.keys(bible).length) return null;
   var key = getDailyKey();
@@ -1588,7 +1641,8 @@ async function getDailyBattleFromSupabase() {
     return {
       ref: data.verse_ref,
       reflection: data.reflection || '',
-      prayer: data.prayer || ''
+      prayer: data.prayer || '',
+      plain_meaning: ''
     };
   } catch (e) {
     return null;
@@ -1601,7 +1655,8 @@ function getDailyBattleFallback() {
   return {
     ref,
     reflection: 'When the battle feels heavy today, remember God is near and faithful.',
-    prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.'
+    prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.',
+    plain_meaning: getPlainMeaning(ref) || ''
   };
 }
 
@@ -2350,10 +2405,10 @@ async function renderDailyBattleCard() {
       const raw = localStorage.getItem(OFFLINE_BATTLE_KEY_PREFIX + key);
       if (raw) {
         const c = JSON.parse(raw);
-        if (c && c.ref) {
-          battle = { ref: c.ref, reflection: c.reflection || '', prayer: c.prayer || '' };
-          verseTextFromCache = c.verse || '';
-        }
+if (c && c.ref) {
+        battle = { ref: c.ref, reflection: c.reflection || '', prayer: c.prayer || '', plain_meaning: c.plain_meaning || '' };
+        verseTextFromCache = c.verse || '';
+      }
       }
     } catch (_) {}
   }
@@ -2378,6 +2433,30 @@ async function renderDailyBattleCard() {
   const verseText = verseTextFromCache || getBibleVerseText(battle.ref);
   card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
   card.classList.add('verse-card-loaded');
+  var plainMeaningWrap = document.getElementById('daily-battle-plain-meaning-wrap');
+  var plainMeaningEl = document.getElementById('daily-battle-plain-meaning');
+  var plainMeaningToggle = document.getElementById('daily-battle-plain-meaning-toggle');
+  var plainMeaning = battle.plain_meaning || (typeof getPlainMeaning === 'function' ? getPlainMeaning(battle.ref) : '');
+  if (plainMeaningWrap && plainMeaningEl) {
+    if (plainMeaning) {
+      plainMeaningEl.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
+      plainMeaningEl.style.display = 'none';
+      plainMeaningWrap.style.display = 'block';
+      if (plainMeaningToggle) {
+        plainMeaningToggle.textContent = 'Tap for plain meaning';
+        plainMeaningToggle.setAttribute('aria-expanded', 'false');
+        plainMeaningToggle.onclick = function () {
+          var expanded = plainMeaningToggle.getAttribute('aria-expanded') === 'true';
+          plainMeaningEl.style.display = expanded ? 'none' : 'block';
+          plainMeaningToggle.textContent = expanded ? 'Tap for plain meaning' : 'Hide plain meaning';
+          plainMeaningToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        };
+      }
+    } else {
+      plainMeaningEl.textContent = '';
+      plainMeaningWrap.style.display = 'none';
+    }
+  }
   var nextStepsEl = document.getElementById('daily-battle-next-steps');
   if (nextStepsEl && battle.ref) {
     var topicOfDay = getTopicOfDay();
@@ -2434,7 +2513,8 @@ async function renderDailyBattleCard() {
     ref: battle.ref,
     verse: verseText || '',
     reflection: battle.reflection || '',
-    prayer: battle.prayer || ''
+    prayer: battle.prayer || '',
+    plain_meaning: plainMeaning || ''
   };
   try {
     localStorage.setItem(OFFLINE_BATTLE_KEY_PREFIX + key, JSON.stringify(currentDailyBattle));
@@ -5778,6 +5858,13 @@ function renderResults(results) {
         const card = document.createElement('div');
         card.className = 'verse-card';
         card.innerHTML = `<strong>${v.ref}</strong><p>${v.text}</p>`;
+        var plainMeaning = (v.plain_meaning !== undefined && v.plain_meaning) ? v.plain_meaning : (typeof getPlainMeaning === 'function' ? getPlainMeaning(v.ref) : '');
+        if (plainMeaning) {
+          var plainP = document.createElement('p');
+          plainP.className = 'verse-plain-meaning';
+          plainP.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
+          card.appendChild(plainP);
+        }
         if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) {
           card.classList.add('red-letter-card');
           const verseText = card.querySelector('p');
@@ -6198,6 +6285,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
   var walkthroughWrap = document.getElementById('walkthrough-wrap');
+  var walkthroughPara = document.getElementById('walkthrough-para');
   if (walkthroughWrap && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
     var a = document.createElement('a');
     a.id = 'walkthrough-video';
@@ -6207,8 +6295,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     a.className = 'btn-link';
     a.textContent = 'Watch the 60-second walkthrough';
     walkthroughWrap.parentNode.replaceChild(a, walkthroughWrap);
+  } else if (walkthroughPara && typeof sessionStorage !== 'undefined') {
+    // Show "coming March" CTA only once per session to avoid coming-soon fatigue
+    try {
+      if (sessionStorage.getItem('tdb_walkthrough_seen') === '1') {
+        walkthroughPara.style.display = 'none';
+      } else {
+        sessionStorage.setItem('tdb_walkthrough_seen', '1');
+      }
+    } catch (e) {}
   }
-  // When no URL: wrap already shows "60-second walkthrough — coming March" as plain text
   var shopBattleMugCta = document.getElementById('shop-battle-mug-cta');
   if (shopBattleMugCta && typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.BATTLE_MUG_URL) {
     shopBattleMugCta.href = window.TDB_CONFIG.BATTLE_MUG_URL;
@@ -6246,11 +6342,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     var text = bible[ref] || FALLBACK_VERSE_TEXT;
     card.innerHTML = '<strong>' + ref + '</strong><p>' + text + '</p>';
     card.classList.remove('red-letter-card');
+    var plainMeaningWrap = document.getElementById('daily-battle-plain-meaning-wrap');
+    var plainMeaningEl = document.getElementById('daily-battle-plain-meaning');
+    var plainMeaningToggle = document.getElementById('daily-battle-plain-meaning-toggle');
+    var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(ref) : '';
+    if (plainMeaningWrap && plainMeaningEl) {
+      if (plainMeaning) {
+        plainMeaningEl.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
+        plainMeaningEl.style.display = 'none';
+        plainMeaningWrap.style.display = 'block';
+        if (plainMeaningToggle) {
+          plainMeaningToggle.textContent = 'Tap for plain meaning';
+          plainMeaningToggle.setAttribute('aria-expanded', 'false');
+          plainMeaningToggle.onclick = function () {
+            var expanded = plainMeaningToggle.getAttribute('aria-expanded') === 'true';
+            plainMeaningEl.style.display = expanded ? 'none' : 'block';
+            plainMeaningToggle.textContent = expanded ? 'Tap for plain meaning' : 'Hide plain meaning';
+            plainMeaningToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          };
+        }
+      } else {
+        plainMeaningEl.textContent = '';
+        plainMeaningWrap.style.display = 'none';
+      }
+    }
     var reflectionEl = document.getElementById('daily-battle-reflection');
     var prayerEl = document.getElementById('daily-battle-prayer');
     if (reflectionEl) reflectionEl.textContent = 'Reflection: When today\'s verse didn\'t load in time, anchor here. God has not given us a spirit of fear.';
     if (prayerEl) prayerEl.textContent = 'Prayer: Lord, help me walk in power, love, and a sound mind today. Amen.';
-    currentDailyBattle = { ref: ref, verse: text, reflection: '', prayer: '' };
+    currentDailyBattle = { ref: ref, verse: text, reflection: '', prayer: '', plain_meaning: plainMeaning || '' };
     updateDailyBattleStreak();
     updateDailyBattleMetaDesc(ref);
     var anchorTryEl = document.getElementById('daily-battle-anchor-try');

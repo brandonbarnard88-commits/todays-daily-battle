@@ -29,7 +29,7 @@ In **Pages** → your project → **Settings** → **Environment variables** (or
 | `MASTER_EMAIL` | `brandon@todaysdailybattle.com` | Optional; for Admin panel access |
 
 Optional (add later if you use them):  
-`MASTER_EMAILS`, `STATS_PASSWORD`, `WALKTHROUGH_VIDEO_URL`, `STRIPE_*`, `ERROR_REPORT_URL`, `VAPID_PUBLIC_KEY`, `PUSH_SUBSCRIBE_URL`, `CF_ANALYTICS_TOKEN`, `GOOGLE_SITE_VERIFICATION`, `BATTLE_MUG_URL`.
+`MASTER_EMAILS`, `STATS_PASSWORD`, `WALKTHROUGH_VIDEO_URL`, `STRIPE_*`, `ERROR_REPORT_URL`, `VAPID_PUBLIC_KEY`, `PUSH_SUBSCRIBE_URL`, `CF_ANALYTICS_TOKEN`, `GA_MEASUREMENT_ID`, `GOOGLE_SITE_VERIFICATION`, `BATTLE_MUG_URL`.
 
 For **MASTER_EMAILS** (array), set the value as JSON, e.g. `["brandon@todaysdailybattle.com"]`.
 

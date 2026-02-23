@@ -78,6 +78,27 @@ let currentUserEmail = '';
 let deferredInstallPrompt = null;
 // Set to your Cloudflare Web Analytics beacon token to enable analytics; leave '' to disable.
 const CF_ANALYTICS_TOKEN = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.CF_ANALYTICS_TOKEN) || '';
+// Google Analytics 4 measurement ID (e.g. G-XXXXXXXXXX). When set, gtag is loaded and page_view sent.
+const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.GA_MEASUREMENT_ID) || '';
+(function () {
+  var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+  if (cfg && cfg.GOOGLE_SITE_VERIFICATION) {
+    var m = document.createElement('meta');
+    m.name = 'google-site-verification';
+    m.content = cfg.GOOGLE_SITE_VERIFICATION;
+    document.head.appendChild(m);
+  }
+  if (GA_MEASUREMENT_ID) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: true });
+  }
+})();
 const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
 const INSTALL_PROMPT_SEEN_KEY = 'tdb_seen_install';
 const OT_BOOKS = new Set([
@@ -1250,6 +1271,8 @@ function startChallenge() {
   try {
     localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(data));
     localStorage.setItem(CHALLENGE_30_STARTED_KEY, '1');
+    setSyncData('streak', data);
+    setSyncData('challenge30', '1');
     var unlocked = getUnlockedBadges();
     if (unlocked.indexOf('new-warrior') === -1) {
       unlocked.push('new-warrior');
@@ -1257,11 +1280,14 @@ function startChallenge() {
       var dates = getBadgeUnlockDates();
       dates['new-warrior'] = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
       localStorage.setItem(BADGES_DATES_KEY, JSON.stringify(dates));
+      setSyncData('badges', unlocked);
+      setSyncData('badge_dates', dates);
     }
   } catch (e) {}
   updateDailyBattleStreak();
   var section = document.getElementById('daily-battle-section');
   if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  trackEvent('streak_started');
   showEliteToast('Welcome to the fight! Here\'s your first badge: New Warrior 🔥');
   (function day1SurpriseConfetti() {
     if (typeof confetti !== 'function') return;
@@ -1321,7 +1347,9 @@ function updateDailyBattleStreak() {
   const nextDates = Array.from(normalized).sort();
   const nextCount = calculateStreak(nextDates, today);
   if (lastKey !== today || data.count !== nextCount || dates.length !== nextDates.length) {
-    localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify({ lastKey: today, count: nextCount, dates: nextDates }));
+    var nextData = { lastKey: today, count: nextCount, dates: nextDates };
+    localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(nextData));
+    setSyncData('streak', nextData);
   }
   var streakText = nextCount >= 1
     ? (nextCount <= 30
@@ -1347,6 +1375,7 @@ function updateDailyBattleStreak() {
   try {
     var lastMilestone = parseInt(localStorage.getItem('tdb_last_milestone_toast') || '0', 10);
     if (milestoneToast && nextCount > lastMilestone) {
+      trackEvent('milestone_reached', { streak_days: nextCount });
       showEliteToast('You\'re on fire! 🔥');
       localStorage.setItem('tdb_last_milestone_toast', String(nextCount));
     }
@@ -1411,6 +1440,8 @@ function updateUnlockedBadges(streakCount) {
   if (changed) {
     localStorage.setItem(BADGES_STORAGE_KEY, JSON.stringify(unlocked));
     localStorage.setItem(BADGES_DATES_KEY, JSON.stringify(dates));
+    setSyncData('badges', unlocked);
+    setSyncData('badge_dates', dates);
   }
   renderBadgesSection();
 }
@@ -1478,6 +1509,8 @@ function useStreakRepair() {
   localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(data));
   repairData.used = 1;
   localStorage.setItem(STREAK_REPAIR_KEY, JSON.stringify(repairData));
+  setSyncData('streak_repair', repairData);
+  setSyncData('streak', data);
   updateDailyBattleStreak();
   showEliteToast('Streak repaired! 🔥');
 }
@@ -1624,6 +1657,13 @@ function bumpStat(key) {
   stats[key] = (stats[key] || 0) + 1;
   stats.lastActivity = new Date().toISOString();
   saveStats(stats);
+}
+
+function trackEvent(eventName, params) {
+  bumpStat(eventName);
+  if (typeof window.gtag === 'function' && GA_MEASUREMENT_ID) {
+    window.gtag('event', eventName, params || {});
+  }
 }
 
 function loadMessageDisplayName() {
@@ -1915,6 +1955,7 @@ function renderDailyVerse() {
 }
 
 function shareDailyBattle() {
+  trackEvent('share_daily_battle');
   const shareText = buildDailyBattleShareText();
   if (!shareText) return;
   if (navigator.share) {
@@ -2031,6 +2072,7 @@ function copyDailyBattleForInstagram() {
 }
 
 function shareDailyBattleImage() {
+  trackEvent('share_daily_battle_image');
   if (!currentDailyBattle?.ref) return;
   const canvas = document.createElement('canvas');
   canvas.width = 1080;
@@ -2064,12 +2106,20 @@ function shareDailyBattleImage() {
   if (currentDailyBattle.prayer) {
     wrapCanvasText(ctx, `Prayer: ${currentDailyBattle.prayer}`, 80, 720, 920, 44);
   }
-
+  var streakCount = window.__currentStreakCount || 0;
+  var yBrand = 1010;
+  if (streakCount >= 1) {
+    var streakLabel = streakCount <= 30 ? 'Day ' + streakCount + '/30' : streakCount + '-day streak';
+    ctx.fillStyle = 'rgba(251, 191, 36, 0.95)';
+    ctx.font = '600 30px Inter, sans-serif';
+    ctx.fillText('🔥 ' + streakLabel, 80, 970);
+    yBrand = 1015;
+  }
   var todayLabel = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   ctx.fillStyle = 'rgba(226, 232, 240, 0.9)';
   ctx.font = '600 28px Inter, sans-serif';
-  ctx.fillText('todaysdailybattle.com', 80, 1010);
-  ctx.fillText(todayLabel, 80, 1045);
+  ctx.fillText('todaysdailybattle.com', 80, yBrand);
+  ctx.fillText(todayLabel, 80, yBrand + 35);
   ctx.save();
   ctx.globalAlpha = 0.06;
   ctx.translate(540, 540);
@@ -2406,6 +2456,7 @@ function loadPrayerList() {
 
 function savePrayerList(items) {
   localStorage.setItem(PRAYER_LIST_KEY, JSON.stringify(items));
+  setSyncData('prayer_list', items);
 }
 
 function renderPrayerList() {
@@ -3526,16 +3577,68 @@ function saveLessons(items) {
   localStorage.setItem(LESSONS_STORAGE_KEY, JSON.stringify(items));
 }
 
+async function getSyncData(key) {
+  if (!canUseSupabase() || !currentUserId) return null;
+  const { data, error } = await supabaseClient.from('user_sync_data').select('sync_value').eq('user_id', currentUserId).eq('sync_key', key).maybeSingle();
+  if (error || !data || data.sync_value == null) return null;
+  return data.sync_value;
+}
+
+function setSyncData(key, value) {
+  if (!canUseSupabase() || !currentUserId) return;
+  const payload = { user_id: currentUserId, sync_key: key, sync_value: value, updated_at: new Date().toISOString() };
+  supabaseClient.from('user_sync_data').upsert(payload, { onConflict: 'user_id,sync_key' }).then(function () {});
+}
+
 async function syncUserData() {
   if (!canUseSupabase()) return;
-  const [notesData, versesData, sermonsData, lessonsData, collectionsData, collectionItemsData] = await Promise.all([
+  const [notesData, versesData, sermonsData, lessonsData, collectionsData, collectionItemsData, streakData, prayerData, badgesData, badgeDatesData, repairData, challenge30Data] = await Promise.all([
     supabaseClient.from('notes').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('saved_verses').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
     supabaseClient.from('lessons').select('id, audience, content, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('saved_collections').select('id, name, created_at').eq('user_id', currentUserId).order('created_at', { ascending: true }),
-    supabaseClient.from('saved_verse_collections').select('id, collection_id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false })
+    supabaseClient.from('saved_verse_collections').select('id, collection_id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
+    getSyncData('streak'),
+    getSyncData('prayer_list'),
+    getSyncData('badges'),
+    getSyncData('badge_dates'),
+    getSyncData('streak_repair'),
+    getSyncData('challenge30')
   ]);
+  if (streakData && typeof streakData === 'object' && (streakData.lastKey || streakData.dates)) {
+    try {
+      localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(streakData));
+    } catch (e) {}
+  }
+  if (Array.isArray(prayerData)) {
+    try {
+      localStorage.setItem(PRAYER_LIST_KEY, JSON.stringify(prayerData));
+    } catch (e) {}
+  }
+  if (Array.isArray(badgesData)) {
+    try {
+      localStorage.setItem(BADGES_STORAGE_KEY, JSON.stringify(badgesData));
+    } catch (e) {}
+  }
+  if (badgeDatesData && typeof badgeDatesData === 'object') {
+    try {
+      localStorage.setItem(BADGES_DATES_KEY, JSON.stringify(badgeDatesData));
+    } catch (e) {}
+  }
+  if (repairData && typeof repairData === 'object') {
+    try {
+      localStorage.setItem(STREAK_REPAIR_KEY, JSON.stringify(repairData));
+    } catch (e) {}
+  }
+  if (challenge30Data === '1' || challenge30Data === true) {
+    try {
+      localStorage.setItem(CHALLENGE_30_STARTED_KEY, '1');
+    } catch (e) {}
+  }
+  updateDailyBattleStreak();
+  renderPrayerList();
+  renderBadgesSection();
 
   if (!notesData.error && Array.isArray(notesData.data)) {
     const localNotes = loadNotes();
@@ -8418,11 +8521,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       items.unshift({ email, created_at: new Date().toISOString() });
       saveSupporterWaitlist(items);
+      trackEvent('waitlist_click', { list: 'battle_pro' });
       if (isSupabaseConfigured()) {
         supabaseClient.from('supporter_waitlist').insert({ email }).then(() => {});
       }
       waitlistEmail.value = '';
-      if (waitlistStatus) waitlistStatus.textContent = 'Thanks! We will email you when it is live.';
+      if (waitlistStatus) waitlistStatus.textContent = 'Thanks! We will email you when Battle Pro launches.';
     });
+  }
+  if (typeof window.location !== 'undefined' && window.location.pathname && window.location.pathname.indexOf('pricing') !== -1) {
+    trackEvent('pricing_view');
   }
 });

@@ -3753,6 +3753,52 @@ function renderFeaturedChurches() {
   });
 }
 
+function updateAuthUI(session) {
+  const authSection = document.getElementById('auth-section');
+  if (!authSection) return;
+  const emailEl = document.getElementById('email');
+  const passwordEl = document.getElementById('password');
+  const accountTypeEl = document.getElementById('account-type');
+  const signupBtn = document.getElementById('signup-btn');
+  const loginBtn = document.getElementById('login-btn');
+  const forgotBtn = document.getElementById('forgot-btn');
+  const logoutBtn = document.getElementById('logout-btn');
+  const authStatus = document.getElementById('auth-status');
+  let loggedInEl = document.getElementById('auth-logged-in');
+  if (session) {
+    if (emailEl) emailEl.style.display = 'none';
+    if (passwordEl) passwordEl.style.display = 'none';
+    if (accountTypeEl) accountTypeEl.style.display = 'none';
+    if (signupBtn) signupBtn.style.display = 'none';
+    if (loginBtn) loginBtn.style.display = 'none';
+    if (forgotBtn) forgotBtn.style.display = 'none';
+    if (logoutBtn) logoutBtn.style.display = 'inline-block';
+    if (!loggedInEl) {
+      loggedInEl = document.createElement('span');
+      loggedInEl.id = 'auth-logged-in';
+      loggedInEl.className = 'section-note';
+      loggedInEl.style.marginRight = '0.5rem';
+      authSection.insertBefore(loggedInEl, authSection.firstChild);
+    }
+    loggedInEl.textContent = 'Logged in as ' + (session.user?.email || '');
+    loggedInEl.style.display = 'inline';
+    const headerNudge = document.querySelector('.header-signin-nudge');
+    if (headerNudge) headerNudge.style.display = 'none';
+    if (authStatus) authStatus.textContent = '';
+  } else {
+    if (emailEl) emailEl.style.display = '';
+    if (passwordEl) passwordEl.style.display = '';
+    if (accountTypeEl) accountTypeEl.style.display = '';
+    if (signupBtn) signupBtn.style.display = '';
+    if (loginBtn) loginBtn.style.display = '';
+    if (forgotBtn) forgotBtn.style.display = '';
+    if (logoutBtn) logoutBtn.style.display = 'none';
+    if (loggedInEl) loggedInEl.style.display = 'none';
+    const headerNudge = document.querySelector('.header-signin-nudge');
+    if (headerNudge) headerNudge.style.display = '';
+  }
+}
+
 function setView(state) {
   const mainSearch = document.getElementById('main-search');
   const output = document.getElementById('output');
@@ -6087,8 +6133,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       currentUserRole = 'pastor';
       subscriptionTier = 'supporter';
     }
-    const logoutBtnEl = document.getElementById('logout-btn');
-    if (logoutBtnEl) logoutBtnEl.style.display = 'inline-block';
+    updateAuthUI(sessionData.session);
     var signinNudge = document.getElementById('signin-nudge-banner');
     if (signinNudge) signinNudge.classList.add('hidden');
     const userTier = sessionData.session.user.user_metadata?.tier || 'adult';
@@ -6100,6 +6145,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setView('dashboard');
     scheduleMessageLoad();
     scheduleAdminPanel();
+  } else {
+    updateAuthUI(null);
   }
 
   function isOnAdminPage() {
@@ -6120,8 +6167,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       window.location.replace('404-admin.html');
       return;
     }
-    const logoutBtnEl = document.getElementById('logout-btn');
-    if (logoutBtnEl) logoutBtnEl.style.display = session ? 'inline-block' : 'none';
+    updateAuthUI(session);
     var signinNudge = document.getElementById('signin-nudge-banner');
     if (signinNudge) signinNudge.classList.toggle('hidden', !!session);
     if (session) {
@@ -6392,7 +6438,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const passwordEl = document.getElementById('password');
       const tierEl = document.getElementById('tier');
       const roleEl = document.getElementById('account-type');
-      const email = emailEl ? emailEl.value : '';
+      const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
       const password = passwordEl ? passwordEl.value : '';
       const tier = tierEl ? tierEl.value : 'adult';
       const role = roleEl ? roleEl.value : 'member';
@@ -6409,11 +6455,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       }
       const redirectUrl = getAuthRedirectBase();
+      signupBtn.disabled = true;
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
         options: { data: { tier, role }, emailRedirectTo: redirectUrl }
       });
+      signupBtn.disabled = false;
       if (error) {
         setAuthStatus(error.message, 'error');
         return;
@@ -6421,6 +6469,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (data?.session) {
         setAuthStatus('Signed up and logged in!', 'success');
         bumpStat('signups');
+        updateAuthUI(data.session);
       } else {
         setAuthStatus('Signed up! Check your email to confirm.', 'success');
         bumpStat('signups');
@@ -6447,7 +6496,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           return;
         }
       }
+      loginBtn.disabled = true;
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      loginBtn.disabled = false;
       if (error) {
         const msg = (error.message || '').toLowerCase();
         if (msg.includes('invalid') && msg.includes('credential')) {
@@ -6464,6 +6515,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (tierEl) tierEl.value = userTier;
         setAuthStatus('Logged in!', 'success');
         bumpStat('logins');
+        updateAuthUI(data.session);
         updateRoleViews();
         renderDashboard(currentUserRole);
         setView('dashboard');

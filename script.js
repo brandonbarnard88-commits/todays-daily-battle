@@ -22,12 +22,25 @@ const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
 const PRAYER_LIST_KEY = 'tdb_prayer_list';
-// Single admin only: MASTER_EMAIL or first entry of MASTER_EMAILS from config.js. No fallback email in repo.
+// Admin: prefer obfuscated email (HTML entities) so it is not plain in source; fallback to MASTER_EMAIL/MASTER_EMAILS.
+function decodeObfuscatedEmail(s) {
+  if (typeof s !== 'string' || !s.trim()) return '';
+  var text = s.trim();
+  return text.replace(/&#(\d+);/g, function (_, d) { return String.fromCharCode(parseInt(d, 10)); })
+    .replace(/&#x([0-9a-fA-F]+);/g, function (_, h) { return String.fromCharCode(parseInt(h, 16)); });
+}
 (function () {
   var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
-  var one = (cfg && typeof cfg.MASTER_EMAIL === 'string' && cfg.MASTER_EMAIL.trim()) ? cfg.MASTER_EMAIL.trim().toLowerCase() : null;
-  var list = (cfg && Array.isArray(cfg.MASTER_EMAILS) && cfg.MASTER_EMAILS.length) ? cfg.MASTER_EMAILS : [];
-  var sole = one || (list[0] && String(list[0]).trim().toLowerCase()) || '';
+  var sole = '';
+  if (cfg && typeof cfg.MASTER_EMAIL_OBFUSCATED === 'string' && cfg.MASTER_EMAIL_OBFUSCATED.trim()) {
+    sole = decodeObfuscatedEmail(cfg.MASTER_EMAIL_OBFUSCATED).toLowerCase();
+  }
+  if (!sole && cfg && typeof cfg.MASTER_EMAIL === 'string' && cfg.MASTER_EMAIL.trim()) {
+    sole = cfg.MASTER_EMAIL.trim().toLowerCase();
+  }
+  if (!sole && cfg && Array.isArray(cfg.MASTER_EMAILS) && cfg.MASTER_EMAILS.length) {
+    sole = String(cfg.MASTER_EMAILS[0]).trim().toLowerCase();
+  }
   window._TDB_MASTER_EMAILS = new Set(sole ? [sole] : []);
 })();
 const MASTER_EMAILS = window._TDB_MASTER_EMAILS || new Set();
@@ -7680,8 +7693,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (streakPushTest) streakPushTest.style.display = enable ? 'inline-block' : 'none';
       if (enable) {
         if (!('Notification' in window)) return;
-        if (Notification.permission === 'granted') requestPushSubscription();
-        else if (Notification.permission !== 'denied') Notification.requestPermission().then(function (p) { if (p === 'granted') requestPushSubscription(); });
+        function doSubscribe() {
+          if (typeof window.tdbFirebasePushSubscribe === 'function' && window.TDB_CONFIG && window.TDB_CONFIG.FIREBASE_API_KEY) {
+            window.tdbFirebasePushSubscribe();
+          } else {
+            requestPushSubscription();
+          }
+        }
+        if (Notification.permission === 'granted') doSubscribe();
+        else if (Notification.permission !== 'denied') Notification.requestPermission().then(function (p) { if (p === 'granted') doSubscribe(); });
       }
     });
   }

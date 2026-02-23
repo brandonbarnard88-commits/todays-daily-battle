@@ -1,10 +1,10 @@
 {
-  "name": "Today's Daily Battle — Less scroll. More soul.",
-  "short_name": "Daily Battle",
-  "start_url": "/index.html",
+  "name": "Daily Battle",
+  "short_name": "Battle",
+  "theme_color": "#000000",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
-  "theme_color": "#6d28d9",
   "icons": [
     {
       "src": "/icon.svg",

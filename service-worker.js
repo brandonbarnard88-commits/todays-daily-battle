@@ -1,4 +1,5 @@
-// Bump this when you deploy new JS/CSS so clients get fresh assets (e.g. tdb-static-YYYYMMDD).
+// PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline.
+// Bump CACHE_NAME when you deploy new JS/CSS (e.g. tdb-static-YYYYMMDD).
 const CACHE_NAME = 'tdb-static-20260225';
 const CACHE_API = 'tdb-api-20260221';
 const CORE_ASSETS = [
@@ -29,7 +30,7 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => Promise.all(
-      keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+      keys.filter((k) => k !== CACHE_NAME && k !== CACHE_API).map((k) => caches.delete(k))
     ))
   );
 });
@@ -68,7 +69,11 @@ self.addEventListener('notificationclick', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
+  const sameOrigin = url.origin === self.location.origin;
+
+  // Today's verse (KJV text) – cache for offline
   if (url.pathname.endsWith('kjv.json') || url.pathname.endsWith('/kjv.json')) {
     event.respondWith(
       fetch(event.request)
@@ -81,7 +86,9 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
-  if (event.request.method === 'GET' && url.href.includes('daily_battles')) {
+
+  // Today's verse + prayer (daily_battles API) – cache for offline
+  if (url.href.includes('daily_battles')) {
     event.respondWith(
       fetch(event.request)
         .then((res) => {
@@ -93,6 +100,25 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
+
+  // Same-origin audio – cache for offline (e.g. /audio/* or *.mp3)
+  const isAudio = sameOrigin && (
+    /\.(mp3|wav|m4a|ogg|aac)(\?|$)/i.test(url.pathname) ||
+    url.pathname.startsWith('/audio/')
+  );
+  if (isAudio) {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          const clone = res.clone();
+          caches.open(CACHE_API).then((cache) => cache.put(event.request, clone));
+          return res;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((cached) => cached || fetch(event.request))
   );

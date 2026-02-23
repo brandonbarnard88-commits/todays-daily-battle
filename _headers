@@ -1,0 +1,8 @@
+# Cloudflare Pages: security headers for todaysdailybattle.com
+# https://developers.cloudflare.com/pages/configuration/headers/
+# If fonts or CDN scripts break, add style-src/font-src/script-src origins (see docs/SECURITY-HARDENING.md).
+/*
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff

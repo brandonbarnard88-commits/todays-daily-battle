@@ -9,10 +9,11 @@ window.TDB_CONFIG = {
   SUPABASE_URL: 'https://your-project-ref.supabase.co',
   // Supabase anon (publishable) key — keep RLS enabled
   SUPABASE_ANON_KEY: 'your-anon-key',
-  // Sole admin: set exactly one email. Only this account gets Admin panel and Master badge.
-  MASTER_EMAIL: 'your@email.com',
-  // Or use first entry of MASTER_EMAILS as the only admin (legacy)
-  MASTER_EMAILS: ['your@email.com'],
+  // Admin: use obfuscated email so it is not plain in client source (recommended). Example: m&#97;ster&#64;example.com decodes to master@example.com
+  MASTER_EMAIL_OBFUSCATED: 'y&#111;&#117;r&#64;&#101;x&#97;m&#112;&#108;&#101;&#46;&#99;&#111;&#109',
+  // Legacy: plain MASTER_EMAIL or MASTER_EMAILS (avoid in production; prefer MASTER_EMAIL_OBFUSCATED)
+  // MASTER_EMAIL: 'your@email.com',
+  // MASTER_EMAILS: ['your@email.com'],
   // 60-second walkthrough video URL (e.g. Loom). If set, "Watch the 60-second walkthrough" links here.
   WALKTHROUGH_VIDEO_URL: '',
   // Stripe Payment Link URLs (pricing page). If all set, Subscribe buttons open checkout.
@@ -31,6 +32,17 @@ window.TDB_CONFIG = {
   VAPID_PUBLIC_KEY: '',
   // Optional: POST push subscription to this URL when user opts in (Start Day 1). Your backend stores it to send 8 AM notifications.
   PUSH_SUBSCRIBE_URL: '',
+  // Firebase Cloud Messaging (daily 9 AM verse push). From Firebase Console > Project settings > General > Your apps.
+  FIREBASE_API_KEY: '',
+  FIREBASE_AUTH_DOMAIN: '',
+  FIREBASE_PROJECT_ID: '',
+  FIREBASE_STORAGE_BUCKET: '',
+  FIREBASE_MESSAGING_SENDER_ID: '',
+  FIREBASE_APP_ID: '',
+  // Web Push key from Firebase Console > Project settings > Cloud Messaging > Web Push certificates (optional; used by getToken).
+  FIREBASE_VAPID_KEY: '',
+  // POST FCM token here when user opts in (same backend can store tokens for 9 AM send).
+  FCM_SUBSCRIBE_URL: '',
   // Stats page (stats.html): password to view private dashboard. If empty, stats page shows "Set STATS_PASSWORD in config.js".
   STATS_PASSWORD: ''
 };

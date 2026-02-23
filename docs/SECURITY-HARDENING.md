@@ -14,7 +14,9 @@ Based on external security scan (Feb 2026). Prioritized fixes.
 
 ## 2. Security headers (Cloudflare / server)
 
-Add these at the edge (e.g. Cloudflare → Transform Rules → Modify response header, or your server config):
+**In use:** Project root `_headers` is read by Cloudflare Pages and sends HSTS, CSP, X-Frame-Options, X-Content-Type-Options (see `_headers` in repo). If scripts or styles from CDNs (Supabase, jsDelivr, Google Fonts) are blocked, extend CSP in `_headers` as below.
+
+Add or adjust at the edge (e.g. Cloudflare → Transform Rules, or `_headers` for Pages):
 
 | Header | Value |
 |--------|--------|
@@ -58,7 +60,7 @@ Add these at the edge (e.g. Cloudflare → Transform Rules → Modify response h
 |------|--------|--------|
 | Signup role forced to `member` | Done (script.js) | Code |
 | security.txt | Done | Code |
-| HSTS, X-Frame-Options, CSP, Permissions-Policy | To do | Cloudflare / server |
+| HSTS, X-Frame-Options, CSP, X-Content-Type-Options | Done (`_headers`) | Code + Cloudflare Pages |
 | Remove MASTER_EMAIL from client / use RPC | Recommended | Code + Supabase |
 | Remove ACAO: * from HTML routes | To do | Cloudflare / server |
 | Supabase: default new user role to member | Recommended | Supabase |

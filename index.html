@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="The Bible companion built for real life. One verse, one moment, every day. Less scroll, more soul—topic search, streaks, and tools for families and pastors. Free.">
   <meta name="keywords" content="free Bible verse of the day, daily Bible habit, Bible in two minutes, less scroll more soul, free Bible study online, Bible verses, daily verse, anxiety, hope, strength, obedience, devotionals, Scripture, KJV, pastor tools, church, small group">
@@ -25,8 +25,11 @@
   <meta name="theme-color" content="#6d28d9">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
-  <script>window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL":"brandon@todaysdailybattle.com","MASTER_EMAILS":["brandon@todaysdailybattle.com"],"WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script>window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script src="config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" defer></script>
+  <script src="firebase-push.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,7 +158,7 @@
             <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
             <a class="btn btn-secondary" href="message.html">Encourage Someone</a>
             <a class="btn btn-secondary" href="coloring.html">Kids Activities</a>
-            <button id="daily-btn" class="btn btn-secondary" type="button">Today's Battle</button>
+            <button id="daily-btn" class="btn btn-secondary" type="button" aria-label="Read today's verse">Today's Battle</button>
           </div>
           <p class="section-note mobile-hide red-letter-note">Red letters show the words spoken by Jesus.</p>
           <details class="mobile-collapse filters-details">
@@ -332,7 +335,7 @@
           <p class="section-note">Anonymous one-line requests. Tap ♥ to pray—no comments, no drama.</p>
           <div class="prayer-wall-form">
             <input id="prayer-wall-input" type="text" placeholder="e.g. Job interview tomorrow" maxlength="120" aria-label="One-line prayer request">
-            <button id="prayer-wall-add" type="button" class="btn btn-primary">Add</button>
+            <button id="prayer-wall-add" type="button" class="btn btn-primary" aria-label="Submit prayer">Add</button>
           </div>
           <ul id="prayer-wall-list" class="prayer-wall-list"></ul>
           <p class="section-note prayer-wall-note">Saved on this device.</p>

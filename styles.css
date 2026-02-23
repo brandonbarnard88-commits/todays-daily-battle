@@ -3366,7 +3366,33 @@ body.red-letter-off .red-letter-card {
   .filter-stack select { width: 100%; min-width: 0; }
 }
 
+/* Fix Mobile Viewport & Base Styles (screens under 480px) */
 @media (max-width: 480px) {
+  body {
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  .card,
+  .content-inner,
+  .glass,
+  .section,
+  .content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .btn,
+  button:not(.link-button),
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    width: 100%;
+    padding: 14px;
+    min-height: 48px;
+    box-sizing: border-box;
+  }
   .top-bar { padding: 0.6rem 0.75rem; gap: 0.5rem; }
   .header-signin-nudge { font-size: 0.7rem; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .compact-select, #focus-mode, .filter-stack select { min-width: 0; width: 100%; box-sizing: border-box; }

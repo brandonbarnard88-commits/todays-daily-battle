@@ -6559,27 +6559,50 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateChallengeBannerState();
   }
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
-      if (!registration) return;
-      var checkForUpdates = function () {
+    (function () {
+      var registration = null;
+      function safeUpdate() {
         try {
-          if (registration) registration.update();
-        } catch (e) {}
-      };
-      registration.addEventListener('updatefound', function () {
-        var newWorker = registration.installing;
-        if (!newWorker) return;
-        newWorker.addEventListener('statechange', function () {
-          if (newWorker.state === 'installed') newWorker.postMessage({ type: 'SKIP_WAITING' });
+          if (registration && typeof registration.update === 'function') {
+            registration.update();
+          }
+        } catch (e) {
+          if (typeof console !== 'undefined' && console.error) {
+            console.error('Service Worker update failed:', e);
+          }
+        }
+      }
+      navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+        .then(function (reg) {
+          registration = reg;
+          if (!registration) return;
+          if (typeof console !== 'undefined' && console.log) {
+            console.log('Service Worker registered with scope:', registration.scope);
+          }
+          registration.addEventListener('updatefound', function () {
+            var newWorker = registration.installing;
+            if (!newWorker) return;
+            if (typeof console !== 'undefined' && console.log) {
+              console.log('New SW version found – installing...');
+            }
+            newWorker.addEventListener('statechange', function () {
+              if (newWorker.state === 'installed') newWorker.postMessage({ type: 'SKIP_WAITING' });
+            });
+          });
+          if (registration.waiting) registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+          navigator.serviceWorker.addEventListener('controllerchange', function () {
+            window.location.reload();
+          });
+          setInterval(safeUpdate, 60 * 1000);
+          window.addEventListener('focus', safeUpdate);
+          safeUpdate();
+        })
+        .catch(function (err) {
+          if (typeof console !== 'undefined' && console.error) {
+            console.error('Service Worker registration failed:', err);
+          }
         });
-      });
-      if (registration.waiting) registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-      navigator.serviceWorker.addEventListener('controllerchange', function () {
-        window.location.reload();
-      });
-      setInterval(checkForUpdates, 60 * 1000);
-      window.addEventListener('focus', checkForUpdates);
-    }).catch(function () {});
+    })();
   }
   wireAnalyticsBeacon();
   showAuthRedirectMessage();

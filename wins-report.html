@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script src="config.js"></script>
 </head>
 <body class="dark-mode">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -113,6 +115,7 @@
               copyStatus.textContent = 'Copied! Paste anywhere to share.';
               copyStatus.style.display = 'block';
               setTimeout(function() { copyStatus.style.display = 'none'; }, 3000);
+              if (window.gtag) window.gtag('event', 'wins_copy', {});
             }).catch(function() {
               copyStatus.textContent = 'Could not copy. Select and copy manually.';
               copyStatus.style.display = 'block';
@@ -125,6 +128,19 @@
       }
 
       loadWins();
+
+      var gaId = window.TDB_CONFIG && window.TDB_CONFIG.GA_MEASUREMENT_ID;
+      if (gaId) {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', gaId, { send_page_view: true });
+        window.gtag('event', 'wins_report_view', { page_path: '/wins-report.html' });
+      }
     })();
   </script>
 </body>

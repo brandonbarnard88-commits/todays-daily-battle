@@ -4104,6 +4104,95 @@ function saveChurchPrayerList(items) {
   localStorage.setItem(churchStorageKey('prayer'), JSON.stringify(items));
 }
 
+let churchPrayerRealtimeChannel = null;
+let sharedPrayersFromSupabase = null;
+
+function unsubscribeFromSharedPrayers() {
+  if (churchPrayerRealtimeChannel && supabaseClient) {
+    try {
+      supabaseClient.removeChannel(churchPrayerRealtimeChannel);
+    } catch (e) {}
+    churchPrayerRealtimeChannel = null;
+  }
+  sharedPrayersFromSupabase = null;
+}
+
+function renderChurchPrayerListUI(items) {
+  const prayerList = document.getElementById('church-prayer-list');
+  if (!prayerList) return;
+  prayerList.innerHTML = '';
+  if (!items || items.length === 0) {
+    prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above.</p>';
+    return;
+  }
+  items.forEach((row, i) => {
+    const text = row.text != null ? row.text : row.item;
+    const prayed = !!row.prayed;
+    const rowEl = document.createElement('div');
+    rowEl.className = 'list-item church-prayer-item';
+    rowEl.setAttribute('data-id', row.id || '');
+    rowEl.innerHTML = '<div><span class="' + (prayed ? 'prayer-prayed' : '') + '">' + escapeHtml(text) + '</span></div>';
+    const actions = document.createElement('div');
+    actions.className = 'item-actions';
+    const markBtn = document.createElement('button');
+    markBtn.textContent = prayed ? 'Unmark' : 'Prayed';
+    markBtn.onclick = () => {
+      if (sharedPrayersFromSupabase !== null) return;
+      const localItems = loadChurchPrayerList();
+      const idx = localItems.findIndex(function (it) { return (it.id || it.id) === (row.id || row.id); });
+      if (idx >= 0) {
+        localItems[idx].prayed = !localItems[idx].prayed;
+        saveChurchPrayerList(localItems);
+      }
+      renderChurchExtras();
+    };
+    actions.appendChild(markBtn);
+    rowEl.appendChild(actions);
+    prayerList.appendChild(rowEl);
+  });
+}
+
+function updatePrayerListFromPayload(payload) {
+  if (!Array.isArray(sharedPrayersFromSupabase)) return;
+  const eventType = payload.eventType || payload.event_type;
+  const newRecord = payload.new ? { id: payload.new.id, text: payload.new.item, item: payload.new.item, prayed: !!payload.new.prayed, created_at: payload.new.created_at } : null;
+  const oldId = payload.old && payload.old.id ? payload.old.id : null;
+  if (eventType === 'INSERT' && newRecord) {
+    sharedPrayersFromSupabase.push(newRecord);
+    sharedPrayersFromSupabase.sort((a, b) => new Date(a.created_at || 0) - new Date(b.created_at || 0));
+  } else if (eventType === 'UPDATE' && newRecord) {
+    const idx = sharedPrayersFromSupabase.findIndex(function (r) { return r.id === newRecord.id; });
+    if (idx >= 0) {
+      sharedPrayersFromSupabase[idx] = newRecord;
+    }
+  } else if (eventType === 'DELETE' && oldId) {
+    sharedPrayersFromSupabase = sharedPrayersFromSupabase.filter(function (r) { return r.id !== oldId; });
+  }
+  renderChurchPrayerListUI(sharedPrayersFromSupabase);
+}
+
+function subscribeToSharedPrayers(churchId) {
+  if (!supabaseClient || !churchId || typeof churchId !== 'string') return;
+  unsubscribeFromSharedPrayers();
+  sharedPrayersFromSupabase = [];
+  const channelName = 'shared-prayers-' + churchId.replace(/\s/g, '-');
+  const channel = supabaseClient.channel(channelName)
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'church_prayer_list', filter: 'church_id=eq.' + churchId }, function (payload) {
+      updatePrayerListFromPayload(payload);
+    })
+    .subscribe(function (status) {
+      if (status === 'SUBSCRIBED') {
+        supabaseClient.from('church_prayer_list').select('id, item, prayed, created_at').eq('church_id', churchId).order('created_at', { ascending: true }).then(function (result) {
+          if (result.data && Array.isArray(result.data)) {
+            sharedPrayersFromSupabase = result.data.map(function (r) { return { id: r.id, text: r.item, item: r.item, prayed: !!r.prayed, created_at: r.created_at }; });
+            renderChurchPrayerListUI(sharedPrayersFromSupabase);
+          }
+        }).catch(function () {});
+      }
+    });
+  churchPrayerRealtimeChannel = channel;
+}
+
 function loadChurchAssignments() {
   try {
     return JSON.parse(localStorage.getItem(churchStorageKey('assignments')) || '[]');
@@ -7675,6 +7764,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
       return;
     }
+      if (typeof unsubscribeFromSharedPrayers === 'function') unsubscribeFromSharedPrayers();
       const { error } = await supabaseClient.auth.signOut();
     setAuthStatus(error ? error.message : 'Logged out!', error ? 'error' : 'success');
     });
@@ -8499,6 +8589,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data && data.ref) {
           const text = (typeof bible !== 'undefined' && bible[data.ref]) ? bible[data.ref] : '';
           verseEl.innerHTML = '<strong>' + escapeHtml(data.ref) + '</strong>' + (text ? '<p>' + escapeHtml(text) + '</p>' : '<p class="section-note"><a href="/?ref=' + encodeURIComponent(data.ref) + '">Read ' + escapeHtml(data.ref) + '</a></p>');
+          if (typeof trackEvent === 'function') trackEvent('church_verse_viewed', { verse_ref: data.ref });
         } else {
           verseEl.innerHTML = '<p class="section-note">No church verse set. Pastors can set one above.</p>';
         }
@@ -8508,26 +8599,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     const prayerList = document.getElementById('church-prayer-list');
     if (prayerList) {
-      const items = loadChurchPrayerList();
-      prayerList.innerHTML = '';
-      items.forEach((item, i) => {
-        const row = document.createElement('div');
-        row.className = 'list-item';
-        row.innerHTML = '<div><span class="' + (item.prayed ? 'prayer-prayed' : '') + '">' + escapeHtml(item.text) + '</span></div>';
-        const actions = document.createElement('div');
-        actions.className = 'item-actions';
-        const markBtn = document.createElement('button');
-        markBtn.textContent = item.prayed ? 'Unmark' : 'Prayed';
-        markBtn.onclick = () => {
-          items[i].prayed = !items[i].prayed;
-          saveChurchPrayerList(items);
-          renderChurchExtras();
-        };
-        actions.appendChild(markBtn);
-        row.appendChild(actions);
-        prayerList.appendChild(row);
-      });
-      if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above.</p>';
+      if (sharedPrayersFromSupabase !== null) {
+        renderChurchPrayerListUI(sharedPrayersFromSupabase);
+      } else {
+        const items = loadChurchPrayerList();
+        prayerList.innerHTML = '';
+        items.forEach((item, i) => {
+          const row = document.createElement('div');
+          row.className = 'list-item';
+          row.innerHTML = '<div><span class="' + (item.prayed ? 'prayer-prayed' : '') + '">' + escapeHtml(item.text) + '</span></div>';
+          const actions = document.createElement('div');
+          actions.className = 'item-actions';
+          const markBtn = document.createElement('button');
+          markBtn.textContent = item.prayed ? 'Unmark' : 'Prayed';
+          markBtn.onclick = () => {
+            items[i].prayed = !items[i].prayed;
+            saveChurchPrayerList(items);
+            renderChurchExtras();
+          };
+          actions.appendChild(markBtn);
+          row.appendChild(actions);
+          prayerList.appendChild(row);
+        });
+        if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above.</p>';
+      }
     }
     const assignedList = document.getElementById('church-assigned-list');
     if (assignedList) {
@@ -8566,6 +8661,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       saveChurchVerseOfDay(ref);
       churchVerseRef.value = '';
       renderChurchExtras();
+      if (typeof trackEvent === 'function') trackEvent('church_verse_set', { verse_ref: ref });
     });
   }
   const churchPrayerAdd = document.getElementById('church-prayer-add');
@@ -8579,6 +8675,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       saveChurchPrayerList(items);
       churchPrayerInput.value = '';
       renderChurchExtras();
+      if (typeof trackEvent === 'function') trackEvent('church_prayer_added', {});
     });
   }
   const churchAssignBtn = document.getElementById('church-assign-btn');
@@ -8599,6 +8696,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   if (document.getElementById('church-verse-of-day')) {
     renderChurchExtras();
+    if (currentChurch && currentChurch.id && currentUserId && typeof canUseSupabase === 'function' && canUseSupabase()) {
+      subscribeToSharedPrayers(currentChurch.id);
+      if (typeof trackEvent === 'function') trackEvent('church_prayer_viewed', {});
+    }
+    window.addEventListener('beforeunload', unsubscribeFromSharedPrayers);
   }
 
   const addSermonBtn = document.getElementById('add-sermon-btn');

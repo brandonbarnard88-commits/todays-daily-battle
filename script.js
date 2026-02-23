@@ -3731,6 +3731,8 @@ async function syncUserData() {
   updateDailyBattleStreak();
   renderPrayerList();
   renderBadgesSection();
+  updateSyncStatusUI();
+  if (typeof trackEvent === 'function') trackEvent('sync_completed');
 
   if (!notesData.error && Array.isArray(notesData.data)) {
     const localNotes = loadNotes();
@@ -4005,7 +4007,20 @@ function renderFeaturedChurches() {
   });
 }
 
+function updateSyncStatusUI() {
+  const synced = !!(typeof canUseSupabase === 'function' && canUseSupabase() && currentUserId);
+  const prayerWallNote = document.querySelector('.prayer-wall-note');
+  if (prayerWallNote) prayerWallNote.textContent = synced ? 'Synced across devices.' : 'Saved on this device.';
+  const prayerListIntro = document.querySelector('#prayer-list-section > p.section-note:not(#prayer-list-empty)');
+  if (prayerListIntro) prayerListIntro.textContent = synced ? 'Add names or intentions. Optionally link a verse. Synced across devices.' : 'Add names or intentions. Optionally link a verse. Saved on this device.';
+  const signinNote = document.querySelector('.signin-optional-note');
+  if (signinNote) {
+    signinNote.innerHTML = synced ? '<strong>Synced.</strong> Your streak, prayer list, and plans are saved across devices.' : '<strong>Sign-in is optional.</strong> Log in to save your streak, favorite verses, and custom plans across devices.';
+  }
+}
+
 function updateAuthUI(session) {
+  updateSyncStatusUI();
   const authSection = document.getElementById('auth-section');
   if (!authSection) return;
   const emailEl = document.getElementById('email');
@@ -6447,7 +6462,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await syncUserData();
     updateRoleViews();
     renderDashboard(currentUserRole);
-    setView('dashboard');
+    setView(isMasterUser ? 'dashboard' : 'search');
     scheduleMessageLoad();
     scheduleAdminPanel();
   } else {
@@ -6488,11 +6503,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       await syncUserData();
       updateRoleViews();
       renderDashboard(currentUserRole);
-      setView('dashboard');
+      setView(isMasterUser ? 'dashboard' : 'search');
       scheduleMessageLoad();
       scheduleAdminPanel();
     } else {
+      currentUserId = null;
       subscriptionTier = 'free';
+      updateAuthUI(null);
       setView('search');
       scheduleAdminPanel();
     }
@@ -6818,8 +6835,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         return;
       }
-      const userTier = data.user.user_metadata.tier || 'adult';
-      currentUserRole = data.user.user_metadata.role || 'member';
+      currentUserId = data.session?.user?.id || null;
+      updateMasterStatus(data.user || null);
+      const userTier = data.user.user_metadata?.tier || 'adult';
+      currentUserRole = data.user.user_metadata?.role || 'member';
+      subscriptionTier = data.user.user_metadata?.subscription || 'free';
+      if (isMasterUser) {
+        currentUserRole = 'pastor';
+        subscriptionTier = 'supporter';
+      }
       const tierEl = document.getElementById('tier');
       if (tierEl) tierEl.value = userTier;
       setAuthStatus("You're in! Welcome back.", 'success');
@@ -6827,7 +6851,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateAuthUI(data.session);
       updateRoleViews();
       renderDashboard(currentUserRole);
-      setView('dashboard');
+      setView(isMasterUser ? 'dashboard' : 'search');
+      const _syncAfterLogin = async () => { await syncUserData(); };
+      _syncAfterLogin();
     });
   }
 

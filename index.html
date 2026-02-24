@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <!-- Rebuild trigger: ensure topic-*.html in Cloudflare Pages deploy -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="The Bible companion built for real life. One verse, one moment, every day. Less scroll, more soul—topic search, streaks, and tools for families and pastors. Free.">
   <meta name="keywords" content="free Bible verse of the day, daily Bible habit, Bible in two minutes, less scroll more soul, free Bible study online, Bible verses, daily verse, anxiety, hope, strength, obedience, devotionals, Scripture, KJV, pastor tools, church, small group">
@@ -251,7 +252,7 @@
             <p class="section-note">Add a name or intention—no login needed. Saved to your list. Draft auto-saves.</p>
             <div class="quick-pray-row">
               <input type="text" id="quick-pray" placeholder="Add a name or intention…" aria-label="Quick prayer">
-              <button type="button" id="quick-pray-btn" class="btn btn-primary">Pray</button>
+              <button type="button" id="quick-pray-btn" class="btn btn-primary" aria-label="Submit quick prayer">Pray</button>
               <button type="button" id="voice-pray-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your prayer"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
             </div>
             <p id="quick-pray-today" class="section-note quick-pray-today" aria-live="polite" style="display:none;"></p>
@@ -284,7 +285,7 @@
             <button id="share-daily-battle-copy-verse" class="btn btn-secondary" type="button" title="Copy verse + reference">Copy verse</button>
             <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
             <button id="share-daily-battle-image" class="btn btn-secondary" type="button" title="One-tap: Instagram-ready graphic with today's verse + logo">Save card for Instagram</button>
-            <button id="generate-share-card-30" type="button" class="btn btn-primary">Generate Share Card</button>
+            <button id="generate-share-card-30" type="button" class="btn btn-primary" aria-label="Create shareable prayer card">Generate Share Card</button>
             <button id="listen-daily-battle" class="btn btn-secondary btn-listen" type="button" title="Hear verse + Fight on." aria-label="Hear verse aloud">Hear it</button>
             <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
           </div>

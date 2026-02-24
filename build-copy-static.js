@@ -49,7 +49,8 @@ const rootFiles = [
   'voice-pray.js',
   '_redirects',
   '_headers',
-  'kjv.json'
+  'kjv.json',
+  'bell.mp3'
 ];
 
 // All HTML in root (includes index.html, topic-anxiety.html, topic-*.html, etc.)

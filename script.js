@@ -11,6 +11,7 @@ if (navigator.onLine) {
 }
 window.addEventListener('online', function () {
   document.getElementById('offline-banner')?.classList.add('hidden');
+  if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
 });
 window.addEventListener('offline', function () {
   document.getElementById('offline-banner')?.classList.remove('hidden');
@@ -1592,6 +1593,316 @@ function wirePrayerMap() {
   }
   render();
   setInterval(render, 2000);
+}
+
+var PRAYER_SESSION_KEY = 'tdb_prayer_session_id';
+function getPrayerSessionId() {
+  try {
+    var id = sessionStorage.getItem(PRAYER_SESSION_KEY);
+    if (id) return id;
+    id = 's_' + Math.random().toString(36).slice(2) + '_' + Date.now();
+    sessionStorage.setItem(PRAYER_SESSION_KEY, id);
+    return id;
+  } catch (e) { return 'anon'; }
+}
+
+var PRAYER_OFFLINE_QUEUE_KEY = 'tdb_prayer_offline_queue';
+function getPrayerOfflineQueue() {
+  try { return JSON.parse(localStorage.getItem(PRAYER_OFFLINE_QUEUE_KEY) || '[]'); } catch (e) { return []; }
+}
+function setPrayerOfflineQueue(q) {
+  try { localStorage.setItem(PRAYER_OFFLINE_QUEUE_KEY, JSON.stringify(q)); } catch (e) {}
+}
+function flushPrayerOfflineQueue() {
+  var q = getPrayerOfflineQueue();
+  if (!q.length || !supabaseClient) return;
+  var sessionId = getPrayerSessionId();
+  q.forEach(function (item) {
+    supabaseClient.from('prayers').insert({ intent: item.intent || '', session_id: sessionId }).then(function () {});
+  });
+  setPrayerOfflineQueue([]);
+  if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+  if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+}
+
+var COLLECTIVE_INTENTS = ['peace', 'strength', 'healing', 'gratitude', 'hope', 'those who are sick', 'our families', 'wisdom', 'courage', 'rest'];
+var FOOTER_ROTATING_LINES = ["You're not praying alone.", "Someone just prayed with you.", "This is the room. You're in it."];
+var GOD_MODE_SOUND_ENABLED_KEY = 'tdb_sound_echo_enabled';
+var AMEN_PREFIX = 'tdb_amen_';
+
+function wireGodModePrayerEcho() {
+  var wrap = document.getElementById('prayer-echo');
+  var loadingEl = document.getElementById('prayer-echo-loading');
+  var presenceEl = document.getElementById('prayer-echo-presence');
+  var listEl = document.getElementById('prayer-echo-list');
+  var joinBtn = document.getElementById('prayer-echo-join');
+  if (!wrap || !listEl) return;
+  var lastEchoCount = 0;
+  function timePrefix(createdAt) {
+    if (!createdAt) return '';
+    var d = new Date(createdAt);
+    var h = d.getHours();
+    if (h < 9) return 'This morning: ';
+    if (h >= 17) return 'Tonight: ';
+    return '';
+  }
+  function playEchoBell() {
+    try {
+      var enabled = localStorage.getItem(GOD_MODE_SOUND_ENABLED_KEY) === 'true';
+      if (!enabled) return;
+      var a = new Audio('bell.mp3');
+      a.volume = 0.3;
+      a.play().catch(function () {
+        try {
+          var ctx = new (window.AudioContext || window.webkitAudioContext)();
+          var osc = ctx.createOscillator();
+          var g = ctx.createGain();
+          osc.connect(g);
+          g.connect(ctx.destination);
+          osc.frequency.value = 880;
+          osc.type = 'sine';
+          g.gain.setValueAtTime(0.15, ctx.currentTime);
+          g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
+          osc.start(ctx.currentTime);
+          osc.stop(ctx.currentTime + 0.2);
+        } catch (e2) {}
+      });
+    } catch (e) {}
+  }
+  async function fetchPresence() {
+    if (!supabaseClient) return;
+    try {
+      var res = await supabaseClient.rpc('get_prayer_presence_count');
+      var n = (res && res.data != null) ? res.data : 0;
+      if (presenceEl) {
+        presenceEl.textContent = n <= 0 ? '' : 'Right now: ' + n + ' person' + (n === 1 ? '' : 's') + ' here';
+        presenceEl.style.display = n > 0 ? 'block' : 'none';
+      }
+    } catch (e) {}
+  }
+  async function fetchAndRenderEcho() {
+    if (!supabaseClient) {
+      if (loadingEl) loadingEl.textContent = 'Connect to see recent prayers.';
+      return;
+    }
+    try {
+      var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count').order('created_at', { ascending: false }).limit(5);
+      if (loadingEl) loadingEl.style.display = 'none';
+      if (listEl) listEl.style.display = 'block';
+      if (joinBtn) joinBtn.style.display = 'inline-block';
+      var rows = (res && res.data) ? res.data : [];
+      if (rows.length > lastEchoCount) playEchoBell();
+      lastEchoCount = rows.length;
+      listEl.innerHTML = '';
+      rows.forEach(function (row) {
+        var intent = (row.intent && String(row.intent).trim()) || 'for peace';
+        var pre = timePrefix(row.created_at);
+        var li = document.createElement('li');
+        li.className = 'prayer-echo-item';
+        li.setAttribute('data-prayer-id', row.id);
+        var textSpan = document.createElement('span');
+        textSpan.className = 'prayer-echo-text';
+        textSpan.textContent = pre + 'Someone just prayed: ' + intent;
+        li.appendChild(textSpan);
+        var amenWrap = document.createElement('span');
+        amenWrap.className = 'prayer-echo-amen-wrap';
+        var amenBtn = document.createElement('button');
+        amenBtn.type = 'button';
+        amenBtn.className = 'btn-link prayer-echo-amen';
+        amenBtn.setAttribute('aria-label', 'Say Amen');
+        amenBtn.textContent = 'Amen';
+        var countEl = document.createElement('span');
+        countEl.className = 'prayer-echo-amen-count';
+        countEl.setAttribute('aria-live', 'polite');
+        var ac = row.amen_count != null ? row.amen_count : 0;
+        countEl.textContent = ac > 0 ? ' ' + ac : '';
+        var alreadyAmen = false;
+        try { alreadyAmen = localStorage.getItem(AMEN_PREFIX + row.id) === '1'; } catch (e) {}
+        if (alreadyAmen) amenBtn.setAttribute('disabled', 'true');
+        amenBtn.addEventListener('click', function () {
+          if (alreadyAmen) return;
+          if (!supabaseClient) return;
+          supabaseClient.from('prayers').update({ amen_count: (ac + 1) }).eq('id', row.id).then(function (r) {
+            if (!r.error) {
+              try { localStorage.setItem(AMEN_PREFIX + row.id, '1'); } catch (e) {}
+              alreadyAmen = true;
+              amenBtn.setAttribute('disabled', 'true');
+              countEl.textContent = ' ' + (ac + 1);
+            }
+          });
+        });
+        amenWrap.appendChild(amenBtn);
+        amenWrap.appendChild(countEl);
+        li.appendChild(amenWrap);
+        listEl.appendChild(li);
+      });
+      await fetchPresence();
+    } catch (e) {
+      if (loadingEl) loadingEl.textContent = 'Could not load recent prayers.';
+    }
+  }
+  window.__refreshPrayerEcho = fetchAndRenderEcho;
+  fetchAndRenderEcho();
+  setInterval(fetchAndRenderEcho, 15000);
+  setInterval(fetchPresence, 15000);
+  if (joinBtn) {
+    joinBtn.addEventListener('click', function () {
+      var msg = "I'm praying too—todaysdailybattle.com";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(msg).then(function () {
+          if (typeof showEliteToast === 'function') showEliteToast('Copied—share it!');
+        }).catch(function () {});
+      }
+    });
+  }
+}
+
+function wireCollectiveIntention() {
+  var el = document.getElementById('hero-collective-intent');
+  if (!el) return;
+  var key = 'tdb_collective_intent_date';
+  var valKey = 'tdb_collective_intent_val';
+  var today = getDailyKey();
+  try {
+    var savedDate = localStorage.getItem(key);
+    var savedVal = localStorage.getItem(valKey);
+    if (savedDate === today && savedVal) {
+      el.textContent = "Today we're holding: " + savedVal;
+      el.style.display = 'block';
+      return;
+    }
+  } catch (e) {}
+  var idx = today.split('').reduce(function (a, c) { return a + c.charCodeAt(0); }, 0) % COLLECTIVE_INTENTS.length;
+  var val = COLLECTIVE_INTENTS[idx];
+  try { localStorage.setItem(key, today); localStorage.setItem(valKey, val); } catch (e) {}
+  el.textContent = "Today we're holding: " + val;
+  el.style.display = 'block';
+}
+
+function wireFooterRotating() {
+  var el = document.getElementById('footer-rotating-line');
+  if (!el) return;
+  var idx = 0;
+  setInterval(function () {
+    el.textContent = FOOTER_ROTATING_LINES[idx % FOOTER_ROTATING_LINES.length];
+    idx += 1;
+  }, 30000);
+}
+
+function wireSoundEchoToggle() {
+  var cb = document.getElementById('sound-echo-toggle');
+  if (!cb) return;
+  try {
+    cb.checked = localStorage.getItem(GOD_MODE_SOUND_ENABLED_KEY) === 'true';
+  } catch (e) {}
+  cb.addEventListener('change', function () {
+    try { localStorage.setItem(GOD_MODE_SOUND_ENABLED_KEY, cb.checked ? 'true' : 'false'); } catch (e) {}
+  });
+}
+
+function wireQuickPrayAutocomplete() {
+  var input = document.getElementById('quick-pray');
+  var list = document.getElementById('quick-pray-suggestions');
+  if (!input || !list) return;
+  async function fill() {
+    if (!supabaseClient) return;
+    try {
+      var res = await supabaseClient.from('prayers').select('intent').not('intent', 'is', null).limit(50);
+      var intents = (res && res.data) ? res.data : [];
+      var seen = {};
+      var words = [];
+      intents.forEach(function (r) {
+        var t = (r.intent && String(r.intent).trim());
+        if (t && !seen[t]) { seen[t] = true; words.push(t); }
+      });
+      words = words.slice(0, 10);
+      list.innerHTML = '';
+      words.forEach(function (w) {
+        var o = document.createElement('option');
+        o.value = w;
+        list.appendChild(o);
+      });
+    } catch (e) {}
+  }
+  fill();
+  setInterval(fill, 60000);
+}
+
+function wirePrayThisWithMe() {
+  function copyVerseAndLink(verseText, toastMsg) {
+    var s = (verseText && verseText.trim()) ? (verseText.trim() + ' — Praying this today — todaysdailybattle.com') : 'Praying this today — todaysdailybattle.com';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(s).then(function () {
+        if (typeof showEliteToast === 'function') showEliteToast(toastMsg || 'Copied—share it!');
+      }).catch(function () {});
+    }
+  }
+  var verseBtn = document.getElementById('pray-this-with-me-verse');
+  if (verseBtn) {
+    verseBtn.addEventListener('click', function () {
+      var card = document.getElementById('daily-verse-card');
+      var ref = card && card.querySelector('strong');
+      var p = card && card.querySelector('p');
+      var verseText = (ref && p) ? (ref.textContent + ' ' + p.textContent).trim() : (card ? card.textContent.trim() : '');
+      copyVerseAndLink(verseText, 'Copied—share it!');
+    });
+  }
+  var dailyBtn = document.getElementById('pray-this-with-me-daily');
+  if (dailyBtn) {
+    dailyBtn.addEventListener('click', function () {
+      var ref = currentDailyBattle && currentDailyBattle.ref;
+      var verse = (currentDailyBattle && currentDailyBattle.verse) ? String(currentDailyBattle.verse).replace(/<[^>]+>/g, ' ').trim() : '';
+      var verseText = (ref && verse) ? (ref + ' ' + verse) : (ref || verse || '');
+      if (!verseText && typeof getDailyVerseRef === 'function') {
+        var r = getDailyVerseRef();
+        verseText = r && bible[r] ? (r + ' ' + bible[r]) : '';
+      }
+      copyVerseAndLink(verseText, 'Copied—share it!');
+    });
+  }
+  var path = (window.location.pathname || '').replace(/\/+$/, '') || '/';
+  if (/\/topic-[^/]+\.html$/.test(path)) {
+    document.querySelectorAll('.list-item').forEach(function (item) {
+      var strong = item.querySelector('strong');
+      var p = item.querySelector('p');
+      if (!strong || !p) return;
+      var verseText = (strong.textContent + ' ' + p.textContent).trim();
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'btn-link pray-this-with-me-btn';
+      btn.setAttribute('aria-label', 'Copy verse and share link');
+      btn.textContent = 'Pray this with me';
+      btn.addEventListener('click', function () { copyVerseAndLink(verseText, 'Copied—share it!'); });
+      var div = item.querySelector('div');
+      if (div) div.appendChild(btn);
+    });
+  }
+}
+
+function wireDawnDuskQuickPrayLabel() {
+  var titleEl = document.getElementById('quick-pray-title');
+  if (!titleEl) return;
+  function update() {
+    var h = new Date().getHours();
+    if (h < 9) titleEl.textContent = 'Morning prayer';
+    else if (h >= 17) titleEl.textContent = 'Evening prayer';
+    else titleEl.textContent = 'Quick pray';
+  }
+  update();
+  setInterval(update, 60000);
+}
+
+function updateFirstPrayerBadge() {
+  var badge = document.getElementById('home-streak-badge');
+  if (!badge) return;
+  var firstKey = 'tdb_first_prayer_today';
+  try {
+    if (localStorage.getItem(firstKey) === getDailyKey()) {
+      var t = badge.textContent || '';
+      if (t.indexOf('First to pray') === -1) badge.textContent = (t ? t + ' · ' : '') + 'First to pray today';
+      badge.style.display = 'block';
+    }
+  } catch (e) {}
 }
 
 function updateOfflinePrefetchUI() {
@@ -6915,7 +7226,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireFloatingVoicePray();
   wireIntentModal();
   wirePrayerMap();
+  wireGodModePrayerEcho();
+  wireCollectiveIntention();
+  wireFooterRotating();
+  wireSoundEchoToggle();
+  wireQuickPrayAutocomplete();
+  wirePrayThisWithMe();
+  wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
+  updateFirstPrayerBadge();
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');
   if (authSection && !authSection.querySelector('.auth-benefit')) {
@@ -7736,13 +8055,50 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (prayedTodayEl) prayedTodayEl.style.display = 'block';
       }
       if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
-      if (supabaseClient) {
-        supabaseClient.from('prayers').insert({}).then(function (r) {
-          if (r.error && typeof showEliteToast === 'function') showEliteToast('Couldn\'t add to total—try again.');
-          else if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+      var sessionId = getPrayerSessionId();
+      var payload = { intent: text, session_id: sessionId };
+      function onInsertDone(isFirst) {
+        if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+        if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+        try { sessionStorage.setItem('tdb_just_prayed', String(Date.now())); } catch (e) {}
+        if (isFirst) {
+          try { localStorage.setItem('tdb_first_prayer_today', getDailyKey()); } catch (e) {}
+          if (typeof showEliteToast === 'function') showEliteToast('You were the first to pray today.');
+          updateFirstPrayerBadge();
+        }
+      }
+      if (navigator.onLine && supabaseClient) {
+        supabaseClient.from('prayers').insert(payload).then(function (r) {
+          if (r.error) {
+            var q = getPrayerOfflineQueue();
+            q.push({ intent: text });
+            setPrayerOfflineQueue(q);
+            if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+          } else {
+            var todayStart = new Date();
+            todayStart.setUTCHours(0, 0, 0, 0);
+            var todayEnd = new Date(Date.UTC(todayStart.getUTCFullYear(), todayStart.getUTCMonth(), todayStart.getUTCDate() + 1, 0, 0, 0, 0));
+            supabaseClient.from('prayers').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()).lt('created_at', todayEnd.toISOString()).then(function (res) {
+              var isFirst = res && res.count === 1;
+              onInsertDone(isFirst);
+            }).catch(function () { onInsertDone(false); });
+            return;
+          }
+          onInsertDone(false);
+        }).catch(function () {
+          var q = getPrayerOfflineQueue();
+          q.push({ intent: text });
+          setPrayerOfflineQueue(q);
+          if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+          onInsertDone(false);
         });
-      } else if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
-      try { sessionStorage.setItem('tdb_just_prayed', String(Date.now())); } catch (e) {}
+      } else {
+        var q = getPrayerOfflineQueue();
+        q.push({ intent: text });
+        setPrayerOfflineQueue(q);
+        if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+        onInsertDone(false);
+      }
       if (quickPrayFeedback) {
         quickPrayFeedback.textContent = 'Added!';
         quickPrayFeedback.style.display = 'block';

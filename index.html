@@ -98,6 +98,10 @@
       <div class="sidebar-options">
         <div id="sidebar-streak" class="sidebar-streak section-note" aria-live="polite" style="display:none;"></div>
         <label class="inline-toggle">
+          <input id="sound-echo-toggle" type="checkbox" aria-label="Play sound when someone prays">
+          Sound when someone prays
+        </label>
+        <label class="inline-toggle">
           <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
           Red letters
         </label>
@@ -110,10 +114,17 @@
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
           <p class="hero-sub">Less scroll. More soul.</p>
+          <p id="hero-collective-intent" class="hero-collective-intent section-note" aria-live="polite" style="display:none;"></p>
           <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
           <p id="hero-intent" class="hero-intent section-note" style="display:none;" aria-live="polite"></p>
         </header>
         <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
+        <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
+          <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading recent prayers…</p>
+          <p class="prayer-echo-presence section-note" id="prayer-echo-presence" aria-live="polite" style="display:none;"></p>
+          <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent prayers" style="display:none;"></ul>
+          <button type="button" id="prayer-echo-join" class="btn btn-secondary btn-small" style="display:none;" aria-label="Copy share link to invite others">Join them</button>
+        </section>
         <div id="search-widget" role="search" aria-label="Floating search bar"></div>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
@@ -257,10 +268,11 @@
             <p id="daily-battle-reset-nudge" class="section-note streak-reset-nudge" style="display: none;" aria-live="polite"></p>
           </div>
           <div id="quick-pray-wrap" class="glass quick-pray-wrap" role="region" aria-label="Quick pray">
-            <h3 class="quick-pray-title">Quick pray</h3>
+            <h3 class="quick-pray-title" id="quick-pray-title">Quick pray</h3>
             <p class="section-note">Add a name or intention—no login needed. Saved to your list. Draft auto-saves.</p>
             <div class="quick-pray-row">
-              <input type="text" id="quick-pray" placeholder="Add a name or intention…" aria-label="Quick prayer">
+              <input type="text" id="quick-pray" list="quick-pray-suggestions" placeholder="Add a name or intention…" aria-label="Quick prayer">
+              <datalist id="quick-pray-suggestions"></datalist>
               <button type="button" id="quick-pray-btn" class="btn btn-primary" aria-label="Submit quick prayer">Pray</button>
               <button type="button" id="voice-pray-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your prayer"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
             </div>
@@ -296,6 +308,7 @@
             <button id="share-daily-battle" class="btn btn-secondary" type="button">Share</button>
             <button id="share-daily-battle-send-friend" class="btn btn-secondary" type="button" title="Email this verse to a friend">Send to a friend</button>
             <button id="share-daily-battle-copy-verse" class="btn btn-secondary" type="button" title="Copy verse + reference">Copy verse</button>
+            <button id="pray-this-with-me-daily" class="btn btn-secondary pray-this-with-me-btn" type="button" title="Copy verse + Praying this today — todaysdailybattle.com" aria-label="Copy verse and share link">Pray this with me</button>
             <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
             <button id="share-daily-battle-image" class="btn btn-secondary" type="button" title="One-tap: Instagram-ready graphic with today's verse + logo">Save card for Instagram</button>
             <button id="generate-share-card-30" type="button" class="btn btn-primary" aria-label="Create shareable prayer card">Generate Share Card</button>
@@ -484,6 +497,7 @@
 
     <footer class="site-footer">
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
+      <p id="footer-rotating-line" class="footer-rotating-line section-note" aria-live="polite">You're not praying alone.</p>
       Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a>
       <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience—e.g., which verses and features help most. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>

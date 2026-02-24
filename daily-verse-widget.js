@@ -116,8 +116,28 @@
     shareBtn.className = 'daily-verse-widget-btn daily-verse-widget-share';
     shareBtn.textContent = 'Share';
 
+    var prayWithMeBtn = document.createElement('button');
+    prayWithMeBtn.type = 'button';
+    prayWithMeBtn.className = 'daily-verse-widget-btn pray-this-with-me-btn';
+    prayWithMeBtn.setAttribute('aria-label', 'Copy verse and share link');
+    prayWithMeBtn.textContent = 'Pray this with me';
+    prayWithMeBtn.addEventListener('click', function () {
+      var r = document.getElementById('daily-verse-widget-ref');
+      var t = document.getElementById('daily-verse-widget-text');
+      var verseStr = (r && t) ? (r.textContent + ' ' + t.textContent).trim() : '';
+      var toCopy = verseStr ? (verseStr + ' — Praying this today — todaysdailybattle.com') : 'Praying this today — todaysdailybattle.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(toCopy).then(function () {
+          if (typeof window.showEliteToast === 'function') window.showEliteToast('Copied—share it!');
+          else prayWithMeBtn.textContent = 'Copied!';
+          setTimeout(function () { prayWithMeBtn.textContent = 'Pray this with me'; }, 2000);
+        }).catch(function () {});
+      }
+    });
+
     actions.appendChild(prayBtn);
     actions.appendChild(shareBtn);
+    actions.appendChild(prayWithMeBtn);
     widget.appendChild(title);
     widget.appendChild(refEl);
     widget.appendChild(textEl);

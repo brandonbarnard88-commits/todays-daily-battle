@@ -1691,6 +1691,24 @@ function wireFloatingVoicePray() {
   });
 }
 
+function wireCallGodBtn() {
+  var btn = document.getElementById('call-god-btn');
+  var voiceBtn = document.getElementById('voice-pray-btn');
+  var input = document.getElementById('quick-pray');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    if (typeof showEliteToast === 'function') showEliteToast('Line open—speak to Him.');
+    try {
+      if (navigator.vibrate) navigator.vibrate(100);
+    } catch (e) {}
+    if (voiceBtn) {
+      voiceBtn.click();
+    } else if (input) {
+      input.focus();
+    }
+  });
+}
+
 function wireIntentModal() {
   var modal = document.getElementById('intent-modal');
   var closeBtn = document.getElementById('intent-modal-close');
@@ -7792,6 +7810,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireOfflineBanner();
   wirePrayerCounter();
   wireFloatingVoicePray();
+  wireCallGodBtn();
   wireIntentModal();
   wirePrayerMap();
   wireGodModePrayerEcho();

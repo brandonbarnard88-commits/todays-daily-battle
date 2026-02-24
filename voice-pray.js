@@ -37,7 +37,7 @@
         btn.setAttribute('aria-label', 'Stop speaking');
       } else {
         btn.classList.remove('voice-pray-listening');
-        btn.innerHTML = '<span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak';
+        btn.innerHTML = '<span class="voice-pray-icon" aria-hidden="true">✝</span> Speak';
         btn.setAttribute('aria-label', 'Speak your prayer');
       }
     }

@@ -967,6 +967,29 @@ body.light .prayer-counter { color: #64748b; }
   50% { opacity: 0.95; box-shadow: 0 0 0 8px rgba(109, 40, 217, 0); }
 }
 
+.btn-call-god {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(145deg, rgba(220, 38, 38, 0.25), rgba(185, 28, 28, 0.2));
+  border: 1px solid rgba(220, 38, 38, 0.45);
+  color: #fca5a5;
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.2);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.btn-call-god:hover {
+  box-shadow: 0 0 18px rgba(220, 38, 38, 0.35);
+  border-color: rgba(220, 38, 38, 0.6);
+}
+.call-god-icon { filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.6)); }
+.dark-mode .btn-call-god { color: #fecaca; }
+.dark-mode .btn-call-god:hover { color: #fee2e2; }
+
 .focus-mode-wrap {
   margin-bottom: 0.75rem;
 }

@@ -74,10 +74,10 @@ function addHouseholdArmorPiece(source) {
   var announce = document.getElementById('armor-piece-added-announce');
   if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
   if (data.count >= 6) {
-    if (typeof showEliteToast === 'function') showEliteToast('Your household\'s armored—streets of gold await!');
-    var link = 'https://todaysdailybattle.com/?armor=1';
+    if (typeof showEliteToast === 'function') showEliteToast('Your household\'s crowned—share the link!');
+    var shareText = 'My household\'s armored in the Armor of God—join us at todaysdailybattle.com';
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(link).catch(function () {});
+      navigator.clipboard.writeText(shareText).catch(function () {});
     }
   }
   var modal = document.getElementById('armor-builder-modal');
@@ -2024,6 +2024,23 @@ function renderArmorModal() {
     }
   }
   if (completeMsg) completeMsg.style.display = data.count >= 6 ? 'block' : 'none';
+  var crownEl = document.getElementById('armor-crown');
+  var crownWrap = document.getElementById('armor-crown-wrap');
+  if (crownEl && crownWrap) {
+    crownWrap.style.display = data.count >= 1 ? 'block' : 'none';
+    crownEl.innerHTML = '';
+    for (var c = 0; c < 6; c++) {
+      var slot = document.createElement('span');
+      slot.className = 'armor-crown-jewel' + (c < data.count ? ' armor-crown-filled' : '');
+      slot.setAttribute('aria-hidden', 'true');
+      crownEl.appendChild(slot);
+    }
+  }
+  var badgeEl = document.getElementById('armor-badge');
+  if (badgeEl) {
+    if (data.count >= 6) badgeEl.classList.remove('hidden');
+    else badgeEl.classList.add('hidden');
+  }
 }
 
 function wireArmorBuilderModal() {
@@ -2045,6 +2062,9 @@ function wireArmorBuilderModal() {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
   });
+  var data = getHouseholdArmor();
+  var badgeEl = document.getElementById('armor-badge');
+  if (badgeEl && data.count >= 6) badgeEl.classList.remove('hidden');
 }
 
 function wireFamilyNameModal() {

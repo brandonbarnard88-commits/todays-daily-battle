@@ -64,6 +64,7 @@
       <button type="button" id="add-family-btn" class="header-family-btn" aria-label="Your family name" title="Add family or group name">Add family</button>
       <button type="button" id="bless-session-btn" class="header-bless-btn" aria-label="Bless this session" title="Bless this session"><span aria-hidden="true">✝</span><span class="bless-flame" aria-hidden="true">🔥</span></button>
       <button type="button" id="armor-builder-btn" class="armor-builder-btn" aria-label="Build Armor for your household" title="Build the Armor of God for your household"><span class="armor-btn-icon" aria-hidden="true">🛡️</span> Armor</button>
+      <span id="armor-badge" class="armor-badge hidden" aria-label="Household fully armored">Armored Household</span>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <span class="header-signin-nudge">Save your streak? <a href="#auth-details">Sign in</a>—optional, no pressure.</span>
       <div id="auth-details" class="auth-details-inline">
@@ -522,6 +523,9 @@
         <div id="armor-piece-added-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
         <div class="armor-pieces-wrap" role="list" aria-label="Armor pieces">
           <ul id="armor-pieces-list" class="armor-pieces-list"></ul>
+        </div>
+        <div id="armor-crown-wrap" class="armor-crown-wrap" aria-hidden="true">
+          <div id="armor-crown" class="armor-crown" aria-hidden="true"></div>
         </div>
         <div id="armor-avatar-wrap" class="armor-avatar-wrap" aria-label="Household avatar">
           <div class="armor-avatar-household" id="armor-avatar-household"></div>

@@ -36,6 +36,8 @@ const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
 var HOUSEHOLD_ARMOR_KEY = 'tdb_household_armor';
 var ARMOR_JOINED_KEY = 'tdb_armor_joined_household';
 var ARMOR_JOIN_BONUS_KEY = 'tdb_armor_join_bonus_given';
+var HEAVENLY_JEWELS_KEY = 'tdb_heavenlyJewels';
+var CROWN_JEWEL_NAMES = ['sapphire', 'ruby', 'emerald', 'diamond', 'amethyst', 'pearl'];
 var ARMOR_VERSE_DAY_KEY_PREFIX = 'tdb_armor_verse_';
 var ARMOR_PIECES = [
   { key: 'Belt of Truth', label: 'Belt of Truth', desc: 'Gold buckle, sapphire inlay' },
@@ -107,6 +109,31 @@ function addHouseholdArmorPiece(source) {
   var modal = document.getElementById('armor-builder-modal');
   if (modal && typeof renderArmorModal === 'function') renderArmorModal();
   return true;
+}
+function getHeavenlyJewels() {
+  try {
+    var raw = localStorage.getItem(HEAVENLY_JEWELS_KEY);
+    if (!raw) return [];
+    var arr = JSON.parse(raw);
+    return Array.isArray(arr) ? arr : [];
+  } catch (e) { return []; }
+}
+function addHeavenlyJewel(source) {
+  var armor = getHouseholdArmor();
+  if (armor.count < 6) return;
+  var jewels = getHeavenlyJewels();
+  jewels.push({ t: Date.now(), s: source });
+  try { localStorage.setItem(HEAVENLY_JEWELS_KEY, JSON.stringify(jewels)); } catch (e) { return; }
+  var crownEl = document.getElementById('armor-crown');
+  if (crownEl) crownEl.classList.add('armor-crown-sparkle');
+  setTimeout(function () { if (crownEl) crownEl.classList.remove('armor-crown-sparkle'); }, 1200);
+  if (typeof showEliteToast === 'function') showEliteToast('Jewel added—crown brighter!');
+  if (jewels.length >= 10) {
+    if (typeof showEliteToast === 'function') showEliteToast('Crown complete—share your glory!');
+    var shareText = 'My household\'s crown is full—join the streets of gold';
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText).catch(function () {});
+  }
+  if (typeof renderArmorModal === 'function') renderArmorModal();
 }
 // Admin is determined server-side only: Supabase app_metadata.role === 'admin'. No admin email in client.
 let isMasterUser = false;
@@ -1924,6 +1951,7 @@ function wireGodModePrayerEcho() {
               countEl.textContent = ' ' + newCount;
               if (newCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your Amen joined a chain—keep it going.');
               if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('amen');
+              if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('amen');
             }
           });
         });
@@ -2072,10 +2100,19 @@ function renderArmorModal() {
     crownEl.innerHTML = '';
     for (var c = 0; c < 6; c++) {
       var slot = document.createElement('span');
-      slot.className = 'armor-crown-jewel' + (c < data.count ? ' armor-crown-filled' : '');
+      var jewelName = CROWN_JEWEL_NAMES[c] || 'jewel';
+      slot.className = 'armor-crown-jewel' + (c < data.count ? ' armor-crown-filled jewel-' + jewelName : '');
       slot.setAttribute('aria-hidden', 'true');
+      slot.setAttribute('data-jewel', jewelName);
       crownEl.appendChild(slot);
     }
+  }
+  var heavenlyWrap = document.getElementById('armor-heavenly-wrap');
+  var heavenlyCountEl = document.getElementById('armor-heavenly-count');
+  if (heavenlyWrap) heavenlyWrap.style.display = data.count >= 6 ? 'block' : 'none';
+  if (heavenlyCountEl && data.count >= 6) {
+    var jewels = getHeavenlyJewels();
+    heavenlyCountEl.textContent = 'Heavenly jewels: ' + jewels.length;
   }
   var badgeEl = document.getElementById('armor-badge');
   if (badgeEl) {
@@ -2185,6 +2222,8 @@ function wireSilentOffering() {
           if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
           if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
           if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
+      if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
+          if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
         }
       });
     } else {
@@ -2192,6 +2231,7 @@ function wireSilentOffering() {
       q.push({ intent: 'Someone offered silence.' });
       setPrayerOfflineQueue(q);
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
+      if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
     }
   });
 }
@@ -8594,6 +8634,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         onInsertDone(false);
       }
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
+      if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
       if (quickPrayFeedback) {
         quickPrayFeedback.textContent = 'Added!';
         quickPrayFeedback.style.display = 'block';

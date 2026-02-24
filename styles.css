@@ -4193,8 +4193,19 @@ body.red-letter-off .red-letter-card {
 .armor-welcome-msg { margin-bottom: 0.5rem; font-weight: 600; }
 .armor-crown-wrap { margin-top: 0.75rem; display: flex; justify-content: center; }
 .armor-crown { display: flex; gap: 0.35rem; align-items: center; justify-content: center; flex-wrap: wrap; }
-.armor-crown-jewel { width: 0.6rem; height: 0.6rem; border-radius: 50%; border: 1px solid rgba(251,191,36,0.5); background: rgba(30,41,59,0.6); transition: background 0.3s, box-shadow 0.3s; }
-.armor-crown-filled { background: linear-gradient(135deg, #fbbf24, #b45309); box-shadow: 0 0 8px rgba(251,191,36,0.6); }
+.armor-crown-jewel { width: 0.6rem; height: 0.6rem; border-radius: 50%; border: 1px solid rgba(251,191,36,0.5); background: rgba(30,41,59,0.6); transition: background 0.3s, box-shadow 0.3s; animation: jewel-rotate 8s linear infinite; }
+.armor-crown-filled { box-shadow: 0 0 8px rgba(251,191,36,0.6); }
+.armor-crown-filled.jewel-sapphire { background: linear-gradient(135deg, #3b82f6, #1d4ed8); box-shadow: 0 0 10px rgba(59,130,246,0.7); }
+.armor-crown-filled.jewel-ruby { background: linear-gradient(135deg, #dc2626, #991b1b); box-shadow: 0 0 10px rgba(220,38,38,0.7); }
+.armor-crown-filled.jewel-emerald { background: linear-gradient(135deg, #10b981, #047857); box-shadow: 0 0 10px rgba(16,185,129,0.7); }
+.armor-crown-filled.jewel-diamond { background: linear-gradient(135deg, #e0f2fe, #7dd3fc); box-shadow: 0 0 10px rgba(224,242,254,0.8); }
+.armor-crown-filled.jewel-amethyst { background: linear-gradient(135deg, #a78bfa, #6d28d9); box-shadow: 0 0 10px rgba(167,139,250,0.7); }
+.armor-crown-filled.jewel-pearl { background: linear-gradient(135deg, #fef3c7, #e2e8f0); box-shadow: 0 0 10px rgba(254,243,199,0.7); }
+@keyframes jewel-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.armor-crown-sparkle .armor-crown-jewel.armor-crown-filled { animation: jewel-rotate 8s linear infinite, jewel-glow-pulse 0.6s ease-out 2; }
+@keyframes jewel-glow-pulse { 0% { opacity: 1; filter: brightness(1); } 50% { opacity: 0.9; filter: brightness(1.4); } 100% { opacity: 1; filter: brightness(1); } }
+.armor-heavenly-wrap { margin-top: 0.5rem; }
+.armor-heavenly-text { font-weight: 600; }
 .armor-badge { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 6px; border: 1px solid rgba(251,191,36,0.5); background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(180,83,9,0.1)); color: #fbbf24; margin-left: 0.25rem; box-shadow: 0 0 10px rgba(251,191,36,0.2); }
 .armor-badge.hidden { display: none !important; }
 @media (max-width: 768px) {

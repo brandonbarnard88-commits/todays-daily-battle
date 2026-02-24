@@ -4183,8 +4183,12 @@ body.red-letter-off .red-letter-card {
 .armor-silhouette-svg svg { fill: #64748b; }
 .armor-figure[data-piece] .armor-silhouette-img { fill: #94a3b8; }
 .armor-figure[data-piece] .armor-silhouette-svg svg { fill: #94a3b8; }
-.armor-piece-glow { font-size: 1.1rem; filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.9)); color: #fbbf24; position: absolute; top: -0.2rem; }
+.armor-piece-glow { font-size: 1.1rem; filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.9)); color: #fbbf24; position: absolute; top: -0.2rem; animation: jewel-pulse 2s ease-in-out infinite; }
 .armor-sword .armor-piece-glow { color: #93c5fd; }
+@keyframes jewel-pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
 .armor-complete-msg { margin-top: 1rem; font-weight: 500; }
 @media (max-width: 768px) {
   .armor-pieces-list { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; }

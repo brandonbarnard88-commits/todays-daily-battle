@@ -62,7 +62,11 @@ function setHouseholdArmor(data) {
 function addHouseholdArmorPiece(source) {
   var data = getHouseholdArmor();
   if (data.count >= 6) return false;
-  var nextPiece = ARMOR_PIECES[data.count];
+  var earned = [];
+  for (var i = 0; i < ARMOR_PIECES.length; i++) {
+    if (data.pieces.indexOf(ARMOR_PIECES[i].key) === -1) earned.push(ARMOR_PIECES[i]);
+  }
+  var nextPiece = earned[Math.floor(Math.random() * earned.length)];
   data.pieces = data.pieces.slice();
   data.pieces.push(nextPiece.key);
   data.count = data.pieces.length;
@@ -70,7 +74,7 @@ function addHouseholdArmorPiece(source) {
   var announce = document.getElementById('armor-piece-added-announce');
   if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
   if (data.count >= 6) {
-    if (typeof showEliteToast === 'function') showEliteToast('Your household\'s armored—share it!');
+    if (typeof showEliteToast === 'function') showEliteToast('Your household\'s armored—streets of gold await!');
     var link = 'https://todaysdailybattle.com/?armor=1';
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(link).catch(function () {});

@@ -4,11 +4,7 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
-if (navigator.onLine) {
-  document.getElementById('offline-banner')?.classList.add('hidden');
-} else {
-  document.getElementById('offline-banner')?.classList.remove('hidden');
-}
+document.getElementById('offline-banner')?.classList.add('hidden');
 window.addEventListener('online', function () {
   document.getElementById('offline-banner')?.classList.add('hidden');
   if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
@@ -802,6 +798,13 @@ if (typeof window !== 'undefined' && (window.TDB_CONFIG == null || typeof window
 const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
 const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || '';
 const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || '';
+if (typeof window !== 'undefined') {
+  if (!_cfg || !supabaseUrl || !supabaseKey) {
+    console.error('TDB_CONFIG missing! Set SUPABASE_URL and SUPABASE_ANON_KEY in config.js or index.html.');
+  } else {
+    console.log('Supabase init with URL:', supabaseUrl);
+  }
+}
 const supabaseScriptUrls = [
   'vendor/supabase-js.js?v=20260210s',
   'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
@@ -846,6 +849,18 @@ function initSupabaseClient() {
   if (!sdk || !supabaseUrl || !supabaseKey) return false;
   supabaseClient = sdk.createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions);
   return Boolean(supabaseClient);
+}
+
+function runSupabaseConnectionTest() {
+  if (!supabaseClient) return;
+  supabaseClient.from('prayers').select('*', { count: 'exact', head: true })
+    .then(function (res) {
+      console.log('Prayers count:', res && res.count != null ? res.count : (res && res.data ? res.data.length : '?'));
+    })
+    .catch(function (err) {
+      console.error('Supabase test failed', err);
+      if (typeof showEliteToast === 'function') showEliteToast('Connection failed—check key');
+    });
 }
 
 function loadSupabaseScript(url) {
@@ -1451,9 +1466,10 @@ function wireOfflineBanner() {
     banner.classList.add('hidden');
     try { sessionStorage.removeItem('tdb_offline_view_sent'); } catch (_) {}
   }
-  if (!navigator.onLine) showBanner();
+  window.addEventListener('offline', showBanner);
   window.addEventListener('online', function() {
     hideBanner();
+    if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
     if (typeof canUseSupabase === 'function' && canUseSupabase() && currentUserId && typeof syncUserData === 'function') {
       syncUserData().then(function() {
         if (typeof updateSyncStatusUI === 'function') updateSyncStatusUI();
@@ -1461,25 +1477,30 @@ function wireOfflineBanner() {
       }).catch(function() {});
     }
   });
-  window.addEventListener('offline', showBanner);
 }
 
 function wireRealPrayerCounter() {
   var el = document.getElementById('prayer-counter');
   if (!el) return;
   function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
+  var FETCH_TIMEOUT_MS = 8000;
   async function fetchPrayerCount() {
     if (!supabaseClient) {
       el.textContent = '—';
       return;
     }
     try {
-      var res = await supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
-      if (res.error) {
+      var req = supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
+      var timeout = new Promise(function (_, reject) {
+        setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
+      });
+      var res = await Promise.race([req, timeout]);
+      if (res && res.error) {
         el.textContent = '—';
         return;
       }
-      el.textContent = formatCount(res.count);
+      if (res && res.count != null) el.textContent = formatCount(res.count);
+      else el.textContent = '—';
     } catch (e) {
       el.textContent = '—';
     }
@@ -1742,11 +1763,18 @@ function wireGodModePrayerEcho() {
     }
     if (sacredEl) sacredEl.style.display = 'none';
     if (!supabaseClient) {
-      if (loadingEl) loadingEl.textContent = 'Connect to see recent prayers.';
+      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Connect to see recent prayers.'; }
       return;
     }
+    var echoTimeout = setTimeout(function () {
+      if (loadingEl && loadingEl.textContent.indexOf('Loading') !== -1) {
+        loadingEl.style.display = 'block';
+        loadingEl.textContent = 'When you\'re online, recent prayers appear here.';
+      }
+    }, 8000);
     try {
       var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count, family_name').order('created_at', { ascending: false }).limit(5);
+      clearTimeout(echoTimeout);
       if (loadingEl) loadingEl.style.display = 'none';
       if (listEl) listEl.style.display = 'block';
       if (joinBtn) joinBtn.style.display = 'inline-block';
@@ -1806,7 +1834,8 @@ function wireGodModePrayerEcho() {
       });
       await fetchPresence();
     } catch (e) {
-      if (loadingEl) loadingEl.textContent = 'Could not load recent prayers.';
+      clearTimeout(echoTimeout);
+      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Could not load recent prayers.'; }
     }
   }
   window.__refreshPrayerEcho = fetchAndRenderEcho;
@@ -7366,6 +7395,8 @@ function renderResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initSupabaseClient();
+  runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
   var isHome = path === '' || path === '/' || path === '/index.html';
   if (isHome) {

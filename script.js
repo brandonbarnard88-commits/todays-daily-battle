@@ -1463,40 +1463,33 @@ function wireOfflineBanner() {
   window.addEventListener('offline', showBanner);
 }
 
-function wirePrayerCounter() {
-  var el = document.getElementById('prayer-counter-num');
+function wireRealPrayerCounter() {
+  var el = document.getElementById('prayer-counter');
   if (!el) return;
-  var key = 'tdb_prayer_counter';
-  var key1000 = 'tdb_prayer_counter_1000_toast';
-  var count = 0;
-  try {
-    var stored = sessionStorage.getItem(key);
-    count = stored ? parseInt(stored, 10) : (Math.floor(Math.random() * 1000) + 1000);
-  } catch (e) {
-    count = Math.floor(Math.random() * 1000) + 1000;
-  }
-  function format(n) { return n.toLocaleString(); }
-  function updateUI() {
-    el.textContent = format(count);
-    try { sessionStorage.setItem(key, String(count)); } catch (e) {}
-    if (count >= 1000) {
-      try {
-        if (!sessionStorage.getItem(key1000)) {
-          sessionStorage.setItem(key1000, '1');
-          if (typeof showEliteToast === 'function') showEliteToast('Thanks—1,000 prayers today!');
-        }
-      } catch (e) {}
+  function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
+  async function fetchPrayerCount() {
+    if (!supabaseClient) {
+      el.textContent = '—';
+      return;
+    }
+    try {
+      var res = await supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
+      if (res.error) {
+        el.textContent = '—';
+        return;
+      }
+      el.textContent = formatCount(res.count);
+    } catch (e) {
+      el.textContent = '—';
     }
   }
-  updateUI();
-  setInterval(function () {
-    count += Math.floor(Math.random() * 4);
-    updateUI();
-  }, 30000);
-  window.__incrementPrayerCounter = function () {
-    count += 1;
-    updateUI();
-  };
+  window.__fetchPrayerCount = fetchPrayerCount;
+  fetchPrayerCount();
+  setInterval(fetchPrayerCount, 10000);
+}
+
+function wirePrayerCounter() {
+  wireRealPrayerCounter();
 }
 
 function updateSidebarStreak(streakCount) {
@@ -7743,7 +7736,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (prayedTodayEl) prayedTodayEl.style.display = 'block';
       }
       if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
-      if (typeof window.__incrementPrayerCounter === 'function') window.__incrementPrayerCounter();
+      if (supabaseClient) {
+        supabaseClient.from('prayers').insert({}).then(function (r) {
+          if (r.error && typeof showEliteToast === 'function') showEliteToast('Couldn\'t add to total—try again.');
+          else if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+        });
+      } else if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
       try { sessionStorage.setItem('tdb_just_prayed', String(Date.now())); } catch (e) {}
       if (quickPrayFeedback) {
         quickPrayFeedback.textContent = 'Added!';

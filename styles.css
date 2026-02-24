@@ -593,6 +593,7 @@ body {
   font-weight: 600;
   color: var(--elite-gold, var(--accent));
   letter-spacing: 0.04em;
+  text-align: center;
 }
 .streak-badge {
   margin: 0.5rem 0 0;
@@ -2264,7 +2265,7 @@ button:active {
   font-weight: 500;
 }
 
-/* Daily Verse widget — 300px, card, drop-in, dark-mode friendly */
+/* Daily Verse widget — card only when verse has loaded; no big empty box when loading */
 .daily-verse-widget-outer {
   margin-bottom: 1rem;
 }
@@ -2272,6 +2273,9 @@ button:active {
   width: 300px;
   max-width: 100%;
   box-sizing: border-box;
+  min-height: 0;
+}
+#daily-verse-widget.daily-verse-widget-loaded {
   background: var(--card-light);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
@@ -2280,9 +2284,16 @@ button:active {
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
 }
-.dark-mode #daily-verse-widget {
+.dark-mode #daily-verse-widget.daily-verse-widget-loaded {
   background: var(--card-dark);
   border-color: rgba(148, 163, 184, 0.12);
+}
+#daily-verse-widget.daily-verse-widget-loading,
+#daily-verse-widget.daily-verse-widget-error {
+  padding: 0.5rem 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
 }
 .daily-verse-widget-title {
   margin: 0 0 0.35rem 0;
@@ -2350,16 +2361,16 @@ button:active {
   background: rgba(255,255,255,0.1);
   color: var(--text);
 }
-.daily-verse-widget-loading,
-.daily-verse-widget-error {
+.daily-verse-widget-loading-msg,
+.daily-verse-widget-error-msg {
   margin: 0;
   font-size: 0.9rem;
   color: var(--text-muted);
   text-align: center;
-  padding: 20px;
+  padding: 0.25rem 0;
 }
-.dark-mode .daily-verse-widget-loading,
-.dark-mode .daily-verse-widget-error {
+.dark-mode .daily-verse-widget-loading-msg,
+.dark-mode .daily-verse-widget-error-msg {
   color: rgba(148, 163, 184, 0.8);
 }
 @media (max-width: 600px) {
@@ -2374,6 +2385,7 @@ button:active {
   position: sticky;
   top: 0;
   z-index: 100;
+  margin-bottom: 2rem;
   background: var(--card-light);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);

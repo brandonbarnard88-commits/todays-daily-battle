@@ -37,6 +37,8 @@
   function render(widget, ref, text) {
     widget.innerHTML = '';
     widget.setAttribute('aria-busy', 'false');
+    widget.classList.remove('daily-verse-widget-loading', 'daily-verse-widget-error');
+    widget.classList.add('daily-verse-widget-loaded');
 
     var title = document.createElement('p');
     title.className = 'daily-verse-widget-title';
@@ -89,8 +91,10 @@
   function showError(widget, msg) {
     widget.innerHTML = '';
     widget.setAttribute('aria-busy', 'false');
+    widget.classList.remove('daily-verse-widget-loading', 'daily-verse-widget-loaded');
+    widget.classList.add('daily-verse-widget-error');
     var p = document.createElement('p');
-    p.className = 'daily-verse-widget-error';
+    p.className = 'daily-verse-widget-error-msg';
     p.textContent = msg || 'Verse could not be loaded.';
     widget.appendChild(p);
   }
@@ -100,7 +104,9 @@
     if (!widget) return;
 
     widget.setAttribute('aria-busy', 'true');
-    widget.innerHTML = '<div class="daily-verse-widget-loading" role="status" aria-live="polite">Loading verse…</div>';
+    widget.classList.remove('daily-verse-widget-loaded', 'daily-verse-widget-error');
+    widget.classList.add('daily-verse-widget-loading');
+    widget.innerHTML = '<div class="daily-verse-widget-loading-msg" role="status" aria-live="polite">Loading verse…</div>';
 
     fetch(KJV_URL)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('Network')); })

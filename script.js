@@ -9425,11 +9425,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     trackEvent('pricing_view');
   }
 
+  var addPrayerModal = document.getElementById('add-prayer-modal');
   document.getElementById('add-prayer-btn')?.addEventListener('click', function () {
-    document.getElementById('add-prayer-modal').classList.remove('hidden');
+    if (addPrayerModal) addPrayerModal.classList.remove('hidden');
   });
   document.getElementById('close-modal')?.addEventListener('click', function () {
-    document.getElementById('add-prayer-modal').classList.add('hidden');
+    if (addPrayerModal) addPrayerModal.classList.add('hidden');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && addPrayerModal && !addPrayerModal.classList.contains('hidden')) {
+      addPrayerModal.classList.add('hidden');
+    }
   });
   document.getElementById('prayer-form')?.addEventListener('submit', function (e) {
     e.preventDefault();

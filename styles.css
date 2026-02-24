@@ -588,12 +588,13 @@ body {
 }
 
 .hero-banner .hero-sub {
-  margin: 0.5rem 0 0;
-  font-size: 1.1rem;
+  margin: 0.5rem auto 0;
+  font-size: 1.35rem;
   font-weight: 600;
   color: var(--elite-gold, var(--accent));
   letter-spacing: 0.04em;
   text-align: center;
+  display: block;
 }
 .streak-badge {
   margin: 0.5rem 0 0;
@@ -3632,7 +3633,7 @@ body.red-letter-off .red-letter-card {
   .hero-banner h1 { font-size: clamp(2rem, 6vw, 2.75rem); }
   .hero-banner p,
   .hero-banner .hero-tagline { font-size: 1.2rem; }
-  .hero-banner .hero-sub { font-size: 1.1rem; }
+  .hero-banner .hero-sub { font-size: 1.25rem; }
   .hero-banner .hero-email-cta { font-size: 1.05rem; }
   .hero-banner .hero-tagline { margin-bottom: 0.6rem; }
   .hero-banner .hero-cta {

@@ -57,8 +57,8 @@ const rootFiles = [
 const htmlFiles = fs.readdirSync(root, { withFileTypes: false })
   .filter((f) => f.endsWith('.html'));
 
-// Force topic copy — no wildcards, no readdir; CI can't skip this.
-const TOPIC_FILES = [
+// Hard-force topic copy first (before any other copy) — CI must not skip.
+const topics = [
   'topic-anxiety.html',
   'topic-fear.html',
   'topic-forgiveness.html',
@@ -68,15 +68,18 @@ const TOPIC_FILES = [
   'topic-strength.html'
 ];
 mkdir(dist);
-let topicCopied = 0;
-TOPIC_FILES.forEach((f) => {
+topics.forEach(function (f) {
   const src = path.join(root, f);
+  const dest = path.join(dist, f);
   if (fs.existsSync(src)) {
-    fs.copyFileSync(src, path.join(dist, f));
-    topicCopied += 1;
+    fs.copyFileSync(src, dest);
+    console.log('Copied topic: ' + f);
   }
 });
-console.log('Forced topic copy: ' + topicCopied + ' topic pages to dist/');
+console.log('Forced topic copy: ' + topics.length + ' files checked');
+
+// Rest of static files (TOPIC_FILES used to exclude from otherHtml)
+const TOPIC_FILES = topics;
 
 for (const f of rootFiles) {
   const src = path.join(root, f);

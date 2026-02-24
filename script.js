@@ -4326,32 +4326,31 @@ async function addChurchSermon(churchId, sermon) {
   return true;
 }
 
-function renderDashboard(role) {
+function renderDashboard() {
   const container = document.getElementById('dashboard-content');
   const title = document.getElementById('dashboard-title');
   if (!container) return;
   container.innerHTML = '';
-  if (title) title.textContent = `Welcome, ${role.charAt(0).toUpperCase() + role.slice(1)}`;
+  const tier = subscriptionTier || 'free';
+  if (title) title.textContent = 'Welcome, ' + (tier === 'church_team' ? 'Church/Team' : tier === 'supporter' || tier === 'pro' ? 'Supporter' : 'Member');
 
   const cards = [];
-  if (role === 'pastor') {
+  if (tier === 'church_team' || isMasterUser) {
     cards.push(
       { title: 'Sermon Builder', text: 'Create outlines and share with your congregation.', action: () => { setView('search'); document.getElementById('sermon-builder')?.scrollIntoView({ behavior: 'smooth' }); } },
       { title: 'Church Sermons', text: 'Add weekly sermons for your church.', action: () => document.getElementById('church-center')?.scrollIntoView({ behavior: 'smooth' }) }
     );
   }
-  if (role === 'teacher') {
+  if (tier === 'supporter' || tier === 'pro') {
     cards.push(
       { title: 'Lesson Plan Builder', text: 'Create lessons for students and classes.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } },
       { title: 'Saved Lessons', text: 'Build and save lessons for reuse.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } }
     );
   }
-  if (role === 'adult' || role === 'family' || role === 'member') {
-    cards.push(
-      { title: 'Daily Battle', text: 'Get guidance and verses for today.', action: () => { setView('search'); document.getElementById('daily-btn')?.click(); } },
-      { title: 'Saved Verses & Notes', text: 'Review your saved verses and notes.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } }
-    );
-  }
+  cards.push(
+    { title: 'Daily Battle', text: 'Get guidance and verses for today.', action: () => { setView('search'); document.getElementById('daily-btn')?.click(); } },
+    { title: 'Saved Verses & Notes', text: 'Review your saved verses and notes.', action: () => { setView('search'); document.getElementById('study-tools')?.scrollIntoView({ behavior: 'smooth' }); } }
+  );
   cards.push(
     { title: 'Find Your Church', text: 'Search churches and view sermons.', action: () => document.getElementById('church-center')?.scrollIntoView({ behavior: 'smooth' }) }
   );
@@ -4399,7 +4398,6 @@ function updateAuthUI(session) {
   if (!authSection) return;
   const emailEl = document.getElementById('email');
   const passwordEl = document.getElementById('password');
-  const accountTypeEl = document.getElementById('account-type');
   const signupBtn = document.getElementById('signup-btn');
   const loginBtn = document.getElementById('login-btn');
   const forgotBtn = document.getElementById('forgot-btn');
@@ -4410,7 +4408,6 @@ function updateAuthUI(session) {
     hideResendVerificationUI();
     if (emailEl) emailEl.style.display = 'none';
     if (passwordEl) passwordEl.style.display = 'none';
-    if (accountTypeEl) accountTypeEl.style.display = 'none';
     if (signupBtn) signupBtn.style.display = 'none';
     if (loginBtn) loginBtn.style.display = 'none';
     if (forgotBtn) forgotBtn.style.display = 'none';
@@ -4430,7 +4427,6 @@ function updateAuthUI(session) {
   } else {
     if (emailEl) emailEl.style.display = '';
     if (passwordEl) passwordEl.style.display = '';
-    if (accountTypeEl) accountTypeEl.style.display = '';
     if (signupBtn) signupBtn.style.display = '';
     if (loginBtn) loginBtn.style.display = '';
     if (forgotBtn) forgotBtn.style.display = '';
@@ -4470,7 +4466,7 @@ function setView(state) {
 function updateRoleViews() {
   const churchAdmin = document.getElementById('church-admin');
   if (churchAdmin) {
-    churchAdmin.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
+    churchAdmin.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
   }
   applyRoleAccess();
 }
@@ -6851,10 +6847,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     currentUserId = sessionData.session.user.id;
     updateMasterStatus(sessionData.session.user);
     currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
-    subscriptionTier = sessionData.session.user.user_metadata?.subscription || 'free';
+    subscriptionTier = sessionData.session.user.user_metadata?.subscription || sessionData.session.user.user_metadata?.subscription_tier || (sessionData.session.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
     if (isMasterUser) {
-      currentUserRole = 'pastor';
-      subscriptionTier = 'supporter';
+      currentUserRole = 'member';
+      subscriptionTier = 'church_team';
     }
     updateAuthUI(sessionData.session);
     var signinNudge = document.getElementById('signin-nudge-banner');
@@ -6864,7 +6860,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (tierEl) tierEl.value = userTier;
     await syncUserData();
     updateRoleViews();
-    renderDashboard(currentUserRole);
+    renderDashboard();
     setView(isMasterUser ? 'dashboard' : 'search');
     scheduleMessageLoad();
     scheduleAdminPanel();
@@ -6899,16 +6895,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (session) {
       const userTier = session.user.user_metadata?.tier || 'adult';
       currentUserRole = session.user.user_metadata?.role || 'member';
-      subscriptionTier = session.user.user_metadata?.subscription || 'free';
+      subscriptionTier = session.user.user_metadata?.subscription || session.user.user_metadata?.subscription_tier || (session.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
       if (isMasterUser) {
-        currentUserRole = 'pastor';
-        subscriptionTier = 'supporter';
+        currentUserRole = 'member';
+        subscriptionTier = 'church_team';
       }
       const tierEl = document.getElementById('tier');
       if (tierEl) tierEl.value = userTier;
       await syncUserData();
       updateRoleViews();
-      renderDashboard(currentUserRole);
+      renderDashboard();
       setView(isMasterUser ? 'dashboard' : 'search');
       scheduleMessageLoad();
       scheduleAdminPanel();
@@ -7172,7 +7168,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       const emailEl = document.getElementById('email');
       const passwordEl = document.getElementById('password');
       const tierEl = document.getElementById('tier');
-      const roleEl = document.getElementById('account-type');
       const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
       const password = passwordEl ? passwordEl.value : '';
       const tier = tierEl ? tierEl.value : 'adult';
@@ -7191,11 +7186,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       const redirectUrl = getAuthRedirectBase();
       signupBtn.disabled = true;
       setAuthStatus('Creating account…', 'info');
-      /* Security: always send role 'member' on signup. Do not trust client role; promote to pastor/admin server-side only. */
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
-        options: { data: { tier, role: 'member' }, emailRedirectTo: redirectUrl }
+        options: { data: { tier, subscription: 'free' }, emailRedirectTo: redirectUrl }
       });
       signupBtn.disabled = false;
       if (error) {
@@ -7250,10 +7244,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateMasterStatus(data.user || null);
       const userTier = data.user.user_metadata?.tier || 'adult';
       currentUserRole = data.user.user_metadata?.role || 'member';
-      subscriptionTier = data.user.user_metadata?.subscription || 'free';
+      subscriptionTier = data.user.user_metadata?.subscription || data.user.user_metadata?.subscription_tier || (data.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
       if (isMasterUser) {
-        currentUserRole = 'pastor';
-        subscriptionTier = 'supporter';
+        currentUserRole = 'member';
+        subscriptionTier = 'church_team';
       }
       const tierEl = document.getElementById('tier');
       if (tierEl) tierEl.value = userTier;
@@ -7261,7 +7255,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       bumpStat('logins');
       updateAuthUI(data.session);
       updateRoleViews();
-      renderDashboard(currentUserRole);
+      renderDashboard();
       setView(isMasterUser ? 'dashboard' : 'search');
       const _syncAfterLogin = async () => { await syncUserData(); };
       _syncAfterLogin();
@@ -8693,8 +8687,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const verseEl = document.getElementById('church-verse-of-day');
     const verseAdmin = document.getElementById('church-verse-admin');
     const assignWrap = document.getElementById('church-assign-wrap');
-    if (verseAdmin) verseAdmin.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
-    if (assignWrap) assignWrap.style.display = (currentUserRole === 'pastor' || isMasterUser) ? 'block' : 'none';
+    if (verseAdmin) verseAdmin.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
+    if (assignWrap) assignWrap.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
     if (verseEl) {
       if (currentChurch) {
         const data = (churchVerseFromSupabase && churchVerseFromSupabase.ref) ? churchVerseFromSupabase : loadChurchVerseOfDay();

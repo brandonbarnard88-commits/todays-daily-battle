@@ -74,4 +74,20 @@ Copy, tweak, and paste. Replace [LINK] with https://todaysdailybattle.com if nee
 
 ---
 
+## 6. Personal launch message (Brandon — email / LinkedIn / longer post)
+
+**Use for:** Email to list, LinkedIn post, or any channel where you want a personal, slightly longer intro.
+
+> Today's Daily Battle—I'm Brandon.
+>
+> A free daily verse (James 1:5 today), streak tracking, prayer wall, offline access, and push reminders—no ads, no catch.
+>
+> For those who want more—ad-free experience, custom prayer plans, group sharing—Supporter is $5/month or $50/year. Your rate stays locked forever, as long as you remain subscribed. (Future users may pay more—join early.)
+>
+> A quiet, reliable companion for real moments. Try it: https://todaysdailybattle.com
+>
+> Wishing you a strong start.
+
+---
+
 Use whichever fits the channel; shorten or expand as needed.

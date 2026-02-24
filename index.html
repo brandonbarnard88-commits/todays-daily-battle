@@ -515,9 +515,10 @@
         </div>
       </div>
     </div>
-    <div id="armor-builder-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="armor-builder-title" aria-label="Household armor builder">
+    <div id="armor-builder-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="armor-builder-title" aria-label="Shared household armor">
       <div class="modal-inner glass armor-modal-inner">
         <button type="button" class="intent-modal-close" id="armor-builder-close" aria-label="Dismiss">×</button>
+        <p id="armor-welcome-msg" class="armor-welcome-msg section-note" style="display:none;" aria-live="polite"></p>
         <h2 id="armor-builder-title" class="section-divider">Build the Armor of God for your whole household—family, friends, pets.</h2>
         <p class="section-note">Pray, say Amen, read a verse—each adds a piece. Everyone counts.</p>
         <div id="armor-piece-added-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -531,6 +532,9 @@
           <div class="armor-avatar-household" id="armor-avatar-household"></div>
         </div>
         <p id="armor-complete-msg" class="section-note armor-complete-msg" style="display:none;" aria-live="polite">Your household is armored. Share the link!</p>
+        <div id="armor-join-wrap" class="cta-group" style="display:none;">
+          <button type="button" id="armor-join-household-btn" class="btn btn-primary">Join Household — copy link</button>
+        </div>
       </div>
     </div>
     <button type="button" id="floating-voice-pray" class="floating-voice-pray" aria-label="Start voice prayer" title="Pray now"><span class="floating-voice-pray-icon" aria-hidden="true">🎤</span></button>

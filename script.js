@@ -34,6 +34,8 @@ const PRAYER_LIST_KEY = 'tdb_prayer_list';
 const QUICK_PRAY_DRAFT_KEY = 'tdb_quick_pray_draft';
 const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
 var HOUSEHOLD_ARMOR_KEY = 'tdb_household_armor';
+var ARMOR_JOINED_KEY = 'tdb_armor_joined_household';
+var ARMOR_JOIN_BONUS_KEY = 'tdb_armor_join_bonus_given';
 var ARMOR_VERSE_DAY_KEY_PREFIX = 'tdb_armor_verse_';
 var ARMOR_PIECES = [
   { key: 'Belt of Truth', label: 'Belt of Truth', desc: 'Gold buckle, sapphire inlay' },
@@ -46,22 +48,39 @@ var ARMOR_PIECES = [
 function getHouseholdArmor() {
   try {
     var raw = localStorage.getItem(HOUSEHOLD_ARMOR_KEY);
-    if (!raw) return { count: 0, pieces: [] };
+    if (!raw) return { count: 0, pieces: [], householdId: null };
     var data = JSON.parse(raw);
     var count = typeof data.count === 'number' ? Math.min(6, Math.max(0, data.count)) : 0;
     var pieces = Array.isArray(data.pieces) ? data.pieces.slice(0, 6) : [];
     while (pieces.length < count) pieces.push(ARMOR_PIECES[pieces.length].key);
-    return { count: count, pieces: pieces };
-  } catch (e) { return { count: 0, pieces: [] }; }
+    return { count: count, pieces: pieces, householdId: data.householdId || null };
+  } catch (e) { return { count: 0, pieces: [], householdId: null }; }
 }
 function setHouseholdArmor(data) {
   try {
-    localStorage.setItem(HOUSEHOLD_ARMOR_KEY, JSON.stringify({ count: data.count, pieces: data.pieces || [] }));
+    localStorage.setItem(HOUSEHOLD_ARMOR_KEY, JSON.stringify({ count: data.count, pieces: data.pieces || [], householdId: data.householdId || null }));
   } catch (e) {}
+}
+function genHouseholdId() {
+  return 'household-' + Math.random().toString(36).slice(2, 8);
+}
+function getArmorShareLink() {
+  var data = getHouseholdArmor();
+  if (data.count < 6 || !data.householdId) return null;
+  return 'https://todaysdailybattle.com/?armor=' + encodeURIComponent(data.householdId);
 }
 function addHouseholdArmorPiece(source) {
   var data = getHouseholdArmor();
   if (data.count >= 6) return false;
+  var isJoinerBonus = false;
+  try {
+    var joinedId = sessionStorage.getItem(ARMOR_JOINED_KEY);
+    var bonusGiven = sessionStorage.getItem(ARMOR_JOIN_BONUS_KEY);
+    if (joinedId && !bonusGiven && (source === 'prayer' || source === 'amen')) {
+      isJoinerBonus = true;
+      sessionStorage.setItem(ARMOR_JOIN_BONUS_KEY, '1');
+    }
+  } catch (e) {}
   var earned = [];
   for (var i = 0; i < ARMOR_PIECES.length; i++) {
     if (data.pieces.indexOf(ARMOR_PIECES[i].key) === -1) earned.push(ARMOR_PIECES[i]);
@@ -70,14 +89,19 @@ function addHouseholdArmorPiece(source) {
   data.pieces = data.pieces.slice();
   data.pieces.push(nextPiece.key);
   data.count = data.pieces.length;
+  if (data.count >= 6 && !data.householdId) data.householdId = genHouseholdId();
   setHouseholdArmor(data);
   var announce = document.getElementById('armor-piece-added-announce');
   if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
+  if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined—your pray adds to the armor!');
   if (data.count >= 6) {
     if (typeof showEliteToast === 'function') showEliteToast('Your household\'s crowned—share the link!');
-    var shareText = 'My household\'s armored in the Armor of God—join us at todaysdailybattle.com';
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(shareText).catch(function () {});
+    var link = getArmorShareLink();
+    if (link && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(link).catch(function () {});
+    } else {
+      var shareText = 'My household\'s armored in the Armor of God—join us at todaysdailybattle.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText).catch(function () {});
     }
   }
   var modal = document.getElementById('armor-builder-modal');
@@ -1985,8 +2009,25 @@ function renderArmorModal() {
   var listEl = document.getElementById('armor-pieces-list');
   var avatarEl = document.getElementById('armor-avatar-household');
   var completeMsg = document.getElementById('armor-complete-msg');
+  var welcomeMsg = document.getElementById('armor-welcome-msg');
+  var joinWrap = document.getElementById('armor-join-wrap');
   if (!listEl) return;
   var data = getHouseholdArmor();
+  var joinedId = '';
+  try { joinedId = sessionStorage.getItem(ARMOR_JOINED_KEY) || ''; } catch (e) {}
+  var isOwner = !!(data.householdId && joinedId && data.householdId === joinedId);
+  var familyName = typeof getFamilyName === 'function' ? getFamilyName() : '';
+  if (welcomeMsg) {
+    if (joinedId) {
+      welcomeMsg.style.display = 'block';
+      welcomeMsg.textContent = isOwner
+        ? (familyName ? "Welcome to " + familyName + "'s Armor!" : "Welcome to your household's Armor!")
+        : "Welcome to this household's Armor! Join with a prayer.";
+    } else {
+      welcomeMsg.style.display = 'none';
+    }
+  }
+  if (joinWrap) joinWrap.style.display = data.count >= 6 ? 'block' : 'none';
   listEl.innerHTML = '';
   ARMOR_PIECES.forEach(function (p, i) {
     var earned = data.pieces.indexOf(p.key) !== -1;
@@ -2048,6 +2089,20 @@ function wireArmorBuilderModal() {
   var modal = document.getElementById('armor-builder-modal');
   var closeBtn = document.getElementById('armor-builder-close');
   if (!btn || !modal) return;
+  var params = (window.location.search || '').replace(/^\?/, '').split('&');
+  for (var i = 0; i < params.length; i++) {
+    var p = params[i].split('=');
+    if (p[0] === 'armor' && p[1] && p[1].indexOf('household-') === 0) {
+      try {
+        sessionStorage.setItem(ARMOR_JOINED_KEY, decodeURIComponent(p[1]));
+        setTimeout(function () {
+          renderArmorModal();
+          modal.classList.remove('hidden');
+        }, 300);
+      } catch (e) {}
+      break;
+    }
+  }
   function closeModal() {
     modal.classList.add('hidden');
   }
@@ -2062,6 +2117,17 @@ function wireArmorBuilderModal() {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
   });
+  var joinBtn = document.getElementById('armor-join-household-btn');
+  if (joinBtn) {
+    joinBtn.addEventListener('click', function () {
+      var link = getArmorShareLink();
+      if (link && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(link).then(function () {
+          if (typeof showEliteToast === 'function') showEliteToast('Link copied—share so others can join!');
+        }).catch(function () {});
+      }
+    });
+  }
   var data = getHouseholdArmor();
   var badgeEl = document.getElementById('armor-badge');
   if (badgeEl && data.count >= 6) badgeEl.classList.remove('hidden');

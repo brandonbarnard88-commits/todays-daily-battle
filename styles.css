@@ -4190,6 +4190,7 @@ body.red-letter-off .red-letter-card {
   50% { opacity: 1; }
 }
 .armor-complete-msg { margin-top: 1rem; font-weight: 500; }
+.armor-welcome-msg { margin-bottom: 0.5rem; font-weight: 600; }
 .armor-crown-wrap { margin-top: 0.75rem; display: flex; justify-content: center; }
 .armor-crown { display: flex; gap: 0.35rem; align-items: center; justify-content: center; flex-wrap: wrap; }
 .armor-crown-jewel { width: 0.6rem; height: 0.6rem; border-radius: 50%; border: 1px solid rgba(251,191,36,0.5); background: rgba(30,41,59,0.6); transition: background 0.3s, box-shadow 0.3s; }

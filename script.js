@@ -4,6 +4,18 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
+if (navigator.onLine) {
+  document.getElementById('offline-banner')?.classList.add('hidden');
+} else {
+  document.getElementById('offline-banner')?.classList.remove('hidden');
+}
+window.addEventListener('online', function () {
+  document.getElementById('offline-banner')?.classList.add('hidden');
+});
+window.addEventListener('offline', function () {
+  document.getElementById('offline-banner')?.classList.remove('hidden');
+});
+
 let bible = {};
 let bibleVersions = {};
 let currentVersion = 'KJV';
@@ -1422,10 +1434,9 @@ function wireWeeklyRecapNudge() {
 
 function wireOfflineBanner() {
   const banner = document.getElementById('offline-banner');
-  const dismiss = document.getElementById('offline-banner-dismiss');
   if (!banner) return;
   function showBanner() {
-    banner.style.display = 'flex';
+    banner.classList.remove('hidden');
     if (typeof trackEvent === 'function') {
       try {
         if (!sessionStorage.getItem('tdb_offline_view_sent')) {
@@ -1436,7 +1447,7 @@ function wireOfflineBanner() {
     }
   }
   function hideBanner() {
-    banner.style.display = 'none';
+    banner.classList.add('hidden');
     try { sessionStorage.removeItem('tdb_offline_view_sent'); } catch (_) {}
   }
   if (!navigator.onLine) showBanner();
@@ -1450,7 +1461,6 @@ function wireOfflineBanner() {
     }
   });
   window.addEventListener('offline', showBanner);
-  if (dismiss) dismiss.addEventListener('click', () => { banner.style.display = 'none'; });
 }
 
 function updateOfflinePrefetchUI() {
@@ -1585,6 +1595,8 @@ function updateDailyBattleStreak() {
   streakEl.textContent = streakText;
   var shareStreakWrap = document.getElementById('share-streak-wrap');
   if (shareStreakWrap) shareStreakWrap.style.display = nextCount >= 1 ? 'flex' : 'none';
+  var shareStreakBtn = document.getElementById('share-streak-btn');
+  if (shareStreakBtn) shareStreakBtn.style.display = nextCount >= 1 ? 'inline-block' : 'none';
   const milestoneEl = document.getElementById('daily-battle-milestone');
   if (milestoneEl) {
     if (nextCount >= 60) milestoneEl.textContent = '🏆 60-Day Victor! Your habit is unshakeable.';
@@ -7250,10 +7262,55 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  var themeKey = 'tdb_theme';
+  try {
+    var saved = localStorage.getItem(themeKey);
+    if (saved === 'light') {
+      document.body.classList.remove('dark-mode');
+      document.body.classList.add('light');
+    } else {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark-mode');
+    }
+  } catch (e) {}
   const darkToggle = document.getElementById('dark-toggle');
+  if (darkToggle && document.body.classList.contains('light')) {
+    darkToggle.innerHTML = '<span aria-hidden="true">🌙</span> Dark mode';
+    darkToggle.setAttribute('aria-label', 'Switch to dark mode');
+  }
   if (darkToggle) {
-    darkToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
+    darkToggle.addEventListener('click', function () {
+      var isLight = document.body.classList.contains('light');
+      if (isLight) {
+        document.body.classList.remove('light');
+        document.body.classList.add('dark-mode');
+        darkToggle.innerHTML = '<span aria-hidden="true">☀️</span> Light mode';
+        darkToggle.setAttribute('aria-label', 'Switch to light mode');
+        try { localStorage.setItem(themeKey, 'dark'); } catch (e) {}
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light');
+        darkToggle.innerHTML = '<span aria-hidden="true">🌙</span> Dark mode';
+        darkToggle.setAttribute('aria-label', 'Switch to dark mode');
+        try { localStorage.setItem(themeKey, 'light'); } catch (e) {}
+      }
+    });
+  }
+
+  var dailyVerseEmailSubmit = document.getElementById('daily-verse-email-submit');
+  var dailyVerseEmailInput = document.getElementById('daily-verse-email');
+  if (dailyVerseEmailSubmit && dailyVerseEmailInput) {
+    try {
+      var savedEmail = localStorage.getItem('tdb_daily_verse_email');
+      if (savedEmail) dailyVerseEmailInput.value = savedEmail;
+    } catch (e) {}
+    dailyVerseEmailSubmit.addEventListener('click', function () {
+      var email = (dailyVerseEmailInput.value || '').trim();
+      if (!email) return;
+      try {
+        localStorage.setItem('tdb_daily_verse_email', email);
+      } catch (e) {}
+      if (typeof showEliteToast === 'function') showEliteToast('Saved—check inbox tomorrow!'); else alert('Saved—check inbox tomorrow!');
     });
   }
 
@@ -7538,7 +7595,54 @@ document.addEventListener('DOMContentLoaded', async () => {
         shareWrap.dataset.lastPrayer = text;
         shareWrap.style.display = 'block';
       }
+      var shareStreakBtn = document.getElementById('share-streak-btn');
+      if (shareStreakBtn) {
+        try {
+          var streakData = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
+          var streakCount = Number(streakData.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
+          if (streakCount >= 1) shareStreakBtn.style.display = 'inline-block';
+        } catch (e) {}
+      }
+      var undoWrap = document.getElementById('quick-pray-undo-wrap');
+      if (undoWrap) {
+        undoWrap.dataset.lastPrayerText = text;
+        undoWrap.style.display = 'block';
+        clearTimeout(undoWrap._undoTimer);
+        undoWrap._undoTimer = setTimeout(function () { if (undoWrap) undoWrap.style.display = 'none'; }, 8000);
+      }
       trackEvent('quick_pray_add');
+    }
+    var shareStreakBtn = document.getElementById('share-streak-btn');
+    if (shareStreakBtn) {
+      shareStreakBtn.addEventListener('click', function () {
+        var count = 0;
+        try {
+          var d = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
+          count = Number(d.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
+        } catch (e) {}
+        if (count < 1) count = 1;
+        var msg = "I'm on " + count + " day" + (count === 1 ? '' : 's') + " praying—join me at todaysdailybattle.com";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(msg).then(function () {
+            if (typeof showEliteToast === 'function') showEliteToast('Copied!'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Copied!'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
+          }).catch(function () {});
+        }
+      });
+    }
+    var quickPrayUndo = document.getElementById('quick-pray-undo');
+    if (quickPrayUndo) {
+      quickPrayUndo.addEventListener('click', function () {
+        var undoWrap = document.getElementById('quick-pray-undo-wrap');
+        if (!undoWrap || undoWrap.style.display === 'none') return;
+        var items = loadPrayerList();
+        if (items.length) {
+          items.pop();
+          savePrayerList(items);
+          renderPrayerList();
+          if (typeof showEliteToast === 'function') showEliteToast('Removed.'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Removed.'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
+        }
+        undoWrap.style.display = 'none';
+      });
     }
     var quickPrayShareBtn = document.getElementById('quick-pray-share');
     if (quickPrayShareBtn) {

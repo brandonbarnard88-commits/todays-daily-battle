@@ -104,11 +104,7 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <div id="offline-banner" class="offline-banner glass" role="status" aria-live="polite" style="display: none;">
-          <span class="offline-banner-icon" aria-hidden="true">📴</span>
-          <span>Offline – using cached content.</span>
-          <button type="button" class="offline-banner-dismiss btn-link" id="offline-banner-dismiss" aria-label="Dismiss">×</button>
-        </div>
+        <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
           <p class="hero-sub">Less scroll. More soul.</p>
@@ -128,7 +124,7 @@
             <input id="query" placeholder="Search anger, fear, John 3:16, love..." aria-label="Search query">
             <div class="search-actions">
               <button id="search-btn" class="btn btn-primary" type="button">Search</button>
-              <button id="dark-toggle" class="btn btn-secondary" type="button" aria-label="Toggle dark mode">Dark mode</button>
+              <button id="dark-toggle" class="btn btn-secondary" type="button" aria-label="Switch to light mode"><span aria-hidden="true">☀️</span> Light mode</button>
             </div>
           </div>
           <div id="output" class="results"></div>
@@ -209,6 +205,13 @@
           </details>
         </section>
         <div id="daily-verse-widget" class="daily-verse-widget-outer" role="region" aria-live="polite" aria-label="Verse of the day"></div>
+        <div id="daily-verse-email-nudge" class="glass" style="margin-top:0.75rem;">
+          <p class="section-note">Get tomorrow's verse emailed?</p>
+          <div class="cta-group" style="flex-wrap:wrap; gap:0.5rem;">
+            <input type="email" id="daily-verse-email" placeholder="Your email" aria-label="Email for daily verse" autocomplete="email" style="max-width:16rem; padding:0.4rem 0.6rem;">
+            <button type="button" id="daily-verse-email-submit" class="btn btn-secondary" aria-label="Subscribe to daily verse email">Submit</button>
+          </div>
+        </div>
         <div id="weekly-recap-nudge" class="weekly-recap-nudge glass" style="display:none;" role="region" aria-label="Weekly recap">
           <p class="section-note weekly-recap-text"></p>
           <button type="button" id="weekly-recap-share" class="btn btn-secondary">Share?</button>
@@ -257,7 +260,9 @@
             <p id="quick-pray-feedback" class="section-note quick-pray-feedback quick-pray-toast" aria-live="polite" style="display:none;"></p>
             <div id="quick-pray-share-wrap" class="quick-pray-share-wrap" style="display:none;">
               <button type="button" id="quick-pray-share" class="btn btn-secondary btn-small">Share</button>
+              <button type="button" id="share-streak-btn" class="btn btn-secondary btn-small" aria-label="Share your prayer streak" style="display:none;">Share Streak</button>
             </div>
+            <p id="quick-pray-undo-wrap" class="section-note" style="display:none;"><button type="button" id="quick-pray-undo" class="btn-link">Undo?</button></p>
             <p id="prayed-today" class="section-note" style="display:none;" aria-live="polite">Prayed 5 times today? Keep going!</p>
           </div>
           <div id="badges-section" class="glass badges-section" aria-label="Badges"></div>

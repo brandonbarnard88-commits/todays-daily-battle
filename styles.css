@@ -700,6 +700,18 @@ body {
 .signin-nudge-banner a:hover { text-decoration: underline; }
 .signin-nudge-banner.hidden { display: none; }
 
+#offline-banner {
+  background: #ff4444;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+#offline-banner.hidden { display: none; }
+
 .offline-banner {
   display: flex;
   align-items: center;
@@ -1460,6 +1472,31 @@ body {
   --card-light: var(--card-dark);
   --border-subtle: rgba(255, 255, 255, 0.08);
 }
+
+body.light {
+  background: #fff;
+  color: #111;
+  --text: #111;
+  --color-bg: #fff;
+  --color-text: #111;
+  --card-light: #f8fafc;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+}
+body.light .glass {
+  background: #f1f5f9;
+  color: #1e293b;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+body.light .hero-banner { background: linear-gradient(158deg, #f1f5f9 0%, #e2e8f0 48%, #f8fafc 100%); color: #1e293b; }
+body.light .hero-banner h1 { color: #0f172a; }
+body.light .hero-banner .hero-sub { color: #7c3aed; }
+body.light input, body.light select, body.light textarea { background: #fff; color: #111; border-color: #cbd5e1; }
+body.light .btn-primary { background: #7c3aed; color: #fff; }
+body.light .btn-secondary { background: #e2e8f0; color: #1e293b; }
+body.light .section-note { color: #475569; }
+body.light .top-bar { background: rgba(255,255,255,0.9); color: #1e293b; border-color: rgba(0,0,0,0.06); }
+body.light .site-footer { color: #475569; }
+body.light .site-footer a { color: #7c3aed; }
 
 .hero {
   position: relative;

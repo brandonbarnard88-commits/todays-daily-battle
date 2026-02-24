@@ -1,0 +1,4 @@
+Contact: mailto:security@todaysdailybattle.com
+Preferred-Languages: en
+Expires: 2027-12-31T23:59:59.000Z
+Canonical: https://todaysdailybattle.com/.well-known/security.txt

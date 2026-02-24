@@ -1,8 +1,9 @@
 # Cloudflare Pages: security headers for todaysdailybattle.com
 # https://developers.cloudflare.com/pages/configuration/headers/
-# If fonts or CDN scripts break, add style-src/font-src/script-src origins (see docs/SECURITY-HARDENING.md).
+# No 'unsafe-inline'. If inline scripts/styles break, add nonces (see docs/SECURITY-SCAN-REMEDIATION.md).
 /*
-  Strict-Transport-Security: max-age=31536000
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com data:; connect-src 'self' https://*.supabase.co https://rixsnhpwrlbvvymkfamj.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'strict-dynamic' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
+  Permissions-Policy: geolocation=(), microphone=(), camera=()

@@ -40,6 +40,7 @@
   --font-body: 'Cormorant Garamond', 'Georgia', serif;
   --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Phase 1: cohesive semantic tokens (site-wide polish) */
+  --text: var(--text-light);
   --color-bg: var(--bg-light);
   --color-text: var(--text-light);
   --color-accent: #4CAF50;
@@ -103,6 +104,36 @@ html {
 @keyframes tdb-loading-pulse {
   0%, 100% { opacity: 0.7; }
   50% { opacity: 1; }
+}
+
+/* Reusable loading spinner and error state (elite UX) */
+.tdb-spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--border-subtle);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: tdb-spin 0.7s linear infinite;
+}
+.dark-mode .tdb-spinner {
+  border-color: rgba(255,255,255,0.2);
+  border-top-color: var(--accent);
+}
+@keyframes tdb-spin {
+  to { transform: rotate(360deg); }
+}
+.tdb-error-message {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  background: rgba(148, 163, 184, 0.08);
+  border-radius: var(--radius-sm);
+  margin: 0.5rem 0;
+}
+.dark-mode .tdb-error-message {
+  background: rgba(255,255,255,0.06);
+  color: rgba(226, 232, 240, 0.9);
 }
 
 body {
@@ -562,6 +593,34 @@ body {
   font-weight: 600;
   color: var(--elite-gold, var(--accent));
   letter-spacing: 0.04em;
+}
+.streak-badge {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--elite-gold, var(--accent));
+  padding: 0.35rem 0.75rem;
+  display: inline-block;
+  border-radius: 999px;
+  background: rgba(109, 40, 217, 0.2);
+  border: 1px solid rgba(109, 40, 217, 0.4);
+}
+.weekly-recap-nudge {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.weekly-recap-nudge .section-note {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+.quick-pray-share-wrap {
+  margin-top: 0.5rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -769,6 +828,66 @@ body {
   color: var(--accent, #6d28d9);
 }
 .dark-mode .quick-pray-feedback { color: #a78bfa; }
+.quick-pray-toast {
+  position: relative;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--card-light);
+  box-shadow: var(--shadow-card);
+  transition: opacity 0.25s ease;
+}
+.quick-pray-toast.quick-pray-toast-visible {
+  opacity: 1;
+}
+.dark-mode .quick-pray-toast {
+  background: var(--card-dark);
+  color: var(--accent);
+}
+.quick-pray-today {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.dark-mode .quick-pray-today { color: rgba(148, 163, 184, 0.85); }
+
+.voice-pray-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--border-subtle);
+  color: var(--text);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.voice-pray-btn:hover {
+  background: var(--border);
+}
+.dark-mode .voice-pray-btn {
+  background: rgba(255,255,255,0.12);
+  color: var(--text);
+}
+.dark-mode .voice-pray-btn:hover {
+  background: rgba(255,255,255,0.18);
+}
+.voice-pray-btn.voice-pray-listening {
+  background: var(--accent, #6d28d9);
+  color: #fff;
+  animation: voice-pray-pulse 1.2s ease-in-out infinite;
+}
+.dark-mode .voice-pray-btn.voice-pray-listening {
+  background: var(--accent);
+  color: #fff;
+}
+@keyframes voice-pray-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(109, 40, 217, 0.4); }
+  50% { opacity: 0.95; box-shadow: 0 0 0 8px rgba(109, 40, 217, 0); }
+}
 
 .focus-mode-wrap {
   margin-bottom: 0.75rem;
@@ -1333,6 +1452,7 @@ body {
 .dark-mode {
   background: var(--bg-dark);
   color: var(--text-dark);
+  --text: var(--text-dark);
   --color-bg: var(--bg-dark);
   --color-text: var(--text-dark);
   --card-light: var(--card-dark);
@@ -1940,6 +2060,44 @@ textarea:focus-visible {
   gap: 0.6rem;
   margin: 0.8rem 0 1.2rem;
 }
+.message-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.message-list-wrap {
+  position: relative;
+  min-height: 2rem;
+}
+.message-list-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.message-list-loading .tdb-spinner {
+  flex-shrink: 0;
+}
+.dark-mode .message-list-loading {
+  color: rgba(148, 163, 184, 0.9);
+}
+.message-see-more {
+  margin-top: 0.75rem;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .contact-form {
   display: grid;
@@ -2104,6 +2262,251 @@ button:active {
   font-family: var(--font-body);
   font-size: var(--verse-size);
   font-weight: 500;
+}
+
+/* Daily Verse widget — 300px, card, drop-in, dark-mode friendly */
+.daily-verse-widget-outer {
+  margin-bottom: 1rem;
+}
+#daily-verse-widget {
+  width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: var(--card-light);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+.dark-mode #daily-verse-widget {
+  background: var(--card-dark);
+  border-color: rgba(148, 163, 184, 0.12);
+}
+.daily-verse-widget-title {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #64748b);
+}
+.dark-mode .daily-verse-widget-title {
+  color: rgba(148, 163, 184, 0.8);
+}
+.daily-verse-widget-ref {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+}
+.daily-verse-widget-text {
+  margin: 0 0 0.85rem 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+.dark-mode .daily-verse-widget-text {
+  color: var(--text);
+}
+.daily-verse-widget-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.daily-verse-widget-btn {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: opacity 0.15s, background 0.15s;
+}
+.daily-verse-widget-pray {
+  background: var(--accent, #6d28d9);
+  color: #fff;
+}
+.daily-verse-widget-pray:hover {
+  opacity: 0.92;
+}
+.dark-mode .daily-verse-widget-pray {
+  background: var(--accent);
+  color: #fff;
+}
+.daily-verse-widget-share {
+  background: var(--border-subtle);
+  color: var(--text);
+}
+.daily-verse-widget-share:hover {
+  background: var(--border);
+}
+.dark-mode .daily-verse-widget-share {
+  background: rgba(255,255,255,0.1);
+  color: var(--text);
+}
+.daily-verse-widget-loading,
+.daily-verse-widget-error {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+}
+.dark-mode .daily-verse-widget-loading,
+.dark-mode .daily-verse-widget-error {
+  color: rgba(148, 163, 184, 0.8);
+}
+@media (max-width: 600px) {
+  #daily-verse-widget {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Floating Search Bar widget — sticky top, minimal, CSP-safe */
+#search-widget {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--card-light);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 0.5rem 0.75rem;
+}
+.dark-mode #search-widget {
+  background: var(--card-dark);
+  border-bottom-color: rgba(148, 163, 184, 0.15);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.search-widget-bar {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.search-widget-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-widget-input {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+.search-widget-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.2);
+}
+.dark-mode .search-widget-input {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  color: var(--text);
+}
+.dark-mode .search-widget-input:focus {
+  border-color: var(--accent);
+}
+.search-widget-btn {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s;
+}
+.search-widget-submit {
+  background: var(--accent, #6d28d9);
+  color: #fff;
+}
+.search-widget-submit:hover {
+  opacity: 0.92;
+}
+.search-widget-clear {
+  background: var(--border-subtle);
+  color: var(--text);
+}
+.search-widget-clear:hover {
+  background: var(--border);
+}
+.dark-mode .search-widget-submit {
+  background: var(--accent);
+  color: #fff;
+}
+.dark-mode .search-widget-clear {
+  background: rgba(255,255,255,0.12);
+  color: var(--text);
+}
+.dark-mode .search-widget-clear:hover {
+  background: rgba(255,255,255,0.18);
+}
+.search-widget-recent-wrap {
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.dark-mode .search-widget-recent-wrap {
+  border-top-color: rgba(255,255,255,0.1);
+}
+.search-widget-recent-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.search-widget-recent-item {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--border-subtle);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.search-widget-recent-item:hover {
+  background: var(--border);
+}
+.dark-mode .search-widget-recent-item {
+  background: rgba(255,255,255,0.1);
+  color: var(--text);
+}
+.dark-mode .search-widget-recent-item:hover {
+  background: rgba(255,255,255,0.18);
+}
+.search-widget-recent-footer {
+  margin-top: 0.35rem;
+}
+.search-widget-clear-recent {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.search-widget-clear-recent:hover {
+  color: var(--accent);
+}
+.dark-mode .search-widget-clear-recent {
+  color: rgba(148, 163, 184, 0.8);
+}
+.dark-mode .search-widget-clear-recent:hover {
+  color: var(--accent);
 }
 
 .verse-plain-meaning-wrap {

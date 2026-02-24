@@ -25,7 +25,7 @@
   <meta name="theme-color" content="#6d28d9">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
-  <script>window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script src="inline-bootstrap.js"></script>
   <script src="config.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" defer></script>
@@ -102,6 +102,7 @@
     </aside>
 
     <main class="app-content" id="main-content">
+      <div id="search-widget" role="search" aria-label="Floating search bar"></div>
       <div class="content-inner">
         <div id="offline-banner" class="offline-banner glass" role="status" aria-live="polite" style="display: none;">
           <span class="offline-banner-icon" aria-hidden="true">📴</span>
@@ -112,9 +113,15 @@
           <h1>Today's Daily Battle</h1>
           <p class="hero-tagline">The Bible companion built for real life. One verse, one moment, every day—so you show up here instead of the feed.</p>
           <p class="hero-sub">Less scroll. More soul.</p>
+          <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
           <p class="hero-email-cta"><a href="#newsletter">Get today's verse by email</a> · <a href="reader.html">Read any chapter</a></p>
         </header>
-        <section id="main-search" class="controls glass">
+        <div id="weekly-recap-nudge" class="weekly-recap-nudge glass" style="display:none;" role="region" aria-label="Weekly recap">
+          <p class="section-note weekly-recap-text"></p>
+          <button type="button" id="weekly-recap-share" class="btn btn-secondary">Share?</button>
+        </div>
+        <div id="daily-verse-widget" class="daily-verse-widget-outer" role="region" aria-live="polite" aria-label="Verse of the day"></div>
+        <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
             <label for="focus-mode" class="focus-mode-label">Focus mode</label>
             <select id="focus-mode" class="compact-select" aria-label="Verse style: Morning, Evening, or Warrior">
@@ -239,14 +246,19 @@
             </div>
             <p id="daily-battle-reset-nudge" class="section-note streak-reset-nudge" style="display: none;" aria-live="polite"></p>
           </div>
-          <div id="quick-pray-wrap" class="glass quick-pray-wrap">
+          <div id="quick-pray-wrap" class="glass quick-pray-wrap" role="region" aria-label="Quick pray">
             <h3 class="quick-pray-title">Quick pray</h3>
-            <p class="section-note">Add a name or intention—no login needed. Saved to your list.</p>
+            <p class="section-note">Add a name or intention—no login needed. Saved to your list. Draft auto-saves.</p>
             <div class="quick-pray-row">
               <input type="text" id="quick-pray" placeholder="Add a name or intention…" aria-label="Quick prayer">
               <button type="button" id="quick-pray-btn" class="btn btn-primary">Pray</button>
+              <button type="button" id="voice-pray-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your prayer"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
             </div>
-            <p id="quick-pray-feedback" class="section-note quick-pray-feedback" aria-live="polite" style="display:none;"></p>
+            <p id="quick-pray-today" class="section-note quick-pray-today" aria-live="polite" style="display:none;"></p>
+            <p id="quick-pray-feedback" class="section-note quick-pray-feedback quick-pray-toast" aria-live="polite" style="display:none;"></p>
+            <div id="quick-pray-share-wrap" class="quick-pray-share-wrap" style="display:none;">
+              <button type="button" id="quick-pray-share" class="btn btn-secondary btn-small">Share</button>
+            </div>
           </div>
           <div id="badges-section" class="glass badges-section" aria-label="Badges"></div>
           <div id="offline-prefetch-wrap" class="offline-prefetch-wrap glass" style="display: none;" aria-label="Offline download">
@@ -452,6 +464,10 @@
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" crossorigin="anonymous"></script>
+  <script src="daily-verse-widget.js"></script>
+  <script src="search-widget.js"></script>
   <script src="script.js?v=20260220" data-cfasync="false"></script>
+  <script src="voice-pray.js"></script>
 </body>
 </html>

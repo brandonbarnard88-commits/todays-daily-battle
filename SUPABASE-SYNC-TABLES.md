@@ -49,3 +49,20 @@ After running the SQL, the site will sync these when users are logged in and per
 **Best practices:** RLS is enabled; policies restrict access to `auth.uid() = user_id`. The index on `user_id` keeps lookups fast. To add master/admin read-all, use a separate policy with a helper (e.g. `USING (auth.jwt() ->> 'email' = current_setting('app.master_email') OR auth.uid() = user_id)`); avoid complex joins in policies.
 
 **Testing:** With the anon key, unauthenticated requests to `user_sync_data` should return no rows. Test sync: sign in on Device A, add streak + prayer list item; sign in on Device B with same account and confirm data appears. See TESTING-SYNC.md for the full test sequence.
+
+---
+
+### Verify RLS (anon key test)
+
+After running `supabase-rls-quick.sql`, confirm anon cannot read public tables:
+
+1. **Incognito** (or a REST client). Use your **anon** key only (Supabase → Project Settings → API → anon public).
+2. Request each URL (replace `YOUR-PROJECT` with your Supabase project ref):
+   - `https://YOUR-PROJECT.supabase.co/rest/v1/messages?select=*`
+   - `https://YOUR-PROJECT.supabase.co/rest/v1/daily_battles?select=*`
+   - `https://YOUR-PROJECT.supabase.co/rest/v1/newsletter_signups?select=*`
+3. Headers: `apikey: YOUR_ANON_KEY` and `Authorization: Bearer YOUR_ANON_KEY`.
+
+**Secure result:** Each returns `[]` or **403** (no rows). If any returns real data, RLS is not applied for that table—re-run the quick SQL or check policies.
+
+**Note:** The project ref is not exposed on the site (good). Use it only in your own browser or `curl` for this check; never commit it.

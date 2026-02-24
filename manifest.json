@@ -1,15 +1,11 @@
 {
-  "name": "Daily Battle",
-  "short_name": "Battle",
-  "theme_color": "#000000",
+  "name": "Today's Daily Battle",
+  "short_name": "Daily Battle",
+  "description": "One verse, one moment, every day. The Bible companion built for real life. Less scroll, more soul.",
+  "theme_color": "#6d28d9",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
-  "icons": [
-    {
-      "src": "/icon.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml"
-    }
-  ]
+  "scope": "/",
+  "icons": [{"src": "/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any"}]
 }

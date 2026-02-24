@@ -2,17 +2,34 @@
 -- Supabase RLS Lockdown: only authenticated users read/write their own data.
 -- No anon access. Run in Supabase SQL Editor (or via migration).
 -- Tables: daily_battles, messages, message_reports, newsletter_signups, saved_*
+--
+-- After running: test with anon key → SELECT from any table → must return [] or deny.
+-- Default is DENY when RLS is enabled; these policies are explicit ALLOW for authenticated only.
 -- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- 0. Drop any existing policies that might allow anon (run first)
+-- -----------------------------------------------------------------------------
+DO $$
+DECLARE
+  r RECORD;
+BEGIN
+  FOR r IN (
+    SELECT schemaname, tablename, policyname
+    FROM pg_policies
+    WHERE schemaname = 'public'
+      AND tablename IN ('daily_battles', 'messages', 'message_reports', 'newsletter_signups')
+  ) LOOP
+    EXECUTE format('DROP POLICY IF EXISTS %I ON %I.%I', r.policyname, r.schemaname, r.tablename);
+  END LOOP;
+END $$;
 
 -- -----------------------------------------------------------------------------
 -- 1. daily_battles (global "battle of the day" – no user_id)
 --    Authenticated read only; writes via service role (e.g. seed edge function).
 -- -----------------------------------------------------------------------------
 ALTER TABLE public.daily_battles ENABLE ROW LEVEL SECURITY;
-
--- Drop existing policies if they grant anon or public access (adjust names if different)
-DROP POLICY IF EXISTS "daily_battles_read_public" ON public.daily_battles;
-DROP POLICY IF EXISTS "daily_battles_write_master" ON public.daily_battles;
+ALTER TABLE public.daily_battles FORCE ROW LEVEL SECURITY;
 
 -- Only authenticated users can read. No anon. No write policy = only service role can insert/update/delete.
 CREATE POLICY "daily_battles_select_authenticated"
@@ -25,6 +42,7 @@ CREATE POLICY "daily_battles_select_authenticated"
 -- 2. messages (user_id = author; users can CRUD own, read all for board)
 -- -----------------------------------------------------------------------------
 ALTER TABLE public.messages ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.messages FORCE ROW LEVEL SECURITY;
 
 -- No anon: only authenticated
 CREATE POLICY "messages_select_authenticated"
@@ -74,6 +92,7 @@ CREATE TRIGGER set_message_reports_user_id_trigger
   FOR EACH ROW EXECUTE PROCEDURE public.set_message_reports_user_id();
 
 ALTER TABLE public.message_reports ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.message_reports FORCE ROW LEVEL SECURITY;
 
 CREATE POLICY "message_reports_select_own"
   ON public.message_reports
@@ -91,6 +110,7 @@ CREATE POLICY "message_reports_insert_own"
 -- 4. newsletter_signups ("own data" = email = auth.email())
 -- -----------------------------------------------------------------------------
 ALTER TABLE public.newsletter_signups ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.newsletter_signups FORCE ROW LEVEL SECURITY;
 
 CREATE POLICY "newsletter_signups_select_own"
   ON public.newsletter_signups
@@ -144,6 +164,28 @@ CREATE POLICY "newsletter_signups_update_own"
 -- CREATE POLICY "saved_verse_collections_delete_own" ON public.saved_verse_collections FOR DELETE TO authenticated USING (user_id = auth.uid());
 
 -- =============================================================================
+-- AUTH: Force role = 'member' on signup (prevent client-side role escalation)
+-- Run in Supabase SQL Editor. Requires permission on auth schema.
+-- =============================================================================
+CREATE OR REPLACE FUNCTION auth.force_member_role()
+RETURNS TRIGGER AS $$
+BEGIN
+  -- Overwrite any client-supplied role; only server can set admin via app_metadata
+  NEW.raw_user_meta_data := COALESCE(NEW.raw_user_meta_data, '{}'::jsonb) || '{"role":"member"}'::jsonb;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+DROP TRIGGER IF EXISTS force_member_role_trigger ON auth.users;
+CREATE TRIGGER force_member_role_trigger
+  BEFORE INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION auth.force_member_role();
+-- (If your Postgres version errors, use EXECUTE PROCEDURE instead of EXECUTE FUNCTION.)
+
+-- Admin: set app_metadata in Dashboard (Auth > Users > [user] > Edit > app_metadata: {"role":"admin"}).
+-- Client uses session.user.app_metadata?.role === 'admin'; never store admin email in client.
+
+-- =============================================================================
 -- Notes:
 -- - Anon key cannot read or write any of these tables; only authenticated users.
 -- - daily_battles: writes (insert/update/delete) must use service role (e.g. seed
@@ -153,4 +195,9 @@ CREATE POLICY "newsletter_signups_update_own"
 -- - message_reports: if the table has no user_id, add it and set it on insert
 --   from the client (currentUserId), or use a single “authenticated only” policy
 --   and restrict admin visibility via an RPC.
+--
+-- Verification (run with anon key; expect empty or permission denied):
+--   select * from public.daily_battles limit 1;
+--   select * from public.messages limit 1;
+--   select * from public.newsletter_signups limit 1;
 -- =============================================================================

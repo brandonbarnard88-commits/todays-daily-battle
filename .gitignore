@@ -1,4 +1,5 @@
 *.txt
+!.well-known/security.txt
 token*
 *.key
 .env

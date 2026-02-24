@@ -89,7 +89,7 @@
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
           </div>
         </header>
-        <section id="message-board" class="message-board glass">
+        <section id="message-board" class="message-board glass" role="region" aria-label="Prayer Wall / Message Board">
           <h2 class="section-divider">Message Board</h2>
           <p class="section-note">Encourage one another with prayers, praise reports, and hope. Share your win today—even a small one.</p>
           <div id="message-board-note" class="section-note"></div>
@@ -97,18 +97,29 @@
             <div class="daily-encouragement" id="daily-encouragement"></div>
             <button class="btn btn-secondary" id="copy-daily-encouragement" type="button">Copy Daily Encouragement</button>
             <label class="inline-toggle" for="message-sort">Sort</label>
-            <select id="message-sort">
+            <select id="message-sort" aria-label="Sort messages">
               <option value="newest" selected>Newest</option>
               <option value="popular">Popular</option>
               <option value="oldest">Oldest</option>
             </select>
           </div>
           <div class="message-form">
-            <input id="message-name" type="text" placeholder="Your name (optional)">
-            <textarea id="message-text" rows="3" placeholder="Share an encouragement, prayer request, or testimony..."></textarea>
-            <button id="post-message">Post Message</button>
+            <input id="message-name" type="text" placeholder="Your name (optional)" aria-label="Your display name">
+            <textarea id="message-text" rows="3" placeholder="Share an encouragement, prayer request, or testimony..." aria-label="Your message"></textarea>
+            <div class="message-form-actions">
+              <button type="button" id="post-message" class="btn btn-primary">Post Message</button>
+              <button type="button" id="voice-message-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your message"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
+            </div>
           </div>
-          <div id="message-list" class="list"></div>
+          <div id="message-list-wrap" class="message-list-wrap" aria-live="polite" aria-busy="false" aria-label="Latest messages">
+            <div id="message-list-loading" class="message-list-loading" style="display:none;" role="status" aria-live="polite">
+              <span class="tdb-spinner" aria-hidden="true"></span>
+              <span>Loading messages…</span>
+            </div>
+            <div id="message-list" class="list"></div>
+            <button type="button" id="message-see-more" class="btn btn-secondary message-see-more" style="display:none;">See more</button>
+          </div>
+          <p id="message-added-announce" class="sr-only" aria-live="polite" aria-atomic="true"></p>
         </section>
       </div>
     </main>
@@ -120,9 +131,10 @@
     </footer>
   </div>
 
-  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script>window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" crossorigin="anonymous"></script>
+  <script src="inline-bootstrap.js"></script>
   <script src="config.js"></script>
   <script src="script.js?v=20260220" data-cfasync="false"></script>
+  <script src="voice-message.js"></script>
 </body>
 </html>

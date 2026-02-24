@@ -1,10 +1,12 @@
-// PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline.
+// PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new JS/CSS (e.g. tdb-static-YYYYMMDD).
-const CACHE_NAME = 'tdb-static-20260225';
+const CACHE_NAME = 'tdb-static-20260226';
 const CACHE_API = 'tdb-api-20260221';
 const CORE_ASSETS = [
   '/',
   '/index.html',
+  '/verse.html',
+  '/message.html',
   '/wins-report.html',
   '/church.html',
   '/reading-plan.html',
@@ -18,7 +20,8 @@ const CORE_ASSETS = [
   '/styles.css',
   '/script.js',
   '/manifest.json',
-  '/icon.svg'
+  '/icon.svg',
+  '/kjv.json'
 ];
 
 self.addEventListener('install', (event) => {
@@ -73,30 +76,32 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   const sameOrigin = url.origin === self.location.origin;
 
-  // Today's verse (KJV text) – cache for offline
+  // Today's verse (KJV text) – offline-first: cache then network
   if (url.pathname.endsWith('kjv.json') || url.pathname.endsWith('/kjv.json')) {
     event.respondWith(
-      fetch(event.request)
-        .then((res) => {
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        return fetch(event.request).then((res) => {
           const clone = res.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
           return res;
-        })
-        .catch(() => caches.match(event.request))
+        });
+      })
     );
     return;
   }
 
-  // Today's verse + prayer (daily_battles API) – cache for offline
+  // Today's verse + prayer (daily_battles API) – offline-first: cache then network
   if (url.href.includes('daily_battles')) {
     event.respondWith(
-      fetch(event.request)
-        .then((res) => {
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        return fetch(event.request).then((res) => {
           const clone = res.clone();
           caches.open(CACHE_API).then((cache) => cache.put(event.request, clone));
           return res;
-        })
-        .catch(() => caches.match(event.request))
+        });
+      })
     );
     return;
   }

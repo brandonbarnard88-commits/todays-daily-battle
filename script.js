@@ -22,28 +22,9 @@ const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
 const PRAYER_LIST_KEY = 'tdb_prayer_list';
-// Admin: prefer obfuscated email (HTML entities) so it is not plain in source; fallback to MASTER_EMAIL/MASTER_EMAILS.
-function decodeObfuscatedEmail(s) {
-  if (typeof s !== 'string' || !s.trim()) return '';
-  var text = s.trim();
-  return text.replace(/&#(\d+);/g, function (_, d) { return String.fromCharCode(parseInt(d, 10)); })
-    .replace(/&#x([0-9a-fA-F]+);/g, function (_, h) { return String.fromCharCode(parseInt(h, 16)); });
-}
-(function () {
-  var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
-  var sole = '';
-  if (cfg && typeof cfg.MASTER_EMAIL_OBFUSCATED === 'string' && cfg.MASTER_EMAIL_OBFUSCATED.trim()) {
-    sole = decodeObfuscatedEmail(cfg.MASTER_EMAIL_OBFUSCATED).toLowerCase();
-  }
-  if (!sole && cfg && typeof cfg.MASTER_EMAIL === 'string' && cfg.MASTER_EMAIL.trim()) {
-    sole = cfg.MASTER_EMAIL.trim().toLowerCase();
-  }
-  if (!sole && cfg && Array.isArray(cfg.MASTER_EMAILS) && cfg.MASTER_EMAILS.length) {
-    sole = String(cfg.MASTER_EMAILS[0]).trim().toLowerCase();
-  }
-  window._TDB_MASTER_EMAILS = new Set(sole ? [sole] : []);
-})();
-const MASTER_EMAILS = window._TDB_MASTER_EMAILS || new Set();
+const QUICK_PRAY_DRAFT_KEY = 'tdb_quick_pray_draft';
+const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
+// Admin is determined server-side only: Supabase app_metadata.role === 'admin'. No admin email in client.
 let isMasterUser = false;
 
 (function () {
@@ -148,7 +129,7 @@ function isProUser() {
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
   currentUserEmail = email;
-  isMasterUser = MASTER_EMAILS.has(email);
+  isMasterUser = user?.app_metadata?.role === 'admin';
   const authSection = document.getElementById('auth-section');
   if (!authSection) return;
   let badge = document.getElementById('master-badge');
@@ -1134,6 +1115,18 @@ function getDailyKey() {
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
 
+function getWeeklyPrayerCount() {
+  var total = 0;
+  var today = getDailyKey();
+  for (var i = 0; i < 7; i++) {
+    var key = shiftDailyKey(today, -i);
+    try {
+      total += parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + key) || '0', 10);
+    } catch (e) {}
+  }
+  return total;
+}
+
 var ANCHOR_VERSE_REFS = [
   'Ephesians 6:10',
   'Ephesians 6:11',
@@ -1406,6 +1399,27 @@ function wireInstallPrompt() {
   }
 }
 
+function wireWeeklyRecapNudge() {
+  var wrap = document.getElementById('weekly-recap-nudge');
+  var textEl = wrap && wrap.querySelector('.weekly-recap-text');
+  var shareBtn = document.getElementById('weekly-recap-share');
+  if (!wrap || !textEl || !shareBtn) return;
+  var count = getWeeklyPrayerCount();
+  if (count < 1) return;
+  textEl.textContent = 'Last week: ' + count + ' prayer' + (count === 1 ? '' : 's') + '—share?';
+  wrap.style.display = 'block';
+  shareBtn.addEventListener('click', function () {
+    var url = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
+    if (!url.endsWith('/')) url += '/';
+    var text = 'I prayed ' + count + ' time' + (count === 1 ? '' : 's') + ' last week with Today\'s Daily Battle. Less scroll. More soul. ' + url;
+    if (navigator.share) {
+      navigator.share({ title: 'My week with Today\'s Daily Battle', text: text, url: url }).catch(function () {});
+    } else {
+      navigator.clipboard.writeText(text).then(function () { shareBtn.textContent = 'Copied!'; setTimeout(function () { shareBtn.textContent = 'Share?'; }, 2000); }).catch(function () {});
+    }
+  });
+}
+
 function wireOfflineBanner() {
   const banner = document.getElementById('offline-banner');
   const dismiss = document.getElementById('offline-banner-dismiss');
@@ -1604,6 +1618,25 @@ function updateDailyBattleStreak() {
     } else {
       resetNudgeEl.style.display = 'none';
     }
+  }
+  if (typeof updateHomeStreakBadge === 'function') updateHomeStreakBadge(nextCount);
+}
+
+function updateHomeStreakBadge(streakCount) {
+  var el = document.getElementById('home-streak-badge');
+  if (!el) return;
+  if (typeof streakCount !== 'number') {
+    try {
+      var data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
+      var today = getDailyKey();
+      streakCount = calculateStreak(Array.isArray(data.dates) ? data.dates : [], today);
+    } catch (e) { streakCount = 0; }
+  }
+  if (streakCount >= 1) {
+    el.textContent = streakCount === 1 ? '1 day—keep going!' : streakCount + ' days—keep going!';
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
   }
 }
 
@@ -2261,7 +2294,7 @@ function renderDailyVerse() {
     card.innerHTML = '<p class="empty">Verse not available.</p>';
     return;
   }
-  card.innerHTML = `<strong>${ref}</strong><p>${bible[ref]}</p>`;
+  card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
 }
 
 function shareDailyBattle() {
@@ -2675,7 +2708,7 @@ if (c && c.ref) {
     }
   }
   const verseText = verseTextFromCache || getBibleVerseText(battle.ref);
-  card.innerHTML = `<strong>${battle.ref}</strong><p>${verseText || 'Verse text is unavailable.'}</p>`;
+  card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is unavailable.') + '</p>';
   card.classList.add('verse-card-loaded');
   var plainMeaningWrap = document.getElementById('daily-battle-plain-meaning-wrap');
   var plainMeaningEl = document.getElementById('daily-battle-plain-meaning');
@@ -3082,14 +3115,16 @@ async function saveNewsletterSignup(email, prefs) {
   return entry;
 }
 
-function renderMessages(items) {
+function renderMessages(items, previewLimit) {
   const list = document.getElementById('message-list');
+  const seeMoreBtn = document.getElementById('message-see-more');
   if (!list) return;
   list.innerHTML = '';
   lastMessageItems = items;
   const visible = items.filter(item => !item.hidden);
   if (!visible.length) {
     list.innerHTML = '<p class="empty">No messages yet. Be the first to encourage someone.</p>';
+    if (seeMoreBtn) seeMoreBtn.style.display = 'none';
     return;
   }
   const nameMap = loadMessageNameMap();
@@ -3103,9 +3138,11 @@ function renderMessages(items) {
     const bTime = new Date(b.created_at || 0).getTime();
     return sortValue === 'oldest' ? aTime - bTime : bTime - aTime;
   });
+  const limit = typeof previewLimit === 'number' && previewLimit > 0 ? previewLimit : sorted.length;
+  const toRender = sorted.slice(0, limit);
   const pinned = buildPinnedEncouragementItem();
   if (pinned) list.appendChild(pinned);
-  sorted.forEach(item => {
+  toRender.forEach(item => {
     const row = document.createElement('div');
     row.className = 'list-item';
     const div = document.createElement('div');
@@ -3143,6 +3180,16 @@ function renderMessages(items) {
     row.appendChild(actions);
     list.appendChild(row);
   });
+  if (seeMoreBtn) {
+    if (sorted.length > limit) {
+      seeMoreBtn.style.display = 'inline-block';
+      seeMoreBtn.onclick = function () {
+        renderMessages(items);
+      };
+    } else {
+      seeMoreBtn.style.display = 'none';
+    }
+  }
   renderDailyEncouragement();
 }
 
@@ -3156,10 +3203,7 @@ function renderDailyEncouragement() {
     container.innerHTML = '<strong>Daily Encouragement</strong><p>Arming you with God\'s Word…</p>';
     return;
   }
-  container.innerHTML = `
-    <strong>Daily Encouragement</strong>
-    <p>${ref} — ${verseText}</p>
-  `;
+  container.innerHTML = '<strong>Daily Encouragement</strong><p>' + escapeHtml(ref) + ' — ' + escapeHtml(verseText) + '</p>';
 }
 
 function buildPinnedEncouragementItem() {
@@ -3169,13 +3213,7 @@ function buildPinnedEncouragementItem() {
   if (!ref || !verseText) return null;
   const row = document.createElement('div');
   row.className = 'list-item pinned-message';
-  row.innerHTML = `
-    <div>
-      <span class="pin-badge">Pinned</span>
-      <strong>Daily Encouragement</strong>
-      <p>${ref} — ${verseText}</p>
-    </div>
-  `;
+  row.innerHTML = '<div><span class="pin-badge">Pinned</span><strong>Daily Encouragement</strong><p>' + escapeHtml(ref) + ' — ' + escapeHtml(verseText) + '</p></div>';
   return row;
 }
 
@@ -3564,8 +3602,20 @@ function scheduleAdminPanel() {
 
 function scheduleMessageLoad() {
   const list = document.getElementById('message-list');
+  const wrap = document.getElementById('message-list-wrap');
+  const loadingEl = document.getElementById('message-list-loading');
   if (!list) return;
-  runIdle(() => loadMessages().then(renderMessages));
+  if (wrap) wrap.setAttribute('aria-busy', 'true');
+  if (loadingEl) loadingEl.style.display = 'flex';
+  runIdle(() => loadMessages().then(function (items) {
+    if (wrap) wrap.setAttribute('aria-busy', 'false');
+    if (loadingEl) loadingEl.style.display = 'none';
+    renderMessages(items, 5);
+  }).catch(function () {
+    if (wrap) wrap.setAttribute('aria-busy', 'false');
+    if (loadingEl) loadingEl.style.display = 'none';
+    renderMessages(lastMessageItems || [], 5);
+  }));
 }
 
 function buildChapterIndex() {
@@ -3653,6 +3703,15 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+/** Use for innerHTML when content may be user/API-sourced. Prefer textContent when no HTML needed. */
+function sanitizeHtml(str) {
+  if (str == null || str === '') return '';
+  if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+    return DOMPurify.sanitize(String(str), { ALLOWED_TAGS: [] });
+  }
+  return escapeHtml(str);
 }
 
 function shuffleArray(arr) {
@@ -3823,7 +3882,7 @@ function renderContextBlock(ref, radius = 3) {
   for (let i = start; i <= end; i++) {
     const line = document.createElement('div');
     line.className = 'context-line';
-    line.innerHTML = `<strong>${verses[i].ref}</strong> ${verses[i].text}`;
+    line.innerHTML = '<strong>' + escapeHtml(verses[i].ref) + '</strong> ' + escapeHtml(verses[i].text || '');
     container.appendChild(line);
   }
   return container;
@@ -3842,7 +3901,7 @@ function renderChapterBlock(ref) {
   verses.forEach(v => {
     const line = document.createElement('div');
     line.className = 'context-line';
-    line.innerHTML = `<strong>${v.ref}</strong> ${v.text}`;
+    line.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong> ' + escapeHtml(v.text || '');
     container.appendChild(line);
   });
   return container;
@@ -4390,7 +4449,7 @@ function renderDashboard() {
   cards.forEach(card => {
     const box = document.createElement('div');
     box.className = 'dashboard-card';
-    box.innerHTML = `<strong>${card.title}</strong><p>${card.text}</p>`;
+    box.innerHTML = '<strong>' + escapeHtml(card.title || '') + '</strong><p>' + escapeHtml(card.text || '') + '</p>';
     const btn = document.createElement('button');
     btn.textContent = 'Open';
     btn.onclick = card.action;
@@ -5044,7 +5103,7 @@ function populateTemplateList() {
   templates.forEach(template => {
     const card = document.createElement('div');
     card.className = 'template-card';
-    card.innerHTML = `<strong>${template.title}</strong><p>${template.theme}</p>`;
+    card.innerHTML = '<strong>' + escapeHtml(template.title || '') + '</strong><p>' + escapeHtml(template.theme || '') + '</p>';
     const btn = document.createElement('button');
     btn.textContent = 'Use Template';
     btn.onclick = () => {
@@ -5110,7 +5169,7 @@ function renderReaderChapter(book, chapter) {
     const line = document.createElement('div');
     line.className = 'context-line';
     line.dataset.ref = v.ref;
-    line.innerHTML = `<strong>${v.ref}</strong> ${v.text}`;
+    line.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong> ' + escapeHtml(v.text || '');
     if (isRedLetterEnabled() && isRedLetterLike(v.ref, v.text)) {
       line.classList.add('red-letter');
     }
@@ -6311,7 +6370,7 @@ function renderResults(results) {
       items.forEach(v => {
         const card = document.createElement('div');
         card.className = 'verse-card';
-        card.innerHTML = `<strong>${v.ref}</strong><p>${v.text}</p>`;
+        card.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.text || '') + '</p>';
         var plainMeaning = (v.plain_meaning !== undefined && v.plain_meaning) ? v.plain_meaning : (typeof getPlainMeaning === 'function' ? getPlainMeaning(v.ref) : '');
         if (plainMeaning) {
           var plainP = document.createElement('p');
@@ -6418,7 +6477,7 @@ function renderResults(results) {
           if (!p) return;
           if (p.classList.contains('memory-mode')) {
             p.classList.remove('memory-mode');
-            p.innerHTML = v.text;
+            p.innerHTML = v.text || '';
             if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) p.classList.add('red-letter');
             memoryBtn.textContent = 'Memory';
             return;
@@ -6427,7 +6486,7 @@ function renderResults(results) {
           const words = raw.trim().split(/\s+/).filter(Boolean);
           p.classList.add('memory-mode');
           p.innerHTML = words.map(function (w) {
-            return '<span class="memory-word" tabindex="0" role="button">' + w + '</span>';
+            return '<span class="memory-word" tabindex="0" role="button">' + escapeHtml(w) + '</span>';
           }).join(' ');
           p.querySelectorAll('.memory-word').forEach(function (span) {
             span.addEventListener('click', function () { span.classList.add('revealed'); });
@@ -6543,7 +6602,7 @@ function renderResults(results) {
         if (relatedRefs.length > 0) {
           const relatedEl = document.createElement('div');
           relatedEl.className = 'related-verses';
-          relatedEl.innerHTML = '<span class="related-label">Related: </span>' + relatedRefs.map(r => `<a href="#" class="related-ref" data-ref="${r}">${r}</a>`).join(' · ');
+          relatedEl.innerHTML = '<span class="related-label">Related: </span>' + relatedRefs.map(r => '<a href="#" class="related-ref" data-ref="' + escapeHtml(r) + '">' + escapeHtml(r) + '</a>').join(' · ');
           relatedEl.querySelectorAll('.related-ref').forEach(link => {
             link.addEventListener('click', (e) => {
               e.preventDefault();
@@ -6617,8 +6676,8 @@ function renderResults(results) {
   if (results.activities && results.activities.length) {
     const activityBox = document.createElement('div');
     activityBox.className = 'activity-box';
-    const items = results.activities.map(item => `<li>${item}</li>`).join('');
-    activityBox.innerHTML = `<strong>Kid/Teen Activity Ideas</strong><ul>${items}</ul>`;
+    const items = results.activities.map(item => '<li>' + escapeHtml(item) + '</li>').join('');
+    activityBox.innerHTML = '<strong>Kid/Teen Activity Ideas</strong><ul>' + items + '</ul>';
     output.appendChild(activityBox);
   }
 }
@@ -6823,7 +6882,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!card || !isDailyCardStillLoading(card)) return;
     var ref = FALLBACK_VERSE_REF;
     var text = bible[ref] || FALLBACK_VERSE_TEXT;
-    card.innerHTML = '<strong>' + ref + '</strong><p>' + text + '</p>';
+    card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(text || '') + '</p>';
     card.classList.remove('red-letter-card');
     var plainMeaningWrap = document.getElementById('daily-battle-plain-meaning-wrap');
     var plainMeaningEl = document.getElementById('daily-battle-plain-meaning');
@@ -6903,12 +6962,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (sessionData?.session) {
     currentUserId = sessionData.session.user.id;
     updateMasterStatus(sessionData.session.user);
-    currentUserRole = sessionData.session.user.user_metadata?.role || 'member';
+    currentUserRole = sessionData.session.user.app_metadata?.role || sessionData.session.user.user_metadata?.role || 'member';
     subscriptionTier = sessionData.session.user.user_metadata?.subscription || sessionData.session.user.user_metadata?.subscription_tier || (sessionData.session.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
-    if (isMasterUser) {
-      currentUserRole = 'member';
-      subscriptionTier = 'church_team';
-    }
     updateAuthUI(sessionData.session);
     var signinNudge = document.getElementById('signin-nudge-banner');
     if (signinNudge) signinNudge.classList.add('hidden');
@@ -6951,12 +7006,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (signinNudge) signinNudge.classList.toggle('hidden', !!session);
     if (session) {
       const userTier = session.user.user_metadata?.tier || 'adult';
-      currentUserRole = session.user.user_metadata?.role || 'member';
+      currentUserRole = session.user.app_metadata?.role || session.user.user_metadata?.role || 'member';
       subscriptionTier = session.user.user_metadata?.subscription || session.user.user_metadata?.subscription_tier || (session.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
-      if (isMasterUser) {
-        currentUserRole = 'member';
-        subscriptionTier = 'church_team';
-      }
       const tierEl = document.getElementById('tier');
       if (tierEl) tierEl.value = userTier;
       await syncUserData();
@@ -6981,6 +7032,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   scheduleAdminPanel();
   wireDailyBattleSeedForm();
   wireInstallPrompt();
+  wireWeeklyRecapNudge();
+  if (document.getElementById('home-streak-badge')) updateHomeStreakBadge();
   wireOfflineBanner();
   wireOfflinePrefetch();
 
@@ -7243,6 +7296,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const redirectUrl = getAuthRedirectBase();
       signupBtn.disabled = true;
       setAuthStatus('Creating account…', 'info');
+      // Never send role from client; server (Supabase trigger/hook) forces role = 'member'
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
@@ -7300,12 +7354,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       currentUserId = data.session?.user?.id || null;
       updateMasterStatus(data.user || null);
       const userTier = data.user.user_metadata?.tier || 'adult';
-      currentUserRole = data.user.user_metadata?.role || 'member';
+      currentUserRole = data.user.app_metadata?.role || data.user.user_metadata?.role || 'member';
       subscriptionTier = data.user.user_metadata?.subscription || data.user.user_metadata?.subscription_tier || (data.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
-      if (isMasterUser) {
-        currentUserRole = 'member';
-        subscriptionTier = 'church_team';
-      }
       const tierEl = document.getElementById('tier');
       if (tierEl) tierEl.value = userTier;
       setAuthStatus("You're in! Welcome back.", 'success');
@@ -7399,7 +7449,49 @@ document.addEventListener('DOMContentLoaded', async () => {
   const quickPrayBtn = document.getElementById('quick-pray-btn');
   const quickPrayInput = document.getElementById('quick-pray');
   const quickPrayFeedback = document.getElementById('quick-pray-feedback');
+  const quickPrayToday = document.getElementById('quick-pray-today');
   if (quickPrayBtn && quickPrayInput) {
+    function getQuickPrayCountToday() {
+      const key = QUICK_PRAY_COUNT_PREFIX + getDailyKey();
+      try {
+        return parseInt(localStorage.getItem(key) || '0', 10);
+      } catch (e) { return 0; }
+    }
+    function setQuickPrayCountToday(n) {
+      const key = QUICK_PRAY_COUNT_PREFIX + getDailyKey();
+      try {
+        localStorage.setItem(key, String(n));
+      } catch (e) {}
+    }
+    function updateQuickPrayCountDisplay() {
+      const n = getQuickPrayCountToday();
+      if (quickPrayToday) {
+        if (n > 0) {
+          quickPrayToday.textContent = 'Prayers today: ' + n;
+          quickPrayToday.style.display = 'block';
+        } else {
+          quickPrayToday.style.display = 'none';
+        }
+      }
+    }
+    function saveQuickPrayDraft() {
+      const val = (quickPrayInput.value || '').trim();
+      try {
+        if (val) localStorage.setItem(QUICK_PRAY_DRAFT_KEY, val);
+        else localStorage.removeItem(QUICK_PRAY_DRAFT_KEY);
+      } catch (e) {}
+    }
+    function loadQuickPrayDraft() {
+      try {
+        const val = localStorage.getItem(QUICK_PRAY_DRAFT_KEY);
+        if (val && quickPrayInput) quickPrayInput.value = val;
+      } catch (e) {}
+    }
+    function clearQuickPrayDraft() {
+      try {
+        localStorage.removeItem(QUICK_PRAY_DRAFT_KEY);
+      } catch (e) {}
+    }
     function doQuickPray() {
       const text = (quickPrayInput.value || '').trim();
       if (!text) return;
@@ -7408,16 +7500,57 @@ document.addEventListener('DOMContentLoaded', async () => {
       savePrayerList(items);
       renderPrayerList();
       quickPrayInput.value = '';
+      clearQuickPrayDraft();
+      const count = getQuickPrayCountToday() + 1;
+      setQuickPrayCountToday(count);
+      updateQuickPrayCountDisplay();
+      if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
       if (quickPrayFeedback) {
-        quickPrayFeedback.textContent = 'Added to your prayer list.';
+        quickPrayFeedback.textContent = 'Added!';
         quickPrayFeedback.style.display = 'block';
+        quickPrayFeedback.classList.add('quick-pray-toast-visible');
         setTimeout(function () {
           quickPrayFeedback.style.display = 'none';
           quickPrayFeedback.textContent = '';
-        }, 3000);
+          quickPrayFeedback.classList.remove('quick-pray-toast-visible');
+        }, 2500);
+      }
+      var shareWrap = document.getElementById('quick-pray-share-wrap');
+      var shareBtn = document.getElementById('quick-pray-share');
+      if (shareWrap && shareBtn) {
+        shareWrap.dataset.lastPrayer = text;
+        shareWrap.style.display = 'block';
       }
       trackEvent('quick_pray_add');
     }
+    var quickPrayShareBtn = document.getElementById('quick-pray-share');
+    if (quickPrayShareBtn) {
+      quickPrayShareBtn.addEventListener('click', function () {
+        var wrap = document.getElementById('quick-pray-share-wrap');
+        var lastPrayer = (wrap && wrap.dataset.lastPrayer) || '';
+        var url = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
+        if (!url.endsWith('/')) url += '/';
+        var text = lastPrayer
+          ? 'I just prayed for ' + lastPrayer + ' with Today\'s Daily Battle. Less scroll. More soul. ' + url
+          : 'I just prayed with Today\'s Daily Battle. Less scroll. More soul. ' + url;
+        if (navigator.share) {
+          navigator.share({ title: 'Prayer with Today\'s Daily Battle', text: text, url: url }).catch(function () {});
+        } else {
+          navigator.clipboard.writeText(text).then(function () {
+            quickPrayShareBtn.textContent = 'Copied!';
+            setTimeout(function () { quickPrayShareBtn.textContent = 'Share'; }, 2000);
+          }).catch(function () {});
+        }
+      });
+    }
+    loadQuickPrayDraft();
+    updateQuickPrayCountDisplay();
+    let draftSaveTimer;
+    quickPrayInput.addEventListener('input', function () {
+      clearTimeout(draftSaveTimer);
+      draftSaveTimer = setTimeout(saveQuickPrayDraft, 400);
+    });
+    quickPrayInput.addEventListener('blur', saveQuickPrayDraft);
     quickPrayBtn.addEventListener('click', doQuickPray);
     quickPrayInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
@@ -8170,7 +8303,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const html = `
         <html>
           <head>
-            <title>${draft.title || 'Sermon'}</title>
+            <title>${escapeHtml(draft.title || 'Sermon')}</title>
             <style>
               body { font-family: Arial, sans-serif; padding: 24px; }
               h1 { margin-bottom: 4px; }
@@ -8179,17 +8312,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             </style>
           </head>
           <body>
-            <h1>${draft.title || 'Sermon Title'}</h1>
-            <p><strong>Theme:</strong> ${draft.theme || ''}</p>
-            <p><strong>Primary Text:</strong> ${draft.textRef || ''}</p>
+            <h1>${escapeHtml(draft.title || 'Sermon Title')}</h1>
+            <p><strong>Theme:</strong> ${escapeHtml(draft.theme || '')}</p>
+            <p><strong>Primary Text:</strong> ${escapeHtml(draft.textRef || '')}</p>
             <h3>Outline</h3>
-            <p>${draft.outline || ''}</p>
-            <h3>Key Points & Illustrations</h3>
-            <p>${draft.points || ''}</p>
+            <p>${escapeHtml(draft.outline || '')}</p>
+            <h3>Key Points &amp; Illustrations</h3>
+            <p>${escapeHtml(draft.points || '')}</p>
             <h3>Application</h3>
-            <p>${draft.application || ''}</p>
+            <p>${escapeHtml(draft.application || '')}</p>
             <h3>Closing Prayer</h3>
-            <p>${draft.prayer || ''}</p>
+            <p>${escapeHtml(draft.prayer || '')}</p>
           </body>
         </html>
       `;
@@ -9186,6 +9319,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       await postMessage(text);
       messageInput.value = '';
       scheduleMessageLoad();
+      const announce = document.getElementById('message-added-announce');
+      if (announce) {
+        announce.textContent = 'Message added.';
+        setTimeout(function () { announce.textContent = ''; }, 2500);
+      }
     });
   }
 

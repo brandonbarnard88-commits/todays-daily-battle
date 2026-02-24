@@ -1652,8 +1652,11 @@ function flushPrayerOfflineQueue() {
   var q = getPrayerOfflineQueue();
   if (!q.length || !supabaseClient) return;
   var sessionId = getPrayerSessionId();
+  var familyName = getFamilyName();
   q.forEach(function (item) {
-    supabaseClient.from('prayers').insert({ intent: item.intent || '', session_id: sessionId }).then(function () {});
+    var payload = { intent: item.intent || '', session_id: sessionId };
+    if (familyName) payload.family_name = familyName;
+    supabaseClient.from('prayers').insert(payload).then(function () {});
   });
   setPrayerOfflineQueue([]);
   if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
@@ -1664,7 +1667,12 @@ var COLLECTIVE_INTENTS = ['peace', 'strength', 'healing', 'gratitude', 'hope', '
 var FOOTER_ROTATING_LINES = ["You're not praying alone.", "Someone just prayed with you.", "This is the room. You're in it."];
 var GOD_MODE_SOUND_ENABLED_KEY = 'tdb_sound_echo_enabled';
 var SACRED_SILENCE_KEY = 'tdb_sacred_silence';
+var FAMILY_NAME_KEY = 'tdb_family_name';
 var AMEN_PREFIX = 'tdb_amen_';
+
+function getFamilyName() {
+  try { return (localStorage.getItem(FAMILY_NAME_KEY) || '').trim(); } catch (e) { return ''; }
+}
 var BREATH_COUNT_KEY = 'tdb_breathe_count_';
 var NIGHT_CLOSE_SHOWN_KEY = 'tdb_night_close_';
 var DAWN_SHOWN_KEY = 'tdb_dawn_';
@@ -1738,7 +1746,7 @@ function wireGodModePrayerEcho() {
       return;
     }
     try {
-      var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count').order('created_at', { ascending: false }).limit(5);
+      var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count, family_name').order('created_at', { ascending: false }).limit(5);
       if (loadingEl) loadingEl.style.display = 'none';
       if (listEl) listEl.style.display = 'block';
       if (joinBtn) joinBtn.style.display = 'inline-block';
@@ -1748,6 +1756,7 @@ function wireGodModePrayerEcho() {
       listEl.innerHTML = '';
       rows.forEach(function (row, i) {
         var intent = (row.intent && String(row.intent).trim()) || 'for peace';
+        var who = (row.family_name && String(row.family_name).trim()) ? String(row.family_name).trim() : 'Someone';
         var pre = timePrefix(row.created_at);
         var li = document.createElement('li');
         li.className = 'prayer-echo-item';
@@ -1758,7 +1767,7 @@ function wireGodModePrayerEcho() {
         li.appendChild(candle);
         var textSpan = document.createElement('span');
         textSpan.className = 'prayer-echo-text';
-        textSpan.textContent = pre + 'Someone just prayed: ' + intent;
+        textSpan.textContent = pre + who + ' just prayed: ' + intent;
         textSpan.title = 'Someone prayed this.';
         li.appendChild(textSpan);
         var amenWrap = document.createElement('span');
@@ -1859,6 +1868,33 @@ function wireSoundEchoToggle() {
   });
 }
 
+function wireFamilyNameModal() {
+  var modal = document.getElementById('family-name-modal');
+  var input = document.getElementById('family-name-input');
+  var saveBtn = document.getElementById('family-name-save-btn');
+  var closeBtn = document.getElementById('family-name-modal-close');
+  var addFamilyBtn = document.getElementById('add-family-btn');
+  if (!modal || !saveBtn) return;
+  try { if (input) input.value = getFamilyName(); } catch (e) {}
+  function closeModal() {
+    modal.classList.add('hidden');
+  }
+  function openModal() {
+    modal.classList.remove('hidden');
+    if (input) { input.value = getFamilyName(); input.focus(); }
+  }
+  if (addFamilyBtn) addFamilyBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  saveBtn.addEventListener('click', function () {
+    var val = (input && input.value) ? input.value.trim() : '';
+    try { if (val) localStorage.setItem(FAMILY_NAME_KEY, val); else localStorage.removeItem(FAMILY_NAME_KEY); } catch (e) {}
+    closeModal();
+    if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+    if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
+    if (val && typeof showEliteToast === 'function') showEliteToast('Family name saved.');
+  });
+}
+
 function wireSacredSilenceToggle() {
   var cb = document.getElementById('sacred-silence-toggle');
   if (!cb) return;
@@ -1876,6 +1912,8 @@ function wireSilentOffering() {
   if (!btn) return;
   btn.addEventListener('click', function () {
     var payload = { intent: 'Someone offered silence.', session_id: getPrayerSessionId() };
+    var fn = getFamilyName();
+    if (fn) payload.family_name = fn;
     if (navigator.onLine && supabaseClient) {
       supabaseClient.from('prayers').insert(payload).then(function (r) {
         if (!r.error) {
@@ -2196,11 +2234,13 @@ function updateDailyBattleStreak() {
     localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(nextData));
     setSyncData('streak', nextData);
   }
+  var familyName = getFamilyName();
+  var label = familyName ? ((familyName.match(/s$/i) ? familyName + "'" : familyName + "'s") + ' streak') : 'Streak';
   var streakText = nextCount >= 1
     ? (nextCount <= 30
-        ? (nextCount === 1 ? 'Day 1/30 — you started! 🔥' : `Day ${nextCount}/30 — keep it going! 🔥`)
-        : (nextCount === 1 ? 'Day 1 — you started! 🔥' : `Day ${nextCount} — keep it going! 🔥`))
-    : 'Streak: 0 days';
+        ? (nextCount === 1 ? label + ': Day 1/30 — you started! 🔥' : label + ': Day ' + nextCount + '/30 — keep it going! 🔥')
+        : (nextCount === 1 ? label + ': Day 1 — you started! 🔥' : label + ': Day ' + nextCount + ' — keep it going! 🔥'))
+    : (familyName ? label + ': 0 days' : 'Streak: 0 days');
   streakEl.textContent = streakText;
   var shareStreakWrap = document.getElementById('share-streak-wrap');
   if (shareStreakWrap) shareStreakWrap.style.display = nextCount >= 1 ? 'flex' : 'none';
@@ -7397,6 +7437,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireCollectiveIntention();
   wireFooterRotating();
   wireSoundEchoToggle();
+  wireFamilyNameModal();
   wireSacredSilenceToggle();
   wireSilentOffering();
   wireBreatheWithHim();
@@ -8228,7 +8269,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
       var sessionId = getPrayerSessionId();
+      var familyName = getFamilyName();
       var payload = { intent: text, session_id: sessionId };
+      if (familyName) payload.family_name = familyName;
       function onInsertDone(isFirst) {
         if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
         if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
@@ -8303,6 +8346,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         undoWrap._undoTimer = setTimeout(function () { if (undoWrap) undoWrap.style.display = 'none'; }, 8000);
       }
       if (typeof showPrayerWhisper === 'function') showPrayerWhisper();
+      if (!getFamilyName()) {
+        setTimeout(function () {
+          var fm = document.getElementById('family-name-modal');
+          var fin = document.getElementById('family-name-input');
+          if (fm && fin) { fm.classList.remove('hidden'); fin.value = ''; fin.focus(); }
+        }, 6500);
+      }
       trackEvent('quick_pray_add');
     }
     var shareStreakBtn = document.getElementById('share-streak-btn');

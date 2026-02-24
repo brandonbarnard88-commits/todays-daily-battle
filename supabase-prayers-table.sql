@@ -10,6 +10,7 @@ create table if not exists public.prayers (
 alter table public.prayers add column if not exists intent text;
 alter table public.prayers add column if not exists amen_count int not null default 0;
 alter table public.prayers add column if not exists session_id text;
+alter table public.prayers add column if not exists family_name text;
 
 -- Presence: distinct sessions in last 60 minutes (anon-safe)
 create or replace function public.get_prayer_presence_count()

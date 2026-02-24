@@ -56,7 +56,7 @@ const rootFiles = [
 const htmlFiles = fs.readdirSync(root, { withFileTypes: false })
   .filter((f) => f.endsWith('.html'));
 
-// Topic build: hardcoded list so deploy never misses topic pages (wildcard/readdir can fail in CI)
+// Force topic copy — no wildcards, no readdir; CI can't skip this.
 const TOPIC_FILES = [
   'topic-anxiety.html',
   'topic-fear.html',
@@ -66,10 +66,16 @@ const TOPIC_FILES = [
   'topic-parenting.html',
   'topic-strength.html'
 ];
-const topicFiles = TOPIC_FILES.filter((f) => fs.existsSync(path.join(root, f)));
-console.log('Topic files to copy: ' + topicFiles.join(', '));
-
 mkdir(dist);
+let topicCopied = 0;
+TOPIC_FILES.forEach((f) => {
+  const src = path.join(root, f);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(dist, f));
+    topicCopied += 1;
+  }
+});
+console.log('Forced topic copy: ' + topicCopied + ' topic pages to dist/');
 
 for (const f of rootFiles) {
   const src = path.join(root, f);
@@ -78,15 +84,7 @@ for (const f of rootFiles) {
   }
 }
 
-topicFiles.forEach((file) => {
-  const src = path.join(root, file);
-  if (fs.existsSync(src)) {
-    fs.copyFileSync(src, path.join(dist, file));
-  }
-});
-console.log('Copied ' + topicFiles.length + ' topic pages to dist');
-
-const otherHtml = htmlFiles.filter((f) => !topicFiles.includes(f));
+const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f));
 for (const f of otherHtml) {
   copyFile(path.join(root, f), path.join(dist, f));
 }

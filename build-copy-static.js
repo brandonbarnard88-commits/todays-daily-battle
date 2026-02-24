@@ -90,11 +90,14 @@ if (fs.existsSync(wellKnown)) {
   copyDir(wellKnown, path.join(dist, '.well-known'));
 }
 
-// Copy all topic pages (explicit wildcard so build log shows them)
-const topicFiles = fs.readdirSync(root).filter((f) => f.startsWith('topic-') && f.endsWith('.html'));
+// Copy all topic pages explicitly
+const topicFiles = ['topic-anxiety.html', 'topic-fear.html', 'topic-forgiveness.html', 'topic-grief.html', 'topic-hope.html', 'topic-parenting.html', 'topic-strength.html'];
 topicFiles.forEach((file) => {
-  fs.copyFileSync(path.join(root, file), path.join(dist, file));
+  const src = path.join(root, file);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(dist, file));
+  }
 });
-console.log('Copied ' + topicFiles.length + ' topic pages to dist');
+console.log('Copied topic pages');
 
 console.log('build-copy-static.js: copied all static files to dist/ (including topic-*.html).');

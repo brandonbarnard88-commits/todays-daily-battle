@@ -4064,5 +4064,50 @@ body.red-letter-off .red-letter-card {
 }
 .modal.hidden { display: none; }
 .modal-inner { padding: 1.5rem; max-width: 28rem; width: 90%; }
-.modal-inner input, .modal-inner textarea { width: 100%; margin-bottom: 0.75rem; padding: 0.5rem; }
+.modal-inner input, .modal-inner textarea { width: 100%; margin-bottom: 0.75rem; padding: 0.5rem; min-height: 48px; box-sizing: border-box; }
 .modal-inner textarea { min-height: 4rem; resize: vertical; }
+.modal-inner .cta-group .btn { min-height: 48px; }
+
+/* Mobile polish: breathing room, thumb-friendly, no squish (375px–768px) */
+@media (max-width: 768px) {
+  #search-widget { padding-top: 1rem; }
+  .search-stack input { min-height: 48px; padding: 0.875rem 1rem; font-size: 16px; }
+  .search-actions { flex-direction: column; gap: 0.5rem; }
+  .search-actions .btn { width: 100%; min-height: 48px; margin-bottom: 0.5rem; font-size: 1.05rem; }
+  .quick-pray-row { flex-direction: column; gap: 0.5rem; }
+  .quick-pray-row .btn { width: 100%; min-height: 48px; margin-bottom: 0.5rem; }
+  .quick-pray-share-wrap { flex-direction: column; gap: 0.5rem; }
+  .quick-pray-share-wrap .btn { width: 100%; min-height: 48px; margin-bottom: 0.5rem; }
+  #dark-toggle { min-height: 48px; min-width: 48px; padding: 0.75rem 1rem; font-size: 1rem; }
+  .verse-card { padding: 1rem; line-height: 1.5; }
+  .verse-card p { line-height: 1.5; }
+  .verse-card strong { line-height: 1.35; }
+  .section, .card, .content-inner .glass { padding: 1rem; }
+  .list { gap: 0.75rem; }
+  .list .list-item { padding: 0.75rem 0; margin-bottom: 0.75rem; }
+  .hero-banner { padding: 1rem 1.25rem; gap: 0.75rem; }
+  .hero-banner h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
+  .hero-banner .hero-sub { font-size: 1.1rem; }
+  .streak-badge { font-size: 0.9rem; margin-top: 0.35rem; }
+  #daily-verse-email-nudge input,
+  #daily-verse-email-nudge .btn { width: 100%; max-width: 100%; min-height: 48px; margin-bottom: 0.5rem; }
+  .modal-inner { padding: 1rem; width: 94%; max-width: none; }
+  .modal-inner input, .modal-inner textarea { width: 100%; min-height: 48px; padding: 0.75rem 1rem; margin-bottom: 0.75rem; }
+  body.light .section-note { color: #64748b; }
+}
+
+@media (max-width: 480px) {
+  #dark-toggle {
+    position: fixed;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    right: max(1rem, env(safe-area-inset-right));
+    z-index: 50;
+    border-radius: 50%;
+    min-width: 56px;
+    min-height: 56px;
+    padding: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-size: 0;
+  }
+  #dark-toggle span { font-size: 1.5rem; }
+}

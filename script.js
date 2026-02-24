@@ -7268,9 +7268,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (saved === 'light') {
       document.body.classList.remove('dark-mode');
       document.body.classList.add('light');
-    } else {
+    } else if (saved === 'dark') {
       document.body.classList.remove('light');
       document.body.classList.add('dark-mode');
+    } else {
+      var prefersDark = typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefersDark) {
+        document.body.classList.remove('light');
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light');
+      }
     }
   } catch (e) {}
   const darkToggle = document.getElementById('dark-toggle');

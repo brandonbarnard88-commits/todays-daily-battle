@@ -1595,6 +1595,41 @@ function wirePrayerMap() {
   setInterval(render, 2000);
 }
 
+function showGodWhisperOnLoad() {
+  try {
+    if (sessionStorage.getItem('tdb_god_whisper_shown')) return;
+    sessionStorage.setItem('tdb_god_whisper_shown', '1');
+  } catch (e) { return; }
+  var el = document.getElementById('god-whisper-load');
+  if (!el) return;
+  el.style.display = 'flex';
+  el.classList.add('whisper-visible');
+  el.setAttribute('aria-label', 'God is present.');
+  setTimeout(function () {
+    el.classList.add('whisper-out');
+  }, 5000);
+  setTimeout(function () {
+    el.style.display = 'none';
+    el.classList.remove('whisper-visible', 'whisper-out');
+  }, 6000);
+}
+
+function showPrayerWhisper() {
+  var el = document.getElementById('prayer-whisper');
+  if (!el) return;
+  el.classList.remove('whisper-out');
+  el.style.display = 'flex';
+  el.classList.add('whisper-visible');
+  el.setAttribute('aria-label', 'Prayer sent—God hears.');
+  setTimeout(function () {
+    el.classList.add('whisper-out');
+  }, 5000);
+  setTimeout(function () {
+    el.style.display = 'none';
+    el.classList.remove('whisper-visible', 'whisper-out');
+  }, 6000);
+}
+
 var PRAYER_SESSION_KEY = 'tdb_prayer_session_id';
 function getPrayerSessionId() {
   try {
@@ -7235,6 +7270,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();
+  if (isHome && typeof showGodWhisperOnLoad === 'function') setTimeout(showGodWhisperOnLoad, 600);
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');
   if (authSection && !authSection.querySelector('.auth-benefit')) {
@@ -8130,6 +8166,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         clearTimeout(undoWrap._undoTimer);
         undoWrap._undoTimer = setTimeout(function () { if (undoWrap) undoWrap.style.display = 'none'; }, 8000);
       }
+      if (typeof showPrayerWhisper === 'function') showPrayerWhisper();
       trackEvent('quick_pray_add');
     }
     var shareStreakBtn = document.getElementById('share-streak-btn');

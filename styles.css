@@ -4238,3 +4238,36 @@ body.light .footer-rotating-line { color: #64748b; }
 .prayer-echo-amen-count { font-size: 0.85rem; opacity: 0.9; }
 .pray-this-with-me-btn { margin-top: 0.5rem; }
 .sidebar-streak { margin-bottom: 0.5rem; font-size: 0.9rem; }
+
+/* God whisper overlays — sacred silence, no button */
+.god-whisper-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.god-whisper-overlay .god-whisper-text {
+  color: #fff;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  opacity: 0;
+}
+.god-whisper-overlay.whisper-visible .god-whisper-text {
+  animation: god-whisper-fadein 3s ease-out forwards;
+}
+.god-whisper-overlay.whisper-out .god-whisper-text {
+  animation: god-whisper-fadeout 1s ease-in forwards;
+}
+@keyframes god-whisper-fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes god-whisper-fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

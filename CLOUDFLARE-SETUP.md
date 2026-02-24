@@ -4,12 +4,14 @@ PASTE THESE IN CLOUDFLARE (Workers & Pages → your project → Settings)
 
 ## 1. BUILD CONFIGURATION (important)
 
-Because **config.js is now in the repo**, you do **not** need a build step. Set:
+Use the repo build so **every file** (including topic-anxiety.html and all topic pages) is in the deploy:
 
-- **Build command:** leave **empty** (or type `exit 0`)
-- **Build output directory:** leave **empty**
+- **Build command:** `npm run build`
+- **Build output directory:** `dist`
 
-That way Cloudflare deploys the whole repo as-is and config.js is included. If you have a build command like `npm run build`, Cloudflare may only deploy "build output" and omit config.js, causing 404.
+The build runs `build-config.js` (writes config.js from env) then `build-copy-static.js` (copies all HTML, CSS, JS, _redirects, vendor, etc. into `dist/`). This fixes 503 on topic pages when the host was only deploying "build output" and topic-*.html was missing.
+
+**If you prefer deploying the repo root with no build:** set Build command to **empty** (or `exit 0`) and Build output directory to **empty**. Then the whole repo is deployed as-is; ensure topic-*.html and config.js are in the repo and not ignored.
 
 ## 2. ENVIRONMENT VARIABLES (Production) — Add each
 

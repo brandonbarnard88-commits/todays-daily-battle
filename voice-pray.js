@@ -28,6 +28,9 @@
 
     function setListening(on) {
       listening = on;
+      if (typeof window.__voicePrayListening !== 'undefined') window.__voicePrayListening = on;
+      var floating = document.getElementById('floating-voice-pray');
+      if (floating) floating.classList.toggle('floating-voice-pray-listening', on);
       if (on) {
         btn.classList.add('voice-pray-listening');
         btn.textContent = 'Stop';
@@ -66,7 +69,7 @@
       if (input.value.trim()) {
         var prayBtn = document.getElementById('quick-pray-btn');
         if (prayBtn) prayBtn.click();
-        if (typeof window.showEliteToast === 'function') window.showEliteToast('Prayer recorded—saved!');
+        if (typeof window.showEliteToast === 'function') window.showEliteToast('Prayer heard—saved!');
       }
     };
 

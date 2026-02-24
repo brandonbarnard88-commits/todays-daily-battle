@@ -39,17 +39,17 @@
 
         <section class="glass wins-report-section">
           <h2 class="section-divider">This year so far</h2>
-          <div id="wins-stats" class="wins-stats" aria-live="polite">
-            <p class="section-note">Loading your wins…</p>
+          <div id="wins-stats" class="wins-stats" aria-live="polite" aria-label="Your wins summary">
+            <p class="section-note" aria-live="polite">Loading your wins…</p>
           </div>
           <div id="wins-graphic-wrap" class="wins-graphic-wrap" style="display: none;">
             <p class="section-note">Shareable graphic</p>
             <canvas id="wins-graphic-canvas" width="800" height="400" aria-hidden="true"></canvas>
           </div>
           <div class="cta-group" id="wins-actions" style="display: none;">
-            <button type="button" id="wins-copy-btn" class="btn btn-primary">Copy my Wins</button>
-            <button type="button" id="wins-copy-short-btn" class="btn btn-secondary">Copy short share</button>
-            <button type="button" id="wins-download-btn" class="btn btn-secondary">Download image</button>
+            <button type="button" id="wins-copy-btn" class="btn btn-primary" aria-label="Copy your wins summary to clipboard">Copy my Wins</button>
+            <button type="button" id="wins-copy-short-btn" class="btn btn-secondary" aria-label="Copy short share text">Copy short share</button>
+            <button type="button" id="wins-download-btn" class="btn btn-secondary" aria-label="Download wins graphic as image">Download image</button>
             <a href="/" class="btn btn-secondary">Back to Daily Battle</a>
           </div>
           <p id="wins-copy-status" class="section-note" style="margin-top: 0.5rem; display: none;" role="status"></p>

@@ -1463,6 +1463,144 @@ function wireOfflineBanner() {
   window.addEventListener('offline', showBanner);
 }
 
+function wirePrayerCounter() {
+  var el = document.getElementById('prayer-counter-num');
+  if (!el) return;
+  var key = 'tdb_prayer_counter';
+  var key1000 = 'tdb_prayer_counter_1000_toast';
+  var count = 0;
+  try {
+    var stored = sessionStorage.getItem(key);
+    count = stored ? parseInt(stored, 10) : (Math.floor(Math.random() * 1000) + 1000);
+  } catch (e) {
+    count = Math.floor(Math.random() * 1000) + 1000;
+  }
+  function format(n) { return n.toLocaleString(); }
+  function updateUI() {
+    el.textContent = format(count);
+    try { sessionStorage.setItem(key, String(count)); } catch (e) {}
+    if (count >= 1000) {
+      try {
+        if (!sessionStorage.getItem(key1000)) {
+          sessionStorage.setItem(key1000, '1');
+          if (typeof showEliteToast === 'function') showEliteToast('Thanks—1,000 prayers today!');
+        }
+      } catch (e) {}
+    }
+  }
+  updateUI();
+  setInterval(function () {
+    count += Math.floor(Math.random() * 4);
+    updateUI();
+  }, 30000);
+  window.__incrementPrayerCounter = function () {
+    count += 1;
+    updateUI();
+  };
+}
+
+function updateSidebarStreak(streakCount) {
+  var el = document.getElementById('sidebar-streak');
+  if (!el) return;
+  if (typeof streakCount !== 'number') {
+    try {
+      var data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
+      var today = getDailyKey();
+      streakCount = calculateStreak(Array.isArray(data.dates) ? data.dates : [], today);
+    } catch (e) { streakCount = 0; }
+  }
+  if (streakCount >= 1) {
+    el.textContent = streakCount + ' day' + (streakCount === 1 ? '' : 's') + ' \uD83D\uDD25';
+    el.style.display = 'block';
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+function wireFloatingVoicePray() {
+  var floating = document.getElementById('floating-voice-pray');
+  var voiceBtn = document.getElementById('voice-pray-btn');
+  var quickWrap = document.getElementById('quick-pray-wrap');
+  if (!floating || !voiceBtn) return;
+  floating.addEventListener('click', function () {
+    if (quickWrap) quickWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function () { voiceBtn.click(); }, 300);
+  });
+}
+
+function wireIntentModal() {
+  var modal = document.getElementById('intent-modal');
+  var closeBtn = document.getElementById('intent-modal-close');
+  var input = document.getElementById('intent-input');
+  var prayBtn = document.getElementById('intent-pray-btn');
+  var heroIntent = document.getElementById('hero-intent');
+  var quickPrayInput = document.getElementById('quick-pray');
+  if (!modal || !prayBtn) return;
+  var INTENT_KEY = 'tdb_intent';
+  var INTENT_LAST_KEY = 'tdb_intent_last_shown';
+  function showModal() {
+    modal.classList.remove('hidden');
+    if (input) input.value = '';
+  }
+  function hideModal() {
+    modal.classList.add('hidden');
+    try { localStorage.setItem(INTENT_LAST_KEY, String(Date.now())); } catch (e) {}
+  }
+  try {
+    var intent = localStorage.getItem(INTENT_KEY);
+    if (heroIntent && intent) {
+      heroIntent.textContent = 'Your intent: ' + intent;
+      heroIntent.style.display = 'block';
+    }
+    var last = parseInt(localStorage.getItem(INTENT_LAST_KEY) || '0', 10);
+    var now = Date.now();
+    if (!intent || (now - last) > 24 * 60 * 60 * 1000) setTimeout(showModal, 800);
+  } catch (e) { setTimeout(showModal, 800); }
+  if (closeBtn) closeBtn.addEventListener('click', hideModal);
+  prayBtn.addEventListener('click', function () {
+    var val = (input && input.value && input.value.trim()) || '';
+    if (val) {
+      try { localStorage.setItem(INTENT_KEY, val); } catch (e) {}
+      if (quickPrayInput) quickPrayInput.value = val;
+      if (heroIntent) { heroIntent.textContent = 'Your intent: ' + val; heroIntent.style.display = 'block'; }
+    }
+    hideModal();
+  });
+}
+
+function wirePrayerMap() {
+  var container = document.getElementById('prayer-map-dots');
+  if (!container) return;
+  var places = [{ name: 'New York', x: 25, y: 45 }, { name: 'Tokyo', x: 82, y: 38 }, { name: 'London', x: 48, y: 32 }, { name: 'Lagos', x: 50, y: 58 }, { name: 'Sydney', x: 88, y: 72 }, { name: 'S\u00E3o Paulo', x: 32, y: 68 }, { name: 'Mumbai', x: 68, y: 48 }, { name: 'Cairo', x: 55, y: 45 }];
+  function render() {
+    container.innerHTML = '';
+    var now = Date.now();
+    var justPrayed = 0;
+    try { justPrayed = parseInt(sessionStorage.getItem('tdb_just_prayed') || '0', 10); } catch (e) {}
+    var showYou = justPrayed && (now - justPrayed) < 10000;
+    places.forEach(function (p) {
+      var dot = document.createElement('span');
+      dot.className = 'prayer-map-dot';
+      dot.style.left = p.x + '%';
+      dot.style.top = p.y + '%';
+      dot.title = 'Someone in ' + p.name + ' prayed for peace';
+      dot.setAttribute('aria-label', 'Someone in ' + p.name + ' prayed for peace');
+      container.appendChild(dot);
+    });
+    if (showYou) {
+      var you = document.createElement('span');
+      you.className = 'prayer-map-dot you-dot';
+      you.style.left = '50%';
+      you.style.top = '50%';
+      you.title = 'You just prayed!';
+      you.setAttribute('aria-label', 'You just prayed!');
+      container.appendChild(you);
+    }
+  }
+  render();
+  setInterval(render, 2000);
+}
+
 function updateOfflinePrefetchUI() {
   const wrap = document.getElementById('offline-prefetch-wrap');
   if (!wrap) return;
@@ -1609,17 +1747,26 @@ function updateDailyBattleStreak() {
   if (calendarEl) renderStreakCalendar(calendarEl, nextDates);
   window.__currentStreakCount = nextCount;
   updateChallengeBannerState();
-  var milestoneToast = [7, 14, 30, 60].indexOf(nextCount) >= 0;
+  var milestoneToast = [3, 7, 14, 30, 60].indexOf(nextCount) >= 0;
   try {
     var lastMilestone = parseInt(localStorage.getItem('tdb_last_milestone_toast') || '0', 10);
     if (milestoneToast && nextCount > lastMilestone) {
       trackEvent('milestone_reached', { streak_days: nextCount });
-      showEliteToast('You\'re on fire! 🔥');
+      if (nextCount === 3) showEliteToast('Badge: Faithful 3 ✨');
+      else if (nextCount === 7) showEliteToast('Week Warrior 🔥 Share your streak?');
+      else if (nextCount === 14) showEliteToast('You\'re on fire! 🔥');
+      else if (nextCount === 30) {
+        showEliteToast('30-Day Legend 🏆 You did it!');
+        if (typeof confetti === 'function') try { confetti({ particleCount: 80, spread: 70 }); } catch (e) {}
+      }
+      else if (nextCount === 60) showEliteToast('60-Day Victor! Unshakeable. 🏆');
+      else showEliteToast('You\'re on fire! 🔥');
       localStorage.setItem('tdb_last_milestone_toast', String(nextCount));
     }
   } catch (e) {}
   checkStreakRepairVisibility();
   updateUnlockedBadges(nextCount);
+  if (typeof updateSidebarStreak === 'function') updateSidebarStreak(nextCount);
   var resetNudgeEl = document.getElementById('daily-battle-reset-nudge');
   if (resetNudgeEl) {
     var started = false;
@@ -6771,6 +6918,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   wireAnalyticsBeacon();
   wireOfflineBanner();
+  wirePrayerCounter();
+  wireFloatingVoicePray();
+  wireIntentModal();
+  wirePrayerMap();
+  if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');
   if (authSection && !authSection.querySelector('.auth-benefit')) {
@@ -7591,6 +7743,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (prayedTodayEl) prayedTodayEl.style.display = 'block';
       }
       if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
+      if (typeof window.__incrementPrayerCounter === 'function') window.__incrementPrayerCounter();
+      try { sessionStorage.setItem('tdb_just_prayed', String(Date.now())); } catch (e) {}
       if (quickPrayFeedback) {
         quickPrayFeedback.textContent = 'Added!';
         quickPrayFeedback.style.display = 'block';

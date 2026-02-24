@@ -56,8 +56,18 @@ const rootFiles = [
 const htmlFiles = fs.readdirSync(root, { withFileTypes: false })
   .filter((f) => f.endsWith('.html'));
 
-// Explicit topic-*.html copy so build log proves they're in dist (fixes 503)
-const topicHtml = htmlFiles.filter((f) => f.startsWith('topic-') && f.endsWith('.html'));
+// Topic build: hardcoded list so deploy never misses topic pages (wildcard/readdir can fail in CI)
+const TOPIC_FILES = [
+  'topic-anxiety.html',
+  'topic-fear.html',
+  'topic-forgiveness.html',
+  'topic-grief.html',
+  'topic-hope.html',
+  'topic-parenting.html',
+  'topic-strength.html'
+];
+const topicFiles = TOPIC_FILES.filter((f) => fs.existsSync(path.join(root, f)));
+console.log('Topic files to copy: ' + topicFiles.join(', '));
 
 mkdir(dist);
 
@@ -68,14 +78,15 @@ for (const f of rootFiles) {
   }
 }
 
-for (const f of topicHtml) {
-  copyFile(path.join(root, f), path.join(dist, f));
-}
-if (topicHtml.length) {
-  console.log('build-copy-static.js: topic pages copied to dist/', topicHtml.join(', '));
-}
+topicFiles.forEach((file) => {
+  const src = path.join(root, file);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(dist, file));
+  }
+});
+console.log('Copied ' + topicFiles.length + ' topic pages to dist');
 
-const otherHtml = htmlFiles.filter((f) => !topicHtml.includes(f));
+const otherHtml = htmlFiles.filter((f) => !topicFiles.includes(f));
 for (const f of otherHtml) {
   copyFile(path.join(root, f), path.join(dist, f));
 }
@@ -84,20 +95,9 @@ if (fs.existsSync(path.join(root, 'vendor'))) {
   copyDir(path.join(root, 'vendor'), path.join(dist, 'vendor'));
 }
 
-// .well-known if present (e.g. security.txt)
 const wellKnown = path.join(root, '.well-known');
 if (fs.existsSync(wellKnown)) {
   copyDir(wellKnown, path.join(dist, '.well-known'));
 }
-
-// Copy all topic pages explicitly
-const topicFiles = ['topic-anxiety.html', 'topic-fear.html', 'topic-forgiveness.html', 'topic-grief.html', 'topic-hope.html', 'topic-parenting.html', 'topic-strength.html'];
-topicFiles.forEach((file) => {
-  const src = path.join(root, file);
-  if (fs.existsSync(src)) {
-    fs.copyFileSync(src, path.join(dist, file));
-  }
-});
-console.log('Copied topic pages');
 
 console.log('build-copy-static.js: copied all static files to dist/ (including topic-*.html).');

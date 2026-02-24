@@ -60,6 +60,7 @@
         <a href="church.html">Church Center</a>
         <a href="pricing.html">Pricing</a>
       </nav>
+      <button type="button" id="dark-toggle" class="header-theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode"><span aria-hidden="true">☀️</span> Light mode</button>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <span class="header-signin-nudge">Save your streak? <a href="#auth-details">Sign in</a>—optional, no pressure.</span>
       <div id="auth-details" class="auth-details-inline">
@@ -95,6 +96,7 @@
         <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
       </nav>
       <div class="sidebar-options">
+        <div id="sidebar-streak" class="sidebar-streak section-note" aria-live="polite" style="display:none;"></div>
         <label class="inline-toggle">
           <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
           Red letters
@@ -109,7 +111,9 @@
           <h1>Today's Daily Battle</h1>
           <p class="hero-sub">Less scroll. More soul.</p>
           <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
+          <p id="hero-intent" class="hero-intent section-note" style="display:none;" aria-live="polite"></p>
         </header>
+        <p id="prayer-counter" class="prayer-counter" aria-live="polite"><span id="prayer-counter-num">1,234</span> <span class="prayer-counter-label">prayers today</span></p>
         <div id="search-widget" role="search" aria-label="Floating search bar"></div>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
@@ -205,6 +209,10 @@
           </details>
         </section>
         <div id="daily-verse-widget" class="daily-verse-widget-outer" role="region" aria-live="polite" aria-label="Verse of the day"></div>
+        <div id="prayer-map-widget" class="glass prayer-map-widget" role="region" aria-label="Prayers from around the world">
+          <h3 class="section-divider">Prayers from around the world</h3>
+          <div id="prayer-map-dots" class="prayer-map-dots"></div>
+        </div>
         <div id="daily-verse-email-nudge" class="glass" style="margin-top:0.75rem;">
           <p class="section-note">Get tomorrow's verse emailed?</p>
           <div class="cta-group" style="flex-wrap:wrap; gap:0.5rem;">
@@ -462,7 +470,20 @@
       </div>
     </main>
 
+    <div id="intent-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="intent-modal-title">
+      <div class="modal-inner glass">
+        <button type="button" class="intent-modal-close" id="intent-modal-close" aria-label="Dismiss">×</button>
+        <h2 id="intent-modal-title" class="section-divider">What's on your heart today?</h2>
+        <textarea id="intent-input" placeholder="A name, a worry, a thanks…" rows="3" aria-label="What's on your heart"></textarea>
+        <div class="cta-group">
+          <button type="button" id="intent-pray-btn" class="btn btn-primary">Pray</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" id="floating-voice-pray" class="floating-voice-pray" aria-label="Start voice prayer" title="Pray now"><span class="floating-voice-pray-icon" aria-hidden="true">🎤</span></button>
+
     <footer class="site-footer">
+      <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
       Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a>
       <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience—e.g., which verses and features help most. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>

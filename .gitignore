@@ -5,6 +5,7 @@ token*
 .env
 .DS_Store
 node_modules/
+dist/
 android/
 ios/
 .idea/

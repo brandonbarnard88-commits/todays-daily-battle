@@ -10064,6 +10064,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('add-prayer-btn')?.addEventListener('click', function () {
     if (addPrayerModal) addPrayerModal.classList.remove('hidden');
   });
+  addPrayerModal && addPrayerModal.querySelectorAll('input, textarea').forEach(function (el) {
+    el.addEventListener('focus', function () {
+      setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 300);
+    });
+  });
   document.getElementById('close-modal')?.addEventListener('click', function () {
     if (addPrayerModal) addPrayerModal.classList.add('hidden');
   });

@@ -4228,15 +4228,28 @@ body.red-letter-off .red-letter-card {
 body.light .footer-rotating-line { color: #64748b; }
 .hero-collective-intent { margin-top: 0.5rem; }
 .prayer-echo { margin-top: 1rem; padding: 1rem; }
+.prayer-echo-sacred { margin: 0; font-style: italic; }
 .prayer-echo-loading { margin: 0 0 0.5rem; }
 .prayer-echo-presence { margin: 0 0 0.5rem; font-size: 0.9rem; }
-.prayer-echo-list { list-style: none; margin: 0 0 0.75rem; padding: 0; }
-.prayer-echo-item { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin-bottom: 0.5rem; font-size: 0.95rem; }
+.prayer-echo-list { list-style: none; margin: 0 0 0.75rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.prayer-echo-item { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin-bottom: 0; font-size: 0.95rem; }
+.prayer-echo-candle { width: 24px; height: 28px; flex-shrink: 0; }
+.prayer-echo-candle.flicker { animation: candle-flicker 2s ease-in-out; }
+@keyframes candle-flicker { 0%, 100% { opacity: 1; transform: scaleY(1); } 25% { opacity: 0.85; transform: scaleY(1.1); } 50% { opacity: 1; transform: scaleY(0.95); } 75% { opacity: 0.9; transform: scaleY(1.05); } }
 .prayer-echo-text { flex: 1 1 auto; }
 .prayer-echo-amen-wrap { flex-shrink: 0; }
 .prayer-echo-amen { font-size: 0.85rem; padding: 0 0.25rem; }
 .prayer-echo-amen-count { font-size: 0.85rem; opacity: 0.9; }
 .pray-this-with-me-btn { margin-top: 0.5rem; }
+.silent-offering-btn { position: fixed; bottom: 1rem; right: 1rem; z-index: 100; width: 48px; height: 48px; border-radius: 50%; background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.2); font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.silent-offering-btn:hover { background: rgba(0,0,0,0.8); color: #fff; }
+@media (max-width: 768px) { .silent-offering-btn { bottom: 5rem; right: 1rem; } }
+.verse-breath { animation: verse-breath-pulse 5s ease-in-out infinite; }
+@keyframes verse-breath-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+.breathe-with-him-btn { margin-top: 0.5rem; }
+.breathe-with-him-active { animation: breathe-chest 5s ease-in-out; }
+@keyframes breathe-chest { 0% { transform: scale(1); } 25% { transform: scale(1.03); } 50% { transform: scale(1); } 75% { transform: scale(1.03); } 100% { transform: scale(1); } }
+.god-whisper-overlay .god-whisper-verse { color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.75rem; }
 .sidebar-streak { margin-bottom: 0.5rem; font-size: 0.9rem; }
 
 /* God whisper overlays — sacred silence, no button */

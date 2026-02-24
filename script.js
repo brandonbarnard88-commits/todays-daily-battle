@@ -1663,7 +1663,11 @@ function flushPrayerOfflineQueue() {
 var COLLECTIVE_INTENTS = ['peace', 'strength', 'healing', 'gratitude', 'hope', 'those who are sick', 'our families', 'wisdom', 'courage', 'rest'];
 var FOOTER_ROTATING_LINES = ["You're not praying alone.", "Someone just prayed with you.", "This is the room. You're in it."];
 var GOD_MODE_SOUND_ENABLED_KEY = 'tdb_sound_echo_enabled';
+var SACRED_SILENCE_KEY = 'tdb_sacred_silence';
 var AMEN_PREFIX = 'tdb_amen_';
+var BREATH_COUNT_KEY = 'tdb_breathe_count_';
+var NIGHT_CLOSE_SHOWN_KEY = 'tdb_night_close_';
+var DAWN_SHOWN_KEY = 'tdb_dawn_';
 
 function wireGodModePrayerEcho() {
   var wrap = document.getElementById('prayer-echo');
@@ -1683,6 +1687,7 @@ function wireGodModePrayerEcho() {
   }
   function playEchoBell() {
     try {
+      if (localStorage.getItem(SACRED_SILENCE_KEY) === 'true') return;
       var enabled = localStorage.getItem(GOD_MODE_SOUND_ENABLED_KEY) === 'true';
       if (!enabled) return;
       var a = new Audio('bell.mp3');
@@ -1715,7 +1720,19 @@ function wireGodModePrayerEcho() {
       }
     } catch (e) {}
   }
+  var sacredEl = document.getElementById('prayer-echo-sacred');
+  function isSacredSilence() { try { return localStorage.getItem(SACRED_SILENCE_KEY) === 'true'; } catch (e) { return false; } }
+  var FLAME_SVG = '<svg viewBox="0 0 24 28" aria-hidden="true"><path fill="#f59e0b" d="M12 2c0 2-2 4-2 6 0 2 1 4 2 6 1-2 2-4 2-6 0-2-2-4-2-6z"/><path fill="#fbbf24" d="M12 8c-1 2-1 5 0 8 1-3 1-6 0-8z"/><ellipse cx="12" cy="22" rx="3" ry="2" fill="#1e293b"/></svg>';
   async function fetchAndRenderEcho() {
+    if (isSacredSilence()) {
+      if (loadingEl) loadingEl.style.display = 'none';
+      if (listEl) listEl.style.display = 'none';
+      if (presenceEl) presenceEl.style.display = 'none';
+      if (joinBtn) joinBtn.style.display = 'none';
+      if (sacredEl) sacredEl.style.display = 'block';
+      return;
+    }
+    if (sacredEl) sacredEl.style.display = 'none';
     if (!supabaseClient) {
       if (loadingEl) loadingEl.textContent = 'Connect to see recent prayers.';
       return;
@@ -1729,15 +1746,20 @@ function wireGodModePrayerEcho() {
       if (rows.length > lastEchoCount) playEchoBell();
       lastEchoCount = rows.length;
       listEl.innerHTML = '';
-      rows.forEach(function (row) {
+      rows.forEach(function (row, i) {
         var intent = (row.intent && String(row.intent).trim()) || 'for peace';
         var pre = timePrefix(row.created_at);
         var li = document.createElement('li');
         li.className = 'prayer-echo-item';
         li.setAttribute('data-prayer-id', row.id);
+        var candle = document.createElement('span');
+        candle.className = 'prayer-echo-candle' + (i === 0 ? ' flicker' : '');
+        candle.innerHTML = FLAME_SVG;
+        li.appendChild(candle);
         var textSpan = document.createElement('span');
         textSpan.className = 'prayer-echo-text';
         textSpan.textContent = pre + 'Someone just prayed: ' + intent;
+        textSpan.title = 'Someone prayed this.';
         li.appendChild(textSpan);
         var amenWrap = document.createElement('span');
         amenWrap.className = 'prayer-echo-amen-wrap';
@@ -1757,12 +1779,14 @@ function wireGodModePrayerEcho() {
         amenBtn.addEventListener('click', function () {
           if (alreadyAmen) return;
           if (!supabaseClient) return;
-          supabaseClient.from('prayers').update({ amen_count: (ac + 1) }).eq('id', row.id).then(function (r) {
+          var newCount = ac + 1;
+          supabaseClient.from('prayers').update({ amen_count: newCount }).eq('id', row.id).then(function (r) {
             if (!r.error) {
               try { localStorage.setItem(AMEN_PREFIX + row.id, '1'); } catch (e) {}
               alreadyAmen = true;
               amenBtn.setAttribute('disabled', 'true');
-              countEl.textContent = ' ' + (ac + 1);
+              countEl.textContent = ' ' + newCount;
+              if (newCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your Amen joined a chain—keep it going.');
             }
           });
         });
@@ -1832,6 +1856,114 @@ function wireSoundEchoToggle() {
   } catch (e) {}
   cb.addEventListener('change', function () {
     try { localStorage.setItem(GOD_MODE_SOUND_ENABLED_KEY, cb.checked ? 'true' : 'false'); } catch (e) {}
+  });
+}
+
+function wireSacredSilenceToggle() {
+  var cb = document.getElementById('sacred-silence-toggle');
+  if (!cb) return;
+  try {
+    cb.checked = localStorage.getItem(SACRED_SILENCE_KEY) === 'true';
+  } catch (e) {}
+  cb.addEventListener('change', function () {
+    try { localStorage.setItem(SACRED_SILENCE_KEY, cb.checked ? 'true' : 'false'); } catch (e) {}
+    if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+  });
+}
+
+function wireSilentOffering() {
+  var btn = document.getElementById('silent-offering-btn');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var payload = { intent: 'Someone offered silence.', session_id: getPrayerSessionId() };
+    if (navigator.onLine && supabaseClient) {
+      supabaseClient.from('prayers').insert(payload).then(function (r) {
+        if (!r.error) {
+          if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+          if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+        }
+      });
+    } else {
+      var q = getPrayerOfflineQueue();
+      q.push({ intent: 'Someone offered silence.' });
+      setPrayerOfflineQueue(q);
+    }
+  });
+}
+
+function wireNightDawnOverlays() {
+  var hour = new Date().getHours();
+  var dateKey = getDailyKey();
+  var nightEl = document.getElementById('night-close-overlay');
+  var dawnEl = document.getElementById('dawn-overlay');
+  if (hour >= 22 && nightEl) {
+    try {
+      if (sessionStorage.getItem(NIGHT_CLOSE_SHOWN_KEY + dateKey)) return;
+      sessionStorage.setItem(NIGHT_CLOSE_SHOWN_KEY + dateKey, '1');
+    } catch (e) {}
+    nightEl.style.display = 'flex';
+    nightEl.classList.add('whisper-visible');
+    setTimeout(function () {
+      nightEl.classList.add('whisper-out');
+    }, 9000);
+    setTimeout(function () {
+      nightEl.style.display = 'none';
+      nightEl.classList.remove('whisper-visible', 'whisper-out');
+    }, 10000);
+    return;
+  }
+  if (hour >= 0 && hour < 6 && dawnEl) {
+    try {
+      if (sessionStorage.getItem(DAWN_SHOWN_KEY + dateKey)) return;
+      sessionStorage.setItem(DAWN_SHOWN_KEY + dateKey, '1');
+    } catch (e) {}
+    dawnEl.style.display = 'flex';
+    dawnEl.classList.add('whisper-visible');
+    setTimeout(function () {
+      dawnEl.classList.add('whisper-out');
+    }, 5000);
+    setTimeout(function () {
+      dawnEl.style.display = 'none';
+      dawnEl.classList.remove('whisper-visible', 'whisper-out');
+    }, 6000);
+  }
+}
+
+function wireBreatheWithHim() {
+  var btn = document.getElementById('breathe-with-him-btn');
+  var countEl = document.getElementById('breathe-count-today');
+  var card = document.getElementById('daily-battle-card');
+  if (!btn || !card) return;
+  if (card.classList.contains('verse-card-loaded') || card.querySelector('strong')) btn.style.display = 'inline-block';
+  var observer = card && typeof MutationObserver !== 'undefined' ? new MutationObserver(function () {
+    if (card.querySelector('strong')) btn.style.display = 'inline-block';
+  }) : null;
+  if (observer && card) observer.observe(card, { childList: true, subtree: true });
+  function getBreatheCount() {
+    try { return parseInt(localStorage.getItem(BREATH_COUNT_KEY + getDailyKey()) || '0', 10); } catch (e) { return 0; }
+  }
+  function setBreatheCount(n) {
+    try { localStorage.setItem(BREATH_COUNT_KEY + getDailyKey(), String(n)); } catch (e) {}
+  }
+  function updateCountDisplay() {
+    var n = getBreatheCount();
+    if (countEl) {
+      countEl.textContent = n > 0 ? 'You breathed ' + n + ' time' + (n === 1 ? '' : 's') + ' today.' : '';
+      countEl.style.display = n > 0 ? 'block' : 'none';
+    }
+  }
+  updateCountDisplay();
+  btn.addEventListener('click', function () {
+    btn.disabled = true;
+    btn.textContent = 'In... out... pray.';
+    document.body.classList.add('breathe-with-him-active');
+    setTimeout(function () {
+      document.body.classList.remove('breathe-with-him-active');
+      btn.disabled = false;
+      btn.textContent = 'Breathe with Him';
+      setBreatheCount(getBreatheCount() + 1);
+      updateCountDisplay();
+    }, 5000);
   });
 }
 
@@ -7265,12 +7397,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireCollectiveIntention();
   wireFooterRotating();
   wireSoundEchoToggle();
+  wireSacredSilenceToggle();
+  wireSilentOffering();
+  wireBreatheWithHim();
   wireQuickPrayAutocomplete();
   wirePrayThisWithMe();
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();
   if (isHome && typeof showGodWhisperOnLoad === 'function') setTimeout(showGodWhisperOnLoad, 600);
+  if (isHome && typeof wireNightDawnOverlays === 'function') setTimeout(wireNightDawnOverlays, 2200);
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');
   if (authSection && !authSection.querySelector('.auth-benefit')) {

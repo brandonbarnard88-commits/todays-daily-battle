@@ -102,6 +102,10 @@
           Sound when someone prays
         </label>
         <label class="inline-toggle">
+          <input id="sacred-silence-toggle" type="checkbox" aria-label="Sacred silence—hide echo, alone with Him">
+          Sacred silence
+        </label>
+        <label class="inline-toggle">
           <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
           Red letters
         </label>
@@ -120,6 +124,7 @@
         </header>
         <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
         <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
+          <p class="prayer-echo-sacred section-note" id="prayer-echo-sacred" style="display:none;" aria-live="polite">You're alone with Him.</p>
           <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading recent prayers…</p>
           <p class="prayer-echo-presence section-note" id="prayer-echo-presence" aria-live="polite" style="display:none;"></p>
           <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent prayers" style="display:none;"></ul>
@@ -247,7 +252,9 @@
         <section class="glass" id="daily-battle-section">
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">Your daily anchor. One verse, one theme—start here, not the feed. Two minutes that actually fill you up.</p>
-          <div id="daily-battle-card" class="verse-card" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
+          <div id="daily-battle-card" class="verse-card verse-breath" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
+          <button type="button" id="breathe-with-him-btn" class="btn btn-secondary breathe-with-him-btn" aria-label="Breathe with Him" style="display:none;">Breathe with Him</button>
+          <p id="breathe-count-today" class="section-note" aria-live="polite" style="display:none;"></p>
           <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap" style="display: none;" aria-live="polite">
             <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
             <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note" style="display: none;"></p>
@@ -494,9 +501,12 @@
       </div>
     </div>
     <button type="button" id="floating-voice-pray" class="floating-voice-pray" aria-label="Start voice prayer" title="Pray now"><span class="floating-voice-pray-icon" aria-hidden="true">🎤</span></button>
+    <button type="button" id="silent-offering-btn" class="silent-offering-btn" aria-label="Offer silence" title="Offer silence"><span aria-hidden="true">✝</span></button>
 
     <div id="god-whisper-load" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="God is present." style="display:none;"><span class="god-whisper-text">He is here.</span></div>
     <div id="prayer-whisper" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="Prayer sent—God hears." style="display:none;"><span class="god-whisper-text">God hears this.</span></div>
+    <div id="night-close-overlay" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="Night falls—rest in Him." style="display:none;"><span class="god-whisper-text">Night falls—rest in Him.</span><p class="god-whisper-verse">Peace I leave with you. (John 14:27)</p></div>
+    <div id="dawn-overlay" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="Dawn breaks—He waits." style="display:none;"><span class="god-whisper-text">Dawn breaks—He waits.</span></div>
 
     <footer class="site-footer">
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>

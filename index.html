@@ -63,6 +63,7 @@
       <button type="button" id="dark-toggle" class="header-theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode"><span aria-hidden="true">☀️</span> Light mode</button>
       <button type="button" id="add-family-btn" class="header-family-btn" aria-label="Your family name" title="Add family or group name">Add family</button>
       <button type="button" id="bless-session-btn" class="header-bless-btn" aria-label="Bless this session" title="Bless this session"><span aria-hidden="true">✝</span><span class="bless-flame" aria-hidden="true">🔥</span></button>
+      <button type="button" id="build-armor-btn" class="header-armor-btn" aria-label="Build Armor" title="Build the Armor of God for your household"><span aria-hidden="true">🛡️</span><span class="armor-people" aria-hidden="true">👨‍👩‍👧‍👦</span><span class="armor-paw" aria-hidden="true">🐾</span></button>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <span class="header-signin-nudge">Save your streak? <a href="#auth-details">Sign in</a>—optional, no pressure.</span>
       <div id="auth-details" class="auth-details-inline">
@@ -511,6 +512,20 @@
         <div class="cta-group">
           <button type="button" id="family-name-save-btn" class="btn btn-primary">Save</button>
         </div>
+      </div>
+    </div>
+    <div id="armor-builder-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="armor-builder-title" aria-label="Household armor builder">
+      <div class="modal-inner glass armor-modal-inner">
+        <button type="button" class="intent-modal-close" id="armor-builder-close" aria-label="Dismiss">×</button>
+        <h2 id="armor-builder-title" class="section-divider">Build the Armor of God for your whole household—family, friends, pets.</h2>
+        <p class="section-note">Pray, say Amen, read a verse—each adds a piece. Everyone counts.</p>
+        <div class="armor-pieces-wrap" role="list">
+          <ul id="armor-pieces-list" class="armor-pieces-list" aria-label="Armor pieces"></ul>
+        </div>
+        <div id="armor-avatar-wrap" class="armor-avatar-wrap" aria-hidden="true">
+          <div class="armor-avatar-household" id="armor-avatar-household"></div>
+        </div>
+        <p id="armor-complete-msg" class="section-note armor-complete-msg" style="display:none;" aria-live="polite">Your household is armored. Share the link!</p>
       </div>
     </div>
     <button type="button" id="floating-voice-pray" class="floating-voice-pray" aria-label="Start voice prayer" title="Pray now"><span class="floating-voice-pray-icon" aria-hidden="true">🎤</span></button>

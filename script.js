@@ -33,6 +33,39 @@ const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
 const PRAYER_LIST_KEY = 'tdb_prayer_list';
 const QUICK_PRAY_DRAFT_KEY = 'tdb_quick_pray_draft';
 const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
+var HOUSEHOLD_ARMOR_KEY = 'tdb_household_armor';
+var ARMOR_VERSE_DAY_KEY_PREFIX = 'tdb_armor_verse_';
+var ARMOR_PIECES = ['Belt of Truth', 'Breastplate of Righteousness', 'Shoes of Peace', 'Shield of Faith', 'Helmet of Salvation', 'Sword of the Spirit'];
+function getHouseholdArmor() {
+  try {
+    var raw = localStorage.getItem(HOUSEHOLD_ARMOR_KEY);
+    if (!raw) return { count: 0 };
+    var data = JSON.parse(raw);
+    var count = typeof data.count === 'number' ? Math.min(6, Math.max(0, data.count)) : 0;
+    return { count: count };
+  } catch (e) { return { count: 0 }; }
+}
+function setHouseholdArmor(data) {
+  try {
+    localStorage.setItem(HOUSEHOLD_ARMOR_KEY, JSON.stringify({ count: data.count }));
+  } catch (e) {}
+}
+function addHouseholdArmorPiece(source) {
+  var data = getHouseholdArmor();
+  if (data.count >= 6) return false;
+  data.count += 1;
+  setHouseholdArmor(data);
+  if (data.count >= 6) {
+    if (typeof showEliteToast === 'function') showEliteToast('Your household\'s armored—share it!');
+    var link = 'https://todaysdailybattle.com/?armor=1';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(link).catch(function () {});
+    }
+  }
+  var modal = document.getElementById('armor-builder-modal');
+  if (modal && typeof renderArmorModal === 'function') renderArmorModal();
+  return true;
+}
 // Admin is determined server-side only: Supabase app_metadata.role === 'admin'. No admin email in client.
 let isMasterUser = false;
 
@@ -1848,6 +1881,7 @@ function wireGodModePrayerEcho() {
               amenBtn.setAttribute('disabled', 'true');
               countEl.textContent = ' ' + newCount;
               if (newCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your Amen joined a chain—keep it going.');
+              if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('amen');
             }
           });
         });
@@ -1929,6 +1963,85 @@ function wireBlessSessionBtn() {
   });
 }
 
+function renderArmorModal() {
+  var listEl = document.getElementById('armor-pieces-list');
+  var avatarEl = document.getElementById('armor-avatar-household');
+  var completeMsg = document.getElementById('armor-complete-msg');
+  if (!listEl) return;
+  var data = getHouseholdArmor();
+  listEl.innerHTML = '';
+  ARMOR_PIECES.forEach(function (name, i) {
+    var li = document.createElement('li');
+    li.className = 'armor-piece-item' + (i < data.count ? ' armor-earned' : '');
+    li.setAttribute('role', 'listitem');
+    var icon = i < data.count ? '✓' : '○';
+    li.textContent = icon + ' ' + name;
+    listEl.appendChild(li);
+  });
+  if (avatarEl) {
+    avatarEl.innerHTML = '';
+    var figures = [
+      { label: 'Parent', pieceIndex: 1 },
+      { label: 'Parent', pieceIndex: 2 },
+      { label: 'Kid', pieceIndex: 3 },
+      { label: 'Kid', pieceIndex: 4 },
+      { label: 'Dog', pieceIndex: 0 }
+    ];
+    figures.forEach(function (f) {
+      var fig = document.createElement('div');
+      fig.className = 'armor-figure';
+      var hasPiece = f.pieceIndex < data.count;
+      if (hasPiece) fig.setAttribute('data-piece', ARMOR_PIECES[f.pieceIndex]);
+      var span = document.createElement('span');
+      span.className = 'armor-figure-label';
+      span.textContent = f.label;
+      fig.appendChild(span);
+      if (hasPiece) {
+        var glow = document.createElement('span');
+        glow.className = 'armor-piece-glow';
+        glow.setAttribute('aria-hidden', 'true');
+        glow.textContent = f.pieceIndex === 0 ? '◉' : '◆';
+        fig.appendChild(glow);
+      }
+      avatarEl.appendChild(fig);
+    });
+    if (data.count >= 6) {
+      var sword = document.createElement('div');
+      sword.className = 'armor-figure armor-sword';
+      sword.setAttribute('data-piece', ARMOR_PIECES[5]);
+      var sLabel = document.createElement('span');
+      sLabel.className = 'armor-figure-label';
+      sLabel.textContent = 'Sword';
+      sword.appendChild(sLabel);
+      var sGlow = document.createElement('span');
+      sGlow.className = 'armor-piece-glow';
+      sGlow.setAttribute('aria-hidden', 'true');
+      sGlow.textContent = '⚔';
+      sword.appendChild(sGlow);
+      avatarEl.appendChild(sword);
+    }
+  }
+  if (completeMsg) completeMsg.style.display = data.count >= 6 ? 'block' : 'none';
+}
+
+function wireArmorBuilderModal() {
+  var btn = document.getElementById('build-armor-btn');
+  var modal = document.getElementById('armor-builder-modal');
+  var closeBtn = document.getElementById('armor-builder-close');
+  if (!btn || !modal) return;
+  btn.addEventListener('click', function () {
+    renderArmorModal();
+    modal.classList.remove('hidden');
+  });
+  function closeModal() {
+    modal.classList.add('hidden');
+  }
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+}
+
 function wireFamilyNameModal() {
   var modal = document.getElementById('family-name-modal');
   var input = document.getElementById('family-name-input');
@@ -1980,12 +2093,14 @@ function wireSilentOffering() {
         if (!r.error) {
           if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
           if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+          if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
         }
       });
     } else {
       var q = getPrayerOfflineQueue();
       q.push({ intent: 'Someone offered silence.' });
       setPrayerOfflineQueue(q);
+      if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
     }
   });
 }
@@ -3444,6 +3559,13 @@ if (c && c.ref) {
   const verseText = verseTextFromCache || getBibleVerseText(battle.ref);
   card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is unavailable.') + '</p>';
   card.classList.add('verse-card-loaded');
+  try {
+    var verseKey = ARMOR_VERSE_DAY_KEY_PREFIX + getDailyKey();
+    if (!sessionStorage.getItem(verseKey)) {
+      sessionStorage.setItem(verseKey, '1');
+      if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('verse');
+    }
+  } catch (e) {}
   var plainMeaningWrap = document.getElementById('daily-battle-plain-meaning-wrap');
   var plainMeaningEl = document.getElementById('daily-battle-plain-meaning');
   var plainMeaningToggle = document.getElementById('daily-battle-plain-meaning-toggle');
@@ -7501,6 +7623,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireFooterRotating();
   wireSoundEchoToggle();
   wireBlessSessionBtn();
+  wireArmorBuilderModal();
   wireFamilyNameModal();
   wireSacredSilenceToggle();
   wireSilentOffering();
@@ -8379,6 +8502,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
         onInsertDone(false);
       }
+      if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
       if (quickPrayFeedback) {
         quickPrayFeedback.textContent = 'Added!';
         quickPrayFeedback.style.display = 'block';

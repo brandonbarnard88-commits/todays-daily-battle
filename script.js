@@ -3512,6 +3512,15 @@ const coloringStories = [
 ];
 
 async function loadBible(version = currentVersion) {
+  if (version === 'KJV' && typeof window !== 'undefined' && window.kjvData) {
+    bible = window.kjvData;
+    bibleVersions.KJV = bible;
+    currentVersion = 'KJV';
+    bibleEntries = Object.entries(bible);
+    searchCache.clear();
+    renderDailyVerse();
+    return;
+  }
   const file = versionFiles[version] || versionFiles.KJV;
   const isFileProtocol = typeof location !== 'undefined' && location.protocol === 'file:';
   const urlsToTry = isFileProtocol
@@ -3522,6 +3531,7 @@ async function loadBible(version = currentVersion) {
       const response = await fetch(urlsToTry[i]);
       if (!response.ok) throw new Error('status ' + response.status);
       bible = await response.json();
+      if (version === 'KJV' && typeof window !== 'undefined') window.kjvData = bible;
       bibleVersions[version] = bible;
       currentVersion = version;
       bibleEntries = Object.entries(bible);
@@ -6745,6 +6755,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     })();
   }
   wireAnalyticsBeacon();
+  wireOfflineBanner();
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');
   if (authSection && !authSection.querySelector('.auth-benefit')) {
@@ -7473,6 +7484,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           quickPrayToday.style.display = 'none';
         }
       }
+      var prayedTodayEl = document.getElementById('prayed-today');
+      if (prayedTodayEl) prayedTodayEl.style.display = n >= 5 ? 'block' : 'none';
     }
     function saveQuickPrayDraft() {
       const val = (quickPrayInput.value || '').trim();
@@ -7504,6 +7517,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       const count = getQuickPrayCountToday() + 1;
       setQuickPrayCountToday(count);
       updateQuickPrayCountDisplay();
+      if (count >= 5) {
+        var prayedTodayEl = document.getElementById('prayed-today');
+        if (prayedTodayEl) prayedTodayEl.style.display = 'block';
+      }
       if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
       if (quickPrayFeedback) {
         quickPrayFeedback.textContent = 'Added!';
@@ -9407,4 +9424,32 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (typeof window.location !== 'undefined' && window.location.pathname && window.location.pathname.indexOf('pricing') !== -1) {
     trackEvent('pricing_view');
   }
+
+  document.getElementById('add-prayer-btn')?.addEventListener('click', function () {
+    document.getElementById('add-prayer-modal').classList.remove('hidden');
+  });
+  document.getElementById('close-modal')?.addEventListener('click', function () {
+    document.getElementById('add-prayer-modal').classList.add('hidden');
+  });
+  document.getElementById('prayer-form')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nameEl = document.getElementById('prayer-name');
+    var intentEl = document.getElementById('prayer-intent');
+    var name = nameEl ? nameEl.value.trim() : '';
+    var intent = intentEl ? intentEl.value.trim() : '';
+    if (intent) {
+      var prayers = [];
+      try {
+        prayers = JSON.parse(localStorage.getItem('churchPrayers') || '[]');
+      } catch (err) {}
+      prayers.push({ name: name || 'Anonymous', intent: intent, date: new Date().toLocaleDateString() });
+      try {
+        localStorage.setItem('churchPrayers', JSON.stringify(prayers));
+      } catch (err) {}
+      alert('Prayer added—thank you!');
+      if (e.target && e.target.reset) e.target.reset();
+      var modal = document.getElementById('add-prayer-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+  });
 });

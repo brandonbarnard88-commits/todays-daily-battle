@@ -54,9 +54,20 @@ let isMasterUser = false;
     bar.id = 'tdb-error-bar';
     bar.setAttribute('role', 'alert');
     bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:rgba(185,28,28,0.95);color:#fff;padding:0.5rem 1rem;font-size:0.875rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-wrap:wrap;z-index:9999;box-shadow:0 -2px 10px rgba(0,0,0,0.2);';
-    bar.innerHTML = '<span>' + message + '</span><button type="button" style="background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);color:#fff;padding:0.25rem 0.5rem;border-radius:4px;cursor:pointer;font-size:0.8rem;">Copy details</button><button type="button" aria-label="Dismiss" style="background:transparent;border:none;color:#fff;cursor:pointer;padding:0.25rem;">×</button>';
-    var copyBtn = bar.querySelector('button');
-    var dismissBtn = bar.querySelector('button[aria-label="Dismiss"]');
+    var msgSpan = document.createElement('span');
+    msgSpan.textContent = message || '';
+    bar.appendChild(msgSpan);
+    var copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.style.cssText = 'background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);color:#fff;padding:0.25rem 0.5rem;border-radius:4px;cursor:pointer;font-size:0.8rem;';
+    copyBtn.textContent = 'Copy details';
+    bar.appendChild(copyBtn);
+    var dismissBtn = document.createElement('button');
+    dismissBtn.type = 'button';
+    dismissBtn.setAttribute('aria-label', 'Dismiss');
+    dismissBtn.style.cssText = 'background:transparent;border:none;color:#fff;cursor:pointer;padding:0.25rem;';
+    dismissBtn.textContent = '\u00D7';
+    bar.appendChild(dismissBtn);
     copyBtn.addEventListener('click', function () {
       try {
         navigator.clipboard.writeText(copyText || (lastError ? lastError.message + '\n' + (lastError.stack || '') : 'No details'));
@@ -2793,8 +2804,18 @@ function renderPrayerList() {
   if (emptyEl) emptyEl.style.display = items.length ? 'none' : 'block';
   items.forEach(function (item, index) {
     const li = document.createElement('li');
-    li.innerHTML = '<div><span class="prayer-text">' + (item.text || '').replace(/</g, '&lt;') + '</span>' +
-      (item.ref ? '<div class="prayer-verse">' + (item.ref || '').replace(/</g, '&lt;') + '</div>' : '') + '</div>';
+    const wrap = document.createElement('div');
+    const textSpan = document.createElement('span');
+    textSpan.className = 'prayer-text';
+    textSpan.textContent = item.text || '';
+    wrap.appendChild(textSpan);
+    if (item.ref) {
+      const verseDiv = document.createElement('div');
+      verseDiv.className = 'prayer-verse';
+      verseDiv.textContent = item.ref || '';
+      wrap.appendChild(verseDiv);
+    }
+    li.appendChild(wrap);
     const delBtn = document.createElement('button');
     delBtn.type = 'button';
     delBtn.className = 'btn btn-secondary';
@@ -3087,8 +3108,14 @@ function renderMessages(items) {
   sorted.forEach(item => {
     const row = document.createElement('div');
     row.className = 'list-item';
-    const displayName = item.display_name || nameMap[item.user_id] || 'Member';
-    row.innerHTML = '<div><strong>' + escapeHtml(displayName) + '</strong><p>' + escapeHtml(item.text) + '</p></div>';
+    const div = document.createElement('div');
+    const strong = document.createElement('strong');
+    strong.textContent = item.display_name || nameMap[item.user_id] || 'Member';
+    const p = document.createElement('p');
+    p.textContent = item.text || '';
+    div.appendChild(strong);
+    div.appendChild(p);
+    row.appendChild(div);
     const actions = document.createElement('div');
     actions.className = 'message-actions';
     const amenBtn = document.createElement('button');
@@ -4164,7 +4191,12 @@ function renderChurchPrayerListUI(items) {
     const rowEl = document.createElement('div');
     rowEl.className = 'list-item church-prayer-item';
     rowEl.setAttribute('data-id', row.id || '');
-    rowEl.innerHTML = '<div><span class="' + (prayed ? 'prayer-prayed' : '') + '">' + escapeHtml(text) + '</span></div>';
+    const wrap = document.createElement('div');
+    const textSpan = document.createElement('span');
+    textSpan.className = prayed ? 'prayer-prayed' : '';
+    textSpan.textContent = text || '';
+    wrap.appendChild(textSpan);
+    rowEl.appendChild(wrap);
     const actions = document.createElement('div');
     actions.className = 'item-actions';
     const markBtn = document.createElement('button');
@@ -4641,7 +4673,14 @@ async function renderAdminPanel() {
     messages.forEach(item => {
       const row = document.createElement('div');
       row.className = 'list-item';
-      row.innerHTML = '<div><strong>' + escapeHtml(item.user_id || 'Member') + '</strong><p>' + escapeHtml(item.text) + '</p></div>';
+      const wrap = document.createElement('div');
+      const strong = document.createElement('strong');
+      strong.textContent = item.user_id || 'Member';
+      const p = document.createElement('p');
+      p.textContent = item.text || '';
+      wrap.appendChild(strong);
+      wrap.appendChild(p);
+      row.appendChild(wrap);
       const actions = document.createElement('div');
       actions.className = 'item-actions';
       const hideBtn = document.createElement('button');
@@ -4684,7 +4723,18 @@ async function renderAdminPanel() {
     reports.forEach(report => {
       const row = document.createElement('div');
       row.className = 'list-item';
-      row.innerHTML = '<div><strong>Report</strong><p>' + escapeHtml(report.text) + '</p><p class="section-note">Message ID: ' + escapeHtml(String(report.message_id || report.id || '')) + '</p></div>';
+      const wrap = document.createElement('div');
+      const strong = document.createElement('strong');
+      strong.textContent = 'Report';
+      const p1 = document.createElement('p');
+      p1.textContent = report.text || '';
+      const p2 = document.createElement('p');
+      p2.className = 'section-note';
+      p2.textContent = 'Message ID: ' + String(report.message_id || report.id || '');
+      wrap.appendChild(strong);
+      wrap.appendChild(p1);
+      wrap.appendChild(p2);
+      row.appendChild(wrap);
       const actions = document.createElement('div');
       actions.className = 'item-actions';
       const target = messageMap.get(report.message_id);
@@ -5578,7 +5628,14 @@ function renderNotes() {
   notes.forEach(note => {
     const row = document.createElement('div');
     row.className = 'list-item';
-    row.innerHTML = '<div><strong>' + escapeHtml(note.ref) + '</strong><p>' + escapeHtml(note.text) + '</p></div>';
+      const wrap = document.createElement('div');
+      const strong = document.createElement('strong');
+      strong.textContent = note.ref || '';
+      const p = document.createElement('p');
+      p.textContent = note.text || '';
+      wrap.appendChild(strong);
+      wrap.appendChild(p);
+      row.appendChild(wrap);
     const actions = document.createElement('div');
     actions.className = 'item-actions';
     const copyBtn = document.createElement('button');
@@ -7339,6 +7396,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  const quickPrayBtn = document.getElementById('quick-pray-btn');
+  const quickPrayInput = document.getElementById('quick-pray');
+  const quickPrayFeedback = document.getElementById('quick-pray-feedback');
+  if (quickPrayBtn && quickPrayInput) {
+    function doQuickPray() {
+      const text = (quickPrayInput.value || '').trim();
+      if (!text) return;
+      const items = loadPrayerList();
+      items.push({ text: text });
+      savePrayerList(items);
+      renderPrayerList();
+      quickPrayInput.value = '';
+      if (quickPrayFeedback) {
+        quickPrayFeedback.textContent = 'Added to your prayer list.';
+        quickPrayFeedback.style.display = 'block';
+        setTimeout(function () {
+          quickPrayFeedback.style.display = 'none';
+          quickPrayFeedback.textContent = '';
+        }, 3000);
+      }
+      trackEvent('quick_pray_add');
+    }
+    quickPrayBtn.addEventListener('click', doQuickPray);
+    quickPrayInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        doQuickPray();
+      }
+    });
+  }
+
   const kidsTitleEl = document.getElementById('kids-daily-title');
   const kidsPromptEl = document.getElementById('kids-daily-prompt');
   const kidsVerseEl = document.getElementById('kids-daily-verse');
@@ -7785,7 +7873,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         var li = document.createElement('li');
         li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '');
         var iHearted = hearts[item.id];
-        li.innerHTML = '<button type="button" class="prayer-wall-heart ' + (iHearted ? 'hearted' : '') + '" data-id="' + item.id + '" aria-label="Pray">♥</button> <span class="prayer-wall-count">' + (item.hearts || 0) + '</span> <span class="prayer-wall-text">' + escapeHtml(item.text) + '</span>';
+        var heartBtn = document.createElement('button');
+        heartBtn.type = 'button';
+        heartBtn.className = 'prayer-wall-heart ' + (iHearted ? 'hearted' : '');
+        heartBtn.setAttribute('data-id', String(item.id));
+        heartBtn.setAttribute('aria-label', 'Pray');
+        heartBtn.textContent = '\u2665';
+        var countSpan = document.createElement('span');
+        countSpan.className = 'prayer-wall-count';
+        countSpan.textContent = String(item.hearts || 0);
+        var textSpan = document.createElement('span');
+        textSpan.className = 'prayer-wall-text';
+        textSpan.textContent = item.text || '';
+        li.appendChild(heartBtn);
+        li.appendChild(document.createTextNode(' '));
+        li.appendChild(countSpan);
+        li.appendChild(document.createTextNode(' '));
+        li.appendChild(textSpan);
         listEl.appendChild(li);
       });
       listEl.querySelectorAll('.prayer-wall-heart').forEach(function (btn) {
@@ -8713,7 +8817,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         items.forEach((item, i) => {
           const row = document.createElement('div');
           row.className = 'list-item';
-          row.innerHTML = '<div><span class="' + (item.prayed ? 'prayer-prayed' : '') + '">' + escapeHtml(item.text) + '</span></div>';
+          const wrap = document.createElement('div');
+          const textSpan = document.createElement('span');
+          textSpan.className = item.prayed ? 'prayer-prayed' : '';
+          textSpan.textContent = item.text || '';
+          wrap.appendChild(textSpan);
+          row.appendChild(wrap);
           const actions = document.createElement('div');
           actions.className = 'item-actions';
           const markBtn = document.createElement('button');

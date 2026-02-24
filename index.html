@@ -27,21 +27,7 @@
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
-  <!-- TEMP Supabase config test: if config.js does not set keys, uncomment below and paste your project URL + anon key. Reload → check Network for prayers?select=*. If echo works, fix config.js or build env then remove this block. Do not commit real keys. -->
-  <script>
-  window.TDB_CONFIG = window.TDB_CONFIG || {};
-  if (!window.TDB_CONFIG.SUPABASE_URL || !window.TDB_CONFIG.SUPABASE_ANON_KEY) {
-    window.TDB_CONFIG.SUPABASE_URL = window.TDB_CONFIG.SUPABASE_URL || 'https://your-project.supabase.co';
-    window.TDB_CONFIG.SUPABASE_ANON_KEY = window.TDB_CONFIG.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
-  }
-  </script>
   <script src="config.js"></script>
-  <!-- If console shows "TDB_CONFIG missing!" paste real URL + anon key below, then remove this block once config.js is fixed. Do not commit real keys. -->
-  <script>
-  window.TDB_CONFIG = window.TDB_CONFIG || {};
-  window.TDB_CONFIG.SUPABASE_URL = window.TDB_CONFIG.SUPABASE_URL || 'https://your-project-ref.supabase.co';
-  window.TDB_CONFIG.SUPABASE_ANON_KEY = window.TDB_CONFIG.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'; // paste real anon key here to test
-  </script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" defer></script>
   <script src="firebase-push.js" defer></script>

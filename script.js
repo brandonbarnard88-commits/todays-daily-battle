@@ -798,7 +798,8 @@ if (typeof window !== 'undefined' && (window.TDB_CONFIG == null || typeof window
 const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
 const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || '';
 const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || '';
-if (typeof window !== 'undefined') {
+// Production: no debug logs (Supabase init/count only in dev)
+if (typeof window !== 'undefined' && location.hostname.includes('localhost')) {
   if (!_cfg || !supabaseUrl || !supabaseKey) {
     console.error('TDB_CONFIG missing! Set SUPABASE_URL and SUPABASE_ANON_KEY in config.js or index.html.');
   } else {
@@ -853,13 +854,16 @@ function initSupabaseClient() {
 
 function runSupabaseConnectionTest() {
   if (!supabaseClient) return;
+  var isDev = typeof location !== 'undefined' && location.hostname.includes('localhost');
   supabaseClient.from('prayers').select('*', { count: 'exact', head: true })
     .then(function (res) {
-      console.log('Prayers count:', res && res.count != null ? res.count : (res && res.data ? res.data.length : '?'));
+      if (isDev) console.log('Prayers count:', res && res.count != null ? res.count : (res && res.data ? res.data.length : '?'));
     })
     .catch(function (err) {
-      console.error('Supabase test failed', err);
-      if (typeof showEliteToast === 'function') showEliteToast('Connection failed—check key');
+      if (isDev) {
+        console.error('Supabase test failed', err);
+        if (typeof showEliteToast === 'function') showEliteToast('Connection failed—check key');
+      }
     });
 }
 

@@ -1639,6 +1639,26 @@ function showGodWhisperOnLoad() {
   }, 6000);
 }
 
+var ANOINTED_SEEN_KEY = 'tdb_anointed_seen';
+function showAnointedOverlay() {
+  try {
+    if (localStorage.getItem(ANOINTED_SEEN_KEY)) return;
+  } catch (e) { return; }
+  var el = document.getElementById('anointed-overlay');
+  if (!el) return;
+  el.setAttribute('aria-label', 'Room consecrated.');
+  el.style.display = 'flex';
+  el.classList.add('whisper-visible');
+  setTimeout(function () {
+    el.classList.add('whisper-out');
+  }, 5000);
+  setTimeout(function () {
+    el.style.display = 'none';
+    el.classList.remove('whisper-visible', 'whisper-out');
+    try { localStorage.setItem(ANOINTED_SEEN_KEY, '1'); } catch (e) {}
+  }, 6000);
+}
+
 function showPrayerWhisper() {
   var el = document.getElementById('prayer-whisper');
   if (!el) return;
@@ -1898,6 +1918,14 @@ function wireSoundEchoToggle() {
   } catch (e) {}
   cb.addEventListener('change', function () {
     try { localStorage.setItem(GOD_MODE_SOUND_ENABLED_KEY, cb.checked ? 'true' : 'false'); } catch (e) {}
+  });
+}
+
+function wireBlessSessionBtn() {
+  var btn = document.getElementById('bless-session-btn');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    if (typeof showEliteToast === 'function') showEliteToast('Anointed—go build.');
   });
 }
 
@@ -7472,6 +7500,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireCollectiveIntention();
   wireFooterRotating();
   wireSoundEchoToggle();
+  wireBlessSessionBtn();
   wireFamilyNameModal();
   wireSacredSilenceToggle();
   wireSilentOffering();
@@ -7482,6 +7511,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();
   if (isHome && typeof showGodWhisperOnLoad === 'function') setTimeout(showGodWhisperOnLoad, 600);
+  if (isHome && typeof showAnointedOverlay === 'function') setTimeout(showAnointedOverlay, 7000);
   if (isHome && typeof wireNightDawnOverlays === 'function') setTimeout(wireNightDawnOverlays, 2200);
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');

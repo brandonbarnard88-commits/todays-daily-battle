@@ -35,26 +35,40 @@ const QUICK_PRAY_DRAFT_KEY = 'tdb_quick_pray_draft';
 const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
 var HOUSEHOLD_ARMOR_KEY = 'tdb_household_armor';
 var ARMOR_VERSE_DAY_KEY_PREFIX = 'tdb_armor_verse_';
-var ARMOR_PIECES = ['Belt of Truth', 'Breastplate of Righteousness', 'Shoes of Peace', 'Shield of Faith', 'Helmet of Salvation', 'Sword of the Spirit'];
+var ARMOR_PIECES = [
+  { key: 'Belt of Truth', label: 'Belt of Truth', desc: 'Gold buckle, sapphire inlay' },
+  { key: 'Breastplate of Righteousness', label: 'Breastplate of Righteousness', desc: 'Ruby-etched chestplate' },
+  { key: 'Shoes of Peace', label: 'Shoes of Peace', desc: 'Silver soles, emerald studs' },
+  { key: 'Shield of Faith', label: 'Shield of Faith', desc: 'Diamond rim, fire-etched' },
+  { key: 'Helmet of Salvation', label: 'Helmet of Salvation', desc: 'Gold crest, amethyst visor' },
+  { key: 'Sword of the Spirit', label: 'Sword of the Spirit', desc: 'Crystal blade, pearl hilt' }
+];
 function getHouseholdArmor() {
   try {
     var raw = localStorage.getItem(HOUSEHOLD_ARMOR_KEY);
-    if (!raw) return { count: 0 };
+    if (!raw) return { count: 0, pieces: [] };
     var data = JSON.parse(raw);
     var count = typeof data.count === 'number' ? Math.min(6, Math.max(0, data.count)) : 0;
-    return { count: count };
-  } catch (e) { return { count: 0 }; }
+    var pieces = Array.isArray(data.pieces) ? data.pieces.slice(0, 6) : [];
+    while (pieces.length < count) pieces.push(ARMOR_PIECES[pieces.length].key);
+    return { count: count, pieces: pieces };
+  } catch (e) { return { count: 0, pieces: [] }; }
 }
 function setHouseholdArmor(data) {
   try {
-    localStorage.setItem(HOUSEHOLD_ARMOR_KEY, JSON.stringify({ count: data.count }));
+    localStorage.setItem(HOUSEHOLD_ARMOR_KEY, JSON.stringify({ count: data.count, pieces: data.pieces || [] }));
   } catch (e) {}
 }
 function addHouseholdArmorPiece(source) {
   var data = getHouseholdArmor();
   if (data.count >= 6) return false;
-  data.count += 1;
+  var nextPiece = ARMOR_PIECES[data.count];
+  data.pieces = data.pieces.slice();
+  data.pieces.push(nextPiece.key);
+  data.count = data.pieces.length;
   setHouseholdArmor(data);
+  var announce = document.getElementById('armor-piece-added-announce');
+  if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
   if (data.count >= 6) {
     if (typeof showEliteToast === 'function') showEliteToast('Your household\'s armored—share it!');
     var link = 'https://todaysdailybattle.com/?armor=1';
@@ -1970,54 +1984,38 @@ function renderArmorModal() {
   if (!listEl) return;
   var data = getHouseholdArmor();
   listEl.innerHTML = '';
-  ARMOR_PIECES.forEach(function (name, i) {
+  ARMOR_PIECES.forEach(function (p, i) {
+    var earned = data.pieces.indexOf(p.key) !== -1;
     var li = document.createElement('li');
-    li.className = 'armor-piece-item' + (i < data.count ? ' armor-earned' : '');
+    li.className = 'armor-piece-item armor-piece-card' + (earned ? ' armor-earned' : '');
     li.setAttribute('role', 'listitem');
-    var icon = i < data.count ? '✓' : '○';
-    li.textContent = icon + ' ' + name;
+    li.innerHTML = '<span class="armor-piece-icon" aria-hidden="true">◆</span><span class="armor-piece-label">' + escapeHtml(p.label) + '</span><span class="armor-piece-desc">' + escapeHtml(p.desc) + '</span>';
     listEl.appendChild(li);
   });
   if (avatarEl) {
     avatarEl.innerHTML = '';
     var figures = [
-      { label: 'Parent', pieceIndex: 1 },
-      { label: 'Parent', pieceIndex: 2 },
-      { label: 'Kid', pieceIndex: 3 },
-      { label: 'Kid', pieceIndex: 4 },
-      { label: 'Dog', pieceIndex: 0 }
+      { label: 'Parent', pieceKey: data.pieces[1] || null },
+      { label: 'Parent', pieceKey: data.pieces[2] || null },
+      { label: 'Kid', pieceKey: data.pieces[3] || null },
+      { label: 'Kid', pieceKey: data.pieces[4] || null },
+      { label: 'Dog', pieceKey: data.pieces[0] || null }
     ];
     figures.forEach(function (f) {
       var fig = document.createElement('div');
-      fig.className = 'armor-figure';
-      var hasPiece = f.pieceIndex < data.count;
-      if (hasPiece) fig.setAttribute('data-piece', ARMOR_PIECES[f.pieceIndex]);
-      var span = document.createElement('span');
-      span.className = 'armor-figure-label';
-      span.textContent = f.label;
-      fig.appendChild(span);
-      if (hasPiece) {
-        var glow = document.createElement('span');
-        glow.className = 'armor-piece-glow';
-        glow.setAttribute('aria-hidden', 'true');
-        glow.textContent = f.pieceIndex === 0 ? '◉' : '◆';
-        fig.appendChild(glow);
-      }
+      fig.className = 'armor-figure armor-silhouette';
+      if (f.pieceKey) fig.setAttribute('data-piece', f.pieceKey);
+      var svg = f.label === 'Dog' ? '<svg class="armor-silhouette-img" viewBox="0 0 48 32"><ellipse cx="24" cy="16" rx="14" ry="10"/><circle cx="38" cy="10" r="4"/></svg>' : '<svg class="armor-silhouette-img" viewBox="0 0 40 48"><ellipse cx="20" cy="8" rx="6" ry="7"/><path d="M8 48 L20 24 L32 48 Z"/></svg>';
+      fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + svg + '</span>' +
+        (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
+        '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
       avatarEl.appendChild(fig);
     });
     if (data.count >= 6) {
       var sword = document.createElement('div');
-      sword.className = 'armor-figure armor-sword';
-      sword.setAttribute('data-piece', ARMOR_PIECES[5]);
-      var sLabel = document.createElement('span');
-      sLabel.className = 'armor-figure-label';
-      sLabel.textContent = 'Sword';
-      sword.appendChild(sLabel);
-      var sGlow = document.createElement('span');
-      sGlow.className = 'armor-piece-glow';
-      sGlow.setAttribute('aria-hidden', 'true');
-      sGlow.textContent = '⚔';
-      sword.appendChild(sGlow);
+      sword.className = 'armor-figure armor-silhouette armor-sword';
+      sword.setAttribute('data-piece', ARMOR_PIECES[5].key);
+      sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true"><svg class="armor-silhouette-img" viewBox="0 0 24 40"><path d="M12 0 L12 32 L10 40 L14 40 L12 32 Z"/></svg></span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
       avatarEl.appendChild(sword);
     }
   }
@@ -2025,20 +2023,23 @@ function renderArmorModal() {
 }
 
 function wireArmorBuilderModal() {
-  var btn = document.getElementById('build-armor-btn');
+  var btn = document.getElementById('armor-builder-btn');
   var modal = document.getElementById('armor-builder-modal');
   var closeBtn = document.getElementById('armor-builder-close');
   if (!btn || !modal) return;
+  function closeModal() {
+    modal.classList.add('hidden');
+  }
   btn.addEventListener('click', function () {
     renderArmorModal();
     modal.classList.remove('hidden');
   });
-  function closeModal() {
-    modal.classList.add('hidden');
-  }
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) {
     if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
   });
 }
 

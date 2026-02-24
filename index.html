@@ -63,7 +63,7 @@
       <button type="button" id="dark-toggle" class="header-theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode"><span aria-hidden="true">☀️</span> Light mode</button>
       <button type="button" id="add-family-btn" class="header-family-btn" aria-label="Your family name" title="Add family or group name">Add family</button>
       <button type="button" id="bless-session-btn" class="header-bless-btn" aria-label="Bless this session" title="Bless this session"><span aria-hidden="true">✝</span><span class="bless-flame" aria-hidden="true">🔥</span></button>
-      <button type="button" id="build-armor-btn" class="header-armor-btn" aria-label="Build Armor" title="Build the Armor of God for your household"><span aria-hidden="true">🛡️</span><span class="armor-people" aria-hidden="true">👨‍👩‍👧‍👦</span><span class="armor-paw" aria-hidden="true">🐾</span></button>
+      <button type="button" id="armor-builder-btn" class="armor-builder-btn" aria-label="Build Armor for your household" title="Build the Armor of God for your household"><span class="armor-btn-icon" aria-hidden="true">🛡️</span> Armor</button>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <span class="header-signin-nudge">Save your streak? <a href="#auth-details">Sign in</a>—optional, no pressure.</span>
       <div id="auth-details" class="auth-details-inline">
@@ -519,10 +519,11 @@
         <button type="button" class="intent-modal-close" id="armor-builder-close" aria-label="Dismiss">×</button>
         <h2 id="armor-builder-title" class="section-divider">Build the Armor of God for your whole household—family, friends, pets.</h2>
         <p class="section-note">Pray, say Amen, read a verse—each adds a piece. Everyone counts.</p>
-        <div class="armor-pieces-wrap" role="list">
-          <ul id="armor-pieces-list" class="armor-pieces-list" aria-label="Armor pieces"></ul>
+        <div id="armor-piece-added-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        <div class="armor-pieces-wrap" role="list" aria-label="Armor pieces">
+          <ul id="armor-pieces-list" class="armor-pieces-list"></ul>
         </div>
-        <div id="armor-avatar-wrap" class="armor-avatar-wrap" aria-hidden="true">
+        <div id="armor-avatar-wrap" class="armor-avatar-wrap" aria-label="Household avatar">
           <div class="armor-avatar-household" id="armor-avatar-household"></div>
         </div>
         <p id="armor-complete-msg" class="section-note armor-complete-msg" style="display:none;" aria-live="polite">Your household is armored. Share the link!</p>

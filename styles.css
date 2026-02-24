@@ -4208,6 +4208,9 @@ body.red-letter-off .red-letter-card {
 .armor-heavenly-text { font-weight: 600; }
 .armor-badge { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 6px; border: 1px solid rgba(251,191,36,0.5); background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(180,83,9,0.1)); color: #fbbf24; margin-left: 0.25rem; box-shadow: 0 0 10px rgba(251,191,36,0.2); }
 .armor-badge.hidden { display: none !important; }
+.armor-chain-display { font-size: 0.75rem; margin-left: 0.35rem; padding: 0.2rem 0.4rem; border-radius: 4px; background: rgba(251,191,36,0.1); color: #fbbf24; }
+.armor-chain-display .armor-chain-icon { margin-right: 0.2rem; }
+.armor-chain-display.hidden { display: none !important; }
 @media (max-width: 768px) {
   .armor-pieces-list { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; }
   .armor-piece-card { scroll-snap-align: start; flex-shrink: 0; }

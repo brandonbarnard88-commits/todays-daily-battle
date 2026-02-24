@@ -37,6 +37,8 @@ var HOUSEHOLD_ARMOR_KEY = 'tdb_household_armor';
 var ARMOR_JOINED_KEY = 'tdb_armor_joined_household';
 var ARMOR_JOIN_BONUS_KEY = 'tdb_armor_join_bonus_given';
 var HEAVENLY_JEWELS_KEY = 'tdb_heavenlyJewels';
+var ARMOR_CHAIN_COUNT_KEY = 'tdb_armor_chain_count';
+var ARMOR_CHAIN_HOUSEHOLDS_KEY = 'tdb_armor_chain_households';
 var CROWN_JEWEL_NAMES = ['sapphire', 'ruby', 'emerald', 'diamond', 'amethyst', 'pearl'];
 var ARMOR_VERSE_DAY_KEY_PREFIX = 'tdb_armor_verse_';
 var ARMOR_PIECES = [
@@ -134,6 +136,46 @@ function addHeavenlyJewel(source) {
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText).catch(function () {});
   }
   if (typeof renderArmorModal === 'function') renderArmorModal();
+}
+function getArmorChainCount() {
+  try { return parseInt(localStorage.getItem(ARMOR_CHAIN_COUNT_KEY) || '0', 10); } catch (e) { return 0; }
+}
+function getArmorChainHouseholds() {
+  try { return parseInt(localStorage.getItem(ARMOR_CHAIN_HOUSEHOLDS_KEY) || '0', 10); } catch (e) { return 0; }
+}
+function addArmorChainFromAmen() {
+  var armor = getHouseholdArmor();
+  if (armor.count < 3) return;
+  var count = getArmorChainCount() + 1;
+  try { localStorage.setItem(ARMOR_CHAIN_COUNT_KEY, String(count)); } catch (e) { return; }
+  if (count >= 5) {
+    var households = getArmorChainHouseholds() + 1;
+    try { localStorage.setItem(ARMOR_CHAIN_HOUSEHOLDS_KEY, String(households)); localStorage.setItem(ARMOR_CHAIN_COUNT_KEY, '0'); } catch (e) {}
+    if (typeof showEliteToast === 'function') showEliteToast('Your household joined the global chain—Armor of God worldwide!');
+    updateArmorChainDisplay();
+  } else {
+    updateArmorChainDisplay();
+  }
+}
+function addArmorChainFromSilentOffering() {
+  var armor = getHouseholdArmor();
+  if (armor.count < 3) return;
+  var count = getArmorChainCount() + 1;
+  try { localStorage.setItem(ARMOR_CHAIN_COUNT_KEY, String(count)); } catch (e) { return; }
+  if (count >= 5) {
+    var households = getArmorChainHouseholds() + 1;
+    try { localStorage.setItem(ARMOR_CHAIN_HOUSEHOLDS_KEY, String(households)); localStorage.setItem(ARMOR_CHAIN_COUNT_KEY, '0'); } catch (e) {}
+    if (typeof showEliteToast === 'function') showEliteToast('Your household joined the global chain—Armor of God worldwide!');
+  }
+  updateArmorChainDisplay();
+}
+function updateArmorChainDisplay() {
+  var el = document.getElementById('armor-chain-display');
+  if (!el) return;
+  var households = getArmorChainHouseholds();
+  el.innerHTML = '<span class="armor-chain-icon" aria-hidden="true">🔗</span> Chain: ' + households + ' household' + (households === 1 ? '' : 's') + ' armored';
+  if (households > 0) el.classList.remove('hidden');
+  else el.classList.add('hidden');
 }
 // Admin is determined server-side only: Supabase app_metadata.role === 'admin'. No admin email in client.
 let isMasterUser = false;
@@ -1952,6 +1994,7 @@ function wireGodModePrayerEcho() {
               if (newCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your Amen joined a chain—keep it going.');
               if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('amen');
               if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('amen');
+              if (typeof addArmorChainFromAmen === 'function') addArmorChainFromAmen();
             }
           });
         });
@@ -2168,6 +2211,7 @@ function wireArmorBuilderModal() {
   var data = getHouseholdArmor();
   var badgeEl = document.getElementById('armor-badge');
   if (badgeEl && data.count >= 6) badgeEl.classList.remove('hidden');
+  if (typeof updateArmorChainDisplay === 'function') updateArmorChainDisplay();
 }
 
 function wireFamilyNameModal() {
@@ -2222,8 +2266,8 @@ function wireSilentOffering() {
           if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
           if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
           if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
-      if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
           if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
+          if (typeof addArmorChainFromSilentOffering === 'function') addArmorChainFromSilentOffering();
         }
       });
     } else {
@@ -2232,6 +2276,7 @@ function wireSilentOffering() {
       setPrayerOfflineQueue(q);
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
       if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
+      if (typeof addArmorChainFromSilentOffering === 'function') addArmorChainFromSilentOffering();
     }
   });
 }

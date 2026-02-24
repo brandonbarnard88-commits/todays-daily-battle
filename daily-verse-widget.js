@@ -34,6 +34,53 @@
     return safe.length ? safe[seed % safe.length] : null;
   }
 
+  var STORAGE_DATE_KEY = 'tdb_daily_verse_date';
+  var STORAGE_DATA_KEY = 'tdb_daily_verse_data';
+
+  function toast(msg) {
+    if (typeof window.showEliteToast === 'function') {
+      window.showEliteToast(msg);
+    } else {
+      var t = document.createElement('div');
+      t.className = 'daily-verse-widget-toast';
+      t.setAttribute('role', 'status');
+      t.textContent = msg;
+      document.body.appendChild(t);
+      t.style.cssText = 'position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#1e293b;color:#e2e8f0;padding:0.5rem 1rem;border-radius:8px;font-size:0.9rem;z-index:9999;';
+      setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 2500);
+    }
+  }
+
+  function checkAndRefresh() {
+    var widget = document.getElementById(WIDGET_ID);
+    if (!widget) return;
+    var today = getDailyKey();
+    var storedDate = null;
+    try { storedDate = localStorage.getItem(STORAGE_DATE_KEY); } catch (e) {}
+    if (storedDate === today) return;
+    widget.setAttribute('aria-busy', 'true');
+    widget.classList.remove('daily-verse-widget-loaded', 'daily-verse-widget-error');
+    widget.classList.add('daily-verse-widget-loading');
+    widget.innerHTML = '<div class="daily-verse-widget-loading-msg" role="status" aria-live="polite">Loading verse…</div>';
+    fetch(KJV_URL)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('Network')); })
+      .then(function (bible) {
+        var ref = getRefForDay(bible);
+        var text = ref && bible[ref] ? bible[ref] : null;
+        if (ref && text) {
+          try {
+            localStorage.setItem(STORAGE_DATE_KEY, today);
+            localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify({ ref: ref, text: text }));
+          } catch (e) {}
+          render(widget, ref, text);
+          toast('Verse updated!');
+        } else {
+          showError(widget, 'Verse unavailable—try again later.');
+        }
+      })
+      .catch(function () { showError(widget, 'Verse unavailable—try again later.'); });
+  }
+
   function render(widget, ref, text) {
     widget.innerHTML = '';
     widget.setAttribute('aria-busy', 'false');
@@ -103,6 +150,20 @@
     var widget = document.getElementById(WIDGET_ID);
     if (!widget) return;
 
+    var today = getDailyKey();
+    var storedDate = null;
+    var storedData = null;
+    try {
+      storedDate = localStorage.getItem(STORAGE_DATE_KEY);
+      var raw = localStorage.getItem(STORAGE_DATA_KEY);
+      if (raw) storedData = JSON.parse(raw);
+    } catch (e) {}
+
+    if (storedDate === today && storedData && storedData.ref && storedData.text) {
+      render(widget, storedData.ref, storedData.text);
+      return;
+    }
+
     widget.setAttribute('aria-busy', 'true');
     widget.classList.remove('daily-verse-widget-loaded', 'daily-verse-widget-error');
     widget.classList.add('daily-verse-widget-loading');
@@ -114,7 +175,12 @@
         var ref = getRefForDay(bible);
         var text = ref && bible[ref] ? bible[ref] : null;
         if (ref && text) {
+          try {
+            localStorage.setItem(STORAGE_DATE_KEY, today);
+            localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify({ ref: ref, text: text }));
+          } catch (e) {}
           render(widget, ref, text);
+          if (storedDate && storedDate !== today) toast('Verse updated!');
         } else {
           showError(widget, 'Verse unavailable—try again later.');
         }
@@ -123,6 +189,16 @@
         showError(widget, 'Verse unavailable—try again later.');
       });
   }
+
+  window.addEventListener('focus', function () {
+    var widget = document.getElementById(WIDGET_ID);
+    if (!widget) return;
+    var today = getDailyKey();
+    try {
+      var stored = localStorage.getItem(STORAGE_DATE_KEY);
+      if (stored !== today) checkAndRefresh();
+    } catch (e) {}
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', run);

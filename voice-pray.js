@@ -66,12 +66,14 @@
       if (input.value.trim()) {
         var prayBtn = document.getElementById('quick-pray-btn');
         if (prayBtn) prayBtn.click();
+        if (typeof window.showEliteToast === 'function') window.showEliteToast('Prayer recorded—saved!');
       }
     };
 
-    recognition.onerror = function () {
+    recognition.onerror = function (e) {
       setListening(false);
       input.placeholder = 'Voice failed—type instead.';
+      if (typeof window.showEliteToast === 'function') window.showEliteToast('Voice failed—type instead.');
     };
   }
 

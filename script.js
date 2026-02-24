@@ -1647,6 +1647,9 @@ function updateHomeStreakBadge(streakCount) {
   if (streakCount >= 1) {
     el.textContent = streakCount === 1 ? '1 day—keep going!' : streakCount + ' days—keep going!';
     el.style.display = 'block';
+    el.classList.add('streak-badge-pulse');
+    clearTimeout(el._streakPulseTimer);
+    el._streakPulseTimer = setTimeout(function () { el.classList.remove('streak-badge-pulse'); }, 500);
   } else {
     el.style.display = 'none';
   }
@@ -7634,6 +7637,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(msg).then(function () {
             if (typeof showEliteToast === 'function') showEliteToast('Copied!'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Copied!'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
+          }).catch(function () {});
+        }
+      });
+    }
+    var prayWithMeBtn = document.getElementById('pray-with-me-btn');
+    if (prayWithMeBtn) {
+      prayWithMeBtn.addEventListener('click', function () {
+        var msg = 'Join me in prayer right now! todaysdailybattle.com';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(msg).then(function () {
+            if (typeof showEliteToast === 'function') showEliteToast('Link copied—text a friend!'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Link copied—text a friend!'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2500); }
           }).catch(function () {});
         }
       });

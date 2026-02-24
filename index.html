@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <!-- Deploy: build output = dist; verify topic-anxiety.html in build output. force-rebuild aqwrdef12 -->
+  <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="The Bible companion built for real life. One verse, one moment, every day. Less scroll, more soul—topic search, streaks, and tools for families and pastors. Free.">
   <meta name="keywords" content="free Bible verse of the day, daily Bible habit, Bible in two minutes, less scroll more soul, free Bible study online, Bible verses, daily verse, anxiety, hope, strength, obedience, devotionals, Scripture, KJV, pastor tools, church, small group">
@@ -27,6 +27,14 @@
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
+  <!-- TEMP Supabase config test: if config.js does not set keys, uncomment below and paste your project URL + anon key. Reload → check Network for prayers?select=*. If echo works, fix config.js or build env then remove this block. Do not commit real keys. -->
+  <script>
+  window.TDB_CONFIG = window.TDB_CONFIG || {};
+  if (!window.TDB_CONFIG.SUPABASE_URL || !window.TDB_CONFIG.SUPABASE_ANON_KEY) {
+    window.TDB_CONFIG.SUPABASE_URL = window.TDB_CONFIG.SUPABASE_URL || 'https://your-project.supabase.co';
+    window.TDB_CONFIG.SUPABASE_ANON_KEY = window.TDB_CONFIG.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
+  }
+  </script>
   <script src="config.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" defer></script>

@@ -2282,8 +2282,55 @@ function latLngToSvgPoint(lat, lng, viewBoxWidth, viewBoxHeight) {
 
 function wirePrayerMap() {
   var container = document.getElementById('prayer-map-dots');
+  if (!container) return;
   var markersGroup = document.getElementById('prayer-markers');
-  if (!container || !markersGroup) return;
+  if (!markersGroup) {
+    var svgNS = 'http://www.w3.org/2000/svg';
+    container.style.backgroundColor = '#1c1917';
+    container.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/4/41/Simple_world_map.svg')";
+    container.style.backgroundSize = 'cover';
+    container.style.backgroundPosition = 'center';
+    container.style.backgroundRepeat = 'no-repeat';
+    var svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('class', 'prayer-map-svg');
+    svg.setAttribute('viewBox', '0 0 495 266');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    svg.setAttribute('aria-hidden', 'true');
+    var defs = document.createElementNS(svgNS, 'defs');
+    var filter = document.createElementNS(svgNS, 'filter');
+    filter.setAttribute('id', 'prayer-map-glow');
+    filter.setAttribute('x', '-50%');
+    filter.setAttribute('y', '-50%');
+    filter.setAttribute('width', '200%');
+    filter.setAttribute('height', '200%');
+    var blur = document.createElementNS(svgNS, 'feGaussianBlur');
+    blur.setAttribute('stdDeviation', '2.5');
+    blur.setAttribute('result', 'coloredBlur');
+    var merge = document.createElementNS(svgNS, 'feMerge');
+    var mergeNode1 = document.createElementNS(svgNS, 'feMergeNode');
+    mergeNode1.setAttribute('in', 'coloredBlur');
+    var mergeNode2 = document.createElementNS(svgNS, 'feMergeNode');
+    mergeNode2.setAttribute('in', 'SourceGraphic');
+    merge.appendChild(mergeNode1);
+    merge.appendChild(mergeNode2);
+    filter.appendChild(blur);
+    filter.appendChild(merge);
+    defs.appendChild(filter);
+    svg.appendChild(defs);
+    var g = document.createElementNS(svgNS, 'g');
+    g.setAttribute('id', 'prayer-markers');
+    g.setAttribute('pointer-events', 'auto');
+    svg.appendChild(g);
+    container.insertBefore(svg, container.firstChild);
+    var tooltip = document.createElement('div');
+    tooltip.id = 'map-tooltip';
+    tooltip.className = 'map-tooltip';
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.setAttribute('aria-hidden', 'true');
+    container.appendChild(tooltip);
+    markersGroup = document.getElementById('prayer-markers');
+  }
+  if (!markersGroup) return;
   var prayerLocations = [
     { lat: 32.43, lng: -90.13, name: 'Ridgeland, MS', intent: 'peace', isYou: true },
     { lat: 40.71, lng: -74.01, name: 'New York', intent: 'peace' },
@@ -4854,7 +4901,16 @@ function renderMessages(items, previewLimit) {
   list.innerHTML = '';
   if (!Array.isArray(items)) items = [];
   lastMessageItems = items;
-  const visible = items.filter(item => item && typeof item === 'object' && !item.hidden);
+  function safeStr(v, fallback) {
+    if (v == null) return fallback || '';
+    if (typeof v === 'string') return v;
+    return fallback || '';
+  }
+  const visible = items.filter(item => {
+    if (!item || typeof item !== 'object' || item.hidden) return false;
+    const t = item.text ?? item.message ?? item.body;
+    return typeof t === 'string' && t.trim().length > 0;
+  });
   if (!visible.length) {
     list.innerHTML = '<p class="empty">No encouragement yet—share your win!</p><p class="section-note">Be the first to post a prayer request, praise report, or short encouragement.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Share your win</a>';
     if (seeMoreBtn) seeMoreBtn.style.display = 'none';
@@ -4877,15 +4933,15 @@ function renderMessages(items, previewLimit) {
   if (pinned) list.appendChild(pinned);
   toRender.forEach(item => {
     if (!item || typeof item !== 'object') return;
-    const text = item.text ?? item.message ?? item.body ?? '';
-    const displayName = item.display_name ?? item.user?.displayName ?? (item.user_id ? nameMap[item.user_id] : null) ?? 'Member';
+    const text = safeStr(item.text ?? item.message ?? item.body, '');
+    const displayName = safeStr(item.display_name ?? item.user?.displayName ?? (item.user_id ? nameMap[item.user_id] : null), 'Member');
     const row = document.createElement('div');
     row.className = 'list-item';
     const div = document.createElement('div');
     const strong = document.createElement('strong');
     strong.textContent = displayName;
     const p = document.createElement('p');
-    p.textContent = typeof text === 'string' ? text : (text != null ? String(text) : '');
+    p.textContent = text;
     div.appendChild(strong);
     div.appendChild(p);
     row.appendChild(div);

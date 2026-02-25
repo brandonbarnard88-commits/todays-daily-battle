@@ -1782,14 +1782,17 @@ function wireRealPrayerCounter() {
       el.textContent = '—';
       return;
     }
+    el.textContent = '…';
     try {
       var res = await Promise.race([
         supabaseClient.rpc('get_total_prayer_count'),
         new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS); })
       ]);
-      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; return; }
+      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       if (res && !res.error && res.data != null && typeof res.data === 'number' && !isNaN(res.data)) {
         el.textContent = formatCount(res.data);
+        var promo = document.getElementById('prayer-count-promo');
+        if (promo) promo.textContent = formatCount(res.data) + ' prayers prayed worldwide.';
         return;
       }
       var req = supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
@@ -1797,17 +1800,22 @@ function wireRealPrayerCounter() {
         setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
       });
       var restRes = await Promise.race([req, timeout]);
-      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '—'; return; }
+      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       if (restRes && restRes.error) {
         el.textContent = '—';
+        var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = '';
         return;
       }
       if (restRes && restRes.count != null) el.textContent = formatCount(restRes.count);
       else if (restRes && Array.isArray(restRes.data)) el.textContent = formatCount(restRes.data.length);
       else el.textContent = '—';
+      var promo = document.getElementById('prayer-count-promo');
+      if (promo) promo.textContent = (el.textContent !== '—' ? el.textContent + ' prayers prayed worldwide.' : '');
     } catch (e) {
       setPrayersApiUnavailable();
       el.textContent = '—';
+      var promo = document.getElementById('prayer-count-promo');
+      if (promo) promo.textContent = '';
     }
   }
   window.__fetchPrayerCount = fetchPrayerCount;
@@ -4848,7 +4856,7 @@ function renderMessages(items, previewLimit) {
   lastMessageItems = items;
   const visible = items.filter(item => item && typeof item === 'object' && !item.hidden);
   if (!visible.length) {
-    list.innerHTML = '<p class="empty">No messages yet—be the first to share a win or encouragement.</p>';
+    list.innerHTML = '<p class="empty">No encouragement yet—share your win!</p><p class="section-note">Be the first to post a prayer request, praise report, or short encouragement.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Share your win</a>';
     if (seeMoreBtn) seeMoreBtn.style.display = 'none';
     return;
   }

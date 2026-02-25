@@ -4603,11 +4603,6 @@ body.red-letter-off .red-letter-card {
   border-radius: 8px;
   overflow: hidden;
   background-color: #1c1917;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/41/Simple_world_map.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
   border: 2px solid rgba(212, 175, 55, 0.5);
   box-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(212, 175, 55, 0.2);
 }
@@ -4624,6 +4619,11 @@ body.red-letter-off .red-letter-card {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  color: #000;
+  opacity: 0.85;
+}
+.dark-mode .prayer-map-svg {
+  color: #94a3b8;
 }
 .prayer-map-svg #prayer-markers { pointer-events: auto; }
 .prayer-marker {

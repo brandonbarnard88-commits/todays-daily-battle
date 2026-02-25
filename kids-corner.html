@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kids' Corner • Today's Daily Battle</title>
+  <meta name="description" content="God's Word for kids—Bible stories, prayer, and coloring. A safe, premium space for families.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids-corner.html">
+  <meta property="og:title" content="Kids' Corner • Today's Daily Battle">
+  <meta property="og:description" content="God's Word for kids—Bible stories, prayer, and coloring. A safe, premium space for families.">
+  <meta property="og:url" content="https://todaysdailybattle.com/kids-corner.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css?v=20260221elite">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode" aria-label="Sacred space—Kids' Corner">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar top-bar-gold">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">God's Word—stories, prayer, and coloring</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="kids-corner.html" aria-current="page">Kids' Corner</a>
+        <a href="coloring.html">Coloring</a>
+        <a href="verse.html">Verse of the Day</a>
+      </nav>
+      <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">≡</span><span class="menu-text">Menu</span></a>
+    </header>
+
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a href="/">Search</a>
+        <a href="verse.html">Verse of the Day</a>
+        <a href="reading-plan.html">7-Day Plan</a>
+        <a href="study.html">Study Tools</a>
+        <a href="kids-corner.html" aria-current="page">Kids' Corner</a>
+        <a href="coloring.html">Coloring</a>
+        <a href="church.html">Church Center</a>
+        <a href="message.html">Message Board</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content" role="main" aria-label="Sacred space—Bible stories for kids">
+      <div class="content-inner">
+        <header class="hero-banner kids-corner-hero">
+          <h1><span class="kids-corner-icon" aria-hidden="true">★</span> Kids' Corner</h1>
+          <p class="hero-sub">God's Word—no games. Stories, prayer, and coloring.</p>
+        </header>
+
+        <section class="kids-corner-stories glass card-gold" aria-label="Bible stories">
+          <h2 class="section-divider">Bible Stories</h2>
+          <p class="section-note">One sentence of truth. Pray for the theme. Color the scene.</p>
+          <div id="kids-corner-cards" class="kids-corner-grid"></div>
+        </section>
+
+        <section class="glass card-gold">
+          <h2 class="section-divider">More for Families</h2>
+          <p class="section-note">Coloring pages, daily prompt, and short verses.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="coloring.html">Coloring Pages</a>
+            <a class="btn btn-secondary" href="kids-activities-print.html">Printables</a>
+            <a class="btn btn-secondary" href="/#main-search">Search Verses</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="privacy.html">Privacy</a>
+    </footer>
+  </div>
+
+  <script>
+  (function () {
+    var stories = [
+      { id: 'noah', title: 'Noah\'s Ark', summary: 'God saved him from the flood—pray for protection.', prayIntent: 'for protection', jewel: 'sapphire' },
+      { id: 'david', title: 'David & Goliath', summary: 'God gave David courage—pray for courage.', prayIntent: 'for courage', jewel: 'ruby' },
+      { id: 'jonah', title: 'Jonah & the Whale', summary: 'God rescued Jonah and gave him another chance—pray for obedience.', prayIntent: 'for obedience', jewel: 'emerald' },
+      { id: 'daniel', title: 'Daniel in the Lions\' Den', summary: 'God protected Daniel when he prayed—pray for faithfulness.', prayIntent: 'for faithfulness', jewel: 'diamond' },
+      { id: 'storm', title: 'Jesus Calms the Storm', summary: 'Jesus spoke peace to the storm—pray for peace.', prayIntent: 'for peace', jewel: 'amethyst' },
+      { id: 'samaritan', title: 'Good Samaritan', summary: 'Show kindness to your neighbor—pray for love.', prayIntent: 'for love', jewel: 'pearl' },
+      { id: 'creation', title: 'Creation', summary: 'God made the world and everything in it—pray with thanksgiving.', prayIntent: 'with thanksgiving', jewel: 'sapphire' },
+      { id: 'moses', title: 'Moses & the Red Sea', summary: 'God made a way through the sea—pray for trust.', prayIntent: 'for trust', jewel: 'ruby' },
+      { id: 'prodigal', title: 'Prodigal Son', summary: 'The father welcomed his son home—pray for forgiveness.', prayIntent: 'for forgiveness', jewel: 'emerald' },
+      { id: 'lost-sheep', title: 'Lost Sheep', summary: 'Jesus leaves the ninety-nine to find the one—pray for the lost.', prayIntent: 'for the lost', jewel: 'diamond' },
+      { id: 'baby-jesus', title: 'Baby Jesus', summary: 'God sent His Son—pray for the world.', prayIntent: 'for the world', jewel: 'amethyst' },
+      { id: 'joseph', title: 'Joseph\'s Coat', summary: 'God was with Joseph in the pit and the palace—pray for faithfulness.', prayIntent: 'for faithfulness', jewel: 'pearl' },
+      { id: 'zacchaeus', title: 'Zacchaeus', summary: 'Jesus saw him and called him down—pray for those who feel unseen.', prayIntent: 'for those who feel unseen', jewel: 'sapphire' },
+      { id: 'feeding', title: 'Feeding the 5,000', summary: 'Jesus multiplied the loaves and fish—pray for provision.', prayIntent: 'for provision', jewel: 'ruby' }
+    ];
+    var container = document.getElementById('kids-corner-cards');
+    if (!container) return;
+    var colorHref = function (id) {
+      var hasCanvas = ['creation','noah','david','moses','jonah','daniel','storm','samaritan'].indexOf(id) !== -1;
+      return hasCanvas ? 'coloring.html?story=' + id : 'coloring.html';
+    };
+    stories.forEach(function (s) {
+      var card = document.createElement('div');
+      card.className = 'kids-corner-card card-gold-inner';
+      card.setAttribute('data-story', s.id);
+      card.innerHTML =
+        '<span class="kids-corner-jewel kids-corner-jewel-' + s.jewel + '" aria-hidden="true"></span>' +
+        '<h3 class="kids-corner-card-title">' + s.title + '</h3>' +
+        '<p class="kids-corner-card-summary">' + s.summary + '</p>' +
+        '<div class="kids-corner-card-actions">' +
+          '<a href="/#quick-pray-wrap" class="btn btn-pray-now" aria-label="Pray now for ' + s.prayIntent + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</a>' +
+          '<a href="' + colorHref(s.id) + '" class="btn btn-color-this" aria-label="Color this story"><span class="icon-pencil" aria-hidden="true">✎</span> Color This</a>' +
+        '</div>';
+      container.appendChild(card);
+    });
+  })();
+  </script>
+  <script src="config.js"></script>
+  <script src="script.js?v=20260220" data-cfasync="false"></script>
+</body>
+</html>

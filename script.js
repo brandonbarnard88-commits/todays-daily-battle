@@ -1981,7 +1981,6 @@ function wireIntentModal() {
   var closeBtn = document.getElementById('intent-modal-close');
   var input = document.getElementById('intent-input');
   var prayBtn = document.getElementById('intent-pray-btn');
-  var heroIntent = document.getElementById('hero-intent');
   var quickPrayInput = document.getElementById('quick-pray');
   if (!modal || !prayBtn) return;
   var INTENT_KEY = 'tdb_intent';
@@ -1996,10 +1995,7 @@ function wireIntentModal() {
   }
   try {
     var intent = localStorage.getItem(INTENT_KEY);
-    if (heroIntent && intent) {
-      heroIntent.textContent = 'Your intent: ' + intent;
-      heroIntent.style.display = 'block';
-    }
+    if (intent && quickPrayInput) quickPrayInput.value = intent;
     var last = parseInt(localStorage.getItem(INTENT_LAST_KEY) || '0', 10);
     var now = Date.now();
     if (!intent || (now - last) > 24 * 60 * 60 * 1000) setTimeout(showModal, 800);
@@ -2010,7 +2006,6 @@ function wireIntentModal() {
     if (val) {
       try { localStorage.setItem(INTENT_KEY, val); } catch (e) {}
       if (quickPrayInput) quickPrayInput.value = val;
-      if (heroIntent) { heroIntent.textContent = 'Your intent: ' + val; heroIntent.style.display = 'block'; }
     }
     hideModal();
   });

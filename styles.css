@@ -645,6 +645,33 @@ body.light .header-family-btn:hover { color: #7c3aed; background: rgba(124, 58, 
   text-align: center;
   display: block;
 }
+
+.hero-banner .hero-tagline-gold {
+  margin: 1.5rem 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #D4AF37;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+  padding-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+@media (max-width: 768px) {
+  .hero-banner .hero-tagline-gold {
+    font-size: 1.4rem;
+    margin: 1.25rem 0;
+  }
+}
+body.light .hero-banner .hero-tagline-gold {
+  color: #B8860B;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(184, 134, 11, 0.5);
+}
+
 .streak-badge {
   margin: 0.5rem 0 0;
   font-size: 0.95rem;
@@ -4448,6 +4475,7 @@ body.red-letter-off .red-letter-card {
   .hero-banner { padding: 1rem 1.25rem; gap: 0.75rem; }
   .hero-banner h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
   .hero-banner .hero-sub { font-size: 1.1rem; }
+  .hero-banner .hero-tagline-gold { font-size: 1.2rem; margin: 1rem 0; }
   .streak-badge { font-size: 0.9rem; margin-top: 0.35rem; }
   #daily-verse-email-nudge input,
   #daily-verse-email-nudge .btn { width: 100%; max-width: 100%; min-height: 48px; margin-bottom: 0.5rem; }
@@ -4522,10 +4550,97 @@ body.red-letter-off .red-letter-card {
 .intent-modal-close { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: inherit; opacity: 0.8; }
 .hero-intent { margin-top: 0.35rem; font-style: italic; }
 .prayer-map-widget { margin-top: 1rem; }
-.prayer-map-dots { position: relative; height: 120px; background: linear-gradient(180deg, rgba(30,41,59,0.4) 0%, rgba(15,23,42,0.6) 100%); border-radius: 8px; }
-.prayer-map-dot { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--elite-gold, #eab308); opacity: 0.9; cursor: pointer; }
-.prayer-map-dot:hover { opacity: 1; transform: scale(1.3); }
-.prayer-map-dot.you-dot { background: #22c55e; }
+.prayer-map-caption { margin-bottom: 0.5rem; }
+.prayer-map-dots {
+  position: relative;
+  height: 320px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1c1917 0%, #292524 50%, #1c1917 100%);
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Map_of_the_world_%281689%29._British_Library_Add_MS_21184.jpg/1200px-Map_of_the_world_%281689%29._British_Library_Add_MS_21184.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.4), 0 4px 20px rgba(0,0,0,0.3);
+}
+.prayer-map-dots::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28,25,23,0.15) 0%, rgba(28,25,23,0.4) 100%);
+  pointer-events: none;
+}
+.prayer-map-dot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  margin-top: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--elite-gold, #eab308);
+  text-shadow: 0 0 8px rgba(234, 179, 8, 0.8), 0 0 16px rgba(234, 179, 8, 0.4);
+  cursor: pointer;
+  opacity: 0.95;
+  z-index: 2;
+  font-family: Georgia, serif;
+}
+.prayer-map-dot:hover { opacity: 1; transform: scale(1.25); text-shadow: 0 0 12px rgba(234, 179, 8, 1), 0 0 24px rgba(234, 179, 8, 0.6); }
+.prayer-map-dot.you-dot { color: #22c55e; text-shadow: 0 0 8px rgba(34, 197, 94, 0.8); }
+.prayer-map-dot.you-dot:hover { text-shadow: 0 0 12px rgba(34, 197, 94, 1); }
+@media (max-width: 768px) {
+  .prayer-map-dots { height: 240px; }
+  .prayer-map-dot { font-size: 0.9rem; width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; }
+}
+
+.patriotic-scriptures { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); }
+.patriotic-scriptures-title { text-align: center; font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
+.patriotic-scriptures-intro { text-align: center; margin-bottom: 1rem; }
+.patriotic-scriptures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.patriotic-scriptures-card { padding: 1rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.25); background: rgba(0,0,0,0.2); }
+.patriotic-scriptures-ref { font-weight: 700; font-size: 0.95rem; color: var(--elite-gold, #D4AF37); margin: 0 0 0.5rem; }
+.patriotic-scriptures-text { margin: 0.5rem 0 0.75rem; font-size: 0.95rem; line-height: 1.5; font-style: italic; color: rgba(226, 232, 240, 0.95); border-left: 3px solid rgba(212, 175, 55, 0.4); padding-left: 0.75rem; }
+.patriotic-scriptures-note { margin: 0.5rem 0 0.75rem; font-size: 0.85rem; color: rgba(148, 163, 184, 0.9); line-height: 1.4; }
+.patriotic-scriptures-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.patriotic-scriptures-actions .btn { min-height: 36px; }
+body.light .patriotic-scriptures { border-color: rgba(184, 134, 11, 0.4); }
+body.light .patriotic-scriptures-title { color: #B8860B; }
+body.light .patriotic-scriptures-card { background: rgba(241, 245, 249, 0.6); border-color: rgba(184, 134, 11, 0.3); }
+body.light .patriotic-scriptures-text { color: #334155; }
+body.light .patriotic-scriptures-note { color: #64748b; }
+@media (max-width: 768px) {
+  .patriotic-scriptures-grid { grid-template-columns: 1fr; }
+  .patriotic-scriptures-actions .btn { width: 100%; }
+}
+
+.patriotic-hymns { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); }
+.patriotic-hymns-title { text-align: center; font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
+.patriotic-hymns-intro { text-align: center; margin-bottom: 1rem; }
+.patriotic-hymns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.patriotic-hymns-card { padding: 1rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.25); background: rgba(0,0,0,0.2); }
+.patriotic-hymns-card-title { font-size: 1.1rem; margin: 0 0 0.25rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
+.patriotic-hymns-card-meta { font-size: 0.85rem; color: rgba(148, 163, 184, 0.9); margin: 0 0 0.5rem; }
+.patriotic-hymns-card-excerpt { margin: 0.5rem 0 0.75rem; font-size: 0.9rem; line-height: 1.5; font-style: italic; color: rgba(226, 232, 240, 0.9); border-left: 3px solid rgba(212, 175, 55, 0.4); padding-left: 0.75rem; }
+.patriotic-hymns-card-note { margin: 0.5rem 0 0.75rem; font-size: 0.85rem; color: rgba(148, 163, 184, 0.9); line-height: 1.4; }
+.patriotic-hymns-card-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.patriotic-hymns-card-actions .btn { min-height: 36px; }
+.hymn-lyrics-modal-body { white-space: pre-line; max-height: 60vh; overflow-y: auto; font-size: 0.95rem; line-height: 1.6; color: rgba(226, 232, 240, 0.95); padding: 0.5rem 0; }
+body.light .patriotic-hymns { border-color: rgba(184, 134, 11, 0.4); }
+body.light .patriotic-hymns-title { color: #B8860B; }
+body.light .patriotic-hymns-card { background: rgba(241, 245, 249, 0.6); border-color: rgba(184, 134, 11, 0.3); }
+body.light .patriotic-hymns-card-title { color: #B8860B; }
+body.light .patriotic-hymns-card-excerpt { color: #334155; }
+body.light .patriotic-hymns-card-note { color: #64748b; }
+body.light .hymn-lyrics-modal-body { color: #1e293b; }
+@media (max-width: 768px) {
+  .patriotic-hymns-grid { grid-template-columns: 1fr; }
+  .patriotic-hymns-card-actions .btn { width: 100%; }
+}
+
 .footer-heading { margin: 0 auto 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(148,163,184,0.7); }
 .footer-why { margin: 0 auto 1rem; max-width: 52ch; line-height: 1.6; }
 .footer-rotating-line { margin: 0.5rem auto 1rem; min-height: 1.5em; color: rgba(226,232,240,0.9); font-style: italic; }
@@ -4559,6 +4674,30 @@ body.light .footer-powered { color: #64748b; }
 .silent-amen-count { font-size: 0.9rem; color: var(--elite-gold-solid); margin-left: 0.25rem; }
 .silent-amens-badge { display: inline-flex; align-items: center; padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid var(--elite-gold-dim); color: var(--elite-gold-solid); font-size: 0.8rem; font-weight: 600; }
 .silent-amens-badge.hidden { display: none; }
+.battle-pro-badge { display: inline-flex; align-items: center; padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid rgba(212,175,55,0.5); background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(184,134,11,0.08)); color: #D4AF37; font-size: 0.8rem; font-weight: 600; text-decoration: none; margin-left: 0.25rem; box-shadow: 0 0 10px rgba(212,175,55,0.15); }
+.battle-pro-badge:hover { color: #e5c65c; border-color: rgba(212,175,55,0.7); }
+.battle-pro-badge.hidden { display: none !important; }
+.battle-pro-upgrade-trigger { margin-left: 0.35rem; font-weight: 600; color: var(--elite-gold, #D4AF37); }
+.battle-pro-upgrade-trigger:hover { text-decoration: underline; }
+.battle-pro-upgrade-inner { max-width: 640px; }
+.battle-pro-upgrade-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+.battle-pro-upgrade-card { padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(212,175,55,0.35); background: rgba(0,0,0,0.25); }
+.battle-pro-upgrade-card-church { border-color: rgba(167,139,250,0.4); background: rgba(109,40,217,0.08); }
+.battle-pro-upgrade-card-title { font-size: 1.2rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
+.battle-pro-upgrade-price { font-size: 1.1rem; margin: 0.5rem 0; color: rgba(226,232,240,0.95); }
+.battle-pro-upgrade-period { font-size: 0.9rem; color: rgba(148,163,184,0.9); }
+.battle-pro-upgrade-benefits { margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; line-height: 1.5; color: rgba(226,232,240,0.9); }
+.battle-pro-upgrade-cta { margin-top: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+.battle-pro-upgrade-note { margin-top: 0.75rem; }
+@media (max-width: 768px) {
+  .battle-pro-upgrade-grid { grid-template-columns: 1fr; }
+  .battle-pro-upgrade-cta .btn { width: 100%; }
+}
+.wins-report-locked { border: 1px solid rgba(212,175,55,0.4); text-align: center; padding: 1.5rem; }
+.wins-report-locked .btn { margin-top: 0.75rem; }
+.premium-devotionals-lock { border: 1px solid rgba(212,175,55,0.35); text-align: center; padding: 1rem; }
+.premium-devotionals-lock.hidden { display: none !important; }
+.download-devotional-wrap.hidden { display: none !important; }
 
 .night-close-overlay { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: rgba(8, 12, 22, 0.92); opacity: 0; visibility: hidden; transition: opacity 0.8s ease, visibility 0.8s ease; }
 .night-close-overlay.night-close-visible { opacity: 1; visibility: visible; }

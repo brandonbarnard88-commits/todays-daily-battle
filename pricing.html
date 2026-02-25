@@ -200,6 +200,17 @@
           </div>
         </section>
         <section class="glass">
+          <h2 class="section-divider">Battle Pro — Subscribe</h2>
+          <p class="section-note">Offline downloads, premium devotionals, and your <strong>2026 Wins Report</strong>. Supporter: Wins + offline. Church: team streaks, shared reports.</p>
+          <p class="section-note" style="margin-top: 0.5rem;"><strong>Supporter</strong> $4.99/mo — Wins Report + offline devotional PDFs. <strong>Church</strong> $9.99/mo — team features + shared reports.</p>
+          <div class="cta-group" style="margin-top: 1rem;">
+            <button class="btn btn-primary" id="battle-pro-supporter-btn" type="button" aria-label="Upgrade to Battle Pro Supporter">Subscribe Supporter — $4.99/mo</button>
+            <button class="btn btn-secondary" id="battle-pro-church-btn" type="button" aria-label="Upgrade to Battle Pro Church">Subscribe Church — $9.99/mo</button>
+          </div>
+          <p id="battle-pro-stripe-note" class="section-note" style="margin-top: 0.75rem; display: none;"></p>
+          <p class="section-note" style="margin-top: 0.75rem;">After payment you will return here. Sign in to unlock Battle Pro. Test card: 4242 4242 4242 4242.</p>
+        </section>
+        <section class="glass">
           <h2 class="section-divider">Battle Pro — Coming Early March 2026</h2>
           <p class="section-note">Offline downloads, premium devotionals, and your <strong>2026 Wins Report</strong>: a year of verses, streaks, and growth in one shareable summary. Be the first to know.</p>
           <p class="section-note" style="margin-top: 0.75rem; padding: 0.75rem 1rem; background: rgba(148, 163, 184, 0.12); border-radius: 10px; border-left: 3px solid var(--elite-gold);"><strong>Wins Report teaser:</strong> &ldquo;You prayed through 180 battles. Verses on Hope helped most.&rdquo; One shareable graphic at year&rsquo;s end—only in Battle Pro.</p>
@@ -222,8 +233,42 @@
   </div>
 
   <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script>window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script>window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":"","STRIPE_PUBLISHABLE_KEY":"","STRIPE_SUPPORTER_LINK":"","STRIPE_CHURCH_LINK":""};</script>
   <script src="config.js"></script>
+  <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('success') === '1') {
+        var hero = document.querySelector('.hero-banner');
+        if (hero) {
+          var p = document.createElement('p');
+          p.className = 'section-note';
+          p.style.cssText = 'margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(212,175,55,0.15);border-radius:10px;border-left:3px solid var(--elite-gold);font-weight:600;';
+          p.textContent = 'Thank you! Sign in above to unlock Battle Pro. If you just signed up, check your email to verify.';
+          hero.appendChild(p);
+        }
+        history.replaceState({}, '', window.location.pathname);
+      }
+      var supporterBtn = document.getElementById('battle-pro-supporter-btn');
+      var churchBtn = document.getElementById('battle-pro-church-btn');
+      var noteEl = document.getElementById('battle-pro-stripe-note');
+      var config = window.TDB_CONFIG || {};
+      var supporterLink = config.STRIPE_SUPPORTER_LINK || '';
+      var churchLink = config.STRIPE_CHURCH_LINK || '';
+      if (supporterBtn) {
+        supporterBtn.addEventListener('click', function() {
+          if (supporterLink) window.location.href = supporterLink;
+          else if (noteEl) { noteEl.textContent = 'Add STRIPE_SUPPORTER_LINK to config.js to enable checkout.'; noteEl.style.display = 'block'; }
+        });
+      }
+      if (churchBtn) {
+        churchBtn.addEventListener('click', function() {
+          if (churchLink) window.location.href = churchLink;
+          else if (noteEl) { noteEl.textContent = 'Add STRIPE_CHURCH_LINK to config.js to enable checkout.'; noteEl.style.display = 'block'; }
+        });
+      }
+    })();
+  </script>
   <script src="script.js?v=20260220" data-cfasync="false"></script>
 </body>
 </html>

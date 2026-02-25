@@ -4,6 +4,8 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
+window.__tdb_script_version = '20260227-probe-raw-fetch';
+if (typeof console !== 'undefined' && console.log) console.log('TDB: script loaded', window.__tdb_script_version);
 document.getElementById('offline-banner')?.classList.add('hidden');
 window.addEventListener('online', function () {
   document.getElementById('offline-banner')?.classList.add('hidden');
@@ -99,7 +101,7 @@ function addHouseholdArmorPiece(source) {
   if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
   if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined—your pray adds to the armor!');
   if (data.count >= 6) {
-    if (typeof showEliteToast === 'function') showEliteToast('Your household\'s crowned—share the link!');
+    if (typeof showEliteToast === 'function') showEliteToast('Your household is armored—share the glory.');
     var link = getArmorShareLink();
     if (link && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(link).catch(function () {});
@@ -942,10 +944,18 @@ if (typeof window !== 'undefined' && (window.TDB_CONFIG == null || typeof window
 const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
 const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || '';
 const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || '';
+// Only use Supabase when URL is the real API host (never relative or same-origin)
+const supabaseUrlValid = supabaseUrl && String(supabaseUrl).includes('supabase.co') && !String(supabaseUrl).includes('your-project-ref');
+if (typeof window !== 'undefined') {
+  console.log('TDB Supabase base:', supabaseUrlValid ? supabaseUrl : '(not set — prayers/presence disabled)');
+  if (supabaseUrlValid) console.log('TDB Fetching from:', supabaseUrl + '/rest/v1');
+}
 // Production: no debug logs (Supabase init/count only in dev)
 if (typeof window !== 'undefined' && location.hostname.includes('localhost')) {
   if (!_cfg || !supabaseUrl || !supabaseKey) {
     console.error('TDB_CONFIG missing! Set SUPABASE_URL and SUPABASE_ANON_KEY in config.js or index.html.');
+  } else if (!supabaseUrlValid) {
+    console.error('Supabase URL must be https://YOUR_REF.supabase.co — relative/same-origin causes 404s.');
   } else {
     console.log('Supabase init with URL:', supabaseUrl);
   }
@@ -969,21 +979,75 @@ function getSupabaseGlobal() {
   return null;
 }
 
+var _supabaseFetchLogged;
+var _prayerRequestInFlight = false;
+function _isPrayerRequestUrl(u) {
+  if (!u || typeof u !== 'string') return false;
+  return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1;
+}
 function supabaseFetch(url, options) {
+  var base = (typeof _cfg !== 'undefined' && _cfg && _cfg.SUPABASE_URL) ? String(_cfg.SUPABASE_URL).replace(/\/$/, '') : '';
+  if (base && typeof url === 'string') {
+    if (url.charAt(0) === '/') {
+      url = base + url;
+    } else if (url.indexOf('supabase.co') === -1) {
+      try {
+        var u = new URL(url);
+        url = base + u.pathname + u.search;
+      } catch (e) {}
+    }
+  }
+  if (typeof url !== 'string' || url.indexOf('supabase.co') === -1) {
+    console.error('TDB: Blocked — request must go to *.supabase.co. URL was:', url);
+    return Promise.reject(new Error('Supabase URL not configured — requests must go to *.supabase.co'));
+  }
+  if (_isPrayerRequestUrl(url)) {
+    if (window.__tdb_prayers_404 === true) {
+      if (typeof console !== 'undefined' && console.log) console.log('TDB: prayers 404 known — blocking request to', url.slice(-60));
+      return Promise.resolve(new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+    }
+    if (_prayerRequestInFlight) {
+      if (typeof console !== 'undefined' && console.log) console.log('TDB: blocking duplicate prayer request (one at a time)');
+      return Promise.resolve(new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+    }
+    _prayerRequestInFlight = true;
+  }
+  if (!_supabaseFetchLogged) {
+    _supabaseFetchLogged = true;
+    console.log('TDB first Supabase request:', url);
+  }
   var opts = options || {};
   var headers = new Headers(opts.headers || {});
   if (!headers.has('Accept')) headers.set('Accept', 'application/json');
   if (!headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
-  return fetch(url, Object.assign({}, opts, { headers: headers }));
+  if (base && _cfg && _cfg.SUPABASE_ANON_KEY && !headers.has('apikey')) headers.set('apikey', _cfg.SUPABASE_ANON_KEY);
+  if (base && _cfg && _cfg.SUPABASE_ANON_KEY && !headers.has('Authorization')) headers.set('Authorization', 'Bearer ' + _cfg.SUPABASE_ANON_KEY);
+  var p = fetch(url, Object.assign({}, opts, { headers: headers }));
+  if (_isPrayerRequestUrl(url)) {
+    p = p.then(function (res) {
+      _prayerRequestInFlight = false;
+      if (res && res.status === 404) {
+        window.__tdb_prayers_404 = true;
+        if (typeof console !== 'undefined' && console.log) console.log('TDB: prayers API returned 404 — run supabase-prayers.sql in Supabase. No more prayer requests will be sent.');
+      }
+      return res;
+    }, function (err) {
+      _prayerRequestInFlight = false;
+      window.__tdb_prayers_404 = true;
+      if (typeof console !== 'undefined' && console.log) console.log('TDB: prayers request failed — no more prayer requests.');
+      throw err;
+    });
+  }
+  return p;
 }
 var supabaseGlobalOptions = { fetch: supabaseFetch };
-let supabaseClient = (getSupabaseGlobal() && supabaseUrl && supabaseKey)
+let supabaseClient = (getSupabaseGlobal() && supabaseUrlValid && supabaseKey)
   ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions)
   : null;
 
 function isSupabaseConfigured() {
   return Boolean(supabaseClient) &&
-    !supabaseUrl.includes('your-project-ref') &&
+    supabaseUrlValid &&
     supabaseKey &&
     !supabaseKey.includes('...');
 }
@@ -991,24 +1055,80 @@ function isSupabaseConfigured() {
 function initSupabaseClient() {
   if (supabaseClient) return true;
   const sdk = getSupabaseGlobal();
-  if (!sdk || !supabaseUrl || !supabaseKey) return false;
+  if (!sdk || !supabaseUrlValid || !supabaseKey) return false;
   supabaseClient = sdk.createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions);
   return Boolean(supabaseClient);
+}
+
+function isPrayersApiAvailable() {
+  return !(window.__tdb_prayers_404 === true);
+}
+function setPrayersApiUnavailable() {
+  window.__tdb_prayers_404 = true;
+}
+function is404Like(resOrErr) {
+  if (!resOrErr) return false;
+  if (resOrErr.status === 404) return true;
+  if (resOrErr.error && (resOrErr.error.code === '42P01' || resOrErr.error.code === '42883' || resOrErr.error.code === 'PGRST301' || String(resOrErr.error.message || '').indexOf('404') !== -1)) return true;
+  if (resOrErr.code === '42P01' || resOrErr.code === '42883') return true;
+  return false;
+}
+
+// Prayers/presence: all requests go via supabaseClient (TDB_CONFIG.SUPABASE_URL). Do NOT use fetch('/prayers') or relative URLs.
+var prayersApiProbePromise = null;
+function ensurePrayersApiProbed() {
+  if (!supabaseUrlValid || !supabaseKey || !_cfg) return Promise.resolve(false);
+  if (prayersApiProbePromise) return prayersApiProbePromise;
+  var base = String(_cfg.SUPABASE_URL || '').replace(/\/$/, '');
+  var probeUrl = base + '/rest/v1/prayers?select=id&limit=1';
+  var realFetch = typeof window !== 'undefined' && window.__tdb_real_fetch;
+  var doProbe = realFetch
+    ? function () {
+        return realFetch(probeUrl, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            apikey: _cfg.SUPABASE_ANON_KEY || '',
+            Authorization: 'Bearer ' + (_cfg.SUPABASE_ANON_KEY || '')
+          }
+        });
+      }
+    : function () { return supabaseFetch(probeUrl, { method: 'GET' }); };
+  prayersApiProbePromise = doProbe()
+    .then(function (res) {
+      if (!res || !res.ok) {
+        setPrayersApiUnavailable();
+        if (typeof console !== 'undefined' && console.log) console.log('TDB: Prayers API returned', res ? res.status : 'no response', '— run supabase-prayers.sql in Supabase SQL Editor. No further prayer requests.');
+        return false;
+      }
+      return true;
+    })
+    .catch(function (e) {
+      setPrayersApiUnavailable();
+      if (typeof console !== 'undefined' && console.log) console.log('TDB: Prayers probe failed — run supabase-prayers.sql in Supabase. No further prayer requests.');
+      return false;
+    });
+  return prayersApiProbePromise;
 }
 
 function runSupabaseConnectionTest() {
   if (!supabaseClient) return;
   var isDev = typeof location !== 'undefined' && location.hostname.includes('localhost');
-  supabaseClient.from('prayers').select('*', { count: 'exact', head: true })
+  ensurePrayersApiProbed().then(function (available) {
+    if (available !== true || !isPrayersApiAvailable()) return;
+    supabaseClient.from('prayers').select('*', { count: 'exact', head: true })
     .then(function (res) {
+      if (res && is404Like(res)) { setPrayersApiUnavailable(); return; }
       if (isDev) console.log('Prayers count:', res && res.count != null ? res.count : (res && res.data ? res.data.length : '?'));
     })
     .catch(function (err) {
+      setPrayersApiUnavailable();
       if (isDev) {
         console.error('Supabase test failed', err);
         if (typeof showEliteToast === 'function') showEliteToast('Connection failed—check key');
       }
     });
+  });
 }
 
 function loadSupabaseScript(url) {
@@ -1637,12 +1757,17 @@ function wireRealPrayerCounter() {
       el.textContent = '—';
       return;
     }
+    if (!isPrayersApiAvailable()) {
+      el.textContent = '—';
+      return;
+    }
     try {
       var req = supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
       var timeout = new Promise(function (_, reject) {
         setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
       });
       var res = await Promise.race([req, timeout]);
+      if (res && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; return; }
       if (res && res.error) {
         el.textContent = '—';
         return;
@@ -1650,10 +1775,15 @@ function wireRealPrayerCounter() {
       if (res && res.count != null) el.textContent = formatCount(res.count);
       else el.textContent = '—';
     } catch (e) {
+      setPrayersApiUnavailable();
       el.textContent = '—';
     }
   }
   window.__fetchPrayerCount = fetchPrayerCount;
+  if (!isPrayersApiAvailable()) {
+    el.textContent = '—';
+    return;
+  }
   fetchPrayerCount();
   setInterval(fetchPrayerCount, 10000);
 }
@@ -1707,6 +1837,116 @@ function wireCallGodBtn() {
       input.focus();
     }
   });
+}
+
+var SILENT_AMEN_KEY = 'tdb_silentAmen';
+var NIGHT_CLOSED_KEY = 'tdb_nightClosed';
+var DAWN_SHOWN_KEY = 'tdb_dawnShown';
+
+function wireDailyVerseEcho() {
+  var el = document.getElementById('daily-verse-echo');
+  if (!el) return;
+  var lastCount = -1;
+  async function fetchVerseEcho() {
+    var ref = (typeof currentDailyBattle !== 'undefined' && currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : null;
+    if (!ref || !supabaseClient) {
+      el.style.display = 'none';
+      return;
+    }
+    if (!isPrayersApiAvailable()) {
+      el.style.display = 'none';
+      return;
+    }
+    try {
+      var res = await supabaseClient.from('prayers').select('id, family_name').ilike('intent', '%' + ref + '%').order('created_at', { ascending: false }).limit(3);
+      if (res && is404Like(res)) { setPrayersApiUnavailable(); el.style.display = 'none'; return; }
+      var rows = (res && res.data) ? res.data : [];
+      el.style.display = 'block';
+      if (rows.length === 0) {
+        el.textContent = 'You\'re the first—pray it.';
+        el.classList.remove('daily-verse-echo-pulse');
+      } else {
+        el.textContent = 'A household just prayed this verse today.';
+        if (rows.length > lastCount && lastCount >= 0) el.classList.add('daily-verse-echo-pulse');
+        lastCount = rows.length;
+        setTimeout(function () { el.classList.remove('daily-verse-echo-pulse'); }, 2000);
+      }
+    } catch (e) {
+      setPrayersApiUnavailable();
+      el.style.display = 'none';
+    }
+  }
+  if (!isPrayersApiAvailable()) return;
+  setInterval(fetchVerseEcho, 30000);
+  setTimeout(fetchVerseEcho, 1500);
+}
+
+function wireSilentAmen() {
+  var btn = document.getElementById('silent-amen-btn');
+  var countEl = document.getElementById('silent-amen-count');
+  var badge = document.getElementById('silent-amens-badge');
+  var badgeN = document.getElementById('silent-amens-badge-n');
+  if (!btn) return;
+  function updateSilentUI() {
+    var n = 0;
+    try { n = parseInt(localStorage.getItem(SILENT_AMEN_KEY) || '0', 10); } catch (e) {}
+    if (countEl) countEl.textContent = n > 0 ? n : '';
+    if (badge && badgeN) {
+      badgeN.textContent = n;
+      if (n > 0) badge.classList.remove('hidden'); else badge.classList.add('hidden');
+    }
+  }
+  updateSilentUI();
+  btn.addEventListener('click', function () {
+    var n = 0;
+    try { n = parseInt(localStorage.getItem(SILENT_AMEN_KEY) || '0', 10); } catch (e) {}
+    n += 1;
+    try { localStorage.setItem(SILENT_AMEN_KEY, String(n)); } catch (e) {}
+    updateSilentUI();
+    if (n === 5 && typeof showEliteToast === 'function') showEliteToast('Silent chain: 5 households praying without words.');
+  });
+}
+
+function wireNightClose() {
+  var overlay = document.getElementById('night-close-overlay');
+  var titleEl = document.getElementById('night-close-title');
+  var verseEl = document.getElementById('night-close-verse');
+  if (!overlay || !titleEl || !verseEl) return;
+  var today = getDailyKey();
+  var hour = (new Date()).getHours();
+  function showNight() {
+    overlay.classList.remove('hidden');
+    overlay.classList.add('night-close-visible');
+    titleEl.textContent = 'Night falls—rest in Him.';
+    verseEl.textContent = 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid. — John 14:27';
+    try { localStorage.setItem(NIGHT_CLOSED_KEY, today); } catch (e) {}
+    setTimeout(function () {
+      overlay.classList.add('night-close-fade-out');
+      setTimeout(function () {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('night-close-visible', 'night-close-fade-out');
+      }, 1200);
+    }, 10000);
+  }
+  function showDawn() {
+    overlay.classList.remove('hidden');
+    overlay.classList.add('night-close-visible', 'night-close-dawn');
+    titleEl.textContent = 'Dawn breaks—He waits.';
+    verseEl.textContent = '';
+    try { localStorage.setItem(DAWN_SHOWN_KEY, today); } catch (e) {}
+    setTimeout(function () {
+      overlay.classList.add('night-close-fade-out');
+      setTimeout(function () {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('night-close-visible', 'night-close-fade-out', 'night-close-dawn');
+      }, 1200);
+    }, 5000);
+  }
+  var nightClosed = '';
+  var dawnShown = '';
+  try { nightClosed = localStorage.getItem(NIGHT_CLOSED_KEY) || ''; dawnShown = localStorage.getItem(DAWN_SHOWN_KEY) || ''; } catch (e) {}
+  if (hour >= 22 && nightClosed !== today) showNight();
+  else if (hour >= 5 && hour < 10 && dawnShown !== today) showDawn();
 }
 
 function wireIntentModal() {
@@ -1764,8 +2004,8 @@ function wirePrayerMap() {
       dot.className = 'prayer-map-dot';
       dot.style.left = p.x + '%';
       dot.style.top = p.y + '%';
-      dot.title = 'Someone in ' + p.name + ' prayed for peace';
-      dot.setAttribute('aria-label', 'Someone in ' + p.name + ' prayed for peace');
+      dot.title = 'A household in ' + p.name + ' prayed for peace';
+      dot.setAttribute('aria-label', 'A household in ' + p.name + ' prayed for peace');
       container.appendChild(dot);
     });
     if (showYou) {
@@ -1871,7 +2111,7 @@ function flushPrayerOfflineQueue() {
 }
 
 var COLLECTIVE_INTENTS = ['peace', 'strength', 'healing', 'gratitude', 'hope', 'those who are sick', 'our families', 'wisdom', 'courage', 'rest'];
-var FOOTER_ROTATING_LINES = ["You're not praying alone.", "Someone just prayed with you.", "This is the room. You're in it."];
+var FOOTER_ROTATING_LINES = ["You're not praying alone.", "A household just prayed with you.", "This is the room. You're in it."];
 var GOD_MODE_SOUND_ENABLED_KEY = 'tdb_sound_echo_enabled';
 var SACRED_SILENCE_KEY = 'tdb_sacred_silence';
 var FAMILY_NAME_KEY = 'tdb_family_name';
@@ -1926,14 +2166,18 @@ function wireGodModePrayerEcho() {
   }
   async function fetchPresence() {
     if (!supabaseClient) return;
+    if (!isPrayersApiAvailable()) return;
     try {
       var res = await supabaseClient.rpc('get_prayer_presence_count');
+      if (res && is404Like(res)) { setPrayersApiUnavailable(); return; }
       var n = (res && res.data != null) ? res.data : 0;
       if (presenceEl) {
         presenceEl.textContent = n <= 0 ? '' : 'Right now: ' + n + ' person' + (n === 1 ? '' : 's') + ' here';
         presenceEl.style.display = n > 0 ? 'block' : 'none';
       }
-    } catch (e) {}
+    } catch (e) {
+      setPrayersApiUnavailable();
+    }
   }
   var sacredEl = document.getElementById('prayer-echo-sacred');
   function isSacredSilence() { try { return localStorage.getItem(SACRED_SILENCE_KEY) === 'true'; } catch (e) { return false; } }
@@ -1952,6 +2196,10 @@ function wireGodModePrayerEcho() {
       if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Connect to see recent prayers.'; }
       return;
     }
+    if (!isPrayersApiAvailable()) {
+      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
+      return;
+    }
     var echoTimeout = setTimeout(function () {
       if (loadingEl && loadingEl.textContent.indexOf('Loading') !== -1) {
         loadingEl.style.display = 'block';
@@ -1961,6 +2209,11 @@ function wireGodModePrayerEcho() {
     try {
       var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count, family_name').order('created_at', { ascending: false }).limit(5);
       clearTimeout(echoTimeout);
+      if (res && is404Like(res)) {
+        setPrayersApiUnavailable();
+        if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
+        return;
+      }
       if (loadingEl) loadingEl.style.display = 'none';
       if (listEl) listEl.style.display = 'block';
       if (joinBtn) joinBtn.style.display = 'inline-block';
@@ -1970,7 +2223,7 @@ function wireGodModePrayerEcho() {
       listEl.innerHTML = '';
       rows.forEach(function (row, i) {
         var intent = (row.intent && String(row.intent).trim()) || 'for peace';
-        var who = (row.family_name && String(row.family_name).trim()) ? String(row.family_name).trim() : 'Someone';
+        var who = (row.family_name && String(row.family_name).trim()) ? String(row.family_name).trim() : 'A household';
         var pre = timePrefix(row.created_at);
         var li = document.createElement('li');
         li.className = 'prayer-echo-item';
@@ -1982,7 +2235,7 @@ function wireGodModePrayerEcho() {
         var textSpan = document.createElement('span');
         textSpan.className = 'prayer-echo-text';
         textSpan.textContent = pre + who + ' just prayed: ' + intent;
-        textSpan.title = 'Someone prayed this.';
+        textSpan.title = 'A household prayed this.';
         li.appendChild(textSpan);
         var amenWrap = document.createElement('span');
         amenWrap.className = 'prayer-echo-amen-wrap';
@@ -2023,14 +2276,19 @@ function wireGodModePrayerEcho() {
       });
       await fetchPresence();
     } catch (e) {
+      setPrayersApiUnavailable();
       clearTimeout(echoTimeout);
       if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Could not load recent prayers.'; }
     }
   }
   window.__refreshPrayerEcho = fetchAndRenderEcho;
-  fetchAndRenderEcho();
-  setInterval(fetchAndRenderEcho, 15000);
-  setInterval(fetchPresence, 15000);
+  if (!isPrayersApiAvailable()) {
+    if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
+  } else {
+    fetchAndRenderEcho();
+    setInterval(fetchAndRenderEcho, 15000);
+    setInterval(fetchPresence, 15000);
+  }
   if (joinBtn) {
     joinBtn.addEventListener('click', function () {
       var msg = "I'm praying too—todaysdailybattle.com";
@@ -2275,7 +2533,7 @@ function wireSilentOffering() {
   var btn = document.getElementById('silent-offering-btn');
   if (!btn) return;
   btn.addEventListener('click', function () {
-    var payload = { intent: 'Someone offered silence.', session_id: getPrayerSessionId() };
+    var payload = { intent: 'A household offered silence.', session_id: getPrayerSessionId() };
     var fn = getFamilyName();
     if (fn) payload.family_name = fn;
     if (navigator.onLine && supabaseClient) {
@@ -2290,7 +2548,7 @@ function wireSilentOffering() {
       });
     } else {
       var q = getPrayerOfflineQueue();
-      q.push({ intent: 'Someone offered silence.' });
+      q.push({ intent: 'A household offered silence.' });
       setPrayerOfflineQueue(q);
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
       if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
@@ -7808,12 +8066,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   wireAnalyticsBeacon();
   wireOfflineBanner();
-  wirePrayerCounter();
+  (function () {
+    var p = ensurePrayersApiProbed();
+    p.then(function (available) {
+      if (available !== true || !supabaseClient) return;
+      wirePrayerCounter();
+      wireDailyVerseEcho();
+      wireGodModePrayerEcho();
+    });
+  })();
   wireFloatingVoicePray();
   wireCallGodBtn();
+  wireSilentAmen();
+  wireNightClose();
   wireIntentModal();
   wirePrayerMap();
-  wireGodModePrayerEcho();
   wireCollectiveIntention();
   wireFooterRotating();
   wireSoundEchoToggle();
@@ -9380,7 +9647,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupColoringCanvas();
   const storySelect = document.getElementById('story-select');
   if (storySelect) {
-    loadStoryIntoCanvas(getStoryById(storySelect.value));
+    var storyParam = (typeof URLSearchParams !== 'undefined' && window.location.search) ? new URLSearchParams(window.location.search).get('story') : null;
+    var storyToLoad = storyParam && coloringStories.some(function (s) { return s.id === storyParam; })
+      ? getStoryById(storyParam)
+      : getStoryById(storySelect.value);
+    if (storyParam && coloringStories.some(function (s) { return s.id === storyParam; })) storySelect.value = storyParam;
+    loadStoryIntoCanvas(storyToLoad);
   }
   renderFeaturedChurches();
   const sermonDateInput = document.getElementById('sermon-date-input');

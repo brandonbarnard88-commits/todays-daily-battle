@@ -6616,9 +6616,39 @@ function applyRoleAccess() {
     }
   });
 
-  const navLinks = document.querySelectorAll('.site-nav [data-section]');
+  const showPro = typeof isProOrSupporter === 'function' && isProOrSupporter();
+  const showChurch = subscriptionTier === 'church_team' || isMasterUser;
+
+  const navLinks = document.querySelectorAll('.side-nav a[data-section], .site-nav a[data-section]');
   navLinks.forEach(link => {
-    link.style.display = 'inline-flex';
+    const section = link.getAttribute('data-section');
+    if (section === 'wins-report') {
+      link.style.display = (showPro || isMasterUser) ? 'inline-flex' : 'none';
+    } else if (section === 'sermon-builder' || section === 'pastor-toolkit' || section === 'team-toolkit') {
+      link.style.display = showChurch ? 'inline-flex' : 'none';
+    } else {
+      link.style.display = 'inline-flex';
+    }
+  });
+
+  document.querySelectorAll('.header-nav a[href="wins-report.html"]').forEach(function (a) {
+    a.style.display = (showPro || isMasterUser) ? '' : 'none';
+  });
+  document.querySelectorAll('.header-nav a[href="sermon.html"]').forEach(function (a) {
+    a.style.display = showChurch ? '' : 'none';
+  });
+
+  document.querySelectorAll('.quick-links a[href="sermon.html"]').forEach(function (a) {
+    a.style.display = showChurch ? '' : 'none';
+  });
+  document.querySelectorAll('.quick-links a[href="wins-report.html"]').forEach(function (a) {
+    a.style.display = (showPro || isMasterUser) ? '' : 'none';
+  });
+  document.querySelectorAll('.quick-links a[href="pastor-toolkit.html"]').forEach(function (a) {
+    a.style.display = showChurch ? '' : 'none';
+  });
+  document.querySelectorAll('.quick-links a[href="team-toolkit.html"]').forEach(function (a) {
+    a.style.display = showChurch ? '' : 'none';
   });
 }
 
@@ -8738,6 +8768,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   } else {
     updateAuthUI(null);
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
+    applyRoleAccess();
   }
 
   function isOnAdminPage() {
@@ -8781,6 +8812,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateAuthUI(null);
       setView('search');
       scheduleAdminPanel();
+      applyRoleAccess();
       if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     }
     });

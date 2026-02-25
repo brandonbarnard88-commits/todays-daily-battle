@@ -639,7 +639,7 @@ body.light .header-family-btn:hover { color: #7c3aed; background: rgba(124, 58, 
 
 .hero-banner .hero-sub {
   margin: 0.5rem auto 0;
-  font-size: 1.35rem;
+  font-size: 1.65rem;
   font-weight: 600;
   color: var(--elite-gold, var(--accent));
   letter-spacing: 0.04em;
@@ -3922,7 +3922,7 @@ body.red-letter-off .red-letter-card {
   .hero-banner h1 { font-size: clamp(2rem, 6vw, 2.75rem); }
   .hero-banner p,
   .hero-banner .hero-tagline { font-size: 1.2rem; }
-  .hero-banner .hero-sub { font-size: 1.25rem; }
+  .hero-banner .hero-sub { font-size: 1.5rem; }
   .hero-banner .hero-email-cta { font-size: 1.05rem; }
   .hero-banner .hero-tagline { margin-bottom: 0.6rem; }
   .hero-banner .hero-cta {
@@ -4475,7 +4475,7 @@ body.red-letter-off .red-letter-card {
   .list .list-item { padding: 0.75rem 0; margin-bottom: 0.75rem; }
   .hero-banner { padding: 1rem 1.25rem; gap: 0.75rem; }
   .hero-banner h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
-  .hero-banner .hero-sub { font-size: 1.1rem; }
+  .hero-banner .hero-sub { font-size: 1.35rem; }
   .hero-banner .hero-tagline-gold { font-size: 1.2rem; margin: 1rem 0; }
   .streak-badge { font-size: 0.9rem; margin-top: 0.35rem; }
   #daily-verse-email-nudge input,
@@ -4560,7 +4560,6 @@ body.red-letter-off .red-letter-card {
   border-radius: 8px;
   overflow: hidden;
   background: linear-gradient(135deg, #1c1917 0%, #292524 50%, #1c1917 100%);
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Map_of_the_world_%281689%29._British_Library_Add_MS_21184.jpg/1200px-Map_of_the_world_%281689%29._British_Library_Add_MS_21184.jpg');
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(234, 179, 8, 0.35);

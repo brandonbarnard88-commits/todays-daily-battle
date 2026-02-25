@@ -1329,6 +1329,8 @@ const SUPPORTER_WAITLIST_KEY = 'supporterWaitlist';
 // Stripe Payment Link URLs (or set in config.js as TDB_CONFIG.STRIPE_*). Leave empty to show "Notify me" + waitlist.
 const STRIPE_SUPPORTER_MONTHLY_URL = (_cfg && (_cfg.STRIPE_SUPPORTER_MONTHLY_URL || _cfg.STRIPE_SUPPORTER_MONTHLY_LINK)) || (_cfg && _cfg.STRIPE_SUPPORTER_LINK) || '';
 const STRIPE_SUPPORTER_YEARLY_URL = (_cfg && (_cfg.STRIPE_SUPPORTER_YEARLY_URL || _cfg.STRIPE_SUPPORTER_YEARLY_LINK)) || '';
+const STRIPE_BATTLEPRO_MONTHLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MONTHLY_URL || _cfg.STRIPE_BATTLEPRO_MONTHLY_LINK)) || '';
+const STRIPE_BATTLEPRO_YEARLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_YEARLY_URL || _cfg.STRIPE_BATTLEPRO_YEARLY_LINK)) || '';
 const STRIPE_CHURCH_MONTHLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_MONTHLY_URL || _cfg.STRIPE_CHURCH_MONTHLY_LINK)) || (_cfg && _cfg.STRIPE_CHURCH_LINK) || '';
 const STRIPE_CHURCH_YEARLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_YEARLY_URL || _cfg.STRIPE_CHURCH_YEARLY_LINK)) || '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
@@ -2243,6 +2245,8 @@ function wireBattleProUpgradeModal() {
       var url = '';
       if (plan === 'supporter' && interval === 'monthly') url = typeof STRIPE_SUPPORTER_MONTHLY_URL !== 'undefined' ? STRIPE_SUPPORTER_MONTHLY_URL : '';
       else if (plan === 'supporter' && interval === 'yearly') url = typeof STRIPE_SUPPORTER_YEARLY_URL !== 'undefined' ? STRIPE_SUPPORTER_YEARLY_URL : '';
+      else if (plan === 'battlepro' && interval === 'monthly') url = typeof STRIPE_BATTLEPRO_MONTHLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_MONTHLY_URL : '';
+      else if (plan === 'battlepro' && interval === 'yearly') url = typeof STRIPE_BATTLEPRO_YEARLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_YEARLY_URL : '';
       else if (plan === 'church' && interval === 'monthly') url = typeof STRIPE_CHURCH_MONTHLY_URL !== 'undefined' ? STRIPE_CHURCH_MONTHLY_URL : '';
       else if (plan === 'church' && interval === 'yearly') url = typeof STRIPE_CHURCH_YEARLY_URL !== 'undefined' ? STRIPE_CHURCH_YEARLY_URL : '';
       if (url) window.location.href = url;

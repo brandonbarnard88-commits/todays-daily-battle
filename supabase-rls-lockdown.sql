@@ -1,14 +1,29 @@
 -- =============================================================================
 -- Supabase RLS Lockdown: only authenticated users read/write their own data.
--- No anon access. Run in Supabase SQL Editor (or via migration).
--- Tables: daily_battles, messages, message_reports, newsletter_signups, saved_*
+-- No anon read on any table. Run in Supabase SQL Editor (or via migration).
+-- Tables: daily_battles, messages, message_reports, newsletter_signups, prayers
 --
 -- After running: test with anon key → SELECT from any table → must return [] or deny.
--- Default is DENY when RLS is enabled; these policies are explicit ALLOW for authenticated only.
 -- =============================================================================
 
 -- -----------------------------------------------------------------------------
--- 0. Drop any existing policies that might allow anon (run first)
+-- 0. Revoke anon grants (explicit revoke so anon cannot read)
+-- -----------------------------------------------------------------------------
+REVOKE ALL ON public.daily_battles FROM anon;
+REVOKE ALL ON public.messages FROM anon;
+REVOKE ALL ON public.message_reports FROM anon;
+REVOKE ALL ON public.newsletter_signups FROM anon;
+REVOKE ALL ON public.prayers FROM anon;
+
+-- Re-grant only what authenticated needs (RLS policies will further restrict)
+GRANT SELECT ON public.daily_battles TO authenticated;
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.messages TO authenticated;
+GRANT SELECT, INSERT ON public.message_reports TO authenticated;
+GRANT SELECT, INSERT, UPDATE ON public.newsletter_signups TO authenticated;
+GRANT SELECT, INSERT, UPDATE ON public.prayers TO authenticated;
+
+-- -----------------------------------------------------------------------------
+-- 0b. Drop any existing policies that might allow anon (run first)
 -- -----------------------------------------------------------------------------
 DO $$
 DECLARE
@@ -18,7 +33,7 @@ BEGIN
     SELECT schemaname, tablename, policyname
     FROM pg_policies
     WHERE schemaname = 'public'
-      AND tablename IN ('daily_battles', 'messages', 'message_reports', 'newsletter_signups')
+      AND tablename IN ('daily_battles', 'messages', 'message_reports', 'newsletter_signups', 'prayers')
   ) LOOP
     EXECUTE format('DROP POLICY IF EXISTS %I ON %I.%I', r.policyname, r.schemaname, r.tablename);
   END LOOP;
@@ -133,7 +148,49 @@ CREATE POLICY "newsletter_signups_update_own"
   WITH CHECK (email = (SELECT email FROM auth.users WHERE id = auth.uid()));
 
 -- -----------------------------------------------------------------------------
--- 5. saved_verses (user_id = owner) — UNCOMMENT when table exists
+-- 5. prayers (anon cannot read rows; anon can insert for quick-pray; counts via RPC only)
+-- -----------------------------------------------------------------------------
+ALTER TABLE public.prayers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.prayers FORCE ROW LEVEL SECURITY;
+
+-- No anon SELECT: table data hidden from anon. Counts exposed only via get_total_prayer_count / get_prayer_presence_count (SECURITY DEFINER).
+CREATE POLICY "prayers_select_authenticated"
+  ON public.prayers
+  FOR SELECT
+  TO authenticated
+  USING (true);
+
+-- Anon can insert (quick-pray without login); authenticated can insert/update
+CREATE POLICY "prayers_insert_anon"
+  ON public.prayers
+  FOR INSERT
+  TO anon
+  WITH CHECK (true);
+
+CREATE POLICY "prayers_insert_authenticated"
+  ON public.prayers
+  FOR INSERT
+  TO authenticated
+  WITH CHECK (true);
+
+CREATE POLICY "prayers_update_authenticated"
+  ON public.prayers
+  FOR UPDATE
+  TO authenticated
+  USING (true)
+  WITH CHECK (true);
+
+-- RPCs remain callable by anon (they return only aggregate counts, no row data)
+GRANT EXECUTE ON FUNCTION public.get_prayer_presence_count() TO anon;
+GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO anon;
+GRANT EXECUTE ON FUNCTION public.get_prayer_presence_count() TO authenticated;
+GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO authenticated;
+
+-- Re-grant anon only INSERT on prayers (so quick-pray works without login)
+GRANT INSERT ON public.prayers TO anon;
+
+-- -----------------------------------------------------------------------------
+-- 6. saved_verses (user_id = owner) — UNCOMMENT when table exists
 -- -----------------------------------------------------------------------------
 -- ALTER TABLE public.saved_verses ENABLE ROW LEVEL SECURITY;
 -- CREATE POLICY "saved_verses_select_own" ON public.saved_verses FOR SELECT TO authenticated USING (user_id = auth.uid());

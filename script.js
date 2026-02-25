@@ -3029,7 +3029,7 @@ function wireSilentOffering() {
 function wireNightDawnOverlays() {
   var hour = new Date().getHours();
   var dateKey = getDailyKey();
-  var nightEl = document.getElementById('night-close-overlay');
+  var nightEl = document.getElementById('night-falls-overlay');
   var dawnEl = document.getElementById('dawn-overlay');
   if (hour >= 22 && nightEl) {
     try {
@@ -5526,6 +5526,20 @@ function sanitizeHtml(str) {
   return escapeHtml(str);
 }
 
+/** Open a new window with HTML content and trigger print. Replaces document.write for security. */
+function openPrintWindow(html) {
+  var win = window.open('', '_blank');
+  if (!win) return null;
+  var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  var url = URL.createObjectURL(blob);
+  win.location.href = url;
+  win.onload = function () {
+    win.print();
+    URL.revokeObjectURL(url);
+  };
+  return win;
+}
+
 function shuffleArray(arr) {
   if (!arr || arr.length < 2) return;
   for (let i = arr.length - 1; i > 0; i--) {
@@ -7424,8 +7438,6 @@ function downloadCollectionPdf(collectionId) {
     return;
   }
   const { collection, items } = payload;
-  const win = window.open('', '_blank');
-  if (!win) return;
   const rows = items.map(item => (
     `<div class="verse"><strong>${escapeHtml(item.ref)}</strong><p>${escapeHtml(item.text)}</p></div>`
   )).join('');
@@ -7446,10 +7458,7 @@ function downloadCollectionPdf(collectionId) {
       </body>
     </html>
   `;
-  win.document.write(html);
-  win.document.close();
-  win.focus();
-  win.print();
+  openPrintWindow(html);
 }
 
 function bulkExportAllToPdf() {
@@ -7469,8 +7478,6 @@ function bulkExportAllToPdf() {
     alert('No saved verses or notes to export. Save some verses or notes first.');
     return;
   }
-  const win = window.open('', '_blank');
-  if (!win) return;
   const html = `
     <html>
       <head>
@@ -7490,10 +7497,7 @@ function bulkExportAllToPdf() {
       </body>
     </html>
   `;
-  win.document.write(html);
-  win.document.close();
-  win.focus();
-  win.print();
+  openPrintWindow(html);
 }
 
 function buildCollectionShareText(payload, link) {
@@ -9189,29 +9193,39 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
   } catch (e) {}
-  const darkToggle = document.getElementById('dark-toggle');
-  if (darkToggle && document.body.classList.contains('light')) {
-    darkToggle.innerHTML = '<span aria-hidden="true">🌙</span> Dark mode';
-    darkToggle.setAttribute('aria-label', 'Switch to dark mode');
+  var darkToggles = document.querySelectorAll('#dark-toggle, #dark-toggle-search');
+  function updateDarkToggleLabels(isLight) {
+    darkToggles.forEach(function (el) {
+      if (!el) return;
+      if (isLight) {
+        el.innerHTML = '<span aria-hidden="true">🌙</span> Dark mode';
+        el.setAttribute('aria-label', 'Switch to dark mode');
+      } else {
+        el.innerHTML = '<span aria-hidden="true">☀️</span> Light mode';
+        el.setAttribute('aria-label', 'Switch to light mode');
+      }
+    });
   }
-  if (darkToggle) {
+  if (darkToggles.length && document.body.classList.contains('light')) {
+    updateDarkToggleLabels(true);
+  }
+  darkToggles.forEach(function (darkToggle) {
+    if (!darkToggle) return;
     darkToggle.addEventListener('click', function () {
       var isLight = document.body.classList.contains('light');
       if (isLight) {
         document.body.classList.remove('light');
         document.body.classList.add('dark-mode');
-        darkToggle.innerHTML = '<span aria-hidden="true">☀️</span> Light mode';
-        darkToggle.setAttribute('aria-label', 'Switch to light mode');
+        updateDarkToggleLabels(false);
         try { localStorage.setItem(themeKey, 'dark'); } catch (e) {}
       } else {
         document.body.classList.remove('dark-mode');
         document.body.classList.add('light');
-        darkToggle.innerHTML = '<span aria-hidden="true">🌙</span> Dark mode';
-        darkToggle.setAttribute('aria-label', 'Switch to dark mode');
+        updateDarkToggleLabels(true);
         try { localStorage.setItem(themeKey, 'light'); } catch (e) {}
       }
     });
-  }
+  });
 
   var dailyVerseEmailSubmit = document.getElementById('daily-verse-email-submit');
   var dailyVerseEmailInput = document.getElementById('daily-verse-email');
@@ -10436,12 +10450,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           </body>
         </html>
       `;
-      const win = window.open('', '_blank');
-      if (!win) return;
-      win.document.write(html);
-      win.document.close();
-      win.focus();
-      win.print();
+      openPrintWindow(html);
     });
   }
 
@@ -11259,12 +11268,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       const canvas = document.getElementById('coloring-canvas');
       if (!canvas) return;
       const dataUrl = canvas.toDataURL('image/png');
-      const win = window.open('', '_blank');
-      if (!win) return;
-      win.document.write(`<html><head><title>Print Coloring</title></head><body style="margin:0;padding:20px;text-align:center;"><img src="${dataUrl}" style="max-width:100%;height:auto;" /></body></html>`);
-      win.document.close();
-      win.focus();
-      win.print();
+      const html = '<html><head><title>Print Coloring</title></head><body style="margin:0;padding:20px;text-align:center;"><img src="' + dataUrl + '" style="max-width:100%;height:auto;" /></body></html>';
+      openPrintWindow(html);
     });
   }
 

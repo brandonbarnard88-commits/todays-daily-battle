@@ -13,3 +13,5 @@
 /topic-parenting/   /topic-parenting.html    200
 /topic-strength    /topic-strength.html    200
 /topic-strength/   /topic-strength.html    200
+# Block package.json from public (security)
+/package.json  /404.html  404

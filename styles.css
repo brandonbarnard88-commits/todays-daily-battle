@@ -60,6 +60,7 @@
 html {
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
+  font-size: 20px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -139,7 +140,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-ui);
-  font-size: 18px;
+  font-size: 1rem;
   background: var(--color-bg);
   color: var(--color-text);
   transition: background 0.4s, color 0.4s;

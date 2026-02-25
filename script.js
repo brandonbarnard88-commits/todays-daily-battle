@@ -1003,7 +1003,7 @@ var _supabaseFetchLogged;
 var _prayerRequestInFlight = false;
 function _isPrayerRequestUrl(u) {
   if (!u || typeof u !== 'string') return false;
-  return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1;
+  return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1 || u.indexOf('get_total_prayer_count') !== -1;
 }
 function supabaseFetch(url, options) {
   var base = (typeof _cfg !== 'undefined' && _cfg && _cfg.SUPABASE_URL) ? String(_cfg.SUPABASE_URL).replace(/\/$/, '') : '';
@@ -1774,27 +1774,36 @@ function wireRealPrayerCounter() {
   if (!el) return;
   function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
   var FETCH_TIMEOUT_MS = 8000;
+  var tick = 0;
   async function fetchPrayerCount() {
+    tick += 1;
+    if (tick % 6 === 0) window.__tdb_prayers_404 = false;
     if (!supabaseClient) {
       el.textContent = '—';
       return;
     }
-    if (!isPrayersApiAvailable()) {
-      el.textContent = '—';
-      return;
-    }
     try {
+      var res = await Promise.race([
+        supabaseClient.rpc('get_total_prayer_count'),
+        new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS); })
+      ]);
+      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; return; }
+      if (res && !res.error && res.data != null && typeof res.data === 'number' && !isNaN(res.data)) {
+        el.textContent = formatCount(res.data);
+        return;
+      }
       var req = supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
       var timeout = new Promise(function (_, reject) {
         setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
       });
-      var res = await Promise.race([req, timeout]);
-      if (res && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; return; }
-      if (res && res.error) {
+      var restRes = await Promise.race([req, timeout]);
+      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '—'; return; }
+      if (restRes && restRes.error) {
         el.textContent = '—';
         return;
       }
-      if (res && res.count != null) el.textContent = formatCount(res.count);
+      if (restRes && restRes.count != null) el.textContent = formatCount(restRes.count);
+      else if (restRes && Array.isArray(restRes.data)) el.textContent = formatCount(restRes.data.length);
       else el.textContent = '—';
     } catch (e) {
       setPrayersApiUnavailable();
@@ -1802,10 +1811,6 @@ function wireRealPrayerCounter() {
     }
   }
   window.__fetchPrayerCount = fetchPrayerCount;
-  if (!isPrayersApiAvailable()) {
-    el.textContent = '—';
-    return;
-  }
   fetchPrayerCount();
   setInterval(fetchPrayerCount, 10000);
 }
@@ -8524,11 +8529,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   (function () {
     var p = ensurePrayersApiProbed();
     p.then(function (available) {
-      if (available !== true || !supabaseClient) return;
-      wirePrayerCounter();
-      wireDailyVerseEcho();
-      wireGodModePrayerEcho();
+      if (available === true && supabaseClient) {
+        wireDailyVerseEcho();
+        wireGodModePrayerEcho();
+      }
     });
+    wirePrayerCounter();
   })();
   wireFloatingVoicePray();
   wireCallGodBtn();

@@ -30,6 +30,17 @@ AS $$
     AND session_id IS NOT NULL;
 $$;
 
+-- 3b. RPC: total prayers ever (all rows, for the "Total prayers" counter)
+CREATE OR REPLACE FUNCTION public.get_total_prayer_count()
+RETURNS integer
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT count(*)::integer FROM public.prayers;
+$$;
+
 -- 4. RLS: allow anon to read (echo), insert (quick pray), update (amen_count only)
 ALTER TABLE public.prayers ENABLE ROW LEVEL SECURITY;
 
@@ -46,9 +57,11 @@ CREATE POLICY "prayers_anon_update_amen" ON public.prayers
   FOR UPDATE USING (true)
   WITH CHECK (true);
 
--- 5. Grant RPC to anon (so frontend can call get_prayer_presence_count)
+-- 5. Grant RPCs to anon (so frontend can call get_prayer_presence_count and get_total_prayer_count)
 GRANT EXECUTE ON FUNCTION public.get_prayer_presence_count() TO anon;
 GRANT EXECUTE ON FUNCTION public.get_prayer_presence_count() TO authenticated;
+GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO anon;
+GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO authenticated;
 
 -- 6. Grant table access
 GRANT SELECT, INSERT, UPDATE ON public.prayers TO anon;

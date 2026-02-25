@@ -33,7 +33,7 @@
     var prayerRequestInFlight = false;
     function isPrayerUrl(u){
       if (!u || typeof u !== 'string') return false;
-      return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1;
+      return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1 || u.indexOf('get_total_prayer_count') !== -1;
     }
     window.fetch = function(input, init){
       var url = typeof input === 'string' ? input : (input && input.url) || '';
@@ -578,12 +578,13 @@
       <div class="modal-inner glass battle-pro-upgrade-inner">
         <button type="button" class="intent-modal-close" id="battle-pro-upgrade-close" aria-label="Dismiss">×</button>
         <h2 id="battle-pro-upgrade-title" class="section-divider">Upgrade</h2>
-        <p class="section-note">Beta discount — 50% off. Lock in this rate; regular price after launch.</p>
+        <p class="section-note">Beta pricing on all paid plans. Lock in this rate; regular price after launch.</p>
         <div class="battle-pro-upgrade-grid">
           <div class="battle-pro-upgrade-card">
             <h3 class="battle-pro-upgrade-card-title">Supporter</h3>
             <p class="battle-pro-upgrade-price">$5<span class="battle-pro-upgrade-period">/mo</span> or $50<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
             <p class="section-note pricing-strike" style="margin-top: 0.15rem;">Regular $10/mo · $100/yr</p>
+            <p class="section-note" style="margin-top: 0.15rem; margin-bottom: 0.35rem;">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Sync across devices</li>
               <li>Daily Battle Plan emails</li>
@@ -599,7 +600,8 @@
           </div>
           <div class="battle-pro-upgrade-card highlight-card">
             <h3 class="battle-pro-upgrade-card-title">Battle Pro</h3>
-            <p class="battle-pro-upgrade-price">$10<span class="battle-pro-upgrade-period">/mo</span> or $100<span class="battle-pro-upgrade-period">/yr</span></p>
+            <p class="battle-pro-upgrade-price">$10<span class="battle-pro-upgrade-period">/mo</span> or $100<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
+            <p class="section-note" style="margin-top: 0.15rem; margin-bottom: 0.35rem;">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Everything in Supporter</li>
               <li><strong>Wins Report</strong> (streak graphics, share)</li>
@@ -609,14 +611,15 @@
               <li>Priority echo visibility</li>
             </ul>
             <div class="cta-group battle-pro-upgrade-cta">
-              <button type="button" class="btn btn-primary battle-pro-choose" data-plan="battlepro" data-interval="monthly" aria-label="Choose Battle Pro monthly">$10/mo</button>
-              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="battlepro" data-interval="yearly" aria-label="Choose Battle Pro yearly">$100/yr</button>
+              <button type="button" class="btn btn-primary battle-pro-choose" data-plan="battlepro" data-interval="monthly" aria-label="Choose Battle Pro monthly">$10/mo (beta)</button>
+              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="battlepro" data-interval="yearly" aria-label="Choose Battle Pro yearly">$100/yr (beta)</button>
             </div>
           </div>
           <div class="battle-pro-upgrade-card battle-pro-upgrade-card-church">
             <h3 class="battle-pro-upgrade-card-title">Church / Team</h3>
             <p class="battle-pro-upgrade-price">$10<span class="battle-pro-upgrade-period">/mo</span> or $100<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
             <p class="section-note pricing-strike" style="margin-top: 0.15rem;">Regular $20/mo · $200/yr</p>
+            <p class="section-note" style="margin-top: 0.15rem; margin-bottom: 0.35rem;">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Everything in Battle Pro</li>
               <li>Team streaks (shared tracking)</li>

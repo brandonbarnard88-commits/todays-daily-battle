@@ -50,7 +50,7 @@ const rootFiles = [
   '_redirects',
   '_headers',
   'kjv.json',
-  'bell.mp3'
+  // 'bell.mp3' – add to project root if you want a custom bell; otherwise Web Audio beep is used
 ];
 
 // All HTML in root (includes index.html, topic-anxiety.html, topic-*.html, etc.)

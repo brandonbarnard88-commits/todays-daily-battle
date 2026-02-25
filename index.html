@@ -290,7 +290,21 @@
         <div id="prayer-map-widget" class="glass prayer-map-widget" role="region" aria-label="Prayers from around the world">
           <h3 class="section-divider">Prayers from around the world</h3>
           <p class="section-note prayer-map-caption">Gold crosses mark where households have prayed. Hover or tap for intention.</p>
-          <div id="prayer-map-dots" class="prayer-map-dots"></div>
+          <div id="prayer-map-dots" class="prayer-map-dots">
+            <svg class="prayer-map-svg" viewBox="0 0 495 266" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="prayer-map-glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <g id="prayer-markers" pointer-events="auto"></g>
+            </svg>
+            <div id="map-tooltip" class="map-tooltip" role="tooltip" aria-hidden="true"></div>
+          </div>
         </div>
         <div id="daily-verse-email-nudge" class="glass" style="margin-top:0.75rem;">
           <p class="section-note">Get tomorrow's verse emailed?</p>

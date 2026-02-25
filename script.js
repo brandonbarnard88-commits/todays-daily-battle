@@ -2264,45 +2264,85 @@ function wireDownloadDevotionalButton() {
   });
 }
 
+function latLngToSvgPoint(lat, lng, viewBoxWidth, viewBoxHeight) {
+  viewBoxWidth = viewBoxWidth || 495;
+  viewBoxHeight = viewBoxHeight || 266;
+  var x = (lng + 180) * (viewBoxWidth / 360);
+  var y = (90 - lat) * (viewBoxHeight / 180);
+  return { x: x, y: y };
+}
+
 function wirePrayerMap() {
   var container = document.getElementById('prayer-map-dots');
-  if (!container) return;
-  var places = [
-    { name: 'New York', x: 25, y: 45, intent: 'peace' },
-    { name: 'Tokyo', x: 82, y: 38, intent: 'healing' },
-    { name: 'London', x: 48, y: 32, intent: 'hope' },
-    { name: 'Lagos', x: 50, y: 58, intent: 'strength' },
-    { name: 'Sydney', x: 88, y: 72, intent: 'peace' },
-    { name: 'S\u00E3o Paulo', x: 32, y: 68, intent: 'family' },
-    { name: 'Mumbai', x: 68, y: 48, intent: 'healing' },
-    { name: 'Cairo', x: 55, y: 45, intent: 'peace' }
+  var markersGroup = document.getElementById('prayer-markers');
+  if (!container || !markersGroup) return;
+  var prayerLocations = [
+    { lat: 32.43, lng: -90.13, name: 'Ridgeland, MS', intent: 'peace', isYou: true },
+    { lat: 40.71, lng: -74.01, name: 'New York', intent: 'peace' },
+    { lat: 35.68, lng: 139.65, name: 'Tokyo', intent: 'healing' },
+    { lat: 51.51, lng: -0.13, name: 'London', intent: 'hope' },
+    { lat: 6.45, lng: 3.4, name: 'Lagos', intent: 'strength' },
+    { lat: -33.87, lng: 151.21, name: 'Sydney', intent: 'peace' },
+    { lat: -23.55, lng: -46.63, name: 'S\u00E3o Paulo', intent: 'family' },
+    { lat: 19.08, lng: 72.88, name: 'Mumbai', intent: 'healing' },
+    { lat: 30.04, lng: 31.24, name: 'Cairo', intent: 'peace' }
   ];
+  var tooltipEl = document.getElementById('map-tooltip');
   function render() {
-    container.innerHTML = '';
+    markersGroup.innerHTML = '';
     var now = Date.now();
     var justPrayed = 0;
     try { justPrayed = parseInt(sessionStorage.getItem('tdb_just_prayed') || '0', 10); } catch (e) {}
     var showYou = justPrayed && (now - justPrayed) < 10000;
-    places.forEach(function (p) {
-      var dot = document.createElement('span');
-      dot.className = 'prayer-map-dot';
-      dot.style.left = p.x + '%';
-      dot.style.top = p.y + '%';
-      dot.textContent = '\u271D';
-      dot.title = p.intent ? 'A household prayed here for ' + p.intent : 'A household in ' + p.name + ' prayed for peace';
-      dot.setAttribute('aria-label', dot.title);
-      container.appendChild(dot);
+    var svgNS = 'http://www.w3.org/2000/svg';
+    prayerLocations.forEach(function (loc) {
+      var isYou = loc.isYou && showYou;
+      var pt = latLngToSvgPoint(loc.lat, loc.lng);
+      var label = isYou ? 'You just prayed here!' : (loc.name + ' – A household prayed for ' + (loc.intent || 'peace'));
+      var g = document.createElementNS(svgNS, 'g');
+      g.setAttribute('class', 'prayer-marker' + (isYou ? ' you-dot' : ''));
+      g.setAttribute('data-label', label);
+      g.setAttribute('transform', 'translate(' + pt.x + ',' + pt.y + ')');
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      g.setAttribute('aria-label', label);
+      var text = document.createElementNS(svgNS, 'text');
+      text.setAttribute('x', '0');
+      text.setAttribute('y', '0');
+      text.setAttribute('font-size', '16');
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('dominant-baseline', 'middle');
+      text.setAttribute('fill', isYou ? '#4ade80' : '#eab308');
+      text.setAttribute('filter', 'url(#prayer-map-glow)');
+      text.textContent = isYou ? '\u25CF' : '\u271D';
+      text.setAttribute('pointer-events', 'none');
+      g.appendChild(text);
+      g.addEventListener('mouseenter', function (e) {
+        if (tooltipEl) {
+          tooltipEl.textContent = g.getAttribute('data-label') || 'Household prayed';
+          tooltipEl.style.display = 'block';
+          tooltipEl.setAttribute('aria-hidden', 'false');
+          tooltipEl.style.left = (e.clientX + 10) + 'px';
+          tooltipEl.style.top = (e.clientY + 10) + 'px';
+        }
+      });
+      g.addEventListener('mouseleave', function () {
+        if (tooltipEl) {
+          tooltipEl.style.display = 'none';
+          tooltipEl.setAttribute('aria-hidden', 'true');
+        }
+      });
+      g.addEventListener('mousemove', function (e) {
+        if (tooltipEl && tooltipEl.style.display === 'block') {
+          tooltipEl.style.left = (e.clientX + 10) + 'px';
+          tooltipEl.style.top = (e.clientY + 10) + 'px';
+        }
+      });
+      g.addEventListener('click', function () {
+        if (typeof showEliteToast === 'function') showEliteToast(g.getAttribute('data-label'));
+      });
+      markersGroup.appendChild(g);
     });
-    if (showYou) {
-      var you = document.createElement('span');
-      you.className = 'prayer-map-dot you-dot';
-      you.style.left = '50%';
-      you.style.top = '50%';
-      you.textContent = '\u271D';
-      you.title = 'You just prayed!';
-      you.setAttribute('aria-label', 'You just prayed!');
-      container.appendChild(you);
-    }
   }
   render();
   setInterval(render, 2000);
@@ -2431,23 +2471,19 @@ function wireGodModePrayerEcho() {
       if (localStorage.getItem(SACRED_SILENCE_KEY) === 'true') return;
       var enabled = localStorage.getItem(GOD_MODE_SOUND_ENABLED_KEY) === 'true';
       if (!enabled) return;
-      var a = new Audio('bell.mp3');
-      a.volume = 0.3;
-      a.play().catch(function () {
-        try {
-          var ctx = new (window.AudioContext || window.webkitAudioContext)();
-          var osc = ctx.createOscillator();
-          var g = ctx.createGain();
-          osc.connect(g);
-          g.connect(ctx.destination);
-          osc.frequency.value = 880;
-          osc.type = 'sine';
-          g.gain.setValueAtTime(0.15, ctx.currentTime);
-          g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-          osc.start(ctx.currentTime);
-          osc.stop(ctx.currentTime + 0.2);
-        } catch (e2) {}
-      });
+      try {
+        var ctx = new (window.AudioContext || window.webkitAudioContext)();
+        var osc = ctx.createOscillator();
+        var g = ctx.createGain();
+        osc.connect(g);
+        g.connect(ctx.destination);
+        osc.frequency.value = 880;
+        osc.type = 'sine';
+        g.gain.setValueAtTime(0.15, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.2);
+      } catch (e2) {}
     } catch (e) {}
   }
   async function fetchPresence() {

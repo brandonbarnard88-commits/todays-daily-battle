@@ -4724,23 +4724,25 @@ async function runAdminHealthChecks() {
 }
 
 async function loadMessages() {
+  let data = [];
   if (isSupabaseConfigured() && currentUserId) {
-    const { data, error } = await supabaseClient
+    const res = await supabaseClient
       .from('messages')
       .select('id, user_id, text, created_at, hidden, display_name')
       .order('created_at', { ascending: false })
       .limit(50);
-    if (!error && Array.isArray(data)) return data;
-    if (error) {
+    if (!res.error && Array.isArray(res.data)) data = res.data;
+    else if (res.error) {
       const fallback = await supabaseClient
         .from('messages')
         .select('id, user_id, text, created_at, hidden')
         .order('created_at', { ascending: false })
         .limit(50);
-      if (!fallback.error && Array.isArray(fallback.data)) return fallback.data;
+      if (!fallback.error && Array.isArray(fallback.data)) data = fallback.data;
     }
   }
-  return loadMessagesLocal();
+  if (!data.length) data = loadMessagesLocal();
+  return Array.isArray(data) ? data.map(item => item && typeof item === 'object' ? item : null).filter(Boolean) : [];
 }
 
 async function postMessage(text) {
@@ -4811,10 +4813,11 @@ function renderMessages(items, previewLimit) {
   const seeMoreBtn = document.getElementById('message-see-more');
   if (!list) return;
   list.innerHTML = '';
+  if (!Array.isArray(items)) items = [];
   lastMessageItems = items;
-  const visible = items.filter(item => !item.hidden);
+  const visible = items.filter(item => item && typeof item === 'object' && !item.hidden);
   if (!visible.length) {
-    list.innerHTML = '<p class="empty">No messages yet. Be the first to encourage someone.</p>';
+    list.innerHTML = '<p class="empty">No messages yet—be the first to share a win or encouragement.</p>';
     if (seeMoreBtn) seeMoreBtn.style.display = 'none';
     return;
   }
@@ -4823,10 +4826,10 @@ function renderMessages(items, previewLimit) {
   const sortValue = document.getElementById('message-sort')?.value || 'newest';
   const sorted = [...visible].sort((a, b) => {
     if (sortValue === 'popular') {
-      return (amenCounts[b.id] || 0) - (amenCounts[a.id] || 0);
+      return (amenCounts[b?.id] || 0) - (amenCounts[a?.id] || 0);
     }
-    const aTime = new Date(a.created_at || 0).getTime();
-    const bTime = new Date(b.created_at || 0).getTime();
+    const aTime = new Date(a?.created_at || 0).getTime();
+    const bTime = new Date(b?.created_at || 0).getTime();
     return sortValue === 'oldest' ? aTime - bTime : bTime - aTime;
   });
   const limit = typeof previewLimit === 'number' && previewLimit > 0 ? previewLimit : sorted.length;
@@ -4834,26 +4837,31 @@ function renderMessages(items, previewLimit) {
   const pinned = buildPinnedEncouragementItem();
   if (pinned) list.appendChild(pinned);
   toRender.forEach(item => {
+    if (!item || typeof item !== 'object') return;
+    const text = item.text ?? item.message ?? item.body ?? '';
+    const displayName = item.display_name ?? item.user?.displayName ?? (item.user_id ? nameMap[item.user_id] : null) ?? 'Member';
     const row = document.createElement('div');
     row.className = 'list-item';
     const div = document.createElement('div');
     const strong = document.createElement('strong');
-    strong.textContent = item.display_name || nameMap[item.user_id] || 'Member';
+    strong.textContent = displayName;
     const p = document.createElement('p');
-    p.textContent = item.text || '';
+    p.textContent = typeof text === 'string' ? text : (text != null ? String(text) : '');
     div.appendChild(strong);
     div.appendChild(p);
     row.appendChild(div);
     const actions = document.createElement('div');
     actions.className = 'message-actions';
     const amenBtn = document.createElement('button');
-    const amenCount = amenCounts[item.id] || 0;
+    const itemId = item.id;
+    const amenCount = itemId != null ? (amenCounts[itemId] || 0) : 0;
     amenBtn.textContent = amenCount ? `Amen (${amenCount})` : 'Amen';
     amenBtn.onclick = () => {
+      if (itemId == null) return;
       const next = loadAmenCounts();
-      next[item.id] = (next[item.id] || 0) + 1;
+      next[itemId] = (next[itemId] || 0) + 1;
       saveAmenCounts(next);
-      renderMessages(items);
+      renderMessages(lastMessageItems || []);
     };
     actions.appendChild(amenBtn);
     const reportBtn = document.createElement('button');
@@ -4875,7 +4883,7 @@ function renderMessages(items, previewLimit) {
     if (sorted.length > limit) {
       seeMoreBtn.style.display = 'inline-block';
       seeMoreBtn.onclick = function () {
-        renderMessages(items);
+        renderMessages(lastMessageItems || []);
       };
     } else {
       seeMoreBtn.style.display = 'none';
@@ -5313,11 +5321,11 @@ function scheduleMessageLoad() {
   runIdle(() => loadMessages().then(function (items) {
     if (wrap) wrap.setAttribute('aria-busy', 'false');
     if (loadingEl) loadingEl.style.display = 'none';
-    renderMessages(items, 5);
+    renderMessages(Array.isArray(items) ? items : [], 5);
   }).catch(function () {
     if (wrap) wrap.setAttribute('aria-busy', 'false');
     if (loadingEl) loadingEl.style.display = 'none';
-    renderMessages(lastMessageItems || [], 5);
+    renderMessages(Array.isArray(lastMessageItems) ? lastMessageItems : [], 5);
   }));
 }
 
@@ -11191,7 +11199,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const messageSort = document.getElementById('message-sort');
   if (messageSort) {
     messageSort.addEventListener('change', () => {
-      if (lastMessageItems.length) {
+      if (Array.isArray(lastMessageItems) && lastMessageItems.length) {
         renderMessages(lastMessageItems);
       } else {
         scheduleMessageLoad();

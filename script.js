@@ -179,8 +179,27 @@ function updateArmorChainDisplay() {
   if (households > 0) el.classList.remove('hidden');
   else el.classList.add('hidden');
 }
-// Admin is determined server-side only: Supabase app_metadata.role === 'admin'. No admin email in client.
+// Admin: Supabase app_metadata.role === 'admin' OR email in MASTER_EMAIL / MASTER_EMAIL_OBFUSCATED / MASTER_EMAILS.
 let isMasterUser = false;
+
+function getMasterEmails() {
+  const cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+  if (!cfg) return [];
+  const out = [];
+  if (cfg.MASTER_EMAILS && Array.isArray(cfg.MASTER_EMAILS)) {
+    cfg.MASTER_EMAILS.forEach(function (e) { if (e && typeof e === 'string') out.push(e.toLowerCase()); });
+  }
+  if (cfg.MASTER_EMAIL && typeof cfg.MASTER_EMAIL === 'string') {
+    out.push(cfg.MASTER_EMAIL.toLowerCase());
+  }
+  if (cfg.MASTER_EMAIL_OBFUSCATED && typeof cfg.MASTER_EMAIL_OBFUSCATED === 'string') {
+    const div = document.createElement('div');
+    div.innerHTML = cfg.MASTER_EMAIL_OBFUSCATED;
+    const decoded = (div.textContent || div.innerText || '').trim();
+    if (decoded) out.push(decoded.toLowerCase());
+  }
+  return out;
+}
 
 (function () {
   var lastError = null;
@@ -284,7 +303,8 @@ function isProUser() {
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
   currentUserEmail = email;
-  isMasterUser = user?.app_metadata?.role === 'admin';
+  const masterEmails = getMasterEmails();
+  isMasterUser = user?.app_metadata?.role === 'admin' || (email && masterEmails.indexOf(email) !== -1);
   const authSection = document.getElementById('auth-section');
   if (!authSection) return;
   let badge = document.getElementById('master-badge');
@@ -4992,7 +5012,9 @@ function buildPrayerFromVerse(ref, text) {
 }
 
 function buildKjvAudioUrl(ref) {
-  const encoded = encodeURIComponent(ref);
+  if (!ref || typeof ref !== 'string') return 'https://www.biblegateway.com/passage/?version=KJV';
+  const normalized = ref.trim().replace(/\s+/g, ' ');
+  const encoded = encodeURIComponent(normalized).replace(/%20/g, '+');
   return `https://www.biblegateway.com/passage/?search=${encoded}&version=KJV`;
 }
 

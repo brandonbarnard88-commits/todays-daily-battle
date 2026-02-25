@@ -13,9 +13,8 @@ CREATE TABLE IF NOT EXISTS public.prayers (
   created_at timestamptz NOT NULL DEFAULT now()
 );
 
--- 2. Index for echo (recent first) and count
+-- 2. Index for echo (recent first)
 CREATE INDEX IF NOT EXISTS prayers_created_at_desc ON public.prayers (created_at DESC);
-CREATE INDEX IF NOT EXISTS prayers_created_at_presence ON public.prayers (created_at) WHERE created_at > (now() - interval '15 minutes');
 
 -- 3. RPC: presence = distinct sessions in last 15 minutes
 CREATE OR REPLACE FUNCTION public.get_prayer_presence_count()

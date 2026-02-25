@@ -3,33 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Kids' Corner • Today's Daily Battle</title>
-  <meta name="description" content="God's Word for kids—Bible stories, prayer, and coloring. A safe, premium space for families.">
+  <title>Kids' Corner — Today's Daily Battle</title>
+  <meta name="description" content="Bible stories and faith activities for children and families. Learn God's Word, build your armor.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids-corner.html">
-  <meta property="og:title" content="Kids' Corner • Today's Daily Battle">
-  <meta property="og:description" content="God's Word for kids—Bible stories, prayer, and coloring. A safe, premium space for families.">
+  <meta property="og:title" content="Kids' Corner — Today's Daily Battle">
+  <meta property="og:description" content="Bible stories and faith activities for children and families.">
   <meta property="og:url" content="https://todaysdailybattle.com/kids-corner.html">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css?v=20260221elite">
+  <link rel="stylesheet" href="kids-corner.css?v=1">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode" aria-label="Sacred space—Kids' Corner">
+<body class="dark-mode" aria-label="Kids' Corner - Bible stories and faith activities">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar top-bar-gold">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">God's Word—stories, prayer, and coloring</span>
+        <span class="brand-subtitle">God's Word—stories and activities</span>
       </div>
       <nav class="header-nav" aria-label="Main">
         <a href="/">Home</a>
-        <a href="kids-corner.html" aria-current="page">Kids' Corner</a>
-        <a href="coloring.html">Coloring</a>
+        <a href="/#main-search">Search</a>
+        <a href="kids-corner.html" aria-current="page" class="nav-kids-corner" aria-label="Kids' Corner - Bible stories and activities"><span class="nav-kids-icon" aria-hidden="true"></span> Kids' Corner</a>
         <a href="verse.html">Verse of the Day</a>
+        <a href="coloring.html">Coloring</a>
+        <a href="message.html">Prayer Wall</a>
+        <a href="church.html">Church Center</a>
+        <a href="pricing.html">Pricing</a>
       </nav>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">≡</span><span class="menu-text">Menu</span></a>
     </header>
@@ -40,36 +45,39 @@
         <a href="verse.html">Verse of the Day</a>
         <a href="reading-plan.html">7-Day Plan</a>
         <a href="study.html">Study Tools</a>
-        <a href="kids-corner.html" aria-current="page">Kids' Corner</a>
-        <a href="coloring.html">Coloring</a>
+        <a href="reader.html">Chapter Reader</a>
         <a href="church.html">Church Center</a>
+        <a href="kids-corner.html" aria-current="page">Kids' Corner</a>
+        <a href="coloring.html">Kids Activities</a>
+        <a href="sermon.html">Sermon Builder</a>
+        <a href="pastor-toolkit.html">Pastor Toolkit</a>
         <a href="message.html">Message Board</a>
+        <a href="wins-report.html">Wins Report</a>
         <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
         <a href="pricing.html">Pricing</a>
       </nav>
     </aside>
 
-    <main class="app-content" id="main-content" role="main" aria-label="Sacred space—Bible stories for kids">
-      <div class="content-inner">
-        <header class="hero-banner kids-corner-hero">
-          <h1><span class="kids-corner-icon" aria-hidden="true">★</span> Kids' Corner</h1>
-          <p class="hero-sub">God's Word—no games. Stories, prayer, and coloring.</p>
+    <main class="app-content" id="main-content" role="main" aria-label="Kids' Corner - Bible stories and faith activities">
+      <div class="content-inner kids-corner-page">
+        <header class="kids-hero jewel-pulse" aria-label="Kids' Corner hero">
+          <div class="kids-hero-frame">
+            <h1 class="kids-hero-title">Kids' Corner: Learn God's Word, Build Your Armor</h1>
+            <p class="kids-hero-sub">Bible stories with prayer, verse, and hands-on activities. Each step adds a piece to your household armor.</p>
+          </div>
         </header>
 
-        <section class="kids-corner-stories glass card-gold" aria-label="Bible stories">
-          <h2 class="section-divider">Bible Stories</h2>
-          <p class="section-note">One sentence of truth. Pray for the theme. Color the scene.</p>
-          <div id="kids-corner-cards" class="kids-corner-grid"></div>
+        <section class="kids-stories-section glass card-gold" aria-label="Bible stories">
+          <h2 class="section-divider kids-section-divider">Bible Stories</h2>
+          <p class="section-note">One sentence of truth. Pray, read the verse, color, and do the activity. Each prayer and activity strengthens your household armor.</p>
+          <div id="kids-corner-cards" class="kids-corner-grid" role="list"></div>
         </section>
 
-        <section class="glass card-gold">
-          <h2 class="section-divider">More for Families</h2>
-          <p class="section-note">Coloring pages, daily prompt, and short verses.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="coloring.html">Coloring Pages</a>
-            <a class="btn btn-secondary" href="kids-activities-print.html">Printables</a>
-            <a class="btn btn-secondary" href="/#main-search">Search Verses</a>
-          </div>
+        <section class="glass card-gold kids-armor-note">
+          <h2 class="section-divider">Armor Builder</h2>
+          <p class="section-note">When you pray or complete an activity from a story, your household earns a piece of the Armor of God (Belt of Truth, Breastplate of Righteousness, Shield of Faith, Helmet of Salvation, and more). Build all six on the home page.</p>
+          <a href="/#armor-builder-btn" class="btn btn-primary">Build Armor</a>
         </section>
       </div>
     </main>
@@ -82,44 +90,80 @@
   <script>
   (function () {
     var stories = [
-      { id: 'noah', title: 'Noah\'s Ark', summary: 'God saved him from the flood—pray for protection.', prayIntent: 'for protection', jewel: 'sapphire' },
-      { id: 'david', title: 'David & Goliath', summary: 'God gave David courage—pray for courage.', prayIntent: 'for courage', jewel: 'ruby' },
-      { id: 'jonah', title: 'Jonah & the Whale', summary: 'God rescued Jonah and gave him another chance—pray for obedience.', prayIntent: 'for obedience', jewel: 'emerald' },
-      { id: 'daniel', title: 'Daniel in the Lions\' Den', summary: 'God protected Daniel when he prayed—pray for faithfulness.', prayIntent: 'for faithfulness', jewel: 'diamond' },
-      { id: 'storm', title: 'Jesus Calms the Storm', summary: 'Jesus spoke peace to the storm—pray for peace.', prayIntent: 'for peace', jewel: 'amethyst' },
-      { id: 'samaritan', title: 'Good Samaritan', summary: 'Show kindness to your neighbor—pray for love.', prayIntent: 'for love', jewel: 'pearl' },
-      { id: 'creation', title: 'Creation', summary: 'God made the world and everything in it—pray with thanksgiving.', prayIntent: 'with thanksgiving', jewel: 'sapphire' },
-      { id: 'moses', title: 'Moses & the Red Sea', summary: 'God made a way through the sea—pray for trust.', prayIntent: 'for trust', jewel: 'ruby' },
-      { id: 'prodigal', title: 'Prodigal Son', summary: 'The father welcomed his son home—pray for forgiveness.', prayIntent: 'for forgiveness', jewel: 'emerald' },
-      { id: 'lost-sheep', title: 'Lost Sheep', summary: 'Jesus leaves the ninety-nine to find the one—pray for the lost.', prayIntent: 'for the lost', jewel: 'diamond' },
-      { id: 'baby-jesus', title: 'Baby Jesus', summary: 'God sent His Son—pray for the world.', prayIntent: 'for the world', jewel: 'amethyst' },
-      { id: 'joseph', title: 'Joseph\'s Coat', summary: 'God was with Joseph in the pit and the palace—pray for faithfulness.', prayIntent: 'for faithfulness', jewel: 'pearl' },
-      { id: 'zacchaeus', title: 'Zacchaeus', summary: 'Jesus saw him and called him down—pray for those who feel unseen.', prayIntent: 'for those who feel unseen', jewel: 'sapphire' },
-      { id: 'feeding', title: 'Feeding the 5,000', summary: 'Jesus multiplied the loaves and fish—pray for provision.', prayIntent: 'for provision', jewel: 'ruby' }
+      { id: 'noah', title: 'Noah\'s Ark: God Saved Him from the Flood', summary: 'God told Noah to build a boat to save his family and the animals from the flood.', verseRef: 'Genesis 6:9-22', verseQuery: 'Genesis 6', prayIntent: 'for protection', jewel: 'sapphire', activity: 'Draw your family in the ark. Or build a boat with blocks.', armorHint: 'Pray for protection — adds to Shield of Faith.' },
+      { id: 'david', title: 'David & Goliath: God Gave Him Courage', summary: 'David trusted God and faced the giant with a sling and five stones.', verseRef: '1 Samuel 17:45-50', verseQuery: '1 Samuel 17', prayIntent: 'for courage', jewel: 'ruby', activity: 'Draw five stones. Or act out the story with a parent.', armorHint: 'Pray for courage — adds to Breastplate of Righteousness.' },
+      { id: 'jonah', title: 'Jonah & the Whale: God Gave Him Another Chance', summary: 'Jonah ran from God; God sent a great fish to bring him back, and Jonah obeyed.', verseRef: 'Jonah 1:17–2:10', verseQuery: 'Jonah 1', prayIntent: 'for obedience', jewel: 'emerald', activity: 'Draw Jonah inside the fish. Or tell the story in your own words.', armorHint: 'Pray for obedience — adds to Belt of Truth.' },
+      { id: 'daniel', title: 'Daniel in the Lions\' Den: God Protected Him', summary: 'Daniel prayed to God and was thrown to the lions; God shut the lions\' mouths.', verseRef: 'Daniel 6:10-23', verseQuery: 'Daniel 6', prayIntent: 'for faithfulness', jewel: 'diamond', activity: 'Draw Daniel with the lions. Or make a den from blankets.', armorHint: 'Pray for faithfulness — adds to Shield of Faith.' },
+      { id: 'storm', title: 'Jesus Calms the Storm: He Spoke Peace', summary: 'Jesus was in the boat when a storm came; He spoke and the wind and waves obeyed.', verseRef: 'Mark 4:35-41', verseQuery: 'Mark 4 35', prayIntent: 'for peace', jewel: 'amethyst', activity: 'Draw the boat and the waves. Or whisper "Peace, be still" with your family.', armorHint: 'Pray for peace — adds to Helmet of Salvation.' },
+      { id: 'prodigal', title: 'The Prodigal Son: The Father Welcomed Him Home', summary: 'The son left and wasted everything; when he came back, his father ran to him and celebrated.', verseRef: 'Luke 15:11-32', verseQuery: 'Luke 15 11', prayIntent: 'for forgiveness', jewel: 'emerald', activity: 'Draw the father welcoming the son. Or tell someone you forgive them.', armorHint: 'Pray for forgiveness — adds to Breastplate of Righteousness.' },
+      { id: 'samaritan', title: 'The Good Samaritan: He Showed Kindness', summary: 'A man was hurt; others passed by, but the Samaritan stopped and took care of him.', verseRef: 'Luke 10:25-37', verseQuery: 'Luke 10 30', prayIntent: 'for love', jewel: 'pearl', activity: 'Draw the Samaritan helping. Or do one kind thing for someone today.', armorHint: 'Pray for love — adds to Breastplate of Righteousness.' },
+      { id: 'creation', title: 'Creation: God Made Everything', summary: 'God made the heavens and the earth, light and dark, animals and people.', verseRef: 'Genesis 1:1-31', verseQuery: 'Genesis 1', prayIntent: 'with thanksgiving', jewel: 'sapphire', activity: 'Draw something God made. Or name seven things you are thankful for.', armorHint: 'Pray with thanksgiving — adds to Belt of Truth.' },
+      { id: 'resurrection', title: 'The Resurrection: Jesus Is Alive', summary: 'Jesus died on the cross and was buried; on the third day He rose from the dead.', verseRef: 'Matthew 28:1-10', verseQuery: 'Matthew 28', prayIntent: 'for hope', jewel: 'ruby', activity: 'Draw the empty tomb. Or say "He is risen" with your family.', armorHint: 'Pray for hope — adds to Helmet of Salvation.' },
+      { id: 'moses', title: 'Moses & the Red Sea: God Made a Way', summary: 'God parted the Red Sea so His people could cross on dry ground.', verseRef: 'Exodus 14:21-31', verseQuery: 'Exodus 14', prayIntent: 'for trust', jewel: 'ruby', activity: 'Draw the sea parting. Or build a path through pillows.', armorHint: 'Pray for trust — adds to Shield of Faith.' },
+      { id: 'lost-sheep', title: 'The Lost Sheep: Jesus Finds the One', summary: 'The shepherd left the ninety-nine to find the one sheep that was lost.', verseRef: 'Luke 15:3-7', verseQuery: 'Luke 15 3', prayIntent: 'for the lost', jewel: 'diamond', activity: 'Draw the shepherd carrying the sheep. Or pray for someone who is lost.', armorHint: 'Pray for the lost — adds to Helmet of Salvation.' },
+      { id: 'baby-jesus', title: 'Baby Jesus: God Sent His Son', summary: 'Jesus was born in Bethlehem; Mary laid Him in a manger.', verseRef: 'Luke 2:1-20', verseQuery: 'Luke 2', prayIntent: 'for the world', jewel: 'amethyst', activity: 'Draw the manger scene. Or sing a Christmas hymn together.', armorHint: 'Pray for the world — adds to Breastplate of Righteousness.' },
+      { id: 'joseph', title: 'Joseph\'s Coat: God Was With Him', summary: 'Joseph was sold by his brothers, but God was with him in the pit and in the palace.', verseRef: 'Genesis 37:1-11', verseQuery: 'Genesis 37', prayIntent: 'for faithfulness', jewel: 'pearl', activity: 'Draw Joseph\'s coat of many colors. Or tell how God was with you today.', armorHint: 'Pray for faithfulness — adds to Belt of Truth.' },
+      { id: 'zacchaeus', title: 'Zacchaeus: Jesus Saw Him', summary: 'Jesus looked up and called Zacchaeus down from the tree and went to his house.', verseRef: 'Luke 19:1-10', verseQuery: 'Luke 19 1', prayIntent: 'for those who feel unseen', jewel: 'sapphire', activity: 'Draw Zacchaeus in the tree. Or tell someone you see them.', armorHint: 'Pray for those who feel unseen — adds to Shield of Faith.' },
+      { id: 'feeding', title: 'Feeding the 5,000: Jesus Provided', summary: 'Jesus took five loaves and two fish and fed a great crowd.', verseRef: 'John 6:1-14', verseQuery: 'John 6 1', prayIntent: 'for provision', jewel: 'ruby', activity: 'Draw the baskets of food. Or share a snack with someone.', armorHint: 'Pray for provision — adds to Belt of Truth.' }
     ];
+
     var container = document.getElementById('kids-corner-cards');
     if (!container) return;
-    var colorHref = function (id) {
-      var hasCanvas = ['creation','noah','david','moses','jonah','daniel','storm','samaritan'].indexOf(id) !== -1;
-      return hasCanvas ? 'coloring.html?story=' + id : 'coloring.html';
-    };
+
+    function colorHref(id) {
+      return 'coloring.html?story=' + id;
+    }
+    function verseHref(query) {
+      var base = window.location.origin + '/';
+      return base + (query ? '?q=' + encodeURIComponent(query) + '&focus=search' : '') + '#main-search';
+    }
+    function pdfHref(id) {
+      return '/coloring-pages/' + id + '.pdf';
+    }
+
+    function onPrayClick(e, story) {
+      e.preventDefault();
+      try {
+        if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-prayer');
+      } catch (err) {}
+      var url = window.location.origin + '/#quick-pray-wrap';
+      if (story && story.prayIntent) url += '?intent=' + encodeURIComponent(story.prayIntent);
+      window.location.href = url;
+    }
+    function onActivityClick(e, story) {
+      e.preventDefault();
+      try {
+        if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-activity');
+      } catch (err) {}
+      if (typeof showEliteToast === 'function') showEliteToast(story ? story.armorHint : 'Activity complete — adds to your household armor.');
+    }
+
     stories.forEach(function (s) {
-      var card = document.createElement('div');
+      var card = document.createElement('article');
       card.className = 'kids-corner-card card-gold-inner';
       card.setAttribute('data-story', s.id);
+      card.setAttribute('role', 'listitem');
       card.innerHTML =
         '<span class="kids-corner-jewel kids-corner-jewel-' + s.jewel + '" aria-hidden="true"></span>' +
         '<h3 class="kids-corner-card-title">' + s.title + '</h3>' +
         '<p class="kids-corner-card-summary">' + s.summary + '</p>' +
+        '<p class="kids-corner-armor-hint section-note">' + s.armorHint + '</p>' +
         '<div class="kids-corner-card-actions">' +
-          '<a href="/#quick-pray-wrap" class="btn btn-pray-now" aria-label="Pray now for ' + s.prayIntent + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</a>' +
-          '<a href="' + colorHref(s.id) + '" class="btn btn-color-this" aria-label="Color this story"><span class="icon-pencil" aria-hidden="true">✎</span> Color This</a>' +
-        '</div>';
+          '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + s.prayIntent + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
+          '<a href="' + verseHref(s.verseQuery) + '" class="btn btn-secondary" aria-label="Read the verse: ' + s.verseRef + '">Read the Verse</a>' +
+          '<a href="' + colorHref(s.id) + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
+          '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Do activity">Activity</button>' +
+        '</div>' +
+        '<p class="kids-activity-text section-note" aria-live="polite">' + s.activity + '</p>';
+      var prayBtn = card.querySelector('.kids-btn-pray');
+      var activityBtn = card.querySelector('.kids-btn-activity');
+      if (prayBtn) prayBtn.addEventListener('click', function (ev) { onPrayClick(ev, s); });
+      if (activityBtn) activityBtn.addEventListener('click', function (ev) { onActivityClick(ev, s); });
       container.appendChild(card);
     });
   })();
   </script>
   <script src="config.js"></script>
-  <script src="script.js?v=20260220" data-cfasync="false"></script>
+  <script src="script.js?v=20260227" data-cfasync="false"></script>
 </body>
 </html>

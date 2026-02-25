@@ -2440,21 +2440,95 @@ function renderArmorModal() {
   }
 }
 
+var FAMILY_STORIES_DATA = [
+  { id: 'noah', title: 'Noah\'s Ark: God Saved Him from the Flood', summary: 'God told Noah to build a boat to save his family and the animals from the flood.', verseRef: 'Genesis 6:9-22', verseQuery: 'Genesis 6', prayIntent: 'for protection', jewel: 'sapphire', activity: 'Draw your family in the ark. Or build a boat with blocks.', armorHint: 'Pray for protection — adds to Shield of Faith.' },
+  { id: 'david', title: 'David & Goliath: God Gave Him Courage', summary: 'David trusted God and faced the giant with a sling and five stones.', verseRef: '1 Samuel 17:45-50', verseQuery: '1 Samuel 17', prayIntent: 'for courage', jewel: 'ruby', activity: 'Draw five stones. Or act out the story with a parent.', armorHint: 'Pray for courage — adds to Breastplate of Righteousness.' },
+  { id: 'jonah', title: 'Jonah & the Whale: God Gave Him Another Chance', summary: 'Jonah ran from God; God sent a great fish to bring him back, and Jonah obeyed.', verseRef: 'Jonah 1:17–2:10', verseQuery: 'Jonah 1', prayIntent: 'for obedience', jewel: 'emerald', activity: 'Draw Jonah inside the fish. Or tell the story in your own words.', armorHint: 'Pray for obedience — adds to Belt of Truth.' },
+  { id: 'daniel', title: 'Daniel in the Lions\' Den: God Protected Him', summary: 'Daniel prayed to God and was thrown to the lions; God shut the lions\' mouths.', verseRef: 'Daniel 6:10-23', verseQuery: 'Daniel 6', prayIntent: 'for faithfulness', jewel: 'diamond', activity: 'Draw Daniel with the lions. Or make a den from blankets.', armorHint: 'Pray for faithfulness — adds to Shield of Faith.' },
+  { id: 'storm', title: 'Jesus Calms the Storm: He Spoke Peace', summary: 'Jesus was in the boat when a storm came; He spoke and the wind and waves obeyed.', verseRef: 'Mark 4:35-41', verseQuery: 'Mark 4 35', prayIntent: 'for peace', jewel: 'amethyst', activity: 'Draw the boat and the waves. Or whisper "Peace, be still" with your family.', armorHint: 'Pray for peace — adds to Helmet of Salvation.' },
+  { id: 'prodigal', title: 'The Prodigal Son: The Father Welcomed Him Home', summary: 'The son left and wasted everything; when he came back, his father ran to him and celebrated.', verseRef: 'Luke 15:11-32', verseQuery: 'Luke 15 11', prayIntent: 'for forgiveness', jewel: 'emerald', activity: 'Draw the father welcoming the son. Or tell someone you forgive them.', armorHint: 'Pray for forgiveness — adds to Breastplate of Righteousness.' },
+  { id: 'samaritan', title: 'The Good Samaritan: He Showed Kindness', summary: 'A man was hurt; others passed by, but the Samaritan stopped and took care of him.', verseRef: 'Luke 10:25-37', verseQuery: 'Luke 10 30', prayIntent: 'for love', jewel: 'pearl', activity: 'Draw the Samaritan helping. Or do one kind thing for someone today.', armorHint: 'Pray for love — adds to Breastplate of Righteousness.' },
+  { id: 'creation', title: 'Creation: God Made Everything', summary: 'God made the heavens and the earth, light and dark, animals and people.', verseRef: 'Genesis 1:1-31', verseQuery: 'Genesis 1', prayIntent: 'with thanksgiving', jewel: 'sapphire', activity: 'Draw something God made. Or name seven things you are thankful for.', armorHint: 'Pray with thanksgiving — adds to Belt of Truth.' },
+  { id: 'resurrection', title: 'The Resurrection: Jesus Is Alive', summary: 'Jesus died on the cross and was buried; on the third day He rose from the dead.', verseRef: 'Matthew 28:1-10', verseQuery: 'Matthew 28', prayIntent: 'for hope', jewel: 'ruby', activity: 'Draw the empty tomb. Or say "He is risen" with your family.', armorHint: 'Pray for hope — adds to Helmet of Salvation.' },
+  { id: 'moses', title: 'Moses & the Red Sea: God Made a Way', summary: 'God parted the Red Sea so His people could cross on dry ground.', verseRef: 'Exodus 14:21-31', verseQuery: 'Exodus 14', prayIntent: 'for trust', jewel: 'ruby', activity: 'Draw the sea parting. Or build a path through pillows.', armorHint: 'Pray for trust — adds to Shield of Faith.' },
+  { id: 'lost-sheep', title: 'The Lost Sheep: Jesus Finds the One', summary: 'The shepherd left the ninety-nine to find the one sheep that was lost.', verseRef: 'Luke 15:3-7', verseQuery: 'Luke 15 3', prayIntent: 'for the lost', jewel: 'diamond', activity: 'Draw the shepherd carrying the sheep. Or pray for someone who is lost.', armorHint: 'Pray for the lost — adds to Helmet of Salvation.' },
+  { id: 'baby-jesus', title: 'Baby Jesus: God Sent His Son', summary: 'Jesus was born in Bethlehem; Mary laid Him in a manger.', verseRef: 'Luke 2:1-20', verseQuery: 'Luke 2', prayIntent: 'for the world', jewel: 'amethyst', activity: 'Draw the manger scene. Or sing a Christmas hymn together.', armorHint: 'Pray for the world — adds to Breastplate of Righteousness.' }
+];
+
+function renderFamilyStoriesTab() {
+  var grid = document.getElementById('family-stories-grid');
+  if (!grid || !FAMILY_STORIES_DATA) return;
+  grid.innerHTML = '';
+  var base = typeof window !== 'undefined' && window.location ? (window.location.origin + '/') : '';
+  FAMILY_STORIES_DATA.forEach(function (s) {
+    var verseUrl = base + (s.verseQuery ? '?q=' + encodeURIComponent(s.verseQuery) + '&focus=search' : '') + '#main-search';
+    var colorUrl = base + (base.indexOf('kids-corner') !== -1 ? '' : '') + 'coloring.html?story=' + s.id;
+    var card = document.createElement('article');
+    card.className = 'kids-corner-card card-gold-inner';
+    card.setAttribute('data-story', s.id);
+    card.setAttribute('role', 'listitem');
+    card.innerHTML =
+      '<span class="kids-corner-jewel kids-corner-jewel-' + s.jewel + '" aria-hidden="true"></span>' +
+      '<h3 class="kids-corner-card-title">' + s.title + '</h3>' +
+      '<p class="kids-corner-card-summary">' + s.summary + '</p>' +
+      '<p class="kids-corner-armor-hint section-note">' + s.armorHint + '</p>' +
+      '<div class="kids-corner-card-actions">' +
+        '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + s.prayIntent + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
+        '<a href="' + verseUrl + '" class="btn btn-secondary" aria-label="Read the verse: ' + s.verseRef + '">Read the Verse</a>' +
+        '<a href="' + colorUrl + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
+        '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Do activity">Activity</button>' +
+      '</div>' +
+      '<p class="kids-activity-text section-note" aria-live="polite">' + s.activity + '</p>';
+    var prayBtn = card.querySelector('.kids-btn-pray');
+    var activityBtn = card.querySelector('.kids-btn-activity');
+    if (prayBtn) prayBtn.addEventListener('click', function () {
+      if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-prayer');
+      var modal = document.getElementById('family-armor-stories-modal');
+      if (modal) modal.classList.add('hidden');
+      var url = base + '#quick-pray-wrap' + (s.prayIntent ? '?intent=' + encodeURIComponent(s.prayIntent) : '');
+      window.location.href = url;
+    });
+    if (activityBtn) activityBtn.addEventListener('click', function () {
+      if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-activity');
+      if (typeof showEliteToast === 'function') showEliteToast(s.armorHint);
+    });
+    grid.appendChild(card);
+  });
+}
+
+function switchFamilyArmorTab(tabName) {
+  var storiesPanel = document.getElementById('family-stories-panel');
+  var armorPanel = document.getElementById('family-armor-panel');
+  var tabStories = document.getElementById('tab-stories');
+  var tabArmor = document.getElementById('tab-armor');
+  if (!storiesPanel || !armorPanel) return;
+  if (tabName === 'armor') {
+    storiesPanel.classList.add('hidden');
+    armorPanel.classList.remove('hidden');
+    if (tabStories) { tabStories.classList.remove('active'); tabStories.setAttribute('aria-selected', 'false'); }
+    if (tabArmor) { tabArmor.classList.add('active'); tabArmor.setAttribute('aria-selected', 'true'); }
+    if (typeof renderArmorModal === 'function') renderArmorModal();
+  } else {
+    armorPanel.classList.add('hidden');
+    storiesPanel.classList.remove('hidden');
+    if (tabArmor) { tabArmor.classList.remove('active'); tabArmor.setAttribute('aria-selected', 'false'); }
+    if (tabStories) { tabStories.classList.add('active'); tabStories.setAttribute('aria-selected', 'true'); }
+  }
+}
+
 function wireArmorBuilderModal() {
-  var btn = document.getElementById('armor-builder-btn');
-  var modal = document.getElementById('armor-builder-modal');
-  var closeBtn = document.getElementById('armor-builder-close');
-  if (!btn || !modal) return;
+  var btn = document.getElementById('family-armor-stories-btn');
+  var modal = document.getElementById('family-armor-stories-modal');
+  var closeBtn = document.getElementById('family-armor-stories-close');
+  if (!modal) return;
   var params = (window.location.search || '').replace(/^\?/, '').split('&');
+  var openToArmor = false;
   for (var i = 0; i < params.length; i++) {
     var p = params[i].split('=');
     if (p[0] === 'armor' && p[1] && p[1].indexOf('household-') === 0) {
       try {
         sessionStorage.setItem(ARMOR_JOINED_KEY, decodeURIComponent(p[1]));
-        setTimeout(function () {
-          renderArmorModal();
-          modal.classList.remove('hidden');
-        }, 300);
+        openToArmor = true;
       } catch (e) {}
       break;
     }
@@ -2462,10 +2536,22 @@ function wireArmorBuilderModal() {
   function closeModal() {
     modal.classList.add('hidden');
   }
-  btn.addEventListener('click', function () {
-    renderArmorModal();
+  function openModal(toArmor) {
+    renderFamilyStoriesTab();
+    if (toArmor) switchFamilyArmorTab('armor'); else switchFamilyArmorTab('stories');
     modal.classList.remove('hidden');
-  });
+  }
+  if (openToArmor) {
+    setTimeout(function () {
+      if (typeof renderArmorModal === 'function') renderArmorModal();
+      openModal(true);
+    }, 300);
+  }
+  if (btn) {
+    btn.addEventListener('click', function () {
+      openModal(false);
+    });
+  }
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) {
     if (e.target === modal) closeModal();
@@ -2473,6 +2559,10 @@ function wireArmorBuilderModal() {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
   });
+  var tabStories = document.getElementById('tab-stories');
+  var tabArmor = document.getElementById('tab-armor');
+  if (tabStories) tabStories.addEventListener('click', function () { switchFamilyArmorTab('stories'); });
+  if (tabArmor) tabArmor.addEventListener('click', function () { switchFamilyArmorTab('armor'); });
   var joinBtn = document.getElementById('armor-join-household-btn');
   if (joinBtn) {
     joinBtn.addEventListener('click', function () {
@@ -2488,6 +2578,8 @@ function wireArmorBuilderModal() {
   var badgeEl = document.getElementById('armor-badge');
   if (badgeEl && data.count >= 6) badgeEl.classList.remove('hidden');
   if (typeof updateArmorChainDisplay === 'function') updateArmorChainDisplay();
+  var sidebarLink = document.getElementById('sidebar-family-armor-stories');
+  if (sidebarLink) sidebarLink.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
 }
 
 function wireFamilyNameModal() {

@@ -90,17 +90,16 @@
       <nav class="header-nav" aria-label="Main">
         <a href="/">Home</a>
         <a href="/#main-search">Search</a>
-        <a href="kids-corner.html">Kids' Corner</a>
         <a href="verse.html">Verse of the Day</a>
         <a href="message.html">Prayer Wall</a>
         <a href="wins-report.html">Wins Report</a>
         <a href="church.html">Church Center</a>
         <a href="pricing.html">Pricing</a>
       </nav>
+      <button type="button" id="family-armor-stories-btn" class="family-armor-stories-btn" aria-label="Family Armor &amp; Stories" title="Bible stories and household armor"><span class="family-armor-stories-icon" aria-hidden="true"></span> Family Armor &amp; Stories</button>
       <button type="button" id="dark-toggle" class="header-theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode"><span aria-hidden="true">Light</span></button>
       <button type="button" id="add-family-btn" class="header-family-btn" aria-label="Your family name" title="Add family or group name">Add family</button>
       <button type="button" id="bless-session-btn" class="header-bless-btn" aria-label="Bless this session" title="Bless this session"><span aria-hidden="true">✝</span><span class="bless-flame" aria-hidden="true">†</span></button>
-      <button type="button" id="armor-builder-btn" class="armor-builder-btn" aria-label="Build Armor for your household" title="Build the Armor of God for your household"><span class="armor-btn-icon" aria-hidden="true">Armor</span></button>
       <span id="armor-badge" class="armor-badge hidden" aria-label="Household fully armored">Armored Household</span>
       <span id="armor-chain-display" class="armor-chain-display hidden" aria-label="Global armor chain"></span>
       <span id="silent-amens-badge" class="silent-amens-badge hidden" aria-label="Silent Amens count">Silent Amens: <span id="silent-amens-badge-n">0</span></span>
@@ -126,7 +125,7 @@
         <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
         <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
         <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="kids-corner.html" data-section="kids-corner" data-icon="KC">Kids' Corner</a>
+        <a href="#" id="sidebar-family-armor-stories" data-section="family-armor-stories" data-icon="FA" aria-label="Family Armor &amp; Stories">Family Armor &amp; Stories</a>
         <a href="coloring.html" data-section="coloring-stories" data-icon="KA">Kids Activities</a>
         <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
         <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
@@ -159,6 +158,13 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
+        <header class="hero-banner">
+          <h1>Today's Daily Battle</h1>
+          <p class="hero-sub">Less scroll. More soul.</p>
+          <p id="hero-collective-intent" class="hero-collective-intent section-note" aria-live="polite" style="display:none;"></p>
+          <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
+          <p id="hero-intent" class="hero-intent section-note" style="display:none;" aria-live="polite"></p>
+        </header>
         <div id="search-widget" role="search" aria-label="Floating search bar"></div>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
@@ -253,13 +259,6 @@
           <p class="section-note audio-helper">Listen reads aloud here using your device's voice. KJV Audio opens Bible Gateway in a new tab.</p>
           </details>
         </section>
-        <header class="hero-banner">
-          <h1>Today's Daily Battle</h1>
-          <p class="hero-sub">Less scroll. More soul.</p>
-          <p id="hero-collective-intent" class="hero-collective-intent section-note" aria-live="polite" style="display:none;"></p>
-          <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
-          <p id="hero-intent" class="hero-intent section-note" style="display:none;" aria-live="polite"></p>
-        </header>
         <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
         <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
           <p class="prayer-echo-sacred section-note" id="prayer-echo-sacred" style="display:none;" aria-live="polite">You're alone with Him.</p>
@@ -561,29 +560,40 @@
         </div>
       </div>
     </div>
-    <div id="armor-builder-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="armor-builder-title" aria-label="Shared household armor">
-      <div class="modal-inner glass armor-modal-inner">
-        <button type="button" class="intent-modal-close" id="armor-builder-close" aria-label="Dismiss">×</button>
-        <p id="armor-welcome-msg" class="armor-welcome-msg section-note" style="display:none;" aria-live="polite"></p>
-        <h2 id="armor-builder-title" class="section-divider">Build the Armor of God for your whole household—family, friends, pets.</h2>
-        <p class="section-note">Pray, say Amen, read a verse—each adds a piece. Everyone counts.</p>
-        <div id="armor-piece-added-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
-        <div class="armor-pieces-wrap" role="list" aria-label="Armor pieces">
-          <ul id="armor-pieces-list" class="armor-pieces-list"></ul>
+    <div id="family-armor-stories-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Family Armor &amp; Stories builder">
+      <div class="modal-inner glass family-armor-stories-modal-inner">
+        <button type="button" class="intent-modal-close" id="family-armor-stories-close" aria-label="Dismiss">×</button>
+        <div class="family-armor-tabs" role="tablist" aria-label="Stories and Armor">
+          <button type="button" class="family-armor-tab active" role="tab" id="tab-stories" aria-selected="true" aria-controls="family-stories-panel" data-tab="stories">Stories</button>
+          <button type="button" class="family-armor-tab" role="tab" id="tab-armor" aria-selected="false" aria-controls="family-armor-panel" data-tab="armor">Armor</button>
         </div>
-        <div id="armor-crown-wrap" class="armor-crown-wrap" aria-hidden="true">
-          <div id="armor-crown" class="armor-crown" aria-hidden="true"></div>
+        <div id="family-stories-panel" class="family-armor-tab-panel" role="tabpanel" aria-labelledby="tab-stories">
+          <h2 class="section-divider">Bible Stories</h2>
+          <p class="section-note">Pray, read the verse, color, or do the activity. Each adds a piece to your household armor.</p>
+          <div id="family-stories-grid" class="kids-corner-grid" role="list"></div>
         </div>
-        <div id="armor-heavenly-wrap" class="armor-heavenly-wrap" style="display:none;">
-          <p class="section-note armor-heavenly-text">Streets of gold await—your household's crown shines!</p>
-          <p id="armor-heavenly-count" class="section-note" aria-live="polite"></p>
-        </div>
-        <div id="armor-avatar-wrap" class="armor-avatar-wrap" aria-label="Household avatar">
-          <div class="armor-avatar-household" id="armor-avatar-household"></div>
-        </div>
-        <p id="armor-complete-msg" class="section-note armor-complete-msg" style="display:none;" aria-live="polite">Your household is armored. Share the link!</p>
-        <div id="armor-join-wrap" class="cta-group" style="display:none;">
-          <button type="button" id="armor-join-household-btn" class="btn btn-primary">Join Household — copy link</button>
+        <div id="family-armor-panel" class="family-armor-tab-panel hidden" role="tabpanel" aria-labelledby="tab-armor">
+          <p id="armor-welcome-msg" class="armor-welcome-msg section-note" style="display:none;" aria-live="polite"></p>
+          <h2 id="armor-builder-title" class="section-divider">Build the Armor of God for your whole household—family, friends, pets.</h2>
+          <p class="section-note">Pray, say Amen, read a verse—each adds a piece. Everyone counts.</p>
+          <div id="armor-piece-added-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+          <div class="armor-pieces-wrap" role="list" aria-label="Armor pieces">
+            <ul id="armor-pieces-list" class="armor-pieces-list"></ul>
+          </div>
+          <div id="armor-crown-wrap" class="armor-crown-wrap" aria-hidden="true">
+            <div id="armor-crown" class="armor-crown" aria-hidden="true"></div>
+          </div>
+          <div id="armor-heavenly-wrap" class="armor-heavenly-wrap" style="display:none;">
+            <p class="section-note armor-heavenly-text">Streets of gold await—your household's crown shines!</p>
+            <p id="armor-heavenly-count" class="section-note" aria-live="polite"></p>
+          </div>
+          <div id="armor-avatar-wrap" class="armor-avatar-wrap" aria-label="Household avatar">
+            <div class="armor-avatar-household" id="armor-avatar-household"></div>
+          </div>
+          <p id="armor-complete-msg" class="section-note armor-complete-msg" style="display:none;" aria-live="polite">Your household is armored. Share the link!</p>
+          <div id="armor-join-wrap" class="cta-group" style="display:none;">
+            <button type="button" id="armor-join-household-btn" class="btn btn-primary">Join Household — copy link</button>
+          </div>
         </div>
       </div>
     </div>
@@ -596,11 +606,22 @@
     <div id="dawn-overlay" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="Dawn breaks—He waits." style="display:none;"><span class="god-whisper-text">Dawn breaks—He waits.</span></div>
     <div id="anointed-overlay" class="god-whisper-overlay anointed-overlay" role="status" aria-live="polite" aria-label="Room consecrated." style="display:none;"><p class="anointed-overlay-text">This room is anointed. Pray with oil, water, fire—nothing enters unclean.</p></div>
 
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+      <h2 class="footer-heading">Footer</h2>
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
-      <p id="footer-rotating-line" class="footer-rotating-line section-note" aria-live="polite">You're not praying alone.</p>
-      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a>
-      <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience—e.g., which verses and features help most. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
+      <p id="footer-rotating-line" class="footer-rotating-line" aria-live="polite">You're not praying alone.</p>
+      <p class="footer-powered">Powered by the King James Bible.</p>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="shop.html">Shop</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Updated February 2026.</p>
     </footer>

@@ -1,0 +1,190 @@
+/* Kids' Corner — premium gold frame, jewel accents, metallic fonts, clean line art tone */
+
+/* Hero: gold frame, jewel pulse */
+.kids-corner-page .kids-hero {
+  position: relative;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: var(--radius-lg, 18px);
+  background: linear-gradient(135deg, rgba(12, 18, 30, 0.97) 0%, rgba(20, 28, 45, 0.95) 100%);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15), 0 0 40px rgba(212, 175, 55, 0.08), inset 0 0 60px rgba(212, 175, 55, 0.03);
+}
+
+.kids-hero-frame {
+  position: relative;
+  z-index: 1;
+}
+
+.kids-hero-title {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: var(--elite-gold-solid, #d4af37);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.kids-hero-sub {
+  font-family: var(--font-body, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--text-muted, rgba(240, 242, 247, 0.85));
+}
+
+/* Jewel pulse animation on hero */
+.kids-hero.jewel-pulse {
+  animation: jewel-pulse 4s ease-in-out infinite;
+}
+
+@keyframes jewel-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15), 0 0 40px rgba(212, 175, 55, 0.08), inset 0 0 60px rgba(212, 175, 55, 0.03); }
+  50% { box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25), 0 0 50px rgba(212, 175, 55, 0.12), 0 0 80px rgba(59, 130, 246, 0.06), inset 0 0 60px rgba(212, 175, 55, 0.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kids-hero.jewel-pulse { animation: none; }
+}
+
+/* Section divider metallic */
+.kids-section-divider {
+  color: rgba(212, 175, 55, 0.9);
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+}
+
+/* Card: gold border, jewel icon */
+.kids-corner-page .kids-corner-card {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-md, 18px);
+  padding: 1.35rem;
+  background: rgba(15, 22, 36, 0.6);
+  transition: box-shadow 0.3s ease, border-color 0.2s ease;
+}
+
+.kids-corner-page .kids-corner-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.12), 0 0 32px rgba(59, 130, 246, 0.08);
+}
+
+.kids-corner-jewel {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  box-shadow: 0 0 10px currentColor, 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.kids-corner-armor-hint {
+  font-size: 0.85rem;
+  margin: 0 0 1rem;
+  color: rgba(212, 175, 55, 0.75);
+}
+
+.kids-activity-text {
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Pray Now: red cross, reverent */
+.kids-corner-page .btn-pray-now,
+.kids-corner-page .kids-btn-pray {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(185, 28, 28, 0.25);
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  color: #fecaca;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.kids-corner-page .btn-pray-now:hover,
+.kids-corner-page .kids-btn-pray:hover {
+  border-color: rgba(220, 38, 38, 0.7);
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.2);
+}
+
+.kids-corner-page .icon-cross {
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+/* Action row wrap */
+.kids-corner-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.kids-corner-card-actions .btn {
+  flex-shrink: 0;
+}
+
+/* Top bar gold accent on Kids' Corner page */
+.top-bar-gold {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 1px 0 rgba(212, 175, 55, 0.06);
+}
+
+/* Nav: open book icon with gold glow */
+.nav-kids-icon {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.35rem;
+  vertical-align: -0.2em;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/%3E%3Cline x1='12' y1='8' x2='12' y2='16'/%3E%3Cline x1='8' y1='12' x2='16' y2='12'/%3E%3C/svg%3E") center/contain no-repeat;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.5));
+}
+
+a.nav-kids-corner:hover .nav-kids-icon {
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.7));
+}
+
+/* Armor note section */
+.kids-armor-note .btn {
+  margin-top: 0.5rem;
+}
+
+/* Mobile: stack vertical, full width, swipeable list */
+@media (max-width: 768px) {
+  .kids-corner-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .kids-corner-card {
+    scroll-snap-align: start;
+    min-width: 100%;
+  }
+
+  .kids-hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .kids-corner-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kids-corner-card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

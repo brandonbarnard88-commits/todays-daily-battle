@@ -4909,7 +4909,12 @@ function renderMessages(items, previewLimit) {
   const visible = items.filter(item => {
     if (!item || typeof item !== 'object' || item.hidden) return false;
     const t = item.text ?? item.message ?? item.body;
-    return typeof t === 'string' && t.trim().length > 0;
+    if (typeof t !== 'string') return false;
+    const trimmed = t.trim();
+    if (!trimmed.length) return false;
+    if (trimmed === '[object Object]' || /^\[object\s+\w+\]$/.test(trimmed)) return false;
+    if (trimmed.indexOf('[object ') !== -1) return false;
+    return true;
   });
   if (!visible.length) {
     list.innerHTML = '<p class="empty">No encouragement yet—share your win!</p><p class="section-note">Be the first to post a prayer request, praise report, or short encouragement.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Share your win</a>';
@@ -4935,6 +4940,7 @@ function renderMessages(items, previewLimit) {
     if (!item || typeof item !== 'object') return;
     const text = safeStr(item.text ?? item.message ?? item.body, '');
     const displayName = safeStr(item.display_name ?? item.user?.displayName ?? (item.user_id ? nameMap[item.user_id] : null), 'Member');
+    if (text.indexOf('[object ') !== -1 || displayName.indexOf('[object ') !== -1) return;
     const row = document.createElement('div');
     row.className = 'list-item';
     const div = document.createElement('div');

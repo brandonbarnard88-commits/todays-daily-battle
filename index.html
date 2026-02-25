@@ -25,36 +25,7 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#6d28d9">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <script>
-  (function(){
-    window.__tdb_real_fetch = window.__tdb_real_fetch || window.fetch;
-    var realFetch = window.__tdb_real_fetch;
-    if (!realFetch) return;
-    var prayerRequestInFlight = false;
-    function isPrayerUrl(u){
-      if (!u || typeof u !== 'string') return false;
-      return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1 || u.indexOf('get_total_prayer_count') !== -1;
-    }
-    window.fetch = function(input, init){
-      var url = typeof input === 'string' ? input : (input && input.url) || '';
-      if (!isPrayerUrl(url)) return realFetch.apply(this, arguments);
-      if (window.__tdb_prayers_404 === true)
-        return Promise.resolve(new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
-      if (prayerRequestInFlight)
-        return Promise.resolve(new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
-      prayerRequestInFlight = true;
-      return realFetch.apply(this, arguments).then(function(res){
-        prayerRequestInFlight = false;
-        if (res && res.status === 404) window.__tdb_prayers_404 = true;
-        return res;
-      }, function(err){
-        prayerRequestInFlight = false;
-        window.__tdb_prayers_404 = true;
-        throw err;
-      });
-    };
-  })();
-  </script>
+  <script src="fetch-prayer-guard.js"></script>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
   <script src="config.js"></script>
@@ -64,12 +35,11 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-  <script type="application/ld+json">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json" nonce="tdb2025">
     {"@context":"https://schema.org","@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/","logo":"https://todaysdailybattle.com/icon.svg","description":"Daily Bible verses, prayers, and spiritual tools. Less scroll, more soul."}
   </script>
-  <script type="application/ld+json">
+  <script type="application/ld+json" nonce="tdb2025">
     {"@context":"https://schema.org","@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/","description":"The Bible companion built for real life. One verse, one moment, every day. Topic search, streaks, tools for families and pastors.","potentialAction":{"@type":"SearchAction","target":"https://todaysdailybattle.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
   </script>
 </head>
@@ -292,7 +262,7 @@
           <p class="section-note prayer-map-caption">Gold crosses mark where households have prayed. Hover or tap for intention.</p>
           <p class="section-note prayer-count-promo" aria-live="polite" id="prayer-count-promo"></p>
           <div id="prayer-map-dots" class="prayer-map-dots">
-            <svg class="prayer-map-svg" viewBox="0 0 495 266" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <svg class="prayer-map-svg" viewBox="0 0 495 266" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;">
               <defs>
                 <filter id="prayer-map-glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
@@ -302,6 +272,11 @@
                   </feMerge>
                 </filter>
               </defs>
+              <g class="prayer-map-outlines" stroke-linejoin="bevel" stroke-width="0.25" stroke="currentColor" fill="#bcbec0">
+                <!-- World paths: full path from world-map-source.svg (path13056) for complete map -->
+                <path d="m275.9 201.8-1.4 1.46h-2.36v-2.15l1.83-1.18h1.93v1.87zm4.05-6.3v2.12l-1.8-1.08v-1.65h1.8v-5.97h-4.6l-10.94 7.33-2.69-3.09v6.07h-6.65l3.86 10.57h12.67l9.75-11.28 0.44-3.05-1.84 0.03zm-171.6-119.4 2.52-1.719h3.04l-2.51 1.719h-3.05z"/>
+                <path d="m481.4 220-1 3.2 7.3-5.2-2.1-2.8v-3.2l-1.2 0.5v4.5zm-19.2 10.5 15.2-7.7v2l-11.7 7.7z"/>
+              </g>
               <g id="prayer-markers" pointer-events="auto"></g>
             </svg>
             <div id="map-tooltip" class="map-tooltip" role="tooltip" aria-hidden="true"></div>

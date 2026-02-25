@@ -7445,7 +7445,7 @@ function downloadCollectionPdf(collectionId) {
     <html>
       <head>
         <title>${escapeHtml(collection.name)} — Saved Verses</title>
-        <style>
+        <style nonce="tdb2025">
           body { font-family: Arial, sans-serif; padding: 32px; color: #0f172a; }
           h1 { font-size: 22px; margin-bottom: 16px; }
           .verse { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; }
@@ -7482,7 +7482,7 @@ function bulkExportAllToPdf() {
     <html>
       <head>
         <title>My verses and notes — Today's Daily Battle</title>
-        <style>
+        <style nonce="tdb2025">
           body { font-family: Arial, sans-serif; padding: 32px; color: #0f172a; }
           h1 { font-size: 22px; margin-bottom: 16px; }
           h2.section { font-size: 18px; margin: 24px 0 12px; }
@@ -10428,7 +10428,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <html>
           <head>
             <title>${escapeHtml(draft.title || 'Sermon')}</title>
-            <style>
+            <style nonce="tdb2025">
               body { font-family: Arial, sans-serif; padding: 24px; }
               h1 { margin-bottom: 4px; }
               h3 { margin-top: 20px; }

@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/kids-coloring-pack.html">
   <link rel="stylesheet" href="styles.css?v=20260221elite">
   <link rel="manifest" href="manifest.json">
-  <style>
+  <style nonce="tdb2025">
     body { background: #fff; color: #111827; }
     .print-sheet { max-width: 800px; margin: 2rem auto; background: #fff; }
     .print-sheet h1 { color: #111827; text-shadow: none; }
@@ -29,7 +29,7 @@
       <p>Print and color these Bible story prompts.</p>
     </header>
     <div class="print-actions">
-      <button onclick="window.print()">Print this pack</button>
+      <button type="button" id="print-pack-btn">Print this pack</button>
       <a class="btn btn-secondary" href="coloring.html">Back to Kids Activities</a>
     </div>
     <section class="glass">
@@ -53,6 +53,7 @@
       <div class="frame"></div>
     </section>
   </main>
+  <script nonce="tdb2025">document.getElementById('print-pack-btn').addEventListener('click',function(){window.print();});</script>
   <script src="script.js?v=20260220" data-cfasync="false"></script>
 </body>
 </html>

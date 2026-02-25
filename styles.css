@@ -1385,6 +1385,28 @@ body.light .prayer-counter { color: #64748b; }
   color: #f8fafc;
 }
 
+.pricing-beta-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--elite-gold-solid);
+  margin-left: 0.35rem;
+  padding: 0.15rem 0.4rem;
+  background: rgba(212, 175, 55, 0.15);
+  border-radius: 4px;
+}
+
+.pricing-strike {
+  font-size: 0.85rem;
+  color: rgba(148, 163, 184, 0.85);
+}
+
+.pricing-strike s {
+  text-decoration: line-through;
+}
+
 .pricing-list {
   margin: 0;
   padding-left: 1.1rem;

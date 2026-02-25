@@ -96,6 +96,7 @@
           <h2 class="section-divider">Plans</h2>
           <p class="section-note">Less scroll, more soul. Choose the plan that fits—free is enough to build a daily habit you'll love.</p>
           <p id="pricing-availability-note" class="section-note"></p>
+          <p class="section-note pricing-beta-banner" style="margin-top: 0.25rem; margin-bottom: 0.75rem; padding: 0.75rem 1rem; background: rgba(212, 175, 55, 0.12); border-radius: 10px; border-left: 4px solid var(--elite-gold);"><strong>Beta discount — 50% off.</strong> Lock in Supporter at $5/mo (reg $10), Church at $10/mo (reg $20). Your rate stays as long as you stay subscribed. After launch, new users pay full price.</p>
           <p id="pricing-launch-perk" class="section-note pricing-launch-perk-bold" style="margin-top: 0.25rem;"><strong>First 50 subscribers: 1 month free.</strong> Subscribers 50–100: exclusive devotional. <strong>Beta perk: 3 months free</strong> when Battle Pro launches (early March 2026).</p>
           <div class="pricing-grid">
             <div class="pricing-card">
@@ -122,8 +123,9 @@
             </div>
             <div class="pricing-card highlight-card">
               <h3>Supporter</h3>
-              <p class="price">$5/mo or $50/yr</p>
-              <p class="section-note pricing-launch-perk-bold" style="margin-top: 0.25rem; margin-bottom: 0.25rem;"><strong>Launch Special</strong> — Your price is locked forever… as long as you don’t cancel or let it lapse. After launch, new users may pay more—grab it now and stay at this rate for life.</p>
+              <p class="price">$5/mo or $50/yr <span class="pricing-beta-tag">beta price</span></p>
+              <p class="section-note pricing-strike">Regular $10/mo · $100/yr after launch</p>
+              <p class="section-note pricing-launch-perk-bold" style="margin-top: 0.25rem; margin-bottom: 0.25rem;"><strong>Lock it in</strong> — Stay subscribed and keep this rate for life. New users pay more after launch.</p>
               <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">All Free tools + elite extras</p>
               <ul class="pricing-list">
                 <li>Daily Battle Plan emails</li>
@@ -149,7 +151,8 @@
             </div>
             <div class="pricing-card">
               <h3>Church/Team</h3>
-              <p class="price">$20/mo or $200/yr</p>
+              <p class="price">$10/mo or $100/yr <span class="pricing-beta-tag">beta price</span></p>
+              <p class="section-note pricing-strike">Regular $20/mo · $200/yr after launch</p>
               <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">All Supporter tools + team features</p>
               <ul class="pricing-list">
                 <li>Everything in Supporter</li>
@@ -166,8 +169,8 @@
                 <li>Save 2 months annually</li>
               </ul>
               <div class="cta-group">
-                <button class="btn btn-secondary" id="pricing-church-monthly" type="button">Subscribe $20/mo</button>
-                <button class="btn btn-secondary" id="pricing-church-yearly" type="button">Subscribe $200/yr</button>
+                <button class="btn btn-secondary" id="pricing-church-monthly" type="button">Subscribe $10/mo (beta)</button>
+                <button class="btn btn-secondary" id="pricing-church-yearly" type="button">Subscribe $100/yr (beta)</button>
               </div>
             </div>
           </div>
@@ -202,10 +205,11 @@
         <section class="glass">
           <h2 class="section-divider">Battle Pro — Subscribe</h2>
           <p class="section-note">Offline downloads, premium devotionals, and your <strong>2026 Wins Report</strong>. Supporter: Wins + offline. Church: team streaks, shared reports.</p>
-          <p class="section-note" style="margin-top: 0.5rem;"><strong>Supporter</strong> $4.99/mo — Wins Report + offline devotional PDFs. <strong>Church</strong> $9.99/mo — team features + shared reports.</p>
+          <p class="section-note pricing-beta-banner" style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(212, 175, 55, 0.1); border-radius: 8px; border-left: 3px solid var(--elite-gold);"><strong>Beta discount:</strong> Supporter $5/mo (reg $10), Church $10/mo (reg $20). Lock in now—rate stays as long as you’re subscribed.</p>
+          <p class="section-note" style="margin-top: 0.5rem;"><strong>Supporter</strong> $5/mo (beta) — Wins Report + offline devotional PDFs. <strong>Church</strong> $10/mo (beta) — team features + shared reports.</p>
           <div class="cta-group" style="margin-top: 1rem;">
-            <button class="btn btn-primary" id="battle-pro-supporter-btn" type="button" aria-label="Upgrade to Battle Pro Supporter">Subscribe Supporter — $4.99/mo</button>
-            <button class="btn btn-secondary" id="battle-pro-church-btn" type="button" aria-label="Upgrade to Battle Pro Church">Subscribe Church — $9.99/mo</button>
+            <button class="btn btn-primary" id="battle-pro-supporter-btn" type="button" aria-label="Upgrade to Battle Pro Supporter">Subscribe Supporter — $5/mo (beta)</button>
+            <button class="btn btn-secondary" id="battle-pro-church-btn" type="button" aria-label="Upgrade to Battle Pro Church">Subscribe Church — $10/mo (beta)</button>
           </div>
           <p id="battle-pro-stripe-note" class="section-note" style="margin-top: 0.75rem; display: none;"></p>
           <p class="section-note" style="margin-top: 0.75rem;">After payment you will return here. Sign in to unlock Battle Pro. Test card: 4242 4242 4242 4242.</p>

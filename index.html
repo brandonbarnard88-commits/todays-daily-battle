@@ -159,25 +159,6 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
-        <header class="hero-banner">
-          <h1>Today's Daily Battle</h1>
-          <p class="hero-sub">Less scroll. More soul.</p>
-          <p id="hero-collective-intent" class="hero-collective-intent section-note" aria-live="polite" style="display:none;"></p>
-          <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
-          <p id="hero-intent" class="hero-intent section-note" style="display:none;" aria-live="polite"></p>
-        </header>
-        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
-        <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
-          <p class="prayer-echo-sacred section-note" id="prayer-echo-sacred" style="display:none;" aria-live="polite">You're alone with Him.</p>
-          <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading recent prayers…</p>
-          <p class="prayer-echo-presence section-note" id="prayer-echo-presence" aria-live="polite" style="display:none;"></p>
-          <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent prayers" style="display:none;"></ul>
-          <button type="button" id="prayer-echo-join" class="btn btn-secondary btn-small" style="display:none;" aria-label="Copy share link to invite others">Join them</button>
-          <div class="silent-amen-wrap">
-            <button type="button" id="silent-amen-btn" class="btn btn-silent-amen" aria-label="Quiet agreement—Silent Amen"><span class="icon-cross" aria-hidden="true">✝</span> Silent Amen</button>
-            <span id="silent-amen-count" class="silent-amen-count" aria-live="polite"></span>
-          </div>
-        </section>
         <div id="search-widget" role="search" aria-label="Floating search bar"></div>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
@@ -271,6 +252,25 @@
           </div>
           <p class="section-note audio-helper">Listen reads aloud here using your device's voice. KJV Audio opens Bible Gateway in a new tab.</p>
           </details>
+        </section>
+        <header class="hero-banner">
+          <h1>Today's Daily Battle</h1>
+          <p class="hero-sub">Less scroll. More soul.</p>
+          <p id="hero-collective-intent" class="hero-collective-intent section-note" aria-live="polite" style="display:none;"></p>
+          <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
+          <p id="hero-intent" class="hero-intent section-note" style="display:none;" aria-live="polite"></p>
+        </header>
+        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
+        <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
+          <p class="prayer-echo-sacred section-note" id="prayer-echo-sacred" style="display:none;" aria-live="polite">You're alone with Him.</p>
+          <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading recent prayers…</p>
+          <p class="prayer-echo-presence section-note" id="prayer-echo-presence" aria-live="polite" style="display:none;"></p>
+          <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent prayers" style="display:none;"></ul>
+          <button type="button" id="prayer-echo-join" class="btn btn-secondary btn-small" style="display:none;" aria-label="Copy share link to invite others">Join them</button>
+          <div class="silent-amen-wrap">
+            <button type="button" id="silent-amen-btn" class="btn btn-silent-amen" aria-label="Quiet agreement—Silent Amen"><span class="icon-cross" aria-hidden="true">✝</span> Silent Amen</button>
+            <span id="silent-amen-count" class="silent-amen-count" aria-live="polite"></span>
+          </div>
         </section>
         <div id="daily-verse-widget" class="daily-verse-widget-outer" role="region" aria-live="polite" aria-label="Verse of the day"></div>
         <div id="prayer-map-widget" class="glass prayer-map-widget" role="region" aria-label="Prayers from around the world">

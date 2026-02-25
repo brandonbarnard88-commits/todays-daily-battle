@@ -4603,15 +4603,15 @@ body.red-letter-off .red-letter-card {
   border-radius: 8px;
   overflow: hidden;
   background-image: none;
-  background: linear-gradient(135deg, #1c1917 0%, #292524 50%, #1c1917 100%);
-  border: 2px solid rgba(212, 175, 55, 0.4);
-  box-shadow: inset 0 0 60px rgba(0,0,0,0.4), 0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(212, 175, 55, 0.1);
+  background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 50%, #cbd5e1 100%);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 0 0 1px rgba(212, 175, 55, 0.15);
 }
 .prayer-map-dots::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(28,25,23,0.15) 0%, rgba(28,25,23,0.4) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.03) 100%);
   pointer-events: none;
 }
 .prayer-map-dot {
@@ -4624,20 +4624,29 @@ body.red-letter-off .red-letter-card {
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: var(--elite-gold, #eab308);
-  text-shadow: 0 0 8px rgba(234, 179, 8, 0.8), 0 0 16px rgba(234, 179, 8, 0.4);
+  color: #b45309;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 0 6px rgba(212, 175, 55, 0.5);
   cursor: pointer;
   opacity: 0.95;
   z-index: 2;
   font-family: Georgia, serif;
 }
-.prayer-map-dot:hover { opacity: 1; transform: scale(1.25); text-shadow: 0 0 12px rgba(234, 179, 8, 1), 0 0 24px rgba(234, 179, 8, 0.6); }
-.prayer-map-dot.you-dot { color: #22c55e; text-shadow: 0 0 8px rgba(34, 197, 94, 0.8); }
-.prayer-map-dot.you-dot:hover { text-shadow: 0 0 12px rgba(34, 197, 94, 1); }
+.prayer-map-dot:hover { opacity: 1; transform: scale(1.25); text-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 0 10px rgba(212, 175, 55, 0.6); }
+.prayer-map-dot.you-dot { color: #15803d; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+.prayer-map-dot.you-dot:hover { text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
 @media (max-width: 768px) {
   .prayer-map-dots { height: 240px; }
   .prayer-map-dot { font-size: 0.9rem; width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; }
 }
+
+/* Map always light (no dark mode on map) */
+.dark-mode .prayer-map-widget.glass,
+.dark-mode .prayer-map-widget {
+  background: #f1f5f9;
+  color: #1e293b;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.dark-mode .prayer-map-caption { color: #475569; }
 
 .patriotic-scriptures { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); }
 .patriotic-scriptures-title { text-align: center; font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }

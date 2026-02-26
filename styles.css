@@ -1934,6 +1934,19 @@ body.light .btn-secondary:hover { box-shadow: 0 0.1rem 0.5rem rgba(184, 134, 11,
   font-size: 0.95rem;
 }
 
+#logout-btn {
+  display: inline-block;
+}
+
+.auth-inline .hidden {
+  display: none !important;
+}
+
+.auth-logged-in {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(3.5rem, 8vw, 7rem);

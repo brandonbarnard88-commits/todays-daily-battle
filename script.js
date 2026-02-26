@@ -6357,34 +6357,33 @@ function updateAuthUI(session) {
   let loggedInEl = document.getElementById('auth-logged-in');
   if (session) {
     hideResendVerificationUI();
-    if (emailEl) emailEl.style.display = 'none';
-    if (passwordEl) passwordEl.style.display = 'none';
-    if (signupBtn) signupBtn.style.display = 'none';
-    if (loginBtn) loginBtn.style.display = 'none';
-    if (forgotBtn) forgotBtn.style.display = 'none';
-    if (logoutBtn) logoutBtn.style.display = 'inline-block';
+    if (emailEl) { emailEl.classList.add('hidden'); }
+    if (passwordEl) { passwordEl.classList.add('hidden'); }
+    if (signupBtn) { signupBtn.classList.add('hidden'); }
+    if (loginBtn) { loginBtn.classList.add('hidden'); }
+    if (forgotBtn) { forgotBtn.classList.add('hidden'); }
+    if (logoutBtn) { logoutBtn.classList.remove('hidden'); }
     if (!loggedInEl) {
       loggedInEl = document.createElement('span');
       loggedInEl.id = 'auth-logged-in';
-      loggedInEl.className = 'section-note';
-      loggedInEl.style.marginRight = '0.5rem';
+      loggedInEl.className = 'section-note auth-logged-in';
       authSection.insertBefore(loggedInEl, authSection.firstChild);
     }
     loggedInEl.textContent = 'Logged in as ' + (session.user?.email || '');
-    loggedInEl.style.display = 'inline';
+    loggedInEl.classList.remove('hidden');
     const headerNudge = document.querySelector('.header-signin-nudge');
-    if (headerNudge) headerNudge.style.display = 'none';
+    if (headerNudge) headerNudge.classList.add('hidden');
     if (authStatus) authStatus.textContent = '';
   } else {
-    if (emailEl) emailEl.style.display = '';
-    if (passwordEl) passwordEl.style.display = '';
-    if (signupBtn) signupBtn.style.display = '';
-    if (loginBtn) loginBtn.style.display = '';
-    if (forgotBtn) forgotBtn.style.display = '';
-    if (logoutBtn) logoutBtn.style.display = 'none';
-    if (loggedInEl) loggedInEl.style.display = 'none';
+    if (emailEl) { emailEl.classList.remove('hidden'); }
+    if (passwordEl) { passwordEl.classList.remove('hidden'); }
+    if (signupBtn) { signupBtn.classList.remove('hidden'); }
+    if (loginBtn) { loginBtn.classList.remove('hidden'); }
+    if (forgotBtn) { forgotBtn.classList.remove('hidden'); }
+    if (logoutBtn) { logoutBtn.classList.add('hidden'); }
+    if (loggedInEl) loggedInEl.classList.add('hidden');
     const headerNudge = document.querySelector('.header-signin-nudge');
-    if (headerNudge) headerNudge.style.display = '';
+    if (headerNudge) headerNudge.classList.remove('hidden');
     var proBadge = document.getElementById('battle-pro-badge');
     if (proBadge) proBadge.classList.add('hidden');
     try { window.__tdb_battle_pro_active = false; localStorage.removeItem('tdb_battle_pro'); } catch (e) {}
@@ -6484,7 +6483,7 @@ function setView(state) {
 function updateRoleViews() {
   const churchAdmin = document.getElementById('church-admin');
   if (churchAdmin) {
-    churchAdmin.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
+    churchAdmin.classList.toggle('hidden', !(subscriptionTier === 'church_team' || isMasterUser));
   }
   applyRoleAccess();
 }
@@ -6571,12 +6570,12 @@ async function renderAdminPanel() {
   if (!adminRoot) return;
   const warning = document.getElementById('admin-access-warning');
   if (!isMasterUser) {
-    if (warning) warning.style.display = 'block';
+    if (warning) warning.classList.remove('hidden');
     adminRoot.style.visibility = 'visible';
     return;
   }
   adminRoot.style.visibility = 'visible';
-  if (warning) warning.style.display = 'none';
+  if (warning) warning.classList.add('hidden');
 
   const health = document.getElementById('admin-health');
   if (health) {

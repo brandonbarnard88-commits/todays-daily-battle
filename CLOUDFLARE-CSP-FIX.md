@@ -67,6 +67,8 @@ Go to [dash.cloudflare.com](https://dash.cloudflare.com) and select the account 
 
 Once the header sent by Cloudflare either includes `'unsafe-inline'` in `style-src` or is removed, the black screen and “Refused to apply a stylesheet” errors should stop.
 
+**Also:** If you see "Refused to load blob:... does not appear in the img-src directive", add **`blob:`** to `img-src` in the same CSP (the site uses blob URLs for canvas exports and SVG-to-image in Kids Corner). The value in Step 3 below already includes `blob:` in `img-src`.
+
 ---
 
 ## Troubleshooting: errors still after adding a Transform Rule
@@ -87,7 +89,7 @@ If you added a Transform Rule to **set** Content-Security-Policy but the site is
    - Action: **Set static** → Header name: `Content-Security-Policy`.
    - Header value (one line, no line breaks):
    ```
-   default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests
+   default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests
    ```
    - Condition: **All incoming requests** (or Hostname equals `todaysdailybattle.com`).
 

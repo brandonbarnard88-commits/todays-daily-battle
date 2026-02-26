@@ -2440,10 +2440,6 @@ function wirePrayerMap() {
 }
 
 function showGodWhisperOnLoad() {
-  try {
-    if (sessionStorage.getItem('tdb_god_whisper_shown')) return;
-    sessionStorage.setItem('tdb_god_whisper_shown', '1');
-  } catch (e) { return; }
   var el = document.getElementById('god-whisper-load');
   if (!el) return;
   el.classList.remove('hidden');
@@ -2462,9 +2458,6 @@ function showGodWhisperOnLoad() {
 
 var ANOINTED_SEEN_KEY = 'tdb_anointed_seen';
 function showAnointedOverlay() {
-  try {
-    if (localStorage.getItem(ANOINTED_SEEN_KEY)) return;
-  } catch (e) { return; }
   var el = document.getElementById('anointed-overlay');
   if (!el) return;
   el.classList.remove('hidden');
@@ -2478,7 +2471,6 @@ function showAnointedOverlay() {
     el.style.display = 'none';
     el.classList.remove('whisper-visible', 'whisper-out');
     el.classList.add('hidden');
-    try { localStorage.setItem(ANOINTED_SEEN_KEY, '1'); } catch (e) {}
   }, 6000);
 }
 
@@ -8763,8 +8755,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();
-  if (isHome) { /* Intro overlays disabled: no "He is here" or anointed on load */ }
-  if (isHome && false && typeof showAnointedOverlay === 'function') setTimeout(showAnointedOverlay, 7000);
+  if (isHome) {
+    setTimeout(function () {
+      if (typeof showGodWhisperOnLoad === 'function') showGodWhisperOnLoad();
+    }, 800);
+  }
+  if (isHome && typeof showAnointedOverlay === 'function') setTimeout(showAnointedOverlay, 7000);
   if (isHome && typeof wireNightDawnOverlays === 'function') setTimeout(wireNightDawnOverlays, 2200);
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');

@@ -257,4 +257,7 @@ CREATE TRIGGER force_member_role_trigger
 --   select * from public.daily_battles limit 1;
 --   select * from public.messages limit 1;
 --   select * from public.newsletter_signups limit 1;
+--
+-- After lockdown: verse echo and prayer wall need anon SELECT on prayers.
+-- Run supabase-prayers-anon-read.sql to re-allow anon read for those features.
 -- =============================================================================

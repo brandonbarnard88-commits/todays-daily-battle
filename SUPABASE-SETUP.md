@@ -27,6 +27,10 @@ That creates:
 
 After it runs successfully, reload the site; the 404s should stop and the prayer echo/counter will work.
 
+**If you see "access control checks" or 403 on `/rest/v1/prayers` (browser may show "offline"):**
+
+If you ran **`supabase-rls-lockdown.sql`**, it revokes anon SELECT on `prayers`. The verse echo and prayer wall need anon to read. Run **`supabase-prayers-anon-read.sql`** in the SQL Editor once (grants anon SELECT + policy). Then reload; 403s and fake "offline" errors on that request should stop.
+
 **After you deploy (to stop 404 spam):**
 
 1. Deploy the latest `index.html` and `script.js` (with `?v=20260227` or newer).

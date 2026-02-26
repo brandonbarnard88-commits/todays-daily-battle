@@ -50,7 +50,7 @@ const block = `window.TDB_CONFIG.STRIPE_PRICE_IDS = {
   church: { monthly: '${ids.church.monthly}', yearly: '${ids.church.yearly}' }
 };`;
 
-const regex = /window\.TDB_CONFIG\.STRIPE_PRICE_IDS\s*=\s*\{[\s\S]*?church:\s*\{\s*monthly:\s*'[^']*',\s*yearly:\s*'[^']*'\s*\}\s*\};/;
+const regex = /window\.TDB_CONFIG\.STRIPE_PRICE_IDS\s*=\s*\{[\s\S]*?church:\s*\{\s*monthly:\s*['"][^'"]*['"],\s*yearly:\s*['"][^'"]*['"]\s*\}\s*\}\s*;/;
 const newContent = content.replace(regex, block);
 if (newContent === content) {
   console.error('Could not find STRIPE_PRICE_IDS block in config.js');

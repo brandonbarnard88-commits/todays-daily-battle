@@ -9,7 +9,7 @@ const http = require('http');
 
 const BASE = 'http://127.0.0.1:8765';
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="query"', 'id="search-btn"', 'Today\'s Daily Battle'] },
+  { path: '/', name: 'Home', mustInclude: ['id="query"', 'id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers'] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
@@ -69,6 +69,26 @@ function run() {
       failed++;
     } else {
       console.log('\nOK  search logic (selfless→love, fallback verses)');
+    }
+    // Prayer counter: element present on home, script wires it and formats numbers
+    let homeBody = '';
+    try {
+      const homeRes = await fetch(BASE + '/');
+      homeBody = homeRes.body || '';
+    } catch (e) { homeBody = ''; }
+    const hasCounterEl = homeBody.indexOf('id="prayer-counter"') !== -1 && homeBody.indexOf('Total prayers') !== -1;
+    const hasWireCounter = script.includes('prayer-counter') && script.includes('wireRealPrayerCounter');
+    const hasFormatCount = script.includes('toLocaleString()') && script.includes('formatCount');
+    const hasRefresh = script.includes('__fetchPrayerCount');
+    if (!hasCounterEl || !hasWireCounter || !hasFormatCount || !hasRefresh) {
+      console.log('\nFAIL prayer counter: missing element, wire, formatCount, or refresh');
+      if (!hasCounterEl) console.log('  - Home page must include id="prayer-counter" and "Total prayers"');
+      if (!hasWireCounter) console.log('  - script.js must wire prayer-counter in wireRealPrayerCounter');
+      if (!hasFormatCount) console.log('  - script.js must use formatCount with toLocaleString');
+      if (!hasRefresh) console.log('  - script.js must expose __fetchPrayerCount for refresh');
+      failed++;
+    } else {
+      console.log('\nOK  prayer counter (element, wire, formatCount, refresh)');
     }
     console.log('\n' + (failed ? failed + ' failure(s).' : 'All checks passed.'));
     process.exit(failed ? 1 : 0);

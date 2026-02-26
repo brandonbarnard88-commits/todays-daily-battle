@@ -66,3 +66,35 @@ Go to [dash.cloudflare.com](https://dash.cloudflare.com) and select the account 
 - If someone else set up the account, ask them where the CSP header is configured.
 
 Once the header sent by Cloudflare either includes `'unsafe-inline'` in `style-src` or is removed, the black screen and “Refused to apply a stylesheet” errors should stop.
+
+---
+
+## Troubleshooting: errors still after adding a Transform Rule
+
+If you added a Transform Rule to **set** Content-Security-Policy but the site is still black:
+
+1. **See what header is actually sent**
+   - Open https://todaysdailybattle.com in Chrome.
+   - DevTools → **Network** → select the first request (the document, `todaysdailybattle.com`).
+   - In **Response Headers**, find **Content-Security-Policy**. Copy the full value.
+   - If it does **not** contain `'unsafe-inline'` in `style-src` (and in `script-src` if you have inline scripts), then the rule is either not applying or another rule is overwriting it.
+
+2. **Only one rule should set CSP**
+   - Go to **Rules** → **Transform Rules**.
+   - Check **every** rule. If more than one rule **sets** the header **Content-Security-Policy**, the order can make a strict one win. Edit or remove any rule that sets a CSP **without** `'unsafe-inline'` in both `style-src` and `script-src`.
+
+3. **Use this exact value in the Transform Rule**
+   - Action: **Set static** → Header name: `Content-Security-Policy`.
+   - Header value (one line, no line breaks):
+   ```
+   default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests
+   ```
+   - Condition: **All incoming requests** (or Hostname equals `todaysdailybattle.com`).
+
+4. **Make sure the deployed site isn't sending CSP from _headers**
+   - This repo's `_headers` file has **no** Content-Security-Policy line.
+   - In **Workers & Pages** → your project → **Deployments**, trigger **Retry deployment** and enable **Clear build cache** so the latest `_headers` (without CSP) is what's deployed.
+
+5. **Purge and test**
+   - **Caching** → **Configuration** → **Purge Everything**.
+   - Test in an **incognito/private** window after a minute.

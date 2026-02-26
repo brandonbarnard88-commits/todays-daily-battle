@@ -2425,6 +2425,7 @@ function showGodWhisperOnLoad() {
   } catch (e) { return; }
   var el = document.getElementById('god-whisper-load');
   if (!el) return;
+  el.classList.remove('hidden');
   el.style.display = 'flex';
   el.classList.add('whisper-visible');
   el.setAttribute('aria-label', 'God is present.');
@@ -2434,6 +2435,7 @@ function showGodWhisperOnLoad() {
   setTimeout(function () {
     el.style.display = 'none';
     el.classList.remove('whisper-visible', 'whisper-out');
+    el.classList.add('hidden');
   }, 6000);
 }
 
@@ -2444,6 +2446,7 @@ function showAnointedOverlay() {
   } catch (e) { return; }
   var el = document.getElementById('anointed-overlay');
   if (!el) return;
+  el.classList.remove('hidden');
   el.setAttribute('aria-label', 'Room consecrated.');
   el.style.display = 'flex';
   el.classList.add('whisper-visible');
@@ -2453,6 +2456,7 @@ function showAnointedOverlay() {
   setTimeout(function () {
     el.style.display = 'none';
     el.classList.remove('whisper-visible', 'whisper-out');
+    el.classList.add('hidden');
     try { localStorage.setItem(ANOINTED_SEEN_KEY, '1'); } catch (e) {}
   }, 6000);
 }
@@ -2460,6 +2464,7 @@ function showAnointedOverlay() {
 function showPrayerWhisper() {
   var el = document.getElementById('prayer-whisper');
   if (!el) return;
+  el.classList.remove('hidden');
   el.classList.remove('whisper-out');
   el.style.display = 'flex';
   el.classList.add('whisper-visible');
@@ -2470,6 +2475,7 @@ function showPrayerWhisper() {
   setTimeout(function () {
     el.style.display = 'none';
     el.classList.remove('whisper-visible', 'whisper-out');
+    el.classList.add('hidden');
   }, 6000);
 }
 
@@ -3051,6 +3057,7 @@ function wireNightDawnOverlays() {
       if (sessionStorage.getItem(NIGHT_CLOSE_SHOWN_KEY + dateKey)) return;
       sessionStorage.setItem(NIGHT_CLOSE_SHOWN_KEY + dateKey, '1');
     } catch (e) {}
+    nightEl.classList.remove('hidden');
     nightEl.style.display = 'flex';
     nightEl.classList.add('whisper-visible');
     setTimeout(function () {
@@ -3059,6 +3066,7 @@ function wireNightDawnOverlays() {
     setTimeout(function () {
       nightEl.style.display = 'none';
       nightEl.classList.remove('whisper-visible', 'whisper-out');
+      nightEl.classList.add('hidden');
     }, 10000);
     return;
   }
@@ -3067,6 +3075,7 @@ function wireNightDawnOverlays() {
       if (sessionStorage.getItem(DAWN_SHOWN_KEY + dateKey)) return;
       sessionStorage.setItem(DAWN_SHOWN_KEY + dateKey, '1');
     } catch (e) {}
+    dawnEl.classList.remove('hidden');
     dawnEl.style.display = 'flex';
     dawnEl.classList.add('whisper-visible');
     setTimeout(function () {
@@ -3075,6 +3084,7 @@ function wireNightDawnOverlays() {
     setTimeout(function () {
       dawnEl.style.display = 'none';
       dawnEl.classList.remove('whisper-visible', 'whisper-out');
+      dawnEl.classList.add('hidden');
     }, 6000);
   }
 }

@@ -32,9 +32,9 @@ window.TDB_CONFIG.TURNSTILE_SITE_KEY = '';
 // Price IDs for create-checkout-session (signed-in flow with metadata). Paste from Stripe Dashboard → Products → [price] ID (e.g. price_1ABC...).
 // Order: Supporter $5/$50, Battle Pro $10/$100, Church $10/$100 — monthly then yearly per tier.
 window.TDB_CONFIG.STRIPE_PRICE_IDS = {
-  supporter: { monthly: '', yearly: '' },
-  battle_pro: { monthly: '', yearly: '' },
-  church: { monthly: '', yearly: '' }
+  supporter: { monthly: 'price_1T5C10PyNV9eq3QeHyy5RLdy', yearly: 'price_1T5C20PyNV9eq3Qe70Bida8E' },
+  battle_pro: { monthly: 'price_1T5C3aPyNV9eq3QeJx4Xg9Ej', yearly: 'price_1T5C47PyNV9eq3QeDXr6hz5A' },
+  church: { monthly: 'price_1T5C5hPyNV9eq3QeDeqLOBYs', yearly: 'price_1T5C6APyNV9eq3QeTSZK87Yv' }
 };
 
 // Edge Function URL for creating a Checkout Session with user_id in metadata (derived from SUPABASE_URL).

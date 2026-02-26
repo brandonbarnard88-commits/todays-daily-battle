@@ -73,9 +73,16 @@ Checklist to harden todaysdailybattle.com to a high standard — no political re
 ## Quick “fortress” order
 
 1. **Cloudflare:** WAF Medium+, Bot Fight Mode, security headers (CSP + X-Content-Type-Options, etc.).  
+   → **CLOUDFLARE-WAF-RATE-LIMIT.md** (WAF + Bot Fight + rate limit)  
+   → **CLOUDFLARE-SECURITY-HEADERS.md** (CSP + headers)  
+   → **CLOUDFLARE-CSP-FIX.md** (if site is black / CSP blocking)
 2. **Turnstile:** Finish **ABUSE-PROTECTION.md** setup so Quick Pray is protected.  
+   → **TURNSTILE-GO-LIVE.md** (step-by-step go-live checklist)
 3. **Supabase:** Audit RLS (prayers + profiles); confirm no anon UPDATE/DELETE where it shouldn’t be.  
+   → **RLS-VERIFICATION.md** (checklist + SQL checks)
 4. **Stripe:** Confirm webhook verification and live/test key separation.  
-5. **Monitoring:** Add one uptime check and one Supabase usage alert.
+   → You handle (#6); see **BATTLE-PRO-QUICK-PROMPTS.md** when ready.
+5. **Monitoring:** Add one uptime check and one Supabase usage alert.  
+   → **MONITORING-SETUP.md** (UptimeRobot + Supabase alerts)
 
 After that you’re in strong shape for an indie devotional site with payments and user data.

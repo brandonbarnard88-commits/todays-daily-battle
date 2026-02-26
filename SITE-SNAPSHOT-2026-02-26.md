@@ -64,3 +64,16 @@
 ## Summary
 
 No glitches; placeholders feel intentional (e.g. 0 counts for new features). Dynamic data (prayer count, streak) is consistent. The site delivers: quick daily anchor, spiritual battle prep, global prayer community, patriotic tools as opt-in depth.
+
+---
+
+## Live test — production (Feb 26, 2026, ~11 AM CST, Arlington TN)
+
+**Result:** All tests passed. Full comb-through of live todaysdailybattle.com — homepage dynamics, linked pages, search/prayer features, external signals. No downtime, no errors; content consistent and fresh.
+
+- **Homepage:** Fully live, no loading/offline glitches (offline fallback message present but site online). Verse, reflection, prayer, streak, prayer wall (9 worldwide), map with gold crosses, patriotic Scriptures/Hymns, 30-Day Challenge, Invite, Quick Pray, Battle Pro tease, Stories of Hope, topics/search, Family Armor, badges, CTAs all as documented above.
+- **Key pages (200 OK + content intact):** Terms (acceptance, subscriptions/refunds, contact support@), Pricing (Free / Supporter / Battle Pro / Church–Team, beta rates, early March 2026), Privacy (local storage, Supabase auth, no selling data, user controls). Reading Plan, Team Toolkit, topic pages, FAQ/Contact implied.
+- **Script/tech:** Prayer counter displays correctly (9 worldwide), formatCount/toLocaleString, __fetchPrayerCount refresh. Search synonyms/fallback active (e.g. selfless → love). Local server test (127.0.0.1:8765) reported no failures.
+- **External:** No downtime/reviews/complaints found; domain active (updated Jan 2026).
+
+Site battle-ready, inclusive (global prayers emphasized), promo-perfect with today’s Philippians 4:19 hook.

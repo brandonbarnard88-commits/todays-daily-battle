@@ -1075,7 +1075,7 @@ function supabaseFetch(url, options) {
       _prayerRequestInFlight = false;
       window.__tdb_prayers_404 = true;
       if (typeof console !== 'undefined' && console.log) console.log('TDB: prayers request failed — no more prayer requests.');
-      throw err;
+      return new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } });
     });
   }
   return p;

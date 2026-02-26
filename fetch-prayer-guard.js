@@ -24,7 +24,7 @@
         return res;
       }, function(err){
         window.__tdb_prayers_404 = true;
-        throw err;
+        return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
       });
     }
     if (prayerRequestInFlight)
@@ -37,7 +37,7 @@
     }, function(err){
       prayerRequestInFlight = false;
       window.__tdb_prayers_404 = true;
-      throw err;
+      return new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } });
     });
   };
 })();

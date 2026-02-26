@@ -1,6 +1,6 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new JS/CSS (e.g. tdb-static-YYYYMMDD).
-const CACHE_NAME = 'tdb-static-20260226';
+const CACHE_NAME = 'tdb-static-20260227';
 const CACHE_API = 'tdb-api-20260221';
 const CORE_ASSETS = [
   '/',
@@ -123,6 +123,9 @@ self.addEventListener('fetch', (event) => {
     );
     return;
   }
+
+  // Only cache same-origin GETs; let cross-origin (fonts, analytics, images) load normally
+  if (!sameOrigin) return;
 
   event.respondWith(
     caches.match(event.request).then((cached) => cached || fetch(event.request)).catch(() => fetch(event.request))

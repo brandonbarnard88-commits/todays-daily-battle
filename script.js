@@ -8658,7 +8658,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           if (typeof console !== 'undefined' && console.log) {
             console.log('Trying to register SW...');
           }
-          navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+          navigator.serviceWorker.register('/service-worker.js?v=20260227', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               if (typeof console !== 'undefined' && console.log) {

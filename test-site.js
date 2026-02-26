@@ -20,6 +20,11 @@ const pages = [
   { path: '/reading-plan.html', name: 'Reading plan', mustInclude: ['Reading'] },
   { path: '/faq.html', name: 'FAQ', mustInclude: ['FAQ'] },
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
+  { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
+  { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
+  { path: '/about.html', name: 'About', mustInclude: ['About', 'Daily Battle'] },
+  { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety'] },
+  { path: '/manifest.json', name: 'Manifest (PWA)', mustInclude: ['name', 'short_name'] },
 ];
 
 function fetch(url) {

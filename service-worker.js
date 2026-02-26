@@ -26,7 +26,7 @@ const CORE_ASSETS = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS)).catch(() => {})
   );
 });
 
@@ -34,7 +34,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => Promise.all(
       keys.filter((k) => k !== CACHE_NAME && k !== CACHE_API).map((k) => caches.delete(k))
-    ))
+    )).catch(() => {})
   );
 });
 
@@ -83,10 +83,10 @@ self.addEventListener('fetch', (event) => {
         if (cached) return cached;
         return fetch(event.request).then((res) => {
           const clone = res.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
           return res;
         });
-      })
+      }).catch(() => fetch(event.request))
     );
     return;
   }
@@ -98,10 +98,10 @@ self.addEventListener('fetch', (event) => {
         if (cached) return cached;
         return fetch(event.request).then((res) => {
           const clone = res.clone();
-          caches.open(CACHE_API).then((cache) => cache.put(event.request, clone));
+          caches.open(CACHE_API).then((cache) => cache.put(event.request, clone)).catch(() => {});
           return res;
         });
-      })
+      }).catch(() => fetch(event.request))
     );
     return;
   }
@@ -116,7 +116,7 @@ self.addEventListener('fetch', (event) => {
       fetch(event.request)
         .then((res) => {
           const clone = res.clone();
-          caches.open(CACHE_API).then((cache) => cache.put(event.request, clone));
+          caches.open(CACHE_API).then((cache) => cache.put(event.request, clone)).catch(() => {});
           return res;
         })
         .catch(() => caches.match(event.request))
@@ -125,6 +125,6 @@ self.addEventListener('fetch', (event) => {
   }
 
   event.respondWith(
-    caches.match(event.request).then((cached) => cached || fetch(event.request))
+    caches.match(event.request).then((cached) => cached || fetch(event.request)).catch(() => fetch(event.request))
   );
 });

@@ -6,7 +6,32 @@
  */
 window.__tdb_script_version = '20260227-probe-raw-fetch';
 if (typeof console !== 'undefined' && console.log) console.log('TDB: script loaded', window.__tdb_script_version);
-document.getElementById('offline-banner')?.classList.add('hidden');
+
+function safeSetItem(key, value) {
+  try {
+    if (typeof key === 'string' && key.length > 0) localStorage.setItem(key, value);
+  } catch (_) {}
+}
+function safeGetItem(key) {
+  try {
+    return typeof key === 'string' ? localStorage.getItem(key) : null;
+  } catch (_) {
+    return null;
+  }
+}
+function safeSessionSet(key, value) {
+  try {
+    if (typeof key === 'string' && key.length > 0) sessionStorage.setItem(key, value);
+  } catch (_) {}
+}
+function safeSessionGet(key) {
+  try {
+    return typeof key === 'string' ? sessionStorage.getItem(key) : null;
+  } catch (_) {
+    return null;
+  }
+}
+
 window.addEventListener('online', function () {
   document.getElementById('offline-banner')?.classList.add('hidden');
   if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
@@ -1801,9 +1826,9 @@ function wireOfflineBanner() {
     banner.classList.remove('hidden');
     if (typeof trackEvent === 'function') {
       try {
-        if (!sessionStorage.getItem('tdb_offline_view_sent')) {
+        if (!safeSessionGet('tdb_offline_view_sent')) {
           trackEvent('offline_view');
-          sessionStorage.setItem('tdb_offline_view_sent', '1');
+          safeSessionSet('tdb_offline_view_sent', '1');
         }
       } catch (_) {}
     }
@@ -2072,72 +2097,6 @@ function wireIntentModal() {
       if (quickPrayInput) quickPrayInput.value = val;
     }
     hideModal();
-  });
-}
-
-var PATRIOTIC_SCRIPTURES = [
-  { ref: '2 Chronicles 7:14', text: 'If my people, which are called by my name, shall humble themselves, and pray, and seek my face, and turn from their wicked ways; then will I hear from heaven, and will forgive their sin, and will heal their land.', note: 'The classic call for national repentance and healing—when God\'s people pray.' },
-  { ref: 'Psalm 33:12', text: 'Blessed is the nation whose God is the LORD; and the people whom he hath chosen for his own inheritance.', note: 'Direct blessing on any nation that honors God as its foundation.' },
-  { ref: 'Proverbs 14:34', text: 'Righteousness exalteth a nation: but sin is a reproach to any people.', note: 'Moral integrity lifts a country; moral decay brings shame.' },
-  { ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.', note: 'Eagle imagery ties to American symbolism—renewal and endurance.' },
-  { ref: 'Galatians 5:1', text: 'Stand fast therefore in the liberty wherewith Christ hath made us free, and be not entangled again with the yoke of bondage.', note: 'Ultimate source of true freedom—echoes the spirit of liberty.' },
-  { ref: 'Psalm 144:1', text: 'Blessed be the LORD my strength, which teacheth my hands to war, and my fingers to fight.', note: 'God as the source of strength for defense.' },
-  { ref: 'John 8:36', text: 'If the Son therefore shall make you free, ye shall be free indeed.', note: 'True liberty comes from Christ—pairs with national freedom themes.' },
-  { ref: 'Micah 6:8', text: 'He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?', note: 'Justice, mercy, and humility—often quoted in civic and leadership prayers.' },
-  { ref: 'Deuteronomy 28:1-2', text: 'And it shall come to pass, if thou shalt hearken diligently unto the voice of the LORD thy God... that the LORD thy God will set thee on high above all nations of the earth: And all these blessings shall come on thee...', note: 'Promise of blessing and elevation for obedience—a model for a God-honoring nation.' },
-  { ref: 'Psalm 33:16-17', text: 'There is no king saved by the multitude of an host: a mighty man is not delivered by much strength. An horse is a vain thing for safety: neither shall he deliver any by his great strength.', note: 'True security is in God, not armies or power.' }
-];
-
-function renderPatrioticScriptures() {
-  var grid = document.getElementById('patriotic-scriptures-grid');
-  if (!grid || typeof PATRIOTIC_SCRIPTURES === 'undefined') return;
-  grid.innerHTML = '';
-  PATRIOTIC_SCRIPTURES.forEach(function (v) {
-    var card = document.createElement('div');
-    card.className = 'patriotic-scriptures-card';
-    var refEl = document.createElement('p');
-    refEl.className = 'patriotic-scriptures-ref';
-    refEl.textContent = v.ref;
-    var textEl = document.createElement('blockquote');
-    textEl.className = 'patriotic-scriptures-text';
-    textEl.textContent = v.text;
-    var noteEl = document.createElement('p');
-    noteEl.className = 'patriotic-scriptures-note';
-    noteEl.textContent = v.note;
-    var actions = document.createElement('div');
-    actions.className = 'patriotic-scriptures-actions';
-    var prayBtn = document.createElement('button');
-    prayBtn.type = 'button';
-    prayBtn.className = 'btn btn-secondary patriotic-pray-btn';
-    prayBtn.textContent = 'Pray this verse';
-    prayBtn.setAttribute('aria-label', 'Pray ' + v.ref);
-    prayBtn.onclick = function () {
-      var input = document.getElementById('quick-pray');
-      var wrap = document.getElementById('quick-pray-wrap');
-      if (input) {
-        input.value = v.ref + ' — for our nation';
-        input.focus();
-        if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        if (typeof showEliteToast === 'function') showEliteToast('Verse added—tap Pray when ready.');
-        else { var fb = document.getElementById('quick-pray-feedback'); if (fb) { fb.textContent = 'Verse added—tap Pray when ready.'; fb.style.display = 'block'; setTimeout(function () { fb.style.display = 'none'; }, 2500); } }
-      }
-    };
-    var shareBtn = document.createElement('button');
-    shareBtn.type = 'button';
-    shareBtn.className = 'btn btn-secondary patriotic-share-btn';
-    shareBtn.textContent = 'Share';
-    shareBtn.setAttribute('aria-label', 'Share ' + v.ref);
-    shareBtn.onclick = function () {
-      if (typeof shareVerse === 'function') shareVerse(v.ref, v.text);
-      else if (navigator.clipboard) navigator.clipboard.writeText(v.ref + '\n\n' + v.text).then(function () { if (typeof showEliteToast === 'function') showEliteToast('Copied.'); });
-    };
-    actions.appendChild(prayBtn);
-    actions.appendChild(shareBtn);
-    card.appendChild(refEl);
-    card.appendChild(textEl);
-    card.appendChild(noteEl);
-    card.appendChild(actions);
-    grid.appendChild(card);
   });
 }
 
@@ -3833,23 +3792,25 @@ function trackEvent(eventName, params) {
 }
 
 function loadMessageDisplayName() {
-  return localStorage.getItem(MESSAGE_NAME_KEY) || '';
+  return safeGetItem(MESSAGE_NAME_KEY) || '';
 }
 
 function saveMessageDisplayName(name) {
-  localStorage.setItem(MESSAGE_NAME_KEY, name || '');
+  safeSetItem(MESSAGE_NAME_KEY, name || '');
 }
 
 function loadMessageNameMap() {
   try {
-    return JSON.parse(localStorage.getItem(MESSAGE_NAME_MAP_KEY) || '{}');
+    return JSON.parse(safeGetItem(MESSAGE_NAME_MAP_KEY) || '{}');
   } catch {
     return {};
   }
 }
 
 function saveMessageNameMap(map) {
-  localStorage.setItem(MESSAGE_NAME_MAP_KEY, JSON.stringify(map));
+  try {
+    if (map != null && typeof map === 'object') safeSetItem(MESSAGE_NAME_MAP_KEY, JSON.stringify(map));
+  } catch (_) {}
 }
 
 function openStripeCheckout(url) {
@@ -3877,7 +3838,9 @@ function loadAmenCounts() {
 }
 
 function saveAmenCounts(map) {
-  localStorage.setItem(MESSAGE_AMEN_KEY, JSON.stringify(map));
+  try {
+    if (map != null && typeof map === 'object') safeSetItem(MESSAGE_AMEN_KEY, JSON.stringify(map));
+  } catch (_) {}
 }
 
 function isRedLetterEnabled() {
@@ -4573,8 +4536,9 @@ if (c && c.ref) {
     var topicOfDay = getTopicOfDay();
     var readerUrl = buildReaderUrl(battle.ref);
     var basePath = (window.location.pathname || '/').replace(/\/[^/]*$/, '') || '/';
-    var searchUrl = basePath + '?q=' + encodeURIComponent(topicOfDay.toLowerCase());
-    nextStepsEl.innerHTML = '<a href="' + readerUrl + '">Read full chapter</a> &middot; <a href="' + searchUrl + '">More verses on ' + topicOfDay + '</a>' +
+    var searchUrl = basePath + '?q=' + encodeURIComponent(String(topicOfDay).toLowerCase());
+    function attrEscape(s) { return String(s).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    nextStepsEl.innerHTML = '<a href="' + attrEscape(readerUrl) + '">Read full chapter</a> &middot; <a href="' + attrEscape(searchUrl) + '">More verses on ' + escapeHtml(topicOfDay) + '</a>' +
       '<p class="daily-battle-suggest section-note">Next: <a href="' + basePath + '?q=anxiety">Anxiety</a>? <a href="' + basePath + '?q=hope">Hope</a>? <a href="' + basePath + '?q=spiritual%20warfare">Spiritual Warfare</a>?</p>';
   }
   var testimonyEl = document.getElementById('daily-battle-testimony');
@@ -4607,11 +4571,11 @@ if (c && c.ref) {
   var questionEl = document.getElementById('daily-battle-question');
   if (topicEl) {
     topicEl.textContent = '';
-    topicEl.innerHTML = '<strong>Topic of the day:</strong> ' + getTopicOfDay();
+    topicEl.innerHTML = '<strong>Topic of the day:</strong> ' + escapeHtml(getTopicOfDay());
   }
   if (questionEl) {
     questionEl.textContent = '';
-    questionEl.innerHTML = '<strong>Reflection question:</strong> ' + getBattleQuestionOfDay();
+    questionEl.innerHTML = '<strong>Reflection question:</strong> ' + escapeHtml(getBattleQuestionOfDay());
   }
   if (reflectionEl) reflectionEl.textContent = battle.reflection ? 'Reflection: ' + battle.reflection : '';
   if (prayerEl) prayerEl.textContent = battle.prayer ? 'Prayer: ' + battle.prayer : '';
@@ -4645,7 +4609,9 @@ function loadMessagesLocal() {
 }
 
 function saveMessagesLocal(items) {
-  localStorage.setItem(MESSAGE_STORAGE_KEY, JSON.stringify(items));
+  try {
+    if (items != null && Array.isArray(items)) localStorage.setItem(MESSAGE_STORAGE_KEY, JSON.stringify(items));
+  } catch (_) {}
 }
 
 function loadPrayerList() {
@@ -4657,8 +4623,10 @@ function loadPrayerList() {
 }
 
 function savePrayerList(items) {
-  localStorage.setItem(PRAYER_LIST_KEY, JSON.stringify(items));
-  setSyncData('prayer_list', items);
+  try {
+    if (items != null && Array.isArray(items)) localStorage.setItem(PRAYER_LIST_KEY, JSON.stringify(items));
+  } catch (_) {}
+  if (typeof setSyncData === 'function') setSyncData('prayer_list', items);
 }
 
 function renderPrayerList() {
@@ -6155,7 +6123,7 @@ function renderChurchPrayerListUI(items) {
         return;
       }
       const localItems = loadChurchPrayerList();
-      const idx = localItems.findIndex(function (it) { return (it.id || it.id) === (row.id || row.id); });
+      const idx = localItems.findIndex(function (it) { return it.id === row.id; });
       if (idx >= 0) {
         localItems[idx].prayed = !localItems[idx].prayed;
         saveChurchPrayerList(localItems);
@@ -6611,7 +6579,7 @@ async function renderAdminPanel() {
       { label: 'Signed in as', value: currentUserEmail || 'Unknown' }
     ];
     health.innerHTML = items.map(item => (
-      `<div class="admin-card"><strong>${item.label}</strong><p>${item.value}</p></div>`
+      '<div class="admin-card"><strong>' + escapeHtml(item.label) + '</strong><p>' + escapeHtml(String(item.value != null ? item.value : '')) + '</p></div>'
     )).join('');
   }
 
@@ -6648,7 +6616,7 @@ async function renderAdminPanel() {
       { label: 'Church sermons', value: churchSermonCount }
     ];
     overview.innerHTML = items.map(item => (
-      `<div class="admin-card"><strong>${item.label}</strong><p>${item.value}</p></div>`
+      '<div class="admin-card"><strong>' + escapeHtml(item.label) + '</strong><p>' + escapeHtml(String(item.value != null ? item.value : '')) + '</p></div>'
     )).join('');
   }
 
@@ -6664,7 +6632,7 @@ async function renderAdminPanel() {
       { label: 'Last activity', value: stats.lastActivity ? new Date(stats.lastActivity).toLocaleString() : '—' }
     ];
     statsWrap.innerHTML = items.map(item => (
-      `<div class="admin-card"><strong>${item.label}</strong><p>${item.value}</p></div>`
+      '<div class="admin-card"><strong>' + escapeHtml(item.label) + '</strong><p>' + escapeHtml(String(item.value != null ? item.value : '')) + '</p></div>'
     )).join('');
   }
 
@@ -8652,6 +8620,8 @@ function renderResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  var ob = document.getElementById('offline-banner');
+  if (ob && navigator.onLine !== false) ob.classList.add('hidden');
   initSupabaseClient();
   runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
@@ -8737,7 +8707,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderPatrioticHymns();
   wireBattleProUpgradeModal();
   wireDownloadDevotionalButton();
-  renderPatrioticScriptures();
   wireCollectiveIntention();
   wireFooterRotating();
   wireSoundEchoToggle();

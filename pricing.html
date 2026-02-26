@@ -229,6 +229,7 @@
           </div>
           <p id="battle-pro-stripe-note" class="section-note" style="margin-top: 0.75rem; display: none;"></p>
           <p class="section-note" style="margin-top: 0.75rem;">After payment you will return here. Sign in to unlock your plan. Test card: 4242 4242 4242 4242.</p>
+          <p class="section-note" style="margin-top: 0.5rem; color: var(--muted, #94a3b8);">Not signed in? <a href="#auth-section">Sign in</a> above to have your upgrade applied automatically after payment.</p>
         </section>
         <section class="glass">
           <h2 class="section-divider">Battle Pro — Coming Early March 2026</h2>
@@ -279,19 +280,25 @@
       var churchLink = config.STRIPE_CHURCH_MONTHLY_LINK || config.STRIPE_CHURCH_LINK || '';
       if (supporterBtn) {
         supporterBtn.addEventListener('click', function() {
-          if (supporterLink) window.location.href = supporterLink;
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') {
+            window.TDB_GO_TO_CHECKOUT('supporter', 'monthly');
+          } else if (supporterLink) window.location.href = supporterLink;
           else if (noteEl) { noteEl.textContent = 'Add STRIPE_SUPPORTER_MONTHLY_LINK to config.js to enable checkout.'; noteEl.style.display = 'block'; }
         });
       }
       if (battleproBtn) {
         battleproBtn.addEventListener('click', function() {
-          if (battleproLink) window.location.href = battleproLink;
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') {
+            window.TDB_GO_TO_CHECKOUT('battle_pro', 'monthly');
+          } else if (battleproLink) window.location.href = battleproLink;
           else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_MONTHLY_LINK to config.js to enable Battle Pro checkout.'; noteEl.style.display = 'block'; }
         });
       }
       if (churchBtn) {
         churchBtn.addEventListener('click', function() {
-          if (churchLink) window.location.href = churchLink;
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') {
+            window.TDB_GO_TO_CHECKOUT('church', 'monthly');
+          } else if (churchLink) window.location.href = churchLink;
           else if (noteEl) { noteEl.textContent = 'Add STRIPE_CHURCH_MONTHLY_LINK to config.js to enable checkout.'; noteEl.style.display = 'block'; }
         });
       }
@@ -299,14 +306,42 @@
       var pricingBattleProYearly = document.getElementById('pricing-battlepro-yearly');
       if (pricingBattleProMonthly) {
         pricingBattleProMonthly.addEventListener('click', function() {
-          var link = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_MONTHLY_LINK || '';
-          if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_MONTHLY_LINK to config.js.'; noteEl.style.display = 'block'; }
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('battle_pro', 'monthly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_MONTHLY_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_MONTHLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
         });
       }
       if (pricingBattleProYearly) {
         pricingBattleProYearly.addEventListener('click', function() {
-          var link = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_YEARLY_LINK || '';
-          if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_YEARLY_LINK to config.js.'; noteEl.style.display = 'block'; }
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('battle_pro', 'yearly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_YEARLY_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_YEARLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
+        });
+      }
+      var pricingSupporterMonthly = document.getElementById('pricing-supporter-monthly');
+      var pricingSupporterYearly = document.getElementById('pricing-supporter-yearly');
+      if (pricingSupporterMonthly) {
+        pricingSupporterMonthly.addEventListener('click', function() {
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('supporter', 'monthly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_SUPPORTER_MONTHLY_LINK || (window.TDB_CONFIG || {}).STRIPE_SUPPORTER_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_SUPPORTER_MONTHLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
+        });
+      }
+      if (pricingSupporterYearly) {
+        pricingSupporterYearly.addEventListener('click', function() {
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('supporter', 'yearly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_SUPPORTER_YEARLY_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_SUPPORTER_YEARLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
+        });
+      }
+      var pricingChurchMonthly = document.getElementById('pricing-church-monthly');
+      var pricingChurchYearly = document.getElementById('pricing-church-yearly');
+      if (pricingChurchMonthly) {
+        pricingChurchMonthly.addEventListener('click', function() {
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('church', 'monthly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_CHURCH_MONTHLY_LINK || (window.TDB_CONFIG || {}).STRIPE_CHURCH_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_CHURCH_MONTHLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
+        });
+      }
+      if (pricingChurchYearly) {
+        pricingChurchYearly.addEventListener('click', function() {
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('church', 'yearly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_CHURCH_YEARLY_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_CHURCH_YEARLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
         });
       }
     })();

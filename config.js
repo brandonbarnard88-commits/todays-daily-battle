@@ -10,14 +10,44 @@ window.TDB_CONFIG = {
   ERROR_REPORT_URL: '',
   // Master login (HTML-entity obfuscated): decoded at runtime for admin / Pro access
   MASTER_EMAIL_OBFUSCATED: '&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109',
-  // Battle Pro / Stripe (set locally or in env; do not commit secret key)
+  // Battle Pro / Stripe — paste Payment Link URLs from Stripe Dashboard; see STRIPE-CONFIG.md
   STRIPE_PUBLISHABLE_KEY: '',
+  // Supporter: $5/mo, $50/yr
   STRIPE_SUPPORTER_LINK: '',
-  STRIPE_CHURCH_LINK: '',
   STRIPE_SUPPORTER_MONTHLY_LINK: '',
   STRIPE_SUPPORTER_YEARLY_LINK: '',
+  // Battle Pro: $10/mo, $100/yr
   STRIPE_BATTLEPRO_MONTHLY_LINK: '',
   STRIPE_BATTLEPRO_YEARLY_LINK: '',
+  // Church/Team: $10/mo, $100/yr (beta)
+  STRIPE_CHURCH_LINK: '',
   STRIPE_CHURCH_MONTHLY_LINK: '',
   STRIPE_CHURCH_YEARLY_LINK: ''
+};
+
+// Price IDs for create-checkout-session (signed-in flow with metadata). Paste from Stripe Dashboard → Products → [price] ID.
+window.TDB_CONFIG.STRIPE_PRICE_IDS = {
+  supporter: { monthly: '', yearly: '' },
+  battle_pro: { monthly: '', yearly: '' },
+  church: { monthly: '', yearly: '' }
+};
+
+// Edge Function URL for creating a Checkout Session with user_id in metadata (derived from SUPABASE_URL).
+window.TDB_CONFIG.CREATE_CHECKOUT_SESSION_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/create-checkout-session';
+
+/**
+ * Get Stripe Payment Link URL for a given tier and period.
+ * @param {string} tier - 'supporter' | 'battle_pro' | 'church'
+ * @param {string} period - 'monthly' | 'yearly'
+ * @returns {string} URL or '' if not set
+ */
+window.TDB_GET_STRIPE_LINK = function (tier, period) {
+  var c = window.TDB_CONFIG || {};
+  var key = tier === 'supporter' ? (period === 'yearly' ? 'STRIPE_SUPPORTER_YEARLY_LINK' : 'STRIPE_SUPPORTER_MONTHLY_LINK')
+    : tier === 'battle_pro' ? (period === 'yearly' ? 'STRIPE_BATTLEPRO_YEARLY_LINK' : 'STRIPE_BATTLEPRO_MONTHLY_LINK')
+    : tier === 'church' ? (period === 'yearly' ? 'STRIPE_CHURCH_YEARLY_LINK' : 'STRIPE_CHURCH_MONTHLY_LINK')
+    : '';
+  if (!key) return '';
+  var link = c[key] || (tier === 'supporter' && period === 'monthly' ? c.STRIPE_SUPPORTER_LINK : null) || (tier === 'church' && period === 'monthly' ? c.STRIPE_CHURCH_LINK : null);
+  return link || '';
 };

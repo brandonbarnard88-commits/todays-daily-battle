@@ -37,3 +37,7 @@ If you ran **`supabase-rls-lockdown.sql`**, it revokes anon SELECT on `prayers`.
 2. Purge cache (e.g. Cloudflare **Caching → Purge Everything**).
 3. Reload in **incognito** and check **Network** — you should see at most **one** failed request to `prayers` (the probe). All other prayer/presence calls are blocked or faked.
 4. To fix that one 404: run **`supabase-prayers.sql`** in your Supabase project (steps above). Then reload; the probe will return 200 and the counter/echo will work.
+
+**If users see "Session expired. Please sign in again." toast:**
+
+This is automatic handling for expired/invalid auth tokens (400 on `/auth/v1/token`). They just need to sign in again; the app will stay clean after. The app signs them out and redirects to the homepage so they're not stuck in a bad session.

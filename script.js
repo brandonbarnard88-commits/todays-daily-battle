@@ -296,8 +296,12 @@ const NT_BOOKS = new Set([
   '3 John','Jude','Revelation'
 ]);
 
+// Pro access: master, subscriptionTier (session/profiles/battle_pro_subscriptions), or __tdb_battle_pro_active.
+// Call fetchProfileTier() and fetchBattleProStatus() on load when session exists to gate Wins Report, offline PDFs, Armor series.
 function isProUser() {
-  return subscriptionTier === 'pro' || subscriptionTier === 'supporter' || isMasterUser;
+  return isMasterUser ||
+    subscriptionTier === 'pro' || subscriptionTier === 'supporter' || subscriptionTier === 'church_team' ||
+    (window.__tdb_battle_pro_active === true);
 }
 
 function updateMasterStatus(user) {
@@ -1043,6 +1047,22 @@ function supabaseFetch(url, options) {
   if (base && _cfg && _cfg.SUPABASE_ANON_KEY && !headers.has('apikey')) headers.set('apikey', _cfg.SUPABASE_ANON_KEY);
   if (base && _cfg && _cfg.SUPABASE_ANON_KEY && !headers.has('Authorization')) headers.set('Authorization', 'Bearer ' + _cfg.SUPABASE_ANON_KEY);
   var p = fetch(url, Object.assign({}, opts, { headers: headers }));
+  p = p.then(function (res) {
+    var reqUrl = (typeof url === 'string') ? url : (url && typeof url.url === 'string' ? url.url : '');
+    var isTokenRefresh = reqUrl.indexOf('/auth/v1/token') !== -1 || (reqUrl.indexOf('supabase.co') !== -1 && reqUrl.indexOf('/token') !== -1);
+    if (isTokenRefresh && res.status === 400) {
+      if (supabaseClient && supabaseClient.auth) {
+        supabaseClient.auth.signOut().then(function () {
+          if (typeof window !== 'undefined' && window.location) window.location.href = '/';
+        }).catch(function () {
+          if (typeof window !== 'undefined' && window.location) window.location.href = '/';
+        });
+      }
+      if (typeof console !== 'undefined' && console.log) console.log('TDB: Session expired (token refresh failed). Signed out.');
+      if (typeof showEliteToast === 'function') showEliteToast('Session expired. Please sign in again.');
+    }
+    return res;
+  });
   if (_isPrayerRequestUrl(url)) {
     p = p.then(function (res) {
       _prayerRequestInFlight = false;
@@ -1079,6 +1099,42 @@ function initSupabaseClient() {
   supabaseClient = sdk.createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions);
   return Boolean(supabaseClient);
 }
+
+/**
+ * Go to Stripe Checkout: if signed in and Price ID + create-checkout-session URL exist,
+ * calls Edge Function (metadata.user_id set); else redirects to Payment Link.
+ * Call from pricing buttons: TDB_GO_TO_CHECKOUT('battle_pro', 'monthly').
+ */
+window.TDB_GO_TO_CHECKOUT = async function (tier, period) {
+  var c = window.TDB_CONFIG || {};
+  var fnUrl = c.CREATE_CHECKOUT_SESSION_URL || '';
+  var priceIds = c.STRIPE_PRICE_IDS || {};
+  var priceId = (priceIds[tier] && priceIds[tier][period]) || '';
+  var link = typeof window.TDB_GET_STRIPE_LINK === 'function' ? window.TDB_GET_STRIPE_LINK(tier, period) : '';
+  if (!supabaseClient) {
+    if (link) window.location.href = link;
+    return;
+  }
+  var session = await supabaseClient.auth.getSession();
+  var token = session && session.data && session.data.session && session.data.session.access_token;
+  if (!token || !priceId || !fnUrl) {
+    if (link) window.location.href = link;
+    return;
+  }
+  try {
+    var res = await fetch(fnUrl, {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ price_id: priceId, tier: tier })
+    });
+    var data = await res.json();
+    if (data && data.url) {
+      window.location.href = data.url;
+      return;
+    }
+  } catch (e) {}
+  if (link) window.location.href = link;
+};
 
 function isPrayersApiAvailable() {
   return !(window.__tdb_prayers_404 === true);
@@ -6359,7 +6415,10 @@ function updateAuthUI(session) {
     var lockEl = document.getElementById('premium-devotionals-lock');
     if (lockEl) lockEl.classList.remove('hidden');
   }
-  if (session && currentUserId) fetchBattleProStatus();
+  if (session && currentUserId) {
+    fetchBattleProStatus();
+    fetchProfileTier();
+  }
 }
 
 function fetchBattleProStatus() {
@@ -6397,6 +6456,25 @@ function fetchBattleProStatus() {
   });
   var lockEl = document.getElementById('premium-devotionals-lock');
   if (lockEl) lockEl.classList.add('hidden');
+}
+
+/**
+ * Fetch tier from public.profiles for current user. Sets subscriptionTier so isProUser()
+ * and role views stay in sync. Call on page load after auth (e.g. in updateAuthUI when session exists).
+ * Gates: Wins Report, offline PDFs, Armor series access when isProUser() is true.
+ */
+function fetchProfileTier() {
+  if (!supabaseClient || !currentUserId) return;
+  supabaseClient.from('profiles').select('tier').eq('id', currentUserId).maybeSingle().then(function (r) {
+    try {
+      if (r.error || !r.data) return;
+      var t = (r.data.tier || '').toLowerCase();
+      if (t === 'supporter' || t === 'battle_pro' || t === 'church' || t === 'supporter_pro' || t.indexOf('pro') !== -1) {
+        subscriptionTier = t === 'church' ? 'church_team' : (t === 'battle_pro' ? 'pro' : (t === 'supporter' ? 'supporter' : subscriptionTier));
+        if (typeof updateRoleViews === 'function') updateRoleViews();
+      }
+    } catch (e) {}
+  });
 }
 
 function setView(state) {

@@ -89,3 +89,5 @@ Site battle-ready, inclusive (global prayers emphasized), promo-perfect with tod
 - **No broken links, 5xx, or frontend artifacts.** Push did not disrupt visible behavior. Site battle-ready for promo (X/FB with Philippians 4:19 hook).
 
 **Latest push (final):** Deploy clean; no breakage. Battle Pro marked "Active" with stronger teases (Wins Report, offline PDFs 7-day buffer, Armor series early March 2026, 3 months free for early). 30-Day Challenge and beta tester perks (Supporter 3 months free) more prominent. Pricing page refreshed (tiers, waitlist "Notify me," Wins Report example). Terms unchanged. Fast load, no 4xx/5xx; offline banner present as intended. Bulletproof for its stage—reliable for daily use, ready for tweet promos.
+
+**Full push series verified (post–final pushes, ~11:xx AM CST):** CSP fix doc, PROMO-COPY (tweet drafts), MESSENGER-SHARE-TROUBLESHOOTING, snapshot, RELIABILITY-ASSESSMENT, og:image in index.html, header nudge removed, fetch-prayer-guard.js/test-site.js—all deployed clean. Live re-check: no regressions; header nudge gone, social previews improved, Battle Pro/Challenge visibility confirmed. Robust for scale; ready for X promo.

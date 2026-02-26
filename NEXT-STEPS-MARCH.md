@@ -36,6 +36,16 @@ Concrete breakdown for: **Battle Pro MVP**, **bugs/polish**, **scope to park**, 
 6. [ ] Update homepage banner to "Battle Pro now available" when Stripe URLs present (optional; see ACTIVATION).
 7. [ ] Announce: email waitlist + one social post (copy in ACTIVATION § "When Battle Pro goes live").
 
+### Suggested implementation order (when ready)
+
+1. **Stripe Payment Links** → Add URLs to `config.js` first (no backend risk).
+2. **Pro detection (client)** → Implement `isProUser()` (Supabase `profiles.tier` or `app_metadata.role`).
+3. **Webhook** → Endpoint to update Supabase on successful payment (set tier/role).
+4. **Cron for daily_battles** → Ensure `seed-daily-battle` runs so today's row always exists.
+5. **E2E test** → Checkout → webhook fires → sign in → offline + Wins Report visible.
+
+*(Code snippets for any step on request—e.g. `isProUser()`, webhook handler, cron setup.)*
+
 ---
 
 ## 2. Bugs / polish

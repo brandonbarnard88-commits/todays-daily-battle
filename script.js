@@ -9528,6 +9528,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   const quickPrayFeedback = document.getElementById('quick-pray-feedback');
   const quickPrayToday = document.getElementById('quick-pray-today');
   if (quickPrayBtn && quickPrayInput) {
+    var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+    var turnstileSiteKey = cfg && cfg.TURNSTILE_SITE_KEY;
+    var submitPrayerUrl = cfg && cfg.SUBMIT_PRAYER_URL;
+    if (turnstileSiteKey && submitPrayerUrl) {
+      var turnstileContainer = document.getElementById('turnstile-quick-pray-container');
+      if (turnstileContainer && !document.getElementById('turnstile-quick-pray')) {
+        var tw = document.createElement('div');
+        tw.className = 'cf-turnstile';
+        tw.dataset.sitekey = turnstileSiteKey;
+        tw.dataset.theme = 'dark';
+        tw.id = 'turnstile-quick-pray';
+        turnstileContainer.appendChild(tw);
+        if (!document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+          var ts = document.createElement('script');
+          ts.src = 'https://challenges.cloudflare.com/turnstile/api.js';
+          ts.async = true;
+          ts.defer = true;
+          document.head.appendChild(ts);
+        }
+      }
+    }
     function getQuickPrayCountToday() {
       const key = QUICK_PRAY_COUNT_PREFIX + getDailyKey();
       try {
@@ -9574,6 +9595,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     function doQuickPray() {
       const text = (quickPrayInput.value || '').trim();
       if (!text) return;
+      var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
+      var useSubmitPrayer = cfg && cfg.SUBMIT_PRAYER_URL && cfg.TURNSTILE_SITE_KEY && navigator.onLine && supabaseClient;
+      var turnstileToken = '';
+      if (useSubmitPrayer) {
+        var twEl = document.getElementById('turnstile-quick-pray');
+        var textarea = twEl && twEl.querySelector && twEl.querySelector('textarea[name="cf-turnstile-response"]');
+        turnstileToken = (textarea && textarea.value) ? textarea.value : '';
+        if (!turnstileToken) {
+          if (typeof showEliteToast === 'function') showEliteToast('Complete the verification below, then tap Pray.');
+          else if (quickPrayFeedback) {
+            quickPrayFeedback.textContent = 'Complete the verification below, then tap Pray.';
+            quickPrayFeedback.style.display = 'block';
+            quickPrayFeedback.classList.remove('quick-pray-toast-visible');
+            setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 4000);
+          }
+          return;
+        }
+      }
       const items = loadPrayerList();
       items.push({ text: text });
       savePrayerList(items);
@@ -9603,6 +9642,47 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       }
       if (navigator.onLine && supabaseClient) {
+        if (useSubmitPrayer && turnstileToken) {
+          fetch(cfg.SUBMIT_PRAYER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              turnstile_token: turnstileToken,
+              intent: text,
+              family_name: familyName || undefined,
+              session_id: sessionId
+            })
+          }).then(function (r) {
+            return r.json().then(function (data) {
+              if (r.ok && data && data.ok) {
+                var todayStart = new Date();
+                todayStart.setUTCHours(0, 0, 0, 0);
+                var todayEnd = new Date(Date.UTC(todayStart.getUTCFullYear(), todayStart.getUTCMonth(), todayStart.getUTCDate() + 1, 0, 0, 0, 0));
+                supabaseClient.from('prayers').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()).lt('created_at', todayEnd.toISOString()).then(function (res) {
+                  var isFirst = res && res.count === 1;
+                  onInsertDone(isFirst);
+                }).catch(function () { onInsertDone(false); });
+              } else {
+                var msg = (data && data.error) ? data.error : 'Verification failed; try again.';
+                if (typeof showEliteToast === 'function') showEliteToast(msg); else if (quickPrayFeedback) { quickPrayFeedback.textContent = msg; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 4000); }
+                onInsertDone(false);
+              }
+              try {
+                if (window.turnstile && typeof window.turnstile.reset === 'function') window.turnstile.reset('turnstile-quick-pray');
+              } catch (e) {}
+            });
+          }).catch(function () {
+            var q = getPrayerOfflineQueue();
+            q.push({ intent: text });
+            setPrayerOfflineQueue(q);
+            if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+            onInsertDone(false);
+            try {
+              if (window.turnstile && typeof window.turnstile.reset === 'function') window.turnstile.reset('turnstile-quick-pray');
+            } catch (e) {}
+          });
+          return;
+        }
         supabaseClient.from('prayers').insert(payload).then(function (r) {
           if (r.error) {
             var q = getPrayerOfflineQueue();

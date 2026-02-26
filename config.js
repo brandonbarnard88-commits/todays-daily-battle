@@ -25,6 +25,10 @@ window.TDB_CONFIG = {
   STRIPE_CHURCH_YEARLY_LINK: ''
 };
 
+// Abuse protection: Cloudflare Turnstile (Quick Pray). Get keys at dashboard.cloudflare.com → Turnstile.
+// Site key is public (frontend); secret key goes in Supabase Edge Function secrets for submit-prayer.
+window.TDB_CONFIG.TURNSTILE_SITE_KEY = '';
+
 // Price IDs for create-checkout-session (signed-in flow with metadata). Paste from Stripe Dashboard → Products → [price] ID (e.g. price_1ABC...).
 // Order: Supporter $5/$50, Battle Pro $10/$100, Church $10/$100 — monthly then yearly per tier.
 window.TDB_CONFIG.STRIPE_PRICE_IDS = {
@@ -35,6 +39,8 @@ window.TDB_CONFIG.STRIPE_PRICE_IDS = {
 
 // Edge Function URL for creating a Checkout Session with user_id in metadata (derived from SUPABASE_URL).
 window.TDB_CONFIG.CREATE_CHECKOUT_SESSION_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/create-checkout-session';
+// Submit Quick Pray via Edge Function (Turnstile verification). Set TURNSTILE_SITE_KEY to enable.
+window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/submit-prayer';
 
 /**
  * Get Stripe Payment Link URL for a given tier and period.

@@ -25,7 +25,8 @@ window.TDB_CONFIG = {
   STRIPE_CHURCH_YEARLY_LINK: ''
 };
 
-// Price IDs for create-checkout-session (signed-in flow with metadata). Paste from Stripe Dashboard → Products → [price] ID.
+// Price IDs for create-checkout-session (signed-in flow with metadata). Paste from Stripe Dashboard → Products → [price] ID (e.g. price_1ABC...).
+// Order: Supporter $5/$50, Battle Pro $10/$100, Church $10/$100 — monthly then yearly per tier.
 window.TDB_CONFIG.STRIPE_PRICE_IDS = {
   supporter: { monthly: '', yearly: '' },
   battle_pro: { monthly: '', yearly: '' },

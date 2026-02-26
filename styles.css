@@ -63,6 +63,21 @@ html {
   font-size: 20px;
 }
 
+/* CSP-safe: no inline styles — use these classes instead of style="..." */
+.hidden { display: none !important; }
+.util-mb-2 { margin-bottom: 2rem; }
+.util-mb-1_5 { margin-bottom: 1.5rem; }
+.util-mt-1 { margin-top: 1rem; }
+.util-mt-0_75 { margin-top: 0.75rem; }
+.util-mb-0_5 { margin-bottom: 0.5rem; }
+.util-mt-0_35 { margin-top: 0.35rem; }
+.util-mb-0_25 { margin-bottom: 0.25rem; }
+.util-mt-0_15 { margin-top: 0.15rem; }
+.util-mb-0_35 { margin-bottom: 0.35rem; }
+.cta-group-flex-wrap { flex-wrap: wrap; gap: 0.5rem; }
+.daily-verse-email-input { max-width: 16rem; padding: 0.4rem 0.6rem; }
+.prayer-map-svg-fill { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --transition-smooth: 0.01ms;

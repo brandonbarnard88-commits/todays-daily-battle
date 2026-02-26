@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'nonce-tdb2025' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="The Bible companion built for real life. One verse, one moment, every day. Less scroll, more soul—topic search, streaks, and tools for families and pastors. Free.">
@@ -85,7 +85,7 @@
           <button id="signup-btn" type="button">Sign Up</button>
           <button id="login-btn" type="button">Log In</button>
           <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
-          <button id="logout-btn" style="display:none">Log Out</button>
+          <button id="logout-btn" class="hidden" type="button">Log Out</button>
         </div>
       </div>
     </header>
@@ -112,7 +112,7 @@
         <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
       </nav>
       <div class="sidebar-options">
-        <div id="sidebar-streak" class="sidebar-streak section-note" aria-live="polite" style="display:none;"></div>
+        <div id="sidebar-streak" class="sidebar-streak section-note hidden" aria-live="polite"></div>
         <label class="inline-toggle">
           <input id="sound-echo-toggle" type="checkbox" aria-label="Play sound when a household prays">
           Sound when a household prays
@@ -133,10 +133,10 @@
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
-          <p class="hero-tagline hero-tagline-gold" style="margin-bottom: 2rem;">Let's Make America God's Again.</p>
-          <p class="hero-tagline section-note" style="margin-bottom: 1.5rem;">Less scroll, more soul.</p>
-          <p id="hero-collective-intent" class="hero-collective-intent section-note" aria-live="polite" style="display:none;"></p>
-          <p id="home-streak-badge" class="streak-badge" aria-live="polite" style="display:none;"></p>
+          <p class="hero-tagline hero-tagline-gold util-mb-2">Let's Make America God's Again.</p>
+          <p class="hero-tagline section-note util-mb-1_5">Less scroll, more soul.</p>
+          <p id="hero-collective-intent" class="hero-collective-intent section-note hidden" aria-live="polite"></p>
+          <p id="home-streak-badge" class="streak-badge hidden" aria-live="polite"></p>
         </header>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
@@ -226,7 +226,7 @@
             <select id="tts-voice" class="compact-select" aria-label="Read-aloud voice">
               <option value="">System default</option>
             </select>
-            <button id="tts-stop" type="button" class="btn btn-secondary btn-tts-stop" style="display:none" aria-label="Stop read-aloud">Stop</button>
+            <button id="tts-stop" type="button" class="btn btn-secondary btn-tts-stop hidden" aria-label="Stop read-aloud">Stop</button>
           </div>
           <p class="section-note audio-helper">Listen reads aloud here using your device's voice. KJV Audio opens Bible Gateway in a new tab.</p>
           </details>
@@ -236,7 +236,7 @@
           <p class="section-note patriotic-scriptures-intro">KJV verses that speak to national repentance, liberty, and blessing—for prayer and reflection.</p>
           <div id="patriotic-scriptures-grid" class="patriotic-scriptures-grid"></div>
         </section>
-        <div id="premium-devotionals-lock" class="glass premium-devotionals-lock" role="region" aria-label="Premium feature — Battle Pro required" style="margin-top: 1rem;">
+        <div id="premium-devotionals-lock" class="glass premium-devotionals-lock util-mt-1" role="region" aria-label="Premium feature — Battle Pro required">
           <h3 class="section-divider">Premium devotionals</h3>
           <p class="section-note">7-day Armor of God series, deeper studies, and progress tracking are part of Battle Pro.</p>
           <a href="pricing.html" class="btn btn-secondary" aria-label="Upgrade to Battle Pro">Unlock with Battle Pro</a>
@@ -248,11 +248,11 @@
         </section>
         <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
         <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
-          <p class="prayer-echo-sacred section-note" id="prayer-echo-sacred" style="display:none;" aria-live="polite">You're alone with Him.</p>
+          <p class="prayer-echo-sacred section-note hidden" id="prayer-echo-sacred" aria-live="polite">You're alone with Him.</p>
           <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading recent prayers…</p>
-          <p class="prayer-echo-presence section-note" id="prayer-echo-presence" aria-live="polite" style="display:none;"></p>
-          <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent prayers" style="display:none;"></ul>
-          <button type="button" id="prayer-echo-join" class="btn btn-secondary btn-small" style="display:none;" aria-label="Copy share link to invite others">Join them</button>
+          <p class="prayer-echo-presence section-note hidden" id="prayer-echo-presence" aria-live="polite"></p>
+          <ul id="prayer-echo-list" class="prayer-echo-list hidden" aria-label="Recent prayers"></ul>
+          <button type="button" id="prayer-echo-join" class="btn btn-secondary btn-small hidden" aria-label="Copy share link to invite others">Join them</button>
           <div class="silent-amen-wrap">
             <button type="button" id="silent-amen-btn" class="btn btn-silent-amen" aria-label="Quiet agreement—Silent Amen"><span class="icon-cross" aria-hidden="true">✝</span> Silent Amen</button>
             <span id="silent-amen-count" class="silent-amen-count" aria-live="polite"></span>
@@ -264,7 +264,7 @@
           <p class="section-note prayer-map-caption">Gold crosses mark where households have prayed. Hover or tap for intention.</p>
           <p class="section-note prayer-count-promo" aria-live="polite" id="prayer-count-promo"></p>
           <div id="prayer-map-dots" class="prayer-map-dots">
-            <svg class="prayer-map-svg" viewBox="0 0 495 266" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;">
+            <svg class="prayer-map-svg prayer-map-svg-fill" viewBox="0 0 495 266" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <filter id="prayer-map-glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
@@ -284,14 +284,14 @@
             <div id="map-tooltip" class="map-tooltip" role="tooltip" aria-hidden="true"></div>
           </div>
         </div>
-        <div id="daily-verse-email-nudge" class="glass" style="margin-top:0.75rem;">
+        <div id="daily-verse-email-nudge" class="glass util-mt-0_75">
           <p class="section-note">Get tomorrow's verse emailed?</p>
-          <div class="cta-group" style="flex-wrap:wrap; gap:0.5rem;">
-            <input type="email" id="daily-verse-email" placeholder="Your email" aria-label="Email for daily verse" autocomplete="email" style="max-width:16rem; padding:0.4rem 0.6rem;">
+          <div class="cta-group cta-group-flex-wrap">
+            <input type="email" id="daily-verse-email" class="daily-verse-email-input" placeholder="Your email" aria-label="Email for daily verse" autocomplete="email">
             <button type="button" id="daily-verse-email-submit" class="btn btn-secondary" aria-label="Subscribe to daily verse email">Submit</button>
           </div>
         </div>
-        <div id="weekly-recap-nudge" class="weekly-recap-nudge glass" style="display:none;" role="region" aria-label="Weekly recap">
+        <div id="weekly-recap-nudge" class="weekly-recap-nudge glass hidden" role="region" aria-label="Weekly recap">
           <p class="section-note weekly-recap-text"></p>
           <button type="button" id="weekly-recap-share" class="btn btn-secondary">Share?</button>
         </div>
@@ -308,12 +308,12 @@
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">Your daily anchor. One verse, one theme—start here, not the feed. Two minutes that actually fill you up.</p>
           <div id="daily-battle-card" class="verse-card verse-breath" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
-          <div id="daily-verse-echo" class="daily-verse-echo section-note" aria-live="polite" aria-label="Others praying this verse" style="display:none;"></div>
-          <button type="button" id="breathe-with-him-btn" class="btn btn-secondary breathe-with-him-btn" aria-label="Breathe with Him" style="display:none;">Breathe with Him</button>
-          <p id="breathe-count-today" class="section-note" aria-live="polite" style="display:none;"></p>
-          <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap" style="display: none;" aria-live="polite">
+          <div id="daily-verse-echo" class="daily-verse-echo section-note hidden" aria-live="polite" aria-label="Others praying this verse"></div>
+          <button type="button" id="breathe-with-him-btn" class="btn btn-secondary breathe-with-him-btn hidden" aria-label="Breathe with Him">Breathe with Him</button>
+          <p id="breathe-count-today" class="section-note hidden" aria-live="polite"></p>
+          <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap hidden" aria-live="polite">
             <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
-            <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note" style="display: none;"></p>
+            <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note hidden"></p>
           </div>
           <p id="daily-battle-topic" class="section-note" aria-live="polite"></p>
           <p id="daily-battle-question" class="section-note" aria-live="polite"></p>
@@ -324,14 +324,14 @@
           <div id="streak-counter-block" class="streak-counter-block glass">
             <span id="daily-battle-streak" class="streak-counter-text" aria-live="polite">Streak: 0 days</span>
             <p id="daily-battle-milestone" class="section-note streak-milestone" aria-live="polite"></p>
-            <div id="download-devotional-wrap" class="download-devotional-wrap hidden" style="margin-top: 0.75rem;">
+            <div id="download-devotional-wrap" class="download-devotional-wrap hidden util-mt-0_75">
               <button type="button" id="download-devotional-btn" class="btn btn-secondary" aria-label="Download today's devotional as PDF">Download Today's Devotional</button>
             </div>
-            <div id="share-streak-wrap" class="cta-group share-streak-wrap" style="display: none;">
+            <div id="share-streak-wrap" class="cta-group share-streak-wrap hidden">
               <button id="share-my-streak" type="button" class="btn btn-secondary">Share my streak</button>
               <a href="wins-report.html" class="btn btn-secondary">My Wins Report</a>
             </div>
-            <p id="daily-battle-reset-nudge" class="section-note streak-reset-nudge" style="display: none;" aria-live="polite"></p>
+            <p id="daily-battle-reset-nudge" class="section-note streak-reset-nudge hidden" aria-live="polite"></p>
           </div>
           <div id="quick-pray-wrap" class="glass quick-pray-wrap" role="region" aria-label="Quick pray">
             <h3 class="quick-pray-title" id="quick-pray-title">Quick pray</h3>
@@ -343,23 +343,23 @@
               <button type="button" id="call-god-btn" class="btn btn-call-god" aria-label="Call God—speak your prayer" title="Direct line to God—voice prayer"><span class="call-god-icon" aria-hidden="true">📞</span> Call God</button>
               <button type="button" id="voice-pray-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your prayer"><span class="voice-pray-icon" aria-hidden="true">✝</span> Speak</button>
             </div>
-            <p id="quick-pray-today" class="section-note quick-pray-today" aria-live="polite" style="display:none;"></p>
-            <p id="quick-pray-feedback" class="section-note quick-pray-feedback quick-pray-toast" aria-live="polite" style="display:none;"></p>
-            <div id="quick-pray-share-wrap" class="quick-pray-share-wrap" style="display:none;">
+            <p id="quick-pray-today" class="section-note quick-pray-today hidden" aria-live="polite"></p>
+            <p id="quick-pray-feedback" class="section-note quick-pray-feedback quick-pray-toast hidden" aria-live="polite"></p>
+            <div id="quick-pray-share-wrap" class="quick-pray-share-wrap hidden">
               <button type="button" id="quick-pray-share" class="btn btn-secondary btn-small">Share</button>
-              <button type="button" id="share-streak-btn" class="btn btn-secondary btn-small" aria-label="Share your prayer streak" style="display:none;">Share Streak</button>
+              <button type="button" id="share-streak-btn" class="btn btn-secondary btn-small hidden" aria-label="Share your prayer streak">Share Streak</button>
               <button type="button" id="pray-with-me-btn" class="btn btn-secondary btn-small" aria-label="Copy pray-with-me link">Pray with me?</button>
             </div>
-            <p id="quick-pray-undo-wrap" class="section-note" style="display:none;"><button type="button" id="quick-pray-undo" class="btn-link" aria-label="Undo last prayer">Undo?</button></p>
-            <p id="prayed-today" class="section-note" style="display:none;" aria-live="polite">Prayed 5 times today? Keep going!</p>
+            <p id="quick-pray-undo-wrap" class="section-note hidden"><button type="button" id="quick-pray-undo" class="btn-link" aria-label="Undo last prayer">Undo?</button></p>
+            <p id="prayed-today" class="section-note hidden" aria-live="polite">Prayed 5 times today? Keep going!</p>
           </div>
           <div id="badges-section" class="glass badges-section" aria-label="Badges"></div>
-          <div id="offline-prefetch-wrap" class="offline-prefetch-wrap glass" style="display: none;" aria-label="Offline download">
-            <p class="section-note" style="margin-bottom: 0.5rem;">Download the next 7 days of verses for travel or spotty connectivity.</p>
+          <div id="offline-prefetch-wrap" class="offline-prefetch-wrap glass hidden" aria-label="Offline download">
+            <p class="section-note util-mb-0_5">Download the next 7 days of verses for travel or spotty connectivity.</p>
             <div class="cta-group">
               <button id="offline-prefetch-btn" type="button" class="btn btn-offline-prefetch">Download for offline (Pro)</button>
             </div>
-            <div id="offline-prefetch-progress" class="offline-prefetch-progress" style="display: none;" role="status" aria-live="polite">
+            <div id="offline-prefetch-progress" class="offline-prefetch-progress hidden" role="status" aria-live="polite">
               <div class="offline-prefetch-bar"><div id="offline-prefetch-fill" class="offline-prefetch-fill"></div></div>
               <span id="offline-prefetch-status" class="section-note">Preparing…</span>
             </div>
@@ -367,7 +367,7 @@
           <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Log in to save your streak, favorite verses, and custom plans across devices.</p>
           <div class="cta-group daily-battle-signin-cta">
             <a href="#auth-details" class="btn btn-primary">Sign In Free – Save Your Streak Forever &amp; Sync Devices</a>
-            <p class="section-note" style="margin-top: 0.35rem;">Sync streaks, drafts, prayers, and plans—across phone and computer.</p>
+            <p class="section-note util-mt-0_35">Sync streaks, drafts, prayers, and plans—across phone and computer.</p>
           </div>
           <div id="daily-battle-testimony" class="section-note daily-battle-testimony" aria-live="polite"></div>
           <div id="daily-battle-calendar" class="streak-calendar"></div>
@@ -383,7 +383,7 @@
             <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
           </div>
           <p class="section-note share-verse-cta">One tap to share—post to your story or send to a friend. Share today's battle: verse + link. Less scroll. More soul.</p>
-          <p class="section-note" style="margin-bottom: 0.25rem;">Share (one tap):</p>
+          <p class="section-note util-mb-0_25">Share (one tap):</p>
           <div class="cta-group social-share-links" aria-label="Share to social">
             <div id="share-preview-thumb" class="share-preview-thumb" aria-hidden="true"></div>
             <a id="share-daily-to-x" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)" title="Share to X"><span class="share-icon share-icon-x" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
@@ -400,8 +400,8 @@
               <input id="streak-push-toggle" type="checkbox" aria-label="8 AM streak reminder">
               8 AM streak reminder — "Your verse is ready! 🔥"
             </label>
-            <button id="streak-push-test" type="button" class="btn btn-secondary btn-small" style="display:none">Test notification</button>
-            <div id="streak-repair-wrap" class="streak-repair-wrap" style="display:none">
+            <button id="streak-push-test" type="button" class="btn btn-secondary btn-small hidden">Test notification</button>
+            <div id="streak-repair-wrap" class="streak-repair-wrap hidden">
               <button id="streak-repair-btn" type="button" class="btn btn-secondary btn-small">Repair streak (1 free this month)</button>
               <span class="section-note">Forgive one missed day. Resets monthly.</span>
             </div>
@@ -426,7 +426,7 @@
             <a class="btn btn-secondary" href="reading-plan.html">7-Day Reading Plan</a>
             <a class="btn btn-secondary" href="pricing.html">Plans &amp; Pricing</a>
           </div>
-          <p class="section-note" style="margin-top:0.75rem">Battle Pro (offline + Wins Report) launches early March 2026. <a href="pricing.html">See plans</a>.</p>
+          <p class="section-note util-mt-0_75">Battle Pro (offline + Wins Report) launches early March 2026. <a href="pricing.html">See plans</a>.</p>
         </section>
         <section class="glass">
           <h2 class="section-divider">How It Helps</h2>
@@ -466,7 +466,7 @@
             <div class="testimonial-slides" id="testimonial-slides"></div>
             <div class="testimonial-dots" role="tablist" aria-label="Choose testimonial"></div>
           </div>
-          <div class="list" aria-hidden="true" style="display:none">
+          <div class="list hidden" aria-hidden="true">
             <div class="list-item"><div><strong>"I open this more than Instagram now."</strong><p>Two minutes here and I feel grounded. The streak keeps me coming back.</p></div></div>
             <div class="list-item"><div><strong>“This helped me breathe again.”</strong><p>The verses felt like a lifeline in a hard week.</p></div></div>
             <div class="list-item"><div><strong>“Perfect for family devotions.”</strong><p>We finally have something short we can do together.</p></div></div>
@@ -509,7 +509,7 @@
             <button id="prayer-list-add" type="button" class="btn btn-primary">Add</button>
           </div>
           <ul id="prayer-list" class="prayer-list list"></ul>
-          <p id="prayer-list-empty" class="section-note empty-note" style="display:none">Add a name or intention above—your list stays here.</p>
+          <p id="prayer-list-empty" class="section-note empty-note hidden">Add a name or intention above—your list stays here.</p>
         </section>
         <section class="glass newsletter" id="newsletter">
           <h2 class="section-divider">Weekly Encouragement &amp; Daily Verse</h2>
@@ -542,8 +542,8 @@
           <p id="newsletter-status" class="section-note"></p>
         </section>
 
-        <div id="elite-toast" class="elite-toast" role="status" aria-live="polite" style="display:none"></div>
-        <div id="loading" class="loading" style="display:none" aria-live="polite" aria-atomic="true">
+        <div id="elite-toast" class="elite-toast hidden" role="status" aria-live="polite"></div>
+        <div id="loading" class="loading hidden" aria-live="polite" aria-atomic="true">
           <div class="spinner"></div>
           <p>Seeking God's truth...</p>
         </div>
@@ -577,8 +577,8 @@
           <div class="battle-pro-upgrade-card">
             <h3 class="battle-pro-upgrade-card-title">Supporter</h3>
             <p class="battle-pro-upgrade-price">$5<span class="battle-pro-upgrade-period">/mo</span> or $50<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
-            <p class="section-note pricing-strike" style="margin-top: 0.15rem;">Regular $10/mo · $100/yr</p>
-            <p class="section-note" style="margin-top: 0.15rem; margin-bottom: 0.35rem;">Lock in this rate—stay subscribed and keep it for life.</p>
+            <p class="section-note pricing-strike util-mt-0_15">Regular $10/mo · $100/yr</p>
+            <p class="section-note util-mt-0_15 util-mb-0_35">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Sync across devices</li>
               <li>Daily Battle Plan emails</li>
@@ -595,7 +595,7 @@
           <div class="battle-pro-upgrade-card highlight-card">
             <h3 class="battle-pro-upgrade-card-title">Battle Pro</h3>
             <p class="battle-pro-upgrade-price">$10<span class="battle-pro-upgrade-period">/mo</span> or $100<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
-            <p class="section-note" style="margin-top: 0.15rem; margin-bottom: 0.35rem;">Lock in this rate—stay subscribed and keep it for life.</p>
+            <p class="section-note util-mt-0_15 util-mb-0_35">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Everything in Supporter</li>
               <li><strong>Wins Report</strong> (streak graphics, share)</li>
@@ -612,8 +612,8 @@
           <div class="battle-pro-upgrade-card battle-pro-upgrade-card-church">
             <h3 class="battle-pro-upgrade-card-title">Church / Team</h3>
             <p class="battle-pro-upgrade-price">$10<span class="battle-pro-upgrade-period">/mo</span> or $100<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
-            <p class="section-note pricing-strike" style="margin-top: 0.15rem;">Regular $20/mo · $200/yr</p>
-            <p class="section-note" style="margin-top: 0.15rem; margin-bottom: 0.35rem;">Lock in this rate—stay subscribed and keep it for life.</p>
+            <p class="section-note pricing-strike util-mt-0_15">Regular $20/mo · $200/yr</p>
+            <p class="section-note util-mt-0_15 util-mb-0_35">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Everything in Battle Pro</li>
               <li>Team streaks (shared tracking)</li>
@@ -627,7 +627,7 @@
             </div>
           </div>
         </div>
-        <p id="battle-pro-upgrade-note" class="section-note battle-pro-upgrade-note" style="display:none;"></p>
+        <p id="battle-pro-upgrade-note" class="section-note battle-pro-upgrade-note hidden"></p>
       </div>
     </div>
     <div id="family-name-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="family-name-modal-title">
@@ -654,7 +654,7 @@
           <div id="family-stories-grid" class="kids-corner-grid" role="list"></div>
         </div>
         <div id="family-armor-panel" class="family-armor-tab-panel hidden" role="tabpanel" aria-labelledby="tab-armor">
-          <p id="armor-welcome-msg" class="armor-welcome-msg section-note" style="display:none;" aria-live="polite"></p>
+          <p id="armor-welcome-msg" class="armor-welcome-msg section-note hidden" aria-live="polite"></p>
           <h2 id="armor-builder-title" class="section-divider">Build the Armor of God</h2>
           <p class="section-note family-armor-elite-note">Every piece earned in prayer. Family, friends, pets—everyone counts. Pray, say Amen, read a verse.</p>
           <div id="armor-piece-added-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -664,15 +664,15 @@
           <div id="armor-crown-wrap" class="armor-crown-wrap" aria-hidden="true">
             <div id="armor-crown" class="armor-crown" aria-hidden="true"></div>
           </div>
-          <div id="armor-heavenly-wrap" class="armor-heavenly-wrap" style="display:none;">
+          <div id="armor-heavenly-wrap" class="armor-heavenly-wrap hidden">
             <p class="section-note armor-heavenly-text">Streets of gold await—your household's crown shines!</p>
             <p id="armor-heavenly-count" class="section-note" aria-live="polite"></p>
           </div>
           <div id="armor-avatar-wrap" class="armor-avatar-wrap" aria-label="Household avatar">
             <div class="armor-avatar-household" id="armor-avatar-household"></div>
           </div>
-          <p id="armor-complete-msg" class="section-note armor-complete-msg" style="display:none;" aria-live="polite">Your household is armored. Share the link!</p>
-          <div id="armor-join-wrap" class="cta-group" style="display:none;">
+          <p id="armor-complete-msg" class="section-note armor-complete-msg hidden" aria-live="polite">Your household is armored. Share the link!</p>
+          <div id="armor-join-wrap" class="cta-group hidden">
             <button type="button" id="armor-join-household-btn" class="btn btn-primary">Join Household — copy link</button>
           </div>
         </div>
@@ -681,11 +681,11 @@
     <button type="button" id="floating-voice-pray" class="floating-voice-pray" aria-label="Start voice prayer" title="Pray now"><span class="floating-voice-pray-icon" aria-hidden="true">🎤</span></button>
     <button type="button" id="silent-offering-btn" class="silent-offering-btn" aria-label="Offer silence" title="Offer silence"><span aria-hidden="true">✝</span></button>
 
-    <div id="god-whisper-load" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="God is present." style="display:none;"><span class="god-whisper-text">He is here.</span></div>
-    <div id="prayer-whisper" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="Prayer sent—God hears." style="display:none;"><span class="god-whisper-text">God hears this.</span></div>
-    <div id="night-falls-overlay" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="Night falls—rest in Him." style="display:none;"><span class="god-whisper-text">Night falls—rest in Him.</span><p class="god-whisper-verse">Peace I leave with you. (John 14:27)</p></div>
-    <div id="dawn-overlay" class="god-whisper-overlay" role="status" aria-live="polite" aria-label="Dawn breaks—He waits." style="display:none;"><span class="god-whisper-text">Dawn breaks—He waits.</span></div>
-    <div id="anointed-overlay" class="god-whisper-overlay anointed-overlay" role="status" aria-live="polite" aria-label="Room consecrated." style="display:none;"><p class="anointed-overlay-text">This room is anointed. Pray with oil, water, fire—nothing enters unclean.</p></div>
+    <div id="god-whisper-load" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="God is present."><span class="god-whisper-text">He is here.</span></div>
+    <div id="prayer-whisper" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Prayer sent—God hears."><span class="god-whisper-text">God hears this.</span></div>
+    <div id="night-falls-overlay" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Night falls—rest in Him."><span class="god-whisper-text">Night falls—rest in Him.</span><p class="god-whisper-verse">Peace I leave with you. (John 14:27)</p></div>
+    <div id="dawn-overlay" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Dawn breaks—He waits."><span class="god-whisper-text">Dawn breaks—He waits.</span></div>
+    <div id="anointed-overlay" class="god-whisper-overlay anointed-overlay hidden" role="status" aria-live="polite" aria-label="Room consecrated."><p class="anointed-overlay-text">This room is anointed. Pray with oil, water, fire—nothing enters unclean.</p></div>
 
     <footer class="site-footer" role="contentinfo" aria-label="Site footer">
       <h2 class="footer-heading">Footer</h2>

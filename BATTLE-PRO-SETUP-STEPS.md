@@ -8,6 +8,8 @@ Do these **in order**. Allow about 30–60 minutes total.
 
 ## Step 1: Get the 6 Price IDs from Stripe
 
+**New to Stripe?** Sign up at [stripe.com](https://stripe.com) (email + password; no card required). Confirm email, then in the dashboard switch **Test mode** on (toggle top-right). Go to **Developers → API keys** and copy your **Secret key** (`sk_test_...`) — you’ll use it later as `STRIPE_SECRET_KEY` in Supabase. Then create the products below.
+
 1. Go to [Stripe Dashboard](https://dashboard.stripe.com).
 2. Turn **Test mode** on (toggle top right).
 3. Open **Products** → **+ Add product** (or use existing products).
@@ -95,11 +97,11 @@ If you’re not linked to the project, run `supabase link` first and choose your
 4. Click **stripe-webhook** → **Secrets**.
 5. Add:
    - **STRIPE_SECRET_KEY** = same `sk_test_...`.
-   - **SUPABASE_ANON_KEY** = same anon key.
    - **STRIPE_WEBHOOK_SECRET** = from Stripe: **Developers** → **Webhooks** → **Add endpoint**:
      - **Endpoint URL:** `https://rixsnhpwrlbvvymkfamj.supabase.co/functions/v1/stripe-webhook`
      - **Events:** select `checkout.session.completed` (and optionally `customer.subscription.created` for renewals).
      - After saving, open the endpoint and copy the **Signing secret** (`whsec_...`). Paste that as **STRIPE_WEBHOOK_SECRET**.
+   - **SUPABASE_SERVICE_ROLE_KEY** = from Supabase Dashboard → **Settings** → **API** → **Project API keys** → `service_role` (secret). Required so the webhook can upsert `profiles.tier`; do not use the anon key here.
 
 ---
 
@@ -127,7 +129,7 @@ If anything fails (no redirect, 401/400/500, tier not updating):
 
 - **No POST or 401** → wrong secrets or JWT validation; check STRIPE_SECRET_KEY and SUPABASE_ANON_KEY.
 - **400 from function** → Price ID invalid or missing; check STRIPE_PRICE_IDS in config.
-- **Tier not updating** → webhook not firing; check Supabase → Edge Functions → stripe-webhook → **Logs**, and Stripe webhook endpoint + STRIPE_WEBHOOK_SECRET.
+- **Tier not updating** → webhook not firing or wrong secrets; check Supabase → Edge Functions → stripe-webhook → **Logs**. Ensure **STRIPE_WEBHOOK_SECRET** and **STRIPE_SECRET_KEY** are set, and **SUPABASE_SERVICE_ROLE_KEY** (not anon) is set so the webhook can update `profiles`.
 
 Share the exact status code, response body, or webhook log and we can fix it fast.
 

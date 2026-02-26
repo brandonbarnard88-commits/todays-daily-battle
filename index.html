@@ -70,6 +70,7 @@
         <a href="church.html">Church Center</a>
         <a href="pricing.html">Pricing</a>
       </nav>
+      <span id="armor-builder-btn" class="sr-only" aria-hidden="true"></span>
       <button type="button" id="family-armor-stories-btn" class="family-armor-stories-btn" aria-label="Family Armor &amp; Stories" title="Bible stories and household armor"><span class="family-armor-stories-icon" aria-hidden="true"></span> Family Armor &amp; Stories</button>
       <button type="button" id="add-family-btn" class="header-family-btn" aria-label="Your family name" title="Add family or group name">Add family</button>
       <button type="button" id="bless-session-btn" class="header-bless-btn" aria-label="Bless this session" title="Bless this session"><span aria-hidden="true">✝</span><span class="bless-flame" aria-hidden="true">†</span></button>
@@ -142,10 +143,11 @@
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
             <label for="focus-mode" class="focus-mode-label">Focus mode</label>
-            <select id="focus-mode" class="compact-select" aria-label="Verse style: Morning, Evening, or Warrior">
+            <select id="focus-mode" class="compact-select" aria-label="Verse style: Morning, Evening, Warrior, or God Tier">
               <option value="morning">Morning Energy — short, upbeat</option>
               <option value="evening">Evening Wind-Down — reflective</option>
               <option value="warrior">Warrior Mode — battle verses only</option>
+              <option value="godtier">God Tier — pastor-level depth</option>
             </select>
           </div>
           <div class="search-stack">
@@ -196,6 +198,7 @@
               <option value="teen">Teen</option>
               <option value="adult" selected>Adult</option>
               <option value="pastor">Pastor</option>
+              <option value="godtier">God Tier</option>
             </select>
             <select id="testament-filter" class="compact-select" aria-label="Testament">
               <option value="all" selected>All Bible</option>

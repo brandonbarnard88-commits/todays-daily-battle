@@ -1939,16 +1939,20 @@ function wireFloatingVoicePray() {
 
 var PRAY_NUDGE_2MIN_KEY = 'tdb_pray_nudge_2min';
 var PRAY_NUDGE_2MIN_MS = 2 * 60 * 1000;
+var PRAYED_THIS_SESSION_KEY = 'tdb_prayed_this_session';
 function wirePrayNudgeAfter2Min() {
   var quickWrap = document.getElementById('quick-pray-wrap');
   if (!quickWrap) return;
   try {
     if (sessionStorage.getItem(PRAY_NUDGE_2MIN_KEY)) return;
+    if (sessionStorage.getItem(PRAYED_THIS_SESSION_KEY)) return;
   } catch (e) { return; }
   setTimeout(function () {
     try {
+      if (sessionStorage.getItem(PRAYED_THIS_SESSION_KEY)) return;
       sessionStorage.setItem(PRAY_NUDGE_2MIN_KEY, '1');
     } catch (e) {}
+    if (!quickWrap || !document.body.contains(quickWrap)) return;
     quickWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
     if (typeof showEliteToast === 'function') showEliteToast('Pray when you\'re ready.');
   }, PRAY_NUDGE_2MIN_MS);
@@ -2995,6 +2999,11 @@ function wireArmorBuilderModal() {
   if (typeof updateArmorChainDisplay === 'function') updateArmorChainDisplay();
   var sidebarLink = document.getElementById('sidebar-family-armor-stories');
   if (sidebarLink) sidebarLink.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
+  if (window.location.hash === '#armor-builder-btn') {
+    setTimeout(function () {
+      openModal(true);
+    }, 100);
+  }
 }
 
 function wireFamilyNameModal() {
@@ -7317,10 +7326,12 @@ function populateColoringStories() {
 }
 
 function getStoryById(id) {
+  if (!coloringStories || !coloringStories.length) return null;
   return coloringStories.find(story => story.id === id) || coloringStories[0];
 }
 
 function loadStoryIntoCanvas(story) {
+  if (!story || !story.svg) return;
   const canvas = document.getElementById('coloring-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -7896,7 +7907,7 @@ function executeQuery(parsed, tier, filters) {
         }
       });
     }
-    if (topic) results.guidance = topic.guidance[tier] || topic.guidance.adult;
+    if (topic) results.guidance = topic.guidance[tier === 'godtier' ? 'pastor' : tier] || topic.guidance.adult;
     if (tier === 'kid' || tier === 'teen') {
       results.activities = KID_ACTIVITIES[results.topic]?.[tier] || null;
     }
@@ -8646,6 +8657,10 @@ function renderResults(results) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  document.body.classList.remove('light');
+  document.body.classList.add('dark-mode');
+  try { localStorage.removeItem('tdb_theme'); } catch (_) {}
+
   var ob = document.getElementById('offline-banner');
   if (ob && navigator.onLine !== false) ob.classList.add('hidden');
   initSupabaseClient();
@@ -8748,8 +8763,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();
-  if (isHome) { /* God-whisper on load disabled so homepage isn't "only He is here" */ }
-  if (isHome && typeof showAnointedOverlay === 'function') setTimeout(showAnointedOverlay, 7000);
+  if (isHome) { /* Intro overlays disabled: no "He is here" or anointed on load */ }
+  if (isHome && false && typeof showAnointedOverlay === 'function') setTimeout(showAnointedOverlay, 7000);
   if (isHome && typeof wireNightDawnOverlays === 'function') setTimeout(wireNightDawnOverlays, 2200);
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');
@@ -9247,10 +9262,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  document.body.classList.remove('light');
-  document.body.classList.add('dark-mode');
-  try { localStorage.removeItem('tdb_theme'); } catch (_) {}
-
   var dailyVerseEmailSubmit = document.getElementById('daily-verse-email-submit');
   var dailyVerseEmailInput = document.getElementById('daily-verse-email');
   if (dailyVerseEmailSubmit && dailyVerseEmailInput) {
@@ -9567,6 +9578,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       clearQuickPrayDraft();
       const count = getQuickPrayCountToday() + 1;
       setQuickPrayCountToday(count);
+      try { sessionStorage.setItem(PRAYED_THIS_SESSION_KEY, '1'); } catch (e) {}
       updateQuickPrayCountDisplay();
       if (count >= 5) {
         var prayedTodayEl = document.getElementById('prayed-today');
@@ -10018,7 +10030,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (focusModeEl) {
     try {
       var saved = localStorage.getItem('tdb_focus_mode');
-      if (saved && ['morning', 'evening', 'warrior'].indexOf(saved) >= 0) focusModeEl.value = saved;
+      if (saved && ['morning', 'evening', 'warrior', 'godtier'].indexOf(saved) >= 0) focusModeEl.value = saved;
     } catch (e) {}
     focusModeEl.addEventListener('change', function () {
       try { localStorage.setItem('tdb_focus_mode', focusModeEl.value); } catch (e) {}

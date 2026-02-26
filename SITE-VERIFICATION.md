@@ -25,7 +25,7 @@ Run through this in **incognito** after a **hard refresh** (Cmd+Shift+R / Ctrl+S
 | **Quick pray** | Enter a name, click Pray → feedback appears; counter can refresh. | ☐ |
 | **Echo / presence** | "Loading recent prayers…" resolves to a number or "You're alone with Him." | ☐ |
 | **Menu** | Click Menu (or sidebar toggle) → sidebar opens; click a nav link → page or section changes. | ☐ |
-| **Light mode** | Click Light toggle → theme switches; buttons still visible. | ☐ |
+| **Theme** | Site is dark-only; buttons have gold hover. | ☐ |
 | **Pricing** | Open pricing.html → plans and Upgrade buttons visible; click Upgrade → Stripe or config message. | ☐ |
 | **Family Armor / Kids** | Open Family Armor & Stories or Kids Activities → modal or page loads. | ☐ |
 | **Patriotic Scriptures / Hymns** | Sections render; no 404 for assets. | ☐ |

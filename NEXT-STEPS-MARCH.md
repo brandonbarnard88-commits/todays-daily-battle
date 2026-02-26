@@ -58,7 +58,7 @@ Concrete breakdown for: **Battle Pro MVP**, **bugs/polish**, **scope to park**, 
 | **Map** | Background image 404 | Done: gradient + gold border only; no image URL. |
 | **KJV audio** | 404 if link wrong | Verify verse link opens Bible Gateway (e.g. Philippians 4:7). Fix in script if URL pattern is wrong. |
 | **Echo / presence** | "—" or not updating | Same prayers API; if counter works, echo should. If not, check `get_prayer_presence_count` RPC and Supabase logs. |
-| **Light mode** | Button hover | Done: gold shadow on buttons (per earlier polish). |
+| **Theme** | Dark only | Done: site is dark-only; buttons have gold hover. |
 | **Mobile footer** | Links layout | Done: stack vertical <480px (per earlier polish). |
 | **Walkthrough** | "Video coming soon" | Optional: record 60s Loom/YouTube; set `WALKTHROUGH_VIDEO_URL` in config (ACTIVATION §4.1). |
 
@@ -69,7 +69,7 @@ Concrete breakdown for: **Battle Pro MVP**, **bugs/polish**, **scope to park**, 
 - [ ] KJV audio: opens Bible Gateway.
 - [ ] Echo: real numbers or "You're alone with Him" when empty.
 - [ ] Armor modal, Kids Corner, Patriotic Scriptures: load and work.
-- [ ] Light mode: buttons have gold hover.
+- [ ] Theme: dark mode, buttons have gold hover.
 - [ ] Mobile: footer links stack vertically.
 
 ---

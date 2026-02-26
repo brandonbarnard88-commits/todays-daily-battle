@@ -123,7 +123,7 @@ STRIPE_CHURCH_YEARLY_LINK: 'https://buy.stripe.com/xxxxx',
 | **KJV audio** | Click audio on a verse → opens Bible Gateway (e.g. Philippians 4:7). |
 | **Echo / presence** | Prayer Wall shows real numbers or "You're alone with Him" when empty. |
 | **Armor modal, Kids Corner, Patriotic Scriptures** | Open each from the UI; they load and behave. |
-| **Light mode** | Toggle to light mode; buttons have gold hover. |
+| **Theme** | Dark-only theme; buttons have gold hover. |
 | **Mobile footer** | Resize to &lt;480px; footer links stack vertically. |
 
 **If something fails:**

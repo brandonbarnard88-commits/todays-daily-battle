@@ -39,10 +39,11 @@
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Cormorant Garamond', 'Georgia', serif;
   --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  /* Phase 1: cohesive semantic tokens (site-wide polish) */
-  --text: var(--text-light);
-  --color-bg: var(--bg-light);
-  --color-text: var(--text-light);
+  /* Site is dark-only: default all semantic tokens to dark so no light mode is possible */
+  --text: var(--text-dark);
+  --color-bg: var(--bg-dark);
+  --color-text: var(--text-dark);
+  --card-light: var(--card-dark);
   --color-accent: #4CAF50;
   --color-accent-hover: #43a047;
   --spacing-xs: 0.5rem;

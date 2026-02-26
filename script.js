@@ -8658,7 +8658,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           if (typeof console !== 'undefined' && console.log) {
             console.log('Trying to register SW...');
           }
-          navigator.serviceWorker.register('/service-worker.js?v=20260227', { scope: '/' })
+          navigator.serviceWorker.register('/service-worker.js?v=20260228', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               if (typeof console !== 'undefined' && console.log) {
@@ -9229,59 +9229,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  var themeKey = 'tdb_theme';
-  try {
-    var saved = localStorage.getItem(themeKey);
-    if (saved === 'light') {
-      document.body.classList.remove('dark-mode');
-      document.body.classList.add('light');
-    } else if (saved === 'dark') {
-      document.body.classList.remove('light');
-      document.body.classList.add('dark-mode');
-    } else {
-      var prefersDark = typeof window.matchMedia !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (prefersDark) {
-        document.body.classList.remove('light');
-        document.body.classList.add('dark-mode');
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light');
-      }
-    }
-  } catch (e) {}
-  var darkToggles = document.querySelectorAll('#dark-toggle, #dark-toggle-search');
-  function updateDarkToggleLabels(isLight) {
-    darkToggles.forEach(function (el) {
-      if (!el) return;
-      if (isLight) {
-        el.innerHTML = '<span aria-hidden="true">🌙</span> Dark mode';
-        el.setAttribute('aria-label', 'Switch to dark mode');
-      } else {
-        el.innerHTML = '<span aria-hidden="true">☀️</span> Light mode';
-        el.setAttribute('aria-label', 'Switch to light mode');
-      }
-    });
-  }
-  if (darkToggles.length && document.body.classList.contains('light')) {
-    updateDarkToggleLabels(true);
-  }
-  darkToggles.forEach(function (darkToggle) {
-    if (!darkToggle) return;
-    darkToggle.addEventListener('click', function () {
-      var isLight = document.body.classList.contains('light');
-      if (isLight) {
-        document.body.classList.remove('light');
-        document.body.classList.add('dark-mode');
-        updateDarkToggleLabels(false);
-        try { localStorage.setItem(themeKey, 'dark'); } catch (e) {}
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light');
-        updateDarkToggleLabels(true);
-        try { localStorage.setItem(themeKey, 'light'); } catch (e) {}
-      }
-    });
-  });
+  document.body.classList.remove('light');
+  document.body.classList.add('dark-mode');
 
   var dailyVerseEmailSubmit = document.getElementById('daily-verse-email-submit');
   var dailyVerseEmailInput = document.getElementById('daily-verse-email');

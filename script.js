@@ -1937,6 +1937,23 @@ function wireFloatingVoicePray() {
   });
 }
 
+var PRAY_NUDGE_2MIN_KEY = 'tdb_pray_nudge_2min';
+var PRAY_NUDGE_2MIN_MS = 2 * 60 * 1000;
+function wirePrayNudgeAfter2Min() {
+  var quickWrap = document.getElementById('quick-pray-wrap');
+  if (!quickWrap) return;
+  try {
+    if (sessionStorage.getItem(PRAY_NUDGE_2MIN_KEY)) return;
+  } catch (e) { return; }
+  setTimeout(function () {
+    try {
+      sessionStorage.setItem(PRAY_NUDGE_2MIN_KEY, '1');
+    } catch (e) {}
+    quickWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (typeof showEliteToast === 'function') showEliteToast('Pray when you\'re ready.');
+  }, PRAY_NUDGE_2MIN_MS);
+}
+
 function wireCallGodBtn() {
   var btn = document.getElementById('call-god-btn');
   var voiceBtn = document.getElementById('voice-pray-btn');
@@ -8709,6 +8726,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireFloatingVoicePray();
   wireCallGodBtn();
   wireSilentAmen();
+  if (isHome) wirePrayNudgeAfter2Min();
   wireNightClose();
   wireIntentModal();
   wirePrayerMap();
@@ -8730,7 +8748,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();
-  if (isHome && typeof showGodWhisperOnLoad === 'function') setTimeout(showGodWhisperOnLoad, 600);
+  if (isHome) { /* God-whisper on load disabled so homepage isn't "only He is here" */ }
   if (isHome && typeof showAnointedOverlay === 'function') setTimeout(showAnointedOverlay, 7000);
   if (isHome && typeof wireNightDawnOverlays === 'function') setTimeout(wireNightDawnOverlays, 2200);
   showAuthRedirectMessage();
@@ -9231,6 +9249,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
+  try { localStorage.removeItem('tdb_theme'); } catch (_) {}
 
   var dailyVerseEmailSubmit = document.getElementById('daily-verse-email-submit');
   var dailyVerseEmailInput = document.getElementById('daily-verse-email');

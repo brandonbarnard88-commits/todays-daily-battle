@@ -41,3 +41,9 @@ stripe listen --forward-to https://<PROJECT_REF>.supabase.co/functions/v1/stripe
 ```
 
 Then trigger a test checkout; the CLI will show the signing secret to use for local testing.
+
+## Security
+
+- **Signature:** Every request is verified with `stripe.webhooks.constructEventAsync(body, signature, webhookSecret)`; invalid signature returns 400.
+- **No user_id:** If the event has no `user_id` in metadata, we return 200 with an error body so we don’t leak internals and Stripe doesn’t retry.
+- **Idempotency:** Tier updates are done via upsert on `profiles` by `id`, so duplicate events don’t double-grant.

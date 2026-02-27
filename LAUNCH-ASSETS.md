@@ -8,6 +8,9 @@ Copy-paste ready copy for social, SEO, email, and site. One place for launch.
 
 ### X (Twitter) — 3 variants
 
+**#1 — Launch post (verse/map screenshot)**  
+Daily KJV verse + prayer. No login. Less scroll, more soul. todaysdailybattle.com #DailyBattle #Faith #Veterans #Prayer
+
 **A — Short**
 Daily KJV verse + prayer to fight your battles. No login needed. Less scroll, more soul. todaysdailybattle.com
 

@@ -4,6 +4,15 @@ Use this when the site shows a different number than the database (e.g. "Total p
 
 ---
 
+## Quick path (10 min)
+
+1. **Supabase → SQL Editor:** `SELECT COUNT(*) FROM prayers;`
+2. **If result = 9:** Table Editor → **prayers** → Insert row: `intent` = `peace`, `created_at` = now(). Reload site.
+3. **If result &gt; 9 or counter still wrong:** Run **`supabase-get-total-prayer-count-fix.sql`** in SQL Editor (redefines RPC so count matches DB).
+4. **Test:** Tap ♥ → wait ~15s → hard reload (Ctrl+Shift+R). Counter should +1. Makes it feel real—users see growth.
+
+---
+
 ## Step 1: Check DB count
 
 **Supabase → SQL Editor:**

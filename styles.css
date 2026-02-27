@@ -684,6 +684,13 @@ body {
   .prayer-counter { font-size: 1rem; }
   .prayer-counter-label { display: inline; }
 }
+.prayer-counter #prayer-counter.just-updated {
+  animation: prayerCountPop 0.4s ease;
+}
+@keyframes prayerCountPop {
+  0% { opacity: 0.6; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
 .weekly-recap-nudge {
   margin-top: 1rem;
   padding: 1rem;

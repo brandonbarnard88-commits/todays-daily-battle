@@ -1944,7 +1944,35 @@ function wireOfflineBanner() {
 function wireRealPrayerCounter() {
   var el = document.getElementById('prayer-counter');
   if (!el) return;
+  var previousCount = null;
   function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
+  function animateCountAndSet(newCount) {
+    var num = typeof newCount === 'number' ? newCount : (parseInt(newCount, 10) || 0);
+    var start = previousCount != null && !isNaN(previousCount) ? previousCount : num;
+    previousCount = num;
+    if (start === num) {
+      el.textContent = formatCount(num);
+      el.classList.add('just-updated');
+      setTimeout(function () { el.classList.remove('just-updated'); }, 400);
+      return;
+    }
+    var duration = 400;
+    var startTime = null;
+    function step(now) {
+      if (startTime == null) startTime = now;
+      var t = Math.min((now - startTime) / duration, 1);
+      var eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      var current = Math.round(start + (num - start) * eased);
+      el.textContent = formatCount(current);
+      if (t < 1) requestAnimationFrame(step);
+      else {
+        el.textContent = formatCount(num);
+        el.classList.add('just-updated');
+        setTimeout(function () { el.classList.remove('just-updated'); }, 400);
+      }
+    }
+    requestAnimationFrame(step);
+  }
   function formatLastPrayerAgo(iso) {
     if (!iso) return null;
     var then = new Date(iso).getTime();
@@ -1986,7 +2014,7 @@ function wireRealPrayerCounter() {
       if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       var countNum = res && res.data != null ? (typeof res.data === 'number' ? res.data : (typeof res.data === 'string' ? parseInt(res.data, 10) : Number(res.data))) : NaN;
       if (res && !res.error && !isNaN(countNum) && countNum >= 0) {
-        el.textContent = formatCount(countNum);
+        animateCountAndSet(countNum);
         var promo = document.getElementById('prayer-count-promo');
         if (promo) promo.textContent = formatCount(countNum) + ' prayers prayed worldwide. Join ' + formatCount(countNum) + ' warriors right now.';
         updateLastPrayerBadge();
@@ -2003,11 +2031,12 @@ function wireRealPrayerCounter() {
         var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = '';
         return;
       }
-      if (restRes && restRes.count != null) el.textContent = formatCount(restRes.count);
-      else if (restRes && Array.isArray(restRes.data)) el.textContent = formatCount(restRes.data.length);
+      if (restRes && restRes.count != null) animateCountAndSet(restRes.count);
+      else if (restRes && Array.isArray(restRes.data)) animateCountAndSet(restRes.data.length);
       else el.textContent = '—';
       var promo = document.getElementById('prayer-count-promo');
-      if (promo) promo.textContent = (el.textContent !== '—' ? el.textContent + ' prayers prayed worldwide. Join ' + el.textContent + ' warriors right now.' : '');
+      var finalCount = restRes && (restRes.count != null ? restRes.count : (Array.isArray(restRes.data) ? restRes.data.length : null));
+      if (promo) promo.textContent = (finalCount != null ? formatCount(finalCount) + ' prayers prayed worldwide. Join ' + formatCount(finalCount) + ' warriors right now.' : '');
       updateLastPrayerBadge();
     } catch (e) {
       setPrayersApiUnavailable();

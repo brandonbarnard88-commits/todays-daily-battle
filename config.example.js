@@ -9,6 +9,8 @@ window.TDB_CONFIG = {
   SUPABASE_URL: 'https://your-project-ref.supabase.co',
   // Supabase anon (publishable) key — keep RLS enabled
   SUPABASE_ANON_KEY: 'your-anon-key',
+  // Optional: force email confirmation/reset links to this origin (e.g. https://todaysdailybattle.com). If unset, redirect uses current page origin.
+  AUTH_REDIRECT_BASE: '',
   // Admin is determined server-side only. In Supabase Dashboard: Auth > Users > [user] > set app_metadata to { "role": "admin" }. Do not put admin email in client config.
   // 60-second walkthrough video URL (e.g. Loom). If set, "Watch the 60-second walkthrough" links here.
   WALKTHROUGH_VIDEO_URL: '',

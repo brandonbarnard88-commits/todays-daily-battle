@@ -63,11 +63,12 @@
         </header>
         <section class="glass">
           <form id="reset-form" class="reset-form">
+            <div id="auth-section" class="auth-status-reset"><div id="auth-status" class="auth-status-message" aria-live="polite" role="status"></div></div>
             <label class="section-note" for="reset-password">New password</label>
-            <input id="reset-password" type="password" autocomplete="new-password" placeholder="New password">
+            <input id="reset-password" type="password" autocomplete="new-password" placeholder="New password" aria-label="New password">
             <label class="section-note" for="reset-password-confirm">Confirm password</label>
-            <input id="reset-password-confirm" type="password" autocomplete="new-password" placeholder="Confirm password">
-            <button class="btn btn-primary" type="submit">Update Password</button>
+            <input id="reset-password-confirm" type="password" autocomplete="new-password" placeholder="Confirm password" aria-label="Confirm new password">
+            <button class="btn btn-primary" type="submit" aria-label="Update password">Update Password</button>
             <p id="reset-status" class="section-note"></p>
           </form>
           <p class="section-note">If the link expired, request a new reset from the login bar.</p>

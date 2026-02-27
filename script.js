@@ -1105,7 +1105,10 @@ function supabaseFetch(url, options) {
   }
   return p;
 }
-var supabaseGlobalOptions = { fetch: supabaseFetch };
+var supabaseGlobalOptions = {
+  fetch: supabaseFetch,
+  auth: { detectSessionInUrl: true }
+};
 let supabaseClient = (getSupabaseGlobal() && supabaseUrlValid && supabaseKey)
   ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions)
   : null;
@@ -1668,6 +1671,9 @@ function getAnchorVerseForDay() {
 }
 
 function getAuthRedirectBase() {
+  if (window.TDB_CONFIG && window.TDB_CONFIG.AUTH_REDIRECT_BASE) {
+    return window.TDB_CONFIG.AUTH_REDIRECT_BASE.replace(/\/$/, '');
+  }
   if (window.location.protocol === 'file:') {
     return 'https://todaysdailybattle.com';
   }
@@ -1695,10 +1701,50 @@ function showAuthRedirectMessage() {
   const type = params.get('type') || hashParams.get('type');
   if (type === 'signup' || type === 'email_change') {
     setAuthStatus('Email confirmed. Please log in.', 'success');
+    (async function () {
+      try {
+        var client = supabaseClient;
+        if (!client) {
+          var ready = typeof ensureSupabaseLoaded === 'function' && (await ensureSupabaseLoaded());
+          client = ready ? supabaseClient : null;
+        }
+        if (!client) return;
+        var _session = await client.auth.getSession();
+        var session = _session && _session.data && _session.data.session;
+        if (session) {
+          setAuthStatus("Email confirmed. You're logged in.", 'success');
+          currentUserId = session.user?.id || null;
+          updateMasterStatus(session.user || null);
+          updateAuthUI(session);
+          if (typeof updateRoleViews === 'function') updateRoleViews();
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }
+      } catch (_) {}
+    })();
   }
   const resetStatus = document.getElementById('reset-status');
   if (type === 'recovery' && resetStatus) {
     resetStatus.textContent = 'Set your new password below.';
+    (async function () {
+      try {
+        var client = supabaseClient;
+        if (!client) {
+          var ready = typeof ensureSupabaseLoaded === 'function' && (await ensureSupabaseLoaded());
+          client = ready ? supabaseClient : null;
+        }
+        if (!client) return;
+        var _session = await client.auth.getSession();
+        var session = _session && _session.data && _session.data.session;
+        if (!session && window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          resetStatus.textContent = 'Reset link expired or already used. Request a new link from the login bar.';
+        }
+      } catch (_) {
+        if (resetStatus) resetStatus.textContent = 'Reset link expired or already used. Request a new link from the login bar.';
+      }
+    })();
   }
 }
 
@@ -6450,10 +6496,10 @@ function fetchBattleProStatus() {
     } catch (e) {}
     var downloadWrap = document.getElementById('download-devotional-wrap');
     if (downloadWrap) downloadWrap.classList.remove('hidden');
+    var lockEl = document.getElementById('premium-devotionals-lock');
+    if (lockEl) lockEl.classList.add('hidden');
     if (typeof updateRoleViews === 'function') updateRoleViews();
   });
-  var lockEl = document.getElementById('premium-devotionals-lock');
-  if (lockEl) lockEl.classList.add('hidden');
 }
 
 /**

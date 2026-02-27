@@ -18,6 +18,8 @@ Supabase sends sign-up and password-reset emails. If users don't get them, fix t
 
 Without these, the confirmation link in the email may point to the wrong place or be rejected.
 
+**Optional:** In `config.js` set `AUTH_REDIRECT_BASE: 'https://todaysdailybattle.com'` so signup/reset emails always use this origin even when the app is opened from another URL (e.g. localhost or a different domain).
+
 ---
 
 ## 2. Default Supabase email (often goes to spam)

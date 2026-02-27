@@ -71,6 +71,8 @@ Once the header sent by Cloudflare either includes `'unsafe-inline'` in `style-s
 
 **Also:** If you see "Refused to load blob:... does not appear in the img-src directive", add **`blob:`** to `img-src` in the same CSP (the site uses blob URLs for canvas exports and SVG-to-image in Kids Corner). The value in Step 3 below already includes `blob:` in `img-src`.
 
+**"Failed to load resource: 400 (token)"** — Often Cloudflare Turnstile (Quick Pray) or Supabase auth. Ensure CSP includes `https://challenges.cloudflare.com` in `script-src`, `frame-src`, and `connect-src` (see Step 3). If Turnstile is not in use, leave `TURNSTILE_SITE_KEY` empty in config; the 400 may then be Supabase token refresh (expired/invalid session).
+
 ---
 
 ## Troubleshooting: errors still after adding a Transform Rule
@@ -91,7 +93,7 @@ If you added a Transform Rule to **set** Content-Security-Policy but the site is
    - Action: **Set static** → Header name: `Content-Security-Policy`.
    - Header value (one line, no line breaks):
    ```
-   default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-ancestors 'none'; upgrade-insecure-requests
+   default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com; frame-ancestors 'none'; upgrade-insecure-requests
    ```
    - Condition: **All incoming requests** (or Hostname equals `todaysdailybattle.com`).
 

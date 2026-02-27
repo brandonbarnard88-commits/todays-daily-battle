@@ -39,6 +39,7 @@ Feedback from a trusted reviewer (Feb 2026): *"You're doing a lot right. As you 
 ## 2. Supabase Auth
 
 - **Email confirmation:** Already in use; see **VERIFICATION-EMAIL-TROUBLESHOOTING.md** and **docs/E2E-AUTH-TEST.md**.
+- **Invalid credentials?** Often unverified email—Supabase does not return a separate "email not confirmed" message. Tell users: *"Check inbox for verification link"* or use **Forgot password?** (reset link also verifies). App shows toast + "Resend verification email" + "Forgot password?" in error state. See **AUTH.md** and Auth → Logs in dashboard for "email not confirmed" or attempt failures.
 - **Redirect URLs:** Supabase Auth → URL Configuration → add your production and reset URLs (and optional `AUTH_REDIRECT_BASE` in config).
 - **Keys:** No hardcoded secrets in repo; use **config.js** / env (e.g. **build-config.js** for deploy).
 - **Optional:** MFA (TOTP) for admin/master account in Supabase Auth.

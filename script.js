@@ -1337,6 +1337,10 @@ function setAuthStatus(message, type = 'info') {
     status.style.fontWeight = (message && message.indexOf('Sign-in is optional') !== -1) ? '600' : '';
     status.textContent = message;
     status.style.display = message ? 'block' : 'none';
+    if (type === 'success') {
+      const forgotWrap = document.getElementById('auth-forgot-in-error');
+      if (forgotWrap) forgotWrap.style.display = 'none';
+    }
     // Scroll into view so user sees feedback (e.g. after Forgot password)
     const details = document.getElementById('auth-details');
     if (details && message && (type === 'success' || type === 'error')) {
@@ -1395,6 +1399,33 @@ function showResendVerificationUI(email) {
 function hideResendVerificationUI() {
   const wrap = document.getElementById('auth-resend-wrap');
   if (wrap) wrap.style.display = 'none';
+}
+
+/**
+ * After invalid-credentials error, show a "Forgot password?" link in the auth section
+ * that triggers the same flow as the Forgot password button (sends reset email).
+ */
+function ensureForgotPasswordLinkInErrorState() {
+  const authSection = document.getElementById('auth-section');
+  if (!authSection) return;
+  let wrap = document.getElementById('auth-forgot-in-error');
+  if (!wrap) {
+    wrap = document.createElement('div');
+    wrap.id = 'auth-forgot-in-error';
+    wrap.className = 'auth-forgot-in-error';
+    const link = document.createElement('button');
+    link.type = 'button';
+    link.className = 'link-button';
+    link.textContent = 'Forgot password?';
+    link.setAttribute('aria-label', 'Request password reset email');
+    link.addEventListener('click', function () {
+      const forgotBtn = document.getElementById('forgot-btn');
+      if (forgotBtn) forgotBtn.click();
+    });
+    wrap.appendChild(link);
+    authSection.appendChild(wrap);
+  }
+  wrap.style.display = 'block';
 }
 
 async function reportSupabaseDiagnostics() {
@@ -9155,15 +9186,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   const { data: sessionData } = supabaseClient
     ? await supabaseClient.auth.getSession()
     : { data: null };
-  if (sessionData?.session) {
-    currentUserId = sessionData.session.user.id;
-    updateMasterStatus(sessionData.session.user);
-    currentUserRole = sessionData.session.user.app_metadata?.role || sessionData.session.user.user_metadata?.role || 'member';
-    subscriptionTier = sessionData.session.user.user_metadata?.subscription || sessionData.session.user.user_metadata?.subscription_tier || (sessionData.session.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
-    updateAuthUI(sessionData.session);
+  // Validate session: getSession() is from cache; expired/invalid tokens can show "logged in" with no form. Verify with server.
+  var validSession = sessionData?.session || null;
+  if (validSession && supabaseClient) {
+    try {
+      var userRes = await supabaseClient.auth.getUser();
+      if (userRes.error || !userRes.data?.user) {
+        await supabaseClient.auth.signOut();
+        validSession = null;
+      }
+    } catch (e) {
+      await supabaseClient.auth.signOut().catch(function () {});
+      validSession = null;
+    }
+  }
+  if (validSession) {
+    currentUserId = validSession.user.id;
+    updateMasterStatus(validSession.user);
+    currentUserRole = validSession.user.app_metadata?.role || validSession.user.user_metadata?.role || 'member';
+    subscriptionTier = validSession.user.user_metadata?.subscription || validSession.user.user_metadata?.subscription_tier || (validSession.user.user_metadata?.role === 'pastor' ? 'church_team' : 'free');
+    updateAuthUI(validSession);
     var signinNudge = document.getElementById('signin-nudge-banner');
     if (signinNudge) signinNudge.classList.add('hidden');
-    const userTier = sessionData.session.user.user_metadata?.tier || 'adult';
+    const userTier = validSession.user.user_metadata?.tier || 'adult';
     const tierEl = document.getElementById('tier');
     if (tierEl) tierEl.value = userTier;
     await syncUserData();
@@ -9581,8 +9626,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (msg.includes('invalid') && (msg.includes('credential') || msg.includes('credentials'))) {
           setAuthStatus('Wrong email or password. New? Check your inbox for the verification link, or use Forgot password below.', 'error');
           showResendVerificationUI((document.getElementById('email') && document.getElementById('email').value) ? document.getElementById('email').value.trim().toLowerCase() : '');
+          ensureForgotPasswordLinkInErrorState();
+          if (typeof showEliteToast === 'function') showEliteToast('Wrong email or password. Check verification email or use Forgot password.');
+          if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'invalid_credentials' });
         } else {
           setAuthStatus(error.message, 'error');
+          if (typeof showEliteToast === 'function') showEliteToast(error.message || 'Sign-in failed. Try again.');
+          if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'other' });
         }
         return;
       }
@@ -10584,6 +10634,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (typeof unsubscribeFromSharedPrayers === 'function') unsubscribeFromSharedPrayers();
       const { error } = await supabaseClient.auth.signOut();
     setAuthStatus(error ? error.message : 'Logged out!', error ? 'error' : 'success');
+    if (!error) updateAuthUI(null);
     });
   }
 

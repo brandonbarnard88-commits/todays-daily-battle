@@ -1035,7 +1035,7 @@ body {
   .quick-actions-hero .btn {
     padding: 0.45rem 0.65rem;
     font-size: 0.875rem;
-    min-height: 42px;
+    min-height: 44px;
   }
   .hero-verse-wrap {
     padding-left: max(0.75rem, env(safe-area-inset-left));
@@ -4366,6 +4366,11 @@ body.red-letter-off .red-letter-card {
     width: 100%;
     max-width: 100%;
     padding: 1.25rem 1rem;
+  }
+  #output,
+  .results {
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
   .search-stack { width: 100%; min-width: 0; }
   .search-stack input {

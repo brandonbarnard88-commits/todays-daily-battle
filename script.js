@@ -55,11 +55,13 @@ function sanitizeUserInput(str) {
   return s.trim();
 }
 window.addEventListener('online', function () {
-  document.getElementById('offline-banner')?.classList.add('hidden');
+  var banner = document.getElementById('offline-banner');
+  if (banner) banner.classList.add('hidden');
   if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
 });
 window.addEventListener('offline', function () {
-  document.getElementById('offline-banner')?.classList.remove('hidden');
+  var banner = document.getElementById('offline-banner');
+  if (banner) banner.classList.remove('hidden');
 });
 
 let bible = {};
@@ -8914,6 +8916,155 @@ document.addEventListener('DOMContentLoaded', async () => {
     var accTools = document.getElementById('accordion-todays-tools');
     if (accTools) accTools.setAttribute('open', '');
   }
+
+  (function wireSearchAndQuickTopics() {
+    function ensureOutputElement() {
+      var el = document.getElementById('output');
+      if (el) return el;
+      var searchStack = document.querySelector('#main-search .search-stack');
+      if (searchStack && searchStack.parentNode) {
+        el = document.createElement('div');
+        el.id = 'output';
+        el.className = 'results';
+        searchStack.parentNode.insertBefore(el, searchStack.nextSibling);
+        return el;
+      }
+      return null;
+    }
+    function runSearchWithInput(inputStr) {
+      var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
+      var outputEl = ensureOutputElement();
+      if (outputEl) {
+        outputEl.style.display = 'grid';
+      }
+      setView('search');
+      var loadingEl = document.getElementById('loading');
+      if (loadingEl) loadingEl.style.display = 'block';
+      if (outputEl) outputEl.innerHTML = '';
+      setTimeout(async function () {
+        try {
+          var tierEl = document.getElementById('tier');
+          var tier = tierEl ? tierEl.value : 'adult';
+          lastQueryInput = input;
+          bumpStat('searches');
+          if (Object.keys(bible).length === 0) {
+            await loadBible(currentVersion);
+            refreshBibleView();
+          }
+          var out = document.getElementById('output');
+          if (Object.keys(bible).length === 0) {
+            if (out) {
+              out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh.</p>';
+            }
+            if (loadingEl) loadingEl.style.display = 'none';
+            return;
+          }
+          var filters = getSearchFilters();
+          var cacheKey = tier + '|' + (filters.testament || '') + '|' + (filters.book || '') + '|' + (input || '').toLowerCase();
+          var parsed = parseQuery(input || '');
+          var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
+          if (cacheKey && searchCache.has(cacheKey)) {
+            renderResults(searchCache.get(cacheKey));
+          } else {
+            var results = executeQuery(parsed, tier, filters);
+            if (cacheKey) searchCache.set(cacheKey, results);
+            renderResults(results);
+          }
+          if (out) {
+            out.style.display = 'grid';
+            out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+          if (input && typeof trackSearchAnalytics === 'function') {
+            var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
+            trackSearchAnalytics('search_query', params);
+          }
+          await renderDailyBattleCard();
+        } catch (err) {
+          var out = document.getElementById('output');
+          if (out) {
+            out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh and try again.</p>';
+            out.style.display = 'grid';
+            out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+          if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);
+        } finally {
+          if (loadingEl) loadingEl.style.display = 'none';
+        }
+      }, 150);
+    }
+    window.runSearchWithInput = runSearchWithInput;
+    var searchBtn = document.getElementById('search-btn');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function () {
+        var q = document.getElementById('query');
+        runSearchWithInput(q ? String(q.value || '').trim() : '');
+      });
+    }
+    var queryInput = document.getElementById('query');
+    if (queryInput) {
+      queryInput.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          var input = (queryInput.value != null) ? String(queryInput.value).trim() : '';
+          runSearchWithInput(input);
+        }
+      });
+    }
+    function runQuickTopicSearch(topic) {
+      if (!topic) return;
+      try {
+        var queryEl = document.getElementById('query');
+        if (queryEl) queryEl.value = topic;
+        if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
+        runSearchWithInput(topic);
+      } catch (err) {
+        if (typeof console !== 'undefined' && console.error) console.error('TDB quick topic error:', err);
+      }
+    }
+    document.body.addEventListener('click', function quickTopicDelegated(e) {
+      var btn = (e.target && e.target.closest && e.target.closest('.quick-topic')) || (e.target && e.target.closest && e.target.closest('[data-topic]'));
+      if (!btn) return;
+      var topic = btn.getAttribute('data-topic');
+      if (!topic) return;
+      e.preventDefault();
+      e.stopPropagation();
+      runQuickTopicSearch(topic);
+    }, true);
+    var heroQuick = document.getElementById('quick-actions-hero');
+    if (heroQuick) {
+      heroQuick.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest && e.target.closest('[data-topic]');
+        if (!btn) return;
+        var topic = btn.getAttribute('data-topic');
+        if (!topic) return;
+        e.preventDefault();
+        e.stopPropagation();
+        runQuickTopicSearch(topic);
+      });
+    }
+    var quickTopics = document.querySelectorAll('.quick-topic');
+    quickTopics.forEach(function (btn) {
+      if (!btn.getAttribute('data-topic')) return;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        runQuickTopicSearch(btn.getAttribute('data-topic'));
+      });
+    });
+    var testamentFilter = document.getElementById('testament-filter');
+    var bookFilter = document.getElementById('book-filter');
+    if (testamentFilter) testamentFilter.addEventListener('change', handleSearchFilterChange);
+    if (bookFilter) bookFilter.addEventListener('change', handleSearchFilterChange);
+    var clearFiltersBtn = document.getElementById('clear-filters');
+    if (clearFiltersBtn) {
+      clearFiltersBtn.addEventListener('click', function () {
+        if (testamentFilter) testamentFilter.value = 'all';
+        if (bookFilter) bookFilter.value = '';
+        handleSearchFilterChange();
+      });
+    }
+  })();
+
   initSupabaseClient();
   runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
@@ -9408,161 +9559,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   setTimeout(() => showDailyReminderIfNeeded(), 2000);
-
-  function ensureOutputElement() {
-    var el = document.getElementById('output');
-    if (el) return el;
-    var searchStack = document.querySelector('#main-search .search-stack');
-    if (searchStack && searchStack.parentNode) {
-      el = document.createElement('div');
-      el.id = 'output';
-      el.className = 'results';
-      searchStack.parentNode.insertBefore(el, searchStack.nextSibling);
-      return el;
-    }
-    return null;
-  }
-
-  function runSearchWithInput(inputStr) {
-    var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
-    var outputEl = ensureOutputElement();
-    if (outputEl) {
-      outputEl.style.display = 'grid';
-    }
-    setView('search');
-    var loadingEl = document.getElementById('loading');
-    if (loadingEl) loadingEl.style.display = 'block';
-    if (outputEl) outputEl.innerHTML = '';
-    setTimeout(async function () {
-      try {
-        var tierEl = document.getElementById('tier');
-        var tier = tierEl ? tierEl.value : 'adult';
-        lastQueryInput = input;
-        bumpStat('searches');
-        if (Object.keys(bible).length === 0) {
-          await loadBible(currentVersion);
-          refreshBibleView();
-        }
-        var out = document.getElementById('output');
-        if (Object.keys(bible).length === 0) {
-          if (out) {
-            out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh.</p>';
-          }
-          if (loadingEl) loadingEl.style.display = 'none';
-          return;
-        }
-        var filters = getSearchFilters();
-        var cacheKey = tier + '|' + (filters.testament || '') + '|' + (filters.book || '') + '|' + (input || '').toLowerCase();
-        var parsed = parseQuery(input || '');
-        var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
-        if (cacheKey && searchCache.has(cacheKey)) {
-          renderResults(searchCache.get(cacheKey));
-        } else {
-          var results = executeQuery(parsed, tier, filters);
-          if (cacheKey) searchCache.set(cacheKey, results);
-          renderResults(results);
-        }
-        if (out) {
-          out.style.display = 'grid';
-          out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-        if (input && typeof trackSearchAnalytics === 'function') {
-          var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
-          trackSearchAnalytics('search_query', params);
-        }
-        await renderDailyBattleCard();
-      } catch (err) {
-        var out = document.getElementById('output');
-        if (out) {
-          out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh and try again.</p>';
-          out.style.display = 'grid';
-          out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-        if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);
-      } finally {
-        if (loadingEl) loadingEl.style.display = 'none';
-      }
-    }, 150);
-  }
-  window.runSearchWithInput = runSearchWithInput;
-
-  const searchBtn = document.getElementById('search-btn');
-  if (searchBtn) {
-    searchBtn.addEventListener('click', function () {
-      var q = document.getElementById('query');
-      runSearchWithInput(q ? String(q.value || '').trim() : '');
-    });
-  }
-
-  const queryInput = document.getElementById('query');
-  if (queryInput) {
-    queryInput.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        var input = (queryInput.value != null) ? String(queryInput.value).trim() : '';
-        runSearchWithInput(input);
-      }
-    });
-  }
-
-  const testamentFilter = document.getElementById('testament-filter');
-  const bookFilter = document.getElementById('book-filter');
-  testamentFilter?.addEventListener('change', handleSearchFilterChange);
-  bookFilter?.addEventListener('change', handleSearchFilterChange);
-
-  const clearFiltersBtn = document.getElementById('clear-filters');
-  if (clearFiltersBtn) {
-    clearFiltersBtn.addEventListener('click', () => {
-      if (testamentFilter) testamentFilter.value = 'all';
-      if (bookFilter) bookFilter.value = '';
-      handleSearchFilterChange();
-    });
-  }
-
-  const quickTopics = document.querySelectorAll('.quick-topic');
-  function runQuickTopicSearch(topic) {
-    if (!topic) return;
-    try {
-      var queryEl = document.getElementById('query');
-      if (queryEl) queryEl.value = topic;
-      if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
-      runSearchWithInput(topic);
-    } catch (err) {
-      if (typeof console !== 'undefined' && console.error) console.error('TDB quick topic error:', err);
-    }
-  }
-  if (quickTopics.length) {
-    quickTopics.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const topic = btn.getAttribute('data-topic');
-        runQuickTopicSearch(topic);
-      });
-    });
-  }
-
-  document.body.addEventListener('click', function quickTopicDelegated(e) {
-    var btn = (e.target && e.target.closest && e.target.closest('.quick-topic')) || (e.target && e.target.closest && e.target.closest('[data-topic]'));
-    if (!btn) return;
-    var topic = btn.getAttribute('data-topic');
-    if (!topic) return;
-    e.preventDefault();
-    e.stopPropagation();
-    runQuickTopicSearch(topic);
-  }, true);
-
-  var heroQuick = document.getElementById('quick-actions-hero');
-  if (heroQuick) {
-    heroQuick.addEventListener('click', function (e) {
-      var btn = e.target && e.target.closest && e.target.closest('[data-topic]');
-      if (!btn) return;
-      var topic = btn.getAttribute('data-topic');
-      if (!topic) return;
-      e.preventDefault();
-      e.stopPropagation();
-      runQuickTopicSearch(topic);
-    });
-  }
 
   const dailyBtn = document.getElementById('daily-btn');
   if (dailyBtn) {

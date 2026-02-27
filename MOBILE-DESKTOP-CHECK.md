@@ -4,6 +4,35 @@ Quick audit of viewport, responsive CSS, and touch/desktop behavior. No automate
 
 ---
 
+## Quick checklist — check site desktop and mobile
+
+**Desktop (browser width ≥ 769px)**  
+- [ ] Open home: hero search bar and “Try a topic” row visible; Search button and Enter run search.  
+- [ ] Click quick-topic buttons (Hope, Fear, Peace, etc.): verses load in `#output` and scroll into view.  
+- [ ] Header nav visible (Home, Search, Verse of the Day, Prayer Wall, etc.).  
+- [ ] Sidebar visible; no horizontal scroll.  
+- [ ] Resize down toward 768px: nav collapses to menu, layout stays usable.
+
+**Mobile (≤ 768px, or DevTools device toolbar)**  
+- [ ] Hero: search input and Search button full width; input doesn’t zoom on focus (iOS).  
+- [ ] Quick-topic row scrolls horizontally; buttons at least 44px tall; tap runs search.  
+- [ ] Verse card and “Less scroll, more soul” readable; no horizontal scroll.  
+- [ ] Menu opens sidebar overlay; tap outside closes it.  
+- [ ] Results area (`#output`) doesn’t overflow; long references wrap.
+
+**Small mobile (≤ 480px)**  
+- [ ] Hero and verse padding use safe-area insets (notch devices).  
+- [ ] Quick-topic buttons still ≥ 44px min-height.  
+- [ ] Fixed buttons (e.g. dark toggle, voice pray) don’t overlap.
+
+**How to test**  
+1. Run `npm run build`, then serve `dist/` (e.g. `npx serve dist -l 3333`) or deploy and open the live URL.  
+2. Desktop: resize window from wide to 768px and back.  
+3. Mobile: Chrome DevTools → Toggle device toolbar → pick a device (e.g. iPhone SE, Pixel 5) or set width to 375px.  
+4. Confirm search bar + quick searches work on both desktop and mobile.
+
+---
+
 ## Viewport & meta
 
 - **index.html** has `<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">` — correct for mobile and zoom.

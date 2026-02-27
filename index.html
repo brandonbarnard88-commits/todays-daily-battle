@@ -138,8 +138,10 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
+        <div class="hero-verse-wrap" aria-label="Today's verse">
+          <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
+        </div>
         <header class="hero-banner">
-          <h1>Today's Daily Battle</h1>
           <p class="hero-tagline hero-tagline-hook util-mb-1_5">One verse. One prayer. No login. No noise.</p>
           <p class="hero-tagline section-note util-mb-1_5">Less scroll, more soul.</p>
           <p id="hero-collective-intent" class="hero-collective-intent section-note hidden" aria-live="polite"></p>
@@ -148,7 +150,6 @@
         <section class="glass" id="daily-battle-section">
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">Your daily anchor. One verse, one theme—start here, not the feed. Two minutes that actually fill you up.</p>
-          <div id="daily-battle-card" class="verse-card verse-breath" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
           <div id="daily-verse-echo" class="daily-verse-echo section-note hidden" aria-live="polite" aria-label="Others praying this verse"></div>
           <button type="button" id="breathe-with-him-btn" class="btn btn-secondary breathe-with-him-btn hidden" aria-label="Breathe with Him">Breathe with Him</button>
           <p id="breathe-count-today" class="section-note hidden" aria-live="polite"></p>

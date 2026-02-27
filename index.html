@@ -81,10 +81,10 @@
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">≡</span><span class="menu-text">Menu</span></a>
       <div id="auth-details" class="auth-details-inline">
         <div id="auth-section" class="auth-inline auth-compact">
-          <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
-          <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
-          <button id="signup-btn" type="button">Sign Up</button>
-          <button id="login-btn" type="button">Log In</button>
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <button id="signup-btn" type="button" aria-label="Create account">Sign up free</button>
+        <button id="login-btn" type="button" aria-label="Log in">Log in</button>
           <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
           <button id="logout-btn" class="hidden" type="button">Log Out</button>
         </div>
@@ -137,9 +137,27 @@
           <h1>Today's Daily Battle</h1>
           <p class="hero-tagline hero-tagline-gold util-mb-2">Let's Make America God's Again.</p>
           <p class="hero-tagline section-note util-mb-1_5">Less scroll, more soul.</p>
+          <p id="hero-social-proof" class="hero-social-proof section-note util-mb-1_5">Join thousands building a daily habit.</p>
           <p id="hero-collective-intent" class="hero-collective-intent section-note hidden" aria-live="polite"></p>
           <p id="home-streak-badge" class="streak-badge hidden" aria-live="polite"></p>
         </header>
+        <section id="mood-picker-section" class="glass mood-picker-section" role="region" aria-label="How are you feeling?">
+          <h2 class="section-divider mood-picker-title">How are you feeling?</h2>
+          <p class="section-note mood-picker-intro">Tap one—we’ll show you a verse and a short prayer.</p>
+          <div class="mood-chips" role="group" aria-label="Feeling options">
+            <button type="button" class="btn btn-secondary mood-chip" data-mood="anxious" aria-label="Anxious">Anxious</button>
+            <button type="button" class="btn btn-secondary mood-chip" data-mood="grateful" aria-label="Grateful">Grateful</button>
+            <button type="button" class="btn btn-secondary mood-chip" data-mood="overwhelmed" aria-label="Overwhelmed">Overwhelmed</button>
+            <button type="button" class="btn btn-secondary mood-chip" data-mood="hopeful" aria-label="Hopeful">Hopeful</button>
+            <button type="button" class="btn btn-secondary mood-chip" data-mood="angry" aria-label="Angry">Angry</button>
+            <button type="button" class="btn btn-secondary mood-chip" data-mood="peace" aria-label="Peace">Peace</button>
+          </div>
+          <div id="mood-result" class="mood-result hidden" role="region" aria-live="polite" aria-label="Verse and prayer for your feeling">
+            <div class="mood-result-verse"></div>
+            <p class="mood-result-prayer section-note"></p>
+            <button type="button" id="mood-result-close" class="btn-link" aria-label="Close">Close</button>
+          </div>
+        </section>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
             <label for="focus-mode" class="focus-mode-label">Focus mode</label>
@@ -251,7 +269,7 @@
           <p class="section-note patriotic-hymns-intro">Classic hymns of prayer and praise for the nation—sing or pray with the full lyrics.</p>
           <div id="patriotic-hymns-grid" class="patriotic-hymns-grid"></div>
         </section>
-        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
+        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span> — join these warriors worldwide.</p>
         <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
           <p class="prayer-echo-sacred section-note hidden" id="prayer-echo-sacred" aria-live="polite">You're alone with Him.</p>
           <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading recent prayers…</p>
@@ -286,7 +304,8 @@
           </div>
         </div>
         <div id="daily-verse-email-nudge" class="glass util-mt-0_75">
-          <p class="section-note">Get tomorrow's verse emailed?</p>
+          <h3 class="section-divider">Get the daily verse by email</h3>
+          <p class="section-note">Enter your email and we'll send tomorrow's verse to your inbox (when daily emails are live).</p>
           <div class="cta-group cta-group-flex-wrap">
             <input type="email" id="daily-verse-email" class="daily-verse-email-input" placeholder="Your email" aria-label="Email for daily verse" autocomplete="email">
             <button type="button" id="daily-verse-email-submit" class="btn btn-secondary" aria-label="Subscribe to daily verse email">Submit</button>
@@ -369,7 +388,8 @@
           </div>
           <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Log in to save your streak, favorite verses, and custom plans across devices.</p>
           <div class="cta-group daily-battle-signin-cta">
-            <a href="#auth-details" class="btn btn-primary">Sign In Free – Save Your Streak Forever &amp; Sync Devices</a>
+            <a href="#auth-details" class="btn btn-primary">Create account or Log in — Save Your Streak &amp; Sync Devices</a>
+            <p class="section-note util-mt-0_35">Don't have an account? <a href="#auth-section">Sign up free</a>. Already have one? <a href="#auth-section">Log in</a>.</p>
             <p class="section-note util-mt-0_35">Sync streaks, drafts, prayers, and plans—across phone and computer.</p>
           </div>
           <div id="daily-battle-testimony" class="section-note daily-battle-testimony" aria-live="polite"></div>
@@ -386,6 +406,7 @@
             <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
           </div>
           <p class="section-note share-verse-cta">One tap to share—post to your story or send to a friend. Share today's battle: verse + link. Less scroll. More soul.</p>
+          <p class="section-note util-mb-0_25">Invite a friend — you both get 1 streak repair: <a href="#invite-section" class="btn-link">Copy my link</a></p>
           <p class="section-note util-mb-0_25">Share (one tap):</p>
           <div class="cta-group social-share-links" aria-label="Share to social">
             <div id="share-preview-thumb" class="share-preview-thumb" aria-hidden="true"></div>
@@ -449,7 +470,7 @@
             <a href="study.html" class="list-item list-item-link"><div><strong>3. Save or share</strong><p>Use Study Tools to save verses, build lessons, or share with someone who needs it.</p></div></a>
             <a href="#newsletter" class="list-item list-item-link"><div><strong>4. Come back tomorrow</strong><p>Build a streak and let the Battle Plan keep you grounded.</p></div></a>
           </div>
-          <p class="section-note" id="walkthrough-para"><span id="walkthrough-wrap">New here? A 60-second walkthrough is coming soon—follow the 4 steps above to get started.</span></p>
+          <p class="section-note" id="walkthrough-para"><span id="walkthrough-wrap">New here? <a id="walkthrough-video-placeholder" class="btn-link" href="#">Watch the 60-second walkthrough</a> when it’s ready—or follow the steps above to get started.</span></p>
         </section>
         <section class="glass" id="prayer-wall">
           <h2 class="section-divider">Prayer Wall</h2>
@@ -494,7 +515,7 @@
             <button id="leaderboard-submit" type="button" class="btn btn-secondary">Add my streak</button>
           </div>
         </section>
-        <section class="glass invite-section">
+        <section class="glass invite-section" id="invite-section">
           <h2 class="section-divider">Invite a friend</h2>
           <p class="section-note">Share your link—when a friend joins, you both get 1 streak repair.</p>
           <div class="invite-form">
@@ -502,6 +523,11 @@
             <button id="invite-copy" type="button" class="btn btn-primary">Copy my link</button>
           </div>
           <p id="invite-status" class="section-note"></p>
+        </section>
+        <section class="glass" id="share-victory-section">
+          <h2 class="section-divider">Share your victory</h2>
+          <p class="section-note">Has Today's Daily Battle helped you? We'd love to hear your story—a verse that stuck, a streak that changed something, or a moment of peace.</p>
+          <a href="mailto:support@todaysdailybattle.com?subject=My%20victory%20story%20-%20Today's%20Daily%20Battle&body=Tell%20us%20how%20Today's%20Daily%20Battle%20has%20helped%20you%20(optional).%20We%20may%20share%20it%20anonymously%20to%20encourage%20others." class="btn btn-secondary" aria-label="Email your victory story">Submit your story by email</a>
         </section>
         <section class="glass" id="prayer-list-section">
           <h2 class="section-divider">Prayer List</h2>

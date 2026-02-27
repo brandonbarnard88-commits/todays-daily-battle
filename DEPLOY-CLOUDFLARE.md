@@ -44,3 +44,7 @@ Once the build runs with the new command, it will write `config.js` from the env
 ## Quick check
 
 After a successful deploy, open your site and try **Sign in**. If the form appears and you can log in (or see “Invalid email or password” instead of “Sign-in is optional. Log in to save your streak…”), config is working.
+
+## If /pricing or pricing.html returns 404
+
+Static hosts (Cloudflare Pages, Netlify) often serve `pricing.html` only at `/pricing.html`. If `/pricing` returns 404, add a redirect: in Cloudflare Pages go to **Redirects** and add a rule mapping `/pricing` to `/pricing.html` (status 200). Keep internal links as `pricing.html` so they work everywhere.

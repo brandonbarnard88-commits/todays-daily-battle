@@ -307,6 +307,15 @@ const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
 const OFFLINE_PREFETCH_LAST_KEY = 'tdb_offline_prefetch_last';
 const OFFLINE_PREFETCH_DAYS = 7;
 const INSTALL_PROMPT_SEEN_KEY = 'tdb_seen_install';
+const MOOD_TO_TOPIC = { anxious: 'anxiety', grateful: 'gratitude', overwhelmed: 'anxiety', hopeful: 'hope', angry: 'anger', peace: 'peace' };
+const MOOD_PRAYERS = {
+  anxious: 'Lord, calm my heart. Help me fix my eyes on You instead of my fears.',
+  grateful: 'Thank You, God, for Your goodness. Keep my heart thankful today.',
+  overwhelmed: 'Lord, I hand this to You. Give me strength for just today.',
+  hopeful: 'God, anchor my hope in You. Let today reflect Your promises.',
+  angry: 'Lord, guard my words and heart. Replace anger with Your peace.',
+  peace: 'Prince of Peace, quiet my soul. I rest in You.'
+};
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
   '1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah',
@@ -1829,6 +1838,7 @@ function wireInstallPrompt() {
     event.preventDefault();
     deferredInstallPrompt = event;
     if (!localStorage.getItem(INSTALL_PROMPT_SEEN_KEY)) installCta.classList.add('show');
+    showFloatingInstallPill();
   });
   installBtn.addEventListener('click', async () => {
     if (!deferredInstallPrompt) return;
@@ -1836,14 +1846,90 @@ function wireInstallPrompt() {
     await deferredInstallPrompt.userChoice;
     deferredInstallPrompt = null;
     installCta.classList.remove('show');
+    hideFloatingInstallPill();
     try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
   });
   if (installNotNow) {
     installNotNow.addEventListener('click', () => {
       installCta.classList.remove('show');
+      hideFloatingInstallPill();
       try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
     });
   }
+}
+
+var floatingInstallPillEl = null;
+function showFloatingInstallPill() {
+  if (localStorage.getItem(INSTALL_PROMPT_SEEN_KEY)) return;
+  if (!floatingInstallPillEl) {
+    floatingInstallPillEl = document.createElement('div');
+    floatingInstallPillEl.className = 'install-pill';
+    floatingInstallPillEl.setAttribute('role', 'dialog');
+    floatingInstallPillEl.setAttribute('aria-label', 'Add to Home Screen');
+    floatingInstallPillEl.innerHTML = '<span class="install-pill-text">Use it like an app</span><button type="button" class="install-pill-btn" id="install-pill-btn">Add to Home Screen</button><button type="button" class="install-pill-dismiss" id="install-pill-dismiss" aria-label="Dismiss">×</button>';
+    document.body.appendChild(floatingInstallPillEl);
+    document.getElementById('install-pill-btn').addEventListener('click', async () => {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+      }
+      hideFloatingInstallPill();
+      try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
+    });
+    document.getElementById('install-pill-dismiss').addEventListener('click', () => {
+      hideFloatingInstallPill();
+      try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
+    });
+  }
+  if (floatingInstallPillEl && deferredInstallPrompt) floatingInstallPillEl.classList.add('show');
+}
+
+function hideFloatingInstallPill() {
+  if (floatingInstallPillEl) floatingInstallPillEl.classList.remove('show');
+}
+
+function wireMoodPicker() {
+  var section = document.getElementById('mood-picker-section');
+  if (!section) return;
+  var chips = section.querySelectorAll('.mood-chip');
+  var resultEl = document.getElementById('mood-result');
+  var verseEl = resultEl && resultEl.querySelector('.mood-result-verse');
+  var prayerEl = resultEl && resultEl.querySelector('.mood-result-prayer');
+  var closeBtn = document.getElementById('mood-result-close');
+  if (!resultEl || !verseEl || !prayerEl) return;
+  function showMoodResult(ref, text, prayer) {
+    verseEl.innerHTML = '<strong>' + (typeof escapeHtml === 'function' ? escapeHtml(ref) : ref) + '</strong> — ' + (typeof escapeHtml === 'function' ? escapeHtml(text) : text);
+    prayerEl.textContent = prayer;
+    resultEl.classList.remove('hidden');
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function hideMoodResult() {
+    resultEl.classList.add('hidden');
+  }
+  chips.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var mood = btn.getAttribute('data-mood');
+      var topic = MOOD_TO_TOPIC[mood];
+      var prayer = MOOD_PRAYERS[mood];
+      if (!topic || !prayer) return;
+      (async function () {
+        if (Object.keys(bible).length === 0 && typeof loadBible === 'function') await loadBible(currentVersion || 'kjv');
+        if (typeof refreshBibleView === 'function') refreshBibleView();
+        var results = typeof runTopicSearch === 'function' ? await runTopicSearch(topic) : null;
+        var verse = results && results.verses && results.verses[0] ? results.verses[0] : null;
+        if (verse && verse.ref && verse.text) {
+          showMoodResult(verse.ref, verse.text, prayer);
+          if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
+        } else {
+          var fallbackRef = (topic === 'hope' && bible['Romans 15:13']) ? 'Romans 15:13' : (topic === 'peace' && bible['John 14:27']) ? 'John 14:27' : 'Philippians 4:6-7';
+          var fallbackText = (bible[fallbackRef] || '').substring(0, 200) || 'God is with you.';
+          showMoodResult(fallbackRef, fallbackText, prayer);
+        }
+      })();
+    });
+  });
+  if (closeBtn) closeBtn.addEventListener('click', hideMoodResult);
 }
 
 function wireWeeklyRecapNudge() {
@@ -8967,7 +9053,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   var walkthroughWrap = document.getElementById('walkthrough-wrap');
   var walkthroughPara = document.getElementById('walkthrough-para');
-  if (walkthroughWrap && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
+  if (walkthroughPara && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
     var a = document.createElement('a');
     a.id = 'walkthrough-video';
     a.href = window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL;
@@ -8975,7 +9061,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     a.rel = 'noopener noreferrer';
     a.className = 'btn-link';
     a.textContent = 'Watch the 60-second walkthrough';
-    walkthroughWrap.parentNode.replaceChild(a, walkthroughWrap);
+    if (walkthroughPara) walkthroughPara.innerHTML = 'New here? ' + a.outerHTML;
   } else if (walkthroughPara && typeof sessionStorage !== 'undefined') {
     // Show "coming March" CTA only once per session to avoid coming-soon fatigue
     try {
@@ -9176,6 +9262,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   scheduleAdminPanel();
   wireDailyBattleSeedForm();
   wireInstallPrompt();
+  wireMoodPicker();
   wireWeeklyRecapNudge();
   if (document.getElementById('home-streak-badge')) updateHomeStreakBadge();
   wireOfflineBanner();
@@ -9397,12 +9484,40 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (savedEmail) dailyVerseEmailInput.value = savedEmail;
     } catch (e) {}
     dailyVerseEmailSubmit.addEventListener('click', function () {
-      var email = (dailyVerseEmailInput.value || '').trim();
-      if (!email) return;
+      var email = (dailyVerseEmailInput.value || '').trim().toLowerCase();
+      if (!email || !email.includes('@')) {
+        if (typeof showEliteToast === 'function') showEliteToast('Please enter a valid email.');
+        return;
+      }
       try {
         localStorage.setItem('tdb_daily_verse_email', email);
       } catch (e) {}
-      if (typeof showEliteToast === 'function') showEliteToast('Saved—check inbox tomorrow!'); else alert('Saved—check inbox tomorrow!');
+      if (supabaseClient && typeof supabaseClient.from === 'function') {
+        dailyVerseEmailSubmit.disabled = true;
+        supabaseClient.from('newsletter_signups').insert({
+          email: email,
+          daily_opt_in: true,
+          weekly_opt_in: false
+        }).then(function (r) {
+          dailyVerseEmailSubmit.disabled = false;
+          if (r.error) {
+            if (r.error.code === '23505') {
+              if (typeof showEliteToast === 'function') showEliteToast('You\'re already on the list—check inbox when daily emails launch.');
+            } else {
+              if (typeof showEliteToast === 'function') showEliteToast('Saved locally—we\'ll add you when ready.');
+            }
+          } else {
+            if (typeof showEliteToast === 'function') showEliteToast('You\'re in! Check inbox tomorrow for your first verse.');
+            else alert('You\'re in! Check inbox tomorrow.');
+          }
+        }).catch(function () {
+          dailyVerseEmailSubmit.disabled = false;
+          if (typeof showEliteToast === 'function') showEliteToast('Saved locally—check inbox when daily emails launch.');
+        });
+      } else {
+        if (typeof showEliteToast === 'function') showEliteToast('Saved—check inbox tomorrow!');
+        else alert('Saved—check inbox tomorrow!');
+      }
     });
   }
 

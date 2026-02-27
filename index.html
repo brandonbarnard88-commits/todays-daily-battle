@@ -140,14 +140,14 @@
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <div class="hero-verse-wrap" aria-label="Today's verse">
           <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
+          <p class="hero-verse-byline">Built while sick—no work, hospital downtime. My reset: one verse, one prayer, no login.</p>
         </div>
-        <header class="hero-banner">
-          <p class="hero-tagline hero-tagline-hook util-mb-1_5">One verse. One prayer. No login. No noise.</p>
-          <p class="hero-tagline section-note util-mb-1_5">Less scroll, more soul.</p>
+        <p class="hero-slogan-one-line">Less scroll, more soul.</p>
+        <details class="home-accordion" id="accordion-todays-tools">
+          <summary class="home-accordion-summary">Today's tools — Breathe, pray, share</summary>
+        <section class="glass" id="daily-battle-section">
           <p id="hero-collective-intent" class="hero-collective-intent section-note hidden" aria-live="polite"></p>
           <p id="home-streak-badge" class="streak-badge hidden" aria-live="polite"></p>
-        </header>
-        <section class="glass" id="daily-battle-section">
           <h2 class="section-divider">Featured Today’s Battle</h2>
           <p class="section-note">Your daily anchor. One verse, one theme—start here, not the feed. Two minutes that actually fill you up.</p>
           <div id="daily-verse-echo" class="daily-verse-echo section-note hidden" aria-live="polite" aria-label="Others praying this verse"></div>
@@ -260,7 +260,9 @@
             <button id="install-not-now" type="button" class="link-button" aria-label="Dismiss">Not now</button>
           </div>
         </section>
-        <p class="hero-tagline hero-tagline-gold hero-tagline-below-fold util-mt-1 util-mb-1" aria-label="Tagline"><a id="hero-tagline-america" class="hero-tagline-link" href="#">Let's Make America God's Again.</a></p>
+        </details>
+        <details class="home-accordion" id="accordion-search">
+          <summary class="home-accordion-summary">Search Scripture</summary>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
             <label for="focus-mode" class="focus-mode-label">Focus mode</label>
@@ -357,6 +359,9 @@
           <p class="section-note audio-helper">Listen reads aloud here using your device's voice. KJV Audio opens Bible Gateway in a new tab.</p>
           </details>
         </section>
+        </details>
+        <details class="home-accordion" id="accordion-more">
+          <summary class="home-accordion-summary">More tools & inspiration</summary>
         <section id="patriotic-scriptures" class="patriotic-scriptures glass" role="region" aria-label="Patriotic Scriptures">
           <h2 class="patriotic-scriptures-title">Patriotic Scriptures</h2>
           <p class="section-note patriotic-scriptures-intro">KJV verses that speak to national repentance, liberty, and blessing—for prayer and reflection.</p>
@@ -565,6 +570,7 @@
           <p id="newsletter-status" class="section-note"></p>
         </section>
 
+        </details>
         <div id="elite-toast" class="elite-toast hidden" role="status" aria-live="polite"></div>
         <div id="loading" class="loading hidden" aria-live="polite" aria-atomic="true">
           <div class="spinner"></div>
@@ -726,6 +732,7 @@
     <footer class="site-footer" role="contentinfo" aria-label="Site footer">
       <h2 class="footer-heading sr-only">Site links</h2>
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
+      <p class="footer-america"><a id="hero-tagline-america" class="footer-link" href="#">Let's Make America God's Again.</a></p>
       <p id="footer-rotating-line" class="footer-rotating-line" aria-live="polite">You're not praying alone.</p>
       <p class="footer-powered">Powered by the King James Bible.</p>
       <nav class="footer-links" aria-label="Footer links">

@@ -696,35 +696,90 @@ body {
   }
 }
 
-/* Hero verse — big, alone, first thing below header */
+/* Hero verse — big, alone, dark vibe, no pure white */
 .hero-verse-wrap {
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl) var(--space-2xl);
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   animation: tdb-hero-in 0.8s cubic-bezier(0.33, 1, 0.68, 1) both;
+  background: transparent;
 }
 .hero-verse-card.verse-card {
-  max-width: 42rem;
+  max-width: 48rem;
   margin: 0 auto;
   padding: var(--space-2xl) var(--space-xl);
-  background: linear-gradient(158deg, rgba(12, 18, 32, 0.97) 0%, rgba(22, 18, 48, 0.92) 48%, rgba(12, 18, 34, 0.96) 100%);
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  box-shadow: var(--shadow-deep), 0 0 0 1px var(--elite-cream), inset 0 1px 0 var(--elite-gold-dim);
+  background: rgba(15, 20, 32, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 .hero-verse-card.verse-card strong {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  margin-bottom: 1rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-bottom: 1.25rem;
+  color: rgba(226, 232, 240, 0.95);
 }
 .hero-verse-card.verse-card p {
-  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
-  line-height: 1.6;
-  color: var(--text-primary, #e8e8e8);
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.92);
+}
+.hero-verse-byline {
+  margin: var(--space-lg) 0 0;
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.78);
+  font-style: italic;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-slogan-one-line {
+  text-align: center;
+  margin: var(--space-lg) 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(226, 232, 240, 0.72);
+  letter-spacing: 0.02em;
 }
 @media (max-width: 768px) {
-  .hero-verse-wrap { padding: var(--space-xl) var(--space-md); }
+  .hero-verse-wrap { padding: var(--space-2xl) var(--space-md); min-height: 35vh; }
   .hero-verse-card.verse-card { padding: var(--space-xl); }
-  .hero-verse-card.verse-card strong { font-size: 1.5rem; }
-  .hero-verse-card.verse-card p { font-size: 1.2rem; }
+  .hero-verse-card.verse-card strong { font-size: 1.6rem; }
+  .hero-verse-card.verse-card p { font-size: 1.25rem; }
+  .hero-verse-byline { font-size: 0.9rem; }
+  .hero-slogan-one-line { font-size: 1rem; }
 }
+
+/* Home page accordions — keep verse first, rest below fold */
+.home-accordion {
+  margin-top: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: var(--card-dark, rgba(15, 20, 32, 0.6));
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  overflow: hidden;
+}
+.home-accordion-summary {
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary, #e2e8f0);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.home-accordion-summary::-webkit-details-marker { display: none; }
+.home-accordion-summary::after { content: ' ▼'; font-size: 0.75em; opacity: 0.7; }
+.home-accordion[open] .home-accordion-summary::after { content: ' ▲'; }
+.home-accordion-summary:hover,
+.home-accordion-summary:focus-visible { background: rgba(148, 163, 184, 0.08); outline: none; }
+
+.footer-america { margin: 0.5rem 0 0; font-size: 0.95rem; }
+.footer-america a { color: var(--elite-gold, #D4AF37); text-decoration: none; }
+.footer-america a:hover { text-decoration: underline; }
 
 .streak-badge {
   margin: 0.5rem 0 0;

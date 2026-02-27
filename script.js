@@ -8904,6 +8904,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (ob && navigator.onLine !== false) ob.classList.add('hidden');
   var heroLink = document.getElementById('hero-tagline-america');
   if (heroLink && window.TDB_CONFIG && window.TDB_CONFIG.HERO_TAGLINE_URL) heroLink.href = window.TDB_CONFIG.HERO_TAGLINE_URL;
+  if (window.location.hash === '#main-search') {
+    var acc = document.getElementById('accordion-search');
+    if (acc) acc.setAttribute('open', '');
+  }
+  if (window.location.hash === '#daily-battle-section') {
+    var accTools = document.getElementById('accordion-todays-tools');
+    if (accTools) accTools.setAttribute('open', '');
+  }
   initSupabaseClient();
   runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';

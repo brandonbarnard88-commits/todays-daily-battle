@@ -22,13 +22,14 @@
   </style>
 </head>
 <body class="theme-dark">
-  <div class="stats-wrap">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="stats-wrap" id="main-content">
     <div id="stats-login" class="stats-login glass">
       <h2>Stats</h2>
       <p class="section-note">Private. Enter password to view.</p>
       <form id="stats-form">
-        <input type="password" id="stats-password" placeholder="Password" autocomplete="current-password" class="input" style="margin-bottom: 0.75rem; width: 100%; max-width: 240px;">
-        <button type="submit" class="btn btn-primary">View</button>
+        <input type="password" id="stats-password" placeholder="Password" autocomplete="current-password" class="input" style="margin-bottom: 0.75rem; width: 100%; max-width: 240px;" aria-label="Password to view stats">
+        <button type="submit" class="btn btn-primary" aria-label="View stats">View</button>
       </form>
     </div>
     <div id="stats-dashboard" class="stats-dashboard glass" style="display: none;">

@@ -54,6 +54,7 @@ function sanitizeUserInput(str) {
     .replace(/&#?\w+;/g, ' ');
   return s.trim();
 }
+window.addEventListener('online', function () {
   document.getElementById('offline-banner')?.classList.add('hidden');
   if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
 });
@@ -8288,7 +8289,8 @@ function renderResults(results) {
     suggestions.querySelectorAll('.quick-topic').forEach(btn => {
       btn.addEventListener('click', () => {
         const topic = btn.getAttribute('data-topic');
-        if (queryEl && topic) {
+        if (topic && typeof runSearchWithInput === 'function') runSearchWithInput(topic);
+        else if (queryEl && topic) {
           queryEl.value = topic;
           searchBtn?.click();
         }
@@ -9486,68 +9488,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
-      const outputEl = ensureOutputElement();
-      if (outputEl) {
-        outputEl.style.display = 'grid';
-      }
-      setView('search');
-      const loadingEl = document.getElementById('loading');
-      if (loadingEl) loadingEl.style.display = 'block';
-      if (outputEl) outputEl.innerHTML = '';
-      setTimeout(async () => {
-        try {
-          const queryEl = document.getElementById('query');
-          const tierEl = document.getElementById('tier');
-          const input = (queryEl && queryEl.value != null) ? String(queryEl.value).trim() : '';
-          const tier = tierEl ? tierEl.value : 'adult';
-          lastQueryInput = input;
-          bumpStat('searches');
-          if (Object.keys(bible).length === 0) {
-            await loadBible(currentVersion);
-            refreshBibleView();
-          }
-          const out = document.getElementById('output');
-          if (Object.keys(bible).length === 0) {
-            if (out) {
-              out.innerHTML =
-                '<p style="text-align:center; color:#888;">Bible data didn’t load. Check your connection and refresh the page.</p><p class="section-note" style="text-align:center;">If it keeps happening, try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a> in a private window or another browser.</p>';
-            }
-            return;
-          }
-          const filters = getSearchFilters();
-          const cacheKey = `${tier}|${filters.testament}|${filters.book}|${(input || '').toLowerCase()}`;
-          const parsed = parseQuery(input || '');
-          var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
-          if (cacheKey && searchCache.has(cacheKey)) {
-            renderResults(searchCache.get(cacheKey));
-          } else {
-            const results = executeQuery(parsed, tier, filters);
-            if (cacheKey) searchCache.set(cacheKey, results);
-            renderResults(results);
-          }
-          if (out) {
-            out.style.display = 'grid';
-            out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-          if (input && typeof trackSearchAnalytics === 'function') {
-            var params = {};
-            if (searchTopic) params.topic = searchTopic;
-            else params.search_type = 'keyword';
-            trackSearchAnalytics('search_query', params);
-          }
-          await renderDailyBattleCard();
-        } catch (err) {
-          var out = document.getElementById('output');
-          if (out) {
-            out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh the page and try again.</p>';
-            out.style.display = 'grid';
-            out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        } finally {
-          if (loadingEl) loadingEl.style.display = 'none';
-        }
-      }, 150);
+    searchBtn.addEventListener('click', function () {
+      var q = document.getElementById('query');
+      runSearchWithInput(q ? String(q.value || '').trim() : '');
     });
   }
 
@@ -9607,6 +9550,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     e.stopPropagation();
     runQuickTopicSearch(topic);
   }, true);
+
+  var heroQuick = document.getElementById('quick-actions-hero');
+  if (heroQuick) {
+    heroQuick.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest && e.target.closest('[data-topic]');
+      if (!btn) return;
+      var topic = btn.getAttribute('data-topic');
+      if (!topic) return;
+      e.preventDefault();
+      e.stopPropagation();
+      runQuickTopicSearch(topic);
+    });
+  }
 
   const dailyBtn = document.getElementById('daily-btn');
   if (dailyBtn) {

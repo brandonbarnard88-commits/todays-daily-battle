@@ -696,60 +696,133 @@ body {
   }
 }
 
-/* Hero verse — big, alone, dark vibe, no pure white */
+/* Hero search — first, big, centered on black */
+.hero-search-wrap {
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  background: transparent;
+}
+.hero-search-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(226, 232, 240, 0.85);
+  margin-bottom: 0.75rem;
+}
+.hero-search-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+.hero-search-stack #query {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  color: rgba(226, 232, 240, 0.95);
+  background: rgba(15, 20, 32, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+.hero-search-stack #query::placeholder {
+  color: rgba(148, 163, 184, 0.6);
+}
+.hero-search-stack #query:focus {
+  outline: none;
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 20px rgba(148, 163, 184, 0.08);
+}
+.hero-search-stack .btn { min-width: 10rem; }
+
+/* Hero verse — below search, big KJV, dark card */
 .hero-verse-wrap {
-  padding: var(--space-2xl) var(--space-xl) var(--space-2xl);
-  min-height: 40vh;
+  padding: var(--space-xl) var(--space-lg);
+  min-height: 24vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  animation: tdb-hero-in 0.8s cubic-bezier(0.33, 1, 0.68, 1) both;
-  background: transparent;
 }
 .hero-verse-card.verse-card {
   max-width: 48rem;
   margin: 0 auto;
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--space-xl);
   background: rgba(15, 20, 32, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.18);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 .hero-verse-card.verse-card strong {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  margin-bottom: 1.25rem;
+  font-family: var(--font-ui);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
   color: rgba(226, 232, 240, 0.95);
 }
 .hero-verse-card.verse-card p {
-  font-size: clamp(1.35rem, 4vw, 2rem);
-  line-height: 1.55;
+  font-family: var(--font-ui);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5;
   color: rgba(226, 232, 240, 0.92);
 }
-.hero-verse-byline {
-  margin: var(--space-lg) 0 0;
-  font-size: 0.95rem;
-  color: rgba(226, 232, 240, 0.78);
-  font-style: italic;
-  max-width: 42ch;
+.america-in-card {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: rgba(148, 163, 184, 0.7);
+}
+.america-in-card-link { color: rgba(148, 163, 184, 0.8); text-decoration: none; }
+.america-in-card-link:hover { text-decoration: underline; }
+.quick-pray-in-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+  max-width: 24rem;
   margin-left: auto;
   margin-right: auto;
 }
+.quick-pray-in-hero #quick-pray {
+  flex: 1;
+  min-width: 10rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  background: rgba(15, 20, 32, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: var(--radius-md);
+  color: rgba(226, 232, 240, 0.95);
+}
+.quick-pray-in-hero .btn { flex-shrink: 0; }
+.hero-verse-byline {
+  margin: var(--space-md) 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.7);
+  font-style: italic;
+}
+.home-tagline,
 .hero-slogan-one-line {
   text-align: center;
   margin: var(--space-lg) 0 0;
-  font-size: 1.1rem;
+  font-family: var(--font-ui);
+  font-size: 1.5rem;
   font-weight: 600;
-  color: rgba(226, 232, 240, 0.72);
+  color: rgba(148, 163, 184, 0.85);
   letter-spacing: 0.02em;
 }
 @media (max-width: 768px) {
-  .hero-verse-wrap { padding: var(--space-2xl) var(--space-md); min-height: 35vh; }
-  .hero-verse-card.verse-card { padding: var(--space-xl); }
-  .hero-verse-card.verse-card strong { font-size: 1.6rem; }
-  .hero-verse-card.verse-card p { font-size: 1.25rem; }
-  .hero-verse-byline { font-size: 0.9rem; }
-  .hero-slogan-one-line { font-size: 1rem; }
+  .hero-search-wrap { padding: var(--space-lg); }
+  .hero-verse-wrap { padding: var(--space-lg); min-height: 20vh; }
+  .hero-verse-card.verse-card strong { font-size: 1.5rem; }
+  .hero-verse-card.verse-card p { font-size: 1.5rem; }
+  .home-tagline, .hero-slogan-one-line { font-size: 1.25rem; }
 }
 
 /* Home page accordions — keep verse first, rest below fold */
@@ -1702,12 +1775,13 @@ body {
   padding-bottom: 1rem;
   border-bottom: 2px solid rgba(148, 163, 184, 0.2);
   box-shadow: 0 2px 0 var(--elite-gold);
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-weight: 700;
-  font-size: 1.65rem;
+  font-size: 1.5rem;
   letter-spacing: 0.04em;
-  color: #f8fafc;
+  color: rgba(248, 250, 252, 0.95);
 }
+.about-end { margin-top: 1rem; font-weight: 600; color: rgba(226, 232, 240, 0.9); }
 
 .page-header h1 {
   margin: 0 0 0.4rem;

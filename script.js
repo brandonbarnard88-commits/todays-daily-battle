@@ -1981,11 +1981,13 @@ function wireRealPrayerCounter() {
         supabaseClient.rpc('get_total_prayer_count'),
         new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS); })
       ]);
-      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '14'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
-      if (res && !res.error && res.data != null && typeof res.data === 'number' && !isNaN(res.data)) {
-        el.textContent = formatCount(res.data);
+      if (typeof console !== 'undefined' && console.log) console.log('Prayer count response:', res);
+      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
+      var countNum = res && res.data != null ? (typeof res.data === 'number' ? res.data : (typeof res.data === 'string' ? parseInt(res.data, 10) : Number(res.data))) : NaN;
+      if (res && !res.error && !isNaN(countNum) && countNum >= 0) {
+        el.textContent = formatCount(countNum);
         var promo = document.getElementById('prayer-count-promo');
-        if (promo) promo.textContent = formatCount(res.data) + ' prayers prayed worldwide. Join ' + formatCount(res.data) + ' warriors right now.';
+        if (promo) promo.textContent = formatCount(countNum) + ' prayers prayed worldwide. Join ' + formatCount(countNum) + ' warriors right now.';
         updateLastPrayerBadge();
         return;
       }
@@ -1994,21 +1996,21 @@ function wireRealPrayerCounter() {
         setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
       });
       var restRes = await Promise.race([req, timeout]);
-      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '14'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
+      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       if (restRes && restRes.error) {
-        el.textContent = '14';
+        el.textContent = '—';
         var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = '';
         return;
       }
       if (restRes && restRes.count != null) el.textContent = formatCount(restRes.count);
       else if (restRes && Array.isArray(restRes.data)) el.textContent = formatCount(restRes.data.length);
-      else el.textContent = '14';
+      else el.textContent = '—';
       var promo = document.getElementById('prayer-count-promo');
-      if (promo) promo.textContent = (el.textContent !== '14' ? el.textContent + ' prayers prayed worldwide. Join ' + el.textContent + ' warriors right now.' : '');
+      if (promo) promo.textContent = (el.textContent !== '—' ? el.textContent + ' prayers prayed worldwide. Join ' + el.textContent + ' warriors right now.' : '');
       updateLastPrayerBadge();
     } catch (e) {
       setPrayersApiUnavailable();
-      el.textContent = '14';
+      el.textContent = '—';
       var promo = document.getElementById('prayer-count-promo');
       if (promo) promo.textContent = '';
     }

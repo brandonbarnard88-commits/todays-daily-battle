@@ -1,6 +1,7 @@
 -- =============================================================================
 -- Prayers table + presence count RPC (fixes 404s for prayer echo & counter)
 -- Run in Supabase SQL Editor: Dashboard → SQL Editor → New query → paste → Run
+-- Optional: run supabase-prayers-seed.sql to insert 5 sample rows so the counter shows real data.
 -- =============================================================================
 
 -- 1. Create prayers table (if not exists)
@@ -30,15 +31,14 @@ AS $$
     AND session_id IS NOT NULL;
 $$;
 
--- 3b. RPC: total prayers ever (all rows, for the "Total prayers" counter)
+-- 3b. RPC: total prayers ever (all rows, no filters—counts everything)
 CREATE OR REPLACE FUNCTION public.get_total_prayer_count()
-RETURNS integer
+RETURNS bigint
 LANGUAGE sql
-STABLE
 SECURITY DEFINER
 SET search_path = public
 AS $$
-  SELECT count(*)::integer FROM public.prayers;
+  SELECT COUNT(*) FROM public.prayers;
 $$;
 
 -- 4. RLS: allow anon to read (echo), insert (quick pray), update (amen_count only)

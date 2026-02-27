@@ -34,11 +34,12 @@ Supabase’s built-in email uses a shared sending domain. Mail often lands in **
 ## 3. Custom SMTP (recommended for production)
 
 1. In Supabase: **Project Settings** (gear) → **Authentication** → **SMTP Settings**.
-2. Enable **Custom SMTP** and fill in your provider (e.g. SendGrid, Mailgun, Resend, or your host’s SMTP).
+2. Enable **Custom SMTP** and fill in your provider (e.g. Microsoft 365, Resend, SendGrid, Mailgun). See **SUPABASE-EMAIL-TEMPLATES.md** for Microsoft 365 (smtp.office365.com:587) and Resend fallback, plus custom confirmation/reset email templates.
 3. Save. New verification and password-reset emails will send via your SMTP.
 
 Example providers:
 
+- **SUPABASE-EMAIL-TEMPLATES.md** – Microsoft 365 (smtp.office365.com:587, support@todaysdailybattle.com, app password) and Resend as fallback; plus custom confirmation/reset templates.
 - [Resend](https://resend.com) – simple API, good free tier  
 - [SendGrid](https://sendgrid.com) – free tier available  
 - [Mailgun](https://www.mailgun.com) – free tier available  

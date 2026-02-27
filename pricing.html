@@ -281,7 +281,7 @@
           var p = document.createElement('p');
           p.className = 'section-note';
           p.style.cssText = 'margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(212,175,55,0.15);border-radius:10px;border-left:3px solid var(--elite-gold);font-weight:600;';
-          p.textContent = 'Thank you! Sign in above to unlock Battle Pro. If you just signed up, check your email to verify.';
+          p.textContent = params.get('military') === '1' ? 'Welcome Home. Thank you! Sign in above to unlock Battle Pro. If you just signed up, check your email to verify.' : 'Thank you! Sign in above to unlock Battle Pro. If you just signed up, check your email to verify.';
           hero.appendChild(p);
         }
         history.replaceState({}, '', window.location.pathname);

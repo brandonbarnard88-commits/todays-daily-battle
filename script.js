@@ -8746,6 +8746,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
   var isHome = path === '' || path === '/' || path === '/index.html';
+  (function () {
+    var params = typeof URLSearchParams !== 'undefined' && window.location.search ? new URLSearchParams(window.location.search) : null;
+    if (params && (params.get('military') === '1' || params.get('ref') === 'military')) {
+      if (typeof showEliteToast === 'function') {
+        setTimeout(function () { showEliteToast('Welcome Home.'); }, 400);
+      }
+      try {
+        var keep = [];
+        if (params.get('success') === '1') keep.push('success=1');
+        var clean = window.location.pathname + (keep.length ? '?' + keep.join('&') : '');
+        window.history.replaceState({}, '', clean);
+      } catch (e) {}
+    }
+  })();
   if (isHome) {
     var today = new Date();
     var dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });

@@ -6,6 +6,8 @@ The fix must be done in **Cloudflare Dashboard**. The repo cannot fix this.
 
 **Quick fix:** In Cloudflare go to **Rules** → **Transform Rules** → create or edit a rule that **sets** the header `Content-Security-Policy` to the **exact value in Step 3** below (it includes `'unsafe-inline'` for both `style-src` and `script-src`). Then **purge cache** and hard-refresh.
 
+> **“Refused to apply a stylesheet (line 316, x2)”** — That error will keep appearing until the Cloudflare-sent CSP includes `'unsafe-inline'` (and/or your nonce) in `style-src`. The repo has no inline styles left; the fix is only in Cloudflare.
+
 ---
 
 ## Step 1: Log in to Cloudflare
@@ -46,7 +48,7 @@ Go to [dash.cloudflare.com](https://dash.cloudflare.com) and select the account 
    - After:  `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com`
 4. Save the rule.
 
-### Alternative: Turn off the CSP from Cloudflare
+### Alternative: Turwhatn off the CSP from Cloudflare
 
 1. In the same place (Transform Rules / Modify response header), **delete** the rule that sets **Content-Security-Policy**, or **disable** it.
 2. After that, the only CSP will be the one in your HTML (meta tag), which already includes `'unsafe-inline'` for styles, so the site should load correctly.

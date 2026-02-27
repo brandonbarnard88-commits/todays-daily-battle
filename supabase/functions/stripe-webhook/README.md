@@ -44,6 +44,8 @@ Then trigger a test checkout; the CLI will show the signing secret to use for lo
 
 ## Security
 
+**RLS reminder (other tables):** For `newsletter_signups`, use anon INSERT only and no anon SELECT. Example: see `supabase-newsletter-anon-insert.sql` in the repo.
+
 - **Webhook signature verification:** Required. Every request is verified with `stripe.webhooks.constructEventAsync(body, signature, webhookSecret)`; invalid signature returns 400. Do not process payloads without verifying the signature.
 - **No user_id:** If the event has no `user_id` in metadata, we return 200 with an error body so we don’t leak internals and Stripe doesn’t retry.
 - **Idempotency:** Tier updates are done via upsert on `profiles` by `id`, so duplicate events don’t double-grant.

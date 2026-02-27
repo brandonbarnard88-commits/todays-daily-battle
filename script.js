@@ -2415,7 +2415,7 @@ function wirePrayerMap() {
     var svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('class', 'prayer-map-svg');
     svg.setAttribute('viewBox', '0 0 494.7 265.7');
-    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     svg.setAttribute('aria-hidden', 'true');
     var defs = document.createElementNS(svgNS, 'defs');
     var filter = document.createElementNS(svgNS, 'filter');

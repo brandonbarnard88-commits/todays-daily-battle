@@ -2850,11 +2850,16 @@ function renderArmorModal() {
       { label: 'Kid', pieceKey: data.pieces[4] || null },
       { label: 'Dog', pieceKey: data.pieces[0] || null }
     ];
-    figures.forEach(function (f) {
+    figures.forEach(function (f, idx) {
       var fig = document.createElement('div');
       fig.className = 'armor-figure armor-silhouette';
       if (f.pieceKey) fig.setAttribute('data-piece', f.pieceKey);
-      var svg = f.label === 'Dog' ? '<svg class="armor-silhouette-img" viewBox="0 0 48 32"><ellipse cx="24" cy="16" rx="14" ry="10"/><circle cx="38" cy="10" r="4"/></svg>' : '<svg class="armor-silhouette-img" viewBox="0 0 40 48"><ellipse cx="20" cy="8" rx="6" ry="7"/><path d="M8 48 L20 24 L32 48 Z"/></svg>';
+      var gid = 'ag-' + idx;
+      var svg = f.label === 'Dog'
+        ? '<svg class="armor-silhouette-img" viewBox="0 0 48 32" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#94a3b8"/><stop offset="100%" style="stop-color:#64748b"/></linearGradient></defs><ellipse cx="20" cy="18" rx="14" ry="10" fill="url(#' + gid + ')"/><circle cx="36" cy="10" r="6" fill="url(#' + gid + ')"/><ellipse cx="34" cy="8" rx="2" ry="1.5" fill="rgba(30,41,59,0.4)"/></svg>'
+        : f.label === 'Kid'
+        ? '<svg class="armor-silhouette-img armor-silhouette-kid" viewBox="0 0 36 48" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a5b4c6"/><stop offset="100%" style="stop-color:#64748b"/></linearGradient></defs><circle cx="18" cy="10" r="7" fill="url(#' + gid + ')"/><path d="M6 48 Q18 26 30 48 Z" fill="url(#' + gid + ')"/></svg>'
+        : '<svg class="armor-silhouette-img" viewBox="0 0 40 52" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#94a3b8"/><stop offset="100%" style="stop-color:#475569"/></linearGradient></defs><circle cx="20" cy="12" r="8" fill="url(#' + gid + ')"/><path d="M4 52 L20 26 L36 52 Z" fill="url(#' + gid + ')"/></svg>';
       fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + svg + '</span>' +
         (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
         '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
@@ -2864,7 +2869,7 @@ function renderArmorModal() {
       var sword = document.createElement('div');
       sword.className = 'armor-figure armor-silhouette armor-sword';
       sword.setAttribute('data-piece', ARMOR_PIECES[5].key);
-      sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true"><svg class="armor-silhouette-img" viewBox="0 0 24 40"><path d="M12 0 L12 32 L10 40 L14 40 L12 32 Z"/></svg></span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
+      sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true"><svg class="armor-silhouette-img" viewBox="0 0 24 48" aria-hidden="true"><defs><linearGradient id="ag-sword" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#93c5fd"/><stop offset="100%" style="stop-color:#3b82f6"/></linearGradient></defs><path d="M12 0 L12 36 L10 48 L14 48 L12 36 Z" fill="url(#ag-sword)"/><rect x="9" y="0" width="6" height="6" rx="1" fill="url(#ag-sword)"/></svg></span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
       avatarEl.appendChild(sword);
     }
   }
@@ -5041,6 +5046,13 @@ function renderMessages(items, previewLimit) {
     if (text.indexOf('[object ') !== -1 || displayName.indexOf('[object ') !== -1) return;
     const row = document.createElement('div');
     row.className = 'list-item';
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    avatar.setAttribute('aria-hidden', 'true');
+    const initial = (displayName.charAt(0) || 'M').toUpperCase();
+    avatar.textContent = initial;
+    const colorIdx = (displayName.charCodeAt(0) || 77) % 6;
+    avatar.classList.add('message-avatar-color-' + colorIdx);
     const div = document.createElement('div');
     const strong = document.createElement('strong');
     strong.textContent = displayName;
@@ -5048,6 +5060,8 @@ function renderMessages(items, previewLimit) {
     p.textContent = text;
     div.appendChild(strong);
     div.appendChild(p);
+    div.className = 'message-item-content';
+    row.appendChild(avatar);
     row.appendChild(div);
     const actions = document.createElement('div');
     actions.className = 'message-actions';

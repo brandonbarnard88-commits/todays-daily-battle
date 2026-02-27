@@ -140,11 +140,126 @@
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
-          <p class="hero-tagline hero-tagline-gold util-mb-2"><a id="hero-tagline-america" class="hero-tagline-link" href="#">Let's Make America God's Again.</a></p>
+          <p class="hero-tagline hero-tagline-hook util-mb-1_5">One verse. One prayer. No login. No noise.</p>
           <p class="hero-tagline section-note util-mb-1_5">Less scroll, more soul.</p>
           <p id="hero-collective-intent" class="hero-collective-intent section-note hidden" aria-live="polite"></p>
           <p id="home-streak-badge" class="streak-badge hidden" aria-live="polite"></p>
         </header>
+        <section class="glass" id="daily-battle-section">
+          <h2 class="section-divider">Featured Today’s Battle</h2>
+          <p class="section-note">Your daily anchor. One verse, one theme—start here, not the feed. Two minutes that actually fill you up.</p>
+          <div id="daily-battle-card" class="verse-card verse-breath" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
+          <div id="daily-verse-echo" class="daily-verse-echo section-note hidden" aria-live="polite" aria-label="Others praying this verse"></div>
+          <button type="button" id="breathe-with-him-btn" class="btn btn-secondary breathe-with-him-btn hidden" aria-label="Breathe with Him">Breathe with Him</button>
+          <p id="breathe-count-today" class="section-note hidden" aria-live="polite"></p>
+          <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap hidden" aria-live="polite">
+            <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
+            <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note hidden"></p>
+          </div>
+          <p id="daily-battle-topic" class="section-note" aria-live="polite"></p>
+          <p id="daily-battle-question" class="section-note" aria-live="polite"></p>
+          <div id="daily-battle-reflection" class="section-note"></div>
+          <div id="daily-battle-prayer" class="section-note"></div>
+          <div id="daily-battle-red-letter" class="section-note"></div>
+          <div id="daily-battle-next-steps" class="section-note daily-battle-next-steps" aria-live="polite"></div>
+          <p class="section-note util-mt-0_5"><button type="button" id="share-todays-verse-btn" class="btn btn-primary btn-small" aria-label="Share today's verse to X">Share today's verse</button></p>
+          <div id="streak-counter-block" class="streak-counter-block glass">
+            <span id="daily-battle-streak" class="streak-counter-text" aria-live="polite">Streak: 0 days</span>
+            <p id="daily-battle-milestone" class="section-note streak-milestone" aria-live="polite"></p>
+            <div class="cta-group util-mt-0_5">
+              <a href="pricing.html" id="streak-block-upgrade-btn" class="btn btn-primary">Upgrade to Battle Pro</a>
+            </div>
+            <div id="download-devotional-wrap" class="download-devotional-wrap hidden util-mt-0_75">
+              <button type="button" id="download-devotional-btn" class="btn btn-secondary" aria-label="Download today's devotional as PDF">Download Today's Devotional</button>
+            </div>
+            <div id="share-streak-wrap" class="cta-group share-streak-wrap hidden">
+              <button id="share-my-streak" type="button" class="btn btn-secondary">Share my streak</button>
+              <a href="wins-report.html" class="btn btn-secondary">My Wins Report</a>
+            </div>
+            <p id="daily-battle-reset-nudge" class="section-note streak-reset-nudge hidden" aria-live="polite"></p>
+          </div>
+          <div id="quick-pray-wrap" class="glass quick-pray-wrap" role="region" aria-label="Quick pray">
+            <h3 class="quick-pray-title" id="quick-pray-title">Quick pray</h3>
+            <p class="section-note">Add a name or intention—no login needed. Saved to your list. Draft auto-saves.</p>
+            <div class="quick-pray-row">
+              <input type="text" id="quick-pray" list="quick-pray-suggestions" placeholder="Add a name or intention…" aria-label="Quick prayer">
+              <datalist id="quick-pray-suggestions"></datalist>
+              <button type="button" id="quick-pray-btn" class="btn btn-primary" aria-label="Submit quick prayer">Pray</button>
+              <button type="button" id="call-god-btn" class="btn btn-call-god" aria-label="Call God—speak your prayer" title="Direct line to God—voice prayer"><span class="call-god-icon" aria-hidden="true">📞</span> Call God</button>
+              <button type="button" id="voice-pray-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your prayer"><span class="voice-pray-icon" aria-hidden="true">✝</span> Speak</button>
+            </div>
+            <div id="turnstile-quick-pray-container" class="turnstile-container" aria-label="Verification"></div>
+            <p id="quick-pray-today" class="section-note quick-pray-today hidden" aria-live="polite"></p>
+            <p id="quick-pray-feedback" class="section-note quick-pray-feedback quick-pray-toast hidden" aria-live="polite"></p>
+            <div id="quick-pray-share-wrap" class="quick-pray-share-wrap hidden">
+              <button type="button" id="quick-pray-share" class="btn btn-secondary btn-small">Share</button>
+              <button type="button" id="share-streak-btn" class="btn btn-secondary btn-small hidden" aria-label="Share your prayer streak">Share Streak</button>
+              <button type="button" id="pray-with-me-btn" class="btn btn-secondary btn-small" aria-label="Copy pray-with-me link">Pray with me?</button>
+            </div>
+            <p id="quick-pray-undo-wrap" class="section-note hidden"><button type="button" id="quick-pray-undo" class="btn-link" aria-label="Undo last prayer">Undo?</button></p>
+            <p id="prayed-today" class="section-note hidden" aria-live="polite">Prayed 5 times today? Keep going!</p>
+          </div>
+          <div id="badges-section" class="glass badges-section" aria-label="Badges"></div>
+          <div id="offline-prefetch-wrap" class="offline-prefetch-wrap glass hidden" aria-label="Offline download">
+            <p class="section-note util-mb-0_5">Download the next 7 days of verses for travel or spotty connectivity.</p>
+            <div class="cta-group">
+              <button id="offline-prefetch-btn" type="button" class="btn btn-offline-prefetch">Download for offline (Pro)</button>
+            </div>
+            <div id="offline-prefetch-progress" class="offline-prefetch-progress hidden" role="status" aria-live="polite">
+              <div class="offline-prefetch-bar"><div id="offline-prefetch-fill" class="offline-prefetch-fill"></div></div>
+              <span id="offline-prefetch-status" class="section-note">Preparing…</span>
+            </div>
+          </div>
+          <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Log in to save your streak, favorite verses, and custom plans across devices.</p>
+          <div class="cta-group daily-battle-signin-cta">
+            <a href="#auth-details" class="btn btn-primary">Sign In Free – Save Your Streak Forever &amp; Sync Devices</a>
+            <p class="section-note util-mt-0_35">Sync streaks, drafts, prayers, and plans—across phone and computer.</p>
+          </div>
+          <div id="daily-battle-testimony" class="section-note daily-battle-testimony" aria-live="polite"></div>
+          <div id="daily-battle-calendar" class="streak-calendar"></div>
+          <div class="cta-group daily-battle-actions">
+            <button id="share-daily-battle" class="btn btn-secondary" type="button">Share</button>
+            <button id="share-daily-battle-send-friend" class="btn btn-secondary" type="button" title="Email this verse to a friend">Send to a friend</button>
+            <button id="share-daily-battle-copy-verse" class="btn btn-secondary" type="button" title="Copy verse + reference">Copy verse</button>
+            <button id="pray-this-with-me-daily" class="btn btn-secondary pray-this-with-me-btn" type="button" title="Copy verse + Praying this today — todaysdailybattle.com" aria-label="Copy verse and share link">Pray this with me</button>
+            <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
+            <button id="share-daily-battle-image" class="btn btn-secondary" type="button" title="One-tap: Instagram-ready graphic with today's verse + logo">Save card for Instagram</button>
+            <button id="generate-share-card-30" type="button" class="btn btn-primary" aria-label="Create shareable prayer card">Generate Share Card</button>
+            <button id="listen-daily-battle" class="btn btn-secondary btn-listen" type="button" title="Hear verse + Fight on." aria-label="Hear verse aloud">Hear it</button>
+            <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
+          </div>
+          <p class="section-note share-verse-cta">One tap to share—post to your story or send to a friend. Share today's battle: verse + link. Less scroll. More soul.</p>
+          <p class="section-note util-mb-0_25">Share (one tap):</p>
+          <div class="cta-group social-share-links" aria-label="Share to social">
+            <div id="share-preview-thumb" class="share-preview-thumb" aria-hidden="true"></div>
+            <a id="share-daily-to-x" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)" title="Share to X"><span class="share-icon share-icon-x" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
+            <a id="share-daily-to-facebook" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to Facebook" title="Share to Facebook"><span class="share-icon share-icon-fb" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span></a>
+            <a id="share-daily-to-whatsapp" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to WhatsApp" title="Share to WhatsApp"><span class="share-icon share-icon-wa" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+            <button id="share-daily-to-instagram" type="button" class="btn btn-icon social-share-btn" aria-label="Copy for Instagram" title="Copy for Instagram"><span class="share-icon share-icon-ig" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.766 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span></button>
+          </div>
+          <div class="cta-group daily-battle-extra">
+            <label class="inline-toggle">
+              <input id="daily-reminder-toggle" type="checkbox" aria-label="Notify me when I open the site">
+              Notify me when I open the site
+            </label>
+            <label class="inline-toggle streak-push-wrap">
+              <input id="streak-push-toggle" type="checkbox" aria-label="8 AM streak reminder">
+              8 AM streak reminder — "Your verse is ready! 🔥"
+            </label>
+            <button id="streak-push-test" type="button" class="btn btn-secondary btn-small hidden">Test notification</button>
+            <div id="streak-repair-wrap" class="streak-repair-wrap hidden">
+              <button id="streak-repair-btn" type="button" class="btn btn-secondary btn-small">Repair streak (1 free this month)</button>
+              <span class="section-note">Forgive one missed day. Resets monthly.</span>
+            </div>
+            <span class="section-note">Get a gentle reminder so you don't miss your daily verse.</span>
+          </div>
+          <div id="install-cta" class="cta-group install-cta">
+            <button id="install-app" class="btn btn-secondary" type="button">Add to Home Screen</button>
+            <span class="section-note">Daily Battle — tap like an app.</span>
+            <button id="install-not-now" type="button" class="link-button" aria-label="Dismiss">Not now</button>
+          </div>
+        </section>
+        <p class="hero-tagline hero-tagline-gold hero-tagline-below-fold util-mt-1 util-mb-1" aria-label="Tagline"><a id="hero-tagline-america" class="hero-tagline-link" href="#">Let's Make America God's Again.</a></p>
         <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
           <div class="focus-mode-wrap">
             <label for="focus-mode" class="focus-mode-label">Focus mode</label>
@@ -315,120 +430,6 @@
           <p id="early-bird-countdown" class="section-note early-bird-countdown util-mt-0_25" aria-live="polite">First 50 get 1 month free—ends in <span id="early-bird-days">7</span> days!</p>
           <div class="coming-soon-progress" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Battle Pro launch progress"><div class="coming-soon-progress-fill"></div></div>
         </div>
-        <section class="glass" id="daily-battle-section">
-          <h2 class="section-divider">Featured Today’s Battle</h2>
-          <p class="section-note">Your daily anchor. One verse, one theme—start here, not the feed. Two minutes that actually fill you up.</p>
-          <div id="daily-battle-card" class="verse-card verse-breath" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
-          <div id="daily-verse-echo" class="daily-verse-echo section-note hidden" aria-live="polite" aria-label="Others praying this verse"></div>
-          <button type="button" id="breathe-with-him-btn" class="btn btn-secondary breathe-with-him-btn hidden" aria-label="Breathe with Him">Breathe with Him</button>
-          <p id="breathe-count-today" class="section-note hidden" aria-live="polite"></p>
-          <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap hidden" aria-live="polite">
-            <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
-            <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note hidden"></p>
-          </div>
-          <p id="daily-battle-topic" class="section-note" aria-live="polite"></p>
-          <p id="daily-battle-question" class="section-note" aria-live="polite"></p>
-          <div id="daily-battle-reflection" class="section-note"></div>
-          <div id="daily-battle-prayer" class="section-note"></div>
-          <div id="daily-battle-red-letter" class="section-note"></div>
-          <div id="daily-battle-next-steps" class="section-note daily-battle-next-steps" aria-live="polite"></div>
-          <p class="section-note util-mt-0_5"><button type="button" id="share-todays-verse-btn" class="btn btn-primary btn-small" aria-label="Share today's verse to X">Share today's verse</button></p>
-          <div id="streak-counter-block" class="streak-counter-block glass">
-            <span id="daily-battle-streak" class="streak-counter-text" aria-live="polite">Streak: 0 days</span>
-            <p id="daily-battle-milestone" class="section-note streak-milestone" aria-live="polite"></p>
-            <div class="cta-group util-mt-0_5">
-              <a href="pricing.html" id="streak-block-upgrade-btn" class="btn btn-primary">Upgrade to Battle Pro</a>
-            </div>
-            <div id="download-devotional-wrap" class="download-devotional-wrap hidden util-mt-0_75">
-              <button type="button" id="download-devotional-btn" class="btn btn-secondary" aria-label="Download today's devotional as PDF">Download Today's Devotional</button>
-            </div>
-            <div id="share-streak-wrap" class="cta-group share-streak-wrap hidden">
-              <button id="share-my-streak" type="button" class="btn btn-secondary">Share my streak</button>
-              <a href="wins-report.html" class="btn btn-secondary">My Wins Report</a>
-            </div>
-            <p id="daily-battle-reset-nudge" class="section-note streak-reset-nudge hidden" aria-live="polite"></p>
-          </div>
-          <div id="quick-pray-wrap" class="glass quick-pray-wrap" role="region" aria-label="Quick pray">
-            <h3 class="quick-pray-title" id="quick-pray-title">Quick pray</h3>
-            <p class="section-note">Add a name or intention—no login needed. Saved to your list. Draft auto-saves.</p>
-            <div class="quick-pray-row">
-              <input type="text" id="quick-pray" list="quick-pray-suggestions" placeholder="Add a name or intention…" aria-label="Quick prayer">
-              <datalist id="quick-pray-suggestions"></datalist>
-              <button type="button" id="quick-pray-btn" class="btn btn-primary" aria-label="Submit quick prayer">Pray</button>
-              <button type="button" id="call-god-btn" class="btn btn-call-god" aria-label="Call God—speak your prayer" title="Direct line to God—voice prayer"><span class="call-god-icon" aria-hidden="true">📞</span> Call God</button>
-              <button type="button" id="voice-pray-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your prayer"><span class="voice-pray-icon" aria-hidden="true">✝</span> Speak</button>
-            </div>
-            <div id="turnstile-quick-pray-container" class="turnstile-container" aria-label="Verification"></div>
-            <p id="quick-pray-today" class="section-note quick-pray-today hidden" aria-live="polite"></p>
-            <p id="quick-pray-feedback" class="section-note quick-pray-feedback quick-pray-toast hidden" aria-live="polite"></p>
-            <div id="quick-pray-share-wrap" class="quick-pray-share-wrap hidden">
-              <button type="button" id="quick-pray-share" class="btn btn-secondary btn-small">Share</button>
-              <button type="button" id="share-streak-btn" class="btn btn-secondary btn-small hidden" aria-label="Share your prayer streak">Share Streak</button>
-              <button type="button" id="pray-with-me-btn" class="btn btn-secondary btn-small" aria-label="Copy pray-with-me link">Pray with me?</button>
-            </div>
-            <p id="quick-pray-undo-wrap" class="section-note hidden"><button type="button" id="quick-pray-undo" class="btn-link" aria-label="Undo last prayer">Undo?</button></p>
-            <p id="prayed-today" class="section-note hidden" aria-live="polite">Prayed 5 times today? Keep going!</p>
-          </div>
-          <div id="badges-section" class="glass badges-section" aria-label="Badges"></div>
-          <div id="offline-prefetch-wrap" class="offline-prefetch-wrap glass hidden" aria-label="Offline download">
-            <p class="section-note util-mb-0_5">Download the next 7 days of verses for travel or spotty connectivity.</p>
-            <div class="cta-group">
-              <button id="offline-prefetch-btn" type="button" class="btn btn-offline-prefetch">Download for offline (Pro)</button>
-            </div>
-            <div id="offline-prefetch-progress" class="offline-prefetch-progress hidden" role="status" aria-live="polite">
-              <div class="offline-prefetch-bar"><div id="offline-prefetch-fill" class="offline-prefetch-fill"></div></div>
-              <span id="offline-prefetch-status" class="section-note">Preparing…</span>
-            </div>
-          </div>
-          <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Log in to save your streak, favorite verses, and custom plans across devices.</p>
-          <div class="cta-group daily-battle-signin-cta">
-            <a href="#auth-details" class="btn btn-primary">Sign In Free – Save Your Streak Forever &amp; Sync Devices</a>
-            <p class="section-note util-mt-0_35">Sync streaks, drafts, prayers, and plans—across phone and computer.</p>
-          </div>
-          <div id="daily-battle-testimony" class="section-note daily-battle-testimony" aria-live="polite"></div>
-          <div id="daily-battle-calendar" class="streak-calendar"></div>
-          <div class="cta-group daily-battle-actions">
-            <button id="share-daily-battle" class="btn btn-secondary" type="button">Share</button>
-            <button id="share-daily-battle-send-friend" class="btn btn-secondary" type="button" title="Email this verse to a friend">Send to a friend</button>
-            <button id="share-daily-battle-copy-verse" class="btn btn-secondary" type="button" title="Copy verse + reference">Copy verse</button>
-            <button id="pray-this-with-me-daily" class="btn btn-secondary pray-this-with-me-btn" type="button" title="Copy verse + Praying this today — todaysdailybattle.com" aria-label="Copy verse and share link">Pray this with me</button>
-            <button id="share-daily-battle-copy-link" class="btn btn-secondary" type="button" title="Copy link">Copy link</button>
-            <button id="share-daily-battle-image" class="btn btn-secondary" type="button" title="One-tap: Instagram-ready graphic with today's verse + logo">Save card for Instagram</button>
-            <button id="generate-share-card-30" type="button" class="btn btn-primary" aria-label="Create shareable prayer card">Generate Share Card</button>
-            <button id="listen-daily-battle" class="btn btn-secondary btn-listen" type="button" title="Hear verse + Fight on." aria-label="Hear verse aloud">Hear it</button>
-            <button id="daily-kjv-audio" class="btn btn-secondary btn-kjv-audio" type="button" title="Open KJV audio on Bible Gateway in a new tab" aria-label="Open KJV audio in new tab">KJV Audio</button>
-          </div>
-          <p class="section-note share-verse-cta">One tap to share—post to your story or send to a friend. Share today's battle: verse + link. Less scroll. More soul.</p>
-          <p class="section-note util-mb-0_25">Share (one tap):</p>
-          <div class="cta-group social-share-links" aria-label="Share to social">
-            <div id="share-preview-thumb" class="share-preview-thumb" aria-hidden="true"></div>
-            <a id="share-daily-to-x" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)" title="Share to X"><span class="share-icon share-icon-x" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
-            <a id="share-daily-to-facebook" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to Facebook" title="Share to Facebook"><span class="share-icon share-icon-fb" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span></a>
-            <a id="share-daily-to-whatsapp" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to WhatsApp" title="Share to WhatsApp"><span class="share-icon share-icon-wa" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
-            <button id="share-daily-to-instagram" type="button" class="btn btn-icon social-share-btn" aria-label="Copy for Instagram" title="Copy for Instagram"><span class="share-icon share-icon-ig" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.766 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span></button>
-          </div>
-          <div class="cta-group daily-battle-extra">
-            <label class="inline-toggle">
-              <input id="daily-reminder-toggle" type="checkbox" aria-label="Notify me when I open the site">
-              Notify me when I open the site
-            </label>
-            <label class="inline-toggle streak-push-wrap">
-              <input id="streak-push-toggle" type="checkbox" aria-label="8 AM streak reminder">
-              8 AM streak reminder — "Your verse is ready! 🔥"
-            </label>
-            <button id="streak-push-test" type="button" class="btn btn-secondary btn-small hidden">Test notification</button>
-            <div id="streak-repair-wrap" class="streak-repair-wrap hidden">
-              <button id="streak-repair-btn" type="button" class="btn btn-secondary btn-small">Repair streak (1 free this month)</button>
-              <span class="section-note">Forgive one missed day. Resets monthly.</span>
-            </div>
-            <span class="section-note">Get a gentle reminder so you don't miss your daily verse.</span>
-          </div>
-          <div id="install-cta" class="cta-group install-cta">
-            <button id="install-app" class="btn btn-secondary" type="button">Add to Home Screen</button>
-            <span class="section-note">Daily Battle — tap like an app.</span>
-            <button id="install-not-now" type="button" class="link-button" aria-label="Dismiss">Not now</button>
-          </div>
-        </section>
         <section class="glass">
           <h2 class="section-divider">30-Day Battle Plan</h2>
           <p class="section-note">Your daily habit that actually fills you up. The same two minutes you’d spend scrolling—but here, you leave with hope.</p>

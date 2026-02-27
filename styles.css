@@ -663,6 +663,32 @@ body {
 .hero-banner .hero-tagline-link:visited {
   color: #D4AF37;
 }
+
+/* One sentence hook: "One verse. One prayer. No login." */
+.hero-banner .hero-tagline-hook {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary, #e8e8e8);
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  .hero-banner .hero-tagline-hook {
+    font-size: 1.2rem;
+  }
+}
+
+/* America tagline below the fold (after verse section) */
+.hero-tagline-below-fold {
+  text-align: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .hero-tagline-below-fold {
+    font-size: 1.1rem;
+  }
+}
 @media (max-width: 768px) {
   .hero-banner .hero-tagline-gold {
     font-size: 1.4rem;

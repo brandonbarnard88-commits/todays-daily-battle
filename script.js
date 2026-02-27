@@ -1988,15 +1988,29 @@ function wireRealPrayerCounter() {
     var badge = document.getElementById('last-prayer-badge');
     var agoEl = document.getElementById('last-prayer-ago');
     if (!badge || !agoEl || !supabaseClient) return;
-    supabaseClient.rpc('get_last_prayer_created_at').then(function (res) {
-      if (res && !res.error && res.data) {
-        var txt = formatLastPrayerAgo(res.data);
-        if (txt) { agoEl.textContent = txt; badge.classList.remove('hidden'); }
-      }
-    }).catch(function () {});
+    function setAgo() {
+      supabaseClient.rpc('get_last_prayer_created_at').then(function (res) {
+        if (res && !res.error && res.data) {
+          var txt = formatLastPrayerAgo(res.data);
+          if (txt) { agoEl.textContent = txt; badge.classList.remove('hidden'); }
+        }
+      }).catch(function () {
+        setTimeout(function () {
+          supabaseClient.rpc('get_last_prayer_created_at').then(function (res) {
+            if (res && !res.error && res.data) {
+              var txt = formatLastPrayerAgo(res.data);
+              if (txt) { agoEl.textContent = txt; badge.classList.remove('hidden'); }
+            }
+          }).catch(function () {});
+        }, 2000);
+      });
+    }
+    setAgo();
   };
   var FETCH_TIMEOUT_MS = 8000;
   var tick = 0;
+  var retryCount = 0;
+  var MAX_RETRY = 1;
   async function fetchPrayerCount() {
     tick += 1;
     if (tick % 6 === 0) window.__tdb_prayers_404 = false;
@@ -2010,6 +2024,7 @@ function wireRealPrayerCounter() {
         supabaseClient.rpc('get_total_prayer_count'),
         new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS); })
       ]);
+      retryCount = 0;
       if (typeof console !== 'undefined' && console.log) console.log('Prayer count response:', res);
       if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       var countNum = res && res.data != null ? (typeof res.data === 'number' ? res.data : (typeof res.data === 'string' ? parseInt(res.data, 10) : Number(res.data))) : NaN;
@@ -2039,6 +2054,11 @@ function wireRealPrayerCounter() {
       if (promo) promo.textContent = (finalCount != null ? formatCount(finalCount) + ' prayers prayed worldwide. Join ' + formatCount(finalCount) + ' warriors right now.' : '');
       updateLastPrayerBadge();
     } catch (e) {
+      if (retryCount < MAX_RETRY) {
+        retryCount += 1;
+        setTimeout(function () { fetchPrayerCount(); }, 2500);
+        return;
+      }
       setPrayersApiUnavailable();
       el.textContent = '—';
       var promo = document.getElementById('prayer-count-promo');

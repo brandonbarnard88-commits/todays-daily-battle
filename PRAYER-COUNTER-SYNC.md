@@ -1,6 +1,20 @@
 # Prayer counter sync checklist
 
-Use this when the site shows a different number than the database (e.g. "Total prayers: 9" but you expect 14+).
+Use this when the site shows a different number than the database (e.g. "Total prayers: 9" but you expect 14+), or when tapping ♥ doesn't show "Amen—added!" and the count never moves.
+
+---
+
+## Run this now (one shot)
+
+**If the counter is stuck at 9 and tap ♥ doesn't refresh or show a toast:**
+
+1. **Supabase → SQL Editor** → New query → paste the **entire** contents of **`supabase-prayer-counter-fix.sql`** → **Run**.
+2. **Check DB count:** Run `SELECT COUNT(*) FROM prayers;` — note the number (e.g. 9). If you want the site to show 10+, add one row in Table Editor: `intent` = `peace`, `created_at` = now().
+3. **Hard refresh** the site (Ctrl+Shift+R). Tap ♥ (type something in the box, tap Pray). You should see **"Amen—added!"** and **"Last prayer: just now"**; the total count should update within a few seconds.
+
+**If you still see "Saved locally—will sync when online" when you tap ♥,** the insert was blocked (RLS/anon). Run **`supabase-prayer-counter-fix.sql`** — it enables anon INSERT and the COUNT(*) RPC.
+
+**Counter was 10 then showed 9 again?** Hard refresh (Ctrl+Shift+R) or try incognito—often cache. If it still shows 9 after a tap + 10 sec + hard reload, re-run **`supabase-prayer-counter-fix.sql`** and check **Supabase → SQL Editor:** `SELECT COUNT(*) FROM prayers;` (should match what you expect). Then hard refresh again.
 
 ---
 

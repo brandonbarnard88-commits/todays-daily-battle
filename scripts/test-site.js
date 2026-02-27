@@ -36,9 +36,17 @@ const PAGES = [
   '/admin.html',
   '/reset.html',
   '/404.html',
+  '/404-admin.html',
+  '/stats.html',
+  '/kids-activities-print.html',
+  '/kids-coloring-pack.html',
   '/topic-anxiety.html',
   '/topic-fear.html',
   '/topic-hope.html',
+  '/topic-grief.html',
+  '/topic-strength.html',
+  '/topic-forgiveness.html',
+  '/topic-parenting.html',
 ];
 
 function serveFile(req, res) {

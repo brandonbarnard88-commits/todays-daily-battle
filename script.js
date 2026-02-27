@@ -6438,7 +6438,10 @@ function fetchBattleProStatus() {
       return;
     }
     var row = r.data;
-    subscriptionTier = row.plan === 'church_team' || row.plan === 'church' ? 'church_team' : (row.plan === 'supporter' ? 'supporter' : subscriptionTier);
+    subscriptionTier = row.plan === 'church_team' || row.plan === 'church' ? 'church_team'
+      : (row.plan === 'supporter' ? 'supporter'
+      : (row.plan === 'pro' || row.plan === 'battlepro' ? 'pro'
+      : subscriptionTier));
     if (badge) badge.classList.remove('hidden');
     try {
       window.__tdb_battle_pro_active = !!(row.wins_report_unlocked || row.offline_downloads_enabled);
@@ -6464,8 +6467,8 @@ function fetchProfileTier() {
     try {
       if (r.error || !r.data) return;
       var t = (r.data.tier || '').toLowerCase();
-      if (t === 'supporter' || t === 'battle_pro' || t === 'church' || t === 'supporter_pro' || t.indexOf('pro') !== -1) {
-        subscriptionTier = t === 'church' ? 'church_team' : (t === 'battle_pro' ? 'pro' : (t === 'supporter' || t === 'supporter_pro' ? 'supporter' : subscriptionTier));
+      if (t === 'supporter' || t === 'battle_pro' || t === 'church' || t === 'supporter_pro' || t === 'pro' || t === 'battlepro' || t.indexOf('pro') !== -1) {
+        subscriptionTier = t === 'church' ? 'church_team' : (t === 'battle_pro' || t === 'pro' || t === 'battlepro' ? 'pro' : (t === 'supporter' || t === 'supporter_pro' ? 'supporter' : subscriptionTier));
         if (typeof updateRoleViews === 'function') updateRoleViews();
       }
     } catch (e) {}
@@ -8443,7 +8446,7 @@ function renderResults(results) {
           if (!p) return;
           if (p.classList.contains('memory-mode')) {
             p.classList.remove('memory-mode');
-            p.innerHTML = v.text || '';
+            p.innerHTML = escapeHtml(v.text || '');
             if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) p.classList.add('red-letter');
             memoryBtn.textContent = 'Memory';
             return;

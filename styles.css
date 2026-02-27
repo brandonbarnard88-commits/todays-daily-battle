@@ -649,7 +649,7 @@ body {
   display: block;
 }
 .hero-banner .hero-tagline-link {
-  color: inherit;
+  color: #D4AF37;
   text-decoration: none;
   border-bottom: 1px solid rgba(212, 175, 55, 0.6);
   padding-bottom: 0.15rem;
@@ -659,6 +659,9 @@ body {
 .hero-banner .hero-tagline-link:focus {
   color: #e8c547;
   border-bottom-color: rgba(232, 197, 71, 0.95);
+}
+.hero-banner .hero-tagline-link:visited {
+  color: #D4AF37;
 }
 @media (max-width: 768px) {
   .hero-banner .hero-tagline-gold {

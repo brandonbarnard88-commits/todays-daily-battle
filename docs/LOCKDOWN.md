@@ -2,6 +2,8 @@
 
 **Goal:** Build so lawyers and attackers have no angle to get in or tear down what we built. Every layer is documented and verified. This doc is the single source for “what must be true” before and after launch.
 
+**Live site check (Feb 27, 2026):** Homepage loads over HTTPS with no errors; skip-link, auth CTAs, offline banner, prayer counters, invite, email opt-in, Stories of Hope, and footer polish visible. Privacy and terms (third-parties, retention, indemnity, liability cap, governing law) are in place. Quick wins before full launch: confirm RLS on all user tables, test webhook with Stripe CLI, verify headers in DevTools, add rate limiting/CAPTCHA if spam appears, use GA/Cloudflare for monitoring. See **SECURITY-CHECKLIST-PRE-LAUNCH.md** for the full quick-wins list.
+
 ---
 
 ## What we never do

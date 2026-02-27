@@ -4,6 +4,8 @@ Feedback from a trusted reviewer (Feb 2026): *"You're doing a lot right. As you 
 
 **Live-site review (Feb 27, 2026):** Homepage, pricing, privacy, terms were reviewed. Overall solid for an indie faith app—HTTPS, strong privacy policy (no selling data, Supabase Auth, local-first), terms cover lawful use and “as is.” No exposed keys, mixed content, or insecure forms. Top priorities before Battle Pro/wider share: **RLS on all user tables**, **webhook verification** (already done), **security headers** (Cloudflare). Optional: rate limiting/CAPTCHA on forms if spam appears; breach notification in privacy (added below); password strength hint or “Show password” on auth forms.
 
+**Live site check #2 (Feb 27, 2026):** Full homepage load confirmed—HTTPS, skip-link, auth CTAs, offline banner, prayer counters, emotions, patriotic content, invite, email opt-in, Stories of Hope, footer without “Footer” heading. Safety status: minimal data collection, local-first, clear privacy (third-parties/retention/payments) and terms (indemnity/liability cap/governing law). No major vulnerabilities. **Quick wins before full launch:** (1) Confirm RLS on all user tables + test anon vs logged-in; (2) Test Stripe webhook with CLI (`stripe listen`); (3) Verify security headers in browser DevTools → Network → response headers; (4) Rate limiting/CAPTCHA on forms if spam appears; (5) GA/Cloudflare for monitoring; breach note already in privacy. **GitHub push timeout** (“Failed to connect to github.com port 443”): usually transient (Wi‑Fi/ISP); retry `git push` or check connection/VPN. Don’t force-add config.js with live keys.
+
 ---
 
 ## What’s already solid

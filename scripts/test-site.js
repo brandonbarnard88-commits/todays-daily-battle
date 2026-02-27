@@ -49,6 +49,18 @@ const PAGES = [
   '/topic-parenting.html',
 ];
 
+const ASSETS = [
+  '/script.js',
+  '/config.js',
+  '/styles.css',
+  '/manifest.json',
+  '/icon.svg',
+  '/world-map-source.svg',
+  '/inline-bootstrap.js',
+  '/daily-verse-widget.js',
+  '/voice-pray.js',
+];
+
 function serveFile(req, res) {
   let urlPath = req.url === '/' ? '/index.html' : req.url.split('?')[0];
   const filePath = path.join(ROOT, urlPath);
@@ -92,6 +104,9 @@ function runTests(port, server) {
   (async () => {
     for (const p of PAGES) {
       await check(p);
+    }
+    for (const a of ASSETS) {
+      await check(a);
     }
     const ok = results.filter((r) => r.status === 200);
     const fail = results.filter((r) => r.status !== 200);

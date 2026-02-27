@@ -826,13 +826,17 @@ body {
   color: rgba(148, 163, 184, 0.85);
   margin: 0 0 0.5rem;
 }
+.search-hero .quick-searches-label {
+  margin-top: 0.75rem;
+  text-align: center;
+}
 .quick-actions-hero {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
-  max-width: 40rem;
-  margin: 0 auto;
+  max-width: 56rem;
+  margin: 0.75rem auto 0;
 }
 .quick-actions-hero .btn { min-width: auto; }
 

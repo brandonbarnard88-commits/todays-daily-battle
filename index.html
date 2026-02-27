@@ -138,25 +138,101 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
-        <div class="hero-search-wrap" role="search" aria-label="Search Scripture">
-          <label for="query" class="hero-search-label">Search by emotion or verse (hope, fear, John 3:16)</label>
-          <div class="hero-search-stack">
+        <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
+          <label for="query" class="search-query-label">Search by emotion or verse (hope, fear, John 3:16)</label>
+          <div class="search-query-row">
             <input id="query" type="text" placeholder="Type what you're feeling..." aria-label="Search by emotion or verse" autocomplete="off">
             <button id="search-btn" class="btn btn-primary" type="button">Search</button>
           </div>
-        </div>
-        <div class="quick-searches-wrap">
-          <p class="section-note quick-searches-label">Try a topic</p>
-          <div class="quick-actions quick-actions-hero">
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace">Peace</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="joy">Joy</button>
+          <div class="focus-mode-wrap">
+            <label for="focus-mode" class="focus-mode-label">Focus mode</label>
+            <select id="focus-mode" class="compact-select" aria-label="Verse style: Morning, Evening, Warrior, or God Tier">
+              <option value="morning">Morning Energy — short, upbeat</option>
+              <option value="evening">Evening Wind-Down — reflective</option>
+              <option value="warrior">Warrior Mode — battle verses only</option>
+              <option value="godtier">God Tier — pastor-level depth</option>
+            </select>
           </div>
-        </div>
+          <p class="section-note search-privacy-note">Your search is private. We never see what you type. <a href="privacy.html#main-content">Privacy</a></p>
+          <p class="section-note mobile-label-topics">Try a topic</p>
+          <div class="quick-actions">
+            <button class="btn btn-primary quick-topic" data-topic="free will">FREE WILL</button>
+            <button class="btn btn-secondary quick-topic" data-topic="heartache">Heartache</button>
+            <button class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
+            <button class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
+            <button class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
+            <button class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
+            <button class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
+            <button class="btn btn-secondary quick-topic" data-topic="patience">Patience</button>
+            <button class="btn btn-secondary quick-topic" data-topic="anger">Anger</button>
+            <button class="btn btn-secondary quick-topic" data-topic="joy">Joy</button>
+            <button class="btn btn-secondary quick-topic" data-topic="addiction">Addiction</button>
+            <button class="btn btn-secondary quick-topic" data-topic="trauma">Trauma</button>
+            <button class="btn btn-secondary quick-topic" data-topic="relationships">Relationships</button>
+            <button class="btn btn-secondary quick-topic" data-topic="jesus said">Jesus Said</button>
+            <button class="btn btn-secondary quick-topic" data-topic="strength">Strength</button>
+            <button class="btn btn-secondary quick-topic" data-topic="parenting">Parenting</button>
+            <button class="btn btn-secondary quick-topic" data-topic="finances">Finances</button>
+            <button class="btn btn-secondary quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</button>
+            <button class="btn btn-secondary quick-topic" data-topic="sleep">Sleep & Rest</button>
+            <button class="btn btn-secondary quick-topic" data-topic="marriage">Marriage</button>
+          </div>
+          <p class="section-note mobile-label-tools">Tools</p>
+          <div class="quick-links">
+            <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
+            <a class="btn btn-primary" href="team-toolkit.html">Team Toolkit</a>
+            <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
+            <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
+            <a class="btn btn-secondary" href="message.html">Message Board</a>
+            <a class="btn btn-secondary" href="coloring.html">Kids Corner</a>
+            <button id="daily-btn" class="btn btn-secondary" type="button" aria-label="Read today's verse">Today's Battle</button>
+          </div>
+          <p class="section-note mobile-hide red-letter-note">Red letters show the words spoken by Jesus.</p>
+          <details class="mobile-collapse filters-details">
+            <summary class="mobile-collapse-summary">Filters</summary>
+          <div class="filter-stack">
+            <select id="tier" class="compact-select" aria-label="Audience">
+              <option value="kid">Kid</option>
+              <option value="teen">Teen</option>
+              <option value="adult" selected>Adult</option>
+              <option value="pastor">Pastor</option>
+              <option value="godtier">God Tier</option>
+            </select>
+            <select id="testament-filter" class="compact-select" aria-label="Testament">
+              <option value="all" selected>All Bible</option>
+              <option value="ot">Old Testament</option>
+              <option value="nt">New Testament</option>
+            </select>
+            <select id="book-filter" class="compact-select" aria-label="Book">
+              <option value="">All Books</option>
+            </select>
+          </div>
+          <div class="filter-actions">
+            <div id="filter-chips" class="filter-chips"></div>
+            <button id="clear-filters" class="btn btn-secondary" type="button">Clear Filters</button>
+          </div>
+          </details>
+          <details class="mobile-collapse audio-details">
+            <summary class="mobile-collapse-summary">Audio & verse size</summary>
+          <div class="filter-actions">
+            <label class="inline-toggle" for="verse-font-size">Verse size</label>
+            <input id="verse-font-size" type="range" min="16" max="24" step="1" value="18" aria-label="Verse text size">
+            <span id="verse-font-size-value" class="section-note">18px</span>
+          </div>
+          <div class="filter-actions audio-tools-row">
+            <label class="inline-toggle" for="tts-rate">Read-aloud speed</label>
+            <input id="tts-rate" type="range" min="0.5" max="1.5" step="0.1" value="1" aria-label="Read-aloud speed">
+            <span id="tts-rate-value" class="section-note">1.0x</span>
+            <label class="inline-toggle" for="tts-voice">Voice</label>
+            <select id="tts-voice" class="compact-select" aria-label="Read-aloud voice">
+              <option value="">System default</option>
+            </select>
+            <button id="tts-stop" type="button" class="btn btn-secondary btn-tts-stop hidden" aria-label="Stop read-aloud">Stop</button>
+          </div>
+          <p class="section-note audio-helper">Listen reads aloud here using your device's voice. KJV Audio opens Bible Gateway in a new tab.</p>
+          </details>
+        </section>
+        <div id="output" class="results"></div>
         <div class="hero-verse-wrap" aria-label="Today's verse">
           <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card" aria-live="polite"><p class="daily-battle-loading">Arming you with God's Word…</p></div>
           <p class="america-in-card"><a id="hero-tagline-america" class="america-in-card-link" href="#">Let's Make America God's Again.</a></p>
@@ -172,7 +248,6 @@
           <p class="hero-verse-byline">Built while sick—no work, hospital downtime. My reset.</p>
         </div>
         <p class="hero-slogan-one-line home-tagline">Less scroll, more soul.</p>
-        <div id="output" class="results"></div>
         <details class="home-accordion" id="accordion-todays-tools">
           <summary class="home-accordion-summary">Today's tools — Breathe, pray, share</summary>
         <section class="glass" id="daily-battle-section">
@@ -282,98 +357,6 @@
             <span class="section-note">Daily Battle — tap like an app.</span>
             <button id="install-not-now" type="button" class="link-button" aria-label="Dismiss">Not now</button>
           </div>
-        </section>
-        </details>
-        <details class="home-accordion" id="accordion-search">
-          <summary class="home-accordion-summary">Search Scripture</summary>
-        <section id="main-search" class="controls glass" role="search" aria-label="Search Scripture">
-          <div class="focus-mode-wrap">
-            <label for="focus-mode" class="focus-mode-label">Focus mode</label>
-            <select id="focus-mode" class="compact-select" aria-label="Verse style: Morning, Evening, Warrior, or God Tier">
-              <option value="morning">Morning Energy — short, upbeat</option>
-              <option value="evening">Evening Wind-Down — reflective</option>
-              <option value="warrior">Warrior Mode — battle verses only</option>
-              <option value="godtier">God Tier — pastor-level depth</option>
-            </select>
-          </div>
-          <p class="section-note search-privacy-note">Your search is private. We never see what you type. <a href="privacy.html#main-content">Privacy</a></p>
-          <p class="section-note mobile-label-topics">Try a topic</p>
-          <div class="quick-actions">
-            <button class="btn btn-primary quick-topic" data-topic="free will">FREE WILL</button>
-            <button class="btn btn-secondary quick-topic" data-topic="heartache">Heartache</button>
-            <button class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
-            <button class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
-            <button class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
-            <button class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
-            <button class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
-            <button class="btn btn-secondary quick-topic" data-topic="patience">Patience</button>
-            <button class="btn btn-secondary quick-topic" data-topic="anger">Anger</button>
-            <button class="btn btn-secondary quick-topic" data-topic="joy">Joy</button>
-            <button class="btn btn-secondary quick-topic" data-topic="addiction">Addiction</button>
-            <button class="btn btn-secondary quick-topic" data-topic="trauma">Trauma</button>
-            <button class="btn btn-secondary quick-topic" data-topic="relationships">Relationships</button>
-            <button class="btn btn-secondary quick-topic" data-topic="jesus said">Jesus Said</button>
-            <button class="btn btn-secondary quick-topic" data-topic="strength">Strength</button>
-            <button class="btn btn-secondary quick-topic" data-topic="parenting">Parenting</button>
-            <button class="btn btn-secondary quick-topic" data-topic="finances">Finances</button>
-            <button class="btn btn-secondary quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</button>
-            <button class="btn btn-secondary quick-topic" data-topic="sleep">Sleep & Rest</button>
-            <button class="btn btn-secondary quick-topic" data-topic="marriage">Marriage</button>
-          </div>
-          <p class="section-note mobile-label-tools">Tools</p>
-          <div class="quick-links">
-            <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
-            <a class="btn btn-primary" href="team-toolkit.html">Team Toolkit</a>
-            <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
-            <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
-            <a class="btn btn-secondary" href="message.html">Message Board</a>
-            <a class="btn btn-secondary" href="coloring.html">Kids Corner</a>
-            <button id="daily-btn" class="btn btn-secondary" type="button" aria-label="Read today's verse">Today's Battle</button>
-          </div>
-          <p class="section-note mobile-hide red-letter-note">Red letters show the words spoken by Jesus.</p>
-          <details class="mobile-collapse filters-details">
-            <summary class="mobile-collapse-summary">Filters</summary>
-          <div class="filter-stack">
-            <select id="tier" class="compact-select" aria-label="Audience">
-              <option value="kid">Kid</option>
-              <option value="teen">Teen</option>
-              <option value="adult" selected>Adult</option>
-              <option value="pastor">Pastor</option>
-              <option value="godtier">God Tier</option>
-            </select>
-            <select id="testament-filter" class="compact-select" aria-label="Testament">
-              <option value="all" selected>All Bible</option>
-              <option value="ot">Old Testament</option>
-              <option value="nt">New Testament</option>
-            </select>
-            <select id="book-filter" class="compact-select" aria-label="Book">
-              <option value="">All Books</option>
-            </select>
-          </div>
-          <div class="filter-actions">
-            <div id="filter-chips" class="filter-chips"></div>
-            <button id="clear-filters" class="btn btn-secondary" type="button">Clear Filters</button>
-          </div>
-          </details>
-          <details class="mobile-collapse audio-details">
-            <summary class="mobile-collapse-summary">Audio & verse size</summary>
-          <div class="filter-actions">
-            <label class="inline-toggle" for="verse-font-size">Verse size</label>
-            <input id="verse-font-size" type="range" min="16" max="24" step="1" value="18" aria-label="Verse text size">
-            <span id="verse-font-size-value" class="section-note">18px</span>
-          </div>
-          <div class="filter-actions audio-tools-row">
-            <label class="inline-toggle" for="tts-rate">Read-aloud speed</label>
-            <input id="tts-rate" type="range" min="0.5" max="1.5" step="0.1" value="1" aria-label="Read-aloud speed">
-            <span id="tts-rate-value" class="section-note">1.0x</span>
-            <label class="inline-toggle" for="tts-voice">Voice</label>
-            <select id="tts-voice" class="compact-select" aria-label="Read-aloud voice">
-              <option value="">System default</option>
-            </select>
-            <button id="tts-stop" type="button" class="btn btn-secondary btn-tts-stop hidden" aria-label="Stop read-aloud">Stop</button>
-          </div>
-          <p class="section-note audio-helper">Listen reads aloud here using your device's voice. KJV Audio opens Bible Gateway in a new tab.</p>
-          </details>
         </section>
         </details>
         <section id="patriotic-scriptures" class="patriotic-scriptures glass" role="region" aria-label="Patriotic Scriptures">

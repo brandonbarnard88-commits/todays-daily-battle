@@ -19,6 +19,9 @@ window.TDB_CONFIG = {
   // Battle Pro: $10/mo, $100/yr
   STRIPE_BATTLEPRO_MONTHLY_LINK: '',
   STRIPE_BATTLEPRO_YEARLY_LINK: '',
+  // Military discount: Battle Pro $1/mo, $10/yr
+  STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK: '',
+  STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK: '',
   // Church/Team: $10/mo, $100/yr (beta)
   STRIPE_CHURCH_LINK: '',
   STRIPE_CHURCH_MONTHLY_LINK: '',
@@ -44,7 +47,7 @@ window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '
 
 /**
  * Get Stripe Payment Link URL for a given tier and period.
- * @param {string} tier - 'supporter' | 'battle_pro' | 'church'
+ * @param {string} tier - 'supporter' | 'battle_pro' | 'battle_pro_military' | 'church'
  * @param {string} period - 'monthly' | 'yearly'
  * @returns {string} URL or '' if not set
  */
@@ -52,6 +55,7 @@ window.TDB_GET_STRIPE_LINK = function (tier, period) {
   var c = window.TDB_CONFIG || {};
   var key = tier === 'supporter' ? (period === 'yearly' ? 'STRIPE_SUPPORTER_YEARLY_LINK' : 'STRIPE_SUPPORTER_MONTHLY_LINK')
     : tier === 'battle_pro' ? (period === 'yearly' ? 'STRIPE_BATTLEPRO_YEARLY_LINK' : 'STRIPE_BATTLEPRO_MONTHLY_LINK')
+    : tier === 'battle_pro_military' ? (period === 'yearly' ? 'STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK' : 'STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK')
     : tier === 'church' ? (period === 'yearly' ? 'STRIPE_CHURCH_YEARLY_LINK' : 'STRIPE_CHURCH_MONTHLY_LINK')
     : '';
   if (!key) return '';

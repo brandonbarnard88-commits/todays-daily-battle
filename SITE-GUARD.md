@@ -19,12 +19,26 @@ When you step away, this is what’s already in place. Nothing here runs by itse
 
 ---
 
+## Risk summary (when you wonder “how safe is it?”)
+
+- **DDoS / overload:** Low. Small site; Supabase + host handle normal spikes. If it ever happens: Cloudflare free tier (DDoS + cache), ~10 min.
+- **SQL injection:** Very low. Supabase client uses prepared statements; RLS on all tables. No raw SQL from user input → RLS blocks, 403.
+- **Auth bypass:** Low. Supabase Auth + RLS (anon can’t SELECT sensitive data). No live keys in repo. Weak spot: skipped email verification → custom SMTP or OTP if you lock it down later.
+- **Secrets leak:** None if you keep keys in `config.js` (gitignore’d) and never push them. No `.env` on GitHub.
+- **XSS / CSRF:** Low. CSP (see above), no user HTML; intentions are text-only.
+- **Offline / local:** Negligible. LocalStorage only, no personal data; no sync without login.
+
+**Bottom line:** Safer than most indie sites—HTTPS, CSP, RLS, no ads/trackers. Biggest real risk: pushing live keys by accident. Don’t. If something breaks, use the checklist above and Supabase/Cloudflare status + logs.
+
+---
+
 ## If you’re worried when you come back
 
 1. **Site down or blank:** Check Cloudflare status, then your deployment (Pages → Deployments). Re-deploy or rollback if needed.
 2. **Counter wrong / “9” stuck:** Follow `PRAYER-COUNTER-SYNC.md` (DB count → RPC → RLS).
 3. **Styles blocked / CSP errors:** Follow `CLOUDFLARE-CSP-FIX.md` (add `'unsafe-inline'` to style-src in Cloudflare or remove the overriding CSP rule).
 4. **Auth or payments:** Check Supabase Auth and Stripe dashboard for errors; logs will point to the issue.
+5. **Link won't open for others:** See `LINK-SHARING-TROUBLESHOOTING.md`. Usually Cloudflare bot/challenge blocking in-app browsers; share `https://todaysdailybattle.com/` and relax Security Level or Bot Fight Mode if needed.
 
 ---
 

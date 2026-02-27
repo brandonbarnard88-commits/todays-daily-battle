@@ -10378,7 +10378,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (shareTodaysVerseBtn) {
     shareTodaysVerseBtn.addEventListener('click', function () {
       var ref = (currentDailyBattle && currentDailyBattle.ref) || (typeof getDailyVerseRef === 'function' ? getDailyVerseRef() : '') || 'Today\'s verse';
-      var text = ref + " - Today's battle. Join me? todaysdailybattle.com";
+      var verseLine = (currentDailyBattle && currentDailyBattle.verse) ? String(currentDailyBattle.verse).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60) : '';
+      if (verseLine && verseLine.length >= 50) verseLine = verseLine.slice(0, 57) + '…';
+      var text = (ref + ' – ' + (verseLine || 'Today\'s verse') + '. Built while sick—my reset. Join? todaysdailybattle.com').trim();
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(function () {
           if (typeof showEliteToast === 'function') showEliteToast('Copied—paste into X to share.');

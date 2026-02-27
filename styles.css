@@ -739,6 +739,26 @@ body {
 }
 .hero-search-stack .btn { min-width: 10rem; }
 
+/* Quick searches — visible under hero search */
+.quick-searches-wrap {
+  padding: 0 var(--space-lg) var(--space-lg);
+  text-align: center;
+}
+.quick-searches-label {
+  font-size: 0.95rem;
+  color: rgba(148, 163, 184, 0.85);
+  margin: 0 0 0.5rem;
+}
+.quick-actions-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.quick-actions-hero .btn { min-width: auto; }
+
 /* Hero verse — below search, big KJV, dark card */
 .hero-verse-wrap {
   padding: var(--space-xl) var(--space-lg);
@@ -843,6 +863,13 @@ body {
   list-style: none;
   user-select: none;
   transition: background 0.2s ease, color 0.2s ease;
+}
+@media (max-width: 768px) {
+  .home-accordion-summary {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: rgba(148, 163, 184, 0.95);
+  }
 }
 .home-accordion-summary::-webkit-details-marker { display: none; }
 .home-accordion-summary::after { content: ' ▼'; font-size: 0.75em; opacity: 0.7; }

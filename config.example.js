@@ -36,9 +36,11 @@ window.TDB_CONFIG = {
   STRIPE_CHURCH_YEARLY_LINK: '',
   CF_ANALYTICS_TOKEN: '',
   GA_MEASUREMENT_ID: '',
+  PLAUSIBLE_DOMAIN: '',
   GOOGLE_SITE_VERIFICATION: '',
   BATTLE_MUG_URL: '',
-  // Analytics: set CF_ANALYTICS_TOKEN (Cloudflare Web Analytics) and/or GA_MEASUREMENT_ID (Google Analytics 4). Search Console: set GOOGLE_SITE_VERIFICATION to the meta content value.
+  HERO_TAGLINE_URL: '',
+  // Analytics: set CF_ANALYTICS_TOKEN (Cloudflare Web Analytics), GA_MEASUREMENT_ID (Google Analytics 4), and/or PLAUSIBLE_DOMAIN (e.g. todaysdailybattle.com) for Plausible. Search Console: set GOOGLE_SITE_VERIFICATION.
   // Optional: POST uncaught errors here (e.g. Sentry or your backend). Payload: { message, stack, url }.
   ERROR_REPORT_URL: '',
   // Web Push: VAPID public key for 8 AM streak notifications. Generate with: npx web-push generate-vapid-keys

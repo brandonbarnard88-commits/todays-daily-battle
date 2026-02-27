@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="Daily KJV verse, prayer, and streak tracker to fight your battles—less scroll, more soul. Free.">
@@ -15,13 +15,13 @@
   <meta property="og:description" content="One verse, one moment, every day. The Bible companion that fills you up. Topic search, daily battle, streaks. Less scroll, more soul.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta property="og:image" content="https://todaysdailybattle.com/hero-sunrise-bible.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today's Daily Battle — The Bible Companion You'll Use Every Day">
   <meta name="twitter:description" content="One verse, one moment, every day. Less scroll, more soul. Topic search, streaks, tools for families and pastors.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/hero-sunrise-bible.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260228" as="style" nonce="tdb2025">
   <link rel="stylesheet" href="styles.css?v=20260228" nonce="tdb2025">
@@ -140,7 +140,7 @@
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <header class="hero-banner">
           <h1>Today's Daily Battle</h1>
-          <p class="hero-tagline hero-tagline-gold util-mb-2">Let's Make America God's Again.</p>
+          <p class="hero-tagline hero-tagline-gold util-mb-2"><a id="hero-tagline-america" class="hero-tagline-link" href="#">Let's Make America God's Again.</a></p>
           <p class="hero-tagline section-note util-mb-1_5">Less scroll, more soul.</p>
           <p id="hero-collective-intent" class="hero-collective-intent section-note hidden" aria-live="polite"></p>
           <p id="home-streak-badge" class="streak-badge hidden" aria-live="polite"></p>
@@ -332,6 +332,7 @@
           <div id="daily-battle-prayer" class="section-note"></div>
           <div id="daily-battle-red-letter" class="section-note"></div>
           <div id="daily-battle-next-steps" class="section-note daily-battle-next-steps" aria-live="polite"></div>
+          <p class="section-note util-mt-0_5"><button type="button" id="share-todays-verse-btn" class="btn btn-primary btn-small" aria-label="Share today's verse to X">Share today's verse</button></p>
           <div id="streak-counter-block" class="streak-counter-block glass">
             <span id="daily-battle-streak" class="streak-counter-text" aria-live="polite">Streak: 0 days</span>
             <p id="daily-battle-milestone" class="section-note streak-milestone" aria-live="polite"></p>

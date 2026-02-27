@@ -323,6 +323,14 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
     window.gtag('js', new Date());
     window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: true });
   }
+  var plausibleDomain = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PLAUSIBLE_DOMAIN) || '';
+  if (plausibleDomain) {
+    var p = document.createElement('script');
+    p.defer = true;
+    p.dataset.domain = plausibleDomain;
+    p.src = 'https://plausible.io/js/script.js';
+    document.head.appendChild(p);
+  }
 })();
 const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
 const OFFLINE_PREFETCH_LAST_KEY = 'tdb_offline_prefetch_last';
@@ -8894,6 +8902,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   var ob = document.getElementById('offline-banner');
   if (ob && navigator.onLine !== false) ob.classList.add('hidden');
+  var heroLink = document.getElementById('hero-tagline-america');
+  if (heroLink && window.TDB_CONFIG && window.TDB_CONFIG.HERO_TAGLINE_URL) heroLink.href = window.TDB_CONFIG.HERO_TAGLINE_URL;
   initSupabaseClient();
   runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
@@ -10355,6 +10365,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (shareToIgEl) shareToIgEl.addEventListener('click', function () { copyDailyBattleForInstagram(); });
   var shareToWaEl = document.getElementById('share-daily-to-whatsapp');
   if (shareToWaEl) shareToWaEl.addEventListener('click', function (e) { if (!this.getAttribute('href') || this.getAttribute('href') === '#') e.preventDefault(); });
+
+  var shareTodaysVerseBtn = document.getElementById('share-todays-verse-btn');
+  if (shareTodaysVerseBtn) {
+    shareTodaysVerseBtn.addEventListener('click', function () {
+      var ref = (currentDailyBattle && currentDailyBattle.ref) || (typeof getDailyVerseRef === 'function' ? getDailyVerseRef() : '') || 'Today\'s verse';
+      var text = ref + " - Today's battle. Join me? todaysdailybattle.com";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          if (typeof showEliteToast === 'function') showEliteToast('Copied—paste into X to share.');
+        }).catch(function () {});
+      }
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+      if (typeof trackEvent === 'function') trackEvent('share_todays_verse', { ref: ref });
+    });
+  }
 
   var shareMyStreakBtn = document.getElementById('share-my-streak');
   if (shareMyStreakBtn) {

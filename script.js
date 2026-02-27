@@ -44,6 +44,7 @@ function truncateForDb(str, maxLen) {
   if (maxLen != null && s.length > maxLen) return s.slice(0, maxLen);
   return s;
 }
+window.addEventListener('online', function () {
   document.getElementById('offline-banner')?.classList.add('hidden');
   if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
 });

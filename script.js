@@ -2309,8 +2309,8 @@ function wireDownloadDevotionalButton() {
 }
 
 function latLngToSvgPoint(lat, lng, viewBoxWidth, viewBoxHeight) {
-  viewBoxWidth = viewBoxWidth || 495;
-  viewBoxHeight = viewBoxHeight || 266;
+  viewBoxWidth = viewBoxWidth || 494.7;
+  viewBoxHeight = viewBoxHeight || 265.7;
   var x = (lng + 180) * (viewBoxWidth / 360);
   var y = (90 - lat) * (viewBoxHeight / 180);
   return { x: x, y: y };
@@ -2329,7 +2329,7 @@ function wirePrayerMap() {
     container.style.backgroundRepeat = 'no-repeat';
     var svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('class', 'prayer-map-svg');
-    svg.setAttribute('viewBox', '0 0 495 266');
+    svg.setAttribute('viewBox', '0 0 494.7 265.7');
     svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
     svg.setAttribute('aria-hidden', 'true');
     var defs = document.createElementNS(svgNS, 'defs');

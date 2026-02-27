@@ -20,6 +20,19 @@ $$;
 GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO anon;
 GRANT EXECUTE ON FUNCTION public.get_total_prayer_count() TO authenticated;
 
+-- -----------------------------------------------------------------------------
+-- If ♥ taps don't stick: anon needs explicit INSERT policy + GRANT.
+-- Run this block so quick-pray (anonymous) inserts are allowed.
+-- -----------------------------------------------------------------------------
+ALTER TABLE public.prayers ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "prayers_anon_insert" ON public.prayers;
+DROP POLICY IF EXISTS "prayers_insert_anon" ON public.prayers;
+CREATE POLICY "prayers_anon_insert" ON public.prayers
+  FOR INSERT TO anon WITH CHECK (true);
+
+GRANT INSERT ON public.prayers TO anon;
+
 -- Optional: if you need more rows to reach 14, run the block below once (adds 5).
 -- INSERT INTO public.prayers (intent, created_at)
 -- VALUES

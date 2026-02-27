@@ -3202,6 +3202,7 @@ function wireSilentOffering() {
       supabaseClient.from('prayers').insert(payload).then(function (r) {
         if (!r.error) {
           if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+          if (typeof window.updateLastPrayerBadge === 'function') window.updateLastPrayerBadge();
           if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
           if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
           if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
@@ -9876,13 +9877,21 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (familyName) payload.family_name = familyName;
       function onInsertDone(isFirst) {
         if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+        if (typeof window.updateLastPrayerBadge === 'function') window.updateLastPrayerBadge();
+        var badge = document.getElementById('last-prayer-badge');
+        var agoEl = document.getElementById('last-prayer-ago');
+        if (badge && agoEl) {
+          agoEl.textContent = 'just now';
+          badge.classList.remove('hidden');
+          badge.style.display = '';
+        }
         if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
         try { sessionStorage.setItem('tdb_just_prayed', String(Date.now())); } catch (e) {}
         if (isFirst) {
           try { localStorage.setItem('tdb_first_prayer_today', getDailyKey()); } catch (e) {}
           if (typeof showEliteToast === 'function') showEliteToast('You were the first to pray today.');
           updateFirstPrayerBadge();
-        }
+        } else if (typeof showEliteToast === 'function') showEliteToast('Amen—added!');
       }
       if (navigator.onLine && supabaseClient) {
         if (useSubmitPrayer && turnstileToken) {

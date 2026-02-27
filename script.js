@@ -9476,11 +9476,13 @@ document.addEventListener('DOMContentLoaded', async () => {
           out.style.display = 'grid';
           out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
+        if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);
       } finally {
         if (loadingEl) loadingEl.style.display = 'none';
       }
     }, 150);
   }
+  window.runSearchWithInput = runSearchWithInput;
 
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {
@@ -9577,10 +9579,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   const quickTopics = document.querySelectorAll('.quick-topic');
   function runQuickTopicSearch(topic) {
     if (!topic) return;
-    var queryEl = document.getElementById('query');
-    if (queryEl) queryEl.value = topic;
-    if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
-    runSearchWithInput(topic);
+    try {
+      var queryEl = document.getElementById('query');
+      if (queryEl) queryEl.value = topic;
+      if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
+      runSearchWithInput(topic);
+    } catch (err) {
+      if (typeof console !== 'undefined' && console.error) console.error('TDB quick topic error:', err);
+    }
   }
   if (quickTopics.length) {
     quickTopics.forEach(btn => {
@@ -9593,11 +9599,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   document.body.addEventListener('click', function quickTopicDelegated(e) {
-    const btn = e.target && e.target.closest && e.target.closest('.quick-topic');
-    if (!btn || !btn.getAttribute('data-topic')) return;
+    var btn = (e.target && e.target.closest && e.target.closest('.quick-topic')) || (e.target && e.target.closest && e.target.closest('[data-topic]'));
+    if (!btn) return;
+    var topic = btn.getAttribute('data-topic');
+    if (!topic) return;
     e.preventDefault();
     e.stopPropagation();
-    const topic = btn.getAttribute('data-topic');
     runQuickTopicSearch(topic);
   }, true);
 

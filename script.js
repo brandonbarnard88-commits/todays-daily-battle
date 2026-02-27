@@ -9504,19 +9504,33 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   const quickTopics = document.querySelectorAll('.quick-topic');
+  function runQuickTopicSearch(topic) {
+    const queryEl = document.getElementById('query');
+    const searchBtnEl = document.getElementById('search-btn');
+    if (queryEl && topic && searchBtnEl) {
+      queryEl.value = topic;
+      if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
+      searchBtnEl.click();
+    }
+  }
   if (quickTopics.length) {
     quickTopics.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const topic = btn.getAttribute('data-topic');
-        const queryEl = document.getElementById('query');
-        if (queryEl && topic) {
-          queryEl.value = topic;
-          if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
-          searchBtn?.click();
-        }
+        runQuickTopicSearch(topic);
       });
     });
   }
+
+  document.body.addEventListener('click', function quickTopicDelegated(e) {
+    const btn = e.target && e.target.closest && e.target.closest('.quick-topic');
+    if (!btn || !btn.getAttribute('data-topic')) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const topic = btn.getAttribute('data-topic');
+    runQuickTopicSearch(topic);
+  }, true);
 
   const dailyBtn = document.getElementById('daily-btn');
   if (dailyBtn) {

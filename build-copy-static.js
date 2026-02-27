@@ -91,6 +91,7 @@ for (const f of rootFiles) {
 const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f));
 for (const f of otherHtml) {
   copyFile(path.join(root, f), path.join(dist, f));
+  if (f === 'index.html') console.log('Copied index.html (hero + quick-search row) to dist/');
 }
 
 if (fs.existsSync(path.join(root, 'vendor'))) {

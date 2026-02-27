@@ -1415,6 +1415,8 @@ const STRIPE_SUPPORTER_MONTHLY_URL = (_cfg && (_cfg.STRIPE_SUPPORTER_MONTHLY_URL
 const STRIPE_SUPPORTER_YEARLY_URL = (_cfg && (_cfg.STRIPE_SUPPORTER_YEARLY_URL || _cfg.STRIPE_SUPPORTER_YEARLY_LINK)) || '';
 const STRIPE_BATTLEPRO_MONTHLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MONTHLY_URL || _cfg.STRIPE_BATTLEPRO_MONTHLY_LINK)) || '';
 const STRIPE_BATTLEPRO_YEARLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_YEARLY_URL || _cfg.STRIPE_BATTLEPRO_YEARLY_LINK)) || '';
+const STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL || _cfg.STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK)) || '';
+const STRIPE_BATTLEPRO_MILITARY_YEARLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MILITARY_YEARLY_URL || _cfg.STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK)) || '';
 const STRIPE_CHURCH_MONTHLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_MONTHLY_URL || _cfg.STRIPE_CHURCH_MONTHLY_LINK)) || (_cfg && _cfg.STRIPE_CHURCH_LINK) || '';
 const STRIPE_CHURCH_YEARLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_YEARLY_URL || _cfg.STRIPE_CHURCH_YEARLY_LINK)) || '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
@@ -2337,6 +2339,8 @@ function wireBattleProUpgradeModal() {
       else if (plan === 'supporter' && interval === 'yearly') url = typeof STRIPE_SUPPORTER_YEARLY_URL !== 'undefined' ? STRIPE_SUPPORTER_YEARLY_URL : '';
       else if (plan === 'battlepro' && interval === 'monthly') url = typeof STRIPE_BATTLEPRO_MONTHLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_MONTHLY_URL : '';
       else if (plan === 'battlepro' && interval === 'yearly') url = typeof STRIPE_BATTLEPRO_YEARLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_YEARLY_URL : '';
+      else if (plan === 'battlepro_military' && interval === 'monthly') url = typeof STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL : '';
+      else if (plan === 'battlepro_military' && interval === 'yearly') url = typeof STRIPE_BATTLEPRO_MILITARY_YEARLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_MILITARY_YEARLY_URL : '';
       else if (plan === 'church' && interval === 'monthly') url = typeof STRIPE_CHURCH_MONTHLY_URL !== 'undefined' ? STRIPE_CHURCH_MONTHLY_URL : '';
       else if (plan === 'church' && interval === 'yearly') url = typeof STRIPE_CHURCH_YEARLY_URL !== 'undefined' ? STRIPE_CHURCH_YEARLY_URL : '';
       if (url) window.location.href = url;
@@ -3863,12 +3867,32 @@ function bumpStat(key) {
   saveStats(stats);
 }
 
+/**
+ * SEARCH ANALYTICS — USER SAFETY IS THE KEY (DO NOT CHANGE)
+ * This is a safe place. We NEVER send who searched (no user ID, email, IP, or any identifier).
+ * We NEVER send raw search query text (what the user typed).
+ * We ONLY send: topic (known topic key, e.g. "hope", "anxiety") or search_type ("keyword").
+ * This protects users from data breaches. Any change that adds query, user_id, email, or
+ * similar to search analytics is forbidden. Use trackSearchAnalytics() for all search-related events.
+ * See PRIVACY-ANALYTICS.md.
+ */
+function trackSearchAnalytics(eventName, params) {
+  if (eventName !== 'quick_search' && eventName !== 'search_query') return;
+  var safe = {};
+  if (params && typeof params === 'object') {
+    if (params.topic != null && typeof params.topic === 'string') safe.topic = params.topic;
+    if (params.search_type != null && typeof params.search_type === 'string') safe.search_type = params.search_type;
+  }
+  trackEvent(eventName, safe);
+}
+
 function trackEvent(eventName, params) {
   bumpStat(eventName);
   if (typeof window.gtag === 'function' && GA_MEASUREMENT_ID) {
     window.gtag('event', eventName, params || {});
   }
 }
+// For search analytics (quick_search, search_query) use trackSearchAnalytics() only — it enforces the allowlist. See PRIVACY-ANALYTICS.md.
 
 function loadMessageDisplayName() {
   return safeGetItem(MESSAGE_NAME_KEY) || '';
@@ -8837,8 +8861,29 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (quickActions) {
     var buttons = Array.from(quickActions.querySelectorAll('.btn'));
     if (buttons.length > 1) {
-      shuffleArray(buttons);
-      buttons.forEach(function (el) { quickActions.appendChild(el); });
+      var weekEpoch = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
+      var firstTopics = ['free will', 'hope', 'fear', 'anxiety', 'forgiveness', 'strength', 'grief', 'heartache'];
+      var topicIndex = weekEpoch % firstTopics.length;
+      var firstTopic = firstTopics[topicIndex];
+      var firstBtn = buttons.find(function (el) {
+        var t = (el.getAttribute('data-topic') || '').trim().toLowerCase();
+        return t === firstTopic;
+      });
+      if (!firstBtn) firstBtn = buttons.find(function (el) {
+        var t = (el.getAttribute('data-topic') || '').trim().toLowerCase();
+        return t === 'free will';
+      }) || buttons[0];
+      var rest = buttons.filter(function (el) { return el !== firstBtn; });
+      shuffleArray(rest);
+      quickActions.innerHTML = '';
+      firstBtn.classList.remove('btn-secondary');
+      firstBtn.classList.add('btn-primary');
+      quickActions.appendChild(firstBtn);
+      rest.forEach(function (el) {
+        el.classList.remove('btn-primary');
+        el.classList.add('btn-secondary');
+        quickActions.appendChild(el);
+      });
     }
   }
   document.querySelectorAll('.content-inner .list').forEach(function (listEl) {
@@ -9204,7 +9249,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (cacheKey) searchCache.set(cacheKey, results);
             renderResults(results);
           }
-          if (input && typeof trackEvent === 'function') trackEvent('search_query', { query: input, topic: searchTopic });
+          if (input && typeof trackSearchAnalytics === 'function') {
+            var params = {};
+            if (searchTopic) params.topic = searchTopic;
+            else params.search_type = 'keyword';
+            trackSearchAnalytics('search_query', params);
+          }
           await renderDailyBattleCard();
         } catch (err) {
           var out = document.getElementById('output');
@@ -9250,6 +9300,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const queryEl = document.getElementById('query');
         if (queryEl && topic) {
           queryEl.value = topic;
+          if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
           searchBtn?.click();
         }
       });

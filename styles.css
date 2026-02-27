@@ -3310,6 +3310,14 @@ body.red-letter-off .red-letter-card {
 .dark-mode .section-note {
   color: #e0e0e0;
 }
+
+.search-privacy-note {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.92;
+}
+.search-privacy-note a { text-decoration: underline; }
+
 /* Dark mode: bump contrast so text doesn't wash out (was #ccc-ish) */
 .dark-mode {
   --text-muted: #e0e0e0;

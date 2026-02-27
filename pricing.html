@@ -98,7 +98,7 @@
           <h2 class="section-divider">Plans</h2>
           <p class="section-note">Less scroll, more soul. Choose the plan that fits—free is enough to build a daily habit you'll love.</p>
           <p id="pricing-availability-note" class="section-note"></p>
-          <p class="section-note pricing-beta-banner" style="margin-top: 0.25rem; margin-bottom: 0.75rem; padding: 0.75rem 1rem; background: rgba(212, 175, 55, 0.12); border-radius: 10px; border-left: 4px solid var(--elite-gold);"><strong>Beta pricing on all paid plans.</strong> Lock in Supporter $5/mo (reg $10), Battle Pro $10/mo, Church $10/mo (reg $20). Your rate stays as long as you stay subscribed.</p>
+          <p class="section-note pricing-beta-banner" style="margin-top: 0.25rem; margin-bottom: 0.75rem; padding: 0.75rem 1rem; background: rgba(212, 175, 55, 0.12); border-radius: 10px; border-left: 4px solid var(--elite-gold);"><strong>Beta pricing on all paid plans.</strong> Lock in Supporter $5/mo (reg $10), Battle Pro $10/mo, Church $10/mo (reg $20). <strong>Military:</strong> Battle Pro $1/mo or $10/yr for active duty &amp; veterans. Your rate stays as long as you stay subscribed.</p>
           <p id="pricing-launch-perk" class="section-note pricing-launch-perk-bold" style="margin-top: 0.25rem;"><strong>First 50 subscribers: 1 month free.</strong> Subscribers 50–100: exclusive devotional.</p>
           <div class="pricing-grid">
             <div class="pricing-card">
@@ -168,6 +168,19 @@
               </div>
             </div>
             <div class="pricing-card">
+              <h3>Battle Pro — Military</h3>
+              <p class="price">$1/mo or $10/yr</p>
+              <p class="section-note" style="margin-top: 0.25rem; margin-bottom: 0.75rem;">Full Battle Pro for active duty &amp; veterans. Same benefits—Wins Report, offline, premium devotionals.</p>
+              <ul class="pricing-list">
+                <li>Everything in Battle Pro</li>
+                <li>Wins Report, offline PDFs, premium devotionals</li>
+              </ul>
+              <div class="cta-group">
+                <button class="btn btn-secondary" id="pricing-battlepro-military-monthly" type="button">Subscribe $1/mo</button>
+                <button class="btn btn-secondary" id="pricing-battlepro-military-yearly" type="button">Subscribe $10/yr</button>
+              </div>
+            </div>
+            <div class="pricing-card">
               <h3>Church/Team</h3>
               <p class="price">$10/mo or $100/yr <span class="pricing-beta-tag">beta price</span></p>
               <p class="section-note pricing-strike" style="margin-top: 0.15rem;">Regular $20/mo · $200/yr after launch.</p>
@@ -227,6 +240,7 @@
           <div class="cta-group" style="margin-top: 1rem; flex-wrap: wrap;">
             <button class="btn btn-secondary" id="battle-pro-supporter-btn" type="button" aria-label="Subscribe Supporter">Supporter — $5/mo (beta)</button>
             <button class="btn btn-primary" id="battle-pro-battlepro-btn" type="button" aria-label="Subscribe Battle Pro">Battle Pro — $10/mo (beta)</button>
+            <button class="btn btn-secondary" id="battle-pro-military-btn" type="button" aria-label="Subscribe Battle Pro Military">Military — $1/mo</button>
             <button class="btn btn-secondary" id="battle-pro-church-btn" type="button" aria-label="Subscribe Church">Church — $10/mo (beta)</button>
           </div>
           <p id="battle-pro-stripe-note" class="section-note" style="margin-top: 0.75rem; display: none;"></p>
@@ -296,6 +310,16 @@
           else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_MONTHLY_LINK to config.js to enable Battle Pro checkout.'; noteEl.style.display = 'block'; }
         });
       }
+      var militaryBtn = document.getElementById('battle-pro-military-btn');
+      if (militaryBtn) {
+        militaryBtn.addEventListener('click', function() {
+          var militaryLink = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK || '';
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') {
+            window.TDB_GO_TO_CHECKOUT('battle_pro_military', 'monthly');
+          } else if (militaryLink) window.location.href = militaryLink;
+          else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK to config.js for military discount.'; noteEl.style.display = 'block'; }
+        });
+      }
       if (churchBtn) {
         churchBtn.addEventListener('click', function() {
           if (typeof window.TDB_GO_TO_CHECKOUT === 'function') {
@@ -316,6 +340,20 @@
         pricingBattleProYearly.addEventListener('click', function() {
           if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('battle_pro', 'yearly'); }
           else { var link = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_YEARLY_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_YEARLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
+        });
+      }
+      var pricingBattleProMilitaryMonthly = document.getElementById('pricing-battlepro-military-monthly');
+      var pricingBattleProMilitaryYearly = document.getElementById('pricing-battlepro-military-yearly');
+      if (pricingBattleProMilitaryMonthly) {
+        pricingBattleProMilitaryMonthly.addEventListener('click', function() {
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('battle_pro_military', 'monthly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
+        });
+      }
+      if (pricingBattleProMilitaryYearly) {
+        pricingBattleProMilitaryYearly.addEventListener('click', function() {
+          if (typeof window.TDB_GO_TO_CHECKOUT === 'function') { window.TDB_GO_TO_CHECKOUT('battle_pro_military', 'yearly'); }
+          else { var link = (window.TDB_CONFIG || {}).STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK || ''; if (link) window.location.href = link; else if (noteEl) { noteEl.textContent = 'Add STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK to config.js.'; noteEl.style.display = 'block'; } }
         });
       }
       var pricingSupporterMonthly = document.getElementById('pricing-supporter-monthly');

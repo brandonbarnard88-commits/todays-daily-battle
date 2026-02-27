@@ -2,7 +2,7 @@
 
 - **Stack:** Vanilla JS only. No React/Vue/frameworks. Static HTML/CSS, script.js, Supabase (auth + optional sync).
 - **Auth & data:** Supabase Auth and Supabase tables (see SUPABASE-SYNC-TABLES.md). Do not introduce Firebase/Firestore unless explicitly requested.
-- **Analytics:** Use existing `trackEvent(eventName, params)` for GA4. Add events for new features (e.g. sync_completed, offline_view).
+- **Analytics:** Use existing `trackEvent(eventName, params)` for GA4. For search-related events use ONLY `trackSearchAnalytics(eventName, params)` — see PRIVACY-ANALYTICS.md. Never send raw query text or user identity in search analytics.
 - **UI:** Minimalist, mobile-first, serene (dark mode, soft blues/grays). Avoid clutter; use subtle CSS transitions. Match existing patterns in index.html and styles.css.
 - **Workflow:** Plan in phases before coding. Prefer small, reviewable diffs. Handle offline and errors gracefully. Suggest security (e.g. RLS) in comments.
 - **Files:** Core logic in script.js; new pages only when necessary. Reference @script.js @index.html @SUPABASE-SYNC-TABLES.md when adding sync/auth/features.

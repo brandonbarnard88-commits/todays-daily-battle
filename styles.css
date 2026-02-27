@@ -1942,6 +1942,19 @@ h1 {
     0 0 40px rgba(212, 175, 55, 0.06);
 }
 
+.featured-story-card {
+  padding: var(--space-l) var(--space-xl);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--elite-gold, #d4af37);
+  background: rgba(255, 255, 255, 0.03);
+}
+.dark-mode .featured-story-card {
+  background: rgba(15, 23, 42, 0.4);
+}
+.featured-story-quote { font-style: italic; margin: 0 0 0.25rem; }
+.featured-story-attribution { margin: 0; opacity: 0.9; }
+.last-prayer-badge { margin-top: 0.25rem; }
+
 /* Gold-tier cards: gold frame, jewel glow on hover */
 .card-gold { border: 1px solid var(--elite-gold-dim); }
 .card-gold-inner { border: 1px solid rgba(212, 175, 55, 0.25); border-radius: var(--radius-md); }
@@ -3317,28 +3330,6 @@ body.red-letter-off .red-letter-card {
   opacity: 0.92;
 }
 .search-privacy-note a { text-decoration: underline; }
-
-/* Mood picker: How are you feeling? */
-.mood-picker-section { margin-top: 1rem; }
-.mood-picker-title { font-size: 1.1rem; margin-bottom: 0.35rem; }
-.mood-picker-intro { margin-bottom: 0.75rem; }
-.mood-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
-.mood-chip { font-size: 0.95rem; }
-.mood-result { margin-top: 1rem; padding: 1rem; background: rgba(212, 175, 55, 0.08); border-radius: 12px; border-left: 3px solid var(--elite-gold); }
-.mood-result-verse { font-family: var(--font-serif); font-size: 1.05rem; margin-bottom: 0.5rem; }
-.mood-result-prayer { margin: 0.5rem 0 0.35rem; font-style: italic; }
-.mood-result.hidden { display: none !important; }
-
-/* Hero social proof */
-.hero-social-proof { opacity: 0.9; font-size: 0.95rem; }
-
-/* Floating Add to Home Screen pill */
-.install-pill { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); z-index: 9999; display: none; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 999px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-.install-pill.show { display: flex; }
-.install-pill .install-pill-text { font-size: 0.9rem; color: #e2e8f0; }
-.install-pill .install-pill-btn { padding: 0.35rem 0.75rem; font-size: 0.85rem; border-radius: 999px; background: var(--elite-gold); color: #0f172a; border: none; cursor: pointer; font-weight: 600; }
-.install-pill .install-pill-btn:hover { opacity: 0.95; }
-.install-pill .install-pill-dismiss { background: transparent; color: #94a3b8; border: none; cursor: pointer; padding: 0.25rem; font-size: 1.1rem; line-height: 1; }
 
 /* Dark mode: bump contrast so text doesn't wash out (was #ccc-ish) */
 .dark-mode {

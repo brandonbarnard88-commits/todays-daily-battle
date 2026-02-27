@@ -53,6 +53,7 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: "Failed to read body" }, 400);
   }
 
+  // Security: always verify webhook signature; never process events without valid HMAC.
   let event: Stripe.Event;
   try {
     event = await stripe.webhooks.constructEventAsync(body, signature, webhookSecret);

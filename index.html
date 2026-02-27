@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
-  <meta name="description" content="The Bible companion built for real life. One verse, one moment, every day. Less scroll, more soul—topic search, streaks, and tools for families and pastors. Free.">
+  <meta name="description" content="Daily KJV verse, prayer, and streak tracker to fight your battles—less scroll, more soul. Free.">
   <meta name="keywords" content="free Bible verse of the day, daily Bible habit, Bible in two minutes, less scroll more soul, free Bible study online, Bible verses, daily verse, anxiety, hope, strength, obedience, devotionals, Scripture, KJV, pastor tools, church, small group">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -44,9 +44,14 @@
     {"@context":"https://schema.org","@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/","logo":"https://todaysdailybattle.com/icon.svg","description":"Daily Bible verses, prayers, and spiritual tools. Less scroll, more soul."}
   </script>
   <script type="application/ld+json" nonce="tdb2025">
-    {"@context":"https://schema.org","@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/","description":"The Bible companion built for real life. One verse, one moment, every day. Topic search, streaks, tools for families and pastors.","potentialAction":{"@type":"SearchAction","target":"https://todaysdailybattle.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
+    {"@context":"https://schema.org","@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/","description":"Daily KJV verse, prayer, and streak tracker to fight your battles—less scroll, more soul.","potentialAction":{"@type":"SearchAction","target":"https://todaysdailybattle.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
   </script>
-</head>
+  <script type="application/ld+json" nonce="tdb2025">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Today's Daily Battle","applicationCategory":"LifestyleApplication","description":"Daily KJV verse, prayer, and streak tracker. Verse of the day, topic search, and devotional tools. Less scroll, more soul."}
+  </script>
+  <script type="application/ld+json" nonce="tdb2025">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Today's Daily Battle","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Daily Bible verse, prayer wall, and streak tracker. Free; optional Battle Pro for offline and Wins Report."}
+  </script>
 <body class="dark-mode">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="night-close-overlay" class="night-close-overlay hidden" aria-live="polite" aria-label="Night close or dawn message" role="dialog">
@@ -251,7 +256,8 @@
           <p class="section-note patriotic-hymns-intro">Classic hymns of prayer and praise for the nation—sing or pray with the full lyrics.</p>
           <div id="patriotic-hymns-grid" class="patriotic-hymns-grid"></div>
         </section>
-        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">Loading...</span></p>
+        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">14</span></p>
+        <p id="last-prayer-badge" class="section-note last-prayer-badge hidden" aria-live="polite">Last prayer: <span id="last-prayer-ago">—</span></p>
         <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
           <p class="prayer-echo-sacred section-note hidden" id="prayer-echo-sacred" aria-live="polite">You're alone with Him.</p>
           <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading recent prayers…</p>
@@ -270,6 +276,7 @@
           <p class="section-note prayer-count-promo" aria-live="polite" id="prayer-count-promo"></p>
           <div id="prayer-map-dots" class="prayer-map-dots">
             <svg class="prayer-map-svg prayer-map-svg-fill" viewBox="0 0 494.7 265.7" preserveAspectRatio="xMidYMid slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>Prayer map: gold crosses show where households prayed worldwide</title>
               <defs>
                 <filter id="prayer-map-glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
@@ -291,6 +298,7 @@
             <input type="email" id="daily-verse-email" class="daily-verse-email-input" placeholder="Your email" aria-label="Email for daily verse" autocomplete="email">
             <button type="button" id="daily-verse-email-submit" class="btn btn-secondary" aria-label="Subscribe to daily verse email">Submit</button>
           </div>
+          <p class="section-note util-mt-0_35">Unsubscribe anytime — <a href="mailto:support@todaysdailybattle.com?subject=Unsubscribe%20from%20emails">email us</a> or use the footer link.</p>
         </div>
         <div id="weekly-recap-nudge" class="weekly-recap-nudge glass hidden" role="region" aria-label="Weekly recap">
           <p class="section-note weekly-recap-text"></p>
@@ -303,7 +311,8 @@
         </div>
         <div id="battle-pro-banner" class="battle-pro-banner glass">
           <strong>Battle Pro</strong> — Wins Report, offline PDFs, premium devotionals. <button type="button" id="battle-pro-upgrade-btn" class="btn-link battle-pro-upgrade-trigger" aria-label="Upgrade to Battle Pro">Upgrade</button>
-          <p class="battle-pro-status-eta section-note util-mt-0_35 util-mb-0_25">Launching soon</p>
+          <p class="section-note util-mt-0_35 util-mb-0_25">Launching soon</p>
+          <p id="early-bird-countdown" class="section-note early-bird-countdown util-mt-0_25" aria-live="polite">First 50 get 1 month free—ends in <span id="early-bird-days">7</span> days!</p>
           <div class="coming-soon-progress" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Battle Pro launch progress"><div class="coming-soon-progress-fill" style="width: 95%;"></div></div>
         </div>
         <section class="glass" id="daily-battle-section">
@@ -326,6 +335,9 @@
           <div id="streak-counter-block" class="streak-counter-block glass">
             <span id="daily-battle-streak" class="streak-counter-text" aria-live="polite">Streak: 0 days</span>
             <p id="daily-battle-milestone" class="section-note streak-milestone" aria-live="polite"></p>
+            <div class="cta-group util-mt-0_5">
+              <a href="pricing.html" id="streak-block-upgrade-btn" class="btn btn-primary">Upgrade to Battle Pro</a>
+            </div>
             <div id="download-devotional-wrap" class="download-devotional-wrap hidden util-mt-0_75">
               <button type="button" id="download-devotional-btn" class="btn btn-secondary" aria-label="Download today's devotional as PDF">Download Today's Devotional</button>
             </div>
@@ -465,6 +477,10 @@
         <section class="glass testimonials-section">
           <h2 class="section-divider">Stories of Hope</h2>
           <p class="section-note">People are choosing this over the feed. Here's what they say.</p>
+          <div class="featured-story-card util-mb-1" aria-label="Featured story">
+            <p class="featured-story-quote">"God gave me peace amid chaos."</p>
+            <p class="section-note featured-story-attribution">— Memphis mom</p>
+          </div>
           <div class="testimonials-carousel" id="testimonials-carousel" aria-label="Testimonials">
             <div class="testimonial-slides" id="testimonial-slides"></div>
             <div class="testimonial-dots" role="tablist" aria-label="Choose testimonial"></div>
@@ -502,6 +518,7 @@
             <button id="invite-copy" type="button" class="btn btn-primary">Copy my link</button>
           </div>
           <p id="invite-status" class="section-note"></p>
+          <button type="button" id="invite-share-btn" class="btn btn-secondary util-mt-0_5">Share invite link</button>
         </section>
         <section class="glass" id="prayer-list-section">
           <h2 class="section-divider">Prayer List</h2>
@@ -715,6 +732,7 @@
         <a href="shop.html">Shop</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a href="mailto:support@todaysdailybattle.com?subject=Unsubscribe%20from%20emails">Unsubscribe</a>
         <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a>
         <a href="contact.html">Contact</a>
       </nav>

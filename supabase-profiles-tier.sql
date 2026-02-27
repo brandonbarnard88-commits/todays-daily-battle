@@ -25,17 +25,17 @@ DROP POLICY IF EXISTS "profiles_update_own" ON public.profiles;
 CREATE POLICY "profiles_update_own" ON public.profiles
   FOR UPDATE USING (auth.uid() = id) WITH CHECK (auth.uid() = id);
 
--- Webhook (service role) needs to INSERT or UPDATE by user_id; allow insert for new users, update for tier
+-- Webhook (service role) needs to INSERT or UPDATE by user_id; allow insert for new users, update for tier.
+-- CRITICAL: Only service_role may INSERT/UPDATE (TO service_role) so tier cannot be set from client.
 DROP POLICY IF EXISTS "profiles_insert_service" ON public.profiles;
 CREATE POLICY "profiles_insert_service" ON public.profiles
-  FOR INSERT WITH CHECK (true);
+  FOR INSERT TO service_role WITH CHECK (true);
 
 DROP POLICY IF EXISTS "profiles_update_service" ON public.profiles;
 CREATE POLICY "profiles_update_service" ON public.profiles
-  FOR UPDATE USING (true) WITH CHECK (true);
+  FOR UPDATE TO service_role USING (true) WITH CHECK (true);
 
 GRANT SELECT, UPDATE ON public.profiles TO authenticated;
 GRANT SELECT, INSERT, UPDATE ON public.profiles TO service_role;
 
 -- Optional: ensure a row exists for each auth user (trigger from auth.users)
--- If you use Supabase Auth "Create profile on signup" trigger, it may already insert; otherwise webhook can upsert.

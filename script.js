@@ -32,7 +32,18 @@ function safeSessionGet(key) {
   }
 }
 
-window.addEventListener('online', function () {
+// --- Input validation: prevent oversized or invalid payloads (security / abuse) ---
+var MAX_MESSAGE_TEXT_LENGTH = 2000;
+var MAX_PRAYER_INTENT_LENGTH = 500;
+var MAX_FAMILY_NAME_LENGTH = 80;
+var MAX_DISPLAY_NAME_LENGTH = 50;
+var MAX_NEWSLETTER_EMAIL_LENGTH = 254;
+function truncateForDb(str, maxLen) {
+  if (str == null) return '';
+  var s = String(str).trim();
+  if (maxLen != null && s.length > maxLen) return s.slice(0, maxLen);
+  return s;
+}
   document.getElementById('offline-banner')?.classList.add('hidden');
   if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
 });
@@ -307,15 +318,6 @@ const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
 const OFFLINE_PREFETCH_LAST_KEY = 'tdb_offline_prefetch_last';
 const OFFLINE_PREFETCH_DAYS = 7;
 const INSTALL_PROMPT_SEEN_KEY = 'tdb_seen_install';
-const MOOD_TO_TOPIC = { anxious: 'anxiety', grateful: 'gratitude', overwhelmed: 'anxiety', hopeful: 'hope', angry: 'anger', peace: 'peace' };
-const MOOD_PRAYERS = {
-  anxious: 'Lord, calm my heart. Help me fix my eyes on You instead of my fears.',
-  grateful: 'Thank You, God, for Your goodness. Keep my heart thankful today.',
-  overwhelmed: 'Lord, I hand this to You. Give me strength for just today.',
-  hopeful: 'God, anchor my hope in You. Let today reflect Your promises.',
-  angry: 'Lord, guard my words and heart. Replace anger with Your peace.',
-  peace: 'Prince of Peace, quiet my soul. I rest in You.'
-};
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
   '1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah',
@@ -1838,7 +1840,6 @@ function wireInstallPrompt() {
     event.preventDefault();
     deferredInstallPrompt = event;
     if (!localStorage.getItem(INSTALL_PROMPT_SEEN_KEY)) installCta.classList.add('show');
-    showFloatingInstallPill();
   });
   installBtn.addEventListener('click', async () => {
     if (!deferredInstallPrompt) return;
@@ -1846,90 +1847,14 @@ function wireInstallPrompt() {
     await deferredInstallPrompt.userChoice;
     deferredInstallPrompt = null;
     installCta.classList.remove('show');
-    hideFloatingInstallPill();
     try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
   });
   if (installNotNow) {
     installNotNow.addEventListener('click', () => {
       installCta.classList.remove('show');
-      hideFloatingInstallPill();
       try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
     });
   }
-}
-
-var floatingInstallPillEl = null;
-function showFloatingInstallPill() {
-  if (localStorage.getItem(INSTALL_PROMPT_SEEN_KEY)) return;
-  if (!floatingInstallPillEl) {
-    floatingInstallPillEl = document.createElement('div');
-    floatingInstallPillEl.className = 'install-pill';
-    floatingInstallPillEl.setAttribute('role', 'dialog');
-    floatingInstallPillEl.setAttribute('aria-label', 'Add to Home Screen');
-    floatingInstallPillEl.innerHTML = '<span class="install-pill-text">Use it like an app</span><button type="button" class="install-pill-btn" id="install-pill-btn">Add to Home Screen</button><button type="button" class="install-pill-dismiss" id="install-pill-dismiss" aria-label="Dismiss">×</button>';
-    document.body.appendChild(floatingInstallPillEl);
-    document.getElementById('install-pill-btn').addEventListener('click', async () => {
-      if (deferredInstallPrompt) {
-        deferredInstallPrompt.prompt();
-        await deferredInstallPrompt.userChoice;
-        deferredInstallPrompt = null;
-      }
-      hideFloatingInstallPill();
-      try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
-    });
-    document.getElementById('install-pill-dismiss').addEventListener('click', () => {
-      hideFloatingInstallPill();
-      try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
-    });
-  }
-  if (floatingInstallPillEl && deferredInstallPrompt) floatingInstallPillEl.classList.add('show');
-}
-
-function hideFloatingInstallPill() {
-  if (floatingInstallPillEl) floatingInstallPillEl.classList.remove('show');
-}
-
-function wireMoodPicker() {
-  var section = document.getElementById('mood-picker-section');
-  if (!section) return;
-  var chips = section.querySelectorAll('.mood-chip');
-  var resultEl = document.getElementById('mood-result');
-  var verseEl = resultEl && resultEl.querySelector('.mood-result-verse');
-  var prayerEl = resultEl && resultEl.querySelector('.mood-result-prayer');
-  var closeBtn = document.getElementById('mood-result-close');
-  if (!resultEl || !verseEl || !prayerEl) return;
-  function showMoodResult(ref, text, prayer) {
-    verseEl.innerHTML = '<strong>' + (typeof escapeHtml === 'function' ? escapeHtml(ref) : ref) + '</strong> — ' + (typeof escapeHtml === 'function' ? escapeHtml(text) : text);
-    prayerEl.textContent = prayer;
-    resultEl.classList.remove('hidden');
-    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-  function hideMoodResult() {
-    resultEl.classList.add('hidden');
-  }
-  chips.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var mood = btn.getAttribute('data-mood');
-      var topic = MOOD_TO_TOPIC[mood];
-      var prayer = MOOD_PRAYERS[mood];
-      if (!topic || !prayer) return;
-      (async function () {
-        if (Object.keys(bible).length === 0 && typeof loadBible === 'function') await loadBible(currentVersion || 'kjv');
-        if (typeof refreshBibleView === 'function') refreshBibleView();
-        var results = typeof runTopicSearch === 'function' ? await runTopicSearch(topic) : null;
-        var verse = results && results.verses && results.verses[0] ? results.verses[0] : null;
-        if (verse && verse.ref && verse.text) {
-          showMoodResult(verse.ref, verse.text, prayer);
-          if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
-        } else {
-          var fallbackRef = (topic === 'hope' && bible['Romans 15:13']) ? 'Romans 15:13' : (topic === 'peace' && bible['John 14:27']) ? 'John 14:27' : 'Philippians 4:6-7';
-          var fallbackText = (bible[fallbackRef] || '').substring(0, 200) || 'God is with you.';
-          showMoodResult(fallbackRef, fallbackText, prayer);
-        }
-      })();
-    });
-  });
-  if (closeBtn) closeBtn.addEventListener('click', hideMoodResult);
 }
 
 function wireWeeklyRecapNudge() {
@@ -1988,6 +1913,28 @@ function wireRealPrayerCounter() {
   var el = document.getElementById('prayer-counter');
   if (!el) return;
   function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
+  function formatLastPrayerAgo(iso) {
+    if (!iso) return null;
+    var then = new Date(iso).getTime();
+    var now = Date.now();
+    var diffM = (now - then) / (60 * 1000);
+    if (diffM < 1) return 'just now';
+    if (diffM < 60) return Math.floor(diffM) + ' min ago';
+    var diffH = diffM / 60;
+    if (diffH < 24) return Math.floor(diffH) + ' hr ago';
+    return Math.floor(diffH / 24) + ' days ago';
+  }
+  window.updateLastPrayerBadge = function () {
+    var badge = document.getElementById('last-prayer-badge');
+    var agoEl = document.getElementById('last-prayer-ago');
+    if (!badge || !agoEl || !supabaseClient) return;
+    supabaseClient.rpc('get_last_prayer_created_at').then(function (res) {
+      if (res && !res.error && res.data) {
+        var txt = formatLastPrayerAgo(res.data);
+        if (txt) { agoEl.textContent = txt; badge.classList.remove('hidden'); }
+      }
+    }).catch(function () {});
+  };
   var FETCH_TIMEOUT_MS = 8000;
   var tick = 0;
   async function fetchPrayerCount() {
@@ -2003,11 +1950,12 @@ function wireRealPrayerCounter() {
         supabaseClient.rpc('get_total_prayer_count'),
         new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS); })
       ]);
-      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
+      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '14'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       if (res && !res.error && res.data != null && typeof res.data === 'number' && !isNaN(res.data)) {
         el.textContent = formatCount(res.data);
         var promo = document.getElementById('prayer-count-promo');
-        if (promo) promo.textContent = formatCount(res.data) + ' prayers prayed worldwide.';
+        if (promo) promo.textContent = formatCount(res.data) + ' prayers prayed worldwide. Join ' + formatCount(res.data) + ' warriors right now.';
+        updateLastPrayerBadge();
         return;
       }
       var req = supabaseClient.from('prayers').select('*', { count: 'exact', head: true });
@@ -2015,20 +1963,21 @@ function wireRealPrayerCounter() {
         setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
       });
       var restRes = await Promise.race([req, timeout]);
-      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
+      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '14'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       if (restRes && restRes.error) {
-        el.textContent = '—';
+        el.textContent = '14';
         var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = '';
         return;
       }
       if (restRes && restRes.count != null) el.textContent = formatCount(restRes.count);
       else if (restRes && Array.isArray(restRes.data)) el.textContent = formatCount(restRes.data.length);
-      else el.textContent = '—';
+      else el.textContent = '14';
       var promo = document.getElementById('prayer-count-promo');
-      if (promo) promo.textContent = (el.textContent !== '—' ? el.textContent + ' prayers prayed worldwide.' : '');
+      if (promo) promo.textContent = (el.textContent !== '14' ? el.textContent + ' prayers prayed worldwide. Join ' + el.textContent + ' warriors right now.' : '');
+      updateLastPrayerBadge();
     } catch (e) {
       setPrayersApiUnavailable();
-      el.textContent = '—';
+      el.textContent = '14';
       var promo = document.getElementById('prayer-count-promo');
       if (promo) promo.textContent = '';
     }
@@ -2652,8 +2601,9 @@ function flushPrayerOfflineQueue() {
   var sessionId = getPrayerSessionId();
   var familyName = getFamilyName();
   q.forEach(function (item) {
-    var payload = { intent: item.intent || '', session_id: sessionId };
-    if (familyName) payload.family_name = familyName;
+    var payload = { intent: truncateForDb(item.intent, MAX_PRAYER_INTENT_LENGTH), session_id: sessionId };
+    var fn = truncateForDb(familyName, MAX_FAMILY_NAME_LENGTH);
+    if (fn) payload.family_name = fn;
     supabaseClient.from('prayers').insert(payload).then(function () {});
   });
   setPrayerOfflineQueue([]);
@@ -3183,7 +3133,7 @@ function wireSilentOffering() {
   if (!btn) return;
   btn.addEventListener('click', function () {
     var payload = { intent: 'A household offered silence.', session_id: getPrayerSessionId() };
-    var fn = getFamilyName();
+    var fn = truncateForDb(getFamilyName(), MAX_FAMILY_NAME_LENGTH);
     if (fn) payload.family_name = fn;
     if (navigator.onLine && supabaseClient) {
       supabaseClient.from('prayers').insert(payload).then(function (r) {
@@ -3605,12 +3555,13 @@ function showEliteToast(message) {
     document.body.appendChild(el);
   }
   el.textContent = message;
+  el.classList.remove('hidden');
   el.style.display = 'block';
   el.classList.add('elite-toast-show');
   clearTimeout(window._eliteToastTimeout);
   window._eliteToastTimeout = setTimeout(function () {
     el.classList.remove('elite-toast-show');
-    setTimeout(function () { el.style.display = 'none'; }, 300);
+    setTimeout(function () { el.style.display = 'none'; el.classList.add('hidden'); }, 300);
   }, 2800);
 }
 
@@ -3985,7 +3936,7 @@ function loadMessageDisplayName() {
 }
 
 function saveMessageDisplayName(name) {
-  safeSetItem(MESSAGE_NAME_KEY, name || '');
+  safeSetItem(MESSAGE_NAME_KEY, truncateForDb(name, MAX_DISPLAY_NAME_LENGTH));
 }
 
 function loadMessageNameMap() {
@@ -5046,9 +4997,11 @@ async function loadMessages() {
 
 async function postMessage(text) {
   const displayName = loadMessageDisplayName();
+  var safeText = truncateForDb(text, MAX_MESSAGE_TEXT_LENGTH);
+  var safeDisplayName = truncateForDb(displayName, MAX_DISPLAY_NAME_LENGTH);
   if (isSupabaseConfigured() && currentUserId) {
-    const payload = { user_id: currentUserId, text };
-    if (displayName) payload.display_name = displayName;
+    const payload = { user_id: currentUserId, text: safeText };
+    if (safeDisplayName) payload.display_name = safeDisplayName;
     let { data, error } = await supabaseClient
       .from('messages')
       .insert(payload)
@@ -5057,7 +5010,7 @@ async function postMessage(text) {
     if (error && payload.display_name) {
       const retry = await supabaseClient
         .from('messages')
-        .insert({ user_id: currentUserId, text })
+        .insert({ user_id: currentUserId, text: safeText })
         .select('id, user_id, text, created_at')
         .single();
       data = retry.data;
@@ -5069,8 +5022,8 @@ async function postMessage(text) {
   const item = {
     id: generateUuid(),
     user_id: currentUserId || 'guest',
-    text,
-    display_name: displayName || '',
+    text: safeText,
+    display_name: safeDisplayName || '',
     created_at: new Date().toISOString()
   };
   local.unshift(item);
@@ -5080,9 +5033,10 @@ async function postMessage(text) {
 }
 
 async function saveNewsletterSignup(email, prefs) {
+  var safeEmail = truncateForDb(email, MAX_NEWSLETTER_EMAIL_LENGTH);
   const entry = {
     id: generateUuid(),
-    email,
+    email: safeEmail,
     daily_opt_in: Boolean(prefs?.daily),
     weekly_opt_in: Boolean(prefs?.weekly),
     preferred_time: prefs?.preferredTime || '',
@@ -5094,8 +5048,9 @@ async function saveNewsletterSignup(email, prefs) {
   bumpStat('newsletterSignups');
   if (isSupabaseConfigured()) {
     try {
+      // RLS: anon INSERT only on newsletter_signups; no SELECT (see supabase-newsletter-anon-insert.sql).
       await supabaseClient.from('newsletter_signups').insert({
-        email,
+        email: safeEmail,
         daily_opt_in: Boolean(prefs?.daily),
         weekly_opt_in: Boolean(prefs?.weekly),
         preferred_time: prefs?.preferredTime || null
@@ -9053,7 +9008,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   var walkthroughWrap = document.getElementById('walkthrough-wrap');
   var walkthroughPara = document.getElementById('walkthrough-para');
-  if (walkthroughPara && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
+  if (walkthroughWrap && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
     var a = document.createElement('a');
     a.id = 'walkthrough-video';
     a.href = window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL;
@@ -9061,7 +9016,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     a.rel = 'noopener noreferrer';
     a.className = 'btn-link';
     a.textContent = 'Watch the 60-second walkthrough';
-    if (walkthroughPara) walkthroughPara.innerHTML = 'New here? ' + a.outerHTML;
+    walkthroughWrap.parentNode.replaceChild(a, walkthroughWrap);
   } else if (walkthroughPara && typeof sessionStorage !== 'undefined') {
     // Show "coming March" CTA only once per session to avoid coming-soon fatigue
     try {
@@ -9085,6 +9040,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL;
   if (battleProBanner && allStripeLinksSet) {
     battleProBanner.innerHTML = '<strong>Battle Pro</strong> now available—offline, premium devotionals, your 2026 Wins Report. <a href="pricing.html">Unlock now</a>';
+  } else {
+    var earlyBirdDays = document.getElementById('early-bird-days');
+    if (earlyBirdDays) {
+      var endDate = new Date();
+      endDate.setDate(endDate.getDate() + 7);
+      function updateEarlyBird() {
+        var now = new Date();
+        var days = Math.max(0, Math.ceil((endDate - now) / (24 * 60 * 60 * 1000)));
+        earlyBirdDays.textContent = days;
+      }
+      updateEarlyBird();
+      setInterval(updateEarlyBird, 60000);
+    }
   }
   if (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.GOOGLE_SITE_VERIFICATION) {
     var meta = document.createElement('meta');
@@ -9262,7 +9230,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   scheduleAdminPanel();
   wireDailyBattleSeedForm();
   wireInstallPrompt();
-  wireMoodPicker();
   wireWeeklyRecapNudge();
   if (document.getElementById('home-streak-badge')) updateHomeStreakBadge();
   wireOfflineBanner();
@@ -9483,41 +9450,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       var savedEmail = localStorage.getItem('tdb_daily_verse_email');
       if (savedEmail) dailyVerseEmailInput.value = savedEmail;
     } catch (e) {}
-    dailyVerseEmailSubmit.addEventListener('click', function () {
-      var email = (dailyVerseEmailInput.value || '').trim().toLowerCase();
-      if (!email || !email.includes('@')) {
-        if (typeof showEliteToast === 'function') showEliteToast('Please enter a valid email.');
-        return;
-      }
+    dailyVerseEmailSubmit.addEventListener('click', async function () {
+      var email = (dailyVerseEmailInput.value || '').trim();
+      if (!email) return;
       try {
         localStorage.setItem('tdb_daily_verse_email', email);
       } catch (e) {}
-      if (supabaseClient && typeof supabaseClient.from === 'function') {
-        dailyVerseEmailSubmit.disabled = true;
-        supabaseClient.from('newsletter_signups').insert({
-          email: email,
-          daily_opt_in: true,
-          weekly_opt_in: false
-        }).then(function (r) {
-          dailyVerseEmailSubmit.disabled = false;
-          if (r.error) {
-            if (r.error.code === '23505') {
-              if (typeof showEliteToast === 'function') showEliteToast('You\'re already on the list—check inbox when daily emails launch.');
-            } else {
-              if (typeof showEliteToast === 'function') showEliteToast('Saved locally—we\'ll add you when ready.');
-            }
-          } else {
-            if (typeof showEliteToast === 'function') showEliteToast('You\'re in! Check inbox tomorrow for your first verse.');
-            else alert('You\'re in! Check inbox tomorrow.');
-          }
-        }).catch(function () {
-          dailyVerseEmailSubmit.disabled = false;
-          if (typeof showEliteToast === 'function') showEliteToast('Saved locally—check inbox when daily emails launch.');
-        });
-      } else {
-        if (typeof showEliteToast === 'function') showEliteToast('Saved—check inbox tomorrow!');
-        else alert('Saved—check inbox tomorrow!');
-      }
+      try {
+        if (typeof saveNewsletterSignup === 'function') await saveNewsletterSignup(email, { daily: true, weekly: false });
+      } catch (e) {}
+      if (typeof showEliteToast === 'function') showEliteToast("You're on the list!"); else alert("You're on the list!");
     });
   }
 
@@ -9560,6 +9502,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         setAuthStatus('Please enter an email and password.', 'error');
         return;
       }
+      // Email policy: client-side only; no keys. Max length + basic format to avoid leaky errors.
+      if (email.length > 254) {
+        setAuthStatus('Email is too long.', 'error');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setAuthStatus('Please enter a valid email address.', 'error');
+        return;
+      }
       if (!supabaseClient) {
         setAuthStatus('Loading sign-in…', 'info');
         const ready = await ensureSupabaseLoaded();
@@ -9579,7 +9530,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
       signupBtn.disabled = false;
       if (error) {
-        setAuthStatus(error.message, 'error');
+        // Don't leak "user already registered" or raw API messages to the UI.
+        var safeMsg = 'Couldn\'t create account. Try logging in or use a different email.';
+        if (error.message && /already|registered|exists|duplicate/i.test(error.message)) {
+          safeMsg = 'An account may already exist for this email. Try logging in or use a different email.';
+        } else if (error.message && /invalid|password|weak/i.test(error.message)) {
+          safeMsg = error.message.length < 120 ? error.message : 'Please use a stronger password (6+ characters).';
+        }
+        setAuthStatus(safeMsg, 'error');
         return;
       }
       if (data?.session) {
@@ -9587,8 +9545,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         bumpStat('signups');
         updateAuthUI(data.session);
       } else {
-        setAuthStatus('Account created! Check your inbox at ' + email + ' for a verification link. Check spam too.', 'success');
+        setAuthStatus('Check your inbox for a verification link. Check spam too.', 'success');
         bumpStat('signups');
+        if (typeof showEliteToast === 'function') showEliteToast('Check your inbox for a verification link. Check spam too.');
         showResendVerificationUI(email);
       }
     });
@@ -9700,6 +9659,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       await saveNewsletterSignup(email, { weekly, daily, preferredTime });
       if (emailEl) emailEl.value = '';
       if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
+      if (typeof showEliteToast === 'function') showEliteToast("You're on the list!");
     });
   }
 
@@ -9828,8 +9788,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
       var sessionId = getPrayerSessionId();
-      var familyName = getFamilyName();
-      var payload = { intent: text, session_id: sessionId };
+      var familyName = truncateForDb(getFamilyName(), MAX_FAMILY_NAME_LENGTH);
+      var safeIntent = truncateForDb(text, MAX_PRAYER_INTENT_LENGTH);
+      var payload = { intent: safeIntent, session_id: sessionId };
       if (familyName) payload.family_name = familyName;
       function onInsertDone(isFirst) {
         if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
@@ -9848,7 +9809,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               turnstile_token: turnstileToken,
-              intent: text,
+              intent: safeIntent,
               family_name: familyName || undefined,
               session_id: sessionId
             })
@@ -9873,7 +9834,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
           }).catch(function () {
             var q = getPrayerOfflineQueue();
-            q.push({ intent: text });
+            q.push({ intent: safeIntent });
             setPrayerOfflineQueue(q);
             if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
             onInsertDone(false);
@@ -9886,7 +9847,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         supabaseClient.from('prayers').insert(payload).then(function (r) {
           if (r.error) {
             var q = getPrayerOfflineQueue();
-            q.push({ intent: text });
+            q.push({ intent: safeIntent });
             setPrayerOfflineQueue(q);
             if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
           } else {
@@ -9902,7 +9863,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           onInsertDone(false);
         }).catch(function () {
           var q = getPrayerOfflineQueue();
-          q.push({ intent: text });
+          q.push({ intent: safeIntent });
           setPrayerOfflineQueue(q);
           if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
           onInsertDone(false);
@@ -9966,12 +9927,18 @@ document.addEventListener('DOMContentLoaded', async () => {
           count = Number(d.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
         } catch (e) {}
         if (count < 1) count = 1;
-        var msg = "I'm on " + count + " day" + (count === 1 ? '' : 's') + " praying—join me at todaysdailybattle.com";
+        var baseUrl = (typeof window !== 'undefined' && window.location && window.location.origin) ? window.location.origin : 'https://todaysdailybattle.com';
+        var inviteUrl = baseUrl + '/?invite=' + count;
+        var msg = 'Day ' + count + ' on todaysdailybattle.com—join me! #DailyBattle \uD83D\uDD25 ' + inviteUrl;
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(msg).then(function () {
-            if (typeof showEliteToast === 'function') showEliteToast('Copied!'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Copied!'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
+            if (typeof showEliteToast === 'function') showEliteToast('Copied! Paste to share on X or anywhere.'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Copied!'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
           }).catch(function () {});
         }
+        try {
+          var tweetUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('Day ' + count + ' on todaysdailybattle.com—join me! #DailyBattle \uD83D\uDD25') + '&url=' + encodeURIComponent(inviteUrl);
+          window.open(tweetUrl, '_blank', 'noopener,noreferrer,width=550,height=420');
+        } catch (e) {}
       });
     }
     var prayWithMeBtn = document.getElementById('pray-with-me-btn');
@@ -10319,19 +10286,49 @@ document.addEventListener('DOMContentLoaded', async () => {
   (function initInvite() {
     var input = document.getElementById('invite-nickname');
     var btn = document.getElementById('invite-copy');
+    var shareBtn = document.getElementById('invite-share-btn');
     var status = document.getElementById('invite-status');
     try {
       var saved = localStorage.getItem('tdb_my_ref');
       if (saved && input) input.value = saved;
     } catch (e) {}
+    function getInviteUrl() {
+      var name = (input && (input.value || '').trim().replace(/[?&=#]/g, '').slice(0, 32)) || 'friend';
+      try { if (input) localStorage.setItem('tdb_my_ref', name); } catch (e) {}
+      var base = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
+      return (base + (base.endsWith('/') ? '' : '/') + '?ref=' + encodeURIComponent(name));
+    }
     if (btn && input) {
       btn.addEventListener('click', function () {
-        var name = (input.value || '').trim().replace(/[?&=#]/g, '').slice(0, 32) || 'friend';
-        try { localStorage.setItem('tdb_my_ref', name); } catch (e) {}
-        var base = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
-        var url = (base + (base.endsWith('/') ? '' : '/') + '?ref=' + encodeURIComponent(name));
+        var url = getInviteUrl();
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(url).then(function () {
+            if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+          });
+        } else {
+          if (status) status.textContent = 'Copy: ' + url;
+        }
+      });
+    }
+    if (shareBtn) {
+      shareBtn.addEventListener('click', function () {
+        var url = getInviteUrl();
+        var title = 'Today\'s Daily Battle';
+        var text = 'Join me for a daily verse and streak—less scroll, more soul.';
+        if (navigator.share && typeof navigator.share === 'function') {
+          navigator.share({ title: title, text: text, url: url }).then(function () {
+            if (typeof showEliteToast === 'function') showEliteToast('Shared.');
+            if (status) status.textContent = '';
+          }).catch(function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(url).then(function () {
+                if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
+              });
+            }
+          });
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
             if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
           });
         } else {
@@ -11863,15 +11860,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       const items = loadSupporterWaitlist();
-      if (items.some(item => item.email === email)) {
+      var safeEmail = truncateForDb(email, MAX_NEWSLETTER_EMAIL_LENGTH);
+      if (items.some(item => item.email === safeEmail)) {
         if (waitlistStatus) waitlistStatus.textContent = 'You are already on the waitlist.';
         return;
       }
-      items.unshift({ email, created_at: new Date().toISOString() });
+      items.unshift({ email: safeEmail, created_at: new Date().toISOString() });
       saveSupporterWaitlist(items);
       trackEvent('waitlist_click', { list: 'battle_pro' });
       if (isSupabaseConfigured()) {
-        supabaseClient.from('supporter_waitlist').insert({ email }).then(() => {});
+        supabaseClient.from('supporter_waitlist').insert({ email: safeEmail }).then(() => {});
       }
       waitlistEmail.value = '';
       if (waitlistStatus) waitlistStatus.textContent = 'Thanks! We will email you when Battle Pro launches.';

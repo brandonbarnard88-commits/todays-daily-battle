@@ -2,6 +2,8 @@
 
 Everything else is live and tight; no major holes. You're **launch-ready** once these 3–4 steps land.
 
+**Before deploy:** Run **docs/MANUAL-TESTING-CHECKLIST.md** (home, nav, auth, pricing, key pages). Use **docs/SMOKE-TEST-CHECKLIST.md** for visual consistency.
+
 ---
 
 1. **Run `supabase-rls-lockdown.sql` in Supabase**  

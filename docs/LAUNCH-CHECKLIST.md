@@ -2,7 +2,7 @@
 
 Everything else is live and tight; no major holes. You're **launch-ready** once these 3–4 steps land.
 
-**Before deploy:** Run **docs/MANUAL-TESTING-CHECKLIST.md** (home, nav, auth, pricing, key pages). Use **docs/SMOKE-TEST-CHECKLIST.md** for visual consistency.
+**Before deploy:** Run **docs/MANUAL-TESTING-CHECKLIST.md** (home, nav, auth, pricing, key pages). Use **docs/SMOKE-TEST-CHECKLIST.md** for visual consistency. For full legal + technical lockdown (no weak spots), see **docs/LOCKDOWN.md**.
 
 ---
 

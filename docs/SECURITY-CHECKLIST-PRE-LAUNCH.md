@@ -2,6 +2,8 @@
 
 Feedback from a trusted reviewer (Feb 2026): *"You're doing a lot right. As you activate full auth sync and Battle Pro, lock in these defenses—mostly RLS, webhook security, and headers. No major red flags; these layers make it bulletproof."* Not taken personally—this doc turns that into a concrete checklist with references to your repo.
 
+**Live-site review (Feb 27, 2026):** Homepage, pricing, privacy, terms were reviewed. Overall solid for an indie faith app—HTTPS, strong privacy policy (no selling data, Supabase Auth, local-first), terms cover lawful use and “as is.” No exposed keys, mixed content, or insecure forms. Top priorities before Battle Pro/wider share: **RLS on all user tables**, **webhook verification** (already done), **security headers** (Cloudflare). Optional: rate limiting/CAPTCHA on forms if spam appears; breach notification in privacy (added below); password strength hint or “Show password” on auth forms.
+
 ---
 
 ## What’s already solid
@@ -38,6 +40,7 @@ Feedback from a trusted reviewer (Feb 2026): *"You're doing a lot right. As you 
 - **Redirect URLs:** Supabase Auth → URL Configuration → add your production and reset URLs (and optional `AUTH_REDIRECT_BASE` in config).
 - **Keys:** No hardcoded secrets in repo; use **config.js** / env (e.g. **build-config.js** for deploy).
 - **Optional:** MFA (TOTP) for admin/master account in Supabase Auth.
+- **Optional UX:** Password strength hint or “Show password” toggle on signup/login forms (trust polish).
 
 ---
 
@@ -71,8 +74,9 @@ See **docs/STRIPE-LIVE-CHECKLIST.md** for test mode and live steps.
 ## 5. Privacy & Terms
 
 - **Existing:** **privacy.html** and **terms.html** linked in footer; privacy covers Supabase Auth, no selling data, HTTPS, local data, anonymous usage.
-- **Optional addition:** In **privacy.html**, under “How we protect your data” or “What we collect,” add one line: *“Payments are processed by Stripe. We do not see or store your card number; Stripe handles it securely.”* (You can add this in the **Payments** subsection below if you add it.)
-- **Streaks/sync:** Privacy already says local data and account data; you can add: *“When you sign in, your streak and saved data sync across devices via our secure database (Supabase).”*
+- **Payments:** Privacy includes a Payments bullet (Stripe, no card storage).
+- **Breach prep:** Privacy states we will notify users if a data breach occurs (see privacy.html).
+- **Optional:** *“When you sign in, your streak and saved data sync across devices via our secure database (Supabase).”*
 
 ---
 
@@ -84,7 +88,14 @@ See **docs/STRIPE-LIVE-CHECKLIST.md** for test mode and live steps.
 | 2 | Test Stripe webhook in test mode: `stripe listen --forward-to https://YOUR-PROJECT.supabase.co/functions/v1/stripe-webhook` | **docs/STRIPE-LIVE-CHECKLIST.md** |
 | 3 | Confirm privacy/terms mention (or add) payments (Stripe, no card storage) and optional sync sentence | **privacy.html** |
 | 4 | Add security headers (X-Frame-Options, etc.) in Cloudflare if not already | Dashboard or **CLOUDFLARE-CSP-FIX.md** |
-| 5 | E2E auth + subscription test: signup → verify → login → streak → test payment → tier flips | **docs/E2E-AUTH-TEST.md**, **docs/STRIPE-LIVE-CHECKLIST.md** |
+| 5 | E2E auth + subscription test: signup → verify → login → streak → test payment → tier flips | **docs/MANUAL-TESTING-CHECKLIST.md** (§3, §4), **docs/STRIPE-LIVE-CHECKLIST.md** |
+
+---
+
+## Cursor prompts when you need them
+
+- **RLS policy example:** *"Add RLS policy example for a streaks (or user_sync_data) table in Supabase for todaysdailybattle.com. Reference docs/SECURITY-CHECKLIST-PRE-LAUNCH.md and supabase-rls-lockdown.sql. Policies: users view/update/insert own row only; anon sees nothing."*
+- **Security headers:** *"Add security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Strict-Transport-Security) for todaysdailybattle.com. Reference docs/SECURITY-CHECKLIST-PRE-LAUNCH.md and CLOUDFLARE-CSP-FIX.md. Prefer Cloudflare Transform Rules or Configuration Rules."*
 
 ---
 
@@ -95,3 +106,5 @@ See **docs/STRIPE-LIVE-CHECKLIST.md** for test mode and live steps.
 ---
 
 **Summary:** You’re in a good spot. Locking in RLS on all user tables, webhook verification (already done), and headers gives you a production-solid base so users’ data and your mission stay protected.
+
+**Full lockdown (legal + technical, no weak spots):** See **docs/LOCKDOWN.md** — every layer (transport, DB, payments, auth, Terms, Privacy, app hardening) and a pre-launch checklist so lawyers and attackers have no angle.

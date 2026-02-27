@@ -44,7 +44,16 @@ function truncateForDb(str, maxLen) {
   if (maxLen != null && s.length > maxLen) return s.slice(0, maxLen);
   return s;
 }
-window.addEventListener('online', function () {
+/** Strip HTML/script-like content for user input (prayer wall, quick-pray, message board). Reduces XSS risk. */
+function sanitizeUserInput(str) {
+  if (str == null) return '';
+  var s = String(str)
+    .replace(/<[^>]*>/g, '')
+    .replace(/javascript:/gi, '')
+    .replace(/on\w+\s*=/gi, '')
+    .replace(/&#?\w+;/g, ' ');
+  return s.trim();
+}
   document.getElementById('offline-banner')?.classList.add('hidden');
   if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
 });
@@ -397,11 +406,17 @@ const MEANING_MAP = {
   mercy: ['compassion', 'pity', 'kindness'],
   truth: ['faithfulness', 'honesty', 'reality'],
   wisdom: ['understanding', 'knowledge', 'insight'],
-  fear: ['afraid', 'anxious', 'worry', 'dread'],
+  fear: ['afraid', 'anxious', 'worried', 'dread'],
   anger: ['wrath', 'rage', 'fury'],
   heartache: ['grief', 'sorrow', 'sadness', 'brokenhearted', 'mourning'],
   sin: ['evil', 'wrongdoing', 'transgression'],
-  salvation: ['rescue', 'deliverance', 'save']
+  salvation: ['rescue', 'deliverance', 'save'],
+  gratitude: ['thanks', 'thankful', 'grateful', 'thanksgiving'],
+  loneliness: ['alone', 'isolated', 'abandoned', 'left out'],
+  guilt: ['guilty', 'shame', 'condemnation', 'remorse'],
+  overwhelm: ['overwhelmed', 'pressure', 'burnout', 'exhausted'],
+  jealousy: ['jealous', 'envy', 'covet', 'resentment'],
+  rest: ['rest', 'sabbath', 'refresh', 'renew']
 };
 
 const ACTION_MAP = {
@@ -1575,6 +1590,7 @@ function getWeeklyPrayerCount() {
 }
 
 var ANCHOR_VERSE_REFS = [
+  'John 3:16',
   'Ephesians 6:10',
   'Ephesians 6:11',
   '2 Timothy 1:7',
@@ -2684,8 +2700,8 @@ function flushPrayerOfflineQueue() {
   var sessionId = getPrayerSessionId();
   var familyName = getFamilyName();
   q.forEach(function (item) {
-    var payload = { intent: truncateForDb(item.intent, MAX_PRAYER_INTENT_LENGTH), session_id: sessionId };
-    var fn = truncateForDb(familyName, MAX_FAMILY_NAME_LENGTH);
+    var payload = { intent: truncateForDb(sanitizeUserInput(item.intent), MAX_PRAYER_INTENT_LENGTH), session_id: sessionId };
+    var fn = truncateForDb(sanitizeUserInput(familyName), MAX_FAMILY_NAME_LENGTH);
     if (fn) payload.family_name = fn;
     supabaseClient.from('prayers').insert(payload).then(function () {});
   });
@@ -3216,7 +3232,7 @@ function wireSilentOffering() {
   if (!btn) return;
   btn.addEventListener('click', function () {
     var payload = { intent: 'A household offered silence.', session_id: getPrayerSessionId() };
-    var fn = truncateForDb(getFamilyName(), MAX_FAMILY_NAME_LENGTH);
+    var fn = truncateForDb(sanitizeUserInput(getFamilyName()), MAX_FAMILY_NAME_LENGTH);
     if (fn) payload.family_name = fn;
     if (navigator.onLine && supabaseClient) {
       supabaseClient.from('prayers').insert(payload).then(function (r) {
@@ -3598,10 +3614,15 @@ function updateDailyBattleStreak() {
     var started = false;
     try { started = localStorage.getItem(CHALLENGE_30_STARTED_KEY) === '1'; } catch (e) {}
     if (nextCount === 0 && started) {
-      resetNudgeEl.textContent = 'Missed a day? Your quick reset is today\'s verse above. Tap "Start Day 1" when you\'re ready to build a new streak.';
+      resetNudgeEl.innerHTML = 'Streak paused—we didn\'t wipe your progress. Tap <button type="button" class="link-button" id="daily-battle-resume-btn">Resume</button> to start a new streak.';
       resetNudgeEl.style.display = 'block';
+      resetNudgeEl.classList.remove('hidden');
+      var resumeBtn = document.getElementById('daily-battle-resume-btn');
+      if (resumeBtn) resumeBtn.addEventListener('click', function () { if (typeof startChallenge === 'function') startChallenge(); });
     } else {
       resetNudgeEl.style.display = 'none';
+      resetNudgeEl.classList.add('hidden');
+      resetNudgeEl.textContent = '';
     }
   }
   if (typeof updateHomeStreakBadge === 'function') updateHomeStreakBadge(nextCount);
@@ -4686,7 +4707,7 @@ async function renderDailyBattleCard() {
     card.innerHTML = '<p class="empty">Bible data not loaded.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     return;
   }
-  const DEFAULT_DAILY_VERSE_REF = '2 Timothy 1:7';
+  const DEFAULT_DAILY_VERSE_REF = 'John 3:16';
   const key = getDailyKey();
   let battle = null;
   let verseTextFromCache = '';
@@ -4780,7 +4801,7 @@ if (c && c.ref) {
     var tryAgainWrap = document.createElement('p');
     tryAgainWrap.id = 'daily-battle-anchor-try';
     tryAgainWrap.className = 'section-note';
-    tryAgainWrap.innerHTML = 'Today\'s verse didn\'t load from the server. <button type="button" class="link-button" id="daily-battle-try-again">Try again</button>';
+    tryAgainWrap.innerHTML = 'Today\'s verse didn\'t load from the server. Try again later—or you\'re seeing a fallback verse (John 3:16). <button type="button" class="link-button" id="daily-battle-try-again">Try again</button>';
     tryAgainWrap.style.marginTop = '0.5rem';
     prayerEl.after(tryAgainWrap);
   }
@@ -5081,8 +5102,8 @@ async function loadMessages() {
 
 async function postMessage(text) {
   const displayName = loadMessageDisplayName();
-  var safeText = truncateForDb(text, MAX_MESSAGE_TEXT_LENGTH);
-  var safeDisplayName = truncateForDb(displayName, MAX_DISPLAY_NAME_LENGTH);
+  var safeText = truncateForDb(sanitizeUserInput(text), MAX_MESSAGE_TEXT_LENGTH);
+  var safeDisplayName = truncateForDb(sanitizeUserInput(displayName), MAX_DISPLAY_NAME_LENGTH);
   if (isSupabaseConfigured() && currentUserId) {
     const payload = { user_id: currentUserId, text: safeText };
     if (safeDisplayName) payload.display_name = safeDisplayName;
@@ -8195,6 +8216,10 @@ function executeQuery(parsed, tier, filters) {
     });
     results.verses = filterVerseList(results.verses, filters);
     if (results.verses.length > 0) results.fallback = true;
+    if (results.verses.length === 0 && bible['John 3:16']) {
+      results.verses.push({ ref: 'John 3:16', text: bible['John 3:16'] });
+      results.fallback = true;
+    }
   }
   return results;
 }
@@ -8237,6 +8262,8 @@ function renderResults(results) {
         <button class="quick-topic" type="button" data-topic="patience">Patience</button>
         <button class="quick-topic" type="button" data-topic="anger">Anger</button>
         <button class="quick-topic" type="button" data-topic="joy">Joy</button>
+        <button class="quick-topic" type="button" data-topic="gratitude">Gratitude</button>
+        <button class="quick-topic" type="button" data-topic="loneliness">Loneliness</button>
         <button class="quick-topic" type="button" data-topic="addiction">Addiction</button>
         <button class="quick-topic" type="button" data-topic="trauma">Trauma</button>
         <button class="quick-topic" type="button" data-topic="finances">Finances</button>
@@ -9149,8 +9176,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     var t = card.textContent || '';
     return t.indexOf('Loading') !== -1 || t.indexOf('Arming') !== -1;
   }
-  var FALLBACK_VERSE_REF = '2 Timothy 1:7';
-  var FALLBACK_VERSE_TEXT = 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
+  var FALLBACK_VERSE_REF = 'John 3:16';
+  var FALLBACK_VERSE_TEXT = 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.';
   setTimeout(function () {
     var card = document.getElementById('daily-battle-card');
     if (card && isDailyCardStillLoading(card)) {
@@ -9891,8 +9918,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
       var sessionId = getPrayerSessionId();
-      var familyName = truncateForDb(getFamilyName(), MAX_FAMILY_NAME_LENGTH);
-      var safeIntent = truncateForDb(text, MAX_PRAYER_INTENT_LENGTH);
+      var familyName = truncateForDb(sanitizeUserInput(getFamilyName()), MAX_FAMILY_NAME_LENGTH);
+      var safeIntent = truncateForDb(sanitizeUserInput(text), MAX_PRAYER_INTENT_LENGTH);
       var payload = { intent: safeIntent, session_id: sessionId };
       if (familyName) payload.family_name = familyName;
       function onInsertDone(isFirst) {

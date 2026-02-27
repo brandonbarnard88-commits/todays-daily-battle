@@ -705,10 +705,11 @@ body {
 .search-hero-label {
   display: block;
   font-family: var(--font-ui);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 500;
-  color: rgba(226, 232, 240, 0.9);
+  color: rgba(226, 232, 240, 0.92);
   margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
 }
 .search-hero-row {
   display: flex;
@@ -716,7 +717,7 @@ body {
   gap: 0.75rem;
   justify-content: center;
   align-items: center;
-  max-width: 36rem;
+  max-width: 38rem;
   margin: 0 auto 1rem;
 }
 .search-hero-input {
@@ -729,17 +730,29 @@ body {
   background: rgba(15, 20, 32, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: var(--radius-md);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .search-hero-input::placeholder {
   color: rgba(148, 163, 184, 0.55);
 }
 .search-hero-input:focus {
   outline: none;
-  border-color: rgba(148, 163, 184, 0.4);
-  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.45);
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.15);
 }
-.search-hero-btn { min-width: 10rem; }
+.search-hero-input:hover {
+  border-color: rgba(148, 163, 184, 0.35);
+}
+.search-hero-btn {
+  min-width: 10rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.search-hero-btn:hover {
+  transform: translateY(-1px);
+}
+.search-hero-btn:active {
+  transform: translateY(0);
+}
 
 .quick-emotion-label {
   font-family: var(--font-ui);
@@ -829,6 +842,7 @@ body {
 .search-hero .quick-searches-label {
   margin-top: 0.75rem;
   text-align: center;
+  font-size: 0.9375rem;
 }
 .quick-actions-hero {
   display: flex;
@@ -838,7 +852,22 @@ body {
   max-width: 56rem;
   margin: 0.75rem auto 0;
 }
-.quick-actions-hero .btn { min-width: auto; }
+.quick-actions-hero .btn {
+  min-width: auto;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9375rem;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.quick-actions-hero .btn:hover {
+  transform: translateY(-1px);
+}
+.quick-actions-hero .btn:active {
+  transform: translateY(0);
+}
+.quick-actions-hero .btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.35);
+}
 
 /* Hero verse — below search, big KJV, dark card */
 .hero-verse-wrap {
@@ -856,7 +885,12 @@ body {
   padding: var(--space-xl);
   background: rgba(15, 20, 32, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-lg);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.25s ease;
+}
+.hero-verse-card.verse-card:hover {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(148, 163, 184, 0.12);
 }
 .hero-verse-card.verse-card strong {
   font-family: var(--font-ui);
@@ -915,28 +949,102 @@ body {
   font-family: var(--font-ui);
   font-size: 1.5rem;
   font-weight: 600;
-  color: rgba(148, 163, 184, 0.85);
+  color: rgba(148, 163, 184, 0.88);
   letter-spacing: 0.02em;
+  line-height: 1.35;
 }
 @media (max-width: 768px) {
-  .search-hero { padding: var(--space-lg); }
-  .search-hero-row { flex-direction: column; width: 100%; max-width: 100%; }
-  .search-hero-input { width: 100%; min-width: 0; }
-  .search-hero-btn { width: 100%; }
-  .quick-emotion-row {
+  .search-hero {
+    padding: var(--space-lg) max(var(--space-md), env(safe-area-inset-left));
+    padding-right: max(var(--space-lg), env(safe-area-inset-right));
+  }
+  .search-hero-row {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.65rem;
+  }
+  .search-hero-input {
+    width: 100%;
+    min-width: 0;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  .search-hero-btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1.05rem;
+  }
+  .search-hero .quick-searches-label {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .quick-actions-hero {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
     max-width: 100%;
-    padding-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    padding-bottom: 0.35rem;
+    gap: 0.4rem;
+    scrollbar-width: thin;
   }
-  .quick-emotion-btn { flex-shrink: 0; }
+  .quick-actions-hero::-webkit-scrollbar {
+    height: 4px;
+  }
+  .quick-actions-hero::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 4px;
+  }
+  .quick-actions-hero .btn {
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
   .hero-search-wrap { padding: var(--space-lg); }
-  .hero-verse-wrap { padding: var(--space-lg); min-height: 20vh; }
+  .hero-verse-wrap {
+    padding: var(--space-lg) max(var(--space-md), env(safe-area-inset-left));
+    padding-right: max(var(--space-lg), env(safe-area-inset-right));
+    min-height: 20vh;
+  }
+  .hero-verse-card.verse-card {
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+  }
   .hero-verse-card.verse-card strong { font-size: 1.5rem; }
   .hero-verse-card.verse-card p { font-size: 1.5rem; }
   .home-tagline, .hero-slogan-one-line { font-size: 1.25rem; }
+  .quick-pray-in-hero {
+    max-width: 100%;
+  }
+  .quick-pray-in-hero #quick-pray,
+  .quick-pray-in-hero .btn {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-hero {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+  .search-hero-label { font-size: 1rem; }
+  .quick-actions-hero .btn {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.875rem;
+    min-height: 42px;
+  }
+  .hero-verse-wrap {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+  .hero-verse-card.verse-card { padding: var(--space-md); }
+  .hero-verse-card.verse-card strong { font-size: 1.35rem; }
+  .hero-verse-card.verse-card p { font-size: 1.35rem; }
+  .home-tagline, .hero-slogan-one-line { font-size: 1.15rem; }
 }
 
 /* Home page accordions — keep verse first, rest below fold */
@@ -963,6 +1071,10 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
     color: rgba(148, 163, 184, 0.95);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
   }
 }
 .home-accordion-summary::-webkit-details-marker { display: none; }

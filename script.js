@@ -9421,19 +9421,83 @@ document.addEventListener('DOMContentLoaded', async () => {
     return null;
   }
 
+  function runSearchWithInput(inputStr) {
+    var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
+    var outputEl = ensureOutputElement();
+    if (outputEl) {
+      outputEl.style.display = 'grid';
+    }
+    setView('search');
+    var loadingEl = document.getElementById('loading');
+    if (loadingEl) loadingEl.style.display = 'block';
+    if (outputEl) outputEl.innerHTML = '';
+    setTimeout(async function () {
+      try {
+        var tierEl = document.getElementById('tier');
+        var tier = tierEl ? tierEl.value : 'adult';
+        lastQueryInput = input;
+        bumpStat('searches');
+        if (Object.keys(bible).length === 0) {
+          await loadBible(currentVersion);
+          refreshBibleView();
+        }
+        var out = document.getElementById('output');
+        if (Object.keys(bible).length === 0) {
+          if (out) {
+            out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh.</p>';
+          }
+          if (loadingEl) loadingEl.style.display = 'none';
+          return;
+        }
+        var filters = getSearchFilters();
+        var cacheKey = tier + '|' + (filters.testament || '') + '|' + (filters.book || '') + '|' + (input || '').toLowerCase();
+        var parsed = parseQuery(input || '');
+        var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
+        if (cacheKey && searchCache.has(cacheKey)) {
+          renderResults(searchCache.get(cacheKey));
+        } else {
+          var results = executeQuery(parsed, tier, filters);
+          if (cacheKey) searchCache.set(cacheKey, results);
+          renderResults(results);
+        }
+        if (out) {
+          out.style.display = 'grid';
+          out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        if (input && typeof trackSearchAnalytics === 'function') {
+          var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
+          trackSearchAnalytics('search_query', params);
+        }
+        await renderDailyBattleCard();
+      } catch (err) {
+        var out = document.getElementById('output');
+        if (out) {
+          out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh and try again.</p>';
+          out.style.display = 'grid';
+          out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      } finally {
+        if (loadingEl) loadingEl.style.display = 'none';
+      }
+    }, 150);
+  }
+
   const searchBtn = document.getElementById('search-btn');
   if (searchBtn) {
     searchBtn.addEventListener('click', () => {
+      const outputEl = ensureOutputElement();
+      if (outputEl) {
+        outputEl.style.display = 'grid';
+      }
       setView('search');
       const loadingEl = document.getElementById('loading');
-      const outputEl = ensureOutputElement();
       if (loadingEl) loadingEl.style.display = 'block';
       if (outputEl) outputEl.innerHTML = '';
       setTimeout(async () => {
         try {
           const queryEl = document.getElementById('query');
           const tierEl = document.getElementById('tier');
-          const input = queryEl ? queryEl.value : '';
+          const input = (queryEl && queryEl.value != null) ? String(queryEl.value).trim() : '';
           const tier = tierEl ? tierEl.value : 'adult';
           lastQueryInput = input;
           bumpStat('searches');
@@ -9450,8 +9514,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
           }
           const filters = getSearchFilters();
-          const cacheKey = `${tier}|${filters.testament}|${filters.book}|${input.trim().toLowerCase()}`;
-          const parsed = parseQuery(input);
+          const cacheKey = `${tier}|${filters.testament}|${filters.book}|${(input || '').toLowerCase()}`;
+          const parsed = parseQuery(input || '');
           var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
           if (cacheKey && searchCache.has(cacheKey)) {
             renderResults(searchCache.get(cacheKey));
@@ -9459,6 +9523,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const results = executeQuery(parsed, tier, filters);
             if (cacheKey) searchCache.set(cacheKey, results);
             renderResults(results);
+          }
+          if (out) {
+            out.style.display = 'grid';
+            out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           }
           if (input && typeof trackSearchAnalytics === 'function') {
             var params = {};
@@ -9471,6 +9539,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           var out = document.getElementById('output');
           if (out) {
             out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh the page and try again.</p>';
+            out.style.display = 'grid';
+            out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           }
         } finally {
           if (loadingEl) loadingEl.style.display = 'none';
@@ -9481,10 +9551,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const queryInput = document.getElementById('query');
   if (queryInput) {
-    queryInput.addEventListener('keydown', (event) => {
+    queryInput.addEventListener('keydown', function (event) {
       if (event.key === 'Enter') {
         event.preventDefault();
-        searchBtn?.click();
+        var input = (queryInput.value != null) ? String(queryInput.value).trim() : '';
+        runSearchWithInput(input);
       }
     });
   }
@@ -9505,13 +9576,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const quickTopics = document.querySelectorAll('.quick-topic');
   function runQuickTopicSearch(topic) {
-    const queryEl = document.getElementById('query');
-    const searchBtnEl = document.getElementById('search-btn');
-    if (queryEl && topic && searchBtnEl) {
-      queryEl.value = topic;
-      if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
-      searchBtnEl.click();
-    }
+    if (!topic) return;
+    var queryEl = document.getElementById('query');
+    if (queryEl) queryEl.value = topic;
+    if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
+    runSearchWithInput(topic);
   }
   if (quickTopics.length) {
     quickTopics.forEach(btn => {

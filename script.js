@@ -4,7 +4,7 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
-window.__tdb_script_version = '20260227-probe-raw-fetch';
+window.__tdb_script_version = '20260228';
 if (typeof console !== 'undefined' && console.log) console.log('TDB: script loaded', window.__tdb_script_version);
 
 function safeSetItem(key, value) {
@@ -6465,7 +6465,7 @@ function fetchProfileTier() {
       if (r.error || !r.data) return;
       var t = (r.data.tier || '').toLowerCase();
       if (t === 'supporter' || t === 'battle_pro' || t === 'church' || t === 'supporter_pro' || t.indexOf('pro') !== -1) {
-        subscriptionTier = t === 'church' ? 'church_team' : (t === 'battle_pro' ? 'pro' : (t === 'supporter' ? 'supporter' : subscriptionTier));
+        subscriptionTier = t === 'church' ? 'church_team' : (t === 'battle_pro' ? 'pro' : (t === 'supporter' || t === 'supporter_pro' ? 'supporter' : subscriptionTier));
         if (typeof updateRoleViews === 'function') updateRoleViews();
       }
     } catch (e) {}
@@ -8872,7 +8872,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     shopBattleMugCta.rel = 'noopener noreferrer';
   }
   var battleProBanner = document.getElementById('battle-pro-banner');
-  if (battleProBanner && STRIPE_SUPPORTER_MONTHLY_URL && STRIPE_SUPPORTER_YEARLY_URL && STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL) {
+  var allStripeLinksSet = STRIPE_SUPPORTER_MONTHLY_URL && STRIPE_SUPPORTER_YEARLY_URL &&
+    STRIPE_BATTLEPRO_MONTHLY_URL && STRIPE_BATTLEPRO_YEARLY_URL &&
+    STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL;
+  if (battleProBanner && allStripeLinksSet) {
     battleProBanner.innerHTML = '<strong>Battle Pro</strong> now available—offline, premium devotionals, your 2026 Wins Report. <a href="pricing.html">Unlock now</a>';
   }
   if (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.GOOGLE_SITE_VERIFICATION) {

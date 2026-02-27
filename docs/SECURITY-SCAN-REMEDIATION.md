@@ -19,11 +19,8 @@
 
 ## Fix #3: CSP tightened (medium)
 
-- **Done in repo:** `_headers` Content-Security-Policy updated:
-  - **Removed** `'unsafe-inline'` from `script-src` and `style-src`.
-  - Added `'strict-dynamic'` to `script-src` (trusted scripts can load others).
-  - Kept required origins: `https://www.gstatic.com`, `https://cdn.jsdelivr.net`, `https://static.cloudflareinsights.com`, `https://*.supabase.co`.
-- **If the site breaks:** Inline scripts/styles will be blocked. Add **nonces** to trusted inline script/style tags and include that nonce in CSP (e.g. `script-src 'nonce-xyz'`). See Cloudflare or your host’s CSP docs.
+- **Current:** CSP is **not** set in the repo’s `_headers` (that block is commented out). Set CSP in **Cloudflare** per **CLOUDFLARE-CSP-FIX.md** (or **CLOUDFLARE-SECURITY-HEADERS.md** for the full fortress set). Only one place should set CSP (Cloudflare **or** HTML meta).
+- **If the site breaks:** Inline scripts/styles will be blocked. Use the exact CSP value in CLOUDFLARE-CSP-FIX Step 3 (includes `'unsafe-inline'` for `style-src` and `script-src`). Add **nonces** to trusted inline script/style tags if you lock down further.
 
 ## Low-hanging fruit
 

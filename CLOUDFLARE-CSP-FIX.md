@@ -4,6 +4,8 @@ Your site is black and the console shows "Refused to apply a stylesheet" because
 
 The fix must be done in **Cloudflare Dashboard**. The repo cannot fix this.
 
+**Quick fix:** In Cloudflare go to **Rules** → **Transform Rules** → create or edit a rule that **sets** the header `Content-Security-Policy` to the **exact value in Step 3** below (it includes `'unsafe-inline'` for both `style-src` and `script-src`). Then **purge cache** and hard-refresh.
+
 ---
 
 ## Step 1: Log in to Cloudflare

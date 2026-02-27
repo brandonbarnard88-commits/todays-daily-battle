@@ -20,7 +20,22 @@
     }
     if (isTotalCountRpc(url)) {
       return realFetch.apply(this, arguments).then(function(res){
-        if (res && res.status === 404) window.__tdb_prayers_404 = true;
+        if (res && res.status === 404) {
+          window.__tdb_prayers_404 = true;
+          return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
+        }
+        return res;
+      }, function(err){
+        window.__tdb_prayers_404 = true;
+        return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
+      });
+    }
+    if (isPresenceCountRpc(url)) {
+      return realFetch.apply(this, arguments).then(function(res){
+        if (res && res.status === 404) {
+          window.__tdb_prayers_404 = true;
+          return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
+        }
         return res;
       }, function(err){
         window.__tdb_prayers_404 = true;

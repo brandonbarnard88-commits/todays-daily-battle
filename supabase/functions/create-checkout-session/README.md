@@ -43,7 +43,7 @@ if (data.url) window.location.href = data.url;
 else console.error(data.error);
 ```
 
-Store your Stripe Price IDs in config (e.g. `STRIPE_PRICE_BATTLEPRO_MONTHLY`) or pass them from the button (e.g. `data-price-id="price_xxx"`).
+Store your Stripe Price IDs in `config.js` under `TDB_CONFIG.STRIPE_PRICE_IDS` (e.g. `battle_pro.monthly`, `supporter.yearly`), or pass `price_id` from the button (e.g. `data-price-id="price_xxx"`).
 
 ## Deploy
 

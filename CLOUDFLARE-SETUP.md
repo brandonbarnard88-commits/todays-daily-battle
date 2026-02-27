@@ -29,7 +29,7 @@ The build runs `build-config.js` (writes config.js from env) then `build-copy-st
 Open https://todaysdailybattle.com/config.js — you should see `window.TDB_CONFIG = { ... }`. Then sign-in will work on the site.
 
 ## 5. Supabase Auth (Dashboard)
-- **Redirect URLs:** In Supabase → Authentication → URL Configuration, add your site URL and the reset page, e.g. `https://todaysdailybattle.com` and `https://todaysdailybattle.com/reset.html`, so sign-up and “Forgot password” links work.
+- **Redirect URLs:** In Supabase → Authentication → URL Configuration, add your site URLs and reset pages, e.g. `https://todaysdailybattle.com`, `https://todaysdailybattle.com/reset.html`, `https://todaysdailybattle.org`, `https://todaysdailybattle.org/reset.html`, so sign-up and “Forgot password” links work on both domains.
 - **Optional – instant sign-in:** If you want new users to use the app without verifying email first, in Authentication → Providers → Email turn **off** “Confirm email”. Otherwise they must click the link in the verification email before they can log in.
 
 ## 6. Analytics and Search Console

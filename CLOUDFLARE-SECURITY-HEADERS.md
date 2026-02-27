@@ -20,7 +20,7 @@ Only **one** place should set CSP (Cloudflare **or** your HTML meta, not both wi
 **Suggested value** (allows your current scripts, styles, Supabase, Turnstile, fonts, images):
 
 ```
-default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://challenges.cloudflare.com https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; upgrade-insecure-requests
+default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://*.supabase.co https://challenges.cloudflare.com https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; worker-src 'self' blob:; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; upgrade-insecure-requests
 ```
 
 - **Condition:** All incoming requests, or **Hostname** equals `todaysdailybattle.com`.

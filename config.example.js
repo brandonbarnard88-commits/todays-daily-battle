@@ -13,10 +13,20 @@ window.TDB_CONFIG = {
   // 60-second walkthrough video URL (e.g. Loom). If set, "Watch the 60-second walkthrough" links here.
   WALKTHROUGH_VIDEO_URL: '',
   // Stripe Payment Link URLs (pricing page). If all set, Subscribe buttons open checkout.
+  // Supporter: $5/mo, $50/yr. Battle Pro: $10/mo, $100/yr. Church: $10/mo, $100/yr.
   STRIPE_SUPPORTER_MONTHLY_URL: '',
   STRIPE_SUPPORTER_YEARLY_URL: '',
+  STRIPE_BATTLEPRO_MONTHLY_URL: '',
+  STRIPE_BATTLEPRO_YEARLY_URL: '',
   STRIPE_CHURCH_MONTHLY_URL: '',
   STRIPE_CHURCH_YEARLY_URL: '',
+  // Same keys with _LINK suffix also work (e.g. STRIPE_SUPPORTER_MONTHLY_LINK).
+  STRIPE_SUPPORTER_MONTHLY_LINK: '',
+  STRIPE_SUPPORTER_YEARLY_LINK: '',
+  STRIPE_BATTLEPRO_MONTHLY_LINK: '',
+  STRIPE_BATTLEPRO_YEARLY_LINK: '',
+  STRIPE_CHURCH_MONTHLY_LINK: '',
+  STRIPE_CHURCH_YEARLY_LINK: '',
   CF_ANALYTICS_TOKEN: '',
   GA_MEASUREMENT_ID: '',
   GOOGLE_SITE_VERIFICATION: '',

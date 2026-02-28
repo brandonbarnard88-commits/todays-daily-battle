@@ -10195,6 +10195,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (btn) btn.disabled = false;
       })();
     }
+    if (e.target && (e.target.id === 'quick-pray-undo' || (e.target.closest && e.target.closest('#quick-pray-undo')))) {
+      var undoBtn = e.target.id === 'quick-pray-undo' ? e.target : (e.target.closest && e.target.closest('#quick-pray-undo'));
+      if (!undoBtn) return;
+      e.preventDefault();
+      var undoWrap = document.getElementById('quick-pray-undo-wrap');
+      if (!undoWrap || undoWrap.style.display === 'none') return;
+      var items = typeof loadPrayerList === 'function' ? loadPrayerList() : [];
+      if (items.length) {
+        items.pop();
+        if (typeof savePrayerList === 'function') savePrayerList(items);
+        if (typeof renderPrayerList === 'function') renderPrayerList();
+        if (typeof showEliteToast === 'function') showEliteToast('Removed.'); else {
+          var qpf = document.getElementById('quick-pray-feedback');
+          if (qpf) { qpf.textContent = 'Removed.'; qpf.style.display = 'block'; setTimeout(function () { qpf.style.display = 'none'; }, 2000); }
+        }
+      }
+      undoWrap.style.display = 'none';
+    }
   });
 
   const dailyReminderToggle = document.getElementById('daily-reminder-toggle');
@@ -10838,21 +10856,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (qw) qw.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
-    var quickPrayUndoEl = document.getElementById('quick-pray-undo');
-    if (quickPrayUndoEl) {
-      quickPrayUndoEl.addEventListener('click', function () {
-        var undoWrap = document.getElementById('quick-pray-undo-wrap');
-        if (!undoWrap || undoWrap.style.display === 'none') return;
-        var items = loadPrayerList();
-        if (items.length) {
-          items.pop();
-          savePrayerList(items);
-          renderPrayerList();
-          if (typeof showEliteToast === 'function') showEliteToast('Removed.'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Removed.'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
-        }
-        undoWrap.style.display = 'none';
-      });
-    }
     var quickPrayShareBtn = document.getElementById('quick-pray-share');
     if (quickPrayShareBtn) {
       quickPrayShareBtn.addEventListener('click', function () {

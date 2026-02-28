@@ -1,10 +1,11 @@
 /**
  * Stripe webhook: on checkout.session.completed, update profiles.tier (and optionally
- * battle_pro_subscriptions) so the user gets Pro access.
+ * battle_pro_subscriptions) so the user gets Pro access. Also handles subscription
+ * cancel/fail so access is revoked.
  *
  * Set in Stripe Dashboard: Developers → Webhooks → Add endpoint
  *   URL: https://<PROJECT_REF>.supabase.co/functions/v1/stripe-webhook
- *   Events: checkout.session.completed (and optionally customer.subscription.created/updated/deleted)
+ *   Events: checkout.session.completed, customer.subscription.updated, customer.subscription.deleted
  *   Copy the signing secret into Supabase Edge Function secrets as STRIPE_WEBHOOK_SECRET.
  *
  * Env: STRIPE_WEBHOOK_SECRET, STRIPE_SECRET_KEY (or STRIPE_SECRET_KEY_TEST for test mode),
@@ -83,6 +84,34 @@ Deno.serve(async (req) => {
     }
 
     return jsonResponse({ ok: true, user_id: userId, tier }, 200);
+  }
+
+  // Revoke Pro when subscription is canceled or payment fails (past_due/unpaid)
+  if (event.type === "customer.subscription.deleted" || event.type === "customer.subscription.updated") {
+    const sub = event.data.object as Stripe.Subscription;
+    const userId = (sub.metadata?.user_id ?? null) as string | null;
+    if (!userId) {
+      return jsonResponse({ received: true, type: event.type, skip: "no user_id in subscription.metadata" }, 200);
+    }
+
+    const status = sub.status;
+    const shouldRevoke = event.type === "customer.subscription.deleted" ||
+      status === "canceled" || status === "unpaid" || status === "past_due";
+
+    if (!shouldRevoke) {
+      return jsonResponse({ received: true, type: event.type, status }, 200);
+    }
+
+    const { error: profileError } = await supabase
+      .from("profiles")
+      .upsert({ id: userId, tier: "free", updated_at: new Date().toISOString() }, { onConflict: "id" });
+
+    if (profileError) {
+      console.error("profiles revoke failed", profileError);
+      return jsonResponse({ error: "Failed to revoke tier", detail: profileError.message }, 500);
+    }
+
+    return jsonResponse({ ok: true, user_id: userId, tier: "free", reason: event.type }, 200);
   }
 
   return jsonResponse({ received: true, type: event.type }, 200);

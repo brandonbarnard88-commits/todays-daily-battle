@@ -1,12 +1,16 @@
 # stripe-webhook
 
-Updates `profiles.tier` when Stripe sends `checkout.session.completed`.
+Updates `profiles.tier` when Stripe sends subscription events:
+
+- **checkout.session.completed** — Grant Pro (or supporter/church) when checkout succeeds.
+- **customer.subscription.deleted** — Revoke access when the user cancels.
+- **customer.subscription.updated** — Revoke access when status is `canceled`, `unpaid`, or `past_due` (e.g. failed payment).
 
 ## Stripe Dashboard
 
 1. **Developers** → **Webhooks** → **Add endpoint**
 2. **Endpoint URL:** `https://<YOUR_PROJECT_REF>.supabase.co/functions/v1/stripe-webhook`
-3. **Events to send:** `checkout.session.completed` (add `customer.subscription.*` if you want to handle renewals/cancellations)
+3. **Events to send:** `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`
 4. **Signing secret:** Copy it; set as `STRIPE_WEBHOOK_SECRET` in Supabase Edge Function secrets.
 
 ## Supabase secrets
@@ -41,6 +45,13 @@ stripe listen --forward-to https://<PROJECT_REF>.supabase.co/functions/v1/stripe
 ```
 
 Then trigger a test checkout; the CLI will show the signing secret to use for local testing.
+
+**Quick sanity check:**
+
+- Ensure `STRIPE_WEBHOOK_SECRET` is set in Supabase Edge Function secrets (from Stripe Dashboard → Developers → Webhooks → your endpoint).
+- create-checkout-session already passes `metadata: { user_id, tier }` and `subscription_data.metadata`, so the webhook knows who to unlock/revoke.
+- Test with Stripe CLI in test mode; watch logs for "Battle Pro unlocked" (checkout) and "tier: free" (cancel/updated).
+- After it works: deploy, flip Stripe to live, test a real sub in incognito, confirm user gets instant access.
 
 ## Security
 

@@ -23,9 +23,14 @@ function readConfig() {
   const priceIdsMatch = raw.match(/STRIPE_PRICE_IDS\s*=\s*(\{[\s\S]*?\});/);
   if (priceIdsMatch) {
     try {
-      out.STRIPE_PRICE_IDS = eval('(' + priceIdsMatch[1] + ')');
+      out.STRIPE_PRICE_IDS = JSON.parse(priceIdsMatch[1]);
     } catch (_) {
-      out.STRIPE_PRICE_IDS = null;
+      try {
+        // Config may use JS object literal (unquoted keys). Only our own config file is parsed; never user input.
+        out.STRIPE_PRICE_IDS = eval('(' + priceIdsMatch[1] + ')');
+      } catch (__) {
+        out.STRIPE_PRICE_IDS = null;
+      }
     }
   }
   const createUrlMatch = raw.match(/CREATE_CHECKOUT_SESSION_URL\s*=\s*\([^)]+\)\s*\+\s*['\']\/functions\/v1\/create-checkout-session['\']/);

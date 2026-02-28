@@ -1,93 +1,79 @@
-# Security: Today's Daily Battle
+# Security — Today's Daily Battle
 
-This document describes how the site and your account holders are protected, and what you need to do to keep security at the highest level.
-
----
-
-## What the app already does
-
-| Area | Protection |
-|------|------------|
-| **Secrets** | No Supabase URL or keys in the repo. They live only in `config.js` (gitignored). |
-| **Admin** | Only one master admin (your email). Non-admin visitors to `/admin` are shown a 404-style page; they never see admin data. |
-| **Moderation** | Message delete/hide/unhide require the master account. |
-| **XSS** | User content (e.g. message board) is escaped before display. |
-| **Referrer** | `referrer` meta set to `strict-origin-when-cross-origin` so full URLs are not sent to third parties. |
-| **Auth** | Passwords are handled by Supabase Auth; the app never sees or stores plaintext passwords. |
+**Security is the top priority.** This document summarizes how we protect users and data, and what to do when adding features.
 
 ---
 
-## What you must do (Swiss-bank level)
+## Principles
 
-### 1. Keep config and keys off the repo
-
-- **Never** commit `config.js`. It is in `.gitignore`; do not `git add config.js` or `git add -A` without checking.
-- On the server, keep one `config.js` with real values. Rotate the Supabase anon key if it was ever exposed (e.g. repo was public).
-
-### 2. Supabase: Row Level Security (RLS)
-
-Your database is the vault. RLS ensures users only see and change their own data.
-
-- In Supabase Dashboard → **Authentication → Policies** (or **Table Editor → each table → RLS**):
-  - **Enable RLS** on every table that holds user or sensitive data.
-- Recommended pattern:
-  - **notes, saved_verses, saved_collections, sermons, lessons**: `SELECT/INSERT/UPDATE/DELETE` only where `auth.uid() = user_id`.
-  - **messages**: `SELECT` for all (or for non-hidden only); `INSERT` for authenticated users; `UPDATE` (e.g. hidden) and `DELETE` only for a dedicated admin role or your master user (e.g. by email in `auth.jwt() ->> 'email'` or a custom claim).
-  - **daily_battles**: `SELECT` for all; `INSERT/UPDATE/DELETE` only for admin (e.g. same role/email check).
-  - **newsletter_signups, supporter_waitlist**: `INSERT` for anyone (or anonymous); `SELECT` only for admin if needed.
-
-If you want, we can add a separate `.sql` file with example RLS policies you can paste into Supabase.
-
-### 3. HTTPS only
-
-- Serve the site over **HTTPS** only (todaysdailybattle.com).
-- If you use Cloudflare, Vercel, Netlify, or similar, HTTPS is usually default. Enable “Force HTTPS” or “Always use HTTPS” if available.
-- In Cloudflare: **SSL/TLS → Edge Certificates → Always Use HTTPS = On**.
-
-### 4. Security headers (host / CDN)
-
-Set these at your host or CDN (e.g. Cloudflare Transform Rules, or your server config):
-
-| Header | Value | Purpose |
-|--------|--------|--------|
-| **Strict-Transport-Security** | `max-age=31536000; includeSubDomains` | Force HTTPS for 1 year. |
-| **X-Content-Type-Options** | `nosniff` | Prevent MIME sniffing. |
-| **X-Frame-Options** | `DENY` or `SAMEORIGIN` | Reduce clickjacking. |
-| **Referrer-Policy** | `strict-origin-when-cross-origin` | Limit referrer leakage (matches the meta tag). |
-| **Permissions-Policy** | `camera=(), microphone=(), geolocation=()` | Disable unneeded features. |
-
-Optional: **Content-Security-Policy** — only add after testing; it can break inline scripts (e.g. contact form). Start with `default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com https://*.supabase.co; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://*.supabase.co;` and adjust as needed.
-
-### 5. Your admin account
-
-- Use a **strong, unique password** for the master admin (and for Supabase dashboard).
-- Prefer a **dedicated email** for admin (e.g. admin@ or a personal address) and use it only in `MASTER_EMAIL` in `config.js`.
-- If Supabase supports it, enable **MFA** on the project for the dashboard.
-
-### 6. Account holders (users)
-
-- Auth is handled by **Supabase** (secure, standard practice). Passwords are hashed; the app never stores them.
-- **Password reset** goes through Supabase; users get a time-limited link. No reset tokens in the app code.
-- The **Privacy** page states: no selling data, secure auth, HTTPS, access control, and data export/deletion on request. Keep that true in practice.
+1. **User safety first** — especially for sensitive moments (grief, anxiety, faith). See PRIVACY-ANALYTICS.md for search privacy.
+2. **Least privilege** — Supabase anon key is public by design; **Row Level Security (RLS)** enforces who can read/write what.
+3. **No secrets in the client** — Only the Supabase **anon** (publishable) key and Turnstile **site** key belong in the frontend. Service role, Stripe secret, and Turnstile secret key stay on the server (Edge Functions / env).
+4. **Defense in depth** — Validate and sanitize on both client and server; assume client can be tampered with.
 
 ---
 
-## Quick checklist
+## What we do today
 
-- [ ] `config.js` never committed; only on your machine and server.
-- [ ] RLS enabled on all Supabase tables with user/sensitive data; policies restrict by `user_id` or admin.
-- [ ] Site served over HTTPS only; “Always use HTTPS” enabled if using a CDN.
-- [ ] Security headers set (HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy).
-- [ ] Strong, unique password and (if available) MFA for Supabase and admin.
-- [ ] Privacy page and contact path for data requests; you respond to export/deletion requests.
+### Authentication & authorization
+
+- **Supabase Auth** for sign-up, login, password reset. Session is JWT-based; refresh is handled by the client.
+- **RLS on all synced tables** — `user_sync_data`, `messages`, `message_reports`, `newsletter_signups`, `prayers`, `daily_battles`. Policies restrict access by `auth.uid()` or role. See `supabase-rls-lockdown.sql` and `supabase-rls-quick.sql`.
+- **Signup role** — Trigger `auth.force_member_role_trigger` ensures new users get `role: member`; admin is set only via Supabase Dashboard `app_metadata`, never from the client.
+- **Admin** — Determined by `app_metadata.role === 'admin'` or email match to a server/config-controlled list. Do not add admin emails from user input.
+
+### Client-side hardening
+
+- **CSP** — `Content-Security-Policy` in `index.html` restricts script, style, connect, and frame sources. Use `nonce="tdb2025"` for inline scripts/styles where allowed.
+- **Referrer** — `referrer: strict-origin-when-cross-origin` to limit referrer leakage.
+- **XSS** — User/API content is never written raw to the DOM. Use `escapeHtml()`, `sanitizeHtml()` (DOMPurify when available), or `sanitizeUserInput()` before storing or displaying. Prefer `textContent` when HTML is not needed.
+- **Input** — `sanitizeUserInput()` strips tags and script-like patterns. `truncateForDb()` enforces length limits before Supabase. Use both for prayer intents, family name, message board, etc.
+
+### Supabase
+
+- **Anon key** — Safe to be in repo and in frontend; RLS and auth determine what rows are visible.
+- **Service role key** — Must **never** be in the repo or client. Use only in Edge Functions, cron, or backend; store in Supabase secrets or env.
+- **Edge Functions** — `submit-prayer` verifies Turnstile server-side; `create-checkout-session` uses service role and attaches `user_id` from the authenticated session only.
+
+### Payments (Stripe)
+
+- Payment links and publishable key can be in config. **Secret key** and webhook signing secret only in server/env.
+- Checkout session is created by an Edge Function that reads the authenticated user from the JWT; never trust client-supplied `user_id` for billing.
+
+### Privacy & analytics
+
+- Search: we **never** send raw query text or user identity. Only anonymous topic counts via `trackSearchAnalytics()`. See PRIVACY-ANALYTICS.md.
 
 ---
 
-## If something is compromised
+## Checklist when adding features
 
-1. **Rotate Supabase anon key** (and service role if exposed) in Supabase Dashboard → Settings → API.
-2. Update **config.js** on the server with the new anon key.
-3. If a user’s account was compromised, they can use **Forgot password** to regain control; consider notifying them if you have a way to do so safely.
-4. Review Supabase **Logs** for unusual access; tighten RLS if needed.
+- [ ] **New Supabase table** — Enable RLS; add policies so only intended roles (e.g. `authenticated`, or anon only for specific actions) can read/write. Prefer `auth.uid() = user_id` for per-user data.
+- [ ] **New user input** — Run through `sanitizeUserInput()` and/or `escapeHtml()`/`sanitizeHtml()` before display or send to DB. Enforce length with `truncateForDb()`.
+- [ ] **New API/Edge Function** — Validate inputs; use `auth.getUser()` (or equivalent) for identity; never trust client for privileges. Use Edge Function secrets for keys.
+- [ ] **New third-party script** — Allow it in CSP only if necessary; prefer minimal, documented domains.
+- [ ] **Secrets** — Never commit service role key, Stripe secret, or Turnstile secret. Use Supabase secrets or build-time env for production overrides.
 
-Doing the items above keeps the site and your account holders as safe as possible for this stack—like a Swiss bank, and in some ways safer (no physical branch risk, encryption in transit, and you control the data and access).
+---
+
+## Verification
+
+- **RLS** — With the anon key only, unauthenticated requests to protected tables should return no rows or 403. See SUPABASE-SYNC-TABLES.md “Verify RLS (anon key test)”.
+- **Auth** — Test sign-up, login, logout, forgot password; confirm session persists and RLS returns data only when logged in.
+- **Payments** — Test checkout with Stripe test keys; confirm metadata is set server-side from session.
+
+---
+
+## Files to reference
+
+| File | Purpose |
+|------|--------|
+| `config.js` | Anon key, URLs, Stripe links. No secrets. |
+| `SUPABASE-SYNC-TABLES.md` | RLS and sync table setup |
+| `supabase-rls-lockdown.sql` | Full RLS lockdown and auth trigger |
+| `PRIVACY-ANALYTICS.md` | Search analytics and user safety rules |
+| `script.js` | `sanitizeUserInput`, `escapeHtml`, `sanitizeHtml`, `truncateForDb` |
+
+---
+
+*Security is the top priority. When in doubt, restrict access and sanitize input. Last updated 2026.*

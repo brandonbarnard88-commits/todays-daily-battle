@@ -52,7 +52,7 @@
 
 - **Battle Pro:** Active/teased — offline PDFs, Wins Report, Armor of God 7-day series (early March 2026). Unlock via pricing.html.
 - **Stories of Hope / Testimonials:** User quotes; submit via email.
-- **Quick Pray:** Anonymous, no login, drafts save offline. Pray / Call God / Speak, Share "Pray with me?", Undo.
+- **Quick Pray:** Anonymous, no login, drafts save offline. Pray / Call God / Speak, Share "Pray with me?".
 - **Invite a Friend:** "Copy my link" — both get 1 streak repair when they join.
 - **Family Armor:** Armored Household Chain: 0 households. Add family button.
 - **Topics/Search:** Links to anxiety, hope, spiritual warfare, etc. (/?q=...).

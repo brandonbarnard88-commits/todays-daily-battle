@@ -10195,24 +10195,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (btn) btn.disabled = false;
       })();
     }
-    if (e.target && (e.target.id === 'quick-pray-undo' || (e.target.closest && e.target.closest('#quick-pray-undo')))) {
-      var undoBtn = e.target.id === 'quick-pray-undo' ? e.target : (e.target.closest && e.target.closest('#quick-pray-undo'));
-      if (!undoBtn) return;
-      e.preventDefault();
-      var undoWrap = document.getElementById('quick-pray-undo-wrap');
-      if (!undoWrap || undoWrap.style.display === 'none') return;
-      var items = typeof loadPrayerList === 'function' ? loadPrayerList() : [];
-      if (items.length) {
-        items.pop();
-        if (typeof savePrayerList === 'function') savePrayerList(items);
-        if (typeof renderPrayerList === 'function') renderPrayerList();
-        if (typeof showEliteToast === 'function') showEliteToast('Removed.'); else {
-          var qpf = document.getElementById('quick-pray-feedback');
-          if (qpf) { qpf.textContent = 'Removed.'; qpf.style.display = 'block'; setTimeout(function () { qpf.style.display = 'none'; }, 2000); }
-        }
-      }
-      undoWrap.style.display = 'none';
-    }
   });
 
   const dailyReminderToggle = document.getElementById('daily-reminder-toggle');
@@ -10767,13 +10749,6 @@ document.addEventListener('DOMContentLoaded', async () => {
           var streakCount = Number(streakData.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
           if (streakCount >= 1) shareStreakEl.style.display = 'inline-block';
         } catch (e) {}
-      }
-      var undoWrap = document.getElementById('quick-pray-undo-wrap');
-      if (undoWrap) {
-        undoWrap.dataset.lastPrayerText = text;
-        undoWrap.style.display = 'block';
-        clearTimeout(undoWrap._undoTimer);
-        undoWrap._undoTimer = setTimeout(function () { if (undoWrap) undoWrap.style.display = 'none'; }, 8000);
       }
       if (typeof showPrayerWhisper === 'function') showPrayerWhisper();
       if (!getFamilyName()) {

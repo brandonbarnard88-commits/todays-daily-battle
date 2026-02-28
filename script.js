@@ -46,7 +46,8 @@ function truncateForDb(str, maxLen) {
   if (maxLen != null && s.length > maxLen) return s.slice(0, maxLen);
   return s;
 }
-/** Strip HTML/script-like content for user input (prayer wall, quick-pray, message board). Reduces XSS risk. */
+/** Strip HTML/script-like content for user input (prayer wall, quick-pray, message board). Reduces XSS risk.
+ * For HTML that must allow limited tags, use DOMPurify.sanitize() instead. For display-only text use escapeHtml(). */
 function sanitizeUserInput(str) {
   if (str == null) return '';
   var s = String(str)
@@ -2606,11 +2607,13 @@ function renderPatrioticHymns() {
     modalBody.textContent = hymn.fullLyrics;
     modal.classList.remove('hidden');
     modal.setAttribute('aria-label', 'Full lyrics: ' + hymn.title);
+    if (_tdbModalUntrap) _tdbModalUntrap();
+    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
     if (modalClose) modalClose.focus();
   }
   if (modalClose && modal) {
-    modalClose.addEventListener('click', function () { modal.classList.add('hidden'); });
-    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.add('hidden'); });
+    modalClose.addEventListener('click', function () { if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; } modal.classList.add('hidden'); });
+    modal.addEventListener('click', function (e) { if (e.target === modal) { if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; } modal.classList.add('hidden'); } });
   }
   PATRIOTIC_HYMNS.forEach(function (h) {
     var card = document.createElement('div');
@@ -3354,12 +3357,15 @@ function wireArmorBuilderModal() {
     }
   }
   function closeModal() {
+    if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; }
     modal.classList.add('hidden');
   }
   function openModal(toArmor) {
     renderFamilyStoriesTab();
     if (toArmor) switchFamilyArmorTab('armor'); else switchFamilyArmorTab('stories');
     modal.classList.remove('hidden');
+    if (_tdbModalUntrap) _tdbModalUntrap();
+    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
   }
   if (openToArmor) {
     setTimeout(function () {
@@ -3416,10 +3422,13 @@ function wireFamilyNameModal() {
   if (!modal || !saveBtn) return;
   try { if (input) input.value = getFamilyName(); } catch (e) {}
   function closeModal() {
+    if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; }
     modal.classList.add('hidden');
   }
   function openModal() {
     modal.classList.remove('hidden');
+    if (_tdbModalUntrap) _tdbModalUntrap();
+    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
     if (input) { input.value = getFamilyName(); input.focus(); }
   }
   if (addFamilyBtn) addFamilyBtn.addEventListener('click', openModal);

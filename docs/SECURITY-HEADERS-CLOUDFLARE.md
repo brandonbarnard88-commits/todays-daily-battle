@@ -63,4 +63,5 @@ Wait for inclusion in browser preload lists (~2 weeks). After that you’re comm
 ## Step 4: Verify
 
 - **https://securityheaders.com/?q=todaysdailybattle.com** — aim for A or A+ after Step 1 + 2.
+- **When A+ shows:** Update site footers from "Enterprise-grade security" to **"A+ Security – Powered by Cloudflare"** (index.html and pricing.html).
 - Browser DevTools → Network → select a document → Response Headers: confirm all five headers are present.

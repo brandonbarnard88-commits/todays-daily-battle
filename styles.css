@@ -1496,6 +1496,14 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .share-streak-wrap {
   margin-top: 0.5rem;
 }
+.share-streak-card {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  border-radius: 14px;
+}
+.share-streak-card-heading {
+  margin-bottom: 0.35rem;
+}
 
 .quick-pray-wrap {
   padding: 0.85rem 1rem;

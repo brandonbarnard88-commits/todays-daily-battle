@@ -3639,6 +3639,8 @@ function updateDailyBattleStreak() {
   streakEl.textContent = streakText;
   var shareStreakWrap = document.getElementById('share-streak-wrap');
   if (shareStreakWrap) shareStreakWrap.style.display = nextCount >= 1 ? 'flex' : 'none';
+  var shareStreakCard = document.getElementById('share-streak-card');
+  if (shareStreakCard) shareStreakCard.classList.toggle('hidden', nextCount < 1);
   var shareStreakBtn = document.getElementById('share-streak-btn');
   if (shareStreakBtn) shareStreakBtn.style.display = nextCount >= 1 ? 'inline-block' : 'none';
   const milestoneEl = document.getElementById('daily-battle-milestone');
@@ -4667,6 +4669,69 @@ function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
     }
   });
   if (line) ctx.fillText(line, x, y + offsetY);
+}
+
+function generateStreakShareCard() {
+  var count = 0;
+  try {
+    var d = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
+    count = Number(d.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
+  } catch (e) {}
+  if (count < 1) count = 1;
+  var canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1080;
+  var ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  var g = ctx.createLinearGradient(0, 0, 1080, 1080);
+  g.addColorStop(0, '#0f172a');
+  g.addColorStop(1, '#4c1d95');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 1080, 1080);
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '700 72px Inter, sans-serif';
+  var label = count === 1 ? '1 day streak' : count + ' day streak';
+  ctx.fillText('🔥 ' + label, 80, 380);
+  ctx.font = '600 36px Inter, sans-serif';
+  ctx.fillStyle = 'rgba(226, 232, 240, 0.9)';
+  ctx.fillText('todaysdailybattle.com', 80, 520);
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '400 28px Inter, sans-serif';
+  var todayStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  ctx.fillText(todayStr, 80, 580);
+  ctx.save();
+  ctx.globalAlpha = 0.08;
+  ctx.translate(540, 540);
+  ctx.rotate(-0.25 * Math.PI);
+  ctx.font = '400 42px Inter, sans-serif';
+  ctx.fillText('Today\'s Daily Battle', -200, 0);
+  ctx.restore();
+  canvas.toBlob(function (blob) {
+    if (!blob) return;
+    var file = new File([blob], 'daily-battle-streak-' + count + '.png', { type: 'image/png' });
+    var url = (window.location.origin || '') + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || 'https://todaysdailybattle.com';
+    if (!url.endsWith('/')) url += '/';
+    var text = count === 1 ? 'Day 1 on Today\'s Daily Battle—join me! ' + url : 'Day ' + count + ' streak—join me for a daily verse. ' + url;
+    if (navigator.share && (typeof navigator.canShare !== 'function' || navigator.canShare({ files: [file], text: text, url: url }))) {
+      navigator.share({ files: [file], title: 'My streak', text: text, url: url }).then(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Shared!');
+      }).catch(function () {
+        var a = document.createElement('a');
+        a.download = file.name;
+        a.href = URL.createObjectURL(blob);
+        a.click();
+        URL.revokeObjectURL(a.href);
+        if (typeof showEliteToast === 'function') showEliteToast('Image saved—share it from your photos.');
+      });
+    } else {
+      var a = document.createElement('a');
+      a.download = file.name;
+      a.href = URL.createObjectURL(blob);
+      a.click();
+      URL.revokeObjectURL(a.href);
+      if (typeof showEliteToast === 'function') showEliteToast('Image saved—share it from your photos.');
+    }
+  }, 'image/png');
 }
 
 function createVerseCardImage(ref, text) {
@@ -10527,6 +10592,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   var generateCard30Btn = document.getElementById('generate-share-card-30');
   if (generateCard30Btn) generateCard30Btn.addEventListener('click', function () { generateShareCard30(); });
+  var shareStreakCardCreate = document.getElementById('share-streak-card-create');
+  if (shareStreakCardCreate) shareStreakCardCreate.addEventListener('click', function () { generateStreakShareCard(); });
   var challengeStartBtn = document.getElementById('challenge-start-day-1');
   if (challengeStartBtn) challengeStartBtn.addEventListener('click', startChallenge);
   const shareDailySendFriendBtn = document.getElementById('share-daily-battle-send-friend');

@@ -1,8 +1,9 @@
 /**
- * Firebase push notifications for todaysdailybattle.com — daily 9 AM verse.
+ * Firebase push notifications for todaysdailybattle.com — daily 9 AM verse + streak alert.
  * No UI. Backend logic only: register service worker, request permission, get FCM token, send to backend.
  * Load after Firebase SDK: firebase-app.js, firebase-messaging.js.
  * Call tdbFirebasePushSubscribe() when user opts in (e.g. from existing notification toggle).
+ * Backend: send "Verse ready" at 9 AM and optionally "Streak alert" — see docs/DAILY-PUSH-AND-EMAIL.md.
  */
 (function () {
   'use strict';

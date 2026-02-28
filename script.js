@@ -4784,6 +4784,10 @@ if (c && c.ref) {
   if (elapsed < 500) {
     await new Promise(function (r) { setTimeout(r, 500 - elapsed); });
   }
+  /* Slow connection: show skeleton at least 3s so users see "Fetching..." gray box, not blank card */
+  if (elapsed < 3000) {
+    await new Promise(function (r) { setTimeout(r, 3000 - elapsed); });
+  }
   card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is unavailable.') + '</p>';
   card.classList.add('verse-card-loaded');
   card.classList.remove('hero-verse-card-skeleton');
@@ -9310,9 +9314,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (earlyBirdDays || battleProCountdown) {
       var endDate = new Date();
       endDate.setDate(endDate.getDate() + 7);
-      var days = Math.max(0, Math.ceil((endDate - new Date()) / (24 * 60 * 60 * 1000)));
-      if (earlyBirdDays) earlyBirdDays.textContent = days;
-      if (battleProCountdown) battleProCountdown.textContent = days + ' days left!';
+      function updateEarlyBird() {
+        var now = new Date();
+        var days = Math.max(0, Math.ceil((endDate - now) / (24 * 60 * 60 * 1000)));
+        if (earlyBirdDays) earlyBirdDays.textContent = days;
+        if (battleProCountdown) battleProCountdown.innerHTML = '<span class="countdown-number">' + days + '</span> days left!';
+      }
+      updateEarlyBird();
+      setInterval(updateEarlyBird, 1000);
     }
   })();
   const versionSelect = document.getElementById('version');
@@ -9365,21 +9374,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL;
   if (battleProBanner && allStripeLinksSet) {
     battleProBanner.innerHTML = '<strong>Battle Pro</strong> now available—offline, premium devotionals, your 2026 Wins Report. <a href="pricing.html">Unlock now</a>';
-  } else {
-    var earlyBirdDays = document.getElementById('early-bird-days');
-    var battleProCountdown = document.getElementById('battle-pro-countdown');
-    if (earlyBirdDays || battleProCountdown) {
-      var endDate = new Date();
-      endDate.setDate(endDate.getDate() + 7);
-      function updateEarlyBird() {
-        var now = new Date();
-        var days = Math.max(0, Math.ceil((endDate - now) / (24 * 60 * 60 * 1000)));
-        if (earlyBirdDays) earlyBirdDays.textContent = days;
-        if (battleProCountdown) battleProCountdown.textContent = days + ' days left!';
-      }
-      updateEarlyBird();
-      setInterval(updateEarlyBird, 60000);
-    }
   }
   if (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.GOOGLE_SITE_VERIFICATION) {
     var meta = document.createElement('meta');

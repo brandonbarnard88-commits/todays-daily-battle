@@ -77,6 +77,7 @@ let currentChurch = null;
 let lastQueryInput = '';
 let subscriptionTier = 'free';
 let currentDailyBattle = null;
+var dailyBattleFallbackTimeoutId = null;
 let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
@@ -4713,8 +4714,24 @@ async function renderDailyBattleCard() {
   var anchorTryEl = document.getElementById('daily-battle-anchor-try');
   if (anchorTryEl) anchorTryEl.remove();
   if (!card) return;
-  card.innerHTML = '<p class="daily-battle-loading">Arming you with God\'s Word…</p>';
+  var skeletonStart = Date.now();
+  card.classList.add('hero-verse-card-skeleton');
+  if (dailyBattleFallbackTimeoutId) {
+    clearTimeout(dailyBattleFallbackTimeoutId);
+    dailyBattleFallbackTimeoutId = null;
+  }
+  card.innerHTML = '<p class="daily-battle-loading">Fetching today\'s battle verse…</p>';
+  card.classList.remove('verse-card-loaded');
+  dailyBattleFallbackTimeoutId = setTimeout(function () {
+    dailyBattleFallbackTimeoutId = null;
+    if (!card.classList.contains('verse-card-loaded') && card.querySelector('.daily-battle-loading')) {
+      card.classList.remove('hero-verse-card-skeleton');
+      card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+    }
+  }, 3000);
   if (!Object.keys(bible).length) {
+    if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
+    card.classList.remove('hero-verse-card-skeleton');
     card.innerHTML = '<p class="empty">Bible data not loaded.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     return;
   }
@@ -4748,13 +4765,24 @@ if (c && c.ref) {
       usedAnchorVerse = true;
       battle = { ref: DEFAULT_DAILY_VERSE_REF, reflection: 'When today\'s verse isn\'t loading, anchor here. God has not given us a spirit of fear.', prayer: 'Lord, help me walk in power, love, and a sound mind today. Amen.' };
     } else {
+      if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
+      card.classList.remove('hero-verse-card-skeleton');
       card.innerHTML = '<p class="empty">Verse not available.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
       return;
     }
   }
   const verseText = verseTextFromCache || getBibleVerseText(battle.ref);
+  if (dailyBattleFallbackTimeoutId) {
+    clearTimeout(dailyBattleFallbackTimeoutId);
+    dailyBattleFallbackTimeoutId = null;
+  }
+  var elapsed = Date.now() - skeletonStart;
+  if (elapsed < 500) {
+    await new Promise(function (r) { setTimeout(r, 500 - elapsed); });
+  }
   card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is unavailable.') + '</p>';
   card.classList.add('verse-card-loaded');
+  card.classList.remove('hero-verse-card-skeleton');
   try {
     var verseKey = ARMOR_VERSE_DAY_KEY_PREFIX + getDailyKey();
     if (!sessionStorage.getItem(verseKey)) {
@@ -9272,6 +9300,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
   loadLocalSermons();
+  (function () {
+    var earlyBirdDays = document.getElementById('early-bird-days');
+    var battleProCountdown = document.getElementById('battle-pro-countdown');
+    if (earlyBirdDays || battleProCountdown) {
+      var endDate = new Date();
+      endDate.setDate(endDate.getDate() + 7);
+      var days = Math.max(0, Math.ceil((endDate - new Date()) / (24 * 60 * 60 * 1000)));
+      if (earlyBirdDays) earlyBirdDays.textContent = days;
+      if (battleProCountdown) battleProCountdown.textContent = days + ' days left!';
+    }
+  })();
   const versionSelect = document.getElementById('version');
   try {
     await loadBible(versionSelect ? versionSelect.value : currentVersion);
@@ -9324,13 +9363,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     battleProBanner.innerHTML = '<strong>Battle Pro</strong> now available—offline, premium devotionals, your 2026 Wins Report. <a href="pricing.html">Unlock now</a>';
   } else {
     var earlyBirdDays = document.getElementById('early-bird-days');
-    if (earlyBirdDays) {
+    var battleProCountdown = document.getElementById('battle-pro-countdown');
+    if (earlyBirdDays || battleProCountdown) {
       var endDate = new Date();
       endDate.setDate(endDate.getDate() + 7);
       function updateEarlyBird() {
         var now = new Date();
         var days = Math.max(0, Math.ceil((endDate - now) / (24 * 60 * 60 * 1000)));
-        earlyBirdDays.textContent = days;
+        if (earlyBirdDays) earlyBirdDays.textContent = days;
+        if (battleProCountdown) battleProCountdown.textContent = days + ' days left!';
       }
       updateEarlyBird();
       setInterval(updateEarlyBird, 60000);

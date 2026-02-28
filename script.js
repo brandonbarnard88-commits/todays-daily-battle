@@ -5,7 +5,9 @@
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
 window.__tdb_script_version = '20260228';
-if (typeof console !== 'undefined' && console.log) console.log('TDB: script loaded', window.__tdb_script_version);
+if (typeof console !== 'undefined' && console.log && (window.location && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') || (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_debug')))) {
+  console.log('TDB: script loaded', window.__tdb_script_version);
+}
 
 function safeSetItem(key, value) {
   try {
@@ -289,6 +291,17 @@ function getMasterEmails() {
       fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true }).catch(function () {});
     } catch (e) {}
   }
+  window.__tdb_reportError = function (msg, err) {
+    try {
+      var payload = { message: msg || 'TDB error', url: typeof window !== 'undefined' && window.location && window.location.href };
+      if (err && (err.message || err.stack)) {
+        payload.stack = err.stack || err.message || String(err);
+        payload.message = err.message || msg;
+      }
+      reportErrorToServer(payload);
+    } catch (_) {}
+    if (typeof console !== 'undefined' && console.warn) console.warn('[TDB]', msg, err || '');
+  };
   window.onerror = function (msg, url, line, col, err) {
     lastError = err || { message: msg, stack: url ? url + ':' + line + (col ? ':' + col : '') : '' };
     reportErrorToServer({ message: lastError.message, stack: lastError.stack || '', url: window.location.href });
@@ -354,7 +367,45 @@ const NT_BOOKS = new Set([
   '3 John','Jude','Revelation'
 ]);
 
-// Pro access: master, subscriptionTier (session/profiles/battle_pro_subscriptions), or __tdb_battle_pro_active.
+/** Single source of truth for search topic buttons (hero + accordion). Format: { topic: string, label: string, primary?: boolean } */
+const TDB_TOPICS = [
+  { topic: 'free will', label: 'FREE WILL', primary: true },
+  { topic: 'hope', label: 'Hope' },
+  { topic: 'fear', label: 'Fear' },
+  { topic: 'peace', label: 'Peace' },
+  { topic: 'gratitude', label: 'Gratitude' },
+  { topic: 'loneliness', label: 'Loneliness' },
+  { topic: 'guilt', label: 'Guilt' },
+  { topic: 'strength', label: 'Strength' },
+  { topic: 'heartache', label: 'Heartache' },
+  { topic: 'grief', label: 'Grief' },
+  { topic: 'anxiety', label: 'Anxiety' },
+  { topic: 'forgiveness', label: 'Forgiveness' },
+  { topic: 'patience', label: 'Patience' },
+  { topic: 'anger', label: 'Anger' },
+  { topic: 'joy', label: 'Joy' },
+  { topic: 'addiction', label: 'Addiction' },
+  { topic: 'trauma', label: 'Trauma' },
+  { topic: 'relationships', label: 'Relationships' },
+  { topic: 'jesus said', label: 'Jesus Said' },
+  { topic: 'parenting', label: 'Parenting' },
+  { topic: 'finances', label: 'Finances' },
+  { topic: 'spiritualwarfare', label: 'Spiritual Warfare' },
+  { topic: 'sleep', label: 'Sleep & Rest' },
+  { topic: 'marriage', label: 'Marriage' }
+];
+
+function renderQuickTopicButtons(containerId, firstIsPrimary) {
+  var container = document.getElementById(containerId);
+  if (!container || !Array.isArray(TDB_TOPICS)) return;
+  var html = '';
+  TDB_TOPICS.forEach(function (item, i) {
+    var isPrimary = firstIsPrimary && i === 0;
+    var cls = isPrimary ? 'btn btn-primary quick-topic' : 'btn btn-secondary quick-topic';
+    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '">' + escapeHtml(item.label) + '</button>';
+  });
+  container.innerHTML = html;
+} master, subscriptionTier (session/profiles/battle_pro_subscriptions), or __tdb_battle_pro_active.
 // Call fetchProfileTier() and fetchBattleProStatus() on load when session exists to gate Wins Report, offline PDFs, Armor series.
 function isProUser() {
   return isMasterUser ||
@@ -1494,6 +1545,7 @@ const STRIPE_BATTLEPRO_MILITARY_YEARLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MIL
 const STRIPE_CHURCH_MONTHLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_MONTHLY_URL || _cfg.STRIPE_CHURCH_MONTHLY_LINK)) || (_cfg && _cfg.STRIPE_CHURCH_LINK) || '';
 const STRIPE_CHURCH_YEARLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_YEARLY_URL || _cfg.STRIPE_CHURCH_YEARLY_LINK)) || '';
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
+const DONE_FOR_TODAY_KEY = 'tdb_done_for_today';
 const CHALLENGE_30_STARTED_KEY = 'challenge30Started';
 const LEADERBOARD_KEY = 'tdb_leaderboard';
 const LEADERBOARD_MAX = 50;
@@ -1591,6 +1643,71 @@ function loadStats() {
 function getDailyKey() {
   const now = new Date();
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
+function isDoneForToday() {
+  try { return localStorage.getItem(DONE_FOR_TODAY_KEY) === getDailyKey(); } catch (e) { return false; }
+}
+
+function markTodayAsPrayed() {
+  var today = getDailyKey();
+  try { localStorage.setItem(DONE_FOR_TODAY_KEY, today); } catch (e) {}
+  var data = {};
+  try { data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}'); } catch (e) {}
+  var dates = Array.isArray(data.dates) ? data.dates : [];
+  var set = new Set(dates);
+  set.add(today);
+  var nextDates = Array.from(set).sort();
+  var nextCount = calculateStreak(nextDates, today);
+  var nextData = { lastKey: today, count: nextCount, dates: nextDates };
+  localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(nextData));
+  if (typeof setSyncData === 'function') setSyncData('streak', nextData);
+  if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
+  if (typeof showEliteToast === 'function') showEliteToast('Battle won! See you tomorrow.');
+  var toastEl = document.getElementById('elite-toast');
+  if (toastEl) toastEl.classList.add('elite-toast-done');
+  applyDoneForTodayUI();
+}
+
+function applyDoneForTodayUI() {
+  var done = isDoneForToday();
+  var card = document.getElementById('daily-battle-card');
+  var doneBanner = document.getElementById('done-for-today-banner');
+  var cardWrap = document.getElementById('hero-verse-wrap');
+  var quickPrayRow = cardWrap ? cardWrap.querySelector('.quick-pray-in-hero') : null;
+  if (doneBanner) doneBanner.classList.toggle('hidden', !done);
+  var prayedRow = document.getElementById('daily-verse-prayed-row');
+  if (prayedRow) prayedRow.classList.toggle('hidden', done || !card || !card.classList.contains('verse-card-loaded'));
+  if (card) card.classList.toggle('hidden', done);
+  if (quickPrayRow) quickPrayRow.classList.toggle('hidden', done);
+  var markCheck = document.getElementById('daily-verse-prayed-cb');
+  if (markCheck) markCheck.checked = done;
+  updateStreakReminderNudge();
+}
+
+function updateStreakReminderNudge() {
+  var el = document.getElementById('streak-reminder-nudge');
+  if (!el) return;
+  if (isDoneForToday()) { el.classList.add('hidden'); el.textContent = ''; return; }
+  var count = 0;
+  try {
+    var d = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
+    count = Number(d.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
+  } catch (e) {}
+  if (count >= 2) {
+    el.innerHTML = 'Day ' + count + '—don\'t break it! <a href="#hero-verse-wrap">Tap to pray.</a>';
+    el.classList.remove('hidden');
+  } else { el.classList.add('hidden'); el.textContent = ''; }
+}
+
+function scrollToVerseAndHighlight() {
+  var wrap = document.getElementById('hero-verse-wrap');
+  var card = document.getElementById('daily-battle-card');
+  if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (wrap && card && !card.classList.contains('hidden')) {
+    wrap.classList.add('hero-verse-highlight');
+    setTimeout(function () { if (wrap) wrap.classList.remove('hero-verse-highlight'); }, 3000);
+  }
 }
 
 function getWeeklyPrayerCount() {
@@ -3279,6 +3396,36 @@ function wireFamilyNameModal() {
   });
 }
 
+function wireHelpModal() {
+  var modal = document.getElementById('help-modal');
+  var closeBtn = document.getElementById('help-modal-close');
+  if (!modal || !closeBtn) return;
+  function closeHelp() { modal.classList.add('hidden'); }
+  function openHelp() { modal.classList.remove('hidden'); }
+  closeBtn.addEventListener('click', closeHelp);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeHelp(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeHelp();
+    if (e.key === '?' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      var tag = document.activeElement && document.activeElement.tagName ? document.activeElement.tagName.toLowerCase() : '';
+      if (tag !== 'input' && tag !== 'textarea') { e.preventDefault(); openHelp(); }
+    }
+  });
+}
+
+function wireHeroVoicePray() {
+  var heroBtn = document.getElementById('voice-pray-hero-btn');
+  var voiceBtn = document.getElementById('voice-pray-btn');
+  var quickPrayInput = document.getElementById('quick-pray');
+  if (!heroBtn || !quickPrayInput) return;
+  heroBtn.addEventListener('click', function () {
+    var wrap = document.getElementById('hero-verse-wrap');
+    if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (voiceBtn) voiceBtn.click();
+    else if (quickPrayInput) quickPrayInput.focus();
+  });
+}
+
 function wireSacredSilenceToggle() {
   var cb = document.getElementById('sacred-silence-toggle');
   if (!cb) return;
@@ -3692,6 +3839,7 @@ function updateDailyBattleStreak() {
     }
   }
   if (typeof updateHomeStreakBadge === 'function') updateHomeStreakBadge(nextCount);
+  if (typeof updateStreakReminderNudge === 'function') updateStreakReminderNudge();
 }
 
 function updateHomeStreakBadge(streakCount) {
@@ -3726,6 +3874,7 @@ function showEliteToast(message) {
     document.body.appendChild(el);
   }
   el.textContent = message;
+  el.classList.remove('elite-toast-done');
   el.classList.remove('hidden');
   el.style.display = 'block';
   el.classList.add('elite-toast-show');
@@ -5003,6 +5152,10 @@ if (c && c.ref) {
   updateDailyBattleMetaDesc(battle.ref);
   renderDailyEncouragement();
   if (typeof updateSocialShareLinks === 'function') updateSocialShareLinks();
+  if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
+  setTimeout(function () {
+    if (typeof scrollToVerseAndHighlight === 'function') scrollToVerseAndHighlight();
+  }, 300);
 }
 
 function loadMessagesLocal() {
@@ -9108,6 +9261,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.body.classList.add('dark-mode');
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
 
+  renderQuickTopicButtons('quick-actions-hero', true);
+  renderQuickTopicButtons('quick-actions-accordion', false);
+
   var ob = document.getElementById('offline-banner');
   if (ob && navigator.onLine !== false) ob.classList.add('hidden');
   var heroLink = document.getElementById('hero-tagline-america');
@@ -9375,6 +9531,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireBlessSessionBtn();
   wireArmorBuilderModal();
   wireFamilyNameModal();
+  wireHelpModal();
+  wireHeroVoicePray();
   wireSacredSilenceToggle();
   wireSilentOffering();
   wireBreatheWithHim();
@@ -9516,6 +9674,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   })();
   const versionSelect = document.getElementById('version');
   try {
+    if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
     await loadBible(versionSelect ? versionSelect.value : currentVersion);
     refreshBibleView();
     applyReaderFromQuery();
@@ -10344,8 +10503,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 6500);
       }
       trackEvent('quick_pray_add');
+      try { localStorage.setItem(DONE_FOR_TODAY_KEY, getDailyKey()); } catch (e) {}
+      if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
     }
-    var shareStreakBtn = document.getElementById('share-streak-btn');
+    var prayWithMeBtn = document.getElementById('pray-with-me-btn');
     if (shareStreakBtn) {
       shareStreakBtn.addEventListener('click', function () {
         var count = 0;
@@ -10379,7 +10540,40 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       });
     }
-    var quickPrayUndo = document.getElementById('quick-pray-undo');
+    var markAsPrayedCheck = document.getElementById('daily-verse-prayed-cb');
+    if (markAsPrayedCheck) {
+      markAsPrayedCheck.addEventListener('change', function () {
+        if (this.checked && typeof markTodayAsPrayed === 'function') markTodayAsPrayed();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '?' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        var helpModal = document.getElementById('help-modal');
+        if (helpModal) { helpModal.classList.remove('hidden'); e.preventDefault(); }
+      }
+      if (e.key === 'Escape') {
+        var h = document.getElementById('help-modal');
+        if (h && !h.classList.contains('hidden')) { h.classList.add('hidden'); e.preventDefault(); }
+      }
+      if (e.key === 'Enter' && document.activeElement && document.activeElement.id === 'quick-pray') {
+        var pb = document.getElementById('quick-pray-btn');
+        if (pb) { pb.click(); e.preventDefault(); }
+      }
+    });
+    var helpModalClose = document.getElementById('help-modal-close');
+    if (helpModalClose) helpModalClose.addEventListener('click', function () {
+      var h = document.getElementById('help-modal');
+      if (h) h.classList.add('hidden');
+    });
+    var voicePrayHeroBtn = document.getElementById('voice-pray-hero-btn');
+    if (voicePrayHeroBtn) voicePrayHeroBtn.addEventListener('click', function () {
+      var vb = document.getElementById('voice-pray-btn');
+      if (vb) vb.click();
+      else {
+        var qw = document.getElementById('quick-pray-wrap');
+        if (qw) qw.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
     if (quickPrayUndo) {
       quickPrayUndo.addEventListener('click', function () {
         var undoWrap = document.getElementById('quick-pray-undo-wrap');

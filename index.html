@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="Daily KJV verse, prayer, and streak tracker to fight your battles—less scroll, more soul. Free.">
@@ -156,35 +156,19 @@
             <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
           </div>
           <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
-          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" aria-label="Quick topic search">
-            <button type="button" class="btn btn-primary quick-topic" data-topic="free will">FREE WILL</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace">Peace</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="gratitude">Gratitude</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="loneliness">Loneliness</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="guilt">Guilt</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="strength">Strength</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="heartache">Heartache</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="patience">Patience</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="anger">Anger</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="joy">Joy</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="addiction">Addiction</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="trauma">Trauma</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="relationships">Relationships</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="jesus said">Jesus Said</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="parenting">Parenting</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="finances">Finances</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="sleep">Sleep & Rest</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="marriage">Marriage</button>
-          </div>
+          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" aria-label="Quick topic search"><!-- filled by script from TDB_TOPICS --></div>
         </div>
-        <div class="hero-verse-wrap" aria-label="Today's verse">
+        <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
           <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card hero-verse-card-skeleton" aria-live="polite"><p class="daily-battle-loading">Fetching today's battle verse…</p></div>
+          <div id="daily-verse-prayed-row" class="daily-verse-prayed-row hidden" aria-live="polite">
+            <label class="daily-verse-prayed-label">
+              <input type="checkbox" id="daily-verse-prayed-cb" aria-label="Mark as prayed"> Prayed
+            </label>
+          </div>
+          <div id="done-for-today-banner" class="done-for-today-banner glass hidden" role="status" aria-live="polite">
+            <p class="done-for-today-text">Battle won! See you tomorrow.</p>
+          </div>
+          <p id="streak-reminder-nudge" class="streak-reminder-nudge section-note hidden" aria-live="polite"></p>
           <p class="america-in-card"><a id="hero-tagline-america" class="america-in-card-link" href="#">Let's Make America God's Again.</a></p>
           <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap hidden" aria-live="polite">
             <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
@@ -193,6 +177,7 @@
           <div class="quick-pray-in-hero">
             <input type="text" id="quick-pray" list="quick-pray-suggestions" placeholder="Add a name or intention…" aria-label="Quick prayer">
             <datalist id="quick-pray-suggestions"></datalist>
+            <button type="button" id="voice-pray-hero-btn" class="btn btn-secondary" aria-label="Speak your prayer" title="Speak your prayer"><span aria-hidden="true">🎤</span></button>
             <button type="button" id="quick-pray-btn" class="btn btn-primary" aria-label="Submit quick prayer">Pray</button>
           </div>
           <p class="hero-verse-byline">A hospital stay that was life-changing.</p>
@@ -224,28 +209,7 @@
           </div>
           <p class="section-note search-privacy-note">Your search is private. We never see what you type. <a href="privacy.html#main-content">Privacy</a></p>
           <p class="section-note mobile-label-topics">Try a topic</p>
-          <div class="quick-actions">
-            <button class="btn btn-primary quick-topic" data-topic="free will">FREE WILL</button>
-            <button class="btn btn-secondary quick-topic" data-topic="heartache">Heartache</button>
-            <button class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
-            <button class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
-            <button class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
-            <button class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
-            <button class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
-            <button class="btn btn-secondary quick-topic" data-topic="patience">Patience</button>
-            <button class="btn btn-secondary quick-topic" data-topic="anger">Anger</button>
-            <button class="btn btn-secondary quick-topic" data-topic="joy">Joy</button>
-            <button class="btn btn-secondary quick-topic" data-topic="addiction">Addiction</button>
-            <button class="btn btn-secondary quick-topic" data-topic="trauma">Trauma</button>
-            <button class="btn btn-secondary quick-topic" data-topic="relationships">Relationships</button>
-            <button class="btn btn-secondary quick-topic" data-topic="jesus said">Jesus Said</button>
-            <button class="btn btn-secondary quick-topic" data-topic="strength">Strength</button>
-            <button class="btn btn-secondary quick-topic" data-topic="parenting">Parenting</button>
-            <button class="btn btn-secondary quick-topic" data-topic="finances">Finances</button>
-            <button class="btn btn-secondary quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</button>
-            <button class="btn btn-secondary quick-topic" data-topic="sleep">Sleep & Rest</button>
-            <button class="btn btn-secondary quick-topic" data-topic="marriage">Marriage</button>
-          </div>
+          <div class="quick-actions" id="quick-actions-accordion"><!-- filled by script from TDB_TOPICS --></div>
           <p class="section-note mobile-label-tools">Tools</p>
           <div class="quick-links">
             <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
@@ -789,6 +753,18 @@
     </div>
     <button type="button" id="floating-voice-pray" class="floating-voice-pray" aria-label="Start voice prayer" title="Pray now"><span class="floating-voice-pray-icon" aria-hidden="true">🎤</span></button>
     <button type="button" id="silent-offering-btn" class="silent-offering-btn" aria-label="Offer silence" title="Offer silence"><span aria-hidden="true">✝</span></button>
+
+    <div id="help-modal" class="help-modal hidden" role="dialog" aria-label="Keyboard shortcuts" aria-modal="true">
+      <div class="help-modal-inner glass">
+        <h2 class="section-divider">Shortcuts</h2>
+        <ul class="section-note">
+          <li><kbd>?</kbd> — Show this help</li>
+          <li><kbd>Enter</kbd> — Submit prayer (when typing in Quick pray)</li>
+          <li><kbd>Esc</kbd> — Close</li>
+        </ul>
+        <button type="button" id="help-modal-close" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
 
     <div id="god-whisper-load" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="God is present."><span class="god-whisper-text">He is here.</span></div>
     <div id="prayer-whisper" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Prayer sent—God hears."><span class="god-whisper-text">God hears this.</span></div>

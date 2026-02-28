@@ -26,7 +26,7 @@ Three actions. Do them in order.
 
 - **Once:** In **Supabase → SQL Editor**, run **supabase-get-prayers-today-count.sql** (creates the RPC so the homepage can show "X warriors prayed today").
 - **Every day:** Add one real prayer on the site (e.g. "Lord, thank you for today.") or insert one row in `prayers` in Supabase.
-- Refresh the site → "1 warrior prayed today" (or more). Keep doing it. Counters climb, site feels alive.
+- Refresh the site → "1 warrior prayed today" (or more). **Keep adding one a day**—counters climb, site feels alive.
 
 ---
 

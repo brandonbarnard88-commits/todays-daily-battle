@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "build": "node build-config.js && node build-copy-static.js",
-    "test": "node -e \"console.log('Run docs/MANUAL-TESTING-CHECKLIST.md for auth, pricing, mobile.')\""
+    "test": "python3 test-site.py --offline"
   }
 }

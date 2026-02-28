@@ -125,6 +125,7 @@ img, video {
   text-decoration: none;
   border-radius: var(--border-radius);
   transition: top 0.2s ease;
+  /* Visually hidden until focused so keyboard/screen reader users can skip nav */
 }
 .skip-link:focus,
 .skip-link:focus-visible {

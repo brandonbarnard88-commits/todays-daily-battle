@@ -6,6 +6,7 @@ Use this before or after each deploy to keep the site healthy and ready for real
 
 ### 1. Cache-bust after deploy
 - Bump `script.js?v=YYYYMMDD` in all HTML when you change script (e.g. `20260301`). Prevents users stuck on old JS (404s, `shareStreakBtn`, etc.).
+- **Before deploy:** run `npm run test` (or `python3 test-site.py --offline`) so all page checks pass.
 - After deploy: hard refresh (Cmd+Shift+R) and confirm Console shows latest behavior.
 
 ### 2. “Prayed by X warriors today” (optional)

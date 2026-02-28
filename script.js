@@ -1622,6 +1622,9 @@ const STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MI
 const STRIPE_BATTLEPRO_MILITARY_YEARLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MILITARY_YEARLY_URL || _cfg.STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK)) || '';
 const STRIPE_CHURCH_MONTHLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_MONTHLY_URL || _cfg.STRIPE_CHURCH_MONTHLY_LINK)) || (_cfg && _cfg.STRIPE_CHURCH_LINK) || '';
 const STRIPE_CHURCH_YEARLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_YEARLY_URL || _cfg.STRIPE_CHURCH_YEARLY_LINK)) || '';
+if (typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.com' && !STRIPE_SUPPORTER_MONTHLY_URL) {
+  try { if (console && console.warn) console.warn('TDB: Stripe payment links not set. Set STRIPE_* in config or env for production checkout.'); } catch (e) {}
+}
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const DONE_FOR_TODAY_KEY = 'tdb_done_for_today';
 const CHALLENGE_30_STARTED_KEY = 'challenge30Started';
@@ -4656,12 +4659,12 @@ function renderDailyVerse() {
   const card = document.getElementById('daily-verse-card');
   if (!card) return;
   if (!Object.keys(bible).length) {
-    card.innerHTML = '<p class="empty">Bible data not loaded.</p>';
+    card.innerHTML = '<p class="empty">Bible data not loaded.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-verse-try-again">Try again</button>';
     return;
   }
   const ref = getDailyVerseRef();
   if (!ref || !bible[ref]) {
-    card.innerHTML = '<p class="empty">Verse not available.</p>';
+    card.innerHTML = '<p class="empty">Verse not available.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-verse-try-again">Try again</button>';
     return;
   }
   card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
@@ -5113,13 +5116,13 @@ async function renderDailyBattleCard() {
     dailyBattleFallbackTimeoutId = null;
     if (!card.classList.contains('verse-card-loaded') && card.querySelector('.daily-battle-loading')) {
       card.classList.remove('hero-verse-card-skeleton');
-      card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+      card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     }
   }, 3000);
   if (!Object.keys(bible).length) {
     if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
     card.classList.remove('hero-verse-card-skeleton');
-    card.innerHTML = '<p class="empty">Bible data not loaded.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+    card.innerHTML = '<p class="empty">Bible data not loaded.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     return;
   }
   const DEFAULT_DAILY_VERSE_REF = 'John 3:16';
@@ -5154,7 +5157,7 @@ if (c && c.ref) {
     } else {
       if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
       card.classList.remove('hero-verse-card-skeleton');
-      card.innerHTML = '<p class="empty">Verse not available.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+      card.innerHTML = '<p class="empty">Verse not available.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
       return;
     }
   }
@@ -9546,7 +9549,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           var out = document.getElementById('output');
           if (Object.keys(bible).length === 0) {
             if (out) {
-              out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh.</p>';
+              out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh. Having trouble? Try <a href="https://todaysdailybattle.com" style="color:var(--primary);">todaysdailybattle.com</a>.</p>';
               out.style.display = 'grid';
               out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
@@ -9663,6 +9666,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
   var isHome = path === '' || path === '/' || path === '/index.html';
+  if (isHome && typeof URLSearchParams !== 'undefined' && window.location.search) {
+    var searchParams = new URLSearchParams(window.location.search);
+    var q = searchParams.get('q');
+    if (q != null && (q = String(q).trim())) {
+      var queryEl = document.getElementById('query');
+      if (queryEl) queryEl.value = q;
+      if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q);
+    }
+  }
   (function () {
     var params = typeof URLSearchParams !== 'undefined' && window.location.search ? new URLSearchParams(window.location.search) : null;
     if (params && (params.get('military') === '1' || params.get('ref') === 'military')) {
@@ -10166,6 +10178,19 @@ document.addEventListener('DOMContentLoaded', async () => {
           if (!Object.keys(bible).length) await loadBible(currentVersion);
           refreshBibleView();
           await renderDailyBattleCard();
+        } catch (err) {}
+        if (btn) btn.disabled = false;
+      })();
+    }
+    if (e.target && e.target.id === 'daily-verse-try-again') {
+      e.preventDefault();
+      var btn = e.target;
+      if (btn) btn.disabled = true;
+      (async function () {
+        try {
+          if (!Object.keys(bible).length) await loadBible(currentVersion);
+          refreshBibleView();
+          renderDailyVerse();
         } catch (err) {}
         if (btn) btn.disabled = false;
       })();
@@ -10813,8 +10838,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (qw) qw.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
-    if (quickPrayUndo) {
-      quickPrayUndo.addEventListener('click', function () {
+    var quickPrayUndoEl = document.getElementById('quick-pray-undo');
+    if (quickPrayUndoEl) {
+      quickPrayUndoEl.addEventListener('click', function () {
         var undoWrap = document.getElementById('quick-pray-undo-wrap');
         if (!undoWrap || undoWrap.style.display === 'none') return;
         var items = loadPrayerList();
@@ -12677,6 +12703,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     setRedLetterEnabled(enabled);
     redLetterToggle.addEventListener('change', () => {
       setRedLetterEnabled(redLetterToggle.checked);
+      var readerBook = document.getElementById('reader-book');
+      var readerChapter = document.getElementById('reader-chapter');
+      if (readerBook && readerChapter && readerBook.value && readerChapter.value && typeof renderReaderChapter === 'function') {
+        renderReaderChapter(readerBook.value, readerChapter.value);
+      }
     });
   }
 

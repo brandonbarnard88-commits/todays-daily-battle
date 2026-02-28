@@ -1714,8 +1714,14 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   font-style: italic;
   color: rgba(226, 232, 240, 0.95);
   margin: 0.5rem 0;
+  transition: color 0.2s ease;
 }
 .prayer-of-day-block .prayer-of-day-meta { margin-top: 0.25rem; }
+.prayer-of-day-block,
+.bible-studies-banner-teaser,
+.coming-soon-teaser {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
 
 .beta-testers-form {
   display: flex;

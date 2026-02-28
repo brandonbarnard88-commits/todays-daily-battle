@@ -61,7 +61,11 @@ Use this when you want to **test the site hard** in a real browser.
 
 ## Quick automated run
 ```bash
+# Option A: with server (full HTTP check)
 python3 -m http.server 8765   # in one terminal
-python3 test-site.py         # in another
+python3 test-site.py          # in another
+
+# Option B: offline (files from disk, no server needed)
+python3 test-site.py --offline
 ```
 All lines should show `OK`.

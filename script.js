@@ -575,6 +575,48 @@ const topics = {
       teen: "Grief is hard, but God comforts and gives hope. His love and compassion are new every morning."
     }
   },
+  heartache: {
+    synonyms: ['heartache', 'heartbroken', 'sorrow', 'grief', 'loss', 'brokenhearted'],
+    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38'],
+    guidance: {
+      kid: "When you're sad, God is close and will comfort you. It's okay to cry; He sees your tears.",
+      teen: "It's okay to grieve. God comforts those who are hurting and promises that nothing can separate you from His love.",
+      adult: "The Lord is near the brokenhearted and binds up their wounds. One day He will wipe away every tear; until then, He holds you.",
+      pastor: "Incorporate into grief ministry; highlight God's nearness, His comfort, and eternal hope without minimizing pain."
+    },
+    explain: {
+      kid: "God sees your tears and stays close when you are sad. He is the God of all comfort.",
+      teen: "Grief is hard, but God comforts and gives hope. His love and compassion are new every morning."
+    }
+  },
+  'free will': {
+    synonyms: ['choice', 'choose', 'decision', 'obedience', 'will', 'freedom'],
+    verses: ['Joshua 24:15', 'Deuteronomy 30:19', 'Galatians 5:1', 'John 7:17', 'Romans 6:16', '2 Corinthians 3:17', 'James 4:7', 'Revelation 3:20'],
+    guidance: {
+      kid: "God lets you choose. Choose to love Him and do what's right.",
+      teen: "God gives you the freedom to choose; choose life and follow Him.",
+      adult: "Choose this day whom you will serve. God sets you free to choose life and obedience.",
+      pastor: "Preach on biblical freedom and the call to choose the Lord; pair with repentance and grace."
+    },
+    explain: {
+      kid: "God wants you to choose to love Him. You can say yes to Jesus.",
+      teen: "God gives you a choice. Use your freedom to follow Him."
+    }
+  },
+  guilt: {
+    synonyms: ['guilty', 'shame', 'condemnation', 'remorse', 'forgiven'],
+    verses: ['Romans 8:1', '1 John 1:9', 'Psalms 103:12', 'Isaiah 43:25', 'Hebrews 10:22', 'Colossians 1:14', 'Acts 13:38', 'Micah 7:19'],
+    guidance: {
+      kid: "When you feel bad about something, tell God. He forgives and loves you.",
+      teen: "God forgives when we come to Him. No condemnation in Christ.",
+      adult: "There is therefore now no condemnation for those in Christ. Confess and receive His mercy.",
+      pastor: "Preach the full forgiveness in Christ; remove shame and point to grace."
+    },
+    explain: {
+      kid: "God forgives you when you say sorry. You don't have to carry the guilt.",
+      teen: "Guilt can be heavy, but God removes it as far as east from west when we confess."
+    }
+  },
   lust: {
     synonyms: ['desire', 'temptation', 'craving', 'impure'],
     verses: ['Matthew 5:28', '1 John 2:16', 'Galatians 5:16', '2 Timothy 2:22', '1 Corinthians 6:18'],
@@ -9486,7 +9528,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       setView('search');
       var loadingEl = document.getElementById('loading');
-      if (loadingEl) loadingEl.style.display = 'block';
+      if (loadingEl) {
+        loadingEl.style.display = 'block';
+        loadingEl.classList.remove('hidden');
+      }
       if (outputEl) outputEl.innerHTML = '';
       setTimeout(async function () {
         try {
@@ -9502,8 +9547,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           if (Object.keys(bible).length === 0) {
             if (out) {
               out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh.</p>';
+              out.style.display = 'grid';
+              out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
-            if (loadingEl) loadingEl.style.display = 'none';
+            if (loadingEl) { loadingEl.style.display = 'none'; loadingEl.classList.add('hidden'); }
             return;
           }
           var filters = getSearchFilters();
@@ -9535,7 +9582,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
           if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);
         } finally {
-          if (loadingEl) loadingEl.style.display = 'none';
+          if (loadingEl) { loadingEl.style.display = 'none'; loadingEl.classList.add('hidden'); }
         }
       }, 150);
     }

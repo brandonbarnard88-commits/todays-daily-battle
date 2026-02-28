@@ -45,6 +45,9 @@ window.TDB_CONFIG.CREATE_CHECKOUT_SESSION_URL = (window.TDB_CONFIG.SUPABASE_URL 
 // Submit Quick Pray via Edge Function (Turnstile verification). Set TURNSTILE_SITE_KEY to enable.
 window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/submit-prayer';
 
+// Set to true after running supabase-get-prayers-today-count.sql so "Prayed by X warriors today" uses the RPC (avoids 404).
+window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = false;
+
 /**
  * Get Stripe Payment Link URL for a given tier and period.
  * @param {string} tier - 'supporter' | 'battle_pro' | 'battle_pro_military' | 'church'

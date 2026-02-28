@@ -2271,15 +2271,22 @@ function wireRealPrayerCounter() {
     var wrapEl = document.getElementById('prayer-count-today-wrap');
     var prayerOfDayEl = document.getElementById('prayer-of-day-count');
     if (!todayEl || !supabaseClient) return;
+    var prayersTodayRpcDisabled = false;
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
     async function fetchPrayersToday() {
-      if (!isPrayersApiAvailable()) return;
+      if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
+      if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED)) {
+        if (wrapEl) wrapEl.classList.add('hidden');
+        if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+        return;
+      }
       try {
         var res = await Promise.race([
           supabaseClient.rpc('get_prayers_today_count'),
           new Promise(function (_, rej) { setTimeout(function () { rej(new Error('timeout')); }, 6000); })
         ]).catch(function () { return { error: { code: 404 } }; });
         if (res && res.error && (res.error.code === 404 || is404Like(res))) {
+          prayersTodayRpcDisabled = true;
           setPrayersApiUnavailable();
           if (wrapEl) wrapEl.classList.add('hidden');
           if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
@@ -2296,6 +2303,7 @@ function wireRealPrayerCounter() {
           if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
         }
       } catch (e) {
+        prayersTodayRpcDisabled = true;
         if (wrapEl) wrapEl.classList.add('hidden');
         if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
       }

@@ -62,6 +62,13 @@ html {
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   font-size: 20px;
+  overflow-x: hidden;
+}
+
+/* Prevent images and media from causing horizontal overflow */
+img, video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* CSP-safe: no inline styles — use these classes instead of style="..." */
@@ -238,6 +245,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 .app-shell {
@@ -620,6 +628,7 @@ body {
 .app-content {
   grid-area: content;
   padding: var(--space-xl) var(--spacing-lg) var(--space-2xl);
+  min-width: 0;
 }
 
 .content-inner {
@@ -628,6 +637,7 @@ body {
   padding-bottom: var(--spacing-lg);
   display: grid;
   gap: var(--space-2xl);
+  min-width: 0;
 }
 
 .hero-banner {
@@ -1085,9 +1095,9 @@ body {
   }
   .quick-actions-hero .btn {
     flex-shrink: 0;
-    min-height: 44px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
+    min-height: 48px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
   }
   .hero-search-wrap { padding: var(--space-lg); }
   .hero-verse-wrap {
@@ -1107,7 +1117,7 @@ body {
   }
   .quick-pray-in-hero #quick-pray,
   .quick-pray-in-hero .btn {
-    min-height: 44px;
+    min-height: 48px;
   }
 }
 
@@ -1118,9 +1128,9 @@ body {
   }
   .search-hero-label { font-size: 1rem; }
   .quick-actions-hero .btn {
-    padding: 0.45rem 0.65rem;
-    font-size: 0.875rem;
-    min-height: 44px;
+    padding: 0.55rem 0.85rem;
+    font-size: 1rem;
+    min-height: 48px;
   }
   .hero-verse-wrap {
     padding-left: max(0.75rem, env(safe-area-inset-left));
@@ -1410,7 +1420,7 @@ body {
   50% { opacity: 0.88; }
 }
 .promo-banner-sub {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 @media (min-width: 768px) {
@@ -1422,6 +1432,14 @@ body {
   color: #fca5a5;
   text-decoration: underline;
   font-weight: 700;
+  font-size: 1rem;
+}
+@media (max-width: 767px) {
+  .promo-banner-headline { font-size: 1rem; }
+  .promo-banner-sub { font-size: 0.95rem; }
+  .promo-banner-cta { font-size: 1rem; }
+  .promo-banner.promo-banner-fixed { padding: 0.65rem 2.5rem 0.65rem 0.85rem; }
+  .promo-banner-inner { min-width: 0; }
 }
 .promo-banner-cta:hover { color: #fecaca; }
 .promo-banner.promo-banner-fixed .promo-banner-dismiss {
@@ -1942,6 +1960,27 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 }
 .btn:active {
   transform: translateY(0);
+}
+
+/* Mobile: keep buttons readable and tappable (44px+ tap target, 16px+ text) */
+@media (max-width: 767px) {
+  .btn {
+    font-size: 1rem;
+    min-height: 48px;
+    padding: 0.7rem 1.25rem;
+  }
+  .quick-actions .btn,
+  .quick-links .btn {
+    min-width: 0;
+    font-size: 1rem;
+    min-height: 48px;
+    padding: 0.65rem 1rem;
+  }
+  .btn-small {
+    font-size: 0.95rem;
+    min-height: 44px;
+    padding: 0.5rem 0.9rem;
+  }
 }
 
 .quick-start {
@@ -4828,11 +4867,11 @@ body.red-letter-off .red-letter-card {
     min-width: min-content;
     white-space: nowrap;
     flex-shrink: 0;
-    min-height: 44px;
-    padding: 0.55rem 0.9rem;
+    min-height: 48px;
+    padding: 0.6rem 1rem;
     font-size: 1rem;
   }
-  .quick-links .btn { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
+  .quick-links .btn { font-size: 1rem; padding: 0.6rem 1rem; }
 
   /* Collapsible Filters & Audio on mobile */
   .mobile-collapse-summary {
@@ -4872,12 +4911,12 @@ body.red-letter-off .red-letter-card {
     gap: 0.5rem;
   }
   .cta-group .btn {
-    min-height: 44px;
+    min-height: 48px;
     min-width: 44px;
   }
   .btn {
     width: auto;
-    min-height: 44px;
+    min-height: 48px;
   }
 
   /* Daily battle: compact grid, focus on verse */

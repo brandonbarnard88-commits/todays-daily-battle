@@ -2671,10 +2671,13 @@ function wireBattleProUpgradeModal() {
   function openModal() {
     modal.classList.remove('hidden');
     modal.setAttribute('aria-label', 'Upgrade to Battle Pro');
+    if (_tdbModalUntrap) _tdbModalUntrap();
+    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
     if (closeBtn) closeBtn.focus();
   }
   function closeModal() {
     modal.classList.add('hidden');
+    if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; }
     if (noteEl) { noteEl.style.display = 'none'; noteEl.textContent = ''; }
   }
   if (openBtn) openBtn.addEventListener('click', openModal);

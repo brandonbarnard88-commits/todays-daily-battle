@@ -2119,12 +2119,14 @@ function wireRealPrayerCounter() {
     if (!todayEl || !supabaseClient) return;
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
     async function fetchPrayersToday() {
+      if (!isPrayersApiAvailable()) return;
       try {
         var res = await Promise.race([
           supabaseClient.rpc('get_prayers_today_count'),
           new Promise(function (_, rej) { setTimeout(function () { rej(new Error('timeout')); }, 6000); })
         ]);
         if (res && res.error && is404Like(res)) {
+          setPrayersApiUnavailable();
           if (wrapEl) wrapEl.classList.add('hidden');
           if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
           return;

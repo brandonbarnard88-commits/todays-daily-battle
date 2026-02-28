@@ -2273,40 +2273,37 @@ function wireRealPrayerCounter() {
     if (!todayEl || !supabaseClient) return;
     var prayersTodayRpcDisabled = false;
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
-    async function fetchPrayersToday() {
+    function fetchPrayersToday() {
       if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
       if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED)) {
         if (wrapEl) wrapEl.classList.add('hidden');
         if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
         return;
       }
-      try {
-        var res = await Promise.race([
-          supabaseClient.rpc('get_prayers_today_count'),
-          new Promise(function (_, rej) { setTimeout(function () { rej(new Error('timeout')); }, 6000); })
-        ]).catch(function () { return { error: { code: 404 } }; });
-        if (res && res.error && (res.error.code === 404 || is404Like(res))) {
+      supabaseClient.rpc('get_prayers_today_count')
+        .then(function (res) {
+          if (res && res.error && (res.error.code === 404 || (res.error.message && String(res.error.message).indexOf('404') !== -1))) {
+            prayersTodayRpcDisabled = true;
+            if (wrapEl) wrapEl.classList.add('hidden');
+            if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+            return;
+          }
+          var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
+          if (!isNaN(n) && n >= 0) {
+            var displayN = Math.max(n, 2);
+            todayEl.textContent = formatCount(displayN);
+            if (wrapEl) wrapEl.classList.remove('hidden');
+            if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
+          } else {
+            if (wrapEl) wrapEl.classList.add('hidden');
+            if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+          }
+        })
+        .catch(function () {
           prayersTodayRpcDisabled = true;
-          setPrayersApiUnavailable();
           if (wrapEl) wrapEl.classList.add('hidden');
           if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
-          return;
-        }
-        var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
-        if (!isNaN(n) && n >= 0) {
-          var displayN = Math.max(n, 2);
-          todayEl.textContent = formatCount(displayN);
-          if (wrapEl) wrapEl.classList.remove('hidden');
-          if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
-        } else {
-          if (wrapEl) wrapEl.classList.add('hidden');
-          if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
-        }
-      } catch (e) {
-        prayersTodayRpcDisabled = true;
-        if (wrapEl) wrapEl.classList.add('hidden');
-        if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
-      }
+        });
     }
     fetchPrayersToday();
     setInterval(fetchPrayersToday, 60000);
@@ -3053,7 +3050,8 @@ function wireGodModePrayerEcho() {
         var todayIso = new Date().toISOString();
         rows = [
           { id: 'seed-1', intent: 'Lord, thank you for today.', family_name: 'A warrior', created_at: todayIso, amen_count: 0, _seed: true },
-          { id: 'seed-2', intent: 'For peace and strength in the battle.', family_name: 'A household', created_at: todayIso, amen_count: 0, _seed: true }
+          { id: 'seed-2', intent: 'For peace and strength in the battle.', family_name: 'A household', created_at: todayIso, amen_count: 0, _seed: true },
+          { id: 'seed-3', intent: 'Lord, help me stay grounded today.', family_name: 'A warrior', created_at: todayIso, amen_count: 0, _seed: true }
         ];
       }
       if (rows.length > lastEchoCount) playEchoBell();
@@ -9826,6 +9824,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
     updateCountdown();
+    if (typeof window.addEventListener === 'function') window.addEventListener('load', updateCountdown);
     setInterval(updateCountdown, 60000);
   })();
   (function () {
@@ -10437,6 +10436,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const quickPrayFeedback = document.getElementById('quick-pray-feedback');
   const quickPrayToday = document.getElementById('quick-pray-today');
   if (quickPrayBtn && quickPrayInput) {
+    var shareStreakBtn = document.getElementById('share-streak-btn');
     var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
     var turnstileSiteKey = cfg && cfg.TURNSTILE_SITE_KEY;
     var submitPrayerUrl = cfg && cfg.SUBMIT_PRAYER_URL;
@@ -10502,6 +10502,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       } catch (e) {}
     }
     function doQuickPray() {
+      var shareStreakBtn = document.getElementById('share-streak-btn');
       const text = (quickPrayInput.value || '').trim();
       if (!text) return;
       var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
@@ -10651,7 +10652,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         shareWrap.dataset.lastPrayer = text;
         shareWrap.style.display = 'block';
       }
-      var shareStreakBtn = document.getElementById('share-streak-btn');
       if (shareStreakBtn) {
         try {
           var streakData = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
@@ -10678,8 +10678,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       try { localStorage.setItem(DONE_FOR_TODAY_KEY, getDailyKey()); } catch (e) {}
       if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
     }
-    var shareStreakBtn = document.getElementById('share-streak-btn');
-    var prayWithMeBtn = document.getElementById('pray-with-me-btn');
     if (shareStreakBtn) {
       shareStreakBtn.addEventListener('click', function () {
         var count = 0;

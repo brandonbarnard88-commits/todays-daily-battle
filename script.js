@@ -438,7 +438,8 @@ function renderQuickTopicButtons(containerId, firstIsPrimary) {
     html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '">' + escapeHtml(item.label) + '</button>';
   });
   container.innerHTML = html;
-} master, subscriptionTier (session/profiles/battle_pro_subscriptions), or __tdb_battle_pro_active.
+}
+// Pro gate: master, subscriptionTier (session/profiles/battle_pro_subscriptions), or __tdb_battle_pro_active.
 // Call fetchProfileTier() and fetchBattleProStatus() on load when session exists to gate Wins Report, offline PDFs, Armor series.
 function isProUser() {
   return isMasterUser ||

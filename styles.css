@@ -808,7 +808,7 @@ body {
   justify-content: center;
   align-items: center;
   max-width: 38rem;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.5rem;
 }
 .search-hero-input {
   flex: 1;
@@ -927,10 +927,10 @@ body {
 .quick-searches-label {
   font-size: 0.95rem;
   color: rgba(148, 163, 184, 0.85);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.35rem;
 }
 .search-hero .quick-searches-label {
-  margin-top: 0.75rem;
+  margin-top: 0.35rem;
   text-align: center;
   font-size: 0.9375rem;
 }
@@ -940,7 +940,9 @@ body {
   gap: 0.5rem;
   justify-content: center;
   max-width: 56rem;
-  margin: 0.75rem auto 0;
+  margin: 0.25rem auto 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
 }
 .quick-actions-hero .btn {
   min-width: auto;
@@ -1117,28 +1119,19 @@ body {
     font-size: 0.9rem;
   }
   .quick-actions-hero {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 100%;
     margin-top: 0.5rem;
     padding-bottom: 0.35rem;
     gap: 0.4rem;
-    scrollbar-width: thin;
-  }
-  .quick-actions-hero::-webkit-scrollbar {
-    height: 4px;
-  }
-  .quick-actions-hero::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.3);
-    border-radius: 4px;
+    overflow-x: visible;
   }
   .quick-actions-hero .btn {
     flex-shrink: 0;
-    min-height: 48px;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
+    min-height: 44px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.95rem;
   }
   .hero-search-wrap { padding: var(--space-lg); }
   .hero-verse-wrap {

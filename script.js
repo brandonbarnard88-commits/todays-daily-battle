@@ -2278,8 +2278,8 @@ function wireRealPrayerCounter() {
         var res = await Promise.race([
           supabaseClient.rpc('get_prayers_today_count'),
           new Promise(function (_, rej) { setTimeout(function () { rej(new Error('timeout')); }, 6000); })
-        ]);
-        if (res && res.error && is404Like(res)) {
+        ]).catch(function () { return { error: { code: 404 } }; });
+        if (res && res.error && (res.error.code === 404 || is404Like(res))) {
           setPrayersApiUnavailable();
           if (wrapEl) wrapEl.classList.add('hidden');
           if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
@@ -10648,6 +10648,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try { localStorage.setItem(DONE_FOR_TODAY_KEY, getDailyKey()); } catch (e) {}
       if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
     }
+    var shareStreakBtn = document.getElementById('share-streak-btn');
     var prayWithMeBtn = document.getElementById('pray-with-me-btn');
     if (shareStreakBtn) {
       shareStreakBtn.addEventListener('click', function () {

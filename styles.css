@@ -943,6 +943,7 @@ body {
   margin: 0.25rem auto 0;
   padding-top: 0.5rem;
   border-top: 1px solid rgba(148, 163, 184, 0.12);
+  min-height: 2.5rem;
 }
 .quick-actions-hero .btn {
   min-width: auto;

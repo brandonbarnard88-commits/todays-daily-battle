@@ -1978,6 +1978,15 @@ function wireRealPrayerCounter() {
   if (!el) return;
   var previousCount = null;
   function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
+  function updateBetaWarriorsCount(n) {
+    var betaEl = document.getElementById('beta-warriors-count');
+    var wrap = document.getElementById('beta-progress-wrap');
+    if (!betaEl) return;
+    if (n != null && !isNaN(n) && n >= 0) {
+      betaEl.textContent = formatCount(n);
+      if (wrap) wrap.classList.remove('hidden');
+    } else if (wrap) wrap.classList.add('hidden');
+  }
   function animateCountAndSet(newCount) {
     var num = typeof newCount === 'number' ? newCount : (parseInt(newCount, 10) || 0);
     var start = previousCount != null && !isNaN(previousCount) ? previousCount : num;
@@ -2062,6 +2071,7 @@ function wireRealPrayerCounter() {
       var countNum = res && res.data != null ? (typeof res.data === 'number' ? res.data : (typeof res.data === 'string' ? parseInt(res.data, 10) : Number(res.data))) : NaN;
       if (res && !res.error && !isNaN(countNum) && countNum >= 0) {
         animateCountAndSet(countNum);
+        updateBetaWarriorsCount(countNum);
         var promo = document.getElementById('prayer-count-promo');
         if (promo) promo.textContent = formatCount(countNum) + ' prayers prayed worldwide. Join ' + formatCount(countNum) + ' warriors right now.';
         updateLastPrayerBadge();
@@ -2081,8 +2091,9 @@ function wireRealPrayerCounter() {
       if (restRes && restRes.count != null) animateCountAndSet(restRes.count);
       else if (restRes && Array.isArray(restRes.data)) animateCountAndSet(restRes.data.length);
       else el.textContent = '—';
-      var promo = document.getElementById('prayer-count-promo');
       var finalCount = restRes && (restRes.count != null ? restRes.count : (Array.isArray(restRes.data) ? restRes.data.length : null));
+      updateBetaWarriorsCount(finalCount);
+      var promo = document.getElementById('prayer-count-promo');
       if (promo) promo.textContent = (finalCount != null ? formatCount(finalCount) + ' prayers prayed worldwide. Join ' + formatCount(finalCount) + ' warriors right now.' : '');
       updateLastPrayerBadge();
     } catch (e) {

@@ -2277,7 +2277,7 @@ function wireRealPrayerCounter() {
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
     function fetchPrayersToday() {
       if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
-      if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED)) {
+      if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED === true)) {
         if (wrapEl) wrapEl.classList.add('hidden');
         if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
         return;
@@ -10455,7 +10455,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const quickPrayFeedback = document.getElementById('quick-pray-feedback');
   const quickPrayToday = document.getElementById('quick-pray-today');
   if (quickPrayBtn && quickPrayInput) {
-    var shareStreakBtn = document.getElementById('share-streak-btn');
     var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
     var turnstileSiteKey = cfg && cfg.TURNSTILE_SITE_KEY;
     var submitPrayerUrl = cfg && cfg.SUBMIT_PRAYER_URL;
@@ -10521,7 +10520,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       } catch (e) {}
     }
     function doQuickPray() {
-      var shareStreakBtn = document.getElementById('share-streak-btn');
       const text = (quickPrayInput.value || '').trim();
       if (!text) return;
       var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
@@ -10672,11 +10670,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         shareWrap.dataset.lastPrayer = text;
         shareWrap.style.display = 'block';
       }
-      if (shareStreakBtn) {
+      var shareStreakEl = document.getElementById('share-streak-btn');
+      if (shareStreakEl) {
         try {
           var streakData = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
           var streakCount = Number(streakData.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
-          if (streakCount >= 1) shareStreakBtn.style.display = 'inline-block';
+          if (streakCount >= 1) shareStreakEl.style.display = 'inline-block';
         } catch (e) {}
       }
       var undoWrap = document.getElementById('quick-pray-undo-wrap');
@@ -10698,8 +10697,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       try { localStorage.setItem(DONE_FOR_TODAY_KEY, getDailyKey()); } catch (e) {}
       if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
     }
-    if (shareStreakBtn) {
-      shareStreakBtn.addEventListener('click', function () {
+    var shareStreakBtnEl = document.getElementById('share-streak-btn');
+    if (shareStreakBtnEl) {
+      shareStreakBtnEl.addEventListener('click', function () {
         var count = 0;
         try {
           var d = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');

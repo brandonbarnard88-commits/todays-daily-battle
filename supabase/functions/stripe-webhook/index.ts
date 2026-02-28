@@ -46,6 +46,7 @@ Deno.serve(async (req) => {
   if (!signature) {
     return jsonResponse({ error: "Missing stripe-signature header" }, 400);
   }
+  // Auth: Stripe sends HMAC signature (t=...,v0=...), not the secret. Verify only via constructEventAsync; do not compare signature === webhookSecret.
 
   let body: string;
   try {
@@ -83,7 +84,7 @@ Deno.serve(async (req) => {
       return jsonResponse({ error: "Failed to update profiles", detail: profileError.message }, 500);
     }
 
-    return jsonResponse({ ok: true, user_id: userId, tier }, 200);
+    return jsonResponse({ ok: true, tier }, 200);
   }
 
   // Revoke Pro when subscription is canceled or payment fails (past_due/unpaid)
@@ -111,7 +112,7 @@ Deno.serve(async (req) => {
       return jsonResponse({ error: "Failed to revoke tier", detail: profileError.message }, 500);
     }
 
-    return jsonResponse({ ok: true, user_id: userId, tier: "free", reason: event.type }, 200);
+    return jsonResponse({ ok: true, tier: "free" }, 200);
   }
 
   return jsonResponse({ received: true, type: event.type }, 200);

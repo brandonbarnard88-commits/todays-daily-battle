@@ -111,6 +111,22 @@ Permissions-Policy: geolocation=(), microphone=(self), camera=()
 
 ---
 
+## Pre-launch security (live subs)
+
+Before flipping Stripe to live, confirm:
+
+| Check | Action |
+|-------|--------|
+| **RLS on profiles** | Run `supabase-profiles-tier.sql` then `supabase-rls-lockdown-extended.sql` in Supabase SQL Editor. Result: anon cannot read/write profiles; authenticated can only SELECT own row; only service_role can INSERT/UPDATE (webhook). Verify: with anon key, `GET /rest/v1/profiles?select=*` returns 403 or `[]`. |
+| **Webhook auth** | Stripe webhooks are authenticated by signature (`stripe.webhooks.constructEventAsync`). No extra secret header needed. Optional: Stripe Dashboard → Webhooks → restrict to Stripe IPs if your host supports it. |
+| **No userId in webhook response** | Webhook returns only `{ ok: true, tier }` on success so user IDs are never in response bodies. |
+| **Rate limiting** | Supabase Dashboard → Auth → Rate Limiting (enable). Cloudflare WAF or rate rules on login/prayer if available. |
+| **PWA / service worker** | Cache only static assets (CSS, verse JSON, images). Do not cache user-specific API responses (streaks, prayers, profile). |
+
+**RLS verification (anon test):** With anon key only: `GET .../rest/v1/profiles?select=*`. Secure result: empty array or 403. If you see rows, RLS is not applied—re-run the SQL.
+
+---
+
 ## Summary
 
 - **XSS:** Mitigated via escapeHtml/sanitizeUserInput, textContent for user content, and reading-plan escape.

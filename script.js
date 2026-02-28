@@ -1288,7 +1288,9 @@ window.TDB_GO_TO_CHECKOUT = async function (tier, period) {
       else if (link) window.location.href = link;
       return;
     }
-  } catch (e) {}
+  } catch (e) {
+    if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('create_checkout_session', e);
+  }
   if (link) window.location.href = link;
 };
 
@@ -3029,7 +3031,7 @@ function wireGodModePrayerEcho() {
       return;
     }
     var echoTimeout = setTimeout(function () {
-      if (loadingEl && loadingEl.textContent.indexOf('Loading') !== -1) {
+      if (loadingEl && (loadingEl.textContent.indexOf('Loading') !== -1 || loadingEl.textContent.indexOf('Preparing') !== -1)) {
         loadingEl.style.display = 'block';
         loadingEl.textContent = 'When you\'re online, recent prayers appear here.';
       }
@@ -7241,6 +7243,23 @@ async function renderAdminPanel() {
     health.innerHTML = items.map(item => (
       '<div class="admin-card"><strong>' + escapeHtml(item.label) + '</strong><p>' + escapeHtml(String(item.value != null ? item.value : '')) + '</p></div>'
     )).join('');
+    if (supabaseClient && isSupabaseConfigured()) {
+      var todayStart = new Date();
+      todayStart.setUTCHours(0, 0, 0, 0);
+      var todayEnd = new Date(Date.UTC(todayStart.getUTCFullYear(), todayStart.getUTCMonth(), todayStart.getUTCDate() + 1, 0, 0, 0, 0));
+      supabaseClient.from('prayers').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()).lt('created_at', todayEnd.toISOString()).then(function (r) {
+        var count = (r && r.count != null) ? r.count : (r && r.error ? '—' : '0');
+        var card = document.createElement('div');
+        card.className = 'admin-card';
+        card.innerHTML = '<strong>Prayers today</strong><p>' + escapeHtml(String(count)) + '</p>';
+        health.appendChild(card);
+      }).catch(function () {
+        var card = document.createElement('div');
+        card.className = 'admin-card';
+        card.innerHTML = '<strong>Prayers today</strong><p>—</p>';
+        health.appendChild(card);
+      });
+    }
   }
 
   const overview = document.getElementById('admin-overview');
@@ -9367,7 +9386,7 @@ async function loadStudies() {
   var grid = document.querySelector('.study-grid');
   var loadingEl = document.getElementById('study-grid-loading');
   if (!grid) return;
-  if (loadingEl) loadingEl.textContent = 'Loading studies…';
+  if (loadingEl) loadingEl.textContent = 'Preparing…';
   if (typeof supabaseClient === 'undefined' || !supabaseClient) {
     if (loadingEl) loadingEl.textContent = 'Unable to load studies. Refresh the page.';
     return;
@@ -10626,6 +10645,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           setPrayerOfflineQueue(q);
           if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
           onInsertDone(false);
+          if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('quick_pray_insert_failed', new Error('Supabase insert failed'));
         });
       } else {
         var q = getPrayerOfflineQueue();
@@ -10689,8 +10709,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         var baseUrl = (typeof window !== 'undefined' && window.location && window.location.origin) ? window.location.origin : 'https://todaysdailybattle.com';
         var inviteUrl = baseUrl + '/?invite=' + count;
         var msg = 'Day ' + count + ' on todaysdailybattle.com—join me! #DailyBattle \uD83D\uDD25 ' + inviteUrl;
+        var shareInviteAlt = 'Less scroll, more soul. Join me: ' + inviteUrl;
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(msg).then(function () {
+          navigator.clipboard.writeText(shareInviteAlt).then(function () {
             if (typeof showEliteToast === 'function') showEliteToast('Copied! Paste to share on X or anywhere.'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Copied!'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
           }).catch(function () {});
         }

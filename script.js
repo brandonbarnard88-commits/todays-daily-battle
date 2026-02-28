@@ -9356,7 +9356,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
     updateCountdown();
-    setInterval(updateCountdown, 3600000);
+    setInterval(updateCountdown, 60000);
   })();
   (function () {
     var promoBanner = document.getElementById('promo-banner');

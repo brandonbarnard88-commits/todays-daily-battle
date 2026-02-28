@@ -119,12 +119,17 @@ html {
   animation: tdb-loading-pulse 2s ease-in-out infinite;
 }
 .hero-verse-card.hero-verse-card-skeleton {
-  min-height: 140px;
+  min-height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(30, 41, 59, 0.4);
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  background: rgba(30, 41, 59, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  animation: tdb-skeleton-shimmer 2s ease-in-out infinite;
+}
+@keyframes tdb-skeleton-shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.92; }
 }
 .hero-verse-card.hero-verse-card-skeleton .daily-battle-loading {
   padding: 0.5rem 0;

@@ -1196,7 +1196,11 @@ window.TDB_GO_TO_CHECKOUT = async function (tier, period) {
     });
     var data = await res.json();
     if (data && data.url) {
-      window.location.href = data.url;
+      var url = String(data.url);
+      var allowed = /^https:\/\/(checkout\.stripe\.com|pay\.stripe\.com)\//.test(url) ||
+        (url.indexOf('https://' + (typeof window !== 'undefined' && window.location && window.location.hostname ? window.location.hostname : 'todaysdailybattle.com') + '/') === 0 && url.indexOf('pricing') !== -1);
+      if (allowed) window.location.href = url;
+      else if (link) window.location.href = link;
       return;
     }
   } catch (e) {}

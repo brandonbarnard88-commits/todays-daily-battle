@@ -162,13 +162,14 @@
       if (!container) return;
       const progress = loadProgress();
       container.innerHTML = '';
+      function esc(s) { if (s == null) return ''; var x = String(s); return x.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
       PLAN.forEach(function(item) {
         const done = !!progress[String(item.day)];
         const row = document.createElement('div');
         row.className = 'list-item';
         row.innerHTML = '<div class="reading-plan-row">' +
           '<label class="reading-plan-check"><input type="checkbox" data-day="' + item.day + '" ' + (done ? 'checked' : '') + '><span>Day ' + item.day + '</span></label>' +
-          '<div><strong>' + item.ref + '</strong><p>' + item.theme + '</p></div>' +
+          '<div><strong>' + esc(item.ref) + '</strong><p>' + esc(item.theme) + '</p></div>' +
           '<a href="/?ref=' + encodeURIComponent(item.ref) + '" class="btn btn-secondary">Read</a>' +
           '</div>';
         container.appendChild(row);

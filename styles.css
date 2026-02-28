@@ -90,6 +90,16 @@ html {
   .verse-card.verse-card-loaded p {
     animation: none;
   }
+  .daily-battle-loading,
+  .hero-verse-card.hero-verse-card-skeleton {
+    animation: none;
+  }
+  .hero-verse-card.verse-card.verse-card-loaded {
+    animation: none;
+  }
+  .hero-verse-card.hero-verse-card-skeleton::before {
+    opacity: 0.5;
+  }
 }
 
 .skip-link {
@@ -923,7 +933,14 @@ body {
   border: 1px solid rgba(148, 163, 184, 0.18);
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease, opacity var(--transition-smooth);
+}
+.hero-verse-card.verse-card.verse-card-loaded {
+  animation: heroVerseReveal 0.45s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+@keyframes heroVerseReveal {
+  from { opacity: 0.94; }
+  to { opacity: 1; }
 }
 .hero-verse-card.verse-card:hover {
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(148, 163, 184, 0.12);
@@ -1829,6 +1846,14 @@ body {
   transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover), inset 0 1px 0 var(--elite-cream-strong), 0 0 24px var(--elite-gold-dim);
 }
+/* Battle Pro card: subtle gold accent so it reads as the hero plan */
+.pricing-card:has(#battle-pro-countdown) {
+  border-left: 3px solid var(--elite-gold-solid);
+  box-shadow: var(--shadow-card), inset 1px 0 0 var(--elite-gold-dim), inset 0 1px 0 var(--elite-cream), inset 0 -1px 0 rgba(0,0,0,0.06);
+}
+.pricing-card:has(#battle-pro-countdown):hover {
+  box-shadow: var(--shadow-card-hover), inset 1px 0 0 var(--elite-gold-dim), 0 0 28px var(--elite-gold-dim);
+}
 
 @media (max-width: 768px) {
   .pricing-grid { gap: 1rem; }
@@ -1912,6 +1937,12 @@ body {
   font-size: 1.1em;
   color: inherit;
   opacity: 0.95;
+  display: inline-block;
+  transition: transform var(--transition-smooth);
+}
+.btn:hover .cta-arrow,
+.btn:focus-visible .cta-arrow {
+  transform: translateX(3px);
 }
 .pricing-cta-battle-pro {
   margin-top: 0.5rem;
@@ -1921,6 +1952,11 @@ body {
 .pricing-cta-battle-pro .btn-primary {
   width: 100%;
   min-width: 0;
+}
+.pricing-cta-battle-pro .btn-primary:hover,
+.pricing-cta-battle-pro .btn-primary:focus-visible {
+  box-shadow: 0 16px 48px rgba(109, 40, 217, 0.55), 0 0 0 1px var(--elite-cream-strong), 0 0 24px var(--elite-gold-dim);
+  transform: translateY(-4px);
 }
 
 .pricing-list {

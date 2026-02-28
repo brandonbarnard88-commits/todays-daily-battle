@@ -2100,6 +2100,34 @@ function wireRealPrayerCounter() {
   window.__fetchPrayerCount = fetchPrayerCount;
   fetchPrayerCount();
   setInterval(fetchPrayerCount, 10000);
+
+  (function wirePrayersTodayCount() {
+    var todayEl = document.getElementById('prayer-count-today');
+    var wrapEl = document.getElementById('prayer-count-today-wrap');
+    if (!todayEl || !supabaseClient) return;
+    function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
+    async function fetchPrayersToday() {
+      try {
+        var res = await Promise.race([
+          supabaseClient.rpc('get_prayers_today_count'),
+          new Promise(function (_, rej) { setTimeout(function () { rej(new Error('timeout')); }, 6000); })
+        ]);
+        if (res && res.error && is404Like(res)) {
+          if (wrapEl) wrapEl.classList.add('hidden');
+          return;
+        }
+        var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
+        if (!isNaN(n) && n >= 0) {
+          todayEl.textContent = formatCount(n);
+          if (wrapEl) wrapEl.classList.remove('hidden');
+        } else if (wrapEl) wrapEl.classList.add('hidden');
+      } catch (e) {
+        if (wrapEl) wrapEl.classList.add('hidden');
+      }
+    }
+    fetchPrayersToday();
+    setInterval(fetchPrayersToday, 60000);
+  })();
 }
 
 function wirePrayerCounter() {
@@ -9309,27 +9337,26 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   loadLocalSermons();
   (function () {
+    var endDate = new Date('2026-03-07T23:59:59');
     var earlyBirdDays = document.getElementById('early-bird-days');
     var battleProCountdown = document.getElementById('battle-pro-countdown');
-    if (earlyBirdDays || battleProCountdown) {
-      var endDate = new Date();
-      endDate.setDate(endDate.getDate() + 7);
-      function updateEarlyBird() {
-        var now = new Date();
-        var days = Math.max(0, Math.ceil((endDate - now) / (24 * 60 * 60 * 1000)));
-        if (earlyBirdDays) earlyBirdDays.textContent = days;
-        if (battleProCountdown) battleProCountdown.innerHTML = '<span class="countdown-number">' + days + '</span> days left!';
-        var promoBannerDays = document.getElementById('promo-banner-days');
-        if (promoBannerDays) promoBannerDays.textContent = days;
-        var promoBanner = document.getElementById('promo-banner');
-        if (promoBanner && days === 0) {
-          promoBanner.classList.add('hidden');
-          document.body.classList.remove('has-promo-banner');
-        }
+    var promoBannerDays = document.getElementById('promo-banner-days');
+    var promoBanner = document.getElementById('promo-banner');
+    function updateCountdown() {
+      var now = new Date();
+      var diff = endDate - now;
+      var days = diff > 0 ? Math.floor(diff / 86400000) : 0;
+      var countdownText = diff < 0 ? 'Promo Ended!' : ('Ends in ' + days + ' day' + (days !== 1 ? 's' : '') + '!');
+      if (promoBannerDays) promoBannerDays.textContent = countdownText;
+      if (earlyBirdDays) earlyBirdDays.textContent = diff >= 0 ? days : '0';
+      if (battleProCountdown) battleProCountdown.innerHTML = diff >= 0 ? '<span class="countdown-number">' + days + '</span> days left!' : 'Promo ended.';
+      if (promoBanner && diff < 0) {
+        promoBanner.classList.add('hidden');
+        document.body.classList.remove('has-promo-banner');
       }
-      updateEarlyBird();
-      setInterval(updateEarlyBird, 1000);
     }
+    updateCountdown();
+    setInterval(updateCountdown, 3600000);
   })();
   (function () {
     var promoBanner = document.getElementById('promo-banner');
@@ -10620,11 +10647,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     var dotsContainer = document.querySelector('#testimonials-carousel .testimonial-dots');
     if (!slidesContainer || !dotsContainer) return;
     var testimonials = [
-      { quote: 'This kept me sane during chemo.', body: 'One verse a day was all I could do. It was enough.' },
-      { quote: 'First time I prayed daily.', body: 'Two minutes. No guilt. It actually stuck.' },
       { quote: 'I open this more than Instagram now.', body: 'Two minutes here and I feel grounded. The streak keeps me coming back.' },
-      { quote: 'This helped me breathe again.', body: 'The verses felt like a lifeline in a hard week.' },
-      { quote: 'My sermon prep got faster.', body: 'The search + outlines saved me hours.' }
+      { quote: 'Kept me sane during chemo.', body: 'One verse a day was all I could do. It was enough.' },
+      { quote: 'I pray every morning now.', body: 'It actually stuck. No guilt—just two minutes that fill me up.' }
     ];
     testimonials.forEach(function (t, i) {
       var slide = document.createElement('div');

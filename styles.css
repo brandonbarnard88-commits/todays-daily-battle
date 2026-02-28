@@ -113,7 +113,7 @@ html {
 }
 
 .daily-battle-loading {
-  color: rgba(226, 232, 240, 0.8);
+  color: rgba(226, 232, 240, 0.9);
   font-style: italic;
   margin: 0;
   animation: tdb-loading-pulse 2s ease-in-out infinite;
@@ -121,25 +121,41 @@ html {
 .hero-verse-card.hero-verse-card-skeleton {
   min-height: 160px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(30, 41, 59, 0.65);
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(51, 65, 85, 0.6) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.25);
   animation: tdb-skeleton-shimmer 2s ease-in-out infinite;
+  position: relative;
+}
+/* Visible gray placeholder bar so skeleton reads as "loading block" */
+.hero-verse-card.hero-verse-card-skeleton::before {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  height: 12px;
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 6px;
+  pointer-events: none;
 }
 @keyframes tdb-skeleton-shimmer {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.92; }
+  50% { opacity: 0.94; }
 }
 .hero-verse-card.hero-verse-card-skeleton .daily-battle-loading {
   padding: 0.5rem 0;
+  position: relative;
+  z-index: 1;
 }
 /* Fallback state when verse fails to load */
 .hero-verse-card .daily-battle-loading + .btn {
   margin-top: 0.75rem;
 }
 @keyframes tdb-loading-pulse {
-  0%, 100% { opacity: 0.7; }
+  0%, 100% { opacity: 0.75; }
   50% { opacity: 1; }
 }
 
@@ -1824,7 +1840,8 @@ body {
   }
   .pricing-cta-countdown,
   #battle-pro-countdown {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    font-weight: 800;
     margin-bottom: 0.5rem;
   }
   .pricing-cta-battle-pro .btn {
@@ -1880,15 +1897,21 @@ body {
 }
 
 .pricing-cta-countdown,
-#battle-pro-countdown {
+#battle-pro-countdown,
+.pricing-card .pricing-cta-countdown,
+.pricing-card #battle-pro-countdown {
   margin: 0 0 0.5rem;
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: #ef4444;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #dc2626 !important;
+  letter-spacing: 0.02em;
 }
 .cta-arrow {
-  margin-left: 0.25rem;
+  margin-left: 0.35rem;
   font-weight: 700;
+  font-size: 1.1em;
+  color: inherit;
+  opacity: 0.95;
 }
 .pricing-cta-battle-pro {
   margin-top: 0.5rem;

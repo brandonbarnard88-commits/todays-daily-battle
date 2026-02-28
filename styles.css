@@ -508,6 +508,12 @@ body {
   font-weight: 600;
   text-transform: uppercase;
 }
+.brand-tagline {
+  color: var(--elite-gold, #c9a227);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
 
 .top-nav {
   display: flex;
@@ -4856,6 +4862,9 @@ body.red-letter-off .red-letter-card {
     font-size: 1.15rem;
   }
   .brand-subtitle {
+    display: none;
+  }
+  .brand-tagline {
     display: none;
   }
   .side-nav a {

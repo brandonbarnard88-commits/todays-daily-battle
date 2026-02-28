@@ -9319,10 +9319,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         var days = Math.max(0, Math.ceil((endDate - now) / (24 * 60 * 60 * 1000)));
         if (earlyBirdDays) earlyBirdDays.textContent = days;
         if (battleProCountdown) battleProCountdown.innerHTML = '<span class="countdown-number">' + days + '</span> days left!';
+        var promoBannerDays = document.getElementById('promo-banner-days');
+        if (promoBannerDays) promoBannerDays.textContent = days;
+        var promoBanner = document.getElementById('promo-banner');
+        if (promoBanner && days === 0) {
+          promoBanner.classList.add('hidden');
+          document.body.classList.remove('has-promo-banner');
+        }
       }
       updateEarlyBird();
       setInterval(updateEarlyBird, 1000);
     }
+  })();
+  (function () {
+    var promoBanner = document.getElementById('promo-banner');
+    var dismissBtn = document.getElementById('promo-banner-dismiss');
+    if (!promoBanner || !dismissBtn) return;
+    var key = 'tdb_promo_banner_dismissed';
+    try {
+      var dismissedAt = parseInt(localStorage.getItem(key) || '0', 10);
+      if (dismissedAt && (Date.now() - dismissedAt) < 24 * 60 * 60 * 1000) promoBanner.classList.add('hidden');
+    } catch (e) {}
+    if (!promoBanner.classList.contains('hidden')) document.body.classList.add('has-promo-banner');
+    dismissBtn.addEventListener('click', function () {
+      try { localStorage.setItem(key, String(Date.now())); } catch (e) {}
+      promoBanner.classList.add('hidden');
+      document.body.classList.remove('has-promo-banner');
+    });
   })();
   const versionSelect = document.getElementById('version');
   try {

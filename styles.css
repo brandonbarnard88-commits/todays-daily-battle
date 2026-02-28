@@ -1370,6 +1370,75 @@ body {
 }
 #offline-prefetch-status { margin: 0; font-size: 0.9rem; }
 
+/* Fixed promo banner: black → red-900 gradient, armor vibe, mobile-first */
+.promo-banner.promo-banner-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+  background: linear-gradient(to right, #000 0%, #7f1d1d 100%);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.35;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+.promo-banner.promo-banner-fixed.hidden { display: none; }
+.promo-banner-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.promo-banner-headline {
+  animation: promo-banner-pulse 2s ease-in-out infinite;
+}
+@keyframes promo-banner-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.88; }
+}
+.promo-banner-sub {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .promo-banner.promo-banner-fixed { font-size: 1.1rem; padding: 0.7rem 3rem 0.7rem 1rem; }
+  .promo-banner-sub { font-size: 0.9rem; }
+}
+.promo-banner-days { font-weight: 800; }
+.promo-banner-cta {
+  color: #fca5a5;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.promo-banner-cta:hover { color: #fecaca; }
+.promo-banner.promo-banner-fixed .promo-banner-dismiss {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.promo-banner.promo-banner-fixed .promo-banner-dismiss:hover { color: #fff; }
+/* Spacer so content doesn't sit under fixed banner */
+body.has-promo-banner .app-shell { padding-top: 4.25rem; }
+@media (min-width: 768px) {
+  body.has-promo-banner .app-shell { padding-top: 4.5rem; }
+}
+
 .battle-pro-banner {
   padding: 0.6rem 1rem;
   margin-bottom: 1rem;

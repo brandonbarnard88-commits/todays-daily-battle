@@ -260,6 +260,7 @@ function getMasterEmails() {
     var bar = document.createElement('div');
     bar.id = 'tdb-error-bar';
     bar.setAttribute('role', 'alert');
+    bar.setAttribute('aria-live', 'assertive');
     bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:rgba(185,28,28,0.95);color:#fff;padding:0.5rem 1rem;font-size:0.875rem;display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-wrap:wrap;z-index:9999;box-shadow:0 -2px 10px rgba(0,0,0,0.2);';
     var msgSpan = document.createElement('span');
     msgSpan.textContent = message || '';
@@ -316,6 +317,37 @@ function getMasterEmails() {
     showErrorBar('Something went wrong. You can copy error details to report it.', text + (stack ? '\n' + stack : ''));
   };
 })();
+
+function trapModalFocus(modalEl, options) {
+  if (!modalEl || !modalEl.querySelector) return function () {};
+  var focusable = modalEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  var first = focusable[0];
+  var last = focusable[focusable.length - 1];
+  if (options && options.focusFirst && first) first.focus();
+  var previousActive = (options && options.restoreOnClose && document.activeElement) ? document.activeElement : null;
+  function onKey(e) {
+    if (e.key !== 'Tab' && e.key !== 'Escape') return;
+    if (e.key === 'Escape') {
+      var closeBtn = modalEl.querySelector('[aria-label="Dismiss"], .intent-modal-close');
+      if (closeBtn) closeBtn.click();
+      return;
+    }
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        if (document.activeElement === first && last) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last && first) { e.preventDefault(); first.focus(); }
+      }
+    }
+  }
+  modalEl.addEventListener('keydown', onKey);
+  return function untrap() {
+    modalEl.removeEventListener('keydown', onKey);
+    if (previousActive && previousActive.focus) previousActive.focus();
+  };
+}
+var _tdbModalUntrap = null;
+
 let currentUserEmail = '';
 let deferredInstallPrompt = null;
 // Set to your Cloudflare Web Analytics beacon token to enable analytics; leave '' to disable.
@@ -2461,9 +2493,12 @@ function wireIntentModal() {
   function showModal() {
     modal.classList.remove('hidden');
     if (input) input.value = '';
+    if (_tdbModalUntrap) _tdbModalUntrap();
+    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
   }
   function hideModal() {
     modal.classList.add('hidden');
+    if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; }
     try { localStorage.setItem(INTENT_LAST_KEY, String(Date.now())); } catch (e) {}
   }
   try {
@@ -4056,7 +4091,10 @@ function fetchDailyBattleRaw(dateKey) {
     return r.json();
   }).then(function (arr) {
     return Array.isArray(arr) && arr.length ? arr[0] : null;
-  }).catch(function () { return null; });
+  }).catch(function (e) {
+    if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('fetchDailyBattleRaw', e);
+    return null;
+  });
 }
 
 async function getDailyBattleFromSupabaseForKey(key) {

@@ -85,6 +85,8 @@ for (const f of rootFiles) {
   const src = path.join(root, f);
   if (fs.existsSync(src)) {
     copyFile(src, path.join(dist, f));
+  } else if (f === 'kjv.json') {
+    console.warn('build-copy-static.js: kjv.json not found in root — verse search and daily verse may fail until it is added or served from origin.');
   }
 }
 

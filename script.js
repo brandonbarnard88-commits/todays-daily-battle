@@ -4,7 +4,7 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
-window.__tdb_script_version = '20260228';
+window.__tdb_script_version = '20260301';
 if (typeof console !== 'undefined' && console.log && (window.location && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') || (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_debug')))) {
   console.log('TDB: script loaded', window.__tdb_script_version);
 }
@@ -3447,8 +3447,16 @@ function wireHelpModal() {
   var modal = document.getElementById('help-modal');
   var closeBtn = document.getElementById('help-modal-close');
   if (!modal || !closeBtn) return;
-  function closeHelp() { modal.classList.add('hidden'); }
-  function openHelp() { modal.classList.remove('hidden'); }
+  function closeHelp() {
+    if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; }
+    modal.classList.add('hidden');
+  }
+  function openHelp() {
+    modal.classList.remove('hidden');
+    if (_tdbModalUntrap) _tdbModalUntrap();
+    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
+    if (closeBtn) closeBtn.focus();
+  }
   closeBtn.addEventListener('click', closeHelp);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeHelp(); });
   document.addEventListener('keydown', function (e) {
@@ -9685,6 +9693,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   loadLocalSermons();
   (function () {
+    // Promo end: update this date when the "First 50" window changes (banner + early-bird-days).
     var endDate = new Date('2026-03-07T23:59:59Z');
     var earlyBirdDays = document.getElementById('early-bird-days');
     var battleProCountdown = document.getElementById('battle-pro-countdown');

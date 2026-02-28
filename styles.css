@@ -1709,6 +1709,14 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .study-card-btn { margin-top: 0.25rem; align-self: flex-start; }
 .bible-study-teaser .section-note { margin: 0; }
 
+.prayer-of-day-block .prayer-of-day-text {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(226, 232, 240, 0.95);
+  margin: 0.5rem 0;
+}
+.prayer-of-day-block .prayer-of-day-meta { margin-top: 0.25rem; }
+
 .beta-testers-form {
   display: flex;
   gap: 0.5rem;

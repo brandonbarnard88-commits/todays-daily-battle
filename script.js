@@ -2115,6 +2115,7 @@ function wireRealPrayerCounter() {
   (function wirePrayersTodayCount() {
     var todayEl = document.getElementById('prayer-count-today');
     var wrapEl = document.getElementById('prayer-count-today-wrap');
+    var prayerOfDayEl = document.getElementById('prayer-of-day-count');
     if (!todayEl || !supabaseClient) return;
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
     async function fetchPrayersToday() {
@@ -2125,15 +2126,21 @@ function wireRealPrayerCounter() {
         ]);
         if (res && res.error && is404Like(res)) {
           if (wrapEl) wrapEl.classList.add('hidden');
+          if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
           return;
         }
         var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
         if (!isNaN(n) && n >= 0) {
           todayEl.textContent = formatCount(n);
           if (wrapEl) wrapEl.classList.remove('hidden');
-        } else if (wrapEl) wrapEl.classList.add('hidden');
+          if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(n);
+        } else {
+          if (wrapEl) wrapEl.classList.add('hidden');
+          if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+        }
       } catch (e) {
         if (wrapEl) wrapEl.classList.add('hidden');
+        if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
       }
     }
     fetchPrayersToday();

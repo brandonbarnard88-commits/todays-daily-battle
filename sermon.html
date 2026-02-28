@@ -82,6 +82,16 @@
             <a class="btn btn-secondary" href="resources.html">Pastor Resources</a>
           </div>
         </header>
+        <section id="sermons-dashboard" class="glass sermons-dashboard" aria-label="My sermons">
+          <h2 class="section-divider">My Sermons</h2>
+          <p class="section-note">Create and edit sermon outlines. Sign in to sync across devices.</p>
+          <div class="sermons-dashboard-actions">
+            <button type="button" id="new-sermon-btn" class="btn btn-primary">New Sermon</button>
+          </div>
+          <ul id="sermons-list" class="sermons-list" aria-label="Sermon list">
+            <li class="section-note sermons-list-empty">Loading…</li>
+          </ul>
+        </section>
         <section id="sermon-builder" class="sermon-builder glass">
           <h2 class="section-divider">Sermon Builder (Pastors)</h2>
           <p class="section-note">Start with a passage, shape your outline, then share with your team.</p>
@@ -95,8 +105,19 @@
               <input id="sermon-theme" placeholder="Main theme or aim">
             </div>
             <div>
+              <label for="sermon-date">Date</label>
+              <input id="sermon-date" type="date" aria-label="Sermon date">
+            </div>
+            <div>
               <label for="sermon-text-ref">Primary Text</label>
               <input id="sermon-text-ref" placeholder="Book Chapter:Verse (e.g., John 3:16)">
+            </div>
+            <div>
+              <label for="sermon-status">Status</label>
+              <select id="sermon-status" aria-label="Status">
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+              </select>
             </div>
             <div class="sermon-full">
               <label for="sermon-outline">Outline</label>

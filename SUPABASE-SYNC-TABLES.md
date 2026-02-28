@@ -50,6 +50,8 @@ After running the SQL, the site will sync these when users are logged in and per
 
 **Testing:** With the anon key, unauthenticated requests to `user_sync_data` should return no rows. Test sync: sign in on Device A, add streak + prayer list item; sign in on Device B with same account and confirm data appears. See TESTING-SYNC.md for the full test sequence.
 
+**Sermons table:** For the Sermon Builder (list, save, PDF export), run `supabase-sermons-table.sql` in the SQL Editor. That creates the `sermons` table (with RLS) and adds `date`/`status` if the table already existed.
+
 ---
 
 ### Verify RLS (anon key test)

@@ -6490,7 +6490,7 @@ async function syncUserData() {
   const [notesData, versesData, sermonsData, lessonsData, collectionsData, collectionItemsData, streakData, prayerData, badgesData, badgeDatesData, repairData, challenge30Data] = await Promise.all([
     supabaseClient.from('notes').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('saved_verses').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
-    supabaseClient.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
+    supabaseClient.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, date, status, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
     supabaseClient.from('lessons').select('id, audience, content, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('saved_collections').select('id, name, created_at').eq('user_id', currentUserId).order('created_at', { ascending: true }),
     supabaseClient.from('saved_verse_collections').select('id, collection_id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
@@ -6576,13 +6576,16 @@ async function syncUserData() {
     const sermon = sermonsData.data[0];
     localStorage.setItem(SERMON_DRAFT_ID_KEY, sermon.id);
     const draft = {
+      id: sermon.id,
       title: sermon.title || '',
       theme: sermon.theme || '',
       textRef: sermon.text_ref || '',
       outline: sermon.outline || '',
       points: sermon.points || '',
       application: sermon.application || '',
-      prayer: sermon.prayer || ''
+      prayer: sermon.prayer || '',
+      date: sermon.date || '',
+      status: sermon.status || 'draft'
     };
     saveSermonDraft(draft);
     applySermonDraft(draft);
@@ -7571,22 +7574,48 @@ function applySermonDraft(draft) {
   el = document.getElementById('sermon-points'); if (el) el.value = draft.points || '';
   el = document.getElementById('sermon-application'); if (el) el.value = draft.application || '';
   el = document.getElementById('sermon-prayer'); if (el) el.value = draft.prayer || '';
+  el = document.getElementById('sermon-date'); if (el) el.value = draft.date || '';
+  el = document.getElementById('sermon-status'); if (el) el.value = draft.status || 'draft';
+}
+
+function getSermonDraftFromForm() {
+  var id = localStorage.getItem(SERMON_DRAFT_ID_KEY);
+  var dateEl = document.getElementById('sermon-date');
+  var statusEl = document.getElementById('sermon-status');
+  var dateVal = dateEl && dateEl.value ? dateEl.value.trim() : '';
+  var statusVal = statusEl && statusEl.value ? statusEl.value : 'draft';
+  return {
+    id: id || undefined,
+    title: document.getElementById('sermon-title')?.value.trim() || '',
+    theme: document.getElementById('sermon-theme')?.value.trim() || '',
+    textRef: document.getElementById('sermon-text-ref')?.value.trim() || '',
+    outline: document.getElementById('sermon-outline')?.value.trim() || '',
+    points: document.getElementById('sermon-points')?.value.trim() || '',
+    application: document.getElementById('sermon-application')?.value.trim() || '',
+    prayer: document.getElementById('sermon-prayer')?.value.trim() || '',
+    date: dateVal || undefined,
+    status: statusVal
+  };
 }
 
 async function saveSermonDraftToSupabase(draft) {
   if (!canUseSupabase()) return null;
-  const existingId = localStorage.getItem(SERMON_DRAFT_ID_KEY);
+  const existingId = draft.id || localStorage.getItem(SERMON_DRAFT_ID_KEY);
   const id = existingId || generateUuid();
+  const dateVal = draft.date || null;
+  const statusVal = draft.status || 'draft';
   const payload = {
     id,
     user_id: currentUserId,
-    title: draft.title,
-    theme: draft.theme,
-    text_ref: draft.textRef,
-    outline: draft.outline,
-    points: draft.points,
-    application: draft.application,
-    prayer: draft.prayer,
+    title: draft.title || '',
+    theme: draft.theme || '',
+    text_ref: draft.textRef || '',
+    outline: draft.outline || '',
+    points: draft.points || '',
+    application: draft.application || '',
+    prayer: draft.prayer || '',
+    date: dateVal,
+    status: statusVal,
     updated_at: new Date().toISOString()
   };
   const { data, error } = await supabaseClient.from('sermons').upsert(payload).select('id').single();
@@ -7595,6 +7624,55 @@ async function saveSermonDraftToSupabase(draft) {
     return data.id;
   }
   return null;
+}
+
+async function fetchSermonsList() {
+  if (!canUseSupabase() || !currentUserId) return [];
+  const { data, error } = await supabaseClient
+    .from('sermons')
+    .select('id, title, date, status, updated_at')
+    .eq('user_id', currentUserId)
+    .order('updated_at', { ascending: false })
+    .limit(100);
+  if (error || !Array.isArray(data)) return [];
+  return data;
+}
+
+function renderSermonsList(sermons) {
+  const listEl = document.getElementById('sermons-list');
+  if (!listEl) return;
+  if (!sermons || sermons.length === 0) {
+    listEl.innerHTML = '<li class="section-note sermons-list-empty">No sermons yet. Click New Sermon to start.</li>';
+    return;
+  }
+  listEl.innerHTML = sermons.map(function (s) {
+    var dateStr = s.date ? new Date(s.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+    var updatedStr = s.updated_at ? new Date(s.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
+    var label = (s.title || 'Untitled') + (dateStr ? ' — ' + dateStr : '') + ' (' + (s.status || 'draft') + ')';
+    return '<li class="sermons-list-item"><button type="button" class="btn-link sermons-list-load" data-id="' + escapeHtml(s.id) + '" data-title="' + escapeHtml(s.title || '') + '">' + escapeHtml(label) + '</button> <span class="section-note">' + escapeHtml(updatedStr) + '</span></li>';
+  }).join('');
+}
+
+async function loadSermonById(id) {
+  if (!canUseSupabase() || !id) return;
+  const { data, error } = await supabaseClient.from('sermons').select('*').eq('id', id).eq('user_id', currentUserId).single();
+  if (error || !data) return;
+  const draft = {
+    id: data.id,
+    title: data.title || '',
+    theme: data.theme || '',
+    textRef: data.text_ref || '',
+    outline: data.outline || '',
+    points: data.points || '',
+    application: data.application || '',
+    prayer: data.prayer || '',
+    date: data.date || '',
+    status: data.status || 'draft'
+  };
+  localStorage.setItem(SERMON_DRAFT_ID_KEY, data.id);
+  saveSermonDraft(draft);
+  applySermonDraft(draft);
+  if (typeof window.__refreshSermonsList === 'function') window.__refreshSermonsList();
 }
 
 async function saveLessonPlanToSupabase(audience, content) {
@@ -11386,18 +11464,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const saveSermonBtn = document.getElementById('save-sermon');
   if (saveSermonBtn) {
     saveSermonBtn.addEventListener('click', () => {
-      const draft = {
-        title: document.getElementById('sermon-title')?.value.trim() || '',
-        theme: document.getElementById('sermon-theme')?.value.trim() || '',
-        textRef: document.getElementById('sermon-text-ref')?.value.trim() || '',
-        outline: document.getElementById('sermon-outline')?.value.trim() || '',
-        points: document.getElementById('sermon-points')?.value.trim() || '',
-        application: document.getElementById('sermon-application')?.value.trim() || '',
-        prayer: document.getElementById('sermon-prayer')?.value.trim() || ''
-      };
+      const draft = getSermonDraftFromForm();
       saveSermonDraft(draft);
-      saveSermonDraftToSupabase(draft);
-      alert('Sermon draft saved.');
+      saveSermonDraftToSupabase(draft).then(function (id) {
+        if (typeof window.__refreshSermonsList === 'function') window.__refreshSermonsList();
+      });
+      if (typeof showEliteToast === 'function') showEliteToast('Sermon draft saved.'); else alert('Sermon draft saved.');
     });
   }
 
@@ -11482,7 +11554,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const printSermonBtn = document.getElementById('print-sermon');
   if (printSermonBtn) {
     printSermonBtn.addEventListener('click', () => {
-      const draft = loadSermonDraft();
+      const draft = typeof getSermonDraftFromForm === 'function' ? getSermonDraftFromForm() : loadSermonDraft();
       const html = `
         <html>
           <head>
@@ -11510,6 +11582,41 @@ document.addEventListener('DOMContentLoaded', async () => {
         </html>
       `;
       openPrintWindow(html);
+    });
+  }
+
+  const sermonsListEl = document.getElementById('sermons-list');
+  if (sermonsListEl) {
+    window.__refreshSermonsList = async function () {
+      const list = await fetchSermonsList();
+      renderSermonsList(list);
+      const loadBtns = sermonsListEl.querySelectorAll('.sermons-list-load');
+      loadBtns.forEach(function (btn) {
+        btn.removeEventListener('click', loadSermonClick);
+        btn.addEventListener('click', loadSermonClick);
+      });
+    };
+    function loadSermonClick(e) {
+      const id = e.target.getAttribute('data-id');
+      if (id) loadSermonById(id);
+    }
+    (async function () {
+      const list = await fetchSermonsList();
+      renderSermonsList(list);
+      sermonsListEl.addEventListener('click', function (e) {
+        if (e.target.classList.contains('sermons-list-load')) loadSermonById(e.target.getAttribute('data-id'));
+      });
+    })();
+  }
+  const newSermonBtn = document.getElementById('new-sermon-btn');
+  if (newSermonBtn) {
+    newSermonBtn.addEventListener('click', function () {
+      localStorage.removeItem(SERMON_DRAFT_ID_KEY);
+      saveSermonDraft({ title: '', theme: '', textRef: '', outline: '', points: '', application: '', prayer: '', date: '', status: 'draft' });
+      applySermonDraft(loadSermonDraft());
+      if (typeof window.__refreshSermonsList === 'function') window.__refreshSermonsList();
+      var titleEl = document.getElementById('sermon-title');
+      if (titleEl) titleEl.focus();
     });
   }
 

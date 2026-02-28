@@ -9412,7 +9412,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   loadLocalSermons();
   (function () {
-    var endDate = new Date('2026-03-07T23:59:59');
+    var endDate = new Date('2026-03-07T23:59:59Z');
     var earlyBirdDays = document.getElementById('early-bird-days');
     var battleProCountdown = document.getElementById('battle-pro-countdown');
     var promoBannerDays = document.getElementById('promo-banner-days');

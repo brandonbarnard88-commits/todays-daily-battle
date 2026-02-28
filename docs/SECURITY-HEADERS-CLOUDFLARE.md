@@ -42,7 +42,7 @@ Use **Cloudflare Dashboard → Rules → Transform Rules → HTTP Response Heade
 | `X-Content-Type-Options` | `nosniff` |
 | `Referrer-Policy` | `strict-origin-when-cross-origin` |
 | `Strict-Transport-Security` | `max-age=31536000; includeSubDomains; preload` |
-| `Permissions-Policy` | `geolocation=(), microphone=(), camera=()` |
+| `Permissions-Policy` | `geolocation=(), microphone=(), camera=(), payment=(), usb=()` |
 | `Content-Security-Policy` | *(single line below)* |
 
 **Optional (for A+):** If your Transform Rules also set **Expect-CT** or **X-XSS-Protection**, remove them—they’re deprecated. CSP covers XSS; HSTS makes Expect-CT redundant. Then rescan securityheaders.com.
@@ -66,5 +66,5 @@ Wait for inclusion in browser preload lists (~2 weeks). After that you’re comm
 ## Step 4: Verify
 
 - **https://securityheaders.com/?q=https://todaysdailybattle.com** — aim for A or A+. With Permissions-Policy added and deprecated headers removed, you should hit A+.
-- **When A+ shows:** Update site footers to **"A+ Security – Powered by Cloudflare"** (index.html, pricing.html, bible-study.html).
+- **When A+ shows:** Site footers already say **"A+ Security – Powered by Cloudflare"** (index.html, pricing.html, bible-study.html). Submit to **https://hstspreload.org/?domain=todaysdailybattle.com** (after 24h HTTPS) for permanent browser enforcement.
 - Browser DevTools → Network → select a document → Response Headers: confirm HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy are present.

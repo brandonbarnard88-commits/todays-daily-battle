@@ -1699,6 +1699,9 @@ function markTodayAsPrayed() {
   if (typeof showEliteToast === 'function') showEliteToast('Battle won! See you tomorrow.');
   var toastEl = document.getElementById('elite-toast');
   if (toastEl) toastEl.classList.add('elite-toast-done');
+  if (typeof confetti === 'function') {
+    try { confetti({ particleCount: 60, spread: 70, origin: { y: 0.7 } }); } catch (e) {}
+  }
   applyDoneForTodayUI();
 }
 
@@ -2283,9 +2286,10 @@ function wireRealPrayerCounter() {
         }
         var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
         if (!isNaN(n) && n >= 0) {
-          todayEl.textContent = formatCount(n);
+          var displayN = Math.max(n, 2);
+          todayEl.textContent = formatCount(displayN);
           if (wrapEl) wrapEl.classList.remove('hidden');
-          if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(n);
+          if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
         } else {
           if (wrapEl) wrapEl.classList.add('hidden');
           if (prayerOfDayEl) prayerOfDayEl.textContent = '—';

@@ -3049,6 +3049,13 @@ function wireGodModePrayerEcho() {
       if (listEl) listEl.style.display = 'block';
       if (joinBtn) joinBtn.style.display = 'inline-block';
       var rows = (res && res.data) ? res.data : [];
+      if (rows.length === 0) {
+        var todayIso = new Date().toISOString();
+        rows = [
+          { id: 'seed-1', intent: 'Lord, thank you for today.', family_name: 'A warrior', created_at: todayIso, amen_count: 0, _seed: true },
+          { id: 'seed-2', intent: 'For peace and strength in the battle.', family_name: 'A household', created_at: todayIso, amen_count: 0, _seed: true }
+        ];
+      }
       if (rows.length > lastEchoCount) playEchoBell();
       lastEchoCount = rows.length;
       listEl.innerHTML = '';
@@ -3082,7 +3089,8 @@ function wireGodModePrayerEcho() {
         countEl.textContent = ac > 0 ? ' ' + ac : '';
         var alreadyAmen = false;
         try { alreadyAmen = localStorage.getItem(AMEN_PREFIX + row.id) === '1'; } catch (e) {}
-        if (alreadyAmen) amenBtn.setAttribute('disabled', 'true');
+        if (row._seed) amenBtn.setAttribute('disabled', 'true');
+        else if (alreadyAmen) amenBtn.setAttribute('disabled', 'true');
         amenBtn.addEventListener('click', function () {
           if (alreadyAmen) return;
           if (!supabaseClient) return;
@@ -5116,6 +5124,13 @@ if (c && c.ref) {
   var elapsed = Date.now() - skeletonStart;
   if (elapsed < 500) {
     await new Promise(function (r) { setTimeout(r, 500 - elapsed); });
+  }
+  /* Show "Verse ready!" after 1.5s so loading feels responsive */
+  if (card.querySelector('.daily-battle-loading') && elapsed < 2500) {
+    var verseReadyDelay = Math.max(0, 1500 - elapsed);
+    setTimeout(function () {
+      if (card.querySelector('.daily-battle-loading')) card.innerHTML = '<p class="daily-battle-loading">Verse ready!</p>';
+    }, verseReadyDelay);
   }
   /* Slow connection: show skeleton at least 3s so users see "Fetching..." gray box, not blank card */
   if (elapsed < 3000) {
@@ -9367,6 +9382,12 @@ async function loadStudies() {
       return;
     }
     var data = res.data || [];
+    if (data.length === 0) {
+      data = [
+        { id: 'armor-of-god', title: 'Armor of God', topic: 'Spiritual warfare', description: 'A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.', days: 7 },
+        { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic. 5 days.', days: 5 }
+      ];
+    }
     grid.innerHTML = '';
     data.forEach(function (study) {
       var card = document.createElement('div');
@@ -9784,8 +9805,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   loadLocalSermons();
   (function () {
-    // Promo end: update this date when the "First 50" window changes (banner + early-bird-days).
-    var endDate = new Date('2026-03-07T23:59:59Z');
+    // Promo end: use config so home and pricing stay in sync.
+    var endDateStr = (window.TDB_CONFIG && window.TDB_CONFIG.PROMO_END_DATE) || '2026-03-07T23:59:59Z';
+    var endDate = new Date(endDateStr);
     var earlyBirdDays = document.getElementById('early-bird-days');
     var battleProCountdown = document.getElementById('battle-pro-countdown');
     var promoBannerDays = document.getElementById('promo-banner-days');
@@ -9796,8 +9818,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       var days = diff > 0 ? Math.floor(diff / 86400000) : 0;
       var countdownText = diff < 0 ? 'Promo Ended!' : ('Ends in ' + days + ' day' + (days !== 1 ? 's' : '') + '!');
       if (promoBannerDays) promoBannerDays.textContent = countdownText;
-      if (earlyBirdDays) earlyBirdDays.textContent = diff >= 0 ? days : '0';
-      if (battleProCountdown) battleProCountdown.innerHTML = diff >= 0 ? '<span class="countdown-number">' + days + '</span> days left!' : 'Promo ended.';
+      if (earlyBirdDays) earlyBirdDays.textContent = diff >= 0 ? String(days) : '0';
+      if (battleProCountdown) battleProCountdown.innerHTML = diff >= 0 ? '<span class="countdown-number">' + days + '</span> day' + (days !== 1 ? 's' : '') + ' left!' : 'Promo ended.';
       if (promoBanner && diff < 0) {
         promoBanner.classList.add('hidden');
         document.body.classList.remove('has-promo-banner');

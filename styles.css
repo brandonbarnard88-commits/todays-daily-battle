@@ -979,6 +979,7 @@ body {
   transition: outline-offset 0.25s ease;
 }
 .daily-verse-prayed-row { margin-top: 0.75rem; }
+.daily-verse-prayed-row:not(.hidden) { display: block; }
 .daily-verse-prayed-label {
   display: inline-flex;
   align-items: center;
@@ -987,7 +988,7 @@ body {
   font-size: 1rem;
   color: rgba(226, 232, 240, 0.9);
 }
-.daily-verse-prayed-label input { cursor: pointer; }
+.daily-verse-prayed-label input { cursor: pointer; opacity: 1; }
 .done-for-today-banner {
   margin-top: 1rem;
   padding: 1rem 1.5rem;

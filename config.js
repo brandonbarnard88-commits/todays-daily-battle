@@ -48,6 +48,9 @@ window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '
 // Set to true after running supabase-get-prayers-today-count.sql so "Prayed by X warriors today" uses the RPC (avoids 404).
 window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = false;
 
+// Single source of truth for "First 50" promo countdown (home + pricing). ISO string, e.g. '2026-03-07T23:59:59Z'.
+window.TDB_CONFIG.PROMO_END_DATE = '2026-03-07T23:59:59Z';
+
 /**
  * Get Stripe Payment Link URL for a given tier and period.
  * @param {string} tier - 'supporter' | 'battle_pro' | 'battle_pro_military' | 'church'

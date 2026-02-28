@@ -1680,6 +1680,35 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .testimonial-dot:hover { background: rgba(255,255,255,0.5); }
 .testimonial-dot.active { background: var(--accent, #a78bfa); }
 
+.study-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+@media (min-width: 640px) {
+  .study-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+.study-card {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: var(--radius-md, 8px);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.study-card-title { font-size: 1.1rem; margin: 0; color: #f1f5f9; }
+.study-card-topic {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--elite-gold, #c9a227);
+}
+.study-card-desc { font-size: 0.9rem; color: var(--text-muted); margin: 0; flex: 1; }
+.study-card-days { font-size: 0.8rem; color: var(--text-muted); }
+.study-card-btn { margin-top: 0.25rem; align-self: flex-start; }
+.bible-study-teaser .section-note { margin: 0; }
+
 .beta-testers-form {
   display: flex;
   gap: 0.5rem;

@@ -8974,6 +8974,61 @@ function renderResults(results) {
   }
 }
 
+async function loadStudies() {
+  var grid = document.querySelector('.study-grid');
+  var loadingEl = document.getElementById('study-grid-loading');
+  if (!grid) return;
+  if (loadingEl) loadingEl.textContent = 'Loading studies…';
+  if (typeof supabaseClient === 'undefined' || !supabaseClient) {
+    if (loadingEl) loadingEl.textContent = 'Unable to load studies. Refresh the page.';
+    return;
+  }
+  try {
+    var res = await supabaseClient.from('bible_studies').select('*').order('id', { ascending: true });
+    if (loadingEl) loadingEl.remove();
+    if (res.error) {
+      grid.innerHTML = '<p class="section-note">Studies could not be loaded. Try again later.</p>';
+      return;
+    }
+    var data = res.data || [];
+    grid.innerHTML = '';
+    data.forEach(function (study) {
+      var card = document.createElement('div');
+      card.className = 'study-card';
+      card.innerHTML =
+        '<h3 class="study-card-title">' + escapeHtml(study.title) + '</h3>' +
+        (study.topic ? '<span class="study-card-topic">' + escapeHtml(study.topic) + '</span>' : '') +
+        '<p class="study-card-desc">' + escapeHtml(study.description || '') + '</p>' +
+        '<span class="study-card-days">' + (study.days || 7) + ' days</span>';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'btn btn-primary study-card-btn';
+      btn.textContent = 'Start Free';
+      btn.setAttribute('data-study-id', study.id);
+      btn.addEventListener('click', function () {
+        startStudy(study.id);
+      });
+      card.appendChild(btn);
+      grid.appendChild(card);
+    });
+    if (data.length === 0) {
+      grid.innerHTML = '<p class="section-note">No studies yet. Check back soon.</p>';
+    }
+  } catch (e) {
+    if (loadingEl) loadingEl.textContent = 'Unable to load studies. Refresh the page.';
+    else grid.innerHTML = '<p class="section-note">Unable to load studies. Refresh the page.</p>';
+  }
+}
+
+function startStudy(id) {
+  try {
+    localStorage.setItem('tdb_current_study', String(id));
+    localStorage.setItem('tdb_study_day', '1');
+  } catch (e) {}
+  if (typeof trackEvent === 'function') trackEvent('bible_study_start', { study_id: id });
+  window.location.href = 'reading-plan.html?study=' + encodeURIComponent(id);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
@@ -10652,6 +10707,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
   })();
+
+  if (document.querySelector('.study-grid')) loadStudies();
 
   (function initTestimonialsCarousel() {
     var slidesContainer = document.getElementById('testimonial-slides');

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Bible Studies • Today's Daily Battle</title>
+  <meta name="description" content="Pick a topic, dive deep—short, daily Bible studies. No guilt, zero pressure.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/bible-study.html">
+  <meta property="og:title" content="Bible Studies • Today's Daily Battle">
+  <meta property="og:description" content="Pick a topic, dive deep—short, daily studies. No guilt, zero pressure.">
+  <meta property="og:url" content="https://todaysdailybattle.com/bible-study.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260228p">
+  <link rel="manifest" href="manifest.json">
+  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
+  <script src="config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Bible Studies</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/#main-search">Search</a>
+        <a href="verse.html">Verse of the Day</a>
+        <a href="message.html">Prayer Wall</a>
+        <a href="wins-report.html">Wins Report</a>
+        <a href="church.html">Church Center</a>
+        <a href="bible-study.html">Bible Studies</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <button id="signup-btn">Sign Up</button>
+        <button id="login-btn">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" class="hidden">Log Out</button>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="bible-study.html" data-section="bible-study" data-icon="BS">Bible Studies</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <section id="bible-study" class="glass">
+          <h1 class="section-divider">Bible Studies – Free for All</h1>
+          <p class="section-note">Short, daily dives. No login, no guilt—just faith.</p>
+          <p class="section-note util-mb-0">Pick a topic below. Click Start to begin—progress saves on this device (or syncs when you sign in).</p>
+          <div class="study-grid" aria-label="Study list">
+            <!-- Cards loaded from Supabase by script.js -->
+            <p class="section-note study-grid-loading" id="study-grid-loading">Loading studies…</p>
+          </div>
+        </section>
+        <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="reading-plan.html">7-Day Reading Plan</a> · <a href="study.html">Study Tools</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+      <p class="footer-powered">Powered by the King James Bible.</p>
+      <p class="footer-security section-note">Enterprise-grade security – Powered by Cloudflare.</p>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js?v=20260228p"></script>
+  <script>
+    (function() {
+      var grid = document.querySelector('.study-grid');
+      if (grid && typeof loadStudies === 'function') loadStudies();
+    })();
+  </script>
+</body>
+</html>

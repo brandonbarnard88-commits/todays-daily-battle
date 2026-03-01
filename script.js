@@ -41,6 +41,20 @@ function safeSessionGet(key) {
   }
 }
 
+/** Clear all local and session storage (notes, streak, prayer list, etc.) and reload. Use for "Clear local data" control. */
+function clearLocalData() {
+  if (!window.confirm('Clear all data stored on this device? Your streak, prayer list, notes, and preferences will be removed. You will stay signed in if you are logged in. Continue?')) return;
+  try {
+    localStorage.clear();
+    sessionStorage.clear();
+  } catch (e) {
+    if (typeof console !== 'undefined' && console.warn) console.warn('TDB: clearLocalData', e);
+  }
+  if (typeof showEliteToast === 'function') showEliteToast('All cleared!');
+  setTimeout(function () { window.location.reload(); }, 1500);
+}
+
+
 // --- Input validation: prevent oversized or invalid payloads (security / abuse) ---
 var MAX_MESSAGE_TEXT_LENGTH = 2000;
 var MAX_PRAYER_INTENT_LENGTH = 500;
@@ -4906,7 +4920,7 @@ function updateSharePreviewThumb() {
   ctx.fillText('todaysdailybattle.com', 6, 112);
   var img = document.createElement('img');
   img.src = canvas.toDataURL('image/png');
-  img.alt = '';
+  img.alt = 'Share card preview with today\'s verse';
   img.width = 120;
   img.height = 120;
   img.className = 'share-preview-thumb-img';
@@ -9912,6 +9926,20 @@ function triggerResultsFade(el) {
   });
 }
 
+function getDefaultBibleStudies() {
+  return [
+    { id: 'armor-of-god', title: 'Armor of God', topic: 'Spiritual warfare', description: 'A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.', days: 7 },
+    { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic. 5 days.', days: 5 },
+    { id: 'fruit-of-spirit', title: 'Fruit of the Spirit', topic: 'Character & growth', description: 'Galatians 5:22–23—love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. One fruit per day.', days: 9 },
+    { id: 'forgiveness-flow', title: 'Forgiveness Flow', topic: 'Forgiveness', description: 'Matthew 18, Psalm 51, and more. Let go, move on, and receive God\'s mercy. 7 days.', days: 7 },
+    { id: 'psalms-of-comfort', title: 'Psalms of Comfort', topic: 'Comfort & refuge', description: 'Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there. 7 days.', days: 7 },
+    { id: 'faith-over-fear', title: 'Faith Over Fear', topic: 'Courage', description: '2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith. 5 days.', days: 5 },
+    { id: 'hope-in-hard-times', title: 'Hope in Hard Times', topic: 'Hope', description: 'Psalms and Romans—find light when it\'s dark. God of hope fills you with joy and peace. 5 days.', days: 5 },
+    { id: 'love-one-another', title: 'Love One Another', topic: 'Love', description: 'John 13:34, 1 John 4—how to love as Christ loved. 5 days.', days: 5 },
+    { id: 'beatitudes', title: 'The Beatitudes', topic: 'Blessed life', description: 'Matthew 5:3–11—Jesus\' portrait of the blessed. Poor in spirit, meek, merciful, peacemakers. 9 days.', days: 9 }
+  ];
+}
+
 async function loadStudies() {
   var grid = document.querySelector('.study-grid');
   if (!grid) return;
@@ -9920,31 +9948,40 @@ async function loadStudies() {
   grid.setAttribute('aria-busy', 'true');
   if (loadingEl) loadingEl.textContent = 'Preparing…';
   if (typeof supabaseClient === 'undefined' || !supabaseClient) {
-    if (loadingEl) loadingEl.textContent = 'Unable to load studies. Refresh the page.';
+    if (loadingEl) loadingEl.remove();
+    var data = getDefaultBibleStudies();
+    grid.innerHTML = '';
+    data.forEach(function (study) {
+      var card = document.createElement('div');
+      card.className = 'study-card';
+      card.innerHTML =
+        '<h3 class="study-card-title">' + escapeHtml(study.title) + '</h3>' +
+        (study.topic ? '<span class="study-card-topic">' + escapeHtml(study.topic) + '</span>' : '') +
+        '<p class="study-card-desc">' + escapeHtml(study.description || '') + '</p>' +
+        '<span class="study-card-days">' + (study.days || 7) + ' days</span>';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'btn btn-primary study-card-btn';
+      btn.textContent = 'Start Free';
+      btn.setAttribute('data-study-id', study.id);
+      btn.addEventListener('click', function () { startStudy(study.id); });
+      card.appendChild(btn);
+      grid.appendChild(card);
+    });
     grid.setAttribute('aria-busy', 'false');
     return;
   }
   try {
     var res = await supabaseClient.from('bible_studies').select('*').order('id', { ascending: true });
     if (loadingEl) loadingEl.remove();
+    var data = [];
     if (res.error) {
-      grid.innerHTML = '<p class="section-note">Studies could not be loaded. Try again later.</p>';
-      grid.setAttribute('aria-busy', 'false');
-      return;
+      data = getDefaultBibleStudies();
+    } else {
+      data = res.data || [];
     }
-    var data = res.data || [];
     if (data.length === 0) {
-      data = [
-        { id: 'armor-of-god', title: 'Armor of God', topic: 'Spiritual warfare', description: 'A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.', days: 7 },
-        { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic. 5 days.', days: 5 },
-        { id: 'fruit-of-spirit', title: 'Fruit of the Spirit', topic: 'Character & growth', description: 'Galatians 5:22–23—love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. One fruit per day.', days: 9 },
-        { id: 'forgiveness-flow', title: 'Forgiveness Flow', topic: 'Forgiveness', description: 'Matthew 18, Psalm 51, and more. Let go, move on, and receive God\'s mercy. 7 days.', days: 7 },
-        { id: 'psalms-of-comfort', title: 'Psalms of Comfort', topic: 'Comfort & refuge', description: 'Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there. 7 days.', days: 7 },
-        { id: 'faith-over-fear', title: 'Faith Over Fear', topic: 'Courage', description: '2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith. 5 days.', days: 5 },
-        { id: 'hope-in-hard-times', title: 'Hope in Hard Times', topic: 'Hope', description: 'Psalms and Romans—find light when it\'s dark. God of hope fills you with joy and peace. 5 days.', days: 5 },
-        { id: 'love-one-another', title: 'Love One Another', topic: 'Love', description: 'John 13:34, 1 John 4—how to love as Christ loved. 5 days.', days: 5 },
-        { id: 'beatitudes', title: 'The Beatitudes', topic: 'Blessed life', description: 'Matthew 5:3–11—Jesus\' portrait of the blessed. Poor in spirit, meek, merciful, peacemakers. 9 days.', days: 9 }
-      ];
+      data = getDefaultBibleStudies();
     }
     grid.innerHTML = '';
     data.forEach(function (study) {
@@ -9971,11 +10008,28 @@ async function loadStudies() {
     }
     grid.setAttribute('aria-busy', 'false');
   } catch (e) {
-    if (loadingEl) loadingEl.textContent = 'Unable to load studies. Refresh the page.';
-    else grid.innerHTML = '<p class="section-note">Unable to load studies. Refresh the page.</p>';
+    if (loadingEl) loadingEl.remove();
+    var data = getDefaultBibleStudies();
+    grid.innerHTML = '';
+    data.forEach(function (study) {
+      var card = document.createElement('div');
+      card.className = 'study-card';
+      card.innerHTML =
+        '<h3 class="study-card-title">' + escapeHtml(study.title) + '</h3>' +
+        (study.topic ? '<span class="study-card-topic">' + escapeHtml(study.topic) + '</span>' : '') +
+        '<p class="study-card-desc">' + escapeHtml(study.description || '') + '</p>' +
+        '<span class="study-card-days">' + (study.days || 7) + ' days</span>';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'btn btn-primary study-card-btn';
+      btn.textContent = 'Start Free';
+      btn.setAttribute('data-study-id', study.id);
+      btn.addEventListener('click', function () { startStudy(study.id); });
+      card.appendChild(btn);
+      grid.appendChild(card);
+    });
     grid.setAttribute('aria-busy', 'false');
   }
-}
 
 function startStudy(id) {
   try {
@@ -9990,6 +10044,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
+  var clearBtn = document.getElementById('clear-local-data-btn');
+  if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
   try {
     var raw = sessionStorage.getItem('tdb_last_results');
     if (raw) {
@@ -13291,7 +13347,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const canvas = document.getElementById('coloring-canvas');
       if (!canvas) return;
       const dataUrl = canvas.toDataURL('image/png');
-      const html = '<html><head><title>Print Coloring</title></head><body style="margin:0;padding:20px;text-align:center;"><img src="' + dataUrl + '" style="max-width:100%;height:auto;" /></body></html>';
+      const html = '<html><head><title>Print Coloring</title></head><body style="margin:0;padding:20px;text-align:center;"><img src="' + dataUrl + '" alt="Coloring page" style="max-width:100%;height:auto;" /></body></html>';
       openPrintWindow(html);
     });
   }

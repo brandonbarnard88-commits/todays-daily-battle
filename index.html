@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
-  <meta name="description" content="Daily KJV verse, prayer, and streak tracker to fight your battles—less scroll, more soul. Free.">
-  <meta name="keywords" content="free Bible verse of the day, daily Bible habit, Bible in two minutes, less scroll more soul, free Bible study online, Bible verses, daily verse, anxiety, hope, strength, obedience, devotionals, Scripture, KJV, pastor tools, church, small group">
+  <meta name="description" content="Daily KJV Bible verse, offline notes, prayer wall—win your battles with Scripture. Free verse of the day, streaks, and devotionals.">
+  <meta name="keywords" content="daily bible verse, kjv devotions, christian streaks, free Bible verse of the day, daily Bible habit, Bible in two minutes, less scroll more soul, free Bible study online, Bible verses, anxiety, hope, strength, obedience, Scripture, KJV, pastor tools, church, small group">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/">
@@ -469,7 +469,7 @@
                   </feMerge>
                 </filter>
               </defs>
-              <image href="world-map-source.svg" x="0" y="0" width="494.7" height="265.7" preserveAspectRatio="xMidYMid meet" aria-hidden="true"/>
+              <image href="world-map-source.svg" x="0" y="0" width="494.7" height="265.7" preserveAspectRatio="xMidYMid meet" role="img" aria-label="World map background" aria-hidden="true"/>
               <g id="prayer-markers" pointer-events="auto"></g>
             </svg>
             <div id="map-tooltip" class="map-tooltip" role="tooltip" aria-hidden="true"></div>
@@ -514,7 +514,7 @@
             <a class="btn btn-secondary" href="reading-plan.html">7-Day Reading Plan</a>
             <a class="btn btn-secondary" href="pricing.html">Plans &amp; Pricing</a>
           </div>
-          <p class="section-note util-mt-0_75">Battle Pro: $9.99/mo — streak-proof, offline, wins tracked. First 50 get a free month. <a href="pricing.html">See plans</a>.</p>
+          <p class="section-note util-mt-0_75">Battle Pro: $9.99/mo — streak-proof, offline, wins tracked. First 50 get a free month. <strong>Limited spots—claim now.</strong> <a href="pricing.html">See plans</a>.</p>
         </section>
         <section class="glass">
           <h2 class="section-divider">How It Helps</h2>
@@ -666,7 +666,7 @@
       <div class="modal-inner glass battle-pro-upgrade-inner">
         <button type="button" class="intent-modal-close" id="battle-pro-upgrade-close" aria-label="Dismiss">×</button>
         <h2 id="battle-pro-upgrade-title" class="section-divider">Ready to go deeper?</h2>
-        <p class="section-note">Battle Pro: $9.99/mo – streak-proof, offline, wins tracked. First 50 get a free month—claim yours.</p>
+        <p class="section-note">Battle Pro: $9.99/mo – streak-proof, offline, wins tracked. First 50 get a free month—claim yours. <strong>Limited spots—claim now.</strong></p>
         <div class="battle-pro-upgrade-grid">
           <div class="battle-pro-upgrade-card">
             <h3 class="battle-pro-upgrade-card-title">Supporter</h3>
@@ -810,7 +810,7 @@
       <h2 class="footer-heading sr-only">Site links</h2>
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
       <p class="footer-america"><a class="footer-link" href="#">Let's Make America God's Again.</a></p>
-      <p class="footer-pro-promo section-note util-mt-0_5"><strong>Battle Pro:</strong> $9.99/mo (first month free for first 50). Less than a coffee run—more soul. <a href="pricing.html">Sign up now</a>.</p>
+      <p class="footer-pro-promo section-note util-mt-0_5"><strong>Battle Pro:</strong> $9.99/mo (first month free for first 50). Limited spots—claim now. <a href="pricing.html">Sign up now</a>.</p>
       <p id="footer-rotating-line" class="footer-rotating-line" aria-live="polite">You're not praying alone.</p>
       <p class="footer-powered">Powered by the King James Bible.</p>
       <p class="footer-security section-note">A+ Security – Powered by Cloudflare.</p>
@@ -830,6 +830,7 @@
       <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Updated March 2026.</p>
+      <p class="section-note util-mt-0_5"><button type="button" id="clear-local-data-btn" class="link-button" aria-label="Clear all data stored on this device">Clear local data</button></p>
     </footer>
   </div>
 

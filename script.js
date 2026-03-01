@@ -5282,9 +5282,17 @@ async function renderDailyBattleCard() {
     dailyBattleFallbackTimeoutId = null;
     if (!card.classList.contains('verse-card-loaded') && card.querySelector('.daily-battle-loading')) {
       card.classList.remove('hero-verse-card-skeleton');
-      card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+      var fb = (typeof getDailyBattleFallback === 'function' ? getDailyBattleFallback() : null) || { ref: 'John 3:16', reflection: '', prayer: '' };
+      var txt = (typeof getBibleVerseText === 'function' ? getBibleVerseText(fb.ref) : '') || (bible[fb.ref] || '');
+      if (fb.ref && txt) {
+        card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(txt) + '</p><p class="section-note">Verse loaded from backup—server was slow. <button type="button" class="link-button" id="daily-battle-try-again">Try again</button></p>';
+        card.classList.add('verse-card-loaded');
+        if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = fb;
+      } else {
+        card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+      }
     }
-  }, 3000);
+  }, 4000);
   if (!Object.keys(bible).length) {
     if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
     card.classList.remove('hero-verse-card-skeleton');
@@ -13713,4 +13721,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     setTimeout(run, 1500);
   })();
 });
-}

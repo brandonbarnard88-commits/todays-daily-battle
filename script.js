@@ -4561,6 +4561,34 @@ const BIBLE_DATA_ORIGIN = 'https://todaysdailybattle.com';
 var READER_BOOKS_ORDER = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
 var READER_CHAPTER_COUNTS = { 'Genesis':50,'Exodus':40,'Leviticus':27,'Numbers':36,'Deuteronomy':34,'Joshua':24,'Judges':21,'Ruth':4,'1 Samuel':31,'2 Samuel':24,'1 Kings':22,'2 Kings':25,'1 Chronicles':29,'2 Chronicles':36,'Ezra':10,'Nehemiah':13,'Esther':10,'Job':42,'Psalm':150,'Proverbs':31,'Ecclesiastes':12,'Song of Solomon':8,'Isaiah':66,'Jeremiah':52,'Lamentations':5,'Ezekiel':48,'Daniel':12,'Hosea':14,'Joel':3,'Amos':9,'Obadiah':1,'Jonah':4,'Micah':7,'Nahum':3,'Habakkuk':3,'Zephaniah':3,'Haggai':2,'Zechariah':14,'Malachi':4,'Matthew':28,'Mark':16,'Luke':24,'John':21,'Acts':28,'Romans':16,'1 Corinthians':16,'2 Corinthians':13,'Galatians':6,'Ephesians':6,'Philippians':4,'Colossians':4,'1 Thessalonians':5,'2 Thessalonians':3,'1 Timothy':6,'2 Timothy':4,'Titus':3,'Philemon':1,'Hebrews':13,'James':5,'1 Peter':5,'2 Peter':3,'1 John':5,'2 John':1,'3 John':1,'Jude':1,'Revelation':22 };
 
+var READER_CACHE_KEY = 'tdb_reader_cache';
+var READER_CACHE_MAX = 24;
+function getReaderCache(chapterKey) {
+  try {
+    var raw = localStorage.getItem(READER_CACHE_KEY);
+    if (!raw) return null;
+    var obj = JSON.parse(raw);
+    return obj && obj.chapters && obj.chapters[chapterKey] ? obj.chapters[chapterKey] : null;
+  } catch (e) { return null; }
+}
+function setReaderCache(chapterKey, data) {
+  try {
+    var raw = localStorage.getItem(READER_CACHE_KEY);
+    var obj = raw ? JSON.parse(raw) : { order: [], chapters: {} };
+    obj.order = obj.order || [];
+    obj.chapters = obj.chapters || {};
+    var idx = obj.order.indexOf(chapterKey);
+    if (idx !== -1) obj.order.splice(idx, 1);
+    obj.order.push(chapterKey);
+    obj.chapters[chapterKey] = data;
+    while (obj.order.length > READER_CACHE_MAX) {
+      var oldest = obj.order.shift();
+      delete obj.chapters[oldest];
+    }
+    localStorage.setItem(READER_CACHE_KEY, JSON.stringify(obj));
+  } catch (e) {}
+}
+
 const curriculum = {
   kid: [
     {
@@ -8021,8 +8049,10 @@ function populateTemplateList() {
 function populateReaderBooks() {
   const bookSelect = document.getElementById('reader-book');
   if (!bookSelect) return;
+  const order = getBibleBookOrder();
+  if (order.length === 0) return;
   bookSelect.innerHTML = '';
-  getBibleBookOrder().forEach(book => {
+  order.forEach(book => {
     const opt = document.createElement('option');
     opt.value = book;
     opt.textContent = book;
@@ -8034,10 +8064,9 @@ function populateReaderChapters(book) {
   const chapterSelect = document.getElementById('reader-chapter');
   if (!chapterSelect) return;
   chapterSelect.innerHTML = '';
-  const chapters = bookIndex[book] || [];
-  const useStatic = chapters.length === 0 && typeof READER_CHAPTER_COUNTS !== 'undefined' && READER_CHAPTER_COUNTS[book];
-  const list = useStatic ? Array.from({ length: READER_CHAPTER_COUNTS[book] }, (_, i) => i + 1) : chapters;
-  list.forEach(ch => {
+  const count = typeof READER_CHAPTER_COUNTS !== 'undefined' && READER_CHAPTER_COUNTS[book] ? READER_CHAPTER_COUNTS[book] : 0;
+  const chapters = (bookIndex[book] && bookIndex[book].length) ? bookIndex[book] : (count ? Array.from({ length: count }, (_, i) => i + 1) : []);
+  chapters.forEach(ch => {
     const opt = document.createElement('option');
     opt.value = String(ch);
     opt.textContent = String(ch);
@@ -8056,42 +8085,59 @@ function renderReaderChapter(book, chapter) {
     renderReaderChapterFromVerses(output, book, chapter, verses);
     return;
   }
+  var cached = getReaderCache(key);
+  if (cached && cached.verses && cached.verses.length) {
+    renderReaderChapterFromApiData(output, book, chapter, key, cached.verses);
+    return;
+  }
   output.innerHTML = '<p class="section-note empty">Loading chapter…</p>';
   var apiBase = 'https://bible-api.com';
-  fetch(apiBase + '/' + encodeURIComponent(book + ' ' + chapter) + '?translation=kjv')
+  var path = encodeURIComponent(book).replace(/%20/g, '+') + '+' + String(chapter);
+  var url = apiBase + '/' + path + '?translation=kjv';
+  var controller = new AbortController();
+  var timeoutId = setTimeout(function () { controller.abort(); }, 10000);
+  fetch(url, { signal: controller.signal })
     .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error('Network error')); })
     .then(function (data) {
-      output.innerHTML = '';
+      clearTimeout(timeoutId);
       var list = data.verses || [];
+      if (list.length) setReaderCache(key, { verses: list });
+      output.innerHTML = '';
       if (!list.length) {
         output.innerHTML = '<p class="empty">Chapter not found. Try another book or chapter.</p>';
         return;
       }
-      var heading = document.createElement('div');
-      heading.className = 'chapter-title';
-      heading.textContent = key;
-      output.appendChild(heading);
-      list.forEach(function (v) {
-        var ref = (v.book_name || book) + ' ' + (v.chapter || chapter) + ':' + (v.verse || '');
-        var line = document.createElement('div');
-        line.className = 'context-line';
-        line.dataset.ref = ref;
-        line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml((v.text || '').trim());
-        if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, v.text)) {
-          line.classList.add('red-letter');
-        }
-        output.appendChild(line);
-      });
-      var totalWords = list.reduce(function (sum, v) { return sum + ((v.text || '').trim().split(/\s+/).filter(Boolean).length); }, 0);
-      var readNote = document.createElement('p');
-      readNote.className = 'section-note reading-time-note';
-      readNote.textContent = '~' + Math.max(1, Math.ceil(totalWords / 200)) + ' min read';
-      readNote.setAttribute('aria-label', 'Estimated reading time');
-      output.appendChild(readNote);
+      renderReaderChapterFromApiData(output, book, chapter, key, list);
     })
-    .catch(function () {
-      output.innerHTML = '<p class="empty">Chapter not found or network error. Check your connection or try another reference.</p>';
+    .catch(function (err) {
+      clearTimeout(timeoutId);
+      output.innerHTML = '<p class="empty">' + (err.name === 'AbortError' ? 'Request timed out. Check your connection or try again.' : 'Chapter not found or network error. Check your connection or try another reference.') + '</p>';
     });
+}
+
+function renderReaderChapterFromApiData(output, book, chapter, key, list) {
+  output.innerHTML = '';
+  var heading = document.createElement('div');
+  heading.className = 'chapter-title';
+  heading.textContent = key;
+  output.appendChild(heading);
+  list.forEach(function (v) {
+    var ref = (v.book_name || book) + ' ' + (v.chapter || chapter) + ':' + (v.verse || '');
+    var line = document.createElement('div');
+    line.className = 'context-line';
+    line.dataset.ref = ref;
+    line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml((v.text || '').trim());
+    if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, v.text)) {
+      line.classList.add('red-letter');
+    }
+    output.appendChild(line);
+  });
+  var totalWords = list.reduce(function (sum, v) { return sum + ((v.text || '').trim().split(/\s+/).filter(Boolean).length); }, 0);
+  var readNote = document.createElement('p');
+  readNote.className = 'section-note reading-time-note';
+  readNote.textContent = '~' + Math.max(1, Math.ceil(totalWords / 200)) + ' min read';
+  readNote.setAttribute('aria-label', 'Estimated reading time');
+  output.appendChild(readNote);
 }
 
 function renderReaderChapterFromVerses(output, book, chapter, verses) {
@@ -12426,10 +12472,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   const readerBook = document.getElementById('reader-book');
   if (readerBook) {
     readerBook.addEventListener('change', (e) => {
-      populateReaderChapters(e.target.value);
-      var chapters = bookIndex[e.target.value];
-      if (!chapters || chapters.length === 0) chapters = (typeof READER_CHAPTER_COUNTS !== 'undefined' && READER_CHAPTER_COUNTS[e.target.value]) ? Array.from({ length: READER_CHAPTER_COUNTS[e.target.value] }, function (_, i) { return i + 1; }) : [];
-      if (chapters[0]) selectReaderChapter(e.target.value, chapters[0]);
+      var book = e.target.value;
+      populateReaderChapters(book);
+      var chapters = bookIndex[book] && bookIndex[book].length ? bookIndex[book] : (READER_CHAPTER_COUNTS && READER_CHAPTER_COUNTS[book] ? Array.from({ length: READER_CHAPTER_COUNTS[book] }, function (_, i) { return i + 1; }) : []);
+      if (chapters[0]) {
+        var chapterSelect = document.getElementById('reader-chapter');
+        if (chapterSelect) chapterSelect.value = String(chapters[0]);
+      }
     });
   }
 
@@ -12448,7 +12497,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const book = document.getElementById('reader-book')?.value;
       const chapterVal = document.getElementById('reader-chapter')?.value;
       if (!book || !chapterVal) return;
-      const chapters = bookIndex[book] || [];
+      const chapters = (bookIndex[book] && bookIndex[book].length) ? bookIndex[book] : (READER_CHAPTER_COUNTS && READER_CHAPTER_COUNTS[book] ? Array.from({ length: READER_CHAPTER_COUNTS[book] }, (_, i) => i + 1) : []);
       const current = Number(chapterVal);
       const idx = chapters.indexOf(current);
       if (idx > 0) selectReaderChapter(book, chapters[idx - 1]);
@@ -12461,7 +12510,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const book = document.getElementById('reader-book')?.value;
       const chapterVal = document.getElementById('reader-chapter')?.value;
       if (!book || !chapterVal) return;
-      const chapters = bookIndex[book] || [];
+      const chapters = (bookIndex[book] && bookIndex[book].length) ? bookIndex[book] : (READER_CHAPTER_COUNTS && READER_CHAPTER_COUNTS[book] ? Array.from({ length: READER_CHAPTER_COUNTS[book] }, (_, i) => i + 1) : []);
       const current = Number(chapterVal);
       const idx = chapters.indexOf(current);
       if (idx >= 0 && idx < chapters.length - 1) selectReaderChapter(book, chapters[idx + 1]);

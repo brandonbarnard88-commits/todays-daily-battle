@@ -20,11 +20,11 @@
 - **Supabase Auth** for sign-up, login, password reset. Session is JWT-based; refresh is handled by the client.
 - **RLS on all synced tables** — `user_sync_data`, `messages`, `message_reports`, `newsletter_signups`, `prayers`, `daily_battles`. Policies restrict access by `auth.uid()` or role. See `supabase-rls-lockdown.sql` and `supabase-rls-quick.sql`.
 - **Signup role** — Trigger `auth.force_member_role_trigger` ensures new users get `role: member`; admin is set only via Supabase Dashboard `app_metadata`, never from the client.
-- **Admin** — Determined by `app_metadata.role === 'admin'` or email match to a server/config-controlled list. Do not add admin emails from user input. For production, protect `/admin` with Cloudflare Access or an Edge/Worker that validates admin JWT (see SECURITY-AUDIT.md).
+- **Admin** — Determined by `app_metadata.role === 'admin'` or email match to a server/config-controlled list. Do not add admin emails from user input. For production, protect `/admin` with the Cloudflare Worker in `workers/admin-guard.js` (see `workers/README-ADMIN-GUARD.md`) or Cloudflare Access.
 
 ### Client-side hardening
 
-- **CSP** — `Content-Security-Policy` in `index.html` restricts script, style, connect, and frame sources. Use `nonce="tdb2025"` for inline scripts/styles where allowed.
+- **CSP** — `Content-Security-Policy` in `index.html` (and pricing/message) restricts script, style, connect, and frame sources. **script-src uses nonces only** (no `'unsafe-inline'`); all inline scripts have `nonce="tdb2025"`. Use `nonce="tdb2025"` for inline scripts/styles where allowed.
 - **Referrer** — `referrer: no-referrer` so nothing follows users when they leave the site.
 - **XSS** — User/API content is never written raw to the DOM. Use `escapeHtml()`, `sanitizeHtml()` (DOMPurify when available), or `sanitizeUserInput()` before storing or displaying. Prefer `textContent` when HTML is not needed.
 - **Input** — `sanitizeUserInput()` strips tags and script-like patterns. `truncateForDb()` enforces length limits before Supabase. Use both for prayer intents, family name, message board, etc.
@@ -33,7 +33,7 @@
 
 - **Anon key** — Safe to be in repo and in frontend; RLS and auth determine what rows are visible.
 - **Service role key** — Must **never** be in the repo or client. Use only in Edge Functions, cron, or backend; store in Supabase secrets or env.
-- **Edge Functions** — `submit-prayer` verifies Turnstile server-side; `create-checkout-session` uses service role and attaches `user_id` from the authenticated session only.
+- **Edge Functions** — `submit-prayer` verifies Turnstile server-side and rate-limits per IP; `create-checkout-session` uses service role and attaches `user_id` from the authenticated session only; `post-message` rate-limits per user and sanitizes server-side.
 
 ### Payments (Stripe)
 
@@ -82,6 +82,8 @@
 | `SECURITY-AUDIT.md` | Defense/offense audit and improvement checklist |
 | `SUPABASE-SYNC-TABLES.md` | RLS and sync table setup |
 | `supabase-rls-lockdown.sql` | Full RLS lockdown and auth trigger |
+| `supabase-rate-limit-table.sql` | Rate-limit table for submit-prayer and post-message |
+| `workers/README-ADMIN-GUARD.md` | Admin route protection (Cloudflare Worker) |
 | `PRIVACY-ANALYTICS.md` | Search analytics and user safety rules |
 | `script.js` | `sanitizeUserInput`, `escapeHtml`, `sanitizeHtml`, `truncateForDb` |
 

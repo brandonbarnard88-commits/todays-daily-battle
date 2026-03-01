@@ -8951,6 +8951,7 @@ async function runTopicSearch(query) {
   const parsed = parseQuery(input);
   const results = executeQuery(parsed, tier, filters);
   lastResults = results;
+  try { sessionStorage.setItem('tdb_last_results', JSON.stringify(results)); } catch (e) {}
   return results;
 }
 
@@ -9187,6 +9188,7 @@ function renderResults(results) {
   if (!output) return;
   output.innerHTML = '';
   lastResults = results;
+  try { sessionStorage.setItem('tdb_last_results', JSON.stringify(results)); } catch (e) {}
   updateNoteSelect(results);
   updateGroupPrompts(results);
   const queryText = normalizeInput(lastQueryInput || '');
@@ -9910,6 +9912,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
+  try {
+    var raw = sessionStorage.getItem('tdb_last_results');
+    if (raw) {
+      var parsed = JSON.parse(raw);
+      if (parsed && parsed.verses && Array.isArray(parsed.verses)) lastResults = parsed;
+    }
+  } catch (e) {}
 
   renderQuickTopicButtons('quick-actions-hero', true);
   renderQuickTopicButtons('quick-actions-accordion', false);
@@ -12034,7 +12043,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (privateCheck) privateCheck.checked = false;
             renderNotes();
             var statusEl = document.getElementById('study-note-status');
-            if (statusEl) { statusEl.textContent = 'Note updated.'; setTimeout(function () { statusEl.textContent = ''; }, 2500); }
+            if (statusEl) {
+              statusEl.textContent = 'Note updated.';
+              statusEl.classList.remove('sr-only');
+              statusEl.classList.add('study-note-status-visible');
+              setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
+            }
             return;
           }
         }
@@ -12055,7 +12069,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         var statusEl = document.getElementById('study-note-status');
         if (statusEl) {
           statusEl.textContent = 'Note saved.';
-          setTimeout(function () { statusEl.textContent = ''; }, 2500);
+          statusEl.classList.remove('sr-only');
+          statusEl.classList.add('study-note-status-visible');
+          setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
         }
       })();
     });
@@ -12074,7 +12090,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (privateCheck) privateCheck.checked = false;
       renderNotes();
       var statusEl = document.getElementById('study-note-status');
-      if (statusEl) { statusEl.textContent = 'All notes cleared.'; setTimeout(function () { statusEl.textContent = ''; }, 2500); }
+      if (statusEl) {
+          statusEl.textContent = 'All notes cleared.';
+          statusEl.classList.remove('sr-only');
+          statusEl.classList.add('study-note-status-visible');
+          setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
+        }
       if (textArea && textArea.focus) textArea.focus();
     });
   }

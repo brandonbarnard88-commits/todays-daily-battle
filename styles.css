@@ -4669,6 +4669,20 @@ body.red-letter-off .red-letter-card {
   margin-bottom: 0.25rem;
 }
 
+#study-note-status.study-note-status-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  color: var(--elite-gold-solid, #d4af37);
+  font-size: 0.95rem;
+  clip: auto;
+  clip-path: none;
+  overflow: visible;
+  white-space: normal;
+}
+
 .prompts {
   margin: 0.5rem 0 0;
   padding-left: 1.25rem;

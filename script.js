@@ -11751,7 +11751,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (saveNoteBtn) {
     saveNoteBtn.addEventListener('click', () => {
       const select = document.getElementById('note-verse-select');
-      const textArea = document.getElementById('note-text');
+      const textArea = document.getElementById('notes-textarea') || document.getElementById('note-text');
       const privateCheck = document.getElementById('note-private');
       if (!textArea) return;
       const text = textArea.value.trim();

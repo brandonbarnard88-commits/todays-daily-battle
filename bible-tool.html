@@ -147,6 +147,7 @@
         <!-- Reading plan -->
         <section class="verse-card glass" aria-label="Reading plan">
           <h2 class="section-divider util-mt-0">Reading plan</h2>
+          <p class="section-note util-mb-0_5">Pick a plan below—checkboxes appear so you can track progress.</p>
           <select id="plan-picker" aria-label="Plan">
             <option value="armor">Armor of God (7 days) — Ephesians 6</option>
             <option value="strength">Strength (7 days)</option>
@@ -346,12 +347,17 @@
     var elRef = document.getElementById('daily-ref');
     var elText = document.getElementById('daily-text');
     if (elRef) elRef.textContent = ref;
+    if (elText && KEY_VERSES[ref]) {
+      elText.textContent = KEY_VERSES[ref];
+      var ctxEl = document.getElementById('daily-verse-context');
+      if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
+    } else if (elText) elText.textContent = 'Loading…';
     var done = false;
     fetchVerse(ref, function (data) {
       if (done) return;
       done = true;
       if (elText && data) elText.textContent = data.text;
-      else if (elText) elText.textContent = KEY_VERSES[ref] || 'Verse fetch failed—check connection or try later.';
+      else if (elText && !KEY_VERSES[ref]) elText.textContent = 'Verse fetch failed—check connection or try later.';
       var ctxEl = document.getElementById('daily-verse-context');
       if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
     });

@@ -91,7 +91,7 @@
               <p class="section-note util-mb-0_5">Type below and click Save—or add verses in <a href="bible-tool.html">Bible Tool</a> first, then attach notes here.</p>
               <label for="note-verse-select">Attach note to</label>
               <select id="note-verse-select"></select>
-              <textarea id="note-text" rows="5" placeholder="Type your study notes here—prayer, insight, or application..." aria-label="General study notes" maxlength="10000"></textarea>
+              <textarea id="notes-textarea" rows="5" placeholder="Type your study notes here—prayer, insight, or application..." aria-label="Study notes" maxlength="10000"></textarea>
               <label class="inline-toggle" style="display:block; margin-top:0.5rem;">
                 <input id="note-private" type="checkbox" aria-label="Private note (excluded from shared links)">
                 Private (excluded from shared links)
@@ -133,6 +133,10 @@
             <div class="study-card">
               <h3>Lesson Plan Builder</h3>
               <p class="section-note util-mb-0_5">Search a topic on the <a href="/">home page</a> first, then click Build Lesson to save a plan from the results.</p>
+              <label for="lesson-title">Lesson title</label>
+              <input type="text" id="lesson-title" placeholder="e.g. Armor of God" aria-label="Lesson title" />
+              <label for="lesson-prompts" class="util-mt-0_5">Reflection prompts (optional)</label>
+              <textarea id="lesson-prompts" rows="3" placeholder="What does this teach about God? How can we apply it?" aria-label="Reflection prompts" maxlength="2000"></textarea>
               <label for="lesson-audience">Audience</label>
               <select id="lesson-audience">
                 <option value="kid">Kids</option>

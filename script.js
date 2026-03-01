@@ -9961,6 +9961,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
 
+  /* Wire search early so it works even if later init fails */
+  try {
+    var sb = document.getElementById('search-btn');
+    var q = document.getElementById('query');
+    if (sb && q) {
+      sb.addEventListener('click', function () { if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput((q && q.value) || ''); });
+      q.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput((q && q.value) || ''); } });
+    }
+    var hero = document.getElementById('quick-actions-hero');
+    if (hero) {
+      hero.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest && e.target.closest('[data-topic]');
+        if (btn) { var t = btn.getAttribute('data-topic'); if (t && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(t); }
+      });
+    }
+  } catch (wireErr) { if (typeof console !== 'undefined' && console.error) console.error('TDB search wire:', wireErr); }
+
   if (window.TDB_IS_ORG) {
     var sub = document.getElementById('brand-subtitle');
     if (sub) sub.textContent = "A daily verse movement for you and your church";

@@ -92,10 +92,10 @@ function migrateLocalStorageKeys() {
     var oldToNew = [
       ['tdb_prayer_list', 'tdb_prayer_list_v1'],
       ['prayerWallHearts', 'tdb_prayer_wall_hearts_v1'],
-      ['prayers', 'tdb_prayer_wall_v1'],
-      ['tdb_prayers', 'tdb_prayer_wall_v1'],
-      ['tdb_prayers_v1', 'tdb_prayer_wall_v1'],
-      ['prayerWall', 'tdb_prayer_wall_v1']
+      ['prayers', 'tdb_prayers_v1'],
+      ['tdb_prayers', 'tdb_prayers_v1'],
+      ['tdb_prayer_wall_v1', 'tdb_prayers_v1'],
+      ['prayerWall', 'tdb_prayers_v1']
     ];
     oldToNew.forEach(function (pair) {
       var oldKey = pair[0];
@@ -109,7 +109,7 @@ function migrateLocalStorageKeys() {
             localStorage.setItem(newKey, val);
             localStorage.removeItem(oldKey);
           } catch (e) {}
-        } else if (newKey === 'tdb_prayer_wall_v1' && (val || '').trim().startsWith('[')) {
+        } else if (newKey === 'tdb_prayers_v1' && (val || '').trim().startsWith('[')) {
           try {
             var existingArr = JSON.parse(existing || '[]');
             var newArr = JSON.parse(val || '[]');
@@ -498,6 +498,18 @@ const NT_BOOKS = new Set([
   '3 John','Jude','Revelation'
 ]);
 
+/** Hero-only chips: 6–8 gold-outlined quick topics above the fold */
+const TDB_HERO_TOPICS = [
+  { topic: 'family', label: 'Family' },
+  { topic: 'anxiety', label: 'Anxiety' },
+  { topic: 'hope', label: 'Hope' },
+  { topic: 'strength', label: 'Strength' },
+  { topic: 'peace', label: 'Peace' },
+  { topic: 'courage', label: 'Courage' },
+  { topic: 'fear', label: 'Fear' },
+  { topic: 'grief', label: 'Grief' }
+];
+
 /** Single source of truth for search topic buttons (hero + accordion). Format: { topic: string, label: string, primary?: boolean } */
 const TDB_TOPICS = [
   { topic: 'free will', label: 'FREE WILL', primary: true },
@@ -526,15 +538,19 @@ const TDB_TOPICS = [
   { topic: 'finances', label: 'Finances' },
   { topic: 'spiritualwarfare', label: 'Spiritual Warfare' },
   { topic: 'sleep', label: 'Sleep & Rest' },
-  { topic: 'marriage', label: 'Marriage' }
+  { topic: 'marriage', label: 'Marriage' },
+  { topic: 'faith', label: 'Faith' }
 ];
 
-function renderQuickTopicButtons(containerId, firstIsPrimary) {
+function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
   var container = document.getElementById(containerId);
   if (!container) return;
-  if (!Array.isArray(TDB_TOPICS) || TDB_TOPICS.length === 0) return;
+  var topics = (useHeroTopics && containerId === 'quick-actions-hero' && Array.isArray(TDB_HERO_TOPICS) && TDB_HERO_TOPICS.length > 0)
+    ? TDB_HERO_TOPICS
+    : TDB_TOPICS;
+  if (!Array.isArray(topics) || topics.length === 0) return;
   var html = '';
-  TDB_TOPICS.forEach(function (item, i) {
+  topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
     var cls = isPrimary ? 'btn btn-primary quick-topic' : 'btn btn-secondary quick-topic';
     html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '">' + escapeHtml(item.label) + '</button>';
@@ -1732,7 +1748,7 @@ const DONE_FOR_TODAY_KEY = 'tdb_done_for_today';
 const CHALLENGE_30_STARTED_KEY = 'challenge30Started';
 const LEADERBOARD_KEY = 'tdb_leaderboard';
 const LEADERBOARD_MAX = 50;
-const PRAYER_WALL_KEY = 'tdb_prayer_wall_v1';
+const PRAYER_WALL_KEY = 'tdb_prayers_v1';
 const PRAYER_WALL_HEARTS_KEY = 'tdb_prayer_wall_hearts_v1';
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
@@ -9975,7 +9991,7 @@ function tdbInit() {
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
 
   /* Wire search - run after renderQuickTopicButtons so buttons exist */
-  renderQuickTopicButtons('quick-actions-hero', true);
+  renderQuickTopicButtons('quick-actions-hero', false, true);
   renderQuickTopicButtons('quick-actions-accordion', false);
 
   try {
@@ -11882,7 +11898,10 @@ function tdbInit() {
       try { return JSON.parse(localStorage.getItem(PRAYER_WALL_HEARTS_KEY) || '{}'); } catch (e) { return {}; }
     }
     function saveItems(items) {
-      try { localStorage.setItem(PRAYER_WALL_KEY, JSON.stringify(items)); } catch (e) {}
+      try {
+        localStorage.setItem(PRAYER_WALL_KEY, JSON.stringify(items));
+        if (typeof console !== 'undefined' && console.log) console.log('Prayer saved to tdb_prayers_v1');
+      } catch (e) {}
     }
     function saveHearts(hearts) {
       try { localStorage.setItem(PRAYER_WALL_HEARTS_KEY, JSON.stringify(hearts)); } catch (e) {}

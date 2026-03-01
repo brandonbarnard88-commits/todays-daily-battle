@@ -984,6 +984,51 @@ body {
   box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.4);
 }
 
+/* Hero chips: gold-outlined, hover lift scale(1.03), wrap on mobile */
+.search-hero-centered {
+  text-align: center;
+}
+.search-hero-centered .search-hero-row,
+.search-hero-centered #quick-actions-hero {
+  justify-content: center;
+}
+.quick-chips-gold .btn,
+.quick-actions-hero.quick-chips-gold .btn {
+  border: 1px solid var(--elite-gold-solid, #d4af37);
+  background: transparent;
+  color: var(--elite-gold-solid, #d4af37);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+.quick-chips-gold .btn:hover,
+.quick-actions-hero.quick-chips-gold .btn:hover {
+  transform: scale(1.03);
+  border-color: var(--elite-gold, rgba(212, 175, 55, 0.68));
+  box-shadow: 0 0 16px var(--elite-gold-dim), 0 0 0 1px rgba(212, 175, 55, 0.3);
+  background: rgba(212, 175, 55, 0.08);
+}
+.quick-chips-gold .btn:active,
+.quick-actions-hero.quick-chips-gold .btn:active {
+  transform: scale(0.98);
+}
+
+/* Search input: gold border, focus glow */
+.search-hero-centered .search-hero-input {
+  border: 1px solid var(--elite-gold-dim, rgba(212, 175, 55, 0.35));
+}
+.search-hero-centered .search-hero-input:focus {
+  border-color: var(--elite-gold-solid, #d4af37);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 0 24px var(--elite-gold-dim);
+}
+
+/* Hero results: verse cards with shadow, hover, fade-in */
+.search-hero .results .verse-card {
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.search-hero .results .verse-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
 /* Search results appear directly below the search bar / topic chips */
 .search-hero #output.results {
   display: grid !important;
@@ -2092,6 +2137,7 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .quick-topic[data-topic="finances"]::before { content: '💰 '; }
 .quick-topic[data-topic="sleep"]::before { content: '🌙 '; }
 .quick-topic[data-topic="marriage"]::before { content: '💒 '; }
+.quick-topic[data-topic="faith"]::before { content: '✝ '; }
 .quick-actions .quick-topic { border-left: 3px solid transparent; }
 .quick-topic[data-topic="hope"] { border-left-color: rgba(220, 38, 38, 0.5); }
 .quick-topic[data-topic="spiritualwarfare"] { border-left-color: rgba(148, 163, 184, 0.5); }

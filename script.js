@@ -175,7 +175,7 @@ function addHouseholdArmorPiece(source) {
   setHouseholdArmor(data);
   var announce = document.getElementById('armor-piece-added-announce');
   if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
-  if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined—your pray adds to the armor!');
+  if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined—your prayer adds to the armor!');
   if (data.count >= 6) {
     if (typeof showEliteToast === 'function') showEliteToast('Your household is armored—share the glory.');
     var link = getArmorShareLink();
@@ -10101,7 +10101,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   var ob = document.getElementById('offline-banner');
   if (ob && navigator.onLine !== false) ob.classList.add('hidden');
   var heroLink = document.getElementById('hero-tagline-america');
-  if (heroLink && window.TDB_CONFIG && window.TDB_CONFIG.HERO_TAGLINE_URL) heroLink.href = window.TDB_CONFIG.HERO_TAGLINE_URL;
+  var footerAmericaLink = document.getElementById('footer-tagline-america');
+  var americaUrl = window.TDB_CONFIG && window.TDB_CONFIG.HERO_TAGLINE_URL;
+  if (heroLink && americaUrl) heroLink.href = americaUrl;
+  if (footerAmericaLink && americaUrl) footerAmericaLink.href = americaUrl;
   if (window.location.hash === '#main-search') {
     var acc = document.getElementById('accordion-search');
     if (acc) acc.setAttribute('open', '');

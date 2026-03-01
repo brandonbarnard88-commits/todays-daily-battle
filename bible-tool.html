@@ -315,10 +315,21 @@
   function fetchVerse(ref, cb) {
     var r = normRef(ref);
     if (KEY_VERSES[r]) { cb({ reference: r, text: KEY_VERSES[r] }); return; }
-    fetch(API_BASE + '/' + encodeURIComponent(r) + '?translation=kjv')
-      .then(function (res) { return res.ok ? res.json() : Promise.reject(res.status); })
-      .then(function (data) { cb({ reference: data.reference || r, text: (data.text || '').trim() }); })
-      .catch(function () { cb(KEY_VERSES[r] ? { reference: r, text: KEY_VERSES[r] } : null); });
+    var timeout = 10000;
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var id = controller ? setTimeout(function () { controller.abort(); }, timeout) : null;
+    var opts = controller ? { signal: controller.signal } : {};
+    fetch(API_BASE + '/' + encodeURIComponent(r) + '?translation=kjv', opts)
+      .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error('status ' + res.status)); })
+      .then(function (data) {
+        if (id) clearTimeout(id);
+        cb({ reference: data.reference || r, text: (data.text || '').trim() });
+      })
+      .catch(function (err) {
+        if (id) clearTimeout(id);
+        if (typeof console !== 'undefined' && console.warn) console.warn('Bible Tool fetchVerse failed:', r, err && err.message ? err.message : err);
+        cb(KEY_VERSES[r] ? { reference: r, text: KEY_VERSES[r] } : null);
+      });
   }
 
   function loadNotes() {

@@ -6608,6 +6608,26 @@ function saveNotes(items) {
   localStorage.setItem('studyNotes', JSON.stringify(items));
 }
 
+var TDB_BIBLE_TOOL_NOTES_KEY = 'tdb_bible_tool_notes';
+function getBibleToolNotes() {
+  try {
+    var raw = localStorage.getItem(TDB_BIBLE_TOOL_NOTES_KEY);
+    if (!raw) return { battleLog: '', verseNotes: [] };
+    var obj = JSON.parse(raw);
+    var verseNotes = [];
+    var battleLog = '';
+    if (obj && typeof obj === 'object') {
+      Object.keys(obj).forEach(function (key) {
+        if (key === 'Battle log') battleLog = String(obj[key] || '').trim();
+        else if (key && obj[key]) verseNotes.push({ ref: key, note: String(obj[key]).trim() });
+      });
+    }
+    return { battleLog: battleLog, verseNotes: verseNotes };
+  } catch (e) {
+    return { battleLog: '', verseNotes: [] };
+  }
+}
+
 function loadSermonDraft() {
   try {
     return JSON.parse(localStorage.getItem('sermonDraft') || '{}');
@@ -8320,6 +8340,16 @@ function updateNoteSelect(results) {
       opt.textContent = v.ref;
       select.appendChild(opt);
     });
+  } else if (typeof getBibleToolNotes === 'function') {
+    const fromTool = getBibleToolNotes();
+    if (fromTool.verseNotes && fromTool.verseNotes.length) {
+      fromTool.verseNotes.forEach(function (v) {
+        var opt = document.createElement('option');
+        opt.value = v.ref;
+        opt.textContent = v.ref;
+        select.appendChild(opt);
+      });
+    }
   }
 }
 
@@ -8327,6 +8357,38 @@ function renderSavedVerses() {
   const container = document.getElementById('saved-verses');
   if (!container) return;
   container.innerHTML = '';
+  var fromTool = typeof getBibleToolNotes === 'function' ? getBibleToolNotes() : { battleLog: '', verseNotes: [] };
+  if (fromTool.verseNotes && fromTool.verseNotes.length) {
+    var toolHeading = document.createElement('div');
+    toolHeading.className = 'section-note';
+    toolHeading.textContent = 'From Bible Tool';
+    container.appendChild(toolHeading);
+    var toolSection = document.createElement('div');
+    toolSection.className = 'list';
+    fromTool.verseNotes.forEach(function (v) {
+      var row = document.createElement('div');
+      row.className = 'list-item';
+      row.innerHTML = '<div><strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.note) + '</p></div>';
+      var actions = document.createElement('div');
+      actions.className = 'item-actions';
+      var copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.onclick = function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(v.ref + ': ' + v.note);
+      };
+      actions.appendChild(copyBtn);
+      row.appendChild(actions);
+      toolSection.appendChild(row);
+    });
+    container.appendChild(toolSection);
+    if (fromTool.battleLog) {
+      var logPreview = fromTool.battleLog.length > 200 ? fromTool.battleLog.slice(0, 200).trim() + '…' : fromTool.battleLog.trim();
+      var logP = document.createElement('p');
+      logP.className = 'section-note';
+      logP.innerHTML = '<strong>Battle log</strong>: ' + escapeHtml(logPreview);
+      container.appendChild(logP);
+    }
+  }
   let collections = loadSavedCollections();
   let items = loadSavedCollectionItems();
   if (collections.length === 0 && items.length === 0) {
@@ -8339,7 +8401,9 @@ function renderSavedVerses() {
     }
   }
   if (collections.length === 0 && items.length === 0) {
-    container.innerHTML = '<p class="empty">No saved verses yet.</p>';
+    if (!fromTool.verseNotes || !fromTool.verseNotes.length) {
+      container.innerHTML = '<p class="empty">No saved verses yet—<a href="bible-tool.html">add from Bible Tool</a>!</p>';
+    }
     return;
   }
 
@@ -8555,7 +8619,7 @@ function renderNotes() {
   container.innerHTML = '';
   const notes = loadNotes();
   if (notes.length === 0) {
-    container.innerHTML = '<p class="empty">No notes yet.</p>';
+    container.innerHTML = '<p class="empty">No notes yet—<a href="bible-tool.html">add from Bible Tool</a> or save one above.</p>';
     return;
   }
   notes.forEach(note => {
@@ -11616,6 +11680,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   renderSavedVerses();
   renderNotes();
+  if (document.getElementById('note-verse-select')) updateNoteSelect(null);
   populateTemplateList();
   populateColoringStories();
   setupColoringCanvas();

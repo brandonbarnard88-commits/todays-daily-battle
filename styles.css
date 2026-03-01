@@ -2116,6 +2116,9 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 
 /* Topic list: icons + color tags for faster scanning */
 .quick-topic[data-topic="family"]::before { content: '🏠 '; }
+.quick-topic[data-topic="gratitude"]::before { content: '🙏 '; }
+.quick-topic[data-topic="loneliness"]::before { content: '🤗 '; }
+.quick-topic[data-topic="guilt"]::before { content: '💭 '; }
 .quick-topic[data-topic="courage"]::before { content: '⚔ '; }
 .quick-topic[data-topic="hope"]::before { content: '♥ '; color: #dc2626; }
 .quick-topic[data-topic="spiritualwarfare"]::before { content: '🛡 '; }

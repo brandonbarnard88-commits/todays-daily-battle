@@ -498,17 +498,8 @@ const NT_BOOKS = new Set([
   '3 John','Jude','Revelation'
 ]);
 
-/** Hero-only chips: 6–8 gold-outlined quick topics above the fold */
-const TDB_HERO_TOPICS = [
-  { topic: 'family', label: 'Family' },
-  { topic: 'anxiety', label: 'Anxiety' },
-  { topic: 'hope', label: 'Hope' },
-  { topic: 'strength', label: 'Strength' },
-  { topic: 'peace', label: 'Peace' },
-  { topic: 'courage', label: 'Courage' },
-  { topic: 'fear', label: 'Fear' },
-  { topic: 'grief', label: 'Grief' }
-];
+/** Hero chips: same as TDB_TOPICS so all quick topics appear and work. Uses TDB_TOPICS directly. */
+const TDB_HERO_TOPICS = null; // null = use TDB_TOPICS for hero (all topics)
 
 /** Single source of truth for search topic buttons (hero + accordion). Format: { topic: string, label: string, primary?: boolean } */
 const TDB_TOPICS = [
@@ -1265,6 +1256,20 @@ const topics = {
     explain: {
       kid: "God wants families to love and forgive each other.",
       teen: "God designed marriage for love, respect, and forgiveness."
+    }
+  },
+  parenting: {
+    synonyms: ['children', 'kids', 'raise', 'discipline', 'train', 'Proverbs 22:6'],
+    verses: ['Proverbs 22:6', 'Ephesians 6:4', 'Colossians 3:21', 'Deuteronomy 6:7', 'Proverbs 13:24', 'Psalms 127:3', '2 Timothy 3:15'],
+    guidance: {
+      kid: "Parents love you and teach you about God.",
+      teen: "Honor your parents; they are trying to help you grow.",
+      adult: "Train up a child in the way he should go; do not provoke to anger.",
+      pastor: "Equip parents with Scripture for discipline, grace, and discipleship at home."
+    },
+    explain: {
+      kid: "God helps parents love and teach their kids.",
+      teen: "Parenting is hard; God gives wisdom and patience."
     }
   }
   // You can keep adding more here

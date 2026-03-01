@@ -25,7 +25,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260305p" as="style" nonce="tdb2025">
   <link rel="stylesheet" href="styles.css?v=20260305p" nonce="tdb2025">
-  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;}body.dark-mode,.dark-mode body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,.search-hero,#quick-actions-hero{display:block!important;visibility:visible!important;} #quick-actions-hero{display:flex!important;flex-wrap:wrap;}</style>
+  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;}body.dark-mode,.dark-mode body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,.search-hero,.search-hero form,.search-hero-row,#quick-actions-hero{visibility:visible!important;opacity:1!important;} #search-hero,.search-hero{display:block!important;min-height:12rem;} .search-hero-row{display:flex!important;} #quick-actions-hero{display:flex!important;flex-wrap:wrap!important;min-height:2.5rem;} #query,#search-btn{visibility:visible!important;opacity:1!important;}</style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a0c14">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -174,14 +174,16 @@
           </form>
           <p class="section-note quick-searches-label">Try a topic — tap any chip to load verses</p>
           <div class="quick-actions quick-actions-hero quick-chips-gold" id="quick-actions-hero" aria-label="Quick topic search">
-            <!-- Filled by script from TDB_HERO_TOPICS: Family, Anxiety, Hope, Strength, Peace, Courage, Fear, Grief -->
             <button type="button" class="btn btn-secondary quick-topic" data-topic="family">Family</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="strength">Strength</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace">Peace</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="courage">Courage</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace">Peace</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="gratitude">Gratitude</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="loneliness">Loneliness</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="guilt">Guilt</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="strength">Strength</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="courage">Courage</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
           </div>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>

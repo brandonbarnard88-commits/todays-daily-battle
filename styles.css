@@ -803,8 +803,10 @@ body {
   visibility: visible !important;
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
-  background: transparent;
 }
+.search-hero:not(.glass) { background: transparent; }
+.search-hero.glass { padding: var(--space-xl) var(--space-lg); }
+#search-hero { scroll-margin-top: 5rem; }
 .search-hero-label {
   display: block;
   font-family: var(--font-ui);

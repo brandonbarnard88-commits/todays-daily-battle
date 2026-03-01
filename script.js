@@ -4667,6 +4667,61 @@ const curriculum = {
   ]
 };
 
+/** Static context for high-traffic verses: speaker, audience, application. Expand over time. */
+window.VERSE_CONTEXT = {
+  'John 3:16': { speaker: 'Jesus', audience: 'Nicodemus (a Pharisee) and all who believe', application: 'God’s love isn’t earned—trust Jesus today to win your eternal battle against sin and death. Share this hope with someone.' },
+  'Romans 8:28': { speaker: 'Paul', audience: 'Believers in Rome', application: 'In every battle—family, health, work—God is working for your good. Lean on this promise when today feels hard.' },
+  'Romans 8:38': { speaker: 'Paul', audience: 'Believers in Rome', application: 'No hardship, fear, or spiritual attack can separate you from God’s love. Stand firm in that truth today.' },
+  'Romans 8:39': { speaker: 'Paul', audience: 'Believers in Rome', application: 'Nothing in creation can cut you off from Christ. Win the day by resting in His love.' },
+  'Ephesians 6:10': { speaker: 'Paul', audience: 'Church in Ephesus', application: 'Draw strength from the Lord, not yourself. Arm up for today’s spiritual battle.' },
+  'Ephesians 6:11': { speaker: 'Paul', audience: 'Church in Ephesus', application: 'Put on God’s full armor so you can stand against the enemy’s schemes. Start with the belt of truth.' },
+  'Ephesians 6:12': { speaker: 'Paul', audience: 'Church in Ephesus', application: 'Your real fight isn’t against people—it’s spiritual. Pray and stand in God’s power.' },
+  'Ephesians 6:13': { speaker: 'Paul', audience: 'Church in Ephesus', application: 'Take up the whole armor so when the evil day comes, you’re still standing. Don’t skip a piece.' },
+  'Ephesians 6:14': { speaker: 'Paul', audience: 'Church in Ephesus', application: 'Stand in truth and righteousness. Let your life match what you believe.' },
+  'Ephesians 6:15': { speaker: 'Paul', audience: 'Church in Ephesus', application: 'Share the gospel of peace wherever you go. Your feet take the good news into the battle.' },
+  'Ephesians 6:16': { speaker: 'Paul', audience: 'Church in Ephesus', application: 'Lift the shield of faith and quench the enemy’s fiery arrows. Trust God’s Word in the moment of attack.' },
+  'Philippians 4:6': { speaker: 'Paul', audience: 'Church in Philippi', application: 'Don’t let anxiety win. Pray, give thanks, and hand your requests to God—then stand in His peace.' },
+  'Philippians 4:7': { speaker: 'Paul', audience: 'Church in Philippi', application: 'God’s peace guards your heart and mind. Let it steady you in today’s battle.' },
+  'Philippians 4:13': { speaker: 'Paul', audience: 'Church in Philippi', application: 'You can face today’s challenge in Christ’s strength, not your own. Lean on Him.' },
+  'Joshua 1:9': { speaker: 'God (through Moses’ successor)', audience: 'Joshua, leader of Israel', application: 'God commands courage. Wherever you go today, remember He is with you—don’t be afraid.' },
+  'Isaiah 41:10': { speaker: 'God', audience: 'Israel', application: 'God is with you, will strengthen you, and will uphold you. Fear not in your daily battles.' },
+  'Isaiah 40:31': { speaker: 'Isaiah', audience: 'Israel in exile', application: 'Wait on the Lord and renew your strength. He will help you run and not grow weary.' },
+  '2 Timothy 1:7': { speaker: 'Paul', audience: 'Timothy', application: 'God gave you power, love, and a sound mind—not fear. Step into today with that spirit.' },
+  'Psalm 23:1': { speaker: 'David', audience: 'The Lord (prayer/song)', application: 'The Lord is your shepherd; you lack nothing. Rest in His care in the midst of the fight.' },
+  'Psalm 46:1': { speaker: 'Sons of Korah', audience: 'God’s people', application: 'God is your refuge and strength. Run to Him when trouble hits—He is present to help.' },
+  'Psalm 27:1': { speaker: 'David', audience: 'The Lord (prayer/song)', application: 'The Lord is your light and salvation. Whom will you fear? Stand in His strength today.' },
+  'Matthew 11:28': { speaker: 'Jesus', audience: 'The crowds', application: 'Come to Jesus with your burdens. He gives rest. Bring your weariness and battles to Him.' },
+  'John 14:27': { speaker: 'Jesus', audience: 'His disciples', application: 'Jesus gives peace the world can’t give. Let His peace calm your heart in the storm.' },
+  'Jeremiah 29:11': { speaker: 'God (through Jeremiah)', audience: 'Exiles in Babylon', application: 'God has plans for your future—hope and a future. Trust Him when the path is unclear.' },
+  'Romans 15:13': { speaker: 'Paul', audience: 'Believers in Rome', application: 'Let the God of hope fill you with joy and peace as you believe. Abound in hope today.' },
+  'Hebrews 11:1': { speaker: 'Author of Hebrews', audience: 'Jewish Christians', application: 'Faith is the substance of things hoped for. Stand on what you don’t yet see—win the battle by faith.' },
+  'Colossians 3:23': { speaker: 'Paul', audience: 'Church in Colossae', application: 'Work as unto the Lord, not people. Let that reframe your daily tasks and battles.' },
+  'Nehemiah 8:10': { speaker: 'Nehemiah', audience: 'Israel', application: 'The joy of the Lord is your strength. Choose joy in the battle today.' },
+  '1 Corinthians 16:13': { speaker: 'Paul', audience: 'Church in Corinth', application: 'Watch, stand firm in the faith, act like men, be strong. Stay alert in the spiritual fight.' },
+  'James 1:12': { speaker: 'James', audience: 'The twelve tribes', application: 'Blessed is the one who endures temptation. Hold the line—God has a crown for you.' },
+  'Isaiah 26:3': { speaker: 'Isaiah', audience: 'Judah', application: 'God keeps in perfect peace those whose minds are stayed on Him. Fix your thoughts on Him today.' }
+};
+
+function getVerseContext(ref) {
+  if (!ref) return null;
+  var r = String(ref).trim().replace(/\s+/g, ' ');
+  return window.VERSE_CONTEXT && window.VERSE_CONTEXT[r] || null;
+}
+
+function buildVerseContextHtml(ref) {
+  var ctx = getVerseContext(ref);
+  var readerUrl = typeof buildReaderUrl === 'function' ? buildReaderUrl(ref) : 'reader.html';
+  if (ctx) {
+    return '<details class="verse-context-accordion" aria-label="Context and application"><summary class="verse-context-summary">Context &amp; Application</summary><ul class="verse-context-list">' +
+      '<li><strong>Speaker:</strong> ' + escapeHtml(ctx.speaker) + '</li>' +
+      '<li><strong>To whom:</strong> ' + escapeHtml(ctx.audience) + '</li>' +
+      '<li><strong>How it applies today:</strong> ' + escapeHtml(ctx.application) + '</li></ul></details>';
+  }
+  return '<p class="section-note verse-context-dive"><a href="' + escapeHtml(readerUrl) + '">Dive deeper in full chapter →</a></p>';
+}
+window.getVerseContext = getVerseContext;
+window.buildVerseContextHtml = buildVerseContextHtml;
+
 function getDailyVerseRef() {
   return getDailyVerseRefForKey(getDailyKey());
 }
@@ -4693,6 +4748,8 @@ function renderDailyVerse() {
     return;
   }
   card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
+  var contextHtml = buildVerseContextHtml(ref);
+  if (contextHtml) card.insertAdjacentHTML('beforeend', contextHtml);
   card.classList.remove('verse-card-loading');
   card.classList.add('verse-card-loaded');
 }

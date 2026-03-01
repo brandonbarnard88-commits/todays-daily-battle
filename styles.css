@@ -4571,6 +4571,66 @@ body.red-letter-off .red-letter-card {
   font-size: 1rem;
 }
 
+.verse-context-accordion {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm, 10px);
+  border: 1px solid var(--border-subtle);
+  background: rgba(109, 40, 217, 0.06);
+}
+
+.verse-context-summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent, #a78bfa);
+  list-style: none;
+}
+
+.verse-context-summary::-webkit-details-marker { display: none; }
+
+.verse-context-summary::before {
+  content: '▸ ';
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.verse-context-accordion[open] .verse-context-summary::before {
+  transform: rotate(90deg);
+}
+
+.verse-context-list {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  list-style: none;
+}
+
+.verse-context-list li {
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.verse-context-list li strong {
+  color: var(--text-dark);
+  margin-right: 0.25rem;
+}
+
+.verse-context-dive {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.verse-context-dive a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.verse-context-dive a:hover {
+  text-decoration: underline;
+}
+
 .prompts {
   margin: 0.5rem 0 0;
   padding-left: 1.25rem;

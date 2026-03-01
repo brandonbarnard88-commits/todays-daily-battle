@@ -104,6 +104,7 @@
           <p class="section-note util-mb-0_5">Today's verse</p>
           <p class="daily-ref" id="daily-ref">—</p>
           <p id="daily-text">Loading…</p>
+          <div id="daily-verse-context" class="util-mt-0_5" aria-live="polite"></div>
           <div class="verse-actions">
             <button type="button" class="btn btn-primary" id="share-daily" aria-label="Share today's verse">Share</button>
             <button type="button" class="btn btn-secondary" id="copy-daily" aria-label="Copy verse to clipboard">Copy</button>
@@ -131,6 +132,7 @@
               <span id="cross-refs" class="section-note"></span>
             </div>
             <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
+            <div id="lookup-context" class="util-mt-0_5" aria-live="polite"></div>
           </div>
         </section>
 
@@ -336,6 +338,8 @@
     fetchVerse(ref, function (data) {
       if (elText && data) elText.textContent = data.text;
       else if (elText) elText.textContent = KEY_VERSES[ref] || 'Unable to load. Check your connection and try again.';
+      var ctxEl = document.getElementById('daily-verse-context');
+      if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
     });
   }
 
@@ -370,6 +374,8 @@
     if (noteInput) { noteInput.dataset.currentRef = data.reference; noteInput.value = (loadNotes()[data.reference] || '').trim(); }
     var prayBox = document.getElementById('lookup-prayer-box');
     if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
+    var lookupContext = document.getElementById('lookup-context');
+    if (lookupContext && typeof window.buildVerseContextHtml === 'function') lookupContext.innerHTML = window.buildVerseContextHtml(data.reference);
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     renderNotes();
   }
@@ -379,6 +385,8 @@
     if (!block) return;
     block.classList.remove('hidden');
     block.innerHTML = '<p class="empty">Verse unavailable—check your connection or try another reference.</p><button type="button" id="lookup-retry" class="btn btn-secondary">Try again</button>';
+    var lookupContext = document.getElementById('lookup-context');
+    if (lookupContext) lookupContext.innerHTML = '';
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     var retryBtn = document.getElementById('lookup-retry');
     if (retryBtn) retryBtn.addEventListener('click', function () { doLookup(); });
@@ -715,7 +723,10 @@
           var topicLabel = topic;
           var html = '<p class="win-title section-note">Win the Day — ' + topicLabel + '</p>';
           results.forEach(function (d) {
-            if (d) html += '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + d.reference + '</p><p class="util-mt-0_5">' + d.text + '</p></div>';
+            if (d) {
+              html += '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + escapeHtml(d.reference) + '</p><p class="util-mt-0_5">' + escapeHtml(d.text || '') + '</p></div>';
+              if (typeof window.buildVerseContextHtml === 'function') html += '<div class="util-mt-0_5">' + window.buildVerseContextHtml(d.reference) + '</div>';
+            }
           });
           html += '<button type="button" class="btn btn-secondary util-mt-0_5 copy-win-btn" aria-label="Copy Win the Day verses">Copy</button>';
           html += ' <button type="button" class="btn btn-secondary util-mt-0_5 add-notes-win-btn" aria-label="Add to battle log">Add to Notes</button>';
@@ -773,7 +784,8 @@
       btn.disabled = false;
       if (data) {
         var copyText = 'Battle Ready: ' + data.reference + ' — ' + data.text + '\n' + prayer + '\n— todaysdailybattle.com';
-        container.innerHTML = '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + data.reference + '</p><p class="util-mt-0_5">' + data.text + '</p></div><p class="section-note util-mt-0_5" style="font-style:italic">' + prayer + '</p><button type="button" class="btn btn-secondary util-mt-0_5" id="copy-battle-ready" aria-label="Copy verse and prayer">Copy</button> <button type="button" class="btn btn-secondary util-mt-0_5" id="add-notes-battle-ready" aria-label="Add to battle log">Add to Notes</button>';
+        var contextHtml = (typeof window.buildVerseContextHtml === 'function') ? window.buildVerseContextHtml(data.reference) : '';
+        container.innerHTML = '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + escapeHtml(data.reference) + '</p><p class="util-mt-0_5">' + escapeHtml(data.text || '') + '</p></div><div class="util-mt-0_5">' + contextHtml + '</div><p class="section-note util-mt-0_5" style="font-style:italic">' + escapeHtml(prayer) + '</p><button type="button" class="btn btn-secondary util-mt-0_5" id="copy-battle-ready" aria-label="Copy verse and prayer">Copy</button> <button type="button" class="btn btn-secondary util-mt-0_5" id="add-notes-battle-ready" aria-label="Add to battle log">Add to Notes</button>';
         document.getElementById('copy-battle-ready').addEventListener('click', function () {
           copyToClipboardWithFeedback(copyText, this);
         });

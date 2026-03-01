@@ -963,6 +963,13 @@ body {
   box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.35);
 }
 
+/* Search results appear directly below the search bar / topic chips */
+.search-hero #output.results {
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  padding-top: 1.25rem;
+  margin-top: 1rem;
+}
+
 /* Hero verse — below search, big KJV, dark card */
 .hero-verse-wrap {
   padding: var(--space-xl) var(--space-lg);

@@ -26,7 +26,7 @@
     .bible-tool .lookup-controls select, .bible-tool .lookup-controls input[type="number"], .bible-tool .lookup-controls input[type="text"] { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; }
     .bible-tool .lookup-controls input[type="number"] { width: 3.5rem; }
     .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; resize: vertical; min-height: 4rem; }
-    .bible-tool .plan-progress label { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 0.9rem; }
+    .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 0.9rem; }
     .bible-tool .verse-ref { font-weight: 600; }
     .bible-tool .lookup-controls select:focus, .bible-tool .lookup-controls input:focus { outline: 2px solid rgba(167, 139, 250, 0.6); outline-offset: 2px; }
     .bible-tool #lookup-result { scroll-margin-top: 1rem; }
@@ -36,6 +36,22 @@
     .bible-tool .plan-reflection { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.12); border-left: 3px solid #6d28d9; font-size: 0.9rem; }
     .bible-tool .plan-complete-msg { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4); color: #d4af37; font-weight: 600; }
     .bible-tool .share-progress-btn { margin-top: 0.5rem; }
+    .bible-tool .verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .bible-tool .verse-actions .btn { margin-right: 0; }
+    .bible-tool label.plan-progress { transition: opacity 0.3s ease, transform 0.3s ease; }
+    .bible-tool label.plan-progress.plan-item-pop { animation: planCheckPop 0.3s ease; }
+    @keyframes planCheckPop { from { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } to { opacity: 1; transform: scale(1); } }
+    @media (max-width: 768px) {
+      .bible-tool .verse-card { padding: 1rem; margin-bottom: 1rem; }
+      .bible-tool .plan-progress-bar { margin: 0.75rem 0; }
+      .bible-tool label.plan-progress { margin-bottom: 1rem; }
+      .bible-tool .plan-reflection { margin-top: 1rem; padding: 1rem; }
+      .bible-tool .plan-complete-msg { margin-top: 1rem; padding: 1rem; }
+      .bible-tool .win-title + .section-note { margin-bottom: 0.75rem; }
+      .bible-tool .lookup-controls { gap: 0.5rem; }
+      .bible-tool #plan-progress { display: flex; flex-wrap: wrap; flex-direction: column; gap: 0.25rem; }
+    }
+    .bible-tool .prayer-box { padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.1); border-left: 3px solid #6d28d9; font-size: 0.9rem; font-style: italic; }
   </style>
 </head>
 <body class="dark-mode">
@@ -88,7 +104,10 @@
           <p class="section-note util-mb-0_5">Today's verse</p>
           <p class="daily-ref" id="daily-ref">—</p>
           <p id="daily-text">Loading…</p>
-          <button type="button" class="btn btn-primary" id="share-daily">Share</button>
+          <div class="verse-actions">
+            <button type="button" class="btn btn-primary" id="share-daily" aria-label="Share today's verse">Share</button>
+            <button type="button" class="btn btn-secondary" id="copy-daily" aria-label="Copy verse to clipboard">Copy</button>
+          </div>
         </section>
 
         <!-- Verse lookup -->
@@ -105,8 +124,12 @@
             <p id="lookup-text" class="util-mt-0_5"></p>
             <div class="util-mt-0_5">
               <button type="button" id="share-lookup" class="link-button">Share</button>
+              <button type="button" id="copy-lookup" class="link-button" aria-label="Copy verse to clipboard">Copy</button>
+              <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
+              <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
               <span id="cross-refs" class="section-note"></span>
             </div>
+            <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
           </div>
         </section>
 
@@ -333,8 +356,16 @@
     block.classList.remove('hidden');
     var noteInput = document.getElementById('note-input');
     if (noteInput) { noteInput.dataset.currentRef = data.reference; noteInput.value = (loadNotes()[data.reference] || '').trim(); }
+    var prayBox = document.getElementById('lookup-prayer-box');
+    if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     renderNotes();
+  }
+
+  function escapeHtml(s) {
+    if (s == null) return '';
+    var t = String(s);
+    return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
   function renderNotes() {
@@ -342,10 +373,18 @@
     var list = document.getElementById('notes-list');
     if (!list) return;
     var refs = Object.keys(notes).filter(function (r) { return notes[r]; });
-    list.innerHTML = refs.length ? refs.slice(0, 10).map(function (ref) {
+    var battleLog = notes[BATTLE_LOG_KEY];
+    var others = refs.filter(function (r) { return r !== BATTLE_LOG_KEY; });
+    var html = '';
+    if (battleLog) {
+      var logPreview = battleLog.length > 120 ? battleLog.slice(-120).trim() + '…' : battleLog.trim();
+      html += '<p class="section-note util-mb-0_5"><strong>Battle log</strong>: ' + escapeHtml(logPreview) + '</p>';
+    }
+    html += others.length ? others.slice(0, 10).map(function (ref) {
       var txt = notes[ref].length > 80 ? notes[ref].slice(0, 80) + '…' : notes[ref];
-      return '<p class="section-note util-mb-0_5"><strong>' + ref + '</strong>: ' + txt + '</p>';
-    }).join('') : '<p class="section-note">No notes yet. Look up a verse and add a note above.</p>';
+      return '<p class="section-note util-mb-0_5"><strong>' + escapeHtml(ref) + '</strong>: ' + escapeHtml(txt) + '</p>';
+    }).join('') : (battleLog ? '' : '<p class="section-note">No notes yet. Look up a verse and add a note above, or use Add to Notes.</p>');
+    list.innerHTML = html || '<p class="section-note">No notes yet.</p>';
   }
 
   function shareVerse(ref, text, useToolUrl) {
@@ -358,6 +397,76 @@
     } else if (navigator.clipboard) {
       navigator.clipboard.writeText(t + ' ' + url);
     }
+  }
+
+  function copyVerseToClipboard(ref, text, btnEl) {
+    var t = (ref + ': ' + (text || '')).trim();
+    var full = t + ' — Win the Day at todaysdailybattle.com';
+    if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(full).then(function () {
+        if (btnEl) {
+          var orig = btnEl.textContent;
+          btnEl.textContent = 'Copied!';
+          btnEl.setAttribute('aria-label', 'Copied to clipboard');
+          setTimeout(function () { btnEl.textContent = orig; btnEl.setAttribute('aria-label', 'Copy verse to clipboard'); }, 2000);
+        }
+      }).catch(function () { if (typeof alert !== 'undefined') alert('Copy failed. Try selecting the text.'); });
+    } else {
+      if (typeof alert !== 'undefined') alert('Clipboard not supported. Select and copy the verse text.');
+    }
+  }
+
+  function copyToClipboardWithFeedback(text, btnEl) {
+    if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        if (btnEl) {
+          var orig = btnEl.textContent;
+          btnEl.textContent = 'Copied!';
+          setTimeout(function () { btnEl.textContent = orig; }, 2000);
+        }
+      }).catch(function () { if (typeof alert !== 'undefined') alert('Copy failed.'); });
+    } else {
+      if (typeof alert !== 'undefined') alert('Clipboard not supported.');
+    }
+  }
+
+  var BATTLE_LOG_KEY = 'Battle log';
+  function addToBattleLog(refOrList, text, opts) {
+    opts = opts || {};
+    var notes = loadNotes();
+    var now = new Date();
+    var dateStr = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+    var block = '\n\n--- ' + dateStr + ' ---';
+    if (Array.isArray(refOrList)) {
+      refOrList.forEach(function (v) { block += '\n' + v.reference + ' — ' + (v.text || '').trim(); });
+      if (opts.topic) block += '\n(Win the Day: ' + opts.topic + ')';
+    } else {
+      block += '\n' + refOrList + ' — ' + (text || '').trim();
+      if (opts.topic) block += '\n(Win the Day: ' + opts.topic + ')';
+      if (opts.prayer) block += '\n' + opts.prayer;
+    }
+    notes[BATTLE_LOG_KEY] = (notes[BATTLE_LOG_KEY] || '') + block;
+    saveNotes(notes);
+    renderNotes();
+  }
+
+  var PRAY_TEMPLATES = [
+    'Lord, thank you for this word from {ref}. Help me live it today. Amen.',
+    'Father, let this truth from {ref} sink into my heart. Strengthen me for the battle. Amen.',
+    'God, I pray {ref} over my day. Let your Word be my guide. Amen.',
+    'Lord, I claim this promise. Help me stand on it. Amen.'
+  ];
+  var PRAY_TOPIC_TEMPLATES = [
+    'Lord, I need your {topic} today. Let these verses from Your Word steady me. Amen.',
+    'Father, thank you for speaking through Scripture. Help me walk in {topic}. Amen.'
+  ];
+  function generatePrayerForVerse(ref) {
+    var t = PRAY_TEMPLATES[Math.floor(Math.random() * PRAY_TEMPLATES.length)];
+    return t.replace(/\{ref\}/g, ref);
+  }
+  function generatePrayerForTopic(topic) {
+    var t = PRAY_TOPIC_TEMPLATES[Math.floor(Math.random() * PRAY_TOPIC_TEMPLATES.length)];
+    return t.replace(/\{topic\}/g, topic);
   }
 
   var bookSelect = document.getElementById('book');
@@ -390,11 +499,18 @@
     var origText = btn.textContent;
     btn.disabled = true;
     btn.textContent = '…';
-    fetchVerse(ref, function (data) {
-      renderLookup(data);
+    var done = false;
+    function finish() {
+      if (done) return;
+      done = true;
       btn.disabled = false;
       btn.textContent = origText;
+    }
+    fetchVerse(ref, function (data) {
+      renderLookup(data);
+      finish();
     });
+    setTimeout(finish, 10000);
   }
 
   document.getElementById('chapter').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLookup(); });
@@ -404,13 +520,44 @@
     shareVerse(document.getElementById('daily-ref').textContent, document.getElementById('daily-text').textContent);
   });
 
+  document.getElementById('copy-daily').addEventListener('click', function () {
+    copyVerseToClipboard(document.getElementById('daily-ref').textContent, document.getElementById('daily-text').textContent, this);
+  });
+
   document.getElementById('share-lookup').addEventListener('click', function () {
     shareVerse(document.getElementById('lookup-ref').textContent, document.getElementById('lookup-text').textContent, true);
   });
 
+  document.getElementById('copy-lookup').addEventListener('click', function () {
+    copyVerseToClipboard(document.getElementById('lookup-ref').textContent, document.getElementById('lookup-text').textContent, this);
+  });
+
+  document.getElementById('add-to-notes-lookup').addEventListener('click', function () {
+    var ref = document.getElementById('lookup-ref').textContent.trim();
+    var text = document.getElementById('lookup-text').textContent.trim();
+    if (ref && (text || ref !== '—')) addToBattleLog(ref, text);
+  });
+
+  document.getElementById('pray-lookup').addEventListener('click', function () {
+    var ref = document.getElementById('lookup-ref').textContent.trim();
+    var text = document.getElementById('lookup-text').textContent.trim();
+    var box = document.getElementById('lookup-prayer-box');
+    if (!ref || !box) return;
+    var prayer = generatePrayerForVerse(ref);
+    var full = ref + ': ' + text + '\n\n' + prayer + '\n— todaysdailybattle.com';
+    box.classList.remove('hidden');
+    box.innerHTML = '<p class="util-mb-0_5">' + escapeHtml(prayer) + '</p><button type="button" class="link-button pray-copy-btn">Copy verse + prayer</button>';
+    box.querySelector('.pray-copy-btn').addEventListener('click', function () {
+      copyToClipboardWithFeedback(full, this);
+    });
+  });
+
   document.getElementById('lookup-result').addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('a[data-ref]');
-    if (a && a.dataset.ref) fetchVerse(a.dataset.ref, renderLookup);
+    if (a && a.dataset.ref) {
+      e.preventDefault();
+      fetchVerse(a.dataset.ref, renderLookup);
+    }
   });
 
   document.getElementById('note-input').addEventListener('blur', function () {
@@ -487,9 +634,11 @@
     if (shareBtn) {
       shareBtn.classList.toggle('hidden', !isThemed);
       shareBtn.onclick = function () {
+        var ticks = '';
+        for (var i = 0; i < completed; i++) ticks += '✓';
         var text = completed >= total
-          ? 'I finished the ' + planName + ' plan! todaysdailybattle.com/bible-tool.html'
-          : 'Day ' + (completed + 1) + ' of ' + total + ' — ' + planName + '. todaysdailybattle.com/bible-tool.html';
+          ? planName + ' – Day 7/7 ✓✓✓✓✓✓✓ – Plan complete! Keep battling! todaysdailybattle.com/bible-tool.html'
+          : planName + ' – Day ' + (completed + 1) + '/' + total + ' ' + ticks + ' – Keep battling! todaysdailybattle.com/bible-tool.html';
         if (navigator.share) {
           navigator.share({ title: "Today's Daily Battle", text: text }).catch(function () {
             if (navigator.clipboard) navigator.clipboard.writeText(text);
@@ -509,6 +658,11 @@
         var r = this.dataset.ref;
         saved[r] = this.checked;
         try { localStorage.setItem(STORAGE_PLAN, JSON.stringify(saved)); } catch (_) {}
+        var label = this.closest('label');
+        if (label) {
+          label.classList.add('plan-item-pop');
+          setTimeout(function () { label.classList.remove('plan-item-pop'); }, 350);
+        }
         renderPlan();
       });
     });
@@ -534,11 +688,50 @@
         if (done === refs.length) {
           winBtn.disabled = false;
           winBtn.textContent = origText;
-          var html = '<p class="win-title section-note">Win the Day — ' + topic + '</p>';
+          var topicLabel = topic;
+          var html = '<p class="win-title section-note">Win the Day — ' + topicLabel + '</p>';
           results.forEach(function (d) {
             if (d) html += '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + d.reference + '</p><p class="util-mt-0_5">' + d.text + '</p></div>';
           });
+          html += '<button type="button" class="btn btn-secondary util-mt-0_5 copy-win-btn" aria-label="Copy Win the Day verses">Copy</button>';
+          html += ' <button type="button" class="btn btn-secondary util-mt-0_5 add-notes-win-btn" aria-label="Add to battle log">Add to Notes</button>';
+          html += ' <button type="button" class="btn btn-secondary util-mt-0_5 pray-win-btn" aria-label="Generate prayer">Pray</button>';
+          html += '<div class="win-prayer-box hidden util-mt-0_5 prayer-box"></div>';
           container.innerHTML = html;
+          container.querySelectorAll('.copy-win-btn').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var lines = [];
+              container.querySelectorAll('.verse-card').forEach(function (card) {
+                var ps = card.querySelectorAll('p');
+                if (ps[0] && ps[1]) lines.push(ps[0].textContent.trim() + ' — ' + ps[1].textContent.trim());
+              });
+              var copyText = 'Win the Day: ' + topicLabel + '\n' + lines.join('\n') + '\n— todaysdailybattle.com';
+              copyToClipboardWithFeedback(copyText, this);
+            });
+          });
+          container.querySelectorAll('.add-notes-win-btn').forEach(function (b) {
+            b.addEventListener('click', function () {
+              addToBattleLog(results.filter(Boolean), undefined, { topic: topicLabel });
+              var orig = this.textContent;
+              this.textContent = 'Added!';
+              setTimeout(function () { b.textContent = orig; }, 2000);
+            });
+          });
+          container.querySelectorAll('.pray-win-btn').forEach(function (b) {
+            b.addEventListener('click', function () {
+              var prayBox = container.querySelector('.win-prayer-box');
+              var prayer = generatePrayerForTopic(topicLabel);
+              var lines = [];
+              container.querySelectorAll('.verse-card').forEach(function (card) {
+                var ps = card.querySelectorAll('p');
+                if (ps[0] && ps[1]) lines.push(ps[0].textContent.trim() + ' — ' + ps[1].textContent.trim());
+              });
+              var full = 'Win the Day: ' + topicLabel + '\n' + lines.join('\n') + '\n\n' + prayer + '\n— todaysdailybattle.com';
+              prayBox.classList.remove('hidden');
+              prayBox.innerHTML = '<p class="util-mb-0_5">' + escapeHtml(prayer) + '</p><button type="button" class="link-button">Copy verse + prayer</button>';
+              prayBox.querySelector('button').addEventListener('click', function () { copyToClipboardWithFeedback(full, this); });
+            });
+          });
         }
       });
     });
@@ -555,7 +748,18 @@
     fetchVerse(ref, function (data) {
       btn.disabled = false;
       if (data) {
-        container.innerHTML = '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + data.reference + '</p><p class="util-mt-0_5">' + data.text + '</p></div><p class="section-note util-mt-0_5" style="font-style:italic">' + prayer + '</p>';
+        var copyText = 'Battle Ready: ' + data.reference + ' — ' + data.text + '\n' + prayer + '\n— todaysdailybattle.com';
+        container.innerHTML = '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + data.reference + '</p><p class="util-mt-0_5">' + data.text + '</p></div><p class="section-note util-mt-0_5" style="font-style:italic">' + prayer + '</p><button type="button" class="btn btn-secondary util-mt-0_5" id="copy-battle-ready" aria-label="Copy verse and prayer">Copy</button> <button type="button" class="btn btn-secondary util-mt-0_5" id="add-notes-battle-ready" aria-label="Add to battle log">Add to Notes</button>';
+        document.getElementById('copy-battle-ready').addEventListener('click', function () {
+          copyToClipboardWithFeedback(copyText, this);
+        });
+        document.getElementById('add-notes-battle-ready').addEventListener('click', function () {
+          addToBattleLog(data.reference, data.text, { prayer: prayer });
+          var el = this;
+          var orig = el.textContent;
+          el.textContent = 'Added!';
+          setTimeout(function () { el.textContent = orig; }, 2000);
+        });
       } else container.innerHTML = '<p class="section-note">Try again.</p>';
     });
   });

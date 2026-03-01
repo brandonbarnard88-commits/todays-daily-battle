@@ -4660,6 +4660,15 @@ body.red-letter-off .red-letter-card {
   text-decoration: underline;
 }
 
+.verse-context-wrap {
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+.verse-context-chapter-label {
+  margin-bottom: 0.25rem;
+}
+
 .prompts {
   margin: 0.5rem 0 0;
   padding-left: 1.25rem;

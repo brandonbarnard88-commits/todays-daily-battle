@@ -8126,6 +8126,12 @@ function renderReaderChapterFromApiData(output, book, chapter, key, list) {
   var firstRef = list[0] ? ((list[0].book_name || book) + ' ' + (list[0].chapter || chapter) + ':' + (list[0].verse || '1')) : (key + ':1');
   var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(firstRef) : '';
   if (ctxHtml) {
+    if (ctxHtml.indexOf('Context') !== -1) {
+      var chapterLabel = document.createElement('p');
+      chapterLabel.className = 'section-note verse-context-chapter-label';
+      chapterLabel.textContent = 'Context for this chapter';
+      output.appendChild(chapterLabel);
+    }
     var ctxWrap = document.createElement('div');
     ctxWrap.className = 'verse-context-wrap util-mb-1';
     ctxWrap.innerHTML = ctxHtml;
@@ -8160,6 +8166,12 @@ function renderReaderChapterFromVerses(output, book, chapter, verses) {
   var firstRef = verses[0] ? (typeof verses[0].ref === 'string' ? verses[0].ref : (book + ' ' + chapter + ':' + (verses[0].verseNum || verses[0].verse || '1'))) : (key + ':1');
   var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(firstRef) : '';
   if (ctxHtml) {
+    if (ctxHtml.indexOf('Context') !== -1) {
+      var chapterLabel = document.createElement('p');
+      chapterLabel.className = 'section-note verse-context-chapter-label';
+      chapterLabel.textContent = 'Context for this chapter';
+      output.appendChild(chapterLabel);
+    }
     var ctxWrap = document.createElement('div');
     ctxWrap.className = 'verse-context-wrap util-mb-1';
     ctxWrap.innerHTML = ctxHtml;
@@ -12063,6 +12075,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderNotes();
       var statusEl = document.getElementById('study-note-status');
       if (statusEl) { statusEl.textContent = 'All notes cleared.'; setTimeout(function () { statusEl.textContent = ''; }, 2500); }
+      if (textArea && textArea.focus) textArea.focus();
     });
   }
 

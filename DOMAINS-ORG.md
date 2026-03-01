@@ -1,6 +1,15 @@
 # Using todaysdailybattle.org
 
-You own both **todaysdailybattle.com** and **todaysdailybattle.org**. To have login and verification work on .org as well:
+You own both **todaysdailybattle.com** and **todaysdailybattle.org**. Same codebase, different positioning:
+
+- **.com** = the product (app, daily verse, Battle Pro, shop).
+- **.org** = the movement (who we are, our story, for churches). Same app and tools, but with movement-focused messaging: tagline "A daily verse movement for you and your church," top CTA bar (Use the app → .com | Our story | For churches), and footer note. Promo banner is hidden on .org.
+
+Host detection is automatic: when `location.hostname === 'todaysdailybattle.org'`, `TDB_IS_ORG` is true and the variant runs (see `config.js` and the DOMContentLoaded block in `script.js`).
+
+## Login and verification on .org
+
+To have sign-up and "Forgot password" work on .org as well:
 
 ## Option A: Python script (Management API)
 
@@ -35,4 +44,5 @@ In **Supabase** → **Authentication** → **URL Configuration** → **Redirect 
 
 ## Canonical / SEO
 
-Canonical URLs and og:url in HTML still point to **.com** as the primary domain. If you want .org to be the primary, we can switch those; otherwise keep .com as canonical and .org as an alias.
+- **.com:** Canonical and meta point to `https://todaysdailybattle.com/`.
+- **.org:** When loaded on .org, an inline script sets canonical to `https://todaysdailybattle.org/`, and the page title and meta description to movement-focused copy. Each domain is canonical for itself.

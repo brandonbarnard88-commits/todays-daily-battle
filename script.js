@@ -10046,6 +10046,47 @@ document.addEventListener('DOMContentLoaded', async () => {
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
+
+  if (window.TDB_IS_ORG) {
+    var sub = document.getElementById('brand-subtitle');
+    if (sub) sub.textContent = "A daily verse movement for you and your church";
+    var tag = document.getElementById('brand-tagline');
+    if (tag) tag.textContent = "One verse. One movement.";
+    var heroTag = document.getElementById('hero-tagline');
+    if (heroTag) heroTag.textContent = "Less scroll, more soul. For you and your church.";
+    var orgCta = document.getElementById('org-movement-cta');
+    if (orgCta) orgCta.classList.remove('hidden');
+    var promo = document.getElementById('promo-banner');
+    if (promo) promo.classList.add('hidden');
+    var goldenRule = document.getElementById('org-golden-rule-card');
+    if (goldenRule) goldenRule.classList.remove('hidden');
+    var orgShareBtn = document.getElementById('org-share-verse-btn');
+    if (orgShareBtn) {
+      orgShareBtn.addEventListener('click', function () {
+        var ref = (typeof currentDailyBattle !== 'undefined' && currentDailyBattle && currentDailyBattle.ref) || (typeof getDailyVerseRef === 'function' ? getDailyVerseRef() : '') || 'Today\'s verse';
+        var verseLine = (typeof currentDailyBattle !== 'undefined' && currentDailyBattle && currentDailyBattle.verse) ? String(currentDailyBattle.verse).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60) : '';
+        if (verseLine && verseLine.length >= 50) verseLine = verseLine.slice(0, 57) + '\u2026';
+        var text = (ref + ' \u2013 ' + (verseLine || 'Today\'s verse') + '. Do unto others\u2014pass it on. todaysdailybattle.com').trim();
+        if (typeof safeCopyToClipboard === 'function') {
+          safeCopyToClipboard(text, function () {
+            if (typeof showEliteToast === 'function') showEliteToast('Copied\u2014paste to share. Do unto others.');
+          });
+        }
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+        if (typeof trackEvent === 'function') trackEvent('share_todays_verse', { ref: ref, source: 'org_golden_rule' });
+      });
+    }
+    var footer = document.querySelector('.site-footer');
+    if (footer) {
+      var orgNote = document.createElement('p');
+      orgNote.className = 'footer-org-note section-note util-mt-0_5';
+      orgNote.innerHTML = 'You\'re on the movement site. <strong>Join the cause:</strong> use the app at <a href="https://todaysdailybattle.com/">todaysdailybattle.com</a> and share today\'s verse with someone. Do unto others.';
+      var first = footer.querySelector('.footer-copyright, .footer-updated, p');
+      if (first) footer.insertBefore(orgNote, first);
+      else footer.appendChild(orgNote);
+    }
+  }
+
   try {
     var raw = sessionStorage.getItem('tdb_last_results');
     if (raw) {
@@ -13669,3 +13710,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     setTimeout(run, 1500);
   })();
 });
+}

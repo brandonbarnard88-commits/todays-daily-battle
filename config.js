@@ -50,6 +50,9 @@ window.TDB_CONFIG.POST_MESSAGE_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/
 // Set to true after running supabase-get-prayers-today-count.sql so "Prayed by X warriors today" uses the RPC (avoids 404).
 window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = false;
 
+// .org = movement site; .com = product site. Same codebase, different messaging.
+window.TDB_IS_ORG = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org';
+
 // Single source of truth for "First 50" promo countdown (home + pricing). ISO string, e.g. '2026-03-07T23:59:59Z'.
 window.TDB_CONFIG.PROMO_END_DATE = '2026-03-07T23:59:59Z';
 

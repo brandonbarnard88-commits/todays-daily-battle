@@ -54,6 +54,9 @@
   </script>
 </head>
 <body class="dark-mode">
+  <script nonce="tdb2025">
+    (function(){ var h = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org'; if (h) { document.body.classList.add('tdb-org'); var c = document.querySelector('link[rel=canonical]'); if (c) c.href = 'https://todaysdailybattle.org/'; document.title = "Today's Daily Battle — A daily verse movement for you and your church"; var m = document.querySelector('meta[name=description]'); if (m) m.setAttribute('content', 'Do unto others. Join the movement: one verse, pass it on. Who we are, our story, and how to get your church involved. todaysdailybattle.com'); } })();
+  </script>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="promo-banner" class="promo-banner promo-banner-fixed" role="region" aria-label="Limited time offer">
     <div class="promo-banner-inner">
@@ -61,6 +64,14 @@
       <span class="promo-banner-sub"><span id="promo-banner-days" class="promo-banner-days">Ends soon!</span> — join now &amp; lock in $9.99/mo forever. <a href="pricing.html" class="promo-banner-cta">Claim it</a></span>
     </div>
     <button type="button" id="promo-banner-dismiss" class="promo-banner-dismiss" aria-label="Dismiss">×</button>
+  </div>
+  <div id="org-movement-cta" class="org-movement-cta hidden" role="region" aria-label="Movement site links">
+    <div class="org-movement-cta-inner">
+      <span class="org-movement-label">Join the movement.</span>
+      <a href="https://todaysdailybattle.com/" class="btn btn-primary org-movement-link">Use the app →</a>
+      <a href="about.html" class="btn btn-secondary org-movement-link">Our story</a>
+      <a href="church.html" class="btn btn-secondary org-movement-link">For churches</a>
+    </div>
   </div>
   <div id="night-close-overlay" class="night-close-overlay hidden" aria-live="polite" aria-label="Night close or dawn message" role="dialog">
     <div class="night-close-inner">
@@ -72,8 +83,8 @@
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">The Bible companion you'll use every day</span>
-        <span class="brand-tagline">Daily Battles Won Through Faith</span>
+        <span class="brand-subtitle" id="brand-subtitle">The Bible companion you'll use every day</span>
+        <span class="brand-tagline" id="brand-tagline">Daily Battles Won Through Faith</span>
       </div>
       <nav class="header-nav" aria-label="Main">
         <a href="/">Home</a>
@@ -217,7 +228,13 @@
           <p class="prayer-of-day-text prayer-of-day-reflection">Lord, thank you for the strength to keep going.</p>
           <p class="section-note prayer-of-day-meta util-mb-0" aria-live="polite">Prayed by <span id="prayer-of-day-count">—</span> warriors today.</p>
         </div>
-        <p class="hero-slogan-one-line home-tagline">Less scroll, more soul.</p>
+        <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less scroll, more soul.</p>
+        <div id="org-golden-rule-card" class="org-golden-rule-card glass util-mt-0_5 hidden" role="region" aria-label="Join the cause">
+          <h3 class="section-divider util-mt-0">Do unto others.</h3>
+          <p class="section-note util-mb-0_5">Share today's verse with someone who needs it. One tap—you might change their day.</p>
+          <button type="button" id="org-share-verse-btn" class="btn btn-primary">Share this verse</button>
+          <p class="section-note util-mt-0_5 util-mb-0">Join the cause. Thousands start their day here—then pass it on.</p>
+        </div>
         <div class="bible-studies-banner-teaser glass util-mt-0_5" role="region" aria-label="Free Bible Studies">
           <h3 class="section-divider util-mt-0">Free Bible Studies</h3>
           <p class="section-note util-mb-0">Short dives like &quot;Armor of God&quot;—7 days, zero pressure. <a href="bible-study.html">Explore</a>.</p>

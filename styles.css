@@ -1559,6 +1559,47 @@ body {
   border-radius: 4px;
 }
 .promo-banner.promo-banner-fixed .promo-banner-dismiss:hover { color: #fff; }
+/* .org = movement site: CTA bar (Use the app | Our story | For churches) */
+.org-movement-cta.hidden { display: none; }
+.org-movement-cta {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  background: rgba(15, 23, 42, 0.97);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 0.5rem 1rem;
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+.org-movement-cta-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.org-movement-label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-right: 0.25rem;
+}
+.org-movement-cta .btn { font-size: 0.875rem; padding: 0.35rem 0.75rem; }
+body.tdb-org .org-movement-cta:not(.hidden) ~ .app-shell { padding-top: 3.5rem; }
+/* .org Golden Rule / Join the cause card */
+.org-golden-rule-card.hidden { display: none; }
+.org-golden-rule-card {
+  border-left: 4px solid #6d28d9;
+  padding-left: 1rem;
+}
+.org-golden-rule-card .section-divider { color: #c4b5fd; }
+@media (min-width: 768px) {
+  .org-movement-cta-inner { gap: 0.75rem 1.25rem; }
+  .org-movement-cta .btn { padding: 0.4rem 0.9rem; }
+}
 /* Spacer so content doesn't sit under fixed banner */
 body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 @media (min-width: 768px) {

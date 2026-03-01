@@ -74,6 +74,12 @@
 
 ---
 
+## Optional: Subresource Integrity (SRI)
+
+For pinned vendor scripts (e.g. from cdn.jsdelivr.net), you can add `integrity` and `crossorigin="anonymous"` to `<script src="...">`. Use the hash provided by the CDN or generate with `openssl dgst -sha384 -binary < file.js | openssl base64 -A`. Update the hash whenever you change the script version.
+
+---
+
 ## Files to reference
 
 | File | Purpose |
@@ -84,6 +90,7 @@
 | `supabase-rls-lockdown.sql` | Full RLS lockdown and auth trigger |
 | `supabase-rate-limit-table.sql` | Rate-limit table for submit-prayer and post-message |
 | `workers/README-ADMIN-GUARD.md` | Admin route protection (Cloudflare Worker) |
+| `HARDENING-DEPLOY.md` | Steps to deploy rate-limit table, Edge Functions, and admin Worker |
 | `PRIVACY-ANALYTICS.md` | Search analytics and user safety rules |
 | `script.js` | `sanitizeUserInput`, `escapeHtml`, `sanitizeHtml`, `truncateForDb` |
 

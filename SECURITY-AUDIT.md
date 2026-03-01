@@ -85,14 +85,14 @@ The project has **strong foundations**: RLS on synced tables, client-side saniti
 
 ### Medium priority
 
-- [ ] **D3:** Plan CSP tightening: assign nonces to all inline scripts, remove `'unsafe-inline'` from script-src.
+- [x] **D3:** Plan CSP tightening: assign nonces to all inline scripts, remove 'unsafe-inline' from script-src.
 - [x] **D4:** Use shared escape for `lastKey` in wins-report.html (or ensure one place defines it).
 - [ ] **P1:** Add “If something is compromised” and rotation steps to SECURITY.md.
 
 ### Lower priority
 
-- [ ] **O2:** Document server-side admin gate as recommended; implement Cloudflare Access or Edge guard when feasible.
-- [ ] **O3 / O4:** Consider rate limiting for message inserts and optional Turnstile/rate for offline prayer.
+- [x] **O2:** Document server-side admin gate as recommended; implement Cloudflare Access or Edge guard when feasible.
+- [x] **O3 / O4:** Consider rate limiting for message inserts and optional Turnstile/rate for offline prayer.
 - [x] **D5:** Optionally extend `sanitizeUserInput()` with `data:` and `vbscript:` stripping.
 - [x] **P2 / P3:** Add audit date and admin-hardening note to SECURITY.md and launch docs.
 
@@ -119,6 +119,9 @@ How to push security as far as it can go without changing product scope.
 - wins-report lastKey escaped like escapeHtml (D4).
 - sanitizeUserInput extended with data:/vbscript: (D5).
 - Audit date and admin note in SECURITY.md (P2/P3).
+- **CSP:** Removed `'unsafe-inline'` from script-src in index.html, pricing.html, message.html; added nonce to bible-tool and bible-study inline scripts (D3).
+- **Rate limiting:** submit-prayer per-IP (30/min) via `rate_limit` table; post-message Edge Function with per-user limit (10/min); client uses POST_MESSAGE_URL when set (O3/O4).
+- **Admin guard:** Cloudflare Worker in `workers/admin-guard.js` + `workers/README-ADMIN-GUARD.md`; optional deploy to protect /admin (O2).
 
 ### Next steps (highest impact)
 

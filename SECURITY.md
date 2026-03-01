@@ -6,10 +6,11 @@
 
 ## Principles
 
-1. **User safety first** — especially for sensitive moments (grief, anxiety, faith). See PRIVACY-ANALYTICS.md for search privacy.
-2. **Least privilege** — Supabase anon key is public by design; **Row Level Security (RLS)** enforces who can read/write what.
-3. **No secrets in the client** — Only the Supabase **anon** (publishable) key and Turnstile **site** key belong in the frontend. Service role, Stripe secret, and Turnstile secret key stay on the server (Edge Functions / env).
-4. **Defense in depth** — Validate and sanitize on both client and server; assume client can be tampered with.
+1. **User and builder safety first** — Security is the top priority for everyone. For users: especially in sensitive moments (grief, anxiety, faith). For builders: never expose secrets, always RLS and sanitize. See PRIVACY-ANALYTICS.md for search privacy.
+2. **User-friendliness second** — After security, prioritize clear copy, accessible UI, helpful errors, and smooth flows so the app is easy and reassuring to use.
+3. **Least privilege** — Supabase anon key is public by design; **Row Level Security (RLS)** enforces who can read/write what.
+4. **No secrets in the client** — Only the Supabase **anon** (publishable) key and Turnstile **site** key belong in the frontend. Service role, Stripe secret, and Turnstile secret key stay on the server (Edge Functions / env).
+5. **Defense in depth** — Validate and sanitize on both client and server; assume client can be tampered with.
 
 ---
 

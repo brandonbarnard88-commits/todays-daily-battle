@@ -93,7 +93,35 @@ for (const f of rootFiles) {
 const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f));
 for (const f of otherHtml) {
   copyFile(path.join(root, f), path.join(dist, f));
-  if (f === 'index.html') console.log('Copied index.html (hero + quick-search row) to dist/');
+  if (f === 'index.html') {
+    const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
+    const required = [
+      ['id="quick-actions-hero"', 'quick-topic buttons'],
+      ['class="quick-links"', 'quick-links tools section'],
+      ['bible-tool.html', 'Bible Tool link'],
+      ['pastor-toolkit.html', 'Pastor Toolkit link'],
+      ['team-toolkit.html', 'Team Toolkit link'],
+      ['study.html', 'Build a Lesson link'],
+      ['bible-study.html', 'Bible Studies link'],
+      ['sermon.html', 'Build a Sermon link'],
+      ['message.html', 'Message Board link'],
+      ['coloring.html', 'Kids Corner link'],
+      ['id="daily-btn"', "Today's Battle button"],
+      ['id="main-search"', 'main-search section']
+    ];
+    for (const [needle, label] of required) {
+      if (!indexContent.includes(needle)) {
+        console.error('BUILD FAIL: index.html must contain ' + label + ' (' + needle + '). Core tools are not to be polished away.');
+        process.exit(1);
+      }
+    }
+    const scriptContent = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
+    if (!scriptContent.includes('TDB_TOPICS') || !scriptContent.includes('renderQuickTopicButtons') || !scriptContent.includes('runQuickTopicSearch')) {
+      console.error('BUILD FAIL: script.js must contain TDB_TOPICS, renderQuickTopicButtons, and runQuickTopicSearch. Quick-search must always work.');
+      process.exit(1);
+    }
+    console.log('Copied index.html (hero + quick-search + tools) to dist/');
+  }
 }
 
 if (fs.existsSync(path.join(root, 'vendor'))) {

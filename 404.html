@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, follow">
   <meta name="referrer" content="no-referrer">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260305">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,23 +22,24 @@
         <span class="brand-subtitle">Every day with God's Word</span>
       </div>
       <a href="/" class="btn btn-primary" aria-label="Go to homepage">Home</a>
+      <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
     </header>
 
     <aside class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
-        <a href="/">Search</a>
-        <a href="bible-tool.html">Bible Tool</a>
-        <a href="bible-study.html">Bible Studies</a>
-        <a href="verse.html">Verse of the Day</a>
-        <a href="study.html">Study Tools</a>
-        <a href="reader.html">Chapter Reader</a>
-        <a href="church.html">Church Center</a>
-        <a href="message.html">Message Board</a>
-        <a href="wins-report.html">Wins Report</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="bible-tool.html" data-section="bible-tool" data-icon="BT">Bible Tool</a>
+        <a href="bible-study.html" data-section="bible-study" data-icon="BS">Bible Studies</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
       </nav>
     </aside>
 
@@ -78,11 +79,16 @@
         }
         var listEl = document.getElementById('topic-pages');
         if (listEl) listEl.style.display = 'block';
+        var toggle = document.getElementById('sidebar-toggle');
+        var shell = document.querySelector('.app-shell');
+        if (toggle && shell) {
+          toggle.addEventListener('click', function(e) { e.preventDefault(); shell.classList.toggle('sidebar-open'); });
+        }
       })();
     </script>
 
     <footer class="site-footer" role="contentinfo" aria-label="Site footer">
-      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a>
+      Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="shop.html">Shop</a> • <a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a> • <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a> • <a href="contact.html">Contact</a> • <a href="mailto:support@todaysdailybattle.com?subject=Unsubscribe%20from%20emails">Unsubscribe</a>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Updated March 2026.</p>
     </footer>

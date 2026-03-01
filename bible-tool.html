@@ -123,8 +123,8 @@
         <!-- Daily verse -->
         <section class="verse-card glass border-accent" aria-label="Today's verse">
           <p class="section-note util-mb-0_5">Today's verse</p>
-          <p class="daily-ref" id="daily-ref">—</p>
-          <p id="daily-text">Loading…</p>
+          <p class="daily-ref" id="daily-ref">Philippians 4:6</p>
+          <p id="daily-text" aria-live="polite">Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p>
           <div id="daily-verse-context" class="util-mt-0_5" aria-live="polite"></div>
           <div class="verse-actions">
             <button type="button" class="btn btn-primary" id="share-daily" aria-label="Share today's verse">Share</button>
@@ -387,41 +387,39 @@
     var elText = document.getElementById('daily-text');
     var ctxEl = document.getElementById('daily-verse-context');
     if (elRef) elRef.textContent = ref;
-    var bundleText = KEY_VERSES[r] || KEY_VERSES[ref];
+    var bundleText = KEY_VERSES[r] || KEY_VERSES[ref] || (KEY_REFS.length ? KEY_VERSES[KEY_REFS[0]] : null) || 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.';
     if (elText && bundleText) {
       elText.textContent = bundleText;
       if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
-      return;
     }
-    if (elText) elText.textContent = 'Loading…';
     var done = false;
-    var fallbackText = KEY_VERSES[r] || KEY_VERSES[ref] || (KEY_REFS.length ? KEY_VERSES[KEY_REFS[0]] : null) || 'Verse fetch failed—check connection or try later.';
-    function applyFallback() {
-      if (done || !elText) return;
-      if (elText.textContent.trim() === 'Loading…') {
-        done = true;
-        elText.textContent = fallbackText;
-        var syncNote = document.getElementById('daily-sync-note');
-        if (!syncNote && elText.parentNode) {
-          syncNote = document.createElement('p');
-          syncNote.id = 'daily-sync-note';
-          syncNote.className = 'section-note util-mt-0_5';
-          syncNote.textContent = "Offline? Here's today's verse anyway. We'll sync when back online.";
-          elText.parentNode.insertBefore(syncNote, elText.nextSibling);
-        }
-        if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
+    var syncNoteAdded = false;
+    function addOfflineNote() {
+      if (syncNoteAdded || !elText) return;
+      syncNoteAdded = true;
+      var syncNote = document.getElementById('daily-sync-note');
+      if (!syncNote && elText && elText.parentNode) {
+        syncNote = document.createElement('p');
+        syncNote.id = 'daily-sync-note';
+        syncNote.className = 'section-note util-mt-0_5';
+        syncNote.textContent = "Offline? Here's today's verse anyway. We'll sync when back online.";
+        elText.parentNode.insertBefore(syncNote, elText.nextSibling);
       }
     }
     fetchVerse(ref, function (data) {
       if (done) return;
       done = true;
-      if (elText && data) elText.textContent = data.text;
-      else applyFallback();
-      if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
+      if (elText && data && data.text) {
+        elText.textContent = data.text;
+        if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
+      }
     });
     setTimeout(function () {
-      if (typeof console !== 'undefined' && console.warn && !done) console.warn('TDB: bible-tool daily verse fetch timed out after 3s');
-      applyFallback();
+      if (!done) {
+        if (typeof console !== 'undefined' && console.warn) console.warn('TDB: bible-tool daily verse fetch timed out after 3s');
+        addOfflineNote();
+      }
+      done = true;
     }, 3000);
   }
 

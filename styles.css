@@ -797,7 +797,10 @@ body {
 }
 
 /* Search hero — big centered bar + quick emotion row, then verse */
-.search-hero {
+.search-hero,
+#search-hero {
+  display: block !important;
+  visibility: visible !important;
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
   background: transparent;
@@ -944,16 +947,19 @@ body {
   text-align: center;
   font-size: 0.9375rem;
 }
-.quick-actions-hero {
-  display: flex;
+.quick-actions-hero,
+#quick-actions-hero {
+  display: flex !important;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
   max-width: 56rem;
   margin: 0.25rem auto 0;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   border-top: 1px solid rgba(148, 163, 184, 0.12);
   min-height: 2.5rem;
+  visibility: visible !important;
 }
 .quick-actions-hero .btn {
   min-width: auto;

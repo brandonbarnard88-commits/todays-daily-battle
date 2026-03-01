@@ -454,7 +454,8 @@ const TDB_TOPICS = [
 
 function renderQuickTopicButtons(containerId, firstIsPrimary) {
   var container = document.getElementById(containerId);
-  if (!container || !Array.isArray(TDB_TOPICS)) return;
+  if (!container) return;
+  if (!Array.isArray(TDB_TOPICS) || TDB_TOPICS.length === 0) return;
   var html = '';
   TDB_TOPICS.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
@@ -5183,7 +5184,10 @@ async function renderDailyBattleCard() {
   if (!Object.keys(bible).length) {
     if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
     card.classList.remove('hero-verse-card-skeleton');
-    card.innerHTML = '<p class="empty">Bible data not loaded.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+    if (!card.classList.contains('verse-card-loaded')) {
+      card.innerHTML = '<p class="empty">Bible data not loaded.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+    } else if (reflectionEl) reflectionEl.textContent = 'Reflection: ' + (DAILY_VERSE_BUNDLED_FALLBACK.reflection || '');
+    if (card.classList.contains('verse-card-loaded') && prayerEl) prayerEl.textContent = 'Prayer: ' + (DAILY_VERSE_BUNDLED_FALLBACK.prayer || '');
     return;
   }
   const DEFAULT_DAILY_VERSE_REF = 'John 3:16';
@@ -9990,6 +9994,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   var americaUrl = window.TDB_CONFIG && window.TDB_CONFIG.HERO_TAGLINE_URL;
   if (heroLink && americaUrl) heroLink.href = americaUrl;
   if (footerAmericaLink && americaUrl) footerAmericaLink.href = americaUrl;
+  if (heroLink && (!americaUrl || heroLink.getAttribute('href') === '#')) heroLink.addEventListener('click', function (e) { e.preventDefault(); });
+  if (footerAmericaLink && (!americaUrl || footerAmericaLink.getAttribute('href') === '#')) footerAmericaLink.addEventListener('click', function (e) { e.preventDefault(); });
   if (window.location.hash === '#main-search') {
     var acc = document.getElementById('accordion-search');
     if (acc) acc.setAttribute('open', '');

@@ -47,6 +47,8 @@ const rootFiles = [
   'firebase-push.js',
   'voice-message.js',
   'voice-pray.js',
+  'fetch-prayer-guard.js',
+  'utils.js',
   '_redirects',
   '_headers',
   'kjv.json',
@@ -126,6 +128,10 @@ for (const f of otherHtml) {
 
 if (fs.existsSync(path.join(root, 'vendor'))) {
   copyDir(path.join(root, 'vendor'), path.join(dist, 'vendor'));
+}
+
+if (fs.existsSync(path.join(root, 'icons'))) {
+  copyDir(path.join(root, 'icons'), path.join(dist, 'icons'));
 }
 
 const wellKnown = path.join(root, '.well-known');

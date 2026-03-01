@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://todaysdailybattle.com https://todaysdailybattle.org https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="Daily KJV Bible verse, offline notes, prayer wall—win your battles with Scripture. Free verse of the day, streaks, and devotionals.">
@@ -29,6 +29,7 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a0c14">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://todaysdailybattle.com" crossorigin>
   <script src="fetch-prayer-guard.js"></script>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
@@ -866,7 +867,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" integrity="sha384-vdScihEZCfbPnBQf+lc7LgXUdJVYyhC3yWHUW5C5P5GpHRqVnaM6HJELJxT6IqwM" crossorigin="anonymous"></script>
   <script src="daily-verse-widget.js"></script>
-  <script src="script.js?v=20260305" data-cfasync="false" defer></script>
+  <script src="script.js?v=20260306" data-cfasync="false" defer></script>
   <script src="utils.js?v=20260305" defer async></script>
   <script src="voice-pray.js"></script>
 </body>

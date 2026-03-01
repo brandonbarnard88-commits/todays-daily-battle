@@ -986,7 +986,9 @@ body {
 
 /* Search results appear directly below the search bar / topic chips */
 .search-hero #output.results {
-  display: grid;
+  display: grid !important;
+  visibility: visible !important;
+  min-height: 3rem;
   width: 100%;
   border-top: 1px solid rgba(148, 163, 184, 0.12);
   padding-top: 1.25rem;

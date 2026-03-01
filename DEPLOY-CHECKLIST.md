@@ -50,7 +50,23 @@ node test-site.js
   - `/` (home)
   - `/bible-tool.html`
   - `/verse.html`
+- [ ] Optionally: `/study.html`, `/reader.html`
 - [ ] Aim for green on Performance, Accessibility, Best Practices. Fix the top 2–3 issues if anything is red.
+
+**Lighthouse from the command line (optional):**
+
+Serve the site locally, then in another terminal run Lighthouse once per URL. Example (replace `http://localhost:8765` if you use a different port):
+
+```bash
+# Install once (if needed): npm install -g lighthouse
+# Or run without installing: npx lighthouse
+
+npx lighthouse http://localhost:8765/ --view --output=html --output-path=./lighthouse-home.html
+npx lighthouse http://localhost:8765/bible-tool.html --view --output=html --output-path=./lighthouse-bible-tool.html
+npx lighthouse http://localhost:8765/verse.html --view --output=html --output-path=./lighthouse-verse.html
+```
+
+Add `lighthouse-*.html` to `.gitignore` if you don’t want reports in the repo. Use `--only-categories=performance,accessibility,best-practices,seo` to limit to those categories.
 
 ---
 

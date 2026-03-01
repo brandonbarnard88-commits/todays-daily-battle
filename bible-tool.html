@@ -504,6 +504,7 @@
     var full = t + ' — Win the Day at todaysdailybattle.com';
     if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(full).then(function () {
+        if (typeof window.showEliteToast === 'function') window.showEliteToast('Copied to clipboard!');
         if (btnEl) {
           var orig = btnEl.textContent;
           btnEl.textContent = 'Copied!';
@@ -519,6 +520,7 @@
   function copyToClipboardWithFeedback(text, btnEl) {
     if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function () {
+        if (typeof window.showEliteToast === 'function') window.showEliteToast('Copied to clipboard!');
         if (btnEl) {
           var orig = btnEl.textContent;
           btnEl.textContent = 'Copied!';

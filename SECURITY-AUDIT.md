@@ -86,15 +86,15 @@ The project has **strong foundations**: RLS on synced tables, client-side saniti
 ### Medium priority
 
 - [ ] **D3:** Plan CSP tightening: assign nonces to all inline scripts, remove `'unsafe-inline'` from script-src.
-- [ ] **D4:** Use shared escape for `lastKey` in wins-report.html (or ensure one place defines it).
+- [x] **D4:** Use shared escape for `lastKey` in wins-report.html (or ensure one place defines it).
 - [ ] **P1:** Add “If something is compromised” and rotation steps to SECURITY.md.
 
 ### Lower priority
 
 - [ ] **O2:** Document server-side admin gate as recommended; implement Cloudflare Access or Edge guard when feasible.
 - [ ] **O3 / O4:** Consider rate limiting for message inserts and optional Turnstile/rate for offline prayer.
-- [ ] **D5:** Optionally extend `sanitizeUserInput()` with `data:` and `vbscript:` stripping.
-- [ ] **P2 / P3:** Add audit date and admin-hardening note to SECURITY.md and launch docs.
+- [x] **D5:** Optionally extend `sanitizeUserInput()` with `data:` and `vbscript:` stripping.
+- [x] **P2 / P3:** Add audit date and admin-hardening note to SECURITY.md and launch docs.
 
 ---
 
@@ -104,6 +104,44 @@ The project has **strong foundations**: RLS on synced tables, client-side saniti
 - **submit-prayer:** Send body with `intent: "<script>alert(1)</script> hello"`; confirm stored value is sanitized (no tags).
 - **create-checkout-session:** Send `price_id: "price_unknown"` (not in allowlist); expect 400.
 - **Auth:** Sign up new user; confirm `app_metadata.role` is `member`; admin only after setting in Dashboard.
+
+---
+
+## 6. Path to perfection
+
+How to push security as far as it can go without changing product scope.
+
+### Done in this audit
+
+- Server-side sanitization in submit-prayer (D1).
+- Stripe price_id allowlist in create-checkout-session (D2/O1).
+- Incident/rotation notes and audit reference in SECURITY.md (P1).
+- wins-report lastKey escaped like escapeHtml (D4).
+- sanitizeUserInput extended with data:/vbscript: (D5).
+- Audit date and admin note in SECURITY.md (P2/P3).
+
+### Next steps (highest impact)
+
+| Step | Action | Effort |
+|------|--------|--------|
+| **CSP** | Remove `'unsafe-inline'` from script-src. Ensure every inline script in every HTML file has `nonce="tdb2025"`. External scripts (e.g. script.js, config.js) do not need nonce. Test all pages after change. | Medium (touch each HTML) |
+| **Admin gate** | Protect `/admin` and `admin.html`: Cloudflare Access with a policy that allows only your email or IP, or an Edge/Worker that returns 403 unless the request includes a valid JWT with `app_metadata.role === 'admin'`. | Low–medium |
+| **Message rate limit** | Throttle message inserts: e.g. Supabase Edge Function for “post message” that checks per-user count in a short window (or use Supabase rate limiting if available), or client-side throttle (weaker). | Medium |
+| **Offline/Silent prayer** | Route through submit-prayer with a “silent” flag and optional Turnstile, or apply per-IP rate limit in submit-prayer for anon inserts. | Low |
+
+### Optional (hardening beyond baseline)
+
+- **Subresource Integrity (SRI):** Add `integrity` (and `crossorigin`) to `<script src="...">` for vendor scripts (Supabase, Stripe, etc.) if you pin exact versions. Requires updating hashes when you upgrade.
+- **COOP/COEP:** Set `Cross-Origin-Opener-Policy: same-origin` and `Cross-Origin-Embedder-Policy: require-corp` only if you need process isolation; can break third-party embeds (Stripe, Turnstile) so test carefully.
+- **Dependency audit:** Run `npm audit` / similar for any Node tooling; keep Supabase/Stripe SDKs and Edge runtime dependencies up to date.
+- **Strict transport:** Ensure HSTS is set at the edge (e.g. Cloudflare) with long max-age and preload; already in docs.
+- **Admin docs:** In LAUNCH-GUIDE or SECURITY.md, add one line: “For production, protect /admin with Cloudflare Access or equivalent.”
+
+### When to re-audit
+
+- After adding a new Supabase table, Edge Function, or user-input surface.
+- After any incident or credential rotation.
+- At least annually.
 
 ---
 

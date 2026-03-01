@@ -1,6 +1,7 @@
 /**
  * Optional config for Today's Daily Battle.
  * Copy this file to config.js and set your values.
+ * Before production: replace SUPABASE_URL and SUPABASE_ANON_KEY with values from Supabase Dashboard (Settings → API).
  * config.js is optional: if missing, script.js uses built-in defaults.
  * Add config.js to .gitignore if you don't want to commit keys.
  */

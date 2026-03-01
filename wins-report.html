@@ -73,7 +73,7 @@
     <footer class="site-footer" role="contentinfo" aria-label="Site footer">
       Powered by the King James Bible • <a href="about.html">About</a> • <a href="faq.html">FAQ</a> • <a href="pricing.html">Pricing</a> • <a href="privacy.html">Privacy</a> • <a href="contact.html">Contact</a>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
-      <p class="footer-updated">Updated February 2026.</p>
+      <p class="footer-updated">Updated March 2026.</p>
     </footer>
   </div>
 
@@ -123,7 +123,8 @@
 
         var html = '<p class="section-note"><strong>Current streak:</strong> ' + sc + ' day' + (sc === 1 ? '' : 's') + '</p>';
         if (lastKey) {
-          var safeKey = String(lastKey).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+          // Escape for HTML (matches script.js escapeHtml: & < > " ')
+          var safeKey = String(lastKey).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
           html += '<p class="section-note"><strong>Last verse day:</strong> ' + safeKey + '</p>';
         }
         if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';

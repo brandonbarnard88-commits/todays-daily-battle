@@ -4,11 +4,11 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
-window.__tdb_script_version = '20260301';
+window.__tdb_script_version = '20260305';
 if (typeof console !== 'undefined' && console.log && (window.location && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') || (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_debug')))) {
   console.log('TDB: script loaded', window.__tdb_script_version);
 }
-// Deploy check: warn if config still has placeholders (dev/local only)
+// Deploy check: warn if config still has placeholders (so production deploy is caught if example config is used)
 try {
   var cfg = window.TDB_CONFIG;
   if (cfg && (String(cfg.SUPABASE_URL || '').includes('your-project-ref') || String(cfg.SUPABASE_ANON_KEY || '').includes('your-anon-key'))) {
@@ -60,6 +60,8 @@ function sanitizeUserInput(str) {
   var s = String(str)
     .replace(/<[^>]*>/g, '')
     .replace(/javascript:/gi, '')
+    .replace(/vbscript:/gi, '')
+    .replace(/data:\s*/gi, '')
     .replace(/on\w+\s*=/gi, '')
     .replace(/&#?\w+;/g, ' ');
   return s.trim();
@@ -12110,6 +12112,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               statusEl.classList.add('study-note-status-visible');
               setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
             }
+            if (typeof showEliteToast === 'function') showEliteToast('Note updated!');
             return;
           }
         }
@@ -12134,6 +12137,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           statusEl.classList.add('study-note-status-visible');
           setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
         }
+        if (typeof showEliteToast === 'function') showEliteToast('Note saved!');
       })();
     });
   }
@@ -12157,6 +12161,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           statusEl.classList.add('study-note-status-visible');
           setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
         }
+      if (typeof showEliteToast === 'function') showEliteToast('All notes cleared.');
       if (textArea && textArea.focus) textArea.focus();
     });
   }

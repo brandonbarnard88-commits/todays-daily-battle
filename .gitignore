@@ -12,3 +12,4 @@ ios/
 .idea/
 .vscode/
 supabase/.temp/
+lighthouse-*.html

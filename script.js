@@ -5976,14 +5976,6 @@ function buildWhatsAppShareUrl(ref, text) {
   return 'https://wa.me/?text=' + encodeURIComponent(msg);
 }
 
-function buildEmailShareUrl(ref, text) {
-  const clean = (text || '').replace(/<[^>]+>/g, '').trim();
-  const url = getVersePageUrl(ref);
-  const subject = encodeURIComponent('A verse for you from Today\'s Daily Battle');
-  const body = encodeURIComponent(`Battling today? Here's hope from God's Word:\n\n${ref}\n${clean}\n\n${url}`);
-  return 'mailto:?subject=' + subject + '&body=' + body;
-}
-
 function buildPrayerFromVerse(ref, text) {
   const clean = (text || '').replace(/<[^>]+>/g, '').trim();
   const short = clean.length > 80 ? clean.substring(0, 77) + '…' : clean;
@@ -6215,39 +6207,6 @@ async function loadBible(version = currentVersion) {
       alert('Could not load Bible data. Check your connection and try again, or refresh the page.');
     }
   }
-}
-
-function simplifyText(text) {
-  let simplified = text
-    .replace(/\[[^\]]*]/g, '')
-    .replace(/\([^)]*\)/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const replacements = [
-    ['thee', 'you'],
-    ['thou', 'you'],
-    ['thy', 'your'],
-    ['thine', 'yours'],
-    ['shalt', 'will'],
-    ['hath', 'has'],
-    ['doth', 'does'],
-    ['ye', 'you'],
-    ['art', 'are'],
-    ['unto', 'to'],
-    ['wherefore', 'therefore'],
-    ['whosoever', 'anyone who']
-  ];
-  replacements.forEach(([from, to]) => {
-    simplified = simplified.replace(new RegExp(`\\b${from}\\b`, 'gi'), to);
-  });
-  const first = simplified.split(/[.;:]/)[0] || simplified;
-  return first.trim();
-}
-
-function getEasyExplanation(text, tier) {
-  const simple = simplifyText(text);
-  if (!simple) return '';
-  return tier === 'kid' ? `Easy meaning: ${simple}` : `Simple meaning: ${simple}`;
 }
 
 function canUseSupabase() {
@@ -6576,25 +6535,6 @@ function renderContextBlock(ref, radius = 3) {
     line.innerHTML = '<strong>' + escapeHtml(verses[i].ref) + '</strong> ' + escapeHtml(verses[i].text || '');
     container.appendChild(line);
   }
-  return container;
-}
-
-function renderChapterBlock(ref) {
-  const chapterKey = getChapterKey(ref);
-  if (!chapterKey || !chapterIndex[chapterKey]) return null;
-  const verses = chapterIndex[chapterKey];
-  const container = document.createElement('div');
-  container.className = 'chapter-block';
-  const heading = document.createElement('div');
-  heading.className = 'chapter-title';
-  heading.textContent = chapterKey;
-  container.appendChild(heading);
-  verses.forEach(v => {
-    const line = document.createElement('div');
-    line.className = 'context-line';
-    line.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong> ' + escapeHtml(v.text || '');
-    container.appendChild(line);
-  });
   return container;
 }
 

@@ -4030,6 +4030,22 @@ function showEliteToast(message) {
   }, 2800);
 }
 
+/** Try clipboard; on failure run onFailure(text) so UI can show link for manual copy. Improves share reliability. */
+function safeCopyToClipboard(text, onSuccess, onFailure) {
+  if (!text) return;
+  function fallback() {
+    if (typeof onFailure === 'function') onFailure(text);
+    else if (typeof showEliteToast === 'function') showEliteToast('Couldn\'t copy. Paste this: ' + text.slice(0, 50) + (text.length > 50 ? '…' : ''));
+  }
+  if (!navigator.clipboard || !navigator.clipboard.writeText) {
+    fallback();
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function () {
+    if (typeof onSuccess === 'function') onSuccess();
+  }).catch(fallback);
+}
+
 var STREAK_BADGES = [
   { id: 'new-warrior', name: 'New Warrior', days: 1 },
   { id: 'hope-hero', name: 'Hope Hero', days: 7 },
@@ -4730,7 +4746,18 @@ window.VERSE_CONTEXT = {
   'Nehemiah 8:10': { speaker: 'Nehemiah', audience: 'Israel', application: 'The joy of the Lord is your strength. Choose joy in the battle today.' },
   '1 Corinthians 16:13': { speaker: 'Paul', audience: 'Church in Corinth', application: 'Watch, stand firm in the faith, act like men, be strong. Stay alert in the spiritual fight.' },
   'James 1:12': { speaker: 'James', audience: 'The twelve tribes', application: 'Blessed is the one who endures temptation. Hold the line—God has a crown for you.' },
-  'Isaiah 26:3': { speaker: 'Isaiah', audience: 'Judah', application: 'God keeps in perfect peace those whose minds are stayed on Him. Fix your thoughts on Him today.' }
+  'Isaiah 26:3': { speaker: 'Isaiah', audience: 'Judah', application: 'God keeps in perfect peace those whose minds are stayed on Him. Fix your thoughts on Him today.' },
+  'Joshua 24:15': { speaker: 'Joshua', audience: 'Israel', application: 'Choose today whom you will serve. Make it a daily decision—as for me and my house, we will serve the Lord.' },
+  'Deuteronomy 30:19': { speaker: 'Moses', audience: 'Israel', application: 'God sets life and death before you. Choose life so that you and your family may live—choose Him today.' },
+  'Galatians 5:1': { speaker: 'Paul', audience: 'Churches in Galatia', application: 'Christ has set you free—stand firm and do not submit again to a yoke of slavery. Walk in that freedom today.' },
+  'John 7:17': { speaker: 'Jesus', audience: 'The Jews', application: 'If anyone wills to do God’s will, he will know the teaching. Say yes to God today and see what He shows you.' },
+  'Romans 6:16': { speaker: 'Paul', audience: 'Believers in Rome', application: 'You are slaves of whom you obey. Choose to obey God today and experience freedom from sin.' },
+  '2 Corinthians 3:17': { speaker: 'Paul', audience: 'Church in Corinth', application: 'Where the Spirit of the Lord is, there is freedom. Let His Spirit lead you today.' },
+  'James 4:7': { speaker: 'James', audience: 'The twelve tribes', application: 'Submit to God, resist the devil, and he will flee. Start with one act of surrender today.' },
+  'Revelation 3:20': { speaker: 'Jesus', audience: 'The church in Laodicea', application: 'Jesus stands at the door and knocks. Open the door today—He wants to come in and eat with you.' },
+  'Romans 8:1': { speaker: 'Paul', audience: 'Believers in Rome', application: 'There is no condemnation for those in Christ. Walk in that truth today.' },
+  '1 John 1:9': { speaker: 'John', audience: 'Believers', application: 'If we confess our sins, He is faithful to forgive. Come to Him today with a clean slate.' },
+  'Micah 7:19': { speaker: 'Micah', audience: 'Israel', application: 'God will cast our sins into the depths of the sea. Receive His mercy and move forward today.' }
 };
 
 function getVerseContext(ref) {
@@ -4739,11 +4766,12 @@ function getVerseContext(ref) {
   return window.VERSE_CONTEXT && window.VERSE_CONTEXT[r] || null;
 }
 
-function buildVerseContextHtml(ref) {
+function buildVerseContextHtml(ref, openByDefault) {
   var ctx = getVerseContext(ref);
   var readerUrl = typeof buildReaderUrl === 'function' ? buildReaderUrl(ref) : 'reader.html';
   if (ctx) {
-    return '<details class="verse-context-accordion" aria-label="Context and application"><summary class="verse-context-summary">Context &amp; Application</summary><ul class="verse-context-list">' +
+    var openAttr = openByDefault ? ' open' : '';
+    return '<details class="verse-context-accordion" aria-label="Context and application"' + openAttr + '><summary class="verse-context-summary">Context &amp; Application</summary><ul class="verse-context-list">' +
       '<li><strong>Speaker:</strong> ' + escapeHtml(ctx.speaker) + '</li>' +
       '<li><strong>To whom:</strong> ' + escapeHtml(ctx.audience) + '</li>' +
       '<li><strong>How it applies today:</strong> ' + escapeHtml(ctx.application) + '</li></ul></details>';
@@ -8915,6 +8943,9 @@ function parseQuery(input) {
     }
   }
 
+  // Multi-word query: if it exactly matches a topic key, use it (e.g. "free will" -> free will, not addiction via "freedom" tie)
+  if (topics[normalized]) return { intent: 'topic', payload: { topic: normalized } };
+
   const topicScores = {};
   Object.keys(topics).forEach(topic => {
     let score = 0;
@@ -9529,7 +9560,7 @@ function renderResults(results) {
         const card = document.createElement('div');
         card.className = 'verse-card';
         card.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.text || '') + '</p>';
-        var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(v.ref) : '';
+        var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(v.ref, true) : '';
         if (ctxHtml) card.insertAdjacentHTML('beforeend', ctxHtml);
         var plainMeaning = (v.plain_meaning !== undefined && v.plain_meaning) ? v.plain_meaning : (typeof getPlainMeaning === 'function' ? getPlainMeaning(v.ref) : '');
         if (plainMeaning) {
@@ -11507,10 +11538,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!currentDailyBattle?.ref) return;
       const base = window.location.origin + (window.location.pathname.replace(/\/[^/]+$/, '') || '') + '/';
       const url = base.replace(/\/?$/, '/') + '?ref=' + encodeURIComponent(currentDailyBattle.ref);
-      navigator.clipboard.writeText(url).then(() => {
+      safeCopyToClipboard(url, function () {
         shareDailyCopyLinkBtn.textContent = 'Link copied!';
         setTimeout(() => { shareDailyCopyLinkBtn.textContent = 'Copy link'; }, 2000);
-      }).catch(() => {});
+      }, function (link) {
+        if (typeof showEliteToast === 'function') showEliteToast('Couldn\'t copy. Paste this: ' + link);
+      });
     });
   }
   updateSocialShareLinks();
@@ -11530,11 +11563,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       var verseLine = (currentDailyBattle && currentDailyBattle.verse) ? String(currentDailyBattle.verse).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60) : '';
       if (verseLine && verseLine.length >= 50) verseLine = verseLine.slice(0, 57) + '…';
       var text = (ref + ' – ' + (verseLine || 'Today\'s verse') + '. A hospital stay that was life-changing. todaysdailybattle.com').trim();
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () {
-          if (typeof showEliteToast === 'function') showEliteToast('Copied—paste into X to share.');
-        }).catch(function () {});
-      }
+      safeCopyToClipboard(text, function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Copied—paste into X to share.');
+      });
       window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
       if (typeof trackEvent === 'function') trackEvent('share_todays_verse', { ref: ref });
     });
@@ -11623,13 +11654,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (btn && input) {
       btn.addEventListener('click', function () {
         var url = getInviteUrl();
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(url).then(function () {
-            if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
-          });
-        } else {
-          if (status) status.textContent = 'Copy: ' + url;
-        }
+        safeCopyToClipboard(url, function () {
+          if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+        }, function (link) {
+          if (status) status.textContent = 'Copy this link: ' + link;
+        });
       });
     }
     if (shareBtn) {
@@ -11642,19 +11671,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (typeof showEliteToast === 'function') showEliteToast('Shared.');
             if (status) status.textContent = '';
           }).catch(function () {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(url).then(function () {
-                if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
-              });
-            }
-          });
-        } else if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(url).then(function () {
-            if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
-            if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+            safeCopyToClipboard(url, function () {
+              if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
+              if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+            }, function (link) {
+              if (status) status.textContent = 'Copy this link: ' + link;
+            });
           });
         } else {
-          if (status) status.textContent = 'Copy: ' + url;
+          safeCopyToClipboard(url, function () {
+            if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
+            if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+          }, function (link) {
+            if (status) status.textContent = 'Copy this link: ' + link;
+          });
         }
       });
     }

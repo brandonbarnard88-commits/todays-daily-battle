@@ -61,6 +61,13 @@
       .bible-tool #plan-progress { display: flex; flex-wrap: wrap; flex-direction: column; gap: 0.25rem; }
     }
     .bible-tool .prayer-box { padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.1); border-left: 3px solid #6d28d9; font-size: 0.9rem; font-style: italic; }
+    .bible-tool .people-btn { border: 2px solid #d4af37; color: #d4af37; }
+    .bible-tool .people-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212,175,55,0.3); }
+    .bible-tool .people-card { border-left: 4px solid #d4af37; animation: peopleFadeIn 0.6s ease-out forwards; }
+    @keyframes peopleFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .bible-tool .people-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    .bible-tool #people-input-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .bible-tool #people-input-wrap input { flex: 1; min-width: 10rem; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; }
   </style>
 </head>
 <body class="dark-mode">
@@ -140,7 +147,13 @@
             <input type="number" id="chapter" placeholder="Ch" min="1" aria-label="Chapter" />
             <input type="number" id="verse" placeholder="Vs" min="1" aria-label="Verse" />
             <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
+            <button type="button" id="people-btn" class="btn people-btn" aria-label="Who was this Bible person?">Who was…?</button>
           </div>
+          <div id="people-input-wrap" class="hidden util-mt-0_5">
+            <input type="text" id="people-name" placeholder="e.g. Moses, Peter" aria-label="Enter Bible name" maxlength="40" />
+            <button type="button" id="people-submit" class="btn btn-primary">Look up</button>
+          </div>
+          <div id="people-result" class="hidden util-mt-1" role="region" aria-live="polite" aria-label="Bible person result"></div>
           <div id="lookup-result" class="hidden util-mt-1" role="region" aria-live="polite" aria-label="Lookup result">
             <p class="verse-ref" id="lookup-ref"></p>
             <p id="lookup-text" class="util-mt-0_5"></p>
@@ -273,6 +286,38 @@
     'Romans 5:8': ['John 3:16', '1 John 4:10'],
     'Psalm 23:1': ['John 10:11', 'Isaiah 40:11'],
     'Joshua 1:9': ['Isaiah 41:10', '2 Timothy 1:7']
+  };
+
+  var BIBLE_PEOPLE = {
+    adam: { name: 'Adam', era: 'Genesis', moments: ['First man, created in God\'s image', 'Named the animals', 'Fell in Eden; God promised a Redeemer'], verse: 'Genesis 1:27', prayer: 'Lord, give me courage like Adam before the fall—to walk with You in the garden.' },
+    eve: { name: 'Eve', era: 'Genesis', moments: ['First woman; helpmeet for Adam', 'Tempted in Eden; shared the fall', 'Mother of all living'], verse: 'Genesis 3:20', prayer: 'Lord, help me choose obedience like Eve was meant to.' },
+    noah: { name: 'Noah', era: 'Genesis', moments: ['Built the ark by faith', 'Saved his household from the flood', 'Covenant with God: rainbow'], verse: 'Genesis 6:22', prayer: 'Lord, help me obey like Noah when the world says otherwise.' },
+    abraham: { name: 'Abraham', era: 'Genesis', moments: ['Called out of Ur; father of faith', 'Covenant: descendants as stars', 'Offered Isaac; God provided the ram'], verse: 'Genesis 15:6', prayer: 'Lord, give me faith like Abraham to follow You into the unknown.' },
+    sarah: { name: 'Sarah', era: 'Genesis', moments: ['Wife of Abraham; mother of nations', 'Laughed at the promise; bore Isaac', 'By faith received strength'], verse: 'Genesis 21:2', prayer: 'Lord, help me believe Your promise like Sarah.' },
+    isaac: { name: 'Isaac', era: 'Genesis', moments: ['Son of promise; born to Sarah', 'Carried wood for the altar', 'Blessed Jacob and Esau'], verse: 'Genesis 22:2', prayer: 'Lord, help me trust Your provision like Isaac on the mountain.' },
+    jacob: { name: 'Jacob', era: 'Genesis', moments: ['Wrestled with God; name changed to Israel', 'Twelve sons; nation of Israel', 'Blessed by Isaac; covenant continued'], verse: 'Genesis 32:28', prayer: 'Lord, let me cling to You like Jacob and not let go.' },
+    joseph: { name: 'Joseph', era: 'Genesis', moments: ['Sold by brothers; rose in Egypt', 'Interpreted Pharaoh\'s dreams', 'Saved his family; "God meant it for good"'], verse: 'Genesis 50:20', prayer: 'Lord, help me see Your hand in hardship like Joseph.' },
+    moses: { name: 'Moses', era: 'Exodus', moments: ['Led Israelites out of Egypt', 'Parted the Red Sea', 'Received the Ten Commandments'], verse: 'Exodus 20:1-17', prayer: 'Lord, give me courage like Moses to face giants.' },
+    aaron: { name: 'Aaron', era: 'Exodus', moments: ['Moses\' brother; spokesman', 'First high priest of Israel', 'Rod budded; priesthood confirmed'], verse: 'Exodus 4:14', prayer: 'Lord, help me support Your servants like Aaron.' },
+    joshua: { name: 'Joshua', era: 'Joshua', moments: ['Successor to Moses; led into Canaan', 'Walls of Jericho fell', '"As for me and my house, we will serve the Lord"'], verse: 'Joshua 1:9', prayer: 'Lord, make me strong and courageous like Joshua.' },
+    rahab: { name: 'Rahab', era: 'Joshua', moments: ['Harlot of Jericho; hid the spies', 'Scarlet cord; household saved', 'In the lineage of Christ'], verse: 'Joshua 2:11', prayer: 'Lord, give me faith like Rahab to risk everything for You.' },
+    samson: { name: 'Samson', era: 'Judges', moments: ['Nazirite; strength in his hair', 'Judged Israel twenty years', 'Fell to Delilah; died destroying the Philistines'], verse: 'Judges 16:28', prayer: 'Lord, help me use my strength for You, not for self.' },
+    ruth: { name: 'Ruth', era: 'Ruth', moments: ['Moabitess; "Thy people shall be my people"', 'Gleaned in Boaz\' field', 'Great-grandmother of David'], verse: 'Ruth 1:16', prayer: 'Lord, give me loyalty like Ruth.' },
+    david: { name: 'David', era: '1–2 Samuel', moments: ['Shepherd boy anointed king', 'Defeated Goliath', 'Man after God\'s own heart; wrote many Psalms'], verse: '1 Samuel 16:7', prayer: 'Lord, give me a heart after Yours like David.' },
+    solomon: { name: 'Solomon', era: '1 Kings', moments: ['Asked for wisdom; God gave it', 'Built the temple', 'Wrote Proverbs, Ecclesiastes, Song of Solomon'], verse: '1 Kings 3:9', prayer: 'Lord, help me seek wisdom like Solomon.' },
+    elijah: { name: 'Elijah', era: '1 Kings', moments: ['Fed by ravens; raised widow\'s son', 'Fire on Carmel: God vs Baal', 'Taken up in chariot of fire'], verse: '1 Kings 18:39', prayer: 'Lord, let me stand for You like Elijah on Carmel.' },
+    elisha: { name: 'Elisha', era: '2 Kings', moments: ['Successor to Elijah; double portion', 'Healed Naaman; raised the dead', 'Saw Elijah taken up'], verse: '2 Kings 2:9', prayer: 'Lord, give me a double portion of Your Spirit like Elisha.' },
+    job: { name: 'Job', era: 'Job', moments: ['Blameless; lost all; held fast', '"The LORD gave, and the LORD hath taken away"', 'Restored twofold'], verse: 'Job 1:21', prayer: 'Lord, help me trust You in loss like Job.' },
+    daniel: { name: 'Daniel', era: 'Daniel', moments: ['Exile; refused the king\'s meat', 'Lions\' den; God shut the mouths', 'Visions of kingdoms and the Son of man'], verse: 'Daniel 6:22', prayer: 'Lord, give me courage like Daniel to stand alone.' },
+    esther: { name: 'Esther', era: 'Esther', moments: ['Queen who risked her life for her people', '"For such a time as this"', 'Haman\'s plot overturned'], verse: 'Esther 4:14', prayer: 'Lord, use me for such a time as this, like Esther.' },
+    jonah: { name: 'Jonah', era: 'Jonah', moments: ['Fled from God; swallowed by fish', 'Preached to Nineveh; city repented', 'Learned of God\'s mercy'], verse: 'Jonah 2:9', prayer: 'Lord, help me obey Your call like Jonah—even when it\'s hard.' },
+    mary: { name: 'Mary', era: 'Luke', moments: ['Chosen to bear the Christ', '"Be it unto me according to thy word"', 'Magnificat: soul magnifies the Lord'], verse: 'Luke 1:38', prayer: 'Lord, help me say yes like Mary to Your call.' },
+    johnthebaptist: { name: 'John the Baptist', era: 'Matthew, Luke', moments: ['Voice in the wilderness; prepared the way', 'Baptized Jesus in the Jordan', 'Beheaded by Herod'], verse: 'Matthew 3:11', prayer: 'Lord, make me a voice for You like John.' },
+    jesus: { name: 'Jesus', era: 'Gospels', moments: ['Son of God; born of Mary', 'Taught, healed, died for our sins', 'Rose again; ascended; coming again'], verse: 'John 3:16', prayer: 'Lord Jesus, I follow You. Have Your way in me.' },
+    peter: { name: 'Peter', era: 'Gospels & Acts', moments: ['Fisherman called to follow', 'Confessed Christ; built the church', 'Healed in Jesus\' name; bold witness'], verse: 'Matthew 16:16', prayer: 'Lord, give me boldness like Peter to confess You.' },
+    paul: { name: 'Paul', era: 'Acts & Epistles', moments: ['Persecutor turned apostle', 'Missionary journeys; wrote much of the NT', 'Fought the good fight; finished the course'], verse: '2 Timothy 4:7', prayer: 'Lord, help me run the race like Paul.' },
+    judas: { name: 'Judas', era: 'Gospels', moments: ['One of the twelve; betrayed Jesus', 'Thirty pieces of silver', 'Hanged himself; field of blood'], verse: 'Matthew 27:3', prayer: 'Lord, keep me from betraying You. Forgive when I fall.' },
+    lazarus: { name: 'Lazarus', era: 'John', moments: ['Brother of Mary and Martha', 'Raised from the dead by Jesus', '"Loose him, and let him go"'], verse: 'John 11:43', prayer: 'Lord, You are the resurrection. I trust You with my life.' }
   };
 
   var WIN_TOPICS = {
@@ -605,6 +650,50 @@
   document.getElementById('lookup-btn').addEventListener('click', function () {
     doLookup();
   });
+
+  (function wirePeopleLookup() {
+    var btn = document.getElementById('people-btn');
+    var wrap = document.getElementById('people-input-wrap');
+    var input = document.getElementById('people-name');
+    var submit = document.getElementById('people-submit');
+    var result = document.getElementById('people-result');
+    if (!btn || !wrap || !input || !submit || !result) return;
+    function showPerson() {
+      var q = (input.value || '').trim().toLowerCase().replace(/\s+/g, '');
+      if (!q) return;
+      var person = BIBLE_PEOPLE[q];
+      if (!person) {
+        for (var k in BIBLE_PEOPLE) {
+          if (BIBLE_PEOPLE[k].name.toLowerCase().replace(/\s+/g, '') === q || BIBLE_PEOPLE[k].name.toLowerCase().indexOf(q) === 0) {
+            person = BIBLE_PEOPLE[k];
+            break;
+          }
+        }
+      }
+      if (person) {
+        var moments = (person.moments || []).map(function (m) { return '<li>' + m + '</li>'; }).join('');
+        var verseRef = person.verse || '';
+        var verseLink = verseRef ? '<a href="reader.html?ref=' + encodeURIComponent(verseRef.replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + verseRef + ' – Read full</a>' : '';
+        result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="' + person.name + ' – ' + person.era + '">' +
+          '<p class="verse-ref">' + person.name + ' – ' + person.era + '</p>' +
+          '<ul class="section-note util-mt-0_5" style="margin-left:1.25rem;">' + moments + '</ul>' +
+          (verseLink ? '<p class="util-mt-0_5">' + verseLink + '</p>' : '') +
+          '<p class="prayer-box util-mt-0_5">' + (person.prayer || '') + '</p>' +
+          '</div>';
+        result.classList.remove('hidden');
+      } else {
+        result.innerHTML = '<p class="section-note">Not in bundle—try Bible Tool search for a verse about them.</p>';
+        result.classList.remove('hidden');
+      }
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    btn.addEventListener('click', function () {
+      wrap.classList.toggle('hidden');
+      if (!wrap.classList.contains('hidden')) input.focus();
+    });
+    submit.addEventListener('click', showPerson);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); showPerson(); } });
+  })();
 
   function doLookup() {
     var bookEl = document.getElementById('book');

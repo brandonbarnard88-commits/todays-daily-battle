@@ -804,6 +804,14 @@ body {
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
 }
+/* Homepage: search hero is first and must never be hidden */
+.search-hero-home,
+body:has(.search-hero-home) #search-hero {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  order: -1; /* first in grid */
+}
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
 #search-hero { scroll-margin-top: 5rem; }

@@ -12442,7 +12442,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (pastorToolkitBtn) {
     pastorToolkitBtn.addEventListener('click', () => {
       if (!lastResults || !lastResults.verses || lastResults.verses.length === 0) {
-        alert('No search results yet. Search a topic on the homepage first, or use "Build from topic" on the Pastor Toolkit page.');
+        alert('No search results yet. Search a topic above first, or use "Build from topic" on the Pastor Toolkit page.');
         return;
       }
       const toolkit = buildPastorToolkit(lastResults);
@@ -12639,7 +12639,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (lastResults && lastResults.verses && lastResults.verses.length) {
         plan = buildLessonPlan(lastResults, audience);
       } else {
-        plan = promptsText ? [title].concat(promptsText.split(/\n/).map(function (s) { return s.trim(); }).filter(Boolean)) : [title, 'Add reflection prompts or search a topic on the home page to build from verses.'];
+        plan = promptsText ? [title].concat(promptsText.split(/\n/).map(function (s) { return s.trim(); }).filter(Boolean)) : [title, 'Add reflection prompts or search a topic above to build from verses.'];
       }
       output.innerHTML = '';
       const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString(), title: title, prompts: promptsText };
@@ -12687,7 +12687,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       var empty = document.createElement('p');
       empty.className = 'section-note saved-lessons-empty';
       empty.setAttribute('aria-live', 'polite');
-      empty.textContent = 'No saved lessons yet. Search a topic on the home page, then click Build Lesson above.';
+      empty.textContent = 'No saved lessons yet. Search a topic above, then click Build Lesson.';
       list.appendChild(empty);
       return;
     }

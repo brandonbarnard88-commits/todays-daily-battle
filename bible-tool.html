@@ -586,9 +586,13 @@
   });
 
   function doLookup() {
-    var book = document.getElementById('book').value;
-    var ch = document.getElementById('chapter').value;
-    var vs = document.getElementById('verse').value;
+    var bookEl = document.getElementById('book');
+    var chEl = document.getElementById('chapter');
+    var vsEl = document.getElementById('verse');
+    if (!bookEl || !chEl || !vsEl) return;
+    var book = bookEl.value;
+    var ch = chEl.value;
+    var vs = vsEl.value;
     if (!book || !ch || !vs) return;
     var ref = book + ' ' + ch + ':' + vs;
     var btn = document.getElementById('lookup-btn');

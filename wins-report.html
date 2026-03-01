@@ -122,11 +122,14 @@
         var prayerCount = winsData.prayerCount;
 
         var html = '<p class="section-note"><strong>Current streak:</strong> ' + sc + ' day' + (sc === 1 ? '' : 's') + '</p>';
-        if (lastKey) html += '<p class="section-note"><strong>Last verse day:</strong> ' + lastKey + '</p>';
+        if (lastKey) {
+          var safeKey = String(lastKey).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+          html += '<p class="section-note"><strong>Last verse day:</strong> ' + safeKey + '</p>';
+        }
         if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
         if (sc === 0 && !lastKey) html = '<p class="section-note">No streak yet. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
 
-        statsEl.innerHTML = html;
+        if (statsEl) statsEl.innerHTML = html;
         if (sc > 0 || prayerCount > 0) {
           actionsEl.style.display = 'flex';
           var wrap = document.getElementById('wins-graphic-wrap');

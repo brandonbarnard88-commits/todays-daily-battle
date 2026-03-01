@@ -8079,7 +8079,8 @@ function populateTemplateList() {
 function populateReaderBooks() {
   const bookSelect = document.getElementById('reader-book');
   if (!bookSelect) return;
-  const order = getBibleBookOrder();
+  let order = getBibleBookOrder();
+  if (order.length === 0 && typeof READER_CHAPTER_COUNTS === 'object') order = Object.keys(READER_CHAPTER_COUNTS);
   if (order.length === 0) return;
   bookSelect.innerHTML = '';
   order.forEach(book => {
@@ -10407,6 +10408,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       card.innerHTML = '<p class="empty">Something went wrong loading the page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     }
     if (document.getElementById('reader-book')) refreshBibleView();
+    if (document.getElementById('collection-select') && typeof renderCollectionSelect === 'function') renderCollectionSelect();
+    if (document.getElementById('note-verse-select') && typeof updateNoteSelect === 'function') updateNoteSelect(null);
   }
   var walkthroughWrap = document.getElementById('walkthrough-wrap');
   var walkthroughPara = document.getElementById('walkthrough-para');
@@ -11943,6 +11946,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderSavedVerses();
   renderNotes();
   if (document.getElementById('note-verse-select')) updateNoteSelect(null);
+  if (document.getElementById('collection-select')) renderCollectionSelect();
   if (document.getElementById('saved-lessons-list') && typeof renderSavedLessons === 'function') renderSavedLessons();
   (function applySharedLessonFromQuery() {
     var params = typeof URLSearchParams !== 'undefined' && window.location.search ? new URLSearchParams(window.location.search) : null;
@@ -11978,7 +11982,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     function run() {
       if (typeof renderNotes === 'function') renderNotes();
       if (typeof renderSavedVerses === 'function') renderSavedVerses();
+      if (document.getElementById('collection-select') && typeof renderCollectionSelect === 'function') renderCollectionSelect();
+      if (document.getElementById('note-verse-select') && typeof updateNoteSelect === 'function') updateNoteSelect(null);
       if (document.getElementById('saved-lessons-list') && typeof renderSavedLessons === 'function') renderSavedLessons();
+      var weekEl = document.getElementById('curriculum-week');
+      var audienceEl = document.getElementById('curriculum-audience');
+      if (weekEl && audienceEl && weekEl.options.length === 0 && typeof populateCurriculumWeeks === 'function') populateCurriculumWeeks(audienceEl.value);
       if (section) section.classList.add('study-lists-rendered');
     }
     run();
@@ -13517,7 +13526,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     function run() {
       if (bookSelect.options.length === 0 && typeof populateReaderBooks === 'function') {
         populateReaderBooks();
-        var firstBook = typeof getBibleBookOrder === 'function' ? getBibleBookOrder()[0] : null;
+        var firstBook = (typeof getBibleBookOrder === 'function' ? getBibleBookOrder() : [])[0]
+          || (typeof READER_CHAPTER_COUNTS === 'object' ? Object.keys(READER_CHAPTER_COUNTS)[0] : null);
         if (firstBook && typeof populateReaderChapters === 'function') {
           populateReaderChapters(firstBook);
           var chapterSelect = document.getElementById('reader-chapter');
@@ -13530,5 +13540,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     run();
     setTimeout(run, 400);
+    setTimeout(run, 1500);
   })();
 });

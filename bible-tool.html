@@ -401,6 +401,14 @@
       if (elText.textContent.trim() === 'Loading…') {
         done = true;
         elText.textContent = fallbackText;
+        var syncNote = document.getElementById('daily-sync-note');
+        if (!syncNote && elText.parentNode) {
+          syncNote = document.createElement('p');
+          syncNote.id = 'daily-sync-note';
+          syncNote.className = 'section-note util-mt-0_5';
+          syncNote.textContent = "Offline? Here's today's verse anyway. We'll sync when back online.";
+          elText.parentNode.insertBefore(syncNote, elText.nextSibling);
+        }
         if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
       }
     }
@@ -411,7 +419,10 @@
       else applyFallback();
       if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
     });
-    setTimeout(applyFallback, 4000);
+    setTimeout(function () {
+      if (typeof console !== 'undefined' && console.warn && !done) console.warn('TDB: bible-tool daily verse fetch timed out after 3s');
+      applyFallback();
+    }, 3000);
   }
 
   function renderLookup(data) {

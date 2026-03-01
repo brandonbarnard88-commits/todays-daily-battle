@@ -1,11 +1,1 @@
-{
-  "name": "Today's Daily Battle",
-  "short_name": "Daily Battle",
-  "description": "One verse, one moment, every day. The Bible companion built for real life. Less scroll, more soul.",
-  "theme_color": "#0a0c14",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0f172a",
-  "scope": "/",
-  "icons": [{"src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"}, {"src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}, {"src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]
-}
+{"name":"Today's Daily Battle","short_name":"Daily Battle","description":"One verse, one moment, every day. The Bible companion built for real life. Less scroll, more soul.","theme_color":"#0a0c14","start_url":"/","display":"standalone","background_color":"#0f172a","scope":"/","icons":[{"src":"/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},{"src":"/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"},{"src":"/icon.svg","sizes":"512x512","type":"image/svg+xml","purpose":"any"}]}

@@ -6,7 +6,7 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
-window.__tdb_script_version = '20260305';
+window.__tdb_script_version = '20260301';
 if (typeof console !== 'undefined' && console.log && (window.location && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') || (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_debug')))) {
   console.log('TDB: script loaded', window.__tdb_script_version);
 }
@@ -79,9 +79,11 @@ function migrateLocalStorageKeys() {
   try {
     var oldToNew = [
       ['tdb_prayer_list', 'tdb_prayer_list_v1'],
-      ['prayerWall', 'tdb_prayer_wall_v1'],
       ['prayerWallHearts', 'tdb_prayer_wall_hearts_v1'],
-      ['prayers', 'tdb_prayer_wall_v1']
+      ['prayers', 'tdb_prayer_wall_v1'],
+      ['tdb_prayers', 'tdb_prayer_wall_v1'],
+      ['tdb_prayers_v1', 'tdb_prayer_wall_v1'],
+      ['prayerWall', 'tdb_prayer_wall_v1']
     ];
     oldToNew.forEach(function (pair) {
       var oldKey = pair[0];
@@ -89,11 +91,25 @@ function migrateLocalStorageKeys() {
       var val = localStorage.getItem(oldKey);
       if (val != null && val !== '' && oldKey !== newKey) {
         var existing = localStorage.getItem(newKey);
-        if (!existing || existing === '[]' || existing === '{}') {
+        var isEmpty = !existing || existing === '[]' || existing === '{}';
+        if (isEmpty) {
           try {
             localStorage.setItem(newKey, val);
             localStorage.removeItem(oldKey);
           } catch (e) {}
+        } else if (newKey === 'tdb_prayer_wall_v1' && (val || '').trim().startsWith('[')) {
+          try {
+            var existingArr = JSON.parse(existing || '[]');
+            var newArr = JSON.parse(val || '[]');
+            if (Array.isArray(existingArr) && Array.isArray(newArr) && newArr.length > 0) {
+              var ids = new Set(existingArr.map(function (i) { return i.id; }));
+              newArr.forEach(function (item) {
+                if (item && !ids.has(item.id)) { existingArr.push(item); ids.add(item.id); }
+              });
+              localStorage.setItem(newKey, JSON.stringify(existingArr));
+              localStorage.removeItem(oldKey);
+            }
+          } catch (e2) {}
         }
       }
     });
@@ -2403,8 +2419,15 @@ function wireRealPrayerCounter() {
     function fetchPrayersToday() {
       if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
       if (!navigator.onLine) {
-        if (wrapEl) wrapEl.classList.add('hidden');
-        if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+        var localN = 0;
+        try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
+        if (localN > 0 && prayerOfDayEl) {
+          prayerOfDayEl.textContent = formatCount(localN);
+          if (wrapEl) wrapEl.classList.remove('hidden');
+        } else {
+          if (wrapEl) wrapEl.classList.add('hidden');
+          if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+        }
         return;
       }
       if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED === true)) {
@@ -2416,15 +2439,25 @@ function wireRealPrayerCounter() {
         .then(function (res) {
           if (res && res.error && (res.error.code === 404 || (res.error.message && String(res.error.message).indexOf('404') !== -1))) {
             prayersTodayRpcDisabled = true;
-            if (wrapEl) wrapEl.classList.add('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+            var localN = 0;
+            try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
+            if (localN > 0 && prayerOfDayEl) {
+              prayerOfDayEl.textContent = formatCount(localN);
+              if (wrapEl) wrapEl.classList.remove('hidden');
+            } else {
+              if (wrapEl) wrapEl.classList.add('hidden');
+              if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+            }
             return;
           }
           var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
-          if (!isNaN(n) && n >= 0) {
-            if (todayEl) todayEl.textContent = formatCount(n);
+          var localN = 0;
+          try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
+          var displayN = (!isNaN(n) && n >= 0) ? Math.max(n, localN) : localN;
+          if (displayN > 0) {
+            if (todayEl) todayEl.textContent = formatCount(displayN);
             if (wrapEl) wrapEl.classList.remove('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(n);
+            if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
           } else {
             if (wrapEl) wrapEl.classList.add('hidden');
             if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
@@ -2432,8 +2465,15 @@ function wireRealPrayerCounter() {
         })
         .catch(function () {
           prayersTodayRpcDisabled = true;
-          if (wrapEl) wrapEl.classList.add('hidden');
-          if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+          var localN = 0;
+          try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
+          if (localN > 0 && prayerOfDayEl) {
+            prayerOfDayEl.textContent = formatCount(localN);
+            if (wrapEl) wrapEl.classList.remove('hidden');
+          } else {
+            if (wrapEl) wrapEl.classList.add('hidden');
+            if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+          }
         });
     }
     fetchPrayersToday();

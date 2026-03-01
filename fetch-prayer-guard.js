@@ -14,32 +14,33 @@
     var url = typeof input === 'string' ? input : (input && input.url) || '';
     if (!isPrayerUrl(url)) return realFetch.apply(this, arguments);
     if (window.__tdb_prayers_404 === true) {
-      if (isTotalCountRpc(url)) return Promise.resolve(new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } }));
-      if (isPresenceCountRpc(url)) return Promise.resolve(new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } }));
+      /* Return 404 so UI shows "—" instead of misleading "0" when API unavailable */
+      if (isTotalCountRpc(url)) return Promise.resolve(new Response(JSON.stringify({ error: 'prayers_api_unavailable' }), { status: 404, headers: { 'Content-Type': 'application/json' } }));
+      if (isPresenceCountRpc(url)) return Promise.resolve(new Response(JSON.stringify({ error: 'prayers_api_unavailable' }), { status: 404, headers: { 'Content-Type': 'application/json' } }));
       return Promise.resolve(new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
     }
     if (isTotalCountRpc(url)) {
       return realFetch.apply(this, arguments).then(function(res){
         if (res && res.status === 404) {
           window.__tdb_prayers_404 = true;
-          return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
+          return new Response(JSON.stringify({ error: 'prayers_api_unavailable' }), { status: 404, headers: { 'Content-Type': 'application/json' } });
         }
         return res;
       }, function(err){
         window.__tdb_prayers_404 = true;
-        return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify({ error: 'prayers_api_unavailable' }), { status: 404, headers: { 'Content-Type': 'application/json' } });
       });
     }
     if (isPresenceCountRpc(url)) {
       return realFetch.apply(this, arguments).then(function(res){
         if (res && res.status === 404) {
           window.__tdb_prayers_404 = true;
-          return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
+          return new Response(JSON.stringify({ error: 'prayers_api_unavailable' }), { status: 404, headers: { 'Content-Type': 'application/json' } });
         }
         return res;
       }, function(err){
         window.__tdb_prayers_404 = true;
-        return new Response('0', { status: 200, headers: { 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify({ error: 'prayers_api_unavailable' }), { status: 404, headers: { 'Content-Type': 'application/json' } });
       });
     }
     if (prayerRequestInFlight)

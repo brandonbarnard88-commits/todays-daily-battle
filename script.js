@@ -2284,6 +2284,12 @@ function wireRealPrayerCounter() {
       el.textContent = '—';
       return;
     }
+    if (!navigator.onLine) {
+      el.textContent = '—';
+      var p = document.getElementById('prayer-count-promo');
+      if (p) p.textContent = '';
+      return;
+    }
     el.textContent = '…';
     try {
       var res = await Promise.race([
@@ -2346,6 +2352,11 @@ function wireRealPrayerCounter() {
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
     function fetchPrayersToday() {
       if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
+      if (!navigator.onLine) {
+        if (wrapEl) wrapEl.classList.add('hidden');
+        if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+        return;
+      }
       if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED === true)) {
         if (wrapEl) wrapEl.classList.add('hidden');
         if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
@@ -5143,8 +5154,16 @@ async function renderDailyBattleCard() {
     clearTimeout(dailyBattleFallbackTimeoutId);
     dailyBattleFallbackTimeoutId = null;
   }
-  card.innerHTML = '<p class="daily-battle-loading">Fetching today\'s battle verse…</p>';
-  card.classList.remove('verse-card-loaded');
+  /* Show bundled fallback immediately so users never see blank "Fetching…" for long */
+  var fb = DAILY_VERSE_BUNDLED_FALLBACK;
+  var txt = (Object.keys(bible).length && typeof getBibleVerseText === 'function' ? getBibleVerseText(fb.ref) : '') || (bible[fb.ref] || (fb.text || ''));
+  if (fb.ref && txt) {
+    card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(txt) + '</p>';
+    card.classList.add('verse-card-loaded');
+    if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: txt, reflection: fb.reflection || '', prayer: fb.prayer || '' };
+  } else {
+    card.innerHTML = '<p class="daily-battle-loading">Fetching today\'s battle verse…</p>';
+  }
   dailyBattleFallbackTimeoutId = setTimeout(function () {
     dailyBattleFallbackTimeoutId = null;
     if (!card.classList.contains('verse-card-loaded') && card.querySelector('.daily-battle-loading')) {
@@ -5209,19 +5228,9 @@ if (c && c.ref) {
     dailyBattleFallbackTimeoutId = null;
   }
   var elapsed = Date.now() - skeletonStart;
-  if (elapsed < 500) {
-    await new Promise(function (r) { setTimeout(r, 500 - elapsed); });
-  }
-  /* Show "Verse ready!" after 1.5s so loading feels responsive */
-  if (card.querySelector('.daily-battle-loading') && elapsed < 2500) {
-    var verseReadyDelay = Math.max(0, 1500 - elapsed);
-    setTimeout(function () {
-      if (card.querySelector('.daily-battle-loading')) card.innerHTML = '<p class="daily-battle-loading">Verse ready!</p>';
-    }, verseReadyDelay);
-  }
-  /* Slow connection: show skeleton at least 3s so users see "Fetching..." gray box, not blank card */
-  if (elapsed < 3000) {
-    await new Promise(function (r) { setTimeout(r, 3000 - elapsed); });
+  /* Brief minimum so swap from bundle doesn't feel jarring; no long artificial delay since we show bundle first */
+  if (elapsed < 200) {
+    await new Promise(function (r) { setTimeout(r, 200 - elapsed); });
   }
   card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is unavailable.') + '</p>';
   var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(battle.ref) : '';

@@ -26,9 +26,12 @@
 ### Client-side hardening
 
 - **CSP** — `Content-Security-Policy` in `index.html` (and pricing/message) restricts script, style, connect, and frame sources. **script-src uses nonces only** (no `'unsafe-inline'`); all inline scripts have `nonce="tdb2025"`. Use `nonce="tdb2025"` for inline scripts/styles where allowed.
+- **Headers** — `_headers` (Netlify/Cloudflare Pages): `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`, `Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), battery=()`, `X-XSS-Protection: 1; mode=block`.
+- **CSP violation reporting** — `script.js` listens for `securitypolicyviolation` and logs to console for debugging.
 - **Referrer** — `referrer: no-referrer` so nothing follows users when they leave the site.
 - **XSS** — User/API content is never written raw to the DOM. Use `escapeHtml()`, `sanitizeHtml()` (DOMPurify when available), or `sanitizeUserInput()` before storing or displaying. Prefer `textContent` when HTML is not needed.
 - **Input** — `sanitizeUserInput()` strips tags and script-like patterns. `truncateForDb()` enforces length limits before Supabase. Use both for prayer intents, family name, message board, etc.
+- **LocalStorage** — Keys prefixed with `tdb_` and versioned (e.g. `tdb_prayer_list_v1`). "Clear local data" button with confirm + toast. No secrets in JS; config placeholder check warns on load.
 
 ### Supabase
 
@@ -75,9 +78,9 @@
 
 ---
 
-## Optional: Subresource Integrity (SRI)
+## Subresource Integrity (SRI)
 
-For pinned vendor scripts (e.g. from cdn.jsdelivr.net), you can add `integrity` and `crossorigin="anonymous"` to `<script src="...">`. Use the hash provided by the CDN or generate with `openssl dgst -sha384 -binary < file.js | openssl base64 -A`. Update the hash whenever you change the script version.
+External scripts (Firebase, DOMPurify, canvas-confetti) include `integrity="sha384-..."` and `crossorigin="anonymous"`. Regenerate hashes when updating versions: `curl -sL "URL" | openssl dgst -sha384 -binary | openssl base64 -A`. Or use [srihash.org](https://www.srihash.org/).
 
 ---
 

@@ -1,5 +1,6 @@
 /**
  * Today's Daily Battle — main app script.
+ * Hardened security - no compromises.
  * Core logic - do not defer. Verse fetch, notes save, fade-in triggers.
  * Section index (for future split): globals ~1, error handling ~25, auth/config ~710,
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
@@ -16,6 +17,12 @@ try {
     if (typeof console !== 'undefined' && console.warn) console.warn('TDB: config has placeholder values — replace with real Supabase URL/anon key before production.');
   }
 } catch (_) {}
+// CSP violation reporting — warn in console for debugging
+document.addEventListener('securitypolicyviolation', function (e) {
+  if (typeof console !== 'undefined' && console.warn) {
+    console.warn('TDB CSP violation:', e.violatedDirective, e.blockedURI || e.sourceFile);
+  }
+});
 
 function safeSetItem(key, value) {
   try {

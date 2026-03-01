@@ -1320,6 +1320,14 @@ body {
   text-align: center;
   margin: 0.5rem 0 0;
   color: var(--text-muted, #94a3b8);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.prayer-counter #prayer-counter,
+.prayer-of-day-meta #prayer-of-day-count,
+#prayer-count-today-wrap #prayer-count-today {
+  display: inline-block;
+  min-width: 1ch;
 }
 @media (max-width: 768px) {
   .prayer-counter { font-size: 1rem; }
@@ -1639,12 +1647,18 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   margin-top: 0.75rem;
   margin-bottom: 0.5rem;
   border-radius: 14px;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 .streak-counter-text {
   font-size: 1.15rem;
   font-weight: 700;
   display: block;
   margin-bottom: 0.25rem;
+  overflow-wrap: break-word;
+}
+@media (max-width: 480px) {
+  .streak-counter-text { font-size: 1rem; }
 }
 .share-streak-wrap {
   margin-top: 0.5rem;
@@ -2190,11 +2204,13 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .pricing-grid {
   display: grid;
   gap: 1.2rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  max-width: 100%;
 }
 @media (max-width: 480px) {
   .pricing-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -2299,6 +2315,12 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   font-size: 1.2rem;
   color: #dc2626 !important;
   letter-spacing: 0.02em;
+  overflow-wrap: break-word;
+}
+.pricing-cta-countdown .countdown-number,
+#battle-pro-countdown .countdown-number {
+  display: inline-block;
+  min-width: 1ch;
 }
 .cta-arrow {
   margin-left: 0.35rem;
@@ -2336,7 +2358,7 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 
 /* Pricing page: card polish and button sizing */
 .pricing-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
 }
 .pricing-card .cta-group {
   margin-top: 0.5rem;
@@ -2348,7 +2370,9 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   min-height: 48px;
   padding: 0.7rem 1rem;
   font-size: 0.95rem;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 .pricing-card .cta-group .btn-primary {
   min-height: 50px;
@@ -2367,7 +2391,10 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   flex: 1 1 auto;
-  min-width: 140px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 #battle-pro-battlepro-btn {
   font-weight: 700;
@@ -2391,6 +2418,17 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .pricing-card .section-note {
   line-height: 1.45;
   font-size: 0.95rem;
+}
+
+/* Pricing page: prevent overflow on narrow viewports */
+.pricing .content-inner,
+body:has(.pricing-grid) .content-inner {
+  overflow-wrap: break-word;
+}
+.pricing .cta-group,
+body:has(.pricing-grid) .cta-group {
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 /* Shop / Equip Your Battle */

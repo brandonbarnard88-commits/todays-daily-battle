@@ -480,6 +480,7 @@ const TDB_TOPICS = [
   { topic: 'patience', label: 'Patience' },
   { topic: 'anger', label: 'Anger' },
   { topic: 'joy', label: 'Joy' },
+  { topic: 'love', label: 'Love' },
   { topic: 'addiction', label: 'Addiction' },
   { topic: 'trauma', label: 'Trauma' },
   { topic: 'relationships', label: 'Relationships' },
@@ -9187,12 +9188,23 @@ function executeQuery(parsed, tier, filters) {
 function renderResults(results) {
   var output = document.getElementById('output');
   if (!output) {
-    var searchStack = document.querySelector('#main-search .search-stack');
-    if (searchStack && searchStack.parentNode) {
+    var searchHero = document.getElementById('search-hero');
+    if (searchHero) {
       output = document.createElement('div');
       output.id = 'output';
       output.className = 'results';
-      searchStack.parentNode.insertBefore(output, searchStack.nextSibling);
+      output.setAttribute('role', 'region');
+      output.setAttribute('aria-live', 'polite');
+      output.setAttribute('aria-label', 'Search results');
+      searchHero.appendChild(output);
+    } else {
+      var searchStack = document.querySelector('#main-search .search-stack');
+      if (searchStack && searchStack.parentNode) {
+        output = document.createElement('div');
+        output.id = 'output';
+        output.className = 'results';
+        searchStack.parentNode.insertBefore(output, searchStack.nextSibling);
+      }
     }
   }
   if (!output) return;
@@ -10056,6 +10068,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     function ensureOutputElement() {
       var el = document.getElementById('output');
       if (el) return el;
+      var searchHero = document.getElementById('search-hero');
+      if (searchHero) {
+        el = document.createElement('div');
+        el.id = 'output';
+        el.className = 'results';
+        el.setAttribute('role', 'region');
+        el.setAttribute('aria-live', 'polite');
+        el.setAttribute('aria-label', 'Search results');
+        searchHero.appendChild(el);
+        return el;
+      }
       var searchStack = document.querySelector('#main-search .search-stack');
       if (searchStack && searchStack.parentNode) {
         el = document.createElement('div');
@@ -10655,6 +10678,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateAuthUI(null);
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     applyRoleAccess();
+    setView('search');
   }
 
   function isOnAdminPage() {

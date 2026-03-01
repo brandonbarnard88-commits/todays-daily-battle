@@ -2054,6 +2054,7 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .quick-topic[data-topic="patience"]::before { content: '⏳ '; }
 .quick-topic[data-topic="anger"]::before { content: '🔥 '; }
 .quick-topic[data-topic="joy"]::before { content: '☀ '; }
+.quick-topic[data-topic="love"]::before { content: '❤ '; }
 .quick-topic[data-topic="addiction"]::before { content: '🔗 '; }
 .quick-topic[data-topic="trauma"]::before { content: '🕊 '; }
 .quick-topic[data-topic="relationships"]::before { content: '👥 '; }

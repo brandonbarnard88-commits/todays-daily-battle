@@ -5703,6 +5703,25 @@ async function postMessage(text) {
   var safeText = truncateForDb(sanitizeUserInput(text), MAX_MESSAGE_TEXT_LENGTH);
   var safeDisplayName = truncateForDb(sanitizeUserInput(displayName), MAX_DISPLAY_NAME_LENGTH);
   if (isSupabaseConfigured() && currentUserId) {
+    var postUrl = (window.TDB_CONFIG && window.TDB_CONFIG.POST_MESSAGE_URL) || '';
+    if (postUrl) {
+      try {
+        var session = (typeof supabaseClient !== 'undefined' && supabaseClient.auth) ? (await supabaseClient.auth.getSession()).data?.session : null;
+        if (session && session.access_token) {
+          var res = await fetch(postUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + session.access_token },
+            body: JSON.stringify({ text: safeText, display_name: safeDisplayName })
+          });
+          var out = await res.json();
+          if (res.ok && out && out.id) return out;
+          if (res.status === 429) throw new Error(out.error || 'Too many posts. Wait a minute.');
+          if (res.status === 401) throw new Error(out.error || 'Session expired.');
+        }
+      } catch (e) {
+        if (e && e.message && (e.message.indexOf('rate') !== -1 || e.message.indexOf('429') !== -1)) throw e;
+      }
+    }
     const payload = { user_id: currentUserId, text: safeText };
     if (safeDisplayName) payload.display_name = safeDisplayName;
     let { data, error } = await supabaseClient

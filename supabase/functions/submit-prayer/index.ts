@@ -60,6 +60,58 @@ function sanitizeForDb(s: string, maxLen: number): string {
 const MAX_INTENT_LENGTH = 2000;
 const MAX_FAMILY_NAME_LENGTH = 80;
 
+const PRAYER_RATE_LIMIT_WINDOW_SEC = 60;
+const PRAYER_RATE_LIMIT_MAX = 30;
+
+/** Hash IP for rate-limit key (no raw IP storage). */
+async function hashForRateLimit(ip: string): Promise<string> {
+  const salt = Deno.env.get("RATE_LIMIT_SALT") ?? "tdb-prayer-2026";
+  const enc = new TextEncoder().encode(ip + salt);
+  const buf = await crypto.subtle.digest("SHA-256", enc);
+  const hex = Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  return "prayer_" + hex.slice(0, 24);
+}
+
+/** Check and increment rate limit. Returns true if allowed, false if over limit. */
+async function checkPrayerRateLimit(supabase: ReturnType<typeof createClient>, bucketKey: string): Promise<boolean> {
+  const now = new Date().toISOString();
+  const windowStart = new Date(Date.now() - PRAYER_RATE_LIMIT_WINDOW_SEC * 1000).toISOString();
+
+  const { data: row } = await supabase
+    .from("rate_limit")
+    .select("count, window_start")
+    .eq("bucket_key", bucketKey)
+    .single();
+
+  if (!row) {
+    await supabase.from("rate_limit").upsert(
+      { bucket_key: bucketKey, count: 1, window_start: now },
+      { onConflict: "bucket_key" }
+    );
+    return true;
+  }
+
+  const rowStart = new Date(row.window_start).getTime();
+  const cutoff = Date.now() - PRAYER_RATE_LIMIT_WINDOW_SEC * 1000;
+  if (rowStart < cutoff) {
+    await supabase.from("rate_limit").upsert(
+      { bucket_key: bucketKey, count: 1, window_start: now },
+      { onConflict: "bucket_key" }
+    );
+    return true;
+  }
+
+  if (row.count >= PRAYER_RATE_LIMIT_MAX) return false;
+
+  await supabase
+    .from("rate_limit")
+    .update({ count: row.count + 1 })
+    .eq("bucket_key", bucketKey);
+  return true;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: CORS_HEADERS });
@@ -92,6 +144,19 @@ Deno.serve(async (req) => {
   }
 
   const remoteip = req.headers.get("cf-connecting-ip") ?? req.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+  if (remoteip) {
+    const bucketKey = await hashForRateLimit(remoteip);
+    const allowed = await checkPrayerRateLimit(supabase, bucketKey);
+    if (!allowed) {
+      return jsonResponse(
+        { error: "Too many prayers from this device. Please wait a minute and try again.", code: "rate_limited" },
+        429
+      );
+    }
+  }
+
   const verify = await verifyTurnstile(token, remoteip);
 
   if (!verify.success) {
@@ -102,7 +167,6 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: "Verification failed", code: "turnstile_failed" }, 400);
   }
 
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
   const familyNameRaw =
     typeof body.family_name === "string" && body.family_name.trim()
       ? sanitizeForDb(body.family_name.trim(), MAX_FAMILY_NAME_LENGTH)

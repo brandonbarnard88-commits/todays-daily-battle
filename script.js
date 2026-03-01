@@ -473,6 +473,7 @@ const NT_BOOKS = new Set([
 /** Single source of truth for search topic buttons (hero + accordion). Format: { topic: string, label: string, primary?: boolean } */
 const TDB_TOPICS = [
   { topic: 'free will', label: 'FREE WILL', primary: true },
+  { topic: 'family', label: 'Family' },
   { topic: 'hope', label: 'Hope' },
   { topic: 'fear', label: 'Fear' },
   { topic: 'peace', label: 'Peace' },
@@ -13621,3 +13622,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   })();
 });
 }
+// Footer build date fallback (local dev): replace TDB_BUILD_DATE with current date if still placeholder
+(function () {
+  var el = document.getElementById('footer-date');
+  if (el && el.textContent === 'TDB_BUILD_DATE') {
+    var d = new Date();
+    var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    el.textContent = m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+})();

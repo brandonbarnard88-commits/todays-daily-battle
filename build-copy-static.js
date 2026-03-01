@@ -70,11 +70,19 @@ const topics = [
   'topic-strength.html'
 ];
 mkdir(dist);
+function formatBuildDate() {
+  const d = new Date();
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+}
+const BUILD_DATE_STR = formatBuildDate();
 topics.forEach(function (f) {
   const src = path.join(root, f);
   const dest = path.join(dist, f);
   if (fs.existsSync(src)) {
-    fs.copyFileSync(src, dest);
+    let content = fs.readFileSync(src, 'utf8');
+    content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);
+    fs.writeFileSync(dest, content);
     console.log('Copied topic: ' + f);
   }
 });
@@ -94,7 +102,9 @@ for (const f of rootFiles) {
 
 const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f));
 for (const f of otherHtml) {
-  copyFile(path.join(root, f), path.join(dist, f));
+  let content = fs.readFileSync(path.join(root, f), 'utf8');
+  content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);
+  fs.writeFileSync(path.join(dist, f), content);
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
     const required = [

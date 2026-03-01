@@ -833,7 +833,7 @@ body {
   font-size: 1.1rem;
   color: rgba(226, 232, 240, 0.95);
   background: rgba(15, 20, 32, 0.95);
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  border: 1px solid var(--elite-gold-dim, rgba(212, 175, 55, 0.35));
   border-radius: var(--radius-md);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -842,11 +842,11 @@ body {
 }
 .search-hero-input:focus {
   outline: none;
-  border-color: rgba(148, 163, 184, 0.45);
-  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.15);
+  border-color: var(--elite-gold, rgba(212, 175, 55, 0.68));
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2), 0 0 16px var(--elite-gold-dim);
 }
 .search-hero-input:hover {
-  border-color: rgba(148, 163, 184, 0.35);
+  border-color: rgba(212, 175, 55, 0.45);
 }
 .search-hero-btn {
   min-width: 10rem;
@@ -967,17 +967,20 @@ body {
   min-width: auto;
   padding: 0.5rem 0.9rem;
   font-size: 0.9375rem;
+  border: 1px solid var(--elite-gold-dim, rgba(212, 175, 55, 0.35));
   transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .quick-actions-hero .btn:hover {
-  transform: translateY(-1px);
+  transform: scale(1.03);
+  border-color: var(--elite-gold-dim);
+  box-shadow: 0 0 12px var(--elite-gold-dim);
 }
 .quick-actions-hero .btn:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 .quick-actions-hero .btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.35);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.4);
 }
 
 /* Search results appear directly below the search bar / topic chips */
@@ -2046,6 +2049,7 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .dark-mode .social-share-btn .share-icon { color: rgba(226, 232, 240, 0.95); }
 
 /* Topic list: icons + color tags for faster scanning */
+.quick-topic[data-topic="family"]::before { content: '🏠 '; }
 .quick-topic[data-topic="hope"]::before { content: '♥ '; color: #dc2626; }
 .quick-topic[data-topic="spiritualwarfare"]::before { content: '🛡 '; }
 .quick-topic[data-topic="heartache"]::before { content: '💔 '; }
@@ -2559,6 +2563,57 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+.footer-mission {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(148, 163, 184, 0.85);
+}
+/* New unified footer: tagline (gold), quick links, disclaimer */
+.footer-tagline {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--accent, #eab308);
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  margin: 0 0 0.5rem;
+}
+.footer-quick-links a {
+  font-size: 0.85rem;
+}
+.footer-disclaimer {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: center;
+  color: rgba(148, 163, 184, 0.7);
+  max-width: 32em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-fade-in {
+  animation: footer-fade-in 0.5s ease-out;
+}
+@keyframes footer-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (max-width: 600px) {
+  .footer-quick-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+}
 .footer-copyright {
   margin: 1.25rem 0 0;
   font-size: 0.9rem;
@@ -2573,7 +2628,7 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .footer-updated {
   margin: 0.6rem 0 0;
   font-size: 0.82rem;
-  color: rgba(148, 163, 184, 0.75);
+  color: rgba(148, 163, 184, 0.7);
 }
 .site-footer .footer-updated {
   margin-top: 0.6rem;

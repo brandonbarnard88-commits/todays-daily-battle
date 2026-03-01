@@ -97,6 +97,7 @@ External scripts (Firebase, DOMPurify, canvas-confetti) include `integrity="sha3
 | `HARDENING-DEPLOY.md` | Steps to deploy rate-limit table, Edge Functions, and admin Worker |
 | `PRIVACY-ANALYTICS.md` | Search analytics and user safety rules |
 | `script.js` | `sanitizeUserInput`, `escapeHtml`, `sanitizeHtml`, `truncateForDb` |
+| `BACKLASH-PREP.md` | Anticipated critiques, response copy, escalation notes |
 
 ---
 

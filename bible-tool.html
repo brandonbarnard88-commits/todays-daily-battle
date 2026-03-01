@@ -74,6 +74,16 @@
         <a href="pricing.html">Pricing</a>
       </nav>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <div id="auth-details" class="auth-details-inline">
+        <div id="auth-section" class="auth-inline auth-compact">
+          <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+          <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+          <button id="signup-btn" type="button">Sign Up</button>
+          <button id="login-btn" type="button">Log In</button>
+          <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+          <button id="logout-btn" class="hidden" type="button">Log Out</button>
+        </div>
+      </div>
     </header>
 
     <aside class="sidebar">
@@ -98,6 +108,7 @@
       <div class="content-inner bible-tool">
         <h1 class="section-divider">Bible Tool</h1>
         <p class="section-note">Your goto for lookups, notes, and Win the Day. KJV, no login—saves on this device.</p>
+        <p class="section-note util-mt-0_5">Sign-in is optional. Use the tool without an account; sign in above if you want to sync notes and verses across devices.</p>
 
         <!-- Daily verse -->
         <section class="verse-card glass border-accent" aria-label="Today's verse">
@@ -290,6 +301,22 @@
   var BOOKS = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
 
   var KEY_REFS = Object.keys(KEY_VERSES);
+
+  function ensureBookSelectPopulated() {
+    var bookEl = document.getElementById('book');
+    if (!bookEl) return;
+    if (bookEl.options.length > 0) return;
+    var opt0 = document.createElement('option');
+    opt0.value = '';
+    opt0.textContent = 'Select book';
+    bookEl.appendChild(opt0);
+    BOOKS.forEach(function (b) {
+      var o = document.createElement('option');
+      o.value = b;
+      o.textContent = b;
+      bookEl.appendChild(o);
+    });
+  }
 
   function normRef(ref) { return String(ref).replace(/\s+/g, ' ').trim(); }
 
@@ -534,13 +561,15 @@
     return t.replace(/\{topic\}/g, topic);
   }
 
-  var bookSelect = document.getElementById('book');
-  if (bookSelect) {
-    BOOKS.forEach(function (b) { var o = document.createElement('option'); o.value = b; o.textContent = b; bookSelect.appendChild(o); });
-  }
-
+  ensureBookSelectPopulated();
   renderDaily();
   renderNotes();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      ensureBookSelectPopulated();
+    });
+  }
 
   var refParam = typeof URLSearchParams !== 'undefined' && location.search ? new URLSearchParams(location.search).get('ref') : null;
   if (refParam) {

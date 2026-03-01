@@ -4558,6 +4558,9 @@ const versionFiles = {
 };
 const BIBLE_DATA_ORIGIN = 'https://todaysdailybattle.com';
 
+var READER_BOOKS_ORDER = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
+var READER_CHAPTER_COUNTS = { 'Genesis':50,'Exodus':40,'Leviticus':27,'Numbers':36,'Deuteronomy':34,'Joshua':24,'Judges':21,'Ruth':4,'1 Samuel':31,'2 Samuel':24,'1 Kings':22,'2 Kings':25,'1 Chronicles':29,'2 Chronicles':36,'Ezra':10,'Nehemiah':13,'Esther':10,'Job':42,'Psalm':150,'Proverbs':31,'Ecclesiastes':12,'Song of Solomon':8,'Isaiah':66,'Jeremiah':52,'Lamentations':5,'Ezekiel':48,'Daniel':12,'Hosea':14,'Joel':3,'Amos':9,'Obadiah':1,'Jonah':4,'Micah':7,'Nahum':3,'Habakkuk':3,'Zephaniah':3,'Haggai':2,'Zechariah':14,'Malachi':4,'Matthew':28,'Mark':16,'Luke':24,'John':21,'Acts':28,'Romans':16,'1 Corinthians':16,'2 Corinthians':13,'Galatians':6,'Ephesians':6,'Philippians':4,'Colossians':4,'1 Thessalonians':5,'2 Thessalonians':3,'1 Timothy':6,'2 Timothy':4,'Titus':3,'Philemon':1,'Hebrews':13,'James':5,'1 Peter':5,'2 Peter':3,'1 John':5,'2 John':1,'3 John':1,'Jude':1,'Revelation':22 };
+
 const curriculum = {
   kid: [
     {
@@ -6264,13 +6267,16 @@ function buildChapterIndex() {
 
 function getBibleBookOrder() {
   const books = Object.keys(bookIndex);
-  const gospels = ['Matthew', 'Mark', 'Luke', 'John'];
-  const gospelSet = new Set(gospels);
-  const ordered = [
-    ...gospels.filter(book => books.includes(book)),
-    ...books.filter(book => !gospelSet.has(book))
-  ];
-  return ordered;
+  if (books.length) {
+    const gospels = ['Matthew', 'Mark', 'Luke', 'John'];
+    const gospelSet = new Set(gospels);
+    const ordered = [
+      ...gospels.filter(book => books.includes(book)),
+      ...books.filter(book => !gospelSet.has(book))
+    ];
+    return ordered;
+  }
+  return typeof READER_BOOKS_ORDER !== 'undefined' ? READER_BOOKS_ORDER : [];
 }
 
 function populateBookFilter() {
@@ -6297,7 +6303,8 @@ function refreshBibleView() {
   const firstBook = getBibleBookOrder()[0];
   if (firstBook) {
     populateReaderChapters(firstBook);
-    const firstChapter = bookIndex[firstBook][0];
+    const chapters = bookIndex[firstBook] || (READER_CHAPTER_COUNTS && READER_CHAPTER_COUNTS[firstBook] ? Array.from({ length: READER_CHAPTER_COUNTS[firstBook] }, (_, i) => i + 1) : []);
+    const firstChapter = chapters[0];
     if (firstChapter) {
       selectReaderChapter(firstBook, firstChapter);
     }
@@ -7973,7 +7980,9 @@ function populateReaderChapters(book) {
   if (!chapterSelect) return;
   chapterSelect.innerHTML = '';
   const chapters = bookIndex[book] || [];
-  chapters.forEach(ch => {
+  const useStatic = chapters.length === 0 && typeof READER_CHAPTER_COUNTS !== 'undefined' && READER_CHAPTER_COUNTS[book];
+  const list = useStatic ? Array.from({ length: READER_CHAPTER_COUNTS[book] }, (_, i) => i + 1) : chapters;
+  list.forEach(ch => {
     const opt = document.createElement('option');
     opt.value = String(ch);
     opt.textContent = String(ch);
@@ -7988,29 +7997,71 @@ function renderReaderChapter(book, chapter) {
   output.innerHTML = '';
   const key = `${book} ${chapter}`;
   const verses = chapterIndex[key];
-  if (!verses) {
-    output.innerHTML = '<p class="empty">Chapter not found. Check book and chapter, or try another reference.</p>';
+  if (verses && verses.length) {
+    renderReaderChapterFromVerses(output, book, chapter, verses);
     return;
   }
-  const heading = document.createElement('div');
+  output.innerHTML = '<p class="section-note empty">Loading chapter…</p>';
+  var apiBase = 'https://bible-api.com';
+  fetch(apiBase + '/' + encodeURIComponent(book + ' ' + chapter) + '?translation=kjv')
+    .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error('Network error')); })
+    .then(function (data) {
+      output.innerHTML = '';
+      var list = data.verses || [];
+      if (!list.length) {
+        output.innerHTML = '<p class="empty">Chapter not found. Try another book or chapter.</p>';
+        return;
+      }
+      var heading = document.createElement('div');
+      heading.className = 'chapter-title';
+      heading.textContent = key;
+      output.appendChild(heading);
+      list.forEach(function (v) {
+        var ref = (v.book_name || book) + ' ' + (v.chapter || chapter) + ':' + (v.verse || '');
+        var line = document.createElement('div');
+        line.className = 'context-line';
+        line.dataset.ref = ref;
+        line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml((v.text || '').trim());
+        if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, v.text)) {
+          line.classList.add('red-letter');
+        }
+        output.appendChild(line);
+      });
+      var totalWords = list.reduce(function (sum, v) { return sum + ((v.text || '').trim().split(/\s+/).filter(Boolean).length); }, 0);
+      var readNote = document.createElement('p');
+      readNote.className = 'section-note reading-time-note';
+      readNote.textContent = '~' + Math.max(1, Math.ceil(totalWords / 200)) + ' min read';
+      readNote.setAttribute('aria-label', 'Estimated reading time');
+      output.appendChild(readNote);
+    })
+    .catch(function () {
+      output.innerHTML = '<p class="empty">Chapter not found or network error. Check your connection or try another reference.</p>';
+    });
+}
+
+function renderReaderChapterFromVerses(output, book, chapter, verses) {
+  var key = (typeof book === 'string' && typeof chapter === 'string') ? book + ' ' + chapter : '';
+  if (!key) key = verses[0] ? (verses[0].ref || '').replace(/\s*\d+:\d+$/, '') + ' ' + (verses[0].ref || '').match(/\d+$/)?.[0] || '' : '';
+  var heading = document.createElement('div');
   heading.className = 'chapter-title';
   heading.textContent = key;
   output.appendChild(heading);
-  verses.forEach(v => {
-    const line = document.createElement('div');
+  verses.forEach(function (v) {
+    var ref = typeof v.ref === 'string' ? v.ref : (book + ' ' + chapter + ':' + (v.verseNum || v.verse || ''));
+    var text = typeof v.text === 'string' ? v.text : '';
+    var line = document.createElement('div');
     line.className = 'context-line';
-    line.dataset.ref = v.ref;
-    line.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong> ' + escapeHtml(v.text || '');
-    if (isRedLetterEnabled() && isRedLetterLike(v.ref, v.text)) {
+    line.dataset.ref = ref;
+    line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml(text);
+    if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, text)) {
       line.classList.add('red-letter');
     }
     output.appendChild(line);
   });
-  const totalWords = verses.reduce((sum, v) => sum + (v.text || '').replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length, 0);
-  const readMins = Math.max(1, Math.ceil(totalWords / 200));
-  const readNote = document.createElement('p');
+  var totalWords = verses.reduce(function (sum, v) { return sum + (String((v.text || '')).replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length); }, 0);
+  var readNote = document.createElement('p');
   readNote.className = 'section-note reading-time-note';
-  readNote.textContent = '~' + readMins + ' min read';
+  readNote.textContent = '~' + Math.max(1, Math.ceil(totalWords / 200)) + ' min read';
   readNote.setAttribute('aria-label', 'Estimated reading time');
   output.appendChild(readNote);
 }
@@ -9514,8 +9565,9 @@ function renderResults(results) {
 
 async function loadStudies() {
   var grid = document.querySelector('.study-grid');
-  var loadingEl = document.getElementById('study-grid-loading');
   if (!grid) return;
+  if (!document.getElementById('study-grid-loading')) return;
+  var loadingEl = document.getElementById('study-grid-loading');
   grid.setAttribute('aria-busy', 'true');
   if (loadingEl) loadingEl.textContent = 'Preparing…';
   if (typeof supabaseClient === 'undefined' || !supabaseClient) {
@@ -10027,6 +10079,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (card && (card.textContent.indexOf('Loading') !== -1 || card.textContent.indexOf('Arming') !== -1)) {
       card.innerHTML = '<p class="empty">Something went wrong loading the page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
     }
+    if (document.getElementById('reader-book')) refreshBibleView();
   }
   var walkthroughWrap = document.getElementById('walkthrough-wrap');
   var walkthroughPara = document.getElementById('walkthrough-para');
@@ -12077,10 +12130,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (readerBook) {
     readerBook.addEventListener('change', (e) => {
       populateReaderChapters(e.target.value);
-      const chapters = bookIndex[e.target.value] || [];
-      if (chapters[0]) {
-        selectReaderChapter(e.target.value, chapters[0]);
-      }
+      var chapters = bookIndex[e.target.value];
+      if (!chapters || chapters.length === 0) chapters = (typeof READER_CHAPTER_COUNTS !== 'undefined' && READER_CHAPTER_COUNTS[e.target.value]) ? Array.from({ length: READER_CHAPTER_COUNTS[e.target.value] }, function (_, i) { return i + 1; }) : [];
+      if (chapters[0]) selectReaderChapter(e.target.value, chapters[0]);
     });
   }
 

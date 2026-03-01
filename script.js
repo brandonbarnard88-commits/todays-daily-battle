@@ -9966,7 +9966,8 @@ function startStudy(id) {
   window.location.href = 'reading-plan.html?study=' + encodeURIComponent(id);
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+function tdbInit() {
+  if (!document.body) return;
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
@@ -13637,7 +13638,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     setTimeout(run, 400);
     setTimeout(run, 1500);
   })();
-});
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', tdbInit);
+} else {
+  tdbInit();
 }
 // Footer build date fallback (local dev): replace TDB_BUILD_DATE with current date if still placeholder
 (function () {

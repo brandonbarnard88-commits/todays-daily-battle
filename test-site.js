@@ -2,12 +2,17 @@
 /**
  * Hard test of the static site: pages load, critical content present, search logic.
  * Run: node test-site.js
- * Requires: server running at http://127.0.0.1:8765 (python3 -m http.server 8765)
+ *   With server: python3 -m http.server 8765 (in dist/), then node test-site.js
+ *   Offline: node test-site.js --offline (reads from dist/)
  */
 
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
+const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
+const DIST = path.join(__dirname, 'dist');
 const pages = [
   { path: '/', name: 'Home', mustInclude: ['id="query"', 'id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers'] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
@@ -27,7 +32,7 @@ const pages = [
   { path: '/manifest.json', name: 'Manifest (PWA)', mustInclude: ['name', 'short_name'] },
 ];
 
-function fetch(url) {
+function fetchHttp(url) {
   return new Promise((resolve, reject) => {
     const u = new URL(url);
     http.get({ hostname: u.hostname, port: u.port || 80, path: u.pathname + u.search }, (res) => {
@@ -38,14 +43,31 @@ function fetch(url) {
   });
 }
 
+function readLocal(filePath) {
+  const p = (filePath === '/' ? '/index.html' : filePath).replace(/^\//, '');
+  const full = path.join(DIST, p);
+  try {
+    if (fs.existsSync(full) && fs.statSync(full).isFile()) {
+      return { statusCode: 200, body: fs.readFileSync(full, 'utf8') };
+    }
+  } catch (e) {}
+  return { statusCode: 404, body: '' };
+}
+
 function run() {
   let failed = 0;
   (async () => {
-    console.log('Testing site at', BASE, '\n');
+    if (OFFLINE) {
+      console.log('Testing site (OFFLINE — reading from dist/)\n');
+    } else {
+      console.log('Testing site at', BASE, '\n');
+    }
+    const getPage = OFFLINE
+      ? (p) => Promise.resolve(readLocal(p.path))
+      : (p) => fetchHttp(BASE + p.path);
     for (const p of pages) {
-      const url = BASE + p.path;
       try {
-        const { statusCode, body } = await fetch(url);
+        const { statusCode, body } = await getPage(p);
         if (statusCode !== 200) {
           console.log('FAIL', p.name, p.path, '→', statusCode);
           failed++;
@@ -78,7 +100,7 @@ function run() {
     // Prayer counter: element present on home, script wires it and formats numbers
     let homeBody = '';
     try {
-      const homeRes = await fetch(BASE + '/');
+      const homeRes = OFFLINE ? readLocal('/') : await fetchHttp(BASE + '/');
       homeBody = homeRes.body || '';
     } catch (e) { homeBody = ''; }
     const hasCounterEl = homeBody.indexOf('id="prayer-counter"') !== -1 && homeBody.indexOf('Total prayers') !== -1;

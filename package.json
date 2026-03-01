@@ -5,6 +5,6 @@
     "build": "node build-config.js && node build-copy-static.js",
     "test": "python3 test-site.py --offline",
     "test:security": "node test-security.js",
-    "test:site": "node test-site.js"
+    "test:site": "node test-site.js --offline"
   }
 }

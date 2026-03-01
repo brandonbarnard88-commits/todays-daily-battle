@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Bible Tool • Today's Daily Battle</title>
+  <meta name="description" content="Look up verses, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/bible-tool.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260228p">
+  <link rel="manifest" href="manifest.json">
+  <script src="config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .bible-tool .verse-card { margin-bottom: 1.25rem; padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(148,163,184,0.14); background: rgba(12,18,30,0.6); }
+    .bible-tool .verse-card.border-accent { border-left: 4px solid var(--color-primary, #6d28d9); }
+    .bible-tool .verse-card.border-gold { border-left: 4px solid #d4af37; }
+    .bible-tool .cross-ref-link { color: #a78bfa; text-decoration: none; }
+    .bible-tool .cross-ref-link:hover { text-decoration: underline; }
+    .bible-tool .daily-ref { color: #d4af37; font-weight: 600; }
+    .bible-tool .win-title { color: #d4af37; font-weight: 600; }
+    .bible-tool .lookup-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
+    .bible-tool .lookup-controls select, .bible-tool .lookup-controls input[type="number"], .bible-tool .lookup-controls input[type="text"] { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; }
+    .bible-tool .lookup-controls input[type="number"] { width: 3.5rem; }
+    .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; resize: vertical; min-height: 4rem; }
+    .bible-tool .plan-progress label { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 0.9rem; }
+    .bible-tool .verse-ref { font-weight: 600; }
+    .bible-tool .lookup-controls select:focus, .bible-tool .lookup-controls input:focus { outline: 2px solid rgba(167, 139, 250, 0.6); outline-offset: 2px; }
+    .bible-tool #lookup-result { scroll-margin-top: 1rem; }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Your goto for the Word</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="bible-tool.html">Bible Tool</a>
+        <a href="/#main-search">Search</a>
+        <a href="verse.html">Verse of the Day</a>
+        <a href="message.html">Prayer Wall</a>
+        <a href="bible-study.html">Bible Studies</a>
+        <a href="wins-report.html">Wins Report</a>
+        <a href="church.html">Church Center</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+      <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+    </header>
+
+    <aside class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="bible-tool.html" data-section="bible-tool" data-icon="BT">Bible Tool</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="bible-study.html" data-section="bible-study" data-icon="BS">Bible Studies</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner bible-tool">
+        <h1 class="section-divider">Bible Tool</h1>
+        <p class="section-note">Your goto for lookups, notes, and Win the Day. KJV, no login—saves on this device.</p>
+
+        <!-- Daily verse -->
+        <section class="verse-card glass border-accent" aria-label="Today's verse">
+          <p class="section-note util-mb-0_5">Today's verse</p>
+          <p class="daily-ref" id="daily-ref">—</p>
+          <p id="daily-text">Loading…</p>
+          <button type="button" class="btn btn-primary" id="share-daily">Share</button>
+        </section>
+
+        <!-- Verse lookup -->
+        <section class="verse-card glass" aria-label="Look up a verse">
+          <h2 class="section-divider util-mt-0">Look up a verse</h2>
+          <div class="lookup-controls">
+            <select id="book" aria-label="Book"></select>
+            <input type="number" id="chapter" placeholder="Ch" min="1" aria-label="Chapter" />
+            <input type="number" id="verse" placeholder="Vs" min="1" aria-label="Verse" />
+            <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
+          </div>
+          <div id="lookup-result" class="hidden util-mt-1">
+            <p class="verse-ref" id="lookup-ref"></p>
+            <p id="lookup-text" class="util-mt-0_5"></p>
+            <div class="util-mt-0_5">
+              <button type="button" id="share-lookup" class="link-button">Share</button>
+              <span id="cross-refs" class="section-note"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notes -->
+        <section class="verse-card glass" aria-label="Notes">
+          <h2 class="section-divider util-mt-0">Notes</h2>
+          <textarea id="note-input" placeholder="Add a note for the verse above (after you look one up)…" rows="2" aria-label="Note for current verse"></textarea>
+          <p class="section-note util-mb-0">Saved to this device (localStorage).</p>
+          <div id="notes-list" class="util-mt-1"></div>
+        </section>
+
+        <!-- Reading plan -->
+        <section class="verse-card glass" aria-label="Reading plan">
+          <h2 class="section-divider util-mt-0">Reading plan</h2>
+          <select id="plan-picker" aria-label="Plan">
+            <option value="armor">Armor of God (7 days) — Ephesians 6</option>
+            <option value="custom">Custom (enter refs below)</option>
+          </select>
+          <div id="plan-custom" class="hidden util-mt-1">
+            <input type="text" id="plan-refs" placeholder="e.g. John 1, John 2, Psalm 23" aria-label="Custom verse references" />
+          </div>
+          <div id="plan-progress" class="util-mt-1"></div>
+        </section>
+
+        <!-- Win the Day -->
+        <section class="verse-card glass border-gold" aria-label="Win the Day">
+          <h2 class="win-title section-divider util-mt-0">Win the Day</h2>
+          <p class="section-note">Get 3 verses by topic for prayer or declaration.</p>
+          <select id="win-topic" aria-label="Topic">
+            <option value="strength">Strength</option>
+            <option value="peace">Peace</option>
+            <option value="courage">Courage</option>
+            <option value="hope">Hope</option>
+            <option value="faith">Faith</option>
+            <option value="perseverance">Perseverance</option>
+          </select>
+          <button type="button" id="win-btn" class="btn btn-primary">Generate</button>
+          <div id="win-result" class="hidden util-mt-1"></div>
+        </section>
+
+        <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="verse.html">Verse of the Day</a> · <a href="reading-plan.html">7-Day Plan</a> · <a href="study.html">Study Tools</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js?v=20260304"></script>
+  <script>
+(function () {
+  'use strict';
+
+  const API_BASE = 'https://bible-api.com';
+  const STORAGE_NOTES = 'tdb_bible_tool_notes';
+  const STORAGE_PLAN = 'tdb_bible_tool_plan';
+
+  var KEY_VERSES = {
+    'John 3:16': 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.',
+    'Colossians 3:23': 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men;',
+    'Philippians 4:13': 'I can do all things through Christ which strengtheneth me.',
+    'Philippians 4:6': 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+    'Philippians 4:7': 'And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+    'Ephesians 6:10': 'Finally, my brethren, be strong in the Lord, and in the power of his might.',
+    'Ephesians 6:11': 'Put on the whole armour of God, that ye may be able to stand against the wiles of the devil.',
+    'Ephesians 6:12': 'For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places.',
+    'Ephesians 6:13': 'Wherefore take unto you the whole armour of God, that ye may be able to withstand in the evil day, and having done all, to stand.',
+    'Ephesians 6:14': 'Stand therefore, having your loins girt about with truth, and having on the breastplate of righteousness;',
+    'Ephesians 6:15': 'And your feet shod with the preparation of the gospel of peace;',
+    'Ephesians 6:16': 'Above all, taking the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked.',
+    'Joshua 1:9': 'Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest.',
+    'Isaiah 41:10': 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
+    '2 Timothy 1:7': 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.',
+    'Romans 8:28': 'And we know that all things work together for good to them that love God, to them who are the called according to his purpose.',
+    'Romans 5:8': 'But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.',
+    'Psalm 23:1': 'The Lord is my shepherd; I shall not want.',
+    'Psalm 46:1': 'God is our refuge and strength, a very present help in trouble.',
+    'Psalm 27:1': 'The Lord is my light and my salvation; whom shall I fear? the Lord is the strength of my life; of whom shall I be afraid?',
+    'Matthew 11:28': 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+    'Hebrews 11:1': 'Now faith is the substance of things hoped for, the evidence of things not seen.',
+    'James 1:12': 'Blessed is the man that endureth temptation: for when he is tried, he shall receive the crown of life, which the Lord hath promised to them that love him.',
+    '1 Corinthians 16:13': 'Watch ye, stand fast in the faith, quit you like men, be strong.',
+    'Nehemiah 8:10': 'Then he said unto them, Go your way, eat the fat, and drink the sweet, and send portions unto them for whom nothing is prepared: for this day is holy unto our Lord: neither be ye sorry; for the joy of the Lord is your strength.',
+    'Isaiah 40:31': 'But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+    'John 14:27': 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.',
+    'Romans 15:13': 'Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.',
+    'Jeremiah 29:11': 'For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.',
+    'Romans 5:5': 'And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us.',
+    'Romans 10:17': 'So then faith cometh by hearing, and hearing by the word of God.',
+    'Ephesians 2:8': 'For by grace are ye saved through faith; and that not of yourselves: it is the gift of God:',
+    'Hebrews 12:1': 'Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and run with patience the race that is set before us,',
+    'Isaiah 26:3': 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.'
+  };
+
+  var CROSS_REFS = {
+    'John 3:16': ['Romans 5:8', 'Romans 10:9', '1 John 4:9'],
+    'Colossians 3:23': ['Ephesians 6:7', '1 Corinthians 10:31'],
+    'Philippians 4:13': ['2 Timothy 4:17', 'Isaiah 40:31'],
+    'Ephesians 6:10': ['Ephesians 6:11', '2 Timothy 2:1'],
+    'Romans 5:8': ['John 3:16', '1 John 4:10'],
+    'Psalm 23:1': ['John 10:11', 'Isaiah 40:11'],
+    'Joshua 1:9': ['Isaiah 41:10', '2 Timothy 1:7']
+  };
+
+  var WIN_TOPICS = {
+    strength: ['Philippians 4:13', 'Isaiah 40:31', 'Nehemiah 8:10'],
+    peace: ['Philippians 4:7', 'John 14:27', 'Isaiah 26:3'],
+    courage: ['Joshua 1:9', '2 Timothy 1:7', 'Isaiah 41:10'],
+    hope: ['Romans 15:13', 'Jeremiah 29:11', 'Romans 5:5'],
+    faith: ['Hebrews 11:1', 'Romans 10:17', 'Ephesians 2:8'],
+    perseverance: ['James 1:12', 'Hebrews 12:1', '1 Corinthians 16:13']
+  };
+
+  var ARMOR_PLAN = ['Ephesians 6:10', 'Ephesians 6:11', 'Ephesians 6:12', 'Ephesians 6:13', 'Ephesians 6:14', 'Ephesians 6:15', 'Ephesians 6:16'];
+
+  var BOOKS = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
+
+  var KEY_REFS = Object.keys(KEY_VERSES);
+
+  function normRef(ref) { return String(ref).replace(/\s+/g, ' ').trim(); }
+
+  function parseRefToParts(ref) {
+    var r = normRef(ref);
+    var m = r.match(/^(.+?)\s+(\d+):(\d+)$/);
+    if (!m) return null;
+    return { book: m[1].trim(), chapter: m[2], verse: m[3] };
+  }
+
+  function setLookupForm(book, chapter, verse) {
+    var bookEl = document.getElementById('book');
+    var chEl = document.getElementById('chapter');
+    var vsEl = document.getElementById('verse');
+    if (bookEl && book) bookEl.value = book;
+    if (chEl && chapter) chEl.value = chapter;
+    if (vsEl && verse) vsEl.value = verse;
+  }
+
+  function getDailyRef() {
+    var day = Math.floor(Date.now() / 86400000) % KEY_REFS.length;
+    return KEY_REFS[day] || 'Colossians 3:23';
+  }
+
+  function fetchVerse(ref, cb) {
+    var r = normRef(ref);
+    if (KEY_VERSES[r]) { cb({ reference: r, text: KEY_VERSES[r] }); return; }
+    fetch(API_BASE + '/' + encodeURIComponent(r) + '?translation=kjv')
+      .then(function (res) { return res.ok ? res.json() : Promise.reject(res.status); })
+      .then(function (data) { cb({ reference: data.reference || r, text: (data.text || '').trim() }); })
+      .catch(function () { cb(KEY_VERSES[r] ? { reference: r, text: KEY_VERSES[r] } : null); });
+  }
+
+  function loadNotes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_NOTES) || '{}'); } catch (_) { return {}; }
+  }
+  function saveNotes(notes) {
+    try { localStorage.setItem(STORAGE_NOTES, JSON.stringify(notes)); } catch (_) {}
+  }
+
+  function getCrossRefs(ref) { return CROSS_REFS[normRef(ref)] || []; }
+
+  function renderDaily() {
+    var ref = getDailyRef();
+    var elRef = document.getElementById('daily-ref');
+    var elText = document.getElementById('daily-text');
+    if (elRef) elRef.textContent = ref;
+    fetchVerse(ref, function (data) {
+      if (elText && data) elText.textContent = data.text;
+      else if (elText) elText.textContent = KEY_VERSES[ref] || '—';
+    });
+  }
+
+  function renderLookup(data) {
+    var block = document.getElementById('lookup-result');
+    var refEl = document.getElementById('lookup-ref');
+    var textEl = document.getElementById('lookup-text');
+    var crossEl = document.getElementById('cross-refs');
+    if (!block || !data) return;
+    refEl.textContent = data.reference;
+    refEl.className = 'verse-ref';
+    textEl.textContent = data.text;
+    var refs = getCrossRefs(data.reference);
+    if (crossEl) {
+      crossEl.innerHTML = refs.length ? 'Related: ' + refs.map(function (r) {
+        return '<a href="#" class="cross-ref-link" data-ref="' + r.replace(/"/g, '&quot;') + '">' + r + '</a>';
+      }).join(', ') : '';
+    }
+    block.classList.remove('hidden');
+    var noteInput = document.getElementById('note-input');
+    if (noteInput) { noteInput.dataset.currentRef = data.reference; noteInput.value = (loadNotes()[data.reference] || '').trim(); }
+    block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    renderNotes();
+  }
+
+  function renderNotes() {
+    var notes = loadNotes();
+    var list = document.getElementById('notes-list');
+    if (!list) return;
+    var refs = Object.keys(notes).filter(function (r) { return notes[r]; });
+    list.innerHTML = refs.length ? refs.slice(0, 10).map(function (ref) {
+      var txt = notes[ref].length > 80 ? notes[ref].slice(0, 80) + '…' : notes[ref];
+      return '<p class="section-note util-mb-0_5"><strong>' + ref + '</strong>: ' + txt + '</p>';
+    }).join('') : '<p class="section-note">No notes yet. Look up a verse and add a note above.</p>';
+  }
+
+  function shareVerse(ref, text, useToolUrl) {
+    var t = (ref + ': ' + (text || '')).trim();
+    var url = useToolUrl ? 'https://todaysdailybattle.com/bible-tool.html?ref=' + encodeURIComponent(ref) : 'https://todaysdailybattle.com';
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      navigator.share({ title: "Today's Daily Battle", text: t, url: url }).catch(function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(t + ' ' + url);
+      });
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(t + ' ' + url);
+    }
+  }
+
+  var bookSelect = document.getElementById('book');
+  if (bookSelect) {
+    BOOKS.forEach(function (b) { var o = document.createElement('option'); o.value = b; o.textContent = b; bookSelect.appendChild(o); });
+  }
+
+  renderDaily();
+  renderNotes();
+
+  var refParam = typeof URLSearchParams !== 'undefined' && location.search ? new URLSearchParams(location.search).get('ref') : null;
+  if (refParam) {
+    refParam = normRef(decodeURIComponent(refParam));
+    var parts = parseRefToParts(refParam);
+    if (parts) setLookupForm(parts.book, parts.chapter, parts.verse);
+    fetchVerse(refParam, renderLookup);
+  }
+
+  document.getElementById('lookup-btn').addEventListener('click', function () {
+    var book = document.getElementById('book').value;
+    var ch = document.getElementById('chapter').value;
+    var vs = document.getElementById('verse').value;
+    if (!book || !ch || !vs) return;
+    var ref = book + ' ' + ch + ':' + vs;
+    var btn = document.getElementById('lookup-btn');
+    var origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '…';
+    fetchVerse(ref, function (data) {
+      renderLookup(data);
+      btn.disabled = false;
+      btn.textContent = origText;
+    });
+  });
+
+  document.getElementById('share-daily').addEventListener('click', function () {
+    shareVerse(document.getElementById('daily-ref').textContent, document.getElementById('daily-text').textContent);
+  });
+
+  document.getElementById('share-lookup').addEventListener('click', function () {
+    shareVerse(document.getElementById('lookup-ref').textContent, document.getElementById('lookup-text').textContent, true);
+  });
+
+  document.getElementById('lookup-result').addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[data-ref]');
+    if (a && a.dataset.ref) fetchVerse(a.dataset.ref, renderLookup);
+  });
+
+  document.getElementById('note-input').addEventListener('blur', function () {
+    var ref = this.dataset.currentRef;
+    if (!ref) return;
+    var notes = loadNotes();
+    var val = this.value.trim();
+    if (val) notes[ref] = val; else delete notes[ref];
+    saveNotes(notes);
+    renderNotes();
+  });
+
+  document.getElementById('plan-picker').addEventListener('change', function () {
+    document.getElementById('plan-custom').classList.toggle('hidden', this.value !== 'custom');
+    renderPlan();
+  });
+
+  function renderPlan() {
+    var picker = document.getElementById('plan-picker');
+    var customRefs = document.getElementById('plan-refs');
+    var list = picker.value === 'armor' ? ARMOR_PLAN : (customRefs && customRefs.value ? customRefs.value.split(/[\s,]+/).map(function (s) { return s.trim(); }).filter(Boolean) : []);
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_PLAN) || '{}'); } catch (_) {}
+    var progress = document.getElementById('plan-progress');
+    if (!progress) return;
+    if (!list.length) { progress.innerHTML = ''; return; }
+    progress.innerHTML = '<p class="section-note util-mb-0_5">Progress</p>' + list.map(function (ref) {
+      var done = saved[ref];
+      return '<label class="plan-progress label"><input type="checkbox" data-ref="' + ref.replace(/"/g, '&quot;') + '" ' + (done ? 'checked' : '') + ' /> <span>' + ref + '</span></label>';
+    }).join('');
+    progress.querySelectorAll('input[type=checkbox]').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        var r = this.dataset.ref;
+        saved[r] = this.checked;
+        try { localStorage.setItem(STORAGE_PLAN, JSON.stringify(saved)); } catch (_) {}
+      });
+    });
+  }
+  var planRefsEl = document.getElementById('plan-refs');
+  if (planRefsEl) planRefsEl.addEventListener('input', renderPlan);
+
+  document.getElementById('win-btn').addEventListener('click', function () {
+    var topic = document.getElementById('win-topic').value;
+    var refs = WIN_TOPICS[topic] || WIN_TOPICS.strength;
+    var container = document.getElementById('win-result');
+    container.classList.remove('hidden');
+    container.innerHTML = '<p class="section-note">Loading…</p>';
+    var winBtn = document.getElementById('win-btn');
+    var origText = winBtn.textContent;
+    winBtn.disabled = true;
+    var done = 0;
+    var results = [];
+    refs.forEach(function (r, i) {
+      fetchVerse(r, function (data) {
+        results[i] = data;
+        done++;
+        if (done === refs.length) {
+          winBtn.disabled = false;
+          winBtn.textContent = origText;
+          var html = '<p class="win-title section-note">Win the Day — ' + topic + '</p>';
+          results.forEach(function (d) {
+            if (d) html += '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + d.reference + '</p><p class="util-mt-0_5">' + d.text + '</p></div>';
+          });
+          container.innerHTML = html;
+        }
+      });
+    });
+  });
+
+  renderPlan();
+})();
+  </script>
+</body>
+</html>

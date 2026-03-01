@@ -11944,11 +11944,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   })();
   (function ensureStudyRenders() {
     if (!document.getElementById('notes-list') && !document.getElementById('saved-verses')) return;
-    setTimeout(function () {
+    var section = document.getElementById('study-tools');
+    function run() {
       if (typeof renderNotes === 'function') renderNotes();
       if (typeof renderSavedVerses === 'function') renderSavedVerses();
       if (document.getElementById('saved-lessons-list') && typeof renderSavedLessons === 'function') renderSavedLessons();
-    }, 100);
+      if (section) section.classList.add('study-lists-rendered');
+    }
+    run();
+    setTimeout(run, 100);
   })();
   (function initStudyKidsMode() {
     var cb = document.getElementById('study-kids-mode');
@@ -12476,6 +12480,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   const buildLessonBtn = document.getElementById('build-lesson');
   if (buildLessonBtn) {
     buildLessonBtn.addEventListener('click', () => {
+      if (!lastResults || !lastResults.verses || lastResults.verses.length === 0) {
+        try {
+          var raw = sessionStorage.getItem('tdb_last_results');
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            if (parsed && parsed.verses && Array.isArray(parsed.verses)) lastResults = parsed;
+          }
+        } catch (e) {}
+      }
       const audienceEl = document.getElementById('lesson-audience');
       const titleEl = document.getElementById('lesson-title');
       const promptsEl = document.getElementById('lesson-prompts');
@@ -12533,7 +12546,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!list) return;
     var lessons = loadLessons();
     list.innerHTML = '';
-    if (!lessons.length) return;
+    if (!lessons.length) {
+      var empty = document.createElement('p');
+      empty.className = 'section-note saved-lessons-empty';
+      empty.setAttribute('aria-live', 'polite');
+      empty.textContent = 'No saved lessons yet. Search a topic on the home page, then click Build Lesson above.';
+      list.appendChild(empty);
+      return;
+    }
     var heading = document.createElement('p');
     heading.className = 'section-note';
     heading.textContent = 'Saved lessons';

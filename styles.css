@@ -4450,6 +4450,18 @@ body.red-letter-off .red-letter-card {
 .study-tools.kids-mode .study-card .list-item { padding: 0.5rem 0; }
 .study-tools.kids-mode .prompts li { font-size: 1.05rem; }
 
+/* Study lists: subtle fade-in when notes/verses/lessons render (consistent with homepage results) */
+.study-tools.study-lists-rendered #notes-list:not(:empty),
+.study-tools.study-lists-rendered #saved-verses:not(:empty),
+.study-tools.study-lists-rendered #saved-lessons-list:not(:empty) {
+  animation: resultsFadeIn 0.4s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .study-tools.study-lists-rendered #notes-list:not(:empty),
+  .study-tools.study-lists-rendered #saved-verses:not(:empty),
+  .study-tools.study-lists-rendered #saved-lessons-list:not(:empty) { animation: none; }
+}
+
 .list {
   margin-top: 1rem;
   display: grid;
@@ -4738,6 +4750,8 @@ body.red-letter-off .red-letter-card {
   font-size: 0.95rem;
   clip: auto;
   clip-path: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
   overflow: visible;
   white-space: normal;
 }

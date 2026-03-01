@@ -990,7 +990,7 @@ body {
 
 /* Subtle fade-in when results update (script adds .results-updated) */
 #output.results.results-updated {
-  animation: resultsFadeIn 0.45s ease-out forwards;
+  animation: resultsFadeIn 0.35s ease-out forwards;
 }
 
 @keyframes resultsFadeIn {
@@ -4524,7 +4524,7 @@ body.red-letter-off .red-letter-card {
 .study-tools.study-lists-rendered #notes-list:not(:empty),
 .study-tools.study-lists-rendered #saved-verses:not(:empty),
 .study-tools.study-lists-rendered #saved-lessons-list:not(:empty) {
-  animation: resultsFadeIn 0.6s ease-out forwards;
+  animation: resultsFadeIn 0.35s ease-out forwards;
 }
 @media (prefers-reduced-motion: reduce) {
   .study-tools.study-lists-rendered #notes-list:not(:empty),
@@ -5938,7 +5938,7 @@ body.red-letter-off .red-letter-card {
 }
 .intent-modal-close { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: inherit; opacity: 0.8; }
 .hero-intent { margin-top: 0.35rem; font-style: italic; }
-.prayer-map-widget { margin-top: 1rem; }
+.prayer-map-widget { margin-top: 1rem; content-visibility: auto; contain-intrinsic-size: auto 280px; }
 .prayer-map-caption { margin-bottom: 0.5rem; }
 .prayer-map-dots {
   position: relative;
@@ -6043,7 +6043,7 @@ body.red-letter-off .red-letter-card {
 }
 .dark-mode .prayer-map-caption { color: var(--muted, #94a3b8); }
 
-.patriotic-scriptures { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); }
+.patriotic-scriptures { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); content-visibility: auto; contain-intrinsic-size: auto 400px; }
 .patriotic-scriptures-title { text-align: center; font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
 .patriotic-scriptures-intro { text-align: center; margin-bottom: 1rem; }
 .patriotic-scriptures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
@@ -6058,7 +6058,7 @@ body.red-letter-off .red-letter-card {
   .patriotic-scriptures-actions .btn { width: 100%; }
 }
 
-.patriotic-hymns { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); }
+.patriotic-hymns { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); content-visibility: auto; contain-intrinsic-size: auto 400px; }
 .patriotic-hymns-title { text-align: center; font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
 .patriotic-hymns-intro { text-align: center; margin-bottom: 1rem; }
 .patriotic-hymns-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }

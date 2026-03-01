@@ -993,9 +993,9 @@ body {
   margin-right: auto;
 }
 
-/* Subtle fade-in when results update (script adds .results-updated) */
+/* Fade-in when results update (script adds .results-updated) */
 #output.results.results-updated {
-  animation: resultsFadeIn 0.35s ease-out forwards;
+  animation: resultsFadeIn 0.6s ease-out forwards;
 }
 
 @keyframes resultsFadeIn {
@@ -2050,6 +2050,7 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 
 /* Topic list: icons + color tags for faster scanning */
 .quick-topic[data-topic="family"]::before { content: '🏠 '; }
+.quick-topic[data-topic="courage"]::before { content: '⚔ '; }
 .quick-topic[data-topic="hope"]::before { content: '♥ '; color: #dc2626; }
 .quick-topic[data-topic="spiritualwarfare"]::before { content: '🛡 '; }
 .quick-topic[data-topic="heartache"]::before { content: '💔 '; }

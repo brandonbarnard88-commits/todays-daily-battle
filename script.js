@@ -477,6 +477,7 @@ const TDB_TOPICS = [
   { topic: 'hope', label: 'Hope' },
   { topic: 'fear', label: 'Fear' },
   { topic: 'peace', label: 'Peace' },
+  { topic: 'courage', label: 'Courage' },
   { topic: 'gratitude', label: 'Gratitude' },
   { topic: 'loneliness', label: 'Loneliness' },
   { topic: 'guilt', label: 'Guilt' },
@@ -9168,34 +9169,10 @@ function renderResults(results) {
     return;
   }
   if (results.verses.length === 0) {
-    output.innerHTML = '<p class="empty topic-explain">We didn\'t find a match for that search, but you\'re not alone. God\'s Word is for you—here are some verses we hope meet you where you are. Try a topic below or search again anytime.</p>';
+    output.innerHTML = '<p class="empty topic-explain">No quick hits—try <a href="bible-tool.html">Bible Tool</a>.</p>';
     const suggestions = document.createElement('div');
     suggestions.className = 'quick-start';
-    suggestions.innerHTML = `
-      <p class="section-note">Try a topic:</p>
-      <div class="quick-topics">
-        <button class="quick-topic" type="button" data-topic="heartache">Heartache</button>
-        <button class="quick-topic" type="button" data-topic="grief">Grief</button>
-        <button class="quick-topic" type="button" data-topic="anxiety">Anxiety</button>
-        <button class="quick-topic" type="button" data-topic="fear">Fear</button>
-        <button class="quick-topic" type="button" data-topic="hope">Hope</button>
-        <button class="quick-topic" type="button" data-topic="love">Love</button>
-        <button class="quick-topic" type="button" data-topic="forgiveness">Forgiveness</button>
-        <button class="quick-topic" type="button" data-topic="patience">Patience</button>
-        <button class="quick-topic" type="button" data-topic="anger">Anger</button>
-        <button class="quick-topic" type="button" data-topic="joy">Joy</button>
-        <button class="quick-topic" type="button" data-topic="gratitude">Gratitude</button>
-        <button class="quick-topic" type="button" data-topic="loneliness">Loneliness</button>
-        <button class="quick-topic" type="button" data-topic="addiction">Addiction</button>
-        <button class="quick-topic" type="button" data-topic="trauma">Trauma</button>
-        <button class="quick-topic" type="button" data-topic="finances">Finances</button>
-        <button class="quick-topic" type="button" data-topic="spiritualwarfare">Spiritual Warfare</button>
-        <button class="quick-topic" type="button" data-topic="sleep">Sleep & Rest</button>
-        <button class="quick-topic" type="button" data-topic="marriage">Marriage</button>
-        <button class="quick-topic" type="button" data-topic="relationships">Relationships</button>
-        <button class="quick-topic" type="button" data-topic="jesus said">Jesus Said</button>
-      </div>
-    `;
+    suggestions.innerHTML = '<p class="section-note util-mt-0_5">Or try: <button class="quick-topic btn btn-secondary" type="button" data-topic="family">Family</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="hope">Hope</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="fear">Fear</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="peace">Peace</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="strength">Strength</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="courage">Courage</button></p>';
     output.appendChild(suggestions);
     const queryEl = document.getElementById('query');
     const searchBtn = document.getElementById('search-btn');
@@ -9209,6 +9186,7 @@ function renderResults(results) {
         }
       });
     });
+    triggerResultsFade(output);
     return;
   }
   if (results.fallback) {
@@ -9818,7 +9796,7 @@ function triggerResultsFade(el) {
   el.classList.remove('results-updated');
   requestAnimationFrame(function () {
     el.classList.add('results-updated');
-    setTimeout(function () { el.classList.remove('results-updated'); }, 520);
+    setTimeout(function () { el.classList.remove('results-updated'); }, 650);
   });
 }
 

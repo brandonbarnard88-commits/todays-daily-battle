@@ -82,7 +82,7 @@
             <a class="btn btn-secondary" href="reader.html">Read a Chapter</a>
           </div>
         </header>
-        <section id="study-tools" class="study-tools glass">
+        <section id="study-tools" class="study-tools glass" role="region" aria-label="Study tools: notes, saved verses, lesson builder">
           <h2 class="section-divider">Study Tools</h2>
           <p class="section-note">Use these tools for study and discipleship. Read full passages for context.</p>
           <div class="study-grid">
@@ -90,13 +90,14 @@
               <h3>Notes</h3>
               <label for="note-verse-select">Attach note to</label>
               <select id="note-verse-select"></select>
-              <textarea id="note-text" rows="4" placeholder="Write a note, prayer, or insight..."></textarea>
+              <textarea id="note-text" rows="4" placeholder="Write a note, prayer, or insight..." aria-label="Note text" maxlength="10000"></textarea>
               <label class="inline-toggle" style="display:block; margin-top:0.5rem;">
                 <input id="note-private" type="checkbox" aria-label="Private note (excluded from shared links)">
                 Private (excluded from shared links)
               </label>
               <button id="save-note">Save Note</button>
-              <div id="notes-list" class="list"></div>
+              <p id="study-note-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+              <div id="notes-list" class="list" aria-live="polite" aria-relevant="additions text"></div>
             </div>
             <div class="study-card">
               <h3>Saved Verses</h3>
@@ -117,7 +118,7 @@
                 <input id="collection-share-link" placeholder="Share link will appear here" readonly>
               </div>
               <p id="collection-share-status" class="section-note"></p>
-              <div id="saved-verses" class="list"></div>
+              <div id="saved-verses" class="list" aria-live="polite" aria-relevant="additions text"></div>
             </div>
             <div class="study-card">
               <h3>Family & Group Prompts</h3>
@@ -138,7 +139,7 @@
                 <option value="church">Church</option>
               </select>
               <button id="build-lesson">Build Lesson</button>
-              <div id="lesson-output" class="list"></div>
+              <div id="lesson-output" class="list" aria-live="polite" aria-relevant="additions text"></div>
             </div>
             <div class="study-card">
               <h3>Kids & Teens Curriculum</h3>

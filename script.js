@@ -3715,6 +3715,30 @@ function wirePrayThisWithMe() {
       copyVerseAndLink(verseText, 'Copied—share it!');
     });
   }
+  var versePageShare = document.getElementById('verse-page-share');
+  if (versePageShare) {
+    versePageShare.addEventListener('click', function () { shareDailyBattle(); });
+  }
+  var versePageCopy = document.getElementById('verse-page-copy');
+  if (versePageCopy) {
+    versePageCopy.addEventListener('click', function () {
+      var card = document.getElementById('daily-verse-card');
+      var ref = card && card.querySelector('strong');
+      var p = card && card.querySelector('p');
+      var verseText = (ref && p) ? (ref.textContent + ' ' + p.textContent).trim() : (card ? card.textContent.trim() : '');
+      if (!verseText) return;
+      var url = window.location.href;
+      var full = verseText + ' ' + url;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(full).then(function () {
+          var orig = versePageCopy.textContent;
+          versePageCopy.textContent = 'Copied!';
+          versePageCopy.setAttribute('aria-label', 'Copied to clipboard');
+          setTimeout(function () { versePageCopy.textContent = orig; versePageCopy.setAttribute('aria-label', 'Copy verse and link to clipboard'); }, 2000);
+        }).catch(function () {});
+      }
+    });
+  }
   var dailyBtn = document.getElementById('pray-this-with-me-daily');
   if (dailyBtn) {
     dailyBtn.addEventListener('click', function () {
@@ -4658,6 +4682,7 @@ function getDailyVerseRefForKey(dayKey) {
 function renderDailyVerse() {
   const card = document.getElementById('daily-verse-card');
   if (!card) return;
+  card.classList.remove('verse-card-loading');
   if (!Object.keys(bible).length) {
     card.innerHTML = '<p class="empty">Bible data not loaded.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-verse-try-again">Try again</button>';
     return;
@@ -4668,6 +4693,8 @@ function renderDailyVerse() {
     return;
   }
   card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
+  card.classList.remove('verse-card-loading');
+  card.classList.add('verse-card-loaded');
 }
 
 function shareDailyBattle() {
@@ -6077,7 +6104,7 @@ async function loadBible(version = currentVersion) {
       if (typeof console !== 'undefined' && console.error) {
         console.error('Error loading Bible data:', err.message);
       }
-      alert('Could not load Bible data. Please try refreshing the page, or visit ' + BIBLE_DATA_ORIGIN + ' if you opened this from a file.');
+      alert('Could not load Bible data. Check your connection and try again, or refresh the page.');
     }
   }
 }
@@ -7900,11 +7927,12 @@ function populateReaderChapters(book) {
 function renderReaderChapter(book, chapter) {
   const output = document.getElementById('reader-output');
   if (!output) return;
+  output.classList.remove('reader-output-empty');
   output.innerHTML = '';
   const key = `${book} ${chapter}`;
   const verses = chapterIndex[key];
   if (!verses) {
-    output.innerHTML = '<p class="empty">Chapter not found.</p>';
+    output.innerHTML = '<p class="empty">Chapter not found. Check book and chapter, or try another reference.</p>';
     return;
   }
   const heading = document.createElement('div');
@@ -11490,6 +11518,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (sermonDateInput && !sermonDateInput.value) {
     sermonDateInput.value = new Date().toISOString().slice(0, 10);
   }
+  const sermonDate = document.getElementById('sermon-date');
+  if (sermonDate && !sermonDate.value) {
+    sermonDate.value = new Date().toISOString().slice(0, 10);
+  }
 
   const params = new URLSearchParams(window.location.search);
   const shareId = params.get('share');
@@ -11559,6 +11591,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         textArea.value = '';
         if (privateCheck) privateCheck.checked = false;
         renderNotes();
+        var statusEl = document.getElementById('study-note-status');
+        if (statusEl) {
+          statusEl.textContent = 'Note saved.';
+          setTimeout(function () { statusEl.textContent = ''; }, 2500);
+        }
       })();
     });
   }

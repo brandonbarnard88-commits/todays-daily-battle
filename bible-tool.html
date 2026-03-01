@@ -119,7 +119,7 @@
             <input type="number" id="verse" placeholder="Vs" min="1" aria-label="Verse" />
             <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
           </div>
-          <div id="lookup-result" class="hidden util-mt-1">
+          <div id="lookup-result" class="hidden util-mt-1" role="region" aria-live="polite" aria-label="Lookup result">
             <p class="verse-ref" id="lookup-ref"></p>
             <p id="lookup-text" class="util-mt-0_5"></p>
             <div class="util-mt-0_5">
@@ -127,6 +127,7 @@
               <button type="button" id="copy-lookup" class="link-button" aria-label="Copy verse to clipboard">Copy</button>
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
+              <a id="lookup-read-chapter" href="#" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
               <span id="cross-refs" class="section-note"></span>
             </div>
             <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
@@ -334,7 +335,7 @@
     if (elRef) elRef.textContent = ref;
     fetchVerse(ref, function (data) {
       if (elText && data) elText.textContent = data.text;
-      else if (elText) elText.textContent = KEY_VERSES[ref] || '—';
+      else if (elText) elText.textContent = KEY_VERSES[ref] || 'Unable to load. Check your connection and try again.';
     });
   }
 
@@ -343,10 +344,21 @@
     var refEl = document.getElementById('lookup-ref');
     var textEl = document.getElementById('lookup-text');
     var crossEl = document.getElementById('cross-refs');
+    var readChapterLink = document.getElementById('lookup-read-chapter');
     if (!block || !data) return;
     refEl.textContent = data.reference;
     refEl.className = 'verse-ref';
     textEl.textContent = data.text;
+    var parts = parseRefToParts(data.reference);
+    if (readChapterLink) {
+      if (parts && parts.book && parts.chapter) {
+        readChapterLink.href = 'reader.html?book=' + encodeURIComponent(parts.book) + '&chapter=' + encodeURIComponent(parts.chapter);
+        readChapterLink.classList.remove('hidden');
+      } else {
+        readChapterLink.href = '#';
+        readChapterLink.classList.add('hidden');
+      }
+    }
     var refs = getCrossRefs(data.reference);
     if (crossEl) {
       crossEl.innerHTML = refs.length ? 'Related: ' + refs.map(function (r) {
@@ -360,6 +372,16 @@
     if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     renderNotes();
+  }
+
+  function renderLookupError(ref) {
+    var block = document.getElementById('lookup-result');
+    if (!block) return;
+    block.classList.remove('hidden');
+    block.innerHTML = '<p class="empty">Verse unavailable—check your connection or try another reference.</p><button type="button" id="lookup-retry" class="btn btn-secondary">Try again</button>';
+    block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    var retryBtn = document.getElementById('lookup-retry');
+    if (retryBtn) retryBtn.addEventListener('click', function () { doLookup(); });
   }
 
   function escapeHtml(s) {
@@ -482,7 +504,9 @@
     refParam = normRef(decodeURIComponent(refParam));
     var parts = parseRefToParts(refParam);
     if (parts) setLookupForm(parts.book, parts.chapter, parts.verse);
-    fetchVerse(refParam, renderLookup);
+    fetchVerse(refParam, function (data) {
+      if (data) renderLookup(data); else renderLookupError(refParam);
+    });
   }
 
   document.getElementById('lookup-btn').addEventListener('click', function () {
@@ -507,7 +531,7 @@
       btn.textContent = origText;
     }
     fetchVerse(ref, function (data) {
-      renderLookup(data);
+      if (data) renderLookup(data); else renderLookupError(ref);
       finish();
     });
     setTimeout(finish, 10000);

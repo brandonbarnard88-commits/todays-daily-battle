@@ -100,8 +100,14 @@
         <section id="verse-of-day" class="verse-of-day glass" role="region" aria-live="polite" aria-label="Verse of the day">
           <h2 class="section-divider">Verse of the Day</h2>
           <p class="section-note">Updates daily at your local midnight.</p>
-          <div id="daily-verse-card" class="verse-card" aria-live="polite"></div>
-          <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy verse and share link">Pray this with me</button>
+          <div id="daily-verse-card" class="verse-card verse-card-loading" aria-live="polite">
+            <p class="section-note empty verse-loading-msg" role="status"><span class="tdb-spinner" aria-hidden="true"></span> Loading…</p>
+          </div>
+          <div class="verse-card-actions" aria-label="Share or copy verse">
+            <button type="button" id="verse-page-share" class="btn btn-primary">Share</button>
+            <button type="button" id="verse-page-copy" class="btn btn-secondary" aria-label="Copy verse and link to clipboard">Copy</button>
+            <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy verse and share link">Pray this with me</button>
+          </div>
         </section>
       </div>
     </main>

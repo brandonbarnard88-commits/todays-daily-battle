@@ -30,6 +30,12 @@
     .bible-tool .verse-ref { font-weight: 600; }
     .bible-tool .lookup-controls select:focus, .bible-tool .lookup-controls input:focus { outline: 2px solid rgba(167, 139, 250, 0.6); outline-offset: 2px; }
     .bible-tool #lookup-result { scroll-margin-top: 1rem; }
+    .bible-tool .plan-progress-bar { height: 8px; background: rgba(148,163,184,0.2); border-radius: 4px; overflow: hidden; margin: 0.5rem 0; }
+    .bible-tool .plan-progress-fill { height: 100%; background: linear-gradient(90deg, #6d28d9, #d4af37); border-radius: 4px; transition: width 0.3s ease; }
+    .bible-tool .plan-day-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 6px; background: rgba(212,175,55,0.2); color: #d4af37; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .bible-tool .plan-reflection { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.12); border-left: 3px solid #6d28d9; font-size: 0.9rem; }
+    .bible-tool .plan-complete-msg { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4); color: #d4af37; font-weight: 600; }
+    .bible-tool .share-progress-btn { margin-top: 0.5rem; }
   </style>
 </head>
 <body class="dark-mode">
@@ -117,12 +123,22 @@
           <h2 class="section-divider util-mt-0">Reading plan</h2>
           <select id="plan-picker" aria-label="Plan">
             <option value="armor">Armor of God (7 days) — Ephesians 6</option>
+            <option value="strength">Strength (7 days)</option>
+            <option value="fear">Victory Over Fear (7 days)</option>
+            <option value="family">Family (7 days)</option>
             <option value="custom">Custom (enter refs below)</option>
           </select>
+          <div id="plan-progress-wrap" class="util-mt-1">
+            <div id="plan-progress-bar" class="plan-progress-bar hidden"><div id="plan-progress-fill" class="plan-progress-fill" style="width: 0%"></div></div>
+            <p id="plan-day-badge" class="plan-day-badge hidden"></p>
+            <div id="plan-reflection" class="plan-reflection hidden"></div>
+            <p id="plan-complete-msg" class="plan-complete-msg hidden"></p>
+            <button type="button" id="share-progress-btn" class="btn btn-secondary share-progress-btn hidden">Share progress</button>
+            <div id="plan-progress" class="util-mt-1"></div>
+          </div>
           <div id="plan-custom" class="hidden util-mt-1">
             <input type="text" id="plan-refs" placeholder="e.g. John 1, John 2, Psalm 23" aria-label="Custom verse references" />
           </div>
-          <div id="plan-progress" class="util-mt-1"></div>
         </section>
 
         <!-- Win the Day -->
@@ -139,6 +155,14 @@
           </select>
           <button type="button" id="win-btn" class="btn btn-primary">Generate</button>
           <div id="win-result" class="hidden util-mt-1"></div>
+        </section>
+
+        <!-- Battle Ready -->
+        <section class="verse-card glass border-accent" aria-label="Battle Ready">
+          <h2 class="section-divider util-mt-0">Battle Ready</h2>
+          <p class="section-note">One random strength verse + a short prayer to start your fight.</p>
+          <button type="button" id="battle-ready-btn" class="btn btn-primary">Get battle ready</button>
+          <div id="battle-ready-result" class="hidden util-mt-1"></div>
         </section>
 
         <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="verse.html">Verse of the Day</a> · <a href="reading-plan.html">7-Day Plan</a> · <a href="study.html">Study Tools</a></p>
@@ -211,7 +235,29 @@
     perseverance: ['James 1:12', 'Hebrews 12:1', '1 Corinthians 16:13']
   };
 
+  var BATTLE_READY_REFS = ['Philippians 4:13', 'Isaiah 40:31', 'Joshua 1:9', 'Nehemiah 8:10', 'Psalm 46:1', 'Ephesians 6:10', '2 Timothy 1:7', '1 Corinthians 16:13'];
+  var BATTLE_PRAYERS = [
+    'Lord, gird me with your strength for this day. Amen.',
+    'Father, help me stand in your armor and not my own. Amen.',
+    'God, I take courage from your Word. Win the day through me. Amen.',
+    'Lord, let this verse be my battle cry today. Amen.'
+  ];
+
   var ARMOR_PLAN = ['Ephesians 6:10', 'Ephesians 6:11', 'Ephesians 6:12', 'Ephesians 6:13', 'Ephesians 6:14', 'Ephesians 6:15', 'Ephesians 6:16'];
+
+  var STRENGTH_PLAN = ['Philippians 4:13', 'Isaiah 40:31', 'Nehemiah 8:10', 'Psalm 46:1', '2 Timothy 4:17', '1 Corinthians 16:13', 'Ephesians 6:10'];
+  var FEAR_PLAN = ['2 Timothy 1:7', 'Isaiah 41:10', 'Joshua 1:9', 'Psalm 27:1', 'Psalm 56:3', 'Romans 8:15', 'Psalm 34:4'];
+  var FAMILY_PLAN = ['Joshua 24:15', 'Deuteronomy 6:6', 'Proverbs 22:6', 'Colossians 3:21', 'Ephesians 6:4', 'Psalm 127:3', 'Proverbs 17:6'];
+
+  var PLAN_REFLECTIONS = {
+    armor: ['Where do you need the belt of truth most today?', 'How can you put on the breastplate of righteousness in one relationship?', 'Where do you need to stand firm with the gospel of peace?', 'When did you last hold up the shield of faith?', 'What step of obedience is God asking for today?', 'How will you pray in the Spirit today?', 'Name one way you will stand in the full armor tomorrow.'],
+    strength: ['Where do you need Christ’s strength instead of your own?', 'What are you waiting on God for?', 'How can you celebrate God’s goodness today?', 'Where do you need God as your refuge?', 'Who needs you to be strong in the Lord?', 'What battle will you face in faith today?', 'How will you armor up for the week ahead?'],
+    fear: ['What fear are you handing to God today?', 'How is God with you in this situation?', 'Where will you choose courage today?', 'What truth from Scripture can replace one lie?', 'When you are afraid, what will you do?', 'How does God’s Spirit remind you you’re not alone?', 'Who can you encourage with “fear not” this week?'],
+    family: ['How will you serve the Lord in your home today?', 'When will you talk about Scripture with your household?', 'What habit do you want to pass on?', 'How can you avoid provoking and instead encourage?', 'What one way will you nurture your children in the Lord?', 'How are your children a heritage from the Lord?', 'What legacy of faith are you building?']
+  };
+
+  var THEMED_PLANS = { armor: ARMOR_PLAN, strength: STRENGTH_PLAN, fear: FEAR_PLAN, family: FAMILY_PLAN };
+  var PLAN_NAMES = { armor: 'Armor of God', strength: 'Strength', fear: 'Victory Over Fear', family: 'Family' };
 
   var BOOKS = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
 
@@ -331,6 +377,10 @@
   }
 
   document.getElementById('lookup-btn').addEventListener('click', function () {
+    doLookup();
+  });
+
+  function doLookup() {
     var book = document.getElementById('book').value;
     var ch = document.getElementById('chapter').value;
     var vs = document.getElementById('verse').value;
@@ -345,7 +395,10 @@
       btn.disabled = false;
       btn.textContent = origText;
     });
-  });
+  }
+
+  document.getElementById('chapter').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLookup(); });
+  document.getElementById('verse').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLookup(); });
 
   document.getElementById('share-daily').addEventListener('click', function () {
     shareVerse(document.getElementById('daily-ref').textContent, document.getElementById('daily-text').textContent);
@@ -375,16 +428,79 @@
     renderPlan();
   });
 
-  function renderPlan() {
+  function getPlanList() {
     var picker = document.getElementById('plan-picker');
     var customRefs = document.getElementById('plan-refs');
-    var list = picker.value === 'armor' ? ARMOR_PLAN : (customRefs && customRefs.value ? customRefs.value.split(/[\s,]+/).map(function (s) { return s.trim(); }).filter(Boolean) : []);
+    if (picker.value === 'custom' && customRefs && customRefs.value) {
+      return customRefs.value.split(/[\s,]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+    }
+    return THEMED_PLANS[picker.value] || [];
+  }
+
+  function renderPlan() {
+    var picker = document.getElementById('plan-picker');
+    var list = getPlanList();
+    var isThemed = THEMED_PLANS[picker.value];
+    var planId = picker.value;
+    var planName = PLAN_NAMES[planId] || 'Custom';
     var saved = {};
     try { saved = JSON.parse(localStorage.getItem(STORAGE_PLAN) || '{}'); } catch (_) {}
+    var completed = list.filter(function (r) { return saved[r]; }).length;
+    var total = list.length;
+
+    var wrap = document.getElementById('plan-progress-wrap');
+    var barEl = document.getElementById('plan-progress-bar');
+    var fillEl = document.getElementById('plan-progress-fill');
+    var badgeEl = document.getElementById('plan-day-badge');
+    var reflEl = document.getElementById('plan-reflection');
+    var completeEl = document.getElementById('plan-complete-msg');
+    var shareBtn = document.getElementById('share-progress-btn');
     var progress = document.getElementById('plan-progress');
+
     if (!progress) return;
-    if (!list.length) { progress.innerHTML = ''; return; }
-    progress.innerHTML = '<p class="section-note util-mb-0_5">Progress</p>' + list.map(function (ref) {
+
+    if (!list.length) {
+      wrap.classList.add('hidden');
+      progress.innerHTML = '';
+      return;
+    }
+
+    wrap.classList.remove('hidden');
+    if (barEl) barEl.classList.toggle('hidden', !isThemed);
+    if (fillEl && total) fillEl.style.width = Math.round((completed / total) * 100) + '%';
+    if (badgeEl) {
+      badgeEl.classList.toggle('hidden', !isThemed);
+      badgeEl.textContent = completed >= total ? 'Day 7 of 7 — Complete!' : 'Day ' + (completed + 1) + ' of ' + total;
+    }
+    if (reflEl && isThemed) {
+      reflEl.classList.remove('hidden');
+      var reflections = PLAN_REFLECTIONS[planId];
+      if (reflections && completed < total) {
+        reflEl.textContent = 'Reflection: ' + reflections[completed];
+        reflEl.setAttribute('aria-label', 'Reflection for day ' + (completed + 1));
+      } else { reflEl.classList.add('hidden'); }
+    } else if (reflEl) reflEl.classList.add('hidden');
+    if (completeEl && isThemed) {
+      completeEl.classList.toggle('hidden', completed < total);
+      if (completed >= total) completeEl.textContent = '✓ Plan complete. Armor up and share your victory!';
+    }
+    if (shareBtn) {
+      shareBtn.classList.toggle('hidden', !isThemed);
+      shareBtn.onclick = function () {
+        var text = completed >= total
+          ? 'I finished the ' + planName + ' plan! todaysdailybattle.com/bible-tool.html'
+          : 'Day ' + (completed + 1) + ' of ' + total + ' — ' + planName + '. todaysdailybattle.com/bible-tool.html';
+        if (navigator.share) {
+          navigator.share({ title: "Today's Daily Battle", text: text }).catch(function () {
+            if (navigator.clipboard) navigator.clipboard.writeText(text);
+          });
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(text);
+        }
+      };
+    }
+
+    progress.innerHTML = '<p class="section-note util-mb-0_5">Check off as you read</p>' + list.map(function (ref) {
       var done = saved[ref];
       return '<label class="plan-progress label"><input type="checkbox" data-ref="' + ref.replace(/"/g, '&quot;') + '" ' + (done ? 'checked' : '') + ' /> <span>' + ref + '</span></label>';
     }).join('');
@@ -393,6 +509,7 @@
         var r = this.dataset.ref;
         saved[r] = this.checked;
         try { localStorage.setItem(STORAGE_PLAN, JSON.stringify(saved)); } catch (_) {}
+        renderPlan();
       });
     });
   }
@@ -424,6 +541,22 @@
           container.innerHTML = html;
         }
       });
+    });
+  });
+
+  document.getElementById('battle-ready-btn').addEventListener('click', function () {
+    var container = document.getElementById('battle-ready-result');
+    var btn = document.getElementById('battle-ready-btn');
+    container.classList.remove('hidden');
+    container.innerHTML = '<p class="section-note">Loading…</p>';
+    btn.disabled = true;
+    var ref = BATTLE_READY_REFS[Math.floor(Math.random() * BATTLE_READY_REFS.length)];
+    var prayer = BATTLE_PRAYERS[Math.floor(Math.random() * BATTLE_PRAYERS.length)];
+    fetchVerse(ref, function (data) {
+      btn.disabled = false;
+      if (data) {
+        container.innerHTML = '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + data.reference + '</p><p class="util-mt-0_5">' + data.text + '</p></div><p class="section-note util-mt-0_5" style="font-style:italic">' + prayer + '</p>';
+      } else container.innerHTML = '<p class="section-note">Try again.</p>';
     });
   });
 

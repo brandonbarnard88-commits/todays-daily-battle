@@ -6638,6 +6638,30 @@ function getBibleToolNotes() {
     return { battleLog: '', verseNotes: [] };
   }
 }
+function removeBibleToolNoteByRef(ref) {
+  try {
+    var raw = localStorage.getItem(TDB_BIBLE_TOOL_NOTES_KEY);
+    var obj = raw ? JSON.parse(raw) : {};
+    if (obj && typeof obj === 'object' && ref) {
+      delete obj[ref];
+      localStorage.setItem(TDB_BIBLE_TOOL_NOTES_KEY, JSON.stringify(obj));
+    }
+  } catch (e) {}
+}
+
+var SAVED_VERSES_KEY = 'savedVerses';
+function loadSavedVersesArray() {
+  try {
+    return JSON.parse(localStorage.getItem(SAVED_VERSES_KEY) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+function saveSavedVersesArray(arr) {
+  try {
+    localStorage.setItem(SAVED_VERSES_KEY, JSON.stringify(arr));
+  } catch (e) {}
+}
 
 function loadSermonDraft() {
   try {
@@ -8378,16 +8402,25 @@ function renderSavedVerses() {
     toolSection.className = 'list';
     fromTool.verseNotes.forEach(function (v) {
       var row = document.createElement('div');
-      row.className = 'list-item';
+      row.className = 'list-item saved-note-card';
       row.innerHTML = '<div><strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.note) + '</p></div>';
       var actions = document.createElement('div');
       actions.className = 'item-actions';
       var copyBtn = document.createElement('button');
       copyBtn.textContent = 'Copy';
+      copyBtn.setAttribute('aria-label', 'Copy verse and note');
       copyBtn.onclick = function () {
         if (navigator.clipboard) navigator.clipboard.writeText(v.ref + ': ' + v.note);
       };
+      var deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.setAttribute('aria-label', 'Delete this verse from Bible Tool notes');
+      deleteBtn.onclick = function () {
+        removeBibleToolNoteByRef(v.ref);
+        renderSavedVerses();
+      };
       actions.appendChild(copyBtn);
+      actions.appendChild(deleteBtn);
       row.appendChild(actions);
       toolSection.appendChild(row);
     });
@@ -8399,6 +8432,44 @@ function renderSavedVerses() {
       logP.innerHTML = '<strong>Battle log</strong>: ' + escapeHtml(logPreview);
       container.appendChild(logP);
     }
+  }
+  var savedVersesArr = loadSavedVersesArray();
+  if (savedVersesArr && savedVersesArr.length) {
+    var svHeading = document.createElement('div');
+    svHeading.className = 'section-note';
+    svHeading.textContent = 'Saved verses';
+    container.appendChild(svHeading);
+    savedVersesArr.forEach(function (v, idx) {
+      var card = document.createElement('div');
+      card.className = 'list-item saved-note-card';
+      var ref = v.ref || '';
+      var text = v.text || '';
+      var note = v.note || '';
+      var date = v.date || '';
+      card.innerHTML = '<div><strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(text) + '</p>' + (note ? '<p class="saved-note-note">' + escapeHtml(note) + '</p>' : '') + (date ? '<span class="section-note">' + escapeHtml(date) + '</span>' : '') + '</div>';
+      var actions = document.createElement('div');
+      actions.className = 'item-actions';
+      var copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.setAttribute('aria-label', 'Copy verse and text');
+      copyBtn.onclick = function () {
+        if (navigator.clipboard) navigator.clipboard.writeText(ref + ': ' + text);
+      };
+      var deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.setAttribute('aria-label', 'Delete this verse');
+      (function (index) {
+        deleteBtn.onclick = function () {
+          var next = loadSavedVersesArray().filter(function (_, i) { return i !== index; });
+          saveSavedVersesArray(next);
+          renderSavedVerses();
+        };
+      })(idx);
+      actions.appendChild(copyBtn);
+      actions.appendChild(deleteBtn);
+      card.appendChild(actions);
+      container.appendChild(card);
+    });
   }
   let collections = loadSavedCollections();
   let items = loadSavedCollectionItems();
@@ -8413,7 +8484,9 @@ function renderSavedVerses() {
   }
   if (collections.length === 0 && items.length === 0) {
     if (!fromTool.verseNotes || !fromTool.verseNotes.length) {
-      container.innerHTML = '<p class="empty">No saved verses yet—<a href="bible-tool.html">add from Bible Tool</a> to win your battles! ⚔️</p>';
+      if (!savedVersesArr || !savedVersesArr.length) {
+        container.innerHTML = '<p class="empty">No notes or verses yet—add from <a href="bible-tool.html">Bible Tool</a> to win your battles! ⚔️</p>';
+      }
     }
     return;
   }
@@ -8633,24 +8706,43 @@ function renderNotes() {
     container.innerHTML = '<p class="empty">No notes yet—add verses from <a href="bible-tool.html">Bible Tool</a> to win your battles! ⚔️</p>';
     return;
   }
+  const select = document.getElementById('note-verse-select');
+  const textarea = document.getElementById('notes-textarea') || document.getElementById('note-text');
   notes.forEach(note => {
     const row = document.createElement('div');
-    row.className = 'list-item';
-      const wrap = document.createElement('div');
-      const strong = document.createElement('strong');
-      strong.textContent = note.ref || '';
-      const p = document.createElement('p');
-      p.textContent = note.text || '';
-      wrap.appendChild(strong);
-      wrap.appendChild(p);
-      row.appendChild(wrap);
+    row.className = 'list-item saved-note-card';
+    row.setAttribute('role', 'listitem');
+    const wrap = document.createElement('div');
+    const strong = document.createElement('strong');
+    strong.textContent = note.ref || '';
+    const p = document.createElement('p');
+    p.textContent = note.text || '';
+    wrap.appendChild(strong);
+    wrap.appendChild(p);
+    row.appendChild(wrap);
     const actions = document.createElement('div');
     actions.className = 'item-actions';
     const copyBtn = document.createElement('button');
     copyBtn.textContent = 'Copy';
-    copyBtn.onclick = () => navigator.clipboard.writeText(`${note.ref}: ${note.text}`);
+    copyBtn.setAttribute('aria-label', 'Copy note');
+    copyBtn.onclick = () => {
+      if (navigator.clipboard) navigator.clipboard.writeText((note.ref ? note.ref + ': ' : '') + note.text);
+    };
+    const editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+    editBtn.setAttribute('aria-label', 'Edit note');
+    editBtn.onclick = () => {
+      if (select) select.value = note.ref || 'General';
+      if (textarea) {
+        textarea.value = note.text || '';
+        textarea.focus();
+      }
+      var editIdEl = document.getElementById('note-edit-id');
+      if (editIdEl) editIdEl.value = note.id || '';
+    };
     const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remove';
+    removeBtn.textContent = 'Delete';
+    removeBtn.setAttribute('aria-label', 'Delete note');
     removeBtn.onclick = async () => {
       const next = loadNotes().filter(n => n.id !== note.id);
       saveNotes(next);
@@ -8658,6 +8750,7 @@ function renderNotes() {
       renderNotes();
     };
     actions.appendChild(copyBtn);
+    actions.appendChild(editBtn);
     actions.appendChild(removeBtn);
     row.appendChild(actions);
     container.appendChild(row);
@@ -11808,11 +11901,27 @@ document.addEventListener('DOMContentLoaded', async () => {
       const select = document.getElementById('note-verse-select');
       const textArea = document.getElementById('notes-textarea') || document.getElementById('note-text');
       const privateCheck = document.getElementById('note-private');
+      const editIdEl = document.getElementById('note-edit-id');
       if (!textArea) return;
       const text = textArea.value.trim();
       if (!text) return;
       (async () => {
         const notes = loadNotes();
+        const editingId = editIdEl && editIdEl.value ? editIdEl.value.trim() : '';
+        if (editingId) {
+          const idx = notes.findIndex(n => n.id === editingId);
+          if (idx !== -1) {
+            notes[idx] = { ...notes[idx], ref: select ? select.value : 'General', text, private: !!(privateCheck && privateCheck.checked) };
+            saveNotes(notes);
+            if (editIdEl) editIdEl.value = '';
+            textArea.value = '';
+            if (privateCheck) privateCheck.checked = false;
+            renderNotes();
+            var statusEl = document.getElementById('study-note-status');
+            if (statusEl) { statusEl.textContent = 'Note updated.'; setTimeout(function () { statusEl.textContent = ''; }, 2500); }
+            return;
+          }
+        }
         const localNote = {
           id: generateUuid(),
           ref: select ? select.value : 'General',
@@ -11825,6 +11934,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         saveNotes(notes);
         textArea.value = '';
         if (privateCheck) privateCheck.checked = false;
+        if (editIdEl) editIdEl.value = '';
         renderNotes();
         var statusEl = document.getElementById('study-note-status');
         if (statusEl) {

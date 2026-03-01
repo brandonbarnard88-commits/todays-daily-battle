@@ -100,8 +100,9 @@
                 Private (excluded from shared links)
               </label>
               <button id="save-note">Save Note</button>
+              <input type="hidden" id="note-edit-id" value="" aria-hidden="true">
               <p id="study-note-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
-              <div id="notes-list" class="list" aria-live="polite" aria-relevant="additions text"></div>
+              <div id="notes-list" class="list" role="list" aria-label="Saved notes" aria-live="polite" aria-relevant="additions text"></div>
             </div>
             <div class="study-card">
               <h3>Saved Verses</h3>
@@ -123,7 +124,7 @@
                 <input id="collection-share-link" placeholder="Share link will appear here" readonly>
               </div>
               <p id="collection-share-status" class="section-note"></p>
-              <div id="saved-verses" class="list" aria-live="polite" aria-relevant="additions text"></div>
+              <div id="saved-verses" class="list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
             </div>
             <div class="study-card">
               <h3>Family & Group Prompts</h3>

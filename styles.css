@@ -4415,6 +4415,23 @@ body.red-letter-off .red-letter-card {
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
 }
 
+.saved-note-card {
+  border: 1px solid var(--border-subtle, #ccc);
+  padding: 1rem;
+  margin: 1rem 0;
+  background: var(--card-light, #fff);
+  border-radius: var(--radius-md, 8px);
+  transition: transform var(--transition-smooth, 0.2s ease), box-shadow var(--transition-smooth, 0.2s ease);
+}
+.saved-note-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+.dark-mode .saved-note-card {
+  background: var(--card-dark);
+  border-color: var(--border-subtle);
+}
+
 /* Base card for consistent panels (verse cards, prayer list, progress blocks) */
 .card {
   background: var(--card-light);

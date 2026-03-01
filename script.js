@@ -9991,8 +9991,10 @@ function tdbInit() {
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
 
   /* Wire search - run after renderQuickTopicButtons so buttons exist */
-  renderQuickTopicButtons('quick-actions-hero', false, true);
-  renderQuickTopicButtons('quick-actions-accordion', false);
+  try {
+    renderQuickTopicButtons('quick-actions-hero', false, true);
+    renderQuickTopicButtons('quick-actions-accordion', false);
+  } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {
     (function wireSearchAndQuickTopics() {
@@ -13658,11 +13660,16 @@ function tdbInit() {
     setTimeout(run, 1500);
   })();
 }
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', tdbInit);
-} else {
-  tdbInit();
+function scheduleTdbInit() {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function onReady() {
+      setTimeout(tdbInit, 0);
+    });
+  } else {
+    setTimeout(tdbInit, 0);
+  }
 }
+scheduleTdbInit();
 // Footer build date fallback (local dev): replace TDB_BUILD_DATE with current date if still placeholder
 (function () {
   var el = document.getElementById('footer-date');

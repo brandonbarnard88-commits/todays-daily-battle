@@ -109,6 +109,8 @@ for (const f of otherHtml) {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
     const required = [
       ['id="quick-actions-hero"', 'quick-topic buttons'],
+      ['id="query"', 'search input'],
+      ['id="search-btn"', 'search button'],
       ['class="quick-links"', 'quick-links tools section'],
       ['bible-tool.html', 'Bible Tool link'],
       ['pastor-toolkit.html', 'Pastor Toolkit link'],

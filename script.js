@@ -5879,13 +5879,24 @@ function speakVerse(ref, text) {
 
 function speakChapter(book, chapter) {
   const key = `${book} ${chapter}`;
-  const verses = chapterIndex[key];
+  let verses = chapterIndex[key];
   if (!verses || !verses.length) {
-    alert('Chapter not ready yet.');
+    const output = document.getElementById('reader-output');
+    if (output && output.querySelectorAll) {
+      const lines = output.querySelectorAll('.context-line');
+      if (lines.length) {
+        const text = Array.prototype.map.call(lines, function (el) { return el.textContent || ''; }).join(' ');
+        if (text.trim()) {
+          speakVerse(key, text.trim());
+          return;
+        }
+      }
+    }
+    alert('Chapter not ready yet. Click Open Chapter first.');
     return;
   }
   const text = verses.map(v => v.text).join(' ');
-  speakVerse(`${key}`, text);
+  speakVerse(key, text);
 }
 
 function getVersePageUrl(ref) {
@@ -11681,6 +11692,50 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderSavedVerses();
   renderNotes();
   if (document.getElementById('note-verse-select')) updateNoteSelect(null);
+  if (document.getElementById('saved-lessons-list') && typeof renderSavedLessons === 'function') renderSavedLessons();
+  (function applySharedLessonFromQuery() {
+    var params = typeof URLSearchParams !== 'undefined' && window.location.search ? new URLSearchParams(window.location.search) : null;
+    var encoded = params && params.get('lesson');
+    if (!encoded) return;
+    try {
+      var json = decodeURIComponent(escape(atob(encoded)));
+      var lesson = JSON.parse(json);
+      if (lesson && lesson.content && Array.isArray(lesson.content)) {
+        if (typeof confirm !== 'undefined' && !confirm('Import shared lesson: ' + (lesson.title || 'Lesson') + '?')) return;
+        lesson.id = typeof generateUuid === 'function' ? generateUuid() : lesson.id;
+        var lessons = loadLessons();
+        lessons.unshift(lesson);
+        saveLessons(lessons);
+        if (typeof renderSavedLessons === 'function') renderSavedLessons();
+        var output = document.getElementById('lesson-output');
+        if (output) {
+          output.innerHTML = '';
+          lesson.content.forEach(function (line) {
+            var item = document.createElement('div');
+            item.className = 'list-item';
+            item.textContent = line;
+            output.appendChild(item);
+          });
+        }
+        history.replaceState({}, '', window.location.pathname || 'study.html');
+      }
+    } catch (e) {}
+  })();
+  (function initStudyKidsMode() {
+    var cb = document.getElementById('study-kids-mode');
+    var section = document.getElementById('study-tools');
+    if (!cb || !section) return;
+    try {
+      if (localStorage.getItem('tdb_study_kids_mode') === '1') {
+        cb.checked = true;
+        section.classList.add('kids-mode');
+      }
+    } catch (e) {}
+    cb.addEventListener('change', function () {
+      section.classList.toggle('kids-mode', cb.checked);
+      try { localStorage.setItem('tdb_study_kids_mode', cb.checked ? '1' : '0'); } catch (e) {}
+    });
+  })();
   populateTemplateList();
   populateColoringStories();
   setupColoringCanvas();
@@ -12147,12 +12202,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     buildLessonBtn.addEventListener('click', () => {
       const audienceEl = document.getElementById('lesson-audience');
       const output = document.getElementById('lesson-output');
+      const shareBtn = document.getElementById('share-lesson-btn');
       if (!output) return;
       const audience = audienceEl ? audienceEl.value : 'kids';
       output.innerHTML = '';
       const plan = buildLessonPlan(lastResults, audience);
       const lessons = loadLessons();
-      const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString() };
+      const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString(), title: (document.getElementById('lesson-title') && document.getElementById('lesson-title').value) ? document.getElementById('lesson-title').value.trim() : ('Lesson ' + new Date().toLocaleDateString()), prompts: (document.getElementById('lesson-prompts') && document.getElementById('lesson-prompts').value) ? document.getElementById('lesson-prompts').value.trim() : '' };
       lessons.unshift(lessonRecord);
       saveLessons(lessons);
       saveLessonPlanToSupabase(audience, plan);
@@ -12162,11 +12218,77 @@ document.addEventListener('DOMContentLoaded', async () => {
         item.textContent = line;
         output.appendChild(item);
       });
+      if (shareBtn) {
+        shareBtn.classList.remove('hidden');
+        shareBtn.dataset.lessonId = lessonRecord.id;
+      }
+      if (typeof renderSavedLessons === 'function') renderSavedLessons();
       if (canUseSupabase()) {
         const savedNote = document.createElement('div');
         savedNote.className = 'list-item';
         savedNote.textContent = 'Lesson saved to your account.';
         output.appendChild(savedNote);
+      }
+    });
+  }
+
+  function buildLessonShareUrl(lesson) {
+    if (!lesson || !lesson.id) return '';
+    try {
+      var base = window.location.origin + (window.location.pathname || '').replace(/\/[^/]*$/, '') || window.location.origin;
+      if (!base.endsWith('/')) base += '/';
+      var studyBase = base + 'study.html';
+      var payload = btoa(unescape(encodeURIComponent(JSON.stringify(lesson))));
+      return studyBase + '?lesson=' + encodeURIComponent(payload);
+    } catch (e) { return ''; }
+  }
+
+  function renderSavedLessons() {
+    var list = document.getElementById('saved-lessons-list');
+    if (!list) return;
+    var lessons = loadLessons();
+    list.innerHTML = '';
+    if (!lessons.length) return;
+    var heading = document.createElement('p');
+    heading.className = 'section-note';
+    heading.textContent = 'Saved lessons';
+    list.appendChild(heading);
+    lessons.slice(0, 10).forEach(function (lesson) {
+      var row = document.createElement('div');
+      row.className = 'list-item';
+      var title = lesson.title || ('Lesson ' + (lesson.createdAt ? new Date(lesson.createdAt).toLocaleDateString() : ''));
+      row.innerHTML = '<div><strong>' + escapeHtml(title) + '</strong> <span class="section-note">' + (lesson.audience || '') + '</span></div>';
+      var actions = document.createElement('div');
+      actions.className = 'item-actions';
+      var shareBtn = document.createElement('button');
+      shareBtn.textContent = 'Share link';
+      shareBtn.type = 'button';
+      shareBtn.addEventListener('click', function () {
+        var url = buildLessonShareUrl(lesson);
+        if (url && navigator.clipboard) {
+          navigator.clipboard.writeText(url);
+          shareBtn.textContent = 'Copied!';
+          setTimeout(function () { shareBtn.textContent = 'Share link'; }, 2000);
+        }
+      });
+      actions.appendChild(shareBtn);
+      row.appendChild(actions);
+      list.appendChild(row);
+    });
+  }
+
+  var shareLessonBtn = document.getElementById('share-lesson-btn');
+  if (shareLessonBtn) {
+    shareLessonBtn.addEventListener('click', function () {
+      var id = shareLessonBtn.dataset.lessonId;
+      var lessons = loadLessons();
+      var lesson = lessons.find(function (l) { return l.id === id; });
+      if (!lesson) return;
+      var url = buildLessonShareUrl(lesson);
+      if (url && navigator.clipboard) {
+        navigator.clipboard.writeText(url);
+        shareLessonBtn.textContent = 'Link copied!';
+        setTimeout(function () { shareLessonBtn.textContent = 'Share lesson'; }, 2000);
       }
     });
   }

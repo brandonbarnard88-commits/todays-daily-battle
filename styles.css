@@ -4386,6 +4386,11 @@ body.red-letter-off .red-letter-card {
   box-shadow: 0 16px 26px rgba(15, 23, 42, 0.16);
 }
 
+.study-tools.kids-mode .study-card { font-size: 1.08rem; }
+.study-tools.kids-mode .study-card h3 { font-size: 1.35rem; margin-bottom: 1.25rem; }
+.study-tools.kids-mode .study-card .list-item { padding: 0.5rem 0; }
+.study-tools.kids-mode .prompts li { font-size: 1.05rem; }
+
 .list {
   margin-top: 1rem;
   display: grid;
@@ -4685,6 +4690,13 @@ body.red-letter-off .red-letter-card {
   border-radius: 10px;
   border: 1px solid rgba(148,163,184,0.2);
   background: rgba(15,23,42,0.4);
+}
+
+.reader-audio-hint {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  grid-column: 1 / -1;
 }
 
 .reader-pickers {

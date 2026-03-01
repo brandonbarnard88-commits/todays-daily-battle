@@ -1,6 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
-// Bump CACHE_NAME when you deploy new JS/CSS (e.g. tdb-static-YYYYMMDD).
-const CACHE_NAME = 'tdb-static-20260228';
+// Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
+// script.js and config.js are NOT precached so updates deploy immediately.
+const CACHE_NAME = 'tdb-static-20260305';
 const CACHE_API = 'tdb-api-20260221';
 const CORE_ASSETS = [
   '/',
@@ -22,7 +23,6 @@ const CORE_ASSETS = [
   '/topic-grief.html',
   '/topic-parenting.html',
   '/styles.css',
-  '/script.js',
   '/manifest.json',
   '/icon.svg',
   '/kjv.json'
@@ -134,6 +134,8 @@ self.addEventListener('fetch', (event) => {
 
   // Only cache same-origin GETs; let cross-origin (fonts, analytics, images) load normally
   if (!sameOrigin) return;
+  // Never cache script.js or config.js so deployments take effect immediately
+  if (url.pathname.endsWith('script.js') || url.pathname.endsWith('config.js')) return;
 
   event.respondWith(
     caches.match(event.request).then((cached) => cached || fetch(event.request)).catch(() => fetch(event.request))

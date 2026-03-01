@@ -8,6 +8,13 @@ window.__tdb_script_version = '20260301';
 if (typeof console !== 'undefined' && console.log && (window.location && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') || (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_debug')))) {
   console.log('TDB: script loaded', window.__tdb_script_version);
 }
+// Deploy check: warn if config still has placeholders (dev/local only)
+try {
+  var cfg = window.TDB_CONFIG;
+  if (cfg && (String(cfg.SUPABASE_URL || '').includes('your-project-ref') || String(cfg.SUPABASE_ANON_KEY || '').includes('your-anon-key'))) {
+    if (typeof console !== 'undefined' && console.warn) console.warn('TDB: config has placeholder values — replace with real Supabase URL/anon key before production.');
+  }
+} catch (_) {}
 
 function safeSetItem(key, value) {
   try {

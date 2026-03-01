@@ -10067,7 +10067,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         loadingEl.style.display = 'block';
         loadingEl.classList.remove('hidden');
       }
-      if (outputEl) outputEl.innerHTML = '';
+      if (outputEl) {
+        outputEl.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Seeking God\'s truth…</p>';
+        outputEl.style.display = 'grid';
+      }
       setTimeout(async function () {
         try {
           var tierEl = document.getElementById('tier');

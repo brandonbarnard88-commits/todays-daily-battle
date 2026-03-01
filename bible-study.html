@@ -103,7 +103,47 @@
   <script>
     (function() {
       var grid = document.querySelector('.study-grid');
-      if (grid && typeof loadStudies === 'function') loadStudies();
+      var loadingEl = document.getElementById('study-grid-loading');
+      if (!grid) return;
+      grid.setAttribute('aria-busy', 'true');
+      function runLoadStudies() {
+        if (typeof loadStudies === 'function') {
+          loadStudies();
+          return;
+        }
+        showFallbackStudies();
+      }
+      function showFallbackStudies() {
+        if (loadingEl) loadingEl.remove();
+        grid.setAttribute('aria-busy', 'false');
+        var fallback = [
+          { id: 'armor-of-god', title: 'Armor of God', topic: 'Spiritual warfare', description: 'A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.', days: 7 },
+          { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic. 5 days.', days: 5 }
+        ];
+        grid.innerHTML = '';
+        fallback.forEach(function(study) {
+          var card = document.createElement('div');
+          card.className = 'study-card';
+          card.innerHTML = '<h3 class="study-card-title">' + (study.title || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') + '</h3>' +
+            (study.topic ? '<span class="study-card-topic">' + (study.topic || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>' : '') +
+            '<p class="study-card-desc">' + (study.description || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') + '</p>' +
+            '<span class="study-card-days">' + (study.days || 7) + ' days</span>';
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'btn btn-primary study-card-btn';
+          btn.textContent = 'Start Free';
+          btn.addEventListener('click', function() {
+            try { localStorage.setItem('tdb_current_study', String(study.id)); localStorage.setItem('tdb_study_day', '1'); } catch(e) {}
+            window.location.href = 'reading-plan.html?study=' + encodeURIComponent(study.id);
+          });
+          card.appendChild(btn);
+          grid.appendChild(card);
+        });
+      }
+      runLoadStudies();
+      setTimeout(function() {
+        if (!grid.querySelector('.study-card')) showFallbackStudies();
+      }, 4000);
     })();
   </script>
 </body>

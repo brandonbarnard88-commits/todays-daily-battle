@@ -9459,9 +9459,11 @@ async function loadStudies() {
   var grid = document.querySelector('.study-grid');
   var loadingEl = document.getElementById('study-grid-loading');
   if (!grid) return;
+  grid.setAttribute('aria-busy', 'true');
   if (loadingEl) loadingEl.textContent = 'Preparing…';
   if (typeof supabaseClient === 'undefined' || !supabaseClient) {
     if (loadingEl) loadingEl.textContent = 'Unable to load studies. Refresh the page.';
+    grid.setAttribute('aria-busy', 'false');
     return;
   }
   try {
@@ -9469,6 +9471,7 @@ async function loadStudies() {
     if (loadingEl) loadingEl.remove();
     if (res.error) {
       grid.innerHTML = '<p class="section-note">Studies could not be loaded. Try again later.</p>';
+      grid.setAttribute('aria-busy', 'false');
       return;
     }
     var data = res.data || [];
@@ -9501,9 +9504,11 @@ async function loadStudies() {
     if (data.length === 0) {
       grid.innerHTML = '<p class="section-note">No studies yet. Check back soon.</p>';
     }
+    grid.setAttribute('aria-busy', 'false');
   } catch (e) {
     if (loadingEl) loadingEl.textContent = 'Unable to load studies. Refresh the page.';
     else grid.innerHTML = '<p class="section-note">Unable to load studies. Refresh the page.</p>';
+    grid.setAttribute('aria-busy', 'false');
   }
 }
 
@@ -10096,7 +10101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!hasConfig) {
       setAuthStatus('Sign-in is optional. Log in to save your streak, favorite verses, and custom plans across devices.', 'info');
     } else {
-      setAuthStatus('Auth not ready. Loading...', 'error');
+      setAuthStatus('Auth not ready. Loading…', 'error');
     }
   }
   const { data: sessionData } = supabaseClient

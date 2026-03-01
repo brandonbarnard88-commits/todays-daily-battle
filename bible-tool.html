@@ -44,7 +44,7 @@
     @media (max-width: 768px) {
       .bible-tool .verse-card { padding: 1rem; margin-bottom: 1rem; }
       .bible-tool .plan-progress-bar { margin: 0.75rem 0; }
-      .bible-tool label.plan-progress { margin-bottom: 1rem; }
+      .bible-tool label.plan-progress { margin-bottom: 1rem; padding: 0.35rem 0; min-height: 2.25rem; }
       .bible-tool .plan-reflection { margin-top: 1rem; padding: 1rem; }
       .bible-tool .plan-complete-msg { margin-top: 1rem; padding: 1rem; }
       .bible-tool .win-title + .section-note { margin-bottom: 0.75rem; }
@@ -223,6 +223,7 @@
     'Isaiah 41:10': 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
     '2 Timothy 1:7': 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.',
     'Romans 8:28': 'And we know that all things work together for good to them that love God, to them who are the called according to his purpose.',
+    'Romans 8:38': 'For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.',
     'Romans 5:8': 'But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.',
     'Psalm 23:1': 'The Lord is my shepherd; I shall not want.',
     'Psalm 46:1': 'God is our refuge and strength, a very present help in trouble.',
@@ -344,32 +345,35 @@
 
   function renderDaily() {
     var ref = getDailyRef();
+    var r = normRef(ref);
     var elRef = document.getElementById('daily-ref');
     var elText = document.getElementById('daily-text');
+    var ctxEl = document.getElementById('daily-verse-context');
     if (elRef) elRef.textContent = ref;
-    if (elText && KEY_VERSES[ref]) {
-      elText.textContent = KEY_VERSES[ref];
-      var ctxEl = document.getElementById('daily-verse-context');
+    var bundleText = KEY_VERSES[r] || KEY_VERSES[ref];
+    if (elText && bundleText) {
+      elText.textContent = bundleText;
       if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
-    } else if (elText) elText.textContent = 'Loading…';
+      return;
+    }
+    if (elText) elText.textContent = 'Loading…';
     var done = false;
+    function applyFallback() {
+      if (done || !elText) return;
+      if (elText.textContent.trim() === 'Loading…') {
+        done = true;
+        elText.textContent = KEY_VERSES[r] || KEY_VERSES[ref] || 'Verse fetch failed—check connection or try later.';
+        if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
+      }
+    }
     fetchVerse(ref, function (data) {
       if (done) return;
       done = true;
       if (elText && data) elText.textContent = data.text;
-      else if (elText && !KEY_VERSES[ref]) elText.textContent = 'Verse fetch failed—check connection or try later.';
-      var ctxEl = document.getElementById('daily-verse-context');
+      else applyFallback();
       if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
     });
-    setTimeout(function () {
-      if (done || !elText) return;
-      if (elText.textContent.trim() === 'Loading…') {
-        done = true;
-        elText.textContent = KEY_VERSES[ref] || 'Verse fetch failed—check connection or try later.';
-        var ctxEl = document.getElementById('daily-verse-context');
-        if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
-      }
-    }, 10000);
+    setTimeout(applyFallback, 10000);
   }
 
   function renderLookup(data) {
@@ -503,6 +507,7 @@
       block += '\n' + refOrList + ' — ' + (text || '').trim();
       if (opts.topic) block += '\n(Win the Day: ' + opts.topic + ')';
       if (opts.prayer) block += '\n' + opts.prayer;
+      if (refOrList && (text || '').trim()) notes[refOrList] = (text || '').trim();
     }
     notes[BATTLE_LOG_KEY] = (notes[BATTLE_LOG_KEY] || '') + block;
     saveNotes(notes);
@@ -742,63 +747,76 @@
     winBtn.disabled = true;
     var done = 0;
     var results = [];
+    var finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      winBtn.disabled = false;
+      winBtn.textContent = origText;
+      var topicLabel = topic;
+      var html = '<p class="win-title section-note">Win the Day — ' + topicLabel + '</p>';
+      for (var i = 0; i < refs.length; i++) {
+        var d = results[i];
+        if (!d && KEY_VERSES[refs[i]]) d = { reference: refs[i], text: KEY_VERSES[refs[i]] };
+        if (d) {
+          html += '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + escapeHtml(d.reference) + '</p><p class="util-mt-0_5">' + escapeHtml(d.text || '') + '</p></div>';
+          if (typeof window.buildVerseContextHtml === 'function') html += '<div class="util-mt-0_5">' + window.buildVerseContextHtml(d.reference) + '</div>';
+        }
+      }
+      html += '<button type="button" class="btn btn-secondary util-mt-0_5 copy-win-btn" aria-label="Copy Win the Day verses">Copy</button>';
+      html += ' <button type="button" class="btn btn-secondary util-mt-0_5 add-notes-win-btn" aria-label="Add to battle log">Add to Notes</button>';
+      html += ' <button type="button" class="btn btn-secondary util-mt-0_5 pray-win-btn" aria-label="Generate prayer">Pray</button>';
+      html += '<div class="win-prayer-box hidden util-mt-0_5 prayer-box"></div>';
+      container.innerHTML = html;
+      container.querySelectorAll('.copy-win-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var lines = [];
+          container.querySelectorAll('.verse-card').forEach(function (card) {
+            var ps = card.querySelectorAll('p');
+            if (ps[0] && ps[1]) lines.push(ps[0].textContent.trim() + ' — ' + ps[1].textContent.trim());
+          });
+          var copyText = 'Win the Day: ' + topicLabel + '\n' + lines.join('\n') + '\n— todaysdailybattle.com';
+          copyToClipboardWithFeedback(copyText, this);
+        });
+      });
+      container.querySelectorAll('.add-notes-win-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          addToBattleLog(results.filter(Boolean), undefined, { topic: topicLabel });
+          var orig = this.textContent;
+          this.textContent = 'Added!';
+          setTimeout(function () { b.textContent = orig; }, 2000);
+        });
+      });
+      container.querySelectorAll('.pray-win-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var prayBox = container.querySelector('.win-prayer-box');
+          var prayer = generatePrayerForTopic(topicLabel);
+          var lines = [];
+          container.querySelectorAll('.verse-card').forEach(function (card) {
+            var ps = card.querySelectorAll('p');
+            if (ps[0] && ps[1]) lines.push(ps[0].textContent.trim() + ' — ' + ps[1].textContent.trim());
+          });
+          var full = 'Win the Day: ' + topicLabel + '\n' + lines.join('\n') + '\n\n' + prayer + '\n— todaysdailybattle.com';
+          prayBox.classList.remove('hidden');
+          prayBox.innerHTML = '<p class="util-mb-0_5">' + escapeHtml(prayer) + '</p><button type="button" class="link-button">Copy verse + prayer</button>';
+          prayBox.querySelector('button').addEventListener('click', function () { copyToClipboardWithFeedback(full, this); });
+        });
+      });
+    }
     refs.forEach(function (r, i) {
       fetchVerse(r, function (data) {
         results[i] = data;
         done++;
-        if (done === refs.length) {
-          winBtn.disabled = false;
-          winBtn.textContent = origText;
-          var topicLabel = topic;
-          var html = '<p class="win-title section-note">Win the Day — ' + topicLabel + '</p>';
-          results.forEach(function (d) {
-            if (d) {
-              html += '<div class="verse-card glass util-mt-0_5"><p class="verse-ref">' + escapeHtml(d.reference) + '</p><p class="util-mt-0_5">' + escapeHtml(d.text || '') + '</p></div>';
-              if (typeof window.buildVerseContextHtml === 'function') html += '<div class="util-mt-0_5">' + window.buildVerseContextHtml(d.reference) + '</div>';
-            }
-          });
-          html += '<button type="button" class="btn btn-secondary util-mt-0_5 copy-win-btn" aria-label="Copy Win the Day verses">Copy</button>';
-          html += ' <button type="button" class="btn btn-secondary util-mt-0_5 add-notes-win-btn" aria-label="Add to battle log">Add to Notes</button>';
-          html += ' <button type="button" class="btn btn-secondary util-mt-0_5 pray-win-btn" aria-label="Generate prayer">Pray</button>';
-          html += '<div class="win-prayer-box hidden util-mt-0_5 prayer-box"></div>';
-          container.innerHTML = html;
-          container.querySelectorAll('.copy-win-btn').forEach(function (b) {
-            b.addEventListener('click', function () {
-              var lines = [];
-              container.querySelectorAll('.verse-card').forEach(function (card) {
-                var ps = card.querySelectorAll('p');
-                if (ps[0] && ps[1]) lines.push(ps[0].textContent.trim() + ' — ' + ps[1].textContent.trim());
-              });
-              var copyText = 'Win the Day: ' + topicLabel + '\n' + lines.join('\n') + '\n— todaysdailybattle.com';
-              copyToClipboardWithFeedback(copyText, this);
-            });
-          });
-          container.querySelectorAll('.add-notes-win-btn').forEach(function (b) {
-            b.addEventListener('click', function () {
-              addToBattleLog(results.filter(Boolean), undefined, { topic: topicLabel });
-              var orig = this.textContent;
-              this.textContent = 'Added!';
-              setTimeout(function () { b.textContent = orig; }, 2000);
-            });
-          });
-          container.querySelectorAll('.pray-win-btn').forEach(function (b) {
-            b.addEventListener('click', function () {
-              var prayBox = container.querySelector('.win-prayer-box');
-              var prayer = generatePrayerForTopic(topicLabel);
-              var lines = [];
-              container.querySelectorAll('.verse-card').forEach(function (card) {
-                var ps = card.querySelectorAll('p');
-                if (ps[0] && ps[1]) lines.push(ps[0].textContent.trim() + ' — ' + ps[1].textContent.trim());
-              });
-              var full = 'Win the Day: ' + topicLabel + '\n' + lines.join('\n') + '\n\n' + prayer + '\n— todaysdailybattle.com';
-              prayBox.classList.remove('hidden');
-              prayBox.innerHTML = '<p class="util-mb-0_5">' + escapeHtml(prayer) + '</p><button type="button" class="link-button">Copy verse + prayer</button>';
-              prayBox.querySelector('button').addEventListener('click', function () { copyToClipboardWithFeedback(full, this); });
-            });
-          });
-        }
+        if (done === refs.length) finish();
       });
     });
+    setTimeout(function () {
+      if (done < refs.length) {
+        for (var j = 0; j < refs.length; j++) if (!results[j] && KEY_VERSES[refs[j]]) results[j] = { reference: refs[j], text: KEY_VERSES[refs[j]] };
+        done = refs.length;
+        finish();
+      }
+    }, 10000);
   });
 
   document.getElementById('battle-ready-btn').addEventListener('click', function () {
@@ -809,8 +827,13 @@
     btn.disabled = true;
     var ref = BATTLE_READY_REFS[Math.floor(Math.random() * BATTLE_READY_REFS.length)];
     var prayer = BATTLE_PRAYERS[Math.floor(Math.random() * BATTLE_PRAYERS.length)];
-    fetchVerse(ref, function (data) {
+    var fallbackText = KEY_VERSES[ref] || KEY_VERSES[normRef(ref)];
+    var shown = false;
+    function showResult(data) {
+      if (shown) return;
+      shown = true;
       btn.disabled = false;
+      if (!data && fallbackText) data = { reference: ref, text: fallbackText };
       if (data) {
         var copyText = 'Battle Ready: ' + data.reference + ' — ' + data.text + '\n' + prayer + '\n— todaysdailybattle.com';
         var contextHtml = (typeof window.buildVerseContextHtml === 'function') ? window.buildVerseContextHtml(data.reference) : '';
@@ -826,7 +849,13 @@
           setTimeout(function () { el.textContent = orig; }, 2000);
         });
       } else container.innerHTML = '<p class="section-note">Try again.</p>';
+    }
+    fetchVerse(ref, function (data) {
+      showResult(data);
     });
+    setTimeout(function () {
+      if (btn.disabled) showResult(null);
+    }, 10000);
   });
 
   renderPlan();

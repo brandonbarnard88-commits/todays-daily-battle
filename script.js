@@ -5297,6 +5297,8 @@ if (c && c.ref) {
     await new Promise(function (r) { setTimeout(r, 3000 - elapsed); });
   }
   card.innerHTML = '<strong>' + escapeHtml(battle.ref) + '</strong><p>' + escapeHtml(verseText || 'Verse text is unavailable.') + '</p>';
+  var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(battle.ref) : '';
+  if (ctxHtml) card.insertAdjacentHTML('beforeend', ctxHtml);
   card.classList.add('verse-card-loaded');
   card.classList.remove('hero-verse-card-skeleton');
   try {
@@ -8121,6 +8123,14 @@ function renderReaderChapterFromApiData(output, book, chapter, key, list) {
   heading.className = 'chapter-title';
   heading.textContent = key;
   output.appendChild(heading);
+  var firstRef = list[0] ? ((list[0].book_name || book) + ' ' + (list[0].chapter || chapter) + ':' + (list[0].verse || '1')) : (key + ':1');
+  var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(firstRef) : '';
+  if (ctxHtml) {
+    var ctxWrap = document.createElement('div');
+    ctxWrap.className = 'verse-context-wrap util-mb-1';
+    ctxWrap.innerHTML = ctxHtml;
+    output.appendChild(ctxWrap);
+  }
   list.forEach(function (v) {
     var ref = (v.book_name || book) + ' ' + (v.chapter || chapter) + ':' + (v.verse || '');
     var line = document.createElement('div');
@@ -8147,6 +8157,14 @@ function renderReaderChapterFromVerses(output, book, chapter, verses) {
   heading.className = 'chapter-title';
   heading.textContent = key;
   output.appendChild(heading);
+  var firstRef = verses[0] ? (typeof verses[0].ref === 'string' ? verses[0].ref : (book + ' ' + chapter + ':' + (verses[0].verseNum || verses[0].verse || '1'))) : (key + ':1');
+  var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(firstRef) : '';
+  if (ctxHtml) {
+    var ctxWrap = document.createElement('div');
+    ctxWrap.className = 'verse-context-wrap util-mb-1';
+    ctxWrap.innerHTML = ctxHtml;
+    output.appendChild(ctxWrap);
+  }
   verses.forEach(function (v) {
     var ref = typeof v.ref === 'string' ? v.ref : (book + ' ' + chapter + ':' + (v.verseNum || v.verse || ''));
     var text = typeof v.text === 'string' ? v.text : '';
@@ -8450,6 +8468,13 @@ function renderSavedVerses() {
       var row = document.createElement('div');
       row.className = 'list-item saved-note-card';
       row.innerHTML = '<div><strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.note) + '</p></div>';
+      var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(v.ref) : '';
+      if (ctxHtml) {
+        var ctxWrap = document.createElement('div');
+        ctxWrap.className = 'verse-context-wrap util-mt-0_5';
+        ctxWrap.innerHTML = ctxHtml;
+        row.querySelector('div').appendChild(ctxWrap);
+      }
       var actions = document.createElement('div');
       actions.className = 'item-actions';
       var copyBtn = document.createElement('button');
@@ -8493,6 +8518,13 @@ function renderSavedVerses() {
       var note = v.note || '';
       var date = v.date || '';
       card.innerHTML = '<div><strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(text) + '</p>' + (note ? '<p class="saved-note-note">' + escapeHtml(note) + '</p>' : '') + (date ? '<span class="section-note">' + escapeHtml(date) + '</span>' : '') + '</div>';
+      var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(ref) : '';
+      if (ctxHtml) {
+        var ctxWrap = document.createElement('div');
+        ctxWrap.className = 'verse-context-wrap util-mt-0_5';
+        ctxWrap.innerHTML = ctxHtml;
+        card.querySelector('div').appendChild(ctxWrap);
+      }
       var actions = document.createElement('div');
       actions.className = 'item-actions';
       var copyBtn = document.createElement('button');
@@ -8556,6 +8588,13 @@ function renderSavedVerses() {
       const row = document.createElement('div');
       row.className = 'list-item';
       row.innerHTML = '<div><strong>' + escapeHtml(item.ref) + '</strong><p>' + escapeHtml(item.text) + '</p></div>';
+      var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(item.ref) : '';
+      if (ctxHtml) {
+        var ctxWrap = document.createElement('div');
+        ctxWrap.className = 'verse-context-wrap util-mt-0_5';
+        ctxWrap.innerHTML = ctxHtml;
+        row.querySelector('div').appendChild(ctxWrap);
+      }
       const actions = document.createElement('div');
       actions.className = 'item-actions';
       const copyBtn = document.createElement('button');
@@ -8765,6 +8804,15 @@ function renderNotes() {
     p.textContent = note.text || '';
     wrap.appendChild(strong);
     wrap.appendChild(p);
+    if (note.ref && note.ref !== 'General' && typeof buildVerseContextHtml === 'function') {
+      var ctxHtml = buildVerseContextHtml(note.ref);
+      if (ctxHtml) {
+        var ctxWrap = document.createElement('div');
+        ctxWrap.className = 'verse-context-wrap util-mt-0_5';
+        ctxWrap.innerHTML = ctxHtml;
+        wrap.appendChild(ctxWrap);
+      }
+    }
     row.appendChild(wrap);
     const actions = document.createElement('div');
     actions.className = 'item-actions';
@@ -9466,6 +9514,8 @@ function renderResults(results) {
         const card = document.createElement('div');
         card.className = 'verse-card';
         card.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.text || '') + '</p>';
+        var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(v.ref) : '';
+        if (ctxHtml) card.insertAdjacentHTML('beforeend', ctxHtml);
         var plainMeaning = (v.plain_meaning !== undefined && v.plain_meaning) ? v.plain_meaning : (typeof getPlainMeaning === 'function' ? getPlainMeaning(v.ref) : '');
         if (plainMeaning) {
           var plainP = document.createElement('p');
@@ -11860,6 +11910,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     } catch (e) {}
   })();
+  (function ensureStudyRenders() {
+    if (!document.getElementById('notes-list') && !document.getElementById('saved-verses')) return;
+    setTimeout(function () {
+      if (typeof renderNotes === 'function') renderNotes();
+      if (typeof renderSavedVerses === 'function') renderSavedVerses();
+      if (document.getElementById('saved-lessons-list') && typeof renderSavedLessons === 'function') renderSavedLessons();
+    }, 100);
+  })();
   (function initStudyKidsMode() {
     var cb = document.getElementById('study-kids-mode');
     var section = document.getElementById('study-tools');
@@ -11988,6 +12046,23 @@ document.addEventListener('DOMContentLoaded', async () => {
           setTimeout(function () { statusEl.textContent = ''; }, 2500);
         }
       })();
+    });
+  }
+
+  const clearAllNotesBtn = document.getElementById('clear-all-notes');
+  if (clearAllNotesBtn) {
+    clearAllNotesBtn.addEventListener('click', function () {
+      if (typeof confirm !== 'function' || !confirm('Clear all saved notes? This cannot be undone.')) return;
+      saveNotes([]);
+      var textArea = document.getElementById('notes-textarea') || document.getElementById('note-text');
+      var editIdEl = document.getElementById('note-edit-id');
+      var privateCheck = document.getElementById('note-private');
+      if (textArea) textArea.value = '';
+      if (editIdEl) editIdEl.value = '';
+      if (privateCheck) privateCheck.checked = false;
+      renderNotes();
+      var statusEl = document.getElementById('study-note-status');
+      if (statusEl) { statusEl.textContent = 'All notes cleared.'; setTimeout(function () { statusEl.textContent = ''; }, 2500); }
     });
   }
 
@@ -12357,14 +12432,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (buildLessonBtn) {
     buildLessonBtn.addEventListener('click', () => {
       const audienceEl = document.getElementById('lesson-audience');
+      const titleEl = document.getElementById('lesson-title');
+      const promptsEl = document.getElementById('lesson-prompts');
       const output = document.getElementById('lesson-output');
       const shareBtn = document.getElementById('share-lesson-btn');
       if (!output) return;
       const audience = audienceEl ? audienceEl.value : 'kids';
+      const title = (titleEl && titleEl.value) ? titleEl.value.trim() : ('Lesson ' + new Date().toLocaleDateString());
+      const promptsText = (promptsEl && promptsEl.value) ? promptsEl.value.trim() : '';
+      let plan;
+      if (lastResults && lastResults.verses && lastResults.verses.length) {
+        plan = buildLessonPlan(lastResults, audience);
+      } else {
+        plan = promptsText ? [title].concat(promptsText.split(/\n/).map(function (s) { return s.trim(); }).filter(Boolean)) : [title, 'Add reflection prompts or search a topic on the home page to build from verses.'];
+      }
       output.innerHTML = '';
-      const plan = buildLessonPlan(lastResults, audience);
+      const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString(), title: title, prompts: promptsText };
       const lessons = loadLessons();
-      const lessonRecord = { id: generateUuid(), audience, content: plan, createdAt: new Date().toISOString(), title: (document.getElementById('lesson-title') && document.getElementById('lesson-title').value) ? document.getElementById('lesson-title').value.trim() : ('Lesson ' + new Date().toLocaleDateString()), prompts: (document.getElementById('lesson-prompts') && document.getElementById('lesson-prompts').value) ? document.getElementById('lesson-prompts').value.trim() : '' };
       lessons.unshift(lessonRecord);
       saveLessons(lessons);
       saveLessonPlanToSupabase(audience, plan);
@@ -13335,7 +13419,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   (function ensureReaderPickers() {
     var bookSelect = document.getElementById('reader-book');
     if (!bookSelect) return;
-    setTimeout(function () {
+    function run() {
       if (bookSelect.options.length === 0 && typeof populateReaderBooks === 'function') {
         populateReaderBooks();
         var firstBook = typeof getBibleBookOrder === 'function' ? getBibleBookOrder()[0] : null;
@@ -13348,6 +13432,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
         }
       }
-    }, 400);
+    }
+    run();
+    setTimeout(run, 400);
   })();
 });

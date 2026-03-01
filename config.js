@@ -44,6 +44,8 @@ window.TDB_CONFIG.STRIPE_PRICE_IDS = {
 window.TDB_CONFIG.CREATE_CHECKOUT_SESSION_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/create-checkout-session';
 // Submit Quick Pray via Edge Function (Turnstile verification). Set TURNSTILE_SITE_KEY to enable.
 window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/submit-prayer';
+// Post message via Edge Function (rate limit + server-side sanitization). When set, client uses this instead of direct insert.
+window.TDB_CONFIG.POST_MESSAGE_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/post-message';
 
 // Set to true after running supabase-get-prayers-today-count.sql so "Prayed by X warriors today" uses the RPC (avoids 404).
 window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = false;

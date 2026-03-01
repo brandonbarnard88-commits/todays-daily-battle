@@ -64,6 +64,10 @@ html {
   font-size: 20px;
   overflow-x: hidden;
 }
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 /* Prevent images and media from causing horizontal overflow */
 img, video {
@@ -311,6 +315,8 @@ body {
   gap: 0.75rem 1.25rem;
   padding: var(--spacing-sm) var(--spacing-md);
   min-height: 56px;
+  min-width: 0;
+  overflow-x: hidden;
   background: linear-gradient(180deg, rgba(8, 12, 22, 0.99) 0%, rgba(10, 14, 26, 0.98) 100%);
   border-bottom: 2px solid var(--elite-gold-dim);
   box-shadow: 0 1px 0 var(--elite-gold), 0 8px 40px rgba(0, 0, 0, 0.35);
@@ -2127,6 +2133,11 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   gap: 1.2rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
+@media (max-width: 480px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .pricing-card {
   background: rgba(14, 20, 36, 0.88);
@@ -2135,6 +2146,8 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   padding: 1.75rem;
   display: grid;
   gap: 0.9rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
   box-shadow: var(--shadow-card), inset 0 1px 0 var(--elite-cream), inset 0 -1px 0 rgba(0,0,0,0.06);
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
@@ -2941,6 +2954,8 @@ a.nav-kids-corner:hover .nav-kids-icon {
 /* Content pages (about, faq, pricing, etc.): readability and spacing */
 .content-inner .glass {
   margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .content-inner .glass p {
   margin: 0 0 1.15rem;

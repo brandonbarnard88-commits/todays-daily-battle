@@ -9936,7 +9936,14 @@ async function loadStudies() {
     if (data.length === 0) {
       data = [
         { id: 'armor-of-god', title: 'Armor of God', topic: 'Spiritual warfare', description: 'A 7-day look at Ephesians 6:10–18. Belt of truth, breastplate of righteousness, shield of faith—one piece per day.', days: 7 },
-        { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic. 5 days.', days: 5 }
+        { id: 'peace-in-storm', title: 'Peace in the Storm', topic: 'Anxiety & peace', description: 'Short daily verses and reflections on finding calm when life is chaotic. 5 days.', days: 5 },
+        { id: 'fruit-of-spirit', title: 'Fruit of the Spirit', topic: 'Character & growth', description: 'Galatians 5:22–23—love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. One fruit per day.', days: 9 },
+        { id: 'forgiveness-flow', title: 'Forgiveness Flow', topic: 'Forgiveness', description: 'Matthew 18, Psalm 51, and more. Let go, move on, and receive God\'s mercy. 7 days.', days: 7 },
+        { id: 'psalms-of-comfort', title: 'Psalms of Comfort', topic: 'Comfort & refuge', description: 'Psalm 23, 27, 46, 91, and more. When you need a refuge, these verses meet you there. 7 days.', days: 7 },
+        { id: 'faith-over-fear', title: 'Faith Over Fear', topic: 'Courage', description: '2 Timothy 1:7, Isaiah 41:10, Joshua 1:9—replace fear with faith. 5 days.', days: 5 },
+        { id: 'hope-in-hard-times', title: 'Hope in Hard Times', topic: 'Hope', description: 'Psalms and Romans—find light when it\'s dark. God of hope fills you with joy and peace. 5 days.', days: 5 },
+        { id: 'love-one-another', title: 'Love One Another', topic: 'Love', description: 'John 13:34, 1 John 4—how to love as Christ loved. 5 days.', days: 5 },
+        { id: 'beatitudes', title: 'The Beatitudes', topic: 'Blessed life', description: 'Matthew 5:3–11—Jesus\' portrait of the blessed. Poor in spirit, meek, merciful, peacemakers. 9 days.', days: 9 }
       ];
     }
     grid.innerHTML = '';
@@ -12753,6 +12760,38 @@ document.addEventListener('DOMContentLoaded', async () => {
       setView('search');
     });
   }
+
+  (function applyStudyFromUrlParam() {
+    var path = (window.location.pathname || '').replace(/\/$/, '');
+    if (path.indexOf('reading-plan') === -1) return;
+    var params = typeof URLSearchParams !== 'undefined' && window.location.search ? new URLSearchParams(window.location.search) : null;
+    var studyId = params && params.get('study');
+    if (!studyId) return;
+    var STUDY_PLANS = {
+      'armor-of-god': { title: 'Armor of God', items: [{ ref: 'Ephesians 6:10', theme: 'Be strong in the Lord' }, { ref: 'Ephesians 6:11', theme: 'Put on the whole armour' }, { ref: 'Ephesians 6:12', theme: 'We wrestle not against flesh' }, { ref: 'Ephesians 6:13', theme: 'Take the whole armour' }, { ref: 'Ephesians 6:14', theme: 'Belt of truth, breastplate of righteousness' }, { ref: 'Ephesians 6:15', theme: 'Feet shod with the gospel of peace' }, { ref: 'Ephesians 6:16', theme: 'Shield of faith' }] },
+      'peace-in-storm': { title: 'Peace in the Storm', items: [{ ref: 'Philippians 4:6', theme: 'Be careful for nothing' }, { ref: 'Philippians 4:7', theme: 'Peace that passeth understanding' }, { ref: 'John 14:27', theme: 'Peace I leave with you' }, { ref: 'Isaiah 26:3', theme: 'Perfect peace' }, { ref: 'Matthew 11:28', theme: 'Come unto me' }] },
+      'fruit-of-spirit': { title: 'Fruit of the Spirit', items: [{ ref: 'Galatians 5:22', theme: 'Love' }, { ref: 'Galatians 5:22', theme: 'Joy' }, { ref: 'Galatians 5:22', theme: 'Peace' }, { ref: 'Galatians 5:22', theme: 'Longsuffering' }, { ref: 'Galatians 5:22', theme: 'Gentleness' }, { ref: 'Galatians 5:22', theme: 'Goodness' }, { ref: 'Galatians 5:22', theme: 'Faith' }, { ref: 'Galatians 5:22', theme: 'Meekness' }, { ref: 'Galatians 5:22', theme: 'Temperance' }] },
+      'forgiveness-flow': { title: 'Forgiveness Flow', items: [{ ref: 'Matthew 18:21', theme: 'How oft shall my brother sin' }, { ref: 'Matthew 18:22', theme: 'Seventy times seven' }, { ref: 'Psalm 51:10', theme: 'Create in me a clean heart' }, { ref: 'Colossians 3:13', theme: 'Forgiving one another' }, { ref: 'Ephesians 4:32', theme: 'Kind one to another' }, { ref: 'Matthew 6:14', theme: 'Forgive men their trespasses' }, { ref: '1 John 1:9', theme: 'He is faithful to forgive' }] },
+      'psalms-of-comfort': { title: 'Psalms of Comfort', items: [{ ref: 'Psalm 23:1', theme: 'The Lord is my shepherd' }, { ref: 'Psalm 27:1', theme: 'The Lord is my light' }, { ref: 'Psalm 46:1', theme: 'God is our refuge' }, { ref: 'Psalm 91:1', theme: 'He that dwelleth in the secret place' }, { ref: 'Psalm 34:4', theme: 'Delivered from fears' }, { ref: 'Psalm 121:1', theme: 'I will lift up mine eyes' }, { ref: 'Psalm 139:23', theme: 'Search me, O God' }] },
+      'faith-over-fear': { title: 'Faith Over Fear', items: [{ ref: '2 Timothy 1:7', theme: 'Spirit of power and love' }, { ref: 'Isaiah 41:10', theme: 'Fear not, I am with thee' }, { ref: 'Joshua 1:9', theme: 'Be strong and courageous' }, { ref: 'Psalm 27:1', theme: 'The Lord is my light' }, { ref: 'Psalm 56:3', theme: 'What time I am afraid' }] },
+      'hope-in-hard-times': { title: 'Hope in Hard Times', items: [{ ref: 'Romans 15:13', theme: 'God of hope' }, { ref: 'Jeremiah 29:11', theme: 'Thoughts of peace' }, { ref: 'Romans 5:5', theme: 'Hope maketh not ashamed' }, { ref: 'Psalm 42:11', theme: 'Hope thou in God' }, { ref: 'Lamentations 3:22', theme: 'His mercies are new every morning' }] },
+      'love-one-another': { title: 'Love One Another', items: [{ ref: 'John 13:34', theme: 'Love one another' }, { ref: '1 John 4:7', theme: 'Love is of God' }, { ref: '1 John 4:18', theme: 'Perfect love casteth out fear' }, { ref: '1 Corinthians 13:4', theme: 'Charity suffereth long' }, { ref: 'Romans 12:10', theme: 'Be kindly affectioned' }] },
+      'beatitudes': { title: 'The Beatitudes', items: [{ ref: 'Matthew 5:3', theme: 'Poor in spirit' }, { ref: 'Matthew 5:4', theme: 'They that mourn' }, { ref: 'Matthew 5:5', theme: 'The meek' }, { ref: 'Matthew 5:6', theme: 'Hunger and thirst' }, { ref: 'Matthew 5:7', theme: 'The merciful' }, { ref: 'Matthew 5:8', theme: 'Pure in heart' }, { ref: 'Matthew 5:9', theme: 'Peacemakers' }, { ref: 'Matthew 5:10', theme: 'Persecuted for righteousness' }, { ref: 'Matthew 5:11', theme: 'Reviled for my sake' }] }
+    };
+    var plan = STUDY_PLANS[studyId] || STUDY_PLANS[String(studyId)];
+    if (!plan) {
+      var numMap = { '1': 'armor-of-god', '2': 'peace-in-storm', '3': 'fruit-of-spirit', '4': 'forgiveness-flow', '5': 'psalms-of-comfort', '6': 'faith-over-fear', '7': 'hope-in-hard-times', '8': 'love-one-another', '9': 'beatitudes' };
+      plan = STUDY_PLANS[numMap[String(studyId)]];
+    }
+    if (!plan || !plan.items || !plan.items.length) return;
+    var items = plan.items.map(function (v, i) { return { day: i + 1, ref: v.ref, theme: v.theme }; });
+    try {
+      localStorage.setItem('readingPlanCustom', JSON.stringify({ items, title: plan.title }));
+      window.dispatchEvent(new CustomEvent('reading-plan-updated'));
+      var statusEl = document.getElementById('custom-plan-status');
+      if (statusEl) statusEl.textContent = plan.title + ' loaded. Your plan is below.';
+    } catch (e) {}
+  })();
 
   const customPlanGenerate = document.getElementById('custom-plan-generate');
   const customPlanDays = document.getElementById('custom-plan-days');

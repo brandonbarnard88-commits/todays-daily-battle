@@ -48,7 +48,7 @@ window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '
 window.TDB_CONFIG.POST_MESSAGE_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/post-message';
 
 // Set to true after running supabase-get-prayers-today-count.sql so "Prayed by X warriors today" uses the RPC (avoids 404).
-window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = false;
+window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = true;
 
 // .org = movement site; .com = product site. Same codebase, different messaging.
 window.TDB_IS_ORG = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org';

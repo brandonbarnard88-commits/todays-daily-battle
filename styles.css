@@ -1929,6 +1929,10 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
+.elite-toast.elite-toast-gold {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #0f172a;
+}
 
 .streak-counter-text { animation: streak-flame-pulse 2s ease-in-out infinite; }
 @keyframes streak-flame-pulse {

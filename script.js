@@ -42,18 +42,57 @@ function safeSessionGet(key) {
   }
 }
 
-/** Clear all local and session storage (notes, streak, prayer list, etc.) and reload. Use for "Clear local data" control. */
+/** Clear all tdb_* keys from localStorage and sessionStorage. Prevents overwrites from affecting other sites. Use for "Clear local data" control. */
 function clearLocalData() {
-  if (!window.confirm('Clear all data stored on this device? Your streak, prayer list, notes, and preferences will be removed. You will stay signed in if you are logged in. Continue?')) return;
+  if (!window.confirm('Reset prayers, notes, streaks—fresh start! All data on this device will be cleared. You will stay signed in. Continue?')) return;
   try {
-    localStorage.clear();
-    sessionStorage.clear();
+    var keys = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf('tdb_') === 0) keys.push(k);
+    }
+    keys.forEach(function (k) { localStorage.removeItem(k); });
+    keys = [];
+    for (i = 0; i < sessionStorage.length; i++) {
+      k = sessionStorage.key(i);
+      if (k && k.indexOf('tdb_') === 0) keys.push(k);
+    }
+    keys.forEach(function (k) { sessionStorage.removeItem(k); });
   } catch (e) {
     if (typeof console !== 'undefined' && console.warn) console.warn('TDB: clearLocalData', e);
   }
-  if (typeof showEliteToast === 'function') showEliteToast('All cleared!');
+  var announce = document.getElementById('clear-data-announce');
+  if (announce) { announce.setAttribute('aria-live', 'polite'); announce.textContent = 'All local data cleared!'; }
+  if (typeof showEliteToast === 'function') showEliteToast('All local data cleared!', { gold: true, duration: 2500 });
   setTimeout(function () { window.location.reload(); }, 1500);
 }
+
+/** Migrate old localStorage keys to versioned keys. Run once on load to prevent data loss on updates. */
+function migrateLocalStorageKeys() {
+  try {
+    var oldToNew = [
+      ['tdb_prayer_list', 'tdb_prayer_list_v1'],
+      ['prayerWall', 'tdb_prayer_wall_v1'],
+      ['prayerWallHearts', 'tdb_prayer_wall_hearts_v1'],
+      ['prayers', 'tdb_prayer_wall_v1']
+    ];
+    oldToNew.forEach(function (pair) {
+      var oldKey = pair[0];
+      var newKey = pair[1];
+      var val = localStorage.getItem(oldKey);
+      if (val != null && val !== '' && oldKey !== newKey) {
+        var existing = localStorage.getItem(newKey);
+        if (!existing || existing === '[]' || existing === '{}') {
+          try {
+            localStorage.setItem(newKey, val);
+            localStorage.removeItem(oldKey);
+          } catch (e) {}
+        }
+      }
+    });
+  } catch (e) {}
+}
+migrateLocalStorageKeys();
 
 
 // --- Input validation: prevent oversized or invalid payloads (security / abuse) ---
@@ -109,7 +148,7 @@ let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
-const PRAYER_LIST_KEY = 'tdb_prayer_list';
+const PRAYER_LIST_KEY = 'tdb_prayer_list_v1';
 const QUICK_PRAY_DRAFT_KEY = 'tdb_quick_pray_draft';
 const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
 var HOUSEHOLD_ARMOR_KEY = 'tdb_household_armor';
@@ -1655,8 +1694,8 @@ const DONE_FOR_TODAY_KEY = 'tdb_done_for_today';
 const CHALLENGE_30_STARTED_KEY = 'challenge30Started';
 const LEADERBOARD_KEY = 'tdb_leaderboard';
 const LEADERBOARD_MAX = 50;
-const PRAYER_WALL_KEY = 'prayerWall';
-const PRAYER_WALL_HEARTS_KEY = 'prayerWallHearts';
+const PRAYER_WALL_KEY = 'tdb_prayer_wall_v1';
+const PRAYER_WALL_HEARTS_KEY = 'tdb_prayer_wall_hearts_v1';
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
@@ -2373,10 +2412,9 @@ function wireRealPrayerCounter() {
           }
           var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
           if (!isNaN(n) && n >= 0) {
-            var displayN = Math.max(n, 2);
-            todayEl.textContent = formatCount(displayN);
+            if (todayEl) todayEl.textContent = formatCount(n);
             if (wrapEl) wrapEl.classList.remove('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
+            if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(n);
           } else {
             if (wrapEl) wrapEl.classList.add('hidden');
             if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
@@ -3899,7 +3937,7 @@ function updateHomeStreakBadge(streakCount) {
   }
 }
 
-function showEliteToast(message) {
+function showEliteToast(message, opts) {
   var el = document.getElementById('elite-toast');
   if (!el) {
     el = document.createElement('div');
@@ -3910,15 +3948,17 @@ function showEliteToast(message) {
     document.body.appendChild(el);
   }
   el.textContent = message;
-  el.classList.remove('elite-toast-done');
+  el.classList.remove('elite-toast-done', 'elite-toast-gold');
+  if (opts && opts.gold) el.classList.add('elite-toast-gold');
   el.classList.remove('hidden');
   el.style.display = 'block';
   el.classList.add('elite-toast-show');
+  var duration = (opts && opts.duration) || 2800;
   clearTimeout(window._eliteToastTimeout);
   window._eliteToastTimeout = setTimeout(function () {
     el.classList.remove('elite-toast-show');
     setTimeout(function () { el.style.display = 'none'; el.classList.add('hidden'); }, 300);
-  }, 2800);
+  }, duration);
 }
 
 /** Try clipboard; on failure run onFailure(text) so UI can show link for manual copy. Improves share reliability. */
@@ -4691,13 +4731,16 @@ function renderDailyVerse() {
   const card = document.getElementById('daily-verse-card');
   if (!card) return;
   card.classList.remove('verse-card-loading');
+  var fb = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' };
   if (!Object.keys(bible).length) {
-    card.innerHTML = '<p class="empty">Bible data not loaded.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-verse-try-again">Try again</button>';
+    card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.</p>';
+    card.classList.add('verse-card-loaded');
     return;
   }
   const ref = getDailyVerseRef();
   if (!ref || !bible[ref]) {
-    card.innerHTML = '<p class="empty">Verse not available.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-verse-try-again">Try again</button>';
+    card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway.</p>';
+    card.classList.add('verse-card-loaded');
     return;
   }
   card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
@@ -5155,20 +5198,24 @@ async function renderDailyBattleCard() {
     clearTimeout(dailyBattleFallbackTimeoutId);
     dailyBattleFallbackTimeoutId = null;
   }
-  /* Show bundled fallback immediately so users never see blank "Fetching…" for long */
+  /* Show bundled fallback immediately so users never see "Fetching…" — bundle is always available */
   var fb = DAILY_VERSE_BUNDLED_FALLBACK;
-  var txt = (Object.keys(bible).length && typeof getBibleVerseText === 'function' ? getBibleVerseText(fb.ref) : '') || (bible[fb.ref] || (fb.text || ''));
+  var txt = (Object.keys(bible).length && typeof getBibleVerseText === 'function' ? getBibleVerseText(fb.ref) : null) || bible[fb.ref] || fb.text || '';
   if (fb.ref && txt) {
     card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(txt) + '</p>';
     card.classList.add('verse-card-loaded');
+    card.classList.remove('hero-verse-card-skeleton');
     if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: txt, reflection: fb.reflection || '', prayer: fb.prayer || '' };
   } else {
-    card.innerHTML = '<p class="daily-battle-loading">Fetching today\'s battle verse…</p>';
+    card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p>';
+    card.classList.add('verse-card-loaded');
+    card.classList.remove('hero-verse-card-skeleton');
+    if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: fb.text || '', reflection: fb.reflection || '', prayer: fb.prayer || '' };
   }
   dailyBattleFallbackTimeoutId = setTimeout(function () {
     dailyBattleFallbackTimeoutId = null;
-    if (!card.classList.contains('verse-card-loaded') && card.querySelector('.daily-battle-loading')) {
-      if (typeof console !== 'undefined' && console.warn) console.warn('TDB: daily verse fetch timed out after 3s');
+      if (!card.classList.contains('verse-card-loaded') && card.querySelector('.daily-battle-loading')) {
+      if (typeof console !== 'undefined' && console.warn) console.warn('TDB: daily verse fetch timed out after 3s—using bundle');
       card.classList.remove('hero-verse-card-skeleton');
       var fb = (typeof getDailyBattleFallback === 'function' ? getDailyBattleFallback() : null) || DAILY_VERSE_BUNDLED_FALLBACK;
       var txt = (typeof getBibleVerseText === 'function' ? getBibleVerseText(fb.ref) : '') || (bible[fb.ref] || (fb.text || ''));

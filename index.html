@@ -163,14 +163,14 @@
       <div class="content-inner">
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <!-- QUICK-SEARCH-HERO-V2: If you see this in View Source on live, the right index.html is deployed. -->
-        <div class="search-hero" id="search-hero" role="search" aria-label="Search Scripture">
+        <div class="search-hero" id="search-hero" role="search" aria-label="Search Scripture" style="display:block!important;visibility:visible!important">
           <label for="query" class="search-hero-label">Search by emotion or verse</label>
           <div class="search-hero-row">
             <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
             <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
           </div>
           <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
-          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" aria-label="Quick topic search">
+          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" aria-label="Quick topic search" style="display:flex!important;visibility:visible!important">
             <button type="button" class="btn btn-primary quick-topic" data-topic="free will">FREE WILL</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
@@ -847,7 +847,7 @@
       <p class="footer-analytics-note">We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Updated March 2026.</p>
-      <p class="section-note util-mt-0_5"><button type="button" id="clear-local-data-btn" class="link-button" aria-label="Clear all data stored on this device">Clear local data</button></p>
+      <p class="section-note util-mt-0_5"><button type="button" id="clear-local-data-btn" class="link-button" aria-label="Reset prayers, notes, streaks—fresh start">Clear local data</button><span id="clear-data-announce" class="sr-only" aria-live="polite" aria-atomic="true"></span></p>
     </footer>
   </div>
 

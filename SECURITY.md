@@ -64,11 +64,22 @@
 
 ---
 
+## If something is compromised
+
+- **Service role key or Supabase project:** Rotate the service_role key in Supabase Dashboard (Settings → API → Regenerate). Update Edge Function secrets (`SUPABASE_SERVICE_ROLE_KEY`). Revoke existing sessions if needed (Auth → Users → sign out all).
+- **Stripe secret or webhook secret:** Rotate in Stripe Dashboard (API keys / Webhooks). Update Edge Function secrets (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`). Re-deploy functions.
+- **Turnstile secret:** Regenerate in Cloudflare Turnstile; set new `TURNSTILE_SECRET_KEY` in submit-prayer Edge Function secrets.
+- **Admin account:** Change password; ensure app_metadata.role is set only in Dashboard. Remove any admin email from client config if it was added by mistake.
+- **Audit:** Check Supabase Auth and API logs, Stripe dashboard events, and Cloudflare analytics for suspicious activity.
+
+---
+
 ## Files to reference
 
 | File | Purpose |
 |------|--------|
 | `config.js` | Anon key, URLs, Stripe links. No secrets. |
+| `SECURITY-AUDIT.md` | Defense/offense audit and improvement checklist |
 | `SUPABASE-SYNC-TABLES.md` | RLS and sync table setup |
 | `supabase-rls-lockdown.sql` | Full RLS lockdown and auth trigger |
 | `PRIVACY-ANALYTICS.md` | Search analytics and user safety rules |
@@ -77,3 +88,5 @@
 ---
 
 *Security is the top priority. When in doubt, restrict access and sanitize input. Last updated 2026.*
+
+**Last security audit:** March 2026. See SECURITY-AUDIT.md for defense/offense improvements and checklist.

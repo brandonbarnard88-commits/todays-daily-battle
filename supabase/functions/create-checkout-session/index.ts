@@ -16,6 +16,13 @@ const stripeSecret = Deno.env.get("STRIPE_SECRET_KEY") ?? Deno.env.get("STRIPE_S
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
 
+/** Allowed Stripe price IDs (must match config.js STRIPE_PRICE_IDS). Add new prices here and in config when needed. */
+const ALLOWED_PRICE_IDS = new Set([
+  "price_1T5C10PyNV9eq3QeHyy5RLdy", "price_1T5C20PyNV9eq3Qe70Bida8E",
+  "price_1T5C3aPyNV9eq3QeJx4Xg9Ej", "price_1T5C47PyNV9eq3QeDXr6hz5A",
+  "price_1T5C5hPyNV9eq3QeDeqLOBYs", "price_1T5C6APyNV9eq3QeTSZK87Yv",
+]);
+
 const stripe = new Stripe(stripeSecret, { apiVersion: "2024-11-20.acacia" });
 
 const CORS_HEADERS = {
@@ -74,6 +81,9 @@ Deno.serve(async (req) => {
   const priceId = typeof body.price_id === "string" ? body.price_id.trim() : "";
   if (!priceId || !priceId.startsWith("price_")) {
     return jsonResponse({ error: "Missing or invalid price_id (must start with price_)" }, 400);
+  }
+  if (!ALLOWED_PRICE_IDS.has(priceId)) {
+    return jsonResponse({ error: "Price not allowed for checkout" }, 400);
   }
 
   const tier = (typeof body.tier === "string" ? body.tier.toLowerCase() : "battle_pro").replace("church_team", "church");

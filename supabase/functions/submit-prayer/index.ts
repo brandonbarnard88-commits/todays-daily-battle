@@ -43,6 +43,23 @@ async function verifyTurnstile(token: string, remoteip?: string): Promise<{ succ
   }
 }
 
+/** Server-side sanitize for stored user text (defense-in-depth). Strips HTML/script-like content. */
+function sanitizeForDb(s: string, maxLen: number): string {
+  let out = String(s)
+    .replace(/<[^>]*>/g, "")
+    .replace(/javascript:/gi, "")
+    .replace(/vbscript:/gi, "")
+    .replace(/data:\s*/gi, "")
+    .replace(/on\w+\s*=/gi, "")
+    .replace(/&#?\w+;/g, " ")
+    .trim();
+  if (maxLen > 0 && out.length > maxLen) return out.slice(0, maxLen);
+  return out;
+}
+
+const MAX_INTENT_LENGTH = 2000;
+const MAX_FAMILY_NAME_LENGTH = 80;
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { status: 204, headers: CORS_HEADERS });
@@ -64,12 +81,13 @@ Deno.serve(async (req) => {
   }
 
   const token = typeof body.turnstile_token === "string" ? body.turnstile_token.trim() : "";
-  const intent = typeof body.intent === "string" ? body.intent.trim() : "";
+  const intentRaw = typeof body.intent === "string" ? body.intent.trim() : "";
+  const intent = sanitizeForDb(intentRaw, MAX_INTENT_LENGTH);
 
   if (!token) {
     return jsonResponse({ error: "Missing verification", code: "missing_token" }, 400);
   }
-  if (!intent || intent.length > 2000) {
+  if (!intent) {
     return jsonResponse({ error: "Invalid intention", code: "invalid_intent" }, 400);
   }
 
@@ -85,10 +103,14 @@ Deno.serve(async (req) => {
   }
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
+  const familyNameRaw =
+    typeof body.family_name === "string" && body.family_name.trim()
+      ? sanitizeForDb(body.family_name.trim(), MAX_FAMILY_NAME_LENGTH)
+      : "";
   const payload: { intent: string; session_id?: string; family_name?: string } = {
     intent,
     ...(body.session_id && { session_id: String(body.session_id).slice(0, 256) }),
-    ...(typeof body.family_name === "string" && body.family_name.trim() && { family_name: body.family_name.trim().slice(0, 256) }),
+    ...(familyNameRaw && { family_name: familyNameRaw }),
   };
 
   const { error } = await supabase.from("prayers").insert(payload);

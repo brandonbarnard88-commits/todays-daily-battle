@@ -13660,16 +13660,11 @@ function tdbInit() {
     setTimeout(run, 1500);
   })();
 }
-function scheduleTdbInit() {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function onReady() {
-      setTimeout(tdbInit, 0);
-    });
-  } else {
-    setTimeout(tdbInit, 0);
-  }
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', tdbInit);
+} else {
+  tdbInit();
 }
-scheduleTdbInit();
 // Footer build date fallback (local dev): replace TDB_BUILD_DATE with current date if still placeholder
 (function () {
   var el = document.getElementById('footer-date');

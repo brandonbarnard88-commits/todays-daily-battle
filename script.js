@@ -8402,7 +8402,7 @@ function renderSavedVerses() {
   }
   if (collections.length === 0 && items.length === 0) {
     if (!fromTool.verseNotes || !fromTool.verseNotes.length) {
-      container.innerHTML = '<p class="empty">No saved verses yet—<a href="bible-tool.html">add from Bible Tool</a>!</p>';
+      container.innerHTML = '<p class="empty">No saved verses yet—<a href="bible-tool.html">add from Bible Tool</a> to win your battles! ⚔️</p>';
     }
     return;
   }
@@ -8619,7 +8619,7 @@ function renderNotes() {
   container.innerHTML = '';
   const notes = loadNotes();
   if (notes.length === 0) {
-    container.innerHTML = '<p class="empty">No notes yet—<a href="bible-tool.html">add from Bible Tool</a> or save one above.</p>';
+    container.innerHTML = '<p class="empty">No notes yet—add verses from <a href="bible-tool.html">Bible Tool</a> to win your battles! ⚔️</p>';
     return;
   }
   notes.forEach(note => {

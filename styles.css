@@ -4357,8 +4357,14 @@ body.red-letter-off .red-letter-card {
 .study-card textarea {
   margin-bottom: 0.75rem;
   width: 100%;
-  min-height: 5rem;
+  min-height: 7rem;
   resize: vertical;
+  display: block;
+}
+
+.study-card #note-text {
+  min-height: 8rem;
+  padding: 0.75rem;
 }
 
 .study-card > button:not(.link-button) {

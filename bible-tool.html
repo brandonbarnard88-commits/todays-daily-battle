@@ -351,7 +351,7 @@
       if (done) return;
       done = true;
       if (elText && data) elText.textContent = data.text;
-      else if (elText) elText.textContent = KEY_VERSES[ref] || 'Unable to load. Check your connection and try again.';
+      else if (elText) elText.textContent = KEY_VERSES[ref] || 'Verse fetch failed—check connection or try later.';
       var ctxEl = document.getElementById('daily-verse-context');
       if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
     });
@@ -359,11 +359,11 @@
       if (done || !elText) return;
       if (elText.textContent.trim() === 'Loading…') {
         done = true;
-        elText.textContent = KEY_VERSES[ref] || 'Unable to load. Check your connection and try again.';
+        elText.textContent = KEY_VERSES[ref] || 'Verse fetch failed—check connection or try later.';
         var ctxEl = document.getElementById('daily-verse-context');
         if (ctxEl && typeof window.buildVerseContextHtml === 'function') ctxEl.innerHTML = window.buildVerseContextHtml(ref);
       }
-    }, 8000);
+    }, 10000);
   }
 
   function renderLookup(data) {

@@ -4673,6 +4673,31 @@ body.red-letter-off .red-letter-card {
   align-items: end;
 }
 
+.reader-pickers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.reader-pickers label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-muted);
+}
+
+.reader-pickers select {
+  min-width: 140px;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(148,163,184,0.3);
+  background: rgba(15,23,42,0.8);
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
 .reader-actions {
   display: flex;
   gap: 0.6rem;

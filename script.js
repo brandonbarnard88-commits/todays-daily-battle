@@ -13051,4 +13051,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (modal) modal.classList.add('hidden');
     }
   });
+  (function ensureReaderPickers() {
+    var bookSelect = document.getElementById('reader-book');
+    if (!bookSelect) return;
+    setTimeout(function () {
+      if (bookSelect.options.length === 0 && typeof populateReaderBooks === 'function') {
+        populateReaderBooks();
+        var firstBook = typeof getBibleBookOrder === 'function' ? getBibleBookOrder()[0] : null;
+        if (firstBook && typeof populateReaderChapters === 'function') {
+          populateReaderChapters(firstBook);
+          var chapterSelect = document.getElementById('reader-chapter');
+          if (chapterSelect && chapterSelect.options.length) {
+            bookSelect.value = firstBook;
+            chapterSelect.value = chapterSelect.options[0].value;
+          }
+        }
+      }
+    }, 400);
+  })();
 });

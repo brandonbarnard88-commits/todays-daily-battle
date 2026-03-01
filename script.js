@@ -9194,6 +9194,7 @@ function renderResults(results) {
   const queryText = normalizeInput(lastQueryInput || '');
   if (results.intent === 'empty') {
     output.innerHTML = '<p class="empty">Type a topic, keyword, or Bible reference to begin.</p>';
+    triggerResultsFade(output);
     return;
   }
   if (results.verses.length === 0) {
@@ -9839,6 +9840,16 @@ function renderResults(results) {
     activityBox.innerHTML = '<strong>Kid/Teen Activity Ideas</strong><ul>' + items + '</ul>';
     output.appendChild(activityBox);
   }
+  triggerResultsFade(output);
+}
+
+function triggerResultsFade(el) {
+  if (!el || !el.classList) return;
+  el.classList.remove('results-updated');
+  requestAnimationFrame(function () {
+    el.classList.add('results-updated');
+    setTimeout(function () { el.classList.remove('results-updated'); }, 520);
+  });
 }
 
 async function loadStudies() {

@@ -98,6 +98,9 @@ img, video {
   .verse-card.verse-card-loaded p {
     animation: none;
   }
+  #output.results.results-updated {
+    animation: none;
+  }
   .daily-battle-loading,
   .hero-verse-card.hero-verse-card-skeleton {
     animation: none;
@@ -965,9 +968,28 @@ body {
 
 /* Search results appear directly below the search bar / topic chips */
 .search-hero #output.results {
-  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
   padding-top: 1.25rem;
   margin-top: 1rem;
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Subtle fade-in when results update (script adds .results-updated) */
+#output.results.results-updated {
+  animation: resultsFadeIn 0.45s ease-out forwards;
+}
+
+@keyframes resultsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Hero verse — below search, big KJV, dark card */
@@ -1163,6 +1185,27 @@ body {
   .quick-pray-in-hero .btn {
     min-height: 48px;
   }
+  /* Results in search hero: tighter spacing, no double padding */
+  .search-hero #output.results {
+    margin-top: 0.85rem;
+    padding-top: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+    border-top-color: rgba(148, 163, 184, 0.1);
+  }
+  .search-hero .results { gap: 1.25rem; }
+  .search-hero .result-section { gap: 0.65rem; }
+  .search-hero .results .verse-card {
+    padding: 1.25rem 1rem;
+  }
+  .search-hero .results .empty,
+  .search-hero .results .section-note {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1175,6 +1218,15 @@ body {
     padding: 0.55rem 0.85rem;
     font-size: 1rem;
     min-height: 48px;
+  }
+  .search-hero #output.results {
+    padding-top: 0.9rem;
+    margin-top: 0.75rem;
+    border-top-color: rgba(148, 163, 184, 0.1);
+  }
+  .search-hero .results { gap: 1rem; }
+  .search-hero .results .verse-card {
+    padding: 1rem 0.85rem;
   }
   .hero-verse-wrap {
     padding-left: max(0.75rem, env(safe-area-inset-left));
@@ -1479,11 +1531,11 @@ body {
   font-size: 1rem;
 }
 @media (max-width: 767px) {
-  .promo-banner-headline { font-size: 1rem; }
-  .promo-banner-sub { font-size: 0.95rem; }
-  .promo-banner-cta { font-size: 1rem; }
-  .promo-banner.promo-banner-fixed { padding: 0.65rem 2.5rem 0.65rem 0.85rem; }
-  .promo-banner-inner { min-width: 0; }
+  .promo-banner-headline { font-size: 0.95rem; line-height: 1.3; }
+  .promo-banner-sub { font-size: 0.9rem; }
+  .promo-banner-cta { font-size: 0.95rem; }
+  .promo-banner.promo-banner-fixed { padding: 0.6rem 2.5rem 0.6rem 0.75rem; padding-left: max(0.75rem, env(safe-area-inset-left)); }
+  .promo-banner-inner { min-width: 0; flex-wrap: wrap; gap: 0.25rem; }
 }
 .promo-banner-cta:hover { color: #fecaca; }
 .promo-banner.promo-banner-fixed .promo-banner-dismiss {
@@ -5026,6 +5078,27 @@ body.red-letter-off .red-letter-card {
     max-width: 100%;
     overflow-wrap: break-word;
   }
+  .search-hero #output.results {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .results .empty {
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .result-section h3 { font-size: 1.05rem; }
+  .view-more { min-height: 48px; padding: 0.6rem 1rem; }
+  #loading {
+    padding: 2rem 0.75rem;
+    font-size: 1.1rem;
+  }
+  .verse-card-actions {
+    gap: 0.5rem;
+  }
+  .verse-card-actions .btn {
+    min-height: 48px;
+  }
   .search-stack { width: 100%; min-width: 0; }
   .search-stack input {
     width: 100%;
@@ -5159,6 +5232,9 @@ body.red-letter-off .red-letter-card {
   }
   .content-inner { gap: 1.5rem; }
   .glass { padding: 1.35rem; }
+  /* Scroll anchor: keep results visible below promo/top bar */
+  #output { scroll-margin-top: 5rem; }
+  #main-search { scroll-margin-top: 4rem; }
   .hero-banner {
     padding: 1.2rem 1.35rem;
   }

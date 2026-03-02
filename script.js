@@ -536,7 +536,9 @@ const TDB_TOPICS = [
   { topic: 'spiritualwarfare', label: 'Spiritual Warfare' },
   { topic: 'sleep', label: 'Sleep & Rest' },
   { topic: 'marriage', label: 'Marriage' },
-  { topic: 'faith', label: 'Faith' }
+  { topic: 'faith', label: 'Faith' },
+  { topic: 'obedience', label: 'Obedience' },
+  { topic: 'wisdom', label: 'Wisdom' }
 ];
 
 function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
@@ -4781,7 +4783,8 @@ window.VERSE_CONTEXT = {
   'Revelation 3:20': { speaker: 'Jesus', audience: 'The church in Laodicea', application: 'Jesus stands at the door and knocks. Open the door today—He wants to come in and eat with you.' },
   'Romans 8:1': { speaker: 'Paul', audience: 'Believers in Rome', application: 'There is no condemnation for those in Christ. Walk in that truth today.' },
   '1 John 1:9': { speaker: 'John', audience: 'Believers', application: 'If we confess our sins, He is faithful to forgive. Come to Him today with a clean slate.' },
-  'Micah 7:19': { speaker: 'Micah', audience: 'Israel', application: 'God will cast our sins into the depths of the sea. Receive His mercy and move forward today.' }
+  'Micah 7:19': { speaker: 'Micah', audience: 'Israel', application: 'God will cast our sins into the depths of the sea. Receive His mercy and move forward today.' },
+  'Proverbs 22:6': { speaker: 'Solomon', audience: 'Parents in ancient Israel', application: 'Train kids early—God\'s way builds strong families today.', reflection: 'What habit are you teaching?', prayer: 'God, guide my words...' }
 };
 
 function getVerseContext(ref) {
@@ -4795,10 +4798,14 @@ function buildVerseContextHtml(ref, openByDefault) {
   var readerUrl = typeof buildReaderUrl === 'function' ? buildReaderUrl(ref) : 'reader.html';
   if (ctx) {
     var openAttr = openByDefault ? ' open' : '';
-    return '<details class="verse-context-accordion" aria-label="Context and application"' + openAttr + '><summary class="verse-context-summary">Context &amp; Application</summary><ul class="verse-context-list">' +
-      '<li><strong>Speaker:</strong> ' + escapeHtml(ctx.speaker) + '</li>' +
-      '<li><strong>To whom:</strong> ' + escapeHtml(ctx.audience) + '</li>' +
-      '<li><strong>How it applies today:</strong> ' + escapeHtml(ctx.application) + '</li></ul></details>';
+    var html = '<details class="verse-context-accordion" aria-label="Context and application"' + openAttr + '><summary class="verse-context-summary">Context &amp; Application</summary><ul class="verse-context-list">' +
+      '<li><strong>Speaker:</strong> ' + escapeHtml(ctx.speaker || '') + '</li>' +
+      '<li><strong>To whom:</strong> ' + escapeHtml(ctx.audience || '') + '</li>' +
+      '<li><strong>How it applies today:</strong> ' + escapeHtml(ctx.application || '') + '</li>';
+    if (ctx.reflection) html += '<li><strong>Reflection:</strong> ' + escapeHtml(ctx.reflection) + '</li>';
+    if (ctx.prayer) html += '<li><strong>Prayer:</strong> ' + escapeHtml(ctx.prayer) + '</li>';
+    html += '</ul></details>';
+    return html;
   }
   return '<p class="section-note verse-context-dive"><a href="' + escapeHtml(readerUrl) + '">Dive deeper in full chapter →</a></p>';
 }
@@ -10035,9 +10042,13 @@ function tdbInit() {
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
 
-  /* Wire search - hero has 28 topic chips in HTML; accordion gets dynamic buttons from TDB_TOPICS */
+  /* Wire search - hero has 30 chips hardcoded (never empty); accordion gets dynamic from TDB_TOPICS */
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
+    var heroContainer = document.getElementById('quick-actions-hero');
+    if (heroContainer && (!heroContainer.innerHTML || heroContainer.innerHTML.trim() === '')) {
+      renderQuickTopicButtons('quick-actions-hero', true);
+    }
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {
@@ -10131,9 +10142,16 @@ function tdbInit() {
       window.__tdbRunSearchReal = runSearchWithInput;
       window.runSearchWithInput = runSearchWithInput;
       var searchBtn = document.getElementById('search-btn');
-      if (searchBtn) searchBtn.addEventListener('click', function () {
+      if (searchBtn) searchBtn.addEventListener('click', function (e) {
+        e.preventDefault();
         var q = document.getElementById('query');
         runSearchWithInput(q ? String(q.value || '').trim() : '');
+      });
+      var searchForm = document.getElementById('search-form');
+      if (searchForm) searchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var q = document.getElementById('query');
+        if (q && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q.value || '');
       });
       var queryInput = document.getElementById('query');
       if (queryInput) queryInput.addEventListener('keydown', function (event) {
@@ -10258,7 +10276,8 @@ function tdbInit() {
   runSupabaseConnectionTest();
   var path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
   var isHome = path === '' || path === '/' || path === '/index.html';
-  if (isHome && Object.keys(bible).length === 0 && typeof loadBible === 'function') {
+  var isVersePage = /verse\.html$/.test(path);
+  if ((isHome || isVersePage) && Object.keys(bible).length === 0 && typeof loadBible === 'function') {
     loadBible(currentVersion).catch(function () {});
   }
   if (isHome && typeof URLSearchParams !== 'undefined' && window.location.search) {

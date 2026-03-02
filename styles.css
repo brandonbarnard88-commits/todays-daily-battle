@@ -1019,13 +1019,26 @@ body:has(.search-hero-home) #search-hero {
   transform: scale(0.98);
 }
 
-/* Search input: gold border, focus glow */
-.search-hero-centered .search-hero-input {
-  border: 1px solid var(--elite-gold-dim, rgba(212, 175, 55, 0.35));
+/* Search input: gold border, focus glow — always functional */
+.search-hero-centered .search-hero-input,
+.search-hero-input-gold {
+  border: 1px solid var(--elite-gold-solid, #d4af37);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2);
 }
-.search-hero-centered .search-hero-input:focus {
+.search-hero-centered .search-hero-input:focus,
+.search-hero-input-gold:focus {
   border-color: var(--elite-gold-solid, #d4af37);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 0 24px var(--elite-gold-dim);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 0 24px var(--elite-gold-dim);
+}
+/* Grid of 30 gold-outlined chips */
+.quick-chips-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: 0.5rem;
+  justify-items: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Hero results: verse cards with shadow, hover, fade-in */

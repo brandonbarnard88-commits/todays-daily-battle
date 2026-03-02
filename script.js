@@ -10551,7 +10551,7 @@ function startStudy(id) {
           if (typeof console !== 'undefined' && console.log) {
             console.log('Trying to register SW...');
           }
-          navigator.serviceWorker.register('/service-worker.js?v=20260308', { scope: '/' })
+          navigator.serviceWorker.register('/service-worker.js?v=20260309', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               if (typeof console !== 'undefined' && console.log) {

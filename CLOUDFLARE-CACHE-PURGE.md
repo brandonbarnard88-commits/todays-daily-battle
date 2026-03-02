@@ -18,6 +18,8 @@ The PWA service worker **precaches HTML** (index.html, bible-tool.html, etc.). R
 6. If not: go to **Caching** → **Configuration** → **Purge Everything** (nukes all cache)
 7. Or: **Caching** → **Configuration** → turn on **Development Mode** (disables cache for 3 hours)
 
+**After deploy:** Purge Everything in Cloudflare **Caching** → **Configuration** to nuke edge cache. Then wait 1–2 min and hard refresh (Cmd+Shift+R).
+
 ## 2. Verify build output directory
 
 **Settings** → **Builds & deployments** (or **Build configuration**):

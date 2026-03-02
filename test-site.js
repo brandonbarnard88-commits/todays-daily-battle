@@ -28,7 +28,16 @@ const pages = [
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
   { path: '/about.html', name: 'About', mustInclude: ['About', 'Daily Battle'] },
+  { path: '/bible-tool.html', name: 'Bible Tool', mustInclude: ['Bible Tool', 'Read full chapter'] },
+  { path: '/bible-study.html', name: 'Bible Studies', mustInclude: ['Bible', 'Study'] },
+  { path: '/pastor-toolkit.html', name: 'Pastor Toolkit', mustInclude: ['Pastor'] },
+  { path: '/team-toolkit.html', name: 'Team Toolkit', mustInclude: ['Team'] },
+  { path: '/coloring.html', name: 'Kids Coloring', mustInclude: ['Coloring', 'Kids'] },
+  { path: '/resources.html', name: 'Pastor Resources', mustInclude: ['Resources'] },
+  { path: '/reader.html', name: 'Chapter Reader', mustInclude: ['Reader', 'Chapter'] },
   { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety'] },
+  { path: '/topic-hope.html', name: 'Topic Hope', mustInclude: ['Hope'] },
+  { path: '/topic-strength.html', name: 'Topic Strength', mustInclude: ['Strength'] },
   { path: '/manifest.json', name: 'Manifest (PWA)', mustInclude: ['name', 'short_name'] },
 ];
 

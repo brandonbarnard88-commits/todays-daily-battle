@@ -55,6 +55,12 @@ Try both with and without `.html` (some hosts serve extensionless):
 
 Should return **200** with HTML content.
 
+**Smoke test after deploy:**
+```bash
+curl -I https://todaysdailybattle.com/topic-anxiety
+```
+Should return `HTTP/2 200` (or `HTTP/1.1 200`).
+
 ## 5. If still 503
 
 - **Build logs**: Check for errors (e.g. "Failed to copy", missing files)

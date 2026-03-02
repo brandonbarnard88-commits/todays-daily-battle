@@ -17,8 +17,8 @@ OFFLINE = "--offline" in sys.argv
 
 # (path, name, list of strings that must appear in body)
 PAGES = [
-    ("/", "Home", ["id=\"query\"", "id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\""]),
-    ("/index.html", "Home (index.html)", ["id=\"query\"", "id=\"search-btn\"", "Today's Daily Battle"]),
+    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\""]),  # id="query" or id="tdb-search"
+    ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\""]),
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
     ("/pricing.html", "Pricing", ["Pricing", "Subscribe", "terms.html", "id=\"auth-section\"", "id=\"sidebar-toggle\""]),
@@ -136,8 +136,8 @@ def main():
     try:
         with open("script.js", "r", encoding="utf-8") as f:
             script = f.read()
-        if "runQuickTopicSearch" in script and "runSearchWithInput" in script and "ensureOutputElement" in script:
-            print("OK   quick search wiring (runQuickTopicSearch, ensureOutputElement)")
+        if ("renderQuickTopicButtons" in script or "runQuickTopicSearch" in script) and "runSearchWithInput" in script and ("ensureOutputElement" in script or "wireSearchAndQuickTopics" in script):
+            print("OK   quick search wiring (renderQuickTopicButtons, runSearchWithInput)")
         else:
             print("FAIL quick search wiring in script.js")
             failed += 1

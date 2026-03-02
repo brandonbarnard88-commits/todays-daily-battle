@@ -108,14 +108,7 @@
       <a href="pricing.html" id="battle-pro-badge" class="battle-pro-badge hidden" aria-label="Battle Pro: Active">Battle Pro: Active</a>
       <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-details" class="auth-details-inline">
-        <div id="auth-section" class="auth-inline auth-compact">
-          <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
-          <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
-          <button id="signup-btn" type="button">Sign Up</button>
-          <button id="login-btn" type="button">Log In</button>
-          <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
-          <button id="logout-btn" class="hidden" type="button">Log Out</button>
-        </div>
+        <a href="#auth-block-below-hero" class="btn btn-secondary header-signin-link">Sign In</a>
       </div>
     </header>
 
@@ -231,6 +224,19 @@
           </div>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </section>
+        <div id="auth-block-below-hero" class="glass auth-block-below-hero util-mt-0_5" role="region" aria-label="Sign in to sync">
+          <h3 class="section-divider util-mt-0">Sign in to sync</h3>
+          <p class="section-note util-mb-0_5">Sync your notes, prayers, and streaks across devices. Free.</p>
+          <div id="auth-section" class="auth-inline auth-compact">
+            <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+            <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+            <button id="signup-btn" type="button">Sign Up</button>
+            <button id="login-btn" type="button">Log In</button>
+            <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+            <button id="logout-btn" class="hidden" type="button">Log Out</button>
+          </div>
+          <p id="auth-status" class="auth-status-message section-note util-mt-0_5" aria-live="polite" role="status"></p>
+        </div>
         <div class="glass prayer-of-day-block util-mt-0_5" role="region" aria-label="Prayer of the day">
           <h3 class="section-divider util-mt-0">Today's Prayer</h3>
           <p class="prayer-of-day-text">Lord, give us strength for the battle. Amen.</p>

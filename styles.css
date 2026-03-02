@@ -814,6 +814,8 @@ body:has(.search-hero-home) #search-hero {
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
 #search-hero { scroll-margin-top: 5rem; }
+#auth-block-below-hero,
+#auth-section { scroll-margin-top: 5rem; }
 .search-hero-label {
   display: block;
   font-family: var(--font-ui);

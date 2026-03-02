@@ -552,11 +552,10 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
     : TDB_TOPICS;
   if (!Array.isArray(topics) || topics.length === 0) return;
   var html = '';
-  var runTopic = "var t=this.getAttribute(\"data-topic\");if(t){if(typeof console!==\"undefined\"&&console.log)console.log(\"clicked: \"+t);}return false;";
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
     var cls = isPrimary ? 'btn btn-primary quick-topic' : 'btn btn-secondary quick-topic';
-    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '" onclick="' + runTopic.replace(/"/g, '&quot;') + '">' + escapeHtml(item.label) + '</button>';
+    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '">' + escapeHtml(item.label) + '</button>';
   });
   container.innerHTML = html;
 }
@@ -9388,9 +9387,9 @@ function renderResults(results) {
     const queryEl = getQueryInput();
     const searchBtn = document.getElementById('search-btn');
     suggestions.querySelectorAll('.quick-topic').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const topic = btn.getAttribute('data-topic');
-        if (topic && typeof console !== 'undefined' && console.log) console.log('clicked: ' + topic);
+      btn.addEventListener('click', function (e) {
+        var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
+        if (topic && typeof console !== 'undefined' && console.log) console.log('clicked:', topic);
       });
     });
     triggerResultsFade(output);
@@ -10265,40 +10264,35 @@ function startStudy(id) {
         if (q && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q.value || '');
       });
       var queryInput = getQueryInput();
-      if (queryInput) queryInput.addEventListener('keydown', function (event) {
-        if (event.key !== 'Enter') return;
-        event.preventDefault();
-        event.stopPropagation();
-        runSearchWithInput((queryInput.value != null) ? String(queryInput.value || '').trim() : '');
-      });
-      function runQuickTopicSearch(topic) {
-        if (!topic) return;
-        if (typeof console !== 'undefined' && console.log) console.log('clicked: ' + topic);
-        return;
+      if (queryInput) {
+        var _selStart = 0, _selEnd = 0, _valLen = 0;
+        queryInput.addEventListener('keydown', function (event) {
+          _selStart = this.selectionStart;
+          _selEnd = this.selectionEnd;
+          _valLen = this.value.length;
+          if (event.key !== 'Enter') { event.stopPropagation(); return; }
+          event.preventDefault();
+          event.stopPropagation();
+          runSearchWithInput((queryInput.value != null) ? String(queryInput.value || '').trim() : '');
+        }, true);
+        queryInput.addEventListener('input', function () {
+          var s = this.selectionStart, e = this.selectionEnd, len = this.value.length;
+          if (len > 0 && s === 0 && e === 0 && len > _valLen) {
+            this.setSelectionRange(len, len);
+          }
+          _selStart = s;
+          _selEnd = e;
+          _valLen = len;
+        });
       }
-      document.body.addEventListener('click', function quickTopicDelegated(e) {
-        var btn = (e.target && e.target.closest && e.target.closest('.quick-topic')) || (e.target && e.target.closest && e.target.closest('[data-topic]'));
-        if (!btn) return;
-        var topic = btn.getAttribute('data-topic');
-        if (!topic) return;
-        e.preventDefault();
-        e.stopPropagation();
-        runQuickTopicSearch(topic);
-      }, false);
-      var heroQuick = document.getElementById('quick-actions-hero');
-      if (heroQuick) heroQuick.addEventListener('click', function (e) {
-        var btn = e.target && e.target.closest && e.target.closest('[data-topic]');
-        if (!btn) return;
-        var topic = btn.getAttribute('data-topic');
-        if (!topic) return;
-        e.preventDefault();
-        e.stopPropagation();
-        runQuickTopicSearch(topic);
-      });
-      var quickTopics = document.querySelectorAll('.quick-topic');
-      quickTopics.forEach(function (btn) {
-        if (!btn.getAttribute('data-topic')) return;
-        btn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); runQuickTopicSearch(btn.getAttribute('data-topic')); });
+      document.querySelectorAll('.quick-topic').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
+          if (typeof console !== 'undefined' && console.log) console.log('clicked:', topic);
+          // TODO: filter verses by topic here (e.g. show only verses with keyword in text)
+        });
       });
       var testamentFilter = document.getElementById('testament-filter');
       var bookFilter = document.getElementById('book-filter');

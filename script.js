@@ -10044,10 +10044,13 @@ async function tdbInit() {
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
 
-  /* Wire search - hero gets 30 chips from TDB_TOPICS; accordion gets dynamic from TDB_TOPICS */
+  /* Wire search - hero has 30 chips hardcoded (never empty); accordion gets dynamic from TDB_TOPICS */
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
-    renderQuickTopicButtons('quick-actions-hero', true);
+    var heroContainer = document.getElementById('quick-actions-hero');
+    if (heroContainer && (!heroContainer.innerHTML || heroContainer.innerHTML.trim() === '')) {
+      renderQuickTopicButtons('quick-actions-hero', true);
+    }
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {

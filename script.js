@@ -6,6 +6,8 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+
 window.__tdb_script_version = '20260301';
 if (typeof console !== 'undefined' && console.log && (window.location && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') || (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_debug')))) {
   console.log('TDB: script loaded', window.__tdb_script_version);
@@ -1284,13 +1286,13 @@ const topics = {
   // You can keep adding more here
 };
 
-// Supabase: use window.TDB_CONFIG from config.js. Stub if missing so the app never breaks.
+// Supabase: use imported config (SUPABASE_URL, SUPABASE_ANON_KEY) and window.TDB_CONFIG for other consumers.
 if (typeof window !== 'undefined' && (window.TDB_CONFIG == null || typeof window.TDB_CONFIG !== 'object')) {
   window.TDB_CONFIG = {};
 }
 const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
-const supabaseUrl = (_cfg && _cfg.SUPABASE_URL) || '';
-const supabaseKey = (_cfg && _cfg.SUPABASE_ANON_KEY) || '';
+const supabaseUrl = SUPABASE_URL || '';
+const supabaseKey = SUPABASE_ANON_KEY || '';
 // Only use Supabase when URL is the real API host (never relative or same-origin)
 const supabaseUrlValid = supabaseUrl && String(supabaseUrl).includes('supabase.co') && !String(supabaseUrl).includes('your-project-ref');
 if (typeof window !== 'undefined') {
@@ -10034,7 +10036,7 @@ function startStudy(id) {
   window.location.href = 'reading-plan.html?study=' + encodeURIComponent(id);
 }
 
-function tdbInit() {
+async function tdbInit() {
   if (!document.body) return;
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');

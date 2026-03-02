@@ -9,6 +9,7 @@
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 
 window.__tdb_script_version = '20260302';
+if (typeof history !== 'undefined' && history.scrollRestoration) history.scrollRestoration = 'manual';
 if (typeof console !== 'undefined' && console.log) {
   console.log('TDB: Hero loaded', window.__tdb_script_version);
 }
@@ -9386,10 +9387,26 @@ function renderResults(results) {
     output.appendChild(suggestions);
     const queryEl = getQueryInput();
     const searchBtn = document.getElementById('search-btn');
-    suggestions.querySelectorAll('.quick-topic').forEach(btn => {
+    suggestions.querySelectorAll('.quick-topic').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
-        if (topic && typeof console !== 'undefined' && console.log) console.log('clicked:', topic);
+        var queryEl = getQueryInput();
+        if (queryEl) queryEl.value = topic;
+        if (topic && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+        setTimeout(function () {
+          var verses = document.querySelectorAll('#output .verse-card');
+          var t = (topic || '').toLowerCase();
+          verses.forEach(function (v) {
+            var text = (v.textContent || '').toLowerCase();
+            if (t === 'all' || text.includes(t)) {
+              v.style.display = '';
+            } else {
+              v.style.display = 'none';
+            }
+          });
+        }, 500);
       });
     });
     triggerResultsFade(output);
@@ -9681,7 +9698,7 @@ function renderResults(results) {
       list.innerHTML = '';
       items.forEach(v => {
         const card = document.createElement('div');
-        card.className = 'verse-card';
+        card.className = 'verse-card verse-item';
         card.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.text || '') + '</p>';
         var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(v.ref, true) : '';
         if (ctxHtml) card.insertAdjacentHTML('beforeend', ctxHtml);
@@ -10290,8 +10307,21 @@ function startStudy(id) {
           e.preventDefault();
           e.stopPropagation();
           var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
-          if (typeof console !== 'undefined' && console.log) console.log('clicked:', topic);
-          // TODO: filter verses by topic here (e.g. show only verses with keyword in text)
+          var q = getQueryInput();
+          if (q) q.value = topic;
+          if (topic && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+          setTimeout(function () {
+            var verses = document.querySelectorAll('#output .verse-item');
+            var t = (topic || '').toLowerCase();
+            verses.forEach(function (v) {
+              var text = (v.textContent || '').toLowerCase();
+              if (t === 'all' || text.includes(t)) {
+                v.style.display = '';
+              } else {
+                v.style.display = 'none';
+              }
+            });
+          }, 500);
         });
       });
       var testamentFilter = document.getElementById('testament-filter');

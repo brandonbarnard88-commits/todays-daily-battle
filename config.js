@@ -45,6 +45,8 @@ window.TDB_CONFIG.STRIPE_PRICE_IDS = {
 
 // Edge Function URL for creating a Checkout Session with user_id in metadata (derived from SUPABASE_URL).
 window.TDB_CONFIG.CREATE_CHECKOUT_SESSION_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/create-checkout-session';
+// Donation checkout (no auth required).
+window.TDB_CONFIG.CREATE_DONATION_SESSION_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/create-donation-session';
 // Submit Quick Pray via Edge Function (Turnstile verification). Set TURNSTILE_SITE_KEY to enable.
 window.TDB_CONFIG.SUBMIT_PRAYER_URL = (window.TDB_CONFIG.SUPABASE_URL || '') + '/functions/v1/submit-prayer';
 // Post message via Edge Function (rate limit + server-side sanitization). When set, client uses this instead of direct insert.

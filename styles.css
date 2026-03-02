@@ -1040,6 +1040,11 @@ body:has(.search-hero-home) #search-hero {
   margin-left: auto;
   margin-right: auto;
 }
+@media (max-width: 768px) {
+  .quick-chips-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
 
 /* Hero results: verse cards with shadow, hover, fade-in */
 .search-hero .results .verse-card {

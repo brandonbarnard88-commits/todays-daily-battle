@@ -18,6 +18,8 @@ if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
 const config = {
   SUPABASE_URL,
   SUPABASE_ANON_KEY,
+  CREATE_CHECKOUT_SESSION_URL: SUPABASE_URL ? SUPABASE_URL + '/functions/v1/create-checkout-session' : '',
+  CREATE_DONATION_SESSION_URL: SUPABASE_URL ? SUPABASE_URL + '/functions/v1/create-donation-session' : '',
   WALKTHROUGH_VIDEO_URL: process.env.WALKTHROUGH_VIDEO_URL || '',
   STRIPE_SUPPORTER_MONTHLY_URL: process.env.STRIPE_SUPPORTER_MONTHLY_URL || process.env.STRIPE_SUPPORTER_MONTHLY_LINK || '',
   STRIPE_SUPPORTER_YEARLY_URL: process.env.STRIPE_SUPPORTER_YEARLY_URL || process.env.STRIPE_SUPPORTER_YEARLY_LINK || '',
@@ -38,6 +40,8 @@ const config = {
 const out = `/**
  * Generated at build from env (Cloudflare/CI). Do not commit.
  */
+export const SUPABASE_URL = ${JSON.stringify(SUPABASE_URL)};
+export const SUPABASE_ANON_KEY = ${JSON.stringify(SUPABASE_ANON_KEY)};
 window.TDB_CONFIG = ${JSON.stringify(config, null, 2)};
 `;
 

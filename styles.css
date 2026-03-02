@@ -814,6 +814,9 @@ body:has(.search-hero-home) #search-hero {
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
 #search-hero, #quick-search-hero { scroll-margin-top: 5rem; }
+.quick-search-hero-wrap { text-align: center; margin: 20px 0; }
+.search-hero-input-inline { width: 80%; max-width: 500px; padding: 12px; border: 2px solid gold; border-radius: 8px; font-size: 16px; box-shadow: 0 0 8px rgba(212, 175, 55, 0.3); background: rgba(15, 20, 32, 0.95); color: #e2e8f0; }
+.search-hero-btn-mt { margin-top: 8px; }
 .search-hero-label {
   display: block;
   font-family: var(--font-ui);
@@ -1039,7 +1042,8 @@ body:has(.search-hero-home) #search-hero {
 }
 @media (max-width: 768px) {
   .search-hero-input,
-  .search-hero-input-gold {
+  .search-hero-input-gold,
+  .search-hero-input-inline {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100%;
@@ -5970,6 +5974,52 @@ body.red-letter-off .red-letter-card {
 .modal-inner textarea { min-height: 4rem; resize: vertical; }
 .modal-inner .cta-group .btn { min-height: 48px; }
 .modal-inner #family-name-input { width: 100%; min-height: 48px; padding: 0.75rem 1rem; box-sizing: border-box; margin-bottom: 0.75rem; }
+
+/* Donation modal — gold accents, reassuring */
+.footer-donation-wrap { text-align: center; }
+.btn-donation-gold {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.25), rgba(180, 83, 9, 0.15));
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--elite-gold-solid, #d4af37);
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+}
+.btn-donation-gold:hover,
+.btn-donation-gold:focus-visible {
+  border-color: rgba(212, 175, 55, 0.75);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+.donation-modal-inner { position: relative; }
+.donation-reassure { margin-bottom: 1rem; }
+.donation-amount-row,
+.donation-interval-row { margin-bottom: 1rem; }
+.donation-amount-row label,
+.donation-interval-row label { display: block; margin-bottom: 0.35rem; font-size: 0.9rem; color: var(--text-muted); }
+.donation-amount-row input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+}
+.donation-interval-btns { display: flex; gap: 0.5rem; margin-top: 0.35rem; }
+.donation-interval-btn.active {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: var(--elite-gold-solid, #d4af37);
+}
+.donation-stripe-note { margin: 0.75rem 0 1rem; font-size: 0.85rem; }
+.donation-status { margin-top: 0.75rem; }
+@media (max-width: 480px) {
+  .donation-interval-btns { flex-wrap: wrap; }
+  .btn-donation-gold { width: 100%; }
+}
 
 /* Household Armor Builder modal — elite tier */
 .armor-builder-btn {

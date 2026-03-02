@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://todaysdailybattle.com https://todaysdailybattle.org https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://todaysdailybattle.com https://todaysdailybattle.org https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <title>Today's Daily Battle — The Bible Companion You'll Use Every Day</title>
   <meta name="description" content="Daily KJV Bible verse, offline notes, prayer wall—win your battles with Scripture. Free verse of the day, streaks, and devotionals.">
@@ -33,7 +33,6 @@
   <script src="fetch-prayer-guard.js"></script>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
-  <script nonce="tdb2025">window.TDB_CONFIG=window.TDB_CONFIG||{};if(!window.TDB_CONFIG.SUPABASE_URL){window.TDB_CONFIG.SUPABASE_URL='https://rixsnhpwrlbvvymkfamj.supabase.co';window.TDB_CONFIG.SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw';}</script>
   <script type="module" src="config.js?v=20260302"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" integrity="sha384-BkEIW/B4JV9w6pRfBRgZtAcYDk5goH1nUI49rLo8s5PSHgTfgxWBczRVJx+fv5kP" crossorigin="anonymous" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" integrity="sha384-MiR5OstmujbPpU5nzD986OTopb4Kveb2WX4EmKuqeCU1hCWlxMYL8gBBY7vDSYLF" crossorigin="anonymous" defer></script>
@@ -188,12 +187,12 @@
           </div>
           <p class="hero-verse-byline">A hospital stay that was life-changing.</p>
         </div>
-        <div id="quick-search-hero" class="search-hero quick-search-hero" style="text-align:center; margin: 20px 0;" role="search" aria-label="Search Scripture">
+        <div id="quick-search-hero" class="search-hero quick-search-hero quick-search-hero-wrap" role="search" aria-label="Search Scripture">
           <form id="search-form" onsubmit="event.preventDefault();var q=document.getElementById('tdb-search')||document.getElementById('query');if(q&&typeof window.runSearchWithInput==='function')window.runSearchWithInput(q.value);return false;">
-            <input type="search" id="tdb-search" placeholder="Type a topic, emotion, or verse (e.g., anxiety, Romans 8:38)" aria-label="Search Bible topics or verses" autocomplete="off" style="width:80%; max-width:500px; padding:12px; border:2px solid gold; border-radius:8px; font-size:16px; box-shadow:0 0 8px rgba(212,175,55,0.3); background:rgba(15,20,32,0.95); color:#e2e8f0;">
-            <button id="search-btn" type="submit" class="btn btn-primary" style="margin-top:8px;">Search</button>
+            <input type="search" id="tdb-search" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Type a topic, emotion, or verse (e.g., anxiety, Romans 8:38)" aria-label="Search Bible topics or verses" autocomplete="off">
+            <button id="search-btn" type="submit" class="btn btn-primary search-hero-btn-mt">Search</button>
           </form>
-          <p class="section-note quick-searches-label">Tap any chip to load verses — all 30 topics</p>
+          <p class="section-note quick-searches-label">Type a topic, emotion, or verse reference. Tap any chip below for instant verses — all 30 topics.</p>
           <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-hero" aria-label="Quick topic search">
             <button type="button" class="btn btn-primary quick-topic" data-topic="free will">FREE WILL</button>
             <button type="button" class="btn btn-secondary quick-topic" data-topic="family">Family</button>
@@ -864,7 +863,31 @@
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
       <p class="section-note util-mt-0_5">Your data never leaves your device—clear anytime. <button type="button" id="clear-local-data-btn" class="link-button" aria-label="Reset prayers, notes, streaks—fresh start"><span aria-hidden="true">⚠</span> Clear local data</button><span id="clear-data-announce" class="sr-only" aria-live="polite" aria-atomic="true"></span></p>
+      <div class="footer-donation-wrap util-mt-1">
+        <button type="button" id="donate-btn" class="btn btn-donation-gold" aria-label="Donate to support the site">Support Today's Daily Battle – $5 or more</button>
+      </div>
     </footer>
+    <div id="donation-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="donation-modal-title" aria-label="Donate to support the site">
+      <div class="modal-inner glass donation-modal-inner">
+        <button type="button" class="intent-modal-close" id="donation-modal-close" aria-label="Dismiss">×</button>
+        <h2 id="donation-modal-title" class="section-divider">Support Today's Daily Battle</h2>
+        <p class="section-note donation-reassure">Your gift stays private. No ads here.</p>
+        <div class="donation-amount-row">
+          <label for="donation-amount">Amount ($)</label>
+          <input type="number" id="donation-amount" value="5" min="1" max="9999" step="1" aria-label="Donation amount in dollars">
+        </div>
+        <div class="donation-interval-row">
+          <label>Frequency</label>
+          <div class="donation-interval-btns">
+            <button type="button" class="btn btn-secondary donation-interval-btn active" data-interval="one_time">One-time</button>
+            <button type="button" class="btn btn-secondary donation-interval-btn" data-interval="monthly">Monthly</button>
+          </div>
+        </div>
+        <p class="section-note donation-stripe-note">You'll enter card details securely on Stripe's checkout page.</p>
+        <button type="button" id="donation-submit-btn" class="btn btn-primary btn-donation-gold">Donate</button>
+        <p id="donation-status" class="donation-status section-note hidden" aria-live="polite"></p>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" integrity="sha384-vdScihEZCfbPnBQf+lc7LgXUdJVYyhC3yWHUW5C5P5GpHRqVnaM6HJELJxT6IqwM" crossorigin="anonymous"></script>

@@ -2786,6 +2786,110 @@ function wireBattleProUpgradeModal() {
   });
 }
 
+function wireDonationModal() {
+  var modal = document.getElementById('donation-modal');
+  var openBtn = document.getElementById('donate-btn');
+  var closeBtn = document.getElementById('donation-modal-close');
+  var amountInput = document.getElementById('donation-amount');
+  var submitBtn = document.getElementById('donation-submit-btn');
+  var statusEl = document.getElementById('donation-status');
+  var intervalBtns = document.querySelectorAll('.donation-interval-btn');
+  if (!modal || !openBtn || !submitBtn) return;
+
+  var selectedInterval = 'one_time';
+
+  function openModal() {
+    console.log('Donation started');
+    modal.classList.remove('hidden');
+    if (amountInput) amountInput.value = '5';
+    selectedInterval = 'one_time';
+    intervalBtns.forEach(function (b) {
+      b.classList.toggle('active', (b.getAttribute('data-interval') || '') === 'one_time');
+    });
+    if (statusEl) { statusEl.classList.add('hidden'); statusEl.textContent = ''; }
+    if (_tdbModalUntrap) _tdbModalUntrap();
+    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
+    if (amountInput) amountInput.focus();
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; }
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+
+  intervalBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var interval = btn.getAttribute('data-interval') || 'one_time';
+      selectedInterval = interval;
+      intervalBtns.forEach(function (b) { b.classList.toggle('active', (b.getAttribute('data-interval') || '') === interval); });
+    });
+  });
+
+  submitBtn.addEventListener('click', function () {
+    var raw = amountInput ? parseFloat(String(amountInput.value).replace(/[^0-9.]/g, '')) : 5;
+    var dollars = isNaN(raw) || raw < 1 ? 5 : Math.min(9999, Math.max(1, raw));
+    var amountCents = Math.round(dollars * 100);
+
+    if (!navigator.onLine) {
+      if (statusEl) { statusEl.textContent = 'Donations offline—try later.'; statusEl.classList.remove('hidden'); }
+      return;
+    }
+
+    var url = (window.TDB_CONFIG && window.TDB_CONFIG.CREATE_DONATION_SESSION_URL) || '';
+    if (!url) {
+      if (statusEl) { statusEl.textContent = 'Donations not configured—try later.'; statusEl.classList.remove('hidden'); }
+      return;
+    }
+
+    submitBtn.disabled = true;
+    if (statusEl) { statusEl.textContent = 'Redirecting to secure checkout…'; statusEl.classList.remove('hidden'); }
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount_cents: amountCents, interval: selectedInterval })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.url) {
+          window.location.href = data.url;
+          return;
+        }
+        throw new Error(data && data.error ? data.error : 'Failed to create checkout');
+      })
+      .catch(function (err) {
+        submitBtn.disabled = false;
+        if (statusEl) {
+          statusEl.textContent = 'Payment failed—try again.';
+          statusEl.classList.remove('hidden');
+        }
+        if (typeof console !== 'undefined' && console.warn) console.warn('TDB donation error:', err);
+      });
+  });
+}
+
+function wireDonationSuccessFailure() {
+  var params = typeof URLSearchParams !== 'undefined' && window.location.search ? new URLSearchParams(window.location.search) : null;
+  if (!params) return;
+  var donation = params.get('donation');
+  if (!donation) return;
+
+  if (donation === 'success' && typeof showEliteToast === 'function') {
+    showEliteToast('Thanks—God bless! Your support keeps verses flowing.', { gold: true, duration: 4000 });
+  } else if (donation === 'cancel' && typeof showEliteToast === 'function') {
+    showEliteToast('Payment cancelled.');
+  }
+
+  if (window.history && window.history.replaceState) {
+    var clean = window.location.pathname + (window.location.hash || '');
+    window.history.replaceState(null, '', clean);
+  }
+}
+
 function wireDownloadDevotionalButton() {
   var btn = document.getElementById('download-devotional-btn');
   if (!btn) return;
@@ -10043,7 +10147,7 @@ function startStudy(id) {
   window.location.href = 'reading-plan.html?study=' + encodeURIComponent(id);
 }
 
-async function tdbInit() {
+(typeof window !== 'undefined' ? window : {}).tdbInit = async function tdbInit() {
   if (!document.body) return;
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
@@ -10058,6 +10162,8 @@ async function tdbInit() {
     if (heroContainer && (!heroContainer.innerHTML || heroContainer.innerHTML.trim() === '')) {
       renderQuickTopicButtons('quick-actions-hero', true);
     }
+    var chipCount = heroContainer ? heroContainer.querySelectorAll('.quick-topic, [data-topic]').length : 0;
+    if (typeof console !== 'undefined' && console.log) console.log('TDB: Hero chips:', chipCount);
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {
@@ -10391,6 +10497,8 @@ async function tdbInit() {
   wireIntentModal();
   wirePrayerMap();
   wireBattleProUpgradeModal();
+  wireDonationModal();
+  wireDonationSuccessFailure();
   wireDownloadDevotionalButton();
   wireCollectiveIntention();
   wireFooterRotating();
@@ -13740,13 +13848,13 @@ async function tdbInit() {
     setTimeout(run, 1500);
   })();
 }
-}  // Fix: balances unclosed block elsewhere (syntax error workaround)
 (function runTdbAndFooter() {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', runTdbAndFooter);
     return;
   }
-  tdbInit();
+  var init = typeof window !== 'undefined' && window.tdbInit;
+  if (init) init();
   var el = document.getElementById('footer-date');
   if (el && el.textContent === 'TDB_BUILD_DATE') {
     var d = new Date();
@@ -13754,3 +13862,4 @@ async function tdbInit() {
     el.textContent = m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
   }
 })();
+}  // Workaround: closes unclosed block (fixes "Unexpected end of script" parse error)

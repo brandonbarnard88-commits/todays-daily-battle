@@ -132,8 +132,8 @@ for (const f of otherHtml) {
       }
     }
     const scriptContent = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
-    if (!scriptContent.includes('TDB_TOPICS') || !scriptContent.includes('renderQuickTopicButtons') || !scriptContent.includes('runQuickTopicSearch')) {
-      console.error('BUILD FAIL: script.js must contain TDB_TOPICS, renderQuickTopicButtons, and runQuickTopicSearch. Quick-search must always work.');
+    if (!scriptContent.includes('TDB_TOPICS') || !scriptContent.includes('renderQuickTopicButtons') || !scriptContent.includes('wireSearchAndQuickTopics')) {
+      console.error('BUILD FAIL: script.js must contain TDB_TOPICS, renderQuickTopicButtons, and wireSearchAndQuickTopics. Quick-search must always work.');
       process.exit(1);
     }
     console.log('Copied index.html (hero + quick-search + tools) to dist/');

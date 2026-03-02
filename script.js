@@ -29,7 +29,9 @@ document.addEventListener('securitypolicyviolation', function (e) {
 
 /* Stub runSearchWithInput immediately so onclick handlers never fail; real impl replaces it in tdbInit */
 window.runSearchWithInput = function (inputStr) {
-  if (window.__tdbRunSearchReal) window.__tdbRunSearchReal(inputStr);
+  if (window.__tdbRunSearchReal) { window.__tdbRunSearchReal(inputStr); return; }
+  var s = (inputStr != null) ? String(inputStr).trim() : '';
+  if (s && typeof window.location !== 'undefined') { window.location.href = (window.location.pathname || '/') + '?q=' + encodeURIComponent(s); }
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
 
@@ -10304,24 +10306,28 @@ function startStudy(id) {
       }
       document.querySelectorAll('.quick-topic').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
-          var q = getQueryInput();
-          if (q) q.value = topic;
-          if (topic && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
-          setTimeout(function () {
-            var verses = document.querySelectorAll('#output .verse-item');
-            var t = (topic || '').toLowerCase();
-            verses.forEach(function (v) {
-              var text = (v.textContent || '').toLowerCase();
-              if (t === 'all' || text.includes(t)) {
-                v.style.display = '';
-              } else {
-                v.style.display = 'none';
-              }
-            });
-          }, 500);
+          try {
+            e.preventDefault();
+            e.stopPropagation();
+            var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
+            var q = getQueryInput();
+            if (q) q.value = topic;
+            if (topic && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+            setTimeout(function () {
+              try {
+                var verses = document.querySelectorAll('#output .verse-item');
+                var t = (topic || '').toLowerCase();
+                verses.forEach(function (v) {
+                  var text = (v.textContent || '').toLowerCase();
+                  if (t === 'all' || text.includes(t)) {
+                    v.style.display = '';
+                  } else {
+                    v.style.display = 'none';
+                  }
+                });
+              } catch (_) {}
+            }, 500);
+          } catch (err) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB quick-topic click:', err); }
         });
       });
       var testamentFilter = document.getElementById('testament-filter');

@@ -638,13 +638,34 @@
   }
 
   var refParam = typeof URLSearchParams !== 'undefined' && location.search ? new URLSearchParams(location.search).get('ref') : null;
-  if (refParam) {
-    refParam = normRef(decodeURIComponent(refParam));
-    var parts = parseRefToParts(refParam);
-    if (parts) setLookupForm(parts.book, parts.chapter, parts.verse);
-    fetchVerse(refParam, function (data) {
-      if (data) renderLookup(data); else renderLookupError(refParam);
-    });
+  var qParam = typeof URLSearchParams !== 'undefined' && location.search ? new URLSearchParams(location.search).get('q') : null;
+  var paramToUse = refParam || qParam;
+  if (paramToUse) {
+    paramToUse = normRef(decodeURIComponent(paramToUse));
+    var parts = parseRefToParts(paramToUse);
+    if (parts) {
+      setLookupForm(parts.book, parts.chapter, parts.verse);
+      fetchVerse(paramToUse, function (data) {
+        if (data) renderLookup(data); else renderLookupError(paramToUse);
+      });
+    } else {
+      var topicLower = paramToUse.toLowerCase().replace(/\s+/g, '');
+      var winTopicEl = document.getElementById('win-topic');
+      var winTopicMatch = topicLower && winTopicEl ? Array.prototype.find.call(winTopicEl.options, function (o) {
+        return o.value && o.value.toLowerCase().replace(/\s+/g, '') === topicLower;
+      }) : null;
+      if (winTopicMatch) {
+        winTopicEl.value = winTopicMatch.value;
+        setTimeout(function () {
+          var winBtn = document.getElementById('win-btn');
+          if (winBtn) winBtn.click();
+        }, 100);
+      } else {
+        fetchVerse(paramToUse, function (data) {
+          if (data) renderLookup(data); else renderLookupError(paramToUse);
+        });
+      }
+    }
   }
 
   document.getElementById('lookup-btn').addEventListener('click', function () {

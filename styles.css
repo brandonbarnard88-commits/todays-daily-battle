@@ -976,7 +976,10 @@ body:has(.search-hero-home) #search-hero {
   min-height: 2.5rem;
   visibility: visible !important;
 }
-.quick-actions-hero .btn {
+.quick-actions-hero .btn,
+#quick-actions-hero .btn {
+  display: inline-block !important;
+  visibility: visible !important;
   min-width: auto;
   padding: 0.5rem 0.9rem;
   font-size: 0.9375rem;

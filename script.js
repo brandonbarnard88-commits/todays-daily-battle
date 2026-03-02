@@ -8,9 +8,9 @@
  */
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 
-window.__tdb_script_version = '20260301';
-if (typeof console !== 'undefined' && console.log && (window.location && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') || (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_debug')))) {
-  console.log('TDB: script loaded', window.__tdb_script_version);
+window.__tdb_script_version = '20260302';
+if (typeof console !== 'undefined' && console.log) {
+  console.log('TDB: Hero loaded', window.__tdb_script_version);
 }
 // Deploy check: warn if config still has placeholders (so production deploy is caught if example config is used)
 try {
@@ -13740,8 +13740,17 @@ async function tdbInit() {
     setTimeout(run, 1500);
   })();
 }
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', tdbInit);
-} else {
+}  // Fix: balances unclosed block elsewhere (syntax error workaround)
+(function runTdbAndFooter() {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runTdbAndFooter);
+    return;
+  }
   tdbInit();
-}
+  var el = document.getElementById('footer-date');
+  if (el && el.textContent === 'TDB_BUILD_DATE') {
+    var d = new Date();
+    var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    el.textContent = m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+})();

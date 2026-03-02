@@ -1,6 +1,12 @@
 # Security headers for todaysdailybattle.com (Priority 1 & 2)
 # Cloudflare Pages: https://developers.cloudflare.com/pages/configuration/headers/
 # Netlify: https://docs.netlify.com/routing/headers/
+
+# Prevent HTML cache — forces revalidation so deploys show immediately
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+
 # Apply to all paths
 /*
   X-Frame-Options: DENY

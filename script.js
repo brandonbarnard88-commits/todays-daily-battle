@@ -552,7 +552,7 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
     : TDB_TOPICS;
   if (!Array.isArray(topics) || topics.length === 0) return;
   var html = '';
-  var runTopic = "var t=this.getAttribute(\"data-topic\");if(t&&typeof window.runSearchWithInput===\"function\"){var q=typeof getQueryInput===\"function\"?getQueryInput():document.getElementById(\"tdb-search\")||document.getElementById(\"query\");if(q)q.value=t;window.runSearchWithInput(t);}return false;";
+  var runTopic = "var t=this.getAttribute(\"data-topic\");if(t){if(typeof console!==\"undefined\"&&console.log)console.log(\"clicked: \"+t);}return false;";
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
     var cls = isPrimary ? 'btn btn-primary quick-topic' : 'btn btn-secondary quick-topic';
@@ -9390,11 +9390,7 @@ function renderResults(results) {
     suggestions.querySelectorAll('.quick-topic').forEach(btn => {
       btn.addEventListener('click', () => {
         const topic = btn.getAttribute('data-topic');
-        if (topic && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
-        else if (queryEl && topic) {
-          queryEl.value = topic;
-          searchBtn?.click();
-        }
+        if (topic && typeof console !== 'undefined' && console.log) console.log('clicked: ' + topic);
       });
     });
     triggerResultsFade(output);
@@ -10270,16 +10266,15 @@ function startStudy(id) {
       });
       var queryInput = getQueryInput();
       if (queryInput) queryInput.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') { event.preventDefault(); runSearchWithInput((queryInput.value != null) ? String(queryInput.value || '').trim() : ''); }
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        event.stopPropagation();
+        runSearchWithInput((queryInput.value != null) ? String(queryInput.value || '').trim() : '');
       });
       function runQuickTopicSearch(topic) {
         if (!topic) return;
-        try {
-          var queryEl = getQueryInput();
-          if (queryEl) queryEl.value = topic;
-          if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
-          runSearchWithInput(topic);
-        } catch (err) { if (typeof console !== 'undefined' && console.error) console.error('TDB quick topic error:', err); }
+        if (typeof console !== 'undefined' && console.log) console.log('clicked: ' + topic);
+        return;
       }
       document.body.addEventListener('click', function quickTopicDelegated(e) {
         var btn = (e.target && e.target.closest && e.target.closest('.quick-topic')) || (e.target && e.target.closest && e.target.closest('[data-topic]'));
@@ -10289,7 +10284,7 @@ function startStudy(id) {
         e.preventDefault();
         e.stopPropagation();
         runQuickTopicSearch(topic);
-      }, true);
+      }, false);
       var heroQuick = document.getElementById('quick-actions-hero');
       if (heroQuick) heroQuick.addEventListener('click', function (e) {
         var btn = e.target && e.target.closest && e.target.closest('[data-topic]');

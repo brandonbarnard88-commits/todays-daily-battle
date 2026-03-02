@@ -8,9 +8,9 @@ Do these steps in order.
 
 ## Step 1: Confirm the source has the hero
 
-In your repo, open **index.html** and search for: **QUICK-SEARCH-HERO-V2**
+In your repo, open **index.html** and search for: **id="query"** or **QUICK-SEARCH-HERO**
 
-You should see a comment and the search-hero block near the top of `<main>`. If you see it, the source is correct. The problem is deploy, not code.
+You should see the search input and the search-hero block near the top of `<main>`. If you see it, the source is correct. The problem is deploy or cache, not code.
 
 ---
 
@@ -57,10 +57,10 @@ You should see: `Copied index.html (hero + quick-search row) to dist/`. If you s
 Open **https://todaysdailybattle.com/** in your browser.
 
 1. **View Page Source** (right-click → View Page Source, or Ctrl+U / Cmd+U).
-2. In the source, search for: **QUICK-SEARCH-HERO-V2**
+2. In the source, search for: **id="query"** or **id="quick-actions-hero"**
 
 - **If you FIND it** → The right `index.html` is live. Do a **hard refresh**: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows). You should then see the search hero and quick-search buttons at the top.
-- **If you DO NOT find it** → The live site is still serving the wrong file. Then:
+- **If you DO NOT find it** → The live site is still serving the wrong file (or CDN cache). Then:
   - Confirm the **branch** connected in Cloudflare is the one you pushed to (Step 2).
   - Confirm again that **Build output directory** is `dist` (Step 3).
   - Check the build log for **errors** and for the "Copied index.html" line (Step 4).
@@ -75,7 +75,18 @@ On your machine:
 npm run build
 ```
 
-Then open **dist/index.html** in a text editor and search for **QUICK-SEARCH-HERO-V2**. If it’s there, the build is correct and the only issue is getting Cloudflare to use this build (Steps 3–4).
+Then open **dist/index.html** in a text editor and search for **id="query"** or **id="quick-actions-hero"**. If it’s there, the build is correct and the only issue is getting Cloudflare to use this build (Steps 3–4).
+
+---
+
+## Cache busting (if hero still missing after deploy)
+
+GitHub Pages and Cloudflare cache aggressively. If View Source shows the hero but the page looks broken:
+
+1. **Hard refresh:** Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+2. **DevTools:** Application → Storage → "Empty cache and hard reload"
+3. **Incognito/private window:** Tests without cache
+4. **Bump service worker:** In `service-worker.js`, change `CACHE_NAME` (e.g. `tdb-static-20260301`) and redeploy so returning visitors get fresh assets
 
 ---
 

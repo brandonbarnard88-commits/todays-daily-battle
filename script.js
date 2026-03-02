@@ -24,6 +24,11 @@ document.addEventListener('securitypolicyviolation', function (e) {
   }
 });
 
+/* Stub runSearchWithInput immediately so onclick handlers never fail; real impl replaces it in tdbInit */
+window.runSearchWithInput = function (inputStr) {
+  if (window.__tdbRunSearchReal) window.__tdbRunSearchReal(inputStr);
+};
+
 /* Preload Bible data so first search is fast; loadBible() will use window.kjvData if set */
 (function preloadBible() {
   var urls = ['kjv.json', 'https://todaysdailybattle.com/kjv.json'];
@@ -541,10 +546,11 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
     : TDB_TOPICS;
   if (!Array.isArray(topics) || topics.length === 0) return;
   var html = '';
+  var runTopic = "var t=this.getAttribute(\"data-topic\");if(t&&typeof window.runSearchWithInput===\"function\"){var q=document.getElementById(\"query\");if(q)q.value=t;window.runSearchWithInput(t);}return false;";
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
     var cls = isPrimary ? 'btn btn-primary quick-topic' : 'btn btn-secondary quick-topic';
-    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '">' + escapeHtml(item.label) + '</button>';
+    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '" onclick="' + runTopic.replace(/"/g, '&quot;') + '">' + escapeHtml(item.label) + '</button>';
   });
   container.innerHTML = html;
 }
@@ -10089,6 +10095,7 @@ function tdbInit() {
           }
         }, 150);
       }
+      window.__tdbRunSearchReal = runSearchWithInput;
       window.runSearchWithInput = runSearchWithInput;
       var searchBtn = document.getElementById('search-btn');
       if (searchBtn) searchBtn.addEventListener('click', function () {

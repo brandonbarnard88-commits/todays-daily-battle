@@ -71,7 +71,7 @@ console.log('Search bar v2 loaded');
 
   function loadCommentary(cb) {
     if (commentary) { window.commentaryData = commentary; cb(commentary); return; }
-    fetch('commentary.json').then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    fetch('commentary.json?v=2').then(function (r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function (d) { commentary = d; window.commentaryData = commentary; cb(commentary); })
       .catch(function () { commentary = {}; window.commentaryData = commentary; cb(commentary); });
   }

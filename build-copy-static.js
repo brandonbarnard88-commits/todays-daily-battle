@@ -54,6 +54,7 @@ const rootFiles = [
   'kjv.json',
   // 'bell.mp3' – add to project root if you want a custom bell; otherwise Web Audio beep is used
 ];
+const scriptFiles = ['scripts/header-search-bar.js'];
 
 // All HTML in root (includes index.html, topic-anxiety.html, topic-*.html, etc.)
 const htmlFiles = fs.readdirSync(root, { withFileTypes: false })
@@ -97,6 +98,12 @@ for (const f of rootFiles) {
     copyFile(src, path.join(dist, f));
   } else if (f === 'kjv.json') {
     console.warn('build-copy-static.js: kjv.json not found in root — verse search and daily verse may fail until it is added or served from origin.');
+  }
+}
+for (const f of scriptFiles) {
+  const src = path.join(root, f);
+  if (fs.existsSync(src)) {
+    copyFile(src, path.join(dist, f));
   }
 }
 

@@ -10035,8 +10035,9 @@ function tdbInit() {
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
 
-  /* Wire search - hero has 28 chips in HTML; accordion gets dynamic buttons */
+  /* Wire search - hero has all topic chips from TDB_TOPICS; accordion gets same */
   try {
+    renderQuickTopicButtons('quick-actions-hero', true);
     renderQuickTopicButtons('quick-actions-accordion', false);
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 

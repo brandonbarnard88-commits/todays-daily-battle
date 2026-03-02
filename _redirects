@@ -1,3 +1,4 @@
+# Test 20260309
 # Force clean URLs for topics (Cloudflare Pages: must be in dist/ root)
 /topic-anxiety /topic-anxiety.html 200!
 /topic-hope /topic-hope.html 200!

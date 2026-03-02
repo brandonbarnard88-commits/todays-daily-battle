@@ -2394,16 +2394,16 @@ function wireRealPrayerCounter() {
     tick += 1;
     if (tick % 6 === 0) window.__tdb_prayers_404 = false;
     if (!supabaseClient) {
-      el.textContent = '—';
+      el.textContent = '0';
       return;
     }
     if (!navigator.onLine) {
-      el.textContent = '—';
+      el.textContent = '0';
       var p = document.getElementById('prayer-count-promo');
       if (p) p.textContent = '';
       return;
     }
-    el.textContent = '…';
+    el.textContent = '0';
     try {
       var res = await Promise.race([
         supabaseClient.rpc('get_total_prayer_count'),
@@ -2411,7 +2411,7 @@ function wireRealPrayerCounter() {
       ]);
       retryCount = 0;
       if (typeof console !== 'undefined' && console.log) console.log('Prayer count response:', res);
-      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
+      if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '0'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       var countNum = res && res.data != null ? (typeof res.data === 'number' ? res.data : (typeof res.data === 'string' ? parseInt(res.data, 10) : Number(res.data))) : NaN;
       if (res && !res.error && !isNaN(countNum) && countNum >= 0) {
         animateCountAndSet(countNum);
@@ -2426,15 +2426,15 @@ function wireRealPrayerCounter() {
         setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS);
       });
       var restRes = await Promise.race([req, timeout]);
-      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '—'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
+      if (restRes && is404Like(restRes)) { setPrayersApiUnavailable(); el.textContent = '0'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       if (restRes && restRes.error) {
-        el.textContent = '—';
+        el.textContent = '0';
         var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = '';
         return;
       }
       if (restRes && restRes.count != null) animateCountAndSet(restRes.count);
       else if (restRes && Array.isArray(restRes.data)) animateCountAndSet(restRes.data.length);
-      else el.textContent = '—';
+      else el.textContent = '0';
       var finalCount = restRes && (restRes.count != null ? restRes.count : (Array.isArray(restRes.data) ? restRes.data.length : null));
       updateBetaWarriorsCount(finalCount);
       var promo = document.getElementById('prayer-count-promo');
@@ -2447,7 +2447,7 @@ function wireRealPrayerCounter() {
         return;
       }
       setPrayersApiUnavailable();
-      el.textContent = '—';
+      el.textContent = '0';
       var promo = document.getElementById('prayer-count-promo');
       if (promo) promo.textContent = '';
     }
@@ -2473,13 +2473,13 @@ function wireRealPrayerCounter() {
           if (wrapEl) wrapEl.classList.remove('hidden');
         } else {
           if (wrapEl) wrapEl.classList.add('hidden');
-          if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+          if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
         }
         return;
       }
       if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED === true)) {
         if (wrapEl) wrapEl.classList.add('hidden');
-        if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+        if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
         return;
       }
       supabaseClient.rpc('get_prayers_today_count')
@@ -2493,7 +2493,7 @@ function wireRealPrayerCounter() {
               if (wrapEl) wrapEl.classList.remove('hidden');
             } else {
               if (wrapEl) wrapEl.classList.add('hidden');
-              if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+              if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
             }
             return;
           }
@@ -2507,7 +2507,7 @@ function wireRealPrayerCounter() {
             if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
           } else {
             if (wrapEl) wrapEl.classList.add('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+            if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
           }
         })
         .catch(function () {
@@ -2519,7 +2519,7 @@ function wireRealPrayerCounter() {
             if (wrapEl) wrapEl.classList.remove('hidden');
           } else {
             if (wrapEl) wrapEl.classList.add('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = '—';
+            if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
           }
         });
     }
@@ -2740,6 +2740,7 @@ function wireIntentModal() {
   if (closeBtn) closeBtn.addEventListener('click', hideModal);
   prayBtn.addEventListener('click', function () {
     var val = (input && input.value && input.value.trim()) || '';
+    if (typeof trackEvent === 'function') trackEvent('pray_click', { source: 'intent_modal', has_intent: !!val });
     if (val) {
       try { localStorage.setItem(INTENT_KEY, val); } catch (e) {}
       if (quickPrayInput) quickPrayInput.value = val;
@@ -2773,6 +2774,7 @@ function wireBattleProUpgradeModal() {
     btn.addEventListener('click', function () {
       var plan = btn.getAttribute('data-plan');
       var interval = btn.getAttribute('data-interval');
+      if (typeof trackEvent === 'function') trackEvent('upgrade_click', { plan: plan || '', interval: interval || '' });
       var url = '';
       if (plan === 'supporter' && interval === 'monthly') url = typeof STRIPE_SUPPORTER_MONTHLY_URL !== 'undefined' ? STRIPE_SUPPORTER_MONTHLY_URL : '';
       else if (plan === 'supporter' && interval === 'yearly') url = typeof STRIPE_SUPPORTER_YEARLY_URL !== 'undefined' ? STRIPE_SUPPORTER_YEARLY_URL : '';
@@ -3032,6 +3034,10 @@ function wirePrayerMap() {
   setInterval(render, 2000);
 }
 
+var INTRO_VISIBLE_MS = 5000;
+var INTRO_FADEOUT_MS = 1000;
+var INTRO_TOTAL_MS = INTRO_VISIBLE_MS + INTRO_FADEOUT_MS;
+
 function showGodWhisperOnLoad() {
   var el = document.getElementById('god-whisper-load');
   if (!el) return;
@@ -3041,12 +3047,71 @@ function showGodWhisperOnLoad() {
   el.setAttribute('aria-label', 'God is present.');
   setTimeout(function () {
     el.classList.add('whisper-out');
-  }, 5000);
+    setTimeout(showNextIntroMessage, 500);
+  }, INTRO_VISIBLE_MS);
   setTimeout(function () {
     el.style.display = 'none';
     el.classList.remove('whisper-visible', 'whisper-out');
     el.classList.add('hidden');
-  }, 6000);
+  }, INTRO_TOTAL_MS);
+}
+
+function showNextIntroMessage() {
+  var hour = new Date().getHours();
+  var dateKey = getDailyKey();
+  var nightEl = document.getElementById('night-falls-overlay');
+  var dawnEl = document.getElementById('dawn-overlay');
+  var anointedEl = document.getElementById('anointed-overlay');
+  if (hour >= 22 && nightEl) {
+    try {
+      if (sessionStorage.getItem(NIGHT_CLOSE_SHOWN_KEY + dateKey)) return;
+      sessionStorage.setItem(NIGHT_CLOSE_SHOWN_KEY + dateKey, '1');
+    } catch (e) {}
+    nightEl.classList.remove('hidden');
+    nightEl.style.display = 'flex';
+    nightEl.classList.add('whisper-visible');
+    setTimeout(function () {
+      nightEl.classList.add('whisper-out');
+    }, 9000);
+    setTimeout(function () {
+      nightEl.style.display = 'none';
+      nightEl.classList.remove('whisper-visible', 'whisper-out');
+      nightEl.classList.add('hidden');
+    }, 10000);
+    return;
+  }
+  if (hour >= 0 && hour < 6 && dawnEl) {
+    try {
+      if (sessionStorage.getItem(DAWN_SHOWN_KEY + dateKey)) return;
+      sessionStorage.setItem(DAWN_SHOWN_KEY + dateKey, '1');
+    } catch (e) {}
+    dawnEl.classList.remove('hidden');
+    dawnEl.style.display = 'flex';
+    dawnEl.classList.add('whisper-visible');
+    setTimeout(function () {
+      dawnEl.classList.add('whisper-out');
+    }, INTRO_VISIBLE_MS);
+    setTimeout(function () {
+      dawnEl.style.display = 'none';
+      dawnEl.classList.remove('whisper-visible', 'whisper-out');
+      dawnEl.classList.add('hidden');
+    }, INTRO_TOTAL_MS);
+    return;
+  }
+  if (anointedEl) {
+    anointedEl.classList.remove('hidden');
+    anointedEl.setAttribute('aria-label', 'Room consecrated.');
+    anointedEl.style.display = 'flex';
+    anointedEl.classList.add('whisper-visible');
+    setTimeout(function () {
+      anointedEl.classList.add('whisper-out');
+    }, INTRO_VISIBLE_MS);
+    setTimeout(function () {
+      anointedEl.style.display = 'none';
+      anointedEl.classList.remove('whisper-visible', 'whisper-out');
+      anointedEl.classList.add('hidden');
+    }, INTRO_TOTAL_MS);
+  }
 }
 
 var ANOINTED_SEEN_KEY = 'tdb_anointed_seen';
@@ -3208,7 +3273,7 @@ function wireGodModePrayerEcho() {
     var echoTimeout = setTimeout(function () {
       if (loadingEl && (loadingEl.textContent.indexOf('Loading') !== -1 || loadingEl.textContent.indexOf('Preparing') !== -1)) {
         loadingEl.style.display = 'block';
-        loadingEl.textContent = 'When you\'re online, recent prayers appear here.';
+        loadingEl.textContent = 'Prayers will appear here when you\'re online.';
       }
     }, 8000);
     try {
@@ -3949,7 +4014,7 @@ function wireOfflinePrefetch() {
     btn.disabled = true;
     progressWrap.style.display = 'block';
     fill.style.width = '0%';
-    status.textContent = 'Preparing…';
+    status.textContent = 'Loading…';
     const result = await prefetchOfflineVerses(OFFLINE_PREFETCH_DAYS, (current, total) => {
       const pct = total ? Math.round((current / total) * 100) : 0;
       fill.style.width = pct + '%';
@@ -10067,7 +10132,7 @@ async function loadStudies() {
   if (!document.getElementById('study-grid-loading')) return;
   var loadingEl = document.getElementById('study-grid-loading');
   grid.setAttribute('aria-busy', 'true');
-  if (loadingEl) loadingEl.textContent = 'Preparing…';
+  if (loadingEl) loadingEl.textContent = 'Loading studies…';
   if (typeof supabaseClient === 'undefined' || !supabaseClient) {
     if (loadingEl) loadingEl.remove();
     var data = getDefaultBibleStudies();
@@ -10486,7 +10551,7 @@ function startStudy(id) {
           if (typeof console !== 'undefined' && console.log) {
             console.log('Trying to register SW...');
           }
-          navigator.serviceWorker.register('/service-worker.js?v=20260228', { scope: '/' })
+          navigator.serviceWorker.register('/service-worker.js?v=20260308', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               if (typeof console !== 'undefined' && console.log) {
@@ -10566,8 +10631,6 @@ function startStudy(id) {
       if (typeof showGodWhisperOnLoad === 'function') showGodWhisperOnLoad();
     }, 800);
   }
-  if (isHome && typeof showAnointedOverlay === 'function') setTimeout(showAnointedOverlay, 7000);
-  if (isHome && typeof wireNightDawnOverlays === 'function') setTimeout(wireNightDawnOverlays, 2200);
   showAuthRedirectMessage();
   var authSection = document.getElementById('auth-section');
   if (authSection && !authSection.querySelector('.auth-benefit')) {
@@ -10693,6 +10756,10 @@ function startStudy(id) {
       try { localStorage.setItem(key, String(Date.now())); } catch (e) {}
       promoBanner.classList.add('hidden');
       document.body.classList.remove('has-promo-banner');
+    });
+    var claimLink = promoBanner && promoBanner.querySelector('.promo-banner-cta');
+    if (claimLink) claimLink.addEventListener('click', function () {
+      if (typeof trackEvent === 'function') trackEvent('upgrade_click', { source: 'promo_banner', plan: 'claim_it' });
     });
   })();
   const versionSelect = document.getElementById('version');
@@ -11536,7 +11603,7 @@ function startStudy(id) {
           if (fm && fin) { fm.classList.remove('hidden'); fin.value = ''; fin.focus(); }
         }, 6500);
       }
-      trackEvent('quick_pray_add');
+      if (typeof trackEvent === 'function') { trackEvent('pray_click', { source: 'quick_pray' }); trackEvent('quick_pray_add'); }
       try { localStorage.setItem(DONE_FOR_TODAY_KEY, getDailyKey()); } catch (e) {}
       if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
     }

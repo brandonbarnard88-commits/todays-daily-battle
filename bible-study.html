@@ -128,9 +128,10 @@
         fallback.forEach(function(study) {
           var card = document.createElement('div');
           card.className = 'study-card';
-          card.innerHTML = '<h3 class="study-card-title">' + (study.title || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') + '</h3>' +
-            (study.topic ? '<span class="study-card-topic">' + (study.topic || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>' : '') +
-            '<p class="study-card-desc">' + (study.description || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') + '</p>' +
+          var esc = function (x) { return (x == null ? '' : String(x)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); };
+          card.innerHTML = '<h3 class="study-card-title">' + esc(study.title || '') + '</h3>' +
+            (study.topic ? '<span class="study-card-topic">' + esc(study.topic || '') + '</span>' : '') +
+            '<p class="study-card-desc">' + esc(study.description || '') + '</p>' +
             '<span class="study-card-days">' + (study.days || 7) + ' days</span>';
           var btn = document.createElement('button');
           btn.type = 'button';

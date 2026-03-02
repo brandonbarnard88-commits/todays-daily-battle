@@ -129,10 +129,6 @@
       var base = window.location.origin + '/';
       return base + (query ? '?q=' + encodeURIComponent(query) + '&focus=search' : '') + '#main-search';
     }
-    function pdfHref(id) {
-      return '/coloring-pages/' + id + '.pdf';
-    }
-
     function onPrayClick(e, story) {
       e.preventDefault();
       try {
@@ -155,18 +151,19 @@
       card.className = 'kids-corner-card card-gold-inner';
       card.setAttribute('data-story', s.id);
       card.setAttribute('role', 'listitem');
+      var esc = typeof escapeHtml === 'function' ? escapeHtml : function (x) { return (x == null ? '' : String(x)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); };
       card.innerHTML =
-        '<span class="kids-corner-jewel kids-corner-jewel-' + s.jewel + '" aria-hidden="true"></span>' +
-        '<h3 class="kids-corner-card-title">' + s.title + '</h3>' +
-        '<p class="kids-corner-card-summary">' + s.summary + '</p>' +
-        '<p class="kids-corner-armor-hint section-note">' + s.armorHint + '</p>' +
+        '<span class="kids-corner-jewel kids-corner-jewel-' + esc(s.jewel) + '" aria-hidden="true"></span>' +
+        '<h3 class="kids-corner-card-title">' + esc(s.title) + '</h3>' +
+        '<p class="kids-corner-card-summary">' + esc(s.summary) + '</p>' +
+        '<p class="kids-corner-armor-hint section-note">' + esc(s.armorHint) + '</p>' +
         '<div class="kids-corner-card-actions">' +
-          '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + s.prayIntent + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
-          '<a href="' + verseHref(s.verseQuery) + '" class="btn btn-secondary" aria-label="Read the verse: ' + s.verseRef + '">Read the Verse</a>' +
+          '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + esc(s.prayIntent) + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
+          '<a href="' + verseHref(s.verseQuery) + '" class="btn btn-secondary" aria-label="Read the verse: ' + esc(s.verseRef) + '">Read the Verse</a>' +
           '<a href="' + colorHref(s.id) + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
           '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Do activity">Activity</button>' +
         '</div>' +
-        '<p class="kids-activity-text section-note" aria-live="polite">' + s.activity + '</p>';
+        '<p class="kids-activity-text section-note" aria-live="polite">' + esc(s.activity) + '</p>';
       var prayBtn = card.querySelector('.kids-btn-pray');
       var activityBtn = card.querySelector('.kids-btn-activity');
       if (prayBtn) prayBtn.addEventListener('click', function (ev) { onPrayClick(ev, s); });

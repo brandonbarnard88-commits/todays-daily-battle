@@ -6957,4 +6957,17 @@ body.has-promo-banner .header-search-sticky {
   color: rgba(226, 232, 240, 0.9);
 }
 .verse-modal-breakdown strong { color: #fde047; }
+@media (max-width: 768px) {
+  .verse-modal {
+    font-size: 1.1rem;
+    padding: 16px;
+  }
+  .verse-modal h3 {
+    font-size: 1.3rem;
+  }
+  .verse-modal p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+}
 .dropdown-item:hover { background: #333; }

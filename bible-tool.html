@@ -676,6 +676,10 @@
   });
 
   (function wirePeopleLookup() {
+    function escapeHtml(str) {
+      if (str == null || str === '') return '';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
     var btn = document.getElementById('people-btn');
     var wrap = document.getElementById('people-input-wrap');
     var input = document.getElementById('people-name');
@@ -695,14 +699,14 @@
         }
       }
       if (person) {
-        var moments = (person.moments || []).map(function (m) { return '<li>' + m + '</li>'; }).join('');
+        var moments = (person.moments || []).map(function (m) { return '<li>' + escapeHtml(m) + '</li>'; }).join('');
         var verseRef = person.verse || '';
-        var verseLink = verseRef ? '<a href="reader.html?ref=' + encodeURIComponent(verseRef.replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + verseRef + ' – Read full</a>' : '';
-        result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="' + person.name + ' – ' + person.era + '">' +
-          '<p class="verse-ref">' + person.name + ' – ' + person.era + '</p>' +
+        var verseLink = verseRef ? '<a href="reader.html?ref=' + encodeURIComponent(verseRef.replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escapeHtml(verseRef) + ' – Read full</a>' : '';
+        result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="' + escapeHtml(person.name + ' – ' + person.era) + '">' +
+          '<p class="verse-ref">' + escapeHtml(person.name) + ' – ' + escapeHtml(person.era) + '</p>' +
           '<ul class="section-note util-mt-0_5" style="margin-left:1.25rem;">' + moments + '</ul>' +
           (verseLink ? '<p class="util-mt-0_5">' + verseLink + '</p>' : '') +
-          '<p class="prayer-box util-mt-0_5">' + (person.prayer || '') + '</p>' +
+          '<p class="prayer-box util-mt-0_5">' + escapeHtml(person.prayer || '') + '</p>' +
           '</div>';
         result.classList.remove('hidden');
       } else {

@@ -14,7 +14,7 @@ In **Cloudflare Dashboard** → **Workers & Pages** → your project → **Setti
 |--------|--------|
 | **Framework preset** | **None** |
 | **Build command** | `npm run build` (or `node build-config.js`) |
-| **Build output directory** | `.` (one period = root; or leave blank if it says "root") |
+| **Build output directory** | `dist` (build writes all files to dist/) |
 
 The repo has a `package.json` so `npm run build` runs the script that creates `config.js`. Without these settings, the build never runs and `config.js` is never created (404 on the live site).
 

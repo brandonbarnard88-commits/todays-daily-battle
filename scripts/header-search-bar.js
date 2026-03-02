@@ -76,6 +76,10 @@ console.log('Search bar v2 loaded');
       .catch(function () { commentary = {}; window.commentaryData = commentary; cb(commentary); });
   }
 
+  function escapeHtml(str) {
+    if (str == null || str === '') return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
   function showVerseModal(ref, text) {
     var c = commentary && commentary[ref];
     var modal = document.getElementById('verse-commentary-modal');
@@ -98,7 +102,7 @@ console.log('Search bar v2 loaded');
     modal.querySelector('.verse-modal-text').textContent = text || '';
     var b = modal.querySelector('.verse-modal-breakdown');
     if (c && (c.speaker || c.audience || c.today)) {
-      b.innerHTML = '<p><strong>Speaker:</strong> ' + (c.speaker || '—') + '</p><p><strong>To:</strong> ' + (c.audience || '—') + '</p><p><strong>Today:</strong> ' + (c.today || '—') + '</p>';
+      b.innerHTML = '<p><strong>Speaker:</strong> ' + escapeHtml(c.speaker || '—') + '</p><p><strong>To:</strong> ' + escapeHtml(c.audience || '—') + '</p><p><strong>Today:</strong> ' + escapeHtml(c.today || '—') + '</p>';
       b.classList.remove('hidden');
     } else {
       b.innerHTML = '<p class="verse-modal-nonote">No notes yet—keep searching!</p>';

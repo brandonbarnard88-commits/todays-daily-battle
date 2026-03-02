@@ -23,8 +23,8 @@
   <meta name="twitter:description" content="One verse, one moment, every day. Less scroll, more soul. Topic search, streaks, tools for families and pastors.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/hero-sunrise-bible.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260302" as="style" nonce="tdb2025">
-  <link rel="stylesheet" href="styles.css?v=20260302" nonce="tdb2025">
+  <link rel="preload" href="styles.css?v=20260308p" as="style" nonce="tdb2025">
+  <link rel="stylesheet" href="styles.css?v=20260308p" nonce="tdb2025">
   <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;scroll-margin-top:5rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;min-height:3rem!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;min-height:2.5rem!important;} #tdb-search{min-width:12rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a0c14">
@@ -33,7 +33,7 @@
   <script src="fetch-prayer-guard.js"></script>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
-  <script type="module" src="config.js?v=20260302"></script>
+  <script type="module" src="config.js?v=20260308"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" integrity="sha384-BkEIW/B4JV9w6pRfBRgZtAcYDk5goH1nUI49rLo8s5PSHgTfgxWBczRVJx+fv5kP" crossorigin="anonymous" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" integrity="sha384-MiR5OstmujbPpU5nzD986OTopb4Kveb2WX4EmKuqeCU1hCWlxMYL8gBBY7vDSYLF" crossorigin="anonymous" defer></script>
   <script src="firebase-push.js" defer></script>
@@ -233,7 +233,7 @@
           <h3 class="section-divider util-mt-0">Today's Prayer</h3>
           <p class="prayer-of-day-text">Lord, give us strength for the battle. Amen.</p>
           <p class="prayer-of-day-text prayer-of-day-reflection">Lord, thank you for the strength to keep going.</p>
-          <p class="section-note prayer-of-day-meta util-mb-0" aria-live="polite">Prayed by <span id="prayer-of-day-count">—</span> warriors today.</p>
+          <p class="section-note prayer-of-day-meta util-mb-0" aria-live="polite">Prayed by <span id="prayer-of-day-count">0</span> warriors today.</p>
         </div>
         <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less scroll, more soul.</p>
         <div id="org-golden-rule-card" class="org-golden-rule-card glass util-mt-0_5 hidden" role="region" aria-label="Join the cause">
@@ -252,7 +252,7 @@
           <a href="bible-tool.html" class="btn btn-primary">Open Bible Tool →</a>
         </div>
         <p class="section-note beta-badge">Beta – First 100 get early perks.</p>
-        <p class="section-note beta-progress hidden" id="beta-progress-wrap" aria-live="polite">Beta – <span id="beta-warriors-count">…</span> warriors in. First 100 get early perks.</p>
+        <p class="section-note beta-progress hidden" id="beta-progress-wrap" aria-live="polite">Beta – <span id="beta-warriors-count">0</span> warriors in. First 100 get early perks.</p>
         <details class="home-accordion" id="accordion-search-options">
           <summary class="home-accordion-summary">More search options & topics</summary>
         <section id="main-search" class="controls glass" role="search" aria-label="Search options">
@@ -390,7 +390,7 @@
             </div>
             <div id="offline-prefetch-progress" class="offline-prefetch-progress hidden" role="status" aria-live="polite">
               <div class="offline-prefetch-bar"><div id="offline-prefetch-fill" class="offline-prefetch-fill"></div></div>
-              <span id="offline-prefetch-status" class="section-note">Preparing…</span>
+              <span id="offline-prefetch-status" class="section-note">Loading…</span>
             </div>
           </div>
           <p class="section-note signin-optional-note"><strong>Sign-in is optional.</strong> Log in to save your streak, favorite verses, and custom plans across devices.</p>
@@ -462,12 +462,12 @@
           <p class="section-note patriotic-hymns-intro">Classic hymns of prayer and praise for the nation—sing or pray with the full lyrics.</p>
           <div id="patriotic-hymns-grid" class="patriotic-hymns-grid"></div>
         </section>
-        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">…</span></p>
+        <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">0</span></p>
         <p class="section-note prayer-count-today-line hidden" aria-live="polite" id="prayer-count-today-wrap"><span id="prayer-count-today">0</span> warriors prayed today.</p>
-        <p id="last-prayer-badge" class="section-note last-prayer-badge hidden" aria-live="polite">Last prayer: <span id="last-prayer-ago">—</span></p>
+        <p id="last-prayer-badge" class="section-note last-prayer-badge hidden" aria-live="polite">Last prayer: <span id="last-prayer-ago">No prayers yet</span></p>
         <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
           <p class="prayer-echo-sacred section-note hidden" id="prayer-echo-sacred" aria-live="polite">You're alone with Him.</p>
-          <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Preparing…</p>
+          <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading prayers…</p>
           <p class="prayer-echo-presence section-note hidden" id="prayer-echo-presence" aria-live="polite"></p>
           <ul id="prayer-echo-list" class="prayer-echo-list hidden" aria-label="Recent prayers"></ul>
           <button type="button" id="prayer-echo-join" class="btn btn-secondary btn-small hidden" aria-label="Copy share link to invite others">Join them</button>
@@ -894,10 +894,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" integrity="sha384-vdScihEZCfbPnBQf+lc7LgXUdJVYyhC3yWHUW5C5P5GpHRqVnaM6HJELJxT6IqwM" crossorigin="anonymous"></script>
   <script src="daily-verse-widget.js"></script>
-  <script src="verse-search-dropdown.js?v=20260305"></script>
+  <script src="verse-search-dropdown.js?v=20260308"></script>
   <script src="scripts/header-search-bar.js?v=2" defer></script>
-  <script type="module" src="script.js?v=20260302" data-cfasync="false"></script>
-  <script src="utils.js?v=20260305" defer async></script>
+  <script type="module" src="script.js?v=20260308" data-cfasync="false"></script>
+  <script src="utils.js?v=20260308" defer async></script>
   <script src="voice-pray.js"></script>
 </body>
 </html>

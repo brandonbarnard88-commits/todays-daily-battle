@@ -14,7 +14,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="query"', 'id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers'] },
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
@@ -73,9 +73,11 @@ function run() {
           failed++;
           continue;
         }
-        const missing = p.mustInclude.filter(s => !body.includes(s));
-        if (missing.length) {
-          console.log('FAIL', p.name, 'missing:', missing.join(', '));
+        const missing = (p.mustInclude || []).filter(s => !body.includes(s));
+        const oneOfOk = !p.mustIncludeOneOf || p.mustIncludeOneOf.every(opt => opt.some(s => body.includes(s)));
+        if (missing.length || !oneOfOk) {
+          if (missing.length) console.log('FAIL', p.name, 'missing:', missing.join(', '));
+          if (!oneOfOk) console.log('FAIL', p.name, 'must include one of:', p.mustIncludeOneOf.map(o => o.join('|')).join('; '));
           failed++;
         } else {
           console.log('OK  ', p.name);

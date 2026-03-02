@@ -25,7 +25,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260306" as="style" nonce="tdb2025">
   <link rel="stylesheet" href="styles.css?v=20260306" nonce="tdb2025">
-  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} .search-hero-home,#search-hero,.search-hero-home form,.search-hero-form,.search-hero-row,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} .search-hero-home,#search-hero{min-height:10rem;} .search-hero-form,.search-hero-row{display:flex!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;} #query,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
+  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a0c14">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -90,7 +90,7 @@
       <nav class="header-nav" aria-label="Main">
         <a href="/">Home</a>
         <a href="bible-tool.html">Bible Tool</a>
-        <a href="/#search-hero">Search</a>
+        <a href="/#quick-search-hero">Search</a>
         <a href="verse.html">Verse of the Day</a>
         <a href="message.html">Prayer Wall</a>
         <a href="bible-study.html">Bible Studies</a>
@@ -187,11 +187,10 @@
           </div>
           <p class="hero-verse-byline">A hospital stay that was life-changing.</p>
         </div>
-        <!-- QUICK-SEARCH-HERO: Centered search + 30 gold chips right below daily verse -->
-        <section class="search-hero glass search-hero-centered search-hero-home" id="search-hero" role="search" aria-label="Search Scripture">
-          <form id="search-form" class="search-hero-form" onsubmit="event.preventDefault();var q=document.getElementById('query');if(q&&typeof window.runSearchWithInput==='function')window.runSearchWithInput(q.value);return false;">
-            <input id="query" type="search" placeholder="Type a topic, emotion, or verse (e.g., anxiety, Romans 8:38)" aria-label="Search Bible topics or verses" autocomplete="off" class="search-hero-input search-hero-input-gold">
-            <button id="search-btn" class="btn btn-primary search-hero-btn" type="submit">Search</button>
+        <div id="quick-search-hero" class="search-hero quick-search-hero" style="text-align:center; margin: 20px 0;" role="search" aria-label="Search Scripture">
+          <form id="search-form" onsubmit="event.preventDefault();var q=document.getElementById('tdb-search')||document.getElementById('query');if(q&&typeof window.runSearchWithInput==='function')window.runSearchWithInput(q.value);return false;">
+            <input type="search" id="tdb-search" placeholder="Type a topic, emotion, or verse (e.g., anxiety, Romans 8:38)" aria-label="Search Bible topics or verses" autocomplete="off" style="width:80%; max-width:500px; padding:12px; border:2px solid gold; border-radius:8px; font-size:16px; box-shadow:0 0 8px rgba(212,175,55,0.3); background:rgba(15,20,32,0.95); color:#e2e8f0;">
+            <button id="search-btn" type="submit" class="btn btn-primary" style="margin-top:8px;">Search</button>
           </form>
           <p class="section-note quick-searches-label">Tap any chip to load verses — all 30 topics</p>
           <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-hero" aria-label="Quick topic search">
@@ -227,7 +226,7 @@
             <button type="button" class="btn btn-secondary quick-topic" data-topic="wisdom">Wisdom</button>
           </div>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
-        </section>
+        </div>
         <div class="glass prayer-of-day-block util-mt-0_5" role="region" aria-label="Prayer of the day">
           <h3 class="section-divider util-mt-0">Today's Prayer</h3>
           <p class="prayer-of-day-text">Lord, give us strength for the battle. Amen.</p>

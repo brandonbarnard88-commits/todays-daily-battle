@@ -125,6 +125,8 @@ for (const f of otherHtml) {
     ];
     for (const [needle, label] of required) {
       if (!indexContent.includes(needle)) {
+        if (needle === 'id="query"' && indexContent.includes('id="tdb-search"')) continue;
+        if (needle === 'id="search-hero"' && indexContent.includes('id="quick-search-hero"')) continue;
         console.error('BUILD FAIL: index.html must contain ' + label + ' (' + needle + '). Core tools are not to be polished away.');
         process.exit(1);
       }

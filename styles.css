@@ -813,7 +813,7 @@ body:has(.search-hero-home) #search-hero {
 }
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
-#search-hero { scroll-margin-top: 5rem; }
+#search-hero, #quick-search-hero { scroll-margin-top: 5rem; }
 .search-hero-label {
   display: block;
   font-family: var(--font-ui);
@@ -4446,6 +4446,31 @@ body.red-letter-off .red-letter-card {
 }
 .dark-mode .context-note {
   color: #94a3b8;
+}
+
+/* Family tree image — Family/Parenting quick results */
+.family-tree-image-wrap {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.family-tree-figure {
+  margin: 0;
+}
+.family-tree-img {
+  max-width: 100%;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.family-tree-caption {
+  font-size: 0.9rem;
+  color: var(--text-muted, #94a3b8);
+  margin-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .family-tree-img {
+    width: 90%;
+  }
 }
 
 .refresh-order-btn {

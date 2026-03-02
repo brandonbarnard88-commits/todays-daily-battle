@@ -30,6 +30,7 @@ document.addEventListener('securitypolicyviolation', function (e) {
 window.runSearchWithInput = function (inputStr) {
   if (window.__tdbRunSearchReal) window.__tdbRunSearchReal(inputStr);
 };
+function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
 
 /* Preload Bible data so first search is fast; loadBible() will use window.kjvData if set */
 (function preloadBible() {
@@ -551,7 +552,7 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
     : TDB_TOPICS;
   if (!Array.isArray(topics) || topics.length === 0) return;
   var html = '';
-  var runTopic = "var t=this.getAttribute(\"data-topic\");if(t&&typeof window.runSearchWithInput===\"function\"){var q=document.getElementById(\"query\");if(q)q.value=t;window.runSearchWithInput(t);}return false;";
+  var runTopic = "var t=this.getAttribute(\"data-topic\");if(t&&typeof window.runSearchWithInput===\"function\"){var q=typeof getQueryInput===\"function\"?getQueryInput():document.getElementById(\"tdb-search\")||document.getElementById(\"query\");if(q)q.value=t;window.runSearchWithInput(t);}return false;";
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
     var cls = isPrimary ? 'btn btn-primary quick-topic' : 'btn btn-secondary quick-topic';
@@ -6602,7 +6603,7 @@ function applySearchFromQuery() {
     value = value.trim();
   }
   if (!value) return;
-  const queryEl = document.getElementById('query');
+  const queryEl = getQueryInput();
   const searchBtn = document.getElementById('search-btn');
   if (!queryEl || !searchBtn) {
     var base = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
@@ -9095,7 +9096,7 @@ function renderFilterChips() {
 function handleSearchFilterChange() {
   syncBookFilterWithTestament();
   renderFilterChips();
-  const queryInput = document.getElementById('query');
+  const queryInput = getQueryInput();
   const searchBtn = document.getElementById('search-btn');
   if (queryInput && queryInput.value.trim()) {
     searchBtn?.click();
@@ -9243,7 +9244,7 @@ function executeQuery(parsed, tier, filters) {
 function renderResults(results) {
   var output = document.getElementById('output');
   if (!output) {
-    var searchHero = document.getElementById('search-hero');
+    var searchHero = document.getElementById('quick-search-hero') || document.getElementById('search-hero');
     if (searchHero) {
       output = document.createElement('div');
       output.id = 'output';
@@ -9280,7 +9281,7 @@ function renderResults(results) {
     suggestions.className = 'quick-start';
     suggestions.innerHTML = '<p class="section-note util-mt-0_5">Or try: <button class="quick-topic btn btn-secondary" type="button" data-topic="family">Family</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="hope">Hope</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="fear">Fear</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="peace">Peace</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="strength">Strength</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="courage">Courage</button></p>';
     output.appendChild(suggestions);
-    const queryEl = document.getElementById('query');
+    const queryEl = getQueryInput();
     const searchBtn = document.getElementById('search-btn');
     suggestions.querySelectorAll('.quick-topic').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -9597,7 +9598,7 @@ function renderResults(results) {
           const verseText = card.querySelector('p');
           if (verseText) verseText.classList.add('red-letter');
         }
-        if (output && output.closest('#search-hero')) {
+        if (output && (output.closest('#quick-search-hero') || output.closest('#search-hero'))) {
           var refBlock = document.createElement('div');
           refBlock.className = 'verse-reflection-prayer';
           var refP = document.createElement('p');
@@ -9645,7 +9646,7 @@ function renderResults(results) {
         copyTrigger.onclick = (e) => { e.stopPropagation(); card.querySelectorAll('.card-action-dropdown-open').forEach(el => { el.classList.remove('card-action-dropdown-open'); const exp = el.querySelector('[aria-expanded]'); if (exp) exp.setAttribute('aria-expanded', 'false'); }); copyWrap.classList.toggle('card-action-dropdown-open'); copyTrigger.setAttribute('aria-expanded', copyWrap.classList.contains('card-action-dropdown-open')); };
         const saveBtn = document.createElement('button');
         saveBtn.className = 'btn btn-secondary';
-        saveBtn.textContent = output && output.closest('#search-hero') ? 'Add to Notes' : 'Save';
+        saveBtn.textContent = output && (output.closest('#quick-search-hero') || output.closest('#search-hero')) ? 'Add to Notes' : 'Save';
         saveBtn.setAttribute('aria-label', 'Save verse to collection');
         saveBtn.onclick = async () => {
           const text = cleanText();
@@ -9838,7 +9839,7 @@ function renderResults(results) {
               e.preventDefault();
               const ref = link.getAttribute('data-ref');
               if (!ref) return;
-              const queryEl = document.getElementById('query');
+              const queryEl = getQueryInput();
               const tierEl = document.getElementById('tier');
               if (queryEl) queryEl.value = ref;
               lastQueryInput = ref;
@@ -9884,6 +9885,12 @@ function renderResults(results) {
     resultsTitle = 'Keyword Matches';
   }
   renderSection(resultsTitle, verses, 6, isJesusSaidQuery);
+  if (queryText.includes('family') || queryText.includes('parenting') || queryText.includes('parents') || queryText.includes('home')) {
+    const familyTreeWrap = document.createElement('div');
+    familyTreeWrap.className = 'family-tree-image-wrap';
+    familyTreeWrap.innerHTML = '<figure class="family-tree-figure"><img src="/images/family-tree.png" alt="Biblical Family Tree: Abraham to Jesus" loading="lazy" class="family-tree-img" style="max-width:100%; margin:20px 0; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.2);"><figcaption class="family-tree-caption">Faith through the generations</figcaption></figure>';
+    output.appendChild(familyTreeWrap);
+  }
   const contextNote = document.createElement('div');
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';
@@ -10058,7 +10065,7 @@ async function tdbInit() {
       function ensureOutputElement() {
         var el = document.getElementById('output');
         if (el) return el;
-        var searchHero = document.getElementById('search-hero');
+        var searchHero = document.getElementById('quick-search-hero') || document.getElementById('search-hero');
         if (searchHero) {
           el = document.createElement('div');
           el.id = 'output';
@@ -10146,23 +10153,23 @@ async function tdbInit() {
       var searchBtn = document.getElementById('search-btn');
       if (searchBtn) searchBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        var q = document.getElementById('query');
+        var q = getQueryInput();
         runSearchWithInput(q ? String(q.value || '').trim() : '');
       });
       var searchForm = document.getElementById('search-form');
       if (searchForm) searchForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        var q = document.getElementById('query');
+        var q = getQueryInput();
         if (q && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q.value || '');
       });
-      var queryInput = document.getElementById('query');
+      var queryInput = getQueryInput();
       if (queryInput) queryInput.addEventListener('keydown', function (event) {
         if (event.key === 'Enter') { event.preventDefault(); runSearchWithInput((queryInput.value != null) ? String(queryInput.value || '').trim() : ''); }
       });
       function runQuickTopicSearch(topic) {
         if (!topic) return;
         try {
-          var queryEl = document.getElementById('query');
+          var queryEl = getQueryInput();
           if (queryEl) queryEl.value = topic;
           if (typeof trackSearchAnalytics === 'function') trackSearchAnalytics('quick_search', { topic: topic });
           runSearchWithInput(topic);
@@ -10286,7 +10293,7 @@ async function tdbInit() {
     var searchParams = new URLSearchParams(window.location.search);
     var q = searchParams.get('q');
     if (q != null && (q = String(q).trim())) {
-      var queryEl = document.getElementById('query');
+      var queryEl = getQueryInput();
       if (queryEl) queryEl.value = q;
       if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q);
     }
@@ -10854,7 +10861,7 @@ async function tdbInit() {
         const seed = today.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
         const index = seed % topicKeys.length;
         const dailyTopic = topicKeys[index];
-        const queryEl = document.getElementById('query');
+        const queryEl = getQueryInput();
         if (queryEl) queryEl.value = dailyTopic;
         lastQueryInput = dailyTopic;
         const tierEl = document.getElementById('tier');
@@ -10921,7 +10928,7 @@ async function tdbInit() {
       await loadBible(e.target.value);
       refreshBibleView();
       searchCache.clear();
-      const queryEl = document.getElementById('query');
+      const queryEl = getQueryInput();
       const input = queryEl ? queryEl.value.trim() : '';
       if (input) {
         const tierEl = document.getElementById('tier');
@@ -13738,12 +13745,3 @@ if (document.readyState === 'loading') {
 } else {
   tdbInit();
 }
-// Footer build date fallback (local dev): replace TDB_BUILD_DATE with current date if still placeholder
-(function () {
-  var el = document.getElementById('footer-date');
-  if (el && el.textContent === 'TDB_BUILD_DATE') {
-    var d = new Date();
-    var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    el.textContent = m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
-  }
-})();

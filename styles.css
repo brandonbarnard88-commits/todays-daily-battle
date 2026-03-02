@@ -4961,6 +4961,24 @@ body.red-letter-off .red-letter-card {
   text-decoration: underline;
 }
 
+.verse-reflection-prayer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+.verse-reflection-prompt {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(226, 232, 240, 0.9);
+  margin: 0 0 0.5rem;
+}
+.verse-prayer-prompt {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(212, 175, 55, 0.9);
+  margin: 0;
+}
+
 .verse-context-wrap {
   margin-top: 0.5rem;
   line-height: 1.5;

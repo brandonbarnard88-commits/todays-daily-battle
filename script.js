@@ -4804,6 +4804,23 @@ function buildVerseContextHtml(ref, openByDefault) {
 window.getVerseContext = getVerseContext;
 window.buildVerseContextHtml = buildVerseContextHtml;
 
+/** Lock verse context & People cards — fallback when verse-context/who-was elements exist (bible-tool, verse.html). */
+function renderVerseContext(verseObj) {
+  if (!verseObj) return;
+  var container = document.getElementById('verse-context');
+  if (container) {
+    var author = verseObj.author || verseObj.speaker || '';
+    var audience = verseObj.audience || verseObj.toWhom || '';
+    var modernApply = verseObj.modernApply || verseObj.application || '';
+    container.innerHTML = '<p><strong>Who wrote it:</strong> ' + escapeHtml(author) + '</p><p><strong>To whom:</strong> ' + escapeHtml(audience) + '</p><p><strong>Why it matters today:</strong> ' + escapeHtml(modernApply) + '</p>';
+  }
+  var whoWas = document.getElementById('who-was');
+  if (whoWas && verseObj.people) {
+    whoWas.innerHTML = verseObj.people;
+  }
+}
+window.renderVerseContext = renderVerseContext;
+
 function getDailyVerseRef() {
   return getDailyVerseRefForKey(getDailyKey());
 }
@@ -9570,6 +9587,22 @@ function renderResults(results) {
           const verseText = card.querySelector('p');
           if (verseText) verseText.classList.add('red-letter');
         }
+        if (output && output.closest('#search-hero')) {
+          var refBlock = document.createElement('div');
+          refBlock.className = 'verse-reflection-prayer';
+          var refP = document.createElement('p');
+          refP.className = 'verse-reflection-prompt';
+          refP.textContent = 'How does this hit you today?';
+          refBlock.appendChild(refP);
+          var ctx = typeof getVerseContext === 'function' ? getVerseContext(v.ref) : null;
+          var app = ctx && ctx.application ? ctx.application.trim() : '';
+          var prayText = app ? ('Lord, ' + (app.length > 60 ? app.substring(0, 57) + '…' : app) + ' Amen.') : 'Lord, steady my heart and lead me with Your Word today. Amen.';
+          var prayP = document.createElement('p');
+          prayP.className = 'verse-prayer-prompt';
+          prayP.textContent = prayText;
+          refBlock.appendChild(prayP);
+          card.appendChild(refBlock);
+        }
         const buttonRow = document.createElement('div');
         buttonRow.className = 'card-actions';
         const cleanText = () => v.text.replace(/<[^>]+>/g, '');
@@ -9602,7 +9635,7 @@ function renderResults(results) {
         copyTrigger.onclick = (e) => { e.stopPropagation(); card.querySelectorAll('.card-action-dropdown-open').forEach(el => { el.classList.remove('card-action-dropdown-open'); const exp = el.querySelector('[aria-expanded]'); if (exp) exp.setAttribute('aria-expanded', 'false'); }); copyWrap.classList.toggle('card-action-dropdown-open'); copyTrigger.setAttribute('aria-expanded', copyWrap.classList.contains('card-action-dropdown-open')); };
         const saveBtn = document.createElement('button');
         saveBtn.className = 'btn btn-secondary';
-        saveBtn.textContent = 'Save';
+        saveBtn.textContent = output && output.closest('#search-hero') ? 'Add to Notes' : 'Save';
         saveBtn.setAttribute('aria-label', 'Save verse to collection');
         saveBtn.onclick = async () => {
           const text = cleanText();
@@ -9875,7 +9908,7 @@ function triggerResultsFade(el) {
   el.classList.remove('results-updated');
   requestAnimationFrame(function () {
     el.classList.add('results-updated');
-    setTimeout(function () { el.classList.remove('results-updated'); }, 650);
+    setTimeout(function () { el.classList.remove('results-updated'); }, 600);
   });
 }
 

@@ -19,6 +19,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260305p" as="style">
   <link rel="stylesheet" href="styles.css?v=20260305p">
+  <script src="scripts/header-search-bar.js" defer></script>
   <script type="module" src="config.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -101,6 +102,7 @@
         </div>
       </div>
     </header>
+    <div id="global-search-wrap"></div>
     <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—lookups and notes save on this device. Reconnect to sync or fetch new verses.</div>
 
     <aside class="sidebar">
@@ -142,6 +144,7 @@
         <!-- Verse lookup -->
         <section class="verse-card glass" aria-label="Look up a verse">
           <h2 class="section-divider util-mt-0">Look up a verse</h2>
+          <p class="section-note util-mb-0_5">Type in the search bar above for real-time results, or pick book/chapter/verse below.</p>
           <div class="lookup-controls">
             <select id="book" aria-label="Book"></select>
             <input type="number" id="chapter" placeholder="Ch" min="1" aria-label="Chapter" />
@@ -1024,6 +1027,16 @@
   });
 
   renderPlan();
+
+  (function wireHeaderSearchToLookup() {
+    window.onVerseSelect = function (ref, text) {
+      var parts = parseRefToParts(ref);
+      if (parts) setLookupForm(parts.book, parts.chapter, parts.verse);
+      renderLookup({ reference: ref, text: text || '' });
+      var el = document.getElementById('lookup-result');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+  })();
 })();
   </script>
 </body>

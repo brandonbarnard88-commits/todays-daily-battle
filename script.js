@@ -10283,6 +10283,17 @@ function startStudy(id) {
         if (q && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q.value || '');
       });
       var queryInput = getQueryInput();
+      if (queryInput && typeof window.initVerseSearchDropdown === 'function') {
+        window.initVerseSearchDropdown(queryInput, {
+          onSelect: function (data) {
+            if (data && data.ref && typeof runSearchWithInput === 'function') {
+              runSearchWithInput(data.ref);
+              var out = document.getElementById('output');
+              if (out) setTimeout(function () { out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
+            }
+          }
+        });
+      }
       if (queryInput) {
         var _selStart = 0, _selEnd = 0, _valLen = 0;
         queryInput.addEventListener('keydown', function (event) {
@@ -10344,6 +10355,15 @@ function startStudy(id) {
       }
     })();
   } catch (wireErr) { if (typeof console !== 'undefined' && console.error) console.error('TDB search wire:', wireErr); }
+
+  var isHomepage = !!(document.getElementById('quick-search-hero') || document.getElementById('search-hero'));
+  if (isHomepage && document.getElementById('global-search-wrap')) {
+    window.onVerseSelect = function (ref, text) {
+      if (ref && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(ref);
+      var out = document.querySelector('#output');
+      if (out) out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+  }
 
   if (window.TDB_IS_ORG) {
     var sub = document.getElementById('brand-subtitle');

@@ -14,6 +14,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="manifest" href="manifest.json">
+  <script src="scripts/header-search-bar.js" defer></script>
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +38,7 @@
         <button id="logout-btn" class="hidden">Log Out</button>
       </div>
     </header>
+    <div id="global-search-wrap"></div>
 
     <aside class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
@@ -72,6 +74,7 @@
         <header class="hero-banner">
           <h1>7-Day Reading Plan</h1>
           <p>One verse a day. Build the habit in a week.</p>
+          <p class="section-note util-mb-0_5">Use the search bar above to find verses.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Search Scripture</a>
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
@@ -130,6 +133,14 @@
   <script nonce="tdb2025">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260305" data-cfasync="false"></script>
+  <script nonce="tdb2025">
+  (function wireReadingPlanVerseSelect() {
+    window.onVerseSelect = function (ref, text) {
+      var el = document.getElementById('reading-plan-list') || document.getElementById('main-content');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+  })();
+  </script>
   <script nonce="tdb2025">
   (function() {
     const READING_PLAN_KEY = 'readingPlanProgress';

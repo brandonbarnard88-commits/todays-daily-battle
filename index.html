@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<!-- TDB-DEPLOY-2026-03-01-HERO-CHIPS: 30 chips hardcoded. View Source: search this string to verify deploy. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="tdb-deploy" content="2026-03-01-hero-30chips">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://todaysdailybattle.com https://todaysdailybattle.org https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
@@ -27,7 +25,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260306" as="style" nonce="tdb2025">
   <link rel="stylesheet" href="styles.css?v=20260306" nonce="tdb2025">
-  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} .search-hero-home,#search-hero,.search-hero-home form,.search-hero-row,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} .search-hero-home,#search-hero{min-height:10rem;} .search-hero-row{display:flex!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr))!important;gap:0.6rem!important;min-height:2.5rem!important;} #query,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;} .content-inner>.search-hero-home{order:-1!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;}}</style>
+  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} .search-hero-home,#search-hero,.search-hero-home form,.search-hero-row,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} .search-hero-home,#search-hero{min-height:10rem;} .search-hero-row{display:flex!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;} #query,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input{width:100%!important;min-width:0!important;}}</style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a0c14">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -57,8 +55,6 @@
   </script>
 </head>
 <body class="dark-mode">
-  <!-- HERO-FORCE-2026-03-01 -->
-  <!-- TDB-HERO-LIVE: If you see this in View Source, the hero build is deployed. -->
   <script nonce="tdb2025">
     (function(){ var h = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org'; if (h) { document.body.classList.add('tdb-org'); var c = document.querySelector('link[rel=canonical]'); if (c) c.href = 'https://todaysdailybattle.org/'; document.title = "Today's Daily Battle — A daily verse movement for you and your church"; var m = document.querySelector('meta[name=description]'); if (m) m.setAttribute('content', 'Do unto others. Join the movement: one verse, pass it on. Who we are, our story, and how to get your church involved. todaysdailybattle.com'); } })();
   </script>
@@ -166,7 +162,32 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <!-- QUICK-SEARCH-HERO-V2: Never empty. Centered search + 30 gold chips hardcoded so hero always shows. Deploy: 2026-03-01 -->
+        <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
+        <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
+          <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card verse-card-loaded" aria-live="polite"><strong>Philippians 4:6</strong><p>Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p></div>
+          <div id="daily-verse-prayed-row" class="daily-verse-prayed-row hidden" aria-live="polite">
+            <label class="daily-verse-prayed-label">
+              <input type="checkbox" id="daily-verse-prayed-cb" aria-label="Mark as prayed"> Prayed
+            </label>
+          </div>
+          <div id="done-for-today-banner" class="done-for-today-banner glass hidden" role="status" aria-live="polite">
+            <p class="done-for-today-text">Battle won! See you tomorrow.</p>
+          </div>
+          <p id="streak-reminder-nudge" class="streak-reminder-nudge section-note hidden" aria-live="polite"></p>
+          <p class="america-in-card"><a id="hero-tagline-america" class="america-in-card-link" href="#" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>
+          <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap hidden" aria-live="polite">
+            <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
+            <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note hidden"></p>
+          </div>
+          <div class="quick-pray-in-hero">
+            <input type="text" id="quick-pray" list="quick-pray-suggestions" placeholder="Add a name or intention…" aria-label="Quick prayer">
+            <datalist id="quick-pray-suggestions"></datalist>
+            <button type="button" id="voice-pray-hero-btn" class="btn btn-secondary" aria-label="Speak your prayer" title="Speak your prayer"><span aria-hidden="true">🎤</span></button>
+            <button type="button" id="quick-pray-btn" class="btn btn-primary" aria-label="Submit quick prayer">Pray</button>
+          </div>
+          <p class="hero-verse-byline">A hospital stay that was life-changing.</p>
+        </div>
+        <!-- QUICK-SEARCH-HERO: Centered search + 30 gold chips right below daily verse -->
         <section class="search-hero glass search-hero-centered search-hero-home" id="search-hero" role="search" aria-label="Search Scripture">
           <form id="search-form" onsubmit="event.preventDefault();var q=document.getElementById('query');if(q&&typeof window.runSearchWithInput==='function')window.runSearchWithInput(q.value);return false;">
             <label for="query" class="search-hero-label">Search by emotion or verse</label>
@@ -210,31 +231,6 @@
           </div>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </section>
-        <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
-        <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
-          <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card verse-card-loaded" aria-live="polite"><strong>Philippians 4:6</strong><p>Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p></div>
-          <div id="daily-verse-prayed-row" class="daily-verse-prayed-row hidden" aria-live="polite">
-            <label class="daily-verse-prayed-label">
-              <input type="checkbox" id="daily-verse-prayed-cb" aria-label="Mark as prayed"> Prayed
-            </label>
-          </div>
-          <div id="done-for-today-banner" class="done-for-today-banner glass hidden" role="status" aria-live="polite">
-            <p class="done-for-today-text">Battle won! See you tomorrow.</p>
-          </div>
-          <p id="streak-reminder-nudge" class="streak-reminder-nudge section-note hidden" aria-live="polite"></p>
-          <p class="america-in-card"><a id="hero-tagline-america" class="america-in-card-link" href="#" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>
-          <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap hidden" aria-live="polite">
-            <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
-            <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note hidden"></p>
-          </div>
-          <div class="quick-pray-in-hero">
-            <input type="text" id="quick-pray" list="quick-pray-suggestions" placeholder="Add a name or intention…" aria-label="Quick prayer">
-            <datalist id="quick-pray-suggestions"></datalist>
-            <button type="button" id="voice-pray-hero-btn" class="btn btn-secondary" aria-label="Speak your prayer" title="Speak your prayer"><span aria-hidden="true">🎤</span></button>
-            <button type="button" id="quick-pray-btn" class="btn btn-primary" aria-label="Submit quick prayer">Pray</button>
-          </div>
-          <p class="hero-verse-byline">A hospital stay that was life-changing.</p>
-        </div>
         <div class="glass prayer-of-day-block util-mt-0_5" role="region" aria-label="Prayer of the day">
           <h3 class="section-divider util-mt-0">Today's Prayer</h3>
           <p class="prayer-of-day-text">Lord, give us strength for the battle. Amen.</p>

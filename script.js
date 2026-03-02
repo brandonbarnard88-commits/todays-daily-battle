@@ -100,7 +100,8 @@ function migrateLocalStorageKeys() {
       ['prayers', 'tdb_prayers_v1'],
       ['tdb_prayers', 'tdb_prayers_v1'],
       ['tdb_prayer_wall_v1', 'tdb_prayers_v1'],
-      ['prayerWall', 'tdb_prayers_v1']
+      ['prayerWall', 'tdb_prayers_v1'],
+      ['prayer_wall_items', 'tdb_prayers_v1']
     ];
     oldToNew.forEach(function (pair) {
       var oldKey = pair[0];
@@ -11939,16 +11940,23 @@ function tdbInit() {
     var addBtn = document.getElementById('prayer-wall-add');
     if (!listEl) return;
     function getItems() {
-      try { return JSON.parse(localStorage.getItem(PRAYER_WALL_KEY) || '[]'); } catch (e) { return []; }
+      try {
+        var raw = localStorage.getItem(PRAYER_WALL_KEY) || '[]';
+        var arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr : [];
+      } catch (e) { return []; }
     }
     function getHearts() {
       try { return JSON.parse(localStorage.getItem(PRAYER_WALL_HEARTS_KEY) || '{}'); } catch (e) { return {}; }
     }
     function saveItems(items) {
       try {
-        localStorage.setItem(PRAYER_WALL_KEY, JSON.stringify(items));
+        var json = JSON.stringify(Array.isArray(items) ? items : []);
+        localStorage.setItem(PRAYER_WALL_KEY, json);
         if (typeof console !== 'undefined' && console.log) console.log('Prayer saved to tdb_prayers_v1');
-      } catch (e) {}
+      } catch (e) {
+        if (typeof console !== 'undefined' && console.warn) console.warn('Prayer Wall save failed:', e);
+      }
     }
     function saveHearts(hearts) {
       try { localStorage.setItem(PRAYER_WALL_HEARTS_KEY, JSON.stringify(hearts)); } catch (e) {}

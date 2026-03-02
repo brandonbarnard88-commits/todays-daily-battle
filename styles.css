@@ -823,7 +823,8 @@ body:has(.search-hero-home) #search-hero {
   margin-bottom: 0.5rem;
   letter-spacing: 0.02em;
 }
-.search-hero-row {
+.search-hero-row,
+.search-hero-form {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -831,6 +832,10 @@ body:has(.search-hero-home) #search-hero {
   align-items: center;
   max-width: 38rem;
   margin: 0 auto 0.5rem;
+}
+.search-hero-form .search-hero-input {
+  flex: 1;
+  min-width: 14rem;
 }
 .search-hero-input {
   flex: 1;
@@ -1027,7 +1032,15 @@ body:has(.search-hero-home) #search-hero {
 .search-hero-centered .search-hero-input:focus,
 .search-hero-input-gold:focus {
   border-color: var(--elite-gold-solid, #d4af37);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 0 24px var(--elite-gold-dim);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35), 0 0 24px rgba(212, 175, 55, 0.25);
+}
+@media (max-width: 768px) {
+  .search-hero-input,
+  .search-hero-input-gold {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100%;
+  }
 }
 /* Grid of 30 gold-outlined chips */
 .quick-chips-grid {

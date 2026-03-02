@@ -550,10 +550,10 @@
     var url = useToolUrl ? 'https://todaysdailybattle.com/bible-tool.html?ref=' + encodeURIComponent(ref) : 'https://todaysdailybattle.com';
     if (typeof navigator !== 'undefined' && navigator.share) {
       navigator.share({ title: "Today's Daily Battle", text: t, url: url }).catch(function () {
-        if (navigator.clipboard) navigator.clipboard.writeText(t + ' ' + url);
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t + ' ' + url).catch(function () {});
       });
-    } else if (navigator.clipboard) {
-      navigator.clipboard.writeText(t + ' ' + url);
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t + ' ' + url).catch(function () {});
     }
   }
 
@@ -879,10 +879,10 @@
           : planName + ' – Day ' + (completed + 1) + '/' + total + ' ' + ticks + ' – Keep battling! todaysdailybattle.com/bible-tool.html';
         if (navigator.share) {
           navigator.share({ title: "Today's Daily Battle", text: text }).catch(function () {
-            if (navigator.clipboard) navigator.clipboard.writeText(text);
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).catch(function () {});
           });
-        } else if (navigator.clipboard) {
-          navigator.clipboard.writeText(text);
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(function () {});
         }
       };
     }

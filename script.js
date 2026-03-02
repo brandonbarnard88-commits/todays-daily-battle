@@ -6453,9 +6453,19 @@ const coloringStories = [
   }
 ];
 
+function normalizeBibleData(data) {
+  if (!data) return {};
+  if (Array.isArray(data)) {
+    var obj = {};
+    data.forEach(function (v) { if (v && v.ref) obj[v.ref] = v.text || ''; });
+    return obj;
+  }
+  return typeof data === 'object' ? data : {};
+}
+
 async function loadBible(version = currentVersion) {
   if (version === 'KJV' && typeof window !== 'undefined' && window.kjvData) {
-    bible = window.kjvData;
+    bible = normalizeBibleData(window.kjvData);
     bibleVersions.KJV = bible;
     currentVersion = 'KJV';
     bibleEntries = Object.entries(bible);
@@ -6472,7 +6482,8 @@ async function loadBible(version = currentVersion) {
     try {
       const response = await fetch(urlsToTry[i]);
       if (!response.ok) throw new Error('status ' + response.status);
-      bible = await response.json();
+      var raw = await response.json();
+      bible = normalizeBibleData(raw);
       if (version === 'KJV' && typeof window !== 'undefined') window.kjvData = bible;
       bibleVersions[version] = bible;
       currentVersion = version;

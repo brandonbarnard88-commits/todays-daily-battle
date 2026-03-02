@@ -67,6 +67,26 @@ Should return `HTTP/2 200` (or `HTTP/1.1 200`).
 - **Cloudflare WAF / Rules**: Any rule blocking `.html` or `/topic-*` paths?
 - **Direct file**: Try `https://your-project.pages.dev/topic-anxiety.html` (Pages preview URL) — if that works, the issue may be custom domain or cache
 
-## 6. _redirects (optional)
+## 6. Confirm _redirects is applied
 
-The `_redirects` file rewrites `/topic-anxiety` → `/topic-anxiety.html` (200). If `/topic-anxiety.html` works but `/topic-anxiety` 503s, the redirect may be misconfigured. Cloudflare Pages supports Netlify-style `_redirects` in the build output root.
+**Cloudflare Pages** → **Deployments** → **Latest deploy** → **Build logs**:
+
+- Search for `_redirects`, `redirects file`, or `Applied redirects` — should mention finding/processing it and how many rules
+- If no mention → file placement issue: must be at repo root as `_redirects` (no folder, no extension), and `build-copy-static.js` copies it to `dist/` root
+
+## 7. Force clean redeploy + purge
+
+1. Make a tiny dummy change (e.g. add a space/comment in `_redirects` or `index.html`) → commit/push to trigger fresh build
+2. After deploy finishes: **Purge Everything** again
+3. Wait 1–2 min (Cloudflare edge propagation)
+4. Test: `curl -I https://todaysdailybattle.com/topic-anxiety` (look for `HTTP/1.1 200 OK`; if 503, logs will tell why)
+
+## 8. Cloudflare-specific tweaks
+
+- **Settings** → **Build & deployments** → **Single-page application** toggle: Turn **ON** if off (can improve rewrite handling)
+- **Custom domain**: Ensure no conflicting Page Rules (Caching → Configuration or Rules → Page Rules) override `/topic-*` paths
+- **Cache level**: Set to **Bypass** temporarily for `/topic-*` via Page Rule if needed, then revert after test
+
+## 9. Fallback workaround if stuck
+
+Rename files: e.g. `topic-anxiety.html` → `anxiety/index.html` (create `/anxiety/` folder in `dist/`). Update links in `index.html` to `/anxiety/`. Serves naturally at `/anxiety` without redirects. Push/redeploy/purge → test `/anxiety`.

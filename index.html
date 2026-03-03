@@ -26,7 +26,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260309p" as="style" nonce="tdb2025">
   <link rel="stylesheet" href="styles.css?v=20260309p" nonce="tdb2025">
-  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;scroll-margin-top:5rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;min-height:3rem!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;min-height:2.5rem!important;} #tdb-search{min-width:12rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
+  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;scroll-margin-top:5rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;min-height:3rem!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;min-height:2.5rem!important;} #tdb-search{min-width:12rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;pointer-events:auto!important;}#quick-actions-hero .topic-chip,#quick-actions-hero .quick-topic,#quick-actions-hero [data-topic]{pointer-events:auto!important;cursor:pointer!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a0c14">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -35,6 +35,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js?v=20260309"></script>
+  <script src="script.js?v=20260313" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" integrity="sha384-BkEIW/B4JV9w6pRfBRgZtAcYDk5goH1nUI49rLo8s5PSHgTfgxWBczRVJx+fv5kP" crossorigin="anonymous" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" integrity="sha384-MiR5OstmujbPpU5nzD986OTopb4Kveb2WX4EmKuqeCU1hCWlxMYL8gBBY7vDSYLF" crossorigin="anonymous" defer></script>
   <script src="firebase-push.js" defer></script>
@@ -58,6 +59,42 @@
 <body class="dark-mode">
   <script nonce="tdb2025">
     (function(){ var h = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org'; if (h) { document.body.classList.add('tdb-org'); var c = document.querySelector('link[rel=canonical]'); if (c) c.href = 'https://todaysdailybattle.org/'; document.title = "Today's Daily Battle — A daily verse movement for you and your church"; var m = document.querySelector('meta[name=description]'); if (m) m.setAttribute('content', 'Do unto others. Join the movement: one verse, pass it on. Who we are, our story, and how to get your church involved. todaysdailybattle.com'); } })();
+  </script>
+  <script nonce="tdb2025">
+    window.runSearchWithInput=window.runSearchWithInput||function(s){if(window.__tdbRunSearchReal){window.__tdbRunSearchReal(s);return;}var t=(s!=null?String(s).trim():'');if(t&&location){var ns='?q='+encodeURIComponent(t);if(location.search===ns)return;location.href=(location.pathname||'/')+ns;}};
+    document.addEventListener('DOMContentLoaded',function(){
+      var form=document.getElementById('search-form')||document.querySelector('form');
+      if(form){
+        form.addEventListener('submit',function(e){
+          if(typeof window.runSearchWithInput==='function'){
+            e.preventDefault();e.stopPropagation();
+            var q=document.getElementById('tdb-search')||document.querySelector('input[name="q"]');
+            window.runSearchWithInput(q?q.value:'');
+            return false;
+          }
+        },true);
+      }
+      document.body.addEventListener('click',function(e){
+        var chip=e.target&&e.target.closest?e.target.closest('.topic-chip,.quick-topic,[data-topic]'):null;
+        if(!chip)return;
+        var topic=(chip.dataset&&chip.dataset.topic)||(chip.getAttribute&&chip.getAttribute('data-topic'))||(chip.textContent||'').trim();
+        if(!topic)return;
+        e.preventDefault();e.stopPropagation();
+        if(typeof console!=='undefined'&&console.log)console.log('Chip clicked:',topic);
+        var input=document.getElementById('tdb-search')||document.querySelector('input[name="q"]');
+        if(input){
+          input.value=topic;
+          if(typeof window.runSearchWithInput==='function'){
+            window.runSearchWithInput(topic);
+          }else{
+            if(input.form)input.form.submit();else location.href=(location.pathname||'/')+'?q='+encodeURIComponent(topic);
+          }
+        }else{
+          location.href=(location.pathname||'/')+'?q='+encodeURIComponent(topic);
+        }
+      },true);
+      document.querySelectorAll('.topic-chip,.quick-topic,[data-topic]').forEach(function(el){el.style.pointerEvents='auto';el.style.cursor='pointer';});
+    });
   </script>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="promo-banner" class="promo-banner promo-banner-fixed" role="region" aria-label="Limited time offer">
@@ -191,42 +228,42 @@
         </div>
         <!-- QUICK-SEARCH-HERO-V2: search bar + 30 topic chips. Do not remove. -->
         <div id="quick-search-hero" class="search-hero quick-search-hero quick-search-hero-wrap" role="search" aria-label="Search Scripture">
-          <form id="search-form" method="get" action="/" onsubmit="var q=document.getElementById('tdb-search')||document.getElementById('query');if(q&&q.value&&typeof window.runSearchWithInput==='function'){event.preventDefault();window.runSearchWithInput(q.value);return false;}">
+          <form id="search-form" method="get" action="">
             <input type="search" id="tdb-search" name="q" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Type a topic, emotion, or verse (e.g., anxiety, Romans 8:38)" aria-label="Search Bible topics or verses" autocomplete="off">
             <button id="search-btn" type="submit" class="btn btn-primary search-hero-btn-mt">Search</button>
           </form>
           <p class="section-note quick-searches-label">Type a topic, emotion, or verse reference. Tap any chip below for instant verses — all 30 topics.</p>
           <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-hero" aria-label="Quick topic search">
-            <button type="button" class="btn btn-primary quick-topic" data-topic="free will">FREE WILL</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="family">Family</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="hope">Hope</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="fear">Fear</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace">Peace</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="courage">Courage</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="gratitude">Gratitude</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="loneliness">Loneliness</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="guilt">Guilt</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="strength">Strength</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="heartache">Heartache</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="grief">Grief</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety">Anxiety</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="forgiveness">Forgiveness</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="patience">Patience</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="anger">Anger</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="joy">Joy</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="love">Love</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="addiction">Addiction</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="trauma">Trauma</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="relationships">Relationships</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="jesus said">Jesus Said</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="parenting">Parenting</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="finances">Finances</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="sleep">Sleep &amp; Rest</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="marriage">Marriage</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="faith">Faith</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="obedience">Obedience</button>
-            <button type="button" class="btn btn-secondary quick-topic" data-topic="wisdom">Wisdom</button>
+            <a href="?q=free+will#quick-search-hero" class="btn btn-primary topic-chip quick-topic" data-topic="free will">FREE WILL</a>
+            <a href="?q=family#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="family">Family</a>
+            <a href="?q=hope#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="hope">Hope</a>
+            <a href="?q=fear#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="fear">Fear</a>
+            <a href="?q=peace#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="peace">Peace</a>
+            <a href="?q=courage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="courage">Courage</a>
+            <a href="?q=gratitude#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="gratitude">Gratitude</a>
+            <a href="?q=loneliness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="loneliness">Loneliness</a>
+            <a href="?q=guilt#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="guilt">Guilt</a>
+            <a href="?q=strength#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="strength">Strength</a>
+            <a href="?q=heartache#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="heartache">Heartache</a>
+            <a href="?q=grief#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="grief">Grief</a>
+            <a href="?q=anxiety#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="anxiety">Anxiety</a>
+            <a href="?q=forgiveness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="forgiveness">Forgiveness</a>
+            <a href="?q=patience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="patience">Patience</a>
+            <a href="?q=anger#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="anger">Anger</a>
+            <a href="?q=joy#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="joy">Joy</a>
+            <a href="?q=love#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="love">Love</a>
+            <a href="?q=addiction#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="addiction">Addiction</a>
+            <a href="?q=trauma#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="trauma">Trauma</a>
+            <a href="?q=relationships#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="relationships">Relationships</a>
+            <a href="?q=jesus+said#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="jesus said">Jesus Said</a>
+            <a href="?q=parenting#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="parenting">Parenting</a>
+            <a href="?q=finances#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="finances">Finances</a>
+            <a href="?q=spiritualwarfare#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</a>
+            <a href="?q=sleep#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="sleep">Sleep &amp; Rest</a>
+            <a href="?q=marriage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="marriage">Marriage</a>
+            <a href="?q=faith#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="faith">Faith</a>
+            <a href="?q=obedience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="obedience">Obedience</a>
+            <a href="?q=wisdom#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="wisdom">Wisdom</a>
           </div>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </div>
@@ -897,8 +934,9 @@
   <script src="daily-verse-widget.js"></script>
   <script src="verse-search-dropdown.js?v=20260309"></script>
   <script src="scripts/header-search-bar.js?v=2" defer></script>
-  <script type="module" src="script.js?v=20260309" data-cfasync="false"></script>
   <script src="utils.js?v=20260309" defer async></script>
   <script src="voice-pray.js"></script>
+  <script src="search-wire.js?v=20260313"></script>
+  <script src="fallback-search.js?v=20260313"></script>
 </body>
 </html>

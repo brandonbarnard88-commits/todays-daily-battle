@@ -49,6 +49,8 @@ const rootFiles = [
   'voice-pray.js',
   'fetch-prayer-guard.js',
   'utils.js',
+  'fallback-search.js',
+  'search-wire.js',
   '_redirects',
   '_headers',
   'kjv.json',

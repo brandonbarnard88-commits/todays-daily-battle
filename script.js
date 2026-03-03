@@ -6,9 +6,15 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+(function () {
+  var c = (typeof window !== 'undefined' && window.TDB_CONFIG) || {};
+  window.__tdbSupabaseUrl = c.SUPABASE_URL || '';
+  window.__tdbSupabaseAnonKey = c.SUPABASE_ANON_KEY || '';
+})();
+var SUPABASE_URL = window.__tdbSupabaseUrl || '';
+var SUPABASE_ANON_KEY = window.__tdbSupabaseAnonKey || '';
 
-window.__tdb_script_version = '20260302';
+window.__tdb_script_version = '20260311';
 if (typeof history !== 'undefined' && history.scrollRestoration) history.scrollRestoration = 'manual';
 if (typeof console !== 'undefined' && console.log) {
   console.log('TDB: Hero loaded', window.__tdb_script_version);
@@ -31,7 +37,11 @@ document.addEventListener('securitypolicyviolation', function (e) {
 window.runSearchWithInput = function (inputStr) {
   if (window.__tdbRunSearchReal) { window.__tdbRunSearchReal(inputStr); return; }
   var s = (inputStr != null) ? String(inputStr).trim() : '';
-  if (s && typeof window.location !== 'undefined') { window.location.href = (window.location.pathname || '/') + '?q=' + encodeURIComponent(s); }
+  if (s && typeof window.location !== 'undefined') {
+    var newSearch = '?q=' + encodeURIComponent(s);
+    if (window.location.search === newSearch) return; /* already there, avoid redirect loop if script failed */
+    window.location.href = (window.location.pathname || '/') + newSearch;
+  }
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
 
@@ -557,7 +567,7 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
   var html = '';
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
-    var cls = isPrimary ? 'btn btn-primary quick-topic' : 'btn btn-secondary quick-topic';
+    var cls = isPrimary ? 'btn btn-primary topic-chip quick-topic' : 'btn btn-secondary topic-chip quick-topic';
     html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '">' + escapeHtml(item.label) + '</button>';
   });
   container.innerHTML = html;
@@ -616,6 +626,21 @@ const STOP_WORDS = new Set([
   'but', 'not', 'your', 'you', 'me', 'my', 'we', 'our', 'his', 'her', 'their', 'them'
 ]);
 
+/** Common misspellings for emotional/faith-related words. Applied before normalization. */
+const TYPO_CORRECTION = {
+  anixety: 'anxiety', anixious: 'anxious', anxitey: 'anxiety', anxiaty: 'anxiety', ansiety: 'anxiety', anxioty: 'anxiety',
+  stresed: 'stressed', stres: 'stress', stressd: 'stressed', streessed: 'stressed',
+  peice: 'peace', pease: 'peace', pesce: 'peace',
+  feer: 'fear', afriad: 'afraid', afraide: 'afraid', scard: 'scared', scaired: 'scared',
+  fait: 'faith', fath: 'faith', hoep: 'hope', hoppe: 'hope',
+  depresion: 'depression', deppresed: 'depressed', deppressed: 'depressed',
+  lonley: 'lonely', greif: 'grief',
+  forgiv: 'forgive', forgivness: 'forgiveness', angrey: 'angry', angery: 'angry',
+  woried: 'worried', wory: 'worry', jeleous: 'jealous', thankfull: 'thankful', joyfull: 'joyful'
+};
+
+const NEGATION_WORDS = ['not', 'no', 'never', 'dont', 'cant', 'cannot', 'without'];
+
 const MEANING_MAP = {
   love: ['charity', 'compassion', 'kindness', 'affection'],
   faith: ['belief', 'trust', 'confidence', 'assurance'],
@@ -653,6 +678,80 @@ const ACTION_MAP = {
   lead: ['lead', 'led', 'leading', 'guide', 'shepherd'],
   teach: ['teach', 'taught', 'teaching', 'instruct'],
   worship: ['worship', 'praise', 'adoration', 'glorify']
+};
+
+/** Maps search words (meaning, action, emotion) to topics so search is always on topic. */
+const QUERY_TO_TOPIC = {
+  stressed: 'anxiety', stressedout: 'anxiety', stressing: 'anxiety', overwhelm: 'anxiety', overwhelmed: 'anxiety',
+  nervous: 'anxiety', nervousness: 'anxiety', worry: 'anxiety', worrying: 'anxiety', worried: 'anxiety',
+  panic: 'fear', panicking: 'fear', scared: 'fear', afraid: 'fear', fearful: 'fear', terrified: 'fear',
+  dread: 'fear', dreadful: 'fear', anxious: 'anxiety', anxiety: 'anxiety',
+  sad: 'grief', sadness: 'grief', depressed: 'grief', depression: 'grief', sorrow: 'grief', sorrowful: 'grief',
+  mourning: 'grief', mourn: 'grief', heartbroken: 'heartache', heartache: 'heartache', brokenhearted: 'grief',
+  loss: 'grief', grieving: 'grief', grieve: 'grief',
+  lonely: 'lonely', loneliness: 'lonely', alone: 'lonely', isolated: 'lonely', abandoned: 'lonely',
+  guilty: 'guilt', guilt: 'guilt', shame: 'guilt', ashamed: 'guilt', condemnation: 'guilt', remorse: 'guilt',
+  forgiven: 'forgiveness', forgive: 'forgiveness', forgiving: 'forgiveness', pardon: 'forgiveness', mercy: 'forgiveness',
+  angry: 'anger', anger: 'anger', mad: 'anger', furious: 'anger', rage: 'anger', wrath: 'anger',
+  jealous: 'anger', jealousy: 'anger', envy: 'anger', envious: 'anger', covet: 'anger',
+  thankful: 'gratitude', gratitude: 'gratitude', grateful: 'gratitude', thanks: 'gratitude', appreciate: 'gratitude',
+  joy: 'joy', joyful: 'joy', rejoice: 'joy', rejoicing: 'joy', glad: 'joy', gladness: 'joy', delight: 'joy',
+  peace: 'peace', peaceful: 'peace', calm: 'peace', rest: 'peace', stillness: 'peace', tranquility: 'peace',
+  hope: 'hope', hopeful: 'hope', hopeless: 'grief', despair: 'grief', hopelessness: 'grief',
+  faith: 'faith', believe: 'faith', belief: 'faith', trust: 'faith', confidence: 'faith', assurance: 'faith',
+  love: 'love', loving: 'love', compassion: 'love', kindness: 'love', charity: 'love', affection: 'love',
+  selfless: 'love', selfish: 'guilt', sacrifice: 'love', giving: 'love',
+  strength: 'strength', strong: 'strength', powerful: 'strength', mighty: 'strength', resilient: 'strength',
+  courage: 'courage', courageous: 'courage', brave: 'courage', bold: 'courage', fearless: 'courage',
+  patience: 'patience', patient: 'patience', wait: 'patience', waiting: 'patience', endure: 'patience',
+  wisdom: 'wisdom', wise: 'wisdom', understanding: 'wisdom', discernment: 'wisdom',
+  obedience: 'obedience', obey: 'obedience', obeying: 'obedience', submit: 'obedience', follow: 'obedience',
+  addiction: 'addiction', addicted: 'addiction', bondage: 'addiction', freedom: 'free will', sober: 'addiction',
+  trauma: 'trauma', traumatized: 'trauma', wounded: 'trauma', hurt: 'trauma', healing: 'trauma', ptsd: 'trauma',
+  abuse: 'trauma', refuge: 'trauma', safe: 'trauma',
+  family: 'family', children: 'parenting', kids: 'parenting', parenting: 'parenting', parents: 'family',
+  marriage: 'marriage', spouse: 'marriage', husband: 'marriage', wife: 'marriage', covenant: 'marriage',
+  money: 'finances', finances: 'finances', provision: 'finances', wealth: 'finances', bills: 'finances',
+  sleep: 'sleep', insomnia: 'sleep', rest: 'peace', sleepless: 'sleep',
+  spiritualwarfare: 'spiritualwarfare', armor: 'spiritualwarfare', devil: 'spiritualwarfare', demon: 'spiritualwarfare',
+  burnout: 'anxiety', exhausted: 'anxiety', pressure: 'anxiety',
+  choice: 'free will', choose: 'free will', choosing: 'free will', decision: 'free will', freedom: 'free will',
+  pray: 'prayer', prayer: 'prayer', praying: 'prayer'
+};
+
+/** Expands common natural-language phrases to topic-relevant tokens. Check phrase match first, then score topics. */
+const PHRASE_TO_TOKENS = {
+  'calm my anxiety': ['peace', 'anxiety', 'worry', 'rest', 'trust'],
+  'calm anxiety': ['peace', 'anxiety', 'worry', 'rest'],
+  'stop worrying': ['peace', 'anxiety', 'fear', 'faith'],
+  'stop being anxious': ['peace', 'anxiety', 'faith'],
+  'feeling down': ['sad', 'depressed', 'hope', 'joy'],
+  'feel down': ['sad', 'depressed', 'hope'],
+  'need strength': ['strength', 'weak', 'weary', 'power'],
+  'need more strength': ['strength', 'power', 'faith'],
+  'forgive someone': ['forgive', 'forgiveness', 'mercy'],
+  'forgiving someone': ['forgive', 'forgiveness', 'mercy'],
+  'lonely at night': ['lonely', 'comfort', 'peace'],
+  'feeling lonely': ['lonely', 'comfort', 'peace'],
+  'cant sleep': ['sleep', 'peace', 'rest', 'anxiety'],
+  'cant fall asleep': ['sleep', 'peace', 'rest'],
+  'overcome fear': ['fear', 'courage', 'faith', 'strength'],
+  'overcome anxiety': ['anxiety', 'peace', 'faith'],
+  'find peace': ['peace', 'rest', 'calm'],
+  'inner peace': ['peace', 'rest', 'calm'],
+  'when im afraid': ['fear', 'courage', 'faith'],
+  'when im scared': ['fear', 'courage', 'faith'],
+  'dealing with grief': ['grief', 'comfort', 'hope'],
+  'dealing with loss': ['grief', 'comfort', 'hope'],
+  'strength when weak': ['strength', 'weak', 'weary', 'power'],
+  'when im weak': ['strength', 'weak', 'power'],
+  'let go of anger': ['anger', 'forgiveness', 'peace'],
+  'control my anger': ['anger', 'patience', 'peace'],
+  'trust god': ['faith', 'trust', 'hope'],
+  'trust in god': ['faith', 'trust', 'hope'],
+  'hope when hopeless': ['hope', 'despair', 'faith'],
+  'prayer for peace': ['peace', 'prayer', 'rest'],
+  'verses about peace': ['peace', 'rest', 'calm']
 };
 
 const topics = {
@@ -1300,7 +1399,6 @@ const supabaseKey = SUPABASE_ANON_KEY || '';
 const supabaseUrlValid = supabaseUrl && String(supabaseUrl).includes('supabase.co') && !String(supabaseUrl).includes('your-project-ref');
 if (typeof window !== 'undefined') {
   console.log('TDB Supabase base:', supabaseUrlValid ? supabaseUrl : '(not set — prayers/presence disabled)');
-  if (supabaseUrlValid) console.log('TDB Fetching from:', supabaseUrl + '/rest/v1');
 }
 // Production: no debug logs (Supabase init/count only in dev)
 if (typeof window !== 'undefined' && location.hostname.includes('localhost')) {
@@ -1309,7 +1407,6 @@ if (typeof window !== 'undefined' && location.hostname.includes('localhost')) {
   } else if (!supabaseUrlValid) {
     console.error('Supabase URL must be https://YOUR_REF.supabase.co — relative/same-origin causes 404s.');
   } else {
-    console.log('Supabase init with URL:', supabaseUrl);
   }
 }
 const supabaseScriptUrls = [
@@ -1366,7 +1463,6 @@ function supabaseFetch(url, options) {
   }
   if (!_supabaseFetchLogged) {
     _supabaseFetchLogged = true;
-    console.log('TDB first Supabase request:', url);
   }
   var opts = options || {};
   var headers = new Headers(opts.headers || {});
@@ -1532,7 +1628,6 @@ function runSupabaseConnectionTest() {
     supabaseClient.from('prayers').select('*', { count: 'exact', head: true })
     .then(function (res) {
       if (res && is404Like(res)) { setPrayersApiUnavailable(); return; }
-      if (isDev) console.log('Prayers count:', res && res.count != null ? res.count : (res && res.data ? res.data.length : '?'));
     })
     .catch(function (err) {
       setPrayersApiUnavailable();
@@ -1759,9 +1854,7 @@ const STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MI
 const STRIPE_BATTLEPRO_MILITARY_YEARLY_URL = (_cfg && (_cfg.STRIPE_BATTLEPRO_MILITARY_YEARLY_URL || _cfg.STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK)) || '';
 const STRIPE_CHURCH_MONTHLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_MONTHLY_URL || _cfg.STRIPE_CHURCH_MONTHLY_LINK)) || (_cfg && _cfg.STRIPE_CHURCH_LINK) || '';
 const STRIPE_CHURCH_YEARLY_URL = (_cfg && (_cfg.STRIPE_CHURCH_YEARLY_URL || _cfg.STRIPE_CHURCH_YEARLY_LINK)) || '';
-if (typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.com' && !STRIPE_SUPPORTER_MONTHLY_URL) {
-  try { if (console && console.warn) console.warn('TDB: Stripe payment links not set. Set STRIPE_* in config or env for production checkout.'); } catch (e) {}
-}
+// Stripe links empty on prod → upgrade buttons show waitlist; no console spam
 const DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
 const DONE_FOR_TODAY_KEY = 'tdb_done_for_today';
 const CHALLENGE_30_STARTED_KEY = 'challenge30Started';
@@ -2065,6 +2158,10 @@ var VERSE_PLAIN_MEANINGS = {
   'Psalms 94:19': 'When anxiety was great within me, Your consolation brought me joy—God meets us in the overwhelm.',
   'Nehemiah 8:10': 'The joy of the Lord is your strength—His gladness in you fuels you for the day.'
 };
+
+/** Book context for auto-generated verse breakdowns (31k+ verses). speaker, audience, genre. */
+var BOOK_CONTEXT = { Genesis: { s: 'Moses', a: 'Israel', g: 'narrative' }, Exodus: { s: 'Moses', a: 'Israel', g: 'narrative' }, Leviticus: { s: 'Moses', a: 'Israel', g: 'law' }, Numbers: { s: 'Moses', a: 'Israel', g: 'narrative' }, Deuteronomy: { s: 'Moses', a: 'Israel', g: 'law' }, Joshua: { s: 'Joshua', a: 'Israel', g: 'narrative' }, Judges: { s: 'Unknown', a: 'Israel', g: 'narrative' }, Ruth: { s: 'Unknown', a: 'Israel', g: 'narrative' }, '1 Samuel': { s: 'Samuel', a: 'Israel', g: 'narrative' }, '2 Samuel': { s: 'Nathan', a: 'Israel', g: 'narrative' }, '1 Kings': { s: 'Unknown', a: 'Israel', g: 'narrative' }, '2 Kings': { s: 'Unknown', a: 'Israel', g: 'narrative' }, '1 Chronicles': { s: 'Chronicler', a: 'Exiles', g: 'narrative' }, '2 Chronicles': { s: 'Chronicler', a: 'Exiles', g: 'narrative' }, Ezra: { s: 'Ezra', a: 'Exiles', g: 'narrative' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles', g: 'narrative' }, Esther: { s: 'Unknown', a: 'Israel', g: 'narrative' }, Job: { s: 'Job/God', a: 'All', g: 'wisdom' }, Psalm: { s: 'David or others praising God', a: 'Everyone hurting or thankful', g: 'psalm' }, Psalms: { s: 'David or others praising God', a: 'Everyone hurting or thankful', g: 'psalm' }, Proverbs: { s: 'Solomon giving wisdom', a: 'Everyone seeking guidance', g: 'wisdom' }, Ecclesiastes: { s: 'Solomon', a: 'All', g: 'wisdom' }, 'Song of Solomon': { s: 'Solomon', a: 'All', g: 'poetry' }, Isaiah: { s: 'Isaiah', a: 'Judah', g: 'prophecy' }, Jeremiah: { s: 'Jeremiah', a: 'Judah/exiles', g: 'prophecy' }, Lamentations: { s: 'Jeremiah', a: 'Exiles', g: 'poetry' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles', g: 'prophecy' }, Daniel: { s: 'Daniel', a: 'Exiles', g: 'prophecy' }, Hosea: { s: 'Hosea', a: 'Israel', g: 'prophecy' }, Joel: { s: 'Joel', a: 'Judah', g: 'prophecy' }, Amos: { s: 'Amos', a: 'Israel', g: 'prophecy' }, Obadiah: { s: 'Obadiah', a: 'Edom', g: 'prophecy' }, Jonah: { s: 'Jonah', a: 'Nineveh', g: 'prophecy' }, Micah: { s: 'Micah', a: 'Judah', g: 'prophecy' }, Nahum: { s: 'Nahum', a: 'Nineveh', g: 'prophecy' }, Habakkuk: { s: 'Habakkuk', a: 'Judah', g: 'prophecy' }, Zephaniah: { s: 'Zephaniah', a: 'Judah', g: 'prophecy' }, Haggai: { s: 'Haggai', a: 'Exiles', g: 'prophecy' }, Zechariah: { s: 'Zechariah', a: 'Exiles', g: 'prophecy' }, Malachi: { s: 'Malachi', a: 'Israel', g: 'prophecy' }, Matthew: { s: 'Jesus', a: 'Believers', g: 'gospel' }, Mark: { s: 'Jesus', a: 'Believers', g: 'gospel' }, Luke: { s: 'Jesus', a: 'Believers', g: 'gospel' }, John: { s: 'Jesus', a: 'Believers', g: 'gospel' }, Acts: { s: 'Luke', a: 'Church', g: 'narrative' }, Romans: { s: 'Paul', a: 'Rome', g: 'letter' }, '1 Corinthians': { s: 'Paul', a: 'Corinth', g: 'letter' }, '2 Corinthians': { s: 'Paul', a: 'Corinth', g: 'letter' }, Galatians: { s: 'Paul', a: 'Galatia', g: 'letter' }, Ephesians: { s: 'Paul', a: 'Ephesus', g: 'letter' }, Philippians: { s: 'Paul', a: 'Philippi', g: 'letter' }, Colossians: { s: 'Paul', a: 'Colosse', g: 'letter' }, '1 Thessalonians': { s: 'Paul', a: 'Thessalonica', g: 'letter' }, '2 Thessalonians': { s: 'Paul', a: 'Thessalonica', g: 'letter' }, '1 Timothy': { s: 'Paul', a: 'Timothy', g: 'letter' }, '2 Timothy': { s: 'Paul', a: 'Timothy', g: 'letter' }, Titus: { s: 'Paul', a: 'Titus', g: 'letter' }, Philemon: { s: 'Paul', a: 'Philemon', g: 'letter' }, Hebrews: { s: 'Unknown', a: 'Hebrew Christians', g: 'letter' }, James: { s: 'James', a: 'Believers', g: 'letter' }, '1 Peter': { s: 'Peter', a: 'Believers', g: 'letter' }, '2 Peter': { s: 'Peter', a: 'Believers', g: 'letter' }, '1 John': { s: 'John', a: 'Believers', g: 'letter' }, '2 John': { s: 'John', a: 'Believers', g: 'letter' }, '3 John': { s: 'John', a: 'Gaius', g: 'letter' }, Jude: { s: 'Jude', a: 'Believers', g: 'letter' }, Revelation: { s: 'John (vision)', a: 'Seven churches', g: 'prophecy' } };
+var ARCHAIC_WORDS = { careful: 'worried', beseech: 'ask', supplication: 'prayer', thee: 'you', thou: 'you', thy: 'your', ye: 'you', hath: 'has', doth: 'does', believeth: 'believes', loveth: 'loves', giveth: 'gives', knoweth: 'knows', maketh: 'makes', passeth: 'passes', strengtheneth: 'strengthens', keepeth: 'keeps', worketh: 'works', whosoever: 'whoever', whatsoever: 'whatever', unto: 'to', saith: 'says', behold: 'look', verily: 'truly', begotten: 'only', perish: 'be lost', everlasting: 'eternal', labour: 'labor', laden: 'burdened', dismayed: 'discouraged', whithersoever: 'wherever', wiles: 'tricks', armour: 'armor', brethren: 'brothers', heartily: 'wholeheartedly', substance: 'assurance', evidence: 'proof', mount: 'rise', faint: 'give up', expected: 'hoped-for' };
 
 function getPlainMeaning(ref) {
   if (!ref) return '';
@@ -2410,7 +2507,6 @@ function wireRealPrayerCounter() {
         new Promise(function (_, reject) { setTimeout(function () { reject(new Error('timeout')); }, FETCH_TIMEOUT_MS); })
       ]);
       retryCount = 0;
-      if (typeof console !== 'undefined' && console.log) console.log('Prayer count response:', res);
       if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '0'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       var countNum = res && res.data != null ? (typeof res.data === 'number' ? res.data : (typeof res.data === 'string' ? parseInt(res.data, 10) : Number(res.data))) : NaN;
       if (res && !res.error && !isNaN(countNum) && countNum >= 0) {
@@ -2803,7 +2899,6 @@ function wireDonationModal() {
   var selectedInterval = 'one_time';
 
   function openModal() {
-    console.log('Donation started');
     modal.classList.remove('hidden');
     if (amountInput) amountInput.value = '5';
     selectedInterval = 'one_time';
@@ -4532,10 +4627,75 @@ function normalizeBibleRef(ref) {
   cleaned = cleaned.replace(/[,;].*$/, '');
   cleaned = cleaned.replace(/\s*[-–—].*$/, '');
   cleaned = cleaned.replace(/[.]+$/, '');
-  cleaned = cleaned.replace(/^Ps\.?\b/i, 'Psalms');
-  cleaned = cleaned.replace(/^Psalm\b/i, 'Psalms');
-  cleaned = cleaned.replace(/^Psalms(\d)/i, 'Psalms $1');
+  cleaned = cleaned.replace(/^Psalms\s*/i, 'Psalm ');
+  cleaned = cleaned.replace(/^Ps(?!alms?)\.?\s*/i, 'Psalm ');
+  cleaned = cleaned.replace(/^Psalm(\d)/i, 'Psalm $1');
   return cleaned.trim();
+}
+
+/** Parse book from ref (e.g. "Philippians 4:6" -> "Philippians", "1 Corinthians 2:3" -> "1 Corinthians"). */
+function parseBookFromRef(ref) {
+  if (!ref) return '';
+  var m = (ref || '').trim().match(/^(.+?)\s+\d+:\d+/);
+  if (!m) return '';
+  var book = m[1].trim();
+  if (/^Psalms?$/i.test(book)) return 'Psalm';
+  return book;
+}
+
+/** Rephrase KJV text: replace archaic words with modern equivalents. */
+function rephraseArchaic(text) {
+  if (!text) return '';
+  var t = String(text);
+  var keys = Object.keys(ARCHAIC_WORDS || {});
+  for (var i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    var re = new RegExp('\\b' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
+    t = t.replace(re, ARCHAIC_WORDS[k]);
+  }
+  return t.replace(/\s+/g, ' ').trim();
+}
+
+/** Infer "how it applies today" from verse text keywords. */
+function inferApplies(text) {
+  if (!text) return 'Apply this verse to your life today.';
+  var t = text.toLowerCase();
+  if (/\b(careful|worry|anxious|anxiety|fear|afraid)\b/.test(t)) return "When you're anxious or worried, pray instead of stressing—God hears you.";
+  if (/\b(hope|hoped|hopeth)\b/.test(t)) return 'Put your hope in God—He has a plan for you.';
+  if (/\b(peace|peaceful)\b/.test(t)) return 'Rest in God\'s peace today—He gives what the world cannot.';
+  if (/\b(strength|strong|strengthen)\b/.test(t)) return 'Draw strength from the Lord—He empowers you for today.';
+  if (/\b(love|loveth|charity)\b/.test(t)) return 'Love others as God has loved you.';
+  if (/\b(forgive|forgiveness)\b/.test(t)) return 'Forgive as you have been forgiven.';
+  if (/\b(trust|believeth|faith)\b/.test(t)) return 'Trust God with your life—He is faithful.';
+  if (/\b(thank|thanksgiving|rejoice)\b/.test(t)) return 'Give thanks in all circumstances—God is good.';
+  if (/\b(create|created|beginning)\b/.test(t)) return "God started it all—He's still in control today.";
+  return 'Apply this verse to your life today.';
+}
+
+/** Auto-generate verse breakdown for any KJV verse. ref + text required. No pre-map; scales to 31k+ verses. */
+function getVerseBreakdown(ref, text) {
+  if (!ref) return null;
+  var r = (ref || '').trim();
+  var txt = (text || '').toString().replace(/<[^>]+>/g, '').trim();
+  var book = parseBookFromRef(r);
+  if (!book) return { layman: "Verse not found—try exact format like John 3:16.", about: '', to: '', applies: '' };
+  var ctx = (BOOK_CONTEXT && BOOK_CONTEXT[book]) || { s: 'The biblical author', a: 'Original audience', g: 'narrative' };
+  var about = ctx.s || 'The biblical author';
+  var to = ctx.a || 'Original audience';
+  if (/begat|son of|daughter of|father of|generations?\s+of/i.test(txt) && txt.length < 120) {
+    return { layman: "This lists family lines—God's big story in action.", about: about, to: to, applies: "Every name in Scripture matters to God—you matter too." };
+  }
+  if (/^in the beginning\s+god\s+created/i.test(txt)) {
+    return { layman: "God creating everything—He started it all.", about: 'God', to: 'All humanity', applies: "God made it all—He's still in control today." };
+  }
+  var layman = rephraseArchaic(txt);
+  if (txt.length > 150) {
+    layman = layman.length > 100 ? ('Key idea: ' + layman.substring(0, 97) + '… Read full verse.') : ('Key idea: ' + layman + ' Read full verse.');
+  } else if (layman.length > 180) {
+    layman = layman.substring(0, 177) + '…';
+  }
+  if (!layman) layman = 'A timeless truth from Scripture—reflect on how it speaks to you today.';
+  return { layman: layman, about: about, to: to, applies: inferApplies(txt) };
 }
 
 function getBibleVerseText(ref) {
@@ -6489,9 +6649,6 @@ async function loadBible(version = currentVersion) {
       currentVersion = version;
       bibleEntries = Object.entries(bible);
       searchCache.clear();
-      if (typeof console !== 'undefined' && console.log) {
-        console.log('Bible loaded successfully - number of verses:', Object.keys(bible).length);
-      }
       renderDailyVerse();
       return;
     } catch (err) {
@@ -6727,7 +6884,8 @@ function parseReference(rawInput) {
   const bookRaw = refMatch[1].replace(/\s+/g, ' ').trim();
   const chapter = refMatch[2];
   const verse = refMatch[3];
-  const book = toTitleCase(bookRaw.toLowerCase());
+  let book = toTitleCase(bookRaw.toLowerCase());
+  if (book === 'Psalms' || book === 'Ps' || book === 'Ps.') book = 'Psalm';
   return `${book} ${chapter}:${verse}`;
 }
 
@@ -7472,6 +7630,7 @@ function updateAuthUI(session) {
   const authStatus = document.getElementById('auth-status');
   let loggedInEl = document.getElementById('auth-logged-in');
   if (session) {
+    if (typeof window.closeAuthModal === 'function') window.closeAuthModal();
     hideResendVerificationUI();
     if (emailEl) { emailEl.classList.add('hidden'); }
     if (passwordEl) { passwordEl.classList.add('hidden'); }
@@ -9141,23 +9300,69 @@ function parseQuery(input) {
     return { intent: 'reference', payload: referenceKey };
   }
 
-  const normalized = normalizeInput(trimmed);
+  var correctedQuery = trimmed;
+  for (var typoKey in TYPO_CORRECTION) {
+    if (TYPO_CORRECTION.hasOwnProperty(typoKey)) {
+      var re = new RegExp('\\b' + typoKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
+      correctedQuery = correctedQuery.replace(re, TYPO_CORRECTION[typoKey]);
+    }
+  }
+  const normalized = normalizeInput(correctedQuery);
   if (normalized.includes('jesus said') || normalized.includes('what jesus said') || normalized.includes('red letter')) {
     return { intent: 'jesus_said', payload: null };
   }
   const rawTokens = normalized.split(' ').filter(Boolean);
   const tokens = rawTokens.filter(token => !STOP_WORDS.has(token));
-  const keywords = tokens.length > 0 ? tokens : rawTokens;
-  const expandedKeywords = expandKeywords(keywords);
+  var negatedTokens = new Set();
+  for (var ni = 0; ni < rawTokens.length; ni++) {
+    if (NEGATION_WORDS.indexOf(rawTokens[ni]) !== -1) {
+      for (var nj = 1; nj <= 2 && ni + nj < rawTokens.length; nj++) {
+        var nextWord = rawTokens[ni + nj];
+        if (QUERY_TO_TOPIC[nextWord] || topics[nextWord]) negatedTokens.add(nextWord);
+      }
+    }
+  }
+  var keywords = tokens.length > 0 ? tokens : rawTokens;
+  var phraseTokens = [];
+  var phraseKeys = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
+  for (var i = 0; i < phraseKeys.length; i++) {
+    var phrase = phraseKeys[i];
+    if (normalized.indexOf(phrase) !== -1 || normalized === phrase) {
+      phraseTokens = PHRASE_TO_TOKENS[phrase];
+      break;
+    }
+  }
+  if (phraseTokens.length === 0 && normalized.length > 10 && tokens.length <= 2) {
+    phraseTokens = ['hope', 'faith', 'strength', 'peace'];
+  }
+  if (negatedTokens.size > 0) {
+    phraseTokens = Array.from(new Set(phraseTokens.concat(['courage', 'faith', 'strength', 'peace'])));
+  }
+  if (phraseTokens.length) keywords = keywords.concat(phraseTokens);
+  var expandedKeywords = expandKeywords(keywords);
+  if (phraseTokens.length) expandedKeywords = Array.from(new Set(expandedKeywords.concat(phraseTokens)));
 
-  // Single-word query: if it exactly matches a topic name or synonym, use that topic (e.g. "anxiety" -> anxiety, "selfless" -> love)
+  // Single-word query: match by topic, synonym, meaning/action map, or stem (e.g. "stressed" -> anxiety, "selfless" -> love)
   const singleWord = rawTokens.length === 1 ? normalized : null;
   if (singleWord) {
     if (topics[singleWord]) return { intent: 'topic', payload: { topic: singleWord } };
     for (const topic of Object.keys(topics)) {
-      if (topics[topic].synonyms.some(function (syn) { return syn === singleWord; })) {
+      if (topics[topic].synonyms && topics[topic].synonyms.some(function (syn) { return syn === singleWord; })) {
         return { intent: 'topic', payload: { topic: topic } };
       }
+    }
+    var mappedTopic = QUERY_TO_TOPIC[singleWord];
+    if (mappedTopic && topics[mappedTopic]) return { intent: 'topic', payload: { topic: mappedTopic } };
+    var stem = typeof stemWord === 'function' ? stemWord(singleWord) : singleWord;
+    if (stem && stem !== singleWord) {
+      if (topics[stem]) return { intent: 'topic', payload: { topic: stem } };
+      for (const topic of Object.keys(topics)) {
+        if (topics[topic].synonyms && topics[topic].synonyms.some(function (syn) { return syn === stem; })) {
+          return { intent: 'topic', payload: { topic: topic } };
+        }
+      }
+      var stemMapped = QUERY_TO_TOPIC[stem];
+      if (stemMapped && topics[stemMapped]) return { intent: 'topic', payload: { topic: stemMapped } };
     }
   }
 
@@ -9165,10 +9370,19 @@ function parseQuery(input) {
   if (topics[normalized]) return { intent: 'topic', payload: { topic: normalized } };
 
   const topicScores = {};
+  var phraseSet = new Set(phraseTokens);
   Object.keys(topics).forEach(topic => {
     let score = 0;
     expandedKeywords.forEach(token => {
-      if (topic.includes(token) || topics[topic].synonyms.some(syn => syn.includes(token))) score++;
+      if (negatedTokens.has(token)) return;
+      if (topic.includes(token) || (topics[topic].synonyms && topics[topic].synonyms.some(syn => syn.includes(token)))) {
+        score += phraseSet.has(token) ? 4 : 1;
+      }
+    });
+    rawTokens.forEach(token => {
+      if (negatedTokens.has(token)) return;
+      var mapped = QUERY_TO_TOPIC[token];
+      if (mapped === topic) score += 2;
     });
     if (score > 0) topicScores[topic] = score;
   });
@@ -9344,7 +9558,11 @@ function executeQuery(parsed, tier, filters) {
     Object.keys(topics).forEach(topic => {
       let score = 0;
       keywords.forEach(token => {
-        if (topic.includes(token) || topics[topic].synonyms.some(syn => syn.includes(token) || (token && syn === token))) score++;
+        if (topic.includes(token) || (topics[topic].synonyms && topics[topic].synonyms.some(syn => syn.includes(token) || (token && syn === token)))) score++;
+      });
+      rawTokens.forEach(token => {
+        var mapped = QUERY_TO_TOPIC[token];
+        if (mapped === topic) score += 2;
       });
       if (score > 0) relatedTopicScores[topic] = score;
     });
@@ -9411,7 +9629,8 @@ function executeQuery(parsed, tier, filters) {
     });
     fallbackRefs = fallbackRefs.filter(function (ref, i, arr) { return arr.indexOf(ref) === i; });
     fallbackRefs.slice(0, 12).forEach(function (ref) {
-      if (bible[ref]) results.verses.push({ ref: ref, text: bible[ref] });
+      var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+      if (text) results.verses.push({ ref: ref, text: text });
     });
     results.verses = filterVerseList(results.verses, filters);
     if (results.verses.length > 0) results.fallback = true;
@@ -9461,32 +9680,8 @@ function renderResults(results) {
     output.innerHTML = '<p class="empty topic-explain">No quick hits—try <a href="bible-tool.html">Bible Tool</a>.</p>';
     const suggestions = document.createElement('div');
     suggestions.className = 'quick-start';
-    suggestions.innerHTML = '<p class="section-note util-mt-0_5">Or try: <button class="quick-topic btn btn-secondary" type="button" data-topic="family">Family</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="hope">Hope</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="fear">Fear</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="peace">Peace</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="strength">Strength</button> <button class="quick-topic btn btn-secondary" type="button" data-topic="courage">Courage</button></p>';
+    suggestions.innerHTML = '<p class="section-note util-mt-0_5">Or try: <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="family">Family</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="hope">Hope</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="fear">Fear</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="peace">Peace</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="strength">Strength</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="courage">Courage</button></p>';
     output.appendChild(suggestions);
-    const queryEl = getQueryInput();
-    const searchBtn = document.getElementById('search-btn');
-    suggestions.querySelectorAll('.quick-topic').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
-        var queryEl = getQueryInput();
-        if (queryEl) queryEl.value = topic;
-        if (topic && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
-        setTimeout(function () {
-          var verses = document.querySelectorAll('#output .verse-card');
-          var t = (topic || '').toLowerCase();
-          verses.forEach(function (v) {
-            var text = (v.textContent || '').toLowerCase();
-            if (t === 'all' || text.includes(t)) {
-              v.style.display = '';
-            } else {
-              v.style.display = 'none';
-            }
-          });
-        }, 500);
-      });
-    });
     triggerResultsFade(output);
     return;
   }
@@ -9786,6 +9981,37 @@ function renderResults(results) {
           plainP.className = 'verse-plain-meaning';
           plainP.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
           card.appendChild(plainP);
+        }
+        var breakdown = typeof getVerseBreakdown === 'function' ? getVerseBreakdown(v.ref, v.text) : null;
+        if (breakdown && breakdown.layman) {
+          var details = document.createElement('details');
+          details.className = 'verse-breakdown';
+          var summary = document.createElement('summary');
+          summary.textContent = 'Verse breakdown';
+          summary.setAttribute('aria-label', 'Expand verse breakdown');
+          details.appendChild(summary);
+          var content = document.createElement('div');
+          content.className = 'verse-breakdown-content';
+          var laymanP = document.createElement('p');
+          laymanP.innerHTML = '<strong>Layman\'s terms:</strong> ' + escapeHtml(breakdown.layman);
+          content.appendChild(laymanP);
+          if (breakdown.about) {
+            var aboutP = document.createElement('p');
+            aboutP.innerHTML = '<strong>Who it\'s talking about:</strong> ' + escapeHtml(breakdown.about);
+            content.appendChild(aboutP);
+          }
+          if (breakdown.to) {
+            var toP = document.createElement('p');
+            toP.innerHTML = '<strong>Who it\'s talking to:</strong> ' + escapeHtml(breakdown.to);
+            content.appendChild(toP);
+          }
+          if (breakdown.applies) {
+            var appliesP = document.createElement('p');
+            appliesP.innerHTML = '<strong>How it applies today:</strong> ' + escapeHtml(breakdown.applies);
+            content.appendChild(appliesP);
+          }
+          details.appendChild(content);
+          card.appendChild(details);
         }
         if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) {
           card.classList.add('red-letter-card');
@@ -10249,11 +10475,11 @@ function startStudy(id) {
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
     var heroContainer = document.getElementById('quick-actions-hero');
-    if (heroContainer && (!heroContainer.innerHTML || heroContainer.innerHTML.trim() === '')) {
+    var chipCount = heroContainer ? heroContainer.querySelectorAll('.topic-chip, .quick-topic, [data-topic]').length : 0;
+    if (heroContainer && (chipCount < 20 || !heroContainer.innerHTML || heroContainer.innerHTML.trim() === '')) {
       renderQuickTopicButtons('quick-actions-hero', true);
+      chipCount = heroContainer.querySelectorAll('.topic-chip, .quick-topic, [data-topic]').length;
     }
-    var chipCount = heroContainer ? heroContainer.querySelectorAll('.quick-topic, [data-topic]').length : 0;
-    if (typeof console !== 'undefined' && console.log) console.log('TDB: Hero chips:', chipCount);
   } catch (renderErr) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB: renderQuickTopicButtons', renderErr); }
 
   try {
@@ -10359,6 +10585,7 @@ function startStudy(id) {
         if (q && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q.value || '');
       });
       var queryInput = getQueryInput();
+      try {
       if (queryInput && typeof window.initVerseSearchDropdown === 'function') {
         window.initVerseSearchDropdown(queryInput, {
           onSelect: function (data) {
@@ -10370,6 +10597,7 @@ function startStudy(id) {
           }
         });
       }
+      } catch (_) {}
       if (queryInput) {
         var _selStart = 0, _selEnd = 0, _valLen = 0;
         queryInput.addEventListener('keydown', function (event) {
@@ -10391,31 +10619,18 @@ function startStudy(id) {
           _valLen = len;
         });
       }
-      document.querySelectorAll('.quick-topic').forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-          try {
-            e.preventDefault();
-            e.stopPropagation();
-            var topic = (e.currentTarget.dataset.topic || e.currentTarget.textContent.trim());
-            var q = getQueryInput();
-            if (q) q.value = topic;
-            if (topic && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
-            setTimeout(function () {
-              try {
-                var verses = document.querySelectorAll('#output .verse-item');
-                var t = (topic || '').toLowerCase();
-                verses.forEach(function (v) {
-                  var text = (v.textContent || '').toLowerCase();
-                  if (t === 'all' || text.includes(t)) {
-                    v.style.display = '';
-                  } else {
-                    v.style.display = 'none';
-                  }
-                });
-              } catch (_) {}
-            }, 500);
-          } catch (err) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB quick-topic click:', err); }
-        });
+      (document.getElementById('quick-search-hero') || document.getElementById('search-hero') || document.body).addEventListener('click', function (e) {
+        var btn = e.target && (e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null);
+        if (!btn) return;
+        try {
+          e.preventDefault();
+          e.stopPropagation();
+          var topic = (btn.dataset && btn.dataset.topic) || (btn.textContent || '').trim();
+          if (!topic) return;
+          var q = getQueryInput();
+          if (q) q.value = topic;
+          if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+        } catch (err) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB quick-topic click:', err); }
       });
       var testamentFilter = document.getElementById('testament-filter');
       var bookFilter = document.getElementById('book-filter');
@@ -10559,26 +10774,16 @@ function startStudy(id) {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          if (typeof console !== 'undefined' && console.log) {
-            console.log('Trying to register SW...');
-          }
           navigator.serviceWorker.register('/service-worker.js?v=20260309', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
-              if (typeof console !== 'undefined' && console.log) {
-                console.log('Success! Scope:', reg.scope);
-              }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {
                 if (fresh && (fresh.active || fresh.installing || fresh.waiting)) {
                   try {
                     fresh.update().then(function () {
-                      if (typeof console !== 'undefined' && console.log) console.log('Updated!');
                     }).catch(function () {});
                   } catch (e) {}
                 } else {
-                  if (typeof console !== 'undefined' && console.log) {
-                    console.log('No active SW yet – skipping update');
-                  }
                 }
                 resolve(reg);
               }).catch(function () { resolve(reg); });
@@ -11180,9 +11385,48 @@ function startStudy(id) {
     });
   }
 
+  function openLoginModal(tab) {
+    var modal = document.getElementById('auth-modal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    var emailEl = document.getElementById('email');
+    var passwordEl = document.getElementById('password');
+    var modalEmail = document.getElementById('auth-modal-email');
+    var modalPassword = document.getElementById('auth-modal-password');
+    if (emailEl && modalEmail) modalEmail.value = emailEl.value || '';
+    if (passwordEl && modalPassword) modalPassword.value = passwordEl.value || '';
+    var tabs = modal.querySelectorAll('.auth-tab');
+    var submitBtn = document.getElementById('auth-modal-submit');
+    var titleEl = document.getElementById('auth-modal-title');
+    var t = (tab === 'signup') ? 'signup' : 'login';
+    tabs.forEach(function (b) {
+      b.classList.toggle('active', b.dataset.tab === t);
+      b.setAttribute('aria-selected', b.dataset.tab === t ? 'true' : 'false');
+    });
+    if (submitBtn) submitBtn.textContent = t === 'signup' ? 'Sign Up' : 'Log In';
+    if (titleEl) titleEl.textContent = t === 'signup' ? 'Create Account' : 'Sign In';
+    var statusEl = document.getElementById('auth-modal-status');
+    if (statusEl) statusEl.textContent = '';
+    if (modalEmail) modalEmail.focus();
+  }
+  function closeAuthModal() {
+    var modal = document.getElementById('auth-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  }
+  window.openLoginModal = openLoginModal;
+  window.closeAuthModal = closeAuthModal;
+
   const signupBtn = document.getElementById('signup-btn');
   if (signupBtn) {
     signupBtn.addEventListener('click', async () => {
+      if (document.getElementById('auth-modal')) {
+        openLoginModal('signup');
+        return;
+      }
       const emailEl = document.getElementById('email');
       const passwordEl = document.getElementById('password');
       const tierEl = document.getElementById('tier');
@@ -11247,6 +11491,10 @@ function startStudy(id) {
   const loginBtn = document.getElementById('login-btn');
   if (loginBtn) {
     loginBtn.addEventListener('click', async () => {
+      if (document.getElementById('auth-modal')) {
+        openLoginModal('login');
+        return;
+      }
       const emailEl = document.getElementById('email');
       const passwordEl = document.getElementById('password');
       const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
@@ -11331,6 +11579,125 @@ function startStudy(id) {
       setAuthStatus('Reset link sent! Check your inbox (and spam) for ' + email, 'success');
     });
   }
+
+  (function wireAuthModal() {
+    var modal = document.getElementById('auth-modal');
+    if (!modal) return;
+    var closeBtn = document.getElementById('auth-modal-close');
+    var submitBtn = document.getElementById('auth-modal-submit');
+    var tabs = modal.querySelectorAll('.auth-tab');
+    var statusEl = document.getElementById('auth-modal-status');
+    var setModalStatus = function (msg, type) {
+      if (statusEl) {
+        statusEl.textContent = msg || '';
+        statusEl.className = 'section-note auth-modal-status' + (type === 'error' ? ' auth-status-error' : type === 'success' ? ' auth-status-success' : '');
+      }
+    };
+    if (closeBtn) closeBtn.addEventListener('click', function () { closeAuthModal(); });
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeAuthModal();
+    });
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        var tab = t.dataset.tab;
+        tabs.forEach(function (b) {
+          b.classList.toggle('active', b.dataset.tab === tab);
+          b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false');
+        });
+        if (submitBtn) submitBtn.textContent = tab === 'signup' ? 'Sign Up' : 'Log In';
+        var titleEl = document.getElementById('auth-modal-title');
+        if (titleEl) titleEl.textContent = tab === 'signup' ? 'Create Account' : 'Sign In';
+        setModalStatus('');
+      });
+    });
+    var forgotModal = document.getElementById('auth-modal-forgot');
+    if (forgotModal) {
+      forgotModal.addEventListener('click', async function () {
+        var emailEl = document.getElementById('auth-modal-email');
+        var email = (emailEl ? emailEl.value : '').trim().toLowerCase();
+        if (!email || !email.includes('@')) {
+          setModalStatus('Enter your email above, then click Forgot password.', 'error');
+          return;
+        }
+        if (!supabaseClient) {
+          var ready = await ensureSupabaseLoaded();
+          if (!ready || !supabaseClient) {
+            setModalStatus('Sign-in is still loading. Try again.', 'error');
+            return;
+          }
+        }
+        setModalStatus('Sending reset link…', '');
+        forgotModal.disabled = true;
+        var baseUrl = getAuthRedirectBase();
+        var err = (await supabaseClient.auth.resetPasswordForEmail(email, { redirectTo: baseUrl + '/reset.html' })).error;
+        forgotModal.disabled = false;
+        if (err) setModalStatus(err.message, 'error');
+        else setModalStatus('Reset link sent! Check your inbox (and spam).', 'success');
+      });
+    }
+    if (submitBtn) {
+      submitBtn.addEventListener('click', async function () {
+        var emailEl = document.getElementById('auth-modal-email');
+        var passwordEl = document.getElementById('auth-modal-password');
+        var email = (emailEl ? emailEl.value : '').trim().toLowerCase();
+        var password = passwordEl ? passwordEl.value : '';
+        var isSignup = modal.querySelector('.auth-tab[data-tab="signup"]').classList.contains('active');
+        if (!email || !password) {
+          setModalStatus('Please enter your email and password.', 'error');
+          return;
+        }
+        if (!supabaseClient) {
+          setModalStatus('Loading…', '');
+          var ready = await ensureSupabaseLoaded();
+          if (!ready || !supabaseClient) {
+            setModalStatus('Auth is still loading. Try again.', 'error');
+            return;
+          }
+        }
+        submitBtn.disabled = true;
+        setModalStatus(isSignup ? 'Creating account…' : 'Signing in…', '');
+        if (isSignup) {
+          var res = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: { data: { tier: 'adult', subscription: 'free' }, emailRedirectTo: getAuthRedirectBase() }
+          });
+          submitBtn.disabled = false;
+          if (res.error) {
+            var safe = /already|registered|exists/i.test(res.error.message) ? 'An account may already exist. Try logging in.' : (res.error.message.length < 100 ? res.error.message : 'Couldn\'t create account. Try again.');
+            setModalStatus(safe, 'error');
+            return;
+          }
+          if (res.data?.session) {
+            setModalStatus("You're in!", 'success');
+            updateAuthUI(res.data.session);
+            closeAuthModal();
+            bumpStat('signups');
+          } else {
+            setModalStatus('Check your inbox for a verification link.', 'success');
+            bumpStat('signups');
+            if (typeof showEliteToast === 'function') showEliteToast('Check your inbox for a verification link.');
+          }
+        } else {
+          var res = await supabaseClient.auth.signInWithPassword({ email, password });
+          submitBtn.disabled = false;
+          if (res.error) {
+            setModalStatus(/invalid|credential/i.test(res.error.message) ? 'Wrong email or password. Check verification email or use Forgot password.' : res.error.message, 'error');
+            return;
+          }
+          setModalStatus("You're in! Welcome back.", 'success');
+          bumpStat('logins');
+          currentUserId = res.data.session?.user?.id || null;
+          updateMasterStatus(res.data.user || null);
+          updateAuthUI(res.data.session);
+          closeAuthModal();
+          if (typeof updateRoleViews === 'function') updateRoleViews();
+          if (typeof renderDashboard === 'function') renderDashboard();
+          if (typeof syncUserData === 'function') syncUserData();
+        }
+      });
+    }
+  })();
 
   const newsletterBtn = document.getElementById('newsletter-submit');
   if (newsletterBtn) {
@@ -12211,7 +12578,6 @@ function startStudy(id) {
       try {
         var json = JSON.stringify(Array.isArray(items) ? items : []);
         localStorage.setItem(PRAYER_WALL_KEY, json);
-        if (typeof console !== 'undefined' && console.log) console.log('Prayer saved to tdb_prayers_v1');
       } catch (e) {
         if (typeof console !== 'undefined' && console.warn) console.warn('Prayer Wall save failed:', e);
       }
@@ -13980,9 +14346,15 @@ function startStudy(id) {
   if (init) init();
   var el = document.getElementById('footer-date');
   if (el && el.textContent === 'TDB_BUILD_DATE') {
-    var d = new Date();
-    var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    el.textContent = m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    fetch('/build-date.txt')
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+      .then(function (txt) { el.textContent = (txt && txt.trim()) || fallbackDate(); })
+      .catch(function () { el.textContent = fallbackDate(); });
+    function fallbackDate() {
+      var d = new Date();
+      var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      return m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
   }
 })();
 }  // Workaround: closes unclosed block (fixes "Unexpected end of script" parse error)

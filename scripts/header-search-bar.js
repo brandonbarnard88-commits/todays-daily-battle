@@ -2,7 +2,6 @@
  * Header search bar — global. Vanilla JS. Fetch commentary once, cache in window.commentaryData.
  * Verse select: onVerseSelect (page) + modal (Speaker/Audience/Today). Gold #facc15, yellow #fde047.
  */
-console.log('Search bar v2 loaded');
 (function () {
   'use strict';
   var commentary = null;

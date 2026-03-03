@@ -55,6 +55,9 @@ const rootFiles = [
   '_headers',
   'kjv.json',
   'commentary.json',
+  'bible-characters.json',
+  'people-verse-map.js',
+  'daily-verses.js',
   'verse-search-dropdown.js',
   // 'bell.mp3' – add to project root if you want a custom bell; otherwise Web Audio beep is used
 ];
@@ -164,4 +167,6 @@ if (fs.existsSync(wellKnown)) {
   copyDir(wellKnown, path.join(dist, '.well-known'));
 }
 
+// Write build-date.txt so JS can fetch it as fallback if HTML replacement missed
+fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 console.log('build-copy-static.js: copied all static files to dist/ (including topic-*.html).');

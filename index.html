@@ -26,7 +26,8 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260309p" as="style" nonce="tdb2025">
   <link rel="stylesheet" href="styles.css?v=20260309p" nonce="tdb2025">
-  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;scroll-margin-top:5rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;min-height:3rem!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;min-height:2.5rem!important;} #tdb-search{min-width:12rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;pointer-events:auto!important;}#quick-actions-hero .topic-chip,#quick-actions-hero .quick-topic,#quick-actions-hero [data-topic]{pointer-events:auto!important;cursor:pointer!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
+  <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;scroll-margin-top:5rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;min-height:3rem!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;min-height:2.5rem!important;} #tdb-search{min-width:12rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;pointer-events:auto!important;overflow:visible!important;}
+#quick-search-hero,.search-hero{overflow:visible!important;}#quick-actions-hero .topic-chip,#quick-actions-hero .quick-topic,#quick-actions-hero [data-topic]{pointer-events:auto!important;cursor:pointer!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0a0c14">
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
@@ -80,7 +81,6 @@
         var topic=(chip.dataset&&chip.dataset.topic)||(chip.getAttribute&&chip.getAttribute('data-topic'))||(chip.textContent||'').trim();
         if(!topic)return;
         e.preventDefault();e.stopPropagation();
-        if(typeof console!=='undefined'&&console.log)console.log('Chip clicked:',topic);
         var input=document.getElementById('tdb-search')||document.querySelector('input[name="q"]');
         if(input){
           input.value=topic;
@@ -203,6 +203,7 @@
       <div class="content-inner">
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
+          <p class="hero-intro-message section-note">He is here. Nothing enters unclean.</p>
           <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card verse-card-loaded" aria-live="polite"><strong>Philippians 4:6</strong><p>Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p></div>
           <div id="daily-verse-prayed-row" class="daily-verse-prayed-row hidden" aria-live="polite">
             <label class="daily-verse-prayed-label">
@@ -229,7 +230,7 @@
         <!-- QUICK-SEARCH-HERO-V2: search bar + 30 topic chips. Do not remove. -->
         <div id="quick-search-hero" class="search-hero quick-search-hero quick-search-hero-wrap" role="search" aria-label="Search Scripture">
           <form id="search-form" method="get" action="">
-            <input type="search" id="tdb-search" name="q" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Type a topic, emotion, or verse (e.g., anxiety, Romans 8:38)" aria-label="Search Bible topics or verses" autocomplete="off">
+            <input type="search" id="tdb-search" name="q" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Anxiety? Strength? John 3:16?" aria-label="Search Bible topics or verses" autocomplete="off">
             <button id="search-btn" type="submit" class="btn btn-primary search-hero-btn-mt">Search</button>
           </form>
           <p class="section-note quick-searches-label">Type a topic, emotion, or verse reference. Tap any chip below for instant verses — all 30 topics.</p>
@@ -714,6 +715,23 @@
         <textarea id="intent-input" placeholder="A name, a worry, a thanks…" rows="3" aria-label="What's on your heart"></textarea>
         <div class="cta-group">
           <button type="button" id="intent-pray-btn" class="btn btn-primary">Pray</button>
+        </div>
+      </div>
+    </div>
+    <div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+      <div class="modal-inner glass auth-modal-inner">
+        <button type="button" class="intent-modal-close" id="auth-modal-close" aria-label="Dismiss">×</button>
+        <h2 id="auth-modal-title" class="section-divider">Sign In</h2>
+        <div id="auth-modal-tabs" class="auth-modal-tabs">
+          <button type="button" class="auth-tab active" data-tab="login" aria-selected="true">Log In</button>
+          <button type="button" class="auth-tab" data-tab="signup" aria-selected="false">Sign Up</button>
+        </div>
+        <div id="auth-modal-status" class="section-note auth-modal-status" aria-live="polite"></div>
+        <input type="email" id="auth-modal-email" placeholder="Email" aria-label="Email" autocomplete="email" class="input auth-modal-input">
+        <input type="password" id="auth-modal-password" placeholder="Password" aria-label="Password" autocomplete="current-password" class="input auth-modal-input">
+        <button type="button" id="auth-modal-forgot" class="link-button auth-modal-forgot">Forgot password?</button>
+        <div class="auth-modal-actions">
+          <button type="button" id="auth-modal-submit" class="btn btn-primary">Log In</button>
         </div>
       </div>
     </div>

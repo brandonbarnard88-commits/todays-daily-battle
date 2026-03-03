@@ -16,7 +16,6 @@
       if (!topic) return;
       e.preventDefault();
       e.stopPropagation();
-      if (typeof console !== 'undefined' && console.log) console.log('Chip clicked:', topic);
       var searchInput = document.getElementById('tdb-search') || document.querySelector('input[name="q"]');
       var form = searchInput && searchInput.form ? searchInput.form : document.getElementById('search-form');
       if (searchInput && form) {

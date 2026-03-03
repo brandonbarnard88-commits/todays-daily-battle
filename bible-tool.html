@@ -20,6 +20,7 @@
   <link rel="preload" href="styles.css?v=20260305p" as="style">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <script src="scripts/header-search-bar.js?v=2" defer></script>
+  <script src="people-verse-map.js" defer></script>
   <script type="module" src="config.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -686,8 +687,35 @@
     var submit = document.getElementById('people-submit');
     var result = document.getElementById('people-result');
     if (!btn || !wrap || !input || !submit || !result) return;
+    function renderFromBiblePeople(person) {
+      var moments = (person.moments || []).map(function (m) { return '<li>' + escapeHtml(m) + '</li>'; }).join('');
+      var verseRef = person.verse || '';
+      var verseLink = verseRef ? '<a href="reader.html?ref=' + encodeURIComponent(verseRef.replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escapeHtml(verseRef) + ' – Read full</a>' : '';
+      result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="' + escapeHtml(person.name + ' – ' + person.era) + '">' +
+        '<p class="verse-ref">' + escapeHtml(person.name) + ' – ' + escapeHtml(person.era) + '</p>' +
+        '<ul class="section-note util-mt-0_5" style="margin-left:1.25rem;">' + moments + '</ul>' +
+        (verseLink ? '<p class="util-mt-0_5">' + verseLink + '</p>' : '') +
+        '<p class="prayer-box util-mt-0_5">' + escapeHtml(person.prayer || '') + '</p>' +
+        '</div>';
+    }
+    function renderFromBio(bio) {
+      var who = escapeHtml(bio.who || '');
+      var did = escapeHtml(bio.did || '');
+      var impact = escapeHtml(bio.impact || '');
+      var verseLinks = (bio.verses || []).map(function (ref) {
+        return '<a href="reader.html?ref=' + encodeURIComponent(String(ref).replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escapeHtml(ref) + '</a>';
+      }).join(', ');
+      result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="Who was ' + escapeHtml(bio.name) + '">' +
+        '<p class="verse-ref">Who was ' + escapeHtml(bio.name) + '?</p>' +
+        (who ? '<p class="section-note util-mt-0_5"><strong>Who:</strong> ' + who + '</p>' : '') +
+        (did ? '<p class="section-note util-mt-0_5"><strong>Did:</strong> ' + did + '</p>' : '') +
+        (impact ? '<p class="section-note util-mt-0_5"><strong>Impact:</strong> ' + impact + '</p>' : '') +
+        (verseLinks ? '<p class="util-mt-0_5">Key verses: ' + verseLinks + '</p>' : '') +
+        '</div>';
+    }
     function showPerson() {
-      var q = (input.value || '').trim().toLowerCase().replace(/\s+/g, '');
+      var raw = (input.value || '').trim();
+      var q = raw.toLowerCase().replace(/\s+/g, '');
       if (!q) return;
       var person = BIBLE_PEOPLE[q];
       if (!person) {
@@ -699,21 +727,30 @@
         }
       }
       if (person) {
-        var moments = (person.moments || []).map(function (m) { return '<li>' + escapeHtml(m) + '</li>'; }).join('');
-        var verseRef = person.verse || '';
-        var verseLink = verseRef ? '<a href="reader.html?ref=' + encodeURIComponent(verseRef.replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escapeHtml(verseRef) + ' – Read full</a>' : '';
-        result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="' + escapeHtml(person.name + ' – ' + person.era) + '">' +
-          '<p class="verse-ref">' + escapeHtml(person.name) + ' – ' + escapeHtml(person.era) + '</p>' +
-          '<ul class="section-note util-mt-0_5" style="margin-left:1.25rem;">' + moments + '</ul>' +
-          (verseLink ? '<p class="util-mt-0_5">' + verseLink + '</p>' : '') +
-          '<p class="prayer-box util-mt-0_5">' + escapeHtml(person.prayer || '') + '</p>' +
-          '</div>';
+        renderFromBiblePeople(person);
         result.classList.remove('hidden');
+        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+      if (typeof getPersonBioAsync === 'function') {
+        result.innerHTML = '<p class="section-note">Loading…</p>';
+        result.classList.remove('hidden');
+        getPersonBioAsync(raw).then(function (bio) {
+          if (bio && (bio.who || bio.did || bio.impact || (bio.verses && bio.verses.length))) {
+            renderFromBio(bio);
+          } else {
+            result.innerHTML = '<p class="section-note">Not found—try another name or search for a verse about them.</p>';
+          }
+          result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }).catch(function () {
+          result.innerHTML = '<p class="section-note">Not found—try another name or search for a verse about them.</p>';
+          result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
       } else {
         result.innerHTML = '<p class="section-note">Not in bundle—try Bible Tool search for a verse about them.</p>';
         result.classList.remove('hidden');
+        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
     btn.addEventListener('click', function () {
       wrap.classList.toggle('hidden');

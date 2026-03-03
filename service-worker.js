@@ -25,7 +25,10 @@ const CORE_ASSETS = [
   '/styles.css',
   '/manifest.json',
   '/icon.svg',
-  '/kjv.json'
+  '/kjv.json',
+  '/bible-characters.json',
+  '/people-verse-map.js',
+  '/daily-verses.js'
 ];
 
 self.addEventListener('install', (event) => {
@@ -128,6 +131,18 @@ self.addEventListener('fetch', (event) => {
           return res;
         })
         .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Bible data for offline
+  if (url.pathname.endsWith('bible-characters.json') || url.pathname.endsWith('people-verse-map.js') || url.pathname.endsWith('daily-verses.js')) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => cached || fetch(event.request).then((res) => {
+        const clone = res.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
+        return res;
+      })).catch(() => fetch(event.request))
     );
     return;
   }

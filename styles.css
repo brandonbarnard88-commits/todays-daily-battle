@@ -63,10 +63,28 @@ html {
   -webkit-text-size-adjust: 100%;
   font-size: 20px;
   overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 body {
   overflow-x: hidden;
+  width: 100%;
   max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Target wide content so page size reports correctly (no horizontal overflow) */
+.verse-card,
+.hymn-lyrics-modal-body,
+.hymn-lyrics-modal-inner,
+.hymn-lyrics,
+.long-text {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Prevent images and media from causing horizontal overflow */
@@ -259,6 +277,8 @@ body {
 
 .app-shell {
   position: relative;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .app-shell::before {
@@ -641,6 +661,8 @@ body {
   grid-area: content;
   padding: var(--space-xl) var(--spacing-lg) var(--space-2xl);
   min-width: 0;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .content-inner {
@@ -650,6 +672,7 @@ body {
   display: grid;
   gap: var(--space-2xl);
   min-width: 0;
+  overflow-x: hidden;
 }
 
 .hero-banner {
@@ -814,6 +837,7 @@ body:has(.search-hero-home) #search-hero {
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
 #search-hero, #quick-search-hero { scroll-margin-top: 5rem; }
+#quick-search-hero { position: sticky; top: 0; z-index: 40; background: linear-gradient(180deg, rgba(10, 12, 20, 0.98) 0%, rgba(10, 12, 20, 0.95) 100%); padding-top: 0.5rem; padding-bottom: 0.75rem; margin-bottom: -0.25rem; }
 .quick-search-hero-wrap { text-align: center; margin: 20px 0; }
 .search-hero-input-inline { width: 80%; max-width: 500px; padding: 12px; border: 2px solid gold; border-radius: 8px; font-size: 16px; box-shadow: 0 0 8px rgba(212, 175, 55, 0.3); background: rgba(15, 20, 32, 0.95); color: #e2e8f0; }
 .search-hero-btn-mt { margin-top: 8px; }
@@ -1219,6 +1243,14 @@ body:has(.search-hero-home) #search-hero {
   color: rgba(226, 232, 240, 0.95);
 }
 .quick-pray-in-hero .btn { flex-shrink: 0; }
+.hero-intro-message {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(226, 232, 240, 0.85);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
 .hero-verse-byline {
   margin: var(--space-md) 0 0;
   font-family: var(--font-ui);
@@ -4123,6 +4155,51 @@ button:active {
   color: rgba(148, 163, 184, 0.85);
 }
 
+.verse-breakdown {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  transition: opacity 0.2s ease;
+}
+.verse-breakdown summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  list-style: none;
+  user-select: none;
+  padding: 0.15rem 0;
+  transition: color 0.15s ease;
+}
+.verse-breakdown summary:hover { color: var(--accent, #a78bfa); }
+.verse-breakdown summary::-webkit-details-marker { display: none; }
+.verse-breakdown summary::before {
+  content: '▸ ';
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.verse-breakdown[open] summary::before { transform: rotate(90deg); }
+.verse-breakdown-content {
+  margin-top: 0.6rem;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(148, 163, 184, 0.9);
+  animation: verseBreakdownIn 0.2s ease;
+}
+@keyframes verseBreakdownIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.verse-breakdown-content p {
+  margin: 0 0 0.4rem;
+}
+.verse-breakdown-content p:last-child { margin-bottom: 0; }
+.verse-breakdown-content strong {
+  color: rgba(148, 163, 184, 0.95);
+  font-weight: 600;
+}
+
 .verse-card p.memory-mode .memory-word {
   cursor: pointer;
   border-bottom: 1px solid var(--primary);
@@ -5970,6 +6047,14 @@ body.red-letter-off .red-letter-card {
 }
 .modal.hidden { display: none; }
 .modal-inner { padding: 1.5rem; max-width: 28rem; width: 90%; max-height: 85vh; overflow-y: auto; margin: 0 auto 2rem; }
+.auth-modal-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.auth-modal-tabs .auth-tab { padding: 0.5rem 1rem; border: 1px solid rgba(148,163,184,0.3); background: transparent; color: #94a3b8; border-radius: 8px; cursor: pointer; font-size: 0.9rem; }
+.auth-modal-tabs .auth-tab:hover { border-color: rgba(212,175,55,0.5); color: #e2e8f0; }
+.auth-modal-tabs .auth-tab.active { border-color: #d4af37; color: #d4af37; background: rgba(212,175,55,0.1); }
+.auth-modal-input { width: 100%; margin-bottom: 0.75rem; padding: 0.6rem 0.75rem; min-height: 48px; box-sizing: border-box; border: 1px solid rgba(148,163,184,0.3); border-radius: 8px; background: rgba(15,23,42,0.8); color: #e2e8f0; }
+.auth-modal-forgot { margin-bottom: 0.75rem; display: block; font-size: 0.85rem; }
+.auth-modal-actions { margin-top: 1rem; }
+.auth-modal-status { margin-bottom: 0.5rem; min-height: 1.5em; }
 .modal-inner input, .modal-inner textarea { width: 100%; margin-bottom: 0.75rem; padding: 0.5rem; min-height: 48px; box-sizing: border-box; }
 .modal-inner textarea { min-height: 4rem; resize: vertical; }
 .modal-inner .cta-group .btn { min-height: 48px; }
@@ -6356,9 +6441,13 @@ body.red-letter-off .red-letter-card {
 .patriotic-hymns-card-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
 .patriotic-hymns-card-actions .btn { min-height: 36px; }
 .hymn-lyrics-modal-body { white-space: pre-line; max-height: 60vh; overflow-y: auto; font-size: 0.95rem; line-height: 1.6; color: rgba(226, 232, 240, 0.95); padding: 0.5rem 0; }
+.hymn-lyrics-modal-inner, #hymn-lyrics-modal .modal-inner { z-index: 10001; position: relative; }
+#hymn-lyrics-modal { z-index: 10001; }
 @media (max-width: 768px) {
   .patriotic-hymns-grid { grid-template-columns: 1fr; }
   .patriotic-hymns-card-actions .btn { width: 100%; }
+  #hymn-lyrics-modal { z-index: 10001; }
+  .hymn-lyrics-modal-inner { max-height: 85vh; overflow-y: auto; }
 }
 
 .footer-heading { margin: 0 auto 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(148,163,184,0.7); }

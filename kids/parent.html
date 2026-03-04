@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Parent Dashboard • Kids Battle</title>
+  <meta name="description" content="See your kid's streak, doodles, and badges. Proud parent view — no login required.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids-battle/parent">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="kids-battle.css?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode kids-battle-page kids-parent-dashboard">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Parent Dashboard</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/kids/">Kids Battle</a>
+        <a href="/">Home</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner kids-battle-inner">
+        <header class="kids-battle-hero">
+          <h1 class="kids-battle-title">Parent Dashboard</h1>
+          <p class="kids-battle-tagline">Your kid's progress — streak, doodles, and badges.</p>
+        </header>
+
+        <section class="kids-parent-streak glass" role="region" aria-label="Kid's streak">
+          <h2 class="kids-section-title">Current Streak</h2>
+          <p id="parent-streak-display" class="kids-streak-display">🔥 0 days</p>
+          <p id="parent-proud-badge" class="kids-proud-parent hidden">🏆 Proud Parent — 7+ day streak!</p>
+        </section>
+
+        <section class="kids-parent-doodles glass" role="region" aria-label="Doodles gallery">
+          <h2 class="kids-section-title">Doodles Gallery</h2>
+          <p class="kids-doodle-gallery-desc">Drawings from each day's battle.</p>
+          <div id="parent-doodles-gallery" class="kids-doodles-gallery"></div>
+        </section>
+
+        <section class="kids-parent-badges glass" role="region" aria-label="Badges earned">
+          <h2 class="kids-section-title">Badges Earned</h2>
+          <div id="parent-badges-list" class="kids-badges-list"></div>
+        </section>
+
+        <p class="kids-parent-note">Data is stored locally on this device. No login required.</p>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo">
+      <a href="/kids/">← Back to Kids Battle</a>
+    </footer>
+  </div>
+
+  <script src="kids-parent.js?v=1" defer></script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+/* Kids Battle — comic-book inspired, bold colors, speech bubbles, playful fonts */
+
+.kids-battle-page {
+  --kids-yellow: #ffd93d;
+  --kids-orange: #ff9f43;
+  --kids-red: #ee5a5a;
+  --kids-blue: #6bcb77;
+  --kids-purple: #9b59b6;
+  --kids-pink: #ff6b9d;
+  --kids-bg: #0f172a;
+  --kids-card: rgba(15, 23, 42, 0.9);
+}
+
+.kids-battle-header {
+  border-bottom: 3px solid var(--kids-yellow);
+  box-shadow: 0 2px 0 rgba(255, 217, 61, 0.3);
+}
+
+.kids-subtitle {
+  color: var(--kids-yellow) !important;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Comic panels row */
+.kids-comic-panels {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.kids-panels-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.kids-panel {
+  flex: 1 1 160px;
+  max-width: 200px;
+  border: 3px solid var(--kids-yellow);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--kids-card);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.kids-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Hero */
+.kids-battle-hero {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.kids-battle-title {
+  font-family: 'Bangers', cursive;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: var(--kids-yellow);
+  text-shadow: 3px 3px 0 #e74c3c, -1px -1px 0 rgba(0,0,0,0.3);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.kids-battle-tagline {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.15rem;
+  color: rgba(226, 232, 240, 0.9);
+  margin: 0;
+}
+
+/* Speech bubbles */
+.speech-bubble {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  border: 3px solid;
+  background: var(--kids-card);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid;
+}
+
+.verse-bubble {
+  border-color: var(--kids-blue);
+  background: linear-gradient(135deg, rgba(107, 203, 119, 0.15) 0%, var(--kids-card) 100%);
+}
+
+.verse-bubble::after { border-top-color: var(--kids-blue); }
+
+.prayer-bubble {
+  border-color: var(--kids-purple);
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.15) 0%, var(--kids-card) 100%);
+}
+
+.prayer-bubble::after { border-top-color: var(--kids-purple); }
+
+/* Section titles */
+.kids-section-title {
+  font-family: 'Bangers', cursive;
+  font-size: 1.4rem;
+  color: var(--kids-yellow);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.kids-verse-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kids-verse-ref {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--kids-orange);
+  margin: 0 0 0.5rem;
+}
+
+.kids-verse-text {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+.kids-prayer-text {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+/* Streak section */
+.kids-battle-streak {
+  padding: 1.5rem;
+}
+
+.kids-streak-display {
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+  color: var(--kids-yellow);
+  margin: 0 0 1rem;
+}
+
+.kids-btn-primary {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--kids-orange), var(--kids-red));
+  border: 2px solid var(--kids-yellow);
+  color: #fff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.kids-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.25);
+}
+
+.kids-btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.kids-done-msg {
+  margin: 1rem 0 0;
+  font-family: 'Comic Neue', cursive;
+  color: var(--kids-blue);
+}
+
+.kids-come-back-nudge {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1rem;
+  color: var(--kids-orange);
+  margin: 0 0 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 159, 67, 0.15);
+  border-radius: 12px;
+  border: 1px solid var(--kids-orange);
+}
+
+.kids-btn-remind {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  background: transparent;
+  border: 1px dashed rgba(255, 217, 61, 0.5);
+  color: #94a3b8;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.kids-btn-remind:hover {
+  color: var(--kids-yellow);
+  border-color: var(--kids-yellow);
+}
+
+.kids-btn-remind.opted {
+  border-style: solid;
+  color: var(--kids-blue);
+  border-color: var(--kids-blue);
+}
+
+.kids-speak-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  background: rgba(107, 203, 119, 0.2);
+  border: 1px solid var(--kids-blue);
+  color: var(--kids-blue);
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.kids-speak-btn:hover {
+  background: rgba(107, 203, 119, 0.35);
+}
+
+.kids-btn-share {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--kids-blue), #4ade80);
+  border: 2px solid var(--kids-yellow);
+  color: #0f172a;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  transition: transform 0.15s;
+}
+
+.kids-btn-share:hover {
+  transform: translateY(-2px);
+}
+
+/* Faith Trail */
+.kids-faith-trail {
+  padding: 1.5rem;
+}
+
+.kids-faith-trail-desc {
+  font-family: 'Comic Neue', cursive;
+  color: #94a3b8;
+  margin: 0 0 1rem;
+}
+
+.kids-trail-welcome {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1rem;
+  color: var(--kids-yellow);
+  background: rgba(255, 217, 61, 0.15);
+  border: 1px solid rgba(255, 217, 61, 0.4);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  margin: 0 0 1rem;
+}
+
+.kids-faith-trail-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.kids-trail-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 217, 61, 0.3);
+  background: rgba(15, 23, 42, 0.6);
+  min-width: 60px;
+}
+
+.kids-trail-stop.unlocked {
+  border-color: var(--kids-yellow);
+  background: rgba(255, 217, 61, 0.15);
+}
+
+.kids-trail-stop.locked {
+  opacity: 0.5;
+  filter: grayscale(0.5);
+}
+
+.kids-trail-icon {
+  font-size: 1.5rem;
+}
+
+.kids-trail-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.kids-trail-stop.unlocked .kids-trail-label {
+  color: var(--kids-yellow);
+}
+
+/* Badges */
+.kids-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.kids-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 2px solid;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+.kids-badge.faith-fighter { background: rgba(107, 203, 119, 0.25); border-color: var(--kids-blue); color: #a7f3d0; }
+.kids-badge.bible-boss { background: rgba(255, 217, 61, 0.25); border-color: var(--kids-yellow); color: #fef08a; }
+.kids-badge.faith-hero { background: rgba(255, 159, 67, 0.25); border-color: var(--kids-orange); color: #fed7aa; }
+.kids-badge.brave-heart { background: rgba(238, 90, 90, 0.25); border-color: var(--kids-red); color: #fecaca; }
+.kids-badge.locked {
+  opacity: 0.5;
+  filter: grayscale(0.5);
+}
+
+/* Confetti burst on badge unlock — pure CSS, no libs */
+.kids-confetti-burst {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kids-confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  left: 50%;
+  top: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+  animation: kids-confetti-fly 0.7s ease-out forwards;
+  transform-origin: center center;
+}
+
+.kids-confetti-piece:nth-child(1) { --dx: 60; --dy: 0; animation-delay: 0ms; }
+.kids-confetti-piece:nth-child(2) { --dx: 52; --dy: 30; animation-delay: 20ms; }
+.kids-confetti-piece:nth-child(3) { --dx: 30; --dy: 52; animation-delay: 40ms; }
+.kids-confetti-piece:nth-child(4) { --dx: 0; --dy: 60; animation-delay: 60ms; }
+.kids-confetti-piece:nth-child(5) { --dx: -30; --dy: 52; animation-delay: 80ms; }
+.kids-confetti-piece:nth-child(6) { --dx: -52; --dy: 30; animation-delay: 100ms; }
+.kids-confetti-piece:nth-child(7) { --dx: -60; --dy: 0; animation-delay: 120ms; }
+.kids-confetti-piece:nth-child(8) { --dx: -52; --dy: -30; animation-delay: 140ms; }
+.kids-confetti-piece:nth-child(9) { --dx: -30; --dy: -52; animation-delay: 160ms; }
+.kids-confetti-piece:nth-child(10) { --dx: 0; --dy: -60; animation-delay: 180ms; }
+.kids-confetti-piece:nth-child(11) { --dx: 30; --dy: -52; animation-delay: 200ms; }
+.kids-confetti-piece:nth-child(12) { --dx: 52; --dy: -30; animation-delay: 220ms; }
+
+@keyframes kids-confetti-fly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(var(--dx, 60) * 1px),
+      calc(var(--dy, 0) * 1px)
+    ) scale(0.5);
+  }
+}
+
+/* Doodle button */
+.kids-btn-doodle {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--kids-purple), var(--kids-pink));
+  border: 2px solid var(--kids-purple);
+  color: #fff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  transition: transform 0.15s;
+}
+
+.kids-btn-doodle:hover {
+  transform: translateY(-2px);
+}
+
+/* Doodle modal */
+.kids-doodle-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.kids-doodle-modal.hidden {
+  display: none;
+}
+
+.kids-doodle-modal-inner {
+  background: var(--kids-bg);
+  border: 3px solid var(--kids-yellow);
+  border-radius: 16px;
+  padding: 1rem;
+  max-width: 100%;
+  max-height: 95vh;
+  overflow: auto;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+}
+
+.kids-doodle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.kids-doodle-title {
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  color: var(--kids-yellow);
+  margin: 0;
+}
+
+.kids-doodle-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.75rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 0.25rem;
+}
+
+.kids-doodle-close:hover {
+  color: #e2e8f0;
+}
+
+.kids-doodle-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.kids-doodle-tools label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.kids-doodle-canvas-wrap {
+  border: 2px solid rgba(255, 217, 61, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+#kids-doodle-canvas {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  cursor: crosshair;
+}
+
+/* Mobile-first */
+@media (max-width: 768px) {
+  .kids-battle-inner {
+    padding: 0 0.75rem;
+  }
+
+  .kids-panels-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kids-panel {
+    max-width: 100%;
+  }
+
+  .speech-bubble {
+    padding: 1rem 1.25rem;
+  }
+
+  .kids-battle-title {
+    font-size: 2.25rem;
+  }
+
+  #kids-doodle-canvas {
+    max-width: 100%;
+    height: 280px;
+  }
+
+  .kids-doodle-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Parent dashboard */
+.kids-parent-dashboard .kids-battle-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.kids-proud-parent {
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  color: var(--kids-yellow);
+  margin: 1rem 0 0;
+}
+
+.kids-doodles-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.kids-doodle-gallery-item {
+  border: 2px solid rgba(255, 217, 61, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--kids-card);
+}
+
+.kids-doodle-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+}
+
+.kids-doodle-date {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  padding: 0.35rem 0.5rem;
+  text-align: center;
+}
+
+.kids-no-doodles {
+  font-family: 'Comic Neue', cursive;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.kids-doodle-gallery-desc {
+  font-family: 'Comic Neue', cursive;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.kids-parent-note {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kids-btn-primary:hover,
+  .kids-btn-doodle:hover,
+  .kids-btn-share:hover {
+    transform: none;
+  }
+}

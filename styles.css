@@ -58,33 +58,56 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
-html {
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+html {
   -webkit-text-size-adjust: 100%;
   font-size: 20px;
-  overflow-x: hidden;
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 body {
-  overflow-x: hidden;
-  width: 100%;
   max-width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 /* Target wide content so page size reports correctly (no horizontal overflow) */
 .verse-card,
+.result-card,
 .hymn-lyrics-modal-body,
 .hymn-lyrics-modal-inner,
 .hymn-lyrics,
-.long-text {
+.long-text,
+p,
+li {
   max-width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: break-word;
   hyphens: auto;
+  white-space: pre-wrap;
+}
+
+/* Search bar sticky polish */
+#quick-search-hero {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* Mobile-specific (small screens) */
+@media (max-width: 480px) {
+  .verse-card {
+    padding: 12px;
+    font-size: 14px;
+  }
+  .chip-container,
+  #quick-actions-hero,
+  .quick-actions-hero {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* Prevent images and media from causing horizontal overflow */
@@ -1661,6 +1684,10 @@ body:has(.search-hero-home) #search-hero {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+  padding-right: 2.5rem;
+  pointer-events: none;
 }
 .promo-banner-headline {
   animation: promo-banner-pulse 2s ease-in-out infinite;
@@ -1691,12 +1718,19 @@ body:has(.search-hero-home) #search-hero {
   .promo-banner.promo-banner-fixed { padding: 0.6rem 2.5rem 0.6rem 0.75rem; padding-left: max(0.75rem, env(safe-area-inset-left)); }
   .promo-banner-inner { min-width: 0; flex-wrap: wrap; gap: 0.25rem; }
 }
+.promo-banner-cta { pointer-events: auto; }
 .promo-banner-cta:hover { color: #fecaca; }
 .promo-banner.promo-banner-fixed .promo-banner-dismiss {
   position: absolute;
   top: 50%;
   right: 0.5rem;
   transform: translateY(-50%);
+  z-index: 10;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.85);
@@ -1705,6 +1739,7 @@ body:has(.search-hero-home) #search-hero {
   padding: 0.25rem 0.5rem;
   cursor: pointer;
   border-radius: 4px;
+  pointer-events: auto;
 }
 .promo-banner.promo-banner-fixed .promo-banner-dismiss:hover { color: #fff; }
 /* .org = movement site: CTA bar (Use the app | Our story | For churches) */

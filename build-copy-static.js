@@ -162,6 +162,11 @@ if (fs.existsSync(path.join(root, 'icons'))) {
   copyDir(path.join(root, 'icons'), path.join(dist, 'icons'));
 }
 
+if (fs.existsSync(path.join(root, 'kids'))) {
+  copyDir(path.join(root, 'kids'), path.join(dist, 'kids'));
+  console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
+}
+
 const wellKnown = path.join(root, '.well-known');
 if (fs.existsSync(wellKnown)) {
   copyDir(wellKnown, path.join(dist, '.well-known'));

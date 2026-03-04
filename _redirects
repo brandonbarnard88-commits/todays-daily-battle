@@ -7,5 +7,9 @@
 /topic-forgiveness /topic-forgiveness.html 200!
 /topic-grief /topic-grief.html 200!
 /topic-parenting /topic-parenting.html 200!
+# Kids Battle (reversible: everything in kids/ folder)
+/kids-battle /kids/ 302
+/kids-battle/parent /kids/parent.html 302
+
 # Block package.json from public (security)
 /package.json  /404.html  404

@@ -6233,6 +6233,34 @@ body.red-letter-off .red-letter-card {
 #family-stories-grid { max-height: 60vh; overflow-y: auto; margin-top: 0.75rem; }
 #family-stories-grid .kids-corner-card { margin-bottom: 1rem; }
 
+/* Kids Battle teaser (inside Family Armor modal) */
+.kids-battle-teaser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid rgba(255, 217, 61, 0.5);
+  background: linear-gradient(135deg, rgba(255, 217, 61, 0.08), rgba(255, 159, 67, 0.06));
+  border-radius: 12px;
+}
+.kids-battle-teaser-text {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+  font-size: 1rem;
+  color: rgba(226, 232, 240, 0.95);
+}
+.kids-battle-teaser-cta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.kids-battle-teaser-home {
+  margin-top: 1rem;
+}
+
 .armor-pieces-wrap { margin: 1rem 0; }
 .armor-pieces-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .armor-piece-card { padding: 0.75rem 1rem; border-radius: 12px; font-size: 0.875rem; background: linear-gradient(135deg, rgba(30,41,59,0.7), rgba(15,23,42,0.85)); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.2rem; min-width: 8rem; transition: box-shadow 0.25s, border-color 0.25s; }

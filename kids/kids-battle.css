@@ -119,6 +119,46 @@
   letter-spacing: 0.03em;
 }
 
+/* Kid search — big topic buttons */
+.kids-search-section {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.kids-topic-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.kids-topic-btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.2rem;
+  min-height: 48px;
+  border: 2px solid var(--kids-yellow);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 217, 61, 0.15), rgba(255, 159, 67, 0.1));
+  color: var(--kids-yellow);
+  text-decoration: none;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+}
+
+.kids-topic-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, rgba(255, 217, 61, 0.25), rgba(255, 159, 67, 0.2));
+  color: #fff;
+}
+
+.kids-topic-btn:focus-visible {
+  outline: 2px solid var(--kids-yellow);
+  outline-offset: 2px;
+}
+
 .kids-verse-title-row {
   display: flex;
   flex-wrap: wrap;

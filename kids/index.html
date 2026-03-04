@@ -30,6 +30,7 @@
       <nav class="header-nav" aria-label="Main">
         <a href="/">Home</a>
         <a href="/kids/" aria-current="page">Kids</a>
+        <a href="parent.html">Parents</a>
         <a href="../coloring.html">Kids Corner</a>
         <a href="../kids-corner.html">Family Activities</a>
         <a href="../verse.html">Verse of the Day</a>
@@ -43,6 +44,7 @@
       <nav class="side-nav" aria-label="Site navigation">
         <a href="/">Search</a>
         <a href="/kids/" data-section="kids-battle" aria-current="page">Kids Battle</a>
+        <a href="parent.html">Parents</a>
         <a href="../coloring.html" data-section="kids-corner">Kids Corner</a>
         <a href="../kids-corner.html" data-section="family-activities">Family Activities</a>
         <a href="../verse.html">Verse of the Day</a>
@@ -60,6 +62,13 @@
           <h1 class="kids-battle-title">Kids Battle</h1>
           <p class="kids-battle-tagline">Two minutes. One verse. One prayer. You're a hero!</p>
         </header>
+
+        <section class="kids-search-section glass" role="region" aria-label="Find verses by topic">
+          <h2 class="kids-section-title">Find a verse about…</h2>
+          <div id="kids-topic-buttons" class="kids-topic-buttons" aria-label="Topic buttons">
+            <!-- Filled by kids-battle.js from KIDS_TOPICS -->
+          </div>
+        </section>
 
         <!-- Comic panels: Add your AI-generated images here. See PROMPTS.md for Midjourney/DALL-E prompts. -->
         <section class="kids-comic-panels glass" role="region" aria-label="Comic illustration">
@@ -129,7 +138,7 @@
         <a href="../privacy.html">Privacy</a>
         <a href="../terms.html">Terms</a>
         <a href="/kids/">Kids</a>
-        <a href="/kids-battle/parent" class="footer-parent-link">Parents</a>
+        <a href="parent.html" class="footer-parent-link">Parents</a>
         <a href="../contact.html">Contact</a>
       </nav>
       <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>

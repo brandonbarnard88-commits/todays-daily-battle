@@ -11,6 +11,24 @@
   const KIDS_DOODLE_KEY = 'kidsDoodle';
   const KIDS_VERSE_INDEX_KEY = 'kidsVerseIndex';
 
+  const KIDS_TOPICS = [
+    { topic: 'brave', label: 'Brave' },
+    { topic: 'kind', label: 'Kind' },
+    { topic: 'thankful', label: 'Thankful' },
+    { topic: 'help', label: 'Help' },
+    { topic: 'peace', label: 'Peace' },
+    { topic: 'love', label: 'Love' },
+    { topic: 'jesus', label: 'Jesus' },
+    { topic: 'family', label: 'Family' },
+    { topic: 'God', label: 'God' },
+    { topic: 'obedience', label: 'Obedience' },
+    { topic: 'joy', label: 'Joy' },
+    { topic: 'faith', label: 'Faith' },
+    { topic: 'courage', label: 'Courage' },
+    { topic: 'hope', label: 'Hope' },
+    { topic: 'strength', label: 'Strength' }
+  ];
+
   const KIDS_VERSES = [
   { ref: 'Philippians 4:13', text: 'I can do all things through Christ which strengtheneth me.' },
   { ref: 'Psalm 23:1', text: 'The Lord is my shepherd; I shall not want.' },
@@ -1238,7 +1256,20 @@
     });
   }
 
+  function renderKidsTopicButtons() {
+    var container = document.getElementById('kids-topic-buttons');
+    if (!container || !Array.isArray(KIDS_TOPICS) || KIDS_TOPICS.length === 0) return;
+    var base = (typeof location !== 'undefined' && location.origin) ? location.origin : '';
+    var html = '';
+    KIDS_TOPICS.forEach(function (item) {
+      var href = base + '/?q=' + encodeURIComponent(item.topic) + '#quick-search-hero';
+      html += '<a href="' + href + '" class="kids-topic-btn" data-topic="' + (item.topic || '').replace(/"/g, '&quot;') + '">' + (item.label || item.topic) + '</a>';
+    });
+    container.innerHTML = html;
+  }
+
   function init() {
+    renderKidsTopicButtons();
     renderVerseAndPrayer();
     renderStreak();
     renderDoneState();

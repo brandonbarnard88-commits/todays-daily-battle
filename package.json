@@ -7,6 +7,10 @@
     "characters": "node build-characters.js",
     "test": "python3 test-site.py --offline",
     "test:security": "node test-security.js",
-    "test:site": "node test-site.js --offline"
+    "test:site": "node test-site.js --offline",
+    "qa:smoke": "node scripts/qa-smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
   }
 }

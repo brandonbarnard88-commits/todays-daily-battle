@@ -38,6 +38,7 @@
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js?v=20260309"></script>
   <script src="script.js?v=20260313" defer></script>
+  <script src="welcome.js?v=20260305" defer></script>
   <script src="toolbox-tabs.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" integrity="sha384-BkEIW/B4JV9w6pRfBRgZtAcYDk5goH1nUI49rLo8s5PSHgTfgxWBczRVJx+fv5kP" crossorigin="anonymous" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" integrity="sha384-MiR5OstmujbPpU5nzD986OTopb4Kveb2WX4EmKuqeCU1hCWlxMYL8gBBY7vDSYLF" crossorigin="anonymous" defer></script>
@@ -135,6 +136,7 @@
           <a href="/#quick-search-hero">Search</a>
           <a href="verse.html">Verse of the Day</a>
           <a href="bible-study.html">Bible Studies</a>
+          <a href="mystudy.html">My Study</a>
         </div>
       </span>
       <a href="https://todaysdailybattle.com/" class="org-nav-app">Use the app →</a>
@@ -188,6 +190,7 @@
             <a href="/#quick-search-hero">Search</a>
             <a href="verse.html">Verse of the Day</a>
             <a href="bible-study.html">Bible Studies</a>
+            <a href="mystudy.html">My Study</a>
           </div>
         </span>
         <a href="pricing.html">Pricing</a>
@@ -222,6 +225,7 @@
         <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
         <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
         <a href="bible-study.html" data-section="bible-study" data-icon="BS">Bible Studies</a>
+        <a href="mystudy.html" data-section="my-study" data-icon="MS">My Study</a>
         <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
         <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
         <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
@@ -299,6 +303,29 @@
           </div>
           <p class="hero-verse-byline">A hospital stay that was life-changing.</p>
         </div>
+        <div id="home-avatar-altar" class="home-avatar-altar hidden" aria-label="Your battle avatar">
+          <div id="home-avatar-center" class="armor-avatar-household home-avatar-center"></div>
+        </div>
+        <section id="daily-tile-home" class="glass daily-tile-home util-mt-0_5" role="region" aria-label="Today's Battle daily tile">
+          <p class="section-note daily-tile-kicker">Daily Tile</p>
+          <div class="daily-tile-hero">
+            <div class="daily-tile-avatar-wrap">
+              <div id="daily-tile-avatar" class="daily-tile-avatar" aria-hidden="true">⚔</div>
+              <p id="daily-tile-character" class="daily-tile-character section-note util-mb-0">Loading character…</p>
+            </div>
+            <div class="daily-tile-copy">
+              <h3 class="section-divider util-mt-0 util-mb-0_5">Today's Battle</h3>
+              <p id="daily-tile-title" class="daily-tile-title">Giant Slayer</p>
+              <p id="daily-tile-subtitle" class="section-note util-mb-0_5">2-minute auto-play story with KJV voice overlay.</p>
+              <button type="button" id="daily-tile-watch-btn" class="btn btn-primary daily-tile-watch-btn" aria-label="Watch today's battle story">Watch</button>
+            </div>
+          </div>
+          <label class="daily-tile-toggle" for="daily-tile-use-avatar">
+            <input type="checkbox" id="daily-tile-use-avatar" checked>
+            Use My Avatar?
+          </label>
+          <p id="daily-tile-avatar-status" class="section-note util-mb-0">Armor sync ready for this device.</p>
+        </section>
         <div class="glass prayer-of-day-block util-mt-0_5" role="region" aria-label="Prayer of the day">
           <h3 class="section-divider util-mt-0">Today's Prayer</h3>
           <p class="prayer-of-day-text">Lord, give us strength for the battle. Amen.</p>
@@ -395,6 +422,7 @@
             <a href="curriculum.html" class="glass toolbox-card"><h3>365-Day Curriculum</h3><p>One character per day, Verse Mode, armor progress</p></a>
             <a href="bible-tool.html" class="glass toolbox-card"><h3>Bible Tool</h3><p>Search, notes, KJV lookup</p></a>
             <a href="bible-study.html" class="glass toolbox-card"><h3>Armor of God</h3><p>Free Bible studies series</p></a>
+            <a href="mystudy.html" class="glass toolbox-card"><h3>My Study</h3><p>Private notes, prayer, share code</p></a>
             <a href="study.html" class="glass toolbox-card"><h3>Build a Lesson</h3><p>Quick outlines, verse packs</p></a>
             <a href="reading-plan.html" class="glass toolbox-card"><h3>7-Day Plan</h3><p>Reading plans, custom length</p></a>
             <a href="pricing.html" class="glass toolbox-card"><h3>Pro extras</h3><p>Offline, reports—free basics stay</p></a>
@@ -501,6 +529,7 @@
             <a class="btn btn-primary" href="team-toolkit.html">Team Toolkit</a>
             <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
             <a class="btn btn-secondary" href="bible-study.html">Bible Studies</a>
+            <a class="btn btn-secondary" href="mystudy.html">My Study</a>
             <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
             <a class="btn btn-secondary" href="message.html">Message Board</a>
             <a class="btn btn-secondary" href="/kids/">Kids</a>
@@ -1084,6 +1113,49 @@
       </div>
     </div>
 
+    <div id="welcome-anointing-overlay" class="welcome-anointing-overlay hidden" role="status" aria-live="polite" aria-label="He is here.">
+      <div class="welcome-anointing-inner">
+        <p id="welcome-anointing-text" class="welcome-anointing-text">He is here.</p>
+        <div id="welcome-elements" class="welcome-elements" aria-hidden="true">
+          <svg class="welcome-element welcome-element-oil" viewBox="0 0 80 120">
+            <defs>
+              <linearGradient id="welcome-oil-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#fef3c7"></stop>
+                <stop offset="100%" stop-color="#d4a017"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M40 8 C54 30 66 45 66 67 C66 88 54 106 40 106 C26 106 14 88 14 67 C14 45 26 30 40 8 Z" fill="url(#welcome-oil-grad)"></path>
+          </svg>
+          <svg class="welcome-element welcome-element-water" viewBox="0 0 160 60">
+            <ellipse cx="80" cy="30" rx="70" ry="18" fill="none" stroke="#60a5fa" stroke-width="6"></ellipse>
+            <ellipse cx="80" cy="30" rx="46" ry="12" fill="none" stroke="#93c5fd" stroke-width="4"></ellipse>
+          </svg>
+          <svg class="welcome-element welcome-element-fire" viewBox="0 0 80 120">
+            <defs>
+              <linearGradient id="welcome-fire-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#ea580c"></stop>
+                <stop offset="100%" stop-color="#fdba74"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M40 108 C62 90 66 66 50 44 C52 63 39 67 34 79 C31 69 18 61 26 36 C8 51 8 90 40 108 Z" fill="url(#welcome-fire-grad)"></path>
+          </svg>
+          <svg class="welcome-cross" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="welcome-cross-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fbbf24"></stop>
+                <stop offset="50%" stop-color="#60a5fa"></stop>
+                <stop offset="100%" stop-color="#f97316"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="42" y="12" width="16" height="76" rx="7" fill="url(#welcome-cross-grad)"></rect>
+            <rect x="20" y="42" width="60" height="16" rx="7" fill="url(#welcome-cross-grad)"></rect>
+          </svg>
+        </div>
+        <div id="welcome-avatar-stage" class="welcome-avatar-stage" aria-hidden="true">
+          <div id="welcome-avatar-center" class="armor-avatar-household home-avatar-center"></div>
+        </div>
+      </div>
+    </div>
     <div id="god-whisper-load" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="God is present."><span class="god-whisper-text">He is here.</span></div>
     <div id="prayer-whisper" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Prayer sent—God hears."><span class="god-whisper-text">God hears this.</span></div>
     <div id="night-falls-overlay" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Night falls—rest in Him."><span class="god-whisper-text">Night falls—rest in Him.</span><p class="god-whisper-verse">Peace I leave with you. (John 14:27)</p></div>
@@ -1166,6 +1238,8 @@
   <script src="verse-rotator.js?v=20260314" defer></script>
   <script src="curriculum-widget.js?v=20260314"></script>
   <script src="armor.js?v=20260314"></script>
+  <script src="cartoon.js?v=20260305" defer></script>
+  <script src="daily-tile.js?v=20260305" defer></script>
   <script src="lineage-tree.js?v=20260314" defer></script>
 </body>
 </html>

@@ -45,6 +45,29 @@ window.runSearchWithInput = function (inputStr) {
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
 
+function emitEasterEgg(eggId, payload) {
+  try {
+    if (window.TDBEasterEggs && typeof window.TDBEasterEggs.trigger === 'function') {
+      window.TDBEasterEggs.trigger(eggId, payload || {});
+      return;
+    }
+    if (!Array.isArray(window.__tdbEggQueue)) window.__tdbEggQueue = [];
+    if (window.__tdbEggQueue.length > 40) window.__tdbEggQueue.shift();
+    window.__tdbEggQueue.push({ id: eggId, payload: payload || {}, t: Date.now() });
+  } catch (e) {}
+}
+window.__tdbEmitEasterEgg = emitEasterEgg;
+
+(function loadEasterEggsScript() {
+  if (typeof document === 'undefined') return;
+  if (document.querySelector('script[data-tdb-easter-eggs="1"]')) return;
+  var script = document.createElement('script');
+  script.src = '/easter-eggs.js';
+  script.defer = true;
+  script.setAttribute('data-tdb-easter-eggs', '1');
+  document.head.appendChild(script);
+})();
+
 /* Preload Bible data so first search is fast; loadBible() will use window.kjvData if set */
 (function preloadBible() {
   var urls = ['kjv.json', 'https://todaysdailybattle.com/kjv.json'];
@@ -226,6 +249,7 @@ const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
 const PRAYER_LIST_KEY = 'tdb_prayer_list_v1';
 const QUICK_PRAY_DRAFT_KEY = 'tdb_quick_pray_draft';
 const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
+const SILENT_OFFERING_COUNT_PREFIX = 'tdb_silent_offering_count_';
 var HOUSEHOLD_ARMOR_KEY = 'tdb_household_armor';
 var ARMOR_JOINED_KEY = 'tdb_armor_joined_household';
 var ARMOR_JOIN_BONUS_KEY = 'tdb_armor_join_bonus_given';
@@ -292,6 +316,7 @@ function addHouseholdArmorPiece(source) {
   if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
   if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined—your prayer adds to the armor!');
   if (data.count >= 6) {
+    emitEasterEgg('full_armor_celebration', { count: data.count });
     if (typeof showEliteToast === 'function') showEliteToast('Your household is armored—share the glory.');
     var link = getArmorShareLink();
     if (link && navigator.clipboard && navigator.clipboard.writeText) {
@@ -366,6 +391,7 @@ function updateArmorChainDisplay() {
   var el = document.getElementById('armor-chain-display');
   if (!el) return;
   var households = getArmorChainHouseholds();
+  if (households >= 7) emitEasterEgg('golden_road_rainbow', { households: households });
   el.innerHTML = '<span class="armor-chain-icon" aria-hidden="true">🔗</span> Chain: ' + households + ' household' + (households === 1 ? '' : 's') + ' armored';
   if (households > 0) el.classList.remove('hidden');
   else el.classList.add('hidden');
@@ -3245,23 +3271,159 @@ function wirePrayerMap() {
 var INTRO_VISIBLE_MS = 5000;
 var INTRO_FADEOUT_MS = 1000;
 var INTRO_TOTAL_MS = INTRO_VISIBLE_MS + INTRO_FADEOUT_MS;
+var WELCOME_INTRO_SESSION_KEY = 'tdb_welcome_intro_seen_session';
+var WELCOME_DEVICE_HASH_KEY = 'tdb_device_avatar_hash';
 
-function showGodWhisperOnLoad() {
-  var el = document.getElementById('god-whisper-load');
-  if (!el) return;
-  el.classList.remove('hidden');
-  el.style.display = 'flex';
-  el.classList.add('whisper-visible');
-  el.setAttribute('aria-label', 'God is present.');
-  setTimeout(function () {
-    el.classList.add('whisper-out');
-    setTimeout(showNextIntroMessage, 500);
-  }, INTRO_VISIBLE_MS);
-  setTimeout(function () {
-    el.style.display = 'none';
-    el.classList.remove('whisper-visible', 'whisper-out');
-    el.classList.add('hidden');
-  }, INTRO_TOTAL_MS);
+function waitMs(ms) {
+  return new Promise(function (resolve) { setTimeout(resolve, ms); });
+}
+
+function hashStringFNV1a(str) {
+  var h = 2166136261;
+  for (var i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
+  }
+  return ('0000000' + (h >>> 0).toString(16)).slice(-8);
+}
+
+function getDeviceAvatarHash() {
+  try {
+    var existing = localStorage.getItem(WELCOME_DEVICE_HASH_KEY);
+    if (existing) return existing;
+  } catch (e) {}
+  var seed = [
+    navigator.userAgent || '',
+    navigator.platform || '',
+    navigator.language || '',
+    ((window.screen && window.screen.width) ? String(window.screen.width) : '') + 'x' + ((window.screen && window.screen.height) ? String(window.screen.height) : ''),
+    (typeof Intl !== 'undefined' && Intl.DateTimeFormat ? (Intl.DateTimeFormat().resolvedOptions().timeZone || '') : '')
+  ].join('|');
+  var next = hashStringFNV1a(seed || String(Date.now()));
+  try { localStorage.setItem(WELCOME_DEVICE_HASH_KEY, next); } catch (e2) {}
+  return next;
+}
+
+function pickWelcomeFemaleVoice() {
+  if (!('speechSynthesis' in window) || !window.speechSynthesis.getVoices) return null;
+  var voices = window.speechSynthesis.getVoices() || [];
+  if (!voices.length) return null;
+  var preferred = voices.filter(function (v) {
+    var n = ((v && v.name) ? v.name : '').toLowerCase();
+    var l = ((v && v.lang) ? v.lang : '').toLowerCase();
+    if (l.indexOf('en') !== 0) return false;
+    return /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli)/.test(n);
+  });
+  if (preferred.length) return preferred[0];
+  var fallbackEn = voices.find(function (v) { return ((v && v.lang) ? v.lang.toLowerCase() : '').indexOf('en') === 0; });
+  return fallbackEn || voices[0] || null;
+}
+
+function speakWelcomeAnointingLine() {
+  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') return;
+  try { window.speechSynthesis.cancel(); } catch (e) {}
+  var utterance = new SpeechSynthesisUtterance('Nothing comes in unclean. Anoint with oil... water... fire.');
+  utterance.rate = 0.78;
+  utterance.pitch = 1;
+  var voice = pickWelcomeFemaleVoice();
+  if (voice) utterance.voice = voice;
+  try { window.speechSynthesis.speak(utterance); } catch (e2) {}
+}
+
+function renderWelcomeAvatarInto(targetEl) {
+  if (!targetEl) return;
+  var data = getHouseholdArmor();
+  var hash = getDeviceAvatarHash();
+  var toneSet = [
+    ['#94a3b8', '#475569'],
+    ['#9ca3af', '#64748b'],
+    ['#a8b4c6', '#546173']
+  ];
+  var toneIdx = parseInt(hash.slice(0, 2), 16) % toneSet.length;
+  var tones = toneSet[toneIdx];
+  targetEl.innerHTML = '';
+  var figures = [
+    { label: 'Parent', pieceKey: data.pieces[1] || null },
+    { label: 'Parent', pieceKey: data.pieces[2] || null },
+    { label: 'Kid', pieceKey: data.pieces[3] || null },
+    { label: 'Kid', pieceKey: data.pieces[4] || null },
+    { label: 'Dog', pieceKey: data.pieces[0] || null }
+  ];
+  figures.forEach(function (f, idx) {
+    var fig = document.createElement('div');
+    fig.className = 'armor-figure armor-silhouette';
+    if (f.pieceKey) fig.setAttribute('data-piece', f.pieceKey);
+    var gid = 'intro-ag-' + idx + '-' + hash;
+    var svg = f.label === 'Dog'
+      ? '<svg class="armor-silhouette-img" viewBox="0 0 48 32" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><ellipse cx="20" cy="18" rx="14" ry="10" fill="url(#' + gid + ')"/><circle cx="36" cy="10" r="6" fill="url(#' + gid + ')"/><ellipse cx="34" cy="8" rx="2" ry="1.5" fill="rgba(30,41,59,0.4)"/></svg>'
+      : f.label === 'Kid'
+      ? '<svg class="armor-silhouette-img armor-silhouette-kid" viewBox="0 0 36 48" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><circle cx="18" cy="10" r="7" fill="url(#' + gid + ')"/><path d="M6 48 Q18 26 30 48 Z" fill="url(#' + gid + ')"/></svg>'
+      : '<svg class="armor-silhouette-img" viewBox="0 0 40 52" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><circle cx="20" cy="12" r="8" fill="url(#' + gid + ')"/><path d="M4 52 L20 26 L36 52 Z" fill="url(#' + gid + ')"/></svg>';
+    fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + svg + '</span>' +
+      (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
+      '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
+    targetEl.appendChild(fig);
+  });
+  if (data.count >= 6) {
+    var sword = document.createElement('div');
+    sword.className = 'armor-figure armor-silhouette armor-sword';
+    sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true"><svg class="armor-silhouette-img" viewBox="0 0 24 48" aria-hidden="true"><defs><linearGradient id="intro-ag-sword-' + hash + '" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#93c5fd"/><stop offset="100%" style="stop-color:#3b82f6"/></linearGradient></defs><path d="M12 0 L12 36 L10 48 L14 48 L12 36 Z" fill="url(#intro-ag-sword-' + hash + ')"/><rect x="9" y="0" width="6" height="6" rx="1" fill="url(#intro-ag-sword-' + hash + ')"/></svg></span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
+    targetEl.appendChild(sword);
+  }
+}
+
+async function showGodWhisperOnLoad() {
+  var overlay = document.getElementById('welcome-anointing-overlay');
+  var textEl = document.getElementById('welcome-anointing-text');
+  var homeAvatar = document.getElementById('home-avatar-center');
+  var homeAvatarAltar = document.getElementById('home-avatar-altar');
+  var introAvatar = document.getElementById('welcome-avatar-center');
+  if (homeAvatar) renderWelcomeAvatarInto(homeAvatar);
+  if (homeAvatarAltar) homeAvatarAltar.classList.remove('hidden');
+  if (!overlay || !textEl) {
+    var fallback = document.getElementById('god-whisper-load');
+    if (!fallback) return;
+    fallback.classList.remove('hidden');
+    fallback.style.display = 'flex';
+    fallback.classList.add('whisper-visible');
+    setTimeout(function () {
+      fallback.classList.add('whisper-out');
+      setTimeout(function () {
+        fallback.style.display = 'none';
+        fallback.classList.remove('whisper-visible', 'whisper-out');
+        fallback.classList.add('hidden');
+      }, INTRO_FADEOUT_MS);
+    }, INTRO_VISIBLE_MS);
+    return;
+  }
+  try {
+    if (sessionStorage.getItem(WELCOME_INTRO_SESSION_KEY) === '1') return;
+    sessionStorage.setItem(WELCOME_INTRO_SESSION_KEY, '1');
+  } catch (e) {}
+  if (introAvatar) renderWelcomeAvatarInto(introAvatar);
+  overlay.classList.remove('hidden');
+  overlay.classList.remove('welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
+  overlay.classList.add('welcome-visible', 'welcome-text-visible');
+  document.body.classList.add('welcome-intro-active');
+  textEl.textContent = 'He is here.';
+  overlay.setAttribute('aria-label', 'He is here.');
+  await waitMs(5000);
+  textEl.textContent = 'Nothing comes in unclean. Anoint with oil... water... fire.';
+  overlay.classList.add('welcome-elements-active');
+  speakWelcomeAnointingLine();
+  await waitMs(3400);
+  overlay.classList.add('welcome-elements-merge');
+  await waitMs(1500);
+  textEl.textContent = 'Be clean. Come.';
+  overlay.classList.add('welcome-avatar-visible');
+  overlay.setAttribute('aria-label', 'Be clean. Come.');
+  await waitMs(1900);
+  document.body.classList.add('welcome-intro-lift');
+  overlay.classList.add('welcome-leave');
+  await waitMs(1100);
+  overlay.classList.add('hidden');
+  overlay.classList.remove('welcome-visible', 'welcome-text-visible', 'welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
+  document.body.classList.remove('welcome-intro-active');
 }
 
 function showNextIntroMessage() {
@@ -3981,6 +4143,13 @@ function wireSilentOffering() {
   var btn = document.getElementById('silent-offering-btn');
   if (!btn) return;
   btn.addEventListener('click', function () {
+    var silenceCount = 0;
+    try {
+      var silenceKey = SILENT_OFFERING_COUNT_PREFIX + getDailyKey();
+      silenceCount = parseInt(localStorage.getItem(silenceKey) || '0', 10) + 1;
+      localStorage.setItem(silenceKey, String(silenceCount));
+    } catch (e) {}
+    if (silenceCount >= 5) emitEasterEgg('quiet5_whisper', { count: silenceCount });
     var payload = { intent: 'A household offered silence.', session_id: getPrayerSessionId() };
     var fn = truncateForDb(sanitizeUserInput(getFamilyName()), MAX_FAMILY_NAME_LENGTH);
     if (fn) payload.family_name = fn;
@@ -4330,6 +4499,10 @@ function updateDailyBattleStreak() {
   } catch {}
   const lastKey = data.lastKey || '';
   const dates = Array.isArray(data.dates) ? data.dates : [];
+  var yesterday = shiftDailyKey(today, -1);
+  if (dates.length > 0 && dates.indexOf(today) === -1 && dates.indexOf(yesterday) === -1) {
+    emitEasterEgg('missed_day_note', { last_key: lastKey || null });
+  }
   const normalized = new Set(dates);
   normalized.add(today);
   const nextDates = Array.from(normalized).sort();
@@ -4364,6 +4537,7 @@ function updateDailyBattleStreak() {
   }
   if (calendarEl) renderStreakCalendar(calendarEl, nextDates);
   window.__currentStreakCount = nextCount;
+  if (nextCount === 7) emitEasterEgg('streak7_fist_bump', { streak: 7 });
   updateChallengeBannerState();
   var milestoneToast = [3, 7, 14, 30, 60].indexOf(nextCount) >= 0;
   try {
@@ -5336,6 +5510,7 @@ function shareDailyBattle() {
   trackEvent('share_daily_battle');
   const shareText = buildDailyBattleShareText();
   if (!shareText) return;
+  emitEasterEgg('share_cape', { source: 'daily_battle' });
   if (navigator.share) {
     navigator.share({ text: shareText, url: window.location.href }).catch(() => {});
     return;
@@ -6531,6 +6706,7 @@ function buildVerseShareText(ref, text) {
 
 function shareVerse(ref, text) {
   const shareText = buildVerseShareText(ref, text);
+  emitEasterEgg('share_cape', { source: 'verse' });
   if (navigator.share) {
     navigator.share({ text: shareText, url: getVersePageUrl(ref) }).catch(() => {});
     return;
@@ -9582,6 +9758,7 @@ function getSearchFilters() {
 async function runTopicSearch(query) {
   const input = (query || '').trim();
   if (!input) return null;
+  if (input.toLowerCase() === 'jesus') emitEasterEgg('jesus_search_hug');
   if (Object.keys(bible).length === 0) {
     await loadBible(currentVersion);
     refreshBibleView();
@@ -11026,7 +11203,7 @@ function startStudy(id) {
   updateFirstPrayerBadge();
   if (isHome) {
     setTimeout(function () {
-      if (typeof showGodWhisperOnLoad === 'function') showGodWhisperOnLoad();
+      if (typeof window.runWelcomeExperience === 'function') window.runWelcomeExperience();
     }, 800);
   }
   showAuthRedirectMessage();
@@ -12038,6 +12215,7 @@ function startStudy(id) {
       setQuickPrayCountToday(count);
       try { sessionStorage.setItem(PRAYED_THIS_SESSION_KEY, '1'); } catch (e) {}
       updateQuickPrayCountDisplay();
+      if (count >= 3) emitEasterEgg('pray3_badge', { count: count });
       if (count >= 5) {
         var prayedTodayEl = document.getElementById('prayed-today');
         if (prayedTodayEl) prayedTodayEl.style.display = 'block';
@@ -12181,6 +12359,7 @@ function startStudy(id) {
     var shareStreakBtnEl = document.getElementById('share-streak-btn');
     if (shareStreakBtnEl) {
       shareStreakBtnEl.addEventListener('click', function () {
+        emitEasterEgg('share_cape', { source: 'streak' });
         var count = 0;
         try {
           var d = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
@@ -12250,6 +12429,7 @@ function startStudy(id) {
     var quickPrayShareBtn = document.getElementById('quick-pray-share');
     if (quickPrayShareBtn) {
       quickPrayShareBtn.addEventListener('click', function () {
+        emitEasterEgg('share_cape', { source: 'quick_pray' });
         var wrap = document.getElementById('quick-pray-share-wrap');
         var lastPrayer = (wrap && wrap.dataset.lastPrayer) || '';
         var url = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;

@@ -5,6 +5,7 @@
   var WELCOME_HASH_KEY = 'tdb_device_avatar_hash';
   var ARMOR_KEY = 'tdb_household_armor';
   var WIN_SCORE_KEY = 'win-score';
+  var ONBOARDING_KEY = 'tdb_daily_verse_tooltip_seen_v1';
   var INTRO_HOLD_MS = 8000;
 
   function wait(ms) {
@@ -214,6 +215,46 @@
     });
   }
 
+  function hasSeenWelcome() {
+    try {
+      var raw = String(localStorage.getItem(WELCOME_SEEN_KEY) || '').toLowerCase();
+      return raw === '1' || raw === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function markWelcomeSeen() {
+    try { localStorage.setItem(WELCOME_SEEN_KEY, '1'); } catch (e) {}
+  }
+
+  function showDailyVerseTooltipOnce() {
+    try {
+      if (String(localStorage.getItem(ONBOARDING_KEY) || '') === '1') return;
+    } catch (e) {}
+    var target = document.getElementById('daily-battle-card') || document.getElementById('quick-pray-btn');
+    if (!target) return;
+    var tip = document.createElement('div');
+    tip.className = 'tdb-onboarding-tooltip';
+    tip.setAttribute('role', 'status');
+    tip.setAttribute('aria-live', 'polite');
+    tip.textContent = 'This is your daily verse - tap Pray to start.';
+    document.body.appendChild(tip);
+    var rect = target.getBoundingClientRect();
+    tip.style.left = Math.max(8, Math.min(window.innerWidth - 300, rect.left + rect.width / 2 - 140)) + 'px';
+    tip.style.top = Math.max(10, rect.top + window.scrollY - 52) + 'px';
+    requestAnimationFrame(function () {
+      tip.classList.add('show');
+    });
+    setTimeout(function () {
+      tip.classList.remove('show');
+      setTimeout(function () {
+        if (tip && tip.parentNode) tip.parentNode.removeChild(tip);
+      }, 480);
+    }, 5000);
+    try { localStorage.setItem(ONBOARDING_KEY, '1'); } catch (e2) {}
+  }
+
   async function runWelcomeExperience() {
     var overlay = document.getElementById('welcome-anointing-overlay');
     var textEl = document.getElementById('welcome-anointing-text');
@@ -223,9 +264,10 @@
     if (homeAvatar) renderAvatarInto(homeAvatar);
     if (homeAvatarWrap) homeAvatarWrap.classList.remove('hidden');
     if (!overlay || !textEl) return;
-    try {
-      if (localStorage.getItem(WELCOME_SEEN_KEY) === '1') return;
-    } catch (e) {}
+    if (hasSeenWelcome()) {
+      showDailyVerseTooltipOnce();
+      return;
+    }
     if (introAvatar) renderAvatarInto(introAvatar);
     textEl.textContent = 'He is here.';
     overlay.setAttribute('aria-label', 'He is here.');
@@ -235,7 +277,7 @@
     document.body.classList.add('welcome-intro-active');
     await speakLine('He is here.', 3000);
     await wait(INTRO_HOLD_MS);
-    try { localStorage.setItem(WELCOME_SEEN_KEY, '1'); } catch (e2) {}
+    markWelcomeSeen();
     textEl.textContent = 'Nothing comes in unclean. Anoint with oil... water... fire.';
     overlay.setAttribute('aria-label', 'Nothing comes in unclean. Anoint with oil, water, and fire.');
     overlay.classList.remove('welcome-text-out');
@@ -257,6 +299,7 @@
     overlay.classList.add('hidden');
     overlay.classList.remove('welcome-visible', 'welcome-text-visible', 'welcome-text-out', 'welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
     document.body.classList.remove('welcome-intro-active');
+    showDailyVerseTooltipOnce();
   }
 
   window.runWelcomeExperience = runWelcomeExperience;

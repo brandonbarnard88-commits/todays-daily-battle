@@ -11,6 +11,10 @@
     forgiveness: "Let it go-He already did.",
     grief: "Tears aren't weak. He's holding them.",
     peace: "It's yours. Take it.",
+    anger: "Breathe out-He's listening.",
+    doubt: "You're not crazy. He's real.",
+    failure: "One fall doesn't end the fight.",
+    joy: "It's okay to smile-He made it.",
     fallback: "You're not alone-He's here."
   };
   var encouragementCache = null;
@@ -144,6 +148,10 @@
     if (w === 'forgiveness' || w === 'forgive' || w === 'forgiven' || w === 'resentment') return 'forgiveness';
     if (w === 'grief' || w === 'grieving' || w === 'loss' || w === 'mourning') return 'grief';
     if (w === 'peace' || w === 'rest' || w === 'calm') return 'peace';
+    if (w === 'anger' || w === 'angry' || w === 'rage' || w === 'mad') return 'anger';
+    if (w === 'doubt' || w === 'doubting' || w === 'uncertain' || w === 'unsure') return 'doubt';
+    if (w === 'failure' || w === 'fail' || w === 'failed' || w === 'mistake') return 'failure';
+    if (w === 'joy' || w === 'happy' || w === 'glad' || w === 'delight') return 'joy';
     return '';
   }
 
@@ -202,6 +210,27 @@
       });
       card.appendChild(btn);
       card.classList.toggle('smart-hit-hidden', idx >= 3);
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', 'Open verse breakdown for ' + (verse.ref || 'verse'));
+      card.addEventListener('click', function (evt) {
+        var target = evt.target;
+        if (target && target.closest && target.closest('button,a,input,textarea,select,label')) return;
+        if (window.TDBAvatarProgress && typeof window.TDBAvatarProgress.registerVerseRead === 'function') {
+          window.TDBAvatarProgress.registerVerseRead(verse.ref);
+          if (typeof window.TDBAvatarProgress.maybeTriggerEggFromAction === 'function') {
+            window.TDBAvatarProgress.maybeTriggerEggFromAction('read');
+          }
+        }
+        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+          window.TDBVerseBreakdown.open(verse.ref, verse.text);
+        }
+      });
+      card.addEventListener('keydown', function (evt) {
+        if (evt.key !== 'Enter' && evt.key !== ' ') return;
+        evt.preventDefault();
+        card.click();
+      });
     });
 
     var wrap = ensureShowMoreWrap(output);

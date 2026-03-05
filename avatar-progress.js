@@ -5,6 +5,11 @@
   var LEGACY_WINS_KEY = 'tdb_good_wins_v1';
   var AVATAR_PROGRESS_KEY = 'avatar-progress';
   var STAGE_KEY = 'tdb_avatar_stage_v2';
+  var FALLBACK_TEMPLATE_ID = 'ancient-wanderer-svg-template';
+  var FALLBACK_WRAP_ID = 'golden-road-avatar-fallback';
+  var FAMILY_KEYS = ['family-code', 'tdb_family_link_code'];
+  var fallbackMode = false;
+  var fallbackObserver = null;
 
   var STAGES = [
     { id: 'village', min: 0, max: 10, tag: 'Village', title: 'Rising Defender', look: 'helmet + shield', crestEvolution: 'basic crest', face: '🛡️', flags: { helmet: true, breastplate: false, belt: true, shield: true, sword: false, swordGlow: false } },
@@ -15,6 +20,86 @@
   function safeInt(n) {
     var x = parseInt(String(n || '0'), 10);
     return isNaN(x) ? 0 : x;
+  }
+
+  function ensureWinScoreSeeded() {
+    try {
+      if (localStorage.getItem(WIN_SCORE_KEY) == null) {
+        localStorage.setItem(WIN_SCORE_KEY, '0');
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  function getFamilyCode() {
+    for (var i = 0; i < FAMILY_KEYS.length; i++) {
+      try {
+        var raw = localStorage.getItem(FAMILY_KEYS[i]);
+        var code = String(raw || '').trim();
+        if (code) return code;
+      } catch (e) {}
+    }
+    return '';
+  }
+
+  function buildFallbackSvg() {
+    var wrap = document.createElement('div');
+    wrap.id = FALLBACK_WRAP_ID;
+    wrap.setAttribute('aria-label', 'Ancient Wanderer avatar');
+    wrap.style.cssText = 'position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(210px,86%);display:flex;flex-direction:column;align-items:center;gap:0.45rem;z-index:2;pointer-events:none;';
+
+    var visual = document.createElement('div');
+    visual.style.cssText = 'position:relative;width:100%;max-width:180px;padding:0.45rem;border-radius:14px;border:1px solid rgba(250,204,21,0.48);background:linear-gradient(180deg,rgba(10,14,24,0.86),rgba(10,14,24,0.62));box-shadow:0 8px 24px rgba(2,6,23,0.42);';
+
+    var template = document.getElementById(FALLBACK_TEMPLATE_ID);
+    if (template && 'content' in template && template.content.firstElementChild) {
+      visual.appendChild(template.content.firstElementChild.cloneNode(true));
+    } else {
+      visual.innerHTML = '<svg viewBox="0 0 120 120" width="100%" height="100%" aria-hidden="true"><rect x="36" y="26" width="48" height="62" rx="18" fill="#cbb79a" stroke="#d6c39f" stroke-width="2"/><rect x="42" y="38" width="36" height="44" rx="14" fill="#efe2c7" opacity="0.75"/><circle cx="60" cy="23" r="11" fill="#f6dcae"/><path d="M86 34 L96 30 L100 96 L90 100 Z" fill="#8b6b3f"/><rect x="50" y="86" width="8" height="20" rx="3" fill="#6a4a2e"/><rect x="62" y="86" width="8" height="20" rx="3" fill="#6a4a2e"/></svg>';
+    }
+
+    var code = getFamilyCode();
+    if (code) {
+      var crest = document.createElement('span');
+      var shortCode = code.length > 12 ? code.slice(0, 12) + '...' : code;
+      crest.textContent = 'Crest ' + shortCode;
+      crest.style.cssText = 'position:absolute;right:8px;top:8px;display:inline-flex;align-items:center;gap:0.25rem;padding:0.08rem 0.4rem;border-radius:999px;border:1px solid rgba(250,204,21,0.58);background:rgba(250,204,21,0.2);color:#fde68a;font-size:0.7rem;font-weight:700;line-height:1.2;';
+      visual.appendChild(crest);
+    }
+
+    var label = document.createElement('p');
+    label.textContent = 'Ancient Wanderer';
+    label.style.cssText = 'margin:0;color:#fde68a;font-weight:700;font-size:0.86rem;letter-spacing:0.01em;';
+
+    wrap.appendChild(visual);
+    wrap.appendChild(label);
+    return wrap;
+  }
+
+  function renderGoldenRoadFallback() {
+    if (!fallbackMode) return;
+    var map = document.getElementById('golden-road-map');
+    if (!map) return;
+    if (!map.style.position) map.style.position = 'relative';
+    var existing = document.getElementById(FALLBACK_WRAP_ID);
+    if (existing && existing.parentNode !== map) existing.remove();
+    if (!existing) map.appendChild(buildFallbackSvg());
+  }
+
+  function removeGoldenRoadFallback() {
+    var el = document.getElementById(FALLBACK_WRAP_ID);
+    if (el) el.remove();
+  }
+
+  function watchGoldenRoadFallback() {
+    if (!fallbackMode || fallbackObserver) return;
+    var map = document.getElementById('golden-road-map');
+    if (!map) return;
+    fallbackObserver = new MutationObserver(function () {
+      renderGoldenRoadFallback();
+    });
+    fallbackObserver.observe(map, { childList: true });
   }
 
   function readWins() {
@@ -113,6 +198,17 @@
     if (!prev || prev.id !== stage.id) {
       document.dispatchEvent(new CustomEvent('tdb:avatar-stage-unlocked', { detail: { wins: w, stage: stage, previous: prev } }));
     }
+    if (fallbackMode && w > 0) {
+      fallbackMode = false;
+      if (fallbackObserver) {
+        fallbackObserver.disconnect();
+        fallbackObserver = null;
+      }
+      removeGoldenRoadFallback();
+    } else if (fallbackMode && w === 0) {
+      renderGoldenRoadFallback();
+      watchGoldenRoadFallback();
+    }
     return stage;
   }
 
@@ -128,8 +224,12 @@
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { syncAvatarProgress(readWins()); });
+    document.addEventListener('DOMContentLoaded', function () {
+      fallbackMode = ensureWinScoreSeeded();
+      syncAvatarProgress(readWins());
+    });
   } else {
+    fallbackMode = ensureWinScoreSeeded();
     syncAvatarProgress(readWins());
   }
 })();

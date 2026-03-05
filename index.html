@@ -277,7 +277,7 @@
           <a href="/kids/" class="kids-battle-home-banner" role="region" aria-label="Kids Battle – Swipe Bible stories">
             New! Kids Battle – Swipe Bible stories, pray, doodle! ⚔️🖍️
           </a>
-          <p id="kids-beta-count" class="kids-beta-count" aria-live="polite">Join now—spots filling fast!</p>
+          <p id="kids-beta-count" class="kids-beta-count" aria-live="polite">Kids Battle beta is open—jump in.</p>
         </div>
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
@@ -336,6 +336,7 @@
         </div>
         <div class="glass util-mt-0_5" id="verse-rotator-home" role="region" aria-label="Random KJV verse">
           <h3 class="section-divider util-mt-0">Fresh KJV Verse</h3>
+          <p class="section-note verse-rotator-loading-note">Loading today's verse...</p>
           <p id="verse-rotator-home-ref" class="section-note util-mb-0_5">Loading…</p>
           <p id="verse-rotator-home-text" class="section-note util-mb-0"></p>
         </div>
@@ -384,7 +385,6 @@
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </div>
         </div>
-        <p class="hero-slogan-one-line home-tagline" id="hero-tagline" data-toolbox-drawer="daily">Less scroll, more soul.</p>
         <div class="toolbox-cards" data-toolbox-drawer="church">
           <h2 class="section-divider">Church &amp; Teams</h2>
           <div class="toolbox-card-grid">
@@ -407,7 +407,7 @@
           <h3 class="section-divider util-mt-0">Do unto others.</h3>
           <p class="section-note util-mb-0_5">Share today's verse with someone who needs it. One tap—you might change their day.</p>
           <button type="button" id="org-share-verse-btn" class="btn btn-primary">Share this verse</button>
-          <p class="section-note util-mt-0_5 util-mb-0">Join the cause. Thousands start their day here—then pass it on.</p>
+          <p class="section-note util-mt-0_5 util-mb-0">Pass today's verse to one person who needs encouragement.</p>
         </div>
         <div class="bible-studies-banner-teaser glass util-mt-0_5" role="region" aria-label="Free Bible Studies" data-toolbox-drawer="deep">
           <h3 class="section-divider util-mt-0">Free Bible Studies</h3>
@@ -462,6 +462,27 @@
             </div>
             <p id="family-link-status" class="section-note util-mb-0"></p>
             <div id="golden-road-map" class="deep-curriculum-map util-mt-0_5" aria-label="Streets of gold trail"></div>
+            <template id="ancient-wanderer-svg-template">
+              <svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Ancient Wanderer with linen tunic and staff">
+                <defs>
+                  <linearGradient id="wanderer-linen" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#efe2c7"></stop>
+                    <stop offset="100%" stop-color="#cbb79a"></stop>
+                  </linearGradient>
+                  <linearGradient id="wanderer-staff" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#a27b49"></stop>
+                    <stop offset="100%" stop-color="#5c3f25"></stop>
+                  </linearGradient>
+                </defs>
+                <circle cx="60" cy="23" r="11" fill="#f6dcae"></circle>
+                <path d="M36 44c0-11 9-20 20-20h8c11 0 20 9 20 20v43H36z" fill="url(#wanderer-linen)" stroke="#d6c39f" stroke-width="2"></path>
+                <path d="M42 50h36v35c-6 4-12 6-18 6s-12-2-18-6z" fill="#ffffff" opacity="0.22"></path>
+                <rect x="90" y="28" width="10" height="74" rx="4" fill="url(#wanderer-staff)"></rect>
+                <circle cx="95" cy="24" r="5" fill="#caa26a"></circle>
+                <rect x="50" y="86" width="8" height="20" rx="3" fill="#6a4a2e"></rect>
+                <rect x="62" y="86" width="8" height="20" rx="3" fill="#6a4a2e"></rect>
+              </svg>
+            </template>
           </div>
         </section>
         <section class="glass util-mt-0_5" data-toolbox-drawer="deep" aria-label="Verse rotator search">
@@ -485,6 +506,10 @@
             <p class="section-note util-mb-0_25">Family code: <strong id="lineage-crest-code">household-local</strong> • members: <strong id="lineage-crest-members">1</strong></p>
             <p class="section-note util-mb-0">Historical roots first, then Tier 2 branches A-Z.</p>
           </div>
+          <div class="lineage-controls" aria-label="Lineage filters">
+            <input id="lineage-search" type="search" placeholder="Search lineage (e.g. Beriah)" aria-label="Search lineage names">
+            <button id="lineage-tier2-toggle" type="button" class="btn btn-secondary" aria-expanded="false" aria-controls="lineage-tree-list">Show Tier 2 branches</button>
+          </div>
           <div id="lineage-tree-list" class="lineage-tree-list" role="list" aria-label="Historical lineage timeline"></div>
         </section>
         <div id="mac-daddy-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Mac Daddy armor editor">
@@ -504,7 +529,7 @@
             </div>
           </div>
         </div>
-        <p class="section-note beta-badge">Beta – First 100 get early perks.</p>
+        <p class="section-note beta-badge">Beta access is rolling out in waves.</p>
         <p class="section-note beta-progress hidden" id="beta-progress-wrap" aria-live="polite">Beta – <span id="beta-warriors-count">0</span> warriors in. First 100 get early perks.</p>
         <details class="home-accordion" id="accordion-search-options" data-toolbox-drawer="battle">
           <summary class="home-accordion-summary">More search options & topics</summary>
@@ -803,7 +828,7 @@
             <a class="btn btn-secondary" href="reading-plan.html">7-Day Reading Plan</a>
             <a class="btn btn-secondary" href="pricing.html">Plans &amp; Pricing</a>
           </div>
-          <p class="section-note util-mt-0_75">Battle Pro: $9.99/mo — streak-proof, offline, wins tracked. First 50 get a free month. <strong>Limited spots—claim now.</strong> <a href="pricing.html">See plans</a>.</p>
+          <p class="section-note util-mt-0_75">Battle Pro: $19/mo — streak-proof, offline, wins tracked. First 50 get a free month. <strong>Limited spots—claim now.</strong> <a href="pricing.html">See plans</a>.</p>
         </section>
         <section class="glass">
           <h2 class="section-divider">How It Helps</h2>
@@ -977,12 +1002,12 @@
       <div class="modal-inner glass battle-pro-upgrade-inner">
         <button type="button" class="intent-modal-close" id="battle-pro-upgrade-close" aria-label="Dismiss">×</button>
         <h2 id="battle-pro-upgrade-title" class="section-divider">Ready to go deeper?</h2>
-        <p class="section-note">Battle Pro: $9.99/mo – streak-proof, offline, wins tracked. First 50 get a free month—claim yours. <strong>Limited spots—claim now.</strong></p>
+        <p class="section-note">Battle Pro: $19/mo – streak-proof, offline, wins tracked. First 50 get a free month—claim yours. <strong>Limited spots—claim now.</strong></p>
         <div class="battle-pro-upgrade-grid">
           <div class="battle-pro-upgrade-card">
             <h3 class="battle-pro-upgrade-card-title">Supporter</h3>
-            <p class="battle-pro-upgrade-price">$5<span class="battle-pro-upgrade-period">/mo</span> or $50<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
-            <p class="section-note pricing-strike util-mt-0_15">Regular $10/mo · $100/yr</p>
+            <p class="battle-pro-upgrade-price">$9<span class="battle-pro-upgrade-period">/mo</span> or $90<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">launch</span></p>
+            <p class="section-note pricing-strike util-mt-0_15">Regular $15/mo · $150/yr</p>
             <p class="section-note util-mt-0_15 util-mb-0_35">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Sync across devices</li>
@@ -993,14 +1018,14 @@
               <li>Private notes</li>
             </ul>
             <div class="cta-group battle-pro-upgrade-cta">
-              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="supporter" data-interval="monthly" aria-label="Choose Supporter monthly">$5/mo (beta)</button>
-              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="supporter" data-interval="yearly" aria-label="Choose Supporter yearly">$50/yr (beta)</button>
+              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="supporter" data-interval="monthly" aria-label="Choose Supporter monthly">$9/mo (launch)</button>
+              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="supporter" data-interval="yearly" aria-label="Choose Supporter yearly">$90/yr (launch)</button>
             </div>
           </div>
           <div class="battle-pro-upgrade-card highlight-card">
             <h3 class="battle-pro-upgrade-card-title">Battle Pro</h3>
-            <p class="battle-pro-upgrade-price">$9.99<span class="battle-pro-upgrade-period">/mo</span> or $99<span class="battle-pro-upgrade-period">/yr</span></p>
-            <p class="section-note util-mt-0_15 util-mb-0_35">Less than a coffee run, more than a lifetime of wins. First 50: first month free.</p>
+            <p class="battle-pro-upgrade-price">$19<span class="battle-pro-upgrade-period">/mo</span> or $190<span class="battle-pro-upgrade-period">/yr</span></p>
+            <p class="section-note util-mt-0_15 util-mb-0_35">Built for serious daily growth. First 50: first month free.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Everything in Supporter</li>
               <li><strong>Wins Report</strong> (streak graphics, share)</li>
@@ -1010,8 +1035,8 @@
               <li>Priority echo visibility</li>
             </ul>
             <div class="cta-group battle-pro-upgrade-cta">
-              <button type="button" class="btn btn-primary battle-pro-choose" data-plan="battlepro" data-interval="monthly" aria-label="Choose Battle Pro monthly">Join Battle Pro – $9.99/mo</button>
-              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="battlepro" data-interval="yearly" aria-label="Choose Battle Pro yearly">$99/yr – Save 33%</button>
+              <button type="button" class="btn btn-primary battle-pro-choose" data-plan="battlepro" data-interval="monthly" aria-label="Choose Battle Pro monthly">Join Battle Pro – $19/mo</button>
+              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="battlepro" data-interval="yearly" aria-label="Choose Battle Pro yearly">$190/yr – Save 2 months</button>
             </div>
           </div>
           <div class="battle-pro-upgrade-card">
@@ -1029,8 +1054,8 @@
           </div>
           <div class="battle-pro-upgrade-card battle-pro-upgrade-card-church">
             <h3 class="battle-pro-upgrade-card-title">Church / Team</h3>
-            <p class="battle-pro-upgrade-price">$10<span class="battle-pro-upgrade-period">/mo</span> or $100<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">beta</span></p>
-            <p class="section-note pricing-strike util-mt-0_15">Regular $20/mo · $200/yr</p>
+            <p class="battle-pro-upgrade-price">$29<span class="battle-pro-upgrade-period">/mo</span> or $290<span class="battle-pro-upgrade-period">/yr</span> <span class="pricing-beta-tag">launch</span></p>
+            <p class="section-note pricing-strike util-mt-0_15">Regular $49/mo · $490/yr</p>
             <p class="section-note util-mt-0_15 util-mb-0_35">Lock in this rate—stay subscribed and keep it for life.</p>
             <ul class="battle-pro-upgrade-benefits">
               <li>Everything in Battle Pro</li>
@@ -1040,8 +1065,8 @@
               <li>Admin dashboard for groups</li>
             </ul>
             <div class="cta-group battle-pro-upgrade-cta">
-              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="church" data-interval="monthly" aria-label="Choose Church monthly">$10/mo (beta)</button>
-              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="church" data-interval="yearly" aria-label="Choose Church yearly">$100/yr (beta)</button>
+              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="church" data-interval="monthly" aria-label="Choose Church monthly">$29/mo (launch)</button>
+              <button type="button" class="btn btn-secondary battle-pro-choose" data-plan="church" data-interval="yearly" aria-label="Choose Church yearly">$290/yr (launch)</button>
             </div>
           </div>
         </div>
@@ -1170,33 +1195,25 @@
       <nav class="footer-quick-links" aria-label="Quick links">
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
+        <a href="bible-tool.html">Bible Tool</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="/kids/">Kids</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <nav class="footer-links" aria-label="Legal and support links">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="approach.html" title="How we respond to feedback and common critiques">How we respond</a>
-        <a href="/kids/">Kids</a>
-        <a href="contact.html">Contact</a>
+        <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a>
+        <a href="mailto:support@todaysdailybattle.com?subject=Unsubscribe%20from%20emails">Unsubscribe</a>
       </nav>
       <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
       <p class="footer-america"><a id="footer-tagline-america" class="footer-link" href="#" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>
-      <p class="footer-pro-promo section-note util-mt-0_5"><strong>Battle Pro:</strong> $9.99/mo (first month free for first 50). Limited spots—claim now. <a href="pricing.html">Sign up now</a>.</p>
+      <p class="footer-pro-promo section-note util-mt-0_5"><strong>Battle Pro:</strong> $19/mo (first month free for first 50). Limited spots—claim now. <a href="pricing.html">Sign up now</a>.</p>
       <p id="footer-rotating-line" class="footer-rotating-line" aria-live="polite">You're not praying alone.</p>
       <p class="footer-powered">Powered by the King James Bible.</p>
       <p class="footer-security section-note">A+ Security – Powered by Cloudflare.</p>
-      <nav class="footer-links" aria-label="Footer links">
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="shop.html">Shop</a>
-        <a href="/kids/">Kids</a>
-        <span class="footer-links-sep" aria-hidden="true">·</span>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <span class="footer-links-sep" aria-hidden="true">·</span>
-        <a href="contact.html">Contact</a>
-        <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a>
-        <a href="mailto:support@todaysdailybattle.com?subject=Unsubscribe%20from%20emails">Unsubscribe</a>
-      </nav>
       <p class="footer-analytics-note">Secure by design—your prayers stay private. We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>

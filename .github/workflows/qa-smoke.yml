@@ -28,5 +28,10 @@ jobs:
 
       - name: Run smoke checks
         env:
-          QA_URL: https://todaysdailybattle.com/index.html
-        run: npm run qa:smoke
+          QA_URL: http://127.0.0.1:4173/index.html
+        run: |
+          python3 -m http.server 4173 >/tmp/qa-smoke-http.log 2>&1 &
+          SERVER_PID=$!
+          sleep 1
+          npm run qa:smoke
+          kill $SERVER_PID || true

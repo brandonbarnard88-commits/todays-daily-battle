@@ -38,6 +38,25 @@
     }
   }
 
+  function hasAuthClient(client) {
+    return !!(client && client.auth && typeof client.auth.getSession === 'function');
+  }
+
+  function sleep(ms) {
+    return new Promise(function (resolve) { setTimeout(resolve, ms); });
+  }
+
+  async function waitForAuthClient(maxMs) {
+    var timeout = Math.max(200, Number(maxMs || 2400));
+    var started = Date.now();
+    var client = createClient();
+    while (!hasAuthClient(client) && (Date.now() - started) < timeout) {
+      await sleep(120);
+      client = createClient();
+    }
+    return hasAuthClient(client) ? client : null;
+  }
+
   function currentPath() {
     return (window.location.pathname || '/').replace(/\/+$/, '') || '/';
   }
@@ -320,7 +339,11 @@
     hideGuestUi();
     var client = createClient();
     var statusEl = document.getElementById('login-status');
-    if (!client || !client.auth || typeof client.auth.getSession !== 'function') {
+    if (!hasAuthClient(client)) {
+      if (isLoginRoute() && statusEl) statusEl.textContent = 'Loading auth...';
+      client = await waitForAuthClient(3200);
+    }
+    if (!hasAuthClient(client)) {
       if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth client unavailable. Reload after config loads.';
       return;
     }

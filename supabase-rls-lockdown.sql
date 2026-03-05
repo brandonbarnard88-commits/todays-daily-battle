@@ -1,3 +1,60 @@
+-- Supabase RLS lockdown for sensitive user data.
+-- Goal: owner-only reads/writes by default; no anon access to personal rows.
+-- Run in Supabase SQL editor as an admin.
+
+-- Helper note:
+-- These policies assume user ownership columns are `user_id` (uuid).
+-- If your table uses a different owner column, adjust USING/WITH CHECK.
+
+-- prayers (if present)
+alter table if exists public.prayers enable row level security;
+drop policy if exists prayers_select_own on public.prayers;
+drop policy if exists prayers_insert_own on public.prayers;
+drop policy if exists prayers_update_own on public.prayers;
+drop policy if exists prayers_delete_own on public.prayers;
+create policy prayers_select_own on public.prayers for select to authenticated using (auth.uid() = user_id);
+create policy prayers_insert_own on public.prayers for insert to authenticated with check (auth.uid() = user_id);
+create policy prayers_update_own on public.prayers for update to authenticated using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy prayers_delete_own on public.prayers for delete to authenticated using (auth.uid() = user_id);
+
+-- adult streaks
+alter table if exists public.adult_streaks enable row level security;
+drop policy if exists adult_streaks_select_own on public.adult_streaks;
+drop policy if exists adult_streaks_insert_own on public.adult_streaks;
+drop policy if exists adult_streaks_update_own on public.adult_streaks;
+drop policy if exists adult_streaks_delete_own on public.adult_streaks;
+create policy adult_streaks_select_own on public.adult_streaks for select to authenticated using (auth.uid() = user_id);
+create policy adult_streaks_insert_own on public.adult_streaks for insert to authenticated with check (auth.uid() = user_id);
+create policy adult_streaks_update_own on public.adult_streaks for update to authenticated using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy adult_streaks_delete_own on public.adult_streaks for delete to authenticated using (auth.uid() = user_id);
+
+-- kid streaks
+alter table if exists public.kid_streaks enable row level security;
+drop policy if exists kid_streaks_select_own on public.kid_streaks;
+drop policy if exists kid_streaks_insert_own on public.kid_streaks;
+drop policy if exists kid_streaks_update_own on public.kid_streaks;
+drop policy if exists kid_streaks_delete_own on public.kid_streaks;
+create policy kid_streaks_select_own on public.kid_streaks for select to authenticated using (auth.uid() = user_id);
+create policy kid_streaks_insert_own on public.kid_streaks for insert to authenticated with check (auth.uid() = user_id);
+create policy kid_streaks_update_own on public.kid_streaks for update to authenticated using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy kid_streaks_delete_own on public.kid_streaks for delete to authenticated using (auth.uid() = user_id);
+
+-- church prayer wall
+alter table if exists public.church_prayer_wall enable row level security;
+drop policy if exists church_prayer_wall_select_own on public.church_prayer_wall;
+drop policy if exists church_prayer_wall_insert_own on public.church_prayer_wall;
+drop policy if exists church_prayer_wall_update_own on public.church_prayer_wall;
+drop policy if exists church_prayer_wall_delete_own on public.church_prayer_wall;
+create policy church_prayer_wall_select_own on public.church_prayer_wall for select to authenticated using (auth.uid() = user_id);
+create policy church_prayer_wall_insert_own on public.church_prayer_wall for insert to authenticated with check (auth.uid() = user_id);
+create policy church_prayer_wall_update_own on public.church_prayer_wall for update to authenticated using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy church_prayer_wall_delete_own on public.church_prayer_wall for delete to authenticated using (auth.uid() = user_id);
+
+-- Lock down public/anon by default for these tables.
+revoke all on table public.prayers from anon;
+revoke all on table public.adult_streaks from anon;
+revoke all on table public.kid_streaks from anon;
+revoke all on table public.church_prayer_wall from anon;
 -- =============================================================================
 -- Supabase RLS Lockdown: only authenticated users read/write their own data.
 -- No anon read on any table. Run in Supabase SQL Editor (or via migration).

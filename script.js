@@ -82,6 +82,24 @@ function safeSessionGet(key) {
   }
 }
 
+/** Confetti with battery saver: skip if <20%, halve particles if <35%. */
+window.tdbConfetti = function (opts) {
+  if (typeof confetti !== 'function') return;
+  var o = opts || {};
+  var baseCount = o.particleCount || 60;
+  var run = function (count) {
+    try { confetti(Object.assign({}, o, { particleCount: count })); } catch (e) {}
+  };
+  if (navigator.getBattery) {
+    navigator.getBattery().then(function (b) {
+      if (b && b.level < 0.2) return;
+      run(b && b.level < 0.35 ? Math.floor(baseCount / 2) : baseCount);
+    }).catch(function () { run(baseCount); });
+  } else {
+    run(baseCount);
+  }
+};
+
 /** Clear all tdb_* keys from localStorage and sessionStorage. Prevents overwrites from affecting other sites. Use for "Clear local data" control. */
 function clearLocalData() {
   if (!window.confirm('Reset prayers, notes, streaks—fresh start! All data on this device will be cleared. You will stay signed in. Continue?')) return;
@@ -352,27 +370,8 @@ function updateArmorChainDisplay() {
   if (households > 0) el.classList.remove('hidden');
   else el.classList.add('hidden');
 }
-// Admin: Supabase app_metadata.role === 'admin' OR email in MASTER_EMAIL / MASTER_EMAIL_OBFUSCATED / MASTER_EMAILS.
+// Admin: strict role-based access only (app_metadata.role === 'admin').
 let isMasterUser = false;
-
-function getMasterEmails() {
-  const cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
-  if (!cfg) return [];
-  const out = [];
-  if (cfg.MASTER_EMAILS && Array.isArray(cfg.MASTER_EMAILS)) {
-    cfg.MASTER_EMAILS.forEach(function (e) { if (e && typeof e === 'string') out.push(e.toLowerCase()); });
-  }
-  if (cfg.MASTER_EMAIL && typeof cfg.MASTER_EMAIL === 'string') {
-    out.push(cfg.MASTER_EMAIL.toLowerCase());
-  }
-  if (cfg.MASTER_EMAIL_OBFUSCATED && typeof cfg.MASTER_EMAIL_OBFUSCATED === 'string') {
-    const div = document.createElement('div');
-    div.innerHTML = cfg.MASTER_EMAIL_OBFUSCATED;
-    const decoded = (div.textContent || div.innerText || '').trim();
-    if (decoded) out.push(decoded.toLowerCase());
-  }
-  return out;
-}
 
 (function () {
   var lastError = null;
@@ -583,8 +582,7 @@ function isProUser() {
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
   currentUserEmail = email;
-  const masterEmails = getMasterEmails();
-  isMasterUser = user?.app_metadata?.role === 'admin' || (email && masterEmails.indexOf(email) !== -1);
+  isMasterUser = user?.app_metadata?.role === 'admin';
   const authSection = document.getElementById('auth-section');
   if (!authSection) return;
   let badge = document.getElementById('master-badge');
@@ -1519,6 +1517,31 @@ function isSupabaseConfigured() {
     !supabaseKey.includes('...');
 }
 
+function isSensitiveRouteForAuthGuard() {
+  const path = (window.location.pathname || '').replace(/\/+$/, '') || '/';
+  const base = (path.split('/').pop() || '').toLowerCase();
+  return base === 'admin' || base === 'admin.html' || base === 'debug' || base === 'debug.html';
+}
+
+function hasSensitiveQueryFlags() {
+  try {
+    const params = new URLSearchParams(window.location.search || '');
+    const debug = (params.get('debug') || '').toLowerCase();
+    const wipe = (params.get('wipe') || '').toLowerCase();
+    return debug === '1' || debug === 'true' || wipe === '1' || wipe === 'true';
+  } catch (e) {
+    return false;
+  }
+}
+
+function redirectToLoginIfGuest(session) {
+  if (session && session.user) return false;
+  if (!isSensitiveRouteForAuthGuard() && !hasSensitiveQueryFlags()) return false;
+  const next = (window.location.pathname || '/') + (window.location.search || '') + (window.location.hash || '');
+  window.location.replace('login.html?next=' + encodeURIComponent(next));
+  return true;
+}
+
 function initSupabaseClient() {
   if (supabaseClient) return true;
   const sdk = getSupabaseGlobal();
@@ -1977,9 +2000,7 @@ function markTodayAsPrayed() {
   if (typeof showEliteToast === 'function') showEliteToast('Battle won! See you tomorrow.');
   var toastEl = document.getElementById('elite-toast');
   if (toastEl) toastEl.classList.add('elite-toast-done');
-  if (typeof confetti === 'function') {
-    try { confetti({ particleCount: 60, spread: 70, origin: { y: 0.7 } }); } catch (e) {}
-  }
+  if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 60, spread: 70, origin: { y: 0.7 } });
   applyDoneForTodayUI();
 }
 
@@ -2190,6 +2211,62 @@ function getAuthRedirectBase() {
     return 'https://todaysdailybattle.com';
   }
   return window.location.origin;
+}
+
+/** Sign in with Google or Apple via Supabase OAuth. Redirects to provider, then back to site. */
+async function signInWithOAuthProvider(provider, setStatusFn) {
+  const setStatus = setStatusFn || setAuthStatus;
+  if (!supabaseClient) {
+    setStatus('Loading sign-in…', 'info');
+    const ready = await ensureSupabaseLoaded();
+    if (!ready || !supabaseClient) {
+      setStatus('Auth is still loading. Try again in a moment.', 'error');
+      return;
+    }
+  }
+  setStatus('Redirecting to ' + (provider === 'google' ? 'Google' : 'Apple') + '…', 'info');
+  const baseUrl = getAuthRedirectBase();
+  const { data, error } = await supabaseClient.auth.signInWithOAuth({
+    provider: provider,
+    options: { redirectTo: baseUrl + '/' }
+  });
+  if (error) {
+    setStatus(error.message || 'Sign-in failed. Try again.', 'error');
+    if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'oauth', provider: provider });
+    return;
+  }
+  if (data?.url) {
+    window.location.href = data.url;
+  } else {
+    setStatus('Could not start sign-in. Try again.', 'error');
+  }
+}
+
+/** Add Google and Apple OAuth buttons to auth-section if not present. */
+function ensureOAuthButtons() {
+  const authSection = document.getElementById('auth-section');
+  if (!authSection || document.getElementById('auth-oauth-wrap')) return;
+  const wrap = document.createElement('div');
+  wrap.id = 'auth-oauth-wrap';
+  wrap.className = 'auth-oauth-wrap';
+  const googleBtn = document.createElement('button');
+  googleBtn.type = 'button';
+  googleBtn.className = 'btn btn-secondary auth-oauth-btn';
+  googleBtn.id = 'auth-google-btn';
+  googleBtn.setAttribute('aria-label', 'Sign in with Google');
+  googleBtn.textContent = 'Sign in with Google';
+  const appleBtn = document.createElement('button');
+  appleBtn.type = 'button';
+  appleBtn.className = 'btn btn-secondary auth-oauth-btn';
+  appleBtn.id = 'auth-apple-btn';
+  appleBtn.setAttribute('aria-label', 'Sign in with Apple');
+  appleBtn.textContent = 'Sign in with Apple';
+  googleBtn.addEventListener('click', function () { signInWithOAuthProvider('google'); });
+  appleBtn.addEventListener('click', function () { signInWithOAuthProvider('apple'); });
+  wrap.appendChild(googleBtn);
+  wrap.appendChild(appleBtn);
+  const benefit = authSection.querySelector('.auth-benefit');
+  authSection.insertBefore(wrap, benefit ? benefit.nextSibling : authSection.firstChild);
 }
 
 function wireAnalyticsBeacon() {
@@ -2626,6 +2703,42 @@ function wireRealPrayerCounter() {
 
 function wirePrayerCounter() {
   wireRealPrayerCounter();
+}
+
+function wireKidsBetaCount() {
+  var el = document.getElementById('kids-beta-count');
+  if (!el) return;
+  var FALLBACK = 'Join now—spots filling fast!';
+  function updateCount(n) {
+    if (n != null && !isNaN(n) && n >= 0) {
+      el.textContent = n + ' families joined Kids Battle Beta!';
+    } else {
+      el.textContent = FALLBACK;
+    }
+  }
+  function fetchCount() {
+    if (!navigator.onLine) {
+      el.textContent = FALLBACK;
+      return;
+    }
+    var client = supabaseClient;
+    if (!client) {
+      el.textContent = FALLBACK;
+      return;
+    }
+    client.rpc('get_waitlist_count').then(function (res) {
+      if (res && !res.error && res.data != null) {
+        var n = typeof res.data === 'number' ? res.data : parseInt(res.data, 10);
+        updateCount(n);
+      } else {
+        el.textContent = FALLBACK;
+      }
+    }).catch(function () {
+      el.textContent = FALLBACK;
+    });
+  }
+  fetchCount();
+  setInterval(fetchCount, 60000);
 }
 
 function updateSidebarStreak(streakCount) {
@@ -3350,7 +3463,7 @@ function wireGodModePrayerEcho() {
   async function fetchAndRenderEcho() {
     if (isSacredSilence()) {
       if (loadingEl) loadingEl.style.display = 'none';
-      if (listEl) listEl.style.display = 'none';
+      if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
       if (presenceEl) presenceEl.style.display = 'none';
       if (joinBtn) joinBtn.style.display = 'none';
       if (sacredEl) sacredEl.style.display = 'block';
@@ -3358,24 +3471,33 @@ function wireGodModePrayerEcho() {
     }
     if (sacredEl) sacredEl.style.display = 'none';
     if (!supabaseClient) {
+      if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
       if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Connect to see recent prayers.'; }
       return;
     }
     if (!isPrayersApiAvailable()) {
+      if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
       if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
       return;
     }
+    if (listEl) {
+      listEl.style.display = 'block';
+      listEl.innerHTML = '<li class="prayer-echo-item prayer-echo-skeleton" aria-hidden="true"><span class="prayer-echo-candle"></span><span class="prayer-echo-text"></span></li><li class="prayer-echo-item prayer-echo-skeleton" aria-hidden="true"><span class="prayer-echo-candle"></span><span class="prayer-echo-text"></span></li><li class="prayer-echo-item prayer-echo-skeleton" aria-hidden="true"><span class="prayer-echo-candle"></span><span class="prayer-echo-text"></span></li>';
+    }
+    if (loadingEl) loadingEl.style.display = 'none';
     var echoTimeout = setTimeout(function () {
-      if (loadingEl && (loadingEl.textContent.indexOf('Loading') !== -1 || loadingEl.textContent.indexOf('Preparing') !== -1)) {
-        loadingEl.style.display = 'block';
-        loadingEl.textContent = 'Prayers will appear here when you\'re online.';
+      if (listEl && listEl.querySelector('.prayer-echo-skeleton')) {
+        listEl.innerHTML = '';
+        listEl.style.display = 'none';
+        if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Prayers will appear when you\'re online.'; }
       }
-    }, 8000);
+    }, 4000);
     try {
       var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count, family_name').order('created_at', { ascending: false }).limit(5);
       clearTimeout(echoTimeout);
       if (res && is404Like(res)) {
         setPrayersApiUnavailable();
+        if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
         if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
         return;
       }
@@ -3452,11 +3574,13 @@ function wireGodModePrayerEcho() {
     } catch (e) {
       setPrayersApiUnavailable();
       clearTimeout(echoTimeout);
+      if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
       if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Could not load recent prayers.'; }
     }
   }
   window.__refreshPrayerEcho = fetchAndRenderEcho;
   if (!isPrayersApiAvailable()) {
+    if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
     if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
   } else {
     fetchAndRenderEcho();
@@ -3762,6 +3886,8 @@ function wireArmorBuilderModal() {
   if (typeof updateArmorChainDisplay === 'function') updateArmorChainDisplay();
   var sidebarLink = document.getElementById('sidebar-family-armor-stories');
   if (sidebarLink) sidebarLink.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
+  var navFamilyArmor = document.getElementById('nav-family-armor');
+  if (navFamilyArmor) navFamilyArmor.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
   if (window.location.hash === '#armor-builder-btn') {
     setTimeout(function () {
       openModal(true);
@@ -3788,6 +3914,8 @@ function wireFamilyNameModal() {
     if (input) { input.value = getFamilyName(); input.focus(); }
   }
   if (addFamilyBtn) addFamilyBtn.addEventListener('click', openModal);
+  var navAddHousehold = document.getElementById('nav-add-household');
+  if (navAddHousehold) navAddHousehold.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   saveBtn.addEventListener('click', function () {
     var val = (input && input.value) ? input.value.trim() : '';
@@ -4150,13 +4278,13 @@ function startChallenge() {
   trackEvent('streak_started');
   showEliteToast('Welcome to the fight! Here\'s your first badge: New Warrior 🔥');
   (function day1SurpriseConfetti() {
-    if (typeof confetti !== 'function') return;
-    confetti({ particleCount: 80, spread: 70, origin: { y: 0.65 } });
+    if (typeof window.tdbConfetti !== 'function') return;
+    window.tdbConfetti({ particleCount: 80, spread: 70, origin: { y: 0.65 } });
     var end = Date.now() + 5000;
     (function frame() {
       if (Date.now() > end) return;
-      confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: Math.random(), y: 0.7 }, colors: ['#a78bfa', '#fbbf24', '#34d399', '#f87171'] });
-      confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: Math.random(), y: 0.7 }, colors: ['#a78bfa', '#fbbf24', '#34d399', '#f87171'] });
+      window.tdbConfetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: Math.random(), y: 0.7 }, colors: ['#a78bfa', '#fbbf24', '#34d399', '#f87171'] });
+      window.tdbConfetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: Math.random(), y: 0.7 }, colors: ['#a78bfa', '#fbbf24', '#34d399', '#f87171'] });
       requestAnimationFrame(frame);
     })();
   })();
@@ -4247,7 +4375,7 @@ function updateDailyBattleStreak() {
       else if (nextCount === 14) showEliteToast('You\'re on fire! 🔥');
       else if (nextCount === 30) {
         showEliteToast('30-Day Legend 🏆 You did it!');
-        if (typeof confetti === 'function') try { confetti({ particleCount: 80, spread: 70 }); } catch (e) {}
+        if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 80, spread: 70 });
       }
       else if (nextCount === 60) showEliteToast('60-Day Victor! Unshakeable. 🏆');
       else showEliteToast('You\'re on fire! 🔥');
@@ -5198,6 +5326,12 @@ function renderDailyVerse() {
   card.classList.add('verse-card-loaded');
 }
 
+if (typeof window !== 'undefined') {
+  window.getDailyVerseRef = getDailyVerseRef;
+  window.getBibleVerseText = getBibleVerseText;
+  Object.defineProperty(window, 'bible', { get: function () { return bible; }, configurable: true });
+}
+
 function shareDailyBattle() {
   trackEvent('share_daily_battle');
   const shareText = buildDailyBattleShareText();
@@ -5715,13 +5849,14 @@ if (c && c.ref) {
       usedAnchorVerse = true;
       battle = { ref: DEFAULT_DAILY_VERSE_REF, reflection: 'When today\'s verse isn\'t loading, anchor here. God has not given us a spirit of fear.', prayer: 'Lord, help me walk in power, love, and a sound mind today. Amen.' };
     } else {
-      if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
-      card.classList.remove('hero-verse-card-skeleton');
-      card.innerHTML = '<p class="empty">Verse not available.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
-      return;
+      /* Last resort: use bundled fallback so we never show "Verse not available" */
+      var bundle = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.', reflection: '', prayer: '' };
+      if (typeof console !== 'undefined' && console.warn) console.warn('TDB: Verse fallback used—offline or Supabase empty. Showing:', bundle.ref);
+      usedAnchorVerse = true;
+      battle = { ref: bundle.ref, verse: bundle.text, reflection: bundle.reflection || 'When today\'s verse isn\'t loading, anchor here.', prayer: bundle.prayer || 'Lord, help me stand firm today. Amen.' };
     }
   }
-  const verseText = verseTextFromCache || getBibleVerseText(battle.ref);
+  const verseText = verseTextFromCache || getBibleVerseText(battle.ref) || (battle.verse || '');
   if (dailyBattleFallbackTimeoutId) {
     clearTimeout(dailyBattleFallbackTimeoutId);
     dailyBattleFallbackTimeoutId = null;
@@ -7627,6 +7762,8 @@ function updateAuthUI(session) {
   const loginBtn = document.getElementById('login-btn');
   const forgotBtn = document.getElementById('forgot-btn');
   const logoutBtn = document.getElementById('logout-btn');
+  const authOauthWrap = document.getElementById('auth-oauth-wrap');
+  const authModalOauth = document.getElementById('auth-modal-oauth');
   const authStatus = document.getElementById('auth-status');
   let loggedInEl = document.getElementById('auth-logged-in');
   if (session) {
@@ -7637,6 +7774,8 @@ function updateAuthUI(session) {
     if (signupBtn) { signupBtn.classList.add('hidden'); }
     if (loginBtn) { loginBtn.classList.add('hidden'); }
     if (forgotBtn) { forgotBtn.classList.add('hidden'); }
+    if (authOauthWrap) { authOauthWrap.classList.add('hidden'); }
+    if (authModalOauth) { authModalOauth.classList.add('hidden'); }
     if (logoutBtn) { logoutBtn.classList.remove('hidden'); }
     if (!loggedInEl) {
       loggedInEl = document.createElement('span');
@@ -7655,6 +7794,8 @@ function updateAuthUI(session) {
     if (signupBtn) { signupBtn.classList.remove('hidden'); }
     if (loginBtn) { loginBtn.classList.remove('hidden'); }
     if (forgotBtn) { forgotBtn.classList.remove('hidden'); }
+    if (authOauthWrap) { authOauthWrap.classList.remove('hidden'); }
+    if (authModalOauth) { authModalOauth.classList.remove('hidden'); }
     if (logoutBtn) { logoutBtn.classList.add('hidden'); }
     if (loggedInEl) loggedInEl.classList.add('hidden');
     const headerNudge = document.querySelector('.header-signin-nudge');
@@ -10470,6 +10611,8 @@ function startStudy(id) {
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
+  var eraseBtn = document.getElementById('erase-all-btn');
+  if (eraseBtn) eraseBtn.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.clear(); sessionStorage.clear(); } catch (_) {} window.location.reload(); });
 
   /* Wire search - hero has 30 chips hardcoded (never empty); accordion gets dynamic from TDB_TOPICS */
   try {
@@ -10814,6 +10957,7 @@ function startStudy(id) {
       }
     });
     wirePrayerCounter();
+    wireKidsBetaCount();
   })();
   wireFloatingVoicePray();
   wireCallGodBtn();
@@ -10855,6 +10999,7 @@ function startStudy(id) {
     benefit.textContent = 'Log in to save your streak, favorite verses, and custom plans across devices.';
     authSection.insertBefore(benefit, authSection.firstChild);
   }
+  if (typeof ensureOAuthButtons === 'function') ensureOAuthButtons();
   var quickActions = document.querySelector('.quick-actions');
   if (quickActions) {
     var buttons = Array.from(quickActions.querySelectorAll('.btn'));
@@ -11168,6 +11313,7 @@ function startStudy(id) {
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     if (typeof runAutoPrefetchIfNeeded === 'function') runAutoPrefetchIfNeeded();
   } else {
+    if (redirectToLoginIfGuest(null)) return;
     updateAuthUI(null);
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     applyRoleAccess();
@@ -11186,6 +11332,7 @@ function startStudy(id) {
 
   if (supabaseClient) {
     supabaseClient.auth.onAuthStateChange(async (_event, session) => {
+    if (redirectToLoginIfGuest(session)) return;
     currentUserId = session?.user?.id || null;
     updateMasterStatus(session?.user || null);
     if (isOnAdminPage() && !isMasterUser) {
@@ -11596,6 +11743,14 @@ function startStudy(id) {
     if (closeBtn) closeBtn.addEventListener('click', function () { closeAuthModal(); });
     modal.addEventListener('click', function (e) {
       if (e.target === modal) closeAuthModal();
+    });
+    var googleModalBtn = document.getElementById('auth-modal-google-btn');
+    var appleModalBtn = document.getElementById('auth-modal-apple-btn');
+    if (googleModalBtn) googleModalBtn.addEventListener('click', function () {
+      signInWithOAuthProvider('google', setModalStatus);
+    });
+    if (appleModalBtn) appleModalBtn.addEventListener('click', function () {
+      signInWithOAuthProvider('apple', setModalStatus);
     });
     tabs.forEach(function (t) {
       t.addEventListener('click', function () {
@@ -12690,6 +12845,10 @@ function startStudy(id) {
   const logoutBtn = document.getElementById('logout-btn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', async () => {
+    if (typeof window.tdbSecureLogout === 'function') {
+      await window.tdbSecureLogout();
+      return;
+    }
     if (!supabaseClient) {
       ensureSupabaseLoaded();
       setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
@@ -12698,7 +12857,12 @@ function startStudy(id) {
       if (typeof unsubscribeFromSharedPrayers === 'function') unsubscribeFromSharedPrayers();
       const { error } = await supabaseClient.auth.signOut();
     setAuthStatus(error ? error.message : 'Logged out!', error ? 'error' : 'success');
-    if (!error) updateAuthUI(null);
+    if (!error) {
+      try { localStorage.clear(); } catch (e) {}
+      try { sessionStorage.clear(); } catch (e) {}
+      if (!error) updateAuthUI(null);
+      window.location.href = '/';
+    }
     });
   }
 

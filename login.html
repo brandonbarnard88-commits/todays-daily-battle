@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Login • Today's Daily Battle</title>
+  <meta name="description" content="Secure login for Today's Daily Battle.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/login.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="manifest" href="manifest.json">
+  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script type="module" src="config.js"></script>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Secure Login</span>
+      </div>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <section class="glass" style="max-width:560px;margin:0 auto;">
+          <h1 class="section-divider">Sign In</h1>
+          <p class="section-note">Default deny on admin/debug routes. Sign in to continue.</p>
+          <p class="section-note"><strong id="login-mode-tag">Sign in</strong></p>
+          <form id="login-form" class="newsletter-form" autocomplete="on">
+            <label for="login-email" class="sr-only">Email</label>
+            <input id="login-email" type="email" placeholder="Email" required autocomplete="email">
+            <label for="login-password" class="sr-only">Password</label>
+            <input id="login-password" type="password" placeholder="Password" required autocomplete="current-password">
+            <button type="submit" class="btn btn-primary">Continue</button>
+          </form>
+          <p id="login-status" class="section-note" aria-live="polite"></p>
+          <p class="section-note util-mb-0">
+            Need an account? <a href="/login.html?mode=signup">Create one</a>.
+            Or go to <a href="/#auth-section">home auth</a>.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="auth.js?v=20260314" defer></script>
+</body>
+</html>

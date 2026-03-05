@@ -23,9 +23,10 @@
   <meta name="twitter:title" content="Today's Daily Battle — The Bible Companion You'll Use Every Day">
   <meta name="twitter:description" content="One verse, one moment, every day. Less scroll, more soul. Topic search, streaks, tools for families and pastors.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/hero-sunrise-bible.png">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260309p" as="style" nonce="tdb2025">
-  <link rel="stylesheet" href="styles.css?v=20260309p" nonce="tdb2025">
+  <link rel="stylesheet" href="styles.css?v=20260310" nonce="tdb2025">
   <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;scroll-margin-top:5rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;min-height:3rem!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;min-height:2.5rem!important;} #tdb-search{min-width:12rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;pointer-events:auto!important;overflow:visible!important;}
 #quick-search-hero,.search-hero{overflow:visible!important;}#quick-actions-hero .topic-chip,#quick-actions-hero .quick-topic,#quick-actions-hero [data-topic]{pointer-events:auto!important;cursor:pointer!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
   <link rel="manifest" href="manifest.json">
@@ -37,6 +38,7 @@
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js?v=20260309"></script>
   <script src="script.js?v=20260313" defer></script>
+  <script src="toolbox-tabs.js" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" integrity="sha384-BkEIW/B4JV9w6pRfBRgZtAcYDk5goH1nUI49rLo8s5PSHgTfgxWBczRVJx+fv5kP" crossorigin="anonymous" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" integrity="sha384-MiR5OstmujbPpU5nzD986OTopb4Kveb2WX4EmKuqeCU1hCWlxMYL8gBBY7vDSYLF" crossorigin="anonymous" defer></script>
   <script src="firebase-push.js" defer></script>
@@ -97,20 +99,46 @@
     });
   </script>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <div id="promo-banner" class="promo-banner promo-banner-fixed" role="region" aria-label="Limited time offer">
-    <div class="promo-banner-inner">
-      <span class="promo-banner-headline">⚔️ FIRST 50 BATTLE PRO USERS GET 1 MONTH FREE! ⚔️</span>
-      <span class="promo-banner-sub"><span id="promo-banner-days" class="promo-banner-days">Ends soon!</span> — join now &amp; lock in $9.99/mo forever. <a href="pricing.html" class="promo-banner-cta">Claim it</a></span>
-    </div>
-    <button type="button" id="promo-banner-dismiss" class="promo-banner-dismiss" aria-label="Dismiss">×</button>
-  </div>
-  <div id="org-movement-cta" class="org-movement-cta hidden" role="region" aria-label="Movement site links">
-    <div class="org-movement-cta-inner">
-      <span class="org-movement-label">Join the movement.</span>
-      <a href="https://todaysdailybattle.com/" class="btn btn-primary org-movement-link">Use the app →</a>
-      <a href="about.html" class="btn btn-secondary org-movement-link">Our story</a>
-      <a href="church.html" class="btn btn-secondary org-movement-link">For churches</a>
-    </div>
+  <div id="org-movement-cta" class="org-movement-cta org-nav-bar hidden" role="navigation" aria-label="Main">
+    <nav class="org-nav">
+      <a href="/">Home</a>
+      <span class="org-nav-dropdown">
+        <a href="/pastor/" class="org-nav-trigger">Pastor ▾</a>
+        <div class="org-nav-panel">
+          <a href="/pastor/">Pastor Hub</a>
+          <a href="sermon.html">Sermon Builder</a>
+          <a href="pastor-toolkit.html">Pastor Toolkit</a>
+          <a href="message.html">Prayer Lists</a>
+        </div>
+      </span>
+      <span class="org-nav-dropdown">
+        <a href="church.html" class="org-nav-trigger">Church ▾</a>
+        <div class="org-nav-panel">
+          <a href="/church/">Church Hub</a>
+          <a href="church/daily.html">Daily for Churches</a>
+          <a href="message.html">Prayer Wall</a>
+        </div>
+      </span>
+      <span class="org-nav-dropdown">
+        <a href="/#hero-verse-wrap" class="org-nav-trigger">Your Battle ▾</a>
+        <div class="org-nav-panel">
+          <a href="/#hero-verse-wrap">Daily Verse</a>
+          <a href="/#streak-counter-block">Streak</a>
+          <a href="/#quick-pray-wrap">Quick Pray</a>
+          <a href="/#challenge-30-banner">30-Day Challenge</a>
+        </div>
+      </span>
+      <span class="org-nav-dropdown">
+        <a href="bible-tool.html" class="org-nav-trigger">Bible ▾</a>
+        <div class="org-nav-panel">
+          <a href="bible-tool.html">Bible Tool</a>
+          <a href="/#quick-search-hero">Search</a>
+          <a href="verse.html">Verse of the Day</a>
+          <a href="bible-study.html">Bible Studies</a>
+        </div>
+      </span>
+      <a href="https://todaysdailybattle.com/" class="org-nav-app">Use the app →</a>
+    </nav>
   </div>
   <div id="night-close-overlay" class="night-close-overlay hidden" aria-live="polite" aria-label="Night close or dawn message" role="dialog">
     <div class="night-close-inner">
@@ -125,15 +153,43 @@
         <span class="brand-subtitle" id="brand-subtitle">The Bible companion you'll use every day</span>
         <span class="brand-tagline" id="brand-tagline">Daily Battles Won Through Faith</span>
       </div>
-      <nav class="header-nav" aria-label="Main">
+      <nav class="header-nav header-nav-simple" aria-label="Main">
         <a href="/">Home</a>
-        <a href="bible-tool.html">Bible Tool</a>
-        <a href="/#quick-search-hero">Search</a>
-        <a href="verse.html">Verse of the Day</a>
-        <a href="message.html">Prayer Wall</a>
-        <a href="bible-study.html">Bible Studies</a>
-        <a href="wins-report.html">Wins Report</a>
-        <a href="church.html">Church Center</a>
+        <span class="nav-dropdown">
+          <a href="/pastor/" class="nav-trigger">Pastor ▾</a>
+          <div class="nav-panel">
+            <a href="/pastor/">Pastor Hub</a>
+            <a href="sermon.html">Sermon Builder</a>
+            <a href="pastor-toolkit.html">Pastor Toolkit</a>
+            <a href="message.html">Prayer Lists</a>
+          </div>
+        </span>
+        <span class="nav-dropdown">
+          <a href="church.html" class="nav-trigger">Church ▾</a>
+          <div class="nav-panel">
+            <a href="/church/">Church Hub</a>
+            <a href="church/daily.html">Daily for Churches</a>
+            <a href="message.html">Prayer Wall</a>
+          </div>
+        </span>
+        <span class="nav-dropdown">
+          <a href="/#hero-verse-wrap" class="nav-trigger">Your Battle ▾</a>
+          <div class="nav-panel">
+            <a href="/#hero-verse-wrap">Daily Verse</a>
+            <a href="/#streak-counter-block">Streak</a>
+            <a href="/#quick-pray-wrap">Quick Pray</a>
+            <a href="/#challenge-30-banner">30-Day Challenge</a>
+          </div>
+        </span>
+        <span class="nav-dropdown">
+          <a href="bible-tool.html" class="nav-trigger">Bible ▾</a>
+          <div class="nav-panel">
+            <a href="bible-tool.html">Bible Tool</a>
+            <a href="/#quick-search-hero">Search</a>
+            <a href="verse.html">Verse of the Day</a>
+            <a href="bible-study.html">Bible Studies</a>
+          </div>
+        </span>
         <a href="pricing.html">Pricing</a>
       </nav>
       <span id="armor-builder-btn" class="sr-only" aria-hidden="true"></span>
@@ -161,6 +217,7 @@
     <aside class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
         <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="/bible/" data-section="bible-hub" data-icon="BH" aria-label="Bible Hub">Bible Hub</a>
         <a href="bible-tool.html" data-section="bible-tool" data-icon="BT">Bible Tool</a>
         <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
         <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
@@ -201,7 +258,21 @@
     </aside>
 
     <main class="app-content" id="main-content">
-      <div class="content-inner">
+      <div class="content-inner toolbox-content" id="toolbox-content" data-active-drawer="daily">
+        <nav class="toolbox-tabs" role="tablist" aria-label="Toolbox">
+          <button type="button" class="toolbox-tab active" role="tab" id="tab-daily" aria-selected="true" aria-controls="drawer-daily" data-drawer="daily">Daily</button>
+          <button type="button" class="toolbox-tab" role="tab" id="tab-battle" aria-selected="false" aria-controls="drawer-battle" data-drawer="battle">Your Battle</button>
+          <button type="button" class="toolbox-tab" role="tab" id="tab-church" aria-selected="false" aria-controls="drawer-church" data-drawer="church">Church</button>
+          <button type="button" class="toolbox-tab" role="tab" id="tab-family" aria-selected="false" aria-controls="drawer-family" data-drawer="family">Family</button>
+          <button type="button" class="toolbox-tab" role="tab" id="tab-deep" aria-selected="false" aria-controls="drawer-deep" data-drawer="deep">Deep</button>
+        </nav>
+        <div class="toolbox-block" data-toolbox-drawer="daily">
+        <div class="kids-battle-home-wrap">
+          <a href="/kids/" class="kids-battle-home-banner" role="region" aria-label="Kids Battle – Swipe Bible stories">
+            New! Kids Battle – Swipe Bible stories, pray, doodle! ⚔️🖍️
+          </a>
+          <p id="kids-beta-count" class="kids-beta-count" aria-live="polite">Join now—spots filling fast!</p>
+        </div>
         <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
         <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
           <p class="hero-intro-message section-note">He is here. Nothing enters unclean.</p>
@@ -228,6 +299,15 @@
           </div>
           <p class="hero-verse-byline">A hospital stay that was life-changing.</p>
         </div>
+        <div class="glass prayer-of-day-block util-mt-0_5" role="region" aria-label="Prayer of the day">
+          <h3 class="section-divider util-mt-0">Today's Prayer</h3>
+          <p class="prayer-of-day-text">Lord, give us strength for the battle. Amen.</p>
+          <p class="prayer-of-day-text prayer-of-day-reflection">Lord, thank you for the strength to keep going.</p>
+          <p class="section-note prayer-of-day-meta util-mb-0" aria-live="polite">Prayed by <span id="prayer-of-day-count">0</span> warriors today.</p>
+        </div>
+        <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less scroll, more soul.</p>
+        </div>
+        <div class="toolbox-block" data-toolbox-drawer="battle">
         <!-- QUICK-SEARCH-HERO-V2: search bar + 30 topic chips. Do not remove. -->
         <div id="quick-search-hero" class="search-hero quick-search-hero quick-search-hero-wrap" role="search" aria-label="Search Scripture">
           <form id="search-form" method="get" action="">
@@ -269,31 +349,79 @@
           </div>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </div>
-        <div class="glass prayer-of-day-block util-mt-0_5" role="region" aria-label="Prayer of the day">
-          <h3 class="section-divider util-mt-0">Today's Prayer</h3>
-          <p class="prayer-of-day-text">Lord, give us strength for the battle. Amen.</p>
-          <p class="prayer-of-day-text prayer-of-day-reflection">Lord, thank you for the strength to keep going.</p>
-          <p class="section-note prayer-of-day-meta util-mb-0" aria-live="polite">Prayed by <span id="prayer-of-day-count">0</span> warriors today.</p>
         </div>
-        <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less scroll, more soul.</p>
-        <div id="org-golden-rule-card" class="org-golden-rule-card glass util-mt-0_5 hidden" role="region" aria-label="Join the cause">
+        <p class="hero-slogan-one-line home-tagline" id="hero-tagline" data-toolbox-drawer="daily">Less scroll, more soul.</p>
+        <div class="toolbox-cards" data-toolbox-drawer="church">
+          <h2 class="section-divider">Church &amp; Teams</h2>
+          <div class="toolbox-card-grid">
+            <a href="/pastor/" class="glass toolbox-card"><h3>Pastor</h3><p>Sermon builder, verse packs, toolkit</p></a>
+            <a href="/#patriotic-hymns" class="glass toolbox-card"><h3>Music / Worship</h3><p>Hymns, Sing with Me, patriotic setlists</p></a>
+            <a href="message.html" class="glass toolbox-card"><h3>Women&apos;s &amp; Men&apos;s</h3><p>Themed prayers, accountability streaks</p></a>
+            <a href="church.html" class="glass toolbox-card"><h3>Deacons / Sunday School</h3><p>Kid verses, attendance quick-list</p></a>
+          </div>
+        </div>
+        <div class="toolbox-cards" data-toolbox-drawer="family">
+          <h2 class="section-divider">Family &amp; Household</h2>
+          <div class="toolbox-card-grid">
+            <a href="#" id="toolbox-family-armor" class="glass toolbox-card"><h3>Family Armor &amp; Stories</h3><p>Bible stories, household armor</p></a>
+            <a href="#" id="toolbox-add-household" class="glass toolbox-card"><h3>Add Household</h3><p>Shared streak, verse night printable</p></a>
+            <a href="/kids/" class="glass toolbox-card"><h3>Kids Corner</h3><p>Simple explainers, doodle fun</p></a>
+            <a href="coloring.html" class="glass toolbox-card"><h3>One verse, no screen</h3><p>Printable activities, timer</p></a>
+          </div>
+        </div>
+        <div id="org-golden-rule-card" class="org-golden-rule-card glass util-mt-0_5 hidden" role="region" aria-label="Join the cause" data-toolbox-drawer="church">
           <h3 class="section-divider util-mt-0">Do unto others.</h3>
           <p class="section-note util-mb-0_5">Share today's verse with someone who needs it. One tap—you might change their day.</p>
           <button type="button" id="org-share-verse-btn" class="btn btn-primary">Share this verse</button>
           <p class="section-note util-mt-0_5 util-mb-0">Join the cause. Thousands start their day here—then pass it on.</p>
         </div>
-        <div class="bible-studies-banner-teaser glass util-mt-0_5" role="region" aria-label="Free Bible Studies">
+        <div class="bible-studies-banner-teaser glass util-mt-0_5" role="region" aria-label="Free Bible Studies" data-toolbox-drawer="deep">
           <h3 class="section-divider util-mt-0">Free Bible Studies</h3>
           <p class="section-note util-mb-0">Short dives like &quot;Armor of God&quot;—7 days, zero pressure. <a href="bible-study.html">Explore</a>.</p>
         </div>
-        <div class="glass util-mt-0_5" role="region" aria-label="Bible Tool">
+        <div class="glass util-mt-0_5" role="region" aria-label="Bible Tool" data-toolbox-drawer="deep">
           <h3 class="section-divider util-mt-0">Your go-to for the Word</h3>
           <p class="section-note util-mb-0_5">Look up any verse (KJV), take notes, follow a plan, get Win the Day verses. No login.</p>
           <a href="bible-tool.html" class="btn btn-primary">Open Bible Tool →</a>
         </div>
+        <div class="toolbox-cards" data-toolbox-drawer="deep">
+          <h2 class="section-divider">Deep Tools</h2>
+          <div class="toolbox-card-grid">
+            <a href="curriculum.html" class="glass toolbox-card"><h3>365-Day Curriculum</h3><p>One character per day, Verse Mode, armor progress</p></a>
+            <a href="bible-tool.html" class="glass toolbox-card"><h3>Bible Tool</h3><p>Search, notes, KJV lookup</p></a>
+            <a href="bible-study.html" class="glass toolbox-card"><h3>Armor of God</h3><p>Free Bible studies series</p></a>
+            <a href="study.html" class="glass toolbox-card"><h3>Build a Lesson</h3><p>Quick outlines, verse packs</p></a>
+            <a href="reading-plan.html" class="glass toolbox-card"><h3>7-Day Plan</h3><p>Reading plans, custom length</p></a>
+            <a href="pricing.html" class="glass toolbox-card"><h3>Pro extras</h3><p>Offline, reports—free basics stay</p></a>
+          </div>
+        </div>
+        <section class="glass deep-curriculum-inline" data-toolbox-drawer="deep" aria-label="365-Day curriculum inline">
+          <h3 class="section-divider util-mt-0">365-Day Curriculum (Quick View)</h3>
+          <p class="section-note util-mb-0_5">One character/story per day with KJV anchor and Verse Mode. Full view: <a href="curriculum.html">open curriculum</a>.</p>
+          <div class="deep-curriculum-controls">
+            <label for="deep-curriculum-day">Day</label>
+            <input id="deep-curriculum-day" type="number" min="1" max="365" value="1" aria-label="Curriculum day">
+            <label for="deep-curriculum-mode">Verse Mode</label>
+            <select id="deep-curriculum-mode" aria-label="Verse mode">
+              <option value="quick">Quick</option>
+              <option value="pastor">Pastor</option>
+              <option value="kid">Kid</option>
+              <option value="teen">Teen</option>
+            </select>
+            <button id="deep-curriculum-prev" type="button" class="btn btn-secondary">Prev</button>
+            <button id="deep-curriculum-next" type="button" class="btn btn-secondary">Next</button>
+          </div>
+          <div id="deep-curriculum-content" class="deep-curriculum-content section-note" aria-live="polite">Loading curriculum…</div>
+          <p id="deep-curriculum-summary" class="section-note util-mt-0_5 util-mb-0">Armor progress: 0/365 days completed.</p>
+          <div class="deep-curriculum-armor-wrap">
+            <div id="deep-curriculum-avatar" class="deep-avatar" aria-label="Plain iron armor avatar">🛡️</div>
+            <ul id="deep-curriculum-armor-list" class="deep-curriculum-armor-list section-note util-mb-0"></ul>
+          </div>
+          <div id="deep-curriculum-map" class="deep-curriculum-map util-mt-0_5" aria-label="Family streets of gold map"></div>
+        </section>
         <p class="section-note beta-badge">Beta – First 100 get early perks.</p>
         <p class="section-note beta-progress hidden" id="beta-progress-wrap" aria-live="polite">Beta – <span id="beta-warriors-count">0</span> warriors in. First 100 get early perks.</p>
-        <details class="home-accordion" id="accordion-search-options">
+        <details class="home-accordion" id="accordion-search-options" data-toolbox-drawer="battle">
           <summary class="home-accordion-summary">More search options & topics</summary>
         <section id="main-search" class="controls glass" role="search" aria-label="Search options">
           <div class="focus-mode-wrap">
@@ -310,7 +438,10 @@
           <div class="quick-actions" id="quick-actions-accordion"><!-- filled by script from TDB_TOPICS --></div>
           <p class="section-note mobile-label-tools">Tools</p>
           <div class="quick-links">
+            <a class="btn btn-primary" href="/bible/">Bible Hub</a>
             <a class="btn btn-primary" href="bible-tool.html">Bible Tool</a>
+            <a class="btn btn-primary" href="/pastor/">Pastor Hub</a>
+            <a class="btn btn-primary" href="/church/">Church Hub</a>
             <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
             <a class="btn btn-primary" href="team-toolkit.html">Team Toolkit</a>
             <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
@@ -371,7 +502,7 @@
           </details>
         </section>
         </details>
-        <details class="home-accordion" id="accordion-todays-tools">
+        <details class="home-accordion" id="accordion-todays-tools" data-toolbox-drawer="daily">
           <summary class="home-accordion-summary">Today's tools — Breathe, pray, share</summary>
         <section class="glass" id="daily-battle-section">
           <p id="hero-collective-intent" class="hero-collective-intent section-note hidden" aria-live="polite"></p>
@@ -488,21 +619,21 @@
           </div>
         </section>
         </details>
-        <section id="patriotic-scriptures" class="patriotic-scriptures glass" role="region" aria-label="Patriotic Scriptures">
+        <section id="patriotic-scriptures" class="patriotic-scriptures glass" role="region" aria-label="Patriotic Scriptures" data-toolbox-drawer="church">
           <h2 class="patriotic-scriptures-title">Patriotic Scriptures</h2>
           <p class="section-note patriotic-scriptures-intro">KJV verses that speak to national repentance, liberty, and blessing—for prayer and reflection.</p>
           <div id="patriotic-scriptures-grid" class="patriotic-scriptures-grid"></div>
         </section>
-        <div id="premium-devotionals-lock" class="glass premium-devotionals-lock util-mt-1" role="region" aria-label="Premium feature — Battle Pro required">
+        <div id="premium-devotionals-lock" class="glass premium-devotionals-lock util-mt-1" role="region" aria-label="Premium feature — Battle Pro required" data-toolbox-drawer="deep">
           <h3 class="section-divider">Premium devotionals</h3>
           <p class="section-note">7-day Armor of God series, deeper studies, and progress tracking are part of Battle Pro.</p>
           <a href="pricing.html" class="btn btn-secondary" aria-label="Upgrade to Battle Pro">Unlock with Battle Pro</a>
         </div>
-        <div class="glass util-mt-0_5 coming-soon-teaser" role="region" aria-label="Coming soon for Pro">
+        <div class="glass util-mt-0_5 coming-soon-teaser" role="region" aria-label="Coming soon for Pro" data-toolbox-drawer="deep">
           <h3 class="section-divider">Coming Soon</h3>
           <p class="section-note util-mb-0">More badges and church features coming soon for Pro users. <a href="pricing.html">See plans</a>.</p>
         </div>
-        <section id="patriotic-hymns" class="patriotic-hymns glass" role="region" aria-label="Patriotic hymns section">
+        <section id="patriotic-hymns" class="patriotic-hymns glass" role="region" aria-label="Patriotic hymns section" data-toolbox-drawer="church">
           <h2 class="patriotic-hymns-title">Patriotic Hymns</h2>
           <p class="section-note patriotic-hymns-intro">Classic hymns of prayer and praise for the nation—sing or pray with the full lyrics.</p>
           <div id="patriotic-hymns-grid" class="patriotic-hymns-grid"></div>
@@ -510,11 +641,15 @@
         <p class="prayer-counter" aria-live="polite">Total prayers: <span id="prayer-counter">0</span></p>
         <p class="section-note prayer-count-today-line hidden" aria-live="polite" id="prayer-count-today-wrap"><span id="prayer-count-today">0</span> warriors prayed today.</p>
         <p id="last-prayer-badge" class="section-note last-prayer-badge hidden" aria-live="polite">Last prayer: <span id="last-prayer-ago">No prayers yet</span></p>
-        <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo">
+        <section id="prayer-echo" class="prayer-echo glass" aria-live="polite" aria-label="Live prayer echo" data-toolbox-drawer="daily">
           <p class="prayer-echo-sacred section-note hidden" id="prayer-echo-sacred" aria-live="polite">You're alone with Him.</p>
-          <p class="prayer-echo-loading section-note" id="prayer-echo-loading">Loading prayers…</p>
+          <p class="prayer-echo-loading section-note hidden" id="prayer-echo-loading">Connecting…</p>
           <p class="prayer-echo-presence section-note hidden" id="prayer-echo-presence" aria-live="polite"></p>
-          <ul id="prayer-echo-list" class="prayer-echo-list hidden" aria-label="Recent prayers"></ul>
+          <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent prayers">
+            <li class="prayer-echo-item prayer-echo-skeleton" aria-hidden="true"><span class="prayer-echo-candle"></span><span class="prayer-echo-text">Loading…</span></li>
+            <li class="prayer-echo-item prayer-echo-skeleton" aria-hidden="true"><span class="prayer-echo-candle"></span><span class="prayer-echo-text">Loading…</span></li>
+            <li class="prayer-echo-item prayer-echo-skeleton" aria-hidden="true"><span class="prayer-echo-candle"></span><span class="prayer-echo-text">Loading…</span></li>
+          </ul>
           <button type="button" id="prayer-echo-join" class="btn btn-secondary btn-small hidden" aria-label="Copy share link to invite others">Join them</button>
           <div class="silent-amen-wrap">
             <button type="button" id="silent-amen-btn" class="btn btn-silent-amen" aria-label="Quiet agreement—Silent Amen"><span class="icon-cross" aria-hidden="true">✝</span> Silent Amen</button>
@@ -556,18 +691,17 @@
           <p class="section-note weekly-recap-text"></p>
           <button type="button" id="weekly-recap-share" class="btn btn-secondary">Share?</button>
         </div>
-        <div id="challenge-30-banner" class="challenge-30-banner glass">
+        <div id="challenge-30-banner" class="challenge-30-banner glass" data-toolbox-drawer="daily">
           <h2 class="challenge-30-title">Join the 30-Day Battle Challenge – Free</h2>
           <p class="challenge-30-text">Start today: Romans 15:13. Track your streak. Share daily. Tag #30DayBattle</p>
           <button id="challenge-start-day-1" type="button" class="btn btn-primary challenge-30-cta"><span class="challenge-flame" aria-hidden="true">🔥</span> Start Day 1</button>
         </div>
         <div id="battle-pro-banner" class="battle-pro-banner glass">
-          <strong>Battle Pro</strong> — Wins Report, offline PDFs, premium devotionals. <button type="button" id="battle-pro-upgrade-btn" class="btn-link battle-pro-upgrade-trigger" aria-label="Upgrade to Battle Pro">Upgrade →</button>
-          <p class="section-note util-mt-0_35 util-mb-0_25">Launching soon</p>
-          <p id="early-bird-countdown" class="section-note early-bird-countdown util-mt-0_25" aria-live="polite">First 50 get 1 month free—ends in <span id="early-bird-days" class="countdown-number">7</span> days!</p>
+          <p class="battle-pro-first50" aria-live="polite"><strong>First 50 get 1 month free</strong> — ends in <span id="early-bird-days" class="countdown-number">7</span> days!</p>
+          <p class="section-note util-mt-0_35 util-mb-0_25">Battle Pro: Wins Report, offline PDFs, premium devotionals. <button type="button" id="battle-pro-upgrade-btn" class="btn-link battle-pro-upgrade-trigger" aria-label="Upgrade to Battle Pro">Upgrade →</button></p>
           <div class="coming-soon-progress" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Battle Pro launch progress"><div class="coming-soon-progress-fill"></div></div>
         </div>
-        <div class="glass util-mt-0_5 bible-study-teaser">
+        <div class="glass util-mt-0_5 bible-study-teaser" data-toolbox-drawer="deep">
           <p class="section-note util-mb-0">New: <a href="bible-study.html">Bible Studies</a>—free for everyone. Deeper dives, zero pressure.</p>
         </div>
         <section class="glass">
@@ -605,7 +739,7 @@
           </div>
           <p class="section-note" id="walkthrough-para"><span id="walkthrough-wrap">New here? A 60-second walkthrough is coming soon—follow the 4 steps above to get started.</span></p>
         </section>
-        <section class="glass" id="prayer-wall">
+        <section class="glass" id="prayer-wall" data-toolbox-drawer="church">
           <h2 class="section-divider">Prayer Wall</h2>
           <p class="section-note">Anonymous one-line requests. Tap ♥ to pray—no comments, no drama.</p>
           <p class="section-note" id="message-board-nudge">Share encouragements, testimonies, and prayer requests on the <a href="message.html">Message Board</a>.</p>
@@ -663,7 +797,7 @@
           <p id="invite-status" class="section-note"></p>
           <button type="button" id="invite-share-btn" class="btn btn-secondary util-mt-0_5">Share invite link</button>
         </section>
-        <section class="glass" id="prayer-list-section">
+        <section class="glass" id="prayer-list-section" data-toolbox-drawer="battle">
           <h2 class="section-divider">Prayer List</h2>
           <p class="section-note">Add names or intentions. Optionally link a verse. Saved on this device.</p>
           <div class="prayer-list-form">
@@ -674,7 +808,7 @@
           <ul id="prayer-list" class="prayer-list list"></ul>
           <p id="prayer-list-empty" class="section-note empty-note hidden">Add a name or intention above—your list stays here.</p>
         </section>
-        <section class="glass newsletter" id="newsletter">
+        <section class="glass newsletter" id="newsletter" data-toolbox-drawer="daily">
           <h2 class="section-divider">Weekly Encouragement &amp; Daily Verse</h2>
           <p class="section-note newsletter-tagline">One short email each week and/or the daily verse in your inbox—your choice. No spam.</p>
           <div class="newsletter-form">
@@ -733,6 +867,11 @@
           <button type="button" class="auth-tab" data-tab="signup" aria-selected="false">Sign Up</button>
         </div>
         <div id="auth-modal-status" class="section-note auth-modal-status" aria-live="polite"></div>
+        <div id="auth-modal-oauth" class="auth-modal-oauth">
+          <button type="button" id="auth-modal-google-btn" class="btn btn-secondary auth-oauth-btn">Sign in with Google</button>
+          <button type="button" id="auth-modal-apple-btn" class="btn btn-secondary auth-oauth-btn">Sign in with Apple</button>
+        </div>
+        <p class="auth-modal-divider section-note">or use email</p>
         <input type="email" id="auth-modal-email" placeholder="Email" aria-label="Email" autocomplete="email" class="input auth-modal-input">
         <input type="password" id="auth-modal-password" placeholder="Password" aria-label="Password" autocomplete="current-password" class="input auth-modal-input">
         <button type="button" id="auth-modal-forgot" class="link-button auth-modal-forgot">Forgot password?</button>
@@ -932,7 +1071,7 @@
       <p class="footer-analytics-note">Secure by design—your prayers stay private. We use anonymous analytics (Google Analytics &amp; Cloudflare) to improve the experience. No personal data is sold or shared. Prayers and lists stay on your device (or sync when you sign in). <a href="privacy.html">Learn more</a></p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-      <p class="section-note util-mt-0_5">Your data never leaves your device—clear anytime. <button type="button" id="clear-local-data-btn" class="link-button" aria-label="Reset prayers, notes, streaks—fresh start"><span aria-hidden="true">⚠</span> Clear local data</button><span id="clear-data-announce" class="sr-only" aria-live="polite" aria-atomic="true"></span></p>
+      <p class="section-note util-mt-0_5">Your data never leaves your device—clear anytime. <button type="button" id="clear-local-data-btn" class="link-button" aria-label="Reset prayers, notes, streaks—fresh start"><span aria-hidden="true">⚠</span> Clear local data</button> <button type="button" id="erase-all-btn" class="link-button" aria-label="Erase all—no warning">Erase All</button><span id="clear-data-announce" class="sr-only" aria-live="polite" aria-atomic="true"></span></p>
       <div class="footer-donation-wrap util-mt-1">
         <button type="button" id="donate-btn" class="btn btn-donation-gold" aria-label="Donate to support the site">Support Today's Daily Battle – $5 or more</button>
       </div>
@@ -968,5 +1107,7 @@
   <script src="voice-pray.js"></script>
   <script src="search-wire.js?v=20260313"></script>
   <script src="fallback-search.js?v=20260313"></script>
+  <script src="auth.js?v=20260314" defer></script>
+  <script src="curriculum-widget.js?v=20260314"></script>
 </body>
 </html>

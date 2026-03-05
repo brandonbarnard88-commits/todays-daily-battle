@@ -360,6 +360,10 @@
   }
 
   async function launchStory(character, title) {
+    if (typeof window !== 'undefined') window.__tdbDailyTileWatchLastRun = Date.now();
+    if (window.__tdbStartWatchLaunchTransition && typeof window.__tdbStartWatchLaunchTransition === 'function') {
+      window.__tdbStartWatchLaunchTransition();
+    }
     if (!window.TDBCartoonPlayer || typeof window.TDBCartoonPlayer.open !== 'function') return;
     var useMyAvatar = !!(($('daily-tile-use-avatar') || {}).checked);
     var userAvatar = await buildUserAvatarState(useMyAvatar, character && character.name ? character.name : 'David');
@@ -394,6 +398,9 @@
         }
       }
     });
+    if (window.__tdbMaybeCelebrateFirstWinFromWatch && typeof window.__tdbMaybeCelebrateFirstWinFromWatch === 'function') {
+      window.__tdbMaybeCelebrateFirstWinFromWatch();
+    }
   }
 
   function init() {

@@ -3529,18 +3529,44 @@ function showPrayerWhisper() {
 function applyPrayerMomentFx() {
   if (!document.body) return;
   document.body.classList.add('prayer-dim-pulse');
+  var prayBtn = document.getElementById('quick-pray-btn');
+  if (prayBtn) {
+    prayBtn.classList.remove('tdb-prayer-hit');
+    void prayBtn.offsetWidth;
+    prayBtn.classList.add('tdb-prayer-hit');
+    setTimeout(function () { prayBtn.classList.remove('tdb-prayer-hit'); }, 760);
+  }
   setTimeout(function () { document.body.classList.remove('prayer-dim-pulse'); }, 3000);
 }
 
 function bumpSilentAmenBadgeFromPray() {
-  var n = 0;
-  try { n = parseInt(localStorage.getItem(SILENT_AMEN_KEY) || '0', 10); } catch (e) {}
-  n += 1;
+  var prev = 0;
+  try { prev = parseInt(localStorage.getItem(SILENT_AMEN_KEY) || '0', 10); } catch (e) {}
+  if (isNaN(prev)) prev = 0;
+  var n = prev + 1;
   try { localStorage.setItem(SILENT_AMEN_KEY, String(n)); } catch (e2) {}
   var badge = document.getElementById('silent-amens-badge');
   var badgeN = document.getElementById('silent-amens-badge-n');
-  if (badgeN) badgeN.textContent = n;
-  if (badge) badge.classList.toggle('hidden', n <= 0);
+  if (badgeN) {
+    var frameCount = 0;
+    var steps = 8;
+    var start = prev;
+    var tick = function () {
+      frameCount += 1;
+      var value = Math.round(start + ((n - start) * (frameCount / steps)));
+      badgeN.textContent = String(value);
+      if (frameCount < steps) requestAnimationFrame(tick);
+      else badgeN.textContent = String(n);
+    };
+    requestAnimationFrame(tick);
+  }
+  if (badge) {
+    badge.classList.toggle('hidden', n <= 0);
+    badge.classList.remove('tdb-badge-bump');
+    void badge.offsetWidth;
+    badge.classList.add('tdb-badge-bump');
+    setTimeout(function () { badge.classList.remove('tdb-badge-bump'); }, 560);
+  }
 }
 
 function maybeShowFirstLoadOnboarding() {
@@ -3552,6 +3578,101 @@ function maybeShowFirstLoadOnboarding() {
     if (typeof showEliteToast === 'function') showEliteToast("This is your daily verse-tap Pray to start.");
     localStorage.setItem(KEY, '1');
   } catch (e) {}
+}
+
+function markFirstWinPrayStep() {
+  var key = 'tdb_first_win_pray_step_v1';
+  var day = (typeof getDailyKey === 'function') ? getDailyKey() : new Date().toISOString().slice(0, 10);
+  try { localStorage.setItem(key, day); } catch (e) {}
+}
+
+function hasFirstWinPrayStep() {
+  var key = 'tdb_first_win_pray_step_v1';
+  var day = (typeof getDailyKey === 'function') ? getDailyKey() : new Date().toISOString().slice(0, 10);
+  try { return String(localStorage.getItem(key) || '') === day; } catch (e) { return false; }
+}
+
+function showFirstWinBadge() {
+  if (!document.body) return;
+  var id = 'tdb-first-win-badge';
+  var el = document.getElementById(id);
+  if (!el) {
+    el = document.createElement('div');
+    el.id = id;
+    el.className = 'tdb-first-win-badge';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    document.body.appendChild(el);
+  }
+  el.textContent = 'Battle started';
+  el.classList.remove('show');
+  void el.offsetWidth;
+  el.classList.add('show');
+}
+
+function maybeCelebrateFirstWinFromWatch() {
+  var doneKey = 'tdb_first_win_celebrated_v1';
+  try {
+    if (localStorage.getItem(doneKey) === '1') return;
+  } catch (e) {}
+  if (!hasFirstWinPrayStep()) return;
+  try { localStorage.setItem(doneKey, '1'); } catch (e2) {}
+
+  if (typeof window !== 'undefined' && typeof window.confetti === 'function') {
+    try {
+      window.confetti({ particleCount: 28, spread: 48, startVelocity: 25, scalar: 0.7, origin: { y: 0.78 } });
+      setTimeout(function () {
+        window.confetti({ particleCount: 18, spread: 34, startVelocity: 20, scalar: 0.65, origin: { y: 0.74 } });
+      }, 180);
+    } catch (e3) {}
+  }
+  showFirstWinBadge();
+  if (typeof showEliteToast === 'function') showEliteToast('First win unlocked.');
+}
+if (typeof window !== 'undefined') {
+  window.__tdbMaybeCelebrateFirstWinFromWatch = maybeCelebrateFirstWinFromWatch;
+}
+
+function startWatchLaunchTransition() {
+  var watchBtn = document.getElementById('daily-tile-watch-btn');
+  if (!watchBtn) return;
+  watchBtn.classList.remove('tdb-watch-launching');
+  void watchBtn.offsetWidth;
+  watchBtn.classList.add('tdb-watch-launching');
+  setTimeout(function () { watchBtn.classList.remove('tdb-watch-launching'); }, 900);
+}
+
+function wireFirstVisitGuidePulse() {
+  var KEY = 'tdb_onboard_pray_watch_v1';
+  var prayBtn = document.getElementById('quick-pray-btn');
+  var watchBtn = document.getElementById('daily-tile-watch-btn');
+  if (!prayBtn || !watchBtn) return;
+  try {
+    if (localStorage.getItem(KEY) === '1') return;
+  } catch (e) {}
+
+  var done = false;
+  function finishGuide() {
+    if (done) return;
+    done = true;
+    prayBtn.classList.remove('tdb-guide-pulse');
+    watchBtn.classList.remove('tdb-guide-pulse');
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+  }
+
+  prayBtn.classList.add('tdb-guide-pulse');
+  if (typeof showEliteToast === 'function') showEliteToast('Start here: tap Pray.');
+
+  var onPray = function () {
+    prayBtn.classList.remove('tdb-guide-pulse');
+    watchBtn.classList.add('tdb-guide-pulse');
+    if (typeof showEliteToast === 'function') showEliteToast('Nice. Now tap Watch.');
+  };
+  var onWatch = function () { finishGuide(); };
+
+  prayBtn.addEventListener('click', onPray, { once: true });
+  watchBtn.addEventListener('click', onWatch, { once: true });
+  setTimeout(function () { if (!done) finishGuide(); }, 90000);
 }
 
 var PRAYER_SESSION_KEY = 'tdb_prayer_session_id';
@@ -11391,6 +11512,8 @@ function startStudy(id) {
     renderDailyVerse();
     await renderDailyBattleCard();
     maybeShowFirstLoadOnboarding();
+    wireFirstVisitGuidePulse();
+    if (typeof window !== 'undefined') window.__tdbStartWatchLaunchTransition = startWatchLaunchTransition;
     renderCollectionSelect();
     renderSavedVerses();
     applySearchFromQuery();
@@ -12230,8 +12353,10 @@ function startStudy(id) {
       } catch (e) {}
     }
     function doQuickPray() {
+      if (typeof window !== 'undefined') window.__tdbQuickPrayLastRun = Date.now();
       const text = (quickPrayInput.value || '').trim();
       if (!text) return;
+      markFirstWinPrayStep();
       var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
       var useSubmitPrayer = cfg && cfg.SUBMIT_PRAYER_URL && cfg.TURNSTILE_SITE_KEY && navigator.onLine && supabaseClient;
       var turnstileToken = '';
@@ -14773,12 +14898,114 @@ function startStudy(id) {
   })();
 }
 (function runTdbAndFooter() {
+  function wireCriticalControlFallbacks() {
+    if (typeof window !== 'undefined' && window.__tdbCriticalFallbacksWired) return;
+    if (typeof window !== 'undefined') window.__tdbCriticalFallbacksWired = true;
+
+    function showMsg(msg) {
+      if (typeof showEliteToast === 'function') showEliteToast(msg);
+    }
+    function safeDailyKey() {
+      if (typeof getDailyKey === 'function') return getDailyKey();
+      return new Date().toISOString().slice(0, 10);
+    }
+    function fallbackOpenFamilyModal() {
+      var modal = document.getElementById('family-name-modal');
+      var input = document.getElementById('family-name-input');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      if (input) input.focus();
+    }
+    function fallbackQuickPray(clickAt) {
+      var lastRun = 0;
+      try { lastRun = Number((window && window.__tdbQuickPrayLastRun) || 0); } catch (e) { lastRun = 0; }
+      if (lastRun >= clickAt) return;
+      var input = document.getElementById('quick-pray');
+      var today = document.getElementById('quick-pray-today');
+      if (!input) return;
+      var text = String(input.value || '').trim();
+      if (!text) {
+        showMsg('Type a prayer, then tap Pray.');
+        return;
+      }
+      markFirstWinPrayStep();
+      try {
+        var key = QUICK_PRAY_COUNT_PREFIX + safeDailyKey();
+        var n = parseInt(localStorage.getItem(key) || '0', 10);
+        if (isNaN(n)) n = 0;
+        n += 1;
+        localStorage.setItem(key, String(n));
+        if (today) {
+          today.textContent = 'Prayers today: ' + n;
+          today.style.display = 'block';
+        }
+      } catch (e2) {}
+      input.value = '';
+      if (typeof applyPrayerMomentFx === 'function') applyPrayerMomentFx();
+      if (typeof bumpSilentAmenBadgeFromPray === 'function') bumpSilentAmenBadgeFromPray();
+      showMsg('God heard this.');
+      if (typeof window !== 'undefined') window.__tdbQuickPrayLastRun = Date.now();
+    }
+
+    document.addEventListener('click', function (evt) {
+      var target = evt && evt.target && evt.target.closest ? evt.target.closest('button, a') : null;
+      if (!target) return;
+      if (target.id === 'add-family-btn') {
+        setTimeout(function () {
+          var modal = document.getElementById('family-name-modal');
+          if (modal && modal.classList.contains('hidden')) fallbackOpenFamilyModal();
+        }, 120);
+      }
+      if (target.id === 'quick-pray-btn') {
+        var clickAt = Date.now();
+        setTimeout(function () { fallbackQuickPray(clickAt); }, 260);
+      }
+      if (target.id === 'daily-tile-watch-btn') {
+        var firedAt = Date.now();
+        setTimeout(function () {
+          var last = 0;
+          try { last = Number((window && window.__tdbDailyTileWatchLastRun) || 0); } catch (e) { last = 0; }
+          if (last >= firedAt) return;
+          if (typeof startWatchLaunchTransition === 'function') startWatchLaunchTransition();
+          showMsg('Opening today\'s story...');
+          if (window.TDBCartoonPlayer && typeof window.TDBCartoonPlayer.open === 'function') {
+            try {
+              window.TDBCartoonPlayer.open({
+                characterName: 'David',
+                battleTitle: 'Giant Slayer',
+                useMyAvatar: true,
+                userAvatar: { label: 'Your avatar', face: '🛡️', helmet: true, shield: true, belt: true },
+                panels: [
+                  { caption: 'Faith over fear.', kjv: 'Be strong and of a good courage. (Joshua 1:9)' }
+                ]
+              });
+              if (typeof maybeCelebrateFirstWinFromWatch === 'function') maybeCelebrateFirstWinFromWatch();
+              if (typeof window !== 'undefined') window.__tdbDailyTileWatchLastRun = Date.now();
+            } catch (e2) {}
+          }
+        }, 220);
+      }
+    }, true);
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', runTdbAndFooter);
     return;
   }
   var init = typeof window !== 'undefined' && window.tdbInit;
-  if (init) init();
+  if (init) {
+    try {
+      var p = init();
+      if (p && typeof p.then === 'function') {
+        p.catch(function () {
+          wireCriticalControlFallbacks();
+        });
+      }
+    } catch (e) {
+      wireCriticalControlFallbacks();
+    }
+  }
+  wireCriticalControlFallbacks();
   var el = document.getElementById('footer-date');
   if (el && el.textContent === 'TDB_BUILD_DATE') {
     fetch('/build-date.txt')

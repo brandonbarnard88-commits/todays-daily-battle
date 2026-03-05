@@ -50,6 +50,7 @@
     wrap.style.cssText = 'position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(210px,86%);display:flex;flex-direction:column;align-items:center;gap:0.45rem;z-index:2;pointer-events:none;';
 
     var visual = document.createElement('div');
+    visual.setAttribute('data-fallback-visual', '1');
     visual.style.cssText = 'position:relative;width:100%;max-width:180px;padding:0.45rem;border-radius:14px;border:1px solid rgba(250,204,21,0.48);background:linear-gradient(180deg,rgba(10,14,24,0.86),rgba(10,14,24,0.62));box-shadow:0 8px 24px rgba(2,6,23,0.42);';
 
     var template = document.getElementById(FALLBACK_TEMPLATE_ID);
@@ -62,6 +63,7 @@
     var code = getFamilyCode();
     if (code) {
       var crest = document.createElement('span');
+      crest.setAttribute('data-fallback-crest', '1');
       var shortCode = code.length > 12 ? code.slice(0, 12) + '...' : code;
       crest.textContent = 'Crest ' + shortCode;
       crest.style.cssText = 'position:absolute;right:8px;top:8px;display:inline-flex;align-items:center;gap:0.25rem;padding:0.08rem 0.4rem;border-radius:999px;border:1px solid rgba(250,204,21,0.58);background:rgba(250,204,21,0.2);color:#fde68a;font-size:0.7rem;font-weight:700;line-height:1.2;';
@@ -77,6 +79,28 @@
     return wrap;
   }
 
+  function refreshFallbackBadge() {
+    if (!fallbackMode) return;
+    var wrap = document.getElementById(FALLBACK_WRAP_ID);
+    if (!wrap) return;
+    var visual = wrap.querySelector('[data-fallback-visual="1"]');
+    if (!visual) return;
+    var crest = wrap.querySelector('[data-fallback-crest="1"]');
+    var code = getFamilyCode();
+    if (!code) {
+      if (crest) crest.remove();
+      return;
+    }
+    var shortCode = code.length > 12 ? code.slice(0, 12) + '...' : code;
+    if (!crest) {
+      crest = document.createElement('span');
+      crest.setAttribute('data-fallback-crest', '1');
+      crest.style.cssText = 'position:absolute;right:8px;top:8px;display:inline-flex;align-items:center;gap:0.25rem;padding:0.08rem 0.4rem;border-radius:999px;border:1px solid rgba(250,204,21,0.58);background:rgba(250,204,21,0.2);color:#fde68a;font-size:0.7rem;font-weight:700;line-height:1.2;';
+      visual.appendChild(crest);
+    }
+    crest.textContent = 'Crest ' + shortCode;
+  }
+
   function renderGoldenRoadFallback() {
     if (!fallbackMode) return;
     var map = document.getElementById('golden-road-map');
@@ -85,6 +109,7 @@
     var existing = document.getElementById(FALLBACK_WRAP_ID);
     if (existing && existing.parentNode !== map) existing.remove();
     if (!existing) map.appendChild(buildFallbackSvg());
+    refreshFallbackBadge();
   }
 
   function removeGoldenRoadFallback() {
@@ -100,6 +125,15 @@
       renderGoldenRoadFallback();
     });
     fallbackObserver.observe(map, { childList: true });
+  }
+
+  function wireFallbackBadgeRefresh() {
+    document.addEventListener('tdb-family-updated', refreshFallbackBadge);
+    document.addEventListener('tdb-crest-updated', refreshFallbackBadge);
+    window.addEventListener('storage', function (evt) {
+      if (!evt) return;
+      if (FAMILY_KEYS.indexOf(String(evt.key || '')) !== -1) refreshFallbackBadge();
+    });
   }
 
   function readWins() {
@@ -225,11 +259,17 @@
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
-      fallbackMode = ensureWinScoreSeeded();
-      syncAvatarProgress(readWins());
+      var seeded = ensureWinScoreSeeded();
+      var wins = readWins();
+      fallbackMode = seeded || wins <= 0;
+      wireFallbackBadgeRefresh();
+      syncAvatarProgress(wins);
     });
   } else {
-    fallbackMode = ensureWinScoreSeeded();
-    syncAvatarProgress(readWins());
+    var seededNow = ensureWinScoreSeeded();
+    var winsNow = readWins();
+    fallbackMode = seededNow || winsNow <= 0;
+    wireFallbackBadgeRefresh();
+    syncAvatarProgress(winsNow);
   }
 })();

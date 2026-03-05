@@ -260,4 +260,14 @@
   }
 
   window.runWelcomeExperience = runWelcomeExperience;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.__tdbWelcomeBooted) return;
+      window.__tdbWelcomeBooted = true;
+      runWelcomeExperience();
+    });
+  } else if (!window.__tdbWelcomeBooted) {
+    window.__tdbWelcomeBooted = true;
+    runWelcomeExperience();
+  }
 })();

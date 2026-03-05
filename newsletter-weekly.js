@@ -256,7 +256,12 @@
     var statusEl = root.querySelector('.weekly-newsletter-optin-status');
 
     if (closeBtn) closeBtn.addEventListener('click', function () { closePrompt(root); });
-    root.addEventListener('click', function (e) { if (e.target === root) closePrompt(root); });
+    setTimeout(function () { closePrompt(root); }, 12000);
+    document.addEventListener('keydown', function onEsc(e) {
+      if (e.key !== 'Escape') return;
+      document.removeEventListener('keydown', onEsc);
+      closePrompt(root);
+    }, { once: true });
     if (saveBtn) {
       saveBtn.addEventListener('click', function () {
         var email = String((emailEl && emailEl.value) || '').trim().toLowerCase();
@@ -280,13 +285,13 @@
     var style = document.createElement('style');
     style.id = 'weekly-newsletter-optin-style';
     style.textContent = '' +
-      '.weekly-newsletter-optin{position:fixed;inset:0;z-index:12070;background:rgba(2,6,23,.75);display:grid;place-items:center;padding:1rem;}' +
-      '.weekly-newsletter-optin-inner{width:min(92vw,26rem);background:rgba(9,15,28,.97);border:1px solid rgba(148,163,184,.3);border-radius:14px;padding:1rem;box-shadow:0 20px 45px rgba(2,6,23,.6);display:grid;gap:.6rem;position:relative;}' +
+      '.weekly-newsletter-optin{position:fixed;right:1rem;bottom:1rem;z-index:12070;pointer-events:none;}' +
+      '.weekly-newsletter-optin-inner{width:min(92vw,24rem);background:rgba(9,15,28,.97);border:1px solid rgba(148,163,184,.3);border-radius:14px;padding:1rem;box-shadow:0 20px 45px rgba(2,6,23,.6);display:grid;gap:.6rem;position:relative;pointer-events:auto;}' +
       '.weekly-newsletter-optin-title{margin:0;color:rgba(248,250,252,.98);font-size:1.06rem;}' +
       '.weekly-newsletter-optin-copy{margin:0;color:rgba(203,213,225,.95);font-size:.92rem;}' +
       '.weekly-newsletter-optin-email{min-height:44px;border-radius:10px;border:1px solid rgba(148,163,184,.4);background:rgba(15,23,42,.92);color:rgba(248,250,252,.98);padding:.55rem .7rem;}' +
       '.weekly-newsletter-optin-close{position:absolute;right:.55rem;top:.4rem;border:0;background:transparent;color:rgba(226,232,240,.9);font-size:1.1rem;cursor:pointer;}' +
-      '@media (max-width:768px){.weekly-newsletter-optin-inner{width:min(96vw,24rem);}}';
+      '@media (max-width:768px){.weekly-newsletter-optin{left:.5rem;right:.5rem;bottom:.6rem;}.weekly-newsletter-optin-inner{width:100%;}}';
     document.head.appendChild(style);
   }
 

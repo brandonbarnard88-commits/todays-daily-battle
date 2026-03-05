@@ -14,6 +14,10 @@
     fallback: "You're not alone-He's here."
   };
   var encouragementCache = null;
+  var lastWrappedFn = null;
+  var outputObserver = null;
+  var enhanceQueued = 0;
+  var isEnhancing = false;
 
   function byId(id) { return document.getElementById(id); }
 
@@ -172,13 +176,21 @@
   }
 
   function limitAndEnhanceResults(inputText) {
+    if (isEnhancing) return;
+    isEnhancing = true;
     var parser = window.TDBWordParser && typeof window.TDBWordParser.parse === 'function'
       ? window.TDBWordParser.parse(inputText)
       : { primaryType: 'noun', matchedWords: [] };
     var output = byId('output');
-    if (!output) return;
+    if (!output) {
+      isEnhancing = false;
+      return;
+    }
     var cards = Array.prototype.slice.call(output.querySelectorAll('.verse-card'));
-    if (!cards.length) return;
+    if (!cards.length) {
+      isEnhancing = false;
+      return;
+    }
 
     var heartLine = ensureHeartfeltLine(output);
     var topic = inferTopic(inputText, parser);
@@ -202,6 +214,21 @@
       });
       card.appendChild(btn);
       card.classList.toggle('smart-hit-hidden', idx >= 3);
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', 'Open verse breakdown for ' + (verse.ref || 'verse'));
+      card.onclick = function (evt) {
+        var target = evt && evt.target;
+        if (target && target.closest && target.closest('button,a,input,textarea,select,label')) return;
+        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+          window.TDBVerseBreakdown.open(verse.ref, verse.text);
+        }
+      };
+      card.onkeydown = function (evt) {
+        if (!evt || (evt.key !== 'Enter' && evt.key !== ' ')) return;
+        evt.preventDefault();
+        card.click();
+      };
     });
 
     var wrap = ensureShowMoreWrap(output);
@@ -218,29 +245,55 @@
     } else {
       wrap.innerHTML = '';
     }
+    isEnhancing = false;
   }
 
   function installEnhancer() {
-    if (!window.runSearchWithInput || window.__tdbSmartSearchWrapped) return false;
+    if (!window.runSearchWithInput || typeof window.runSearchWithInput !== 'function') return false;
+    if (window.__tdbRunSearchWrapped && window.__tdbRunSearchWrapped === window.runSearchWithInput) return true;
+    if (lastWrappedFn && lastWrappedFn === window.runSearchWithInput) return true;
     var original = window.runSearchWithInput;
-    window.runSearchWithInput = function (inputStr) {
+    if (original && original.__tdbSmartEnhanced) return true;
+    var wrapped = function (inputStr) {
       var val = getQueryValue(inputStr);
       original(inputStr);
       setTimeout(function () {
         limitAndEnhanceResults(val);
       }, 260);
+      setTimeout(function () {
+        limitAndEnhanceResults(val);
+      }, 560);
     };
-    window.__tdbSmartSearchWrapped = true;
+    wrapped.__tdbSmartEnhanced = true;
+    window.runSearchWithInput = wrapped;
+    window.__tdbRunSearchWrapped = wrapped;
+    lastWrappedFn = wrapped;
     return true;
   }
 
+  function attachOutputObserver() {
+    var output = byId('output');
+    if (!output || outputObserver) return;
+    outputObserver = new MutationObserver(function () {
+      if (enhanceQueued) clearTimeout(enhanceQueued);
+      enhanceQueued = setTimeout(function () {
+        enhanceQueued = 0;
+        limitAndEnhanceResults(getQueryValue(''));
+      }, 120);
+    });
+    outputObserver.observe(output, { childList: true, subtree: true });
+  }
+
   function boot() {
-    if (installEnhancer()) return;
+    installEnhancer();
+    attachOutputObserver();
     var tries = 0;
     var t = setInterval(function () {
       tries += 1;
-      if (installEnhancer() || tries > 80) clearInterval(t);
-    }, 100);
+      installEnhancer();
+      attachOutputObserver();
+      if (tries > 160) clearInterval(t);
+    }, 120);
   }
 
   if (document.readyState === 'loading') {

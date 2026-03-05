@@ -556,7 +556,6 @@
     }
     if (quickBtn) {
       quickBtn.addEventListener('click', function () {
-        if (quickInput && !String(quickInput.value || '').trim()) return;
         showPrayFeedback({ count: true, source: 'quick_pray_tap' });
       });
     }

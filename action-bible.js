@@ -412,6 +412,119 @@
     }
   }
 
+  function safeJsonParse(raw, fallback) {
+    try {
+      var parsed = JSON.parse(raw);
+      return parsed == null ? fallback : parsed;
+    } catch (err) {
+      return fallback;
+    }
+  }
+
+  function hasArmorPiece(pieces, piece) {
+    if (!Array.isArray(pieces)) return false;
+    var needle = String(piece || '').toLowerCase();
+    for (var i = 0; i < pieces.length; i++) {
+      if (String(pieces[i] || '').toLowerCase() === needle) return true;
+    }
+    return false;
+  }
+
+  function buildUserAvatarState(item) {
+    var armor = safeJsonParse(window.localStorage.getItem('tdb_household_armor') || '{}', {});
+    var pieces = Array.isArray(armor.pieces) ? armor.pieces : [];
+    var progressDays = safeJsonParse(window.localStorage.getItem('tdb_curriculum_progress_days') || '[]', []);
+    var progressCount = Array.isArray(progressDays) ? progressDays.length : 0;
+    var swordGlow = safeJsonParse(window.localStorage.getItem('tdb_daily_tile_sword_glow') || 'false', false) === true;
+    var faceSeed = String((item && item.characterName) || 'A').trim().charAt(0).toUpperCase() || 'A';
+    return {
+      label: 'Your avatar · Entry ' + String((item && item.day) || ''),
+      face: faceSeed,
+      helmet: hasArmorPiece(pieces, 'helmet') || progressCount >= 73,
+      breastplate: hasArmorPiece(pieces, 'breastplate') || progressCount >= 146,
+      belt: hasArmorPiece(pieces, 'belt') || progressCount >= 219,
+      shield: hasArmorPiece(pieces, 'shield') || progressCount >= 292,
+      sword: hasArmorPiece(pieces, 'sword') || progressCount >= 365,
+      swordGlow: swordGlow
+    };
+  }
+
+  function panelBackgroundFor(scene, step) {
+    var key = String(scene || 'dawn');
+    var gradients = {
+      dawn: [
+        'linear-gradient(135deg,#0f172a,#1e3a8a 45%,#38bdf8)',
+        'linear-gradient(130deg,#111827,#0f766e 48%,#2dd4bf)'
+      ],
+      storm: [
+        'linear-gradient(135deg,#0b1021,#312e81 42%,#0ea5e9)',
+        'linear-gradient(130deg,#111827,#1d4ed8 46%,#7dd3fc)'
+      ],
+      forest: [
+        'linear-gradient(130deg,#111827,#14532d 44%,#22c55e)',
+        'linear-gradient(130deg,#052e16,#166534 44%,#4ade80)'
+      ],
+      night: [
+        'linear-gradient(130deg,#020617,#312e81 46%,#6366f1)',
+        'linear-gradient(130deg,#0f172a,#4338ca 46%,#a5b4fc)'
+      ],
+      river: [
+        'linear-gradient(130deg,#082f49,#0369a1 48%,#38bdf8)',
+        'linear-gradient(130deg,#0c4a6e,#0284c7 46%,#67e8f9)'
+      ],
+      forge: [
+        'linear-gradient(130deg,#111827,#7c2d12 44%,#fb7185)',
+        'linear-gradient(130deg,#1f2937,#9a3412 44%,#f97316)'
+      ],
+      summit: [
+        'linear-gradient(130deg,#111827,#3f3f46 48%,#eab308)',
+        'linear-gradient(130deg,#27272a,#52525b 46%,#facc15)'
+      ],
+      golden: [
+        'linear-gradient(130deg,#1e1b4b,#854d0e 52%,#facc15)',
+        'linear-gradient(130deg,#312e81,#a16207 52%,#fde68a)'
+      ]
+    };
+    var options = gradients[key] || gradients.dawn;
+    return options[step % options.length];
+  }
+
+  function buildPanelsForEntry(item) {
+    var ref = String((item && item.keyVerseRef) || 'Joshua 1:9');
+    var name = String((item && item.characterName) || 'Warrior');
+    var scene = String((item && item.scene) || 'dawn');
+    var prompt = String((item && item.cartoonPrompt) || '').split(',');
+    var beats = prompt.map(function (part) { return String(part || '').trim(); }).filter(Boolean);
+    var beatA = beats[2] || 'faith-forward movement';
+    var beatB = beats[3] || 'obedience under pressure';
+    return [
+      {
+        caption: 'Entry ' + item.day + ': ' + name + ' steps into the ' + scene + ' watch.',
+        kjv: 'Stand therefore in the strength of the Lord. (' + ref + ')',
+        bg: panelBackgroundFor(scene, 0),
+        scene: scene
+      },
+      {
+        caption: name + ' presses forward with ' + beatA + '.',
+        kjv: 'Be strong and of a good courage. (' + ref + ')',
+        bg: panelBackgroundFor(scene, 1),
+        scene: scene
+      },
+      {
+        caption: 'The battle turn comes through ' + beatB + '.',
+        kjv: 'The LORD shall fight for you, and ye shall hold your peace. (' + ref + ')',
+        bg: panelBackgroundFor(scene, 0),
+        scene: scene
+      },
+      {
+        caption: name + ' finishes this entry with focused faith.',
+        kjv: 'Thanks be to God, which giveth us the victory. (' + ref + ')',
+        bg: panelBackgroundFor(scene, 1),
+        scene: scene
+      }
+    ];
+  }
+
   function previewCartoon() {
     var item = current();
     if (!item) return;
@@ -425,8 +538,11 @@
       modeLabel: 'Action Bible Documentary Preview',
       userInitiated: true,
       useMyAvatar: true,
-      userAvatar: { label: item.characterName }
+      userAvatar: buildUserAvatarState(item),
+      panels: buildPanelsForEntry(item),
+      options: { showEndPanel: true }
     });
+    setStatus('Loaded cinematic preview with your avatar for Entry ' + item.day + '.');
   }
 
   function wire() {

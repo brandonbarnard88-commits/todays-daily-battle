@@ -18,6 +18,7 @@
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="stylesheet" href="church.css?v=20260305">
   <link rel="manifest" href="manifest.json">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,7 +163,77 @@
             <a class="btn btn-secondary" href="/">Search Scripture</a>
           </div>
         </header>
-        <section id="church-center" class="church-center glass" role="region" aria-labelledby="church-center-heading">
+        <section id="church-group-hub" class="church-group-hub glass" role="region" aria-labelledby="church-group-hub-heading">
+          <h2 id="church-group-hub-heading" class="section-divider">Church Tab — Group Hub</h2>
+          <p class="section-note">Code-join your group, pray together, and keep one shared verse board. Mobile-first and private by default.</p>
+
+          <div class="church-hub-tabs" role="tablist" aria-label="Church tabs">
+            <button type="button" id="church-tab-group" class="church-hub-tab active" role="tab" aria-selected="true" aria-controls="church-group-panel">Group Hub</button>
+            <button type="button" id="church-tab-center" class="church-hub-tab" role="tab" aria-selected="false" aria-controls="church-center">Church Center</button>
+          </div>
+
+          <div id="church-group-panel" class="church-hub-panel" role="tabpanel" aria-labelledby="church-tab-group">
+            <label for="church-code-input" class="church-label">Join with code</label>
+            <div class="church-join-row">
+              <input id="church-code-input" type="text" placeholder="church-789" aria-label="Church code">
+              <button id="church-join-btn" type="button" class="btn btn-primary">Join</button>
+              <button id="church-new-code-btn" type="button" class="btn btn-secondary">New Code</button>
+            </div>
+            <p id="church-code-status" class="section-note" aria-live="polite"></p>
+            <div class="church-share-row">
+              <input id="church-share-link" type="text" readonly aria-label="Church share link">
+              <button id="church-copy-link-btn" type="button" class="btn btn-secondary">Copy Invite</button>
+            </div>
+
+            <div class="church-name-row">
+              <label class="inline-toggle"><input id="church-show-name" type="checkbox"> Show my real name</label>
+              <input id="church-my-name" type="text" maxlength="40" placeholder="My name (saved as my-name)" aria-label="My name">
+            </div>
+            <p class="section-note">My Study stays private unless you share it from the My Study page.</p>
+            <p id="church-family-merge-note" class="section-note"></p>
+
+            <article class="church-board-card">
+              <h3 class="section-divider">Shared Verse Board</h3>
+              <p id="church-daily-ref" class="church-daily-ref">Daily verse loading...</p>
+              <p id="church-daily-text" class="section-note"></p>
+              <div class="church-board-form">
+                <textarea id="church-board-note" rows="3" placeholder="Add group note"></textarea>
+                <textarea id="church-board-prayer" rows="3" placeholder="Add group prayer"></textarea>
+                <div class="church-board-actions">
+                  <button id="church-add-note-btn" type="button" class="btn btn-secondary">Add Note</button>
+                  <button id="church-add-prayer-btn" type="button" class="btn btn-primary">Add Prayer</button>
+                </div>
+              </div>
+              <ul id="church-board-list" class="church-board-list" aria-live="polite"></ul>
+            </article>
+
+            <article class="church-avatar-card">
+              <h3 class="section-divider">Avatar Line</h3>
+              <div id="church-avatar-line" class="church-avatar-line" aria-live="polite"></div>
+            </article>
+
+            <article class="church-streak-card">
+              <h3 class="section-divider">Group Streak</h3>
+              <p id="church-streak-count" class="church-streak-count">0 days</p>
+              <p class="section-note">Counts days with notes/prayers on this group board.</p>
+            </article>
+
+            <article class="church-chat-card">
+              <h3 class="section-divider">Optional Anonymous Chat</h3>
+              <label class="inline-toggle"><input id="church-chat-enabled" type="checkbox"> Enable chat for this group</label>
+              <div id="church-chat-wrap" class="hidden">
+                <div class="church-chat-input-row">
+                  <label class="inline-toggle"><input id="church-chat-anon" type="checkbox" checked> Send anonymous</label>
+                  <input id="church-chat-input" type="text" maxlength="240" placeholder="Encourage your group...">
+                  <button id="church-chat-send-btn" type="button" class="btn btn-secondary">Send</button>
+                </div>
+                <ul id="church-chat-list" class="church-chat-list" aria-live="polite"></ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="church-center" class="church-center church-legacy-panel glass hidden" role="region" aria-labelledby="church-center-heading">
           <h2 id="church-center-heading" class="section-divider">Church Verse of the Day</h2>
           <p class="section-note">Your church's chosen verse for today. Pastors can set it below.</p>
           <div id="church-verse-of-day" class="verse-card" style="min-height:60px;" aria-live="polite" aria-atomic="true"><p class="section-note">Join a church to see the church verse of the day.</p></div>
@@ -255,6 +326,7 @@
   <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
+  <script src="church.js?v=20260305" defer></script>
   <script type="module" src="script.js?v=20260305" data-cfasync="false"></script>
 </body>
 </html>

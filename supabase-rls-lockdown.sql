@@ -318,3 +318,60 @@ CREATE TRIGGER force_member_role_trigger
 -- After lockdown: verse echo and prayer wall need anon SELECT on prayers.
 -- Run supabase-prayers-anon-read.sql to re-allow anon read for those features.
 -- =============================================================================
+
+-- =============================================================================
+-- Hardening add-on: user_prayers (private prayer counter history)
+-- Table fields requested:
+--   user_id uuid, created_at timestamptz, village_code text
+-- RLS: auth.uid() = user_id for select/insert/update
+-- =============================================================================
+
+create table if not exists public.user_prayers (
+  id bigserial primary key,
+  user_id uuid not null references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  village_code text
+);
+
+create index if not exists user_prayers_user_id_idx on public.user_prayers(user_id);
+create index if not exists user_prayers_village_code_idx on public.user_prayers(village_code);
+create index if not exists user_prayers_created_at_idx on public.user_prayers(created_at desc);
+
+alter table public.user_prayers enable row level security;
+alter table public.user_prayers force row level security;
+
+drop policy if exists user_prayers_select_own on public.user_prayers;
+drop policy if exists user_prayers_insert_own on public.user_prayers;
+drop policy if exists user_prayers_update_own on public.user_prayers;
+
+create policy user_prayers_select_own
+  on public.user_prayers
+  for select
+  to authenticated
+  using (auth.uid() = user_id);
+
+create policy user_prayers_insert_own
+  on public.user_prayers
+  for insert
+  to authenticated
+  with check (auth.uid() = user_id);
+
+create policy user_prayers_update_own
+  on public.user_prayers
+  for update
+  to authenticated
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+revoke all on table public.user_prayers from anon;
+grant select, insert, update on public.user_prayers to authenticated;
+
+-- Seed one dummy row for testing (first available user only).
+insert into public.user_prayers (user_id, created_at, village_code)
+select u.id, now(), 'TEST-VILLAGE'
+from auth.users u
+where not exists (
+  select 1 from public.user_prayers p where p.user_id = u.id and p.village_code = 'TEST-VILLAGE'
+)
+order by u.created_at asc
+limit 1;

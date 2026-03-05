@@ -245,6 +245,7 @@
             <div class="util-mt-0_5">
               <button type="button" id="share-lookup" class="link-button">Share</button>
               <button type="button" id="copy-lookup" class="link-button" aria-label="Copy verse to clipboard">Copy</button>
+              <button type="button" id="highlight-lookup" class="link-button" aria-label="Highlight this verse">Highlight</button>
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
               <a id="lookup-read-chapter" href="#" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
@@ -317,6 +318,8 @@
   </div>
 
   <script type="module" src="script.js?v=20260305"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025">
 (function () {
   'use strict';
@@ -892,6 +895,18 @@
     var ref = document.getElementById('lookup-ref').textContent.trim();
     var text = document.getElementById('lookup-text').textContent.trim();
     if (ref && (text || ref !== '—')) addToBattleLog(ref, text);
+  });
+
+  document.getElementById('highlight-lookup').addEventListener('click', function () {
+    var ref = document.getElementById('lookup-ref').textContent.trim();
+    var text = document.getElementById('lookup-text').textContent.trim();
+    var noteInput = document.getElementById('note-input');
+    var note = noteInput ? noteInput.value.trim() : '';
+    if (!ref || !text || !window.TDBHighlights || typeof window.TDBHighlights.saveHighlight !== 'function') return;
+    window.TDBHighlights.saveHighlight({ ref: ref, text: text, note: note });
+    this.textContent = 'Highlighted';
+    var btn = this;
+    setTimeout(function () { btn.textContent = 'Highlight'; }, 1600);
   });
 
   document.getElementById('pray-lookup').addEventListener('click', function () {

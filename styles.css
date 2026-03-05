@@ -7249,6 +7249,110 @@ body.red-letter-off .red-letter-card {
 .god-whisper-overlay.whisper-out .god-whisper-text {
   animation: god-whisper-fadeout 1s ease-in forwards;
 }
+.god-whisper-overlay.pray-feedback-mode {
+  background: rgba(1, 5, 14, 0.82);
+}
+.god-whisper-overlay.pray-feedback-mode .god-whisper-text {
+  color: #f8fafc;
+  font-weight: 600;
+  text-align: center;
+  text-shadow:
+    0 0 14px rgba(212, 175, 55, 0.44),
+    0 0 34px rgba(212, 175, 55, 0.2);
+  animation: pray-feedback-text-fade 3s ease-out forwards;
+}
+@keyframes pray-feedback-text-fade {
+  0% { opacity: 0; transform: translateY(4px); }
+  16% { opacity: 1; transform: translateY(0); }
+  82% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-2px); }
+}
+.avatar-pray-glow {
+  animation: avatar-pray-glow-fade 3s ease-out forwards;
+}
+@keyframes avatar-pray-glow-fade {
+  0% {
+    filter: brightness(1);
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+  }
+  30% {
+    filter: brightness(1.08);
+    box-shadow:
+      0 0 20px rgba(212, 175, 55, 0.42),
+      0 0 38px rgba(212, 175, 55, 0.2);
+  }
+  100% {
+    filter: brightness(1);
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.prayer-history-badge {
+  position: fixed;
+  right: 0.85rem;
+  bottom: 0.9rem;
+  z-index: 9998;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(10, 14, 25, 0.92);
+  color: #f8fafc;
+  border-radius: 999px;
+  min-height: 2.3rem;
+  padding: 0.45rem 0.85rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 22px rgba(2, 6, 18, 0.44);
+}
+
+.prayer-history-badge-live {
+  box-shadow:
+    0 8px 22px rgba(2, 6, 18, 0.44),
+    0 0 0 1px rgba(212, 175, 55, 0.24);
+}
+
+.prayer-history-badge-tick {
+  animation: prayer-history-badge-pop 220ms ease-out;
+}
+
+@keyframes prayer-history-badge-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.035); }
+  100% { transform: scale(1); }
+}
+
+.prayer-history-modal .prayer-history-modal-inner {
+  max-width: 22rem;
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  background: rgba(8, 12, 22, 0.97);
+  color: #e2e8f0;
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.5);
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.prayer-history-modal:not(.hidden) .prayer-history-modal-inner {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.prayer-history-modal .section-divider {
+  margin-top: 0.2rem;
+}
+
+.prayer-history-modal strong {
+  color: #fbbf24;
+}
+
+@media (max-width: 768px) {
+  .prayer-history-badge {
+    right: 0.7rem;
+    bottom: 0.75rem;
+    font-size: 0.86rem;
+    min-height: 2.4rem;
+    padding: 0.5rem 0.82rem;
+  }
+}
 @keyframes god-whisper-fadein {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -7983,6 +8087,18 @@ body.has-promo-banner .header-search-sticky {
   color: rgba(226, 232, 240, 0.95);
 }
 .daily-tile-toggle input { width: 1.05rem; height: 1.05rem; }
+.daily-tile-catchup-wrap {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  background: rgba(15, 23, 42, 0.58);
+  display: grid;
+  gap: 0.55rem;
+}
+.daily-tile-catchup-btn {
+  width: min(100%, 14rem);
+}
 
 .tdb-cartoon-overlay {
   position: fixed;
@@ -8029,6 +8145,7 @@ body.has-promo-banner .header-search-sticky {
   border: 1px solid rgba(250, 204, 21, 0.22);
   background: #090f1c;
   min-height: min(72vh, 620px);
+  touch-action: pan-y;
 }
 .tdb-cartoon-panel {
   position: absolute;

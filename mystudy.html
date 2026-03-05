@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Study | Today's Daily Battle</title>
+  <meta name="description" content="Private verse, notes, and prayer study space with optional anonymous share code.">
+  <meta name="theme-color" content="#0a0c14">
+  <link rel="stylesheet" href="styles.css?v=20260314">
+  <link rel="stylesheet" href="mystudy.css?v=20260305">
+</head>
+<body class="dark-mode mystudy-body">
+  <main id="main-content" class="mystudy-shell">
+    <a href="/" class="mystudy-home-link">← Back to Home</a>
+    <section class="mystudy-card glass" aria-label="My Study">
+      <h1 class="section-divider mystudy-title">My Study</h1>
+      <p class="section-note mystudy-subtitle">Private verse, notes, and prayer space. Saved on this device.</p>
+
+      <div class="mystudy-tabs" role="tablist" aria-label="My Study tabs">
+        <button id="tab-my-study" class="mystudy-tab active" role="tab" aria-selected="true" aria-controls="panel-my-study" type="button">My Study</button>
+        <button id="tab-highlights" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-highlights" type="button">Highlights</button>
+        <button id="tab-join-study" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-join-study" type="button">Join Study</button>
+      </div>
+
+      <section id="panel-my-study" class="mystudy-panel" role="tabpanel" aria-labelledby="tab-my-study">
+        <label for="mystudy-search" class="mystudy-label">Search verse</label>
+        <div class="mystudy-search-row">
+          <input id="mystudy-search" type="search" placeholder="Hope, fear, John 3:16..." autocomplete="off" aria-label="Search verse">
+          <button id="mystudy-search-btn" class="btn btn-primary" type="button">Search</button>
+        </div>
+        <p id="mystudy-search-status" class="section-note" aria-live="polite"></p>
+        <ul id="mystudy-results" class="mystudy-results" aria-label="Verse results"></ul>
+
+        <article class="mystudy-verse-card">
+          <h2 class="section-divider mystudy-h2">Selected verse</h2>
+          <p id="mystudy-verse-ref" class="mystudy-verse-ref">No verse selected yet.</p>
+          <p id="mystudy-verse-text" class="mystudy-verse-text section-note"></p>
+          <div class="mystudy-share-actions">
+            <button id="mystudy-highlight-selected" class="btn btn-secondary mystudy-highlight-btn" type="button">Highlight</button>
+          </div>
+        </article>
+
+        <label for="mystudy-notes" class="mystudy-label">Study notes</label>
+        <textarea id="mystudy-notes" rows="7" placeholder="Write your study notes..."></textarea>
+
+        <label for="mystudy-prayer" class="mystudy-label">Prayer (private)</label>
+        <textarea id="mystudy-prayer" rows="5" placeholder="Personal prayer stays private on this device..."></textarea>
+
+        <div class="mystudy-share-wrap">
+          <h2 class="section-divider mystudy-h2">Share Study</h2>
+          <p class="section-note">Share code includes verse + notes only. No prayer data is shared.</p>
+          <label class="mystudy-inline">
+            <input id="mystudy-show-name" type="checkbox">
+            Show name in shared label
+          </label>
+          <input id="mystudy-display-name" type="text" maxlength="40" placeholder="Optional display name" aria-label="Display name for shared study">
+          <div class="mystudy-share-actions">
+            <button id="mystudy-generate-code" class="btn btn-primary" type="button">Generate Share Code</button>
+            <button id="mystudy-copy-code" class="btn btn-secondary" type="button">Copy Code</button>
+          </div>
+          <textarea id="mystudy-share-code" rows="4" readonly placeholder="Share code appears here"></textarea>
+          <p id="mystudy-share-status" class="section-note" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="panel-join-study" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-join-study">
+        <label for="mystudy-join-code" class="mystudy-label">Paste share code</label>
+        <textarea id="mystudy-join-code" rows="4" placeholder="Paste code to view shared study"></textarea>
+        <div class="mystudy-share-actions">
+          <button id="mystudy-join-btn" class="btn btn-primary" type="button">Join Study</button>
+          <button id="mystudy-clear-joined" class="btn btn-secondary" type="button">Clear Joined</button>
+        </div>
+        <p id="mystudy-join-status" class="section-note" aria-live="polite"></p>
+        <div id="mystudy-shared-list" class="mystudy-shared-list" aria-label="Joined studies"></div>
+      </section>
+
+      <section id="panel-highlights" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-highlights">
+        <p id="mystudy-highlights-status" class="section-note" aria-live="polite">Tap a verse, then press Highlight to save it here.</p>
+        <div id="mystudy-highlights-grid" class="mystudy-highlights-grid" aria-label="Saved highlights"></div>
+        <article id="mystudy-highlight-detail" class="mystudy-highlight-detail hidden" aria-live="polite">
+          <p id="mystudy-highlight-ref" class="mystudy-verse-ref"></p>
+          <p id="mystudy-highlight-text" class="mystudy-verse-text section-note"></p>
+          <p id="mystudy-highlight-note" class="section-note"></p>
+          <div class="mystudy-share-actions">
+            <button id="mystudy-share-church" class="btn btn-secondary" type="button">Share to Church</button>
+            <button id="mystudy-remove-highlight" class="btn btn-secondary" type="button">Remove Highlight</button>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="highlights.js?v=20260305" defer></script>
+  <script src="mystudy.js?v=20260305" defer></script>
+</body>
+</html>

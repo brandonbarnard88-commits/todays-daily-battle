@@ -7756,20 +7756,20 @@ body.red-letter-off .red-letter-card {
   top: 5%;
   left: 50%;
   transform: translate(-50%, -16%);
-  animation: welcome-oil-fall 2.2s ease-in-out infinite;
+  animation: welcome-oil-fall 2s ease-in-out 1 both;
 }
 .welcome-element-water {
   width: clamp(7rem, 16vw, 10rem);
   left: 10%;
   top: 56%;
   transform: translateX(-6%);
-  animation: welcome-water-ripple 2s ease-in-out infinite;
+  animation: welcome-water-ripple 3s ease-in-out 1 both;
 }
 .welcome-element-fire {
   right: 10%;
   bottom: 12%;
   transform: translateX(6%);
-  animation: welcome-fire-ember 1.8s ease-in-out infinite;
+  animation: welcome-fire-ember 4s ease-in-out 1 both;
 }
 .welcome-cross {
   width: clamp(4.2rem, 11vw, 6.5rem);
@@ -7793,6 +7793,7 @@ body.red-letter-off .red-letter-card {
 .welcome-anointing-overlay.welcome-elements-merge .welcome-cross {
   opacity: 1;
   transform: scale(1);
+  animation: welcome-cross-glow 1.6s ease-out 1;
 }
 .welcome-avatar-stage {
   margin-top: 8rem;
@@ -7806,6 +7807,25 @@ body.red-letter-off .red-letter-card {
 }
 .welcome-anointing-overlay .home-avatar-center .armor-figure-label {
   display: none;
+}
+.welcome-wanderer-mode {
+  min-width: 9rem;
+}
+.welcome-wanderer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.welcome-wanderer svg {
+  width: 4.3rem;
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.35));
+}
+.welcome-wanderer .armor-figure-label {
+  color: #fde68a;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
 }
 body.welcome-intro-active .app-content {
   transform: translateY(14px);
@@ -7857,6 +7877,11 @@ body.welcome-intro-lift .app-content {
 @keyframes welcome-fire-ember {
   0%, 100% { transform: translateX(7%) translateY(6px) scale(0.95); opacity: 0.78; }
   50% { transform: translateX(0) translateY(-8px) scale(1.05); opacity: 1; }
+}
+@keyframes welcome-cross-glow {
+  0% { filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.28)) drop-shadow(0 0 8px rgba(96, 165, 250, 0.2)); }
+  55% { filter: drop-shadow(0 0 24px rgba(251, 191, 36, 0.62)) drop-shadow(0 0 28px rgba(96, 165, 250, 0.5)); }
+  100% { filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.5)) drop-shadow(0 0 20px rgba(96, 165, 250, 0.35)); }
 }
 
 /* Bless this session — header icon (cross + flame) */

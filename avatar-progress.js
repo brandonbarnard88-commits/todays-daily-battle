@@ -12,9 +12,10 @@
   var fallbackObserver = null;
 
   var STAGES = [
-    { id: 'village', min: 0, max: 10, tag: 'Village', title: 'Rising Defender', look: 'helmet + shield', crestEvolution: 'basic crest', face: '🛡️', flags: { helmet: true, breastplate: false, belt: true, shield: true, sword: false, swordGlow: false } },
-    { id: 'kingdom', min: 11, max: 30, tag: 'Kingdom', title: 'Crowned Champion', look: 'breastplate + sword', crestEvolution: 'gemmed crest', face: '⚔️', flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: false } },
-    { id: 'empire', min: 31, max: 99999, tag: 'Empire', title: 'Legacy Warlord', look: 'full armor + leather jacket + cross necklace', crestEvolution: 'diamond-edge crest', face: '💎', flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: true } }
+    { id: 'wanderer', min: 0, max: 9, tag: 'Wanderer', title: 'Ancient Wanderer', look: 'linen tunic + staff', crestEvolution: 'seed crest', face: '🕊️', unlockToast: false, flags: { helmet: false, breastplate: false, belt: false, shield: false, sword: false, swordGlow: false } },
+    { id: 'village', min: 10, max: 29, tag: 'Village', title: 'Rising Defender', look: 'helmet + shield', crestEvolution: 'basic crest', face: '🛡️', unlockToast: true, flags: { helmet: true, breastplate: false, belt: true, shield: true, sword: false, swordGlow: false } },
+    { id: 'kingdom', min: 30, max: 59, tag: 'Kingdom', title: 'Crowned Champion', look: 'leather + sword', crestEvolution: 'gemmed crest', face: '⚔️', unlockToast: true, flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: false } },
+    { id: 'empire', min: 60, max: 99999, tag: 'Empire', title: 'Legacy Warlord', look: 'jacket + cross necklace + phone', crestEvolution: 'diamond-edge crest', face: '💎', unlockToast: true, flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: true } }
   ];
 
   function safeInt(n) {
@@ -229,8 +230,11 @@
     saveCurrentStage(stage, w);
     applyStageClasses(stage);
     document.dispatchEvent(new CustomEvent('tdb:avatar-stage-updated', { detail: { wins: w, stage: stage } }));
-    if (!prev || prev.id !== stage.id) {
+    if (prev && prev.id !== stage.id) {
       document.dispatchEvent(new CustomEvent('tdb:avatar-stage-unlocked', { detail: { wins: w, stage: stage, previous: prev } }));
+      if (stage && stage.unlockToast && typeof window.showEliteToast === 'function') {
+        window.showEliteToast('Stage unlocked: ' + stage.tag, { gold: true, duration: 3000 });
+      }
     }
     if (fallbackMode && w > 0) {
       fallbackMode = false;
@@ -264,6 +268,11 @@
       fallbackMode = seeded || wins <= 0;
       wireFallbackBadgeRefresh();
       syncAvatarProgress(wins);
+      document.addEventListener('tdb:egg-triggered', function (evt) {
+        var shown = !!(evt && evt.detail && evt.detail.shown);
+        if (!shown) return;
+        syncAvatarProgress(readWins());
+      });
     });
   } else {
     var seededNow = ensureWinScoreSeeded();
@@ -271,5 +280,10 @@
     fallbackMode = seededNow || winsNow <= 0;
     wireFallbackBadgeRefresh();
     syncAvatarProgress(winsNow);
+    document.addEventListener('tdb:egg-triggered', function (evt) {
+      var shownNow = !!(evt && evt.detail && evt.detail.shown);
+      if (!shownNow) return;
+      syncAvatarProgress(readWins());
+    });
   }
 })();

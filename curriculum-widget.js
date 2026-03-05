@@ -117,7 +117,7 @@
     for (var i = 0; i < ARMOR.length; i++) {
       var p = ARMOR[i];
       var on = completed >= p.unlockDay;
-      listHtml += '<li>' + (on ? '✓' : '🔒') + ' ' + esc(p.label) + ' • gem: ' + esc(p.gem) + ' • day ' + p.unlockDay + '</li>';
+      listHtml += '<li>' + (on ? '✓' : '🔒') + ' ' + esc(p.label) + ' • gem: <button type="button" class="gem-chip" data-gem="' + esc(p.gem) + '" data-day="' + p.unlockDay + '" aria-label="About ' + esc(p.gem) + ' gem">' + esc(p.gem) + '</button> • day ' + p.unlockDay + '</li>';
     }
     list.innerHTML = listHtml;
 
@@ -127,6 +127,71 @@
       '<p class="section-note util-mb-0">Family <strong>' + esc(familyId()) + '</strong> on streets of gold: ' + completed + '/365 days (' + percent + '%).</p>';
 
     summary.textContent = 'Armor progress: ' + completed + '/365 days completed.';
+    bindGemTooltips();
+  }
+
+  function ensureGemTooltip() {
+    var tip = document.getElementById('gem-edu-tooltip');
+    if (tip) return tip;
+    tip = document.createElement('div');
+    tip.id = 'gem-edu-tooltip';
+    tip.className = 'gem-edu-tooltip hidden';
+    tip.setAttribute('role', 'status');
+    tip.setAttribute('aria-live', 'polite');
+    document.body.appendChild(tip);
+    return tip;
+  }
+
+  function gemMessage(gem, day) {
+    var g = String(gem || '').toLowerCase();
+    if (g === 'sapphire') return "This sapphire's for wisdom—like Moses knew God's plan. You unlocked it by reading Day " + day + '.';
+    if (g === 'ruby') return "This ruby marks righteousness. You unlocked it by reading Day " + day + '.';
+    if (g === 'emerald') return "This emerald marks truth. You unlocked it by reading Day " + day + '.';
+    if (g === 'diamond') return "This diamond marks the commandments slab. You unlocked it by reading Day " + day + '.';
+    return "This " + g + " marks faith, hope, and love. You unlocked it by reading Day " + day + '.';
+  }
+
+  function bindGemTooltips() {
+    var list = document.getElementById('deep-curriculum-armor-list');
+    if (!list || list.__gemBound) return;
+    list.__gemBound = true;
+    var tip = ensureGemTooltip();
+    var hold = null;
+    function show(el, x, y) {
+      if (!el) return;
+      var gem = el.getAttribute('data-gem') || '';
+      var day = el.getAttribute('data-day') || '';
+      tip.textContent = gemMessage(gem, day);
+      tip.style.left = Math.max(12, x - 140) + 'px';
+      tip.style.top = Math.max(12, y - 54) + 'px';
+      tip.classList.remove('hidden');
+    }
+    function hide() { tip.classList.add('hidden'); }
+    list.addEventListener('mouseover', function (e) {
+      var chip = e.target.closest ? e.target.closest('.gem-chip') : null;
+      if (!chip) return;
+      show(chip, e.clientX || 30, e.clientY || 30);
+    });
+    list.addEventListener('mouseout', function (e) {
+      var chip = e.target.closest ? e.target.closest('.gem-chip') : null;
+      if (chip) hide();
+    });
+    list.addEventListener('click', function (e) {
+      var chip = e.target.closest ? e.target.closest('.gem-chip') : null;
+      if (!chip) return;
+      show(chip, e.clientX || 30, e.clientY || 30);
+      setTimeout(hide, 2200);
+    });
+    list.addEventListener('touchstart', function (e) {
+      var chip = e.target.closest ? e.target.closest('.gem-chip') : null;
+      if (!chip) return;
+      var t = (e.touches && e.touches[0]) || { clientX: 30, clientY: 30 };
+      hold = setTimeout(function () { show(chip, t.clientX, t.clientY); }, 450);
+    }, { passive: true });
+    list.addEventListener('touchend', function () {
+      if (hold) clearTimeout(hold);
+      setTimeout(hide, 900);
+    }, { passive: true });
   }
 
   function init() {
@@ -147,6 +212,7 @@
         return {
           day: dayNum,
           name: row.name,
+          tier: row.tier || '',
           preGodBrief: row.preGodBrief,
           impact: row.impact || '',
           postGodBrief: row.postGodBrief,
@@ -173,7 +239,7 @@
       var modeText = mode === 'kid' ? row.kidSafeVersion : mode === 'teen' ? row.teenVersion : mode === 'pastor' ? row.pastorVersion : row.impact;
       modeText = seasonalTake(mode, modeText);
       content.innerHTML =
-        '<strong>Day ' + idx + '</strong> — ' + esc(row.name) +
+        '<strong>Day ' + idx + '</strong> — ' + esc(row.name) + (row.tier ? (' <em>(' + esc(row.tier) + ')</em>') : '') +
         '<br><strong>Before God:</strong> ' + esc(row.preGodBrief) +
         '<br><strong>Impact:</strong> ' + esc(row.impact) +
         '<br><strong>After God:</strong> ' + esc(row.postGodBrief) +
@@ -189,9 +255,17 @@
       .then(function (json) {
         var chars = Array.isArray(json.characters) ? json.characters : [];
         if (chars.length) {
+          var tier1 = chars.filter(function (c) { return c.tier === 'Tier 1'; });
+          var tier2 = chars.filter(function (c) { return c.tier !== 'Tier 1'; }).sort(function (a, b) {
+            return String(a.name || '').localeCompare(String(b.name || ''));
+          });
           days = [];
           for (var i = 0; i < 365; i++) {
-            days.push(normalizeCharacterRow(chars[i % chars.length], i + 1));
+            var src = null;
+            if (i < 50 && tier1.length) src = tier1[i % tier1.length];
+            else if (tier2.length) src = tier2[(i - 50 + tier2.length) % tier2.length];
+            else src = chars[i % chars.length];
+            days.push(normalizeCharacterRow(src, i + 1));
           }
         } else {
           throw new Error('no characters');

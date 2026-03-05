@@ -11,6 +11,8 @@
   var CACHE_KEY = 'tdb_kjv_verse_cache_v1';
   var META_KEY = 'tdb_kjv_verse_meta_v1';
   var LAST_KEY = 'tdb_kjv_last_ref_v1';
+  var QUIET_KEY = 'tdb_quiet_mode_until';
+  var MODE_KEY = 'tdb_verse_rotator_mode';
   var API_DEFAULT = 'https://bible-api.com/data/kjv';
   var BATCH_SIZE = 100;
   var MAX_CACHE = 13000;
@@ -36,6 +38,29 @@
     try {
       return JSON.parse(localStorage.getItem(META_KEY) || '{}') || {};
     } catch (e) { return {}; }
+  }
+
+  function nowMs() {
+    return Date.now();
+  }
+
+  function isQuietMode() {
+    try {
+      var until = parseInt(localStorage.getItem(QUIET_KEY) || '0', 10) || 0;
+      if (!until) return false;
+      if (until < nowMs()) {
+        localStorage.removeItem(QUIET_KEY);
+        return false;
+      }
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function setQuietMode(on) {
+    try {
+      if (on) localStorage.setItem(QUIET_KEY, String(nowMs() + DAY_MS));
+      else localStorage.removeItem(QUIET_KEY);
+    } catch (e) {}
   }
 
   function writeMeta(meta) {
@@ -113,6 +138,49 @@
     return item;
   }
 
+  function themePool(cache) {
+    var rx = /\b(peace|anxiety|anxious|careful|troubled|worry|afraid|fear not|pray|prayer|supplication|rest)\b/i;
+    var hits = cache.filter(function (v) { return rx.test(v.text || ''); });
+    return hits.length ? hits : cache.slice();
+  }
+
+  function pickSmartVerse(cache) {
+    if (!cache.length) return null;
+    var meta = readMeta();
+    var stamp = todayStamp();
+    if (meta.openDay !== stamp) {
+      meta.openDay = stamp;
+      meta.openCount = 0;
+      writeMeta(meta);
+    }
+    meta.openCount = (meta.openCount || 0) + 1;
+    writeMeta(meta);
+
+    if (isQuietMode()) {
+      try {
+        var lastQ = JSON.parse(localStorage.getItem(LAST_KEY) || 'null');
+        if (lastQ && lastQ.ref) {
+          var exact = cache.find(function (v) { return v.ref === lastQ.ref; });
+          if (exact) return exact;
+        }
+      } catch (e) {}
+    }
+
+    if ((meta.openCount || 0) >= 3) {
+      var themed = themePool(cache);
+      var last = null;
+      try { last = JSON.parse(localStorage.getItem(LAST_KEY) || 'null'); } catch (e2) {}
+      var idx = -1;
+      if (last && last.ref) idx = themed.findIndex(function (v) { return v.ref === last.ref; });
+      var next = themed[(idx + 1 + themed.length) % themed.length] || themed[0];
+      if (next) {
+        try { localStorage.setItem(LAST_KEY, JSON.stringify({ ref: next.ref, ts: nowMs() })); } catch (e3) {}
+        return next;
+      }
+    }
+    return pickRandomNoRepeat(cache);
+  }
+
   function modeLine(mode, text) {
     if (mode === 'pastor') return 'Context hook: ' + text.slice(0, 220);
     if (mode === 'kid') return 'Jesus brings hope and love. ' + text.replace(/\b(blood|slay|kill|wrath|fear)\b/gi, 'hope');
@@ -131,6 +199,42 @@
     }
     ref.textContent = item.ref + ' (KJV)';
     text.textContent = item.text;
+    ensureWhyTooltip(item);
+  }
+
+  function getMode() {
+    try { return localStorage.getItem(MODE_KEY) || 'quick'; } catch (e) { return 'quick'; }
+  }
+
+  function ensureWhyTooltip(item) {
+    var wrap = document.getElementById('verse-rotator-home');
+    if (!wrap || !item) return;
+    var btn = document.getElementById('verse-rotator-why-btn');
+    var tip = document.getElementById('verse-rotator-why-tip');
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.id = 'verse-rotator-why-btn';
+      btn.type = 'button';
+      btn.className = 'btn btn-secondary util-mt-0_5';
+      btn.textContent = 'Why this one?';
+      wrap.appendChild(btn);
+    }
+    if (!tip) {
+      tip = document.createElement('p');
+      tip.id = 'verse-rotator-why-tip';
+      tip.className = 'section-note hidden util-mt-0_5';
+      wrap.appendChild(tip);
+    }
+    var mode = getMode();
+    var why = mode === 'kid'
+      ? "Don't worry—tell God!"
+      : mode === 'pastor'
+        ? 'Context cue: anxiety to prayer, burden to peace.'
+        : mode === 'teen'
+          ? 'When pressure spikes, pray first, not panic.'
+          : 'God says chill, pray instead.';
+    tip.textContent = why;
+    btn.onclick = function () { tip.classList.toggle('hidden'); };
   }
 
   function wireSearch(cacheRef) {
@@ -139,6 +243,7 @@
     var mode = document.getElementById('verse-rotator-mode');
     var out = document.getElementById('verse-rotator-results');
     if (!input || !btn || !mode || !out) return;
+    mode.value = getMode();
 
     function run() {
       var q = String(input.value || '').trim().toLowerCase();
@@ -163,16 +268,33 @@
 
     btn.addEventListener('click', run);
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); run(); } });
-    mode.addEventListener('change', run);
+    mode.addEventListener('change', function () {
+      try { localStorage.setItem(MODE_KEY, mode.value || 'quick'); } catch (e) {}
+      run();
+    });
+  }
+
+  function wireQuietToggle() {
+    var btn = document.getElementById('quiet-mode-toggle');
+    if (!btn) return;
+    function paint() {
+      btn.textContent = isQuietMode() ? 'Quiet mode: On' : 'Quiet mode: Off';
+    }
+    paint();
+    btn.addEventListener('click', function () {
+      setQuietMode(!isQuietMode());
+      paint();
+    });
   }
 
   async function init() {
     if (!document.getElementById('toolbox-content')) return;
     await ensureDailyBatch();
     var cache = readCache();
-    var item = pickRandomNoRepeat(cache);
+    var item = pickSmartVerse(cache);
     renderHome(item);
     wireSearch(readCache);
+    wireQuietToggle();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

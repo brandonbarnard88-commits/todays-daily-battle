@@ -363,6 +363,25 @@
     });
   }
 
+  function initHomeWhenReady() {
+    var tries = 0;
+    var maxTries = 40;
+    function ready() {
+      return !!(window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getFamilyCode === 'function');
+    }
+    if (ready()) {
+      initHome();
+      return;
+    }
+    var timer = setInterval(function () {
+      tries += 1;
+      if (ready() || tries >= maxTries) {
+        clearInterval(timer);
+        initHome();
+      }
+    }, 50);
+  }
+
   window.TDBCrest = {
     getCrest: getCrest,
     saveCrest: saveCrest,
@@ -374,10 +393,10 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       initGenerator();
-      initHome();
+      initHomeWhenReady();
     });
   } else {
     initGenerator();
-    initHome();
+    initHomeWhenReady();
   }
 })();

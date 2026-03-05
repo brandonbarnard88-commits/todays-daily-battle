@@ -305,6 +305,11 @@
           <p class="prayer-of-day-text prayer-of-day-reflection">Lord, thank you for the strength to keep going.</p>
           <p class="section-note prayer-of-day-meta util-mb-0" aria-live="polite">Prayed by <span id="prayer-of-day-count">0</span> warriors today.</p>
         </div>
+        <div class="glass util-mt-0_5" id="verse-rotator-home" role="region" aria-label="Random KJV verse">
+          <h3 class="section-divider util-mt-0">Fresh KJV Verse</h3>
+          <p id="verse-rotator-home-ref" class="section-note util-mb-0_5">Loading…</p>
+          <p id="verse-rotator-home-text" class="section-note util-mb-0"></p>
+        </div>
         <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less scroll, more soul.</p>
         </div>
         <div class="toolbox-block" data-toolbox-drawer="battle">
@@ -428,6 +433,27 @@
             <p id="family-link-status" class="section-note util-mb-0"></p>
             <div id="golden-road-map" class="deep-curriculum-map util-mt-0_5" aria-label="Streets of gold trail"></div>
           </div>
+        </section>
+        <section class="glass util-mt-0_5" data-toolbox-drawer="deep" aria-label="Verse rotator search">
+          <h3 class="section-divider util-mt-0">Verse Rotator Search</h3>
+          <div class="deep-curriculum-controls">
+            <input id="verse-rotator-search" type="search" placeholder="Search KJV verses…" aria-label="Search KJV verses">
+            <select id="verse-rotator-mode" aria-label="Verse mode">
+              <option value="quick">Quick</option>
+              <option value="pastor">Pastor</option>
+              <option value="kid">Kid</option>
+              <option value="teen">Teen</option>
+            </select>
+            <button id="verse-rotator-search-btn" type="button" class="btn btn-secondary">Search</button>
+          </div>
+          <div id="verse-rotator-results" class="deep-curriculum-content section-note util-mt-0_5">Enter a search term to browse cached KJV verses.</div>
+        </section>
+        <section class="glass util-mt-0_5 lineage-tree-wrap" data-toolbox-drawer="deep" aria-label="Your Battle Lineage timeline">
+          <div class="lineage-crest">
+            <h3 class="section-divider util-mt-0">Your Battle Lineage</h3>
+            <p class="section-note util-mb-0">Crest gems: <strong id="lineage-crest-gems">0</strong></p>
+          </div>
+          <div id="lineage-tree-list" class="lineage-tree-list" role="list" aria-label="Historical lineage timeline"></div>
         </section>
         <div id="mac-daddy-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Mac Daddy armor editor">
           <div class="modal-inner glass">
@@ -1135,7 +1161,9 @@
   <script src="search-wire.js?v=20260313"></script>
   <script src="fallback-search.js?v=20260313"></script>
   <script src="auth.js?v=20260314" defer></script>
+  <script src="verse-rotator.js?v=20260314" defer></script>
   <script src="curriculum-widget.js?v=20260314"></script>
   <script src="armor.js?v=20260314"></script>
+  <script src="lineage-tree.js?v=20260314" defer></script>
 </body>
 </html>

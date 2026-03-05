@@ -725,6 +725,62 @@ body {
   background: rgba(212, 175, 55, 0.08);
 }
 .armor-family-panel { border-top: 1px solid rgba(212, 175, 55, 0.25); padding-top: 0.6rem; }
+.lineage-tree-wrap { width: 100%; max-width: 100%; }
+.lineage-crest {
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  background: linear-gradient(180deg, rgba(250, 204, 21, 0.12), rgba(250, 204, 21, 0.04));
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+}
+.lineage-tree-list {
+  position: relative;
+  margin-top: 0.7rem;
+  max-height: 520px;
+  overflow-y: auto;
+  padding: 0.35rem 0.35rem 0.2rem 0.35rem;
+  -webkit-overflow-scrolling: touch;
+}
+.lineage-node {
+  position: relative;
+  display: grid;
+  grid-template-columns: 12px 44px 1fr;
+  gap: 0.55rem;
+  align-items: start;
+  padding: 0.4rem 0 0.7rem 0;
+}
+.lineage-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #facc15;
+  margin-top: 0.5rem;
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.45);
+}
+.lineage-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(250, 204, 21, 0.5);
+}
+.lineage-content {
+  border: 1px solid rgba(250, 204, 21, 0.25);
+  background: rgba(22, 22, 22, 0.7);
+  border-radius: 10px;
+  padding: 0.45rem 0.6rem;
+}
+.lineage-content h4 {
+  margin: 0 0 0.2rem;
+  font-size: 0.98rem;
+}
+.lineage-connector {
+  position: absolute;
+  left: 4px;
+  top: 1.1rem;
+  bottom: -0.25rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(250, 204, 21, 0.7), rgba(250, 204, 21, 0.2));
+}
 .deep-curriculum-inline,
 .deep-curriculum-map,
 #golden-road-map,
@@ -777,6 +833,7 @@ body {
   .toolbox-tab { padding: 0.65rem 0.75rem; font-size: 0.88rem; flex: 1 1 calc(50% - 1rem); }
   .toolbox-card-grid { grid-template-columns: 1fr; }
   .deep-curriculum-armor-wrap { grid-template-columns: 1fr; }
+  .lineage-tree-list { max-height: 62vh; }
 }
 @media (min-width: 769px) and (max-width: 1050px) {
   .toolbox-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

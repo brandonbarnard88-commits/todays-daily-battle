@@ -140,6 +140,25 @@
     var days = [];
     var currentDay = 1;
 
+    function normalizeCharacterRow(row, dayNum) {
+      if (!row) return null;
+      // Supports either characters.json rows or existing curriculum rows.
+      if (row.name && row.preGodBrief && row.postGodBrief && row.keyKJVVerse) {
+        return {
+          day: dayNum,
+          name: row.name,
+          preGodBrief: row.preGodBrief,
+          impact: row.impact || '',
+          postGodBrief: row.postGodBrief,
+          keyVerse: { ref: row.keyKJVVerse, text: '' },
+          kidSafeVersion: row.kid || '',
+          teenVersion: row.teen || '',
+          pastorVersion: row.pastor || ''
+        };
+      }
+      return row;
+    }
+
     function render() {
       var idx = Math.max(1, Math.min(365, parseInt(dayInput.value, 10) || 1));
       currentDay = idx;
@@ -158,17 +177,34 @@
         '<br><strong>Before God:</strong> ' + esc(row.preGodBrief) +
         '<br><strong>Impact:</strong> ' + esc(row.impact) +
         '<br><strong>After God:</strong> ' + esc(row.postGodBrief) +
-        '<br><strong>KJV:</strong> ' + esc(row.keyVerse && row.keyVerse.ref) + ' — ' + esc(row.keyVerse && row.keyVerse.text) +
+        '<br><strong>KJV:</strong> ' + esc(row.keyVerse && row.keyVerse.ref) + (row.keyVerse && row.keyVerse.text ? (' — ' + esc(row.keyVerse.text)) : '') +
         '<br><strong>' + esc(mode.charAt(0).toUpperCase() + mode.slice(1)) + ':</strong> ' + esc(modeText);
       prevBtn.disabled = idx <= 1;
       nextBtn.disabled = idx >= 365;
       renderArmorAndMap();
     }
 
-    fetch('curriculum.json')
+    fetch('characters.json')
       .then(function (r) { return r.json(); })
       .then(function (json) {
-        days = Array.isArray(json.days) ? json.days : [];
+        var chars = Array.isArray(json.characters) ? json.characters : [];
+        if (chars.length) {
+          days = [];
+          for (var i = 0; i < 365; i++) {
+            days.push(normalizeCharacterRow(chars[i % chars.length], i + 1));
+          }
+        } else {
+          throw new Error('no characters');
+        }
+      })
+      .catch(function () {
+        return fetch('curriculum.json')
+          .then(function (r) { return r.json(); })
+          .then(function (json) {
+            days = Array.isArray(json.days) ? json.days : [];
+          });
+      })
+      .then(function () {
         if (days.length) dayInput.value = String(dayOfYear());
         modeSelect.value = getModePref();
         render();

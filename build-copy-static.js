@@ -63,8 +63,12 @@ const rootFiles = [
   'curriculum.js',
   'curriculum-widget.js',
   'armor.js',
+  'lineage-tree.js',
+  'verse-rotator.js',
   'auth.js',
   'curriculum.json',
+  'characters.json',
+  'family-lineage.json',
   // 'bell.mp3' – add to project root if you want a custom bell; otherwise Web Audio beep is used
 ];
 const scriptFiles = ['scripts/header-search-bar.js'];

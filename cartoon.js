@@ -39,6 +39,7 @@
         '</div>' +
         '<div id="tdb-cartoon-panels" class="tdb-cartoon-panels"></div>' +
         '<p id="tdb-kjv-overlay" class="tdb-kjv-overlay"></p>' +
+        '<div class="tdb-verse-actions"><button type="button" id="tdb-kjv-breakdown-btn" class="btn btn-secondary">Breakdown</button></div>' +
         '<div id="tdb-road-wrap" class="tdb-road-wrap">' +
           '<div class="tdb-road-track" aria-hidden="true"></div>' +
           '<div id="tdb-walkers" class="tdb-walkers"></div>' +
@@ -82,6 +83,18 @@
     if (laterBtn) {
       laterBtn.addEventListener('click', function () {
         close();
+      });
+    }
+
+    var breakdownBtn = root.querySelector('#tdb-kjv-breakdown-btn');
+    if (breakdownBtn) {
+      breakdownBtn.addEventListener('click', function () {
+        var ref = breakdownBtn.getAttribute('data-ref') || '';
+        var text = breakdownBtn.getAttribute('data-text') || '';
+        if (!ref || !text) return;
+        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+          window.TDBVerseBreakdown.open(ref, text);
+        }
       });
     }
 
@@ -195,7 +208,24 @@
   function setKjvText(index) {
     var el = document.getElementById('tdb-kjv-overlay');
     if (!el || !state.panels[index]) return;
-    el.textContent = state.panels[index].kjv;
+    var kjv = state.panels[index].kjv || '';
+    el.textContent = kjv;
+    var btn = document.getElementById('tdb-kjv-breakdown-btn');
+    if (btn) {
+      var parsed = parsePanelVerse(kjv);
+      btn.setAttribute('data-ref', parsed.ref);
+      btn.setAttribute('data-text', parsed.text);
+      btn.disabled = !parsed.ref || !parsed.text;
+    }
+  }
+
+  function parsePanelVerse(kjv) {
+    var value = String(kjv || '').trim();
+    var m = value.match(/\(([^()]+?\d+:\d+(?:-\d+)?)\)\s*$/);
+    if (!m) return { ref: '', text: '' };
+    var ref = m[1].trim();
+    var text = value.slice(0, m.index).trim().replace(/\s+$/, '');
+    return { ref: ref, text: text };
   }
 
   function showPanel(index) {

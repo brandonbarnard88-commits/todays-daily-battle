@@ -335,8 +335,16 @@
     }
 
     if (refEl) refEl.textContent = ref;
-    card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(text) + '</p>';
+    card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(text) + '</p><div class="verse-actions"><button type="button" id="church-daily-breakdown" class="btn btn-secondary">Breakdown</button></div>';
     card.classList.add('verse-card-loaded');
+    var breakdownBtn = document.getElementById('church-daily-breakdown');
+    if (breakdownBtn) {
+      breakdownBtn.addEventListener('click', function () {
+        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+          window.TDBVerseBreakdown.open(ref, text);
+        }
+      });
+    }
   }
 
   function loadReflections(groupId) {

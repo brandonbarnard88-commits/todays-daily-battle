@@ -41,6 +41,9 @@
   }
 
   function getFamilyCode() {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getFamilyCode === 'function') {
+      return window.TDBFamilyHierarchy.getFamilyCode();
+    }
     var code = localStorage.getItem(FAMILY_KEY);
     if (code) return code;
     code = 'household-' + Math.random().toString(36).slice(2, 8);
@@ -49,6 +52,9 @@
   }
 
   function deviceHash() {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.deviceHash === 'function') {
+      return window.TDBFamilyHierarchy.deviceHash();
+    }
     try {
       var cached = localStorage.getItem(AVATAR_KEY);
       if (cached) return cached;
@@ -77,6 +83,9 @@
   }
 
   function registerFamilyMember(code) {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.ensureMember === 'function') {
+      return window.TDBFamilyHierarchy.ensureMember(code, getProgressCount(), gemCount(getProgressCount()));
+    }
     var registry = readFamilyRegistry();
     var key = code || getFamilyCode();
     if (!registry[key]) registry[key] = { members: {} };
@@ -94,6 +103,9 @@
   }
 
   function getFamilyAggregate(code) {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getFamilyAggregate === 'function') {
+      return window.TDBFamilyHierarchy.getFamilyAggregate(code);
+    }
     var registry = readFamilyRegistry();
     var fam = registry[code || getFamilyCode()] || { members: {} };
     var members = Object.keys(fam.members || {}).map(function (k) { return fam.members[k]; });
@@ -127,13 +139,44 @@
     var days = family.mergedProgress;
     var pct = Math.max(0, Math.min(100, Math.round((days / 365) * 100)));
     var gems = family.mergedGems;
+    var hierarchy = (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getHierarchy === 'function')
+      ? window.TDBFamilyHierarchy.getHierarchy(code, { churchMode: /^church-/i.test(code) })
+      : null;
     var memberBadges = family.members.slice(0, 8).map(function (m) {
-      return '<span class="lineage-member-chip">' + esc(m.avatarId.replace('avatar-', '')) + '</span>';
+      return '<span class="lineage-member-chip">' + esc(String((m.avatarId || '').replace('avatar-', '') || 'member')) + '</span>';
     }).join(' ');
+    var hierarchyHtml = '';
+    if (hierarchy && hierarchy.parent) {
+      var parent = hierarchy.parent;
+      var parentTag = hierarchy.relationLabel(parent);
+      hierarchyHtml += '<div class="family-hierarchy-stack">';
+      hierarchyHtml += '<div class="family-hierarchy-node family-hierarchy-parent">';
+      hierarchyHtml += '<span class="lineage-member-chip">' + esc(hierarchy.visualLabel(parent)) + '</span>';
+      if (parentTag) hierarchyHtml += '<span class="family-role-tag">' + esc(parentTag) + '</span>';
+      if (!hierarchy.churchMode || hierarchy.merged) {
+        hierarchyHtml += '<span class="family-id-chip">' + esc(String((parent.avatarId || '').replace('avatar-', '') || 'parent')) + '</span>';
+      }
+      hierarchyHtml += '</div>';
+      if (hierarchy.kids.length) {
+        hierarchyHtml += '<div class="family-hierarchy-branch">';
+        hierarchy.kids.slice(0, 4).forEach(function (kid) {
+          var kidTag = hierarchy.relationLabel(kid);
+          hierarchyHtml += '<div class="family-hierarchy-node family-hierarchy-kid">';
+          hierarchyHtml += '<span class="lineage-member-chip">' + esc(hierarchy.visualLabel(kid)) + '</span>';
+          if (kidTag) hierarchyHtml += '<span class="family-role-tag">' + esc(kidTag) + '</span>';
+          if (!hierarchy.churchMode || hierarchy.merged) {
+            hierarchyHtml += '<span class="family-id-chip">' + esc(String((kid.avatarId || '').replace('avatar-', '') || 'kid')) + '</span>';
+          }
+          hierarchyHtml += '</div>';
+        });
+        hierarchyHtml += '</div>';
+      }
+      hierarchyHtml += '</div>';
+    }
     target.innerHTML =
       '<div class="gold-trail"><span class="gold-fill" style="width:' + pct + '%"></span></div>' +
       '<p class="section-note util-mb-0">Family <strong>' + esc(code) + '</strong> • merged progress ' + days + '/365 (' + pct + '%) • gems: ' + gems + ' • members: ' + family.memberCount + '</p>' +
-      '<p class="section-note util-mb-0_25">' + memberBadges + '</p>';
+      (hierarchyHtml || ('<p class="section-note util-mb-0_25">' + memberBadges + '</p>'));
     document.dispatchEvent(new CustomEvent('tdb-family-updated', { detail: { code: code, family: family } }));
   }
 
@@ -181,9 +224,33 @@
     save.addEventListener('click', function () {
       var v = (input.value || '').trim();
       if (!v) return;
-      try { localStorage.setItem(FAMILY_KEY, v); } catch (e) {}
-      registerFamilyMember(v);
-      if (status) status.textContent = 'Linked: ' + v;
+      var resolved = (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.resolveLinkInput === 'function')
+        ? window.TDBFamilyHierarchy.resolveLinkInput(v)
+        : { ok: true, code: v, role: '', parentId: '', merged: false };
+      if (!resolved.ok) {
+        if (status) status.textContent = 'Invalid family merge code.';
+        return;
+      }
+      try { localStorage.setItem(FAMILY_KEY, resolved.code); } catch (e) {}
+      if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.ensureMember === 'function') {
+        window.TDBFamilyHierarchy.ensureMember(resolved.code, getProgressCount(), gemCount(getProgressCount()), {
+          role: resolved.role || '',
+          parentId: resolved.parentId || ''
+        });
+      } else {
+        registerFamilyMember(resolved.code);
+      }
+      if (status) {
+        if (resolved.merged) status.textContent = 'Merged to parent branch: ' + resolved.code;
+        else {
+          var mergeCode = (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.buildMergeCode === 'function')
+            ? window.TDBFamilyHierarchy.buildMergeCode(resolved.code, deviceHash())
+            : '';
+          status.textContent = mergeCode
+            ? ('Linked: ' + resolved.code + ' • Merge code: ' + mergeCode)
+            : ('Linked: ' + resolved.code);
+        }
+      }
       renderGoldenRoad();
     });
   }

@@ -153,9 +153,10 @@
       var li = document.createElement('li');
       li.className = 'mystudy-result';
       li.innerHTML =
-        '<div class="mystudy-result-head"><strong>' + escapeHtml(item.ref) + '</strong><div class="mystudy-share-actions"><button class="btn btn-secondary" type="button" data-role="use">Use</button><button class="btn btn-secondary mystudy-highlight-btn" type="button" data-role="highlight">Highlight</button></div></div>' +
+        '<div class="mystudy-result-head"><strong>' + escapeHtml(item.ref) + '</strong><div class="mystudy-share-actions"><button class="btn btn-secondary" type="button" data-role="use">Use</button><button class="btn btn-secondary" type="button" data-role="breakdown">Breakdown</button><button class="btn btn-secondary mystudy-highlight-btn" type="button" data-role="highlight">Highlight</button></div></div>' +
         '<p class="section-note">' + escapeHtml(item.text.slice(0, 190)) + (item.text.length > 190 ? '...' : '') + '</p>';
       var useBtn = li.querySelector('button[data-role="use"]');
+      var breakdownBtn = li.querySelector('button[data-role="breakdown"]');
       var highlightBtn = li.querySelector('button[data-role="highlight"]');
       useBtn.addEventListener('click', function () {
         study.verseRef = item.ref;
@@ -166,6 +167,11 @@
       highlightBtn.addEventListener('click', function () {
         if (handlers && typeof handlers.saveHighlight === 'function') {
           handlers.saveHighlight(item.ref, item.text);
+        }
+      });
+      breakdownBtn.addEventListener('click', function () {
+        if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+          window.TDBVerseBreakdown.open(item.ref, item.text);
         }
       });
       listEl.appendChild(li);
@@ -269,6 +275,22 @@
     byId('mystudy-highlight-selected')?.addEventListener('click', function () {
       if (!study.verseRef || !study.verseText) return;
       saveHighlight(study.verseRef, study.verseText);
+    });
+    byId('mystudy-breakdown-selected')?.addEventListener('click', function () {
+      if (!study.verseRef || !study.verseText) return;
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+        window.TDBVerseBreakdown.open(study.verseRef, study.verseText);
+      }
+    });
+    byId('mystudy-breakdown-highlight')?.addEventListener('click', function () {
+      var ref = byId('mystudy-highlight-ref');
+      var text = byId('mystudy-highlight-text');
+      var refValue = ref ? String(ref.textContent || '').trim() : '';
+      var textValue = text ? String(text.textContent || '').trim() : '';
+      if (!refValue || !textValue) return;
+      if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+        window.TDBVerseBreakdown.open(refValue, textValue);
+      }
     });
 
     notesEl?.addEventListener('input', function () {

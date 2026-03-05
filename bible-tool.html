@@ -220,6 +220,7 @@
           <div class="verse-actions">
             <button type="button" class="btn btn-primary" id="share-daily" aria-label="Share today's verse">Share</button>
             <button type="button" class="btn btn-secondary" id="copy-daily" aria-label="Copy verse to clipboard">Copy</button>
+            <button type="button" class="btn btn-secondary" id="breakdown-daily" aria-label="Open verse breakdown">Breakdown</button>
           </div>
         </section>
 
@@ -245,6 +246,7 @@
             <div class="util-mt-0_5">
               <button type="button" id="share-lookup" class="link-button">Share</button>
               <button type="button" id="copy-lookup" class="link-button" aria-label="Copy verse to clipboard">Copy</button>
+              <button type="button" id="breakdown-lookup" class="link-button" aria-label="Open verse breakdown">Breakdown</button>
               <button type="button" id="highlight-lookup" class="link-button" aria-label="Highlight this verse">Highlight</button>
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
@@ -318,6 +320,7 @@
   </div>
 
   <script type="module" src="script.js?v=20260305"></script>
+  <script src="verse-breakdown.js?v=20260306"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025">
@@ -882,6 +885,12 @@
   document.getElementById('copy-daily').addEventListener('click', function () {
     copyVerseToClipboard(document.getElementById('daily-ref').textContent, document.getElementById('daily-text').textContent, this);
   });
+  document.getElementById('breakdown-daily').addEventListener('click', function () {
+    var ref = document.getElementById('daily-ref').textContent.trim();
+    var text = document.getElementById('daily-text').textContent.trim();
+    if (!ref || !text || !window.TDBVerseBreakdown || typeof window.TDBVerseBreakdown.open !== 'function') return;
+    window.TDBVerseBreakdown.open(ref, text);
+  });
 
   document.getElementById('share-lookup').addEventListener('click', function () {
     shareVerse(document.getElementById('lookup-ref').textContent, document.getElementById('lookup-text').textContent, true);
@@ -889,6 +898,13 @@
 
   document.getElementById('copy-lookup').addEventListener('click', function () {
     copyVerseToClipboard(document.getElementById('lookup-ref').textContent, document.getElementById('lookup-text').textContent, this);
+  });
+
+  document.getElementById('breakdown-lookup').addEventListener('click', function () {
+    var ref = document.getElementById('lookup-ref').textContent.trim();
+    var text = document.getElementById('lookup-text').textContent.trim();
+    if (!ref || !text || !window.TDBVerseBreakdown || typeof window.TDBVerseBreakdown.open !== 'function') return;
+    window.TDBVerseBreakdown.open(ref, text);
   });
 
   document.getElementById('add-to-notes-lookup').addEventListener('click', function () {

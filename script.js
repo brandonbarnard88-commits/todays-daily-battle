@@ -10465,6 +10465,15 @@ function renderResults(results) {
         openBtn.onclick = () => {
           window.location.href = buildReaderUrl(v.ref);
         };
+        const breakdownBtn = document.createElement('button');
+        breakdownBtn.className = 'btn btn-secondary';
+        breakdownBtn.textContent = 'Breakdown';
+        breakdownBtn.setAttribute('aria-label', 'Open verse breakdown popup');
+        breakdownBtn.onclick = () => {
+          if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.open === 'function') {
+            window.TDBVerseBreakdown.open(v.ref, cleanText());
+          }
+        };
         const listenBtn = document.createElement('button');
         listenBtn.className = 'btn btn-secondary btn-listen';
         listenBtn.textContent = 'Listen';
@@ -10560,6 +10569,7 @@ function renderResults(results) {
         buttonRow.appendChild(audioBtn);
         buttonRow.appendChild(saveBtn);
         buttonRow.appendChild(contextBtn);
+        buttonRow.appendChild(breakdownBtn);
         buttonRow.appendChild(openBtn);
         const closeOpenDropdowns = () => { card.querySelectorAll('.card-action-dropdown-open').forEach(el => el.classList.remove('card-action-dropdown-open')); card.querySelectorAll('[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false')); };
         const bindCloseOnOutside = () => setTimeout(() => { document.addEventListener('click', function one() { closeOpenDropdowns(); document.removeEventListener('click', one); }); });

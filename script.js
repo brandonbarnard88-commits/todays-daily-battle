@@ -7752,6 +7752,42 @@ function updateSyncStatusUI() {
   }
 }
 
+function initBibleToolVerseModePicker() {
+  var select = document.getElementById('bible-tool-verse-mode');
+  var note = document.getElementById('bible-tool-verse-mode-note');
+  if (!select || !note) return;
+  var key = 'tdb_bible_tool_verse_mode';
+  var notes = {
+    quick: 'Quick: plain, practical, and tied to today.',
+    pastor: 'Pastor: context and a sermon-ready hook.',
+    kid: 'Kid: red-letter hope language, safe and gentle.',
+    teen: 'Teen: school/friends real-talk, honest and safe.'
+  };
+  var current = 'quick';
+  try {
+    var saved = localStorage.getItem(key);
+    if (saved && notes[saved]) current = saved;
+  } catch (e) {}
+  select.value = current;
+  note.textContent = notes[current];
+  select.addEventListener('change', function () {
+    var val = select.value;
+    if (!notes[val]) val = 'quick';
+    try { localStorage.setItem(key, val); } catch (e) {}
+    note.textContent = notes[val];
+  });
+}
+
+function initImageLazyLoading() {
+  try {
+    var images = document.querySelectorAll('img');
+    images.forEach(function (img) {
+      if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+      if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
+    });
+  } catch (e) {}
+}
+
 function updateAuthUI(session) {
   updateSyncStatusUI();
   const authSection = document.getElementById('auth-section');
@@ -9314,6 +9350,8 @@ function applySharedCollection(payload) {
   const select = document.getElementById('collection-select');
   if (select) select.value = newId;
   renderSavedVerses();
+  initImageLazyLoading();
+  initBibleToolVerseModePicker();
 }
 
 function getActiveCollectionId() {
@@ -10612,7 +10650,7 @@ function startStudy(id) {
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
   var eraseBtn = document.getElementById('erase-all-btn');
-  if (eraseBtn) eraseBtn.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.clear(); sessionStorage.clear(); } catch (_) {} window.location.reload(); });
+  if (eraseBtn) eraseBtn.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.clear(); sessionStorage.clear(); } catch (_) {} try { alert('Wiped—fresh start'); } catch (_) {} window.location.reload(); });
 
   /* Wire search - hero has 30 chips hardcoded (never empty); accordion gets dynamic from TDB_TOPICS */
   try {

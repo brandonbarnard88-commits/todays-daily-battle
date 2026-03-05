@@ -73,6 +73,29 @@ body {
   max-width: 100%;
 }
 
+/* Hard lock: dark mode only */
+html, body, .app-shell {
+  background: #0d0d0d !important;
+  color: #e0e0e0 !important;
+}
+button, .btn {
+  background: #1a1a1a !important;
+  color: #e0e0e0 !important;
+  border-color: #2a2a2a !important;
+  min-height: 48px;
+  min-width: 48px;
+}
+.theme-toggle, #theme-toggle, #light-mode-toggle, #dark-mode-toggle {
+  display: none !important;
+}
+
+/* Full-width with centered content, no left-bias */
+.app-content .content-inner {
+  width: min(1200px, calc(100% - 2rem));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* Target wide content so page size reports correctly (no horizontal overflow) */
 .verse-card,
 .result-card,
@@ -405,6 +428,360 @@ body {
   outline: 2px solid var(--border-focus);
   outline-offset: 2px;
 }
+
+/* Simple 5-item nav (Home, Pastor, Church, Your Battle, Bible) */
+.header-nav-simple {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  flex-wrap: wrap;
+}
+.header-nav-simple > a,
+.header-nav-simple .nav-trigger {
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.header-nav-simple > a:hover,
+.header-nav-simple .nav-trigger:hover {
+  color: var(--accent-hover);
+  background: rgba(148, 163, 184, 0.12);
+}
+.header-nav-simple .nav-dropdown {
+  position: relative;
+}
+.header-nav-simple .nav-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(8, 12, 22, 0.98);
+  border: 1px solid var(--elite-gold-dim);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s, visibility 0.15s;
+}
+.header-nav-simple .nav-dropdown:hover .nav-panel,
+.header-nav-simple .nav-dropdown:focus-within .nav-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.header-nav-simple .nav-panel a {
+  display: block;
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.header-nav-simple .nav-panel a:hover {
+  color: var(--accent-hover);
+  background: rgba(148, 163, 184, 0.12);
+}
+
+/* Mega dropdown nav (legacy) */
+.header-nav-mega .nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.header-nav-mega .nav-item {
+  position: relative;
+  margin: 0;
+}
+.header-nav-mega .nav-item > a,
+.header-nav-mega .nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--border-radius);
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--transition-smooth), background var(--transition-smooth);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.header-nav-mega .nav-item > a:hover,
+.header-nav-mega .nav-dropdown-trigger:hover {
+  color: var(--accent-hover);
+  background: rgba(148, 163, 184, 0.12);
+}
+.header-nav-mega .nav-chevron {
+  font-size: 0.65em;
+  opacity: 0.8;
+}
+.header-nav-mega .nav-dropdown-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+  background: rgba(8, 12, 22, 0.98);
+  border: 1px solid var(--elite-gold-dim);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+.header-nav-mega .nav-item-dropdown:hover .nav-dropdown-panel,
+.header-nav-mega .nav-item-dropdown:focus-within .nav-dropdown-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.header-nav-mega .nav-dropdown-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.header-nav-mega .nav-dropdown-inner a {
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: color var(--transition-smooth), background var(--transition-smooth);
+}
+.header-nav-mega .nav-dropdown-inner a:hover {
+  color: var(--accent-hover);
+  background: rgba(148, 163, 184, 0.12);
+}
+.header-nav-mega .nav-dropdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  min-width: 320px;
+}
+.header-nav-mega .nav-dropdown-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.header-nav-mega .nav-dropdown-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--elite-gold, #D4AF37);
+  margin-bottom: 0.25rem;
+}
+.header-nav-mega .nav-badge {
+  font-size: 0.7em;
+  opacity: 0.7;
+  font-weight: 400;
+}
+@media (max-width: 1024px) {
+  .header-nav-mega .nav-dropdown-grid {
+    grid-template-columns: 1fr;
+    min-width: 200px;
+  }
+}
+
+/* Toolbox tabbed layout */
+.toolbox-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--elite-gold-dim);
+  justify-content: center;
+}
+.toolbox-tab {
+  background: transparent;
+  border: none;
+  color: rgba(226, 232, 240, 0.8);
+  font-size: 0.95rem;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s, background 0.15s;
+  min-height: 48px;
+  min-width: 48px;
+  touch-action: manipulation;
+}
+.toolbox-tab:hover {
+  color: var(--accent-hover);
+  background: rgba(148, 163, 184, 0.1);
+}
+.toolbox-tab.active {
+  color: var(--elite-gold-solid);
+  background: rgba(212, 175, 55, 0.12);
+  font-weight: 600;
+}
+.toolbox-content[data-active-drawer="daily"] [data-toolbox-drawer]:not([data-toolbox-drawer="daily"]) { display: none !important; }
+.toolbox-content[data-active-drawer="battle"] [data-toolbox-drawer]:not([data-toolbox-drawer="battle"]) { display: none !important; }
+.toolbox-content[data-active-drawer="church"] [data-toolbox-drawer]:not([data-toolbox-drawer="church"]) { display: none !important; }
+.toolbox-content[data-active-drawer="family"] [data-toolbox-drawer]:not([data-toolbox-drawer="family"]) { display: none !important; }
+.toolbox-content[data-active-drawer="deep"] [data-toolbox-drawer]:not([data-toolbox-drawer="deep"]) { display: none !important; }
+.toolbox-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+.toolbox-card {
+  display: block;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: rgba(226, 232, 240, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  transition: border-color 0.15s, background 0.15s;
+}
+.toolbox-card:hover {
+  border-color: var(--elite-gold-dim);
+  background: rgba(212, 175, 55, 0.06);
+}
+.toolbox-card h3 { margin: 0 0 0.35rem; font-size: 1.1rem; }
+.toolbox-card p { margin: 0; font-size: 0.88rem; opacity: 0.9; }
+.toolbox-cards { margin-bottom: 1.5rem; }
+.deep-curriculum-inline { margin-top: 0.75rem; }
+.deep-curriculum-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.deep-curriculum-controls input,
+.deep-curriculum-controls select {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.35rem 0.55rem;
+  min-height: 36px;
+}
+.deep-curriculum-controls input { width: 88px; }
+.deep-curriculum-content {
+  margin-top: 0.65rem;
+  padding: 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 12px;
+  background: rgba(8, 12, 20, 0.5);
+}
+.deep-curriculum-armor-wrap {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  margin-top: 0.5rem;
+}
+.deep-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  background: linear-gradient(145deg, #3f4b5a, #2d3748);
+  border: 2px solid rgba(226, 232, 240, 0.3);
+}
+.deep-avatar.piece-helmet { box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.55) inset; }
+.deep-avatar.piece-breastplate { box-shadow: 0 0 0 2px rgba(244, 114, 182, 0.55) inset; }
+.deep-avatar.piece-belt { box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.55) inset; }
+.deep-avatar.piece-shield { box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.55) inset; }
+.deep-avatar.piece-sword {
+  box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.6) inset, 0 0 18px rgba(192, 132, 252, 0.35);
+}
+.deep-curriculum-armor-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.45;
+}
+.deep-curriculum-map {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  padding: 0.55rem 0.7rem;
+  background: rgba(212, 175, 55, 0.08);
+}
+.armor-family-panel { border-top: 1px solid rgba(212, 175, 55, 0.25); padding-top: 0.6rem; }
+.deep-curriculum-inline,
+.deep-curriculum-map,
+#golden-road-map,
+.deep-curriculum-armor-wrap {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .header-nav { display: none !important; }
+  .header-menu-link { display: inline-flex !important; }
+  .toolbox-card-grid { grid-template-columns: 1fr; }
+  .deep-curriculum-inline,
+  .deep-curriculum-map,
+  #golden-road-map,
+  .deep-curriculum-armor-wrap {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (min-width: 769px) {
+  .header-menu-link { display: none !important; }
+  .deep-curriculum-inline,
+  .deep-curriculum-map,
+  #golden-road-map,
+  .deep-curriculum-armor-wrap {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.gold-trail {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(250, 204, 21, 0.18);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  overflow: hidden;
+  margin-bottom: 0.45rem;
+}
+.gold-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #facc15, #fde68a);
+}
+@media (max-width: 600px) {
+  .toolbox-tabs { gap: 1rem; justify-content: stretch; }
+  .toolbox-tab { padding: 0.65rem 0.75rem; font-size: 0.88rem; flex: 1 1 calc(50% - 1rem); }
+  .toolbox-card-grid { grid-template-columns: 1fr; }
+  .deep-curriculum-armor-wrap { grid-template-columns: 1fr; }
+}
+@media (min-width: 769px) and (max-width: 1050px) {
+  .toolbox-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 .menu-icon { display: none; }
 .menu-text { display: inline; }
 @media (min-width: 769px) {
@@ -1742,7 +2119,7 @@ body:has(.search-hero-home) #search-hero {
   pointer-events: auto;
 }
 .promo-banner.promo-banner-fixed .promo-banner-dismiss:hover { color: #fff; }
-/* .org = movement site: CTA bar (Use the app | Our story | For churches) */
+/* .org = movement site: dark nav bar (Home, Pastor, Church, Your Battle, Bible) */
 .org-movement-cta.hidden { display: none; }
 .org-movement-cta {
   display: block;
@@ -1751,13 +2128,13 @@ body:has(.search-hero-home) #search-hero {
   left: 0;
   right: 0;
   z-index: 9998;
-  background: rgba(15, 23, 42, 0.97);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(8, 12, 22, 0.98);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
   padding: 0.5rem 1rem;
   padding-left: max(1rem, env(safe-area-inset-left));
   padding-right: max(1rem, env(safe-area-inset-right));
 }
-.org-movement-cta-inner {
+.org-nav-bar .org-nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1765,13 +2142,58 @@ body:has(.search-hero-home) #search-hero {
   max-width: 1200px;
   margin: 0 auto;
 }
-.org-movement-label {
+.org-nav-bar .org-nav a {
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
   font-size: 0.9rem;
-  color: #94a3b8;
-  margin-right: 0.25rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
 }
-.org-movement-cta .btn { font-size: 0.875rem; padding: 0.35rem 0.75rem; }
+.org-nav-bar .org-nav a:hover {
+  color: var(--accent-hover, #fbbf24);
+  background: rgba(148, 163, 184, 0.12);
+}
+.org-nav-bar .org-nav-dropdown {
+  position: relative;
+}
+.org-nav-bar .org-nav-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(8, 12, 22, 0.98);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s, visibility 0.15s;
+}
+.org-nav-bar .org-nav-dropdown:hover .org-nav-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.org-nav-bar .org-nav-panel a {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  white-space: nowrap;
+}
+.org-nav-bar .org-nav-app {
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--elite-gold, #D4AF37) !important;
+}
 body.tdb-org .org-movement-cta:not(.hidden) ~ .app-shell { padding-top: 3.5rem; }
+@media (max-width: 768px) {
+  .org-nav-bar .org-nav { gap: 0.75rem; }
+  .org-nav-bar .org-nav-app { margin-left: 0; }
+}
 /* .org Golden Rule / Join the cause card */
 .org-golden-rule-card.hidden { display: none; }
 .org-golden-rule-card {
@@ -1790,10 +2212,19 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 }
 
 .battle-pro-banner {
-  padding: 0.6rem 1rem;
+  padding: 1.25rem 1.25rem;
   margin-bottom: 1rem;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  border-left: 4px solid var(--elite-gold, #d4af37);
+}
+.battle-pro-first50 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+@media (min-width: 480px) {
+  .battle-pro-first50 { font-size: 1.35rem; }
 }
 
 .battle-pro-banner a {
@@ -6090,6 +6521,11 @@ body.red-letter-off .red-letter-card {
 .auth-modal-forgot { margin-bottom: 0.75rem; display: block; font-size: 0.85rem; }
 .auth-modal-actions { margin-top: 1rem; }
 .auth-modal-status { margin-bottom: 0.5rem; min-height: 1.5em; }
+.auth-modal-oauth { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.auth-modal-oauth .auth-oauth-btn { flex: 1; min-width: 140px; }
+.auth-modal-divider { margin: 0.75rem 0 0.5rem; font-size: 0.85rem; color: var(--text-muted, #94a3b8); }
+.auth-oauth-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; flex-basis: 100%; }
+.auth-oauth-btn { white-space: nowrap; }
 .modal-inner input, .modal-inner textarea { width: 100%; margin-bottom: 0.75rem; padding: 0.5rem; min-height: 48px; box-sizing: border-box; }
 .modal-inner textarea { min-height: 4rem; resize: vertical; }
 .modal-inner .cta-group .btn { min-height: 48px; }
@@ -6232,6 +6668,54 @@ body.red-letter-off .red-letter-card {
 .family-armor-elite-note { color: rgba(226, 232, 240, 0.9); font-style: italic; margin-bottom: 0.5rem; }
 #family-stories-grid { max-height: 60vh; overflow-y: auto; margin-top: 0.75rem; }
 #family-stories-grid .kids-corner-card { margin-bottom: 1rem; }
+
+/* Kids Battle homepage banner — yellow pill, under header, drives traffic to /kids/ */
+.kids-battle-home-wrap {
+  margin-bottom: 1rem;
+}
+
+.kids-battle-home-banner {
+  display: block;
+  margin: 0 0 0.35rem;
+  padding: 0.6rem 1.25rem;
+  background: linear-gradient(135deg, rgba(255, 217, 61, 0.25), rgba(255, 159, 67, 0.2));
+  border: 2px solid rgba(255, 217, 61, 0.6);
+  border-radius: 50px;
+  color: #ffd93d;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+}
+
+.kids-battle-home-banner:hover {
+  background: linear-gradient(135deg, rgba(255, 217, 61, 0.35), rgba(255, 159, 67, 0.3));
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 217, 61, 0.25);
+}
+
+.kids-battle-home-banner:focus-visible {
+  outline: 2px solid #ffd93d;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .kids-battle-home-banner {
+    font-size: 0.9rem;
+    padding: 0.55rem 1rem;
+  }
+}
+
+.kids-beta-count {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffd93d;
+  text-align: center;
+}
 
 /* Kids Battle teaser (inside Family Armor modal) */
 .kids-battle-teaser {
@@ -6531,6 +7015,9 @@ body.red-letter-off .red-letter-card {
 .prayer-echo-candle.flicker { animation: candle-flicker 2s ease-in-out; }
 @keyframes candle-flicker { 0%, 100% { opacity: 1; transform: scaleY(1); } 25% { opacity: 0.85; transform: scaleY(1.1); } 50% { opacity: 1; transform: scaleY(0.95); } 75% { opacity: 0.9; transform: scaleY(1.05); } }
 .prayer-echo-text { flex: 1 1 auto; }
+.prayer-echo-skeleton .prayer-echo-candle { background: rgba(148, 163, 184, 0.3); border-radius: 4px; }
+.prayer-echo-skeleton .prayer-echo-text { background: linear-gradient(90deg, rgba(148, 163, 184, 0.25) 0%, rgba(148, 163, 184, 0.15) 50%, rgba(148, 163, 184, 0.25) 100%); background-size: 200% 100%; animation: prayer-skeleton-shimmer 1.5s ease-in-out infinite; border-radius: 4px; min-width: 120px; height: 1em; }
+@keyframes prayer-skeleton-shimmer { 0%, 100% { background-position: 200% 0; } 50% { background-position: -200% 0; } }
 .prayer-echo-amen-wrap { flex-shrink: 0; }
 .prayer-echo-amen { font-size: 0.85rem; padding: 0 0.25rem; }
 .prayer-echo-amen-count { font-size: 0.85rem; opacity: 0.9; }

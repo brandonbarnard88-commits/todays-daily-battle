@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>365-Day Bible Curriculum • Today's Daily Battle</title>
+  <meta name="description" content="One character per day—Abraham, Moses, David, Jesus, and more. Pre-God, impact, post-God. Verse modes: Quick, Pastor, Kid, Teen. Armor progress, no paywalls.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/curriculum.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="manifest" href="manifest.json">
+  <script type="module" src="config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .curriculum-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .curriculum-tabs button { padding: 0.5rem 1rem; border-radius: var(--radius-sm); background: rgba(255,255,255,0.06); color: var(--text-dark); border: 1px solid var(--border-subtle); cursor: pointer; font: inherit; }
+    .curriculum-tabs button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .curriculum-tabs button:hover:not(.active) { background: rgba(255,255,255,0.1); }
+    .curriculum-panel { display: none; }
+    .curriculum-panel.active { display: block; }
+    .curriculum-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+    .curriculum-controls label { display: flex; align-items: center; gap: 0.5rem; }
+    .curriculum-controls select { padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); color: var(--text-dark); border: 1px solid var(--border-subtle); font: inherit; }
+    .curriculum-story { margin-bottom: 1.5rem; }
+    .curriculum-story h2 { font-family: var(--font-display); margin: 0 0 0.5rem; color: var(--elite-gold-solid); }
+    .curriculum-story .story-meta { font-size: 0.9rem; opacity: 0.85; margin-bottom: 1rem; }
+    .curriculum-story .story-block { margin-bottom: 1rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); border-left: 3px solid var(--primary); }
+    .curriculum-story .story-block strong { display: block; margin-bottom: 0.25rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.9; }
+    .curriculum-verse { padding: 1rem; background: rgba(212,175,55,0.08); border-radius: var(--radius-sm); border: 1px solid var(--elite-gold-dim); margin: 1rem 0; }
+    .curriculum-verse .verse-ref { font-weight: 600; color: var(--elite-gold-solid); }
+    .curriculum-verse .verse-text { font-style: italic; margin: 0.5rem 0; }
+    .curriculum-verse .verse-mode { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.95rem; }
+    .curriculum-armor { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
+    .curriculum-avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 3px solid var(--border-subtle); transition: var(--transition-smooth); }
+    .curriculum-avatar.helmet { border-color: #7dd3fc; box-shadow: 0 0 20px rgba(125,211,252,0.35); }
+    .curriculum-avatar.breastplate { border-color: #f472b6; box-shadow: 0 0 20px rgba(244,114,182,0.35); }
+    .curriculum-avatar.belt { border-color: #34d399; box-shadow: 0 0 20px rgba(52,211,153,0.35); }
+    .curriculum-avatar.shield { border-color: #facc15; box-shadow: 0 0 20px rgba(250,204,21,0.35); }
+    .curriculum-avatar.sword { border-color: var(--primary); box-shadow: 0 0 20px var(--primary-glow); }
+    .curriculum-checkpoints { list-style: none; padding: 0; margin: 0; }
+    .curriculum-checkpoints li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .curriculum-checkpoints .check { color: #4ade80; }
+    .curriculum-checkpoints .lock { color: rgba(255,255,255,0.4); }
+    .curriculum-map-teaser { padding: 1rem; background: rgba(212,175,55,0.06); border-radius: var(--radius-sm); border: 1px dashed var(--elite-gold-dim); margin-top: 1rem; }
+    .curriculum-map-teaser p { margin: 0; font-size: 0.95rem; }
+    .curriculum-nav { display: flex; gap: 0.5rem; margin-top: 1rem; }
+    .curriculum-nav button { padding: 0.5rem 1rem; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); border: 1px solid var(--border-subtle); color: var(--text-dark); cursor: pointer; font: inherit; }
+    .curriculum-nav button:hover { background: rgba(255,255,255,0.12); }
+    .curriculum-nav button:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">365-Day Curriculum</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="bible-study.html">Bible Studies</a>
+        <a href="bible-tool.html">Bible Tool</a>
+        <a href="/#toolbox-tabs">Toolbox</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <section class="glass curriculum-section">
+          <h1 class="section-divider">365-Day Bible Curriculum</h1>
+          <p class="section-note">One character per day—Abraham, Moses, David, Jesus, then majors. Pre-God life, impact, post-God outcome. All KJV. No paywalls.</p>
+
+          <div class="curriculum-tabs" role="tablist" aria-label="Curriculum sections">
+            <button type="button" role="tab" aria-selected="true" data-curriculum-tab="story" class="active">Story</button>
+            <button type="button" role="tab" aria-selected="false" data-curriculum-tab="armor">Armor</button>
+            <button type="button" role="tab" aria-selected="false" data-curriculum-tab="map">Streets of Gold</button>
+          </div>
+
+          <div id="curriculum-story-panel" class="curriculum-panel active" role="tabpanel">
+            <div class="curriculum-controls">
+              <label>
+                Day <input type="number" id="curriculum-day-input" min="1" max="365" value="1" aria-label="Day number">
+                <span id="curriculum-day-of">of 365</span>
+              </label>
+              <label>
+                Verse Mode
+                <select id="curriculum-verse-mode" aria-label="Verse mode">
+                  <option value="quick">Quick (layman today-tie-in)</option>
+                  <option value="pastor">Pastor (context/sermon hook)</option>
+                  <option value="kid">Kid (red-letter, love/hope only)</option>
+                  <option value="teen">Teen (school/friends real-talk)</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="curriculum-content" class="curriculum-story">
+              <p class="section-note">Loading…</p>
+            </div>
+
+            <div class="curriculum-nav">
+              <button type="button" id="curriculum-prev" aria-label="Previous day">← Prev</button>
+              <button type="button" id="curriculum-today" aria-label="Go to today's day">Today</button>
+              <button type="button" id="curriculum-next" aria-label="Next day">Next →</button>
+            </div>
+          </div>
+
+          <div id="curriculum-armor-panel" class="curriculum-panel" role="tabpanel">
+            <h2 class="section-divider">Armor Progress</h2>
+            <p class="section-note">Avatar starts plain iron. Complete days to unlock: Helmet (wisdom), Shield (Ten Commandments), Sword (faith/hope/love).</p>
+            <div class="curriculum-armor">
+              <div id="curriculum-avatar-wrap">
+                <div id="curriculum-avatar" class="curriculum-avatar" aria-label="Armor avatar">⚔</div>
+              </div>
+              <ul class="curriculum-checkpoints" aria-label="Armor checkpoints">
+                <li id="check-helmet"><span class="lock" aria-hidden="true">🔒</span> Helmet of Wisdom — Day 73</li>
+                <li id="check-breastplate"><span class="lock" aria-hidden="true">🔒</span> Breastplate of Righteousness — Day 146</li>
+                <li id="check-belt"><span class="lock" aria-hidden="true">🔒</span> Belt of Truth — Day 219</li>
+                <li id="check-shield"><span class="lock" aria-hidden="true">🔒</span> Shield (Ten Commandments slab) — Day 292</li>
+                <li id="check-sword"><span class="lock" aria-hidden="true">🔒</span> Sword (cross + faith/hope/love) — Day 365</li>
+              </ul>
+            </div>
+            <p class="section-note util-mt-1">Complete days to unlock pieces. Family links share progress.</p>
+          </div>
+
+          <div id="curriculum-map-panel" class="curriculum-panel" role="tabpanel">
+            <h2 class="section-divider">Streets of Gold</h2>
+            <p class="section-note">Family-linked avatars appear here. Complete the curriculum together—see your household on the map.</p>
+            <div class="curriculum-map-teaser">
+              <p>Link your household from <a href="/#armor-builder-btn">Family Armor</a> to see avatars and progress on the streets of gold. No paywall—free for all.</p>
+            </div>
+          </div>
+        </section>
+        <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="/#toolbox-tabs">Toolbox</a> · <a href="bible-study.html">Bible Studies</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo">
+      <p class="footer-tagline">Encouragement first. Verse by verse, win the day. ⚔️</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="curriculum.js?v=20260305"></script>
+</body>
+</html>

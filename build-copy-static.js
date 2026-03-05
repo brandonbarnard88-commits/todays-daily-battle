@@ -62,6 +62,7 @@ const rootFiles = [
   'toolbox-tabs.js',
   'curriculum.js',
   'curriculum-widget.js',
+  'armor.js',
   'auth.js',
   'curriculum.json',
   // 'bell.mp3' – add to project root if you want a custom bell; otherwise Web Audio beep is used

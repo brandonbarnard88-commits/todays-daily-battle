@@ -418,7 +418,34 @@
             <ul id="deep-curriculum-armor-list" class="deep-curriculum-armor-list section-note util-mb-0"></ul>
           </div>
           <div id="deep-curriculum-map" class="deep-curriculum-map util-mt-0_5" aria-label="Family streets of gold map"></div>
+          <div id="armor-family-panel" class="armor-family-panel util-mt-0_5" aria-label="Family armor link and golden road">
+            <label for="family-link-code" class="section-note">Family link code</label>
+            <div class="deep-curriculum-controls">
+              <input id="family-link-code" type="text" placeholder="household-abc123" aria-label="Family link code">
+              <button id="family-link-save" type="button" class="btn btn-secondary">Link family</button>
+              <button id="mac-daddy-open" type="button" class="btn btn-secondary hidden">Mac Daddy view</button>
+            </div>
+            <p id="family-link-status" class="section-note util-mb-0"></p>
+            <div id="golden-road-map" class="deep-curriculum-map util-mt-0_5" aria-label="Streets of gold trail"></div>
+          </div>
         </section>
+        <div id="mac-daddy-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Mac Daddy armor editor">
+          <div class="modal-inner glass">
+            <button type="button" id="mac-daddy-close" class="intent-modal-close" aria-label="Dismiss">×</button>
+            <h3 class="section-divider util-mt-0">Mac Daddy View</h3>
+            <p id="mac-daddy-days" class="section-note"></p>
+            <label class="inline-toggle"><input id="md-helmet" type="checkbox"> Helmet</label>
+            <label class="inline-toggle"><input id="md-breastplate" type="checkbox"> Breastplate</label>
+            <label class="inline-toggle"><input id="md-belt" type="checkbox"> Belt</label>
+            <label class="inline-toggle"><input id="md-shield" type="checkbox"> Shield</label>
+            <label class="inline-toggle"><input id="md-sword" type="checkbox"> Sword</label>
+            <label for="md-gems" class="section-note">Gem count</label>
+            <input id="md-gems" type="number" min="0" step="1" value="0" aria-label="Gem count">
+            <div class="util-mt-0_5">
+              <button id="mac-daddy-save" type="button" class="btn btn-primary">Save bling</button>
+            </div>
+          </div>
+        </div>
         <p class="section-note beta-badge">Beta – First 100 get early perks.</p>
         <p class="section-note beta-progress hidden" id="beta-progress-wrap" aria-live="polite">Beta – <span id="beta-warriors-count">0</span> warriors in. First 100 get early perks.</p>
         <details class="home-accordion" id="accordion-search-options" data-toolbox-drawer="battle">
@@ -1109,5 +1136,6 @@
   <script src="fallback-search.js?v=20260313"></script>
   <script src="auth.js?v=20260314" defer></script>
   <script src="curriculum-widget.js?v=20260314"></script>
+  <script src="armor.js?v=20260314"></script>
 </body>
 </html>

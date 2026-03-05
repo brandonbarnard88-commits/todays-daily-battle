@@ -112,13 +112,6 @@
     members[id] = member;
     registry[familyCode].updatedAt = Date.now();
     writeRegistry(registry);
-    document.dispatchEvent(new CustomEvent('tdb-family-updated', {
-      detail: {
-        code: familyCode,
-        member: member,
-        family: getFamilyAggregate(familyCode)
-      }
-    }));
     return member;
   }
 

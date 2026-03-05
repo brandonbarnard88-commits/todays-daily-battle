@@ -2,8 +2,8 @@
   'use strict';
 
   var CREST_KEY = 'tdb_family_crests_v1';
+  var PROMPT_KEY = 'tdb_family_crest_prompted_v1';
   var FAMILY_KEY = 'tdb_family_link_code';
-  var PROMPT_KEY = 'tdb_family_crest_prompted_v2';
 
   var BASES = { gold: ['#b8860b', '#facc15'] };
   var GEMS = {
@@ -124,7 +124,7 @@
     badge.type = 'button';
     badge.className = 'family-crest-badge hidden';
     badge.setAttribute('aria-label', 'Open family crest');
-    badge.innerHTML = '<img class="family-crest-badge-img" alt="Family crest badge"><span class="family-crest-walk-line"></span>';
+    badge.innerHTML = '<img class="family-crest-badge-img" alt=""><span class="family-crest-walk-line"></span>';
     document.body.appendChild(badge);
     badge.addEventListener('click', openZoom);
     badge.addEventListener('mouseenter', function () { showHover(true); });
@@ -149,7 +149,7 @@
       hover.classList.add('hidden');
       return;
     }
-    hover.textContent = 'Family Crest: ' + crestLabel(crest);
+    hover.textContent = 'Family Crest';
     hover.classList.toggle('hidden', !show);
   }
 
@@ -166,7 +166,7 @@
     map.addEventListener('mouseenter', function () {
       var crest = getCrest();
       if (!crest) return;
-      banner.textContent = 'Family Crest: ' + crestLabel(crest);
+      banner.textContent = 'Family Crest';
       banner.classList.remove('hidden');
     });
     map.addEventListener('mouseleave', function () {
@@ -185,7 +185,7 @@
     badge.classList.remove('hidden');
     var img = badge.querySelector('.family-crest-badge-img');
     if (img) img.src = crestSvgData(crest, 80);
-    badge.title = 'Family Crest: ' + crestLabel(crest);
+    badge.title = 'Family Crest';
   }
 
   function ensureZoomModal() {
@@ -219,7 +219,7 @@
     if (family.kids.length) {
       html += '<div class="family-hierarchy-branch">';
       family.kids.forEach(function () {
-        html += '<div class="family-hierarchy-node family-hierarchy-kid"><span class="lineage-member-chip">Kid</span><span class="family-role-tag">Your kid</span></div>';
+        html += '<div class="family-hierarchy-node family-hierarchy-kid"><span class="lineage-member-chip">Kid</span></div>';
       });
       html += '</div>';
     }
@@ -257,71 +257,6 @@
     wrap.insertBefore(node, wrap.firstChild);
   }
 
-  function ensurePickerModal() {
-    var modal = byId('family-crest-picker-modal');
-    if (modal) return modal;
-    modal = document.createElement('div');
-    modal.id = 'family-crest-picker-modal';
-    modal.className = 'modal hidden family-crest-picker-modal';
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-label', 'Make your family crest');
-    modal.innerHTML = '' +
-      '<div class="modal-inner family-crest-picker-inner">' +
-      '<button type="button" class="intent-modal-close" id="family-crest-picker-close" aria-label="Dismiss">×</button>' +
-      '<h2 class="section-divider util-mt-0">Make your family crest?</h2>' +
-      '<p class="section-note">Pick 1 symbol and exactly 2 gems.</p>' +
-      '<label class="section-note" for="family-crest-symbol">Symbol</label>' +
-      '<select id="family-crest-symbol" aria-label="Crest symbol">' +
-      SYMBOLS.map(function (s) { return '<option value="' + s + '">' + s.charAt(0).toUpperCase() + s.slice(1) + '</option>'; }).join('') +
-      '</select>' +
-      '<fieldset id="family-crest-gems" class="crest-gems" aria-label="Pick two gems">' +
-      '<label><input type="checkbox" value="ruby"> Ruby</label>' +
-      '<label><input type="checkbox" value="sapphire"> Sapphire</label>' +
-      '<label><input type="checkbox" value="emerald"> Emerald</label>' +
-      '<label><input type="checkbox" value="diamond"> Diamond</label>' +
-      '</fieldset>' +
-      '<p id="family-crest-picker-status" class="section-note" aria-live="polite"></p>' +
-      '<div class="cta-group"><button type="button" id="family-crest-picker-save" class="btn btn-primary">Save crest</button></div>' +
-      '</div>';
-    document.body.appendChild(modal);
-    var close = byId('family-crest-picker-close');
-    if (close) close.addEventListener('click', function () { modal.classList.add('hidden'); });
-    modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.add('hidden'); });
-    return modal;
-  }
-
-  function openPickerForCode(code) {
-    var familyCode = String(code || getFamilyCode());
-    var modal = ensurePickerModal();
-    var symbolEl = byId('family-crest-symbol');
-    var gemsWrap = byId('family-crest-gems');
-    var saveBtn = byId('family-crest-picker-save');
-    var statusEl = byId('family-crest-picker-status');
-    var picked = getCrest(familyCode);
-    if (symbolEl) symbolEl.value = picked ? picked.symbol : 'cross';
-    if (gemsWrap) {
-      gemsWrap.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
-        cb.checked = !!(picked && picked.gems && picked.gems.indexOf(cb.value) !== -1);
-      });
-    }
-    if (saveBtn) {
-      saveBtn.onclick = function () {
-        var selected = [];
-        gemsWrap.querySelectorAll('input[type="checkbox"]:checked').forEach(function (cb) { selected.push(cb.value); });
-        if (selected.length !== 2) {
-          if (statusEl) statusEl.textContent = 'Choose exactly 2 gems.';
-          return;
-        }
-        var crest = normalizeCrest({ symbol: symbolEl ? symbolEl.value : 'cross', gems: selected });
-        saveCrest(familyCode, crest);
-        if (statusEl) statusEl.textContent = 'Saved to shared code.';
-        modal.classList.add('hidden');
-      };
-    }
-    modal.classList.remove('hidden');
-  }
-
   function maybePromptCreateCrest(code, family) {
     var familyCode = String(code || getFamilyCode());
     var role = (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getRole === 'function')
@@ -335,7 +270,9 @@
     if (prompted[familyCode]) return;
     prompted[familyCode] = Date.now();
     writeMap(PROMPT_KEY, prompted);
-    openPickerForCode(familyCode);
+    var yes = window.confirm('Pick your crest symbol?');
+    if (!yes) return;
+    location.href = 'crest-generator.html?code=' + encodeURIComponent(familyCode);
   }
 
   function initGenerator() {

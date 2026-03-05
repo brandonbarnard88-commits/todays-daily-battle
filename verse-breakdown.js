@@ -259,7 +259,7 @@
       '<p class="verse-modal-relates"><strong>How it relates today?</strong> <span data-bk="relates"></span></p>' +
       '<div class="verse-modal-actions">' +
       '<button type="button" class="btn btn-secondary" data-action="pray">Pray it</button>' +
-      '<button type="button" class="btn btn-secondary" data-action="note">Save</button>' +
+      '<button type="button" class="btn btn-secondary" data-action="note">Note</button>' +
       '<button type="button" class="btn btn-secondary" data-action="share">Share</button>' +
       '</div>' +
       '</div></div>';

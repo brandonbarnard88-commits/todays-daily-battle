@@ -22,7 +22,7 @@ if (typeof console !== 'undefined' && console.log) {
 // Deploy check: warn if config still has placeholders (so production deploy is caught if example config is used)
 try {
   var cfg = window.TDB_CONFIG;
-  if (cfg && (String(cfg.SUPABASE_URL || '').includes('your-project-ref') || String(cfg.SUPABASE_ANON_KEY || '').includes('your-anon-key'))) {
+  if (cfg && (/placeholder/i.test(String(cfg.SUPABASE_URL || '')) || /placeholder/i.test(String(cfg.SUPABASE_ANON_KEY || '')))) {
     if (typeof console !== 'undefined' && console.warn) console.warn('TDB: config has placeholder values — replace with real Supabase URL/anon key before production.');
   }
 } catch (_) {}
@@ -392,7 +392,7 @@ function updateArmorChainDisplay() {
   if (!el) return;
   var households = getArmorChainHouseholds();
   if (households >= 7) emitEasterEgg('golden_road_rainbow', { households: households });
-  el.innerHTML = '<span class="armor-chain-icon" aria-hidden="true">🔗</span> Chain: ' + households + ' household' + (households === 1 ? '' : 's') + ' armored';
+  el.innerHTML = '<span class="armor-chain-icon" aria-hidden="true">🔗</span> Chain: ' + escapeHtml(String(households)) + ' household' + (households === 1 ? '' : 's') + ' armored';
   if (households > 0) el.classList.remove('hidden');
   else el.classList.add('hidden');
 }
@@ -1420,7 +1420,7 @@ const _cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
 const supabaseUrl = SUPABASE_URL || '';
 const supabaseKey = SUPABASE_ANON_KEY || '';
 // Only use Supabase when URL is the real API host (never relative or same-origin)
-const supabaseUrlValid = supabaseUrl && String(supabaseUrl).includes('supabase.co') && !String(supabaseUrl).includes('your-project-ref');
+const supabaseUrlValid = supabaseUrl && String(supabaseUrl).includes('supabase.co') && !String(supabaseUrl).includes('project-ref-placeholder');
 if (typeof window !== 'undefined') {
   console.log('TDB Supabase base:', supabaseUrlValid ? supabaseUrl : '(not set — prayers/presence disabled)');
 }
@@ -2062,7 +2062,7 @@ function updateStreakReminderNudge() {
     count = Number(d.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
   } catch (e) {}
   if (count >= 2) {
-    el.innerHTML = 'Day ' + count + '—don\'t break it! <a href="#hero-verse-wrap">Tap to pray.</a>';
+    el.innerHTML = 'Day ' + escapeHtml(String(count)) + '—don\'t break it! <a href="#hero-verse-wrap">Tap to pray.</a>';
     el.classList.remove('hidden');
   } else { el.classList.add('hidden'); el.textContent = ''; }
 }
@@ -3314,26 +3314,35 @@ function pickWelcomeFemaleVoice() {
   if (!('speechSynthesis' in window) || !window.speechSynthesis.getVoices) return null;
   var voices = window.speechSynthesis.getVoices() || [];
   if (!voices.length) return null;
-  var preferred = voices.filter(function (v) {
+  var preferredNatural = voices.filter(function (v) {
     var n = ((v && v.name) ? v.name : '').toLowerCase();
     var l = ((v && v.lang) ? v.lang : '').toLowerCase();
     if (l.indexOf('en') !== 0) return false;
-    return /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli)/.test(n);
+    return /(natural|neural|premium|enhanced|siri|google us english|microsoft (aria|jenny|sara))/i.test(n);
   });
-  if (preferred.length) return preferred[0];
+  if (preferredNatural.length) return preferredNatural[0];
+  var preferredWarm = voices.filter(function (v) {
+    var n = ((v && v.name) ? v.name : '').toLowerCase();
+    var l = ((v && v.lang) ? v.lang : '').toLowerCase();
+    if (l.indexOf('en') !== 0) return false;
+    return /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli|jenny)/.test(n);
+  });
+  if (preferredWarm.length) return preferredWarm[0];
   var fallbackEn = voices.find(function (v) { return ((v && v.lang) ? v.lang.toLowerCase() : '').indexOf('en') === 0; });
   return fallbackEn || voices[0] || null;
 }
 
+function normalizeWelcomeSpeechText(text) {
+  return String(text || '')
+    .replace(/\.\.\.+/g, ', ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function speakWelcomeAnointingLine() {
+  // Intro stays silent by design to avoid synthetic narration.
   if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') return;
   try { window.speechSynthesis.cancel(); } catch (e) {}
-  var utterance = new SpeechSynthesisUtterance('Nothing comes in unclean. Anoint with oil... water... fire.');
-  utterance.rate = 0.78;
-  utterance.pitch = 1;
-  var voice = pickWelcomeFemaleVoice();
-  if (voice) utterance.voice = voice;
-  try { window.speechSynthesis.speak(utterance); } catch (e2) {}
 }
 
 function renderWelcomeAvatarInto(targetEl) {
@@ -3365,7 +3374,7 @@ function renderWelcomeAvatarInto(targetEl) {
       : f.label === 'Kid'
       ? '<svg class="armor-silhouette-img armor-silhouette-kid" viewBox="0 0 36 48" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><circle cx="18" cy="10" r="7" fill="url(#' + gid + ')"/><path d="M6 48 Q18 26 30 48 Z" fill="url(#' + gid + ')"/></svg>'
       : '<svg class="armor-silhouette-img" viewBox="0 0 40 52" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><circle cx="20" cy="12" r="8" fill="url(#' + gid + ')"/><path d="M4 52 L20 26 L36 52 Z" fill="url(#' + gid + ')"/></svg>';
-    fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + svg + '</span>' +
+    fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + sanitizeSvgMarkup(svg) + '</span>' +
       (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
       '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
     targetEl.appendChild(fig);
@@ -3373,7 +3382,7 @@ function renderWelcomeAvatarInto(targetEl) {
   if (data.count >= 6) {
     var sword = document.createElement('div');
     sword.className = 'armor-figure armor-silhouette armor-sword';
-    sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true"><svg class="armor-silhouette-img" viewBox="0 0 24 48" aria-hidden="true"><defs><linearGradient id="intro-ag-sword-' + hash + '" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#93c5fd"/><stop offset="100%" style="stop-color:#3b82f6"/></linearGradient></defs><path d="M12 0 L12 36 L10 48 L14 48 L12 36 Z" fill="url(#intro-ag-sword-' + hash + ')"/><rect x="9" y="0" width="6" height="6" rx="1" fill="url(#intro-ag-sword-' + hash + ')"/></svg></span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
+    sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + sanitizeSvgMarkup('<svg class="armor-silhouette-img" viewBox="0 0 24 48" aria-hidden="true"><defs><linearGradient id="intro-ag-sword-' + hash + '" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#93c5fd"/><stop offset="100%" style="stop-color:#3b82f6"/></linearGradient></defs><path d="M12 0 L12 36 L10 48 L14 48 L12 36 Z" fill="url(#intro-ag-sword-' + hash + ')"/><rect x="9" y="0" width="6" height="6" rx="1" fill="url(#intro-ag-sword-' + hash + ')"/></svg>') + '</span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
     targetEl.appendChild(sword);
   }
 }
@@ -3414,7 +3423,7 @@ async function showGodWhisperOnLoad() {
   textEl.textContent = 'He is here.';
   overlay.setAttribute('aria-label', 'He is here.');
   await waitMs(5000);
-  textEl.textContent = 'Nothing comes in unclean. Anoint with oil... water... fire.';
+  textEl.textContent = 'Nothing unclean enters here. Consecrate this place with oil, living water, and holy fire.';
   overlay.classList.add('welcome-elements-active');
   speakWelcomeAnointingLine();
   await waitMs(3400);
@@ -4018,7 +4027,7 @@ function renderArmorModal() {
         : f.label === 'Kid'
         ? '<svg class="armor-silhouette-img armor-silhouette-kid" viewBox="0 0 36 48" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a5b4c6"/><stop offset="100%" style="stop-color:#64748b"/></linearGradient></defs><circle cx="18" cy="10" r="7" fill="url(#' + gid + ')"/><path d="M6 48 Q18 26 30 48 Z" fill="url(#' + gid + ')"/></svg>'
         : '<svg class="armor-silhouette-img" viewBox="0 0 40 52" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#94a3b8"/><stop offset="100%" style="stop-color:#475569"/></linearGradient></defs><circle cx="20" cy="12" r="8" fill="url(#' + gid + ')"/><path d="M4 52 L20 26 L36 52 Z" fill="url(#' + gid + ')"/></svg>';
-      fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + svg + '</span>' +
+      fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + sanitizeSvgMarkup(svg) + '</span>' +
         (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
         '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
       avatarEl.appendChild(fig);
@@ -4083,22 +4092,23 @@ function renderFamilyStoriesTab() {
   FAMILY_STORIES_DATA.forEach(function (s) {
     var verseUrl = base + (s.verseQuery ? '?q=' + encodeURIComponent(s.verseQuery) + '&focus=search' : '') + '#main-search';
     var colorUrl = base + (base.indexOf('kids-corner') !== -1 ? '' : '') + 'coloring.html?story=' + s.id;
+    var safeJewel = String(s.jewel || 'hope').replace(/[^a-z0-9_-]/gi, '');
     var card = document.createElement('article');
     card.className = 'kids-corner-card card-gold-inner';
     card.setAttribute('data-story', s.id);
     card.setAttribute('role', 'listitem');
     card.innerHTML =
-      '<span class="kids-corner-jewel kids-corner-jewel-' + s.jewel + '" aria-hidden="true"></span>' +
-      '<h3 class="kids-corner-card-title">' + s.title + '</h3>' +
-      '<p class="kids-corner-card-summary">' + s.summary + '</p>' +
-      '<p class="kids-corner-armor-hint section-note">' + s.armorHint + '</p>' +
+      '<span class="kids-corner-jewel kids-corner-jewel-' + attrEscape(safeJewel) + '" aria-hidden="true"></span>' +
+      '<h3 class="kids-corner-card-title">' + escapeHtml(s.title) + '</h3>' +
+      '<p class="kids-corner-card-summary">' + escapeHtml(s.summary) + '</p>' +
+      '<p class="kids-corner-armor-hint section-note">' + escapeHtml(s.armorHint) + '</p>' +
       '<div class="kids-corner-card-actions">' +
-        '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + s.prayIntent + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
-        '<a href="' + verseUrl + '" class="btn btn-secondary" aria-label="Read the verse: ' + s.verseRef + '">Read the Verse</a>' +
-        '<a href="' + colorUrl + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
+        '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + attrEscape(s.prayIntent) + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
+        '<a href="' + attrEscape(verseUrl) + '" class="btn btn-secondary" aria-label="Read the verse: ' + attrEscape(s.verseRef) + '">Read the Verse</a>' +
+        '<a href="' + attrEscape(colorUrl) + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
         '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Do activity">Activity</button>' +
       '</div>' +
-      '<p class="kids-activity-text section-note" aria-live="polite">' + s.activity + '</p>';
+      '<p class="kids-activity-text section-note" aria-live="polite">' + escapeHtml(s.activity) + '</p>';
     var prayBtn = card.querySelector('.kids-btn-pray');
     var activityBtn = card.querySelector('.kids-btn-activity');
     if (prayBtn) prayBtn.addEventListener('click', function () {
@@ -6792,6 +6802,7 @@ function copyDailyEncouragement() {
 }
 
 var ttsPlaying = false;
+var ttsDisabledNoticeShown = false;
 
 function setTtsPlaying(playing) {
   ttsPlaying = playing;
@@ -6807,23 +6818,12 @@ function stopTts() {
 
 function speakVerse(ref, text) {
   if (!ref || !text) return;
-  if (!('speechSynthesis' in window)) {
-    alert('Read-aloud is not supported in this browser. Try the "KJV Audio" button to open audio in a new tab.');
-    return;
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  setTtsPlaying(false);
+  if (!ttsDisabledNoticeShown) {
+    ttsDisabledNoticeShown = true;
+    alert('Voice read-aloud is disabled site-wide.');
   }
-  window.speechSynthesis.cancel();
-  var cleanText = (typeof text === 'string' ? text : '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-  if (!cleanText) return;
-  var utterance = new SpeechSynthesisUtterance(ref + '. ' + cleanText);
-  utterance.rate = Number(localStorage.getItem(TTS_RATE_KEY) || 1);
-  utterance.pitch = 1;
-  var voice = getSelectedVoice();
-  if (voice) utterance.voice = voice;
-  utterance.onstart = function () { setTtsPlaying(true); };
-  utterance.onend = function () { setTtsPlaying(false); };
-  utterance.onerror = function () { setTtsPlaying(false); };
-  window.speechSynthesis.speak(utterance);
-  setTtsPlaying(true);
 }
 
 function speakChapter(book, chapter) {
@@ -7269,6 +7269,15 @@ function sanitizeHtml(str) {
     return DOMPurify.sanitize(String(str), { ALLOWED_TAGS: [] });
   }
   return escapeHtml(str);
+}
+
+/** Use for trusted SVG templates; sanitizes before injecting into innerHTML. */
+function sanitizeSvgMarkup(str) {
+  if (str == null || str === '') return '';
+  if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+    return DOMPurify.sanitize(String(str), { USE_PROFILES: { svg: true, svgFilters: true } });
+  }
+  return '';
 }
 
 /** Open a new window with HTML content and trigger print. Replaces document.write for security. */
@@ -9026,7 +9035,13 @@ function renderReaderChapter(book, chapter) {
     })
     .catch(function (err) {
       clearTimeout(timeoutId);
-      output.innerHTML = '<p class="empty">' + (err.name === 'AbortError' ? 'Request timed out. Check your connection or try again.' : 'Chapter not found or network error. Check your connection or try another reference.') + '</p>';
+      output.innerHTML = '';
+      var errP = document.createElement('p');
+      errP.className = 'empty';
+      errP.textContent = (err.name === 'AbortError'
+        ? 'Request timed out. Check your connection or try again.'
+        : 'Chapter not found or network error. Check your connection or try another reference.');
+      output.appendChild(errP);
     });
 }
 
@@ -10854,8 +10869,16 @@ function renderResults(results) {
   if (results.activities && results.activities.length) {
     const activityBox = document.createElement('div');
     activityBox.className = 'activity-box';
-    const items = results.activities.map(item => '<li>' + escapeHtml(item) + '</li>').join('');
-    activityBox.innerHTML = '<strong>Kid/Teen Activity Ideas</strong><ul>' + items + '</ul>';
+    var heading = document.createElement('strong');
+    heading.textContent = 'Kid/Teen Activity Ideas';
+    var listEl = document.createElement('ul');
+    results.activities.forEach(function (item) {
+      var li = document.createElement('li');
+      li.textContent = String(item || '');
+      listEl.appendChild(li);
+    });
+    activityBox.appendChild(heading);
+    activityBox.appendChild(listEl);
     output.appendChild(activityBox);
   }
   triggerResultsFade(output);
@@ -10984,6 +11007,10 @@ function startStudy(id) {
   window.location.href = 'reading-plan.html?study=' + encodeURIComponent(id);
 }
 
+function writeNbaSignal(key) {
+  try { localStorage.setItem(key, String(Date.now())); } catch (e) {}
+}
+
 (typeof window !== 'undefined' ? window : {}).tdbInit = async function tdbInit() {
   if (!document.body) return;
   document.body.classList.remove('light');
@@ -11075,6 +11102,7 @@ function startStudy(id) {
               renderResults(results);
             }
             if (out) { out.style.display = 'grid'; out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+            if (input) writeNbaSignal('tdb_nba_last_search_at');
             if (input && typeof trackSearchAnalytics === 'function') {
               var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
               trackSearchAnalytics('search_query', params);
@@ -11473,7 +11501,18 @@ function startStudy(id) {
       var countdownText = diff < 0 ? 'Promo Ended!' : ('Ends in ' + days + ' day' + (days !== 1 ? 's' : '') + '!');
       if (promoBannerDays) promoBannerDays.textContent = countdownText;
       if (earlyBirdDays) earlyBirdDays.textContent = diff >= 0 ? String(days) : '0';
-      if (battleProCountdown) battleProCountdown.innerHTML = diff >= 0 ? '<span class="countdown-number">' + days + '</span> day' + (days !== 1 ? 's' : '') + ' left!' : 'Promo ended.';
+      if (battleProCountdown) {
+        battleProCountdown.innerHTML = '';
+        if (diff >= 0) {
+          var daysSpan = document.createElement('span');
+          daysSpan.className = 'countdown-number';
+          daysSpan.textContent = String(days);
+          battleProCountdown.appendChild(daysSpan);
+          battleProCountdown.appendChild(document.createTextNode(' day' + (days !== 1 ? 's' : '') + ' left!'));
+        } else {
+          battleProCountdown.textContent = 'Promo ended.';
+        }
+      }
       if (promoBanner && diff < 0) {
         promoBanner.classList.add('hidden');
         document.body.classList.remove('has-promo-banner');
@@ -11631,8 +11670,8 @@ function startStudy(id) {
   if (!supabaseClient) {
     var cfg = typeof window !== 'undefined' && window.TDB_CONFIG;
     var hasConfig = cfg && cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY &&
-      !String(cfg.SUPABASE_URL).includes('your-project-ref') &&
-      !String(cfg.SUPABASE_ANON_KEY).includes('your-anon');
+      !String(cfg.SUPABASE_URL).includes('project-ref-placeholder') &&
+      !String(cfg.SUPABASE_ANON_KEY).includes('anon-key-placeholder');
     const authSection = document.getElementById('auth-section');
     if (authSection) {
       const note = document.createElement('p');
@@ -14943,6 +14982,7 @@ function startStudy(id) {
       input.value = '';
       if (typeof applyPrayerMomentFx === 'function') applyPrayerMomentFx();
       if (typeof bumpSilentAmenBadgeFromPray === 'function') bumpSilentAmenBadgeFromPray();
+      writeNbaSignal('tdb_nba_last_prayer_at');
       showMsg('God heard this.');
       if (typeof window !== 'undefined') window.__tdbQuickPrayLastRun = Date.now();
     }
@@ -14973,6 +15013,7 @@ function startStudy(id) {
               window.TDBCartoonPlayer.open({
                 characterName: 'David',
                 battleTitle: 'Giant Slayer',
+                userInitiated: true,
                 useMyAvatar: true,
                 userAvatar: { label: 'Your avatar', face: '🛡️', helmet: true, shield: true, belt: true },
                 panels: [
@@ -14980,6 +15021,7 @@ function startStudy(id) {
                 ]
               });
               if (typeof maybeCelebrateFirstWinFromWatch === 'function') maybeCelebrateFirstWinFromWatch();
+              writeNbaSignal('tdb_nba_last_watch_at');
               if (typeof window !== 'undefined') window.__tdbDailyTileWatchLastRun = Date.now();
             } catch (e2) {}
           }

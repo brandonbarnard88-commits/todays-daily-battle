@@ -12,6 +12,20 @@
     return div.innerHTML;
   }
 
+  function openPrintWindow(html) {
+    var win = window.open('', '_blank');
+    if (!win) return null;
+    var blob = new Blob([String(html || '')], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    win.location.href = url;
+    win.onload = function () {
+      try { win.print(); } catch (e) {}
+      URL.revokeObjectURL(url);
+      win.onafterprint = function () { try { win.close(); } catch (e2) {} };
+    };
+    return win;
+  }
+
   function normalizeRef(ref) {
     if (!ref || typeof ref !== 'string') return '';
     return ref.replace(/\s+/g, ' ').trim();
@@ -129,8 +143,8 @@
     var count = container.querySelectorAll('.pastor-ref-item').length + 2;
     var div = document.createElement('div');
     div.className = 'pastor-ref-item';
-    div.innerHTML = '<input type="text" id="pastor-ref-' + count + '" placeholder="e.g., Rom 8:28">' +
-      '<button type="button" class="pastor-insert-btn pastor-add-ref" data-target="pastor-ref-' + count + '">Add</button>';
+    div.innerHTML = '<input type="text" id="pastor-ref-' + escapeHtml(String(count)) + '" placeholder="e.g., Rom 8:28">' +
+      '<button type="button" class="pastor-insert-btn pastor-add-ref" data-target="pastor-ref-' + escapeHtml(String(count)) + '">Add</button>';
     container.appendChild(div);
     div.querySelector('.pastor-add-ref').addEventListener('click', function () {
       var input = document.getElementById('pastor-ref-' + count);
@@ -174,11 +188,7 @@
         if (draft.prayer) html += '<div class="section"><span class="section-type">Prayer</span><p>' + escapeHtml(draft.prayer).replace(/\n/g, '<br>') + '</p></div>';
       }
       html += '</body></html>';
-      var win = window.open('', '_blank');
-      win.document.write(html);
-      win.document.close();
-      win.print();
-      win.onafterprint = function () { win.close(); };
+      openPrintWindow(html);
     } catch (e) {
       window.location.href = 'builder.html';
     }

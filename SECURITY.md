@@ -65,6 +65,7 @@
 - **RLS** — With the anon key only, unauthenticated requests to protected tables should return no rows or 403. See SUPABASE-SYNC-TABLES.md “Verify RLS (anon key test)”.
 - **Auth** — Test sign-up, login, logout, forgot password; confirm session persists and RLS returns data only when logged in.
 - **Payments** — Test checkout with Stripe test keys; confirm metadata is set server-side from session.
+- **V2 quality gate** — Run `npm run quality:gate` (or `npm run quality:gate:full` when browser automation is available) and follow `V2-QUALITY-BASELINE.md` before shipping.
 
 ---
 

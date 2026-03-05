@@ -37,11 +37,11 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js?v=20260309"></script>
-  <script src="script.js?v=20260313" defer></script>
+  <script src="script.js?v=20260323" defer></script>
   <script src="pray.js?v=20260305" defer></script>
   <script src="easter-eggs.js?v=20260316" defer></script>
-  <script src="welcome.js?v=20260305" defer></script>
-  <script src="toolbox-tabs.js" defer></script>
+  <script src="welcome.js?v=20260323" defer></script>
+  <script src="toolbox-tabs.js?v=20260323" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js" integrity="sha384-BkEIW/B4JV9w6pRfBRgZtAcYDk5goH1nUI49rLo8s5PSHgTfgxWBczRVJx+fv5kP" crossorigin="anonymous" defer></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js" integrity="sha384-MiR5OstmujbPpU5nzD986OTopb4Kveb2WX4EmKuqeCU1hCWlxMYL8gBBY7vDSYLF" crossorigin="anonymous" defer></script>
   <script src="firebase-push.js" defer></script>
@@ -264,7 +264,19 @@
     </aside>
 
     <main class="app-content" id="main-content">
+      <nav id="mobile-quick-tools" class="mobile-quick-tools" aria-label="Quick mobile tools">
+        <button type="button" class="mobile-quick-tool" data-mobile-drawer="daily" data-scroll-target="search-hero" aria-label="Open Search tools">Search</button>
+        <a href="bible-tool.html" class="mobile-quick-tool" aria-label="Open Bible Tool">Bible Tool</a>
+        <button type="button" id="mobile-quick-battle" class="mobile-quick-tool" aria-label="Open Today's Battle">Today&apos;s Battle</button>
+        <a href="message.html" class="mobile-quick-tool" aria-label="Open Message Board">Message</a>
+        <button type="button" class="mobile-quick-tool" data-mobile-drawer="family" data-scroll-target="toolbox-content" aria-label="Open Family tools">Family</button>
+      </nav>
       <div class="content-inner toolbox-content" id="toolbox-content" data-active-drawer="daily">
+        <section id="next-best-actions" class="glass next-actions hidden" data-toolbox-drawer="daily" role="region" aria-label="Next best actions">
+          <h3 class="section-divider util-mt-0">Pick Up Where You Left Off</h3>
+          <p id="next-actions-kicker" class="section-note util-mb-0_5">Helpful next steps based on your recent activity.</p>
+          <div id="next-actions-list" class="next-actions-list"></div>
+        </section>
         <nav class="toolbox-tabs" role="tablist" aria-label="Toolbox">
           <button type="button" class="toolbox-tab active" role="tab" id="tab-daily" aria-selected="true" aria-controls="drawer-daily" data-drawer="daily">Daily</button>
           <button type="button" class="toolbox-tab" role="tab" id="tab-battle" aria-selected="false" aria-controls="drawer-battle" data-drawer="battle">Your Battle</button>
@@ -273,7 +285,7 @@
           <button type="button" class="toolbox-tab" role="tab" id="tab-deep" aria-selected="false" aria-controls="drawer-deep" data-drawer="deep">Deep</button>
         </nav>
         <p class="swipe-hint section-note" aria-live="polite">Swipe tabs left or right for more tools.</p>
-        <div class="toolbox-block" data-toolbox-drawer="daily">
+        <div class="toolbox-block">
         <div class="kids-battle-home-wrap">
           <a href="/kids/" class="kids-battle-home-banner" role="region" aria-label="Kids Battle – Swipe Bible stories">
             New! Kids Battle – Swipe Bible stories, pray, doodle! ⚔️🖍️
@@ -389,19 +401,28 @@
         <div class="toolbox-cards" data-toolbox-drawer="church">
           <h2 class="section-divider">Church &amp; Teams</h2>
           <div class="toolbox-card-grid">
-            <a href="/pastor/" class="glass toolbox-card"><h3>Pastor</h3><p>Sermon builder, verse packs, toolkit</p></a>
-            <a href="/#patriotic-hymns" class="glass toolbox-card"><h3>Music / Worship</h3><p>Hymns, Sing with Me, patriotic setlists</p></a>
-            <a href="message.html" class="glass toolbox-card"><h3>Women&apos;s &amp; Men&apos;s</h3><p>Themed prayers, accountability streaks</p></a>
-            <a href="church.html" class="glass toolbox-card"><h3>Deacons / Sunday School</h3><p>Kid verses, attendance quick-list</p></a>
+            <p class="toolbox-cluster-label">Pastor Stack</p>
+            <a href="pastor-toolkit.html" class="glass toolbox-card"><h3>Pastor Toolkit</h3><p>Prepare quickly with verse packs and service helpers</p></a>
+            <a href="resources.html" class="glass toolbox-card"><h3>Pastor Resources</h3><p>Reference guides to support ministry decisions</p></a>
+            <a href="sermon.html" class="glass toolbox-card"><h3>Build a Sermon</h3><p>Draft and refine clear message flow</p></a>
+            <a href="/pastor/" class="glass toolbox-card"><h3>Pastor Hub</h3><p>Open the full pastor center in one place</p></a>
+            <p class="toolbox-cluster-label">Church Teams</p>
+            <a href="church.html" class="glass toolbox-card"><h3>Deacons / Sunday School</h3><p>Run kid verses and attendance quickly</p></a>
+            <a href="message.html" class="glass toolbox-card"><h3>Women&apos;s &amp; Men&apos;s</h3><p>Lead themed prayer and accountability rhythms</p></a>
+            <a href="/#patriotic-hymns" class="glass toolbox-card"><h3>Music / Worship</h3><p>Plan hymns, Sing with Me, and worship sets</p></a>
           </div>
         </div>
         <div class="toolbox-cards" data-toolbox-drawer="family">
           <h2 class="section-divider">Family &amp; Household</h2>
           <div class="toolbox-card-grid">
-            <a href="#" id="toolbox-family-armor" class="glass toolbox-card"><h3>Family Armor &amp; Stories</h3><p>Bible stories, household armor</p></a>
-            <a href="#" id="toolbox-add-household" class="glass toolbox-card"><h3>Add Household</h3><p>Shared streak, verse night printable</p></a>
-            <a href="/kids/" class="glass toolbox-card"><h3>Kids Corner</h3><p>Simple explainers, doodle fun</p></a>
-            <a href="coloring.html" class="glass toolbox-card"><h3>One verse, no screen</h3><p>Printable activities, timer</p></a>
+            <p class="toolbox-cluster-label">Household Setup</p>
+            <a href="#" id="toolbox-add-household" class="glass toolbox-card"><h3>Add Household</h3><p>Start shared streaks and verse-night routines</p></a>
+            <a href="#" id="toolbox-family-armor" class="glass toolbox-card"><h3>Family Armor &amp; Stories</h3><p>Grow family armor through story-based steps</p></a>
+            <a href="kids-corner.html" class="glass toolbox-card"><h3>Family Activities</h3><p>Open story cards and printable activity packs</p></a>
+            <a href="crest-generator.html" class="glass toolbox-card"><h3>Crest Generator</h3><p>Create and save your household crest</p></a>
+            <p class="toolbox-cluster-label">Kids &amp; Printable</p>
+            <a href="/kids/" class="glass toolbox-card"><h3>Kids Corner</h3><p>Explore kid-friendly explainers and doodle play</p></a>
+            <a href="coloring.html" class="glass toolbox-card"><h3>One verse, no screen</h3><p>Print verse sheets and run a short timer</p></a>
           </div>
         </div>
         <div id="org-golden-rule-card" class="org-golden-rule-card glass util-mt-0_5 hidden" role="region" aria-label="Join the cause" data-toolbox-drawer="church">
@@ -422,13 +443,19 @@
         <div class="toolbox-cards" data-toolbox-drawer="deep">
           <h2 class="section-divider">Deep Tools</h2>
           <div class="toolbox-card-grid">
-            <a href="curriculum.html" class="glass toolbox-card"><h3>365-Day Curriculum</h3><p>One character per day, Verse Mode, armor progress</p></a>
-            <a href="bible-tool.html" class="glass toolbox-card"><h3>Bible Tool</h3><p>Search, notes, KJV lookup</p></a>
-            <a href="bible-study.html" class="glass toolbox-card"><h3>Armor of God</h3><p>Free Bible studies series</p></a>
-            <a href="mystudy.html" class="glass toolbox-card"><h3>My Study</h3><p>Private notes, prayer, share code</p></a>
-            <a href="study.html" class="glass toolbox-card"><h3>Build a Lesson</h3><p>Quick outlines, verse packs</p></a>
-            <a href="reading-plan.html" class="glass toolbox-card"><h3>7-Day Plan</h3><p>Reading plans, custom length</p></a>
-            <a href="pricing.html" class="glass toolbox-card"><h3>Pro extras</h3><p>Offline, reports—free basics stay</p></a>
+            <p class="toolbox-cluster-label">Study Builder</p>
+            <a href="bible-tool.html" class="glass toolbox-card"><h3>Bible Tool</h3><p>Search KJV, capture notes, and track insights</p></a>
+            <a href="mystudy.html" class="glass toolbox-card"><h3>My Study</h3><p>Save private notes, prayer, and share code</p></a>
+            <a href="study.html" class="glass toolbox-card"><h3>Build a Lesson</h3><p>Create lesson outlines with verse packs</p></a>
+            <a href="sermon.html" class="glass toolbox-card"><h3>Build a Sermon</h3><p>Draft and refine full sermon flow</p></a>
+            <a href="#verse-rotator-search" class="glass toolbox-card"><h3>Verse Rotator Search</h3><p>Find KJV verses fast by mode</p></a>
+            <p class="toolbox-cluster-label">Guided Tracks</p>
+            <a href="bible-study.html" class="glass toolbox-card"><h3>Armor of God</h3><p>Follow a guided Bible study series</p></a>
+            <a href="reading-plan.html" class="glass toolbox-card"><h3>7-Day Plan</h3><p>Start short reading plans with custom length</p></a>
+            <a href="curriculum.html" class="glass toolbox-card"><h3>365-Day Curriculum</h3><p>Walk one character each day in Verse Mode</p></a>
+            <p class="toolbox-cluster-label">Family Lineage</p>
+            <a href="#lineage-family-tree" class="glass toolbox-card"><h3>Battle Lineage Tools</h3><p>Use Family Tree and People Search together</p></a>
+            <a href="pricing.html" class="glass toolbox-card"><h3>Pro extras</h3><p>Unlock offline access and reports</p></a>
           </div>
         </div>
         <section class="glass deep-curriculum-inline" data-toolbox-drawer="deep" aria-label="365-Day curriculum inline">
@@ -507,6 +534,16 @@
             <p class="section-note util-mb-0_25">Family code: <strong id="lineage-crest-code">household-local</strong> • members: <strong id="lineage-crest-members">1</strong></p>
             <p class="section-note util-mb-0">Historical roots first, then Tier 2 branches A-Z.</p>
           </div>
+          <div id="lineage-family-tree" class="lineage-tool-card" aria-label="Family Tree tools">
+            <h4 class="section-note util-mb-0_25">🌳 Family Tree</h4>
+            <p class="section-note util-mb-0">Browse your lineage timeline and explore the biblical branches.</p>
+            <p class="section-note util-mb-0">How to use: open Tier 2 branches and scroll the timeline from roots to descendants.</p>
+          </div>
+          <div id="lineage-people-search" class="lineage-tool-card" aria-label="People Search tools">
+            <h4 class="section-note util-mb-0_25">🔎 People Search</h4>
+            <p class="section-note util-mb-0">Find a specific person fast without scrolling the full tree.</p>
+            <p class="section-note util-mb-0">How to use: type a name in the search box (example: Beriah) to filter instantly.</p>
+          </div>
           <div class="lineage-controls" aria-label="Lineage filters">
             <input id="lineage-search" type="search" placeholder="Search lineage (e.g. Beriah)" aria-label="Search lineage names">
             <button id="lineage-tier2-toggle" type="button" class="btn btn-secondary" aria-expanded="false" aria-controls="lineage-tree-list">Show Tier 2 branches</button>
@@ -554,11 +591,17 @@
             <a class="btn btn-primary" href="/pastor/">Pastor Hub</a>
             <a class="btn btn-primary" href="/church/">Church Hub</a>
             <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
+            <a class="btn btn-primary" href="resources.html">Pastor Resources</a>
             <a class="btn btn-primary" href="team-toolkit.html">Team Toolkit</a>
             <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
+            <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
             <a class="btn btn-secondary" href="bible-study.html">Bible Studies</a>
             <a class="btn btn-secondary" href="mystudy.html">My Study</a>
-            <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
+            <a class="btn btn-secondary" href="#verse-rotator-search">Verse Rotator</a>
+            <a class="btn btn-secondary" href="curriculum.html">Curriculum</a>
+            <a class="btn btn-secondary" href="#lineage-family-tree">Family Tree</a>
+            <a class="btn btn-secondary" href="#lineage-people-search">People Search</a>
+            <a class="btn btn-secondary" href="kids-corner.html">Family Activities</a>
             <a class="btn btn-secondary" href="message.html">Message Board</a>
             <a class="btn btn-secondary" href="/kids/">Kids</a>
             <a class="btn btn-secondary" href="coloring.html">Kids Corner</a>
@@ -1148,24 +1191,47 @@
           <svg class="welcome-element welcome-element-oil" viewBox="0 0 80 120">
             <defs>
               <linearGradient id="welcome-oil-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#fef3c7"></stop>
-                <stop offset="100%" stop-color="#d4a017"></stop>
+                <stop offset="0%" stop-color="#fef9e1"></stop>
+                <stop offset="42%" stop-color="#f5cd63"></stop>
+                <stop offset="100%" stop-color="#a26a0a"></stop>
               </linearGradient>
+              <radialGradient id="welcome-oil-sheen" cx="34%" cy="26%" r="62%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.88)"></stop>
+                <stop offset="100%" stop-color="rgba(255,255,255,0)"></stop>
+              </radialGradient>
             </defs>
             <path d="M40 8 C54 30 66 45 66 67 C66 88 54 106 40 106 C26 106 14 88 14 67 C14 45 26 30 40 8 Z" fill="url(#welcome-oil-grad)"></path>
+            <path d="M40 13 C52 33 61 47 61 66 C61 84 52 99 40 99 C28 99 19 84 19 66 C19 47 28 33 40 13 Z" fill="none" stroke="rgba(255,245,200,0.72)" stroke-width="2"></path>
+            <ellipse cx="35" cy="36" rx="15" ry="20" fill="url(#welcome-oil-sheen)"></ellipse>
           </svg>
           <svg class="welcome-element welcome-element-water" viewBox="0 0 160 60">
-            <ellipse cx="80" cy="30" rx="70" ry="18" fill="none" stroke="#60a5fa" stroke-width="6"></ellipse>
-            <ellipse cx="80" cy="30" rx="46" ry="12" fill="none" stroke="#93c5fd" stroke-width="4"></ellipse>
+            <defs>
+              <linearGradient id="welcome-water-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#60a5fa"></stop>
+                <stop offset="50%" stop-color="#bfdbfe"></stop>
+                <stop offset="100%" stop-color="#1d4ed8"></stop>
+              </linearGradient>
+            </defs>
+            <ellipse cx="80" cy="30" rx="70" ry="18" fill="none" stroke="url(#welcome-water-grad)" stroke-width="5.5"></ellipse>
+            <ellipse cx="80" cy="30" rx="53" ry="13.5" fill="none" stroke="rgba(191,219,254,0.9)" stroke-width="3.8"></ellipse>
+            <ellipse cx="80" cy="30" rx="35" ry="9" fill="none" stroke="rgba(219,234,254,0.72)" stroke-width="2.4"></ellipse>
+            <path d="M40 31 C58 22 102 22 120 31" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.6" stroke-linecap="round"></path>
           </svg>
           <svg class="welcome-element welcome-element-fire" viewBox="0 0 80 120">
             <defs>
               <linearGradient id="welcome-fire-grad" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#ea580c"></stop>
-                <stop offset="100%" stop-color="#fdba74"></stop>
+                <stop offset="0%" stop-color="#9a3412"></stop>
+                <stop offset="52%" stop-color="#f97316"></stop>
+                <stop offset="100%" stop-color="#fde68a"></stop>
               </linearGradient>
+              <radialGradient id="welcome-fire-core" cx="50%" cy="60%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,251,235,0.95)"></stop>
+                <stop offset="100%" stop-color="rgba(255,251,235,0)"></stop>
+              </radialGradient>
             </defs>
             <path d="M40 108 C62 90 66 66 50 44 C52 63 39 67 34 79 C31 69 18 61 26 36 C8 51 8 90 40 108 Z" fill="url(#welcome-fire-grad)"></path>
+            <path d="M40 101 C52 88 55 72 46 58 C46 69 39 74 35 81 C33 73 27 69 30 53 C20 64 22 86 40 101 Z" fill="rgba(254,240,138,0.66)"></path>
+            <ellipse cx="40" cy="80" rx="18" ry="18" fill="url(#welcome-fire-core)"></ellipse>
           </svg>
           <svg class="welcome-cross" viewBox="0 0 100 100">
             <defs>
@@ -1188,7 +1254,7 @@
     <div id="prayer-whisper" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Prayer sent—God hears."><span class="god-whisper-text">God hears this.</span></div>
     <div id="night-falls-overlay" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Night falls—rest in Him."><span class="god-whisper-text">Night falls—rest in Him.</span><p class="god-whisper-verse">Peace I leave with you. (John 14:27)</p></div>
     <div id="dawn-overlay" class="god-whisper-overlay hidden" role="status" aria-live="polite" aria-label="Dawn breaks—He waits."><span class="god-whisper-text">Dawn breaks—He waits.</span></div>
-    <div id="anointed-overlay" class="god-whisper-overlay anointed-overlay hidden" role="status" aria-live="polite" aria-label="Room consecrated."><p class="anointed-overlay-text">This room is anointed. Pray with oil, water, fire—nothing enters unclean.</p></div>
+    <div id="anointed-overlay" class="god-whisper-overlay anointed-overlay hidden" role="status" aria-live="polite" aria-label="Room consecrated."><p class="anointed-overlay-text">This room is consecrated. Pray with oil, living water, and holy fire. Nothing unclean enters here.</p></div>
 
     <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
       <h2 class="footer-heading sr-only">Site links</h2>
@@ -1271,7 +1337,7 @@
   <script src="bible-progress.js?v=20260316" defer></script>
   <script src="newsletter-weekly.js?v=20260305" defer></script>
   <script src="armor.js?v=20260314"></script>
-  <script src="cartoon.js?v=20260305" defer></script>
+  <script src="cartoon.js?v=20260323" defer></script>
   <script src="streak.js?v=20260305" defer></script>
   <script src="daily-tile.js?v=20260305" defer></script>
   <script src="lineage-tree.js?v=20260314" defer></script>

@@ -319,7 +319,7 @@
     },
     'luke 15:6': {
       who: 'Jesus',
-      to: 'People who wondered about God's love',
+      to: "People who wondered about God's love",
       apply: "Jesus finds lost sheep—you're never lost! God searches for you!"
     },
     'matthew 21:9': {
@@ -2115,13 +2115,14 @@
     if (cartoon.type === 'carousel') {
       var story = bibleStories[cartoon.story];
       var panelsHtml = (story.panels || []).map(function (p) {
-        return '<img src="' + p.src + '" alt="' + (p.alt || '') + '" class="comic-panel" width="200" height="160">';
+        return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtml(p.alt || '') + '" class="comic-panel" width="200" height="160">';
       }).join('');
-      var videoTitle = (story.videoTitle || '').replace(/"/g, '&quot;');
-      var btnHtml = story.videoId ? '<button type="button" class="watch-video-btn" data-video-id="' + story.videoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-      container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + (story.caption || '') + '</p>' + btnHtml + '</div>';
+      var videoTitle = escapeHtml(story.videoTitle || '');
+      var safeVideoId = safeYouTubeId(story.videoId);
+      var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+      container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>';
     } else {
-      container.innerHTML = '<div class="bible-cartoon ' + cartoon.anim + '"><img src="' + cartoon.src + '" alt="' + cartoon.alt + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + cartoon.caption + '</p></div>';
+      container.innerHTML = '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>';
     }
     if (!q) {
       try {
@@ -2412,7 +2413,7 @@
         opts.forEach(function (opt, j) {
           var label = document.createElement('label');
           label.className = 'kids-quiz-option';
-          label.innerHTML = '<input type="radio" name="quiz-q' + i + '" value="' + j + '" aria-label="' + (opt || '').replace(/"/g, '&quot;') + '"> <span>' + (opt || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
+          label.innerHTML = '<input type="radio" name="quiz-q' + i + '" value="' + j + '" aria-label="' + escapeHtml(opt || '') + '"> <span>' + escapeHtml(opt || '') + '</span>';
           wrap.appendChild(label);
         });
         var title = document.createElement('p');
@@ -2823,31 +2824,9 @@
 
   function wireVerseSpeak() {
     const btn = document.getElementById('kids-verse-speak');
-    const textEl = document.getElementById('kids-verse-text');
-    const refEl = document.getElementById('kids-verse-ref');
-    if (!btn || !textEl) return;
-    var synth = window.speechSynthesis;
-    if (!synth) {
-      btn.style.display = 'none';
-      return;
-    }
-    btn.addEventListener('click', function () {
-      if (synth.speaking) {
-        synth.cancel();
-        btn.textContent = '🔊 Tap to hear';
-        return;
-      }
-      var text = (refEl ? refEl.textContent + '. ' : '') + textEl.textContent;
-      var u = new SpeechSynthesisUtterance(text);
-      u.rate = 0.9;
-      u.pitch = 1.1;
-      var voices = synth.getVoices();
-      var kidVoice = voices.find(function (v) { return v.name.includes('Child') || v.name.includes('Samantha'); }) || voices[0];
-      if (kidVoice) u.voice = kidVoice;
-      u.onstart = function () { btn.textContent = '⏸ Stop'; };
-      u.onend = u.onerror = function () { btn.textContent = '🔊 Tap to hear'; };
-      synth.speak(u);
-    });
+    if (!btn) return;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    btn.style.display = 'none';
   }
 
   function generateShareImage(callback) {
@@ -2970,7 +2949,7 @@
     FAITH_TRAIL_STOPS.forEach(function (stop) {
       var span = document.createElement('span');
       span.className = 'kids-trail-stop' + (streak >= stop.day ? ' unlocked' : ' locked');
-      span.innerHTML = '<span class="kids-trail-icon">' + stop.icon + '</span><span class="kids-trail-label">' + stop.label + '</span>';
+      span.innerHTML = '<span class="kids-trail-icon">' + escapeHtml(stop.icon) + '</span><span class="kids-trail-label">' + escapeHtml(stop.label) + '</span>';
       span.title = streak >= stop.day ? 'Completed!' : 'Unlock at day ' + stop.day;
       board.appendChild(span);
     });
@@ -3011,9 +2990,9 @@
       return;
     }
     ctxEl.classList.remove('hidden');
-    ctxEl.innerHTML = '<p class="kids-context-who"><strong>Who said it:</strong> ' + (ctx.who || '').replace(/</g, '&lt;') + '</p>' +
-      '<p class="kids-context-to"><strong>To whom:</strong> ' + (ctx.to || '').replace(/</g, '&lt;') + '</p>' +
-      '<p class="kids-context-apply"><strong>For you:</strong> ' + (ctx.apply || '').replace(/</g, '&lt;') + '</p>';
+    ctxEl.innerHTML = '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtml(ctx.who || '') + '</p>' +
+      '<p class="kids-context-to"><strong>To whom:</strong> ' + escapeHtml(ctx.to || '') + '</p>' +
+      '<p class="kids-context-apply"><strong>For you:</strong> ' + escapeHtml(ctx.apply || '') + '</p>';
   }
 
   function setMainVerse(index) {
@@ -3034,13 +3013,14 @@
       if (cartoon.type === 'carousel') {
         var story = bibleStories[cartoon.story];
         var panelsHtml = (story.panels || []).map(function (p) {
-          return '<img src="' + p.src + '" alt="' + (p.alt || '') + '" class="comic-panel" width="200" height="160">';
+          return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtml(p.alt || '') + '" class="comic-panel" width="200" height="160">';
         }).join('');
-        var videoTitle = (story.videoTitle || '').replace(/"/g, '&quot;');
-        var btnHtml = story.videoId ? '<button type="button" class="watch-video-btn" data-video-id="' + story.videoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-        container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + (story.caption || '') + '</p>' + btnHtml + '</div>';
+        var videoTitle = escapeHtml(story.videoTitle || '');
+        var safeVideoId = safeYouTubeId(story.videoId);
+        var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+        container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>';
       } else {
-        container.innerHTML = '<div class="bible-cartoon ' + cartoon.anim + '"><img src="' + cartoon.src + '" alt="' + cartoon.alt + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + cartoon.caption + '</p></div>';
+        container.innerHTML = '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>';
       }
     }
   }
@@ -3059,6 +3039,11 @@
 
   function escapeHtml(s) {
     return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  }
+
+  function safeYouTubeId(id) {
+    var s = String(id || '').trim();
+    return /^[A-Za-z0-9_-]{11}$/.test(s) ? s : '';
   }
 
   function renderFilteredResults(topicOrQuery) {
@@ -3153,13 +3138,13 @@
   function wireVideoModal() {
     document.addEventListener('click', function (e) {
       if (e.target.classList && e.target.classList.contains('watch-video-btn')) {
-        var id = e.target.getAttribute('data-video-id');
+        var id = safeYouTubeId(e.target.getAttribute('data-video-id'));
         var title = e.target.getAttribute('data-title') || '';
         if (!id) return;
         var titleEl = document.getElementById('video-modal-title');
         var frameEl = document.getElementById('video-frame');
         var modalEl = document.getElementById('video-modal');
-        if (titleEl) titleEl.textContent = title.replace(/&quot;/g, '"');
+        if (titleEl) titleEl.textContent = title;
         if (frameEl) frameEl.src = 'https://www.youtube.com/embed/' + id + '?rel=0&modestbranding=1&playsinline=1';
         if (modalEl) modalEl.classList.remove('hidden');
       }

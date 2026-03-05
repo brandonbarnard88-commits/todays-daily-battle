@@ -2,6 +2,25 @@
 
 - **Security first.** It is the top priority for both **users** and **builders**. Never commit secrets (service_role, Stripe secret, Turnstile secret). Use RLS on all Supabase tables; sanitize all user input; see SECURITY.md and PRIVACY-ANALYTICS.md.
 - **User-friendliness is #2.** After security, prioritize clear copy, accessible UI, helpful errors, and smooth flows so the app is easy and reassuring to use.
+- **Excellence standard (non-generic, high-reverence):** Do not ship generic-feeling copy, visuals, or interactions. Every user-facing change should feel intentional, high-quality, and worthy of the mission.
+- **Enforcement for quality:** If a proposed UI/copy/flow is bland, placeholder-like, or cheap-looking, iterate until it is polished, clear, and distinct. "Good enough" is not enough.
+- **Reflect God, not trends:** Favor truth, clarity, humility, beauty, and usefulness over novelty or hype. Learn from human mistakes; do not repeat weak patterns.
+- **No throwaway wording:** Avoid cliché filler text and vague labels. Use meaningful, specific, calm language that serves users in hard moments.
+- **Quality gate before done:** Before marking work complete, verify: secure, accessible, mobile-friendly, visually coherent, and non-generic in tone and execution.
+- **Operational release gate (required):** No change is complete until relevant checks pass (`npm run test:security`, `npm run test`, `npm run test:site`) and any new warnings are addressed or documented.
+- **Security hardening default:** Prefer `textContent`/DOM APIs over `innerHTML`. If HTML injection is truly needed, sanitize and justify it.
+- **No silent regressions:** Preserve all existing tools/features and entry points. If relocating or renaming, keep discoverability and update links/UI so nothing becomes hidden.
+- **Mobile-first verification:** Every homepage/toolbox change must be reviewed at small-phone and standard-mobile widths; maintain readable text, proper spacing, and 44px+ tap targets.
+- **Accessibility baseline (required):** Keep semantic labels/roles, visible focus states, sufficient contrast, keyboard reachability, and meaningful `aria-label` text.
+- **Error handling standard:** Fail gracefully with helpful user copy; never leave blank states for network/API failures. Provide recovery actions (retry/fallback) where possible.
+- **Performance discipline:** Avoid heavy dependencies/frameworks, unnecessary re-renders, or blocking scripts. Keep interactions smooth on low-end mobile devices.
+- **Privacy by design:** Collect only minimum data needed for feature behavior. Never log or transmit sensitive user content beyond explicit product intent.
+- **Analytics hygiene:** Track meaningful events for new entry points/features, but never include secrets, identity leakage, or raw private text.
+- **Consistency over novelty:** Match existing component patterns and spacing tokens before introducing new visual styles; expand the design language deliberately.
+- **Admin/sensitive flows:** Keep admin access role-based (`app_metadata.role === 'admin'`) and never rely on client-only obscurity as primary protection.
+- **Documentation hygiene:** When introducing security-relevant behavior, update related docs (`SECURITY.md`, checklists, or runbooks) in the same change.
+- **No placeholder leftovers:** Before finalizing, verify no placeholder config tokens, fake links, or temporary copy remain in shipped paths.
+- **Post-change validation note:** Final response should include what was verified (tests/lints/manual checks) and any remaining risk explicitly.
 - **Stack:** Vanilla JS only. No React/Vue/frameworks. Static HTML/CSS, script.js, Supabase (auth + optional sync).
 - **Auth & data:** Supabase Auth and Supabase tables (see SUPABASE-SYNC-TABLES.md). Do not introduce Firebase/Firestore unless explicitly requested.
 - **Analytics:** Use existing `trackEvent(eventName, params)` for GA4. For search-related events use ONLY `trackSearchAnalytics(eventName, params)` — see PRIVACY-ANALYTICS.md. Never send raw query text or user identity in search analytics.
@@ -14,3 +33,5 @@
 - **Similar features in each tool.** If different tools use similar features (e.g. search, verse lookup), make that feature available in each tool—don't send users to another page. Each tool should be self-contained and user-friendly for its own users.
 - **Core tools (DO NOT REMOVE):** Never get rid of the search bar or quick search topics. The search hero, quick-topic buttons, and tool links are core UX—never remove, hide, or collapse them. This includes: #search-hero, #quick-actions-hero (Hope, Fear, Peace, etc.), #quick-actions-accordion, #quick-links (Bible Tool, Pastor Toolkit, Team Toolkit, Build a Lesson, Bible Studies, Build a Sermon, Message Board, Kids Corner, Today's Battle), #main-search, focus mode, filters. Keep TDB_TOPICS, renderQuickTopicButtons, wireSearchAndQuickTopics, runSearchWithInput. The build fails if quick-search is missing.
 - **Quick-topic buttons are homepage-only.** The 30 topic chips (Hope, Fear, Peace, Strength, etc.) in #quick-actions-hero MUST remain visible on index.html. Never remove, relocate, or collapse them. "Polish" and "optimize" must NOT strip these—they are core UX, not redundancy.
+- **God-tier elite quality (non-negotiable):** GOD TOP TIER ELITE STATUS/QUALITY is required site-wide. Nothing is exempt from this standard except layman's terms in breakdown content. Every shipped detail must feel premium, intentional, polished, and worthy of the mission.
+- **Level-up mandate for existing experience:** This standard applies to existing/legacy parts too, not just newly edited code. If any current flow, copy, or UI is below the bar, elevate it until it matches the rest.

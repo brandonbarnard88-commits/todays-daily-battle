@@ -236,7 +236,7 @@
         const span = document.createElement('span');
         span.className = 'kids-library-badge ' + b.id + ' kids-badge-fade-in';
         span.setAttribute('aria-label', b.label + ': ' + b.text);
-        span.innerHTML = b.icon + ' ' + b.label + ' — ' + b.text;
+        span.innerHTML = escapeHtml(b.icon + ' ' + b.label + ' — ' + b.text);
         row.appendChild(span);
       }
     });

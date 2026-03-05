@@ -1,5 +1,7 @@
 (function () {
   'use strict';
+  var NARRATION_ENABLED = false;
+  try { window.TDB_NARRATION_ENABLED = NARRATION_ENABLED; } catch (e) {}
 
   var WELCOME_SEEN_KEY = 'welcome-seen';
   var WELCOME_HASH_KEY = 'tdb_device_avatar_hash';
@@ -9,6 +11,18 @@
 
   function wait(ms) {
     return new Promise(function (resolve) { setTimeout(resolve, ms); });
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  function sanitizeSvgMarkup(svg) {
+    return String(svg || '')
+      .replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '')
+      .replace(/\son\w+="[^"]*"/gi, '');
   }
 
   function hashStringFNV1a(str) {
@@ -85,15 +99,15 @@
         : f.label === 'Kid'
         ? '<svg class="armor-silhouette-img armor-silhouette-kid" viewBox="0 0 36 48" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + palette[0] + '"/><stop offset="100%" style="stop-color:' + palette[1] + '"/></linearGradient></defs><circle cx="18" cy="10" r="7" fill="url(#' + gid + ')"/><path d="M6 48 Q18 26 30 48 Z" fill="url(#' + gid + ')"/></svg>'
         : '<svg class="armor-silhouette-img" viewBox="0 0 40 52" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + palette[0] + '"/><stop offset="100%" style="stop-color:' + palette[1] + '"/></linearGradient></defs><circle cx="20" cy="12" r="8" fill="url(#' + gid + ')"/><path d="M4 52 L20 26 L36 52 Z" fill="url(#' + gid + ')"/></svg>';
-      fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + svg + '</span>' +
+      fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + sanitizeSvgMarkup(svg) + '</span>' +
         (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
-        '<span class="armor-figure-label">' + f.label + '</span>';
+        '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
       targetEl.appendChild(fig);
     });
     if (data.count >= 6) {
       var sword = document.createElement('div');
       sword.className = 'armor-figure armor-silhouette armor-sword';
-      sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true"><svg class="armor-silhouette-img" viewBox="0 0 24 48" aria-hidden="true"><defs><linearGradient id="welcome-sword-' + hash + '" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#93c5fd"/><stop offset="100%" style="stop-color:#3b82f6"/></linearGradient></defs><path d="M12 0 L12 36 L10 48 L14 48 L12 36 Z" fill="url(#welcome-sword-' + hash + ')"/><rect x="9" y="0" width="6" height="6" rx="1" fill="url(#welcome-sword-' + hash + ')"/></svg></span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
+      sword.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + sanitizeSvgMarkup('<svg class="armor-silhouette-img" viewBox="0 0 24 48" aria-hidden="true"><defs><linearGradient id="welcome-sword-' + hash + '" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#93c5fd"/><stop offset="100%" style="stop-color:#3b82f6"/></linearGradient></defs><path d="M12 0 L12 36 L10 48 L14 48 L12 36 Z" fill="url(#welcome-sword-' + hash + ')"/><rect x="9" y="0" width="6" height="6" rx="1" fill="url(#welcome-sword-' + hash + ')"/></svg>') + '</span><span class="armor-piece-glow" aria-hidden="true">⚔</span><span class="armor-figure-label">Sword</span>';
       targetEl.appendChild(sword);
     }
   }
@@ -144,73 +158,40 @@
     if (!('speechSynthesis' in window) || !window.speechSynthesis.getVoices) return null;
     var voices = window.speechSynthesis.getVoices() || [];
     if (!voices.length) return null;
-    var preferred = voices.filter(function (v) {
+    var preferredNatural = voices.filter(function (v) {
       var n = ((v && v.name) ? v.name : '').toLowerCase();
       var l = ((v && v.lang) ? v.lang : '').toLowerCase();
       if (l.indexOf('en') !== 0) return false;
-      return /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli)/.test(n);
+      return /(natural|neural|premium|enhanced|siri|google us english|microsoft (aria|jenny|sara))/i.test(n);
     });
-    if (preferred.length) return preferred[0];
+    if (preferredNatural.length) return preferredNatural[0];
+    var preferredWarm = voices.filter(function (v) {
+      var n = ((v && v.name) ? v.name : '').toLowerCase();
+      var l = ((v && v.lang) ? v.lang : '').toLowerCase();
+      if (l.indexOf('en') !== 0) return false;
+      return /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli|jenny)/.test(n);
+    });
+    if (preferredWarm.length) return preferredWarm[0];
     var fallbackEn = voices.find(function (v) { return ((v && v.lang) ? v.lang.toLowerCase() : '').indexOf('en') === 0; });
     return fallbackEn || voices[0] || null;
   }
 
+  function normalizeSpeechText(text) {
+    return String(text || '')
+      .replace(/\.\.\.+/g, ', ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
   function speakWelcomeTts() {
     return new Promise(function (resolve) {
-      if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
-        resolve(false);
-        return;
-      }
-      try { window.speechSynthesis.cancel(); } catch (e) {}
-      var u = new SpeechSynthesisUtterance('Nothing comes in unclean. Anoint with oil... water... fire.');
-      u.rate = 0.78;
-      u.pitch = 1;
-      var v = pickCalmFemaleVoice();
-      if (v) u.voice = v;
-      var done = false;
-      function finish(ok) {
-        if (done) return;
-        done = true;
-        resolve(ok);
-      }
-      u.onend = function () { finish(true); };
-      u.onerror = function () { finish(false); };
-      try {
-        window.speechSynthesis.speak(u);
-        setTimeout(function () { finish(true); }, 6200);
-      } catch (e2) {
-        finish(false);
-      }
+      resolve(false);
     });
   }
 
   function speakLine(text, maxMs) {
     return new Promise(function (resolve) {
-      if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
-        resolve(false);
-        return;
-      }
-      try { window.speechSynthesis.cancel(); } catch (e) {}
-      var u = new SpeechSynthesisUtterance(String(text || ''));
-      u.rate = 0.84;
-      u.pitch = 1;
-      var v = pickCalmFemaleVoice();
-      if (v) u.voice = v;
-      var finished = false;
-      function done(ok) {
-        if (finished) return;
-        finished = true;
-        resolve(ok);
-      }
-      u.onend = function () { done(true); };
-      u.onerror = function () { done(false); };
-      try {
-        window.speechSynthesis.speak(u);
-      } catch (e2) {
-        done(false);
-        return;
-      }
-      setTimeout(function () { done(true); }, Math.max(800, parseInt(String(maxMs || 3000), 10) || 3000));
+      resolve(false);
     });
   }
 

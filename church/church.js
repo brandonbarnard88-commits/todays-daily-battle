@@ -1038,7 +1038,7 @@
         if (!ok) inputs[i].title = 'Correct: ' + challenge.answers[i];
       }
       resultEl.classList.remove('hidden');
-      resultEl.innerHTML = 'Group got ' + correct + '/' + total + (correct === total ? '! +1 week streak 🔥' : '.');
+      resultEl.textContent = 'Group got ' + correct + '/' + total + (correct === total ? '! +1 week streak 🔥' : '.');
       resultEl.classList.remove('church-verse-result-perfect', 'church-verse-result-partial');
       resultEl.classList.add(correct === total ? 'church-verse-result-perfect' : 'church-verse-result-partial');
 
@@ -1090,7 +1090,7 @@
         var rows = res && res.data;
         var emptyMsg = filter === 'active' ? 'No prayer requests yet. Be the first!' : (filter === 'answered' ? 'No answered prayers yet.' : 'No prayer requests yet. Be the first!');
         if (!rows || rows.length === 0) {
-          list.innerHTML = '<p class="church-prayer-empty">' + emptyMsg + '</p>';
+          list.innerHTML = '<p class="church-prayer-empty">' + escapeHtml(emptyMsg) + '</p>';
           return;
         }
         var html = '';

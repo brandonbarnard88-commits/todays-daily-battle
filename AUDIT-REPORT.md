@@ -41,7 +41,7 @@
 | **_headers** | X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Strict-Transport-Security present. |
 | **security.txt** | .well-known/security.txt has Contact and Expires. |
 
-**test-security.js:** Run `node test-security.js` — all defense checks pass. Warnings (expected): placeholder config note, 6 innerHTML lines to verify escaping elsewhere, MASTER_EMAIL client-side documented.
+**test-security.js:** Run `node test-security.js` — all defense and offense checks pass. Current warnings: 0.
 
 ---
 
@@ -82,7 +82,7 @@ This addresses the test-security.js warning: "wins-report.html: innerHTML from l
 
 | Test | Command | Result |
 |------|---------|--------|
-| **Security** | `node test-security.js` | Pass (exit 0). 3 warnings documented above. |
+| **Security** | `node test-security.js` | Pass (exit 0). Warnings: 0. |
 | **Site (optional)** | `node test-site.js` | Requires server at http://127.0.0.1:8765; run manually if desired. |
 
 ---
@@ -91,7 +91,14 @@ This addresses the test-security.js warning: "wins-report.html: innerHTML from l
 
 1. **Deploy** — Ensure production uses real config (no `your-project-ref` / `your-anon-key`) and that config.js is not committed with secrets (it’s in .gitignore).
 2. **Manual pass** — Test auth flows (sign up, login, logout, reset), one Bible Tool lookup, Study Tools collection/note select, and Reader book/chapter on a slow or failing network to confirm fallbacks.
-3. **innerHTML** — The 6 script.js lines flagged by test-security use concatenation; escaping is done in surrounding code or with static strings. Keep any new innerHTML using user/API data behind `escapeHtml()` or `sanitizeHtml()`.
+3. **innerHTML** — Keep any new dynamic HTML using user/API data behind `escapeHtml()` or `sanitizeHtml()`. Re-run `node test-security.js` after changes.
+
+---
+
+## 9. V2 enforcement baseline
+
+- `V2-QUALITY-BASELINE.md` is the mandatory release gate for all work (legacy + new).
+- If a flow is below bar, it must be improved in the same pass rather than justified.
 
 ---
 

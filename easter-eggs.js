@@ -165,14 +165,7 @@
     setTimeout(function () { document.body.classList.remove(className); }, ms || 1300);
   }
   function speakArmorLine() {
-    if (!('speechSynthesis' in window)) return;
-    try {
-      var u = new SpeechSynthesisUtterance('Full armor complete. Stand firm, warrior.');
-      u.rate = 0.96;
-      u.pitch = 1;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch (e) {}
+    return;
   }
   function getAvatarEl() {
     return document.getElementById('home-avatar-center')
@@ -645,14 +638,7 @@
   }
 
   function speakArmorLine() {
-    if (!('speechSynthesis' in window)) return;
-    try {
-      var u = new SpeechSynthesisUtterance('Full armor complete. Stand firm, warrior.');
-      u.rate = 0.96;
-      u.pitch = 1;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch (e) {}
+    return;
   }
 
   function getAvatarEl() {
@@ -1067,14 +1053,7 @@
   }
 
   function speakArmorLine() {
-    if (!('speechSynthesis' in window)) return;
-    try {
-      var u = new SpeechSynthesisUtterance('Full armor complete. Stand firm, warrior.');
-      u.rate = 0.96;
-      u.pitch = 1;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch (e) {}
+    return;
   }
 
   function runEffects(eggId, payload) {

@@ -304,20 +304,7 @@
   }
 
   function speakCalm(text, volume, rate) {
-    if (!window.speechSynthesis || typeof window.SpeechSynthesisUtterance !== 'function') return;
-    try {
-      var u = new SpeechSynthesisUtterance(String(text || ''));
-      var voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
-      var female = voices.find(function (v) {
-        return /female|zira|samantha|victoria|karen|moira|allison/i.test((v && v.name) || '');
-      });
-      if (female) u.voice = female;
-      u.volume = typeof volume === 'number' ? volume : 0.65;
-      u.rate = typeof rate === 'number' ? rate : 0.88;
-      u.pitch = 1;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch (e) {}
+    return;
   }
 
   function maybeTriggerWhisperEgg(history) {

@@ -196,7 +196,7 @@
     if (!el) return;
     var streak = getCurrentStreak();
     var done = isDoneToday();
-    el.innerHTML = '🔥 ' + streak + ' day' + (streak === 1 ? '' : 's');
+    el.textContent = '🔥 ' + streak + ' day' + (streak === 1 ? '' : 's');
     if (btn) {
       btn.textContent = done ? 'Read today!' : 'Read It!';
       btn.disabled = done;
@@ -519,22 +519,9 @@
       return;
     }
 
-    var synth = window.speechSynthesis;
-    if (!synth) {
-      setBtn('No audio', false);
-      return;
-    }
-    if (synth.speaking) {
-      synth.cancel();
-      setBtn('Listen', false);
-      return;
-    }
-    var u = new SpeechSynthesisUtterance(text || '');
-    u.rate = 0.9;
-    u.pitch = 1;
-    setBtn('…', true);
-    u.onend = u.onerror = function () { setBtn('Listen', false); };
-    synth.speak(u);
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    setBtn('Listen', false);
+    showToast('Voice read-aloud is disabled site-wide.');
   }
 
   function wireAudioBtn() {

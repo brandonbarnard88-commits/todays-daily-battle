@@ -93,7 +93,7 @@ var CHECKPOINTS = [
       if (!li) return;
       var isUnlocked = unlocked.indexOf(p.key) !== -1;
       li.innerHTML = (isUnlocked ? '<span class="check" aria-hidden="true">✓</span>' : '<span class="lock" aria-hidden="true">🔒</span>') +
-        ' ' + p.label + ' — Day ' + p.day + ' • gem: ' + p.gem;
+        ' ' + esc(p.label) + ' — Day ' + esc(String(p.day)) + ' • gem: ' + esc(p.gem);
     });
   }
 

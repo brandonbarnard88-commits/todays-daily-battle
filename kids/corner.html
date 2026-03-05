@@ -146,7 +146,8 @@
         <span class="kids-corner-explorer-badge" aria-label="Corner Explorer badge">📚 Corner Explorer</span>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Kids Corner</h1>
-          <p class="kids-battle-tagline">52 Bible stories—swipe, watch, explore anytime!</p>
+          <p class="kids-battle-tagline">All Bible cartoon stories in one place - open a story, watch, and apply truth right away.</p>
+          <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
         <section class="kids-search-section glass" role="region" aria-label="Search stories">
@@ -166,6 +167,14 @@
             </select>
           </div>
           <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you've explored 7+ stories!</p>
+          <div class="kids-library-filters" role="region" aria-label="Story journey">
+            <span class="kids-library-theme-label">Story Journey</span>
+            <button type="button" id="kids-journey-start-btn" class="btn kids-btn-primary">Start Journey</button>
+            <button type="button" id="kids-journey-continue-btn" class="btn btn-secondary">Continue</button>
+            <button type="button" id="kids-journey-next-btn" class="btn btn-secondary">Next Story</button>
+            <button type="button" id="kids-journey-reset-btn" class="btn btn-secondary">Reset</button>
+          </div>
+          <p id="kids-journey-status" class="section-note util-mb-0_25" aria-live="polite"></p>
           <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
           <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;">📄 Print 52 Stories! (PDF)</button>
         </section>
@@ -174,7 +183,7 @@
           <div id="kids-library-grid" class="kids-library-grid">
             <!-- Filled by inline script -->
           </div>
-          <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match—try another theme!</p>
+          <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match that search yet. Try a different word or switch to All themes.</p>
         </section>
       </div>
     </main>
@@ -208,6 +217,10 @@
       <div id="kids-story-modal-carousel"></div>
       <div id="kids-story-modal-context" class="kids-ctx-block hidden"></div>
       <div id="kids-story-modal-video"></div>
+      <div class="kids-reflection-buttons util-mt-0_5" role="group" aria-label="Story navigation">
+        <button type="button" id="kids-story-prev-btn" class="btn btn-secondary">← Previous Story</button>
+        <button type="button" id="kids-story-next-btn" class="btn kids-btn-primary">Next Story →</button>
+      </div>
       <div id="kids-library-toast" class="kids-library-toast hidden" role="status" aria-live="polite"></div>
     </div>
   </div>
@@ -216,6 +229,6 @@
   <script src="../inline-bootstrap.js"></script>
   <script src="kids-battle.js?v=9" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=1" defer></script>
+  <script src="kids-corner.js?v=2" defer></script>
 </body>
 </html>

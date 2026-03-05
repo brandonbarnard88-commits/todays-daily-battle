@@ -33,6 +33,39 @@ function warn(msg) {
   warnings.push(msg);
 }
 
+function walkJsFiles(dir, out) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const name = entry.name;
+    const full = path.join(dir, name);
+    if (entry.isDirectory()) {
+      if (name === 'node_modules' || name === '.git' || name === '.cursor' || name === 'dist') continue;
+      walkJsFiles(full, out);
+      continue;
+    }
+    if (!entry.isFile()) continue;
+    if (!name.endsWith('.js')) continue;
+    out.push(full);
+  }
+}
+
+function relPath(absPath) {
+  return path.relative(ROOT, absPath).replace(/\\/g, '/');
+}
+
+function extractInnerHtmlRhs(stmt) {
+  const m = stmt.match(/innerHTML\s*=\s*([\s\S]*?)\s*;?\s*$/);
+  return m ? m[1].trim() : '';
+}
+
+function isLiteralOnlyConcatenation(rhs) {
+  if (!rhs) return false;
+  // Allow concatenations of string literals only: 'a' + "b" + `c`
+  // Replace string literals with a marker and ensure the rest is only +/()/whitespace.
+  const noStrings = rhs.replace(/'[^'\\]*(?:\\.[^'\\]*)*'|"[^"\\]*(?:\\.[^"\\]*)*"|`[^`\\]*(?:\\.[^`\\]*)*`/g, 'S');
+  return /^[S+\s()]*$/.test(noStrings);
+}
+
 console.log('=== Security test: defense & offense ===\n');
 
 // --- DEFENSE ---
@@ -96,12 +129,31 @@ if (!gitignore.includes('config.js')) {
   ok('config.js in .gitignore');
 }
 
-// 7. No eval() of user or remote data in script.js (eval is dangerous)
-const scriptEval = script.match(/eval\s*\(/g);
-if (scriptEval && scriptEval.length > 0) {
-  fail('script.js: eval() used (' + scriptEval.length + ' time(s)) — avoid for user/API data');
+// 7. No eval() in app JS modules (eval is dangerous)
+const jsFiles = [];
+walkJsFiles(ROOT, jsFiles);
+const runtimeJsFiles = jsFiles.filter((p) => {
+  const rel = relPath(p);
+  if (rel === 'test-security.js') return false;
+  if (rel.startsWith('docs/')) return false;
+  if (rel === 'setup-config.js') return false;
+  if (rel.startsWith('scripts/')) return false;
+  if (rel.startsWith('firebase-functions/')) return false;
+  if (rel.startsWith('supabase/functions/')) return false;
+  return true;
+});
+const evalFindings = [];
+for (const absPath of runtimeJsFiles) {
+  const src = fs.readFileSync(absPath, 'utf8');
+  const matches = src.match(/eval\s*\(/g);
+  if (matches && matches.length > 0) {
+    evalFindings.push(relPath(absPath) + ' (' + matches.length + ')');
+  }
+}
+if (evalFindings.length > 0) {
+  fail('eval() used in app JS: ' + evalFindings.join(', '));
 } else {
-  ok('script.js: no eval()');
+  ok('No eval() in app JS modules');
 }
 
 // 8. test-stripe.js: prefer JSON.parse over eval for parsing config
@@ -120,33 +172,67 @@ if (!index.includes('referrer') && !headers.includes('Referrer-Policy')) {
 }
 
 // 10. Supabase anon key placeholder check (build/deploy should not ship placeholder)
-if (script.includes('your-project-ref') || script.includes('your-anon-key')) {
-  warn('script.js or config may contain Supabase placeholder — ensure build uses real config');
+const hasOldPlaceholders = script.includes('your-project-ref') || script.includes('your-anon-key');
+const hasNewPlaceholders = script.includes('SUPABASE_URL_PLACEHOLDER') || script.includes('SUPABASE_ANON_KEY_PLACEHOLDER');
+if (hasOldPlaceholders || hasNewPlaceholders) {
+  warn('script.js or config may contain Supabase placeholder tokens (old/new) — ensure build uses real config');
 }
 
 console.log('\n--- Offense (vulnerability patterns) ---');
 
 // O1. innerHTML with potentially unescaped dynamic content (heuristic)
-const innerHtmlLines = script.split('\n').filter((line) => {
-  if (!line.includes('.innerHTML') || line.trimStart().startsWith('//')) return false;
-  const hasEscape = line.includes('escapeHtml') || line.includes('sanitize') || line.includes('DOMPurify');
-  const hasConcatenation = line.includes('+') && (line.includes("'") || line.includes('"'));
-  const isStatic = /innerHTML\s*=\s*['"][^'"]*['"]\s*;?\s*$/.test(line.trim());
-  if (isStatic) return false;
-  if (hasConcatenation && !hasEscape) return true;
-  return false;
-});
-if (innerHtmlLines.length > 0) {
-  warn(innerHtmlLines.length + ' innerHTML assignment(s) with concatenation but no escapeHtml/sanitize in same line — verify escaping elsewhere');
+const innerHtmlFindings = [];
+for (const absPath of runtimeJsFiles) {
+  const rel = relPath(absPath);
+  const src = fs.readFileSync(absPath, 'utf8');
+  const lines = src.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line.includes('.innerHTML') || line.trimStart().startsWith('//')) continue;
+
+    let stmt = line;
+    let j = i + 1;
+    while (j < lines.length && j <= i + 10 && !lines[j - 1].includes(';')) {
+      stmt += '\n' + lines[j];
+      j += 1;
+    }
+
+    const hasEscape = /escapeHtml|escHtml|attrEscape|sanitize|DOMPurify|encodeURIComponent|sanitizeSvgMarkup|\besc\(/.test(stmt);
+    const hasConcatenation = stmt.includes('+') && (stmt.includes("'") || stmt.includes('"') || stmt.includes('`'));
+    const rhs = extractInnerHtmlRhs(stmt);
+    const isStatic = /innerHTML\s*=\s*['"`][\s\S]*?['"`]\s*;?\s*$/.test(stmt.trim()) && !hasConcatenation;
+    const isLiteralConcat = isLiteralOnlyConcatenation(rhs);
+    if (isStatic) continue;
+    if (isLiteralConcat) continue;
+    if (hasConcatenation && !hasEscape) {
+      innerHtmlFindings.push(rel + ':' + (i + 1));
+    }
+  }
+}
+if (innerHtmlFindings.length > 0) {
+  const sample = innerHtmlFindings.slice(0, 12).join(', ');
+  warn(
+    innerHtmlFindings.length +
+    ' innerHTML assignment(s) with concatenation but no escape/sanitize on same line. Sample: ' + sample +
+    (innerHtmlFindings.length > 12 ? ', ...' : '')
+  );
 } else {
-  ok('No obvious unescaped innerHTML concatenation in script.js');
+  ok('No obvious unescaped innerHTML concatenation across app JS');
 }
 
-// O2. document.write (should not be used)
-if (script.includes('document.write(')) {
-  fail('script.js: document.write() used (XSS vector)');
+// O2. document.write should not be used
+const documentWriteFindings = [];
+for (const absPath of runtimeJsFiles) {
+  const rel = relPath(absPath);
+  const src = fs.readFileSync(absPath, 'utf8');
+  if (src.includes('document.write(')) {
+    documentWriteFindings.push(rel);
+  }
+}
+if (documentWriteFindings.length > 0) {
+  fail('document.write() used in app JS: ' + documentWriteFindings.join(', '));
 } else {
-  ok('No document.write in script.js');
+  ok('No document.write in app JS modules');
 }
 
 // O3. wins-report.html: statsEl.innerHTML = html — html built from localStorage
@@ -155,9 +241,18 @@ if (winsReport.includes('statsEl.innerHTML = html') && !winsReport.includes('esc
   warn('wins-report.html: innerHTML from localStorage (lastKey) — consider escaping for defense in depth');
 }
 
-// O4. MASTER_EMAIL or admin emails in client (documented risk in SECURITY-HARDENING)
-if (script.includes('MASTER_EMAIL') && script.includes('@')) {
-  warn('Admin/MASTER_EMAIL in client script — prefer server-side role check (RPC)');
+// O4. MASTER_EMAIL or admin emails in any client module (documented risk)
+const adminEmailFindings = [];
+for (const absPath of runtimeJsFiles) {
+  const rel = relPath(absPath);
+  const src = fs.readFileSync(absPath, 'utf8');
+  const masterLiteralEmail = /MASTER_EMAILS?\s*[:=]\s*["'`][^"'`]*@[^"'`]+["'`]/.test(src);
+  if (masterLiteralEmail) {
+    adminEmailFindings.push(rel);
+  }
+}
+if (adminEmailFindings.length > 0) {
+  warn('Admin/MASTER_EMAIL appears client-side in: ' + adminEmailFindings.join(', ') + ' — prefer server-side role check');
 }
 
 ok('Stats page password is client-side optional (documented)');

@@ -18,10 +18,30 @@
   var pdfExportBtn = document.getElementById('pdf-export');
   var themeSelect = document.getElementById('kids-library-theme');
   var storyMasterEl = document.getElementById('kids-library-story-master');
+  var libraryCountEl = document.getElementById('kids-library-count');
+  var prevStoryBtn = document.getElementById('kids-story-prev-btn');
+  var nextStoryBtn = document.getElementById('kids-story-next-btn');
+  var journeyStartBtn = document.getElementById('kids-journey-start-btn');
+  var journeyContinueBtn = document.getElementById('kids-journey-continue-btn');
+  var journeyNextBtn = document.getElementById('kids-journey-next-btn');
+  var journeyResetBtn = document.getElementById('kids-journey-reset-btn');
+  var journeyStatusEl = document.getElementById('kids-journey-status');
 
   var LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
+  var LIBRARY_JOURNEY_KEY = 'kidsLibraryStoryJourneyState';
   var STORY_MASTER_THRESHOLD = 7;
   var currentOpenStoryKey = null;
+  var currentVisibleKeys = [];
+  var STORY_JOURNEY_ORDER = [
+    'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat',
+    'mosesBush', 'redSea', 'manna', 'tenCommandments', 'fallOfJericho', 'ruthBoaz',
+    'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
+    'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
+    'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+    'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+    'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
+    'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'
+  ];
 
   function showToast(msg) {
     var el = document.getElementById('kids-library-toast');
@@ -29,6 +49,24 @@
     el.textContent = msg;
     el.classList.remove('hidden');
     setTimeout(function () { el.classList.add('hidden'); }, 2500);
+  }
+
+  function escHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function escAttr(value) {
+    return escHtml(value).replace(/`/g, '&#96;');
+  }
+
+  function safeYouTubeId(value) {
+    var id = String(value || '').trim();
+    return /^[A-Za-z0-9_-]{6,20}$/.test(id) ? id : '';
   }
 
   function getStories() {
@@ -41,6 +79,111 @@
 
   function getStoryThemes() {
     return window.TDB_STORY_THEMES || {};
+  }
+
+  function getJourneyKeys() {
+    var stories = getStories();
+    return STORY_JOURNEY_ORDER.filter(function (key) {
+      return !!stories[key];
+    });
+  }
+
+  function getJourneyState() {
+    try {
+      var raw = localStorage.getItem(LIBRARY_JOURNEY_KEY);
+      var parsed = raw ? JSON.parse(raw) : null;
+      if (!parsed || typeof parsed !== 'object') return { started: false, nextIndex: 0 };
+      return {
+        started: !!parsed.started,
+        nextIndex: Math.max(0, Number(parsed.nextIndex || 0))
+      };
+    } catch (e) {
+      return { started: false, nextIndex: 0 };
+    }
+  }
+
+  function setJourneyState(state) {
+    try { localStorage.setItem(LIBRARY_JOURNEY_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function syncJourneyUi() {
+    var keys = getJourneyKeys();
+    var total = keys.length;
+    var state = getJourneyState();
+    var next = Math.min(Math.max(0, state.nextIndex), total);
+    var done = next >= total && total > 0;
+    if (journeyStatusEl) {
+      if (!state.started) {
+        journeyStatusEl.textContent = 'Start a guided Bible journey (' + total + ' stories).';
+      } else if (done) {
+        journeyStatusEl.textContent = 'Journey complete! ' + total + '/' + total + ' stories done. You can reset to begin again.';
+      } else {
+        var key = keys[next];
+        var title = (getStories()[key] && getStories()[key].title) ? getStories()[key].title : 'Next story';
+        journeyStatusEl.textContent = 'Journey progress: ' + next + '/' + total + '. Next: ' + title + '.';
+      }
+    }
+    if (journeyStartBtn) journeyStartBtn.disabled = total === 0;
+    if (journeyContinueBtn) journeyContinueBtn.disabled = total === 0 || !state.started;
+    if (journeyNextBtn) journeyNextBtn.disabled = total === 0 || !state.started || done;
+    if (journeyResetBtn) journeyResetBtn.disabled = total === 0 || !state.started;
+  }
+
+  function startJourney() {
+    var keys = getJourneyKeys();
+    if (!keys.length) return;
+    setJourneyState({ started: true, nextIndex: 0 });
+    syncJourneyUi();
+    openStory(keys[0]);
+    showToast('Journey started! Story 1 of ' + keys.length + '.');
+  }
+
+  function continueJourney() {
+    var keys = getJourneyKeys();
+    if (!keys.length) return;
+    var state = getJourneyState();
+    if (!state.started) {
+      startJourney();
+      return;
+    }
+    var idx = Math.min(Math.max(0, state.nextIndex), keys.length - 1);
+    openStory(keys[idx]);
+  }
+
+  function advanceJourneyFromStory(storyKey) {
+    var keys = getJourneyKeys();
+    if (!keys.length) return;
+    var state = getJourneyState();
+    if (!state.started) return;
+    if (state.nextIndex >= keys.length) return;
+    var idx = Math.min(Math.max(0, state.nextIndex), keys.length - 1);
+    if (keys[idx] !== storyKey) return;
+    var nextIndex = idx + 1;
+    setJourneyState({ started: true, nextIndex: nextIndex });
+    if (nextIndex >= keys.length) {
+      showToast('Journey complete! Amazing faith walk!');
+    } else {
+      showToast('Journey progress saved: ' + nextIndex + '/' + keys.length);
+    }
+    syncJourneyUi();
+  }
+
+  function goToNextJourneyStory() {
+    var keys = getJourneyKeys();
+    if (!keys.length) return;
+    var state = getJourneyState();
+    if (!state.started) {
+      startJourney();
+      return;
+    }
+    var idx = Math.min(Math.max(0, state.nextIndex), keys.length - 1);
+    openStory(keys[idx]);
+  }
+
+  function resetJourney() {
+    setJourneyState({ started: false, nextIndex: 0 });
+    syncJourneyUi();
+    showToast('Journey reset.');
   }
 
   function getViewedStories() {
@@ -85,6 +228,7 @@
   function renderGrid(keys) {
     var stories = getStories();
     if (!grid) return;
+    currentVisibleKeys = Array.isArray(keys) ? keys.slice() : [];
     var html = '';
     for (var i = 0; i < keys.length; i++) {
       var key = keys[i];
@@ -92,17 +236,34 @@
       if (!s) continue;
       var panels = s.panels || [];
       var thumb = panels[0] ? panels[0].src : 'panel-noah-1.svg';
-      var title = (s.title || key).replace(/</g, '&lt;');
-      html += '<div class="kids-library-card" data-story="' + key.replace(/"/g, '&quot;') + '" role="button" tabindex="0">';
-      html += '<img src="' + thumb + '" alt="' + (panels[0] && panels[0].alt ? panels[0].alt : title) + '">';
+      var title = escHtml(s.title || key);
+      var alt = panels[0] && panels[0].alt ? String(panels[0].alt) : String(s.title || key);
+      html += '<div class="kids-library-card" data-story="' + escAttr(key) + '" role="button" tabindex="0">';
+      html += '<img src="' + escAttr(thumb) + '" alt="' + escAttr(alt) + '">';
       html += '<span class="kids-library-card-title">' + title + '</span>';
-      html += '<span class="kids-library-card-btn">Swipe to see!</span>';
+      html += '<span class="kids-library-card-btn">Open story</span>';
       html += '</div>';
     }
     grid.innerHTML = html;
     if (noMatch) {
       noMatch.classList.toggle('hidden', keys.length > 0);
+      if (keys.length === 0) {
+        noMatch.textContent = 'No stories match that search yet. Try a different word or switch theme to "All themes."';
+      }
     }
+    updateLibraryCount(keys.length);
+  }
+
+  function updateLibraryCount(visibleCount) {
+    if (!libraryCountEl) return;
+    var total = getStoryKeys().length;
+    var shown = Number(visibleCount || 0);
+    var query = searchInput ? String(searchInput.value || '').trim() : '';
+    var theme = themeSelect ? String(themeSelect.value || '').trim() : '';
+    var context = [];
+    if (query) context.push('search: "' + query + '"');
+    if (theme) context.push('theme: ' + theme);
+    libraryCountEl.textContent = 'Showing ' + shown + ' of ' + total + ' story cartoons' + (context.length ? ' (' + context.join(' • ') + ')' : '') + '.';
   }
 
   function openStory(key) {
@@ -111,20 +272,21 @@
     if (!s) return;
     var panels = s.panels || [];
     var panelsHtml = panels.map(function (p) {
-      return '<img src="' + p.src + '" alt="' + (p.alt || '').replace(/"/g, '&quot;') + '" class="comic-panel" width="200" height="160">';
+      return '<img src="' + escAttr(p.src || '') + '" alt="' + escAttr(p.alt || '') + '" class="comic-panel" width="200" height="160">';
     }).join('');
-    var videoTitle = (s.videoTitle || '').replace(/"/g, '&quot;');
-    var btnHtml = s.videoId ? '<button type="button" class="watch-video-btn" data-video-id="' + s.videoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-    var shareBtnHtml = '<button type="button" class="kids-share-btn" data-story="' + key.replace(/"/g, '&quot;') + '">📤 Share with friends!</button>';
+    var safeVideoId = safeYouTubeId(s.videoId);
+    var videoTitle = escAttr(s.videoTitle || '');
+    var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+    var shareBtnHtml = '<button type="button" class="kids-share-btn" data-story="' + escAttr(key) + '">📤 Share with friends!</button>';
     currentOpenStoryKey = key;
     if (modalTitle) modalTitle.textContent = s.title || key;
     if (modalCarousel) {
-      modalCarousel.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + (s.caption || '').replace(/</g, '&lt;') + '</p>' + btnHtml + shareBtnHtml + '</div>';
+      modalCarousel.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtml(s.caption || '') + '</p>' + btnHtml + shareBtnHtml + '</div>';
     }
     if (modalContext) {
       var ctx = s.kidContext;
       if (ctx && (ctx.who || ctx.to || ctx.apply)) {
-        modalContext.innerHTML = '<p><strong>Who:</strong> ' + (ctx.who || '').replace(/</g, '&lt;') + '</p><p><strong>For you:</strong> ' + (ctx.apply || '').replace(/</g, '&lt;') + '</p>';
+        modalContext.innerHTML = '<p><strong>Who:</strong> ' + escHtml(ctx.who || '') + '</p><p><strong>For you:</strong> ' + escHtml(ctx.apply || '') + '</p>';
         modalContext.classList.remove('hidden');
       } else {
         modalContext.classList.add('hidden');
@@ -133,7 +295,29 @@
     }
     if (modalVideo) modalVideo.innerHTML = '';
     if (modal) modal.classList.remove('hidden');
+    syncStoryNavButtons();
     addViewedStory(key);
+    advanceJourneyFromStory(key);
+  }
+
+  function currentStoryIndexInVisible() {
+    if (!currentOpenStoryKey) return -1;
+    if (!currentVisibleKeys || !currentVisibleKeys.length) return -1;
+    return currentVisibleKeys.indexOf(currentOpenStoryKey);
+  }
+
+  function openAdjacentStory(step) {
+    if (!currentVisibleKeys || !currentVisibleKeys.length) return;
+    var idx = currentStoryIndexInVisible();
+    if (idx < 0) idx = 0;
+    var next = (idx + step + currentVisibleKeys.length) % currentVisibleKeys.length;
+    openStory(currentVisibleKeys[next]);
+  }
+
+  function syncStoryNavButtons() {
+    var hasStories = !!(currentVisibleKeys && currentVisibleKeys.length);
+    if (prevStoryBtn) prevStoryBtn.disabled = !hasStories;
+    if (nextStoryBtn) nextStoryBtn.disabled = !hasStories;
   }
 
   function applyFilters() {
@@ -159,6 +343,7 @@
     } catch (e) {}
     renderGrid(applyFilters());
     renderStoryMaster();
+    syncJourneyUi();
 
     if (searchForm && searchInput) {
       searchForm.addEventListener('submit', function (e) {
@@ -183,6 +368,27 @@
         if (keys.length === 0) return;
         var idx = Math.floor(Math.random() * keys.length);
         openStory(keys[idx]);
+      });
+    }
+
+    if (journeyStartBtn) {
+      journeyStartBtn.addEventListener('click', function () {
+        startJourney();
+      });
+    }
+    if (journeyContinueBtn) {
+      journeyContinueBtn.addEventListener('click', function () {
+        continueJourney();
+      });
+    }
+    if (journeyNextBtn) {
+      journeyNextBtn.addEventListener('click', function () {
+        goToNextJourneyStory();
+      });
+    }
+    if (journeyResetBtn) {
+      journeyResetBtn.addEventListener('click', function () {
+        resetJourney();
       });
     }
 
@@ -278,13 +484,13 @@
     document.addEventListener('click', function (e) {
       var btn = e.target && e.target.closest ? e.target.closest('.watch-video-btn') : null;
       if (btn) {
-        var id = btn.getAttribute('data-video-id');
+        var id = safeYouTubeId(btn.getAttribute('data-video-id'));
         if (id) {
           var wrap = document.getElementById('kids-story-modal');
           if (wrap && !wrap.classList.contains('hidden')) {
             var vidDiv = document.getElementById('kids-story-modal-video');
             if (vidDiv) {
-              vidDiv.innerHTML = '<div class="kids-video-wrapper"><iframe src="https://www.youtube.com/embed/' + id + '?rel=0&modestbranding=1&playsinline=1" width="100%" height="100%" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="Bible story video"></iframe></div>';
+              vidDiv.innerHTML = '<div class="kids-video-wrapper"><iframe src="https://www.youtube.com/embed/' + escHtml(id) + '?rel=0&modestbranding=1&playsinline=1" width="100%" height="100%" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="Bible story video"></iframe></div>';
             }
           }
         }
@@ -313,6 +519,38 @@
         }
       }
     });
+
+    if (prevStoryBtn) {
+      prevStoryBtn.addEventListener('click', function () {
+        openAdjacentStory(-1);
+      });
+    }
+    if (nextStoryBtn) {
+      nextStoryBtn.addEventListener('click', function () {
+        openAdjacentStory(1);
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (!modal || modal.classList.contains('hidden')) return;
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        openAdjacentStory(-1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        openAdjacentStory(1);
+      }
+    });
+
+    try {
+      var journeyParam = new URLSearchParams(location.search).get('journey');
+      var randomParam = new URLSearchParams(location.search).get('random');
+      if (journeyParam === '1') {
+        continueJourney();
+      } else if (randomParam === '1' && currentVisibleKeys.length) {
+        openStory(currentVisibleKeys[Math.floor(Math.random() * currentVisibleKeys.length)]);
+      }
+    } catch (e) {}
   }
 
   if (document.readyState === 'loading') {

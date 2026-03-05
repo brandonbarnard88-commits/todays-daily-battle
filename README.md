@@ -5,6 +5,14 @@
 
 Static web app for scripture-first daily encouragement, prayer, and study tooling.
 
+## V2 Quality Gate
+
+- Follow `V2-QUALITY-BASELINE.md` before shipping any change.
+- This applies to legacy (`v1`) and new (`v2`) paths with zero-tolerance quality standards.
+- Weekly execution guide: `WEEKLY-AUDIT-RUNBOOK.md`
+- Current progress + status snapshot: `V2-HARDENING-SUMMARY.md`
+- Long-horizon plan: `ROADMAP-TO-PERFECTION.md`
+
 ## Core CI
 
 - `QA Smoke`: browser-based critical-path verification.

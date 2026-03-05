@@ -246,8 +246,10 @@
     var wrap = document.getElementById('tdb-walkers');
     if (!wrap) return;
     var user = payload.userAvatar || {};
-    var mac = {
+    var mac = payload.mentorAvatar || {
       label: 'Mac Daddy',
+      face: '👨',
+      gender: 'male',
       helmet: true,
       breastplate: true,
       belt: true,
@@ -284,6 +286,10 @@
 
   function walkerHtml(data, isMac) {
     var label = isMac ? 'Mac Daddy (full armor since Nov 3)' : (data.label || 'Your avatar');
+    if (data && data.label) label = String(data.label);
+    var avatarFace = (data && data.face) ? String(data.face) : battleFaceFor(data);
+    var gender = String((data && data.gender) || '').toLowerCase();
+    var personTag = gender === 'female' ? 'Sister Witness' : (gender === 'male' ? 'Brother Witness' : 'Faithful Witness');
     var roleClass = isMac ? ' is-mentor' : ' is-user';
     var tier = avatarTier(data, isMac);
     var hasCrownJewel = crownJewelUnlocked(data, isMac);
@@ -324,6 +330,7 @@
           '<div class="tdb-character-leg right"></div>' +
         '</div>' +
         '<p class="section-note util-mb-0_25">' + esc(label) + '</p>' +
+        '<p class="section-note util-mb-0_25" aria-label="Avatar person marker">' + esc(avatarFace) + ' ' + esc(personTag) + '</p>' +
         '<div class="tdb-walker-armor">' +
           armorChip('Helmet', data.helmet) +
           armorChip('Breastplate', data.breastplate) +

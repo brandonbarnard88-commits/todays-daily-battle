@@ -258,6 +258,27 @@ img, video {
 .hero-verse-card .daily-battle-loading + .btn {
   margin-top: 0.75rem;
 }
+
+/* V2 launch identity: immediate high-clarity command deck on homepage */
+#v2-command-deck {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.84));
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
+}
+#v2-command-deck .section-divider {
+  color: #f8fafc;
+  letter-spacing: 0.02em;
+}
+#v2-command-deck .section-note {
+  color: #e2e8f0;
+}
+#v2-command-deck strong {
+  color: #fde68a;
+}
+#quick-search-priority {
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(30, 41, 59, 0.74));
+}
 @keyframes tdb-loading-pulse {
   0%, 100% { opacity: 0.75; }
   50% { opacity: 1; }

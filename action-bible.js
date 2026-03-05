@@ -421,6 +421,29 @@
     }
   }
 
+  function hashText(input) {
+    var h = 2166136261;
+    var str = String(input || '');
+    for (var i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = (h * 16777619) >>> 0;
+    }
+    return h >>> 0;
+  }
+
+  function inferCharacterGender(name) {
+    var key = String(name || '').trim().toLowerCase();
+    var first = key.split(/\s+/)[0] || '';
+    var femaleNames = {
+      'eve': true, 'sarah': true, 'rebekah': true, 'rachel': true, 'leah': true,
+      'miriam': true, 'deborah': true, 'ruth': true, 'esther': true, 'hannah': true,
+      'naomi': true, 'abigail': true, 'bathsheba': true, 'elizabeth': true, 'mary': true,
+      'martha': true, 'lydia': true, 'priscilla': true, 'lois': true, 'eunice': true,
+      'delilah': true, 'jezebel': true, 'rahab': true, 'tamar': true
+    };
+    return femaleNames[first] ? 'female' : 'male';
+  }
+
   function hasArmorPiece(pieces, piece) {
     if (!Array.isArray(pieces)) return false;
     var needle = String(piece || '').toLowerCase();
@@ -436,16 +459,41 @@
     var progressDays = safeJsonParse(window.localStorage.getItem('tdb_curriculum_progress_days') || '[]', []);
     var progressCount = Array.isArray(progressDays) ? progressDays.length : 0;
     var swordGlow = safeJsonParse(window.localStorage.getItem('tdb_daily_tile_sword_glow') || 'false', false) === true;
-    var faceSeed = String((item && item.characterName) || 'A').trim().charAt(0).toUpperCase() || 'A';
+    var faceChoices = ['🙂', '😌', '🛡️', '⚔️', '✨'];
+    var genderSelect = byId('ab-avatar-gender');
+    var selectedGender = String((genderSelect && genderSelect.value) || 'auto');
+    var deviceHash = String(window.localStorage.getItem('tdb_daily_tile_device_hash') || 'action-bible-local');
+    var faceSeed = faceChoices[hashText(deviceHash) % faceChoices.length];
+    if (selectedGender === 'male') faceSeed = '👨';
+    else if (selectedGender === 'female') faceSeed = '👩';
     return {
-      label: 'Your avatar · Entry ' + String((item && item.day) || ''),
+      label: 'Your Witness · Entry ' + String((item && item.day) || ''),
       face: faceSeed,
+      gender: selectedGender === 'auto' ? 'unspecified' : selectedGender,
       helmet: hasArmorPiece(pieces, 'helmet') || progressCount >= 73,
       breastplate: hasArmorPiece(pieces, 'breastplate') || progressCount >= 146,
       belt: hasArmorPiece(pieces, 'belt') || progressCount >= 219,
       shield: hasArmorPiece(pieces, 'shield') || progressCount >= 292,
       sword: hasArmorPiece(pieces, 'sword') || progressCount >= 365,
-      swordGlow: swordGlow
+      swordGlow: swordGlow,
+      familyLabel: 'Scripture focus: ' + String((item && item.characterName) || 'Story witness')
+    };
+  }
+
+  function buildStoryCharacterAvatar(item) {
+    var gender = String((item && item.characterGender) || '').toLowerCase();
+    if (gender !== 'female' && gender !== 'male') gender = inferCharacterGender(item && item.characterName);
+    return {
+      label: 'Scripture Witness · ' + String((item && item.characterName) || 'Faithful witness'),
+      face: gender === 'female' ? '👩' : '👨',
+      gender: gender,
+      helmet: true,
+      breastplate: true,
+      belt: true,
+      shield: true,
+      sword: true,
+      swordGlow: true,
+      familyLabel: String((item && item.testament) || 'Scripture Story')
     };
   }
 
@@ -538,6 +586,7 @@
       modeLabel: 'Action Bible Documentary Preview',
       userInitiated: true,
       useMyAvatar: true,
+      mentorAvatar: buildStoryCharacterAvatar(item),
       userAvatar: buildUserAvatarState(item),
       panels: buildPanelsForEntry(item),
       options: { showEndPanel: true }

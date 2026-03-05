@@ -14,6 +14,13 @@ const CHARACTERS_PATH = path.join(ROOT, 'characters.json');
 const OUT_PATH = path.join(ROOT, 'action-bible-365.json');
 const MIN_DAYS = 365;
 const SCENES = ['dawn', 'storm', 'forest', 'night', 'river', 'forge', 'summit', 'golden'];
+const FEMALE_BIBLE_NAMES = {
+  'eve': true, 'sarah': true, 'rebekah': true, 'rachel': true, 'leah': true, 'miriam': true,
+  'rahab': true, 'deborah': true, 'ruth': true, 'hannah': true, 'esther': true, 'naomi': true,
+  'abigail': true, 'bathsheba': true, 'elizabeth': true, 'mary': true, 'martha': true, 'lydia': true,
+  'priscilla': true, 'lois': true, 'eunice': true, 'delilah': true, 'jezebel': true, 'tamar': true,
+  'salome': true, 'anna': true, 'phoebe': true, 'sapphira': true, 'joanna': true, 'susanna': true
+};
 const BOOK_ORDER = [
   'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth',
   '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', '1 Chronicles', '2 Chronicles',
@@ -75,6 +82,14 @@ function ensureArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
+function resolveCharacterGender(character) {
+  var explicit = String((character && (character.gender || character.sex)) || '').trim().toLowerCase();
+  if (explicit === 'male' || explicit === 'female') return explicit;
+  var firstName = String((character && character.name) || '').trim().toLowerCase().split(/\s+/)[0] || '';
+  if (!firstName) return 'unknown';
+  return FEMALE_BIBLE_NAMES[firstName] ? 'female' : 'male';
+}
+
 function buildAvatarPrompt(name, tier, scene, verseRef) {
   return [
     'cinematic Bible character portrait',
@@ -109,12 +124,14 @@ function buildDayEntry(character, day) {
   const scene = SCENES[(day - 1) % SCENES.length];
   const verseRef = pickVerseRef(character, day);
   const refInfo = parseVerseRef(verseRef);
+  const characterGender = resolveCharacterGender(character);
   const key = slugify(name) || ('character-' + day);
 
   return {
     day: day,
     characterKey: key,
     characterName: name,
+    characterGender: characterGender,
     tier: tier,
     scene: scene,
     keyVerseRef: verseRef,

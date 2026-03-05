@@ -257,6 +257,103 @@
     wrap.insertBefore(node, wrap.firstChild);
   }
 
+  function ensurePickerModal() {
+    var modal = byId('family-crest-picker-modal');
+    if (modal) return modal;
+    modal = document.createElement('div');
+    modal.id = 'family-crest-picker-modal';
+    modal.className = 'modal hidden';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Choose your family crest');
+    modal.innerHTML = '' +
+      '<div class="modal-inner glass family-crest-picker-inner">' +
+      '<button type="button" class="intent-modal-close" data-action="close" aria-label="Dismiss">×</button>' +
+      '<h2 class="section-divider">Make your family crest?</h2>' +
+      '<p class="section-note">Pick one symbol and two gems.</p>' +
+      '<label class="sr-only" for="family-crest-picker-symbol">Crest symbol</label>' +
+      '<select id="family-crest-picker-symbol" class="search-input">' +
+      '<option value="ark">Ark</option>' +
+      '<option value="sling">Sling</option>' +
+      '<option value="star">Star</option>' +
+      '<option value="dove">Dove</option>' +
+      '<option value="cross">Cross</option>' +
+      '<option value="olive">Olive</option>' +
+      '</select>' +
+      '<fieldset id="family-crest-picker-gems" class="family-crest-picker-gems">' +
+      '<legend>Choose two gems</legend>' +
+      '<label><input type="checkbox" value="ruby"> Ruby</label>' +
+      '<label><input type="checkbox" value="sapphire"> Sapphire</label>' +
+      '<label><input type="checkbox" value="emerald"> Emerald</label>' +
+      '<label><input type="checkbox" value="diamond"> Diamond</label>' +
+      '</fieldset>' +
+      '<div class="form-actions">' +
+      '<button type="button" class="btn btn-secondary" data-action="close">Not now</button>' +
+      '<button type="button" class="btn btn-primary" data-action="save">Save crest</button>' +
+      '</div>' +
+      '<p id="family-crest-picker-status" class="section-note" aria-live="polite"></p>' +
+      '</div>';
+    document.body.appendChild(modal);
+    modal.addEventListener('click', function (e) {
+      var actionNode = e.target && e.target.closest ? e.target.closest('[data-action]') : null;
+      if (!actionNode && e.target === modal) actionNode = { getAttribute: function () { return 'close'; } };
+      if (!actionNode) return;
+      var action = actionNode.getAttribute('data-action');
+      if (action === 'close') {
+        modal.classList.add('hidden');
+      }
+      if (action === 'save') {
+        var code = modal.getAttribute('data-code') || getFamilyCode();
+        var symbolEl = byId('family-crest-picker-symbol');
+        var gemsWrap = byId('family-crest-picker-gems');
+        var status = byId('family-crest-picker-status');
+        var gems = [];
+        if (gemsWrap) {
+          gemsWrap.querySelectorAll('input[type="checkbox"]:checked').forEach(function (cb) { gems.push(cb.value); });
+        }
+        if (gems.length !== 2) {
+          if (status) status.textContent = 'Select exactly 2 gems.';
+          return;
+        }
+        saveCrest(code, {
+          base: 'gold',
+          symbol: symbolEl ? symbolEl.value : 'cross',
+          gems: gems
+        });
+        if (status) status.textContent = 'Family crest saved.';
+        setTimeout(function () { modal.classList.add('hidden'); }, 240);
+      }
+    });
+    var gemsWrap = byId('family-crest-picker-gems');
+    if (gemsWrap) {
+      gemsWrap.addEventListener('change', function (e) {
+        var target = e.target;
+        if (!target || target.type !== 'checkbox') return;
+        var checked = Array.prototype.slice.call(gemsWrap.querySelectorAll('input[type="checkbox"]:checked'));
+        if (checked.length > 2) target.checked = false;
+      });
+    }
+    return modal;
+  }
+
+  function openPickerForCode(code) {
+    var modal = ensurePickerModal();
+    var familyCode = String(code || getFamilyCode());
+    modal.setAttribute('data-code', familyCode);
+    var existing = getCrest(familyCode) || normalizeCrest({ base: 'gold', symbol: 'cross', gems: ['ruby', 'sapphire'] });
+    var symbolEl = byId('family-crest-picker-symbol');
+    if (symbolEl) symbolEl.value = existing.symbol;
+    var gemsWrap = byId('family-crest-picker-gems');
+    if (gemsWrap) {
+      gemsWrap.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+        cb.checked = existing.gems.indexOf(cb.value) !== -1;
+      });
+    }
+    var status = byId('family-crest-picker-status');
+    if (status) status.textContent = '';
+    modal.classList.remove('hidden');
+  }
+
   function maybePromptCreateCrest(code, family) {
     var familyCode = String(code || getFamilyCode());
     var role = (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getRole === 'function')
@@ -270,9 +367,7 @@
     if (prompted[familyCode]) return;
     prompted[familyCode] = Date.now();
     writeMap(PROMPT_KEY, prompted);
-    var yes = window.confirm('Pick your crest symbol?');
-    if (!yes) return;
-    location.href = 'crest-generator.html?code=' + encodeURIComponent(familyCode);
+    openPickerForCode(familyCode);
   }
 
   function initGenerator() {

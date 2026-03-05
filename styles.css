@@ -8925,3 +8925,47 @@ body.has-promo-banner .header-search-sticky {
   .daily-tile-watch-btn { width: 100%; max-width: 20rem; }
   .tdb-cartoon-panels { min-height: 52vh; }
 }
+
+.swipe-hint {
+  margin: 0.35rem 0 0.8rem;
+  text-align: center;
+  color: rgba(250, 204, 21, 0.88);
+}
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(920px, 95vw);
+  margin: 0 auto 0.9rem;
+  text-align: left;
+}
+.footer-col {
+  display: grid;
+  gap: 0.2rem;
+}
+.footer-col h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.9rem;
+  color: rgba(248, 250, 252, 0.96);
+}
+.footer-col a {
+  padding: 0.15rem 0;
+}
+@media (max-width: 768px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+.family-crest-picker-inner {
+  max-width: 32rem;
+  display: grid;
+  gap: 0.75rem;
+}
+.family-crest-picker-gems {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 0.8rem;
+  padding: 0.65rem 0.8rem;
+  display: grid;
+  gap: 0.35rem;
+}

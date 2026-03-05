@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://todaysdailybattle.com https://todaysdailybattle.org https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://www.googletagmanager.com https://api.stripe.com https://*.stripe.com https://bible-api.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com;">
   <!-- Deploy: build output = dist; topic-anxiety in dist. hotfix-rebuild -->
   <!-- TOPIC TEST: anxiety should 200 -->
@@ -272,6 +272,7 @@
           <button type="button" class="toolbox-tab" role="tab" id="tab-family" aria-selected="false" aria-controls="drawer-family" data-drawer="family">Family</button>
           <button type="button" class="toolbox-tab" role="tab" id="tab-deep" aria-selected="false" aria-controls="drawer-deep" data-drawer="deep">Deep</button>
         </nav>
+        <p class="swipe-hint section-note" aria-live="polite">Swipe tabs left or right for more tools.</p>
         <div class="toolbox-block" data-toolbox-drawer="daily">
         <div class="kids-battle-home-wrap">
           <a href="/kids/" class="kids-battle-home-banner" role="region" aria-label="Kids Battle – Swipe Bible stories">
@@ -279,7 +280,7 @@
           </a>
           <p id="kids-beta-count" class="kids-beta-count" aria-live="polite">Kids Battle beta is open—jump in.</p>
         </div>
-        <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—prayers still save locally. Check back when connected.</div>
+        <div id="offline-banner" class="hidden" role="status" aria-live="polite">Prayers save locally-sync when back.</div>
         <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
           <p class="hero-intro-message section-note">He is here. Nothing enters unclean.</p>
           <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card verse-card-loaded" aria-live="polite"><strong>Philippians 4:6</strong><p>Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p></div>
@@ -1192,21 +1193,26 @@
     <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
       <h2 class="footer-heading sr-only">Site links</h2>
       <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️</p>
-      <nav class="footer-quick-links" aria-label="Quick links">
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="bible-tool.html">Bible Tool</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="/kids/">Kids</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <nav class="footer-links" aria-label="Legal and support links">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="approach.html" title="How we respond to feedback and common critiques">How we respond</a>
-        <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">Suggest a topic</a>
-        <a href="mailto:support@todaysdailybattle.com?subject=Unsubscribe%20from%20emails">Unsubscribe</a>
-      </nav>
+      <div class="footer-columns">
+        <nav class="footer-col" aria-label="Links">
+          <h3>Links</h3>
+          <a href="/kids/">Kids</a>
+          <a href="bible-tool.html">Bible Tool</a>
+          <a href="church.html">Church</a>
+          <a href="mystudy.html">My Study</a>
+          <a href="mystudy.html#main-content">Highlights</a>
+        </nav>
+        <nav class="footer-col" aria-label="Calls to action">
+          <h3>CTAs</h3>
+          <a href="#share-todays-verse-btn">Share verse</a>
+          <a href="pricing.html">Join beta</a>
+        </nav>
+        <nav class="footer-col" aria-label="Legal and support links">
+          <h3>Legal</h3>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </nav>
+      </div>
       <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
       <p class="footer-america"><a id="footer-tagline-america" class="footer-link" href="#" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>

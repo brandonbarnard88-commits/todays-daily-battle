@@ -3526,6 +3526,34 @@ function showPrayerWhisper() {
   }, 6000);
 }
 
+function applyPrayerMomentFx() {
+  if (!document.body) return;
+  document.body.classList.add('prayer-dim-pulse');
+  setTimeout(function () { document.body.classList.remove('prayer-dim-pulse'); }, 3000);
+}
+
+function bumpSilentAmenBadgeFromPray() {
+  var n = 0;
+  try { n = parseInt(localStorage.getItem(SILENT_AMEN_KEY) || '0', 10); } catch (e) {}
+  n += 1;
+  try { localStorage.setItem(SILENT_AMEN_KEY, String(n)); } catch (e2) {}
+  var badge = document.getElementById('silent-amens-badge');
+  var badgeN = document.getElementById('silent-amens-badge-n');
+  if (badgeN) badgeN.textContent = n;
+  if (badge) badge.classList.toggle('hidden', n <= 0);
+}
+
+function maybeShowFirstLoadOnboarding() {
+  var KEY = 'tdb_onboard_daily_verse_v1';
+  var hero = document.getElementById('hero-verse-wrap');
+  if (!hero) return;
+  try {
+    if (localStorage.getItem(KEY) === '1') return;
+    if (typeof showEliteToast === 'function') showEliteToast("This is your daily verse-tap Pray to start.");
+    localStorage.setItem(KEY, '1');
+  } catch (e) {}
+}
+
 var PRAYER_SESSION_KEY = 'tdb_prayer_session_id';
 function getPrayerSessionId() {
   try {
@@ -11362,6 +11390,7 @@ function startStudy(id) {
     applyReaderFromQuery();
     renderDailyVerse();
     await renderDailyBattleCard();
+    maybeShowFirstLoadOnboarding();
     renderCollectionSelect();
     renderSavedVerses();
     applySearchFromQuery();
@@ -12361,6 +12390,8 @@ function startStudy(id) {
         } catch (e) {}
       }
       if (typeof showPrayerWhisper === 'function') showPrayerWhisper();
+      if (typeof applyPrayerMomentFx === 'function') applyPrayerMomentFx();
+      if (typeof bumpSilentAmenBadgeFromPray === 'function') bumpSilentAmenBadgeFromPray();
       if (!getFamilyName()) {
         setTimeout(function () {
           var fm = document.getElementById('family-name-modal');

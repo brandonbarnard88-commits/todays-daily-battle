@@ -184,6 +184,7 @@
       return {
         rootGroup: 'Tier 2 Branch',
         branchLabel: 'Tier 2 - ' + letter,
+        branchLetter: letter,
         name: name,
         dateRange: '~Era',
         keyVerse: c.keyKJVVerse || '',
@@ -194,6 +195,11 @@
       };
     });
   }
+
+  var lineageUiState = {
+    query: '',
+    showTier2: false
+  };
 
   function renderHierarchyStrip(code, fam) {
     var list = document.getElementById('lineage-tree-list');
@@ -229,7 +235,28 @@
     list.insertAdjacentHTML('afterbegin', html);
   }
 
-  function render(nodes, chars, family) {
+  function nodeHtml(n, i, days, pieceClass, charIdx, total) {
+    var branch = n.branchLabel ? '<p class="section-note util-mb-0_25 lineage-branch"><strong>' + esc(n.branchLabel) + '</strong></p>' : '';
+    var gemsList = Array.isArray(n.biblicalGems) ? n.biblicalGems.join(' • ') : '';
+    return '<article class="lineage-node">' +
+      '<div class="lineage-dot" aria-hidden="true"></div>' +
+      '<img class="lineage-avatar' + pieceClass + '" loading="lazy" decoding="async" src="' + esc(resolveAvatar(n, charIdx)) + '" alt="">' +
+      '<div class="lineage-content' + pieceClass + '">' +
+      '<p class="lineage-pill">' + esc(n.rootGroup || 'Root') + '</p>' +
+      '<h4>' + esc(n.name) + '</h4>' +
+      branch +
+      '<p class="section-note util-mb-0_25">' + esc(n.dateRange || '~Era') + '</p>' +
+      '<p class="section-note util-mb-0_25">Key verse: ' + esc(n.keyVerse || '—') + '</p>' +
+      '<p class="section-note util-mb-0_25">Armor: ' + esc(armorLabel(days)) + '</p>' +
+      '<p class="section-note util-mb-0_25">Node state: ' + esc(n.armorState || 'plain') + '</p>' +
+      '<p class="section-note util-mb-0_25">Biblical gems: ' + esc(gemsList || 'emerald:truth') + '</p>' +
+      (n.comicPrompt ? '<p class="section-note util-mb-0">Prompt: ' + esc(n.comicPrompt) + '</p>' : '') +
+      '</div>' +
+      (i < total - 1 ? '<div class="lineage-connector" aria-hidden="true"></div>' : '') +
+      '</article>';
+  }
+
+  function render(roots, tier2Nodes, chars, family) {
     var list = document.getElementById('lineage-tree-list');
     var gemsEl = document.getElementById('lineage-crest-gems');
     var codeEl = document.getElementById('lineage-crest-code');
@@ -249,27 +276,70 @@
     if (codeEl) codeEl.textContent = code;
     if (membersEl) membersEl.textContent = String(fam.memberCount || 1);
 
-    list.innerHTML = (nodes || []).map(function (n, i) {
-      var branch = n.branchLabel ? '<p class="section-note util-mb-0_25 lineage-branch"><strong>' + esc(n.branchLabel) + '</strong></p>' : '';
-      var gemsList = Array.isArray(n.biblicalGems) ? n.biblicalGems.join(' • ') : '';
-      return '<article class="lineage-node">' +
-        '<div class="lineage-dot" aria-hidden="true"></div>' +
-        '<img class="lineage-avatar' + pieceClass + '" loading="lazy" decoding="async" src="' + esc(resolveAvatar(n, charIdx)) + '" alt="">' +
-        '<div class="lineage-content' + pieceClass + '">' +
-        '<p class="lineage-pill">' + esc(n.rootGroup || 'Root') + '</p>' +
-        '<h4>' + esc(n.name) + '</h4>' +
-        branch +
-        '<p class="section-note util-mb-0_25">' + esc(n.dateRange || '~Era') + '</p>' +
-        '<p class="section-note util-mb-0_25">Key verse: ' + esc(n.keyVerse || '—') + '</p>' +
-        '<p class="section-note util-mb-0_25">Armor: ' + esc(armorLabel(days)) + '</p>' +
-        '<p class="section-note util-mb-0_25">Node state: ' + esc(n.armorState || 'plain') + '</p>' +
-        '<p class="section-note util-mb-0_25">Biblical gems: ' + esc(gemsList || 'emerald:truth') + '</p>' +
-        (n.comicPrompt ? '<p class="section-note util-mb-0">Prompt: ' + esc(n.comicPrompt) + '</p>' : '') +
-        '</div>' +
-        (i < nodes.length - 1 ? '<div class="lineage-connector" aria-hidden="true"></div>' : '') +
-        '</article>';
+    var query = String(lineageUiState.query || '').trim().toLowerCase();
+    var rootsFiltered = (roots || []).filter(function (n) {
+      if (!query) return true;
+      return String(n.name || '').toLowerCase().indexOf(query) !== -1 || String(n.keyVerse || '').toLowerCase().indexOf(query) !== -1;
+    });
+    var tier2Filtered = (tier2Nodes || []).filter(function (n) {
+      if (!query) return true;
+      return String(n.name || '').toLowerCase().indexOf(query) !== -1 || String(n.keyVerse || '').toLowerCase().indexOf(query) !== -1;
+    });
+
+    var rootsHtml = rootsFiltered.map(function (n, i) {
+      return nodeHtml(n, i, days, pieceClass, charIdx, rootsFiltered.length);
     }).join('');
+
+    var tier2Html = '';
+    if (lineageUiState.showTier2 || query) {
+      var groups = {};
+      tier2Filtered.forEach(function (n) {
+        var letter = n.branchLetter || '#';
+        if (!groups[letter]) groups[letter] = [];
+        groups[letter].push(n);
+      });
+      var letters = Object.keys(groups).sort();
+      if (letters.length) {
+        tier2Html = '<section class="lineage-tier2-wrap" aria-label="Tier 2 branches">';
+        letters.forEach(function (letter) {
+          var items = groups[letter] || [];
+          tier2Html += '<details class="lineage-tier2-group"><summary>Tier 2 - ' + esc(letter) + ' (' + items.length + ')</summary><div class="lineage-tier2-items">';
+          tier2Html += items.map(function (n, i) {
+            return nodeHtml(n, i, days, pieceClass, charIdx, items.length);
+          }).join('');
+          tier2Html += '</div></details>';
+        });
+        tier2Html += '</section>';
+      } else if (query) {
+        tier2Html = '<p class="section-note lineage-tier2-empty">No Tier 2 matches for "' + esc(query) + '".</p>';
+      }
+    } else {
+      tier2Html = '<p class="section-note lineage-tier2-empty">Tier 2 branches are collapsed. Tap "Show Tier 2 branches" to browse A-Z.</p>';
+    }
+
+    list.innerHTML = rootsHtml + tier2Html;
     renderHierarchyStrip(code, fam);
+  }
+
+  function wireLineageControls(roots, tier2Nodes, chars, fam) {
+    var searchEl = document.getElementById('lineage-search');
+    var toggleEl = document.getElementById('lineage-tier2-toggle');
+    if (searchEl && !searchEl.__tdbWired) {
+      searchEl.__tdbWired = true;
+      searchEl.addEventListener('input', function () {
+        lineageUiState.query = String(searchEl.value || '');
+        render(roots, tier2Nodes, chars, fam);
+      });
+    }
+    if (toggleEl && !toggleEl.__tdbWired) {
+      toggleEl.__tdbWired = true;
+      toggleEl.addEventListener('click', function () {
+        lineageUiState.showTier2 = !lineageUiState.showTier2;
+        toggleEl.textContent = lineageUiState.showTier2 ? 'Hide Tier 2 branches' : 'Show Tier 2 branches';
+        toggleEl.setAttribute('aria-expanded', lineageUiState.showTier2 ? 'true' : 'false');
+        render(roots, tier2Nodes, chars, fam);
+      });
+    }
   }
 
   function init() {
@@ -290,7 +360,9 @@
       var chars = Array.isArray(cjson.characters) ? cjson.characters : [];
       var rootSet = {};
       roots.forEach(function (n) { rootSet[normalizeName(n.name)] = true; });
-      render(roots.concat(tier2Branches(chars, rootSet)), chars, fam);
+      var tier2 = tier2Branches(chars, rootSet);
+      wireLineageControls(roots, tier2, chars, fam);
+      render(roots, tier2, chars, fam);
     }).catch(function () {
       host.textContent = 'Could not load lineage data.';
     });
@@ -307,7 +379,10 @@
         var chars = Array.isArray(cjson.characters) ? cjson.characters : [];
         var rootSet = {};
         roots.forEach(function (n) { rootSet[normalizeName(n.name)] = true; });
-        render(roots.concat(tier2Branches(chars, rootSet)), chars, family || fam);
+        var tier2 = tier2Branches(chars, rootSet);
+        var mergedFamily = family || fam;
+        wireLineageControls(roots, tier2, chars, mergedFamily);
+        render(roots, tier2, chars, mergedFamily);
       }).catch(function () {});
     });
   }

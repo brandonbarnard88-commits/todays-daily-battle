@@ -193,8 +193,8 @@
     var text = document.getElementById('verse-rotator-home-text');
     if (!ref || !text) return;
     if (!item) {
-      ref.textContent = 'No verse loaded yet.';
-      text.textContent = '';
+      ref.textContent = 'Psalm 23:1 (KJV)';
+      text.textContent = 'The LORD is my shepherd; I shall not want.';
       return;
     }
     ref.textContent = item.ref + ' (KJV)';

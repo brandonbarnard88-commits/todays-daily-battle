@@ -664,6 +664,7 @@ body {
 .toolbox-card h3 { margin: 0 0 0.35rem; font-size: 1.1rem; }
 .toolbox-card p { margin: 0; font-size: 0.88rem; opacity: 0.9; }
 .toolbox-cards { margin-bottom: 1.5rem; }
+.toolbox-cards + .toolbox-cards { margin-top: 2rem; }
 .deep-curriculum-inline { margin-top: 0.75rem; }
 .deep-curriculum-controls {
   display: flex;
@@ -777,6 +778,46 @@ body {
   overflow-x: hidden;
   padding: 0.5rem 0.35rem 0.4rem 0.35rem;
   -webkit-overflow-scrolling: touch;
+}
+.lineage-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+.lineage-controls input[type="search"] {
+  flex: 1 1 220px;
+  min-height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(10, 14, 24, 0.7);
+  color: #e2e8f0;
+  padding: 0.45rem 0.65rem;
+}
+.lineage-tier2-wrap {
+  margin-top: 0.5rem;
+  border-top: 1px dashed rgba(148, 163, 184, 0.28);
+  padding-top: 0.6rem;
+}
+.lineage-tier2-group {
+  border: 1px solid rgba(250, 204, 21, 0.2);
+  border-radius: 10px;
+  margin-bottom: 0.55rem;
+  background: rgba(10, 14, 24, 0.45);
+}
+.lineage-tier2-group > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.55rem 0.7rem;
+  color: #fde68a;
+  font-weight: 600;
+}
+.lineage-tier2-group > summary::-webkit-details-marker { display: none; }
+.lineage-tier2-items {
+  padding: 0.15rem 0.4rem 0.35rem;
+}
+.lineage-tier2-empty {
+  margin-top: 0.5rem;
 }
 .lineage-node {
   position: relative;
@@ -1963,6 +2004,24 @@ body:has(.search-hero-home) #search-hero {
   color: rgba(226, 232, 240, 0.95);
 }
 .quick-pray-in-hero .btn { flex-shrink: 0; }
+.quick-pray-in-hero .btn,
+.daily-tile-watch-btn {
+  margin: 0.2rem 0;
+}
+.prayer-dim-pulse::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: rgba(2, 6, 23, 0.26);
+  animation: prayerDimPulse 3s ease-out forwards;
+}
+@keyframes prayerDimPulse {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  100% { opacity: 0; }
+}
 .hero-intro-message {
   margin: 0 0 var(--space-sm);
   font-family: var(--font-body);
@@ -7035,6 +7094,11 @@ body.red-letter-off .red-letter-card {
   font-weight: 700;
   color: #ffd93d;
   text-align: center;
+}
+
+.verse-rotator-loading-note {
+  margin: 0 0 0.35rem;
+  color: rgba(226, 232, 240, 0.82);
 }
 
 /* Kids Battle teaser (inside Family Armor modal) */

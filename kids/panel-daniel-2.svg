@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Daniel in the lions den">
+  <defs>
+    <linearGradient id="d2-cave" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d3d3d"/><stop offset="1" stop-color="#1a1a1a"/></linearGradient>
+    <linearGradient id="d2-robe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B4513"/><stop offset="1" stop-color="#5D3A1A"/></linearGradient>
+  </defs>
+  <rect width="200" height="160" fill="url(#d2-cave)"/>
+  <!-- Rocks / cave walls -->
+  <ellipse cx="30" cy="140" rx="25" ry="15" fill="#4a4a4a"/>
+  <ellipse cx="170" cy="135" rx="30" ry="18" fill="#3a3a3a"/>
+  <!-- Lions around Daniel -->
+  <ellipse cx="50" cy="115" rx="35" ry="25" fill="#c9a227" stroke="#8B7355" stroke-width="1"/>
+  <circle cx="65" cy="108" r="8" fill="#2d2d2d"/>
+  <circle cx="68" cy="105" r="2" fill="white"/>
+  <path d="M35 115 Q25 120 30 130" stroke="#c9a227" stroke-width="3" fill="none"/>
+  <ellipse cx="150" cy="120" rx="32" ry="22" fill="#b8941f" stroke="#8B7355" stroke-width="1"/>
+  <circle cx="135" cy="113" r="7" fill="#2d2d2d"/>
+  <circle cx="137" cy="110" r="2" fill="white"/>
+  <path d="M175 118 Q185 122 180 132" stroke="#b8941f" stroke-width="3" fill="none"/>
+  <ellipse cx="100" cy="145" rx="28" ry="18" fill="#d4af37" stroke="#8B7355" stroke-width="1"/>
+  <circle cx="92" cy="140" r="6" fill="#2d2d2d"/>
+  <circle cx="94" cy="137" r="2" fill="white"/>
+  <!-- Daniel kneeling, calm -->
+  <ellipse cx="100" cy="85" rx="18" ry="22" fill="#F5DEB3" stroke="#333" stroke-width="1"/>
+  <circle cx="95" cy="80" r="2" fill="#333"/>
+  <circle cx="105" cy="80" r="2" fill="#333"/>
+  <path d="M92 92 Q100 96 108 92" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M82 88 L82 115 L118 115 L118 88 Q100 78 82 88" fill="url(#d2-robe)" stroke="#333" stroke-width="1"/>
+  <!-- Speech bubble -->
+  <path d="M55 35 L105 35 L110 50 L98 55 L55 55 Z" fill="white" stroke="#333" stroke-width="1.5"/>
+  <text x="62" y="48" font-family="Comic Sans MS, cursive" font-size="8" fill="#333">God, help me!</text>
+</svg>

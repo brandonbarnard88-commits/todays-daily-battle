@@ -52,6 +52,26 @@ After running the SQL, the site will sync these when users are logged in and per
 
 **Sermons table:** For the Sermon Builder (list, save, PDF export), run `supabase-sermons-table.sql` in the SQL Editor. That creates the `sermons` table (with RLS) and adds `date`/`status` if the table already existed.
 
+**Sermon drafts (Team Collab):** For Pastor Hub Share Draft (shareable links), run `supabase-sermon-drafts.sql`. Creates `sermon_drafts` (id, anon_id, title, scripture, outline_json). RLS: anon SELECT/INSERT/UPDATE so anyone with the link can view and edit.
+
+**Bible reflections:** For Bible Hub Daily Reflection (localStorage + Supabase sync, PDF export, weekly email), run `supabase-bible-reflections.sql`. Creates `bible_reflections` and `bible_reflection_subscribers` tables, plus `upsert_bible_reflection` and `upsert_bible_reflection_subscriber` RPCs.
+
+**Church Hub:** For Church groups (join by code, shared reflections, leaderboard), run `supabase-church-groups.sql`. Creates `church_groups`, `church_reflections`, plus RPCs: `join_group`, `create_church_group`, `insert_church_reflection`, `get_church_reflections`, `get_church_group_by_code`, `get_church_leaderboard`.
+
+**Church Sermon Voting:** Run `supabase-church-votes.sql` after church-groups. Creates `church_votes`, plus RPCs: `create_church_vote`, `cast_church_vote`, `get_church_votes_open`, `close_church_vote`. Extends `join_group` and `get_church_group_by_code` to return `pastor_anon_id`.
+
+**Church Weekly Roundup:** Run `supabase-church-subscribers.sql` after church-groups. Creates `church_subscribers` (group_id, email) and RPC `upsert_church_subscriber`. Edge function `weekly-church-roundup` (Mondays 9AM UTC) sends roundup email via Mailgun. Cron: `supabase-weekly-church-roundup-cron.sql`.
+
+**Church Kid Leaderboard:** Run `supabase-church-group-kids.sql` after church-groups and supabase-kid-streaks. Creates `church_group_kids` (group_id, invite_code, kid_name) and RPCs `add_church_group_kid`, `get_church_kid_leaderboard`. Parents link family code to show kid streaks on /church/daily.html. **Group Doodle Gallery:** Uses church_group_kids invite_codes + kid-doodles bucket (`doodles/{familyCode}/*.png`) to show a shared grid of kids' doodles on /church/daily.html. Hidden when no kids in group.
+
+**Church Prayer Wall:** Run `supabase-church-prayer-wall.sql` after church-groups. Creates `church_prayer_requests` (group_id, anon_id, text, likes jsonb) and `church_prayer_comments`. RPCs: `insert_church_prayer_request`, `toggle_church_prayer_like`, `insert_church_prayer_comment`, `get_church_prayer_requests`, `get_church_prayer_comments`. Members post requests, like (one per person), and comment.
+
+**Church Prayer Answered:** Run `supabase-church-prayer-answered.sql` after church-prayer-wall and church-subscribers. Adds `status` ('active'|'answered') to church_prayer_requests, `anon_id` to church_subscribers. RPCs: `mark_church_prayer_answered` (pastor only), updated `get_church_prayer_requests` with p_filter (active/answered/all). Edge function `notify-prayer-answered` sends email to poster when pastor marks answered (if poster subscribed).
+
+**Church Verse Memory:** Run `supabase-church-verse-memory.sql` after church-groups. Adds `group_streak_count`, `group_streak_last_week` to church_groups. RPC `increment_church_group_streak(group_id, week_key, anon_id)` — one increment per week per group when perfect. Group Verse Challenge: fill-the-blank modal, 1/week (localStorage), confetti on perfect.
+
+**Church Attendance Check-in:** Run `supabase-church-attendance.sql` after church-groups. Creates `church_attendance` (group_id, anon_id, date, present). RPCs: `upsert_church_attendance`, `get_church_attendance_week`, `apply_church_attendance_streak_bonus`. Members mark "I'm Here!" once/day (localStorage); pastor sees full list + "80%+ → +0.5 group streak" toast.
+
 ---
 
 ### Verify RLS (anon key test)

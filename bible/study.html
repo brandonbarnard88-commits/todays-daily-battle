@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Study • Bible Hub • Today's Daily Battle</title>
+  <meta name="description" content="Search Scripture, highlight verses, add notes. Deep dive into the Word.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/bible/study.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="bible-hub.css?v=1">
+  <link rel="stylesheet" href="bible-study.css?v=1">
+  <link rel="manifest" href="../manifest.json">
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script type="module" src="../config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode bible-hub-page bible-study-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar bible-hub-header">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle bible-hub-subtitle">Bible Hub</span>
+      </div>
+      <nav class="bible-hub-nav" aria-label="Bible Hub navigation">
+        <a href="/bible/">Daily</a>
+        <a href="study.html" aria-current="page">Study</a>
+        <a href="tools.html">Tools</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner bible-study-inner">
+        <header class="bible-hub-hero">
+          <h1>Study</h1>
+          <p class="bible-hub-tagline">Search, highlight, and take notes. Tap a verse to highlight + add a note.</p>
+        </header>
+
+        <section class="bible-study-search glass" role="search" aria-label="Search verses">
+          <label for="bible-study-search-input" class="bible-study-search-label">Search by keyword</label>
+          <div class="bible-study-search-row">
+            <input type="search" id="bible-study-search-input" class="bible-study-search-input" placeholder="e.g. love, peace, strength" autocomplete="off" aria-label="Search verses">
+            <button type="button" id="bible-study-search-btn" class="bible-hub-read-btn">Search</button>
+          </div>
+        </section>
+
+        <section id="bible-study-results" class="bible-study-results glass" role="region" aria-live="polite" aria-label="Search results">
+          <p id="bible-study-hint" class="bible-study-hint">Type a word above to find verses.</p>
+          <div id="bible-study-verses" class="bible-study-verses"></div>
+        </section>
+
+        <section id="bible-study-highlights" class="bible-study-highlights glass" role="region" aria-label="My highlights">
+          <h2 class="bible-study-section-title">My Highlights</h2>
+          <div id="bible-study-highlights-grid" class="bible-study-highlights-grid"></div>
+          <p id="bible-study-no-highlights" class="bible-study-no-highlights hidden">No highlights yet. Search and tap a verse to highlight it.</p>
+          <button type="button" id="export-notes" class="export-notes-btn" aria-label="Export highlights to PDF">
+            <span class="export-notes-label">Export to PDF</span>
+            <span class="export-notes-spinner hidden" aria-hidden="true"></span>
+          </button>
+          <div id="verse-challenge" class="verse-challenge">
+            <p class="verse-challenge-text"><span class="verse-challenge-icon" aria-hidden="true">🏆</span> Share a verse this week for +1 streak!</p>
+            <button type="button" id="challenge-share" class="challenge-share-btn">Share Now</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="verse-challenge-toast" class="verse-challenge-toast hidden" role="status" aria-live="polite">Done! +1 streak</div>
+
+    <div id="bible-study-note-modal" class="bible-study-note-modal hidden" role="dialog" aria-modal="true" aria-labelledby="bible-study-note-title">
+      <div class="bible-study-note-modal-inner">
+        <h2 id="bible-study-note-title" class="bible-study-note-title">Add a note</h2>
+        <p id="bible-study-note-ref" class="bible-study-note-ref"></p>
+        <textarea id="bible-study-note-input" class="bible-study-note-input" placeholder="This reminded me of…" rows="3" maxlength="500"></textarea>
+        <div class="bible-study-note-actions">
+          <button type="button" id="bible-study-note-save" class="bible-hub-read-btn">Save</button>
+          <button type="button" id="bible-study-note-remove" class="bible-hub-share-btn">Remove highlight</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo">
+      <p class="footer-tagline">Encouragement first. Verse by verse, win the day.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="../about.html">About</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="../privacy.html">Privacy</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Today's Daily Battle.</p>
+    </footer>
+
+    <nav class="bible-hub-bottom-nav" aria-label="Bible Hub navigation">
+      <a href="/bible/">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span>Daily</span>
+      </a>
+      <a href="study.html" aria-current="page">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">🔍</span>
+        <span>Study</span>
+      </a>
+      <a href="tools.html">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">🛠</span>
+        <span>Tools</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
+  <script src="bible-study.js?v=1" defer></script>
+</body>
+</html>

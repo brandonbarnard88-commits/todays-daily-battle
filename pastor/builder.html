@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Sermon Builder • Pastor Hub • Today's Daily Battle</title>
+  <meta name="description" content="Build sermon outlines with drag-drop sections. Add verses from Tools, export to PDF.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/pastor/builder.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="pastor.css?v=2">
+  <link rel="manifest" href="../manifest.json">
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script type="module" src="../config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode pastor-hub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar pastor-hub-header">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle pastor-hub-subtitle">Pastor Hub</span>
+      </div>
+      <nav class="pastor-hub-nav" aria-label="Pastor Hub navigation">
+        <a href="/pastor/">Daily</a>
+        <a href="library.html">Library</a>
+        <a href="builder.html" aria-current="page">Builder</a>
+        <a href="tools.html">Tools</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner pastor-hub-inner">
+        <header class="pastor-daily-hero">
+          <h1>Sermon Builder</h1>
+          <p class="section-note">Edit your outline. Drag to reorder. Add verses from Tools. Export to PDF.</p>
+        </header>
+
+        <section class="glass pastor-builder-form">
+          <div class="pastor-builder-section">
+            <label for="pastor-builder-title">Title</label>
+            <input id="pastor-builder-title" type="text" placeholder="Sermon title">
+          </div>
+          <div class="pastor-builder-section">
+            <label for="pastor-builder-scripture">Scripture (primary text)</label>
+            <input id="pastor-builder-scripture" type="text" placeholder="e.g., John 3:16">
+          </div>
+
+          <h3 class="pastor-section-title" style="margin-top: 1.25rem;">Outline sections (drag to reorder)</h3>
+          <div id="pastor-builder-sections" class="pastor-builder-sections" role="list"></div>
+          <button type="button" id="pastor-add-section" class="pastor-btn-secondary" style="margin-top: 0.5rem;">Add section</button>
+
+          <div class="pastor-builder-actions" style="margin-top: 1.25rem;">
+            <button type="button" id="pastor-save-draft" class="pastor-btn-primary">Save draft</button>
+            <button type="button" id="pastor-export-pdf" class="pastor-btn-secondary">Export PDF</button>
+            <button type="button" id="pastor-export-notes" class="pastor-btn-notes"><span class="pastor-btn-notes-label">Export Full Notes</span><span class="pastor-btn-spinner hidden" aria-hidden="true"></span></button>
+            <button type="button" id="pastor-share-draft" class="pastor-btn-secondary"><span class="pastor-share-label">Share Draft</span><span class="pastor-btn-spinner hidden" aria-hidden="true"></span></button>
+            <a href="tools.html" class="pastor-btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center;">Verse search</a>
+          </div>
+
+          <div class="pastor-ai-suggest" style="margin-top: 1rem;">
+            <button type="button" id="pastor-ai-suggest-btn">AI Suggest (placeholder): Add story about David?</button>
+          </div>
+          <div id="pastor-builder-toast" class="pastor-builder-toast hidden" role="status" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-tagline">Encouragement first—your data stays yours.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="../about.html">About</a>
+        <a href="../faq.html">FAQ</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Today's Daily Battle.</p>
+    </footer>
+
+    <nav class="pastor-bottom-nav" aria-label="Pastor Hub navigation">
+      <a href="/pastor/"><span>Daily</span></a>
+      <a href="library.html"><span>Library</span></a>
+      <a href="builder.html" aria-current="page"><span>Builder</span></a>
+      <a href="tools.html"><span>Tools</span></a>
+    </nav>
+  </div>
+
+  <script src="sermon-library.js"></script>
+  <script type="module" src="../script.js?v=20260313" defer></script>
+  <script src="pastor-hub.js?v=1" defer></script>
+  <script src="pastor-builder.js?v=2" defer></script>
+</body>
+</html>

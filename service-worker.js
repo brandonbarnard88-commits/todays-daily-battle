@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-static-20260309';
+const CACHE_NAME = 'tdb-static-20260305';
 const CACHE_API = 'tdb-api-20260221';
 const CORE_ASSETS = [
   '/',
@@ -24,26 +24,83 @@ const CORE_ASSETS = [
   '/topic-parenting.html',
   '/kids/',
   '/kids/index.html',
+  '/bible/',
+  '/bible/index.html',
+  '/bible/study.html',
+  '/bible/tools.html',
+  '/bible/bible-hub.css',
+  '/bible/bible-hub.js',
+  '/bible/bible-study.css',
+  '/bible/bible-study.js',
+  '/pastor/',
+  '/pastor/index.html',
+  '/pastor/library.html',
+  '/pastor/builder.html',
+  '/pastor/tools.html',
+  '/pastor/pastor.css',
+  '/pastor/pastor-hub.js',
+  '/pastor/sermon-library.js',
   '/kids/parent.html',
   '/kids/kids-battle.css',
   '/kids/kids-battle.js',
   '/kids/kids-parent.js',
   '/kids/panel-david.svg',
+  '/kids/panel-david-1.svg',
+  '/kids/panel-david-2.svg',
+  '/kids/panel-david-3.svg',
   '/kids/panel-noah.svg',
+  '/kids/panel-noah-1.svg',
+  '/kids/panel-noah-2.svg',
+  '/kids/panel-noah-3.svg',
   '/kids/panel-jesus.svg',
+  '/kids/panel-jesus-1.svg',
+  '/kids/panel-jesus-2.svg',
+  '/kids/panel-jesus-3.svg',
+  '/kids/panel-jonah.svg',
+  '/kids/panel-jonah-1.svg',
+  '/kids/panel-jonah-2.svg',
+  '/kids/panel-jonah-3.svg',
+  '/kids/panel-daniel.svg',
+  '/kids/panel-daniel-1.svg',
+  '/kids/panel-daniel-2.svg',
+  '/kids/panel-daniel-3.svg',
+  '/kids/corner.html',
+  '/kids/kids-corner.js',
+  '/kids/kids-beta.html',
+  '/church/',
+  '/church/index.html',
+  '/church/daily.html',
+  '/church/church.css',
+  '/church/church.js',
   '/styles.css',
   '/manifest.json',
+  '/favicon.ico',
   '/icon.svg',
+  '/world-map-source.svg',
   '/kjv.json',
   '/bible-characters.json',
   '/people-verse-map.js',
   '/daily-verses.js'
 ];
 
+var AUDIO_ASSETS = [
+  '/audio/psalm-23-1.mp3',
+  '/audio/john-3-16.mp3',
+  '/audio/philippians-4-6.mp3',
+  '/audio/joshua-1-9.mp3',
+  '/audio/isaiah-41-10.mp3'
+];
+
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS)).catch(() => {})
+    caches.open(CACHE_NAME)
+      .then(function (cache) {
+        return cache.addAll(CORE_ASSETS).then(function () {
+          return cache.addAll(AUDIO_ASSETS).catch(function () {});
+        });
+      })
+      .catch(function () {})
   );
 });
 

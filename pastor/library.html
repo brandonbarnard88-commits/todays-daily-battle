@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Sermon Library • Pastor Hub • Today's Daily Battle</title>
+  <meta name="description" content="52 pre-built sermon outlines: Faith, Hope, Love, Forgiveness, Marriage, Parenting, and more. Use any outline in the Builder.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/pastor/library.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="pastor.css?v=1">
+  <link rel="manifest" href="../manifest.json">
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script type="module" src="../config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode pastor-hub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar pastor-hub-header">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle pastor-hub-subtitle">Pastor Hub</span>
+      </div>
+      <nav class="pastor-hub-nav" aria-label="Pastor Hub navigation">
+        <a href="/pastor/">Daily</a>
+        <a href="library.html" aria-current="page">Library</a>
+        <a href="builder.html">Builder</a>
+        <a href="tools.html">Tools</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner pastor-hub-inner">
+        <header class="pastor-daily-hero">
+          <h1>Sermon Library</h1>
+          <p class="section-note">52 pre-built outlines. Tap "Use This" to load into the Builder.</p>
+        </header>
+
+        <section id="pastor-weekly-tease" class="pastor-weekly-tease glass" role="region" aria-label="This week's suggestion">
+          <h3 id="pastor-weekly-title">This week</h3>
+          <p id="pastor-weekly-desc">—</p>
+        </section>
+
+        <section class="glass">
+          <h2 class="pastor-section-title">All outlines</h2>
+          <div id="pastor-library-grid" class="pastor-library-grid" role="list"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-tagline">Encouragement first—your data stays yours.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="../about.html">About</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="../privacy.html">Privacy</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Today's Daily Battle.</p>
+    </footer>
+
+    <nav class="pastor-bottom-nav" aria-label="Pastor Hub navigation">
+      <a href="/pastor/"><span>Daily</span></a>
+      <a href="library.html" aria-current="page"><span>Library</span></a>
+      <a href="builder.html"><span>Builder</span></a>
+      <a href="tools.html"><span>Tools</span></a>
+    </nav>
+  </div>
+
+  <script src="sermon-library.js"></script>
+  <script type="module" src="../script.js?v=20260313" defer></script>
+  <script src="pastor-library.js?v=1" defer></script>
+</body>
+</html>

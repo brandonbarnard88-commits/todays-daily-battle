@@ -30,6 +30,14 @@ const STOP = new Set([
   'LORD', 'Lord', 'God', 'Yahweh', 'Spirit', 'Holy Spirit', 'Father', 'Son'
 ]);
 
+const TIER_1_ORDER = [
+  'Adam', 'Eve', 'Noah', 'Abraham', 'Sarah', 'Isaac', 'Jacob', 'Joseph', 'Moses', 'Aaron',
+  'Miriam', 'Joshua', 'Rahab', 'Deborah', 'Gideon', 'Ruth', 'Hannah', 'Samuel', 'Saul', 'David',
+  'Solomon', 'Elijah', 'Elisha', 'Isaiah', 'Hezekiah', 'Josiah', 'Jeremiah', 'Ezekiel', 'Daniel', 'Ezra',
+  'Nehemiah', 'Esther', 'Job', 'Jonah', 'Hosea', 'Joel', 'Amos', 'Zechariah', 'Malachi', 'James',
+  'Mary', 'Joseph', 'Jesus', 'Peter', 'John', 'Paul', 'Timothy', 'Luke', 'Barnabas', 'Silas'
+];
+
 function parseRef(raw) {
   // Example: GEN 2:11!9 -> Genesis 2:11
   const m = String(raw || '').match(/^([A-Z0-9]{3})\s+(\d+:\d+)/);
@@ -69,9 +77,9 @@ function main() {
   }
 
   const rows = Array.from(byName.values())
-    .sort((a, b) => a.name.localeCompare(b.name))
     .map((x) => ({
       name: x.name,
+      tier: TIER_1_ORDER.indexOf(x.name) !== -1 ? 'Tier 1' : 'Tier 2',
       preGodBrief: sentence(x.name, 'pre'),
       impact: sentence(x.name, 'impact'),
       postGodBrief: sentence(x.name, 'post'),
@@ -79,17 +87,30 @@ function main() {
       quick: `Today tie-in: ${x.name}'s story reminds us to trust God one step at a time.`,
       pastor: `Context + hook: ${x.name} in ${x.keyKJVVerse}. What does faithful obedience look like in this season?`,
       kid: `Jesus loves you and gives hope. ${x.name}'s story helps us trust and obey with joy.`,
-      teen: `${x.name}'s story speaks to school pressure, friendships, and choosing truth when it is hard.`
+      teen: `${x.name}'s story speaks to school pressure, friendships, and choosing truth when it is hard.`,
+      comicPrompt: `comic ${x.name} node, gold line connect, dark bg`
     }));
+
+  const tier1 = [];
+  TIER_1_ORDER.forEach((name) => {
+    const row = rows.find((r) => r.name === name);
+    if (row) tier1.push(row);
+  });
+  const tier2 = rows
+    .filter((r) => r.tier === 'Tier 2')
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const ordered = tier1.concat(tier2);
 
   const out = {
     meta: {
       source: 'biblical-names-data TSV (engulb column)',
-      totalCharacters: rows.length,
-      order: 'alphabetical',
-      cycle: 'use (dayOfYear-1) % totalCharacters for daily character rotation'
+      totalCharacters: ordered.length,
+      tier1Count: tier1.length,
+      tier2Count: tier2.length,
+      order: 'Tier 1 majors first (~50), then Tier 2 alphabetical',
+      cycle: 'Days 1-50: Tier 1 sequence. Day 51+: Tier 2 alphabetical loop.'
     },
-    characters: rows
+    characters: ordered
   };
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2), 'utf8');
   console.log('Wrote characters.json with', rows.length, 'characters.');

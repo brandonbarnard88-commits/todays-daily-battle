@@ -7,9 +7,10 @@
   <meta name="description" content="See your kid's streak, doodles, and badges. Proud parent view — no login required.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids-battle/parent">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=3">
+  <link rel="stylesheet" href="kids-battle.css?v=9">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
@@ -17,14 +18,15 @@
 <body class="dark-mode kids-battle-page kids-parent-dashboard">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
-    <header class="top-bar kids-battle-header">
+    <header class="top-bar kids-battle-header kids-header-unified">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle kids-subtitle">Parent Dashboard</span>
+        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
       </div>
-      <nav class="header-nav" aria-label="Main">
-        <a href="/kids/">Kids Battle</a>
-        <a href="/">Home</a>
+      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
+        <a href="/kids/">Daily Faith Trail</a>
+        <a href="corner.html">Kids Corner</a>
+        <a href="parent.html" aria-current="page">Parent Dashboard</a>
       </nav>
     </header>
 
@@ -34,6 +36,13 @@
           <h1 class="kids-battle-title">Parent Dashboard</h1>
           <p class="kids-battle-tagline">Your kid's progress — streak, doodles, and badges.</p>
         </header>
+
+        <section id="kids-parent-code-section" class="kids-parent-code glass hidden" role="region" aria-label="Invite code">
+          <h2 class="kids-section-title">Your Invite Code</h2>
+          <p id="kids-parent-code-display" class="kids-parent-code-display"></p>
+          <p id="kids-parent-code-used" class="kids-parent-code-used hidden">Code used by kid! ✓</p>
+          <p class="kids-parent-code-hint">Share this code with your kid — they enter it on Kids Battle to connect. Same device = instant sync!</p>
+        </section>
 
         <section class="kids-parent-streak glass" role="region" aria-label="Kid's streak">
           <h2 class="kids-section-title">Current Streak</h2>
@@ -52,15 +61,42 @@
           <div id="parent-badges-list" class="kids-badges-list"></div>
         </section>
 
+        <section class="kids-parent-favorites glass" role="region" aria-label="Kid's favorite stories">
+          <h2 class="kids-section-title">❤️ Your Kid's Favorites</h2>
+          <p class="kids-parent-favorites-desc">Stories they've explored in the Library — talk about them together!</p>
+          <div id="parent-favorites-grid" class="kids-parent-favorites-grid"></div>
+          <div id="parent-library-badges" class="kids-badges-row" role="status" aria-live="polite"></div>
+        </section>
+
         <p class="kids-parent-note">Data is stored locally on this device. No login required.</p>
       </div>
     </main>
 
-    <footer class="site-footer footer-fade-in" role="contentinfo">
-      <a href="/kids/">← Back to Kids Battle</a>
+    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p>© 2026 Kids Battle – Faith Trail for Kids</p>
+      <p>Powered by Supabase</p>
+      <a href="/privacy.html">Privacy</a>
     </footer>
+
+    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+      <a href="/kids/">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span class="kids-bottom-nav-label">Home</span>
+      </a>
+      <a href="corner.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖼️</span>
+        <span class="kids-bottom-nav-label">Corner</span>
+      </a>
+      <a href="parent.html" aria-current="page">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
+        <span class="kids-bottom-nav-label">Parent</span>
+      </a>
+    </nav>
   </div>
 
-  <script src="kids-parent.js?v=1" defer></script>
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script src="kids-battle.js?v=9"></script>
+  <script src="kids-parent.js?v=4" defer></script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 
   var PROGRESS_KEY = 'tdb_curriculum_progress_days';
   var FAMILY_KEY = 'tdb_family_link_code';
+  var FAMILY_REGISTRY_KEY = 'tdb_family_registry_v1';
   var MAC_DADDY_KEY = 'tdb_mac_daddy_override';
   var MAC_DADDY_START_KEY = 'tdb_mac_daddy_start';
   var AVATAR_KEY = 'tdb_device_avatar_seed';
@@ -26,6 +27,17 @@
       var arr = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '[]');
       return Array.isArray(arr) ? arr.length : 0;
     } catch (e) { return 0; }
+  }
+
+  function readFamilyRegistry() {
+    try {
+      var obj = JSON.parse(localStorage.getItem(FAMILY_REGISTRY_KEY) || '{}');
+      return obj && typeof obj === 'object' ? obj : {};
+    } catch (e) { return {}; }
+  }
+
+  function writeFamilyRegistry(data) {
+    try { localStorage.setItem(FAMILY_REGISTRY_KEY, JSON.stringify(data || {})); } catch (e) {}
   }
 
   function getFamilyCode() {
@@ -64,15 +76,65 @@
     return days + checkpoints * 7;
   }
 
+  function registerFamilyMember(code) {
+    var registry = readFamilyRegistry();
+    var key = code || getFamilyCode();
+    if (!registry[key]) registry[key] = { members: {} };
+    if (!registry[key].members) registry[key].members = {};
+    var id = deviceHash();
+    var progress = getProgressCount();
+    registry[key].members[id] = {
+      avatarId: id,
+      progress: progress,
+      gems: gemCount(progress),
+      updatedAt: Date.now()
+    };
+    writeFamilyRegistry(registry);
+    return registry[key];
+  }
+
+  function getFamilyAggregate(code) {
+    var registry = readFamilyRegistry();
+    var fam = registry[code || getFamilyCode()] || { members: {} };
+    var members = Object.keys(fam.members || {}).map(function (k) { return fam.members[k]; });
+    var totalProgress = members.reduce(function (sum, m) { return sum + (m.progress || 0); }, 0);
+    var mergedProgress = Math.min(365, totalProgress);
+    var totalGems = members.reduce(function (sum, m) { return sum + (m.gems || 0); }, 0);
+    return {
+      members: members,
+      memberCount: members.length,
+      mergedProgress: mergedProgress,
+      mergedGems: totalGems
+    };
+  }
+
+  // Shared family state API for Deep-tab modules (lineage/map/avatar).
+  window.TDBFamilyShared = {
+    CHECKPOINTS: CHECKPOINTS.slice(),
+    gemCount: gemCount,
+    getFamilyCode: getFamilyCode,
+    registerFamilyMember: registerFamilyMember,
+    getFamilyAggregate: getFamilyAggregate,
+    deviceHash: deviceHash
+  };
+
   function renderGoldenRoad() {
     var target = document.getElementById('golden-road-map');
     if (!target) return;
-    var days = getProgressCount();
+    var code = getFamilyCode();
+    registerFamilyMember(code);
+    var family = getFamilyAggregate(code);
+    var days = family.mergedProgress;
     var pct = Math.max(0, Math.min(100, Math.round((days / 365) * 100)));
-    var gems = gemCount(days);
+    var gems = family.mergedGems;
+    var memberBadges = family.members.slice(0, 8).map(function (m) {
+      return '<span class="lineage-member-chip">' + esc(m.avatarId.replace('avatar-', '')) + '</span>';
+    }).join(' ');
     target.innerHTML =
       '<div class="gold-trail"><span class="gold-fill" style="width:' + pct + '%"></span></div>' +
-      '<p class="section-note util-mb-0">Family <strong>' + esc(getFamilyCode()) + '</strong> • avatar <strong>' + esc(deviceHash()) + '</strong> • streets of gold ' + days + '/365 (' + pct + '%) • gems: ' + gems + '</p>';
+      '<p class="section-note util-mb-0">Family <strong>' + esc(code) + '</strong> • merged progress ' + days + '/365 (' + pct + '%) • gems: ' + gems + ' • members: ' + family.memberCount + '</p>' +
+      '<p class="section-note util-mb-0_25">' + memberBadges + '</p>';
+    document.dispatchEvent(new CustomEvent('tdb-family-updated', { detail: { code: code, family: family } }));
   }
 
   function daysSinceStart() {
@@ -120,6 +182,7 @@
       var v = (input.value || '').trim();
       if (!v) return;
       try { localStorage.setItem(FAMILY_KEY, v); } catch (e) {}
+      registerFamilyMember(v);
       if (status) status.textContent = 'Linked: ' + v;
       renderGoldenRoad();
     });

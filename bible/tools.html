@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Tools • Bible Hub • Today's Daily Battle</title>
+  <meta name="description" content="Concordance, verse maps, timeline. Tools for deeper study.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/bible/tools.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="bible-hub.css?v=1">
+  <link rel="stylesheet" href="bible-tools.css?v=1">
+  <link rel="manifest" href="../manifest.json">
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" integrity="sha384-0esPaJH+F9evp2lsJYN36SW7XkRbaYviuyF+PpnbjDXBC9i1CWGiJyGrXCyiyGqZ" crossorigin="anonymous" defer></script>
+  <script type="module" src="../config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode bible-hub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar bible-hub-header">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle bible-hub-subtitle">Bible Hub</span>
+      </div>
+      <nav class="bible-hub-nav" aria-label="Bible Hub navigation">
+        <a href="/bible/">Daily</a>
+        <a href="study.html">Study</a>
+        <a href="tools.html" aria-current="page">Tools</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner bible-hub-inner bible-tools-inner">
+        <header class="bible-hub-hero">
+          <h1>Tools</h1>
+          <p class="bible-hub-tagline">Concordance, timeline. Find every use of a word.</p>
+        </header>
+
+        <section id="verse-maps-section" class="verse-maps-section glass" role="search" aria-label="Verse Maps">
+          <div class="verse-maps-header">
+            <h2 class="verse-maps-title">Verse Maps</h2>
+            <p class="verse-maps-hint">Type a place to see it on the map and related verses.</p>
+            <div class="verse-maps-search-row">
+              <input type="search" id="verse-maps-input" class="verse-maps-input" placeholder="e.g. Bethlehem, Jordan, Jerusalem" autocomplete="off" aria-label="Search place for verse map">
+              <button type="button" id="verse-maps-show-btn" class="verse-maps-show-btn">Show Map</button>
+            </div>
+          </div>
+          <div id="verse-maps-content" class="verse-maps-content hidden">
+            <div class="verse-maps-frame">
+              <iframe id="verse-maps-iframe" class="verse-maps-iframe" title="Map of biblical place" allowfullscreen></iframe>
+            </div>
+            <div class="verse-maps-accordion" role="region" aria-label="Related verses">
+              <button type="button" class="verse-maps-accordion-trigger" id="verse-maps-accordion-trigger" aria-expanded="true" aria-controls="verse-maps-verse-list">
+                <span class="verse-maps-accordion-title">Related verses</span>
+                <span class="verse-maps-accordion-icon" aria-hidden="true">▼</span>
+              </button>
+              <div id="verse-maps-verse-list" class="verse-maps-verse-list" role="region"></div>
+            </div>
+            <div id="verse-maps-verse-card" class="verse-maps-verse-card hidden" role="region" aria-label="Selected verse">
+              <span id="verse-maps-verse-ref" class="verse-maps-verse-ref"></span>
+              <p id="verse-maps-verse-text" class="verse-maps-verse-text"></p>
+              <button type="button" id="verse-maps-highlight-btn" class="verse-maps-highlight-btn">Highlight</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="verse-memory-section" class="verse-memory-section glass" role="region" aria-label="Verse Memory">
+          <h2 class="verse-memory-title">Verse Memory</h2>
+          <p class="verse-memory-hint" id="verse-memory-hint">Fill in the blank. From today's chapter or this week's theme.</p>
+          <button type="button" id="memorize-verse-btn" class="memorize-verse-btn">Memorize a Verse</button>
+        </section>
+
+        <section id="bible-quiz-section" class="bible-quiz-section glass" role="region" aria-label="Bible Quiz">
+          <h2 class="bible-quiz-title">Today's Quiz</h2>
+          <p class="bible-quiz-hint" id="bible-quiz-hint">Test your knowledge of today's chapter.</p>
+          <button type="button" id="take-quiz-btn" class="take-quiz-btn">Take Today's Quiz</button>
+        </section>
+
+        <section id="concordance-section" class="concordance-section glass" role="search" aria-label="Concordance">
+          <div class="concordance-section-header">
+            <h2 class="concordance-section-title">Concordance</h2>
+            <p class="concordance-hint">Type a word to see all verses that use it.</p>
+            <div class="concordance-search-row">
+              <input type="search" id="concordance-search-input" class="concordance-search-input" placeholder="e.g. faith, love, peace" autocomplete="off" aria-label="Search word in concordance">
+              <button type="button" id="concordance-search-btn" class="concordance-search-btn">Search</button>
+            </div>
+          </div>
+          <div class="concordance-results">
+            <p id="concordance-count" class="concordance-count" aria-live="polite"></p>
+            <ol id="concordance-list" class="concordance-list" aria-label="Verse references"></ol>
+            <div id="concordance-verse-card" class="concordance-verse-card hidden" role="region" aria-label="Selected verse">
+              <span id="concordance-verse-ref" class="concordance-verse-ref"></span>
+              <p id="concordance-verse-text" class="concordance-verse-text"></p>
+              <button type="button" id="concordance-highlight-btn" class="concordance-highlight-btn">Highlight</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="verse-memory-modal" class="verse-memory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="verse-memory-modal-title">
+      <div class="verse-memory-modal-inner">
+        <h2 id="verse-memory-modal-title" class="verse-memory-modal-title">Memorize a Verse</h2>
+        <div id="verse-memory-cards" class="verse-memory-cards"></div>
+        <div id="verse-memory-result" class="verse-memory-result hidden">
+          <p id="verse-memory-score" class="verse-memory-score"></p>
+          <p id="verse-memory-message" class="verse-memory-message"></p>
+          <button type="button" id="verse-memory-close" class="bible-hub-read-btn">Close</button>
+        </div>
+        <div id="verse-memory-actions" class="verse-memory-actions">
+          <button type="button" id="verse-memory-next" class="verse-memory-next-btn">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="bible-quiz-modal" class="bible-quiz-modal hidden" role="dialog" aria-modal="true" aria-labelledby="bible-quiz-modal-title">
+      <div class="bible-quiz-modal-inner">
+        <h2 id="bible-quiz-modal-title" class="bible-quiz-modal-title">Today's Quiz</h2>
+        <p id="bible-quiz-chapter" class="bible-quiz-chapter"></p>
+        <div id="bible-quiz-questions" class="bible-quiz-questions"></div>
+        <div id="bible-quiz-result" class="bible-quiz-result hidden">
+          <p id="bible-quiz-score" class="bible-quiz-score"></p>
+          <p id="bible-quiz-message" class="bible-quiz-message"></p>
+          <button type="button" id="bible-quiz-close" class="bible-hub-read-btn">Close</button>
+        </div>
+        <div id="bible-quiz-actions" class="bible-quiz-actions">
+          <button type="button" id="bible-quiz-next" class="bible-hub-read-btn">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="concordance-note-modal" class="concordance-note-modal hidden" role="dialog" aria-modal="true" aria-labelledby="concordance-note-title">
+      <div class="concordance-note-modal-inner">
+        <h2 id="concordance-note-title" class="concordance-note-title">Add a note</h2>
+        <p id="concordance-note-ref" class="concordance-note-ref"></p>
+        <textarea id="concordance-note-input" class="concordance-note-input" placeholder="This reminded me of…" rows="3" maxlength="500"></textarea>
+        <div class="concordance-note-actions">
+          <button type="button" id="concordance-note-save" class="bible-hub-read-btn">Save</button>
+          <button type="button" id="concordance-note-remove" class="bible-hub-share-btn">Remove highlight</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo">
+      <p class="footer-tagline">Encouragement first. Verse by verse, win the day.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="../about.html">About</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="../privacy.html">Privacy</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Today's Daily Battle.</p>
+    </footer>
+
+    <nav class="bible-hub-bottom-nav" aria-label="Bible Hub navigation">
+      <a href="/bible/">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span>Daily</span>
+      </a>
+      <a href="study.html">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">🔍</span>
+        <span>Study</span>
+      </a>
+      <a href="tools.html" aria-current="page">
+        <span class="bible-hub-bottom-nav-icon" aria-hidden="true">🛠</span>
+        <span>Tools</span>
+      </a>
+    </nav>
+  </div>
+  <script src="bible-tools.js?v=1"></script>
+</body>
+</html>

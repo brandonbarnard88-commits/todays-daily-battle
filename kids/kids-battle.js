@@ -10,24 +10,414 @@
   const KIDS_STREAK_KEY = 'kidsStreak';
   const KIDS_DOODLE_KEY = 'kidsDoodle';
   const KIDS_VERSE_INDEX_KEY = 'kidsVerseIndex';
+  const KIDS_FAMILY_CODE_KEY = 'familyCode';
+  const KIDS_LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
+  const KID_NAME_KEY = 'kidName';
+  const KID_REFLECTION_KEY = 'kidReflection';
+  const KID_QUIZ_DONE_KEY = 'kidQuizDone';
+  const KID_MEMORY_DONE_KEY = 'kidMemoryDone';
+
+  const KID_QUIZ_QUESTIONS = {
+    '1 samuel 17': [
+      { question: 'Who did David fight?', options: ['Goliath', 'A lion', 'A bear', 'King Saul'], correct: 0 },
+      { question: 'Who helped David win?', options: ['His brothers', 'God', 'King Saul', 'The army'], correct: 1 },
+      { question: 'What did David use?', options: ['A sword', 'A sling and stones', 'A spear', 'His fists'], correct: 1 }
+    ],
+    'psalm 23': [
+      { question: 'Who wrote Psalm 23?', options: ['Moses', 'David', 'Jesus', 'Paul'], correct: 1 },
+      { question: 'What does "The Lord is my shepherd" mean?', options: ['God is a farmer', 'God takes care of me', 'God has sheep', 'God is far away'], correct: 1 },
+      { question: 'David was a ___ before he was king.', options: ['Soldier', 'Shepherd', 'Fisherman', 'Builder'], correct: 1 }
+    ],
+    'daniel 6': [
+      { question: 'Where did Daniel get thrown?', options: ['A river', 'A fire', 'A lions\' den', 'A prison'], correct: 2 },
+      { question: 'Who shut the lions\' mouths?', options: ['Daniel', 'The king', 'God\'s angel', 'A guard'], correct: 2 },
+      { question: 'Why was Daniel in trouble?', options: ['He stole', 'He prayed to God', 'He lied', 'He ran away'], correct: 1 }
+    ],
+    'jonah 1': [
+      { question: 'What swallowed Jonah?', options: ['A whale', 'A great fish', 'A shark', 'A dolphin'], correct: 1 },
+      { question: 'Why did Jonah run?', options: ['He was scared', 'He didn\'t want to obey God', 'He was lost', 'He was playing'], correct: 1 },
+      { question: 'Who sent the fish?', options: ['The sailors', 'Jonah', 'God', 'The king'], correct: 2 }
+    ],
+    'joshua 1': [
+      { question: 'Who became leader after Moses?', options: ['Aaron', 'Joshua', 'Caleb', 'David'], correct: 1 },
+      { question: 'What did God tell Joshua?', options: ['Be afraid', 'Be strong and courageous', 'Stay home', 'Run away'], correct: 1 },
+      { question: 'Who was with Joshua?', options: ['Nobody', 'God', 'Only his family', 'The enemy'], correct: 1 }
+    ],
+    'matthew 19': [
+      { question: 'Who said "Let the children come to me"?', options: ['Moses', 'David', 'Jesus', 'Paul'], correct: 2 },
+      { question: 'Jesus loves ___!', options: ['Only adults', 'Kids', 'Nobody', 'Just some people'], correct: 1 },
+      { question: 'What did Jesus\' friends try to do?', options: ['Send kids away', 'Bring more kids', 'Play with kids', 'Teach kids'], correct: 0 }
+    ],
+    'philippians 4': [
+      { question: 'Who wrote "I can do all things through Christ"?', options: ['Jesus', 'David', 'Paul', 'Moses'], correct: 2 },
+      { question: 'What gives us strength?', options: ['Food', 'Sleep', 'Christ', 'Toys'], correct: 2 },
+      { question: 'Paul was a ___ who loved Jesus.', options: ['King', 'Shepherd', 'Missionary', 'Farmer'], correct: 2 }
+    ],
+    'john 3': [
+      { question: 'Who does God love?', options: ['Only some people', 'The whole world', 'Nobody', 'Just kids'], correct: 1 },
+      { question: 'What did God give because He loves us?', options: ['Toys', 'His only Son', 'Money', 'A book'], correct: 1 },
+      { question: 'What happens when we believe in Jesus?', options: ['Nothing', 'We live forever with God', 'We get rich', 'We get tired'], correct: 1 }
+    ],
+    'ephesians 6': [
+      { question: 'Where does our strength come from?', options: ['Ourselves', 'The Lord', 'Friends', 'Food'], correct: 1 },
+      { question: 'What should we put on?', options: ['A costume', 'God\'s armor', 'A hat', 'Shoes'], correct: 1 },
+      { question: 'God\'s armor includes ___.', options: ['A sword', 'Truth and faith', 'A shield only', 'Nothing'], correct: 1 }
+    ],
+    'isaiah 41': [
+      { question: 'What does God say when we\'re afraid?', options: ['Run!', 'I am with thee', 'Hide!', 'Cry!'], correct: 1 },
+      { question: 'Who is with us?', options: ['Nobody', 'God', 'Only our family', 'The teacher'], correct: 1 },
+      { question: 'God says "Fear thou ___"', options: ['A lot', 'Not', 'Sometimes', 'Always'], correct: 1 }
+    ],
+    'default': [
+      { question: 'Who helps us be brave?', options: ['Nobody', 'God', 'Only our parents', 'Toys'], correct: 1 },
+      { question: 'What does God\'s word do?', options: ['Nothing', 'Lights our path', 'Makes us sleepy', 'Runs away'], correct: 1 },
+      { question: 'Who loves us most?', options: ['Our friends', 'God', 'Pets', 'Video games'], correct: 1 }
+    ]
+  };
 
   const KIDS_TOPICS = [
-    { topic: 'brave', label: 'Brave' },
-    { topic: 'kind', label: 'Kind' },
-    { topic: 'thankful', label: 'Thankful' },
-    { topic: 'help', label: 'Help' },
-    { topic: 'peace', label: 'Peace' },
-    { topic: 'love', label: 'Love' },
-    { topic: 'jesus', label: 'Jesus' },
-    { topic: 'family', label: 'Family' },
-    { topic: 'God', label: 'God' },
-    { topic: 'obedience', label: 'Obedience' },
-    { topic: 'joy', label: 'Joy' },
-    { topic: 'faith', label: 'Faith' },
-    { topic: 'courage', label: 'Courage' },
-    { topic: 'hope', label: 'Hope' },
-    { topic: 'strength', label: 'Strength' }
+    { topic: 'brave', label: 'Brave ⚔️' },
+    { topic: 'friends', label: 'Friends 👫' },
+    { topic: 'love', label: 'God Loves Me ❤️' },
+    { topic: 'animals', label: 'Animals 🦁' },
+    { topic: 'strength', label: 'Be Strong 💪' },
+    { topic: 'peace', label: 'Peace 😌' }
   ];
+
+  const KID_FRIENDLY_TRANSLATIONS = {
+    'philippians 4:13': 'God makes me strong for anything!',
+    'joshua 1:9': "Be brave! God is with you—don't be afraid!",
+    'psalm 23:1': "God is my helper—I have everything I need!",
+    'matthew 19:14': "Jesus says: Let the kids come to Me!",
+    'ephesians 6:10': "God makes you strong—trust His power!",
+    'isaiah 41:10': "Don't be scared—God is right here with you!",
+    'john 3:16': "God loves you so much He sent Jesus. Believe in Him!",
+    'john 14:27': "Jesus gives you peace—don't worry!",
+    'matthew 6:26': "God feeds the birds—He'll take care of you too!",
+    '1 samuel 17:47': "The battle is God's—He fights for you!",
+    'proverbs 3:5': "Trust God with your whole heart!",
+    'psalm 46:10': "Be still and know God is with you!",
+    'psalm 119:105': "God's word lights up your path!",
+    'romans 8:28': "God makes everything work for good when you love Him!",
+    'jeremiah 29:11': "God has great plans for you!",
+    'jonah 1:17': "God sent a big fish to stop Jonah from running!",
+    'daniel 6:22': "God sent an angel to shut the lions' mouths—I was safe!",
+    'exodus 3:4': "God called Moses from a burning bush!",
+    'exodus 14:21': "God made a way through the sea!",
+    'exodus 16:4': "God gives bread from heaven—He gives what we need!",
+    'exodus 20:1': "God gives rules to keep us safe!",
+    'judges 16:28': "God gives strength—use it for good!",
+    'daniel 3:25': "God kept Shadrach, Meshach, and Abednego safe in the fire!",
+    'esther 4:14': "You were made for such a time as this—be brave!",
+    'luke 2:11': "Jesus came as a baby—God loves us!",
+    'matthew 14:27': "Jesus says: Don't be afraid—I'm here!",
+    'matthew 14:19': "Jesus feeds everyone—He cares!",
+    'luke 10:37': "Love your neighbor—help anyone!",
+    'luke 15:20': "God welcomes you home—come back!",
+    'luke 19:5': "Jesus sees you—even if you're small!",
+    'john 11:43': "Jesus gives life—Lazarus, come out!",
+    'matthew 28:6': "Jesus beat death—He lives forever!",
+    'genesis 1:3': "God said 'Let there be light!'—and it happened!",
+    'joshua 6:20': "The walls fell down—God makes walls fall!",
+    '1 samuel 17:34': "David protected his sheep from lion and bear—God protects us!",
+    '1 kings 18:38': "Fire fell from heaven—God answers! He's real!",
+    '2 kings 4:6': "The oil kept filling—God multiplies!",
+    '2 kings 5:14': "Naaman dipped seven times—obey God, get healed!",
+    'matthew 14:25': "Jesus walks on the water—He lifts us!",
+    'luke 15:6': "Rejoice! The lost sheep is found—you're never lost!",
+    'matthew 21:9': "Hosanna! Jesus rides the donkey—welcome the King!",
+    'luke 22:19': "This is My body—Jesus shares bread, He loves us!",
+    'matthew 4:4': "Jesus says no—use God's word!",
+    'matthew 13:23': "Plant good words—grow strong!",
+    'mark 10:21': "Give to others—follow Jesus!",
+    'mark 12:43': "Small gifts matter—God sees!",
+    'matthew 26:39': "Jesus talks to God—talk to Him!",
+    'matthew 26:50': "Friends fail—Jesus forgives!",
+    'john 18:37': "Jesus stays quiet—trust God!",
+    'john 19:30': "Jesus dies for us—love wins!",
+    'luke 24:31': "Jesus walks with us—He explains!",
+    'acts 1:9': "Jesus goes up—He's with God!",
+    'acts 2:4': "Holy Spirit fills them—power inside!",
+    'acts 7:60': "Stephen forgives—be like him!",
+    'acts 9:3': "Jesus changes Paul—He changes us!",
+    'revelation 21:4': "God wipes away tears—no more sad!",
+    'ruth 1:16': "Your people shall be my people—be kind!",
+    'matthew 25:21': "Use what God gave you—grow it!",
+    'ephesians 6:11': "Put on God's armor—you're strong!"
+  };
+
+  const KID_CONTEXT = {
+    'philippians 4:13': {
+      who: 'Paul (a guy who loved Jesus)',
+      to: 'His friends in a church far away',
+      apply: "When you're scared or tired, say: 'God, give me strength!' — then try the hard thing!"
+    },
+    'joshua 1:9': {
+      who: 'God',
+      to: 'Joshua (a brave leader)',
+      apply: "When you have to do something new, remember God is with you—go for it!"
+    },
+    'psalm 23:1': {
+      who: 'David (a shepherd who became king)',
+      to: 'Everyone who trusts God',
+      apply: "When you're worried, God is your helper—like a shepherd cares for his sheep!"
+    },
+    'matthew 19:14': {
+      who: 'Jesus',
+      to: 'His friends (who tried to send kids away)',
+      apply: "Jesus loves kids! You can always come to Him—no matter what."
+    },
+    'ephesians 6:10': {
+      who: 'Paul',
+      to: 'Christians in Ephesus',
+      apply: "Put on God's armor (truth, faith, peace)—you're strong when you trust Him!"
+    },
+    'isaiah 41:10': {
+      who: 'God',
+      to: 'His people who were afraid',
+      apply: "God says: Don't be scared—I'm right here with you!"
+    },
+    'john 3:16': {
+      who: 'Jesus (through John)',
+      to: 'The whole world',
+      apply: "God loves you so much He sent Jesus. Believe in Him and you'll live forever with God!"
+    },
+    'john 14:27': {
+      who: 'Jesus',
+      to: 'His disciples before He left',
+      apply: "When you're worried, remember: Jesus gives you peace that nothing else can!"
+    },
+    'matthew 6:26': {
+      who: 'Jesus',
+      to: 'People worried about food and clothes',
+      apply: "God feeds the birds—He'll take care of you too! Don't worry."
+    },
+    '1 samuel 17:47': {
+      who: 'David (to Goliath)',
+      to: 'The giant and everyone watching',
+      apply: "The battle is God's! When something seems too big, trust God to help you."
+    },
+    'jonah 1:17': {
+      who: 'The Bible writer',
+      to: 'Everyone reading',
+      apply: "When you run from God, He still loves you—come back and obey!"
+    },
+    'daniel 6:22': {
+      who: 'Daniel',
+      to: 'King Darius and us',
+      apply: "When you're in trouble for praying, God protects you—just keep talking to Him!"
+    },
+    'exodus 3:4': {
+      who: 'God',
+      to: 'Moses (at the burning bush)',
+      apply: "God called Moses from a burning bush! When God calls you, say yes—He will help you!"
+    },
+    'exodus 14:21': {
+      who: 'God',
+      to: 'Moses and the Israelites',
+      apply: "God makes a way! When things seem impossible, trust Him—He can do anything!"
+    },
+    'exodus 16:4': {
+      who: 'God',
+      to: 'The Israelites in the wilderness',
+      apply: "God gives what we need! Trust Him for your food, your family—He takes care of you!"
+    },
+    'exodus 20:1': {
+      who: 'God',
+      to: 'Moses and the Israelites',
+      apply: "God gives rules to keep us safe! Love God and love others—that's what matters!"
+    },
+    'judges 16:28': {
+      who: 'God',
+      to: 'Samson',
+      apply: "God gives power—use it right! Be strong for good, not for showing off."
+    },
+    'daniel 3:25': {
+      who: 'God',
+      to: 'Shadrach, Meshach, and Abednego',
+      apply: "God keeps friends safe! When you stand for God, He stands with you!"
+    },
+    'esther 4:14': {
+      who: 'Mordecai',
+      to: 'Esther',
+      apply: "Be brave—God uses you! You were made for such a time as this!"
+    },
+    'luke 2:11': {
+      who: 'The angel',
+      to: 'The shepherds',
+      apply: "Jesus came as a baby—God loves us! Christmas is about God's greatest gift!"
+    },
+    'matthew 14:27': {
+      who: 'Jesus',
+      to: 'His disciples in the storm',
+      apply: "Jesus stops storms—trust Him! When you're scared, He says: Don't be afraid—I'm here!"
+    },
+    'matthew 14:19': {
+      who: 'Jesus',
+      to: 'The 5,000 people',
+      apply: "Jesus feeds everyone—He cares! Give God what you have—He can multiply it!"
+    },
+    'luke 10:37': {
+      who: 'Jesus',
+      to: 'A man who asked who his neighbor is',
+      apply: "Love your neighbor—help anyone! Be kind to people who need you."
+    },
+    'luke 15:20': {
+      who: 'Jesus',
+      to: 'People who wondered if God forgives',
+      apply: "God welcomes you home! No matter what you did, come back—He runs to meet you!"
+    },
+    'luke 19:5': {
+      who: 'Jesus',
+      to: 'Zacchaeus',
+      apply: "Jesus sees you—even if you're small! He knows your name and wants to be your friend!"
+    },
+    'john 11:43': {
+      who: 'Jesus',
+      to: 'Lazarus (in the tomb)',
+      apply: "Jesus gives life—don't be sad! He is the Resurrection and the Life!"
+    },
+    'matthew 28:6': {
+      who: 'The angel',
+      to: 'The women at the tomb',
+      apply: "Jesus beat death—He lives forever! That's why we celebrate Easter—He won!"
+    },
+    'genesis 1:3': {
+      who: 'God',
+      to: 'Everyone',
+      apply: "God said 'Let there be light!'—and it happened! God made everything—wow!"
+    },
+    'joshua 6:20': {
+      who: 'God',
+      to: 'Joshua and the Israelites',
+      apply: "God makes walls fall—trust Him! Obey God even when it seems weird!"
+    },
+    '1 samuel 17:34': {
+      who: 'David',
+      to: 'King Saul',
+      apply: "David protected sheep—God protects us! Like a shepherd cares for his flock!"
+    },
+    '1 kings 18:38': {
+      who: 'God',
+      to: 'Elijah and all Israel',
+      apply: "God answers with fire—He's real! The LORD is God—trust Him alone!"
+    },
+    '2 kings 4:6': {
+      who: 'God',
+      to: 'The widow through Elisha',
+      apply: "God multiplies—He provides! Give God what you have—He can do more!"
+    },
+    '2 kings 5:14': {
+      who: 'God',
+      to: 'Naaman',
+      apply: "Obey God—get healed! Even when it seems simple, do what He says!"
+    },
+    'matthew 14:25': {
+      who: 'Jesus',
+      to: 'His disciples',
+      apply: "Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!"
+    },
+    'luke 15:6': {
+      who: 'Jesus',
+      to: 'People who wondered about God's love',
+      apply: "Jesus finds lost sheep—you're never lost! God searches for you!"
+    },
+    'matthew 21:9': {
+      who: 'The crowds',
+      to: 'Jesus',
+      apply: "Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!"
+    },
+    'luke 22:19': {
+      who: 'Jesus',
+      to: 'His disciples',
+      apply: "Jesus shares bread—He loves us! Remember Him when you eat together!"
+    },
+    'matthew 4:4': {
+      who: 'Jesus',
+      to: 'The devil (and us)',
+      apply: "Jesus says no—use God's word! When the devil lies, quote the Bible!"
+    },
+    'matthew 13:23': {
+      who: 'Jesus',
+      to: 'The crowds',
+      apply: "Plant good words—grow strong! Let God's word take root in your heart!"
+    },
+    'mark 10:21': {
+      who: 'Jesus',
+      to: 'The rich young ruler',
+      apply: "Give to others—follow Jesus! He's worth more than anything!"
+    },
+    'mark 12:43': {
+      who: 'Jesus',
+      to: 'His disciples',
+      apply: "Small gifts matter—God sees! Give what you have from the heart!"
+    },
+    'matthew 26:39': {
+      who: 'Jesus',
+      to: 'God the Father',
+      apply: "Jesus talks to God—talk to Him! Pray when you're scared or sad!"
+    },
+    'matthew 26:50': {
+      who: 'Jesus',
+      to: 'Judas',
+      apply: "Even friends fail—Jesus forgives! He still loves you when people hurt you."
+    },
+    'john 18:37': {
+      who: 'Jesus',
+      to: 'Pilate',
+      apply: "Jesus stays quiet—trust God! When things are unfair, He knows the truth!"
+    },
+    'john 19:30': {
+      who: 'Jesus',
+      to: 'The whole world',
+      apply: "Jesus dies for us—love wins! He took our sins so we could be free!"
+    },
+    'luke 24:31': {
+      who: 'Jesus',
+      to: 'Cleopas and his friend',
+      apply: "Jesus walks with us—He explains! He's with you on every road!"
+    },
+    'acts 1:9': {
+      who: 'Jesus',
+      to: 'His disciples',
+      apply: "Jesus goes up—He's with God! He promised to come back—spread His love!"
+    },
+    'acts 2:4': {
+      who: 'God',
+      to: 'The disciples',
+      apply: "Holy Spirit comes—power for us! God fills you with His Spirit!"
+    },
+    'acts 7:60': {
+      who: 'Stephen',
+      to: 'Those who stoned him',
+      apply: "Stephen forgives—be like him! Even when hurt, pray for others!"
+    },
+    'acts 9:3': {
+      who: 'Jesus',
+      to: 'Saul (Paul)',
+      apply: "Jesus changes Paul—He changes us! No one is too far for God!"
+    },
+    'revelation 21:4': {
+      who: 'God',
+      to: 'Everyone who believes',
+      apply: "God makes new home—no more sad! No tears, no pain—forever with Him!"
+    },
+    'ruth 1:16': {
+      who: 'Ruth',
+      to: 'Naomi',
+      apply: "Be kind—God sees! Loyalty and kindness matter to Him!"
+    },
+    'matthew 25:21': {
+      who: 'Jesus',
+      to: 'His disciples',
+      apply: "Use what God gave you—grow it! Don't hide your gifts—use them!"
+    },
+    'ephesians 6:11': {
+      who: 'Paul',
+      to: 'Christians in Ephesus',
+      apply: "Put on God's armor—you're strong! Truth, faith, peace—stand firm!"
+    }
+  };
 
   const KIDS_VERSES = [
   { ref: 'Philippians 4:13', text: 'I can do all things through Christ which strengtheneth me.' },
@@ -39,6 +429,8 @@
   { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee.' },
   { ref: 'Proverbs 3:5', text: 'Trust in the Lord with all thine heart.' },
   { ref: '1 Samuel 17:47', text: 'The battle is the Lord\'s.' },
+  { ref: 'Jonah 1:17', text: 'Now the Lord had prepared a great fish to swallow up Jonah. And Jonah was in the belly of the fish three days and three nights.' },
+  { ref: 'Daniel 6:22', text: 'My God hath sent his angel, and hath shut the lions\' mouths, that they have not hurt me.' },
   { ref: 'Romans 8:28', text: 'All things work together for good to them that love God.' },
   { ref: 'Psalm 46:10', text: 'Be still, and know that I am God.' },
   { ref: 'Matthew 6:26', text: 'Behold the fowls of the air: your heavenly Father feedeth them.' },
@@ -407,6 +799,8 @@
     'You\'re with me—no fear!',
     'I trust you, God—with everything!',
     'Fight my battles for me, Lord!',
+    'God, help me obey You like Jonah did!',
+    'God, protect me when I pray—like You protected Daniel!',
     'Turn every hard thing into good!',
     'Help me be quiet and know you\'re God!',
     'Thanks for feeding the birds—feed me too!',
@@ -799,6 +1193,856 @@
     return index % KIDS_VERSES.length;
   }
 
+  /** Bible story carousels — 3-panel comic strips + optional video. Cycle weekly: one story per week (up to 52). */
+  var bibleStories = {
+    david: {
+      title: 'David & Goliath',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David as shepherd boy' },
+        { src: 'panel-david-2.svg', alt: 'David faces Goliath' },
+        { src: 'panel-david-3.svg', alt: "David wins with God's help" }
+      ],
+      caption: 'Swipe to see how God helped David be brave! ⚔️',
+      videoId: 'QuLN7IWFJNY',
+      videoTitle: 'David and Goliath – Animated!',
+      keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot']
+    },
+    noah: {
+      title: "Noah's Ark",
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Noah building the ark' },
+        { src: 'panel-noah-2.svg', alt: 'Animals boarding two by two' },
+        { src: 'panel-noah-3.svg', alt: "God's rainbow promise" }
+      ],
+      caption: "Swipe to see God's promise with Noah and the rainbow! 🌈",
+      videoId: 'qzYjy6lhRag',
+      videoTitle: "Noah's Ark – Animated!",
+      keywords: ['noah', 'ark', 'rainbow', 'promise', 'flood', 'animals']
+    },
+    jesus: {
+      title: 'Jesus the Good Shepherd',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus the good shepherd' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus calling the children' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus loves you!' }
+      ],
+      caption: 'Swipe to see Jesus loving the children and being our shepherd! ❤️',
+      videoId: '8qPP0SgxAvw',
+      videoTitle: 'Jesus the Good Shepherd – Animated!',
+      keywords: ['jesus', 'shepherd', 'children', 'love', 'lamb']
+    },
+    jonah: {
+      title: 'Jonah & the Big Fish',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Jonah running from God' },
+        { src: 'panel-jonah-2.svg', alt: 'Jonah and the big fish' },
+        { src: 'panel-jonah-3.svg', alt: 'Jonah obeys and goes to Nineveh' }
+      ],
+      caption: 'Swipe to see Jonah learn to obey God! 🐋',
+      videoId: 'WOSadLyqshg',
+      videoTitle: "Jonah and the Fish – Saddleback Kids!",
+      keywords: ['jonah', 'whale', 'fish', 'obey', 'nineveh']
+    },
+    daniel: {
+      title: 'Daniel & the Lions',
+      panels: [
+        { src: 'panel-daniel-1.svg', alt: 'Daniel praying' },
+        { src: 'panel-daniel-2.svg', alt: 'Daniel in the lions den' },
+        { src: 'panel-daniel-3.svg', alt: 'Daniel safe—king amazed' }
+      ],
+      caption: 'Swipe to see God protect Daniel! 🦁',
+      videoId: 'odcRHDqcVlc',
+      videoTitle: "Daniel and the Lions' Den – God's Story!",
+      keywords: ['daniel', 'lion', 'lions', 'den', 'pray', 'protect']
+    },
+    adamEve: {
+      title: 'Adam & Eve',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Adam and Eve in the garden' },
+        { src: 'panel-noah-2.svg', alt: 'The serpent and the apple' },
+        { src: 'panel-noah-3.svg', alt: 'God still loves them' }
+      ],
+      caption: 'Swipe to see the first family in God\'s garden! 🌳',
+      videoId: 'l7TDvJrjjz0',
+      videoTitle: 'Adam and Eve – Saddleback Kids!',
+      keywords: ['adam', 'eve', 'garden', 'apple', 'hide', 'eden', 'creation'],
+      kidContext: { who: 'God', to: 'Adam and Eve (the first people)', apply: 'God made you special! Even when we make mistakes, He still loves us.' }
+    },
+    cainAbel: {
+      title: 'Cain & Abel',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Cain and Abel bring offerings' },
+        { src: 'panel-david-2.svg', alt: 'God is pleased with Abel' },
+        { src: 'panel-david-3.svg', alt: 'God warns Cain about anger' }
+      ],
+      caption: 'Swipe to see why giving our best to God matters! 🐑',
+      videoId: 'vT8Yjc-4es8',
+      videoTitle: "Cain and Abel – Bible Story for Kids!",
+      keywords: ['cain', 'abel', 'jealousy', 'offering', 'brothers'],
+      kidContext: { who: 'God', to: 'Cain and Abel (first brothers)', apply: 'Give God your best! When you feel jealous, talk to God instead of getting angry.' }
+    },
+    towerBabel: {
+      title: 'Tower of Babel',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'People build a tall tower' },
+        { src: 'panel-jonah-2.svg', alt: 'God mixes up their words' },
+        { src: 'panel-jonah-3.svg', alt: 'Everyone speaks different languages' }
+      ],
+      caption: 'Swipe to see how God made many languages! 🌍',
+      videoId: '4EQh7C-IUcM',
+      videoTitle: 'Tower of Babel – Bible Stories for Kids!',
+      keywords: ['babel', 'tower', 'confusion', 'languages', 'babylon'],
+      kidContext: { who: 'God', to: 'The people building the tower', apply: 'God is bigger than any tower! He made all the languages—that\'s why we have so many ways to talk!' }
+    },
+    abrahamIsaac: {
+      title: 'Abraham & Isaac',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Abraham and Isaac walk up the mountain' },
+        { src: 'panel-jesus-2.svg', alt: 'Abraham trusts God' },
+        { src: 'panel-jesus-3.svg', alt: 'God provides a ram!' }
+      ],
+      caption: 'Swipe to see Abraham trust God—and God provide! 🐏',
+      videoId: '8QTk848O-yQ',
+      videoTitle: 'Abraham and Isaac – Bible Stories for Kids!',
+      keywords: ['abraham', 'isaac', 'sacrifice', 'ram', 'trust', 'faith'],
+      kidContext: { who: 'God', to: 'Abraham (father of faith)', apply: 'When you trust God, He takes care of you. Abraham obeyed—and God provided!' }
+    },
+    josephCoat: {
+      title: "Joseph & the Coat",
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joseph gets a colorful coat' },
+        { src: 'panel-david-2.svg', alt: 'Joseph dreams of greatness' },
+        { src: 'panel-david-3.svg', alt: 'Brothers are jealous' }
+      ],
+      caption: 'Swipe to see Joseph\'s dreams and his special coat! 🌈',
+      videoId: 'MKW6ylouF1s',
+      videoTitle: "Joseph's Coat of Many Colors – Bible Stories!",
+      keywords: ['joseph', 'coat', 'dreams', 'brothers', 'colors'],
+      kidContext: { who: 'God', to: 'Joseph (Jacob\'s son)', apply: 'God had big plans for Joseph! Even when things seem bad, God is working for good.' }
+    },
+    mosesBush: {
+      title: 'Moses & the Burning Bush',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Moses sees a bush on fire' },
+        { src: 'panel-jesus-2.svg', alt: 'God calls Moses from the bush' },
+        { src: 'panel-jesus-3.svg', alt: 'Moses takes his staff—God sends him' }
+      ],
+      caption: 'Swipe to see God call Moses from the burning bush! 🔥',
+      videoId: 'bWcwZIV-ip8',
+      videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
+      keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning'],
+      kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God called Moses from a burning bush! When God calls you, say yes—He will help you!' }
+    },
+    redSea: {
+      title: 'Red Sea Crossing',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Moses and the people at the sea' },
+        { src: 'panel-noah-2.svg', alt: 'God parts the waters' },
+        { src: 'panel-noah-3.svg', alt: 'People walk through on dry ground' }
+      ],
+      caption: 'Swipe to see God make a way through the sea! 🌊',
+      videoId: 'GYZh5eY6FGg',
+      videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
+      keywords: ['moses', 'red sea', 'waters', 'part', 'exodus 14', 'egypt', 'escape'],
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: 'God makes a way! When things seem impossible, trust Him—He can do anything!' }
+    },
+    manna: {
+      title: 'Manna from Heaven',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'People hungry in the desert' },
+        { src: 'panel-jonah-2.svg', alt: 'Bread falls from the sky' },
+        { src: 'panel-jonah-3.svg', alt: 'Everyone gathers what they need' }
+      ],
+      caption: 'Swipe to see God give bread from heaven! 🍞',
+      videoId: 'Ln5Aa8jiEAM',
+      videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'food', 'provide'],
+      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: 'God gives what we need! Trust Him for your food, your family—He takes care of you!' }
+    },
+    tenCommandments: {
+      title: 'Ten Commandments',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Moses goes up the mountain' },
+        { src: 'panel-david-2.svg', alt: 'God gives the stone tablets' },
+        { src: 'panel-david-3.svg', alt: 'Rules to keep us safe and happy' }
+      ],
+      caption: 'Swipe to see God give rules to keep us safe! 📜',
+      videoId: 'P12cLzy1-3Q',
+      videoTitle: 'The Ten Commandments – Bible Stories for Kids!',
+      keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules', 'law'],
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: 'God gives rules to keep us safe! Love God and love others—that\'s what matters!' }
+    },
+    samson: {
+      title: 'Samson & His Strength',
+      panels: [
+        { src: 'panel-daniel-1.svg', alt: 'Samson has super strength' },
+        { src: 'panel-daniel-2.svg', alt: 'Samson and the pillars' },
+        { src: 'panel-daniel-3.svg', alt: 'God gives power—use it right!' }
+      ],
+      caption: 'Swipe to see God give Samson strength! 💪',
+      videoId: 'vnRAdASpsz4',
+      videoTitle: "Samson and Delilah – Bible Lessons for Kids!",
+      keywords: ['samson', 'hair', 'strength', 'pillars', 'judges 16', 'power', 'delilah'],
+      kidContext: { who: 'God', to: 'Samson (a strong man)', apply: 'God gives power—use it right! Be strong for good, not for showing off.' }
+    },
+    fieryFurnace: {
+      title: 'Fiery Furnace',
+      panels: [
+        { src: 'panel-daniel-1.svg', alt: 'Shadrach, Meshach, Abednego refuse to bow' },
+        { src: 'panel-daniel-2.svg', alt: 'Thrown into the fiery furnace' },
+        { src: 'panel-daniel-3.svg', alt: 'Angel keeps them safe—king amazed!' }
+      ],
+      caption: 'Swipe to see God keep friends safe in the fire! 🔥',
+      videoId: 'kAzX-Icrbm0',
+      videoTitle: 'The Fiery Furnace – Shadrach, Meshach & Abednego!',
+      keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3'],
+      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: 'God keeps friends safe! When you stand for God, He stands with you!' }
+    },
+    esther: {
+      title: 'Esther Saves Her People',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Esther becomes queen' },
+        { src: 'panel-jesus-2.svg', alt: 'Esther goes to the king' },
+        { src: 'panel-jesus-3.svg', alt: 'God uses her to save the people!' }
+      ],
+      caption: 'Swipe to see Esther be brave—God uses you! 👑',
+      videoId: '7945Bh5iG_A',
+      videoTitle: 'The Story of Esther – Bible Stories for Kids!',
+      keywords: ['esther', 'queen', 'king', 'brave', 'save', 'such a time'],
+      kidContext: { who: 'God', to: 'Esther (queen who saved her people)', apply: 'Be brave—God uses you! You were made for such a time as this!' }
+    },
+    jesusBirth: {
+      title: 'Jesus Birth',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Mary and Joseph travel to Bethlehem' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus born in a manger' },
+        { src: 'panel-jesus-3.svg', alt: 'Shepherds and angels celebrate!' }
+      ],
+      caption: 'Swipe to see Jesus come as a baby—God loves us! 🎄',
+      videoId: 'v3656G6tWuI',
+      videoTitle: 'The Story of Christmas – Jesus is Born!',
+      keywords: ['jesus', 'birth', 'manger', 'shepherds', 'angels', 'bethlehem', 'luke 2', 'christmas'],
+      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came as a baby—God loves us! Christmas is about God\'s greatest gift!' }
+    },
+    jesusCalmsStorm: {
+      title: 'Jesus Calms the Storm',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Disciples in a boat, big waves' },
+        { src: 'panel-jonah-2.svg', alt: 'Jesus sleeps—then wakes' },
+        { src: 'panel-jonah-3.svg', alt: 'Jesus says peace—storm stops!' }
+      ],
+      caption: 'Swipe to see Jesus calm the storm—trust Him! ⛵',
+      videoId: 'uYLHqdSO9OY',
+      videoTitle: 'Jesus Calms the Storm – Bible Story for Kids!',
+      keywords: ['jesus', 'storm', 'boat', 'waves', 'peace', 'matthew 14', 'mark 4'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus stops storms—trust Him! When you\'re scared, He says: Don\'t be afraid—I\'m here!' }
+    },
+    jesusFeeds5000: {
+      title: 'Jesus Feeds 5,000',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Big crowd, one boy with bread and fish' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus blesses the food' },
+        { src: 'panel-noah-3.svg', alt: 'Everyone eats—baskets left over!' }
+      ],
+      caption: 'Swipe to see Jesus feed everyone—He cares! 🍞🐟',
+      videoId: 'S6rj9cAJrWE',
+      videoTitle: 'Jesus Feeds the 5,000 – Saddleback Kids!',
+      keywords: ['jesus', 'feeds', '5000', 'bread', 'fish', 'miracle', 'matthew 14', 'john 6'],
+      kidContext: { who: 'Jesus', to: 'The 5,000 people (and us)', apply: 'Jesus feeds everyone—He cares! Give God what you have—He can multiply it!' }
+    },
+    goodSamaritan: {
+      title: 'Good Samaritan',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Man hurt on the road' },
+        { src: 'panel-david-2.svg', alt: 'Samaritan stops to help' },
+        { src: 'panel-david-3.svg', alt: 'Love your neighbor—help anyone!' }
+      ],
+      caption: 'Swipe to see the Good Samaritan help a stranger! 🤝',
+      videoId: 'juBnHljnB0I',
+      videoTitle: 'The Good Samaritan – Bible Story for Kids!',
+      keywords: ['good samaritan', 'neighbor', 'help', 'stranger', 'bandage', 'luke 10'],
+      kidContext: { who: 'Jesus', to: 'A man who asked "Who is my neighbor?"', apply: 'Love your neighbor—help anyone! Be kind to people who need you.' }
+    },
+    prodigalSon: {
+      title: 'Prodigal Son',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Son runs away with his money' },
+        { src: 'panel-jonah-2.svg', alt: 'Son comes back sorry' },
+        { src: 'panel-jonah-3.svg', alt: 'Father runs to welcome him home!' }
+      ],
+      caption: 'Swipe to see the father welcome his son home! 🏠',
+      videoId: '29qEf9afdcA',
+      videoTitle: 'The Prodigal Son – Bible Stories for Kids!',
+      keywords: ['prodigal', 'son', 'run away', 'come back', 'party', 'forgiveness', 'luke 15'],
+      kidContext: { who: 'Jesus', to: 'People who wondered if God forgives', apply: 'God welcomes you home! No matter what you did, come back—He runs to meet you!' }
+    },
+    zacchaeus: {
+      title: 'Zacchaeus',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Zacchaeus climbs a tree to see' },
+        { src: 'panel-david-2.svg', alt: 'Jesus looks up and sees him' },
+        { src: 'panel-david-3.svg', alt: 'Jesus says: I\'m coming to your house!' }
+      ],
+      caption: 'Swipe to see Jesus call Zacchaeus—He sees you! 🌳',
+      videoId: 'U-HjFU4wkUY',
+      videoTitle: 'The Story of Zacchaeus – Bible Story for Kids!',
+      keywords: ['zacchaeus', 'tree', 'short', 'jesus calls', 'luke 19', 'tax collector'],
+      kidContext: { who: 'Jesus', to: 'Zacchaeus (a short man in a tree)', apply: 'Jesus sees you—even if you\'re small! He knows your name and wants to be your friend!' }
+    },
+    lazarus: {
+      title: 'Lazarus Raised',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Lazarus is sick, then dies' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus comes to the tomb' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus says: Come out!—Lazarus lives!' }
+      ],
+      caption: 'Swipe to see Jesus give life—don\'t be sad! ✨',
+      videoId: '1FT04jjh3Q8',
+      videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
+      keywords: ['lazarus', 'raised', 'dead', 'come out', 'alive', 'john 11'],
+      kidContext: { who: 'Jesus', to: 'Mary, Martha, and Lazarus', apply: 'Jesus gives life—don\'t be sad! He is the Resurrection and the Life!' }
+    },
+    resurrection: {
+      title: 'Resurrection',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Women go to the tomb' },
+        { src: 'panel-jesus-2.svg', alt: 'Empty tomb—stone rolled away!' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus is alive—He lives forever!' }
+      ],
+      caption: 'Swipe to see Jesus beat death—He lives forever! 🕊️',
+      videoId: '2_dKPsPDXGM',
+      videoTitle: 'Jesus Rose from the Grave – Kids Club Bible Story!',
+      keywords: ['resurrection', 'empty tomb', 'alive', 'easter', 'matthew 28', 'john 20'],
+      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus beat death—He lives forever! That\'s why we celebrate Easter—He won!' }
+    },
+    creation: {
+      title: 'Creation',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God says: Let there be light!' },
+        { src: 'panel-noah-2.svg', alt: 'God makes animals and people' },
+        { src: 'panel-noah-3.svg', alt: 'God rests—He made everything!' }
+      ],
+      caption: 'Swipe to see God make the world! 🌍',
+      videoId: 'teu7BCZTgDs',
+      videoTitle: 'Creation (Genesis 1-2) – Saddleback Kids!',
+      keywords: ['creation', 'genesis 1', 'light', 'animals', 'rest', 'god made'],
+      kidContext: { who: 'God', to: 'Everyone', apply: 'God made everything—wow! You are part of His amazing creation!' }
+    },
+    fallOfJericho: {
+      title: 'Fall of Jericho',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joshua and the people march' },
+        { src: 'panel-david-2.svg', alt: 'Trumpets blow, people shout' },
+        { src: 'panel-david-3.svg', alt: 'Walls fall down—God wins!' }
+      ],
+      caption: 'Swipe to see God make the walls fall—trust Him! 🏛️',
+      videoId: 'Ertlm3D9Cfs',
+      videoTitle: 'The Walls of Jericho – Bible Story for Kids!',
+      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey'],
+      kidContext: { who: 'God', to: 'Joshua and the Israelites', apply: 'God makes walls fall—trust Him! Obey God even when it seems weird!' }
+    },
+    davidSheep: {
+      title: 'David & the Sheep',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David watches his sheep' },
+        { src: 'panel-david-2.svg', alt: 'David fights lion and bear' },
+        { src: 'panel-david-3.svg', alt: 'David plays harp—God protects!' }
+      ],
+      caption: 'Swipe to see David protect sheep—God protects us! 🐑',
+      videoId: 'N5zP9YxUaLI',
+      videoTitle: 'David, Lion & Bear – Bible Stories for Kids!',
+      keywords: ['david', 'sheep', 'shepherd', 'harp', 'lion', '1 samuel 17'],
+      kidContext: { who: 'David', to: 'King Saul (and us)', apply: 'David protected sheep—God protects us! Like a shepherd cares for his flock!' }
+    },
+    elijahFire: {
+      title: 'Elijah & Fire',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Elijah vs prophets of Baal' },
+        { src: 'panel-jonah-2.svg', alt: 'Baal does nothing' },
+        { src: 'panel-jonah-3.svg', alt: 'God sends fire—He\'s real!' }
+      ],
+      caption: 'Swipe to see God answer with fire—He\'s real! 🔥',
+      videoId: 'dKcQHonmOi8',
+      videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
+      keywords: ['elijah', 'baal', 'fire', 'carmel', '1 kings 18', 'altar'],
+      kidContext: { who: 'God', to: 'Elijah and all Israel', apply: 'God answers with fire—He\'s real! The LORD is God—trust Him alone!' }
+    },
+    elishaOil: {
+      title: 'Elisha & the Widow\'s Oil',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Widow has only a little oil' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into jars' },
+        { src: 'panel-noah-3.svg', alt: 'Oil multiplies—God provides!' }
+      ],
+      caption: 'Swipe to see God multiply oil—He provides! 🫙',
+      videoId: '6E2WJ0vp4g4',
+      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
+      keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'jar'],
+      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies—He provides! Give God what you have—He can do more!' }
+    },
+    naaman: {
+      title: 'Naaman & the River',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Naaman has leprosy' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha says: dip in Jordan' },
+        { src: 'panel-jesus-3.svg', alt: 'Naaman obeys—healed!' }
+      ],
+      caption: 'Swipe to see Naaman obey—get healed! 💧',
+      videoId: '8Y1Sh5bZAiM',
+      videoTitle: "God's Story: Naaman – Bible Story for Kids!",
+      keywords: ['naaman', 'river', 'leprosy', 'dip', 'jordan', '2 kings 5', 'elisha'],
+      kidContext: { who: 'God', to: 'Naaman (through Elisha)', apply: 'Obey God—get healed! Even when it seems simple, do what He says!' }
+    },
+    jesusWalksWater: {
+      title: 'Jesus Walks on Water',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Disciples in boat, big waves' },
+        { src: 'panel-jonah-2.svg', alt: 'Jesus walks on the water' },
+        { src: 'panel-jonah-3.svg', alt: 'Peter walks too—Jesus lifts us!' }
+      ],
+      caption: 'Swipe to see Jesus walk on waves—He lifts us! 🌊',
+      videoId: 'U69Ag6wEyB0',
+      videoTitle: 'Jesus Walks on Water – Stories of the Bible!',
+      keywords: ['jesus', 'walks', 'water', 'peter', 'waves', 'matthew 14'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus walks on waves—He lifts us! Keep your eyes on Him—don\'t be afraid!' }
+    },
+    lostSheep: {
+      title: 'Lost Sheep',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Shepherd has 100 sheep' },
+        { src: 'panel-jesus-2.svg', alt: 'One is lost—he goes to find it' },
+        { src: 'panel-jesus-3.svg', alt: 'Found! Jesus finds lost sheep!' }
+      ],
+      caption: 'Swipe to see Jesus find the lost sheep—you\'re never lost! 🐑',
+      videoId: 'CLpq2K-Jf0M',
+      videoTitle: 'The Parable of the Lost Sheep – Animated Bible Story!',
+      keywords: ['lost sheep', 'parable', 'shepherd', 'luke 15', 'find', 'rejoice'],
+      kidContext: { who: 'Jesus', to: 'People who wondered about God\'s love', apply: 'Jesus finds lost sheep—you\'re never lost! God searches for you!' }
+    },
+    palmSunday: {
+      title: 'Palm Sunday',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus rides a donkey' },
+        { src: 'panel-jesus-2.svg', alt: 'People wave palm branches' },
+        { src: 'panel-jesus-3.svg', alt: 'Hosanna! Welcome the King!' }
+      ],
+      caption: 'Swipe to see Jesus ride the donkey—welcome Him! 🌿',
+      videoId: 'PCqqhfltyKM',
+      videoTitle: 'Palm Sunday – Jesus Enters Jerusalem!',
+      keywords: ['palm sunday', 'hosanna', 'donkey', 'jerusalem', 'matthew 21', 'luke 19'],
+      kidContext: { who: 'The crowds', to: 'Jesus (the King)', apply: 'Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!' }
+    },
+    lastSupper: {
+      title: 'Last Supper',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus and the disciples at table' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus breaks bread' },
+        { src: 'panel-jesus-3.svg', alt: 'This is My body—He loves us!' }
+      ],
+      caption: 'Swipe to see Jesus share bread—He loves us! 🍞',
+      videoId: 'y-SrXeZcVhU',
+      videoTitle: 'The Last Supper – Sharefaith Kids!',
+      keywords: ['last supper', 'bread', 'wine', 'luke 22', 'matthew 26', 'passover'],
+      kidContext: { who: 'Jesus', to: 'His twelve disciples', apply: 'Jesus shares bread—He loves us! Remember Him when you eat together!' }
+    },
+    jesusTemptation: {
+      title: "Jesus' Temptation",
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Jesus in the desert, hungry' },
+        { src: 'panel-jonah-2.svg', alt: 'Devil tempts Him' },
+        { src: 'panel-jonah-3.svg', alt: 'Jesus says no—uses God\'s word!' }
+      ],
+      caption: "Swipe to see Jesus say no—use God's word! 📖",
+      videoId: 'CN77fk1xNPQ',
+      videoTitle: "Temptation of Jesus – Matthew 4 | Sharefaith Kids!",
+      keywords: ['temptation', 'desert', 'devil', 'matthew 4', 'word', 'stones'],
+      kidContext: { who: 'Jesus', to: 'Us (when we\'re tempted)', apply: "Jesus says no—use God's word! When the devil lies, quote the Bible!" }
+    },
+    parableSower: {
+      title: 'Parable of the Sower',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Farmer scatters seeds' },
+        { src: 'panel-noah-2.svg', alt: 'Seeds on path, rocks, thorns' },
+        { src: 'panel-noah-3.svg', alt: 'Good soil—seeds grow strong!' }
+      ],
+      caption: 'Swipe to see seeds grow—plant good words! 🌱',
+      videoId: 'Y01N77fQrTU',
+      videoTitle: 'The Parable of the Sower – Animated Scripture Lesson!',
+      keywords: ['sower', 'parable', 'seeds', 'soil', 'grow', 'matthew 13', 'mark 4'],
+      kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Plant good words—grow strong! Let God\'s word take root in your heart!' }
+    },
+    richYoungRuler: {
+      title: 'Rich Young Ruler',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Rich man asks Jesus' },
+        { src: 'panel-david-2.svg', alt: 'Jesus says: give to the poor' },
+        { src: 'panel-david-3.svg', alt: 'Follow Jesus—He\'s worth more!' }
+      ],
+      caption: 'Swipe to see Jesus say: give and follow! 💝',
+      videoId: 'Z5tCVTOLnQ0',
+      videoTitle: 'The Rich Young Ruler – Animated Bible Story!',
+      keywords: ['rich young ruler', 'give', 'follow', 'mark 10', 'matthew 19', 'treasure'],
+      kidContext: { who: 'Jesus', to: 'The rich young ruler', apply: 'Give to others—follow Jesus! He\'s worth more than anything!' }
+    },
+    widowsMite: {
+      title: "Widow's Mite",
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Rich people give big gifts' },
+        { src: 'panel-jesus-2.svg', alt: 'Widow gives two small coins' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus says: she gave more!' }
+      ],
+      caption: 'Swipe to see the widow\'s gift—God sees! 🪙',
+      videoId: 'cauP52JaBdQ',
+      videoTitle: "The Widow's Coins – Animated Bible Story!",
+      keywords: ['widow', 'mite', 'coins', 'mark 12', 'luke 21', 'small gift'],
+      kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Small gifts matter—God sees! Give what you have from the heart!' }
+    },
+    gardenPrayer: {
+      title: 'Garden Prayer',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus in the garden' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus prays to the Father' },
+        { src: 'panel-jesus-3.svg', alt: 'Not My will—Your will be done!' }
+      ],
+      caption: 'Swipe to see Jesus pray—talk to God! 🙏',
+      videoId: 'mk7Ey0XDx0w',
+      videoTitle: 'Garden of Gethsemane – CQ Kids!',
+      keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22'],
+      kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'Jesus talks to God—talk to Him! Pray when you\'re scared or sad!' }
+    },
+    betrayal: {
+      title: 'Betrayal (Judas)',
+      panels: [
+        { src: 'panel-jonah-1.svg', alt: 'Judas leads the crowd' },
+        { src: 'panel-jonah-2.svg', alt: 'Judas kisses Jesus' },
+        { src: 'panel-jonah-3.svg', alt: 'Friends fail—Jesus forgives!' }
+      ],
+      caption: 'Swipe to see Judas betray—Jesus still forgives! 💔',
+      videoId: '79iFRXt4470',
+      videoTitle: 'Judas Betrays Jesus – Bible Stories!',
+      keywords: ['judas', 'betrayal', 'kiss', 'matthew 26', 'mark 14', 'fail'],
+      kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even friends fail—Jesus forgives! He still loves you when people hurt you.' }
+    },
+    trial: {
+      title: 'Trial (Pilate)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Jesus before Pilate' },
+        { src: 'panel-david-2.svg', alt: 'Pilate asks: Are you the King?' },
+        { src: 'panel-david-3.svg', alt: 'Jesus stays quiet—trust God!' }
+      ],
+      caption: 'Swipe to see Jesus before Pilate—trust God! ⚖️',
+      videoId: 'zmYLuYfPQI8',
+      videoTitle: 'Jesus & Pilate – The Miracle Maker!',
+      keywords: ['pilate', 'trial', 'quiet', 'john 18', 'matthew 27', 'king'],
+      kidContext: { who: 'Jesus', to: 'Pilate (and us)', apply: 'Jesus stays quiet—trust God! When things are unfair, He knows the truth!' }
+    },
+    crucifixion: {
+      title: 'Crucifixion',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus carries the cross' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus on the cross' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus dies for us—love wins!' }
+      ],
+      caption: 'Swipe to see Jesus on the cross—love wins! ✝️',
+      videoId: 'bNq5tWl3OGk',
+      videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
+      keywords: ['crucifixion', 'cross', 'love', 'matthew 27', 'john 19', 'dies'],
+      kidContext: { who: 'Jesus', to: 'The whole world', apply: 'Jesus dies for us—love wins! He took our sins so we could be free!' }
+    },
+    roadToEmmaus: {
+      title: 'Road to Emmaus',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Two disciples walk to Emmaus' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus walks with them' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus explains—they recognize Him!' }
+      ],
+      caption: 'Swipe to see Jesus walk with us—He explains! 🛤️',
+      videoId: 'PPsWHNa84Tc',
+      videoTitle: 'Jesus on the Road to Emmaus – LifeKids!',
+      keywords: ['emmaus', 'road', 'walk', 'luke 24', 'explain', 'bread'],
+      kidContext: { who: 'Jesus', to: 'Cleopas and his friend', apply: 'Jesus walks with us—He explains! He\'s with you on every road!' }
+    },
+    ascension: {
+      title: 'Ascension',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus with His disciples' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus goes up to heaven' },
+        { src: 'panel-jesus-3.svg', alt: 'He\'s with God—He\'ll come back!' }
+      ],
+      caption: 'Swipe to see Jesus go up—He\'s with God! ☁️',
+      videoId: 'TedR27BUBfw',
+      videoTitle: 'Jesus Goes to Heaven – Stories of the Bible!',
+      keywords: ['ascension', 'heaven', 'up', 'acts 1', 'luke 24', 'promise'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus goes up—He\'s with God! He promised to come back—spread His love!' }
+    },
+    pentecost: {
+      title: 'Pentecost',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Disciples waiting in Jerusalem' },
+        { src: 'panel-jesus-2.svg', alt: 'Holy Spirit comes—wind and fire!' },
+        { src: 'panel-jesus-3.svg', alt: 'They speak in tongues—power for us!' }
+      ],
+      caption: 'Swipe to see the Holy Spirit come—power for us! 🔥',
+      videoId: '0kWV5-JQ9Yg',
+      videoTitle: 'Pentecost – God Gives Us the Holy Spirit | LifeKids!',
+      keywords: ['pentecost', 'holy spirit', 'tongues', 'acts 2', 'fire', 'wind'],
+      kidContext: { who: 'God', to: 'The disciples (and us)', apply: 'Holy Spirit comes—power for us! God fills you with His Spirit!' }
+    },
+    stephen: {
+      title: 'Stephen',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Stephen preaches about Jesus' },
+        { src: 'panel-david-2.svg', alt: 'People throw stones' },
+        { src: 'panel-david-3.svg', alt: 'Stephen forgives—be like him!' }
+      ],
+      caption: 'Swipe to see Stephen forgive—be like him! 💎',
+      videoId: 'J9wp38EfRqA',
+      videoTitle: 'The Stoning of Stephen – Bible Story!',
+      keywords: ['stephen', 'martyr', 'stones', 'forgive', 'acts 7', 'first'],
+      kidContext: { who: 'Stephen', to: 'Those who stoned him (and us)', apply: 'Stephen forgives—be like him! Even when hurt, pray for others!' }
+    },
+    paulDamascus: {
+      title: 'Paul & Damascus',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Saul on the road' },
+        { src: 'panel-jesus-2.svg', alt: 'Bright light—Jesus speaks!' },
+        { src: 'panel-jesus-3.svg', alt: 'Saul becomes Paul—Jesus changes us!' }
+      ],
+      caption: 'Swipe to see Jesus change Paul—He changes us! ✨',
+      videoId: 'oi95cv0tk9Q',
+      videoTitle: 'Paul, Jesus, and the Road to Damascus – LifeKids!',
+      keywords: ['paul', 'damascus', 'saul', 'light', 'change', 'acts 9'],
+      kidContext: { who: 'Jesus', to: 'Saul (who became Paul)', apply: 'Jesus changes Paul—He changes us! No one is too far for God!' }
+    },
+    heavenPromise: {
+      title: 'Heaven Promise',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'New heaven and new earth' },
+        { src: 'panel-noah-2.svg', alt: 'God wipes away every tear' },
+        { src: 'panel-noah-3.svg', alt: 'No more sad—God\'s new home!' }
+      ],
+      caption: 'Swipe to see God\'s new home—no more sad! 🏠',
+      videoId: 'ZWyITw1yuoA',
+      videoTitle: 'Heavenly Hope – Revelation 21 | Kids Church!',
+      keywords: ['heaven', 'revelation 21', 'no tears', 'new home', 'promise'],
+      kidContext: { who: 'God', to: 'Everyone who believes', apply: 'God makes new home—no more sad! No tears, no pain—forever with Him!' }
+    },
+    ruthBoaz: {
+      title: 'Ruth & Boaz',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Ruth stays with Naomi' },
+        { src: 'panel-david-2.svg', alt: 'Ruth gleans in Boaz\'s field' },
+        { src: 'panel-david-3.svg', alt: 'Boaz is kind—God sees!' }
+      ],
+      caption: 'Swipe to see Ruth and Boaz—be kind, God sees! 🌾',
+      videoId: 'irThVpdeSXk',
+      videoTitle: "God's Story: Ruth – Bible Story for Kids!",
+      keywords: ['ruth', 'boaz', 'loyalty', 'harvest', 'naomi', 'ruth 1'],
+      kidContext: { who: 'God', to: 'Ruth and Boaz', apply: 'Be kind—God sees! Loyalty and kindness matter to Him!' }
+    },
+    parableTalents: {
+      title: 'Parable of Talents',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Master gives money to servants' },
+        { src: 'panel-noah-2.svg', alt: 'Two servants use it—grow it!' },
+        { src: 'panel-noah-3.svg', alt: 'Use what God gave you—grow it!' }
+      ],
+      caption: 'Swipe to see servants use gifts—grow what God gave! 💰',
+      videoId: '4M7BHiN5Ro0',
+      videoTitle: "God's Story: Parable of the Talents!",
+      keywords: ['talents', 'parable', 'money', 'servants', 'matthew 25', 'gifts'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Use what God gave you—grow it! Don\'t hide your gifts—use them!' }
+    },
+    armorOfGod: {
+      title: 'Armor of God',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Belt of truth, breastplate' },
+        { src: 'panel-david-2.svg', alt: 'Helmet, shield, sword' },
+        { src: 'panel-david-3.svg', alt: 'Put on God\'s armor—you\'re strong!' }
+      ],
+      caption: 'Swipe to see God\'s armor—you\'re strong! ⚔️',
+      videoId: 'pFNzSpXhI_c',
+      videoTitle: 'The Armor of God – Stories of the Bible!',
+      keywords: ['armor', 'ephesians 6', 'helmet', 'sword', 'shield', 'truth'],
+      kidContext: { who: 'Paul', to: 'Christians in Ephesus (and us)', apply: 'Put on God\'s armor—you\'re strong! Truth, faith, peace—stand firm!' }
+    }
+  };
+
+  function getCartoonForVerse(ref, text, index) {
+    var low = (ref + ' ' + text).toLowerCase();
+    var dayIndex = index;
+    var isWeeklyStory = (dayIndex % 7) === 0;
+    var storyKeys = ['david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000', 'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation', 'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater', 'lostSheep', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower', 'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise', 'ruthBoaz', 'parableTalents', 'armorOfGod'];
+    var weeklyStoryIndex = Math.floor(dayIndex / 7) % storyKeys.length;
+    if (/armor of god|ephesians 6|helmet|sword.*spirit|breastplate/.test(low)) {
+      return { type: 'carousel', story: 'armorOfGod' };
+    }
+    if (/david.*sheep|shepherd.*david|1 samuel 17:34|harp|lion.*bear/.test(low)) {
+      return { type: 'carousel', story: 'davidSheep' };
+    }
+    if (/david|goliath|battle|1 samuel|joshua 1:9|philippians 4:13|ephesians 6:10|brave|courage|strong|strength|strengthen|strengtheneth/.test(low)) {
+      return { type: 'carousel', story: 'david' };
+    }
+    if (/noah|ark|rainbow|promise|flood|matthew 6:26|bird|fowl|feedeth|two by two/.test(low)) {
+      return { type: 'carousel', story: 'noah' };
+    }
+    if (/shepherd|psalm 23|children|matthew 19|jesus|love|john 10|john 3:16|come unto me/.test(low)) {
+      return { type: 'carousel', story: 'jesus' };
+    }
+    if (/jonah|whale|fish|obey|nineveh|big fish|run away/.test(low)) {
+      return { type: 'carousel', story: 'jonah' };
+    }
+    if (/daniel|lion|lions|den|pray|protect|shut mouths/.test(low)) {
+      return { type: 'carousel', story: 'daniel' };
+    }
+    if (/adam|eve|garden|eden|genesis 3|apple|serpent|creation/.test(low)) {
+      return { type: 'carousel', story: 'adamEve' };
+    }
+    if (/cain|abel|offering|jealous|brother|genesis 4/.test(low)) {
+      return { type: 'carousel', story: 'cainAbel' };
+    }
+    if (/babel|tower|language|languages|confusion|genesis 11/.test(low)) {
+      return { type: 'carousel', story: 'towerBabel' };
+    }
+    if (/abraham|isaac|ram|sacrifice|genesis 22|moriah/.test(low)) {
+      return { type: 'carousel', story: 'abrahamIsaac' };
+    }
+    if (/joseph|coat|dreams|genesis 37|many colors/.test(low)) {
+      return { type: 'carousel', story: 'josephCoat' };
+    }
+    if (/moses|burning bush|exodus 3|staff|bush|fire/.test(low)) {
+      return { type: 'carousel', story: 'mosesBush' };
+    }
+    if (/red sea|part.*sea|exodus 14|waters part|egypt|pharaoh/.test(low)) {
+      return { type: 'carousel', story: 'redSea' };
+    }
+    if (/manna|bread.*heaven|exodus 16|wilderness|desert.*food/.test(low)) {
+      return { type: 'carousel', story: 'manna' };
+    }
+    if (/ten commandments|commandments|exodus 20|tablets|mountain.*moses/.test(low)) {
+      return { type: 'carousel', story: 'tenCommandments' };
+    }
+    if (/samson|delilah|pillars|judges 16|hair.*strength/.test(low)) {
+      return { type: 'carousel', story: 'samson' };
+    }
+    if (/fiery furnace|shadrach|meshach|abednego|daniel 3/.test(low)) {
+      return { type: 'carousel', story: 'fieryFurnace' };
+    }
+    if (/esther|queen|such a time|save.*people|haman/.test(low)) {
+      return { type: 'carousel', story: 'esther' };
+    }
+    if (/luke 2|bethlehem|manger|shepherds|christmas|jesus.*born/.test(low)) {
+      return { type: 'carousel', story: 'jesusBirth' };
+    }
+    if (/calm.*storm|storm.*calm|boat|waves|matthew 14:27|mark 4/.test(low)) {
+      return { type: 'carousel', story: 'jesusCalmsStorm' };
+    }
+    if (/feeds 5000|5000|five thousand|loaves|fish.*bread|matthew 14:19|john 6/.test(low)) {
+      return { type: 'carousel', story: 'jesusFeeds5000' };
+    }
+    if (/good samaritan|samaritan|neighbor|luke 10/.test(low)) {
+      return { type: 'carousel', story: 'goodSamaritan' };
+    }
+    if (/prodigal|lost son|luke 15|come back|welcome home/.test(low)) {
+      return { type: 'carousel', story: 'prodigalSon' };
+    }
+    if (/zacchaeus|sycamore|tree.*jesus|luke 19/.test(low)) {
+      return { type: 'carousel', story: 'zacchaeus' };
+    }
+    if (/lazarus|come out|john 11|raised.*dead/.test(low)) {
+      return { type: 'carousel', story: 'lazarus' };
+    }
+    if (/resurrection|empty tomb|risen|easter|matthew 28|john 20/.test(low)) {
+      return { type: 'carousel', story: 'resurrection' };
+    }
+    if (/creation|genesis 1|let there be light|god made/.test(low)) {
+      return { type: 'carousel', story: 'creation' };
+    }
+    if (/jericho|walls fall|joshua 6|trumpets/.test(low)) {
+      return { type: 'carousel', story: 'fallOfJericho' };
+    }
+    if (/elijah|baal|carmel|1 kings 18|fire.*heaven/.test(low)) {
+      return { type: 'carousel', story: 'elijahFire' };
+    }
+    if (/elisha|widow.*oil|2 kings 4|oil.*jar/.test(low)) {
+      return { type: 'carousel', story: 'elishaOil' };
+    }
+    if (/naaman|jordan.*dip|2 kings 5|leprosy/.test(low)) {
+      return { type: 'carousel', story: 'naaman' };
+    }
+    if (/walks on water|walk.*water|matthew 14:25|peter.*water/.test(low)) {
+      return { type: 'carousel', story: 'jesusWalksWater' };
+    }
+    if (/lost sheep|parable.*sheep|luke 15:6|ninety.*nine/.test(low)) {
+      return { type: 'carousel', story: 'lostSheep' };
+    }
+    if (/palm sunday|hosanna|donkey.*jerusalem|matthew 21:9|luke 19:38/.test(low)) {
+      return { type: 'carousel', story: 'palmSunday' };
+    }
+    if (/last supper|bread.*wine|luke 22:19|matthew 26:26|passover/.test(low)) {
+      return { type: 'carousel', story: 'lastSupper' };
+    }
+    if (/temptation|matthew 4|devil|desert|stones.*bread/.test(low)) {
+      return { type: 'carousel', story: 'jesusTemptation' };
+    }
+    if (/sower|parable.*seed|matthew 13|mark 4.*seed|soil/.test(low)) {
+      return { type: 'carousel', story: 'parableSower' };
+    }
+    if (/rich young ruler|mark 10:17|matthew 19:16|sell.*possessions/.test(low)) {
+      return { type: 'carousel', story: 'richYoungRuler' };
+    }
+    if (/widow.*mite|widow.*coin|mark 12:41|luke 21:2/.test(low)) {
+      return { type: 'carousel', story: 'widowsMite' };
+    }
+    if (/gethsemane|garden.*prayer|matthew 26:36|mark 14:32/.test(low)) {
+      return { type: 'carousel', story: 'gardenPrayer' };
+    }
+    if (/judas|betrayal|kiss.*betray|matthew 26:48/.test(low)) {
+      return { type: 'carousel', story: 'betrayal' };
+    }
+    if (/pilate|trial|john 18:28|matthew 27:11/.test(low)) {
+      return { type: 'carousel', story: 'trial' };
+    }
+    if (/crucifixion|cross|calvary|matthew 27:33|john 19:17/.test(low)) {
+      return { type: 'carousel', story: 'crucifixion' };
+    }
+    if (/emmaus|luke 24:13|road.*walk|cleopas/.test(low)) {
+      return { type: 'carousel', story: 'roadToEmmaus' };
+    }
+    if (/ascension|acts 1:9|goes.*heaven|luke 24:51/.test(low)) {
+      return { type: 'carousel', story: 'ascension' };
+    }
+    if (/pentecost|holy spirit|acts 2|tongues.*fire/.test(low)) {
+      return { type: 'carousel', story: 'pentecost' };
+    }
+    if (/stephen|acts 7|stoning|martyr/.test(low)) {
+      return { type: 'carousel', story: 'stephen' };
+    }
+    if (/paul|damascus|saul.*convert|acts 9/.test(low)) {
+      return { type: 'carousel', story: 'paulDamascus' };
+    }
+    if (/revelation 21|no tears|new jerusalem|heaven.*promise/.test(low)) {
+      return { type: 'carousel', story: 'heavenPromise' };
+    }
+    if (/ruth|boaz|naomi|ruth 1|glean|harvest/.test(low)) {
+      return { type: 'carousel', story: 'ruthBoaz' };
+    }
+    if (/parable.*talent|talents|matthew 25|servants.*money/.test(low)) {
+      return { type: 'carousel', story: 'parableTalents' };
+    }
+    if (isWeeklyStory) {
+      return { type: 'carousel', story: storyKeys[weeklyStoryIndex] };
+    }
+    var panels = [
+      { type: 'single', src: 'panel-david.svg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+      { type: 'single', src: 'panel-noah.svg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
+      { type: 'single', src: 'panel-jesus.svg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
+      { type: 'single', src: 'panel-jonah.svg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
+      { type: 'single', src: 'panel-daniel.svg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
+    ];
+    return panels[index % 5];
+  }
+
   function getStreakData() {
     try {
       const raw = localStorage.getItem(KIDS_STREAK_KEY);
@@ -810,7 +2054,7 @@
     try { localStorage.setItem(KIDS_STREAK_KEY, JSON.stringify(data)); } catch (e) {}
   }
 
-  function markTodayDone() {
+  function markTodayDone(reflectionBonus) {
     const today = getDailyKey();
     const data = getStreakData();
     const last = data.lastKey || '';
@@ -819,6 +2063,7 @@
     if (last !== today) {
       nextCount = last ? count + 1 : 1;
     }
+    if (reflectionBonus) nextCount += 0.5;
     saveStreakData({ lastKey: today, count: nextCount });
     return nextCount;
   }
@@ -845,21 +2090,49 @@
 
   function renderVerseAndPrayer() {
     var index = getNextVerseIndex();
+    var q = '';
+    try {
+      var params = new URLSearchParams(typeof location !== 'undefined' ? location.search : '');
+      q = (params.get('q') || '').trim();
+    } catch (e) {}
+    if (q) {
+      var indices = getFilteredVerseIndices(q);
+      if (indices.length > 0) index = indices[0];
+    }
     var v = KIDS_VERSES[index];
     var p = KIDS_PRAYERS[index];
     var refEl = document.getElementById('kids-verse-ref');
     var textEl = document.getElementById('kids-verse-text');
     var prayerEl = document.getElementById('kids-prayer-text');
+    var kidText = getKidText(v.ref) || v.text;
     if (refEl) refEl.textContent = v.ref;
-    if (textEl) textEl.textContent = v.text;
+    if (textEl) textEl.textContent = kidText;
     if (prayerEl) prayerEl.textContent = p;
-    try {
-      localStorage.setItem(KIDS_VERSE_INDEX_KEY, String((index + 1) % KIDS_VERSES.length));
-    } catch (e) {}
+    renderKidContext(v.ref);
+    var cartoon = getCartoonForVerse(v.ref, v.text, index);
+    var container = document.getElementById('kids-cartoon-container');
+    if (!container) return;
+    if (cartoon.type === 'carousel') {
+      var story = bibleStories[cartoon.story];
+      var panelsHtml = (story.panels || []).map(function (p) {
+        return '<img src="' + p.src + '" alt="' + (p.alt || '') + '" class="comic-panel" width="200" height="160">';
+      }).join('');
+      var videoTitle = (story.videoTitle || '').replace(/"/g, '&quot;');
+      var btnHtml = story.videoId ? '<button type="button" class="watch-video-btn" data-video-id="' + story.videoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+      container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + (story.caption || '') + '</p>' + btnHtml + '</div>';
+    } else {
+      container.innerHTML = '<div class="bible-cartoon ' + cartoon.anim + '"><img src="' + cartoon.src + '" alt="' + cartoon.alt + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + cartoon.caption + '</p></div>';
+    }
+    if (!q) {
+      try {
+        localStorage.setItem(KIDS_VERSE_INDEX_KEY, String((index + 1) % KIDS_VERSES.length));
+      } catch (e) {}
+    }
   }
 
   function renderStreak() {
-    const streak = getCurrentStreak();
+    const raw = getCurrentStreak();
+    const streak = Math.ceil(raw);
     const el = document.getElementById('kids-streak-display');
     if (el) {
       el.textContent = streak >= 1
@@ -962,18 +2235,438 @@
     setTimeout(function () { wrap.remove(); }, 800);
   }
 
+  function getCurrentVerseRef() {
+    var refEl = document.getElementById('kids-verse-ref');
+    return refEl ? refEl.textContent.trim() : '';
+  }
+
+  function getVerseIndex(ref) {
+    if (!ref) return -1;
+    var r = ref.toLowerCase().trim();
+    for (var i = 0; i < KIDS_VERSES.length; i++) {
+      if (KIDS_VERSES[i].ref.toLowerCase().trim() === r) return i;
+    }
+    return -1;
+  }
+
+  function loadKidReflection() {
+    var inp = document.getElementById('kid-reflection');
+    if (!inp) return;
+    try {
+      var raw = localStorage.getItem(KID_REFLECTION_KEY);
+      var val = raw ? JSON.parse(raw) : {};
+      var today = getDailyKey();
+      var entry = val[today];
+      inp.value = (entry && entry.text) ? entry.text : '';
+    } catch (e) {}
+  }
+
+  function saveKidReflection() {
+    var inp = document.getElementById('kid-reflection');
+    if (!inp) return;
+    try {
+      var raw = localStorage.getItem(KID_REFLECTION_KEY);
+      var val = raw ? JSON.parse(raw) : {};
+      var today = getDailyKey();
+      var text = (inp.value || '').trim();
+      var verse = getCurrentVerseRef();
+      val[today] = { date: new Date().toDateString(), text: text, verse: verse };
+      localStorage.setItem(KID_REFLECTION_KEY, JSON.stringify(val));
+      showKidReflectionSaved(false);
+      syncKidReflectionToSupabase(today, text, verse);
+    } catch (e) {}
+  }
+
+  var kidReflectionQueue = [];
+
+  function showKidReflectionSaved(synced) {
+    var el = document.getElementById('kid-reflection-saved');
+    if (!el) return;
+    el.textContent = synced ? 'Synced! ⭐' : 'Saved! ⭐';
+    el.classList.remove('hidden');
+    clearTimeout(showKidReflectionSaved._t);
+    showKidReflectionSaved._t = setTimeout(function () { el.classList.add('hidden'); }, 2000);
+  }
+
+  function syncKidReflectionToSupabase(dateKey, text, verseRef) {
+    var code = null;
+    try { code = localStorage.getItem(KIDS_FAMILY_CODE_KEY); } catch (e) {}
+    if (!code || code.length !== 6) return;
+    var cfg = window.TDB_CONFIG || {};
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) return;
+    var item = { p_code: code, p_date: dateKey, p_verse: verseRef || '', p_text: text || '' };
+    if (!navigator.onLine) {
+      kidReflectionQueue.push(item);
+      return;
+    }
+    try {
+      var supabase = window.supabase && window.supabase.createClient ? window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY) : null;
+      if (!supabase) return;
+      supabase.rpc('upsert_kid_reflection', item)
+        .then(function (res) {
+          if (res.error) { kidReflectionQueue.push(item); return; }
+          showKidReflectionSaved(true);
+        })
+        .catch(function () { kidReflectionQueue.push(item); });
+    } catch (e) { kidReflectionQueue.push(item); }
+  }
+
+  function flushKidReflectionQueue() {
+    if (kidReflectionQueue.length === 0 || !navigator.onLine) return;
+    var cfg = window.TDB_CONFIG || {};
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) return;
+    try {
+      var supabase = window.supabase && window.supabase.createClient ? window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY) : null;
+      if (!supabase) return;
+      var items = kidReflectionQueue.splice(0);
+      kidReflectionQueue = [];
+      items.forEach(function (item) {
+        supabase.rpc('upsert_kid_reflection', item)
+          .then(function (res) { if (res && res.error) kidReflectionQueue.push(item); })
+          .catch(function () { kidReflectionQueue.push(item); });
+      });
+    } catch (e) {}
+  }
+
+  function wireKidReflection() {
+    var inp = document.getElementById('kid-reflection');
+    if (!inp) return;
+    var saveTimer;
+    inp.addEventListener('input', function () {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveKidReflection, 500);
+    });
+    inp.addEventListener('blur', saveKidReflection);
+    window.addEventListener('online', flushKidReflectionQueue);
+  }
+
+  function getQuizKeyForVerse(ref) {
+    if (!ref || typeof ref !== 'string') return 'default';
+    var s = ref.toLowerCase().trim().replace(/\s+/g, ' ');
+    var m = s.match(/^(\d?\s*\w+)\s+(\d+)/);
+    if (m) return (m[1] + ' ' + m[2]).trim();
+    return 'default';
+  }
+
+  function getQuizForVerse(ref) {
+    var key = getQuizKeyForVerse(ref);
+    return KID_QUIZ_QUESTIONS[key] || KID_QUIZ_QUESTIONS['default'];
+  }
+
+  function isQuizDoneToday() {
+    try {
+      return localStorage.getItem(KID_QUIZ_DONE_KEY) === getDailyKey();
+    } catch (e) { return false; }
+  }
+
+  function setQuizDoneToday() {
+    try {
+      localStorage.setItem(KID_QUIZ_DONE_KEY, getDailyKey());
+    } catch (e) {}
+  }
+
+  function triggerQuizConfetti() {
+    var colors = ['#ffd93d', '#4dabf7', '#ffd93d', '#339af0', '#ffd93d', '#4dabf7'];
+    var wrap = document.createElement('div');
+    wrap.className = 'kids-quiz-confetti-wrap';
+    wrap.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:10000;overflow:visible;';
+    for (var i = 0; i < 24; i++) {
+      var p = document.createElement('span');
+      p.className = 'kids-quiz-confetti-piece';
+      p.style.background = colors[i % colors.length];
+      p.style.setProperty('--dx', (Math.random() - 0.5) * 200 + 'px');
+      p.style.setProperty('--dy', (Math.random() - 0.5) * 200 + 'px');
+      wrap.appendChild(p);
+    }
+    document.body.appendChild(wrap);
+    setTimeout(function () { wrap.remove(); }, 1200);
+  }
+
+  function wireQuiz() {
+    var btn = document.getElementById('kids-quiz-btn');
+    var modal = document.getElementById('kids-quiz-modal');
+    var closeBtn = document.getElementById('kids-quiz-close');
+    var submitBtn = document.getElementById('kids-quiz-submit');
+    var questionsEl = document.getElementById('kids-quiz-questions');
+    var resultEl = document.getElementById('kids-quiz-result');
+    var resultMsg = document.getElementById('kids-quiz-result-msg');
+    var resultClose = document.getElementById('kids-quiz-result-close');
+    if (!btn || !modal || !questionsEl) return;
+
+    function renderQuizButton() {
+      var done = isQuizDoneToday();
+      btn.disabled = done;
+      btn.textContent = done ? 'Quiz done today! ✓' : 'Quiz Time! 🎉';
+    }
+
+    function openQuiz() {
+      if (isQuizDoneToday()) return;
+      var ref = getCurrentVerseRef();
+      var questions = getQuizForVerse(ref);
+      questionsEl.innerHTML = '';
+      questions.forEach(function (q, i) {
+        var wrap = document.createElement('div');
+        wrap.className = 'kids-quiz-q-wrap';
+        wrap.dataset.correct = String(q.correct);
+        var opts = (q.options || []).slice();
+        opts.forEach(function (opt, j) {
+          var label = document.createElement('label');
+          label.className = 'kids-quiz-option';
+          label.innerHTML = '<input type="radio" name="quiz-q' + i + '" value="' + j + '" aria-label="' + (opt || '').replace(/"/g, '&quot;') + '"> <span>' + (opt || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
+          wrap.appendChild(label);
+        });
+        var title = document.createElement('p');
+        title.className = 'kids-quiz-q-title';
+        title.textContent = (i + 1) + '. ' + (q.question || '');
+        wrap.insertBefore(title, wrap.firstChild);
+        questionsEl.appendChild(wrap);
+      });
+      resultEl.classList.add('hidden');
+      submitBtn.classList.remove('hidden');
+      modal.classList.remove('hidden');
+    }
+
+    function closeQuiz() {
+      modal.classList.add('hidden');
+      renderQuizButton();
+    }
+
+    function scoreQuiz() {
+      var wraps = questionsEl.querySelectorAll('.kids-quiz-q-wrap');
+      var correct = 0;
+      wraps.forEach(function (wrap) {
+        var rad = wrap.querySelector('input:checked');
+        var ans = rad ? parseInt(rad.value, 10) : -1;
+        var corr = parseInt(wrap.dataset.correct || '0', 10);
+        if (ans === corr) {
+          correct++;
+          wrap.classList.add('kids-quiz-correct');
+        } else {
+          wrap.classList.add('kids-quiz-wrong');
+        }
+      });
+      return correct;
+    }
+
+    btn.addEventListener('click', openQuiz);
+    closeBtn && closeBtn.addEventListener('click', closeQuiz);
+    submitBtn.addEventListener('click', function () {
+      var score = scoreQuiz();
+      var total = questionsEl.querySelectorAll('.kids-quiz-q-wrap').length;
+      submitBtn.classList.add('hidden');
+      resultEl.classList.remove('hidden');
+      if (score === total && total >= 3) {
+        resultMsg.textContent = 'Awesome! +1 streak 🔥';
+        resultMsg.classList.remove('kids-quiz-fail');
+        resultMsg.classList.add('kids-quiz-win');
+        triggerQuizConfetti();
+        var prevStreak = getCurrentStreak();
+        var data = getStreakData();
+        var count = Number(data.count || 0);
+        saveStreakData({ lastKey: getDailyKey(), count: count + 1 });
+        setQuizDoneToday();
+        syncKidStreak();
+        renderStreak();
+        renderDoneState();
+        renderComeBackNudge();
+        renderBadges(Math.ceil(prevStreak));
+        renderFaithTrail();
+      } else {
+        resultMsg.textContent = 'Try again tomorrow! 🌟';
+        resultMsg.classList.remove('kids-quiz-win');
+        resultMsg.classList.add('kids-quiz-fail');
+      }
+    });
+    resultClose && resultClose.addEventListener('click', closeQuiz);
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeQuiz();
+    });
+    renderQuizButton();
+  }
+
+  function isMemoryDoneToday() {
+    try {
+      return localStorage.getItem(KID_MEMORY_DONE_KEY) === getDailyKey();
+    } catch (e) { return false; }
+  }
+
+  function setMemoryDoneToday() {
+    try {
+      localStorage.setItem(KID_MEMORY_DONE_KEY, getDailyKey());
+    } catch (e) {}
+  }
+
+  function pickBlanksFromVerse(text) {
+    if (!text || typeof text !== 'string') return [];
+    var skip = { 'the': 1, 'and': 1, 'for': 1, 'that': 1, 'with': 1, 'his': 1, 'her': 1, 'him': 1, 'you': 1, 'thy': 1, 'thou': 1, 'unto': 1, 'have': 1, 'has': 1, 'are': 1, 'was': 1, 'is': 1, 'a': 1, 'an': 1, 'of': 1, 'to': 1, 'in': 1, 'it': 1, 'be': 1, 'not': 1, 'he': 1, 'me': 1, 'my': 1, 'so': 1 };
+    var words = text.replace(/[.,;:!?]/g, '').split(/\s+/);
+    var candidates = [];
+    for (var i = 0; i < words.length; i++) {
+      var w = words[i];
+      if (w.length >= 4 && !skip[w.toLowerCase()]) candidates.push({ word: w, index: i });
+    }
+    if (candidates.length < 3) {
+      candidates = [];
+      for (var j = 0; j < words.length && candidates.length < 3; j++) {
+        if (words[j].length >= 2) candidates.push({ word: words[j], index: j });
+      }
+    }
+    return candidates.slice(0, 3);
+  }
+
+  function wireMemory() {
+    var btn = document.getElementById('kids-memory-btn');
+    var modal = document.getElementById('kids-memory-modal');
+    var closeBtn = document.getElementById('kids-memory-close');
+    var blanksEl = document.getElementById('kids-memory-blanks');
+    var refEl = document.getElementById('kids-memory-ref');
+    var submitBtn = document.getElementById('kids-memory-submit');
+    var resultEl = document.getElementById('kids-memory-result');
+    var resultMsg = document.getElementById('kids-memory-result-msg');
+    var nextBtn = document.getElementById('kids-memory-next');
+    if (!btn || !modal || !blanksEl) return;
+
+    function renderMemoryButton() {
+      btn.disabled = isMemoryDoneToday();
+      btn.textContent = isMemoryDoneToday() ? 'Memorized today! ✓' : 'Memorize This! 🧠';
+    }
+
+    function openMemory() {
+      if (isMemoryDoneToday()) return;
+      var ref = getCurrentVerseRef();
+      var idx = getVerseIndex(ref);
+      if (idx < 0 || idx >= KIDS_VERSES.length) return;
+      var v = KIDS_VERSES[idx];
+      var text = getKidText(v.ref) || v.text;
+      var blanks = pickBlanksFromVerse(text);
+      if (blanks.length < 1) return;
+      var words = text.replace(/[.,;:!?]/g, '').split(/\s+/);
+      var blankIndices = {};
+      blanks.forEach(function (b) { blankIndices[b.index] = b.word; });
+      if (refEl) refEl.textContent = ref;
+      blanksEl.innerHTML = '';
+      var verseHtml = '<p class="kids-memory-verse">';
+      for (var k = 0; k < words.length; k++) {
+        if (blankIndices[k] !== undefined) {
+          verseHtml += '_____ ';
+        } else {
+          verseHtml += escapeHtml(words[k]) + ' ';
+        }
+      }
+      verseHtml += '</p>';
+      blanksEl.innerHTML = verseHtml;
+      blanks.forEach(function (b, i) {
+        var wrap = document.createElement('div');
+        wrap.className = 'kids-memory-input-wrap';
+        wrap.dataset.answer = b.word.toLowerCase();
+        wrap.dataset.hint = 'Starts with ' + (b.word.charAt(0).toUpperCase()) + '!';
+        var label = document.createElement('label');
+        label.textContent = 'Word ' + (i + 1) + ':';
+        label.className = 'kids-memory-label';
+        var inp = document.createElement('input');
+        inp.type = 'text';
+        inp.className = 'kids-memory-input';
+        inp.placeholder = 'Type the word';
+        inp.autocomplete = 'off';
+        inp.setAttribute('aria-label', 'Word ' + (i + 1));
+        wrap.appendChild(label);
+        wrap.appendChild(inp);
+        blanksEl.appendChild(wrap);
+      });
+      resultEl.classList.add('hidden');
+      submitBtn.classList.remove('hidden');
+      modal.classList.remove('hidden');
+    }
+
+    function closeMemory() {
+      modal.classList.add('hidden');
+      renderMemoryButton();
+    }
+
+    function triggerMemoryConfetti() {
+      var colors = ['#ffd93d', '#4dabf7', '#ffd93d', '#339af0'];
+      var wrap = document.createElement('div');
+      wrap.className = 'kids-quiz-confetti-wrap';
+      wrap.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:10000;overflow:visible;';
+      for (var i = 0; i < 20; i++) {
+        var p = document.createElement('span');
+        p.className = 'kids-quiz-confetti-piece';
+        p.style.background = colors[i % colors.length];
+        p.style.setProperty('--dx', (Math.random() - 0.5) * 180 + 'px');
+        p.style.setProperty('--dy', (Math.random() - 0.5) * 180 + 'px');
+        wrap.appendChild(p);
+      }
+      document.body.appendChild(wrap);
+      setTimeout(function () { wrap.remove(); }, 1000);
+    }
+
+    btn.addEventListener('click', openMemory);
+    closeBtn && closeBtn.addEventListener('click', closeMemory);
+    nextBtn && nextBtn.addEventListener('click', closeMemory);
+    submitBtn.addEventListener('click', function () {
+      var wraps = blanksEl.querySelectorAll('.kids-memory-input-wrap');
+      var correct = 0;
+      wraps.forEach(function (wrap) {
+        var inp = wrap.querySelector('.kids-memory-input');
+        var ans = (inp ? inp.value : '').trim().toLowerCase();
+        var expected = (wrap.dataset.answer || '').toLowerCase();
+        var hint = wrap.dataset.hint || 'Try again!';
+        var hintEl = wrap.querySelector('.kids-memory-hint');
+        if (ans === expected) {
+          correct++;
+          wrap.classList.remove('kids-memory-wrong');
+          wrap.classList.add('kids-memory-correct');
+          if (hintEl) hintEl.remove();
+        } else {
+          wrap.classList.remove('kids-memory-correct');
+          wrap.classList.add('kids-memory-wrong');
+          if (!hintEl) {
+            var h = document.createElement('span');
+            h.className = 'kids-memory-hint';
+            h.textContent = hint;
+            wrap.appendChild(h);
+          }
+        }
+      });
+      if (correct === wraps.length && wraps.length >= 1) {
+        submitBtn.classList.add('hidden');
+        resultEl.classList.remove('hidden');
+        resultMsg.textContent = 'You got it! +0.5 streak 🔥';
+        resultMsg.classList.remove('kids-memory-fail');
+        resultMsg.classList.add('kids-memory-win');
+        triggerMemoryConfetti();
+        var data = getStreakData();
+        var count = Number(data.count || 0);
+        saveStreakData({ lastKey: data.lastKey || getDailyKey(), count: count + 0.5 });
+        setMemoryDoneToday();
+        syncKidStreak();
+        renderStreak();
+        renderBadges(Math.ceil(count));
+        renderFaithTrail();
+      }
+    });
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeMemory();
+    });
+    renderMemoryButton();
+  }
+
   function wireMarkDone() {
     const btn = document.getElementById('kids-mark-done');
     if (!btn) return;
     btn.addEventListener('click', function () {
       if (isDoneToday()) return;
+      saveKidReflection();
+      var reflectionText = (document.getElementById('kid-reflection') || {}).value || '';
+      var reflectionBonus = reflectionText.trim().length > 10;
       var prevStreak = getCurrentStreak();
-      markTodayDone();
+      markTodayDone(reflectionBonus);
       renderStreak();
       renderDoneState();
       renderComeBackNudge();
-      renderBadges(prevStreak);
+      renderBadges(Math.ceil(prevStreak));
       renderFaithTrail();
+      syncKidStreak();
     });
   }
 
@@ -1040,6 +2733,32 @@
       } catch (e) {}
     }
 
+    function uploadDoodleToSupabase() {
+      var familyCode = null;
+      try { familyCode = localStorage.getItem(KIDS_FAMILY_CODE_KEY); } catch (e) {}
+      if (!familyCode || !navigator.onLine) return;
+      var cfg = window.TDB_CONFIG || {};
+      var supabaseUrl = cfg.SUPABASE_URL;
+      var supabaseKey = cfg.SUPABASE_ANON_KEY;
+      if (!supabaseUrl || !supabaseKey) return;
+      var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
+      if (!supabase || !supabase.createClient) return;
+      var kidName = getKidName() || 'Kiddo';
+      var safeName = kidName.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 20);
+      var path = 'doodles/' + familyCode + '/' + safeName + '-' + Date.now() + '.png';
+      fetch(canvas.toDataURL('image/png'))
+        .then(function (r) { return r.blob(); })
+        .then(function (blob) {
+          var client = supabase.createClient(supabaseUrl, supabaseKey);
+          return client.storage.from('kid-doodles').upload(path, blob, { contentType: 'image/png', upsert: false });
+        })
+        .then(function (res) {
+          if (res.error) return;
+          try { localStorage.setItem(KIDS_DOODLE_KEY + getDailyKey() + '_uploaded', '1'); } catch (e) {}
+        })
+        .catch(function () {});
+    }
+
     openBtn.addEventListener('click', function () {
       initCanvas();
       modal.classList.remove('hidden');
@@ -1078,6 +2797,7 @@
 
     if (saveBtn) saveBtn.addEventListener('click', function () {
       saveToLocal();
+      uploadDoodleToSupabase();
       modal.classList.add('hidden');
     });
 
@@ -1256,37 +2976,489 @@
     });
   }
 
+  var TOPIC_KEYWORDS = {
+    brave: 'brave|courage|strong|strength|strengthen|afraid',
+    friends: 'friend|kind|love|together|one another',
+    love: 'love|loved|loveth|charity',
+    animals: 'bird|fowl|feedeth|ark|noah|animal|sheep|lion',
+    strength: 'strength|strong|strengthen|power',
+    peace: 'peace|rest|calm'
+  };
+
+  function getFilteredVerseIndices(topicOrQuery) {
+    if (!KIDS_VERSES.length) return [];
+    var q = String(topicOrQuery || '').toLowerCase().trim();
+    if (!q) return [];
+    var pattern = TOPIC_KEYWORDS[q] || q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var re = new RegExp(pattern, 'i');
+    var indices = [];
+    for (var i = 0; i < KIDS_VERSES.length; i++) {
+      var v = KIDS_VERSES[i];
+      var combined = v.ref + ' ' + v.text;
+      if (re.test(combined)) indices.push(i);
+    }
+    return indices;
+  }
+
+  function renderKidContext(ref) {
+    var ctxEl = document.getElementById('kids-verse-context');
+    if (!ctxEl) return;
+    var key = (ref || '').toLowerCase().trim();
+    var ctx = KID_CONTEXT[key];
+    if (!ctx) {
+      ctxEl.classList.add('hidden');
+      ctxEl.innerHTML = '';
+      return;
+    }
+    ctxEl.classList.remove('hidden');
+    ctxEl.innerHTML = '<p class="kids-context-who"><strong>Who said it:</strong> ' + (ctx.who || '').replace(/</g, '&lt;') + '</p>' +
+      '<p class="kids-context-to"><strong>To whom:</strong> ' + (ctx.to || '').replace(/</g, '&lt;') + '</p>' +
+      '<p class="kids-context-apply"><strong>For you:</strong> ' + (ctx.apply || '').replace(/</g, '&lt;') + '</p>';
+  }
+
+  function setMainVerse(index) {
+    if (index < 0 || index >= KIDS_VERSES.length) return;
+    var v = KIDS_VERSES[index];
+    var p = KIDS_PRAYERS[index];
+    var kidText = getKidText(v.ref) || v.text;
+    var refEl = document.getElementById('kids-verse-ref');
+    var textEl = document.getElementById('kids-verse-text');
+    var prayerEl = document.getElementById('kids-prayer-text');
+    if (refEl) refEl.textContent = v.ref;
+    if (textEl) textEl.textContent = kidText;
+    if (prayerEl) prayerEl.textContent = p;
+    renderKidContext(v.ref);
+    var cartoon = getCartoonForVerse(v.ref, v.text, index);
+    var container = document.getElementById('kids-cartoon-container');
+    if (container) {
+      if (cartoon.type === 'carousel') {
+        var story = bibleStories[cartoon.story];
+        var panelsHtml = (story.panels || []).map(function (p) {
+          return '<img src="' + p.src + '" alt="' + (p.alt || '') + '" class="comic-panel" width="200" height="160">';
+        }).join('');
+        var videoTitle = (story.videoTitle || '').replace(/"/g, '&quot;');
+        var btnHtml = story.videoId ? '<button type="button" class="watch-video-btn" data-video-id="' + story.videoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+        container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + (story.caption || '') + '</p>' + btnHtml + '</div>';
+      } else {
+        container.innerHTML = '<div class="bible-cartoon ' + cartoon.anim + '"><img src="' + cartoon.src + '" alt="' + cartoon.alt + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + cartoon.caption + '</p></div>';
+      }
+    }
+  }
+
+  function getKidText(ref) {
+    var key = (ref || '').toLowerCase().trim();
+    return KID_FRIENDLY_TRANSLATIONS[key] || null;
+  }
+
+  function getKidContext(ref) {
+    var key = (ref || '').toLowerCase().trim();
+    var ctx = KID_CONTEXT[key];
+    if (ctx) return ctx;
+    return { who: 'God or a Bible hero', to: 'people like you', apply: 'Talk to God about it today!' };
+  }
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  }
+
+  function renderFilteredResults(topicOrQuery) {
+    var resultsEl = document.getElementById('kids-search-results');
+    if (!resultsEl) return;
+    var indices = getFilteredVerseIndices(topicOrQuery);
+    var maxShow = 5;
+    if (indices.length === 0) {
+      resultsEl.innerHTML = '<p class="kids-search-no-match">Try "brave" or "friends"!</p>';
+      resultsEl.classList.remove('hidden');
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < Math.min(indices.length, maxShow); i++) {
+      var idx = indices[i];
+      var v = KIDS_VERSES[idx];
+      var p = KIDS_PRAYERS[idx];
+      var kidText = getKidText(v.ref) || v.text;
+      var ctx = getKidContext(v.ref);
+      var refEsc = escapeHtml(v.ref);
+      var textEsc = escapeHtml(kidText);
+      var whoEsc = escapeHtml(ctx.who);
+      var toEsc = escapeHtml(ctx.to);
+      var applyEsc = escapeHtml(ctx.apply);
+      html += '<button type="button" class="kids-result-card" data-index="' + idx + '">' +
+        '<span class="kids-result-ref">' + refEsc + '</span>' +
+        '<span class="kids-result-text">"' + textEsc + '"</span>' +
+        '<span class="kids-result-context">' +
+        'Who said it? ' + whoEsc + '<br>' +
+        'Who he said it to? ' + toEsc + '<br>' +
+        'How to use it today? ' + applyEsc +
+        '</span>' +
+        '</button>';
+    }
+    resultsEl.innerHTML = html;
+    resultsEl.classList.remove('hidden');
+  }
+
+  function applyTopicFilter(topicOrQuery) {
+    var indices = getFilteredVerseIndices(topicOrQuery);
+    renderFilteredResults(topicOrQuery);
+    if (indices.length > 0) {
+      setMainVerse(indices[0]);
+    }
+  }
+
   function renderKidsTopicButtons() {
     var container = document.getElementById('kids-topic-buttons');
     if (!container || !Array.isArray(KIDS_TOPICS) || KIDS_TOPICS.length === 0) return;
-    var base = (typeof location !== 'undefined' && location.origin) ? location.origin : '';
     var html = '';
     KIDS_TOPICS.forEach(function (item) {
-      var href = base + '/?q=' + encodeURIComponent(item.topic) + '#quick-search-hero';
-      html += '<a href="' + href + '" class="kids-topic-btn" data-topic="' + (item.topic || '').replace(/"/g, '&quot;') + '">' + (item.label || item.topic) + '</a>';
+      html += '<button type="button" class="kids-topic-btn" data-topic="' + (item.topic || '').replace(/"/g, '&quot;') + '">' + (item.label || item.topic) + '</button>';
     });
     container.innerHTML = html;
+  }
+
+  function wireKidsSearch() {
+    var form = document.getElementById('kids-search-form');
+    var input = document.getElementById('kids-search-input');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var query = input ? input.value : '';
+        applyTopicFilter(query);
+      });
+    }
+    try {
+      var params = new URLSearchParams(typeof location !== 'undefined' ? location.search : '');
+      var q = (params.get('q') || '').trim();
+      if (q && input) {
+        input.value = q;
+        renderFilteredResults(q);
+      }
+    } catch (e) {}
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.kids-topic-btn') : null;
+      if (btn && btn.getAttribute('data-topic')) {
+        e.preventDefault();
+        var topic = btn.getAttribute('data-topic');
+        if (input) input.value = topic;
+        applyTopicFilter(topic);
+      }
+      var card = e.target && e.target.closest ? e.target.closest('.kids-result-card') : null;
+      if (card && card.getAttribute('data-index')) {
+        e.preventDefault();
+        var idx = parseInt(card.getAttribute('data-index'), 10);
+        if (!isNaN(idx)) setMainVerse(idx);
+      }
+    });
+  }
+
+  function wireVideoModal() {
+    document.addEventListener('click', function (e) {
+      if (e.target.classList && e.target.classList.contains('watch-video-btn')) {
+        var id = e.target.getAttribute('data-video-id');
+        var title = e.target.getAttribute('data-title') || '';
+        if (!id) return;
+        var titleEl = document.getElementById('video-modal-title');
+        var frameEl = document.getElementById('video-frame');
+        var modalEl = document.getElementById('video-modal');
+        if (titleEl) titleEl.textContent = title.replace(/&quot;/g, '"');
+        if (frameEl) frameEl.src = 'https://www.youtube.com/embed/' + id + '?rel=0&modestbranding=1&playsinline=1';
+        if (modalEl) modalEl.classList.remove('hidden');
+      }
+      if (e.target.id === 'video-modal' || (e.target.classList && e.target.classList.contains('kids-video-modal-close'))) {
+        var modal = document.getElementById('video-modal');
+        var frame = document.getElementById('video-frame');
+        if (modal) modal.classList.add('hidden');
+        if (frame) frame.src = '';
+      }
+    });
+  }
+
+  function renderFamilyCode() {
+    var section = document.getElementById('kids-family-code-section');
+    var form = document.getElementById('kids-family-code-form');
+    var status = document.getElementById('kids-family-code-status');
+    var errorEl = document.getElementById('kids-family-code-error');
+    if (!section || !form || !status) return;
+    var code = null;
+    try { code = localStorage.getItem(KIDS_FAMILY_CODE_KEY); } catch (e) {}
+    if (errorEl) errorEl.classList.add('hidden');
+    if (code) {
+      form.classList.add('hidden');
+      status.classList.remove('hidden');
+    } else {
+      form.classList.remove('hidden');
+      status.classList.add('hidden');
+    }
+  }
+
+  function syncKidStreak() {
+    var code = null;
+    try { code = localStorage.getItem(KIDS_FAMILY_CODE_KEY); } catch (e) {}
+    if (!code || code.length !== 6) return;
+    var cfg = window.TDB_CONFIG || {};
+    var supabaseUrl = cfg.SUPABASE_URL;
+    var supabaseKey = cfg.SUPABASE_ANON_KEY;
+    if (!navigator.onLine || !supabaseUrl || !supabaseKey) return;
+    var data = getStreakData();
+    var streak = Math.ceil(Number(data.count || 0));
+    var lastDay = data.lastKey || getDailyKey();
+    try {
+      var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
+      if (supabase && supabase.createClient) {
+        var client = supabase.createClient(supabaseUrl, supabaseKey);
+        client.rpc('upsert_kid_streak', { p_code: code, p_streak_count: streak, p_last_day: lastDay }).catch(function () {});
+      }
+    } catch (e) {}
+  }
+
+  function notifyParentOnRedeem(code) {
+    var cfg = window.TDB_CONFIG || {};
+    var supabaseUrl = cfg.SUPABASE_URL;
+    if (!supabaseUrl || !navigator.onLine) return;
+    var lastStoryKey = null;
+    try {
+      var raw = localStorage.getItem(KIDS_LIBRARY_VIEWED_KEY);
+      var viewed = raw ? JSON.parse(raw) : [];
+      if (Array.isArray(viewed) && viewed.length > 0) lastStoryKey = viewed[viewed.length - 1];
+    } catch (e) {}
+    var stories = window.TDB_BIBLE_STORIES || {};
+    var s = lastStoryKey ? stories[lastStoryKey] : null;
+    var lastStoryTitle = (s && s.title) ? s.title : '';
+    var lastStoryApply = (s && s.kidContext && s.kidContext.apply) ? s.kidContext.apply : '';
+    var url = (supabaseUrl.replace(/\/$/, '') + '/functions/v1/notify-parent-on-redeem');
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: code, lastStoryTitle: lastStoryTitle, lastStoryApply: lastStoryApply })
+    }).catch(function () {});
+  }
+
+  function wireFamilyCodeForm() {
+    var form = document.getElementById('kids-family-code-form');
+    var input = document.getElementById('kids-family-code-input');
+    var errorEl = document.getElementById('kids-family-code-error');
+    if (!form || !input) return;
+
+    function hideCodeError() {
+      if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
+    }
+
+    function showCodeError(msg) {
+      if (errorEl) { errorEl.textContent = msg; errorEl.classList.remove('hidden'); }
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      hideCodeError();
+      var code = (input.value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (code.length !== 6) {
+        showCodeError('Enter a 6-character code from your parent.');
+        return;
+      }
+
+      var cfg = window.TDB_CONFIG || {};
+      var supabaseUrl = cfg.SUPABASE_URL;
+      var supabaseKey = cfg.SUPABASE_ANON_KEY;
+      if (!navigator.onLine || !supabaseUrl || !supabaseKey) {
+        showCodeError('Need internet to connect. Try again when online.');
+        return;
+      }
+
+      try {
+        var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
+        if (!supabase || !supabase.createClient) {
+          showCodeError('Something went wrong. Try again.');
+          return;
+        }
+        var client = supabase.createClient(supabaseUrl, supabaseKey);
+        client.rpc('redeem_invite_code', { code: code }).then(function (res) {
+          if (res.error) {
+            showCodeError('Something went wrong. Try again.');
+            return;
+          }
+          var data = res.data;
+          if (data && data.ok) {
+            try { localStorage.setItem(KIDS_FAMILY_CODE_KEY, code); } catch (err) {}
+            hideCodeError();
+            renderFamilyCode();
+            notifyParentOnRedeem(code);
+          } else {
+            var reason = (data && data.reason) || 'invalid';
+            if (reason === 'used') {
+              showCodeError('Sorry, code already taken!');
+            } else {
+              showCodeError('Invalid code. Check with your parent.');
+            }
+          }
+        }).catch(function () {
+          showCodeError('Something went wrong. Try again.');
+        });
+      } catch (err) {
+        showCodeError('Something went wrong. Try again.');
+      }
+    });
+  }
+
+  function renderStoryOfDay() {
+    var el = document.getElementById('kids-story-of-day');
+    var thumb = document.getElementById('kids-story-of-day-thumb');
+    var titleEl = document.getElementById('kids-story-of-day-title');
+    var captionEl = document.getElementById('kids-story-of-day-caption');
+    var link = document.querySelector('.kids-story-of-day-link');
+    if (!el || !bibleStories) return;
+    var keys = Object.keys(bibleStories);
+    if (keys.length === 0) return;
+    var weekMs = 7 * 24 * 60 * 60 * 1000;
+    var idx = Math.floor(Date.now() / weekMs) % keys.length;
+    var key = keys[idx];
+    var story = bibleStories[key];
+    if (!story) return;
+    var panels = story.panels || [];
+    var thumbSrc = panels[0] ? panels[0].src : 'panel-david-1.svg';
+    var thumbAlt = panels[0] && panels[0].alt ? panels[0].alt : (story.title || key);
+    var caption = (story.caption || 'Swipe in Kids Corner to see!').replace(/<[^>]+>/g, '');
+    if (thumb) { thumb.src = thumbSrc; thumb.alt = thumbAlt; }
+    if (titleEl) titleEl.textContent = story.title || key;
+    if (captionEl) captionEl.textContent = caption;
+    if (link) link.href = 'corner.html?story=' + encodeURIComponent(key);
+  }
+
+  function getKidName() {
+    try {
+      var n = localStorage.getItem(KID_NAME_KEY);
+      return (n && typeof n === 'string') ? n.trim() : '';
+    } catch (e) { return ''; }
+  }
+
+  function updateKidGreeting() {
+    var name = getKidName();
+    var badge = document.getElementById('kids-greeting-badge');
+    var tagline = document.getElementById('kids-hero-tagline');
+    if (name) {
+      if (badge) badge.textContent = 'Hey, ' + name + '! Faith Trail';
+    } else {
+      if (badge) badge.textContent = '🔥 Faith Trail';
+    }
+    if (tagline) tagline.textContent = "Two minutes. One verse. One prayer. You're a hero!";
+  }
+
+  function showKidNameModalIfNeeded() {
+    if (getKidName()) return;
+    var modal = document.getElementById('kids-name-modal');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function wireShareStreak() {
+    var btn = document.getElementById('kids-share-streak');
+    var toast = document.getElementById('kids-share-toast');
+    if (!btn) return;
+    function showToast(msg) {
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(function () { toast.classList.add('hidden'); }, 2500);
+    }
+    btn.addEventListener('click', function () {
+      var streak = getCurrentStreak();
+      var shareUrl = 'https://todaysdailybattle.com/kids/';
+      var shareText = "My streak's " + streak + " day" + (streak === 1 ? '' : 's') + "—join the Faith Trail!";
+      if (navigator.share) {
+        navigator.share({
+          title: 'Kids Battle Streak!',
+          text: shareText,
+          url: shareUrl
+        }).then(function () { showToast('Shared!'); }).catch(function () {
+          copyAndToast(shareText + ' ' + shareUrl, showToast);
+        });
+      } else {
+        copyAndToast(shareText + ' ' + shareUrl, showToast);
+      }
+    });
+    function copyAndToast(text, fn) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { fn('Link copied!'); }).catch(function () { fn('Link: ' + text); });
+      } else {
+        fn('Link: ' + text);
+      }
+    }
+  }
+
+  function wireKidNameModal() {
+    var modal = document.getElementById('kids-name-modal');
+    var input = document.getElementById('kids-name-input');
+    var saveBtn = document.getElementById('kids-name-save');
+    if (!modal || !input || !saveBtn) return;
+    function closeAndUpdate() {
+      modal.classList.add('hidden');
+      updateKidGreeting();
+    }
+    saveBtn.addEventListener('click', function () {
+      var val = (input.value || '').trim() || 'Kiddo';
+      try {
+        localStorage.setItem(KID_NAME_KEY, val);
+        closeAndUpdate();
+      } catch (e) {}
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        saveBtn.click();
+      }
+    });
   }
 
   function init() {
     renderKidsTopicButtons();
     renderVerseAndPrayer();
+    loadKidReflection();
     renderStreak();
     renderDoneState();
     renderComeBackNudge();
     renderBadges();
+    renderStoryOfDay();
+    updateKidGreeting();
+    showKidNameModalIfNeeded();
+    wireKidNameModal();
+    syncKidStreak();
     renderFaithTrail();
+    renderFamilyCode();
+    wireKidsSearch();
+    wireKidReflection();
+    wireQuiz();
+    wireMemory();
     wireMarkDone();
     wireRemindBtn();
+    wireFamilyCodeForm();
     wireDoodle();
     wireVerseSpeak();
     wireShareBtn();
+    wireShareStreak();
     wireSidebar();
+    wireVideoModal();
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
+  }
+
+  var STORY_THEMES = {
+    david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
+    adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection',
+    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', samson: 'Protection',
+    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
+    goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
+    creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
+    naaman: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
+    pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
+    ruthBoaz: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience'
+  };
+
+  if (typeof window !== 'undefined') {
+    window.TDB_BIBLE_STORIES = bibleStories;
+    window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
+    window.TDB_STORY_THEMES = STORY_THEMES;
   }
 })();

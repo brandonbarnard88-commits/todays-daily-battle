@@ -1,0 +1,375 @@
+/* Bible Study — search, highlights, notes */
+
+.bible-study-inner {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.bible-study-search {
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--bible-gold-dim);
+  border-radius: 12px;
+}
+
+.bible-study-search-label {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--bible-gold);
+  margin-bottom: 0.5rem;
+}
+
+.bible-study-search-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.bible-study-search-input {
+  flex: 1;
+  min-width: 12rem;
+  padding: 0.6rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid var(--bible-gold-dim);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.bible-study-search-input:focus {
+  outline: none;
+  border-color: var(--bible-gold);
+}
+
+.bible-study-results {
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--bible-blue-dim);
+  border-radius: 12px;
+}
+
+.bible-study-hint {
+  font-family: 'Nunito', sans-serif;
+  color: rgba(226, 232, 240, 0.7);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.bible-study-verses {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.bible-study-verse-card {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.6);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.bible-study-verse-card:hover {
+  border-color: var(--bible-gold-dim);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.bible-study-verse-card.highlighted {
+  border-left: 4px solid var(--bible-gold);
+  background: rgba(255, 217, 61, 0.06);
+}
+
+.bible-study-verse-card .verse-ref {
+  font-weight: 700;
+  color: var(--bible-gold);
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.bible-study-verse-card .verse-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.bible-study-verse-card .verse-text .highlight {
+  background: linear-gradient(transparent 60%, rgba(255, 217, 61, 0.5) 60%);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.bible-study-verse-card .verse-plain {
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.8);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.bible-study-verse-card .verse-edit-icon {
+  float: right;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.bible-study-highlights {
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  border: 2px solid var(--bible-gold-dim);
+  border-radius: 12px;
+}
+
+.bible-study-section-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.2rem;
+  color: var(--bible-gold);
+  margin: 0 0 1rem;
+}
+
+.bible-study-highlights-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.bible-study-highlight-card {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--bible-blue-dim);
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.bible-study-highlight-card .verse-ref {
+  font-weight: 700;
+  color: var(--bible-gold);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.bible-study-highlight-card .verse-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.bible-study-highlight-card .verse-note {
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.85);
+  font-style: italic;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.bible-study-highlight-card .share-btn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color: var(--bible-gold);
+  background: transparent;
+  border: 2px solid var(--bible-gold);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.bible-study-highlight-card .share-btn:hover {
+  background: var(--bible-gold-dim);
+  color: #fff;
+}
+
+.bible-study-no-highlights {
+  font-family: 'Nunito', sans-serif;
+  color: rgba(226, 232, 240, 0.6);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Export to PDF — gold pill, loading spinner */
+.export-notes-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--bible-bg);
+  background: var(--bible-gold);
+  border: 2px solid var(--bible-gold);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.export-notes-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--bible-gold-dim);
+}
+
+.export-notes-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.export-notes-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(15, 23, 42, 0.3);
+  border-top-color: var(--bible-bg);
+  border-radius: 50%;
+  animation: exportSpinner 0.8s linear infinite;
+}
+
+.export-notes-spinner.hidden {
+  display: none;
+}
+
+@keyframes exportSpinner {
+  to { transform: rotate(360deg); }
+}
+
+/* Verse Challenge — gold border, trophy, share for +1 streak */
+.verse-challenge {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--bible-gold);
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.verse-challenge-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin: 0 0 0.75rem;
+}
+
+.verse-challenge-icon {
+  margin-right: 0.35rem;
+}
+
+.challenge-share-btn {
+  padding: 0.5rem 1.25rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--bible-bg);
+  background: var(--bible-gold);
+  border: 2px solid var(--bible-gold);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.challenge-share-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--bible-gold-dim);
+}
+
+.challenge-share-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.verse-challenge-toast {
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--bible-bg);
+  background: var(--bible-gold);
+  border: 2px solid var(--bible-gold);
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  z-index: 300;
+  animation: challengeToastIn 0.3s ease-out;
+}
+
+.verse-challenge-toast.hidden {
+  display: none;
+}
+
+@keyframes challengeToastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Note modal */
+.bible-study-note-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+}
+
+.bible-study-note-modal.hidden {
+  display: none;
+}
+
+.bible-study-note-modal-inner {
+  background: var(--bible-bg);
+  border: 4px solid var(--bible-gold);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 24rem;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+}
+
+.bible-study-note-title {
+  font-size: 1.2rem;
+  color: var(--bible-gold);
+  margin: 0 0 0.25rem;
+}
+
+.bible-study-note-ref {
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.8);
+  margin: 0 0 0.75rem;
+}
+
+.bible-study-note-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  background: var(--bible-card);
+  border: 2px solid var(--bible-gold-dim);
+  border-radius: 10px;
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.bible-study-note-input:focus {
+  outline: none;
+  border-color: var(--bible-gold);
+}
+
+.bible-study-note-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kids Corner • Kids Battle • Today's Daily Battle</title>
+  <meta name="description" content="Explore 52 Bible stories—swipe through comic panels, watch videos. Kids Corner library for Kids Battle.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/corner.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="kids-battle.css?v=9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .kids-library-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+    @media (min-width: 769px) {
+      .kids-library-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+    .kids-library-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      border: 3px solid var(--kids-yellow);
+      border-radius: 12px;
+      background: var(--kids-card);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .kids-library-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0 rgba(0,0,0,0.25);
+    }
+    .kids-library-card img {
+      width: 100%;
+      aspect-ratio: 5/4;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+    .kids-library-card-title {
+      font-family: 'Bangers', cursive;
+      font-size: 1.1rem;
+      color: var(--kids-yellow);
+      text-align: center;
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+    }
+    .kids-library-card-btn {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--kids-yellow);
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--kids-orange), var(--kids-red));
+      color: #fff;
+      cursor: pointer;
+    }
+    .kids-library-search { margin-bottom: 1.5rem; }
+    .kids-library-modal .comic-carousel { margin: 0 0 1rem; }
+    .kids-library-modal .kids-ctx-block {
+      font-family: 'Comic Neue', cursive;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin: 0.75rem 0;
+      padding: 1rem;
+      background: rgba(255,217,61,0.08);
+      border-radius: 12px;
+      border-left: 4px solid var(--kids-yellow);
+    }
+    .kids-library-random-btn {
+      margin-top: 0.75rem;
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .kids-library-filters {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .kids-library-theme-label {
+      font-family: 'Bangers', cursive;
+      font-size: 1.1rem;
+      color: var(--kids-yellow);
+    }
+    .kids-library-theme-select {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      padding: 0.5rem 0.75rem;
+      border: 2px solid var(--kids-yellow);
+      border-radius: 10px;
+      background: var(--kids-bg);
+      color: #e2e8f0;
+      min-width: 140px;
+    }
+    .kids-library-story-master {
+      font-family: 'Bangers', cursive;
+      font-size: 1.2rem;
+      color: var(--kids-yellow);
+      margin: 0.75rem 0 0;
+      padding: 0.5rem 1rem;
+      background: rgba(255,217,61,0.12);
+      border-radius: 12px;
+      border: 2px solid var(--kids-yellow);
+    }
+    .kids-library-story-master.hidden { display: none; }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
+        <a href="/kids/">Daily Faith Trail</a>
+        <a href="corner.html" aria-current="page">Kids Corner</a>
+        <a href="parent.html">Parent Dashboard</a>
+      </nav>
+      <a href="parent.html" class="kids-parent-link-mobile" aria-label="Parent Dashboard">Parents</a>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner kids-battle-inner">
+        <span class="kids-corner-explorer-badge" aria-label="Corner Explorer badge">📚 Corner Explorer</span>
+        <header class="kids-battle-hero">
+          <h1 class="kids-battle-title">Kids Corner</h1>
+          <p class="kids-battle-tagline">52 Bible stories—swipe, watch, explore anytime!</p>
+        </header>
+
+        <section class="kids-search-section glass" role="region" aria-label="Search stories">
+          <h2 class="kids-section-title">Find a story</h2>
+          <form id="kids-library-search-form" class="kids-search-form" action="#" novalidate>
+            <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Type a word (e.g. lion, rainbow, brave)…" autocomplete="off">
+            <button type="submit" class="btn kids-btn-primary kids-search-btn">Search</button>
+          </form>
+          <div class="kids-library-filters">
+            <label for="kids-library-theme" class="kids-library-theme-label">Theme</label>
+            <select id="kids-library-theme" class="kids-library-theme-select" aria-label="Filter by theme">
+              <option value="">All themes</option>
+              <option value="Obedience">Obedience</option>
+              <option value="Miracles">Miracles</option>
+              <option value="Love">Love</option>
+              <option value="Protection">Protection</option>
+            </select>
+          </div>
+          <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you've explored 7+ stories!</p>
+          <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
+          <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;">📄 Print 52 Stories! (PDF)</button>
+        </section>
+
+        <section class="kids-comic-panels glass" role="region" aria-label="Story grid">
+          <div id="kids-library-grid" class="kids-library-grid">
+            <!-- Filled by inline script -->
+          </div>
+          <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match—try another theme!</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p>© 2026 Kids Battle – Faith Trail for Kids</p>
+      <p>Powered by Supabase</p>
+      <a href="/privacy.html">Privacy</a>
+    </footer>
+
+    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+      <a href="/kids/">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span class="kids-bottom-nav-label">Home</span>
+      </a>
+      <a href="corner.html" aria-current="page">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖼️</span>
+        <span class="kids-bottom-nav-label">Corner</span>
+      </a>
+      <a href="parent.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
+        <span class="kids-bottom-nav-label">Parent</span>
+      </a>
+    </nav>
+  </div>
+
+  <div id="kids-story-modal" class="kids-video-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-story-modal-title">
+    <div class="kids-video-modal-content kids-library-modal">
+      <button type="button" class="kids-video-modal-close" id="kids-story-modal-close" aria-label="Close">×</button>
+      <h3 id="kids-story-modal-title" class="kids-video-modal-title"></h3>
+      <div id="kids-story-modal-carousel"></div>
+      <div id="kids-story-modal-context" class="kids-ctx-block hidden"></div>
+      <div id="kids-story-modal-video"></div>
+      <div id="kids-library-toast" class="kids-library-toast hidden" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script src="kids-battle.js?v=9" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
+  <script src="kids-corner.js?v=1" defer></script>
+</body>
+</html>

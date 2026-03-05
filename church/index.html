@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Church Hub • Today's Daily Battle</title>
+  <meta name="description" content="Join your church group. Shared daily verse, reflections, and streak leaderboard.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/church/">
+  <meta property="og:title" content="Church Hub • Today's Daily Battle">
+  <meta property="og:description" content="Join your church group. Shared daily verse and reflections.">
+  <meta property="og:url" content="https://todaysdailybattle.com/church/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="church.css?v=1">
+  <link rel="manifest" href="../manifest.json">
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script type="module" src="../config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode church-hub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar church-hub-header">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle church-hub-subtitle">Church Hub</span>
+      </div>
+      <nav class="church-hub-nav" aria-label="Church Hub navigation">
+        <a href="/church/" aria-current="page">Join</a>
+        <a href="daily.html">Daily</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner church-hub-inner">
+        <header class="church-join-hero">
+          <h1>Join your church group</h1>
+          <p class="section-note">Enter the code your pastor shared. You'll see the shared daily verse and post reflections together.</p>
+        </header>
+
+        <section class="church-join-card glass" role="region" aria-label="Join church">
+          <form id="church-join-form" class="church-join-form">
+            <label for="church-code-input">Church code</label>
+            <input
+              type="text"
+              id="church-code-input"
+              class="church-code-input"
+              placeholder="e.g. GRACE2025"
+              maxlength="24"
+              autocomplete="off"
+              aria-label="Church code"
+              required
+            >
+            <button type="submit" class="btn btn-church-join" id="church-join-btn">Join</button>
+          </form>
+          <p id="church-join-error" class="church-join-error hidden" aria-live="polite"></p>
+        </section>
+
+        <section class="glass church-create-section">
+          <h2 class="church-section-title">Pastor?</h2>
+          <p>Create a group and share the code with your church.</p>
+          <details class="church-create-details">
+            <summary>Create church group</summary>
+            <form id="church-create-form" class="church-create-form">
+              <label for="church-create-code">Code (e.g. GRACE2025)</label>
+              <input type="text" id="church-create-code" class="church-code-input" placeholder="GRACE2025" maxlength="24" required>
+              <label for="church-create-name">Church name</label>
+              <input type="text" id="church-create-name" class="church-create-name" placeholder="Grace Community Church" maxlength="80">
+              <button type="submit" class="btn btn-church-join" id="church-create-btn">Create</button>
+            </form>
+            <p id="church-create-result" class="church-create-result hidden"></p>
+          </details>
+        </section>
+
+        <section id="church-roundup-index-section" class="church-roundup glass" role="region" aria-label="Weekly roundup email">
+          <h2 class="church-section-title">📬 Get weekly roundup</h2>
+          <p class="church-roundup-note">Monday email: reflections, streak leader, next sermon. Join us Sunday!</p>
+          <form id="church-roundup-index-form" class="church-roundup-form">
+            <label for="church-roundup-index-email">Email</label>
+            <input
+              type="email"
+              id="church-roundup-index-email"
+              class="church-roundup-email"
+              placeholder="you@example.com"
+              required
+              aria-label="Email for weekly roundup"
+            >
+            <button type="submit" class="btn btn-church-join" id="church-roundup-index-btn">Subscribe</button>
+          </form>
+          <p id="church-roundup-index-result" class="church-roundup-result hidden" aria-live="polite"></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="../about.html">About</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="../script.js?v=20260313" defer></script>
+  <script src="church.js?v=1" defer></script>
+</body>
+</html>

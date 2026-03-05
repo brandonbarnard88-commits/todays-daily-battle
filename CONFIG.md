@@ -14,6 +14,10 @@ If `config.js` is missing, the app uses built-in defaults and still works. Add `
 
 **User accounts (login/sync):** Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` in `config.js` so sign-in works out of the box. Test E2E: sign up → login → build streak/favorite/note → logout/reopen on another tab or device → verify persistence. Troubleshoot: console errors, Supabase dashboard (auth enabled? RLS policies?), test "Forgot password?" flow. Once stable, ensure the "Sign In Free – Save Your Streak Forever & Sync Devices" button is visible (`.daily-battle-signin-cta` in index.html). Promote in next newsletter: "Accounts are live—sign in free to never lose your streak!"
 
+**Google & Apple sign-in:** The site shows "Sign in with Google" and "Sign in with Apple" buttons. To enable them: Supabase Dashboard → Authentication → Providers → enable Google and/or Apple, add OAuth client IDs/secrets from Google Cloud Console and Apple Developer. Add your site URL (e.g. `https://todaysdailybattle.com`) to Redirect URLs in Supabase Auth settings.
+
+**503 on /authorize (Google OAuth):** Usually a redirect URI mismatch. Supabase uses `https://<project-ref>.supabase.co/auth/v1/callback` as the OAuth callback. In **Google Cloud Console** → APIs & Services → Credentials → your OAuth 2.0 Client ID → Authorized redirect URIs, add this exact URL (replace `<project-ref>` with your Supabase project ref, e.g. `abcdefghijk`). Also add your site URLs in **Supabase Dashboard** → Authentication → URL Configuration → Site URL and Redirect URLs (e.g. `https://todaysdailybattle.com`, `https://todaysdailybattle.com/**`). Retest Google sign-in.
+
 ## Immediate next steps (activation focus)
 
 1. **Activate Supabase (today/this week):** Add real `SUPABASE_URL` and `SUPABASE_ANON_KEY` to `config.js`. Test E2E; then flip from "promising prototype" to "growing habit platform."

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kids Battle Beta – Join Early! • Today's Daily Battle</title>
+  <meta name="description" content="Join the first 100 families – get free Battle Pro month + early features! Kids Battle beta waitlist.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/kids-beta.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="kids-battle.css?v=9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode kids-battle-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
+        <a href="/kids/">Daily Faith Trail</a>
+        <a href="corner.html">Kids Corner</a>
+        <a href="parent.html">Parent Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner kids-battle-inner kids-beta-inner">
+        <header class="kids-battle-hero">
+          <h1 class="kids-battle-title">Kids Battle Beta – Join Early!</h1>
+          <p class="kids-battle-tagline">Join the first 100 families – get free Battle Pro month + early features!</p>
+        </header>
+
+        <section id="kids-beta-form-section" class="kids-beta-form glass" role="region" aria-label="Beta signup form">
+          <p id="kids-beta-spots" class="kids-beta-spots" aria-live="polite">Join now—spots filling fast!</p>
+          <p id="kids-beta-error" class="kids-beta-error hidden" role="alert"></p>
+          <form id="kids-beta-form" novalidate>
+            <label for="kids-beta-email" class="kids-beta-label">Email</label>
+            <input type="email" id="kids-beta-email" name="email" required placeholder="your@email.com" class="kids-beta-input" autocomplete="email">
+
+            <label for="kids-beta-age" class="kids-beta-label">Kid's age range</label>
+            <select id="kids-beta-age" name="age" required class="kids-beta-select">
+              <option value="" disabled selected>Choose one</option>
+              <option value="5-8">5–8</option>
+              <option value="9-12">9–12</option>
+              <option value="13+">13+</option>
+            </select>
+
+            <button type="submit" id="kids-beta-submit" class="btn kids-btn-primary kids-beta-submit">Join the waitlist</button>
+          </form>
+        </section>
+
+        <section id="kids-beta-success" class="kids-beta-success glass hidden" role="status" aria-live="polite">
+          <p class="kids-beta-success-msg">You're in! First 100 get free Pro. We'll email you when we're ready. 🎉</p>
+          <p id="kids-beta-code-msg" class="kids-beta-code-msg hidden"></p>
+          <a href="/kids/" class="btn kids-btn-primary">← Back to Kids Battle</a>
+        </section>
+      </div>
+    </main>
+
+    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p>© 2026 Kids Battle – Faith Trail for Kids</p>
+      <p>Powered by Supabase</p>
+      <a href="/privacy.html">Privacy</a>
+    </footer>
+
+    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+      <a href="/kids/" aria-current="page">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span class="kids-bottom-nav-label">Home</span>
+      </a>
+      <a href="corner.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖼️</span>
+        <span class="kids-bottom-nav-label">Corner</span>
+      </a>
+      <a href="parent.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
+        <span class="kids-bottom-nav-label">Parent</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="../vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var form = document.getElementById('kids-beta-form');
+    var formSection = document.getElementById('kids-beta-form-section');
+    var successSection = document.getElementById('kids-beta-success');
+    var errorEl = document.getElementById('kids-beta-error');
+    var submitBtn = document.getElementById('kids-beta-submit');
+    var BETA_SUBMITTED_KEY = 'kidsBetaSubmitted';
+    var BETA_CODE_KEY = 'kidsBetaCode';
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function genInviteCode() {
+      var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      var code = '';
+      for (var i = 0; i < 6; i++) code += chars.charAt(Math.floor(Math.random() * chars.length));
+      return code;
+    }
+
+    function hideError() {
+      if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
+    }
+
+    function showError(msg) {
+      if (errorEl) { errorEl.textContent = msg; errorEl.classList.remove('hidden'); }
+    }
+
+    function showSuccess() {
+      hideError();
+      if (formSection) formSection.classList.add('hidden');
+      if (successSection) successSection.classList.remove('hidden');
+      var codeMsg = document.getElementById('kids-beta-code-msg');
+      if (codeMsg) {
+        var code = null;
+        try { code = localStorage.getItem(BETA_CODE_KEY); } catch (e) {}
+        if (!code) {
+          code = genInviteCode();
+          try { localStorage.setItem(BETA_CODE_KEY, code); } catch (e) {}
+        }
+        codeMsg.textContent = 'Your invite code: ' + code + ' — Share with your kid!';
+        codeMsg.classList.remove('hidden');
+      }
+    }
+
+    function saveLocalFallback(emailVal, ageVal) {
+      try {
+        localStorage.setItem(BETA_SUBMITTED_KEY, JSON.stringify({ email: emailVal, age: ageVal, ts: Date.now(), fallback: true }));
+      } catch (err) {}
+    }
+
+    if (localStorage.getItem(BETA_SUBMITTED_KEY)) {
+      showSuccess();
+    }
+
+    var spotsEl = document.getElementById('kids-beta-spots');
+    var spotsRefreshTimer = null;
+    var MAX_SPOTS = 100;
+
+    function refreshWaitlistCount() {
+      if (!spotsEl || !formSection || formSection.classList.contains('hidden')) return;
+      var cfg = window.TDB_CONFIG || {};
+      var supabaseUrl = cfg.SUPABASE_URL;
+      var supabaseKey = cfg.SUPABASE_ANON_KEY;
+      if (!navigator.onLine || !supabaseUrl || !supabaseKey) {
+        spotsEl.textContent = 'Join now—spots filling fast!';
+        return;
+      }
+      try {
+        var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
+        if (!supabase || !supabase.createClient) {
+          spotsEl.textContent = 'Join now—spots filling fast!';
+          return;
+        }
+        var client = supabase.createClient(supabaseUrl, supabaseKey);
+        client.rpc('get_waitlist_count').then(function (res) {
+          if (res.error) {
+            spotsEl.textContent = 'Join now—spots filling fast!';
+            return;
+          }
+          var count = typeof res.data === 'number' ? res.data : parseInt(res.data, 10) || 0;
+          var left = Math.max(0, MAX_SPOTS - count);
+          spotsEl.textContent = left > 0 ? 'Only ' + left + ' spots left!' : 'Waitlist full—join for updates!';
+        }).catch(function () {
+          spotsEl.textContent = 'Join now—spots filling fast!';
+        });
+      } catch (e) {
+        spotsEl.textContent = 'Join now—spots filling fast!';
+      }
+    }
+
+    refreshWaitlistCount();
+    spotsRefreshTimer = setInterval(refreshWaitlistCount, 30000);
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        hideError();
+        var email = document.getElementById('kids-beta-email');
+        var age = document.getElementById('kids-beta-age');
+        if (!email || !age) return;
+        var emailVal = (email.value || '').trim().toLowerCase();
+        var ageVal = age.value;
+        if (!emailVal || !ageVal) {
+          showError('Please enter your email and choose an age range.');
+          return;
+        }
+        if (!EMAIL_RE.test(emailVal)) {
+          showError('Please enter a valid email address.');
+          return;
+        }
+        if (!['5-8', '9-12', '13+'].includes(ageVal)) {
+          showError('Please choose a valid age range.');
+          return;
+        }
+        if (submitBtn) submitBtn.disabled = true;
+
+        var cfg = window.TDB_CONFIG || {};
+        var supabaseUrl = cfg.SUPABASE_URL;
+        var supabaseKey = cfg.SUPABASE_ANON_KEY;
+        var isOffline = !navigator.onLine;
+
+        function doneSuccess() {
+          showSuccess();
+          if (submitBtn) submitBtn.disabled = false;
+        }
+
+        function doneError(msg) {
+          showError(msg || 'Something went wrong. Try again or check your connection.');
+          if (submitBtn) submitBtn.disabled = false;
+        }
+
+        if (isOffline || !supabaseUrl || !supabaseKey) {
+          saveLocalFallback(emailVal, ageVal);
+          doneSuccess();
+          return;
+        }
+
+        var code = genInviteCode();
+        try { localStorage.setItem(BETA_CODE_KEY, code); } catch (e) {}
+
+        try {
+          var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
+          if (!supabase || !supabase.createClient) {
+            saveLocalFallback(emailVal, ageVal);
+            doneSuccess();
+            return;
+          }
+          var client = supabase.createClient(supabaseUrl, supabaseKey);
+          client.from('kids_beta_waitlist').insert({
+            email: emailVal,
+            age_range: ageVal,
+            invite_code: code,
+            created_at: new Date().toISOString()
+          }).then(function (res) {
+            if (res.error) {
+              var errCode = res.error.code || '';
+              if (errCode === '23505' || (res.error.message && res.error.message.indexOf('duplicate') !== -1)) {
+                doneSuccess();
+                return;
+              }
+              doneError('Could not sign up. Try again.');
+              return;
+            }
+            doneSuccess();
+            refreshWaitlistCount();
+            var fnUrl = (supabaseUrl.replace(/\/$/, '') + '/functions/v1/send-beta-email');
+            fetch(fnUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + supabaseKey
+              },
+              body: JSON.stringify({ email: emailVal, code: code })
+            }).catch(function () {});
+          }).catch(function (err) {
+            saveLocalFallback(emailVal, ageVal);
+            doneSuccess();
+          });
+        } catch (err) {
+          saveLocalFallback(emailVal, ageVal);
+          doneSuccess();
+        }
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

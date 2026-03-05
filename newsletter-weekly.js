@@ -2,13 +2,11 @@
   'use strict';
 
   var SUMMARY_KEY = 'tdb_weekly_newsletter_summary_v1';
-  var NAME_KEY = 'tdb_weekly_newsletter_name_v1';
   var EMAIL_KEY = 'tdb_weekly_newsletter_email_v1';
   var OPTIN_SEEN_KEY = 'tdb_weekly_newsletter_optin_seen_v1';
   var OPTIN_DONE_KEY = 'tdb_weekly_newsletter_optin_done_v1';
   var SYNC_KEY = 'weekly_newsletter_summary_v1';
   var POLL_PRAYER_KEY = 'prayer-count';
-  var STAGE_KEY = 'tdb_avatar_stage_v1';
   var STREAK_KEY = 'dailyBattleStreak';
 
   var state = {
@@ -83,27 +81,6 @@
     return out;
   }
 
-  function readName() {
-    try {
-      var explicitName = String(localStorage.getItem(NAME_KEY) || '').trim();
-      if (explicitName) return explicitName;
-      var known = String(localStorage.getItem('tdb_my_ref') || localStorage.getItem('messageDisplayName') || '').trim();
-      return known || 'Friend';
-    } catch (e) {
-      return 'Friend';
-    }
-  }
-
-  function readAvatarHint() {
-    try {
-      var stage = JSON.parse(localStorage.getItem(STAGE_KEY) || 'null');
-      if (stage && stage.tag) {
-        return stage.tag + ' mode this week: keep your next step simple and consistent.';
-      }
-    } catch (e) {}
-    return 'Keep your battle simple: one prayer and one verse can reset your day.';
-  }
-
   function readCatchupMercy() {
     var streak = 0;
     try { streak = safeNum(localStorage.getItem(STREAK_KEY) || 0); } catch (e) {}
@@ -119,11 +96,9 @@
     var s = getLast7DaysSummary();
     return {
       subject: "This Week's Battle - You Showed Up",
-      name: readName(),
       prayers7d: s.prayers,
       verses7d: s.verses,
       eggs7d: s.eggs,
-      avatarHint: readAvatarHint(),
       catchupMercy: readCatchupMercy(),
       nextDayTease: nextDayTease(),
       generated_at: new Date().toISOString()
@@ -210,16 +185,25 @@
     });
   }
 
-  function maybeInsertOptin(email, name) {
+  function maybeInsertOptin(email) {
     return ensureSupabaseClient().then(function (client) {
       if (!client || !email) return;
-      return client.from('newsletter_signups').insert({
+      var basePayload = {
         email: email,
         weekly_opt_in: true,
         daily_opt_in: false,
-        preferred_time: 'friday_7pm_local',
-        display_name: name || null
-      }).then(function () {}).catch(function () {});
+        preferred_time: 'friday_7pm_local'
+      };
+      return client.from('newsletter_signups').insert(basePayload).then(function () {
+        return;
+      }).catch(function () {
+        // Fallback for older schemas missing preferred_time.
+        return client.from('newsletter_signups').insert({
+          email: email,
+          weekly_opt_in: true,
+          daily_opt_in: false
+        }).then(function () {}).catch(function () {});
+      });
     });
   }
 
@@ -255,7 +239,6 @@
       '  <button type="button" class="weekly-newsletter-optin-close" aria-label="Close">x</button>' +
       '  <h3 class="weekly-newsletter-optin-title">Get your weekly battle check-in?</h3>' +
       '  <p class="weekly-newsletter-optin-copy">One Friday email at 7 PM local with your recap. No spam.</p>' +
-      '  <input type="text" class="weekly-newsletter-optin-name" placeholder="First name (optional)" aria-label="First name">' +
       '  <input type="email" class="weekly-newsletter-optin-email" placeholder="Email address" aria-label="Email address">' +
       '  <button type="button" class="btn btn-secondary weekly-newsletter-optin-save">Yes, keep me posted</button>' +
       '  <p class="weekly-newsletter-optin-status section-note" aria-live="polite"></p>' +
@@ -263,7 +246,6 @@
     document.body.appendChild(root);
 
     var closeBtn = root.querySelector('.weekly-newsletter-optin-close');
-    var nameEl = root.querySelector('.weekly-newsletter-optin-name');
     var emailEl = root.querySelector('.weekly-newsletter-optin-email');
     var saveBtn = root.querySelector('.weekly-newsletter-optin-save');
     var statusEl = root.querySelector('.weekly-newsletter-optin-status');
@@ -272,7 +254,6 @@
     root.addEventListener('click', function (e) { if (e.target === root) closePrompt(root); });
     if (saveBtn) {
       saveBtn.addEventListener('click', function () {
-        var name = String((nameEl && nameEl.value) || '').trim();
         var email = String((emailEl && emailEl.value) || '').trim().toLowerCase();
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           if (statusEl) statusEl.textContent = 'Enter a valid email.';
@@ -281,10 +262,9 @@
         try {
           localStorage.setItem(OPTIN_DONE_KEY, '1');
           localStorage.setItem(EMAIL_KEY, email);
-          if (name) localStorage.setItem(NAME_KEY, name);
         } catch (e) {}
         if (statusEl) statusEl.textContent = 'Saved. You are in.';
-        maybeInsertOptin(email, name);
+        maybeInsertOptin(email);
         setTimeout(function () { closePrompt(root); }, 700);
       });
     }
@@ -299,7 +279,7 @@
       '.weekly-newsletter-optin-inner{width:min(92vw,26rem);background:rgba(9,15,28,.97);border:1px solid rgba(148,163,184,.3);border-radius:14px;padding:1rem;box-shadow:0 20px 45px rgba(2,6,23,.6);display:grid;gap:.6rem;position:relative;}' +
       '.weekly-newsletter-optin-title{margin:0;color:rgba(248,250,252,.98);font-size:1.06rem;}' +
       '.weekly-newsletter-optin-copy{margin:0;color:rgba(203,213,225,.95);font-size:.92rem;}' +
-      '.weekly-newsletter-optin-name,.weekly-newsletter-optin-email{min-height:44px;border-radius:10px;border:1px solid rgba(148,163,184,.4);background:rgba(15,23,42,.92);color:rgba(248,250,252,.98);padding:.55rem .7rem;}' +
+      '.weekly-newsletter-optin-email{min-height:44px;border-radius:10px;border:1px solid rgba(148,163,184,.4);background:rgba(15,23,42,.92);color:rgba(248,250,252,.98);padding:.55rem .7rem;}' +
       '.weekly-newsletter-optin-close{position:absolute;right:.55rem;top:.4rem;border:0;background:transparent;color:rgba(226,232,240,.9);font-size:1.1rem;cursor:pointer;}' +
       '@media (max-width:768px){.weekly-newsletter-optin-inner{width:min(96vw,24rem);}}';
     document.head.appendChild(style);

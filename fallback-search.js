@@ -77,7 +77,7 @@
       out.style.display = 'grid';
       out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }).catch(function () {
-      if (out) out.innerHTML = '<p style="text-align:center;color:#888;">Could not load verses. Check your connection.</p>';
+      if (out) out.innerHTML = '<p style="text-align:center;color:#888;">Verses could not be loaded. Check your connection and retry.</p>';
     });
   }
 

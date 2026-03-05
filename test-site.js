@@ -38,6 +38,9 @@ const pages = [
   { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety'] },
   { path: '/topic-hope.html', name: 'Topic Hope', mustInclude: ['Hope'] },
   { path: '/topic-strength.html', name: 'Topic Strength', mustInclude: ['Strength'] },
+  { path: '/action-bible.html', name: 'Action Bible Archive', mustInclude: ['Action Bible Documentary Archive', 'Documentary Controls'] },
+  { path: '/action-bible-workshop.html', name: 'Action Bible Workshop Toolkit', mustInclude: ['Worksheet + Class Toolkit', 'Generate Worksheet'] },
+  { path: '/action-bible-weekly-packs.json', name: 'Action Bible Weekly Packs', mustInclude: ['"totalWeeks"', '"weeks"'] },
   { path: '/manifest.json', name: 'Manifest (PWA)', mustInclude: ['name', 'short_name'] },
 ];
 

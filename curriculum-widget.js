@@ -232,7 +232,7 @@
       var mode = getModePref();
       var row = days[idx - 1];
       if (!row) {
-        content.textContent = 'No curriculum entry found.';
+        content.textContent = 'No curriculum entry is available for this day.';
         return;
       }
       saveProgressDay(idx);
@@ -284,7 +284,7 @@
         render();
       })
       .catch(function () {
-        content.textContent = 'Could not load curriculum.';
+        content.textContent = 'Curriculum could not be loaded right now.';
       });
 
     dayInput.addEventListener('change', render);

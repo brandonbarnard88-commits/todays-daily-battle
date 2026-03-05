@@ -17,3 +17,20 @@ Static web app for scripture-first daily encouragement, prayer, and study toolin
 
 - `QA Smoke`: browser-based critical-path verification.
 - `Site Offline Test`: build + offline route/search/prayer checks.
+
+## Action Bible Coverage
+
+- `npm run actionbible` builds `action-bible-365.json`.
+- `npm run actionbible:packs` builds `action-bible-weekly-packs.json` for weekly rollout packs.
+- The dataset guarantees archive coverage with both `avatarPrompt` and `cartoonPrompt` for every entry, with a minimum of 365 entries.
+- Entries are ordered for documentary flow (canonical verse order) and tagged by testament + season.
+- `action-bible-workshop.html` provides worksheet mode, family mode, leader dashboard plans, and season mastery checkpoints by age/class hierarchy.
+- `quality:gate` now enforces this generation step so coverage cannot drift.
+
+## NPM Warning Fix (devdir)
+
+- If you see `Unknown env config "devdir"`, it is coming from environment config, not this repo.
+- Recommended shell fix (zsh):
+  - `echo "alias npm='env -u npm_config_devdir -u NPM_CONFIG_DEVDIR npm'" >> ~/.zshrc`
+  - `source ~/.zshrc`
+- Verify with: `npm config get devdir` (should return `undefined`).

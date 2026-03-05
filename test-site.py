@@ -53,6 +53,9 @@ PAGES = [
     ("/topic-hope.html", "Topic Hope", ["Hope"]),
     ("/topic-parenting.html", "Topic Parenting", ["Parenting"]),
     ("/topic-strength.html", "Topic Strength", ["Strength"]),
+    ("/action-bible.html", "Action Bible Archive", ["Action Bible Documentary Archive", "Documentary Controls"]),
+    ("/action-bible-workshop.html", "Action Bible Workshop Toolkit", ["Worksheet + Class Toolkit", "Generate Worksheet"]),
+    ("/action-bible-weekly-packs.json", "Action Bible Weekly Packs", ["\"totalWeeks\"", "\"weeks\""]),
     ("/404.html", "404 Page", ["not found", "Today's Daily Battle"]),
 ]
 

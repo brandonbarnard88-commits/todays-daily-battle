@@ -361,6 +361,9 @@
 
   async function launchStory(character, title) {
     if (typeof window !== 'undefined') window.__tdbDailyTileWatchLastRun = Date.now();
+    try {
+      localStorage.setItem('tdb_nba_last_watch_at', String(Date.now()));
+    } catch (e0) {}
     if (window.__tdbStartWatchLaunchTransition && typeof window.__tdbStartWatchLaunchTransition === 'function') {
       window.__tdbStartWatchLaunchTransition();
     }
@@ -370,6 +373,7 @@
     window.TDBCartoonPlayer.open({
       characterName: character.name || 'David',
       battleTitle: title,
+      userInitiated: true,
       useMyAvatar: useMyAvatar,
       userAvatar: userAvatar,
       hooks: {
@@ -467,6 +471,7 @@
               window.TDBCartoonPlayer.open({
                 characterName: 'Your Avatar',
                 battleTitle: 'Catch-up: ' + dateLabelFromKey(dayKey),
+                userInitiated: true,
                 useMyAvatar: useMyAvatar,
                 userAvatar: userAvatar,
                 panels: buildCatchupPanels('Your avatar', dayKey),

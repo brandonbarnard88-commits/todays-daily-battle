@@ -81,7 +81,7 @@
     if (!container) return;
 
     if (!results || results.length === 0) {
-      container.innerHTML = '<p class="section-note">No verses found. Try a reference like John 3:16 or a word like hope.</p>';
+      container.innerHTML = '<p class="section-note">No matches found yet. Try a full reference like John 3:16, or a focused keyword like hope, peace, or endurance.</p>';
       return;
     }
 

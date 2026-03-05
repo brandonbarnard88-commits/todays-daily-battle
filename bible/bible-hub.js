@@ -510,7 +510,7 @@
         console.warn('Fallback audio failed:', e);
         ttsOfflineAudio = null;
         setBtn('Listen', false);
-        showToast('Offline audio unavailable. Add MP3s to /audio/');
+        showToast('Offline audio is unavailable. Add MP3 files to /audio/.');
       });
       audio.onended = audio.onerror = function () {
         ttsOfflineAudio = null;

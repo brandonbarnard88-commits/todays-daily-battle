@@ -143,7 +143,7 @@
     if (!state.items.length) {
       var note = document.createElement('p');
       note.className = 'section-note';
-      note.textContent = 'No highlights yet. Tap a verse and press Highlight.';
+      note.textContent = 'No highlights saved yet. Open a verse and tap Highlight to build your library.';
       grid.appendChild(note);
       return;
     }
@@ -182,7 +182,7 @@
     }
     state.refs.ref.textContent = item.ref || '';
     state.refs.text.textContent = item.text || '';
-    state.refs.note.textContent = item.note ? 'Note: ' + item.note : 'No note added for this highlight yet.';
+    state.refs.note.textContent = item.note ? 'Note: ' + item.note : 'No note added yet. Add one to capture why this verse matters today.';
     state.refs.detail.classList.remove('hidden');
   }
 

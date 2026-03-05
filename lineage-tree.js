@@ -364,7 +364,7 @@
       wireLineageControls(roots, tier2, chars, fam);
       render(roots, tier2, chars, fam);
     }).catch(function () {
-      host.textContent = 'Could not load lineage data.';
+      host.textContent = 'Lineage data could not be loaded right now.';
     });
 
     document.addEventListener('tdb-family-updated', function (evt) {

@@ -248,7 +248,7 @@
     if (noMatch) {
       noMatch.classList.toggle('hidden', keys.length > 0);
       if (keys.length === 0) {
-        noMatch.textContent = 'No stories match that search yet. Try a different word or switch theme to "All themes."';
+        noMatch.textContent = 'No stories match that search yet. Try a broader word, or switch the theme back to "All themes."';
       }
     }
     updateLibraryCount(keys.length);
@@ -449,7 +449,7 @@
           doc.save('52-stories-year.pdf');
           showToast('PDF downloaded!');
         } catch (err) {
-          showToast('Could not create PDF. Try again.');
+          showToast('PDF export could not be completed. Please try again.');
           console.error('PDF export error:', err);
         }
       });

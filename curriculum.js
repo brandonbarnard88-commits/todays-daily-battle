@@ -176,7 +176,7 @@ var CHECKPOINTS = [
       })
       .catch(function () {
         var content = document.getElementById('curriculum-content');
-        if (content) content.innerHTML = '<p class="section-note">Could not load curriculum. Check that curriculum.json exists.</p>';
+        if (content) content.innerHTML = '<p class="section-note">Curriculum could not be loaded. Verify that curriculum.json is available.</p>';
       });
 
     initTabs();

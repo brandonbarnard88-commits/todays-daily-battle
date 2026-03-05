@@ -75,10 +75,10 @@
           render(widget, ref, text);
           toast('Verse updated!');
         } else {
-          showError(widget, 'Verse unavailable—try again later.');
+          showError(widget, 'Verse unavailable right now. Please check back shortly.');
         }
       })
-      .catch(function () { showError(widget, 'Verse unavailable—try again later.'); });
+      .catch(function () { showError(widget, 'Verse unavailable right now. Please check back shortly.'); });
   }
 
   function render(widget, ref, text) {
@@ -202,11 +202,11 @@
           render(widget, ref, text);
           if (storedDate && storedDate !== today) toast('Verse updated!');
         } else {
-          showError(widget, 'Verse unavailable—try again later.');
+          showError(widget, 'Verse unavailable right now. Please check back shortly.');
         }
       })
       .catch(function () {
-        showError(widget, 'Verse unavailable—try again later.');
+        showError(widget, 'Verse unavailable right now. Please check back shortly.');
       });
   }
 

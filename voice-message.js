@@ -13,7 +13,7 @@
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
       btn.addEventListener('click', function () {
-        alert('Voice not supported—type instead.');
+        alert('Voice input is not supported in this browser. Please type your message instead.');
       });
       return;
     }
@@ -48,7 +48,7 @@
         recognition.start();
       } catch (e) {
         setListening(false);
-        alert('Voice not supported—type instead.');
+        alert('Voice input could not start. Please type your message instead.');
       }
     });
 

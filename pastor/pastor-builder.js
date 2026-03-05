@@ -92,6 +92,20 @@
     return div.innerHTML;
   }
 
+  function openPrintWindow(html) {
+    var win = window.open('', '_blank');
+    if (!win) return null;
+    var blob = new Blob([String(html || '')], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    win.location.href = url;
+    win.onload = function () {
+      try { win.print(); } catch (e) {}
+      URL.revokeObjectURL(url);
+      win.onafterprint = function () { try { win.close(); } catch (e2) {} };
+    };
+    return win;
+  }
+
   function getTypeLabel(typeId) {
     var t = SECTION_TYPES.find(function (x) { return x.id === typeId; });
     return t ? t.label : typeId;
@@ -239,11 +253,7 @@
     }
     html += '</body></html>';
 
-    var win = window.open('', '_blank');
-    win.document.write(html);
-    win.document.close();
-    win.print();
-    win.onafterprint = function () { win.close(); };
+    openPrintWindow(html);
   }
 
   /** Extract verse refs from text (e.g. John 3:16, Romans 8:28). */
@@ -385,7 +395,7 @@
       showToast('Sermon notes exported!');
     } catch (err) {
       console.error('Export error:', err);
-      showToast('Could not create PDF. Try again.');
+      showToast('PDF export failed. Please try again.');
     }
 
     if (btn) btn.disabled = false;
@@ -420,7 +430,7 @@
     try {
       var supabase = window.supabase && window.supabase.createClient ? window.supabase.createClient(url, key) : null;
       if (!supabase) {
-        showToast('Supabase not loaded. Try again.');
+      showToast('Supabase is not ready yet. Please try again.');
         if (btn) btn.disabled = false;
         if (label) label.textContent = 'Share Draft';
         if (spinner) spinner.classList.add('hidden');
@@ -434,7 +444,7 @@
         outline_json: sections
       }).then(function (res) {
         if (res.error) {
-          showToast('Could not share. ' + (res.error.message || 'Try again.'));
+          showToast('Draft share failed. ' + (res.error.message || 'Please try again.'));
           return;
         }
         var shareUrl = 'https://todaysdailybattle.com/pastor/builder.html?draft=' + uuid;
@@ -449,7 +459,7 @@
         }
       }).catch(function (err) {
         console.error('Share error:', err);
-        showToast('Could not share. Try again.');
+        showToast('Draft share failed. Please try again.');
       }).finally(function () {
         if (btn) btn.disabled = false;
         if (label) label.textContent = 'Share Draft';
@@ -457,7 +467,7 @@
       });
     } catch (e) {
       console.error('Share error:', e);
-      showToast('Could not share. Try again.');
+      showToast('Draft share failed. Please try again.');
       if (btn) btn.disabled = false;
       if (label) label.textContent = 'Share Draft';
       if (spinner) spinner.classList.add('hidden');

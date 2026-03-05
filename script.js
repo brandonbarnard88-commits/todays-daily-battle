@@ -1825,7 +1825,7 @@ function showResendVerificationUI(email) {
         setAuthStatus('Loading…', 'info');
         const ready = await ensureSupabaseLoaded();
         if (!ready || !supabaseClient) {
-          setAuthStatus('Try again in a moment.', 'error');
+          setAuthStatus('Please try again in a moment.', 'error');
           return;
         }
       }
@@ -2252,7 +2252,7 @@ async function signInWithOAuthProvider(provider, setStatusFn) {
     setStatus('Loading sign-in…', 'info');
     const ready = await ensureSupabaseLoaded();
     if (!ready || !supabaseClient) {
-      setStatus('Auth is still loading. Try again in a moment.', 'error');
+      setStatus('Auth is still loading. Please try again in a moment.', 'error');
       return;
     }
   }
@@ -2263,14 +2263,14 @@ async function signInWithOAuthProvider(provider, setStatusFn) {
     options: { redirectTo: baseUrl + '/' }
   });
   if (error) {
-    setStatus(error.message || 'Sign-in failed. Try again.', 'error');
+    setStatus(error.message || 'Sign-in failed. Please try again.', 'error');
     if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'oauth', provider: provider });
     return;
   }
   if (data?.url) {
     window.location.href = data.url;
   } else {
-    setStatus('Could not start sign-in. Try again.', 'error');
+    setStatus('Could not start sign-in. Please try again.', 'error');
   }
 }
 
@@ -3901,7 +3901,7 @@ function wireGodModePrayerEcho() {
       setPrayersApiUnavailable();
       clearTimeout(echoTimeout);
       if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
-      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Could not load recent prayers.'; }
+      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Recent prayers could not be loaded right now.'; }
     }
   }
   window.__refreshPrayerEcho = fetchAndRenderEcho;
@@ -4582,7 +4582,7 @@ function wireOfflinePrefetch() {
     if (result.ok && typeof showEliteToast === 'function') {
       showEliteToast('Ready for offline – ' + (result.count || OFFLINE_PREFETCH_DAYS) + ' days cached.');
     } else if (!result.ok && result.error && typeof showEliteToast === 'function') {
-      showEliteToast(result.error || 'Download failed. Try again.');
+      showEliteToast(result.error || 'Download failed. Please try again.');
     }
   });
 }
@@ -6142,11 +6142,11 @@ async function renderDailyBattleCard() {
       var fb = (typeof getDailyBattleFallback === 'function' ? getDailyBattleFallback() : null) || DAILY_VERSE_BUNDLED_FALLBACK;
       var txt = (typeof getBibleVerseText === 'function' ? getBibleVerseText(fb.ref) : '') || (bible[fb.ref] || (fb.text || ''));
       if (fb.ref && txt) {
-        card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(txt) + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online. <button type="button" class="link-button" id="daily-battle-try-again">Try again</button></p>';
+        card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(txt) + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online. <button type="button" class="link-button" id="daily-battle-try-again">Retry</button></p>';
         card.classList.add('verse-card-loaded');
         if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: txt, reflection: fb.reflection || '', prayer: fb.prayer || '' };
       } else {
-        card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+        card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Retry</button>';
       }
     }
   }, 3000);
@@ -6154,7 +6154,7 @@ async function renderDailyBattleCard() {
     if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
     card.classList.remove('hero-verse-card-skeleton');
     if (!card.classList.contains('verse-card-loaded')) {
-      card.innerHTML = '<p class="empty">Bible data not loaded.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+      card.innerHTML = '<p class="empty">Bible data is not loaded yet.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Retry</button>';
     } else if (reflectionEl) reflectionEl.textContent = 'Reflection: ' + (DAILY_VERSE_BUNDLED_FALLBACK.reflection || '');
     if (card.classList.contains('verse-card-loaded') && prayerEl) prayerEl.textContent = 'Prayer: ' + (DAILY_VERSE_BUNDLED_FALLBACK.prayer || '');
     return;
@@ -6268,7 +6268,7 @@ if (c && c.ref) {
     var tryAgainWrap = document.createElement('p');
     tryAgainWrap.id = 'daily-battle-anchor-try';
     tryAgainWrap.className = 'section-note';
-    tryAgainWrap.innerHTML = 'Today\'s verse didn\'t load from the server. Try again later—or you\'re seeing a fallback verse (John 3:16). <button type="button" class="link-button" id="daily-battle-try-again">Try again</button>';
+    tryAgainWrap.innerHTML = 'Today\'s verse didn\'t load from the server. Please retry in a moment - you may be seeing a fallback verse (John 3:16). <button type="button" class="link-button" id="daily-battle-try-again">Retry</button>';
     tryAgainWrap.style.marginTop = '0.5rem';
     prayerEl.after(tryAgainWrap);
   }
@@ -6403,14 +6403,14 @@ function exportNewsletterCsv() {
         .order('created_at', { ascending: false })
         .then(({ data, error }) => {
           if (error || !data?.length) {
-            alert('No newsletter signups to export yet.');
+            alert('No newsletter signups are available to export yet.');
             return;
           }
           exportCsvRows(data);
         });
       return;
     }
-    alert('No newsletter signups to export yet.');
+    alert('No newsletter signups are available to export yet.');
     return;
   }
   exportCsvRows(items);
@@ -6458,14 +6458,14 @@ function exportWaitlistCsv() {
         .order('created_at', { ascending: false })
         .then(({ data, error }) => {
           if (error || !data?.length) {
-            alert('No waitlist entries yet.');
+            alert('No waitlist entries are available yet.');
             return;
           }
           exportCsvRows(data);
         });
       return;
     }
-    alert('No waitlist entries yet.');
+    alert('No waitlist entries are available yet.');
     return;
   }
   exportCsvRows(items);
@@ -6487,7 +6487,7 @@ async function exportMessagesCsv() {
   }
   const local = loadMessagesLocal();
   if (!local.length) {
-    alert('No messages to export yet.');
+    alert('No messages are available to export yet.');
     return;
   }
   const rows = local.map(item => [item.id, item.user_id, item.text, item.created_at, item.hidden || false]);
@@ -6510,7 +6510,7 @@ async function exportReportsCsv() {
     }
   }
   if (!local.length) {
-    alert('No reports to export yet.');
+    alert('No reports are available to export yet.');
     return;
   }
   const rows = local.map(item => [item.message_id || item.id, item.text, item.created_at]);
@@ -6680,7 +6680,7 @@ function renderMessages(items, previewLimit) {
     return true;
   });
   if (!visible.length) {
-    list.innerHTML = '<p class="empty">No encouragement yet—share your win!</p><p class="section-note">Be the first to post a prayer request, praise report, or short encouragement.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Share your win</a>';
+    list.innerHTML = '<p class="empty">No encouragement posts yet.</p><p class="section-note">Start the board with a short prayer request, praise report, or Scripture encouragement.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Post encouragement</a>';
     if (seeMoreBtn) seeMoreBtn.style.display = 'none';
     return;
   }
@@ -7850,7 +7850,7 @@ function renderChurchPrayerListUI(items) {
   if (!prayerList) return;
   prayerList.innerHTML = '';
   if (!items || items.length === 0) {
-    prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above.</p>';
+    prayerList.innerHTML = '<p class="empty">No prayer requests posted yet. Add one above to begin your prayer list.</p>';
     return;
   }
   items.forEach((row, i) => {
@@ -8513,7 +8513,7 @@ async function renderAdminPanel() {
   if (reportsWrap) {
     const reports = await loadMessageReports();
     if (!reports.length) {
-      reportsWrap.innerHTML = '<p class="empty">No reports yet.</p>';
+      reportsWrap.innerHTML = '<p class="empty">No reports submitted yet.</p>';
       return;
     }
     reportsWrap.innerHTML = '';
@@ -8825,7 +8825,7 @@ function renderSermonsList(sermons) {
   const listEl = document.getElementById('sermons-list');
   if (!listEl) return;
   if (!sermons || sermons.length === 0) {
-    listEl.innerHTML = '<li class="section-note sermons-list-empty">No sermons yet. Click New Sermon to start.</li>';
+    listEl.innerHTML = '<li class="section-note sermons-list-empty">No sermons saved yet. Click New Sermon to begin your next draft.</li>';
     return;
   }
   listEl.innerHTML = sermons.map(function (s) {
@@ -9187,7 +9187,7 @@ function buildPastorToolkit(results) {
       points: '',
       application: '',
       prayer: '',
-      guide: 'No results found yet.'
+      guide: 'No results found for this query yet.'
     };
   }
   const topVerses = results.verses.slice(0, 3);
@@ -9503,7 +9503,7 @@ function renderSavedVerses() {
   if (collections.length === 0 && items.length === 0) {
     if (!fromTool.verseNotes || !fromTool.verseNotes.length) {
       if (!savedVersesArr || !savedVersesArr.length) {
-        container.innerHTML = '<p class="empty">No notes or verses yet—add from <a href="bible-tool.html">Bible Tool</a> to win your battles! ⚔️</p>';
+        container.innerHTML = '<p class="empty">No notes or saved verses yet - add one from <a href="bible-tool.html">Bible Tool</a> to start building your battle log.</p>';
       }
     }
     return;
@@ -9730,7 +9730,7 @@ function renderNotes() {
   container.innerHTML = '';
   const notes = loadNotes();
   if (notes.length === 0) {
-    container.innerHTML = '<p class="empty">No notes yet—add verses from <a href="bible-tool.html">Bible Tool</a> to win your battles! ⚔️</p>';
+    container.innerHTML = '<p class="empty">No notes saved yet - add verses from <a href="bible-tool.html">Bible Tool</a> to build your study archive.</p>';
     return;
   }
   const select = document.getElementById('note-verse-select');
@@ -10971,7 +10971,7 @@ async function loadStudies() {
       grid.appendChild(card);
     });
     if (data.length === 0) {
-      grid.innerHTML = '<p class="section-note">No studies yet. Check back soon.</p>';
+      grid.innerHTML = '<p class="section-note">No studies published yet. Check back soon for new study releases.</p>';
     }
     grid.setAttribute('aria-busy', 'false');
   } catch (e) {
@@ -11559,7 +11559,7 @@ function writeNbaSignal(key) {
   } catch (err) {
     var card = document.getElementById('daily-battle-card');
     if (card && (card.textContent.indexOf('Loading') !== -1 || card.textContent.indexOf('Arming') !== -1)) {
-      card.innerHTML = '<p class="empty">Something went wrong loading the page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Try again</button>';
+      card.innerHTML = '<p class="empty">Something went wrong while loading this page. Try refreshing.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Retry</button>';
     }
     if (document.getElementById('reader-book')) refreshBibleView();
     if (document.getElementById('collection-select') && typeof renderCollectionSelect === 'function') renderCollectionSelect();
@@ -11663,7 +11663,7 @@ function writeNbaSignal(key) {
     var tryAgainWrap = document.createElement('p');
     tryAgainWrap.id = 'daily-battle-anchor-try';
     tryAgainWrap.className = 'section-note';
-    tryAgainWrap.innerHTML = 'Verse loading—<button type="button" class="link-button" id="daily-battle-try-again">Try again</button> or <a href="#main-search">try a topic below</a>.';
+    tryAgainWrap.innerHTML = 'Verse loading—<button type="button" class="link-button" id="daily-battle-try-again">Retry</button> or <a href="#main-search">try a topic below</a>.';
     tryAgainWrap.style.marginTop = '0.5rem';
     if (prayerEl && prayerEl.parentNode) prayerEl.parentNode.insertBefore(tryAgainWrap, prayerEl.nextSibling);
   }, 8000);
@@ -12019,7 +12019,7 @@ function writeNbaSignal(key) {
         setAuthStatus('Loading sign-in…', 'info');
         const ready = await ensureSupabaseLoaded();
         if (!ready || !supabaseClient) {
-          setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+          setAuthStatus('Auth is still loading. Please try again in a moment.', 'error');
           return;
         }
       }
@@ -12076,7 +12076,7 @@ function writeNbaSignal(key) {
         setAuthStatus('Loading sign-in…', 'info');
         const ready = await ensureSupabaseLoaded();
         if (!ready || !supabaseClient) {
-          setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+          setAuthStatus('Auth is still loading. Please try again in a moment.', 'error');
           return;
         }
       }
@@ -12094,7 +12094,7 @@ function writeNbaSignal(key) {
           if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'invalid_credentials' });
         } else {
           setAuthStatus(error.message, 'error');
-          if (typeof showEliteToast === 'function') showEliteToast(error.message || 'Sign-in failed. Try again.');
+          if (typeof showEliteToast === 'function') showEliteToast(error.message || 'Sign-in failed. Please try again.');
           if (typeof trackEvent === 'function') trackEvent('login_failed', { reason: 'other' });
         }
         return;
@@ -12130,7 +12130,7 @@ function writeNbaSignal(key) {
         setAuthStatus('Loading…', 'info');
         const ready = await ensureSupabaseLoaded();
         if (!ready || !supabaseClient) {
-          setAuthStatus('Sign-in is still loading. Try again in a moment.', 'error');
+          setAuthStatus('Sign-in is still loading. Please try again in a moment.', 'error');
           return;
         }
       }
@@ -12199,7 +12199,7 @@ function writeNbaSignal(key) {
         if (!supabaseClient) {
           var ready = await ensureSupabaseLoaded();
           if (!ready || !supabaseClient) {
-            setModalStatus('Sign-in is still loading. Try again.', 'error');
+            setModalStatus('Sign-in is still loading. Please try again.', 'error');
             return;
           }
         }
@@ -12227,7 +12227,7 @@ function writeNbaSignal(key) {
           setModalStatus('Loading…', '');
           var ready = await ensureSupabaseLoaded();
           if (!ready || !supabaseClient) {
-            setModalStatus('Auth is still loading. Try again.', 'error');
+            setModalStatus('Auth is still loading. Please try again.', 'error');
             return;
           }
         }
@@ -12241,7 +12241,7 @@ function writeNbaSignal(key) {
           });
           submitBtn.disabled = false;
           if (res.error) {
-            var safe = /already|registered|exists/i.test(res.error.message) ? 'An account may already exist. Try logging in.' : (res.error.message.length < 100 ? res.error.message : 'Couldn\'t create account. Try again.');
+            var safe = /already|registered|exists/i.test(res.error.message) ? 'An account may already exist. Try logging in.' : (res.error.message.length < 100 ? res.error.message : 'Couldn\'t create account. Please try again.');
             setModalStatus(safe, 'error');
             return;
           }
@@ -13250,7 +13250,7 @@ function writeNbaSignal(key) {
         return;
       }
       if (!supabaseClient) {
-        if (resetStatus) resetStatus.textContent = 'Auth is still loading. Try again in a moment.';
+        if (resetStatus) resetStatus.textContent = 'Auth is still loading. Please try again in a moment.';
         return;
       }
       const { data } = await supabaseClient.auth.getSession();
@@ -13280,7 +13280,7 @@ function writeNbaSignal(key) {
     }
     if (!supabaseClient) {
       ensureSupabaseLoaded();
-      setAuthStatus('Auth is still loading. Try again in a moment.', 'error');
+      setAuthStatus('Auth is still loading. Please try again in a moment.', 'error');
       return;
     }
       if (typeof unsubscribeFromSharedPrayers === 'function') unsubscribeFromSharedPrayers();
@@ -13411,14 +13411,14 @@ function writeNbaSignal(key) {
       try {
         var results = await runTopicSearch(topic);
         if (!results || !results.verses || results.verses.length === 0) {
-          alert('No verses found for that topic. Try hope, fear, or anxiety.');
+          alert('No verses were found for that topic. Try hope, fear, or anxiety.');
           return;
         }
         var toolkit = buildPastorToolkit(results);
         saveSermonDraft({ title: toolkit.title, theme: toolkit.theme, textRef: toolkit.textRef, outline: toolkit.outline, points: toolkit.points, application: toolkit.application, prayer: toolkit.prayer });
         window.location.href = 'sermon.html?load=1';
       } catch (e) {
-        alert('Something went wrong. Try again.');
+        alert('Something went wrong. Please try again.');
       } finally {
         ptBuildBtn.disabled = false;
         ptBuildBtn.textContent = 'Build toolkit & open Sermon Builder';
@@ -13705,7 +13705,7 @@ function writeNbaSignal(key) {
   if (pastorToolkitBtn) {
     pastorToolkitBtn.addEventListener('click', () => {
       if (!lastResults || !lastResults.verses || lastResults.verses.length === 0) {
-        alert('No search results yet. Search a topic above first, or use "Build from topic" on the Pastor Toolkit page.');
+        alert('No search results are loaded yet. Search a topic first, or use "Build from topic" in Pastor Toolkit.');
         return;
       }
       const toolkit = buildPastorToolkit(lastResults);
@@ -13950,7 +13950,7 @@ function writeNbaSignal(key) {
       var empty = document.createElement('p');
       empty.className = 'section-note saved-lessons-empty';
       empty.setAttribute('aria-live', 'polite');
-      empty.textContent = 'No saved lessons yet. Search a topic above, then click Build Lesson.';
+      empty.textContent = 'No saved lessons yet. Search a topic above, then choose Build Lesson to create your first one.';
       list.appendChild(empty);
       return;
     }
@@ -14159,7 +14159,7 @@ function writeNbaSignal(key) {
         window.dispatchEvent(new CustomEvent('reading-plan-updated'));
         if (customPlanStatus) customPlanStatus.textContent = 'Plan generated. Your ' + days + '-day plan is below.';
       } catch (e) {
-        if (customPlanStatus) customPlanStatus.textContent = 'Could not save plan.';
+        if (customPlanStatus) customPlanStatus.textContent = 'Custom plan could not be saved right now.';
       }
     });
   }
@@ -14319,7 +14319,7 @@ function writeNbaSignal(key) {
       container.innerHTML = '';
       sermonContainer.innerHTML = '';
       if (results.length === 0) {
-        container.innerHTML = '<p class="empty">No churches found.</p>';
+        container.innerHTML = '<p class="empty">No churches found for this search.</p>';
         return;
       }
       results.forEach(church => {
@@ -14334,7 +14334,7 @@ function writeNbaSignal(key) {
           const sermons = await loadChurchSermons(church.id);
           sermonContainer.innerHTML = '';
           if (sermons.length === 0) {
-            sermonContainer.innerHTML = '<p class="empty">No sermons available yet.</p>';
+            sermonContainer.innerHTML = '<p class="empty">No sermons are published for this church yet.</p>';
             return;
           }
           sermons.forEach(sermon => {
@@ -14434,7 +14434,7 @@ function writeNbaSignal(key) {
           row.appendChild(actions);
           prayerList.appendChild(row);
         });
-        if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above.</p>';
+        if (!items.length) prayerList.innerHTML = '<p class="empty">No prayer requests yet. Add one above to open the prayer wall.</p>';
       }
     }
     const assignedList = document.getElementById('church-assigned-list');
@@ -14503,7 +14503,7 @@ function writeNbaSignal(key) {
           added_by_user_id: currentUserId
         });
         if (error) {
-          if (typeof showEliteToast === 'function') showEliteToast('Could not add prayer. Try again.');
+          if (typeof showEliteToast === 'function') showEliteToast('Could not add prayer. Please try again.');
           return;
         }
         churchPrayerInput.value = '';

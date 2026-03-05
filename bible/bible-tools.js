@@ -247,8 +247,8 @@
     currentSearchWord = word || '';
 
     if (refs.length === 0) {
-      if (countEl) countEl.textContent = word ? 'No verses found.' : 'Type a word above to find verses.';
-      listEl.innerHTML = word ? '<p class="concordance-empty">Try another word (e.g. faith, love, peace).</p>' : '';
+      if (countEl) countEl.textContent = word ? 'No verse matches found yet.' : 'Type a word above to search the concordance.';
+      listEl.innerHTML = word ? '<p class="concordance-empty">No matches for "' + escapeHtml(word) + '". Try terms like faith, mercy, peace, hope, or fear.</p>' : '';
       var card = document.getElementById('concordance-verse-card');
       if (card) card.classList.add('hidden');
       return;
@@ -476,7 +476,7 @@
     var questions = ch ? BIBLE_QUIZ_QUESTIONS[ch.chapter] : null;
     if (!questions || questions.length < 5) {
       var hint = document.getElementById('bible-quiz-hint');
-      if (hint) hint.textContent = 'No quiz for today\'s chapter yet. Check back soon!';
+      if (hint) hint.textContent = 'Today\'s chapter quiz is still being prepared. Check back shortly.';
       return;
     }
     if (isQuizTakenThisWeek()) {
@@ -562,7 +562,7 @@
     if (chapterEl) chapterEl.classList.add('hidden');
     if (scoreEl) scoreEl.textContent = correctCount + '/' + total;
     if (messageEl) {
-      messageEl.textContent = passed ? 'Great! +1 streak' : 'Keep studying! Try again next week.';
+      messageEl.textContent = passed ? 'Strong work - +1 weekly streak.' : 'Keep going - review the chapter and try again next week.';
       messageEl.className = 'bible-quiz-message ' + (passed ? 'bible-quiz-win' : '');
     }
     resultEl.classList.remove('hidden');
@@ -668,7 +668,7 @@
     var verses = collectMemoryVerses();
     if (verses.length < 5) {
       var hint = document.getElementById('verse-memory-hint');
-      if (hint) hint.textContent = 'Not enough verses yet. Check back soon!';
+      if (hint) hint.textContent = 'Not enough verses are loaded yet. Check back shortly.';
       return;
     }
     memoryState = { cards: shuffle(verses).slice(0, 5), currentIndex: 0, results: [], checked: false };
@@ -753,7 +753,7 @@
     }).join('');
     if (scoreEl) scoreEl.textContent = correctCount + '/' + total;
     if (messageEl) {
-      messageEl.textContent = passed ? 'Great! +0.5 streak' : 'Keep practicing! Try again tomorrow.';
+      messageEl.textContent = passed ? 'Great recall - +0.5 streak bonus.' : 'Keep practicing - try again tomorrow.';
       messageEl.className = 'verse-memory-message ' + (passed ? 'verse-memory-win' : '');
     }
     resultEl.classList.remove('hidden');

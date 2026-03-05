@@ -96,7 +96,7 @@
     var refEl = byId('mystudy-verse-ref');
     var textEl = byId('mystudy-verse-text');
     if (!refEl || !textEl) return;
-    refEl.textContent = study.verseRef || 'No verse selected yet.';
+    refEl.textContent = study.verseRef || 'No verse selected yet. Choose one from search to begin.';
     textEl.textContent = study.verseText || '';
   }
 
@@ -105,7 +105,7 @@
     if (!listEl) return;
     var items = loadShared();
     if (!items.length) {
-      listEl.innerHTML = '<p class="section-note">No shared studies joined yet.</p>';
+      listEl.innerHTML = '<p class="section-note">No shared studies joined yet. Paste a share code to add one.</p>';
       return;
     }
     listEl.innerHTML = '';
@@ -136,7 +136,7 @@
       if (status) status.textContent = '';
       return true;
     } catch (e) {
-      if (status) status.textContent = 'Could not load Bible search right now.';
+      if (status) status.textContent = 'Bible search could not be loaded right now.';
       return false;
     }
   }
@@ -146,7 +146,7 @@
     if (!listEl) return;
     listEl.innerHTML = '';
     if (!results.length) {
-      listEl.innerHTML = '<li class="section-note">No matches found.</li>';
+      listEl.innerHTML = '<li class="section-note">No matches found. Try a broader keyword or exact reference.</li>';
       return;
     }
     results.forEach(function (item) {
@@ -330,7 +330,7 @@
         navigator.clipboard.writeText(code).then(function () {
           if (shareStatusEl) shareStatusEl.textContent = 'Code copied.';
         }).catch(function () {
-          if (shareStatusEl) shareStatusEl.textContent = 'Copy failed. Select and copy manually.';
+          if (shareStatusEl) shareStatusEl.textContent = 'Copy failed. Please select and copy manually.';
         });
       }
     });

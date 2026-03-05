@@ -2473,7 +2473,7 @@
         renderBadges(Math.ceil(prevStreak));
         renderFaithTrail();
       } else {
-        resultMsg.textContent = 'Try again tomorrow! 🌟';
+        resultMsg.textContent = 'Great effort - review the verse prompts and try again tomorrow. 🌟';
         resultMsg.classList.remove('kids-quiz-win');
         resultMsg.classList.add('kids-quiz-fail');
       }
@@ -2611,7 +2611,7 @@
         var inp = wrap.querySelector('.kids-memory-input');
         var ans = (inp ? inp.value : '').trim().toLowerCase();
         var expected = (wrap.dataset.answer || '').toLowerCase();
-        var hint = wrap.dataset.hint || 'Try again!';
+        var hint = wrap.dataset.hint || 'Close - check the verse again and retry.';
         var hintEl = wrap.querySelector('.kids-memory-hint');
         if (ans === expected) {
           correct++;
@@ -3244,20 +3244,20 @@
       var supabaseUrl = cfg.SUPABASE_URL;
       var supabaseKey = cfg.SUPABASE_ANON_KEY;
       if (!navigator.onLine || !supabaseUrl || !supabaseKey) {
-        showCodeError('Need internet to connect. Try again when online.');
+        showCodeError('Internet is required to connect. Please retry when back online.');
         return;
       }
 
       try {
         var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
         if (!supabase || !supabase.createClient) {
-          showCodeError('Something went wrong. Try again.');
+          showCodeError('Something went wrong. Please try again.');
           return;
         }
         var client = supabase.createClient(supabaseUrl, supabaseKey);
         client.rpc('redeem_invite_code', { code: code }).then(function (res) {
           if (res.error) {
-            showCodeError('Something went wrong. Try again.');
+            showCodeError('Something went wrong. Please try again.');
             return;
           }
           var data = res.data;
@@ -3275,10 +3275,10 @@
             }
           }
         }).catch(function () {
-          showCodeError('Something went wrong. Try again.');
+          showCodeError('Something went wrong. Please try again.');
         });
       } catch (err) {
-        showCodeError('Something went wrong. Try again.');
+        showCodeError('Something went wrong. Please try again.');
       }
     });
   }

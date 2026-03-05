@@ -104,7 +104,7 @@
       b.innerHTML = '<p><strong>Speaker:</strong> ' + escapeHtml(c.speaker || '—') + '</p><p><strong>To:</strong> ' + escapeHtml(c.audience || '—') + '</p><p><strong>Today:</strong> ' + escapeHtml(c.today || '—') + '</p>';
       b.classList.remove('hidden');
     } else {
-      b.innerHTML = '<p class="verse-modal-nonote">No notes yet—keep searching!</p>';
+      b.innerHTML = '<p class="verse-modal-nonote">Context note not available for this verse yet. Try another verse or open breakdown for deeper study.</p>';
       b.classList.remove('hidden');
     }
     modal.classList.remove('hidden');

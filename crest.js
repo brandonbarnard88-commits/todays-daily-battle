@@ -213,7 +213,7 @@
     var family = (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getHierarchy === 'function')
       ? window.TDBFamilyHierarchy.getHierarchy(code, { churchMode: false })
       : null;
-    if (!family || !family.parent) return '<p class="section-note util-mb-0">No linked avatars yet.</p>';
+    if (!family || !family.parent) return '<p class="section-note util-mb-0">No linked avatars yet. Connect your household to show your family crest lineup.</p>';
     var html = '<div class="family-hierarchy-stack">';
     html += '<div class="family-hierarchy-node family-hierarchy-parent"><span class="lineage-member-chip">Parent</span></div>';
     if (family.kids.length) {

@@ -156,7 +156,7 @@
     var avatars = byId('church-avatar-line');
     avatars.innerHTML = '';
     if (!group.members.length) {
-      avatars.innerHTML = '<span class="section-note">No members yet.</span>';
+      avatars.innerHTML = '<span class="section-note">No members have joined this group yet.</span>';
     } else {
       group.members.forEach(function (m) {
         var chip = document.createElement('div');

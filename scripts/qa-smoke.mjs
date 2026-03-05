@@ -1,4 +1,6 @@
-import { firefox } from 'playwright';
+import { chromium, firefox } from 'playwright';
+import fs from 'fs';
+import path from 'path';
 
 const url = process.env.QA_URL || 'https://todaysdailybattle.com/index.html';
 const checks = [];
@@ -15,7 +17,24 @@ function hasFailure() {
   return checks.some((c) => c.status === 'FAIL');
 }
 
-const browser = await firefox.launch({ headless: true });
+async function launchBrowser() {
+  try {
+    return await firefox.launch({ headless: true });
+  } catch (err) {
+    const root = process.env.PLAYWRIGHT_BROWSERS_PATH || '';
+    const candidates = [
+      path.join(root, 'chromium_headless_shell-1208', 'chrome-headless-shell-mac-arm64', 'chrome-headless-shell'),
+      path.join(root, 'chromium_headless_shell-1208', 'chrome-headless-shell-mac-x64', 'chrome-headless-shell')
+    ];
+    const executablePath = candidates.find((p) => p && fs.existsSync(p));
+    if (executablePath) {
+      return await chromium.launch({ headless: true, executablePath });
+    }
+    return await chromium.launch({ headless: true });
+  }
+}
+
+const browser = await launchBrowser();
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
 const page = await ctx.newPage();
 

@@ -137,7 +137,7 @@
           html += '<p class="section-note"><strong>Last verse day:</strong> ' + safeKey + '</p>';
         }
         if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
-        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak yet. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
+        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak recorded yet. Start your first day on the <a href="/">Daily Battle</a> page - one verse, one moment, every day.</p>';
 
         if (statsEl) statsEl.innerHTML = html;
         if (sc > 0 || prayerCount > 0) {
@@ -200,7 +200,7 @@
             setTimeout(function() { copyStatus.style.display = 'none'; }, 3000);
             if (window.gtag) window.gtag('event', 'wins_copy', {});
           }).catch(function() {
-            copyStatus.textContent = 'Could not copy. Select and copy manually.';
+            copyStatus.textContent = 'Copy failed. Please select and copy manually.';
             copyStatus.style.display = 'block';
           });
         } else {
@@ -235,7 +235,7 @@
             link.click();
             if (window.gtag) window.gtag('event', 'wins_download', {});
           } catch (e) {
-            copyStatus.textContent = 'Download not supported in this browser.';
+            copyStatus.textContent = 'Image download is not supported in this browser.';
             copyStatus.style.display = 'block';
           }
         });

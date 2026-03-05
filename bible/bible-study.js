@@ -279,7 +279,7 @@
     var h = getHighlights();
     var refs = Object.keys(h).filter(function (r) { return h[r] && h[r].highlighted; });
     if (refs.length === 0) {
-      showChallengeToast('No highlights yet—add one first!');
+      showChallengeToast('No highlights saved yet. Add one first to unlock challenge sharing.');
       return;
     }
     if (isChallengeSharedThisWeek()) {

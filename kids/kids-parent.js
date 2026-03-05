@@ -109,7 +109,7 @@
       var items = storageItems.length > 0 ? storageItems : localItems.slice(0, 5);
       gallery.innerHTML = '';
       if (items.length === 0) {
-        gallery.innerHTML = '<p class="kids-no-doodles">No doodles yet. Draw one in Kids Battle!</p>';
+        gallery.innerHTML = '<p class="kids-no-doodles">No doodles saved yet. Open Kids Battle and save a drawing to start your gallery.</p>';
         return;
       }
       items.forEach(function (item) {
@@ -272,7 +272,7 @@
     const last5 = viewed.slice(-5).reverse();
     grid.innerHTML = '';
     if (last5.length === 0) {
-      grid.innerHTML = '<p class="kids-no-favorites">No stories yet—explore together in the <a href="corner.html">Kids Corner</a>!</p>';
+      grid.innerHTML = '<p class="kids-no-favorites">No stories viewed yet. Explore one together in <a href="corner.html">Kids Corner</a> and it will show up here.</p>';
       return;
     }
     last5.forEach(function (key) {

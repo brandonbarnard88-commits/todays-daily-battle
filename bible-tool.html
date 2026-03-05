@@ -195,7 +195,7 @@
     <main class="app-content" id="main-content">
       <div class="content-inner bible-tool">
         <h1 class="section-divider">Bible Tool</h1>
-        <p class="section-note">Your go-to for lookups, notes, and Win the Day. KJV, no login—saves on this device.</p>
+        <p class="section-note">Your Scripture command center for verse lookup, notes, and Win the Day guidance. KJV, no login required.</p>
         <p class="section-note util-mt-0_5">Sign-in is optional. Use the tool without an account; sign in above if you want to sync notes and verses across devices.</p>
         <section class="verse-card glass" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0">Verse Mode</h2>
@@ -293,7 +293,7 @@
         <!-- Win the Day -->
         <section class="verse-card glass border-gold" aria-label="Win the Day">
           <h2 class="win-title section-divider util-mt-0">Win the Day</h2>
-          <p class="section-note">Get 3 verses by topic for prayer or declaration.</p>
+          <p class="section-note">Generate 3 battle-ready verses by topic for prayer, declaration, and focused obedience.</p>
           <select id="win-topic" aria-label="Topic">
             <option value="strength">Strength</option>
             <option value="peace">Peace</option>
@@ -309,7 +309,7 @@
         <!-- Battle Ready -->
         <section class="verse-card glass border-accent" aria-label="Battle Ready">
           <h2 class="section-divider util-mt-0">Battle Ready</h2>
-          <p class="section-note">One random strength verse + a short prayer to start your fight.</p>
+          <p class="section-note">One focused strength verse plus a short prayer to start today with resolve.</p>
           <button type="button" id="battle-ready-btn" class="btn btn-primary">Get battle ready</button>
           <div id="battle-ready-result" class="hidden util-mt-1"></div>
         </section>
@@ -600,7 +600,7 @@
     var block = document.getElementById('lookup-result');
     if (!block) return;
     block.classList.remove('hidden');
-    block.innerHTML = '<p class="empty">Verse unavailable—check your connection or try another reference.</p><button type="button" id="lookup-retry" class="btn btn-secondary">Try again</button>';
+    block.innerHTML = '<p class="empty">Verse unavailable right now - check your connection or try another reference.</p><button type="button" id="lookup-retry" class="btn btn-secondary">Retry lookup</button>';
     var lookupContext = document.getElementById('lookup-context');
     if (lookupContext) lookupContext.innerHTML = '';
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -629,8 +629,8 @@
     html += others.length ? others.slice(0, 10).map(function (ref) {
       var txt = notes[ref].length > 80 ? notes[ref].slice(0, 80) + '…' : notes[ref];
       return '<p class="section-note util-mb-0_5"><strong>' + escapeHtml(ref) + '</strong>: ' + escapeHtml(txt) + '</p>';
-    }).join('') : (battleLog ? '' : '<p class="section-note">No notes yet. Look up a verse and add a note above, or use Add to Notes.</p>');
-    list.innerHTML = html || '<p class="section-note">No notes yet.</p>';
+    }).join('') : (battleLog ? '' : '<p class="section-note">No notes saved yet. Look up a verse, then add a note above or use Add to Notes.</p>');
+    list.innerHTML = html || '<p class="section-note">No notes saved yet.</p>';
   }
 
   function shareVerse(ref, text, useToolUrl) {
@@ -826,15 +826,15 @@
           if (bio && (bio.who || bio.did || bio.impact || (bio.verses && bio.verses.length))) {
             renderFromBio(bio);
           } else {
-            result.innerHTML = '<p class="section-note">Not found—try another name or search for a verse about them.</p>';
+            result.innerHTML = '<p class="section-note">No profile found yet. Try another name or search for verses connected to that person.</p>';
           }
           result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }).catch(function () {
-          result.innerHTML = '<p class="section-note">Not found—try another name or search for a verse about them.</p>';
+          result.innerHTML = '<p class="section-note">No profile found yet. Try another name or search for verses connected to that person.</p>';
           result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
       } else {
-        result.innerHTML = '<p class="section-note">Not in bundle—try Bible Tool search for a verse about them.</p>';
+        result.innerHTML = '<p class="section-note">Profile not in this local bundle yet. Use Bible Tool search for related verses.</p>';
         result.classList.remove('hidden');
         result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
@@ -1169,7 +1169,7 @@
           el.textContent = 'Added!';
           setTimeout(function () { el.textContent = orig; }, 2000);
         });
-      } else container.innerHTML = '<p class="section-note">Try again.</p>';
+      } else container.innerHTML = '<p class="section-note">Could not load Battle Ready right now. Please retry.</p>';
     }
     fetchVerse(ref, function (data) {
       showResult(data);

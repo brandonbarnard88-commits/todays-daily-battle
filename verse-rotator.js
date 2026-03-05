@@ -92,11 +92,26 @@
     return [];
   }
 
+  async function hydrateFromLocalKjv(cache) {
+    try {
+      var local = await fetch('kjv.json').then(function (r) { return r.json(); });
+      var merged = (Array.isArray(cache) ? cache : []).concat(normalizeRows(local || []));
+      var dedup = {};
+      merged.forEach(function (v) { dedup[v.ref] = v; });
+      var next = Object.keys(dedup).map(function (k) { return dedup[k]; });
+      writeCache(next);
+      return next;
+    } catch (e) {
+      return Array.isArray(cache) ? cache : [];
+    }
+  }
+
   async function ensureDailyBatch() {
     var meta = readMeta();
-    if (meta.lastBatchDay === todayStamp()) return;
-    var offset = typeof meta.offset === 'number' ? meta.offset : 0;
     var cache = readCache();
+    var today = todayStamp();
+    if (meta.lastBatchDay === today && cache.length > 0) return;
+    var offset = typeof meta.offset === 'number' ? meta.offset : 0;
     try {
       var rows = await fetchBatch(offset, BATCH_SIZE);
       if (rows.length) {
@@ -105,20 +120,16 @@
         rows.forEach(function (v) { dedup[v.ref] = v; });
         var next = Object.keys(dedup).map(function (k) { return dedup[k]; });
         writeCache(next);
+        cache = next;
         meta.offset = (offset + BATCH_SIZE) % MAX_CACHE;
       }
-      meta.lastBatchDay = todayStamp();
+      if (!cache.length) cache = await hydrateFromLocalKjv(cache);
+      meta.lastBatchDay = today;
       writeMeta(meta);
     } catch (e) {
       // Fallback to local kjv.json if API unavailable
-      try {
-        var local = await fetch('kjv.json').then(function (r) { return r.json(); });
-        var merged = cache.concat(normalizeRows(local || []));
-        var dedup2 = {};
-        merged.forEach(function (v) { dedup2[v.ref] = v; });
-        writeCache(Object.keys(dedup2).map(function (k) { return dedup2[k]; }));
-      } catch (_) {}
-      meta.lastBatchDay = todayStamp();
+      cache = await hydrateFromLocalKjv(cache);
+      meta.lastBatchDay = today;
       writeMeta(meta);
     }
   }
@@ -256,7 +267,7 @@
         return v.ref.toLowerCase().indexOf(q) !== -1 || v.text.toLowerCase().indexOf(q) !== -1;
       }).slice(0, 20);
       if (!hits.length) {
-        out.textContent = 'No matches yet in cache. More batches will load daily.';
+        out.textContent = 'No cache matches for that term yet. Try a broader keyword or wait for the next daily batch refresh.';
         return;
       }
       var html = hits.map(function (v) {

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Action Bible Workshop Toolkit • Today's Daily Battle</title>
+  <meta name="description" content="Generate age-tiered worksheets, family study guides, leader outlines, and season mastery checkpoints from the Action Bible archive.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/action-bible-workshop.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <style>
+    .abw-shell { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+    .abw-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .abw-card { margin-top: 1rem; padding: 0.85rem; border-radius: 12px; border: 1px solid rgba(148, 163, 184, 0.26); background: rgba(15, 23, 42, 0.55); }
+    .abw-card h2, .abw-card h3 { margin-top: 0; }
+    .abw-output { margin-top: 0.75rem; padding: 0.75rem; border-radius: 10px; background: rgba(2, 6, 23, 0.55); border: 1px solid rgba(100, 116, 139, 0.25); }
+    .abw-output ul { margin: 0.4rem 0 0.2rem; padding-left: 1rem; }
+    .abw-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; }
+    .abw-note { color: #bfdbfe; font-size: 0.88rem; }
+    .abw-divider { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px solid rgba(148, 163, 184, 0.2); }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Action Bible Workshop Toolkit</span>
+      </div>
+      <a href="action-bible.html" class="header-menu-link">Back to Archive</a>
+    </header>
+
+    <main id="main-content" class="app-content">
+      <div class="abw-shell">
+        <section class="glass">
+          <h1 class="section-divider">Worksheet + Class Toolkit</h1>
+          <p class="section-note">One command center for worksheets by age hierarchy, family mode, leader teaching plans, season mastery checkpoints, and weekly production packs.</p>
+          <p id="abw-status" class="section-note" aria-live="polite">Loading Action Bible dataset...</p>
+        </section>
+
+        <section class="glass abw-card" aria-label="Input controls">
+          <h2 class="section-divider">Build Controls</h2>
+          <div class="abw-grid">
+            <label>
+              Entry number
+              <input id="abw-entry" type="number" min="1" placeholder="1">
+            </label>
+            <label>
+              Age/Class tier
+              <select id="abw-tier">
+                <option value="kids-5-8">Kids 5-8</option>
+                <option value="kids-9-12">Kids 9-12</option>
+                <option value="teens-13-17">Teens 13-17</option>
+                <option value="adult-foundation">Adult Foundation</option>
+                <option value="leader-teacher">Leader Teacher</option>
+              </select>
+            </label>
+            <label>
+              Class role
+              <select id="abw-role">
+                <option value="student">Student</option>
+                <option value="parent">Parent</option>
+                <option value="leader">Leader</option>
+                <option value="teacher">Teacher</option>
+              </select>
+            </label>
+            <label>
+              Documentary season
+              <select id="abw-season">
+                <option value="">All seasons</option>
+              </select>
+            </label>
+          </div>
+          <div class="abw-actions">
+            <button id="abw-generate-worksheet" class="btn btn-primary" type="button">Generate Worksheet</button>
+            <button id="abw-generate-family" class="btn btn-secondary" type="button">Build Family Mode Guide</button>
+            <button id="abw-generate-leader" class="btn btn-secondary" type="button">Build Leader Dashboard Plan</button>
+            <button id="abw-generate-mastery" class="btn btn-secondary" type="button">Create Season Mastery Checkpoint</button>
+            <button id="abw-export-print" class="btn btn-secondary" type="button">Print Current Output</button>
+            <button id="abw-copy-output" class="btn btn-secondary" type="button">Copy Current Output</button>
+            <button id="abw-download-output" class="btn btn-secondary" type="button">Download Current Output</button>
+          </div>
+          <p class="abw-note">Tip: choose a season first, then use mastery checkpoints for a class-ready recap.</p>
+        </section>
+
+        <section class="glass abw-card" aria-label="Worksheet output">
+          <h2 class="section-divider">Worksheet Output</h2>
+          <div id="abw-worksheet-output" class="abw-output">
+            <p class="section-note">Worksheet output will appear here.</p>
+          </div>
+        </section>
+
+        <section class="glass abw-card" aria-label="Family mode">
+          <h2 class="section-divider">Family Mode</h2>
+          <div id="abw-family-output" class="abw-output">
+            <p class="section-note">Family mode plan will appear here.</p>
+          </div>
+        </section>
+
+        <section class="glass abw-card" aria-label="Leader dashboard">
+          <h2 class="section-divider">Leader Dashboard Pack</h2>
+          <div id="abw-leader-output" class="abw-output">
+            <p class="section-note">Leader teaching pack will appear here.</p>
+          </div>
+        </section>
+
+        <section class="glass abw-card" aria-label="Season mastery">
+          <h2 class="section-divider">Season Mastery Checkpoint</h2>
+          <div id="abw-mastery-output" class="abw-output">
+            <p class="section-note">Season mastery checkpoint will appear here.</p>
+          </div>
+        </section>
+
+        <section class="glass abw-card" aria-label="Weekly production">
+          <h2 class="section-divider">Production Pipeline</h2>
+          <p class="section-note">Automated weekly pack generation is available via <code>npm run actionbible:packs</code>. Packs are written to <code>action-bible-weekly-packs.json</code>.</p>
+          <div class="abw-grid">
+            <label>
+              Weekly pack
+              <input id="abw-week" type="number" min="1" placeholder="1">
+            </label>
+          </div>
+          <div class="abw-actions">
+            <button id="abw-load-week" class="btn btn-secondary" type="button">Load Weekly Pack</button>
+            <button id="abw-download-week" class="btn btn-secondary" type="button">Download Weekly JSON</button>
+          </div>
+          <div id="abw-production-output" class="abw-output">
+            <p class="section-note">Run the command above to regenerate weekly packs, then distribute to class leaders.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="action-bible-workshop.js?v=20260305"></script>
+</body>
+</html>

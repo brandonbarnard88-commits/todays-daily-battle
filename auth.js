@@ -232,7 +232,7 @@
       if (statusEl) statusEl.textContent = 'Password reset link sent. Check your email.';
     } catch (err) {
       trackAuth('auth_password_reset_error');
-      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Could not send reset email.';
+      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Password reset email could not be sent.';
     }
   }
 
@@ -254,7 +254,7 @@
       if (statusEl) statusEl.textContent = 'Confirmation email sent. Check your inbox/spam.';
     } catch (err) {
       trackAuth('auth_resend_confirmation_error');
-      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Could not resend confirmation email.';
+      if (statusEl) statusEl.textContent = err && err.message ? String(err.message) : 'Confirmation email could not be resent.';
     }
   }
 
@@ -373,14 +373,14 @@
       client = await waitForAuthClient(3200);
     }
     if (!hasAuthClient(client)) {
-      if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth client unavailable. Reload after config loads.';
+      if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth client is unavailable. Reload after configuration finishes loading.';
       return;
     }
     var sessionData = null;
     try {
       sessionData = await client.auth.getSession();
     } catch (e) {
-      if (isLoginRoute() && statusEl) statusEl.textContent = 'Could not reach auth service. Try again in a moment.';
+      if (isLoginRoute() && statusEl) statusEl.textContent = 'Auth service could not be reached. Please try again in a moment.';
       return;
     }
     var session = sessionData && sessionData.data ? sessionData.data.session : null;

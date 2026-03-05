@@ -147,6 +147,10 @@
   }
 
   function ensureSupabaseClient() {
+    if (window.__tdbSupabaseClient) {
+      state.client = window.__tdbSupabaseClient;
+      return Promise.resolve(state.client);
+    }
     if (state.client) return Promise.resolve(state.client);
     var cfg = window.TDB_CONFIG || {};
     if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY || !window.supabase || typeof window.supabase.createClient !== 'function') {
@@ -154,6 +158,7 @@
     }
     try {
       state.client = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
+      window.__tdbSupabaseClient = state.client;
       return Promise.resolve(state.client);
     } catch (e) { return Promise.resolve(null); }
   }

@@ -355,12 +355,17 @@
   }
 
   async function ensureSupabaseClient() {
+    if (window.__tdbSupabaseClient) {
+      state.supabaseClient = window.__tdbSupabaseClient;
+      return state.supabaseClient;
+    }
     if (state.supabaseClient) return state.supabaseClient;
     var cfg = window.TDB_CONFIG || {};
     var sdk = getSupabaseSdk();
     if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY || !sdk) return null;
     try {
       state.supabaseClient = sdk.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
+      window.__tdbSupabaseClient = state.supabaseClient;
       return state.supabaseClient;
     } catch (e) {
       state.supabaseClient = null;

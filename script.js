@@ -1535,6 +1535,7 @@ var supabaseGlobalOptions = {
 let supabaseClient = (getSupabaseGlobal() && supabaseUrlValid && supabaseKey)
   ? getSupabaseGlobal().createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions)
   : null;
+if (supabaseClient) window.__tdbSupabaseClient = supabaseClient;
 
 function isSupabaseConfigured() {
   return Boolean(supabaseClient) &&
@@ -1570,9 +1571,14 @@ function redirectToLoginIfGuest(session) {
 
 function initSupabaseClient() {
   if (supabaseClient) return true;
+  if (window.__tdbSupabaseClient) {
+    supabaseClient = window.__tdbSupabaseClient;
+    return true;
+  }
   const sdk = getSupabaseGlobal();
   if (!sdk || !supabaseUrlValid || !supabaseKey) return false;
   supabaseClient = sdk.createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions);
+  window.__tdbSupabaseClient = supabaseClient;
   return Boolean(supabaseClient);
 }
 

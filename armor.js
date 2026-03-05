@@ -194,7 +194,11 @@
   async function isAdmin() {
     try {
       if (!window.supabase || !window.TDB_CONFIG) return false;
-      var client = window.supabase.createClient(window.TDB_CONFIG.SUPABASE_URL, window.TDB_CONFIG.SUPABASE_ANON_KEY);
+      var client = window.__tdbSupabaseClient;
+      if (!client) {
+        client = window.supabase.createClient(window.TDB_CONFIG.SUPABASE_URL, window.TDB_CONFIG.SUPABASE_ANON_KEY);
+        window.__tdbSupabaseClient = client;
+      }
       var sess = await client.auth.getSession();
       var user = sess && sess.data && sess.data.session && sess.data.session.user;
       return !!(user && user.app_metadata && user.app_metadata.role === 'admin');

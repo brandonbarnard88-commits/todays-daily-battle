@@ -1,0 +1,47 @@
+.tdb-stage-toast {
+  position: fixed;
+  left: 50%;
+  top: clamp(14px, 7vh, 56px);
+  transform: translateX(-50%) translateY(-10px) scale(0.98);
+  z-index: 12060;
+  width: min(92vw, 360px);
+  text-align: center;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  background: linear-gradient(145deg, rgba(36, 26, 10, 0.96), rgba(22, 18, 12, 0.94));
+  color: rgba(254, 243, 199, 0.98);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 18px rgba(251, 191, 36, 0.2);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tdb-stage-toast.show {
+  animation: tdbStageToastFade 3s ease forwards;
+}
+
+@keyframes tdbStageToastFade {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.98); }
+  12% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+  82% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.99); }
+}
+
+@media (max-width: 640px) {
+  .tdb-stage-toast {
+    top: max(env(safe-area-inset-top), 10px);
+    width: min(94vw, 330px);
+    font-size: 0.93rem;
+    padding: 0.62rem 0.8rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tdb-stage-toast {
+    border-color: rgba(250, 204, 21, 0.65);
+    background: linear-gradient(145deg, rgba(28, 20, 8, 0.97), rgba(14, 11, 8, 0.96));
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), 0 0 20px rgba(250, 204, 21, 0.24);
+  }
+}

@@ -24,13 +24,15 @@
   }
 
   function createClient() {
+    if (window.__tdbSupabaseClient) return window.__tdbSupabaseClient;
     var url = getSupabaseUrl();
     var key = getSupabaseAnonKey();
     if (!url || !key) return null;
     var sdk = window.supabase;
     if (!sdk || typeof sdk.createClient !== 'function') return null;
     try {
-      return sdk.createClient(url, key, { auth: { detectSessionInUrl: true } });
+      window.__tdbSupabaseClient = sdk.createClient(url, key, { auth: { detectSessionInUrl: true } });
+      return window.__tdbSupabaseClient;
     } catch (e) {
       return null;
     }

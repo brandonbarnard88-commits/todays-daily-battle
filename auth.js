@@ -8,6 +8,7 @@
   'use strict';
 
   var LOGIN_PATH = '/login.html';
+  var AUTH_ACTION_TIMEOUT_MS = 12000;
 
   function getCfg() {
     return (typeof window !== 'undefined' && window.TDB_CONFIG) ? window.TDB_CONFIG : null;
@@ -44,6 +45,20 @@
 
   function sleep(ms) {
     return new Promise(function (resolve) { setTimeout(resolve, ms); });
+  }
+
+  function withTimeout(promise, ms, message) {
+    var timeoutMs = Math.max(800, Number(ms || AUTH_ACTION_TIMEOUT_MS));
+    return Promise.race([
+      promise,
+      new Promise(function (_, reject) {
+        setTimeout(function () {
+          var err = new Error(message || 'Auth request timed out.');
+          err.code = 'AUTH_TIMEOUT';
+          reject(err);
+        }, timeoutMs);
+      })
+    ]);
   }
 
   async function waitForAuthClient(maxMs) {
@@ -308,7 +323,11 @@
       try {
         trackAuth(mode === 'signup' ? 'auth_signup_submit' : 'auth_login_submit');
         if (mode === 'signup') {
-          var s = await client.auth.signUp({ email: e, password: p });
+          var s = await withTimeout(
+            client.auth.signUp({ email: e, password: p }),
+            AUTH_ACTION_TIMEOUT_MS,
+            'Signup is taking too long.'
+          );
           if (s.error) throw s.error;
           var hasSession = !!(s && s.data && s.data.session && s.data.session.user);
           if (hasSession) {
@@ -320,7 +339,11 @@
           if (statusEl) statusEl.textContent = 'Account created. Check your email to confirm, then sign in.';
           return;
         }
-        var r = await client.auth.signInWithPassword({ email: e, password: p });
+        var r = await withTimeout(
+          client.auth.signInWithPassword({ email: e, password: p }),
+          AUTH_ACTION_TIMEOUT_MS,
+          'Login is taking too long.'
+        );
         if (r.error) throw r.error;
         trackAuth('auth_login_success');
         window.location.replace(getNextUrl());
@@ -329,6 +352,12 @@
         if (/invalid login credentials/i.test(msg)) msg = 'Email or password is incorrect.';
         if (/email not confirmed/i.test(msg)) msg = 'Check your email and confirm your account first.';
         if (/user already registered/i.test(msg)) msg = 'Account already exists. Try signing in instead.';
+        if (err && err.code === 'AUTH_TIMEOUT') {
+          msg = mode === 'signup'
+            ? 'Signup timed out. Please try again. If it keeps happening, check Supabase Auth email provider and SMTP settings.'
+            : 'Login timed out. Please try again.';
+          trackAuth(mode === 'signup' ? 'auth_signup_timeout' : 'auth_login_timeout');
+        }
         trackAuth(mode === 'signup' ? 'auth_signup_error' : 'auth_login_error');
         if (statusEl) statusEl.textContent = msg;
       }

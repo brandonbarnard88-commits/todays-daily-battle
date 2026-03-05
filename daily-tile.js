@@ -209,9 +209,14 @@
     var beltByProgress = progressDays >= checkpoints[2];
     var shieldByProgress = progressDays >= checkpoints[3];
     var swordByProgress = progressDays >= checkpoints[4];
+    var stage = null;
+    if (window.TDBAvatarProgress && typeof window.TDBAvatarProgress.getCurrentStage === 'function') {
+      try { stage = window.TDBAvatarProgress.getCurrentStage(); } catch (e3) { stage = null; }
+    }
+    var stageTag = stage && stage.tag ? String(stage.tag) : '';
     return {
-      label: useAvatarFace ? 'Your avatar' : ('Story hero: ' + String(characterName || 'David')),
-      face: face,
+      label: useAvatarFace ? ('Your avatar' + (stageTag ? (' · ' + stageTag) : '')) : ('Story hero: ' + String(characterName || 'David')),
+      face: stage && stage.face ? stage.face : face,
       helmet: hasPiece(armor.pieces, 'helmet') || helmetByProgress,
       breastplate: hasPiece(armor.pieces, 'breastplate') || breastplateByProgress,
       belt: hasPiece(armor.pieces, 'belt') || beltByProgress,
@@ -219,7 +224,9 @@
       sword: hasPiece(armor.pieces, 'sword') || swordByProgress,
       swordGlow: swordGlow,
       progressDays: progressDays,
-      familyLabel: familyLabel
+      familyLabel: familyLabel,
+      stageTag: stageTag,
+      crestEvolution: stage && stage.crestEvolution ? String(stage.crestEvolution) : ''
     };
   }
 
@@ -404,7 +411,14 @@
       charEl.textContent = 'Character: ' + charName + ' (plain suit start)';
       titleEl.textContent = title;
       setTileAvatar(character);
-      setTileStatus('Use My Avatar is on. Device-safe avatar hash only; no private data leaves your device.');
+      var s = (window.TDBAvatarProgress && typeof window.TDBAvatarProgress.getCurrentStage === 'function')
+        ? window.TDBAvatarProgress.getCurrentStage()
+        : null;
+      if (s && s.tag) {
+        setTileStatus(s.tag + ' · ' + (s.title || '') + ' · ' + (s.crestEvolution || ''));
+      } else {
+        setTileStatus('Use My Avatar is on. Device-safe avatar hash only; no private data leaves your device.');
+      }
 
       var streak = readStreakData();
       var missedKeys = getMissedDayKeys(streak.lastKey, toDayKey());

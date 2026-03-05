@@ -13255,6 +13255,9 @@ function startStudy(id) {
               setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
             }
             if (typeof showEliteToast === 'function') showEliteToast('Note updated!');
+            if (window.TDBEasterEggs && typeof window.TDBEasterEggs.maybeActionEgg === 'function') {
+              window.TDBEasterEggs.maybeActionEgg('note_saved');
+            }
             return;
           }
         }
@@ -13280,6 +13283,9 @@ function startStudy(id) {
           setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
         }
         if (typeof showEliteToast === 'function') showEliteToast('Note saved!');
+        if (window.TDBEasterEggs && typeof window.TDBEasterEggs.maybeActionEgg === 'function') {
+          window.TDBEasterEggs.maybeActionEgg('note_saved');
+        }
       })();
     });
   }

@@ -23,6 +23,20 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
+  var RELATIONS_DICT_URL = 'relations-dict.json';
+  var RELATIONS_FALLBACK = {
+    anxiety: {
+      line: "Your boss just texted 'urgent'—same as Paul's friends panicking. Pray first."
+    },
+    fear: {
+      line: "The news cycle feels loud and scary. Same fear, same answer: bring it to God first."
+    },
+    hope: {
+      line: 'Bad day? This verse meets you there. Hold hope and take the next faithful step.'
+    }
+  };
+  var relationsDictCache = null;
+  var relationsDictPromise = null;
 
   function byId(id) { return document.getElementById(id); }
   function esc(s) {
@@ -58,6 +72,91 @@
     return 'Ask: what one step of obedience does this verse invite today?';
   }
 
+  function plainSpeaker(raw) {
+    var s = String(raw || '').trim();
+    if (!s) return 'Bible writer';
+    if (/jesus/i.test(s)) return 'Jesus';
+    if (/paul/i.test(s)) return 'Paul';
+    if (/david/i.test(s)) return 'David';
+    if (/moses/i.test(s)) return 'Moses';
+    if (/john/i.test(s)) return 'John';
+    if (/isaiah/i.test(s)) return 'Isaiah';
+    if (/jeremiah/i.test(s)) return 'Jeremiah';
+    if (/solomon/i.test(s)) return 'Solomon';
+    if (/unknown/i.test(s)) return 'Bible writer';
+    s = s.split('/')[0].split(',')[0].replace(/\(.*?\)/g, '').trim();
+    return s || 'Bible writer';
+  }
+
+  function plainAudience(raw) {
+    var s = String(raw || '').trim();
+    if (!s) return 'People listening back then';
+    if (/believers|church/i.test(s)) return 'His friends who needed hope';
+    if (/everyone|all humanity|all\b/i.test(s)) return 'People like us';
+    if (/rome/i.test(s)) return 'His friends in Rome';
+    if (/ephesus/i.test(s)) return 'His friends in Ephesus';
+    if (/philippi/i.test(s)) return 'His friends in Philippi';
+    if (/galatia/i.test(s)) return 'His friends in Galatia';
+    if (/israel|judah|exiles/i.test(s)) return 'His people in a hard season';
+    return s.length > 46 ? (s.slice(0, 43) + '...') : s;
+  }
+
+  function loadRelationsDict() {
+    if (relationsDictCache) return Promise.resolve(relationsDictCache);
+    if (relationsDictPromise) return relationsDictPromise;
+    relationsDictPromise = fetch(RELATIONS_DICT_URL)
+      .then(function (res) {
+        if (!res.ok) throw new Error('relations_dict_failed');
+        return res.json();
+      })
+      .then(function (json) {
+        var data = (json && typeof json === 'object') ? json : {};
+        relationsDictCache = Object.assign({}, RELATIONS_FALLBACK, data);
+        return relationsDictCache;
+      })
+      .catch(function () {
+        relationsDictCache = Object.assign({}, RELATIONS_FALLBACK);
+        return relationsDictCache;
+      });
+    return relationsDictPromise;
+  }
+
+  function getContextNeedle() {
+    var ids = ['main-search', 'q', 'mystudy-search', 'query', 'search'];
+    var parts = [];
+    ids.forEach(function (id) {
+      var el = byId(id);
+      if (!el) return;
+      var v = (typeof el.value === 'string' ? el.value : (el.textContent || ''));
+      if (v) parts.push(String(v));
+    });
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      ['q', 'topic', 'ref'].forEach(function (k) {
+        var v = params.get(k);
+        if (v) parts.push(v);
+      });
+    } catch (e) {}
+    return parts.join(' ').toLowerCase();
+  }
+
+  function inferRelationTopic(ref, text) {
+    var low = (String(ref || '') + ' ' + String(text || '') + ' ' + getContextNeedle()).toLowerCase();
+    if (/\banxiety|anxious|worry|stressed?|stress|urgent|careful\b/.test(low)) return 'anxiety';
+    if (/\bfear|afraid|panic|panicking|news cycle|scared|terror\b/.test(low)) return 'fear';
+    if (/\bhope|hopeless|bad day|down|weary|tired\b/.test(low)) return 'hope';
+    return 'hope';
+  }
+
+  function buildRelationLine(topic, dict) {
+    var data = dict && typeof dict === 'object' ? dict : RELATIONS_FALLBACK;
+    var key = String(topic || 'hope');
+    var item = data[key] || data.hope || RELATIONS_FALLBACK.hope;
+    if (typeof item === 'string') return item;
+    if (item && item.line) return String(item.line);
+    return RELATIONS_FALLBACK.hope.line;
+  }
+
   function inferAgeFromContext() {
     try {
       var path = String((window.location && window.location.pathname) || '').toLowerCase();
@@ -90,8 +189,8 @@
 
   function personalizeBreakdown(base, ageMode, ref, text) {
     var next = {
-      about: base.about || '',
-      to: base.to || '',
+      about: plainSpeaker(base.about || ''),
+      to: plainAudience(base.to || ''),
       layman: base.layman || '',
       applies: base.applies || '',
       bubbleTitle: '',
@@ -153,10 +252,11 @@
       '<h3 class="verse-modal-ref"></h3><p class="verse-modal-text"></p>' +
       '<div class="verse-modal-bubble" id="verse-modal-bubble"></div>' +
       '<div class="verse-modal-breakdown">' +
-      '<p class="verse-modal-speaker"><strong>Who said it:</strong> <span data-bk="about"></span></p>' +
+      '<p class="verse-modal-speaker"><strong>Who said it?</strong> <span data-bk="about"></span></p>' +
       '<p class="verse-modal-audience"><strong>Who to:</strong> <span data-bk="to"></span></p>' +
-      '<p class="verse-modal-today"><strong>What it means:</strong> <span data-bk="layman"></span></p>' +
-      '<p class="verse-modal-today"><strong>How it fits:</strong> <span data-bk="applies"></span></p>' +
+      '<p class="verse-modal-today"><strong>Plain talk:</strong> <span data-bk="layman"></span></p>' +
+      '<p class="verse-modal-today"><strong>How it fits you:</strong> <span data-bk="applies"></span></p>' +
+      '<p class="verse-modal-relates"><strong>How it relates today?</strong> <span data-bk="relates"></span></p>' +
       '<div class="verse-modal-actions">' +
       '<button type="button" class="btn btn-secondary" data-action="pray">Pray it</button>' +
       '<button type="button" class="btn btn-secondary" data-action="note">Note</button>' +
@@ -265,6 +365,8 @@
     modal.querySelector('[data-bk="to"]').textContent = breakdown.to || '—';
     modal.querySelector('[data-bk="layman"]').textContent = breakdown.layman || '—';
     modal.querySelector('[data-bk="applies"]').textContent = breakdown.applies || '—';
+    var topic = inferRelationTopic(ref, text);
+    modal.querySelector('[data-bk="relates"]').textContent = buildRelationLine(topic, RELATIONS_FALLBACK);
     modal.setAttribute('data-ref', ref || '');
     modal.setAttribute('data-text', text || '');
     if (bubble) {
@@ -272,6 +374,12 @@
       bubble.className = 'verse-modal-bubble verse-modal-bubble-' + ageMode;
     }
     modal.classList.remove('hidden');
+    loadRelationsDict().then(function (dict) {
+      if (modal.getAttribute('data-ref') !== String(ref || '')) return;
+      if (modal.getAttribute('data-text') !== String(text || '')) return;
+      var relatesEl = modal.querySelector('[data-bk="relates"]');
+      if (relatesEl) relatesEl.textContent = buildRelationLine(topic, dict);
+    });
   }
 
   function addButton(container, ref, text) {

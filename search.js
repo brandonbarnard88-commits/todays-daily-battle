@@ -1,6 +1,20 @@
 (function () {
   'use strict';
 
+  var ENCOURAGEMENTS_URL = 'encouragements.json';
+  var ENCOURAGEMENTS_FALLBACK = {
+    fear: "Don't worry-you're not alone.",
+    anxiety: "Breathe-God's got this.",
+    lonely: "You're seen. You're loved.",
+    hope: "It's coming. Hold on.",
+    strength: "You're tougher than you think.",
+    forgiveness: "Let it go-He already did.",
+    grief: "Tears aren't weak. He's holding them.",
+    peace: "It's yours. Take it.",
+    fallback: "You're not alone-He's here."
+  };
+  var encouragementCache = null;
+
   function byId(id) { return document.getElementById(id); }
 
   function esc(str) {
@@ -105,6 +119,58 @@
     return wrap;
   }
 
+  function loadEncouragements() {
+    if (encouragementCache) return Promise.resolve(encouragementCache);
+    return fetch(ENCOURAGEMENTS_URL, { cache: 'no-store' }).then(function (res) {
+      if (!res || !res.ok) throw new Error('encouragements-load-failed');
+      return res.json();
+    }).then(function (data) {
+      encouragementCache = data && typeof data === 'object' ? data : ENCOURAGEMENTS_FALLBACK;
+      return encouragementCache;
+    }).catch(function () {
+      encouragementCache = ENCOURAGEMENTS_FALLBACK;
+      return encouragementCache;
+    });
+  }
+
+  function normalizeTopicWord(word) {
+    var w = String(word || '').toLowerCase().trim();
+    if (!w) return '';
+    if (w === 'fear' || w === 'afraid' || w === 'scared') return 'fear';
+    if (w === 'anxiety' || w === 'anxious' || w === 'stress' || w === 'worried' || w === 'worry') return 'anxiety';
+    if (w === 'lonely' || w === 'alone' || w === 'isolation' || w === 'isolated') return 'lonely';
+    if (w === 'hope' || w === 'hopeless') return 'hope';
+    if (w === 'strength' || w === 'strong' || w === 'weak' || w === 'weary' || w === 'tired') return 'strength';
+    if (w === 'forgiveness' || w === 'forgive' || w === 'forgiven' || w === 'resentment') return 'forgiveness';
+    if (w === 'grief' || w === 'grieving' || w === 'loss' || w === 'mourning') return 'grief';
+    if (w === 'peace' || w === 'rest' || w === 'calm') return 'peace';
+    return '';
+  }
+
+  function inferTopic(inputText, parser) {
+    var words = [];
+    if (parser && Array.isArray(parser.matchedWords)) words = words.concat(parser.matchedWords);
+    if (parser && Array.isArray(parser.tokens)) words = words.concat(parser.tokens);
+    words = words.concat(String(inputText || '').toLowerCase().split(/\s+/));
+    for (var i = 0; i < words.length; i++) {
+      var topic = normalizeTopicWord(words[i]);
+      if (topic) return topic;
+    }
+    return 'fallback';
+  }
+
+  function ensureHeartfeltLine(output) {
+    var line = output.querySelector('.quick-search-heartfelt-line');
+    if (!line) {
+      line = document.createElement('p');
+      line.className = 'quick-search-heartfelt-line';
+      line.setAttribute('role', 'status');
+      line.setAttribute('aria-live', 'polite');
+      output.insertBefore(line, output.firstChild);
+    }
+    return line;
+  }
+
   function limitAndEnhanceResults(inputText) {
     var parser = window.TDBWordParser && typeof window.TDBWordParser.parse === 'function'
       ? window.TDBWordParser.parse(inputText)
@@ -113,6 +179,13 @@
     if (!output) return;
     var cards = Array.prototype.slice.call(output.querySelectorAll('.verse-card'));
     if (!cards.length) return;
+
+    var heartLine = ensureHeartfeltLine(output);
+    var topic = inferTopic(inputText, parser);
+    loadEncouragements().then(function (dict) {
+      var tone = dict && dict[topic] ? dict[topic] : (dict && dict.fallback ? dict.fallback : ENCOURAGEMENTS_FALLBACK.fallback);
+      if (heartLine) heartLine.textContent = String(tone || ENCOURAGEMENTS_FALLBACK.fallback);
+    });
 
     output.classList.remove('smart-expanded');
     cards.forEach(function (card, idx) {

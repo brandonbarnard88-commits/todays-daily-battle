@@ -11,10 +11,12 @@
   var VILLAGE_CODE_KEY = 'prayer-village-code';
   var VILLAGE_FALLBACK_KEY = 'prayer-village-count';
   var REMOTE_REFRESH_MS = 20000;
+  var WHISPER_EGG_TARGET = 7;
   var holdTimer = null;
   var clearTimer = null;
   var fadeTimer = null;
   var lastShownAt = 0;
+  var lastWhisperDay = '';
   var state = {
     total: 0,
     lastAt: '',
@@ -156,12 +158,29 @@
     renderBadge();
   }
 
+  function renderLegacyCounters() {
+    var totalEl = byId('prayer-counter');
+    if (totalEl) totalEl.textContent = String(safeInt(state.total));
+    var dayCount = 0;
+    var todayKey = dayKeyFromIso(nowIso());
+    loadHistory().forEach(function (iso) {
+      if (dayKeyFromIso(iso) === todayKey) dayCount += 1;
+    });
+    var dayEl = byId('prayer-of-day-count');
+    if (dayEl) dayEl.textContent = String(dayCount);
+    var silentBadge = byId('silent-amens-badge');
+    var silentBadgeN = byId('silent-amens-badge-n');
+    if (silentBadgeN) silentBadgeN.textContent = String(dayCount);
+    if (silentBadge) silentBadge.classList.toggle('hidden', dayCount <= 0);
+  }
+
   function renderBadge() {
     if (!state.badge) return;
     state.badge.textContent = 'Prayers: ' + safeInt(state.total);
     state.badge.classList.remove('prayer-history-badge-tick');
     void state.badge.offsetWidth;
     state.badge.classList.add('prayer-history-badge-tick');
+    renderLegacyCounters();
   }
 
   function renderModal() {
@@ -281,6 +300,53 @@
 
     renderBadge();
     renderModal();
+    maybeTriggerWhisperEgg(history);
+  }
+
+  function speakCalm(text, volume, rate) {
+    if (!window.speechSynthesis || typeof window.SpeechSynthesisUtterance !== 'function') return;
+    try {
+      var u = new SpeechSynthesisUtterance(String(text || ''));
+      var voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
+      var female = voices.find(function (v) {
+        return /female|zira|samantha|victoria|karen|moira|allison/i.test((v && v.name) || '');
+      });
+      if (female) u.voice = female;
+      u.volume = typeof volume === 'number' ? volume : 0.65;
+      u.rate = typeof rate === 'number' ? rate : 0.88;
+      u.pitch = 1;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+
+  function maybeTriggerWhisperEgg(history) {
+    var todayKey = dayKeyFromIso(nowIso());
+    var todayCount = 0;
+    (history || []).forEach(function (iso) {
+      if (dayKeyFromIso(iso) === todayKey) todayCount += 1;
+    });
+    if (todayCount !== WHISPER_EGG_TARGET) return;
+    if (lastWhisperDay === todayKey) return;
+    lastWhisperDay = todayKey;
+    var overlay = getOverlay();
+    var txt = overlay ? overlay.querySelector('.god-whisper-text') : null;
+    if (txt) txt.textContent = "I'm listening.";
+    if (overlay) {
+      overlay.classList.remove('hidden', 'whisper-out');
+      overlay.classList.add('whisper-visible', 'pray-feedback-mode');
+      overlay.style.display = 'flex';
+      setTimeout(function () {
+        overlay.classList.add('whisper-out');
+      }, 1700);
+      setTimeout(function () {
+        overlay.style.display = 'none';
+        overlay.classList.remove('whisper-visible', 'whisper-out', 'pray-feedback-mode');
+        overlay.classList.add('hidden');
+        if (txt) txt.textContent = FEEDBACK_TEXT;
+      }, 2300);
+    }
+    speakCalm("I'm listening.", 0.35, 0.82);
   }
 
   function getSupabaseSdk() {
@@ -385,6 +451,7 @@
 
   function showPrayFeedback(options) {
     options = options && typeof options === 'object' ? options : {};
+    if (options.count === true && state.pendingCountOnOverlay) return;
     if (options.count === true) state.pendingCountOnOverlay = true;
     var now = Date.now();
     if (now - lastShownAt < 650) return;
@@ -400,6 +467,7 @@
     overlay.classList.remove('hidden', 'whisper-out');
     overlay.classList.add('whisper-visible', 'pray-feedback-mode');
     overlay.style.display = 'flex';
+    speakCalm(FEEDBACK_TEXT, 0.6, 0.9);
 
     if (avatar) {
       avatar.classList.remove('avatar-pray-glow');
@@ -481,6 +549,12 @@
         showPrayFeedback({ count: true, source: 'intent_modal' });
       });
     }
+    if (quickBtn) {
+      quickBtn.addEventListener('click', function () {
+        if (quickInput && !String(quickInput.value || '').trim()) return;
+        showPrayFeedback({ count: true, source: 'quick_pray_tap' });
+      });
+    }
 
     // Hold feedback support for mobile long-press.
     bindHold(intentBtn, function () { return true; });
@@ -491,6 +565,7 @@
     loadLocalState();
     ensureBadge();
     ensureModal();
+    renderLegacyCounters();
     startLiveTick();
     syncRemoteCount();
     syncVillageCount();

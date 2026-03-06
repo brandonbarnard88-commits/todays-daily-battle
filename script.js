@@ -122,7 +122,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
 /* Preload Bible data so first search is fast; loadBible() will use window.kjvData if set */
 (function preloadBible() {
-  var urls = ['kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+  var urls = ['/kjv.json', 'kjv.json', 'https://todaysdailybattle.com/kjv.json'];
   function tryNext(i) {
     if (i >= urls.length) return;
     fetch(urls[i]).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
@@ -583,6 +583,10 @@ const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
 const OFFLINE_PREFETCH_LAST_KEY = 'tdb_offline_prefetch_last';
 const OFFLINE_PREFETCH_DAYS = 7;
 const INSTALL_PROMPT_SEEN_KEY = 'tdb_seen_install';
+const INSTALL_PROMPT_DISMISS_UNTIL_KEY = 'tdb_install_prompt_dismiss_until';
+const INSTALL_PROMPT_DISMISS_FOREVER_KEY = 'tdb_install_prompt_dismiss_forever';
+const INSTALL_PROMPT_DELAY_MS = 10000;
+const INSTALL_PROMPT_SNOOZE_MS = 7 * 24 * 60 * 60 * 1000;
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
   '1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah',
@@ -1825,6 +1829,65 @@ function getAuthStatusEl() {
   return status;
 }
 
+function isMobileAuthViewport() {
+  try {
+    return !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+  } catch (_) {
+    return false;
+  }
+}
+
+function applyMobileAuthDisclosureState() {
+  const host = document.getElementById('auth-details');
+  const section = document.getElementById('auth-section');
+  const toggle = document.getElementById('auth-mobile-toggle');
+  if (!host || !section || !toggle) return;
+  const isMobile = isMobileAuthViewport();
+  const isOpen = host.getAttribute('data-auth-open') === '1';
+  host.classList.toggle('auth-details-mobile', isMobile);
+  toggle.classList.toggle('hidden', !isMobile);
+  if (!isMobile) {
+    section.classList.remove('hidden');
+    toggle.setAttribute('aria-expanded', 'true');
+    return;
+  }
+  section.classList.toggle('hidden', !isOpen);
+  toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  toggle.textContent = isOpen ? 'Hide login' : 'Log in';
+}
+
+function openMobileAuthPanel() {
+  const host = document.getElementById('auth-details');
+  if (!host || !isMobileAuthViewport()) return;
+  host.setAttribute('data-auth-open', '1');
+  applyMobileAuthDisclosureState();
+}
+
+function initMobileAuthDisclosure() {
+  const host = document.getElementById('auth-details');
+  const section = document.getElementById('auth-section');
+  if (!host || !section) return;
+  let toggle = document.getElementById('auth-mobile-toggle');
+  if (!toggle) {
+    toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.id = 'auth-mobile-toggle';
+    toggle.className = 'btn btn-secondary auth-mobile-toggle hidden';
+    toggle.setAttribute('aria-controls', 'auth-section');
+    host.insertBefore(toggle, section);
+    toggle.addEventListener('click', function () {
+      const nextOpen = host.getAttribute('data-auth-open') === '1' ? '0' : '1';
+      host.setAttribute('data-auth-open', nextOpen);
+      applyMobileAuthDisclosureState();
+    });
+  }
+  if (!host.hasAttribute('data-auth-open')) {
+    host.setAttribute('data-auth-open', isMobileAuthViewport() ? '0' : '1');
+  }
+  applyMobileAuthDisclosureState();
+  window.addEventListener('resize', applyMobileAuthDisclosureState, { passive: true });
+}
+
 function setAuthStatus(message, type = 'info') {
   const status = getAuthStatusEl();
   if (status) {
@@ -1844,6 +1907,7 @@ function setAuthStatus(message, type = 'info') {
     // Scroll into view so user sees feedback (e.g. after Forgot password)
     const details = document.getElementById('auth-details');
     if (details && message && (type === 'success' || type === 'error')) {
+      openMobileAuthPanel();
       details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   } else if (message && (type === 'success' || type === 'error')) {
@@ -1950,6 +2014,8 @@ const DAILY_KIDS_STORAGE_KEY = 'dailyKidsPrompt';
 const MESSAGE_NAME_KEY = 'messageDisplayName';
 const MESSAGE_NAME_MAP_KEY = 'messageDisplayNames';
 const MESSAGE_AMEN_KEY = 'messageAmenCounts';
+const USER_AVATAR_CHOICE_KEY = 'tdb_user_avatar_choice_v1';
+const AVATAR_PERSONA_KEY = 'tdb_avatar_persona_v1';
 const DAILY_KIDS_HISTORY_KEY = 'dailyKidsHistory';
 const SUPPORTER_WAITLIST_KEY = 'supporterWaitlist';
 // Stripe Payment Link URLs (or set in config.js as TDB_CONFIG.STRIPE_*). Leave empty to show "Notify me" + waitlist.
@@ -2464,20 +2530,54 @@ function urlBase64ToUint8Array(base64Key) {
 async function sendSubscriptionToBackend(subscription) {
   const url = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PUSH_SUBSCRIBE_URL) || '';
   if (!url || !subscription) return;
+  const payload = typeof subscription.toJSON === 'function' ? subscription.toJSON() : subscription;
   try {
     await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(subscription.toJSON())
+      body: JSON.stringify(payload)
     });
+  } catch (_) {}
+}
+
+async function sendPushUnsubscribeToBackend(subscriptionOrEndpoint) {
+  const url = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PUSH_UNSUBSCRIBE_URL) || '';
+  if (!url || !subscriptionOrEndpoint) return;
+  let endpoint = '';
+  if (typeof subscriptionOrEndpoint === 'string') endpoint = subscriptionOrEndpoint;
+  else if (subscriptionOrEndpoint && typeof subscriptionOrEndpoint.endpoint === 'string') endpoint = subscriptionOrEndpoint.endpoint;
+  else if (subscriptionOrEndpoint && typeof subscriptionOrEndpoint.toJSON === 'function') {
+    const raw = subscriptionOrEndpoint.toJSON();
+    endpoint = raw && typeof raw.endpoint === 'string' ? raw.endpoint : '';
+  }
+  if (!endpoint) return;
+  try {
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ endpoint })
+    });
+  } catch (_) {}
+}
+
+async function unsubscribeNativePushSubscription() {
+  if (!('serviceWorker' in navigator)) return;
+  try {
+    const reg = await navigator.serviceWorker.ready;
+    if (!reg || !reg.pushManager) return;
+    const sub = await reg.pushManager.getSubscription();
+    if (!sub) return;
+    await sendPushUnsubscribeToBackend(sub);
+    await sub.unsubscribe();
   } catch (_) {}
 }
 
 function requestPushPermissionAndSubscribe() {
   (async () => {
-    if (Notification.permission !== 'default') return;
     try {
-      const permission = await Notification.requestPermission();
+      if (!('Notification' in window)) return;
+      var permission = Notification.permission;
+      if (permission === 'default') permission = await Notification.requestPermission();
       if (permission !== 'granted' || !('serviceWorker' in navigator)) return;
       const reg = await navigator.serviceWorker.ready;
       if (!reg.pushManager) return;
@@ -2485,8 +2585,8 @@ function requestPushPermissionAndSubscribe() {
       const vapid = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.VAPID_PUBLIC_KEY) || '';
       if (!sub && vapid) {
         sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlBase64ToUint8Array(vapid) });
-        await sendSubscriptionToBackend(sub);
       }
+      if (sub) await sendSubscriptionToBackend(sub);
     } catch (_) {}
   })();
 }
@@ -2495,24 +2595,74 @@ function wireInstallPrompt() {
   const installCta = document.getElementById('install-cta');
   const installBtn = document.getElementById('install-app');
   const installNotNow = document.getElementById('install-not-now');
+  const installDismissForever = document.getElementById('install-dismiss-forever');
+  const installNote = document.getElementById('install-cta-note');
   if (!installCta || !installBtn) return;
-  window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    deferredInstallPrompt = event;
-    if (!localStorage.getItem(INSTALL_PROMPT_SEEN_KEY)) installCta.classList.add('show');
-  });
+  function isIosSafari() {
+    var ua = navigator.userAgent || '';
+    var isIOS = /iphone|ipad|ipod/i.test(ua);
+    var isSafari = /safari/i.test(ua) && !/crios|fxios|edgios|opr\//i.test(ua);
+    return isIOS && isSafari;
+  }
+  function isStandalone() {
+    return (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+  }
+  function isSuppressed() {
+    try {
+      if (localStorage.getItem(INSTALL_PROMPT_DISMISS_FOREVER_KEY) === '1') return true;
+      if (localStorage.getItem(INSTALL_PROMPT_SEEN_KEY) === '1') return true;
+      var until = Number(localStorage.getItem(INSTALL_PROMPT_DISMISS_UNTIL_KEY) || 0) || 0;
+      return until > Date.now();
+    } catch (_) {
+      return false;
+    }
+  }
+  function showInstallCta() {
+    if (isSuppressed()) return;
+    if (installDismissForever) installDismissForever.checked = false;
+    if (isIosSafari()) {
+      installBtn.textContent = 'How to Add';
+      if (installNote) installNote.textContent = 'On iPhone: tap Share, then Add to Home Screen.';
+    } else {
+      installBtn.textContent = 'Add to Home Screen';
+      if (installNote) installNote.textContent = 'Add to Home Screen - Feels like an app.';
+    }
+    installCta.classList.add('show');
+  }
+  if (!isStandalone()) {
+    window.addEventListener('beforeinstallprompt', (event) => {
+      if (isSuppressed()) return;
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      setTimeout(showInstallCta, INSTALL_PROMPT_DELAY_MS);
+    });
+    if (isIosSafari() && !isSuppressed()) {
+      setTimeout(showInstallCta, INSTALL_PROMPT_DELAY_MS);
+    }
+  }
   installBtn.addEventListener('click', async () => {
-    if (!deferredInstallPrompt) return;
+    if (isIosSafari() || !deferredInstallPrompt) {
+      if (typeof showEliteToast === 'function') showEliteToast('iPhone: tap Share, then Add to Home Screen.');
+      return;
+    }
     deferredInstallPrompt.prompt();
-    await deferredInstallPrompt.userChoice;
+    var choice = await deferredInstallPrompt.userChoice;
     deferredInstallPrompt = null;
     installCta.classList.remove('show');
-    try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
+    if (choice && choice.outcome === 'accepted') {
+      try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
+    }
   });
   if (installNotNow) {
     installNotNow.addEventListener('click', () => {
       installCta.classList.remove('show');
-      try { localStorage.setItem(INSTALL_PROMPT_SEEN_KEY, '1'); } catch (_) {}
+      try {
+        if (installDismissForever && installDismissForever.checked) {
+          localStorage.setItem(INSTALL_PROMPT_DISMISS_FOREVER_KEY, '1');
+        } else {
+          localStorage.setItem(INSTALL_PROMPT_DISMISS_UNTIL_KEY, String(Date.now() + INSTALL_PROMPT_SNOOZE_MS));
+        }
+      } catch (_) {}
     });
   }
 }
@@ -2843,17 +2993,6 @@ function updateSidebarStreak(streakCount) {
   }
 }
 
-function wireFloatingVoicePray() {
-  var floating = document.getElementById('floating-voice-pray');
-  var voiceBtn = document.getElementById('voice-pray-btn');
-  var quickWrap = document.getElementById('quick-pray-wrap');
-  if (!floating || !voiceBtn) return;
-  floating.addEventListener('click', function () {
-    if (quickWrap) quickWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    setTimeout(function () { voiceBtn.click(); }, 300);
-  });
-}
-
 var PRAY_NUDGE_2MIN_KEY = 'tdb_pray_nudge_2min';
 var PRAY_NUDGE_2MIN_MS = 2 * 60 * 1000;
 var PRAYED_THIS_SESSION_KEY = 'tdb_prayed_this_session';
@@ -2877,7 +3016,6 @@ function wirePrayNudgeAfter2Min() {
 
 function wireCallGodBtn() {
   var btn = document.getElementById('call-god-btn');
-  var voiceBtn = document.getElementById('voice-pray-btn');
   var input = document.getElementById('quick-pray');
   if (!btn) return;
   btn.addEventListener('click', function () {
@@ -2885,9 +3023,7 @@ function wireCallGodBtn() {
     try {
       if (navigator.vibrate) navigator.vibrate(100);
     } catch (e) {}
-    if (voiceBtn) {
-      voiceBtn.click();
-    } else if (input) {
+    if (input) {
       input.focus();
     }
   });
@@ -3397,38 +3533,220 @@ function speakWelcomeAnointingLine() {
   try { window.speechSynthesis.cancel(); } catch (e) {}
 }
 
+function buildHouseholdRoleFigures(data) {
+  var pieces = (data && Array.isArray(data.pieces)) ? data.pieces : [];
+  var parentAliases = ['Shepherd', 'Steward', 'Guardian', 'Watchman', 'Beacon', 'Builder', 'Keeper', 'Harbor'];
+  var kidAliases = ['Scout', 'Seeker', 'Runner', 'Learner', 'Spark', 'Arrow', 'River', 'Hope'];
+  var memberAliases = ['Witness', 'Pilgrim', 'Traveler', 'Disciple', 'Lightbearer'];
+  var archetypes = [
+    'Truth', 'Grace', 'Mercy', 'Peace', 'Faith', 'Courage',
+    'Wisdom', 'Hope', 'Steadfast', 'Kindness', 'Shield', 'Light'
+  ];
+  var code = '';
+  try {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getFamilyCode === 'function') {
+      code = String(window.TDBFamilyHierarchy.getFamilyCode() || '');
+    }
+  } catch (e0) {}
+  var aggregate = null;
+  try {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getFamilyAggregate === 'function') {
+      aggregate = window.TDBFamilyHierarchy.getFamilyAggregate(code || undefined);
+    }
+  } catch (e1) { aggregate = null; }
+  var members = aggregate && Array.isArray(aggregate.members) ? aggregate.members.slice() : [];
+  if (!members.length) {
+    var fallbackSeed = getDeviceAvatarHash();
+    members = [
+      { avatarId: fallbackSeed + '-p1', role: 'parent', progress: 0, gems: 0, updatedAt: 1 },
+      { avatarId: fallbackSeed + '-p2', role: 'parent', progress: 0, gems: 0, updatedAt: 2 },
+      { avatarId: fallbackSeed + '-k1', role: 'kid', progress: 0, gems: 0, updatedAt: 3 },
+      { avatarId: fallbackSeed + '-k2', role: 'kid', progress: 0, gems: 0, updatedAt: 4 }
+    ];
+  }
+  members.sort(function (a, b) {
+    var ra = String((a && a.role) || '');
+    var rb = String((b && b.role) || '');
+    if (ra !== rb) return ra === 'parent' ? -1 : 1;
+    return Number((a && a.updatedAt) || 0) - Number((b && b.updatedAt) || 0);
+  });
+
+  var shown = members.slice(0, 6);
+  var earnedPieces = [];
+  for (var ep = 0; ep < ARMOR_PIECES.length; ep++) {
+    var k = ARMOR_PIECES[ep].key;
+    if (pieces.indexOf(k) !== -1) earnedPieces.push(k);
+  }
+  var pieceAssignments = shown.map(function () { return []; });
+  for (var iEarned = 0; iEarned < earnedPieces.length; iEarned++) {
+    var slot = shown.length ? (iEarned % shown.length) : 0;
+    if (pieceAssignments[slot]) pieceAssignments[slot].push(earnedPieces[iEarned]);
+  }
+  var currentMemberAvatarId = '';
+  try {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.deviceHash === 'function') {
+      currentMemberAvatarId = String(window.TDBFamilyHierarchy.deviceHash() || '');
+    }
+  } catch (e2) { currentMemberAvatarId = ''; }
+  var forcedChoice = getUserAvatarChoice();
+  var roleIndex = { Parent: 0, Kid: 0, Member: 0 };
+  return shown.map(function (m, idx) {
+    var avatarId = String((m && m.avatarId) || ('member-' + idx));
+    var roleRaw = String((m && m.role) || '').toLowerCase();
+    var labelBase = roleRaw === 'parent' ? 'Parent' : (roleRaw === 'kid' ? 'Kid' : 'Member');
+    roleIndex[labelBase] += 1;
+    var label = labelBase + (roleIndex[labelBase] > 1 ? ' ' + roleIndex[labelBase] : '');
+    var memberHash = hashStringFNV1a(avatarId + '|' + code + '|' + idx);
+    var hashN = parseInt(memberHash.slice(0, 8), 16) || 0;
+    var useFemale = (hashN % 2) === 0;
+    if (avatarId && currentMemberAvatarId && avatarId === currentMemberAvatarId) {
+      if (forcedChoice === 'female') useFemale = true;
+      else if (forcedChoice === 'male') useFemale = false;
+    }
+    var gems = Number((m && m.gems) || 0);
+    var progress = Number((m && m.progress) || 0);
+    var memberPieces = pieceAssignments[idx] || [];
+    var armorLevel = memberPieces.length;
+    var armorScore = Math.max(0, earnedPieces.length) + (armorLevel * 2) + Math.floor(progress / 24) + Math.floor(gems / 2);
+    var bias = (hashN % 3);
+    var tierScore = armorScore + bias;
+    var tier = tierScore >= 7 ? 'empire' : (tierScore >= 3 ? 'kingdom' : 'scout');
+    var pieceKey = armorLevel ? memberPieces[0] : null;
+    var roleTag = archetypes[hashN % archetypes.length];
+    var cleanName = String((m && (m.name || m.displayName || m.memberName)) || '').trim();
+    var aliasList = labelBase === 'Parent' ? parentAliases : (labelBase === 'Kid' ? kidAliases : memberAliases);
+    var alias = aliasList[hashN % aliasList.length];
+    var generatedName = alias + (roleIndex[labelBase] > 1 ? ' ' + roleIndex[labelBase] : '');
+    var displayName = cleanName || generatedName;
+    return {
+      label: displayName,
+      roleLabel: label,
+      generation: labelBase === 'Kid' ? 'kid' : (labelBase === 'Parent' ? 'parent' : 'member'),
+      useFemale: useFemale,
+      pieceKey: pieceKey,
+      pieceCount: armorLevel,
+      pieceTrail: memberPieces.slice(),
+      tier: tier,
+      roleTag: roleTag
+    };
+  });
+}
+
+function colorPick(list, n) {
+  if (!Array.isArray(list) || !list.length) return '#64748b';
+  return list[Math.abs(Number(n || 0)) % list.length];
+}
+
+function toSvgDataUri(svg) {
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(String(svg || ''));
+}
+
+function buildDetailedUserAvatarDataUri(figure) {
+  var seed = String((figure && figure.seed) || 'member');
+  var h = parseInt(hashStringFNV1a(seed).slice(0, 8), 16) || 0;
+  var tier = String((figure && figure.tier) || 'scout');
+  var useFemale = !!(figure && figure.useFemale);
+  var skin = colorPick(['#F2D3B0', '#E8C09A', '#D8A77F', '#BE8460', '#925C3A'], h);
+  var hair = colorPick(['#1F2937', '#3F2A1F', '#5B3A29', '#111827', '#7C4A2D'], h >> 2);
+  var robe = colorPick(['#334155', '#1E3A8A', '#14532D', '#4C1D95', '#7C2D12'], h >> 4);
+  var mantle = colorPick(['#CBD5E1', '#BFDBFE', '#C4B5FD', '#86EFAC', '#F5D0FE'], h >> 6);
+  var trim = colorPick(['#F59E0B', '#EAB308', '#60A5FA', '#34D399', '#F472B6'], h >> 8);
+  var eye = colorPick(['#0F172A', '#1E293B', '#1D4ED8', '#065F46', '#7C2D12'], h >> 10);
+  var browTilt = (h % 3) - 1;
+  var leftEyeX = 58.9;
+  var rightEyeX = 69.1;
+  var hasCrown = tier === 'kingdom' || tier === 'empire';
+  var hasAura = tier === 'empire';
+  var hasPauldrons = tier !== 'scout';
+  var hasCape = tier !== 'scout';
+
+  var hairExtra = useFemale
+    ? '<path d="M52.4 36.5C52.4 49.5 44.3 60 40.2 71C48.7 66.7 53 60.9 56.8 55.2" stroke="' + hair + '" stroke-width="4.9" stroke-linecap="round"/>' +
+      '<path d="M75.6 36.5C75.6 49.5 83.7 60 87.8 71C79.3 66.7 75 60.9 71.2 55.2" stroke="' + hair + '" stroke-width="4.9" stroke-linecap="round"/>'
+    : '';
+  var beard = (!useFemale && (h % 5) < 2)
+    ? '<path d="M57.2 42.8C58.3 45.7 60.6 47.3 64 47.3C67.4 47.3 69.7 45.7 70.8 42.8" fill="' + hair + '"/>'
+    : '';
+  var crown = hasCrown
+    ? '<path d="M44 24L52 14L64 23L76 14L84 24V30H44V24Z" fill="#FBBF24"/><path d="M44 30H84" stroke="rgba(15,23,42,0.35)" stroke-width="1.2"/>'
+    : '';
+  var aura = hasAura
+    ? '<circle cx="64" cy="64" r="55" stroke="rgba(250,204,21,0.45)" stroke-width="1.2"/><circle cx="64" cy="64" r="49" stroke="rgba(96,165,250,0.4)" stroke-width="1"/>'
+    : '<circle cx="64" cy="64" r="54" stroke="rgba(148,163,184,0.45)" stroke-width="1.2"/>';
+  var pauldron = hasPauldrons
+    ? '<ellipse cx="50.6" cy="58.5" rx="7.4" ry="4.2" fill="' + trim + '" opacity="0.9"/><ellipse cx="77.4" cy="58.5" rx="7.4" ry="4.2" fill="' + trim + '" opacity="0.9"/>'
+    : '';
+  var cape = hasCape
+    ? '<path d="M48 58C49 52 52 49 64 49C76 49 79 52 80 58L78 93H50L48 58Z" fill="' + mantle + '" opacity="0.78"/>'
+    : '';
+  var weapon = tier === 'empire'
+    ? '<path d="M86 61L96 52" stroke="#FCD34D" stroke-width="3.2" stroke-linecap="round"/><path d="M95 51L99 55" stroke="#93C5FD" stroke-width="2.4" stroke-linecap="round"/>'
+    : '';
+
+  var svg = ''
+    + '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">'
+    + '<rect width="128" height="128" rx="64" fill="#0B1220"/>'
+    + '<radialGradient id="uA' + h + '" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(40 26) rotate(36) scale(84)">'
+    + '<stop stop-color="rgba(248,250,252,0.24)"/><stop offset="1" stop-color="rgba(15,23,42,0)"/></radialGradient>'
+    + '<ellipse cx="64" cy="44" rx="36" ry="30" fill="url(#uA' + h + ')"/>'
+    + aura
+    + crown
+    + '<ellipse cx="64" cy="33.4" rx="12.1" ry="13.2" fill="' + skin + '"/>'
+    + '<path d="M52.2 33.4C52.2 24.8 57.5 20.5 64 20.5C70.5 20.5 75.8 24.8 75.8 33.4V36.2H52.2V33.4Z" fill="' + hair + '"/>'
+    + hairExtra
+    + '<path d="M54.8 29.7L60 29.7" stroke="rgba(15,23,42,0.55)" stroke-width="1.35" stroke-linecap="round" transform="rotate(' + (-8 + browTilt * 3) + ' 57.4 29.7)"/>'
+    + '<path d="M68 29.7L73.2 29.7" stroke="rgba(15,23,42,0.55)" stroke-width="1.35" stroke-linecap="round" transform="rotate(' + (8 + browTilt * 3) + ' 70.6 29.7)"/>'
+    + '<circle cx="' + leftEyeX + '" cy="33.7" r="1.8" fill="' + eye + '"/><circle cx="' + rightEyeX + '" cy="33.7" r="1.8" fill="' + eye + '"/>'
+    + '<path d="M60 40C61.1 41.3 62.4 41.9 64 41.9C65.6 41.9 66.9 41.3 68 40" stroke="#7C4A2D" stroke-width="1.7" stroke-linecap="round"/>'
+    + beard
+    + cape
+    + '<path d="M42.4 56.4C45.3 47.7 52.5 44 64 44C75.5 44 82.7 47.7 85.6 56.4L82 95H46L42.4 56.4Z" fill="' + robe + '"/>'
+    + '<path d="M49.5 55.2L64 49.4L78.5 55.2L75.2 88.2H52.8L49.5 55.2Z" fill="' + mantle + '" opacity="0.88"/>'
+    + '<rect x="57.4" y="56.2" width="13.2" height="29.4" rx="2.2" fill="' + trim + '" opacity="0.88"/>'
+    + pauldron
+    + '<path d="M47.6 60L38.9 81.8" stroke="' + mantle + '" stroke-width="6" stroke-linecap="round"/>'
+    + '<path d="M80.4 60L89.1 81.8" stroke="' + mantle + '" stroke-width="6" stroke-linecap="round"/>'
+    + '<circle cx="38.7" cy="83.1" r="3.1" fill="' + skin + '"/><circle cx="89.3" cy="83.1" r="3.1" fill="' + skin + '"/>'
+    + '<rect x="55.1" y="95.1" width="7.2" height="13.7" rx="3" fill="#1E293B"/>'
+    + '<rect x="65.7" y="95.1" width="7.2" height="13.7" rx="3" fill="#1E293B"/>'
+    + '<rect x="54.1" y="107.5" width="8.7" height="3.7" rx="1.8" fill="#94A3B8"/>'
+    + '<rect x="65.2" y="107.5" width="8.7" height="3.7" rx="1.8" fill="#94A3B8"/>'
+    + weapon
+    + '</svg>';
+  return toSvgDataUri(svg);
+}
+
+function getHouseholdPortraitPath(figure) {
+  return buildDetailedUserAvatarDataUri(figure || {});
+}
+
+function buildHouseholdFigureMarkup(figure) {
+  var hasPiece = !!figure.pieceKey;
+  var portrait = getHouseholdPortraitPath(figure);
+  var sizeClass = figure.generation === 'kid' ? ' armor-portrait-kid' : ' armor-portrait-parent';
+  var style = ' style="--armor-portrait-url:url(' + portrait + ')"';
+  var pieceLabel = hasPiece ? String(figure.pieceKey || '').replace(' of ', ' · ') : 'Journey Start';
+  var trail = Array.isArray(figure.pieceTrail) ? figure.pieceTrail.length : 0;
+  return '<span class="armor-silhouette-svg armor-portrait-shell' + sizeClass + '" aria-hidden="true"><span class="armor-portrait-token"' + style + '></span></span>' +
+    '<span class="armor-figure-role' + (hasPiece ? ' armor-figure-role-earned' : '') + '">' + escapeHtml(figure.roleTag || '') + '</span>' +
+    '<span class="armor-figure-piece' + (hasPiece ? ' armor-figure-piece-earned' : '') + '">' + escapeHtml(pieceLabel) + '</span>' +
+    '<span class="armor-figure-progress" aria-label="Armor progress">' + '◆'.repeat(Math.max(0, Math.min(3, trail))) + (trail > 3 ? '+' : '') + '</span>';
+}
+
 function renderWelcomeAvatarInto(targetEl) {
   if (!targetEl) return;
   var data = getHouseholdArmor();
-  var hash = getDeviceAvatarHash();
-  var toneSet = [
-    ['#94a3b8', '#475569'],
-    ['#9ca3af', '#64748b'],
-    ['#a8b4c6', '#546173']
-  ];
-  var toneIdx = parseInt(hash.slice(0, 2), 16) % toneSet.length;
-  var tones = toneSet[toneIdx];
   targetEl.innerHTML = '';
-  var figures = [
-    { label: 'Parent', pieceKey: data.pieces[1] || null },
-    { label: 'Parent', pieceKey: data.pieces[2] || null },
-    { label: 'Kid', pieceKey: data.pieces[3] || null },
-    { label: 'Kid', pieceKey: data.pieces[4] || null },
-    { label: 'Dog', pieceKey: data.pieces[0] || null }
-  ];
+  var figures = buildHouseholdRoleFigures(data);
   figures.forEach(function (f, idx) {
     var fig = document.createElement('div');
     fig.className = 'armor-figure armor-silhouette';
+    fig.setAttribute('data-role', f.generation || 'parent');
     if (f.pieceKey) fig.setAttribute('data-piece', f.pieceKey);
-    var gid = 'intro-ag-' + idx + '-' + hash;
-    var svg = f.label === 'Dog'
-      ? '<svg class="armor-silhouette-img" viewBox="0 0 48 32" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><ellipse cx="20" cy="18" rx="14" ry="10" fill="url(#' + gid + ')"/><circle cx="36" cy="10" r="6" fill="url(#' + gid + ')"/><ellipse cx="34" cy="8" rx="2" ry="1.5" fill="rgba(30,41,59,0.4)"/></svg>'
-      : f.label === 'Kid'
-      ? '<svg class="armor-silhouette-img armor-silhouette-kid" viewBox="0 0 36 48" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><circle cx="18" cy="10" r="7" fill="url(#' + gid + ')"/><path d="M6 48 Q18 26 30 48 Z" fill="url(#' + gid + ')"/></svg>'
-      : '<svg class="armor-silhouette-img" viewBox="0 0 40 52" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:' + tones[0] + '"/><stop offset="100%" style="stop-color:' + tones[1] + '"/></linearGradient></defs><circle cx="20" cy="12" r="8" fill="url(#' + gid + ')"/><path d="M4 52 L20 26 L36 52 Z" fill="url(#' + gid + ')"/></svg>';
-    fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + sanitizeSvgMarkup(svg) + '</span>' +
+    fig.innerHTML = buildHouseholdFigureMarkup(f) +
       (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
-      '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
+      '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>' +
+      '<span class="armor-figure-sub">' + escapeHtml(f.roleLabel || '') + '</span>';
     targetEl.appendChild(fig);
   });
   if (data.count >= 6) {
@@ -3748,26 +4066,182 @@ function getPrayerSessionId() {
 }
 
 var PRAYER_OFFLINE_QUEUE_KEY = 'tdb_prayer_offline_queue';
+var PRAYER_OFFLINE_MAX = 200;
+var PRAYER_SYNC_BACKOFF_BASE_MS = 60000;
+var PRAYER_SYNC_BACKOFF_MAX_MS = 86400000;
+var PRAYER_SYNC_MAX_ATTEMPTS = 12;
+var prayerFlushInFlight = null;
+function isPrayerQueueDebugEnabled() {
+  try {
+    var host = (window.location && window.location.hostname) ? window.location.hostname : '';
+    var isLocal = host === 'localhost' || host === '127.0.0.1' || host.endsWith('.local');
+    var qsOn = (window.location && window.location.search) ? /(?:\?|&)debugQueue=1(?:&|$)/.test(window.location.search) : false;
+    var storageOn = localStorage.getItem('tdb_debug_prayer_queue') === '1';
+    return !!(isLocal || qsOn || storageOn);
+  } catch (e) { return false; }
+}
+function logPrayerQueueHealth() {
+  var q = getPrayerOfflineQueue();
+  if (typeof console === 'undefined' || typeof console.log !== 'function') return;
+  console.log('[Prayer Queue Health]');
+  console.log('  Length:', q.length);
+  if (!q.length) return;
+  var oldestCreatedAt = q.reduce(function (min, item) {
+    var t = Number(item && item.createdAt ? item.createdAt : Date.now());
+    return Math.min(min, t);
+  }, Date.now());
+  var maxAttempts = q.reduce(function (max, item) {
+    return Math.max(max, Number(item && item.attempts ? item.attempts : 0));
+  }, 0);
+  var oldestAgeMinutes = Math.max(0, Math.round((Date.now() - oldestCreatedAt) / 60000));
+  console.log('  Oldest age:', oldestAgeMinutes, 'minutes');
+  console.log('  Max attempts:', maxAttempts);
+}
+function wirePrayerQueueHealthDebug() {
+  if (!isPrayerQueueDebugEnabled()) return;
+  window.logQueueHealth = logPrayerQueueHealth;
+  if (window.__tdbPrayerQueueHealthInterval) return;
+  window.__tdbPrayerQueueHealthInterval = setInterval(logPrayerQueueHealth, 30000);
+}
+function requestPrayerBackgroundSync() {
+  if (!('serviceWorker' in navigator) || !navigator.serviceWorker.ready) return;
+  navigator.serviceWorker.ready.then(function (reg) {
+    if (reg && reg.sync && typeof reg.sync.register === 'function') {
+      reg.sync.register('tdb-sync-prayers').catch(function () {});
+      return;
+    }
+    if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({ type: 'TDB_REQUEST_PRAYER_SYNC' });
+    }
+  }).catch(function () {});
+}
+function normalizePrayerQueueItem(item) {
+  if (!item) return null;
+  if (typeof item === 'string') {
+    return {
+      intent: String(item),
+      attempts: 0,
+      lastTriedAt: null,
+      createdAt: Date.now(),
+      source: 'legacy'
+    };
+  }
+  if (typeof item !== 'object') return null;
+  var intent = String(item.intent || '').trim();
+  if (!intent) return null;
+  return {
+    intent: intent,
+    attempts: Number(item.attempts || 0) || 0,
+    lastTriedAt: item.lastTriedAt ? Number(item.lastTriedAt) : null,
+    createdAt: item.createdAt ? Number(item.createdAt) : Date.now(),
+    source: item.source ? String(item.source) : 'unknown'
+  };
+}
+function queuePrayerOfflineIntent(intent, source) {
+  var safeIntent = truncateForDb(sanitizeUserInput(intent), MAX_PRAYER_INTENT_LENGTH);
+  if (!safeIntent) return;
+  var q = getPrayerOfflineQueue();
+  q.push({
+    intent: safeIntent,
+    attempts: 0,
+    lastTriedAt: null,
+    createdAt: Date.now(),
+    source: source || 'quick_pray'
+  });
+  setPrayerOfflineQueue(q);
+}
+function getPrayerSyncBackoffMs(attempts) {
+  var pow = Math.max(0, Number(attempts || 0) - 1);
+  return Math.min(PRAYER_SYNC_BACKOFF_BASE_MS * Math.pow(2, pow), PRAYER_SYNC_BACKOFF_MAX_MS);
+}
+function logFailedPrayerAttempt(item, attemptCount, errMessage) {
+  if (!supabaseClient || !currentUserId) return Promise.resolve();
+  var intent = truncateForDb(sanitizeUserInput(item && item.intent), MAX_PRAYER_INTENT_LENGTH);
+  if (!intent) return Promise.resolve();
+  return supabaseClient.from('failed_prayer_attempts').insert({
+    intent: intent,
+    attempts: Number(attemptCount || 1) || 1,
+    last_tried_at: new Date().toISOString(),
+    error_message: truncateForDb(String(errMessage || 'Unknown error'), 800),
+    source: truncateForDb(String((item && item.source) || 'quick_pray'), 80),
+    user_id: currentUserId
+  }).then(function () {}).catch(function () {});
+}
 function getPrayerOfflineQueue() {
-  try { return JSON.parse(localStorage.getItem(PRAYER_OFFLINE_QUEUE_KEY) || '[]'); } catch (e) { return []; }
+  try {
+    var raw = JSON.parse(localStorage.getItem(PRAYER_OFFLINE_QUEUE_KEY) || '[]');
+    if (!Array.isArray(raw)) return [];
+    return raw.map(normalizePrayerQueueItem).filter(Boolean);
+  } catch (e) { return []; }
 }
 function setPrayerOfflineQueue(q) {
-  try { localStorage.setItem(PRAYER_OFFLINE_QUEUE_KEY, JSON.stringify(q)); } catch (e) {}
+  var list = Array.isArray(q) ? q.map(normalizePrayerQueueItem).filter(Boolean) : [];
+  if (list.length > PRAYER_OFFLINE_MAX) list = list.slice(list.length - PRAYER_OFFLINE_MAX);
+  try { localStorage.setItem(PRAYER_OFFLINE_QUEUE_KEY, JSON.stringify(list)); } catch (e) {}
+  if (list.length) requestPrayerBackgroundSync();
+  if (isPrayerQueueDebugEnabled()) logPrayerQueueHealth();
 }
 function flushPrayerOfflineQueue() {
+  if (prayerFlushInFlight) return prayerFlushInFlight;
   var q = getPrayerOfflineQueue();
   if (!q.length || !supabaseClient) return;
   var sessionId = getPrayerSessionId();
   var familyName = getFamilyName();
-  q.forEach(function (item) {
-    var payload = { intent: truncateForDb(sanitizeUserInput(item.intent), MAX_PRAYER_INTENT_LENGTH), session_id: sessionId };
+  var now = Date.now();
+  prayerFlushInFlight = Promise.all(q.map(function (item) {
+    var safeIntent = truncateForDb(sanitizeUserInput(item.intent), MAX_PRAYER_INTENT_LENGTH);
+    if (!safeIntent) return Promise.resolve({ keep: false, sent: false });
+    var attempts = Number(item.attempts || 0) || 0;
+    if (attempts >= PRAYER_SYNC_MAX_ATTEMPTS) {
+      return Promise.resolve({ keep: false, sent: false, dropped: true });
+    }
+    var lastTriedAt = item.lastTriedAt ? Number(item.lastTriedAt) : 0;
+    var waitMs = getPrayerSyncBackoffMs(attempts);
+    if (lastTriedAt && (now - lastTriedAt) < waitMs) {
+      return Promise.resolve({ keep: true, sent: false, item: item });
+    }
+    var payload = { intent: safeIntent, session_id: sessionId };
     var fn = truncateForDb(sanitizeUserInput(familyName), MAX_FAMILY_NAME_LENGTH);
     if (fn) payload.family_name = fn;
-    supabaseClient.from('prayers').insert(payload).then(function () {});
+    return supabaseClient.from('prayers').insert(payload).then(function (res) {
+      if (res && !res.error) return { keep: false, sent: true };
+      var nextAttempts = attempts + 1;
+      var errText = (res && res.error && (res.error.message || res.error.code)) ? (res.error.message || res.error.code) : 'Insert failed';
+      logFailedPrayerAttempt(item, nextAttempts, errText);
+      if (nextAttempts >= PRAYER_SYNC_MAX_ATTEMPTS) {
+        return { keep: false, sent: false, dropped: true };
+      }
+      return {
+        keep: true,
+        sent: false,
+        item: Object.assign({}, item, { attempts: nextAttempts, lastTriedAt: Date.now() })
+      };
+    }).catch(function () {
+      var nextAttempts = attempts + 1;
+      logFailedPrayerAttempt(item, nextAttempts, 'Network or insert exception');
+      if (nextAttempts >= PRAYER_SYNC_MAX_ATTEMPTS) {
+        return { keep: false, sent: false, dropped: true };
+      }
+      return {
+        keep: true,
+        sent: false,
+        item: Object.assign({}, item, { attempts: nextAttempts, lastTriedAt: Date.now() })
+      };
+    });
+  })).then(function (results) {
+    var keep = results.filter(function (r) { return r && r.keep && r.item; }).map(function (r) { return r.item; });
+    var sentAny = results.some(function (r) { return r && r.sent; });
+    var droppedAny = results.some(function (r) { return r && r.dropped; });
+    setPrayerOfflineQueue(keep);
+    if (sentAny && typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
+    if (sentAny && typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+    if (droppedAny && typeof window.__tdb_reportError === 'function') {
+      window.__tdb_reportError('prayer_queue_drop_max_attempts', new Error('Dropped queued prayers after max retry attempts'));
+    }
+  }).catch(function () {}).finally(function () {
+    prayerFlushInFlight = null;
   });
-  setPrayerOfflineQueue([]);
-  if (typeof window.__fetchPrayerCount === 'function') window.__fetchPrayerCount();
-  if (typeof window.__refreshPrayerEcho === 'function') window.__refreshPrayerEcho();
+  return prayerFlushInFlight;
 }
 
 var COLLECTIVE_INTENTS = ['peace', 'strength', 'healing', 'gratitude', 'hope', 'those who are sick', 'our families', 'wisdom', 'courage', 'rest'];
@@ -4062,26 +4536,16 @@ function renderArmorModal() {
   });
   if (avatarEl) {
     avatarEl.innerHTML = '';
-    var figures = [
-      { label: 'Parent', pieceKey: data.pieces[1] || null },
-      { label: 'Parent', pieceKey: data.pieces[2] || null },
-      { label: 'Kid', pieceKey: data.pieces[3] || null },
-      { label: 'Kid', pieceKey: data.pieces[4] || null },
-      { label: 'Dog', pieceKey: data.pieces[0] || null }
-    ];
+    var figures = buildHouseholdRoleFigures(data);
     figures.forEach(function (f, idx) {
       var fig = document.createElement('div');
       fig.className = 'armor-figure armor-silhouette';
+      fig.setAttribute('data-role', f.generation || 'parent');
       if (f.pieceKey) fig.setAttribute('data-piece', f.pieceKey);
-      var gid = 'ag-' + idx;
-      var svg = f.label === 'Dog'
-        ? '<svg class="armor-silhouette-img" viewBox="0 0 48 32" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#94a3b8"/><stop offset="100%" style="stop-color:#64748b"/></linearGradient></defs><ellipse cx="20" cy="18" rx="14" ry="10" fill="url(#' + gid + ')"/><circle cx="36" cy="10" r="6" fill="url(#' + gid + ')"/><ellipse cx="34" cy="8" rx="2" ry="1.5" fill="rgba(30,41,59,0.4)"/></svg>'
-        : f.label === 'Kid'
-        ? '<svg class="armor-silhouette-img armor-silhouette-kid" viewBox="0 0 36 48" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a5b4c6"/><stop offset="100%" style="stop-color:#64748b"/></linearGradient></defs><circle cx="18" cy="10" r="7" fill="url(#' + gid + ')"/><path d="M6 48 Q18 26 30 48 Z" fill="url(#' + gid + ')"/></svg>'
-        : '<svg class="armor-silhouette-img" viewBox="0 0 40 52" aria-hidden="true"><defs><linearGradient id="' + gid + '" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#94a3b8"/><stop offset="100%" style="stop-color:#475569"/></linearGradient></defs><circle cx="20" cy="12" r="8" fill="url(#' + gid + ')"/><path d="M4 52 L20 26 L36 52 Z" fill="url(#' + gid + ')"/></svg>';
-      fig.innerHTML = '<span class="armor-silhouette-svg" aria-hidden="true">' + sanitizeSvgMarkup(svg) + '</span>' +
+      fig.innerHTML = buildHouseholdFigureMarkup(f) +
         (f.pieceKey ? '<span class="armor-piece-glow" aria-hidden="true">◆</span>' : '') +
-        '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>';
+        '<span class="armor-figure-label">' + escapeHtml(f.label) + '</span>' +
+        '<span class="armor-figure-sub">' + escapeHtml(f.roleLabel || '') + '</span>';
       avatarEl.appendChild(fig);
     });
     if (data.count >= 6) {
@@ -4139,6 +4603,8 @@ var FAMILY_STORIES_DATA = [
 function renderFamilyStoriesTab() {
   var grid = document.getElementById('family-stories-grid');
   if (!grid || !FAMILY_STORIES_DATA) return;
+  var quickWrap = document.getElementById('quick-pray-wrap');
+  var quickInput = document.getElementById('quick-pray');
   grid.innerHTML = '';
   var base = typeof window !== 'undefined' && window.location ? (window.location.origin + '/') : '';
   FAMILY_STORIES_DATA.forEach(function (s) {
@@ -4155,24 +4621,48 @@ function renderFamilyStoriesTab() {
       '<p class="kids-corner-card-summary">' + escapeHtml(s.summary) + '</p>' +
       '<p class="kids-corner-armor-hint section-note">' + escapeHtml(s.armorHint) + '</p>' +
       '<div class="kids-corner-card-actions">' +
-        '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + attrEscape(s.prayIntent) + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
+        '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + attrEscape(s.prayIntent) + '" data-pray-intent="' + attrEscape(s.prayIntent) + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
         '<a href="' + attrEscape(verseUrl) + '" class="btn btn-secondary" aria-label="Read the verse: ' + attrEscape(s.verseRef) + '">Read the Verse</a>' +
         '<a href="' + attrEscape(colorUrl) + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
-        '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Do activity">Activity</button>' +
+        '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Show activity details" aria-expanded="false">Activity</button>' +
       '</div>' +
-      '<p class="kids-activity-text section-note" aria-live="polite">' + escapeHtml(s.activity) + '</p>';
+      '<p class="kids-activity-text family-story-activity-text section-note hidden" aria-live="polite">' + escapeHtml(s.activity) + '</p>';
     var prayBtn = card.querySelector('.kids-btn-pray');
     var activityBtn = card.querySelector('.kids-btn-activity');
+    var activityText = card.querySelector('.family-story-activity-text');
+    var verseLink = card.querySelector('a[aria-label^="Read the verse"]');
+    var colorLink = card.querySelector('a[aria-label="Color this story"]');
     if (prayBtn) prayBtn.addEventListener('click', function () {
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-prayer');
       var modal = document.getElementById('family-armor-stories-modal');
       if (modal) modal.classList.add('hidden');
-      var url = base + '#quick-pray-wrap' + (s.prayIntent ? '?intent=' + encodeURIComponent(s.prayIntent) : '');
-      window.location.href = url;
+      if (quickInput && s.prayIntent) quickInput.value = 'Pray for ' + s.prayIntent;
+      if (quickWrap && typeof quickWrap.scrollIntoView === 'function') {
+        quickWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      try { window.location.hash = '#quick-pray-wrap'; } catch (e) {}
+      if (quickInput && typeof quickInput.focus === 'function') {
+        setTimeout(function () { quickInput.focus(); }, 120);
+      }
+      if (typeof showEliteToast === 'function') showEliteToast('Prayer loaded from story: ' + s.prayIntent + '.');
     });
     if (activityBtn) activityBtn.addEventListener('click', function () {
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-activity');
+      if (activityText) {
+        var isHidden = activityText.classList.contains('hidden');
+        activityText.classList.toggle('hidden', !isHidden);
+        activityBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        activityBtn.textContent = isHidden ? 'Hide Activity' : 'Activity';
+      }
       if (typeof showEliteToast === 'function') showEliteToast(s.armorHint);
+    });
+    if (verseLink) verseLink.addEventListener('click', function () {
+      var modal = document.getElementById('family-armor-stories-modal');
+      if (modal) modal.classList.add('hidden');
+    });
+    if (colorLink) colorLink.addEventListener('click', function () {
+      var modal = document.getElementById('family-armor-stories-modal');
+      if (modal) modal.classList.add('hidden');
     });
     grid.appendChild(card);
   });
@@ -4335,17 +4825,231 @@ function wireHelpModal() {
   });
 }
 
-function wireHeroVoicePray() {
-  var heroBtn = document.getElementById('voice-pray-hero-btn');
-  var voiceBtn = document.getElementById('voice-pray-btn');
-  var quickPrayInput = document.getElementById('quick-pray');
-  if (!heroBtn || !quickPrayInput) return;
-  heroBtn.addEventListener('click', function () {
-    var wrap = document.getElementById('hero-verse-wrap');
-    if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    if (voiceBtn) voiceBtn.click();
-    else if (quickPrayInput) quickPrayInput.focus();
+function wireHeaderFamilyQuickLinks() {
+  var addLink = document.getElementById('header-add-household-link');
+  var armorLink = document.getElementById('header-family-armor-link');
+  if (addLink) {
+    addLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      var addBtn = document.getElementById('add-family-btn');
+      if (addBtn && typeof addBtn.click === 'function') addBtn.click();
+    });
+  }
+  if (armorLink) {
+    armorLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      var armorBtn = document.getElementById('family-armor-stories-btn');
+      if (armorBtn && typeof armorBtn.click === 'function') armorBtn.click();
+    });
+  }
+}
+
+function wireAuthDailyVerseBreakdown() {
+  if (window.__tdbAuthVerseBreakdownWired) return;
+  window.__tdbAuthVerseBreakdownWired = true;
+  var wrap = document.getElementById('auth-details');
+  var toggleBtn = document.getElementById('auth-daily-verse-more-toggle');
+  var panel = document.getElementById('auth-daily-verse-breakdown');
+  var closeBtn = document.getElementById('auth-daily-verse-breakdown-close');
+  if (!wrap || !toggleBtn || !panel) return;
+
+  function setOpen(nextOpen) {
+    panel.classList.toggle('is-open', !!nextOpen);
+    toggleBtn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+  }
+
+  toggleBtn.addEventListener('click', function () {
+    var open = panel.classList.contains('is-open');
+    setOpen(!open);
   });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+  document.addEventListener('click', function (e) {
+    if (!panel.classList.contains('is-open')) return;
+    if (!wrap.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel.classList.contains('is-open')) setOpen(false);
+  });
+
+  var buildBtn = document.getElementById('auth-daily-verse-build-sermon');
+  var exportBtn = document.getElementById('auth-daily-verse-export-study');
+  var shareBtn = document.getElementById('auth-daily-verse-share-group');
+  var saveBtn = document.getElementById('auth-daily-verse-save-later');
+  var copyBtn = document.getElementById('auth-daily-verse-copy');
+  var pinBtn = document.getElementById('auth-daily-verse-pin');
+
+  function getCurrentBreakdown() {
+    var ref = (document.getElementById('auth-daily-verse-ref') || {}).textContent || '';
+    var text = (document.getElementById('auth-daily-verse-text') || {}).textContent || '';
+    return getAuthDailyVerseBreakdownData(ref, text);
+  }
+
+  if (buildBtn) buildBtn.addEventListener('click', function () {
+    var data = getCurrentBreakdown();
+    var note = 'Plain talk: ' + data.plain + ' | Historical context: ' + data.context;
+    var url = 'sermon.html?ref=' + encodeURIComponent(data.ref) + '&note=' + encodeURIComponent(note);
+    window.location.href = url;
+  });
+
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var data = getCurrentBreakdown();
+    var text = data.ref + ' (KJV): ' + data.verse;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Verse copied.');
+      }).catch(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Copy failed - try again.');
+      });
+      return;
+    }
+    if (typeof showEliteToast === 'function') showEliteToast('Copy unavailable on this browser.');
+  });
+
+  if (pinBtn) pinBtn.addEventListener('click', function () {
+    var data = getCurrentBreakdown();
+    var streak = typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0;
+    var text = data.ref + '\n' + data.verse + '\nStreak: ' + streak + ' | Daily Battle';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        var original = pinBtn.textContent;
+        pinBtn.textContent = '📌 Pinned!';
+        if (typeof showEliteToast === 'function') showEliteToast('Pinned to clipboard.');
+        setTimeout(function () { pinBtn.textContent = original || '📌 Pin Verse'; }, 1800);
+      }).catch(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Pin failed - try again.');
+      });
+      return;
+    }
+    if (typeof showEliteToast === 'function') showEliteToast('Clipboard unavailable on this browser.');
+  });
+
+  if (exportBtn) exportBtn.addEventListener('click', function () {
+    var data = getCurrentBreakdown();
+    var lines = [
+      data.ref + ' (KJV)',
+      data.verse,
+      '',
+      'Who said it?: ' + data.who,
+      'To: ' + data.to,
+      'Plain talk: ' + data.plain,
+      'Historical context: ' + data.context,
+      'Cross-references: ' + data.cross,
+      'Application: ' + data.application
+    ];
+    var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = String(data.ref || 'daily-verse').replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '-study.txt';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { try { URL.revokeObjectURL(a.href); } catch (e) {} }, 500);
+    if (typeof showEliteToast === 'function') showEliteToast('Study exported.');
+  });
+
+  if (shareBtn) shareBtn.addEventListener('click', function () {
+    var data = getCurrentBreakdown();
+    var shareText = data.ref + ' (KJV): ' + data.verse + '\n\nPlain talk: ' + data.plain + '\nShared from Today\'s Daily Battle';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareText).then(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Copied for Revival Group.');
+      }).catch(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Copy failed - try again.');
+      });
+    }
+  });
+
+  if (saveBtn) saveBtn.addEventListener('click', function () {
+    var key = 'tdb_saved_verse_breakdowns';
+    var data = getCurrentBreakdown();
+    try {
+      var list = JSON.parse(localStorage.getItem(key) || '[]');
+      if (!Array.isArray(list)) list = [];
+      list.unshift({ ref: data.ref, verse: data.verse, saved_at: Date.now() });
+      if (list.length > 100) list = list.slice(0, 100);
+      localStorage.setItem(key, JSON.stringify(list));
+      if (typeof showEliteToast === 'function') showEliteToast('Saved for later.');
+    } catch (e) {
+      if (typeof showEliteToast === 'function') showEliteToast('Save failed - storage unavailable.');
+    }
+  });
+
+  var relatedWrap = document.getElementById('auth-daily-verse-related-links');
+  if (relatedWrap) relatedWrap.addEventListener('click', function (e) {
+    var target = e.target && e.target.closest ? e.target.closest('.auth-daily-verse-related-link') : null;
+    if (!target) return;
+    var ref = target.getAttribute('data-ref') || '';
+    if (!ref) return;
+    if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(ref);
+    var search = document.getElementById('main-search');
+    if (search && typeof search.scrollIntoView === 'function') search.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setOpen(false);
+  });
+
+  updateAuthDailyVerseBreakdownContent(
+    (document.getElementById('auth-daily-verse-ref') || {}).textContent || '',
+    (document.getElementById('auth-daily-verse-text') || {}).textContent || ''
+  );
+}
+
+function wireFloatingBattleAnchor() {
+  if (window.__tdbFloatingAnchorWired) return;
+  window.__tdbFloatingAnchorWired = true;
+  var wrap = document.getElementById('floating-battle-anchor');
+  var quickBtn = document.getElementById('floating-quick-pray-btn');
+  var streakBadge = document.getElementById('header-streak-badge');
+  if (!wrap && !quickBtn && !streakBadge) return;
+  var openBtn = document.getElementById('floating-battle-anchor-open');
+  var prayBtn = document.getElementById('floating-battle-anchor-pray');
+  var shareBtn = document.getElementById('floating-battle-anchor-share');
+
+  if (openBtn) openBtn.addEventListener('click', function () {
+    var toggle = document.getElementById('auth-daily-verse-more-toggle');
+    var panel = document.getElementById('auth-daily-verse-breakdown');
+    if (toggle && panel && !panel.classList.contains('is-open')) toggle.click();
+    var authVerse = document.getElementById('auth-daily-verse');
+    if (authVerse && typeof authVerse.scrollIntoView === 'function') authVerse.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  if (prayBtn) prayBtn.addEventListener('click', function () {
+    var input = document.getElementById('quick-pray');
+    if (input && typeof input.focus === 'function') input.focus();
+    var wrapEl = document.getElementById('quick-pray-wrap');
+    if (wrapEl && typeof wrapEl.scrollIntoView === 'function') wrapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  if (quickBtn) quickBtn.addEventListener('click', function () {
+    var input = document.getElementById('quick-pray');
+    var prayButton = document.getElementById('quick-pray-btn');
+    var quickWrap = document.getElementById('quick-pray-wrap');
+    if (input) {
+      input.value = buildAutoQuickPrayText();
+      try { input.dispatchEvent(new Event('input', { bubbles: true })); } catch (e) {}
+      input.focus();
+    }
+    if (quickWrap && typeof quickWrap.scrollIntoView === 'function') quickWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (prayButton && typeof prayButton.click === 'function') setTimeout(function () { prayButton.click(); }, 80);
+  });
+  if (shareBtn) shareBtn.addEventListener('click', function () {
+    var ref = (document.getElementById('auth-daily-verse-ref') || {}).textContent || '';
+    var verse = (document.getElementById('auth-daily-verse-text') || {}).textContent || '';
+    var text = (ref ? ref + ': ' : '') + verse;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Anchor verse copied.');
+      }).catch(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Copy failed - try again.');
+      });
+    }
+  });
+  if (streakBadge) streakBadge.addEventListener('click', function () {
+    var streakBlock = document.getElementById('streak-counter-block');
+    var calendar = document.getElementById('daily-battle-calendar');
+    if (streakBlock && typeof streakBlock.scrollIntoView === 'function') streakBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (calendar) {
+      calendar.classList.add('tdb-badge-bump');
+      setTimeout(function () { calendar.classList.remove('tdb-badge-bump'); }, 700);
+    }
+  });
+  updateFloatingBattleAnchor();
 }
 
 function wireSacredSilenceToggle() {
@@ -4386,9 +5090,7 @@ function wireSilentOffering() {
         }
       });
     } else {
-      var q = getPrayerOfflineQueue();
-      q.push({ intent: 'A household offered silence.' });
-      setPrayerOfflineQueue(q);
+      queuePrayerOfflineIntent('A household offered silence.', 'silent_offering');
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
       if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
       if (typeof addArmorChainFromSilentOffering === 'function') addArmorChainFromSilentOffering();
@@ -4780,6 +5482,7 @@ function updateDailyBattleStreak() {
   checkStreakRepairVisibility();
   updateUnlockedBadges(nextCount);
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak(nextCount);
+  if (typeof updateFloatingBattleAnchor === 'function') updateFloatingBattleAnchor();
   var resetNudgeEl = document.getElementById('daily-battle-reset-nudge');
   if (resetNudgeEl) {
     var started = false;
@@ -5302,8 +6005,71 @@ function loadMessageDisplayName() {
   return safeGetItem(MESSAGE_NAME_KEY) || '';
 }
 
+function sanitizeAvatarChoice(choice) {
+  var next = String(choice || '').toLowerCase().trim();
+  return (next === 'male' || next === 'female') ? next : 'auto';
+}
+
+function getUserAvatarChoice() {
+  return sanitizeAvatarChoice(safeGetItem(USER_AVATAR_CHOICE_KEY) || 'auto');
+}
+
+function setUserAvatarChoice(choice) {
+  var next = sanitizeAvatarChoice(choice);
+  safeSetItem(USER_AVATAR_CHOICE_KEY, next);
+  try {
+    if (next === 'male' || next === 'female') localStorage.setItem(AVATAR_PERSONA_KEY, next);
+    else localStorage.removeItem(AVATAR_PERSONA_KEY);
+  } catch (e) {}
+  return next;
+}
+
+function getPreferredIdentityName() {
+  var fromMessage = String(loadMessageDisplayName() || '').trim();
+  if (fromMessage) return truncateForDb(fromMessage, MAX_DISPLAY_NAME_LENGTH);
+  var fromFamily = String(getFamilyName() || '').trim();
+  if (fromFamily) return truncateForDb(fromFamily, MAX_DISPLAY_NAME_LENGTH);
+  return '';
+}
+
+function wireAvatarChoiceControl() {
+  var choiceEl = document.getElementById('daily-tile-avatar-choice');
+  if (!choiceEl) return;
+  choiceEl.value = getUserAvatarChoice();
+  choiceEl.addEventListener('change', function () {
+    var savedChoice = setUserAvatarChoice(choiceEl.value);
+    choiceEl.value = savedChoice;
+    try {
+      if (window.TDBAvatarProgress && typeof window.TDBAvatarProgress.syncAvatarProgress === 'function') {
+        window.TDBAvatarProgress.syncAvatarProgress();
+      }
+    } catch (e0) {}
+    try {
+      if (typeof renderArmorModal === 'function') renderArmorModal();
+      var home = document.getElementById('home-avatar-center');
+      if (home && typeof renderWelcomeAvatarInto === 'function') renderWelcomeAvatarInto(home);
+    } catch (e1) {}
+    var status = document.getElementById('daily-tile-avatar-status');
+    if (status) status.textContent = savedChoice === 'auto'
+      ? 'Avatar style set to Auto.'
+      : ('Avatar style locked to ' + savedChoice + '.');
+    document.dispatchEvent(new CustomEvent('tdb:avatar-choice-updated', { detail: { choice: savedChoice } }));
+  });
+}
+
 function saveMessageDisplayName(name) {
-  safeSetItem(MESSAGE_NAME_KEY, truncateForDb(name, MAX_DISPLAY_NAME_LENGTH));
+  var clean = truncateForDb(name, MAX_DISPLAY_NAME_LENGTH);
+  safeSetItem(MESSAGE_NAME_KEY, clean);
+  try {
+    if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.setMemberName === 'function') {
+      window.TDBFamilyHierarchy.setMemberName(clean);
+    }
+  } catch (e) {}
+  try {
+    if (typeof renderArmorModal === 'function') renderArmorModal();
+    var home = document.getElementById('home-avatar-center');
+    if (home && typeof renderWelcomeAvatarInto === 'function') renderWelcomeAvatarInto(home);
+  } catch (e2) {}
 }
 
 function loadMessageNameMap() {
@@ -5698,20 +6464,228 @@ function getDailyVerseRefForKey(dayKey) {
   return ANCHOR_VERSE_REFS.find(function (ref) { return bible[ref]; }) || null;
 }
 
+function updateDailyVerseWhispers(ref, verseText) {
+  var safeRef = ref || '';
+  var safeText = (verseText || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  var authRef = document.getElementById('auth-daily-verse-ref');
+  var authText = document.getElementById('auth-daily-verse-text');
+  var brandRef = document.getElementById('brand-verse-echo-ref');
+  var brandText = document.getElementById('brand-verse-echo-text');
+  if (authRef) authRef.textContent = safeRef || 'Today\'s verse';
+  if (authText) authText.textContent = safeText || 'Verse loading...';
+  if (brandRef) brandRef.textContent = safeRef || 'Today\'s verse';
+  if (brandText) brandText.textContent = safeText || 'Verse loading...';
+  if (typeof updateAuthDailyVerseBreakdownContent === 'function') {
+    updateAuthDailyVerseBreakdownContent(safeRef, safeText);
+  }
+  if (typeof updateFloatingBattleAnchor === 'function') {
+    updateFloatingBattleAnchor();
+  }
+}
+
+function getAuthDailyVerseBreakdownData(ref, verseText) {
+  var safeRef = String(ref || '').trim();
+  var safeText = String(verseText || '').trim();
+  var data = {
+    who: 'Scripture',
+    to: 'Believers',
+    plain: 'Bring your fear to God in prayer and trust Him with today.',
+    context: 'A word of encouragement to stand firm and stay prayerful under pressure.',
+    cross: 'Matthew 6:25-34, 1 Peter 5:7',
+    application: 'Use when anxious, for gratitude, and for bold prayer.'
+  };
+  if (safeRef === 'Philippians 4:6') {
+    data.who = 'Paul';
+    data.to = 'Philippians';
+    data.plain = 'Don\'t worry - pray instead, thank God, ask boldly.';
+    data.context = 'Written from prison to encourage an anxious church.';
+    data.cross = 'Matthew 6:25-34, 1 Peter 5:7';
+    data.application = 'Use when anxious, for gratitude, and for bold prayer.';
+  }
+  return {
+    ref: safeRef || 'Today\'s verse',
+    verse: safeText || 'Verse text is loading.',
+    who: data.who,
+    to: data.to,
+    plain: data.plain,
+    context: data.context,
+    cross: data.cross,
+    application: data.application
+  };
+}
+
+var EMOTION_SIGNAL_KEY = 'tdb_emotion_signal_v1';
+var EMOTION_ALIAS = {
+  fear: 'fear', anxiety: 'fear', anxious: 'fear', worry: 'fear', worried: 'fear', stress: 'fear',
+  hope: 'hope', hopeless: 'hope', grief: 'grief', sadness: 'grief', heartache: 'grief',
+  courage: 'courage', strength: 'strength', peace: 'peace', family: 'family'
+};
+
+function normalizeEmotionSignal(topic) {
+  var raw = String(topic || '').trim().toLowerCase();
+  if (!raw) return '';
+  return EMOTION_ALIAS[raw] || raw;
+}
+
+function rememberEmotionSignal(topic) {
+  var key = normalizeEmotionSignal(topic);
+  if (!key) return;
+  try {
+    var store = JSON.parse(localStorage.getItem(EMOTION_SIGNAL_KEY) || '{}');
+    if (!store || typeof store !== 'object') store = {};
+    store[key] = (Number(store[key] || 0) || 0) + 1;
+    localStorage.setItem(EMOTION_SIGNAL_KEY, JSON.stringify(store));
+  } catch (e) {}
+}
+
+function getPreferredEmotionSignal() {
+  try {
+    var store = JSON.parse(localStorage.getItem(EMOTION_SIGNAL_KEY) || '{}');
+    if (!store || typeof store !== 'object') return '';
+    var best = '';
+    var bestN = 0;
+    Object.keys(store).forEach(function (k) {
+      var n = Number(store[k] || 0) || 0;
+      if (n > bestN) { best = k; bestN = n; }
+    });
+    return best;
+  } catch (e) { return ''; }
+}
+
+function getTimeOfDayEmotionSignal() {
+  var hour = new Date().getHours();
+  if (hour >= 21 || hour < 5) return 'rest';
+  if (hour >= 5 && hour < 11) return 'strength';
+  return '';
+}
+
+function getRelatedRefsForEmotion(emotionKey) {
+  var key = normalizeEmotionSignal(emotionKey);
+  if (key === 'fear') return ['1 Peter 5:7', 'Matthew 6:34'];
+  if (key === 'grief') return ['Psalms 34:18', 'Revelation 21:4'];
+  if (key === 'hope') return ['Romans 15:13', 'Jeremiah 29:11'];
+  if (key === 'courage') return ['Joshua 1:9', '2 Timothy 1:7'];
+  if (key === 'strength') return ['Isaiah 40:31', 'Philippians 4:13'];
+  if (key === 'peace') return ['John 14:27', 'Philippians 4:7'];
+  if (key === 'rest') return ['Matthew 11:28', 'Psalms 4:8'];
+  if (key === 'family') return ['Joshua 24:15', 'Psalms 127:3'];
+  return [];
+}
+
+function mergeUniqueRefs(primary, secondary, maxCount) {
+  var out = [];
+  var seen = {};
+  var limit = Number(maxCount || 2) || 2;
+  [primary || [], secondary || []].forEach(function (list) {
+    list.forEach(function (ref) {
+      var clean = String(ref || '').trim();
+      if (!clean || seen[clean]) return;
+      seen[clean] = true;
+      if (out.length < limit) out.push(clean);
+    });
+  });
+  return out;
+}
+
+function getRelatedRefsForVerse(ref) {
+  var timeOfDay = getTimeOfDayEmotionSignal();
+  var timeWeightedRefs = getRelatedRefsForEmotion(timeOfDay);
+  var preferred = getPreferredEmotionSignal();
+  var preferredRefs = getRelatedRefsForEmotion(preferred);
+  if (preferredRefs.length) return mergeUniqueRefs(timeWeightedRefs, preferredRefs, 2);
+  var clean = String(ref || '').trim();
+  if (clean === 'Philippians 4:6') {
+    return mergeUniqueRefs(timeWeightedRefs, ['1 Peter 5:7', 'Matthew 6:34'], 2);
+  }
+  if (clean === 'Isaiah 41:10') {
+    return mergeUniqueRefs(timeWeightedRefs, ['2 Timothy 1:7', 'Joshua 1:9'], 2);
+  }
+  if (clean === 'Psalms 23:4') {
+    return mergeUniqueRefs(timeWeightedRefs, ['John 14:27', 'Psalms 46:1'], 2);
+  }
+  return mergeUniqueRefs(timeWeightedRefs, ['Matthew 11:28', 'Romans 15:13'], 2);
+}
+
+function updateAuthDailyVerseBreakdownContent(ref, verseText) {
+  var data = getAuthDailyVerseBreakdownData(ref, verseText);
+  var fullEl = document.getElementById('auth-daily-verse-breakdown-full');
+  var whoEl = document.getElementById('auth-daily-verse-breakdown-who');
+  var toEl = document.getElementById('auth-daily-verse-breakdown-to');
+  var plainEl = document.getElementById('auth-daily-verse-breakdown-plain');
+  var contextEl = document.getElementById('auth-daily-verse-breakdown-context');
+  var crossEl = document.getElementById('auth-daily-verse-breakdown-cross');
+  var appEl = document.getElementById('auth-daily-verse-breakdown-application');
+  var relatedEl = document.getElementById('auth-daily-verse-related-links');
+  if (fullEl) fullEl.textContent = data.ref + ' (KJV): ' + data.verse;
+  if (whoEl) whoEl.textContent = data.who;
+  if (toEl) toEl.textContent = data.to;
+  if (plainEl) plainEl.textContent = data.plain;
+  if (contextEl) contextEl.textContent = data.context;
+  if (crossEl) crossEl.textContent = data.cross;
+  if (appEl) appEl.textContent = data.application;
+  if (relatedEl) {
+    var refs = getRelatedRefsForVerse(data.ref);
+    relatedEl.innerHTML = refs.map(function (r) {
+      return '<button type="button" class="auth-daily-verse-related-link" data-ref="' + escapeHtml(r) + '">' + escapeHtml(r) + '</button>';
+    }).join('');
+  }
+}
+
+function updateFloatingBattleAnchor() {
+  var wrap = document.getElementById('floating-battle-anchor');
+  if (!wrap) return;
+  var verseEl = document.getElementById('floating-battle-anchor-verse');
+  var streakEl = document.getElementById('floating-battle-anchor-streak');
+  var ref = (document.getElementById('auth-daily-verse-ref') || {}).textContent || ((currentDailyBattle && currentDailyBattle.ref) || 'Today\'s verse');
+  var verse = (document.getElementById('auth-daily-verse-text') || {}).textContent || ((currentDailyBattle && currentDailyBattle.verse) || '');
+  var compact = String(verse || '').replace(/\s+/g, ' ').trim();
+  if (compact.length > 78) compact = compact.slice(0, 78) + '...';
+  if (verseEl) verseEl.textContent = ref + ' - ' + compact;
+  var streak = typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0;
+  if (streakEl) streakEl.textContent = 'Streak: ' + streak;
+  if (typeof updateHeaderStreakBadge === 'function') updateHeaderStreakBadge(streak);
+}
+
+function updateHeaderStreakBadge(streakCount) {
+  var badge = document.getElementById('header-streak-badge');
+  if (!badge) return;
+  var n = typeof streakCount === 'number' ? streakCount : (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
+  badge.textContent = '🔥 ' + n + ' day' + (n === 1 ? '' : 's');
+  badge.setAttribute('aria-label', 'Open streak details. Current streak: ' + n + ' days');
+}
+
+function buildAutoQuickPrayText() {
+  var preferred = getPreferredEmotionSignal();
+  var ref = (document.getElementById('auth-daily-verse-ref') || {}).textContent || ((currentDailyBattle && currentDailyBattle.ref) || '');
+  if (preferred === 'fear') return 'Lord, replace my fear with Your peace. I trust You. (' + ref + ')';
+  if (preferred === 'grief') return 'Jesus, stay near to my broken heart and carry me today. (' + ref + ')';
+  if (preferred === 'hope') return 'Father, renew my hope and help me keep trusting You. (' + ref + ')';
+  if (preferred === 'courage') return 'God, make me brave and steady in this battle. (' + ref + ')';
+  if (preferred === 'family') return 'Lord, protect and guide my family in unity and peace. (' + ref + ')';
+  return 'Lord, I bring this day to You. Strengthen me and guide my steps. (' + ref + ')';
+}
+
 function renderDailyVerse() {
   const card = document.getElementById('daily-verse-card');
-  if (!card) return;
-  card.classList.remove('verse-card-loading');
   var fb = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' };
+  if (!card) {
+    var fallbackRef = getDailyVerseRef();
+    var fallbackText = (fallbackRef && bible[fallbackRef]) ? bible[fallbackRef] : (fb.text || '');
+    updateDailyVerseWhispers(fallbackRef || fb.ref, fallbackText);
+    return;
+  }
+  card.classList.remove('verse-card-loading');
   if (!Object.keys(bible).length) {
     card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.</p>';
     card.classList.add('verse-card-loaded');
+    updateDailyVerseWhispers(fb.ref, fb.text || '');
     return;
   }
   const ref = getDailyVerseRef();
   if (!ref || !bible[ref]) {
     card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway.</p>';
     card.classList.add('verse-card-loaded');
+    updateDailyVerseWhispers(fb.ref, fb.text || '');
     return;
   }
   card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
@@ -5719,6 +6693,7 @@ function renderDailyVerse() {
   if (contextHtml) card.insertAdjacentHTML('beforeend', contextHtml);
   card.classList.remove('verse-card-loading');
   card.classList.add('verse-card-loaded');
+  updateDailyVerseWhispers(ref, bible[ref] || '');
 }
 
 if (typeof window !== 'undefined') {
@@ -6184,11 +7159,13 @@ async function renderDailyBattleCard() {
     card.classList.add('verse-card-loaded');
     card.classList.remove('hero-verse-card-skeleton');
     if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: txt, reflection: fb.reflection || '', prayer: fb.prayer || '' };
+    updateDailyVerseWhispers(fb.ref, txt);
   } else {
     card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p>';
     card.classList.add('verse-card-loaded');
     card.classList.remove('hero-verse-card-skeleton');
     if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: fb.text || '', reflection: fb.reflection || '', prayer: fb.prayer || '' };
+    updateDailyVerseWhispers(fb.ref, fb.text || '');
   }
   dailyBattleFallbackTimeoutId = setTimeout(function () {
     dailyBattleFallbackTimeoutId = null;
@@ -6201,6 +7178,7 @@ async function renderDailyBattleCard() {
         card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(txt) + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online. <button type="button" class="link-button" id="daily-battle-try-again">Retry</button></p>';
         card.classList.add('verse-card-loaded');
         if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: txt, reflection: fb.reflection || '', prayer: fb.prayer || '' };
+        updateDailyVerseWhispers(fb.ref, txt);
       } else {
         card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Retry</button>';
       }
@@ -6213,6 +7191,7 @@ async function renderDailyBattleCard() {
       card.innerHTML = '<p class="empty">Bible data is not loaded yet.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Retry</button>';
     } else if (reflectionEl) reflectionEl.textContent = 'Reflection: ' + (DAILY_VERSE_BUNDLED_FALLBACK.reflection || '');
     if (card.classList.contains('verse-card-loaded') && prayerEl) prayerEl.textContent = 'Prayer: ' + (DAILY_VERSE_BUNDLED_FALLBACK.prayer || '');
+    updateDailyVerseWhispers(DAILY_VERSE_BUNDLED_FALLBACK.ref, DAILY_VERSE_BUNDLED_FALLBACK.text || '');
     return;
   }
   const DEFAULT_DAILY_VERSE_REF = 'John 3:16';
@@ -6359,6 +7338,7 @@ if (c && c.ref) {
     prayer: battle.prayer || '',
     plain_meaning: plainMeaning || ''
   };
+  updateDailyVerseWhispers(battle.ref, verseText || '');
   try {
     localStorage.setItem(OFFLINE_BATTLE_KEY_PREFIX + key, JSON.stringify(currentDailyBattle));
   } catch (_) {}
@@ -6473,8 +7453,8 @@ function exportNewsletterCsv() {
 }
 
 function exportCsvRows(items) {
-  const header = ['email', 'created_at'];
-  const rows = items.map(item => [item.email, item.created_at]);
+  const header = ['name', 'email', 'created_at'];
+  const rows = items.map(item => [item.name || '', item.email, item.created_at]);
   const csv = [header, ...rows]
     .map(row => row.map(value => `"${String(value || '').replace(/"/g, '""')}"`).join(','))
     .join('\n');
@@ -6683,10 +7663,12 @@ async function postMessage(text) {
   return item;
 }
 
-async function saveNewsletterSignup(email, prefs) {
+async function saveNewsletterSignup(email, prefs, name) {
   var safeEmail = truncateForDb(email, MAX_NEWSLETTER_EMAIL_LENGTH);
+  var safeName = truncateForDb(name, MAX_DISPLAY_NAME_LENGTH);
   const entry = {
     id: generateUuid(),
+    name: safeName || '',
     email: safeEmail,
     daily_opt_in: Boolean(prefs?.daily),
     weekly_opt_in: Boolean(prefs?.weekly),
@@ -11064,8 +12046,10 @@ function writeNbaSignal(key) {
 
 (typeof window !== 'undefined' ? window : {}).tdbInit = async function tdbInit() {
   if (!document.body) return;
+  wirePrayerQueueHealthDebug();
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
+  initMobileAuthDisclosure();
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });
@@ -11145,6 +12129,11 @@ function writeNbaSignal(key) {
             var cacheKey = tier + '|' + (filters.testament || '') + '|' + (filters.book || '') + '|' + (input || '').toLowerCase();
             var parsed = parseQuery(input || '');
             var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
+            if (searchTopic) rememberEmotionSignal(searchTopic);
+            else {
+              var maybeEmotion = normalizeEmotionSignal(input || '');
+              if (maybeEmotion && EMOTION_ALIAS[maybeEmotion]) rememberEmotionSignal(maybeEmotion);
+            }
             if (cacheKey && searchCache.has(cacheKey)) {
               renderResults(searchCache.get(cacheKey));
             } else {
@@ -11229,6 +12218,7 @@ function writeNbaSignal(key) {
           e.stopPropagation();
           var topic = (btn.dataset && btn.dataset.topic) || (btn.textContent || '').trim();
           if (!topic) return;
+          rememberEmotionSignal(topic);
           var q = getQueryInput();
           if (q) q.value = topic;
           if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
@@ -11385,7 +12375,7 @@ function writeNbaSignal(key) {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/service-worker.js?v=20260309', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260327', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {
@@ -11412,6 +12402,10 @@ function writeNbaSignal(key) {
       } else {
         window.addEventListener('load', function () { registerSW(); });
       }
+      navigator.serviceWorker.addEventListener('message', function (event) {
+        if (!event || !event.data || event.data.type !== 'TDB_FLUSH_PRAYER_QUEUE') return;
+        if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
+      });
     })();
   }
   wireAnalyticsBeacon();
@@ -11427,7 +12421,6 @@ function writeNbaSignal(key) {
     wirePrayerCounter();
     wireKidsBetaCount();
   })();
-  wireFloatingVoicePray();
   wireCallGodBtn();
   wireSilentAmen();
   if (isHome) wirePrayNudgeAfter2Min();
@@ -11444,8 +12437,11 @@ function writeNbaSignal(key) {
   wireBlessSessionBtn();
   wireArmorBuilderModal();
   wireFamilyNameModal();
+  wireHeaderFamilyQuickLinks();
+  wireAuthDailyVerseBreakdown();
+  wireFloatingBattleAnchor();
+  wireAvatarChoiceControl();
   wireHelpModal();
-  wireHeroVoicePray();
   wireSacredSilenceToggle();
   wireSilentOffering();
   wireBreatheWithHim();
@@ -11737,6 +12733,7 @@ function writeNbaSignal(key) {
     var ref = FALLBACK_VERSE_REF;
     var text = bible[ref] || FALLBACK_VERSE_TEXT;
     card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(text || '') + '</p>';
+    updateDailyVerseWhispers(ref, text || '');
     card.classList.remove('red-letter-card');
     var plainMeaningWrap = document.getElementById('daily-battle-plain-meaning-wrap');
     var plainMeaningEl = document.getElementById('daily-battle-plain-meaning');
@@ -11846,6 +12843,7 @@ function writeNbaSignal(key) {
     scheduleAdminPanel();
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     if (typeof runAutoPrefetchIfNeeded === 'function') runAutoPrefetchIfNeeded();
+    await enforceOAuthProfileNameRequirement(validSession);
   } else {
     if (redirectToLoginIfGuest(null)) return;
     updateAuthUI(null);
@@ -11890,10 +12888,12 @@ function writeNbaSignal(key) {
       scheduleAdminPanel();
       if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
       if (typeof runAutoPrefetchIfNeeded === 'function') runAutoPrefetchIfNeeded();
+      await enforceOAuthProfileNameRequirement(session);
     } else {
       currentUserId = null;
       subscriptionTier = 'free';
       updateAuthUI(null);
+      closeProfileNameModal();
       setView('search');
       scheduleAdminPanel();
       applyRoleAccess();
@@ -12066,6 +13066,152 @@ function writeNbaSignal(key) {
     });
   }
 
+  var profileNameWireDone = false;
+
+  function getRequiredNameParts(user) {
+    var meta = (user && user.user_metadata && typeof user.user_metadata === 'object') ? user.user_metadata : {};
+    var first = truncateForDb(String(meta.first_name || '').trim(), MAX_DISPLAY_NAME_LENGTH);
+    var last = truncateForDb(String(meta.last_name || '').trim(), MAX_DISPLAY_NAME_LENGTH);
+    if (first && last) return { first: first, last: last };
+    var given = truncateForDb(String(meta.given_name || '').trim(), MAX_DISPLAY_NAME_LENGTH);
+    var family = truncateForDb(String(meta.family_name || '').trim(), MAX_DISPLAY_NAME_LENGTH);
+    if (given && family) return { first: given, last: family };
+    var full = String(meta.full_name || meta.name || meta.display_name || '').trim();
+    if (!full && typeof user?.email === 'string') full = String(user.email.split('@')[0] || '').replace(/[._-]+/g, ' ').trim();
+    var parts = full ? full.split(/\s+/).filter(Boolean) : [];
+    if (parts.length >= 2) {
+      return {
+        first: truncateForDb(parts[0], MAX_DISPLAY_NAME_LENGTH),
+        last: truncateForDb(parts.slice(1).join(' '), MAX_DISPLAY_NAME_LENGTH)
+      };
+    }
+    return { first: first || given || '', last: last || family || '' };
+  }
+
+  function closeProfileNameModal() {
+    var modal = document.getElementById('profile-name-modal');
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function openProfileNameModal(first, last) {
+    var modal = document.getElementById('profile-name-modal');
+    var firstEl = document.getElementById('profile-name-first');
+    var lastEl = document.getElementById('profile-name-last');
+    var statusEl = document.getElementById('profile-name-modal-status');
+    if (!modal || !firstEl || !lastEl) return;
+    if (typeof first === 'string') firstEl.value = first;
+    if (typeof last === 'string') lastEl.value = last;
+    if (statusEl) statusEl.textContent = '';
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+    if (!firstEl.value) firstEl.focus();
+    else if (!lastEl.value) lastEl.focus();
+    else firstEl.focus();
+  }
+
+  function wireProfileNameModal() {
+    if (profileNameWireDone) return;
+    var modal = document.getElementById('profile-name-modal');
+    var firstEl = document.getElementById('profile-name-first');
+    var lastEl = document.getElementById('profile-name-last');
+    var saveBtn = document.getElementById('profile-name-save-btn');
+    var signoutBtn = document.getElementById('profile-name-signout-btn');
+    var statusEl = document.getElementById('profile-name-modal-status');
+    if (!modal || !firstEl || !lastEl || !saveBtn || !statusEl) return;
+    profileNameWireDone = true;
+    var setStatus = function (msg, type) {
+      statusEl.textContent = msg || '';
+      statusEl.className = 'section-note auth-modal-status' + (type === 'error' ? ' auth-status-error' : type === 'success' ? ' auth-status-success' : '');
+    };
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) e.stopPropagation();
+    });
+    saveBtn.addEventListener('click', async function () {
+      var first = truncateForDb((firstEl.value || '').trim(), MAX_DISPLAY_NAME_LENGTH);
+      var last = truncateForDb((lastEl.value || '').trim(), MAX_DISPLAY_NAME_LENGTH);
+      if (!first || !last) {
+        setStatus('First and last name are required.', 'error');
+        return;
+      }
+      if (!supabaseClient) {
+        var ready = await ensureSupabaseLoaded();
+        if (!ready || !supabaseClient) {
+          setStatus('Auth is still loading. Please try again.', 'error');
+          return;
+        }
+      }
+      setStatus('Saving your name…', '');
+      saveBtn.disabled = true;
+      var sessionRes = await supabaseClient.auth.getSession();
+      var session = sessionRes && sessionRes.data ? sessionRes.data.session : null;
+      if (!session || !session.user) {
+        saveBtn.disabled = false;
+        setStatus('Session expired. Please sign in again.', 'error');
+        return;
+      }
+      var fullName = truncateForDb((first + ' ' + last).trim(), MAX_DISPLAY_NAME_LENGTH);
+      var existingMeta = (session.user.user_metadata && typeof session.user.user_metadata === 'object') ? session.user.user_metadata : {};
+      var update = await supabaseClient.auth.updateUser({
+        data: Object.assign({}, existingMeta, {
+          first_name: first,
+          last_name: last,
+          full_name: fullName,
+          display_name: fullName
+        })
+      });
+      saveBtn.disabled = false;
+      if (update.error) {
+        setStatus(update.error.message || 'Unable to save your name right now.', 'error');
+        return;
+      }
+      saveMessageDisplayName(fullName);
+      setStatus('Saved.', 'success');
+      closeProfileNameModal();
+    });
+    if (signoutBtn) {
+      signoutBtn.addEventListener('click', async function () {
+        closeProfileNameModal();
+        if (supabaseClient) await supabaseClient.auth.signOut();
+      });
+    }
+  }
+
+  async function enforceOAuthProfileNameRequirement(session) {
+    if (!session || !session.user) {
+      closeProfileNameModal();
+      return;
+    }
+    var provider = String(session.user.app_metadata?.provider || '').toLowerCase();
+    if (provider !== 'google' && provider !== 'apple') {
+      closeProfileNameModal();
+      return;
+    }
+    wireProfileNameModal();
+    var parts = getRequiredNameParts(session.user);
+    var hasBoth = !!(parts.first && parts.last);
+    if (!hasBoth) {
+      openProfileNameModal(parts.first || '', parts.last || '');
+      return;
+    }
+    var meta = (session.user.user_metadata && typeof session.user.user_metadata === 'object') ? session.user.user_metadata : {};
+    var hasStoredRequiredNames = !!(String(meta.first_name || '').trim() && String(meta.last_name || '').trim());
+    var fullName = truncateForDb((parts.first + ' ' + parts.last).trim(), MAX_DISPLAY_NAME_LENGTH);
+    if (!hasStoredRequiredNames && supabaseClient) {
+      await supabaseClient.auth.updateUser({
+        data: Object.assign({}, meta, {
+          first_name: parts.first,
+          last_name: parts.last,
+          full_name: fullName,
+          display_name: fullName
+        })
+      });
+    }
+    if (fullName) saveMessageDisplayName(fullName);
+    closeProfileNameModal();
+  }
+
   function openLoginModal(tab) {
     var modal = document.getElementById('auth-modal');
     if (!modal) return;
@@ -12075,6 +13221,9 @@ function writeNbaSignal(key) {
     var passwordEl = document.getElementById('password');
     var modalEmail = document.getElementById('auth-modal-email');
     var modalPassword = document.getElementById('auth-modal-password');
+    var modalFirstName = document.getElementById('auth-modal-first-name');
+    var modalLastName = document.getElementById('auth-modal-last-name');
+    var signupNameRow = document.getElementById('auth-modal-signup-name-row');
     if (emailEl && modalEmail) modalEmail.value = emailEl.value || '';
     if (passwordEl && modalPassword) modalPassword.value = passwordEl.value || '';
     var tabs = modal.querySelectorAll('.auth-tab');
@@ -12087,9 +13236,20 @@ function writeNbaSignal(key) {
     });
     if (submitBtn) submitBtn.textContent = t === 'signup' ? 'Sign Up' : 'Log In';
     if (titleEl) titleEl.textContent = t === 'signup' ? 'Create Account' : 'Sign In';
+    if (signupNameRow) signupNameRow.classList.toggle('hidden', t !== 'signup');
+    if (modalPassword) modalPassword.setAttribute('autocomplete', t === 'signup' ? 'new-password' : 'current-password');
+    if (t === 'signup' && modalFirstName && modalLastName) {
+      var preferred = getPreferredIdentityName();
+      if (preferred && !modalFirstName.value && !modalLastName.value) {
+        var nameParts = String(preferred).trim().split(/\s+/);
+        modalFirstName.value = nameParts[0] || '';
+        modalLastName.value = nameParts.slice(1).join(' ') || '';
+      }
+    }
     var statusEl = document.getElementById('auth-modal-status');
     if (statusEl) statusEl.textContent = '';
-    if (modalEmail) modalEmail.focus();
+    if (t === 'signup' && modalFirstName) modalFirstName.focus();
+    else if (modalEmail) modalEmail.focus();
   }
   function closeAuthModal() {
     var modal = document.getElementById('auth-modal');
@@ -12114,8 +13274,16 @@ function writeNbaSignal(key) {
       const email = (emailEl ? emailEl.value : '').trim().toLowerCase();
       const password = passwordEl ? passwordEl.value : '';
       const tier = tierEl ? tierEl.value : 'adult';
+      const preferredName = truncateForDb(getPreferredIdentityName(), MAX_DISPLAY_NAME_LENGTH);
+      const preferredNameParts = String(preferredName || '').trim().split(/\s+/).filter(Boolean);
+      const firstName = preferredNameParts[0] || '';
+      const lastName = preferredNameParts.slice(1).join(' ') || '';
       if (!email || !password) {
         setAuthStatus('Please enter an email and password.', 'error');
+        return;
+      }
+      if (!firstName || !lastName) {
+        setAuthStatus('Please open Sign Up and enter first name and last name to create your account.', 'error');
         return;
       }
       // Email policy: client-side only; no keys. Max length + basic format to avoid leaky errors.
@@ -12142,7 +13310,17 @@ function writeNbaSignal(key) {
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password,
-        options: { data: { tier, subscription: 'free' }, emailRedirectTo: redirectUrl }
+        options: {
+          data: {
+            tier,
+            subscription: 'free',
+            first_name: firstName,
+            last_name: lastName,
+            full_name: preferredName,
+            display_name: preferredName
+          },
+          emailRedirectTo: redirectUrl
+        }
       });
       signupBtn.disabled = false;
       if (error) {
@@ -12267,7 +13445,19 @@ function writeNbaSignal(key) {
     var closeBtn = document.getElementById('auth-modal-close');
     var submitBtn = document.getElementById('auth-modal-submit');
     var tabs = modal.querySelectorAll('.auth-tab');
+    var firstNameEl = document.getElementById('auth-modal-first-name');
+    var lastNameEl = document.getElementById('auth-modal-last-name');
+    var signupNameRow = document.getElementById('auth-modal-signup-name-row');
     var statusEl = document.getElementById('auth-modal-status');
+    var applyAuthModalTab = function (tab) {
+      var isSignupTab = tab === 'signup';
+      if (submitBtn) submitBtn.textContent = isSignupTab ? 'Sign Up' : 'Log In';
+      var titleEl = document.getElementById('auth-modal-title');
+      if (titleEl) titleEl.textContent = isSignupTab ? 'Create Account' : 'Sign In';
+      if (signupNameRow) signupNameRow.classList.toggle('hidden', !isSignupTab);
+      var passwordEl = document.getElementById('auth-modal-password');
+      if (passwordEl) passwordEl.setAttribute('autocomplete', isSignupTab ? 'new-password' : 'current-password');
+    };
     var setModalStatus = function (msg, type) {
       if (statusEl) {
         statusEl.textContent = msg || '';
@@ -12293,9 +13483,7 @@ function writeNbaSignal(key) {
           b.classList.toggle('active', b.dataset.tab === tab);
           b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false');
         });
-        if (submitBtn) submitBtn.textContent = tab === 'signup' ? 'Sign Up' : 'Log In';
-        var titleEl = document.getElementById('auth-modal-title');
-        if (titleEl) titleEl.textContent = tab === 'signup' ? 'Create Account' : 'Sign In';
+        applyAuthModalTab(tab);
         setModalStatus('');
       });
     });
@@ -12331,8 +13519,12 @@ function writeNbaSignal(key) {
         var email = (emailEl ? emailEl.value : '').trim().toLowerCase();
         var password = passwordEl ? passwordEl.value : '';
         var isSignup = modal.querySelector('.auth-tab[data-tab="signup"]').classList.contains('active');
-        if (!email || !password) {
-          setModalStatus('Please enter your email and password.', 'error');
+        var firstName = firstNameEl ? truncateForDb((firstNameEl.value || '').trim(), MAX_DISPLAY_NAME_LENGTH) : '';
+        var lastName = lastNameEl ? truncateForDb((lastNameEl.value || '').trim(), MAX_DISPLAY_NAME_LENGTH) : '';
+        if (!email || !password || (isSignup && (!firstName || !lastName))) {
+          setModalStatus(isSignup
+            ? 'Please enter first name, last name, email, and password.'
+            : 'Please enter your email and password.', 'error');
           return;
         }
         if (!supabaseClient) {
@@ -12346,10 +13538,21 @@ function writeNbaSignal(key) {
         submitBtn.disabled = true;
         setModalStatus(isSignup ? 'Creating account…' : 'Signing in…', '');
         if (isSignup) {
+          var fullName = truncateForDb((firstName + ' ' + lastName).trim(), MAX_DISPLAY_NAME_LENGTH);
           var res = await supabaseClient.auth.signUp({
             email,
             password,
-            options: { data: { tier: 'adult', subscription: 'free' }, emailRedirectTo: getAuthRedirectBase() }
+            options: {
+              data: {
+                tier: 'adult',
+                subscription: 'free',
+                first_name: firstName,
+                last_name: lastName,
+                full_name: fullName,
+                display_name: fullName
+              },
+              emailRedirectTo: getAuthRedirectBase()
+            }
           });
           submitBtn.disabled = false;
           if (res.error) {
@@ -12358,11 +13561,13 @@ function writeNbaSignal(key) {
             return;
           }
           if (res.data?.session) {
+            if (fullName) saveMessageDisplayName(fullName);
             setModalStatus("You're in!", 'success');
             updateAuthUI(res.data.session);
             closeAuthModal();
             bumpStat('signups');
           } else {
+            if (fullName) saveMessageDisplayName(fullName);
             setModalStatus('Check your inbox for a verification link.', 'success');
             bumpStat('signups');
             if (typeof showEliteToast === 'function') showEliteToast('Check your inbox for a verification link.');
@@ -12386,15 +13591,20 @@ function writeNbaSignal(key) {
         }
       });
     }
+    applyAuthModalTab(modal.querySelector('.auth-tab.active')?.dataset?.tab === 'signup' ? 'signup' : 'login');
   })();
 
   const newsletterBtn = document.getElementById('newsletter-submit');
+  const newsletterNameEl = document.getElementById('newsletter-name');
+  if (newsletterNameEl && !newsletterNameEl.value) newsletterNameEl.value = getPreferredIdentityName();
   if (newsletterBtn) {
     newsletterBtn.addEventListener('click', async () => {
+      const nameEl = document.getElementById('newsletter-name');
       const emailEl = document.getElementById('newsletter-email');
       const statusEl = document.getElementById('newsletter-status');
       const weeklyEl = document.getElementById('newsletter-weekly');
       const dailyEl = document.getElementById('newsletter-daily');
+      const chosenName = truncateForDb((nameEl && nameEl.value ? nameEl.value.trim() : '') || getPreferredIdentityName(), MAX_DISPLAY_NAME_LENGTH);
       const email = emailEl ? emailEl.value.trim() : '';
       const weekly = weeklyEl ? weeklyEl.checked : true;
       const daily = dailyEl ? dailyEl.checked : false;
@@ -12408,8 +13618,10 @@ function writeNbaSignal(key) {
       }
       const timeEl = document.getElementById('newsletter-time');
       const preferredTime = timeEl && timeEl.value ? timeEl.value : '';
-      await saveNewsletterSignup(email, { weekly, daily, preferredTime });
+      if (chosenName) saveMessageDisplayName(chosenName);
+      await saveNewsletterSignup(email, { weekly, daily, preferredTime }, chosenName);
       if (emailEl) emailEl.value = '';
+      if (nameEl && chosenName) nameEl.value = chosenName;
       if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
       if (typeof showEliteToast === 'function') showEliteToast("You're on the list!");
     });
@@ -12596,9 +13808,7 @@ function writeNbaSignal(key) {
               } catch (e) {}
             });
           }).catch(function () {
-            var q = getPrayerOfflineQueue();
-            q.push({ intent: safeIntent });
-            setPrayerOfflineQueue(q);
+            queuePrayerOfflineIntent(safeIntent, 'quick_pray');
             if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
             onInsertDone(false);
             try {
@@ -12609,9 +13819,7 @@ function writeNbaSignal(key) {
         }
         supabaseClient.from('prayers').insert(payload).then(function (r) {
           if (r.error) {
-            var q = getPrayerOfflineQueue();
-            q.push({ intent: safeIntent });
-            setPrayerOfflineQueue(q);
+            queuePrayerOfflineIntent(safeIntent, 'quick_pray');
             if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
           } else {
             var todayStart = new Date();
@@ -12625,17 +13833,13 @@ function writeNbaSignal(key) {
           }
           onInsertDone(false);
         }).catch(function () {
-          var q = getPrayerOfflineQueue();
-          q.push({ intent: safeIntent });
-          setPrayerOfflineQueue(q);
+          queuePrayerOfflineIntent(safeIntent, 'quick_pray');
           if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
           onInsertDone(false);
           if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('quick_pray_insert_failed', new Error('Supabase insert failed'));
         });
       } else {
-        var q = getPrayerOfflineQueue();
-        q.push({ intent: text });
-        setPrayerOfflineQueue(q);
+        queuePrayerOfflineIntent(text, 'quick_pray');
         if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
         onInsertDone(false);
       }
@@ -12739,15 +13943,6 @@ function writeNbaSignal(key) {
     if (helpModalClose) helpModalClose.addEventListener('click', function () {
       var h = document.getElementById('help-modal');
       if (h) h.classList.add('hidden');
-    });
-    var voicePrayHeroBtn = document.getElementById('voice-pray-hero-btn');
-    if (voicePrayHeroBtn) voicePrayHeroBtn.addEventListener('click', function () {
-      var vb = document.getElementById('voice-pray-btn');
-      if (vb) vb.click();
-      else {
-        var qw = document.getElementById('quick-pray-wrap');
-        if (qw) qw.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
     });
     var quickPrayShareBtn = document.getElementById('quick-pray-share');
     if (quickPrayShareBtn) {
@@ -13191,6 +14386,9 @@ function writeNbaSignal(key) {
       var pushOn = localStorage.getItem('tdb_streak_push') === '1';
       streakPushToggle.checked = pushOn;
       if (streakPushTest) streakPushTest.style.display = pushOn ? 'inline-block' : 'none';
+      if (pushOn && typeof window.tdbFirebasePushSubscribe === 'function' && 'Notification' in window && Notification.permission === 'granted') {
+        window.tdbFirebasePushSubscribe();
+      }
     } catch (e) {}
     streakPushToggle.addEventListener('change', function () {
       var enable = this.checked;
@@ -13202,11 +14400,15 @@ function writeNbaSignal(key) {
           if (typeof window.tdbFirebasePushSubscribe === 'function' && window.TDB_CONFIG && window.TDB_CONFIG.FIREBASE_API_KEY) {
             window.tdbFirebasePushSubscribe();
           } else {
+            requestPushPermissionAndSubscribe();
             requestPushSubscription();
           }
         }
         if (Notification.permission === 'granted') doSubscribe();
         else if (Notification.permission !== 'denied') Notification.requestPermission().then(function (p) { if (p === 'granted') doSubscribe(); });
+      } else {
+        if (typeof window.tdbFirebasePushUnsubscribe === 'function') window.tdbFirebasePushUnsubscribe();
+        if (typeof unsubscribeNativePushSubscription === 'function') unsubscribeNativePushSubscription();
       }
     });
   }
@@ -13226,6 +14428,7 @@ function writeNbaSignal(key) {
       reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlBase64ToUint8Array(vapid) })
         .then(function (sub) {
           try { localStorage.setItem('tdb_push_subscription', JSON.stringify(sub.toJSON())); } catch (e) {}
+          if (typeof sendSubscriptionToBackend === 'function') sendSubscriptionToBackend(sub);
         })
         .catch(function () {});
     });
@@ -15058,6 +16261,34 @@ function writeNbaSignal(key) {
     setTimeout(run, 1500);
   })();
 }
+function wireRandomBattleVerseHero() {
+  var wrap = document.getElementById('daily-verse');
+  var verseEl = document.getElementById('verse');
+  if (!wrap || !verseEl) return;
+  if (wrap.dataset.randomVerseWired === '1') return;
+  wrap.dataset.randomVerseWired = '1';
+
+  verseEl.textContent = 'Loading verse...';
+  var controller = new AbortController();
+  var timeoutId = setTimeout(function () { controller.abort(); }, 10000);
+  fetch('https://bible-api.com/?random=true&translation=kjv', { signal: controller.signal })
+    .then(function (res) {
+      if (!res.ok) throw new Error('Verse request failed');
+      return res.json();
+    })
+    .then(function (data) {
+      clearTimeout(timeoutId);
+      var text = data && typeof data.text === 'string' ? data.text.trim() : '';
+      var reference = data && typeof data.reference === 'string' ? data.reference.trim() : '';
+      if (!text) throw new Error('Missing verse text');
+      verseEl.textContent = reference ? (text + ' (' + reference + ')') : text;
+    })
+    .catch(function () {
+      clearTimeout(timeoutId);
+      verseEl.textContent = 'The Lord is my strength and my shield. (Psalm 28:7)';
+    });
+}
+
 (function runTdbAndFooter() {
   function wireCriticalControlFallbacks() {
     if (typeof window !== 'undefined' && window.__tdbCriticalFallbacksWired) return;
@@ -15169,6 +16400,7 @@ function writeNbaSignal(key) {
       wireCriticalControlFallbacks();
     }
   }
+  wireRandomBattleVerseHero();
   wireCriticalControlFallbacks();
   var el = document.getElementById('footer-date');
   if (el && el.textContent === 'TDB_BUILD_DATE') {

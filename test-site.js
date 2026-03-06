@@ -14,7 +14,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'V2 Command Deck', 'Search by what you feel right now'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
@@ -38,8 +38,8 @@ const pages = [
   { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety'] },
   { path: '/topic-hope.html', name: 'Topic Hope', mustInclude: ['Hope'] },
   { path: '/topic-strength.html', name: 'Topic Strength', mustInclude: ['Strength'] },
-  { path: '/action-bible.html', name: 'Action Bible Archive', mustInclude: ['Action Bible Documentary Archive', 'Documentary Controls'] },
-  { path: '/action-bible-workshop.html', name: 'Action Bible Workshop Toolkit', mustInclude: ['Worksheet + Class Toolkit', 'Generate Worksheet'] },
+  { path: '/action-bible.html', name: 'Action Bible Archive', mustInclude: ['Action Bible Documentary Archive', 'Documentary Controls', 'My witness profile', 'Play Selected Season', 'Continue Watching'] },
+  { path: '/action-bible-workshop.html', name: 'Action Bible Workshop Toolkit', mustInclude: ['Worksheet + Class Toolkit', 'Generate Worksheet', 'Build Leader Dashboard Plan', 'Load Weekly Pack', 'Download Weekly JSON'] },
   { path: '/action-bible-weekly-packs.json', name: 'Action Bible Weekly Packs', mustInclude: ['"totalWeeks"', '"weeks"'] },
   { path: '/manifest.json', name: 'Manifest (PWA)', mustInclude: ['name', 'short_name'] },
 ];

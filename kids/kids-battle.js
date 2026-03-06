@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  // Shared with Kids Corner (coloring.html) — hub for all kid stuff; one streak across both
+  // Shared with Kids Coloring (coloring.html) — hub for all kid stuff; one streak across both
   const KIDS_STREAK_KEY = 'kidsStreak';
   const KIDS_DOODLE_KEY = 'kidsDoodle';
   const KIDS_VERSE_INDEX_KEY = 'kidsVerseIndex';
@@ -3300,7 +3300,7 @@
     var panels = story.panels || [];
     var thumbSrc = panels[0] ? panels[0].src : 'panel-david-1.svg';
     var thumbAlt = panels[0] && panels[0].alt ? panels[0].alt : (story.title || key);
-    var caption = (story.caption || 'Swipe in Kids Corner to see!').replace(/<[^>]+>/g, '');
+    var caption = (story.caption || 'Swipe in Kids Story Library to see!').replace(/<[^>]+>/g, '');
     if (thumb) { thumb.src = thumbSrc; thumb.alt = thumbAlt; }
     if (titleEl) titleEl.textContent = story.title || key;
     if (captionEl) captionEl.textContent = caption;

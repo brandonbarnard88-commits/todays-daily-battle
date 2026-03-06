@@ -1,5 +1,5 @@
 /**
- * Church Hub — join flow, shared daily verse, reflections, leaderboard.
+ * Church Join Hub — join flow, shared daily verse, reflections, leaderboard.
  * Uses script.js: getDailyVerseRef, bible, getBibleVerseText, getDailyKey.
  */
 (function () {

@@ -326,6 +326,8 @@
     if (!avatarEl) return;
     var src = findCharacterAvatar(character);
     if (src) {
+      avatarEl.classList.add('tdb-avatar-has-photo');
+      avatarEl.classList.remove('tdb-avatar-no-photo');
       avatarEl.textContent = '';
       avatarEl.style.backgroundImage = 'url("' + String(src).replace(/"/g, '\\"') + '")';
       avatarEl.style.backgroundSize = 'cover';
@@ -333,11 +335,13 @@
       avatarEl.style.backgroundRepeat = 'no-repeat';
       return;
     }
+    avatarEl.classList.remove('tdb-avatar-has-photo');
+    avatarEl.classList.add('tdb-avatar-no-photo');
     avatarEl.style.backgroundImage = '';
     avatarEl.style.backgroundSize = '';
     avatarEl.style.backgroundPosition = '';
     avatarEl.style.backgroundRepeat = '';
-    avatarEl.textContent = avatarBadgeFor(character && character.name ? character.name : '?');
+    avatarEl.textContent = '';
   }
 
   async function pickCharacter() {

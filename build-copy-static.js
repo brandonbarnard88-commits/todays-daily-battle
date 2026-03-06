@@ -149,7 +149,7 @@ for (const f of otherHtml) {
       ['bible-study.html', 'Bible Studies link'],
       ['sermon.html', 'Build a Sermon link'],
       ['message.html', 'Message Board link'],
-      ['coloring.html', 'Kids Corner link'],
+      ['coloring.html', 'Kids Coloring link'],
       ['id="daily-btn"', "Today's Battle button"],
       ['id="main-search"', 'main-search section']
     ];
@@ -181,6 +181,21 @@ if (fs.existsSync(path.join(root, 'icons'))) {
 if (fs.existsSync(path.join(root, 'kids'))) {
   copyDir(path.join(root, 'kids'), path.join(dist, 'kids'));
   console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
+}
+
+if (fs.existsSync(path.join(root, 'pastor'))) {
+  copyDir(path.join(root, 'pastor'), path.join(dist, 'pastor'));
+  console.log('Copied pastor/ folder (hub, tools, builder, library)');
+}
+
+if (fs.existsSync(path.join(root, 'church'))) {
+  copyDir(path.join(root, 'church'), path.join(dist, 'church'));
+  console.log('Copied church/ folder (index + daily)');
+}
+
+if (fs.existsSync(path.join(root, 'bible'))) {
+  copyDir(path.join(root, 'bible'), path.join(dist, 'bible'));
+  console.log('Copied bible/ folder (hub + tools)');
 }
 
 const wellKnown = path.join(root, '.well-known');

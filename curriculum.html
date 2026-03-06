@@ -34,12 +34,43 @@
     .curriculum-verse .verse-text { font-style: italic; margin: 0.5rem 0; }
     .curriculum-verse .verse-mode { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.95rem; }
     .curriculum-armor { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
-    .curriculum-avatar { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 3px solid var(--border-subtle); transition: var(--transition-smooth); }
-    .curriculum-avatar.helmet { border-color: #7dd3fc; box-shadow: 0 0 20px rgba(125,211,252,0.35); }
-    .curriculum-avatar.breastplate { border-color: #f472b6; box-shadow: 0 0 20px rgba(244,114,182,0.35); }
-    .curriculum-avatar.belt { border-color: #34d399; box-shadow: 0 0 20px rgba(52,211,153,0.35); }
-    .curriculum-avatar.shield { border-color: #facc15; box-shadow: 0 0 20px rgba(250,204,21,0.35); }
-    .curriculum-avatar.sword { border-color: var(--primary); box-shadow: 0 0 20px var(--primary-glow); }
+    .curriculum-avatar {
+      width: 126px;
+      height: 126px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      border: 1px solid rgba(248,250,252,0.22);
+      background:
+        radial-gradient(circle at 30% 18%, rgba(253,230,138,0.32), transparent 48%),
+        linear-gradient(160deg, rgba(30,41,59,0.94), rgba(15,23,42,0.96));
+      box-shadow:
+        0 14px 34px rgba(2,6,23,0.6),
+        0 0 0 1px rgba(255,255,255,0.05) inset;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .curriculum-avatar::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: conic-gradient(from 180deg, rgba(125,211,252,0.28), rgba(250,204,21,0.34), rgba(167,139,250,0.28), rgba(125,211,252,0.28));
+      opacity: 0.5;
+      filter: blur(0.8px);
+      animation: curriculumAvatarSpin 12s linear infinite;
+      z-index: -1;
+    }
+    .curriculum-avatar.helmet { box-shadow: 0 0 0 1px rgba(125,211,252,0.64) inset, 0 14px 34px rgba(2,6,23,0.62), 0 0 20px rgba(125,211,252,0.25); }
+    .curriculum-avatar.breastplate { box-shadow: 0 0 0 1px rgba(244,114,182,0.62) inset, 0 14px 34px rgba(2,6,23,0.62), 0 0 20px rgba(244,114,182,0.22); }
+    .curriculum-avatar.belt { box-shadow: 0 0 0 1px rgba(52,211,153,0.62) inset, 0 14px 34px rgba(2,6,23,0.62), 0 0 20px rgba(52,211,153,0.22); }
+    .curriculum-avatar.shield { box-shadow: 0 0 0 1px rgba(250,204,21,0.64) inset, 0 16px 36px rgba(2,6,23,0.64), 0 0 22px rgba(250,204,21,0.24); }
+    .curriculum-avatar.sword { box-shadow: 0 0 0 1px rgba(250,204,21,0.74) inset, 0 18px 40px rgba(2,6,23,0.7), 0 0 28px rgba(56,189,248,0.28), 0 0 26px rgba(250,204,21,0.28); }
+    @keyframes curriculumAvatarSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .curriculum-checkpoints { list-style: none; padding: 0; margin: 0; }
     .curriculum-checkpoints li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
     .curriculum-checkpoints .check { color: #4ade80; }
@@ -148,6 +179,7 @@
     </footer>
   </div>
 
+  <script src="verse-breakdown.js?v=20260306u" defer></script>
   <script src="curriculum.js?v=20260305"></script>
 </body>
 </html>

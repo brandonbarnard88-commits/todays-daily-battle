@@ -272,7 +272,7 @@
     const last5 = viewed.slice(-5).reverse();
     grid.innerHTML = '';
     if (last5.length === 0) {
-      grid.innerHTML = '<p class="kids-no-favorites">No stories viewed yet. Explore one together in <a href="corner.html">Kids Corner</a> and it will show up here.</p>';
+      grid.innerHTML = '<p class="kids-no-favorites">No stories viewed yet. Explore one together in <a href="corner.html">Kids Story Library</a> and it will show up here.</p>';
       return;
     }
     last5.forEach(function (key) {

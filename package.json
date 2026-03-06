@@ -8,10 +8,11 @@
     "test": "python3 test-site.py --offline",
     "test:security": "node test-security.js",
     "test:site": "node test-site.js --offline",
+    "audit:paranoid": "node scripts/audit-paranoid.mjs",
     "qa:smoke": "node scripts/qa-smoke.mjs",
     "actionbible": "node build-action-bible.js",
     "actionbible:packs": "node build-action-bible-packs.js",
-    "quality:gate": "npm run build && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
+    "quality:gate": "npm run build && npm run audit:paranoid && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke"
   },
   "devDependencies": {

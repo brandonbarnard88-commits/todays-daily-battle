@@ -4,6 +4,8 @@
  */
 (function () {
   'use strict';
+  var localBible = null;
+  var localBibleLoading = null;
 
   function escapeHtml(s) {
     if (!s) return '';
@@ -31,10 +33,60 @@
     return ref.replace(/\s+/g, ' ').trim();
   }
 
-  function findVerse(ref) {
+  function normalizeBibleData(data) {
+    if (!data) return {};
+    if (Array.isArray(data)) {
+      var obj = {};
+      data.forEach(function (entry) {
+        if (entry && entry.ref) obj[String(entry.ref)] = String(entry.text || '');
+      });
+      return obj;
+    }
+    return typeof data === 'object' ? data : {};
+  }
+
+  function currentBibleData() {
+    var shared = window.bible || (typeof bible !== 'undefined' ? bible : {});
+    if (shared && Object.keys(shared).length) return shared;
+    return localBible && Object.keys(localBible).length ? localBible : {};
+  }
+
+  async function ensureBibleData() {
+    var existing = currentBibleData();
+    if (existing && Object.keys(existing).length) return existing;
+    if (localBibleLoading) {
+      await localBibleLoading;
+      return currentBibleData();
+    }
+
+    var urls = ['../kjv.json', '/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+    localBibleLoading = (async function () {
+      for (var i = 0; i < urls.length; i++) {
+        try {
+          var response = await fetch(urls[i], { cache: 'no-store' });
+          if (!response.ok) throw new Error('status ' + response.status);
+          var raw = await response.json();
+          localBible = normalizeBibleData(raw);
+          if (window && !window.kjvData) window.kjvData = localBible;
+          if (Object.keys(localBible).length) return;
+        } catch (err) {
+          if (i === urls.length - 1) throw err;
+        }
+      }
+    })();
+
+    try {
+      await localBibleLoading;
+    } finally {
+      localBibleLoading = null;
+    }
+    return currentBibleData();
+  }
+
+  function findVerse(ref, bibleData) {
     var r = normalizeRef(ref);
     if (!r) return null;
-    var b = window.bible || (typeof bible !== 'undefined' ? bible : {});
+    var b = bibleData || currentBibleData();
     var getText = window.getBibleVerseText || (typeof getBibleVerseText === 'function' ? getBibleVerseText : null);
     if (b[r]) return { ref: r, text: b[r] };
     if (getText) {
@@ -44,18 +96,18 @@
     return null;
   }
 
-  function searchVerses(query) {
+  function searchVerses(query, bibleData) {
     var q = (query || '').trim().toLowerCase();
     if (!q) return [];
 
     var results = [];
-    var b = window.bible || (typeof bible !== 'undefined' ? bible : {});
+    var b = bibleData || currentBibleData();
     if (!b || Object.keys(b).length === 0) return results;
 
     var refMatch = q.match(/^(\d?\s*\w+)\s+(\d+)(?::(\d+))?$/i);
     if (refMatch) {
       var ref = refMatch[1].replace(/\s+/g, ' ') + ' ' + refMatch[2] + (refMatch[3] ? ':' + refMatch[3] : '');
-      var v = findVerse(ref);
+      var v = findVerse(ref, b);
       if (v) results.push(v);
     }
 
@@ -123,10 +175,23 @@
     }
   }
 
-  function doSearch() {
+  async function doSearch() {
     var input = document.getElementById('pastor-verse-search');
+    var container = document.getElementById('pastor-verse-results');
     var q = input ? input.value : '';
-    var results = searchVerses(q);
+    if (container) {
+      container.innerHTML = '<p class="section-note">Loading Scripture index for this tool...</p>';
+    }
+    var bibleData = {};
+    try {
+      bibleData = await ensureBibleData();
+    } catch (e) {
+      if (container) {
+        container.innerHTML = '<p class="section-note">Scripture data did not load yet. Please retry in a moment or refresh this page.</p>';
+      }
+      return;
+    }
+    var results = searchVerses(q, bibleData);
     renderVerseResults(results);
   }
 
@@ -198,7 +263,7 @@
     var searchInput = document.getElementById('pastor-verse-search');
     var searchBtn = document.getElementById('pastor-search-btn');
     if (searchInput && searchBtn) {
-      searchBtn.addEventListener('click', doSearch);
+      searchBtn.addEventListener('click', function () { doSearch(); });
       searchInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') { e.preventDefault(); doSearch(); }
       });

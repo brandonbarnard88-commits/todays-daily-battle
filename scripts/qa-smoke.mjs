@@ -40,6 +40,7 @@ const page = await ctx.newPage();
 
 try {
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  const origin = new URL(url).origin;
 
   await page.evaluate(() => {
     localStorage.removeItem('welcome-seen');
@@ -125,6 +126,75 @@ try {
     footerOk,
     'footerCols=' + footerCols + ', swipeHint=' + swipeHint + ', viewport=' + (viewport || '')
   );
+
+  // Action Bible archive runtime checks
+  await page.goto(origin + '/action-bible.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(1200);
+  const archiveStatus = ((await page.locator('#ab-status').textContent()) || '').trim();
+  const seasonOpts = await page.locator('#ab-season option').count();
+  const archiveLoaded = /Loaded\s+\d+\s+entries/i.test(archiveStatus) && seasonOpts > 1;
+  mark(
+    'Action Bible archive loads data',
+    archiveLoaded,
+    'status=' + archiveStatus + ', seasonOptions=' + seasonOpts
+  );
+
+  const avatarProfileExists = await page.locator('#ab-avatar-gender').count();
+  mark(
+    'Action Bible witness profile control',
+    avatarProfileExists > 0,
+    'ab-avatar-gender count=' + avatarProfileExists
+  );
+
+  const readAlongBtn = page.locator('#ab-read-along');
+  const listenBtn = page.locator('#ab-listen-entry');
+  const stopAudioBtn = page.locator('#ab-stop-audio');
+  if (await readAlongBtn.count()) {
+    await readAlongBtn.first().click();
+    await page.waitForTimeout(300);
+    const readAlongText = ((await page.locator('#ab-readalong-text').textContent()) || '').trim();
+    const readAlongOk = /Entry\s+\d+/i.test(readAlongText) || /Verse anchor/i.test(readAlongText);
+    mark(
+      'Action Bible read-along mode',
+      readAlongOk,
+      readAlongText.slice(0, 180)
+    );
+  } else {
+    mark('Action Bible read-along mode', false, 'Read Along button missing.');
+  }
+  const audioControlsOk = (await listenBtn.count()) > 0 && (await stopAudioBtn.count()) > 0;
+  mark(
+    'Action Bible listen controls',
+    audioControlsOk,
+    'listen=' + (await listenBtn.count()) + ', stop=' + (await stopAudioBtn.count())
+  );
+
+  // Workshop runtime checks
+  await page.goto(origin + '/action-bible-workshop.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(1200);
+  const workshopStatus = ((await page.locator('#abw-status').textContent()) || '').trim();
+  const workshopLoaded = /Loaded\s+\d+\s+entries\s+and\s+\d+\s+weekly packs/i.test(workshopStatus);
+  mark(
+    'Workshop toolkit loads entries and packs',
+    workshopLoaded,
+    'status=' + workshopStatus
+  );
+
+  const loadWeekBtn = page.locator('#abw-load-week');
+  if (await loadWeekBtn.count()) {
+    await page.fill('#abw-week', '1');
+    await loadWeekBtn.first().click();
+    await page.waitForTimeout(450);
+    const productionText = ((await page.locator('#abw-production-output').textContent()) || '').replace(/\s+/g, ' ').trim();
+    const weekOk = /Weekly Pack 1/i.test(productionText) && /Leader objective/i.test(productionText);
+    mark(
+      'Workshop weekly pack preview',
+      weekOk,
+      productionText.slice(0, 180)
+    );
+  } else {
+    mark('Workshop weekly pack preview', false, 'Load weekly pack button missing.');
+  }
 } finally {
   await browser.close();
 }

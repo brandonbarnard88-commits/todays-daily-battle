@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Action Bible Archive • Today's Daily Battle</title>
-  <meta name="description" content="Browse all available character entries with avatar and cartoon prompts. Play as one continuous cartoon documentary mode.">
+  <meta name="description" content="Browse all available character entries with read-along story mode and natural-voice listening.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/action-bible.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -73,7 +73,7 @@
       <div class="ab-shell">
         <section class="glass">
           <h1 class="section-divider">Action Bible Documentary Archive</h1>
-          <p class="section-note">Every available entry is accessible: character, verse anchor, avatar prompt, and cartoon prompt. Play the full archive in sequence as one continuous documentary flow.</p>
+          <p class="section-note">Every available entry is accessible: character, verse anchor, and guided story flow. Read along or listen with your device's best natural voice.</p>
           <p id="ab-status" class="section-note" aria-live="polite">Loading documentary dataset...</p>
         </section>
 
@@ -127,7 +127,9 @@
             <button id="ab-pause" class="btn btn-secondary" type="button">Pause</button>
             <button id="ab-prev" class="btn btn-secondary" type="button">Previous Entry</button>
             <button id="ab-next" class="btn btn-secondary" type="button">Next Entry</button>
-            <button id="ab-preview-cartoon" class="btn btn-secondary" type="button">Preview Cartoon Scene</button>
+            <button id="ab-read-along" class="btn btn-secondary" type="button">Read Along</button>
+            <button id="ab-listen-entry" class="btn btn-secondary" type="button">Listen</button>
+            <button id="ab-stop-audio" class="btn btn-secondary" type="button">Stop Audio</button>
             <label class="ab-loop-toggle" for="ab-loop">
               <input id="ab-loop" type="checkbox" checked>
               Loop playlist
@@ -151,6 +153,10 @@
           <div id="ab-season-cards" class="ab-season-cards" aria-label="Season trailers"></div>
           <p class="section-note">Keyboard shortcuts: Left/Right arrows for previous/next, Space to play/pause.</p>
           <article id="ab-current" class="ab-card util-mt-1" aria-live="polite" tabindex="0"></article>
+          <article id="ab-readalong" class="ab-card util-mt-0_5" aria-live="polite">
+            <h3>Read Along</h3>
+            <p id="ab-readalong-text" class="section-note">Select an entry to view its read-along script.</p>
+          </article>
         </section>
 
         <section class="glass ab-list" aria-label="All documentary entries">
@@ -161,7 +167,7 @@
     </main>
   </div>
 
-  <script src="cartoon.js?v=20260305"></script>
-  <script src="action-bible.js?v=20260305"></script>
+  <script src="verse-breakdown.js?v=20260306u" defer></script>
+  <script src="action-bible.js?v=20260306r"></script>
 </body>
 </html>

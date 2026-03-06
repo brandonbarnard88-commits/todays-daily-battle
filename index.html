@@ -111,15 +111,15 @@
           <a href="/pastor/">Pastor Hub</a>
           <a href="sermon.html">Sermon Builder</a>
           <a href="pastor-toolkit.html">Pastor Toolkit</a>
-          <a href="message.html">Prayer Lists</a>
+          <a href="message.html">Prayer &amp; Message Board</a>
         </div>
       </span>
       <span class="org-nav-dropdown">
         <a href="church.html" class="org-nav-trigger">Church ▾</a>
         <div class="org-nav-panel">
-          <a href="/church/">Church Hub</a>
+          <a href="/church/">Church Join Hub</a>
           <a href="church/daily.html">Daily for Churches</a>
-          <a href="message.html">Prayer Wall</a>
+          <a href="message.html">Prayer &amp; Message Board</a>
         </div>
       </span>
       <span class="org-nav-dropdown">
@@ -165,15 +165,15 @@
             <a href="/pastor/">Pastor Hub</a>
             <a href="sermon.html">Sermon Builder</a>
             <a href="pastor-toolkit.html">Pastor Toolkit</a>
-            <a href="message.html">Prayer Lists</a>
+            <a href="message.html">Prayer &amp; Message Board</a>
           </div>
         </span>
         <span class="nav-dropdown">
           <a href="church.html" class="nav-trigger">Church ▾</a>
           <div class="nav-panel">
-            <a href="/church/">Church Hub</a>
+            <a href="/church/">Church Join Hub</a>
             <a href="church/daily.html">Daily for Churches</a>
-            <a href="message.html">Prayer Wall</a>
+            <a href="message.html">Prayer &amp; Message Board</a>
           </div>
         </span>
         <span class="nav-dropdown">
@@ -205,7 +205,7 @@
       <span id="armor-chain-display" class="armor-chain-display hidden" aria-label="Global armor chain"></span>
       <span id="silent-amens-badge" class="silent-amens-badge hidden" aria-label="Silent Amens count">Silent Amens: <span id="silent-amens-badge-n">0</span></span>
       <a href="pricing.html" id="battle-pro-badge" class="battle-pro-badge hidden" aria-label="Battle Pro: Active">Battle Pro: Active</a>
-      <a href="#" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-details" class="auth-details-inline">
         <div id="auth-section" class="auth-inline auth-compact">
           <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
@@ -219,7 +219,7 @@
     </header>
     <div id="global-search-wrap"></div>
 
-    <aside class="sidebar">
+    <aside id="sidebar" class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
         <a href="/" data-section="search" data-icon="SR">Search</a>
         <a href="/bible/" data-section="bible-hub" data-icon="BH" aria-label="Bible Hub">Bible Hub</a>
@@ -230,12 +230,12 @@
         <a href="action-bible.html" data-section="action-bible" data-icon="A365">Action Bible Archive</a>
         <a href="action-bible-workshop.html" data-section="action-bible-workshop" data-icon="AX">Action Bible Workshop Toolkit</a>
         <a href="mystudy.html" data-section="my-study" data-icon="MS">My Study</a>
-        <a href="study.html" data-section="study-tools" data-icon="ST">Study Tools</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
         <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
         <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="#" id="sidebar-family-armor-stories" data-section="family-armor-stories" data-icon="FA" aria-label="Family Armor &amp; Stories">Family Armor &amp; Stories</a>
-        <a href="/kids/" data-section="kids-battle" data-icon="KB" aria-label="Kids Battle">Kids</a>
-        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Corner">Kids Corner</a>
+        <a href="#family-armor-stories-btn" id="sidebar-family-armor-stories" data-section="family-armor-stories" data-icon="FA" aria-label="Family Armor &amp; Stories">Family Armor &amp; Stories</a>
+        <a href="/kids/" data-section="kids-battle" data-icon="KB" aria-label="Kids Battle Home">Kids Battle Home</a>
+        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
         <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
         <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
         <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
@@ -270,7 +270,7 @@
         <button type="button" class="mobile-quick-tool" data-mobile-drawer="daily" data-scroll-target="search-hero" aria-label="Open Search tools">Search</button>
         <a href="bible-tool.html" class="mobile-quick-tool" aria-label="Open Bible Tool">Bible Tool</a>
         <button type="button" id="mobile-quick-battle" class="mobile-quick-tool" aria-label="Open Today's Battle">Today&apos;s Battle</button>
-        <a href="message.html" class="mobile-quick-tool" aria-label="Open Message Board">Message</a>
+        <a href="message.html" class="mobile-quick-tool" aria-label="Open Message Board">Message Board</a>
         <button type="button" class="mobile-quick-tool" data-mobile-drawer="family" data-scroll-target="toolbox-content" aria-label="Open Family tools">Family</button>
       </nav>
       <div class="content-inner toolbox-content" id="toolbox-content" data-active-drawer="daily">
@@ -307,7 +307,7 @@
             <p class="done-for-today-text">Battle won! See you tomorrow.</p>
           </div>
           <p id="streak-reminder-nudge" class="streak-reminder-nudge section-note hidden" aria-live="polite"></p>
-          <p class="america-in-card"><a id="hero-tagline-america" class="america-in-card-link" href="#" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>
+          <p class="america-in-card"><a id="hero-tagline-america" class="america-in-card-link" href="about.html" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>
           <div id="daily-battle-plain-meaning-wrap" class="verse-plain-meaning-wrap hidden" aria-live="polite">
             <button type="button" class="plain-meaning-toggle btn-link" id="daily-battle-plain-meaning-toggle" aria-expanded="false">Tap for plain meaning</button>
             <p id="daily-battle-plain-meaning" class="verse-plain-meaning section-note hidden"></p>
@@ -464,12 +464,12 @@
           <h2 class="section-divider">Family &amp; Household</h2>
           <div class="toolbox-card-grid">
             <p class="toolbox-cluster-label">Household Setup</p>
-            <a href="#" id="toolbox-add-household" class="glass toolbox-card"><h3>Add Household</h3><p>Start shared streaks and verse-night routines</p></a>
-            <a href="#" id="toolbox-family-armor" class="glass toolbox-card"><h3>Family Armor &amp; Stories</h3><p>Grow family armor through story-based steps</p></a>
+            <a href="#add-family-btn" id="toolbox-add-household" class="glass toolbox-card"><h3>Add Household</h3><p>Start shared streaks and verse-night routines</p></a>
+            <a href="#family-armor-stories-btn" id="toolbox-family-armor" class="glass toolbox-card"><h3>Family Armor &amp; Stories</h3><p>Grow family armor through story-based steps</p></a>
             <a href="kids-corner.html" class="glass toolbox-card"><h3>Family Activities</h3><p>Open story cards and printable activity packs</p></a>
             <a href="crest-generator.html" class="glass toolbox-card"><h3>Crest Generator</h3><p>Create and save your household crest</p></a>
             <p class="toolbox-cluster-label">Kids &amp; Printable</p>
-            <a href="/kids/" class="glass toolbox-card"><h3>Kids Corner</h3><p>Explore kid-friendly explainers and doodle play</p></a>
+            <a href="/kids/" class="glass toolbox-card"><h3>Kids Battle Home</h3><p>Explore kid-friendly explainers and doodle play</p></a>
             <a href="coloring.html" class="glass toolbox-card"><h3>One verse, no screen</h3><p>Print verse sheets and run a short timer</p></a>
           </div>
         </div>
@@ -539,7 +539,7 @@
             <p id="family-link-status" class="section-note util-mb-0"></p>
             <div id="golden-road-map" class="deep-curriculum-map util-mt-0_5" aria-label="Streets of gold trail"></div>
             <template id="ancient-wanderer-svg-template">
-              <svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Ancient Wanderer with linen tunic and staff">
+              <svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Covenant Scout with field cloak and pilgrim staff">
                 <defs>
                   <linearGradient id="wanderer-linen" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stop-color="#efe2c7"></stop>
@@ -637,11 +637,11 @@
             <a class="btn btn-primary" href="/bible/">Bible Hub</a>
             <a class="btn btn-primary" href="bible-tool.html">Bible Tool</a>
             <a class="btn btn-primary" href="/pastor/">Pastor Hub</a>
-            <a class="btn btn-primary" href="/church/">Church Hub</a>
+            <a class="btn btn-primary" href="/church/">Church Join Hub</a>
             <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit</a>
             <a class="btn btn-primary" href="resources.html">Pastor Resources</a>
             <a class="btn btn-primary" href="team-toolkit.html">Team Toolkit</a>
-            <a class="btn btn-secondary" href="study.html">Build a Lesson</a>
+            <a class="btn btn-secondary" href="study.html">Study Workspace</a>
             <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
             <a class="btn btn-secondary" href="bible-study.html">Bible Studies</a>
             <a class="btn btn-secondary" href="action-bible.html">Action Bible Archive</a>
@@ -653,8 +653,8 @@
             <a class="btn btn-secondary" href="#lineage-people-search">People Search</a>
             <a class="btn btn-secondary" href="kids-corner.html">Family Activities</a>
             <a class="btn btn-secondary" href="message.html">Message Board</a>
-            <a class="btn btn-secondary" href="/kids/">Kids</a>
-            <a class="btn btn-secondary" href="coloring.html">Kids Corner</a>
+            <a class="btn btn-secondary" href="/kids/">Kids Battle Home</a>
+            <a class="btn btn-secondary" href="coloring.html">Kids Coloring</a>
             <button id="daily-btn" class="btn btn-secondary" type="button" aria-label="Read today's verse">Today's Battle</button>
           </div>
           <div class="kids-battle-teaser kids-battle-teaser-home glass" role="region" aria-label="Kids Battle">
@@ -796,9 +796,9 @@
           <p class="section-note util-mb-0_25">Share (one tap):</p>
           <div class="cta-group social-share-links" aria-label="Share to social">
             <div id="share-preview-thumb" class="share-preview-thumb" aria-hidden="true"></div>
-            <a id="share-daily-to-x" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)" title="Share to X"><span class="share-icon share-icon-x" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
-            <a id="share-daily-to-facebook" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to Facebook" title="Share to Facebook"><span class="share-icon share-icon-fb" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span></a>
-            <a id="share-daily-to-whatsapp" href="#" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to WhatsApp" title="Share to WhatsApp"><span class="share-icon share-icon-wa" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+            <a id="share-daily-to-x" href="https://twitter.com/intent/tweet?text=Today%27s%20Daily%20Battle%20%E2%80%94%20https%3A%2F%2Ftodaysdailybattle.com%2F" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to X (Twitter)" title="Share to X"><span class="share-icon share-icon-x" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
+            <a id="share-daily-to-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftodaysdailybattle.com%2F" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to Facebook" title="Share to Facebook"><span class="share-icon share-icon-fb" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span></a>
+            <a id="share-daily-to-whatsapp" href="https://wa.me/?text=Today%27s%20Daily%20Battle%20https%3A%2F%2Ftodaysdailybattle.com%2F" class="btn btn-icon social-share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share to WhatsApp" title="Share to WhatsApp"><span class="share-icon share-icon-wa" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
             <button id="share-daily-to-instagram" type="button" class="btn btn-icon social-share-btn" aria-label="Copy for Instagram" title="Copy for Instagram"><span class="share-icon share-icon-ig" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.766 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span></button>
           </div>
           <div class="cta-group daily-battle-extra">
@@ -939,7 +939,7 @@
           <div class="list">
             <a href="#main-search" class="list-item list-item-link"><div><strong>1. Search or pick a topic</strong><p>Type a word (hope, fear, John 3:16) or tap a quick topic above.</p></div></a>
             <a href="#daily-battle-section" class="list-item list-item-link"><div><strong>2. Read today’s verse</strong><p>Check Featured Today’s Battle for a daily verse, reflection, and prayer.</p></div></a>
-            <a href="study.html" class="list-item list-item-link"><div><strong>3. Save or share</strong><p>Use Study Tools to save verses, build lessons, or share with someone who needs it.</p></div></a>
+            <a href="study.html" class="list-item list-item-link"><div><strong>3. Save or share</strong><p>Use Study Workspace to save verses, build lessons, or share with someone who needs it.</p></div></a>
             <a href="#newsletter" class="list-item list-item-link"><div><strong>4. Come back tomorrow</strong><p>Build a streak and let the Battle Plan keep you grounded.</p></div></a>
           </div>
           <p class="section-note" id="walkthrough-para"><span id="walkthrough-wrap">New here? A 60-second walkthrough is coming soon—follow the 4 steps above to get started.</span></p>
@@ -1312,7 +1312,7 @@
       <div class="footer-columns">
         <nav class="footer-col" aria-label="Links">
           <h3>Links</h3>
-          <a href="/kids/">Kids</a>
+          <a href="/kids/">Kids Battle Home</a>
           <a href="bible-tool.html">Bible Tool</a>
           <a href="church.html">Church</a>
           <a href="mystudy.html">My Study</a>
@@ -1331,7 +1331,7 @@
       </div>
       <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
       <p class="footer-why">This isn't just a site—it's a daily battle against distraction. Less scroll. More soul. <a href="about.html">Built by someone who needed it too.</a></p>
-      <p class="footer-america"><a id="footer-tagline-america" class="footer-link" href="#" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>
+      <p class="footer-america"><a id="footer-tagline-america" class="footer-link" href="about.html" aria-label="Let's Make America God's Again">Let's Make America God's Again.</a></p>
       <p class="footer-pro-promo section-note util-mt-0_5"><strong>Battle Pro:</strong> $19/mo (first month free for first 50). Limited spots—claim now. <a href="pricing.html">Sign up now</a>.</p>
       <p id="footer-rotating-line" class="footer-rotating-line" aria-live="polite">You're not praying alone.</p>
       <p class="footer-powered">Powered by the King James Bible.</p>

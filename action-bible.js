@@ -14,7 +14,9 @@
     resume: null,
     watched: {},
     dayToSeason: {},
-    seasonStats: {}
+    seasonStats: {},
+    narrationText: '',
+    selectedVoiceName: ''
   };
 
   function byId(id) { return document.getElementById(id); }
@@ -36,6 +38,11 @@
   function setEpisodeNote(msg) {
     var el = byId('ab-episode-note');
     if (el) el.textContent = msg;
+  }
+
+  function setReadAlongText(text) {
+    var el = byId('ab-readalong-text');
+    if (el) el.textContent = text || 'Read-along text unavailable for this entry.';
   }
 
   function readResume() {
@@ -248,6 +255,7 @@
     var item = current();
     if (!item) {
       el.innerHTML = '<p>No entries match this filter.</p>';
+      setReadAlongText('No entries match this filter.');
       updateProgress();
       return;
     }
@@ -260,8 +268,8 @@
         '<span class="ab-chip">' + esc(item.documentarySeason || 'Archive') + '</span>' +
         '<span class="ab-chip">' + esc(item.keyVerseBook || 'Unknown Book') + '</span>' +
       '</div>' +
-      '<details class="ab-prompts"><summary>Avatar Prompt</summary><code>' + esc(item.avatarPrompt) + '</code></details>' +
-      '<details class="ab-prompts"><summary>Cartoon Prompt</summary><code>' + esc(item.cartoonPrompt) + '</code></details>';
+      '<details class="ab-prompts"><summary>Witness Visual Cue</summary><code>' + esc(item.avatarPrompt) + '</code></details>' +
+      '<details class="ab-prompts"><summary>Story Direction Cue</summary><code>' + esc(item.cartoonPrompt) + '</code></details>';
     var dayInput = byId('ab-day');
     if (dayInput) dayInput.value = item.day;
     if (!state.reducedMotion) {
@@ -272,6 +280,8 @@
     }
     markWatched(item.day);
     persistResume();
+    state.narrationText = buildNarrationText(item);
+    setReadAlongText(state.narrationText);
     setEpisodeNote('Episode cue: ' + (item.documentarySeason || 'Archive') + ' · ' + (item.testament || 'Unknown Testament') + '.');
     updateProgress();
   }
@@ -573,25 +583,150 @@
     ];
   }
 
-  function previewCartoon() {
+  function buildNarrationText(item) {
+    if (!item) return '';
+    var prompt = String(item.cartoonPrompt || '').split(',');
+    var beats = prompt.map(function (part) { return String(part || '').trim(); }).filter(Boolean);
+    var beatA = beats[2] || 'faithful obedience in the middle of pressure';
+    var beatB = beats[3] || 'courage anchored in the Word of God';
+    var verse = String(item.keyVerseRef || '').trim();
+    var story = [
+      'Entry ' + String(item.day) + '.',
+      String(item.characterName || 'Bible witness') + ' steps into this account with resolve.',
+      'Scene focus: ' + String(item.scene || 'Scripture watch') + '.',
+      'Story movement one: ' + beatA + '.',
+      'Story movement two: ' + beatB + '.',
+      verse ? 'Verse anchor: ' + verse + '.' : '',
+      'Read the verse, pray it, and walk it out today.'
+    ].filter(Boolean);
+    return story.join(' ');
+  }
+
+  function preferredVoice(voices) {
+    var list = Array.isArray(voices) ? voices.slice() : [];
+    if (!list.length) return null;
+    var preferred = [
+      /siri/i, /neural/i, /natural/i, /premium/i, /enhanced/i, /google us english/i,
+      /samantha/i, /ava/i, /daniel/i, /moira/i, /karen/i, /victoria/i
+    ];
+    var en = list.filter(function (v) { return /^en/i.test(String(v.lang || '')); });
+    var pool = en.length ? en : list;
+    for (var i = 0; i < preferred.length; i++) {
+      for (var j = 0; j < pool.length; j++) {
+        if (preferred[i].test(String(pool[j].name || ''))) return pool[j];
+      }
+    }
+    for (var k = 0; k < pool.length; k++) {
+      if (pool[k].default) return pool[k];
+    }
+    return pool[0] || null;
+  }
+
+  function waitForVoices(timeoutMs) {
+    return new Promise(function (resolve) {
+      if (!('speechSynthesis' in window) || typeof window.speechSynthesis.getVoices !== 'function') {
+        resolve([]);
+        return;
+      }
+      var voices = window.speechSynthesis.getVoices() || [];
+      if (voices.length) {
+        resolve(voices);
+        return;
+      }
+      var done = false;
+      var synth = window.speechSynthesis;
+      var previousHandler = null;
+      var listener = null;
+      function finish() {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        if (listener && typeof synth.removeEventListener === 'function') {
+          synth.removeEventListener('voiceschanged', listener);
+        } else if (previousHandler && synth.onvoiceschanged === chainedHandler) {
+          synth.onvoiceschanged = previousHandler;
+        }
+        resolve(synth.getVoices() || []);
+      }
+      var timer = setTimeout(function () {
+        finish();
+      }, Math.max(400, Number(timeoutMs || 1200)));
+      function chainedHandler() {
+        if (typeof previousHandler === 'function') {
+          try { previousHandler(); } catch (err) {}
+        }
+        finish();
+      }
+      if (typeof synth.addEventListener === 'function') {
+        listener = function () { finish(); };
+        synth.addEventListener('voiceschanged', listener);
+      } else {
+        previousHandler = synth.onvoiceschanged;
+        synth.onvoiceschanged = chainedHandler;
+      }
+    });
+  }
+
+  function stopNarration(announce) {
+    if (!('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      if (announce) setStatus('Audio narration stopped.');
+    } catch (err) {
+      if (announce) setStatus('Could not stop narration cleanly.');
+    }
+  }
+
+  async function listenCurrentEntry() {
     var item = current();
     if (!item) return;
-    if (!(window.TDBCartoonPlayer && typeof window.TDBCartoonPlayer.open === 'function')) {
-      setStatus('Cartoon preview is unavailable on this page right now.');
+    var script = state.narrationText || buildNarrationText(item);
+    if (!script) {
+      setStatus('Read-along script unavailable for this entry.');
       return;
     }
-    window.TDBCartoonPlayer.open({
-      characterName: item.characterName,
-      battleTitle: 'Entry ' + item.day + ' · ' + item.characterName,
-      modeLabel: 'Action Bible Documentary Preview',
-      userInitiated: true,
-      useMyAvatar: true,
-      mentorAvatar: buildStoryCharacterAvatar(item),
-      userAvatar: buildUserAvatarState(item),
-      panels: buildPanelsForEntry(item),
-      options: { showEndPanel: true }
-    });
-    setStatus('Loaded cinematic preview with your avatar for Entry ' + item.day + '.');
+    if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
+      setStatus('Listening is not supported on this browser/device yet.');
+      return;
+    }
+    var voices = await waitForVoices(1600);
+    var voice = preferredVoice(voices);
+    stopNarration(false);
+    var utterance = new window.SpeechSynthesisUtterance(script);
+    if (voice) {
+      utterance.voice = voice;
+      state.selectedVoiceName = String(voice.name || '');
+    } else {
+      state.selectedVoiceName = '';
+    }
+    utterance.rate = 0.94;
+    utterance.pitch = 1.0;
+    utterance.onend = function () {
+      setEpisodeNote('Narration complete for entry ' + item.day + '.');
+    };
+    utterance.onerror = function () {
+      setStatus('Narration failed on this device. Try read-along text mode.');
+    };
+    window.speechSynthesis.speak(utterance);
+    setStatus('Listening to Entry ' + item.day + (state.selectedVoiceName ? ' with ' + state.selectedVoiceName + '.' : '.'));
+    setEpisodeNote('Listen mode active. Tap Stop Audio any time.');
+  }
+
+  function readAlongCurrentEntry() {
+    var item = current();
+    if (!item) {
+      setStatus('No entry selected yet for read-along.');
+      return;
+    }
+    var script = state.narrationText || buildNarrationText(item);
+    state.narrationText = script;
+    setReadAlongText(script);
+    var panel = byId('ab-readalong');
+    if (panel && typeof panel.scrollIntoView === 'function') {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    setStatus('Read-along loaded for Entry ' + item.day + '.');
+    setEpisodeNote('Read-along mode ready. Tap Listen for audio.');
   }
 
   function wire() {
@@ -616,7 +751,13 @@
       state.index = Math.max(0, state.index - 1);
       renderCurrent();
     });
-    byId('ab-preview-cartoon') && byId('ab-preview-cartoon').addEventListener('click', previewCartoon);
+    byId('ab-read-along') && byId('ab-read-along').addEventListener('click', readAlongCurrentEntry);
+    byId('ab-listen-entry') && byId('ab-listen-entry').addEventListener('click', function () {
+      listenCurrentEntry();
+    });
+    byId('ab-stop-audio') && byId('ab-stop-audio').addEventListener('click', function () {
+      stopNarration(true);
+    });
     byId('ab-featured-episode') && byId('ab-featured-episode').addEventListener('click', function (event) {
       var btn = event && event.target && event.target.closest ? event.target.closest('button[data-start-featured="true"]') : null;
       if (!btn) return;

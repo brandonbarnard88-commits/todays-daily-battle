@@ -45,6 +45,46 @@ window.runSearchWithInput = function (inputStr) {
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
 
+function wireHashLinkFallbacks() {
+  if (window.__tdbHashLinkFallbacksWired) return;
+  window.__tdbHashLinkFallbacksWired = true;
+  document.addEventListener('click', function (event) {
+    var clicked = event.target;
+    var link = clicked && clicked.closest ? clicked.closest('a[href="#"]') : null;
+    if (!link || event.defaultPrevented) return;
+    if (link.classList && link.classList.contains('cross-ref-link')) return;
+    if (link.hasAttribute('data-ref') || link.hasAttribute('data-topic')) return;
+
+    var id = String(link.id || '');
+    if (id === 'sidebar-toggle') {
+      event.preventDefault();
+      if (document.body && document.body.classList) document.body.classList.toggle('sidebar-open');
+      return;
+    }
+
+    if (id === 'sidebar-family-armor-stories' || id === 'toolbox-family-armor') {
+      event.preventDefault();
+      var armorBtn = document.getElementById('family-armor-stories-btn');
+      if (armorBtn && typeof armorBtn.click === 'function') armorBtn.click();
+      else window.location.href = '/#main-content';
+      return;
+    }
+
+    if (id === 'toolbox-add-household') {
+      event.preventDefault();
+      var familyBtn = document.getElementById('add-family-btn');
+      if (familyBtn && typeof familyBtn.click === 'function') familyBtn.click();
+      else window.location.href = '/#main-content';
+      return;
+    }
+
+    event.preventDefault();
+    var main = document.getElementById('main-content') || document.querySelector('main');
+    if (main && typeof main.scrollIntoView === 'function') main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.location.href = '/#main-content';
+  });
+}
+
 function emitEasterEgg(eggId, payload) {
   try {
     if (window.TDBEasterEggs && typeof window.TDBEasterEggs.trigger === 'function') {
@@ -65,6 +105,18 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   script.src = '/easter-eggs.js';
   script.defer = true;
   script.setAttribute('data-tdb-easter-eggs', '1');
+  document.head.appendChild(script);
+})();
+
+(function loadVerseBreakdownScript() {
+  if (typeof document === 'undefined') return;
+  if (window.TDBVerseBreakdown) return;
+  if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
+  if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
+  var script = document.createElement('script');
+  script.src = '/verse-breakdown.js?v=20260306u';
+  script.defer = true;
+  script.setAttribute('data-tdb-verse-breakdown', '1');
   document.head.appendChild(script);
 })();
 
@@ -4213,6 +4265,8 @@ function wireArmorBuilderModal() {
   if (typeof updateArmorChainDisplay === 'function') updateArmorChainDisplay();
   var sidebarLink = document.getElementById('sidebar-family-armor-stories');
   if (sidebarLink) sidebarLink.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
+  var toolboxFamilyArmor = document.getElementById('toolbox-family-armor');
+  if (toolboxFamilyArmor) toolboxFamilyArmor.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
   var navFamilyArmor = document.getElementById('nav-family-armor');
   if (navFamilyArmor) navFamilyArmor.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
   if (window.location.hash === '#armor-builder-btn') {
@@ -4241,6 +4295,8 @@ function wireFamilyNameModal() {
     if (input) { input.value = getFamilyName(); input.focus(); }
   }
   if (addFamilyBtn) addFamilyBtn.addEventListener('click', openModal);
+  var toolboxAddHousehold = document.getElementById('toolbox-add-household');
+  if (toolboxAddHousehold) toolboxAddHousehold.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
   var navAddHousehold = document.getElementById('nav-add-household');
   if (navAddHousehold) navAddHousehold.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
@@ -9944,11 +10000,6 @@ async function runTopicSearch(query) {
   return results;
 }
 
-function parseBookFromRef(ref) {
-  const match = ref.match(/^(.+?)\s\d+:/);
-  return match ? match[1] : '';
-}
-
 function filterVerseList(list, filters) {
   if (!filters) return list;
   const { testament, book } = filters;
@@ -11262,16 +11313,25 @@ function writeNbaSignal(key) {
   var americaUrl = window.TDB_CONFIG && window.TDB_CONFIG.HERO_TAGLINE_URL;
   if (heroLink && americaUrl) heroLink.href = americaUrl;
   if (footerAmericaLink && americaUrl) footerAmericaLink.href = americaUrl;
-  if (heroLink && (!americaUrl || heroLink.getAttribute('href') === '#')) heroLink.addEventListener('click', function (e) { e.preventDefault(); });
-  if (footerAmericaLink && (!americaUrl || footerAmericaLink.getAttribute('href') === '#')) footerAmericaLink.addEventListener('click', function (e) { e.preventDefault(); });
-  if (window.location.hash === '#main-search') {
-    var acc = document.getElementById('accordion-search');
-    if (acc) acc.setAttribute('open', '');
+  if (heroLink && !heroLink.getAttribute('href')) heroLink.href = 'about.html';
+  if (footerAmericaLink && !footerAmericaLink.getAttribute('href')) footerAmericaLink.href = 'about.html';
+  function openHomeHashAccordions(hash) {
+    var key = String(hash || window.location.hash || '');
+    if (!key) return;
+    if (key === '#main-search') {
+      var searchAcc = document.getElementById('accordion-search-options') || document.getElementById('accordion-search');
+      if (searchAcc) searchAcc.setAttribute('open', '');
+    }
+    if (key === '#daily-battle-section') {
+      var toolsAcc = document.getElementById('accordion-todays-tools');
+      if (toolsAcc) toolsAcc.setAttribute('open', '');
+    }
   }
-  if (window.location.hash === '#daily-battle-section') {
-    var accTools = document.getElementById('accordion-todays-tools');
-    if (accTools) accTools.setAttribute('open', '');
-  }
+  openHomeHashAccordions(window.location.hash);
+  window.addEventListener('hashchange', function () {
+    openHomeHashAccordions(window.location.hash);
+  });
+  wireHashLinkFallbacks();
 
 
   initSupabaseClient();
@@ -11447,6 +11507,58 @@ function writeNbaSignal(key) {
       items.forEach(function (el) { listEl.appendChild(el); });
     }
   });
+  function normalizePrimaryNavLabels() {
+    const sectionLabelMap = {
+      'study-tools': 'Study Workspace',
+      'kids-battle': 'Kids Battle Home',
+      'kids-corner': 'Kids Coloring',
+      'message-board': 'Prayer & Message Board'
+    };
+    document.querySelectorAll('.side-nav a[data-section]').forEach(function (link) {
+      var section = link.getAttribute('data-section') || '';
+      var nextLabel = sectionLabelMap[section];
+      if (!nextLabel) return;
+      link.textContent = nextLabel;
+      if (section === 'kids-battle') link.setAttribute('aria-label', 'Kids Battle Home');
+      if (section === 'kids-corner') link.setAttribute('aria-label', 'Kids Coloring');
+    });
+
+    var scopedHrefLabelMap = {
+      'study.html': 'Study Workspace',
+      '/kids/': 'Kids Battle Home',
+      'coloring.html': 'Kids Coloring',
+      'kids-corner.html': 'Family Activities',
+      'message.html': 'Prayer & Message Board',
+      '/church/': 'Church Join Hub',
+      'church.html': 'Church Center',
+      'sermon.html': 'Sermon Builder'
+    };
+    var scopedSelectors = [
+      '.org-nav-panel a[href]',
+      '.nav-panel a[href]',
+      '.header-nav a[href]',
+      '.header-nav-mega a[href]',
+      '.top-nav a[href]',
+      '.nav-dropdown-panel a[href]',
+      '.nav-dropdown-inner a[href]',
+      '.side-nav a[href]',
+      '.site-nav a[href]',
+      '#main-search .quick-links a[href]',
+      '.mobile-quick-tools a[href]'
+    ];
+    document.querySelectorAll(scopedSelectors.join(', ')).forEach(function (link) {
+      var href = (link.getAttribute('href') || '').trim();
+      var nextLabel = scopedHrefLabelMap[href];
+      if (nextLabel) link.textContent = nextLabel;
+    });
+
+    document.querySelectorAll('.mobile-quick-tools a[href="message.html"]').forEach(function (link) {
+      link.textContent = 'Message Board';
+      link.setAttribute('aria-label', 'Open Message Board');
+    });
+  }
+  normalizePrimaryNavLabels();
+
   const navLinks = document.querySelectorAll('.side-nav a, .site-nav a');
   if (navLinks.length) {
     const path = window.location.pathname.replace(/\/+$/, '');
@@ -14744,7 +14856,17 @@ function writeNbaSignal(key) {
       }
     });
     if ('speechSynthesis' in window) {
-      window.speechSynthesis.onvoiceschanged = populateVoiceSelect;
+      if (typeof window.speechSynthesis.addEventListener === 'function') {
+        window.speechSynthesis.addEventListener('voiceschanged', populateVoiceSelect);
+      } else {
+        var previousVoicesChanged = window.speechSynthesis.onvoiceschanged;
+        window.speechSynthesis.onvoiceschanged = function () {
+          if (typeof previousVoicesChanged === 'function') {
+            try { previousVoicesChanged(); } catch (err) {}
+          }
+          populateVoiceSelect();
+        };
+      }
     }
   }
   const ttsStopBtn = document.getElementById('tts-stop');

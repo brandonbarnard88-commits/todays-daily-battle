@@ -136,7 +136,7 @@
       return template.content.firstElementChild.cloneNode(true);
     }
     var wrap = document.createElement('div');
-    wrap.innerHTML = '<svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Ancient Wanderer with linen tunic and staff"><circle cx="60" cy="23" r="11" fill="#f6dcae"></circle><path d="M36 44c0-11 9-20 20-20h8c11 0 20 9 20 20v43H36z" fill="#d6c39f" stroke="#d6c39f" stroke-width="2"></path><path d="M42 50h36v35c-6 4-12 6-18 6s-12-2-18-6z" fill="#ffffff" opacity="0.22"></path><rect x="90" y="28" width="10" height="74" rx="4" fill="#7c5a35"></rect><circle cx="95" cy="24" r="5" fill="#caa26a"></circle><rect x="50" y="86" width="8" height="20" rx="3" fill="#6a4a2e"></rect><rect x="62" y="86" width="8" height="20" rx="3" fill="#6a4a2e"></rect></svg>';
+    wrap.innerHTML = '<svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Covenant Scout with field cloak and pilgrim staff"><circle cx="60" cy="23" r="11" fill="#f6dcae"></circle><path d="M36 44c0-11 9-20 20-20h8c11 0 20 9 20 20v43H36z" fill="#d6c39f" stroke="#d6c39f" stroke-width="2"></path><path d="M42 50h36v35c-6 4-12 6-18 6s-12-2-18-6z" fill="#ffffff" opacity="0.22"></path><rect x="90" y="28" width="10" height="74" rx="4" fill="#7c5a35"></rect><circle cx="95" cy="24" r="5" fill="#caa26a"></circle><rect x="50" y="86" width="8" height="20" rx="3" fill="#6a4a2e"></rect><rect x="62" y="86" width="8" height="20" rx="3" fill="#6a4a2e"></rect></svg>';
     return wrap.firstElementChild;
   }
 
@@ -149,7 +149,7 @@
     if (svg) figure.appendChild(svg);
     var label = document.createElement('span');
     label.className = 'armor-figure-label';
-    label.textContent = 'Ancient Wanderer';
+    label.textContent = 'Covenant Scout';
     figure.appendChild(label);
     targetEl.appendChild(figure);
   }

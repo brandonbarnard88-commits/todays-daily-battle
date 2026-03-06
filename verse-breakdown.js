@@ -24,6 +24,9 @@
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
   var RELATIONS_DICT_URL = 'relations-dict.json';
+  var KJV_DICT_URLS = ['/kjv.json', 'kjv.json'];
+  var BREAKDOWN_LABEL = 'Verse Breakdown';
+  var BREAKDOWN_ARIA = 'Open verse breakdown';
   var RELATIONS_FALLBACK = {
     anxiety: {
       line: "Your boss just texted 'urgent'—same as Paul's friends panicking. Pray first."
@@ -37,6 +40,7 @@
   };
   var relationsDictCache = null;
   var relationsDictPromise = null;
+  var bibleDictPromise = null;
 
   function byId(id) { return document.getElementById(id); }
   function esc(s) {
@@ -357,26 +361,39 @@
     if (!ageMode && prompt) prompt.classList.remove('hidden');
     if (!ageMode) ageMode = inferAgeFromContext() || 'adult';
     modal.setAttribute('data-age-mode', ageMode);
-    var breakdown = personalizeBreakdown(getBreakdown(ref, text), ageMode, ref, text);
+    var resolvedText = cleanVerseText(text || '') || getBibleVerseText(ref);
+    var breakdown = personalizeBreakdown(getBreakdown(ref, resolvedText), ageMode, ref, resolvedText);
     var bubble = byId('verse-modal-bubble');
     modal.querySelector('.verse-modal-ref').textContent = ref || 'Verse';
-    modal.querySelector('.verse-modal-text').textContent = text || '';
+    modal.querySelector('.verse-modal-text').textContent = resolvedText || 'Loading verse text...';
     modal.querySelector('[data-bk="about"]').textContent = breakdown.about || '—';
     modal.querySelector('[data-bk="to"]').textContent = breakdown.to || '—';
     modal.querySelector('[data-bk="layman"]').textContent = breakdown.layman || '—';
     modal.querySelector('[data-bk="applies"]').textContent = breakdown.applies || '—';
-    var topic = inferRelationTopic(ref, text);
+    var topic = inferRelationTopic(ref, resolvedText);
     modal.querySelector('[data-bk="relates"]').textContent = buildRelationLine(topic, RELATIONS_FALLBACK);
     modal.setAttribute('data-ref', ref || '');
-    modal.setAttribute('data-text', text || '');
+    modal.setAttribute('data-text', resolvedText || '');
     if (bubble) {
       bubble.textContent = (breakdown.bubbleTitle || 'Plain') + (breakdown.bubbleEmoji ? (' ' + breakdown.bubbleEmoji) : '');
       bubble.className = 'verse-modal-bubble verse-modal-bubble-' + ageMode;
     }
     modal.classList.remove('hidden');
+    if (!resolvedText && ref) {
+      loadBibleDict().then(function () {
+        if (modal.getAttribute('data-ref') !== String(ref || '')) return;
+        var lazyText = getBibleVerseText(ref);
+        if (!lazyText) return;
+        var lazyBreakdown = personalizeBreakdown(getBreakdown(ref, lazyText), ageMode, ref, lazyText);
+        modal.querySelector('.verse-modal-text').textContent = lazyText;
+        modal.querySelector('[data-bk="layman"]').textContent = lazyBreakdown.layman || '—';
+        modal.querySelector('[data-bk="applies"]').textContent = lazyBreakdown.applies || '—';
+        modal.setAttribute('data-text', lazyText);
+      });
+    }
     loadRelationsDict().then(function (dict) {
       if (modal.getAttribute('data-ref') !== String(ref || '')) return;
-      if (modal.getAttribute('data-text') !== String(text || '')) return;
+      if (resolvedText && modal.getAttribute('data-text') !== String(resolvedText || '')) return;
       var relatesEl = modal.querySelector('[data-bk="relates"]');
       if (relatesEl) relatesEl.textContent = buildRelationLine(topic, dict);
     });
@@ -385,13 +402,222 @@
   function addButton(container, ref, text) {
     if (!container || !ref || !text) return;
     if (container.querySelector('.tdb-breakdown-btn')) return;
-    var row = container.querySelector('.card-actions, .mystudy-share-actions, .verse-actions') || container;
+    var existing = Array.prototype.slice.call(container.querySelectorAll('button, a'));
+    for (var i = 0; i < existing.length; i++) {
+      var label = String(existing[i].textContent || '').trim().toLowerCase();
+      if (label === 'breakdown' || label === 'verse breakdown') return;
+    }
+    var row = ensureActionRow(container);
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'btn btn-secondary tdb-breakdown-btn';
-    btn.textContent = 'Breakdown';
+    btn.textContent = BREAKDOWN_LABEL;
+    btn.setAttribute('aria-label', BREAKDOWN_ARIA);
     btn.addEventListener('click', function () { open(ref, text); });
     row.appendChild(btn);
+  }
+
+  function addInlineMore(container, ref, text) {
+    if (!container || !ref || !text) return;
+    if (container.querySelector('.tdb-verse-more')) return;
+    var existing = container.querySelector('.verse-breakdown');
+    if (existing && existing.classList && !existing.classList.contains('tdb-verse-more')) return;
+    var breakdown = personalizeBreakdown(getBreakdown(ref, text), getAgeMode() || 'adult', ref, text);
+    var topic = inferRelationTopic(ref, text);
+    var details = document.createElement('details');
+    details.className = 'tdb-verse-more';
+    var summary = document.createElement('summary');
+    summary.textContent = 'Show more';
+    summary.setAttribute('aria-label', 'Show more verse context');
+    details.appendChild(summary);
+
+    var content = document.createElement('div');
+    content.className = 'tdb-verse-more-content';
+    var lines = [
+      ['Who said it?', breakdown.about || '—'],
+      ['Who to?', breakdown.to || '—'],
+      ['Plain talk', breakdown.layman || '—'],
+      ['How it fits you', breakdown.applies || '—'],
+      ['Today relation', buildRelationLine(topic, RELATIONS_FALLBACK)]
+    ];
+    for (var i = 0; i < lines.length; i++) {
+      var p = document.createElement('p');
+      var strong = document.createElement('strong');
+      strong.textContent = lines[i][0] + ': ';
+      p.appendChild(strong);
+      p.appendChild(document.createTextNode(lines[i][1]));
+      content.appendChild(p);
+    }
+    details.appendChild(content);
+    container.appendChild(details);
+
+    details.addEventListener('toggle', function () {
+      if (!details.open) return;
+      loadRelationsDict().then(function (dict) {
+        var relation = buildRelationLine(topic, dict);
+        var relationLine = details.querySelector('.tdb-verse-more-content p:last-child');
+        if (!relationLine) return;
+        relationLine.innerHTML = '<strong>Today relation:</strong> ' + esc(relation);
+      });
+    });
+  }
+
+  function ensureActionRow(container) {
+    if (!container || typeof container.querySelector !== 'function') return container;
+    var existing = container.querySelector('.card-actions, .mystudy-share-actions, .verse-actions, .cta-group, .tdb-verse-actions');
+    if (existing) return existing;
+    var row = document.createElement('div');
+    row.className = 'tdb-verse-actions card-actions';
+    var anchor = container.querySelector('p:last-of-type, .verse-text, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text');
+    if (anchor && anchor.parentNode === container && anchor.nextSibling) {
+      container.insertBefore(row, anchor.nextSibling);
+    } else {
+      container.appendChild(row);
+    }
+    return row;
+  }
+
+  function extractRefFromText(text) {
+    var s = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!s) return '';
+    var m = s.match(/\b([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+){0,3}\s+\d+:\d+(?:-\d+)?)\b/);
+    return m ? m[1].replace(/\s+/g, ' ').trim() : '';
+  }
+
+  function cleanVerseText(text) {
+    return String(text || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function getBibleVerseText(ref) {
+    var r = String(ref || '').trim();
+    if (!r) return '';
+    var direct = (window.bible && window.bible[r]) || (window.kjvData && window.kjvData[r]) || '';
+    if (direct) return cleanVerseText(direct);
+    if (typeof window.getBibleVerseText === 'function') {
+      try { return cleanVerseText(window.getBibleVerseText(r) || ''); } catch (e) {}
+    }
+    return '';
+  }
+
+  function loadBibleDict() {
+    if (bibleDictPromise) return bibleDictPromise;
+    bibleDictPromise = (async function () {
+      for (var i = 0; i < KJV_DICT_URLS.length; i++) {
+        try {
+          var res = await fetch(KJV_DICT_URLS[i], { cache: 'force-cache' });
+          if (!res.ok) throw new Error('status_' + res.status);
+          var json = await res.json();
+          if (json && typeof json === 'object') {
+            window.kjvData = json;
+            return json;
+          }
+        } catch (e) {}
+      }
+      return {};
+    })();
+    return bibleDictPromise;
+  }
+
+  function extractRefAndText(container) {
+    if (!container) return { ref: '', text: '' };
+    var ref = String(
+      container.getAttribute('data-ref') ||
+      container.getAttribute('data-verse-ref') ||
+      ''
+    ).trim();
+    if (!ref) {
+      var refNode = container.querySelector('.verse-ref, .kids-verse-ref, .concordance-verse-ref, .verse-maps-verse-ref');
+      if (refNode) ref = extractRefFromText(refNode.textContent || '');
+    }
+    if (!ref) {
+      var strong = container.querySelector('strong');
+      if (strong) ref = extractRefFromText(strong.textContent || '');
+    }
+    if (!ref) ref = extractRefFromText(container.textContent || '');
+
+    var text = String(
+      container.getAttribute('data-text') ||
+      container.getAttribute('data-verse-text') ||
+      ''
+    ).trim();
+    if (!text) {
+      var textNode = container.querySelector('.verse-text, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text');
+      if (textNode) text = cleanVerseText(textNode.textContent || '');
+    }
+    if (!text) {
+      var p = container.querySelector('p');
+      if (p) text = cleanVerseText(p.textContent || '');
+    }
+    if (!text && ref) text = getBibleVerseText(ref);
+    return { ref: cleanVerseText(ref), text: cleanVerseText(text) };
+  }
+
+  function findActionRow(container) {
+    if (!container || typeof container.querySelector !== 'function') return null;
+    return container.querySelector('.card-actions, .verse-actions, .mystudy-share-actions, .cta-group');
+  }
+
+  function enhanceVerseContainers(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    var selectors = [
+      '.verse-card',
+      '.verse-item',
+      '.ab-card',
+      '.curriculum-verse',
+      '.kids-battle-verse',
+      '.bible-study-verse-card',
+      '.verse-of-week-panel',
+      '.verse-maps-verse-item',
+      '.concordance-ref-item',
+      '#daily-battle-card',
+      '#daily-verse-card',
+      '#church-daily-verse-card',
+      '#concordance-verse-card',
+      '#verse-maps-verse-card'
+    ];
+    var seen = new Set();
+    selectors.forEach(function (sel) {
+      host.querySelectorAll(sel).forEach(function (el) {
+        if (!el || seen.has(el)) return;
+        seen.add(el);
+        if (el.classList && el.classList.contains('daily-battle-loading')) return;
+        var pair = extractRefAndText(el);
+        if (!pair.ref || !pair.text) return;
+        var row = findActionRow(el) || el;
+        addButton(row, pair.ref, pair.text);
+        addInlineMore(el, pair.ref, pair.text);
+      });
+    });
+  }
+
+  function wireAutoEnhance() {
+    if (window.__tdbVerseBreakdownAutoEnhanced) return;
+    window.__tdbVerseBreakdownAutoEnhanced = true;
+    normalizeExistingBreakdownButtons(document);
+    enhanceVerseContainers(document);
+    if (!document.body || typeof MutationObserver !== 'function') return;
+    var queued = false;
+    var observer = new MutationObserver(function () {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(function () {
+        queued = false;
+        normalizeExistingBreakdownButtons(document);
+        enhanceVerseContainers(document);
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function normalizeExistingBreakdownButtons(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    host.querySelectorAll('button, a').forEach(function (el) {
+      var label = String(el.textContent || '').trim().toLowerCase();
+      if (label !== 'breakdown' && label !== 'verse breakdown') return;
+      el.classList.add('tdb-breakdown-btn');
+      if (label !== BREAKDOWN_LABEL.toLowerCase()) el.textContent = BREAKDOWN_LABEL;
+      el.setAttribute('aria-label', BREAKDOWN_ARIA);
+    });
   }
 
   window.TDBVerseBreakdown = {
@@ -401,4 +627,6 @@
     getAgeMode: getAgeMode,
     setAgeMode: setAgeMode
   };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireAutoEnhance);
+  else wireAutoEnhance();
 })();

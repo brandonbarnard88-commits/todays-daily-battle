@@ -1,5 +1,5 @@
 /**
- * Kids Corner — library view for Kids Battle
+ * Kids Story Library — library view for Kids Battle
  * 52 Bible stories: search, filter, random, PDF export. Uses TDB_BIBLE_STORIES from kids-battle.js.
  */
 (function () {

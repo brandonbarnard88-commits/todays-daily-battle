@@ -17,7 +17,7 @@ OFFLINE = "--offline" in sys.argv
 
 # (path, name, list of strings that must appear in body)
 PAGES = [
-    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\""]),  # id="query" or id="tdb-search"
+    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\"", "V2 Command Deck", "Search by what you feel right now"]),  # id="query" or id="tdb-search"
     ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\""]),
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
@@ -53,8 +53,8 @@ PAGES = [
     ("/topic-hope.html", "Topic Hope", ["Hope"]),
     ("/topic-parenting.html", "Topic Parenting", ["Parenting"]),
     ("/topic-strength.html", "Topic Strength", ["Strength"]),
-    ("/action-bible.html", "Action Bible Archive", ["Action Bible Documentary Archive", "Documentary Controls"]),
-    ("/action-bible-workshop.html", "Action Bible Workshop Toolkit", ["Worksheet + Class Toolkit", "Generate Worksheet"]),
+    ("/action-bible.html", "Action Bible Archive", ["Action Bible Documentary Archive", "Documentary Controls", "My witness profile", "Play Selected Season", "Continue Watching"]),
+    ("/action-bible-workshop.html", "Action Bible Workshop Toolkit", ["Worksheet + Class Toolkit", "Generate Worksheet", "Build Leader Dashboard Plan", "Load Weekly Pack", "Download Weekly JSON"]),
     ("/action-bible-weekly-packs.json", "Action Bible Weekly Packs", ["\"totalWeeks\"", "\"weeks\""]),
     ("/404.html", "404 Page", ["not found", "Today's Daily Battle"]),
 ]

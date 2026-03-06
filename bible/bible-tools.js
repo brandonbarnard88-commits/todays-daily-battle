@@ -572,7 +572,6 @@
       markReadToday();
       if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#3b82f6', '#22c55e', '#fbbf24', '#d4af37'] });
       else if (typeof confetti === 'function') try { confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 }, colors: ['#3b82f6', '#22c55e', '#fbbf24', '#d4af37'] }); } catch (e) {}
-      }
     }
   }
 
@@ -763,7 +762,6 @@
       addMemoryStreakBonus();
       if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 60, spread: 70, origin: { y: 0.6 }, colors: ['#3b82f6', '#22c55e', '#d4af37'] });
       else if (typeof confetti === 'function') try { confetti({ particleCount: 60, spread: 70, origin: { y: 0.6 }, colors: ['#3b82f6', '#22c55e', '#d4af37'] }); } catch (e) {}
-      }
     }
   }
 

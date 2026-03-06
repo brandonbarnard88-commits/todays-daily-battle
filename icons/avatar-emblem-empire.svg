@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="emEdge" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDE68A"/>
+      <stop offset="0.45" stop-color="#7DD3FC"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <radialGradient id="emCenter" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(64 64) rotate(90) scale(52 52)">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#020617"/>
+    </radialGradient>
+  </defs>
+  <path d="M64 10L108 28V62C108 90 90 111 64 120C38 111 20 90 20 62V28L64 10Z" fill="url(#emEdge)" opacity="0.95"/>
+  <path d="M64 19L97 34V62C97 84 83 101 64 111C45 101 31 84 31 62V34L64 19Z" fill="url(#emCenter)"/>
+  <path d="M64 36L72 52L90 54L76 66L80 84L64 75L48 84L52 66L38 54L56 52L64 36Z" fill="#E2E8F0"/>
+  <path d="M64 32V96" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
+  <path d="M44 94H84" stroke="#FDE68A" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="64" cy="47" r="4" fill="#FDE68A"/>
+</svg>

@@ -206,6 +206,60 @@
     }
   }
 
+  function focusTargetIfUseful(target) {
+    if (!target || typeof target.focus !== 'function') return;
+    var tag = String(target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select' || tag === 'button' || tag === 'a') {
+      try { target.focus({ preventScroll: true }); } catch (e) { try { target.focus(); } catch (e2) {} }
+      return;
+    }
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    try { target.focus({ preventScroll: true }); } catch (e3) { try { target.focus(); } catch (e4) {} }
+  }
+
+  function revealTargetContext(target, content, tabs) {
+    if (!target || !content || !tabs) return;
+    var drawerHost = target.closest && target.closest('[data-toolbox-drawer]');
+    var drawer = drawerHost ? String(drawerHost.getAttribute('data-toolbox-drawer') || '').trim() : '';
+    if (drawer) activateDrawer(drawer, content, tabs, { showHint: false });
+    var details = target.closest && target.closest('details.home-accordion');
+    if (details) details.setAttribute('open', '');
+  }
+
+  function navigateToHashTarget(hash, content, tabs) {
+    var raw = String(hash || '');
+    if (!raw || raw.charAt(0) !== '#') return false;
+    var id = '';
+    try { id = decodeURIComponent(raw.slice(1)); } catch (e) { id = raw.slice(1); }
+    if (!id) return false;
+    var target = document.getElementById(id);
+    if (!target) return false;
+    revealTargetContext(target, content, tabs);
+    if (typeof target.scrollIntoView === 'function') target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    focusTargetIfUseful(target);
+    return true;
+  }
+
+  function hashFromHrefForCurrentPage(href) {
+    var raw = String(href || '').trim();
+    if (!raw || raw === '#') return '';
+    if (raw.charAt(0) === '#') return raw;
+    if (raw.indexOf('#') < 0) return '';
+    var resolved;
+    try {
+      resolved = new URL(raw, window.location.href);
+    } catch (e) {
+      return '';
+    }
+    if (!resolved || !resolved.hash) return '';
+    if (resolved.origin !== window.location.origin) return '';
+    var currentPath = String(window.location.pathname || '/').replace(/\/+$/, '') || '/';
+    var targetPath = String(resolved.pathname || '/').replace(/\/+$/, '') || '/';
+    var samePath = targetPath === currentPath;
+    var rootAlias = (targetPath === '/' || targetPath === '/index.html') && (currentPath === '/' || currentPath === '/index.html');
+    return (samePath || rootAlias) ? String(resolved.hash || '') : '';
+  }
+
   function init() {
     var content = document.getElementById('toolbox-content');
     var tabs = document.querySelectorAll('.toolbox-tab[data-drawer]');
@@ -214,6 +268,7 @@
     var active = (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_toolbox_drawer')) || 'daily';
     activateDrawer(active, content, tabs, { showHint: true });
     renderNextBestActions();
+    navigateToHashTarget(window.location.hash, content, tabs);
 
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
@@ -293,6 +348,22 @@
       btn.addEventListener('click', function () {
         trackToolClick('quick_links', btn);
       });
+    });
+
+    document.addEventListener('click', function (event) {
+      var link = event && event.target && event.target.closest ? event.target.closest('a[href*="#"]') : null;
+      if (!link) return;
+      if (link.id === 'sidebar-toggle' || link.id === 'sidebar-family-armor-stories' || link.classList.contains('skip-link')) return;
+      var href = String(link.getAttribute('href') || '').trim();
+      var hash = hashFromHrefForCurrentPage(href);
+      if (!hash) return;
+      if (!navigateToHashTarget(hash, content, tabs)) return;
+      event.preventDefault();
+      try { window.history.pushState({}, '', hash); } catch (e) { window.location.hash = hash; }
+    });
+
+    window.addEventListener('hashchange', function () {
+      navigateToHashTarget(window.location.hash, content, tabs);
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

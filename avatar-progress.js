@@ -12,7 +12,7 @@
   var fallbackObserver = null;
 
   var STAGES = [
-    { id: 'wanderer', min: 0, max: 9, tag: 'Wanderer', title: 'Ancient Wanderer', look: 'linen tunic + staff', crestEvolution: 'seed crest', face: '🕊️', unlockToast: false, flags: { helmet: false, breastplate: false, belt: false, shield: false, sword: false, swordGlow: false } },
+    { id: 'wanderer', min: 0, max: 9, tag: 'Covenant', title: 'Covenant Scout', look: 'field cloak + pilgrim staff', crestEvolution: 'seed crest', face: '🕊️', unlockToast: false, flags: { helmet: false, breastplate: false, belt: false, shield: false, sword: false, swordGlow: false } },
     { id: 'village', min: 10, max: 29, tag: 'Village', title: 'Rising Defender', look: 'helmet + shield', crestEvolution: 'basic crest', face: '🛡️', unlockToast: true, flags: { helmet: true, breastplate: false, belt: true, shield: true, sword: false, swordGlow: false } },
     { id: 'kingdom', min: 30, max: 59, tag: 'Kingdom', title: 'Crowned Champion', look: 'leather + sword', crestEvolution: 'gemmed crest', face: '⚔️', unlockToast: true, flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: false } },
     { id: 'empire', min: 60, max: 99999, tag: 'Empire', title: 'Legacy Warlord', look: 'jacket + cross necklace + phone', crestEvolution: 'diamond-edge crest', face: '💎', unlockToast: true, flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: true } }
@@ -47,7 +47,7 @@
   function buildFallbackSvg() {
     var wrap = document.createElement('div');
     wrap.id = FALLBACK_WRAP_ID;
-    wrap.setAttribute('aria-label', 'Ancient Wanderer avatar');
+    wrap.setAttribute('aria-label', 'Covenant Scout avatar');
     wrap.style.cssText = 'position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(210px,86%);display:flex;flex-direction:column;align-items:center;gap:0.45rem;z-index:2;pointer-events:none;';
 
     var visual = document.createElement('div');
@@ -72,7 +72,7 @@
     }
 
     var label = document.createElement('p');
-    label.textContent = 'Ancient Wanderer';
+    label.textContent = 'Covenant Scout';
     label.style.cssText = 'margin:0;color:#fde68a;font-weight:700;font-size:0.86rem;letter-spacing:0.01em;';
 
     wrap.appendChild(visual);
@@ -207,7 +207,9 @@
     var nodes = [
       document.getElementById('daily-tile-avatar'),
       document.getElementById('home-avatar-center'),
-      document.getElementById('armor-avatar-household')
+      document.getElementById('armor-avatar-household'),
+      document.getElementById('deep-curriculum-avatar'),
+      document.getElementById('curriculum-avatar')
     ].filter(Boolean);
     var ids = STAGES.map(function (s) { return 'avatar-stage-' + s.id; });
     nodes.forEach(function (el) {
@@ -221,6 +223,32 @@
     if (status) status.textContent = stage.tag + ' · ' + stage.title + ' · ' + stage.crestEvolution;
   }
 
+  function animateStageUnlock(stage) {
+    var nodes = [
+      document.getElementById('daily-tile-avatar'),
+      document.getElementById('home-avatar-center'),
+      document.getElementById('armor-avatar-household'),
+      document.getElementById('deep-curriculum-avatar'),
+      document.getElementById('curriculum-avatar')
+    ].filter(Boolean);
+    if (!nodes.length) return;
+    var stageClass = 'tdb-avatar-stage-' + String((stage && stage.id) || 'wanderer');
+    nodes.forEach(function (el) {
+      el.classList.remove('tdb-avatar-stage-unlock');
+      el.classList.remove('tdb-avatar-stage-wanderer');
+      el.classList.remove('tdb-avatar-stage-village');
+      el.classList.remove('tdb-avatar-stage-kingdom');
+      el.classList.remove('tdb-avatar-stage-empire');
+      void el.offsetWidth;
+      el.classList.add('tdb-avatar-stage-unlock');
+      el.classList.add(stageClass);
+      setTimeout(function () {
+        el.classList.remove('tdb-avatar-stage-unlock');
+        el.classList.remove(stageClass);
+      }, 1550);
+    });
+  }
+
   function syncAvatarProgress(wins) {
     var w = Math.max(0, safeInt(typeof wins === 'number' ? wins : readWins()));
     var frames = buildFrames(w);
@@ -232,6 +260,7 @@
     document.dispatchEvent(new CustomEvent('tdb:avatar-stage-updated', { detail: { wins: w, stage: stage } }));
     if (prev && prev.id !== stage.id) {
       document.dispatchEvent(new CustomEvent('tdb:avatar-stage-unlocked', { detail: { wins: w, stage: stage, previous: prev } }));
+      animateStageUnlock(stage);
       if (stage && stage.unlockToast && typeof window.showEliteToast === 'function') {
         window.showEliteToast('Stage unlocked: ' + stage.tag, { gold: true, duration: 3000 });
       }

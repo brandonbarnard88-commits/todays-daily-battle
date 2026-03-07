@@ -2156,7 +2156,7 @@
     if (refEl) refEl.textContent = v.ref;
     if (textEl) textEl.textContent = kidText;
     if (prayerEl) prayerEl.textContent = p;
-    renderKidContext(v.ref);
+    renderKidContext(v.ref, kidText || v.text);
     var cartoon = getCartoonForVerse(v.ref, v.text, index);
     var container = document.getElementById('kids-cartoon-container');
     if (!container) return;
@@ -3067,10 +3067,10 @@
     return 'Ask God to help you live this verse today, one brave step at a time.';
   }
 
-  function renderKidContext(ref) {
+  function renderKidContext(ref, verseText) {
     var ctxEl = document.getElementById('kids-verse-context');
     if (!ctxEl) return;
-    var ctx = getKidContext(ref);
+    var ctx = getKidContext(ref, verseText);
     ctxEl.classList.remove('hidden');
     ctxEl.innerHTML = '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtml(ctx.who || '') + '</p>' +
       '<p class="kids-context-to"><strong>To whom:</strong> ' + escapeHtml(ctx.to || '') + '</p>' +
@@ -3088,7 +3088,7 @@
     if (refEl) refEl.textContent = v.ref;
     if (textEl) textEl.textContent = kidText;
     if (prayerEl) prayerEl.textContent = p;
-    renderKidContext(v.ref);
+    renderKidContext(v.ref, kidText || v.text);
     var cartoon = getCartoonForVerse(v.ref, v.text, index);
     var container = document.getElementById('kids-cartoon-container');
     if (container) {
@@ -3112,7 +3112,19 @@
     return KID_FRIENDLY_TRANSLATIONS[key] || null;
   }
 
-  function getKidContext(ref) {
+  function getKidContext(ref, verseText) {
+    if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
+      try {
+        var breakdown = window.TDBVerseBreakdown.getBreakdown(ref, verseText || '');
+        if (breakdown && (breakdown.about || breakdown.to || breakdown.applies)) {
+          return {
+            who: breakdown.about || 'Bible speaker in this passage',
+            to: breakdown.to || 'God\'s people',
+            apply: breakdown.applies || deriveApplyText(ref, verseText || '')
+          };
+        }
+      } catch (e) {}
+    }
     var key = resolveContextKey(ref);
     var ctx = KID_CONTEXT[key];
     if (ctx) return ctx;
@@ -3150,7 +3162,7 @@
       var v = KIDS_VERSES[idx];
       var p = KIDS_PRAYERS[idx];
       var kidText = getKidText(v.ref) || v.text;
-      var ctx = getKidContext(v.ref);
+      var ctx = getKidContext(v.ref, kidText || v.text);
       var refEsc = escapeHtml(v.ref);
       var textEsc = escapeHtml(kidText);
       var whoEsc = escapeHtml(ctx.who);

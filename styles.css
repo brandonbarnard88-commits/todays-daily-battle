@@ -10090,7 +10090,7 @@ body.has-promo-banner .header-search-sticky {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.45rem;
 }
 .tdb-cinema-scene-tag,
 .tdb-cinema-progress-text {
@@ -10185,8 +10185,8 @@ body.has-promo-banner .header-search-sticky {
   background:
     conic-gradient(from 140deg at 30% 30%, rgba(250, 204, 21, 0.26), rgba(250, 204, 21, 0) 18%),
     conic-gradient(from 220deg at 70% 24%, rgba(125, 211, 252, 0.2), rgba(125, 211, 252, 0) 16%);
-  mix-blend-mode: screen;
-  opacity: 0.72;
+  mix-blend-mode: normal;
+  opacity: 0.5;
   animation: tdb-ray-spin 18s linear infinite;
 }
 .tdb-scene-mountain {
@@ -10303,12 +10303,12 @@ body.has-promo-banner .header-search-sticky {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: clamp(0.8rem, 2.8vw, 2rem);
-  padding: 0 1rem 12px;
+  gap: clamp(0.45rem, 1.8vw, 1rem);
+  padding: 0 0.5rem 10px;
 }
 .tdb-walker {
-  min-width: 142px;
-  max-width: 210px;
+  min-width: 128px;
+  max-width: 188px;
   text-align: center;
   animation: tdb-walk-bob 2.2s ease-in-out infinite;
 }

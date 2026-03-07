@@ -2178,7 +2178,7 @@
           localStorage.setItem(KIDS_REMIND_OPTED_KEY, '1');
           renderComeBackNudge();
           if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js').then(function () {
+            navigator.serviceWorker.register('/sw.js').then(function () {
               return navigator.serviceWorker.ready;
             }).then(function (reg) {
               if (reg.pushManager && window.TDB_CONFIG && window.TDB_CONFIG.VAPID_PUBLIC_KEY) {
@@ -2979,16 +2979,33 @@
     return indices;
   }
 
+  function normalizeRefKey(ref) {
+    var key = String(ref || '').toLowerCase().trim();
+    if (!key) return '';
+    key = key.replace(/\s*\((?:kjv|niv|esv|nlt|amp|msg)\)\s*$/i, '');
+    key = key.replace(/[–—]/g, '-');
+    key = key.replace(/[;,]+/g, ' ');
+    key = key.replace(/\s+/g, ' ');
+    key = key.replace(/\.$/, '');
+    return key;
+  }
+
+  function resolveContextKey(ref) {
+    var key = normalizeRefKey(ref);
+    if (!key) return '';
+    if (KID_CONTEXT[key]) return key;
+    if (KID_FRIENDLY_TRANSLATIONS[key]) return key;
+    var firstVerse = key.replace(/(:\d+)-\d+\b/, '$1');
+    if (KID_CONTEXT[firstVerse]) return firstVerse;
+    var chapterOnly = key.replace(/:\d+\b.*/, '');
+    if (KID_CONTEXT[chapterOnly]) return chapterOnly;
+    return key;
+  }
+
   function renderKidContext(ref) {
     var ctxEl = document.getElementById('kids-verse-context');
     if (!ctxEl) return;
-    var key = (ref || '').toLowerCase().trim();
-    var ctx = KID_CONTEXT[key];
-    if (!ctx) {
-      ctxEl.classList.add('hidden');
-      ctxEl.innerHTML = '';
-      return;
-    }
+    var ctx = getKidContext(ref);
     ctxEl.classList.remove('hidden');
     ctxEl.innerHTML = '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtml(ctx.who || '') + '</p>' +
       '<p class="kids-context-to"><strong>To whom:</strong> ' + escapeHtml(ctx.to || '') + '</p>' +
@@ -3026,12 +3043,12 @@
   }
 
   function getKidText(ref) {
-    var key = (ref || '').toLowerCase().trim();
+    var key = resolveContextKey(ref);
     return KID_FRIENDLY_TRANSLATIONS[key] || null;
   }
 
   function getKidContext(ref) {
-    var key = (ref || '').toLowerCase().trim();
+    var key = resolveContextKey(ref);
     var ctx = KID_CONTEXT[key];
     if (ctx) return ctx;
     return { who: 'God or a Bible hero', to: 'people like you', apply: 'Talk to God about it today!' };

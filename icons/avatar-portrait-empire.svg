@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <circle cx="64" cy="64" r="58" fill="#090E18"/>
+  <circle cx="64" cy="64" r="54" stroke="#FACC15" stroke-width="3"/>
+  <!-- imperial crown -->
+  <path d="M40 22L50 12L64 22L78 12L88 22V30H40V22Z" fill="#FACC15"/>
+  <circle cx="64" cy="12.5" r="3.5" fill="#FDE68A"/>
+  <!-- head -->
+  <ellipse cx="64" cy="34" rx="11.5" ry="12.5" fill="#E7C4A2"/>
+  <path d="M52.5 34C52.5 25.5 57.5 21 64 21C70.5 21 75.5 25.5 75.5 34V36H52.5V34Z" fill="#1F2937"/>
+  <circle cx="59.2" cy="34.2" r="1.7" fill="#0F172A"/>
+  <circle cx="68.8" cy="34.2" r="1.7" fill="#0F172A"/>
+  <path d="M60 40C61.2 41.2 62.6 41.8 64 41.8C65.4 41.8 66.8 41.2 68 40" stroke="#7C4A2D" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- ornate armor + mantle -->
+  <path d="M41 56C45 47 52 44 64 44C76 44 83 47 87 56L83 94H45L41 56Z" fill="#111827"/>
+  <path d="M48 55L64 49L80 55L76 86H52L48 55Z" fill="#374151"/>
+  <path d="M58 56H70V82H58V56Z" fill="#1F2937"/>
+  <path d="M58 66H70" stroke="#FACC15" stroke-width="3" stroke-linecap="round"/>
+  <path d="M58 74H70" stroke="#FACC15" stroke-width="3" stroke-linecap="round"/>
+  <path d="M52 86H76L80 95H48L52 86Z" fill="#4B5563"/>
+  <!-- arms -->
+  <path d="M47 59L37 81" stroke="#4B5563" stroke-width="6" stroke-linecap="round"/>
+  <path d="M81 59L91 81" stroke="#4B5563" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="36.8" cy="82.2" r="3.2" fill="#E7C4A2"/>
+  <circle cx="91.2" cy="82.2" r="3.2" fill="#E7C4A2"/>
+  <!-- legs + boots -->
+  <rect x="54" y="95" width="7" height="14" rx="3" fill="#1F2937"/>
+  <rect x="67" y="95" width="7" height="14" rx="3" fill="#1F2937"/>
+  <rect x="52" y="108" width="10" height="4" rx="2" fill="#111827"/>
+  <rect x="66" y="108" width="10" height="4" rx="2" fill="#111827"/>
+</svg>

@@ -48,6 +48,7 @@ const rootFiles = [
   'voice-message.js',
   'voice-pray.js',
   'fetch-prayer-guard.js',
+  'lazy-loader.js',
   'utils.js',
   'fallback-search.js',
   'search-wire.js',
@@ -203,6 +204,12 @@ if (fs.existsSync(path.join(root, 'church'))) {
 if (fs.existsSync(path.join(root, 'bible'))) {
   copyDir(path.join(root, 'bible'), path.join(dist, 'bible'));
   console.log('Copied bible/ folder (hub + tools)');
+}
+
+const activeBibleMedia = path.join(root, 'media', 'active-bible');
+if (fs.existsSync(activeBibleMedia)) {
+  copyDir(activeBibleMedia, path.join(dist, 'media', 'active-bible'));
+  console.log('Copied media/active-bible assets');
 }
 
 const wellKnown = path.join(root, '.well-known');

@@ -120,16 +120,50 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   document.head.appendChild(script);
 })();
 
-/* Preload Bible data so first search is fast; loadBible() will use window.kjvData if set */
-(function preloadBible() {
+/* Preload Bible data after first paint/idle so startup stays fast; loadBible() still falls back normally. */
+(function preloadBibleWhenIdle() {
+  if (typeof window === 'undefined') return;
   var urls = ['/kjv.json', 'kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+  var started = false;
+
+  function canPreloadNow() {
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!conn) return true;
+    if (conn.saveData) return false;
+    var type = String(conn.effectiveType || '').toLowerCase();
+    return type !== 'slow-2g' && type !== '2g';
+  }
+
   function tryNext(i) {
     if (i >= urls.length) return;
     fetch(urls[i]).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (d) { if (d && typeof window !== 'undefined') window.kjvData = d; })
+      .then(function (d) {
+        if (d && typeof window !== 'undefined' && !window.kjvData) window.kjvData = d;
+      })
       .catch(function () { tryNext(i + 1); });
   }
-  tryNext(0);
+
+  function startPreload() {
+    if (started) return;
+    started = true;
+    if (!canPreloadNow()) return;
+    if (window.kjvData) return;
+    tryNext(0);
+  }
+
+  function schedulePreload() {
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(startPreload, { timeout: 2500 });
+      return;
+    }
+    setTimeout(startPreload, 1500);
+  }
+
+  if (document.readyState === 'complete') {
+    schedulePreload();
+  } else {
+    window.addEventListener('load', schedulePreload, { once: true });
+  }
 })();
 
 function safeSetItem(key, value) {
@@ -157,22 +191,71 @@ function safeSessionGet(key) {
   }
 }
 
+var _tdbConfettiLoader = null;
+function ensureConfettiLoaded() {
+  if (typeof window === 'undefined' || !document || !document.head) return Promise.resolve(false);
+  if (typeof window.confetti === 'function') return Promise.resolve(true);
+  if (_tdbConfettiLoader) return _tdbConfettiLoader;
+  _tdbConfettiLoader = new Promise(function (resolve) {
+    var src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js';
+    var existing = document.querySelector('script[data-tdb-confetti="1"]');
+    if (existing) {
+      if (existing.dataset.loaded === 'true') {
+        resolve(typeof window.confetti === 'function');
+        return;
+      }
+      existing.addEventListener('load', function onLoad() {
+        existing.removeEventListener('load', onLoad);
+        resolve(typeof window.confetti === 'function');
+      });
+      existing.addEventListener('error', function onError() {
+        existing.removeEventListener('error', onError);
+        resolve(false);
+      });
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = src;
+    script.defer = true;
+    script.crossOrigin = 'anonymous';
+    script.dataset.tdbConfetti = '1';
+    script.onload = function () {
+      script.dataset.loaded = 'true';
+      resolve(typeof window.confetti === 'function');
+    };
+    script.onerror = function () { resolve(false); };
+    document.head.appendChild(script);
+  }).finally(function () {
+    _tdbConfettiLoader = null;
+  });
+  return _tdbConfettiLoader;
+}
+
 /** Confetti with battery saver: skip if <20%, halve particles if <35%. */
 window.tdbConfetti = function (opts) {
-  if (typeof confetti !== 'function') return;
-  var o = opts || {};
-  var baseCount = o.particleCount || 60;
-  var run = function (count) {
-    try { confetti(Object.assign({}, o, { particleCount: count })); } catch (e) {}
+  var launch = function () {
+    if (typeof confetti !== 'function') return;
+    var o = opts || {};
+    var baseCount = o.particleCount || 60;
+    var run = function (count) {
+      try { confetti(Object.assign({}, o, { particleCount: count })); } catch (e) {}
+    };
+    if (navigator.getBattery) {
+      navigator.getBattery().then(function (b) {
+        if (b && b.level < 0.2) return;
+        run(b && b.level < 0.35 ? Math.floor(baseCount / 2) : baseCount);
+      }).catch(function () { run(baseCount); });
+    } else {
+      run(baseCount);
+    }
   };
-  if (navigator.getBattery) {
-    navigator.getBattery().then(function (b) {
-      if (b && b.level < 0.2) return;
-      run(b && b.level < 0.35 ? Math.floor(baseCount / 2) : baseCount);
-    }).catch(function () { run(baseCount); });
-  } else {
-    run(baseCount);
+  if (typeof confetti === 'function') {
+    launch();
+    return;
   }
+  ensureConfettiLoaded().then(function (ready) {
+    if (ready) launch();
+  });
 };
 
 /** Clear all tdb_* keys from localStorage and sessionStorage. Prevents overwrites from affecting other sites. Use for "Clear local data" control. */
@@ -366,15 +449,15 @@ function addHouseholdArmorPiece(source) {
   setHouseholdArmor(data);
   var announce = document.getElementById('armor-piece-added-announce');
   if (announce) { announce.textContent = 'Piece earned: ' + nextPiece.label; }
-  if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined—your prayer adds to the armor!');
+  if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined: your prayer strengthened your household armor.');
   if (data.count >= 6) {
     emitEasterEgg('full_armor_celebration', { count: data.count });
-    if (typeof showEliteToast === 'function') showEliteToast('Your household is armored—share the glory.');
+    if (typeof showEliteToast === 'function') showEliteToast('Your household is fully armored. Share this milestone.');
     var link = getArmorShareLink();
     if (link && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(link).catch(function () {});
     } else {
-      var shareText = 'My household\'s armored in the Armor of God—join us at todaysdailybattle.com';
+      var shareText = 'Our household completed the Armor of God journey. Join us at todaysdailybattle.com';
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText).catch(function () {});
     }
   }
@@ -399,10 +482,10 @@ function addHeavenlyJewel(source) {
   var crownEl = document.getElementById('armor-crown');
   if (crownEl) crownEl.classList.add('armor-crown-sparkle');
   setTimeout(function () { if (crownEl) crownEl.classList.remove('armor-crown-sparkle'); }, 1200);
-  if (typeof showEliteToast === 'function') showEliteToast('Jewel added—crown brighter!');
+  if (typeof showEliteToast === 'function') showEliteToast('Jewel added. Your crown is growing.');
   if (jewels.length >= 10) {
-    if (typeof showEliteToast === 'function') showEliteToast('Crown complete—share your glory!');
-    var shareText = 'My household\'s crown is full—join the streets of gold';
+    if (typeof showEliteToast === 'function') showEliteToast('Crown complete. Share this testimony.');
+    var shareText = 'Our household completed the crown journey. Join us in prayer at todaysdailybattle.com';
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText).catch(function () {});
   }
   if (typeof renderArmorModal === 'function') renderArmorModal();
@@ -421,7 +504,7 @@ function addArmorChainFromAmen() {
   if (count >= 5) {
     var households = getArmorChainHouseholds() + 1;
     try { localStorage.setItem(ARMOR_CHAIN_HOUSEHOLDS_KEY, String(households)); localStorage.setItem(ARMOR_CHAIN_COUNT_KEY, '0'); } catch (e) {}
-    if (typeof showEliteToast === 'function') showEliteToast('Your household joined the global chain—Armor of God worldwide!');
+    if (typeof showEliteToast === 'function') showEliteToast('Your household joined the global prayer chain.');
     updateArmorChainDisplay();
   } else {
     updateArmorChainDisplay();
@@ -2038,6 +2121,7 @@ const PRAYER_WALL_HEARTS_KEY = 'tdb_prayer_wall_hearts_v1';
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
+const SPACING_LEVEL_KEY = 'tdb_spacing_level';
 const VERSE_SIZE_KEY = 'verseFontSize';
 const TTS_RATE_KEY = 'ttsRate';
 const TTS_VOICE_KEY = 'ttsVoice';
@@ -2147,7 +2231,7 @@ function markTodayAsPrayed() {
   localStorage.setItem(DAILY_BATTLE_STREAK_KEY, JSON.stringify(nextData));
   if (typeof setSyncData === 'function') setSyncData('streak', nextData);
   if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
-  if (typeof showEliteToast === 'function') showEliteToast('Battle won! See you tomorrow.');
+  if (typeof showEliteToast === 'function') showEliteToast('Today is complete. Return tomorrow.');
   var toastEl = document.getElementById('elite-toast');
   if (toastEl) toastEl.classList.add('elite-toast-done');
   if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 60, spread: 70, origin: { y: 0.7 } });
@@ -2495,6 +2579,9 @@ function setDailyReminderEnabled(value) {
   localStorage.setItem(DAILY_REMINDER_KEY, value ? 'true' : 'false');
 }
 
+var DAILY_REMINDER_AUTO_PROMPT_DELAY_MS = 125000;
+var _dailyReminderAutoPromptArmed = false;
+
 function showDailyReminderIfNeeded() {
   if (!isDailyReminderEnabled()) return;
   if (!('Notification' in window)) return;
@@ -2516,6 +2603,65 @@ function showDailyReminderIfNeeded() {
       if (p === 'granted') showDailyReminderIfNeeded();
     });
   }
+}
+
+function wireDailyReminderAutoPrompt() {
+  if (_dailyReminderAutoPromptArmed) return;
+  if (!isDailyReminderEnabled()) return;
+  if (!('Notification' in window)) return;
+  if (Notification.permission !== 'default' && Notification.permission !== 'granted') return;
+  _dailyReminderAutoPromptArmed = true;
+
+  var done = false;
+  var timerId = null;
+  function isIntroActive() {
+    var intro = document.getElementById('welcome-intro-overlay');
+    if (!intro) return false;
+    return !intro.classList.contains('hidden');
+  }
+  function scheduleRetryWhenIntroEnds() {
+    if (done) return;
+    setTimeout(function () {
+      if (done) return;
+      if (isIntroActive()) {
+        scheduleRetryWhenIntroEnds();
+        return;
+      }
+      finishPrompt();
+    }, 1200);
+  }
+  function finishPrompt() {
+    if (done) return;
+    if (isIntroActive()) {
+      scheduleRetryWhenIntroEnds();
+      return;
+    }
+    done = true;
+    if (timerId) clearTimeout(timerId);
+    document.removeEventListener('click', onUseClick, true);
+    document.removeEventListener('keydown', onUseKeydown, true);
+    showDailyReminderIfNeeded();
+  }
+  function isMeaningfulTarget(target) {
+    if (!target || !target.closest) return false;
+    return !!target.closest(
+      '#search-form button, #search-form input, ' +
+      '#quick-pray-btn, #daily-btn, #daily-tile-watch-btn, ' +
+      '#toolbox-content a, #toolbox-content button, #toolbox-content input, #toolbox-content select, ' +
+      '#streak-push-toggle, #daily-reminder-toggle'
+    );
+  }
+  function onUseClick(e) {
+    if (isMeaningfulTarget(e.target)) finishPrompt();
+  }
+  function onUseKeydown(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    if (isMeaningfulTarget(e.target)) finishPrompt();
+  }
+
+  timerId = setTimeout(finishPrompt, DAILY_REMINDER_AUTO_PROMPT_DELAY_MS);
+  document.addEventListener('click', onUseClick, true);
+  document.addEventListener('keydown', onUseKeydown, true);
 }
 
 function urlBase64ToUint8Array(base64Key) {
@@ -2679,11 +2825,11 @@ function wireWeeklyRecapNudge() {
   shareBtn.addEventListener('click', function () {
     var url = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
     if (!url.endsWith('/')) url += '/';
-    var text = 'I prayed ' + count + ' time' + (count === 1 ? '' : 's') + ' last week with Today\'s Daily Battle. Less scroll. More soul. ' + url;
+    var text = 'I prayed ' + count + ' time' + (count === 1 ? '' : 's') + ' last week with Today\'s Daily Battle. Scripture is helping me stay grounded. ' + url;
     if (navigator.share) {
       navigator.share({ title: 'My week with Today\'s Daily Battle', text: text, url: url }).catch(function () {});
     } else {
-      navigator.clipboard.writeText(text).then(function () { shareBtn.textContent = 'Copied!'; setTimeout(function () { shareBtn.textContent = 'Share?'; }, 2000); }).catch(function () {});
+      navigator.clipboard.writeText(text).then(function () { shareBtn.textContent = 'Copied'; setTimeout(function () { shareBtn.textContent = 'Share recap'; }, 2000); }).catch(function () {});
     }
   });
 }
@@ -2824,7 +2970,7 @@ function wireRealPrayerCounter() {
         animateCountAndSet(countNum);
         updateBetaWarriorsCount(countNum);
         var promo = document.getElementById('prayer-count-promo');
-        if (promo) promo.textContent = formatCount(countNum) + ' prayers prayed worldwide. Join ' + formatCount(countNum) + ' warriors right now.';
+        if (promo) promo.textContent = formatCount(countNum) + ' prayers offered worldwide. Join this prayer rhythm today.';
         updateLastPrayerBadge();
         return;
       }
@@ -2845,7 +2991,7 @@ function wireRealPrayerCounter() {
       var finalCount = restRes && (restRes.count != null ? restRes.count : (Array.isArray(restRes.data) ? restRes.data.length : null));
       updateBetaWarriorsCount(finalCount);
       var promo = document.getElementById('prayer-count-promo');
-      if (promo) promo.textContent = (finalCount != null ? formatCount(finalCount) + ' prayers prayed worldwide. Join ' + formatCount(finalCount) + ' warriors right now.' : '');
+      if (promo) promo.textContent = (finalCount != null ? formatCount(finalCount) + ' prayers offered worldwide. Join this prayer rhythm today.' : '');
       updateLastPrayerBadge();
     } catch (e) {
       if (retryCount < MAX_RETRY) {
@@ -3760,9 +3906,25 @@ function renderWelcomeAvatarInto(targetEl) {
 async function showGodWhisperOnLoad() {
   var overlay = document.getElementById('welcome-anointing-overlay');
   var textEl = document.getElementById('welcome-anointing-text');
+  var skipBtn = document.getElementById('welcome-intro-skip');
   var homeAvatar = document.getElementById('home-avatar-center');
   var homeAvatarAltar = document.getElementById('home-avatar-altar');
   var introAvatar = document.getElementById('welcome-avatar-center');
+  var introFinished = false;
+  function finishIntroNow() {
+    if (introFinished) return;
+    introFinished = true;
+    if (skipBtn) {
+      skipBtn.classList.add('hidden');
+      skipBtn.removeEventListener('click', finishIntroNow);
+    }
+    if (overlay) {
+      overlay.classList.add('hidden');
+      overlay.classList.remove('welcome-visible', 'welcome-text-visible', 'welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
+    }
+    document.body.classList.remove('welcome-intro-active');
+    document.body.classList.add('welcome-intro-lift');
+  }
   if (homeAvatar) renderWelcomeAvatarInto(homeAvatar);
   if (homeAvatarAltar) homeAvatarAltar.classList.remove('hidden');
   if (!overlay || !textEl) {
@@ -3786,29 +3948,35 @@ async function showGodWhisperOnLoad() {
     sessionStorage.setItem(WELCOME_INTRO_SESSION_KEY, '1');
   } catch (e) {}
   if (introAvatar) renderWelcomeAvatarInto(introAvatar);
+  if (skipBtn) {
+    skipBtn.classList.remove('hidden');
+    skipBtn.addEventListener('click', finishIntroNow);
+  }
   overlay.classList.remove('hidden');
   overlay.classList.remove('welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
   overlay.classList.add('welcome-visible', 'welcome-text-visible');
   document.body.classList.add('welcome-intro-active');
-  textEl.textContent = 'He is here.';
-  overlay.setAttribute('aria-label', 'He is here.');
+  textEl.textContent = 'The Lord is present.';
+  overlay.setAttribute('aria-label', 'The Lord is present.');
   await waitMs(5000);
-  textEl.textContent = 'Nothing unclean enters here. Consecrate this place with oil, living water, and holy fire.';
+  if (introFinished) return;
+  textEl.textContent = 'Set this place apart in prayer, humility, and peace.';
   overlay.classList.add('welcome-elements-active');
   speakWelcomeAnointingLine();
   await waitMs(3400);
+  if (introFinished) return;
   overlay.classList.add('welcome-elements-merge');
   await waitMs(1500);
-  textEl.textContent = 'Be clean. Come.';
+  if (introFinished) return;
+  textEl.textContent = 'Come with a clean heart.';
   overlay.classList.add('welcome-avatar-visible');
-  overlay.setAttribute('aria-label', 'Be clean. Come.');
+  overlay.setAttribute('aria-label', 'Come with a clean heart.');
   await waitMs(1900);
+  if (introFinished) return;
   document.body.classList.add('welcome-intro-lift');
   overlay.classList.add('welcome-leave');
   await waitMs(1100);
-  overlay.classList.add('hidden');
-  overlay.classList.remove('welcome-visible', 'welcome-text-visible', 'welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
-  document.body.classList.remove('welcome-intro-active');
+  finishIntroNow();
 }
 
 function showNextIntroMessage() {
@@ -3997,13 +4165,11 @@ function maybeCelebrateFirstWinFromWatch() {
   if (!hasFirstWinPrayStep()) return;
   try { localStorage.setItem(doneKey, '1'); } catch (e2) {}
 
-  if (typeof window !== 'undefined' && typeof window.confetti === 'function') {
-    try {
-      window.confetti({ particleCount: 28, spread: 48, startVelocity: 25, scalar: 0.7, origin: { y: 0.78 } });
-      setTimeout(function () {
-        window.confetti({ particleCount: 18, spread: 34, startVelocity: 20, scalar: 0.65, origin: { y: 0.74 } });
-      }, 180);
-    } catch (e3) {}
+  if (typeof window !== 'undefined' && typeof window.tdbConfetti === 'function') {
+    window.tdbConfetti({ particleCount: 28, spread: 48, startVelocity: 25, scalar: 0.7, origin: { y: 0.78 } });
+    setTimeout(function () {
+      window.tdbConfetti({ particleCount: 18, spread: 34, startVelocity: 20, scalar: 0.65, origin: { y: 0.74 } });
+    }, 180);
   }
   showFirstWinBadge();
   if (typeof showEliteToast === 'function') showEliteToast('First win unlocked.');
@@ -4444,7 +4610,7 @@ function wireGodModePrayerEcho() {
       var msg = "I'm praying too—todaysdailybattle.com";
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(msg).then(function () {
-          if (typeof showEliteToast === 'function') showEliteToast('Copied—share it!');
+          if (typeof showEliteToast === 'function') showEliteToast('Copied. Ready to share.');
         }).catch(function () {});
       }
     });
@@ -5211,7 +5377,7 @@ function wirePrayThisWithMe() {
     var s = (verseText && verseText.trim()) ? (verseText.trim() + ' — Praying this today — todaysdailybattle.com') : 'Praying this today — todaysdailybattle.com';
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(s).then(function () {
-        if (typeof showEliteToast === 'function') showEliteToast(toastMsg || 'Copied—share it!');
+        if (typeof showEliteToast === 'function') showEliteToast(toastMsg || 'Copied. Ready to share.');
       }).catch(function () {});
     }
   }
@@ -5222,7 +5388,7 @@ function wirePrayThisWithMe() {
       var ref = card && card.querySelector('strong');
       var p = card && card.querySelector('p');
       var verseText = (ref && p) ? (ref.textContent + ' ' + p.textContent).trim() : (card ? card.textContent.trim() : '');
-      copyVerseAndLink(verseText, 'Copied—share it!');
+      copyVerseAndLink(verseText, 'Copied. Ready to share.');
     });
   }
   var versePageShare = document.getElementById('verse-page-share');
@@ -5259,7 +5425,7 @@ function wirePrayThisWithMe() {
         var r = getDailyVerseRef();
         verseText = r && bible[r] ? (r + ' ' + bible[r]) : '';
       }
-      copyVerseAndLink(verseText, 'Copied—share it!');
+      copyVerseAndLink(verseText, 'Copied. Ready to share.');
     });
   }
   var path = (window.location.pathname || '').replace(/\/+$/, '') || '/';
@@ -5274,7 +5440,7 @@ function wirePrayThisWithMe() {
       btn.className = 'btn-link pray-this-with-me-btn';
       btn.setAttribute('aria-label', 'Copy verse and share link');
       btn.textContent = 'Pray this with me';
-      btn.addEventListener('click', function () { copyVerseAndLink(verseText, 'Copied—share it!'); });
+      btn.addEventListener('click', function () { copyVerseAndLink(verseText, 'Copied. Ready to share.'); });
       var div = item.querySelector('div');
       if (div) div.appendChild(btn);
     });
@@ -5368,7 +5534,7 @@ function startChallenge() {
   var section = document.getElementById('daily-battle-section');
   if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   trackEvent('streak_started');
-  showEliteToast('Welcome to the fight! Here\'s your first badge: New Warrior 🔥');
+  showEliteToast('Welcome. Your first badge is unlocked: New Warrior.');
   (function day1SurpriseConfetti() {
     if (typeof window.tdbConfetti !== 'function') return;
     window.tdbConfetti({ particleCount: 80, spread: 70, origin: { y: 0.65 } });
@@ -5392,7 +5558,7 @@ function startChallenge() {
       if (repairData.month !== monthKey) repairData = { month: monthKey, used: 0 };
       repairData.used = Math.max(0, (repairData.used || 0) - 1);
       localStorage.setItem(STREAK_REPAIR_KEY, JSON.stringify(repairData));
-      showEliteToast('Referred! You got 1 bonus streak repair.');
+      showEliteToast('Referral applied. You received one bonus streak repair.');
     } catch (e) {}
   })();
 }
@@ -5405,7 +5571,7 @@ function updateChallengeBannerState() {
   var started = false;
   try { started = localStorage.getItem(CHALLENGE_30_STARTED_KEY) === '1'; } catch (e) {}
   if (started && count >= 1) {
-    cta.textContent = count <= 30 ? 'Day ' + count + '/30 – keep going! 🔥' : 'Day ' + count + ' – keep going! 🔥';
+    cta.textContent = count <= 30 ? 'Day ' + count + '/30 - stay consistent.' : 'Day ' + count + ' - stay consistent.';
     cta.disabled = true;
     cta.setAttribute('aria-label', 'Challenge in progress');
   }
@@ -5439,8 +5605,8 @@ function updateDailyBattleStreak() {
   var label = familyName ? ((familyName.match(/s$/i) ? familyName + "'" : familyName + "'s") + ' streak') : 'Streak';
   var streakText = nextCount >= 1
     ? (nextCount <= 30
-        ? (nextCount === 1 ? label + ': Day 1/30 — you started! 🔥' : label + ': Day ' + nextCount + '/30 — keep it going! 🔥')
-        : (nextCount === 1 ? label + ': Day 1 — you started! 🔥' : label + ': Day ' + nextCount + ' — keep it going! 🔥'))
+        ? (nextCount === 1 ? label + ': Day 1/30 - started.' : label + ': Day ' + nextCount + '/30 - in progress.')
+        : (nextCount === 1 ? label + ': Day 1 - started.' : label + ': Day ' + nextCount + ' - in progress.'))
     : (familyName ? label + ': 0 days' : 'Streak: 0 days');
   streakEl.textContent = streakText;
   var shareStreakWrap = document.getElementById('share-streak-wrap');
@@ -5451,10 +5617,10 @@ function updateDailyBattleStreak() {
   if (shareStreakBtn) shareStreakBtn.style.display = nextCount >= 1 ? 'inline-block' : 'none';
   const milestoneEl = document.getElementById('daily-battle-milestone');
   if (milestoneEl) {
-    if (nextCount >= 60) milestoneEl.textContent = '🏆 60-Day Victor! Your habit is unshakeable.';
-    else if (nextCount >= 30) milestoneEl.textContent = '🏆 30-Day Champion! You\'re building a strong habit.';
-    else if (nextCount >= 14) milestoneEl.textContent = '⚔️ 14-Day Defender! Two weeks strong.';
-    else if (nextCount >= 7) milestoneEl.textContent = '⚔️ Seven days in a row—keep going!';
+    if (nextCount >= 60) milestoneEl.textContent = '60-day milestone reached. Your habit is steady.';
+    else if (nextCount >= 30) milestoneEl.textContent = '30-day milestone reached. Keep building consistency.';
+    else if (nextCount >= 14) milestoneEl.textContent = '14-day milestone reached. Two strong weeks.';
+    else if (nextCount >= 7) milestoneEl.textContent = 'Seven days in a row. Keep your rhythm.';
     else if (nextCount >= 3) milestoneEl.textContent = 'One verse a day keeps the streak alive. Don\'t break the chain!';
     else milestoneEl.textContent = '';
   }
@@ -5467,15 +5633,15 @@ function updateDailyBattleStreak() {
     var lastMilestone = parseInt(localStorage.getItem('tdb_last_milestone_toast') || '0', 10);
     if (milestoneToast && nextCount > lastMilestone) {
       trackEvent('milestone_reached', { streak_days: nextCount });
-      if (nextCount === 3) showEliteToast('Badge: Faithful 3 ✨');
-      else if (nextCount === 7) showEliteToast('Week Warrior 🔥 Share your streak?');
-      else if (nextCount === 14) showEliteToast('You\'re on fire! 🔥');
+      if (nextCount === 3) showEliteToast('Badge unlocked: Faithful 3.');
+      else if (nextCount === 7) showEliteToast('One-week milestone reached. Consider sharing your streak.');
+      else if (nextCount === 14) showEliteToast('Two-week milestone reached.');
       else if (nextCount === 30) {
-        showEliteToast('30-Day Legend 🏆 You did it!');
+        showEliteToast('30-day milestone reached. Well done.');
         if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 80, spread: 70 });
       }
-      else if (nextCount === 60) showEliteToast('60-Day Victor! Unshakeable. 🏆');
-      else showEliteToast('You\'re on fire! 🔥');
+      else if (nextCount === 60) showEliteToast('60-day milestone reached. Excellent consistency.');
+      else showEliteToast('Milestone reached.');
       localStorage.setItem('tdb_last_milestone_toast', String(nextCount));
     }
   } catch (e) {}
@@ -5565,10 +5731,10 @@ function safeCopyToClipboard(text, onSuccess, onFailure) {
 }
 
 var STREAK_BADGES = [
-  { id: 'new-warrior', name: 'New Warrior', days: 1 },
-  { id: 'hope-hero', name: 'Hope Hero', days: 7 },
-  { id: 'obedience-overcomer', name: 'Obedience Overcomer', days: 14 },
-  { id: 'battle-master', name: 'Battle Master', days: 30 }
+  { id: 'new-warrior', name: 'Faithful Start', days: 1 },
+  { id: 'hope-hero', name: 'Steady Week', days: 7 },
+  { id: 'obedience-overcomer', name: 'Two-Week Builder', days: 14 },
+  { id: 'battle-master', name: 'Thirty-Day Consistency', days: 30 }
 ];
 var BADGES_STORAGE_KEY = 'tdb_unlocked_badges';
 var BADGES_DATES_KEY = 'tdb_badge_dates';
@@ -5612,14 +5778,14 @@ function renderBadgesSection() {
   var unlocked = getUnlockedBadges();
   var dates = getBadgeUnlockDates();
   if (unlocked.length === 0) {
-    container.innerHTML = '<p class="section-note">Unlock New Warrior (Day 1), then Hope Hero, Obedience Overcomer, and Battle Master at 7, 14, 30 days.</p>';
+    container.innerHTML = '<p class="section-note">Unlock badges at day 1, 7, 14, and 30 as your consistency grows.</p>';
     return;
   }
   var html = '<div class="badges-list">';
   STREAK_BADGES.forEach(function (b) {
     var has = unlocked.indexOf(b.id) >= 0;
     var dateStr = has && dates[b.id] ? ' – Unlocked ' + dates[b.id] : '';
-    html += '<span class="badge-pill ' + (has ? 'badge-unlocked' : 'badge-locked') + '" title="' + (has ? b.name + dateStr : b.days + ' days') + '">' + (has ? '🏆 ' + b.name + (dates[b.id] ? ' <small>(' + dates[b.id] + ')</small>' : '') : '🔒 ' + b.days + 'd') + '</span>';
+    html += '<span class="badge-pill ' + (has ? 'badge-unlocked' : 'badge-locked') + '" title="' + (has ? b.name + dateStr : b.days + ' days') + '">' + (has ? b.name + (dates[b.id] ? ' <small>(' + dates[b.id] + ')</small>' : '') : 'Locked: ' + b.days + 'd') + '</span>';
   });
   html += '</div>';
   container.innerHTML = html;
@@ -5672,7 +5838,7 @@ function useStreakRepair() {
   setSyncData('streak_repair', repairData);
   setSyncData('streak', data);
   updateDailyBattleStreak();
-  showEliteToast('Streak repaired! 🔥');
+  showEliteToast('Streak repaired.');
 }
 
 function calculateStreak(dates, todayKey) {
@@ -6125,6 +6291,51 @@ function isRedLetterEnabled() {
 function setRedLetterEnabled(value) {
   localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
   document.body.classList.toggle('red-letter-off', !value);
+}
+
+var SPACING_LEVEL_MIN = 0;
+var SPACING_LEVEL_MAX = 4;
+var SPACING_LEVEL_DEFAULT = 2;
+var SPACING_LEVEL_LABELS = ['Tight', 'Compact', 'Balanced', 'Relaxed', 'Airy'];
+
+function normalizeSpacingLevel(value) {
+  var n = Number(value);
+  if (!Number.isFinite(n)) return SPACING_LEVEL_DEFAULT;
+  n = Math.round(n);
+  if (n < SPACING_LEVEL_MIN) return SPACING_LEVEL_MIN;
+  if (n > SPACING_LEVEL_MAX) return SPACING_LEVEL_MAX;
+  return n;
+}
+
+function getSpacingLevel() {
+  try {
+    return normalizeSpacingLevel(localStorage.getItem(SPACING_LEVEL_KEY));
+  } catch (e) {
+    return SPACING_LEVEL_DEFAULT;
+  }
+}
+
+function applySpacingLevel(level) {
+  var safeLevel = normalizeSpacingLevel(level);
+  try { localStorage.setItem(SPACING_LEVEL_KEY, String(safeLevel)); } catch (e) {}
+  if (document.body && document.body.classList) {
+    for (var i = SPACING_LEVEL_MIN; i <= SPACING_LEVEL_MAX; i++) {
+      document.body.classList.remove('spacing-level-' + i);
+    }
+    document.body.classList.add('spacing-level-' + safeLevel);
+  }
+  var label = SPACING_LEVEL_LABELS[safeLevel] || SPACING_LEVEL_LABELS[SPACING_LEVEL_DEFAULT];
+  var labelEl = document.getElementById('spacing-level-label');
+  if (labelEl) labelEl.textContent = 'Spacing: ' + label;
+  var minusBtn = document.getElementById('spacing-minus');
+  var plusBtn = document.getElementById('spacing-plus');
+  if (minusBtn) minusBtn.disabled = safeLevel <= SPACING_LEVEL_MIN;
+  if (plusBtn) plusBtn.disabled = safeLevel >= SPACING_LEVEL_MAX;
+}
+
+function adjustSpacingLevel(delta) {
+  var next = normalizeSpacingLevel(getSpacingLevel() + Number(delta || 0));
+  applySpacingLevel(next);
 }
 
 function applyVerseSize(size) {
@@ -6650,7 +6861,7 @@ function updateHeaderStreakBadge(streakCount) {
   var badge = document.getElementById('header-streak-badge');
   if (!badge) return;
   var n = typeof streakCount === 'number' ? streakCount : (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
-  badge.textContent = '🔥 ' + n + ' day' + (n === 1 ? '' : 's');
+  badge.textContent = n + ' day' + (n === 1 ? '' : 's');
   badge.setAttribute('aria-label', 'Open streak details. Current streak: ' + n + ' days');
 }
 
@@ -6712,7 +6923,7 @@ function shareDailyBattle() {
     return;
   }
   navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
-  alert('Copied! Share it with someone who needs hope.');
+  alert('Copied. Share it with someone who may need encouragement.');
 }
 
 function buildDailyBattleShareText() {
@@ -6727,12 +6938,12 @@ function buildDailyBattleShareText() {
     base = ref && bible[ref] ? `Today’s Daily Battle — ${ref}: ${bible[ref]}` : '';
   }
   if (!base) return '';
-  return base + ' Less scroll. More soul. #TodaysDailyBattle #DailyBattle #BibleHabit #SpiritualWarfare';
+  return base + ' Daily Scripture and prayer from Today\'s Daily Battle. #TodaysDailyBattle #Bible';
 }
 
 function updateDailyBattleMetaDesc(verseRef) {
   if (!document.querySelector) return;
-  var desc = 'Join the 30-Day Battle Challenge. Verse, prayer, streak—free. #30DayBattle';
+  var desc = 'Join the 30-Day Scripture challenge: verse, prayer, and daily consistency.';
   var meta = document.querySelector('meta[name="description"]');
   if (meta) meta.setAttribute('content', desc);
   var og = document.querySelector('meta[property="og:description"]');
@@ -6953,11 +7164,11 @@ function generateShareCard30() {
   a.href = dataUrl;
   a.click();
   var url = (window.location.origin || '') + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
-  var shareText = 'Day ' + (count || 1) + ' of #30DayBattle – join me? ' + url;
+  var shareText = 'Day ' + (count || 1) + ' of the 30-Day Scripture challenge: ' + url;
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText);
   var w = window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText), '_blank');
-  if (!w) showEliteToast('Card saved! Copy: ' + shareText.substring(0, 40) + '…');
-  else showEliteToast('Card saved! Share on X opened.');
+  if (!w) showEliteToast('Card saved. Share text copied.');
+  else showEliteToast('Card saved. Share window opened.');
 }
 
 function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -7017,7 +7228,7 @@ function generateStreakShareCard() {
     var file = new File([blob], 'daily-battle-streak-' + count + '.png', { type: 'image/png' });
     var url = (window.location.origin || '') + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || 'https://todaysdailybattle.com';
     if (!url.endsWith('/')) url += '/';
-    var text = count === 1 ? 'Day 1 on Today\'s Daily Battle—join me! ' + url : 'Day ' + count + ' streak—join me for a daily verse. ' + url;
+        var text = count === 1 ? 'Day 1 completed on Today\'s Daily Battle. ' + url : 'I reached a ' + count + '-day streak on Today\'s Daily Battle. ' + url;
     if (navigator.share && (typeof navigator.canShare !== 'function' || navigator.canShare({ files: [file], text: text, url: url }))) {
       navigator.share({ files: [file], title: 'My streak', text: text, url: url }).then(function () {
         if (typeof showEliteToast === 'function') showEliteToast('Shared!');
@@ -7027,7 +7238,7 @@ function generateStreakShareCard() {
         a.href = URL.createObjectURL(blob);
         a.click();
         URL.revokeObjectURL(a.href);
-        if (typeof showEliteToast === 'function') showEliteToast('Image saved—share it from your photos.');
+        if (typeof showEliteToast === 'function') showEliteToast('Image saved. Share it from your photos.');
       });
     } else {
       var a = document.createElement('a');
@@ -7035,7 +7246,7 @@ function generateStreakShareCard() {
       a.href = URL.createObjectURL(blob);
       a.click();
       URL.revokeObjectURL(a.href);
-      if (typeof showEliteToast === 'function') showEliteToast('Image saved—share it from your photos.');
+      if (typeof showEliteToast === 'function') showEliteToast('Image saved. Share it from your photos.');
     }
   }, 'image/png');
 }
@@ -12254,7 +12465,7 @@ function writeNbaSignal(key) {
     var tag = document.getElementById('brand-tagline');
     if (tag) tag.textContent = "One verse. One movement.";
     var heroTag = document.getElementById('hero-tagline');
-    if (heroTag) heroTag.textContent = "Less scroll, more soul. For you and your church.";
+    if (heroTag) heroTag.textContent = "Scripture first, every day. For you and your church.";
     var orgCta = document.getElementById('org-movement-cta');
     if (orgCta) orgCta.classList.remove('hidden');
     var promo = document.getElementById('promo-banner');
@@ -12364,7 +12575,7 @@ function writeNbaSignal(key) {
     var twTitle = document.querySelector('meta[name="twitter:title"]');
     if (twTitle) twTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
     var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', 'Join the 30-Day Battle Challenge. Verse, prayer, streak—free. #30DayBattle');
+    if (metaDesc) metaDesc.setAttribute('content', 'Join the 30-Day Scripture challenge: verse, prayer, and daily consistency.');
     var ref = (window.location.search || '').replace(/^\?/, '').split('&').filter(function (p) { return p.indexOf('ref=') === 0; })[0];
     if (ref) {
       try { localStorage.setItem('tdb_referrer', ref.replace('ref=', '')); } catch (e) {}
@@ -12945,12 +13156,13 @@ function writeNbaSignal(key) {
     dailyReminderToggle.addEventListener('change', () => {
       const enable = dailyReminderToggle.checked;
       setDailyReminderEnabled(enable);
-      if (enable && 'Notification' in window && Notification.permission === 'default') {
-        Notification.requestPermission();
+      if (enable) {
+        _dailyReminderAutoPromptArmed = false;
+        wireDailyReminderAutoPrompt();
       }
     });
   }
-  setTimeout(() => showDailyReminderIfNeeded(), 2000);
+  wireDailyReminderAutoPrompt();
 
   const dailyBtn = document.getElementById('daily-btn');
   if (dailyBtn) {
@@ -13895,15 +14107,15 @@ function writeNbaSignal(key) {
         if (count < 1) count = 1;
         var baseUrl = (typeof window !== 'undefined' && window.location && window.location.origin) ? window.location.origin : 'https://todaysdailybattle.com';
         var inviteUrl = baseUrl + '/?invite=' + count;
-        var msg = 'Day ' + count + ' on todaysdailybattle.com—join me! #DailyBattle \uD83D\uDD25 ' + inviteUrl;
-        var shareInviteAlt = 'Less scroll, more soul. Join me: ' + inviteUrl;
+        var msg = 'Day ' + count + ' in the 30-Day Scripture challenge: ' + inviteUrl;
+        var shareInviteAlt = 'Join me in the 30-Day Scripture challenge: ' + inviteUrl;
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(shareInviteAlt).then(function () {
-            if (typeof showEliteToast === 'function') showEliteToast('Copied! Paste to share on X or anywhere.'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Copied!'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
+            if (typeof showEliteToast === 'function') showEliteToast('Copied. Paste to share.'); else if (quickPrayFeedback) { quickPrayFeedback.textContent = 'Copied.'; quickPrayFeedback.style.display = 'block'; setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 2000); }
           }).catch(function () {});
         }
         try {
-          var tweetUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('Day ' + count + ' on todaysdailybattle.com—join me! #DailyBattle \uD83D\uDD25') + '&url=' + encodeURIComponent(inviteUrl);
+          var tweetUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('Day ' + count + ' in the 30-Day Scripture challenge') + '&url=' + encodeURIComponent(inviteUrl);
           window.open(tweetUrl, '_blank', 'noopener,noreferrer,width=550,height=420');
         } catch (e) {}
       });
@@ -13953,8 +14165,8 @@ function writeNbaSignal(key) {
         var url = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
         if (!url.endsWith('/')) url += '/';
         var text = lastPrayer
-          ? 'I just prayed for ' + lastPrayer + ' with Today\'s Daily Battle. Less scroll. More soul. ' + url
-          : 'I just prayed with Today\'s Daily Battle. Less scroll. More soul. ' + url;
+          ? 'I just prayed for ' + lastPrayer + ' with Today\'s Daily Battle. ' + url
+          : 'I just prayed with Today\'s Daily Battle. ' + url;
         if (navigator.share) {
           navigator.share({ title: 'Prayer with Today\'s Daily Battle', text: text, url: url }).catch(function () {});
         } else {
@@ -14158,7 +14370,7 @@ function writeNbaSignal(key) {
       const url = base.replace(/\/?$/, '/');
       const subject = encodeURIComponent("Today's verse — " + ref);
       const body = encodeURIComponent(
-        "Hi,\n\nI wanted to share this verse with you:\n\n" + ref + ": " + plainVerse + "\n\n— From Today's Daily Battle: " + url + "\nLess scroll. More soul."
+        "Hi,\n\nI wanted to share this verse with you:\n\n" + ref + ": " + plainVerse + "\n\nFrom Today's Daily Battle: " + url
       );
       window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
     });
@@ -14206,7 +14418,7 @@ function writeNbaSignal(key) {
       var ref = (currentDailyBattle && currentDailyBattle.ref) || (typeof getDailyVerseRef === 'function' ? getDailyVerseRef() : '') || 'Today\'s verse';
       var verseLine = (currentDailyBattle && currentDailyBattle.verse) ? String(currentDailyBattle.verse).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60) : '';
       if (verseLine && verseLine.length >= 50) verseLine = verseLine.slice(0, 57) + '…';
-      var text = (ref + ' – ' + (verseLine || 'Today\'s verse') + '. A hospital stay that was life-changing. todaysdailybattle.com').trim();
+      var text = (ref + ' - ' + (verseLine || 'Today\'s verse') + '. todaysdailybattle.com').trim();
       safeCopyToClipboard(text, function () {
         if (typeof showEliteToast === 'function') showEliteToast('Copied—paste into X to share.');
       });
@@ -14221,7 +14433,7 @@ function writeNbaSignal(key) {
       var count = window.__currentStreakCount || 0;
       if (count < 1) return;
       var url = window.location.origin + (window.location.pathname || '/').replace(/\/[^/]*$/, '') || window.location.origin;
-      var text = 'Just hit ' + count + ' day' + (count === 1 ? '' : 's') + ' with Today\'s Daily Battle—join me? ' + (url + (url.endsWith('/') ? '' : '/'));
+      var text = 'I reached a ' + count + '-day streak with Today\'s Daily Battle. ' + (url + (url.endsWith('/') ? '' : '/'));
       if (navigator.share) {
         navigator.share({ title: 'My streak', text: text, url: url }).catch(function () {
           window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
@@ -14260,7 +14472,7 @@ function writeNbaSignal(key) {
       if (!el) return;
       el.innerHTML = list.slice(0, 5).map(function (e, i) {
         return '<li class="leaderboard-item">' + (i + 1) + '. ' + escapeHtml(e.name || 'Anonymous') + ' – ' + (e.days || 0) + ' days</li>';
-      }).join('') || '<li class="section-note">Be the first! Complete today\'s verse above, then add your streak here.</li>';
+      }).join('') || '<li class="section-note">No entries yet. Complete today\'s verse, then add your streak.</li>';
     }
     var submit = document.getElementById('leaderboard-submit');
     var nickname = document.getElementById('leaderboard-nickname');
@@ -14299,7 +14511,7 @@ function writeNbaSignal(key) {
       btn.addEventListener('click', function () {
         var url = getInviteUrl();
         safeCopyToClipboard(url, function () {
-          if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+          if (status) status.textContent = 'Link copied. When they begin Day 1, both of you receive one streak repair.';
         }, function (link) {
           if (status) status.textContent = 'Copy this link: ' + link;
         });
@@ -14309,7 +14521,7 @@ function writeNbaSignal(key) {
       shareBtn.addEventListener('click', function () {
         var url = getInviteUrl();
         var title = 'Today\'s Daily Battle';
-        var text = 'Join me for a daily verse and streak—less scroll, more soul.';
+        var text = 'Join me for a daily verse and a consistent Scripture rhythm.';
         if (navigator.share && typeof navigator.share === 'function') {
           navigator.share({ title: title, text: text, url: url }).then(function () {
             if (typeof showEliteToast === 'function') showEliteToast('Shared.');
@@ -14317,7 +14529,7 @@ function writeNbaSignal(key) {
           }).catch(function () {
             safeCopyToClipboard(url, function () {
               if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
-              if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+              if (status) status.textContent = 'Link copied. When they begin Day 1, both of you receive one streak repair.';
             }, function (link) {
               if (status) status.textContent = 'Copy this link: ' + link;
             });
@@ -14325,7 +14537,7 @@ function writeNbaSignal(key) {
         } else {
           safeCopyToClipboard(url, function () {
             if (typeof showEliteToast === 'function') showEliteToast('Link copied—paste anywhere to share.');
-            if (status) status.textContent = 'Link copied! Share it—when they start Day 1, you both get a repair.';
+            if (status) status.textContent = 'Link copied. When they begin Day 1, both of you receive one streak repair.';
           }, function (link) {
             if (status) status.textContent = 'Copy this link: ' + link;
           });
@@ -14415,7 +14627,7 @@ function writeNbaSignal(key) {
   if (streakPushTest) streakPushTest.addEventListener('click', function () {
     if (!('Notification' in window) || Notification.permission !== 'granted') return;
     var count = window.__currentStreakCount || 0;
-    var body = count >= 1 ? 'Day ' + (count <= 30 ? count + '/30' : count) + '—your verse is ready! 🔥' : 'Your verse is ready! 🔥';
+    var body = count >= 1 ? 'Day ' + (count <= 30 ? count + '/30' : count) + ' - your verse is ready.' : 'Your verse is ready.';
     new Notification('Today\'s Daily Battle', { body: body, icon: '/icon.svg' });
   });
 
@@ -16092,6 +16304,16 @@ function writeNbaSignal(key) {
     });
   }
 
+  const spacingMinus = document.getElementById('spacing-minus');
+  const spacingPlus = document.getElementById('spacing-plus');
+  applySpacingLevel(getSpacingLevel());
+  if (spacingMinus) {
+    spacingMinus.addEventListener('click', () => adjustSpacingLevel(-1));
+  }
+  if (spacingPlus) {
+    spacingPlus.addEventListener('click', () => adjustSpacingLevel(1));
+  }
+
   if (postButton && messageInput) {
     postButton.addEventListener('click', async () => {
       if (messageNameInput) {
@@ -16339,6 +16561,221 @@ function wireRandomBattleVerseHero() {
       showMsg('God heard this.');
       if (typeof window !== 'undefined') window.__tdbQuickPrayLastRun = Date.now();
     }
+    function normalizeTopicToken(value) {
+      return String(value || '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    }
+    function readTopicFromUi() {
+      try {
+        if (typeof window !== 'undefined' && window.location && window.location.search) {
+          var query = new URLSearchParams(window.location.search);
+          var fromQuery = normalizeTopicToken(query.get('q') || '');
+          if (fromQuery) return fromQuery;
+        }
+      } catch (e) {}
+      var input = document.getElementById('tdb-search') || document.querySelector('input[name="q"]');
+      var typed = normalizeTopicToken(input && input.value ? input.value : '');
+      return typed || '';
+    }
+    function hashSeed(text) {
+      var str = String(text || '');
+      var h = 0;
+      for (var i = 0; i < str.length; i += 1) h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+      return Math.abs(h);
+    }
+    var storyBgAssetCache = {};
+    function seededStoryPick(list, topic) {
+      if (!Array.isArray(list) || !list.length) return null;
+      var d = new Date();
+      var dayKey = d.getUTCFullYear() + '-' + (d.getUTCMonth() + 1) + '-' + d.getUTCDate();
+      var idx = hashSeed(dayKey + '|' + String(topic || '')) % list.length;
+      return list[idx] || null;
+    }
+    function pickStoryFromManifestPayload(payload, topic) {
+      var stories = Array.isArray(payload && payload.stories) ? payload.stories : [];
+      if (!stories.length) return null;
+      var wanted = normalizeTopicToken(topic);
+      if (wanted) {
+        var byTag = stories.filter(function (story) {
+          var tags = Array.isArray(story && story.tags) ? story.tags : [];
+          return tags.some(function (t) { return normalizeTopicToken(t) === wanted; });
+        });
+        if (byTag.length) return seededStoryPick(byTag, wanted);
+      }
+      return seededStoryPick(stories, wanted);
+    }
+    function fetchDailyStory(topic) {
+      if (window.TDBStoryManifest && typeof window.TDBStoryManifest.pickDaily === 'function') {
+        return window.TDBStoryManifest.pickDaily({ topic: topic, date: new Date() });
+      }
+      return fetch('story-assets-manifest.json?v=2', { cache: 'no-store' })
+        .then(function (res) { return res && res.ok ? res.json() : Promise.reject(new Error('manifest-http-fail')); })
+        .then(function (json) { return pickStoryFromManifestPayload(json, topic); });
+    }
+    function storyAssetSlug(story) {
+      var fromIntegration = normalizeTopicToken(story && story.integration && story.integration.asset_slug);
+      if (fromIntegration) return fromIntegration;
+      var fromKey = normalizeTopicToken(story && story.story_key).replace(/_/g, '-');
+      return fromKey || '';
+    }
+    function storyAssetCandidates(story) {
+      var slug = storyAssetSlug(story);
+      if (!slug) return [];
+      return [
+        '/media/active-bible/' + slug + '.svg',
+        '/media/active-bible/' + slug + '.webp',
+        '/media/active-bible/' + slug + '.png',
+        '/media/active-bible/' + slug + '.jpg',
+        '/media/active-bible/' + slug + '-poster.webp',
+        '/media/active-bible/' + slug + '-poster.png',
+        '/media/active-bible/posters/' + slug + '.webp',
+        '/media/active-bible/posters/' + slug + '.png',
+        '/media/kids-battle/stories/' + slug + '.svg',
+        '/media/kids-battle/stories/' + slug + '.webp',
+        '/media/kids-battle/stories/' + slug + '.png',
+        '/media/kids-battle/posters/' + slug + '.webp',
+        '/media/kids-battle/posters/' + slug + '.png'
+      ];
+    }
+    function probeImage(url) {
+      return new Promise(function (resolve) {
+        var img = new Image();
+        var done = false;
+        var timer = setTimeout(function () {
+          if (done) return;
+          done = true;
+          img.onload = null;
+          img.onerror = null;
+          resolve(false);
+        }, 1200);
+        img.onload = function () {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          img.onload = null;
+          img.onerror = null;
+          resolve(true);
+        };
+        img.onerror = function () {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          img.onload = null;
+          img.onerror = null;
+          resolve(false);
+        };
+        img.src = url;
+      });
+    }
+    function resolveStoryAssetUrl(story) {
+      var slug = storyAssetSlug(story);
+      if (!slug) return Promise.resolve('');
+      if (Object.prototype.hasOwnProperty.call(storyBgAssetCache, slug)) {
+        return Promise.resolve(storyBgAssetCache[slug] || '');
+      }
+      var candidates = storyAssetCandidates(story);
+      var i = 0;
+      function next() {
+        if (i >= candidates.length) {
+          storyBgAssetCache[slug] = '';
+          return Promise.resolve('');
+        }
+        var candidate = candidates[i++];
+        return probeImage(candidate).then(function (ok) {
+          if (ok) {
+            storyBgAssetCache[slug] = candidate;
+            return candidate;
+          }
+          return next();
+        });
+      }
+      return next();
+    }
+    function panelBackground(gradient, assetUrl) {
+      var base = String(gradient || '');
+      if (!assetUrl) return base;
+      var safeUrl = String(assetUrl).replace(/["'()\\\n\r]/g, '');
+      return base + ',url("' + safeUrl + '")';
+    }
+    function buildPanelsFromStory(story) {
+      var scenes = ['dawn', 'storm', 'forest', 'night', 'river', 'forge', 'summit', 'golden'];
+      var gradients = [
+        'linear-gradient(135deg,#0f172a,#1e293b 45%,#7c3aed)',
+        'linear-gradient(135deg,#020617,#1e3a8a 40%,#0ea5e9)',
+        'linear-gradient(130deg,#111827,#064e3b 42%,#14b8a6)',
+        'linear-gradient(135deg,#1f2937,#312e81 46%,#4338ca)',
+        'linear-gradient(130deg,#082f49,#0c4a6e 50%,#3b82f6)',
+        'linear-gradient(135deg,#1f2937,#4c1d95 42%,#a21caf)',
+        'linear-gradient(130deg,#111827,#78350f 48%,#f59e0b)',
+        'linear-gradient(130deg,#1e1b4b,#854d0e 52%,#facc15)'
+      ];
+      var keyframes = Array.isArray(story && story.keyframes) ? story.keyframes : [];
+      var opening = String(story && story.scene_moment ? story.scene_moment : 'Faith steps forward in today\'s battle.');
+      var reference = String(story && story.reference ? story.reference : '').trim();
+      var battleTheme = String(story && story.battle_theme ? story.battle_theme : 'Faithful courage');
+      var beats = [opening].concat(keyframes.slice(0, 6));
+      beats.push('Hold this truth today: ' + battleTheme + '.');
+      return resolveStoryAssetUrl(story).then(function (assetUrl) {
+        return beats.slice(0, 8).map(function (caption, idx) {
+          return {
+            caption: caption,
+            kjv: reference ? ('KJV focus: ' + reference) : 'KJV focus: Stand strong in the Lord today.',
+            bg: panelBackground(gradients[idx % gradients.length], assetUrl),
+            scene: scenes[idx % scenes.length]
+          };
+        });
+      });
+    }
+    function mentorAvatarForStory(story) {
+      var mentor = normalizeTopicToken(story && story.mentor);
+      if (mentor === 'david') return { label: 'David', face: '🗡️', helmet: true, shield: true, belt: true };
+      if (mentor === 'moses') return { label: 'Moses', face: '🧔', helmet: false, shield: true, belt: true };
+      if (mentor === 'esther') return { label: 'Esther', face: '👑', helmet: true, shield: true, belt: true };
+      if (mentor === 'ruth') return { label: 'Ruth', face: '🌾', helmet: true, shield: true, belt: true };
+      if (mentor === 'paul') return { label: 'Paul', face: '📜', helmet: true, shield: true, belt: true };
+      return { label: 'Mentor', face: '🛡️', helmet: true, shield: true, belt: true };
+    }
+    function openFallbackCartoon() {
+      if (!window.TDBCartoonPlayer || typeof window.TDBCartoonPlayer.open !== 'function') return false;
+      window.TDBCartoonPlayer.open({
+        characterName: 'David',
+        battleTitle: 'Giant Slayer',
+        userInitiated: true,
+        useMyAvatar: true,
+        userAvatar: { label: 'Your avatar', face: '🛡️', helmet: true, shield: true, belt: true },
+        panels: [
+          { caption: 'Faith over fear.', kjv: 'Be strong and of a good courage. (Joshua 1:9)' }
+        ]
+      });
+      return true;
+    }
+    function openDailyStoryCartoon() {
+      if (!window.TDBCartoonPlayer || typeof window.TDBCartoonPlayer.open !== 'function') return Promise.resolve(false);
+      var topic = readTopicFromUi();
+      return fetchDailyStory(topic)
+        .then(function (story) {
+          if (!story) return openFallbackCartoon();
+          var title = String(story.title || 'Today\'s Battle Story').trim();
+          var reference = String(story.reference || '').trim();
+          return buildPanelsFromStory(story).then(function (panels) {
+            var payload = {
+              characterName: String(story.mentor || 'Mentor'),
+              battleTitle: title,
+              modeLabel: reference ? ('Today\'s Battle · ' + reference) : 'Today\'s Battle · Auto-play',
+              userInitiated: true,
+              useMyAvatar: true,
+              mentorAvatar: mentorAvatarForStory(story),
+              userAvatar: { label: 'Your avatar', face: '🛡️', helmet: true, shield: true, belt: true },
+              panels: panels,
+              options: { showEndPanel: true }
+            };
+            window.TDBCartoonPlayer.open(payload);
+            return true;
+          });
+        })
+        .catch(function () {
+          return openFallbackCartoon();
+        });
+    }
 
     document.addEventListener('click', function (evt) {
       var target = evt && evt.target && evt.target.closest ? evt.target.closest('button, a') : null;
@@ -16361,23 +16798,14 @@ function wireRandomBattleVerseHero() {
           if (last >= firedAt) return;
           if (typeof startWatchLaunchTransition === 'function') startWatchLaunchTransition();
           showMsg('Opening today\'s story...');
-          if (window.TDBCartoonPlayer && typeof window.TDBCartoonPlayer.open === 'function') {
-            try {
-              window.TDBCartoonPlayer.open({
-                characterName: 'David',
-                battleTitle: 'Giant Slayer',
-                userInitiated: true,
-                useMyAvatar: true,
-                userAvatar: { label: 'Your avatar', face: '🛡️', helmet: true, shield: true, belt: true },
-                panels: [
-                  { caption: 'Faith over fear.', kjv: 'Be strong and of a good courage. (Joshua 1:9)' }
-                ]
-              });
+          openDailyStoryCartoon()
+            .then(function (opened) {
+              if (!opened) return;
               if (typeof maybeCelebrateFirstWinFromWatch === 'function') maybeCelebrateFirstWinFromWatch();
               writeNbaSignal('tdb_nba_last_watch_at');
               if (typeof window !== 'undefined') window.__tdbDailyTileWatchLastRun = Date.now();
-            } catch (e2) {}
-          }
+            })
+            .catch(function () {});
         }, 220);
       }
     }, true);

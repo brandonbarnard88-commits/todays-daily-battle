@@ -3785,11 +3785,13 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 
 /* Topic list: icons + color tags for faster scanning */
 .quick-topic[data-topic="family"]::before { content: '🏠 '; }
+.quick-topic[data-topic="free will"]::before { content: '🧭 '; }
 .quick-topic[data-topic="gratitude"]::before { content: '🙏 '; }
 .quick-topic[data-topic="loneliness"]::before { content: '🤗 '; }
 .quick-topic[data-topic="guilt"]::before { content: '💭 '; }
 .quick-topic[data-topic="courage"]::before { content: '⚔ '; }
 .quick-topic[data-topic="hope"]::before { content: '♥ '; color: #dc2626; }
+.quick-topic[data-topic="peace"]::before { content: '🕊 '; }
 .quick-topic[data-topic="spiritualwarfare"]::before { content: '🛡 '; }
 .quick-topic[data-topic="heartache"]::before { content: '💔 '; }
 .quick-topic[data-topic="grief"]::before { content: '🕊 '; }
@@ -3810,6 +3812,8 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .quick-topic[data-topic="sleep"]::before { content: '🌙 '; }
 .quick-topic[data-topic="marriage"]::before { content: '💒 '; }
 .quick-topic[data-topic="faith"]::before { content: '✝ '; }
+.quick-topic[data-topic="obedience"]::before { content: '🛤 '; }
+.quick-topic[data-topic="wisdom"]::before { content: '📜 '; }
 .quick-actions .quick-topic { border-left: 3px solid transparent; }
 .quick-topic[data-topic="hope"] { border-left-color: rgba(220, 38, 38, 0.5); }
 .quick-topic[data-topic="spiritualwarfare"] { border-left-color: rgba(148, 163, 184, 0.5); }

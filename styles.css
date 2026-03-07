@@ -118,6 +118,12 @@ li {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(148, 163, 184, 0.15);
 }
+.quick-search-priority-top {
+  margin-top: 0.35rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 4;
+}
 
 /* Mobile-specific (small screens) */
 @media (max-width: 480px) {

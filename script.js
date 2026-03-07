@@ -12486,6 +12486,24 @@ function writeNbaSignal(key) {
         var q = getQueryInput();
         if (q && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(q.value || '');
       });
+      var prioritySearchInput = document.getElementById('quick-search-priority-input');
+      var prioritySearchBtn = document.getElementById('quick-search-priority-btn');
+      var prioritySearchForm = document.getElementById('quick-search-priority-form');
+      function runPrioritySearch() {
+        var inputVal = prioritySearchInput ? String(prioritySearchInput.value || '').trim() : '';
+        if (!inputVal) return;
+        var mainInput = getQueryInput();
+        if (mainInput) mainInput.value = inputVal;
+        if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(inputVal);
+      }
+      if (prioritySearchBtn) prioritySearchBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        runPrioritySearch();
+      });
+      if (prioritySearchForm) prioritySearchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        runPrioritySearch();
+      });
       var queryInput = getQueryInput();
       try {
       if (queryInput && typeof window.initVerseSearchDropdown === 'function') {

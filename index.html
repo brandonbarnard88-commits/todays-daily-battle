@@ -376,7 +376,12 @@
         </section>
         <section id="quick-search-priority" class="glass util-mt-0_5" aria-label="Search by what you feel right now">
           <h3 class="section-divider util-mt-0 util-mb-0_5">Search by what you feel right now</h3>
-          <p class="section-note util-mb-0_5">Tap a feeling/topic below for immediate KJV guidance. No scrolling required.</p>
+          <p class="section-note util-mb-0_5">Search anything first (verse, phrase, question, or life situation), then use the 30 quick topics below.</p>
+          <form id="quick-search-priority-form" class="search-hero-form quick-search-priority-form" method="get" action="">
+            <label for="quick-search-priority-input" class="sr-only">Search anything in Scripture</label>
+            <input type="search" id="quick-search-priority-input" class="search-hero-input search-hero-input-gold" placeholder="Search anything (example: betrayal, purpose, Romans 8:28)" aria-label="Search anything in Scripture" autocomplete="off">
+            <button type="submit" id="quick-search-priority-btn" class="btn btn-primary search-hero-btn">Search Anything</button>
+          </form>
           <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-priority" aria-label="Priority quick topic search">
             <a href="?q=free+will#quick-search-hero" class="btn btn-primary topic-chip quick-topic">FREE WILL</a>
             <a href="?q=family#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Family</a>
@@ -1485,7 +1490,7 @@
   <script src="search-wire.js?v=20260313" defer></script>
   <script src="fallback-search.js?v=20260313" defer></script>
   <script data-lazy-src="auth.js?v=20260314"></script>
-  <script data-lazy-src="verse-rotator.js?v=20260314"></script>
+  <script src="verse-rotator.js?v=20260314" defer></script>
   <script data-lazy-src="curriculum-widget.js?v=20260314"></script>
   <script data-lazy-src="family-hierarchy.js?v=20260305"></script>
   <script data-lazy-src="crest.js?v=20260316"></script>

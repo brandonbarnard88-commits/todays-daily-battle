@@ -497,6 +497,43 @@ body {
   -webkit-backdrop-filter: blur(24px);
   font-family: var(--font-display), Georgia, serif;
 }
+.top-bar.top-bar-minimal {
+  gap: 0.45rem 0.7rem;
+  padding: 0.45rem 0.85rem;
+}
+.top-bar.top-bar-minimal .brand {
+  gap: 0.12rem;
+}
+.top-bar.top-bar-minimal .brand-title {
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+.top-bar.top-bar-minimal .brand-subtitle {
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+}
+.top-bar.top-bar-minimal .brand-tagline,
+.top-bar.top-bar-minimal .brand-secondary,
+.top-bar.top-bar-minimal #family-armor-stories-btn,
+.top-bar.top-bar-minimal #add-family-btn,
+.top-bar.top-bar-minimal #spacing-control,
+.top-bar.top-bar-minimal #bless-session-btn,
+.top-bar.top-bar-minimal #armor-badge,
+.top-bar.top-bar-minimal #armor-chain-display,
+.top-bar.top-bar-minimal #silent-amens-badge,
+.top-bar.top-bar-minimal #battle-pro-badge,
+.top-bar.top-bar-minimal #auth-daily-verse {
+  display: none !important;
+}
+@media (max-width: 768px) {
+  .top-bar.top-bar-minimal .brand-subtitle {
+    display: none;
+  }
+  .top-bar.top-bar-minimal .brand-title {
+    font-size: 1.12rem;
+    letter-spacing: 0.03em;
+  }
+}
 .top-bar-gold {
   border-bottom: 2px solid rgba(212, 175, 55, 0.5);
   box-shadow: 0 1px 0 var(--elite-gold), 0 8px 40px rgba(0, 0, 0, 0.35);
@@ -2288,6 +2325,12 @@ body:has(.search-hero-home) #search-hero {
   align-items: center;
   max-width: 38rem;
   margin: 0 auto 0.5rem;
+}
+.quick-search-priority-form {
+  margin: 0 auto 0.75rem;
+}
+.quick-search-priority-form .search-hero-btn {
+  min-width: 11rem;
 }
 .search-hero-form .search-hero-input {
   flex: 1;

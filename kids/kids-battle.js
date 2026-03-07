@@ -419,6 +419,54 @@
     }
   };
 
+  const BOOK_CONTEXT = {
+    genesis: { who: 'Moses (by the Holy Spirit)', to: 'God\'s people learning their beginnings' },
+    exodus: { who: 'Moses (by the Holy Spirit)', to: 'God\'s people learning trust and obedience' },
+    leviticus: { who: 'Moses (by the Holy Spirit)', to: 'God\'s people learning how to live holy' },
+    numbers: { who: 'Moses (by the Holy Spirit)', to: 'God\'s people in the wilderness' },
+    deuteronomy: { who: 'Moses', to: 'Israel before entering the promised land' },
+    joshua: { who: 'Joshua / biblical record', to: 'God\'s people learning courage and obedience' },
+    judges: { who: 'Biblical record', to: 'God\'s people who needed to return to God' },
+    ruth: { who: 'Biblical record', to: 'God\'s people learning loyalty and kindness' },
+    '1 samuel': { who: 'Biblical record', to: 'God\'s people learning courage and leadership' },
+    '2 samuel': { who: 'Biblical record', to: 'God\'s people learning about David and God\'s promises' },
+    '1 kings': { who: 'Biblical record', to: 'God\'s people learning wisdom and faithfulness' },
+    '2 kings': { who: 'Biblical record', to: 'God\'s people learning trust in hard times' },
+    psalm: { who: 'David and other worship leaders', to: 'God\'s people in prayer and worship' },
+    proverbs: { who: 'Solomon (mostly)', to: 'God\'s people learning wise living' },
+    isaiah: { who: 'Isaiah', to: 'God\'s people who needed comfort and correction' },
+    jeremiah: { who: 'Jeremiah', to: 'God\'s people in a hard season' },
+    daniel: { who: 'Daniel / biblical record', to: 'God\'s people learning faith under pressure' },
+    jonah: { who: 'Biblical record', to: 'God\'s people learning mercy and obedience' },
+    matthew: { who: 'Matthew', to: 'People learning Jesus is the promised King' },
+    mark: { who: 'Mark', to: 'People learning what Jesus did with power and compassion' },
+    luke: { who: 'Luke', to: 'People learning the careful story of Jesus' },
+    john: { who: 'John', to: 'People learning to believe in Jesus' },
+    acts: { who: 'Luke', to: 'People learning how the early church grew' },
+    romans: { who: 'Paul', to: 'The church in Rome' },
+    '1 corinthians': { who: 'Paul', to: 'The church in Corinth' },
+    '2 corinthians': { who: 'Paul', to: 'The church in Corinth' },
+    galatians: { who: 'Paul', to: 'Churches in Galatia' },
+    ephesians: { who: 'Paul', to: 'Believers in Ephesus' },
+    philippians: { who: 'Paul', to: 'Believers in Philippi' },
+    colossians: { who: 'Paul', to: 'Believers in Colossae' },
+    '1 thessalonians': { who: 'Paul', to: 'Believers in Thessalonica' },
+    '2 thessalonians': { who: 'Paul', to: 'Believers in Thessalonica' },
+    '1 timothy': { who: 'Paul', to: 'Timothy, a young church leader' },
+    '2 timothy': { who: 'Paul', to: 'Timothy, to stay strong and faithful' },
+    titus: { who: 'Paul', to: 'Titus, a church leader' },
+    philemon: { who: 'Paul', to: 'Philemon, a believer and friend' },
+    hebrews: { who: 'Biblical letter writer', to: 'Believers tempted to give up' },
+    james: { who: 'James', to: 'Believers learning faith-in-action' },
+    '1 peter': { who: 'Peter', to: 'Believers facing trials' },
+    '2 peter': { who: 'Peter', to: 'Believers growing in truth' },
+    '1 john': { who: 'John', to: 'Believers learning truth and love' },
+    '2 john': { who: 'John', to: 'A church family' },
+    '3 john': { who: 'John', to: 'A believer named Gaius' },
+    jude: { who: 'Jude', to: 'Believers called to stand for truth' },
+    revelation: { who: 'John', to: 'Churches needing hope and endurance' }
+  };
+
   const KIDS_VERSES = [
   { ref: 'Philippians 4:13', text: 'I can do all things through Christ which strengtheneth me.' },
   { ref: 'Psalm 23:1', text: 'The Lord is my shepherd; I shall not want.' },
@@ -3002,6 +3050,23 @@
     return key;
   }
 
+  function bookFromRef(ref) {
+    var key = normalizeRefKey(ref);
+    if (!key) return '';
+    var m = key.match(/^([1-3]?\s*[a-z]+(?:\s+[a-z]+)*)\s+\d+:\d+/i);
+    if (!m) return '';
+    return m[1].replace(/\s+/g, ' ').trim();
+  }
+
+  function deriveApplyText(ref, kidText) {
+    var simple = String(kidText || '').trim();
+    if (simple) return simple;
+    var book = bookFromRef(ref);
+    if (book === 'psalm' || book === 'proverbs') return 'Pray this verse to God and practice it today.';
+    if (book === 'matthew' || book === 'mark' || book === 'luke' || book === 'john') return 'Watch how Jesus lived, then copy Him in one choice today.';
+    return 'Ask God to help you live this verse today, one brave step at a time.';
+  }
+
   function renderKidContext(ref) {
     var ctxEl = document.getElementById('kids-verse-context');
     if (!ctxEl) return;
@@ -3051,7 +3116,13 @@
     var key = resolveContextKey(ref);
     var ctx = KID_CONTEXT[key];
     if (ctx) return ctx;
-    return { who: 'God or a Bible hero', to: 'people like you', apply: 'Talk to God about it today!' };
+    var book = bookFromRef(key);
+    var base = BOOK_CONTEXT[book] || { who: 'God\'s Word', to: 'God\'s people' };
+    return {
+      who: base.who,
+      to: base.to,
+      apply: deriveApplyText(key, getKidText(key))
+    };
   }
 
   function escapeHtml(s) {

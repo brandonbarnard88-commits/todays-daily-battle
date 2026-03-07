@@ -12362,11 +12362,11 @@ function writeNbaSignal(key) {
       var priority = document.getElementById('quick-search-priority');
       var v2 = document.getElementById('v2-command-deck');
       if (!hero && !priority && !v2) return;
-      var mainContent = document.getElementById('main-content') || document.querySelector('main');
-      if (!mainContent) return;
-      var contentInner = mainContent.querySelector('.content-inner');
-      var targetParent = contentInner || mainContent;
-      if (!targetParent) return;
+      var targetParent = null;
+      if (hero && hero.parentNode) targetParent = hero.parentNode;
+      if (!targetParent && priority && priority.parentNode) targetParent = priority.parentNode;
+      if (!targetParent && v2 && v2.parentNode) targetParent = v2.parentNode;
+      if (!targetParent || !targetParent.insertBefore) return;
 
       // Place in reverse to end with: hero -> priority -> v2.
       var ordered = [hero, priority, v2].filter(Boolean);
@@ -12381,6 +12381,10 @@ function writeNbaSignal(key) {
       if (priority) {
         priority.classList.add('quick-search-priority-top');
         priority.setAttribute('data-priority-top', 'true');
+      }
+      if (v2) {
+        v2.classList.add('quick-search-priority-top');
+        v2.setAttribute('data-priority-top', 'true');
       }
     })();
   } catch (_) {}

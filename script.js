@@ -12362,16 +12362,25 @@ function writeNbaSignal(key) {
       var priority = document.getElementById('quick-search-priority');
       var v2 = document.getElementById('v2-command-deck');
       if (!hero && !priority && !v2) return;
+      var ordered = [hero, priority, v2].filter(Boolean);
       var targetParent = null;
-      if (hero && hero.parentNode) targetParent = hero.parentNode;
+      var insertionAnchor = null;
+      var toolboxContent = document.getElementById('toolbox-content');
+      if (toolboxContent) {
+        targetParent = toolboxContent;
+        insertionAnchor = toolboxContent.querySelector('.toolbox-block, .toolbox-cards, [data-toolbox-drawer]');
+      }
+      if (!targetParent && hero && hero.parentNode) targetParent = hero.parentNode;
       if (!targetParent && priority && priority.parentNode) targetParent = priority.parentNode;
       if (!targetParent && v2 && v2.parentNode) targetParent = v2.parentNode;
       if (!targetParent || !targetParent.insertBefore) return;
 
       // Place in reverse to end with: hero -> priority -> v2.
-      var ordered = [hero, priority, v2].filter(Boolean);
+      for (var j = 0; j < ordered.length; j++) {
+        if (ordered[j]) ordered[j].setAttribute('data-toolbox-drawer', 'battle');
+      }
       for (var i = ordered.length - 1; i >= 0; i--) {
-        targetParent.insertBefore(ordered[i], targetParent.firstChild || null);
+        targetParent.insertBefore(ordered[i], insertionAnchor || targetParent.firstChild || null);
       }
 
       if (hero) {

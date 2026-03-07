@@ -10313,6 +10313,15 @@ body.has-promo-banner .header-search-sticky {
   color: rgba(226, 232, 240, 0.95);
   text-align: center;
 }
+.tdb-kjv-word {
+  opacity: 0.6;
+  transition: opacity 140ms ease, color 140ms ease, text-shadow 140ms ease;
+}
+.tdb-kjv-word.spoken {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.22);
+}
 .tdb-verse-actions {
   display: flex;
   justify-content: center;

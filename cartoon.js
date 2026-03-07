@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var NARRATION_ENABLED = false;
+  var NARRATION_ENABLED = true;
 
   var PANEL_MS = 15000;
   var MAX_PANELS = 8;
@@ -82,7 +82,9 @@
     sourcePayload: null,
     previewMaxAvatar: false,
     options: {},
-    touch: { x: 0, y: 0, active: false }
+    touch: { x: 0, y: 0, active: false },
+    speechToken: 0,
+    readAlongTimer: null
   };
 
   function esc(s) {
@@ -423,11 +425,11 @@
     setKjvText(0);
   }
 
-  function setKjvText(index) {
+  function setKjvText(index, spokenWords) {
     var el = document.getElementById('tdb-kjv-overlay');
     if (!el || !state.panels[index]) return;
     var kjv = state.panels[index].kjv || '';
-    el.textContent = kjv;
+    renderReadAlongText(el, kjv, spokenWords);
     var btn = document.getElementById('tdb-kjv-breakdown-btn');
     if (btn) {
       var parsed = parsePanelVerse(kjv);
@@ -435,6 +437,57 @@
       btn.setAttribute('data-text', parsed.text);
       btn.disabled = !parsed.ref || !parsed.text;
     }
+  }
+
+  function renderReadAlongText(el, text, spokenWords) {
+    if (!el) return;
+    var value = String(text || '');
+    var words = value.match(/\S+/g) || [];
+    var spoken = Math.max(0, Math.min(words.length, Number(spokenWords) || 0));
+    if (!words.length || spoken <= 0) {
+      el.textContent = value;
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < words.length; i++) {
+      html += '<span class="tdb-kjv-word' + (i < spoken ? ' spoken' : '') + '">' + esc(words[i]) + '</span>';
+      if (i < words.length - 1) html += ' ';
+    }
+    el.innerHTML = html;
+  }
+
+  function spokenWordCountForChar(text, charIndex) {
+    var idx = Math.max(0, Number(charIndex) || 0);
+    var value = String(text || '');
+    var slice = value.slice(0, idx);
+    var words = slice.match(/\S+/g);
+    return words ? words.length : 0;
+  }
+
+  function stopReadAlongTicker() {
+    if (state.readAlongTimer) clearInterval(state.readAlongTimer);
+    state.readAlongTimer = null;
+  }
+
+  function startReadAlongTicker(index, text, token) {
+    stopReadAlongTicker();
+    var value = String(text || '');
+    var words = value.match(/\S+/g) || [];
+    if (!words.length) return;
+    var totalWords = words.length;
+    var shownWords = 0;
+    var estMs = Math.max(2800, Math.min(PANEL_MS - 1200, totalWords * 430));
+    var intervalMs = 190;
+    var increment = Math.max(0.2, totalWords / Math.max(1, estMs / intervalMs));
+    state.readAlongTimer = setInterval(function () {
+      if (!state.isOpen || token !== state.speechToken || state.index !== index) {
+        stopReadAlongTicker();
+        return;
+      }
+      shownWords += increment;
+      setKjvText(index, Math.floor(shownWords));
+      if (shownWords >= totalWords) stopReadAlongTicker();
+    }, intervalMs);
   }
 
   function parsePanelVerse(kjv) {
@@ -454,8 +507,8 @@
       all[i].classList.toggle('active', i === index);
     }
     setSceneHud(index);
-    setKjvText(index);
-    speak(state.panels[index] ? state.panels[index].kjv : '');
+    setKjvText(index, 0);
+    speak(state.panels[index] ? state.panels[index].kjv : '', index);
     pulseStoryboard();
     triggerSceneAccent(true);
   }
@@ -569,6 +622,7 @@
     try {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
     } catch (e) {}
+    stopReadAlongTicker();
     stopHymnLoop();
     stopSpriteLoop();
   }
@@ -611,8 +665,51 @@
     return selected || voices[0];
   }
 
-  function speak(text) {
-    return;
+  function speak(text, panelIndex) {
+    var value = String(text || '').trim();
+    if (panelIndex !== state.index) return;
+    stopReadAlongTicker();
+    state.speechToken += 1;
+    var token = state.speechToken;
+    if (!value) return;
+    if (!NARRATION_ENABLED || !window.speechSynthesis || typeof window.SpeechSynthesisUtterance !== 'function') {
+      setKjvText(panelIndex, 0);
+      return;
+    }
+    try { window.speechSynthesis.cancel(); } catch (e) {}
+    var utter = new SpeechSynthesisUtterance(value);
+    var voice = pickVoice();
+    if (voice) utter.voice = voice;
+    utter.rate = 0.96;
+    utter.pitch = 1.0;
+    utter.volume = 1.0;
+    utter.onstart = function () {
+      if (token !== state.speechToken || state.index !== panelIndex) return;
+      startReadAlongTicker(panelIndex, value, token);
+    };
+    utter.onboundary = function (evt) {
+      if (token !== state.speechToken || state.index !== panelIndex) return;
+      if (!evt || evt.name !== 'word') return;
+      var spoken = spokenWordCountForChar(value, evt.charIndex);
+      setKjvText(panelIndex, spoken);
+    };
+    utter.onend = function () {
+      if (token !== state.speechToken || state.index !== panelIndex) return;
+      stopReadAlongTicker();
+      var total = (value.match(/\S+/g) || []).length;
+      setKjvText(panelIndex, total);
+    };
+    utter.onerror = function () {
+      if (token !== state.speechToken || state.index !== panelIndex) return;
+      stopReadAlongTicker();
+      setKjvText(panelIndex, 0);
+    };
+    try {
+      window.speechSynthesis.speak(utter);
+    } catch (err) {
+      stopReadAlongTicker();
+      setKjvText(panelIndex, 0);
+    }
   }
 
   function startHymnLoop() {

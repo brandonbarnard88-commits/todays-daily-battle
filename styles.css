@@ -10061,7 +10061,7 @@ body.has-promo-banner .header-search-sticky {
   padding: max(0.75rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
   display: grid;
   grid-template-rows: auto auto 1fr auto auto;
-  gap: 0.75rem;
+  gap: 0.55rem;
   max-height: 100dvh;
   overflow-y: auto;
 }
@@ -10074,7 +10074,8 @@ body.has-promo-banner .header-search-sticky {
 .tdb-cartoon-kicker {
   margin: 0;
   color: rgba(250, 204, 21, 0.9);
-  font-size: 0.95rem;
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
 }
 .tdb-cartoon-close {
   border: 1px solid rgba(148, 163, 184, 0.45);
@@ -10087,21 +10088,14 @@ body.has-promo-banner .header-search-sticky {
   font-size: 1.5rem;
 }
 .tdb-cinema-hud {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0.45rem;
+  display: block;
 }
 .tdb-cinema-scene-tag,
 .tdb-cinema-progress-text {
-  margin: 0;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(226, 232, 240, 0.86);
+  display: none;
 }
 .tdb-cinema-progress {
-  height: 0.38rem;
+  height: 0.32rem;
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.42);
@@ -11013,11 +11007,8 @@ body.has-promo-banner .header-search-sticky {
   .daily-tile-watch-btn { width: 100%; max-width: 18rem; }
   .tdb-cartoon-panels { min-height: 52vh; }
   .tdb-cinema-hud {
-    grid-template-columns: 1fr;
-    gap: 0.4rem;
+    display: block;
   }
-  .tdb-cinema-scene-tag,
-  .tdb-cinema-progress-text { text-align: center; }
   .tdb-road-wrap { min-height: 170px; }
   .family-armor-stories-modal-inner {
     width: 96vw;

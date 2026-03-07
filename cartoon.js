@@ -102,15 +102,13 @@
     root.innerHTML =
       '<div class="tdb-cartoon-stage">' +
         '<div class="tdb-cartoon-header">' +
-          '<p id="tdb-cartoon-kicker" class="tdb-cartoon-kicker">Today\'s Battle · Auto-play</p>' +
+          '<p id="tdb-cartoon-kicker" class="tdb-cartoon-kicker">Today\'s Battle</p>' +
           '<button type="button" id="tdb-cartoon-close" class="tdb-cartoon-close" aria-label="Close story">×</button>' +
         '</div>' +
         '<div class="tdb-cinema-hud" aria-hidden="true">' +
-          '<p id="tdb-cinema-scene-tag" class="tdb-cinema-scene-tag">Scene I · Dawn Watch</p>' +
           '<div class="tdb-cinema-progress">' +
             '<div id="tdb-cartoon-progress-fill" class="tdb-cinema-progress-fill"></div>' +
           '</div>' +
-          '<p id="tdb-cartoon-progress-text" class="tdb-cinema-progress-text">1 / 8</p>' +
         '</div>' +
         '<div id="tdb-cartoon-panels" class="tdb-cartoon-panels"></div>' +
         '<p id="tdb-kjv-overlay" class="tdb-kjv-overlay"></p>' +
@@ -677,8 +675,12 @@
     root.classList.remove('hidden');
     var kicker = root.querySelector('#tdb-cartoon-kicker');
     if (kicker) {
-      if (payload.modeLabel) kicker.textContent = String(payload.modeLabel);
-      else kicker.textContent = payload.useMyAvatar ? 'Today\'s Battle · Auto-play · 2 min · walk with me' : 'Today\'s Battle · Auto-play · 2 min';
+      if (payload.modeLabel) {
+        var lead = String(payload.modeLabel).split('·')[0].trim();
+        kicker.textContent = lead || 'Today\'s Battle';
+      } else {
+        kicker.textContent = 'Today\'s Battle';
+      }
     }
     var end = root.querySelector('#tdb-cartoon-end');
     if (end) {

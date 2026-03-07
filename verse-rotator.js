@@ -206,11 +206,26 @@
     if (!item) {
       ref.textContent = 'Psalm 23:1 (KJV)';
       text.textContent = 'The LORD is my shepherd; I shall not want.';
+      syncTopVerseEcho({ ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.' });
       return;
     }
     ref.textContent = item.ref + ' (KJV)';
     text.textContent = item.text;
+    syncTopVerseEcho(item);
+    try {
+      if (typeof window !== 'undefined' && typeof window.CustomEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('tdb:home-verse-rotated', { detail: { ref: item.ref, text: item.text } }));
+      }
+    } catch (e) {}
     ensureWhyTooltip(item);
+  }
+
+  function syncTopVerseEcho(item) {
+    if (!item || !item.ref || !item.text) return;
+    var brandRef = document.getElementById('brand-verse-echo-ref');
+    var brandText = document.getElementById('brand-verse-echo-text');
+    if (brandRef) brandRef.textContent = String(item.ref);
+    if (brandText) brandText.textContent = String(item.text);
   }
 
   function getMode() {

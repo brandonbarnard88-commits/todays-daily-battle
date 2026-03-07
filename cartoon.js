@@ -294,7 +294,7 @@
   }
 
   function walkerHtml(data, isMac) {
-    var label = isMac ? 'Mac Daddy (full armor since Nov 3)' : (data.label || 'Your avatar');
+    var label = isMac ? 'Battle Mentor (full armor)' : (data.label || 'Your avatar');
     if (data && data.label) label = String(data.label);
     var avatarFace = (data && data.face) ? String(data.face) : battleFaceFor(data);
     var gender = String((data && data.gender) || '').toLowerCase();
@@ -344,11 +344,11 @@
         '<p class="section-note util-mb-0_25">' + esc(label) + '</p>' +
         '<p class="section-note util-mb-0_25" aria-label="Avatar person marker">' + esc(avatarFace) + ' ' + esc(personTag) + '</p>' +
         '<div class="tdb-walker-armor">' +
-          armorChip('Helmet', data.helmet) +
-          armorChip('Breastplate', data.breastplate) +
-          armorChip('Belt', data.belt) +
-          armorChip('Shield', data.shield) +
-          armorChip('Sword', data.sword, !!data.swordGlow) +
+          armorChip('helmet', 'Helmet', data.helmet) +
+          armorChip('breastplate', 'Breastplate', data.breastplate) +
+          armorChip('belt', 'Belt', data.belt) +
+          armorChip('shield', 'Shield', data.shield) +
+          armorChip('sword', 'Sword', data.sword, !!data.swordGlow) +
         '</div>' +
         family +
       '</div>';
@@ -384,18 +384,41 @@
   function avatarPortraitFor(data, isMac) {
     if (data && data.portraitUrl) return String(data.portraitUrl);
     var source = String((data && (data.characterName || data.label || data.face)) || '').toLowerCase();
+    var gender = String((data && data.gender) || '').toLowerCase();
+    var isFemale = gender === 'female' || source.indexOf('female') !== -1 || source.indexOf('sister') !== -1;
+    var tier = avatarTier(data, isMac);
     if (isMac) return '/icons/avatar-portrait-david.svg';
     if (source.indexOf('moses') !== -1) return '/icons/avatar-portrait-moses.svg';
     if (source.indexOf('esther') !== -1) return '/icons/avatar-portrait-esther.svg';
     if (source.indexOf('ruth') !== -1) return '/icons/avatar-portrait-ruth.svg';
     if (source.indexOf('paul') !== -1) return '/icons/avatar-portrait-paul.svg';
     if (source.indexOf('david') !== -1) return '/icons/avatar-portrait-david.svg';
-    if (source.indexOf('female') !== -1 || source.indexOf('sister') !== -1) return '/icons/avatar-portrait-female-scout.svg';
+    if (isFemale) {
+      if (tier >= 4) return '/icons/avatar-portrait-female-kingdom.svg';
+      if (tier >= 2) return '/icons/avatar-portrait-female-empire.svg';
+      return '/icons/avatar-portrait-female-scout.svg';
+    }
+    if (tier >= 4) return '/icons/avatar-portrait-kingdom.svg';
+    if (tier >= 2) return '/icons/avatar-portrait-empire.svg';
     return '/icons/avatar-portrait-scout.svg';
   }
 
-  function armorChip(label, on, glow) {
-    return '<span class="tdb-armor-chip' + (on ? ' on' : '') + (glow ? ' glow' : '') + '">' + esc(label) + '</span>';
+  function armorPieceIcon(pieceKey) {
+    var map = {
+      helmet: '🪖',
+      breastplate: '🛡',
+      belt: '✚',
+      shield: '🛡️',
+      sword: '⚔️'
+    };
+    return map[pieceKey] || '◆';
+  }
+
+  function armorChip(pieceKey, label, on, glow) {
+    return '<span class="tdb-armor-chip tdb-armor-piece-' + esc(pieceKey) + (on ? ' on' : '') + (glow ? ' glow' : '') + '" role="img" aria-label="' + esc(label + (on ? ' equipped' : ' locked')) + '">' +
+      '<span class="tdb-armor-chip-icon" aria-hidden="true">' + esc(armorPieceIcon(pieceKey)) + '</span>' +
+      '<span class="tdb-armor-chip-label">' + esc(label) + '</span>' +
+    '</span>';
   }
 
   function renderPanels(payload) {

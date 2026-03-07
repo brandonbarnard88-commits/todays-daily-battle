@@ -1597,6 +1597,15 @@ function _isPrayerRequestUrl(u) {
   if (!u || typeof u !== 'string') return false;
   return u.indexOf('prayers') !== -1 || u.indexOf('get_prayer_presence_count') !== -1 || u.indexOf('get_total_prayer_count') !== -1;
 }
+function _isPrayerWriteRequest(u, options) {
+  if (!u || typeof u !== 'string') return false;
+  var opts = options || {};
+  var method = String(opts.method || 'GET').toUpperCase();
+  var isWriteMethod = method === 'POST' || method === 'PUT' || method === 'PATCH' || method === 'DELETE';
+  if (!isWriteMethod) return false;
+  // Writes target the prayers table endpoint; read RPCs should never be throttled.
+  return u.indexOf('/rest/v1/prayers') !== -1;
+}
 function supabaseFetch(url, options) {
   var base = (typeof _cfg !== 'undefined' && _cfg && _cfg.SUPABASE_URL) ? String(_cfg.SUPABASE_URL).replace(/\/$/, '') : '';
   if (base && typeof url === 'string') {
@@ -1613,16 +1622,18 @@ function supabaseFetch(url, options) {
     console.error('TDB: Blocked — request must go to *.supabase.co. URL was:', url);
     return Promise.reject(new Error('Supabase URL not configured — requests must go to *.supabase.co'));
   }
-  if (_isPrayerRequestUrl(url)) {
+  var isPrayerReq = _isPrayerRequestUrl(url);
+  var isPrayerWriteReq = _isPrayerWriteRequest(url, options);
+  if (isPrayerReq) {
     if (window.__tdb_prayers_404 === true) {
       if (typeof console !== 'undefined' && console.log) console.log('TDB: prayers 404 known — blocking request to', url.slice(-60));
       return Promise.resolve(new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
     }
-    if (_prayerRequestInFlight) {
+    if (isPrayerWriteReq && _prayerRequestInFlight) {
       if (typeof console !== 'undefined' && console.log) console.log('TDB: blocking duplicate prayer request (one at a time)');
       return Promise.resolve(new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
     }
-    _prayerRequestInFlight = true;
+    if (isPrayerWriteReq) _prayerRequestInFlight = true;
   }
   if (!_supabaseFetchLogged) {
     _supabaseFetchLogged = true;
@@ -1650,7 +1661,7 @@ function supabaseFetch(url, options) {
     }
     return res;
   });
-  if (_isPrayerRequestUrl(url)) {
+  if (isPrayerWriteReq) {
     p = p.then(function (res) {
       _prayerRequestInFlight = false;
       if (res && res.status === 404) {
@@ -1660,8 +1671,7 @@ function supabaseFetch(url, options) {
       return res;
     }, function (err) {
       _prayerRequestInFlight = false;
-      window.__tdb_prayers_404 = true;
-      if (typeof console !== 'undefined' && console.log) console.log('TDB: prayers request failed — no more prayer requests.');
+      if (typeof console !== 'undefined' && console.log) console.log('TDB: prayers write request failed.');
       return new Response(JSON.stringify([]), { status: 200, headers: { 'Content-Type': 'application/json' } });
     });
   }
@@ -12345,25 +12355,33 @@ function writeNbaSignal(key) {
   var eraseBtn = document.getElementById('erase-all-btn');
   if (eraseBtn) eraseBtn.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.clear(); sessionStorage.clear(); } catch (_) {} try { alert('Wiped—fresh start'); } catch (_) {} window.location.reload(); });
 
-  // Non-negotiable homepage UX: keep search bar + 30 topic chips at the top.
+  // Non-negotiable homepage UX order: search bar first, search topics second, V2 command deck third.
   try {
-    (function ensureQuickSearchHeroAtTop() {
+    (function ensureSearchPriorityOrderAtTop() {
       var hero = document.getElementById('quick-search-hero');
-      if (!hero) return;
+      var priority = document.getElementById('quick-search-priority');
+      var v2 = document.getElementById('v2-command-deck');
+      if (!hero && !priority && !v2) return;
       var mainContent = document.getElementById('main-content') || document.querySelector('main');
       if (!mainContent) return;
       var contentInner = mainContent.querySelector('.content-inner');
       var targetParent = contentInner || mainContent;
       if (!targetParent) return;
 
-      if (hero.parentNode !== targetParent) {
-        targetParent.insertBefore(hero, targetParent.firstChild || null);
-      } else if (targetParent.firstElementChild !== hero) {
-        targetParent.insertBefore(hero, targetParent.firstElementChild);
+      // Place in reverse to end with: hero -> priority -> v2.
+      var ordered = [hero, priority, v2].filter(Boolean);
+      for (var i = ordered.length - 1; i >= 0; i--) {
+        targetParent.insertBefore(ordered[i], targetParent.firstChild || null);
       }
 
-      hero.classList.add('quick-search-priority-top');
-      hero.setAttribute('data-priority-top', 'true');
+      if (hero) {
+        hero.classList.add('quick-search-priority-top');
+        hero.setAttribute('data-priority-top', 'true');
+      }
+      if (priority) {
+        priority.classList.add('quick-search-priority-top');
+        priority.setAttribute('data-priority-top', 'true');
+      }
     })();
   } catch (_) {}
 

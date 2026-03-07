@@ -3113,6 +3113,10 @@
   }
 
   function getKidContext(ref, verseText) {
+    var key = resolveContextKey(ref);
+    var curated = KID_CONTEXT[key];
+    if (curated) return curated;
+
     if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
       try {
         var breakdown = window.TDBVerseBreakdown.getBreakdown(ref, verseText || '');
@@ -3125,9 +3129,7 @@
         }
       } catch (e) {}
     }
-    var key = resolveContextKey(ref);
-    var ctx = KID_CONTEXT[key];
-    if (ctx) return ctx;
+
     var book = bookFromRef(key);
     var base = BOOK_CONTEXT[book] || { who: 'God\'s Word', to: 'God\'s people' };
     return {

@@ -198,9 +198,26 @@
   async function runWelcomeExperience() {
     var overlay = document.getElementById('welcome-anointing-overlay');
     var textEl = document.getElementById('welcome-anointing-text');
+    var skipBtn = document.getElementById('welcome-intro-skip');
     var homeAvatarWrap = document.getElementById('home-avatar-altar');
     var homeAvatar = document.getElementById('home-avatar-center');
     var introAvatar = document.getElementById('welcome-avatar-center');
+    var introFinished = false;
+    function finishIntroNow() {
+      if (introFinished) return;
+      introFinished = true;
+      if (skipBtn) {
+        skipBtn.classList.add('hidden');
+        skipBtn.removeEventListener('click', finishIntroNow);
+      }
+      if (overlay) {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('welcome-visible', 'welcome-text-visible', 'welcome-text-out', 'welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
+      }
+      document.body.classList.remove('welcome-intro-active');
+      document.body.classList.add('welcome-intro-lift');
+      try { localStorage.setItem(WELCOME_SEEN_KEY, '1'); } catch (e3) {}
+    }
     if (homeAvatar) renderAvatarInto(homeAvatar);
     if (homeAvatarWrap) homeAvatarWrap.classList.remove('hidden');
     if (!overlay || !textEl) return;
@@ -208,6 +225,10 @@
       if (localStorage.getItem(WELCOME_SEEN_KEY) === '1') return;
     } catch (e) {}
     if (introAvatar) renderAvatarInto(introAvatar);
+    if (skipBtn) {
+      skipBtn.classList.remove('hidden');
+      skipBtn.addEventListener('click', finishIntroNow);
+    }
     textEl.textContent = 'He is here.';
     overlay.setAttribute('aria-label', 'He is here.');
     overlay.classList.remove('hidden');
@@ -215,7 +236,9 @@
     overlay.classList.add('welcome-visible', 'welcome-text-visible');
     document.body.classList.add('welcome-intro-active');
     await speakLine('He is here.', 3000);
+    if (introFinished) return;
     await wait(INTRO_HOLD_MS);
+    if (introFinished) return;
     try { localStorage.setItem(WELCOME_SEEN_KEY, '1'); } catch (e2) {}
     textEl.textContent = 'Nothing comes in unclean. Anoint with oil... water... fire.';
     overlay.setAttribute('aria-label', 'Nothing comes in unclean. Anoint with oil, water, and fire.');
@@ -223,21 +246,24 @@
     overlay.classList.add('welcome-text-visible');
     overlay.classList.add('welcome-elements-active');
     await speakWelcomeTts();
+    if (introFinished) return;
     await wait(400);
+    if (introFinished) return;
     overlay.classList.add('welcome-elements-merge');
     await wait(1400);
+    if (introFinished) return;
     textEl.textContent = 'Build your armor.';
     overlay.setAttribute('aria-label', 'Build your armor.');
     overlay.classList.add('welcome-text-visible');
     await wait(1500);
+    if (introFinished) return;
     overlay.classList.add('welcome-avatar-visible');
     await wait(1650);
+    if (introFinished) return;
     document.body.classList.add('welcome-intro-lift');
     overlay.classList.add('welcome-leave');
     await wait(1100);
-    overlay.classList.add('hidden');
-    overlay.classList.remove('welcome-visible', 'welcome-text-visible', 'welcome-text-out', 'welcome-elements-active', 'welcome-elements-merge', 'welcome-avatar-visible', 'welcome-leave');
-    document.body.classList.remove('welcome-intro-active');
+    finishIntroNow();
   }
 
   window.runWelcomeExperience = runWelcomeExperience;

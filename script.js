@@ -2869,6 +2869,7 @@ function wireRealPrayerCounter() {
   var el = document.getElementById('prayer-counter');
   if (!el) return;
   var previousCount = null;
+  var lastKnownTotal = null;
   function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
   function updateBetaWarriorsCount(n) {
     var betaEl = document.getElementById('beta-warriors-count');
@@ -2948,16 +2949,17 @@ function wireRealPrayerCounter() {
     tick += 1;
     if (tick % 6 === 0) window.__tdb_prayers_404 = false;
     if (!supabaseClient) {
-      el.textContent = '0';
+      if (lastKnownTotal == null) el.textContent = '0';
       return;
     }
     if (!navigator.onLine) {
-      el.textContent = '0';
-      var p = document.getElementById('prayer-count-promo');
-      if (p) p.textContent = '';
+      if (lastKnownTotal == null) {
+        el.textContent = '0';
+        var p = document.getElementById('prayer-count-promo');
+        if (p) p.textContent = '';
+      }
       return;
     }
-    el.textContent = '0';
     try {
       var res = await Promise.race([
         supabaseClient.rpc('get_total_prayer_count'),
@@ -2967,7 +2969,14 @@ function wireRealPrayerCounter() {
       if (res && res.error && is404Like(res)) { setPrayersApiUnavailable(); el.textContent = '0'; var p = document.getElementById('prayer-count-promo'); if (p) p.textContent = ''; return; }
       var countNum = res && res.data != null ? (typeof res.data === 'number' ? res.data : (typeof res.data === 'string' ? parseInt(res.data, 10) : Number(res.data))) : NaN;
       if (res && !res.error && !isNaN(countNum) && countNum >= 0) {
+        lastKnownTotal = countNum;
         animateCountAndSet(countNum);
+        try {
+          if (typeof window !== 'undefined') {
+            window.__tdbPrayerTotalCount = countNum;
+            window.dispatchEvent(new CustomEvent('tdb:prayer-total-updated', { detail: { count: countNum } }));
+          }
+        } catch (_) {}
         updateBetaWarriorsCount(countNum);
         var promo = document.getElementById('prayer-count-promo');
         if (promo) promo.textContent = formatCount(countNum) + ' prayers offered worldwide. Join this prayer rhythm today.';
@@ -2989,6 +2998,15 @@ function wireRealPrayerCounter() {
       else if (restRes && Array.isArray(restRes.data)) animateCountAndSet(restRes.data.length);
       else el.textContent = '0';
       var finalCount = restRes && (restRes.count != null ? restRes.count : (Array.isArray(restRes.data) ? restRes.data.length : null));
+      if (finalCount != null && !isNaN(finalCount)) {
+        lastKnownTotal = Number(finalCount);
+        try {
+          if (typeof window !== 'undefined') {
+            window.__tdbPrayerTotalCount = Number(finalCount);
+            window.dispatchEvent(new CustomEvent('tdb:prayer-total-updated', { detail: { count: Number(finalCount) } }));
+          }
+        } catch (_) {}
+      }
       updateBetaWarriorsCount(finalCount);
       var promo = document.getElementById('prayer-count-promo');
       if (promo) promo.textContent = (finalCount != null ? formatCount(finalCount) + ' prayers offered worldwide. Join this prayer rhythm today.' : '');
@@ -3536,7 +3554,7 @@ function wirePrayerMap() {
     markersGroup = document.getElementById('prayer-markers');
   }
   if (!markersGroup) return;
-  var prayerLocations = [
+  var prayerLocationsBase = [
     { lat: 32.43, lng: -90.13, name: 'Ridgeland, MS', intent: 'peace', isYou: true },
     { lat: 40.71, lng: -74.01, name: 'New York', intent: 'peace' },
     { lat: 35.68, lng: 139.65, name: 'Tokyo', intent: 'healing' },
@@ -3547,7 +3565,56 @@ function wirePrayerMap() {
     { lat: 19.08, lng: 72.88, name: 'Mumbai', intent: 'healing' },
     { lat: 30.04, lng: 31.24, name: 'Cairo', intent: 'peace' }
   ];
+  var prayerIntentCycle = ['peace', 'healing', 'hope', 'strength', 'family', 'wisdom', 'courage', 'comfort'];
   var tooltipEl = document.getElementById('map-tooltip');
+  function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+  function getLivePrayerTotalForMap() {
+    try {
+      if (typeof window !== 'undefined' && typeof window.__tdbPrayerTotalCount === 'number' && window.__tdbPrayerTotalCount >= 0) {
+        return Math.floor(window.__tdbPrayerTotalCount);
+      }
+    } catch (_) {}
+    var counterEl = document.getElementById('prayer-counter');
+    if (!counterEl) return 0;
+    var raw = String(counterEl.textContent || '').replace(/,/g, '').trim();
+    var n = parseInt(raw, 10);
+    return isNaN(n) || n < 0 ? 0 : n;
+  }
+  function buildPrayerLocations(totalCount) {
+    var total = Math.max(0, Number(totalCount) || 0);
+    var markerCap = 120;
+    var markerCount = Math.min(total, markerCap);
+    var out = [];
+    for (var i = 0; i < markerCount; i++) {
+      var base = prayerLocationsBase[i % prayerLocationsBase.length];
+      var ring = Math.floor(i / prayerLocationsBase.length);
+      var spread = Math.min(6.5, 0.8 + (ring * 0.32));
+      var offsetLat = Math.sin((i + 1) * 1.73) * spread;
+      var offsetLng = Math.cos((i + 1) * 1.31) * spread * 1.25;
+      out.push({
+        lat: clamp(base.lat + offsetLat, -58, 78),
+        lng: clamp(base.lng + offsetLng, -175, 175),
+        name: base.name,
+        intent: base.intent || prayerIntentCycle[i % prayerIntentCycle.length],
+        isYou: !!base.isYou && i === 0
+      });
+    }
+    return out;
+  }
+  function updateMapCounterCopy(totalCount, shownCount) {
+    var promoEl = document.getElementById('prayer-count-promo');
+    if (!promoEl) return;
+    if (!totalCount || totalCount < 1) {
+      promoEl.textContent = 'Be the first household to pray right now.';
+      return;
+    }
+    var totalTxt = Number(totalCount).toLocaleString();
+    if (shownCount < totalCount) {
+      promoEl.textContent = totalTxt + ' prayers offered worldwide (' + shownCount + ' crosses shown).';
+    } else {
+      promoEl.textContent = totalTxt + ' prayers offered worldwide.';
+    }
+  }
   function render() {
     markersGroup.innerHTML = '';
     var now = Date.now();
@@ -3555,6 +3622,10 @@ function wirePrayerMap() {
     try { justPrayed = parseInt(sessionStorage.getItem('tdb_just_prayed') || '0', 10); } catch (e) {}
     var showYou = justPrayed && (now - justPrayed) < 10000;
     var svgNS = 'http://www.w3.org/2000/svg';
+    var totalCount = getLivePrayerTotalForMap();
+    var prayerLocations = buildPrayerLocations(totalCount);
+    updateMapCounterCopy(totalCount, prayerLocations.length);
+    if (!prayerLocations.length) return;
     prayerLocations.forEach(function (loc) {
       var isYou = loc.isYou && showYou;
       var pt = latLngToSvgPoint(loc.lat, loc.lng);
@@ -3605,6 +3676,7 @@ function wirePrayerMap() {
     });
   }
   render();
+  window.addEventListener('tdb:prayer-total-updated', render);
   setInterval(render, 2000);
 }
 

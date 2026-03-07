@@ -263,7 +263,32 @@
   function init() {
     var content = document.getElementById('toolbox-content');
     var tabs = document.querySelectorAll('.toolbox-tab[data-drawer]');
+    var tabsWrap = document.querySelector('.toolbox-tabs');
     if (!content || !tabs.length) return;
+    var tabList = Array.prototype.slice.call(tabs);
+
+    function activateByIndex(index, source) {
+      if (!tabList.length) return;
+      var nextIndex = Math.max(0, Math.min(tabList.length - 1, Number(index) || 0));
+      var tab = tabList[nextIndex];
+      if (!tab) return;
+      var drawer = tab.getAttribute('data-drawer');
+      if (!drawer) return;
+      activateDrawer(drawer, content, tabs, { showHint: true });
+      if (typeof tab.scrollIntoView === 'function') {
+        try { tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); } catch (e) {}
+      }
+      if (typeof window.trackEvent === 'function') {
+        window.trackEvent('toolbox_drawer_open', { drawer: drawer, source: source || 'tabs' });
+      }
+    }
+
+    function activeTabIndex() {
+      for (var i = 0; i < tabList.length; i++) {
+        if (tabList[i] && tabList[i].classList && tabList[i].classList.contains('active')) return i;
+      }
+      return 0;
+    }
 
     var active = (typeof localStorage !== 'undefined' && localStorage.getItem('tdb_toolbox_drawer')) || 'daily';
     activateDrawer(active, content, tabs, { showHint: true });
@@ -272,14 +297,49 @@
 
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
-        var drawer = tab.getAttribute('data-drawer');
-        if (!drawer) return;
-        activateDrawer(drawer, content, tabs, { showHint: true });
-        if (typeof window.trackEvent === 'function') {
-          window.trackEvent('toolbox_drawer_open', { drawer: drawer, source: 'tabs' });
-        }
+        var index = tabList.indexOf(tab);
+        activateByIndex(index >= 0 ? index : activeTabIndex(), 'tabs');
       });
     });
+
+    if (tabsWrap && tabList.length > 1) {
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var touchActive = false;
+      var swipeConsumed = false;
+      var SWIPE_MIN = 44;
+      var SWIPE_RATIO = 1.15;
+      tabsWrap.addEventListener('touchstart', function (event) {
+        var touch = event && event.changedTouches && event.changedTouches[0];
+        if (!touch) return;
+        touchStartX = Number(touch.clientX || 0);
+        touchStartY = Number(touch.clientY || 0);
+        touchActive = true;
+        swipeConsumed = false;
+      }, { passive: true });
+      tabsWrap.addEventListener('touchend', function (event) {
+        if (!touchActive || swipeConsumed) return;
+        touchActive = false;
+        var touch = event && event.changedTouches && event.changedTouches[0];
+        if (!touch) return;
+        var endX = Number(touch.clientX || 0);
+        var endY = Number(touch.clientY || 0);
+        var dx = endX - touchStartX;
+        var dy = endY - touchStartY;
+        var absX = Math.abs(dx);
+        var absY = Math.abs(dy);
+        if (absX < SWIPE_MIN) return;
+        if (absX < (absY * SWIPE_RATIO)) return;
+        swipeConsumed = true;
+        var current = activeTabIndex();
+        var direction = dx < 0 ? 1 : -1;
+        activateByIndex(current + direction, 'tab_swipe');
+      }, { passive: true });
+      tabsWrap.addEventListener('touchcancel', function () {
+        touchActive = false;
+        swipeConsumed = false;
+      }, { passive: true });
+    }
 
     var familyArmor = document.getElementById('toolbox-family-armor');
     var addHousehold = document.getElementById('toolbox-add-household');

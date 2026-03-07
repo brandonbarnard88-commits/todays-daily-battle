@@ -188,10 +188,19 @@
     document.addEventListener('keydown', function (e) {
       if (!state.isOpen) return;
       if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') nextPanel();
+      if (e.key === 'ArrowLeft') prevPanel();
     });
 
     var panelWrap = root.querySelector('#tdb-cartoon-panels');
     if (panelWrap) {
+      panelWrap.addEventListener('click', function (e) {
+        if (!state.isOpen) return;
+        var rect = panelWrap.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        if (x >= rect.width * 0.5) nextPanel();
+        else prevPanel();
+      });
       panelWrap.addEventListener('touchstart', function (e) {
         if (!e.touches || !e.touches[0]) return;
         state.touch.active = true;
@@ -291,6 +300,9 @@
     var gender = String((data && data.gender) || '').toLowerCase();
     var personTag = gender === 'female' ? 'Sister Witness' : (gender === 'male' ? 'Brother Witness' : 'Faithful Witness');
     var roleClass = isMac ? ' is-mentor' : ' is-user';
+    var portraitUrl = avatarPortraitFor(data, isMac);
+    var portraitStyle = portraitUrl ? ' style="--tdb-character-portrait:url(' + sanitizeCssUrl(portraitUrl) + ');"' : '';
+    var portraitClass = portraitUrl ? ' has-portrait' : '';
     var tier = avatarTier(data, isMac);
     var hasCrownJewel = crownJewelUnlocked(data, isMac);
     var armorClass = '' +
@@ -305,7 +317,7 @@
     var family = data.familyLabel ? '<p class="section-note util-mb-0">' + esc(data.familyLabel) + '</p>' : '';
     return '' +
       '<div class="tdb-walker' + roleClass + '">' +
-        '<div class="tdb-cartoon-character' + roleClass + armorClass + '" data-frame-offset="' + (isMac ? '0' : '6') + '" data-frame="0" aria-hidden="true">' +
+        '<div class="tdb-cartoon-character' + roleClass + armorClass + portraitClass + '" data-frame-offset="' + (isMac ? '0' : '6') + '" data-frame="0" aria-hidden="true"' + portraitStyle + '>' +
           '<div class="tdb-character-plumb"></div>' +
           '<div class="tdb-character-aura"></div>' +
           '<div class="tdb-character-shadow"></div>' +
@@ -363,6 +375,23 @@
     if (data && data.shield) return '🛡️';
     if (data && (data.helmet || data.breastplate || data.belt)) return '🪖';
     return '🛡️';
+  }
+
+  function sanitizeCssUrl(value) {
+    return String(value || '').trim().replace(/["'()\\\n\r]/g, '');
+  }
+
+  function avatarPortraitFor(data, isMac) {
+    if (data && data.portraitUrl) return String(data.portraitUrl);
+    var source = String((data && (data.characterName || data.label || data.face)) || '').toLowerCase();
+    if (isMac) return '/icons/avatar-portrait-david.svg';
+    if (source.indexOf('moses') !== -1) return '/icons/avatar-portrait-moses.svg';
+    if (source.indexOf('esther') !== -1) return '/icons/avatar-portrait-esther.svg';
+    if (source.indexOf('ruth') !== -1) return '/icons/avatar-portrait-ruth.svg';
+    if (source.indexOf('paul') !== -1) return '/icons/avatar-portrait-paul.svg';
+    if (source.indexOf('david') !== -1) return '/icons/avatar-portrait-david.svg';
+    if (source.indexOf('female') !== -1 || source.indexOf('sister') !== -1) return '/icons/avatar-portrait-female-scout.svg';
+    return '/icons/avatar-portrait-scout.svg';
   }
 
   function armorChip(label, on, glow) {
@@ -653,7 +682,8 @@
     }
     var end = root.querySelector('#tdb-cartoon-end');
     if (end) {
-      end.classList.toggle('hidden', !state.options.showEndPanel);
+      var shouldShowEndPanel = state.options.showEndPanel !== false;
+      end.classList.toggle('hidden', !shouldShowEndPanel);
       var msg = end.querySelector('p');
       if (msg) msg.textContent = 'Your armor grows—pray silent?';
     }

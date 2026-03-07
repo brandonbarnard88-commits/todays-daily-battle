@@ -16727,12 +16727,12 @@ function wireRandomBattleVerseHero() {
     }
     function mentorAvatarForStory(story) {
       var mentor = normalizeTopicToken(story && story.mentor);
-      if (mentor === 'david') return { label: 'David', face: '🗡️', helmet: true, shield: true, belt: true };
-      if (mentor === 'moses') return { label: 'Moses', face: '🧔', helmet: false, shield: true, belt: true };
-      if (mentor === 'esther') return { label: 'Esther', face: '👑', helmet: true, shield: true, belt: true };
-      if (mentor === 'ruth') return { label: 'Ruth', face: '🌾', helmet: true, shield: true, belt: true };
-      if (mentor === 'paul') return { label: 'Paul', face: '📜', helmet: true, shield: true, belt: true };
-      return { label: 'Mentor', face: '🛡️', helmet: true, shield: true, belt: true };
+      if (mentor === 'david') return { label: 'David', face: '🗡️', portraitUrl: '/icons/avatar-portrait-david.svg', gender: 'male', helmet: true, shield: true, belt: true };
+      if (mentor === 'moses') return { label: 'Moses', face: '🧔', portraitUrl: '/icons/avatar-portrait-moses.svg', gender: 'male', helmet: false, shield: true, belt: true };
+      if (mentor === 'esther') return { label: 'Esther', face: '👑', portraitUrl: '/icons/avatar-portrait-esther.svg', gender: 'female', helmet: true, shield: true, belt: true };
+      if (mentor === 'ruth') return { label: 'Ruth', face: '🌾', portraitUrl: '/icons/avatar-portrait-ruth.svg', gender: 'female', helmet: true, shield: true, belt: true };
+      if (mentor === 'paul') return { label: 'Paul', face: '📜', portraitUrl: '/icons/avatar-portrait-paul.svg', gender: 'male', helmet: true, shield: true, belt: true };
+      return { label: 'Mentor', face: '🛡️', portraitUrl: '/icons/avatar-portrait-kingdom.svg', gender: 'male', helmet: true, shield: true, belt: true };
     }
     function openFallbackCartoon() {
       if (!window.TDBCartoonPlayer || typeof window.TDBCartoonPlayer.open !== 'function') return false;

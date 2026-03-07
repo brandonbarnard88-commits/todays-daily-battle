@@ -4,6 +4,7 @@
  */
 (function () {
   'use strict';
+  if (window.__tdbFallbackSearchRan) return;
   var q = (typeof URLSearchParams !== 'undefined' && location.search)
     ? new URLSearchParams(location.search).get('q')
     : null;
@@ -20,6 +21,19 @@
   function getBreakdown(ref, text) {
     if (!ref) return null;
     var txt = (text || '').toString().replace(/<[^>]+>/g, '').trim();
+    if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
+      try {
+        var shared = window.TDBVerseBreakdown.getBreakdown(ref, txt);
+        if (shared) {
+          return {
+            layman: shared.layman || '',
+            about: shared.about || '',
+            to: shared.to || '',
+            applies: shared.applies || ''
+          };
+        }
+      } catch (e) {}
+    }
     var book = parseBook(ref);
     if (!book) return { layman: "Verse not found—try exact format like John 3:16.", about: '', to: '', applies: '' };
     var ctx = (BC[book]) || { s: 'The biblical author', a: 'Original audience' };
@@ -41,7 +55,19 @@
       '</div></details>';
   }
 
+  function hasPrimarySearchReady() {
+    return typeof window.__tdbRunSearchReal === 'function';
+  }
+
+  function hasRenderedResults() {
+    var out = document.getElementById('output');
+    if (!out) return false;
+    return !!out.querySelector('.verse-card, .result-section, .empty');
+  }
+
   function runFallback() {
+    if (window.__tdbFallbackSearchRan) return;
+    window.__tdbFallbackSearchRan = true;
     var out = document.getElementById('output');
     if (!out) return;
     out.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Seeking God\'s truth…</p>';
@@ -81,9 +107,46 @@
     });
   }
 
+  function runPrimarySearch() {
+    try {
+      var realSearch = window.__tdbRunSearchReal;
+      if (typeof realSearch !== 'function') return false;
+      realSearch(q);
+      window.__tdbFallbackSearchRan = true;
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function waitForPrimaryThenFallback() {
+    if (hasRenderedResults()) {
+      window.__tdbFallbackSearchRan = true;
+      return;
+    }
+    if (runPrimarySearch()) return;
+    var tries = 0;
+    var timer = setInterval(function () {
+      tries += 1;
+      if (hasRenderedResults()) {
+        window.__tdbFallbackSearchRan = true;
+        clearInterval(timer);
+        return;
+      }
+      if (runPrimarySearch()) {
+        clearInterval(timer);
+        return;
+      }
+      if (tries >= 12) {
+        clearInterval(timer);
+        if (!hasRenderedResults() && !hasPrimarySearchReady()) runFallback();
+      }
+    }, 250);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', runFallback);
+    document.addEventListener('DOMContentLoaded', waitForPrimaryThenFallback);
   } else {
-    runFallback();
+    waitForPrimaryThenFallback();
   }
 })();

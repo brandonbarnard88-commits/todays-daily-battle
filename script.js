@@ -6698,21 +6698,27 @@ function getAuthDailyVerseBreakdownData(ref, verseText) {
   var safeRef = String(ref || '').trim();
   var safeText = String(verseText || '').trim();
   var data = {
-    who: 'Scripture',
-    to: 'Believers',
+    who: 'Scripture speaker in this passage',
+    to: 'Original audience of this passage',
     plain: 'Bring your fear to God in prayer and trust Him with today.',
-    context: 'A word of encouragement to stand firm and stay prayerful under pressure.',
-    cross: 'Matthew 6:25-34, 1 Peter 5:7',
-    application: 'Use when anxious, for gratitude, and for bold prayer.'
+    context: 'This verse anchors steady faith and obedience in real life.',
+    cross: '',
+    application: 'Pray this verse back to God and act on one clear step today.'
   };
-  if (safeRef === 'Philippians 4:6') {
-    data.who = 'Paul';
-    data.to = 'Philippians';
-    data.plain = 'Don\'t worry - pray instead, thank God, ask boldly.';
-    data.context = 'Written from prison to encourage an anxious church.';
-    data.cross = 'Matthew 6:25-34, 1 Peter 5:7';
-    data.application = 'Use when anxious, for gratitude, and for bold prayer.';
+  if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
+    try {
+      var shared = window.TDBVerseBreakdown.getBreakdown(safeRef, safeText);
+      if (shared) {
+        data.who = shared.about || data.who;
+        data.to = shared.to || data.to;
+        data.plain = shared.layman || data.plain;
+        data.application = shared.applies || data.application;
+      }
+    } catch (e) {}
   }
+  var crossRefs = getRelatedRefsForVerse(safeRef || '');
+  data.cross = (crossRefs && crossRefs.length) ? crossRefs.join(', ') : 'Romans 15:13, Matthew 11:28';
+  data.context = 'Spoken by ' + data.who + ' to ' + data.to + '.';
   return {
     ref: safeRef || 'Today\'s verse',
     verse: safeText || 'Verse text is loading.',

@@ -3173,7 +3173,7 @@
         '<span class="kids-result-text">"' + textEsc + '"</span>' +
         '<span class="kids-result-context">' +
         'Who said it? ' + whoEsc + '<br>' +
-        'Who he said it to? ' + toEsc + '<br>' +
+        'Who it was said to? ' + toEsc + '<br>' +
         'How to use it today? ' + applyEsc +
         '</span>' +
         '</button>';

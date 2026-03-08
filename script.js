@@ -34,16 +34,64 @@ document.addEventListener('securitypolicyviolation', function (e) {
 });
 
 /* Stub runSearchWithInput immediately so onclick handlers never fail; real impl replaces it in tdbInit */
+window.__tdbPendingSearch = window.__tdbPendingSearch || '';
+window.__tdbPendingSearchTimer = window.__tdbPendingSearchTimer || null;
 window.runSearchWithInput = function (inputStr) {
   if (window.__tdbRunSearchReal) { window.__tdbRunSearchReal(inputStr); return; }
   var s = (inputStr != null) ? String(inputStr).trim() : '';
-  if (s && typeof window.location !== 'undefined') {
-    var newSearch = '?q=' + encodeURIComponent(s);
-    if (window.location.search === newSearch) return; /* already there, avoid redirect loop if script failed */
-    window.location.href = (window.location.pathname || '/') + newSearch;
-  }
+  if (!s) return;
+  window.__tdbPendingSearch = s;
+  /* Keep the query in URL without hard refresh while real search wiring boots. */
+  try {
+    if (typeof history !== 'undefined' && history.replaceState) {
+      history.replaceState(null, '', (window.location.pathname || '/') + '?q=' + encodeURIComponent(s));
+    }
+  } catch (_) {}
+  if (window.__tdbPendingSearchTimer) return;
+  window.__tdbPendingSearchTimer = setInterval(function () {
+    if (!window.__tdbRunSearchReal) return;
+    var pending = window.__tdbPendingSearch || '';
+    window.__tdbPendingSearch = '';
+    clearInterval(window.__tdbPendingSearchTimer);
+    window.__tdbPendingSearchTimer = null;
+    if (pending) window.__tdbRunSearchReal(pending);
+  }, 120);
+  setTimeout(function () {
+    if (!window.__tdbPendingSearchTimer) return;
+    clearInterval(window.__tdbPendingSearchTimer);
+    window.__tdbPendingSearchTimer = null;
+  }, 5000);
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
+
+function wireEarlySearchFallbacks() {
+  if (window.__tdbEarlySearchFallbacksWired) return;
+  window.__tdbEarlySearchFallbacksWired = true;
+  document.addEventListener('submit', function (event) {
+    var target = event.target;
+    if (!target || !target.id) return;
+    if (target.id !== 'search-form' && target.id !== 'quick-search-priority-form') return;
+    event.preventDefault();
+    event.stopPropagation();
+    var query = '';
+    if (target.id === 'quick-search-priority-form') {
+      var priorityInput = document.getElementById('quick-search-priority-input');
+      query = priorityInput ? String(priorityInput.value || '').trim() : '';
+      var mainInput = getQueryInput();
+      if (mainInput && query) mainInput.value = query;
+    } else {
+      var q = getQueryInput();
+      query = q ? String(q.value || '').trim() : '';
+    }
+    if (query && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(query);
+    return false;
+  }, true);
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
+} else {
+  wireEarlySearchFallbacks();
+}
 
 function wireHashLinkFallbacks() {
   if (window.__tdbHashLinkFallbacksWired) return;

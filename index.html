@@ -36,7 +36,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="inline-bootstrap.js" defer></script>
   <script type="module" src="config.js?v=20260309"></script>
-  <script src="script.js?v=20260309e" defer></script>
+  <script src="script.js?v=20260311b" defer></script>
   <script src="pray.js?v=20260305" defer></script>
   <script data-lazy-src="easter-eggs.js?v=20260316"></script>
   <script src="welcome.js?v=20260323" defer></script>
@@ -63,7 +63,27 @@
     (function(){ var h = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org'; if (h) { document.body.classList.add('tdb-org'); var c = document.querySelector('link[rel=canonical]'); if (c) c.href = 'https://todaysdailybattle.org/'; document.title = "Today's Daily Battle — A daily verse movement for you and your church"; var m = document.querySelector('meta[name=description]'); if (m) m.setAttribute('content', 'Do unto others. Join the movement: one verse, pass it on. Who we are, our story, and how to get your church involved. todaysdailybattle.com'); } })();
   </script>
   <script nonce="tdb2025">
-    window.runSearchWithInput=window.runSearchWithInput||function(s){if(window.__tdbRunSearchReal){window.__tdbRunSearchReal(s);return;}var t=(s!=null?String(s).trim():'');if(t&&location){var ns='?q='+encodeURIComponent(t);if(location.search===ns)return;location.href=(location.pathname||'/')+ns;}};
+    window.runSearchWithInput=window.runSearchWithInput||function(s){
+      if(window.__tdbRunSearchReal){window.__tdbRunSearchReal(s);return;}
+      var t=(s!=null?String(s).trim():'');
+      if(!t)return;
+      window.__tdbPendingSearch=t;
+      try{if(history&&history.replaceState){history.replaceState(null,'',(location.pathname||'/')+'?q='+encodeURIComponent(t));}}catch(_){}
+      if(window.__tdbPendingSearchTimer)return;
+      window.__tdbPendingSearchTimer=setInterval(function(){
+        if(!window.__tdbRunSearchReal)return;
+        var pending=window.__tdbPendingSearch||'';
+        window.__tdbPendingSearch='';
+        clearInterval(window.__tdbPendingSearchTimer);
+        window.__tdbPendingSearchTimer=null;
+        if(pending)window.__tdbRunSearchReal(pending);
+      },120);
+      setTimeout(function(){
+        if(!window.__tdbPendingSearchTimer)return;
+        clearInterval(window.__tdbPendingSearchTimer);
+        window.__tdbPendingSearchTimer=null;
+      },5000);
+    };
     document.addEventListener('DOMContentLoaded',function(){
       var form=document.getElementById('search-form')||document.querySelector('form');
       if(form){
@@ -74,6 +94,23 @@
             window.runSearchWithInput(q?q.value:'');
             return false;
           }
+        },true);
+      }
+      var priorityForm=document.getElementById('quick-search-priority-form');
+      var priorityInput=document.getElementById('quick-search-priority-input');
+      if(priorityForm){
+        priorityForm.addEventListener('submit',function(e){
+          var topic=priorityInput?String(priorityInput.value||'').trim():'';
+          e.preventDefault();e.stopPropagation();
+          if(!topic)return false;
+          var mainInput=document.getElementById('tdb-search')||document.querySelector('input[name="q"]');
+          if(mainInput)mainInput.value=topic;
+          if(typeof window.runSearchWithInput==='function'){
+            window.runSearchWithInput(topic);
+            return false;
+          }
+          location.href=(location.pathname||'/')+'?q='+encodeURIComponent(topic);
+          return false;
         },true);
       }
       document.body.addEventListener('click',function(e){
@@ -417,38 +454,6 @@
             <input type="search" id="quick-search-priority-input" class="search-hero-input search-hero-input-gold" placeholder="Search anything (example: betrayal, purpose, Romans 8:28)" aria-label="Search anything in Scripture" autocomplete="off">
             <button type="submit" id="quick-search-priority-btn" class="btn btn-primary search-hero-btn">Search Anything</button>
           </form>
-          <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-priority" aria-label="Priority quick topic search">
-            <a href="?q=free+will#quick-search-hero" class="btn btn-primary topic-chip quick-topic">FREE WILL</a>
-            <a href="?q=family#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Family</a>
-            <a href="?q=hope#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Hope</a>
-            <a href="?q=fear#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Fear</a>
-            <a href="?q=peace#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Peace</a>
-            <a href="?q=courage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Courage</a>
-            <a href="?q=gratitude#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Gratitude</a>
-            <a href="?q=loneliness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Loneliness</a>
-            <a href="?q=guilt#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Guilt</a>
-            <a href="?q=strength#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Strength</a>
-            <a href="?q=heartache#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Heartache</a>
-            <a href="?q=grief#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Grief</a>
-            <a href="?q=anxiety#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Anxiety</a>
-            <a href="?q=forgiveness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Forgiveness</a>
-            <a href="?q=patience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Patience</a>
-            <a href="?q=anger#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Anger</a>
-            <a href="?q=joy#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Joy</a>
-            <a href="?q=love#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Love</a>
-            <a href="?q=addiction#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Addiction</a>
-            <a href="?q=trauma#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Trauma</a>
-            <a href="?q=relationships#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Relationships</a>
-            <a href="?q=jesus+said#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Jesus Said</a>
-            <a href="?q=parenting#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Parenting</a>
-            <a href="?q=finances#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Finances</a>
-            <a href="?q=spiritualwarfare#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Spiritual Warfare</a>
-            <a href="?q=sleep#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Sleep &amp; Rest</a>
-            <a href="?q=marriage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Marriage</a>
-            <a href="?q=faith#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Faith</a>
-            <a href="?q=obedience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Obedience</a>
-            <a href="?q=wisdom#quick-search-hero" class="btn btn-secondary topic-chip quick-topic">Wisdom</a>
-          </div>
         </section>
         <section id="daily-tile-home" class="glass daily-tile-home util-mt-0_5" role="region" aria-label="Today's Battle daily tile">
           <p class="section-note daily-tile-kicker">Daily Tile</p>
@@ -507,6 +512,7 @@
             <input type="search" id="tdb-search" name="q" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Anxiety? Strength? John 3:16?" aria-label="Search Bible topics or verses" autocomplete="off">
             <button id="search-btn" type="submit" class="btn btn-primary search-hero-btn-mt">Search</button>
           </form>
+          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
           <p class="section-note quick-searches-label">Type a topic, emotion, or verse reference. Tap any chip below for instant verses — all 30 topics.</p>
           <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-hero" aria-label="Quick topic search">
             <a href="?q=free+will#quick-search-hero" class="btn btn-primary topic-chip quick-topic" data-topic="free will">FREE WILL</a>
@@ -540,7 +546,6 @@
             <a href="?q=obedience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="obedience">Obedience</a>
             <a href="?q=wisdom#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="wisdom">Wisdom</a>
           </div>
-          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </div>
         <section class="topic-armor-section glass util-mt-0_5" aria-label="Armor by topic">
           <h3 class="section-divider util-mt-0 util-mb-0_5">Armor by Topic</h3>
@@ -1521,7 +1526,7 @@
   <script src="verse-breakdown.js?v=20260306" defer></script>
   <script src="word-parser.js?v=20260306" defer></script>
   <script src="search.js?v=20260306" defer></script>
-  <script src="search-wire.js?v=20260313" defer></script>
+  <script src="search-wire.js?v=20260311a" defer></script>
   <script src="fallback-search.js?v=20260313" defer></script>
   <script data-lazy-src="auth.js?v=20260314"></script>
   <script src="verse-rotator.js?v=20260307a" defer></script>

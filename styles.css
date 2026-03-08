@@ -501,6 +501,8 @@ body {
 .top-bar.top-bar-minimal {
   gap: 0.45rem 0.7rem;
   padding: 0.45rem 0.85rem;
+  position: static;
+  top: auto;
 }
 .top-bar.top-bar-minimal .brand {
   gap: 0.12rem;

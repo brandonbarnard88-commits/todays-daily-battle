@@ -6024,7 +6024,14 @@ function getDailyBattleFallbackForKey(key) {
 }
 
 function getDailyBattleFallback() {
-  return getDailyBattleFallbackForKey(getDailyKey());
+  var ref = getDailyVerseRef();
+  if (!ref || !bible[ref]) return getDailyBattleFallbackForKey(getDailyKey());
+  return {
+    ref: ref,
+    reflection: 'When the battle feels heavy today, remember God is near and faithful.',
+    prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.',
+    plain_meaning: (typeof getPlainMeaning === 'function' ? getPlainMeaning(ref) : '') || ''
+  };
 }
 
 /**

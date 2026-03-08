@@ -36,7 +36,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="inline-bootstrap.js" defer></script>
   <script type="module" src="config.js?v=20260309"></script>
-  <script src="script.js?v=20260308-topicfix2" defer></script>
+  <script src="script.js?v=20260308-searchbarfix1" defer></script>
   <script src="pray.js?v=20260305" defer></script>
   <script data-lazy-src="easter-eggs.js?v=20260316"></script>
   <script src="welcome.js?v=20260323" defer></script>
@@ -80,8 +80,12 @@
       },120);
       setTimeout(function(){
         if(!window.__tdbPendingSearchTimer)return;
+        var pending=window.__tdbPendingSearch||'';
         clearInterval(window.__tdbPendingSearchTimer);
         window.__tdbPendingSearchTimer=null;
+        if(pending&&!window.__tdbRunSearchReal){
+          try{location.href=(location.pathname||'/')+'?q='+encodeURIComponent(pending);}catch(_){}
+        }
       },5000);
     };
     document.addEventListener('DOMContentLoaded',function(){

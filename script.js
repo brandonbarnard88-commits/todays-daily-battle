@@ -58,8 +58,16 @@ window.runSearchWithInput = function (inputStr) {
   }, 120);
   setTimeout(function () {
     if (!window.__tdbPendingSearchTimer) return;
+    var pending = window.__tdbPendingSearch || '';
     clearInterval(window.__tdbPendingSearchTimer);
     window.__tdbPendingSearchTimer = null;
+    // Last-resort fallback: if real search never boots, navigate with ?q=
+    // so fallback-search can still render results.
+    if (pending && !window.__tdbRunSearchReal) {
+      try {
+        window.location.href = (window.location.pathname || '/') + '?q=' + encodeURIComponent(pending);
+      } catch (_) {}
+    }
   }, 5000);
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }

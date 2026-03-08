@@ -7705,7 +7705,11 @@ if (c && c.ref) {
     const supaBattle = await getDailyBattleFromSupabase();
     battle = supaBattle || getDailyBattleFallback();
   }
-  var rotatingBattle = getDailyBattleFallback();
+  // Keep the homepage hero verse rotating on every page open by
+  // honoring the pre-rotated/bundled pick for this load.
+  var rotatingBattle = (typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' && DAILY_VERSE_BUNDLED_FALLBACK && DAILY_VERSE_BUNDLED_FALLBACK.ref)
+    ? DAILY_VERSE_BUNDLED_FALLBACK
+    : getDailyBattleFallback();
   if (rotatingBattle && rotatingBattle.ref) {
     battle = Object.assign({}, battle || {}, {
       ref: rotatingBattle.ref,
@@ -12639,6 +12643,21 @@ function writeNbaSignal(key) {
 
   try {
     (function wireSearchAndQuickTopics() {
+      function topicFromChip(el) {
+        if (!el) return '';
+        var direct = (el.dataset && el.dataset.topic) || (el.getAttribute && el.getAttribute('data-topic')) || '';
+        if (direct) return String(direct).trim();
+        var href = (el.getAttribute && el.getAttribute('href')) || '';
+        if (href) {
+          try {
+            var parsed = new URL(href, window.location.origin);
+            var q = parsed.searchParams.get('q');
+            if (q) return String(q).trim();
+          } catch (_) {}
+        }
+        return String(el.textContent || '').trim();
+      }
+
       function ensureBattleSearchVisible() {
         var battleTab = document.getElementById('tab-battle');
         if (battleTab && battleTab.getAttribute('aria-selected') !== 'true' && typeof battleTab.click === 'function') {
@@ -12816,7 +12835,7 @@ function writeNbaSignal(key) {
         try {
           e.preventDefault();
           e.stopPropagation();
-          var topic = (btn.dataset && btn.dataset.topic) || (btn.textContent || '').trim();
+          var topic = topicFromChip(btn);
           if (!topic) return;
           rememberEmotionSignal(topic);
           var q = getQueryInput();

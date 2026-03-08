@@ -21,11 +21,26 @@
     location.href = path + '?q=' + encodeURIComponent(topic) + (location.hash || '');
   }
 
+  function topicFromChip(chip) {
+    if (!chip) return '';
+    var direct = (chip.dataset && chip.dataset.topic) || (chip.getAttribute && chip.getAttribute('data-topic')) || '';
+    if (direct) return String(direct).trim();
+    var href = (chip.getAttribute && chip.getAttribute('href')) || '';
+    if (href) {
+      try {
+        var parsed = new URL(href, window.location.origin);
+        var q = parsed.searchParams.get('q');
+        if (q) return String(q).trim();
+      } catch (_) {}
+    }
+    return String(chip.textContent || '').trim();
+  }
+
   function wireSearch() {
     document.body.addEventListener('click', function (e) {
       var chip = e.target && e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null;
       if (!chip) return;
-      var topic = (chip.dataset && chip.dataset.topic) || (chip.getAttribute && chip.getAttribute('data-topic')) || (chip.textContent || '').trim();
+      var topic = topicFromChip(chip);
       if (!topic) return;
       e.preventDefault();
       e.stopPropagation();

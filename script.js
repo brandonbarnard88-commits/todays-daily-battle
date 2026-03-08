@@ -7570,10 +7570,16 @@ async function renderDailyBattleCard() {
   if (!Object.keys(bible).length) {
     if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
     card.classList.remove('hero-verse-card-skeleton');
-    if (!card.classList.contains('verse-card-loaded')) {
-      card.innerHTML = '<p class="empty">Bible data is not loaded yet.</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Retry</button>';
-    } else if (reflectionEl) reflectionEl.textContent = 'Reflection: ' + (DAILY_VERSE_BUNDLED_FALLBACK.reflection || '');
-    if (card.classList.contains('verse-card-loaded') && prayerEl) prayerEl.textContent = 'Prayer: ' + (DAILY_VERSE_BUNDLED_FALLBACK.prayer || '');
+    var offlineFb = DAILY_VERSE_BUNDLED_FALLBACK || {
+      ref: 'Philippians 4:6',
+      text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+      reflection: 'When the battle feels heavy today, remember God is near and faithful.',
+      prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.'
+    };
+    card.innerHTML = '<strong>' + escapeHtml(offlineFb.ref) + '</strong><p>' + escapeHtml(offlineFb.text || '') + '</p>';
+    card.classList.add('verse-card-loaded');
+    if (reflectionEl) reflectionEl.textContent = 'Reflection: ' + (offlineFb.reflection || '');
+    if (prayerEl) prayerEl.textContent = 'Prayer: ' + (offlineFb.prayer || '');
     updateDailyVerseWhispers(DAILY_VERSE_BUNDLED_FALLBACK.ref, DAILY_VERSE_BUNDLED_FALLBACK.text || '');
     return;
   }

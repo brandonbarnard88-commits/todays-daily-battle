@@ -9800,6 +9800,34 @@ body.has-promo-banner .header-search-sticky {
   filter: saturate(0.92);
 }
 
+.avatar-stage-wanderer {
+  --tdb-avatar-ring: rgba(250, 204, 21, 0.68);
+  box-shadow:
+    0 0 0 1px rgba(250, 204, 21, 0.42) inset,
+    0 12px 30px rgba(2, 6, 23, 0.6),
+    0 0 16px rgba(250, 204, 21, 0.2);
+  background:
+    radial-gradient(circle at 22% 18%, rgba(250, 204, 21, 0.2), transparent 46%),
+    radial-gradient(circle at 76% 78%, rgba(251, 191, 36, 0.16), transparent 42%),
+    linear-gradient(168deg, rgba(15, 23, 42, 0.96), rgba(7, 12, 24, 0.98));
+}
+
+.avatar-stage-wanderer::before {
+  border-color: rgba(253, 230, 138, 0.32);
+  background:
+    linear-gradient(180deg, rgba(250, 204, 21, 0.08), rgba(2, 6, 23, 0.12)),
+    linear-gradient(130deg, rgba(148, 163, 184, 0.1), transparent 45%);
+}
+
+.avatar-stage-wanderer::after {
+  background-image:
+    radial-gradient(circle at 78% 22%, rgba(253, 230, 138, 0.2), transparent 36%),
+    var(--tdb-avatar-emblem);
+  background-size: 100% 100%, var(--tdb-avatar-render-size, 78% auto);
+  background-position: center, center 56%;
+  background-repeat: no-repeat, no-repeat;
+}
+
 .avatar-stage-kingdom,
 .deep-avatar.piece-shield,
 .curriculum-avatar.shield {

@@ -56,6 +56,7 @@ window.runSearchWithInput = function (inputStr) {
     window.__tdbPendingSearchTimer = null;
     if (pending) window.__tdbRunSearchReal(pending);
   }, 120);
+  // Fail over quickly if real search wiring never initializes.
   setTimeout(function () {
     if (!window.__tdbPendingSearchTimer) return;
     var pending = window.__tdbPendingSearch || '';
@@ -68,7 +69,7 @@ window.runSearchWithInput = function (inputStr) {
         window.location.href = (window.location.pathname || '/') + '?q=' + encodeURIComponent(pending);
       } catch (_) {}
     }
-  }, 5000);
+  }, 900);
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
 
@@ -12699,6 +12700,44 @@ function writeNbaSignal(key) {
         }
         return null;
       }
+      function hasSearchCards(outEl) {
+        if (!outEl) return false;
+        return !!outEl.querySelector('.verse-card, .result-section, .empty');
+      }
+      function renderEmergencySearchResults(queryText) {
+        var out = document.getElementById('output') || ensureOutputElement();
+        if (!out) return;
+        var term = String(queryText || '').trim().toLowerCase();
+        var picks = [];
+        if (term && bibleEntries && bibleEntries.length) {
+          for (var i = 0; i < bibleEntries.length && picks.length < 8; i++) {
+            var pair = bibleEntries[i];
+            if (!pair || !pair[0] || !pair[1]) continue;
+            if (String(pair[1]).toLowerCase().indexOf(term) !== -1 || String(pair[0]).toLowerCase().indexOf(term) !== -1) {
+              picks.push({ ref: pair[0], text: pair[1] });
+            }
+          }
+        }
+        if (!picks.length) {
+          var fallbackRefs = ['John 3:16', 'Philippians 4:6', 'Isaiah 41:10', 'Psalms 46:1', 'Joshua 1:9', 'Romans 8:28'];
+          for (var r = 0; r < fallbackRefs.length; r++) {
+            var ref = fallbackRefs[r];
+            var text = bible[ref] || '';
+            if (text) picks.push({ ref: ref, text: text });
+          }
+        }
+        if (!picks.length) {
+          out.innerHTML = '<p class="empty">No verses available yet. Refresh and try again.</p>';
+          out.style.display = 'grid';
+          return;
+        }
+        var html = '<p class="topic-explain">Showing verses while search refreshes.</p>';
+        for (var j = 0; j < picks.length; j++) {
+          html += '<div class="verse-card"><strong>' + escapeHtml(picks[j].ref) + '</strong><p>' + escapeHtml(picks[j].text) + '</p></div>';
+        }
+        out.innerHTML = html;
+        out.style.display = 'grid';
+      }
       function runSearchWithInput(inputStr) {
         var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
         ensureBattleSearchVisible();
@@ -12748,6 +12787,9 @@ function writeNbaSignal(key) {
               if (cacheKey) searchCache.set(cacheKey, results);
               renderResults(results);
             }
+            if (out && !hasSearchCards(out)) {
+              renderEmergencySearchResults(input);
+            }
             if (out) { out.style.display = 'grid'; out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
             if (input) writeNbaSignal('tdb_nba_last_search_at');
             if (input && typeof trackSearchAnalytics === 'function') {
@@ -12758,8 +12800,11 @@ function writeNbaSignal(key) {
           } catch (err) {
             var out = document.getElementById('output');
             if (out) {
-              out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh and try again.</p>';
-              out.style.display = 'grid';
+              renderEmergencySearchResults(input);
+              if (!hasSearchCards(out)) {
+                out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh and try again.</p>';
+                out.style.display = 'grid';
+              }
               out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
             if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);

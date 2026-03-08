@@ -9,11 +9,11 @@
   function runInPageSearch(query) {
     var term = (query != null) ? String(query).trim() : '';
     if (!term) return false;
-    if (typeof window.runSearchWithInput === 'function') {
-      window.runSearchWithInput(term);
-      return true;
-    }
-    return false;
+    if (typeof window.runSearchWithInput !== 'function') return false;
+    try { window.runSearchWithInput(term); } catch (_) { return false; }
+    // Treat the early stub as "not ready" so we can navigate to ?q= immediately.
+    if (typeof window.__tdbRunSearchReal !== 'function') return false;
+    return true;
   }
 
   function fallbackNavigate(topic) {

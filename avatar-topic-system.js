@@ -33,6 +33,7 @@
   var avatarRiveInstance = null;
   var avatarRiveSource = '';
   var failedRiveSources = {};
+  var riveSourceAvailability = {};
   var heroPickerNames = [];
   var GEMS = ['ruby', 'sapphire', 'emerald', 'amethyst', 'gold', 'rose'];
   var FEMALE_HINTS = {
@@ -257,6 +258,35 @@
     return idx >= 0 ? clean.slice(idx + 1) : clean;
   }
 
+  function checkRiveSourceAvailable(src) {
+    var key = String(src || '').trim();
+    if (!key) return Promise.resolve(false);
+    if (Object.prototype.hasOwnProperty.call(riveSourceAvailability, key)) {
+      return Promise.resolve(!!riveSourceAvailability[key]);
+    }
+
+    function remember(ok) {
+      var value = !!ok;
+      riveSourceAvailability[key] = value;
+      return value;
+    }
+
+    function fetchWithGet() {
+      return fetch(key, { method: 'GET', cache: 'no-store' })
+        .then(function (res) { return remember(!!(res && res.ok)); })
+        .catch(function () { return remember(false); });
+    }
+
+    return fetch(key, { method: 'HEAD', cache: 'no-store' })
+      .then(function (res) {
+        if (res && res.ok) return remember(true);
+        return fetchWithGet();
+      })
+      .catch(function () {
+        return fetchWithGet();
+      });
+  }
+
   function ensureRiveCanvas() {
     var avatarEl = document.getElementById('daily-tile-avatar');
     if (!avatarEl) return null;
@@ -316,7 +346,15 @@
     if (avatarRiveInstance && avatarRiveSource === src) return;
     var canvas = ensureRiveCanvas();
     if (!canvas) return;
-    loadRiveRuntime().then(function (riveApi) {
+    checkRiveSourceAvailable(src).then(function (isAvailable) {
+      if (!isAvailable) {
+        failedRiveSources[src] = true;
+        clearCharacterAnimation();
+        setAvatarStatus('Missing animation file: ' + getFileNameFromPath(src) + '. Using static portrait for now.');
+        return null;
+      }
+      return loadRiveRuntime();
+    }).then(function (riveApi) {
       if (!riveApi || typeof riveApi.Rive !== 'function') {
         clearCharacterAnimation();
         return;

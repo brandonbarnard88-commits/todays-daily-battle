@@ -36,7 +36,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="inline-bootstrap.js" defer></script>
   <script type="module" src="config.js?v=20260309"></script>
-  <script src="script.js?v=20260311c" defer></script>
+  <script src="script.js?v=20260311d" defer></script>
   <script src="pray.js?v=20260305" defer></script>
   <script data-lazy-src="easter-eggs.js?v=20260316"></script>
   <script src="welcome.js?v=20260323" defer></script>
@@ -366,6 +366,48 @@
           <button type="button" class="toolbox-tab" role="tab" id="tab-deep" aria-selected="false" aria-controls="drawer-deep" data-drawer="deep">Deep</button>
         </nav>
         <div class="toolbox-block">
+        <!-- QUICK-SEARCH-HERO-V2: search bar + 30 topic chips. Do not remove. -->
+        <div id="quick-search-hero" class="search-hero quick-search-hero quick-search-hero-wrap" role="search" aria-label="Search Scripture">
+          <h3 class="section-divider util-mt-0 util-mb-0_5">Search by what you feel right now</h3>
+          <form id="search-form" method="get" action="">
+            <input type="search" id="tdb-search" name="q" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Anxiety? Strength? John 3:16?" aria-label="Search Bible topics or verses" autocomplete="off">
+            <button id="search-btn" type="submit" class="btn btn-primary search-hero-btn-mt">Search</button>
+          </form>
+          <p class="section-note quick-searches-label">Type a topic, emotion, or verse reference. Tap any chip below for instant verses — all 30 topics.</p>
+          <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-hero" aria-label="Quick topic search">
+            <a href="?q=free+will#quick-search-hero" class="btn btn-primary topic-chip quick-topic" data-topic="free will">FREE WILL</a>
+            <a href="?q=family#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="family">Family</a>
+            <a href="?q=hope#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="hope">Hope</a>
+            <a href="?q=fear#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="fear">Fear</a>
+            <a href="?q=peace#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="peace">Peace</a>
+            <a href="?q=courage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="courage">Courage</a>
+            <a href="?q=gratitude#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="gratitude">Gratitude</a>
+            <a href="?q=loneliness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="loneliness">Loneliness</a>
+            <a href="?q=guilt#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="guilt">Guilt</a>
+            <a href="?q=strength#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="strength">Strength</a>
+            <a href="?q=heartache#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="heartache">Heartache</a>
+            <a href="?q=grief#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="grief">Grief</a>
+            <a href="?q=anxiety#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="anxiety">Anxiety</a>
+            <a href="?q=forgiveness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="forgiveness">Forgiveness</a>
+            <a href="?q=patience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="patience">Patience</a>
+            <a href="?q=anger#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="anger">Anger</a>
+            <a href="?q=joy#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="joy">Joy</a>
+            <a href="?q=love#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="love">Love</a>
+            <a href="?q=addiction#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="addiction">Addiction</a>
+            <a href="?q=trauma#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="trauma">Trauma</a>
+            <a href="?q=relationships#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="relationships">Relationships</a>
+            <a href="?q=jesus+said#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="jesus said">Jesus Said</a>
+            <a href="?q=parenting#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="parenting">Parenting</a>
+            <a href="?q=finances#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="finances">Finances</a>
+            <a href="?q=spiritualwarfare#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</a>
+            <a href="?q=sleep#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="sleep">Sleep &amp; Rest</a>
+            <a href="?q=marriage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="marriage">Marriage</a>
+            <a href="?q=faith#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="faith">Faith</a>
+            <a href="?q=obedience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="obedience">Obedience</a>
+            <a href="?q=wisdom#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="wisdom">Wisdom</a>
+          </div>
+          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
+        </div>
         <div class="kids-battle-home-wrap">
           <a href="/kids/" class="kids-battle-home-banner" role="region" aria-label="Kids Battle – Swipe Bible stories">
             New: Kids Battle - Scripture stories, prayer, and guided activity.
@@ -497,48 +539,6 @@
         <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less Scroll More Soul</p>
         </div>
         <div class="toolbox-block" data-toolbox-drawer="battle">
-        <!-- QUICK-SEARCH-HERO-V2: search bar + 30 topic chips. Do not remove. -->
-        <div id="quick-search-hero" class="search-hero quick-search-hero quick-search-hero-wrap" role="search" aria-label="Search Scripture">
-          <h3 class="section-divider util-mt-0 util-mb-0_5">Search by what you feel right now</h3>
-          <form id="search-form" method="get" action="">
-            <input type="search" id="tdb-search" name="q" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Anxiety? Strength? John 3:16?" aria-label="Search Bible topics or verses" autocomplete="off">
-            <button id="search-btn" type="submit" class="btn btn-primary search-hero-btn-mt">Search</button>
-          </form>
-          <p class="section-note quick-searches-label">Type a topic, emotion, or verse reference. Tap any chip below for instant verses — all 30 topics.</p>
-          <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-hero" aria-label="Quick topic search">
-            <a href="?q=free+will#quick-search-hero" class="btn btn-primary topic-chip quick-topic" data-topic="free will">FREE WILL</a>
-            <a href="?q=family#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="family">Family</a>
-            <a href="?q=hope#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="hope">Hope</a>
-            <a href="?q=fear#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="fear">Fear</a>
-            <a href="?q=peace#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="peace">Peace</a>
-            <a href="?q=courage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="courage">Courage</a>
-            <a href="?q=gratitude#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="gratitude">Gratitude</a>
-            <a href="?q=loneliness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="loneliness">Loneliness</a>
-            <a href="?q=guilt#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="guilt">Guilt</a>
-            <a href="?q=strength#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="strength">Strength</a>
-            <a href="?q=heartache#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="heartache">Heartache</a>
-            <a href="?q=grief#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="grief">Grief</a>
-            <a href="?q=anxiety#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="anxiety">Anxiety</a>
-            <a href="?q=forgiveness#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="forgiveness">Forgiveness</a>
-            <a href="?q=patience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="patience">Patience</a>
-            <a href="?q=anger#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="anger">Anger</a>
-            <a href="?q=joy#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="joy">Joy</a>
-            <a href="?q=love#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="love">Love</a>
-            <a href="?q=addiction#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="addiction">Addiction</a>
-            <a href="?q=trauma#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="trauma">Trauma</a>
-            <a href="?q=relationships#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="relationships">Relationships</a>
-            <a href="?q=jesus+said#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="jesus said">Jesus Said</a>
-            <a href="?q=parenting#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="parenting">Parenting</a>
-            <a href="?q=finances#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="finances">Finances</a>
-            <a href="?q=spiritualwarfare#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="spiritualwarfare">Spiritual Warfare</a>
-            <a href="?q=sleep#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="sleep">Sleep &amp; Rest</a>
-            <a href="?q=marriage#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="marriage">Marriage</a>
-            <a href="?q=faith#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="faith">Faith</a>
-            <a href="?q=obedience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="obedience">Obedience</a>
-            <a href="?q=wisdom#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="wisdom">Wisdom</a>
-          </div>
-          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
-        </div>
         <section class="topic-armor-section glass util-mt-0_5" aria-label="Armor by topic">
           <h3 class="section-divider util-mt-0 util-mb-0_5">Armor by Topic</h3>
           <p class="section-note util-mb-0_5">Pick a topic, load its Bible character avatar, and enter battle mode faster.</p>
@@ -1512,16 +1512,16 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" integrity="sha384-vdScihEZCfbPnBQf+lc7LgXUdJVYyhC3yWHUW5C5P5GpHRqVnaM6HJELJxT6IqwM" crossorigin="anonymous" defer></script>
-  <script src="daily-verse-widget.js" defer></script>
-  <script src="verse-search-dropdown.js?v=20260309" defer></script>
-  <script src="utils.js?v=20260309" defer></script>
-  <script src="verse-breakdown.js?v=20260306" defer></script>
-  <script src="word-parser.js?v=20260306" defer></script>
-  <script src="search.js?v=20260311a" defer></script>
+  <script data-lazy-src="daily-verse-widget.js"></script>
+  <script data-lazy-src="verse-search-dropdown.js?v=20260309"></script>
+  <script data-lazy-src="utils.js?v=20260309"></script>
+  <script data-lazy-src="verse-breakdown.js?v=20260306"></script>
+  <script data-lazy-src="word-parser.js?v=20260306"></script>
+  <script data-lazy-src="search.js?v=20260311a"></script>
   <script src="search-wire.js?v=20260311a" defer></script>
   <script src="fallback-search.js?v=20260313" defer></script>
   <script data-lazy-src="auth.js?v=20260314"></script>
-  <script src="verse-rotator.js?v=20260307a" defer></script>
+  <script data-lazy-src="verse-rotator.js?v=20260307a"></script>
   <script data-lazy-src="curriculum-widget.js?v=20260314"></script>
   <script data-lazy-src="family-hierarchy.js?v=20260305"></script>
   <script data-lazy-src="crest.js?v=20260316"></script>
@@ -1531,7 +1531,7 @@
   <script data-lazy-src="armor.js?v=20260314"></script>
   <script data-lazy-src="cartoon.js?v=20260307a"></script>
   <script data-lazy-src="streak.js?v=20260305"></script>
-  <script src="daily-tile.js?v=20260306a" defer></script>
+  <script data-lazy-src="daily-tile.js?v=20260306a"></script>
   <script data-lazy-src="lineage-tree.js?v=20260314"></script>
   <script data-lazy-src="story-manifest.js?v=20260305"></script>
   <script data-lazy-src="avatar-topic-system.js?v=20260309c"></script>

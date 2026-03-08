@@ -175,6 +175,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 (function loadEasterEggsScript() {
   if (typeof document === 'undefined') return;
   if (document.querySelector('script[data-tdb-easter-eggs="1"]')) return;
+  if (document.querySelector('script[data-lazy-src*="easter-eggs.js"]')) return;
   var script = document.createElement('script');
   script.src = '/easter-eggs.js';
   script.defer = true;
@@ -186,6 +187,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (typeof document === 'undefined') return;
   if (window.TDBVerseBreakdown) return;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
+  if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var script = document.createElement('script');
   script.src = '/verse-breakdown.js?v=20260306u';
@@ -12853,7 +12855,7 @@ function writeNbaSignal(key) {
     var tag = document.getElementById('brand-tagline');
     if (tag) tag.textContent = "One verse. One movement.";
     var heroTag = document.getElementById('hero-tagline');
-    if (heroTag) heroTag.textContent = "Scripture first, every day. For you and your church.";
+    if (heroTag) heroTag.textContent = "Less Scroll More Soul";
     var orgCta = document.getElementById('org-movement-cta');
     if (orgCta) orgCta.classList.remove('hidden');
     var promo = document.getElementById('promo-banner');

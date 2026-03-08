@@ -1170,6 +1170,13 @@ body {
 @media (max-width: 768px) {
   body.has-mobile-quick-tools .app-content {
     padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  .top-bar,
+  #main-content {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   .mobile-quick-tools {
     position: fixed;
@@ -1177,12 +1184,10 @@ body {
     right: 0.6rem;
     bottom: calc(0.45rem + env(safe-area-inset-bottom));
     z-index: 1300;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.38rem;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     padding: 0.45rem;
     border-radius: 14px;
     border: 1px solid rgba(148, 163, 184, 0.32);
@@ -1192,9 +1197,9 @@ body {
   }
   .mobile-quick-tool {
     min-height: 44px;
-    min-width: 102px;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    min-width: 0;
+    width: 100%;
+    flex: 1 1 auto;
     padding: 0.35rem 0.45rem;
     border-radius: 10px;
     border: 1px solid rgba(148, 163, 184, 0.26);
@@ -1214,6 +1219,20 @@ body {
   }
   .mobile-quick-tools::-webkit-scrollbar { display: none; }
   .mobile-quick-tools { scrollbar-width: none; }
+  .toolbox-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    justify-content: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+  .toolbox-tab {
+    width: 100%;
+    min-width: 0;
+    padding: 0.62rem 0.4rem;
+    font-size: 0.92rem;
+  }
   .header-nav { display: none !important; }
   .header-menu-link { display: inline-flex !important; }
   .toolbox-card-grid { grid-template-columns: 1fr; }

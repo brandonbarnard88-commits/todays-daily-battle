@@ -18,7 +18,8 @@
   var TOPIC_GEM_CLASSES = ['ruby', 'sapphire', 'emerald', 'amethyst', 'gold', 'rose', 'default'];
   var AVATAR_RIVE_CANVAS_ID = 'daily-tile-avatar-rive';
   var RIVE_RUNTIME_URL = 'https://unpkg.com/@rive-app/canvas@2.24.0';
-  var RIVE_ANIMATIONS_ENABLED = !!(window.TDB_CONFIG && window.TDB_CONFIG.ENABLE_RIVE_AVATARS === true);
+  // Motion avatars are disabled until real .riv assets are shipped.
+  var RIVE_ANIMATIONS_ENABLED = false;
   var HERO_PICKER_STORAGE_KEY = 'tdb_selected_hero_name';
   var HERO_PICKER_MODAL_ID = 'hero-picker-modal';
   var HERO_PICKER_OPEN_BTN_ID = 'hero-picker-open-btn';
@@ -244,6 +245,7 @@
   }
 
   function getRiveSource(topicCfg) {
+    if (!RIVE_ANIMATIONS_ENABLED) return '';
     if (!topicCfg) return '';
     var explicit = String(topicCfg.rive || '').trim();
     if (explicit) return explicit;
@@ -672,7 +674,7 @@
         activeTopicCfg = selected;
         applyCharacterPortrait(selected);
         applyGemTheme(selected);
-        if (selected.dynamic) setAvatarStatus('Loaded hero: ' + String(selected.character || selected.label || 'Character') + '. Add ' + toSlug(selected.character || selected.label || 'hero') + '.riv for motion.');
+        if (selected.dynamic) setAvatarStatus('Loaded hero: ' + String(selected.character || selected.label || 'Character') + '.');
       }
       var out = original(query);
       setTimeout(applySurfaceAccents, 200);

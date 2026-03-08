@@ -491,8 +491,9 @@ body {
   background: linear-gradient(180deg, rgba(8, 12, 22, 0.99) 0%, rgba(10, 14, 26, 0.98) 100%);
   border-bottom: 2px solid var(--elite-gold-dim);
   box-shadow: 0 1px 0 var(--elite-gold), 0 8px 40px rgba(0, 0, 0, 0.35);
-  position: relative;
-  z-index: 5;
+  position: sticky;
+  top: 0;
+  z-index: 120;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   font-family: var(--font-display), Georgia, serif;
@@ -11162,11 +11163,6 @@ body.has-promo-banner .header-search-sticky {
   }
 }
 
-.swipe-hint {
-  margin: calc(0.2rem * var(--tdb-spacing-scale)) 0 calc(0.45rem * var(--tdb-spacing-scale));
-  text-align: center;
-  color: rgba(250, 204, 21, 0.88);
-}
 .footer-columns {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

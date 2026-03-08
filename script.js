@@ -7542,7 +7542,9 @@ function pickBundledDailyFallback() {
   return pick;
 }
 
-var DAILY_VERSE_BUNDLED_FALLBACK = pickBundledDailyFallback();
+var DAILY_VERSE_BUNDLED_FALLBACK = (window.__tdbPreRotatedDailyBattle && window.__tdbPreRotatedDailyBattle.ref)
+  ? window.__tdbPreRotatedDailyBattle
+  : pickBundledDailyFallback();
 
 async function renderDailyBattleCard() {
   const card = document.getElementById('daily-battle-card');

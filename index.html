@@ -36,7 +36,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="inline-bootstrap.js" defer></script>
   <script type="module" src="config.js?v=20260309"></script>
-  <script src="script.js?v=20260309d" defer></script>
+  <script src="script.js?v=20260309e" defer></script>
   <script src="pray.js?v=20260305" defer></script>
   <script data-lazy-src="easter-eggs.js?v=20260316"></script>
   <script src="welcome.js?v=20260323" defer></script>
@@ -339,6 +339,42 @@
         <div class="hero-verse-wrap" aria-label="Today's verse" id="hero-verse-wrap">
           <p class="hero-intro-message section-note">The Lord is present. Begin in reverence.</p>
           <div id="daily-battle-card" class="verse-card verse-breath hero-verse-card verse-card-loaded" aria-live="polite"><strong>Philippians 4:6</strong><p>Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p></div>
+          <script nonce="tdb2025">
+            (function () {
+              var list = [
+                { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.', reflection: 'When the battle feels heavy today, remember God is near and faithful.', prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.' },
+                { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee.', reflection: 'God is with you in this battle and will strengthen your hands for today.', prayer: 'Lord, remove fear and steady me with Your strength. Amen.' },
+                { ref: 'Psalms 46:1', text: 'God is our refuge and strength, a very present help in trouble.', reflection: 'You are not facing this alone. God is present help right now.', prayer: 'Father, be my refuge and strength in every pressure today. Amen.' },
+                { ref: 'Joshua 1:9', text: 'Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.', reflection: 'Courage grows when you remember who walks with you.', prayer: 'Lord, make me brave and obedient in the next step. Amen.' },
+                { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.', reflection: 'Jesus invites your heavy heart to rest in Him today.', prayer: 'Jesus, I bring You my burdens. Give me Your rest and peace. Amen.' },
+                { ref: 'Romans 8:28', text: 'And we know that all things work together for good to them that love God.', reflection: 'Even what feels unresolved can be woven by God for good.', prayer: 'God, help me trust You while You work all things for good. Amen.' }
+              ];
+              if (!list.length) return;
+              var idx = 0;
+              var key = 'tdb_preopen_daily_idx_v1';
+              try {
+                idx = Number(localStorage.getItem(key) || '0') || 0;
+              } catch (e) {
+                idx = Math.floor(Date.now() / 1000);
+              }
+              idx = Math.abs(idx) % list.length;
+              var pick = list[idx] || list[0];
+              try { localStorage.setItem(key, String((idx + 1) % list.length)); } catch (e2) {}
+              window.__tdbPreRotatedDailyBattle = pick;
+              var card = document.getElementById('daily-battle-card');
+              if (!card || !pick || !pick.ref) return;
+              var esc = function (s) {
+                return String(s || '')
+                  .replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&#39;');
+              };
+              card.innerHTML = '<strong>' + esc(pick.ref) + '</strong><p>' + esc(pick.text || '') + '</p>';
+              card.classList.add('verse-card-loaded');
+            })();
+          </script>
           <div id="daily-verse-prayed-row" class="daily-verse-prayed-row hidden" aria-live="polite">
             <label class="daily-verse-prayed-label">
               <input type="checkbox" id="daily-verse-prayed-cb" aria-label="Mark as prayed"> Prayed

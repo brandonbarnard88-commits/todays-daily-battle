@@ -18,6 +18,7 @@
   var TOPIC_GEM_CLASSES = ['ruby', 'sapphire', 'emerald', 'amethyst', 'gold', 'rose', 'default'];
   var AVATAR_RIVE_CANVAS_ID = 'daily-tile-avatar-rive';
   var RIVE_RUNTIME_URL = 'https://unpkg.com/@rive-app/canvas@2.24.0';
+  var RIVE_ANIMATIONS_ENABLED = !!(window.TDB_CONFIG && window.TDB_CONFIG.ENABLE_RIVE_AVATARS === true);
   var HERO_PICKER_STORAGE_KEY = 'tdb_selected_hero_name';
   var HERO_PICKER_MODAL_ID = 'hero-picker-modal';
   var HERO_PICKER_OPEN_BTN_ID = 'hero-picker-open-btn';
@@ -335,6 +336,10 @@
   }
 
   function applyCharacterAnimation(topicCfg) {
+    if (!RIVE_ANIMATIONS_ENABLED) {
+      clearCharacterAnimation();
+      return;
+    }
     var src = getRiveSource(topicCfg);
     if (!src || failedRiveSources[src]) {
       clearCharacterAnimation();

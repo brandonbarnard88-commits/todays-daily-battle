@@ -36,7 +36,7 @@
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="inline-bootstrap.js" defer></script>
   <script type="module" src="config.js?v=20260309"></script>
-  <script src="script.js?v=20260311b" defer></script>
+  <script src="script.js?v=20260311c" defer></script>
   <script src="pray.js?v=20260305" defer></script>
   <script data-lazy-src="easter-eggs.js?v=20260316"></script>
   <script src="welcome.js?v=20260323" defer></script>
@@ -442,18 +442,9 @@
           <div class="cta-group cta-group-flex-wrap">
             <a class="btn btn-primary" href="action-bible.html">Open Action Bible Archive</a>
             <a class="btn btn-secondary" href="action-bible-workshop.html">Open Workshop Toolkit</a>
-            <a class="btn btn-secondary" href="#quick-search-priority">Search by Feeling Now</a>
+            <a class="btn btn-secondary" href="#quick-search-hero">Search by Feeling Now</a>
           </div>
           <p class="section-note util-mt-0_5 util-mb-0">Guided path: <strong>1)</strong> name what you feel, <strong>2)</strong> anchor in Scripture, <strong>3)</strong> apply it in home and church.</p>
-        </section>
-        <section id="quick-search-priority" class="glass util-mt-0_5" aria-label="Search by what you feel right now">
-          <h3 class="section-divider util-mt-0 util-mb-0_5">Search by what you feel right now</h3>
-          <p class="section-note util-mb-0_5">Search anything first (verse, phrase, question, or life situation), then use the 30 quick topics below.</p>
-          <form id="quick-search-priority-form" class="search-hero-form quick-search-priority-form" method="get" action="">
-            <label for="quick-search-priority-input" class="sr-only">Search anything in Scripture</label>
-            <input type="search" id="quick-search-priority-input" class="search-hero-input search-hero-input-gold" placeholder="Search anything (example: betrayal, purpose, Romans 8:28)" aria-label="Search anything in Scripture" autocomplete="off">
-            <button type="submit" id="quick-search-priority-btn" class="btn btn-primary search-hero-btn">Search Anything</button>
-          </form>
         </section>
         <section id="daily-tile-home" class="glass daily-tile-home util-mt-0_5" role="region" aria-label="Today's Battle daily tile">
           <p class="section-note daily-tile-kicker">Daily Tile</p>
@@ -503,16 +494,16 @@
           <p id="verse-rotator-home-ref" class="section-note util-mb-0_5">Loading…</p>
           <p id="verse-rotator-home-text" class="section-note util-mb-0"></p>
         </div>
-        <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less noise, more Scripture.</p>
+        <p class="hero-slogan-one-line home-tagline" id="hero-tagline">Less Scroll More Soul</p>
         </div>
         <div class="toolbox-block" data-toolbox-drawer="battle">
         <!-- QUICK-SEARCH-HERO-V2: search bar + 30 topic chips. Do not remove. -->
         <div id="quick-search-hero" class="search-hero quick-search-hero quick-search-hero-wrap" role="search" aria-label="Search Scripture">
+          <h3 class="section-divider util-mt-0 util-mb-0_5">Search by what you feel right now</h3>
           <form id="search-form" method="get" action="">
             <input type="search" id="tdb-search" name="q" class="search-hero-input search-hero-input-gold search-hero-input-inline" placeholder="Anxiety? Strength? John 3:16?" aria-label="Search Bible topics or verses" autocomplete="off">
             <button id="search-btn" type="submit" class="btn btn-primary search-hero-btn-mt">Search</button>
           </form>
-          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
           <p class="section-note quick-searches-label">Type a topic, emotion, or verse reference. Tap any chip below for instant verses — all 30 topics.</p>
           <div class="quick-actions quick-actions-hero quick-chips-gold quick-chips-grid" id="quick-actions-hero" aria-label="Quick topic search">
             <a href="?q=free+will#quick-search-hero" class="btn btn-primary topic-chip quick-topic" data-topic="free will">FREE WILL</a>
@@ -546,6 +537,7 @@
             <a href="?q=obedience#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="obedience">Obedience</a>
             <a href="?q=wisdom#quick-search-hero" class="btn btn-secondary topic-chip quick-topic" data-topic="wisdom">Wisdom</a>
           </div>
+          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </div>
         <section class="topic-armor-section glass util-mt-0_5" aria-label="Armor by topic">
           <h3 class="section-divider util-mt-0 util-mb-0_5">Armor by Topic</h3>
@@ -1525,7 +1517,7 @@
   <script src="utils.js?v=20260309" defer></script>
   <script src="verse-breakdown.js?v=20260306" defer></script>
   <script src="word-parser.js?v=20260306" defer></script>
-  <script src="search.js?v=20260306" defer></script>
+  <script src="search.js?v=20260311a" defer></script>
   <script src="search-wire.js?v=20260311a" defer></script>
   <script src="fallback-search.js?v=20260313" defer></script>
   <script data-lazy-src="auth.js?v=20260314"></script>

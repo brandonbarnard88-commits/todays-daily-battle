@@ -14,10 +14,12 @@
     fallback: "You're not alone-He's here."
   };
   var encouragementCache = null;
+  var encouragementsPromise = null;
   var lastWrappedFn = null;
   var outputObserver = null;
   var enhanceQueued = 0;
   var isEnhancing = false;
+  var lastEnhancedKey = '';
 
   function byId(id) { return document.getElementById(id); }
 
@@ -113,28 +115,22 @@
     };
   }
 
-  function ensureShowMoreWrap(output) {
-    var wrap = output.querySelector('.smart-show-more-wrap');
-    if (!wrap) {
-      wrap = document.createElement('div');
-      wrap.className = 'smart-show-more-wrap';
-      output.appendChild(wrap);
-    }
-    return wrap;
-  }
-
   function loadEncouragements() {
     if (encouragementCache) return Promise.resolve(encouragementCache);
-    return fetch(ENCOURAGEMENTS_URL, { cache: 'no-store' }).then(function (res) {
+    if (encouragementsPromise) return encouragementsPromise;
+    encouragementsPromise = fetch(ENCOURAGEMENTS_URL, { cache: 'no-store' }).then(function (res) {
       if (!res || !res.ok) throw new Error('encouragements-load-failed');
       return res.json();
     }).then(function (data) {
       encouragementCache = data && typeof data === 'object' ? data : ENCOURAGEMENTS_FALLBACK;
+      encouragementsPromise = null;
       return encouragementCache;
     }).catch(function () {
       encouragementCache = ENCOURAGEMENTS_FALLBACK;
+      encouragementsPromise = null;
       return encouragementCache;
     });
+    return encouragementsPromise;
   }
 
   function normalizeTopicWord(word) {
@@ -188,9 +184,20 @@
     }
     var cards = Array.prototype.slice.call(output.querySelectorAll('.verse-card'));
     if (!cards.length) {
+      lastEnhancedKey = '';
       isEnhancing = false;
       return;
     }
+    var keyParts = cards.map(function (card) {
+      var verse = getCardVerse(card);
+      return (verse.ref || '') + '|' + (verse.text || '').slice(0, 80);
+    });
+    var nextEnhancedKey = String(inputText || '') + '::' + keyParts.join('||');
+    if (nextEnhancedKey === lastEnhancedKey && output.querySelector('.smart-hit-action')) {
+      isEnhancing = false;
+      return;
+    }
+    lastEnhancedKey = nextEnhancedKey;
 
     var heartLine = ensureHeartfeltLine(output);
     var topic = inferTopic(inputText, parser);
@@ -199,8 +206,9 @@
       if (heartLine) heartLine.textContent = String(tone || ENCOURAGEMENTS_FALLBACK.fallback);
     });
 
-    output.classList.remove('smart-expanded');
-    cards.forEach(function (card, idx) {
+    var legacyWrap = output.querySelector('.smart-show-more-wrap');
+    if (legacyWrap) legacyWrap.remove();
+    cards.forEach(function (card) {
       var verse = getCardVerse(card);
       var existing = card.querySelector('.smart-hit-action');
       if (existing) existing.remove();
@@ -213,7 +221,7 @@
         actionCfg.action(btn);
       });
       card.appendChild(btn);
-      card.classList.toggle('smart-hit-hidden', idx >= 3);
+      card.classList.remove('smart-hit-hidden');
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
       card.setAttribute('aria-label', 'Open verse breakdown for ' + (verse.ref || 'verse'));
@@ -231,20 +239,6 @@
       };
     });
 
-    var wrap = ensureShowMoreWrap(output);
-    if (cards.length > 3) {
-      wrap.innerHTML = '<button type="button" class="link-button smart-show-more-btn">Show more...</button>';
-      var moreBtn = wrap.querySelector('.smart-show-more-btn');
-      if (moreBtn) {
-        moreBtn.addEventListener('click', function () {
-          output.classList.add('smart-expanded');
-          cards.forEach(function (card) { card.classList.remove('smart-hit-hidden'); });
-          wrap.innerHTML = '';
-        });
-      }
-    } else {
-      wrap.innerHTML = '';
-    }
     isEnhancing = false;
   }
 
@@ -260,9 +254,6 @@
       setTimeout(function () {
         limitAndEnhanceResults(val);
       }, 260);
-      setTimeout(function () {
-        limitAndEnhanceResults(val);
-      }, 560);
     };
     wrapped.__tdbSmartEnhanced = true;
     window.runSearchWithInput = wrapped;
@@ -285,14 +276,17 @@
   }
 
   function boot() {
-    installEnhancer();
+    var installed = installEnhancer();
     attachOutputObserver();
+    var observerReady = !!outputObserver;
+    if (installed && observerReady) return;
     var tries = 0;
     var t = setInterval(function () {
       tries += 1;
-      installEnhancer();
+      var ok = installEnhancer();
       attachOutputObserver();
-      if (tries > 160) clearInterval(t);
+      var hasObserver = !!outputObserver;
+      if ((ok && hasObserver) || tries > 160) clearInterval(t);
     }, 120);
   }
 

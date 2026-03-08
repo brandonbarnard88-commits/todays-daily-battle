@@ -64,6 +64,30 @@ window.runSearchWithInput = function (inputStr) {
 };
 function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
 
+function normalizeHomeMainOrder() {
+  if (window.__tdbHomeOrderNormalized) return;
+  var searchHero = document.getElementById('quick-search-hero');
+  if (!searchHero) return;
+  var battleBlock = searchHero.closest ? searchHero.closest('.toolbox-block[data-toolbox-drawer="battle"]') : null;
+  if (!battleBlock || !battleBlock.insertBefore) return;
+  var topicArmor = document.getElementById('topic-armor-bar');
+  var anchor = topicArmor && topicArmor.closest ? topicArmor.closest('section') : null;
+
+  var dailyTile = document.getElementById('daily-tile-home');
+  var prayerBlock = document.querySelector('.prayer-of-day-block');
+  var verseRotator = document.getElementById('verse-rotator-home');
+  var heroTagline = document.getElementById('hero-tagline');
+  var ordered = [dailyTile, prayerBlock, verseRotator, heroTagline].filter(Boolean);
+  if (!ordered.length) return;
+
+  var insertBeforeNode = anchor || searchHero.nextSibling;
+  ordered.forEach(function (node) {
+    if (!node || node === insertBeforeNode) return;
+    battleBlock.insertBefore(node, insertBeforeNode || null);
+  });
+  window.__tdbHomeOrderNormalized = true;
+}
+
 function wireEarlySearchFallbacks() {
   if (window.__tdbEarlySearchFallbacksWired) return;
   window.__tdbEarlySearchFallbacksWired = true;
@@ -89,8 +113,10 @@ function wireEarlySearchFallbacks() {
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
+  document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
 } else {
   wireEarlySearchFallbacks();
+  normalizeHomeMainOrder();
 }
 
 function wireHashLinkFallbacks() {

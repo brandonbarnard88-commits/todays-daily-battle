@@ -5986,39 +5986,6 @@ button:active {
   margin-top: 0.75rem;
 }
 
-.tdb-verse-more {
-  margin-top: 0.7rem;
-  border: 1px solid rgba(148, 163, 184, 0.32);
-  border-radius: 10px;
-  background: rgba(15, 23, 42, 0.42);
-}
-
-.tdb-verse-more summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 0.55rem 0.7rem;
-  font-weight: 600;
-  color: rgba(248, 250, 252, 0.95);
-}
-
-.tdb-verse-more summary::-webkit-details-marker { display: none; }
-
-.tdb-verse-more-content {
-  padding: 0.15rem 0.7rem 0.62rem;
-  border-top: 1px solid rgba(148, 163, 184, 0.22);
-}
-
-.tdb-verse-more-content p {
-  margin: 0.42rem 0;
-  color: rgba(226, 232, 240, 0.96);
-  line-height: 1.45;
-}
-
-.tdb-verse-more-content p strong {
-  color: #fde68a;
-  font-weight: 700;
-}
-
 .card-action-dropdown {
   position: relative;
   display: inline-block;

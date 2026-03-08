@@ -417,51 +417,6 @@
     row.appendChild(btn);
   }
 
-  function addInlineMore(container, ref, text) {
-    if (!container || !ref || !text) return;
-    if (container.querySelector('.tdb-verse-more')) return;
-    var existing = container.querySelector('.verse-breakdown');
-    if (existing && existing.classList && !existing.classList.contains('tdb-verse-more')) return;
-    var breakdown = personalizeBreakdown(getBreakdown(ref, text), getAgeMode() || 'adult', ref, text);
-    var topic = inferRelationTopic(ref, text);
-    var details = document.createElement('details');
-    details.className = 'tdb-verse-more';
-    var summary = document.createElement('summary');
-    summary.textContent = 'Show more';
-    summary.setAttribute('aria-label', 'Show more verse context');
-    details.appendChild(summary);
-
-    var content = document.createElement('div');
-    content.className = 'tdb-verse-more-content';
-    var lines = [
-      ['Who said it?', breakdown.about || '—'],
-      ['Who to?', breakdown.to || '—'],
-      ['Plain talk', breakdown.layman || '—'],
-      ['How it fits you', breakdown.applies || '—'],
-      ['Today relation', buildRelationLine(topic, RELATIONS_FALLBACK)]
-    ];
-    for (var i = 0; i < lines.length; i++) {
-      var p = document.createElement('p');
-      var strong = document.createElement('strong');
-      strong.textContent = lines[i][0] + ': ';
-      p.appendChild(strong);
-      p.appendChild(document.createTextNode(lines[i][1]));
-      content.appendChild(p);
-    }
-    details.appendChild(content);
-    container.appendChild(details);
-
-    details.addEventListener('toggle', function () {
-      if (!details.open) return;
-      loadRelationsDict().then(function (dict) {
-        var relation = buildRelationLine(topic, dict);
-        var relationLine = details.querySelector('.tdb-verse-more-content p:last-child');
-        if (!relationLine) return;
-        relationLine.innerHTML = '<strong>Today relation:</strong> ' + esc(relation);
-      });
-    });
-  }
-
   function ensureActionRow(container) {
     if (!container || typeof container.querySelector !== 'function') return container;
     var existing = container.querySelector('.card-actions, .mystudy-share-actions, .verse-actions, .cta-group, .tdb-verse-actions');
@@ -585,7 +540,6 @@
         if (!pair.ref || !pair.text) return;
         var row = findActionRow(el) || el;
         addButton(row, pair.ref, pair.text);
-        addInlineMore(el, pair.ref, pair.text);
       });
     });
   }

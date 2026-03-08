@@ -8904,17 +8904,54 @@ function countWordMatches(text, regex) {
   return matches ? matches.length : 0;
 }
 
+function normalizeBookLookupKey(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/\./g, '')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function getCanonicalBibleBookName(bookRaw) {
+  var raw = String(bookRaw || '').trim();
+  if (!raw) return '';
+  var aliases = {
+    ps: 'Psalm',
+    psa: 'Psalm',
+    psalm: 'Psalm',
+    psalms: 'Psalm',
+    sos: 'Song of Solomon',
+    'song of songs': 'Song of Solomon',
+    canticles: 'Song of Solomon',
+    rev: 'Revelation'
+  };
+  var normalized = normalizeBookLookupKey(raw);
+  if (aliases[normalized]) return aliases[normalized];
+  var allBooks = [];
+  if (typeof READER_BOOKS_ORDER !== 'undefined' && Array.isArray(READER_BOOKS_ORDER) && READER_BOOKS_ORDER.length) {
+    allBooks = READER_BOOKS_ORDER.slice();
+  } else if (typeof READER_CHAPTER_COUNTS === 'object' && READER_CHAPTER_COUNTS) {
+    allBooks = Object.keys(READER_CHAPTER_COUNTS);
+  }
+  if (!allBooks.length && typeof bookIndex === 'object' && bookIndex) allBooks = Object.keys(bookIndex);
+  for (var i = 0; i < allBooks.length; i++) {
+    if (normalizeBookLookupKey(allBooks[i]) === normalized) return allBooks[i];
+  }
+  return toTitleCase(normalized);
+}
+
 function parseReference(rawInput) {
-  const trimmed = rawInput.trim();
-  const refMatch = trimmed.match(/^(\d?\s*[a-zA-Z]+)\s+(\d+)\s*:\s*(\d+)$/);
+  const trimmed = String(rawInput || '').trim();
+  const refMatch = trimmed.match(/^((?:[1-3]\s+)?[a-zA-Z][a-zA-Z.\s']+?)\s+(\d+)\s*:\s*(\d+)$/i);
   if (!refMatch) return null;
 
   const bookRaw = refMatch[1].replace(/\s+/g, ' ').trim();
   const chapter = refMatch[2];
   const verse = refMatch[3];
-  let book = toTitleCase(bookRaw.toLowerCase());
-  if (book === 'Psalms' || book === 'Ps' || book === 'Ps.') book = 'Psalm';
-  return `${book} ${chapter}:${verse}`;
+  const canonicalBook = getCanonicalBibleBookName(bookRaw);
+  if (!canonicalBook) return null;
+  return `${canonicalBook} ${chapter}:${verse}`;
 }
 
 function getChapterKey(ref) {
@@ -11575,6 +11612,29 @@ function handleSearchFilterChange() {
   if (lastQueryInput) {
     if (queryInput) queryInput.value = lastQueryInput;
     searchBtn?.click();
+    return;
+  }
+  // If user selects a book/testament with no typed query, seed a valid verse
+  // so filter-only search still returns something actionable.
+  var bookFilterEl = document.getElementById('book-filter');
+  var testamentFilterEl = document.getElementById('testament-filter');
+  var selectedBook = bookFilterEl ? String(bookFilterEl.value || '').trim() : '';
+  var selectedTestament = testamentFilterEl ? String(testamentFilterEl.value || 'all') : 'all';
+  if (queryInput && !queryInput.value.trim()) {
+    if (selectedBook) {
+      queryInput.value = selectedBook + ' 1:1';
+      searchBtn?.click();
+      return;
+    }
+    if (selectedTestament === 'ot') {
+      queryInput.value = 'Psalm 1:1';
+      searchBtn?.click();
+      return;
+    }
+    if (selectedTestament === 'nt') {
+      queryInput.value = 'Matthew 1:1';
+      searchBtn?.click();
+    }
   }
 }
 

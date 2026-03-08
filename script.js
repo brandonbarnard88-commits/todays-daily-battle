@@ -6756,18 +6756,36 @@ var PAGE_OPEN_DAILY_VERSE_REF = '';
 var LAST_OPEN_DAILY_VERSE_KEY = 'tdb_last_open_daily_verse_ref_v1';
 var OPEN_DAILY_VERSE_INDEX_KEY = 'tdb_open_daily_verse_index_v1';
 
+function canUseLocalStorage() {
+  try {
+    var key = '__tdb_ls_probe__';
+    localStorage.setItem(key, '1');
+    localStorage.removeItem(key);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function pickFreshDailyVerseRef() {
   var safeRefs = DAILY_VERSE_SAFE_REFS.filter(function (ref) { return bible[ref]; });
   if (!safeRefs.length) return null;
+  var useStorage = canUseLocalStorage();
   var idx = 0;
-  try {
-    idx = Number(localStorage.getItem(OPEN_DAILY_VERSE_INDEX_KEY) || '0') || 0;
-  } catch (e) {}
+  if (useStorage) {
+    try {
+      idx = Number(localStorage.getItem(OPEN_DAILY_VERSE_INDEX_KEY) || '0') || 0;
+    } catch (e) {}
+  } else {
+    idx = Math.floor(Date.now() / 1000);
+  }
   idx = Math.abs(idx) % safeRefs.length;
   var picked = safeRefs[idx] || safeRefs[0];
   var nextIdx = (idx + 1) % safeRefs.length;
-  try { localStorage.setItem(OPEN_DAILY_VERSE_INDEX_KEY, String(nextIdx)); } catch (e2) {}
-  try { localStorage.setItem(LAST_OPEN_DAILY_VERSE_KEY, picked); } catch (e2) {}
+  if (useStorage) {
+    try { localStorage.setItem(OPEN_DAILY_VERSE_INDEX_KEY, String(nextIdx)); } catch (e2) {}
+    try { localStorage.setItem(LAST_OPEN_DAILY_VERSE_KEY, picked); } catch (e3) {}
+  }
   return picked;
 }
 
@@ -7507,13 +7525,20 @@ function pickBundledDailyFallback() {
     };
   }
   var indexKey = 'tdb_bundled_daily_fallback_index_v1';
+  var useStorage = canUseLocalStorage();
   var idx = 0;
-  try { idx = Number(localStorage.getItem(indexKey) || '0') || 0; } catch (e) {}
+  if (useStorage) {
+    try { idx = Number(localStorage.getItem(indexKey) || '0') || 0; } catch (e) {}
+  } else {
+    idx = Math.floor(Date.now() / 1000);
+  }
   idx = Math.abs(idx) % list.length;
   var pick = list[idx] || list[0];
   var nextIdx = (idx + 1) % list.length;
-  try { localStorage.setItem(indexKey, String(nextIdx)); } catch (e2) {}
-  try { if (pick && pick.ref) localStorage.setItem('tdb_last_bundled_daily_fallback_ref_v1', String(pick.ref)); } catch (e2) {}
+  if (useStorage) {
+    try { localStorage.setItem(indexKey, String(nextIdx)); } catch (e2) {}
+    try { if (pick && pick.ref) localStorage.setItem('tdb_last_bundled_daily_fallback_ref_v1', String(pick.ref)); } catch (e3) {}
+  }
   return pick;
 }
 

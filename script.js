@@ -1458,7 +1458,8 @@ const topics = {
   },
   family: {
     synonyms: ['home', 'parents', 'siblings', 'household'],
-    verses: ['Joshua 24:15', 'Ephesians 6:1', 'Colossians 3:13', 'Psalms 127:3', 'Proverbs 22:6'],
+    // Keep this list distinct from "free will" so topic results are unambiguous.
+    verses: ['Ephesians 6:1', 'Colossians 3:13', 'Psalms 127:3', 'Proverbs 22:6', 'Colossians 3:20'],
     guidance: {
       kid: "Love your family and help at home.",
       teen: "Honor your family even when it is hard.",

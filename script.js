@@ -6754,19 +6754,19 @@ window.renderVerseContext = renderVerseContext;
 
 var PAGE_OPEN_DAILY_VERSE_REF = '';
 var LAST_OPEN_DAILY_VERSE_KEY = 'tdb_last_open_daily_verse_ref_v1';
+var OPEN_DAILY_VERSE_INDEX_KEY = 'tdb_open_daily_verse_index_v1';
 
 function pickFreshDailyVerseRef() {
   var safeRefs = DAILY_VERSE_SAFE_REFS.filter(function (ref) { return bible[ref]; });
   if (!safeRefs.length) return null;
-  var lastRef = '';
-  try { lastRef = String(localStorage.getItem(LAST_OPEN_DAILY_VERSE_KEY) || ''); } catch (e) {}
-  var pool = safeRefs;
-  if (lastRef && safeRefs.length > 1) {
-    pool = safeRefs.filter(function (ref) { return ref !== lastRef; });
-    if (!pool.length) pool = safeRefs;
-  }
-  var idx = Math.floor(Math.random() * pool.length);
-  var picked = pool[idx] || safeRefs[0];
+  var idx = 0;
+  try {
+    idx = Number(localStorage.getItem(OPEN_DAILY_VERSE_INDEX_KEY) || '0') || 0;
+  } catch (e) {}
+  idx = Math.abs(idx) % safeRefs.length;
+  var picked = safeRefs[idx] || safeRefs[0];
+  var nextIdx = (idx + 1) % safeRefs.length;
+  try { localStorage.setItem(OPEN_DAILY_VERSE_INDEX_KEY, String(nextIdx)); } catch (e2) {}
   try { localStorage.setItem(LAST_OPEN_DAILY_VERSE_KEY, picked); } catch (e2) {}
   return picked;
 }
@@ -7506,14 +7506,13 @@ function pickBundledDailyFallback() {
       prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.'
     };
   }
-  var lastRef = '';
-  try { lastRef = String(localStorage.getItem('tdb_last_bundled_daily_fallback_ref_v1') || ''); } catch (e) {}
-  var pool = list;
-  if (lastRef && list.length > 1) {
-    pool = list.filter(function (item) { return item && item.ref !== lastRef; });
-    if (!pool.length) pool = list;
-  }
-  var pick = pool[Math.floor(Math.random() * pool.length)] || list[0];
+  var indexKey = 'tdb_bundled_daily_fallback_index_v1';
+  var idx = 0;
+  try { idx = Number(localStorage.getItem(indexKey) || '0') || 0; } catch (e) {}
+  idx = Math.abs(idx) % list.length;
+  var pick = list[idx] || list[0];
+  var nextIdx = (idx + 1) % list.length;
+  try { localStorage.setItem(indexKey, String(nextIdx)); } catch (e2) {}
   try { if (pick && pick.ref) localStorage.setItem('tdb_last_bundled_daily_fallback_ref_v1', String(pick.ref)); } catch (e2) {}
   return pick;
 }

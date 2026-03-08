@@ -515,7 +515,6 @@ body {
   font-size: 0.62rem;
   letter-spacing: 0.09em;
 }
-.top-bar.top-bar-minimal .brand-tagline,
 .top-bar.top-bar-minimal .brand-secondary,
 .top-bar.top-bar-minimal #family-armor-stories-btn,
 .top-bar.top-bar-minimal #add-family-btn,
@@ -527,6 +526,9 @@ body {
 .top-bar.top-bar-minimal #battle-pro-badge,
 .top-bar.top-bar-minimal #auth-daily-verse {
   display: none !important;
+}
+.top-bar.top-bar-minimal .brand-tagline {
+  display: block !important;
 }
 @media (max-width: 768px) {
   .top-bar.top-bar-minimal .brand-subtitle {

@@ -1674,35 +1674,6 @@
     .plan-chip:hover { background: color-mix(in srgb, var(--gold) 22%, transparent); }
     .plan-chip-days { color: var(--gold); font-size: 0.72rem; }
 
-    /* ── Listening Overlay ── */
-    .listening-overlay {
-      position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,0.65);
-      display: flex; align-items: flex-end; justify-content: center;
-      padding-bottom: 90px;
-    }
-    .listening-inner {
-      display: flex; align-items: center; gap: 0.85rem;
-      background: var(--card);
-      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
-      border-radius: 14px; padding: 1rem 1.25rem;
-      pointer-events: auto;
-      position: relative; z-index: 1;
-    }
-    .listening-dot {
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--gold);
-      animation: mic-pulse 1s ease infinite;
-    }
-    .listening-text { font-size: 0.95rem; color: var(--text); font-weight: 600; }
-    .listening-cancel {
-      background: transparent; border: 1px solid var(--muted); border-radius: 8px;
-      color: var(--muted); padding: 0.5rem 0.85rem; font-size: 0.85rem; cursor: pointer;
-      min-height: 44px; min-width: 44px;
-      position: relative; z-index: 2;
-    }
-    .listening-cancel:hover, .listening-cancel:focus-visible { color: var(--text); border-color: var(--text); outline: none; }
-
     /* ── Kids Story Modal ── */
     .story-modal {
       position: fixed; inset: 0; z-index: 400;
@@ -3369,8 +3340,6 @@
     function wireVoiceSearch() {
       const micBtn = document.getElementById('micBtn');
       const input  = document.getElementById('feel-search');
-      const overlay = document.getElementById('listeningOverlay');
-      const cancelBtn = document.getElementById('listeningCancel');
       if (!micBtn || !input) return;
       const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRec) {
@@ -3385,13 +3354,7 @@
         if (rec) { try { rec.stop(); } catch (_) {} rec = null; }
         micBtn.classList.remove('mic-btn--active');
         micBtn.setAttribute('aria-label', 'Voice search — speak a feeling');
-        if (overlay) overlay.hidden = true;
       }
-      if (cancelBtn) cancelBtn.addEventListener('click', stopRec);
-      // Tap anywhere on the dark backdrop also cancels
-      overlay.addEventListener('click', function (e) {
-        if (e.target === overlay) stopRec();
-      });
       micBtn.addEventListener('click', function () {
         if (rec) { stopRec(); return; }
         rec = new SpeechRec();
@@ -3400,7 +3363,6 @@
         rec.maxAlternatives = 1;
         micBtn.classList.add('mic-btn--active');
         micBtn.setAttribute('aria-label', 'Listening… tap to stop');
-        if (overlay) overlay.hidden = false;
         rec.start();
         rec.onresult = function (e) {
           const transcript = e.results[0][0].transcript.trim();
@@ -4577,14 +4539,6 @@
           <button type="button" id="dismiss-extend" class="plan-extend-no" aria-label="Dismiss plan extension offer">Nah, I&#8217;m good</button>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div id="listeningOverlay" class="listening-overlay" hidden role="status" aria-live="assertive" aria-atomic="true">
-    <div class="listening-inner">
-      <span class="listening-dot" aria-hidden="true"></span>
-      <span class="listening-text">Listening…</span>
-      <button type="button" id="listeningCancel" class="listening-cancel" aria-label="Cancel voice search">Cancel</button>
     </div>
   </div>
 

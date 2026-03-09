@@ -71,18 +71,20 @@ console.log('=== Security test: defense & offense ===\n');
 // --- DEFENSE ---
 console.log('--- Defense ---');
 
-// 1. CSP in index.html
-const index = read('index.html');
-if (!index.includes('Content-Security-Policy')) {
-  fail('index.html: No Content-Security-Policy meta');
+// 1. CSP — authoritative policy is in _headers (HTTP header), not a meta tag.
+//    Meta CSP was intentionally removed to avoid conflicts with the HTTP header.
+const headersForCsp = read('_headers');
+if (!headersForCsp.includes('Content-Security-Policy')) {
+  fail('_headers: No Content-Security-Policy header');
 } else {
-  ok('CSP present in index.html');
+  ok('CSP present in _headers (HTTP header — correct)');
 }
-if (!index.includes("default-src 'self'") && !index.includes('default-src \'self\'')) {
+if (!headersForCsp.includes("default-src 'self'") && !headersForCsp.includes('default-src \'self\'')) {
   warn('CSP may be weak: default-src should include self');
 }
 
 // 2. Security headers (_headers)
+const index = read('index.html');
 const headers = read('_headers');
 const requiredHeaders = ['X-Frame-Options', 'X-Content-Type-Options', 'Strict-Transport-Security'];
 for (const h of requiredHeaders) {

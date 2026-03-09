@@ -2481,45 +2481,37 @@
     }
 
     async function loadTodaysVerse() {
-      const startedAt = Date.now();
       setVerseLoadingState(true);
       verseNote.hidden = true;
-      let offlineFallback = false;
-      let verseData;
 
-      try {
-        const response = await fetch("/today-kjv-verse.json", { cache: "no-store" });
-        if (!response.ok) throw new Error("Verse request failed");
-        verseData = await response.json();
-        localStorage.setItem("tdb-last-online-verse", JSON.stringify(verseData));
-      } catch (_err) {
-        offlineFallback = true;
-        try {
-          const r2 = await fetch("/yesterday-kjv-verse.json", { cache: "no-store" });
-          if (!r2.ok) throw new Error("No yesterday verse");
-          verseData = await r2.json();
-        } catch (_err2) {
-          // Tier 3: localStorage cache, then OFFLINE_PACK (deterministic day-based pick)
-          const stored = localStorage.getItem("tdb-last-online-verse");
-          if (stored) {
-            try { verseData = JSON.parse(stored); } catch (_) {}
+      // Build a combined rotation pool from both arrays (deduped by ref)
+      const seenRefs = new Set();
+      const heroPool = [];
+      [OFFLINE_PACK, VERSES].forEach(function (arr) {
+        arr.forEach(function (v) {
+          if (v && v.ref && !seenRefs.has(v.ref)) {
+            seenRefs.add(v.ref);
+            heroPool.push(v);
           }
-          if (!verseData) {
-            const seed = Math.floor(Date.now() / 86400000);
-            verseData = OFFLINE_PACK[((seed % OFFLINE_PACK.length) + OFFLINE_PACK.length) % OFFLINE_PACK.length];
-          }
-        }
-      }
+        });
+      });
 
-      const elapsed = Date.now() - startedAt;
-      if (elapsed < 300) {
-        await new Promise((resolve) => setTimeout(resolve, 300 - elapsed));
-      }
+      // Pick a random verse, skipping the one shown last time
+      const lastRef = localStorage.getItem('tdb-hero-last-ref') || '';
+      const candidates = heroPool.length > 1 ? heroPool.filter(function (v) { return v.ref !== lastRef; }) : heroPool;
+      const verseData = candidates[Math.floor(Math.random() * candidates.length)];
+      localStorage.setItem('tdb-hero-last-ref', verseData.ref);
+
+      // Remove the stale static-fetch cache so it can't override on future visits
+      try { localStorage.removeItem('tdb-last-online-verse'); } catch (_) {}
+
+      // Small render delay so loading shimmer is visible
+      await new Promise(function (resolve) { setTimeout(resolve, 200); });
 
       renderVerseContent(verseData);
       setVerseLoadingState(false);
-      // Update page title and meta description with today's verse ref
-      const verseRef = (verseData && verseData.ref) ? sanitizeText(verseData.ref) : '';
+
+      const verseRef = verseData.ref ? sanitizeText(verseData.ref) : '';
       if (verseRef) {
         document.title = "Today\u2019s Daily Battle \u2013 " + verseRef + " KJV";
         const metaDesc = document.querySelector('meta[name="description"]');
@@ -2527,10 +2519,9 @@
           metaDesc.setAttribute("content", "Today\u2019s KJV verse: " + verseRef + ". Search by feeling, save notes, pray together. Offline-first Bible companion.");
         }
       }
-      if (offlineFallback || !navigator.onLine) {
-        const ref = document.getElementById('heroRef');
-        const refText = ref && ref.textContent ? ' ' + ref.textContent : '';
-        verseNote.textContent = "Offline\u2014here\u2019s one:" + refText + " \u2022 Sync when back";
+
+      if (!navigator.onLine) {
+        verseNote.textContent = "Offline\u2014still got you \u2022 Sync when back";
         verseNote.hidden = false;
         showOfflinePill(true);
       }

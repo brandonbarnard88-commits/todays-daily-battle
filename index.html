@@ -1676,16 +1676,18 @@
 
     /* ── Listening Overlay ── */
     .listening-overlay {
-      position: fixed; inset: 0; z-index: 300;
+      position: fixed; inset: 0; z-index: 500;
       background: rgba(0,0,0,0.65);
       display: flex; align-items: flex-end; justify-content: center;
-      padding-bottom: 80px;
+      padding-bottom: 90px;
     }
     .listening-inner {
       display: flex; align-items: center; gap: 0.85rem;
       background: var(--card);
       border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
       border-radius: 14px; padding: 1rem 1.25rem;
+      pointer-events: auto;
+      position: relative; z-index: 1;
     }
     .listening-dot {
       width: 12px; height: 12px; border-radius: 50%;
@@ -1695,9 +1697,11 @@
     .listening-text { font-size: 0.95rem; color: var(--text); font-weight: 600; }
     .listening-cancel {
       background: transparent; border: 1px solid var(--muted); border-radius: 8px;
-      color: var(--muted); padding: 0.3rem 0.65rem; font-size: 0.8rem; cursor: pointer;
+      color: var(--muted); padding: 0.5rem 0.85rem; font-size: 0.85rem; cursor: pointer;
+      min-height: 44px; min-width: 44px;
+      position: relative; z-index: 2;
     }
-    .listening-cancel:hover { color: var(--text); border-color: var(--text); }
+    .listening-cancel:hover, .listening-cancel:focus-visible { color: var(--text); border-color: var(--text); outline: none; }
 
     /* ── Kids Story Modal ── */
     .story-modal {
@@ -3384,6 +3388,10 @@
         if (overlay) overlay.hidden = true;
       }
       if (cancelBtn) cancelBtn.addEventListener('click', stopRec);
+      // Tap anywhere on the dark backdrop also cancels
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) stopRec();
+      });
       micBtn.addEventListener('click', function () {
         if (rec) { stopRec(); return; }
         rec = new SpeechRec();

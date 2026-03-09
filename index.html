@@ -25,8 +25,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/hero-sunrise-bible.png">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260323d" as="style" nonce="tdb2025">
-  <link rel="stylesheet" href="styles.css?v=20260323d" nonce="tdb2025">
+  <link rel="preload" href="styles.css?v=20260323e" as="style" nonce="tdb2025">
+  <link rel="stylesheet" href="styles.css?v=20260323e" nonce="tdb2025">
   <style nonce="tdb2025">body{background:#0a0c14;color:#e2e8f0;} .app-shell{min-height:100vh;} #search-hero,#quick-search-hero,.quick-search-hero,#search-hero form,#quick-search-hero form,#quick-actions-hero{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:2!important;} #search-hero,#quick-search-hero{min-height:10rem;scroll-margin-top:5rem;} #search-hero form,#quick-search-hero form{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:0.75rem!important;margin:0 auto 0.5rem!important;max-width:38rem!important;min-height:3rem!important;} #query,#tdb-search,#search-btn{display:inline-block!important;visibility:visible!important;opacity:1!important;min-height:2.5rem!important;} #tdb-search{min-width:12rem!important;} #quick-actions-hero{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr))!important;gap:0.5rem!important;min-height:2.5rem!important;max-width:42rem!important;margin:0 auto!important;pointer-events:auto!important;overflow:visible!important;}
 #quick-search-hero,.search-hero{overflow:visible!important;}#quick-actions-hero .topic-chip,#quick-actions-hero .quick-topic,#quick-actions-hero [data-topic]{pointer-events:auto!important;cursor:pointer!important;} @media(max-width:768px){#quick-actions-hero{grid-template-columns:repeat(2,1fr)!important;} .search-hero-input,.search-hero-input-gold{width:100%!important;min-width:0!important;}}</style>
   <link rel="manifest" href="manifest.json">
@@ -37,7 +37,7 @@
   <script src="inline-bootstrap.js" defer></script>
   <script src="search-boot.js?v=20260308a" defer></script>
   <script type="module" src="config.js?v=20260309"></script>
-  <script src="script.js?v=20260308-searchbarfix6" defer></script>
+  <script src="script.js?v=20260308-searchbarfix7" defer></script>
   <script src="pray.js?v=20260305" defer></script>
   <script data-lazy-src="easter-eggs.js?v=20260316"></script>
   <script src="welcome.js?v=20260323" defer></script>
@@ -480,9 +480,28 @@
           </div>
           <section id="daily-mood-checkin" class="mood-checkin-wrap glass" aria-label="Daily mood check-in">
             <p class="section-note util-mb-0_5"><strong>How are you feeling right now?</strong> Private to your device unless you sync.</p>
-            <div id="daily-mood-chips" class="mood-checkin-chips" role="group" aria-label="Choose your current mood"></div>
+            <div id="daily-mood-chips" class="mood-checkin-chips" role="group" aria-label="Choose your current mood">
+              <button type="button" class="mood-checkin-chip" data-mood="anxious">😟 Anxious</button>
+              <button type="button" class="mood-checkin-chip" data-mood="grateful">🙏 Grateful</button>
+              <button type="button" class="mood-checkin-chip" data-mood="lost">🧭 Lost</button>
+              <button type="button" class="mood-checkin-chip" data-mood="grieving">💧 Grieving</button>
+              <button type="button" class="mood-checkin-chip" data-mood="angry">🔥 Angry</button>
+              <button type="button" class="mood-checkin-chip" data-mood="afraid">🛡️ Afraid</button>
+            </div>
             <p id="daily-mood-status" class="section-note util-mt-0_5 util-mb-0_5" aria-live="polite">Pick one mood to get a focused armor verse.</p>
             <div id="daily-mood-suggestion" class="mood-checkin-suggestion section-note util-mb-0_5" aria-live="polite"></div>
+            <div class="mood-checkin-bridge">
+              <label for="daily-heart-note-input" class="section-note">How did this verse land today?</label>
+              <textarea id="daily-heart-note-input" class="mood-checkin-textarea" rows="2" maxlength="240" placeholder="This hit me because..."></textarea>
+              <button type="button" id="daily-heart-note-save" class="btn btn-secondary btn-small">Save note</button>
+            </div>
+            <div class="mood-checkin-bridge">
+              <label for="daily-next-move-input" class="section-note">One move today</label>
+              <div class="mood-checkin-next-row">
+                <input id="daily-next-move-input" class="mood-checkin-input" type="text" maxlength="120" placeholder="Text someone this verse">
+                <button type="button" id="daily-next-move-save" class="btn btn-secondary btn-small">Save move</button>
+              </div>
+            </div>
             <p id="daily-mood-weekly" class="section-note util-mb-0" aria-live="polite"></p>
           </section>
           <p class="hero-verse-byline">A testimony of mercy in a hospital room.</p>
@@ -1524,7 +1543,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" integrity="sha384-vdScihEZCfbPnBQf+lc7LgXUdJVYyhC3yWHUW5C5P5GpHRqVnaM6HJELJxT6IqwM" crossorigin="anonymous" defer></script>
-  <script data-lazy-src="daily-verse-widget.js"></script>
+  <script data-lazy-src="daily-verse-widget.js?v=20260308a"></script>
   <script data-lazy-src="verse-search-dropdown.js?v=20260309"></script>
   <script data-lazy-src="utils.js?v=20260309"></script>
   <script data-lazy-src="verse-breakdown.js?v=20260306"></script>
@@ -1534,7 +1553,7 @@
   <script src="fallback-search.js?v=20260308-searchfix3" defer></script>
   <script data-lazy-src="auth.js?v=20260314"></script>
   <script data-lazy-src="verse-rotator.js?v=20260307a"></script>
-  <script data-lazy-src="curriculum-widget.js?v=20260314"></script>
+  <script data-lazy-src="curriculum-widget.js?v=20260308a"></script>
   <script data-lazy-src="family-hierarchy.js?v=20260305"></script>
   <script data-lazy-src="crest.js?v=20260316"></script>
   <script data-lazy-src="avatar-progress.js?v=20260316"></script>
@@ -1544,7 +1563,7 @@
   <script data-lazy-src="cartoon.js?v=20260307a"></script>
   <script data-lazy-src="streak.js?v=20260305"></script>
   <script src="daily-tile.js?v=20260311b" defer></script>
-  <script data-lazy-src="lineage-tree.js?v=20260314"></script>
+  <script data-lazy-src="lineage-tree.js?v=20260308a"></script>
   <script data-lazy-src="story-manifest.js?v=20260305"></script>
   <script data-lazy-src="avatar-topic-system.js?v=20260309c"></script>
   <script src="lazy-loader.js?v=20260306" defer></script>

@@ -34,6 +34,29 @@
     return safe.length ? safe[seed % safe.length] : null;
   }
 
+  function toBibleLookup(data) {
+    if (!data) return {};
+    if (Array.isArray(data)) {
+      var out = {};
+      data.forEach(function (row) {
+        if (row && row.ref) out[String(row.ref)] = String(row.text || '');
+      });
+      return out;
+    }
+    return data;
+  }
+
+  function readHeroVerseFallback() {
+    var card = document.getElementById('daily-battle-card');
+    if (!card) return null;
+    var refEl = card.querySelector('strong');
+    var txtEl = card.querySelector('p');
+    var ref = refEl ? String(refEl.textContent || '').trim() : '';
+    var text = txtEl ? String(txtEl.textContent || '').trim() : '';
+    if (!ref || !text) return null;
+    return { ref: ref, text: text };
+  }
+
   var STORAGE_DATE_KEY = 'tdb_daily_verse_date';
   var STORAGE_DATA_KEY = 'tdb_daily_verse_data';
 
@@ -64,7 +87,8 @@
     widget.innerHTML = '<div class="daily-verse-widget-loading-msg" role="status" aria-live="polite">Loading verse…</div>';
     fetch(KJV_URL)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('Network')); })
-      .then(function (bible) {
+      .then(function (rawBible) {
+        var bible = toBibleLookup(rawBible);
         var ref = getRefForDay(bible);
         var text = ref && bible[ref] ? bible[ref] : null;
         if (ref && text) {
@@ -75,10 +99,16 @@
           render(widget, ref, text);
           toast('Verse updated!');
         } else {
-          showError(widget, 'Verse unavailable right now. Please check back shortly.');
+          var fallback = readHeroVerseFallback();
+          if (fallback) render(widget, fallback.ref, fallback.text);
+          else showError(widget, 'Verse loading. Please try again in a moment.');
         }
       })
-      .catch(function () { showError(widget, 'Verse unavailable right now. Please check back shortly.'); });
+      .catch(function () {
+        var fallback = readHeroVerseFallback();
+        if (fallback) render(widget, fallback.ref, fallback.text);
+        else showError(widget, 'Verse loading. Please try again in a moment.');
+      });
   }
 
   function render(widget, ref, text) {
@@ -191,7 +221,8 @@
 
     fetch(KJV_URL)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('Network')); })
-      .then(function (bible) {
+      .then(function (rawBible) {
+        var bible = toBibleLookup(rawBible);
         var ref = getRefForDay(bible);
         var text = ref && bible[ref] ? bible[ref] : null;
         if (ref && text) {
@@ -202,11 +233,15 @@
           render(widget, ref, text);
           if (storedDate && storedDate !== today) toast('Verse updated!');
         } else {
-          showError(widget, 'Verse unavailable right now. Please check back shortly.');
+          var fallback = readHeroVerseFallback();
+          if (fallback) render(widget, fallback.ref, fallback.text);
+          else showError(widget, 'Verse loading. Please try again in a moment.');
         }
       })
       .catch(function () {
-        showError(widget, 'Verse unavailable right now. Please check back shortly.');
+        var fallback = readHeroVerseFallback();
+        if (fallback) render(widget, fallback.ref, fallback.text);
+        else showError(widget, 'Verse loading. Please try again in a moment.');
       });
   }
 

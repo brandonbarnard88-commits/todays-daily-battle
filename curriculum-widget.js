@@ -126,7 +126,11 @@
       '<div class="gold-trail"><span class="gold-fill" style="width:' + percent + '%"></span></div>' +
       '<p class="section-note util-mb-0">Family <strong>' + esc(familyId()) + '</strong> on streets of gold: ' + completed + '/365 days (' + percent + '%).</p>';
 
-    summary.textContent = 'Armor progress: ' + completed + '/365 days completed.';
+    if (completed <= 0) {
+      summary.textContent = 'Armor progress: 0/365 days completed. Start Day 1 to light the first gem.';
+    } else {
+      summary.textContent = 'Armor progress: ' + completed + '/365 days completed.';
+    }
     bindGemTooltips();
   }
 

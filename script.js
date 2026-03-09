@@ -2222,6 +2222,8 @@ const VERSE_SIZE_KEY = 'verseFontSize';
 const TTS_RATE_KEY = 'ttsRate';
 const TTS_VOICE_KEY = 'ttsVoice';
 const DAILY_MOOD_LOG_KEY = 'tdb_daily_mood_logs_v1';
+const DAILY_MOOD_NOTES_KEY = 'tdb_daily_mood_notes_v1';
+const DAILY_NEXT_MOVES_KEY = 'tdb_daily_next_moves_v1';
 const DAILY_MOOD_OPTIONS = [
   { id: 'anxious', label: 'Anxious', emoji: '😟', topic: 'anxiety' },
   { id: 'grateful', label: 'Grateful', emoji: '🙏', topic: 'gratitude' },
@@ -7904,6 +7906,38 @@ function saveDailyMoodLogs(items) {
   if (typeof setSyncData === 'function') setSyncData('mood_logs', list.slice(-60));
 }
 
+function loadDailyMoodNotes() {
+  try {
+    var raw = localStorage.getItem(DAILY_MOOD_NOTES_KEY);
+    var parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveDailyMoodNotes(items) {
+  var list = Array.isArray(items) ? items.slice(-120) : [];
+  try { localStorage.setItem(DAILY_MOOD_NOTES_KEY, JSON.stringify(list)); } catch (_) {}
+  if (typeof setSyncData === 'function') setSyncData('mood_notes', list.slice(-60));
+}
+
+function loadDailyNextMoves() {
+  try {
+    var raw = localStorage.getItem(DAILY_NEXT_MOVES_KEY);
+    var parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveDailyNextMoves(items) {
+  var list = Array.isArray(items) ? items.slice(-120) : [];
+  try { localStorage.setItem(DAILY_NEXT_MOVES_KEY, JSON.stringify(list)); } catch (_) {}
+  if (typeof setSyncData === 'function') setSyncData('next_moves', list.slice(-60));
+}
+
 function getDailyMoodOptionById(moodId) {
   var id = String(moodId || '').trim().toLowerCase();
   for (var i = 0; i < DAILY_MOOD_OPTIONS.length; i++) {
@@ -7961,15 +7995,17 @@ function renderDailyMoodCenter() {
   if (!wrap || !chipsWrap || !statusEl || !suggestionEl || !weeklyEl) return;
 
   if (!chipsWrap.dataset.wired) {
-    chipsWrap.innerHTML = '';
-    DAILY_MOOD_OPTIONS.forEach(function (option) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'mood-checkin-chip';
-      btn.setAttribute('data-mood', option.id);
-      btn.textContent = option.emoji + ' ' + option.label;
-      chipsWrap.appendChild(btn);
-    });
+    if (!chipsWrap.querySelector('.mood-checkin-chip[data-mood]')) {
+      chipsWrap.innerHTML = '';
+      DAILY_MOOD_OPTIONS.forEach(function (option) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'mood-checkin-chip';
+        btn.setAttribute('data-mood', option.id);
+        btn.textContent = option.emoji + ' ' + option.label;
+        chipsWrap.appendChild(btn);
+      });
+    }
     chipsWrap.addEventListener('click', function (event) {
       var btn = event.target && event.target.closest ? event.target.closest('.mood-checkin-chip[data-mood]') : null;
       if (!btn) return;
@@ -7987,6 +8023,53 @@ function renderDailyMoodCenter() {
       renderDailyMoodCenter();
     });
     chipsWrap.dataset.wired = '1';
+  }
+
+  if (!wrap.dataset.bridgeWired) {
+    var noteInput = document.getElementById('daily-heart-note-input');
+    var noteSave = document.getElementById('daily-heart-note-save');
+    var moveInput = document.getElementById('daily-next-move-input');
+    var moveSave = document.getElementById('daily-next-move-save');
+    if (noteSave && noteInput) {
+      noteSave.addEventListener('click', function () {
+        var text = String(noteInput.value || '').trim();
+        if (!text) return;
+        var notes = loadDailyMoodNotes();
+        var logs = loadDailyMoodLogs();
+        var latestMood = logs.length ? String(logs[logs.length - 1].mood || '') : '';
+        notes.push({
+          text: text,
+          ts: Date.now(),
+          day: getDailyKey(),
+          mood: latestMood,
+          ref: currentDailyBattle && currentDailyBattle.ref ? currentDailyBattle.ref : ''
+        });
+        saveDailyMoodNotes(notes);
+        noteInput.value = '';
+        statusEl.textContent = 'Saved your heart note for today.';
+        if (typeof trackEvent === 'function') trackEvent('daily_heart_note_saved', { has_mood: !!latestMood });
+        renderDailyMoodCenter();
+      });
+    }
+    if (moveSave && moveInput) {
+      moveSave.addEventListener('click', function () {
+        var text = String(moveInput.value || '').trim();
+        if (!text) return;
+        var moves = loadDailyNextMoves();
+        moves.push({
+          text: text,
+          ts: Date.now(),
+          day: getDailyKey(),
+          done: false
+        });
+        saveDailyNextMoves(moves);
+        moveInput.value = '';
+        statusEl.textContent = 'Saved one move for today.';
+        if (typeof trackEvent === 'function') trackEvent('daily_next_move_saved', { source: 'hero' });
+        renderDailyMoodCenter();
+      });
+    }
+    wrap.dataset.bridgeWired = '1';
   }
 
   var logsNow = loadDailyMoodLogs();
@@ -8015,14 +8098,19 @@ function renderDailyMoodCenter() {
   }
 
   var summary = summarizeWeeklyMood(logsNow);
+  var noteCount = 0;
+  var moveCount = 0;
+  var cutoff = Date.now() - (7 * 24 * 60 * 60 * 1000);
+  loadDailyMoodNotes().forEach(function (n) { if (n && Number(n.ts || 0) >= cutoff) noteCount += 1; });
+  loadDailyNextMoves().forEach(function (m) { if (m && Number(m.ts || 0) >= cutoff) moveCount += 1; });
   if (!summary.topMood) {
-    weeklyEl.textContent = '7-day pattern: no check-ins yet.';
+    weeklyEl.textContent = '7-day pattern: no check-ins yet. Notes: ' + noteCount + ' · Moves: ' + moveCount + '.';
     return;
   }
   var topOption = getDailyMoodOptionById(summary.topMood);
   var topLabel = topOption ? topOption.label : summary.topMood;
   weeklyEl.textContent = '7-day pattern: ' + topLabel + ' checked ' + summary.topCount +
-    ' time' + (summary.topCount === 1 ? '' : 's') + '.';
+    ' time' + (summary.topCount === 1 ? '' : 's') + '. Notes: ' + noteCount + ' · Moves: ' + moveCount + '.';
 }
 
 function loadMessagesLocal() {

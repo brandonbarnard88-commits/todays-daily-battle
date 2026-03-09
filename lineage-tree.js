@@ -275,6 +275,9 @@
     gemsEl.textContent = String(gems);
     if (codeEl) codeEl.textContent = code;
     if (membersEl) membersEl.textContent = String(fam.memberCount || 1);
+    if (days <= 0 && gemsEl && gemsEl.parentElement) {
+      gemsEl.parentElement.setAttribute('title', 'Start Day 1 in 365-Day Curriculum to begin gem progress.');
+    }
 
     var query = String(lineageUiState.query || '').trim().toLowerCase();
     var rootsFiltered = (roots || []).filter(function (n) {

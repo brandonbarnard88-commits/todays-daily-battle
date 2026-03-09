@@ -2769,6 +2769,31 @@ body:has(.search-hero-home) #search-hero {
 .mood-checkin-suggestion a {
   color: #fde68a;
 }
+.mood-checkin-bridge {
+  margin-top: 0.55rem;
+}
+.mood-checkin-textarea,
+.mood-checkin-input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.34);
+  background: rgba(15, 23, 42, 0.72);
+  color: rgba(226, 232, 240, 0.97);
+  padding: 0.5rem 0.65rem;
+  font-size: 0.9rem;
+}
+.mood-checkin-textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+.mood-checkin-next-row {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+.mood-checkin-next-row .btn {
+  white-space: nowrap;
+}
 .prayer-dim-pulse::before {
   content: '';
   position: fixed;
@@ -2939,6 +2964,10 @@ body:has(.search-hero-home) #search-hero {
   .mood-checkin-chip {
     font-size: 0.84rem;
     padding: 0.35rem 0.6rem;
+  }
+  .mood-checkin-next-row {
+    flex-direction: column;
+    align-items: stretch;
   }
   .quick-pray-in-hero #quick-pray,
   .quick-pray-in-hero .btn {

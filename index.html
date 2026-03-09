@@ -52,51 +52,20 @@
     .app {
       width: min(100%, 600px);
       min-height: 100dvh;
-      padding: 96px 20px 110px;
+      padding: 28px 20px 110px;
       position: relative;
     }
 
-    /* ── Header ── */
-    header {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(100%, 600px);
-      z-index: 30;
-      padding: 16px 20px;
-      backdrop-filter: blur(10px);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      border-bottom: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      margin: 0;
-      font-size: 1.08rem;
+    /* ── Layout ── */
+    .site-wordmark {
+      margin: 0 0 4px;
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: lowercase;
       color: var(--gold);
+      opacity: 0.7;
     }
-
-    .theme-toggle {
-      border: 1px solid var(--line);
-      background: var(--card);
-      color: var(--text);
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ── Layout ── */
     main {
       display: grid;
       gap: 20px;
@@ -802,10 +771,6 @@
       clip: rect(0, 0, 0, 0);
       white-space: nowrap;
       border: 0;
-    }
-
-    @media (min-width: 700px) {
-      .app { padding-top: 92px; }
     }
 
     /* ── Prayer counter ── */
@@ -1625,6 +1590,24 @@
       flex-shrink: 0;
     }
     .journal-export-btn:hover { filter: brightness(1.1); }
+    .settings-theme-btn {
+      background: var(--bg-soft);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 0.4rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.14s, border-color 0.14s;
+      min-height: 36px;
+    }
+    .settings-theme-btn:hover, .settings-theme-btn:focus-visible {
+      background: color-mix(in srgb, var(--gold) 14%, transparent);
+      border-color: var(--gold);
+      outline: none;
+    }
 
     /* ── Notification Permission Card ── */
     .notification-permission {
@@ -1768,13 +1751,9 @@
 </head>
 <body>
 
-  <!-- ── Header ── -->
-  <header>
-    <h1 class="logo">today's daily battle</h1>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode">🌙</button>
-  </header>
-
   <div class="app">
+
+    <p class="site-wordmark" aria-label="Today's Daily Battle">today's daily battle</p>
 
     <!-- Hidden search plumbing for script.js compatibility -->
     <section class="sr-only" aria-hidden="true">
@@ -2448,7 +2427,6 @@
     const heroApplication = document.getElementById("heroApplication");
     const verseCard       = document.getElementById("verseCard");
     const verseNote       = document.getElementById("verseNote");
-    const themeToggle     = document.getElementById("themeToggle");
     const pwaNudge        = document.getElementById("pwaNudge");
     const pwaDismiss      = document.getElementById("pwaDismiss");
 
@@ -2997,19 +2975,32 @@
     }());
 
     // ── Theme ──
+    function syncThemeBtn() {
+      var isLight = document.documentElement.dataset.theme === "light";
+      var settingsBtn = document.getElementById('settings-theme-btn');
+      if (settingsBtn) {
+        settingsBtn.textContent = isLight ? "☀️ Light" : "🌙 Dark";
+        settingsBtn.setAttribute('aria-pressed', isLight ? 'false' : 'true');
+        settingsBtn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+      }
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem("tdb-theme", theme);
+      syncThemeBtn();
+    }
+
     function initTheme() {
       const saved = localStorage.getItem("tdb-theme");
       const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-      const theme = saved || (prefersLight ? "light" : "dark");
-      document.documentElement.dataset.theme = theme;
-      themeToggle.textContent = theme === "light" ? "☀️" : "🌙";
+      applyTheme(saved || (prefersLight ? "light" : "dark"));
     }
 
-    themeToggle.addEventListener("click", () => {
+    // Settings popover theme button
+    document.getElementById('settings-theme-btn')?.addEventListener('click', function () {
       const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-      document.documentElement.dataset.theme = next;
-      localStorage.setItem("tdb-theme", next);
-      themeToggle.textContent = next === "light" ? "☀️" : "🌙";
+      applyTheme(next);
     });
 
     // ── Streak ──
@@ -4514,6 +4505,14 @@
     <div class="settings-row settings-row--journal">
       <span class="settings-label-text">📓 Verse Journal</span>
       <button type="button" id="journal-export" class="journal-export-btn" aria-label="Export your saved verses as a journal PDF or text file">Export Journal</button>
+    </div>
+
+    <div class="settings-row">
+      <label class="settings-label">
+        <span class="settings-label-text">🌙 Appearance</span>
+        <span class="settings-label-sub">Switch between dark and light</span>
+      </label>
+      <button type="button" id="settings-theme-btn" class="settings-theme-btn" aria-label="Toggle dark and light mode" aria-pressed="false">🌙 Dark</button>
     </div>
   </div>
 

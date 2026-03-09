@@ -1031,6 +1031,24 @@ const ACTION_MAP = {
   worship: ['worship', 'praise', 'adoration', 'glorify']
 };
 
+function buildReverseLexicon(source) {
+  var out = {};
+  if (!source || typeof source !== 'object') return out;
+  Object.keys(source).forEach(function (key) {
+    var vals = Array.isArray(source[key]) ? source[key] : [];
+    vals.forEach(function (v) {
+      var token = normalizeInput(String(v || ''));
+      if (!token) return;
+      if (!out[token]) out[token] = [];
+      if (out[token].indexOf(key) === -1) out[token].push(key);
+    });
+  });
+  return out;
+}
+
+const MEANING_REVERSE_MAP = buildReverseLexicon(MEANING_MAP);
+const ACTION_REVERSE_MAP = buildReverseLexicon(ACTION_MAP);
+
 /** Maps search words (meaning, action, emotion) to topics so search is always on topic. */
 const QUERY_TO_TOPIC = {
   stressed: 'anxiety', stressedout: 'anxiety', stressing: 'anxiety', overwhelm: 'anxiety', overwhelmed: 'anxiety',
@@ -9415,13 +9433,107 @@ function stemWord(word) {
   return word;
 }
 
+const IRREGULAR_WORD_BASES = {
+  children: 'child', men: 'man', women: 'woman', people: 'person', feet: 'foot', teeth: 'tooth', geese: 'goose',
+  better: 'good', best: 'good', worse: 'bad', worst: 'bad',
+  ran: 'run', running: 'run', spoken: 'speak', spoke: 'speak', led: 'lead', gave: 'give', given: 'give',
+  took: 'take', taken: 'take', thought: 'think', felt: 'feel', knew: 'know', known: 'know',
+  began: 'begin', begun: 'begin', came: 'come', gone: 'go', went: 'go', did: 'do', done: 'do'
+};
+
+function generateWordVariants(token) {
+  var word = normalizeInput(String(token || ''));
+  var out = new Set();
+  if (!word) return out;
+  out.add(word);
+  if (IRREGULAR_WORD_BASES[word]) out.add(IRREGULAR_WORD_BASES[word]);
+  var stem = stemWord(word);
+  if (stem && stem.length >= 3) out.add(stem);
+  if (word.length > 4 && /ies$/.test(word)) out.add(word.replace(/ies$/, 'y'));
+  if (word.length > 4 && /ves$/.test(word)) out.add(word.replace(/ves$/, 'f'));
+  if (word.length > 3 && /s$/.test(word) && !/ss$/.test(word)) out.add(word.replace(/s$/, ''));
+  if (word.length > 4 && /ing$/.test(word)) {
+    var baseIng = word.replace(/ing$/, '');
+    if (baseIng.length >= 3) out.add(baseIng);
+    if (baseIng.length >= 3) out.add(baseIng + 'e');
+    if (/(.)\1$/.test(baseIng) && baseIng.length >= 4) out.add(baseIng.slice(0, -1));
+  }
+  if (word.length > 3 && /ed$/.test(word)) {
+    var baseEd = word.replace(/ed$/, '');
+    if (baseEd.length >= 3) out.add(baseEd);
+    if (baseEd.length >= 3) out.add(baseEd + 'e');
+    if (/(.)\1$/.test(baseEd) && baseEd.length >= 4) out.add(baseEd.slice(0, -1));
+  }
+  if (word.length > 4 && /ly$/.test(word)) out.add(word.replace(/ly$/, ''));
+  if (word.length > 5 && /ness$/.test(word)) out.add(word.replace(/ness$/, ''));
+  if (word.length > 6 && /ment$/.test(word)) out.add(word.replace(/ment$/, ''));
+  if (word.length > 6 && /tion$/.test(word)) out.add(word.replace(/tion$/, 'te'));
+  if (word.length > 6 && /sion$/.test(word)) out.add(word.replace(/sion$/, 'de'));
+  if (word.length > 5 && /ity$/.test(word)) {
+    out.add(word.replace(/ity$/, ''));
+    out.add(word.replace(/ity$/, 'e'));
+  }
+  return out;
+}
+
+function getSemanticTokenSet(token) {
+  var out = new Set();
+  var variants = generateWordVariants(token);
+  variants.forEach(function (v) { out.add(v); });
+  variants.forEach(function (v) {
+    var meaning = MEANING_MAP[v];
+    if (Array.isArray(meaning)) {
+      out.add(v);
+      meaning.forEach(function (m) { out.add(normalizeInput(String(m || ''))); });
+    }
+    var meaningRoots = MEANING_REVERSE_MAP[v];
+    if (Array.isArray(meaningRoots)) {
+      meaningRoots.forEach(function (root) {
+        out.add(root);
+        var rootWords = MEANING_MAP[root];
+        if (Array.isArray(rootWords)) rootWords.forEach(function (m) { out.add(normalizeInput(String(m || ''))); });
+      });
+    }
+    var action = ACTION_MAP[v];
+    if (Array.isArray(action)) {
+      out.add(v);
+      action.forEach(function (a) { out.add(normalizeInput(String(a || ''))); });
+    }
+    var actionRoots = ACTION_REVERSE_MAP[v];
+    if (Array.isArray(actionRoots)) {
+      actionRoots.forEach(function (root) {
+        out.add(root);
+        var rootWords = ACTION_MAP[root];
+        if (Array.isArray(rootWords)) rootWords.forEach(function (a) { out.add(normalizeInput(String(a || ''))); });
+      });
+    }
+  });
+  return new Set(Array.from(out).filter(Boolean));
+}
+
+function resolveTopicFromToken(token) {
+  var normalized = normalizeInput(String(token || ''));
+  if (!normalized) return null;
+  var variants = Array.from(getSemanticTokenSet(normalized));
+  for (var i = 0; i < variants.length; i++) {
+    var v = variants[i];
+    if (topics[v]) return v;
+    if (QUERY_TO_TOPIC[v] && topics[QUERY_TO_TOPIC[v]]) return QUERY_TO_TOPIC[v];
+    var topicKeys = Object.keys(topics);
+    for (var j = 0; j < topicKeys.length; j++) {
+      var topic = topicKeys[j];
+      var syns = (topics[topic] && Array.isArray(topics[topic].synonyms)) ? topics[topic].synonyms : [];
+      if (syns.some(function (syn) { return normalizeInput(String(syn || '')) === v; })) return topic;
+    }
+  }
+  return null;
+}
+
 function expandKeywords(keywords) {
   const expanded = new Set();
   keywords.forEach(token => {
     const base = token.toLowerCase();
-    expanded.add(base);
-    const stem = stemWord(base);
-    if (stem) expanded.add(stem);
+    getSemanticTokenSet(base).forEach(function (word) { expanded.add(word); });
     const meaning = MEANING_MAP[base];
     if (meaning) meaning.forEach(word => expanded.add(word));
     const action = ACTION_MAP[base];
@@ -12097,7 +12209,10 @@ function parseQuery(input) {
     if (NEGATION_WORDS.indexOf(rawTokens[ni]) !== -1) {
       for (var nj = 1; nj <= 2 && ni + nj < rawTokens.length; nj++) {
         var nextWord = rawTokens[ni + nj];
-        if (QUERY_TO_TOPIC[nextWord] || topics[nextWord]) negatedTokens.add(nextWord);
+        if (resolveTopicFromToken(nextWord)) {
+          negatedTokens.add(nextWord);
+          generateWordVariants(nextWord).forEach(function (v) { negatedTokens.add(v); });
+        }
       }
     }
   }
@@ -12118,31 +12233,23 @@ function parseQuery(input) {
     phraseTokens = Array.from(new Set(phraseTokens.concat(['courage', 'faith', 'strength', 'peace'])));
   }
   if (phraseTokens.length) keywords = keywords.concat(phraseTokens);
-  var expandedKeywords = expandKeywords(keywords);
+  var semanticRawTokens = [];
+  rawTokens.forEach(function (token) {
+    semanticRawTokens = semanticRawTokens.concat(Array.from(getSemanticTokenSet(token)));
+  });
+  var expandedKeywords = expandKeywords(keywords.concat(semanticRawTokens));
   if (phraseTokens.length) expandedKeywords = Array.from(new Set(expandedKeywords.concat(phraseTokens)));
 
-  // Single-word query: match by topic, synonym, meaning/action map, or stem (e.g. "stressed" -> anxiety, "selfless" -> love)
+  // Single-word query: match by topic, synonym, meaning/action map, semantic variants, or stem.
   const singleWord = rawTokens.length === 1 ? normalized : null;
   if (singleWord) {
-    if (topics[singleWord]) return { intent: 'topic', payload: { topic: singleWord } };
     for (const topic of Object.keys(topics)) {
       if (topics[topic].synonyms && topics[topic].synonyms.some(function (syn) { return syn === singleWord; })) {
         return { intent: 'topic', payload: { topic: topic } };
       }
     }
-    var mappedTopic = QUERY_TO_TOPIC[singleWord];
-    if (mappedTopic && topics[mappedTopic]) return { intent: 'topic', payload: { topic: mappedTopic } };
-    var stem = typeof stemWord === 'function' ? stemWord(singleWord) : singleWord;
-    if (stem && stem !== singleWord) {
-      if (topics[stem]) return { intent: 'topic', payload: { topic: stem } };
-      for (const topic of Object.keys(topics)) {
-        if (topics[topic].synonyms && topics[topic].synonyms.some(function (syn) { return syn === stem; })) {
-          return { intent: 'topic', payload: { topic: topic } };
-        }
-      }
-      var stemMapped = QUERY_TO_TOPIC[stem];
-      if (stemMapped && topics[stemMapped]) return { intent: 'topic', payload: { topic: stemMapped } };
-    }
+    var directTopic = resolveTopicFromToken(singleWord);
+    if (directTopic) return { intent: 'topic', payload: { topic: directTopic } };
   }
 
   // Multi-word query: if it exactly matches a topic key, use it (e.g. "free will" -> free will, not addiction via "freedom" tie)
@@ -12169,7 +12276,7 @@ function parseQuery(input) {
   const topTopic = Object.keys(topicScores).sort((a,b) => topicScores[b] - topicScores[a])[0];
   if (topTopic) return { intent: 'topic', payload: { topic: topTopic } };
 
-  return { intent: 'keyword', payload: { keywords: expandedKeywords, phrase: normalized } };
+  return { intent: 'keyword', payload: { keywords: expandedKeywords, phrase: normalized, rawTokens: rawTokens } };
 }
 
 function getSearchFilters() {
@@ -12350,8 +12457,10 @@ function executeQuery(parsed, tier, filters) {
   } else {
     const keywords = parsed.payload.keywords;
     const phrase = parsed.payload.phrase;
+    const rawTokens = Array.isArray(parsed.payload.rawTokens) ? parsed.payload.rawTokens : [];
     const wordRegex = buildWordRegex(keywords);
-    const phraseRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'gi') : null;
+    const phraseRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'i') : null;
+    const phraseHighlightRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'gi') : null;
     const relatedTopicScores = {};
     Object.keys(topics).forEach(topic => {
       let score = 0;
@@ -12375,7 +12484,7 @@ function executeQuery(parsed, tier, filters) {
       const phraseMatches = bibleEntries
         .map(([ref, text]) => {
           if (!phraseRegex.test(text)) return null;
-          const snippet = text.replace(phraseRegex, '<span class="highlight">$&</span>');
+          const snippet = phraseHighlightRegex ? text.replace(phraseHighlightRegex, '<span class="highlight">$&</span>') : text;
           return { ref, text: snippet };
         })
         .filter(Boolean)

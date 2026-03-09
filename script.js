@@ -123,9 +123,11 @@ function wireEarlySearchFallbacks() {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
+  document.addEventListener('DOMContentLoaded', mountRotatingHeroVerse);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
+  mountRotatingHeroVerse();
 }
 
 function wireHashLinkFallbacks() {
@@ -180,6 +182,429 @@ function emitEasterEgg(eggId, payload) {
   } catch (e) {}
 }
 window.__tdbEmitEasterEgg = emitEasterEgg;
+
+(function initBibleLoopLibraryAutoRelease() {
+  var grid = document.getElementById('loop-grid');
+  if (!grid) return;
+
+  var START_DATE_MS = new Date('2026-03-01').getTime();
+  var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+  var STORAGE_KEY = 'tdb_loop_library_state_v2';
+  var LOOPS_URL = '/loops.json';
+  var MAX_WEEK = 12;
+  var STAR_GOAL = 12;
+  var TOTAL_LOOPS = 160;
+
+  var progressText = document.getElementById('loop-progress-text');
+  var progressFill = document.getElementById('loop-progress-fill');
+  var progressMeter = document.querySelector('.loop-progress-meter');
+  var weeklyStatus = document.getElementById('loop-weekly-status');
+  var unlockStatus = document.getElementById('loop-unlock-status');
+  var toast = document.getElementById('loop-toast');
+
+  var modal = document.createElement('div');
+  modal.className = 'loop-modal is-hidden';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-label', 'Bible loop fullscreen player');
+
+  var modalInner = document.createElement('div');
+  modalInner.className = 'loop-modal-inner';
+  var modalClose = document.createElement('button');
+  modalClose.type = 'button';
+  modalClose.className = 'loop-modal-close';
+  modalClose.textContent = 'Close';
+  modalClose.setAttribute('aria-label', 'Close full screen player');
+  var modalTitle = document.createElement('h3');
+  modalTitle.className = 'loop-modal-title';
+  var modalVideo = document.createElement('video');
+  modalVideo.id = 'loop-modal-video';
+  modalVideo.setAttribute('muted', '');
+  modalVideo.setAttribute('playsinline', '');
+  modalVideo.setAttribute('preload', 'none');
+  var modalActions = document.createElement('div');
+  modalActions.className = 'loop-modal-actions';
+  var replayBtn = document.createElement('button');
+  replayBtn.type = 'button';
+  replayBtn.className = 'btn loop-btn-primary';
+  replayBtn.textContent = 'Watch again?';
+  var nextBtn = document.createElement('button');
+  nextBtn.type = 'button';
+  nextBtn.className = 'btn loop-btn-secondary is-hidden';
+  nextBtn.textContent = 'Watch next?';
+  var modalAudioWrap = document.createElement('div');
+  modalAudioWrap.className = 'loop-modal-audio-wrap is-hidden';
+  var modalAudioLabel = document.createElement('p');
+  modalAudioLabel.className = 'loop-modal-audio-label';
+  var modalAudioEl = document.createElement('audio');
+  modalAudioEl.controls = true;
+  modalAudioEl.preload = 'none';
+  modalAudioEl.className = 'loop-modal-audio';
+  modalAudioWrap.appendChild(modalAudioLabel);
+  modalAudioWrap.appendChild(modalAudioEl);
+  var modalHelper = document.createElement('p');
+  modalHelper.className = 'section-note';
+
+  modalActions.appendChild(replayBtn);
+  modalActions.appendChild(nextBtn);
+  modalInner.appendChild(modalClose);
+  modalInner.appendChild(modalTitle);
+  modalInner.appendChild(modalVideo);
+  modalInner.appendChild(modalAudioWrap);
+  modalInner.appendChild(modalActions);
+  modalInner.appendChild(modalHelper);
+  modal.appendChild(modalInner);
+  document.body.appendChild(modal);
+
+  var state = readState();
+  var allLoops = [];
+  var unlockedLoops = [];
+  var currentLoop = null;
+
+  function readState() {
+    var fallback = { starredIds: [], watchCounts: {}, sundayRefreshTag: '' };
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return fallback;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return fallback;
+      return {
+        starredIds: Array.isArray(parsed.starredIds) ? parsed.starredIds.map(Number) : [],
+        watchCounts: parsed.watchCounts && typeof parsed.watchCounts === 'object' ? parsed.watchCounts : {},
+        sundayRefreshTag: typeof parsed.sundayRefreshTag === 'string' ? parsed.sundayRefreshTag : ''
+      };
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function writeState() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function showToast(msg) {
+    if (!toast) return;
+    toast.textContent = String(msg || '');
+    toast.classList.remove('is-hidden');
+    toast.classList.add('is-visible');
+    setTimeout(function () {
+      toast.classList.remove('is-visible');
+      toast.classList.add('is-hidden');
+    }, 3000);
+  }
+
+  function getCurrentWeek() {
+    var week = Math.floor((Date.now() - START_DATE_MS) / WEEK_MS);
+    if (!Number.isFinite(week)) return 0;
+    return Math.max(0, Math.min(MAX_WEEK, week));
+  }
+
+  function getEffectiveWeek(baseWeek) {
+    var bumped = state.starredIds.length >= STAR_GOAL ? 1 : 0;
+    return Math.max(0, Math.min(MAX_WEEK, baseWeek + bumped));
+  }
+
+  function cardStarred(loopId) {
+    return state.starredIds.indexOf(Number(loopId)) !== -1;
+  }
+
+  function lazyLoadVideo(videoEl) {
+    if (!videoEl || videoEl.getAttribute('data-loaded') === '1') return;
+    var source = videoEl.querySelector('source');
+    if (!source) return;
+    var ds = source.getAttribute('data-src');
+    if (!ds) return;
+    source.src = ds;
+    videoEl.setAttribute('data-loaded', '1');
+    videoEl.load();
+  }
+
+  var lazyObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      lazyLoadVideo(entry.target);
+      lazyObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: '260px 0px' });
+
+  function buildCard(loop) {
+    var card = document.createElement('article');
+    card.className = 'loop-card';
+    card.setAttribute('role', 'listitem');
+    card.setAttribute('data-loop-id', String(loop.id));
+
+    var mediaWrap = document.createElement('button');
+    mediaWrap.type = 'button';
+    mediaWrap.className = 'loop-media-wrap';
+    mediaWrap.setAttribute('aria-label', 'Play ' + String(loop.title || 'Bible loop'));
+
+    var video = document.createElement('video');
+    video.className = 'loop-video';
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('preload', 'none');
+    video.setAttribute('loading', 'lazy');
+    video.poster = '/assets/loops/' + String(loop.id) + '.png';
+    var source = document.createElement('source');
+    source.type = 'video/webm';
+    source.setAttribute('data-src', String(loop.file || ''));
+    var fallbackImg = document.createElement('img');
+    fallbackImg.src = '/assets/loops/' + String(loop.id) + '.png';
+    fallbackImg.alt = String(loop.title || 'Bible story loop') + ' preview';
+    fallbackImg.loading = 'lazy';
+    video.appendChild(source);
+    video.appendChild(fallbackImg);
+    mediaWrap.appendChild(video);
+
+    var title = document.createElement('h3');
+    title.className = 'loop-title';
+    title.textContent = String(loop.title || 'Bible Loop');
+    var ref = document.createElement('p');
+    ref.className = 'loop-verse-ref';
+    ref.textContent = String(loop.ref || '');
+    var star = document.createElement('p');
+    star.className = 'loop-star' + (cardStarred(loop.id) ? ' is-earned' : '');
+    star.textContent = cardStarred(loop.id) ? '★ Gold star unlocked' : '☆ Keep watching';
+
+    function playPreview() {
+      lazyLoadVideo(video);
+      var p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+    function stopPreview() {
+      video.pause();
+      if (video.readyState > 0) video.currentTime = 0;
+    }
+
+    mediaWrap.addEventListener('mouseenter', playPreview);
+    mediaWrap.addEventListener('focus', playPreview);
+    mediaWrap.addEventListener('mouseleave', stopPreview);
+    mediaWrap.addEventListener('blur', stopPreview);
+    mediaWrap.addEventListener('click', function () {
+      openModal(loop);
+    });
+
+    card.appendChild(mediaWrap);
+    card.appendChild(title);
+    card.appendChild(ref);
+    card.appendChild(star);
+
+    var audioRow = document.createElement('div');
+    audioRow.className = 'loop-audio-row';
+    var speakerBtn = document.createElement('button');
+    speakerBtn.type = 'button';
+    var hasAudio = !!loop.audio;
+    speakerBtn.className = 'loop-speaker-btn' + (hasAudio ? '' : ' loop-speaker-btn--disabled');
+    speakerBtn.setAttribute('aria-label', hasAudio ? 'Hear the KJV verse for ' + String(loop.title) : 'Audio coming soon for ' + String(loop.title));
+    speakerBtn.setAttribute('title', hasAudio ? (loop.kjvText || loop.ref) : 'Coming soon');
+    speakerBtn.innerHTML = '<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg><span class="loop-speaker-label">Hear verse</span>';
+    if (!hasAudio) {
+      speakerBtn.disabled = true;
+    } else {
+      var cardAudio = new Audio();
+      cardAudio.src = String(loop.audio);
+      cardAudio.preload = 'none';
+      speakerBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (cardAudio.paused) {
+          cardAudio.play().catch(function () {});
+          speakerBtn.classList.add('loop-speaker-btn--playing');
+          speakerBtn.setAttribute('aria-label', 'Pause verse audio for ' + String(loop.title));
+        } else {
+          cardAudio.pause();
+          cardAudio.currentTime = 0;
+          speakerBtn.classList.remove('loop-speaker-btn--playing');
+          speakerBtn.setAttribute('aria-label', 'Hear the KJV verse for ' + String(loop.title));
+        }
+      });
+      cardAudio.addEventListener('ended', function () {
+        speakerBtn.classList.remove('loop-speaker-btn--playing');
+        speakerBtn.setAttribute('aria-label', 'Hear the KJV verse for ' + String(loop.title));
+      });
+    }
+    audioRow.appendChild(speakerBtn);
+    card.appendChild(audioRow);
+
+    lazyObserver.observe(video);
+    return card;
+  }
+
+  function renderGrid() {
+    grid.innerHTML = '';
+    var fragment = document.createDocumentFragment();
+    unlockedLoops.forEach(function (loop) {
+      fragment.appendChild(buildCard(loop));
+    });
+    grid.appendChild(fragment);
+    updateProgress();
+    if (unlockStatus) {
+      if (state.starredIds.length >= STAR_GOAL) unlockStatus.textContent = '12/12 stars earned. Next week loops are open early.';
+      else unlockStatus.textContent = 'Earn 12/12 stars to open next week early.';
+    }
+  }
+
+  function updateProgress() {
+    var unlockedCount = unlockedLoops.length;
+    var pct = Math.round((Math.min(TOTAL_LOOPS, unlockedCount) / TOTAL_LOOPS) * 100);
+    if (progressText) progressText.textContent = unlockedCount + '/' + TOTAL_LOOPS + ' unlocked – new ones Sunday!';
+    if (progressFill) progressFill.style.width = pct + '%';
+    if (progressMeter) progressMeter.setAttribute('aria-valuenow', String(unlockedCount));
+  }
+
+  function openModal(loop) {
+    currentLoop = loop || null;
+    if (!currentLoop) return;
+    modal.classList.remove('is-hidden');
+    nextBtn.classList.add('is-hidden');
+    modalTitle.textContent = String(currentLoop.title || 'Bible Loop') + ' • ' + String(currentLoop.ref || '');
+    modalVideo.src = String(currentLoop.file || '');
+    modalVideo.poster = '/assets/loops/' + String(currentLoop.id) + '.png';
+    modalVideo.currentTime = 0;
+    modalHelper.textContent = 'Replay anytime, then jump to a random unlocked loop.';
+    if (currentLoop.audio) {
+      modalAudioEl.src = String(currentLoop.audio);
+      modalAudioEl.load();
+      var verseText = currentLoop.kjvText ? ('"' + String(currentLoop.kjvText) + '" — ' + String(currentLoop.ref)) : String(currentLoop.ref);
+      modalAudioLabel.textContent = verseText;
+      modalAudioWrap.classList.remove('is-hidden');
+    } else {
+      modalAudioEl.removeAttribute('src');
+      modalAudioEl.load();
+      modalAudioWrap.classList.add('is-hidden');
+    }
+    var p = modalVideo.play();
+    if (p && typeof p.catch === 'function') p.catch(function () {});
+  }
+
+  function closeModal() {
+    modal.classList.add('is-hidden');
+    modalVideo.pause();
+    modalVideo.removeAttribute('src');
+    modalVideo.load();
+    modalAudioEl.pause();
+    modalAudioEl.removeAttribute('src');
+    modalAudioEl.load();
+    currentLoop = null;
+  }
+
+  function markStar(loopId) {
+    var id = Number(loopId);
+    if (!Number.isFinite(id)) return;
+    if (state.starredIds.indexOf(id) !== -1) return;
+    state.starredIds.push(id);
+    writeState();
+    renderGrid();
+  }
+
+  function playRandomUnlocked() {
+    if (!unlockedLoops.length) return;
+    var pick = unlockedLoops[Math.floor(Math.random() * unlockedLoops.length)];
+    if (!pick) return;
+    openModal(pick);
+  }
+
+  function inSundayRefreshWindow(now) {
+    if (!now || typeof now.getDay !== 'function') return false;
+    if (now.getDay() !== 0) return false;
+    var h = now.getHours();
+    var m = now.getMinutes();
+    return h === 6 && m >= 0 && m <= 30;
+  }
+
+  function todayTag(now) {
+    var y = now.getFullYear();
+    var mon = String(now.getMonth() + 1).padStart(2, '0');
+    var d = String(now.getDate()).padStart(2, '0');
+    return y + '-' + mon + '-' + d;
+  }
+
+  function recomputeUnlocked() {
+    var effectiveWeek = getEffectiveWeek(getCurrentWeek());
+    unlockedLoops = allLoops.filter(function (loop) {
+      return Number(loop.week) <= effectiveWeek;
+    });
+    if (weeklyStatus) weeklyStatus.textContent = 'Release week: ' + effectiveWeek + ' of 12.';
+    renderGrid();
+  }
+
+  function loadLoops(force) {
+    var requestUrl = LOOPS_URL + (force ? ('?ts=' + Date.now()) : '');
+    return fetch(requestUrl, { cache: force ? 'no-store' : 'default' })
+      .then(function (resp) {
+        if (!resp.ok) throw new Error('Could not load loops.');
+        return resp.json();
+      })
+      .then(function (json) {
+        if (!Array.isArray(json)) throw new Error('loops.json must be an array.');
+        allLoops = json
+          .filter(function (item) {
+            return item && Number.isFinite(Number(item.id)) && typeof item.title === 'string' && typeof item.file === 'string' && typeof item.ref === 'string' && Number.isFinite(Number(item.week));
+          })
+          .map(function (item) {
+            return {
+              id: Number(item.id),
+              title: String(item.title),
+              file: String(item.file),
+              audio: item.audio ? String(item.audio) : '',
+              ref: String(item.ref),
+              kjvText: item.kjvText ? String(item.kjvText) : '',
+              week: Number(item.week)
+            };
+          });
+        recomputeUnlocked();
+      })
+      .catch(function () {
+        if (weeklyStatus) weeklyStatus.textContent = 'Could not load loops right now. Please refresh to retry.';
+      });
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (event) {
+    if (event.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !modal.classList.contains('is-hidden')) closeModal();
+  });
+
+  replayBtn.addEventListener('click', function () {
+    modalVideo.currentTime = 0;
+    nextBtn.classList.add('is-hidden');
+    var p = modalVideo.play();
+    if (p && typeof p.catch === 'function') p.catch(function () {});
+  });
+
+  nextBtn.addEventListener('click', function () {
+    playRandomUnlocked();
+  });
+
+  modalVideo.addEventListener('ended', function () {
+    if (currentLoop && currentLoop.id != null) markStar(currentLoop.id);
+    nextBtn.classList.remove('is-hidden');
+  });
+
+  loadLoops(false).then(function () {
+    var now = new Date();
+    if (inSundayRefreshWindow(now)) {
+      var tag = todayTag(now);
+      if (state.sundayRefreshTag !== tag) {
+        state.sundayRefreshTag = tag;
+        writeState();
+        loadLoops(true).then(function () { showToast('New loops unlocked!'); });
+      }
+    }
+  });
+
+  setInterval(function () {
+    var now = new Date();
+    if (!inSundayRefreshWindow(now)) return;
+    var tag = todayTag(now);
+    if (state.sundayRefreshTag === tag) return;
+    state.sundayRefreshTag = tag;
+    writeState();
+    loadLoops(true).then(function () { showToast('New loops unlocked!'); });
+  }, 60000);
+})();
 
 (function loadEasterEggsScript() {
   if (typeof document === 'undefined') return;
@@ -2547,6 +2972,238 @@ var DAILY_VERSE_SAFE_REFS = [
   'Ephesians 6:10', 'Ephesians 6:11', 'Galatians 5:22', 'Romans 8:1'
 ];
 
+/** Rotating hero verses — shown on index.html hero card, one per page load, no repeats until all 83 shown. */
+var ROTATING_HERO_VERSES = [
+  { ref: 'Philippians 4:6',        text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',                                                                       breakdown: ["Don't worry—just pray.", "God's listening.", "Thank Him, let go."],                       app: 'Name one worry. Pray it out.' },
+  { ref: 'Matthew 11:28',          text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',                                                                                                                           breakdown: ["You're carrying a lot.", 'Come rest.', 'No performance required.'],                       app: "Breathe: 'Jesus, I come as I am.'" },
+  { ref: 'Isaiah 41:10',           text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',                    breakdown: ["You're not alone.", "He's right here.", 'Dismay ends where God is.'],                     app: "Feel scared? Say 'With me.'" },
+  { ref: 'Psalm 34:18',            text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',                                                                                                        breakdown: ['Tears are okay.', "He's near.", 'Broken is where He works.'],                             app: 'Cry—let Him hold it.' },
+  { ref: 'John 3:16',              text: 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.',                                                            breakdown: ['Love like that.', 'For you.', 'Given freely.'],                                           app: 'Thank Him for love.' },
+  { ref: 'Psalm 23:1',             text: 'The Lord is my shepherd; I shall not want.',                                                                                                                                                               breakdown: ["He's shepherd.", 'No lack.', 'Guided safe.'],                                             app: "Say 'My shepherd'—feel it." },
+  { ref: 'Ephesians 4:26',         text: 'Be ye angry, and sin not: let not the sun go down upon your wrath.',                                                                                                                                        breakdown: ['Anger real.', "Don't sin.", 'Let go before bed.'],                                        app: 'Forgive one person—now.' },
+  { ref: 'Joshua 1:9',             text: 'Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest.',                                                                    breakdown: ['Strong.', 'Courage.', 'No fear.'],                                                        app: "Step forward—say 'I'm strong.'" },
+  { ref: 'Psalm 46:1',             text: 'God is our refuge and strength, a very present help in trouble.',                                                                                                                                           breakdown: ['Trouble hits.', "He's the shelter.", 'Present—not distant.'],                             app: 'Trouble? Run to Him.' },
+  { ref: 'Romans 8:28',            text: 'And we know that all things work together for good to them that love God, to them who are the called according to his purpose.',                                                                           breakdown: ['All things.', 'For good.', 'Love Him.'],                                                  app: "Trust mess—say 'Good coming.'" },
+  { ref: 'Psalm 55:22',            text: 'Cast thy burden upon the Lord, and he shall sustain thee: he shall never suffer the righteous to be moved.',                                                                                               breakdown: ['Cast burden.', 'He sustains.', 'No fall.'],                                               app: 'Hand over one weight.' },
+  { ref: '1 Peter 5:7',            text: 'Casting all your care upon him; for he careth for you.',                                                                                                                                                   breakdown: ['Throw every worry.', 'He cares—really.', 'No judgment.'],                                 app: "Throw cares—feel lighter." },
+  { ref: 'Proverbs 3:5-6',         text: 'Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.',                                                      breakdown: ['Trust fully.', "Don't lean on head.", 'He directs.'],                                     app: "Ask: 'Where next?'" },
+  { ref: 'Jeremiah 29:11',         text: 'For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.',                                                                        breakdown: ['His plans are peace.', 'Not harm.', 'A future waiting.'],                                 app: "Say 'Your plan.'" },
+  { ref: '2 Corinthians 12:9',     text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.',                                                                                                        breakdown: ['Grace enough.', 'Weakness shows power.', "You're enough in Him."],                        app: "Admit weak—let grace." },
+  { ref: 'Psalm 37:5',             text: 'Commit thy way unto the Lord; trust also in him; and he shall bring it to pass.',                                                                                                                          breakdown: ['Commit way.', 'Trust.', 'He does it.'],                                                   app: 'Hand one goal over.' },
+  { ref: 'Isaiah 40:31',           text: 'But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',                            breakdown: ['Wait.', 'Renew strength.', 'Eagle wings.'],                                               app: 'Sit quiet—wait.' },
+  { ref: 'Hebrews 13:5',           text: 'Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee.',                                                 breakdown: ['Never leave.', 'Always here.', 'Content now.'],                                           app: 'Thank for presence.' },
+  { ref: 'Psalm 118:24',           text: 'This is the day which the Lord hath made; we will rejoice and be glad in it.',                                                                                                                             breakdown: ["Today? His gift.", 'Rejoice.', 'Be glad—right now.'],                                    app: "Say 'Thank you' aloud." },
+  { ref: 'Romans 8:38-39',         text: 'For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.', breakdown: ['Unbreakable love.', 'Nothing cuts.', 'Safe.'],          app: "Feel distant? 'Still loved.'" },
+  { ref: 'Exodus 14:14',           text: 'The Lord shall fight for you, and ye shall hold your peace.',                                                                                                                                              breakdown: ['He fights.', 'You rest.', 'Peace comes.'],                                                app: 'Step back—let Him.' },
+  { ref: 'Psalm 46:10',            text: 'Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.',                                                                                                  breakdown: ['Stop.', 'Know Him.', 'Enough.'],                                                          app: 'Be still 30 sec.' },
+  { ref: 'Matthew 6:34',           text: 'Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.',                                                      breakdown: ['Tomorrow later.', 'Now focus.', 'He handles.'],                                           app: "Write worry—let go." },
+  { ref: 'Psalm 121:1-2',          text: 'I will lift up mine eyes unto the hills, from whence cometh my help. My help cometh from the Lord, which made heaven and earth.',                                                                         breakdown: ['Look up.', 'Help coming.', 'From the Maker.'],                                            app: "Look sky—say 'Help.'" },
+  { ref: 'Ephesians 3:20',         text: 'Now unto him that is able to do exceeding abundantly above all that we ask or think, according to the power that worketh in us.',                                                                          breakdown: ['More than you ask.', 'More than you think.', 'Power in you.'],                            app: 'Ask wild—wait.' },
+  { ref: 'James 1:5',              text: 'If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.',                                                                         breakdown: ['Need wisdom?', 'Just ask.', 'He gives—no shame.'],                                        app: "Pray 'Wisdom'—listen." },
+  { ref: 'Psalm 139:14',           text: 'I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well.',                                                                             breakdown: ['Not a mistake.', 'Fearfully made.', "Marvellous—His word."],                              app: "Mirror: 'I'm wonderful.'" },
+  { ref: 'Proverbs 17:22',         text: 'A merry heart doeth good like a medicine: but a broken spirit drieth the bones.',                                                                                                                          breakdown: ['Joy heals.', 'Laughter is medicine.', 'God gave you both.'],                              app: 'Tell joke—smile.' },
+  { ref: 'Colossians 3:23',        text: 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men.',                                                                                                                                  breakdown: ['Work for Him.', 'Give your best.', 'He sees every bit.'],                                 app: 'Task like Jesus.' },
+  { ref: 'Psalm 30:5',             text: 'For his anger endureth but a moment; in his favour is life: weeping may endure for a night, but joy cometh in the morning.',                                                                             breakdown: ['Hard night?', 'Joy is morning-shaped.', "It's coming."],                                  app: 'Expect joy tomorrow.' },
+  { ref: 'Revelation 21:4',        text: 'And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away.',          breakdown: ['No more pain.', 'Coming soon.', 'Every tear remembered.'],                                app: 'Hold hope—pain ends.' },
+  { ref: 'Psalm 27:1',             text: 'The Lord is my light and my salvation; whom shall I fear? the Lord is the strength of my life; of whom shall I be afraid?',                                                                               breakdown: ['Light in dark.', 'No fear needed.', "He's your strength."],                               app: "Face fear: 'My light.'" },
+  { ref: 'Lamentations 3:22-23',   text: 'It is of the Lord\'s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',                                                         breakdown: ['Mercy new.', 'Daily.', 'Fresh.'],                                                         app: "Thank yesterday's mercy." },
+  { ref: '2 Corinthians 5:17',     text: 'Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.',                                                                                 breakdown: ['New you.', 'Old gone.', 'Fresh start.'],                                                  app: 'Let go old habit.' },
+  { ref: 'Psalm 119:105',          text: 'Thy word is a lamp unto my feet, and a light unto my path.',                                                                                                                                              breakdown: ['Lamp.', 'Light path.', 'Word.'],                                                          app: 'Read one—walk.' },
+  { ref: 'Isaiah 26:3',            text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.',                                                                                                         breakdown: ['Peace perfect.', 'Mind on Him.', 'Steady.'],                                              app: 'Fix on God—1 min.' },
+  { ref: 'James 4:8',              text: 'Draw nigh to God, and he will draw nigh to you. Cleanse your hands, ye sinners; and purify your hearts, ye double minded.',                                                                               breakdown: ['Move toward Him.', 'He moves toward you.', 'Come close.'],                                app: "Pray 'Closer.'" },
+  { ref: 'Psalm 139:23-24',        text: 'Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.',                                                       breakdown: ['Search.', 'Know.', 'Lead.'],                                                              app: "Ask 'Fix me.'" },
+  { ref: 'Galatians 5:22-23',      text: 'But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance: against such there is no law.',                                                       breakdown: ['Love.', 'Joy.', 'Peace.'],                                                                app: 'Show one fruit.' },
+  { ref: 'Hebrews 4:16',           text: 'Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need.',                                                                                breakdown: ['Bold prayer.', 'Grace throne.', 'Mercy waits.'],                                          app: 'Pray bold ask.' },
+  { ref: 'Psalm 37:4',             text: 'Delight thyself also in the Lord: and he shall give thee the desires of thine heart.',                                                                                                                     breakdown: ['Delight in Him.', "Heart's desire.", 'He delivers.'],                                    app: 'Love Him—do one thing.' },
+  { ref: 'Colossians 3:2',         text: 'Set your affection on things above, not on things on the earth.',                                                                                                                                         breakdown: ['Eyes up.', 'Earthly grip loosens.', 'Eternal things first.'],                             app: 'List 3 eternal.' },
+  { ref: 'Matthew 6:33',           text: 'But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.',                                                                                              breakdown: ['Seek Him first.', 'Everything else follows.', "That's the order."],                       app: 'Seek 5 min.' },
+  { ref: 'Psalm 42:11',            text: 'Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.',                               breakdown: ['Soul cast down?', 'Still hope.', 'Praise follows valley.'],                               app: "Tell soul 'Hope!'" },
+  { ref: '2 Timothy 1:7',          text: 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.',                                                                                                           breakdown: ['No fear spirit.', 'Power, love, mind.', "You're built for this."],                        app: "Say: 'Power over fear.'" },
+  { ref: 'Psalm 91:1-2',           text: 'He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty. I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.',              breakdown: ['Secret place.', 'Shadow of the Almighty.', 'Safe there.'],                                app: 'Hide quiet.' },
+  { ref: 'Romans 12:2',            text: 'And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.',                                 breakdown: ["Don't copy world.", 'Renew mind.', 'Transform inside.'],                                  app: 'Replace thought.' },
+  { ref: 'Psalm 16:8',             text: 'I have set the Lord always before me: because he is at my right hand, I shall not be moved.',                                                                                                             breakdown: ['Set before.', 'Right hand.', 'Not moved.'],                                               app: 'Put Him ahead.' },
+  { ref: 'Isaiah 40:29',           text: 'He giveth power to the faint; and to them that have no might he increaseth strength.',                                                                                                                    breakdown: ['Power faint.', 'No might.', 'Increase.'],                                                 app: 'Admit weak—ask.' },
+  { ref: 'Ephesians 6:10',         text: 'Finally, my brethren, be strong in the Lord, and in the power of his might.',                                                                                                                             breakdown: ['Strong in Him.', 'His power.', 'Not yours.'],                                             app: "Stand: 'In Your might.'" },
+  { ref: 'Psalm 119:11',           text: 'Thy word have I hid in mine heart, that I might not sin against thee.',                                                                                                                                   breakdown: ['Hide word.', 'Heart guard.', 'Sin loses hold.'],                                          app: 'Memorize one.' },
+  { ref: 'Luke 6:38',              text: 'Give, and it shall be given unto you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom.',                                                                breakdown: ['Give.', 'Pressed down.', 'Returns.'],                                                     app: 'Give one thing.' },
+  { ref: 'Psalm 103:2-3',          text: 'Bless the Lord, O my soul, and forget not all his benefits: Who forgiveth all thine iniquities; who healeth all thy diseases.',                                                                          breakdown: ['Bless.', 'Benefits.', 'Forgiven.'],                                                       app: 'List 3—thank.' },
+  { ref: 'Micah 6:8',              text: 'He hath shewed thee, O man, what is good; and what doth the Lord require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?',                                                breakdown: ['Do justly.', 'Love mercy.', 'Walk humble.'],                                              app: 'Be kind—today.' },
+  { ref: 'Psalm 32:8',             text: 'I will instruct thee and teach thee in the way which thou shalt go: I will guide thee with mine eye.',                                                                                                    breakdown: ['He instructs.', 'He guides.', 'His eye on you.'],                                         app: "Ask 'Show way.'" },
+  { ref: 'Romans 15:13',           text: 'Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.',                                                                      breakdown: ['Hope God.', 'Joy + peace.', 'Believe.'],                                                  app: 'Believe promise.' },
+  { ref: 'Psalm 51:10',            text: 'Create in me a clean heart, O God; and renew a right spirit within me.',                                                                                                                                  breakdown: ['Clean.', 'Renew.', 'Spirit.'],                                                            app: "Pray 'Clean me.'" },
+  { ref: 'Isaiah 43:2',            text: 'When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee: when thou walkest through the fire, thou shalt not be burned; neither shall the flame kindle upon thee.', breakdown: ['Waters.', 'Not overflow.', 'With you.'],                  app: "Flooded? 'With me.'" },
+  { ref: 'Philippians 4:13',       text: 'I can do all things through Christ which strengtheneth me.',                                                                                                                                              breakdown: ['All things.', 'Through Christ.', 'Strength sourced in Him.'],                             app: 'Hard thing—claim.' },
+  { ref: 'Psalm 119:114',          text: 'Thou art my hiding place and my shield: I hope in thy word.',                                                                                                                                            breakdown: ['Hiding.', 'Shield.', 'Hope word.'],                                                       app: 'Hide in verse.' },
+  { ref: '1 John 4:18',            text: 'There is no fear in love; but perfect love casteth out fear: because fear hath torment. He that feareth is not made perfect in love.',                                                                   breakdown: ['Love perfect.', 'Fear cast out.', 'Love wins.'],                                          app: "Scared? 'Love wins.'" },
+  { ref: 'Psalm 62:1',             text: 'Truly my soul waiteth upon God: from him cometh my salvation.',                                                                                                                                          breakdown: ['Soul waits.', 'Salvation His.', 'From Him only.'],                                        app: 'Wait silent—1 min.' },
+  { ref: 'Proverbs 18:10',         text: 'The name of the Lord is a strong tower: the righteous runneth into it, and is safe.',                                                                                                                     breakdown: ['Name tower.', 'Run in.', 'Safe.'],                                                        app: "Run: 'Lord, protect.'" },
+  { ref: 'Matthew 5:16',           text: 'Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.',                                                                                      breakdown: ['Shine.', 'Good works.', 'Glorify.'],                                                      app: 'Good thing—quiet.' },
+  { ref: 'Psalm 145:18',           text: 'The Lord is nigh unto all them that call upon him, to all that call upon him in truth.',                                                                                                                   breakdown: ['Nigh.', 'Call.', 'Truth.'],                                                               app: 'Call true.' },
+  { ref: 'Romans 5:8',             text: 'But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.',                                                                                                         breakdown: ['While sinners.', 'He died.', "That's the love."],                                         app: "Thank 'You loved then.'" },
+  { ref: 'Psalm 23:4',             text: 'Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.',                                                        breakdown: ['Dark valley.', 'No fear.', "He's with you."],                                             app: "Dark? 'You're here.'" },
+  { ref: 'Ephesians 2:10',         text: 'For we are his workmanship, created in Christ Jesus unto good works, which God hath before ordained that we should walk in them.',                                                                        breakdown: ['His art.', 'Created good.', 'Works waiting.'],                                            app: "Useless? 'I'm His.'" },
+  { ref: 'Psalm 34:8',             text: 'O taste and see that the Lord is good: blessed is the man that trusteth in him.',                                                                                                                         breakdown: ['Taste.', 'See good.', 'Blessed trust.'],                                                  app: 'Taste blessing—thank.' },
+  { ref: 'Isaiah 30:21',           text: 'And thine ears shall hear a word behind thee, saying, This is the way, walk ye in it, when ye turn to the right hand, and when ye turn to the left.',                                                    breakdown: ['Hear.', 'Way.', 'Walk.'],                                                                 app: 'Listen—step.' },
+  { ref: 'John 14:27',             text: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.',                                                  breakdown: ["His peace—not world's.", 'Heart not troubled.', 'Already given.'],                        app: "Say 'Your peace.'" },
+  { ref: 'Psalm 138:8',            text: 'The Lord will perfect that which concerneth me: thy mercy, O Lord, endureth for ever: forsake not the works of thine own hands.',                                                                        breakdown: ['He perfects it.', 'Mercy forever.', "You're His work."],                                  app: "Worry: 'Perfect it.'" },
+  { ref: '1 Thessalonians 5:16-18',text: 'Rejoice evermore. Pray without ceasing. In every thing give thanks: for this is the will of God in Christ Jesus concerning you.',                                                                        breakdown: ['Rejoice always.', 'Pray nonstop.', 'Thanks everywhere.'],                                 app: 'Rejoice + pray + thank.' },
+  { ref: 'Matthew 11:29-30',       text: 'Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.',                                         breakdown: ['Take His yoke.', 'Learn from Him.', 'Rest follows.'],                                     app: "Say 'Your yoke'—rest." },
+  { ref: 'Psalm 103:12',           text: 'As far as the east is from the west, so far hath he removed our transgressions from us.',                                                                                                                 breakdown: ['East to west.', 'Sins gone that far.', 'Completely removed.'],                            app: 'Forgiven—free.' },
+  { ref: 'Isaiah 55:8-9',          text: 'For my thoughts are not your thoughts, neither are your ways my ways, saith the Lord. For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.', breakdown: ['His thoughts higher.', 'Ways better.', 'Trust up.'],          app: "Doubt plan? 'Yours better.'" },
+  { ref: 'Romans 8:1',             text: 'There is therefore now no condemnation to them which are in Christ Jesus, who walk not after the flesh, but after the Spirit.',                                                                           breakdown: ['No condemnation.', 'None.', 'Free in Christ.'],                                           app: "Guilty? Say 'No more.'" },
+  { ref: 'Psalm 19:14',            text: 'Let the words of my mouth, and the meditation of my heart, be acceptable in thy sight, O Lord, my strength, and my redeemer.',                                                                          breakdown: ['Words clean.', 'Heart right.', 'Acceptable.'],                                            app: 'Watch words today.' },
+  { ref: 'James 1:2-3',            text: 'My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience.',                                                                       breakdown: ['Trial comes.', 'Count it joy.', 'Patience is the product.'],                              app: "Trial? Say 'Joy coming.'" },
+  { ref: 'Psalm 91:11',            text: 'For he shall give his angels charge over thee, to keep thee in all thy ways.',                                                                                                                            breakdown: ['Angels guard.', 'All ways.', 'Kept safe.'],                                               app: 'Step out—trust guard.' },
+  { ref: '2 Corinthians 4:16-18',  text: 'For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day. For our light and momentary troubles are achieving for us an eternal glory that far outweighs them all.', breakdown: ["Don't faint.", 'Outward fades.', 'Inward renew.'],      app: 'Feel old? Renew inside.' },
+  { ref: 'Psalm 37:7',             text: 'Rest in the Lord, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.',                                       breakdown: ['Rest.', 'Wait patient.', "Don't fret."],                                                  app: 'Wait 2 min—rest.' },
+  { ref: 'Hebrews 11:1',           text: 'Now faith is the substance of things hoped for, the evidence of things not seen.',                                                                                                                        breakdown: ['Faith substance.', 'Hope real.', 'Unseen proof.'],                                        app: 'Hope one thing—believe.' },
+  { ref: 'Proverbs 16:3',          text: 'Commit thy works unto the Lord, and thy thoughts shall be established.',                                                                                                                                     breakdown: ['Commit works.', 'Thoughts established.', 'He steadies you.'],                             app: 'Commit task—let go.' },
+  { ref: 'Psalm 56:3',             text: 'What time I am afraid, I will trust in thee.',                                                                                                                                                              breakdown: ['Afraid?', 'Trust Him.', 'That simple.'],                                                  app: "Scared? 'I trust.'" },
+  { ref: '1 Corinthians 10:13',    text: 'There hath no temptation taken you but such as is common to man: but God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape.', breakdown: ['Temptation common.', 'God faithful.', 'Way out given.'],                                app: "Tempted? Ask 'Way out.'" },
+  { ref: 'Psalm 86:11',            text: 'Teach me thy way, O Lord; I will walk in thy truth: unite my heart to fear thy name.',                                                                                                                       breakdown: ['Teach His way.', 'Walk in truth.', 'United heart.'],                                      app: "Pray 'Teach me.'" },
+  { ref: 'Matthew 28:20',          text: 'Lo, I am with you alway, even unto the end of the world. Amen.',                                                                                                                                            breakdown: ['With you.', 'Always.', 'Even to the end.'],                                               app: "Alone? 'With me.'" },
+  { ref: 'Psalm 37:23',            text: 'The steps of a good man are ordered by the Lord: and he delighteth in his way.',                                                                                                                            breakdown: ['Steps ordered.', 'Good man.', 'He delights in it.'],                                      app: "Next step? 'Order it.'" },
+  { ref: 'Isaiah 40:11',           text: 'He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom.',                                                                                             breakdown: ['Feeds his flock.', 'Gathers lambs.', 'Carries close.'],                                   app: "Feel lost? 'Gather me.'" },
+  { ref: 'Romans 12:12',           text: 'Rejoicing in hope; patient in tribulation; continuing instant in prayer.',                                                                                                                                  breakdown: ['Rejoice in hope.', 'Patient in trouble.', 'Keep praying.'],                               app: 'Pray now—hope.' },
+  { ref: 'Psalm 143:8',            text: 'Cause me to hear thy lovingkindness in the morning; for in thee do I trust: cause me to know the way wherein I should walk.',                                                                               breakdown: ['Hear love—morning.', 'Trust Him.', 'Know the way.'],                                      app: 'Morning: listen.' },
+  { ref: 'Ephesians 4:32',         text: 'Be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ\'s sake hath forgiven you.',                                                                                       breakdown: ['Be kind.', 'Tenderhearted.', 'Forgive as He did.'],                                       app: 'Forgive one person.' },
+  { ref: 'Psalm 25:4-5',           text: 'Shew me thy ways, O Lord; teach me thy paths. Lead me in thy truth, and teach me: for thou art the God of my salvation.',                                                                                  breakdown: ['Show ways.', 'Teach paths.', 'Lead truth.'],                                              app: "Ask 'Show me.'" },
+  { ref: '2 Timothy 2:1',          text: 'Thou therefore, my son, be strong in the grace that is in Christ Jesus.',                                                                                                                                   breakdown: ['Strong in grace.', 'In Christ.', 'Not your own.'],                                        app: "Say 'Grace strong.'" },
+  { ref: 'Psalm 119:165',          text: 'Great peace have they which love thy law: and nothing shall offend them.',                                                                                                                                  breakdown: ['Love law.', 'Great peace.', 'Nothing offends.'],                                          app: 'Read law—peace.' },
+  { ref: 'Isaiah 35:10',           text: 'The ransomed of the Lord shall return, and come to Zion with songs and everlasting joy upon their heads: and sorrow and sighing shall flee away.',                                                           breakdown: ['Ransomed return.', 'Joy everlasting.', 'Sorrow gone.'],                                   app: 'Feel joy—claim.' },
+  { ref: 'Romans 5:5',             text: 'Hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us.',                                                                                  breakdown: ['Hope holds.', 'Love poured in.', 'Spirit given.'],                                        app: 'Feel love—thank.' },
+  { ref: 'Psalm 73:26',            text: 'My flesh and my heart faileth: but God is the strength of my heart, and my portion for ever.',                                                                                                              breakdown: ['Flesh fails.', 'God is strength.', 'Portion forever.'],                                  app: "Weak? 'My strength.'" },
+  { ref: '1 Peter 2:9',            text: 'But ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people; that ye should shew forth the praises of him who hath called you out of darkness into his marvellous light.',       breakdown: ['Chosen.', 'Royal.', 'Holy.'],                                                             app: "Say 'I'm chosen.'" },
+  { ref: 'Psalm 130:5',            text: 'I wait for the Lord, my soul doth wait, and in his word do I hope.',                                                                                                                                        breakdown: ['Soul waits.', 'Word holds.', 'Hope real.'],                                               app: 'Wait—hope.' },
+  { ref: 'Colossians 1:11',        text: 'Strengthened with all might, according to his glorious power, unto all patience and longsuffering with joyfulness.',                                                                                       breakdown: ['All might.', 'His power.', 'Patience + joy.'],                                            app: 'Need power? Ask.' },
+  { ref: 'Psalm 18:2',             text: 'The Lord is my rock, and my fortress, and my deliverer; my God, my strength, in whom I will trust.',                                                                                                       breakdown: ['Rock.', 'Fortress.', 'Deliverer.'],                                                       app: "Unsteady? 'My rock.'" },
+  { ref: 'Isaiah 12:2',            text: 'Behold, God is my salvation; I will trust, and not be afraid: for the Lord Jehovah is my strength and my song; he also is become my salvation.',                                                           breakdown: ['Salvation God.', 'Trust.', 'No fear.'],                                                  app: "Afraid? 'Trust.'" },
+  { ref: 'Romans 8:37',            text: 'Nay, in all these things we are more than conquerors through him that loved us.',                                                                                                                           breakdown: ['More than conqueror.', 'Through Him.', 'Loved by Him.'],                                  app: "Battle? 'Conqueror.'" },
+  { ref: 'Psalm 121:7-8',          text: 'The Lord shall preserve thee from all evil: he shall preserve thy soul. The Lord shall preserve thy going out and thy coming in from this time forth.',                                                     breakdown: ['From all evil.', 'Preserve soul.', 'Going out—coming in.'],                               app: "Worried? 'Preserve.'" },
+  { ref: '1 John 3:1',             text: 'Behold, what manner of love the Father hath bestowed upon us, that we should be called the sons of God.',                                                                                                  breakdown: ['Love manner.', 'Father bestows.', 'Sons of God.'],                                        app: 'Feel loved—thank.' },
+  { ref: 'Psalm 34:17',            text: 'The righteous cry, and the Lord heareth, and delivereth them out of all their troubles.',                                                                                                                   breakdown: ['Cry out.', 'He hears.', 'Delivers all trouble.'],                                         app: 'Cry—wait.' },
+  { ref: 'Isaiah 41:13',           text: 'For I the Lord thy God will hold thy right hand, saying unto thee, Fear not; I will help thee.',                                                                                                            breakdown: ['Holds hand.', 'Fear not.', 'I will help.'],                                               app: 'Hold hand—feel.' },
+  { ref: 'Philippians 1:6',        text: 'Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.',                                                                            breakdown: ['He began it.', "He'll finish it.", 'Until the end.'],                                     app: "Doubt? 'He finishes.'" },
+  { ref: 'Psalm 27:14',            text: 'Wait on the Lord: be of good courage, and he shall strengthen thine heart: wait, I say, on the Lord.',                                                                                                     breakdown: ['Wait.', 'Courage.', 'Strength heart.'],                                                   app: 'Courage—wait.' },
+  { ref: 'Romans 15:4',            text: 'For whatsoever things were written aforetime were written for our learning, that we through patience and comfort of the scriptures might have hope.',                                                        breakdown: ['Written for learning.', 'Comfort in it.', 'Hope through it.'],                            app: 'Read old—hope.' },
+  { ref: 'Psalm 40:1-2',           text: 'I waited patiently for the Lord; and he inclined unto me, and heard my cry. He brought me up also out of an horrible pit.',                                                                                breakdown: ['Wait patient.', 'He inclines.', 'Lifts out.'],                                            app: 'Patient—wait.' },
+  { ref: 'Isaiah 43:19',           text: 'Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.',                                                      breakdown: ['New thing coming.', 'Way in wilderness.', 'Rivers in desert.'],                           app: 'New? Watch.' },
+  { ref: 'Ephesians 1:7',          text: 'In whom we have redemption through his blood, the forgiveness of sins, according to the riches of his grace.',                                                                                             breakdown: ['Redemption His blood.', 'Forgiveness.', 'Riches of grace.'],                              app: "Sins? 'Forgiven.'" },
+  { ref: 'Psalm 116:1-2',          text: 'I love the Lord, because he hath heard my voice and my supplications. Because he hath inclined his ear unto me, therefore will I call upon him as long as I live.',                                        breakdown: ['He heard.', 'Inclined ear.', 'Call always.'],                                             app: 'Pray—love.' },
+  { ref: '2 Peter 1:3',            text: 'According as his divine power hath given unto us all things that pertain unto life and godliness, through the knowledge of him that hath called us.',                                                       breakdown: ['Power given.', 'All things.', 'Life + godliness.'],                                       app: "Need? 'Given.'" },
+  { ref: 'Psalm 145:9',            text: 'The Lord is good to all: and his tender mercies are over all his works.',                                                                                                                                   breakdown: ['Good to all.', 'Tender mercies.', 'Over all His works.'],                                 app: 'Good? Thank.' },
+  { ref: 'Isaiah 49:15',           text: 'Can a woman forget her sucking child, that she should not have compassion on the son of her womb? yea, they may forget, yet will I not forget thee.',                                                      breakdown: ["Can't forget you.", 'Even if others do.', 'He remembers.'],                               app: "Forgotten? 'Not you.'" },
+  { ref: 'Romans 14:8',            text: 'For whether we live, we live unto the Lord; and whether we die, we die unto the Lord: whether we live therefore, or die, we are the Lord\'s.',                                                             breakdown: ["Life—His.", 'Death—His.', "You're His either way."],                                      app: "Life? 'Unto You.'" },
+  { ref: 'Psalm 34:4',             text: 'I sought the Lord, and he heard me, and delivered me from all my fears.',                                                                                                                                   breakdown: ['Sought.', 'Heard.', 'Delivered fears.'],                                                  app: 'Fear? Seek.' },
+  { ref: '1 Corinthians 16:14',    text: 'Let all your things be done with charity.',                                                                                                                                                                breakdown: ['All things.', 'Done with love.', 'No exception.'],                                       app: 'Do one thing with love.' },
+  { ref: 'Psalm 119:28',           text: 'My soul melteth for heaviness: strengthen thou me according unto thy word.',                                                                                                                                breakdown: ['Soul heavy.', 'Word strengthens.', 'He answers.'],                                        app: "Heavy? 'Strengthen.'" },
+  { ref: 'Isaiah 58:11',           text: 'And the Lord shall guide thee continually, and satisfy thy soul in drought, and make fat thy bones: and thou shalt be like a watered garden.',                                                             breakdown: ['Guide always.', 'Satisfy in drought.', 'Like a watered garden.'],                         app: "Dry? 'Guide.'" },
+  { ref: 'Philippians 2:13',       text: 'For it is God which worketh in you both to will and to do of his good pleasure.',                                                                                                                          breakdown: ['He works in you.', 'Will + do.', 'His pleasure.'],                                        app: "Want change? 'Work in me.'" },
+  { ref: 'Psalm 37:39',            text: 'But the salvation of the righteous is of the Lord: he is their strength in the time of trouble.',                                                                                                          breakdown: ['Salvation Lord.', 'Strength His.', 'Trouble time covered.'],                              app: "Trouble? 'Strength.'" },
+  { ref: 'Matthew 6:11',           text: 'Give us this day our daily bread.',                                                                                                                                                                        breakdown: ['Daily.', 'He gives.', 'Ask and receive.'],                                                app: "Need? 'Daily.'" },
+  { ref: 'Psalm 28:7',             text: 'The Lord is my strength and my shield; my heart trusted in him, and I am helped: therefore my heart greatly rejoiceth.',                                                                                   breakdown: ['Strength shield.', 'Trusted.', 'Helped.'],                                                app: 'Trust—helped.' },
+  { ref: 'Isaiah 26:4',            text: 'Trust ye in the Lord for ever: for in the Lord Jehovah is everlasting strength.',                                                                                                                          breakdown: ['Trust forever.', 'Everlasting strength.', 'No expiry.'],                                  app: "Forever? 'Trust.'" },
+  { ref: 'Romans 12:21',           text: 'Be not overcome of evil, but overcome evil with good.',                                                                                                                                                    breakdown: ["Don't be overcome.", 'Overcome with good.', 'Good wins.'],                                app: 'Evil? Do good.' },
+  { ref: 'Psalm 138:3',            text: 'In the day when I cried thou answeredst me, and strengthenedst me with strength in my soul.',                                                                                                               breakdown: ['Cried.', 'Answered.', 'Soul strength.'],                                                  app: 'Cry—strength.' },
+  { ref: '1 John 5:14',            text: 'And this is the confidence that we have in him, that, if we ask any thing according to his will, he heareth us.',                                                                                          breakdown: ['Confidence.', 'Ask His will.', 'He hears.'],                                              app: 'Ask His will.' },
+  { ref: 'Psalm 91:15',            text: 'He shall call upon me, and I will answer him: I will be with him in trouble; I will deliver him, and honour him.',                                                                                         breakdown: ['Call.', 'He answers.', 'With you in trouble.'],                                           app: 'Call—He answers.' },
+  { ref: 'Proverbs 3:26',          text: 'For the Lord shall be thy confidence, and shall keep thy foot from being taken.',                                                                                                                          breakdown: ['Confidence Lord.', 'Foot kept.', 'No slip.'],                                             app: "Unsure? 'Confidence.'" },
+  { ref: 'Isaiah 40:28',           text: 'Hast thou not known? hast thou not heard, that the everlasting God, the Lord, the Creator of the ends of the earth, fainteth not, neither is weary?',                                                    breakdown: ["He doesn't faint.", "He's never weary.", 'Everlasting God.'],                             app: "Tired? 'No faint.'" },
+  { ref: 'Matthew 5:44',           text: 'Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you.',                                                                               breakdown: ['Love enemies.', 'Bless cursers.', 'Pray for haters.'],                                    app: 'Enemy? Bless.' },
+  { ref: 'Psalm 32:7',             text: 'Thou art my hiding place; thou shalt preserve me from trouble; thou shalt compass me about with songs of deliverance.',                                                                                    breakdown: ['Hiding place.', 'Preserved.', 'Songs of deliverance.'],                                   app: "Trouble? 'Hide.'" },
+  { ref: 'Romans 8:32',            text: 'He that spared not his own Son, but delivered him up for us all, how shall he not with him also freely give us all things?',                                                                               breakdown: ['Gave His Son.', 'Will give all things.', 'Freely.'],                                      app: "Need? 'Freely.'" },
+  { ref: 'Psalm 119:76',           text: 'Let, I pray thee, thy merciful kindness be for my comfort, according to thy word unto thy servant.',                                                                                                       breakdown: ['Merciful kindness.', 'Comfort.', 'His word.'],                                            app: "Comfort? 'Kindness.'" },
+  { ref: 'Isaiah 41:20',           text: 'That they may see, and know, and consider, and understand together, that the hand of the Lord hath done this, and the Holy One of Israel hath created it.',                                               breakdown: ['See it.', 'Know it.', "The Lord's hand did it."],                                         app: "See? 'Your hand.'" },
+  { ref: 'Philippians 3:13-14',    text: 'Forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.',                      breakdown: ['Forget behind.', 'Reach forward.', 'Press for prize.'],                                   app: 'Past? Forget.' },
+  { ref: 'Psalm 46:5',             text: 'God is in the midst of her; she shall not be moved: God shall help her, and that right early.',                                                                                                            breakdown: ['God in midst.', 'Not moved.', 'Help early.'],                                             app: "Unsteady? 'Midst.'" },
+  { ref: '1 Peter 3:15',           text: 'But sanctify the Lord God in your hearts: and be ready always to give an answer to every man that asketh you a reason of the hope that is in you.',                                                        breakdown: ['Sanctify.', 'Ready.', 'Reason for hope.'],                                                app: 'Hope? Ready.' },
+  { ref: 'Psalm 34:10',            text: 'The young lions do lack, and suffer hunger: but they that seek the Lord shall not want any good thing.',                                                                                                   breakdown: ['Lions lack.', 'Seekers supplied.', 'No good thing withheld.'],                            app: 'Want? Seek.' },
+  { ref: 'Isaiah 43:1',            text: 'Fear not: for I have redeemed thee, I have called thee by thy name; thou art mine.',                                                                                                                       breakdown: ['Fear not.', 'Redeemed.', 'Called by name.'],                                              app: "Name? 'Mine.'" },
+  { ref: 'Romans 5:1',             text: 'Therefore being justified by faith, we have peace with God through our Lord Jesus Christ.',                                                                                                                breakdown: ['Justified faith.', 'Peace with God.', 'Through Jesus.'],                                  app: "Feel conflict? 'Peace.'" },
+  { ref: 'Psalm 37:25',            text: 'I have been young, and now am old; yet have I not seen the righteous forsaken, nor his seed begging bread.',                                                                                              breakdown: ['Young to old.', 'Never forsaken.', 'Seed provided for.'],                                 app: "Doubt provision? 'Not forsaken.'" },
+  { ref: 'Isaiah 54:10',           text: 'For the mountains shall depart, and the hills be removed; but my kindness shall not depart from thee, neither shall the covenant of my peace be removed, saith the Lord that hath mercy on thee.',      breakdown: ['Mountains move.', 'His kindness stays.', 'Covenant of peace.'],                           app: "Unsteady? 'Kindness stays.'" },
+  { ref: 'Matthew 6:21',           text: 'For where your treasure is, there will your heart be also.',                                                                                                                                             breakdown: ['Treasure shows heart.', 'What you value.', 'Heart follows.'],                             app: 'Check treasure—shift.' },
+  { ref: 'Psalm 119:50',           text: 'This is my comfort in my affliction: for thy word hath quickened me.',                                                                                                                                   breakdown: ['Comfort in pain.', 'Word quickens.', 'Alive in Him.'],                                    app: 'Hurt? Read word.' },
+  { ref: 'Romans 12:18',           text: 'If it be possible, as much as lieth in you, live peaceably with all men.',                                                                                                                               breakdown: ['Live peace.', 'As much as you can.', 'With all men.'],                                    app: 'Fight? Make peace.' },
+  { ref: 'Psalm 23:6',             text: 'Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the Lord for ever.',                                                                                breakdown: ['Goodness follows.', 'Mercy follows.', 'All your days.'],                                  app: "Feel chased? 'Follows me.'" },
+  { ref: 'Isaiah 26:12',           text: 'Lord, thou wilt ordain peace for us: for thou also hast wrought all our works in us.',                                                                                                                   breakdown: ['Peace ordained.', 'He works in us.', 'All of it.'],                                       app: "No peace? 'Ordain.'" },
+  { ref: 'Ephesians 4:29',         text: 'Let no corrupt communication proceed out of your mouth, but that which is good to the use of edifying, that it may minister grace unto the hearers.',                                                  breakdown: ['No corrupt words.', 'Good and edifying.', 'Ministers grace.'],                            app: 'Speak one good thing.' },
+  { ref: 'Psalm 34:19',            text: 'Many are the afflictions of the righteous: but the Lord delivereth him out of them all.',                                                                                                               breakdown: ['Afflictions many.', 'Righteous still.', 'Delivers all.'],                                 app: "Afflicted? 'Delivers.'" },
+  { ref: 'Matthew 7:7',            text: 'Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you.',                                                                                                      breakdown: ['Ask—given.', 'Seek—find.', 'Knock—opened.'],                                              app: 'Need? Ask now.' },
+  { ref: 'Psalm 138:7',            text: 'Though I walk in the midst of trouble, thou wilt revive me: thou shalt stretch forth thine hand against the wrath of mine enemies.',                                                                   breakdown: ['Midst of trouble.', 'He revives.', 'Hand against enemies.'],                              app: "Mid-trouble? 'Revive.'" },
+  { ref: 'Romans 8:18',            text: 'For I reckon that the sufferings of this present time are not worthy to be compared with the glory which shall be revealed in us.',                                                                     breakdown: ['Suffering now.', 'Glory coming.', 'No comparison.'],                                      app: "Pain? 'Glory ahead.'" },
+  { ref: 'Psalm 119:92',           text: 'Unless thy law had been my delights, I should then have perished in mine affliction.',                                                                                                                  breakdown: ['Law delights.', 'Affliction hit.', 'Word kept me.'],                                      app: 'Low? Delight in the word.' },
+  { ref: 'Isaiah 43:5',            text: 'Fear not: for I am with thee: I will bring thy seed from the east, and gather thee from the west.',                                                                                                    breakdown: ['Fear not.', 'With thee.', 'Gathered from all sides.'],                                    app: "Lost? 'With me.'" },
+  { ref: 'Philippians 4:19',       text: 'But my God shall supply all your need according to his riches in glory by Christ Jesus.',                                                                                                               breakdown: ['All your need.', 'His riches.', 'In glory.'],                                             app: "Need? 'Supply.'" },
+  { ref: 'Psalm 27:4',             text: 'One thing have I desired of the Lord, that will I seek after; that I may dwell in the house of the Lord all the days of my life.',                                                                     breakdown: ['One desire.', 'Dwell with Him.', 'All my days.'],                                         app: 'Want one? Seek.' },
+  { ref: 'Romans 5:3-4',           text: 'Tribulation worketh patience; And patience, experience; and experience, hope.',                                                                                                                         breakdown: ['Tribulation.', 'Patience.', 'Hope.'],                                                     app: "Hard? 'Hope coming.'" },
+  { ref: 'Psalm 91:16',            text: 'With long life will I satisfy him, and shew him my salvation.',                                                                                                                                         breakdown: ['Long life.', 'Satisfied.', 'Salvation shown.'],                                           app: "Short? 'Satisfy.'" },
+  { ref: 'Matthew 11:30',          text: 'For my yoke is easy, and my burden is light.',                                                                                                                                                          breakdown: ['Yoke easy.', 'Burden light.', 'His not yours.'],                                          app: "Heavy? 'Light.'" },
+  { ref: 'Psalm 55:16',            text: 'As for me, I will call upon God; and the Lord shall save me.',                                                                                                                                          breakdown: ['Call on God.', 'He saves.', 'Me.'],                                                       app: 'Call—saved.' },
+  { ref: 'Ephesians 3:16',         text: 'That he would grant you, according to the riches of his glory, to be strengthened with might by his Spirit in the inner man.',                                                                         breakdown: ['Riches of glory.', 'Strengthened with might.', 'Spirit inside.'],                         app: "Weak? 'Strengthen.'" },
+  { ref: 'Romans 8:31',            text: 'If God be for us, who can be against us?',                                                                                                                                                              breakdown: ['God for us.', 'Who against?', 'None.'],                                                   app: "Opposed? 'For us.'" },
+  { ref: 'Psalm 23:3',             text: 'He restoreth my soul: he leadeth me in the paths of righteousness for his name\'s sake.',                                                                                                              breakdown: ['Restores soul.', 'Leads righteousness.', "For His name's sake."],                         app: "Tired soul? 'Restore.'" },
+  { ref: 'Proverbs 3:5',           text: 'Trust in the Lord with all thine heart; and lean not unto thine own understanding.',                                                                                                                   breakdown: ['Full trust.', "Don't lean on self.", 'He directs.'],                                      app: 'Trust—full.' },
+  { ref: 'Psalm 91:1',             text: 'He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty.',                                                                                                  breakdown: ['Secret place.', 'Most High.', 'Shadow of the Almighty.'],                                 app: "Safe? 'Dwell.'" },
+  { ref: 'Psalm 121:7',            text: 'The Lord shall preserve thee from all evil: he shall preserve thy soul.',                                                                                                                               breakdown: ['All evil.', 'Soul preserved.', 'His watch.'],                                             app: "Evil? 'Preserved.'" },
+  { ref: 'Psalm 40:1',             text: 'I waited patiently for the Lord; and he inclined unto me, and heard my cry.',                                                                                                                          breakdown: ['Patient wait.', 'He inclines.', 'Heard the cry.'],                                        app: "Patient? 'Inclined.'" },
+  { ref: 'Psalm 116:1',            text: 'I love the Lord, because he hath heard my voice and my supplications.',                                                                                                                                breakdown: ['He heard.', 'Voice + prayer.', 'Love follows.'],                                          app: "Voice? 'Heard.'" },
+  { ref: 'Philippians 3:13',       text: 'Forgetting those things which are behind, and reaching forth unto those things which are before.',                                                                                                     breakdown: ['Forget behind.', 'Reach forward.', 'Press on.'],                                          app: 'Past? Forget.' }
+];
+
+var HERO_IDX_KEY = 'tdb_hero_idx_v1';
+var HERO_ORDER_KEY = 'tdb_hero_order_v1';
+
+function mountRotatingHeroVerse() {
+  var verses = ROTATING_HERO_VERSES;
+  var order, idx;
+  try {
+    var rawOrder = localStorage.getItem(HERO_ORDER_KEY);
+    order = rawOrder ? JSON.parse(rawOrder) : null;
+    idx = parseInt(localStorage.getItem(HERO_IDX_KEY) || '0', 10) || 0;
+  } catch (_) { order = null; idx = 0; }
+  if (!Array.isArray(order) || order.length !== verses.length) {
+    order = verses.map(function (_, i) { return i; });
+  }
+  if (idx >= verses.length) { idx = 0; }
+  var verse = verses[order[idx]];
+  var verseEl = document.getElementById('heroVerse');
+  var refEl = document.getElementById('heroRef');
+  var breakdownEl = document.getElementById('heroBreakdown');
+  var appEl = document.getElementById('heroApplication');
+  var card = document.getElementById('verseCard');
+  var readBtn = document.getElementById('readAloudBtn');
+  if (verseEl) verseEl.textContent = verse.text;
+  if (refEl) refEl.textContent = verse.ref + ' (KJV)';
+  if (breakdownEl) {
+    breakdownEl.innerHTML = '';
+    var lines = verse.breakdown || [];
+    for (var b = 0; b < lines.length; b++) {
+      var li = document.createElement('li');
+      li.textContent = lines[b];
+      breakdownEl.appendChild(li);
+    }
+  }
+  if (appEl) appEl.textContent = verse.app || '';
+  if (card) { card.classList.remove('is-loading'); card.classList.add('verse-card-loaded'); }
+  if (readBtn) { readBtn.removeAttribute('hidden'); }
+  idx++;
+  if (idx >= verses.length) {
+    idx = 0;
+    for (var i = verses.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = order[i]; order[i] = order[j]; order[j] = tmp;
+    }
+  }
+  try {
+    localStorage.setItem(HERO_IDX_KEY, String(idx));
+    localStorage.setItem(HERO_ORDER_KEY, JSON.stringify(order));
+  } catch (_) {}
+  if (typeof updateDailyVerseWhispers === 'function') {
+    updateDailyVerseWhispers(verse.ref, verse.text);
+  }
+}
+
 /** Label for the plain-meaning block (e.g. "Plain English:" or "In plain words:"). */
 var PLAIN_MEANING_LABEL = 'Plain English:';
 
@@ -3570,6 +4227,78 @@ function wireSilentAmen() {
   });
 }
 
+// ── Share prayer after Silent Amen ──────────────────────────────────────────
+// After tapping "Silent Amen" (#silentAmenBtn), a share prompt appears.
+// Tapping "Share this prayer?" copies the fixed prayer text and fires a gold
+// toast. Works on both #silentAmenBtn (index.html hero) and #silent-amen-btn
+// (script.js page) so either page entry point gets the feature.
+// ────────────────────────────────────────────────────────────────────────────
+function wireSharePrayerBtn() {
+  var PRAYER_TEXT = 'Lord, keep me in truth today.';
+  // Support both button ID conventions used across pages
+  var amenBtns = [
+    document.getElementById('silentAmenBtn'),
+    document.getElementById('silent-amen-btn')
+  ].filter(Boolean);
+  var shareRow  = document.getElementById('prayerShareRow');
+  var copyBtn   = document.getElementById('share-prayer-btn');
+  var dismissBtn = document.getElementById('prayerShareDismissBtn');
+
+  if (!copyBtn) return; // element not on this page
+
+  function showShareRow() {
+    if (shareRow) shareRow.classList.add('visible');
+    copyBtn.textContent = 'Share this prayer?';
+    copyBtn.classList.remove('copied');
+  }
+
+  function hideShareRow() {
+    if (shareRow) shareRow.classList.remove('visible');
+  }
+
+  // Show 1.3 s after any Silent Amen tap (clears after the "Amen." button feedback)
+  amenBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTimeout(showShareRow, 1300);
+    });
+  });
+
+  dismissBtn && dismissBtn.addEventListener('click', hideShareRow);
+
+  function onCopied() {
+    copyBtn.textContent = 'Copied';
+    copyBtn.classList.add('copied');
+    if (typeof showEliteToast === 'function') {
+      showEliteToast('Copied\u2014paste to grandma.', { gold: true, duration: 3000 });
+    }
+    setTimeout(hideShareRow, 2200);
+  }
+
+  function onCopyFail() {
+    copyBtn.textContent = 'Try again';
+  }
+
+  copyBtn.addEventListener('click', function () {
+    if (typeof safeCopyToClipboard === 'function') {
+      safeCopyToClipboard(PRAYER_TEXT, onCopied, onCopyFail);
+      return;
+    }
+    // Direct fallback if safeCopyToClipboard not yet defined
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(PRAYER_TEXT).then(onCopied).catch(onCopyFail);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = PRAYER_TEXT;
+      ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0;';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); onCopied(); } catch (e) { onCopyFail(); }
+      document.body.removeChild(ta);
+    }
+  });
+}
+
 function wireNightClose() {
   var overlay = document.getElementById('night-close-overlay');
   var titleEl = document.getElementById('night-close-title');
@@ -4583,15 +5312,214 @@ function bumpSilentAmenBadgeFromPray() {
   }
 }
 
+var FIRST_VISIT_READ_PREF_KEY = 'tdb_first_visit_read_pref_v1';
+var FIRST_VISIT_READ_AUTO_DAY_KEY = 'tdb_first_visit_read_auto_day_v1';
+var FIRST_VISIT_READ_MODAL_ID = 'first-visit-read-modal';
+
+function getDailyVerseReadPayload() {
+  var fallback = (typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' && DAILY_VERSE_BUNDLED_FALLBACK)
+    ? DAILY_VERSE_BUNDLED_FALLBACK
+    : { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' };
+  var ref = (currentDailyBattle && currentDailyBattle.ref) || getDailyVerseRef() || fallback.ref;
+  var verse = '';
+  if (currentDailyBattle && currentDailyBattle.verse) verse = String(currentDailyBattle.verse);
+  if (!verse && typeof getBibleVerseText === 'function') verse = getBibleVerseText(ref);
+  if (!verse && bible && bible[ref]) verse = bible[ref];
+  if (!verse) verse = fallback.text || '';
+  return {
+    ref: String(ref || '').trim(),
+    verse: String(verse || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  };
+}
+
+function speakDailyVerseGently(options) {
+  var opts = options || {};
+  var payload = getDailyVerseReadPayload();
+  if (!payload.ref || !payload.verse) return false;
+  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') return false;
+
+  var spoken = payload.ref + '. ' + payload.verse;
+  var utterance = new SpeechSynthesisUtterance(spoken);
+  var voice = null;
+  try { voice = typeof pickWelcomeFemaleVoice === 'function' ? pickWelcomeFemaleVoice() : null; } catch (voiceErr) { voice = null; }
+  if (!voice) {
+    try { voice = typeof getSelectedVoice === 'function' ? getSelectedVoice() : null; } catch (voiceFallbackErr) { voice = null; }
+  }
+  if (voice) utterance.voice = voice;
+  utterance.rate = 0.86;
+  utterance.pitch = 0.95;
+  utterance.volume = 1;
+  utterance.onstart = function () {
+    setTtsPlaying(true);
+    if (typeof opts.onStart === 'function') opts.onStart();
+  };
+  utterance.onend = function () {
+    setTtsPlaying(false);
+    if (typeof opts.onEnd === 'function') opts.onEnd();
+  };
+  utterance.onerror = function () {
+    setTtsPlaying(false);
+    if (typeof opts.onError === 'function') opts.onError();
+    if (!opts.suppressErrors && !ttsDisabledNoticeShown) {
+      ttsDisabledNoticeShown = true;
+      alert('Read-aloud could not start. Tap Listen when you are ready.');
+    }
+  };
+
+  try { window.speechSynthesis.cancel(); } catch (cancelErr) {}
+  setTtsPlaying(false);
+  try {
+    window.speechSynthesis.speak(utterance);
+    if (typeof trackEvent === 'function') trackEvent('daily_verse_friend_read', { source: opts.source || 'unknown' });
+    return true;
+  } catch (speakErr) {
+    setTtsPlaying(false);
+    if (typeof opts.onError === 'function') opts.onError();
+    if (!opts.suppressErrors && !ttsDisabledNoticeShown) {
+      ttsDisabledNoticeShown = true;
+      alert('Read-aloud could not start on this device. You can still read today\'s verse.');
+    }
+    return false;
+  }
+}
+
+function getFirstVisitReadChoice() {
+  try { return String(localStorage.getItem(FIRST_VISIT_READ_PREF_KEY) || ''); } catch (e) { return ''; }
+}
+
+function saveFirstVisitReadChoice(choice) {
+  try { localStorage.setItem(FIRST_VISIT_READ_PREF_KEY, String(choice || '')); } catch (e) {}
+}
+
+function closeFirstVisitReadModal(modalEl, untrap) {
+  if (typeof untrap === 'function') untrap();
+  if (modalEl && modalEl.parentNode) modalEl.parentNode.removeChild(modalEl);
+  document.body.classList.remove('first-visit-read-open');
+}
+
+function showFirstVisitReadModal() {
+  if (!document.body) return;
+  if (document.getElementById(FIRST_VISIT_READ_MODAL_ID)) return;
+  if (getFirstVisitReadChoice()) return;
+
+  var modal = document.createElement('div');
+  modal.id = FIRST_VISIT_READ_MODAL_ID;
+  modal.className = 'modal first-visit-read-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'first-visit-read-title');
+  modal.setAttribute('aria-describedby', 'first-visit-read-message');
+
+  var inner = document.createElement('div');
+  inner.className = 'modal-inner first-visit-read-modal-inner';
+
+  var closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'intent-modal-close';
+  closeBtn.setAttribute('aria-label', 'Dismiss');
+  closeBtn.textContent = '×';
+
+  var title = document.createElement('h3');
+  title.id = 'first-visit-read-title';
+  title.className = 'first-visit-read-title';
+  title.textContent = "Hey - I'm here every morning.";
+
+  var message = document.createElement('p');
+  message.id = 'first-visit-read-message';
+  message.className = 'first-visit-read-message';
+  message.textContent = "Want me to read today's verse out loud?";
+
+  var reassurance = document.createElement('p');
+  reassurance.className = 'first-visit-read-reassurance';
+  reassurance.textContent = "No pressure. I'll remember what you choose on this device.";
+
+  var actions = document.createElement('div');
+  actions.className = 'first-visit-read-actions';
+
+  var readBtn = document.createElement('button');
+  readBtn.type = 'button';
+  readBtn.className = 'btn';
+  readBtn.textContent = 'Yes, read to me';
+
+  var justReadBtn = document.createElement('button');
+  justReadBtn.type = 'button';
+  justReadBtn.className = 'btn btn-secondary';
+  justReadBtn.textContent = 'Just read';
+
+  var laterBtn = document.createElement('button');
+  laterBtn.type = 'button';
+  laterBtn.className = 'btn btn-ghost';
+  laterBtn.textContent = 'Later';
+
+  actions.appendChild(readBtn);
+  actions.appendChild(justReadBtn);
+  actions.appendChild(laterBtn);
+  inner.appendChild(closeBtn);
+  inner.appendChild(title);
+  inner.appendChild(message);
+  inner.appendChild(reassurance);
+  inner.appendChild(actions);
+  modal.appendChild(inner);
+  document.body.appendChild(modal);
+  document.body.classList.add('first-visit-read-open');
+
+  var untrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
+  function choose(choice) {
+    saveFirstVisitReadChoice(choice);
+    if (typeof trackEvent === 'function') trackEvent('daily_verse_friend_prompt_choice', { choice: choice });
+    closeFirstVisitReadModal(modal, untrap);
+  }
+  function rememberAutoReadForToday() {
+    try {
+      var day = (typeof getDailyKey === 'function') ? getDailyKey() : new Date().toISOString().slice(0, 10);
+      localStorage.setItem(FIRST_VISIT_READ_AUTO_DAY_KEY, day);
+    } catch (e) {}
+  }
+
+  closeBtn.addEventListener('click', function () {
+    choose('later');
+  });
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) choose('later');
+  });
+  readBtn.addEventListener('click', function () {
+    choose('read_aloud');
+    speakDailyVerseGently({ source: 'first_visit_choice_yes', onStart: rememberAutoReadForToday });
+  });
+  justReadBtn.addEventListener('click', function () {
+    choose('just_read');
+  });
+  laterBtn.addEventListener('click', function () {
+    choose('later');
+  });
+}
+
 function maybeShowFirstLoadOnboarding() {
-  var KEY = 'tdb_onboard_daily_verse_v1';
   var hero = document.getElementById('hero-verse-wrap');
   if (!hero) return;
+  var onboardingSeenKey = 'tdb_onboard_daily_verse_v1';
+  var choice = getFirstVisitReadChoice();
   try {
-    if (localStorage.getItem(KEY) === '1') return;
-    if (typeof showEliteToast === 'function') showEliteToast("This is your daily verse-tap Pray to start.");
-    localStorage.setItem(KEY, '1');
+    if (localStorage.getItem(onboardingSeenKey) !== '1') {
+      localStorage.setItem(onboardingSeenKey, '1');
+    }
   } catch (e) {}
+  if (!choice) {
+    setTimeout(showFirstVisitReadModal, 520);
+    return;
+  }
+  if (choice !== 'read_aloud') return;
+  try {
+    var day = (typeof getDailyKey === 'function') ? getDailyKey() : new Date().toISOString().slice(0, 10);
+    if (localStorage.getItem(FIRST_VISIT_READ_AUTO_DAY_KEY) === day) return;
+    setTimeout(function () {
+      speakDailyVerseGently({
+        source: 'saved_read_aloud_preference',
+        suppressErrors: true,
+        onStart: function () { localStorage.setItem(FIRST_VISIT_READ_AUTO_DAY_KEY, day); }
+      });
+    }, 850);
+  } catch (e2) {}
 }
 
 function markFirstWinPrayStep() {
@@ -6157,6 +7085,43 @@ function updateHomeStreakBadge(streakCount) {
     el.style.display = 'none';
   }
 }
+
+function getPrayersTodayCount() {
+  var count = 0;
+  try { count = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
+  return isNaN(count) ? 0 : count;
+}
+
+function showFarewellToast() {
+  var existing = document.getElementById('tdb-farewell-toast');
+  if (existing) existing.remove();
+  var el = document.createElement('div');
+  el.id = 'tdb-farewell-toast';
+  el.className = 'tdb-farewell-toast';
+  el.setAttribute('role', 'status');
+  el.setAttribute('aria-live', 'polite');
+  el.textContent = 'Saved\u2014see you soon';
+  document.body.appendChild(el);
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      el.classList.add('tdb-farewell-toast--visible');
+    });
+  });
+  setTimeout(function () {
+    el.classList.add('tdb-farewell-toast--fading');
+    setTimeout(function () { if (el.parentNode) el.remove(); }, 700);
+  }, 3300);
+}
+
+(function wirePrayerFarewellNudge() {
+  window.addEventListener('beforeunload', function (e) {
+    if (getPrayersTodayCount() > 0) {
+      e.preventDefault();
+      e.returnValue = 'Your prayers saved\u2014come back?';
+      showFarewellToast();
+    }
+  });
+})();
 
 function showEliteToast(message, opts) {
   var el = document.getElementById('elite-toast');
@@ -10485,12 +11450,110 @@ function initBibleToolVerseModePicker() {
 }
 
 function initImageLazyLoading() {
+  if (window.__tdbImageLazyWired) return;
+  window.__tdbImageLazyWired = true;
+  var defaultAlt = 'Gold shield unlocked – faith defense.';
+
+  function enhanceImage(img) {
+    if (!img || img.nodeType !== 1) return;
+    var parentCard = img.closest('.verse-card, .result-card, .list-item, .toolbox-card');
+    var isLikelyHero = !!img.closest('header, .hero-banner, #quick-search-hero, #daily-verse-card');
+    var src = String(img.getAttribute('src') || '').toLowerCase();
+    var isShieldAsset = /shield|crest|emblem/.test(src);
+    if (!img.getAttribute('loading')) {
+      img.setAttribute('loading', isLikelyHero ? 'eager' : 'lazy');
+    }
+    if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
+    if (!img.getAttribute('fetchpriority') && !isLikelyHero) img.setAttribute('fetchpriority', 'low');
+    if (isShieldAsset) {
+      img.setAttribute('alt', defaultAlt);
+    } else if (!img.getAttribute('alt') || !String(img.getAttribute('alt')).trim()) {
+      img.setAttribute('alt', defaultAlt);
+    }
+    if (parentCard && !img.getAttribute('sizes')) {
+      img.setAttribute('sizes', '(max-width: 768px) 92vw, 520px');
+    }
+  }
+
+  function scanImages(root) {
+    if (!root) return;
+    if (root.matches && root.matches('img')) enhanceImage(root);
+    if (root.querySelectorAll) {
+      root.querySelectorAll('img').forEach(enhanceImage);
+    }
+  }
+
   try {
-    var images = document.querySelectorAll('img');
-    images.forEach(function (img) {
-      if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
-      if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
-    });
+    scanImages(document);
+    if (typeof MutationObserver !== 'undefined' && document.body) {
+      var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          mutation.addedNodes.forEach(function (node) {
+            if (!node || node.nodeType !== 1) return;
+            scanImages(node);
+          });
+        });
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  } catch (e) {}
+}
+
+function initVerseCardLazyLoading() {
+  if (window.__tdbVerseCardLazyWired) return;
+  window.__tdbVerseCardLazyWired = true;
+
+  var revealDelayMs = 1000;
+  var selector = '.verse-card';
+  var observer = null;
+
+  function revealCard(card) {
+    if (!card || card.dataset.tdbSkeletonComplete === '1') return;
+    card.dataset.tdbSkeletonComplete = '1';
+    card.classList.add('verse-card-skeleton');
+    window.setTimeout(function () {
+      card.classList.remove('verse-card-skeleton');
+      card.classList.add('verse-card-loaded');
+    }, revealDelayMs);
+  }
+
+  function queueCard(card) {
+    if (!card || card.dataset.tdbSkeletonQueued === '1') return;
+    if (card.id === 'daily-verse-card') return;
+    card.dataset.tdbSkeletonQueued = '1';
+    if (observer) observer.observe(card);
+    else revealCard(card);
+  }
+
+  function scanCards(root) {
+    if (!root) return;
+    if (root.matches && root.matches(selector)) queueCard(root);
+    if (root.querySelectorAll) root.querySelectorAll(selector).forEach(queueCard);
+  }
+
+  if (typeof IntersectionObserver !== 'undefined') {
+    observer = new IntersectionObserver(function (entries, io) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        revealCard(entry.target);
+      });
+    }, { rootMargin: '200px 0px' });
+  }
+
+  try {
+    scanCards(document);
+    if (typeof MutationObserver !== 'undefined' && document.body) {
+      var cardObserver = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          mutation.addedNodes.forEach(function (node) {
+            if (!node || node.nodeType !== 1) return;
+            scanCards(node);
+          });
+        });
+      });
+      cardObserver.observe(document.body, { childList: true, subtree: true });
+    }
   } catch (e) {}
 }
 
@@ -13917,6 +14980,8 @@ function writeNbaSignal(key) {
   }
   wireAnalyticsBeacon();
   wireOfflineBanner();
+  initImageLazyLoading();
+  initVerseCardLazyLoading();
   hydrateCounterFallbacksFromLocal();
   (function () {
     var p = ensurePrayersApiProbed();
@@ -13931,6 +14996,7 @@ function writeNbaSignal(key) {
   })();
   wireCallGodBtn();
   wireSilentAmen();
+  wireSharePrayerBtn();
   if (isHome) wirePrayNudgeAfter2Min();
   wireNightClose();
   wireIntentModal();
@@ -18131,6 +19197,52 @@ function wireRandomBattleVerseHero() {
   }
   wireRandomBattleVerseHero();
   wireCriticalControlFallbacks();
+
+  // ── Feel-Search keyboard shortcut (Ctrl+/ or Cmd+/) ──────────────────────
+  (function wireFeelSearchShortcut() {
+    // Skip on touch-only devices (no physical keyboard attached)
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+    var feelInput = document.getElementById('feel-search');
+    if (!feelInput) return;
+
+    // Keyboard shortcut: focus on Ctrl+/ or Cmd+/
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+        e.preventDefault();
+        feelInput.focus();
+        feelInput.select();
+      }
+    });
+
+    // Tooltip: inject once, show on hover over the input's parent wrap
+    var wrap = feelInput.closest('.feel-search-wrap') || feelInput.parentElement;
+    if (!wrap) return;
+
+    var tipId = 'feel-search-shortcut-tip';
+    var tip = document.createElement('span');
+    tip.id = tipId;
+    tip.className = 'feel-search-shortcut-tip';
+    var isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent);
+    tip.textContent = (isMac ? '\u2318' : 'Ctrl') + ' + /';
+    tip.setAttribute('role', 'tooltip');
+    tip.setAttribute('aria-hidden', 'true');
+    wrap.appendChild(tip);
+
+    feelInput.setAttribute('aria-describedby', tipId);
+
+    wrap.addEventListener('mouseenter', function () {
+      tip.classList.add('feel-search-shortcut-tip--visible');
+    });
+    wrap.addEventListener('mouseleave', function () {
+      tip.classList.remove('feel-search-shortcut-tip--visible');
+    });
+    // Hide if the input is already focused (no need to tell someone who's already there)
+    feelInput.addEventListener('focus', function () {
+      tip.classList.remove('feel-search-shortcut-tip--visible');
+    });
+  }());
+
   var el = document.getElementById('footer-date');
   if (el && el.textContent === 'TDB_BUILD_DATE') {
     fetch('/build-date.txt')
@@ -18143,5 +19255,79 @@ function wireRandomBattleVerseHero() {
       return m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
     }
   }
+
+  // ── Daily midnight nudge toast ──────────────────────────────────────────────
+  // Shows "#daily-nudge.toast-gold" once per day at midnight.
+  // Dismissed via click or auto-hides after 3 s; won't re-show the same calendar day.
+  //
+  // Testing: override window.__tdbMidnightTest = true to fire immediately (1 s).
+  // ───────────────────────────────────────────────────────────────────────────
+  (function initDailyNudge() {
+    var NUDGE_KEY = 'tdb-daily-nudge-shown';
+    var SHOW_MS   = 3000;   // visible duration
+    var FADE_MS   = 1500;   // matches CSS transition
+
+    function todayStr() {
+      var d = new Date();
+      return d.getFullYear() + '-' +
+        String(d.getMonth() + 1).padStart(2, '0') + '-' +
+        String(d.getDate()).padStart(2, '0');
+    }
+
+    function wasShownToday() {
+      try { return localStorage.getItem(NUDGE_KEY) === todayStr(); } catch (e) { return false; }
+    }
+
+    function markShownToday() {
+      try { localStorage.setItem(NUDGE_KEY, todayStr()); } catch (e) {}
+    }
+
+    function showNudge() {
+      if (wasShownToday()) return;
+      var toast = document.getElementById('daily-nudge');
+      if (!toast) return;
+
+      markShownToday();
+
+      // Fade in
+      toast.classList.add('toast-gold--visible');
+
+      // Dismiss on click
+      function dismiss() {
+        toast.removeEventListener('click', dismiss);
+        toast.classList.remove('toast-gold--visible');
+        toast.classList.add('toast-gold--out');
+        setTimeout(function () { toast.classList.remove('toast-gold--out'); }, FADE_MS);
+      }
+      toast.addEventListener('click', dismiss);
+
+      // Auto-hide after SHOW_MS
+      setTimeout(function () {
+        toast.removeEventListener('click', dismiss);
+        toast.classList.remove('toast-gold--visible');
+        toast.classList.add('toast-gold--out');
+        setTimeout(function () { toast.classList.remove('toast-gold--out'); }, FADE_MS);
+      }, SHOW_MS);
+    }
+
+    function scheduleNextMidnight() {
+      var now     = new Date();
+      var next    = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 2, 0);
+      var msUntil = next.getTime() - Date.now();
+
+      setTimeout(function fire() {
+        showNudge();
+        // Re-arm for the midnight after that
+        setTimeout(fire, 24 * 60 * 60 * 1000);
+      }, msUntil);
+    }
+
+    // Test hook: set window.__tdbMidnightTest = true before load to fire in 1 s
+    if (window.__tdbMidnightTest) {
+      setTimeout(showNudge, 1000);
+    } else {
+      scheduleNextMidnight();
+    }
+  }());
 })();
 }  // Workaround: closes unclosed block (fixes "Unexpected end of script" parse error)

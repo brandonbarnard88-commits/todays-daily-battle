@@ -6,9 +6,10 @@
   --accent: #a78bfa;
   --accent-hover: #c4b5fd;
   /* Super elite: rich gold & cream */
-  --elite-gold: rgba(212, 175, 55, 0.68);
-  --elite-gold-solid: #d4af37;
-  --elite-gold-dim: rgba(212, 175, 55, 0.35);
+  --elite-gold-rgb: 255, 213, 79;
+  --elite-gold: rgba(var(--elite-gold-rgb), 0.94);
+  --elite-gold-solid: #ffd54f;
+  --elite-gold-dim: rgba(var(--elite-gold-rgb), 0.5);
   --elite-cream: rgba(253, 252, 248, 0.2);
   --elite-cream-strong: rgba(253, 252, 248, 0.32);
   --bg-light: #f8f9fc;
@@ -64,6 +65,10 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+main, .app-content, .content-inner {
+  max-width: 100%;
+  overflow-x: clip;
 }
 html {
   -webkit-text-size-adjust: 100%;
@@ -259,6 +264,38 @@ img, video {
   padding: 0.5rem 0;
   position: relative;
   z-index: 1;
+}
+.verse-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 220px;
+}
+.verse-card.verse-card-skeleton {
+  position: relative;
+  min-height: 160px;
+  overflow: hidden;
+  border-color: rgba(120, 120, 120, 0.55);
+  background: linear-gradient(120deg, rgba(45, 45, 45, 0.82) 0%, rgba(65, 65, 65, 0.92) 50%, rgba(45, 45, 45, 0.82) 100%);
+}
+.verse-card.verse-card-skeleton::before,
+.verse-card.verse-card-skeleton::after {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  border-radius: 8px;
+  background: rgba(170, 170, 170, 0.3);
+  animation: tdb-skeleton-shimmer 1s ease-in-out infinite;
+}
+.verse-card.verse-card-skeleton::before {
+  top: 1rem;
+  height: 14px;
+}
+.verse-card.verse-card-skeleton::after {
+  top: 2.5rem;
+  height: 62px;
+}
+.verse-card.verse-card-skeleton > * {
+  visibility: hidden;
 }
 /* Fallback state when verse fails to load */
 .hero-verse-card .daily-battle-loading + .btn {
@@ -3802,6 +3839,92 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .elite-toast.elite-toast-gold {
   background: linear-gradient(135deg, #d4af37, #b8860b);
   color: #0f172a;
+}
+
+/* ── Share-prayer button (small gold link after Silent Amen) ── */
+.share-prayer-btn {
+  background: transparent;
+  border: none;
+  color: #e3bc67;
+  font-size: 0.82rem;
+  font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif;
+  padding: 0;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  -webkit-appearance: none;
+}
+.share-prayer-btn:hover,
+.share-prayer-btn:focus-visible {
+  color: #f2dc98;
+  text-decoration: underline;
+  outline: none;
+}
+.share-prayer-btn.copied {
+  color: #bcc5d6;
+  text-decoration: none;
+}
+
+/* ── Daily nudge toast (#daily-nudge) ── */
+.toast-gold {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 9000;
+  background: #141a24;
+  border: 1.5px solid #e3bc67;
+  border-radius: 16px;
+  padding: 12px 22px;
+  font-size: 0.92rem;
+  font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif;
+  color: #f2dc98;
+  letter-spacing: 0.015em;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(227, 188, 103, 0.12);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  /* 1.5s fade transitions as spec'd */
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  user-select: none;
+}
+.toast-gold.toast-gold--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+.toast-gold.toast-gold--out {
+  opacity: 0;
+  transform: translateX(-50%) translateY(6px);
+}
+
+.tdb-farewell-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #0f172a;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.97rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 6px 28px rgba(212, 175, 55, 0.42), 0 2px 8px rgba(0,0,0,0.28);
+  z-index: 10000;
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.tdb-farewell-toast--visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.tdb-farewell-toast--fading {
+  opacity: 0;
+  transition: opacity 0.7s ease;
 }
 
 .streak-counter-text { animation: streak-flame-pulse 2s ease-in-out infinite; }
@@ -7886,6 +8009,59 @@ body.red-letter-off .red-letter-card {
 }
 .modal.hidden { display: none; }
 .modal-inner { padding: 1.5rem; max-width: 28rem; width: 90%; max-height: 85vh; overflow-y: auto; margin: 0 auto 2rem; }
+.first-visit-read-modal {
+  background: rgba(7, 14, 28, 0.44);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 350;
+}
+.first-visit-read-modal-inner {
+  position: relative;
+  width: min(92vw, 32rem);
+  margin-top: clamp(1.25rem, 12vh, 7rem);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.94));
+  box-shadow: 0 20px 48px rgba(2, 6, 23, 0.45);
+}
+.first-visit-read-title {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  line-height: 1.35;
+  color: #f8fafc;
+}
+.first-visit-read-message {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+.first-visit-read-reassurance {
+  margin: 0.65rem 0 0;
+  color: rgba(203, 213, 225, 0.86);
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+.first-visit-read-actions {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+.first-visit-read-actions .btn {
+  min-height: 48px;
+  white-space: nowrap;
+}
+.first-visit-read-actions .btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #cbd5e1;
+}
+.first-visit-read-actions .btn-ghost:hover,
+.first-visit-read-actions .btn-ghost:focus-visible {
+  border-color: rgba(203, 213, 225, 0.62);
+  color: #f8fafc;
+}
 .auth-modal-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
 .auth-modal-tabs .auth-tab { padding: 0.5rem 1rem; border: 1px solid rgba(148,163,184,0.3); background: transparent; color: #94a3b8; border-radius: 8px; cursor: pointer; font-size: 0.9rem; }
 .auth-modal-tabs .auth-tab:hover { border-color: rgba(212,175,55,0.5); color: #e2e8f0; }
@@ -7902,6 +8078,8 @@ body.red-letter-off .red-letter-card {
 @media (max-width: 520px) {
   .auth-modal-name-row { grid-template-columns: 1fr; }
   .auth-modal-actions .btn + .btn { margin-left: 0; }
+  .first-visit-read-modal-inner { margin-top: clamp(0.75rem, 7vh, 3rem); }
+  .first-visit-read-actions { grid-template-columns: 1fr; }
 }
 .auth-oauth-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; flex-basis: 100%; }
 .auth-oauth-btn { white-space: nowrap; }
@@ -11638,4 +11816,63 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   .quick-search-concordance .concordance-strongest-ref {
     font-size: 0.98rem;
   }
+}
+
+/* ── Feel-Search keyboard shortcut tooltip ───────────────────────────────── */
+.feel-search-shortcut-tip {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.82);
+  color: rgba(254, 240, 138, 0.92);
+  font-size: 0.72rem;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(254, 240, 138, 0.22);
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  z-index: 10;
+}
+.feel-search-shortcut-tip--visible {
+  opacity: 1;
+}
+/* Never show on touch-only / mobile */
+@media (hover: none) and (pointer: coarse) {
+  .feel-search-shortcut-tip {
+    display: none !important;
+  }
+}
+
+/* ── Homepage hero max-width + feel search View more ── */
+.app > main {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+}
+.feel-view-more {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-size: 0.82rem;
+  color: var(--gold, #c9a227);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+}
+.feel-view-more:hover,
+.feel-view-more:focus-visible {
+  opacity: 1;
+  text-decoration: underline;
+  outline: 2px solid var(--gold, #c9a227);
+  outline-offset: 2px;
 }

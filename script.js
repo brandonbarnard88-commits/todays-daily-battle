@@ -2221,6 +2221,15 @@ const SPACING_LEVEL_KEY = 'tdb_spacing_level';
 const VERSE_SIZE_KEY = 'verseFontSize';
 const TTS_RATE_KEY = 'ttsRate';
 const TTS_VOICE_KEY = 'ttsVoice';
+const DAILY_MOOD_LOG_KEY = 'tdb_daily_mood_logs_v1';
+const DAILY_MOOD_OPTIONS = [
+  { id: 'anxious', label: 'Anxious', emoji: '😟', topic: 'anxiety' },
+  { id: 'grateful', label: 'Grateful', emoji: '🙏', topic: 'gratitude' },
+  { id: 'lost', label: 'Lost', emoji: '🧭', topic: 'purpose' },
+  { id: 'grieving', label: 'Grieving', emoji: '💧', topic: 'grief' },
+  { id: 'angry', label: 'Angry', emoji: '🔥', topic: 'anger' },
+  { id: 'afraid', label: 'Afraid', emoji: '🛡️', topic: 'fear' }
+];
 const KID_ACTIVITIES = {
   fear: {
     kid: ['Draw a “fear to faith” picture and pray over it.', 'Say Joshua 1:9 together three times.'],
@@ -7655,12 +7664,14 @@ async function renderDailyBattleCard() {
     card.classList.remove('hero-verse-card-skeleton');
     if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: txt, reflection: fb.reflection || '', prayer: fb.prayer || '' };
     updateDailyVerseWhispers(fb.ref, txt);
+    renderDailyMoodCenter();
   } else {
     card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p>';
     card.classList.add('verse-card-loaded');
     card.classList.remove('hero-verse-card-skeleton');
     if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: fb.text || '', reflection: fb.reflection || '', prayer: fb.prayer || '' };
     updateDailyVerseWhispers(fb.ref, fb.text || '');
+    renderDailyMoodCenter();
   }
   dailyBattleFallbackTimeoutId = setTimeout(function () {
     dailyBattleFallbackTimeoutId = null;
@@ -7674,6 +7685,7 @@ async function renderDailyBattleCard() {
         card.classList.add('verse-card-loaded');
         if (typeof currentDailyBattle !== 'undefined') currentDailyBattle = { ref: fb.ref, verse: txt, reflection: fb.reflection || '', prayer: fb.prayer || '' };
         updateDailyVerseWhispers(fb.ref, txt);
+        renderDailyMoodCenter();
       } else {
         card.innerHTML = '<p class="daily-battle-loading">Verse loading—stay armed!</p><p class="section-note">Having trouble? Try <a href="https://todaysdailybattle.com">todaysdailybattle.com</a>.</p><button type="button" class="btn btn-secondary" id="daily-battle-try-again">Retry</button>';
       }
@@ -7690,9 +7702,17 @@ async function renderDailyBattleCard() {
     };
     card.innerHTML = '<strong>' + escapeHtml(offlineFb.ref) + '</strong><p>' + escapeHtml(offlineFb.text || '') + '</p>';
     card.classList.add('verse-card-loaded');
+    currentDailyBattle = {
+      ref: offlineFb.ref,
+      verse: offlineFb.text || '',
+      reflection: offlineFb.reflection || '',
+      prayer: offlineFb.prayer || '',
+      plain_meaning: offlineFb.plain_meaning || ''
+    };
     if (reflectionEl) reflectionEl.textContent = 'Reflection: ' + (offlineFb.reflection || '');
     if (prayerEl) prayerEl.textContent = 'Prayer: ' + (offlineFb.prayer || '');
     updateDailyVerseWhispers(DAILY_VERSE_BUNDLED_FALLBACK.ref, DAILY_VERSE_BUNDLED_FALLBACK.text || '');
+    renderDailyMoodCenter();
     return;
   }
   const DEFAULT_DAILY_VERSE_REF = 'John 3:16';
@@ -7853,6 +7873,7 @@ if (c && c.ref) {
     prayer: battle.prayer || '',
     plain_meaning: plainMeaning || ''
   };
+  renderDailyMoodCenter();
   updateDailyVerseWhispers(battle.ref, verseText || '');
   try {
     localStorage.setItem(OFFLINE_BATTLE_KEY_PREFIX + key, JSON.stringify(currentDailyBattle));
@@ -7865,6 +7886,143 @@ if (c && c.ref) {
   setTimeout(function () {
     if (typeof scrollToVerseAndHighlight === 'function') scrollToVerseAndHighlight();
   }, 300);
+}
+
+function loadDailyMoodLogs() {
+  try {
+    var raw = localStorage.getItem(DAILY_MOOD_LOG_KEY);
+    var parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveDailyMoodLogs(items) {
+  var list = Array.isArray(items) ? items.slice(-120) : [];
+  try { localStorage.setItem(DAILY_MOOD_LOG_KEY, JSON.stringify(list)); } catch (_) {}
+  if (typeof setSyncData === 'function') setSyncData('mood_logs', list.slice(-60));
+}
+
+function getDailyMoodOptionById(moodId) {
+  var id = String(moodId || '').trim().toLowerCase();
+  for (var i = 0; i < DAILY_MOOD_OPTIONS.length; i++) {
+    if (DAILY_MOOD_OPTIONS[i].id === id) return DAILY_MOOD_OPTIONS[i];
+  }
+  return null;
+}
+
+function summarizeWeeklyMood(logs) {
+  var recent = Array.isArray(logs) ? logs.slice(-80) : [];
+  var cutoff = Date.now() - (7 * 24 * 60 * 60 * 1000);
+  var countByMood = {};
+  var latest = null;
+  for (var i = 0; i < recent.length; i++) {
+    var entry = recent[i];
+    if (!entry || !entry.mood) continue;
+    var ts = Number(entry.ts || 0);
+    if (!ts || ts < cutoff) continue;
+    countByMood[entry.mood] = (countByMood[entry.mood] || 0) + 1;
+    if (!latest || ts > latest.ts) latest = { mood: entry.mood, ts: ts };
+  }
+  var topMood = '';
+  var topCount = 0;
+  Object.keys(countByMood).forEach(function (moodKey) {
+    var n = countByMood[moodKey] || 0;
+    if (n > topCount) {
+      topCount = n;
+      topMood = moodKey;
+    }
+  });
+  return { topMood: topMood, topCount: topCount, latest: latest };
+}
+
+function buildDailyMoodSuggestion(moodId) {
+  var option = getDailyMoodOptionById(moodId);
+  if (!option) return null;
+  var topic = option.topic;
+  var topicDef = topics && topics[topic] ? topics[topic] : null;
+  var ref = topicDef && Array.isArray(topicDef.verses) && topicDef.verses[0] ? topicDef.verses[0] : '';
+  var verseText = ref ? (getBibleVerseText(ref) || bible[ref] || '') : '';
+  return {
+    mood: option,
+    topic: topic,
+    ref: ref,
+    text: verseText
+  };
+}
+
+function renderDailyMoodCenter() {
+  var wrap = document.getElementById('daily-mood-checkin');
+  var chipsWrap = document.getElementById('daily-mood-chips');
+  var statusEl = document.getElementById('daily-mood-status');
+  var suggestionEl = document.getElementById('daily-mood-suggestion');
+  var weeklyEl = document.getElementById('daily-mood-weekly');
+  if (!wrap || !chipsWrap || !statusEl || !suggestionEl || !weeklyEl) return;
+
+  if (!chipsWrap.dataset.wired) {
+    chipsWrap.innerHTML = '';
+    DAILY_MOOD_OPTIONS.forEach(function (option) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'mood-checkin-chip';
+      btn.setAttribute('data-mood', option.id);
+      btn.textContent = option.emoji + ' ' + option.label;
+      chipsWrap.appendChild(btn);
+    });
+    chipsWrap.addEventListener('click', function (event) {
+      var btn = event.target && event.target.closest ? event.target.closest('.mood-checkin-chip[data-mood]') : null;
+      if (!btn) return;
+      var moodId = String(btn.getAttribute('data-mood') || '').trim();
+      if (!moodId) return;
+      var logs = loadDailyMoodLogs();
+      logs.push({
+        mood: moodId,
+        day: getDailyKey(),
+        ts: Date.now(),
+        ref: currentDailyBattle && currentDailyBattle.ref ? currentDailyBattle.ref : ''
+      });
+      saveDailyMoodLogs(logs);
+      if (typeof trackEvent === 'function') trackEvent('daily_mood_checkin', { mood: moodId });
+      renderDailyMoodCenter();
+    });
+    chipsWrap.dataset.wired = '1';
+  }
+
+  var logsNow = loadDailyMoodLogs();
+  var latest = logsNow.length ? logsNow[logsNow.length - 1] : null;
+  var activeMood = latest && latest.mood ? String(latest.mood) : '';
+  var chipButtons = chipsWrap.querySelectorAll('.mood-checkin-chip[data-mood]');
+  Array.prototype.forEach.call(chipButtons, function (btn) {
+    var moodId = String(btn.getAttribute('data-mood') || '');
+    if (activeMood && moodId === activeMood) btn.classList.add('is-active');
+    else btn.classList.remove('is-active');
+  });
+
+  var suggestion = activeMood ? buildDailyMoodSuggestion(activeMood) : null;
+  if (suggestion) {
+    var basePath = (window.location.pathname || '/').replace(/\/[^/]*$/, '') || '/';
+    var searchHref = basePath + '?q=' + encodeURIComponent(suggestion.topic);
+    var readerHref = suggestion.ref ? buildReaderUrl(suggestion.ref) : 'reader.html';
+    statusEl.textContent = 'Logged: ' + suggestion.mood.label + '.';
+    suggestionEl.innerHTML = 'Armor for this feeling: <strong>' + escapeHtml(suggestion.topic) + '</strong>' +
+      (suggestion.ref ? (' — ' + escapeHtml(suggestion.ref)) : '') +
+      '. <a href="' + escapeHtml(searchHref) + '">Open matching verses</a>' +
+      (suggestion.ref ? (' · <a href="' + escapeHtml(readerHref) + '">Read full chapter</a>') : '');
+  } else {
+    statusEl.textContent = 'Pick one mood to get a focused armor verse.';
+    suggestionEl.textContent = '';
+  }
+
+  var summary = summarizeWeeklyMood(logsNow);
+  if (!summary.topMood) {
+    weeklyEl.textContent = '7-day pattern: no check-ins yet.';
+    return;
+  }
+  var topOption = getDailyMoodOptionById(summary.topMood);
+  var topLabel = topOption ? topOption.label : summary.topMood;
+  weeklyEl.textContent = '7-day pattern: ' + topLabel + ' checked ' + summary.topCount +
+    ' time' + (summary.topCount === 1 ? '' : 's') + '.';
 }
 
 function loadMessagesLocal() {
@@ -8371,11 +8529,42 @@ function stopTts() {
 
 function speakVerse(ref, text) {
   if (!ref || !text) return;
-  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+    alert('Read-aloud is not supported on this browser. Use KJV Audio instead.');
+    return;
+  }
+  var cleaned = String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!cleaned) return;
+  try { window.speechSynthesis.cancel(); } catch (e) {}
   setTtsPlaying(false);
-  if (!ttsDisabledNoticeShown) {
-    ttsDisabledNoticeShown = true;
-    alert('Voice read-aloud is disabled site-wide.');
+  var utterance = new SpeechSynthesisUtterance(cleaned);
+  var selected = null;
+  try { selected = typeof getSelectedVoice === 'function' ? getSelectedVoice() : null; } catch (e2) { selected = null; }
+  if (selected) utterance.voice = selected;
+  try {
+    var savedRate = localStorage.getItem(TTS_RATE_KEY);
+    utterance.rate = Math.min(1.5, Math.max(0.5, Number(savedRate) || 1));
+  } catch (e3) {
+    utterance.rate = 1;
+  }
+  utterance.pitch = 1;
+  utterance.onstart = function () { setTtsPlaying(true); };
+  utterance.onend = function () { setTtsPlaying(false); };
+  utterance.onerror = function () {
+    setTtsPlaying(false);
+    if (!ttsDisabledNoticeShown) {
+      ttsDisabledNoticeShown = true;
+      alert('Read-aloud could not start. Try tapping Listen again, or use KJV Audio.');
+    }
+  };
+  try {
+    window.speechSynthesis.speak(utterance);
+  } catch (speakErr) {
+    setTtsPlaying(false);
+    if (!ttsDisabledNoticeShown) {
+      ttsDisabledNoticeShown = true;
+      alert('Read-aloud could not start on this device. Use KJV Audio instead.');
+    }
   }
 }
 

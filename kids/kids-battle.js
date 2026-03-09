@@ -3012,19 +3012,166 @@
     peace: 'peace|rest|calm'
   };
 
-  function getFilteredVerseIndices(topicOrQuery) {
-    if (!KIDS_VERSES.length) return [];
+  var KIDS_MEANING_SIGNALS = {
+    fear: ['fear', 'afraid', 'scared', 'panic'],
+    stress: ['anxiety', 'worry', 'stressed', 'overwhelmed', 'nervous'],
+    sadness: ['sad', 'grief', 'lonely', 'hurt', 'loss'],
+    peace: ['peace', 'calm', 'rest'],
+    strength: ['strength', 'strong', 'weak', 'brave', 'courage'],
+    love: ['love', 'kind', 'friend', 'friends']
+  };
+  var KIDS_ACTION_SIGNALS = {
+    pray: ['pray', 'prayer', 'ask'],
+    trust: ['trust', 'believe', 'faith'],
+    obey: ['obey', 'follow', 'listen'],
+    help: ['help', 'serve', 'care', 'kind']
+  };
+  var KIDS_OUTCOME_SIGNALS = {
+    peace: ['peace', 'calm', 'rest'],
+    courage: ['courage', 'brave', 'strong'],
+    comfort: ['comfort', 'heal', 'safe'],
+    joy: ['joy', 'glad', 'rejoice']
+  };
+
+  function tokenizeKidsQuery(topicOrQuery) {
+    return String(topicOrQuery || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9:\s]/g, ' ')
+      .split(/\s+/)
+      .map(function (w) { return w.trim(); })
+      .filter(function (w) { return !!w && w !== 'search' && w !== 'find'; });
+  }
+
+  function pickKidsSignal(tokens, dict, fallback) {
+    var bestKey = fallback || '';
+    var bestHits = 0;
+    Object.keys(dict).forEach(function (key) {
+      var words = dict[key];
+      var hits = 0;
+      tokens.forEach(function (t) {
+        if (words.indexOf(t) !== -1) hits += 1;
+      });
+      if (hits > bestHits) {
+        bestHits = hits;
+        bestKey = key;
+      }
+    });
+    return bestKey;
+  }
+
+  function getKidsSearchInsights(topicOrQuery) {
+    if (!KIDS_VERSES.length) return { query: '', tokens: [], indices: [], meaning: 'fear', action: 'pray', outcome: 'peace' };
     var q = String(topicOrQuery || '').toLowerCase().trim();
-    if (!q) return [];
+    if (!q) return { query: '', tokens: [], indices: [], meaning: 'fear', action: 'pray', outcome: 'peace' };
+    var tokens = tokenizeKidsQuery(q);
     var pattern = TOPIC_KEYWORDS[q] || q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     var re = new RegExp(pattern, 'i');
-    var indices = [];
+    var meaning = pickKidsSignal(tokens, KIDS_MEANING_SIGNALS, 'fear');
+    var action = pickKidsSignal(tokens, KIDS_ACTION_SIGNALS, 'pray');
+    var outcome = pickKidsSignal(tokens, KIDS_OUTCOME_SIGNALS, 'peace');
+    var scored = [];
     for (var i = 0; i < KIDS_VERSES.length; i++) {
       var v = KIDS_VERSES[i];
-      var combined = v.ref + ' ' + v.text;
-      if (re.test(combined)) indices.push(i);
+      var kidText = getKidText(v.ref) || v.text;
+      var ctx = getKidContext(v.ref, kidText || v.text);
+      var combined = (v.ref + ' ' + v.text + ' ' + kidText + ' ' + (ctx.apply || '')).toLowerCase();
+      var score = 0;
+      if (re.test(combined)) score += 4;
+      tokens.forEach(function (t) {
+        if (t && combined.indexOf(t) !== -1) score += 2;
+      });
+      (KIDS_MEANING_SIGNALS[meaning] || []).forEach(function (w) { if (combined.indexOf(w) !== -1) score += 2; });
+      (KIDS_ACTION_SIGNALS[action] || []).forEach(function (w) { if (combined.indexOf(w) !== -1) score += 2; });
+      (KIDS_OUTCOME_SIGNALS[outcome] || []).forEach(function (w) { if (combined.indexOf(w) !== -1) score += 1; });
+      if (score > 0) scored.push({ index: i, score: score });
     }
-    return indices;
+    scored.sort(function (a, b) { return b.score - a.score; });
+    return {
+      query: q,
+      tokens: tokens,
+      indices: scored.map(function (row) { return row.index; }),
+      meaning: meaning,
+      action: action,
+      outcome: outcome
+    };
+  }
+
+  function inferKidsAgeBand(topicOrQuery) {
+    var q = String(topicOrQuery || '').toLowerCase();
+    if (/\b(little|young|small|early|toddler|first grade|2nd grade|3rd grade)\b/.test(q)) return 'little';
+    if (/\b(preteen|tween|middle school|4th grade|5th grade|6th grade)\b/.test(q)) return 'preteen';
+    if (/\b(teen|teenager|youth|older kid|junior high|7th grade|8th grade)\b/.test(q)) return 'teen';
+    return 'preteen';
+  }
+
+  function simplifyKidsApply(apply, ageBand) {
+    var text = String(apply || '').replace(/\s+/g, ' ').trim();
+    if (!text) return ageBand === 'little'
+      ? 'Tell Jesus how you feel, then take one kind step.'
+      : 'Pray honestly, trust God, and take one faithful step today.';
+    if (ageBand === 'little') {
+      if (text.length > 88) text = text.slice(0, 85) + '...';
+      return text;
+    }
+    if (ageBand === 'teen') return text;
+    if (text.length > 130) return text.slice(0, 127) + '...';
+    return text;
+  }
+
+  function buildKidsBreakdown(verse, context, insights) {
+    var focusMap = {
+      fear: 'feeling scared',
+      stress: 'big worries',
+      sadness: 'sad moments',
+      peace: 'calm hearts',
+      strength: 'hard moments',
+      love: 'loving others'
+    };
+    var actionMap = {
+      pray: 'talk to God in prayer',
+      trust: 'trust God',
+      obey: 'follow what God says',
+      help: 'show kindness and help others'
+    };
+    var outcomeMap = {
+      peace: 'peace',
+      courage: 'courage',
+      comfort: 'comfort',
+      joy: 'joy'
+    };
+    var focus = focusMap[insights.meaning] || 'real life';
+    var action = actionMap[insights.action] || 'talk to God';
+    var outcome = outcomeMap[insights.outcome] || 'peace';
+    var ageBand = inferKidsAgeBand(insights.query);
+    var apply = String((context && context.apply) || '').trim();
+    if (!apply) apply = 'Pray and take one kind step today.';
+    apply = simplifyKidsApply(apply, ageBand);
+    if (ageBand === 'little') {
+      return {
+        ageBand: ageBand,
+        ageLabel: 'Younger Kids',
+        breakdown: 'God sees your heart when you feel ' + focus + '. This verse says you can ' + action + '. God gives ' + outcome + ' and stays close to you.',
+        apply: apply
+      };
+    }
+    if (ageBand === 'teen') {
+      return {
+        ageBand: ageBand,
+        ageLabel: 'Older Kids / Teens',
+        breakdown: 'This verse meets you in ' + focus + ', not in fake positivity. It calls you to ' + action + ' and trust God when pressure rises. As you walk it out, God builds real ' + outcome + ' in your daily life.',
+        apply: apply
+      };
+    }
+    return {
+      ageBand: ageBand,
+      ageLabel: 'Preteens',
+      breakdown: 'This verse helps when kids face ' + focus + '. It teaches us to ' + action + ' and remember God is near. God can give ' + outcome + ' one step at a time.',
+      apply: apply
+    };
+  }
+
+  function getFilteredVerseIndices(topicOrQuery) {
+    return getKidsSearchInsights(topicOrQuery).indices;
   }
 
   function normalizeRefKey(ref) {
@@ -3151,7 +3298,8 @@
   function renderFilteredResults(topicOrQuery) {
     var resultsEl = document.getElementById('kids-search-results');
     if (!resultsEl) return;
-    var indices = getFilteredVerseIndices(topicOrQuery);
+    var insights = getKidsSearchInsights(topicOrQuery);
+    var indices = insights.indices;
     var maxShow = 5;
     if (indices.length === 0) {
       resultsEl.innerHTML = '<p class="kids-search-no-match">Try "brave" or "friends"!</p>';
@@ -3159,6 +3307,24 @@
       return;
     }
     var html = '';
+    var topMatches = indices.slice(0, 3).map(function (idx) {
+      var v = KIDS_VERSES[idx];
+      var text = String((v && v.text) || '').trim();
+      var snippet = text.length > 80 ? (text.slice(0, 77) + '...') : text;
+      return '<li><strong>' + escapeHtml(v.ref || '') + '</strong> — ' + escapeHtml(snippet) + '</li>';
+    }).join('');
+    var strongestVerse = KIDS_VERSES[indices[0]];
+    var strongestCtx = getKidContext(strongestVerse.ref, strongestVerse.text);
+    var strongestBreakdown = buildKidsBreakdown(strongestVerse, strongestCtx, insights);
+    html += '<div class="kids-result-card kids-search-summary">' +
+      '<span class="kids-result-context kids-summary-kicker"><strong>KJV matches:</strong></span>' +
+      '<ul class="kids-search-summary-list">' + topMatches + '</ul>' +
+      '<span class="kids-result-context kids-summary-age"><strong>Age fit:</strong> ' + escapeHtml(strongestBreakdown.ageLabel || 'Preteens') + '</span>' +
+      '<span class="kids-result-ref kids-summary-ref">' + escapeHtml(strongestVerse.ref || '') + '</span>' +
+      '<span class="kids-result-text kids-summary-text">"' + escapeHtml(strongestVerse.text || '') + '"</span>' +
+      '<span class="kids-result-context kids-summary-breakdown">' + escapeHtml(strongestBreakdown.breakdown) + '</span>' +
+      '<span class="kids-result-context kids-summary-application"><strong>Try this today:</strong> ' + escapeHtml(strongestBreakdown.apply) + '</span>' +
+      '</div>';
     for (var i = 0; i < Math.min(indices.length, maxShow); i++) {
       var idx = indices[i];
       var v = KIDS_VERSES[idx];

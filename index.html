@@ -1851,7 +1851,7 @@
               <rect x="14" y="4" width="4" height="16" rx="1"></rect>
             </svg>
           </button>
-          <audio id="heroReadAudio" preload="none" src="/assets/hero-read.mp3"></audio>
+          <audio id="heroReadAudio" preload="none"></audio>
         </div>
         <p class="verse-ref" id="heroRef"></p>
         <span id="heroStreakBadge" class="hero-streak-badge" aria-label="Daily streak" hidden></span>
@@ -2070,28 +2070,7 @@
   </nav>
 
   <!-- ── First-visit Read-Aloud Modal ── -->
-  <dialog class="modal" id="readAloudModal" aria-labelledby="readAloudTitle" aria-modal="true">
-    <div class="modal-sheet" role="document">
-      <div class="modal-head">
-        <h2 class="modal-title" id="readAloudTitle">Hey — read aloud?</h2>
-        <button class="close-btn" type="button" id="readAloudClose" aria-label="Dismiss">✕</button>
-      </div>
-      <p class="modal-body">
-        Reading God's word aloud anchors it in you. Thirty seconds of your voice. That's it.
-      </p>
-      <div class="modal-actions">
-        <button class="modal-btn primary" type="button" id="readAloudYes">
-          Yes — I'll read it aloud
-        </button>
-        <button class="modal-btn" type="button" id="readAloudJust">
-          Just read silently
-        </button>
-        <button class="modal-btn" type="button" id="readAloudLater">
-          Maybe later
-        </button>
-      </div>
-    </div>
-  </dialog>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
   <script nonce="tdb2025">
@@ -2497,7 +2476,6 @@
     const themeToggle     = document.getElementById("themeToggle");
     const pwaNudge        = document.getElementById("pwaNudge");
     const pwaDismiss      = document.getElementById("pwaDismiss");
-    const readAloudModal  = document.getElementById("readAloudModal");
 
     function sanitizeText(value) {
       if (window.DOMPurify && typeof window.DOMPurify.sanitize === "function") {
@@ -3081,32 +3059,6 @@
       }
     }
 
-    // ── First-visit Read-Aloud Modal ──
-    function showReadAloudModal() {
-      if (localStorage.getItem("tdb-read-aloud-seen")) return;
-      readAloudModal.setAttribute("open", "");
-      const firstBtn = readAloudModal.querySelector(".modal-btn");
-      if (firstBtn) firstBtn.focus();
-    }
-
-    function dismissReadAloud(choice) {
-      localStorage.setItem("tdb-read-aloud-seen", choice);
-      readAloudModal.removeAttribute("open");
-    }
-
-    document.getElementById("readAloudYes").addEventListener("click",  () => dismissReadAloud("yes"));
-    document.getElementById("readAloudJust").addEventListener("click", () => dismissReadAloud("silent"));
-    document.getElementById("readAloudLater").addEventListener("click",() => dismissReadAloud("later"));
-    document.getElementById("readAloudClose").addEventListener("click",() => dismissReadAloud("dismissed"));
-
-    readAloudModal.addEventListener("click", (e) => {
-      if (e.target === readAloudModal) dismissReadAloud("dismissed");
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && readAloudModal.hasAttribute("open")) dismissReadAloud("dismissed");
-    });
-
     // ── PWA Nudge ──
     function initPwaNudge() {
       if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;
@@ -3268,15 +3220,18 @@
       // ── Probe whether the MP3 actually loads ──
       function probeAudio(onReady, onFail) {
         if (!audio) { onFail(); return; }
+        // Set src here (not in HTML) so the browser never fetches until we ask
+        var MP3_SRC = '/assets/hero-read.mp3';
         function done() { cleanup(); onReady(); }
         function fail() { cleanup(); onFail(); }
         function cleanup() {
           audio.removeEventListener('canplaythrough', done);
           audio.removeEventListener('error', fail);
         }
-        if (audio.readyState >= 3) { onReady(); return; }
+        if (audio.src && audio.readyState >= 3) { onReady(); return; }
         audio.addEventListener('canplaythrough', done, { once: true });
         audio.addEventListener('error',          fail, { once: true });
+        audio.src = MP3_SRC;
         audio.load();
       }
 
@@ -4522,7 +4477,6 @@
     loadTodaysVerse().then(() => {
       wireReadAloudTts();
       wireMorningFlow();
-      setTimeout(showReadAloudModal, 1400);
     });
     initPwaNudge();
   </script>

@@ -12055,3 +12055,101 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   }
 
 }
+
+/* ─────────────────────────────────────────────────────────────
+   MacBook Pro 14" and larger — headline-scale readability
+   min-width: 1024px — phones and tablets completely unaffected
+───────────────────────────────────────────────────────────── */
+
+@media (min-width: 1024px) {
+
+  :root {
+    --font-base: 1.125rem;
+    --font-hero: clamp(2rem, 3.5vw, 2.5rem);
+  }
+
+  body {
+    font-size: var(--font-base);
+    line-height: 1.7;
+  }
+
+  /* Widen the content column on large screens */
+  .app {
+    width: min(100%, 860px);
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  /* ── Hero verse — headline big ── */
+  #heroVerse {
+    font-size: var(--font-hero);
+    line-height: 1.35;
+  }
+
+  #heroRef {
+    font-size: 1.4rem;
+  }
+
+  #heroBreakdown li {
+    font-size: 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  #heroApplication {
+    font-size: 1.3rem;
+    padding: 0.75rem 0;
+  }
+
+  /* ── Plan progress & chips ── */
+  #plan-progress-card {
+    font-size: 1.2rem;
+  }
+
+  .plan-chip {
+    font-size: 1.1rem;
+    padding: 0.9rem 1.2rem;
+  }
+
+  /* ── Quick topic buttons ── */
+  .quick-topic {
+    font-size: 1.15rem;
+    padding: 1.1rem 0.9rem;
+    min-width: 120px;
+  }
+
+  /* ── Bottom nav labels (override the 0.58rem mobile squeeze) ── */
+  .nav-link span:last-child,
+  .nav-link-btn span:last-child {
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Tool teaser cards ── */
+  .card.tool-teaser-card {
+    font-size: 1.2rem;
+    line-height: 1.75;
+    padding: 1.75rem 2rem;
+    margin: 1.25rem 0;
+  }
+
+  /* ── About modal body text ── */
+  .about-modal-sheet p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  /* ── Search input & story textarea ── */
+  #feel-search,
+  #story-text {
+    font-size: 1.2rem;
+    padding: 1rem 1.1rem;
+  }
+
+}
+
+/* ── Fluid hero on Retina/HiDPI — independent of breakpoint ── */
+@media (min-resolution: 2dppx) and (min-width: 1024px) {
+  #heroVerse {
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+  }
+}

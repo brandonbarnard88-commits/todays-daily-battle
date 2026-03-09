@@ -7,14 +7,36 @@
 
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const crypto = require('crypto');
 
 if (!admin.apps.length) {
   admin.initializeApp();
 }
 
 const db = admin.firestore();
+const ALLOWED_ORIGINS = new Set([
+  'https://todaysdailybattle.com',
+  'https://www.todaysdailybattle.com',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000'
+]);
+
+function setCors(req, res) {
+  const origin = req.headers.origin || '';
+  if (origin && ALLOWED_ORIGINS.has(origin)) {
+    res.set('Access-Control-Allow-Origin', origin);
+    res.set('Vary', 'Origin');
+  }
+  res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+}
 
 exports.savePushToken = functions.https.onRequest(async (req, res) => {
+  setCors(req, res);
+  if (req.method === 'OPTIONS') {
+    res.status(204).send('');
+    return;
+  }
   if (req.method !== 'POST') {
     res.status(405).send('Method Not Allowed');
     return;
@@ -35,7 +57,7 @@ exports.savePushToken = functions.https.onRequest(async (req, res) => {
   }
 
   try {
-    const id = token.slice(0, 32) + '-' + Date.now();
+    const id = crypto.createHash('sha256').update(token).digest('hex').slice(0, 40);
     await db.collection('push_tokens').doc(id).set({
       token,
       source: body.source || 'firebase',

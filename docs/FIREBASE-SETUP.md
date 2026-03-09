@@ -56,6 +56,7 @@ Create or edit `config.js` (from `config.example.js`). Set:
 | `FIREBASE_STORAGE_BUCKET` | Optional: `YOUR_PROJECT_ID.appspot.com` |
 | `FIREBASE_VAPID_KEY` | Optional: from Web Push key pair |
 | **FCM_SUBSCRIBE_URL** | The savePushToken URL from step 2 |
+| `FCM_UNSUBSCRIBE_URL` | Optional: `https://<region>-<project>.cloudfunctions.net/removePushToken` |
 
 Keep `config.js` out of git if it contains real keys (e.g. add to `.gitignore` or use env vars on your host).
 
@@ -81,4 +82,4 @@ So `sendDailyVerseNotification` can fetch today’s verse from Supabase:
 
 ---
 
-**Summary:** You create the project, run `firebase login` / `firebase use --add` / `firebase deploy --only functions`, paste keys and savePushToken URL into `config.js`, and optionally set SUPABASE_URL/SUPABASE_SERVICE_KEY on the function. The repo is ready; the rest is one-time setup on your side.
+**Summary:** You create the project, run `firebase login` / `firebase use --add` / `firebase deploy --only functions`, paste Firebase keys plus `FCM_SUBSCRIBE_URL` (and optional `FCM_UNSUBSCRIBE_URL`) into `config.js`, and optionally set `SUPABASE_URL`/`SUPABASE_SERVICE_KEY` on the function. The repo is ready; the rest is one-time setup on your side.

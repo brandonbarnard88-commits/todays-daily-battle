@@ -4037,6 +4037,8 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .dark-mode .social-share-btn .share-icon { color: rgba(226, 232, 240, 0.95); }
 
 /* Topic list: icons + color tags for faster scanning */
+/* Scoped to main search chip containers only — #quickTopics uses inline emoji */
+#quickTopics .quick-topic::before { content: none; }
 .quick-topic[data-topic="family"]::before { content: '🏠 '; }
 .quick-topic[data-topic="free will"]::before { content: '🧭 '; }
 .quick-topic[data-topic="gratitude"]::before { content: '🙏 '; }
@@ -11875,4 +11877,98 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   text-decoration: underline;
   outline: 2px solid var(--gold, #c9a227);
   outline-offset: 2px;
+}
+
+/* ── Smart Feel Search ─────────────────────────────────────────────────────── */
+
+#feel-results {
+  margin-top: 0;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.quick-grid .quick-topic {
+  background: var(--card-dark, rgba(12, 18, 30, 0.94));
+  border: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.18));
+  border-radius: var(--radius-sm, 14px);
+  padding: 0.55rem 0.5rem;
+  font-size: 0.82rem;
+  font-family: var(--font-ui, 'Inter', sans-serif);
+  color: var(--text-dark, #f0f2f7);
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  line-height: 1.3;
+}
+
+.quick-grid .quick-topic:hover,
+.quick-grid .quick-topic:focus-visible {
+  background: rgba(167, 139, 250, 0.12);
+  border-color: var(--border-focus, rgba(167, 139, 250, 0.5));
+  outline: none;
+}
+
+.smart-card {
+  background: var(--card-dark, rgba(12, 18, 30, 0.94));
+  border: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.14));
+  border-radius: var(--radius-md, 18px);
+  padding: 1.25rem 1rem;
+  margin: 0.75rem 0 0;
+  box-shadow: var(--shadow-card, 0 28px 64px rgba(0, 0, 0, 0.38));
+}
+
+.smart-heartfelt {
+  font-weight: 600;
+  font-family: var(--font-ui, 'Inter', sans-serif);
+  font-size: 0.97rem;
+  color: var(--elite-gold, #ffd54f);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+}
+
+.smart-verse {
+  font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--text-dark, #f0f2f7);
+  margin: 0 0 0.35rem;
+}
+
+.smart-ref {
+  font-family: var(--font-ui, 'Inter', sans-serif);
+  font-size: 0.82rem;
+  color: var(--text-muted, rgba(240, 242, 247, 0.65));
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.smart-breakdown {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0 0 0.75rem;
+  color: var(--text-dark, #f0f2f7);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.smart-breakdown li + li {
+  margin-top: 0.2rem;
+}
+
+.smart-action {
+  font-style: italic;
+  color: var(--elite-gold, #ffd54f);
+  font-size: 0.9rem;
+  margin: 0 0 0.3rem;
+}
+
+.smart-outcome {
+  color: var(--text-muted, rgba(240, 242, 247, 0.72));
+  font-size: 0.88rem;
+  margin: 0;
 }

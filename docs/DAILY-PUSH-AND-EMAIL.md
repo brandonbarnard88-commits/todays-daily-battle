@@ -49,7 +49,8 @@ If you don’t track streak on the server yet, sending only **Verse ready** at 9
 
 ## 3. Client setup (already done)
 
-- **firebase-push.js** registers the service worker, requests permission, gets the FCM token, and POSTs it to `FCM_SUBSCRIBE_URL`.
+- **firebase-push.js** registers the service worker, requests permission, gets the FCM token, dedupes token submits, and POSTs it to `FCM_SUBSCRIBE_URL`.
+- When users turn reminders off, the client can POST token removal to optional `FCM_UNSUBSCRIBE_URL`.
 - **Streak push toggle** (homepage) calls `tdbFirebasePushSubscribe()` when the user turns on “8 AM streak reminder.”
 - **service-worker.js** handles the `push` event and shows the notification; `notificationclick` opens `data.url` or `/`.
 

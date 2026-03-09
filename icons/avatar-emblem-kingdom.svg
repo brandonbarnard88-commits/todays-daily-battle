@@ -1,18 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-  <defs>
-    <linearGradient id="kgCrown" x1="24" y1="20" x2="104" y2="20" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FDE68A"/>
-      <stop offset="1" stop-color="#FBBF24"/>
-    </linearGradient>
-    <linearGradient id="kgShield" x1="64" y1="24" x2="64" y2="114" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#93C5FD"/>
-      <stop offset="1" stop-color="#1D4ED8"/>
-    </linearGradient>
-  </defs>
-  <path d="M64 12L76 28L92 16L96 34L112 30L104 48H24L16 30L32 34L36 16L52 28L64 12Z" fill="url(#kgCrown)"/>
-  <path d="M64 24L100 38V66C100 89 86 107 64 116C42 107 28 89 28 66V38L64 24Z" fill="url(#kgShield)" opacity="0.94"/>
-  <path d="M64 32L90 42V66C90 82 80 96 64 104C48 96 38 82 38 66V42L64 32Z" fill="#0B1220" opacity="0.72"/>
-  <path d="M48 72C54 63 60 59 64 59C68 59 74 63 80 72" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
-  <path d="M64 45V78" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="64" cy="53" r="4" fill="#FDE68A"/>
+  <circle cx="64" cy="64" r="58" fill="#0B1220"/>
+  <circle cx="64" cy="64" r="54" stroke="#60A5FA" stroke-width="3"/>
+  <path d="M30 42L44 22L64 38L84 22L98 42V52H30V42Z" fill="#FBBF24"/>
+  <path d="M64 28L92 40V64C92 83 81 99 64 108C47 99 36 83 36 64V40L64 28Z" fill="#1D4ED8"/>
+  <path d="M64 40V84" stroke="#DBEAFE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M46 58H82" stroke="#DBEAFE" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="64" cy="24" r="4" fill="#FDE68A"/>
 </svg>

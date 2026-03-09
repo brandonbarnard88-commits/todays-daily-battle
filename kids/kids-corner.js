@@ -1,9 +1,2995 @@
 /**
  * Kids Story Library — library view for Kids Battle
- * 52 Bible stories: search, filter, random, PDF export. Uses TDB_BIBLE_STORIES from kids-battle.js.
+ * 52 Bible stories: search, filter, random, PDF export, coloring canvas.
+ * Uses TDB_BIBLE_STORIES from kids-battle.js.
  */
 (function () {
   'use strict';
+
+  /* ────────────────────────────────────────────────────
+   * COLORING MODULE — self-contained, no server needed
+   * ──────────────────────────────────────────────────── */
+
+  /**
+   * Inline SVG outlines for each story key.
+   * Each value is a valid SVG string drawn with thick black strokes on a white fill.
+   * Kids paint on a layer below the outline so lines always show through.
+   */
+  var COLORING_OUTLINES = (function () {
+    /* Shared helper: returns a full SVG string at 400×300 */
+    function svg(body) {
+      return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">' +
+        '<rect width="400" height="300" fill="white"/>' + body + '</svg>';
+    }
+    var s = 'stroke="#111" stroke-linecap="round" stroke-linejoin="round" fill="none"';
+    var sf = 'stroke="#111" stroke-linecap="round" stroke-linejoin="round"';
+
+    /* ── Helper shapes ── */
+    function sun(cx, cy, r) {
+      var lines = '';
+      for (var i = 0; i < 8; i++) {
+        var a = (i / 8) * Math.PI * 2;
+        var x1 = cx + Math.cos(a) * (r + 4), y1 = cy + Math.sin(a) * (r + 4);
+        var x2 = cx + Math.cos(a) * (r + 14), y2 = cy + Math.sin(a) * (r + 14);
+        lines += '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" ' + s + ' stroke-width="3"/>';
+      }
+      return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" ' + sf + ' fill="white" stroke-width="3"/>' + lines;
+    }
+    function cloud(x, y) {
+      return '<ellipse cx="' + (x + 30) + '" cy="' + y + '" rx="30" ry="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="' + (x + 10) + '" cy="' + (y + 6) + '" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="' + (x + 50) + '" cy="' + (y + 6) + '" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>';
+    }
+    function person(x, y, headR, bodyH) {
+      var hy = y + headR;
+      var by = hy + headR;
+      return '<circle cx="' + x + '" cy="' + hy + '" r="' + headR + '" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="' + x + '" y1="' + by + '" x2="' + x + '" y2="' + (by + bodyH) + '" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="' + (x - headR - 2) + '" y1="' + (by + 8) + '" x2="' + (x + headR + 2) + '" y2="' + (by + 8) + '" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="' + x + '" y1="' + (by + bodyH) + '" x2="' + (x - headR) + '" y2="' + (by + bodyH + 18) + '" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="' + x + '" y1="' + (by + bodyH) + '" x2="' + (x + headR) + '" y2="' + (by + bodyH + 18) + '" ' + s + ' stroke-width="2.5"/>';
+    }
+    function ground() {
+      return '<line x1="0" y1="250" x2="400" y2="250" ' + s + ' stroke-width="3"/>';
+    }
+    function hills() {
+      return '<path d="M0 250 Q100 180 200 250 Q300 180 400 250" ' + s + ' stroke-width="3" fill="none"/>';
+    }
+    function star(cx, cy, r) {
+      var pts = '';
+      for (var i = 0; i < 5; i++) {
+        var a = (i / 5) * Math.PI * 2 - Math.PI / 2;
+        var bA = ((i + 0.5) / 5) * Math.PI * 2 - Math.PI / 2;
+        pts += (i === 0 ? 'M' : 'L') + (cx + Math.cos(a) * r) + ',' + (cy + Math.sin(a) * r) + ' ';
+        pts += 'L' + (cx + Math.cos(bA) * (r * 0.4)) + ',' + (cy + Math.sin(bA) * (r * 0.4)) + ' ';
+      }
+      pts += 'Z';
+      return '<path d="' + pts + '" ' + sf + ' fill="white" stroke-width="2"/>';
+    }
+
+    return {
+      /* David vs Goliath */
+      david: svg(
+        ground() +
+        hills() +
+        /* Goliath — giant warrior */
+        '<rect x="280" y="100" width="50" height="80" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="305" cy="90" r="18" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* helmet */
+        '<path d="M287 90 Q305 68 323 90" ' + s + ' stroke-width="3"/>' +
+        '<rect x="296" y="80" width="18" height="8" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* spear */
+        '<line x1="340" y1="60" x2="340" y2="200" ' + s + ' stroke-width="4"/>' +
+        '<polygon points="340,50 333,68 347,68" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* shield */
+        '<ellipse cx="268" cy="155" rx="14" ry="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* David — small figure with sling */
+        person(100, 170, 12, 36) +
+        /* sling */
+        '<path d="M100 196 Q140 175 125 210" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="125" cy="212" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(50, 40, 22) +
+        /* verse tag */
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 17:45</text>'
+      ),
+
+      /* Noah's Ark */
+      noah: svg(
+        /* water */
+        '<path d="M0 220 Q40 205 80 220 Q120 235 160 220 Q200 205 240 220 Q280 235 320 220 Q360 205 400 220 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* ark hull */
+        '<path d="M60 220 L60 170 L340 170 L340 220 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* cabin */
+        '<rect x="110" y="110" width="180" height="60" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* roof */
+        '<path d="M100 110 L200 70 L300 110" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* window */
+        '<rect x="185" y="120" width="30" height="25" rx="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* giraffe neck out window */
+        '<rect x="196" y="95" width="8" height="30" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="91" rx="7" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* dove */
+        '<path d="M230 60 Q245 50 260 60 Q245 70 230 60" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="248" y1="58" x2="255" y2="50" ' + s + ' stroke-width="2"/>' +
+        /* rainbow */
+        '<path d="M20 180 Q200 80 380 180" ' + s + ' stroke-width="4"/>' +
+        '<path d="M30 190 Q200 95 370 190" ' + s + ' stroke-width="3"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 6–9</text>'
+      ),
+
+      /* Jesus Calms the Storm */
+      jesusCalmsStorm: svg(
+        /* sky with storm lines */
+        '<line x1="30" y1="20" x2="60" y2="50" ' + s + ' stroke-width="3"/>' +
+        '<line x1="80" y1="10" x2="100" y2="45" ' + s + ' stroke-width="3"/>' +
+        '<line x1="320" y1="15" x2="290" y2="50" ' + s + ' stroke-width="3"/>' +
+        cloud(280, 30) +
+        cloud(60, 25) +
+        /* waves */
+        '<path d="M0 200 Q50 175 100 200 Q150 225 200 200 Q250 175 300 200 Q350 225 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M0 230 Q60 210 120 230 Q180 250 240 230 Q300 210 360 230 Q390 240 400 235" ' + s + ' stroke-width="2.5"/>' +
+        /* boat */
+        '<path d="M80 200 Q200 215 320 200 L300 240 L100 240 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* mast + sail */
+        '<line x1="200" y1="160" x2="200" y2="240" ' + s + ' stroke-width="3.5"/>' +
+        '<path d="M200 165 L240 185 L200 210 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* disciples in boat */
+        person(130, 190, 10, 28) +
+        person(160, 190, 10, 28) +
+        person(255, 190, 10, 28) +
+        /* Jesus standing, arms outstretched */
+        '<circle cx="200" cy="175" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="186" x2="200" y2="215" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="172" y1="196" x2="228" y2="196" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="215" x2="190" y2="235" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="215" x2="210" y2="235" ' + s + ' stroke-width="2.5"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 4:39</text>'
+      ),
+
+      /* Moses and the Red Sea */
+      redSea: svg(
+        /* parted water walls */
+        '<rect x="0" y="80" width="140" height="180" rx="0" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M0 80 Q70 70 140 80" ' + s + ' stroke-width="3"/>' +
+        '<path d="M0 260 Q70 250 140 260" ' + s + ' stroke-width="3"/>' +
+        /* wave detail left */
+        '<path d="M0 120 Q35 108 70 120 Q105 132 140 120" ' + s + ' stroke-width="2"/>' +
+        '<path d="M0 160 Q35 148 70 160 Q105 172 140 160" ' + s + ' stroke-width="2"/>' +
+        '<path d="M0 200 Q35 188 70 200 Q105 212 140 200" ' + s + ' stroke-width="2"/>' +
+        /* right water wall */
+        '<rect x="260" y="80" width="140" height="180" rx="0" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M260 80 Q330 70 400 80" ' + s + ' stroke-width="3"/>' +
+        '<path d="M260 260 Q330 250 400 260" ' + s + ' stroke-width="3"/>' +
+        '<path d="M260 120 Q295 108 330 120 Q365 132 400 120" ' + s + ' stroke-width="2"/>' +
+        '<path d="M260 160 Q295 148 330 160 Q365 172 400 160" ' + s + ' stroke-width="2"/>' +
+        '<path d="M260 200 Q295 188 330 200 Q365 212 400 200" ' + s + ' stroke-width="2"/>' +
+        /* dry path */
+        ground() +
+        /* Moses with staff, leading Israelites */
+        '<line x1="185" y1="175" x2="185" y2="260" ' + s + ' stroke-width="4.5"/>' +
+        person(185, 188, 13, 38) +
+        /* staff */
+        '<line x1="172" y1="210" x2="162" y2="265" ' + s + ' stroke-width="3"/>' +
+        /* crowd */
+        person(220, 200, 9, 25) +
+        person(240, 205, 8, 22) +
+        person(258, 200, 9, 25) +
+        sun(345, 45, 24) +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:21</text>'
+      ),
+
+      /* Daniel in Lions Den */
+      daniel: svg(
+        ground() +
+        /* cave arch */
+        '<path d="M60 260 L60 140 Q200 60 340 140 L340 260" ' + sf + ' fill="white" stroke-width="4"/>' +
+        /* stone blocks */
+        '<rect x="55" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
+        '<rect x="315" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
+        /* Daniel kneeling */
+        '<circle cx="200" cy="165" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 178 L200 210 L185 235 M200 210 L215 235" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="182" y1="192" x2="218" y2="192" ' + s + ' stroke-width="2.5"/>' +
+        /* prayer hands */
+        '<path d="M200 192 L192 210 M200 192 L208 210" ' + s + ' stroke-width="2"/>' +
+        /* lion left */
+        '<ellipse cx="110" cy="220" rx="38" ry="26" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="90" cy="205" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* mane */
+        '<circle cx="90" cy="205" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        /* lion eyes */
+        '<circle cx="83" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="97" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* lion right */
+        '<ellipse cx="290" cy="220" rx="38" ry="26" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="310" cy="205" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="310" cy="205" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<circle cx="303" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="317" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* angel light rays */
+        '<line x1="200" y1="80" x2="180" y2="140" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
+        '<line x1="200" y1="80" x2="200" y2="145" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
+        '<line x1="200" y1="80" x2="220" y2="140" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
+        star(200, 75, 14) +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:22</text>'
+      ),
+
+      /* Jonah and the Whale */
+      jonah: svg(
+        /* ocean */
+        '<path d="M0 180 Q50 160 100 180 Q150 200 200 180 Q250 160 300 180 Q350 200 400 180 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M0 210 Q60 195 120 210 Q180 225 240 210 Q300 195 360 210 Q390 218 400 212" ' + s + ' stroke-width="2"/>' +
+        /* whale body */
+        '<path d="M40 210 Q120 155 240 190 Q300 205 340 195 Q360 190 370 200 Q360 215 340 215 Q300 225 240 215 Q120 240 40 210 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* whale tail */
+        '<path d="M40 210 Q20 195 10 180 Q25 185 30 200 Q15 205 5 220 Q20 215 40 210" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* whale eye */
+        '<circle cx="325" cy="202" r="7" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="327" cy="200" r="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        /* blow hole spout */
+        '<path d="M270 182 Q275 160 272 145" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M270 182 Q280 158 285 143" ' + s + ' stroke-width="2"/>' +
+        /* Jonah inside (visible through belly lines) */
+        '<ellipse cx="185" cy="208" rx="32" ry="18" ' + s + ' stroke-width="1.5" stroke-dasharray="5,3"/>' +
+        person(185, 196, 9, 20) +
+        /* storm sky */
+        cloud(50, 25) +
+        cloud(280, 20) +
+        '<line x1="90" y1="15" x2="110" y2="45" ' + s + ' stroke-width="3"/>' +
+        '<line x1="310" y1="12" x2="290" y2="42" ' + s + ' stroke-width="3"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jonah 1:17</text>'
+      ),
+
+      /* Joseph's Coat */
+      josephCoat: svg(
+        ground() +
+        hills() +
+        person(200, 160, 14, 40) +
+        /* coat - colorful robe outline */
+        '<path d="M186 174 Q170 180 168 230 L232 230 Q230 180 214 174 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* coat stripes (to be colored in) */
+        '<line x1="174" y1="190" x2="226" y2="190" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        '<line x1="172" y1="202" x2="228" y2="202" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        '<line x1="171" y1="214" x2="229" y2="214" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        /* sleeves */
+        '<path d="M186 182 Q160 195 148 215" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M214 182 Q240 195 252 215" ' + s + ' stroke-width="2.5"/>' +
+        /* brothers watching */
+        person(100, 195, 10, 28) +
+        person(120, 200, 9, 25) +
+        person(280, 195, 10, 28) +
+        person(300, 200, 9, 25) +
+        sun(330, 50, 22) +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 37:3</text>'
+      ),
+
+      /* The Resurrection */
+      resurrection: svg(
+        /* tomb rock rolled away */
+        '<circle cx="90" cy="200" r="55" ' + sf + ' fill="white" stroke-width="4"/>' +
+        /* tomb entrance */
+        '<path d="M130 260 L130 180 Q200 155 270 180 L270 260" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="130" y="180" width="140" height="80" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* empty burial cloth */
+        '<path d="M160 230 Q200 210 240 230 Q220 248 200 248 Q180 248 160 230" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* angel */
+        '<circle cx="330" cy="165" r="16" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="330" y1="181" x2="330" y2="220" ' + s + ' stroke-width="3"/>' +
+        '<path d="M310 170 Q295 150 310 140 Q325 150 330 165" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M350 170 Q365 150 350 140 Q335 150 330 165" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* women at tomb */
+        person(355, 195, 10, 28) +
+        person(375, 200, 9, 22) +
+        /* radiant light */
+        '<line x1="200" y1="20" x2="200" y2="60" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<line x1="180" y1="22" x2="170" y2="62" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<line x1="220" y1="22" x2="230" y2="62" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        star(200, 18, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 28:6</text>'
+      ),
+
+      /* Creation */
+      creation: svg(
+        sun(320, 60, 30) +
+        cloud(60, 30) +
+        cloud(180, 18) +
+        /* water / land split */
+        '<path d="M0 180 Q100 155 200 180 Q300 205 400 180 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        ground() +
+        hills() +
+        /* tree left */
+        '<line x1="100" y1="250" x2="100" y2="185" ' + s + ' stroke-width="3.5"/>' +
+        '<circle cx="100" cy="168" r="24" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="82" cy="180" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="118" cy="178" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* tree right */
+        '<line x1="300" y1="250" x2="300" y2="175" ' + s + ' stroke-width="3.5"/>' +
+        '<circle cx="300" cy="158" r="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="278" cy="172" r="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="322" cy="170" r="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* birds */
+        '<path d="M160 80 Q170 74 180 80" ' + s + ' stroke-width="2"/>' +
+        '<path d="M205 65 Q215 59 225 65" ' + s + ' stroke-width="2"/>' +
+        /* animals */
+        '<ellipse cx="175" cy="238" rx="22" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="193" cy="226" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 1:1</text>'
+      ),
+
+      /* Fiery Furnace */
+      fieryFurnace: svg(
+        ground() +
+        /* furnace structure */
+        '<rect x="120" y="100" width="160" height="160" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
+        /* furnace door */
+        '<path d="M165 260 L165 180 Q200 155 235 180 L235 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        /* flames outline */
+        '<path d="M145 260 Q130 220 150 190 Q160 215 155 235 Q170 200 165 170 Q185 205 180 230 Q195 185 200 155 Q205 185 220 230 Q215 200 235 170 Q230 200 245 235 Q240 215 250 190 Q270 220 255 260" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        /* three figures inside flames */
+        person(170, 185, 9, 25) +
+        person(200, 180, 9, 25) +
+        person(230, 185, 9, 25) +
+        /* angel (4th figure) */
+        '<circle cx="200" cy="145" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M182 150 Q170 135 182 125 Q192 135 200 148" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M218 150 Q230 135 218 125 Q208 135 200 148" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* spectators */
+        person(60, 200, 10, 28) +
+        person(340, 200, 10, 28) +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:25</text>'
+      ),
+
+      /* Jesus Feeds 5000 */
+      jesusFeeds5000: svg(
+        ground() +
+        hills() +
+        sun(350, 50, 22) +
+        /* basket with loaves */
+        '<path d="M155 220 Q155 195 200 195 Q245 195 245 220 Q245 240 200 245 Q155 240 155 220 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M155 210 Q200 200 245 210" ' + s + ' stroke-width="2"/>' +
+        /* fish */
+        '<path d="M165 225 Q178 218 188 225 Q178 232 165 225 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M162 225 L155 220 L162 230 Z" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M210 225 Q223 218 233 225 Q223 232 210 225 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M207 225 L200 220 L207 230 Z" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        /* bread rolls */
+        '<ellipse cx="200" cy="205" rx="12" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* Jesus blessing */
+        '<circle cx="200" cy="148" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="161" x2="200" y2="195" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="175" y1="172" x2="225" y2="172" ' + s + ' stroke-width="2.5"/>' +
+        /* crowd dots */
+        '<circle cx="100" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="120" cy="220" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="80" cy="222" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="300" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="320" cy="220" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="340" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 6:11</text>'
+      ),
+
+      /* ── Week 1: Moses Sea-Split (13) ── */
+      mosesSea: svg(
+        '<rect x="0" y="80" width="130" height="180" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M0 120 Q32 108 65 120 Q97 132 130 120" ' + s + ' stroke-width="2"/>' +
+        '<path d="M0 160 Q32 148 65 160 Q97 172 130 160" ' + s + ' stroke-width="2"/>' +
+        '<path d="M0 200 Q32 188 65 200 Q97 212 130 200" ' + s + ' stroke-width="2"/>' +
+        '<rect x="270" y="80" width="130" height="180" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M270 120 Q302 108 335 120 Q367 132 400 120" ' + s + ' stroke-width="2"/>' +
+        '<path d="M270 160 Q302 148 335 160 Q367 172 400 160" ' + s + ' stroke-width="2"/>' +
+        '<path d="M270 200 Q302 188 335 200 Q367 212 400 200" ' + s + ' stroke-width="2"/>' +
+        ground() +
+        '<line x1="185" y1="175" x2="185" y2="260" ' + s + ' stroke-width="4.5"/>' +
+        person(185, 188, 13, 38) +
+        '<line x1="172" y1="210" x2="162" y2="265" ' + s + ' stroke-width="3"/>' +
+        person(220, 200, 9, 25) + person(245, 205, 8, 22) + person(265, 200, 9, 25) +
+        sun(340, 45, 22) +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:21</text>'
+      ),
+
+      /* ── Week 1: Burning Bush (14) ── */
+      burningBush: svg(
+        ground() + hills() +
+        '<ellipse cx="200" cy="180" rx="55" ry="60" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M170 240 Q155 200 170 170 Q180 195 175 220 Q190 185 185 155 Q200 185 195 215 Q210 175 205 148 Q220 178 215 210 Q230 180 225 160 Q240 195 230 220 Q245 200 230 240" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(120, 195, 12, 35) +
+        '<line x1="110" y1="220" x2="102" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        sun(330, 50, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 3:2</text>'
+      ),
+
+      /* ── Week 1: Ten Plagues — Frogs (15) ── */
+      tenPlagues: svg(
+        ground() +
+        '<rect x="140" y="120" width="120" height="100" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M140 160 L200 130 L260 160" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="112" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="90" cy="210" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="78" cy="198" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="102" cy="198" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="300" cy="200" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="60" cy="175" rx="15" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="330" cy="185" rx="15" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 8:6</text>'
+      ),
+
+      /* ── Week 1: Manna (16) ── */
+      manna: svg(
+        ground() + hills() + sun(50, 40, 20) +
+        '<path d="M60 80 Q200 30 340 80" ' + s + ' stroke-width="2" stroke-dasharray="3,4"/>' +
+        '<ellipse cx="100" cy="110" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="160" cy="95" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="220" cy="85" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="280" cy="95" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="340" cy="110" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(155, 185, 11, 32) +
+        '<path d="M155 203 L140 225" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="136" cy="228" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(210, 190, 10, 28) +
+        person(240, 192, 9, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 16:15</text>'
+      ),
+
+      /* ── Week 1: Ten Commandments (17) ── */
+      tenCommandments: svg(
+        '<path d="M60 250 L60 90 Q200 30 340 90 L340 250" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="120" y="120" width="65" height="95" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="215" y="120" width="65" height="95" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="120" y1="140" x2="185" y2="140" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="120" y1="155" x2="185" y2="155" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="120" y1="170" x2="185" y2="170" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="215" y1="140" x2="280" y2="140" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="215" y1="155" x2="280" y2="155" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="215" y1="170" x2="280" y2="170" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="100" y1="20" x2="120" y2="60" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="10" x2="200" y2="50" ' + s + ' stroke-width="3"/>' +
+        '<line x1="300" y1="20" x2="280" y2="60" ' + s + ' stroke-width="3"/>' +
+        person(195, 205, 11, 32) +
+        ground() +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 20</text>'
+      ),
+
+      /* ── Week 1: Elijah Fire (18) ── */
+      elijahFire: svg(
+        ground() +
+        '<rect x="100" y="130" width="200" height="30" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="130" y1="130" x2="130" y2="100" ' + s + ' stroke-width="4"/>' +
+        '<line x1="160" y1="130" x2="160" y2="100" ' + s + ' stroke-width="4"/>' +
+        '<line x1="200" y1="130" x2="200" y2="90" ' + s + ' stroke-width="4"/>' +
+        '<line x1="240" y1="130" x2="240" y2="100" ' + s + ' stroke-width="4"/>' +
+        '<line x1="270" y1="130" x2="270" y2="100" ' + s + ' stroke-width="4"/>' +
+        '<path d="M110 130 Q120 95 135 70 Q145 95 140 120 Q155 85 160 60 Q170 88 165 115 Q180 75 200 45 Q215 75 205 110 Q220 72 235 55 Q242 80 238 108 Q250 78 265 65 Q272 92 268 118 Q280 90 290 130" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(50, 185, 11, 32) + person(330, 185, 11, 32) +
+        sun(350, 50, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 18:38</text>'
+      ),
+
+      /* ── Week 1: Elisha Oil (19) ── */
+      elishaOil: svg(
+        ground() +
+        '<ellipse cx="120" cy="210" rx="18" ry="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="165" cy="215" rx="15" ry="24" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="205" cy="218" rx="14" ry="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="242" cy="216" rx="14" ry="23" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(290, 175, 13, 38) +
+        '<path d="M285 200 Q260 195 250 215" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M258 213 Q250 240 248 230 Q240 250 242 238" ' + s + ' stroke-width="2.5"/>' +
+        person(55, 185, 10, 30) +
+        sun(350, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:6</text>'
+      ),
+
+      /* ── Week 1: Fiery Furnace already exists, skip; Naaman Dip (21) ── */
+      naamanDip: svg(
+        '<path d="M0 200 Q50 180 100 200 Q150 220 200 200 Q250 180 300 200 Q350 220 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 170, 13, 38) +
+        '<path d="M190 220 L188 248 M210 220 L212 248" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M160 185 Q180 175 200 182 Q220 175 240 185" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<circle cx="200" cy="245" r="20" ' + s + ' stroke-width="2.5" stroke-dasharray="5,3"/>' +
+        person(50, 185, 10, 28) + person(350, 185, 10, 28) +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:14</text>'
+      ),
+
+      /* ── Week 1: Creation Light (22) ── */
+      creationLight: svg(
+        '<rect x="0" y="0" width="400" height="140" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="130" rx="80" ry="60" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<line x1="200" y1="40" x2="200" y2="70" ' + s + ' stroke-width="3"/>' +
+        '<line x1="140" y1="60" x2="160" y2="82" ' + s + ' stroke-width="3"/>' +
+        '<line x1="260" y1="60" x2="240" y2="82" ' + s + ' stroke-width="3"/>' +
+        '<line x1="100" y1="110" x2="130" y2="118" ' + s + ' stroke-width="3"/>' +
+        '<line x1="300" y1="110" x2="270" y2="118" ' + s + ' stroke-width="3"/>' +
+        '<path d="M0 200 Q100 175 200 200 Q300 225 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 1:3</text>'
+      ),
+
+      /* ── Week 1: Adam & Eve (23) ── */
+      adamEve: svg(
+        ground() + hills() +
+        '<line x1="200" y1="250" x2="200" y2="80" ' + s + ' stroke-width="4"/>' +
+        '<circle cx="200" cy="65" r="30" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="175" cy="55" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="225" cy="55" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="200" cy="78" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M220 85 Q260 100 270 130 Q260 140 250 135 Q260 118 245 108" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="265" cy="142" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(155, 175, 11, 32) + person(235, 172, 11, 32) +
+        sun(330, 40, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 3:1</text>'
+      ),
+
+      /* ── Week 1: Tower of Babel (24) ── */
+      towerBabel: svg(
+        ground() +
+        '<rect x="165" y="220" width="70" height="30" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="175" y="185" width="50" height="38" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="185" y="150" width="30" height="38" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="190" y="120" width="20" height="32" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="194" y="95" width="12" height="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="197" y="75" width="6" height="22" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(80, 195, 10, 28) + person(110, 200, 9, 25) +
+        person(290, 195, 10, 28) + person(315, 200, 9, 25) +
+        '<path d="M80 190 Q100 185 110 195" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        '<path d="M310 188 Q325 183 335 190" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        sun(340, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 11:7</text>'
+      ),
+
+      /* ── Week 2: Abraham & Isaac (25) ── */
+      abrahamIsaac: svg(
+        ground() + hills() +
+        '<rect x="155" y="155" width="90" height="40" rx="3" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="165" y1="155" x2="165" y2="135" ' + s + ' stroke-width="3.5"/>' +
+        '<line x1="200" y1="155" x2="200" y2="130" ' + s + ' stroke-width="3.5"/>' +
+        '<line x1="235" y1="155" x2="235" y2="135" ' + s + ' stroke-width="3.5"/>' +
+        '<path d="M250 185 Q275 178 285 190 Q278 205 265 200 Q275 192 270 185" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="272" cy="193" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(165, 170, 12, 35) +
+        '<line x1="155" y1="198" x2="140" y2="155" ' + s + ' stroke-width="3"/>' +
+        '<path d="M175 158 L195 140 L205 145" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 22:13</text>'
+      ),
+
+      /* ── Week 2: Sarah Laughs (26) ── */
+      sarahLaughs: svg(
+        ground() +
+        '<rect x="60" y="100" width="200" height="140" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 140 L160 120 L260 140" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="145" y1="240" x2="145" y2="160" ' + s + ' stroke-width="2"/>' +
+        '<rect x="130" y="155" width="30" height="25" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(150, 158, 13, 38) +
+        '<path d="M148 172 Q155 166 162 172" ' + s + ' stroke-width="2"/>' +
+        person(285, 175, 11, 32) +
+        '<circle cx="290" cy="172" r="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M310 160 Q330 148 350 155 Q340 168 325 165 Q338 154 335 145" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 18:12</text>'
+      ),
+
+      /* ── Week 2: Jacob's Ladder (27) ── */
+      jacobLadder: svg(
+        ground() +
+        '<line x1="155" y1="260" x2="130" y2="20" ' + s + ' stroke-width="4"/>' +
+        '<line x1="245" y1="260" x2="270" y2="20" ' + s + ' stroke-width="4"/>' +
+        '<line x1="158" y1="220" x2="242" y2="220" ' + s + ' stroke-width="3"/>' +
+        '<line x1="151" y1="180" x2="249" y2="180" ' + s + ' stroke-width="3"/>' +
+        '<line x1="144" y1="140" x2="256" y2="140" ' + s + ' stroke-width="3"/>' +
+        '<line x1="137" y1="100" x2="263" y2="100" ' + s + ' stroke-width="3"/>' +
+        '<line x1="130" y1="60" x2="270" y2="60" ' + s + ' stroke-width="3"/>' +
+        '<circle cx="175" cy="195" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M162 145 Q152 130 162 118 Q173 128 175 143" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="225" cy="155" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M238 105 Q248 90 238 78 Q227 88 225 103" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(195, 225, 11, 30) +
+        star(200, 25, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 28:12</text>'
+      ),
+
+      /* ── Week 2: Joseph Dreams (28) ── */
+      josephDreams: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        star(60, 60, 16) + star(130, 40, 14) + star(200, 25, 18) +
+        star(270, 40, 14) + star(340, 60, 16) +
+        star(90, 100, 12) + star(200, 90, 14) + star(310, 100, 12) +
+        '<path d="M140 230 Q200 175 260 230 L260 270 L140 270 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 195, 13, 38) +
+        '<path d="M200 210 L188 250 M200 210 L212 250" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="175" y1="222" x2="225" y2="222" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M155 200 Q185 180 215 200" ' + s + ' stroke-width="1.5" stroke-dasharray="4,3"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 37:9</text>'
+      ),
+
+      /* ── Week 2: Joseph's Coat already exists ── */
+
+      /* ── Week 2: Joseph Prison (30) ── */
+      josephPrison: svg(
+        '<rect x="40" y="50" width="320" height="200" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<line x1="120" y1="50" x2="120" y2="250" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="50" x2="200" y2="250" ' + s + ' stroke-width="3"/>' +
+        '<line x1="280" y1="50" x2="280" y2="250" ' + s + ' stroke-width="3"/>' +
+        person(145, 145, 12, 35) +
+        '<path d="M155 165 Q165 155 175 160 Q170 172 158 170" ' + s + ' stroke-width="2"/>' +
+        person(225, 150, 11, 32) +
+        '<ellipse cx="60" cy="240" rx="15" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        star(200, 25, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 40:5</text>'
+      ),
+
+      /* ── Week 2: Pharaoh Dreams (31) ── */
+      pharaohDreams: svg(
+        ground() +
+        '<ellipse cx="120" cy="210" rx="30" ry="18" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="98" cy="196" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="240" cy="215" rx="22" ry="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="222" cy="205" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(300, 165, 14, 42) +
+        '<rect x="286" y="155" width="28" height="12" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M286 155 Q300 138 314 155" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M190 160 Q200 145 210 155 Q200 165 190 160" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 41:1</text>'
+      ),
+
+      /* ── Week 2: Moses Baby (32) ── */
+      mosesBaby: svg(
+        '<path d="M0 200 Q50 180 100 200 Q150 220 200 200 Q250 180 300 200 Q350 220 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M0 230 Q60 215 120 230 Q180 245 240 230 Q300 215 360 230 Q390 238 400 233" ' + s + ' stroke-width="2"/>' +
+        '<path d="M155 205 Q200 192 245 205 Q245 235 200 245 Q155 235 155 205 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="218" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(270, 165, 14, 42) +
+        '<path d="M270 180 Q262 195 268 210" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        cloud(300, 40) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 2:5</text>'
+      ),
+
+      /* ── Week 2: Moses Staff Snake (33) ── */
+      mosesStaffSnake: svg(
+        ground() +
+        person(150, 175, 12, 35) +
+        '<path d="M138 240 Q118 220 112 195 Q118 175 135 182 Q148 175 148 192 Q136 195 135 205 Q140 218 148 222 Q165 232 168 250" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="114" cy="185" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="108" y1="182" x2="102" y2="178" ' + s + ' stroke-width="2"/>' +
+        '<line x1="108" y1="188" x2="101" y2="192" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="110" cy="183" r="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        person(260, 180, 11, 32) +
+        person(290, 183, 10, 28) +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 7:10</text>'
+      ),
+
+      /* ── Week 2: Passover Lamb (35) ── */
+      passoverLamb: svg(
+        ground() +
+        '<rect x="100" y="90" width="200" height="160" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M100 130 L200 108 L300 130" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="130" y="175" width="60" height="75" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="218" y="175" width="60" height="75" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="150" cy="88" rx="22" ry="15" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="138" cy="78" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="162" cy="78" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M42 60 Q52 35 62 50 Q58 64 50 62" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(50, 175, 10, 28) +
+        sun(330, 50, 18) + star(200, 30, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 12:13</text>'
+      ),
+
+      /* ── Week 2: Red Sea Crossing (36) ── */
+      redSeaCrossing: svg(
+        '<rect x="0" y="100" width="400" height="160" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M0 130 Q50 118 100 130 Q150 142 200 130 Q250 118 300 130 Q350 142 400 130" ' + s + ' stroke-width="2"/>' +
+        '<path d="M0 160 Q50 148 100 160 Q150 172 200 160 Q250 148 300 160 Q350 172 400 160" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="280" cy="230" rx="35" ry="15" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="280" y1="215" x2="280" y2="195" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M255 215 Q268 205 280 212" ' + s + ' stroke-width="2"/>' +
+        '<path d="M305 215 Q292 205 280 212" ' + s + ' stroke-width="2"/>' +
+        person(120, 185, 11, 32) + person(155, 188, 10, 28) + person(185, 186, 10, 28) +
+        '<path d="M145 250 L145 220" ' + s + ' stroke-width="3"/>' +
+        sun(40, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:25</text>'
+      ),
+
+      /* ── Week 3: Joshua Jordan (37) ── */
+      joshuaJordan: svg(
+        '<path d="M0 200 Q50 180 100 200 Q150 220 200 200 Q250 180 300 200 Q350 220 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="155" y="148" width="90" height="58" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="185" y1="148" x2="185" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="215" y1="148" x2="215" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="155" y1="175" x2="245" y2="175" ' + s + ' stroke-width="2"/>' +
+        person(185, 185, 10, 28) +
+        person(60, 178, 11, 32) + person(90, 182, 10, 28) +
+        person(310, 178, 11, 32) + person(335, 182, 10, 28) +
+        sun(40, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 3:17</text>'
+      ),
+
+      /* ── Week 3: Jericho Walls (38) ── */
+      jerichoWalls: svg(
+        ground() +
+        '<rect x="50" y="60" width="300" height="200" rx="4" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="60" y="70" width="60" height="60" rx="2" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="280" y="70" width="60" height="60" rx="2" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 60 Q220 30 240 60" ' + s + ' stroke-width="3" stroke-dasharray="5,3"/>' +
+        '<path d="M200 60 Q180 30 160 60" ' + s + ' stroke-width="3" stroke-dasharray="5,3"/>' +
+        '<line x1="155" y1="258" x2="155" y2="200" ' + s + ' stroke-width="3" stroke-dasharray="6,4"/>' +
+        '<line x1="245" y1="258" x2="245" y2="200" ' + s + ' stroke-width="3" stroke-dasharray="6,4"/>' +
+        person(100, 220, 11, 32) + person(130, 225, 10, 28) +
+        person(260, 220, 11, 32) + person(290, 225, 10, 28) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 6:20</text>'
+      ),
+
+      /* ── Week 3: Rahab Rope (39) ── */
+      rahabRope: svg(
+        '<rect x="130" y="30" width="140" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="165" y="70" width="70" height="55" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="152" y="188" width="96" height="42" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M180 125 Q180 145 182 165 Q184 185 180 230 Q185 250 185 270" ' + s + ' stroke-width="3.5"/>' +
+        '<path d="M200 125 Q200 145 202 165 Q204 185 200 230 Q205 250 205 270" ' + s + ' stroke-width="2.5"/>' +
+        person(195, 65, 12, 35) +
+        '<path d="M185 82 Q178 88 182 95" ' + s + ' stroke-width="2.5"/>' +
+        person(100, 225, 10, 28) + person(125, 228, 10, 28) +
+        sun(330, 50, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 2:18</text>'
+      ),
+
+      /* ── Week 3: Balaam Donkey (40) ── */
+      balaamDonkey: svg(
+        ground() + hills() +
+        '<ellipse cx="200" cy="210" rx="55" ry="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="155" cy="196" rx="22" ry="18" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="138" y1="238" x2="138" y2="268" ' + s + ' stroke-width="3.5"/>' +
+        '<line x1="158" y1="242" x2="158" y2="270" ' + s + ' stroke-width="3.5"/>' +
+        '<line x1="218" y1="238" x2="218" y2="268" ' + s + ' stroke-width="3.5"/>' +
+        '<line x1="238" y1="238" x2="238" y2="268" ' + s + ' stroke-width="3.5"/>' +
+        '<circle cx="142" cy="192" r="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M148 185 L152 175 M158 184 L164 174" ' + s + ' stroke-width="2"/>' +
+        person(195, 175, 10, 28) +
+        '<path d="M310 90 Q330 65 350 75 Q360 90 348 98 Q358 88 362 78" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="340" y1="95" x2="340" y2="130" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="320" y1="108" x2="360" y2="108" ' + s + ' stroke-width="2.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Numbers 22:28</text>'
+      ),
+
+      /* ── Week 3: Samson Hair (41) ── */
+      samsonHair: svg(
+        ground() +
+        person(180, 155, 16, 48) +
+        '<path d="M164 168 Q148 180 140 210 Q136 225 145 235" ' + s + ' stroke-width="3"/>' +
+        '<path d="M196 168 Q215 178 220 208 Q224 225 215 235" ' + s + ' stroke-width="3"/>' +
+        '<line x1="164" y1="168" x2="155" y2="205" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="172" y1="166" x2="165" y2="208" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="196" y1="168" x2="205" y2="205" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="188" y1="166" x2="195" y2="208" ' + s + ' stroke-width="2.5"/>' +
+        person(270, 168, 12, 35) +
+        '<path d="M268 182 Q258 195 263 205" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M272 182 Q282 192 278 202" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 16:17</text>'
+      ),
+
+      /* ── Week 3: Ruth Glean (42) ── */
+      ruthGlean: svg(
+        ground() +
+        '<path d="M0 240 Q50 228 100 240 Q150 252 200 240 Q250 228 300 240 Q350 252 400 240" ' + s + ' stroke-width="2"/>' +
+        '<line x1="80" y1="240" x2="80" y2="160" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="110" y1="240" x2="110" y2="170" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="140" y1="240" x2="140" y2="160" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="280" y1="240" x2="280" y2="165" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="310" y1="240" x2="310" y2="172" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="340" y1="240" x2="340" y2="162" ' + s + ' stroke-width="2.5"/>' +
+        person(185, 185, 12, 35) +
+        '<path d="M190 215 Q200 228 192 242" ' + s + ' stroke-width="2.5"/>' +
+        person(260, 165, 13, 38) +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 2:8</text>'
+      ),
+
+      /* ── Week 3: Samuel Call (43) ── */
+      samuelCall: svg(
+        '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 100 L200 78 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="85" y="90" width="60" height="40" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="255" y="90" width="60" height="40" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M140 260 Q165 220 200 210 Q235 220 260 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="204" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M186 195 Q200 180 214 195" ' + s + ' stroke-width="2"/>' +
+        star(200, 45, 16) + star(50, 40, 10) + star(350, 40, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 3:10</text>'
+      ),
+
+      /* ── Week 3: David Harp (44) ── */
+      davidHarp: svg(
+        ground() + hills() +
+        '<ellipse cx="100" cy="225" rx="20" ry="15" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="85" cy="212" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="145" cy="230" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 175, 12, 35) +
+        '<path d="M185 192 Q170 182 162 165 Q175 155 192 162 L200 182" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="172" y1="163" x2="197" y2="185" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="176" y1="160" x2="198" y2="180" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="180" y1="158" x2="199" y2="176" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="185" y1="157" x2="200" y2="172" ' + s + ' stroke-width="1.5"/>' +
+        sun(320, 50, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 16:23</text>'
+      ),
+
+      /* ── Week 3: Goliath Challenge (45) ── */
+      goliathChallenge: svg(
+        ground() + hills() +
+        '<rect x="268" y="78" width="52" height="88" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="294" cy="68" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M274 68 Q294 44 314 68" ' + s + ' stroke-width="3"/>' +
+        '<line x1="336" y1="40" x2="336" y2="210" ' + s + ' stroke-width="4"/>' +
+        '<polygon points="336,28 328,50 344,50" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="256" cy="148" rx="15" ry="22" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(100, 180, 11, 32) +
+        '<path d="M95 197 Q110 185 120 195" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="125" cy="197" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(50, 40, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 17:26</text>'
+      ),
+
+      /* ── Week 3: David Anointed (46) ── */
+      davidAnointed: svg(
+        ground() +
+        person(200, 185, 12, 35) +
+        '<path d="M192 188 Q200 178 208 188" ' + s + ' stroke-width="2"/>' +
+        '<path d="M188 182 Q196 165 210 170 Q215 180 208 186" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M195 170 Q200 155 205 162 Q210 168 205 174" ' + s + ' stroke-width="2.5"/>' +
+        person(290, 168, 14, 42) +
+        '<path d="M285 185 Q275 198 280 210" ' + s + ' stroke-width="2.5"/>' +
+        person(60, 185, 11, 32) + person(88, 188, 10, 28) +
+        person(115, 185, 10, 28) + person(338, 185, 10, 28) +
+        sun(320, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 16:13</text>'
+      ),
+
+      /* ── Week 3: Saul Spear (47) ── */
+      saulSpear: svg(
+        ground() +
+        '<rect x="230" y="110" width="90" height="120" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="275" cy="98" r="18" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M257 98 Q275 78 293 98" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="215" y1="95" x2="90" y2="215" ' + s + ' stroke-width="4"/>' +
+        '<polygon points="215,82 205,100 225,100" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(80, 188, 11, 32) +
+        '<path d="M72 196 L62 205 M78 193 L64 198" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 18:11</text>'
+      ),
+
+      /* ── Week 3: David Cave (48) ── */
+      davidCave: svg(
+        ground() +
+        '<path d="M50 260 L50 130 Q200 50 350 130 L350 260" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M65 260 L65 155 Q200 90 335 155 L335 260" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 185, 12, 35) +
+        '<path d="M178 185 Q168 168 175 155 Q183 150 190 158" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M222 185 Q232 168 225 155 Q217 150 210 158" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M225 158 Q248 142 270 155 Q278 165 272 175 Q280 162 285 150 Q276 143 268 148" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 25, 14) + star(100, 35, 10) + star(300, 30, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 24:3</text>'
+      ),
+
+      /* ── Week 4: Elisha Boy Raised (49) ── */
+      elishaRaised: svg(
+        '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 100 L200 80 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M130 260 Q160 220 200 218 Q240 220 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="210" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 210 Q200 202 208 210" ' + s + ' stroke-width="2"/>' +
+        person(200, 145, 13, 40) +
+        '<path d="M192 160 L183 185 M208 160 L217 185" ' + s + ' stroke-width="2.5"/>' +
+        person(55, 180, 12, 35) +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:35</text>'
+      ),
+
+      /* ── Week 4: Jonah Whale already exists ── */
+      /* ── Week 4: Daniel Lions already exists ── */
+
+      /* ── Week 4: Esther Crown (52) ── */
+      estherCrown: svg(
+        ground() +
+        person(200, 165, 14, 42) +
+        '<path d="M186 162 L186 140 L194 148 L200 135 L206 148 L214 140 L214 162 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="135" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="186" cy="140" r="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="214" cy="140" r="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="186" y1="190" x2="160" y2="210" ' + s + ' stroke-width="3.5"/>' +
+        '<polygon points="155,205 158,218 168,212" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(300, 155, 14, 42) +
+        '<rect x="286" y="145" width="28" height="12" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M286 145 Q300 128 314 145" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5:2</text>'
+      ),
+
+      /* ── Week 4: Nehemiah Walls (53) ── */
+      nehemiahWalls: svg(
+        ground() +
+        '<rect x="80" y="80" width="240" height="180" rx="4" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="88" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="138" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="182" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="232" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="282" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
+        person(180, 180, 12, 35) +
+        '<line x1="172" y1="198" x2="155" y2="245" ' + s + ' stroke-width="3.5"/>' +
+        '<polygon points="150,242 148,256 160,252" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M205 198 L215 235" ' + s + ' stroke-width="2.5"/>' +
+        person(60, 182, 10, 28) + person(320, 182, 10, 28) +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:17</text>'
+      ),
+
+      /* ── Week 4: Job Suffering (54) ── */
+      jobSuffering: svg(
+        ground() +
+        person(200, 185, 12, 35) +
+        '<path d="M188 188 Q178 195 180 208 Q186 215 190 210 Q185 220 188 228" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M212 188 Q222 195 220 208 Q214 215 210 210 Q215 220 212 228" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M192 200 Q188 208 190 215" ' + s + ' stroke-width="2"/>' +
+        '<path d="M208 200 Q212 208 210 215" ' + s + ' stroke-width="2"/>' +
+        person(80, 185, 11, 32) + person(105, 188, 10, 28) +
+        person(290, 185, 11, 32) + person(315, 188, 10, 28) +
+        cloud(160, 30) + cloud(60, 55) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 2:13</text>'
+      ),
+
+      /* ── Week 4: Psalm 23 Shepherd (55) ── */
+      psalm23Shepherd: svg(
+        ground() + hills() +
+        '<path d="M0 240 Q100 210 200 240 Q300 270 400 240" ' + s + ' stroke-width="2"/>' +
+        person(200, 170, 13, 40) +
+        '<line x1="188" y1="200" x2="170" y2="258" ' + s + ' stroke-width="3"/>' +
+        '<path d="M162 258 Q170 268 178 258" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="80" cy="228" rx="22" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="62" cy="218" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="130" cy="232" rx="20" ry="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="115" cy="224" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="310" cy="228" rx="20" ry="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="295" cy="218" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Psalm 23:1</text>'
+      ),
+
+      /* ── Week 4: Solomon Wisdom (56) ── */
+      solomonWisdom: svg(
+        ground() +
+        '<rect x="80" y="100" width="240" height="160" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M80 140 L200 118 L320 140" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 148, 14, 42) +
+        '<rect x="186" y="138" width="28" height="12" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M186 138 Q200 122 214 138" ' + s + ' stroke-width="2.5"/>' +
+        person(95, 185, 11, 32) +
+        person(110, 190, 10, 28) +
+        '<line x1="140" y1="200" x2="155" y2="215" ' + s + ' stroke-width="2.5"/>' +
+        person(300, 185, 11, 32) +
+        person(315, 190, 10, 28) +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 3:25</text>'
+      ),
+
+      /* ── Week 4: Elijah Chariot (57) ── */
+      elijahChariot: svg(
+        ground() + hills() +
+        '<path d="M80 140 Q120 90 160 110 Q130 130 120 155" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M240 140 Q280 90 320 110 Q290 130 280 155" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M120 155 Q160 135 200 140 Q240 145 280 155" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="155" cy="168" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="245" cy="168" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(200, 138, 12, 35) +
+        '<path d="M192 148 Q182 135 178 120 Q188 118 195 130" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M208 148 Q218 135 222 120 Q212 118 205 130" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(280, 195, 11, 32) +
+        star(200, 25, 16) + star(100, 40, 10) + star(300, 35, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 2:11</text>'
+      ),
+
+      /* ── Week 4: Jonah Vine (58) ── */
+      jonahVine: svg(
+        ground() + hills() +
+        person(200, 185, 12, 35) +
+        '<path d="M188 200 Q168 188 160 165 Q155 145 165 135 Q175 130 182 140 Q175 148 178 162 Q180 175 192 182" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M160 138 Q148 125 135 130 Q128 140 138 148" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M170 148 Q155 140 148 148 Q142 158 152 164" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M164 165 Q152 165 148 172 Q148 180 158 180" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M165 138 Q155 128 160 118 Q168 115 170 125" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(320, 45, 22) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jonah 4:7</text>'
+      ),
+
+      /* ── Week 4: Daniel Pray (59) ── */
+      danielPray: svg(
+        '<rect x="40" y="50" width="320" height="220" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="120" y1="50" x2="120" y2="270" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="50" x2="200" y2="270" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="280" y1="50" x2="280" y2="270" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="150" y="70" width="100" height="70" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M155 140 Q200 105 245 140" ' + s + ' stroke-width="2.5"/>' +
+        person(200, 165, 12, 35) +
+        '<path d="M200 182 L192 205 M200 182 L208 205" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M192 195 L200 188 L208 195" ' + s + ' stroke-width="2"/>' +
+        star(200, 30, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:10</text>'
+      ),
+
+      /* ── Week 4: Esther Banquet (60) ── */
+      estherBanquet: svg(
+        ground() +
+        '<rect x="80" y="95" width="240" height="160" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M80 138 L200 115 L320 138" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M110 255 Q150 235 200 235 Q250 235 290 255" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 148, 13, 40) +
+        '<path d="M186 148 L186 128 L194 136 L200 122 L206 136 L214 128 L214 148 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="190" y1="178" x2="165" y2="198" ' + s + ' stroke-width="3"/>' +
+        person(295, 155, 13, 38) +
+        '<rect x="282" y="146" width="26" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M282 146 Q295 132 308 146" ' + s + ' stroke-width="2.5"/>' +
+        person(100, 165, 11, 32) +
+        sun(40, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 7:6</text>'
+      ),
+
+      /* ── Week 5: Angel Mary (61) ── */
+      angelMary: svg(
+        ground() +
+        person(155, 178, 12, 35) +
+        '<path d="M155 195 Q145 208 148 220" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="290" cy="148" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="290" y1="162" x2="290" y2="205" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M268 152 Q252 135 268 122 Q282 132 290 148" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M312 152 Q328 135 312 122 Q298 132 290 148" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M265 198 L280 220 M315 198 L300 220" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="238" cy="220" rx="15" ry="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M235 200 Q232 210 235 215" ' + s + ' stroke-width="2"/>' +
+        sun(340, 50, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 1:28</text>'
+      ),
+
+      /* ── Week 5: Shepherds Star (62) ── */
+      shepherdsStar: svg(
+        ground() + hills() +
+        star(200, 35, 22) +
+        '<line x1="200" y1="57" x2="200" y2="100" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        '<circle cx="198" cy="152" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M180 142 Q165 125 180 112 Q194 122 198 138" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M216 142 Q231 125 216 112 Q202 122 198 138" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(80, 188, 11, 32) + person(108, 192, 10, 28) +
+        '<ellipse cx="58" cy="228" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="44" cy="220" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(290, 185, 10, 28) + person(320, 188, 10, 28) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:9</text>'
+      ),
+
+      /* ── Week 5: Jesus Manger (63) ── */
+      jesusManger: svg(
+        ground() +
+        '<path d="M100 260 L100 140 L200 100 L300 140 L300 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M100 140 L200 100 L300 140" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="155" y="175" width="90" height="50" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="190" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M195 192 Q200 185 205 192" ' + s + ' stroke-width="2"/>' +
+        person(120, 180, 11, 32) + person(275, 180, 11, 32) +
+        '<path d="M282 175 Q295 162 310 168 Q318 178 312 185" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 40, 18) + star(120, 60, 10) + star(280, 55, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:7</text>'
+      ),
+
+      /* ── Week 5: Jesus Temple (64) ── */
+      jesusTemple: svg(
+        ground() +
+        '<rect x="70" y="80" width="260" height="180" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="90" y1="80" x2="90" y2="260" ' + s + ' stroke-width="3"/>' +
+        '<line x1="310" y1="80" x2="310" y2="260" ' + s + ' stroke-width="3"/>' +
+        '<path d="M70 80 L200 40 L330 80" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="110" y1="80" x2="110" y2="260" ' + s + ' stroke-width="2"/>' +
+        '<line x1="150" y1="80" x2="150" y2="260" ' + s + ' stroke-width="2"/>' +
+        '<line x1="250" y1="80" x2="250" y2="260" ' + s + ' stroke-width="2"/>' +
+        '<line x1="290" y1="80" x2="290" y2="260" ' + s + ' stroke-width="2"/>' +
+        person(200, 155, 11, 32) +
+        person(130, 168, 12, 35) + person(158, 172, 11, 32) +
+        person(248, 168, 12, 35) + person(272, 172, 11, 32) +
+        sun(335, 48, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:46</text>'
+      ),
+
+      /* ── Week 5: John Baptize (65) ── */
+      johnBaptize: svg(
+        '<path d="M0 205 Q50 185 100 205 Q150 225 200 205 Q250 185 300 205 Q350 225 400 205 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(165, 178, 12, 35) +
+        '<path d="M155 202 L148 230" ' + s + ' stroke-width="2.5"/>' +
+        person(235, 168, 13, 40) +
+        '<line x1="225" y1="195" x2="218" y2="225" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M232 178 Q242 162 248 168" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M248 162 Q260 148 270 155 Q278 165 272 175 Q280 162 285 150" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 35, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 3:16</text>'
+      ),
+
+      /* ── Week 5: Jesus Tempt (66) ── */
+      jesusTempt: svg(
+        ground() + hills() +
+        '<path d="M50 250 Q50 160 120 140 Q180 128 220 165" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 178, 12, 35) +
+        '<ellipse cx="180" cy="230" rx="14" ry="9" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="210" cy="232" rx="14" ry="9" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="245" cy="228" rx="14" ry="9" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="330" cy="138" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M312 145 Q296 128 312 115 Q326 125 330 140" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M348 145 Q364 128 348 115 Q334 125 330 140" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="330" y1="159" x2="330" y2="200" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 4:3</text>'
+      ),
+
+      /* ── Week 5: Wedding Wine (67) ── */
+      weddingWine: svg(
+        ground() +
+        '<rect x="60" y="100" width="280" height="160" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 138 L200 115 L340 138" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="100" cy="220" rx="18" ry="30" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="145" cy="222" rx="16" ry="28" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="188" cy="224" rx="15" ry="26" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="228" cy="222" rx="15" ry="26" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(275, 148, 12, 35) +
+        '<path d="M268 165 Q258 178 262 188" ' + s + ' stroke-width="2.5"/>' +
+        person(318, 155, 11, 32) +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:7</text>'
+      ),
+
+      /* ── Week 5: Jesus Heal Blind (68) ── */
+      healBlind: svg(
+        ground() +
+        person(155, 178, 12, 35) +
+        '<path d="M148 192 Q140 200 142 212" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="152" cy="172" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="158" cy="172" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M148 170 Q156 162 164 168" ' + s + ' stroke-width="2"/>' +
+        person(245, 168, 13, 40) +
+        '<path d="M236 184 Q225 195 230 208" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M232 192 Q228 200 232 208" ' + s + ' stroke-width="2"/>' +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 9:6</text>'
+      ),
+
+      /* ── Week 5: Jesus Calm Storm already exists (jesusCalmsStorm) ── */
+      /* ── Week 5: Jesus Walk Water already exists (jesusWalksWater) ── */
+      /* ── Week 5: Jesus Feed 5000 already exists (jesusFeeds5000) ── */
+
+      /* ── Week 5: Jesus Bless Kids (72) ── */
+      jesusBlessKids: svg(
+        ground() + hills() +
+        person(200, 158, 14, 42) +
+        person(130, 195, 9, 25) + person(150, 198, 8, 22) +
+        person(245, 196, 9, 25) + person(265, 200, 8, 22) +
+        '<path d="M196 170 Q182 182 138 200" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M204 170 Q218 182 252 200" ' + s + ' stroke-width="2.5"/>' +
+        sun(320, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 10:14</text>'
+      ),
+
+      /* ── Week 6: Good Samaritan already exists ── */
+      /* ── Week 6: Prodigal Son already exists ── */
+      /* ── Week 6: Parable Sower already exists ── */
+
+      /* ── Week 6: Lost Sheep already exists ── */
+
+      /* ── Week 6: Mustard Seed (77) ── */
+      mustardSeed: svg(
+        ground() +
+        '<line x1="200" y1="260" x2="200" y2="80" ' + s + ' stroke-width="4"/>' +
+        '<circle cx="200" cy="62" r="40" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="165" cy="80" r="26" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="235" cy="78" r="26" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="148" cy="105" r="18" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="252" cy="102" r="18" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M168 80 Q172 74 180 80" ' + s + ' stroke-width="2"/>' +
+        '<path d="M218 78 Q224 72 230 78" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="270" rx="5" ry="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 13:32</text>'
+      ),
+
+      /* ── Week 6: Jesus Heal Leper (78) ── */
+      healLeper: svg(
+        ground() +
+        person(145, 195, 12, 35) +
+        '<path d="M138 210 Q128 220 130 235" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M132 205 Q120 210 118 222" ' + s + ' stroke-width="2"/>' +
+        '<path d="M155 205 Q148 215 150 225" ' + s + ' stroke-width="2"/>' +
+        person(258, 172, 13, 40) +
+        '<path d="M248 188 Q238 200 242 212" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="248" y1="188" x2="158" y2="210" ' + s + ' stroke-width="2.5" stroke-dasharray="5,3"/>' +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 17:14</text>'
+      ),
+
+      /* ── Week 6: Jairus Daughter (79) ── */
+      jairus: svg(
+        '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 100 L200 78 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M130 260 Q165 220 200 218 Q235 220 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="210" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 210 Q200 202 208 210" ' + s + ' stroke-width="2"/>' +
+        person(200, 148, 13, 40) +
+        '<path d="M192 162 L183 188 M208 162 L217 188" ' + s + ' stroke-width="2.5"/>' +
+        person(95, 170, 11, 32) + person(310, 170, 11, 32) +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 5:41</text>'
+      ),
+
+      /* ── Week 6: Jesus Transfigure (80) ── */
+      transfigure: svg(
+        ground() + hills() +
+        '<path d="M80 260 Q80 150 200 80 Q320 150 320 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 125, 14, 42) +
+        '<line x1="186" y1="132" x2="186" y2="155" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        '<line x1="214" y1="132" x2="214" y2="155" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        '<line x1="200" y1="120" x2="200" y2="105" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        '<line x1="175" y1="128" x2="160" y2="118" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        '<line x1="225" y1="128" x2="240" y2="118" ' + s + ' stroke-width="1.5" stroke-dasharray="3,3"/>' +
+        person(100, 220, 11, 32) + person(130, 225, 10, 28) + person(295, 220, 11, 32) +
+        star(200, 40, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 17:2</text>'
+      ),
+
+      /* ── Week 6: Palm Sunday already exists ── */
+      /* ── Week 6: Last Supper already exists ── */
+
+      /* ── Week 6: Garden Pray already exists ── */
+      /* ── Week 6: Judas Kiss (84) ── */
+      judasKiss: svg(
+        ground() +
+        person(188, 175, 12, 35) +
+        person(215, 178, 12, 35) +
+        '<path d="M218 188 Q215 178 205 178" ' + s + ' stroke-width="2.5"/>' +
+        person(60, 185, 10, 28) + person(82, 188, 10, 28) + person(105, 185, 10, 28) +
+        person(295, 185, 10, 28) + person(320, 188, 10, 28) +
+        '<line x1="82" y1="178" x2="82" y2="248" ' + s + ' stroke-width="3.5"/>' +
+        '<polygon points="82,248 75,265 89,265" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="58" cy="248" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 30, 12) + star(100, 40, 8) + star(300, 38, 8) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 26:49</text>'
+      ),
+
+      /* ── Week 7: Cross Carry (85) ── */
+      crossCarry: svg(
+        ground() +
+        '<path d="M80 250 Q100 220 140 240" ' + s + ' stroke-width="3"/>' +
+        '<line x1="170" y1="100" x2="170" y2="255" ' + s + ' stroke-width="7"/>' +
+        '<line x1="125" y1="145" x2="215" y2="145" ' + s + ' stroke-width="7"/>' +
+        person(160, 165, 12, 35) +
+        person(212, 175, 11, 32) +
+        '<path d="M205 190 Q210 202 205 215" ' + s + ' stroke-width="2.5"/>' +
+        person(60, 185, 10, 28) + person(320, 182, 10, 28) +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 23:26</text>'
+      ),
+
+      /* ── Week 7: Crucifixion (86) ── */
+      crucifixion: svg(
+        ground() + hills() +
+        '<line x1="200" y1="60" x2="200" y2="250" ' + s + ' stroke-width="7"/>' +
+        '<line x1="130" y1="112" x2="270" y2="112" ' + s + ' stroke-width="7"/>' +
+        person(200, 75, 12, 35) +
+        '<line x1="175" y1="112" x2="188" y2="115" ' + s + ' stroke-width="3"/>' +
+        '<line x1="225" y1="112" x2="212" y2="115" ' + s + ' stroke-width="3"/>' +
+        '<rect x="182" y="60" width="36" height="14" rx="2" ' + s + ' stroke-width="2"/>' +
+        cloud(60, 28) + cloud(280, 22) +
+        '<line x1="100" y1="18" x2="120" y2="48" ' + s + ' stroke-width="3"/>' +
+        '<line x1="300" y1="15" x2="280" y2="45" ' + s + ' stroke-width="3"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 19:18</text>'
+      ),
+
+      /* ── Week 7: Tomb Empty (87) ── */
+      tombEmpty: svg(
+        ground() + hills() +
+        '<path d="M115 255 L115 178 Q200 145 285 178 L285 255" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="115" y="178" width="170" height="77" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="82" cy="198" r="50" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M152 240 Q190 220 228 240 Q210 252 200 255 Q190 252 152 240" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="308" cy="162" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M290 168 Q274 150 290 136 Q304 148 308 163" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M326 168 Q342 150 326 136 Q312 148 308 163" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(350, 192, 10, 28) +
+        star(200, 25, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 28:6</text>'
+      ),
+
+      /* ── Week 7: Emmaus Road (88) ── */
+      emmausRoad: svg(
+        ground() + hills() +
+        '<path d="M30 260 Q200 230 370 260" ' + s + ' stroke-width="3"/>' +
+        person(145, 185, 11, 32) + person(172, 188, 10, 28) +
+        person(225, 178, 12, 35) +
+        '<path d="M218 192 Q212 205 216 218" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 24:15</text>'
+      ),
+
+      /* ── Week 7: Thomas Doubt (89) ── */
+      thomasDoubt: svg(
+        ground() +
+        '<rect x="60" y="80" width="280" height="185" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 120 L200 98 L340 120" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 138, 13, 40) +
+        '<path d="M192 152 L183 178 M208 152 L217 178" ' + s + ' stroke-width="2.5"/>' +
+        person(140, 175, 11, 32) + person(115, 178, 10, 28) +
+        person(265, 172, 11, 32) + person(292, 175, 10, 28) +
+        '<path d="M268 188 Q280 195 278 208" ' + s + ' stroke-width="2.5"/>' +
+        star(200, 40, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:27</text>'
+      ),
+
+      /* ── Week 7: Pentecost Fire (90) ── */
+      pentecost: svg(
+        ground() +
+        '<rect x="70" y="70" width="260" height="185" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M70 110 L200 85 L330 110" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(145, 155, 11, 32) + person(175, 158, 10, 28) + person(200, 152, 11, 32) +
+        person(225, 158, 10, 28) + person(255, 155, 11, 32) +
+        '<path d="M145 152 Q140 135 148 125 Q155 132 152 145" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 149 Q196 132 205 122 Q212 130 208 143" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M255 152 Q250 135 258 125 Q265 132 262 145" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        cloud(158, 40) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 2:3</text>'
+      ),
+
+      /* ── Week 7: Peter Shadow Heal (91) ── */
+      peterShadow: svg(
+        ground() +
+        person(280, 155, 14, 42) +
+        '<path d="M275 175 Q240 195 210 210" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        person(110, 195, 11, 32) +
+        '<path d="M102 220 L98 248" ' + s + ' stroke-width="3"/>' +
+        '<line x1="110" y1="228" x2="100" y2="235" ' + s + ' stroke-width="2.5"/>' +
+        person(55, 182, 10, 28) + person(345, 182, 10, 28) +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 5:15</text>'
+      ),
+
+      /* ── Week 7: Paul Damascus (92) ── */
+      paulDamascus: svg(
+        ground() + hills() +
+        '<path d="M30 260 Q200 230 370 260" ' + s + ' stroke-width="3"/>' +
+        person(200, 215, 12, 35) +
+        '<path d="M195 218 L188 242" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M205 218 L212 242" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="212" x2="200" y2="200" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="200" cy="155" rx="45" ry="35" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="170" y1="135" x2="145" y2="110" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        '<line x1="200" y1="120" x2="200" y2="95" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        '<line x1="230" y1="135" x2="255" y2="110" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        sun(200, 90, 22) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 9:4</text>'
+      ),
+
+      /* ── Week 7: Paul Shipwreck (93) ── */
+      paulShipwreck: svg(
+        '<path d="M0 200 Q50 175 100 200 Q150 225 200 200 Q250 175 300 200 Q350 225 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 200 Q100 175 180 190 L180 225 Q100 235 60 200 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="200" y1="160" x2="200" y2="225" ' + s + ' stroke-width="3.5"/>' +
+        '<path d="M200 165 Q230 180 200 205 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="290" cy="218" rx="30" ry="15" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M280 210 Q292 198 308 205" ' + s + ' stroke-width="2.5"/>' +
+        person(120, 182, 10, 28) +
+        cloud(60, 30) + cloud(280, 20) +
+        '<line x1="310" y1="18" x2="290" y2="48" ' + s + ' stroke-width="3"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 28:3</text>'
+      ),
+
+      /* ── Week 7: Paul Silas Sing (94) ── */
+      paulSilas: svg(
+        '<rect x="40" y="50" width="320" height="220" rx="6" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<line x1="120" y1="50" x2="120" y2="270" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="50" x2="200" y2="270" ' + s + ' stroke-width="3"/>' +
+        '<line x1="280" y1="50" x2="280" y2="270" ' + s + ' stroke-width="3"/>' +
+        '<line x1="40" y1="130" x2="360" y2="130" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="40" y1="190" x2="360" y2="190" ' + s + ' stroke-width="2.5"/>' +
+        person(155, 155, 11, 32) + person(238, 155, 11, 32) +
+        '<path d="M152 162 Q148 152 156 145" ' + s + ' stroke-width="2"/>' +
+        '<path d="M235 162 Q231 152 239 145" ' + s + ' stroke-width="2"/>' +
+        '<path d="M158 150 Q165 142 172 148" ' + s + ' stroke-width="2"/>' +
+        '<path d="M242 148 Q249 140 256 146" ' + s + ' stroke-width="2"/>' +
+        star(200, 25, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 16:25</text>'
+      ),
+
+      /* ── Week 7: Armor of God (95) ── */
+      armorOfGod: svg(
+        ground() +
+        person(200, 138, 14, 42) +
+        '<rect x="185" y="128" width="30" height="20" rx="3" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="200" y1="128" x2="200" y2="108" ' + s + ' stroke-width="3"/>' +
+        '<path d="M188 110 Q200 96 212 110" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="158" cy="172" rx="22" ry="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="148" y1="164" x2="168" y2="164" ' + s + ' stroke-width="2"/>' +
+        '<line x1="148" y1="172" x2="168" y2="172" ' + s + ' stroke-width="2"/>' +
+        '<line x1="148" y1="180" x2="168" y2="180" ' + s + ' stroke-width="2"/>' +
+        '<line x1="225" y1="150" x2="258" y2="198" ' + s + ' stroke-width="4"/>' +
+        '<polygon points="258,198 248,208 265,212" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="188" y1="188" x2="188" y2="235" ' + s + ' stroke-width="3"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ephesians 6:11</text>'
+      ),
+
+      /* ── Week 7: Ten Virgins (96) ── */
+      tenVirgins: svg(
+        ground() +
+        '<path d="M40 260 Q200 230 360 260" ' + s + ' stroke-width="2.5"/>' +
+        person(75, 185, 10, 28) + person(100, 188, 9, 25) + person(125, 185, 10, 28) +
+        person(150, 188, 9, 25) + person(175, 185, 10, 28) +
+        person(225, 185, 10, 28) + person(250, 188, 9, 25) + person(275, 185, 10, 28) +
+        person(300, 188, 9, 25) + person(325, 185, 10, 28) +
+        '<path d="M80 175 Q80 162 86 158 Q92 162 88 175" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M130 175 Q130 162 136 158 Q142 162 138 175" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M180 175 Q180 162 186 158 Q192 162 188 175" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M230 175 Q230 162 236 158 Q242 162 238 175" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M280 175 Q280 162 286 158 Q292 162 288 175" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 35, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 25:1</text>'
+      ),
+
+      /* ── Week 8: Armor Shield (97) ── */
+      armorShield: svg(
+        ground() +
+        '<path d="M130 50 L270 50 L280 175 Q280 230 200 262 Q120 230 120 175 Z" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<line x1="200" y1="80" x2="200" y2="230" ' + s + ' stroke-width="3"/>' +
+        '<line x1="145" y1="145" x2="255" y2="145" ' + s + ' stroke-width="3"/>' +
+        '<line x1="320" y1="90" x2="285" y2="145" ' + s + ' stroke-width="4" stroke-dasharray="6,3"/>' +
+        '<line x1="340" y1="115" x2="295" y2="160" ' + s + ' stroke-width="4" stroke-dasharray="6,3"/>' +
+        '<line x1="325" y1="140" x2="290" y2="175" ' + s + ' stroke-width="4" stroke-dasharray="6,3"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ephesians 6:16</text>'
+      ),
+
+      /* ── Week 8: Armor Sword (98) ── */
+      armorSword: svg(
+        ground() +
+        '<line x1="200" y1="250" x2="200" y2="50" ' + s + ' stroke-width="6"/>' +
+        '<polygon points="200,50 192,75 208,75" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="160" y1="175" x2="240" y2="175" ' + s + ' stroke-width="4"/>' +
+        '<rect x="188" y="220" width="24" height="32" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="180" y="50" width="40" height="18" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="63" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#444">WORD</text>' +
+        sun(50, 45, 18) + star(330, 45, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ephesians 6:17</text>'
+      ),
+
+      /* ── Week 8: Fruit Spirit (99) ── */
+      fruitSpirit: svg(
+        ground() +
+        '<line x1="200" y1="260" x2="200" y2="100" ' + s + ' stroke-width="4"/>' +
+        '<circle cx="200" cy="82" r="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="168" cy="98" r="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="232" cy="98" r="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="152" cy="122" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="248" cy="122" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="148" cy="150" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="252" cy="150" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="180" cy="82" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="220" cy="82" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Galatians 5:22</text>'
+      ),
+
+      /* ── Week 8: Love Chapter (100) ── */
+      loveChapter: svg(
+        ground() +
+        '<path d="M200 85 Q165 55 145 80 Q130 105 155 128 Q175 148 200 170 Q225 148 245 128 Q270 105 255 80 Q235 55 200 85 Z" ' + sf + ' fill="white" stroke-width="4"/>' +
+        person(130, 190, 11, 32) + person(258, 190, 11, 32) +
+        '<path d="M140 205 Q165 215 200 215 Q235 215 260 205" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) + star(330, 45, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Corinthians 13:4</text>'
+      ),
+
+      /* ── Week 8: Faith Mustard (101) ── */
+      faithMustard: svg(
+        ground() + hills() +
+        '<ellipse cx="200" cy="238" rx="5" ry="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="80" y1="100" x2="120" y2="60" ' + s + ' stroke-width="3" stroke-dasharray="5,4"/>' +
+        '<line x1="80" y1="100" x2="60" y2="55" ' + s + ' stroke-width="3" stroke-dasharray="5,4"/>' +
+        '<ellipse cx="80" cy="100" rx="35" ry="25" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 195, 12, 35) +
+        '<path d="M188 198 Q180 185 188 175" ' + s + ' stroke-width="2.5"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 17:20</text>'
+      ),
+
+      /* ── Week 8: Prayer Knock (102) ── */
+      prayerKnock: svg(
+        ground() +
+        '<rect x="120" y="60" width="160" height="200" rx="6" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M120 100 L200 78 L280 100" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M155 260 L155 175 Q200 152 245 175 L245 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="155" y="175" width="90" height="85" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="238" cy="217" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(90, 185, 11, 32) +
+        '<path d="M100 195 Q110 188 120 192" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="105" y1="200" x2="120" y2="205" ' + s + ' stroke-width="2"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 7:7</text>'
+      ),
+
+      /* ── Week 8: Worry Birds (103) ── */
+      worryBirds: svg(
+        ground() + hills() + sun(50, 40, 20) +
+        '<path d="M155 85 Q170 75 185 85" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="175" cy="80" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="175" y1="86" x2="175" y2="105" ' + s + ' stroke-width="2"/>' +
+        '<path d="M175 105 L165 122 M175 105 L185 122" ' + s + ' stroke-width="2"/>' +
+        '<path d="M220" y1="95" Q235 85 250 95" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="240" cy="90" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="240" y1="96" x2="240" y2="115" ' + s + ' stroke-width="2"/>' +
+        '<path d="M240 115 L230 132 M240 115 L250 132" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="310" cy="195" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="330" cy="208" rx="16" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="292" cy="208" rx="16" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(130, 185, 12, 35) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 6:26</text>'
+      ),
+
+      /* ── Week 8: Forgive 70x7 (104) ── */
+      forgive70x7: svg(
+        ground() +
+        person(155, 185, 12, 35) +
+        person(240, 180, 13, 40) +
+        '<path d="M158 200 Q192 195 240 197" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M148 200 Q135 210 132 222" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M250 195 Q262 205 260 218" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) + star(330, 45, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 18:22</text>'
+      ),
+
+      /* ── Week 8: Widow Mite (105) ── */
+      widowMite: svg(
+        ground() +
+        '<rect x="155" y="120" width="90" height="110" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M155 155 L200 135 L245 155" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="200" cy="155" rx="15" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(120, 185, 11, 32) +
+        '<path d="M130 205 Q145 198 155 205" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="120" cy="208" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="125" cy="212" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(285, 175, 13, 38) +
+        '<rect x="272" y="165" width="26" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M272 165 Q285 150 298 165" ' + s + ' stroke-width="2.5"/>' +
+        sun(40, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 12:42</text>'
+      ),
+
+      /* ── Week 8: Rich Young Ruler (106) ── */
+      richYoungRuler: svg(
+        ground() + hills() +
+        person(155, 178, 12, 35) +
+        '<path d="M145 185 Q130 198 134 215" ' + s + ' stroke-width="2.5"/>' +
+        person(248, 165, 13, 38) +
+        '<path d="M240 180 Q230 192 234 205" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="310" cy="220" rx="25" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M290 210 Q310 200 330 210 Q310 198 290 210" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="340" cy="205" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="338" y1="208" x2="330" y2="222" ' + s + ' stroke-width="2"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 10:22</text>'
+      ),
+
+      /* ── Week 8: Zacchaeus Tree already exists ── */
+
+      /* ── Week 8: Mary Anoint (108) ── */
+      maryAnoint: svg(
+        ground() +
+        '<rect x="60" y="90" width="280" height="175" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 130 L200 105 L340 130" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 148, 13, 40) +
+        '<path d="M192 195 L183 215" ' + s + ' stroke-width="2.5"/>' +
+        person(155, 215, 11, 32) +
+        '<path d="M162 222 Q175 235 185 245" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M152 218 Q145 235 148 248" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="178" cy="248" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M178 240 Q172 230 178 225 Q184 230 178 240" ' + s + ' stroke-width="2"/>' +
+        person(280, 175, 11, 32) +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 12:3</text>'
+      ),
+
+      /* ── Week 9: Stephen Stones (109) ── */
+      stephenStones: svg(
+        ground() +
+        person(200, 195, 12, 35) +
+        '<path d="M192 210 Q185 222 188 238" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M208 210 Q215 222 212 238" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="80" cy="200" rx="14" ry="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="120" cy="195" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="300" cy="200" rx="14" ry="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="340" cy="195" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="200" cy="120" rx="55" ry="35" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="178" y1="112" x2="165" y2="98" ' + s + ' stroke-width="2" stroke-dasharray="3,3"/>' +
+        '<line x1="200" y1="105" x2="200" y2="90" ' + s + ' stroke-width="2" stroke-dasharray="3,3"/>' +
+        '<line x1="222" y1="112" x2="235" y2="98" ' + s + ' stroke-width="2" stroke-dasharray="3,3"/>' +
+        star(200, 75, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 7:56</text>'
+      ),
+
+      /* ── Week 9: Philip Chariot (110) ── */
+      philipChariot: svg(
+        ground() +
+        '<ellipse cx="265" cy="218" rx="45" ry="22" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="198" cy="232" rx="20" ry="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="332" cy="232" rx="20" ry="20" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="218" y1="232" x2="312" y2="232" ' + s + ' stroke-width="2.5"/>' +
+        person(255, 185, 10, 28) + person(278, 185, 10, 28) +
+        person(130, 195, 12, 35) +
+        '<path d="M140 208 Q148 218 144 228" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 8:30</text>'
+      ),
+
+      /* ── Week 9: Paul Ship (111) ── */
+      paulShip: svg(
+        '<path d="M0 200 Q50 178 100 200 Q150 222 200 200 Q250 178 300 200 Q350 222 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 200 Q140 178 280 195 L260 238 Q140 248 60 200 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="200" y1="160" x2="200" y2="240" ' + s + ' stroke-width="3.5"/>' +
+        '<path d="M200 165 L235 185 L200 210 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(155, 185, 10, 28) + person(180, 188, 9, 24) +
+        '<circle cx="295" cy="172" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M278 178 Q262 160 278 146 Q292 158 295 173" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M312 178 Q328 160 312 146 Q298 158 295 173" ' + sf + ' fill="white" stroke-width="2"/>' +
+        cloud(60, 25) + cloud(280, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 27:23</text>'
+      ),
+
+      /* ── Week 9: Revelation Throne (112) ── */
+      revelationThrone: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<path d="M140 260 L140 140 Q200 100 260 140 L260 260" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="130" y="80" width="140" height="65" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M130 80 L200 50 L270 80" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M80 200 Q80 150 130 135 Q100 155 100 200" ' + s + ' stroke-width="3"/>' +
+        '<path d="M320 200 Q320 150 270 135 Q300 155 300 200" ' + s + ' stroke-width="3"/>' +
+        '<path d="M60 180 Q120 155 130 165" ' + s + ' stroke-width="3" stroke-dasharray="4,3"/>' +
+        '<path d="M340 180 Q280 155 270 165" ' + s + ' stroke-width="3" stroke-dasharray="4,3"/>' +
+        star(200, 30, 18) + star(90, 55, 10) + star(310, 55, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 4:2</text>'
+      ),
+
+      /* ── Week 9: Four Horsemen (113) ── */
+      fourHorsemen: svg(
+        ground() + hills() +
+        '<ellipse cx="80" cy="205" rx="30" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="160" cy="205" rx="30" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="240" cy="205" rx="30" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="320" cy="205" rx="30" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(80, 178, 10, 28) + person(160, 178, 10, 28) +
+        person(240, 178, 10, 28) + person(320, 178, 10, 28) +
+        sun(200, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 6:1</text>'
+      ),
+
+      /* ── Week 9: Alpha Omega (114) ── */
+      alphaOmega: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        star(200, 40, 24) +
+        '<text x="120" y="185" font-size="72" font-family="serif" fill="none" ' + s + ' stroke-width="3">A</text>' +
+        '<text x="232" y="185" font-size="72" font-family="serif" fill="none" ' + s + ' stroke-width="3">Ω</text>' +
+        '<line x1="60" y1="215" x2="155" y2="215" ' + s + ' stroke-width="2"/>' +
+        '<line x1="245" y1="215" x2="340" y2="215" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="215" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">·</text>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 1:8</text>'
+      ),
+
+      /* ── Week 9: New Heaven (115) ── */
+      newHeaven: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<rect x="80" y="80" width="240" height="170" rx="12" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M80 120 L200 88 L320 120" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="120" y="120" width="40" height="40" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="240" y="120" width="40" height="40" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M160 250 L160 185 Q200 165 240 185 L240 250" ' + sf + ' fill="white" stroke-width="3"/>' +
+        star(200, 40, 18) + star(60, 50, 12) + star(340, 50, 12) +
+        star(100, 28, 8) + star(300, 28, 8) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 21:4</text>'
+      ),
+
+      /* ── Week 9: Tree of Life (116) ── */
+      treeOfLife: svg(
+        ground() +
+        '<line x1="200" y1="260" x2="200" y2="110" ' + s + ' stroke-width="5"/>' +
+        '<circle cx="200" cy="88" r="35" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="168" cy="106" r="24" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="232" cy="106" r="24" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="152" cy="132" r="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="248" cy="130" r="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="178" cy="88" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="222" cy="88" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="198" cy="68" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M170 260 Q200 252 230 260" ' + s + ' stroke-width="2"/>' +
+        star(200, 30, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 22:2</text>'
+      ),
+
+      /* ── Week 9: River of Life (117) ── */
+      riverOfLife: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<path d="M160 300 Q155 240 165 180 Q170 130 200 80 Q230 130 235 180 Q245 240 240 300" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M175 260 Q200 248 225 260" ' + s + ' stroke-width="2"/>' +
+        '<path d="M170 220 Q200 208 230 220" ' + s + ' stroke-width="2"/>' +
+        '<path d="M168 180 Q200 168 232 180" ' + s + ' stroke-width="2"/>' +
+        '<path d="M168 140 Q200 128 232 140" ' + s + ' stroke-width="2"/>' +
+        '<rect x="165" y="40" width="70" height="45" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M155 40 L200 18 L245 40" ' + sf + ' fill="white" stroke-width="3"/>' +
+        star(200, 12, 12) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 22:1</text>'
+      ),
+
+      /* ── Week 9: Lamb Book (118) ── */
+      lambBook: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<rect x="90" y="80" width="220" height="160" rx="6" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<line x1="200" y1="80" x2="200" y2="240" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="90" y1="120" x2="310" y2="120" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="90" y1="145" x2="310" y2="145" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="90" y1="170" x2="310" y2="170" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="90" y1="195" x2="310" y2="195" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="90" y1="220" x2="310" y2="220" ' + s + ' stroke-width="1.5"/>' +
+        star(200, 40, 18) +
+        '<ellipse cx="200" cy="255" rx="22" ry="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="183" cy="248" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 21:27</text>'
+      ),
+
+      /* ── Week 9: Dragon Fight (119) ── */
+      dragonFight: svg(
+        ground() + hills() +
+        '<path d="M280 220 Q310 200 320 175 Q315 150 300 148 Q285 152 280 168 Q290 165 295 175 Q292 190 280 195" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M280 220 Q265 230 255 220 Q258 205 268 205" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M295 148 Q310 125 325 110 Q315 130 320 148 Q330 132 340 118" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="307" cy="143" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="305" y1="140" x2="299" y2="134" ' + s + ' stroke-width="2"/>' +
+        '<line x1="309" y1="138" x2="306" y2="131" ' + s + ' stroke-width="2"/>' +
+        person(138, 178, 12, 35) +
+        '<path d="M140 155 Q148 140 160 145" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="145" y1="200" x2="255" y2="200" ' + s + ' stroke-width="4"/>' +
+        '<polygon points="255,200 242,192 242,208" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 30, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 12:7</text>'
+      ),
+
+      /* ── Week 9: Beast Mark (120) ── */
+      beastMark: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<path d="M120 50 L280 50 L300 200 Q280 255 200 270 Q120 255 100 200 Z" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<text x="200" y="165" text-anchor="middle" font-size="48" font-family="serif" fill="none" ' + s + ' stroke-width="3">666</text>' +
+        '<line x1="145" y1="175" x2="255" y2="175" ' + s + ' stroke-width="2.5"/>' +
+        person(80, 185, 11, 32) + person(310, 185, 11, 32) +
+        '<path d="M80 202 Q88 210 80 218" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M310 202 Q318 210 310 218" ' + s + ' stroke-width="2.5"/>' +
+        star(200, 28, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 13:18</text>'
+      ),
+
+      /* ── Week 10: Rahab Window (121) ── */
+      rahabWindow: svg(
+        '<rect x="110" y="28" width="180" height="235" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="148" y="60" width="104" height="75" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M148 135 Q200 100 252 135" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="148" y="165" width="104" height="98" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M185 135 Q185 158 188 182 Q192 210 185 263" ' + s + ' stroke-width="3.5"/>' +
+        '<path d="M200 135 Q200 158 202 182 Q205 210 200 263" ' + s + ' stroke-width="2.5"/>' +
+        person(200, 60, 12, 35) +
+        sun(335, 48, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Joshua 2:18</text>'
+      ),
+
+      /* ── Week 10: Deborah Judge (122) ── */
+      deborahJudge: svg(
+        ground() +
+        '<line x1="200" y1="260" x2="200" y2="120" ' + s + ' stroke-width="3.5"/>' +
+        '<circle cx="200" cy="108" r="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="180" cy="100" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="220" cy="100" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 165, 13, 40) +
+        '<line x1="185" y1="182" x2="162" y2="245" ' + s + ' stroke-width="3.5"/>' +
+        '<polygon points="158,242 154,256 166,253" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(80, 185, 10, 28) + person(105, 188, 10, 28) +
+        person(290, 185, 10, 28) + person(315, 188, 10, 28) +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 4:4</text>'
+      ),
+
+      /* ── Week 10: Jael Tent (123) ── */
+      jaelTent: svg(
+        ground() +
+        '<path d="M60 260 L200 80 L340 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M120 260 L120 180 L200 140 L280 180 L280 260" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 178, 12, 35) +
+        '<path d="M192 195 Q182 208 185 222" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="205" y1="200" x2="220" y2="185" ' + s + ' stroke-width="3"/>' +
+        '<polygon points="220,185 226,175 232,185 220,185" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Judges 4:21</text>'
+      ),
+
+      /* ── Week 10: Abigail Wise (124) ── */
+      abigailWise: svg(
+        ground() + hills() +
+        '<path d="M30 260 Q200 230 370 260" ' + s + ' stroke-width="2.5"/>' +
+        person(165, 175, 12, 35) +
+        '<path d="M158 195 Q145 205 148 218" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="258" cy="218" rx="24" ry="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="242" cy="207" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="145" cy="225" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(290, 172, 13, 38) +
+        '<path d="M284 188 Q276 198 280 210" ' + s + ' stroke-width="2.5"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 25:18</text>'
+      ),
+
+      /* ── Week 10: Hannah Pray (125) ── */
+      hannahPray: svg(
+        ground() +
+        '<rect x="70" y="65" width="260" height="190" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="90" y1="65" x2="90" y2="255" ' + s + ' stroke-width="3"/>' +
+        '<line x1="310" y1="65" x2="310" y2="255" ' + s + ' stroke-width="3"/>' +
+        '<path d="M70 65 L200 40 L330 65" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="125" y1="65" x2="125" y2="255" ' + s + ' stroke-width="2"/>' +
+        '<line x1="160" y1="65" x2="160" y2="255" ' + s + ' stroke-width="2"/>' +
+        '<line x1="240" y1="65" x2="240" y2="255" ' + s + ' stroke-width="2"/>' +
+        '<line x1="275" y1="65" x2="275" y2="255" ' + s + ' stroke-width="2"/>' +
+        person(200, 175, 12, 35) +
+        '<path d="M200 192 L192 215 M200 192 L208 215" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M192 205 L200 198 L208 205" ' + s + ' stroke-width="2"/>' +
+        star(200, 28, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 1:10</text>'
+      ),
+
+      /* ── Week 10: Mary Magdalene (126) ── */
+      maryMagdalene: svg(
+        ground() + hills() +
+        '<path d="M120 255 L120 180 Q200 148 280 180 L280 255" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="120" y="180" width="160" height="75" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="75" cy="200" r="48" ' + sf + ' fill="white" stroke-width="4"/>' +
+        person(265, 162, 13, 38) +
+        '<path d="M258 178 Q248 190 252 202" ' + s + ' stroke-width="2.5"/>' +
+        person(155, 185, 10, 28) +
+        star(200, 28, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:16</text>'
+      ),
+
+      /* ── Week 10: Lydia Sell (127) ── */
+      lydiaSell: svg(
+        ground() +
+        '<rect x="80" y="90" width="240" height="170" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M80 128 L200 105 L320 128" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 148, 13, 40) +
+        '<path d="M188 162 L180 185 M212 162 L220 185" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="145" y="178" width="110" height="30" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="145" y1="188" x2="255" y2="188" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="162" y1="178" x2="162" y2="208" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="200" y1="178" x2="200" y2="208" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="238" y1="178" x2="238" y2="208" ' + s + ' stroke-width="1.5"/>' +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 16:14</text>'
+      ),
+
+      /* ── Week 10: Priscilla Teach (128) ── */
+      priscillaTeach: svg(
+        ground() +
+        person(155, 168, 12, 35) +
+        person(242, 178, 11, 32) +
+        person(268, 182, 10, 28) +
+        '<path d="M162 185 Q198 195 242 195" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="155" y="230" width="90" height="22" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="155" y1="239" x2="245" y2="239" ' + s + ' stroke-width="1.5"/>' +
+        '<ellipse cx="80" cy="228" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="68" y1="240" x2="62" y2="258" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="92" y1="240" x2="98" y2="258" ' + s + ' stroke-width="2.5"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 18:26</text>'
+      ),
+
+      /* ── Week 10: Ruth Moab (129) ── */
+      ruthMoab: svg(
+        ground() +
+        '<path d="M0 240 Q50 228 100 240 Q150 252 200 240 Q250 228 300 240 Q350 252 400 240" ' + s + ' stroke-width="2"/>' +
+        '<line x1="100" y1="240" x2="100" y2="158" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="128" y1="240" x2="128" y2="165" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="156" y1="240" x2="156" y2="158" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="272" y1="240" x2="272" y2="162" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="298" y1="240" x2="298" y2="168" ' + s + ' stroke-width="2.5"/>' +
+        person(183, 185, 11, 32) +
+        '<path d="M190 210 Q200 225 192 242" ' + s + ' stroke-width="2.5"/>' +
+        person(270, 160, 13, 38) +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 2:8</text>'
+      ),
+
+      /* ── Week 10: Esther Fast (130) ── */
+      estherFast: svg(
+        ground() +
+        person(200, 165, 13, 40) +
+        '<path d="M186 162 L186 140 L194 148 L200 135 L206 148 L214 140 L214 162 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="190" y1="178" x2="162" y2="198" ' + s + ' stroke-width="3"/>' +
+        '<polygon points="158,194 155,207 166,204" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(80, 182, 10, 28) + person(105, 185, 10, 28) +
+        person(295, 182, 10, 28) + person(320, 185, 10, 28) +
+        '<path d="M88 178 Q100 168 108 175" ' + s + ' stroke-width="2"/>' +
+        '<path d="M305 178 Q317 168 325 175" ' + s + ' stroke-width="2"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4:16</text>'
+      ),
+
+      /* ── Week 10: Sarah Promise (131) ── */
+      sarahPromise: svg(
+        ground() +
+        '<rect x="60" y="100" width="200" height="140" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 140 L160 118 L260 140" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(148, 158, 12, 35) +
+        '<path d="M152 170 Q160 162 168 168" ' + s + ' stroke-width="2"/>' +
+        '<path d="M146 168 Q148 160 152 158" ' + s + ' stroke-width="2.5"/>' +
+        person(290, 168, 14, 42) +
+        '<circle cx="295" cy="168" r="3" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="270" cy="228" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M258 225 Q266 215 275 220" ' + s + ' stroke-width="2"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 18:14</text>'
+      ),
+
+      /* ── Week 10: Miriam Song (132) ── */
+      miriamSong: svg(
+        '<path d="M0 200 Q50 178 100 200 Q150 222 200 200 Q250 178 300 200 Q350 222 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 168, 13, 40) +
+        '<ellipse cx="175" cy="192" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="155" y1="192" x2="195" y2="192" ' + s + ' stroke-width="2"/>' +
+        '<line x1="162" y1="184" x2="158" y2="200" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="175" y1="180" x2="175" y2="204" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="188" y1="184" x2="192" y2="200" ' + s + ' stroke-width="1.5"/>' +
+        person(130, 178, 11, 32) + person(270, 178, 11, 32) +
+        person(80, 182, 10, 28) + person(320, 182, 10, 28) +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 15:20</text>'
+      ),
+
+      /* ── Week 11: Anna Prophet (133) ── */
+      annaProphet: svg(
+        ground() +
+        '<rect x="70" y="65" width="260" height="195" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="90" y1="65" x2="90" y2="260" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="310" y1="65" x2="310" y2="260" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M70 65 L200 40 L330 65" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(200, 158, 12, 35) +
+        '<path d="M192 170 Q184 180 186 192" ' + s + ' stroke-width="2.5"/>' +
+        person(155, 178, 11, 32) + person(248, 175, 11, 32) +
+        '<circle cx="248" cy="172" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        star(200, 28, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:36</text>'
+      ),
+
+      /* ── Week 11: Widow Oil (134) ── */
+      widowOil: svg(
+        ground() +
+        '<ellipse cx="100" cy="210" rx="20" ry="30" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="148" cy="215" rx="17" ry="26" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="190" cy="218" rx="15" ry="23" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="228" cy="216" rx="15" ry="24" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M100 180 Q100 155 105 145 Q112 158 108 178" ' + s + ' stroke-width="2.5"/>' +
+        person(295, 175, 13, 38) +
+        '<path d="M285 200 Q265 195 255 215" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M258 213 Q252 238 250 228 Q244 248 246 236" ' + s + ' stroke-width="2"/>' +
+        person(55, 185, 10, 28) +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:6</text>'
+      ),
+
+      /* ── Week 11: Persistent Widow (135) ── */
+      persistentWidow: svg(
+        ground() +
+        '<rect x="120" y="62" width="160" height="202" rx="6" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M120 100 L200 78 L280 100" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M158 264 L158 178 Q200 156 242 178 L242 264" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="158" y="178" width="84" height="86" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="235" cy="220" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(90, 182, 11, 32) +
+        '<path d="M100 192 Q110 185 120 190" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="100" y1="200" x2="120" y2="205" ' + s + ' stroke-width="2"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 18:5</text>'
+      ),
+
+      /* ── Week 11: Samaritan Woman (136) ── */
+      samaritanWoman: svg(
+        ground() + hills() +
+        '<rect x="155" y="145" width="90" height="60" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M155 175 L200 155 L245 175" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="145" x2="200" y2="260" ' + s + ' stroke-width="2.5"/>' +
+        person(140, 178, 12, 35) +
+        '<path d="M132 192 Q120 202 122 215" ' + s + ' stroke-width="2.5"/>' +
+        person(265, 168, 13, 38) +
+        '<path d="M258 182 Q250 192 254 205" ' + s + ' stroke-width="2.5"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 4:10</text>'
+      ),
+
+      /* ── Week 11: Martha Serve (137) ── */
+      marthaServe: svg(
+        ground() +
+        '<rect x="60" y="90" width="280" height="170" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 128 L200 105 L340 128" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(155, 158, 12, 35) +
+        '<path d="M148 172 Q138 182 140 195" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="215" cy="192" rx="28" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 192 Q215 182 230 192" ' + s + ' stroke-width="2"/>' +
+        person(280, 162, 11, 32) +
+        '<path d="M272 175 Q265 185 268 198" ' + s + ' stroke-width="2.5"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:40</text>'
+      ),
+
+      /* ── Week 11: Mary Sit (138) ── */
+      marySit: svg(
+        ground() +
+        '<rect x="60" y="90" width="280" height="170" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 128 L200 105 L340 128" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(255, 155, 13, 40) +
+        person(160, 200, 11, 32) +
+        '<path d="M152 215 Q145 226 148 238" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M170 217 Q158 228 162 240" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M162 215 Q185 205 255 175" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:39</text>'
+      ),
+
+      /* ── Week 11: Dorcas Raise (139) ── */
+      dorcasRaise: svg(
+        '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 100 L200 78 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M130 260 Q162 218 200 216 Q238 218 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="200" cy="208" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 208 Q200 200 208 208" ' + s + ' stroke-width="2"/>' +
+        person(185, 145, 12, 35) +
+        '<path d="M178 158 L168 182 M198 158 L208 182" ' + s + ' stroke-width="2.5"/>' +
+        person(92, 172, 10, 28) + person(116, 175, 10, 28) +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 9:40</text>'
+      ),
+
+      /* ── Week 11: Phoebe Deacon (140) ── */
+      phoebeDeacon: svg(
+        ground() +
+        person(200, 165, 13, 40) +
+        '<path d="M192 178 L182 198 M208 178 L218 198" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="158" y="225" width="84" height="30" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="158" y1="238" x2="242" y2="238" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="188" y1="225" x2="188" y2="255" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M195 200 Q200 215 200 225" ' + s + ' stroke-width="2.5"/>' +
+        person(80, 182, 10, 28) + person(315, 182, 10, 28) +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Romans 16:1</text>'
+      ),
+
+      /* ── Week 11: Junia Apostle (141) ── */
+      juniaApostle: svg(
+        ground() +
+        person(178, 172, 12, 35) + person(222, 172, 12, 35) +
+        '<path d="M182 188 Q200 198 218 188" ' + s + ' stroke-width="2.5"/>' +
+        person(80, 182, 10, 28) + person(105, 185, 10, 28) +
+        person(295, 182, 10, 28) + person(320, 185, 10, 28) +
+        '<path d="M88 178 Q95 168 103 174" ' + s + ' stroke-width="2"/>' +
+        '<path d="M302 178 Q310 168 318 174" ' + s + ' stroke-width="2"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Romans 16:7</text>'
+      ),
+
+      /* ── Week 11: Lois Timothy (142) ── */
+      loisTimothy: svg(
+        ground() +
+        '<rect x="60" y="90" width="280" height="170" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M60 128 L200 105 L340 128" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(165, 158, 13, 40) +
+        person(235, 175, 11, 32) +
+        '<rect x="155" y="220" width="90" height="22" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="155" y1="230" x2="245" y2="230" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M165 195 Q200 205 235 192" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Timothy 1:5</text>'
+      ),
+
+      /* ── Week 11: Eunice Mother (143) ── */
+      euniceMother: svg(
+        ground() +
+        person(178, 168, 13, 40) +
+        person(232, 182, 11, 32) +
+        '<path d="M182 185 Q200 195 228 198" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="155" y="225" width="90" height="22" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="155" y1="235" x2="245" y2="235" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="185" y1="225" x2="185" y2="247" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M195 200 Q200 215 200 225" ' + s + ' stroke-width="2.5"/>' +
+        sun(320, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Timothy 1:5</text>'
+      ),
+
+      /* ── Week 11: Priscilla Tent (144) ── */
+      priscillaTent: svg(
+        ground() +
+        '<path d="M60 260 L200 80 L340 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M118 260 L118 180 L200 130 L282 180 L282 260" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="85" y="225" width="70" height="30" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="85" y1="238" x2="155" y2="238" ' + s + ' stroke-width="1.5"/>' +
+        person(198, 148, 11, 32) +
+        person(140, 188, 11, 32) +
+        person(255, 188, 11, 32) +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 18:3</text>'
+      ),
+
+      /* ── Week 12: Jesus Bethany — Lazarus (145) ── */
+      lazarus: svg(
+        ground() + hills() +
+        '<path d="M115 258 L115 178 Q200 148 285 178 L285 258" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="115" y="178" width="170" height="80" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="75" cy="200" r="48" ' + sf + ' fill="white" stroke-width="4"/>' +
+        person(200, 182, 12, 35) +
+        '<path d="M192 198 Q185 210 188 225" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M208 198 Q215 210 212 225" ' + s + ' stroke-width="2.5"/>' +
+        person(280, 162, 13, 38) +
+        '<path d="M272 175 Q262 185 266 198" ' + s + ' stroke-width="2.5"/>' +
+        star(200, 30, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:43</text>'
+      ),
+
+      /* ── Week 12: Great Commission (146) ── */
+      greatCommission: svg(
+        ground() + hills() +
+        person(200, 148, 14, 42) +
+        '<path d="M192 162 Q165 172 80 185" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M208 162 Q235 172 320 185" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="192" y1="162" x2="150" y2="150" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="208" y1="162" x2="250" y2="150" ' + s + ' stroke-width="2.5"/>' +
+        person(80, 185, 10, 28) + person(105, 188, 10, 28) +
+        person(290, 185, 10, 28) + person(315, 188, 10, 28) +
+        sun(330, 45, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 28:19</text>'
+      ),
+
+      /* ── Week 12: Ascension (147) ── */
+      ascension: svg(
+        ground() + hills() +
+        person(200, 108, 13, 40) +
+        '<path d="M188 115 Q172 98 188 82 Q202 92 200 108" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M212 115 Q228 98 212 82 Q198 92 200 108" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="192" y1="148" x2="200" y2="108" ' + s + ' stroke-width="3"/>' +
+        '<line x1="208" y1="148" x2="200" y2="108" ' + s + ' stroke-width="3"/>' +
+        cloud(148, 52) +
+        person(110, 200, 11, 32) + person(138, 203, 10, 28) +
+        person(265, 200, 11, 32) + person(290, 203, 10, 28) +
+        star(200, 25, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 1:9</text>'
+      ),
+
+      /* ── Week 12: Pentecost Tongues (148) ── */
+      pentecostTongues: svg(
+        ground() +
+        '<rect x="70" y="68" width="260" height="187" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M70 108 L200 82 L330 108" ' + sf + ' fill="white" stroke-width="3"/>' +
+        person(145, 150, 10, 28) + person(170, 152, 10, 28) + person(200, 148, 11, 32) +
+        person(228, 152, 10, 28) + person(255, 150, 10, 28) +
+        '<path d="M148 148 Q143 130 152 118 Q159 128 156 142" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 145 Q196 128 205 116 Q212 126 208 140" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M255 148 Q250 130 258 118 Q265 128 262 142" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        cloud(158, 38) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 2:3</text>'
+      ),
+
+      /* ── Week 12: Armor Belt (149) ── */
+      armorBelt: svg(
+        ground() +
+        person(200, 135, 14, 42) +
+        '<rect x="178" y="186" width="44" height="12" rx="3" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="200" y1="186" x2="200" y2="178" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="196" y="165" width="8" height="14" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="178" y1="192" x2="160" y2="192" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="222" y1="192" x2="240" y2="192" ' + s + ' stroke-width="2.5"/>' +
+        '<rect x="185" y="125" width="30" height="18" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M185 125 Q200 108 215 125" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ephesians 6:14</text>'
+      ),
+
+      /* ── Week 12: Prayer Closet (150) ── */
+      prayerCloset: svg(
+        ground() +
+        '<rect x="105" y="55" width="190" height="215" rx="6" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M105 98 L200 72 L295 98" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M152 270 L152 185 Q200 162 248 185 L248 270" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="152" y="185" width="96" height="85" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="242" cy="227" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 162, 12, 35) +
+        '<path d="M200 178 L192 202 M200 178 L208 202" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M192 192 L200 185 L208 192" ' + s + ' stroke-width="2"/>' +
+        star(200, 30, 12) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 6:6</text>'
+      ),
+
+      /* ── Week 12: Faith Mountain (151) ── */
+      faithMountain: svg(
+        ground() +
+        '<path d="M50 260 Q80 200 130 160 Q165 130 200 80 Q235 130 270 160 Q320 200 350 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M90 260 Q120 215 165 185 Q180 175 200 145 Q220 175 235 185 Q280 215 310 260" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        person(200, 168, 12, 35) +
+        '<path d="M192 182 Q182 172 188 162" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M208 182 Q218 172 212 162" ' + s + ' stroke-width="2.5"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 17:20</text>'
+      ),
+
+      /* ── Week 12: Love Neighbor (152) ── */
+      loveNeighbor: svg(
+        ground() + hills() +
+        '<path d="M30 260 Q200 230 370 260" ' + s + ' stroke-width="2.5"/>' +
+        person(155, 192, 11, 32) +
+        '<path d="M145 208 Q132 220 130 235" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M165 208 Q158 218 160 228" ' + s + ' stroke-width="2"/>' +
+        person(248, 172, 12, 35) +
+        '<path d="M240 188 Q230 200 234 215" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="248" cy="220" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="233" cy="210" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:27</text>'
+      ),
+
+      /* ── Week 12: Heaven Door (153) ── */
+      heavenDoor: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<rect x="120" y="55" width="160" height="215" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M120 100 L200 65 L280 100" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="145" y="148" width="110" height="122" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M145 195 Q200 168 255 195" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="248" cy="208" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(80, 185, 11, 32) +
+        '<path d="M90 198 Q102 190 115 198" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="95" y1="205" x2="115" y2="210" ' + s + ' stroke-width="2"/>' +
+        star(200, 32, 16) + star(120, 42, 10) + star(280, 42, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 3:20</text>'
+      ),
+
+      /* ── Week 12: Revelation Bride (154) ── */
+      revelationBride: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<rect x="80" y="80" width="240" height="170" rx="12" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M80 118 L200 85 L320 118" ' + sf + ' fill="white" stroke-width="4"/>' +
+        person(178, 145, 12, 35) + person(222, 145, 12, 35) +
+        '<path d="M182 162 Q200 172 218 162" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="200" cy="215" rx="40" ry="15" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M168 215 Q200 202 232 215" ' + s + ' stroke-width="2"/>' +
+        star(200, 38, 18) + star(100, 52, 10) + star(300, 52, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 21:2</text>'
+      ),
+
+      /* ── Week 12: Tree Fruit (155) ── */
+      treeFruit: svg(
+        ground() +
+        '<line x1="200" y1="260" x2="200" y2="105" ' + s + ' stroke-width="4.5"/>' +
+        '<circle cx="200" cy="82" r="32" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="168" cy="100" r="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="232" cy="100" r="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="152" cy="125" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="248" cy="125" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="178" cy="80" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="222" cy="80" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="198" cy="62" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(50, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 22:2</text>'
+      ),
+
+      /* ── Week 12: No Night (156) ── */
+      noNight: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        sun(200, 140, 55) +
+        '<line x1="200" y1="60" x2="200" y2="30" ' + s + ' stroke-width="3"/>' +
+        '<line x1="260" y1="78" x2="282" y2="56" ' + s + ' stroke-width="3"/>' +
+        '<line x1="295" y1="140" x2="325" y2="140" ' + s + ' stroke-width="3"/>' +
+        '<line x1="260" y1="202" x2="282" y2="224" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="220" x2="200" y2="250" ' + s + ' stroke-width="3"/>' +
+        '<line x1="140" y1="202" x2="118" y2="224" ' + s + ' stroke-width="3"/>' +
+        '<line x1="105" y1="140" x2="75" y2="140" ' + s + ' stroke-width="3"/>' +
+        '<line x1="140" y1="78" x2="118" y2="56" ' + s + ' stroke-width="3"/>' +
+        '<rect x="80" y="78" width="240" height="124" rx="8" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 22:5</text>'
+      ),
+
+      /* ── Week 12: Every Knee Bow (157) ── */
+      everyKneeBow: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<path d="M140 260 L140 140 Q200 100 260 140 L260 260" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="130" y="80" width="140" height="65" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M130 80 L200 50 L270 80" ' + sf + ' fill="white" stroke-width="4"/>' +
+        person(100, 205, 10, 28) + person(140, 210, 10, 28) +
+        person(200, 210, 10, 28) +
+        person(260, 205, 10, 28) + person(300, 205, 10, 28) +
+        '<path d="M100 222 L95 238" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M150 225 L145 240" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M200 225 L195 240" ' + s + ' stroke-width="2.5"/>' +
+        star(200, 32, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Philippians 2:10</text>'
+      ),
+
+      /* ── Week 12: New Earth (158) ── */
+      newEarth: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        '<ellipse cx="200" cy="155" rx="130" ry="100" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M100 120 Q130 100 160 118 Q180 108 200 118 Q220 108 240 118 Q270 100 300 120" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M80 165 Q110 148 140 165 Q170 180 200 165 Q230 148 260 165 Q290 180 320 165" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M85 200 Q115 185 145 200 Q175 215 205 200 Q235 185 265 200 Q295 215 315 200" ' + s + ' stroke-width="2.5"/>' +
+        star(200, 32, 16) + star(88, 52, 10) + star(312, 52, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 21:1</text>'
+      ),
+
+      /* ── Week 12: Alpha Omega 2 (159) ── */
+      alphaOmega2: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        star(200, 38, 24) +
+        '<text x="115" y="185" font-size="72" font-family="serif" fill="none" ' + s + ' stroke-width="3">A</text>' +
+        '<text x="228" y="185" font-size="72" font-family="serif" fill="none" ' + s + ' stroke-width="3">Ω</text>' +
+        '<line x1="60" y1="210" x2="150" y2="210" ' + s + ' stroke-width="2"/>' +
+        '<line x1="250" y1="210" x2="340" y2="210" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="210" text-anchor="middle" font-size="14" font-family="sans-serif" fill="#333">∞</text>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 22:13</text>'
+      ),
+
+      /* ── Week 12: Come Lord Jesus (160) ── */
+      comeLordJesus: svg(
+        '<rect x="0" y="0" width="400" height="300" fill="white"/>' +
+        star(200, 38, 24) +
+        '<line x1="200" y1="62" x2="200" y2="92" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
+        '<path d="M140 260 L140 148 Q200 108 260 148 L260 260" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<rect x="130" y="88" width="140" height="65" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
+        '<path d="M130 88 L200 58 L270 88" ' + sf + ' fill="white" stroke-width="4"/>' +
+        person(200, 148, 12, 35) +
+        '<path d="M188 148 Q175 132 188 118 Q201 128 200 145" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M212 148 Q225 132 212 118 Q199 128 200 145" ' + sf + ' fill="white" stroke-width="2"/>' +
+        cloud(148, 55) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Revelation 22:20</text>'
+      ),
+
+      /* Default outline — shield cross for any unmapped story */
+      _default: svg(
+        /* shield */
+        '<path d="M200 50 L280 80 L280 175 Q280 230 200 260 Q120 230 120 175 L120 80 Z" ' + sf + ' fill="white" stroke-width="4"/>' +
+        /* cross on shield */
+        '<line x1="200" y1="95" x2="200" y2="230" ' + s + ' stroke-width="5"/>' +
+        '<line x1="145" y1="155" x2="255" y2="155" ' + s + ' stroke-width="5"/>' +
+        sun(60, 55, 20) +
+        star(340, 50, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">KJV</text>'
+      )
+    };
+  })();
+
+  /* Map less-common story keys to the closest outline */
+  var OUTLINE_ALIAS = {
+    /* ── legacy mappings ── */
+    jesusWalksWater: 'jesusCalmsStorm',
+    mosesBush: 'burningBush',
+    parableSower: 'mustardSeed',
+    goodSamaritan: 'loveNeighbor',
+    prodigalSon: 'forgive70x7',
+    lostSheep: 'psalm23Shepherd',
+    lastSupper: 'maryAnoint',
+    palmSunday: 'greatCommission',
+    armorOfGod: 'armorOfGod',
+    /* ── Week 1 ── */
+    manna: 'manna',
+    tenCommandments: 'tenCommandments',
+    elijahFire: 'elijahFire',
+    elishaOil: 'elishaOil',
+    naaman: 'naamanDip',
+    /* ── Week 2 ── */
+    abrahamIsaac: 'abrahamIsaac',
+    josephCoat: 'josephCoat',
+    josephDreams: 'josephDreams',
+    josephPrison: 'josephPrison',
+    pharaohDreams: 'pharaohDreams',
+    mosesBaby: 'mosesBaby',
+    mosesStaffSnake: 'mosesStaffSnake',
+    passoverLamb: 'passoverLamb',
+    redSeaCrossing: 'redSeaCrossing',
+    /* ── Week 3 ── */
+    joshuaJordan: 'joshuaJordan',
+    jerichoWalls: 'jerichoWalls',
+    fallOfJericho: 'jerichoWalls',
+    rahabRope: 'rahabRope',
+    balaamDonkey: 'balaamDonkey',
+    samsonHair: 'samsonHair',
+    samson: 'samsonHair',
+    ruthGlean: 'ruthGlean',
+    ruthBoaz: 'ruthMoab',
+    samuelCall: 'samuelCall',
+    davidHarp: 'davidHarp',
+    davidSheep: 'davidHarp',
+    goliathChallenge: 'goliathChallenge',
+    davidAnointed: 'davidAnointed',
+    saulSpear: 'saulSpear',
+    davidCave: 'davidCave',
+    /* ── Week 4 ── */
+    elishaRaised: 'elishaRaised',
+    estherCrown: 'estherCrown',
+    esther: 'estherCrown',
+    nehemiahWalls: 'nehemiahWalls',
+    jobSuffering: 'jobSuffering',
+    psalm23Shepherd: 'psalm23Shepherd',
+    solomonWisdom: 'solomonWisdom',
+    elijahChariot: 'elijahChariot',
+    jonahVine: 'jonahVine',
+    danielPray: 'danielPray',
+    estherBanquet: 'estherBanquet',
+    /* ── Week 5 ── */
+    angelMary: 'angelMary',
+    shepherdsStar: 'shepherdsStar',
+    jesusManger: 'jesusManger',
+    jesusBirth: 'jesusManger',
+    jesusTemple: 'jesusTemple',
+    johnBaptize: 'johnBaptize',
+    jesusTemptation: 'jesusTempt',
+    jesusTempt: 'jesusTempt',
+    weddingWine: 'weddingWine',
+    healBlind: 'healBlind',
+    jesusBlessKids: 'jesusBlessKids',
+    /* ── Week 6 ── */
+    mustardSeed: 'mustardSeed',
+    healLeper: 'healLeper',
+    jairus: 'jairus',
+    transfigure: 'transfigure',
+    judasKiss: 'judasKiss',
+    betrayal: 'judasKiss',
+    gardenPrayer: 'prayerCloset',
+    /* ── Week 7 ── */
+    crossCarry: 'crossCarry',
+    crucifixion: 'crucifixion',
+    tombEmpty: 'tombEmpty',
+    roadToEmmaus: 'emmausRoad',
+    emmausRoad: 'emmausRoad',
+    thomasDoubt: 'thomasDoubt',
+    pentecostFire: 'pentecost',
+    pentecostTongues: 'pentecostTongues',
+    peterShadow: 'peterShadow',
+    paulDamascus: 'paulDamascus',
+    paulShipwreck: 'paulShipwreck',
+    paulSilas: 'paulSilas',
+    tenVirgins: 'tenVirgins',
+    /* ── Week 8 ── */
+    armorShield: 'armorShield',
+    armorSword: 'armorSword',
+    armorBelt: 'armorBelt',
+    fruitSpirit: 'fruitSpirit',
+    loveChapter: 'loveChapter',
+    faithMustard: 'faithMustard',
+    prayerKnock: 'prayerKnock',
+    worryBirds: 'worryBirds',
+    forgive70x7: 'forgive70x7',
+    widowsMite: 'widowMite',
+    widowMite: 'widowMite',
+    richYoungRuler: 'richYoungRuler',
+    zacchaeus: 'prayerKnock',
+    maryAnoint: 'maryAnoint',
+    /* ── Week 9 ── */
+    stephenStones: 'stephenStones',
+    stephen: 'stephenStones',
+    philipChariot: 'philipChariot',
+    paulShip: 'paulShip',
+    revelationThrone: 'revelationThrone',
+    heavenPromise: 'newHeaven',
+    fourHorsemen: 'fourHorsemen',
+    alphaOmega: 'alphaOmega',
+    newHeaven: 'newHeaven',
+    treeOfLife: 'treeOfLife',
+    riverOfLife: 'riverOfLife',
+    lambBook: 'lambBook',
+    dragonFight: 'dragonFight',
+    beastMark: 'beastMark',
+    /* ── Week 10 ── */
+    rahabWindow: 'rahabWindow',
+    deborahJudge: 'deborahJudge',
+    jaelTent: 'jaelTent',
+    abigailWise: 'abigailWise',
+    hannahPray: 'hannahPray',
+    maryMagdalene: 'maryMagdalene',
+    lydiaSell: 'lydiaSell',
+    priscillaTeach: 'priscillaTeach',
+    ruthMoab: 'ruthMoab',
+    estherFast: 'estherFast',
+    sarahPromise: 'sarahPromise',
+    miriamSong: 'miriamSong',
+    /* ── Week 11 ── */
+    annaProphet: 'annaProphet',
+    widowOil: 'widowOil',
+    persistentWidow: 'persistentWidow',
+    samaritanWoman: 'samaritanWoman',
+    marthaServe: 'marthaServe',
+    marySit: 'marySit',
+    dorcasRaise: 'dorcasRaise',
+    phoebeDeacon: 'phoebeDeacon',
+    juniaApostle: 'juniaApostle',
+    loisTimothy: 'loisTimothy',
+    euniceMother: 'euniceMother',
+    priscillaTent: 'priscillaTent',
+    /* ── Week 12 ── */
+    lazarus: 'lazarus',
+    greatCommission: 'greatCommission',
+    ascension: 'ascension',
+    faithMountain: 'faithMountain',
+    loveNeighbor: 'loveNeighbor',
+    heavenDoor: 'heavenDoor',
+    revelationBride: 'revelationBride',
+    treeFruit: 'treeFruit',
+    noNight: 'noNight',
+    everyKneeBow: 'everyKneeBow',
+    newEarth: 'newEarth',
+    alphaOmega2: 'alphaOmega2',
+    comeLordJesus: 'comeLordJesus',
+    trial: 'saulSpear',
+    /* ── creation / week-1 existing ── */
+    creationLight: 'creationLight',
+    adamEve: 'adamEve',
+    towerBabel: 'towerBabel',
+    mosesSea: 'mosesSea',
+    burningBush: 'burningBush',
+    tenPlagues: 'tenPlagues',
+    redSea: 'mosesSea',
+    prayerCloset: 'prayerCloset',
+    jacobLadder: 'jacobLadder',
+    sarahLaughs: 'sarahLaughs',
+    sarahPromise: 'sarahPromise'
+  };
+
+  function getOutlineSvg(storyKey) {
+    var key = storyKey || '';
+    if (COLORING_OUTLINES[key]) return COLORING_OUTLINES[key];
+    if (OUTLINE_ALIAS[key] && COLORING_OUTLINES[OUTLINE_ALIAS[key]]) return COLORING_OUTLINES[OUTLINE_ALIAS[key]];
+    return COLORING_OUTLINES._default;
+  }
+
+  /* ── Coloring canvas state ── */
+  var coloringState = {
+    open: false,
+    storyKey: null,
+    storyTitle: '',
+    color: '#D4A017',
+    brushSize: 6,
+    erasing: false,
+    painting: false,
+    lastX: 0,
+    lastY: 0,
+    undoStack: [],         /* array of ImageData snapshots */
+    outlineCanvas: null    /* off-screen canvas holding the outline */
+  };
+
+  /* Returns the pixel ratio-aware size for the canvas */
+  function getCanvasSize(wrap) {
+    var dpr = window.devicePixelRatio || 1;
+    return {
+      w: wrap.clientWidth,
+      h: wrap.clientHeight,
+      dpr: dpr
+    };
+  }
+
+  /* Load the SVG outline onto an off-screen canvas for compositing */
+  function loadOutlineCanvas(svgStr, width, height, dpr, cb) {
+    var oc = document.createElement('canvas');
+    oc.width = width * dpr;
+    oc.height = height * dpr;
+    var ctx = oc.getContext('2d');
+    ctx.scale(dpr, dpr);
+    var blob = new Blob([svgStr], { type: 'image/svg+xml' });
+    var url = URL.createObjectURL(blob);
+    var img = new Image();
+    img.onload = function () {
+      ctx.drawImage(img, 0, 0, width, height);
+      URL.revokeObjectURL(url);
+      cb(oc);
+    };
+    img.onerror = function () {
+      URL.revokeObjectURL(url);
+      cb(oc);
+    };
+    img.src = url;
+  }
+
+  function initColoringCanvas(storyKey, storyTitle) {
+    var overlay = document.getElementById('kids-coloring-overlay');
+    var canvasEl = document.getElementById('kids-coloring-canvas');
+    var wrap = document.getElementById('kids-coloring-canvas-wrap');
+    var titleEl = document.getElementById('kids-coloring-title');
+    if (!overlay || !canvasEl || !wrap) return;
+
+    coloringState.open = true;
+    coloringState.storyKey = storyKey;
+    coloringState.storyTitle = storyTitle || storyKey;
+    coloringState.undoStack = [];
+
+    if (titleEl) titleEl.textContent = (storyTitle || 'Color Me!');
+
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    var svgStr = getOutlineSvg(storyKey);
+    var size = getCanvasSize(wrap);
+    var dpr = size.dpr;
+    var W = size.w || 400;
+    var H = size.h || 300;
+
+    canvasEl.width = W * dpr;
+    canvasEl.height = H * dpr;
+    canvasEl.style.width = W + 'px';
+    canvasEl.style.height = H + 'px';
+
+    loadOutlineCanvas(svgStr, W, H, dpr, function (oc) {
+      coloringState.outlineCanvas = oc;
+      redrawCanvas();
+    });
+  }
+
+  function redrawCanvas() {
+    var canvasEl = document.getElementById('kids-coloring-canvas');
+    if (!canvasEl) return;
+    var ctx = canvasEl.getContext('2d');
+    var dpr = window.devicePixelRatio || 1;
+    var W = canvasEl.width;
+    var H = canvasEl.height;
+
+    /* White background */
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, W, H);
+
+    /* Paint layer: top item in undoStack is current painting */
+    if (coloringState.undoStack.length > 0) {
+      ctx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
+    }
+
+    /* Outline on top so lines always show */
+    if (coloringState.outlineCanvas) {
+      ctx.drawImage(coloringState.outlineCanvas, 0, 0);
+    }
+  }
+
+  /* Save current paint state as an ImageData snapshot for undo */
+  function snapshotForUndo() {
+    var canvasEl = document.getElementById('kids-coloring-canvas');
+    if (!canvasEl) return;
+    var ctx = canvasEl.getContext('2d');
+    /* Composite paint layer only (without outline) */
+    var tmp = document.createElement('canvas');
+    tmp.width = canvasEl.width;
+    tmp.height = canvasEl.height;
+    var tCtx = tmp.getContext('2d');
+    tCtx.fillStyle = '#ffffff';
+    tCtx.fillRect(0, 0, tmp.width, tmp.height);
+    if (coloringState.undoStack.length > 0) {
+      tCtx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
+    }
+    var snap = tCtx.getImageData(0, 0, tmp.width, tmp.height);
+    coloringState.undoStack.push(snap);
+    if (coloringState.undoStack.length > 30) coloringState.undoStack.shift();
+  }
+
+  function undoStroke() {
+    if (coloringState.undoStack.length === 0) return;
+    coloringState.undoStack.pop();
+    redrawCanvas();
+  }
+
+  function clearColoring() {
+    coloringState.undoStack = [];
+    redrawCanvas();
+  }
+
+  /* Convert client/touch coords to canvas pixel coords */
+  function clientToCanvas(canvasEl, clientX, clientY) {
+    var rect = canvasEl.getBoundingClientRect();
+    var dpr = window.devicePixelRatio || 1;
+    var scaleX = canvasEl.width / rect.width;
+    var scaleY = canvasEl.height / rect.height;
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY
+    };
+  }
+
+  function paintDot(ctx, x, y) {
+    var dpr = window.devicePixelRatio || 1;
+    var size = coloringState.brushSize * dpr;
+    ctx.globalCompositeOperation = coloringState.erasing ? 'destination-out' : 'source-over';
+    ctx.beginPath();
+    ctx.arc(x, y, size / 2, 0, Math.PI * 2);
+    ctx.fillStyle = coloringState.erasing ? 'rgba(0,0,0,1)' : coloringState.color;
+    ctx.fill();
+  }
+
+  function paintLine(ctx, x1, y1, x2, y2) {
+    var dpr = window.devicePixelRatio || 1;
+    var size = coloringState.brushSize * dpr;
+    ctx.globalCompositeOperation = coloringState.erasing ? 'destination-out' : 'source-over';
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = coloringState.erasing ? 'rgba(0,0,0,1)' : coloringState.color;
+    ctx.lineWidth = size;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+  }
+
+  /* Apply a paint stroke to the persistent paint layer */
+  function applyStroke(x1, y1, x2, y2) {
+    var canvasEl = document.getElementById('kids-coloring-canvas');
+    if (!canvasEl) return;
+    /* Draw on temp canvas from current state */
+    var tmp = document.createElement('canvas');
+    tmp.width = canvasEl.width;
+    tmp.height = canvasEl.height;
+    var tCtx = tmp.getContext('2d');
+    tCtx.fillStyle = '#ffffff';
+    tCtx.fillRect(0, 0, tmp.width, tmp.height);
+    if (coloringState.undoStack.length > 0) {
+      tCtx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
+    }
+    if (x1 === x2 && y1 === y2) {
+      paintDot(tCtx, x1, y1);
+    } else {
+      paintLine(tCtx, x1, y1, x2, y2);
+    }
+    var newSnap = tCtx.getImageData(0, 0, tmp.width, tmp.height);
+    if (coloringState.undoStack.length === 0) {
+      coloringState.undoStack.push(newSnap);
+    } else {
+      coloringState.undoStack[coloringState.undoStack.length - 1] = newSnap;
+    }
+    redrawCanvas();
+  }
+
+  function closeColoringMode() {
+    var overlay = document.getElementById('kids-coloring-overlay');
+    if (overlay) overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+    coloringState.open = false;
+    coloringState.painting = false;
+  }
+
+  function saveColoringAsPng() {
+    var canvasEl = document.getElementById('kids-coloring-canvas');
+    if (!canvasEl) return;
+    /* Export: white bg + paint layer + outline */
+    var exp = document.createElement('canvas');
+    exp.width = canvasEl.width;
+    exp.height = canvasEl.height;
+    var ctx = exp.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, exp.width, exp.height);
+    if (coloringState.undoStack.length > 0) {
+      ctx.putImageData(coloringState.undoStack[coloringState.undoStack.length - 1], 0, 0);
+    }
+    if (coloringState.outlineCanvas) {
+      ctx.drawImage(coloringState.outlineCanvas, 0, 0);
+    }
+    try {
+      var dataUrl = exp.toDataURL('image/png');
+      var a = document.createElement('a');
+      var title = (coloringState.storyTitle || 'bible-story').replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+      a.download = 'my-' + title + '-coloring.png';
+      a.href = dataUrl;
+      a.click();
+    } catch (err) {
+      /* Cross-origin fallback — open in new tab */
+      var url = exp.toDataURL('image/png');
+      window.open(url, '_blank');
+    }
+  }
+
+  /* ── Pinch-zoom state ── */
+  var pinchState = { active: false, startDist: 0, startScale: 1, scale: 1 };
+
+  function getPinchDist(touches) {
+    var dx = touches[0].clientX - touches[1].clientX;
+    var dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function wireColoringCanvas() {
+    var canvasEl = document.getElementById('kids-coloring-canvas');
+    if (!canvasEl) return;
+
+    /* ── Mouse events ── */
+    canvasEl.addEventListener('mousedown', function (e) {
+      if (!coloringState.open) return;
+      e.preventDefault();
+      snapshotForUndo();
+      coloringState.painting = true;
+      var pt = clientToCanvas(canvasEl, e.clientX, e.clientY);
+      coloringState.lastX = pt.x;
+      coloringState.lastY = pt.y;
+      applyStroke(pt.x, pt.y, pt.x, pt.y);
+    });
+
+    canvasEl.addEventListener('mousemove', function (e) {
+      if (!coloringState.open || !coloringState.painting) return;
+      e.preventDefault();
+      var pt = clientToCanvas(canvasEl, e.clientX, e.clientY);
+      applyStroke(coloringState.lastX, coloringState.lastY, pt.x, pt.y);
+      coloringState.lastX = pt.x;
+      coloringState.lastY = pt.y;
+    });
+
+    canvasEl.addEventListener('mouseup', function (e) {
+      coloringState.painting = false;
+    });
+
+    canvasEl.addEventListener('mouseleave', function (e) {
+      coloringState.painting = false;
+    });
+
+    /* ── Touch events ── */
+    canvasEl.addEventListener('touchstart', function (e) {
+      if (!coloringState.open) return;
+      e.preventDefault();
+      if (e.touches.length === 2) {
+        /* Pinch begin */
+        pinchState.active = true;
+        pinchState.startDist = getPinchDist(e.touches);
+        pinchState.startScale = pinchState.scale;
+        coloringState.painting = false;
+        return;
+      }
+      pinchState.active = false;
+      snapshotForUndo();
+      coloringState.painting = true;
+      var touch = e.touches[0];
+      var pt = clientToCanvas(canvasEl, touch.clientX, touch.clientY);
+      coloringState.lastX = pt.x;
+      coloringState.lastY = pt.y;
+      applyStroke(pt.x, pt.y, pt.x, pt.y);
+    }, { passive: false });
+
+    canvasEl.addEventListener('touchmove', function (e) {
+      if (!coloringState.open) return;
+      e.preventDefault();
+      if (e.touches.length === 2 && pinchState.active) {
+        /* Pinch zoom — scale the canvas wrap transform */
+        var dist = getPinchDist(e.touches);
+        var newScale = Math.min(4, Math.max(0.5, pinchState.startScale * (dist / pinchState.startDist)));
+        pinchState.scale = newScale;
+        var wrap = document.getElementById('kids-coloring-canvas-wrap');
+        if (wrap) {
+          canvasEl.style.transformOrigin = 'center center';
+          canvasEl.style.transform = 'scale(' + newScale + ')';
+        }
+        return;
+      }
+      if (!coloringState.painting) return;
+      var touch = e.touches[0];
+      var pt = clientToCanvas(canvasEl, touch.clientX, touch.clientY);
+      applyStroke(coloringState.lastX, coloringState.lastY, pt.x, pt.y);
+      coloringState.lastX = pt.x;
+      coloringState.lastY = pt.y;
+    }, { passive: false });
+
+    canvasEl.addEventListener('touchend', function (e) {
+      if (e.touches.length < 2) pinchState.active = false;
+      if (e.touches.length === 0) coloringState.painting = false;
+    });
+  }
+
+  function wireColoringControls() {
+    /* Brush size buttons */
+    document.querySelectorAll('.kids-brush-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var size = parseInt(btn.getAttribute('data-size'), 10);
+        if (!isNaN(size)) {
+          coloringState.brushSize = size;
+          coloringState.erasing = false;
+          document.querySelectorAll('.kids-brush-btn').forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+          var eraserBtn = document.getElementById('kids-eraser-btn');
+          if (eraserBtn) { eraserBtn.classList.remove('active'); eraserBtn.setAttribute('aria-pressed', 'false'); }
+        }
+      });
+    });
+
+    /* Color swatches */
+    document.querySelectorAll('.kids-color-swatch').forEach(function (sw) {
+      sw.addEventListener('click', function () {
+        var col = sw.getAttribute('data-color');
+        if (!col) return;
+        coloringState.color = col;
+        coloringState.erasing = false;
+        document.querySelectorAll('.kids-color-swatch').forEach(function (s) {
+          s.classList.remove('active');
+          s.setAttribute('aria-pressed', 'false');
+        });
+        sw.classList.add('active');
+        sw.setAttribute('aria-pressed', 'true');
+        var eraserBtn = document.getElementById('kids-eraser-btn');
+        if (eraserBtn) { eraserBtn.classList.remove('active'); eraserBtn.setAttribute('aria-pressed', 'false'); }
+      });
+    });
+
+    /* Eraser */
+    var eraserBtn = document.getElementById('kids-eraser-btn');
+    if (eraserBtn) {
+      eraserBtn.addEventListener('click', function () {
+        coloringState.erasing = !coloringState.erasing;
+        eraserBtn.classList.toggle('active', coloringState.erasing);
+        eraserBtn.setAttribute('aria-pressed', String(coloringState.erasing));
+      });
+    }
+
+    /* Undo */
+    var undoBtn = document.getElementById('kids-undo-btn');
+    if (undoBtn) {
+      undoBtn.addEventListener('click', function () {
+        undoStroke();
+      });
+    }
+
+    /* Clear */
+    var clearBtn = document.getElementById('kids-clear-btn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        clearColoring();
+      });
+    }
+
+    /* Save */
+    var saveBtn = document.getElementById('kids-coloring-save-btn');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', function () {
+        saveColoringAsPng();
+      });
+    }
+
+    /* Back to loops */
+    var backBtn = document.getElementById('kids-coloring-back-btn');
+    if (backBtn) {
+      backBtn.addEventListener('click', function () {
+        closeColoringMode();
+      });
+    }
+
+    /* Keyboard: Escape closes */
+    document.addEventListener('keydown', function (e) {
+      if (coloringState.open && e.key === 'Escape') {
+        e.preventDefault();
+        closeColoringMode();
+      }
+      if (coloringState.open && (e.ctrlKey || e.metaKey) && e.key === 'z') {
+        e.preventDefault();
+        undoStroke();
+      }
+    });
+  }
+
+  /* Wire the "Color Me" click from the grid (event delegation) */
+  function wireColorMeButtons() {
+    var grid = document.getElementById('kids-library-grid');
+    if (!grid) return;
+    grid.addEventListener('click', function (e) {
+      var colorBtn = e.target && e.target.closest ? e.target.closest('.kids-card-color-btn') : null;
+      if (!colorBtn) return;
+      e.stopPropagation();
+      var key = colorBtn.getAttribute('data-story');
+      var title = colorBtn.getAttribute('data-title') || key;
+      if (key) initColoringCanvas(key, title);
+    });
+  }
+
+  /* ── End of coloring module ── */
   var grid = document.getElementById('kids-library-grid');
   var searchForm = document.getElementById('kids-library-search-form');
   var searchInput = document.getElementById('kids-library-search-input');
@@ -241,7 +3227,10 @@
       html += '<div class="kids-library-card" data-story="' + escAttr(key) + '" role="button" tabindex="0">';
       html += '<img src="' + escAttr(thumb) + '" alt="' + escAttr(alt) + '">';
       html += '<span class="kids-library-card-title">' + title + '</span>';
-      html += '<span class="kids-library-card-btn">Open story</span>';
+      html += '<div style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;width:100%;">';
+      html += '<span class="kids-library-card-btn">Watch Story</span>';
+      html += '<button type="button" class="kids-card-color-btn" data-story="' + escAttr(key) + '" data-title="' + escAttr(s.title || key) + '" aria-label="Color ' + escAttr(s.title || key) + '">🎨 Color Me</button>';
+      html += '</div>';
       html += '</div>';
     }
     grid.innerHTML = html;
@@ -252,6 +3241,8 @@
       }
     }
     updateLibraryCount(keys.length);
+    // Re-apply lock state whenever grid re-renders (new Color Me buttons added)
+    if (window._kidLock) window._kidLock.applyLockState();
   }
 
   function updateLibraryCount(visibleCount) {
@@ -300,6 +3291,12 @@
     advanceJourneyFromStory(key);
   }
 
+  function closeStoryModal() {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    if (modalVideo) modalVideo.innerHTML = '';
+  }
+
   function currentStoryIndexInVisible() {
     if (!currentOpenStoryKey) return -1;
     if (!currentVisibleKeys || !currentVisibleKeys.length) return -1;
@@ -344,6 +3341,10 @@
     renderGrid(applyFilters());
     renderStoryMaster();
     syncJourneyUi();
+
+    wireColoringCanvas();
+    wireColoringControls();
+    wireColorMeButtons();
 
     if (searchForm && searchInput) {
       searchForm.addEventListener('submit', function (e) {
@@ -457,6 +3458,8 @@
 
     if (grid) {
       grid.addEventListener('click', function (e) {
+        /* Color Me button is handled separately — skip it here */
+        if (e.target && e.target.closest && e.target.closest('.kids-card-color-btn')) return;
         var card = e.target && e.target.closest ? e.target.closest('.kids-library-card') : null;
         if (card) {
           var key = card.getAttribute('data-story');
@@ -465,6 +3468,7 @@
       });
       grid.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter' && e.key !== ' ') return;
+        if (e.target && e.target.closest && e.target.closest('.kids-card-color-btn')) return;
         var card = e.target && e.target.closest ? e.target.closest('.kids-library-card') : null;
         if (card) {
           e.preventDefault();
@@ -474,11 +3478,9 @@
       });
     }
 
-    if (modalClose) modalClose.addEventListener('click', function () {
-      if (modal) modal.classList.add('hidden');
-    });
+    if (modalClose) modalClose.addEventListener('click', closeStoryModal);
     if (modal) modal.addEventListener('click', function (e) {
-      if (e.target === modal) modal.classList.add('hidden');
+      if (e.target === modal) closeStoryModal();
     });
 
     document.addEventListener('click', function (e) {
@@ -533,7 +3535,10 @@
 
     document.addEventListener('keydown', function (e) {
       if (!modal || modal.classList.contains('hidden')) return;
-      if (e.key === 'ArrowLeft') {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeStoryModal();
+      } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
         openAdjacentStory(-1);
       } else if (e.key === 'ArrowRight') {
@@ -558,4 +3563,246 @@
   } else {
     init();
   }
+
+  // ── Parent code lock ─────────────────────────────────────────────────────
+  // Key stored in localStorage: 'kid-lock-code' (4-digit string).
+  // Session unlock stored in sessionStorage so one correct entry lasts the
+  // full browser session without re-prompting.
+  //
+  // Locked state:
+  //   - Every .kids-card-color-btn gets class "locked" + pointer-events:none
+  //   - #kids-coloring-save-btn gets class "locked"
+  //   - Clicking either opens the gate modal
+  //
+  // First-load (no code stored): gate routes straight to Set Code flow.
+  // Wrong code: digit group shakes, error shown, inputs cleared.
+  // ─────────────────────────────────────────────────────────────────────────
+  (function wireKidLock() {
+    var LOCK_KEY       = 'kid-lock-code';
+    var SESSION_KEY    = 'kid-lock-unlocked';
+    var _pendingAction = null; // callback to run after successful unlock
+
+    /* ── Helpers ── */
+    function getCode()     { try { return localStorage.getItem(LOCK_KEY) || ''; } catch (e) { return ''; } }
+    function saveCode(v)   { try { localStorage.setItem(LOCK_KEY, v); } catch (e) {} }
+    function isUnlocked()  { try { return sessionStorage.getItem(SESSION_KEY) === '1'; } catch (e) { return false; } }
+    function setUnlocked() { try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {} }
+
+    function readDigits(container) {
+      return Array.from(container.querySelectorAll('.kid-lock-digit'))
+        .map(function (i) { return i.value.replace(/\D/g, ''); })
+        .join('');
+    }
+
+    function clearDigits(container) {
+      Array.from(container.querySelectorAll('.kid-lock-digit')).forEach(function (i) { i.value = ''; });
+      var first = container.querySelector('.kid-lock-digit');
+      if (first) first.focus();
+    }
+
+    function wireAutoAdvance(container) {
+      var inputs = Array.from(container.querySelectorAll('.kid-lock-digit'));
+      inputs.forEach(function (inp, idx) {
+        inp.addEventListener('input', function () {
+          var v = inp.value.replace(/\D/g, '');
+          inp.value = v.slice(-1);
+          if (v && idx < inputs.length - 1) inputs[idx + 1].focus();
+          // Auto-submit when all four digits filled
+          if (readDigits(container).length === 4) {
+            var submitId = container.id === 'kid-lock-digits' ? 'kid-lock-submit' : 'kid-lock-set-save';
+            var s = document.getElementById(submitId);
+            if (s) s.click();
+          }
+        });
+        inp.addEventListener('keydown', function (e) {
+          if (e.key === 'Backspace' && !inp.value && idx > 0) inputs[idx - 1].focus();
+          if (e.key === 'Enter') {
+            var submitId = container.id === 'kid-lock-digits' ? 'kid-lock-submit' : 'kid-lock-set-save';
+            var s = document.getElementById(submitId);
+            if (s) s.click();
+          }
+        });
+      });
+    }
+
+    function shakeDigits(container) {
+      container.classList.remove('shake');
+      // Force reflow so re-adding the class restarts the animation
+      void container.offsetWidth;
+      container.classList.add('shake');
+      container.addEventListener('animationend', function () {
+        container.classList.remove('shake');
+      }, { once: true });
+    }
+
+    /* ── Lock / unlock visual state ── */
+    function applyLockState() {
+      var locked = !isUnlocked();
+      // Color Me buttons in the grid
+      var colorBtns = document.querySelectorAll('.kids-card-color-btn');
+      colorBtns.forEach(function (btn) {
+        if (locked) {
+          btn.classList.add('locked');
+          btn.setAttribute('aria-disabled', 'true');
+        } else {
+          btn.classList.remove('locked');
+          btn.removeAttribute('aria-disabled');
+        }
+      });
+      // Save button inside coloring overlay
+      var saveBtn = document.getElementById('kids-coloring-save-btn');
+      if (saveBtn) {
+        if (locked) {
+          saveBtn.classList.add('locked');
+          saveBtn.setAttribute('aria-disabled', 'true');
+        } else {
+          saveBtn.classList.remove('locked');
+          saveBtn.removeAttribute('aria-disabled');
+        }
+      }
+    }
+
+    /* ── Gate modal (verify) ── */
+    var gateModal   = document.getElementById('kid-lock-modal');
+    var gateDigits  = document.getElementById('kid-lock-digits');
+    var gateError   = document.getElementById('kid-lock-error');
+    var gateSetNote = document.getElementById('kid-lock-set-note');
+    var submitBtn   = document.getElementById('kid-lock-submit');
+    var cancelBtn   = document.getElementById('kid-lock-cancel');
+    var setLink     = document.getElementById('kid-lock-set-link');
+
+    if (gateDigits) wireAutoAdvance(gateDigits);
+
+    function openGate(onSuccess) {
+      if (!gateModal) { if (onSuccess) onSuccess(); return; }
+      if (!getCode()) { openSetModal(onSuccess); return; }
+      _pendingAction = onSuccess || null;
+      if (gateError) gateError.classList.add('hidden');
+      if (gateSetNote) gateSetNote.hidden = false;
+      if (gateDigits) clearDigits(gateDigits);
+      gateModal.classList.remove('hidden');
+    }
+
+    function closeGate() {
+      if (gateModal) gateModal.classList.add('hidden');
+      _pendingAction = null;
+    }
+
+    submitBtn && submitBtn.addEventListener('click', function () {
+      var entered = gateDigits ? readDigits(gateDigits) : '';
+      if (entered.length < 4) return;
+      if (entered === getCode()) {
+        setUnlocked();
+        applyLockState();
+        closeGate();
+        if (_pendingAction) { var fn = _pendingAction; _pendingAction = null; fn(); }
+      } else {
+        if (gateDigits) shakeDigits(gateDigits);
+        if (gateError) gateError.classList.remove('hidden');
+        if (gateDigits) clearDigits(gateDigits);
+      }
+    });
+
+    cancelBtn && cancelBtn.addEventListener('click', closeGate);
+    if (gateModal) {
+      gateModal.addEventListener('click', function (e) {
+        if (e.target === gateModal) closeGate();
+      });
+    }
+
+    /* ── Set parent code modal ── */
+    var setModal    = document.getElementById('kid-lock-set-modal');
+    var setDigits   = document.getElementById('kid-lock-set-digits');
+    var setError    = document.getElementById('kid-lock-set-error');
+    var setSaveBtn  = document.getElementById('kid-lock-set-save');
+    var setCancelBtn = document.getElementById('kid-lock-set-cancel');
+    var _setDone    = null;
+
+    if (setDigits) wireAutoAdvance(setDigits);
+
+    function openSetModal(onDone) {
+      if (!setModal) return;
+      _setDone = onDone || null;
+      if (setError) setError.classList.add('hidden');
+      if (setDigits) clearDigits(setDigits);
+      setModal.classList.remove('hidden');
+    }
+
+    function closeSetModal() {
+      if (setModal) setModal.classList.add('hidden');
+      _setDone = null;
+    }
+
+    setLink && setLink.addEventListener('click', function () {
+      closeGate();
+      openSetModal(null);
+    });
+
+    setSaveBtn && setSaveBtn.addEventListener('click', function () {
+      var val = setDigits ? readDigits(setDigits) : '';
+      if (val.length < 4) {
+        if (setError) setError.classList.remove('hidden');
+        if (setDigits) shakeDigits(setDigits);
+        return;
+      }
+      saveCode(val);
+      setUnlocked();
+      applyLockState();
+      closeSetModal();
+      if (_setDone) { var fn = _setDone; _setDone = null; fn(); }
+    });
+
+    setCancelBtn && setCancelBtn.addEventListener('click', closeSetModal);
+    if (setModal) {
+      setModal.addEventListener('click', function (e) {
+        if (e.target === setModal) closeSetModal();
+      });
+    }
+
+    /* ── Intercept locked button taps ── */
+    document.addEventListener('click', function (e) {
+      if (isUnlocked()) return;
+      var colorBtn = e.target && e.target.closest ? e.target.closest('.kids-card-color-btn') : null;
+      if (colorBtn && colorBtn.classList.contains('locked')) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        var key   = colorBtn.getAttribute('data-story');
+        var title = colorBtn.getAttribute('data-title') || key;
+        openGate(function () {
+          // Re-trigger the Color Me action after unlock
+          if (key) initColoringCanvas(key, title);
+        });
+        return;
+      }
+      var saveBtn = e.target && e.target.closest ? e.target.closest('#kids-coloring-save-btn') : null;
+      if (saveBtn && saveBtn.classList.contains('locked')) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        openGate(function () {
+          saveColoringAsPng();
+        });
+      }
+    }, true);
+
+    /* ── Keyboard: Escape closes modals ── */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (gateModal && !gateModal.classList.contains('hidden')) closeGate();
+      if (setModal  && !setModal.classList.contains('hidden'))  closeSetModal();
+    });
+
+    /* ── First-load: show gate if code exists but session not unlocked ── */
+    /* If no code at all, leave it dormant until user taps a locked button  */
+    applyLockState();
+
+    /* Expose for console/test: window._kidLock.test() fires gate immediately */
+    window._kidLock = {
+      openGate: openGate,
+      openSetModal: openSetModal,
+      isUnlocked: isUnlocked,
+      applyLockState: applyLockState,
+      test: function () { openGate(function () { console.log('[KidLock] unlocked via test'); }); }
+    };
+  }());
+
 })();

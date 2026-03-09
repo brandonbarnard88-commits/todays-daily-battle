@@ -3154,6 +3154,204 @@ var ROTATING_HERO_VERSES = [
 var HERO_IDX_KEY = 'tdb_hero_idx_v1';
 var HERO_ORDER_KEY = 'tdb_hero_order_v1';
 
+// ── Smart Feel Dictionary ─────────────────────────────────────────────────────
+// Each entry: def (heartfelt opener), action (do-this prompt), outcome (then),
+// verseRef (partial ref to match in ROTATING_HERO_VERSES).
+var SMART_DICTIONARY = {
+  peace:          { def: "Stillness in storm.",                       action: "Breathe His name.",         outcome: "Heart settles.",          verseRef: "John 16:33"          },
+  fear:           { def: "Fear lies\u2014He's louder.",               action: "Say \u2018With me.\u2019",  outcome: "Fear fades.",             verseRef: "Isaiah 41:10"        },
+  strength:       { def: "Weakness? His power starts here.",          action: "Wait quiet.",               outcome: "Wings lift you.",         verseRef: "Isaiah 40:31"        },
+  anxiety:        { def: "Heavy worry\u2014God says cast it.",        action: "Pray it out.",              outcome: "Peace returns.",          verseRef: "1 Peter 5:7"         },
+  joy:            { def: "Joy heals like medicine.",                  action: "Tell a joke\u2014smile.",   outcome: "Bones mend.",             verseRef: "Proverbs 17:22"      },
+  hope:           { def: "Hope is real\u2014even unseen.",            action: "Believe one promise.",      outcome: "Joy abounds.",            verseRef: "Romans 15:13"        },
+  love:           { def: "Love casts out fear.",                      action: "Love someone\u2014now.",    outcome: "No torment left.",        verseRef: "1 John 4:18"         },
+  worry:          { def: "Tomorrow? He handles it.",                  action: "Write worry\u2014let go.",  outcome: "Today is enough.",        verseRef: "Matthew 6:34"        },
+  forgiveness:    { def: "Forgiven people forgive.",                  action: "Name one\u2014release.",    outcome: "Weight lifts.",           verseRef: "Ephesians 4:32"      },
+  patience:       { def: "Waiting is not wasted.",                    action: "Rest\u2014He\u2019s moving.", outcome: "Strength renews.",      verseRef: "Isaiah 40:31"        },
+  courage:        { def: "Courage isn\u2019t no fear\u2014it\u2019s stepping anyway.", action: "Step forward.", outcome: "He goes before you.", verseRef: "Joshua 1:9"         },
+  rest:           { def: "He offers real rest\u2014not just sleep.",  action: "Stop\u2014come to Him.",    outcome: "Soul rested.",            verseRef: "Matthew 11:28"       },
+  grace:          { def: "Grace is enough\u2014always.",              action: "Admit one weakness.",       outcome: "Power perfected.",        verseRef: "2 Corinthians 12:9"  },
+  wisdom:         { def: "Ask boldly\u2014He gives freely.",          action: "Pray \u2018Give me wisdom\u2019.", outcome: "Clarity follows.",  verseRef: "James 1:5"          },
+  grief:          { def: "Grief is love with nowhere to go\u2014He holds both.", action: "Cry\u2014He collects.", outcome: "Comfort comes.", verseRef: "Psalm 34:18"         },
+  anger:          { def: "Anger is real\u2014don\u2019t let it own you.", action: "Feel it\u2014release.", outcome: "Peace stays.",           verseRef: "Ephesians 4:26"      },
+  loneliness:     { def: "Lonely? He never leaves.",                  action: "Say \u2018You\u2019re here.\u2019", outcome: "Presence felt.", verseRef: "Hebrews 13:5"       },
+  guilt:          { def: "No condemnation\u2014none.",                action: "Say \u2018No more.\u2019",  outcome: "Freedom starts.",         verseRef: "Romans 8:1"          },
+  gratitude:      { def: "Gratitude unlocks what fear locks.",        action: "Name three blessings.",     outcome: "Perspective shifts.",     verseRef: "Psalm 118:24"        },
+  faith:          { def: "Faith is the substance\u2014real before seen.", action: "Hope one thing\u2014believe.", outcome: "Unseen proven.", verseRef: "Hebrews 11:1"       },
+  trauma:         { def: "Broken is where He does His best work.",    action: "Let Him search.",           outcome: "Healing begins.",         verseRef: "Psalm 147:3"         },
+  addiction:      { def: "He breaks every chain\u2014even this one.", action: "Admit it\u2014ask help.",  outcome: "Chain breaks.",           verseRef: "John 8:36"           },
+  marriage:       { def: "Two walking with Him walk together.",       action: "Pray for them\u2014today.", outcome: "Bond strengthens.",       verseRef: "Ecclesiastes 4:12"   },
+  family:         { def: "Family is hard\u2014He redeems it.",        action: "Love one person well.",     outcome: "Home shifts.",            verseRef: "Joshua 24:15"        },
+  parenting:      { def: "Children are a gift\u2014train gently.",   action: "Point to Him today.",        outcome: "Legacy formed.",          verseRef: "Proverbs 22:6"       },
+  finances:       { def: "He supplies\u2014riches in glory.",         action: "Trust\u2014give one thing.", outcome: "Need met.",              verseRef: "Philippians 4:19"    },
+  sleep:          { def: "He keeps you\u2014even while you sleep.",   action: "Lie down\u2014trust.",      outcome: "Sweet sleep given.",      verseRef: "Psalm 127:2"         },
+  obedience:      { def: "To obey is better than sacrifice.",         action: "Do the thing you know.",    outcome: "Blessing follows.",       verseRef: "1 Samuel 15:22"      },
+  identity:       { def: "You are His\u2014called by name.",          action: "Say \u2018I\u2019m His.\u2019", outcome: "Worth settled.",      verseRef: "Isaiah 43:1"         },
+  purpose:        { def: "He has plans\u2014good ones.",              action: "Ask \u2018Where next?\u2019", outcome: "Path clears.",          verseRef: "Jeremiah 29:11"      },
+  heartache:      { def: "He is near the brokenhearted.",             action: "Cry\u2014let Him hold it.", outcome: "Comfort arrives.",        verseRef: "Psalm 34:18"         },
+  struggle:       { def: "Still here\u2014that\u2019s enough. He\u2019s closer in struggle than anywhere else.", action: "Be still\u2014just breathe.", outcome: "He meets you here.",    verseRef: "Psalm 46:10"         }
+};
+
+function renderSmartResult(query) {
+  var key = String(query || '').toLowerCase().trim();
+  if (!key) return;
+  var container = document.getElementById('feel-results');
+  if (!container) return;
+  var info = SMART_DICTIONARY[key] || {
+    def: "You\u2019re searching\u2014He\u2019s answering.",
+    action: "Keep going.",
+    outcome: "Light comes.",
+    verseRef: "Psalm 119:105"
+  };
+  var verse = null;
+  for (var i = 0; i < ROTATING_HERO_VERSES.length; i++) {
+    if (ROTATING_HERO_VERSES[i].ref.indexOf(info.verseRef) !== -1) { verse = ROTATING_HERO_VERSES[i]; break; }
+  }
+  if (!verse) verse = ROTATING_HERO_VERSES[0];
+
+  container.innerHTML = '';
+
+  var card = document.createElement('div');
+  card.className = 'smart-card';
+  card.setAttribute('data-smart-topic', key);
+
+  var heartfelt = document.createElement('p');
+  heartfelt.className = 'smart-heartfelt';
+  heartfelt.textContent = info.def;
+
+  var verseEl = document.createElement('p');
+  verseEl.className = 'smart-verse';
+  verseEl.textContent = verse.text;
+
+  var refEl = document.createElement('p');
+  refEl.className = 'smart-ref';
+  refEl.textContent = verse.ref + ' (KJV)';
+
+  var ul = document.createElement('ul');
+  ul.className = 'smart-breakdown';
+  (verse.breakdown || []).forEach(function(line) {
+    var li = document.createElement('li');
+    li.textContent = line;
+    ul.appendChild(li);
+  });
+
+  var actionEl = document.createElement('p');
+  actionEl.className = 'smart-action';
+  actionEl.textContent = 'Do this: ' + info.action;
+
+  var outcomeEl = document.createElement('p');
+  outcomeEl.className = 'smart-outcome';
+  outcomeEl.textContent = 'Then: ' + info.outcome;
+
+  card.appendChild(heartfelt);
+  card.appendChild(verseEl);
+  card.appendChild(refEl);
+  card.appendChild(ul);
+  card.appendChild(actionEl);
+  card.appendChild(outcomeEl);
+
+  // ── Save + Share actions ──
+  var actions = document.createElement('div');
+  actions.className = 'smart-actions';
+
+  var saveBtn = document.createElement('button');
+  saveBtn.type = 'button';
+  saveBtn.className = 'smart-action-btn';
+  saveBtn.textContent = 'Save to Notes';
+  saveBtn.addEventListener('click', function() {
+    try {
+      var noteKey = 'tdb-saved-notes';
+      var existing = JSON.parse(localStorage.getItem(noteKey) || '[]');
+      var already = existing.some(function(n) { return n.ref === verse.ref; });
+      if (!already) {
+        existing.push({ ref: verse.ref, text: verse.text, savedAt: new Date().toISOString() });
+        localStorage.setItem(noteKey, JSON.stringify(existing));
+      }
+      saveBtn.textContent = 'Saved \u2713';
+      saveBtn.classList.add('confirmed');
+      setTimeout(function() { saveBtn.textContent = 'Save to Notes'; saveBtn.classList.remove('confirmed'); }, 1500);
+    } catch (_) {}
+  });
+
+  var shareBtn = document.createElement('button');
+  shareBtn.type = 'button';
+  shareBtn.className = 'smart-action-btn';
+  shareBtn.textContent = 'Share';
+  shareBtn.addEventListener('click', function() {
+    var shareText = verse.ref + ': \u201c' + verse.text + '\u201d\n\u2014 todaysdailybattle.com';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareText).then(function() {
+        shareBtn.textContent = 'Copied \u2713';
+        shareBtn.classList.add('confirmed');
+        setTimeout(function() { shareBtn.textContent = 'Share'; shareBtn.classList.remove('confirmed'); }, 1500);
+      }).catch(function() {});
+    }
+  });
+
+  actions.appendChild(saveBtn);
+  actions.appendChild(shareBtn);
+
+  // ── Listen button (TTS full card) ──
+  var listenBtn = document.createElement('button');
+  listenBtn.type = 'button';
+  listenBtn.className = 'smart-action-btn smart-listen-btn';
+  listenBtn.setAttribute('aria-label', 'Listen to this verse and guidance read aloud');
+  listenBtn.setAttribute('aria-pressed', 'false');
+  listenBtn.textContent = '\uD83D\uDD0A Listen';
+  var _ttsActive = false;
+  listenBtn.addEventListener('click', function() {
+    if (_ttsActive && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      _ttsActive = false;
+      listenBtn.textContent = '\uD83D\uDD0A Listen';
+      listenBtn.setAttribute('aria-pressed', 'false');
+      return;
+    }
+    // Try MP3 first
+    var audioSrc = '/audio/' + (verse.ref || '').replace(/[\s:]/g, '-').toLowerCase() + '.mp3';
+    var audioEl = document.getElementById('smartCardAudio');
+    if (!audioEl) {
+      audioEl = document.createElement('audio');
+      audioEl.id = 'smartCardAudio';
+      audioEl.preload = 'none';
+      audioEl.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(audioEl);
+    }
+    audioEl.src = audioSrc;
+    audioEl.volume = window._tdbAudioVolume !== undefined ? window._tdbAudioVolume : 1;
+    var played = false;
+    audioEl.oncanplay = function() {
+      if (!played) { played = true; audioEl.play().catch(function() { fallbackTTS(); }); }
+    };
+    audioEl.onerror = function() { fallbackTTS(); };
+    listenBtn.textContent = '\u23F8 Stop';
+    listenBtn.setAttribute('aria-pressed', 'true');
+    audioEl.onended = function() { listenBtn.textContent = '\uD83D\uDD0A Listen'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
+    function fallbackTTS() {
+      if (!window.speechSynthesis) { listenBtn.textContent = '\uD83D\uDD0A Listen'; return; }
+      _ttsActive = true;
+      var fullText = info.def + ' \u2026 ' + verse.text + ' \u2014 ' + verse.ref + '. Do this: ' + info.action + '. Then: ' + info.outcome;
+      var utt = new SpeechSynthesisUtterance(fullText);
+      utt.rate = 0.88; utt.pitch = 1;
+      var voices = window.speechSynthesis.getVoices() || [];
+      var warm = voices.find(function(v) { return /(samantha|karen|daniel|moira)/i.test(v.name); })
+                 || voices.find(function(v) { return v.lang && v.lang.startsWith('en') && v.localService; })
+                 || null;
+      if (warm) utt.voice = warm;
+      utt.onend = function() { listenBtn.textContent = '\uD83D\uDD0A Listen'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
+      utt.onerror = function() { listenBtn.textContent = '\uD83D\uDD0A Listen'; listenBtn.setAttribute('aria-pressed','false'); _ttsActive = false; };
+      window.speechSynthesis.speak(utt);
+    }
+    // Small probe — if audio fails to load in 1.2s, go TTS
+    setTimeout(function() { if (!played) fallbackTTS(); }, 1200);
+  });
+  actions.appendChild(listenBtn);
+  card.appendChild(actions);
+
+  container.appendChild(card);
+  container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 function mountRotatingHeroVerse() {
   var verses = ROTATING_HERO_VERSES;
   var order, idx;
@@ -19241,6 +19439,26 @@ function wireRandomBattleVerseHero() {
     feelInput.addEventListener('focus', function () {
       tip.classList.remove('feel-search-shortcut-tip--visible');
     });
+  }());
+
+  // ── Wire Smart Feel Search ────────────────────────────────────────────────
+  (function wireSmartSearch() {
+    var feelInput = document.getElementById('feel-search');
+    if (feelInput) {
+      feelInput.addEventListener('input', function () {
+        var val = String(feelInput.value || '').trim();
+        if (val) renderSmartResult(val);
+      });
+    }
+    var quickTopics = document.getElementById('quickTopics');
+    if (quickTopics) {
+      quickTopics.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest ? e.target.closest('.quick-topic[data-topic]') : null;
+        if (!btn) return;
+        e.stopPropagation();
+        renderSmartResult(btn.getAttribute('data-topic'));
+      });
+    }
   }());
 
   var el = document.getElementById('footer-date');

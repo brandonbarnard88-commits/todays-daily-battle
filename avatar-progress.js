@@ -12,7 +12,7 @@
   var fallbackObserver = null;
 
   var STAGES = [
-    { id: 'wanderer', min: 0, max: 9, tag: 'Covenant', title: 'Covenant Scout', look: 'anointed field cloak + pilgrim staff', crestEvolution: 'seed crest (wax seal)', face: '🕊️', unlockToast: false, flags: { helmet: false, breastplate: false, belt: false, shield: false, sword: false, swordGlow: false } },
+    { id: 'wanderer', min: 0, max: 9, tag: 'Covenant', title: 'Pilgrim Scout', look: 'anointed field cloak + pilgrim staff', crestEvolution: 'seed crest (wax seal)', face: '🕊️', unlockToast: false, flags: { helmet: false, breastplate: false, belt: false, shield: false, sword: false, swordGlow: false } },
     { id: 'village', min: 10, max: 29, tag: 'Village', title: 'Rising Defender', look: 'helmet + shield', crestEvolution: 'basic crest', face: '🛡️', unlockToast: true, flags: { helmet: true, breastplate: false, belt: true, shield: true, sword: false, swordGlow: false } },
     { id: 'kingdom', min: 30, max: 59, tag: 'Kingdom', title: 'Crowned Champion', look: 'leather + sword', crestEvolution: 'gemmed crest', face: '⚔️', unlockToast: true, flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: false } },
     { id: 'empire', min: 60, max: 99999, tag: 'Empire', title: 'Legacy Warlord', look: 'jacket + cross necklace + phone', crestEvolution: 'diamond-edge crest', face: '💎', unlockToast: true, flags: { helmet: true, breastplate: true, belt: true, shield: true, sword: true, swordGlow: true } }
@@ -51,7 +51,7 @@
       : '/icons/avatar-portrait-scout.svg';
     var wrap = document.createElement('div');
     wrap.id = FALLBACK_WRAP_ID;
-    wrap.setAttribute('aria-label', 'Covenant Scout avatar');
+    wrap.setAttribute('aria-label', 'Pilgrim Scout avatar');
     wrap.style.cssText = 'position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(210px,86%);display:flex;flex-direction:column;align-items:center;gap:0.45rem;z-index:2;pointer-events:none;';
 
     var visual = document.createElement('div');
@@ -73,7 +73,7 @@
     }
 
     var label = document.createElement('p');
-    label.textContent = 'Covenant Scout';
+    label.textContent = 'Pilgrim Scout';
     label.style.cssText = 'margin:0;color:#fde68a;font-weight:700;font-size:0.86rem;letter-spacing:0.01em;';
     var sub = document.createElement('p');
     sub.textContent = 'Called. Steady. Faithful in small things.';

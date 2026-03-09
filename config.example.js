@@ -48,6 +48,8 @@ window.TDB_CONFIG = {
   VAPID_PUBLIC_KEY: '',
   // Optional: POST push subscription to this URL when user opts in (Start Day 1). Your backend stores it to send 8 AM notifications.
   PUSH_SUBSCRIBE_URL: '',
+  // Optional: POST endpoint to remove push subscription when user opts out.
+  PUSH_UNSUBSCRIBE_URL: '',
   // Firebase Cloud Messaging (daily 9 AM verse push). From Firebase Console > Project settings > General > Your apps.
   FIREBASE_API_KEY: '',
   FIREBASE_AUTH_DOMAIN: '',
@@ -59,6 +61,8 @@ window.TDB_CONFIG = {
   FIREBASE_VAPID_KEY: '',
   // POST FCM token here when user opts in (same backend can store tokens for 9 AM send).
   FCM_SUBSCRIBE_URL: '',
+  // Optional: POST FCM token here when user opts out so backend can stop sends.
+  FCM_UNSUBSCRIBE_URL: '',
   // Stats page (stats.html): password to view private dashboard. If empty, stats page shows "Set STATS_PASSWORD in config.js".
   STATS_PASSWORD: ''
 };

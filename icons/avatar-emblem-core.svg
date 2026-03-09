@@ -1,16 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-  <defs>
-    <linearGradient id="coreShield" x1="64" y1="10" x2="64" y2="116" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FDE68A"/>
-      <stop offset="1" stop-color="#F59E0B"/>
-    </linearGradient>
-    <linearGradient id="coreSteel" x1="40" y1="34" x2="88" y2="92" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#E2E8F0"/>
-      <stop offset="1" stop-color="#94A3B8"/>
-    </linearGradient>
-  </defs>
-  <path d="M64 12L102 27V58C102 83 87 104 64 116C41 104 26 83 26 58V27L64 12Z" fill="url(#coreShield)" opacity="0.92"/>
-  <path d="M64 21L93 33V58C93 78 81 95 64 106C47 95 35 78 35 58V33L64 21Z" fill="#0F172A" opacity="0.78"/>
-  <path d="M64 36L74 54H90L77 66L82 84L64 74L46 84L51 66L38 54H54L64 36Z" fill="url(#coreSteel)"/>
-  <path d="M64 44V82" stroke="#F8FAFC" stroke-width="4" stroke-linecap="round" opacity="0.92"/>
+  <circle cx="64" cy="64" r="58" fill="#0F172A"/>
+  <circle cx="64" cy="64" r="54" stroke="#F8FAFC" stroke-opacity="0.2" stroke-width="2"/>
+  <path d="M64 20L96 34V63C96 84 84 102 64 112C44 102 32 84 32 63V34L64 20Z" fill="#334155"/>
+  <path d="M64 28L88 39V63C88 79 79 93 64 102C49 93 40 79 40 63V39L64 28Z" fill="#1E293B"/>
+  <path d="M64 42V84" stroke="#F8FAFC" stroke-width="6" stroke-linecap="round"/>
+  <path d="M47 58H81" stroke="#F8FAFC" stroke-width="6" stroke-linecap="round"/>
 </svg>

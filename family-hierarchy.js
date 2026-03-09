@@ -5,6 +5,17 @@
   var FAMILY_REGISTRY_KEY = 'tdb_family_registry_v1';
   var AVATAR_KEY = 'tdb_device_avatar_seed';
   var ROLE_KEY = 'tdb_family_role_v1';
+  var MEMBER_NAME_KEY = 'messageDisplayName';
+
+  function sanitizeMemberName(value) {
+    var text = String(value || '').replace(/\s+/g, ' ').trim();
+    if (!text) return '';
+    return text.slice(0, 40);
+  }
+
+  function getLocalMemberName() {
+    try { return sanitizeMemberName(localStorage.getItem(MEMBER_NAME_KEY) || ''); } catch (e) { return ''; }
+  }
 
   function safeParse(raw, fallback) {
     try {
@@ -108,11 +119,32 @@
     member.role = role;
     member.parentId = opts.parentId || member.parentId || '';
     member.linked = !!(member.parentId || role === 'parent');
+    var providedName = sanitizeMemberName(opts.name || '');
+    var localName = getLocalMemberName();
+    if (providedName) member.name = providedName;
+    else if (!member.name && localName) member.name = localName;
     member.updatedAt = Date.now();
     members[id] = member;
     registry[familyCode].updatedAt = Date.now();
     writeRegistry(registry);
     return member;
+  }
+
+  function setMemberName(name, code) {
+    var clean = sanitizeMemberName(name);
+    if (!clean) return '';
+    var familyCode = String(code || getFamilyCode());
+    var registry = readRegistry();
+    if (!registry[familyCode]) registry[familyCode] = { members: {}, updatedAt: Date.now() };
+    if (!registry[familyCode].members) registry[familyCode].members = {};
+    var id = deviceHash();
+    var member = registry[familyCode].members[id] || { avatarId: id, role: getRole() || 'parent', progress: 0, gems: 0, linked: true };
+    member.name = clean;
+    member.updatedAt = Date.now();
+    registry[familyCode].members[id] = member;
+    registry[familyCode].updatedAt = Date.now();
+    writeRegistry(registry);
+    return clean;
   }
 
   function resolveLinkInput(rawInput) {
@@ -196,6 +228,7 @@
     setRole: setRole,
     getRole: getRole,
     ensureMember: ensureMember,
+    setMemberName: setMemberName,
     resolveLinkInput: resolveLinkInput,
     buildMergeCode: buildMergeCode,
     getFamilyAggregate: getFamilyAggregate,

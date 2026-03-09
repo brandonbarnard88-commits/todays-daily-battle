@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; font-src 'self' data:; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
+
   <title>today's daily battle</title>
   <meta name="description" content="A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise.">
   <style>
@@ -359,7 +359,7 @@
       color: var(--text);
       border: 1.5px solid var(--line);
       border-radius: 999px;
-      padding: 13px 20px;
+      padding: 13px 48px 13px 20px;
       font-size: 1rem;
       outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -602,10 +602,10 @@
       background: color-mix(in srgb, var(--card) 90%, transparent);
       backdrop-filter: blur(12px);
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      padding: 8px;
+      grid-template-columns: repeat(7, 1fr);
+      padding: 6px;
       z-index: 40;
-      gap: 8px;
+      gap: 4px;
     }
 
     .nav-link {
@@ -625,6 +625,11 @@
     .nav-link:hover,
     .nav-link:focus-visible {
       border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+    }
+
+    .nav-link--active {
+      border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+      color: var(--gold);
     }
 
     .nav-link:focus-visible {
@@ -938,7 +943,853 @@
       font-size: 0.85rem;
       color: var(--muted);
     }
+
+    /* ── Hero Streak Badge ── */
+    .hero-streak-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2em;
+      background: color-mix(in srgb, var(--gold) 18%, transparent);
+      color: var(--gold);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-top: 4px;
+    }
+
+    /* ── Tool Teaser Cards ── */
+    .tool-teaser-link {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+      color: var(--text);
+      padding: 0.1rem 0;
+    }
+    .tool-teaser-link:hover .tool-teaser-label,
+    .tool-teaser-link:focus-visible .tool-teaser-label {
+      color: var(--gold);
+    }
+    .tool-teaser-link:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    .tool-teaser-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .tool-teaser-label {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      transition: color 0.15s ease;
+    }
+    .tool-teaser-sub {
+      margin: 2px 0 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .tool-teaser-arrow {
+      margin-left: auto;
+      font-size: 1.1rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    /* ── Save / Share action buttons on verse cards ── */
+    .fvc-actions,
+    .smart-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .fvc-action-btn,
+    .smart-action-btn {
+      flex: 1;
+      min-width: 100px;
+      background: color-mix(in srgb, var(--gold) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      border-radius: 8px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      text-align: center;
+    }
+    .fvc-action-btn:hover,
+    .smart-action-btn:hover {
+      background: color-mix(in srgb, var(--gold) 18%, transparent);
+    }
+    .fvc-action-btn.confirmed,
+    .smart-action-btn.confirmed {
+      color: #4ade80;
+      border-color: rgba(74, 222, 128, 0.35);
+      background: rgba(74, 222, 128, 0.08);
+    }
+
+    /* ── Prayer Export ── */
+    .prayer-export-btn {
+      display: block;
+      margin-top: 0.75rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .prayer-export-btn:hover { color: var(--gold); }
+
+    /* ── Mic Button ── */
+    .mic-btn {
+      position: absolute;
+      right: 42px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 6px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      transition: color 0.15s ease;
+    }
+    .mic-btn:hover, .mic-btn:focus-visible { color: var(--gold); outline: 2px solid var(--gold); outline-offset: 2px; }
+    .mic-btn--active { color: var(--gold); animation: mic-pulse 1s ease infinite; }
+    @keyframes mic-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    /* ── Hero Mini-Menu ── */
+    .hero-mini-menu {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.2s ease;
+    }
+    .hero-mini-menu.hero-menu--open {
+      max-height: 80px;
+      opacity: 1;
+    }
+    .hero-menu-btn {
+      flex: 1;
+      min-width: 72px;
+      background: color-mix(in srgb, var(--gold) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      border-radius: 8px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      padding: 5px 8px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .hero-menu-btn:hover, .hero-menu-btn:focus-visible {
+      background: color-mix(in srgb, var(--gold) 20%, transparent);
+      outline: 2px solid var(--gold);
+      outline-offset: 1px;
+    }
+    #verseCard { cursor: pointer; }
+
+    /* ── 7-Day Plan Progress ── */
+    .plan-progress-card { padding: 0.85rem 1rem; }
+    .plan-progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .plan-progress-title { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .plan-progress-label { font-size: 0.75rem; color: var(--muted); }
+    .plan-progress-track {
+      height: 5px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--gold) 15%, transparent);
+      overflow: hidden;
+    }
+    .plan-progress-bar {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--gold);
+      width: calc(var(--plan-day, 1) / 7 * 100%);
+      transition: width 0.6s ease;
+    }
+
+    /* ── Encouragement Nudge Popover ── */
+    .nudge-popover {
+      position: fixed;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(calc(100% - 32px), 520px);
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 14px;
+      padding: 1rem 1rem 0.85rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      z-index: 200;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .nudge-popover--visible { opacity: 1; }
+    .nudge-popover-msg {
+      flex: 1;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--text);
+      margin: 0;
+    }
+    .nudge-dismiss-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+    .nudge-dismiss-btn:hover, .nudge-dismiss-btn:focus-visible {
+      color: var(--gold);
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    /* ── Teaser card hover glow ── */
+    .tool-teaser-card {
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .tool-teaser-card:hover,
+    .tool-teaser-card:focus-within {
+      border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 20%, transparent);
+    }
+
+    /* ── Visible focus outline site-wide ── */
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+
+    /* ── Plan mini-bars inside plans-teaser ── */
+    .plans-mini-bars { margin-top: 0.65rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .plan-mini-bar-row { display: flex; flex-direction: column; gap: 3px; }
+    .plan-mini-bar-label { font-size: 0.71rem; color: var(--muted); }
+    .plan-mini-bar-track {
+      height: 4px; border-radius: 999px;
+      background: color-mix(in srgb, var(--gold) 15%, transparent);
+      overflow: hidden;
+    }
+    .plan-mini-bar-fill {
+      height: 100%; border-radius: 999px; background: var(--gold);
+      transition: width 0.4s ease;
+    }
+
+    /* ── Audio Volume Popover ── */
+    .audio-volume-popover {
+      position: fixed; bottom: 100px; right: 16px;
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      z-index: 250;
+      display: flex; align-items: center; gap: 0.75rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    }
+    .audio-volume-popover[hidden] { display: none; }
+    .audio-vol-label { font-size: 0.82rem; color: var(--text); white-space: nowrap; }
+    .audio-vol-slider {
+      width: 100px; accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .audio-vol-close {
+      background: none; border: none; color: var(--muted);
+      font-size: 0.9rem; cursor: pointer; padding: 0 2px;
+    }
+    .audio-vol-close:hover { color: var(--gold); }
+
+    /* ── Smart card Listen button ── */
+    .smart-listen-btn { color: var(--gold) !important; }
+    .smart-listen-btn:hover { background: color-mix(in srgb, var(--gold) 15%, transparent); }
+
+    /* ── Plan Detail Modal ── */
+    .plan-detail-modal {
+      position: fixed; inset: 0; z-index: 410;
+      background: rgba(0,0,0,0.78);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 0;
+    }
+    .plan-detail-modal[hidden] { display: none; }
+    .plan-detail-inner {
+      background: var(--card);
+      border-top: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      border-radius: 18px 18px 0 0;
+      padding: 1.4rem 1.2rem 2rem;
+      width: 100%; max-width: 520px;
+      max-height: 80vh; overflow-y: auto;
+      position: relative;
+    }
+    .plan-detail-close {
+      position: absolute; top: 0.85rem; right: 1rem;
+      background: none; border: none; font-size: 1.2rem;
+      color: var(--muted); cursor: pointer;
+    }
+    .plan-detail-close:hover { color: var(--gold); }
+    .plan-detail-title { font-size: 1.2rem; font-weight: 700; color: var(--gold); margin: 0 0 0.2rem; }
+    .plan-detail-sub { font-size: 0.78rem; color: var(--muted); margin: 0 0 1rem; }
+    .plan-detail-days { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .plan-day-pill {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      background: transparent; color: var(--muted);
+      font-size: 0.78rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s ease;
+    }
+    .plan-day-pill--done {
+      background: color-mix(in srgb, var(--gold) 20%, transparent);
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+    .plan-day-pill--current {
+      background: var(--gold);
+      color: #1a1226;
+      font-weight: 700;
+    }
+    .plan-day-pill:hover { background: color-mix(in srgb, var(--gold) 15%, transparent); }
+    .plan-day-verse {
+      width: 100%;
+      background: color-mix(in srgb, var(--gold) 8%, transparent);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.6rem 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .plan-day-verse-ref { font-size: 0.72rem; color: var(--gold); margin: 0 0 0.25rem; font-weight: 600; }
+    .plan-day-verse-text { font-size: 0.88rem; color: var(--text); margin: 0; font-style: italic; line-height: 1.5; }
+    .plan-detail-start {
+      width: 100%;
+      background: var(--gold); color: #1a1226;
+      border: none; border-radius: 10px;
+      padding: 0.75rem; font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; transition: filter 0.15s ease;
+    }
+    .plan-detail-start:hover:not(:disabled) { filter: brightness(1.1); }
+    .plan-detail-start:disabled { opacity: 0.55; cursor: default; }
+
+    /* ── Plan Extend Footer ── */
+    .plan-extend-footer {
+      margin-top: 1.1rem;
+      padding: 1rem;
+      background: color-mix(in srgb, var(--gold) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .plan-extend-msg {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0 0 0.85rem;
+    }
+    .plan-extend-btns {
+      display: flex;
+      gap: 0.6rem;
+    }
+    #extend-plan {
+      flex: 1;
+      background: var(--gold);
+      color: #1a1226;
+      border: none;
+      border-radius: 10px;
+      padding: 0.65rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 0.15s ease;
+    }
+    #extend-plan:hover { filter: brightness(1.1); }
+    #dismiss-extend {
+      flex: 1;
+      background: transparent;
+      border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      border-radius: 10px;
+      padding: 0.65rem 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    #dismiss-extend:hover { color: var(--text); border-color: var(--gold); }
+
+    /* ── SOS Button ── */
+    .sos-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #1a1226;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(227,188,103,0.45);
+      z-index: 280;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sos-btn:hover, .sos-btn:focus-visible {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 6px rgba(227,188,103,0.22), 0 4px 20px rgba(227,188,103,0.5);
+      animation: sos-pulse 1.2s ease infinite;
+    }
+    @keyframes sos-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(227,188,103,0.55), 0 4px 20px rgba(227,188,103,0.4); }
+      50%       { box-shadow: 0 0 0 10px rgba(227,188,103,0), 0 4px 20px rgba(227,188,103,0.4); }
+    }
+
+    /* ── Morning Skip Button ── */
+    .morning-skip-btn {
+      display: block;
+      margin-top: 0.6rem;
+      background: transparent;
+      border: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+      border-radius: 8px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.15s ease;
+      align-self: flex-end;
+    }
+    .morning-skip-btn:hover { color: var(--text); }
+
+    /* ── Why Tooltip Popover ── */
+    .why-popover {
+      max-width: 300px;
+      background: var(--card);
+      padding: 0.85rem 1rem;
+      border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      border-radius: 12px;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: var(--text);
+      z-index: 500;
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: auto;
+    }
+    .why-popover--visible { opacity: 1; }
+
+    /* Make hero ref and smart-ref look interactive when WHY_NOTES applies */
+    #heroRef { cursor: help; }
+    .smart-ref {
+      cursor: help;
+      text-decoration: underline dotted;
+      text-underline-offset: 2px;
+    }
+
+    /* ── Bottom-nav: shrink label text for 7-col fit ── */
+    .nav-link span:last-child,
+    .nav-link-btn span:last-child {
+      font-size: 0.58rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── About Modal ── */
+    .about-modal-backdrop {
+      position: fixed; inset: 0; z-index: 410;
+      background: rgba(0,0,0,0.72);
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .about-modal-backdrop[hidden] { display: none; }
+    .about-modal-backdrop:not(.about-modal--open) .about-modal-sheet {
+      transform: translateY(100%);
+    }
+    .about-modal-backdrop.about-modal--open .about-modal-sheet {
+      transform: translateY(0);
+    }
+    .about-modal-sheet {
+      position: relative;
+      background: var(--card);
+      border-top: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      border-radius: 18px 18px 0 0;
+      padding: 1.6rem 1.3rem 2.2rem;
+      width: 100%; max-width: 560px;
+      max-height: 82vh; overflow-y: auto;
+      transition: transform 0.32s cubic-bezier(0.32,0.72,0,1);
+      outline: none;
+    }
+    .about-modal-close {
+      position: absolute; top: 0.9rem; right: 1rem;
+      background: none; border: none;
+      color: var(--muted); font-size: 1.15rem;
+      cursor: pointer; padding: 4px;
+      border-radius: 6px;
+      transition: color 0.15s ease;
+    }
+    .about-modal-close:hover, .about-modal-close:focus-visible { color: var(--gold); }
+    .about-modal-title {
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 1.1rem;
+      padding-right: 2rem;
+    }
+    .about-modal-sheet p {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0 0 1rem;
+    }
+    .about-sign-off {
+      font-style: italic;
+      color: var(--muted) !important;
+      margin-top: 1.3rem !important;
+    }
+    .about-close-btn {
+      display: block; width: 100%; margin-top: 1.2rem;
+      background: var(--gold); color: #1a1226;
+      border: none; border-radius: 10px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; transition: filter 0.15s ease;
+    }
+    .about-close-btn:hover { filter: brightness(1.1); }
+    .about-coffee {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 1.2rem 0 0;
+    }
+    .about-coffee-link {
+      color: var(--gold);
+      font-weight: 600;
+      text-underline-offset: 3px;
+    }
+    .about-coffee-link:hover { opacity: 0.82; }
+    .story-form {
+      margin-top: 1.4rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.1rem;
+    }
+    .story-form-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 0.35rem;
+    }
+    .story-form-note {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin: 0 0 0.75rem !important;
+    }
+    .story-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: var(--bg-soft);
+      border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+      color: var(--text);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      resize: vertical;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .story-textarea:focus { border-color: var(--gold); }
+    .story-form-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .story-submit-btn {
+      background: var(--gold);
+      color: #1a1226;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 0.15s ease;
+      white-space: nowrap;
+    }
+    .story-submit-btn:hover { filter: brightness(1.1); }
+    .story-confirm {
+      font-size: 0.83rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+    .story-confirm[hidden] { display: none; }
+    .nav-link-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--muted);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 3px; padding: 8px 4px; font-size: 0.7rem; border-radius: 10px;
+      transition: color 0.15s ease, background 0.15s ease;
+      font-family: inherit;
+    }
+    .nav-link-btn:hover, .nav-link-btn:focus-visible { color: var(--gold); background: color-mix(in srgb, var(--gold) 10%, transparent); }
+    .nav-link-btn span:first-child { font-size: 1.15rem; }
+
+    /* ── Settings Popover ── */
+    .settings-popover {
+      position: fixed;
+      bottom: 80px;
+      right: 10px;
+      width: min(calc(100vw - 20px), 320px);
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 16px;
+      padding: 1.1rem 1.15rem 1rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      z-index: 300;
+    }
+    .settings-popover[hidden] { display: none; }
+    .settings-popover-close {
+      position: absolute; top: 0.7rem; right: 0.9rem;
+      background: none; border: none; color: var(--muted);
+      font-size: 1rem; cursor: pointer; padding: 0;
+    }
+    .settings-popover-close:hover { color: var(--gold); }
+    .settings-popover-title {
+      margin: 0 0 0.85rem; font-size: 1rem; font-weight: 700; color: var(--text);
+    }
+    .settings-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem; margin-bottom: 0.75rem;
+    }
+    .settings-row--journal { margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--line); }
+    .settings-label { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+    .settings-label-text { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .settings-label-sub { font-size: 0.73rem; color: var(--muted); }
+    .settings-toggle {
+      flex-shrink: 0;
+      width: 40px; height: 22px;
+      appearance: none; -webkit-appearance: none;
+      background: var(--line); border-radius: 999px; cursor: pointer;
+      position: relative; transition: background 0.2s ease;
+    }
+    .settings-toggle::after {
+      content: ''; position: absolute;
+      top: 3px; left: 3px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #fff; transition: transform 0.2s ease;
+    }
+    .settings-toggle:checked { background: var(--gold); }
+    .settings-toggle:checked::after { transform: translateX(18px); }
+    .settings-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .settings-notif-status {
+      font-size: 0.76rem; color: var(--muted);
+      margin: -0.25rem 0 0.5rem; line-height: 1.4;
+    }
+
+    /* ── Journal Export Button ── */
+    .journal-export-btn {
+      background: var(--gold);
+      color: #1a1226;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter 0.15s ease;
+      flex-shrink: 0;
+    }
+    .journal-export-btn:hover { filter: brightness(1.1); }
+
+    /* ── Notification Permission Card ── */
+    .notification-permission {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .notif-perm-msg { font-weight: 600; font-size: 0.95rem; margin: 0 0 0.25rem; color: var(--text); }
+    .notif-perm-sub { font-size: 0.8rem; color: var(--muted); margin: 0 0 0.75rem; }
+    .notif-perm-btns { display: flex; gap: 0.6rem; }
+    .notif-perm-yes {
+      flex: 1; background: var(--gold); color: #1a1226; border: none; border-radius: 8px;
+      padding: 0.55rem 0.8rem; font-size: 0.85rem; font-weight: 700; cursor: pointer;
+    }
+    .notif-perm-yes:hover { filter: brightness(1.1); }
+    .notif-perm-no {
+      flex: 1; background: transparent; color: var(--muted);
+      border: 1px solid color-mix(in srgb, var(--muted) 40%, transparent);
+      border-radius: 8px; padding: 0.55rem 0.8rem; font-size: 0.85rem; cursor: pointer;
+    }
+    .notif-perm-no:hover { color: var(--text); }
+
+    /* ── Plans Library Teaser ── */
+    .plans-teaser {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 1rem;
+    }
+    .plans-teaser-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;
+    }
+    .plans-teaser-title { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .plans-teaser-explore { font-size: 0.78rem; color: var(--gold); text-decoration: none; }
+    .plans-teaser-explore:hover { text-decoration: underline; }
+    .plans-grid { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .plan-chip {
+      background: color-mix(in srgb, var(--gold) 10%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      border-radius: 20px; padding: 0.4rem 0.75rem;
+      font-size: 0.78rem; color: var(--text); cursor: pointer;
+      white-space: nowrap; transition: background 0.15s ease;
+    }
+    .plan-chip:hover { background: color-mix(in srgb, var(--gold) 22%, transparent); }
+    .plan-chip-days { color: var(--gold); font-size: 0.72rem; }
+
+    /* ── Listening Overlay ── */
+    .listening-overlay {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(0,0,0,0.65);
+      display: flex; align-items: flex-end; justify-content: center;
+      padding-bottom: 80px;
+    }
+    .listening-inner {
+      display: flex; align-items: center; gap: 0.85rem;
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 14px; padding: 1rem 1.25rem;
+    }
+    .listening-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--gold);
+      animation: mic-pulse 1s ease infinite;
+    }
+    .listening-text { font-size: 0.95rem; color: var(--text); font-weight: 600; }
+    .listening-cancel {
+      background: transparent; border: 1px solid var(--muted); border-radius: 8px;
+      color: var(--muted); padding: 0.3rem 0.65rem; font-size: 0.8rem; cursor: pointer;
+    }
+    .listening-cancel:hover { color: var(--text); border-color: var(--text); }
+
+    /* ── Kids Story Modal ── */
+    .story-modal {
+      position: fixed; inset: 0; z-index: 400;
+      background: rgba(0,0,0,0.75);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .story-modal[hidden] { display: none; }
+    .story-modal-inner {
+      position: relative;
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 18px;
+      padding: 1.5rem 1.25rem 1.25rem;
+      max-width: 480px; width: 100%;
+      max-height: 88vh; overflow-y: auto;
+    }
+    .story-modal-close {
+      position: absolute; top: 0.75rem; right: 0.9rem;
+      background: none; border: none; font-size: 1.2rem; color: var(--muted);
+      cursor: pointer; line-height: 1;
+    }
+    .story-modal-close:hover { color: var(--gold); }
+    .story-emoji-row { font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 0.5rem; }
+    .story-title { font-size: 1.35rem; font-weight: 700; color: var(--gold); margin: 0 0 0.2rem; }
+    .story-verse-ref { font-size: 0.78rem; color: var(--muted); margin: 0 0 1rem; }
+    .story-body p { font-size: 0.95rem; line-height: 1.65; color: var(--text); margin: 0 0 0.8rem; }
+    .story-verse { font-style: italic; color: var(--gold) !important; font-size: 0.9rem !important; }
+    .story-modal-link {
+      display: block; text-align: center; margin-top: 1rem;
+      color: var(--gold); font-size: 0.85rem; text-decoration: none;
+    }
+    .story-modal-link:hover { text-decoration: underline; }
+    .quick-story-btn {
+      display: block; width: 100%; margin-top: 0.65rem;
+      background: color-mix(in srgb, var(--gold) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      border-radius: 8px; padding: 0.55rem;
+      font-size: 0.82rem; color: var(--gold); cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .quick-story-btn:hover { background: color-mix(in srgb, var(--gold) 22%, transparent); }
+
+    /* ── Confetti Canvas ── */
+    .confetti-canvas {
+      position: fixed; inset: 0; pointer-events: none; z-index: 999; display: none;
+    }
+
+    /* ── Offline cached pill variant ── */
+    .offline-pill.offline-cached { background: color-mix(in srgb, var(--gold) 20%, transparent); }
+    .offline-pill.offline-cached::after {
+      content: ' \2014 verses ready';
+      font-size: 0.7rem; color: var(--gold); margin-left: 4px;
+    }
+
+    /* ── Nudge popover see-more link ── */
+    .nudge-see-more {
+      display: block; font-size: 0.76rem; color: var(--gold);
+      text-decoration: none; margin-top: 0.35rem;
+    }
+    .nudge-see-more:hover { text-decoration: underline; }
+    .nudge-popover-body { flex: 1; }
   </style>
+  <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Today's Daily Battle",
+        "url": "https://todaysdailybattle.com",
+        "description": "Offline-first KJV Bible companion — daily verse, smart feeling search, prayer wall, family tools. No ads, no login.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://todaysdailybattle.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "Today's Daily Battle",
+        "operatingSystem": "iOS, Android, Web",
+        "applicationCategory": "LifestyleApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Pure KJV, smart empathy search, offline ritual, family depth — no distractions.",
+        "url": "https://todaysdailybattle.com"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1003,9 +1854,55 @@
           <audio id="heroReadAudio" preload="none" src="/assets/hero-read.mp3"></audio>
         </div>
         <p class="verse-ref" id="heroRef"></p>
+        <span id="heroStreakBadge" class="hero-streak-badge" aria-label="Daily streak" hidden></span>
         <ul class="breakdown" id="heroBreakdown"></ul>
         <p class="application" id="heroApplication"></p>
         <p class="verse-note" id="verseNote" hidden></p>
+        <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
+        <!-- ── Hero Click Mini-Menu ── -->
+        <div class="hero-mini-menu" id="heroMiniMenu" aria-hidden="true" role="menu">
+          <button type="button" class="hero-menu-btn" id="heroMenuSave" role="menuitem" aria-label="Save verse to notes">💾 Save</button>
+          <button type="button" class="hero-menu-btn" id="heroMenuShare" role="menuitem" aria-label="Share verse to clipboard">📄 Share</button>
+          <button type="button" class="hero-menu-btn" id="heroMenuListen" role="menuitem" aria-label="Listen to verse read aloud">🔊 Listen</button>
+          <button type="button" class="hero-menu-btn" id="heroMenuImage" role="menuitem" aria-label="Create shareable verse image">🖼 Image</button>
+        </div>
+      </section>
+
+      <!-- ── 7-Day Battle Plan Progress ── -->
+      <section class="card plan-progress-card" aria-label="7-Day Battle Plan">
+        <div class="plan-progress-header">
+          <span class="plan-progress-title">🗓 7-Day Battle Plan</span>
+          <span class="plan-progress-label" id="planProgressLabel">Day 1 of 7 — keep going</span>
+        </div>
+        <div class="plan-progress-track" aria-hidden="true">
+          <div class="plan-progress-bar" id="planProgressBar" style="--plan-day:1"></div>
+        </div>
+      </section>
+
+      <!-- ── Notification Permission Card (shown after streak ≥3 or plan day ≥2) ── -->
+      <div class="notification-permission" id="notifPermCard" hidden role="status" aria-live="polite">
+        <p class="notif-perm-msg">📬 Allow daily verse reminders?</p>
+        <p class="notif-perm-sub">One gentle morning nudge — no spam, ever. You can turn it off anytime.</p>
+        <div class="notif-perm-btns">
+          <button type="button" class="notif-perm-yes" id="notifPermYes" aria-label="Allow daily verse notifications">Yes, remind me</button>
+          <button type="button" class="notif-perm-no" id="notifPermNo" aria-label="Decline daily verse notifications">Not now</button>
+        </div>
+      </div>
+
+      <!-- ── Plans Library Teaser ── -->
+      <section class="card plans-teaser" id="plans-teaser" aria-label="Plans library">
+        <div class="plans-teaser-header">
+          <span class="plans-teaser-title">📋 Battle Plans</span>
+          <a href="plans.html" class="plans-teaser-explore" aria-label="Explore all plans">More Plans →</a>
+        </div>
+        <div class="plans-grid" id="plansGrid">
+          <button type="button" class="plan-chip" data-plan="battle" aria-label="7 Days Battle Distraction plan">⚔️ Battle Distraction<span class="plan-chip-days" id="planChip-battle"></span></button>
+          <button type="button" class="plan-chip" data-plan="gratitude" aria-label="7 Days Gratitude plan">🙏 Gratitude<span class="plan-chip-days" id="planChip-gratitude"></span></button>
+          <button type="button" class="plan-chip" data-plan="strength" aria-label="30 Days Strength plan">💪 30-Day Strength<span class="plan-chip-days" id="planChip-strength"></span></button>
+          <button type="button" class="plan-chip" data-plan="marriage" aria-label="7 Days Marriage plan">💍 Marriage<span class="plan-chip-days" id="planChip-marriage"></span></button>
+          <button type="button" class="plan-chip" data-plan="peace" aria-label="7 Days Peace plan">🕊️ 7-Day Peace<span class="plan-chip-days" id="planChip-peace"></span></button>
+        </div>
+        <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
       </section>
 
       <!-- ── Feel Search ── -->
@@ -1025,17 +1922,103 @@
             aria-controls="feelSuggestDropdown"
             aria-haspopup="listbox"
           >
+          <button type="button" class="mic-btn" id="micBtn" aria-label="Voice search — speak a feeling">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+              <path d="M19 10a7 7 0 0 1-14 0"></path>
+              <line x1="12" y1="19" x2="12" y2="22"></line>
+              <line x1="9" y1="22" x2="15" y2="22"></line>
+            </svg>
+          </button>
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
+        <div class="quick-grid" id="quickTopics" aria-label="Quick topic shortcuts">
+          <button type="button" class="quick-topic" data-topic="peace">🕊️ Peace</button>
+          <button type="button" class="quick-topic" data-topic="fear">🛡️ Fear</button>
+          <button type="button" class="quick-topic" data-topic="strength">💪 Strength</button>
+          <button type="button" class="quick-topic" data-topic="anxiety">☁️ Anxiety</button>
+          <button type="button" class="quick-topic" data-topic="joy">☀️ Joy</button>
+          <button type="button" class="quick-topic" data-topic="hope">♥️ Hope</button>
+          <button type="button" class="quick-topic" data-topic="love">❤️ Love</button>
+          <button type="button" class="quick-topic" data-topic="worry">🤔 Worry</button>
+          <button type="button" class="quick-topic" data-topic="forgiveness">✝️ Forgiveness</button>
+          <button type="button" class="quick-topic" data-topic="patience">⏳ Patience</button>
+          <button type="button" class="quick-topic" data-topic="courage">⚔️ Courage</button>
+          <button type="button" class="quick-topic" data-topic="rest">😮‍💨 Rest</button>
+          <button type="button" class="quick-topic" data-topic="grace">🙏 Grace</button>
+          <button type="button" class="quick-topic" data-topic="wisdom">📖 Wisdom</button>
+          <button type="button" class="quick-topic" data-topic="grief">🕊️ Grief</button>
+          <button type="button" class="quick-topic" data-topic="anger">🔥 Anger</button>
+          <button type="button" class="quick-topic" data-topic="loneliness">🤗 Loneliness</button>
+          <button type="button" class="quick-topic" data-topic="guilt">💭 Guilt</button>
+          <button type="button" class="quick-topic" data-topic="gratitude">🙌 Gratitude</button>
+          <button type="button" class="quick-topic" data-topic="faith">🌱 Faith</button>
+          <button type="button" class="quick-topic" data-topic="trauma">🕊️ Trauma</button>
+          <button type="button" class="quick-topic" data-topic="addiction">🔗 Addiction</button>
+          <button type="button" class="quick-topic" data-topic="marriage">💍 Marriage</button>
+          <button type="button" class="quick-topic" data-topic="family">🏠 Family</button>
+          <button type="button" class="quick-topic" data-topic="parenting">👨‍👩‍👧 Parenting</button>
+          <button type="button" class="quick-topic" data-topic="finances">💰 Money</button>
+          <button type="button" class="quick-topic" data-topic="sleep">😴 Sleep</button>
+          <button type="button" class="quick-topic" data-topic="obedience">🙌 Obey</button>
+          <button type="button" class="quick-topic" data-topic="identity">🪞 Identity</button>
+          <button type="button" class="quick-topic" data-topic="purpose">🎯 Purpose</button>
+          <button type="button" class="quick-topic" data-topic="heartache">💔 Heartache</button>
+        </div>
+        <div id="feel-results" aria-live="polite"></div>
         <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>
         <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">View more</a>
         <p class="feel-no-match" id="feelNoMatch">Try "worry" or "rest"—I'm listening.</p>
       </section>
 
+      <!-- ── Sermon Builder teaser ── -->
+      <section class="card tool-teaser-card" aria-label="Sermon Builder">
+        <a href="sermon.html" class="tool-teaser-link">
+          <span class="tool-teaser-icon" aria-hidden="true">📝</span>
+          <div>
+            <p class="tool-teaser-label">Sermon Builder</p>
+            <p class="tool-teaser-sub">Outline + notes starter: John 3:16 — start your message in minutes</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <!-- ── Bible Tools teaser ── -->
+      <section class="card tool-teaser-card" aria-label="Bible Tools">
+        <a href="bible-tool.html" class="tool-teaser-link">
+          <span class="tool-teaser-icon" aria-hidden="true">📖</span>
+          <div>
+            <p class="tool-teaser-label">Bible Tools</p>
+            <p class="tool-teaser-sub">Quick word search example: "hope" → 50+ verses. Deep study, zero noise.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <!-- ── Kids Corner teaser ── -->
+      <section class="card tool-teaser-card" aria-label="Kids Corner">
+        <a href="kids/index.html" class="tool-teaser-link">
+          <span class="tool-teaser-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <ellipse cx="16" cy="26" rx="10" ry="4" fill="var(--gold,#e3bc67)" opacity="0.18"/>
+              <rect x="14" y="8" width="4" height="12" rx="2" fill="var(--gold,#e3bc67)"/>
+              <polygon points="10,8 16,2 22,8" fill="var(--gold,#e3bc67)" opacity="0.9"/>
+              <circle cx="16" cy="22" r="3" fill="var(--gold,#e3bc67)" opacity="0.7"/>
+            </svg>
+          </span>
+          <div>
+            <p class="tool-teaser-label">Kids Corner</p>
+            <p class="tool-teaser-sub">David vs Goliath story inside → adventures + games for little ones</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+        <button type="button" class="quick-story-btn" id="quickStoryBtn" aria-label="Read a quick kids Bible story">⚡ Quick Story</button>
+      </section>
+
       <!-- ── Prayer Wall ── -->
-      <section class="card prayer-wall-card" aria-label="Prayer Wall">
+      <section class="card prayer-wall-card" id="prayer-wall" aria-label="Prayer Wall">
         <p class="prayer-wall-label">Prayer Wall</p>
         <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
         <div class="prayer-counter-row">
@@ -1077,8 +2060,13 @@
 
   <!-- ── Bottom Nav ── -->
   <nav class="bottom-nav" aria-label="Primary tools">
-    <a class="nav-link" href="bible-tool.html"><span>📖</span><span>Bible Tool</span></a>
-    <a class="nav-link" href="kids/index.html"><span>🧒</span><span>Kids</span></a>
+    <a class="nav-link nav-link--active" href="#" aria-label="Home"><span>🏠</span><span>Home</span></a>
+    <a class="nav-link" href="#prayer-wall" aria-label="Prayer Wall"><span>🙏</span><span>Prayer</span></a>
+    <a class="nav-link" href="sermon.html" aria-label="Sermon Builder"><span>📝</span><span>Sermon</span></a>
+    <a class="nav-link" href="bible-tool.html" aria-label="Bible Tool"><span>📖</span><span>Bible Tool</span></a>
+    <a class="nav-link" href="kids/index.html" aria-label="Kids Corner"><span>🧒</span><span>Kids</span></a>
+    <button type="button" id="about-link" class="nav-link nav-link-btn" aria-label="About this app" aria-haspopup="dialog"><span>❤️</span><span>About</span></button>
+    <button type="button" id="settings-btn" class="nav-link nav-link-btn" aria-label="Settings — morning reminder and more" aria-haspopup="true" aria-expanded="false"><span>⚙️</span><span>Settings</span></button>
   </nav>
 
   <!-- ── First-visit Read-Aloud Modal ── -->
@@ -1106,7 +2094,7 @@
   </dialog>
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
-  <script>
+  <script nonce="tdb2025">
     // ── 10-verse offline pack — shown when network fails and localStorage is empty ──
     // These are pre-loaded into the page so no fetch is ever needed for a fallback.
     const OFFLINE_PACK = [
@@ -1598,6 +2586,15 @@
 
       renderVerseContent(verseData);
       setVerseLoadingState(false);
+      // Update page title and meta description with today's verse ref
+      const verseRef = (verseData && verseData.ref) ? sanitizeText(verseData.ref) : '';
+      if (verseRef) {
+        document.title = "Today\u2019s Daily Battle \u2013 " + verseRef + " KJV";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+          metaDesc.setAttribute("content", "Today\u2019s KJV verse: " + verseRef + ". Search by feeling, save notes, pray together. Offline-first Bible companion.");
+        }
+      }
       if (offlineFallback || !navigator.onLine) {
         const ref = document.getElementById('heroRef');
         const refText = ref && ref.textContent ? ' ' + ref.textContent : '';
@@ -1855,6 +2852,50 @@
         });
 
         article.append(ref, speaker, divider1, kjv, divider2, dl);
+
+        // ── Save + Share actions ──
+        const actions = document.createElement("div");
+        actions.className = "fvc-actions";
+
+        const saveBtn = document.createElement("button");
+        saveBtn.type = "button";
+        saveBtn.className = "fvc-action-btn";
+        saveBtn.textContent = "Save to Notes";
+        saveBtn.setAttribute("aria-label", "Save " + sanitizeText(entry.ref) + " to notes");
+        saveBtn.addEventListener("click", () => {
+          try {
+            const key = "tdb-saved-notes";
+            const existing = JSON.parse(localStorage.getItem(key) || "[]");
+            const already = existing.some((n) => n.ref === entry.ref);
+            if (!already) {
+              existing.push({ ref: entry.ref, text: entry.text, savedAt: new Date().toISOString() });
+              localStorage.setItem(key, JSON.stringify(existing));
+            }
+            saveBtn.textContent = "Saved \u2713";
+            saveBtn.classList.add("confirmed");
+            setTimeout(() => { saveBtn.textContent = "Save to Notes"; saveBtn.classList.remove("confirmed"); }, 1500);
+          } catch (_) {}
+          if (typeof showEncouragementNudge === 'function') setTimeout(showEncouragementNudge, 800);
+        });
+
+        const shareBtn = document.createElement("button");
+        shareBtn.type = "button";
+        shareBtn.className = "fvc-action-btn";
+        shareBtn.textContent = "Share";
+        shareBtn.setAttribute("aria-label", "Copy " + sanitizeText(entry.ref) + " to clipboard");
+        shareBtn.addEventListener("click", () => {
+          const shareText = entry.ref + ": \u201c" + entry.text + "\u201d\n\u2014 todaysdailybattle.com";
+          navigator.clipboard.writeText(shareText).then(() => {
+            shareBtn.textContent = "Copied \u2713";
+            shareBtn.classList.add("confirmed");
+            setTimeout(() => { shareBtn.textContent = "Share"; shareBtn.classList.remove("confirmed"); }, 1500);
+          }).catch(() => {});
+          if (typeof showEncouragementNudge === 'function') setTimeout(showEncouragementNudge, 800);
+        });
+
+        actions.append(saveBtn, shareBtn);
+        article.appendChild(actions);
+
         return article;
       }
 
@@ -2029,6 +3070,15 @@
         next = state.lastDate === yesterday ? next + 1 : 1;
         localStorage.setItem(key, JSON.stringify({ count: next, lastDate: today }));
       }
+      const badge = document.getElementById("heroStreakBadge");
+      if (badge) {
+        if (next >= 2) {
+          badge.textContent = "\uD83D\uDD25 Day " + next;
+          badge.hidden = false;
+        } else {
+          badge.hidden = true;
+        }
+      }
     }
 
     // ── First-visit Read-Aloud Modal ──
@@ -2060,6 +3110,11 @@
     // ── PWA Nudge ──
     function initPwaNudge() {
       if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;
+      // Only show after 3+ visits (don't nag first-timers)
+      const visitKey = "tdb-visit-count";
+      const visits = (parseInt(localStorage.getItem(visitKey) || "0", 10) || 0) + 1;
+      localStorage.setItem(visitKey, String(visits));
+      if (visits < 3) return;
       const isStandalone = window.matchMedia("(display-mode: standalone)").matches
         || window.navigator.standalone === true;
       if (!isStandalone) pwaNudge.classList.add("show");
@@ -2163,6 +3218,42 @@
         showPrayerOfflineNotice(false);
         setTimeout(midnightReset, 24 * 60 * 60 * 1000);
       }, msToMidnight);
+
+      // ── Export prayers to text file ──
+      const shareRow = document.getElementById('prayerShareRow');
+      if (shareRow) {
+        const exportBtn = document.createElement('button');
+        exportBtn.type = 'button';
+        exportBtn.className = 'prayer-export-btn';
+        exportBtn.textContent = 'Export my prayers';
+        exportBtn.setAttribute('aria-label', 'Download your local prayer log as a text file');
+        exportBtn.addEventListener('click', function() {
+          try {
+            // Gather all tdb-prayers-day-* keys
+            const lines = [];
+            for (let i = 0; i < localStorage.length; i++) {
+              const k = localStorage.key(i);
+              if (k && k.startsWith('tdb-prayers-day-')) {
+                const date = k.replace('tdb-prayers-day-', '');
+                const count = parseInt(localStorage.getItem(k) || '0', 10) || 0;
+                if (count > 0) lines.push(date + ': ' + count + ' prayer' + (count !== 1 ? 's' : ''));
+              }
+            }
+            if (!lines.length) { exportBtn.textContent = 'No prayers yet'; setTimeout(() => { exportBtn.textContent = 'Export my prayers'; }, 1800); return; }
+            lines.sort();
+            const blob = new Blob(['My Prayers — todaysdailybattle.com\n\n' + lines.join('\n') + '\n'], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'my-prayers-tdb.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          } catch (_) {}
+        });
+        shareRow.parentNode.insertBefore(exportBtn, shareRow.nextSibling);
+      }
     }
     // ────────────────────────────────────────────────────────────────────────
 
@@ -2315,17 +3406,1247 @@
       loadTodaysVerse().catch(() => {});
     });
 
+    // ── Voice Search ──
+    function wireVoiceSearch() {
+      const micBtn = document.getElementById('micBtn');
+      const input  = document.getElementById('feel-search');
+      const overlay = document.getElementById('listeningOverlay');
+      const cancelBtn = document.getElementById('listeningCancel');
+      if (!micBtn || !input) return;
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        micBtn.setAttribute('title', 'Voice not supported—type instead.');
+        micBtn.setAttribute('aria-label', 'Voice search not supported — type instead');
+        micBtn.style.opacity = '0.4';
+        micBtn.style.cursor = 'default';
+        return;
+      }
+      let rec = null;
+      function stopRec() {
+        if (rec) { try { rec.stop(); } catch (_) {} rec = null; }
+        micBtn.classList.remove('mic-btn--active');
+        micBtn.setAttribute('aria-label', 'Voice search — speak a feeling');
+        if (overlay) overlay.hidden = true;
+      }
+      if (cancelBtn) cancelBtn.addEventListener('click', stopRec);
+      micBtn.addEventListener('click', function () {
+        if (rec) { stopRec(); return; }
+        rec = new SpeechRec();
+        rec.lang = 'en-US';
+        rec.interimResults = false;
+        rec.maxAlternatives = 1;
+        micBtn.classList.add('mic-btn--active');
+        micBtn.setAttribute('aria-label', 'Listening… tap to stop');
+        if (overlay) overlay.hidden = false;
+        rec.start();
+        rec.onresult = function (e) {
+          const transcript = e.results[0][0].transcript.trim();
+          if (transcript) {
+            input.value = transcript;
+            if (typeof renderSmartResult === 'function') renderSmartResult(transcript);
+            else if (typeof window.renderSmartResult === 'function') window.renderSmartResult(transcript);
+          }
+        };
+        rec.onend = stopRec;
+        rec.onerror = stopRec;
+      });
+    }
+
+    // ── 7-Day Battle Plan Streak ──
+    function updatePlanStreak() {
+      var KEY = 'tdb-plan-day';
+      var today = new Date().toISOString().slice(0, 10);
+      var state = {};
+      try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (_) {}
+      var yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      var day = parseInt(state.day || '0', 10) || 0;
+      if (state.lastDate !== today) {
+        day = state.lastDate === yesterday ? Math.min(day + 1, 7) : 1;
+        localStorage.setItem(KEY, JSON.stringify({ day: day, lastDate: today }));
+      }
+      var bar = document.getElementById('planProgressBar');
+      var label = document.getElementById('planProgressLabel');
+      if (bar) bar.style.setProperty('--plan-day', String(day));
+      if (label) label.textContent = 'Day ' + day + ' of 7 \u2014 keep going';
+      if (day === 7) setTimeout(burstConfetti, 600);
+      if (day >= 2) setTimeout(maybeShowNotifPrompt, 2000);
+      updatePlanChips();
+    }
+
+    // ── Encouragement Nudge (once per session) ──
+    let _nudgeShown = false;
+    function showEncouragementNudge() {
+      if (_nudgeShown) return;
+      if (typeof ROTATING_HERO_VERSES === 'undefined' || !ROTATING_HERO_VERSES || !ROTATING_HERO_VERSES.length) return;
+      _nudgeShown = true;
+      const verse = ROTATING_HERO_VERSES[Math.floor(Math.random() * ROTATING_HERO_VERSES.length)];
+      const pop = document.getElementById('encouragePopover');
+      const msg = document.getElementById('encourageMsg');
+      if (!pop || !msg) return;
+      msg.textContent = '\u201c' + verse.text.slice(0, 90) + (verse.text.length > 90 ? '\u2026' : '') + '\u201d \u2014 ' + verse.ref + ' \u2022 He\u2019s got you.';
+      pop.hidden = false;
+      pop.classList.add('nudge-popover--visible');
+      const timer = setTimeout(function () { dismissNudge(pop); }, 5000);
+      const dismissBtn = document.getElementById('encourageDismiss');
+      if (dismissBtn) dismissBtn.addEventListener('click', function () { clearTimeout(timer); dismissNudge(pop); }, { once: true });
+    }
+    function dismissNudge(pop) {
+      if (!pop) return;
+      pop.classList.remove('nudge-popover--visible');
+      setTimeout(function () { pop.hidden = true; }, 350);
+    }
+
+    // ── Hero Card Click Menu ──
+    function wireHeroClickMenu() {
+      const card = document.getElementById('verseCard');
+      const menu = document.getElementById('heroMiniMenu');
+      if (!card || !menu) return;
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('#heroMiniMenu') || e.target.closest('.read-aloud-btn')) return;
+        const open = menu.getAttribute('aria-hidden') !== 'true';
+        menu.setAttribute('aria-hidden', open ? 'true' : 'false');
+        menu.classList.toggle('hero-menu--open', !open);
+      });
+      document.addEventListener('click', function (e) {
+        if (!card.contains(e.target)) {
+          menu.setAttribute('aria-hidden', 'true');
+          menu.classList.remove('hero-menu--open');
+        }
+      });
+      document.getElementById('heroMenuSave')?.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const ref  = document.getElementById('heroRef')?.textContent  || '';
+        const text = document.getElementById('heroVerse')?.textContent || '';
+        try {
+          const notes = JSON.parse(localStorage.getItem('tdb-saved-notes') || '[]');
+          if (!notes.some(function (n) { return n.ref === ref; })) {
+            notes.push({ ref: ref, text: text, savedAt: new Date().toISOString() });
+            localStorage.setItem('tdb-saved-notes', JSON.stringify(notes));
+          }
+          const btn = document.getElementById('heroMenuSave');
+          if (btn) { btn.textContent = 'Saved \u2713'; setTimeout(function () { btn.textContent = '\uD83D\uDCBE Save'; }, 1500); }
+        } catch (_) {}
+        menu.setAttribute('aria-hidden', 'true');
+        menu.classList.remove('hero-menu--open');
+        showEncouragementNudge();
+      });
+      document.getElementById('heroMenuShare')?.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const ref  = (document.getElementById('heroRef')?.textContent  || '').replace(' (KJV)', '');
+        const text = document.getElementById('heroVerse')?.textContent || '';
+        const shareText = ref + ': ' + text + '\n\u2014 todaysdailybattle.com';
+        navigator.clipboard?.writeText(shareText).then(function () {
+          const btn = document.getElementById('heroMenuShare');
+          if (btn) { btn.textContent = 'Copied \u2713'; setTimeout(function () { btn.textContent = '\uD83D\uDCC4 Share'; }, 1500); }
+        }).catch(function () {});
+        menu.setAttribute('aria-hidden', 'true');
+        menu.classList.remove('hero-menu--open');
+        showEncouragementNudge();
+      });
+      document.getElementById('heroMenuListen')?.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const readAloudBtn = document.getElementById('readAloudBtn');
+        if (readAloudBtn && !readAloudBtn.classList.contains('is-unavailable')) { readAloudBtn.click(); }
+        else if ('speechSynthesis' in window) {
+          const text = document.getElementById('heroVerse')?.textContent || '';
+          if (text) { const u = new SpeechSynthesisUtterance(text); u.rate = 0.88; window.speechSynthesis.speak(u); }
+        }
+        menu.setAttribute('aria-hidden', 'true');
+        menu.classList.remove('hero-menu--open');
+      });
+    }
+
+    // ── Plans Library chip tracker ──
+    var PLAN_CONFIGS = {
+      battle:   { label: '\u2694\uFE0F Battle Distraction', key: 'tdb-plan-day',          max: 7  },
+      gratitude:{ label: '\uD83D\uDE4F Gratitude',           key: 'tdb-plan-gratitude-day', max: 7  },
+      strength: { label: '\uD83D\uDCAA 30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
+      marriage: { label: '\uD83D\uDC8D Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
+      peace:    { label: '\uD83D\uDD4A\uFE0F 7-Day Peace',   key: 'tdb-plan-peace-day',     max: 7  }
+    };
+    function updatePlanChips() {
+      var barList = document.getElementById('plansMiniBarsList');
+      if (barList) barList.innerHTML = '';
+      Object.keys(PLAN_CONFIGS).forEach(function (planId) {
+        var cfg = PLAN_CONFIGS[planId];
+        var chip = document.getElementById('planChip-' + planId);
+        var s = {};
+        try { s = JSON.parse(localStorage.getItem(cfg.key) || '{}'); } catch (_) {}
+        var day = parseInt(s.day || '0', 10) || 0;
+        if (chip) chip.textContent = day > 0 ? ' \u2022 Day ' + day + '/' + cfg.max + (day >= cfg.max ? ' \u2713' : '') : '';
+        // Render mini progress bar only for active plans
+        if (day > 0 && barList) {
+          var barWrap = document.createElement('div');
+          barWrap.className = 'plan-mini-bar-row';
+          var barLabel = document.createElement('span');
+          barLabel.className = 'plan-mini-bar-label';
+          barLabel.textContent = cfg.label + ' — Day ' + day + '/' + cfg.max;
+          if (day >= cfg.max) barLabel.textContent += ' \u2713';
+          var barTrack = document.createElement('div');
+          barTrack.className = 'plan-mini-bar-track';
+          var barFill = document.createElement('div');
+          barFill.className = 'plan-mini-bar-fill';
+          barFill.style.width = Math.min(100, Math.round(day / cfg.max * 100)) + '%';
+          barTrack.appendChild(barFill);
+          barWrap.appendChild(barLabel);
+          barWrap.appendChild(barTrack);
+          barList.appendChild(barWrap);
+        }
+      });
+    }
+    (function wirePlanChipClicks() {
+      var grid = document.getElementById('plansGrid');
+      if (!grid) return;
+      grid.addEventListener('click', function (e) {
+        var btn = e.target.closest('.plan-chip');
+        if (!btn) return;
+        var planId = btn.dataset.plan;
+        var cfg = PLAN_CONFIGS[planId];
+        if (!cfg) return;
+        var today = new Date().toISOString().slice(0, 10);
+        var s = {};
+        try { s = JSON.parse(localStorage.getItem(cfg.key) || '{}'); } catch (_) {}
+        if (s.lastDate === today) return;
+        var yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        var day = parseInt(s.day || '0', 10) || 0;
+        day = s.lastDate === yesterday ? Math.min(day + 1, cfg.max) : 1;
+        localStorage.setItem(cfg.key, JSON.stringify({ day: day, lastDate: today }));
+        updatePlanChips();
+        if (day >= cfg.max) setTimeout(burstConfetti, 400);
+      });
+    }());
+
+    // ── Notification Permission Prompt ──
+    var _notifPrompted = false;
+    function maybeShowNotifPrompt() {
+      if (_notifPrompted) return;
+      if (!('Notification' in window)) return;
+      if (Notification.permission !== 'default') return;
+      if (localStorage.getItem('tdb-notif-dismissed')) return;
+      _notifPrompted = true;
+      var card = document.getElementById('notifPermCard');
+      if (!card) return;
+      card.hidden = false;
+      document.getElementById('notifPermYes')?.addEventListener('click', function () {
+        Notification.requestPermission().then(function (perm) {
+          card.hidden = true;
+          localStorage.setItem('tdb-notif-dismissed', '1');
+          if (perm === 'granted') {
+            try { new Notification('Today\u2019s Daily Battle \uD83D\uDD25', { body: 'Daily verse reminders on. You\u2019re set.', icon: '/icon.svg', tag: 'tdb-welcome' }); } catch (_) {}
+          }
+        });
+      }, { once: true });
+      document.getElementById('notifPermNo')?.addEventListener('click', function () {
+        card.hidden = true;
+        localStorage.setItem('tdb-notif-dismissed', '1');
+      }, { once: true });
+    }
+
+    // ── IndexedDB offline verse cache ──
+    function cacheVersesOffline() {
+      if (!navigator.onLine || typeof ROTATING_HERO_VERSES === 'undefined') return;
+      var req = indexedDB.open('tdb-idb', 1);
+      req.onupgradeneeded = function (e) {
+        var db = e.target.result;
+        if (!db.objectStoreNames.contains('verses')) db.createObjectStore('verses', { keyPath: 'ref' });
+      };
+      req.onsuccess = function (e) {
+        var db = e.target.result;
+        var tx = db.transaction('verses', 'readwrite');
+        var store = tx.objectStore('verses');
+        ROTATING_HERO_VERSES.slice(0, 40).forEach(function (v) { try { store.put(v); } catch (_) {} });
+        tx.oncomplete = function () {
+          var pill = document.getElementById('offline-pill');
+          if (pill) pill.classList.add('offline-cached');
+        };
+      };
+    }
+
+    // ── Generate Verse Share Image ──
+    function generateShareImage(verseText, verseRef) {
+      try {
+        var canvas = document.createElement('canvas');
+        canvas.width = 1080; canvas.height = 1080;
+        var ctx = canvas.getContext('2d');
+        var grad = ctx.createLinearGradient(0, 0, 0, 1080);
+        grad.addColorStop(0, '#1a1226'); grad.addColorStop(0.5, '#2c1a42'); grad.addColorStop(1, '#3d2010');
+        ctx.fillStyle = grad; ctx.fillRect(0, 0, 1080, 1080);
+        ctx.strokeStyle = '#e3bc67'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(80, 200); ctx.lineTo(1000, 200); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(80, 860); ctx.lineTo(1000, 860); ctx.stroke();
+        ctx.fillStyle = '#f5e8c0'; ctx.font = 'bold 46px Georgia, serif'; ctx.textAlign = 'center';
+        var words = (verseText || '').split(' '), lines = [], line = '';
+        words.forEach(function (w) {
+          var test = line ? line + ' ' + w : w;
+          if (ctx.measureText(test).width > 860) { lines.push(line); line = w; } else { line = test; }
+        });
+        lines.push(line);
+        var startY = 540 - (lines.length * 58) / 2;
+        lines.forEach(function (l, i) { ctx.fillText(l, 540, startY + i * 58); });
+        ctx.fillStyle = '#e3bc67'; ctx.font = '36px Georgia, serif';
+        ctx.fillText((verseRef || '') + ' \u2014 KJV', 540, 820);
+        ctx.fillStyle = 'rgba(227,188,103,0.4)'; ctx.font = '24px sans-serif';
+        ctx.fillText('todaysdailybattle.com', 540, 950);
+        canvas.toBlob(function (blob) {
+          if (!blob) return;
+          var url = URL.createObjectURL(blob);
+          var safe = (verseRef || 'verse').replace(/[\s:]/g, '-');
+          var file = new File([blob], safe + '.png', { type: 'image/png' });
+          if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+            navigator.share({ files: [file], title: verseRef, text: verseText + '\n\u2014 todaysdailybattle.com' })
+              .catch(function () { var a = document.createElement('a'); a.href = url; a.download = safe + '.png'; a.click(); });
+          } else {
+            var a = document.createElement('a'); a.href = url; a.download = safe + '.png'; a.click();
+          }
+          setTimeout(function () { URL.revokeObjectURL(url); }, 8000);
+        }, 'image/png');
+      } catch (err) { console.warn('generateShareImage', err); }
+    }
+
+    // ── Lightweight Confetti Burst ──
+    function burstConfetti() {
+      var canvas = document.getElementById('confettiCanvas');
+      if (!canvas) return;
+      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+      canvas.style.display = 'block';
+      var ctx = canvas.getContext('2d');
+      var COLORS = ['#e3bc67','#f5c842','#fff','#a78bfa','#6ee7b7','#f472b6'];
+      var particles = Array.from({ length: 90 }, function () {
+        return { x: Math.random() * canvas.width, y: -20 - Math.random() * 120,
+          r: Math.random() * 7 + 3, d: Math.random() * 2 + 1,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          tilt: Math.random() * 10 - 5, tiltInc: (Math.random() * 0.07 + 0.02) * (Math.random() > 0.5 ? 1 : -1) };
+      });
+      var frames = 0;
+      (function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(function (p) {
+          ctx.beginPath(); ctx.fillStyle = p.color; ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+          p.y += p.d; p.tilt += p.tiltInc; p.x += Math.sin(p.tilt) * 1.5;
+        });
+        frames++;
+        if (frames < 110) requestAnimationFrame(draw);
+        else { ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.style.display = 'none'; }
+      }());
+    }
+
+    // ── Wire Kids Story Modal ──
+    function wireKidsStoryModal() {
+      var btn   = document.getElementById('quickStoryBtn');
+      var modal = document.getElementById('kidsStoryModal');
+      var close = document.getElementById('storyModalClose');
+      if (!btn || !modal) return;
+      btn.addEventListener('click', function () { modal.hidden = false; });
+      if (close) close.addEventListener('click', function () { modal.hidden = true; btn.focus(); });
+      modal.addEventListener('keydown', function (e) { if (e.key === 'Escape') { modal.hidden = true; btn.focus(); } });
+    }
+
+    // ── Wire hero image button ──
+    function wireHeroImageBtn() {
+      document.getElementById('heroMenuImage')?.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var ref  = (document.getElementById('heroRef')?.textContent  || '').replace(' (KJV)', '');
+        var text = document.getElementById('heroVerse')?.textContent || '';
+        if (ref && text) generateShareImage(text, ref);
+        document.getElementById('heroMiniMenu')?.setAttribute('aria-hidden', 'true');
+        document.getElementById('heroMiniMenu')?.classList.remove('hero-menu--open');
+      });
+    }
+
+    // ── Audio Volume Popover ──
+    window._tdbAudioVolume = 1;
+    function wireAudioVolumePopover() {
+      var slider = document.getElementById('audioVolSlider');
+      var closeBtn = document.getElementById('audioVolClose');
+      if (slider) {
+        slider.addEventListener('input', function () {
+          window._tdbAudioVolume = parseFloat(slider.value);
+          var audioEl = document.getElementById('smartCardAudio');
+          if (audioEl) audioEl.volume = window._tdbAudioVolume;
+        });
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          var pop = document.getElementById('audioVolumePopover');
+          if (pop) pop.hidden = true;
+        });
+      }
+    }
+
+    // ── PLAN_VERSES: curated verses per plan ──
+    var PLAN_VERSES = {
+      battle: [
+        { ref: '2 Timothy 1:7',    text: 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.' },
+        { ref: 'Ephesians 6:10',   text: 'Finally, my brethren, be strong in the Lord, and in the power of his might.' },
+        { ref: 'Psalm 46:1',       text: 'God is our refuge and strength, a very present help in trouble.' },
+        { ref: 'Isaiah 41:10',     text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God.' },
+        { ref: 'Romans 8:31',      text: 'If God be for us, who can be against us?' },
+        { ref: 'Joshua 1:9',       text: 'Be strong and of a good courage; be not afraid, neither be thou dismayed.' },
+        { ref: 'Psalm 27:1',       text: 'The Lord is my light and my salvation; whom shall I fear?' }
+      ],
+      'battle-extended': [
+        { ref: 'Ephesians 6:11',   text: 'Put on the whole armour of God, that ye may be able to stand against the wiles of the devil.' },
+        { ref: 'Psalm 18:2',       text: 'The LORD is my rock, and my fortress, and my deliverer; my God, my strength, in whom I will trust.' },
+        { ref: '1 Cor. 15:57',     text: 'But thanks be to God, which giveth us the victory through our Lord Jesus Christ.' },
+        { ref: 'Romans 8:37',      text: 'Nay, in all these things we are more than conquerors through him that loved us.' },
+        { ref: 'Deuteronomy 20:4', text: 'For the LORD your God is he that goeth with you, to fight for you against your enemies, to save you.' },
+        { ref: 'Psalm 144:1',      text: 'Blessed be the LORD my strength, which teacheth my hands to war, and my fingers to fight.' },
+        { ref: 'Isaiah 54:17',     text: 'No weapon that is formed against thee shall prosper.' }
+      ],
+      gratitude: [
+        { ref: 'Psalm 118:24',     text: 'This is the day which the LORD hath made; we will rejoice and be glad in it.' },
+        { ref: '1 Thess. 5:18',    text: 'In every thing give thanks: for this is the will of God in Christ Jesus.' },
+        { ref: 'Psalm 107:1',      text: 'O give thanks unto the LORD, for he is good: for his mercy endureth for ever.' },
+        { ref: 'Colossians 3:17',  text: 'And whatsoever ye do in word or deed, do all in the name of the Lord Jesus, giving thanks.' },
+        { ref: 'Psalm 136:1',      text: 'O give thanks unto the LORD; for he is good: for his mercy endureth for ever.' },
+        { ref: 'Psalm 100:4',      text: 'Enter into his gates with thanksgiving, and into his courts with praise.' },
+        { ref: 'Lamentations 3:22',text: 'It is of the LORD\'s mercies that we are not consumed, because his compassions fail not.' }
+      ],
+      'gratitude-extended': [
+        { ref: 'Psalm 9:1',        text: 'I will praise thee, O LORD, with my whole heart; I will shew forth all thy marvellous works.' },
+        { ref: 'Hebrews 13:15',    text: 'By him therefore let us offer the sacrifice of praise to God continually.' },
+        { ref: 'Psalm 34:1',       text: 'I will bless the LORD at all times: his praise shall continually be in my mouth.' },
+        { ref: 'Philippians 4:11', text: 'I have learned, in whatsoever state I am, therewith to be content.' },
+        { ref: 'Psalm 103:2',      text: 'Bless the LORD, O my soul, and forget not all his benefits.' },
+        { ref: 'Isaiah 12:4',      text: 'And in that day shall ye say, Praise the LORD, call upon his name, declare his doings among the people.' },
+        { ref: 'Psalm 92:1',       text: 'It is a good thing to give thanks unto the LORD, and to sing praises unto thy name, O most High.' }
+      ],
+      strength: [
+        { ref: 'Isaiah 40:31',     text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.' },
+        { ref: 'Philippians 4:13', text: 'I can do all things through Christ which strengtheneth me.' },
+        { ref: 'Psalm 46:10',      text: 'Be still, and know that I am God.' },
+        { ref: '2 Cor. 12:9',      text: 'My grace is sufficient for thee: for my strength is made perfect in weakness.' },
+        { ref: 'Psalm 28:7',       text: 'The LORD is my strength and my shield; my heart trusted in him, and I am helped.' }
+      ],
+      'strength-extended': [
+        { ref: 'Nehemiah 8:10',    text: 'The joy of the LORD is your strength.' },
+        { ref: 'Psalm 73:26',      text: 'My flesh and my heart faileth: but God is the strength of my heart, and my portion for ever.' },
+        { ref: 'Ephesians 3:16',   text: 'That he would grant you, according to the riches of his glory, to be strengthened with might by his Spirit in the inner man.' },
+        { ref: 'Psalm 29:11',      text: 'The LORD will give strength unto his people; the LORD will bless his people with peace.' },
+        { ref: 'Habakkuk 3:19',    text: 'The LORD God is my strength, and he will make my feet like hinds\' feet.' },
+        { ref: 'Psalm 84:5',       text: 'Blessed is the man whose strength is in thee; in whose heart are the ways of them.' },
+        { ref: 'Isaiah 41:13',     text: 'For I the LORD thy God will hold thy right hand, saying unto thee, Fear not; I will help thee.' }
+      ],
+      marriage: [
+        { ref: 'Ecclesiastes 4:9', text: 'Two are better than one; because they have a good reward for their labour.' },
+        { ref: '1 Cor. 13:4',      text: 'Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself.' },
+        { ref: 'Ephesians 5:25',   text: 'Husbands, love your wives, even as Christ also loved the church, and gave himself for it.' },
+        { ref: 'Proverbs 18:22',   text: 'Whoso findeth a wife findeth a good thing, and obtaineth favour of the LORD.' },
+        { ref: 'Ruth 1:16',        text: 'Whither thou goest, I will go; and where thou lodgest, I will lodge.' },
+        { ref: 'Colossians 3:14',  text: 'And above all these things put on charity, which is the bond of perfectness.' },
+        { ref: 'Hebrews 13:4',     text: 'Marriage is honourable in all, and the bed undefiled.' }
+      ],
+      'marriage-extended': [
+        { ref: 'Genesis 2:24',     text: 'Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh.' },
+        { ref: '1 Peter 3:7',      text: 'Likewise, ye husbands, dwell with them according to knowledge, giving honour unto the wife.' },
+        { ref: 'Proverbs 31:10',   text: 'Who can find a virtuous woman? for her price is far above rubies.' },
+        { ref: 'Song of Sol. 3:4', text: 'I held him, and would not let him go.' },
+        { ref: 'Ephesians 4:2',    text: 'With all lowliness and meekness, with longsuffering, forbearing one another in love.' },
+        { ref: '1 Cor. 13:7',      text: 'Beareth all things, believeth all things, hopeth all things, endureth all things.' },
+        { ref: 'Ecclesiastes 4:12',text: 'A threefold cord is not quickly broken.' }
+      ],
+      peace: [
+        { ref: 'John 14:27',       text: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you.' },
+        { ref: 'Philippians 4:7',  text: 'The peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' },
+        { ref: 'Isaiah 26:3',      text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.' },
+        { ref: 'Psalm 29:11',      text: 'The LORD will give strength unto his people; the LORD will bless his people with peace.' },
+        { ref: 'Romans 15:13',     text: 'Now the God of hope fill you with all joy and peace in believing.' },
+        { ref: 'Psalm 46:10',      text: 'Be still, and know that I am God.' },
+        { ref: 'Matthew 11:28',    text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' }
+      ],
+      'peace-extended': [
+        { ref: 'Colossians 3:15',  text: 'And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.' },
+        { ref: 'Numbers 6:26',     text: 'The LORD lift up his countenance upon thee, and give thee peace.' },
+        { ref: 'Romans 8:6',       text: 'For to be spiritually minded is life and peace.' },
+        { ref: 'Psalm 119:165',    text: 'Great peace have they which love thy law: and nothing shall offend them.' },
+        { ref: '2 Thess. 3:16',    text: 'Now the Lord of peace himself give you peace always by all means.' },
+        { ref: 'Isaiah 32:17',     text: 'And the work of righteousness shall be peace; and the effect of righteousness quietness and assurance for ever.' },
+        { ref: 'Galatians 5:22',   text: 'But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith.' }
+      ]
+    };
+
+    // ── Load Plan detail modal ──
+    function loadPlan(planId) {
+      var cfg = PLAN_CONFIGS[planId];
+      if (!cfg) return;
+      var extendedKey = 'tdb-plan-' + planId + '-extended';
+      var dismissedKey = 'tdb-plan-' + planId + '-extend-dismissed';
+      var isExtended = localStorage.getItem(extendedKey) === 'true';
+      // Use extended verse array if extended, else base
+      var verseKey = isExtended ? (planId + '-extended') : planId;
+      var verses = PLAN_VERSES[verseKey] || PLAN_VERSES[planId] || [];
+      // Extended plan doubles max; read from cfg + override
+      var planMax = isExtended ? cfg.max * 2 : cfg.max;
+      var s = {};
+      try { s = JSON.parse(localStorage.getItem(cfg.key) || '{}'); } catch (_) {}
+      var currentDay = parseInt(s.day || '0', 10) || 0;
+
+      var modal     = document.getElementById('planDetailModal');
+      var titleEl   = document.getElementById('planDetailTitle');
+      var subEl     = document.getElementById('planDetailSub');
+      var daysEl    = document.getElementById('planDetailDays');
+      var startBtn  = document.getElementById('planDetailStart');
+      var extFooter = document.getElementById('planExtendFooter');
+      var extMsg    = document.getElementById('planExtendMsg');
+      if (!modal) return;
+
+      // Always hide extend footer on fresh load — it only shows after completion
+      if (extFooter) extFooter.hidden = true;
+
+      if (titleEl) titleEl.textContent = cfg.label + (isExtended ? ' (Extended)' : '');
+      if (subEl) subEl.textContent = currentDay >= planMax
+        ? 'Day ' + currentDay + ' of ' + planMax + ' \u2014 Complete \u2713'
+        : 'Day ' + currentDay + ' of ' + planMax + ' \u2014 tap a day to see its verse';
+
+      // ── Day pills ──
+      if (daysEl) {
+        daysEl.innerHTML = '';
+        for (var d = 1; d <= planMax; d++) {
+          var pill = document.createElement('button');
+          pill.type = 'button';
+          var done    = d <= currentDay;
+          var current = d === currentDay;
+          pill.className = 'plan-day-pill'
+            + (done    ? ' plan-day-pill--done'    : '')
+            + (current ? ' plan-day-pill--current' : '');
+          pill.textContent = done ? '\u2713' : String(d);
+          pill.setAttribute('aria-label', 'Day ' + d + (done ? ' \u2014 complete' : ''));
+          // Verse for this day: base array days 1–7, extended array days 8–14
+          var baseVerses = PLAN_VERSES[planId] || [];
+          var extVerses  = PLAN_VERSES[planId + '-extended'] || [];
+          var v;
+          if (d <= baseVerses.length) {
+            v = baseVerses[d - 1];
+          } else {
+            v = extVerses[Math.min(d - baseVerses.length - 1, extVerses.length - 1)];
+          }
+          if (v) {
+            (function(verse, dayNum) {
+              pill.addEventListener('click', function () {
+                var existing = daysEl.querySelector('.plan-day-verse');
+                if (existing && existing.dataset.day === String(dayNum)) { existing.remove(); return; }
+                if (existing) existing.remove();
+                var vCard = document.createElement('div');
+                vCard.className = 'plan-day-verse';
+                vCard.dataset.day = String(dayNum);
+                vCard.innerHTML = '<p class="plan-day-verse-ref">' + verse.ref + '</p>'
+                  + '<p class="plan-day-verse-text">\u201c' + verse.text + '\u201d</p>';
+                daysEl.appendChild(vCard);
+              });
+            }(v, d));
+          }
+          daysEl.appendChild(pill);
+        }
+      }
+
+      // ── Mark Today Complete ──
+      if (startBtn) {
+        startBtn.textContent = currentDay >= planMax ? 'Plan Complete \u2713' : 'Mark Today Complete';
+        startBtn.disabled = currentDay >= planMax;
+        startBtn.onclick = function () {
+          var today = new Date().toISOString().slice(0, 10);
+          var state = {};
+          try { state = JSON.parse(localStorage.getItem(cfg.key) || '{}'); } catch (_) {}
+          if (state.lastDate === today) { startBtn.textContent = 'Already done today \u2713'; return; }
+          var yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+          var day = parseInt(state.day || '0', 10) || 0;
+          day = state.lastDate === yesterday ? Math.min(day + 1, planMax) : 1;
+          localStorage.setItem(cfg.key, JSON.stringify({ day: day, lastDate: today }));
+          updatePlanChips();
+          updatePlanStreak();
+
+          if (day >= planMax) {
+            setTimeout(burstConfetti, 300);
+            // Show extend offer unless already extended or dismissed
+            var alreadyExtended  = localStorage.getItem(extendedKey)  === 'true';
+            var alreadyDismissed = localStorage.getItem(dismissedKey) === 'true';
+            var hasExtended      = !!(PLAN_VERSES[planId + '-extended'] && PLAN_VERSES[planId + '-extended'].length);
+            if (!alreadyExtended && !alreadyDismissed && hasExtended) {
+              var newLen = planMax + cfg.max;
+              if (extMsg) extMsg.textContent = 'Hey, you\u2019ve gone ' + planMax + ' days\u2014why not stretch it to ' + newLen + '?';
+              if (extFooter) extFooter.hidden = false;
+              // Wire buttons once (replace old handler by cloning)
+              var yesBtn  = document.getElementById('extend-plan');
+              var nahBtn  = document.getElementById('dismiss-extend');
+              var freshYes = yesBtn.cloneNode(true);
+              var freshNah = nahBtn.cloneNode(true);
+              yesBtn.replaceWith(freshYes);
+              nahBtn.replaceWith(freshNah);
+              freshYes.addEventListener('click', function () {
+                localStorage.setItem(extendedKey, 'true');
+                // Reset day counter to 1 so user starts the extended block
+                localStorage.setItem(cfg.key, JSON.stringify({ day: 1, lastDate: today }));
+                if (extFooter) extFooter.hidden = true;
+                // Brief toast then refresh
+                if (subEl) subEl.textContent = 'Awesome \u2014 Day 1 of ' + newLen + ' starts now.';
+                setTimeout(function () { burstConfetti(); loadPlan(planId); }, 350);
+              }, { once: true });
+              freshNah.addEventListener('click', function () {
+                localStorage.setItem(dismissedKey, 'true');
+                if (extFooter) extFooter.hidden = true;
+                modal.hidden = true;
+              }, { once: true });
+            } else {
+              // No extend to offer: just close
+              modal.hidden = true;
+            }
+            return;
+          }
+          loadPlan(planId); // refresh for non-final day
+        };
+      }
+
+      modal.hidden = false;
+      modal.focus();
+    }
+
+    function wirePlanDetailModal() {
+      var closeBtn = document.getElementById('planDetailClose');
+      var modal    = document.getElementById('planDetailModal');
+      if (!modal) return;
+      if (closeBtn) closeBtn.addEventListener('click', function () { modal.hidden = true; });
+      modal.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.hidden = true; });
+      // Tap plan chip → open detail
+      var grid = document.getElementById('plansGrid');
+      if (grid) {
+        grid.addEventListener('click', function (e) {
+          var btn = e.target.closest('.plan-chip');
+          if (!btn) return;
+          loadPlan(btn.dataset.plan);
+        }, { capture: false });
+      }
+    }
+
+    // ── Settings Popover + Morning Reminder ──
+    function wireSettings() {
+      var btn      = document.getElementById('settings-btn');
+      var popover  = document.getElementById('settings-popover');
+      var closeBtn = document.getElementById('settings-popover-close');
+      var checkbox = document.getElementById('morning-check');
+      var statusEl = document.getElementById('settings-notif-status');
+      if (!btn || !popover) return;
+
+      // Restore saved state
+      var savedReminder = localStorage.getItem('tdb-morning-reminder') === 'true';
+      if (checkbox) checkbox.checked = savedReminder;
+
+      // Toggle popover open/close
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = !popover.hidden;
+        popover.hidden = isOpen;
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        if (!isOpen) refreshNotifStatus();
+      });
+      if (closeBtn) closeBtn.addEventListener('click', function () {
+        popover.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      });
+      document.addEventListener('click', function (e) {
+        if (!popover.hidden && !popover.contains(e.target) && e.target !== btn) {
+          popover.hidden = true;
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      popover.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { popover.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
+      });
+
+      // Checkbox handler
+      if (checkbox) checkbox.addEventListener('change', function () {
+        if (checkbox.checked) {
+          requestAndEnableMorningReminder();
+        } else {
+          localStorage.setItem('tdb-morning-reminder', 'false');
+          refreshNotifStatus();
+        }
+      });
+
+      function refreshNotifStatus() {
+        if (!statusEl) return;
+        var perm = ('Notification' in window) ? Notification.permission : 'unsupported';
+        var enabled = localStorage.getItem('tdb-morning-reminder') === 'true';
+        if (perm === 'unsupported') {
+          statusEl.textContent = 'Notifications not supported in this browser.';
+          statusEl.hidden = false;
+        } else if (enabled && perm === 'granted') {
+          statusEl.textContent = '\u2713 Reminder on — you\u2019ll be nudged at 6 AM.';
+          statusEl.hidden = false;
+        } else if (enabled && perm === 'denied') {
+          statusEl.textContent = 'Notifications blocked — enable them in browser settings.';
+          statusEl.hidden = false;
+          if (checkbox) checkbox.checked = false;
+          localStorage.setItem('tdb-morning-reminder', 'false');
+        } else {
+          statusEl.hidden = true;
+        }
+      }
+
+      function requestAndEnableMorningReminder() {
+        if (!('Notification' in window)) {
+          if (statusEl) { statusEl.textContent = 'Notifications not supported in this browser.'; statusEl.hidden = false; }
+          if (checkbox) checkbox.checked = false;
+          return;
+        }
+        if (Notification.permission === 'granted') {
+          localStorage.setItem('tdb-morning-reminder', 'true');
+          scheduleMorningReminder();
+          refreshNotifStatus();
+        } else if (Notification.permission === 'default') {
+          Notification.requestPermission().then(function (perm) {
+            if (perm === 'granted') {
+              localStorage.setItem('tdb-morning-reminder', 'true');
+              scheduleMorningReminder();
+            } else {
+              localStorage.setItem('tdb-morning-reminder', 'false');
+              if (checkbox) checkbox.checked = false;
+            }
+            refreshNotifStatus();
+          });
+        } else {
+          // denied
+          localStorage.setItem('tdb-morning-reminder', 'false');
+          if (checkbox) checkbox.checked = false;
+          refreshNotifStatus();
+        }
+      }
+    }
+
+    // Schedule / fire 6 AM morning reminder
+    function scheduleMorningReminder() {
+      if (localStorage.getItem('tdb-morning-reminder') !== 'true') return;
+      if (!('Notification' in window) || Notification.permission !== 'granted') return;
+
+      var lastFired = localStorage.getItem('tdb-morning-last-fired');
+      var today = new Date().toISOString().slice(0, 10);
+      if (lastFired === today) return; // already fired today
+
+      var now   = new Date();
+      var sixAM = new Date(now);
+      sixAM.setHours(6, 0, 0, 0);
+      if (now >= sixAM) sixAM.setDate(sixAM.getDate() + 1); // already past 6 AM → tomorrow
+      var msUntil = sixAM - now;
+
+      setTimeout(function () {
+        if (localStorage.getItem('tdb-morning-reminder') !== 'true') return;
+        var heroRef = (document.getElementById('heroRef')?.textContent || 'KJV verse').replace(' (KJV)', '');
+        try {
+          new Notification('Today\u2019s Daily Battle \uD83D\uDD25', {
+            body: 'New battle: ' + heroRef + ' \u2014 tap to read.',
+            icon: '/icon.svg',
+            tag: 'tdb-morning-' + today,
+            requireInteraction: false
+          });
+          localStorage.setItem('tdb-morning-last-fired', today);
+        } catch (_) {}
+      }, msUntil);
+    }
+
+    // ── Verse Journal Export ──
+    function wireJournalExport() {
+      var exportBtn = document.getElementById('journal-export');
+      if (!exportBtn) return;
+      exportBtn.addEventListener('click', function () {
+        var notes = [];
+        try { notes = JSON.parse(localStorage.getItem('tdb-saved-notes') || '[]'); } catch (_) {}
+        // Also sweep any versioned keys (tdb-saved-notes-*)
+        try {
+          Object.keys(localStorage).forEach(function (k) {
+            if (k.startsWith('tdb-saved-notes-') && k !== 'tdb-saved-notes') {
+              var extra = JSON.parse(localStorage.getItem(k) || '[]');
+              notes = notes.concat(extra);
+            }
+          });
+        } catch (_) {}
+        // Deduplicate by ref
+        var seen = {};
+        notes = notes.filter(function (n) {
+          if (!n || !n.ref || seen[n.ref]) return false;
+          seen[n.ref] = true; return true;
+        });
+        if (!notes.length) {
+          exportBtn.textContent = 'No saved verses yet';
+          setTimeout(function () { exportBtn.textContent = 'Export Journal'; }, 2000);
+          return;
+        }
+        exportBtn.textContent = 'Exporting\u2026';
+
+        // Try jsPDF if loaded (CDN), else fall back to plain text
+        if (window.jspdf && window.jspdf.jsPDF) {
+          exportJournalPDF(notes, window.jspdf.jsPDF);
+        } else if (window.jsPDF) {
+          exportJournalPDF(notes, window.jsPDF);
+        } else {
+          exportJournalText(notes);
+        }
+        setTimeout(function () { exportBtn.textContent = 'Export Journal'; }, 2000);
+      });
+    }
+
+    function exportJournalPDF(notes, JsPDF) {
+      try {
+        var doc = new JsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+        var y = 18;
+        var pageH = doc.internal.pageSize.getHeight();
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(16);
+        doc.text("Today's Daily Battle \u2014 Verse Journal", 15, y);
+        y += 4;
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(120);
+        doc.text('Exported ' + new Date().toLocaleDateString(), 15, y + 4);
+        y += 12;
+        doc.setTextColor(0);
+        notes.forEach(function (note, i) {
+          if (y > pageH - 30) { doc.addPage(); y = 18; }
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(10);
+          var refLine = (i + 1) + '. ' + (note.ref || 'Unknown');
+          doc.text(refLine, 15, y); y += 5;
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          if (note.savedAt) { doc.setTextColor(130); doc.text('Saved: ' + new Date(note.savedAt).toLocaleDateString(), 15, y); y += 4; doc.setTextColor(0); }
+          if (note.text) {
+            var wrapped = doc.splitTextToSize('"' + note.text + '"', 178);
+            wrapped.forEach(function (line) { if (y > pageH - 20) { doc.addPage(); y = 18; } doc.text(line, 15, y); y += 4; });
+          }
+          y += 4;
+        });
+        var fname = 'tdb-journal-' + new Date().toISOString().slice(0, 10) + '.pdf';
+        doc.save(fname);
+      } catch (err) {
+        console.warn('jsPDF export failed, falling back to text', err);
+        exportJournalText(notes);
+      }
+    }
+
+    function exportJournalText(notes) {
+      var lines = ["TODAY'S DAILY BATTLE — Verse Journal", 'Exported: ' + new Date().toLocaleString(), ''];
+      notes.forEach(function (note, i) {
+        lines.push('--- Entry ' + (i + 1) + ' ---');
+        if (note.savedAt) lines.push('Date:      ' + new Date(note.savedAt).toLocaleString());
+        if (note.ref)     lines.push('Ref:       ' + note.ref);
+        if (note.text)    lines.push('Verse:     ' + note.text);
+        if (note.heartfelt) lines.push('Heartfelt: ' + note.heartfelt);
+        if (note.action)    lines.push('Action:    ' + note.action);
+        lines.push('');
+      });
+      var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+      var url  = URL.createObjectURL(blob);
+      var a    = document.createElement('a');
+      a.href   = url;
+      a.download = 'tdb-journal-' + new Date().toISOString().slice(0, 10) + '.txt';
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 6000);
+    }
+
+    // ── SOS Button ──
+    function wireSosButton() {
+      var btn = document.getElementById('sos-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        // Count taps
+        var count = parseInt(localStorage.getItem('tdb-sos-count') || '0', 10) + 1;
+        localStorage.setItem('tdb-sos-count', String(count));
+
+        // Scroll feel-results into view, render 'struggle'
+        var feelResults = document.getElementById('feel-results');
+        if (typeof renderSmartResult === 'function') {
+          renderSmartResult('struggle');
+        } else {
+          // Hardcoded fallback: Psalm 46:10
+          if (feelResults) {
+            feelResults.innerHTML = '';
+            var card = document.createElement('div');
+            card.className = 'smart-card';
+            var h = document.createElement('p'); h.className = 'smart-heartfelt';
+            h.textContent = 'Still here\u2014that\u2019s enough. He\u2019s closer in struggle than anywhere else.';
+            var v = document.createElement('p'); v.className = 'smart-verse';
+            v.textContent = 'Be still, and know that I am God.';
+            var r = document.createElement('p'); r.className = 'smart-ref';
+            r.textContent = 'Psalm 46:10 (KJV)';
+            card.appendChild(h); card.appendChild(v); card.appendChild(r);
+            feelResults.appendChild(card);
+          }
+        }
+
+        // Scroll to results
+        var target = feelResults || document.getElementById('verseCard');
+        if (target) setTimeout(function () { target.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 150);
+
+        // Auto TTS
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var ttsText = 'Still here\u2014that\u2019s enough. Be still, and know that I am God. Psalm 46 verse 10. Just breathe\u2014He\u2019s with you.';
+          var utt = new SpeechSynthesisUtterance(ttsText);
+          utt.rate = 0.82; utt.pitch = 1;
+          var voices = window.speechSynthesis.getVoices() || [];
+          var warm = voices.find(function (v) { return /(samantha|karen|daniel|moira)/i.test(v.name); })
+                     || voices.find(function (v) { return v.lang && v.lang.startsWith('en') && v.localService; });
+          if (warm) utt.voice = warm;
+          window.speechSynthesis.speak(utt);
+        }
+
+        // "You've tapped N times" gentle nudge at 3 / 7 / 14
+        var milestonesMsg = { 3: 'You\u2019ve tapped 3 times\u2014He\u2019s here.', 7: '7 times. He still hasn\u2019t moved.', 14: '14 SOS taps. Still held.' };
+        if (milestonesMsg[count]) {
+          var nudgeMsg = document.getElementById('encourageMsg');
+          var nudgePop = document.getElementById('encouragePopover');
+          if (nudgeMsg && nudgePop) {
+            nudgeMsg.textContent = milestonesMsg[count];
+            nudgePop.hidden = false;
+            nudgePop.classList.add('nudge-popover--visible');
+            var t = setTimeout(function () {
+              nudgePop.classList.remove('nudge-popover--visible');
+              setTimeout(function () { nudgePop.hidden = true; }, 350);
+            }, 5000);
+            document.getElementById('encourageDismiss')?.addEventListener('click', function () {
+              clearTimeout(t);
+              nudgePop.classList.remove('nudge-popover--visible');
+              setTimeout(function () { nudgePop.hidden = true; }, 350);
+            }, { once: true });
+          }
+        }
+      });
+    }
+
+    // ── Morning Flow (6–9 AM gentle hero TTS + scroll) ──
+    function wireMorningFlow() {
+      var hour = new Date().getHours();
+      if (hour < 6 || hour > 9) return; // outside morning window
+      var skipKey = 'tdb-morning-flow-skipped-' + new Date().toISOString().slice(0, 10);
+      if (localStorage.getItem(skipKey)) return; // already skipped today
+
+      var skipBtn = document.getElementById('morningSkipBtn');
+      if (skipBtn) {
+        skipBtn.hidden = false;
+        skipBtn.addEventListener('click', function () {
+          localStorage.setItem(skipKey, '1');
+          skipBtn.hidden = true;
+          window.speechSynthesis && window.speechSynthesis.cancel();
+        }, { once: true });
+      }
+
+      // Wait for hero verse to load, then scroll + TTS
+      setTimeout(function () {
+        var heroCard = document.getElementById('verseCard');
+        if (heroCard) heroCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        if (!('speechSynthesis' in window)) return;
+        if (localStorage.getItem(skipKey)) return;
+        var heroText = document.getElementById('heroVerse')?.textContent || '';
+        var heroRef  = (document.getElementById('heroRef')?.textContent  || '').replace(' (KJV)', '');
+        if (!heroText) return;
+        var greeting = 'Good morning. Here\u2019s your verse for today. ' + heroText + ' \u2014 ' + heroRef + '.';
+        var utt = new SpeechSynthesisUtterance(greeting);
+        utt.rate = 0.82; utt.pitch = 1;
+        var voices = window.speechSynthesis.getVoices() || [];
+        var warm = voices.find(function (v) { return /(samantha|karen|daniel|moira)/i.test(v.name); })
+                   || voices.find(function (v) { return v.lang && v.lang.startsWith('en') && v.localService; });
+        if (warm) utt.voice = warm;
+        utt.onend = function () { if (skipBtn) skipBtn.hidden = true; };
+        window.speechSynthesis.speak(utt);
+      }, 2200);
+    }
+
+    // ── WHY_NOTES + Why Tooltip ──
+    var WHY_NOTES = {
+      'Psalm 46:10':        'God says \u201cbe still\u201d\u2014not do nothing, just trust. Stop striving; He\u2019s already moving.',
+      'John 14:27':         'This peace isn\u2019t calm circumstances\u2014it\u2019s Jesus himself staying inside the storm with you.',
+      'Isaiah 41:10':       '\u201cBe not dismayed\u201d is an order to the fear, not a suggestion to you. He\u2019s commanding it away.',
+      'Philippians 4:7':    'The peace that \u201cpasseth understanding\u201d means it doesn\u2019t make sense to the mind\u2014it\u2019s given, not earned.',
+      'Romans 8:28':        'Not \u201call things are good\u201d\u2014but all things work together for good. The mess is in the mix.',
+      'Psalm 34:18':        'Brokenhearted isn\u2019t far from God\u2014it\u2019s right next to Him. He\u2019s drawn to the cracked places.',
+      'Jeremiah 29:11':     'Written to exiles, not the comfortable. His good plans are for people in hard seasons.',
+      'Isaiah 40:31':       'They that \u201cwait\u201d\u2014the Hebrew is qavah: to twist strands together. Waiting weaves you into His strength.',
+      'Matthew 11:28':      'Come as you are, heavy load and all. Rest here isn\u2019t earned\u2014it\u2019s an invitation.',
+      '2 Timothy 1:7':      'Power + love + sound mind\u2014three gifts, given at once. Fear gets none of them.',
+      'Proverbs 3:5-6':     'Lean not on your own understanding\u2014because your understanding has been shaped by fear. His is better.',
+      'Psalm 23:1':         '\u201cI shall not want\u201d is a declaration, not a wish. The shepherd provides before the sheep even feel lack.',
+      'Romans 8:1':         'No condemnation. None. Not \u201csome\u201d or \u201cless.\u201d Zero. That\u2019s the starting line for every new day.',
+      'Hebrews 13:5':       'He will never leave\u2014the original Greek uses five negatives stacked together. Emphatic. Absolute.',
+      'Lamentations 3:22':  'Written in the rubble of Jerusalem\u2019s fall. Mercy found amid ruins\u2014it can find you too.',
+      '1 Peter 5:7':        '\u201cCasting\u201d is epiripsantes\u2014a one-time decisive throw, not a gentle hand-off. Hurl it and walk.',
+      'Psalm 119:105':      'A lamp lights the next step, not the whole path. Enough light for right now is enough.',
+      'Ephesians 6:10':     '\u201cBe strong in the Lord\u201d\u2014in His strength, not your own. You borrow; He supplies.',
+      'John 3:16':          'God so loved\u2014present tense in Greek. Not loved once. Loves. Still. Right now.',
+      'Psalm 46:1':         '\u201cA very present help\u201d\u2014the Hebrew is \u201cfound abundantly.\u201d He is found where trouble is found.'
+    };
+
+    // Active why popover instance
+    var _whyPopover = null;
+    function showWhyPopover(anchorEl, noteText) {
+      dismissWhyPopover();
+      var pop = document.createElement('div');
+      pop.className = 'why-popover';
+      pop.setAttribute('role', 'tooltip');
+      pop.setAttribute('aria-live', 'polite');
+      pop.textContent = noteText;
+      document.body.appendChild(pop);
+      _whyPopover = pop;
+      // Position near anchor
+      var rect = anchorEl.getBoundingClientRect();
+      var top  = rect.bottom + window.scrollY + 6;
+      var left = Math.max(8, Math.min(rect.left + window.scrollX, window.innerWidth - 320));
+      pop.style.position = 'absolute';
+      pop.style.top  = top + 'px';
+      pop.style.left = left + 'px';
+      // Fade in
+      requestAnimationFrame(function () { pop.classList.add('why-popover--visible'); });
+      // Dismiss on outside tap
+      setTimeout(function () {
+        document.addEventListener('click', dismissWhyPopover, { once: true, capture: true });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dismissWhyPopover(); }, { once: true });
+      }, 50);
+    }
+    function dismissWhyPopover() {
+      if (!_whyPopover) return;
+      _whyPopover.classList.remove('why-popover--visible');
+      var el = _whyPopover;
+      _whyPopover = null;
+      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 280);
+    }
+
+    function wireWhyTooltips() {
+      // Wire hero ref
+      var heroRefEl = document.getElementById('heroRef');
+      if (heroRefEl) {
+        heroRefEl.style.cursor = 'help';
+        heroRefEl.setAttribute('title', '');
+        heroRefEl.setAttribute('aria-label', 'Tap to learn why this verse matters');
+        heroRefEl.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var rawRef = heroRefEl.textContent.replace(' (KJV)', '').trim();
+          var note = WHY_NOTES[rawRef];
+          if (!note) { dismissWhyPopover(); return; }
+          if (_whyPopover) { dismissWhyPopover(); return; }
+          showWhyPopover(heroRefEl, note);
+        });
+      }
+      // Wire smart-card refs (delegated — cards are created dynamically)
+      document.addEventListener('click', function (e) {
+        var refEl = e.target.closest('.smart-ref');
+        if (!refEl) return;
+        e.stopPropagation();
+        var rawRef = refEl.textContent.replace(' (KJV)', '').trim();
+        var note = WHY_NOTES[rawRef];
+        if (!note) { dismissWhyPopover(); return; }
+        if (_whyPopover) { dismissWhyPopover(); return; }
+        showWhyPopover(refEl, note);
+      }, true);
+      // Wire feel-verse-card refs (delegated)
+      document.addEventListener('click', function (e) {
+        var refEl = e.target.closest('.verse-ref, .feel-verse-ref');
+        if (!refEl || refEl.id === 'heroRef') return;
+        e.stopPropagation();
+        var rawRef = refEl.textContent.replace(' (KJV)', '').replace(/^—\s*/, '').trim();
+        var note = WHY_NOTES[rawRef];
+        if (!note) { dismissWhyPopover(); return; }
+        if (_whyPopover) { dismissWhyPopover(); return; }
+        showWhyPopover(refEl, note);
+      });
+    }
+
+    // ── About Modal ──
+    function wireAboutModal() {
+      var openBtn  = document.getElementById('about-link');
+      var modal    = document.getElementById('aboutModal');
+      var closeTop = document.getElementById('aboutModalClose');
+      var closeBot = document.getElementById('aboutCloseBtnBottom');
+      if (!openBtn || !modal) return;
+
+      function openAbout() {
+        modal.hidden = false;
+        requestAnimationFrame(function () { modal.classList.add('about-modal--open'); });
+        modal.querySelector('.about-modal-sheet')?.focus();
+      }
+      function closeAbout() {
+        modal.classList.remove('about-modal--open');
+        setTimeout(function () { modal.hidden = true; }, 300);
+        openBtn.focus();
+      }
+
+      openBtn.addEventListener('click', openAbout);
+      if (closeTop) closeTop.addEventListener('click', closeAbout);
+      if (closeBot) closeBot.addEventListener('click', closeAbout);
+      // Backdrop tap closes
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeAbout();
+      });
+      modal.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeAbout();
+      });
+
+      // Story form
+      var submitBtn = document.getElementById('submit-story');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', function () {
+          var textarea = document.getElementById('story-text');
+          var text = textarea ? textarea.value.trim() : '';
+          if (!text) { textarea && textarea.focus(); return; }
+          try {
+            var stories = JSON.parse(localStorage.getItem('tdb-stories') || '[]');
+            stories.push({ date: new Date().toLocaleDateString(), text: text });
+            localStorage.setItem('tdb-stories', JSON.stringify(stories));
+          } catch (err) { /* storage full — fail silently */ }
+          if (textarea) textarea.value = '';
+          var confirm = document.getElementById('story-confirm');
+          if (confirm) {
+            confirm.hidden = false;
+            setTimeout(function () { confirm.hidden = true; }, 4000);
+          }
+        });
+      }
+    }
+
     // ── Init ──
     initTheme();
     updateStreak();
+    updatePlanStreak();
     wirePrayerWall();
     registerServiceWorker();
+    wireVoiceSearch();
+    wireHeroClickMenu();
+    wireHeroImageBtn();
+    wireKidsStoryModal();
+    wireAudioVolumePopover();
+    wirePlanDetailModal();
+    wireSettings();
+    wireJournalExport();
+    wireAboutModal();
+    wireSosButton();
+    wireWhyTooltips();
+    scheduleMorningReminder();
+    cacheVersesOffline();
     loadTodaysVerse().then(() => {
       wireReadAloudTts();
+      wireMorningFlow();
       setTimeout(showReadAloudModal, 1400);
     });
     initPwaNudge();
   </script>
+  <!-- ── SOS Button ── -->
+  <button type="button" id="sos-btn" class="sos-btn" aria-label="I'm struggling — show me a verse now">SOS</button>
+
+  <!-- ── About Modal ── -->
+  <div id="aboutModal" class="about-modal-backdrop" hidden role="dialog" aria-modal="true" aria-label="About Today's Daily Battle">
+    <div class="about-modal-sheet" tabindex="-1">
+      <button type="button" class="about-modal-close" id="aboutModalClose" aria-label="Close About">✕</button>
+      <h2 class="about-modal-title">Why This Exists</h2>
+
+      <p>Hey&#8212;I&#8217;m Brandon. Born in Dallas, raised in Memphis. Grew up where the blues play loud and the nights feel longer than they should.</p>
+
+      <p>I built this because I needed it. Not some shiny app with streaks and badges&#8212;just a quiet place to grab one verse when everything else was screaming. Scripture didn&#8217;t fix me overnight. It just kept showing up: &#8220;Be still,&#8221; &#8220;Cast it,&#8221; &#8220;You&#8217;re held.&#8221; And slowly, that was enough.</p>
+
+      <p>No ads. No login. Offline-first. Smart enough to hear &#8220;survival&#8221; and hand you Isaiah 43:2 like it&#8217;s waiting for you. Plans that say &#8220;Hey, 7 days? Let&#8217;s do 14&#8221; instead of &#8220;Start over.&#8221; Audio that reads it back&#8212;because some mornings, hearing beats reading.</p>
+
+      <p>This isn&#8217;t about being perfect. It&#8217;s about showing up. If you&#8217;re fighting something right now&#8212;fear, grief, bills, loneliness&#8212;grab a verse. Breathe. You&#8217;re not solo. And if this helps even one person feel that? That&#8217;s why I keep building.</p>
+
+      <p class="about-sign-off">Thanks for being here.<br>&#8212;Brandon</p>
+
+      <p class="about-coffee">Want to say thanks? <a href="https://ko-fi.com/brandontdb" target="_blank" rel="noopener" class="about-coffee-link" aria-label="Buy Brandon a coffee on Ko-fi">Buy me a coffee</a>&#8212;keeps the verses coming.</p>
+
+      <div class="story-form" id="storyForm">
+        <h3 class="story-form-title">Share Your Story</h3>
+        <p class="story-form-note">Anonymous&#8212;no email needed. How&#8217;d a verse help you?</p>
+        <textarea id="story-text" class="story-textarea" rows="4" placeholder="It was 2 AM&#8230;" aria-label="Your story" maxlength="1000"></textarea>
+        <div class="story-form-row">
+          <button type="button" id="submit-story" class="story-submit-btn" aria-label="Submit your story">Send</button>
+          <span id="story-confirm" class="story-confirm" hidden aria-live="polite">Thanks&#8212;your story&#8217;s saved here.</span>
+        </div>
+      </div>
+
+      <button type="button" class="about-close-btn" id="aboutCloseBtnBottom" aria-label="Close About">Close</button>
+    </div>
+  </div>
+
+  <!-- ── Encouragement Nudge Popover ── -->
+  <div id="encouragePopover" class="nudge-popover" hidden aria-live="polite" aria-atomic="true" role="status">
+    <div class="nudge-popover-body">
+      <p id="encourageMsg" class="nudge-popover-msg"></p>
+      <a href="#verseCard" class="nudge-see-more" id="encourageSeeMore" aria-label="Scroll to today's verse">See today's verse ↑</a>
+    </div>
+    <button type="button" id="encourageDismiss" class="nudge-dismiss-btn" aria-label="Dismiss encouragement">✕</button>
+  </div>
+
+  <!-- ── Voice Listening Overlay ── -->
+  <!-- ── Audio Volume Popover ── -->
+  <!-- ── Settings Popover ── -->
+  <div id="settings-popover" class="settings-popover" hidden role="dialog" aria-modal="false" aria-label="Settings">
+    <button type="button" class="settings-popover-close" id="settings-popover-close" aria-label="Close settings">✕</button>
+    <h3 class="settings-popover-title">⚙️ Settings</h3>
+
+    <div class="settings-row">
+      <label class="settings-label" for="morning-check">
+        <span class="settings-label-text">🌅 Daily 6 AM verse reminder</span>
+        <span class="settings-label-sub">A gentle nudge each morning</span>
+      </label>
+      <input type="checkbox" id="morning-check" class="settings-toggle" aria-label="Enable daily 6 AM verse reminder" role="switch">
+    </div>
+
+    <p class="settings-notif-status" id="settings-notif-status" hidden></p>
+
+    <div class="settings-row settings-row--journal">
+      <span class="settings-label-text">📓 Verse Journal</span>
+      <button type="button" id="journal-export" class="journal-export-btn" aria-label="Export your saved verses as a journal PDF or text file">Export Journal</button>
+    </div>
+  </div>
+
+  <div id="audioVolumePopover" class="audio-volume-popover" hidden role="dialog" aria-label="Playback volume">
+    <label class="audio-vol-label" for="audioVolSlider">🔊 Volume</label>
+    <input type="range" id="audioVolSlider" class="audio-vol-slider" min="0" max="1" step="0.05" value="1" aria-label="Playback volume">
+    <button type="button" id="audioVolClose" class="audio-vol-close" aria-label="Close volume panel">✕</button>
+  </div>
+
+  <!-- ── Plan Detail Modal ── -->
+  <div id="planDetailModal" class="plan-detail-modal" hidden role="dialog" aria-modal="true" aria-label="Plan details">
+    <div class="plan-detail-inner">
+      <button type="button" id="planDetailClose" class="plan-detail-close" aria-label="Close plan">✕</button>
+      <h2 class="plan-detail-title" id="planDetailTitle"></h2>
+      <p class="plan-detail-sub" id="planDetailSub"></p>
+      <div class="plan-detail-days" id="planDetailDays"></div>
+      <button type="button" class="plan-detail-start" id="planDetailStart" aria-label="Mark today complete and continue plan">Mark Today Complete</button>
+      <!-- Extend footer — shown only when plan just completed and not yet dismissed/extended -->
+      <div class="plan-extend-footer" id="planExtendFooter" hidden aria-live="polite">
+        <p class="plan-extend-msg" id="planExtendMsg"></p>
+        <div class="plan-extend-btns">
+          <button type="button" id="extend-plan" class="plan-extend-yes" aria-label="Extend plan for more days">Yes, let&#8217;s go!</button>
+          <button type="button" id="dismiss-extend" class="plan-extend-no" aria-label="Dismiss plan extension offer">Nah, I&#8217;m good</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="listeningOverlay" class="listening-overlay" hidden role="status" aria-live="assertive" aria-atomic="true">
+    <div class="listening-inner">
+      <span class="listening-dot" aria-hidden="true"></span>
+      <span class="listening-text">Listening…</span>
+      <button type="button" id="listeningCancel" class="listening-cancel" aria-label="Cancel voice search">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ── Kids Story Modal ── -->
+  <div id="kidsStoryModal" class="story-modal" hidden role="dialog" aria-modal="true" aria-label="Quick Kids Story">
+    <div class="story-modal-inner">
+      <button type="button" class="story-modal-close" id="storyModalClose" aria-label="Close story">✕</button>
+      <div class="story-emoji-row" aria-hidden="true">🪨 🐏 ⚔️ 🦁 👑</div>
+      <h2 class="story-title">David & Goliath</h2>
+      <p class="story-verse-ref">1 Samuel 17 — KJV simplified for kids</p>
+      <div class="story-body">
+        <p>One day, a HUGE giant named Goliath was scaring everyone. He was so tall and loud — nobody wanted to fight him!</p>
+        <p>But a young boy named David said, <em>"I can do it — God is with me!"</em> 🦁</p>
+        <p>He picked up five smooth stones from the brook and his sling… and with ONE throw, the giant fell down. 🪨💥</p>
+        <p class="story-verse">"The battle is the LORD's." — 1 Samuel 17:47 (KJV)</p>
+        <p>Remember: <strong>no problem is too big when God is on your side.</strong> ✨</p>
+      </div>
+      <a href="kids/index.html" class="story-modal-link" aria-label="Go to Kids Corner for more stories">More adventures in Kids Corner →</a>
+    </div>
+  </div>
+
+  <!-- ── Confetti Canvas ── -->
+  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
   <!-- ── Daily midnight nudge toast ── -->
   <div id="daily-nudge" class="toast-gold" role="status" aria-live="polite" aria-atomic="true">New day—still here if you need.</div>
 </body>

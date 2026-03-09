@@ -100,6 +100,20 @@
     var BETA_CODE_KEY = 'kidsBetaCode';
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    function getLocalItemSafe(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function setLocalItemSafe(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {}
+    }
+
     function genInviteCode() {
       var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
       var code = '';
@@ -121,11 +135,10 @@
       if (successSection) successSection.classList.remove('hidden');
       var codeMsg = document.getElementById('kids-beta-code-msg');
       if (codeMsg) {
-        var code = null;
-        try { code = localStorage.getItem(BETA_CODE_KEY); } catch (e) {}
+        var code = getLocalItemSafe(BETA_CODE_KEY);
         if (!code) {
           code = genInviteCode();
-          try { localStorage.setItem(BETA_CODE_KEY, code); } catch (e) {}
+          setLocalItemSafe(BETA_CODE_KEY, code);
         }
         codeMsg.textContent = 'Your invite code: ' + code + ' — Share with your kid!';
         codeMsg.classList.remove('hidden');
@@ -133,12 +146,15 @@
     }
 
     function saveLocalFallback(emailVal, ageVal) {
-      try {
-        localStorage.setItem(BETA_SUBMITTED_KEY, JSON.stringify({ email: emailVal, age: ageVal, ts: Date.now(), fallback: true }));
-      } catch (err) {}
+      setLocalItemSafe(BETA_SUBMITTED_KEY, JSON.stringify({
+        email: emailVal,
+        age: ageVal,
+        ts: Date.now(),
+        fallback: true
+      }));
     }
 
-    if (localStorage.getItem(BETA_SUBMITTED_KEY)) {
+    if (getLocalItemSafe(BETA_SUBMITTED_KEY)) {
       showSuccess();
     }
 
@@ -226,7 +242,7 @@
         }
 
         var code = genInviteCode();
-        try { localStorage.setItem(BETA_CODE_KEY, code); } catch (e) {}
+        setLocalItemSafe(BETA_CODE_KEY, code);
 
         try {
           var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);

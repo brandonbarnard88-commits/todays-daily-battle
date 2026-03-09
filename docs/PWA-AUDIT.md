@@ -21,11 +21,11 @@ Quick verification checklist for Progressive Web App behavior.
 | `/icons/icon-512.png` | ✅ In repo; copied to dist/ |
 | `/icon.svg` | ✅ Root favicon |
 
-## Service Worker (`service-worker.js`)
+## Service Worker (`sw.js` -> `service-worker.js`)
 
 | Check | Status |
 |-------|--------|
-| Registers at `/` | ✅ `navigator.serviceWorker.register('/service-worker.js?v=...')` |
+| Registers at `/` | ✅ `navigator.serviceWorker.register('/sw.js?v=...')` |
 | `CACHE_NAME` bumped on deploy | ✅ Bump when HTML/CSS changes |
 | Core HTML/CSS precached | ✅ CORE_ASSETS |
 | `script.js`, `config.js` NOT precached | ✅ Updates deploy immediately |

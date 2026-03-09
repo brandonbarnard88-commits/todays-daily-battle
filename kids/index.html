@@ -240,6 +240,248 @@
     </div>
   </div>
 
+  <!-- ── Parent PIN gate ── -->
+  <div id="kids-pin-modal" class="kids-pin-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-pin-modal-title">
+    <div class="kids-pin-modal-inner">
+      <p class="kids-pin-emoji" aria-hidden="true">🔐</p>
+      <h2 id="kids-pin-modal-title" class="kids-pin-modal-title">Parent check</h2>
+      <p class="kids-pin-hint" id="kids-pin-hint">Enter your 4-digit parent code to unlock saving.</p>
+      <div class="kids-pin-inputs" aria-label="4-digit PIN entry">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 1">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 2">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 3">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 4">
+      </div>
+      <p class="kids-pin-error hidden" id="kids-pin-error" role="alert">Incorrect code. Try again.</p>
+      <div class="kids-pin-actions">
+        <button type="button" id="kids-pin-submit" class="btn kids-btn-primary">Unlock</button>
+        <button type="button" id="kids-pin-cancel" class="btn btn-secondary">Cancel</button>
+      </div>
+      <p class="kids-pin-set-hint" id="kids-pin-set-hint">No code set yet? <button type="button" class="kids-pin-text-btn" id="kids-pin-set-link">Set one now</button></p>
+    </div>
+  </div>
+  <!-- ── Set PIN modal ── -->
+  <div id="kids-pin-set-modal" class="kids-pin-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-pin-set-title">
+    <div class="kids-pin-modal-inner">
+      <p class="kids-pin-emoji" aria-hidden="true">👨‍👩‍👧</p>
+      <h2 id="kids-pin-set-title" class="kids-pin-modal-title">Set parent code</h2>
+      <p class="kids-pin-hint">Choose a 4-digit code only you know.</p>
+      <div class="kids-pin-inputs" id="kids-pin-set-inputs" aria-label="Set new 4-digit PIN">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 1">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 2">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 3">
+        <input class="kids-pin-digit" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off" aria-label="PIN digit 4">
+      </div>
+      <p class="kids-pin-error hidden" id="kids-pin-set-error" role="alert">Use only digits 0–9.</p>
+      <div class="kids-pin-actions">
+        <button type="button" id="kids-pin-set-save" class="btn kids-btn-primary">Save Code</button>
+        <button type="button" id="kids-pin-set-cancel" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* ── Parent PIN gate ── */
+    .kids-pin-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(10, 13, 20, 0.82);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .kids-pin-modal.hidden { display: none; }
+    .kids-pin-modal-inner {
+      background: #1b212d;
+      border: 1px solid #2a3344;
+      border-radius: 22px;
+      padding: 28px 24px 24px;
+      max-width: 320px;
+      width: 92%;
+      text-align: center;
+      animation: kids-pin-rise 0.22s ease;
+    }
+    @keyframes kids-pin-rise {
+      from { transform: translateY(14px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .kids-pin-emoji { font-size: 2.4rem; margin: 0 0 8px; }
+    .kids-pin-modal-title { margin: 0 0 6px; font-size: 1.2rem; color: #f2dc98; }
+    .kids-pin-hint { font-size: 0.88rem; color: #bcc5d6; margin: 0 0 18px; }
+    .kids-pin-inputs {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .kids-pin-digit {
+      width: 48px;
+      height: 56px;
+      text-align: center;
+      font-size: 1.6rem;
+      font-family: monospace;
+      background: #0f1218;
+      border: 2px solid #2a3344;
+      border-radius: 10px;
+      color: #f5f7fb;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .kids-pin-digit:focus { border-color: #e3bc67; }
+    .kids-pin-error { font-size: 0.83rem; color: #e87b7b; margin: 0 0 12px; }
+    .kids-pin-error.hidden { display: none; }
+    .kids-pin-actions { display: flex; gap: 10px; justify-content: center; margin-top: 14px; }
+    .kids-pin-set-hint { font-size: 0.82rem; color: #bcc5d6; margin-top: 14px; }
+    .kids-pin-text-btn {
+      background: none;
+      border: none;
+      color: #e3bc67;
+      font-size: inherit;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+  </style>
+  <script>
+    // ── Parent PIN gate for Kids Corner ──
+    (function() {
+      const PIN_KEY = 'tdb-kids-parent-pin';
+      const UNLOCK_KEY = 'tdb-kids-pin-unlocked-session';
+
+      function getStoredPin() { return localStorage.getItem(PIN_KEY) || ''; }
+      function isUnlocked() { return sessionStorage.getItem(UNLOCK_KEY) === '1'; }
+      function setUnlocked() { sessionStorage.setItem(UNLOCK_KEY, '1'); }
+
+      function getPinVal(inputs) {
+        return Array.from(inputs).map(i => i.value.replace(/\D/g, '')).join('');
+      }
+
+      function clearPinInputs(inputs) {
+        inputs.forEach(i => { i.value = ''; });
+        if (inputs[0]) inputs[0].focus();
+      }
+
+      function wireDigitInputs(inputs) {
+        inputs.forEach((inp, idx) => {
+          inp.addEventListener('input', () => {
+            const v = inp.value.replace(/\D/g, '');
+            inp.value = v.slice(-1);
+            if (v && idx < inputs.length - 1) inputs[idx + 1].focus();
+          });
+          inp.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && !inp.value && idx > 0) inputs[idx - 1].focus();
+          });
+        });
+      }
+
+      // ── Gate modal (verify) ──
+      const gateModal = document.getElementById('kids-pin-modal');
+      const gateInputs = gateModal ? Array.from(gateModal.querySelectorAll('.kids-pin-digit')) : [];
+      const gateError  = document.getElementById('kids-pin-error');
+      const gateSetHint = document.getElementById('kids-pin-set-hint');
+      const submitBtn  = document.getElementById('kids-pin-submit');
+      const cancelBtn  = document.getElementById('kids-pin-cancel');
+      const setLink    = document.getElementById('kids-pin-set-link');
+
+      if (gateModal) wireDigitInputs(gateInputs);
+
+      let _pinCallback = null;
+
+      function openPinGate(onSuccess) {
+        if (!gateModal) { onSuccess && onSuccess(); return; }
+        const pin = getStoredPin();
+        if (!pin) {
+          openPinSet(() => onSuccess && onSuccess());
+          return;
+        }
+        _pinCallback = onSuccess;
+        gateSetHint && (gateSetHint.hidden = false);
+        gateError && gateError.classList.add('hidden');
+        clearPinInputs(gateInputs);
+        gateModal.classList.remove('hidden');
+      }
+
+      function closePinGate() {
+        gateModal && gateModal.classList.add('hidden');
+        _pinCallback = null;
+      }
+
+      submitBtn && submitBtn.addEventListener('click', () => {
+        const entered = getPinVal(gateInputs);
+        if (entered.length < 4) return;
+        if (entered === getStoredPin()) {
+          setUnlocked();
+          closePinGate();
+          if (_pinCallback) _pinCallback();
+        } else {
+          gateError && gateError.classList.remove('hidden');
+          clearPinInputs(gateInputs);
+        }
+      });
+      cancelBtn && cancelBtn.addEventListener('click', closePinGate);
+
+      // ── Set PIN modal ──
+      const setModal   = document.getElementById('kids-pin-set-modal');
+      const setInputs  = setModal ? Array.from(setModal.querySelectorAll('.kids-pin-digit')) : [];
+      const setError   = document.getElementById('kids-pin-set-error');
+      const setSaveBtn = document.getElementById('kids-pin-set-save');
+      const setCancelBtn = document.getElementById('kids-pin-set-cancel');
+      let _setCallback = null;
+
+      if (setModal) wireDigitInputs(setInputs);
+
+      function openPinSet(onDone) {
+        if (!setModal) return;
+        _setCallback = onDone;
+        setError && setError.classList.add('hidden');
+        clearPinInputs(setInputs);
+        setModal.classList.remove('hidden');
+      }
+
+      function closePinSet() {
+        setModal && setModal.classList.add('hidden');
+        _setCallback = null;
+      }
+
+      setLink && setLink.addEventListener('click', () => {
+        closePinGate();
+        openPinSet(() => {});
+      });
+
+      setSaveBtn && setSaveBtn.addEventListener('click', () => {
+        const val = getPinVal(setInputs);
+        if (val.length < 4) { setError && setError.classList.remove('hidden'); return; }
+        localStorage.setItem(PIN_KEY, val);
+        setUnlocked();
+        closePinSet();
+        if (_setCallback) _setCallback();
+      });
+
+      setCancelBtn && setCancelBtn.addEventListener('click', closePinSet);
+
+      // ── Hook: guard Save Doodle and Download ──
+      function guardedAction(fn) {
+        if (isUnlocked()) { fn(); return; }
+        openPinGate(() => { setUnlocked(); fn(); });
+      }
+
+      document.addEventListener('click', (e) => {
+        const saveBtn = e.target.closest('#kids-doodle-save, #kids-doodle-download');
+        if (!saveBtn) return;
+        if (isUnlocked()) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        openPinGate(() => { saveBtn.click(); });
+      }, true);
+
+      // Expose for other scripts if needed
+      window._kidsPin = { openPinGate, openPinSet, isUnlocked };
+    }());
+  </script>
+
   <div id="kids-memory-modal" class="kids-memory-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-memory-title">
     <div class="kids-memory-modal-inner">
       <div class="kids-memory-header">

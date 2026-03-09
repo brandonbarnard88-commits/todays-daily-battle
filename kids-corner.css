@@ -188,3 +188,249 @@ a.nav-kids-corner:hover .nav-kids-icon {
     justify-content: center;
   }
 }
+
+/* Bedtime + playtime revamp */
+.kids-bedtime-page {
+  display: grid;
+  gap: 1rem;
+}
+
+.kids-bedtime-hero {
+  border-color: rgba(168, 199, 250, 0.45);
+  background: linear-gradient(145deg, rgba(22, 28, 42, 0.96), rgba(30, 39, 57, 0.95));
+  box-shadow: 0 12px 26px rgba(12, 20, 34, 0.4);
+}
+
+.kids-bedtime-page .glass.card-gold {
+  border: 1px solid rgba(179, 207, 255, 0.38);
+  background: linear-gradient(160deg, rgba(255, 248, 252, 0.08), rgba(209, 228, 255, 0.06));
+}
+
+.kids-verse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.kids-verse-card {
+  background: rgba(255, 245, 250, 0.14);
+  border: 1px solid rgba(255, 208, 226, 0.45);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.kids-verse-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: #ffe0ef;
+}
+
+.kids-verse-card-kid {
+  background: rgba(209, 228, 255, 0.18);
+  border-color: rgba(160, 196, 255, 0.5);
+}
+
+.kids-bedtime-verse-text {
+  margin: 0.4rem 0 0.25rem;
+  font-size: 1.14rem;
+  line-height: 1.5;
+  color: #f8fbff;
+}
+
+.kids-audio-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.kids-bedtime-btn-primary,
+.kids-bedtime-btn-secondary {
+  min-height: 48px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid transparent;
+}
+
+.kids-bedtime-btn-primary {
+  background: linear-gradient(145deg, #ffc8dd, #bde0fe);
+  color: #1b2434;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.kids-bedtime-btn-secondary {
+  background: rgba(252, 248, 255, 0.12);
+  color: #f2f7ff;
+  border-color: rgba(189, 224, 254, 0.5);
+}
+
+.kids-family-progress-meter {
+  height: 18px;
+  width: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  border: 1px solid rgba(189, 224, 254, 0.55);
+}
+
+.kids-family-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #ffc8dd, #bde0fe);
+  transition: width 0.25s ease;
+}
+
+.kids-family-progress-label {
+  margin: 0.55rem 0;
+  font-weight: 700;
+  color: #f4f8ff;
+}
+
+.kids-family-link-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+#kids-family-link-input {
+  flex: 1 1 320px;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(189, 224, 254, 0.6);
+  background: rgba(15, 24, 39, 0.55);
+  color: #f1f5ff;
+  padding: 0.7rem 0.8rem;
+}
+
+.kids-armor-piece-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+}
+
+.kids-piece-card {
+  border: 1px solid rgba(255, 216, 232, 0.45);
+  border-radius: 14px;
+  padding: 0.85rem;
+  background: rgba(255, 245, 252, 0.09);
+}
+
+.kids-piece-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  color: #fce7f3;
+}
+
+.kids-piece-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.kids-piece-actions .btn {
+  flex: 1 1 140px;
+}
+
+.kids-piece-drag[disabled] {
+  opacity: 0.5;
+}
+
+.kids-color-station {
+  margin-top: 1rem;
+  border: 1px solid rgba(189, 224, 254, 0.4);
+  border-radius: 14px;
+  padding: 0.85rem;
+  background: rgba(255, 252, 245, 0.08);
+}
+
+#kids-color-canvas {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 220, 232, 0.6);
+  background: #fffaf0;
+  touch-action: none;
+}
+
+.kids-color-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.65rem;
+}
+
+#kids-color-picker {
+  width: 52px;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  padding: 0;
+}
+
+.kids-armor-drop-zone {
+  margin-top: 1rem;
+}
+
+.kids-armor-drop-zone h3 {
+  margin: 0 0 0.55rem;
+  color: #e6f0ff;
+}
+
+.kids-armor-slots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.kids-armor-slot {
+  min-height: 68px;
+  border-radius: 12px;
+  border: 2px dashed rgba(189, 224, 254, 0.55);
+  background: rgba(189, 224, 254, 0.08);
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #e5f2ff;
+  font-weight: 700;
+}
+
+.kids-armor-slot.is-over {
+  background: rgba(255, 200, 221, 0.2);
+  border-color: rgba(255, 200, 221, 0.9);
+}
+
+.kids-armor-slot.is-filled {
+  border-style: solid;
+  border-color: rgba(162, 223, 183, 0.8);
+  background: rgba(162, 223, 183, 0.16);
+  color: #d9ffe9;
+}
+
+.kids-printable-wrap .btn {
+  width: 100%;
+  max-width: 380px;
+}
+
+@media (max-width: 900px) {
+  .kids-verse-grid,
+  .kids-armor-piece-list,
+  .kids-armor-slots {
+    grid-template-columns: 1fr;
+  }
+
+  .kids-audio-controls .btn,
+  .kids-family-link-row .btn,
+  .kids-color-tools .btn {
+    width: 100%;
+  }
+
+  #kids-family-link-input {
+    flex-basis: 100%;
+  }
+}

@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Family Activities • Today's Daily Battle</title>
-  <meta name="description" content="Family activities: Bible stories, prayer, and hands-on activities to do together. Build your household armor.">
+  <title>Bible Loop Library • Today's Daily Battle</title>
+  <meta name="description" content="Bible Loop Library for kids: short animated Bible story loops with stars, unlocks, and weekly Sunday drops.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids-corner.html">
-  <meta property="og:title" content="Family Activities • Today's Daily Battle">
-  <meta property="og:description" content="Bible stories and activities to do as a family. Pray, read, color, build your armor.">
+  <meta property="og:title" content="Bible Loop Library • Today's Daily Battle">
+  <meta property="og:description" content="Short Bible cartoon loops kids replay, pray through, and unlock each week.">
   <meta property="og:url" content="https://todaysdailybattle.com/kids-corner.html">
   <meta property="og:type" content="website">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="stylesheet" href="kids-corner.css?v=1">
+  <link rel="stylesheet" href="loop-player.css?v=1">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode" aria-label="Family Activities - Bible stories and activities for families">
+<body class="dark-mode" aria-label="Bible Loop Library - short kids Bible story loops">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar top-bar-gold">
@@ -129,26 +130,35 @@
       </nav>
     </aside>
 
-    <main class="app-content" id="main-content" role="main" aria-label="Family Activities - Bible stories and activities for families">
-      <div class="content-inner kids-corner-page">
-        <header class="kids-hero jewel-pulse" aria-label="Family Activities hero">
+    <main class="app-content" id="main-content" role="main" aria-label="Bible Loop Library for kids">
+      <div class="content-inner kids-corner-page loop-library-page">
+        <header class="kids-hero jewel-pulse loop-library-hero" aria-label="Bible Loop Library hero">
           <div class="kids-hero-frame">
-            <h1 class="kids-hero-title">Family Activities: Bible Stories & Household Armor</h1>
-            <p class="kids-hero-sub">Do these together—pray, read the verse, color, and do the activity. Each step adds a piece to your household armor.</p>
+            <p class="loop-hero-kicker">Bible Loop Library</p>
+            <h1 class="kids-hero-title">One More Bible Cartoon</h1>
+            <p class="kids-hero-sub">Bright hand-drawn style, bouncy action, gold shine, and short 10-15 second loops kids can replay safely.</p>
+            <p class="loop-audio-note">Audio style: ukulele + playful SFX (whoosh, cheer, splash), no voice-over.</p>
           </div>
         </header>
 
-        <section class="kids-stories-section glass card-gold" aria-label="Bible stories for families">
-          <h2 class="section-divider kids-section-divider">Bible Stories to Do Together</h2>
-          <p class="section-note">One sentence of truth. Pray, read the verse, color, and do the activity. Each prayer and activity strengthens your household armor.</p>
-          <div id="kids-corner-cards" class="kids-corner-grid" role="list"></div>
+        <section class="glass card-gold loop-progress-wrap" aria-label="Story star progress">
+          <div class="loop-progress-head">
+            <h2 class="section-divider kids-section-divider">Story Stars</h2>
+            <p id="loop-progress-text" class="loop-progress-text">12/160 stars</p>
+          </div>
+          <div class="loop-progress-meter" role="progressbar" aria-valuemin="0" aria-valuemax="160" aria-valuenow="12" aria-label="Bible Loop story stars progress">
+            <div id="loop-progress-fill" class="loop-progress-fill"></div>
+          </div>
+          <p class="section-note">160 stories waiting... Keep watching and praying through each story to unlock the next loop.</p>
+          <p id="loop-weekly-status" class="section-note" aria-live="polite">Weekly drop checks every Sunday for fresh loops.</p>
         </section>
 
-        <section class="glass card-gold kids-armor-note">
-          <h2 class="section-divider">Armor Builder</h2>
-          <p class="section-note">When you pray or complete an activity from a story, your household earns a piece of the Armor of God (Belt of Truth, Breastplate of Righteousness, Shield of Faith, Helmet of Salvation, and more). Build all six on the home page.</p>
-          <a href="/#armor-builder-btn" class="btn btn-primary">Build Armor</a>
+        <section class="glass card-gold loop-library-wrap" aria-label="Bible Loop Library infinite grid">
+          <h2 class="section-divider kids-section-divider">Starter 12 Loops</h2>
+          <div id="loop-grid" class="loop-grid" role="list" aria-label="Bible loop cards"></div>
+          <p id="loop-unlock-status" class="section-note" aria-live="polite">Watch 3 times, then pray that story to earn a gold star and unlock the next adventure.</p>
         </section>
+        <div id="loop-toast" class="loop-toast is-hidden" role="status" aria-live="polite"></div>
       </div>
     </main>
 
@@ -168,79 +178,6 @@
     </footer>
   </div>
 
-  <script nonce="tdb2025">
-  (function () {
-    var stories = [
-      { id: 'noah', title: 'Noah\'s Ark: God Saved Him from the Flood', summary: 'God told Noah to build a boat to save his family and the animals from the flood.', verseRef: 'Genesis 6:9-22', verseQuery: 'Genesis 6', prayIntent: 'for protection', jewel: 'sapphire', activity: 'Draw your family in the ark. Or build a boat with blocks.', armorHint: 'Pray for protection — adds to Shield of Faith.' },
-      { id: 'david', title: 'David & Goliath: God Gave Him Courage', summary: 'David trusted God and faced the giant with a sling and five stones.', verseRef: '1 Samuel 17:45-50', verseQuery: '1 Samuel 17', prayIntent: 'for courage', jewel: 'ruby', activity: 'Draw five stones. Or act out the story with a parent.', armorHint: 'Pray for courage — adds to Breastplate of Righteousness.' },
-      { id: 'jonah', title: 'Jonah & the Whale: God Gave Him Another Chance', summary: 'Jonah ran from God; God sent a great fish to bring him back, and Jonah obeyed.', verseRef: 'Jonah 1:17–2:10', verseQuery: 'Jonah 1', prayIntent: 'for obedience', jewel: 'emerald', activity: 'Draw Jonah inside the fish. Or tell the story in your own words.', armorHint: 'Pray for obedience — adds to Belt of Truth.' },
-      { id: 'daniel', title: 'Daniel in the Lions\' Den: God Protected Him', summary: 'Daniel prayed to God and was thrown to the lions; God shut the lions\' mouths.', verseRef: 'Daniel 6:10-23', verseQuery: 'Daniel 6', prayIntent: 'for faithfulness', jewel: 'diamond', activity: 'Draw Daniel with the lions. Or make a den from blankets.', armorHint: 'Pray for faithfulness — adds to Shield of Faith.' },
-      { id: 'storm', title: 'Jesus Calms the Storm: He Spoke Peace', summary: 'Jesus was in the boat when a storm came; He spoke and the wind and waves obeyed.', verseRef: 'Mark 4:35-41', verseQuery: 'Mark 4 35', prayIntent: 'for peace', jewel: 'amethyst', activity: 'Draw the boat and the waves. Or whisper "Peace, be still" with your family.', armorHint: 'Pray for peace — adds to Helmet of Salvation.' },
-      { id: 'prodigal', title: 'The Prodigal Son: The Father Welcomed Him Home', summary: 'The son left and wasted everything; when he came back, his father ran to him and celebrated.', verseRef: 'Luke 15:11-32', verseQuery: 'Luke 15 11', prayIntent: 'for forgiveness', jewel: 'emerald', activity: 'Draw the father welcoming the son. Or tell someone you forgive them.', armorHint: 'Pray for forgiveness — adds to Breastplate of Righteousness.' },
-      { id: 'samaritan', title: 'The Good Samaritan: He Showed Kindness', summary: 'A man was hurt; others passed by, but the Samaritan stopped and took care of him.', verseRef: 'Luke 10:25-37', verseQuery: 'Luke 10 30', prayIntent: 'for love', jewel: 'pearl', activity: 'Draw the Samaritan helping. Or do one kind thing for someone today.', armorHint: 'Pray for love — adds to Breastplate of Righteousness.' },
-      { id: 'creation', title: 'Creation: God Made Everything', summary: 'God made the heavens and the earth, light and dark, animals and people.', verseRef: 'Genesis 1:1-31', verseQuery: 'Genesis 1', prayIntent: 'with thanksgiving', jewel: 'sapphire', activity: 'Draw something God made. Or name seven things you are thankful for.', armorHint: 'Pray with thanksgiving — adds to Belt of Truth.' },
-      { id: 'resurrection', title: 'The Resurrection: Jesus Is Alive', summary: 'Jesus died on the cross and was buried; on the third day He rose from the dead.', verseRef: 'Matthew 28:1-10', verseQuery: 'Matthew 28', prayIntent: 'for hope', jewel: 'ruby', activity: 'Draw the empty tomb. Or say "He is risen" with your family.', armorHint: 'Pray for hope — adds to Helmet of Salvation.' },
-      { id: 'moses', title: 'Moses & the Red Sea: God Made a Way', summary: 'God parted the Red Sea so His people could cross on dry ground.', verseRef: 'Exodus 14:21-31', verseQuery: 'Exodus 14', prayIntent: 'for trust', jewel: 'ruby', activity: 'Draw the sea parting. Or build a path through pillows.', armorHint: 'Pray for trust — adds to Shield of Faith.' },
-      { id: 'lost-sheep', title: 'The Lost Sheep: Jesus Finds the One', summary: 'The shepherd left the ninety-nine to find the one sheep that was lost.', verseRef: 'Luke 15:3-7', verseQuery: 'Luke 15 3', prayIntent: 'for the lost', jewel: 'diamond', activity: 'Draw the shepherd carrying the sheep. Or pray for someone who is lost.', armorHint: 'Pray for the lost — adds to Helmet of Salvation.' },
-      { id: 'baby-jesus', title: 'Baby Jesus: God Sent His Son', summary: 'Jesus was born in Bethlehem; Mary laid Him in a manger.', verseRef: 'Luke 2:1-20', verseQuery: 'Luke 2', prayIntent: 'for the world', jewel: 'amethyst', activity: 'Draw the manger scene. Or sing a Christmas hymn together.', armorHint: 'Pray for the world — adds to Breastplate of Righteousness.' },
-      { id: 'joseph', title: 'Joseph\'s Coat: God Was With Him', summary: 'Joseph was sold by his brothers, but God was with him in the pit and in the palace.', verseRef: 'Genesis 37:1-11', verseQuery: 'Genesis 37', prayIntent: 'for faithfulness', jewel: 'pearl', activity: 'Draw Joseph\'s coat of many colors. Or tell how God was with you today.', armorHint: 'Pray for faithfulness — adds to Belt of Truth.' },
-      { id: 'zacchaeus', title: 'Zacchaeus: Jesus Saw Him', summary: 'Jesus looked up and called Zacchaeus down from the tree and went to his house.', verseRef: 'Luke 19:1-10', verseQuery: 'Luke 19 1', prayIntent: 'for those who feel unseen', jewel: 'sapphire', activity: 'Draw Zacchaeus in the tree. Or tell someone you see them.', armorHint: 'Pray for those who feel unseen — adds to Shield of Faith.' },
-      { id: 'feeding', title: 'Feeding the 5,000: Jesus Provided', summary: 'Jesus took five loaves and two fish and fed a great crowd.', verseRef: 'John 6:1-14', verseQuery: 'John 6 1', prayIntent: 'for provision', jewel: 'ruby', activity: 'Draw the baskets of food. Or share a snack with someone.', armorHint: 'Pray for provision — adds to Belt of Truth.' }
-    ];
-
-    var container = document.getElementById('kids-corner-cards');
-    if (!container) return;
-
-    function colorHref(id) {
-      return 'coloring.html?story=' + id;
-    }
-    function verseHref(query) {
-      var base = window.location.origin + '/';
-      return base + (query ? '?q=' + encodeURIComponent(query) + '&focus=search' : '') + '#main-search';
-    }
-    function onPrayClick(e, story) {
-      e.preventDefault();
-      try {
-        if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-prayer');
-      } catch (err) {}
-      var url = window.location.origin + '/#quick-pray-wrap';
-      if (story && story.prayIntent) url += '?intent=' + encodeURIComponent(story.prayIntent);
-      window.location.href = url;
-    }
-    function onActivityClick(e, story) {
-      e.preventDefault();
-      try {
-        if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-activity');
-      } catch (err) {}
-      if (typeof showEliteToast === 'function') showEliteToast(story ? story.armorHint : 'Activity complete — adds to your household armor.');
-    }
-
-    stories.forEach(function (s) {
-      var card = document.createElement('article');
-      card.className = 'kids-corner-card card-gold-inner';
-      card.setAttribute('data-story', s.id);
-      card.setAttribute('role', 'listitem');
-      var esc = typeof escapeHtml === 'function' ? escapeHtml : function (x) { return (x == null ? '' : String(x)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); };
-      card.innerHTML =
-        '<span class="kids-corner-jewel kids-corner-jewel-' + esc(s.jewel) + '" aria-hidden="true"></span>' +
-        '<h3 class="kids-corner-card-title">' + esc(s.title) + '</h3>' +
-        '<p class="kids-corner-card-summary">' + esc(s.summary) + '</p>' +
-        '<p class="kids-corner-armor-hint section-note">' + esc(s.armorHint) + '</p>' +
-        '<div class="kids-corner-card-actions">' +
-          '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + esc(s.prayIntent) + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
-          '<a href="' + verseHref(s.verseQuery) + '" class="btn btn-secondary" aria-label="Read the verse: ' + esc(s.verseRef) + '">Read the Verse</a>' +
-          '<a href="' + colorHref(s.id) + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
-          '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Do activity">Activity</button>' +
-        '</div>' +
-        '<p class="kids-activity-text section-note" aria-live="polite">' + esc(s.activity) + '</p>';
-      var prayBtn = card.querySelector('.kids-btn-pray');
-      var activityBtn = card.querySelector('.kids-btn-activity');
-      if (prayBtn) prayBtn.addEventListener('click', function (ev) { onPrayClick(ev, s); });
-      if (activityBtn) activityBtn.addEventListener('click', function (ev) { onActivityClick(ev, s); });
-      container.appendChild(card);
-    });
-  })();
-  </script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260305" data-cfasync="false"></script>
 </body>

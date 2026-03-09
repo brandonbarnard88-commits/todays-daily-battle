@@ -7,7 +7,9 @@
  * Requires Blaze plan for scheduled functions. Set SUPABASE_URL and SUPABASE_SERVICE_KEY for verse fetch.
  */
 const savePushToken = require('./savePushToken');
+const removePushToken = require('./removePushToken');
 const sendDailyVerseNotification = require('./sendDailyVerseNotification');
 
 exports.savePushToken = savePushToken.savePushToken;
+exports.removePushToken = removePushToken.removePushToken;
 exports.sendDailyVerseNotification = sendDailyVerseNotification.sendDailyVerseNotification;

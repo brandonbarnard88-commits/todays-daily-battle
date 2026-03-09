@@ -70,6 +70,21 @@
     .bible-tool .people-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
     .bible-tool #people-input-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
     .bible-tool #people-input-wrap input { flex: 1; min-width: 10rem; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; }
+    /* Who's this? inline panel */
+    .bible-tool .whos-this-panel { margin-top: 1.5rem; padding: 1rem; border: 1px solid #d4af37; border-radius: 8px; background: rgba(212,175,55,0.06); animation: whosThisFadeIn 1.2s ease both; }
+    @keyframes whosThisFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .bible-tool .whos-this-header { font-style: italic; font-weight: 600; color: #d4af37; font-size: 0.95rem; margin: 0 0 0.5rem; }
+    .bible-tool .whos-this-name { font-size: 1.05rem; font-weight: 700; color: #e2e8f0; }
+    .bible-tool .whos-this-divider { border: none; border-top: 1px solid rgba(212,175,55,0.22); margin: 0.6rem 0; }
+    .bible-tool .whos-this-quote { font-style: italic; color: #94a3b8; font-size: 0.92rem; line-height: 1.5; margin-bottom: 0; }
+    .bible-tool .whos-this-bio { font-size: 1rem; line-height: 1.5; color: #cbd5e1; margin-top: 0.25rem; }
+    .bible-tool .whos-this-label { font-size: 0.85rem; font-weight: 600; color: #d4af37; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 0.3rem; }
+    .bible-tool .whos-this-toggle { background: none; border: none; color: #d4af37; font-size: 0.88rem; cursor: pointer; padding: 0; text-decoration: underline; font-style: italic; margin-top: 0.75rem; display: inline-block; }
+    .bible-tool .whos-this-toggle:hover { color: #f0d060; }
+    .bible-tool #whos-this-inline-input { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.6rem; }
+    .bible-tool #whos-this-inline-input input { flex: 1; min-width: 10rem; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(212,175,55,0.35); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; }
+    .bible-tool #whos-this-inline-input input:focus { outline: 2px solid rgba(212,175,55,0.5); outline-offset: 2px; }
+    .bible-tool .whos-this-no-match { font-size: 0.93rem; color: #94a3b8; font-style: italic; line-height: 1.5; }
   </style>
 </head>
 <body class="dark-mode">
@@ -233,7 +248,7 @@
             <input type="number" id="chapter" placeholder="Ch" min="1" aria-label="Chapter" />
             <input type="number" id="verse" placeholder="Vs" min="1" aria-label="Verse" />
             <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
-            <button type="button" id="people-btn" class="btn people-btn" aria-label="Who was this Bible person?">Who was…?</button>
+            <button type="button" id="people-btn" class="btn people-btn" aria-label="Who's this Bible person?">Who's this?</button>
           </div>
           <div id="people-input-wrap" class="hidden util-mt-0_5">
             <input type="text" id="people-name" placeholder="e.g. Moses, Peter" aria-label="Enter Bible name" maxlength="40" />
@@ -243,6 +258,7 @@
           <div id="lookup-result" class="hidden util-mt-1" role="region" aria-live="polite" aria-label="Lookup result">
             <p class="verse-ref" id="lookup-ref"></p>
             <p id="lookup-text" class="util-mt-0_5"></p>
+            <div id="whos-this-inline" class="hidden" role="region" aria-live="polite" aria-label="Who's this person?"></div>
             <div class="util-mt-0_5">
               <button type="button" id="share-lookup" class="link-button">Share</button>
               <button type="button" id="copy-lookup" class="link-button" aria-label="Copy verse to clipboard">Copy</button>
@@ -594,6 +610,10 @@
     if (lookupContext && typeof window.buildVerseContextHtml === 'function') lookupContext.innerHTML = window.buildVerseContextHtml(data.reference);
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     renderNotes();
+    // Trigger inline "Who's this?" panel
+    var whosThisEl = document.getElementById('whos-this-inline');
+    if (whosThisEl) { whosThisEl.classList.add('hidden'); whosThisEl.innerHTML = ''; }
+    if (typeof window._whosThisForVerse === 'function') window._whosThisForVerse(data.reference, data.text);
   }
 
   function renderLookupError(ref) {
@@ -764,87 +784,204 @@
   });
 
   (function wirePeopleLookup() {
-    function escapeHtml(str) {
+    function escHtml(str) {
       if (str == null || str === '') return '';
       return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
-    var btn = document.getElementById('people-btn');
-    var wrap = document.getElementById('people-input-wrap');
-    var input = document.getElementById('people-name');
-    var submit = document.getElementById('people-submit');
-    var result = document.getElementById('people-result');
-    if (!btn || !wrap || !input || !submit || !result) return;
+
+    // Fuzzy alias map: common variants → canonical BIBLE_PEOPLE key
+    var FUZZY_ALIASES = {
+      'dave': 'david', 'king david': 'david', 'davd': 'david',
+      'abram': 'abraham', 'abe': 'abraham',
+      'sarai': 'sarah', 'sara': 'sarah',
+      'jake': 'jacob', 'israel': 'jacob',
+      'joe': 'joseph', 'joey': 'joseph',
+      'mo': 'moses', 'mose': 'moses',
+      'john baptist': 'johnthebaptist', 'johnbaptist': 'johnthebaptist', 'john the baptist': 'johnthebaptist',
+      'j baptist': 'johnthebaptist',
+      'jay': 'jesus', 'christ': 'jesus', 'lord': 'jesus',
+      'pete': 'peter', 'simon peter': 'peter', 'simon': 'peter',
+      'saul': 'paul', 'apostle paul': 'paul',
+      'eli': 'elijah', 'elija': 'elijah',
+      'jo': 'jonah', 'johna': 'jonah',
+      'ruth': 'ruth', 'lazerous': 'lazarus', 'lazaras': 'lazarus',
+      'esther': 'esther', 'ester': 'esther',
+      'dan': 'daniel', 'danyal': 'daniel',
+      'sol': 'solomon', 'king solomon': 'solomon',
+      'josh': 'joshua', 'josua': 'joshua',
+      'noaa': 'noah', 'noe': 'noah',
+    };
+
+    function fuzzyLookup(raw) {
+      var q = raw.toLowerCase().replace(/[^a-z\s]/g, '').replace(/\s+/g, ' ').trim();
+      var qCompact = q.replace(/\s/g, '');
+      // Exact key match
+      if (BIBLE_PEOPLE[qCompact]) return BIBLE_PEOPLE[qCompact];
+      // Alias table
+      var alias = FUZZY_ALIASES[q] || FUZZY_ALIASES[qCompact];
+      if (alias && BIBLE_PEOPLE[alias]) return BIBLE_PEOPLE[alias];
+      // Name match (start-of-name or contains)
+      for (var k in BIBLE_PEOPLE) {
+        var nameNorm = BIBLE_PEOPLE[k].name.toLowerCase().replace(/\s/g, '');
+        if (nameNorm === qCompact || nameNorm.indexOf(qCompact) === 0 || qCompact.indexOf(nameNorm) === 0) {
+          return BIBLE_PEOPLE[k];
+        }
+      }
+      // Substring in name (e.g. "bap" → john the baptist)
+      for (var k in BIBLE_PEOPLE) {
+        if (BIBLE_PEOPLE[k].name.toLowerCase().indexOf(q) !== -1) return BIBLE_PEOPLE[k];
+      }
+      return null;
+    }
+
+    // Build the structured "Who's this?" panel HTML
+    function buildWhosThisHtml(person, verseText, passedRef) {
+      var moments = person.moments || [];
+      // bioOneLiner: first moment summarised
+      var bioOneLiner = moments[0] || '';
+
+      // keySnippet: use the passed-in verse text if available; else fall back to person's canonical verse
+      var ref = passedRef || person.verse || '';
+      var keySnippet = (verseText && verseText.trim()) ? verseText.trim() : (KEY_VERSES[ref] || '');
+      if (keySnippet && keySnippet.length > 90) keySnippet = keySnippet.slice(0, 87).replace(/\s+\S*$/, '') + '\u2026';
+
+      // Plain: all moments joined
+      var plain = moments.length ? moments.join('. ') + '.' : '';
+      // Today: humanise the prayer
+      var today = person.prayer ? person.prayer.replace(/^Lord,?\s*/i, 'Ask God to ').replace(/\.\s*Amen\.?$/, '.') : '';
+      // Step: imperative stripped from prayer
+      var step = person.prayer ? person.prayer.replace(/^Lord,?\s*/i, '').replace(/\s*Amen\.?$/, '').trim() + '.' : '';
+
+      var html = '<div class="whos-this-panel">';
+      html += '<h3 class="whos-this-header">Who\'s this?</h3>';
+      html += '<p><strong>' + escHtml(person.name) + ':</strong> ' + escHtml(bioOneLiner) + '</p>';
+      if (keySnippet && ref) {
+        html += '<hr class="whos-this-divider" />';
+        html += '<p class="whos-this-quote">&ldquo;' + escHtml(keySnippet) + '&rdquo; \u2014 ' + escHtml(ref) + '</p>';
+      }
+      html += '<hr class="whos-this-divider" />';
+      if (plain) html += '<p><span class="whos-this-label">Plain:</span> ' + escHtml(plain) + '</p>';
+      if (today) html += '<p><span class="whos-this-label">Today:</span> ' + escHtml(today) + '</p>';
+      if (step) html += '<p><span class="whos-this-label">So:</span> ' + escHtml(step) + '</p>';
+      html += '</div>';
+      return html;
+    }
+
+    function renderWhosThisInline(person, verseRef) {
+      var container = document.getElementById('whos-this-inline');
+      if (!container) return;
+      var currentVerseText = (document.getElementById('lookup-text') || {}).textContent || '';
+      container.innerHTML = buildWhosThisHtml(person, currentVerseText, verseRef);
+      container.classList.remove('hidden');
+    }
+
+    function renderWhosThisNoMatch() {
+      var container = document.getElementById('whos-this-inline');
+      if (!container) return;
+      container.innerHTML = '<div class="whos-this-panel"><p class="whos-this-no-match">No one\u2019s story here\u2014try \u2018David\u2019 or \u2018Ruth\u2019.</p></div>';
+      container.classList.remove('hidden');
+    }
+
     function renderFromBiblePeople(person) {
-      var moments = (person.moments || []).map(function (m) { return '<li>' + escapeHtml(m) + '</li>'; }).join('');
+      var moments = (person.moments || []).map(function (m) { return '<li>' + escHtml(m) + '</li>'; }).join('');
       var verseRef = person.verse || '';
-      var verseLink = verseRef ? '<a href="reader.html?ref=' + encodeURIComponent(verseRef.replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escapeHtml(verseRef) + ' – Read full</a>' : '';
-      result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="' + escapeHtml(person.name + ' – ' + person.era) + '">' +
-        '<p class="verse-ref">' + escapeHtml(person.name) + ' – ' + escapeHtml(person.era) + '</p>' +
+      var verseLink = verseRef ? '<a href="reader.html?ref=' + encodeURIComponent(verseRef.replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escHtml(verseRef) + ' – Read full</a>' : '';
+      var result = document.getElementById('people-result');
+      if (!result) return;
+      result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="' + escHtml(person.name + ' – ' + person.era) + '">' +
+        '<p class="verse-ref">' + escHtml(person.name) + ' – ' + escHtml(person.era) + '</p>' +
         '<ul class="section-note util-mt-0_5" style="margin-left:1.25rem;">' + moments + '</ul>' +
         (verseLink ? '<p class="util-mt-0_5">' + verseLink + '</p>' : '') +
-        '<p class="prayer-box util-mt-0_5">' + escapeHtml(person.prayer || '') + '</p>' +
+        '<p class="prayer-box util-mt-0_5">' + escHtml(person.prayer || '') + '</p>' +
         '</div>';
     }
     function renderFromBio(bio) {
-      var who = escapeHtml(bio.who || '');
-      var did = escapeHtml(bio.did || '');
-      var impact = escapeHtml(bio.impact || '');
+      var who = escHtml(bio.who || '');
+      var did = escHtml(bio.did || '');
+      var impact = escHtml(bio.impact || '');
       var verseLinks = (bio.verses || []).map(function (ref) {
-        return '<a href="reader.html?ref=' + encodeURIComponent(String(ref).replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escapeHtml(ref) + '</a>';
+        return '<a href="reader.html?ref=' + encodeURIComponent(String(ref).replace(/\s+/g, ' ')) + '" class="cross-ref-link">' + escHtml(ref) + '</a>';
       }).join(', ');
-      result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="Who was ' + escapeHtml(bio.name) + '">' +
-        '<p class="verse-ref">Who was ' + escapeHtml(bio.name) + '?</p>' +
+      var result = document.getElementById('people-result');
+      if (!result) return;
+      result.innerHTML = '<div class="verse-card glass people-card util-mt-1" role="article" aria-label="Who was ' + escHtml(bio.name) + '">' +
+        '<p class="verse-ref">Who was ' + escHtml(bio.name) + '?</p>' +
         (who ? '<p class="section-note util-mt-0_5"><strong>Who:</strong> ' + who + '</p>' : '') +
         (did ? '<p class="section-note util-mt-0_5"><strong>Did:</strong> ' + did + '</p>' : '') +
         (impact ? '<p class="section-note util-mt-0_5"><strong>Impact:</strong> ' + impact + '</p>' : '') +
         (verseLinks ? '<p class="util-mt-0_5">Key verses: ' + verseLinks + '</p>' : '') +
         '</div>';
     }
+
     function showPerson() {
-      var raw = (input.value || '').trim();
-      var q = raw.toLowerCase().replace(/\s+/g, '');
-      if (!q) return;
-      var person = BIBLE_PEOPLE[q];
-      if (!person) {
-        for (var k in BIBLE_PEOPLE) {
-          if (BIBLE_PEOPLE[k].name.toLowerCase().replace(/\s+/g, '') === q || BIBLE_PEOPLE[k].name.toLowerCase().indexOf(q) === 0) {
-            person = BIBLE_PEOPLE[k];
-            break;
-          }
-        }
-      }
+      var input = document.getElementById('people-name');
+      var result = document.getElementById('people-result');
+      var raw = (input ? input.value : '').trim();
+      if (!raw) return;
+      var person = fuzzyLookup(raw);
       if (person) {
+        // Show in the standalone panel (outside lookup result)
         renderFromBiblePeople(person);
-        result.classList.remove('hidden');
-        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (result) { result.classList.remove('hidden'); result.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+        // Also inject inline if a verse is currently displayed
+        var lookupBlock = document.getElementById('lookup-result');
+        if (lookupBlock && !lookupBlock.classList.contains('hidden')) {
+          var currentRef = (document.getElementById('lookup-ref') || {}).textContent || '';
+          renderWhosThisInline(person, currentRef);
+        }
         return;
       }
       if (typeof getPersonBioAsync === 'function') {
-        result.innerHTML = '<p class="section-note">Loading…</p>';
-        result.classList.remove('hidden');
+        if (result) { result.innerHTML = '<p class="section-note">Looking…</p>'; result.classList.remove('hidden'); }
         getPersonBioAsync(raw).then(function (bio) {
           if (bio && (bio.who || bio.did || bio.impact || (bio.verses && bio.verses.length))) {
             renderFromBio(bio);
           } else {
-            result.innerHTML = '<p class="section-note">No profile found yet. Try another name or search for verses connected to that person.</p>';
+            if (result) result.innerHTML = '<p class="section-note">Can\'t find that name—try \'Ruth\' or \'Jonah\'?</p>';
           }
-          result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          if (result) result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }).catch(function () {
-          result.innerHTML = '<p class="section-note">No profile found yet. Try another name or search for verses connected to that person.</p>';
-          result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          if (result) { result.innerHTML = '<p class="section-note">Can\'t find that name—try \'Ruth\' or \'Jonah\'?</p>'; result.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
         });
       } else {
-        result.innerHTML = '<p class="section-note">Profile not in this local bundle yet. Use Bible Tool search for related verses.</p>';
-        result.classList.remove('hidden');
-        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (result) { result.innerHTML = '<p class="section-note">Can\'t find that name—try \'Ruth\' or \'Jonah\'?</p>'; result.classList.remove('hidden'); result.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
       }
     }
+
+    var btn = document.getElementById('people-btn');
+    var wrap = document.getElementById('people-input-wrap');
+    var input = document.getElementById('people-name');
+    var submit = document.getElementById('people-submit');
+    if (!btn || !wrap || !input || !submit) return;
     btn.addEventListener('click', function () {
       wrap.classList.toggle('hidden');
       if (!wrap.classList.contains('hidden')) input.focus();
     });
     submit.addEventListener('click', showPerson);
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); showPerson(); } });
+
+    // Expose for use when a verse is looked up
+    window._whosThisForVerse = function(verseRef, verseText) {
+      // Try to auto-match people for well-known verses
+      var autoMap = {
+        'John 3:16': 'jesus', 'John 3:17': 'jesus', 'John 11:43': 'lazarus', 'John 11:44': 'lazarus',
+        'Psalm 23:1': 'david', 'Psalm 46:1': 'david', 'Psalm 27:1': 'david',
+        'Genesis 1:27': 'adam', 'Genesis 6:22': 'noah', 'Genesis 15:6': 'abraham', 'Genesis 32:28': 'jacob',
+        'Genesis 50:20': 'joseph', 'Exodus 20:1': 'moses', 'Joshua 1:9': 'joshua',
+        'Ruth 1:16': 'ruth', 'Esther 4:14': 'esther', 'Jonah 2:9': 'jonah',
+        'Philippians 4:6': 'paul', 'Philippians 4:7': 'paul',
+        'Daniel 6:22': 'daniel', 'Matthew 16:16': 'peter', '2 Timothy 4:7': 'paul',
+        'Luke 1:38': 'mary', 'Matthew 3:11': 'johnthebaptist', 'Matthew 27:3': 'judas',
+        '1 Kings 18:39': 'elijah', '1 Samuel 16:7': 'david',
+      };
+      var normV = verseRef.replace(/\s+/g, ' ').trim();
+      var personKey = autoMap[normV];
+      if (personKey && BIBLE_PEOPLE[personKey]) {
+        renderWhosThisInline(BIBLE_PEOPLE[personKey], normV);
+      } else {
+        renderWhosThisNoMatch();
+      }
+    };
   })();
 
   function doLookup() {

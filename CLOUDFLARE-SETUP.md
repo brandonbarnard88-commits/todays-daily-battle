@@ -36,3 +36,11 @@ Open https://todaysdailybattle.com/config.js — you should see `window.TDB_CONF
 - **Google Analytics 4:** Set `GA_MEASUREMENT_ID` in config (e.g. `G-XXXXXXXXXX`). The site will load gtag and send page views. You can set it in Cloudflare env or in local `config.js`.
 - **Cloudflare Web Analytics:** Set `CF_ANALYTICS_TOKEN` to enable the existing beacon (no GA required).
 - **Google Search Console:** In Search Console add your property (todaysdailybattle.com), then get the verification meta tag content value and set `GOOGLE_SITE_VERIFICATION` in config. The site injects the meta tag when this is set. Then submit your sitemap: `https://todaysdailybattle.com/sitemap.xml`.
+
+## 7. Reliability rule for scanner/crawler access (required)
+
+If external audits show reliability failures or `sitemap.xml` challenge pages, add the skip-challenge custom WAF rule documented in:
+
+- `CLOUDFLARE-RELIABILITY-BYPASS.md`
+
+This prevents challenge pages on public machine-readable files (`robots.txt`, sitemap, manifest, build date) that black-box tools depend on.

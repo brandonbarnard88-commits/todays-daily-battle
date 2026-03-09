@@ -37,7 +37,10 @@
       <div class="stats-row">
         <div class="stats-card"><strong id="stat-active">—</strong> Active today</div>
         <div class="stats-card"><strong id="stat-shares">—</strong> Shares</div>
+        <div class="stats-card"><strong id="stat-push-status">—</strong> Push status</div>
+        <div class="stats-card"><strong id="stat-push-sent">—</strong> Push sent (last run)</div>
       </div>
+      <p id="stats-push-note" class="stats-note">Push health: loading latest run...</p>
       <p class="stats-note">Connect Cloudflare Analytics (or your backend) to show real numbers. See CONFIG.md for CF_ANALYTICS_TOKEN and API usage.</p>
       <p><a href="index.html" class="btn btn-secondary">Back to site</a></p>
     </div>
@@ -48,6 +51,44 @@
       var dash = document.getElementById('stats-dashboard');
       var login = document.getElementById('stats-login');
       var passwordRequired = (window.TDB_CONFIG && window.TDB_CONFIG.STATS_PASSWORD) || '';
+      function loadPushHealth() {
+        var note = document.getElementById('stats-push-note');
+        var statusEl = document.getElementById('stat-push-status');
+        var sentEl = document.getElementById('stat-push-sent');
+        var cfg = window.TDB_CONFIG || {};
+        if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+          if (note) note.textContent = 'Push health unavailable: Supabase config missing.';
+          return;
+        }
+        fetch(String(cfg.SUPABASE_URL).replace(/\/$/, '') + '/rest/v1/rpc/get_push_health_latest', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: cfg.SUPABASE_ANON_KEY,
+            Authorization: 'Bearer ' + cfg.SUPABASE_ANON_KEY
+          },
+          body: '{}'
+        }).then(function (res) {
+          if (!res.ok) throw new Error('Failed to load push health');
+          return res.json();
+        }).then(function (rows) {
+          var row = Array.isArray(rows) ? rows[0] : null;
+          if (!row) {
+            if (statusEl) statusEl.textContent = 'No runs';
+            if (sentEl) sentEl.textContent = '0';
+            if (note) note.textContent = 'No push runs logged yet.';
+            return;
+          }
+          if (statusEl) statusEl.textContent = String(row.status || 'ok').toUpperCase();
+          if (sentEl) sentEl.textContent = String(row.sent_count || 0);
+          if (note) {
+            var runAt = row.created_at ? new Date(row.created_at).toLocaleString() : 'Unknown';
+            note.textContent = 'Last run: ' + runAt + ' | failed: ' + (row.failed_count || 0) + ' | pruned: ' + (row.pruned_count || 0);
+          }
+        }).catch(function () {
+          if (note) note.textContent = 'Push health unavailable. Run supabase-push-health-rpc.sql and try again.';
+        });
+      }
       if (!passwordRequired) {
         login.querySelector('.section-note').textContent = 'Set STATS_PASSWORD in config.js to enable.';
         document.getElementById('stats-form').style.display = 'none';
@@ -56,6 +97,7 @@
       if (sessionStorage.getItem(AUTH_KEY)) {
         login.style.display = 'none';
         dash.style.display = 'block';
+        loadPushHealth();
         return;
       }
       document.getElementById('stats-form').addEventListener('submit', function (e) {
@@ -65,6 +107,7 @@
           sessionStorage.setItem(AUTH_KEY, '1');
           login.style.display = 'none';
           dash.style.display = 'block';
+          loadPushHealth();
         } else {
           alert('Wrong password.');
         }

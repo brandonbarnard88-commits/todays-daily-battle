@@ -1913,6 +1913,1459 @@
       videoTitle: 'The Armor of God – Stories of the Bible!',
       keywords: ['armor', 'ephesians 6', 'helmet', 'sword', 'shield', 'truth'],
       kidContext: { who: 'Paul', to: 'Christians in Ephesus (and us)', apply: 'Put on God\'s armor—you\'re strong! Truth, faith, peace—stand firm!' }
+    },
+    /* ── Week 1 (13–24) ── */
+    mosesSea: {
+      title: 'Moses Parts the Sea',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Moses raises his staff' },
+        { src: 'panel-noah-2.svg', alt: 'The sea splits open' },
+        { src: 'panel-noah-3.svg', alt: 'Israel walks through on dry ground' }
+      ],
+      caption: 'Swipe to see God split the sea—He makes a way! 🌊',
+      keywords: ['moses', 'red sea', 'staff', 'parting', 'exodus 14', 'miracle'],
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: 'When the way looks impossible, God makes a way! Trust Him.' }
+    },
+    burningBush: {
+      title: 'The Burning Bush',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Moses sees a bush on fire' },
+        { src: 'panel-noah-2.svg', alt: 'God speaks from the flames' },
+        { src: 'panel-noah-3.svg', alt: 'Moses takes off his sandals—holy ground!' }
+      ],
+      caption: 'Swipe to see God call Moses from the burning bush! 🔥',
+      keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call'],
+      kidContext: { who: 'God', to: 'Moses', apply: 'God calls you by name! When God calls, say yes—He will help you.' }
+    },
+    tenPlagues: {
+      title: 'Ten Plagues of Egypt',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Frogs cover everything in Egypt' },
+        { src: 'panel-david-2.svg', alt: 'Darkness falls over the land' },
+        { src: 'panel-david-3.svg', alt: 'Pharaoh finally lets God\'s people go' }
+      ],
+      caption: 'Swipe to see God\'s power over Egypt—nothing stops Him! 🐸',
+      keywords: ['plagues', 'egypt', 'frogs', 'darkness', 'exodus 8', 'pharaoh'],
+      kidContext: { who: 'God', to: 'Pharaoh and Egypt', apply: 'Nothing is too hard for God! He fights for His people.' }
+    },
+    manna: {
+      title: 'Manna from Heaven',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Israel is hungry in the desert' },
+        { src: 'panel-noah-2.svg', alt: 'Bread falls from the sky each morning' },
+        { src: 'panel-noah-3.svg', alt: 'Everyone has enough—God provides!' }
+      ],
+      caption: 'Swipe to see God feed His people with bread from heaven! 🍞',
+      keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'provide'],
+      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: 'God gives what you need, one day at a time. Trust Him for today.' }
+    },
+    tenCommandments: {
+      title: 'Ten Commandments',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Moses goes up the mountain' },
+        { src: 'panel-david-2.svg', alt: 'God gives the stone tablets' },
+        { src: 'panel-david-3.svg', alt: 'Rules to keep us safe and happy' }
+      ],
+      caption: 'Swipe to see God give rules to keep us safe! 📜',
+      keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules'],
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: 'God\'s rules keep us safe! Love God and love others—that\'s what matters.' }
+    },
+    elijahFire: {
+      title: 'Elijah and the Fire',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Elijah builds an altar' },
+        { src: 'panel-david-2.svg', alt: 'Fire falls from heaven' },
+        { src: 'panel-david-3.svg', alt: 'The people cry: The Lord, He is God!' }
+      ],
+      caption: 'Swipe to see God answer Elijah with fire! 🔥',
+      keywords: ['elijah', 'fire', 'altar', '1 kings 18', 'baal', 'miracle'],
+      kidContext: { who: 'God', to: 'Elijah and Israel', apply: 'God answers when we call! He is the one true God.' }
+    },
+    elishaOil: {
+      title: 'Elisha and the Oil',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A widow has only a little oil' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into jars' },
+        { src: 'panel-noah-3.svg', alt: 'Oil multiplies—God provides!' }
+      ],
+      caption: 'Swipe to see God multiply oil—He provides! 🫙',
+      keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'miracle'],
+      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies what we give Him! Even a little becomes enough.' }
+    },
+    naamanDip: {
+      title: 'Naaman Dips in the River',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Naaman has leprosy' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha says: dip seven times in the Jordan' },
+        { src: 'panel-noah-3.svg', alt: 'Naaman dips—his skin is healed!' }
+      ],
+      caption: 'Swipe to see Naaman healed—obey and be made new! 💧',
+      keywords: ['naaman', 'river', 'jordan', '2 kings 5', 'leprosy', 'heal', 'obey'],
+      kidContext: { who: 'God', to: 'Naaman through Elisha', apply: 'When God says obey—even when it seems strange—He heals!' }
+    },
+    creationLight: {
+      title: '"Let There Be Light"',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Darkness and nothing' },
+        { src: 'panel-noah-2.svg', alt: 'God speaks: Let there be light!' },
+        { src: 'panel-noah-3.svg', alt: 'Light bursts into the world' }
+      ],
+      caption: 'Swipe to see God speak light into darkness! ☀️',
+      keywords: ['creation', 'light', 'genesis 1', 'let there be light', 'darkness', 'god speaks'],
+      kidContext: { who: 'God', to: 'All creation', apply: 'God speaks and things happen! His word is powerful.' }
+    },
+    adamEve: {
+      title: 'Adam and Eve',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The garden tree and the serpent' },
+        { src: 'panel-noah-2.svg', alt: 'Eve and Adam eat the fruit' },
+        { src: 'panel-noah-3.svg', alt: 'God still loves them—but choices matter' }
+      ],
+      caption: 'Swipe to see the first family in God\'s garden! 🌳',
+      keywords: ['adam', 'eve', 'garden', 'snake', 'genesis 3', 'fruit', 'choice'],
+      kidContext: { who: 'God', to: 'Adam and Eve', apply: 'Choices matter! God still loves us even when we make mistakes.' }
+    },
+    towerBabel: {
+      title: 'Tower of Babel',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'People build a tall tower' },
+        { src: 'panel-david-2.svg', alt: 'God scatters the languages' },
+        { src: 'panel-david-3.svg', alt: 'People spread across the earth' }
+      ],
+      caption: 'Swipe to see what happens when people forget God! 🏗️',
+      keywords: ['babel', 'tower', 'genesis 11', 'languages', 'pride', 'scatter'],
+      kidContext: { who: 'God', to: 'All people', apply: 'God is bigger than our plans! Stay humble—He is in charge.' }
+    },
+    /* ── Week 2 (25–36) ── */
+    abrahamIsaac: {
+      title: 'Abraham and Isaac',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Abraham trusts God with Isaac' },
+        { src: 'panel-david-2.svg', alt: 'The altar—and a ram in the bush' },
+        { src: 'panel-david-3.svg', alt: 'God provides! He always has a way.' }
+      ],
+      caption: 'Swipe to see Abraham trust God—He always provides! 🐏',
+      keywords: ['abraham', 'isaac', 'altar', 'ram', 'genesis 22', 'trust', 'provide'],
+      kidContext: { who: 'God', to: 'Abraham', apply: 'God provides! When you trust Him completely, He makes a way.' }
+    },
+    sarahLaughs: {
+      title: 'Sarah Laughs',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'An angel visits Abraham\'s tent' },
+        { src: 'panel-noah-2.svg', alt: 'Sarah hears she will have a baby' },
+        { src: 'panel-noah-3.svg', alt: 'Sarah laughs—then holds baby Isaac!' }
+      ],
+      caption: 'Swipe to see God do the impossible for Sarah! 😂',
+      keywords: ['sarah', 'laugh', 'angel', 'genesis 18', 'baby', 'impossible', 'promise'],
+      kidContext: { who: 'God', to: 'Sarah and Abraham', apply: 'Nothing is impossible with God! He keeps every promise.' }
+    },
+    jacobLadder: {
+      title: 'Jacob\'s Ladder',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jacob sleeps in the wilderness' },
+        { src: 'panel-noah-2.svg', alt: 'A ladder reaches heaven—angels go up and down' },
+        { src: 'panel-noah-3.svg', alt: 'God speaks: I am with you wherever you go' }
+      ],
+      caption: 'Swipe to see Jacob\'s dream of heaven! 🪜',
+      keywords: ['jacob', 'ladder', 'dream', 'angels', 'genesis 28', 'heaven', 'promise'],
+      kidContext: { who: 'God', to: 'Jacob', apply: 'God is with you wherever you go! He never leaves.' }
+    },
+    josephDreams: {
+      title: 'Joseph\'s Dreams',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joseph dreams the stars bow to him' },
+        { src: 'panel-david-2.svg', alt: 'His brothers are angry and jealous' },
+        { src: 'panel-david-3.svg', alt: 'God\'s plan will come true—wait!' }
+      ],
+      caption: 'Swipe to see Joseph\'s dream—God\'s plans always happen! ⭐',
+      keywords: ['joseph', 'dreams', 'stars', 'brothers', 'genesis 37', 'jealous'],
+      kidContext: { who: 'God', to: 'Joseph', apply: 'God\'s plans always happen! When you wait on God, He comes through.' }
+    },
+    josephPrison: {
+      title: 'Joseph in Prison',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Joseph is put in prison' },
+        { src: 'panel-noah-2.svg', alt: 'The cupbearer has a dream—Joseph explains' },
+        { src: 'panel-noah-3.svg', alt: 'God is with Joseph even in prison' }
+      ],
+      caption: 'Swipe to see God with Joseph in the hard place! 🪣',
+      keywords: ['joseph', 'prison', 'cupbearer', 'dream', 'genesis 40', 'faithful'],
+      kidContext: { who: 'God', to: 'Joseph in prison', apply: 'God is with you in hard places! He never forgets you.' }
+    },
+    pharaohDreams: {
+      title: 'Pharaoh\'s Dreams',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Pharaoh dreams of fat and thin cows' },
+        { src: 'panel-david-2.svg', alt: 'Joseph explains: 7 good years, 7 hard years' },
+        { src: 'panel-david-3.svg', alt: 'Joseph is put in charge—God\'s plan works!' }
+      ],
+      caption: 'Swipe to see God use Joseph to save everyone! 🐄',
+      keywords: ['pharaoh', 'dreams', 'cows', 'joseph', 'genesis 41', 'famine', 'wisdom'],
+      kidContext: { who: 'God', to: 'Joseph (through Pharaoh)', apply: 'God promotes the faithful! Stay humble and trust His timing.' }
+    },
+    mosesBaby: {
+      title: 'Baby Moses in the Basket',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Baby Moses is placed in a basket' },
+        { src: 'panel-noah-2.svg', alt: 'The basket floats on the Nile' },
+        { src: 'panel-noah-3.svg', alt: 'The princess finds him—God protected him!' }
+      ],
+      caption: 'Swipe to see God protect baby Moses! 🌿',
+      keywords: ['moses', 'basket', 'nile', 'princess', 'exodus 2', 'protect', 'baby'],
+      kidContext: { who: 'God', to: 'Baby Moses', apply: 'God watches over you! He protected Moses—He protects you too.' }
+    },
+    mosesStaffSnake: {
+      title: 'Moses\' Staff Becomes a Snake',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Moses throws his staff down' },
+        { src: 'panel-david-2.svg', alt: 'It becomes a snake!' },
+        { src: 'panel-david-3.svg', alt: 'God shows His power through Moses' }
+      ],
+      caption: 'Swipe to see God\'s power through Moses\' staff! 🐍',
+      keywords: ['moses', 'staff', 'snake', 'exodus 7', 'pharaoh', 'sign', 'power'],
+      kidContext: { who: 'God', to: 'Moses (and Pharaoh)', apply: 'God\'s power is real! He gives us what we need to do His work.' }
+    },
+    passoverLamb: {
+      title: 'The Passover Lamb',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A lamb is chosen—spotless and perfect' },
+        { src: 'panel-noah-2.svg', alt: 'Blood painted on the doorposts' },
+        { src: 'panel-noah-3.svg', alt: 'The angel passes over—God saves His people' }
+      ],
+      caption: 'Swipe to see God\'s rescue—the Passover lamb! 🐑',
+      keywords: ['passover', 'lamb', 'blood', 'doorposts', 'exodus 12', 'rescue', 'save'],
+      kidContext: { who: 'God', to: 'Israel in Egypt', apply: 'Jesus is our Passover Lamb! He saves us—just believe and be covered.' }
+    },
+    redSeaCrossing: {
+      title: 'Red Sea Crossing',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Egypt\'s army chases Israel' },
+        { src: 'panel-noah-2.svg', alt: 'God tangles the chariot wheels' },
+        { src: 'panel-noah-3.svg', alt: 'Israel is safe—Egypt is stopped!' }
+      ],
+      caption: 'Swipe to see God stop the enemy at the sea! 🌊',
+      keywords: ['red sea', 'chariot', 'egypt', 'exodus 14', 'army', 'rescue'],
+      kidContext: { who: 'God', to: 'Israel', apply: 'God stops the enemy for you! When you\'re afraid, He fights your battle.' }
+    },
+    /* ── Week 3 (37–48) ── */
+    joshuaJordan: {
+      title: 'Joshua at the Jordan',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Priests carry the ark to the Jordan' },
+        { src: 'panel-noah-2.svg', alt: 'They step in—the river stops!' },
+        { src: 'panel-noah-3.svg', alt: 'Israel crosses on dry ground' }
+      ],
+      caption: 'Swipe to see God stop the Jordan River—He always leads! 🏞️',
+      keywords: ['joshua', 'jordan', 'ark', 'river', 'joshua 3', 'priests', 'miracle'],
+      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God leads you into the new! Step forward in faith—He holds the water back.' }
+    },
+    jerichoWalls: {
+      title: 'Walls of Jericho Fall',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Israel marches around Jericho' },
+        { src: 'panel-david-2.svg', alt: 'Trumpets blow—people shout!' },
+        { src: 'panel-david-3.svg', alt: 'The walls fall down—God wins!' }
+      ],
+      caption: 'Swipe to see God tumble those walls—He wins every battle! 🎺',
+      keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'shout', 'victory'],
+      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God wins battles in surprising ways! Obey—then shout for joy.' }
+    },
+    rahabRope: {
+      title: 'Rahab\'s Scarlet Cord',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Rahab hides the spies' },
+        { src: 'panel-noah-2.svg', alt: 'She hangs a scarlet cord in the window' },
+        { src: 'panel-noah-3.svg', alt: 'Rahab and her family are saved!' }
+      ],
+      caption: 'Swipe to see how faith in God saves! 🔴',
+      keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save'],
+      kidContext: { who: 'God', to: 'Rahab', apply: 'Faith saves! Even when you\'re afraid, trust God and He rescues you.' }
+    },
+    balaamDonkey: {
+      title: 'Balaam\'s Talking Donkey',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Balaam rides his donkey' },
+        { src: 'panel-david-2.svg', alt: 'The donkey sees the angel and stops' },
+        { src: 'panel-david-3.svg', alt: 'The donkey speaks—God uses anything!' }
+      ],
+      caption: 'Swipe to see God speak through a donkey—He uses anyone! 🫏',
+      keywords: ['balaam', 'donkey', 'angel', 'numbers 22', 'talking', 'listen', 'obey'],
+      kidContext: { who: 'God', to: 'Balaam', apply: 'God can use anyone to speak truth! Always listen—even when it\'s surprising.' }
+    },
+    samsonHair: {
+      title: 'Samson\'s Hair',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Samson has long hair—God\'s strength' },
+        { src: 'panel-noah-2.svg', alt: 'Delilah cuts his hair while he sleeps' },
+        { src: 'panel-noah-3.svg', alt: 'Samson calls on God one last time' }
+      ],
+      caption: 'Swipe to see Samson\'s story—stay close to God! 💪',
+      keywords: ['samson', 'hair', 'delilah', 'judges 16', 'strength', 'cut', 'power'],
+      kidContext: { who: 'God', to: 'Samson', apply: 'Your strength comes from God! Stay close to Him and nothing can stop you.' }
+    },
+    ruthGlean: {
+      title: 'Ruth Gleans in the Field',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ruth follows Naomi to a new land' },
+        { src: 'panel-noah-2.svg', alt: 'Ruth works hard in Boaz\'s field' },
+        { src: 'panel-noah-3.svg', alt: 'Boaz is kind—God is watching!' }
+      ],
+      caption: 'Swipe to see Ruth\'s faithfulness—God sees your hard work! 🌾',
+      keywords: ['ruth', 'glean', 'boaz', 'field', 'ruth 2', 'faithful', 'kind'],
+      kidContext: { who: 'God', to: 'Ruth and Naomi', apply: 'God sees your faithfulness! Stay loyal and kind—He rewards it.' }
+    },
+    samuelCall: {
+      title: 'God Calls Samuel',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Samuel sleeps in the temple' },
+        { src: 'panel-noah-2.svg', alt: 'A voice calls: Samuel! Samuel!' },
+        { src: 'panel-noah-3.svg', alt: 'Samuel answers: Speak, Lord—I\'m listening!' }
+      ],
+      caption: 'Swipe to see God call Samuel—He calls you too! 👂',
+      keywords: ['samuel', 'call', 'temple', '1 samuel 3', 'eli', 'voice', 'listen'],
+      kidContext: { who: 'God', to: 'Young Samuel', apply: 'God calls children! Say yes: "Speak, Lord—I am listening."' }
+    },
+    davidHarp: {
+      title: 'David Plays the Harp',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David watches his sheep in the field' },
+        { src: 'panel-david-2.svg', alt: 'He plays and sings to God' },
+        { src: 'panel-david-3.svg', alt: 'God listens—worship from the heart!' }
+      ],
+      caption: 'Swipe to see David worship God in the fields! 🎶',
+      keywords: ['david', 'harp', 'worship', 'sheep', '1 samuel 16', 'music', 'praise'],
+      kidContext: { who: 'David', to: 'God', apply: 'God loves your worship! Sing and praise wherever you are.' }
+    },
+    goliathChallenge: {
+      title: 'Goliath\'s Challenge',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Goliath shouts—who will fight me?' },
+        { src: 'panel-david-2.svg', alt: 'Everyone is afraid—except David' },
+        { src: 'panel-david-3.svg', alt: 'David says: The Lord will deliver you!' }
+      ],
+      caption: 'Swipe to see David face the giant—God wins! ⚔️',
+      keywords: ['goliath', 'challenge', 'david', '1 samuel 17', 'giant', 'brave', 'faith'],
+      kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Face your fears—He\'s with you.' }
+    },
+    davidAnointed: {
+      title: 'David Is Anointed King',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Samuel visits Jesse\'s family' },
+        { src: 'panel-david-2.svg', alt: 'God says: man looks at the outside—I look at the heart' },
+        { src: 'panel-david-3.svg', alt: 'Oil on David\'s head—the youngest chosen!' }
+      ],
+      caption: 'Swipe to see God choose David—He looks at your heart! 💛',
+      keywords: ['david', 'anoint', 'samuel', '1 samuel 16', 'king', 'heart', 'chosen'],
+      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart! Be faithful where you are—He sees you.' }
+    },
+    saulSpear: {
+      title: 'Saul Throws a Spear at David',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'David plays harp for King Saul' },
+        { src: 'panel-noah-2.svg', alt: 'Saul throws a spear in jealousy' },
+        { src: 'panel-noah-3.svg', alt: 'David escapes—trust God, not fear!' }
+      ],
+      caption: 'Swipe to see David trust God—not react in anger! 🎯',
+      keywords: ['saul', 'spear', 'david', '1 samuel 18', 'jealous', 'escape', 'trust'],
+      kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
+    },
+    davidCave: {
+      title: 'David Hides in the Cave',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'David hides in the cave of Adullam' },
+        { src: 'panel-noah-2.svg', alt: 'He writes songs to God even here' },
+        { src: 'panel-noah-3.svg', alt: 'God is with David in the dark place' }
+      ],
+      caption: 'Swipe to see David trust God even in the cave! 🕳️',
+      keywords: ['david', 'cave', 'adullam', '1 samuel 22', 'hiding', 'prayer', 'psalm'],
+      kidContext: { who: 'David', to: 'God', apply: 'Even in dark or scary times, God is with you! Talk to Him wherever you are.' }
+    },
+    /* ── Week 4 (49–60) ── */
+    elishaRaised: {
+      title: 'Elisha Raises a Boy',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A Shunammite\'s son dies' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha stretches over him and prays' },
+        { src: 'panel-noah-3.svg', alt: 'The boy sneezes seven times—alive!' }
+      ],
+      caption: 'Swipe to see God bring a boy back to life! 🤧',
+      keywords: ['elisha', 'raise', 'shunammite', '2 kings 4', 'boy', 'dead', 'life', 'miracle'],
+      kidContext: { who: 'God', to: 'Elisha and the Shunammite', apply: 'God can bring life back! Nothing is too hard for Him.' }
+    },
+    estherCrown: {
+      title: 'Queen Esther\'s Courage',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Esther is made queen' },
+        { src: 'panel-noah-2.svg', alt: 'Haman plots to destroy the Jews' },
+        { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—God gives courage!' }
+      ],
+      caption: 'Swipe to see Esther\'s courage save her people! 👑',
+      keywords: ['esther', 'crown', 'queen', 'esther 5', 'scepter', 'courage', 'save'],
+      kidContext: { who: 'God', to: 'Esther', apply: 'God puts you where you are for a reason! Be brave—maybe it\'s for such a time as this.' }
+    },
+    nehemiahWalls: {
+      title: 'Nehemiah Rebuilds the Walls',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Nehemiah prays and makes a plan' },
+        { src: 'panel-david-2.svg', alt: 'Workers build with tools in one hand, sword in the other' },
+        { src: 'panel-david-3.svg', alt: 'The walls are rebuilt in 52 days—God did it!' }
+      ],
+      caption: 'Swipe to see Nehemiah rebuild—pray and work together! 🧱',
+      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 4', 'rebuild', 'pray', 'sword'],
+      kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken.' }
+    },
+    jobSuffering: {
+      title: 'Job\'s Suffering',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Job loses everything—still trusts God' },
+        { src: 'panel-noah-2.svg', alt: 'Friends sit with him but don\'t understand' },
+        { src: 'panel-noah-3.svg', alt: 'God speaks—and restores Job!' }
+      ],
+      caption: 'Swipe to see Job\'s faith in hard times—God is enough! 🌧️',
+      keywords: ['job', 'suffering', 'boils', 'friends', 'job 2', 'trust', 'faith', 'restore'],
+      kidContext: { who: 'God', to: 'Job', apply: 'You can trust God in hard times! He always comes through for those who hold on.' }
+    },
+    psalm23Shepherd: {
+      title: 'The Lord Is My Shepherd',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A shepherd leads sheep to green pastures' },
+        { src: 'panel-noah-2.svg', alt: 'Still waters—rest and peace' },
+        { src: 'panel-noah-3.svg', alt: 'God leads us—we shall not want!' }
+      ],
+      caption: 'Swipe to see God as your Good Shepherd! 🐑',
+      keywords: ['psalm 23', 'shepherd', 'sheep', 'staff', 'peace', 'david', 'green pastures'],
+      kidContext: { who: 'God', to: 'David (and us)', apply: 'God is your Good Shepherd! He leads you, protects you, and gives you rest.' }
+    },
+    solomonWisdom: {
+      title: 'Solomon\'s Wisdom',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Two moms argue about a baby' },
+        { src: 'panel-david-2.svg', alt: 'Solomon says: bring a sword!' },
+        { src: 'panel-david-3.svg', alt: 'The real mom speaks up—God gives wisdom!' }
+      ],
+      caption: 'Swipe to see Solomon use God\'s wisdom! 👶',
+      keywords: ['solomon', 'wisdom', 'baby', 'sword', '1 kings 3', 'judge', 'moms'],
+      kidContext: { who: 'God', to: 'Solomon', apply: 'Ask God for wisdom! He gives it freely to those who ask.' }
+    },
+    elijahChariot: {
+      title: 'Elijah\'s Fiery Chariot',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elijah and Elisha walk together' },
+        { src: 'panel-noah-2.svg', alt: 'Fiery horses and chariot appear' },
+        { src: 'panel-noah-3.svg', alt: 'Elijah goes up to heaven in a whirlwind!' }
+      ],
+      caption: 'Swipe to see Elijah taken up to heaven! 🔥',
+      keywords: ['elijah', 'chariot', 'fire', '2 kings 2', 'whirlwind', 'heaven', 'elisha'],
+      kidContext: { who: 'God', to: 'Elijah', apply: 'God honors His faithful servants! Heaven is real—and it\'s wonderful.' }
+    },
+    jonahVine: {
+      title: 'Jonah and the Vine',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jonah sits angry outside Nineveh' },
+        { src: 'panel-noah-2.svg', alt: 'A vine grows up to shade him—then a worm eats it' },
+        { src: 'panel-noah-3.svg', alt: 'God says: I care about people even more than the vine' }
+      ],
+      caption: 'Swipe to see God\'s big heart—He cares for everyone! 🌿',
+      keywords: ['jonah', 'vine', 'worm', 'jonah 4', 'nineveh', 'anger', 'mercy'],
+      kidContext: { who: 'God', to: 'Jonah', apply: 'God loves everyone—even people we think don\'t deserve it. So should we!' }
+    },
+    danielPray: {
+      title: 'Daniel Prays Three Times a Day',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A new law says no praying' },
+        { src: 'panel-noah-2.svg', alt: 'Daniel opens his window and prays anyway' },
+        { src: 'panel-noah-3.svg', alt: 'God protects Daniel!' }
+      ],
+      caption: 'Swipe to see Daniel pray no matter what—so brave! 🙏',
+      keywords: ['daniel', 'pray', 'window', 'daniel 6', 'law', 'brave', 'lions'],
+      kidContext: { who: 'God', to: 'Daniel', apply: 'Nothing should stop you from praying! God sees your faithfulness.' }
+    },
+    estherBanquet: {
+      title: 'Esther\'s Banquet',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Esther invites the king to a banquet' },
+        { src: 'panel-noah-2.svg', alt: 'Haman arrives thinking he\'s honored' },
+        { src: 'panel-noah-3.svg', alt: 'Esther reveals Haman\'s evil plan—he is shocked!' }
+      ],
+      caption: 'Swipe to see Esther stand up for her people! 🍷',
+      keywords: ['esther', 'banquet', 'haman', 'esther 7', 'king', 'courage', 'reveal'],
+      kidContext: { who: 'God', to: 'Esther (through timing)', apply: 'God gives you the right moment! Be ready—He orders the steps.' }
+    },
+    /* ── Week 5 (61–72) ── */
+    angelMary: {
+      title: 'Angel Visits Mary',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Angel Gabriel appears with a lily' },
+        { src: 'panel-noah-2.svg', alt: 'Gabriel says: Fear not, Mary—you are chosen!' },
+        { src: 'panel-noah-3.svg', alt: 'Mary says: I will do what God says!' }
+      ],
+      caption: 'Swipe to see the angel tell Mary the great news! 🌸',
+      keywords: ['angel', 'mary', 'gabriel', 'luke 1', 'fear not', 'chosen', 'jesus'],
+      kidContext: { who: 'God', to: 'Mary', apply: 'God chooses ordinary people! When God calls you, say yes like Mary.' }
+    },
+    shepherdsStar: {
+      title: 'Shepherds and the Star',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Shepherds watch their flock at night' },
+        { src: 'panel-noah-2.svg', alt: 'Angels fill the sky singing!' },
+        { src: 'panel-noah-3.svg', alt: 'They run to Bethlehem—Jesus is born!' }
+      ],
+      caption: 'Swipe to see the shepherds run to baby Jesus! ✨',
+      keywords: ['shepherds', 'star', 'angels', 'luke 2', 'bethlehem', 'birth', 'glory'],
+      kidContext: { who: 'God', to: 'The shepherds', apply: 'God shares good news first with humble people! Run to Jesus—everyone is invited.' }
+    },
+    jesusManger: {
+      title: 'Baby Jesus in the Manger',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Mary and Joseph find a stable' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus is born and laid in a manger' },
+        { src: 'panel-noah-3.svg', alt: 'Wise men bring gifts—a King is born!' }
+      ],
+      caption: 'Swipe to see the night Jesus was born! 🎁',
+      keywords: ['jesus', 'manger', 'baby', 'luke 2', 'bethlehem', 'wise men', 'star', 'born'],
+      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came for you! God\'s greatest gift is His Son.' }
+    },
+    jesusTemple: {
+      title: 'Jesus Teaches in the Temple',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Mary and Joseph lose track of Jesus' },
+        { src: 'panel-noah-2.svg', alt: 'They find Him in the temple—teaching elders!' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says: I must be about my Father\'s business' }
+      ],
+      caption: 'Swipe to see Jesus in the temple—even as a kid! 📖',
+      keywords: ['jesus', 'temple', 'teaching', 'luke 2', 'elders', 'wisdom', 'boy', 'father'],
+      kidContext: { who: 'Jesus', to: 'The teachers (and us)', apply: 'Jesus loved God\'s house and Word even as a boy—so can you!' }
+    },
+    johnBaptize: {
+      title: 'John Baptizes Jesus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'John preaches by the river Jordan' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus steps into the water' },
+        { src: 'panel-noah-3.svg', alt: 'A dove lands—God says: This is my Son!' }
+      ],
+      caption: 'Swipe to see Jesus baptized—the dove and the voice! 🕊️',
+      keywords: ['john', 'baptize', 'jordan', 'matthew 3', 'dove', 'voice', 'heaven', 'spirit'],
+      kidContext: { who: 'God', to: 'Jesus (and us)', apply: 'God said yes to Jesus—He says yes to you too! Baptism is a big, happy yes.' }
+    },
+    jesusTempt: {
+      title: 'Jesus Is Tempted',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus fasts in the desert for 40 days' },
+        { src: 'panel-noah-2.svg', alt: 'The devil tries to trick Jesus with bread, power, and glory' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus uses God\'s Word—the devil leaves!' }
+      ],
+      caption: 'Swipe to see Jesus fight temptation with Scripture! 📜',
+      keywords: ['jesus', 'temptation', 'desert', 'matthew 4', 'devil', 'bread', 'scripture', 'word'],
+      kidContext: { who: 'Jesus', to: 'The devil (and us)', apply: 'Use God\'s Word when you\'re tempted! Jesus showed us how—it works.' }
+    },
+    weddingWine: {
+      title: 'Water into Wine',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A wedding runs out of wine' },
+        { src: 'panel-noah-2.svg', alt: 'Mary tells Jesus—He says: Fill the jars' },
+        { src: 'panel-noah-3.svg', alt: 'Water becomes wine—the first miracle!' }
+      ],
+      caption: 'Swipe to see Jesus\' first miracle at the wedding! 🍷',
+      keywords: ['wedding', 'wine', 'water', 'john 2', 'miracle', 'cana', 'mary'],
+      kidContext: { who: 'Jesus', to: 'The wedding guests', apply: 'Jesus loves to help! When we bring Him our empty jars, He fills them.' }
+    },
+    healBlind: {
+      title: 'Jesus Heals a Blind Man',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A man is born blind' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus puts mud on his eyes' },
+        { src: 'panel-noah-3.svg', alt: 'He washes and sees—I was blind, now I see!' }
+      ],
+      caption: 'Swipe to see Jesus open blind eyes! 👁️',
+      keywords: ['blind', 'heal', 'mud', 'john 9', 'eyes', 'wash', 'see', 'miracle'],
+      kidContext: { who: 'Jesus', to: 'The blind man', apply: 'Jesus opens our eyes—in our hearts too! Ask Him to help you see.' }
+    },
+    jesusBlessKids: {
+      title: 'Jesus Blesses the Children',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Disciples try to send kids away' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says: Let the little children come to me!' },
+        { src: 'panel-noah-3.svg', alt: 'He holds them—they are of such is the kingdom!' }
+      ],
+      caption: 'Swipe to see Jesus love and bless kids just like you! ❤️',
+      keywords: ['jesus', 'children', 'bless', 'mark 10', 'kids', 'kingdom', 'come'],
+      kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! He invites every child to come to Him.' }
+    },
+    /* ── Week 6 (73–84) ── */
+    mustardSeed: {
+      title: 'The Mustard Seed',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A tiny mustard seed in a hand' },
+        { src: 'panel-noah-2.svg', alt: 'It\'s planted in the ground' },
+        { src: 'panel-noah-3.svg', alt: 'It grows into the biggest tree—birds nest in it!' }
+      ],
+      caption: 'Swipe to see a tiny seed grow huge—faith works! 🌱',
+      keywords: ['mustard seed', 'faith', 'tree', 'matthew 13', 'kingdom', 'grow', 'small'],
+      kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Faith as small as a seed can move mountains! Don\'t give up—keep trusting.' }
+    },
+    healLeper: {
+      title: 'Jesus Heals Ten Lepers',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ten lepers call out: Jesus, have mercy!' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says: Go show yourselves to the priest' },
+        { src: 'panel-noah-3.svg', alt: 'As they go—all ten are clean!' }
+      ],
+      caption: 'Swipe to see Jesus heal ten lepers—be thankful! 🙌',
+      keywords: ['leper', 'heal', 'luke 17', 'mercy', 'clean', 'thankful', 'ten'],
+      kidContext: { who: 'Jesus', to: 'The lepers', apply: 'Jesus heals and cleans us inside! Always say thank you to Him.' }
+    },
+    jairus: {
+      title: 'Jairus\' Daughter Raised',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jairus begs Jesus: my daughter is dying!' },
+        { src: 'panel-noah-2.svg', alt: 'News arrives: she is gone...' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus takes her hand: Talitha cumi! She rises!' }
+      ],
+      caption: 'Swipe to see Jesus bring a girl back to life! 🌸',
+      keywords: ['jairus', 'daughter', 'raise', 'mark 5', 'talitha cumi', 'miracle', 'faith'],
+      kidContext: { who: 'Jesus', to: 'Jairus and his daughter', apply: 'Jesus is never too late! Keep believing even when it seems impossible.' }
+    },
+    transfigure: {
+      title: 'Jesus\' Transfiguration',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus goes up the mountain with Peter, James, and John' },
+        { src: 'panel-noah-2.svg', alt: 'His face shines like the sun—His clothes glow white' },
+        { src: 'panel-noah-3.svg', alt: 'God\'s voice says: This is my Son—listen to Him!' }
+      ],
+      caption: 'Swipe to see Jesus glow on the mountain! ✨',
+      keywords: ['transfigure', 'mountain', 'matthew 17', 'glow', 'moses', 'elijah', 'cloud'],
+      kidContext: { who: 'God', to: 'Peter, James, John', apply: 'Jesus is the Son of God—really listen to Him! He is glorious.' }
+    },
+    judasKiss: {
+      title: 'Judas Betrays Jesus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Soldiers come to the garden with torches' },
+        { src: 'panel-noah-2.svg', alt: 'Judas kisses Jesus—a signal to arrest Him' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus goes peacefully—He loves us that much' }
+      ],
+      caption: 'Swipe to see Jesus stay calm—even when betrayed! 🕯️',
+      keywords: ['judas', 'betray', 'kiss', 'matthew 26', 'arrest', 'garden', 'soldiers'],
+      kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even when people hurt you, choose love like Jesus did! He forgave.' }
+    },
+    /* ── Week 7 (85–96) ── */
+    crossCarry: {
+      title: 'Simon Helps Carry the Cross',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus is made to carry His cross' },
+        { src: 'panel-noah-2.svg', alt: 'Simon of Cyrene is asked to help' },
+        { src: 'panel-noah-3.svg', alt: 'Sometimes God calls us to help carry burdens' }
+      ],
+      caption: 'Swipe to see Simon help carry—be a helper! 🤝',
+      keywords: ['cross', 'simon', 'carry', 'luke 23', 'cyrene', 'help', 'burden'],
+      kidContext: { who: 'God', to: 'Simon (and us)', apply: 'God calls us to help carry each other\'s burdens! Be a Simon for someone today.' }
+    },
+    crucifixion: {
+      title: 'Jesus on the Cross',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus is nailed to the cross' },
+        { src: 'panel-noah-2.svg', alt: 'Darkness covers the land' },
+        { src: 'panel-noah-3.svg', alt: 'It is finished—He did it for us!' }
+      ],
+      caption: 'Swipe to see Jesus give His life—for you! ❤️',
+      keywords: ['crucifixion', 'cross', 'nails', 'john 19', 'love', 'finished', 'sacrifice'],
+      kidContext: { who: 'Jesus', to: 'Everyone who will believe', apply: 'Jesus died because He loves you! That love is the greatest love ever.' }
+    },
+    tombEmpty: {
+      title: 'The Empty Tomb',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Women come early to the tomb' },
+        { src: 'panel-noah-2.svg', alt: 'The stone is rolled away!' },
+        { src: 'panel-noah-3.svg', alt: 'An angel says: He is not here—He is risen!' }
+      ],
+      caption: 'Swipe to see the empty tomb—Jesus is alive! 🪨',
+      keywords: ['tomb', 'empty', 'risen', 'matthew 28', 'angel', 'stone', 'resurrection'],
+      kidContext: { who: 'Jesus', to: 'The women (and us)', apply: 'Jesus is alive! Death couldn\'t hold Him—and He gives that life to you!' }
+    },
+    emmausRoad: {
+      title: 'Road to Emmaus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Two disciples walk to Emmaus, sad' },
+        { src: 'panel-noah-2.svg', alt: 'A stranger joins them—it\'s Jesus!' },
+        { src: 'panel-noah-3.svg', alt: 'He breaks bread—their eyes open!' }
+      ],
+      caption: 'Swipe to see Jesus walk with sad hearts—He walks with yours! 🛤️',
+      keywords: ['emmaus', 'road', 'luke 24', 'disciples', 'walk', 'stranger', 'bread', 'recognize'],
+      kidContext: { who: 'Jesus', to: 'Two disciples', apply: 'Jesus walks with you even when you don\'t recognize Him! He never leaves.' }
+    },
+    thomasDoubt: {
+      title: 'Thomas Touches Jesus\' Hands',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Thomas says: I won\'t believe until I see!' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus appears and shows His hands' },
+        { src: 'panel-noah-3.svg', alt: 'Thomas cries: My Lord and my God!' }
+      ],
+      caption: 'Swipe to see Jesus answer Thomas\'s doubts—He answers yours too! 🙏',
+      keywords: ['thomas', 'doubt', 'john 20', 'hands', 'believe', 'risen', 'faith'],
+      kidContext: { who: 'Jesus', to: 'Thomas', apply: 'It\'s okay to have questions! Jesus is patient—keep coming back to Him.' }
+    },
+    pentecostFire: {
+      title: 'Pentecost—Fire and Wind',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Disciples wait together in a room' },
+        { src: 'panel-noah-2.svg', alt: 'Wind fills the house—fire on each head!' },
+        { src: 'panel-noah-3.svg', alt: 'They speak in new languages—the Holy Spirit is here!' }
+      ],
+      caption: 'Swipe to see the Holy Spirit arrive with fire and wind! 🔥',
+      keywords: ['pentecost', 'fire', 'wind', 'acts 2', 'holy spirit', 'tongues', 'disciples'],
+      kidContext: { who: 'Holy Spirit', to: 'The disciples (and us)', apply: 'God\'s Spirit lives in you! He gives you power, love, and boldness.' }
+    },
+    peterShadow: {
+      title: 'Peter\'s Shadow Heals',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Sick people line the streets' },
+        { src: 'panel-noah-2.svg', alt: 'Peter walks by—his shadow touches them' },
+        { src: 'panel-noah-3.svg', alt: 'They are healed! God\'s power is in His people' }
+      ],
+      caption: 'Swipe to see God\'s power flow through Peter! 🌟',
+      keywords: ['peter', 'shadow', 'heal', 'acts 5', 'miracle', 'sick', 'power'],
+      kidContext: { who: 'God', to: 'Peter (and us)', apply: 'God works through ordinary people! You carry His presence—make it count.' }
+    },
+    paulDamascus: {
+      title: 'Paul on the Road to Damascus',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Saul rides to persecute Christians' },
+        { src: 'panel-david-2.svg', alt: 'A blinding light—Jesus speaks: Why do you fight me?' },
+        { src: 'panel-david-3.svg', alt: 'Saul becomes Paul—a new man!' }
+      ],
+      caption: 'Swipe to see God change Paul completely—He changes hearts! ⚡',
+      keywords: ['paul', 'damascus', 'saul', 'acts 9', 'light', 'blind', 'change', 'conversion'],
+      kidContext: { who: 'Jesus', to: 'Saul/Paul', apply: 'God can change anyone! No one is too far from His reach—not even you or your friends.' }
+    },
+    paulShipwreck: {
+      title: 'Paul\'s Shipwreck',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul sails in a terrible storm' },
+        { src: 'panel-noah-2.svg', alt: 'The ship breaks apart—Paul swims to shore' },
+        { src: 'panel-noah-3.svg', alt: 'A snake bites Paul—he is fine! God protects him' }
+      ],
+      caption: 'Swipe to see Paul survive the storm—God keeps His own! ⛵',
+      keywords: ['paul', 'shipwreck', 'storm', 'acts 28', 'snake', 'island', 'protect'],
+      kidContext: { who: 'God', to: 'Paul', apply: 'God protects His people through storms! When life gets hard, He keeps you safe.' }
+    },
+    paulSilas: {
+      title: 'Paul and Silas Sing in Jail',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul and Silas are beaten and jailed' },
+        { src: 'panel-noah-2.svg', alt: 'At midnight—they sing and pray!' },
+        { src: 'panel-noah-3.svg', alt: 'An earthquake—the prison opens! They stay and the jailer believes' }
+      ],
+      caption: 'Swipe to see Paul and Silas worship in the dark! 🎶',
+      keywords: ['paul', 'silas', 'jail', 'acts 16', 'sing', 'pray', 'earthquake', 'midnight'],
+      kidContext: { who: 'God', to: 'Paul and Silas', apply: 'Praise God even in hard places! Your worship opens doors—literally.' }
+    },
+    tenVirgins: {
+      title: 'The Ten Virgins',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ten virgins wait with lamps' },
+        { src: 'panel-noah-2.svg', alt: 'Five are wise—they brought extra oil' },
+        { src: 'panel-noah-3.svg', alt: 'Be ready—Jesus is coming!' }
+      ],
+      caption: 'Swipe to see the ten virgins—always be ready! 🪔',
+      keywords: ['virgins', 'lamps', 'oil', 'matthew 25', 'ready', 'wise', 'foolish', 'return'],
+      kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Be ready! Fill up with God\'s Word and Spirit every day—don\'t run empty.' }
+    },
+    /* ── Week 8 (97–108) ── */
+    armorShield: {
+      title: 'The Shield of Faith',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'A knight holds up his shield' },
+        { src: 'panel-david-2.svg', alt: 'Arrows of doubt and fear fly—blocked by faith' },
+        { src: 'panel-david-3.svg', alt: 'Stand firm—faith stops every attack!' }
+      ],
+      caption: 'Swipe to see the shield of faith block every arrow! 🛡️',
+      keywords: ['armor', 'shield', 'faith', 'ephesians 6', 'arrows', 'protect', 'stand'],
+      kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Hold up your shield of faith! When doubt or fear comes, believe—God blocks it.' }
+    },
+    armorSword: {
+      title: 'The Sword of the Spirit',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'A sword labeled "Word of God"' },
+        { src: 'panel-david-2.svg', alt: 'Jesus used Scripture against the devil' },
+        { src: 'panel-david-3.svg', alt: 'Know God\'s Word—it\'s your best weapon!' }
+      ],
+      caption: 'Swipe to see the Word of God as your sword! ⚔️',
+      keywords: ['armor', 'sword', 'word', 'ephesians 6', 'scripture', 'spirit', 'fight'],
+      kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Know your Bible! God\'s Word is a sword—it defeats darkness and confusion.' }
+    },
+    fruitSpirit: {
+      title: 'Fruit of the Spirit',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A tree full of beautiful fruit' },
+        { src: 'panel-noah-2.svg', alt: 'Love, joy, peace, patience—God\'s fruit' },
+        { src: 'panel-noah-3.svg', alt: 'Stay connected to Jesus—grow good fruit!' }
+      ],
+      caption: 'Swipe to see the fruit God grows in you! 🍎',
+      keywords: ['fruit', 'spirit', 'galatians 5', 'love', 'joy', 'peace', 'patience', 'kind'],
+      kidContext: { who: 'Holy Spirit', to: 'All believers (and us)', apply: 'Stay close to Jesus like a branch on a vine—good fruit grows naturally!' }
+    },
+    loveChapter: {
+      title: 'Love Is Patient and Kind',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A heart shape glows with light' },
+        { src: 'panel-noah-2.svg', alt: 'Love is patient, love is kind...' },
+        { src: 'panel-noah-3.svg', alt: 'Love never fails—God is love!' }
+      ],
+      caption: 'Swipe to see what real love looks like! ❤️',
+      keywords: ['love', '1 corinthians 13', 'patient', 'kind', 'heart', 'never fails'],
+      kidContext: { who: 'Paul', to: 'The church (and us)', apply: 'Love isn\'t a feeling—it\'s a choice! Choose to be patient and kind like God.' }
+    },
+    faithMustard: {
+      title: 'Faith Like a Mustard Seed',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A tiny seed in someone\'s hand' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says: this much faith moves mountains' },
+        { src: 'panel-noah-3.svg', alt: 'Even small faith is enough—God does the rest!' }
+      ],
+      caption: 'Swipe to see how small faith can move mountains! 🏔️',
+      keywords: ['faith', 'mustard seed', 'matthew 17', 'mountain', 'move', 'believe', 'small'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'You don\'t need huge faith—just genuine faith! Give it to God and watch.' }
+    },
+    prayerKnock: {
+      title: 'Ask, Seek, Knock',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A person stands at a door and knocks' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says: Ask and it will be given!' },
+        { src: 'panel-noah-3.svg', alt: 'The door opens—God answers!' }
+      ],
+      caption: 'Swipe to see the promise: ask, seek, knock—He answers! 🚪',
+      keywords: ['ask', 'seek', 'knock', 'matthew 7', 'prayer', 'door', 'answer', 'receive'],
+      kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Keep knocking! God loves when you keep coming to Him in prayer.' }
+    },
+    worryBirds: {
+      title: 'Don\'t Worry—Look at the Birds',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Birds fly freely—they don\'t worry' },
+        { src: 'panel-noah-2.svg', alt: 'Lilies grow without stress—God clothes them' },
+        { src: 'panel-noah-3.svg', alt: 'You are worth more—God takes care of you!' }
+      ],
+      caption: 'Swipe to see why you don\'t need to worry—God\'s got you! 🐦',
+      keywords: ['worry', 'birds', 'lilies', 'matthew 6', 'sparrows', 'care', 'trust'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God feeds the birds—He definitely takes care of you! Don\'t worry; trust.' }
+    },
+    forgive70x7: {
+      title: 'Forgive Seventy Times Seven',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Peter asks: how many times should I forgive?' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says: seventy times seven—always!' },
+        { src: 'panel-noah-3.svg', alt: 'Two brothers hug—forgiveness sets you free!' }
+      ],
+      caption: 'Swipe to see why forgiving feels so good! 🤗',
+      keywords: ['forgive', '70 times', 'matthew 18', 'peter', 'always', 'mercy', 'hug'],
+      kidContext: { who: 'Jesus', to: 'Peter (and us)', apply: 'Forgiveness is never too much! When you forgive, you\'re free—not the other person.' }
+    },
+    widowMite: {
+      title: 'The Widow\'s Two Coins',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Rich people put lots of money in the treasury' },
+        { src: 'panel-noah-2.svg', alt: 'A poor widow puts in two tiny coins' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says: she gave the most—she gave all!' }
+      ],
+      caption: 'Swipe to see the widow\'s offering—God sees the heart! 🪙',
+      keywords: ['widow', 'mite', 'coins', 'mark 12', 'offering', 'give', 'heart', 'all'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God sees generosity, not amount! Give from your heart—even a little is big to God.' }
+    },
+    richYoungRuler: {
+      title: 'The Rich Young Ruler',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A rich young man asks: what must I do to have eternal life?' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says: sell all, give to the poor, follow me' },
+        { src: 'panel-noah-3.svg', alt: 'He walks away sad—things can\'t satisfy like God' }
+      ],
+      caption: 'Swipe to see what matters more than stuff—Jesus! 💎',
+      keywords: ['rich', 'young ruler', 'mark 10', 'eternal life', 'camel', 'needle', 'follow'],
+      kidContext: { who: 'Jesus', to: 'The rich young man (and us)', apply: 'Nothing is worth more than following Jesus! Let go of what holds you back.' }
+    },
+    maryAnoint: {
+      title: 'Mary Anoints Jesus\' Feet',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Mary breaks open expensive perfume' },
+        { src: 'panel-noah-2.svg', alt: 'She pours it on Jesus\' feet and wipes with her hair' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says: what she did will be remembered forever!' }
+      ],
+      caption: 'Swipe to see Mary\'s beautiful act of worship! 🌹',
+      keywords: ['mary', 'anoint', 'perfume', 'john 12', 'feet', 'worship', 'pour'],
+      kidContext: { who: 'Mary', to: 'Jesus', apply: 'Give Jesus your best—not just what\'s left! Extravagant love honors Him.' }
+    },
+    /* ── Week 9 (109–120) ── */
+    stephenStones: {
+      title: 'Stephen Sees Heaven',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Stephen preaches boldly about Jesus' },
+        { src: 'panel-david-2.svg', alt: 'They throw stones—Stephen looks up' },
+        { src: 'panel-david-3.svg', alt: 'He sees Jesus standing—and forgives them!' }
+      ],
+      caption: 'Swipe to see Stephen\'s courage and forgiveness—amazing! 💎',
+      keywords: ['stephen', 'stones', 'acts 7', 'forgive', 'heaven', 'bold', 'first martyr'],
+      kidContext: { who: 'Jesus', to: 'Stephen', apply: 'Be bold for Jesus—even when it\'s hard! And always forgive like Stephen did.' }
+    },
+    philipChariot: {
+      title: 'Philip and the Ethiopian',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Philip is sent to a desert road' },
+        { src: 'panel-noah-2.svg', alt: 'An Ethiopian reads Isaiah in his chariot' },
+        { src: 'panel-noah-3.svg', alt: 'Philip explains—the Ethiopian believes and is baptized!' }
+      ],
+      caption: 'Swipe to see Philip share the good news on the road! 📖',
+      keywords: ['philip', 'ethiopian', 'chariot', 'acts 8', 'isaiah', 'read', 'baptize', 'explain'],
+      kidContext: { who: 'God', to: 'Philip (and us)', apply: 'Be ready to share Jesus wherever you go! God sets up divine appointments.' }
+    },
+    paulShip: {
+      title: 'Paul\'s Ship in the Storm',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul sails toward Rome in a big storm' },
+        { src: 'panel-noah-2.svg', alt: 'An angel says: fear not—all 276 will be safe' },
+        { src: 'panel-noah-3.svg', alt: 'They swim to shore—everyone safe, just like God said!' }
+      ],
+      caption: 'Swipe to see God keep His word in the storm! ⛵',
+      keywords: ['paul', 'ship', 'storm', 'acts 27', 'angel', 'safe', 'fear not'],
+      kidContext: { who: 'God', to: 'Paul and the sailors', apply: 'God keeps His promises in storms! When you\'re afraid, His word says: fear not.' }
+    },
+    revelationThrone: {
+      title: 'The Throne in Heaven',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'John sees an open door to heaven' },
+        { src: 'panel-noah-2.svg', alt: 'A glorious throne surrounded by a rainbow' },
+        { src: 'panel-noah-3.svg', alt: 'Elders bow and worship—heaven is amazing!' }
+      ],
+      caption: 'Swipe to see John\'s vision of God\'s throne! 🌈',
+      keywords: ['revelation', 'throne', 'heaven', 'revelation 4', 'rainbow', 'elders', 'worship'],
+      kidContext: { who: 'God', to: 'John (and us)', apply: 'Heaven is real and beautiful! Worship God now—that\'s what heaven is like forever.' }
+    },
+    fourHorsemen: {
+      title: 'The Four Horsemen',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Lamb opens four seals' },
+        { src: 'panel-noah-2.svg', alt: 'Four horses come: white, red, black, pale' },
+        { src: 'panel-noah-3.svg', alt: 'God shows what will happen—He is in control!' }
+      ],
+      caption: 'Swipe to see the four horses of Revelation! 🐎',
+      keywords: ['horsemen', 'revelation 6', 'seals', 'white', 'red', 'black', 'pale', 'lamb'],
+      kidContext: { who: 'God', to: 'John (and us)', apply: 'Even big scary things are in God\'s hands! He knows the end—and He wins.' }
+    },
+    alphaOmega: {
+      title: 'I Am the Alpha and Omega',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: '"I am the Alpha and Omega" says the Lord' },
+        { src: 'panel-noah-2.svg', alt: 'The first and the last—the beginning and the end' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus is Lord of everything—always!' }
+      ],
+      caption: 'Swipe to see Jesus as the beginning and end of everything! ∞',
+      keywords: ['alpha', 'omega', 'revelation 1', 'beginning', 'end', 'lord', 'eternal'],
+      kidContext: { who: 'God', to: 'John (and us)', apply: 'God started everything and He finishes it! He has the first word and the last word.' }
+    },
+    newHeaven: {
+      title: 'New Heaven and New Earth',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God makes all things new!' },
+        { src: 'panel-noah-2.svg', alt: 'No more tears, no more pain, no more death' },
+        { src: 'panel-noah-3.svg', alt: 'God\'s home is with His people forever!' }
+      ],
+      caption: 'Swipe to see God\'s brand-new world—no more sad! 🏠',
+      keywords: ['new heaven', 'earth', 'revelation 21', 'no tears', 'new', 'eternal', 'gold'],
+      kidContext: { who: 'God', to: 'All His people', apply: 'The best is coming! A new world with no pain, no sadness—only God and joy.' }
+    },
+    treeOfLife: {
+      title: 'The Tree of Life',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A beautiful tree grows by the river' },
+        { src: 'panel-noah-2.svg', alt: 'It bears twelve kinds of fruit every month' },
+        { src: 'panel-noah-3.svg', alt: 'Its leaves heal the nations—God provides!' }
+      ],
+      caption: 'Swipe to see the Tree of Life in the new city! 🌿',
+      keywords: ['tree of life', 'revelation 22', 'fruit', 'heal', 'leaves', 'river', 'nations'],
+      kidContext: { who: 'God', to: 'His people in the new creation', apply: 'God\'s healing never runs out! In His new world, everything is made whole.' }
+    },
+    riverOfLife: {
+      title: 'The River of Life',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A crystal-clear river flows from the throne' },
+        { src: 'panel-noah-2.svg', alt: 'The tree of life grows on both banks' },
+        { src: 'panel-noah-3.svg', alt: 'God\'s throne is there—eternal life!' }
+      ],
+      caption: 'Swipe to see the river flowing from God\'s throne! 💧',
+      keywords: ['river', 'life', 'revelation 22', 'crystal', 'throne', 'tree', 'eternal'],
+      kidContext: { who: 'God', to: 'All His people', apply: 'Living water flows from God forever! Come to Him—He is the source of all life.' }
+    },
+    lambBook: {
+      title: 'The Lamb\'s Book of Life',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A great book is opened before the throne' },
+        { src: 'panel-noah-2.svg', alt: 'Names are written—those who belong to Jesus' },
+        { src: 'panel-noah-3.svg', alt: 'Believe in Jesus—your name is in it!' }
+      ],
+      caption: 'Swipe to see the Book of Life—is your name written? 📖',
+      keywords: ['lamb', 'book of life', 'revelation 21', 'names', 'written', 'believe', 'eternal'],
+      kidContext: { who: 'God', to: 'All who believe', apply: 'Believe in Jesus and your name is in the Lamb\'s Book of Life! That\'s the best news.' }
+    },
+    dragonFight: {
+      title: 'Michael Fights the Dragon',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'A great dragon fights in heaven' },
+        { src: 'panel-david-2.svg', alt: 'Michael and the angels battle the dragon' },
+        { src: 'panel-david-3.svg', alt: 'The dragon is thrown down—God\'s angels win!' }
+      ],
+      caption: 'Swipe to see Michael fight the dragon—God\'s angels win! ⚔️',
+      keywords: ['dragon', 'michael', 'revelation 12', 'angels', 'battle', 'heaven', 'satan', 'fight'],
+      kidContext: { who: 'God', to: 'John (and us)', apply: 'God\'s angels fight for you! Evil is already beaten—Jesus won at the cross.' }
+    },
+    beastMark: {
+      title: 'The Number 666',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'John sees a beast—a symbol of evil power' },
+        { src: 'panel-noah-2.svg', alt: '666 is the number—a warning to stay true' },
+        { src: 'panel-noah-3.svg', alt: 'Choose God\'s mark—belong to Jesus, not the world!' }
+      ],
+      caption: 'Swipe to see why belonging to Jesus is everything! 🔑',
+      keywords: ['beast', '666', 'revelation 13', 'mark', 'forehead', 'warning', 'choose'],
+      kidContext: { who: 'God', to: 'John (and us)', apply: 'Choose Jesus—belong to Him, not the world! His mark of love is the one that lasts.' }
+    },
+    /* ── Week 10 (121–132) ── */
+    rahabWindow: {
+      title: 'Rahab Hangs the Cord',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Rahab lets the spies down by a rope' },
+        { src: 'panel-noah-2.svg', alt: 'She ties the scarlet cord in the window' },
+        { src: 'panel-noah-3.svg', alt: 'God keeps His promise—she is saved!' }
+      ],
+      caption: 'Swipe to see Rahab\'s faith and God\'s promise! 🔴',
+      keywords: ['rahab', 'window', 'cord', 'scarlet', 'joshua 2', 'rope', 'faith', 'save'],
+      kidContext: { who: 'God', to: 'Rahab', apply: 'Even outsiders are welcomed by God! Faith is the cord that saves—hold on!' }
+    },
+    deborahJudge: {
+      title: 'Deborah the Judge',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Deborah sits under the palm tree judging' },
+        { src: 'panel-noah-2.svg', alt: 'She calls Barak to lead—but goes herself!' },
+        { src: 'panel-noah-3.svg', alt: 'Israel is delivered—God uses Deborah!' }
+      ],
+      caption: 'Swipe to see Deborah lead Israel with wisdom and courage! 🌴',
+      keywords: ['deborah', 'judge', 'palm tree', 'judges 4', 'barak', 'brave', 'leader'],
+      kidContext: { who: 'God', to: 'Deborah (and us)', apply: 'God uses girls too! Be brave, be wise—He can use you in big ways.' }
+    },
+    jaelTent: {
+      title: 'Jael\'s Courage',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The enemy general Sisera flees to Jael\'s tent' },
+        { src: 'panel-noah-2.svg', alt: 'Jael gives him shelter—and courage to act' },
+        { src: 'panel-noah-3.svg', alt: 'God\'s victory comes through unexpected hands!' }
+      ],
+      caption: 'Swipe to see God win through brave Jael! ⛺',
+      keywords: ['jael', 'tent', 'sisera', 'judges 4', 'peg', 'courage', 'victory'],
+      kidContext: { who: 'God', to: 'Jael', apply: 'God uses ordinary people in extraordinary moments! Be ready—your moment may come.' }
+    },
+    abigailWise: {
+      title: 'Abigail\'s Wisdom',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'David\'s men are angry—Nabal was rude' },
+        { src: 'panel-noah-2.svg', alt: 'Abigail quickly brings bread and gifts' },
+        { src: 'panel-noah-3.svg', alt: 'David\'s anger calms—wise words prevent disaster!' }
+      ],
+      caption: 'Swipe to see Abigail use wisdom to stop a fight! 🍞',
+      keywords: ['abigail', 'wise', 'nabal', '1 samuel 25', 'bread', 'donkey', 'peace', 'wisdom'],
+      kidContext: { who: 'God', to: 'Abigail (and us)', apply: 'Wise words stop anger and save lives! Be quick to bring peace, not fuel.' }
+    },
+    hannahPray: {
+      title: 'Hannah Prays for a Baby',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Hannah weeps and prays at the temple' },
+        { src: 'panel-noah-2.svg', alt: 'She makes a vow to God' },
+        { src: 'panel-noah-3.svg', alt: 'God answers—baby Samuel is born!' }
+      ],
+      caption: 'Swipe to see God answer Hannah\'s prayer! 🙏',
+      keywords: ['hannah', 'pray', 'baby', '1 samuel 1', 'temple', 'samuel', 'vow', 'answer'],
+      kidContext: { who: 'God', to: 'Hannah', apply: 'God hears every prayer! Pour out your heart—He is listening and He cares.' }
+    },
+    maryMagdalene: {
+      title: 'Mary Magdalene at the Tomb',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Mary comes early, weeping at the empty tomb' },
+        { src: 'panel-noah-2.svg', alt: 'She sees Jesus—mistakes Him for the gardener' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says her name: Mary! She knows Him!' }
+      ],
+      caption: 'Swipe to see the moment Jesus called Mary\'s name! 🌅',
+      keywords: ['mary magdalene', 'tomb', 'john 20', 'risen', 'gardener', 'name', 'love'],
+      kidContext: { who: 'Jesus', to: 'Mary Magdalene', apply: 'Jesus knows your name and calls you! He is always the first to find His own.' }
+    },
+    lydiaSell: {
+      title: 'Lydia Opens Her Heart',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Lydia sells purple cloth by the river' },
+        { src: 'panel-noah-2.svg', alt: 'Paul preaches—Lydia listens carefully' },
+        { src: 'panel-noah-3.svg', alt: 'God opens her heart—she believes and is baptized!' }
+      ],
+      caption: 'Swipe to see Lydia\'s open heart—God opens our hearts! 💜',
+      keywords: ['lydia', 'purple', 'acts 16', 'cloth', 'believe', 'baptize', 'heart', 'open'],
+      kidContext: { who: 'God', to: 'Lydia', apply: 'God is the one who opens our hearts to believe! Ask Him to open yours.' }
+    },
+    priscillaTeach: {
+      title: 'Priscilla and Aquila Teach',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Priscilla and Aquila hear Apollos preach' },
+        { src: 'panel-noah-2.svg', alt: 'They invite him and teach him more fully' },
+        { src: 'panel-noah-3.svg', alt: 'Apollos grows—we all need good teachers!' }
+      ],
+      caption: 'Swipe to see Priscilla teach Apollos—help each other grow! 📖',
+      keywords: ['priscilla', 'aquila', 'apollos', 'acts 18', 'teach', 'tent', 'explain', 'grow'],
+      kidContext: { who: 'God', to: 'Priscilla, Aquila, and Apollos', apply: 'Help each other understand God better! Teaching is one of God\'s gifts.' }
+    },
+    ruthMoab: {
+      title: 'Ruth Stays with Naomi',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ruth and Naomi at a crossroads' },
+        { src: 'panel-noah-2.svg', alt: 'Ruth says: wherever you go, I will go!' },
+        { src: 'panel-noah-3.svg', alt: 'Ruth gleans in Boaz\'s field—God provides!' }
+      ],
+      caption: 'Swipe to see Ruth\'s faithful love for Naomi! 🌾',
+      keywords: ['ruth', 'naomi', 'moab', 'ruth 2', 'loyal', 'wherever', 'field', 'faithful'],
+      kidContext: { who: 'God', to: 'Ruth', apply: 'Stick with those you love even in hard times! Loyalty is a gift—and God honors it.' }
+    },
+    estherFast: {
+      title: 'Esther Fasts and Goes to the King',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Mordecai tells Esther: you must act!' },
+        { src: 'panel-noah-2.svg', alt: 'Esther fasts three days with all the Jews' },
+        { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—scepter out, she\'s safe!' }
+      ],
+      caption: 'Swipe to see Esther fast, pray, and step out brave! 👑',
+      keywords: ['esther', 'fast', 'esther 4', 'scepter', 'pray', 'brave', 'mordecai'],
+      kidContext: { who: 'God', to: 'Esther', apply: 'Fast, pray, then go! God gives courage to those who seek Him first.' }
+    },
+    sarahPromise: {
+      title: 'Sarah Receives the Promise',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God promises Sarah a baby—at 90!' },
+        { src: 'panel-noah-2.svg', alt: 'She laughed—but God said: is anything too hard?' },
+        { src: 'panel-noah-3.svg', alt: 'Baby Isaac is born—the promise kept!' }
+      ],
+      caption: 'Swipe to see God keep His promise to Sarah! 👶',
+      keywords: ['sarah', 'promise', 'genesis 18', 'isaac', 'laugh', 'impossible', 'faithful'],
+      kidContext: { who: 'God', to: 'Sarah', apply: 'God always keeps His promises! Even the ones that seem impossible are safe in His hands.' }
+    },
+    miriamSong: {
+      title: 'Miriam Sings to the Lord',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Israel is safe on the other side of the sea' },
+        { src: 'panel-noah-2.svg', alt: 'Miriam takes her tambourine and leads the women' },
+        { src: 'panel-noah-3.svg', alt: 'She sings: The Lord has triumphed gloriously!' }
+      ],
+      caption: 'Swipe to see Miriam lead worship by the sea! 🥁',
+      keywords: ['miriam', 'song', 'tambourine', 'exodus 15', 'worship', 'dance', 'sea', 'praise'],
+      kidContext: { who: 'God', to: 'Miriam (and us)', apply: 'When God saves you—sing about it! Let praise pour out.' }
+    },
+    /* ── Week 11 (133–144) ── */
+    annaProphet: {
+      title: 'Anna the Prophetess',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Anna prays in the temple day and night' },
+        { src: 'panel-noah-2.svg', alt: 'Mary and Joseph bring baby Jesus to the temple' },
+        { src: 'panel-noah-3.svg', alt: 'Anna sees Jesus—she praises God!' }
+      ],
+      caption: 'Swipe to see Anna recognize baby Jesus—she never stopped praying! 🕍',
+      keywords: ['anna', 'prophet', 'temple', 'luke 2', 'baby jesus', 'pray', 'praise'],
+      kidContext: { who: 'God', to: 'Anna', apply: 'Never stop praying! Like Anna—stay close to God and He will show you His glory.' }
+    },
+    widowOil: {
+      title: 'The Widow\'s Endless Oil',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A widow owes money—only a little oil left' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into every jar you can find' },
+        { src: 'panel-noah-3.svg', alt: 'Oil fills every jar—God provides more than enough!' }
+      ],
+      caption: 'Swipe to see God\'s endless supply for the widow! 🫙',
+      keywords: ['widow', 'oil', 'elisha', '2 kings 4', 'jars', 'multiply', 'provide'],
+      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God\'s supply never runs out! Bring what little you have—He multiplies it.' }
+    },
+    persistentWidow: {
+      title: 'The Persistent Widow',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A widow goes to the judge day after day' },
+        { src: 'panel-noah-2.svg', alt: 'The judge refuses—but she keeps coming back' },
+        { src: 'panel-noah-3.svg', alt: 'He finally helps her—keep praying, God hears!' }
+      ],
+      caption: 'Swipe to see the woman who kept asking—and got her answer! 🚪',
+      keywords: ['widow', 'persistent', 'judge', 'luke 18', 'keep asking', 'prayer', 'justice'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Don\'t give up in prayer! God always answers those who keep coming to Him.' }
+    },
+    samaritanWoman: {
+      title: 'The Woman at the Well',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A Samaritan woman draws water at noon' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus asks for water—she\'s surprised He\'d talk to her' },
+        { src: 'panel-noah-3.svg', alt: 'He offers living water—she runs to tell everyone!' }
+      ],
+      caption: 'Swipe to see Jesus change a woman\'s life at the well! 💧',
+      keywords: ['samaritan', 'woman', 'well', 'john 4', 'water', 'living water', 'believe', 'tell'],
+      kidContext: { who: 'Jesus', to: 'The Samaritan woman', apply: 'Jesus talks to everyone—even those people ignore! He offers living water to all.' }
+    },
+    marthaServe: {
+      title: 'Martha Serves Jesus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Martha busily prepares food for Jesus' },
+        { src: 'panel-noah-2.svg', alt: 'She asks: don\'t you care I\'m doing all this?' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says: one thing is needed—choose the best thing!' }
+      ],
+      caption: 'Swipe to see what Jesus says about busyness and rest! 🍽️',
+      keywords: ['martha', 'serve', 'luke 10', 'busy', 'kitchen', 'best', 'mary', 'one thing'],
+      kidContext: { who: 'Jesus', to: 'Martha', apply: 'Don\'t be so busy you miss being with Jesus! Choose His presence first—then serve.' }
+    },
+    marySit: {
+      title: 'Mary Sits at Jesus\' Feet',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Mary sits and listens to Jesus' },
+        { src: 'panel-noah-2.svg', alt: 'Martha is busy—Mary sits still' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says: Mary chose the better thing!' }
+      ],
+      caption: 'Swipe to see Mary choose the one thing that matters—listening! 👂',
+      keywords: ['mary', 'sit', 'listen', 'luke 10', 'feet', 'better thing', 'jesus', 'word'],
+      kidContext: { who: 'Jesus', to: 'Mary (and us)', apply: 'Sit with Jesus! Listening to Him is the most important thing you can do each day.' }
+    },
+    dorcasRaise: {
+      title: 'Dorcas Is Raised to Life',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Dorcas loved people—she made clothes for the poor' },
+        { src: 'panel-noah-2.svg', alt: 'She died—friends mourn and call Peter' },
+        { src: 'panel-noah-3.svg', alt: 'Peter prays—she opens her eyes! Life again!' }
+      ],
+      caption: 'Swipe to see Dorcas raised back to life! 🧵',
+      keywords: ['dorcas', 'raise', 'acts 9', 'peter', 'clothes', 'poor', 'widow', 'life'],
+      kidContext: { who: 'God', to: 'Dorcas and Peter', apply: 'Your kindness matters to God! And He can raise what seems dead to life again.' }
+    },
+    phoebeDeacon: {
+      title: 'Phoebe the Deacon',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul writes: Phoebe is a deacon of the church' },
+        { src: 'panel-noah-2.svg', alt: 'She carries Paul\'s letter to Rome' },
+        { src: 'panel-noah-3.svg', alt: 'She serves faithfully—a helper of many!' }
+      ],
+      caption: 'Swipe to see Phoebe faithfully serve God\'s people! ✉️',
+      keywords: ['phoebe', 'deacon', 'romans 16', 'letter', 'rome', 'serve', 'faithful'],
+      kidContext: { who: 'God', to: 'Phoebe (and us)', apply: 'Faithful service matters! Like Phoebe—do your part well and God calls it great.' }
+    },
+    juniaApostle: {
+      title: 'Junia the Apostle',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul greets Andronicus and Junia in Romans' },
+        { src: 'panel-noah-2.svg', alt: 'He calls them outstanding among the apostles' },
+        { src: 'panel-noah-3.svg', alt: 'Junia was in prison for the gospel—so brave!' }
+      ],
+      caption: 'Swipe to see Junia honored as a brave servant of Jesus! 🌟',
+      keywords: ['junia', 'apostle', 'romans 16', 'paul', 'brave', 'gospel', 'outstanding'],
+      kidContext: { who: 'God', to: 'Junia (and us)', apply: 'God calls you by name and honors your faithfulness! You are seen and valued.' }
+    },
+    loisTimothy: {
+      title: 'Lois Passes Faith to Timothy',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Lois is Timothy\'s grandmother and a woman of faith' },
+        { src: 'panel-noah-2.svg', alt: 'She teaches Timothy God\'s Word from childhood' },
+        { src: 'panel-noah-3.svg', alt: 'Timothy becomes a great minister—faith passed on!' }
+      ],
+      caption: 'Swipe to see how Grandma Lois shaped Timothy\'s faith! 📖',
+      keywords: ['lois', 'timothy', '2 timothy 1', 'grandmother', 'faith', 'scripture', 'teach'],
+      kidContext: { who: 'God', to: 'Lois and Timothy', apply: 'Faith is passed on! Listen to godly people in your family—they give you something priceless.' }
+    },
+    euniceMother: {
+      title: 'Eunice: A Faithful Mother',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Eunice is Timothy\'s mother' },
+        { src: 'panel-noah-2.svg', alt: 'She teaches him scripture as a child' },
+        { src: 'panel-noah-3.svg', alt: 'Timothy grows up to serve God—thank you, Mom!' }
+      ],
+      caption: 'Swipe to see how a faithful mom changes the world! 💛',
+      keywords: ['eunice', 'mother', '2 timothy 1', 'timothy', 'scripture', 'teach', 'faith'],
+      kidContext: { who: 'God', to: 'Eunice and Timothy', apply: 'Thank God for people who teach you His Word! A faithful mom is a gift from heaven.' }
+    },
+    priscillaTent: {
+      title: 'Priscilla and Aquila: Tentmakers',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Priscilla and Aquila make tents for a living' },
+        { src: 'panel-noah-2.svg', alt: 'Paul works with them—they grow together' },
+        { src: 'panel-noah-3.svg', alt: 'Their home becomes a church—faithful servants!' }
+      ],
+      caption: 'Swipe to see how Priscilla and Aquila served God together! ⛺',
+      keywords: ['priscilla', 'tent', 'aquila', 'acts 18', 'paul', 'work', 'church', 'teach'],
+      kidContext: { who: 'God', to: 'Priscilla and Aquila', apply: 'Your home can be a place where God works! Serve Him together with your family.' }
+    },
+    /* ── Week 12 (145–160) ── */
+    lazarus: {
+      title: 'Jesus Raises Lazarus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Lazarus dies—Mary and Martha are sad' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus weeps—then commands: Lazarus, come out!' },
+        { src: 'panel-noah-3.svg', alt: 'Lazarus walks out—I am the resurrection and the life!' }
+      ],
+      caption: 'Swipe to see Jesus raise Lazarus from the dead! 🪨',
+      keywords: ['lazarus', 'raise', 'john 11', 'resurrection', 'mary', 'martha', 'come out'],
+      kidContext: { who: 'Jesus', to: 'Mary and Martha (and us)', apply: 'Jesus has power over death! He is the resurrection—trust Him with everything.' }
+    },
+    greatCommission: {
+      title: 'The Great Commission',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus appears on a mountain in Galilee' },
+        { src: 'panel-noah-2.svg', alt: 'He says: Go and make disciples of all nations' },
+        { src: 'panel-noah-3.svg', alt: 'And I am with you always—to the end!' }
+      ],
+      caption: 'Swipe to see Jesus send His followers to the whole world! 🌍',
+      keywords: ['great commission', 'matthew 28', 'go', 'make disciples', 'baptize', 'nations', 'with you always'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'You are sent! Tell everyone the good news—and Jesus is with you every step.' }
+    },
+    ascension: {
+      title: 'Jesus Ascends to Heaven',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus blesses His disciples' },
+        { src: 'panel-noah-2.svg', alt: 'He rises up—a cloud takes Him away' },
+        { src: 'panel-noah-3.svg', alt: 'Angels say: He will come back the same way!' }
+      ],
+      caption: 'Swipe to see Jesus go up to heaven—He\'s coming back! ☁️',
+      keywords: ['ascension', 'acts 1', 'heaven', 'cloud', 'angels', 'return', 'go'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus went to prepare a place for you! He is coming back—be ready and joyful.' }
+    },
+    pentecostTongues: {
+      title: 'Tongues of Fire at Pentecost',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Disciples wait in prayer together' },
+        { src: 'panel-noah-2.svg', alt: 'Fire rests on each one—they speak in new languages' },
+        { src: 'panel-noah-3.svg', alt: 'Three thousand believe that day—the church begins!' }
+      ],
+      caption: 'Swipe to see the Holy Spirit arrive with fire! 🔥',
+      keywords: ['pentecost', 'tongues', 'acts 2', 'fire', 'languages', 'spirit', 'church', 'power'],
+      kidContext: { who: 'Holy Spirit', to: 'The disciples (and all believers)', apply: 'God\'s Spirit lives in you! You have power to tell the world about Jesus.' }
+    },
+    armorBelt: {
+      title: 'Belt of Truth',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'A warrior puts on the belt of truth' },
+        { src: 'panel-david-2.svg', alt: 'Truth holds everything together' },
+        { src: 'panel-david-3.svg', alt: 'Stand firm in God\'s truth—it never changes!' }
+      ],
+      caption: 'Swipe to see the belt of truth—God\'s Word holds it all! 🪢',
+      keywords: ['armor', 'belt', 'truth', 'ephesians 6', 'stand', 'firm', 'word'],
+      kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Truth is your foundation! Know what God says—and stand on it every day.' }
+    },
+    prayerCloset: {
+      title: 'Pray in Your Closet',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus says: go into your room and shut the door' },
+        { src: 'panel-noah-2.svg', alt: 'Pray to your Father in secret' },
+        { src: 'panel-noah-3.svg', alt: 'Your Father who sees in secret will reward you!' }
+      ],
+      caption: 'Swipe to see how to pray in private—God loves it! 🚪',
+      keywords: ['prayer', 'closet', 'matthew 6', 'secret', 'room', 'father', 'reward'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Private prayer matters most! Find a quiet place and just talk to God—He\'s listening.' }
+    },
+    faithMountain: {
+      title: 'Faith That Moves Mountains',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus says: if you have faith as a mustard seed' },
+        { src: 'panel-noah-2.svg', alt: 'Nothing will be impossible for you' },
+        { src: 'panel-noah-3.svg', alt: 'A mountain moves—because faith in God does the impossible!' }
+      ],
+      caption: 'Swipe to see how faith really moves mountains! 🏔️',
+      keywords: ['faith', 'mountain', 'matthew 17', 'impossible', 'mustard', 'move', 'believe'],
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Say it out loud: nothing is impossible with God! Your faith moves things in the spirit.' }
+    },
+    loveNeighbor: {
+      title: 'Love Your Neighbor',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A lawyer asks: who is my neighbor?' },
+        { src: 'panel-noah-2.svg', alt: 'The Samaritan stops to help the wounded man' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus says: go and do the same!' }
+      ],
+      caption: 'Swipe to see what loving your neighbor really looks like! ❤️',
+      keywords: ['neighbor', 'love', 'luke 10', 'good samaritan', 'help', 'stranger', 'kind'],
+      kidContext: { who: 'Jesus', to: 'The lawyer (and us)', apply: 'Your neighbor is anyone who needs help! Go—be the one who stops and cares.' }
+    },
+    heavenDoor: {
+      title: 'The Door to Heaven',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus says: I stand at the door and knock' },
+        { src: 'panel-noah-2.svg', alt: 'If anyone opens—I will come in!' },
+        { src: 'panel-noah-3.svg', alt: 'Open the door to Jesus—He is waiting!' }
+      ],
+      caption: 'Swipe to see Jesus knock on your heart\'s door—open it! 🚪',
+      keywords: ['door', 'knock', 'revelation 3', 'come in', 'heart', 'jesus', 'open'],
+      kidContext: { who: 'Jesus', to: 'The church (and us)', apply: 'Jesus is knocking right now! Open the door—He wants to come in and stay.' }
+    },
+    revelationBride: {
+      title: 'The Lamb and His Bride',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The new city comes down—adorned like a bride' },
+        { src: 'panel-noah-2.svg', alt: 'The marriage supper of the Lamb!' },
+        { src: 'panel-noah-3.svg', alt: 'God with His people—forever and ever!' }
+      ],
+      caption: 'Swipe to see the great wedding day—Jesus and His people! 💍',
+      keywords: ['bride', 'lamb', 'revelation 21', 'wedding', 'supper', 'feast', 'forever'],
+      kidContext: { who: 'God', to: 'All His people', apply: 'The best day is coming—Jesus\' wedding feast! All who believe are invited—that means you!' }
+    },
+    treeFruit: {
+      title: 'The Tree That Heals Nations',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The tree of life grows by the river' },
+        { src: 'panel-noah-2.svg', alt: 'Its leaves heal every nation' },
+        { src: 'panel-noah-3.svg', alt: 'In God\'s city—everything is made whole!' }
+      ],
+      caption: 'Swipe to see the healing tree in God\'s new city! 🌿',
+      keywords: ['tree', 'fruit', 'revelation 22', 'heal', 'nations', 'leaves', 'life'],
+      kidContext: { who: 'God', to: 'All creation', apply: 'God\'s healing reaches every nation! His love is for everyone—share it.' }
+    },
+    noNight: {
+      title: 'No Night in God\'s City',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The new city glows—no sun or moon needed' },
+        { src: 'panel-noah-2.svg', alt: 'God\'s glory is the light' },
+        { src: 'panel-noah-3.svg', alt: 'No night there—God\'s light never goes out!' }
+      ],
+      caption: 'Swipe to see a world lit only by God\'s glory! ☀️',
+      keywords: ['night', 'light', 'revelation 22', 'glory', 'god', 'city', 'shine', 'dark'],
+      kidContext: { who: 'God', to: 'All His people', apply: 'You never need to be afraid of the dark—God\'s light is coming! And it lasts forever.' }
+    },
+    everyKneeBow: {
+      title: 'Every Knee Shall Bow',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A great throne of glory' },
+        { src: 'panel-noah-2.svg', alt: 'Every knee bows—in heaven and on earth' },
+        { src: 'panel-noah-3.svg', alt: 'Every tongue confesses: Jesus Christ is Lord!' }
+      ],
+      caption: 'Swipe to see every knee bow to Jesus—the day is coming! 🙇',
+      keywords: ['knee bow', 'philippians 2', 'every tongue', 'lord', 'throne', 'praise', 'glory'],
+      kidContext: { who: 'God', to: 'All people', apply: 'One day everyone will know Jesus is Lord! Choose to bow your heart to Him now—gladly.' }
+    },
+    newEarth: {
+      title: 'The New Earth',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God says: Behold, I make all things new!' },
+        { src: 'panel-noah-2.svg', alt: 'No more pain, no more crying, no more death' },
+        { src: 'panel-noah-3.svg', alt: 'The new earth—perfected and full of God\'s love!' }
+      ],
+      caption: 'Swipe to see God\'s brand-new perfect earth! 🌍',
+      keywords: ['new earth', 'revelation 21', 'all things new', 'no pain', 'perfect', 'eternal', 'glory'],
+      kidContext: { who: 'God', to: 'All creation', apply: 'The best world is coming! God is making all things new—and He never makes anything bad.' }
+    },
+    alphaOmega2: {
+      title: 'Alpha and Omega—The End',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'I am the Alpha and the Omega, the First and Last' },
+        { src: 'panel-noah-2.svg', alt: 'The beginning and the end—Jesus is eternal' },
+        { src: 'panel-noah-3.svg', alt: 'He was, He is, and He is to come—forever!' }
+      ],
+      caption: 'Swipe to see Jesus: the beginning, middle, and end of everything! ∞',
+      keywords: ['alpha omega', 'revelation 22', 'first', 'last', 'beginning', 'end', 'eternal', 'forever'],
+      kidContext: { who: 'Jesus', to: 'All creation', apply: 'Jesus is the start and finish of your story too! Give Him every chapter.' }
+    },
+    comeLordJesus: {
+      title: '"Come, Lord Jesus!"',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'John hears Jesus say: I am coming quickly!' },
+        { src: 'panel-noah-2.svg', alt: 'John answers: Amen—come, Lord Jesus!' },
+        { src: 'panel-noah-3.svg', alt: 'Every heart that loves Him says: come!' }
+      ],
+      caption: 'Swipe to hear the last prayer in the Bible—come, Lord Jesus! 🙏',
+      keywords: ['come lord jesus', 'revelation 22', 'amen', 'quickly', 'maranatha', 'last', 'return'],
+      kidContext: { who: 'Jesus', to: 'John (and us)', apply: 'The last word of the Bible is a prayer: Come, Lord Jesus! Say it with your whole heart.' }
     }
   };
 
@@ -1920,7 +3373,58 @@
     var low = (ref + ' ' + text).toLowerCase();
     var dayIndex = index;
     var isWeeklyStory = (dayIndex % 7) === 0;
-    var storyKeys = ['david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000', 'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation', 'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater', 'lostSheep', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower', 'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise', 'ruthBoaz', 'parableTalents', 'armorOfGod'];
+    var storyKeys = [
+      'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
+      'abrahamIsaac', 'josephCoat', 'mosesBush', 'redSea', 'manna', 'tenCommandments',
+      'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
+      'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
+      'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
+      'lostSheep', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
+      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+      'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
+      'ruthBoaz', 'parableTalents', 'armorOfGod',
+      /* Week 1 */
+      'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
+      'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
+      /* Week 2 */
+      'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
+      'pharaohDreams', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
+      /* Week 3 */
+      'joshuaJordan', 'jerichoWalls', 'rahabRope', 'balaamDonkey', 'samsonHair',
+      'ruthGlean', 'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
+      'saulSpear', 'davidCave',
+      /* Week 4 */
+      'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd',
+      'solomonWisdom', 'elijahChariot', 'jonahVine', 'danielPray', 'estherBanquet',
+      /* Week 5 */
+      'angelMary', 'shepherdsStar', 'jesusManger', 'jesusTemple', 'johnBaptize',
+      'jesusTempt', 'weddingWine', 'healBlind', 'jesusBlessKids',
+      /* Week 6 */
+      'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
+      /* Week 7 */
+      'crossCarry', 'crucifixion', 'tombEmpty', 'emmausRoad', 'thomasDoubt',
+      'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulSilas', 'tenVirgins',
+      /* Week 8 */
+      'armorShield', 'armorSword', 'fruitSpirit', 'loveChapter', 'faithMustard',
+      'prayerKnock', 'worryBirds', 'forgive70x7', 'widowMite', 'richYoungRuler',
+      'maryAnoint',
+      /* Week 9 */
+      'stephenStones', 'philipChariot', 'paulShip', 'revelationThrone', 'fourHorsemen',
+      'alphaOmega', 'newHeaven', 'treeOfLife', 'riverOfLife', 'lambBook',
+      'dragonFight', 'beastMark',
+      /* Week 10 */
+      'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'hannahPray',
+      'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
+      'sarahPromise', 'miriamSong',
+      /* Week 11 */
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'marthaServe',
+      'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
+      'euniceMother', 'priscillaTent',
+      /* Week 12 */
+      'lazarus', 'greatCommission', 'ascension', 'pentecostTongues', 'armorBelt',
+      'prayerCloset', 'faithMountain', 'loveNeighbor', 'heavenDoor', 'revelationBride',
+      'treeFruit', 'noNight', 'everyKneeBow', 'newEarth', 'alphaOmega2', 'comeLordJesus'
+    ];
     var weeklyStoryIndex = Math.floor(dayIndex / 7) % storyKeys.length;
     if (/armor of god|ephesians 6|helmet|sword.*spirit|breastplate/.test(low)) {
       return { type: 'carousel', story: 'armorOfGod' };
@@ -3706,7 +5210,58 @@
     jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
-    ruthBoaz: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience'
+    ruthBoaz: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
+    /* Week 1 */
+    mosesSea: 'Miracles', burningBush: 'Obedience', tenPlagues: 'Miracles', naamanDip: 'Obedience',
+    creationLight: 'Miracles', elijahFire: 'Miracles', elishaOil: 'Miracles', towerBabel: 'Obedience',
+    /* Week 2 */
+    sarahLaughs: 'Miracles', jacobLadder: 'Protection', josephDreams: 'Protection',
+    josephPrison: 'Protection', pharaohDreams: 'Miracles', mosesBaby: 'Protection',
+    mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
+    /* Week 3 */
+    joshuaJordan: 'Miracles', jerichoWalls: 'Obedience', rahabRope: 'Obedience',
+    balaamDonkey: 'Obedience', samsonHair: 'Protection', ruthGlean: 'Love',
+    samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
+    davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',
+    /* Week 4 */
+    elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', solomonWisdom: 'Obedience',
+    elijahChariot: 'Miracles', jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
+    /* Week 5 */
+    angelMary: 'Miracles', shepherdsStar: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
+    johnBaptize: 'Obedience', jesusTempt: 'Obedience', weddingWine: 'Miracles',
+    healBlind: 'Miracles', jesusBlessKids: 'Love',
+    /* Week 6 */
+    mustardSeed: 'Obedience', healLeper: 'Miracles', jairus: 'Miracles',
+    transfigure: 'Miracles', judasKiss: 'Love',
+    /* Week 7 */
+    crossCarry: 'Love', tombEmpty: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
+    pentecostFire: 'Miracles', peterShadow: 'Miracles', paulShipwreck: 'Protection',
+    paulSilas: 'Protection', tenVirgins: 'Obedience',
+    /* Week 8 */
+    armorShield: 'Protection', armorSword: 'Protection', fruitSpirit: 'Love',
+    loveChapter: 'Love', faithMustard: 'Obedience', prayerKnock: 'Obedience',
+    worryBirds: 'Protection', forgive70x7: 'Love', widowMite: 'Love', maryAnoint: 'Love',
+    /* Week 9 */
+    stephenStones: 'Protection', philipChariot: 'Obedience', paulShip: 'Protection',
+    revelationThrone: 'Miracles', fourHorsemen: 'Protection', alphaOmega: 'Obedience',
+    newHeaven: 'Love', treeOfLife: 'Love', riverOfLife: 'Love', lambBook: 'Obedience',
+    dragonFight: 'Protection', beastMark: 'Obedience',
+    /* Week 10 */
+    rahabWindow: 'Obedience', deborahJudge: 'Protection', jaelTent: 'Protection',
+    abigailWise: 'Love', hannahPray: 'Miracles', maryMagdalene: 'Love',
+    lydiaSell: 'Obedience', priscillaTeach: 'Obedience', ruthMoab: 'Love',
+    estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
+    /* Week 11 */
+    annaProphet: 'Obedience', widowOil: 'Miracles', persistentWidow: 'Obedience',
+    samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
+    dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
+    loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',
+    /* Week 12 */
+    greatCommission: 'Obedience', pentecostTongues: 'Miracles', armorBelt: 'Protection',
+    prayerCloset: 'Obedience', faithMountain: 'Obedience', loveNeighbor: 'Love',
+    heavenDoor: 'Love', revelationBride: 'Love', treeFruit: 'Love', noNight: 'Love',
+    everyKneeBow: 'Obedience', newEarth: 'Love', alphaOmega2: 'Obedience', comeLordJesus: 'Love'
   };
 
   if (typeof window !== 'undefined') {

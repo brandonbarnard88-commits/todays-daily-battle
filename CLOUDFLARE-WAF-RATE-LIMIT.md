@@ -11,7 +11,10 @@ Step-by-step to turn on WAF, Bot Fight Mode, and a simple rate limit for your Ed
 3. Under **Security Level** (or **Security level**):
    - Set to **Medium** (recommended).  
    - Use **High** if you see obvious bot/scraper traffic and few false positives.
-4. Save. No need to create custom rules unless you want to block specific paths or countries.
+4. Save.
+5. Create a reliability skip rule for public crawl files so external audits do not fail on bot challenges:
+   - See `CLOUDFLARE-RELIABILITY-BYPASS.md`
+   - This is required for `robots.txt` / `sitemap.xml` reliability with black-box scanners.
 
 ---
 

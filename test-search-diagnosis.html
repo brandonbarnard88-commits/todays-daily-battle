@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Diagnosis Tool - Today's Daily Battle</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    h1 { color: #60a5fa; }
+    h2 { color: #93c5fd; margin-top: 2rem; }
+    .test-section {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 4px solid #60a5fa;
+    }
+    .status {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-left: 1rem;
+    }
+    .status.pass { background: #10b981; color: white; }
+    .status.fail { background: #ef4444; color: white; }
+    .status.warn { background: #f59e0b; color: white; }
+    .status.info { background: #3b82f6; color: white; }
+    pre {
+      background: #0f172a;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-size: 0.875rem;
+    }
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+    button:hover { background: #2563eb; }
+    button:disabled {
+      background: #475569;
+      cursor: not-allowed;
+    }
+    .test-result {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      background: #334155;
+      border-radius: 4px;
+    }
+    .error { color: #fca5a5; }
+    .success { color: #86efac; }
+    .warning { color: #fcd34d; }
+    #iframe-container {
+      margin: 1rem 0;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Search Diagnosis Tool</h1>
+  <p>This tool will test homepage search interactions on <strong>todaysdailybattle.com</strong></p>
+
+  <div class="test-section">
+    <h2>Test Controls</h2>
+    <button id="run-all-tests">Run All Tests</button>
+    <button id="clear-results">Clear Results</button>
+  </div>
+
+  <div id="iframe-container">
+    <iframe id="test-iframe" src="https://todaysdailybattle.com/"></iframe>
+  </div>
+
+  <div class="test-section">
+    <h2>Test Results</h2>
+    <div id="results"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Console Logs & Errors</h2>
+    <div id="console-logs"></div>
+  </div>
+
+  <script>
+    const iframe = document.getElementById('test-iframe');
+    const resultsDiv = document.getElementById('results');
+    const consoleLogsDiv = document.getElementById('console-logs');
+    const logs = [];
+    const errors = [];
+
+    function log(message, type = 'info') {
+      const entry = `[${new Date().toLocaleTimeString()}] ${message}`;
+      logs.push({ message: entry, type });
+      updateConsoleDisplay();
+    }
+
+    function updateConsoleDisplay() {
+      const html = logs.map(l => {
+        const className = l.type === 'error' ? 'error' : 
+                         l.type === 'warn' ? 'warning' : 
+                         l.type === 'success' ? 'success' : '';
+        return `<div class="test-result ${className}">${l.message}</div>`;
+      }).join('');
+      consoleLogsDiv.innerHTML = html || '<p>No logs yet.</p>';
+    }
+
+    function addResult(testName, status, details) {
+      const statusClass = status === 'pass' ? 'pass' : 
+                         status === 'fail' ? 'fail' : 
+                         status === 'warn' ? 'warn' : 'info';
+      const html = `
+        <div class="test-result">
+          <strong>${testName}</strong>
+          <span class="status ${statusClass}">${status.toUpperCase()}</span>
+          <div style="margin-top: 0.5rem;">${details}</div>
+        </div>
+      `;
+      resultsDiv.innerHTML += html;
+    }
+
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function waitForIframeLoad() {
+      return new Promise((resolve) => {
+        if (iframe.contentWindow && iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+          resolve();
+        } else {
+          iframe.addEventListener('load', resolve, { once: true });
+        }
+      });
+    }
+
+    async function runTests() {
+      resultsDiv.innerHTML = '';
+      logs.length = 0;
+      errors.length = 0;
+      updateConsoleDisplay();
+
+      log('Starting tests...', 'info');
+
+      try {
+        // Wait for iframe to load
+        log('Waiting for page to load...', 'info');
+        await waitForIframeLoad();
+        await wait(2000); // Give scripts time to initialize
+
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const iframeWin = iframe.contentWindow;
+
+        // Test 1: Check if runSearchWithInput exists
+        log('Test 1: Checking if runSearchWithInput exists', 'info');
+        const hasRunSearch = typeof iframeWin.runSearchWithInput === 'function';
+        addResult(
+          'runSearchWithInput Function',
+          hasRunSearch ? 'pass' : 'fail',
+          hasRunSearch ? 'Function exists' : 'Function is missing!'
+        );
+
+        // Test 2: Check if real implementation loaded
+        log('Test 2: Checking if real search implementation loaded', 'info');
+        const hasRealImpl = typeof iframeWin.__tdbRunSearchReal === 'function';
+        addResult(
+          '__tdbRunSearchReal Implementation',
+          hasRealImpl ? 'pass' : 'warn',
+          hasRealImpl ? 'Real implementation loaded' : 'Still using stub (scripts may not be fully loaded)'
+        );
+
+        // Test 3: Check DOM elements
+        log('Test 3: Checking DOM elements', 'info');
+        const searchInput = iframeDoc.getElementById('tdb-search');
+        const searchBtn = iframeDoc.getElementById('search-btn');
+        const searchForm = iframeDoc.getElementById('search-form');
+        const outputEl = iframeDoc.getElementById('output');
+        const quickActionsHero = iframeDoc.getElementById('quick-actions-hero');
+
+        addResult(
+          'Search Input (#tdb-search)',
+          searchInput ? 'pass' : 'fail',
+          searchInput ? `Found: ${searchInput.tagName}` : 'Not found!'
+        );
+
+        addResult(
+          'Search Button (#search-btn)',
+          searchBtn ? 'pass' : 'fail',
+          searchBtn ? 'Found' : 'Not found!'
+        );
+
+        addResult(
+          'Search Form (#search-form)',
+          searchForm ? 'pass' : 'fail',
+          searchForm ? 'Found' : 'Not found!'
+        );
+
+        addResult(
+          'Output Container (#output)',
+          outputEl ? 'pass' : 'warn',
+          outputEl ? 'Found' : 'Will be created dynamically'
+        );
+
+        // Test 4: Check quick-topic chips
+        log('Test 4: Checking quick-topic chips', 'info');
+        const chips = quickActionsHero ? quickActionsHero.querySelectorAll('.topic-chip, .quick-topic, [data-topic]') : [];
+        addResult(
+          'Quick-Topic Chips',
+          chips.length >= 20 ? 'pass' : chips.length > 0 ? 'warn' : 'fail',
+          `Found ${chips.length} chips${chips.length > 0 ? ' (' + Array.from(chips).slice(0, 5).map(c => c.textContent.trim()).join(', ') + '...)' : ''}`
+        );
+
+        // Test 5: Try searching for "hope"
+        if (searchInput && hasRunSearch) {
+          log('Test 5: Testing search for "hope"', 'info');
+          searchInput.value = 'hope';
+          
+          const beforeURL = iframeWin.location.href;
+          const beforeOutput = outputEl ? outputEl.innerHTML : '';
+          
+          iframeWin.runSearchWithInput('hope');
+          await wait(2000); // Wait for search to complete
+          
+          const afterURL = iframeWin.location.href;
+          const afterOutput = iframeDoc.getElementById('output')?.innerHTML || '';
+          
+          const urlChanged = beforeURL !== afterURL;
+          const outputChanged = beforeOutput !== afterOutput;
+          const hasResults = afterOutput.includes('verse-card') || afterOutput.includes('result-section');
+          
+          addResult(
+            'Search for "hope"',
+            hasResults ? 'pass' : outputChanged ? 'warn' : 'fail',
+            `URL changed: ${urlChanged}<br>Output changed: ${outputChanged}<br>Has results: ${hasResults}<br>Current URL: ${afterURL}`
+          );
+        }
+
+        // Test 6: Click topic chips
+        if (chips.length > 0) {
+          log('Test 6: Testing topic chip clicks', 'info');
+          const testChips = Array.from(chips).slice(0, 3);
+          
+          for (let i = 0; i < testChips.length; i++) {
+            const chip = testChips[i];
+            const topic = chip.dataset?.topic || chip.getAttribute('data-topic') || chip.textContent.trim();
+            
+            log(`Clicking chip: ${topic}`, 'info');
+            chip.click();
+            await wait(1500);
+            
+            const currentOutput = iframeDoc.getElementById('output')?.innerHTML || '';
+            const hasResults = currentOutput.includes('verse-card') || currentOutput.includes('result-section');
+            
+            addResult(
+              `Click chip: "${topic}"`,
+              hasResults ? 'pass' : 'fail',
+              hasResults ? 'Results rendered' : 'No results visible'
+            );
+          }
+        }
+
+        // Test 7: Check for JS errors in console
+        log('Test 7: Checking browser console', 'info');
+        // Note: We can't actually access the iframe's console from this context
+        // but we can check for CSP violations and script load errors
+        addResult(
+          'Browser Console Check',
+          'info',
+          'Check the browser DevTools console for any errors related to:<br>- runSearchWithInput<br>- script.js<br>- CSP violations<br>- Failed script loads'
+        );
+
+        log('All tests complete!', 'success');
+
+      } catch (error) {
+        log(`Test error: ${error.message}`, 'error');
+        addResult(
+          'Test Execution',
+          'fail',
+          `Error: ${error.message}<br><pre>${error.stack}</pre>`
+        );
+      }
+    }
+
+    document.getElementById('run-all-tests').addEventListener('click', runTests);
+    document.getElementById('clear-results').addEventListener('click', () => {
+      resultsDiv.innerHTML = '<p>Click "Run All Tests" to begin.</p>';
+      logs.length = 0;
+      updateConsoleDisplay();
+    });
+
+    // Initial message
+    resultsDiv.innerHTML = '<p>Click "Run All Tests" to begin diagnosis.</p>';
+    log('Ready to test. Click "Run All Tests" button above.', 'info');
+  </script>
+</body>
+</html>

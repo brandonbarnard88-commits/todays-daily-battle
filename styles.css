@@ -11972,3 +11972,86 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   font-size: 0.88rem;
   margin: 0;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Desktop / large-screen readability enhancements
+   min-width: 768px — phones are unaffected
+───────────────────────────────────────────────────────────── */
+
+@media (min-width: 768px) {
+
+  /* Base type scale */
+  body {
+    font-size: 1.125rem;
+  }
+
+  /* ── Hero verse card ── */
+  #heroVerse {
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    line-height: 1.45;
+  }
+
+  #heroRef {
+    font-size: 1.2rem;
+  }
+
+  #heroBreakdown li {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  #heroApplication {
+    font-size: 1.15rem;
+    font-style: italic;
+  }
+
+  /* ── Plan progress card ── */
+  #plan-progress-card {
+    font-size: 1.1rem;
+  }
+
+  .plan-chip {
+    font-size: 1rem;
+    padding: 0.7rem 1.1rem;
+  }
+
+  /* ── Quick topic buttons ── */
+  .quick-topic {
+    font-size: 1rem;
+    padding: 0.9rem 0.75rem;
+    min-width: 100px;
+  }
+
+  /* ── Bottom nav labels: bump from 0.58rem ── */
+  .nav-link span:last-child,
+  .nav-link-btn span:last-child {
+    font-size: 0.72rem;
+    letter-spacing: 0;
+  }
+
+  /* ── Result cards & tool teasers ── */
+  .feel-cards,
+  .card.tool-teaser-card {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .card.tool-teaser-card {
+    padding: 1.4rem 1.5rem;
+    margin: 1rem 0;
+  }
+
+  /* ── About modal body text ── */
+  .about-modal-sheet p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  /* ── Search input & story textarea ── */
+  #feel-search,
+  #story-text {
+    font-size: 1.1rem;
+    padding: 0.9rem 1rem;
+  }
+
+}

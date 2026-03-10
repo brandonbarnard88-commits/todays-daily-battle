@@ -6,6 +6,49 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
+
+/**
+ * adaptiveInterval(fn, phases)
+ * Runs fn on a schedule that slows down over time so long-lived sessions
+ * don't hammer the API. Each phase is { after: ms, every: ms }.
+ * Phases must be ordered by ascending `after` value.
+ *
+ * Example — prayer count:
+ *   adaptiveInterval(fetchPrayerCount, [
+ *     { after: 0,        every: 10000  },  // 0–5 min:  every 10s
+ *     { after: 300000,   every: 60000  },  // 5–7 min:  every 60s
+ *     { after: 420000,   every: 120000 },  // 7 min+:   every 2 min
+ *   ]);
+ *
+ * Returns a cancel function.
+ */
+function adaptiveInterval(fn, phases) {
+  var startTime = Date.now();
+  var timerId = null;
+
+  function currentPhase() {
+    var elapsed = Date.now() - startTime;
+    var phase = phases[0];
+    for (var i = phases.length - 1; i >= 0; i--) {
+      if (elapsed >= phases[i].after) { phase = phases[i]; break; }
+    }
+    return phase;
+  }
+
+  function schedule() {
+    var interval = currentPhase().every;
+    timerId = setTimeout(function () {
+      fn();
+      schedule();
+    }, interval);
+  }
+
+  schedule();
+
+  return function cancel() {
+    if (timerId !== null) { clearTimeout(timerId); timerId = null; }
+  };
+}
 (function () {
   var c = (typeof window !== 'undefined' && window.TDB_CONFIG) || {};
   window.__tdbSupabaseUrl = c.SUPABASE_URL || '';
@@ -4155,7 +4198,12 @@ function wireRealPrayerCounter() {
   }
   window.__fetchPrayerCount = fetchPrayerCount;
   fetchPrayerCount();
-  setInterval(fetchPrayerCount, 10000);
+  // 0–5 min: every 10s (feels live) → 5–7 min: every 60s → 7 min+: every 2 min
+  adaptiveInterval(fetchPrayerCount, [
+    { after: 0,      every: 10000  },
+    { after: 300000, every: 60000  },
+    { after: 420000, every: 120000 }
+  ]);
 
   (function wirePrayersTodayCount() {
     var todayEl = document.getElementById('prayer-count-today');
@@ -4398,7 +4446,12 @@ function wireDailyVerseEcho() {
     }
   }
   if (!isPrayersApiAvailable()) return;
-  setInterval(fetchVerseEcho, 30000);
+  // 0–5 min: every 30s → 5–7 min: every 90s → 7 min+: every 3 min
+  adaptiveInterval(fetchVerseEcho, [
+    { after: 0,      every: 30000  },
+    { after: 300000, every: 90000  },
+    { after: 420000, every: 180000 }
+  ]);
   setTimeout(fetchVerseEcho, 1500);
 }
 
@@ -5860,7 +5913,11 @@ function wirePrayerQueueHealthDebug() {
   if (!isPrayerQueueDebugEnabled()) return;
   window.logQueueHealth = logPrayerQueueHealth;
   if (window.__tdbPrayerQueueHealthInterval) return;
-  window.__tdbPrayerQueueHealthInterval = setInterval(logPrayerQueueHealth, 30000);
+  window.__tdbPrayerQueueHealthInterval = adaptiveInterval(logPrayerQueueHealth, [
+    { after: 0,      every: 30000  },
+    { after: 300000, every: 120000 },
+    { after: 420000, every: 300000 }
+  ]);
 }
 function requestPrayerBackgroundSync() {
   if (!('serviceWorker' in navigator) || !navigator.serviceWorker.ready) return;
@@ -6195,8 +6252,17 @@ function wireGodModePrayerEcho() {
     if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
   } else {
     fetchAndRenderEcho();
-    setInterval(fetchAndRenderEcho, 15000);
-    setInterval(fetchPresence, 15000);
+    // 0–5 min: every 15s → 5–7 min: every 60s → 7 min+: every 2 min
+    adaptiveInterval(fetchAndRenderEcho, [
+      { after: 0,      every: 15000  },
+      { after: 300000, every: 60000  },
+      { after: 420000, every: 120000 }
+    ]);
+    adaptiveInterval(fetchPresence, [
+      { after: 0,      every: 15000  },
+      { after: 300000, every: 60000  },
+      { after: 420000, every: 120000 }
+    ]);
   }
   if (joinBtn) {
     joinBtn.addEventListener('click', function () {

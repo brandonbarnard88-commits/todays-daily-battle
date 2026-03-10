@@ -53,7 +53,7 @@
     }
 
     .app {
-      width: min(100%, 600px);
+      width: min(100%, 1200px);
       min-height: 100dvh;
       padding: 28px 20px 110px;
       position: relative;
@@ -65,36 +65,66 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 2rem 0 1.25rem;
+      padding: 2rem 0 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
       gap: 0;
     }
     .site-logo {
-      width: clamp(160px, 45vw, 260px);
+      width: clamp(180px, 35vw, 260px);
       height: auto;
       border-radius: 16px;
       object-fit: cover;
       display: block;
       margin-bottom: 1rem;
-      filter: drop-shadow(0 0 18px rgba(227, 188, 103, 0.45)) drop-shadow(0 0 6px rgba(227, 188, 103, 0.25));
+      filter: drop-shadow(0 0 22px rgba(227, 188, 103, 0.5)) drop-shadow(0 0 8px rgba(227, 188, 103, 0.28));
     }
     .site-title {
       margin: 0;
-      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
       font-weight: 800;
       letter-spacing: 0.04em;
       color: var(--gold);
       line-height: 1.15;
     }
     .site-tagline {
-      margin: 0.35rem 0 0;
-      font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+      margin: 0.4rem 0 0;
+      font-size: clamp(0.78rem, 2vw, 1rem);
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
+
+    /* ── Main grid — single column mobile, two-col desktop ── */
     main {
       display: grid;
-      gap: 20px;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 900px) {
+      .app {
+        padding: 2.5rem 3rem 110px;
+      }
+      main {
+        grid-template-columns: 1fr 360px;
+        column-gap: 2rem;
+        row-gap: 1.5rem;
+        align-items: start;
+      }
+      #verseCard          { grid-column: 1; grid-row: 1; }
+      #plan-progress-card { grid-column: 2; grid-row: 1; }
+      #plans-teaser       { grid-column: 2; grid-row: 2; }
+      main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser) {
+        grid-column: 1 / -1;
+      }
+      .card { padding: 2rem 2.25rem; }
+      body  { font-size: 1.15rem; line-height: 1.75; }
+      #heroVerse         { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.35; }
+      #heroRef           { font-size: 1.35rem; }
+      #heroBreakdown li  { font-size: 1.25rem; margin: 0.6rem 0; }
+      #heroApplication   { font-size: 1.25rem; }
+      .quick-topic       { font-size: 1.1rem; padding: 1rem 0.8rem; }
+      #feel-search       { font-size: 1.15rem; padding: 0.9rem 1rem; }
     }
 
     .card {

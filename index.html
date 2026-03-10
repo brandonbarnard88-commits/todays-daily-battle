@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311c -->
+<!-- tdb build 20260311d -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -132,6 +132,7 @@
       main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser):not(#feel-section) {
         grid-column: 1 / -1 !important;
       }
+      .verse-img-card { grid-column: 1 / -1 !important; }
       .card              { padding: 2rem 2.25rem; }
       #heroVerse         { font-size: clamp(1.8rem, 2.8vw, 2.5rem); line-height: 1.35; }
       #heroRef           { font-size: 1.35rem; }
@@ -761,6 +762,95 @@
     .pwa-nudge.show { display: flex; }
 
     .pwa-nudge-icon { font-size: 1.25rem; flex-shrink: 0; }
+
+    /* ── Daily Verse Image Card ── */
+    .verse-img-card {
+      grid-column: 1 / -1;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background:
+        linear-gradient(160deg,
+          rgba(10, 22, 40, 0.72) 0%,
+          rgba(15, 42, 74, 0.60) 40%,
+          rgba(26, 58, 90, 0.50) 70%,
+          rgba(10, 22, 40, 0.78) 100%),
+        linear-gradient(135deg, #0a1628 0%, #0d3152 35%, #1a5276 65%, #0a2040 100%);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(227,188,103,0.18);
+      padding: 2.5rem 2rem 1.5rem;
+    }
+    .verse-img-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(26,120,180,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 35%, rgba(227,188,103,0.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .verse-img-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+    .verse-img-text {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 3vw, 1.65rem);
+      line-height: 1.6;
+      color: #fff;
+      margin: 0 0 1.25rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.55);
+      letter-spacing: 0.01em;
+    }
+    .verse-img-rule {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.35);
+      width: 60px;
+      margin: 0 auto 1rem;
+    }
+    .verse-img-ref {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      color: rgba(255,255,255,0.92);
+      margin: 0;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      letter-spacing: 0.02em;
+    }
+    .verse-img-share {
+      position: absolute;
+      bottom: 14px;
+      right: 16px;
+      z-index: 2;
+      background: rgba(227,188,103,0.18);
+      border: 1px solid rgba(227,188,103,0.5);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .verse-img-share:hover,
+    .verse-img-share:focus-visible {
+      background: rgba(227,188,103,0.32);
+      color: #fff;
+      outline: none;
+    }
+    @media (min-width: 900px) {
+      .verse-img-card { min-height: 260px; padding: 3rem 4rem 2rem; }
+      .verse-img-text { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+      .verse-img-ref  { font-size: clamp(1.3rem, 1.8vw, 1.65rem); }
+    }
 
     .pwa-nudge-dismiss {
       margin-left: auto;
@@ -1932,6 +2022,16 @@
         <button class="pwa-nudge-dismiss" type="button" id="pwaDismiss" aria-label="Dismiss install nudge">✕</button>
       </div>
 
+      <!-- ── Daily Verse Image Card ── -->
+      <div class="verse-img-card" id="verseImgCard" aria-hidden="true">
+        <div class="verse-img-inner">
+          <p class="verse-img-text" id="verseImgText"></p>
+          <hr class="verse-img-rule">
+          <p class="verse-img-ref" id="verseImgRef"></p>
+        </div>
+        <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
+      </div>
+
       <!-- ── Hero Verse ── -->
       <section class="card verse-card is-loading" id="verseCard" aria-live="polite">
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
@@ -2697,6 +2797,12 @@
       }
 
       requestAnimationFrame(() => heroVerse.classList.add("is-visible"));
+
+      // ── Populate verse image card ──
+      const imgText = document.getElementById('verseImgText');
+      const imgRef  = document.getElementById('verseImgRef');
+      if (imgText) imgText.textContent = '\u201c' + v.text + '\u201d';
+      if (imgRef)  imgRef.textContent  = v.ref;
     }
 
     function setVerseLoadingState(isLoading) {
@@ -3286,6 +3392,26 @@
       pwaNudge.classList.remove("show");
       localStorage.setItem("tdb-pwa-nudge-dismissed", "1");
     });
+
+    // ── Verse image card share button ──
+    (function wireVerseImgShare() {
+      const btn = document.getElementById('verseImgShare');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const text = document.getElementById('verseImgText');
+        const ref  = document.getElementById('verseImgRef');
+        const shareText = (ref ? ref.textContent : '') + '\n' +
+          (text ? text.textContent : '') + '\n— todaysdailybattle.com';
+        if (navigator.share) {
+          navigator.share({ text: shareText }).catch(() => {});
+        } else {
+          navigator.clipboard.writeText(shareText).then(() => {
+            btn.textContent = 'Copied \u2713';
+            setTimeout(() => { btn.textContent = 'Share \u2197'; }, 1800);
+          }).catch(() => {});
+        }
+      });
+    }());
 
     // ── Service Worker ──
     function registerServiceWorker() {

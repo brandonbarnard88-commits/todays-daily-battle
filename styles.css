@@ -12196,3 +12196,61 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
     font-size: clamp(2.5rem, 4vw, 3rem);
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Fat-up pass: header, quick-grid, spacing, touch targets
+───────────────────────────────────────────────────────────── */
+
+/* Header border edge + bigger logo cap on desktop */
+@media (min-width: 768px) {
+  .site-header {
+    border-bottom: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 20%, transparent);
+    padding-bottom: 2rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Quick-topic grid: wider cells, breathe on desktop */
+@media (min-width: 768px) {
+  .quick-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.65rem;
+  }
+
+  .quick-grid .quick-topic {
+    font-size: 1rem;
+    padding: 0.75rem 0.6rem;
+    min-height: 48px;
+  }
+
+  .quick-grid .quick-topic:hover,
+  .quick-grid .quick-topic:focus-visible {
+    background: color-mix(in srgb, var(--gold, #e3bc67) 12%, transparent);
+    border-color: color-mix(in srgb, var(--gold, #e3bc67) 50%, transparent);
+    color: var(--gold, #e3bc67);
+  }
+}
+
+/* Mobile touch targets — emoji chips need room */
+@media (max-width: 767px) {
+  .quick-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .quick-grid .quick-topic {
+    min-height: 52px;
+    font-size: 0.88rem;
+    padding: 0.65rem 0.4rem;
+  }
+}
+
+/* Global line-height and section spacing defaults */
+body {
+  line-height: 1.6;
+}
+
+main > .card {
+  margin-bottom: 0.25rem;
+}
+

@@ -50,18 +50,16 @@
     body {
       display: flex;
       justify-content: center;
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
     .app {
-      width: min(100%, 1200px);
+      width: 100%;
+      max-width: 1200px;
       min-height: 100dvh;
-      padding: 28px 2rem 110px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    @media (min-width: 768px) {
-      .app { padding-left: 4rem; padding-right: 4rem; }
+      padding: 24px 1.5rem 110px;
+      box-sizing: border-box;
     }
 
     /* ── Layout ── */
@@ -71,18 +69,17 @@
       align-items: center;
       text-align: center;
       padding: 2rem 0 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       border-bottom: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
-      gap: 0;
     }
     .site-logo {
-      width: clamp(180px, 35vw, 260px);
+      width: clamp(180px, 30vw, 260px);
       height: auto;
       border-radius: 16px;
       object-fit: cover;
       display: block;
       margin-bottom: 1rem;
-      filter: drop-shadow(0 0 22px rgba(227, 188, 103, 0.5)) drop-shadow(0 0 8px rgba(227, 188, 103, 0.28));
+      filter: drop-shadow(0 0 22px rgba(227,188,103,0.5)) drop-shadow(0 0 8px rgba(227,188,103,0.28));
     }
     .site-title {
       margin: 0;
@@ -100,15 +97,20 @@
       text-transform: uppercase;
     }
 
-    /* ── Main grid — single column mobile, two-col desktop ── */
+    /* ── Main: single column on mobile ── */
     main {
       display: grid;
       gap: 1.25rem;
     }
 
+    /* ── Desktop: two-column, full width, proper padding ── */
     @media (min-width: 900px) {
       .app {
-        padding: 2.5rem 3rem 110px;
+        padding: 2rem 4rem 110px;
+      }
+      body {
+        font-size: 1.15rem;
+        line-height: 1.75;
       }
       main {
         grid-template-columns: 1fr 360px;
@@ -122,9 +124,8 @@
       main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser) {
         grid-column: 1 / -1;
       }
-      .card { padding: 2rem 2.25rem; }
-      body  { font-size: 1.15rem; line-height: 1.75; }
-      #heroVerse         { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.35; }
+      .card              { padding: 2rem 2.25rem; }
+      #heroVerse         { font-size: clamp(1.8rem, 2.8vw, 2.5rem); line-height: 1.35; }
       #heroRef           { font-size: 1.35rem; }
       #heroBreakdown li  { font-size: 1.25rem; margin: 0.6rem 0; }
       #heroApplication   { font-size: 1.25rem; }
@@ -143,8 +144,9 @@
     /* ── Hero Verse ── */
     .hero-verse {
       color: var(--gold-soft);
-      font-size: clamp(1.3rem, 6vw, 1.9rem);
-      line-height: 1.45;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      line-height: 1.5;
+      font-weight: 600;
       margin: 0;
       opacity: 0;
       transform: translateY(8px);
@@ -1781,6 +1783,44 @@
     }
     .nudge-see-more:hover { text-decoration: underline; }
     .nudge-popover-body { flex: 1; }
+
+    /* ── Quick-topic grid — spreads on all screens ── */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 0.55rem;
+      margin: 0.75rem 0;
+    }
+    .quick-grid .quick-topic {
+      min-height: 50px;
+      font-size: 0.88rem;
+      padding: 0.6rem 0.4rem;
+      text-align: center;
+      border-radius: 12px;
+      cursor: pointer;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--text);
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .quick-grid .quick-topic:hover,
+    .quick-grid .quick-topic:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: color-mix(in srgb, var(--gold) 10%, var(--card));
+      outline: none;
+    }
+    @media (min-width: 900px) {
+      .quick-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.75rem;
+      }
+      .quick-grid .quick-topic {
+        font-size: 1.05rem;
+        padding: 0.85rem 0.6rem;
+        min-height: 54px;
+      }
+    }
   </style>
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
   <script type="application/ld+json">

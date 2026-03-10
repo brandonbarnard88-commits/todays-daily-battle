@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- tdb build 20260311a -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -39,9 +40,10 @@
     * { box-sizing: border-box; }
 
     html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box;
       min-height: 100%;
       font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif;
       background: radial-gradient(circle at top, rgba(227, 188, 103, 0.1), transparent 40%), var(--bg);
@@ -56,14 +58,16 @@
     .app {
       width: 100% !important;
       max-width: 1200px !important;
-      min-height: 100dvh;
-      padding: 24px 2rem 110px !important;
       margin: 0 auto !important;
+      padding: 0 2rem 110px !important;
+      min-height: 100vh !important;
       box-sizing: border-box !important;
     }
 
-    @media (max-width: 899px) {
-      .app { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    @media (min-width: 900px) {
+      .app {
+        padding: 0 4rem 110px !important;
+      }
     }
 
     /* ── Layout ── */
@@ -112,9 +116,6 @@
 
     /* ── Desktop: two-column, full width, proper padding ── */
     @media (min-width: 900px) {
-      .app {
-        padding: 2rem 4rem 110px !important;
-      }
       body {
         font-size: 1.15rem;
         line-height: 1.75;
@@ -1830,8 +1831,8 @@
 
     /* ── Quick-topic grid — spreads on all screens ── */
     .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important;
       gap: 0.55rem;
       margin: 0.75rem 0;
     }

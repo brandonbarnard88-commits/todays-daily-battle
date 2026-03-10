@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311r -->
+<!-- tdb build 20260311t -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -96,31 +96,37 @@
       border-bottom: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
     }
     .site-title {
-      margin: 0;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: 0.04em;
+      margin: 0 0 0.1rem;
+      font-size: clamp(1.9rem, 6.5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: 0.03em;
       color: var(--gold);
-      line-height: 1.15;
+      line-height: 1;
+      white-space: nowrap;
+      text-shadow: 0 2px 18px rgba(227,188,103,0.22);
     }
     .site-tagline {
-      margin: 0.4rem 0 0;
-      font-size: clamp(0.72rem, 1.8vw, 0.88rem);
+      margin: 0.55rem 0 0;
+      font-size: clamp(0.8rem, 2.2vw, 1rem);
       color: var(--muted);
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      opacity: 0.7;
+      opacity: 0.75;
+      font-style: italic;
+    }
+    /* Crop the baked-in title text (top ~32%) and bottom banner (bottom ~12%) from the PNG */
+    .site-logo-wrap {
+      width: clamp(200px, 48vw, 300px);
+      overflow: hidden;
+      aspect-ratio: 1 / 1.1;
+      display: block;
     }
     .site-logo {
-      width: clamp(220px, 50vw, 360px);
-      height: auto;
-      border-radius: 0;
-      object-fit: contain;
+      width: 100%;
+      height: 155%;
+      object-fit: cover;
+      object-position: center 30%;
       display: block;
-      margin-bottom: 0.25rem;
-    }
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
     }
 
     /* ── Main: single column on mobile ── */
@@ -131,7 +137,8 @@
 
     /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
-      .site-logo { width: clamp(280px, 28vw, 400px); }
+      .site-logo-wrap { width: clamp(240px, 22vw, 320px); }
+      .site-title { font-size: clamp(2.2rem, 3.5vw, 3.4rem); }
 
       body {
         font-size: 1.05rem;
@@ -2010,9 +2017,11 @@
   <div class="app">
 
     <header class="site-header">
-      <img src="/logo.png" alt="Today's Daily Battle — For God, For Country, For Family" class="site-logo">
-      <h1 class="site-title sr-only">Today's Daily Battle</h1>
-      <p class="site-tagline sr-only">Less scroll, more Soul</p>
+      <h1 class="site-title">Today's Daily Battle</h1>
+      <div class="site-logo-wrap">
+        <img src="/logo.png" alt="Today's Daily Battle coat of arms — For God, For Country, For Family" class="site-logo">
+      </div>
+      <p class="site-tagline">Less Scroll, More Soul</p>
     </header>
 
     <!-- Hidden search plumbing for script.js compatibility -->

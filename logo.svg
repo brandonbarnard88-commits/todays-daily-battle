@@ -50,28 +50,33 @@
     <style>
       @media (prefers-reduced-motion: no-preference) {
 
-        /* ── Sunrise bloom: scale 0.8→1 + opacity 0→target ──
-           transform-box + transform-origin anchor scale to each
-           element's own centre so it blooms outward, not from SVG origin */
-        .sr-layer {
+        /* Group-level: anchors transform-origin to each child's own fill-box */
+        .sunrise-group {
+          transform-box: fill-box;
+          transform-origin: center;
+        }
+
+        /* All sunrise children share the bloom animation */
+        .sunrise-group > * {
           opacity: 0;
           transform-box: fill-box;
-          transform-origin: center center;
-          animation: sr-bloom 3s ease-out forwards;
-        }
-        /* Each layer gets a slightly different final opacity to preserve depth */
-        .sr-1 { animation-delay: 1.55s; --sr-end-opacity: 0.65; }
-        .sr-2 { animation-delay: 1.72s; --sr-end-opacity: 0.72; }
-        .sr-3 { animation-delay: 1.88s; --sr-end-opacity: 0.80; }
-        .sr-4 { animation-delay: 2.00s; --sr-end-opacity: 0.40; }
-        .sr-horizon { animation-delay: 2.10s; --sr-end-opacity: 1.0; }
-
-        @keyframes sr-bloom {
-          0%   { opacity: 0;   transform: scale(0.8); }
-          100% { opacity: var(--sr-end-opacity, 0.7); transform: scale(1); }
+          transform-origin: center;
+          animation: bloom 3s ease-out forwards;
         }
 
-        /* ── Cross draw-on ── */
+        /* Per-child: opacity target + delay — nth-child matches DOM order */
+        .sunrise-group > *:nth-child(1) { --sr-end-opacity: 0.65; animation-delay: 1.55s; }
+        .sunrise-group > *:nth-child(2) { --sr-end-opacity: 0.72; animation-delay: 1.70s; }
+        .sunrise-group > *:nth-child(3) { --sr-end-opacity: 0.80; animation-delay: 1.85s; }
+        .sunrise-group > *:nth-child(4) { --sr-end-opacity: 0.40; animation-delay: 2.00s; }
+        .sunrise-group > *:nth-child(5) { --sr-end-opacity: 1.00; animation-delay: 2.12s; } /* horizon rect */
+
+        @keyframes bloom {
+          from { transform: scale(0.8); opacity: 0; }
+          to   { transform: scale(1);   opacity: var(--sr-end-opacity, 0.7); }
+        }
+
+        /* Cross draw-on */
         .cross-v {
           stroke-dasharray: 1000;
           stroke-dashoffset: 1000;
@@ -84,16 +89,16 @@
         }
         @keyframes draw-cross { to { stroke-dashoffset: 0; } }
 
-        /* ── Cross glow blooms after drawing ── */
+        /* Cross glow blooms using the same bloom keyframe */
         .cross-glow-layer {
           opacity: 0;
           transform-box: fill-box;
-          transform-origin: center center;
-          animation: sr-bloom 1.4s ease-out 1.65s forwards;
+          transform-origin: center;
           --sr-end-opacity: 0.55;
+          animation: bloom 1.4s ease-out 1.65s forwards;
         }
 
-        /* ── Text slides up last ── */
+        /* Text slides up last */
         .logo-text, .logo-underline {
           opacity: 0;
           animation: text-in 0.9s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
@@ -106,10 +111,13 @@
         }
       }
 
-      /* Static fallback — no motion */
+      /* Reduced-motion: render everything at final state instantly */
       @media (prefers-reduced-motion: reduce) {
-        .sr-layer   { opacity: 0.7  !important; transform: none !important; }
-        .sr-4       { opacity: 0.40 !important; }
+        .sunrise-group > *:nth-child(1) { opacity: 0.65 !important; transform: none !important; }
+        .sunrise-group > *:nth-child(2) { opacity: 0.72 !important; transform: none !important; }
+        .sunrise-group > *:nth-child(3) { opacity: 0.80 !important; transform: none !important; }
+        .sunrise-group > *:nth-child(4) { opacity: 0.40 !important; transform: none !important; }
+        .sunrise-group > *:nth-child(5) { opacity: 1.00 !important; transform: none !important; }
         .cross-glow-layer  { opacity: 0.55 !important; transform: none !important; }
         .logo-text, .logo-underline { opacity: 1 !important; transform: none !important; }
         .cross-v, .cross-h { stroke-dashoffset: 0 !important; }
@@ -119,21 +127,27 @@
 
   <g clip-path="url(#clip)">
 
-    <!-- ══ SUNRISE — blooms after cross draws ══ -->
-    <ellipse class="sr-layer sr-1" cx="120" cy="172" rx="132" ry="78" fill="url(#sg-halo)"  filter="url(#blur-lg)"/>
-    <ellipse class="sr-layer sr-2" cx="120" cy="168" rx="105" ry="62" fill="url(#sg-bloom)" filter="url(#blur-lg)"/>
-    <ellipse class="sr-layer sr-3" cx="120" cy="164" rx="80"  ry="50" fill="url(#sg-core)"  filter="url(#blur-md)"/>
-    <ellipse class="sr-layer sr-4" cx="120" cy="166" rx="38"  ry="22" fill="#ffdd88" filter="url(#blur-md)"/>
-    <rect class="sr-layer sr-horizon" x="0" y="168" width="240" height="1.5" fill="url(#horizon-fade)" rx="1"/>
+    <!-- ══ SUNRISE GROUP ══ -->
+    <g class="sunrise-group">
+      <!-- :nth-child(1) — outer halo -->
+      <ellipse cx="120" cy="172" rx="132" ry="78" fill="url(#sg-halo)"  filter="url(#blur-lg)"/>
+      <!-- :nth-child(2) — middle bloom -->
+      <ellipse cx="120" cy="168" rx="105" ry="62" fill="url(#sg-bloom)" filter="url(#blur-lg)"/>
+      <!-- :nth-child(3) — core warm glow -->
+      <ellipse cx="120" cy="164" rx="80"  ry="50" fill="url(#sg-core)"  filter="url(#blur-md)"/>
+      <!-- :nth-child(4) — inner hot centre -->
+      <ellipse cx="120" cy="166" rx="38"  ry="22" fill="#ffdd88"        filter="url(#blur-md)"/>
+      <!-- :nth-child(5) — horizon line -->
+      <rect x="0" y="168" width="240" height="1.5" fill="url(#horizon-fade)" rx="1"/>
+    </g>
 
-    <!-- ══ CROSS GLOW — blooms in after draw ══ -->
+    <!-- ══ CROSS GLOW — blooms after draw ══ -->
     <g class="cross-glow-layer" filter="url(#blur-md)">
       <line x1="120" y1="32"  x2="120" y2="190" stroke="#ffd580" stroke-width="16" stroke-linecap="round"/>
       <line x1="64"  y1="104" x2="176" y2="104" stroke="#ffd580" stroke-width="12" stroke-linecap="round"/>
     </g>
 
     <!-- ══ CROSS — draw-on ══ -->
-    <!-- Vertical: waisted cubic, top→bottom -->
     <path class="cross-v"
       d="M 120,32 C 119,68 119,92 120,104 C 121,116 121,148 120,190"
       pathLength="1000"
@@ -143,7 +157,6 @@
       fill="none"
       filter="url(#cross-glow)"/>
 
-    <!-- Horizontal: gently bowed, left→right -->
     <path class="cross-h"
       d="M 64,106 C 88,103 108,102 120,102 C 132,102 152,103 176,106"
       pathLength="1000"

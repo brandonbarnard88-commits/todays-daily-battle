@@ -2292,6 +2292,40 @@
         min-height: 54px;
       }
     }
+    /* ── Share verse row ────────────────────────── */
+    .share-verse-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.1rem 0 0.6rem;
+    }
+    .share-verse-btn {
+      background: transparent;
+      border: 1px solid rgba(227, 188, 103, 0.5);
+      color: var(--gold, #e3bc67);
+      border-radius: 999px;
+      padding: 0.45rem 1.3rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
+    .share-verse-btn:hover,
+    .share-verse-btn:focus-visible {
+      border-color: var(--gold, #e3bc67);
+      box-shadow: 0 0 10px rgba(227, 188, 103, 0.28);
+      color: #fff;
+      outline: none;
+    }
+    .share-verse-whisper {
+      font-size: 0.75rem;
+      color: var(--muted, #94a3b8);
+      margin: 0;
+      font-style: italic;
+    }
+
     /* ── Mood overlay ─────────────────────────────── */
     :root {
       --mood-peace:    rgba(255, 248, 225, 0.10);
@@ -2486,6 +2520,12 @@
           <button type="button" class="hero-menu-btn" id="heroMenuImage" role="menuitem" aria-label="Create shareable verse image">🖼 Image</button>
         </div>
       </section>
+
+      <!-- ── Share this verse ── -->
+      <div class="share-verse-row">
+        <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share today's verse with a friend">Share this verse</button>
+        <p class="share-verse-whisper">If this helped, tell a friend.</p>
+      </div>
 
       <!-- ── 7-Day Battle Plan Progress ── -->
       <section class="card plan-progress-card" id="plan-progress-card" aria-label="7-Day Battle Plan">

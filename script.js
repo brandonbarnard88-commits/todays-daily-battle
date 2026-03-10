@@ -15847,6 +15847,13 @@ function writeNbaSignal(key) {
   wireDailyBattleSeedForm();
   wireInstallPrompt();
   wireNotifPermCard();
+  // Share verse button — bottom of hero verse card
+  var shareVerseBtn = document.getElementById('shareVerseBtn');
+  if (shareVerseBtn) {
+    shareVerseBtn.addEventListener('click', function () {
+      if (typeof shareDailyBattle === 'function') shareDailyBattle();
+    });
+  }
   wireWeeklyRecapNudge();
   if (document.getElementById('home-streak-badge')) updateHomeStreakBadge();
   wireOfflineBanner();

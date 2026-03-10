@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311b -->
+<!-- tdb build 20260311c -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -122,13 +122,14 @@
       main {
         grid-template-columns: 1fr 360px !important;
         column-gap: 2rem !important;
-        row-gap: 1.5rem !important;
+        row-gap: 1.25rem !important;
         align-items: start;
       }
-      #verseCard          { grid-column: 1 !important; grid-row: 1 !important; }
+      #verseCard          { grid-column: 1 !important; grid-row: 1 / 4 !important; }
       #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
       #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
-      main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser) {
+      #feel-section       { grid-column: 1 / -1 !important; grid-row: 4 !important; }
+      main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser):not(#feel-section) {
         grid-column: 1 / -1 !important;
       }
       .card              { padding: 2rem 2.25rem; }

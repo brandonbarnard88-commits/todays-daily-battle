@@ -49,6 +49,29 @@ function adaptiveInterval(fn, phases) {
     if (timerId !== null) { clearTimeout(timerId); timerId = null; }
   };
 }
+
+/**
+ * applyMoodOverlay(moodId)
+ * Sets --current-mood CSS variable on :root so the .mood-overlay div
+ * transitions to a matching tint. Persists to localStorage so it
+ * survives page reloads until the user picks a new mood.
+ */
+var MOOD_OVERLAY_KEY = 'tdb_current_mood';
+function applyMoodOverlay(moodId) {
+  var safe = String(moodId || '').replace(/[^a-z]/g, '');
+  document.documentElement.style.setProperty(
+    '--current-mood',
+    safe ? 'var(--mood-' + safe + ', transparent)' : 'transparent'
+  );
+  try { localStorage.setItem(MOOD_OVERLAY_KEY, safe); } catch (_) {}
+}
+// Restore saved mood on load
+(function () {
+  try {
+    var saved = localStorage.getItem(MOOD_OVERLAY_KEY);
+    if (saved) applyMoodOverlay(saved);
+  } catch (_) {}
+}());
 (function () {
   var c = (typeof window !== 'undefined' && window.TDB_CONFIG) || {};
   window.__tdbSupabaseUrl = c.SUPABASE_URL || '';
@@ -3897,7 +3920,7 @@ function wireInstallPrompt() {
       if (installNote) installNote.textContent = 'On iPhone: tap Share, then Add to Home Screen.';
     } else {
       installBtn.textContent = 'Add to Home Screen';
-      if (installNote) installNote.textContent = 'Add to Home Screen - Feels like an app.';
+      if (installNote) installNote.textContent = 'One tap away—your daily verse, offline and ready.';
     }
     installCta.classList.add('show');
   }
@@ -9537,6 +9560,7 @@ function renderDailyMoodCenter() {
         ref: currentDailyBattle && currentDailyBattle.ref ? currentDailyBattle.ref : ''
       });
       saveDailyMoodLogs(logs);
+      applyMoodOverlay(moodId);
       if (typeof trackEvent === 'function') trackEvent('daily_mood_checkin', { mood: moodId });
       renderDailyMoodCenter();
     });

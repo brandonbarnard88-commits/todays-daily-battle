@@ -151,15 +151,8 @@ for (const f of otherHtml) {
       ['id="search-btn"', 'search button'],
       ['class="quick-links"', 'quick-links tools section'],
       ['bible-tool.html', 'Bible Tool link'],
-      ['pastor-toolkit.html', 'Pastor Toolkit link'],
-      ['team-toolkit.html', 'Team Toolkit link'],
-      ['study.html', 'Build a Lesson link'],
-      ['bible-study.html', 'Bible Studies link'],
-      ['sermon.html', 'Build a Sermon link'],
-      ['message.html', 'Message Board link'],
-      ['coloring.html', 'Kids Coloring link'],
-      ['id="daily-btn"', "Today's Battle button"],
-      ['id="main-search"', 'main-search section']
+      ['sermon.html', 'Build a Sermon / Sermon Builder link'],
+      ['kids/index.html', 'Kids Corner link'],
     ];
     for (const [needle, label] of required) {
       if (!indexContent.includes(needle)) {

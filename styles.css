@@ -3196,6 +3196,26 @@ body:has(.search-hero-home) #search-hero {
 .install-cta {
   display: none;
   align-items: center;
+  gap: 0.75rem;
+  background: rgba(10, 8, 20, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 140, 0, 0.28);
+  border-radius: 14px;
+  padding: 0.85rem 1.1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.install-cta::before {
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  background: url('/logo-shield-600.png') center / cover no-repeat;
+  border-radius: 7px;
+  opacity: 0.92;
 }
 
 .install-cta.show {

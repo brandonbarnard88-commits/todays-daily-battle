@@ -2965,6 +2965,23 @@
       });
     }());
 
+    // ── Quick-topic button click → trigger feel search ──
+    (function wireQuickTopics() {
+      const grid = document.getElementById('quickTopics');
+      const input = document.getElementById('feel-search');
+      if (!grid || !input) return;
+      grid.addEventListener('click', function (e) {
+        const btn = e.target.closest('.quick-topic[data-topic]');
+        if (!btn) return;
+        const topic = btn.dataset.topic || btn.getAttribute('data-topic');
+        if (!topic) return;
+        input.value = topic;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        input.focus();
+      });
+    }());
+
     // ── Theme ──
     function syncThemeBtn() {
       var isLight = document.documentElement.dataset.theme === "light";

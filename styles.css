@@ -12064,13 +12064,13 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 @media (min-width: 1024px) {
 
   :root {
-    --font-base: 1.125rem;
-    --font-hero: clamp(2rem, 3.5vw, 2.5rem);
+    --font-base: 1.2rem;
+    --font-hero: 2.5rem;
   }
 
   body {
     font-size: var(--font-base);
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
   /* Widen the content column on large screens */
@@ -12091,12 +12091,12 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   }
 
   #heroBreakdown li {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     margin: 0.75rem 0;
   }
 
   #heroApplication {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     padding: 0.75rem 0;
   }
 
@@ -12112,15 +12112,15 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 
   /* ── Quick topic buttons ── */
   .quick-topic {
-    font-size: 1.15rem;
-    padding: 1.1rem 0.9rem;
+    font-size: 1.3rem;
+    padding: 1.2rem 0.9rem;
     min-width: 120px;
   }
 
   /* ── Bottom nav labels (override the 0.58rem mobile squeeze) ── */
   .nav-link span:last-child,
   .nav-link-btn span:last-child {
-    font-size: 0.82rem;
+    font-size: 1rem;
     letter-spacing: 0.02em;
   }
 
@@ -12150,6 +12150,6 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 /* ── Fluid hero on Retina/HiDPI — independent of breakpoint ── */
 @media (min-resolution: 2dppx) and (min-width: 1024px) {
   #heroVerse {
-    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    font-size: clamp(2.5rem, 4vw, 3rem);
   }
 }

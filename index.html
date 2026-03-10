@@ -1806,7 +1806,6 @@
               <rect x="14" y="4" width="4" height="16" rx="1"></rect>
             </svg>
           </button>
-          <audio id="heroReadAudio" preload="none"></audio>
         </div>
         <p class="verse-ref" id="heroRef"></p>
         <span id="heroStreakBadge" class="hero-streak-badge" aria-label="Daily streak" hidden></span>
@@ -3167,32 +3166,12 @@
     }
     // ────────────────────────────────────────────────────────────────────────
 
-    // ── Read-aloud (MP3 + TTS fallback) ──
+    // ── Read-aloud (TTS) ──
     function wireReadAloudTts() {
-      const btn   = document.getElementById('readAloudBtn');
-      const audio = document.getElementById('heroReadAudio');
+      const btn = document.getElementById('readAloudBtn');
       if (!btn) return;
 
       const hasTts = 'speechSynthesis' in window;
-
-      // ── Probe whether the MP3 actually loads ──
-      function probeAudio(onReady, onFail) {
-        if (!audio) { onFail(); return; }
-        // Set src here (not in HTML) so the browser never fetches until we ask
-        var MP3_SRC = '/assets/hero-read.mp3';
-        function done() { cleanup(); onReady(); }
-        function fail() { cleanup(); onFail(); }
-        function cleanup() {
-          audio.removeEventListener('canplaythrough', done);
-          audio.removeEventListener('error', fail);
-        }
-        if (audio.src && audio.readyState >= 3) { onReady(); return; }
-        audio.addEventListener('canplaythrough', done, { once: true });
-        audio.addEventListener('error',          fail, { once: true });
-        audio.src = MP3_SRC;
-        audio.load();
-      }
-
       function setUnavailable() {
         btn.hidden = false;
         btn.classList.add('is-unavailable');
@@ -3254,44 +3233,9 @@
         });
       }
 
-      // ── Audio file playback ──
-      function wireAudioFile() {
-        setReady();
-
-        // Stop any overlap if another element somehow triggers audio
-        audio.addEventListener('play',  () => setPlaying(true));
-        audio.addEventListener('pause', () => setPlaying(false));
-        audio.addEventListener('ended', () => { setPlaying(false); audio.currentTime = 0; });
-        audio.addEventListener('error', () => {
-          setPlaying(false);
-          // Degrade gracefully to TTS if file disappears at runtime
-          if (hasTts) {
-            btn.classList.remove('is-unavailable');
-            wireTtsFallback();
-          } else {
-            setUnavailable();
-          }
-        });
-
-        btn.addEventListener('click', () => {
-          if (!audio.paused) {
-            audio.pause();
-          } else {
-            audio.currentTime = 0;
-            audio.play().catch(() => {
-              // Autoplay blocked or file gone — fall to TTS
-              if (hasTts) wireTtsFallback();
-              else         setUnavailable();
-            });
-          }
-        });
-      }
-
-      // ── Decision: MP3 first, TTS second, unavailable last ──
-      probeAudio(wireAudioFile, () => {
-        if (hasTts) wireTtsFallback();
-        else        setUnavailable();
-      });
+      // MP3 doesn't exist — skip the probe fetch (no 404) and go straight to TTS
+      if (hasTts) wireTtsFallback();
+      else        setUnavailable();
     }
 
     // ── Offline pill badge + online recovery ──

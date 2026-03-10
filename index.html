@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311t -->
+<!-- tdb build 20260311u -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -114,19 +114,16 @@
       opacity: 0.75;
       font-style: italic;
     }
-    /* Crop the baked-in title text (top ~32%) and bottom banner (bottom ~12%) from the PNG */
+    /* Crest image — no cropping needed, image is already crest-only */
     .site-logo-wrap {
-      width: clamp(200px, 48vw, 300px);
-      overflow: hidden;
-      aspect-ratio: 1 / 1.1;
+      width: clamp(200px, 50vw, 320px);
       display: block;
     }
     .site-logo {
       width: 100%;
-      height: 155%;
-      object-fit: cover;
-      object-position: center 30%;
+      height: auto;
       display: block;
+      object-fit: contain;
     }
 
     /* ── Main: single column on mobile ── */
@@ -137,8 +134,7 @@
 
     /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
-      .site-logo-wrap { width: clamp(240px, 22vw, 320px); }
-      .site-title { font-size: clamp(2.2rem, 3.5vw, 3.4rem); }
+      .site-logo-wrap { width: clamp(240px, 24vw, 340px); }
 
       body {
         font-size: 1.05rem;
@@ -2019,7 +2015,7 @@
     <header class="site-header">
       <h1 class="site-title">Today's Daily Battle</h1>
       <div class="site-logo-wrap">
-        <img src="/logo.png" alt="Today's Daily Battle coat of arms — For God, For Country, For Family" class="site-logo">
+        <img src="/logo-crest.jpg" alt="Today's Daily Battle coat of arms — For God, For Country, For Family" class="site-logo">
       </div>
       <p class="site-tagline">Less Scroll, More Soul</p>
     </header>

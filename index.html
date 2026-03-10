@@ -6,6 +6,9 @@
 
   <title>today's daily battle</title>
   <meta name="description" content="A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
   <style>
     :root {
       --bg: #0f1218;
@@ -57,6 +60,19 @@
     }
 
     /* ── Layout ── */
+    .site-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .site-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
     .site-wordmark {
       margin: 0 0 4px;
       font-size: 0.82rem;
@@ -1754,7 +1770,10 @@
 
   <div class="app">
 
-    <p class="site-wordmark" aria-label="Today's Daily Battle">today's daily battle</p>
+    <header class="site-header">
+      <img src="/icon-192.png" alt="Today's Daily Battle shield logo" class="site-logo" width="48" height="48">
+      <p class="site-wordmark" aria-label="Today's Daily Battle">today's daily battle</p>
+    </header>
 
     <!-- Hidden search plumbing for script.js compatibility -->
     <section class="sr-only" aria-hidden="true">

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311h -->
+<!-- tdb build 20260311i -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -10,6 +10,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Handwritten font for logo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0f1218;
@@ -81,18 +85,9 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 2.5rem 0 2rem;
+      padding: 2rem 0 1.5rem;
       margin-bottom: 1.75rem;
       border-bottom: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
-    }
-    .site-logo {
-      width: clamp(180px, 32vw, 280px);
-      height: auto;
-      border-radius: 0;
-      object-fit: contain;
-      display: block;
-      margin-bottom: 1.4rem;
-      filter: drop-shadow(0 0 28px rgba(227,188,103,0.55)) drop-shadow(0 0 10px rgba(227,188,103,0.32));
     }
     .site-title {
       margin: 0;
@@ -104,8 +99,20 @@
     }
     .site-tagline {
       margin: 0.4rem 0 0;
-      font-size: clamp(0.78rem, 2vw, 1rem);
+      font-size: clamp(0.72rem, 1.8vw, 0.88rem);
       color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+    .site-logo {
+      width: clamp(160px, 28vw, 240px);
+      height: auto;
+      border-radius: 0;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -118,7 +125,7 @@
 
     /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
-      .site-logo { width: clamp(240px, 20vw, 340px); }
+      .site-logo { width: clamp(200px, 18vw, 280px); }
 
       body {
         font-size: 1.05rem;
@@ -1997,8 +2004,8 @@
   <div class="app">
 
     <header class="site-header">
-      <img src="/logo-header.png" alt="Today's Daily Battle — Father, Son, Holy Ghost shield" class="site-logo">
-      <h1 class="site-title">Today's Daily Battle</h1>
+      <img src="/logo.svg" alt="Today's Daily Battle — cross and sunrise" class="site-logo">
+      <h1 class="site-title sr-only">Today's Daily Battle</h1>
       <p class="site-tagline">Less scroll, more soul</p>
     </header>
 

@@ -55,8 +55,13 @@
     .app {
       width: min(100%, 1200px);
       min-height: 100dvh;
-      padding: 28px 20px 110px;
+      padding: 28px 2rem 110px;
+      margin: 0 auto;
       position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .app { padding-left: 4rem; padding-right: 4rem; }
     }
 
     /* ── Layout ── */

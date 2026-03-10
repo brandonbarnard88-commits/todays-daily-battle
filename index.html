@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311x -->
+<!-- tdb build 20260311y -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -4895,20 +4895,27 @@
       if (!canvas || !header) return;
 
       var ctx = canvas.getContext('2d');
-      var W, H, stars = [], shooters = [];
+      var W, H;
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // ── Seed a deterministic RNG so stars don't jump on resize ──
+      // ── Time of day ──
+      var hour = new Date().getHours() + new Date().getMinutes() / 60;
+      var isDay   = hour >= 6  && hour < 19.5;
+      var isDawn  = hour >= 5  && hour < 7.5;
+      var isDusk  = hour >= 18 && hour < 20.5;
+      var isNight = !isDay;
+
+      // ── Seeded RNG (deterministic per session) ──
       function seededRand(seed) {
         var s = seed;
-        return function () { s = (s * 16807 + 0) % 2147483647; return (s - 1) / 2147483646; };
+        return function () { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
       }
       var rand = seededRand(20260311);
 
-      function resize() {
-        W = canvas.width  = header.offsetWidth;
-        H = canvas.height = header.offsetHeight;
-        buildStars();
-      }
+      // ─────────────────────────────────────────────
+      // NIGHT OBJECTS
+      // ─────────────────────────────────────────────
+      var stars = [], shooters = [];
 
       function buildStars() {
         stars = [];
@@ -4917,43 +4924,267 @@
         for (var i = 0; i < count; i++) {
           var fy = r();
           stars.push({
-            x: r() * W,
-            // stars populate the upper 80%, fading toward warm horizon base
-            y: fy * H * 0.82,
+            x: r() * W, y: fy * H * 0.82,
             radius: r() * 1.2 + 0.3,
-            // brightness fades toward bottom (horizon warmth takes over)
             base: (1 - fy * 0.7) * (r() * 0.5 + 0.3),
             speed: r() * 3 + 2,
             offset: r() * Math.PI * 2
           });
         }
-        // pre-build 2 shooters
         shooters = [makeShooter(0), makeShooter(6000)];
       }
 
       function makeShooter(delay) {
-        var r = rand;
         return {
-          x: -120,
-          y: H * (0.05 + r() * 0.35),
-          angle: 25 + r() * 20,         // degrees downward
-          speed: 8 + r() * 6,
-          length: 80 + r() * 80,
-          opacity: 0,
-          delay: delay,
-          timer: -(delay),
-          done: false
+          x: -120, y: H * (0.05 + rand() * 0.35),
+          angle: 25 + rand() * 20, speed: 8 + rand() * 6,
+          length: 80 + rand() * 80,
+          timer: -delay
         };
       }
 
+      // ─────────────────────────────────────────────
+      // DAY OBJECTS
+      // ─────────────────────────────────────────────
+      var clouds = [], birds = [], eclipse = null;
+      var sunX, sunY;
+
+      function buildDayObjects() {
+        sunX = W * 0.72;
+        sunY = H * 0.22;
+
+        // Clouds: 4–6 drifting layers
+        clouds = [];
+        var r = seededRand(20260311);
+        var count = 4 + Math.floor(r() * 3);
+        for (var i = 0; i < count; i++) {
+          clouds.push({
+            x: r() * W * 1.4 - W * 0.2,
+            y: H * (0.08 + r() * 0.42),
+            scale: 0.55 + r() * 0.9,
+            speed: 0.12 + r() * 0.22,   // px/frame
+            opacity: 0.45 + r() * 0.40,
+            puffs: Math.floor(r() * 3) + 3  // number of overlapping ellipses
+          });
+        }
+
+        // Birds: 5–9 silhouettes in loose V formation, drifting
+        birds = [];
+        var bCount = 5 + Math.floor(rand() * 5);
+        var bBaseX = rand() * W * 0.6 + W * 0.05;
+        var bBaseY = H * (0.12 + rand() * 0.3);
+        for (var b = 0; b < bCount; b++) {
+          birds.push({
+            x: bBaseX + (rand() - 0.5) * W * 0.35,
+            y: bBaseY + (rand() - 0.5) * H * 0.2,
+            speed: 0.35 + rand() * 0.55,
+            wingPhase: rand() * Math.PI * 2,
+            wingSpeed: 0.04 + rand() * 0.04,
+            size: 5 + rand() * 5
+          });
+        }
+
+        // Eclipse: random 0–1, shows roughly 1-in-5 chance
+        var r2 = seededRand(new Date().getDate() * 7 + new Date().getMonth());
+        eclipse = (r2() > 0.78) ? {
+          // Moon disc offset from sun center
+          offsetX: (r2() - 0.5) * 30,
+          offsetY: (r2() - 0.5) * 30,
+          progress: 0   // 0=nothing, animates 0→1→0 over ~8s
+        } : null;
+      }
+
+      function drawCloud(cx, cy, scale, puffs, opacity) {
+        ctx.save();
+        ctx.globalAlpha = opacity;
+        // Soft white/grey cloud
+        var isDuskColor = isDusk || isDawn;
+        var baseColor = isDuskColor ? 'rgba(255,180,120,' : 'rgba(240,245,255,';
+        for (var p = 0; p < puffs; p++) {
+          var px = cx + (p - puffs / 2) * 28 * scale;
+          var py = cy + Math.sin(p * 1.4) * 10 * scale;
+          var pr = (18 + Math.sin(p * 0.9) * 8) * scale;
+          var cg = ctx.createRadialGradient(px, py - pr * 0.3, pr * 0.1, px, py, pr);
+          cg.addColorStop(0,   isDuskColor ? 'rgba(255,210,160,0.92)' : 'rgba(255,255,255,0.92)');
+          cg.addColorStop(0.5, isDuskColor ? 'rgba(240,170,100,0.55)' : 'rgba(220,235,255,0.55)');
+          cg.addColorStop(1,   'rgba(200,210,230,0)');
+          ctx.beginPath();
+          ctx.ellipse(px, py, pr * 1.5, pr, 0, 0, Math.PI * 2);
+          ctx.fillStyle = cg;
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      function drawBird(bx, by, wingPhase, size) {
+        ctx.save();
+        ctx.strokeStyle = 'rgba(20,15,10,0.55)';
+        ctx.lineWidth = 1.2;
+        ctx.lineCap = 'round';
+        var wing = Math.sin(wingPhase) * size * 0.55;
+        // Left wing arc
+        ctx.beginPath();
+        ctx.moveTo(bx, by);
+        ctx.quadraticCurveTo(bx - size * 0.7, by - wing, bx - size * 1.4, by + wing * 0.3);
+        ctx.stroke();
+        // Right wing arc
+        ctx.beginPath();
+        ctx.moveTo(bx, by);
+        ctx.quadraticCurveTo(bx + size * 0.7, by - wing, bx + size * 1.4, by + wing * 0.3);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // ─────────────────────────────────────────────
+      // RESIZE
+      // ─────────────────────────────────────────────
+      function resize() {
+        W = canvas.width  = header.offsetWidth;
+        H = canvas.height = header.offsetHeight;
+        if (isDay)   buildDayObjects();
+        if (isNight) buildStars();
+      }
+
+      // ─────────────────────────────────────────────
+      // DRAW
+      // ─────────────────────────────────────────────
       var t = 0;
-      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       function drawFrame() {
         if (!ctx) return;
         ctx.clearRect(0, 0, W, H);
+        t += 0.016;
 
-        // ── Sky gradient: deep midnight blue-black top → warm amber base ──
+        if (isDay) {
+          drawDaySky();
+        } else {
+          drawNightSky();
+        }
+
+        if (!prefersReducedMotion) requestAnimationFrame(drawFrame);
+      }
+
+      function drawDaySky() {
+        // ── Sky gradient ──
+        var sky = ctx.createLinearGradient(0, 0, 0, H);
+        if (isDawn) {
+          sky.addColorStop(0,    '#0a0820');
+          sky.addColorStop(0.3,  '#2a0e3a');
+          sky.addColorStop(0.65, '#8b2a00');
+          sky.addColorStop(1,    '#ff6600');
+        } else if (isDusk) {
+          sky.addColorStop(0,    '#0d1035');
+          sky.addColorStop(0.4,  '#7a1a40');
+          sky.addColorStop(0.75, '#d44010');
+          sky.addColorStop(1,    '#ff8820');
+        } else {
+          // Daytime: deep blue → mid blue → warm horizon
+          sky.addColorStop(0,    '#0a1a40');
+          sky.addColorStop(0.45, '#1a5098');
+          sky.addColorStop(0.78, '#5090d0');
+          sky.addColorStop(1,    '#a8d0f0');
+        }
+        ctx.fillStyle = sky;
+        ctx.fillRect(0, 0, W, H);
+
+        // ── Sun ──
+        var sx = prefersReducedMotion ? sunX : sunX + Math.sin(t * 0.05) * 2;
+        var sy = sunY;
+
+        // Sun corona glow (large, very soft)
+        var corona = ctx.createRadialGradient(sx, sy, 10, sx, sy, 120);
+        corona.addColorStop(0,    'rgba(255,240,160,0.55)');
+        corona.addColorStop(0.3,  'rgba(255,200,60,0.20)');
+        corona.addColorStop(0.7,  'rgba(255,150,20,0.08)');
+        corona.addColorStop(1,    'rgba(255,100,0,0)');
+        ctx.fillStyle = corona;
+        ctx.beginPath();
+        ctx.arc(sx, sy, 120, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Sun halo ring
+        var halo = ctx.createRadialGradient(sx, sy, 18, sx, sy, 38);
+        halo.addColorStop(0,   'rgba(255,255,200,0.30)');
+        halo.addColorStop(1,   'rgba(255,220,80,0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(sx, sy, 38, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Sun disc
+        var sunDisc = ctx.createRadialGradient(sx - 4, sy - 4, 2, sx, sy, 22);
+        sunDisc.addColorStop(0,   '#fffff0');
+        sunDisc.addColorStop(0.4, '#ffe566');
+        sunDisc.addColorStop(1,   '#ffaa00');
+        ctx.fillStyle = sunDisc;
+        ctx.beginPath();
+        ctx.arc(sx, sy, 22, 0, Math.PI * 2);
+        ctx.fill();
+
+        // ── Eclipse overlay ──
+        if (eclipse) {
+          eclipse.progress = Math.min(1, eclipse.progress + 0.003);
+          var ep = Math.sin(eclipse.progress * Math.PI);  // 0→1→0 arc
+          if (ep > 0.02) {
+            var mx = sx + eclipse.offsetX * ep;
+            var my = sy + eclipse.offsetY * ep;
+            // Moon shadow disc
+            ctx.save();
+            ctx.globalAlpha = Math.min(1, ep * 1.4);
+            var moonShadow = ctx.createRadialGradient(mx - 5, my - 5, 2, mx, my, 24);
+            moonShadow.addColorStop(0,   '#080010');
+            moonShadow.addColorStop(0.7, '#0a0520');
+            moonShadow.addColorStop(1,   'rgba(5,0,15,0.85)');
+            ctx.fillStyle = moonShadow;
+            ctx.beginPath();
+            ctx.arc(mx, my, 24, 0, Math.PI * 2);
+            ctx.fill();
+            // Corona ring visible during eclipse
+            if (ep > 0.5) {
+              ctx.globalAlpha = (ep - 0.5) * 2 * 0.7;
+              var eclipseCorona = ctx.createRadialGradient(mx, my, 22, mx, my, 40);
+              eclipseCorona.addColorStop(0,   'rgba(255,240,200,0.9)');
+              eclipseCorona.addColorStop(0.4, 'rgba(255,180,60,0.4)');
+              eclipseCorona.addColorStop(1,   'rgba(255,100,0,0)');
+              ctx.fillStyle = eclipseCorona;
+              ctx.beginPath();
+              ctx.arc(mx, my, 40, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            ctx.restore();
+          }
+          if (eclipse.progress >= 1) eclipse.progress = 0; // loop
+        }
+
+        // ── Clouds ──
+        clouds.forEach(function (c) {
+          drawCloud(c.x, c.y, c.scale, c.puffs, c.opacity);
+          if (!prefersReducedMotion) {
+            c.x += c.speed;
+            if (c.x > W + 200) c.x = -200;
+          }
+        });
+
+        // ── Birds ──
+        birds.forEach(function (b) {
+          drawBird(b.x, b.y, b.wingPhase, b.size);
+          if (!prefersReducedMotion) {
+            b.x += b.speed;
+            b.wingPhase += b.wingSpeed;
+            if (b.x > W + 60) b.x = -60;
+          }
+        });
+
+        // ── Warm horizon glow ──
+        var hg = ctx.createLinearGradient(0, H * 0.7, 0, H);
+        hg.addColorStop(0, 'rgba(255,200,100,0)');
+        hg.addColorStop(1, isDawn || isDusk ? 'rgba(255,100,20,0.22)' : 'rgba(255,200,120,0.10)');
+        ctx.fillStyle = hg;
+        ctx.fillRect(0, H * 0.7, W, H * 0.3);
+      }
+
+      function drawNightSky() {
+        // ── Sky gradient ──
         var sky = ctx.createLinearGradient(0, 0, 0, H);
         sky.addColorStop(0,    '#000510');
         sky.addColorStop(0.55, '#050d1a');
@@ -4962,29 +5193,19 @@
         ctx.fillStyle = sky;
         ctx.fillRect(0, 0, W, H);
 
-        // ── Warm horizon glow ──
-        var horizonGlow = ctx.createRadialGradient(W / 2, H, 0, W / 2, H, W * 0.65);
-        horizonGlow.addColorStop(0,   'rgba(180,80,0,0.28)');
-        horizonGlow.addColorStop(0.4, 'rgba(120,50,0,0.12)');
-        horizonGlow.addColorStop(1,   'rgba(0,0,0,0)');
-        ctx.fillStyle = horizonGlow;
+        // Warm horizon glow
+        var hg = ctx.createRadialGradient(W / 2, H, 0, W / 2, H, W * 0.65);
+        hg.addColorStop(0,   'rgba(180,80,0,0.28)');
+        hg.addColorStop(0.4, 'rgba(120,50,0,0.12)');
+        hg.addColorStop(1,   'rgba(0,0,0,0)');
+        ctx.fillStyle = hg;
         ctx.fillRect(0, 0, W, H);
 
-        if (prefersReducedMotion) {
-          // Static stars only — no animation loop
-          stars.forEach(function (s) {
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(220,230,255,' + s.base + ')';
-            ctx.fill();
-          });
-          return;
-        }
-
-        // ── Twinkling stars ──
-        t += 0.016;
+        // Stars
         stars.forEach(function (s) {
-          var brightness = s.base + Math.sin(t / s.speed + s.offset) * 0.18;
+          var brightness = prefersReducedMotion
+            ? s.base
+            : s.base + Math.sin(t / s.speed + s.offset) * 0.18;
           brightness = Math.max(0.05, Math.min(1, brightness));
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
@@ -4992,44 +5213,36 @@
           ctx.fill();
         });
 
-        // ── Shooting stars ──
+        if (prefersReducedMotion) return;
+
+        // Shooting stars
         shooters.forEach(function (sh, idx) {
           sh.timer += 16;
           if (sh.timer < 0) return;
-
           var rad = (sh.angle * Math.PI) / 180;
-          var progress = sh.timer / 1200; // 1.2s total flight
-
+          var progress = sh.timer / 1200;
           if (progress > 1) {
-            // Reset with random delay 8–18s
             shooters[idx] = makeShooter(0);
             shooters[idx].timer = -(8000 + rand() * 10000);
             return;
           }
-
-          var cx = sh.x + Math.cos(rad) * sh.speed * sh.timer * 0.1;
-          var cy = sh.y + Math.sin(rad) * sh.speed * sh.timer * 0.1;
-          var op = progress < 0.15 ? progress / 0.15
-                 : progress > 0.75 ? (1 - progress) / 0.25
-                 : 1;
+          var cx2 = sh.x + Math.cos(rad) * sh.speed * sh.timer * 0.1;
+          var cy2 = sh.y + Math.sin(rad) * sh.speed * sh.timer * 0.1;
+          var op = progress < 0.15 ? progress / 0.15 : progress > 0.75 ? (1 - progress) / 0.25 : 1;
           op *= 0.85;
-
-          var tailX = cx - Math.cos(rad) * sh.length;
-          var tailY = cy - Math.sin(rad) * sh.length;
-          var grad = ctx.createLinearGradient(tailX, tailY, cx, cy);
+          var tailX = cx2 - Math.cos(rad) * sh.length;
+          var tailY = cy2 - Math.sin(rad) * sh.length;
+          var grad = ctx.createLinearGradient(tailX, tailY, cx2, cy2);
           grad.addColorStop(0,   'rgba(255,255,255,0)');
           grad.addColorStop(0.6, 'rgba(255,250,230,' + (op * 0.5) + ')');
           grad.addColorStop(1,   'rgba(255,255,255,' + op + ')');
-
           ctx.beginPath();
           ctx.moveTo(tailX, tailY);
-          ctx.lineTo(cx, cy);
+          ctx.lineTo(cx2, cy2);
           ctx.strokeStyle = grad;
           ctx.lineWidth = 1.5;
           ctx.stroke();
         });
-
-        requestAnimationFrame(drawFrame);
       }
 
       window.addEventListener('resize', function () {
@@ -5043,8 +5256,13 @@
         requestAnimationFrame(drawFrame);
       }
 
-      // ── Moon phase ──
-      drawMoonPhase();
+      // Moon phase only shown at night
+      if (isNight) drawMoonPhase();
+      else {
+        // Hide moon display during day
+        var moonEl = document.getElementById('header-moon');
+        if (moonEl) moonEl.style.display = 'none';
+      }
     }
 
     function drawMoonPhase() {

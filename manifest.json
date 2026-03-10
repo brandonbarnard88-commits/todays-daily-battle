@@ -1,42 +1,36 @@
 {
   "id": "/",
-  "name": "Today's Daily Battle",
-  "short_name": "Daily Battle",
-  "description": "One verse, one moment, every day. The Bible companion built for real life. Less scroll, more soul.",
+  "name": "Today's Battle",
+  "short_name": "Battle",
+  "description": "One verse, one moment, every day. Less scroll, more soul.",
   "lang": "en-US",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "theme_color": "#0a0a0a",
-  "background_color": "#0f1218",
+  "background_color": "#000000",
+  "theme_color": "#ff8c00",
   "icons": [
     {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-192.png",
+      "src": "/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -44,63 +38,16 @@
   ],
   "shortcuts": [
     {
-      "name": "Open Daily Verse",
-      "short_name": "Daily Verse",
+      "name": "Daily Verse",
+      "short_name": "Verse",
       "url": "/verse.html",
-      "description": "Jump directly into today's verse."
+      "description": "Jump into today's verse."
     },
     {
-      "name": "Open Bible Tool",
-      "short_name": "Bible Tool",
+      "name": "Bible Tool",
+      "short_name": "Bible",
       "url": "/bible-tool.html",
-      "description": "Search and study scripture quickly."
-    }
-  ]
-}
-  "icons": [
-    {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Open Daily Verse",
-      "short_name": "Daily Verse",
-      "url": "/verse.html",
-      "description": "Jump directly into today's verse."
-    },
-    {
-      "name": "Open Bible Tool",
-      "short_name": "Bible Tool",
-      "url": "/bible-tool.html",
-      "description": "Search and study scripture quickly."
+      "description": "Search and study scripture."
     }
   ]
 }

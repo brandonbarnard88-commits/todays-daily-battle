@@ -12073,11 +12073,53 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
     line-height: 1.8;
   }
 
-  /* Widen the content column on large screens */
+  /* ── Wider container — no more phone-width on desktop ── */
   .app {
-    width: min(100%, 860px);
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    width: min(100%, 1200px);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 2rem;
+  }
+
+  /* ── Two-column main grid: verse left, plans right ── */
+  main {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    grid-template-rows: auto;
+    column-gap: 2.5rem;
+    row-gap: 1.75rem;
+    align-items: start;
+  }
+
+  /* Left column: hero verse card */
+  #verseCard {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Right column: plan progress + plans teaser stacked */
+  #plan-progress-card {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 1.2rem;
+  }
+
+  #plans-teaser {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Full-width rows below the two columns */
+  #feel-section,
+  #prayer-wall,
+  .tool-teasers,
+  .kids-corner-card {
+    grid-column: 1 / -1;
+  }
+
+  /* Tool teasers and any remaining cards span full width */
+  main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser) {
+    grid-column: 1 / -1;
   }
 
   /* ── Hero verse — headline big ── */
@@ -12100,11 +12142,7 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
     padding: 0.75rem 0;
   }
 
-  /* ── Plan progress & chips ── */
-  #plan-progress-card {
-    font-size: 1.2rem;
-  }
-
+  /* ── Plan chips ── */
   .plan-chip {
     font-size: 1.1rem;
     padding: 0.9rem 1.2rem;
@@ -12117,7 +12155,7 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
     min-width: 120px;
   }
 
-  /* ── Bottom nav labels (override the 0.58rem mobile squeeze) ── */
+  /* ── Bottom nav labels ── */
   .nav-link span:last-child,
   .nav-link-btn span:last-child {
     font-size: 1rem;
@@ -12143,6 +12181,11 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   #story-text {
     font-size: 1.2rem;
     padding: 1rem 1.1rem;
+  }
+
+  /* ── Card breathing room ── */
+  .card {
+    padding: 2rem 2.25rem;
   }
 
 }

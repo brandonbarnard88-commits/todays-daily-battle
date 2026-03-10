@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311d -->
+<!-- tdb build 20260311e -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -8,8 +8,8 @@
   <title>today's daily battle</title>
   <meta name="description" content="A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise.">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-  <link rel="apple-touch-icon" href="/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <style>
     :root {
       --bg: #0f1218;
@@ -81,10 +81,10 @@
       border-bottom: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
     }
     .site-logo {
-      width: clamp(220px, 38vw, 340px);
+      width: clamp(220px, 38vw, 320px);
       height: auto;
-      border-radius: 16px;
-      object-fit: cover;
+      border-radius: 0;
+      object-fit: contain;
       display: block;
       margin-bottom: 1.2rem;
       filter: drop-shadow(0 0 28px rgba(227,188,103,0.55)) drop-shadow(0 0 10px rgba(227,188,103,0.32));
@@ -113,7 +113,7 @@
 
     /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
-      .site-logo { width: clamp(280px, 22vw, 400px); }
+      .site-logo { width: clamp(280px, 22vw, 380px); }
 
       body {
         font-size: 1.15rem;
@@ -1991,7 +1991,7 @@
   <div class="app">
 
     <header class="site-header">
-      <img src="/icon-192.png" alt="Today's Daily Battle shield" class="site-logo" width="260" height="350">
+      <img src="/logo-header.png" alt="Today's Daily Battle — Father, Son, Holy Ghost shield" class="site-logo">
       <h1 class="site-title">Today's Daily Battle</h1>
       <p class="site-tagline">Less scroll, more soul</p>
     </header>

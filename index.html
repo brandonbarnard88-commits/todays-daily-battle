@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311z -->
+<!-- tdb build 20260311aa -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -5129,29 +5129,35 @@
         // golden hour: 4:30–6pm and 7:30–8:30pm
         var isGolden = (hour >= 16.5 && hour < 18) || (hour >= 19.5 && hour < 20.5);
         if (isDawn) {
-          sky.addColorStop(0,    '#080618');
-          sky.addColorStop(0.28, '#1e0a2e');
-          sky.addColorStop(0.60, '#7a2200');
-          sky.addColorStop(0.85, '#c84400');
-          sky.addColorStop(1,    '#ff7020');
+          // Ref Image 1: near-void purple → dark magenta → deep crimson → burnt orange → gold
+          sky.addColorStop(0,    '#060410');
+          sky.addColorStop(0.15, '#1a0428');
+          sky.addColorStop(0.35, '#5c0a2a');
+          sky.addColorStop(0.55, '#8b1a0a');
+          sky.addColorStop(0.74, '#c84000');
+          sky.addColorStop(0.88, '#e86010');
+          sky.addColorStop(1,    '#ff8c28');
         } else if (isDusk) {
           var d = Math.max(0, Math.min(1, (hour - 18) / 2));
-          sky.addColorStop(0,    '#0a0d30');
-          sky.addColorStop(0.3,  d > 0.5 ? '#5a0e35' : '#6a1838');
-          sky.addColorStop(0.62, d > 0.5 ? '#c03010' : '#cc4010');
-          sky.addColorStop(0.85, '#e86010');
-          sky.addColorStop(1,    '#ff9828');
+          sky.addColorStop(0,    d > 0.6 ? '#080314' : '#0c0c28');
+          sky.addColorStop(0.2,  d > 0.6 ? '#2a0830' : '#1a0840');
+          sky.addColorStop(0.42, d > 0.6 ? '#700820' : '#8a1230');
+          sky.addColorStop(0.65, '#b83008');
+          sky.addColorStop(0.82, '#d85510');
+          sky.addColorStop(1,    '#ff8020');
         } else if (isGolden) {
-          sky.addColorStop(0,    '#0d1f45');
-          sky.addColorStop(0.38, '#2a6090');
-          sky.addColorStop(0.68, '#c06820');
-          sky.addColorStop(0.88, '#e08030');
-          sky.addColorStop(1,    '#ffa840');
+          sky.addColorStop(0,    '#081030');
+          sky.addColorStop(0.30, '#1a3a70');
+          sky.addColorStop(0.60, '#8a4a10');
+          sky.addColorStop(0.82, '#c86818');
+          sky.addColorStop(1,    '#f09030');
         } else {
-          sky.addColorStop(0,    '#091838');
-          sky.addColorStop(0.40, '#1a5298');
-          sky.addColorStop(0.72, '#4e8ec8');
-          sky.addColorStop(1,    '#9ecce8');
+          // Clear midday: deep navy → royal blue → sky blue → pale horizon
+          sky.addColorStop(0,    '#060e28');
+          sky.addColorStop(0.28, '#0d2a5e');
+          sky.addColorStop(0.55, '#1a58a0');
+          sky.addColorStop(0.78, '#4080c0');
+          sky.addColorStop(1,    '#80b8d8');
         }
         ctx.fillStyle = sky;
         ctx.fillRect(0, 0, W, H);
@@ -5276,48 +5282,80 @@
         });
 
         // ── Warm horizon glow ──
-        var hgOpacity = isDusk || isDawn ? 0.28 : isGolden ? 0.18 : 0.10;
-        var hgColor   = isDusk || isDawn ? 'rgba(255,90,10,' : isGolden ? 'rgba(255,160,40,' : 'rgba(255,200,120,';
-        var hg = ctx.createLinearGradient(0, H * 0.65, 0, H);
+        // Horizon glow — magenta-tinged at dawn/dusk, amber at golden hour
+        var hgOpacity = isDusk || isDawn ? 0.38 : isGolden ? 0.22 : 0.10;
+        var hgColor   = isDusk ? 'rgba(180,30,60,' : isDawn ? 'rgba(200,40,10,' : isGolden ? 'rgba(240,130,30,' : 'rgba(180,150,70,';
+        var hg = ctx.createLinearGradient(0, H * 0.58, 0, H);
         hg.addColorStop(0, hgColor + '0)');
         hg.addColorStop(1, hgColor + hgOpacity + ')');
         ctx.fillStyle = hg;
-        ctx.fillRect(0, H * 0.65, W, H * 0.35);
+        ctx.fillRect(0, H * 0.58, W, H * 0.42);
       }
 
       function drawNightSky() {
-        // ── Sky gradient ──
+        // Night sky — ref Images 2 & 4: deep indigo → violet-blue → teal nebula glow
         var sky = ctx.createLinearGradient(0, 0, 0, H);
-        sky.addColorStop(0,    '#000510');
-        sky.addColorStop(0.55, '#050d1a');
-        sky.addColorStop(0.82, '#130c04');
-        sky.addColorStop(1,    '#1f0e00');
+        sky.addColorStop(0,    '#02030e');
+        sky.addColorStop(0.20, '#06091a');
+        sky.addColorStop(0.48, '#0a0e2a');
+        sky.addColorStop(0.72, '#0c1030');
+        sky.addColorStop(0.88, '#0e0a20');
+        sky.addColorStop(1,    '#120818');
         ctx.fillStyle = sky;
         ctx.fillRect(0, 0, W, H);
 
-        // Warm horizon glow
-        var hg = ctx.createRadialGradient(W / 2, H, 0, W / 2, H, W * 0.65);
-        hg.addColorStop(0,   'rgba(180,80,0,0.28)');
-        hg.addColorStop(0.4, 'rgba(120,50,0,0.12)');
-        hg.addColorStop(1,   'rgba(0,0,0,0)');
-        ctx.fillStyle = hg;
+        // Nebula-like center glow (ref Image 2: soft teal/blue from center)
+        var nebula = ctx.createRadialGradient(W * 0.5, H * 0.38, 0, W * 0.5, H * 0.38, W * 0.55);
+        nebula.addColorStop(0,   'rgba(20,60,120,0.22)');
+        nebula.addColorStop(0.3, 'rgba(10,40,90,0.12)');
+        nebula.addColorStop(0.7, 'rgba(5,20,50,0.05)');
+        nebula.addColorStop(1,   'rgba(0,0,0,0)');
+        ctx.fillStyle = nebula;
         ctx.fillRect(0, 0, W, H);
 
-        // Stars
+        // Violet lower-sky warmth (ref Image 4)
+        var edgeGlow = ctx.createLinearGradient(0, H * 0.6, 0, H);
+        edgeGlow.addColorStop(0, 'rgba(30,10,55,0)');
+        edgeGlow.addColorStop(1, 'rgba(40,15,70,0.28)');
+        ctx.fillStyle = edgeGlow;
+        ctx.fillRect(0, H * 0.6, W, H * 0.4);
+
+        // Warm amber horizon ember (site palette warmth)
+        var ember = ctx.createRadialGradient(W * 0.5, H, 0, W * 0.5, H, W * 0.5);
+        ember.addColorStop(0,   'rgba(120,50,10,0.20)');
+        ember.addColorStop(0.45,'rgba(60,20,5,0.07)');
+        ember.addColorStop(1,   'rgba(0,0,0,0)');
+        ctx.fillStyle = ember;
+        ctx.fillRect(0, 0, W, H);
+
+        // Stars — with bokeh glow on larger ones (ref Image 2)
         stars.forEach(function (s) {
           var brightness = prefersReducedMotion
             ? s.base
-            : s.base + Math.sin(t / s.speed + s.offset) * 0.18;
+            : s.base + Math.sin(t / s.speed + s.offset) * 0.20;
           brightness = Math.max(0.05, Math.min(1, brightness));
+
+          if (s.radius > 1.0 && !prefersReducedMotion) {
+            var sg = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.radius * 3.5);
+            sg.addColorStop(0,   'rgba(200,215,255,' + (brightness * 0.45) + ')');
+            sg.addColorStop(1,   'rgba(120,150,220,0)');
+            ctx.fillStyle = sg;
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.radius * 3.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          // Color-varied star cores: blue-white / warm-white / cool-white
+          var hue = s.offset < Math.PI ? '220,228,255,' : s.offset < Math.PI * 1.5 ? '255,248,230,' : '210,225,255,';
           ctx.beginPath();
           ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(220,230,255,' + brightness + ')';
+          ctx.fillStyle = 'rgba(' + hue + brightness + ')';
           ctx.fill();
         });
 
         if (prefersReducedMotion) return;
 
-        // Shooting stars
+        // Shooting stars — brighter, with head glow
         shooters.forEach(function (sh, idx) {
           sh.timer += 16;
           if (sh.timer < 0) return;
@@ -5331,19 +5369,24 @@
           var cx2 = sh.x + Math.cos(rad) * sh.speed * sh.timer * 0.1;
           var cy2 = sh.y + Math.sin(rad) * sh.speed * sh.timer * 0.1;
           var op = progress < 0.15 ? progress / 0.15 : progress > 0.75 ? (1 - progress) / 0.25 : 1;
-          op *= 0.85;
+          op *= 0.90;
           var tailX = cx2 - Math.cos(rad) * sh.length;
           var tailY = cy2 - Math.sin(rad) * sh.length;
           var grad = ctx.createLinearGradient(tailX, tailY, cx2, cy2);
-          grad.addColorStop(0,   'rgba(255,255,255,0)');
-          grad.addColorStop(0.6, 'rgba(255,250,230,' + (op * 0.5) + ')');
+          grad.addColorStop(0,   'rgba(180,200,255,0)');
+          grad.addColorStop(0.55,'rgba(220,235,255,' + (op * 0.45) + ')');
           grad.addColorStop(1,   'rgba(255,255,255,' + op + ')');
           ctx.beginPath();
           ctx.moveTo(tailX, tailY);
           ctx.lineTo(cx2, cy2);
           ctx.strokeStyle = grad;
-          ctx.lineWidth = 1.5;
+          ctx.lineWidth = 1.8;
           ctx.stroke();
+          // Head point glow
+          ctx.beginPath();
+          ctx.arc(cx2, cy2, 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,' + op + ')';
+          ctx.fill();
         });
       }
 

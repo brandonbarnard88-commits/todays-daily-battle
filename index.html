@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311ae -->
+<!-- tdb build 20260311af -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -381,20 +381,29 @@
       font-style: italic;
     }
 
-    /* Crest image — sits above sky canvas */
+    /* Crest SVG — cross + sunrise, inline, dark-mode native */
     .site-logo-wrap {
       position: relative;
       z-index: 3;
-      width: clamp(200px, 52vw, 300px);
+      width: clamp(80px, 22vw, 130px);
       display: block;
+      margin: 0.25rem auto 0;
     }
-    .site-logo-img {
+    .site-crest-svg {
       width: 100%;
       height: auto;
       display: block;
-      /* Blend white background into the dark header sky */
-      mix-blend-mode: luminosity;
-      filter: drop-shadow(0 0 18px rgba(200,120,0,0.45)) brightness(1.05);
+      filter:
+        drop-shadow(0 0 18px rgba(255,150,30,0.50))
+        drop-shadow(0 0 6px rgba(255,220,120,0.35));
+      animation: crest-appear 1.6s ease both;
+    }
+    @keyframes crest-appear {
+      from { opacity: 0; transform: translateY(8px) scale(0.94); }
+      to   { opacity: 1; transform: translateY(0)   scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .site-crest-svg { animation: none; }
     }
 
     /* ── Main: single column on mobile ── */
@@ -405,7 +414,7 @@
 
     /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
-      .site-logo-wrap { width: clamp(220px, 20vw, 300px); }
+      .site-logo-wrap { width: clamp(90px, 10vw, 140px); }
       .site-title { font-size: clamp(2.8rem, 4vw, 4.2rem); }
 
       body {
@@ -2300,7 +2309,39 @@
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <div class="site-logo-wrap" aria-hidden="true">
-        <img src="/logo-crest.jpg" alt="" class="site-logo-img" draggable="false">
+        <!-- Inline SVG cross — clean, crisp, dark-mode native. No image bleed. -->
+        <svg class="site-crest-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Sunrise glow layers -->
+          <ellipse cx="60" cy="112" rx="54" ry="22" fill="url(#sr4)" opacity="0.18"/>
+          <ellipse cx="60" cy="112" rx="40" ry="16" fill="url(#sr3)" opacity="0.28"/>
+          <ellipse cx="60" cy="112" rx="28" ry="11" fill="url(#sr2)" opacity="0.42"/>
+          <ellipse cx="60" cy="112" rx="16" ry="6"  fill="url(#sr1)" opacity="0.65"/>
+          <!-- Cross arms — tapered bezier, warm white -->
+          <!-- Vertical beam -->
+          <path d="M57 18 C56 38 55 60 55 80 C55 100 56 120 57 142 C58 142 62 142 63 142 C64 120 65 100 65 80 C65 60 64 38 63 18 Z" fill="url(#beam-v)"/>
+          <!-- Horizontal beam -->
+          <path d="M18 66 C34 65 50 64 60 64 C70 64 86 65 102 66 C102 67 102 72 102 73 C86 74 70 75 60 75 C50 75 34 74 18 73 Z" fill="url(#beam-h)"/>
+          <!-- Defs -->
+          <defs>
+            <radialGradient id="sr1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ff9830"/><stop offset="100%" stop-color="#ff6010" stop-opacity="0"/></radialGradient>
+            <radialGradient id="sr2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#e87020"/><stop offset="100%" stop-color="#c85000" stop-opacity="0"/></radialGradient>
+            <radialGradient id="sr3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#c05010"/><stop offset="100%" stop-color="#902000" stop-opacity="0"/></radialGradient>
+            <radialGradient id="sr4" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#803010"/><stop offset="100%" stop-color="#501000" stop-opacity="0"/></radialGradient>
+            <linearGradient id="beam-v" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="rgba(255,255,255,0.96)"/>
+              <stop offset="45%"  stop-color="rgba(255,240,200,0.92)"/>
+              <stop offset="78%"  stop-color="rgba(255,200,100,0.75)"/>
+              <stop offset="100%" stop-color="rgba(240,140,30,0.30)"/>
+            </linearGradient>
+            <linearGradient id="beam-h" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="rgba(255,255,255,0.25)"/>
+              <stop offset="35%"  stop-color="rgba(255,255,255,0.95)"/>
+              <stop offset="50%"  stop-color="rgba(255,248,220,0.98)"/>
+              <stop offset="65%"  stop-color="rgba(255,255,255,0.95)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0.25)"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
       <p class="site-tagline">For God · For Country · For Family</p>
     </header>

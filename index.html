@@ -41,6 +41,7 @@
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
       min-height: 100%;
       font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif;
       background: radial-gradient(circle at top, rgba(227, 188, 103, 0.1), transparent 40%), var(--bg);
@@ -53,11 +54,16 @@
     }
 
     .app {
-      width: min(100%, 1200px);
+      width: 100% !important;
+      max-width: 1200px !important;
       min-height: 100dvh;
-      padding: 24px 1.5rem 110px;
-      margin: 0 auto;
-      box-sizing: border-box;
+      padding: 24px 2rem 110px !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (max-width: 899px) {
+      .app { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
     }
 
     /* ── Layout ── */
@@ -107,7 +113,7 @@
     /* ── Desktop: two-column, full width, proper padding ── */
     @media (min-width: 900px) {
       .app {
-        padding: 2rem 4rem 110px;
+        padding: 2rem 4rem 110px !important;
       }
       body {
         font-size: 1.15rem;

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311w -->
+<!-- tdb build 20260311x -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -184,12 +184,13 @@
       width: clamp(200px, 52vw, 300px);
       display: block;
     }
-    .site-logo-wrap svg {
+    .site-logo-img {
       width: 100%;
       height: auto;
       display: block;
-      /* Remove the SVG's own dark background so header gradient shows through */
-      background: transparent;
+      /* Blend white background into the dark header sky */
+      mix-blend-mode: luminosity;
+      filter: drop-shadow(0 0 18px rgba(200,120,0,0.45)) brightness(1.05);
     }
 
     /* ── Main: single column on mobile ── */
@@ -200,7 +201,7 @@
 
     /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
-      .site-logo-wrap { width: clamp(220px, 20vw, 280px); }
+      .site-logo-wrap { width: clamp(220px, 20vw, 300px); }
       .site-title { font-size: clamp(2.8rem, 4vw, 4.2rem); }
 
       body {
@@ -2091,189 +2092,7 @@
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <div class="site-logo-wrap" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" fill="none" role="presentation">
-          <defs>
-            <linearGradient id="hdr-gold-main" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#ffe680"/>
-              <stop offset="35%"  stop-color="#ffc200"/>
-              <stop offset="65%"  stop-color="#e08800"/>
-              <stop offset="100%" stop-color="#ffda6a"/>
-            </linearGradient>
-            <linearGradient id="hdr-gold-light" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#fff5c0"/>
-              <stop offset="50%"  stop-color="#ffd54f"/>
-              <stop offset="100%" stop-color="#f59e0b"/>
-            </linearGradient>
-            <linearGradient id="hdr-shield-bg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#0d1626"/>
-              <stop offset="55%"  stop-color="#0a0f1e"/>
-              <stop offset="100%" stop-color="#060b14"/>
-            </linearGradient>
-            <radialGradient id="hdr-halo-glow" cx="50%" cy="40%" r="50%">
-              <stop offset="0%"   stop-color="#ffd04a" stop-opacity="0.55"/>
-              <stop offset="55%"  stop-color="#ff9800" stop-opacity="0.20"/>
-              <stop offset="100%" stop-color="#ff6600" stop-opacity="0"/>
-            </radialGradient>
-            <radialGradient id="hdr-dove-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.35"/>
-              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="hdr-cross-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#fff8dc"/>
-              <stop offset="50%"  stop-color="#ffd54f"/>
-              <stop offset="100%" stop-color="#f59e0b"/>
-            </linearGradient>
-            <linearGradient id="hdr-candle-flame" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#ffffff"/>
-              <stop offset="30%"  stop-color="#ffe066"/>
-              <stop offset="100%" stop-color="#ff8800" stop-opacity="0"/>
-            </linearGradient>
-            <filter id="hdr-gold-glow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="hdr-rays-blur" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2.5"/>
-            </filter>
-            <filter id="hdr-halo-blur" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="14"/>
-            </filter>
-            <filter id="hdr-dove-filter" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="1.5" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="hdr-text-shadow" x="-10%" y="-30%" width="120%" height="160%">
-              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#b06000" flood-opacity="0.7"/>
-            </filter>
-            <filter id="hdr-banner-shadow" x="-5%" y="-20%" width="110%" height="140%">
-              <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.5"/>
-            </filter>
-            <style>
-              @media (prefers-reduced-motion: no-preference) {
-                .hdr-halo-pulse { animation: hdr-halo-breathe 4s ease-in-out infinite; }
-                @keyframes hdr-halo-breathe { 0%,100%{opacity:0.6} 50%{opacity:1.0} }
-                .hdr-rays-group { transform-origin: 160px 138px; animation: hdr-rays-spin 40s linear infinite; }
-                @keyframes hdr-rays-spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-                .hdr-dove-group { transform-origin: 160px 112px; animation: hdr-dove-float 5s ease-in-out infinite; }
-                @keyframes hdr-dove-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
-                .hdr-cross-v { stroke-dasharray:1000; stroke-dashoffset:1000; animation: hdr-draw-cross 1.4s cubic-bezier(0.25,0.1,0.25,1) 0.3s forwards; }
-                .hdr-cross-h { stroke-dasharray:1000; stroke-dashoffset:1000; animation: hdr-draw-cross 0.9s cubic-bezier(0.25,0.1,0.25,1) 1.2s forwards; }
-                @keyframes hdr-draw-cross { to { stroke-dashoffset: 0; } }
-                .hdr-banner-text { opacity:0; animation: hdr-text-in 1s ease-out 1.8s forwards; }
-                @keyframes hdr-text-in { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
-              }
-              @media (prefers-reduced-motion: reduce) {
-                .hdr-cross-v, .hdr-cross-h { stroke-dashoffset: 0 !important; }
-                .hdr-banner-text { opacity: 1 !important; transform: none !important; }
-              }
-            </style>
-          </defs>
-
-          <!-- Ambient halo (blurred sunrise ellipses) -->
-          <ellipse class="hdr-halo-pulse" cx="160" cy="185" rx="130" ry="90" fill="url(#hdr-halo-glow)" filter="url(#hdr-halo-blur)"/>
-
-          <!-- Light rays -->
-          <g class="hdr-rays-group" opacity="0.45" filter="url(#hdr-rays-blur)">
-            <line x1="160" y1="185" x2="160" y2="60"  stroke="#ffdf6a" stroke-width="6"/>
-            <line x1="160" y1="185" x2="80"  y2="80"  stroke="#ffdf6a" stroke-width="4"/>
-            <line x1="160" y1="185" x2="240" y2="80"  stroke="#ffdf6a" stroke-width="4"/>
-            <line x1="160" y1="185" x2="30"  y2="140" stroke="#ffdf6a" stroke-width="3"/>
-            <line x1="160" y1="185" x2="290" y2="140" stroke="#ffdf6a" stroke-width="3"/>
-            <line x1="160" y1="185" x2="100" y2="65"  stroke="#ffdf6a" stroke-width="3"/>
-            <line x1="160" y1="185" x2="220" y2="65"  stroke="#ffdf6a" stroke-width="3"/>
-            <line x1="160" y1="185" x2="50"  y2="105" stroke="#ffc040" stroke-width="2.5"/>
-            <line x1="160" y1="185" x2="270" y2="105" stroke="#ffc040" stroke-width="2.5"/>
-          </g>
-
-          <!-- Shield outer (gold border) -->
-          <path d="M 55,48 L 265,48 L 265,242 Q 265,328 160,375 Q 55,328 55,242 Z"
-                fill="url(#hdr-gold-main)" filter="url(#hdr-gold-glow)"/>
-          <!-- Shield inner (dark body) -->
-          <path d="M 63,56 L 257,56 L 257,240 Q 257,318 160,362 Q 63,318 63,240 Z"
-                fill="url(#hdr-shield-bg)"/>
-          <!-- Shield inner accent line -->
-          <path d="M 70,63 L 250,63 L 250,238 Q 250,312 160,354 Q 70,312 70,238 Z"
-                fill="none" stroke="#ffd54f" stroke-width="1.5" opacity="0.35"/>
-
-          <!-- Crown -->
-          <g filter="url(#hdr-gold-glow)">
-            <rect x="108" y="64" width="104" height="11" rx="3" fill="url(#hdr-gold-main)"/>
-            <path d="M 157,64 L 157,42 L 163,42 L 163,64 Z" fill="url(#hdr-gold-main)"/>
-            <path d="M 143,64 L 140,50 L 146,50 L 149,64 Z" fill="url(#hdr-gold-main)"/>
-            <path d="M 171,64 L 174,50 L 180,50 L 177,64 Z" fill="url(#hdr-gold-main)"/>
-            <path d="M 111,64 L 108,55 L 114,53 L 117,64 Z" fill="url(#hdr-gold-main)"/>
-            <path d="M 209,64 L 212,55 L 206,53 L 203,64 Z" fill="url(#hdr-gold-main)"/>
-            <circle cx="160" cy="41" r="3.5" fill="#fff5c0" opacity="0.9"/>
-            <circle cx="143" cy="49" r="2.5" fill="#ffd54f" opacity="0.8"/>
-            <circle cx="177" cy="49" r="2.5" fill="#ffd54f" opacity="0.8"/>
-            <circle cx="111" cy="53" r="2"   fill="#ffcc44" opacity="0.7"/>
-            <circle cx="209" cy="53" r="2"   fill="#ffcc44" opacity="0.7"/>
-            <path d="M 68,75 Q 80,60 96,68 Q 82,78 68,75 Z"      fill="url(#hdr-gold-main)"  opacity="0.8"/>
-            <path d="M 68,75 Q 78,88 95,82 Q 82,72 68,75 Z"      fill="url(#hdr-gold-light)" opacity="0.6"/>
-            <path d="M 252,75 Q 240,60 224,68 Q 238,78 252,75 Z" fill="url(#hdr-gold-main)"  opacity="0.8"/>
-            <path d="M 252,75 Q 242,88 225,82 Q 238,72 252,75 Z" fill="url(#hdr-gold-light)" opacity="0.6"/>
-          </g>
-
-          <!-- Candles -->
-          <g opacity="0.85">
-            <rect x="133" y="92" width="8"  height="28" rx="2" fill="url(#hdr-gold-light)"/>
-            <ellipse cx="137"   cy="87"  rx="4.5" ry="7" fill="url(#hdr-candle-flame)" opacity="0.9"/>
-            <rect x="156" y="85" width="9"  height="35" rx="2" fill="url(#hdr-gold-main)"/>
-            <ellipse cx="160.5" cy="79"  rx="5"   ry="8" fill="url(#hdr-candle-flame)"/>
-            <rect x="179" y="92" width="8"  height="28" rx="2" fill="url(#hdr-gold-light)"/>
-            <ellipse cx="183"   cy="87"  rx="4.5" ry="7" fill="url(#hdr-candle-flame)" opacity="0.9"/>
-            <rect x="126" y="118" width="68" height="6"  rx="2" fill="url(#hdr-gold-main)"/>
-            <rect x="122" y="123" width="76" height="4"  rx="2" fill="url(#hdr-gold-light)" opacity="0.7"/>
-          </g>
-
-          <!-- Dove -->
-          <g class="hdr-dove-group" filter="url(#hdr-dove-filter)">
-            <ellipse cx="160" cy="112" rx="22" ry="14" fill="url(#hdr-dove-glow)" filter="url(#hdr-halo-blur)" opacity="0.5"/>
-            <ellipse cx="160" cy="113" rx="11" ry="6"  fill="#ffffff" opacity="0.95"/>
-            <circle  cx="170" cy="110" r="5"           fill="#ffffff" opacity="0.95"/>
-            <path d="M 175,110 L 179,109 L 175,112 Z"  fill="#ffd54f"/>
-            <path d="M 160,112 Q 138,98 128,108 Q 138,116 149,114 Q 154,113 160,112 Z" fill="#f0f0ff" opacity="0.92"/>
-            <path d="M 160,112 Q 182,98 192,108 Q 182,116 171,114 Q 166,113 160,112 Z" fill="#f0f0ff" opacity="0.92"/>
-            <path d="M 140,106 Q 145,112 152,113" fill="none" stroke="#d0d0e8" stroke-width="1"   opacity="0.5"/>
-            <path d="M 133,109 Q 140,113 148,113" fill="none" stroke="#d0d0e8" stroke-width="0.8" opacity="0.4"/>
-            <path d="M 180,106 Q 175,112 168,113" fill="none" stroke="#d0d0e8" stroke-width="1"   opacity="0.5"/>
-            <path d="M 187,109 Q 180,113 172,113" fill="none" stroke="#d0d0e8" stroke-width="0.8" opacity="0.4"/>
-            <path d="M 149,115 Q 148,122 152,124 Q 150,117 155,116 Z" fill="#f0f0ff" opacity="0.8"/>
-          </g>
-
-          <!-- Cross glow -->
-          <g opacity="0.45" filter="url(#hdr-halo-blur)">
-            <line x1="160" y1="148" x2="160" y2="308" stroke="#ffd54f" stroke-width="18" stroke-linecap="round"/>
-            <line x1="120" y1="198" x2="200" y2="198" stroke="#ffd54f" stroke-width="14" stroke-linecap="round"/>
-          </g>
-
-          <!-- Cross (draw-on) -->
-          <path class="hdr-cross-v"
-            d="M 160,148 C 159,175 159,195 160,200 C 161,205 161,265 160,308"
-            pathLength="1000" stroke="url(#hdr-cross-grad)" stroke-width="14"
-            stroke-linecap="round" fill="none" filter="url(#hdr-gold-glow)"/>
-          <path class="hdr-cross-h"
-            d="M 120,200 C 134,197 148,196 160,196 C 172,196 186,197 200,200"
-            pathLength="1000" stroke="url(#hdr-cross-grad)" stroke-width="11"
-            stroke-linecap="round" fill="none" filter="url(#hdr-gold-glow)"/>
-
-          <!-- Banner -->
-          <g filter="url(#hdr-banner-shadow)" opacity="0.95">
-            <path d="M 68,136 L 88,128 L 88,148 L 68,152 Z"      fill="#0d1a2e"/>
-            <path d="M 68,136 L 88,128 L 88,148 L 68,152 Z"      fill="none" stroke="#ffc200" stroke-width="1.5"/>
-            <path d="M 252,136 L 232,128 L 232,148 L 252,152 Z"  fill="#0d1a2e"/>
-            <path d="M 252,136 L 232,128 L 232,148 L 252,152 Z"  fill="none" stroke="#ffc200" stroke-width="1.5"/>
-            <rect x="88" y="125" width="144" height="26" rx="3" fill="#0d1a2e"/>
-            <rect x="88" y="125" width="144" height="26" rx="3" fill="none" stroke="#ffc200" stroke-width="1.5"/>
-            <line x1="92" y1="129" x2="228" y2="129" stroke="#ffd54f" stroke-width="0.8" opacity="0.4"/>
-            <line x1="92" y1="147" x2="228" y2="147" stroke="#ffd54f" stroke-width="0.8" opacity="0.3"/>
-          </g>
-          <text class="hdr-banner-text" x="160" y="142" text-anchor="middle"
-            font-family="'Caveat', 'Patrick Hand', cursive"
-            font-size="12" font-weight="700"
-            fill="#ffc200" filter="url(#hdr-text-shadow)"
-            letter-spacing="1">Less scroll, more Soul</text>
-        </svg>
+        <img src="/logo-crest.jpg" alt="" class="site-logo-img" draggable="false">
       </div>
       <p class="site-tagline">For God · For Country · For Family</p>
     </header>

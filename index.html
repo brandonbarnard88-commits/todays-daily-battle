@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311aa -->
+<!-- tdb build 20260311ab -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -85,7 +85,6 @@
       }
     }
 
-    /* ── Layout ── */
     /* ── Site Header ── */
     .site-header {
       display: flex;
@@ -109,42 +108,223 @@
       height: 1px;
       background: linear-gradient(90deg, transparent 0%, rgba(227,188,103,0.35) 30%, rgba(255,180,40,0.55) 50%, rgba(227,188,103,0.35) 70%, transparent 100%);
       filter: blur(0.5px);
-      z-index: 2;
+      z-index: 4;
     }
-    /* Night sky canvas — fills header behind everything */
-    #header-sky-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      will-change: transform; /* promote to own layer once, no per-frame recalc */
+
+    /* ─────────── SKY SYSTEM ─────────── */
+    .sky {
+      position: absolute; inset: 0; z-index: 0;
+      overflow: hidden; pointer-events: none;
+      background: #000818;
+      transition: background 6s ease;
     }
-    /* Moon phase display */
-    #header-moon {
+    /* Time-of-day backgrounds */
+    body.sky-dawn  .sky { background: linear-gradient(180deg, #060410 0%, #1a0428 15%, #5c0a2a 36%, #8b1a0a 56%, #c84000 75%, #e86010 88%, #ff8c28 100%); }
+    body.sky-day   .sky { background: linear-gradient(180deg, #060e28 0%, #0d2a5e 28%, #1a58a0 55%, #4080c0 78%, #80b8d8 100%); }
+    body.sky-dusk  .sky { background: linear-gradient(180deg, #080314 0%, #2a0830 20%, #700820 42%, #b83008 65%, #d85510 82%, #ff8020 100%); }
+    body.sky-night .sky { background: linear-gradient(180deg, #02030e 0%, #06091a 20%, #0a0e2a 48%, #0c1030 72%, #0e0a20 88%, #120818 100%); }
+
+    /* Nebula glow — night only */
+    body.sky-night .sky::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 35%, rgba(20,60,120,0.22) 0%, rgba(5,20,50,0.05) 70%, transparent 100%),
+        linear-gradient(180deg, transparent 55%, rgba(40,15,70,0.28) 100%),
+        radial-gradient(ellipse 50% 30% at 50% 100%, rgba(120,50,10,0.20) 0%, transparent 70%);
+    }
+    /* Horizon ember — dawn/dusk */
+    body.sky-dawn .sky::before,
+    body.sky-dusk .sky::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgba(180,30,60,0.36) 100%);
+    }
+
+    /* Sun */
+    .sky-sun {
       position: absolute;
-      top: 0.85rem; right: 1rem;
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      left: 68%; top: 12%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle at 38% 38%, #fffff2 0%, #ffe060 42%, #ffaa00 100%);
+      box-shadow:
+        0 0 0 16px rgba(255,200,60,0.12),
+        0 0 0 40px rgba(255,160,30,0.08),
+        0 0 80px 20px rgba(255,160,20,0.30),
+        0 0 160px 40px rgba(255,100,0,0.15);
+      will-change: transform;
+    }
+    body.sky-dawn  .sky-sun { left: 32%; top: 72%; background: radial-gradient(circle at 38% 38%, #fff0d8 0%, #ffb030 42%, #ff5e00 100%); box-shadow: 0 0 0 18px rgba(255,120,20,0.14), 0 0 0 50px rgba(220,60,0,0.08), 0 0 100px 30px rgba(220,80,10,0.35), 0 0 200px 60px rgba(180,30,0,0.18); }
+    body.sky-dusk  .sky-sun { left: 25%; top: 65%; background: radial-gradient(circle at 38% 38%, #fff0d8 0%, #ffb030 42%, #ff5e00 100%); box-shadow: 0 0 0 18px rgba(255,120,20,0.14), 0 0 0 50px rgba(220,60,0,0.08), 0 0 100px 30px rgba(220,80,10,0.35), 0 0 200px 60px rgba(180,30,0,0.18); }
+    body.sky-night .sky-sun { display: none; }
+    /* Gentle drift */
+    body:not(.sky-night) .sky-sun { animation: sun-drift 90s linear infinite; }
+    @keyframes sun-drift {
+      0%   { transform: translate(-50%, -50%) translateY(0px); }
+      50%  { transform: translate(-50%, -50%) translateY(-6px); }
+      100% { transform: translate(-50%, -50%) translateY(0px); }
+    }
+    /* Sun ray ring */
+    .sky-sun::after {
+      content: ''; position: absolute; inset: -60%;
+      border-radius: 50%;
+      background: conic-gradient(
+        rgba(255,220,80,0.08) 0deg, transparent 20deg,
+        rgba(255,220,80,0.08) 40deg, transparent 60deg,
+        rgba(255,220,80,0.08) 80deg, transparent 100deg,
+        rgba(255,220,80,0.08) 120deg, transparent 140deg,
+        rgba(255,220,80,0.08) 160deg, transparent 180deg,
+        rgba(255,220,80,0.08) 200deg, transparent 220deg,
+        rgba(255,220,80,0.08) 240deg, transparent 260deg,
+        rgba(255,220,80,0.08) 280deg, transparent 300deg,
+        rgba(255,220,80,0.08) 320deg, transparent 340deg,
+        rgba(255,220,80,0.08) 360deg
+      );
+      animation: ray-spin 40s linear infinite;
+    }
+    @keyframes ray-spin { to { transform: rotate(360deg); } }
+    body.sky-night .sky-sun::after { display: none; }
+
+    /* Eclipse overlay */
+    body.sky-eclipse .sky-sun::before {
+      content: ''; position: absolute;
+      inset: -5px; border-radius: 50%;
+      background: radial-gradient(circle, transparent 38%, #02000a 44%, transparent 55%);
+      box-shadow: inset 0 0 30px rgba(255,220,120,0.6), 0 0 60px 12px rgba(255,180,40,0.25);
+      animation: eclipse-cross 12s ease-in-out;
+    }
+    @keyframes eclipse-cross {
+      0%   { transform: translateX(-180%); opacity: 0; }
+      8%   { opacity: 1; }
+      45%  { transform: translateX(0); }
+      55%  { transform: translateX(0); }
+      92%  { opacity: 1; }
+      100% { transform: translateX(180%); opacity: 0; }
+    }
+
+    /* Clouds — CSS animated, JS places them */
+    .sky-cloud {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(0px);
+      will-change: transform;
+      animation: cloud-drift linear infinite;
+    }
+    @keyframes cloud-drift {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(var(--drift, 120vw))); }
+    }
+    body.sky-night .sky-cloud { display: none; }
+
+    /* Birds — CSS animated, JS places them */
+    .sky-bird {
+      position: absolute;
+      width: 0; height: 0;
+      animation: bird-fly linear infinite;
+      will-change: transform;
+    }
+    .sky-bird::before,
+    .sky-bird::after {
+      content: '';
+      position: absolute;
+      width: var(--ws, 12px); height: 2px;
+      background: rgba(15,10,8,0.55);
+      border-radius: 2px;
+      top: 0; left: 0;
+      transform-origin: right center;
+      animation: bird-flap var(--ft, 0.5s) ease-in-out infinite alternate;
+    }
+    .sky-bird::after {
+      transform-origin: left center;
+      left: auto; right: 0;
+      animation-direction: alternate-reverse;
+    }
+    @keyframes bird-fly  { from { transform: translateX(var(--bx0, -10vw)); } to { transform: translateX(var(--bx1, 110vw)); } }
+    @keyframes bird-flap { from { transform: rotate(-12deg); } to { transform: rotate(14deg); } }
+    body.sky-night .sky-bird { display: none; }
+
+    /* Stars — CSS animated, JS places them */
+    .sky-star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: star-twinkle ease-in-out infinite;
+      will-change: opacity;
+    }
+    @keyframes star-twinkle { 0%,100% { opacity: var(--so-lo, 0.3); } 50% { opacity: var(--so-hi, 1); } }
+    body:not(.sky-night) .sky-star { display: none; }
+    /* Bokeh glow on larger stars */
+    .sky-star.glow::after {
+      content: ''; position: absolute; inset: -200%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,215,255,0.4) 0%, rgba(120,150,220,0) 70%);
+    }
+
+    /* Shooting stars */
+    .sky-shooter {
+      position: absolute;
+      height: 2px;
+      width: 120px;
+      background: linear-gradient(90deg, transparent, rgba(220,235,255,0.9), #fff);
+      border-radius: 1px;
+      filter: blur(0.5px);
+      opacity: 0;
+      animation: shoot linear forwards;
+      will-change: transform, opacity;
+    }
+    @keyframes shoot {
+      0%   { transform: translateX(-15vw) translateY(0); opacity: 0; }
+      8%   { opacity: 0.9; }
+      88%  { opacity: 0.9; }
+      100% { transform: translateX(110vw) translateY(40px); opacity: 0; }
+    }
+    body:not(.sky-night) .sky-shooter { display: none; }
+
+    /* Moon — CSS disc with conic-gradient phase shadow */
+    #sky-moon {
+      position: absolute;
+      top: 1rem; right: 1.1rem;
       z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
-      opacity: 0.82;
+      gap: 4px;
+      opacity: 0;
+      transition: opacity 1s ease;
     }
-    #header-moon canvas {
-      display: block;
-      filter: drop-shadow(0 0 4px rgba(180,200,255,0.3));
+    body.sky-night #sky-moon { opacity: 0.88; }
+    .sky-moon-disc {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 38% 35%, rgba(255,255,240,0.96) 0%, rgba(200,210,230,0.88) 60%, rgba(140,160,190,0.72) 100%);
+      box-shadow: 0 0 10px 3px rgba(190,210,255,0.22), 0 0 22px 6px rgba(140,170,230,0.10);
+      position: relative;
+      overflow: hidden;
     }
-    #header-moon-label {
+    /* Phase shadow: dark half overlay, width controlled by --phase-x */
+    .sky-moon-shadow {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      background: rgba(2,4,18,0.93);
+      transform-origin: var(--shadow-origin, right center);
+      transform: scaleX(var(--shadow-scale, 0));
+    }
+    .sky-moon-label {
       font-family: 'Palatino Linotype', Palatino, Georgia, serif;
-      font-size: 0.58rem;
+      font-size: 0.54rem;
       font-style: italic;
-      letter-spacing: 0.06em;
-      color: rgba(210,225,255,0.65);
-      white-space: nowrap;
+      letter-spacing: 0.05em;
+      color: rgba(210,225,255,0.62);
       text-align: center;
       line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    /* prefers-reduced-motion: static sky, no flap/twinkle/shoot */
+    @media (prefers-reduced-motion: reduce) {
+      .sky-sun, .sky-sun::after, .sky-cloud, .sky-bird,
+      .sky-star, .sky-shooter { animation: none !important; }
+      .sky-bird::before, .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
     }
 
     .site-title {
@@ -2089,12 +2269,16 @@
   <div class="app">
 
     <header class="site-header">
-      <!-- Night sky canvas (stars, shooting star, warm horizon glow) -->
-      <canvas id="header-sky-canvas" aria-hidden="true"></canvas>
-      <!-- Live moon phase -->
-      <div id="header-moon" aria-hidden="true">
-        <canvas id="header-moon-canvas" width="32" height="32"></canvas>
-        <span id="header-moon-label"></span>
+      <!-- CSS-animated sky system (no canvas) -->
+      <div class="sky" aria-hidden="true" id="sky-layer">
+        <div class="sky-sun" id="sky-sun"></div>
+      </div>
+      <!-- Moon phase display (night only) -->
+      <div id="sky-moon" aria-hidden="true">
+        <div class="sky-moon-disc">
+          <div class="sky-moon-shadow" id="sky-moon-shadow"></div>
+        </div>
+        <span class="sky-moon-label" id="sky-moon-label"></span>
       </div>
 
       <h1 class="site-title">Today's Daily Battle</h1>
@@ -2386,7 +2570,6 @@
   <!-- ── First-visit Read-Aloud Modal ── -->
   
 
-  <script src="https://cdn.jsdelivr.net/npm/lunarphase-js@2.0.3/dist/lunarphase-js.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
   <script nonce="tdb2025">
     // ── 10-verse offline pack — shown when network fails and localStorage is empty ──
@@ -4896,613 +5079,159 @@
       }
     }
 
-    // ── Header Night Sky + Moon Phase ──
+    // ── Sky System (CSS-first, no canvas) ──
     function initHeaderSky() {
-      var header = document.querySelector('.site-header');
-      var canvas = document.getElementById('header-sky-canvas');
-      if (!canvas || !header) return;
-
-      var ctx = canvas.getContext('2d');
-      var W, H;
-      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      // Cap object counts on mobile to keep things smooth
-      var isMobile = window.innerWidth < 600;
-
-      // ── Time of day ──
-      var hour = new Date().getHours() + new Date().getMinutes() / 60;
-      var isDay   = hour >= 6  && hour < 19.5;
-      var isDawn  = hour >= 5  && hour < 7.5;
-      var isDusk  = hour >= 18 && hour < 20.5;
+      var h   = new Date().getHours() + new Date().getMinutes() / 60;
+      var isDay   = h >= 6   && h < 19.5;
+      var isDawn  = h >= 5   && h < 7.5;
+      var isDusk  = h >= 18  && h < 20.5;
       var isNight = !isDay;
+      var isMobile = window.innerWidth < 600;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // ── Seeded RNG (deterministic per session) ──
-      function seededRand(seed) {
+      // Apply time-of-day body class
+      var sky = isDawn ? 'sky-dawn' : isDusk ? 'sky-dusk' : isNight ? 'sky-night' : 'sky-day';
+      document.body.classList.add(sky);
+
+      // Eclipse: ~20% chance, seeded consistently by day hash
+      var ds = new Date().toDateString();
+      var dh = 0;
+      for (var di = 0; di < ds.length; di++) { dh = (dh * 31 + ds.charCodeAt(di)) % 100; }
+      if (dh < 20) document.body.classList.add('sky-eclipse');
+
+      var layer = document.getElementById('sky-layer');
+      if (!layer) return;
+
+      // Seeded RNG
+      function sr(seed) {
         var s = seed;
-        return function () { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+        return function() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
       }
-      var rand = seededRand(20260311);
+      var r = sr(20260311 + dh);
 
-      // ─────────────────────────────────────────────
-      // NIGHT OBJECTS
-      // ─────────────────────────────────────────────
-      var stars = [], shooters = [];
-
-      function buildStars() {
-        stars = [];
-        var r = seededRand(20260311);
-        // Mobile: ~half density
-        var density = isMobile ? 3600 : 1800;
-        var count = Math.floor((W * H) / density);
-        for (var i = 0; i < count; i++) {
-          var fy = r();
-          stars.push({
-            x: r() * W, y: fy * H * 0.82,
-            radius: r() * 1.2 + 0.3,
-            base: (1 - fy * 0.7) * (r() * 0.5 + 0.3),
-            speed: r() * 3 + 2,
-            offset: r() * Math.PI * 2
-          });
-        }
-        shooters = [makeShooter(0), makeShooter(6000)];
-      }
-
-      function makeShooter(delay) {
-        return {
-          x: -120, y: H * (0.05 + rand() * 0.35),
-          angle: 25 + rand() * 20, speed: 8 + rand() * 6,
-          length: 80 + rand() * 80,
-          timer: -delay
-        };
-      }
-
-      // ─────────────────────────────────────────────
-      // DAY OBJECTS
-      // ─────────────────────────────────────────────
-      var clouds = [], birds = [], eclipse = null;
-      var sunX, sunY;
-
-      function buildDayObjects() {
-        // Sun position: upper-right quadrant, shifts lower toward dusk
-        var duskBlend = isDusk ? Math.max(0, (hour - 18) / 2.5) : 0;
-        sunX = W * (0.72 - duskBlend * 0.2);
-        sunY = H * (0.18 + duskBlend * 0.22);
-
-        // Background clouds — 2 on mobile, 3 on desktop
-        clouds = [];
-        var r = seededRand(20260311);
-        var bgCount = isMobile ? 2 : 3;
-        for (var i = 0; i < bgCount; i++) {
-          clouds.push({
-            x: r() * W * 1.5 - W * 0.1,
-            y: H * (0.05 + r() * 0.25),
-            scale: 1.1 + r() * 0.8,
-            speed: 0.05 + r() * 0.08,
-            opacity: 0.22 + r() * 0.18,
-            puffs: 4 + Math.floor(r() * 3),
-            layer: 'bg'
-          });
-        }
-        // Foreground clouds — 3 on mobile, 4–6 on desktop
-        var fgCount = isMobile ? 3 : 4 + Math.floor(r() * 3);
-        for (var j = 0; j < fgCount; j++) {
-          clouds.push({
-            x: r() * W * 1.4 - W * 0.2,
-            y: H * (0.10 + r() * 0.38),
-            scale: 0.5 + r() * 0.75,
-            speed: 0.14 + r() * 0.24,
-            opacity: 0.40 + r() * 0.38,
-            puffs: 3 + Math.floor(r() * 3),
-            layer: 'fg'
-          });
+      // ── Stars (night only) ──
+      if (isNight && !reduced) {
+        var starCount = isMobile ? 55 : 110;
+        for (var i = 0; i < starCount; i++) {
+          var st = document.createElement('div');
+          st.className = 'sky-star' + (r() > 0.82 ? ' glow' : '');
+          var sz = r() * 1.5 + 0.5;
+          var lo = r() * 0.25 + 0.15, hi = lo + r() * 0.5 + 0.25;
+          st.style.cssText =
+            'left:' + (r() * 98) + '%;' +
+            'top:'  + (r() * 82) + '%;' +
+            'width:' + sz + 'px;height:' + sz + 'px;' +
+            '--so-lo:' + lo.toFixed(2) + ';--so-hi:' + hi.toFixed(2) + ';' +
+            'animation-duration:' + (r() * 3 + 2) + 's;' +
+            'animation-delay:-' + (r() * 5) + 's;';
+          // Slight color variation (blue-white / warm-white)
+          st.style.background = r() > 0.5 ? 'rgba(220,228,255,1)' : (r() > 0.5 ? 'rgba(255,248,230,1)' : '#fff');
+          layer.appendChild(st);
         }
 
-        // Flock 1: mid-altitude, left→right — 4 on mobile, 5–9 on desktop
-        birds = [];
-        var bCount = isMobile ? 4 : 5 + Math.floor(rand() * 5);
-        var bBaseX = rand() * W * 0.4 + W * 0.05;
-        var bBaseY = H * (0.18 + rand() * 0.22);
-        for (var b = 0; b < bCount; b++) {
-          birds.push({
-            x: bBaseX + (rand() - 0.5) * W * 0.3,
-            y: bBaseY + (rand() - 0.5) * H * 0.15,
-            speed: 0.3 + rand() * 0.45,
-            dir: 1,
-            wingPhase: rand() * Math.PI * 2,
-            wingSpeed: 0.035 + rand() * 0.035,
-            size: 4 + rand() * 5,
-            altitude: rand() * 0.3
-          });
-        }
-        // Flock 2: higher altitude, right→left — desktop only
+        // Shooting stars (2 on a staggered schedule)
         if (!isMobile) {
-          var b2Count = 3 + Math.floor(rand() * 4);
-          var b2BaseX = W * (0.3 + rand() * 0.5);
-          var b2BaseY = H * (0.06 + rand() * 0.15);
-          for (var b2 = 0; b2 < b2Count; b2++) {
-            birds.push({
-              x: b2BaseX + (rand() - 0.5) * W * 0.25,
-              y: b2BaseY + (rand() - 0.5) * H * 0.1,
-              speed: -(0.15 + rand() * 0.25),
-              dir: -1,
-              wingPhase: rand() * Math.PI * 2,
-              wingSpeed: 0.025 + rand() * 0.025,
-              size: 2.5 + rand() * 3,
-              altitude: rand() * 0.15
-            });
+          for (var si = 0; si < 2; si++) {
+            (function scheduleShooter(delay) {
+              setTimeout(function fire() {
+                if (!document.body.classList.contains('sky-night')) return;
+                var sh = document.createElement('div');
+                sh.className = 'sky-shooter';
+                sh.style.cssText =
+                  'top:' + (8 + r() * 30) + '%;' +
+                  'left:0;' +
+                  'width:' + (90 + r() * 80) + 'px;' +
+                  'animation-duration:' + (1.8 + r() * 1.2) + 's;';
+                layer.appendChild(sh);
+                setTimeout(function() { sh.remove(); }, 3200);
+                setTimeout(fire, 9000 + r() * 12000);
+              }, delay);
+            })(si * 6000 + r() * 4000);
           }
         }
-
-        // Eclipse: seeded by date string hash — consistent across all devices on the same day
-        var dateStr = new Date().toDateString();
-        var dateHash = 0;
-        for (var di = 0; di < dateStr.length; di++) {
-          dateHash = (dateHash * 31 + dateStr.charCodeAt(di)) % 100;
-        }
-        eclipse = (dateHash < 20) ? {
-          offsetX: (dateHash * 7 % 40) - 20,
-          offsetY: (dateHash * 13 % 40) - 20,
-          progress: 0
-        } : null;
       }
 
-      function drawCloud(cx, cy, scale, puffs, opacity) {
-        ctx.save();
-        ctx.globalAlpha = opacity;
+      // ── Clouds (day/dawn/dusk) ──
+      if (isDay && !reduced) {
+        var cloudDefs = [
+          { w:180, h:55, top: 12, op: 0.68, dur: 130, delay: 0 },
+          { w:140, h:45, top: 24, op: 0.55, dur: 95,  delay:-35 },
+          { w:220, h:65, top: 9,  op: 0.45, dur: 160, delay:-80 }
+        ];
+        if (!isMobile) cloudDefs.push(
+          { w:110, h:40, top: 33, op: 0.60, dur: 75,  delay:-20 },
+          { w:160, h:50, top: 18, op: 0.40, dur: 110, delay:-60 }
+        );
         var warmTint = isDusk || isDawn;
-        // Golden hour: tint based on how deep into dusk
-        var duskDepth = isDusk ? Math.max(0, (hour - 18) / 2.5) : (isDawn ? Math.max(0, (7.5 - hour) / 2.5) : 0);
-        for (var p = 0; p < puffs; p++) {
-          var px = cx + (p - puffs / 2) * 28 * scale;
-          var py = cy + Math.sin(p * 1.4) * 10 * scale;
-          var pr = (18 + Math.sin(p * 0.9) * 8) * scale;
-          var cg = ctx.createRadialGradient(px, py - pr * 0.3, pr * 0.1, px, py, pr);
-          if (warmTint) {
-            var r1 = Math.round(255);
-            var g1 = Math.round(200 - duskDepth * 80);
-            var b1 = Math.round(150 - duskDepth * 120);
-            cg.addColorStop(0,   'rgba(' + r1 + ',' + g1 + ',' + b1 + ',0.90)');
-            cg.addColorStop(0.5, 'rgba(240,' + Math.round(140 - duskDepth * 60) + ',80,0.50)');
-          } else {
-            cg.addColorStop(0,   'rgba(255,255,255,0.90)');
-            cg.addColorStop(0.5, 'rgba(215,232,255,0.50)');
-          }
-          cg.addColorStop(1,   'rgba(180,200,230,0)');
-          ctx.beginPath();
-          ctx.ellipse(px, py, pr * 1.55, pr, 0, 0, Math.PI * 2);
-          ctx.fillStyle = cg;
-          ctx.fill();
-        }
-        ctx.restore();
-      }
-
-      function drawBird(bx, by, wingPhase, size) {
-        ctx.save();
-        ctx.strokeStyle = isDusk || isDawn
-          ? 'rgba(60,20,0,0.50)'
-          : 'rgba(15,10,8,0.50)';
-        ctx.lineWidth = Math.max(0.8, size * 0.18);
-        ctx.lineCap = 'round';
-        var wing = Math.sin(wingPhase) * size * 0.6;
-        ctx.beginPath();
-        ctx.moveTo(bx, by);
-        ctx.quadraticCurveTo(bx - size * 0.65, by - wing, bx - size * 1.45, by + wing * 0.25);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(bx, by);
-        ctx.quadraticCurveTo(bx + size * 0.65, by - wing, bx + size * 1.45, by + wing * 0.25);
-        ctx.stroke();
-        ctx.restore();
-      }
-
-      // ─────────────────────────────────────────────
-      // RESIZE
-      // ─────────────────────────────────────────────
-      function resize() {
-        W = canvas.width  = header.offsetWidth;
-        H = canvas.height = header.offsetHeight;
-        if (isDay)   buildDayObjects();
-        if (isNight) buildStars();
-      }
-
-      // ─────────────────────────────────────────────
-      // DRAW
-      // ─────────────────────────────────────────────
-      var t = 0;
-
-      function drawFrame() {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, W, H);
-        t += 0.016;
-
-        if (isDay) {
-          drawDaySky();
-        } else {
-          drawNightSky();
-        }
-
-        if (!prefersReducedMotion) requestAnimationFrame(drawFrame);
-      }
-
-      function drawDaySky() {
-        // ── Sky gradient (time-aware) ──
-        var sky = ctx.createLinearGradient(0, 0, 0, H);
-        // golden hour: 4:30–6pm and 7:30–8:30pm
-        var isGolden = (hour >= 16.5 && hour < 18) || (hour >= 19.5 && hour < 20.5);
-        if (isDawn) {
-          // Ref Image 1: near-void purple → dark magenta → deep crimson → burnt orange → gold
-          sky.addColorStop(0,    '#060410');
-          sky.addColorStop(0.15, '#1a0428');
-          sky.addColorStop(0.35, '#5c0a2a');
-          sky.addColorStop(0.55, '#8b1a0a');
-          sky.addColorStop(0.74, '#c84000');
-          sky.addColorStop(0.88, '#e86010');
-          sky.addColorStop(1,    '#ff8c28');
-        } else if (isDusk) {
-          var d = Math.max(0, Math.min(1, (hour - 18) / 2));
-          sky.addColorStop(0,    d > 0.6 ? '#080314' : '#0c0c28');
-          sky.addColorStop(0.2,  d > 0.6 ? '#2a0830' : '#1a0840');
-          sky.addColorStop(0.42, d > 0.6 ? '#700820' : '#8a1230');
-          sky.addColorStop(0.65, '#b83008');
-          sky.addColorStop(0.82, '#d85510');
-          sky.addColorStop(1,    '#ff8020');
-        } else if (isGolden) {
-          sky.addColorStop(0,    '#081030');
-          sky.addColorStop(0.30, '#1a3a70');
-          sky.addColorStop(0.60, '#8a4a10');
-          sky.addColorStop(0.82, '#c86818');
-          sky.addColorStop(1,    '#f09030');
-        } else {
-          // Clear midday: deep navy → royal blue → sky blue → pale horizon
-          sky.addColorStop(0,    '#060e28');
-          sky.addColorStop(0.28, '#0d2a5e');
-          sky.addColorStop(0.55, '#1a58a0');
-          sky.addColorStop(0.78, '#4080c0');
-          sky.addColorStop(1,    '#80b8d8');
-        }
-        ctx.fillStyle = sky;
-        ctx.fillRect(0, 0, W, H);
-
-        // ── Sun ──
-        var sx = prefersReducedMotion ? sunX : sunX + Math.sin(t * 0.04) * 1.5;
-        var sy = sunY;
-
-        // Sun rays — 12 soft radial beams
-        var rayCount = 12;
-        var rayOpacity = isDusk ? 0.12 : isDawn ? 0.10 : isGolden ? 0.15 : 0.08;
-        for (var ri = 0; ri < rayCount; ri++) {
-          var rayAngle = (ri / rayCount) * Math.PI * 2 + t * 0.008;
-          var rayLen = 90 + Math.sin(ri * 2.3 + t * 0.05) * 30;
-          var rayWidth = 0.06 + Math.sin(ri * 1.7) * 0.03;
-          ctx.save();
-          ctx.globalAlpha = rayOpacity + Math.sin(ri + t * 0.03) * 0.03;
-          var rg = ctx.createLinearGradient(
-            sx, sy,
-            sx + Math.cos(rayAngle) * (rayLen + 60),
-            sy + Math.sin(rayAngle) * (rayLen + 60)
-          );
-          rg.addColorStop(0,   isDusk || isDawn ? 'rgba(255,160,50,0.85)' : 'rgba(255,230,120,0.85)');
-          rg.addColorStop(0.5, isDusk || isDawn ? 'rgba(255,100,20,0.25)' : 'rgba(255,210,80,0.20)');
-          rg.addColorStop(1,   'rgba(255,180,0,0)');
-          ctx.beginPath();
-          ctx.moveTo(sx, sy);
-          // Draw a thin wedge for each ray
-          ctx.arc(sx, sy, rayLen, rayAngle - rayWidth, rayAngle + rayWidth);
-          ctx.closePath();
-          ctx.fillStyle = rg;
-          ctx.fill();
-          ctx.restore();
-        }
-
-        // Sun corona (large soft ambient)
-        var coronaR = isDusk || isDawn ? 140 : 110;
-        var corona = ctx.createRadialGradient(sx, sy, 14, sx, sy, coronaR);
-        corona.addColorStop(0,   isDusk || isDawn ? 'rgba(255,180,60,0.60)' : 'rgba(255,240,160,0.50)');
-        corona.addColorStop(0.35, isDusk || isDawn ? 'rgba(255,120,20,0.22)' : 'rgba(255,200,60,0.18)');
-        corona.addColorStop(0.7, isDusk || isDawn ? 'rgba(200,60,0,0.08)' : 'rgba(255,150,20,0.06)');
-        corona.addColorStop(1,   'rgba(0,0,0,0)');
-        ctx.fillStyle = corona;
-        ctx.beginPath();
-        ctx.arc(sx, sy, coronaR, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Sun halo ring
-        var halo = ctx.createRadialGradient(sx, sy, 20, sx, sy, 42);
-        halo.addColorStop(0,   'rgba(255,255,200,0.28)');
-        halo.addColorStop(1,   'rgba(255,220,80,0)');
-        ctx.fillStyle = halo;
-        ctx.beginPath();
-        ctx.arc(sx, sy, 42, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Sun disc
-        var discColor1 = isDusk ? '#fff0e0' : '#fffff0';
-        var discColor2 = isDusk ? '#ffb030' : '#ffe566';
-        var discColor3 = isDusk ? '#ff6600' : '#ffaa00';
-        var sunDisc = ctx.createRadialGradient(sx - 4, sy - 5, 1, sx, sy, 22);
-        sunDisc.addColorStop(0,   discColor1);
-        sunDisc.addColorStop(0.4, discColor2);
-        sunDisc.addColorStop(1,   discColor3);
-        ctx.fillStyle = sunDisc;
-        ctx.beginPath();
-        ctx.arc(sx, sy, 22, 0, Math.PI * 2);
-        ctx.fill();
-
-        // ── Eclipse overlay ──
-        if (eclipse) {
-          eclipse.progress = Math.min(1, eclipse.progress + 0.0025);
-          var ep = Math.sin(eclipse.progress * Math.PI);
-          if (ep > 0.02) {
-            var mx = sx + eclipse.offsetX * ep;
-            var my = sy + eclipse.offsetY * ep;
-            ctx.save();
-            ctx.globalAlpha = Math.min(1, ep * 1.3);
-            var moonShadow = ctx.createRadialGradient(mx - 5, my - 5, 2, mx, my, 24);
-            moonShadow.addColorStop(0,   '#050008');
-            moonShadow.addColorStop(0.7, '#080316');
-            moonShadow.addColorStop(1,   'rgba(4,0,12,0.88)');
-            ctx.fillStyle = moonShadow;
-            ctx.beginPath();
-            ctx.arc(mx, my, 24, 0, Math.PI * 2);
-            ctx.fill();
-            if (ep > 0.45) {
-              ctx.globalAlpha = Math.min(0.8, (ep - 0.45) * 2);
-              var eclipseCorona = ctx.createRadialGradient(mx, my, 22, mx, my, 44);
-              eclipseCorona.addColorStop(0,   'rgba(255,245,200,0.95)');
-              eclipseCorona.addColorStop(0.35,'rgba(255,160,50,0.40)');
-              eclipseCorona.addColorStop(1,   'rgba(255,80,0,0)');
-              ctx.fillStyle = eclipseCorona;
-              ctx.beginPath();
-              ctx.arc(mx, my, 44, 0, Math.PI * 2);
-              ctx.fill();
-            }
-            ctx.restore();
-          }
-          if (eclipse.progress >= 1) eclipse.progress = 0;
-        }
-
-        // ── Clouds — background layer first (slower, fainter) ──
-        clouds.forEach(function (c) {
-          drawCloud(c.x, c.y, c.scale, c.puffs, c.opacity);
-          if (!prefersReducedMotion) {
-            c.x += c.speed;
-            if (c.x > W + 300) c.x = -300;
-          }
+        cloudDefs.forEach(function(cd) {
+          var cl = document.createElement('div');
+          cl.className = 'sky-cloud';
+          var startX = -(cd.w + r() * 60);
+          var base = warmTint ? 'rgba(255,' + Math.round(190 - r()*60) + ',' + Math.round(130 - r()*80) + ',' : 'rgba(255,255,255,';
+          cl.style.cssText =
+            'width:' + cd.w + 'px;height:' + cd.h + 'px;' +
+            'top:' + cd.top + '%;' +
+            'left:' + startX + 'px;' +
+            'opacity:' + cd.op + ';' +
+            'border-radius:' + Math.round(cd.h * 0.5) + 'px;' +
+            'background:radial-gradient(ellipse 65% 55% at 40% 45%,' + base + '0.88) 0%,' + base + '0) 100%);' +
+            'filter:blur(' + (r()*1.5) + 'px);' +
+            '--drift:' + (window.innerWidth + cd.w + 80) + 'px;' +
+            'animation-duration:' + cd.dur + 's;' +
+            'animation-delay:' + cd.delay + 's;';
+          layer.appendChild(cl);
         });
 
         // ── Birds ──
-        birds.forEach(function (b) {
-          drawBird(b.x, b.y, b.wingPhase, b.size);
-          if (!prefersReducedMotion) {
-            b.x += b.speed;
-            b.wingPhase += b.wingSpeed;
-            var wrap = b.dir > 0 ? W + 80 : -80;
-            var reset = b.dir > 0 ? -80 : W + 80;
-            if ((b.dir > 0 && b.x > wrap) || (b.dir < 0 && b.x < wrap)) b.x = reset;
-          }
-        });
-
-        // ── Warm horizon glow ──
-        // Horizon glow — magenta-tinged at dawn/dusk, amber at golden hour
-        var hgOpacity = isDusk || isDawn ? 0.38 : isGolden ? 0.22 : 0.10;
-        var hgColor   = isDusk ? 'rgba(180,30,60,' : isDawn ? 'rgba(200,40,10,' : isGolden ? 'rgba(240,130,30,' : 'rgba(180,150,70,';
-        var hg = ctx.createLinearGradient(0, H * 0.58, 0, H);
-        hg.addColorStop(0, hgColor + '0)');
-        hg.addColorStop(1, hgColor + hgOpacity + ')');
-        ctx.fillStyle = hg;
-        ctx.fillRect(0, H * 0.58, W, H * 0.42);
+        var birdCount = isMobile ? 4 : 7 + Math.floor(r() * 4);
+        for (var bi = 0; bi < birdCount; bi++) {
+          var bd = document.createElement('div');
+          bd.className = 'sky-bird';
+          var bsize = 8 + r() * 10;
+          var bdur  = 28 + r() * 45;
+          var btop  = 12 + r() * 35;
+          var bdelay = -(r() * bdur);
+          var ftdur = 0.35 + r() * 0.4;
+          bd.style.cssText =
+            'top:' + btop + '%;' +
+            '--ws:' + Math.round(bsize) + 'px;' +
+            '--ft:' + ftdur.toFixed(2) + 's;' +
+            '--bx0:-' + (10 + r() * 5) + 'vw;' +
+            '--bx1:' + (108 + r() * 5) + 'vw;' +
+            'animation-duration:' + bdur + 's;' +
+            'animation-delay:' + bdelay.toFixed(1) + 's;';
+          layer.appendChild(bd);
+        }
       }
 
-      function drawNightSky() {
-        // Night sky — ref Images 2 & 4: deep indigo → violet-blue → teal nebula glow
-        var sky = ctx.createLinearGradient(0, 0, 0, H);
-        sky.addColorStop(0,    '#02030e');
-        sky.addColorStop(0.20, '#06091a');
-        sky.addColorStop(0.48, '#0a0e2a');
-        sky.addColorStop(0.72, '#0c1030');
-        sky.addColorStop(0.88, '#0e0a20');
-        sky.addColorStop(1,    '#120818');
-        ctx.fillStyle = sky;
-        ctx.fillRect(0, 0, W, H);
-
-        // Nebula-like center glow (ref Image 2: soft teal/blue from center)
-        var nebula = ctx.createRadialGradient(W * 0.5, H * 0.38, 0, W * 0.5, H * 0.38, W * 0.55);
-        nebula.addColorStop(0,   'rgba(20,60,120,0.22)');
-        nebula.addColorStop(0.3, 'rgba(10,40,90,0.12)');
-        nebula.addColorStop(0.7, 'rgba(5,20,50,0.05)');
-        nebula.addColorStop(1,   'rgba(0,0,0,0)');
-        ctx.fillStyle = nebula;
-        ctx.fillRect(0, 0, W, H);
-
-        // Violet lower-sky warmth (ref Image 4)
-        var edgeGlow = ctx.createLinearGradient(0, H * 0.6, 0, H);
-        edgeGlow.addColorStop(0, 'rgba(30,10,55,0)');
-        edgeGlow.addColorStop(1, 'rgba(40,15,70,0.28)');
-        ctx.fillStyle = edgeGlow;
-        ctx.fillRect(0, H * 0.6, W, H * 0.4);
-
-        // Warm amber horizon ember (site palette warmth)
-        var ember = ctx.createRadialGradient(W * 0.5, H, 0, W * 0.5, H, W * 0.5);
-        ember.addColorStop(0,   'rgba(120,50,10,0.20)');
-        ember.addColorStop(0.45,'rgba(60,20,5,0.07)');
-        ember.addColorStop(1,   'rgba(0,0,0,0)');
-        ctx.fillStyle = ember;
-        ctx.fillRect(0, 0, W, H);
-
-        // Stars — with bokeh glow on larger ones (ref Image 2)
-        stars.forEach(function (s) {
-          var brightness = prefersReducedMotion
-            ? s.base
-            : s.base + Math.sin(t / s.speed + s.offset) * 0.20;
-          brightness = Math.max(0.05, Math.min(1, brightness));
-
-          if (s.radius > 1.0 && !prefersReducedMotion) {
-            var sg = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.radius * 3.5);
-            sg.addColorStop(0,   'rgba(200,215,255,' + (brightness * 0.45) + ')');
-            sg.addColorStop(1,   'rgba(120,150,220,0)');
-            ctx.fillStyle = sg;
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.radius * 3.5, 0, Math.PI * 2);
-            ctx.fill();
-          }
-
-          // Color-varied star cores: blue-white / warm-white / cool-white
-          var hue = s.offset < Math.PI ? '220,228,255,' : s.offset < Math.PI * 1.5 ? '255,248,230,' : '210,225,255,';
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(' + hue + brightness + ')';
-          ctx.fill();
-        });
-
-        if (prefersReducedMotion) return;
-
-        // Shooting stars — brighter, with head glow
-        shooters.forEach(function (sh, idx) {
-          sh.timer += 16;
-          if (sh.timer < 0) return;
-          var rad = (sh.angle * Math.PI) / 180;
-          var progress = sh.timer / 1200;
-          if (progress > 1) {
-            shooters[idx] = makeShooter(0);
-            shooters[idx].timer = -(8000 + rand() * 10000);
-            return;
-          }
-          var cx2 = sh.x + Math.cos(rad) * sh.speed * sh.timer * 0.1;
-          var cy2 = sh.y + Math.sin(rad) * sh.speed * sh.timer * 0.1;
-          var op = progress < 0.15 ? progress / 0.15 : progress > 0.75 ? (1 - progress) / 0.25 : 1;
-          op *= 0.90;
-          var tailX = cx2 - Math.cos(rad) * sh.length;
-          var tailY = cy2 - Math.sin(rad) * sh.length;
-          var grad = ctx.createLinearGradient(tailX, tailY, cx2, cy2);
-          grad.addColorStop(0,   'rgba(180,200,255,0)');
-          grad.addColorStop(0.55,'rgba(220,235,255,' + (op * 0.45) + ')');
-          grad.addColorStop(1,   'rgba(255,255,255,' + op + ')');
-          ctx.beginPath();
-          ctx.moveTo(tailX, tailY);
-          ctx.lineTo(cx2, cy2);
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = 1.8;
-          ctx.stroke();
-          // Head point glow
-          ctx.beginPath();
-          ctx.arc(cx2, cy2, 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255,255,255,' + op + ')';
-          ctx.fill();
-        });
-      }
-
-      window.addEventListener('resize', function () {
-        resize();
-        if (prefersReducedMotion) drawFrame();
-      });
-      resize();
-      if (prefersReducedMotion) {
-        drawFrame();
-      } else {
-        requestAnimationFrame(drawFrame);
-      }
-
-      // Moon phase only shown at night
-      if (isNight) drawMoonPhase();
-      else {
-        // Hide moon display during day
-        var moonEl = document.getElementById('header-moon');
-        if (moonEl) moonEl.style.display = 'none';
-      }
+      // ── Moon phase (night) ──
+      if (isNight) initSkyMoon();
     }
 
-    function drawMoonPhase() {
-      var moonCanvas = document.getElementById('header-moon-canvas');
-      var moonLabel  = document.getElementById('header-moon-label');
-      if (!moonCanvas) return;
+    function initSkyMoon() {
+      var shadow = document.getElementById('sky-moon-shadow');
+      var label  = document.getElementById('sky-moon-label');
+      if (!shadow) return;
 
-      var ctx = moonCanvas.getContext('2d');
-      var size = 32, r = size / 2;
+      // Illumination calc — no lib needed
+      var known = new Date(2025, 0, 29).getTime(); // known new moon Jan 29 2025
+      var daysSince = (Date.now() - known) / 86400000;
+      var cycle = ((daysSince % 29.53) + 29.53) % 29.53;
+      var illum = cycle <= 14.765 ? cycle / 14.765 : (29.53 - cycle) / 14.765;
+      var waxing = cycle <= 14.765;
 
-      // Get illumination fraction + phase name from lunarphase-js if available,
-      // otherwise fall back to a simple calculation
-      var illumination = 0.5, phaseName = '';
-      try {
-        if (window.LunarPhase) {
-          var lp = new LunarPhase.Moon();
-          illumination = lp.illumination();          // 0–1
-          phaseName = lp.lunarPhase();               // e.g. "Waxing Crescent"
-        } else {
-          // Simple fallback: days since known new moon (Jan 6 2000)
-          var known = new Date(2000, 0, 6).getTime();
-          var daysSince = (Date.now() - known) / 86400000;
-          var cycle = daysSince % 29.53;
-          illumination = cycle <= 14.765 ? cycle / 14.765 : (29.53 - cycle) / 14.765;
-          var phaseNames = ['New Moon','Waxing Crescent','First Quarter','Waxing Gibbous',
-                            'Full Moon','Waning Gibbous','Last Quarter','Waning Crescent'];
-          phaseName = phaseNames[Math.round(cycle / 29.53 * 8) % 8];
-        }
-      } catch(e) {
-        illumination = 0.5;
-      }
+      // Shadow scale: 0 = no shadow (full), 1 = total shadow (new)
+      var shadowScale = Math.abs(1 - 2 * illum);
+      // Shadow sits on left (waxing) or right (waning)
+      shadow.style.setProperty('--shadow-scale', shadowScale.toFixed(3));
+      shadow.style.setProperty('--shadow-origin', waxing ? 'right center' : 'left center');
 
-      // Draw moon disc
-      ctx.clearRect(0, 0, size, size);
-
-      // Outer glow
-      var glow = ctx.createRadialGradient(r, r, r * 0.6, r, r, r * 1.4);
-      glow.addColorStop(0,   'rgba(200,220,255,0.15)');
-      glow.addColorStop(1,   'rgba(0,0,0,0)');
-      ctx.fillStyle = glow;
-      ctx.beginPath();
-      ctx.arc(r, r, r * 1.4, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Moon base (lit side)
-      var moonGrad = ctx.createRadialGradient(r * 0.7, r * 0.7, 1, r, r, r);
-      moonGrad.addColorStop(0,   'rgba(255,255,240,0.95)');
-      moonGrad.addColorStop(0.6, 'rgba(200,210,230,0.85)');
-      moonGrad.addColorStop(1,   'rgba(140,160,190,0.7)');
-      ctx.fillStyle = moonGrad;
-      ctx.beginPath();
-      ctx.arc(r, r, r - 1, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Shadow to show phase: draw dark ellipse over the unlit side
-      // illumination 0=new, 1=full
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(r, r, r - 1, 0, Math.PI * 2);
-      ctx.clip();
-
-      // The shadow: as illumination goes 0→0.5, shadow covers right→left
-      // At full (1.0) no shadow, at new (0) full shadow
-      var shadowW = Math.abs(1 - 2 * illumination) * (r - 1);
-      var waxing = illumination <= 0.5;
-      ctx.fillStyle = 'rgba(0,5,20,0.92)';
-      if (illumination < 0.02) {
-        // New moon — full dark
-        ctx.beginPath();
-        ctx.arc(r, r, r - 1, 0, Math.PI * 2);
-        ctx.fill();
-      } else if (illumination > 0.98) {
-        // Full moon — no shadow
-      } else {
-        // Draw shadow as a half-disc + ellipse blend
-        ctx.beginPath();
-        if (waxing) {
-          // Left side dark (right side lit)
-          ctx.arc(r, r, r - 1, Math.PI / 2, -Math.PI / 2, false);
-          ctx.ellipse(r, r, shadowW, r - 1, 0, -Math.PI / 2, Math.PI / 2, false);
-        } else {
-          // Right side dark (left side lit)
-          ctx.arc(r, r, r - 1, -Math.PI / 2, Math.PI / 2, false);
-          ctx.ellipse(r, r, shadowW, r - 1, 0, Math.PI / 2, -Math.PI / 2, false);
-        }
-        ctx.closePath();
-        ctx.fill();
-      }
-      ctx.restore();
-
-      // Moon phase label — phase name + illumination %
-      if (moonLabel && phaseName) {
-        var pct = Math.round(illumination * 100);
-        moonLabel.innerHTML = phaseName + '<br>' + pct + '% lit';
-      }
+      // Phase name
+      var phases = ['New Moon','Waxing Crescent','First Quarter','Waxing Gibbous',
+                    'Full Moon','Waning Gibbous','Last Quarter','Waning Crescent'];
+      var phaseName = phases[Math.round(cycle / 29.53 * 8) % 8];
+      var pct = Math.round(illum * 100);
+      if (label) label.textContent = phaseName + ' · ' + pct + '%';
     }
 
     // ── Init ──

@@ -60,19 +60,19 @@
           <div id="kids-search-results" class="kids-search-results hidden" aria-live="polite"></div>
         </section>
 
-        <!-- Comic panels: Add your AI-generated images here. See PROMPTS.md for Midjourney/DALL-E prompts. -->
+        <!-- Comic panels: clickable links to relevant stories in corner.html -->
         <section class="kids-comic-panels glass" role="region" aria-label="Comic illustration">
           <h2 class="kids-section-title sr-only">Today's Story</h2>
           <div class="kids-panels-row">
-            <div class="kids-panel" data-prompt="Young David with sling, heroic pose, comic book style, bold colors, speech bubble, big eyes, kid-friendly, no violence, Sunday school illustration">
-              <img src="panel-david.svg" alt="David and Goliath - be brave like David" width="200" height="160">
-            </div>
-            <div class="kids-panel" data-prompt="Noah's ark with animals, rainbow, comic style, bright colors, friendly animals, two by two, kid-safe">
-              <img src="panel-noah.svg" alt="Noah's ark - God keeps His promises" width="200" height="160">
-            </div>
-            <div class="kids-panel" data-prompt="Jesus with children, warm embrace, comic book style, gentle colors, speech bubble, big eyes, safe and loving">
+            <a href="corner.html?story=david" class="kids-panel" aria-label="Read the David and Goliath story" data-prompt="Young David with sling, heroic pose, comic book style, bold colors, speech bubble, big eyes, kid-friendly, no violence, Sunday school illustration">
+              <img src="panel-david.svg" alt="David and Goliath — be brave like David" width="200" height="160">
+            </a>
+            <a href="corner.html?story=noah" class="kids-panel" aria-label="Read the Noah's Ark story" data-prompt="Noah's ark with animals, rainbow, comic style, bright colors, friendly animals, two by two, kid-safe">
+              <img src="panel-noah.svg" alt="Noah's ark — God keeps His promises" width="200" height="160">
+            </a>
+            <a href="corner.html?story=jesus-children" class="kids-panel" aria-label="Read the story of Jesus and the children" data-prompt="Jesus with children, warm embrace, comic book style, gentle colors, speech bubble, big eyes, safe and loving">
               <img src="panel-jesus.svg" alt="Jesus loves the little children" width="200" height="160">
-            </div>
+            </a>
           </div>
         </section>
 
@@ -103,12 +103,14 @@
         </section>
 
         <section class="kids-bible-cartoon glass" role="region" aria-label="Today's story illustration">
-          <div id="kids-cartoon-container">
-            <div class="bible-cartoon cartoon-slide-david" id="kids-bible-cartoon">
-              <img src="panel-david.svg" alt="David with slingshot" class="cartoon-img" id="kids-cartoon-img" width="200" height="160">
-              <p class="cartoon-caption" id="kids-cartoon-caption">David trusted God to be strong!</p>
+          <a href="corner.html" class="kids-cartoon-link" aria-label="Open full story library">
+            <div id="kids-cartoon-container">
+              <div class="bible-cartoon cartoon-slide-david" id="kids-bible-cartoon">
+                <img src="panel-david.svg" alt="David with slingshot" class="cartoon-img" id="kids-cartoon-img" width="200" height="160">
+                <p class="cartoon-caption" id="kids-cartoon-caption">David trusted God to be strong!</p>
+              </div>
             </div>
-          </div>
+          </a>
         </section>
 
         <section class="kids-story-library-cta glass" role="region" aria-label="All Bible cartoon stories">
@@ -127,7 +129,7 @@
           <p class="kids-streak-display" id="kids-streak-display">🔥 0 days — start today!</p>
           <button type="button" id="kids-mark-done" class="btn kids-btn-primary">I Did It Today!</button>
           <p id="kids-done-msg" class="kids-done-msg hidden">Battle won! See you tomorrow. 🌟</p>
-          <button type="button" id="kids-remind-btn" class="btn kids-btn-remind">🔔 Remind me when I miss a day</button>
+          <button type="button" id="kids-remind-btn" class="btn kids-btn-remind" aria-label="Set a daily reminder so you don't miss a day">🔔 Remind me when I miss a day</button>
         </section>
 
         <section id="kids-story-of-day" class="kids-story-of-day glass" role="region" aria-label="Story of the Day">
@@ -163,8 +165,8 @@
         <section class="kids-battle-doodle glass" role="region" aria-label="Doodle canvas">
           <h2 class="kids-section-title">Doodle Prompt</h2>
           <p class="kids-doodle-prompt">Draw what today's verse means to you!</p>
-          <button type="button" id="kids-doodle-btn" class="btn kids-btn-doodle">✏️ Open Doodle Canvas</button>
-          <button type="button" id="kids-share-btn" class="btn kids-btn-share">📸 Share my win!</button>
+          <button type="button" id="kids-doodle-btn" class="btn kids-btn-doodle" aria-label="Open the doodle canvas to draw">✏️ Open Doodle Canvas</button>
+          <button type="button" id="kids-share-btn" class="btn kids-btn-share" aria-label="Share your win today">📸 Share my win!</button>
         </section>
 
         <section id="kids-faith-trail" class="kids-faith-trail glass hidden" role="region" aria-label="Faith Trail progress map">
@@ -177,8 +179,8 @@
 
     <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
       <p>© 2026 Kids Battle – Faith Trail for Kids</p>
-      <p>Powered by Supabase</p>
       <a href="/privacy.html">Privacy</a>
+      <a href="/" aria-label="Back to Today's Daily Battle main site">← Main Site</a>
     </footer>
 
     <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
@@ -222,10 +224,10 @@
         <button type="button" id="kids-doodle-clear" class="btn btn-secondary">Clear Drawing</button>
         <button type="button" id="kids-doodle-save" class="btn kids-btn-primary">Save Doodle!</button>
         <button type="button" id="kids-doodle-download" class="btn btn-secondary">Download Image</button>
-        <button type="button" id="kids-doodle-share" class="btn kids-btn-share">📸 Share my win!</button>
+        <button type="button" id="kids-doodle-share" class="btn kids-btn-share" aria-label="Share your doodle win">📸 Share my win!</button>
       </div>
       <div class="kids-doodle-canvas-wrap">
-        <canvas id="kids-doodle-canvas" width="600" height="400"></canvas>
+        <canvas id="kids-doodle-canvas" width="600" height="400" style="max-width:100%;height:auto;display:block;"></canvas>
       </div>
     </div>
   </div>
@@ -495,7 +497,7 @@
       </div>
       <div id="kids-memory-result" class="kids-memory-result hidden" role="status">
         <p id="kids-memory-result-msg"></p>
-        <button type="button" id="kids-memory-next" class="btn kids-btn-memory-gold">Next</button>
+        <button type="button" id="kids-memory-next" class="btn kids-btn-memory-gold" aria-label="Next memory verse">Next</button>
       </div>
       <button type="button" id="kids-memory-submit" class="btn kids-btn-memory-gold kids-memory-submit">Check!</button>
     </div>

@@ -335,10 +335,10 @@
       <div id="auth-section" class="auth-inline auth-compact">
         <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
         <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
-        <button id="signup-btn">Sign Up</button>
-        <button id="login-btn">Log In</button>
+        <button id="signup-btn" type="button" aria-label="Create an account">Sign Up</button>
+        <button id="login-btn" type="button" aria-label="Log in to your account">Log In</button>
         <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
-        <button id="logout-btn" class="hidden">Log Out</button>
+        <button id="logout-btn" class="hidden" type="button" aria-label="Log out of your account">Log Out</button>
       </div>
     </header>
 
@@ -462,16 +462,16 @@
               <textarea id="sermon-prayer" rows="3" placeholder="Short closing prayer..."></textarea>
             </div>
             <div class="sermon-actions">
-              <button id="save-sermon">Save Draft</button>
-              <button id="load-sermon">Load Draft</button>
-              <button id="export-sermon">Copy for Sharing</button>
-              <button id="export-sermon-email">Copy for Email</button>
-              <button id="export-sermon-slides">Copy for Slides</button>
-              <button id="print-sermon">Print / Save as PDF</button>
-              <button id="email-sermon" type="button">Email sermon</button>
-              <button id="pastor-toolkit">Pastor Toolkit</button>
-              <button id="share-sermon">Email to Congregation</button>
-              <button id="share-sermon-link">Create Share Link</button>
+              <button id="save-sermon" type="button" aria-label="Save sermon draft locally">Save Draft</button>
+              <button id="load-sermon" type="button" aria-label="Load your last saved sermon draft">Load Draft</button>
+              <button id="export-sermon" type="button" aria-label="Copy sermon text for sharing">Copy for Sharing</button>
+              <button id="export-sermon-email" type="button" aria-label="Copy sermon formatted for email">Copy for Email</button>
+              <button id="export-sermon-slides" type="button" aria-label="Copy sermon formatted for presentation slides">Copy for Slides</button>
+              <button id="print-sermon" type="button" aria-label="Print sermon or save as PDF">Print / Save as PDF</button>
+              <button id="email-sermon" type="button" aria-label="Email this sermon">Email Sermon</button>
+              <button id="pastor-toolkit" type="button" aria-label="Open the Pastor Toolkit">Pastor Toolkit</button>
+              <button id="share-sermon" type="button" aria-label="Email this sermon to your congregation">Email to Congregation</button>
+              <button id="share-sermon-link" type="button" aria-label="Create a shareable link for this sermon">Create Share Link</button>
               <button id="open-sermon-link">Open Share Link</button>
             </div>
             <input id="sermon-share-link" placeholder="Sermon share link will appear here" readonly>
@@ -493,7 +493,7 @@
       </nav>
       <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
-      <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+      <p class="footer-updated">Today's Daily Battle · <a href="/" aria-label="Back to home">Home</a></p>
     </footer>
   </div>
 

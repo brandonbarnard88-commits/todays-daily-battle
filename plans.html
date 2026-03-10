@@ -45,6 +45,21 @@
       transition: color 0.15s;
     }
     .plans-back:hover { color: var(--gold); }
+    .plans-home-link {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .plans-home-link:hover, .plans-home-link:focus-visible {
+      color: var(--gold);
+      background: rgba(227,188,103,0.08);
+    }
+    .detail-subtitle-row { padding: 0 1rem 0.25rem; }
+    .detail-header { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
 
     /* ── Hero ── */
     .plans-hero { text-align: center; margin-bottom: 2rem; }
@@ -285,6 +300,9 @@
       <div class="detail-header">
         <button type="button" class="detail-back-btn" id="detailBackBtn" aria-label="Back to all plans">← Plans</button>
         <span class="detail-title" id="detailTitle"></span>
+        <a href="/" class="plans-home-link" aria-label="Back to Today's Daily Battle home">🏠 Home</a>
+      </div>
+      <div class="detail-subtitle-row">
         <span class="detail-subtitle" id="detailSubtitle"></span>
       </div>
       <div class="streak-banner" id="streakBanner"></div>
@@ -299,13 +317,20 @@
         <div class="plan-complete-icon">🏆</div>
         <p class="plan-complete-title" id="planCompleteTitle">Plan Complete!</p>
         <p class="plan-complete-sub" id="planCompleteSub"></p>
-        <button type="button" class="btn-extend" id="btnExtend">Extend the Plan</button>
-        <button type="button" class="btn-restart" id="btnRestart">Start Over</button>
+        <button type="button" class="btn-extend" id="btnExtend" aria-label="Extend this plan for more days">Extend the Plan</button>
+        <button type="button" class="btn-restart" id="btnRestart" aria-label="Restart this plan from day one">Start Over</button>
       </div>
       <div id="dayCardContainer"></div>
     </div>
 
   </main>
+
+  <noscript>
+    <div style="padding:2rem;text-align:center;color:#bcc5d6;font-family:sans-serif;">
+      <p style="font-size:1.1rem;margin-bottom:0.75rem;">JavaScript is required to view the Battle Plans.</p>
+      <a href="/" style="color:#e3bc67;text-decoration:underline;">← Back to Today's Daily Battle</a>
+    </div>
+  </noscript>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

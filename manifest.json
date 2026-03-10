@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "Today's Battle",
-  "short_name": "Battle",
+  "name": "Today's Daily Battle",
+  "short_name": "Daily Battle",
   "description": "One verse, one moment, every day. Less scroll, more soul.",
   "lang": "en-US",
   "start_url": "/",
@@ -11,6 +11,12 @@
   "background_color": "#000000",
   "theme_color": "#ff8c00",
   "icons": [
+    {
+      "src": "/logo-shield-600.png",
+      "sizes": "600x600",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",

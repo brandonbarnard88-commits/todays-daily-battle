@@ -1,163 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Privacy • Today's Daily Battle</title>
-  <meta name="description" content="Privacy policy for Today's Daily Battle: what we collect, what we do not collect, and how we protect your data.">
-  <meta name="robots" content="index, follow">
-  <meta name="referrer" content="no-referrer">
-  <link rel="canonical" href="https://todaysdailybattle.com/privacy.html">
-  <meta property="og:title" content="Privacy • Today's Daily Battle">
-  <meta property="og:description" content="Privacy policy for Today's Daily Battle.">
-  <meta property="og:url" content="https://todaysdailybattle.com/privacy.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privacy • Today's Daily Battle">
-  <meta name="twitter:description" content="Privacy policy for Today's Daily Battle.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260305p">
-  <link rel="manifest" href="manifest.json">
-  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · Today's Daily Battle</title>
+  <meta name="description" content="Privacy policy for Today's Daily Battle.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#ff8c00">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0f1218;
+      color: #cbd5e1;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      padding: 2rem 1.25rem 4rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    a { color: #e3bc67; }
+    a:hover { text-decoration: underline; }
+    h1 {
+      font-size: 1.6rem;
+      color: #e3bc67;
+      margin-bottom: 0.3rem;
+    }
+    h2 {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin: 1.8rem 0 0.4rem;
+    }
+    p { margin-bottom: 0.9rem; }
+    .back {
+      display: inline-block;
+      margin-bottom: 1.8rem;
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+    .updated {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
-<body class="dark-mode">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <div class="app-shell">
-    <header class="top-bar">
-      <div class="brand">
-        <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Privacy and data care</span>
-      </div>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
-      <div id="auth-section" class="auth-inline auth-compact">
-        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
-        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
-        <button id="signup-btn">Sign Up</button>
-        <button id="login-btn">Log In</button>
-        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
-        <button id="logout-btn" class="hidden">Log Out</button>
-      </div>
-    </header>
+<body>
 
-    <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Site navigation">
-        <a href="/" data-section="search" data-icon="SR">Search</a>
-        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
-        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
-        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
-        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
-        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
-        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
-        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
-        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
-        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
-        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
-        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
-        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
-        <a href="about.html" data-section="about" data-icon="AB">About</a>
-        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
-      </nav>
-      <div class="sidebar-options">
-        <label class="inline-toggle">
-          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
-          Red letters
-        </label>
-      </div>
-    </aside>
+  <a class="back" href="/">← Back to Today's Daily Battle</a>
 
-    <main class="app-content" id="main-content">
-      <div class="content-inner">
-        <header class="hero-banner">
-          <h1>Privacy Policy</h1>
-          <p class="hero-tagline">Privacy is part of the mission. We minimize data, protect what is stored, and never trade your trust for ad revenue.</p>
-          <p class="section-note util-mt-0_5">Anonymous prayers only - no names on the map. Search text is not logged as personal behavior. We do not sell personal data. Account data is used only to deliver core features (streaks, notes, reminders, and sync).</p>
-        </header>
-        <section class="glass">
-          <h2 class="section-divider">Your search is private</h2>
-          <p class="section-note">We never know who searched, and we never store what you type. Search is yours alone.</p>
-          <div class="list">
-            <div class="list-item"><div><strong>No tracking of who you are</strong><p>We do not send your identity—no user ID, email, or IP—with search or analytics. You are not tracked.</p></div></div>
-            <div class="list-item"><div><strong>No storage of what you type</strong><p>What you enter in the search box is never sent to our analytics or any third party. We only use anonymous topic counts (e.g. “hope”, “anxiety”) to improve the site—never your words.</p></div></div>
-            <div class="list-item"><div><strong>Safe place, even if something is breached</strong><p>Our code and policy are built so that if any system is compromised, there is nothing that could identify who searched or what they typed. Your safety comes first.</p></div></div>
-          </div>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">How we protect your data</h2>
-          <p class="section-note">We treat account data with least-privilege principles and defense-in-depth controls.</p>
-          <div class="list">
-            <div class="list-item"><div><strong>No selling data</strong><p>We do not sell, rent, or trade your email or personal information.</p></div></div>
-            <div class="list-item"><div><strong>Secure auth</strong><p>Sign-in and passwords are handled by Supabase Auth (industry-standard). We never see or store your password.</p></div></div>
-            <div class="list-item"><div><strong>Access control</strong><p>Your notes, saved verses, and account data are scoped to your account through role-based permissions and row-level security.</p></div></div>
-            <div class="list-item"><div><strong>HTTPS</strong><p>The site runs over HTTPS so data in transit is encrypted.</p></div></div>
-            <div class="list-item"><div><strong>Payments</strong><p>Payments are processed by Stripe. We do not see or store your card number; Stripe handles it securely.</p></div></div>
-            <div class="list-item"><div><strong>You stay in control</strong><p>You can request export or full deletion anytime via Contact or support email, and we confirm completion.</p></div></div>
-            <div class="list-item"><div><strong>If a breach happens</strong><p>We will notify affected users and take steps to secure data as quickly as possible.</p></div></div>
-          </div>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">What We Collect</h2>
-          <p class="section-note">We collect the minimum data needed to run the service safely and reliably.</p>
-          <div class="list">
-            <div class="list-item"><div><strong>Email</strong><p>Used for account access and newsletter reminders if you opt in.</p></div></div>
-            <div class="list-item"><div><strong>Local data</strong><p>Notes, streaks, and settings are saved in your browser unless you sign in.</p></div></div>
-            <div class="list-item"><div><strong>Anonymous usage</strong><p>We only use anonymous counts (e.g. which topics are searched most). We never see or store what you type in search. User safety is the key.</p></div></div>
-          </div>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">How We Use It</h2>
-          <p>We use data only to deliver product behavior you explicitly use (account access, reminders, notes, sync, and reliability/security operations). We do not sell personal data.</p>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">Third parties</h2>
-          <p class="section-note">We use only trusted providers necessary to run the service: Supabase (auth and database), Stripe (payments), and analytics (e.g. Google Analytics, Cloudflare) as described in this policy. We do not sell or share your personal information with third parties for their marketing. These providers have their own privacy and security obligations.</p>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">Data retention</h2>
-          <p class="section-note">We retain your data only as long as needed to provide the service and as required by law. You may request deletion of your account and data at any time via the Contact page; we will process such requests in a reasonable time.</p>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">Your Choices</h2>
-          <p>You can unsubscribe from emails at any time and request account deletion at any time. We honor those requests promptly.</p>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">Terms of use</h2>
-          <p class="section-note">This page covers the basics. Use of the site implies acceptance of reasonable use—no abuse of the message board, no scraping at scale. We do not sell your personal data. For full terms see <a href="terms.html">Terms of Service</a>; for questions <a href="contact.html">Contact</a>.</p>
-        </section>
-        <section class="glass">
-          <h2 class="section-divider">Contact</h2>
-          <p>If you have privacy questions or want to request data export/deletion, email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a> or use the <a href="contact.html">Contact</a> page.</p>
-        </section>
-      </div>
-    </main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: March 2026</p>
 
-    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
-      <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️</p>
-      <nav class="footer-quick-links" aria-label="Quick links">
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="approach.html" title="How we respond to feedback and common critiques">How we respond</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
-      <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
-      <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-      <p class="section-note util-mt-0_5">Your data never leaves your device—clear anytime. <button type="button" id="clear-local-data-btn" class="link-button" aria-label="Clear all data stored on this device"><span aria-hidden="true">⚠</span> Clear local data</button></p>
-    </footer>
-  </div>
+  <p>Today's Daily Battle is a free, faith-based daily devotional tool. This policy explains what data is collected and how it is used. Plain language — no legal fog.</p>
 
-  <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script nonce="tdb2025">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
-  <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260305" data-cfasync="false"></script>
+  <h2>What we collect</h2>
+  <p><strong>Nothing you don't choose to give.</strong> The site works fully without an account. No tracking pixels, no ad networks, no selling of data — ever.</p>
+  <p>If you create an optional account (via Supabase Auth), we store your email address and your saved content (notes, prayer entries, streak data) so it syncs across your devices. You can delete your account and all associated data at any time by emailing <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</p>
+
+  <h2>Local storage</h2>
+  <p>Mood check-ins, streak counts, saved verses, and reading plan progress are stored locally on your device using <code>localStorage</code>. This data never leaves your device unless you sign in and sync.</p>
+
+  <h2>Push notifications</h2>
+  <p>If you allow daily verse reminders, your browser's push subscription token is sent to our server (Supabase). It is only used to deliver the daily verse notification. You can revoke permission in your browser settings at any time.</p>
+
+  <h2>Analytics</h2>
+  <p>We use Google Analytics 4 and Plausible for anonymous usage statistics — page views, feature usage, general location (country level). No personally identifiable information is included. No raw search queries or prayer content is ever sent to analytics.</p>
+
+  <h2>Third-party services</h2>
+  <p>The site uses Supabase (database and auth), Firebase (push notifications), Cloudflare (CDN and security), Stripe (optional supporter payments), and Google Fonts. Each has its own privacy policy. We do not share your data with any of these services beyond what is necessary for the feature to work.</p>
+
+  <h2>Children</h2>
+  <p>The Kids Corner section of this site is designed for children with parental involvement. We do not knowingly collect personal information from children under 13.</p>
+
+  <h2>Contact</h2>
+  <p>Questions? <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a></p>
+
+  <p style="margin-top:2rem;font-size:0.8rem;color:#475569;">© 2026 Brandon Barnard · Today's Daily Battle</p>
+
 </body>
 </html>

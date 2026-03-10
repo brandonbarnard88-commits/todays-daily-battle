@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311ab -->
+<!-- tdb build 20260311ac -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -152,13 +152,13 @@
         0 0 0 40px rgba(255,160,30,0.08),
         0 0 80px 20px rgba(255,160,20,0.30),
         0 0 160px 40px rgba(255,100,0,0.15);
-      will-change: transform;
+      will-change: transform, opacity;
     }
     body.sky-dawn  .sky-sun { left: 32%; top: 72%; background: radial-gradient(circle at 38% 38%, #fff0d8 0%, #ffb030 42%, #ff5e00 100%); box-shadow: 0 0 0 18px rgba(255,120,20,0.14), 0 0 0 50px rgba(220,60,0,0.08), 0 0 100px 30px rgba(220,80,10,0.35), 0 0 200px 60px rgba(180,30,0,0.18); }
     body.sky-dusk  .sky-sun { left: 25%; top: 65%; background: radial-gradient(circle at 38% 38%, #fff0d8 0%, #ffb030 42%, #ff5e00 100%); box-shadow: 0 0 0 18px rgba(255,120,20,0.14), 0 0 0 50px rgba(220,60,0,0.08), 0 0 100px 30px rgba(220,80,10,0.35), 0 0 200px 60px rgba(180,30,0,0.18); }
     body.sky-night .sky-sun { display: none; }
     /* Gentle drift */
-    body:not(.sky-night) .sky-sun { animation: sun-drift 90s linear infinite; }
+    body:not(.sky-night) .sky-sun { animation: sun-drift 90s ease-in-out infinite; }
     @keyframes sun-drift {
       0%   { transform: translate(-50%, -50%) translateY(0px); }
       50%  { transform: translate(-50%, -50%) translateY(-6px); }
@@ -168,6 +168,7 @@
     .sky-sun::after {
       content: ''; position: absolute; inset: -60%;
       border-radius: 50%;
+      will-change: transform;
       background: conic-gradient(
         rgba(255,220,80,0.08) 0deg, transparent 20deg,
         rgba(255,220,80,0.08) 40deg, transparent 60deg,
@@ -185,12 +186,16 @@
     @keyframes ray-spin { to { transform: rotate(360deg); } }
     body.sky-night .sky-sun::after { display: none; }
 
-    /* Eclipse overlay */
+    /* Eclipse overlay — inset box-shadow for corona ring glow, no extra elements */
     body.sky-eclipse .sky-sun::before {
       content: ''; position: absolute;
       inset: -5px; border-radius: 50%;
-      background: radial-gradient(circle, transparent 38%, #02000a 44%, transparent 55%);
-      box-shadow: inset 0 0 30px rgba(255,220,120,0.6), 0 0 60px 12px rgba(255,180,40,0.25);
+      background: radial-gradient(circle, transparent 38%, #02000a 44%, transparent 56%);
+      box-shadow:
+        inset 0 0 18px 4px rgba(255,230,140,0.75),
+        inset 0 0 40px 8px rgba(255,160,40,0.45),
+        0 0 50px 10px rgba(255,180,40,0.22);
+      will-change: transform, opacity;
       animation: eclipse-cross 12s ease-in-out;
     }
     @keyframes eclipse-cross {
@@ -206,9 +211,8 @@
     .sky-cloud {
       position: absolute;
       border-radius: 50%;
-      filter: blur(0px);
       will-change: transform;
-      animation: cloud-drift linear infinite;
+      animation: cloud-drift ease-in-out infinite;
     }
     @keyframes cloud-drift {
       from { transform: translateX(0); }
@@ -232,6 +236,7 @@
       border-radius: 2px;
       top: 0; left: 0;
       transform-origin: right center;
+      will-change: transform;
       animation: bird-flap var(--ft, 0.5s) ease-in-out infinite alternate;
     }
     .sky-bird::after {
@@ -249,9 +254,12 @@
       border-radius: 50%;
       background: #fff;
       animation: star-twinkle ease-in-out infinite;
-      will-change: opacity;
+      will-change: opacity, transform;
     }
-    @keyframes star-twinkle { 0%,100% { opacity: var(--so-lo, 0.3); } 50% { opacity: var(--so-hi, 1); } }
+    @keyframes star-twinkle {
+      0%,100% { opacity: var(--so-lo, 0.3); transform: scale(1); }
+      50%      { opacity: var(--so-hi, 1);  transform: scale(var(--so-scale, 1.15)); }
+    }
     body:not(.sky-night) .sky-star { display: none; }
     /* Bokeh glow on larger stars */
     .sky-star.glow::after {
@@ -267,20 +275,19 @@
       width: 120px;
       background: linear-gradient(90deg, transparent, rgba(220,235,255,0.9), #fff);
       border-radius: 1px;
-      filter: blur(0.5px);
       opacity: 0;
       animation: shoot linear forwards;
       will-change: transform, opacity;
     }
     @keyframes shoot {
-      0%   { transform: translateX(-15vw) translateY(0); opacity: 0; }
-      8%   { opacity: 0.9; }
-      88%  { opacity: 0.9; }
-      100% { transform: translateX(110vw) translateY(40px); opacity: 0; }
+      0%   { transform: translateX(-15vw) translateY(0) rotate(var(--shoot-angle, 18deg)); opacity: 0; box-shadow: none; }
+      8%   { opacity: 0.9; box-shadow: 0 0 12px 3px rgba(220,235,255,0.55), 0 0 20px 6px rgba(180,210,255,0.25); }
+      88%  { opacity: 0.9; box-shadow: 0 0 12px 3px rgba(220,235,255,0.55), 0 0 20px 6px rgba(180,210,255,0.25); }
+      100% { transform: translateX(110vw) translateY(40px) rotate(var(--shoot-angle, 18deg)); opacity: 0; box-shadow: none; }
     }
     body:not(.sky-night) .sky-shooter { display: none; }
 
-    /* Moon — CSS disc with conic-gradient phase shadow */
+    /* Moon — CSS disc with phase shadow */
     #sky-moon {
       position: absolute;
       top: 1rem; right: 1.1rem;
@@ -291,6 +298,7 @@
       gap: 4px;
       opacity: 0;
       transition: opacity 1s ease;
+      will-change: opacity;
     }
     body.sky-night #sky-moon { opacity: 0.88; }
     .sky-moon-disc {
@@ -301,13 +309,16 @@
       position: relative;
       overflow: hidden;
     }
-    /* Phase shadow: dark half overlay, width controlled by --phase-x */
+    /* Phase shadow: dark half overlay, scaleX driven by JS --shadow-scale */
     .sky-moon-shadow {
       position: absolute; inset: 0;
       border-radius: 50%;
       background: rgba(2,4,18,0.93);
       transform-origin: var(--shadow-origin, right center);
       transform: scaleX(var(--shadow-scale, 0));
+      /* Soft glow along the terminator line */
+      filter: drop-shadow(0 0 6px rgba(140,170,230,0.5));
+      will-change: transform;
     }
     .sky-moon-label {
       font-family: 'Palatino Linotype', Palatino, Georgia, serif;
@@ -322,7 +333,7 @@
 
     /* prefers-reduced-motion: static sky, no flap/twinkle/shoot */
     @media (prefers-reduced-motion: reduce) {
-      .sky-sun, .sky-sun::after, .sky-cloud, .sky-bird,
+      .sky-sun, .sky-sun::after, .sky-sun::before, .sky-cloud, .sky-bird,
       .sky-star, .sky-shooter { animation: none !important; }
       .sky-bird::before, .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
     }
@@ -5117,15 +5128,18 @@
           st.className = 'sky-star' + (r() > 0.82 ? ' glow' : '');
           var sz = r() * 1.5 + 0.5;
           var lo = r() * 0.25 + 0.15, hi = lo + r() * 0.5 + 0.25;
+          var scale = (1.08 + r() * 0.18).toFixed(2);
           st.style.cssText =
             'left:' + (r() * 98) + '%;' +
             'top:'  + (r() * 82) + '%;' +
             'width:' + sz + 'px;height:' + sz + 'px;' +
             '--so-lo:' + lo.toFixed(2) + ';--so-hi:' + hi.toFixed(2) + ';' +
+            '--so-scale:' + scale + ';' +
             'animation-duration:' + (r() * 3 + 2) + 's;' +
             'animation-delay:-' + (r() * 5) + 's;';
-          // Slight color variation (blue-white / warm-white)
-          st.style.background = r() > 0.5 ? 'rgba(220,228,255,1)' : (r() > 0.5 ? 'rgba(255,248,230,1)' : '#fff');
+          // Color variation: blue-white / warm-white / pure white
+          var cv = r();
+          st.style.background = cv > 0.65 ? 'rgba(220,228,255,1)' : cv > 0.3 ? 'rgba(255,248,230,1)' : '#fff';
           layer.appendChild(st);
         }
 
@@ -5137,13 +5151,16 @@
                 if (!document.body.classList.contains('sky-night')) return;
                 var sh = document.createElement('div');
                 sh.className = 'sky-shooter';
+                var angle = 12 + r() * 18;
+                var dur   = 1.8 + r() * 1.2;
                 sh.style.cssText =
                   'top:' + (8 + r() * 30) + '%;' +
                   'left:0;' +
                   'width:' + (90 + r() * 80) + 'px;' +
-                  'animation-duration:' + (1.8 + r() * 1.2) + 's;';
+                  '--shoot-angle:' + angle.toFixed(1) + 'deg;' +
+                  'animation-duration:' + dur.toFixed(2) + 's;';
                 layer.appendChild(sh);
-                setTimeout(function() { sh.remove(); }, 3200);
+                setTimeout(function() { sh.remove(); }, (dur + 0.5) * 1000);
                 setTimeout(fire, 9000 + r() * 12000);
               }, delay);
             })(si * 6000 + r() * 4000);
@@ -5154,19 +5171,23 @@
       // ── Clouds (day/dawn/dusk) ──
       if (isDay && !reduced) {
         var cloudDefs = [
-          { w:180, h:55, top: 12, op: 0.68, dur: 130, delay: 0 },
-          { w:140, h:45, top: 24, op: 0.55, dur: 95,  delay:-35 },
-          { w:220, h:65, top: 9,  op: 0.45, dur: 160, delay:-80 }
+          { w:180, h:55, top: 12, op: 0.68, dur: 130 },
+          { w:140, h:45, top: 24, op: 0.55, dur: 95  },
+          { w:220, h:65, top: 9,  op: 0.45, dur: 160 }
         ];
         if (!isMobile) cloudDefs.push(
-          { w:110, h:40, top: 33, op: 0.60, dur: 75,  delay:-20 },
-          { w:160, h:50, top: 18, op: 0.40, dur: 110, delay:-60 }
+          { w:110, h:40, top: 33, op: 0.60, dur: 75  },
+          { w:160, h:50, top: 18, op: 0.40, dur: 110 }
         );
+        // Random easing functions for organic drift variation
+        var timings = ['ease-in-out', 'ease-in', 'ease-out', 'linear', 'ease-in-out'];
         var warmTint = isDusk || isDawn;
-        cloudDefs.forEach(function(cd) {
+        cloudDefs.forEach(function(cd, idx) {
           var cl = document.createElement('div');
           cl.className = 'sky-cloud';
           var startX = -(cd.w + r() * 60);
+          // Random delay: negative so cloud starts mid-drift on load (no empty sky)
+          var delay = -(r() * cd.dur * 0.8);
           var base = warmTint ? 'rgba(255,' + Math.round(190 - r()*60) + ',' + Math.round(130 - r()*80) + ',' : 'rgba(255,255,255,';
           cl.style.cssText =
             'width:' + cd.w + 'px;height:' + cd.h + 'px;' +
@@ -5178,7 +5199,8 @@
             'filter:blur(' + (r()*1.5) + 'px);' +
             '--drift:' + (window.innerWidth + cd.w + 80) + 'px;' +
             'animation-duration:' + cd.dur + 's;' +
-            'animation-delay:' + cd.delay + 's;';
+            'animation-delay:' + delay.toFixed(1) + 's;' +
+            'animation-timing-function:' + timings[idx % timings.length] + ';';
           layer.appendChild(cl);
         });
 

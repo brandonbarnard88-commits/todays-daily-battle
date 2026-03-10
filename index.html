@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311a -->
+<!-- tdb build 20260311b -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -89,9 +89,6 @@
       margin-bottom: 1.2rem;
       filter: drop-shadow(0 0 28px rgba(227,188,103,0.55)) drop-shadow(0 0 10px rgba(227,188,103,0.32));
     }
-    @media (min-width: 900px) {
-      .site-logo { width: clamp(280px, 22vw, 400px); }
-    }
     .site-title {
       margin: 0;
       font-size: clamp(1.6rem, 4vw, 2.4rem);
@@ -110,35 +107,41 @@
 
     /* ── Main: single column on mobile ── */
     main {
-      display: grid;
+      display: grid !important;
       gap: 1.25rem;
     }
 
-    /* ── Desktop: two-column, full width, proper padding ── */
+    /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
+      .site-logo { width: clamp(280px, 22vw, 400px); }
+
       body {
         font-size: 1.15rem;
         line-height: 1.75;
       }
       main {
-        grid-template-columns: 1fr 360px;
-        column-gap: 2rem;
-        row-gap: 1.5rem;
+        grid-template-columns: 1fr 360px !important;
+        column-gap: 2rem !important;
+        row-gap: 1.5rem !important;
         align-items: start;
       }
-      #verseCard          { grid-column: 1; grid-row: 1; }
-      #plan-progress-card { grid-column: 2; grid-row: 1; }
-      #plans-teaser       { grid-column: 2; grid-row: 2; }
+      #verseCard          { grid-column: 1 !important; grid-row: 1 !important; }
+      #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
+      #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
       main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser) {
-        grid-column: 1 / -1;
+        grid-column: 1 / -1 !important;
       }
       .card              { padding: 2rem 2.25rem; }
       #heroVerse         { font-size: clamp(1.8rem, 2.8vw, 2.5rem); line-height: 1.35; }
       #heroRef           { font-size: 1.35rem; }
       #heroBreakdown li  { font-size: 1.25rem; margin: 0.6rem 0; }
       #heroApplication   { font-size: 1.25rem; }
-      .quick-topic       { font-size: 1.1rem; padding: 1rem 0.8rem; }
+      .quick-topic       { font-size: 1.1rem !important; padding: 1rem 0.8rem !important; }
       #feel-search       { font-size: 1.15rem; padding: 0.9rem 1rem; }
+      .quick-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+        gap: 0.75rem !important;
+      }
     }
 
     .card {
@@ -1856,10 +1859,6 @@
       outline: none;
     }
     @media (min-width: 900px) {
-      .quick-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 0.75rem;
-      }
       .quick-grid .quick-topic {
         font-size: 1.05rem;
         padding: 0.85rem 0.6rem;

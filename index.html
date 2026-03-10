@@ -3832,18 +3832,8 @@
         var btn = e.target.closest('.plan-chip');
         if (!btn) return;
         var planId = btn.dataset.plan;
-        var cfg = PLAN_CONFIGS[planId];
-        if (!cfg) return;
-        var today = new Date().toISOString().slice(0, 10);
-        var s = {};
-        try { s = JSON.parse(localStorage.getItem(cfg.key) || '{}'); } catch (_) {}
-        if (s.lastDate === today) return;
-        var yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-        var day = parseInt(s.day || '0', 10) || 0;
-        day = s.lastDate === yesterday ? Math.min(day + 1, cfg.max) : 1;
-        localStorage.setItem(cfg.key, JSON.stringify({ day: day, lastDate: today }));
-        updatePlanChips();
-        if (day >= cfg.max) setTimeout(burstConfetti, 400);
+        if (!planId) return;
+        window.location.href = 'plans.html?plan=' + encodeURIComponent(planId);
       });
     }());
 

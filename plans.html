@@ -1,105 +1,728 @@
 <!doctype html>
+<!-- tdb build 20260311f -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reading Plans • Today's Daily Battle</title>
   <meta name="description" content="7-day KJV reading plans for battle, gratitude, strength, marriage, and peace. Offline-first. No login needed.">
-  <link rel="canonical" href="https://todaysdailybattle.com/plans.html">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://todaysdailybattle.com/plans">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles.css?v=20260309">
   <style>
-    .plans-page { max-width: 560px; margin: 0 auto; padding: 2rem 1rem 6rem; }
+    :root {
+      --bg:       #0d1117;
+      --card:     #161c26;
+      --text:     #f5f7fb;
+      --muted:    #8896b0;
+      --gold:     #e3bc67;
+      --gold-soft:#c9a84c;
+      --line:     #242d3d;
+      --shadow:   0 2px 16px rgba(0,0,0,0.32);
+      --green:    #4ade80;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; width: 100%; background: var(--bg); color: var(--text); font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; font-size: 1rem; line-height: 1.6; }
+
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; }
+
+    /* ── Page shell ── */
+    .plans-page {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 6rem;
+    }
+    @media (min-width: 700px) { .plans-page { padding: 2.5rem 2.5rem 6rem; } }
+
+    /* ── Back link ── */
+    .plans-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; color: var(--muted); text-decoration: none;
+      margin-bottom: 1.5rem;
+      transition: color 0.15s;
+    }
+    .plans-back:hover { color: var(--gold); }
+
+    /* ── Hero ── */
     .plans-hero { text-align: center; margin-bottom: 2rem; }
-    .plans-hero h1 { font-size: 1.6rem; font-weight: 700; color: var(--gold, #e3bc67); margin: 0 0 0.4rem; }
-    .plans-hero p { font-size: 0.9rem; color: var(--muted, #bcc5d6); margin: 0; }
-    .plans-grid { display: grid; gap: 0.85rem; }
-    .plan-card {
-      background: var(--card, #1b212d);
-      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 25%, transparent);
-      border-radius: 12px; padding: 1.1rem 1.2rem;
+    .plans-hero h1 { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 800; color: var(--gold); margin: 0 0 0.4rem; }
+    .plans-hero p  { font-size: 0.92rem; color: var(--muted); margin: 0; }
+
+    /* ── Plan list (index view) ── */
+    .plan-list { display: grid; gap: 0.85rem; }
+    .plan-row {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+      border-radius: 16px;
+      padding: 1.1rem 1.2rem;
       display: flex; align-items: center; gap: 1rem;
-      text-decoration: none; color: inherit;
-      transition: border-color 0.15s ease;
+      cursor: pointer;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      text-align: left; width: 100%;
+      color: var(--text);
     }
-    .plan-card:hover, .plan-card:focus-visible {
-      border-color: var(--gold, #e3bc67); outline: none;
+    .plan-row:hover, .plan-row:focus-visible {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 20%, transparent);
+      outline: none;
     }
-    .plan-icon { font-size: 1.6rem; flex-shrink: 0; }
-    .plan-info h2 { font-size: 0.95rem; font-weight: 700; color: var(--text, #f5f7fb); margin: 0 0 0.2rem; }
-    .plan-info p  { font-size: 0.8rem; color: var(--muted, #bcc5d6); margin: 0; }
+    .plan-row-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .plan-row-info { flex: 1; min-width: 0; }
+    .plan-row-info h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem; color: var(--text); }
+    .plan-row-info p  { font-size: 0.82rem; color: var(--muted); margin: 0; }
+    .plan-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
     .plan-badge {
-      margin-left: auto; flex-shrink: 0;
       font-size: 0.7rem; font-weight: 700;
-      background: color-mix(in srgb, var(--gold, #e3bc67) 18%, transparent);
-      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 40%, transparent);
-      color: var(--gold, #e3bc67);
-      padding: 0.2rem 0.5rem; border-radius: 20px;
-      white-space: nowrap;
+      background: color-mix(in srgb, var(--gold) 16%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 38%, transparent);
+      color: var(--gold); padding: 2px 8px; border-radius: 20px;
     }
-    .plans-back { display: block; text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--muted, #bcc5d6); text-decoration: none; }
-    .plans-back:hover { color: var(--gold, #e3bc67); }
+    .plan-progress-pill {
+      font-size: 0.68rem; color: var(--muted);
+      background: var(--line); padding: 2px 7px; border-radius: 20px;
+    }
+    .plan-progress-pill.active { color: var(--green); background: color-mix(in srgb, var(--green) 12%, transparent); }
+    .plan-progress-pill.done   { color: var(--gold);  background: color-mix(in srgb, var(--gold)  12%, transparent); }
+
+    /* ── Detail view ── */
+    .plan-detail { display: none; }
+    .plan-detail.active { display: block; }
+    .plan-index.hidden { display: none; }
+
+    .detail-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .detail-back-btn {
+      background: none; border: 1px solid var(--line);
+      color: var(--muted); border-radius: 10px; padding: 6px 12px;
+      font-size: 0.82rem; cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .detail-back-btn:hover { color: var(--gold); border-color: var(--gold); }
+    .detail-title { font-size: 1.3rem; font-weight: 800; color: var(--gold); }
+    .detail-subtitle { font-size: 0.82rem; color: var(--muted); margin-left: auto; }
+
+    /* Progress bar */
+    .detail-progress-wrap { margin-bottom: 1.5rem; }
+    .detail-progress-track {
+      height: 6px; border-radius: 99px;
+      background: var(--line); overflow: hidden; margin-bottom: 6px;
+    }
+    .detail-progress-bar {
+      height: 100%; border-radius: 99px;
+      background: linear-gradient(90deg, var(--gold-soft), var(--gold));
+      transition: width 0.4s ease;
+    }
+    .detail-progress-label { font-size: 0.78rem; color: var(--muted); }
+
+    /* Day pills */
+    .day-pills {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .day-pill {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 2px solid var(--line);
+      background: var(--card);
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--muted); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .day-pill:hover { border-color: var(--gold); color: var(--gold); }
+    .day-pill.current {
+      border-color: var(--gold); color: var(--gold);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
+    }
+    .day-pill.done {
+      background: color-mix(in srgb, var(--green) 14%, var(--card));
+      border-color: var(--green); color: var(--green);
+    }
+    .day-pill.locked { opacity: 0.35; cursor: default; }
+
+    /* Day card */
+    .day-card {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+      border-radius: 18px; padding: 1.5rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .day-card-header {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .day-card-num {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--gold);
+    }
+    .day-card-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .day-card-verse-ref {
+      font-size: 0.75rem; font-weight: 700; color: var(--gold-soft);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .day-card-verse-text {
+      font-size: 1.05rem; font-style: italic;
+      color: var(--text); line-height: 1.6; margin: 0 0 1rem;
+      border-left: 3px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      padding-left: 0.9rem;
+    }
+    /* Breakdown panels */
+    .day-breakdown { display: grid; gap: 8px; margin-bottom: 1rem; }
+    .day-bp {
+      background: color-mix(in srgb, var(--gold) 6%, var(--card));
+      border-left: 3px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.55rem 0.75rem;
+    }
+    .day-bp.action-panel {
+      border-left-color: var(--gold);
+      background: color-mix(in srgb, var(--gold) 10%, var(--card));
+    }
+    .day-bp-label {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--gold); margin: 0 0 2px;
+    }
+    .day-bp-text { font-size: 0.9rem; color: var(--text); margin: 0; line-height: 1.45; }
+
+    /* Action row */
+    .day-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; align-items: center; }
+    .btn-complete {
+      flex: 1; min-width: 140px;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: #1a1000; font-weight: 800;
+      border: none; border-radius: 12px;
+      padding: 0.75rem 1.25rem; font-size: 0.95rem;
+      cursor: pointer; transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn-complete:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-complete:active { transform: translateY(0); }
+    .btn-complete.done {
+      background: color-mix(in srgb, var(--green) 18%, var(--card));
+      color: var(--green); border: 1px solid var(--green);
+    }
+    .btn-share {
+      background: none; border: 1px solid var(--line);
+      color: var(--muted); border-radius: 12px;
+      padding: 0.75rem 1rem; font-size: 0.85rem;
+      cursor: pointer; transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-share:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Streak badge */
+    .streak-banner {
+      display: none;
+      background: color-mix(in srgb, var(--gold) 12%, var(--card));
+      border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      border-radius: 12px; padding: 0.65rem 1rem;
+      font-size: 0.88rem; color: var(--gold); font-weight: 600;
+      margin-bottom: 1rem; text-align: center;
+    }
+    .streak-banner.show { display: block; }
+
+    /* Plan complete card */
+    .plan-complete-card {
+      display: none;
+      background: color-mix(in srgb, var(--gold) 8%, var(--card));
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 18px; padding: 2rem 1.5rem;
+      text-align: center; margin-bottom: 1rem;
+    }
+    .plan-complete-card.show { display: block; }
+    .plan-complete-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .plan-complete-title { font-size: 1.3rem; font-weight: 800; color: var(--gold); margin: 0 0 0.4rem; }
+    .plan-complete-sub { font-size: 0.9rem; color: var(--muted); margin: 0 0 1.25rem; }
+    .btn-extend {
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: #1a1000; font-weight: 800;
+      border: none; border-radius: 12px;
+      padding: 0.75rem 1.5rem; font-size: 0.95rem;
+      cursor: pointer; margin-right: 0.5rem;
+    }
+    .btn-restart {
+      background: none; border: 1px solid var(--line);
+      color: var(--muted); border-radius: 12px;
+      padding: 0.75rem 1.25rem; font-size: 0.88rem;
+      cursor: pointer; transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-restart:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: color-mix(in srgb, var(--gold) 15%, #1b212d);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      color: var(--gold); font-size: 0.85rem; font-weight: 600;
+      padding: 0.55rem 1.2rem; border-radius: 20px;
+      opacity: 0; transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none; z-index: 100; white-space: nowrap;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
+
   <main id="main" class="plans-page">
-    <div class="plans-hero">
-      <h1>Reading Plans</h1>
-      <p>Short daily tracks. Pick one — your progress saves here, offline, always.</p>
+
+    <!-- ── Index view ── -->
+    <div class="plan-index" id="planIndex">
+      <a href="index.html" class="plans-back" aria-label="Back to homepage">← Today's Battle</a>
+      <div class="plans-hero">
+        <h1>📋 Battle Plans</h1>
+        <p>Pick a plan. One verse a day. Progress saves here — offline, always.</p>
+      </div>
+      <div class="plan-list" id="planList" role="list"></div>
     </div>
 
-    <div class="plans-grid">
-      <a href="index.html#plans-teaser" class="plan-card" aria-label="7-Day Battle Distraction Plan">
-        <span class="plan-icon" aria-hidden="true">⚔️</span>
-        <div class="plan-info">
-          <h2>Battle Distraction</h2>
-          <p>Cut through the noise. One focused verse a day for 7 days.</p>
+    <!-- ── Detail view ── -->
+    <div class="plan-detail" id="planDetail" role="region" aria-label="Plan detail">
+      <div class="detail-header">
+        <button type="button" class="detail-back-btn" id="detailBackBtn" aria-label="Back to all plans">← Plans</button>
+        <span class="detail-title" id="detailTitle"></span>
+        <span class="detail-subtitle" id="detailSubtitle"></span>
+      </div>
+      <div class="streak-banner" id="streakBanner"></div>
+      <div class="detail-progress-wrap">
+        <div class="detail-progress-track" aria-hidden="true">
+          <div class="detail-progress-bar" id="detailProgressBar" style="width:0%"></div>
         </div>
-        <span class="plan-badge">7 days</span>
-      </a>
-
-      <a href="index.html#plans-teaser" class="plan-card" aria-label="7-Day Gratitude Plan">
-        <span class="plan-icon" aria-hidden="true">🙏</span>
-        <div class="plan-info">
-          <h2>Gratitude</h2>
-          <p>Thanksgiving verses that shift perspective from want to enough.</p>
-        </div>
-        <span class="plan-badge">7 days</span>
-      </a>
-
-      <a href="index.html#plans-teaser" class="plan-card" aria-label="30-Day Strength Plan">
-        <span class="plan-icon" aria-hidden="true">💪</span>
-        <div class="plan-info">
-          <h2>Strength</h2>
-          <p>Renewal-focused. For when the tank is empty and you need to rebuild.</p>
-        </div>
-        <span class="plan-badge">30 days</span>
-      </a>
-
-      <a href="index.html#plans-teaser" class="plan-card" aria-label="7-Day Marriage Plan">
-        <span class="plan-icon" aria-hidden="true">💍</span>
-        <div class="plan-info">
-          <h2>Marriage</h2>
-          <p>Unity verses. For couples building something worth fighting for.</p>
-        </div>
-        <span class="plan-badge">7 days</span>
-      </a>
-
-      <a href="index.html#plans-teaser" class="plan-card" aria-label="7-Day Peace Plan">
-        <span class="plan-icon" aria-hidden="true">🕊️</span>
-        <div class="plan-info">
-          <h2>Peace</h2>
-          <p>Rest and stillness. His peace—not the world's version.</p>
-        </div>
-        <span class="plan-badge">7 days</span>
-      </a>
+        <p class="detail-progress-label" id="detailProgressLabel"></p>
+      </div>
+      <div class="day-pills" id="dayPills" role="list" aria-label="Day selector"></div>
+      <div id="planCompleteCard" class="plan-complete-card">
+        <div class="plan-complete-icon">🏆</div>
+        <p class="plan-complete-title" id="planCompleteTitle">Plan Complete!</p>
+        <p class="plan-complete-sub" id="planCompleteSub"></p>
+        <button type="button" class="btn-extend" id="btnExtend">Extend the Plan</button>
+        <button type="button" class="btn-restart" id="btnRestart">Start Over</button>
+      </div>
+      <div id="dayCardContainer"></div>
     </div>
 
-    <a href="index.html" class="plans-back">← Back to Today's Battle</a>
   </main>
 
-  <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ── Plan data ──────────────────────────────────────────────────────────────
+    var PLANS = {
+      battle: {
+        id: 'battle', icon: '⚔️', label: 'Battle Distraction',
+        desc: 'Cut through the noise. One focused verse a day for 7 days.',
+        key: 'tdb-plan-day', max: 7,
+        days: [
+          { title: 'Name the noise', ref: 'Matthew 6:33', text: 'But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.',
+            speaker: 'Jesus in the Sermon on the Mount', plain: 'Stop chasing the side things. Put God first and everything else lines up.', today: 'What are you scrolling toward instead of Him?', action: 'Set your phone face-down for 30 minutes and open the Word instead.' },
+          { title: 'Guard the gate', ref: 'Philippians 4:8', text: 'Finally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.',
+            speaker: 'Paul from prison — choosing his thoughts deliberately', plain: 'Your mind is a gate. You decide what gets in.', today: 'What content are you letting in that you wouldn\'t want God watching with you?', action: 'Unfollow or mute one account today that pulls you away from peace.' },
+          { title: 'The enemy\'s tactic', ref: '1 Peter 5:8', text: 'Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour.',
+            speaker: 'Peter to scattered believers under pressure', plain: 'Distraction isn\'t random. It\'s a strategy against you.', today: 'Where are you most distracted? That\'s likely where the attack is focused.', action: 'Name the distraction out loud. Then say: "I see you. I choose God."' },
+          { title: 'Renew the mind', ref: 'Romans 12:2', text: 'And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.',
+            speaker: 'Paul calling believers to a different standard', plain: 'The world will shape you if you let it. Renewal is active, not passive.', today: 'What has the world\'s noise told you to believe this week?', action: 'Spend 5 minutes in Scripture before touching social media tomorrow morning.' },
+          { title: 'Stand firm', ref: 'Ephesians 6:13', text: 'Wherefore take unto you the whole armour of God, that ye may be able to withstand in the evil day, and having done all, to stand.',
+            speaker: 'Paul — a prisoner writing about spiritual warfare', plain: 'You don\'t fight to win. You stand because God already won. Your job is to hold the ground.', today: 'What ground are you giving up through distraction?', action: 'Write down one boundary you will hold today. Keep it.' },
+          { title: 'Eyes on the prize', ref: 'Hebrews 12:1-2', text: 'Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us, looking unto Jesus the author and finisher of our faith.',
+            speaker: 'The writer of Hebrews to a tired church', plain: 'Drop the weight. Stop looking sideways. Eyes on Jesus, keep running.', today: 'What weight — habit, app, person — slows your run?', action: 'Delete one app or break one habit that distracts you from the race.' },
+          { title: 'The peace that guards', ref: 'Philippians 4:7', text: 'And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+            speaker: 'Paul — same letter, same prison, same peace', plain: 'God\'s peace doesn\'t make sense. It just shows up and stands guard anyway.', today: 'You\'ve battled distraction for 7 days. Where do you feel calmer?', action: 'Pray today: "Guard my heart and mind. Keep me focused on what matters." Then rest.' }
+        ]
+      },
+
+      gratitude: {
+        id: 'gratitude', icon: '🙏', label: 'Gratitude',
+        desc: 'Thanksgiving verses that shift perspective from want to enough.',
+        key: 'tdb-plan-gratitude-day', max: 7,
+        days: [
+          { title: 'Start here', ref: '1 Thessalonians 5:18', text: 'In every thing give thanks: for this is the will of God in Christ Jesus concerning you.',
+            speaker: 'Paul to a young church learning to stay grateful in hard seasons', plain: 'Not for everything — in everything. That\'s the difference.', today: 'Gratitude isn\'t pretending things are fine. It\'s finding God in the middle of them.', action: 'Name three specific things — not generic. Real ones. Write them down.' },
+          { title: 'He is good', ref: 'Psalm 107:1', text: 'O give thanks unto the LORD; for he is good: for his mercy endureth for ever.',
+            speaker: 'A psalmist recounting how God rescued His people — again', plain: 'His goodness isn\'t based on your circumstances. It\'s His nature.', today: 'When did you last thank Him just for being good — not for what He gave you?', action: 'Say out loud: "You are good. Not just good to me — You are good." Let that land.' },
+          { title: 'The gift of enough', ref: 'Philippians 4:11', text: 'Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content.',
+            speaker: 'Paul — again from prison, again grateful', plain: 'Contentment isn\'t a feeling. It\'s a skill. Paul had to learn it too.', today: 'What are you waiting to have before you feel grateful?', action: 'Find one thing you\'ve been ignoring to be grateful for. Sit with it today.' },
+          { title: 'Remembered', ref: 'Lamentations 3:22-23', text: 'It is of the LORD\'s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',
+            speaker: 'Jeremiah — writing from the ruins of Jerusalem, still finding mercy', plain: 'Every morning is a mercy you didn\'t earn. That\'s worth something.', today: 'New mercies today. Even on hard days.', action: 'Before anything else tomorrow morning, say: "New mercy. Thank You." Then start your day.' },
+          { title: 'Taste and see', ref: 'Psalm 34:8', text: 'O taste and see that the LORD is good: blessed is the man that trusteth in him.',
+            speaker: 'David — written after a close escape — gratitude in the exhale', plain: 'Gratitude isn\'t just thinking it. It\'s experiencing Him and saying so.', today: 'Where has God been good to you this week that you haven\'t acknowledged?', action: 'Tell someone today — out loud — one specific way God has been good.' },
+          { title: 'Enter with thanks', ref: 'Psalm 100:4', text: 'Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.',
+            speaker: 'A worship call — the whole earth invited in', plain: 'Thanksgiving is how you enter God\'s presence. It\'s the door, not the decoration.', today: 'How do you come to God — with complaint first, or gratitude first?', action: 'Start your prayer today with five minutes of nothing but thanks. No requests yet.' },
+          { title: 'The overflowing life', ref: 'Colossians 2:7', text: 'Rooted and built up in him, and stablished in the faith, as ye have been taught, abounding therein with thanksgiving.',
+            speaker: 'Paul urging believers to overflow — not just survive', plain: 'Rooted people overflow with gratitude. It spills out naturally.', today: 'After 7 days of practicing thankfulness — what shifted?', action: 'Write a short note of thanks to someone who helped you this week. Send it.' }
+        ]
+      },
+
+      strength: {
+        id: 'strength', icon: '💪', label: '30-Day Strength',
+        desc: 'Renewal-focused. For when the tank is empty and you need to rebuild.',
+        key: 'tdb-plan-strength-day', max: 30,
+        days: [
+          { title: 'He holds you', ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
+            speaker: 'God directly to Israel in terror — and to you', plain: 'God says "I will" five times. He\'s not maybe-ing you.', today: 'You don\'t have to hold yourself up today. He\'s already holding you.', action: 'Say: "I don\'t have to hold myself up. You\'ve got me." Mean it.' },
+          { title: 'Renewed, not repaired', ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+            speaker: 'Isaiah to a nation that had been waiting too long', plain: 'Waiting on God isn\'t passive. It\'s trust in motion. Renewal comes to those who stay.', today: 'What are you doing while you wait — panicking or resting?', action: 'Sit still for 5 minutes today. No phone. Just wait. That\'s the practice.' },
+          { title: 'His strength, not yours', ref: 'Philippians 4:13', text: 'I can do all things through Christ which strengtheneth me.',
+            speaker: 'Paul — in prison, genuinely at peace', plain: 'This isn\'t a motivational poster. It\'s Paul saying: without Him, nothing. With Him, everything needed.', today: 'Stop trying to muscle through on your own. Let Him be the strength.', action: 'Before the hardest thing today, say: "Not me — through Christ." Then do it.' },
+          { title: 'Come as you are', ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+            speaker: 'Jesus — to the crowd, to you', plain: 'He\'s not calling the strong. He\'s calling the exhausted.', today: 'You don\'t clean up before you come. You come — and He handles the rest.', action: 'Pray simply: "I\'m tired. I come." That\'s enough.' },
+          { title: 'Strength in weakness', ref: '2 Corinthians 12:9', text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.',
+            speaker: 'God to Paul in his most vulnerable moment', plain: 'Your weakness isn\'t the problem. It\'s the place where His strength shows up best.', today: 'Stop hiding the weakness. Give it to Him.', action: 'Admit one weakness to God today — out loud, by name. Then receive His grace for it.' },
+          { title: 'He restores', ref: 'Psalm 23:3', text: 'He restoreth my soul: he leadeth me in the paths of righteousness for his name\'s sake.',
+            speaker: 'David — the shepherd — writing as one who has been restored', plain: 'He restores souls. Not just moods. Deep, real restoration.', today: 'What part of your soul needs restoring right now?', action: 'Name it. Then say: "Restore this, Lord." Trust the process.' },
+          { title: 'Not by force', ref: 'Zechariah 4:6', text: 'Not by might, nor by power, but by my spirit, saith the LORD of hosts.',
+            speaker: 'God to Zerubbabel facing an impossible rebuild', plain: 'Stop grinding. The Spirit does what force cannot.', today: 'Where are you pushing in your own strength and hitting a wall?', action: 'Release it today. Pray: "Not by my might. By Your Spirit."' },
+          { title: 'Steady feet', ref: 'Psalm 18:32-33', text: 'It is God that girdeth me with strength, and maketh my way perfect. He maketh my feet like hinds\' feet, and setteth me upon my high places.',
+            speaker: 'David — having survived Saul — recording how he made it', plain: 'God makes you sure-footed even on the impossible terrain.', today: 'What high place feels unreachable right now?', action: 'Take one step toward it today. Small. Steady. Trust the footing.' },
+          { title: 'Joy is strength', ref: 'Nehemiah 8:10', text: 'The joy of the LORD is your strength.',
+            speaker: 'Ezra to weeping Israel — redirecting grief to celebration', plain: 'Joy isn\'t how you feel. It\'s where your strength comes from.', today: 'You don\'t have to feel joyful to choose joy. It\'s a source, not a mood.', action: 'Find one thing to celebrate today — genuinely. Offer it to God as strength.' },
+          { title: 'Abundant life', ref: 'John 10:10', text: 'The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly.',
+            speaker: 'Jesus drawing the line between enemy and Shepherd', plain: 'What\'s draining you is not from God. Life — real life — is His purpose for you.', today: 'Where is the enemy stealing your strength right now?', action: 'Name what\'s being stolen. Then claim what Jesus came to give you instead.' },
+          { title: 'Cast it', ref: '1 Peter 5:7', text: 'Casting all your care upon him; for he careth for you.',
+            speaker: 'Peter to people under real pressure', plain: 'You don\'t have to carry it. Cast — not set down, not hold loosely. Throw it.', today: 'What are you still carrying that you keep picking back up?', action: 'Name it. Cast it. Say: "I throw this to You. I trust You with it."' },
+          { title: 'His burden is light', ref: 'Matthew 11:29-30', text: 'Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.',
+            speaker: 'Jesus — right after the invitation in verse 28', plain: 'His yoke doesn\'t crush you. It actually carries you.', today: 'What heavy yoke are you wearing that isn\'t His?', action: 'List what\'s crushing you. Ask: is this from Him? If not, put it down.' },
+          { title: 'Be strong and courageous', ref: 'Joshua 1:9', text: 'Have not I commanded thee? Be strong and courageous; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.',
+            speaker: 'God to Joshua at the threshold of the impossible', plain: 'Courage isn\'t the absence of fear. It\'s moving forward because God is already there.', today: 'What impossible thing are you standing at the edge of?', action: 'Take one step forward today. He\'s already on the other side waiting.' },
+          { title: 'Settled peace', ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.',
+            speaker: 'Jesus — the night before His death — giving peace, not comfort', plain: 'His peace doesn\'t depend on circumstances. It\'s a different kind entirely.', today: 'Are you chasing the world\'s version of peace or His?', action: 'Say: "I receive Your peace. Not the world\'s version. Yours." Then be still.' },
+          { title: 'He never sleeps', ref: 'Psalm 121:3-4', text: 'He will not suffer thy foot to be moved: he that keepeth thee will not slumber. Behold, he that keepeth Israel shall neither slumber nor sleep.',
+            speaker: 'A pilgrim\'s song on the road to Jerusalem', plain: 'God doesn\'t take breaks from watching over you. Not once.', today: 'You can rest tonight. He\'s on watch.', action: 'Before sleep: "You\'re watching. I can rest." Let go of the day.' },
+          { title: 'God fights for you', ref: 'Exodus 14:14', text: 'The LORD shall fight for you, and ye shall hold your peace.',
+            speaker: 'Moses to Israel with the Red Sea ahead and Egypt behind', plain: 'Sometimes the most powerful thing you can do is stop fighting and let Him fight.', today: 'What battle are you fighting in your own strength that He\'s already handling?', action: 'Stand still in one area today. No striving. Let Him move.' },
+          { title: 'He makes you able', ref: '2 Corinthians 3:5', text: 'Not that we are sufficient of ourselves to think any thing as of ourselves; but our sufficiency is of God.',
+            speaker: 'Paul — admitting he has nothing outside of God', plain: 'You don\'t need to be enough. He is. That\'s all that matters.', today: 'Stop measuring your sufficiency. Measure His.', action: 'For one challenge today, start with: "He makes me able for this."' },
+          { title: 'Rooted deep', ref: 'Jeremiah 17:7-8', text: 'Blessed is the man that trusteth in the LORD, and whose hope the LORD is. For he shall be as a tree planted by the waters, and that spreadeth out her roots by the river, and shall not see when heat cometh.',
+            speaker: 'Jeremiah contrasting the cursed and the blessed', plain: 'Deep roots mean you don\'t panic in drought. You\'re fed even when it\'s dry.', today: 'Are your roots going deep — or are you scrambling across the surface?', action: 'Spend 10 minutes in the Word today. Not for information. For roots.' },
+          { title: 'Endurance', ref: 'Romans 5:3-4', text: 'And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; and patience, experience; and experience, hope.',
+            speaker: 'Paul — who had endured more than most', plain: 'Hard things produce patience. Patience produces experience. Experience produces hope. It\'s a chain.', today: 'What hard thing might actually be building something in you right now?', action: 'Name the tribulation. Then name what it might be building. Pray over that.' },
+          { title: 'He completes what He starts', ref: 'Philippians 1:6', text: 'Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.',
+            speaker: 'Paul to a church he loved — affirming what God had started', plain: 'God doesn\'t half-finish. What He started in you, He will complete.', today: 'Stop worrying about whether you\'ll make it. He finishes what He starts.', action: 'Say: "You started this. You will finish it. I trust You." Mean it.' },
+          { title: 'Every step ordered', ref: 'Psalm 37:23', text: 'The steps of a good man are ordered by the LORD: and he delighteth in him.',
+            speaker: 'David — after decades of watching God guide his life', plain: 'Your steps are not accidental. God is directing them.', today: 'Even the confusing ones. Even the ones that felt like detours.', action: 'Look back at one detour in your life. Ask God: "What were You doing there?"' },
+          { title: 'Receive strength daily', ref: 'Isaiah 33:2', text: 'O LORD, be gracious unto us; we have waited for thee: be thou their arm every morning, our salvation also in the time of trouble.',
+            speaker: 'Isaiah — a morning prayer for daily strength', plain: 'Morning by morning, ask for His arm. Don\'t start the day on empty.', today: 'How are you starting your mornings? Rushed, or received?', action: 'Set your alarm 10 minutes earlier tomorrow. Use it for this prayer.' },
+          { title: 'Nothing too hard', ref: 'Jeremiah 32:27', text: 'Behold, I am the LORD, the God of all flesh: is there any thing too hard for me?',
+            speaker: 'God to Jeremiah — who thought his situation was impossible', plain: 'The thing you think is too broken, too far gone, too impossible — ask Him this question.', today: 'What have you written off as too hard for God?', action: 'Name it. Then say this verse back to God. Let Him answer.' },
+          { title: 'Overflow', ref: 'Romans 15:13', text: 'Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.',
+            speaker: 'Paul\'s benediction — a prayer for overflowing hope', plain: 'He doesn\'t just give you enough hope. He fills you to overflow.', today: 'Are you living at the level of "just enough" or "abounding"?', action: 'Ask God today to fill you — not to the edge, but over it.' },
+          { title: 'He gives more grace', ref: 'James 4:6', text: 'But he giveth more grace. Wherefore he saith, God resisteth the proud, but giveth grace unto the humble.',
+            speaker: 'James — direct and practical as always', plain: 'Humble yourself and He gives MORE grace. Not less. More.', today: 'Where do you need more grace right now?', action: 'Humble yourself in that area today. Then watch.' },
+          { title: 'Sustained', ref: 'Psalm 55:22', text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+            speaker: 'David in one of his darkest seasons — still casting', plain: 'He sustains. The root doesn\'t pull loose. You don\'t collapse.', today: 'You are still standing. That\'s evidence of His sustaining.', action: 'Thank Him today — specifically — for what He\'s kept you standing through.' },
+          { title: 'Press on', ref: 'Philippians 3:14', text: 'I press toward the mark for the prize of the high calling of God in Christ Jesus.',
+            speaker: 'Paul — running hard toward something worth running toward', plain: 'You\'re not wandering. There\'s a mark. Press toward it.', today: 'What is the mark you\'re pressing toward right now?', action: 'Write it down. Put it somewhere you\'ll see it. Keep running.' },
+          { title: 'Already won', ref: '1 Corinthians 15:57', text: 'But thanks be to God, which giveth us the victory through our Lord Jesus Christ.',
+            speaker: 'Paul after explaining the resurrection — the victory is the point', plain: 'You\'re not fighting for victory. You\'re fighting from it.', today: 'Start from victory, not toward it. The battle is already decided.', action: 'Face today\'s hardest thing from this place: "He already won this."' },
+          { title: 'Everlasting arms', ref: 'Deuteronomy 33:27', text: 'The eternal God is thy refuge, and underneath are the everlasting arms.',
+            speaker: 'Moses\' final blessing over Israel before his death', plain: 'Under everything — the falls, the failures, the free dives — His arms are there.', today: 'You can\'t fall past His arms. They\'re eternal.', action: 'Breathe that in today. Really. He\'s got you underneath.' },
+          { title: 'He never fails', ref: 'Joshua 21:45', text: 'There failed not ought of any good thing which the LORD had spoken unto the house of Israel; all came to pass.',
+            speaker: 'The historian recording God\'s perfect track record', plain: 'Not one thing He promised failed. Not one.', today: 'His promises to you won\'t fail either.', action: 'Find one promise in Scripture for your situation. Write it down. Hold it.' },
+          { title: '30 days deep', ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.',
+            speaker: 'The sons of Korah — after surviving what should have destroyed them', plain: 'Not a distant help. A very present one. Right here. Right now.', today: 'You made it 30 days. Look at the strength He\'s built. It\'s real.', action: 'Write down three ways you are stronger than when you started. Offer them back to Him.' }
+        ]
+      },
+
+      marriage: {
+        id: 'marriage', icon: '💍', label: 'Marriage',
+        desc: 'Unity verses. For couples building something worth fighting for.',
+        key: 'tdb-plan-marriage-day', max: 7,
+        days: [
+          { title: 'One flesh', ref: 'Genesis 2:24', text: 'Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh.',
+            speaker: 'God at the first marriage — defining what He designed', plain: 'Leave. Cleave. One flesh. That\'s the design. Simple, radical, costly.', today: 'What from your past or your family of origin are you still not fully leaving?', action: 'Have an honest conversation today: "Is there anything I\'m still holding onto that should be left?"' },
+          { title: 'Serve first', ref: 'Ephesians 5:25', text: 'Husbands, love your wives, even as Christ also loved the church, and gave himself for it.',
+            speaker: 'Paul redefining leadership as sacrifice', plain: 'Christ-like love in marriage means going first — in service, in forgiveness, in sacrifice.', today: 'Who\'s going first in your marriage? Are you waiting for the other person?', action: 'Do one thing today for your spouse that you don\'t feel like doing. Go first.' },
+          { title: 'Build, don\'t tear down', ref: 'Proverbs 14:1', text: 'Every wise woman buildeth her house: but the foolish plucketh it down with her hands.',
+            speaker: 'Solomon — observing what wisdom does vs. what folly does', plain: 'You build your marriage with your words, your choices, your presence. Or you don\'t.', today: 'Are your words building or tearing down this week?', action: 'Say one specific, genuine word of affirmation to your spouse today. Make it real.' },
+          { title: 'Forgive fast', ref: 'Ephesians 4:32', text: 'And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ\'s sake hath forgiven you.',
+            speaker: 'Paul — setting the standard for forgiveness in community', plain: 'Forgive as you\'ve been forgiven. That\'s a high bar — and the right one.', today: 'Is there anything unresolved sitting between you and your spouse right now?', action: 'Start the conversation today. Even if it\'s hard. Don\'t let it go another day.' },
+          { title: 'Pray together', ref: 'Matthew 18:20', text: 'For where two or three are gathered together in my name, there am I in the midst of them.',
+            speaker: 'Jesus describing the power of unified prayer', plain: 'Two people praying together invites Jesus directly into the middle of the marriage.', today: 'When did you and your spouse last pray together out loud?', action: 'Pray together tonight — out loud, even if it feels awkward. 2 minutes. Just do it.' },
+          { title: 'Bear each other', ref: 'Colossians 3:13', text: 'Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye.',
+            speaker: 'Paul on what it looks like to really live together', plain: 'Forbearing means bearing the weight of the other person\'s imperfection. That\'s love.', today: 'What do you need to forbear in your spouse right now — instead of resent?', action: 'Name one thing. Choose to bear it today as an act of love, not resignation.' },
+          { title: 'A cord of three', ref: 'Ecclesiastes 4:12', text: 'And if one prevail against him, two shall withstand him; and a threefold cord is not quickly broken.',
+            speaker: 'The Preacher — on the power of partnership', plain: 'Two is stronger than one. But three — with God in the middle — is unbreakable.', today: 'Is God actually in the middle of your marriage, or off to the side?', action: 'Invite Him back to the center today. Pray together: "Be the third strand."' }
+        ]
+      },
+
+      peace: {
+        id: 'peace', icon: '🕊️', label: '7-Day Peace',
+        desc: 'Rest and stillness. His peace — not the world\'s version.',
+        key: 'tdb-plan-peace-day', max: 7,
+        days: [
+          { title: 'A different kind of peace', ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.',
+            speaker: 'Jesus — hours before the cross — giving peace as a gift', plain: 'The world\'s peace depends on everything going right. His doesn\'t.', today: 'Which peace are you chasing — circumstances being calm, or His presence in the chaos?', action: 'Say: "I receive Your peace. Not circumstances — You." Then be still for 5 minutes.' },
+          { title: 'Be still', ref: 'Psalm 46:10', text: 'Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.',
+            speaker: 'God in the middle of global chaos — commanding stillness', plain: 'Stillness isn\'t emptiness. It\'s the place where you remember who God is.', today: 'When did you last truly stop — no phone, no noise, no task?', action: 'Be still for 10 minutes today. Nothing else. Just be still before Him.' },
+          { title: 'Think on peace', ref: 'Philippians 4:8', text: 'Finally, brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report; if there be any virtue, and if there be any praise, think on these things.',
+            speaker: 'Paul — teaching the mind to find peace through what it dwells on', plain: 'Peace follows thought. What your mind loops on shapes your inner weather.', today: 'What is your mind looping on right now — anxious thoughts or true ones?', action: 'Write down three true, lovely, good things. Read them twice today.' },
+          { title: 'He keeps you', ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.',
+            speaker: 'Isaiah — worship from a nation learning to trust', plain: 'Perfect peace comes from where your mind stays. Stay it on Him.', today: 'Your mind drifts. Where does it drift when stress hits?', action: 'Every time anxiety rises today, return your mind to Him. Even once counts.' },
+          { title: 'The peace that passes', ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+            speaker: 'Paul — the most peaceful prisoner in history', plain: 'Pray. Give thanks. And the peace that makes no sense stands guard at your heart.', today: 'What worry are you holding right now that needs to become a prayer?', action: 'Turn it into a prayer right now. Name it. Hand it. Thank Him. Then let the peace arrive.' },
+          { title: 'God of peace', ref: 'Romans 15:33', text: 'Now the God of peace be with you all. Amen.',
+            speaker: 'Paul closing a letter — not wishing peace, but pointing to its source', plain: 'Peace isn\'t a feeling you maintain. It\'s a Person you stay near.', today: 'How close are you staying to the God of peace today?', action: 'Come back to Him three times today. Just check in. Just be near.' },
+          { title: 'Guarded heart', ref: 'Colossians 3:15', text: 'And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.',
+            speaker: 'Paul on letting God\'s peace be the referee of your heart', plain: 'Let peace rule — not anxiety, not opinion, not fear. Peace decides.', today: 'After 7 days of pursuing His peace — what does your heart feel?', action: 'Write one sentence: what does peace feel like for you right now? Offer it to God in thanks.' }
+        ]
+      }
+    };
+
+    // ── State ──────────────────────────────────────────────────────────────────
+    var currentPlan = null;
+    var currentDay  = 0; // 0-indexed
+
+    function getDayProgress(plan) {
+      return parseInt(localStorage.getItem(plan.key) || '0', 10);
+    }
+    function setDayProgress(plan, day) {
+      localStorage.setItem(plan.key, String(day));
+    }
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+    function esc(s) {
+      return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+    function showToast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 2200);
+    }
+
+    // ── Index view ────────────────────────────────────────────────────────────
+    function renderIndex() {
+      var list = document.getElementById('planList');
+      list.innerHTML = '';
+      Object.values(PLANS).forEach(function(plan) {
+        var progress = getDayProgress(plan);
+        var pct = Math.round((progress / plan.max) * 100);
+        var pillText = progress === 0 ? 'Not started'
+                     : progress >= plan.max ? 'Complete ✓'
+                     : 'Day ' + progress + ' of ' + plan.max;
+        var pillClass = progress === 0 ? '' : progress >= plan.max ? 'done' : 'active';
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'plan-row';
+        btn.setAttribute('role', 'listitem');
+        btn.setAttribute('aria-label', plan.label + (progress > 0 ? ' — ' + pillText : ''));
+        btn.innerHTML =
+          '<span class="plan-row-icon" aria-hidden="true">' + esc(plan.icon) + '</span>' +
+          '<div class="plan-row-info"><h2>' + esc(plan.label) + '</h2><p>' + esc(plan.desc) + '</p></div>' +
+          '<div class="plan-row-meta">' +
+            '<span class="plan-badge">' + esc(plan.max) + ' days</span>' +
+            '<span class="plan-progress-pill ' + pillClass + '">' + esc(pillText) + '</span>' +
+          '</div>';
+        btn.addEventListener('click', function(){ openPlan(plan.id); });
+        list.appendChild(btn);
+      });
+      document.getElementById('planIndex').classList.remove('hidden');
+      document.getElementById('planDetail').classList.remove('active');
+    }
+
+    // ── Detail view ───────────────────────────────────────────────────────────
+    function openPlan(id) {
+      currentPlan = PLANS[id];
+      if (!currentPlan) return;
+      var progress = getDayProgress(currentPlan);
+      // default to first incomplete day, or last if all done
+      currentDay = Math.min(Math.max(progress, 0), currentPlan.max - 1);
+
+      document.getElementById('planIndex').classList.add('hidden');
+      var detail = document.getElementById('planDetail');
+      detail.classList.add('active');
+
+      document.getElementById('detailTitle').textContent = currentPlan.icon + ' ' + currentPlan.label;
+      renderDetail();
+    }
+
+    function renderDetail() {
+      var plan     = currentPlan;
+      var progress = getDayProgress(plan);
+      var pct      = plan.max > 0 ? Math.round((progress / plan.max) * 100) : 0;
+
+      // Subtitle
+      document.getElementById('detailSubtitle').textContent = plan.max + '-day plan';
+
+      // Progress bar
+      document.getElementById('detailProgressBar').style.width = pct + '%';
+      document.getElementById('detailProgressLabel').textContent =
+        progress === 0 ? 'Not started yet — tap Day 1 to begin'
+        : progress >= plan.max ? 'Complete! All ' + plan.max + ' days done ✓'
+        : 'Day ' + progress + ' of ' + plan.max + ' complete (' + pct + '%)';
+
+      // Streak banner
+      var streak = parseInt(localStorage.getItem('tdb-streak-' + plan.id) || '0', 10);
+      var banner = document.getElementById('streakBanner');
+      if (streak >= 2) {
+        banner.textContent = '🔥 ' + streak + '-day streak — keep going';
+        banner.classList.add('show');
+      } else {
+        banner.classList.remove('show');
+      }
+
+      // Day pills
+      var pillsEl = document.getElementById('dayPills');
+      pillsEl.innerHTML = '';
+      for (var d = 0; d < plan.max; d++) {
+        var pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = 'day-pill' +
+          (d < progress ? ' done' : '') +
+          (d === currentDay ? ' current' : '') +
+          (d > progress ? ' locked' : '');
+        pill.textContent = d + 1;
+        pill.setAttribute('aria-label', 'Day ' + (d+1) + (d < progress ? ' — done' : d === currentDay ? ' — current' : ' — locked'));
+        pill.disabled = (d > progress);
+        (function(dayIdx){ pill.addEventListener('click', function(){ currentDay = dayIdx; renderDayCard(); }); })(d);
+        pill.setAttribute('role', 'listitem');
+        pillsEl.appendChild(pill);
+      }
+
+      // Complete card
+      var completeCard = document.getElementById('planCompleteCard');
+      if (progress >= plan.max) {
+        completeCard.classList.add('show');
+        document.getElementById('planCompleteTitle').textContent = plan.label + ' — Complete! 🏆';
+        document.getElementById('planCompleteSub').textContent =
+          'You finished all ' + plan.max + ' days. That\'s real. Want to go deeper or start fresh?';
+      } else {
+        completeCard.classList.remove('show');
+      }
+
+      renderDayCard();
+    }
+
+    function renderDayCard() {
+      // Update pill highlight
+      var pills = document.querySelectorAll('.day-pill');
+      pills.forEach(function(p, i){ p.classList.toggle('current', i === currentDay); });
+
+      var plan     = currentPlan;
+      var progress = getDayProgress(plan);
+      var dayData  = plan.days[currentDay];
+      if (!dayData) return;
+      var isDone   = (currentDay < progress);
+
+      var container = document.getElementById('dayCardContainer');
+      container.innerHTML =
+        '<div class="day-card">' +
+          '<div class="day-card-header">' +
+            '<span class="day-card-num">Day ' + (currentDay+1) + '</span>' +
+            '<span class="day-card-title">' + esc(dayData.title) + '</span>' +
+          '</div>' +
+          '<p class="day-card-verse-ref">' + esc(dayData.ref) + ' (KJV)</p>' +
+          '<p class="day-card-verse-text">\u201c' + esc(dayData.text) + '\u201d</p>' +
+          '<div class="day-breakdown">' +
+            (dayData.speaker ? '<div class="day-bp"><p class="day-bp-label">Who\u2019s speaking</p><p class="day-bp-text">' + esc(dayData.speaker) + '</p></div>' : '') +
+            '<div class="day-bp"><p class="day-bp-label">Real talk</p><p class="day-bp-text">' + esc(dayData.plain) + '</p></div>' +
+            '<div class="day-bp"><p class="day-bp-label">How it lands today</p><p class="day-bp-text">' + esc(dayData.today) + '</p></div>' +
+            '<div class="day-bp action-panel"><p class="day-bp-label">Do this</p><p class="day-bp-text">' + esc(dayData.action) + '</p></div>' +
+          '</div>' +
+          '<div class="day-actions">' +
+            '<button type="button" class="btn-complete' + (isDone ? ' done' : '') + '" id="btnComplete" aria-label="' + (isDone ? 'Day complete' : 'Mark day complete') + '">' +
+              (isDone ? '✓ Day Complete' : 'Mark Complete') +
+            '</button>' +
+            '<button type="button" class="btn-share" id="btnShareDay" aria-label="Share this verse">Share ↗</button>' +
+          '</div>' +
+        '</div>';
+
+      // Wire buttons
+      document.getElementById('btnComplete').addEventListener('click', markComplete);
+      document.getElementById('btnShareDay').addEventListener('click', shareDay);
+    }
+
+    function markComplete() {
+      var plan     = currentPlan;
+      var progress = getDayProgress(plan);
+
+      if (currentDay < progress) {
+        showToast('Already done ✓');
+        return;
+      }
+      if (currentDay !== progress) {
+        showToast('Complete earlier days first');
+        return;
+      }
+
+      var newProgress = progress + 1;
+      setDayProgress(plan, newProgress);
+
+      // Streak
+      var today     = new Date().toDateString();
+      var lastDay   = localStorage.getItem('tdb-streak-' + plan.id + '-date') || '';
+      var yesterday = new Date(Date.now() - 86400000).toDateString();
+      var streak    = parseInt(localStorage.getItem('tdb-streak-' + plan.id) || '0', 10);
+      if (lastDay === yesterday) { streak++; }
+      else if (lastDay !== today) { streak = 1; }
+      localStorage.setItem('tdb-streak-' + plan.id, String(streak));
+      localStorage.setItem('tdb-streak-' + plan.id + '-date', today);
+
+      // Move to next day
+      if (newProgress < plan.max) {
+        currentDay = newProgress;
+        showToast(streak > 1 ? '🔥 ' + streak + '-day streak!' : 'Day ' + newProgress + ' done ✓');
+      } else {
+        showToast('🏆 Plan complete!');
+      }
+      renderDetail();
+    }
+
+    function shareDay() {
+      var plan    = currentPlan;
+      var dayData = plan.days[currentDay];
+      var text    = dayData.ref + ' (KJV)\n\u201c' + dayData.text + '\u201d\n\u2014 todaysdailybattle.com';
+      if (navigator.share) {
+        navigator.share({ text: text }).catch(function(){});
+      } else {
+        navigator.clipboard.writeText(text).then(function(){
+          showToast('Copied ✓');
+        }).catch(function(){});
+      }
+    }
+
+    // ── Back button ───────────────────────────────────────────────────────────
+    document.getElementById('detailBackBtn').addEventListener('click', function(){
+      currentPlan = null;
+      renderIndex();
+    });
+
+    // ── Extend / Restart ──────────────────────────────────────────────────────
+    document.getElementById('btnExtend').addEventListener('click', function(){
+      var plan = currentPlan;
+      setDayProgress(plan, 0);
+      currentDay = 0;
+      showToast('Plan reset — go again 💪');
+      renderDetail();
+    });
+    document.getElementById('btnRestart').addEventListener('click', function(){
+      var plan = currentPlan;
+      setDayProgress(plan, 0);
+      localStorage.removeItem('tdb-streak-' + plan.id);
+      localStorage.removeItem('tdb-streak-' + plan.id + '-date');
+      currentDay = 0;
+      showToast('Starting fresh ✓');
+      renderDetail();
+    });
+
+    // ── URL routing — open plan directly if ?plan=id in URL ──────────────────
+    var params = new URLSearchParams(window.location.search);
+    var planParam = params.get('plan');
+    if (planParam && PLANS[planParam]) {
+      renderIndex(); // build index first (for back button)
+      openPlan(planParam);
+    } else {
+      renderIndex();
+    }
+
+  }());
+  </script>
 </body>
 </html>

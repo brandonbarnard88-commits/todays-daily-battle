@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311v -->
+<!-- tdb build 20260311w -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -96,13 +96,10 @@
       margin-bottom: 1.75rem;
       position: relative;
       overflow: hidden;
-      /* Dark top → deep warm orange-gold at base */
-      background:
-        radial-gradient(ellipse 70% 55% at 50% 62%, rgba(200,110,0,0.18) 0%, transparent 100%),
-        linear-gradient(180deg, #060810 0%, #0d1018 38%, #1a1008 72%, #231200 100%);
+      background: #000818;
       border-bottom: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
     }
-    /* Faint horizon blur line */
+    /* Horizon blur line */
     .site-header::after {
       content: '';
       position: absolute;
@@ -110,19 +107,36 @@
       height: 1px;
       background: linear-gradient(90deg, transparent 0%, rgba(227,188,103,0.35) 30%, rgba(255,180,40,0.55) 50%, rgba(227,188,103,0.35) 70%, transparent 100%);
       filter: blur(0.5px);
+      z-index: 2;
     }
-    /* Radial glow particles — purely decorative, CSS only */
-    .site-header::before {
-      content: '';
+    /* Night sky canvas — fills header behind everything */
+    #header-sky-canvas {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle 3px at 18% 72%, rgba(255,180,40,0.25) 0%, transparent 100%),
-        radial-gradient(circle 2px at 82% 65%, rgba(255,200,80,0.20) 0%, transparent 100%),
-        radial-gradient(circle 4px at 50% 88%, rgba(255,160,20,0.15) 0%, transparent 100%),
-        radial-gradient(circle 2px at 30% 55%, rgba(255,220,100,0.12) 0%, transparent 100%),
-        radial-gradient(circle 3px at 70% 80%, rgba(255,180,40,0.18) 0%, transparent 100%);
+      width: 100%;
+      height: 100%;
+      z-index: 0;
       pointer-events: none;
+    }
+    /* Moon phase display */
+    #header-moon {
+      position: absolute;
+      top: 1rem; right: 1.2rem;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      opacity: 0.7;
+    }
+    #header-moon canvas {
+      display: block;
+    }
+    #header-moon-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(200,220,255,0.55);
     }
 
     .site-title {
@@ -136,12 +150,10 @@
       color: #ffffff;
       line-height: 1;
       white-space: nowrap;
-      /* Amber drop-shadow + gold underline glow */
       text-shadow:
         0 2px 8px rgba(200,100,0,0.85),
         0 0 28px rgba(227,160,30,0.35);
     }
-    /* Subtle gold underline glow beneath the title */
     .site-title-underline {
       position: relative;
       z-index: 1;
@@ -2068,6 +2080,14 @@
   <div class="app">
 
     <header class="site-header">
+      <!-- Night sky canvas (stars, shooting star, warm horizon glow) -->
+      <canvas id="header-sky-canvas" aria-hidden="true"></canvas>
+      <!-- Live moon phase -->
+      <div id="header-moon" aria-hidden="true">
+        <canvas id="header-moon-canvas" width="28" height="28"></canvas>
+        <span id="header-moon-label"></span>
+      </div>
+
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <div class="site-logo-wrap" aria-hidden="true">
@@ -2539,6 +2559,7 @@
   <!-- ── First-visit Read-Aloud Modal ── -->
   
 
+  <script src="https://cdn.jsdelivr.net/npm/lunarphase-js@2.0.3/dist/lunarphase-js.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
   <script nonce="tdb2025">
     // ── 10-verse offline pack — shown when network fails and localStorage is empty ──
@@ -5048,6 +5069,259 @@
       }
     }
 
+    // ── Header Night Sky + Moon Phase ──
+    function initHeaderSky() {
+      var header = document.querySelector('.site-header');
+      var canvas = document.getElementById('header-sky-canvas');
+      if (!canvas || !header) return;
+
+      var ctx = canvas.getContext('2d');
+      var W, H, stars = [], shooters = [];
+
+      // ── Seed a deterministic RNG so stars don't jump on resize ──
+      function seededRand(seed) {
+        var s = seed;
+        return function () { s = (s * 16807 + 0) % 2147483647; return (s - 1) / 2147483646; };
+      }
+      var rand = seededRand(20260311);
+
+      function resize() {
+        W = canvas.width  = header.offsetWidth;
+        H = canvas.height = header.offsetHeight;
+        buildStars();
+      }
+
+      function buildStars() {
+        stars = [];
+        var r = seededRand(20260311);
+        var count = Math.floor((W * H) / 1800);
+        for (var i = 0; i < count; i++) {
+          var fy = r();
+          stars.push({
+            x: r() * W,
+            // stars populate the upper 80%, fading toward warm horizon base
+            y: fy * H * 0.82,
+            radius: r() * 1.2 + 0.3,
+            // brightness fades toward bottom (horizon warmth takes over)
+            base: (1 - fy * 0.7) * (r() * 0.5 + 0.3),
+            speed: r() * 3 + 2,
+            offset: r() * Math.PI * 2
+          });
+        }
+        // pre-build 2 shooters
+        shooters = [makeShooter(0), makeShooter(6000)];
+      }
+
+      function makeShooter(delay) {
+        var r = rand;
+        return {
+          x: -120,
+          y: H * (0.05 + r() * 0.35),
+          angle: 25 + r() * 20,         // degrees downward
+          speed: 8 + r() * 6,
+          length: 80 + r() * 80,
+          opacity: 0,
+          delay: delay,
+          timer: -(delay),
+          done: false
+        };
+      }
+
+      var t = 0;
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function drawFrame() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, W, H);
+
+        // ── Sky gradient: deep midnight blue-black top → warm amber base ──
+        var sky = ctx.createLinearGradient(0, 0, 0, H);
+        sky.addColorStop(0,    '#000510');
+        sky.addColorStop(0.55, '#050d1a');
+        sky.addColorStop(0.82, '#130c04');
+        sky.addColorStop(1,    '#1f0e00');
+        ctx.fillStyle = sky;
+        ctx.fillRect(0, 0, W, H);
+
+        // ── Warm horizon glow ──
+        var horizonGlow = ctx.createRadialGradient(W / 2, H, 0, W / 2, H, W * 0.65);
+        horizonGlow.addColorStop(0,   'rgba(180,80,0,0.28)');
+        horizonGlow.addColorStop(0.4, 'rgba(120,50,0,0.12)');
+        horizonGlow.addColorStop(1,   'rgba(0,0,0,0)');
+        ctx.fillStyle = horizonGlow;
+        ctx.fillRect(0, 0, W, H);
+
+        if (prefersReducedMotion) {
+          // Static stars only — no animation loop
+          stars.forEach(function (s) {
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(220,230,255,' + s.base + ')';
+            ctx.fill();
+          });
+          return;
+        }
+
+        // ── Twinkling stars ──
+        t += 0.016;
+        stars.forEach(function (s) {
+          var brightness = s.base + Math.sin(t / s.speed + s.offset) * 0.18;
+          brightness = Math.max(0.05, Math.min(1, brightness));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(220,230,255,' + brightness + ')';
+          ctx.fill();
+        });
+
+        // ── Shooting stars ──
+        shooters.forEach(function (sh, idx) {
+          sh.timer += 16;
+          if (sh.timer < 0) return;
+
+          var rad = (sh.angle * Math.PI) / 180;
+          var progress = sh.timer / 1200; // 1.2s total flight
+
+          if (progress > 1) {
+            // Reset with random delay 8–18s
+            shooters[idx] = makeShooter(0);
+            shooters[idx].timer = -(8000 + rand() * 10000);
+            return;
+          }
+
+          var cx = sh.x + Math.cos(rad) * sh.speed * sh.timer * 0.1;
+          var cy = sh.y + Math.sin(rad) * sh.speed * sh.timer * 0.1;
+          var op = progress < 0.15 ? progress / 0.15
+                 : progress > 0.75 ? (1 - progress) / 0.25
+                 : 1;
+          op *= 0.85;
+
+          var tailX = cx - Math.cos(rad) * sh.length;
+          var tailY = cy - Math.sin(rad) * sh.length;
+          var grad = ctx.createLinearGradient(tailX, tailY, cx, cy);
+          grad.addColorStop(0,   'rgba(255,255,255,0)');
+          grad.addColorStop(0.6, 'rgba(255,250,230,' + (op * 0.5) + ')');
+          grad.addColorStop(1,   'rgba(255,255,255,' + op + ')');
+
+          ctx.beginPath();
+          ctx.moveTo(tailX, tailY);
+          ctx.lineTo(cx, cy);
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        });
+
+        requestAnimationFrame(drawFrame);
+      }
+
+      window.addEventListener('resize', function () {
+        resize();
+        if (prefersReducedMotion) drawFrame();
+      });
+      resize();
+      if (prefersReducedMotion) {
+        drawFrame();
+      } else {
+        requestAnimationFrame(drawFrame);
+      }
+
+      // ── Moon phase ──
+      drawMoonPhase();
+    }
+
+    function drawMoonPhase() {
+      var moonCanvas = document.getElementById('header-moon-canvas');
+      var moonLabel  = document.getElementById('header-moon-label');
+      if (!moonCanvas) return;
+
+      var ctx = moonCanvas.getContext('2d');
+      var size = 28, r = size / 2;
+
+      // Get illumination fraction + phase name from lunarphase-js if available,
+      // otherwise fall back to a simple calculation
+      var illumination = 0.5, phaseName = '';
+      try {
+        if (window.LunarPhase) {
+          var lp = new LunarPhase.Moon();
+          illumination = lp.illumination();          // 0–1
+          phaseName = lp.lunarPhase();               // e.g. "Waxing Crescent"
+        } else {
+          // Simple fallback: days since known new moon (Jan 6 2000)
+          var known = new Date(2000, 0, 6).getTime();
+          var daysSince = (Date.now() - known) / 86400000;
+          var cycle = daysSince % 29.53;
+          illumination = cycle <= 14.765 ? cycle / 14.765 : (29.53 - cycle) / 14.765;
+          var phaseNames = ['New Moon','Waxing Crescent','First Quarter','Waxing Gibbous',
+                            'Full Moon','Waning Gibbous','Last Quarter','Waning Crescent'];
+          phaseName = phaseNames[Math.round(cycle / 29.53 * 8) % 8];
+        }
+      } catch(e) {
+        illumination = 0.5;
+      }
+
+      // Draw moon disc
+      ctx.clearRect(0, 0, size, size);
+
+      // Outer glow
+      var glow = ctx.createRadialGradient(r, r, r * 0.6, r, r, r * 1.4);
+      glow.addColorStop(0,   'rgba(200,220,255,0.15)');
+      glow.addColorStop(1,   'rgba(0,0,0,0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(r, r, r * 1.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Moon base (lit side)
+      var moonGrad = ctx.createRadialGradient(r * 0.7, r * 0.7, 1, r, r, r);
+      moonGrad.addColorStop(0,   'rgba(255,255,240,0.95)');
+      moonGrad.addColorStop(0.6, 'rgba(200,210,230,0.85)');
+      moonGrad.addColorStop(1,   'rgba(140,160,190,0.7)');
+      ctx.fillStyle = moonGrad;
+      ctx.beginPath();
+      ctx.arc(r, r, r - 1, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Shadow to show phase: draw dark ellipse over the unlit side
+      // illumination 0=new, 1=full
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(r, r, r - 1, 0, Math.PI * 2);
+      ctx.clip();
+
+      // The shadow: as illumination goes 0→0.5, shadow covers right→left
+      // At full (1.0) no shadow, at new (0) full shadow
+      var shadowW = Math.abs(1 - 2 * illumination) * (r - 1);
+      var waxing = illumination <= 0.5;
+      ctx.fillStyle = 'rgba(0,5,20,0.92)';
+      if (illumination < 0.02) {
+        // New moon — full dark
+        ctx.beginPath();
+        ctx.arc(r, r, r - 1, 0, Math.PI * 2);
+        ctx.fill();
+      } else if (illumination > 0.98) {
+        // Full moon — no shadow
+      } else {
+        // Draw shadow as a half-disc + ellipse blend
+        ctx.beginPath();
+        if (waxing) {
+          // Left side dark (right side lit)
+          ctx.arc(r, r, r - 1, Math.PI / 2, -Math.PI / 2, false);
+          ctx.ellipse(r, r, shadowW, r - 1, 0, -Math.PI / 2, Math.PI / 2, false);
+        } else {
+          // Right side dark (left side lit)
+          ctx.arc(r, r, r - 1, -Math.PI / 2, Math.PI / 2, false);
+          ctx.ellipse(r, r, shadowW, r - 1, 0, Math.PI / 2, -Math.PI / 2, false);
+        }
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // Moon phase name label
+      if (moonLabel && phaseName) {
+        moonLabel.textContent = phaseName;
+      }
+    }
+
     // ── Init ──
     initTheme();
     updateStreak();
@@ -5069,6 +5343,7 @@
       wireMorningFlow();
     });
     initPwaNudge();
+    initHeaderSky();
 
     // Modals and buttons that live after this script block in the DOM
     // must wait for DOMContentLoaded so their elements are available

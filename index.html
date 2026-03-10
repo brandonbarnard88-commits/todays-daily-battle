@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311o -->
+<!-- tdb build 20260311p -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -4817,10 +4817,7 @@
     wireKidsStoryModal();
     wireAudioVolumePopover();
     wirePlanDetailModal();
-    wireSettings();
     wireJournalExport();
-    wireAboutModal();
-    wireSosButton();
     wireWhyTooltips();
     scheduleMorningReminder();
     cacheVersesOffline();
@@ -4829,6 +4826,14 @@
       wireMorningFlow();
     });
     initPwaNudge();
+
+    // Modals and buttons that live after this script block in the DOM
+    // must wait for DOMContentLoaded so their elements are available
+    document.addEventListener('DOMContentLoaded', function () {
+      wireSettings();
+      wireAboutModal();
+      wireSosButton();
+    });
   </script>
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="I'm struggling — show me a verse now">SOS</button>

@@ -3886,6 +3886,41 @@ function requestPushPermissionAndSubscribe() {
   })();
 }
 
+function wireNotifPermCard() {
+  var card = document.getElementById('notifPermCard');
+  var yesBtn = document.getElementById('notifPermYes');
+  var noBtn = document.getElementById('notifPermNo');
+  if (!card || !yesBtn || !noBtn) return;
+  if (!('Notification' in window) || Notification.permission !== 'default') return;
+  try { if (localStorage.getItem('tdb_notif_dismissed')) return; } catch (_) {}
+
+  // Show card if streak >= 3 or after a short delay as a gentle nudge
+  function maybeShow() {
+    var streak = typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0;
+    if (streak >= 3) {
+      card.hidden = false;
+    } else {
+      // Fallback: show after 90s on the page for first-time visitors
+      setTimeout(function () {
+        if (card.hidden && Notification.permission === 'default') {
+          try { if (localStorage.getItem('tdb_notif_dismissed')) return; } catch (_) {}
+          card.hidden = false;
+        }
+      }, 90000);
+    }
+  }
+  maybeShow();
+
+  yesBtn.addEventListener('click', function () {
+    card.hidden = true;
+    requestPushPermissionAndSubscribe();
+  });
+  noBtn.addEventListener('click', function () {
+    card.hidden = true;
+    try { localStorage.setItem('tdb_notif_dismissed', '1'); } catch (_) {}
+  });
+}
+
 function wireInstallPrompt() {
   const installCta = document.getElementById('install-cta');
   const installBtn = document.getElementById('install-app');
@@ -8452,6 +8487,21 @@ function updateDailyVerseWhispers(ref, verseText) {
   if (authText) authText.textContent = safeText || 'Verse loading...';
   if (brandRef) brandRef.textContent = safeRef || 'Today\'s verse';
   if (brandText) brandText.textContent = safeText || 'Verse loading...';
+  // Update OG/Twitter meta with today's verse so shares show the real verse
+  if (safeRef && safeText) {
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    var snippet = safeText.length > 120 ? safeText.slice(0, 117) + '\u2026' : safeText;
+    var desc = '\u201c' + snippet + '\u201d \u2014 ' + safeRef + ' KJV';
+    var title = 'Today\u2019s Daily Battle \u2014 ' + safeRef;
+    if (ogDesc) ogDesc.setAttribute('content', desc);
+    if (twDesc) twDesc.setAttribute('content', desc);
+    if (ogTitle) ogTitle.setAttribute('content', title);
+    if (twTitle) twTitle.setAttribute('content', title);
+    document.title = title;
+  }
   if (typeof updateAuthDailyVerseBreakdownContent === 'function') {
     updateAuthDailyVerseBreakdownContent(safeRef, safeText);
   }
@@ -8631,10 +8681,22 @@ function updateFloatingBattleAnchor() {
 
 function updateHeaderStreakBadge(streakCount) {
   var badge = document.getElementById('header-streak-badge');
-  if (!badge) return;
+  var heroBadge = document.getElementById('heroStreakBadge');
   var n = typeof streakCount === 'number' ? streakCount : (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
-  badge.textContent = n + ' day' + (n === 1 ? '' : 's');
-  badge.setAttribute('aria-label', 'Open streak details. Current streak: ' + n + ' days');
+  var label = n >= 1 ? ('Day ' + n + ' \uD83D\uDD25') : '';
+  if (badge) {
+    badge.textContent = n + ' day' + (n === 1 ? '' : 's');
+    badge.setAttribute('aria-label', 'Open streak details. Current streak: ' + n + ' days');
+  }
+  if (heroBadge) {
+    if (n >= 1) {
+      heroBadge.textContent = label;
+      heroBadge.hidden = false;
+      heroBadge.setAttribute('aria-label', 'Current streak: ' + n + ' day' + (n === 1 ? '' : 's'));
+    } else {
+      heroBadge.hidden = true;
+    }
+  }
 }
 
 function buildAutoQuickPrayText() {
@@ -9629,11 +9691,28 @@ function renderDailyMoodCenter() {
     var basePath = (window.location.pathname || '/').replace(/\/[^/]*$/, '') || '/';
     var searchHref = basePath + '?q=' + encodeURIComponent(suggestion.topic);
     var readerHref = suggestion.ref ? buildReaderUrl(suggestion.ref) : 'reader.html';
-    statusEl.textContent = 'Logged: ' + suggestion.mood.label + '.';
-    suggestionEl.innerHTML = 'Armor for this feeling: <strong>' + escapeHtml(suggestion.topic) + '</strong>' +
-      (suggestion.ref ? (' — ' + escapeHtml(suggestion.ref)) : '') +
-      '. <a href="' + escapeHtml(searchHref) + '">Open matching verses</a>' +
-      (suggestion.ref ? (' · <a href="' + escapeHtml(readerHref) + '">Read full chapter</a>') : '');
+    var moodAck = {
+      peace:    'Glad you named it. Here\'s something to hold onto:',
+      fear:     'Fear is real. Scripture is stronger. Hold this:',
+      strength: 'You showed up. That takes something. Take this with you:',
+      grief:    'He stays close to the brokenhearted. This is for you:',
+      joy:      'That\'s worth marking. Carry this today:',
+      anxiety:  'One breath. One verse. You\'re not alone in this:',
+      anger:    'Bring it to Him — He can take it. Start here:',
+      loneliness: 'You\'re seen. More than you know. Take this:',
+      doubt:    'Honest questions are welcome here. Hold this:',
+      hope:     'Keep that. Scripture will back it up — here\'s one:',
+      courage:  'Stand firm. You were made for this. Take this:',
+      tired:    'He doesn\'t need you strong right now. Just present. This is for you:',
+      grateful: 'Good soil, that. Let Scripture water it:',
+      family:   'Praying for yours. This one\'s for the whole house:'
+    };
+    var ack = moodAck[suggestion.mood.id] || ('Holding ' + suggestion.mood.label.toLowerCase() + '? Here\'s your armor verse:');
+    statusEl.textContent = ack;
+    suggestionEl.innerHTML = '<strong>' + escapeHtml(suggestion.ref || suggestion.topic) + '</strong>' +
+      (suggestion.text ? ' \u2014 \u201c' + escapeHtml(suggestion.text.slice(0, 90) + (suggestion.text.length > 90 ? '\u2026' : '')) + '\u201d' : '') +
+      ' <a href="' + escapeHtml(searchHref) + '">More verses</a>' +
+      (suggestion.ref ? (' \u00b7 <a href="' + escapeHtml(readerHref) + '">Full chapter</a>') : '');
   } else {
     statusEl.textContent = 'Pick one mood to get a focused armor verse.';
     suggestionEl.textContent = '';
@@ -15767,6 +15846,7 @@ function writeNbaSignal(key) {
   scheduleAdminPanel();
   wireDailyBattleSeedForm();
   wireInstallPrompt();
+  wireNotifPermCard();
   wireWeeklyRecapNudge();
   if (document.getElementById('home-streak-badge')) updateHomeStreakBadge();
   wireOfflineBanner();

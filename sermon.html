@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Sermon Builder • Today's Daily Battle</title>
-  <meta name="description" content="Build sermon outlines, save drafts, and send them to your congregation or co-leaders.">
+  <meta name="description" content="KJV sermon outlines, verse lookup, and study notes — built for pastors who lead from the Word.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/sermon.html">
   <meta property="og:title" content="Sermon Builder • Today's Daily Battle">
@@ -280,7 +280,7 @@
     .sb-compare-insert-btn:hover { background: color-mix(in srgb, var(--gold, #e3bc67) 14%, transparent); }
 
     /* ── Reading progress during TTS ── */
-    .sb-tts-active { outline: 2px solid var(--gold, #e3bc67); border-radius: 4px; }
+    /* .sb-tts-active removed — progressive TTS highlighting not yet implemented */
 
     /* ── Inline Suggestions ── */
     .sermon-full { position: relative; }
@@ -364,7 +364,7 @@
         <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
         <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
       </nav>
-      <div class="sidebar-options">
+      <div class="sidebar-options" hidden>
         <label class="inline-toggle">
           <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
           Red letters
@@ -376,7 +376,7 @@
       <div class="content-inner">
         <header class="hero-banner">
           <h1>Sermon Builder</h1>
-          <p>Build a clear, Scripture-first outline in minutes.</p>
+          <p>Start with the Word. Build from there.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="resources.html">Pastor Resources</a>
           </div>
@@ -406,8 +406,8 @@
           </ul>
         </section>
         <section id="sermon-builder" class="sermon-builder glass">
-          <h2 class="section-divider">Sermon Builder (Pastors)</h2>
-          <p class="section-note">Start with a passage, shape your outline, export to PDF or copy-paste to email. Your notes stay with you.</p>
+          <h2 class="section-divider">Sermon Builder</h2>
+          <p class="section-note">Write from what the text says. Add your notes. Take it to the pulpit.</p>
 
           <!-- ── Enhanced Toolbar ── -->
           <div class="sb-enhance-toolbar" role="toolbar" aria-label="Sermon Builder tools">
@@ -472,9 +472,12 @@
               <button id="pastor-toolkit" type="button" aria-label="Open the Pastor Toolkit">Pastor Toolkit</button>
               <button id="share-sermon" type="button" aria-label="Email this sermon to your congregation">Email to Congregation</button>
               <button id="share-sermon-link" type="button" aria-label="Create a shareable link for this sermon">Create Share Link</button>
-              <button id="open-sermon-link">Open Share Link</button>
+              <button id="open-sermon-link" type="button" aria-label="Open the shared sermon link">Open Share Link</button>
             </div>
-            <input id="sermon-share-link" placeholder="Sermon share link will appear here" readonly>
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.4rem;">
+              <input id="sermon-share-link" placeholder="Share link will appear here" readonly aria-label="Sermon share link" style="flex:1;">
+              <button id="copy-sermon-link" type="button" aria-label="Copy sermon share link" style="white-space:nowrap;" hidden>Copy Link</button>
+            </div>
             <p class="section-note">Tip: Copy the draft and share it with your team or congregation.</p>
           </div>
         </section>
@@ -482,7 +485,7 @@
     </main>
 
     <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
-      <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️</p>
+      <p class="footer-tagline">KJV only. Your data stays yours. Verse by verse, day by day.</p>
       <nav class="footer-quick-links" aria-label="Quick links">
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
@@ -507,7 +510,7 @@
     <div class="sb-popover">
       <button type="button" class="sb-popover-close" id="sbQuickStartClose" aria-label="Close Quick Start">✕</button>
       <h3 class="sb-popover-title">✦ Quick Start</h3>
-      <p class="sb-popover-sub">Pick a template — fills your outline in one tap.</p>
+      <p class="sb-popover-sub">Pick a starting passage — your outline fills in. Change anything.</p>
       <div class="sb-template-grid" id="sbTemplateGrid">
         <!-- populated by JS -->
       </div>
@@ -519,7 +522,7 @@
     <div class="sb-popover">
       <button type="button" class="sb-popover-close" id="sbAddVerseClose" aria-label="Close Add Verse">✕</button>
       <h3 class="sb-popover-title">📖 Add Verse</h3>
-      <p class="sb-popover-sub">Search a topic — tap a result to insert.</p>
+      <p class="sb-popover-sub">Search a topic — select a result to insert.</p>
       <div class="sb-verse-search-row">
         <input type="text" id="sbVerseInput" class="sb-verse-input" placeholder="hope, fear, John 3:16…" aria-label="Search for a verse topic" autocomplete="off" maxlength="80">
         <button type="button" id="sbVerseSearchBtn" class="sb-btn" style="padding:0.45rem 0.75rem">Search</button>
@@ -531,7 +534,7 @@
         <option value="sermon-application">Application</option>
         <option value="sermon-prayer">Closing Prayer</option>
       </select>
-      <div id="sbVerseResults" class="sb-verse-results" aria-live="polite">
+      <div id="sbVerseResults" class="sb-verse-results" aria-live="polite" aria-atomic="true">
         <p class="sb-verse-empty">Type a topic above and tap Search.</p>
       </div>
     </div>
@@ -602,7 +605,7 @@
       { name: 'Grace',        icon: '🤍', ref: 'Ephesians 2:8-9',    title: 'Grace Alone',        theme: 'Saved by grace through faith — nothing added',
         outline: 'I. What grace is — unmerited favor\nII. What grace is not — wages earned\nIII. What grace produces — good works from gratitude, not guilt',
         points:  'Cross-refs: Romans 6:23, Titus 3:5, Galatians 2:21\nIllustration: A gift you didn\'t earn and can\'t return.',
-        application: 'Are you living from grace or performing for acceptance? Let grace lead.',
+        application: 'Are you living from grace or performing for approval? Bring that to God.',
         prayer:  'Father, remind us that we stand in grace. Not our merit — Yours.' }
     ];
 
@@ -667,10 +670,27 @@
       el.hidden = false;
       var focus = focusId ? document.getElementById(focusId) : el.querySelector('button, input, select, textarea');
       if (focus) setTimeout(function () { focus.focus(); }, 50);
+      // Focus trap: keep Tab/Shift-Tab within the open dialog
+      el._sbTrapHandler = function (e) {
+        if (e.key !== 'Tab') return;
+        var focusable = Array.from(el.querySelectorAll('button:not([disabled]):not([hidden]), input:not([disabled]):not([hidden]), select:not([disabled]):not([hidden]), textarea:not([disabled]):not([hidden]), [tabindex="0"]'));
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last  = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+        }
+      };
+      el.addEventListener('keydown', el._sbTrapHandler);
     }
     function closeBackdrop(id, returnId) {
       var el = document.getElementById(id);
-      if (el) el.hidden = true;
+      if (el) {
+        el.hidden = true;
+        if (el._sbTrapHandler) { el.removeEventListener('keydown', el._sbTrapHandler); el._sbTrapHandler = null; }
+      }
       var ret = returnId ? document.getElementById(returnId) : null;
       if (ret) ret.focus();
     }
@@ -974,29 +994,35 @@
         if (sbTTSActive) {
           window.speechSynthesis.cancel();
           sbTTSActive = false;
-          sbTTSBtn.textContent = '🔊 Read Aloud';
+          sbTTSBtn.textContent = '🔊 Read\u00a0Aloud';
+          sbTTSBtn.setAttribute('aria-label', 'Read sermon aloud');
           sbTTSBtn.setAttribute('aria-pressed', 'false');
           sbTTSBtn.classList.remove('sb-btn--gold');
           return;
         }
         var text = sbBuildReadText();
-        if (!text.trim()) { alert('Nothing to read — fill in a few fields first.'); return; }
+        if (!text.trim()) {
+          if (typeof showEliteToast === 'function') showEliteToast('Fill in a few fields first, then tap Read Aloud.');
+          return;
+        }
         sbTTSUtter = new SpeechSynthesisUtterance(text);
         sbTTSUtter.rate = 0.9;
         sbTTSUtter.onend = sbTTSUtter.onerror = function () {
           sbTTSActive = false;
-          sbTTSBtn.textContent = '🔊 Read Aloud';
+          sbTTSBtn.textContent = '🔊 Read\u00a0Aloud';
+          sbTTSBtn.setAttribute('aria-label', 'Read sermon aloud');
           sbTTSBtn.setAttribute('aria-pressed', 'false');
           sbTTSBtn.classList.remove('sb-btn--gold');
         };
         window.speechSynthesis.speak(sbTTSUtter);
         sbTTSActive = true;
         sbTTSBtn.textContent = '⏹ Stop';
+        sbTTSBtn.setAttribute('aria-label', 'Stop reading sermon aloud');
         sbTTSBtn.setAttribute('aria-pressed', 'true');
         sbTTSBtn.classList.add('sb-btn--gold');
       });
     } else if (sbTTSBtn) {
-      sbTTSBtn.title = 'Read Aloud not supported in this browser.';
+      sbTTSBtn.hidden = true;
     }
 
     /* ── PDF Export (jsPDF) ── */
@@ -1128,7 +1154,7 @@
   }());
   </script>
   <!-- ── Inline Suggestion Bubble (shared, moved by JS) ── -->
-  <div id="sbSuggestionBubble" role="listbox" aria-label="Word suggestions" aria-live="polite"></div>
+  <div id="sbSuggestionBubble" role="group" aria-label="Word suggestions" aria-live="polite"></div>
 
   <script nonce="tdb2025">
   (function () {
@@ -1204,7 +1230,6 @@
         chip.type = 'button';
         chip.className = 'sb-suggestion-chip';
         chip.textContent = word;
-        chip.setAttribute('role', 'option');
         chip.setAttribute('aria-label', 'Insert word: ' + word);
         chip.addEventListener('mousedown', function (e) {
           e.preventDefault(); /* prevent textarea blur */

@@ -12865,6 +12865,7 @@ function applySermonDraft(draft) {
   el = document.getElementById('sermon-prayer'); if (el) el.value = draft.prayer || '';
   el = document.getElementById('sermon-date'); if (el) el.value = draft.date || '';
   el = document.getElementById('sermon-status'); if (el) el.value = draft.status || 'draft';
+  el = document.getElementById('sbNotesText'); if (el) el.value = draft.notes || '';
 }
 
 function getSermonDraftFromForm() {
@@ -12882,6 +12883,7 @@ function getSermonDraftFromForm() {
     points: document.getElementById('sermon-points')?.value.trim() || '',
     application: document.getElementById('sermon-application')?.value.trim() || '',
     prayer: document.getElementById('sermon-prayer')?.value.trim() || '',
+    notes: document.getElementById('sbNotesText')?.value.trim() || '',
     date: dateVal || undefined,
     status: statusVal
   };
@@ -12923,15 +12925,19 @@ async function fetchSermonsList() {
     .eq('user_id', currentUserId)
     .order('updated_at', { ascending: false })
     .limit(100);
-  if (error || !Array.isArray(data)) return [];
+  if (error || !Array.isArray(data)) return null;
   return data;
 }
 
 function renderSermonsList(sermons) {
   const listEl = document.getElementById('sermons-list');
   if (!listEl) return;
+  if (sermons === null) {
+    listEl.innerHTML = '<li class="section-note sermons-list-empty" style="color:#f87171;">Couldn\'t load sermons — check your connection and try again.</li>';
+    return;
+  }
   if (!sermons || sermons.length === 0) {
-    listEl.innerHTML = '<li class="section-note sermons-list-empty">No sermons saved yet. Click New Sermon to begin your next draft.</li>';
+    listEl.innerHTML = '<li class="section-note sermons-list-empty">No sermons saved yet. Click New Sermon to start.</li>';
     return;
   }
   listEl.innerHTML = sermons.map(function (s) {
@@ -18198,14 +18204,21 @@ function writeNbaSignal(key) {
   if (loadSermonBtn) {
     loadSermonBtn.addEventListener('click', () => {
       const draft = loadSermonDraft();
+      if (!draft || !(draft.title || draft.textRef || draft.outline || draft.points)) {
+        if (typeof showEliteToast === 'function') showEliteToast('No saved draft found. Start typing — it saves automatically.');
+        return;
+      }
       applySermonDraft(draft);
+      const statusEl = document.getElementById('sb-autosave-status');
+      if (statusEl) { statusEl.textContent = ''; statusEl.className = 'sb-autosave-status'; }
+      if (typeof showEliteToast === 'function') showEliteToast('Draft loaded.');
     });
   }
 
   const exportSermonBtn = document.getElementById('export-sermon');
   if (exportSermonBtn) {
     exportSermonBtn.addEventListener('click', () => {
-      const draft = loadSermonDraft();
+      const draft = getSermonDraftFromForm();
       const lines = [
         `Title: ${draft.title || ''}`,
         `Theme: ${draft.theme || ''}`,
@@ -18223,15 +18236,16 @@ function writeNbaSignal(key) {
         'Closing Prayer:',
         draft.prayer || ''
       ];
-      navigator.clipboard.writeText(lines.join('\n'));
-      alert('Sermon copied for sharing.');
+      navigator.clipboard.writeText(lines.join('\n'))
+        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Sermon copied.'); })
+        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy failed — select all and copy manually.'); });
     });
   }
 
   const exportSermonEmailBtn = document.getElementById('export-sermon-email');
   if (exportSermonEmailBtn) {
     exportSermonEmailBtn.addEventListener('click', () => {
-      const draft = loadSermonDraft();
+      const draft = getSermonDraftFromForm();
       const email = [
         `Subject: ${draft.title || 'Sunday Message'}`,
         '',
@@ -18250,15 +18264,16 @@ function writeNbaSignal(key) {
         'Closing Prayer:',
         draft.prayer || ''
       ].join('\n');
-      navigator.clipboard.writeText(email);
-      alert('Email-ready sermon copied.');
+      navigator.clipboard.writeText(email)
+        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Email-ready sermon copied.'); })
+        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy failed — select all and copy manually.'); });
     });
   }
 
   const exportSermonSlidesBtn = document.getElementById('export-sermon-slides');
   if (exportSermonSlidesBtn) {
     exportSermonSlidesBtn.addEventListener('click', () => {
-      const draft = loadSermonDraft();
+      const draft = getSermonDraftFromForm();
       const slides = [
         `Slide 1: ${draft.title || 'Sermon Title'}`,
         `Slide 2: Theme — ${draft.theme || ''}`,
@@ -18267,8 +18282,9 @@ function writeNbaSignal(key) {
         'Slides 4+: Outline points',
         draft.outline || ''
       ].join('\n');
-      navigator.clipboard.writeText(slides);
-      alert('Slide outline copied.');
+      navigator.clipboard.writeText(slides)
+        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Slide outline copied.'); })
+        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy failed — select all and copy manually.'); });
     });
   }
 
@@ -18344,7 +18360,7 @@ function writeNbaSignal(key) {
   const emailSermonBtn = document.getElementById('email-sermon');
   if (emailSermonBtn) {
     emailSermonBtn.addEventListener('click', () => {
-      const draft = loadSermonDraft();
+      const draft = getSermonDraftFromForm();
       const body = [
         (draft.title || 'Sermon Title') + '\n',
         'Theme: ' + (draft.theme || ''),
@@ -18372,7 +18388,7 @@ function writeNbaSignal(key) {
   if (pastorToolkitBtn) {
     pastorToolkitBtn.addEventListener('click', () => {
       if (!lastResults || !lastResults.verses || lastResults.verses.length === 0) {
-        alert('No search results are loaded yet. Search a topic first, or use "Build from topic" in Pastor Toolkit.');
+        if (typeof showEliteToast === 'function') showEliteToast('Search a topic first, then try Pastor Toolkit.');
         return;
       }
       const toolkit = buildPastorToolkit(lastResults);
@@ -18407,15 +18423,16 @@ function writeNbaSignal(key) {
         '',
         toolkit.guide
       ].join('\n');
-      navigator.clipboard.writeText(fullPacket);
-      alert('Pastor Toolkit created and copied to clipboard.');
+      navigator.clipboard.writeText(fullPacket)
+        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Pastor Toolkit copied.'); })
+        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy failed — select all and copy manually.'); });
     });
   }
 
   const shareSermonBtn = document.getElementById('share-sermon');
   if (shareSermonBtn) {
     shareSermonBtn.addEventListener('click', () => {
-      const draft = loadSermonDraft();
+      const draft = getSermonDraftFromForm();
       const subject = encodeURIComponent(draft.title || 'Sermon Draft');
       const body = encodeURIComponent(
         `Theme: ${draft.theme || ''}\n` +
@@ -18432,12 +18449,25 @@ function writeNbaSignal(key) {
   const shareSermonLinkBtn = document.getElementById('share-sermon-link');
   if (shareSermonLinkBtn) {
     shareSermonLinkBtn.addEventListener('click', async () => {
-      const draft = loadSermonDraft();
+      const draft = getSermonDraftFromForm();
       const link = await createShareLink('sermon', draft);
       if (link) {
         const linkInput = document.getElementById('sermon-share-link');
         if (linkInput) linkInput.value = link;
+        const copyBtn = document.getElementById('copy-sermon-link');
+        if (copyBtn) copyBtn.hidden = false;
       }
+    });
+  }
+
+  const copySermonLinkBtn = document.getElementById('copy-sermon-link');
+  if (copySermonLinkBtn) {
+    copySermonLinkBtn.addEventListener('click', () => {
+      const linkInput = document.getElementById('sermon-share-link');
+      if (!linkInput || !linkInput.value.trim()) return;
+      navigator.clipboard.writeText(linkInput.value.trim())
+        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Link copied.'); })
+        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy failed — select and copy manually.'); });
     });
   }
 
@@ -18447,9 +18477,13 @@ function writeNbaSignal(key) {
       const linkInputEl = document.getElementById('sermon-share-link');
       const linkInput = linkInputEl ? linkInputEl.value.trim() : '';
       if (!linkInput) return;
-      const url = new URL(linkInput);
+      let url;
+      try { url = new URL(linkInput); } catch (_) {
+        if (typeof showEliteToast === 'function') showEliteToast('That doesn\'t look like a valid link.');
+        return;
+      }
       const id = url.searchParams.get('share');
-      if (!id) return;
+      if (!id) { if (typeof showEliteToast === 'function') showEliteToast('No share ID found in this link.'); return; }
       const data = await loadShareById(id);
       if (data) applySharePayload(data);
     });

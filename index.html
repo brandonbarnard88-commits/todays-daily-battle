@@ -7,6 +7,7 @@
 
   <title>Today's Daily Battle</title>
   <meta name="description" content="A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise.">
+  <link rel="canonical" href="https://todaysdailybattle.com/">
 
   <!-- Favicon + touch icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -2515,23 +2516,116 @@
     "@graph": [
       {
         "@type": "WebSite",
+        "@id": "https://todaysdailybattle.com/#website",
         "name": "Today's Daily Battle",
         "url": "https://todaysdailybattle.com",
         "description": "Offline-first KJV Bible companion — daily verse, smart feeling search, prayer wall, family tools. No ads, no login.",
+        "inLanguage": "en-US",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://todaysdailybattle.com/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://todaysdailybattle.com/#organization",
+        "name": "Today's Daily Battle",
+        "url": "https://todaysdailybattle.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://todaysdailybattle.com/logo-shield-600.png",
+          "width": 600,
+          "height": 600
+        },
+        "description": "A daily KJV Bible devotional app for people facing hard moments — fear, grief, anxiety, loneliness. One verse, every day. Free forever.",
+        "sameAs": [
+          "https://todaysdailybattle.com/about.html"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://todaysdailybattle.com/#webpage",
+        "url": "https://todaysdailybattle.com/",
+        "name": "Today's Daily Battle — Daily KJV Verse, Prayer Wall & Bible Search",
+        "isPartOf": { "@id": "https://todaysdailybattle.com/#website" },
+        "publisher": { "@id": "https://todaysdailybattle.com/#organization" },
+        "inLanguage": "en-US",
+        "description": "One KJV verse every day, with a plain-language breakdown, mood-based search, prayer wall, and offline support. No account required.",
+        "dateModified": "2026-03-09"
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://todaysdailybattle.com/#app",
+        "name": "Today's Daily Battle",
+        "operatingSystem": "iOS, Android, Web",
+        "applicationCategory": "LifestyleApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Pure KJV, smart empathy search, offline daily ritual, team and family tools — no ads, no distractions.",
+        "url": "https://todaysdailybattle.com",
+        "screenshot": "https://todaysdailybattle.com/logo-shield-600.png"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://todaysdailybattle.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Bible Tool", "item": "https://todaysdailybattle.com/bible-tool.html" },
+          { "@type": "ListItem", "position": 3, "name": "Chapter Reader", "item": "https://todaysdailybattle.com/reader.html" },
+          { "@type": "ListItem", "position": 4, "name": "Prayer Wall", "item": "https://todaysdailybattle.com/#prayer-wall" },
+          { "@type": "ListItem", "position": 5, "name": "Team Toolkit", "item": "https://todaysdailybattle.com/team-toolkit.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://todaysdailybattle.com/faq.html#faqpage",
+        "url": "https://todaysdailybattle.com/faq.html",
+        "name": "FAQ — Today's Daily Battle",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Today's Daily Battle free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Search, daily verse, reading plan, notes, chapter reader, prayer list, message board, kids activities, and share flows are all free. Paid plans add tools for people who preach, teach, or lead a group."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The site is a Progressive Web App. Install it to your home screen and the daily verse, reader, and your notes are all available without an internet connection."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What Bible translation does it use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "King James Version (KJV) only. Every verse is drawn from the KJV."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to create an account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Everything works without signing in. Your notes and prayer list save to your device locally."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SiteLinksSearchBox",
+        "url": "https://todaysdailybattle.com/",
         "potentialAction": {
           "@type": "SearchAction",
           "target": "https://todaysdailybattle.com/?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
-      },
-      {
-        "@type": "MobileApplication",
-        "name": "Today's Daily Battle",
-        "operatingSystem": "iOS, Android, Web",
-        "applicationCategory": "LifestyleApplication",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "description": "Pure KJV, smart empathy search, offline ritual, family depth — no distractions.",
-        "url": "https://todaysdailybattle.com"
       }
     ]
   }

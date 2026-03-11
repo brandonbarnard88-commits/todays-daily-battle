@@ -1,42 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://todaysdailybattle.com/</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://todaysdailybattle.com/about.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/faq.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/pricing.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/privacy.html</loc><lastmod>2026-02-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://todaysdailybattle.com/terms.html</loc><lastmod>2026-02-22</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://todaysdailybattle.com/contact.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/shop.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/bible/</loc><lastmod>2026-03-04</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
-  <url><loc>https://todaysdailybattle.com/bible/study.html</loc><lastmod>2026-03-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/bible/tools.html</loc><lastmod>2026-03-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/verse.html</loc><lastmod>2026-02-22</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
-  <url><loc>https://todaysdailybattle.com/study.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/reader.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/church/</loc><lastmod>2026-03-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/church/daily.html</loc><lastmod>2026-03-04</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/coloring.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/kids/</loc><lastmod>2026-03-04</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/kids/parent.html</loc><lastmod>2026-03-04</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/kids/corner.html</loc><lastmod>2026-03-04</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/kids/kids-beta.html</loc><lastmod>2026-03-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/sermon.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/resources.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/pastor/</loc><lastmod>2026-03-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/pastor/library.html</loc><lastmod>2026-03-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/pastor/builder.html</loc><lastmod>2026-03-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/pastor/tools.html</loc><lastmod>2026-03-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/pastor-toolkit.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/team-toolkit.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/message.html</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/topic-anxiety.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/topic-grief.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/topic-parenting.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/topic-hope.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/topic-fear.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/topic-forgiveness.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/topic-strength.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://todaysdailybattle.com/reading-plan.html</loc><lastmod>2026-02-22</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://todaysdailybattle.com/weekly-email-template.html</loc><lastmod>2026-02-22</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <!-- Core / homepage -->
+  <url><loc>https://todaysdailybattle.com/</loc><lastmod>2026-03-09</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+
+  <!-- About / legal / contact -->
+  <url><loc>https://todaysdailybattle.com/about.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/faq.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/pricing.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/privacy.html</loc><lastmod>2026-03-09</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://todaysdailybattle.com/terms.html</loc><lastmod>2026-03-09</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://todaysdailybattle.com/contact.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://todaysdailybattle.com/shop.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Core tools -->
+  <url><loc>https://todaysdailybattle.com/verse.html</loc><lastmod>2026-03-09</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
+  <url><loc>https://todaysdailybattle.com/reader.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/bible-tool.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/reading-plan.html</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/study.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://todaysdailybattle.com/message.html</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://todaysdailybattle.com/plans.html</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+
+  <!-- Bible section -->
+  <url><loc>https://todaysdailybattle.com/bible/</loc><lastmod>2026-03-09</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
+  <url><loc>https://todaysdailybattle.com/bible/study.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://todaysdailybattle.com/bible/tools.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
+  <!-- Topic pages (high SEO value — keyword-specific) -->
+  <url><loc>https://todaysdailybattle.com/topic-anxiety.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/topic-fear.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/topic-grief.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/topic-hope.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/topic-forgiveness.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/topic-strength.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/topic-parenting.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
+  <!-- Kids -->
+  <url><loc>https://todaysdailybattle.com/kids/</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/parent.html</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/corner.html</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/coloring.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Church / team -->
+  <url><loc>https://todaysdailybattle.com/church/</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/church/daily.html</loc><lastmod>2026-03-09</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
+  <url><loc>https://todaysdailybattle.com/church.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://todaysdailybattle.com/team-toolkit.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
+  <!-- Pastor -->
+  <url><loc>https://todaysdailybattle.com/pastor/</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://todaysdailybattle.com/pastor/library.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/pastor/builder.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/pastor/tools.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/pastor-toolkit.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://todaysdailybattle.com/sermon.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://todaysdailybattle.com/resources.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Other public pages -->
+  <url><loc>https://todaysdailybattle.com/wins-report.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://todaysdailybattle.com/bible-study.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/curriculum.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://todaysdailybattle.com/approach.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

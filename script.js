@@ -3016,12 +3016,22 @@ const PRAYER_WALL_STREAK_KEY = 'tdb_prayer_wall_streak_days_v1';
 /**
  * Return the number of consecutive days (ending today or yesterday)
  * on which the user posted at least one prayer wall entry.
+ *
+ * calculateStreak starts from the given key and returns 0 immediately if
+ * that key is not in the set. So we try today first; if today has no entry
+ * yet we fall back to yesterday — preserving the streak for a user who
+ * hasn't posted yet today but was active every prior day.
  */
 function getPrayerWallStreak() {
   try {
     var days = JSON.parse(localStorage.getItem(PRAYER_WALL_STREAK_KEY) || '[]');
     if (!Array.isArray(days) || !days.length) return 0;
-    return calculateStreak(days, getDailyKey());
+    var today = getDailyKey();
+    var fromToday = calculateStreak(days, today);
+    if (fromToday > 0) return fromToday;
+    // Today not yet posted — check if yesterday anchors an active streak
+    var yesterday = shiftDailyKey(today, -1);
+    return calculateStreak(days, yesterday);
   } catch (e) { return 0; }
 }
 

@@ -8866,7 +8866,8 @@ function getAuthDailyVerseBreakdownData(ref, verseText) {
 function normalizeEmotionSignal(topic) {
   var raw = String(topic || '').trim().toLowerCase();
   if (!raw) return '';
-  return EMOTION_ALIAS[raw] || raw;
+  var alias = (typeof EMOTION_ALIAS !== 'undefined') ? EMOTION_ALIAS : {};
+  return alias[raw] || raw;
 }
 
 function rememberEmotionSignal(topic) {

@@ -3092,6 +3092,22 @@ function updatePrayerWallStreakBadge() {
   } else {
     el.setAttribute('hidden', '');
   }
+
+  // Fire a GA4 milestone event at 3 / 7 / 14 / 30 days — once per milestone.
+  // Uses the same event name as the main streak (milestone_reached) with
+  // source:'prayer_wall' so GA4 can segment without a new event type.
+  if (n > 0 && typeof trackEvent === 'function') {
+    var MILESTONES = [3, 7, 14, 30];
+    if (MILESTONES.indexOf(n) !== -1) {
+      var milestoneFlag = 'tdb_pw_milestone_fired_' + n;
+      try {
+        if (!localStorage.getItem(milestoneFlag)) {
+          trackEvent('milestone_reached', { streak_days: n, source: 'prayer_wall' });
+          localStorage.setItem(milestoneFlag, '1');
+        }
+      } catch (e) {}
+    }
+  }
 }
 
 /**

@@ -58,10 +58,15 @@
       transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
       white-space: nowrap;
     }
-    .sb-btn:hover, .sb-btn:focus-visible {
+    .sb-btn:hover {
       background: color-mix(in srgb, var(--gold, #e3bc67) 18%, transparent);
       border-color: var(--gold, #e3bc67);
-      outline: none;
+    }
+    .sb-btn:focus-visible {
+      background: color-mix(in srgb, var(--gold, #e3bc67) 18%, transparent);
+      border-color: var(--gold, #e3bc67);
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 2px;
     }
     .sb-btn--gold {
       background: var(--gold, #e3bc67);
@@ -939,10 +944,17 @@
       refs.forEach(function (r) {
         var li = document.createElement('li');
         li.textContent = r;
+        li.setAttribute('role', 'button');
         li.setAttribute('title', 'Click to add to Key Points');
+        li.setAttribute('aria-label', 'Add cross-reference ' + r + ' to Key Points');
         li.setAttribute('tabindex', '0');
         li.addEventListener('click', function () { appendToField('sermon-points', r + ' — cross-reference'); });
-        li.addEventListener('keydown', function (e) { if (e.key === 'Enter') appendToField('sermon-points', r + ' — cross-reference'); });
+        li.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            appendToField('sermon-points', r + ' — cross-reference');
+          }
+        });
         list.appendChild(li);
       });
     }

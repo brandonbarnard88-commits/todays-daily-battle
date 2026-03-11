@@ -12997,9 +12997,13 @@ function generateShareId() {
 }
 
 function buildShareUrl(id) {
-  const url = new URL(window.location.href);
-  url.searchParams.set('share', id);
-  return url.toString();
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set('share', id);
+    return url.toString();
+  } catch (_) {
+    return window.location.href + '?share=' + encodeURIComponent(id);
+  }
 }
 
 async function createShareLink(type, payload) {

@@ -7,6 +7,7 @@
 
   <title>Today's Daily Battle</title>
   <meta name="description" content="A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise.">
+  <meta name="keywords" content="daily KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
   <!-- Favicon + touch icons -->
@@ -21,6 +22,18 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Today's Daily Battle">
+  <!-- Google Search Console verification — set GOOGLE_SITE_VERIFICATION in config.js -->
+  <script>
+    (function() {
+      var cfg = window.TDB_CONFIG;
+      if (cfg && cfg.GOOGLE_SITE_VERIFICATION) {
+        var m = document.createElement('meta');
+        m.name = 'google-site-verification';
+        m.content = cfg.GOOGLE_SITE_VERIFICATION;
+        document.head.appendChild(m);
+      }
+    })();
+  </script>
 
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
@@ -42,6 +55,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <!-- DNS prefetch for analytics + CDN -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js">
   <style>
     :root {
       --bg: #0f1218;
@@ -1204,6 +1221,28 @@
       font-size: 0.76rem;
       color: var(--muted);
       line-height: 1.7;
+    }
+
+    .site-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .site-footer-nav a {
+      color: color-mix(in srgb, var(--gold) 70%, var(--muted));
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-footer-nav a:hover { text-decoration: underline; }
+
+    .site-footer-copy {
+      font-size: 0.71rem;
+      opacity: 0.42;
+      margin: 0;
     }
 
     .site-footer a {
@@ -2952,8 +2991,21 @@
 
     <!-- ── Footer ── -->
     <footer class="site-footer" role="contentinfo" aria-label="Site footer">
-      <p><a href="about.html" aria-label="About Today's Daily Battle">About</a> · <a href="privacy.html" aria-label="Privacy Policy">Privacy</a> · <a href="terms.html" aria-label="Terms of Service">Terms</a> · <a href="contact.html" aria-label="Contact">Contact</a> · <a href="mailto:support@todaysdailybattle.com" aria-label="Email support">support@todaysdailybattle.com</a></p>
-      <p style="font-size:0.72rem;opacity:0.45;margin-top:0.3rem;">© 2026 Brandon Barnard · Today's Daily Battle · All rights reserved · KJV text is public domain</p>
+      <nav class="site-footer-nav" aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="pricing.html">Plans</a>
+        <a href="faq.html">FAQ</a>
+        <a href="topic-anxiety.html">Anxiety</a>
+        <a href="topic-fear.html">Fear</a>
+        <a href="topic-grief.html">Grief</a>
+        <a href="topic-hope.html">Hope</a>
+        <a href="approach.html">Our Approach</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:support@todaysdailybattle.com" aria-label="Email support">support@todaysdailybattle.com</a>
+      </nav>
+      <p class="site-footer-copy">© 2026 Brandon Barnard · Today's Daily Battle · All rights reserved · KJV text is public domain</p>
     </footer>
 
   </div>
@@ -2987,6 +3039,16 @@
         <li><a href="team-toolkit.html">⚔️ Team Toolkit <span class="nav-more-new-badge">New</span></a></li>
         <li><button type="button" id="about-link" class="nav-more-btn-item" aria-haspopup="dialog">❤️ About This App</button></li>
         <li><button type="button" id="settings-btn" class="nav-more-btn-item" aria-haspopup="true" aria-expanded="false">⚙️ Settings</button></li>
+      </ul>
+      <h2 class="nav-more-title" style="margin-top:1.2rem;">Topics</h2>
+      <ul class="nav-more-list">
+        <li><a href="topic-anxiety.html">😰 Anxiety</a></li>
+        <li><a href="topic-fear.html">😨 Fear</a></li>
+        <li><a href="topic-grief.html">💔 Grief</a></li>
+        <li><a href="topic-hope.html">✨ Hope</a></li>
+        <li><a href="topic-forgiveness.html">🕊 Forgiveness</a></li>
+        <li><a href="topic-strength.html">💪 Strength</a></li>
+        <li><a href="topic-parenting.html">👨‍👩‍👧 Parenting</a></li>
       </ul>
       <button type="button" id="nav-more-close" class="nav-more-close" aria-label="Close menu">Done</button>
     </div>
@@ -3520,6 +3582,28 @@
           link.href = 'reader.html?book=' + book + '&chapter=' + chapter;
           link.setAttribute('aria-label', 'Read ' + m[1] + ' chapter ' + m[2] + ' in full context');
         }
+      })();
+
+      // ── Dynamic <title> + <meta description> for SEO & sharing freshness ──
+      (function() {
+        if (!v.ref) return;
+        var ref = v.ref;
+        var title = 'Today\u2019s Daily Battle: ' + ref + ' \u2014 Daily KJV Verse';
+        document.title = title;
+        var metaDesc = document.querySelector('meta[name="description"]');
+        var desc = 'Today\u2019s verse: ' + ref + ' (KJV). Plain-language breakdown, mood search, prayer wall, and offline Bible tools. No noise, no login.';
+        if (metaDesc) metaDesc.setAttribute('content', desc);
+        // Sync OG + Twitter cards so shares reflect today's verse
+        var og = ['og:title', 'twitter:title'];
+        og.forEach(function(p) {
+          var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
+          if (el) el.setAttribute('content', title);
+        });
+        var ogDesc = ['og:description', 'twitter:description'];
+        ogDesc.forEach(function(p) {
+          var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
+          if (el) el.setAttribute('content', desc);
+        });
       })();
 
       // ── Bullet breakdown (legacy lines) — hide if we have rich panels ──

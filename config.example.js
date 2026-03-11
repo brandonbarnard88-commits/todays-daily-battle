@@ -4,6 +4,38 @@
  * Before production: replace SUPABASE_URL and SUPABASE_ANON_KEY with values from Supabase Dashboard (Settings → API).
  * config.js is optional: if missing, script.js uses built-in defaults.
  * Add config.js to .gitignore if you don't want to commit keys.
+ *
+ * ── QUICK SETUP GUIDE ──────────────────────────────────────────────────────
+ *
+ * 1. Google Analytics 4 (GA4)
+ *    a. Go to https://analytics.google.com → Admin → Create Property → Web
+ *    b. Add your site URL (https://todaysdailybattle.com) and timezone
+ *    c. In "Data Streams", copy the Measurement ID (starts with G-)
+ *    d. Paste it below: GA_MEASUREMENT_ID: 'G-XXXXXXXXXX'
+ *    Events already tracked automatically (no extra code needed):
+ *      - page_view (on every load)
+ *      - daily_mood_checkin (mood: 'hope' | 'peace' | etc.)
+ *      - prayer_wall_add, prayer_list_add
+ *      - quick_search, search_query
+ *      - share_daily_battle, share_daily_battle_image
+ *      - streak_started, milestone_reached
+ *      - bible_study_start, plan_view, upgrade_click
+ *
+ * 2. Google Search Console (GSC) — for submitting your sitemap + monitoring rank
+ *    a. Go to https://search.google.com/search-console → Add Property
+ *    b. Choose "URL prefix" → enter https://todaysdailybattle.com/
+ *    c. Under "Other verification methods" → HTML tag → copy the content value
+ *       e.g. content="abc123xyz" → paste only the value (not the full tag)
+ *    d. Paste it below: GOOGLE_SITE_VERIFICATION: 'abc123xyz'
+ *    e. After verifying, go to Sitemaps → add: https://todaysdailybattle.com/sitemap.xml
+ *    f. Request indexing on key pages: /, /topic-anxiety.html, /topic-fear.html, etc.
+ *
+ * 3. Cloudflare Web Analytics (optional, privacy-first, no cookies)
+ *    a. Cloudflare Dashboard → Analytics → Web Analytics → Add a site
+ *    b. Copy the beacon token (32-char hex string)
+ *    c. Paste it below: CF_ANALYTICS_TOKEN: 'your-32-char-token'
+ *
+ * ───────────────────────────────────────────────────────────────────────────
  */
 window.TDB_CONFIG = {
   // Supabase project URL (e.g. https://xxxx.supabase.co)

@@ -364,7 +364,7 @@
 
       gratitude: {
         id: 'gratitude', icon: '🙏', label: 'Gratitude',
-        desc: 'Thanksgiving verses that shift perspective from want to enough.',
+        desc: 'Gratitude verses — from scarcity to enough. Psalm 100, 1 Thess. 5:18, and more.',
         key: 'tdb-plan-gratitude-day', max: 7,
         days: [
           { title: 'Start here', ref: '1 Thessalonians 5:18', text: 'In every thing give thanks: for this is the will of God in Christ Jesus concerning you.',
@@ -587,7 +587,7 @@
       var streak = parseInt(localStorage.getItem('tdb-streak-' + plan.id) || '0', 10);
       var banner = document.getElementById('streakBanner');
       if (streak >= 2) {
-        banner.textContent = '🔥 ' + streak + '-day streak — keep going';
+        banner.textContent = '🔥 ' + streak + ' days straight';
         banner.classList.add('show');
       } else {
         banner.classList.remove('show');
@@ -695,7 +695,7 @@
         currentDay = newProgress;
         showToast(streak > 1 ? '🔥 ' + streak + '-day streak!' : 'Day ' + newProgress + ' done ✓');
       } else {
-        showToast('🏆 Plan complete!');
+        showToast('🏆 Plan done. One more battle won.');
       }
       renderDetail();
     }

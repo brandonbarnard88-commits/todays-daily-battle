@@ -654,7 +654,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       if (state.sundayRefreshTag !== tag) {
         state.sundayRefreshTag = tag;
         writeState();
-        loadLoops(true).then(function () { showToast('New loops unlocked!'); });
+        loadLoops(true).then(function () { showToast('New stories added.'); });
       }
     }
   });
@@ -666,7 +666,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (state.sundayRefreshTag === tag) return;
     state.sundayRefreshTag = tag;
     writeState();
-    loadLoops(true).then(function () { showToast('New loops unlocked!'); });
+    loadLoops(true).then(function () { showToast('New stories added.'); });
   }, 60000);
 })();
 
@@ -1129,7 +1129,7 @@ function addHouseholdArmorPiece(source) {
   if (isJoinerBonus && typeof showEliteToast === 'function') showEliteToast('Joined: your prayer strengthened your household armor.');
   if (data.count >= 6) {
     emitEasterEgg('full_armor_celebration', { count: data.count });
-    if (typeof showEliteToast === 'function') showEliteToast('Your household is fully armored. Share this milestone.');
+    if (typeof showEliteToast === 'function') showEliteToast('Your household is in the Word together.');
     var link = getArmorShareLink();
     if (link && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(link).catch(function () {});
@@ -1159,9 +1159,9 @@ function addHeavenlyJewel(source) {
   var crownEl = document.getElementById('armor-crown');
   if (crownEl) crownEl.classList.add('armor-crown-sparkle');
   setTimeout(function () { if (crownEl) crownEl.classList.remove('armor-crown-sparkle'); }, 1200);
-  if (typeof showEliteToast === 'function') showEliteToast('Jewel added. Your crown is growing.');
+  if (typeof showEliteToast === 'function') showEliteToast('Another day. Another stone set.');
   if (jewels.length >= 10) {
-    if (typeof showEliteToast === 'function') showEliteToast('Crown complete. Share this testimony.');
+    if (typeof showEliteToast === 'function') showEliteToast('Crown complete—go tell someone what God did.');
     var shareText = 'Our household completed the crown journey. Join us in prayer at todaysdailybattle.com';
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareText).catch(function () {});
   }
@@ -3571,7 +3571,7 @@ function renderSmartResult(query) {
   if (!container) return;
   var info = SMART_DICTIONARY[key] || {
     def: "You\u2019re searching\u2014He\u2019s answering.",
-    action: "Keep going.",
+    action: "Hold this verse today.",
     outcome: "Light comes.",
     verseRef: "Psalm 119:105"
   };
@@ -4350,7 +4350,7 @@ function wireOfflineBanner() {
     if (typeof canUseSupabase === 'function' && canUseSupabase() && currentUserId && typeof syncUserData === 'function') {
       syncUserData().then(function() {
         if (typeof updateSyncStatusUI === 'function') updateSyncStatusUI();
-        if (typeof showEliteToast === 'function') showEliteToast('Back online. Your data is synced.');
+        if (typeof showEliteToast === 'function') showEliteToast('Back online. Synced.');
       }).catch(function() {});
     }
   });
@@ -5129,7 +5129,7 @@ function wireDonationSuccessFailure() {
   if (!donation) return;
 
   if (donation === 'success' && typeof showEliteToast === 'function') {
-    showEliteToast('Thanks—God bless! Your support keeps verses flowing.', { gold: true, duration: 4000 });
+    showEliteToast('Thank you. God bless.', { gold: true, duration: 4000 });
   } else if (donation === 'cancel' && typeof showEliteToast === 'function') {
     showEliteToast('Payment cancelled.');
   }
@@ -6222,7 +6222,7 @@ function wireFirstVisitGuidePulse() {
   var onPray = function () {
     prayBtn.classList.remove('tdb-guide-pulse');
     watchBtn.classList.add('tdb-guide-pulse');
-    if (typeof showEliteToast === 'function') showEliteToast('Nice. Now tap Watch.');
+    if (typeof showEliteToast === 'function') showEliteToast('Tap Watch to see the story.');
   };
   var onWatch = function () { finishGuide(); };
 
@@ -6591,7 +6591,7 @@ function wireGodModePrayerEcho() {
               alreadyAmen = true;
               amenBtn.setAttribute('disabled', 'true');
               countEl.textContent = ' ' + newCount;
-              if (newCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your Amen joined a chain—keep it going.');
+              if (newCount > 3 && typeof showEliteToast === 'function') showEliteToast('Your amen is in. Others prayed this too.');
               if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('amen');
               if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('amen');
               if (typeof addArmorChainFromAmen === 'function') addArmorChainFromAmen();
@@ -6688,7 +6688,7 @@ function wireBlessSessionBtn() {
   var btn = document.getElementById('bless-session-btn');
   if (!btn) return;
   btn.addEventListener('click', function () {
-    if (typeof showEliteToast === 'function') showEliteToast('Anointed—go build.');
+    if (typeof showEliteToast === 'function') showEliteToast('Anointed. Go.');
   });
 }
 
@@ -6934,7 +6934,7 @@ function wireArmorBuilderModal() {
       var link = getArmorShareLink();
       if (link && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(link).then(function () {
-          if (typeof showEliteToast === 'function') showEliteToast('Link copied—share so others can join!');
+          if (typeof showEliteToast === 'function') showEliteToast('Link copied.');
         }).catch(function () {});
       }
     });
@@ -7559,7 +7559,7 @@ function startChallenge() {
   var section = document.getElementById('daily-battle-section');
   if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   trackEvent('streak_started');
-  showEliteToast('Welcome. Your first badge is unlocked: New Warrior.');
+  showEliteToast('Day 1. New Warrior badge earned.');
   (function day1SurpriseConfetti() {
     if (typeof window.tdbConfetti !== 'function') return;
     window.tdbConfetti({ particleCount: 80, spread: 70, origin: { y: 0.65 } });
@@ -7642,8 +7642,8 @@ function updateDailyBattleStreak() {
   if (shareStreakBtn) shareStreakBtn.style.display = nextCount >= 1 ? 'inline-block' : 'none';
   const milestoneEl = document.getElementById('daily-battle-milestone');
   if (milestoneEl) {
-    if (nextCount >= 60) milestoneEl.textContent = '60-day milestone reached. Your habit is steady.';
-    else if (nextCount >= 30) milestoneEl.textContent = '30-day milestone reached. Keep building consistency.';
+    if (nextCount >= 60) milestoneEl.textContent = 'Sixty days. Still here.';
+    else if (nextCount >= 30) milestoneEl.textContent = 'Thirty days straight.';
     else if (nextCount >= 14) milestoneEl.textContent = '14-day milestone reached. Two strong weeks.';
     else if (nextCount >= 7) milestoneEl.textContent = 'Seven days in a row. Keep your rhythm.';
     else if (nextCount >= 3) milestoneEl.textContent = 'One verse a day keeps the streak alive. Don\'t break the chain!';
@@ -7659,14 +7659,14 @@ function updateDailyBattleStreak() {
     if (milestoneToast && nextCount > lastMilestone) {
       trackEvent('milestone_reached', { streak_days: nextCount });
       if (nextCount === 3) showEliteToast('Badge unlocked: Faithful 3.');
-      else if (nextCount === 7) showEliteToast('One-week milestone reached. Consider sharing your streak.');
+      else if (nextCount === 7) showEliteToast('Seven days. That’s a week in the Word.');
       else if (nextCount === 14) showEliteToast('Two-week milestone reached.');
       else if (nextCount === 30) {
-        showEliteToast('30-day milestone reached. Well done.');
+        showEliteToast('Thirty days straight.');
         if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 80, spread: 70 });
       }
-      else if (nextCount === 60) showEliteToast('60-day milestone reached. Excellent consistency.');
-      else showEliteToast('Milestone reached.');
+      else if (nextCount === 60) showEliteToast('Sixty days. Still here.');
+      else showEliteToast('Another day done.');
       localStorage.setItem('tdb_last_milestone_toast', String(nextCount));
     }
   } catch (e) {}
@@ -8074,7 +8074,7 @@ function runAutoPrefetchIfNeeded() {
       if (!Object.keys(bible).length && typeof loadBible === 'function') await loadBible(currentVersion);
       if (!Object.keys(bible).length) return;
       const result = await prefetchOfflineVerses(OFFLINE_PREFETCH_DAYS, null, true);
-      if (result.ok && typeof showEliteToast === 'function') showEliteToast('Offline cache updated.');
+      if (result.ok && typeof showEliteToast === 'function') showEliteToast('Offline cache ready.');
     } catch (_) {}
   })();
 }
@@ -8122,9 +8122,9 @@ function inferApplies(text) {
   if (!text) return 'Apply this verse to your life today.';
   var t = text.toLowerCase();
   if (/\b(careful|worry|anxious|anxiety|fear|afraid)\b/.test(t)) return "When you're anxious or worried, pray instead of stressing—God hears you.";
-  if (/\b(hope|hoped|hopeth)\b/.test(t)) return 'Put your hope in God—He has a plan for you.';
+  if (/\b(hope|hoped|hopeth)\b/.test(t)) return 'Put your hope in God. He holds it.';
   if (/\b(peace|peaceful)\b/.test(t)) return 'Rest in God\'s peace today—He gives what the world cannot.';
-  if (/\b(strength|strong|strengthen)\b/.test(t)) return 'Draw strength from the Lord—He empowers you for today.';
+  if (/\b(strength|strong|strengthen)\b/.test(t)) return 'Wait on the Lord. His strength carries what yours cannot.';
   if (/\b(love|loveth|charity)\b/.test(t)) return 'Love others as God has loved you.';
   if (/\b(forgive|forgiveness)\b/.test(t)) return 'Forgive as you have been forgiven.';
   if (/\b(trust|believeth|faith)\b/.test(t)) return 'Trust God with your life—He is faithful.';
@@ -9064,7 +9064,7 @@ function shareDailyBattle() {
     return;
   }
   navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
-  alert('Copied. Share it with someone who may need encouragement.');
+  alert('Copied.');
 }
 
 function buildDailyBattleShareText() {
@@ -9372,7 +9372,7 @@ function generateStreakShareCard() {
         var text = count === 1 ? 'Day 1 completed on Today\'s Daily Battle. ' + url : 'I reached a ' + count + '-day streak on Today\'s Daily Battle. ' + url;
     if (navigator.share && (typeof navigator.canShare !== 'function' || navigator.canShare({ files: [file], text: text, url: url }))) {
       navigator.share({ files: [file], title: 'My streak', text: text, url: url }).then(function () {
-        if (typeof showEliteToast === 'function') showEliteToast('Shared!');
+        if (typeof showEliteToast === 'function') showEliteToast('Shared.');
       }).catch(function () {
         var a = document.createElement('a');
         a.download = file.name;
@@ -10407,7 +10407,7 @@ function renderMessages(items, previewLimit) {
     return true;
   });
   if (!visible.length) {
-    list.innerHTML = '<p class="empty">No encouragement posts yet.</p><p class="section-note">Start the board with a short prayer request, praise report, or Scripture encouragement.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Post encouragement</a>';
+    list.innerHTML = '<p class="empty">Nothing posted yet.</p><p class="section-note">Start it: post a prayer, a praise report, or the verse that helped you today.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Post</a>';
     if (seeMoreBtn) seeMoreBtn.style.display = 'none';
     return;
   }
@@ -13253,7 +13253,7 @@ function buildLessonPlan(results, audience) {
   }
   const topVerses = results.verses.slice(0, 3);
   const memoryVerse = topVerses[0];
-  const guidance = results.guidance || 'Use these verses to encourage and strengthen faith.';
+  const guidance = results.guidance || 'Read it. Pray it. Let one line land.';
   const redLetterNote = topVerses
     .filter(v => isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, '')))
     .map(v => `${v.ref} (Jesus’ words)`)
@@ -16312,7 +16312,7 @@ function writeNbaSignal(key) {
       try {
         if (typeof saveNewsletterSignup === 'function') await saveNewsletterSignup(email, { daily: true, weekly: false });
       } catch (e) {}
-      if (typeof showEliteToast === 'function') showEliteToast("You're on the list!"); else alert("You're on the list!");
+      if (typeof showEliteToast === 'function') showEliteToast("Signed up."); else alert("Signed up.");
     });
   }
 
@@ -16899,7 +16899,7 @@ function writeNbaSignal(key) {
       if (emailEl) emailEl.value = '';
       if (nameEl && chosenName) nameEl.value = chosenName;
       if (statusEl) statusEl.textContent = 'Thanks! You are signed up.';
-      if (typeof showEliteToast === 'function') showEliteToast("You're on the list!");
+      if (typeof showEliteToast === 'function') showEliteToast("Signed up.");
     });
   }
 
@@ -17004,9 +17004,9 @@ function writeNbaSignal(key) {
         var textarea = twEl && twEl.querySelector && twEl.querySelector('textarea[name="cf-turnstile-response"]');
         turnstileToken = (textarea && textarea.value) ? textarea.value : '';
         if (!turnstileToken) {
-          if (typeof showEliteToast === 'function') showEliteToast('Complete the verification below, then tap Pray.');
+          if (typeof showEliteToast === 'function') showEliteToast('Complete the check below, then tap Pray.');
           else if (quickPrayFeedback) {
-            quickPrayFeedback.textContent = 'Complete the verification below, then tap Pray.';
+            quickPrayFeedback.textContent = 'Complete the check below, then tap Pray.';
             quickPrayFeedback.style.display = 'block';
             quickPrayFeedback.classList.remove('quick-pray-toast-visible');
             setTimeout(function () { quickPrayFeedback.style.display = 'none'; }, 4000);
@@ -17086,7 +17086,7 @@ function writeNbaSignal(key) {
             });
           }).catch(function () {
             queuePrayerOfflineIntent(safeIntent, 'quick_pray');
-            if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+            if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
             onInsertDone(false);
             try {
               if (window.turnstile && typeof window.turnstile.reset === 'function') window.turnstile.reset('turnstile-quick-pray');
@@ -17097,7 +17097,7 @@ function writeNbaSignal(key) {
         supabaseClient.from('prayers').insert(payload).then(function (r) {
           if (r.error) {
             queuePrayerOfflineIntent(safeIntent, 'quick_pray');
-            if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+            if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
           } else {
             var todayStart = new Date();
             todayStart.setUTCHours(0, 0, 0, 0);
@@ -17111,13 +17111,13 @@ function writeNbaSignal(key) {
           onInsertDone(false);
         }).catch(function () {
           queuePrayerOfflineIntent(safeIntent, 'quick_pray');
-          if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+          if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
           onInsertDone(false);
           if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('quick_pray_insert_failed', new Error('Supabase insert failed'));
         });
       } else {
         queuePrayerOfflineIntent(text, 'quick_pray');
-        if (typeof showEliteToast === 'function') showEliteToast('Saved locally—will sync when online.');
+        if (typeof showEliteToast === 'function') showEliteToast('Saved here—will sync when back online.');
         onInsertDone(false);
       }
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
@@ -17550,7 +17550,7 @@ function writeNbaSignal(key) {
         setList(list);
         render();
         nickname.value = '';
-        showEliteToast('Added to leaderboard!');
+        showEliteToast('Added to the board.');
       });
     }
     render();
@@ -18114,12 +18114,12 @@ function writeNbaSignal(key) {
             renderNotes();
             var statusEl = document.getElementById('study-note-status');
             if (statusEl) {
-              statusEl.textContent = 'Note updated.';
+              statusEl.textContent = 'Saved.';
               statusEl.classList.remove('sr-only');
               statusEl.classList.add('study-note-status-visible');
               setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
             }
-            if (typeof showEliteToast === 'function') showEliteToast('Note updated!');
+            if (typeof showEliteToast === 'function') showEliteToast('Saved.');
             if (window.TDBEasterEggs && typeof window.TDBEasterEggs.maybeActionEgg === 'function') {
               window.TDBEasterEggs.maybeActionEgg('note_saved');
             }
@@ -18142,12 +18142,12 @@ function writeNbaSignal(key) {
         renderNotes();
         var statusEl = document.getElementById('study-note-status');
         if (statusEl) {
-          statusEl.textContent = 'Note saved.';
+          statusEl.textContent = 'Saved.';
           statusEl.classList.remove('sr-only');
           statusEl.classList.add('study-note-status-visible');
           setTimeout(function () { statusEl.textContent = ''; statusEl.classList.add('sr-only'); statusEl.classList.remove('study-note-status-visible'); }, 2500);
         }
-        if (typeof showEliteToast === 'function') showEliteToast('Note saved!');
+        if (typeof showEliteToast === 'function') showEliteToast('Saved.');
         if (window.TDBEasterEggs && typeof window.TDBEasterEggs.maybeActionEgg === 'function') {
           window.TDBEasterEggs.maybeActionEgg('note_saved');
         }

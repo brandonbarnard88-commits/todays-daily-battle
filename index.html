@@ -2930,7 +2930,7 @@
       <!-- ── PWA Install Nudge ── -->
       <div class="pwa-nudge" id="pwaNudge" role="status" aria-live="polite">
         <span class="pwa-nudge-icon">📲</span>
-        <span>Add to home screen for offline access—open your browser menu and tap "Add to Home Screen."</span>
+        <span>Add to home screen — works offline, no app store needed.</span>
         <button class="pwa-nudge-dismiss" type="button" id="pwaDismiss" aria-label="Dismiss install nudge">✕</button>
       </div>
 
@@ -3008,10 +3008,10 @@
 
       <!-- ── Notification Permission Card (shown after streak ≥3 or plan day ≥2) ── -->
       <div class="notification-permission" id="notifPermCard" hidden role="status" aria-live="polite">
-        <p class="notif-perm-msg">📬 Allow daily verse reminders?</p>
-        <p class="notif-perm-sub">One gentle morning nudge — no spam, ever. You can turn it off anytime.</p>
+        <p class="notif-perm-msg">📬 Daily verse at 9 AM — want it?</p>
+        <p class="notif-perm-sub">One notification a day. No promotions. Shut it off anytime in your device settings.</p>
         <div class="notif-perm-btns">
-          <button type="button" class="notif-perm-yes" id="notifPermYes" aria-label="Allow daily verse notifications">Yes, remind me</button>
+          <button type="button" class="notif-perm-yes" id="notifPermYes" aria-label="Allow daily verse notifications">Yes, send it</button>
           <button type="button" class="notif-perm-no" id="notifPermNo" aria-label="Decline daily verse notifications">Not now</button>
         </div>
       </div>
@@ -3020,7 +3020,7 @@
       <section class="card plans-teaser" id="plans-teaser" aria-label="Plans library">
         <div class="plans-teaser-header">
           <span class="plans-teaser-title">📋 Battle Plans</span>
-          <a href="plans.html" class="plans-teaser-explore" aria-label="Explore all plans">More Plans →</a>
+          <a href="plans.html" class="plans-teaser-explore" aria-label="See all battle plans">All Plans →</a>
         </div>
         <div class="plans-grid" id="plansGrid">
           <button type="button" class="plan-chip" data-plan="battle" aria-label="7 Days Battle Distraction plan">⚔️ Battle Distraction<span class="plan-chip-days" id="planChip-battle"></span></button>
@@ -3096,8 +3096,8 @@
         <div id="feel-results" aria-live="polite"></div>
         <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>
-        <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">View more</a>
-        <p class="feel-no-match" id="feelNoMatch">Try "worry" or "rest"—I'm listening.</p>
+        <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">More verses →</a>
+        <p class="feel-no-match" id="feelNoMatch">Try "worry" or "rest" — type what you're carrying.</p>
       </section>
 
       <!-- ── Sermon Builder teaser ── -->
@@ -3138,7 +3138,7 @@
           </span>
           <div>
             <p class="tool-teaser-label">Kids Corner</p>
-            <p class="tool-teaser-sub">David vs Goliath story inside → adventures + games for little ones</p>
+            <p class="tool-teaser-sub">David vs Goliath inside — Bible stories and games for kids</p>
           </div>
           <span class="tool-teaser-arrow" aria-hidden="true">→</span>
         </a>
@@ -3174,7 +3174,7 @@
           <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Post prayer to wall">Post</button>
         </div>
         <!-- Sync status note — updated by updateSyncStatusUI() -->
-        <p class="prayer-wall-note" aria-live="polite">Saved on this device.</p>
+        <p class="prayer-wall-note" aria-live="polite">Stays on this device until you sign in.</p>
         <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer wall entries" aria-live="polite"></ul>
         <div class="prayer-share-row" id="prayerShareRow" role="status" aria-live="polite">
           <button class="share-prayer-btn" type="button" id="share-prayer-btn" aria-label="Copy prayer to clipboard">Share this prayer?</button>
@@ -3182,7 +3182,7 @@
         </div>
       </section>
 
-      <p class="closing-breath">Close eyes. Breathe. God's got this.</p>
+      <p class="closing-breath">Still. He&#8217;s got it.</p>
 
     </main>
 
@@ -4265,7 +4265,7 @@
           btn.type = "button";
           btn.className = "view-more-btn";
           btn.id = "feelViewMoreBtn";
-          btn.textContent = "View more";
+          btn.textContent = "More verses →";
           btn.addEventListener("click", function onViewMore() {
             btn.removeEventListener("click", onViewMore);
             const baseCount = (group.verses || []).length;

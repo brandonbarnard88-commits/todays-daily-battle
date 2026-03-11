@@ -18342,10 +18342,11 @@ function writeNbaSignal(key) {
       var book = e.target.value;
       populateReaderChapters(book);
       var chapters = bookIndex[book] && bookIndex[book].length ? bookIndex[book] : (READER_CHAPTER_COUNTS && READER_CHAPTER_COUNTS[book] ? Array.from({ length: READER_CHAPTER_COUNTS[book] }, function (_, i) { return i + 1; }) : []);
-      if (chapters[0]) {
-        var chapterSelect = document.getElementById('reader-chapter');
-        if (chapterSelect) chapterSelect.value = String(chapters[0]);
-      }
+      var firstChapter = chapters[0] || 1;
+      var chapterSelect = document.getElementById('reader-chapter');
+      if (chapterSelect) chapterSelect.value = String(firstChapter);
+      // Auto-render chapter 1 when a book is selected
+      renderReaderChapter(book, firstChapter);
     });
   }
 

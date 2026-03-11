@@ -85,7 +85,7 @@
         </header>
         <section id="chapter-reader" class="chapter-reader glass">
           <h2 class="section-divider">Chapter Reader</h2>
-          <p class="section-note reader-tagline">Pick a book and chapter below, then click Open Chapter.</p>
+          <p class="section-note reader-tagline">Pick a book — chapter 1 loads instantly. Use the chapter picker or Prev/Next to navigate.</p>
           <div class="reader-controls reader-controls-panel">
             <div class="reader-pickers">
               <div>
@@ -111,7 +111,7 @@
             </div>
           </div>
           <div id="reader-output" class="chapter-output reader-output-empty" role="region" aria-label="Chapter content" aria-live="polite">
-            <p class="section-note empty">Choose a book and chapter above, then click Open Chapter.</p>
+            <p class="section-note empty">Choose a book above — chapter 1 will load automatically.</p>
           </div>
         </section>
       </div>
@@ -229,6 +229,8 @@
             option.textContent = String(i);
             chapterSelect.appendChild(option);
           }
+          // Auto-render chapter 1 when a book is chosen
+          renderFallbackChapter(bookSelect.value, '1');
         });
       }
 

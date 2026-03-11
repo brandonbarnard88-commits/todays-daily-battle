@@ -153,6 +153,13 @@ for (const f of otherHtml) {
       ['bible-tool.html', 'Bible Tool link'],
       ['sermon.html', 'Build a Sermon / Sermon Builder link'],
       ['kids/index.html', 'Kids Corner link'],
+      // DO NOT REMOVE: protected core tools — workspace rule "Core tools (DO NOT REMOVE)"
+      ['pastor-toolkit.html', 'Pastor Toolkit link'],
+      ['team-toolkit.html', 'Team Toolkit link'],
+      ['message.html', 'Message Board link'],
+      ['coloring.html', 'Kids Coloring / Coloring page link'],
+      // DO NOT REMOVE: core search IDs — build fails if quick-search is missing
+      ['id="main-search"', 'main-search section (core search anchor)'],
     ];
     for (const [needle, label] of required) {
       if (!indexContent.includes(needle)) {
@@ -162,10 +169,22 @@ for (const f of otherHtml) {
         process.exit(1);
       }
     }
+    // DO NOT REMOVE: script.js quick-search functions — workspace rule
     const scriptContent = fs.readFileSync(path.join(root, 'script.js'), 'utf8');
     if (!scriptContent.includes('TDB_TOPICS') || !scriptContent.includes('renderQuickTopicButtons') || !scriptContent.includes('wireSearchAndQuickTopics')) {
       console.error('BUILD FAIL: script.js must contain TDB_TOPICS, renderQuickTopicButtons, and wireSearchAndQuickTopics. Quick-search must always work.');
       process.exit(1);
+    }
+    // DO NOT REMOVE: verify core pages exist on disk
+    const corePages = [
+      'pastor-toolkit.html', 'team-toolkit.html', 'study.html',
+      'bible-study.html', 'message.html', 'coloring.html',
+    ];
+    for (const page of corePages) {
+      if (!fs.existsSync(path.join(root, page))) {
+        console.error('BUILD FAIL: core page missing from repo: ' + page + '. Per workspace rule "Core tools (DO NOT REMOVE)".');
+        process.exit(1);
+      }
     }
     console.log('Copied index.html (hero + quick-search + tools) to dist/');
   }

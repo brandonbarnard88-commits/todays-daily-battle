@@ -1540,76 +1540,262 @@ const ACTION_REVERSE_MAP = buildReverseLexicon(ACTION_MAP);
 
 /** Maps search words (meaning, action, emotion) to topics so search is always on topic. */
 const QUERY_TO_TOPIC = {
+  // anxiety / stress / worry
   stressed: 'anxiety', stressedout: 'anxiety', stressing: 'anxiety', overwhelm: 'anxiety', overwhelmed: 'anxiety',
   nervous: 'anxiety', nervousness: 'anxiety', worry: 'worry', worrying: 'worry', worried: 'worry',
+  anxious: 'anxiety', anxiety: 'anxiety', tense: 'anxiety', uneasy: 'anxiety', restless: 'anxiety',
+  burnout: 'anxiety', exhausted: 'anxiety', pressure: 'anxiety', overloaded: 'anxiety', burnedout: 'anxiety',
   panic: 'fear', panicking: 'fear', scared: 'fear', afraid: 'fear', fearful: 'fear', terrified: 'fear',
-  dread: 'fear', dreadful: 'fear', anxious: 'anxiety', anxiety: 'anxiety',
+  dread: 'fear', dreadful: 'fear', freaking: 'fear', terrifying: 'fear',
+  // grief / sadness
   sad: 'grief', sadness: 'grief', depressed: 'grief', depression: 'grief', sorrow: 'grief', sorrowful: 'grief',
   mourning: 'grief', mourn: 'grief', heartbroken: 'heartache', heartache: 'heartache', brokenhearted: 'grief',
-  loss: 'grief', grieving: 'grief', grieve: 'grief',
-  lonely: 'lonely', loneliness: 'lonely', alone: 'lonely', isolated: 'lonely', abandoned: 'lonely',
+  loss: 'grief', grieving: 'grief', grieve: 'grief', bereaved: 'grief', bereavement: 'grief',
+  crying: 'grief', cry: 'grief', weeping: 'grief', weep: 'grief', devastated: 'grief',
+  // loneliness
+  lonely: 'loneliness', loneliness: 'loneliness', alone: 'loneliness', isolated: 'loneliness', abandoned: 'loneliness',
+  friendless: 'loneliness', left: 'loneliness', forgotten: 'loneliness', invisible: 'loneliness',
+  // guilt / shame / forgiveness
   guilty: 'guilt', guilt: 'guilt', shame: 'guilt', ashamed: 'guilt', condemnation: 'guilt', remorse: 'guilt',
-  forgiven: 'forgiveness', forgive: 'forgiveness', forgiving: 'forgiveness', pardon: 'forgiveness', mercy: 'grace', grace: 'grace',
+  regret: 'guilt', regrets: 'guilt', embarrassed: 'guilt',
+  forgiven: 'forgiveness', forgive: 'forgiveness', forgiving: 'forgiveness', pardon: 'forgiveness',
+  mercy: 'forgiveness', grace: 'grace', unforgiving: 'forgiveness', unforgivable: 'forgiveness',
+  // anger
   angry: 'anger', anger: 'anger', mad: 'anger', furious: 'anger', rage: 'anger', wrath: 'anger',
-  jealous: 'anger', jealousy: 'anger', envy: 'anger', envious: 'anger', covet: 'anger',
+  jealous: 'anger', jealousy: 'anger', envy: 'anger', envious: 'anger', covet: 'anger', bitter: 'anger',
+  bitterness: 'anger', resentment: 'anger', resentful: 'anger', frustrated: 'anger', frustration: 'anger',
+  // gratitude
   thankful: 'gratitude', gratitude: 'gratitude', grateful: 'gratitude', thanks: 'gratitude', appreciate: 'gratitude',
+  thankfulness: 'gratitude', blessed: 'gratitude', blessing: 'gratitude', blessings: 'gratitude',
+  // joy
   joy: 'joy', joyful: 'joy', rejoice: 'joy', rejoicing: 'joy', glad: 'joy', gladness: 'joy', delight: 'joy',
+  happy: 'joy', happiness: 'joy', laughter: 'joy', celebrate: 'joy', celebration: 'joy',
+  // peace
   peace: 'peace', peaceful: 'peace', calm: 'peace', stillness: 'peace', tranquility: 'peace',
+  serenity: 'peace', serene: 'peace', quiet: 'peace', quietness: 'peace', shalom: 'peace',
+  // hope
   hope: 'hope', hopeful: 'hope', hopeless: 'grief', despair: 'grief', hopelessness: 'grief',
+  waiting: 'hope', encourage: 'hope', encouragement: 'hope', lifted: 'hope',
+  // faith / trust
   faith: 'faith', believe: 'faith', belief: 'faith', trust: 'faith', confidence: 'faith', assurance: 'faith',
+  doubt: 'faith', doubting: 'faith', unsure: 'faith', uncertain: 'faith', uncertainty: 'faith',
+  questioning: 'faith', lost: 'faith', confused: 'faith',
+  // love
   love: 'love', loving: 'love', compassion: 'love', kindness: 'love', charity: 'love', affection: 'love',
-  selfless: 'love', selfish: 'guilt', sacrifice: 'love', giving: 'love',
+  selfless: 'love', selfish: 'guilt', sacrifice: 'love', giving: 'love', unconditional: 'love',
+  // strength
   strength: 'strength', strong: 'strength', powerful: 'strength', mighty: 'strength', resilient: 'strength',
+  weak: 'strength', weakness: 'strength', weary: 'strength', tired: 'strength', power: 'strength',
+  endurance: 'strength', overcome: 'strength', persevere: 'strength', perseverance: 'strength',
+  // courage
   courage: 'courage', courageous: 'courage', brave: 'courage', bold: 'courage', fearless: 'courage',
+  cowardly: 'courage', cowardice: 'courage', timid: 'courage', shy: 'courage',
+  // patience
   patience: 'patience', patient: 'patience', wait: 'patience', waiting: 'patience', endure: 'patience',
+  impatient: 'patience', impatience: 'patience', rushing: 'patience', hurry: 'patience',
+  // wisdom
   wisdom: 'wisdom', wise: 'wisdom', understanding: 'wisdom', discernment: 'wisdom',
+  knowledge: 'wisdom', insight: 'wisdom', decision: 'wisdom', decisions: 'wisdom', choose: 'wisdom',
+  guidance: 'wisdom', guide: 'wisdom', direction: 'wisdom', advice: 'wisdom',
+  // obedience
   obedience: 'obedience', obey: 'obedience', obeying: 'obedience', submit: 'obedience', follow: 'obedience',
-  addiction: 'addiction', addicted: 'addiction', bondage: 'addiction', freedom: 'free will', sober: 'addiction',
+  disobedience: 'obedience', disobey: 'obedience', rebellion: 'obedience', rebel: 'obedience',
+  // addiction / bondage
+  addiction: 'addiction', addicted: 'addiction', bondage: 'addiction', sober: 'addiction',
+  drink: 'addiction', drinking: 'addiction', alcohol: 'addiction', drugs: 'addiction',
+  temptation: 'addiction', tempted: 'addiction', habit: 'addiction', habits: 'addiction',
+  // trauma / healing
   trauma: 'trauma', traumatized: 'trauma', wounded: 'trauma', hurt: 'trauma', healing: 'trauma', ptsd: 'trauma',
-  abuse: 'trauma', refuge: 'trauma', safe: 'trauma',
+  abuse: 'trauma', refuge: 'trauma', safe: 'trauma', broken: 'trauma', restore: 'trauma', restored: 'trauma',
+  // family / parenting
   family: 'family', children: 'parenting', kids: 'parenting', parenting: 'parenting', parents: 'family',
+  father: 'family', mother: 'family', son: 'family', daughter: 'family', sibling: 'family',
+  // marriage / relationships
   marriage: 'marriage', spouse: 'marriage', husband: 'marriage', wife: 'marriage', covenant: 'marriage',
+  divorce: 'marriage', reconcile: 'marriage', relationship: 'relationships', friendship: 'relationships',
+  // finances
   money: 'finances', finances: 'finances', provision: 'finances', wealth: 'finances', bills: 'finances',
-  sleep: 'sleep', insomnia: 'sleep', rest: 'rest', sleepless: 'sleep',
+  debt: 'finances', poor: 'finances', broke: 'finances', financial: 'finances', provide: 'finances',
+  // sleep / rest
+  sleep: 'sleep', insomnia: 'sleep', rest: 'rest', sleepless: 'sleep', nightmares: 'sleep', restless: 'sleep',
+  // spiritual warfare
   spiritualwarfare: 'spiritualwarfare', armor: 'spiritualwarfare', devil: 'spiritualwarfare', demon: 'spiritualwarfare',
-  burnout: 'anxiety', exhausted: 'anxiety', pressure: 'anxiety',
-  choice: 'free will', choose: 'free will', choosing: 'free will', decision: 'free will', freedom: 'free will',
-  pray: 'prayer', prayer: 'prayer', praying: 'prayer'
+  satan: 'spiritualwarfare', evil: 'spiritualwarfare', warfare: 'spiritualwarfare', attack: 'spiritualwarfare',
+  // free will
+  choice: 'free will', choices: 'free will', choosing: 'free will', freedom: 'free will',
+  freewill: 'free will', will: 'free will',
+  // prayer
+  pray: 'prayer', prayer: 'prayer', praying: 'prayer', intercession: 'prayer', intercede: 'prayer',
+  // grace / mercy (explicit)
+  merciful: 'grace', forgiveness2: 'grace', undeserved: 'grace',
+  // purpose
+  purpose: 'purpose', calling: 'purpose', mission: 'purpose', destiny: 'purpose',
+  // general spiritual searches people type
+  god: 'faith', jesus: 'love', christ: 'love', holy: 'faith', spirit: 'faith', salvation: 'faith', saved: 'faith',
+  sin: 'guilt', sinner: 'guilt', sinning: 'guilt', repent: 'forgiveness', repentance: 'forgiveness',
+  bible: 'wisdom', scripture: 'wisdom', word: 'wisdom',
+  protect: 'spiritualwarfare', protection: 'spiritualwarfare', shield: 'spiritualwarfare',
+  comfort: 'grief', comforted: 'grief', consolation: 'grief',
+  depression2: 'grief', depressing: 'grief',
+  // "feeling X" patterns — these need the adjective mapped
+  hopeless: 'hope', helpless: 'strength', worthless: 'love', useless: 'love',
+  overwhelm: 'anxiety', nervous: 'anxiety', panic: 'fear',
+  frustrated: 'anger', frustrating: 'anger',
+  blessed: 'gratitude', bless: 'gratitude',
+  happy: 'joy', happiness: 'joy', unhappy: 'grief',
+  crying: 'grief', weeping: 'grief',
+  exhaustion: 'strength', fatigue: 'strength',
+  habit: 'addiction', habits: 'addiction',
+  sinful: 'guilt', guilty: 'guilt',
+  help: 'hope', helping: 'love',
+  scared: 'fear', frightened: 'fear', terrified: 'fear',
+  weak: 'strength', weakened: 'strength',
 };
 
 /** Expands common natural-language phrases to topic-relevant tokens. Check phrase match first, then score topics. */
 const PHRASE_TO_TOKENS = {
+  // anxiety / peace
   'calm my anxiety': ['peace', 'anxiety', 'worry', 'rest', 'trust'],
   'calm anxiety': ['peace', 'anxiety', 'worry', 'rest'],
   'stop worrying': ['peace', 'anxiety', 'fear', 'faith'],
   'stop being anxious': ['peace', 'anxiety', 'faith'],
+  'im anxious': ['anxiety', 'peace', 'fear', 'faith'],
+  'so anxious': ['anxiety', 'peace', 'fear'],
+  'verses about anxiety': ['anxiety', 'peace', 'worry'],
+  'bible verse for anxiety': ['anxiety', 'peace', 'worry'],
+  'help with anxiety': ['anxiety', 'peace', 'faith'],
+  // sadness / depression
   'feeling down': ['sad', 'depressed', 'hope', 'joy'],
   'feel down': ['sad', 'depressed', 'hope'],
+  'i feel depressed': ['grief', 'hope', 'faith', 'depression'],
+  'feeling depressed': ['grief', 'hope', 'faith'],
+  'verses about depression': ['grief', 'hope', 'strength'],
+  'bible verse for depression': ['grief', 'hope', 'faith'],
+  // strength / weakness
   'need strength': ['strength', 'weak', 'weary', 'power'],
   'need more strength': ['strength', 'power', 'faith'],
-  'forgive someone': ['forgive', 'forgiveness', 'mercy'],
-  'forgiving someone': ['forgive', 'forgiveness', 'mercy'],
-  'lonely at night': ['lonely', 'comfort', 'peace'],
-  'feeling lonely': ['lonely', 'comfort', 'peace'],
-  'cant sleep': ['sleep', 'peace', 'rest', 'anxiety'],
-  'cant fall asleep': ['sleep', 'peace', 'rest'],
-  'overcome fear': ['fear', 'courage', 'faith', 'strength'],
-  'overcome anxiety': ['anxiety', 'peace', 'faith'],
-  'find peace': ['peace', 'rest', 'calm'],
-  'inner peace': ['peace', 'rest', 'calm'],
-  'when im afraid': ['fear', 'courage', 'faith'],
-  'when im scared': ['fear', 'courage', 'faith'],
-  'dealing with grief': ['grief', 'comfort', 'hope'],
-  'dealing with loss': ['grief', 'comfort', 'hope'],
+  'i am weak': ['strength', 'faith', 'power'],
+  'feeling weak': ['strength', 'faith', 'hope'],
+  'verses about strength': ['strength', 'courage', 'power'],
   'strength when weak': ['strength', 'weak', 'weary', 'power'],
   'when im weak': ['strength', 'weak', 'power'],
+  // forgiveness
+  'forgive someone': ['forgive', 'forgiveness', 'mercy'],
+  'forgiving someone': ['forgive', 'forgiveness', 'mercy'],
+  'need to forgive': ['forgiveness', 'anger', 'peace'],
+  'hard to forgive': ['forgiveness', 'anger', 'patience'],
+  'verses about forgiveness': ['forgiveness', 'grace', 'mercy'],
+  // loneliness
+  'lonely at night': ['lonely', 'comfort', 'peace'],
+  'feeling lonely': ['lonely', 'comfort', 'peace'],
+  'i feel alone': ['loneliness', 'comfort', 'faith'],
+  'so alone': ['loneliness', 'hope', 'faith'],
+  'no one understands': ['loneliness', 'grief', 'hope'],
+  // sleep
+  'cant sleep': ['sleep', 'peace', 'rest', 'anxiety'],
+  'cant fall asleep': ['sleep', 'peace', 'rest'],
+  'trouble sleeping': ['sleep', 'peace', 'anxiety'],
+  'bible verse for sleep': ['sleep', 'rest', 'peace'],
+  // fear
+  'overcome fear': ['fear', 'courage', 'faith', 'strength'],
+  'overcome anxiety': ['anxiety', 'peace', 'faith'],
+  'im scared': ['fear', 'courage', 'faith'],
+  'so afraid': ['fear', 'faith', 'courage'],
+  'verses about fear': ['fear', 'courage', 'faith'],
+  'bible verse for fear': ['fear', 'courage', 'faith'],
+  'when im afraid': ['fear', 'courage', 'faith'],
+  'when im scared': ['fear', 'courage', 'faith'],
+  // peace
+  'find peace': ['peace', 'rest', 'calm'],
+  'inner peace': ['peace', 'rest', 'calm'],
+  'verses about peace': ['peace', 'rest', 'calm'],
+  'prayer for peace': ['peace', 'prayer', 'rest'],
+  'need peace': ['peace', 'rest', 'faith'],
+  // grief / loss
+  'dealing with grief': ['grief', 'comfort', 'hope'],
+  'dealing with loss': ['grief', 'comfort', 'hope'],
+  'lost a loved one': ['grief', 'hope', 'comfort'],
+  'someone died': ['grief', 'hope', 'comfort'],
+  'lost someone': ['grief', 'comfort', 'hope'],
+  'feeling hopeless': ['hope', 'grief', 'faith'],
+  'no hope': ['hope', 'faith', 'grief'],
+  // anger
   'let go of anger': ['anger', 'forgiveness', 'peace'],
   'control my anger': ['anger', 'patience', 'peace'],
+  'so angry': ['anger', 'patience', 'forgiveness'],
+  'verses about anger': ['anger', 'patience', 'forgiveness'],
+  // faith / doubt
   'trust god': ['faith', 'trust', 'hope'],
   'trust in god': ['faith', 'trust', 'hope'],
+  'struggling with faith': ['faith', 'doubt', 'hope'],
+  'losing faith': ['faith', 'hope', 'trust'],
+  'doubt god': ['faith', 'hope', 'trust'],
+  'verses about faith': ['faith', 'trust', 'hope'],
+  'bible verse for faith': ['faith', 'trust', 'hope'],
+  // hope
   'hope when hopeless': ['hope', 'despair', 'faith'],
-  'prayer for peace': ['peace', 'prayer', 'rest'],
-  'verses about peace': ['peace', 'rest', 'calm']
+  'losing hope': ['hope', 'faith', 'strength'],
+  'verses about hope': ['hope', 'faith', 'strength'],
+  // marriage / relationships
+  'marriage problems': ['marriage', 'love', 'patience'],
+  'relationship problems': ['relationships', 'love', 'forgiveness'],
+  'struggling in marriage': ['marriage', 'love', 'patience'],
+  // finances
+  'financial stress': ['finances', 'provision', 'faith'],
+  'money problems': ['finances', 'provision', 'faith'],
+  'struggling financially': ['finances', 'provision', 'hope'],
+  // addiction
+  'struggling with addiction': ['addiction', 'strength', 'faith'],
+  'how to quit': ['addiction', 'strength', 'freedom'],
+  // purpose
+  'what is my purpose': ['purpose', 'calling', 'faith'],
+  'find my purpose': ['purpose', 'calling', 'wisdom'],
+  'life purpose': ['purpose', 'calling', 'obedience'],
+  // spiritual warfare
+  'spiritual warfare': ['spiritualwarfare', 'strength', 'faith', 'armor'],
+  'armor of god': ['spiritualwarfare', 'strength', 'faith'],
+  // wisdom / decisions
+  'need wisdom': ['wisdom', 'discernment', 'faith'],
+  'making a decision': ['wisdom', 'discernment', 'faith'],
+  'dont know what to do': ['wisdom', 'faith', 'guidance'],
+  // gratitude
+  'be thankful': ['gratitude', 'joy', 'peace'],
+  'give thanks': ['gratitude', 'joy', 'praise'],
+  // multi-word feeling patterns people type with filler words
+  'im so worried': ['worry', 'anxiety', 'peace', 'faith'],
+  'i am so worried': ['worry', 'anxiety', 'peace', 'faith'],
+  'feeling depressed': ['grief', 'hope', 'faith'],
+  'i feel depressed': ['grief', 'hope', 'faith'],
+  'so scared': ['fear', 'courage', 'faith'],
+  'im scared': ['fear', 'courage', 'faith'],
+  'need help': ['hope', 'faith', 'strength'],
+  'i need help': ['hope', 'faith', 'strength'],
+  'i feel hopeless': ['hope', 'grief', 'faith'],
+  'feeling hopeless': ['hope', 'grief', 'faith'],
+  'dealing with loss': ['grief', 'comfort', 'hope'],
+  'i feel guilty': ['guilt', 'forgiveness', 'grace'],
+  'feeling guilty': ['guilt', 'forgiveness', 'grace'],
+  'feel so alone': ['loneliness', 'comfort', 'faith'],
+  'i feel alone': ['loneliness', 'comfort', 'faith'],
+  'spiritual warfare': ['spiritualwarfare', 'strength', 'faith'],
+  'i am weak': ['strength', 'faith', 'power'],
+  'i feel weak': ['strength', 'faith', 'hope'],
+  'dont know what to do': ['wisdom', 'faith', 'guidance'],
+  'i dont know what to do': ['wisdom', 'faith', 'guidance'],
+  'i keep sinning': ['guilt', 'forgiveness', 'grace'],
+  'struggling with sin': ['guilt', 'forgiveness', 'addiction'],
+  'bad habit': ['addiction', 'strength', 'faith'],
+  'bad habits': ['addiction', 'strength', 'freedom'],
+  'tired all the time': ['strength', 'rest', 'peace'],
+  'always tired': ['strength', 'rest', 'anxiety'],
+  'crying all day': ['grief', 'comfort', 'hope'],
+  'cant stop crying': ['grief', 'comfort', 'hope'],
+  'so frustrated': ['anger', 'patience', 'peace'],
+  'feeling frustrated': ['anger', 'patience', 'peace'],
+  'feeling blessed': ['gratitude', 'joy', 'love'],
+  'i feel blessed': ['gratitude', 'joy', 'love'],
+  'happy': ['joy', 'gratitude', 'peace'],
+  'feeling happy': ['joy', 'gratitude', 'love'],
 };
 
 const topics = {
@@ -1852,17 +2038,17 @@ const topics = {
     }
   },
   peace: {
-    synonyms: ['peace', 'calm', 'rest', 'tranquility'],
-    verses: ['John 16:33', 'Philippians 4:7', 'Isaiah 26:3', 'Romans 15:13', 'Psalms 4:8'],
+    synonyms: ['calm', 'rest', 'tranquility', 'stillness', 'quiet', 'shalom', 'peaceful'],
+    verses: ['John 14:27', 'John 16:33', 'Philippians 4:7', 'Isaiah 26:3', 'Romans 15:13', 'Psalms 4:8', 'Psalms 29:11', 'Colossians 3:15'],
     guidance: {
-      kid: "God gives peace like a warm blanket.",
-      teen: "God's peace guards your heart and mind.",
-      adult: "The peace of God surpasses all understanding.",
-      pastor: "Teach on peace as a gift from the Prince of Peace."
+      kid: "God gives peace like a warm blanket when you feel worried.",
+      teen: "God's peace guards your heart and mind — ask Jesus for it when life feels loud.",
+      adult: "The peace of God surpasses all understanding. Let it rule your heart.",
+      pastor: "Teach peace as a fruit of trust and prayer, a gift from the Prince of Peace."
     },
     explain: {
-      kid: "God can make your heart feel calm and safe.",
-      teen: "God's peace can steady you when life feels loud."
+      kid: "Peace is God helping your heart feel safe and calm.",
+      teen: "Peace is God's calm in the middle of chaos — it guards your heart and mind."
     }
   },
   depression: {
@@ -1922,17 +2108,17 @@ const topics = {
     }
   },
   purpose: {
-    synonyms: ['calling', 'why', 'direction', 'mission'],
-    verses: ['Jeremiah 29:11', 'Ephesians 2:10', 'Proverbs 3:5', 'Romans 12:2', 'Matthew 28:19'],
+    synonyms: ['calling', 'why', 'direction', 'mission', 'plan', 'destiny'],
+    verses: ['Jeremiah 29:11', 'Ephesians 2:10', 'Proverbs 3:5', 'Romans 12:2', 'Matthew 28:19', 'Proverbs 3:6', 'Romans 8:28', '2 Timothy 1:9'],
     guidance: {
-      kid: "God has good plans for your life.",
-      teen: "Ask God to guide your steps and use your gifts.",
-      adult: "Trust God with your path and serve others.",
-      pastor: "Teach purpose as faithfulness in daily obedience."
+      kid: "God has good plans for your life and helps you do them.",
+      teen: "Ask God to guide your steps and use your gifts for others.",
+      adult: "Walk in the good works God prepared for you; trust Him with your path.",
+      pastor: "Teach purpose as faithfulness in daily obedience, not just platform."
     },
     explain: {
-      kid: "God has a plan for you and helps you do good.",
-      teen: "God guides your path and gives you a mission."
+      kid: "Purpose means God made you special with good things to do.",
+      teen: "Purpose is trusting God's plan and serving others with what He gave you."
     }
   },
   bullying: {
@@ -1964,17 +2150,17 @@ const topics = {
     }
   },
   gratitude: {
-    synonyms: ['thankful', 'thanks', 'praise', 'appreciate'],
-    verses: ['1 Thessalonians 5:18', 'Psalms 100:4', 'Colossians 3:15', 'Philippians 4:6', 'Psalms 136:1'],
+    synonyms: ['thankful', 'thanks', 'praise', 'appreciate', 'grateful', 'thankfulness'],
+    verses: ['1 Thessalonians 5:18', 'Psalms 100:4', 'Colossians 3:15', 'Philippians 4:6', 'Psalms 136:1', 'Psalms 107:1', 'Colossians 3:17', 'James 1:17'],
     guidance: {
       kid: "Say thank you to God for something today.",
       teen: "Gratitude shifts your focus from worry to worship.",
-      adult: "Give thanks in all things; it guards your heart.",
-      pastor: "Teach gratitude as a daily discipline."
+      adult: "Give thanks in all things; it guards your heart and keeps it steady.",
+      pastor: "Teach gratitude as a daily discipline and lead congregations to worship."
     },
     explain: {
       kid: "Gratitude means saying thank you for God's gifts.",
-      teen: "Gratitude helps you see God's goodness even on hard days."
+      teen: "Gratitude helps you see God's goodness even on the hardest days."
     }
   },
   kindness: {
@@ -2090,20 +2276,6 @@ const topics = {
       teen: "Family is where you learn love and faith together."
     }
   },
-  peace: {
-    synonyms: ['calm', 'rest', 'stillness', 'quiet', 'shalom'],
-    verses: ['John 14:27', 'Philippians 4:7', 'Isaiah 26:3', 'Psalms 29:11', 'Colossians 3:15'],
-    guidance: {
-      kid: "God gives peace to your heart when you are worried.",
-      teen: "Ask Jesus for His peace when life feels loud.",
-      adult: "Let the peace of Christ rule your heart and mind.",
-      pastor: "Teach peace as a fruit of trust and prayer."
-    },
-    explain: {
-      kid: "Peace is God helping your heart feel safe and calm.",
-      teen: "Peace is God's calm in the middle of chaos."
-    }
-  },
   loneliness: {
     synonyms: ['alone', 'isolated', 'friendless', 'abandoned'],
     verses: ['Psalms 68:6', 'Hebrews 13:5', 'Psalms 23:4', 'Matthew 28:20', 'Isaiah 41:10'],
@@ -2116,34 +2288,6 @@ const topics = {
     explain: {
       kid: "You are never alone because God is with you.",
       teen: "Loneliness is real, but God stays with you and provides people."
-    }
-  },
-  purpose: {
-    synonyms: ['calling', 'plan', 'mission', 'direction'],
-    verses: ['Ephesians 2:10', 'Jeremiah 29:11', 'Proverbs 3:6', 'Romans 8:28', '2 Timothy 1:9'],
-    guidance: {
-      kid: "God made you for good things; ask Him what to do today.",
-      teen: "Your life has purpose; follow God's lead one step at a time.",
-      adult: "Walk in the good works God prepared for you.",
-      pastor: "Teach calling as faithful obedience, not just platform."
-    },
-    explain: {
-      kid: "Purpose means God made you special with good things to do.",
-      teen: "Purpose is trusting God's plan and serving others."
-    }
-  },
-  gratitude: {
-    synonyms: ['thankful', 'thanks', 'thankfulness', 'grateful'],
-    verses: ['1 Thessalonians 5:18', 'Psalms 107:1', 'Colossians 3:17', 'Psalms 100:4', 'James 1:17'],
-    guidance: {
-      kid: "Thank God for three good gifts today.",
-      teen: "Gratitude shifts your heart; thank God even in hard times.",
-      adult: "Give thanks in everything; it keeps your heart steady.",
-      pastor: "Lead congregations to gratitude and worship."
-    },
-    explain: {
-      kid: "Gratitude is saying thank you to God.",
-      teen: "Gratitude helps you see God's goodness every day."
     }
   },
   joy: {
@@ -14005,19 +14149,34 @@ function executeQuery(parsed, tier, filters) {
   results.relatedMatches = filterVerseList(results.relatedMatches, filters);
 
   if (results.verses.length === 0) {
+    // Smart fallback: try topics related to the query first, then universal defaults
     var fallbackRefs = [];
-    ['hope', 'love', 'peace'].forEach(function (t) {
+    var fallbackTopics = [];
+    // Try to find any related topics from raw tokens
+    if (parsed.payload && (parsed.payload.rawTokens || parsed.payload.keywords)) {
+      var rawForFallback = parsed.payload.rawTokens || parsed.payload.keywords || [];
+      rawForFallback.forEach(function(token) {
+        var mapped = QUERY_TO_TOPIC[normalizeInput(String(token || ''))];
+        if (mapped && topics[mapped] && !fallbackTopics.includes(mapped)) fallbackTopics.push(mapped);
+      });
+    }
+    // Add universal fallback topics that always have good verses
+    ['hope', 'love', 'peace', 'strength', 'faith'].forEach(function(t) {
+      if (!fallbackTopics.includes(t)) fallbackTopics.push(t);
+    });
+    fallbackTopics.slice(0, 4).forEach(function(t) {
       if (topics[t] && topics[t].verses) {
-        topics[t].verses.forEach(function (ref) { fallbackRefs.push(ref); });
+        topics[t].verses.forEach(function(ref) { fallbackRefs.push(ref); });
       }
     });
-    fallbackRefs = fallbackRefs.filter(function (ref, i, arr) { return arr.indexOf(ref) === i; });
-    fallbackRefs.slice(0, 12).forEach(function (ref) {
+    fallbackRefs = fallbackRefs.filter(function(ref, i, arr) { return arr.indexOf(ref) === i; });
+    fallbackRefs.slice(0, 12).forEach(function(ref) {
       var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
       if (text) results.verses.push({ ref: ref, text: text });
     });
     results.verses = filterVerseList(results.verses, filters);
     if (results.verses.length > 0) results.fallback = true;
+    // Absolute last resort: John 3:16 is always in the KJV
     if (results.verses.length === 0 && bible['John 3:16']) {
       results.verses.push({ ref: 'John 3:16', text: bible['John 3:16'] });
       results.fallback = true;
@@ -14085,11 +14244,11 @@ function renderResults(results) {
     return;
   }
   if (results.verses.length === 0) {
-    output.innerHTML = '<p class="empty topic-explain">No quick hits—try <a href="bible-tool.html">Bible Tool</a>.</p>';
+    output.innerHTML = '<p class="empty topic-explain">Nothing found for that search — try a feeling, topic, or Bible reference (e.g. "John 3:16").</p>';
     appendHeartfeltSearchMessage(output, results, queryText);
     const suggestions = document.createElement('div');
     suggestions.className = 'quick-start';
-    suggestions.innerHTML = '<p class="section-note util-mt-0_5">Or try: <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="family">Family</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="hope">Hope</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="fear">Fear</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="peace">Peace</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="strength">Strength</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="courage">Courage</button></p>';
+    suggestions.innerHTML = '<p class="section-note util-mt-0_5">Try: <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="family">Family</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="hope">Hope</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="fear">Fear</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="peace">Peace</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="strength">Strength</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="courage">Courage</button></p>';
     output.appendChild(suggestions);
     triggerResultsFade(output);
     return;
@@ -14097,7 +14256,7 @@ function renderResults(results) {
   if (results.fallback) {
     var fallbackMsg = document.createElement('p');
     fallbackMsg.className = 'topic-explain';
-    fallbackMsg.textContent = 'We didn\'t find an exact match for that search, but we hope these verses meet you where you are. You\'re not alone—God\'s Word is for you.';
+    fallbackMsg.textContent = 'No exact match — but here are verses that may speak to what you\'re carrying. God\'s Word is for you right where you are.';
     output.appendChild(fallbackMsg);
   }
   appendHeartfeltSearchMessage(output, results, queryText);
@@ -14777,7 +14936,6 @@ function triggerResultsFade(el) {
     if (typeof el.scrollIntoView === 'function') {
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
-  });
     setTimeout(function () { el.classList.remove('results-updated'); }, 600);
   });
 }

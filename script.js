@@ -1543,7 +1543,7 @@ const ACTION_REVERSE_MAP = buildReverseLexicon(ACTION_MAP);
 /** Maps search words (meaning, action, emotion) to topics so search is always on topic. */
 const QUERY_TO_TOPIC = {
   stressed: 'anxiety', stressedout: 'anxiety', stressing: 'anxiety', overwhelm: 'anxiety', overwhelmed: 'anxiety',
-  nervous: 'anxiety', nervousness: 'anxiety', worry: 'anxiety', worrying: 'anxiety', worried: 'anxiety',
+  nervous: 'anxiety', nervousness: 'anxiety', worry: 'worry', worrying: 'worry', worried: 'worry',
   panic: 'fear', panicking: 'fear', scared: 'fear', afraid: 'fear', fearful: 'fear', terrified: 'fear',
   dread: 'fear', dreadful: 'fear', anxious: 'anxiety', anxiety: 'anxiety',
   sad: 'grief', sadness: 'grief', depressed: 'grief', depression: 'grief', sorrow: 'grief', sorrowful: 'grief',
@@ -1551,12 +1551,12 @@ const QUERY_TO_TOPIC = {
   loss: 'grief', grieving: 'grief', grieve: 'grief',
   lonely: 'lonely', loneliness: 'lonely', alone: 'lonely', isolated: 'lonely', abandoned: 'lonely',
   guilty: 'guilt', guilt: 'guilt', shame: 'guilt', ashamed: 'guilt', condemnation: 'guilt', remorse: 'guilt',
-  forgiven: 'forgiveness', forgive: 'forgiveness', forgiving: 'forgiveness', pardon: 'forgiveness', mercy: 'forgiveness',
+  forgiven: 'forgiveness', forgive: 'forgiveness', forgiving: 'forgiveness', pardon: 'forgiveness', mercy: 'grace', grace: 'grace',
   angry: 'anger', anger: 'anger', mad: 'anger', furious: 'anger', rage: 'anger', wrath: 'anger',
   jealous: 'anger', jealousy: 'anger', envy: 'anger', envious: 'anger', covet: 'anger',
   thankful: 'gratitude', gratitude: 'gratitude', grateful: 'gratitude', thanks: 'gratitude', appreciate: 'gratitude',
   joy: 'joy', joyful: 'joy', rejoice: 'joy', rejoicing: 'joy', glad: 'joy', gladness: 'joy', delight: 'joy',
-  peace: 'peace', peaceful: 'peace', calm: 'peace', rest: 'peace', stillness: 'peace', tranquility: 'peace',
+  peace: 'peace', peaceful: 'peace', calm: 'peace', stillness: 'peace', tranquility: 'peace',
   hope: 'hope', hopeful: 'hope', hopeless: 'grief', despair: 'grief', hopelessness: 'grief',
   faith: 'faith', believe: 'faith', belief: 'faith', trust: 'faith', confidence: 'faith', assurance: 'faith',
   love: 'love', loving: 'love', compassion: 'love', kindness: 'love', charity: 'love', affection: 'love',
@@ -1572,7 +1572,7 @@ const QUERY_TO_TOPIC = {
   family: 'family', children: 'parenting', kids: 'parenting', parenting: 'parenting', parents: 'family',
   marriage: 'marriage', spouse: 'marriage', husband: 'marriage', wife: 'marriage', covenant: 'marriage',
   money: 'finances', finances: 'finances', provision: 'finances', wealth: 'finances', bills: 'finances',
-  sleep: 'sleep', insomnia: 'sleep', rest: 'peace', sleepless: 'sleep',
+  sleep: 'sleep', insomnia: 'sleep', rest: 'rest', sleepless: 'sleep',
   spiritualwarfare: 'spiritualwarfare', armor: 'spiritualwarfare', devil: 'spiritualwarfare', demon: 'spiritualwarfare',
   burnout: 'anxiety', exhausted: 'anxiety', pressure: 'anxiety',
   choice: 'free will', choose: 'free will', choosing: 'free will', decision: 'free will', freedom: 'free will',
@@ -2244,6 +2244,48 @@ const topics = {
     explain: {
       kid: "God helps parents love and teach their kids.",
       teen: "Parenting is hard; God gives wisdom and patience."
+    }
+  },
+  worry: {
+    synonyms: ['worried', 'anxious', 'fretting', 'troubled', 'concern'],
+    verses: ['Matthew 6:25', 'Philippians 4:6', '1 Peter 5:7', 'Matthew 6:34', 'Psalms 55:22', 'Luke 12:25'],
+    guidance: {
+      kid: "When you feel worried, talk to God. He takes care of sparrows and He takes care of you.",
+      teen: "Worry is real but God asks us to hand it to Him. Cast every anxious thought on Him.",
+      adult: "Be careful for nothing; by prayer and supplication let your requests be made known to God.",
+      pastor: "Teach on surrendering anxiety through prayer and trust; use Matthew 6 for practical application."
+    },
+    explain: {
+      kid: "God says don't worry—He's got you.",
+      teen: "Worry can't add a single hour to your life. Trust God with it."
+    }
+  },
+  grace: {
+    synonyms: ['mercy', 'undeserved', 'favor', 'forgiven', 'compassion'],
+    verses: ['Ephesians 2:8', 'Romans 5:8', '2 Corinthians 12:9', 'Hebrews 4:16', 'Titus 2:11', 'Romans 6:14'],
+    guidance: {
+      kid: "Grace means God loves you even when you make mistakes.",
+      teen: "You can't earn God's love. He gives it freely. That's grace.",
+      adult: "By grace are ye saved through faith — not of works. Rest in that.",
+      pastor: "Central to the gospel; use for evangelism, counseling shame, and teaching on justification."
+    },
+    explain: {
+      kid: "God gives you His love as a gift — you can't earn it.",
+      teen: "Grace means God loves you before you get it right, not after."
+    }
+  },
+  rest: {
+    synonyms: ['tired', 'weary', 'exhausted', 'burned out', 'worn', 'sabbath'],
+    verses: ['Matthew 11:28', 'Psalms 23:2', 'Mark 6:31', 'Psalms 62:1', 'Exodus 20:8', 'Hebrews 4:9', 'Isaiah 40:31'],
+    guidance: {
+      kid: "God rested on the seventh day. It is okay to rest.",
+      teen: "God created rest. You are not weak for needing it.",
+      adult: "Come unto me, all ye that are weary and heavy laden, and I will give you rest.",
+      pastor: "Preach on the Sabbath principle; apply to modern burnout and the spiritual discipline of stillness."
+    },
+    explain: {
+      kid: "God says rest is good. He made a whole day for it.",
+      teen: "Jesus invites the tired. You don't have to keep running."
     }
   }
   // You can keep adding more here
@@ -14726,6 +14768,11 @@ function triggerResultsFade(el) {
   el.classList.remove('results-updated');
   requestAnimationFrame(function () {
     el.classList.add('results-updated');
+    // Always scroll so results are visible without hunting
+    if (typeof el.scrollIntoView === 'function') {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
     setTimeout(function () { el.classList.remove('results-updated'); }, 600);
   });
 }

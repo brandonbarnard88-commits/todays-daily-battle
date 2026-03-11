@@ -93,7 +93,7 @@
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">KJV verse lookup, chapter reader, and notes — no account needed</span>
+        <span class="brand-subtitle">KJV verse lookup, notes, and reading plans — no account needed</span>
       </div>
       <nav class="header-nav header-nav-mega" aria-label="Main">
         <ul class="nav-list">
@@ -186,7 +186,7 @@
       </div>
     </header>
     <div id="global-search-wrap"></div>
-    <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline—lookups and notes save on this device. Reconnect to sync or fetch new verses.</div>
+    <div id="offline-banner" class="hidden" role="status" aria-live="polite">You're offline — still got you. Notes and verses saved here. We'll sync when you're back.</div>
 
     <aside id="sidebar" class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
@@ -209,17 +209,16 @@
     <main class="app-content" id="main-content">
       <div class="content-inner bible-tool">
         <h1 class="section-divider">Bible Tool</h1>
-        <p class="section-note">Verse lookup, notes, and today's battle — KJV, no login required.</p>
-        <p class="section-note util-mt-0_5">Sign-in is optional. Use the tool without an account; sign in above if you want to sync notes and verses across devices.</p>
+        <p class="section-note">Look up any verse, take notes, track your reading — KJV, no account needed. Sign in to sync across devices.</p>
         <section class="verse-card glass" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0">Verse Mode</h2>
           <div class="lookup-controls">
             <label for="bible-tool-verse-mode" class="section-note">Pick mode</label>
             <select id="bible-tool-verse-mode" aria-label="Verse mode">
-              <option value="quick">Quick (layman + today tie-in)</option>
-              <option value="pastor">Pastor (context + sermon hook)</option>
-              <option value="kid">Kid (red-letter hope only)</option>
-              <option value="teen">Teen (school/friends, safe)</option>
+              <option value="quick">Quick — plain words, today's angle</option>
+              <option value="pastor">Pastor — context, history, teaching angle</option>
+              <option value="kid">Kids — simple words, Jesus and hope</option>
+              <option value="teen">Teen — real life, school, friendships</option>
             </select>
           </div>
           <p id="bible-tool-verse-mode-note" class="section-note util-mb-0"></p>
@@ -231,7 +230,7 @@
           <p class="daily-ref" id="daily-ref">Philippians 4:6</p>
           <p id="daily-text" aria-live="polite">Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p>
           <div id="daily-verse-context" class="util-mt-0_5" aria-live="polite"></div>
-          <div class="verse-actions">
+          <div class="verse-actions" role="group" aria-label="Today's verse actions">
             <button type="button" class="btn btn-primary" id="share-daily" aria-label="Share today's verse">Share</button>
             <button type="button" class="btn btn-secondary" id="copy-daily" aria-label="Copy verse to clipboard">Copy</button>
             <button type="button" class="btn btn-secondary" id="breakdown-daily" aria-label="Open verse breakdown">Breakdown</button>
@@ -241,14 +240,17 @@
         <!-- Verse lookup -->
         <section class="verse-card glass" aria-label="Look up a verse">
           <h2 class="section-divider util-mt-0">Look up a verse</h2>
-          <p class="section-note util-mb-0_5">Type in the search bar above for real-time results, or pick book/chapter/verse below.</p>
-          <div class="lookup-controls">
-            <select id="book" aria-label="Book"></select>
-            <input type="number" id="chapter" placeholder="Ch" min="1" aria-label="Chapter" />
-            <input type="number" id="verse" placeholder="Vs" min="1" aria-label="Verse" />
-            <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
-            <button type="button" id="people-btn" class="btn people-btn" aria-label="Who's this Bible person?">Who's this?</button>
-          </div>
+          <p class="section-note util-mb-0_5">Type in the header search bar, or pick book, chapter, and verse below.</p>
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend class="sr-only">Look up a verse</legend>
+            <div class="lookup-controls">
+              <select id="book" aria-label="Book"></select>
+              <input type="number" id="chapter" placeholder="Ch" min="1" aria-label="Chapter" />
+              <input type="number" id="verse" placeholder="Vs" min="1" aria-label="Verse" />
+              <button type="button" id="lookup-btn" class="btn btn-primary">Go</button>
+              <button type="button" id="people-btn" class="btn people-btn" aria-label="Who's this Bible person?" aria-expanded="false" aria-controls="people-input-wrap">Who's this?</button>
+            </div>
+          </fieldset>
           <div id="people-input-wrap" class="hidden util-mt-0_5">
             <input type="text" id="people-name" placeholder="e.g. Moses, Peter" aria-label="Enter Bible name" maxlength="40" />
             <button type="button" id="people-submit" class="btn btn-primary">Look up</button>
@@ -258,14 +260,14 @@
             <p class="verse-ref" id="lookup-ref"></p>
             <p id="lookup-text" class="util-mt-0_5"></p>
             <div id="whos-this-inline" class="hidden" role="region" aria-live="polite" aria-label="Who's this person?"></div>
-            <div class="util-mt-0_5">
+            <div class="util-mt-0_5" role="group" aria-label="Verse actions">
               <button type="button" id="share-lookup" class="link-button" aria-label="Share this verse lookup">Share</button>
               <button type="button" id="copy-lookup" class="link-button" aria-label="Copy verse to clipboard">Copy</button>
               <button type="button" id="breakdown-lookup" class="link-button" aria-label="Open verse breakdown">Breakdown</button>
               <button type="button" id="highlight-lookup" class="link-button" aria-label="Highlight this verse">Highlight</button>
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
-              <a id="lookup-read-chapter" href="javascript:void(0)" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
+              <a id="lookup-read-chapter" href="#" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
               <span id="cross-refs" class="section-note"></span>
             </div>
             <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
@@ -277,12 +279,12 @@
         <section class="verse-card glass" aria-label="Notes">
           <h2 class="section-divider util-mt-0">Notes</h2>
           <textarea id="note-input" placeholder="Add a note for the verse above (after you look one up)…" rows="2" aria-label="Note for current verse"></textarea>
-          <p class="section-note util-mb-0">Saved to this device (localStorage).</p>
+          <p class="section-note util-mb-0">Saved on this device — no account needed to keep notes.</p>
           <div id="notes-list" class="util-mt-1"></div>
         </section>
 
         <!-- Reading plan -->
-        <section class="verse-card glass" aria-label="Reading plan">
+        <section class="verse-card glass">
           <h2 class="section-divider util-mt-0">Reading plan</h2>
           <p class="section-note util-mb-0_5">Pick a plan below—checkboxes appear so you can track progress.</p>
           <select id="plan-picker" aria-label="Plan">
@@ -294,14 +296,16 @@
           </select>
           <div id="plan-progress-wrap" class="util-mt-1">
             <div id="plan-progress-bar" class="plan-progress-bar hidden"><div id="plan-progress-fill" class="plan-progress-fill" style="width: 0%"></div></div>
-            <p id="plan-day-badge" class="plan-day-badge hidden"></p>
+            <p id="plan-day-badge" class="plan-day-badge hidden" aria-live="polite" aria-atomic="true"></p>
             <div id="plan-reflection" class="plan-reflection hidden"></div>
-            <p id="plan-complete-msg" class="plan-complete-msg hidden"></p>
+            <p id="plan-complete-msg" class="plan-complete-msg hidden" aria-live="polite" aria-atomic="true"></p>
             <button type="button" id="share-progress-btn" class="btn btn-secondary share-progress-btn hidden">Share progress</button>
-            <div id="plan-progress" class="util-mt-1"></div>
+            <div id="plan-progress" class="util-mt-1" role="group" aria-label="Reading plan checklist"></div>
           </div>
           <div id="plan-custom" class="hidden util-mt-1">
-            <input type="text" id="plan-refs" placeholder="e.g. John 1, John 2, Psalm 23" aria-label="Custom verse references" />
+            <input type="text" id="plan-refs" placeholder="e.g. John 1, John 2, Psalm 23 — separate with commas" aria-label="Custom verse references, comma separated" />
+            <p class="section-note" style="margin-top:0.3rem;font-size:0.78rem;opacity:0.65;">Updates as you type — separate with commas.</p>
+          </div>
           </div>
         </section>
 
@@ -317,16 +321,16 @@
             <option value="faith">Faith</option>
             <option value="perseverance">Perseverance</option>
           </select>
-          <button type="button" id="win-btn" class="btn btn-primary">Generate</button>
-          <div id="win-result" class="hidden util-mt-1"></div>
+          <button type="button" id="win-btn" class="btn btn-primary">Show verses</button>
+          <div id="win-result" class="hidden util-mt-1" aria-live="polite"></div>
         </section>
 
         <!-- Battle Ready -->
         <section class="verse-card glass border-accent" aria-label="Battle Ready">
           <h2 class="section-divider util-mt-0">Battle Ready</h2>
-          <p class="section-note">One verse for strength. One short prayer. That&#8217;s enough to start.</p>
-          <button type="button" id="battle-ready-btn" class="btn btn-primary">Get battle ready</button>
-          <div id="battle-ready-result" class="hidden util-mt-1"></div>
+          <p class="section-note">One verse. One prayer. Go.</p>
+          <button type="button" id="battle-ready-btn" class="btn btn-primary">Give me a verse</button>
+          <div id="battle-ready-result" class="hidden util-mt-1" aria-live="polite"></div>
         </section>
 
         <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="verse.html">Verse of the Day</a> · <a href="reading-plan.html">7-Day Plan</a> · <a href="study.html">Study Workspace</a></p>
@@ -517,7 +521,7 @@
       })
       .catch(function (err) {
         if (id) clearTimeout(id);
-        if (typeof console !== 'undefined' && console.warn) console.warn('Bible Tool fetchVerse failed:', r, err && err.message ? err.message : err);
+        if (typeof console !== 'undefined' && console.warn) console.warn('Bible Tool: verse fetch failed');
         cb(KEY_VERSES[r] ? { reference: r, text: KEY_VERSES[r] } : null);
       });
   }
@@ -553,7 +557,7 @@
         syncNote = document.createElement('p');
         syncNote.id = 'daily-sync-note';
         syncNote.className = 'section-note util-mt-0_5';
-        syncNote.textContent = "Offline? Here's today's verse anyway. We'll sync when back online.";
+        syncNote.textContent = "Offline — still got you. Verses and notes saved here.";
         elText.parentNode.insertBefore(syncNote, elText.nextSibling);
       }
     }
@@ -567,7 +571,7 @@
     });
     setTimeout(function () {
       if (!done) {
-        if (typeof console !== 'undefined' && console.warn) console.warn('TDB: bible-tool daily verse fetch timed out after 3s');
+        if (typeof console !== 'undefined' && console.warn) console.warn('Bible Tool: daily verse fetch timed out');
         addOfflineNote();
       }
       done = true;
@@ -597,7 +601,7 @@
     var refs = getCrossRefs(data.reference);
     if (crossEl) {
       crossEl.innerHTML = refs.length ? 'Related: ' + refs.map(function (r) {
-        return '<a href="#" class="cross-ref-link" data-ref="' + r.replace(/"/g, '&quot;') + '">' + r + '</a>';
+        return '<a href="#" class="cross-ref-link" data-ref="' + escHtml(r) + '">' + escHtml(r) + '</a>';
       }).join(', ') : '';
     }
     block.classList.remove('hidden');
@@ -655,12 +659,17 @@
   function shareVerse(ref, text, useToolUrl) {
     var t = (ref + ': ' + (text || '')).trim();
     var url = useToolUrl ? 'https://todaysdailybattle.com/bible-tool.html?ref=' + encodeURIComponent(ref) : 'https://todaysdailybattle.com';
+    var copyFallback = function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t + ' ' + url)
+          .then(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Verse copied.'); })
+          .catch(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Could not copy — select the verse and copy manually.'); });
+      }
+    };
     if (typeof navigator !== 'undefined' && navigator.share) {
-      navigator.share({ title: "Today's Daily Battle", text: t, url: url }).catch(function () {
-        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t + ' ' + url).catch(function () {});
-      });
-    } else if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(t + ' ' + url).catch(function () {});
+      navigator.share({ title: "Today's Daily Battle", text: t, url: url }).catch(copyFallback);
+    } else {
+      copyFallback();
     }
   }
 
@@ -676,24 +685,24 @@
           btnEl.setAttribute('aria-label', 'Copied to clipboard');
           setTimeout(function () { btnEl.textContent = orig; btnEl.setAttribute('aria-label', 'Copy verse to clipboard'); }, 2000);
         }
-      }).catch(function () { if (typeof alert !== 'undefined') alert('Copy failed. Try selecting the text.'); });
+      }).catch(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Copy failed — select the text and copy manually.'); });
     } else {
-      if (typeof alert !== 'undefined') alert('Clipboard not supported. Select and copy the verse text.');
+      if (typeof window.showEliteToast === 'function') window.showEliteToast('Clipboard not supported — select and copy the verse text.');
     }
   }
 
   function copyToClipboardWithFeedback(text, btnEl) {
     if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function () {
-        if (typeof window.showEliteToast === 'function') window.showEliteToast('Copied to clipboard!');
+        if (typeof window.showEliteToast === 'function') window.showEliteToast('Copied.');
         if (btnEl) {
           var orig = btnEl.textContent;
           btnEl.textContent = 'Copied!';
           setTimeout(function () { btnEl.textContent = orig; }, 2000);
         }
-      }).catch(function () { if (typeof alert !== 'undefined') alert('Copy failed.'); });
+      }).catch(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Copy failed — select and copy manually.'); });
     } else {
-      if (typeof alert !== 'undefined') alert('Clipboard not supported.');
+      if (typeof window.showEliteToast === 'function') window.showEliteToast('Clipboard not supported — select and copy manually.');
     }
   }
 
@@ -954,7 +963,9 @@
     if (!btn || !wrap || !input || !submit) return;
     btn.addEventListener('click', function () {
       wrap.classList.toggle('hidden');
-      if (!wrap.classList.contains('hidden')) input.focus();
+      var isOpen = !wrap.classList.contains('hidden');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (isOpen) input.focus();
     });
     submit.addEventListener('click', showPerson);
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); showPerson(); } });
@@ -991,7 +1002,10 @@
     var book = bookEl.value;
     var ch = chEl.value;
     var vs = vsEl.value;
-    if (!book || !ch || !vs) return;
+    if (!book || !ch || !vs) {
+      if (typeof window.showEliteToast === 'function') window.showEliteToast('Choose a book, chapter, and verse first.');
+      return;
+    }
     var ref = book + ' ' + ch + ':' + vs;
     var btn = document.getElementById('lookup-btn');
     var origText = btn.textContent;
@@ -1102,7 +1116,7 @@
     var picker = document.getElementById('plan-picker');
     var customRefs = document.getElementById('plan-refs');
     if (picker.value === 'custom' && customRefs && customRefs.value) {
-      return customRefs.value.split(/[\s,]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+      return customRefs.value.split(/,\s*/).map(function (s) { return s.trim(); }).filter(Boolean);
     }
     return THEMED_PLANS[picker.value] || [];
   }
@@ -1152,7 +1166,7 @@
     } else if (reflEl) reflEl.classList.add('hidden');
     if (completeEl && isThemed) {
       completeEl.classList.toggle('hidden', completed < total);
-      if (completed >= total) completeEl.textContent = '✓ Plan complete. Armor up and share your victory!';
+      if (completed >= total) completeEl.textContent = '✓ Plan done. Share it with someone who needs it.';
     }
     if (shareBtn) {
       shareBtn.classList.toggle('hidden', !isThemed);
@@ -1160,8 +1174,8 @@
         var ticks = '';
         for (var i = 0; i < completed; i++) ticks += '✓';
         var text = completed >= total
-          ? planName + ' – Day 7/7 ✓✓✓✓✓✓✓ – Plan complete! Keep battling! todaysdailybattle.com/bible-tool.html'
-          : planName + ' – Day ' + (completed + 1) + '/' + total + ' ' + ticks + ' – Keep battling! todaysdailybattle.com/bible-tool.html';
+          ? planName + ' – Day 7/7 ✓✓✓✓✓✓✓ – Done. todaysdailybattle.com/bible-tool.html'
+          : planName + ' – Day ' + (completed + 1) + '/' + total + ' ' + ticks + ' todaysdailybattle.com/bible-tool.html';
         if (navigator.share) {
           navigator.share({ title: "Today's Daily Battle", text: text }).catch(function () {
             if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).catch(function () {});
@@ -1174,7 +1188,7 @@
 
     progress.innerHTML = '<p class="section-note util-mb-0_5">Check off as you read</p>' + list.map(function (ref) {
       var done = saved[ref];
-      return '<label class="plan-progress label"><input type="checkbox" data-ref="' + ref.replace(/"/g, '&quot;') + '" ' + (done ? 'checked' : '') + ' /> <span>' + ref + '</span></label>';
+      return '<label class="plan-progress label"><input type="checkbox" data-ref="' + escHtml(ref) + '" ' + (done ? 'checked' : '') + ' /> <span>' + escHtml(ref) + '</span></label>';
     }).join('');
     progress.querySelectorAll('input[type=checkbox]').forEach(function (cb) {
       cb.addEventListener('change', function () {
@@ -1305,7 +1319,14 @@
           el.textContent = 'Added!';
           setTimeout(function () { el.textContent = orig; }, 2000);
         });
-      } else container.innerHTML = '<p class="section-note">Could not load Battle Ready right now. Please retry.</p>';
+      } else {
+        container.innerHTML = '<p class="section-note">Could not load right now.</p><button type="button" id="battle-ready-retry" class="btn btn-primary" style="margin-top:0.5rem;">Try again</button>';
+        var retryBtnBR = document.getElementById('battle-ready-retry');
+        if (retryBtnBR) retryBtnBR.addEventListener('click', function () {
+          container.innerHTML = '';
+          document.getElementById('get-battle-ready').click();
+        });
+      }
     }
     fetchVerse(ref, function (data) {
       showResult(data);

@@ -672,8 +672,9 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
+      min-width: 0;
     }
-    .verse-ref-row #heroVerse { flex: 1; margin: 0; }
+    .verse-ref-row #heroVerse { flex: 1; margin: 0; min-width: 0; overflow-wrap: break-word; word-break: break-word; }
 
     .read-aloud-btn {
       flex-shrink: 0;
@@ -3229,7 +3230,9 @@
       <ul class="nav-more-list">
         <li><a href="bible-tool.html">📚 Bible Tool</a></li>
         <li><a href="kids/index.html">🧒 Kids Corner</a></li>
+        <li><a href="coloring.html">🎨 Kids Coloring</a></li>
         <li><a href="sermon.html">📝 Sermon Builder</a></li>
+        <li><a href="pastor-toolkit.html">📋 Pastor Toolkit</a></li>
         <li><a href="reader.html">📖 Chapter Reader</a></li>
         <li><a href="reading-plan.html">🗓 7-Day Plan</a></li>
         <li><a href="study.html">✏️ Study Workspace</a></li>

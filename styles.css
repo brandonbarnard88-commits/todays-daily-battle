@@ -787,6 +787,12 @@ body {
     min-width: 200px;
   }
 }
+@media (max-width: 480px) {
+  .header-nav-mega .nav-dropdown-grid {
+    min-width: 0;
+    max-width: min(280px, calc(100vw - 2rem));
+  }
+}
 
 /* Toolbox tabbed layout */
 .toolbox-tabs {
@@ -7374,9 +7380,18 @@ body.red-letter-off .red-letter-card {
   html { font-size: 16px; overflow-x: hidden; }
   body { font-size: 1.06rem; line-height: 1.6; overflow-x: hidden; max-width: 100vw; }
   h1 { font-size: 1.75rem; }
-  .card { width: 100%; max-width: 100%; }
+  .card { width: 100%; max-width: 100%; box-sizing: border-box; }
   .app-content { max-width: 100%; padding-left: 1rem; padding-right: 1rem; overflow-x: hidden; }
   .content-inner { max-width: 100%; padding-left: 0.75rem; padding-right: 0.75rem; overflow-x: hidden; }
+  /* Prevent text cutoff: allow wrapping, no overflow clip on verse content */
+  .hero-verse, #heroVerse, .verse-card p, .verse-card strong, .smart-verse, .smart-heartfelt, .fvc-kjv, .fvc-breakdown dd,
+  #feel-results .verse-card p, #feel-results .verse-card strong, .application, .breakdown li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+  }
+  .verse-ref-row, .verse-ref-row #heroVerse { min-width: 0; }
+  #feel-results, .smart-card, .feel-verse-card { max-width: 100%; overflow-wrap: break-word; }
   #main-search,
   .controls.glass,
   .glass {
@@ -7965,6 +7980,13 @@ body.red-letter-off .red-letter-card {
     overflow-x: hidden;
   }
   img, video, iframe { max-width: 100%; height: auto; }
+  /* Prevent oversizing: constrain widths */
+  .verse-card, .card, .glass, .smart-card, .feel-verse-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
   .footer-links {
     flex-direction: column;
     align-items: center;

@@ -698,10 +698,17 @@
   line-height: 1.5;
   color: #e2e8f0;
   margin: 0 0 0.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (min-width: 600px) {
+  .verse-of-week-panel-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 .verse-of-week-listen-btn {

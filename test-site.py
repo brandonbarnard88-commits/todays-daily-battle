@@ -125,9 +125,9 @@ def main():
     try:
         with open("script.js", "r", encoding="utf-8") as f:
             script = f.read()
-        ok = "'selfless'" in script and "singleWord" in script and "results.fallback" in script
+        ok = ("selfless" in script or "expandKeywords" in script) and "results.fallback" in script and "parseQuery" in script
         if ok:
-            print("\nOK   search logic (selfless->love, fallback verses)")
+            print("\nOK   search logic (expandKeywords, fallback verses)")
         else:
             print("\nFAIL search logic check in script.js")
             failed += 1

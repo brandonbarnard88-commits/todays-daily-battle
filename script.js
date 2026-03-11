@@ -17624,6 +17624,8 @@ function writeNbaSignal(key) {
     var inputEl = document.getElementById('prayer-wall-input');
     var addBtn = document.getElementById('prayer-wall-add');
     if (!listEl) return;
+
+    // ── Storage helpers ──────────────────────────────────────────────────────
     function getItems() {
       try {
         var raw = localStorage.getItem(PRAYER_WALL_KEY) || '[]';
@@ -17645,6 +17647,51 @@ function writeNbaSignal(key) {
     function saveHearts(hearts) {
       try { localStorage.setItem(PRAYER_WALL_HEARTS_KEY, JSON.stringify(hearts)); } catch (e) {}
     }
+
+    // ── Sync helpers ─────────────────────────────────────────────────────────
+    var SYNC_KEY = 'prayer_wall';
+
+    // Push current items to Supabase (no-op when guest/offline)
+    function pushToCloud(items) {
+      if (typeof setSyncData === 'function' && typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && currentUserId) {
+        setSyncData(SYNC_KEY, items);
+      }
+    }
+
+    // Pull cloud items, merge with local (newest wins per id), save, render
+    async function pullFromCloud() {
+      if (typeof getSyncData !== 'function' || typeof canUseSupabase !== 'function' || !canUseSupabase() || typeof currentUserId === 'undefined' || !currentUserId) return;
+      try {
+        var remote = await getSyncData(SYNC_KEY);
+        if (!Array.isArray(remote)) return;
+        var local = getItems();
+        // Merge: remote items that aren't in local get added; hearts are max-merged
+        var byId = {};
+        local.forEach(function(it) { byId[String(it.id)] = it; });
+        remote.forEach(function(it) {
+          var k = String(it.id);
+          if (!byId[k]) {
+            byId[k] = it;
+          } else {
+            // keep higher heart count between devices
+            byId[k].hearts = Math.max(byId[k].hearts || 0, it.hearts || 0);
+          }
+        });
+        var merged = Object.values(byId).filter(function(it) { return it && it.text; });
+        saveItems(merged);
+        render();
+        updateNoteEl(true);
+      } catch (_) {}
+    }
+
+    // Update the sync-status note element
+    function updateNoteEl(synced) {
+      var noteEl = document.querySelector('.prayer-wall-note');
+      if (!noteEl) return;
+      noteEl.textContent = synced ? 'Synced across devices.' : 'Saved on this device.';
+    }
+
+    // ── Render ────────────────────────────────────────────────────────────────
     function render() {
       var items = getItems();
       var hearts = getHearts();
@@ -17689,10 +17736,13 @@ function writeNbaSignal(key) {
           }
           saveHearts(hearts);
           saveItems(items);
+          pushToCloud(getItems());
           render();
         });
       });
     }
+
+    // ── Add handler ──────────────────────────────────────────────────────────
     if (addBtn && inputEl) {
       addBtn.addEventListener('click', function () {
         var text = (inputEl.value || '').trim();
@@ -17700,12 +17750,27 @@ function writeNbaSignal(key) {
         var items = getItems();
         items.push({ id: Date.now(), text: text.slice(0, 120), hearts: 0 });
         saveItems(items);
+        pushToCloud(items);
         inputEl.value = '';
         render();
+        // Show "Saved to cloud" vs "Saved locally" toast-style on note element
+        var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
+        updateNoteEl(isSynced);
         if (typeof trackEvent === 'function') trackEvent('prayer_wall_add');
       });
+      // Also allow Enter key to submit
+      inputEl.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { addBtn.click(); }
+      });
     }
+
+    // ── Initial load: local first, then pull cloud if signed in ──────────────
     render();
+    // Determine initial sync state and update note
+    var isSignedIn = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
+    updateNoteEl(isSignedIn);
+    // Pull cloud items after a short delay to avoid blocking initial render
+    setTimeout(function() { pullFromCloud(); }, 800);
   })();
 
   const resetForm = document.getElementById('reset-form');

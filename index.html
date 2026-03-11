@@ -1245,6 +1245,21 @@
       margin: 0;
     }
 
+    .site-footer-privacy-note {
+      font-size: 0.69rem;
+      color: var(--muted);
+      opacity: 0.5;
+      margin: 0.35rem 0 0;
+      line-height: 1.5;
+    }
+
+    .site-footer-privacy-note a {
+      color: color-mix(in srgb, var(--gold) 55%, var(--muted));
+      text-decoration: none;
+    }
+
+    .site-footer-privacy-note a:hover { text-decoration: underline; }
+
     .site-footer a {
       color: color-mix(in srgb, var(--gold) 70%, var(--muted));
       text-decoration: none;
@@ -3115,6 +3130,7 @@
         <a href="mailto:support@todaysdailybattle.com" aria-label="Email support">support@todaysdailybattle.com</a>
       </nav>
       <p class="site-footer-copy">© 2026 Brandon Barnard · Today's Daily Battle · All rights reserved · KJV text is public domain</p>
+      <p class="site-footer-privacy-note">When signed in, prayers and progress sync securely via <a href="https://supabase.com/security" rel="noopener noreferrer" target="_blank">Supabase</a> (encrypted in transit and at rest). Sign-in is always optional — everything works offline without an account. <a href="privacy.html">Privacy policy</a>.</p>
     </footer>
 
   </div>

@@ -1569,6 +1569,33 @@
     }
 
     /* ── Prayer Wall (standalone card) ── */
+    .prayer-wall-header-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin: 0 0 5px;
+    }
+    .prayer-wall-header-row .prayer-wall-label {
+      margin: 0;
+      flex: 0 0 auto;
+    }
+    .prayer-wall-streak-badge {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(212,175,55,.18) 0%, rgba(212,175,55,.08) 100%);
+      border: 1px solid rgba(212,175,55,.3);
+      color: var(--gold-soft, #d4af37);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 9px 2px 7px;
+      border-radius: 20px;
+      white-space: nowrap;
+      transition: opacity .25s;
+    }
+    .prayer-wall-streak-badge[hidden] { display: none !important; }
+
     .prayer-wall-card .prayer-wall-label {
       margin: 0 0 5px;
       font-size: 0.8rem;
@@ -3083,7 +3110,10 @@
 
       <!-- ── Prayer Wall ── -->
       <section class="card prayer-wall-card" id="prayer-wall" aria-label="Prayer Wall">
-        <p class="prayer-wall-label">Prayer Wall</p>
+        <div class="prayer-wall-header-row">
+          <p class="prayer-wall-label">Prayer Wall</p>
+          <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
+        </div>
         <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
         <div class="prayer-counter-row">
           <span class="prayer-today-label" id="prayerTodayLabel">0 prayers today</span>

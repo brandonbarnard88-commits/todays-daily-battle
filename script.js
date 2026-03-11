@@ -3010,6 +3010,58 @@ const LEADERBOARD_KEY = 'tdb_leaderboard';
 const LEADERBOARD_MAX = 50;
 const PRAYER_WALL_KEY = 'tdb_prayers_v1';
 const PRAYER_WALL_HEARTS_KEY = 'tdb_prayer_wall_hearts_v1';
+// Days the user posted to the prayer wall — format: ['2026-03-09','2026-03-10',...]
+const PRAYER_WALL_STREAK_KEY = 'tdb_prayer_wall_streak_days_v1';
+
+/**
+ * Return the number of consecutive days (ending today or yesterday)
+ * on which the user posted at least one prayer wall entry.
+ */
+function getPrayerWallStreak() {
+  try {
+    var days = JSON.parse(localStorage.getItem(PRAYER_WALL_STREAK_KEY) || '[]');
+    if (!Array.isArray(days) || !days.length) return 0;
+    return calculateStreak(days, getDailyKey());
+  } catch (e) { return 0; }
+}
+
+/**
+ * Record today as a prayer-wall posting day and return the updated streak.
+ * Deduplicates — safe to call on every add.
+ */
+function recordPrayerWallDay() {
+  try {
+    var today = getDailyKey();
+    var days = JSON.parse(localStorage.getItem(PRAYER_WALL_STREAK_KEY) || '[]');
+    if (!Array.isArray(days)) days = [];
+    if (!days.includes(today)) {
+      days.push(today);
+      // Keep only last 90 days to cap storage
+      days.sort();
+      if (days.length > 90) days = days.slice(-90);
+      localStorage.setItem(PRAYER_WALL_STREAK_KEY, JSON.stringify(days));
+    }
+    return calculateStreak(days, today);
+  } catch (e) { return 0; }
+}
+
+/** Render the prayer wall streak badge. Safe to call any time. */
+function updatePrayerWallStreakBadge() {
+  var el = document.getElementById('prayerWallStreakBadge');
+  if (!el) return;
+  var n = getPrayerWallStreak();
+  if (n >= 2) {
+    el.textContent = n + ' day streak 🔥';
+    el.removeAttribute('hidden');
+    el.setAttribute('aria-label', n + '-day prayer wall streak');
+  } else if (n === 1) {
+    el.textContent = 'Day 1 🙏';
+    el.removeAttribute('hidden');
+    el.setAttribute('aria-label', 'First day of prayer wall streak');
+  } else {
+    el.setAttribute('hidden', '');
+  }
+}
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
@@ -17753,6 +17805,9 @@ function writeNbaSignal(key) {
         pushToCloud(items);
         inputEl.value = '';
         render();
+        // Record today on the prayer wall streak and update the badge
+        if (typeof recordPrayerWallDay === 'function') recordPrayerWallDay();
+        if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
         // Show "Saved to cloud" vs "Saved locally" toast-style on note element
         var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
         updateNoteEl(isSynced);
@@ -17766,6 +17821,8 @@ function writeNbaSignal(key) {
 
     // ── Initial load: local first, then pull cloud if signed in ──────────────
     render();
+    // Render streak badge on page open (so returning users see their current streak immediately)
+    if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
     // Determine initial sync state and update note
     var isSignedIn = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
     updateNoteEl(isSignedIn);

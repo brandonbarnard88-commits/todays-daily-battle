@@ -13,7 +13,7 @@ In **Cloudflare Dashboard** → **Workers & Pages** → your project → **Setti
 | Setting | Value |
 |--------|--------|
 | **Framework preset** | **None** |
-| **Build command** | `npm run build` (or `node build-config.js`) |
+| **Build command** | `npm run build` |
 | **Build output directory** | `dist` (build writes all files to dist/) |
 
 The repo has a `package.json` so `npm run build` runs the script that creates `config.js`. Without these settings, the build never runs and `config.js` is never created (404 on the live site).
@@ -28,8 +28,10 @@ In **Pages** → your project → **Settings** → **Environment variables** (or
 | `SUPABASE_ANON_KEY` | `eyJ...` | Your Supabase anon (public) key |
 | `MASTER_EMAIL` | `brandon@todaysdailybattle.com` | Optional; for Admin panel access |
 
+Recommended for analytics: `GA_MEASUREMENT_ID` = `G-NFQ5GWJXCB`.
+
 Optional (add later if you use them):  
-`MASTER_EMAILS`, `STATS_PASSWORD`, `WALKTHROUGH_VIDEO_URL`, `STRIPE_*`, `ERROR_REPORT_URL`, `VAPID_PUBLIC_KEY`, `PUSH_SUBSCRIBE_URL`, `CF_ANALYTICS_TOKEN`, `GA_MEASUREMENT_ID`, `GOOGLE_SITE_VERIFICATION`, `BATTLE_MUG_URL`.
+`MASTER_EMAILS`, `STATS_PASSWORD`, `WALKTHROUGH_VIDEO_URL`, `STRIPE_*`, `ERROR_REPORT_URL`, `VAPID_PUBLIC_KEY`, `PUSH_SUBSCRIBE_URL`, `CF_ANALYTICS_TOKEN`, `GOOGLE_SITE_VERIFICATION`, `BATTLE_MUG_URL`.
 
 For **MASTER_EMAILS** (array), set the value as JSON, e.g. `["brandon@todaysdailybattle.com"]`.
 

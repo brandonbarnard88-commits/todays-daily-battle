@@ -2,11 +2,19 @@
 <!-- tdb build 20260311f -->
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NFQ5GWJXCB');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reading Plans • Today's Daily Battle</title>
   <meta name="description" content="7-day KJV reading plans for battle, gratitude, strength, marriage, and peace. Offline-first. No login needed.">
-  <link rel="canonical" href="https://todaysdailybattle.com/plans">
+  <link rel="canonical" href="https://todaysdailybattle.com/plans.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
@@ -317,7 +325,7 @@
         <div class="plan-complete-icon">🏆</div>
         <p class="plan-complete-title" id="planCompleteTitle">Plan Complete!</p>
         <p class="plan-complete-sub" id="planCompleteSub"></p>
-        <button type="button" class="btn-extend" id="btnExtend" aria-label="Extend this plan for more days">Extend the Plan</button>
+        <button type="button" class="btn-extend" id="btnExtend" aria-label="Do this plan again from day one">Do it again</button>
         <button type="button" class="btn-restart" id="btnRestart" aria-label="Restart this plan from day one">Start Over</button>
       </div>
       <div id="dayCardContainer"></div>
@@ -705,11 +713,15 @@
       var dayData = plan.days[currentDay];
       var text    = dayData.ref + ' (KJV)\n\u201c' + dayData.text + '\u201d\n\u2014 todaysdailybattle.com';
       if (navigator.share) {
-        navigator.share({ text: text }).catch(function(){});
+        navigator.share({ text: text }).catch(function(){
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
+          } else { showToast('Could not share'); }
+        });
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
       } else {
-        navigator.clipboard.writeText(text).then(function(){
-          showToast('Copied ✓');
-        }).catch(function(){});
+        showToast('Share not available');
       }
     }
 

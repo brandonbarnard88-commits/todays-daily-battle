@@ -26,6 +26,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    .bible-tool { font-size: 1.0625rem; }
+    .bible-tool .section-note { font-size: 1rem; }
+    .bible-tool #daily-text, .bible-tool #lookup-text, .bible-tool .verse-ref { font-size: 1.1rem; line-height: 1.5; }
     .bible-tool .verse-card { margin-bottom: 1.25rem; padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(148,163,184,0.14); background: rgba(12,18,30,0.6); }
     .bible-tool .verse-card.border-accent { border-left: 4px solid var(--color-primary, #6d28d9); }
     .bible-tool .verse-card.border-gold { border-left: 4px solid #d4af37; }
@@ -34,18 +37,18 @@
     .bible-tool .daily-ref { color: #d4af37; font-weight: 600; }
     .bible-tool .win-title { color: #d4af37; font-weight: 600; }
     .bible-tool .lookup-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
-    .bible-tool .lookup-controls select, .bible-tool .lookup-controls input[type="number"], .bible-tool .lookup-controls input[type="text"] { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; }
+    .bible-tool .lookup-controls select, .bible-tool .lookup-controls input[type="number"], .bible-tool .lookup-controls input[type="text"] { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; }
     .bible-tool .lookup-controls input[type="number"] { width: 3.5rem; }
-    .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; resize: vertical; min-height: 4rem; }
-    .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 0.9rem; }
+    .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; resize: vertical; min-height: 4rem; }
+    .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 1rem; }
     .bible-tool .verse-ref { font-weight: 600; }
     .bible-tool .lookup-controls select:focus, .bible-tool .lookup-controls input:focus { outline: 2px solid rgba(167, 139, 250, 0.6); outline-offset: 2px; }
     .bible-tool #lookup-result { scroll-margin-top: 1rem; }
     .bible-tool .plan-progress-bar { height: 8px; background: rgba(148,163,184,0.2); border-radius: 4px; overflow: hidden; margin: 0.5rem 0; }
     .bible-tool .plan-progress-fill { height: 100%; background: linear-gradient(90deg, #6d28d9, #d4af37); border-radius: 4px; transition: width 0.3s ease; }
-    .bible-tool .plan-day-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 6px; background: rgba(212,175,55,0.2); color: #d4af37; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .bible-tool .plan-reflection { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.12); border-left: 3px solid #6d28d9; font-size: 0.9rem; }
-    .bible-tool .plan-complete-msg { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4); color: #d4af37; font-weight: 600; }
+    .bible-tool .plan-day-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 6px; background: rgba(212,175,55,0.2); color: #d4af37; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .bible-tool .plan-reflection { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.12); border-left: 3px solid #6d28d9; font-size: 1rem; }
+    .bible-tool .plan-complete-msg { margin-top: 0.75rem; padding: 0.75rem; border-radius: 8px; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4); color: #d4af37; font-weight: 600; font-size: 1rem; }
     .bible-tool .share-progress-btn { margin-top: 0.5rem; }
     .bible-tool .verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
     .bible-tool .verse-actions .btn { margin-right: 0; }
@@ -62,7 +65,7 @@
       .bible-tool .lookup-controls { gap: 0.5rem; }
       .bible-tool #plan-progress { display: flex; flex-wrap: wrap; flex-direction: column; gap: 0.25rem; }
     }
-    .bible-tool .prayer-box { padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.1); border-left: 3px solid #6d28d9; font-size: 0.9rem; font-style: italic; }
+    .bible-tool .prayer-box { padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.1); border-left: 3px solid #6d28d9; font-size: 1rem; font-style: italic; }
     .bible-tool .people-btn { border: 2px solid #d4af37; color: #d4af37; }
     .bible-tool .people-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212,175,55,0.3); }
     .bible-tool .people-card { border-left: 4px solid #d4af37; animation: peopleFadeIn 0.6s ease-out forwards; }
@@ -78,13 +81,13 @@
     .bible-tool .whos-this-divider { border: none; border-top: 1px solid rgba(212,175,55,0.22); margin: 0.6rem 0; }
     .bible-tool .whos-this-quote { font-style: italic; color: #94a3b8; font-size: 0.92rem; line-height: 1.5; margin-bottom: 0; }
     .bible-tool .whos-this-bio { font-size: 1rem; line-height: 1.5; color: #cbd5e1; margin-top: 0.25rem; }
-    .bible-tool .whos-this-label { font-size: 0.85rem; font-weight: 600; color: #d4af37; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 0.3rem; }
-    .bible-tool .whos-this-toggle { background: none; border: none; color: #d4af37; font-size: 0.88rem; cursor: pointer; padding: 0; text-decoration: underline; font-style: italic; margin-top: 0.75rem; display: inline-block; }
+    .bible-tool .whos-this-label { font-size: 0.95rem; font-weight: 600; color: #d4af37; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 0.3rem; }
+    .bible-tool .whos-this-toggle { background: none; border: none; color: #d4af37; font-size: 1rem; cursor: pointer; padding: 0; text-decoration: underline; font-style: italic; margin-top: 0.75rem; display: inline-block; }
     .bible-tool .whos-this-toggle:hover { color: #f0d060; }
     .bible-tool #whos-this-inline-input { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.6rem; }
-    .bible-tool #whos-this-inline-input input { flex: 1; min-width: 10rem; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(212,175,55,0.35); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 0.9rem; }
+    .bible-tool #whos-this-inline-input input { flex: 1; min-width: 10rem; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(212,175,55,0.35); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; }
     .bible-tool #whos-this-inline-input input:focus { outline: 2px solid rgba(212,175,55,0.5); outline-offset: 2px; }
-    .bible-tool .whos-this-no-match { font-size: 0.93rem; color: #94a3b8; font-style: italic; line-height: 1.5; }
+    .bible-tool .whos-this-no-match { font-size: 1rem; color: #94a3b8; font-style: italic; line-height: 1.5; }
   </style>
 </head>
 <body class="dark-mode">
@@ -1073,6 +1076,7 @@
     this.textContent = 'Highlighted';
     var btn = this;
     setTimeout(function () { btn.textContent = 'Highlight'; }, 1600);
+    if (typeof window.showEliteToast === 'function') window.showEliteToast('Saved. View in Study Workspace.');
   });
 
   document.getElementById('pray-lookup').addEventListener('click', function () {
@@ -1094,6 +1098,11 @@
     if (a && a.dataset.ref) {
       e.preventDefault();
       fetchVerse(a.dataset.ref, renderLookup);
+      return;
+    }
+    var readLink = e.target && e.target.closest && e.target.closest('#lookup-read-chapter');
+    if (readLink && readLink.getAttribute('href') === '#') {
+      e.preventDefault();
     }
   });
 
@@ -1324,7 +1333,7 @@
         var retryBtnBR = document.getElementById('battle-ready-retry');
         if (retryBtnBR) retryBtnBR.addEventListener('click', function () {
           container.innerHTML = '';
-          document.getElementById('get-battle-ready').click();
+          document.getElementById('battle-ready-btn').click();
         });
       }
     }

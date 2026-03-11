@@ -12118,11 +12118,19 @@ function initBibleToolVerseModePicker() {
   } catch (e) {}
   select.value = current;
   note.textContent = notes[current];
+  function syncToBreakdownAge(mode) {
+    try {
+      var age = (mode === 'kid' || mode === 'teen') ? mode : 'adult';
+      localStorage.setItem('tdb_age_mode_v1', age);
+    } catch (e) {}
+  }
+  syncToBreakdownAge(current);
   select.addEventListener('change', function () {
     var val = select.value;
     if (!notes[val]) val = 'quick';
     try { localStorage.setItem(key, val); } catch (e) {}
     note.textContent = notes[val];
+    syncToBreakdownAge(val);
   });
 }
 
@@ -13002,7 +13010,8 @@ function buildShareUrl(id) {
     url.searchParams.set('share', id);
     return url.toString();
   } catch (_) {
-    return window.location.href + '?share=' + encodeURIComponent(id);
+    const sep = window.location.href.includes('?') ? '&' : '?';
+    return window.location.href + sep + 'share=' + encodeURIComponent(id);
   }
 }
 

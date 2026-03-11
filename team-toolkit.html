@@ -386,6 +386,45 @@
     .vp-pack-actions { display: flex; gap: 0.3rem; flex-wrap: wrap; }
     .vp-import-row { margin-top: 0.5rem; }
 
+    /* ── Onboarding banner ─────────────────────────────── */
+    .tt-onboard {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      border: 1px solid rgba(227,188,103,0.3);
+      border-left: 4px solid var(--gold, #e3bc67);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      background: rgba(227,188,103,0.06);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .tt-onboard-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
+    .tt-onboard-body { flex: 1; min-width: 0; }
+    .tt-onboard-title { font-size: 0.92rem; font-weight: 700; color: var(--gold, #e3bc67); margin-bottom: 0.25rem; }
+    .tt-onboard-steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+    .tt-onboard-steps li { font-size: 0.83rem; color: var(--muted, #94a3b8); padding-left: 1.2em; position: relative; }
+    .tt-onboard-steps li::before { content: "→"; position: absolute; left: 0; color: var(--gold, #e3bc67); font-size: 0.75rem; top: 0.05em; }
+    .tt-onboard-dismiss {
+      position: absolute; top: 0.6rem; right: 0.7rem;
+      background: none; border: none;
+      color: var(--muted, #94a3b8); cursor: pointer;
+      font-size: 0.9rem; padding: 0.2rem 0.35rem;
+      border-radius: 5px; line-height: 1;
+    }
+    .tt-onboard-dismiss:hover { color: var(--text, #e2e8f0); }
+
+    /* ── Privacy badge ──────────────────────────────────── */
+    .tt-privacy-badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.72rem; font-weight: 600;
+      color: #4ade80;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      white-space: nowrap;
+      user-select: none;
+    }
+
     /* ── Toast ─────────────────────────────────────────── */
     .tt-toast {
       position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
@@ -467,6 +506,21 @@
           </div>
         </header>
 
+        <!-- ── Onboarding banner (hidden once team is set) ────── -->
+        <div id="tt-onboard-banner" class="tt-onboard" role="status" aria-live="polite">
+          <div class="tt-onboard-icon" aria-hidden="true">⚔️</div>
+          <div class="tt-onboard-body">
+            <div class="tt-onboard-title">Welcome to Team Toolkit</div>
+            <ul class="tt-onboard-steps">
+              <li>Type a Team ID and tap <strong>Set Team</strong> — use the same ID on every device in your group.</li>
+              <li>Open <strong>Calendar</strong> to schedule your next meeting or study.</li>
+              <li>Use <strong>Prayer Chain</strong> to post urgent requests — only people with your Team ID can see them.</li>
+              <li>Set a <strong>Verse Pack</strong> so your whole group gets the same verse every morning.</li>
+            </ul>
+          </div>
+          <button type="button" class="tt-onboard-dismiss" id="tt-onboard-dismiss" aria-label="Dismiss welcome message">✕</button>
+        </div>
+
         <!-- ── Team ID ──────────────────────────────────────────── -->
         <section class="glass" style="margin-bottom:1rem;">
           <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
@@ -474,6 +528,7 @@
             <input id="tt-team-id" class="tt-input" style="max-width:220px;" placeholder="e.g. youth-group" aria-label="Team ID">
             <button id="tt-set-team" class="tt-btn tt-btn-sm">Set Team</button>
             <span id="tt-team-name" style="font-size:0.82rem;color:var(--gold);"></span>
+            <span class="tt-privacy-badge" title="Nothing is sent to a server. All data stays in this browser.">🔒 Local only — this device</span>
           </div>
           <p class="section-note" style="margin-top:0.5rem;font-size:0.78rem;">All data is stored locally in your browser, keyed to this team ID. Give everyone on your team the same ID to share a local workspace on one device.</p>
         </section>
@@ -927,11 +982,26 @@
     var teamInput = document.getElementById('tt-team-id');
     var teamLabel = document.getElementById('tt-team-name');
     var setTeamBtn = document.getElementById('tt-set-team');
+    var onboardBanner  = document.getElementById('tt-onboard-banner');
+    var onboardDismiss = document.getElementById('tt-onboard-dismiss');
+    var ONBOARD_KEY = 'tdb_tt_onboard_seen';
 
+    // Hide banner if team already set, or user previously dismissed
     try {
       var savedTeam = localStorage.getItem('tdb_tt_active_team');
       if (savedTeam && teamInput) { teamInput.value = savedTeam; teamLabel.textContent = 'Active: ' + savedTeam; }
+      if (savedTeam || localStorage.getItem(ONBOARD_KEY)) {
+        if (onboardBanner) onboardBanner.style.display = 'none';
+      }
     } catch(_) {}
+
+    // Dismiss button
+    if (onboardDismiss) {
+      onboardDismiss.addEventListener('click', function() {
+        if (onboardBanner) onboardBanner.style.display = 'none';
+        try { localStorage.setItem(ONBOARD_KEY, '1'); } catch(_) {}
+      });
+    }
 
     if (setTeamBtn) {
       setTeamBtn.addEventListener('click', function() {
@@ -939,6 +1009,9 @@
         teamInput.value = v;
         teamLabel.textContent = 'Active: ' + v;
         try { localStorage.setItem('tdb_tt_active_team', v); } catch(_) {}
+        // Hide onboarding once they commit to a team
+        if (onboardBanner) onboardBanner.style.display = 'none';
+        try { localStorage.setItem(ONBOARD_KEY, '1'); } catch(_) {}
         renderCalendar(); renderAttendance(); renderLibrary(); renderChain(); renderVersePacks();
       });
     }

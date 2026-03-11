@@ -4,27 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Team Toolkit • Today's Daily Battle</title>
-  <meta name="description" content="Ministry team tools: group calendar, attendance tracker, resource library, shared prayer, assignments, and message board. Built for churches and small groups.">
+  <meta name="description" content="Ministry team tools: group calendar, attendance tracker, resource library, prayer chain, and verse packs. Built for churches and small groups.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/team-toolkit.html">
   <meta property="og:title" content="Team Toolkit • Today's Daily Battle">
-  <meta property="og:description" content="Calendar, attendance, resource library, shared prayer, and more—everything your ministry team needs in one place.">
+  <meta property="og:description" content="Calendar, attendance, resource library, prayer chain, and verse packs for your church or small group.">
   <meta property="og:url" content="https://todaysdailybattle.com/team-toolkit.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Team Toolkit • Today's Daily Battle">
-  <meta name="twitter:description" content="Calendar, attendance, resource library, shared prayer, and more for your church or small group.">
+  <meta name="twitter:description" content="Calendar, attendance, resource library, prayer chain, and verse packs for your church or small group.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260311tt">
+  <link rel="stylesheet" href="styles.css?v=20260311tt2">
   <link rel="manifest" href="manifest.json">
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" data-supabase-sdk="true"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ── Team Toolkit local styles ─────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════
+       TEAM TOOLKIT v2 — LOCAL STYLES
+    ═══════════════════════════════════════════════════════ */
+
+    /* ── Tabs ──────────────────────────────────────────── */
     .tt-tabs {
       display: flex; gap: 0.4rem; flex-wrap: wrap;
       margin-bottom: 1.4rem;
@@ -39,19 +43,18 @@
       cursor: pointer;
       transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
-    .tt-tab[aria-selected="true"],
-    .tt-tab:focus-visible {
+    .tt-tab[aria-selected="true"] {
       border-color: var(--gold, #e3bc67);
       color: var(--gold, #e3bc67);
       background: rgba(227,188,103,0.08);
-      outline: none;
     }
+    .tt-tab:focus-visible { outline: 2px solid var(--gold,#e3bc67); outline-offset: 2px; }
     .tt-panel { display: none; }
     .tt-panel.active { display: block; }
 
-    /* Shared form row */
+    /* ── Shared form helpers ──────────────────────────── */
     .tt-form { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
-    .tt-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tt-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
     .tt-input {
       flex: 1; min-width: 140px;
       padding: 0.55rem 0.75rem;
@@ -62,6 +65,16 @@
       font-size: 0.9rem;
     }
     .tt-input:focus { outline: 2px solid rgba(227,188,103,0.6); border-color: var(--gold,#e3bc67); }
+    .tt-select {
+      padding: 0.55rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      background: var(--bg-soft, rgba(255,255,255,0.06));
+      color: var(--text, #e2e8f0);
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+    .tt-select:focus { outline: 2px solid rgba(227,188,103,0.6); border-color: var(--gold,#e3bc67); }
     .tt-btn {
       padding: 0.55rem 1.1rem;
       border-radius: 10px;
@@ -74,127 +87,325 @@
       white-space: nowrap;
     }
     .tt-btn:hover, .tt-btn:focus-visible {
-      background: rgba(227,188,103,0.18);
+      background: rgba(227,188,103,0.2);
       outline: none;
     }
-    .tt-btn-sm {
-      padding: 0.3rem 0.65rem;
-      font-size: 0.78rem;
-      border-radius: 7px;
-    }
-    .tt-btn-danger {
-      border-color: rgba(239,68,68,0.6);
-      background: rgba(239,68,68,0.08);
-      color: #f87171;
-    }
-    .tt-btn-ghost {
-      border-color: var(--line, rgba(255,255,255,0.12));
-      background: transparent;
-      color: var(--muted, #94a3b8);
-    }
+    .tt-btn-sm { padding: 0.3rem 0.65rem; font-size: 0.78rem; border-radius: 7px; }
+    .tt-btn-danger { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.08); color: #f87171; }
+    .tt-btn-danger:hover { background: rgba(239,68,68,0.16); }
+    .tt-btn-ghost { border-color: var(--line, rgba(255,255,255,0.12)); background: transparent; color: var(--muted, #94a3b8); }
+    .tt-btn-ghost:hover { border-color: var(--gold,#e3bc67); color: var(--text,#e2e8f0); }
+    .tt-btn-green { border-color: rgba(34,197,94,0.5); background: rgba(34,197,94,0.08); color: #4ade80; }
 
-    /* ── Calendar ── */
-    .cal-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    /* ── Mini-calendar picker ──────────────────────────── */
+    .mini-cal-wrap { position: relative; display: inline-block; }
+    .mini-cal-trigger {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      background: var(--bg-soft, rgba(255,255,255,0.04));
+      color: var(--text, #e2e8f0);
+      font-size: 0.9rem;
+      cursor: pointer;
+      min-width: 140px;
+    }
+    .mini-cal-trigger:focus-visible { outline: 2px solid rgba(227,188,103,0.6); }
+    .mini-cal {
+      position: absolute; top: calc(100% + 6px); left: 0;
+      z-index: 50;
+      background: var(--card, #161b27);
+      border: 1px solid var(--line, rgba(255,255,255,0.12));
+      border-radius: 14px;
+      padding: 0.75rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      min-width: 260px;
+      user-select: none;
+    }
+    .mini-cal[hidden] { display: none; }
+    .mini-cal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .mini-cal-title { font-size: 0.9rem; font-weight: 700; color: var(--gold,#e3bc67); }
+    .mini-cal-nav {
+      background: none; border: none; color: var(--muted,#94a3b8);
+      cursor: pointer; font-size: 1.1rem; padding: 0.15rem 0.4rem;
+      border-radius: 6px;
+    }
+    .mini-cal-nav:hover { color: var(--text,#e2e8f0); background: rgba(255,255,255,0.07); }
+    .mini-cal-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .mini-cal-dow {
+      font-size: 0.65rem; color: var(--muted,#94a3b8);
+      text-align: center; padding: 0.15rem 0; text-transform: uppercase;
+    }
+    .mini-cal-day {
+      font-size: 0.82rem; text-align: center;
+      padding: 0.3rem 0.1rem;
+      border-radius: 7px;
+      cursor: pointer;
+      color: var(--text,#e2e8f0);
+      line-height: 1.4;
+    }
+    .mini-cal-day:hover { background: rgba(227,188,103,0.15); }
+    .mini-cal-day.today { border: 1px solid rgba(227,188,103,0.4); }
+    .mini-cal-day.selected { background: var(--gold,#e3bc67); color: #0a0e18; font-weight: 700; }
+    .mini-cal-day.other-month { color: var(--muted,#94a3b8); opacity: 0.45; }
+    .mini-cal-day.empty { cursor: default; }
+
+    /* ── Calendar v2 ───────────────────────────────────── */
+    .cal-group-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted,#94a3b8);
+      margin: 1rem 0 0.4rem;
+    }
+    .cal-list { display: flex; flex-direction: column; gap: 0.5rem; }
     .cal-event {
       border: 1px solid var(--line, rgba(255,255,255,0.1));
+      border-left-width: 4px;
       border-radius: 12px;
       padding: 0.75rem 1rem;
       background: var(--bg-soft, rgba(255,255,255,0.03));
       display: flex; gap: 0.75rem; align-items: flex-start;
+      position: relative; overflow: hidden;
+      transition: transform 0.18s ease;
     }
+    /* color border variants */
+    .cal-event[data-color="blue"]   { border-left-color: #60a5fa; }
+    .cal-event[data-color="green"]  { border-left-color: #4ade80; }
+    .cal-event[data-color="purple"] { border-left-color: #c084fc; }
+    .cal-event[data-color="orange"] { border-left-color: #fb923c; }
+    .cal-event[data-color="gray"]   { border-left-color: #94a3b8; }
+    /* swipe-delete reveal */
+    .cal-event .cal-swipe-del {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 72px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(239,68,68,0.85);
+      color: #fff; font-size: 0.8rem; font-weight: 700;
+      border-radius: 0 12px 12px 0;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    .cal-event.swiped-left .cal-swipe-del { opacity: 1; pointer-events: auto; }
+    .cal-event.swiped-left { transform: translateX(-72px); }
     .cal-event-date {
       flex-shrink: 0; text-align: center;
-      background: rgba(227,188,103,0.12);
-      border: 1px solid rgba(227,188,103,0.25);
+      background: rgba(227,188,103,0.1);
+      border: 1px solid rgba(227,188,103,0.2);
       border-radius: 10px;
-      padding: 0.35rem 0.6rem;
-      min-width: 48px;
+      padding: 0.3rem 0.55rem;
+      min-width: 44px;
     }
-    .cal-event-month { font-size: 0.65rem; color: var(--gold,#e3bc67); text-transform: uppercase; letter-spacing: 0.06em; display: block; }
-    .cal-event-day { font-size: 1.35rem; font-weight: 700; color: var(--gold,#e3bc67); line-height: 1; }
+    .cal-event-month { font-size: 0.62rem; color: var(--gold,#e3bc67); text-transform: uppercase; letter-spacing: 0.06em; display: block; }
+    .cal-event-day { font-size: 1.25rem; font-weight: 700; color: var(--gold,#e3bc67); line-height: 1; }
     .cal-event-body { flex: 1; min-width: 0; }
-    .cal-event-title { font-weight: 600; font-size: 0.95rem; color: var(--text,#e2e8f0); margin-bottom: 0.15rem; }
-    .cal-event-time { font-size: 0.78rem; color: var(--muted,#94a3b8); margin-bottom: 0.2rem; }
-    .cal-event-desc { font-size: 0.82rem; color: var(--muted,#94a3b8); }
-    .cal-event-actions { display: flex; gap: 0.35rem; margin-top: 0.5rem; }
-    .cal-empty { text-align: center; color: var(--muted,#94a3b8); padding: 2rem 0; font-size: 0.9rem; }
-
-    /* ── Attendance ── */
-    .att-meta { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.8rem; }
-    .att-stats {
-      display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;
+    .cal-event-title { font-weight: 600; font-size: 0.95rem; color: var(--text,#e2e8f0); margin-bottom: 0.1rem; }
+    .cal-event-time { font-size: 0.77rem; color: var(--muted,#94a3b8); margin-bottom: 0.15rem; }
+    .cal-event-desc { font-size: 0.81rem; color: var(--muted,#94a3b8); }
+    .cal-event-recurring { font-size: 0.7rem; color: var(--muted,#64748b); margin-top: 0.15rem; }
+    .cal-event-actions { display: flex; gap: 0.35rem; margin-top: 0.45rem; flex-wrap: wrap; }
+    .cal-empty-state {
+      text-align: center; padding: 2.5rem 1rem;
+      color: var(--muted,#94a3b8);
     }
+    .cal-empty-state-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .cal-empty-state p { font-size: 0.9rem; margin-bottom: 1rem; }
+    .cal-empty-add-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 12px;
+      border: 1px solid var(--gold,#e3bc67);
+      background: rgba(227,188,103,0.1);
+      color: var(--gold,#e3bc67);
+      font-size: 0.95rem; font-weight: 700;
+      cursor: pointer;
+    }
+    .cal-empty-add-btn:hover { background: rgba(227,188,103,0.2); }
+
+    /* ── Attendance v2 ─────────────────────────────────── */
+    .att-date-strip {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .att-date-chip {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted,#94a3b8);
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .att-date-chip.active, .att-date-chip:hover {
+      border-color: var(--gold,#e3bc67);
+      color: var(--gold,#e3bc67);
+    }
+    .att-meta { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.8rem; }
+    .att-stats { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
     .att-stat {
-      padding: 0.5rem 0.9rem;
+      padding: 0.45rem 0.8rem;
       border-radius: 10px;
       border: 1px solid var(--line);
       background: var(--bg-soft, rgba(255,255,255,0.03));
-      text-align: center;
-      min-width: 80px;
+      text-align: center; min-width: 72px;
     }
-    .att-stat-val { font-size: 1.5rem; font-weight: 700; color: var(--gold,#e3bc67); }
-    .att-stat-lbl { font-size: 0.7rem; color: var(--muted,#94a3b8); text-transform: uppercase; letter-spacing: 0.05em; }
+    .att-stat-val { font-size: 1.4rem; font-weight: 700; color: var(--gold,#e3bc67); }
+    .att-stat-lbl { font-size: 0.68rem; color: var(--muted,#94a3b8); text-transform: uppercase; letter-spacing: 0.05em; }
     .att-table { width: 100%; border-collapse: collapse; }
-    .att-table th {
-      font-size: 0.78rem; color: var(--muted,#94a3b8); text-align: left;
-      padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--line);
-    }
-    .att-table td { padding: 0.55rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: middle; }
+    .att-table th { font-size: 0.75rem; color: var(--muted,#94a3b8); text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--line); }
+    .att-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
     .att-table tr:last-child td { border-bottom: none; }
     .att-check {
-      width: 22px; height: 22px; border-radius: 6px;
+      width: 24px; height: 24px; border-radius: 7px;
       border: 1px solid var(--line); background: var(--bg-soft);
       display: inline-flex; align-items: center; justify-content: center;
-      cursor: pointer; font-size: 0.85rem; transition: background 0.12s, border-color 0.12s;
+      cursor: pointer; font-size: 0.88rem;
+      transition: background 0.12s, border-color 0.12s;
     }
-    .att-check[data-checked="true"] {
-      background: rgba(34,197,94,0.15);
-      border-color: rgba(34,197,94,0.6);
-      color: #4ade80;
-    }
-    .att-name-row { display: flex; align-items: center; gap: 0.5rem; }
+    .att-check[data-checked="true"] { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.6); color: #4ade80; }
+    .att-streak { font-size: 0.72rem; color: #fb923c; margin-left: 0.35rem; white-space: nowrap; }
     .att-remove { background: none; border: none; color: var(--muted,#94a3b8); cursor: pointer; font-size: 0.8rem; padding: 0; line-height: 1; }
     .att-remove:hover { color: #f87171; }
 
-    /* ── Resource Library ── */
+    /* ── Resource Library v2 ───────────────────────────── */
+    .lib-toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; align-items: center; }
     .lib-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 0.75rem;
-      margin-top: 0.75rem;
+      gap: 0.75rem; margin-top: 0.5rem;
     }
     .lib-card {
       border: 1px solid var(--line, rgba(255,255,255,0.1));
-      border-radius: 12px;
-      padding: 0.8rem;
+      border-radius: 12px; padding: 0.8rem;
       background: var(--bg-soft, rgba(255,255,255,0.03));
-      display: flex; flex-direction: column; gap: 0.4rem;
+      display: flex; flex-direction: column; gap: 0.35rem;
     }
+    .lib-thumb { width: 100%; height: 80px; object-fit: cover; border-radius: 7px; margin-bottom: 0.25rem; }
     .lib-icon { font-size: 2rem; text-align: center; }
-    .lib-name { font-size: 0.82rem; font-weight: 600; color: var(--text,#e2e8f0); word-break: break-word; text-align: center; }
-    .lib-size { font-size: 0.72rem; color: var(--muted,#94a3b8); text-align: center; }
-    .lib-actions { display: flex; gap: 0.35rem; justify-content: center; margin-top: 0.25rem; }
+    .lib-name {
+      font-size: 0.82rem; font-weight: 600; color: var(--text,#e2e8f0);
+      word-break: break-word; text-align: center;
+      border-radius: 4px; padding: 1px 3px;
+    }
+    .lib-name[contenteditable="true"] {
+      outline: 1px solid rgba(227,188,103,0.5);
+      background: rgba(227,188,103,0.06);
+    }
+    .lib-size { font-size: 0.7rem; color: var(--muted,#94a3b8); text-align: center; }
+    .lib-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; justify-content: center; min-height: 22px; }
+    .lib-tag {
+      font-size: 0.65rem; font-weight: 600;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(227,188,103,0.3);
+      background: rgba(227,188,103,0.08);
+      color: var(--gold,#e3bc67);
+      cursor: pointer;
+    }
+    .lib-tag-del { opacity: 0.6; margin-left: 2px; }
+    .lib-tag-input {
+      font-size: 0.7rem; padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(227,188,103,0.3);
+      background: transparent; color: var(--muted,#94a3b8);
+      width: 80px;
+    }
+    .lib-actions { display: flex; gap: 0.3rem; justify-content: center; margin-top: 0.25rem; flex-wrap: wrap; }
     .lib-progress { height: 4px; border-radius: 99px; background: var(--line); margin: 0.3rem 0; overflow: hidden; }
     .lib-progress-bar { height: 100%; border-radius: 99px; background: var(--gold,#e3bc67); width: 0; transition: width 0.2s; }
-    .lib-quota { font-size: 0.75rem; color: var(--muted,#94a3b8); margin-bottom: 0.5rem; }
-    .lib-quota-bar { height: 4px; border-radius: 99px; background: var(--line); margin: 0.2rem 0 0.6rem; overflow: hidden; }
+    .lib-quota { font-size: 0.75rem; color: var(--muted,#94a3b8); margin-bottom: 0.3rem; }
+    .lib-quota-bar { height: 4px; border-radius: 99px; background: var(--line); margin: 0.15rem 0 0.5rem; overflow: hidden; }
     .lib-quota-fill { height: 100%; border-radius: 99px; background: rgba(227,188,103,0.6); transition: width 0.3s; }
     .lib-empty { text-align: center; color: var(--muted,#94a3b8); padding: 2rem 0; font-size: 0.9rem; }
 
-    /* ── Prayer Chain ── */
+    /* ── Prayer Chain v2 ───────────────────────────────── */
     .chain-list { display: flex; flex-direction: column; gap: 0.6rem; }
     .chain-card {
-      border: 1px solid rgba(239,68,68,0.25);
-      border-radius: 12px;
-      padding: 0.75rem 1rem;
-      background: rgba(239,68,68,0.04);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-left-width: 4px;
+      border-left-color: rgba(239,68,68,0.5);
+      border-radius: 12px; padding: 0.75rem 1rem;
+      background: rgba(239,68,68,0.03);
     }
-    .chain-card.prayed { border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.04); }
+    .chain-card.urgency-medium {
+      border-left-color: rgba(251,146,60,0.7);
+      border-color: rgba(251,146,60,0.2);
+      background: rgba(251,146,60,0.03);
+    }
+    .chain-card.urgency-low {
+      border-left-color: rgba(148,163,184,0.5);
+      border-color: rgba(148,163,184,0.15);
+      background: rgba(148,163,184,0.03);
+    }
+    .chain-card.chain-answered {
+      border-left-color: rgba(34,197,94,0.5);
+      border-color: rgba(34,197,94,0.15);
+      background: rgba(34,197,94,0.03);
+      opacity: 0.75;
+    }
     .chain-title { font-weight: 700; font-size: 0.95rem; color: var(--text,#e2e8f0); }
-    .chain-desc { font-size: 0.82rem; color: var(--muted,#94a3b8); margin: 0.2rem 0 0.5rem; }
-    .chain-meta { font-size: 0.72rem; color: var(--muted,#94a3b8); }
+    .chain-desc { font-size: 0.82rem; color: var(--muted,#94a3b8); margin: 0.2rem 0 0.4rem; }
+    .chain-meta { font-size: 0.71rem; color: var(--muted,#64748b); }
+    .chain-poster { font-size: 0.72rem; color: var(--muted,#94a3b8); margin-top: 0.1rem; }
+    .chain-prayed-by { font-size: 0.75rem; color: #4ade80; margin-top: 0.2rem; }
     .chain-actions { display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap; }
-    .chain-prayed-by { font-size: 0.75rem; color: #4ade80; margin-top: 0.3rem; }
+    .chain-answered-section { margin-top: 1.25rem; }
+    .chain-answered-toggle {
+      background: none; border: none; color: var(--muted,#94a3b8);
+      font-size: 0.8rem; cursor: pointer; padding: 0;
+    }
+    .chain-answered-toggle:hover { color: var(--text,#e2e8f0); }
+
+    /* ── Verse Packs ───────────────────────────────────── */
+    .vp-verse-today {
+      border: 1px solid rgba(227,188,103,0.3);
+      border-left: 4px solid var(--gold,#e3bc67);
+      border-radius: 12px; padding: 1rem 1.1rem;
+      background: rgba(227,188,103,0.05);
+      margin-bottom: 1rem;
+    }
+    .vp-verse-today-ref { font-size: 0.78rem; color: var(--gold,#e3bc67); font-weight: 700; margin-bottom: 0.3rem; }
+    .vp-verse-today-text { font-size: 0.95rem; color: var(--text,#e2e8f0); line-height: 1.6; font-style: italic; }
+    .vp-verse-today-pack { font-size: 0.72rem; color: var(--muted,#94a3b8); margin-top: 0.3rem; }
+    .vp-gate { max-width: 320px; }
+    .vp-pack-card {
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 0.75rem 1rem;
+      background: var(--bg-soft, rgba(255,255,255,0.03));
+      display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .vp-pack-name { font-weight: 600; font-size: 0.92rem; color: var(--text,#e2e8f0); flex: 1; min-width: 100px; }
+    .vp-pack-count { font-size: 0.75rem; color: var(--muted,#94a3b8); }
+    .vp-pack-active { font-size: 0.7rem; font-weight: 700; color: #4ade80; text-transform: uppercase; letter-spacing: 0.06em; }
+    .vp-pack-actions { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .vp-import-row { margin-top: 0.5rem; }
+
+    /* ── Toast ─────────────────────────────────────────── */
+    .tt-toast {
+      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+      background: rgba(10,14,24,0.95);
+      border: 1px solid rgba(239,68,68,0.5);
+      color: #fca5a5;
+      padding: 0.6rem 1.2rem;
+      border-radius: 99px;
+      font-size: 0.85rem; font-weight: 600;
+      z-index: 500;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      pointer-events: none;
+      opacity: 1; transition: opacity 0.4s ease;
+      white-space: nowrap;
+    }
+    .tt-toast.fade-out { opacity: 0; }
+    .tt-toast.info {
+      border-color: rgba(227,188,103,0.4);
+      color: var(--gold,#e3bc67);
+    }
   </style>
 </head>
 <body class="dark-mode">
@@ -249,14 +460,14 @@
       <div class="content-inner">
         <header class="hero-banner">
           <h1>Team Toolkit</h1>
-          <p class="hero-tagline">Calendar, attendance, shared files, prayer chain — everything your group needs to run better. All local, all private, no server required.</p>
+          <p class="hero-tagline">Calendar, attendance, shared files, prayer chain, verse packs — everything your group needs to run well. All local, all private.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="church.html">Church Center</a>
             <a class="btn btn-secondary" href="message.html">Message Board</a>
           </div>
         </header>
 
-        <!-- ── Team ID ───────────────────────────────────────────────── -->
+        <!-- ── Team ID ──────────────────────────────────────────── -->
         <section class="glass" style="margin-bottom:1rem;">
           <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
             <label for="tt-team-id" style="font-size:0.85rem;color:var(--muted);white-space:nowrap;">Team ID</label>
@@ -264,32 +475,64 @@
             <button id="tt-set-team" class="tt-btn tt-btn-sm">Set Team</button>
             <span id="tt-team-name" style="font-size:0.82rem;color:var(--gold);"></span>
           </div>
-          <p class="section-note" style="margin-top:0.5rem;font-size:0.78rem;">All data is stored locally in your browser, keyed to this team ID. Give everyone on your team the same ID to share a local workspace on one device, or use it for your own records.</p>
+          <p class="section-note" style="margin-top:0.5rem;font-size:0.78rem;">All data is stored locally in your browser, keyed to this team ID. Give everyone on your team the same ID to share a local workspace on one device.</p>
         </section>
 
-        <!-- ── Tool tabs ─────────────────────────────────────────────── -->
+        <!-- ── Tool tabs ────────────────────────────────────────── -->
         <section class="glass">
           <div class="tt-tabs" role="tablist" aria-label="Team tools">
             <button class="tt-tab" role="tab" aria-selected="true"  aria-controls="panel-calendar"    id="tab-calendar">📅 Calendar</button>
             <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-attendance"  id="tab-attendance">✅ Attendance</button>
             <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-library"     id="tab-library">📁 Files</button>
             <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-prayer"      id="tab-prayer">🔴 Prayer Chain</button>
-            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-comms"       id="tab-comms">💬 More Tools</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-verse-packs" id="tab-verse-packs">📖 Verse Packs</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-comms"       id="tab-comms">💬 More</button>
           </div>
 
-          <!-- ── CALENDAR ──────────────────────────────────────────── -->
+          <!-- ════════ CALENDAR ═══════════════════════════════════ -->
           <div id="panel-calendar" class="tt-panel active" role="tabpanel" aria-labelledby="tab-calendar">
             <h2 class="section-divider">Group Calendar</h2>
-            <p class="section-note">Schedule meetings, studies, or events. Saved locally to your team.</p>
+            <p class="section-note">Schedule meetings, studies, and events. Saved locally to your team.</p>
 
             <div class="tt-form" id="cal-form">
               <div class="tt-row">
-                <input class="tt-input" id="cal-title" placeholder="Event title — e.g. Youth Bible Study" aria-label="Event title">
-                <input class="tt-input" id="cal-date" type="date" aria-label="Date" style="max-width:160px;">
-                <input class="tt-input" id="cal-time" type="time" aria-label="Time" style="max-width:120px;">
+                <input class="tt-input" id="cal-title" placeholder="Event title — e.g. Youth Bible Study" aria-label="Event title" style="flex:2;">
+                <!-- Mini-cal date picker -->
+                <div class="mini-cal-wrap" id="cal-date-wrap">
+                  <button type="button" class="mini-cal-trigger" id="cal-date-trigger" aria-label="Pick date" aria-haspopup="true" aria-expanded="false">
+                    <span>📅</span><span id="cal-date-display">Pick date</span>
+                  </button>
+                  <div class="mini-cal" id="cal-mini-cal" hidden role="dialog" aria-label="Date picker"></div>
+                  <input type="hidden" id="cal-date">
+                </div>
+              </div>
+              <div class="tt-row">
+                <!-- Hour / minute selects -->
+                <label style="font-size:0.82rem;color:var(--muted);white-space:nowrap;">Time</label>
+                <select class="tt-select" id="cal-hour" aria-label="Hour"></select>
+                <span style="color:var(--muted);">:</span>
+                <select class="tt-select" id="cal-min" aria-label="Minute">
+                  <option value="">--</option>
+                  <option value="00">00</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>
+                <!-- Color tag -->
+                <label style="font-size:0.82rem;color:var(--muted);white-space:nowrap;">Color</label>
+                <select class="tt-select" id="cal-color" aria-label="Event color">
+                  <option value="blue">🔵 Blue</option>
+                  <option value="green">🟢 Green</option>
+                  <option value="purple">🟣 Purple</option>
+                  <option value="orange">🟠 Orange</option>
+                  <option value="gray">⚫ Gray</option>
+                </select>
               </div>
               <div class="tt-row">
                 <input class="tt-input" id="cal-desc" placeholder="Short description (optional)" aria-label="Description">
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--muted);white-space:nowrap;cursor:pointer;">
+                  <input type="checkbox" id="cal-repeat"> Repeat weekly (4 weeks)
+                </label>
                 <button class="tt-btn" id="cal-add-btn" type="button">Add Event</button>
               </div>
             </div>
@@ -299,25 +542,31 @@
               <button class="tt-btn tt-btn-sm tt-btn-ghost" id="cal-clear-past-btn" type="button">Clear Past</button>
             </div>
 
-            <div class="cal-list" id="cal-list" aria-live="polite" aria-label="Upcoming events">
-              <p class="cal-empty">No events yet. Add one above.</p>
-            </div>
+            <div id="cal-list" aria-live="polite" aria-label="Upcoming events"></div>
           </div>
 
-          <!-- ── ATTENDANCE ────────────────────────────────────────── -->
+          <!-- ════════ ATTENDANCE ══════════════════════════════════ -->
           <div id="panel-attendance" class="tt-panel" role="tabpanel" aria-labelledby="tab-attendance">
             <h2 class="section-divider">Attendance Tracker</h2>
             <p class="section-note">Mark who showed up. Saves per date. Export for reports.</p>
 
             <div class="att-meta">
-              <label for="att-date" style="font-size:0.82rem;color:var(--muted);">Date</label>
-              <input class="tt-input" id="att-date" type="date" aria-label="Meeting date" style="max-width:160px;">
+              <label style="font-size:0.82rem;color:var(--muted);">Meeting date</label>
+              <div class="mini-cal-wrap" id="att-date-wrap">
+                <button type="button" class="mini-cal-trigger" id="att-date-trigger" aria-label="Pick meeting date" aria-haspopup="true" aria-expanded="false">
+                  <span>📅</span><span id="att-date-display">Today</span>
+                </button>
+                <div class="mini-cal" id="att-mini-cal" hidden role="dialog" aria-label="Date picker"></div>
+                <input type="hidden" id="att-date">
+              </div>
               <button class="tt-btn tt-btn-sm" id="att-export-btn" type="button">Export CSV</button>
             </div>
 
+            <!-- Recent dates quick-nav -->
+            <div class="att-date-strip" id="att-date-strip"></div>
+
             <div class="att-stats" id="att-stats"></div>
 
-            <!-- Add member -->
             <div class="tt-row" style="margin-bottom:0.75rem;">
               <input class="tt-input" id="att-new-name" placeholder="Add member name" aria-label="New member name">
               <button class="tt-btn tt-btn-sm" id="att-add-member" type="button">Add</button>
@@ -328,7 +577,7 @@
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th style="width:60px;text-align:center;">Present</th>
+                    <th style="width:64px;text-align:center;">Present</th>
                     <th style="width:36px;"></th>
                   </tr>
                 </thead>
@@ -337,20 +586,26 @@
             </div>
           </div>
 
-          <!-- ── FILE LIBRARY ──────────────────────────────────────── -->
+          <!-- ════════ FILE LIBRARY ════════════════════════════════ -->
           <div id="panel-library" class="tt-panel" role="tabpanel" aria-labelledby="tab-library">
             <h2 class="section-divider">Resource Library</h2>
-            <p class="section-note">Upload sermon notes, song sheets, handouts. Stored locally — 50 MB per team.</p>
+            <p class="section-note">Upload sermon notes, song sheets, handouts. Stored locally — 100 MB per team.</p>
 
-            <div style="margin-bottom:0.75rem;">
-              <label class="tt-btn" for="lib-file-input" style="display:inline-block;cursor:pointer;" aria-label="Upload file">
-                ＋ Upload File
+            <div class="lib-toolbar">
+              <label class="tt-btn" for="lib-file-input" style="display:inline-flex;align-items:center;gap:0.3rem;cursor:pointer;" aria-label="Upload file">
+                ＋ Upload
               </label>
               <input id="lib-file-input" type="file" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.txt" multiple style="display:none;" aria-hidden="true">
+              <input class="tt-input" id="lib-search" placeholder="Search files…" aria-label="Search files" style="max-width:200px;">
+              <select class="tt-select" id="lib-sort" aria-label="Sort files">
+                <option value="newest">Newest first</option>
+                <option value="az">A – Z</option>
+                <option value="tag">By tag</option>
+              </select>
             </div>
 
             <div class="lib-quota-bar"><div class="lib-quota-fill" id="lib-quota-fill"></div></div>
-            <p class="lib-quota" id="lib-quota-text">0 KB used of 50 MB</p>
+            <p class="lib-quota" id="lib-quota-text">0 KB used of 100 MB</p>
 
             <div class="lib-progress" id="lib-progress-wrap" style="display:none;">
               <div class="lib-progress-bar" id="lib-progress-bar"></div>
@@ -361,16 +616,22 @@
             </div>
           </div>
 
-          <!-- ── PRAYER CHAIN ──────────────────────────────────────── -->
+          <!-- ════════ PRAYER CHAIN ════════════════════════════════ -->
           <div id="panel-prayer" class="tt-panel" role="tabpanel" aria-labelledby="tab-prayer">
             <h2 class="section-divider">Prayer Chain</h2>
-            <p class="section-note">Urgent requests — mark when prayed. Expires after 7 days.</p>
+            <p class="section-note">Add urgent requests — mark when prayed. Expires after 30 days.</p>
 
             <div class="tt-form">
               <div class="tt-row">
-                <input class="tt-input" id="chain-title" placeholder="Request title — e.g. Aunt Sue's surgery" aria-label="Prayer request title">
+                <input class="tt-input" id="chain-title" placeholder="Request — e.g. Mike's surgery tomorrow" aria-label="Prayer request title">
+                <select class="tt-select" id="chain-urgency" aria-label="Urgency">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">🔔 High</option>
+                </select>
               </div>
               <div class="tt-row">
+                <input class="tt-input" id="chain-poster" placeholder="Your name (optional)" aria-label="Your name" style="max-width:180px;">
                 <input class="tt-input" id="chain-desc" placeholder="Details (optional)" aria-label="Details">
                 <button class="tt-btn" id="chain-add-btn" type="button">Add Request</button>
               </div>
@@ -379,9 +640,65 @@
             <div class="chain-list" id="chain-list" aria-live="polite" aria-label="Prayer chain requests">
               <p style="color:var(--muted);font-size:0.88rem;padding:1.5rem 0;text-align:center;">No active requests.</p>
             </div>
+
+            <!-- Answered section -->
+            <div class="chain-answered-section" id="chain-answered-section" style="display:none;">
+              <button class="chain-answered-toggle" id="chain-answered-toggle" type="button">▸ Show answered prayers</button>
+              <div id="chain-answered-list" style="display:none;margin-top:0.6rem;"></div>
+            </div>
           </div>
 
-          <!-- ── MORE TOOLS ────────────────────────────────────────── -->
+          <!-- ════════ VERSE PACKS ══════════════════════════════════ -->
+          <div id="panel-verse-packs" class="tt-panel" role="tabpanel" aria-labelledby="tab-verse-packs">
+            <h2 class="section-divider">Verse Packs</h2>
+            <p class="section-note">Paste in a series of verses, name the pack, set it active. Today's verse rotates daily through the active pack.</p>
+
+            <!-- Active verse display — always visible -->
+            <div id="vp-today-wrap"></div>
+
+            <!-- Password gate -->
+            <div id="vp-gate" class="vp-gate">
+              <p class="section-note" style="margin-bottom:0.5rem;">Enter the admin password to manage packs.</p>
+              <div class="tt-row">
+                <input class="tt-input" id="vp-pw-input" type="password" placeholder="Password" aria-label="Admin password" style="max-width:200px;">
+                <button class="tt-btn tt-btn-sm" id="vp-unlock-btn" type="button">Unlock</button>
+              </div>
+              <p class="section-note" id="vp-pw-err" style="color:#f87171;margin-top:0.4rem;display:none;">Wrong password.</p>
+            </div>
+
+            <!-- Admin panel (hidden until unlocked) -->
+            <div id="vp-admin" style="display:none;margin-top:1.25rem;">
+
+              <h3 style="font-size:0.9rem;font-weight:700;color:var(--gold);margin-bottom:0.6rem;">Add a New Pack</h3>
+              <div class="tt-form">
+                <div class="tt-row">
+                  <input class="tt-input" id="vp-pack-name" placeholder='Pack name — e.g. "Sunday Hope Series"' aria-label="Pack name">
+                </div>
+                <textarea id="vp-pack-text" class="tt-input" rows="6"
+                  placeholder="One verse per line. Format: Book Ch:Vs Verse text&#10;Example:&#10;John 3:16 For God so loved the world...&#10;Philippians 4:13 I can do all things..."
+                  aria-label="Verse list" style="resize:vertical;font-family:inherit;"></textarea>
+                <div class="tt-row">
+                  <button class="tt-btn" id="vp-save-btn" type="button">Save Pack</button>
+                  <label class="tt-btn tt-btn-ghost" for="vp-import-file" style="cursor:pointer;">Import JSON</label>
+                  <input id="vp-import-file" type="file" accept=".json" style="display:none;" aria-hidden="true">
+                </div>
+              </div>
+
+              <h3 style="font-size:0.9rem;font-weight:700;color:var(--gold);margin:1rem 0 0.6rem;">Saved Packs</h3>
+              <div id="vp-pack-list" aria-live="polite" aria-label="Saved verse packs"></div>
+
+              <!-- Change password -->
+              <details style="margin-top:1rem;">
+                <summary style="font-size:0.78rem;color:var(--muted);cursor:pointer;">Change admin password</summary>
+                <div class="tt-row" style="margin-top:0.5rem;">
+                  <input class="tt-input" id="vp-new-pw" type="password" placeholder="New password" aria-label="New password" style="max-width:200px;">
+                  <button class="tt-btn tt-btn-sm tt-btn-ghost" id="vp-change-pw-btn" type="button">Save</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- ════════ MORE TOOLS ══════════════════════════════════ -->
           <div id="panel-comms" class="tt-panel" role="tabpanel" aria-labelledby="tab-comms">
             <h2 class="section-divider">More Team Tools</h2>
             <div class="list">
@@ -389,7 +706,7 @@
               <div class="list-item"><div><strong><a href="message.html">Message Board</a></strong><p>Post encouragements, prayer requests, or updates. Your team can reply and pray together.</p></div></div>
               <div class="list-item"><div><strong><a href="church.html">Church Verse of the Day</a></strong><p>Leader sets one verse for the whole church. Great for daily focus and announcements.</p></div></div>
               <div class="list-item"><div><strong><a href="reading-plan.html">7-Day Plan</a></strong><p>Share the plan link with your team so you're all on the same rhythm.</p></div></div>
-              <div class="list-item"><div><strong><a href="study.html">Shared Study Links</a></strong><p>Build a lesson in Study Workspace and share the link—team gets the same verses and notes.</p></div></div>
+              <div class="list-item"><div><strong><a href="study.html">Shared Study Links</a></strong><p>Build a lesson in Study Workspace and share the link — team gets the same verses and notes.</p></div></div>
               <div class="list-item"><div><strong><a href="sermon.html">Sermon Builder</a></strong><p>Build and share outlines with your congregation or co-leaders.</p></div></div>
             </div>
             <div class="section-note" style="margin-top:1rem;">
@@ -418,13 +735,15 @@
   <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","MASTER_EMAIL_OBFUSCATED":"&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260311tt" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260311tt2" data-cfasync="false"></script>
 
   <script nonce="tdb2025">
   (function () {
     'use strict';
 
-    /* ── Helpers ──────────────────────────────────────────────── */
+    /* ════════════════════════════════════════════════════════════
+       SHARED HELPERS
+    ════════════════════════════════════════════════════════════ */
     function teamKey(suffix) {
       var id = (document.getElementById('tt-team-id') || {}).value || 'default';
       return 'tdb_tt_' + id + '_' + suffix;
@@ -438,30 +757,196 @@
       return (bytes/1048576).toFixed(1) + ' MB';
     }
     function todayISO() { return new Date().toISOString().slice(0,10); }
+    function addDays(iso, n) {
+      var d = new Date(iso + 'T12:00:00');
+      d.setDate(d.getDate() + n);
+      return d.toISOString().slice(0,10);
+    }
+    function daysSinceEpoch(iso) {
+      return Math.floor(new Date(iso + 'T12:00:00').getTime() / 86400000);
+    }
 
-    /* ── Team ID ──────────────────────────────────────────────── */
+    /* ── Toast ──────────────────────────────────────────────── */
+    function showToast(msg, type) {
+      var t = document.createElement('div');
+      t.className = 'tt-toast' + (type === 'info' ? ' info' : '');
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(function() {
+        t.classList.add('fade-out');
+        setTimeout(function() { t.remove(); }, 420);
+      }, 2800);
+    }
+
+    /* ── CSV export ─────────────────────────────────────────── */
+    function exportCSV(filename, rows) {
+      var csv = rows.map(function(row) {
+        return row.map(function(cell) {
+          var s = String(cell == null ? '' : cell).replace(/"/g,'""');
+          return /[,"\n\r]/.test(s) ? '"' + s + '"' : s;
+        }).join(',');
+      }).join('\r\n');
+      var blob = new Blob([csv], { type: 'text/csv' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = filename;
+      document.body.appendChild(a); a.click();
+      setTimeout(function() { URL.revokeObjectURL(url); a.remove(); }, 1000);
+    }
+
+    /* ── Mini-calendar builder ──────────────────────────────── */
+    var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+
+    function buildMiniCal(opts) {
+      // opts: { triggerId, displayId, hiddenId, calId, onSelect }
+      var trigger  = document.getElementById(opts.triggerId);
+      var display  = document.getElementById(opts.displayId);
+      var hidden   = document.getElementById(opts.hiddenId);
+      var calEl    = document.getElementById(opts.calId);
+      if (!trigger || !calEl) return;
+
+      var curYear, curMonth;
+      var selectedISO = hidden ? hidden.value || todayISO() : todayISO();
+
+      function parseISO(iso) {
+        var p = iso.split('-');
+        return { y: parseInt(p[0]), m: parseInt(p[1])-1, d: parseInt(p[2]) };
+      }
+      function isoOf(y,m,d) {
+        return y + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+      }
+
+      function updateDisplay(iso) {
+        if (!display) return;
+        var p = parseISO(iso);
+        var dt = new Date(iso + 'T12:00:00');
+        display.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric',year:'numeric'});
+      }
+
+      function renderCal() {
+        var today = todayISO();
+        var p = parseISO(selectedISO);
+        if (curYear === undefined) { curYear = p.y; curMonth = p.m; }
+        calEl.innerHTML = '';
+        // Header
+        var hdr = document.createElement('div');
+        hdr.className = 'mini-cal-header';
+        var prev = document.createElement('button');
+        prev.type = 'button'; prev.className = 'mini-cal-nav'; prev.textContent = '‹';
+        prev.setAttribute('aria-label','Previous month');
+        var next = document.createElement('button');
+        next.type = 'button'; next.className = 'mini-cal-nav'; next.textContent = '›';
+        next.setAttribute('aria-label','Next month');
+        var title = document.createElement('span');
+        title.className = 'mini-cal-title';
+        title.textContent = MONTHS[curMonth] + ' ' + curYear;
+        hdr.appendChild(prev); hdr.appendChild(title); hdr.appendChild(next);
+        calEl.appendChild(hdr);
+        prev.addEventListener('click', function(e) {
+          e.stopPropagation();
+          curMonth--; if (curMonth < 0) { curMonth = 11; curYear--; }
+          renderCal();
+        });
+        next.addEventListener('click', function(e) {
+          e.stopPropagation();
+          curMonth++; if (curMonth > 11) { curMonth = 0; curYear++; }
+          renderCal();
+        });
+        // Day-of-week headers
+        var grid = document.createElement('div');
+        grid.className = 'mini-cal-grid';
+        DAYS.forEach(function(d) {
+          var span = document.createElement('div');
+          span.className = 'mini-cal-dow'; span.textContent = d;
+          grid.appendChild(span);
+        });
+        // Days
+        var firstDay = new Date(curYear, curMonth, 1).getDay();
+        var daysInMonth = new Date(curYear, curMonth+1, 0).getDate();
+        // Blank cells before first day
+        for (var i = 0; i < firstDay; i++) {
+          var blank = document.createElement('div');
+          blank.className = 'mini-cal-day empty'; grid.appendChild(blank);
+        }
+        for (var d = 1; d <= daysInMonth; d++) {
+          (function(day) {
+            var iso = isoOf(curYear, curMonth, day);
+            var cell = document.createElement('button');
+            cell.type = 'button'; cell.className = 'mini-cal-day';
+            cell.textContent = day;
+            cell.setAttribute('aria-label', iso);
+            if (iso === today) cell.classList.add('today');
+            if (iso === selectedISO) cell.classList.add('selected');
+            cell.addEventListener('click', function(e) {
+              e.stopPropagation();
+              selectedISO = iso;
+              if (hidden) hidden.value = iso;
+              updateDisplay(iso);
+              closeCal();
+              if (opts.onSelect) opts.onSelect(iso);
+            });
+            grid.appendChild(cell);
+          })(d);
+        }
+        calEl.appendChild(grid);
+      }
+
+      function openCal() {
+        var p = parseISO(selectedISO);
+        curYear = p.y; curMonth = p.m;
+        renderCal();
+        calEl.hidden = false;
+        trigger.setAttribute('aria-expanded','true');
+      }
+      function closeCal() {
+        calEl.hidden = true;
+        trigger.setAttribute('aria-expanded','false');
+      }
+      function toggleCal(e) { e.stopPropagation(); calEl.hidden ? openCal() : closeCal(); }
+
+      trigger.addEventListener('click', toggleCal);
+      document.addEventListener('click', function(e) {
+        if (!calEl.hidden && !calEl.contains(e.target) && e.target !== trigger) closeCal();
+      });
+      calEl.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCal(); });
+
+      // Init display
+      if (hidden && hidden.value) {
+        selectedISO = hidden.value;
+      } else {
+        selectedISO = todayISO();
+        if (hidden) hidden.value = selectedISO;
+      }
+      updateDisplay(selectedISO);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       TEAM ID
+    ════════════════════════════════════════════════════════════ */
     var teamInput = document.getElementById('tt-team-id');
     var teamLabel = document.getElementById('tt-team-name');
     var setTeamBtn = document.getElementById('tt-set-team');
-    // Restore last used team ID
+
     try {
       var savedTeam = localStorage.getItem('tdb_tt_active_team');
       if (savedTeam && teamInput) { teamInput.value = savedTeam; teamLabel.textContent = 'Active: ' + savedTeam; }
     } catch(_) {}
+
     if (setTeamBtn) {
-      setTeamBtn.addEventListener('click', function () {
-        var v = (teamInput.value || '').trim().replace(/[^a-zA-Z0-9_-]/g, '-').slice(0,40) || 'default';
+      setTeamBtn.addEventListener('click', function() {
+        var v = (teamInput.value || '').trim().replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,40) || 'default';
         teamInput.value = v;
         teamLabel.textContent = 'Active: ' + v;
         try { localStorage.setItem('tdb_tt_active_team', v); } catch(_) {}
-        renderCalendar(); renderAttendance(); renderLibrary(); renderChain();
+        renderCalendar(); renderAttendance(); renderLibrary(); renderChain(); renderVersePacks();
       });
     }
 
-    /* ── Tabs ─────────────────────────────────────────────────── */
+    /* ── Tabs ───────────────────────────────────────────────── */
     var tabs = document.querySelectorAll('.tt-tab');
     tabs.forEach(function(tab) {
-      tab.addEventListener('click', function () {
+      tab.addEventListener('click', function() {
         tabs.forEach(function(t) { t.setAttribute('aria-selected','false'); });
         tab.setAttribute('aria-selected','true');
         document.querySelectorAll('.tt-panel').forEach(function(p) { p.classList.remove('active'); });
@@ -473,162 +958,374 @@
           var arr = Array.from(tabs);
           var idx = arr.indexOf(tab);
           var next = e.key === 'ArrowRight' ? arr[idx+1] : arr[idx-1];
-          if (next) next.click(), next.focus();
+          if (next) { next.click(); next.focus(); }
         }
       });
     });
 
     /* ════════════════════════════════════════════════════════════
-       GROUP CALENDAR
+       GROUP CALENDAR v2
     ════════════════════════════════════════════════════════════ */
     function getEvents() { return lsGet(teamKey('cal')) || []; }
     function saveEvents(ev) { lsSet(teamKey('cal'), ev); }
 
-    function renderCalendar() {
-      var list = document.getElementById('cal-list');
-      if (!list) return;
-      var events = getEvents().sort(function(a,b){ return a.date > b.date ? 1 : -1; });
-      if (!events.length) {
-        list.innerHTML = '<p class="cal-empty">No events yet. Add one above.</p>';
-        return;
+    // Populate hour select
+    (function() {
+      var hourSel = document.getElementById('cal-hour');
+      if (!hourSel) return;
+      var opt0 = document.createElement('option');
+      opt0.value = ''; opt0.textContent = '--'; hourSel.appendChild(opt0);
+      for (var h = 0; h < 24; h++) {
+        var opt = document.createElement('option');
+        opt.value = String(h).padStart(2,'0');
+        opt.textContent = String(h).padStart(2,'0');
+        hourSel.appendChild(opt);
       }
-      list.innerHTML = '';
-      events.forEach(function(ev) {
-        var d = new Date(ev.date + 'T12:00:00');
-        var month = d.toLocaleString('default',{month:'short'});
-        var day = d.getDate();
-        var card = document.createElement('div');
-        card.className = 'cal-event';
-        card.dataset.id = ev.id;
-        card.innerHTML =
-          '<div class="cal-event-date"><span class="cal-event-month">' + escHtml(month) + '</span>' +
-          '<span class="cal-event-day">' + day + '</span></div>' +
-          '<div class="cal-event-body">' +
-            '<div class="cal-event-title">' + escHtml(ev.title) + '</div>' +
-            (ev.time ? '<div class="cal-event-time">⏰ ' + escHtml(ev.time) + '</div>' : '') +
-            (ev.desc ? '<div class="cal-event-desc">' + escHtml(ev.desc) + '</div>' : '') +
-            '<div class="cal-event-actions">' +
-              '<button class="tt-btn tt-btn-sm tt-btn-ghost cal-edit-btn" data-id="' + ev.id + '" type="button">Edit</button>' +
-              '<button class="tt-btn tt-btn-sm tt-btn-danger cal-del-btn" data-id="' + ev.id + '" type="button">Delete</button>' +
-            '</div>' +
-          '</div>';
-        list.appendChild(card);
-      });
-    }
+    })();
+
+    // Init date picker
+    buildMiniCal({
+      triggerId: 'cal-date-trigger',
+      displayId: 'cal-date-display',
+      hiddenId:  'cal-date',
+      calId:     'cal-mini-cal',
+      onSelect:  function() {}
+    });
+    // Set hidden to today
+    var calDateHidden = document.getElementById('cal-date');
+    if (calDateHidden) calDateHidden.value = todayISO();
 
     var calTitleInput = document.getElementById('cal-title');
-    var calDateInput  = document.getElementById('cal-date');
-    var calTimeInput  = document.getElementById('cal-time');
+    var calHourSel    = document.getElementById('cal-hour');
+    var calMinSel     = document.getElementById('cal-min');
+    var calColorSel   = document.getElementById('cal-color');
     var calDescInput  = document.getElementById('cal-desc');
+    var calRepeat     = document.getElementById('cal-repeat');
     var calAddBtn     = document.getElementById('cal-add-btn');
     var editingCalId  = null;
 
-    // Default date to today
-    if (calDateInput) calDateInput.value = todayISO();
+    function calGetTime() {
+      var h = calHourSel ? calHourSel.value : '';
+      var m = calMinSel  ? calMinSel.value  : '';
+      if (!h || !m) return '';
+      return h + ':' + m;
+    }
 
     function calSave() {
       var title = (calTitleInput.value || '').trim();
-      var date  = (calDateInput.value || '').trim();
-      if (!title || !date) { alert('Title and date are required.'); return; }
+      var date  = calDateHidden ? calDateHidden.value : '';
+      if (!title || !date) { showToast('Title and date are required.'); return; }
+      var color = calColorSel ? calColorSel.value : 'blue';
+      var time  = calGetTime();
+      var desc  = calDescInput ? calDescInput.value.trim() : '';
       var events = getEvents();
+
       if (editingCalId) {
         events = events.map(function(e) {
-          return e.id === editingCalId ? { id: e.id, title: title, date: date, time: calTimeInput.value, desc: calDescInput.value } : e;
+          return e.id === editingCalId
+            ? Object.assign({}, e, { title: title, date: date, time: time, desc: desc, color: color })
+            : e;
         });
         editingCalId = null;
         calAddBtn.textContent = 'Add Event';
       } else {
-        events.push({ id: Date.now().toString(), title: title, date: date, time: calTimeInput.value, desc: calDescInput.value });
+        var groupId = Date.now().toString();
+        var newEv = { id: groupId, title: title, date: date, time: time, desc: desc, color: color };
+        events.push(newEv);
+        if (calRepeat && calRepeat.checked) {
+          [7,14,21,28].forEach(function(n) {
+            events.push({
+              id: groupId + '_r' + n,
+              title: title, time: time, desc: desc, color: color,
+              date: addDays(date, n),
+              recurringGroup: groupId
+            });
+          });
+        }
       }
       saveEvents(events);
-      calTitleInput.value = ''; calDescInput.value = ''; calTimeInput.value = '';
-      calDateInput.value = todayISO();
+      calTitleInput.value = ''; calDescInput.value = '';
+      if (calRepeat) calRepeat.checked = false;
       renderCalendar();
     }
 
     if (calAddBtn) calAddBtn.addEventListener('click', calSave);
     if (calTitleInput) calTitleInput.addEventListener('keydown', function(e){ if(e.key==='Enter') calSave(); });
 
-    document.getElementById('cal-list') && document.getElementById('cal-list').addEventListener('click', function(e) {
-      var delBtn = e.target.closest('.cal-del-btn');
-      var editBtn = e.target.closest('.cal-edit-btn');
-      if (delBtn) {
-        var id = delBtn.dataset.id;
-        if (!confirm('Delete this event?')) return;
-        saveEvents(getEvents().filter(function(ev){ return ev.id !== id; }));
-        renderCalendar();
+    function renderCalendar() {
+      var container = document.getElementById('cal-list');
+      if (!container) return;
+      var today = todayISO();
+      var events = getEvents().sort(function(a,b) { return a.date > b.date ? 1 : -1; });
+      container.innerHTML = '';
+
+      if (!events.length) {
+        var empty = document.createElement('div');
+        empty.className = 'cal-empty-state';
+        empty.innerHTML =
+          '<div class="cal-empty-state-icon">📅</div>' +
+          '<p>Nothing scheduled yet.<br>Add your first Bible study or prayer night.</p>' +
+          '<button class="cal-empty-add-btn" id="cal-empty-add" type="button">＋ Add an event</button>';
+        container.appendChild(empty);
+        var emptyAdd = document.getElementById('cal-empty-add');
+        if (emptyAdd) emptyAdd.addEventListener('click', function() {
+          if (calTitleInput) calTitleInput.focus();
+        });
+        return;
       }
-      if (editBtn) {
-        var id = editBtn.dataset.id;
-        var ev = getEvents().find(function(e){ return e.id === id; });
-        if (!ev) return;
-        editingCalId = id;
-        calTitleInput.value = ev.title;
-        calDateInput.value = ev.date;
-        calTimeInput.value = ev.time || '';
-        calDescInput.value = ev.desc || '';
-        calAddBtn.textContent = 'Save Changes';
-        calTitleInput.focus();
+
+      // Group into "This Week", "Later", "Past"
+      var endOfWeek = new Date();
+      endOfWeek.setDate(endOfWeek.getDate() + (7 - endOfWeek.getDay()));
+      var endOfWeekISO = endOfWeek.toISOString().slice(0,10);
+
+      var groups = { past: [], week: [], later: [] };
+      events.forEach(function(ev) {
+        if (ev.date < today) groups.past.push(ev);
+        else if (ev.date <= endOfWeekISO) groups.week.push(ev);
+        else groups.later.push(ev);
+      });
+
+      function renderGroup(label, evList) {
+        if (!evList.length) return;
+        var lbl = document.createElement('div');
+        lbl.className = 'cal-group-label'; lbl.textContent = label;
+        container.appendChild(lbl);
+        evList.forEach(function(ev) { container.appendChild(buildEventCard(ev)); });
       }
-    });
+
+      renderGroup('This Week', groups.week);
+      renderGroup('Later', groups.later);
+      renderGroup('Past', groups.past);
+    }
+
+    function buildEventCard(ev) {
+      var d = new Date(ev.date + 'T12:00:00');
+      var month = d.toLocaleString('default',{month:'short'});
+      var day = d.getDate();
+      var card = document.createElement('div');
+      card.className = 'cal-event';
+      card.dataset.id = ev.id;
+      card.dataset.color = ev.color || 'blue';
+      card.innerHTML =
+        '<div class="cal-event-date">' +
+          '<span class="cal-event-month">' + escHtml(month) + '</span>' +
+          '<span class="cal-event-day">' + day + '</span>' +
+        '</div>' +
+        '<div class="cal-event-body">' +
+          '<div class="cal-event-title">' + escHtml(ev.title) + '</div>' +
+          (ev.time ? '<div class="cal-event-time">⏰ ' + escHtml(ev.time) + '</div>' : '') +
+          (ev.desc ? '<div class="cal-event-desc">' + escHtml(ev.desc) + '</div>' : '') +
+          (ev.recurringGroup ? '<div class="cal-event-recurring">↺ Recurring</div>' : '') +
+          '<div class="cal-event-actions">' +
+            '<button class="tt-btn tt-btn-sm tt-btn-ghost cal-edit-btn" data-id="' + ev.id + '" type="button">Edit</button>' +
+            '<button class="tt-btn tt-btn-sm tt-btn-danger cal-del-btn" data-id="' + ev.id + '" type="button">Delete</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="cal-swipe-del" data-id="' + ev.id + '">Delete</div>';
+
+      // Swipe-to-delete
+      var startX = 0;
+      card.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      card.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (dx < -60) {
+          // Close any other swiped cards
+          document.querySelectorAll('.cal-event.swiped-left').forEach(function(c) {
+            if (c !== card) c.classList.remove('swiped-left');
+          });
+          card.classList.toggle('swiped-left');
+        } else if (dx > 20) {
+          card.classList.remove('swiped-left');
+        }
+      }, { passive: true });
+
+      return card;
+    }
+
+    // Calendar list click delegation (edit / delete / swipe-del)
+    var calList = document.getElementById('cal-list');
+    if (calList) {
+      calList.addEventListener('click', function(e) {
+        var delBtn = e.target.closest('.cal-del-btn');
+        var editBtn = e.target.closest('.cal-edit-btn');
+        var swipeDel = e.target.closest('.cal-swipe-del');
+
+        if (delBtn || swipeDel) {
+          var id = (delBtn || swipeDel).dataset.id;
+          saveEvents(getEvents().filter(function(ev){ return ev.id !== id; }));
+          renderCalendar();
+          return;
+        }
+        if (editBtn) {
+          var id = editBtn.dataset.id;
+          var ev = getEvents().find(function(e){ return e.id === id; });
+          if (!ev) return;
+          editingCalId = id;
+          calTitleInput.value = ev.title;
+          if (calDateHidden) calDateHidden.value = ev.date;
+          var displayEl = document.getElementById('cal-date-display');
+          if (displayEl) {
+            var dt = new Date(ev.date + 'T12:00:00');
+            displayEl.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric',year:'numeric'});
+          }
+          if (ev.time) {
+            var parts = ev.time.split(':');
+            if (calHourSel) calHourSel.value = parts[0] || '';
+            if (calMinSel) calMinSel.value = parts[1] || '';
+          }
+          if (calColorSel) calColorSel.value = ev.color || 'blue';
+          calDescInput.value = ev.desc || '';
+          calAddBtn.textContent = 'Save Changes';
+          calTitleInput.focus();
+        }
+      });
+    }
 
     document.getElementById('cal-export-btn') && document.getElementById('cal-export-btn').addEventListener('click', function() {
       var events = getEvents().sort(function(a,b){ return a.date > b.date ? 1 : -1; });
-      var rows = [['Title','Date','Time','Description']].concat(events.map(function(e){
-        return [e.title, e.date, e.time||'', e.desc||''];
+      var rows = [['Title','Date','Time','Description','Color','Recurring']].concat(events.map(function(e){
+        return [e.title, e.date, e.time||'', e.desc||'', e.color||'', e.recurringGroup ? 'Yes' : 'No'];
       }));
       exportCSV('calendar-' + todayISO() + '.csv', rows);
+      showToast('Calendar exported.', 'info');
     });
 
     document.getElementById('cal-clear-past-btn') && document.getElementById('cal-clear-past-btn').addEventListener('click', function() {
       var today = todayISO();
-      var kept = getEvents().filter(function(e){ return e.date >= today; });
-      if (!confirm('Remove ' + (getEvents().length - kept.length) + ' past events?')) return;
+      var all = getEvents();
+      var kept = all.filter(function(e){ return e.date >= today; });
+      var removed = all.length - kept.length;
+      if (!removed) { showToast('No past events to remove.', 'info'); return; }
+      if (!confirm('Remove ' + removed + ' past event' + (removed===1?'':'s') + '?')) return;
       saveEvents(kept); renderCalendar();
     });
 
     /* ════════════════════════════════════════════════════════════
-       ATTENDANCE TRACKER
+       ATTENDANCE TRACKER v2
     ════════════════════════════════════════════════════════════ */
     function attMembersKey() { return teamKey('att_members'); }
     function attRecordKey(date) { return teamKey('att_rec_' + date); }
-
     function getMembers() { return lsGet(attMembersKey()) || []; }
     function saveMembers(m) { lsSet(attMembersKey(), m); }
     function getRecord(date) { return lsGet(attRecordKey(date)) || {}; }
     function saveRecord(date, rec) { lsSet(attRecordKey(date), rec); }
 
-    var attDate = document.getElementById('att-date');
-    if (attDate) attDate.value = todayISO();
+    // Init attendance date picker
+    var attDateHidden = document.getElementById('att-date');
+    if (attDateHidden) attDateHidden.value = todayISO();
+    buildMiniCal({
+      triggerId: 'att-date-trigger',
+      displayId: 'att-date-display',
+      hiddenId:  'att-date',
+      calId:     'att-mini-cal',
+      onSelect:  function(iso) { renderAttendance(); renderAttDateStrip(); }
+    });
+
+    function getAttDate() {
+      return (attDateHidden && attDateHidden.value) ? attDateHidden.value : todayISO();
+    }
+
+    // Find all dates that have attendance records
+    function getRecordedDates() {
+      var dates = [];
+      try {
+        var prefix = teamKey('att_rec_');
+        for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          if (key && key.indexOf(prefix) === 0) {
+            var iso = key.slice(prefix.length);
+            if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) dates.push(iso);
+          }
+        }
+      } catch(_) {}
+      return dates.sort().reverse();
+    }
+
+    // Calculate streak for a member
+    function calcStreak(name) {
+      var dates = getRecordedDates().sort();
+      var streak = 0;
+      var prevDate = null;
+      dates.forEach(function(iso) {
+        var rec = getRecord(iso);
+        if (rec[name]) {
+          if (!prevDate) { streak = 1; }
+          else {
+            var prev = new Date(prevDate + 'T12:00:00');
+            var curr = new Date(iso + 'T12:00:00');
+            var diff = (curr - prev) / 86400000;
+            streak = (diff <= 7) ? streak + 1 : 1; // within a week counts
+          }
+          prevDate = iso;
+        }
+      });
+      return streak;
+    }
+
+    function renderAttDateStrip() {
+      var strip = document.getElementById('att-date-strip');
+      if (!strip) return;
+      var dates = getRecordedDates().slice(0, 5);
+      var current = getAttDate();
+      strip.innerHTML = '';
+      if (!dates.length) return;
+      dates.forEach(function(iso) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'att-date-chip' + (iso === current ? ' active' : '');
+        var dt = new Date(iso + 'T12:00:00');
+        btn.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric'});
+        btn.addEventListener('click', function() {
+          if (attDateHidden) attDateHidden.value = iso;
+          var dispEl = document.getElementById('att-date-display');
+          if (dispEl) dispEl.textContent = dt.toLocaleDateString('default',{month:'short',day:'numeric',year:'numeric'});
+          renderAttendance();
+          renderAttDateStrip();
+        });
+        strip.appendChild(btn);
+      });
+    }
 
     function renderAttendance() {
       var tbody = document.getElementById('att-tbody');
       var statsEl = document.getElementById('att-stats');
       if (!tbody) return;
-      var date = attDate ? attDate.value : todayISO();
+      var date = getAttDate();
       var members = getMembers();
       var record = getRecord(date);
       tbody.innerHTML = '';
+
       if (!members.length) {
-        tbody.innerHTML = '<tr><td colspan="3" style="color:var(--muted);font-size:0.85rem;padding:1rem 0;">No members yet. Add names above.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="3" style="color:var(--muted);font-size:0.85rem;padding:1.2rem 0;">No members yet. Add names above.</td></tr>';
       } else {
         members.forEach(function(name) {
           var checked = !!record[name];
+          var streak = calcStreak(name);
           var tr = document.createElement('tr');
           tr.innerHTML =
-            '<td><div class="att-name-row"><span>' + escHtml(name) + '</span></div></td>' +
-            '<td style="text-align:center;"><button class="att-check" data-name="' + escHtml(name) + '" data-checked="' + checked + '" type="button" aria-label="' + (checked?'Present':'Absent') + ': ' + escHtml(name) + '">' + (checked ? '✓' : '×') + '</button></td>' +
+            '<td>' +
+              escHtml(name) +
+              (streak >= 2 ? '<span class="att-streak">🔥 ' + streak + '</span>' : '') +
+            '</td>' +
+            '<td style="text-align:center;">' +
+              '<button class="att-check" data-name="' + escHtml(name) + '" data-checked="' + checked + '" type="button" ' +
+              'aria-label="' + (checked?'Present':'Absent') + ': ' + escHtml(name) + '">' +
+              (checked ? '✓' : '×') + '</button>' +
+            '</td>' +
             '<td><button class="att-remove" data-name="' + escHtml(name) + '" type="button" aria-label="Remove ' + escHtml(name) + '">✕</button></td>';
           tbody.appendChild(tr);
         });
       }
-      // Stats
+
       var total = members.length;
       var present = members.filter(function(n){ return !!record[n]; }).length;
       var pct = total ? Math.round(100 * present / total) : 0;
       if (statsEl) statsEl.innerHTML =
         '<div class="att-stat"><div class="att-stat-val">' + present + '</div><div class="att-stat-lbl">Present</div></div>' +
-        '<div class="att-stat"><div class="att-stat-val">' + (total - present) + '</div><div class="att-stat-lbl">Absent</div></div>' +
+        '<div class="att-stat"><div class="att-stat-val">' + (total-present) + '</div><div class="att-stat-lbl">Absent</div></div>' +
         '<div class="att-stat"><div class="att-stat-val">' + pct + '%</div><div class="att-stat-lbl">Rate</div></div>' +
         '<div class="att-stat"><div class="att-stat-val">' + total + '</div><div class="att-stat-lbl">Total</div></div>';
     }
@@ -636,15 +1333,16 @@
     var attTableWrap = document.getElementById('att-table-wrap');
     if (attTableWrap) {
       attTableWrap.addEventListener('click', function(e) {
-        var check = e.target.closest('.att-check');
+        var check  = e.target.closest('.att-check');
         var remove = e.target.closest('.att-remove');
-        var date = attDate ? attDate.value : todayISO();
+        var date = getAttDate();
         if (check) {
           var name = check.dataset.name;
           var rec = getRecord(date);
           rec[name] = !rec[name];
           saveRecord(date, rec);
           renderAttendance();
+          renderAttDateStrip();
         }
         if (remove) {
           var name = remove.dataset.name;
@@ -655,41 +1353,48 @@
       });
     }
 
-    var attNewName = document.getElementById('att-new-name');
+    var attNewName   = document.getElementById('att-new-name');
     var attAddMember = document.getElementById('att-add-member');
     function addMember() {
       var n = (attNewName.value || '').trim();
       if (!n) return;
       var m = getMembers();
-      if (m.includes(n)) { alert(n + ' is already in the list.'); return; }
+      if (m.includes(n)) { showToast(n + ' is already in the list.'); return; }
       m.push(n);
       saveMembers(m);
       attNewName.value = '';
       renderAttendance();
     }
     if (attAddMember) attAddMember.addEventListener('click', addMember);
-    if (attNewName) attNewName.addEventListener('keydown', function(e){ if(e.key==='Enter') addMember(); });
-    if (attDate) attDate.addEventListener('change', renderAttendance);
+    if (attNewName)   attNewName.addEventListener('keydown', function(e){ if(e.key==='Enter') addMember(); });
 
+    // Pivoted CSV export (member rows, date columns)
     document.getElementById('att-export-btn') && document.getElementById('att-export-btn').addEventListener('click', function() {
-      var date = attDate ? attDate.value : todayISO();
       var members = getMembers();
-      var record = getRecord(date);
-      var rows = [['Name','Date','Present']].concat(members.map(function(n){
-        return [n, date, record[n] ? 'Yes' : 'No'];
+      var dates = getRecordedDates().slice(0, 30).reverse(); // oldest first
+      if (!dates.length) dates = [getAttDate()];
+      var header = ['Name'].concat(dates);
+      var rows = [header].concat(members.map(function(n) {
+        var row = [n];
+        dates.forEach(function(d) {
+          var rec = getRecord(d);
+          row.push(rec[n] ? '1' : '0');
+        });
+        return row;
       }));
-      exportCSV('attendance-' + date + '.csv', rows);
+      exportCSV('attendance-' + todayISO() + '.csv', rows);
+      showToast('Attendance exported.', 'info');
     });
 
     /* ════════════════════════════════════════════════════════════
-       RESOURCE LIBRARY  (IndexedDB)
+       RESOURCE LIBRARY v2  (IndexedDB)
     ════════════════════════════════════════════════════════════ */
-    var LIB_MAX = 50 * 1024 * 1024; // 50 MB
-    var libDB = null;
+    var LIB_MAX = 100 * 1024 * 1024; // 100 MB
+    var libDB   = null;
 
     function openLibDB(callback) {
       if (libDB) { callback(libDB); return; }
-      var req = indexedDB.open('tdb_lib', 1);
+      var req = indexedDB.open('tdb_lib', 2);
       req.onupgradeneeded = function(e) {
         var db = e.target.result;
         if (!db.objectStoreNames.contains('files')) {
@@ -697,7 +1402,7 @@
         }
       };
       req.onsuccess = function(e) { libDB = e.target.result; callback(libDB); };
-      req.onerror = function() { console.warn('IndexedDB unavailable'); };
+      req.onerror   = function()  { showToast('File storage unavailable.'); };
     }
 
     function libTeamPrefix() {
@@ -707,12 +1412,12 @@
 
     function getLibFiles(callback) {
       openLibDB(function(db) {
-        var tx = db.transaction('files', 'readonly');
+        var tx    = db.transaction('files','readonly');
         var store = tx.objectStore('files');
-        var req = store.getAll();
+        var req   = store.getAll();
         req.onsuccess = function() {
           var prefix = libTeamPrefix();
-          callback((req.result || []).filter(function(f){ return f.id.indexOf(prefix) === 0; }));
+          callback((req.result||[]).filter(function(f){ return f.id.indexOf(prefix)===0; }));
         };
       });
     }
@@ -724,73 +1429,171 @@
         openLibDB(function(db) {
           var prefix = libTeamPrefix();
           var id = prefix + Date.now() + '_' + file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
-          var tx = db.transaction('files', 'readwrite');
-          tx.objectStore('files').put({ id: id, name: file.name, size: file.size, type: file.type, data: data, added: Date.now() });
+          var tx = db.transaction('files','readwrite');
+          tx.objectStore('files').put({
+            id: id, name: file.name, size: file.size,
+            type: file.type, data: data,
+            added: Date.now(), tags: [], description: ''
+          });
           tx.oncomplete = function() { callback && callback(); };
         });
       };
       reader.readAsDataURL(file);
     }
 
+    function updateLibFile(id, patch) {
+      openLibDB(function(db) {
+        var tx = db.transaction('files','readwrite');
+        var store = tx.objectStore('files');
+        var req = store.get(id);
+        req.onsuccess = function() {
+          if (!req.result) return;
+          store.put(Object.assign({}, req.result, patch));
+          tx.oncomplete = function() { renderLibrary(); };
+        };
+      });
+    }
+
     function deleteLibFile(id, callback) {
       openLibDB(function(db) {
-        var tx = db.transaction('files', 'readwrite');
+        var tx = db.transaction('files','readwrite');
         tx.objectStore('files').delete(id);
         tx.oncomplete = callback;
       });
     }
 
     function renderLibrary() {
-      var grid = document.getElementById('lib-grid');
+      var grid     = document.getElementById('lib-grid');
+      var search   = (document.getElementById('lib-search') || {}).value || '';
+      var sort     = (document.getElementById('lib-sort') || {}).value || 'newest';
       if (!grid) return;
+
       getLibFiles(function(files) {
-        var totalBytes = files.reduce(function(s,f){ return s + (f.size||0); }, 0);
+        // Quota
+        var totalBytes = files.reduce(function(s,f){ return s+(f.size||0); }, 0);
         var pct = Math.min(100, Math.round(100 * totalBytes / LIB_MAX));
         var fill = document.getElementById('lib-quota-fill');
         var text = document.getElementById('lib-quota-text');
         if (fill) fill.style.width = pct + '%';
-        if (text) text.textContent = fmtSize(totalBytes) + ' used of 50 MB';
+        if (text) text.textContent = fmtSize(totalBytes) + ' used of 100 MB';
+
+        // Filter
+        var q = search.toLowerCase();
+        if (q) files = files.filter(function(f) {
+          return f.name.toLowerCase().includes(q) ||
+                 (f.description||'').toLowerCase().includes(q) ||
+                 (f.tags||[]).some(function(t){ return t.toLowerCase().includes(q); });
+        });
+
+        // Sort
+        if (sort === 'newest') files.sort(function(a,b){ return b.added - a.added; });
+        else if (sort === 'az') files.sort(function(a,b){ return a.name.localeCompare(b.name); });
+        else files.sort(function(a,b){
+          var ta = (a.tags||[]).join(','); var tb = (b.tags||[]).join(',');
+          return ta.localeCompare(tb);
+        });
 
         if (!files.length) {
-          grid.innerHTML = '<p class="lib-empty" style="grid-column:1/-1;">No files yet. Upload above.</p>';
+          grid.innerHTML = '<p class="lib-empty" style="grid-column:1/-1;">' +
+            (q ? 'No files match your search.' : 'No files yet. Upload above.') + '</p>';
           return;
         }
-        files.sort(function(a,b){ return b.added - a.added; });
+
         grid.innerHTML = '';
         files.forEach(function(f) {
           var isPDF = /pdf/i.test(f.type);
           var isImg = /image/i.test(f.type);
-          var icon = isPDF ? '📄' : isImg ? '🖼' : '📎';
+          var icon  = isPDF ? '📄' : isImg ? '🖼' : /doc/i.test(f.type) ? '📝' : '📎';
+
           var card = document.createElement('div');
           card.className = 'lib-card';
-          card.innerHTML =
-            '<div class="lib-icon">' + icon + '</div>' +
-            '<div class="lib-name">' + escHtml(f.name) + '</div>' +
+
+          // Thumbnail for images
+          var topHtml = '';
+          if (isImg) {
+            topHtml = '<img class="lib-thumb" src="' + escHtml(f.data) + '" alt="' + escHtml(f.name) + '" loading="lazy">';
+          } else {
+            topHtml = '<div class="lib-icon">' + icon + '</div>';
+          }
+
+          // Tag chips
+          var tagsHtml = (f.tags||[]).map(function(tag) {
+            return '<span class="lib-tag">' + escHtml(tag) +
+              '<span class="lib-tag-del" data-tag-del="' + escHtml(tag) + '" data-fid="' + escHtml(f.id) + '" title="Remove tag" style="cursor:pointer;"> ×</span></span>';
+          }).join('');
+          tagsHtml += '<input class="lib-tag-input" type="text" placeholder="＋tag" aria-label="Add tag" data-fid="' + escHtml(f.id) + '" maxlength="20">';
+
+          card.innerHTML = topHtml +
+            '<div class="lib-name" contenteditable="true" spellcheck="false" data-fid="' + escHtml(f.id) + '" title="Click to rename">' + escHtml(f.name) + '</div>' +
             '<div class="lib-size">' + fmtSize(f.size) + '</div>' +
+            '<div class="lib-tags">' + tagsHtml + '</div>' +
             '<div class="lib-actions">' +
               '<a class="tt-btn tt-btn-sm" href="' + escHtml(f.data) + '" download="' + escHtml(f.name) + '" aria-label="Download ' + escHtml(f.name) + '">⬇ Get</a>' +
-              '<button class="tt-btn tt-btn-sm tt-btn-danger lib-del-btn" data-id="' + escHtml(f.id) + '" type="button" aria-label="Delete ' + escHtml(f.name) + '">✕</button>' +
+              '<button class="tt-btn tt-btn-sm tt-btn-danger lib-del-btn" data-id="' + escHtml(f.id) + '" type="button" aria-label="Delete">✕</button>' +
             '</div>';
+
+          // Edit-title on blur
+          var nameEl = card.querySelector('.lib-name');
+          nameEl.addEventListener('blur', function() {
+            var newName = nameEl.textContent.trim();
+            if (newName && newName !== f.name) updateLibFile(f.id, { name: newName });
+          });
+          nameEl.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { e.preventDefault(); nameEl.blur(); }
+          });
+
+          // Tag add on Enter
+          var tagInput = card.querySelector('.lib-tag-input');
+          tagInput.addEventListener('keydown', function(e) {
+            if (e.key !== 'Enter') return;
+            var val = tagInput.value.trim().toLowerCase().replace(/[^a-z0-9- ]/g,'');
+            if (!val) return;
+            var tags = (f.tags||[]).slice();
+            if (!tags.includes(val)) tags.push(val);
+            updateLibFile(f.id, { tags: tags });
+          });
+
+          // Tag delete
+          card.querySelectorAll('[data-tag-del]').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var tag = btn.dataset.tagDel;
+              var tags = (f.tags||[]).filter(function(t){ return t !== tag; });
+              updateLibFile(f.id, { tags: tags });
+            });
+          });
+
+          // Delete file
+          var delBtn = card.querySelector('.lib-del-btn');
+          delBtn.addEventListener('click', function() {
+            if (!confirm('Delete ' + f.name + '?')) return;
+            deleteLibFile(f.id, function() { renderLibrary(); });
+          });
+
           grid.appendChild(card);
         });
       });
     }
 
-    var libInput = document.getElementById('lib-file-input');
-    var libProgress = document.getElementById('lib-progress-bar');
-    var libProgressWrap = document.getElementById('lib-progress-wrap');
+    var libInput       = document.getElementById('lib-file-input');
+    var libProgressBar = document.getElementById('lib-progress-bar');
+    var libProgressWrap= document.getElementById('lib-progress-wrap');
+    var libSearch      = document.getElementById('lib-search');
+    var libSort        = document.getElementById('lib-sort');
+
+    if (libSearch) libSearch.addEventListener('input', renderLibrary);
+    if (libSort)   libSort.addEventListener('change', renderLibrary);
 
     if (libInput) {
       libInput.addEventListener('change', function() {
         var files = Array.from(libInput.files || []);
         if (!files.length) return;
         libInput.value = '';
-        // Check total size first
         getLibFiles(function(existing) {
-          var usedBytes = existing.reduce(function(s,f){ return s + (f.size||0); }, 0);
-          var addBytes  = files.reduce(function(s,f){ return s + f.size; }, 0);
-          if (usedBytes + addBytes > LIB_MAX) {
-            alert('Upload would exceed the 50 MB limit for this team. Free up space by deleting files first.');
+          var used = existing.reduce(function(s,f){ return s+(f.size||0); }, 0);
+          var adding = files.reduce(function(s,f){ return s+f.size; }, 0);
+          if (used + adding > LIB_MAX) {
+            showToast('Upload would exceed 100 MB. Delete some files first.');
             return;
           }
           if (libProgressWrap) libProgressWrap.style.display = 'block';
@@ -798,11 +1601,11 @@
           files.forEach(function(file) {
             addLibFile(file, function() {
               done++;
-              if (libProgress) libProgress.style.width = Math.round(100 * done / files.length) + '%';
+              if (libProgressBar) libProgressBar.style.width = Math.round(100*done/files.length) + '%';
               if (done === files.length) {
                 setTimeout(function() {
                   if (libProgressWrap) libProgressWrap.style.display = 'none';
-                  if (libProgress) libProgress.style.width = '0';
+                  if (libProgressBar) libProgressBar.style.width = '0';
                 }, 600);
                 renderLibrary();
               }
@@ -812,109 +1615,349 @@
       });
     }
 
-    document.getElementById('lib-grid') && document.getElementById('lib-grid').addEventListener('click', function(e) {
-      var btn = e.target.closest('.lib-del-btn');
-      if (!btn) return;
-      if (!confirm('Delete this file?')) return;
-      deleteLibFile(btn.dataset.id, function() { renderLibrary(); });
-    });
-
     /* ════════════════════════════════════════════════════════════
-       PRAYER CHAIN
+       PRAYER CHAIN v2
     ════════════════════════════════════════════════════════════ */
-    var CHAIN_TTL = 7 * 24 * 3600 * 1000; // 7 days
+    var CHAIN_TTL = 30 * 24 * 3600 * 1000; // 30 days
+    var URGENCY_ORDER = { high: 0, medium: 1, low: 2 };
 
     function getChain() {
       var items = lsGet(teamKey('chain')) || [];
-      // Expire old items
       var now = Date.now();
-      items = items.filter(function(i){ return (now - i.created) < CHAIN_TTL; });
-      return items;
+      return items.filter(function(i){ return (now - i.created) < CHAIN_TTL; });
     }
     function saveChain(items) { lsSet(teamKey('chain'), items); }
 
     function renderChain() {
       var list = document.getElementById('chain-list');
+      var answeredSection = document.getElementById('chain-answered-section');
+      var answeredList    = document.getElementById('chain-answered-list');
       if (!list) return;
-      var items = getChain().sort(function(a,b){ return b.created - a.created; });
-      if (!items.length) {
-        list.innerHTML = '<p style="color:var(--muted);font-size:0.88rem;padding:1.5rem 0;text-align:center;">No active requests.</p>';
-        return;
-      }
-      list.innerHTML = '';
-      items.forEach(function(item) {
-        var card = document.createElement('div');
-        card.className = 'chain-card' + (item.prayed ? ' prayed' : '');
-        var age = Math.floor((Date.now() - item.created) / (1000 * 3600));
-        var expire = Math.ceil((CHAIN_TTL - (Date.now() - item.created)) / (1000 * 3600 * 24));
-        card.innerHTML =
-          '<div class="chain-title">' + (item.prayed ? '✅ ' : '🔴 ') + escHtml(item.title) + '</div>' +
-          (item.desc ? '<div class="chain-desc">' + escHtml(item.desc) + '</div>' : '') +
-          '<div class="chain-meta">Added ' + age + 'h ago · expires in ' + expire + ' day' + (expire===1?'':'s') + '</div>' +
-          (item.prayedBy ? '<div class="chain-prayed-by">Prayed ' + item.prayedBy.length + ' time' + (item.prayedBy.length===1?'':'s') + '</div>' : '') +
-          '<div class="chain-actions">' +
-            (!item.prayed ? '<button class="tt-btn tt-btn-sm" data-chain-pray="' + item.id + '" type="button">I Prayed ✓</button>' : '') +
-            '<button class="tt-btn tt-btn-sm tt-btn-danger" data-chain-del="' + item.id + '" type="button">Remove</button>' +
-          '</div>';
-        list.appendChild(card);
+
+      var all = getChain();
+      var active   = all.filter(function(i){ return !i.answeredAt; });
+      var answered = all.filter(function(i){ return !!i.answeredAt; });
+
+      // Sort active: urgency first, then created desc
+      active.sort(function(a,b) {
+        var ua = URGENCY_ORDER[a.urgency||'low'];
+        var ub = URGENCY_ORDER[b.urgency||'low'];
+        if (ua !== ub) return ua - ub;
+        return b.created - a.created;
       });
+
+      list.innerHTML = '';
+      if (!active.length) {
+        list.innerHTML = '<p style="color:var(--muted);font-size:0.88rem;padding:1.5rem 0;text-align:center;">No active requests.</p>';
+      } else {
+        active.forEach(function(item) {
+          list.appendChild(buildChainCard(item, false));
+        });
+      }
+
+      // Answered section
+      if (answeredSection) answeredSection.style.display = answered.length ? 'block' : 'none';
+      if (answeredList && answeredList.style.display !== 'none') {
+        answeredList.innerHTML = '';
+        answered.forEach(function(item) { answeredList.appendChild(buildChainCard(item, true)); });
+      }
     }
 
-    var chainTitleInput = document.getElementById('chain-title');
-    var chainDescInput  = document.getElementById('chain-desc');
-    var chainAddBtn     = document.getElementById('chain-add-btn');
+    function buildChainCard(item, isAnswered) {
+      var card = document.createElement('div');
+      var urg  = item.urgency || 'low';
+      card.className = 'chain-card urgency-' + urg + (isAnswered ? ' chain-answered' : '');
+      var age    = Math.floor((Date.now() - item.created) / (1000*3600));
+      var expire = Math.ceil((CHAIN_TTL - (Date.now() - item.created)) / (1000*3600*24));
+      var urgIcon = urg === 'high' ? '🔔 ' : urg === 'medium' ? '🟠 ' : '';
+
+      card.innerHTML =
+        '<div class="chain-title">' + urgIcon + escHtml(item.title) + (isAnswered ? ' ✅' : '') + '</div>' +
+        (item.poster ? '<div class="chain-poster">— ' + escHtml(item.poster) + '</div>' : '') +
+        (item.desc   ? '<div class="chain-desc">' + escHtml(item.desc) + '</div>' : '') +
+        '<div class="chain-meta">Added ' + age + 'h ago · expires in ' + expire + 'd</div>' +
+        ((item.prayedBy && item.prayedBy.length) ? '<div class="chain-prayed-by">Prayed ' + item.prayedBy.length + ' time' + (item.prayedBy.length===1?'':'s') + '</div>' : '') +
+        '<div class="chain-actions">' +
+          (!isAnswered
+            ? '<button class="tt-btn tt-btn-sm" data-chain-pray="' + item.id + '" type="button">I Prayed ✓</button>' +
+              '<button class="tt-btn tt-btn-sm tt-btn-green" data-chain-answer="' + item.id + '" type="button">Mark Answered</button>'
+            : '') +
+          '<button class="tt-btn tt-btn-sm tt-btn-danger" data-chain-del="' + item.id + '" type="button">Remove</button>' +
+        '</div>';
+      return card;
+    }
+
+    var chainTitleInput  = document.getElementById('chain-title');
+    var chainDescInput   = document.getElementById('chain-desc');
+    var chainPosterInput = document.getElementById('chain-poster');
+    var chainUrgency     = document.getElementById('chain-urgency');
+    var chainAddBtn      = document.getElementById('chain-add-btn');
 
     if (chainAddBtn) chainAddBtn.addEventListener('click', function() {
       var title = (chainTitleInput.value || '').trim();
       if (!title) return;
+      var urg = chainUrgency ? chainUrgency.value : 'low';
+      var poster = chainPosterInput ? chainPosterInput.value.trim() : '';
       var items = getChain();
-      items.unshift({ id: Date.now().toString(), title: title, desc: chainDescInput.value.trim(), created: Date.now(), prayed: false, prayedBy: [] });
+      items.unshift({
+        id: Date.now().toString(), title: title,
+        desc: chainDescInput.value.trim(), poster: poster,
+        urgency: urg, created: Date.now(),
+        prayed: false, prayedBy: [], answeredAt: null
+      });
       saveChain(items);
       chainTitleInput.value = ''; chainDescInput.value = '';
+      if (chainPosterInput) chainPosterInput.value = '';
+      if (chainUrgency) chainUrgency.value = 'low';
+      if (urg === 'high') {
+        showToast('🔔 Urgent: ' + title);
+        console.info('Urgent prayer request:', title);
+      }
       renderChain();
     });
 
-    document.getElementById('chain-list') && document.getElementById('chain-list').addEventListener('click', function(e) {
-      var prayBtn = e.target.closest('[data-chain-pray]');
-      var delBtn  = e.target.closest('[data-chain-del]');
-      if (prayBtn) {
-        var id = prayBtn.dataset.chainPray;
-        var items = getChain().map(function(i){
-          if (i.id !== id) return i;
-          var pb = i.prayedBy || [];
-          pb.push(Date.now());
-          return Object.assign({}, i, { prayed: true, prayedBy: pb });
-        });
-        saveChain(items); renderChain();
-      }
-      if (delBtn) {
-        if (!confirm('Remove this prayer request?')) return;
-        saveChain(getChain().filter(function(i){ return i.id !== delBtn.dataset.chainDel; }));
-        renderChain();
-      }
-    });
-
-    /* ── CSV export helper ────────────────────────────────────── */
-    function exportCSV(filename, rows) {
-      var csv = rows.map(function(row){
-        return row.map(function(cell){
-          var s = String(cell || '').replace(/"/g,'""');
-          return /[,"\n]/.test(s) ? '"' + s + '"' : s;
-        }).join(',');
-      }).join('\r\n');
-      var blob = new Blob([csv], { type: 'text/csv' });
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url; a.download = filename;
-      document.body.appendChild(a); a.click();
-      setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1000);
+    var chainListEl = document.getElementById('chain-list');
+    if (chainListEl) {
+      chainListEl.addEventListener('click', function(e) {
+        var prayBtn   = e.target.closest('[data-chain-pray]');
+        var ansBtn    = e.target.closest('[data-chain-answer]');
+        var delBtn    = e.target.closest('[data-chain-del]');
+        if (prayBtn) {
+          var id = prayBtn.dataset.chainPray;
+          var items = getChain().map(function(i) {
+            if (i.id !== id) return i;
+            var pb = (i.prayedBy||[]).slice(); pb.push(Date.now());
+            return Object.assign({}, i, { prayed: true, prayedBy: pb });
+          });
+          saveChain(items); renderChain();
+        }
+        if (ansBtn) {
+          var id = ansBtn.dataset.chainAnswer;
+          var items = getChain().map(function(i) {
+            return i.id === id ? Object.assign({}, i, { answeredAt: Date.now() }) : i;
+          });
+          saveChain(items); renderChain();
+          showToast('Marked answered. God is faithful. 🙏', 'info');
+        }
+        if (delBtn) {
+          if (!confirm('Remove this prayer request?')) return;
+          saveChain(getChain().filter(function(i){ return i.id !== delBtn.dataset.chainDel; }));
+          renderChain();
+        }
+      });
     }
 
-    /* ── Initial render ───────────────────────────────────────── */
+    // Also wire answered panel event delegation
+    var answeredListEl = document.getElementById('chain-answered-list');
+    if (answeredListEl) {
+      answeredListEl.addEventListener('click', function(e) {
+        var delBtn = e.target.closest('[data-chain-del]');
+        if (delBtn) {
+          if (!confirm('Remove this prayer request?')) return;
+          saveChain(getChain().filter(function(i){ return i.id !== delBtn.dataset.chainDel; }));
+          renderChain();
+        }
+      });
+    }
+
+    var answeredToggle = document.getElementById('chain-answered-toggle');
+    var answeredListWrap = document.getElementById('chain-answered-list');
+    if (answeredToggle) {
+      answeredToggle.addEventListener('click', function() {
+        var shown = answeredListWrap.style.display !== 'none';
+        answeredListWrap.style.display = shown ? 'none' : 'block';
+        answeredToggle.textContent = (shown ? '▸' : '▾') + ' ' + (shown ? 'Show' : 'Hide') + ' answered prayers';
+        if (!shown) {
+          answeredListWrap.innerHTML = '';
+          var answered = getChain().filter(function(i){ return !!i.answeredAt; });
+          answered.forEach(function(item) { answeredListWrap.appendChild(buildChainCard(item, true)); });
+        }
+      });
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       VERSE PACKS
+    ════════════════════════════════════════════════════════════ */
+    var VP_KEY_PACKS  = function() { return teamKey('vp_packs'); };
+    var VP_KEY_ACTIVE = function() { return teamKey('vp_active'); };
+    var VP_PW_KEY     = 'tdb_tt_vp_pw';
+    var vpUnlocked    = false;
+
+    function getPacks()     { return lsGet(VP_KEY_PACKS())  || []; }
+    function savePacks(p)   { lsSet(VP_KEY_PACKS(), p); }
+    function getActivePack(){ return lsGet(VP_KEY_ACTIVE()) || null; }
+    function setActivePack(id) { lsSet(VP_KEY_ACTIVE(), id); }
+
+    function parseVersePack(text) {
+      var lines = text.split(/\n/).map(function(l){ return l.trim(); }).filter(Boolean);
+      var refRe = /^([1-3]?\s*[A-Za-z]+\.?\s+\d+:\d+)\s+(.+)/;
+      return lines.map(function(line) {
+        var m = line.match(refRe);
+        return m ? { ref: m[1].trim(), text: m[2].trim() } : { ref: '', text: line };
+      }).filter(function(v){ return v.text; });
+    }
+
+    function getTodayPackVerse(pack) {
+      if (!pack || !pack.verses || !pack.verses.length) return null;
+      var epoch = daysSinceEpoch(todayISO());
+      return pack.verses[epoch % pack.verses.length];
+    }
+
+    function renderVpTodayVerse() {
+      var wrap = document.getElementById('vp-today-wrap');
+      if (!wrap) return;
+      var activeId = getActivePack();
+      var packs = getPacks();
+      var active = packs.find(function(p){ return p.id === activeId; });
+      if (!active) { wrap.innerHTML = ''; return; }
+      var verse = getTodayPackVerse(active);
+      if (!verse) { wrap.innerHTML = ''; return; }
+      wrap.innerHTML =
+        '<div class="vp-verse-today">' +
+          (verse.ref ? '<div class="vp-verse-today-ref">' + escHtml(verse.ref) + ' KJV</div>' : '') +
+          '<div class="vp-verse-today-text">"' + escHtml(verse.text) + '"</div>' +
+          '<div class="vp-verse-today-pack">From: ' + escHtml(active.name) + '</div>' +
+        '</div>';
+    }
+
+    function renderVersePacks() {
+      renderVpTodayVerse();
+      if (!vpUnlocked) return;
+      var list = document.getElementById('vp-pack-list');
+      if (!list) return;
+      var packs  = getPacks();
+      var active = getActivePack();
+      if (!packs.length) {
+        list.innerHTML = '<p class="section-note">No packs saved yet. Paste verses above and save.</p>';
+        return;
+      }
+      list.innerHTML = '';
+      packs.forEach(function(pack) {
+        var isActive = pack.id === active;
+        var div = document.createElement('div');
+        div.className = 'vp-pack-card';
+        div.innerHTML =
+          '<div>' +
+            '<div class="vp-pack-name">' + escHtml(pack.name) + '</div>' +
+            '<div class="vp-pack-count">' + pack.verses.length + ' verse' + (pack.verses.length===1?'':'s') + '</div>' +
+          '</div>' +
+          (isActive ? '<span class="vp-pack-active">● Active</span>' : '') +
+          '<div class="vp-pack-actions">' +
+            (!isActive ? '<button class="tt-btn tt-btn-sm tt-btn-green" data-vp-set="' + pack.id + '" type="button">Set Active</button>' : '') +
+            '<button class="tt-btn tt-btn-sm tt-btn-ghost" data-vp-export="' + pack.id + '" type="button">Export JSON</button>' +
+            '<button class="tt-btn tt-btn-sm tt-btn-danger" data-vp-del="' + pack.id + '" type="button">Delete</button>' +
+          '</div>';
+        list.appendChild(div);
+      });
+    }
+
+    // Pack list click delegation
+    var vpListEl = document.getElementById('vp-pack-list');
+    if (vpListEl) {
+      vpListEl.addEventListener('click', function(e) {
+        var setBtn = e.target.closest('[data-vp-set]');
+        var expBtn = e.target.closest('[data-vp-export]');
+        var delBtn = e.target.closest('[data-vp-del]');
+        if (setBtn) {
+          setActivePack(setBtn.dataset.vpSet);
+          renderVersePacks();
+          showToast('Active pack updated.', 'info');
+        }
+        if (expBtn) {
+          var pack = getPacks().find(function(p){ return p.id === expBtn.dataset.vpExport; });
+          if (!pack) return;
+          var blob = new Blob([JSON.stringify(pack, null, 2)], { type: 'application/json' });
+          var url  = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url; a.download = pack.name.replace(/[^a-z0-9]/gi,'_') + '.json';
+          document.body.appendChild(a); a.click();
+          setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1000);
+        }
+        if (delBtn) {
+          if (!confirm('Delete this pack?')) return;
+          savePacks(getPacks().filter(function(p){ return p.id !== delBtn.dataset.vpDel; }));
+          renderVersePacks();
+        }
+      });
+    }
+
+    // Save new pack
+    var vpSaveBtn = document.getElementById('vp-save-btn');
+    if (vpSaveBtn) vpSaveBtn.addEventListener('click', function() {
+      var name  = (document.getElementById('vp-pack-name').value || '').trim();
+      var text  = (document.getElementById('vp-pack-text').value || '').trim();
+      if (!name || !text) { showToast('Pack name and verses are required.'); return; }
+      var verses = parseVersePack(text);
+      if (!verses.length) { showToast('No verses found. Check the format.'); return; }
+      var packs = getPacks();
+      packs.push({ id: Date.now().toString(), name: name, verses: verses });
+      savePacks(packs);
+      document.getElementById('vp-pack-name').value = '';
+      document.getElementById('vp-pack-text').value = '';
+      renderVersePacks();
+      showToast('Pack saved — ' + verses.length + ' verses.', 'info');
+    });
+
+    // Import JSON
+    var vpImportFile = document.getElementById('vp-import-file');
+    if (vpImportFile) vpImportFile.addEventListener('change', function() {
+      var file = vpImportFile.files[0];
+      if (!file) return;
+      vpImportFile.value = '';
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          var pack = JSON.parse(e.target.result);
+          if (!pack.name || !Array.isArray(pack.verses)) throw new Error('Invalid');
+          pack.id = Date.now().toString();
+          var packs = getPacks();
+          packs.push(pack);
+          savePacks(packs);
+          renderVersePacks();
+          showToast('Imported: ' + pack.name, 'info');
+        } catch(_) { showToast('Invalid JSON pack file.'); }
+      };
+      reader.readAsText(file);
+    });
+
+    // Password gate
+    var vpUnlockBtn = document.getElementById('vp-unlock-btn');
+    var vpPwInput   = document.getElementById('vp-pw-input');
+    var vpPwErr     = document.getElementById('vp-pw-err');
+    if (vpUnlockBtn) vpUnlockBtn.addEventListener('click', function() {
+      var pw = (vpPwInput.value || '').trim();
+      var stored = (function(){ try { return localStorage.getItem(VP_PW_KEY) || 'battle2026'; } catch(_){ return 'battle2026'; } })();
+      if (pw === stored) {
+        vpUnlocked = true;
+        document.getElementById('vp-gate').style.display = 'none';
+        document.getElementById('vp-admin').style.display = 'block';
+        if (vpPwErr) vpPwErr.style.display = 'none';
+        renderVersePacks();
+      } else {
+        if (vpPwErr) vpPwErr.style.display = 'block';
+      }
+    });
+    if (vpPwInput) vpPwInput.addEventListener('keydown', function(e){ if(e.key==='Enter') vpUnlockBtn.click(); });
+
+    // Change password
+    var vpChangePwBtn = document.getElementById('vp-change-pw-btn');
+    if (vpChangePwBtn) vpChangePwBtn.addEventListener('click', function() {
+      var newPw = (document.getElementById('vp-new-pw').value || '').trim();
+      if (!newPw || newPw.length < 4) { showToast('Password must be at least 4 characters.'); return; }
+      try { localStorage.setItem(VP_PW_KEY, newPw); } catch(_) {}
+      document.getElementById('vp-new-pw').value = '';
+      showToast('Password updated.', 'info');
+    });
+
+    /* ════════════════════════════════════════════════════════════
+       INITIAL RENDER
+    ════════════════════════════════════════════════════════════ */
     renderCalendar();
     renderAttendance();
+    renderAttDateStrip();
     renderLibrary();
     renderChain();
+    renderVpTodayVerse();
 
   })();
   </script>

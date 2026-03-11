@@ -3,12 +3,7 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NFQ5GWJXCB');
-  </script>
+  <script src="ga-config.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Bible Tool • Today's Daily Battle</title>
@@ -96,6 +91,54 @@
     .bible-tool #whos-this-inline-input input { flex: 1; min-width: 10rem; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(212,175,55,0.35); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; }
     .bible-tool #whos-this-inline-input input:focus { outline: 2px solid rgba(212,175,55,0.5); outline-offset: 2px; }
     .bible-tool .whos-this-no-match { font-size: 1rem; color: #94a3b8; font-style: italic; line-height: 1.5; }
+    /* Ask the Word — Bible Q&A */
+    .bible-qa {
+      background: #1a1a1a;
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .bible-qa-title { font-size: 1.25rem; margin: 0 0 1rem; color: #d4af37; font-weight: 600; }
+    .qa-input-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    #bible-qa-search {
+      flex: 1;
+      min-width: 12rem;
+      font-size: 1.2rem;
+      padding: 12px;
+      background: #222;
+      color: #fff;
+      border: 1px solid rgba(212,175,55,0.4);
+      border-radius: 4px;
+    }
+    #bible-qa-search:focus { outline: 2px solid rgba(212,175,55,0.6); outline-offset: 2px; }
+    #bible-qa-search::placeholder { color: #94a3b8; }
+    .qa-btn {
+      background: #d4af37;
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .qa-btn:hover { background: #e3bc67; }
+    .qa-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .qa-result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #111;
+      border-left: 4px solid #d4af37;
+      border-radius: 4px;
+    }
+    .qa-result.hidden { display: none; }
+    .qa-result .qa-sources { margin-top: 0.75rem; font-size: 0.9rem; color: #94a3b8; }
+    .qa-result .qa-sources a { color: #d4af37; text-decoration: none; }
+    .qa-result .qa-sources a:hover { text-decoration: underline; }
+    .prayer-prompt { color: #888; font-style: italic; margin-top: 15px; }
+    .prayer-prompt.hidden { display: none; }
+    .prayer-prompt .copy-btn { background: none; border: none; color: #d4af37; cursor: pointer; font-style: normal; }
+    .prayer-prompt .copy-btn:hover { text-decoration: underline; }
   </style>
 </head>
 <body class="dark-mode">
@@ -221,6 +264,23 @@
       <div class="content-inner bible-tool">
         <h1 class="section-divider">Bible Tool</h1>
         <p class="section-note">Look up any verse, take notes, track your reading — KJV, no account needed. Sign in to sync across devices.</p>
+
+        <!-- Ask the Word — Bible Q&A (RAG) -->
+        <section class="bible-qa" aria-label="Ask the Word">
+          <h2 class="bible-qa-title">✝️ Ask the Word</h2>
+          <div class="qa-input-group">
+            <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question">
+            <button type="button" class="qa-btn" id="bible-qa-btn">Ask</button>
+          </div>
+          <div id="qa-result" class="qa-result hidden" role="region" aria-live="polite" aria-label="Bible Q&A answer">
+            <!-- RAG answer loads here -->
+          </div>
+          <div class="prayer-prompt hidden" id="qa-prayer-prompt" aria-live="polite">
+            Prayer prompt: <span class="prompt-text"></span>
+            <button type="button" class="copy-btn" aria-label="Copy prayer prompt">Copy</button>
+          </div>
+        </section>
+
         <section class="verse-card glass" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0">Verse Mode</h2>
           <div class="lookup-controls">
@@ -1363,6 +1423,87 @@
       var el = document.getElementById('lookup-result');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     };
+  })();
+
+  // Ask the Word — Bible Q&A (RAG)
+  (function wireBibleQa() {
+    var input = document.getElementById('bible-qa-search');
+    var btn = document.getElementById('bible-qa-btn');
+    var result = document.getElementById('qa-result');
+    var prayerEl = document.getElementById('qa-prayer-prompt');
+    if (!input || !result) return;
+    function invokeBibleQa(query) {
+      var cfg = window.TDB_CONFIG || {};
+      var url = (cfg.SUPABASE_URL || '').replace(/\/$/, '') + '/functions/v1/bible-qa';
+      var key = cfg.SUPABASE_ANON_KEY || '';
+      if (!url || !key) return Promise.reject(new Error('Config missing'));
+      return fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
+        body: JSON.stringify({ query: query })
+      }).then(function (r) { return r.json(); });
+    }
+    function runQa() {
+      var query = (input.value || '').trim();
+      if (!query) return;
+      var client = (typeof supabaseClient !== 'undefined' && supabaseClient) ? supabaseClient : (window.__tdbSupabaseClient || null);
+      var useFetch = !client || !client.functions;
+      if (useFetch) {
+        var cfg = window.TDB_CONFIG || {};
+        if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+          if (typeof showEliteToast === 'function') showEliteToast('Search coming soon — try a verse lookup below.');
+          return;
+        }
+      }
+      if (btn) { btn.disabled = true; btn.textContent = '…'; }
+      result.classList.add('hidden');
+      result.innerHTML = '<p class="empty">Seeking the Word…</p>';
+      result.classList.remove('hidden');
+      var req = useFetch ? invokeBibleQa(query) : client.functions.invoke('bible-qa', { body: { query: query } }).then(function (r) { return r.data || r; });
+      req
+        .then(function (res) {
+          if (btn) { btn.disabled = false; btn.textContent = 'Ask'; }
+          var data = res;
+          if (!data || !data.answer) {
+            result.innerHTML = '<p class="empty">Not sure—try "hope" or read John 14.</p>';
+            if (prayerEl) prayerEl.classList.add('hidden');
+            return;
+          }
+          var sources = Array.isArray(data.sources) ? data.sources : [];
+          var sourcesHtml = sources.length
+            ? '<p class="qa-sources">Sources: ' + sources.map(function (ref) {
+                var safe = String(ref || '').trim();
+                if (!safe) return '';
+                return '<a href="bible-tool.html?ref=' + encodeURIComponent(safe) + '">' + escapeHtml(safe) + '</a>';
+              }).filter(Boolean).join(', ') + '</p>'
+            : '';
+          result.innerHTML = '<p class="qa-answer">' + escapeHtml(data.answer) + '</p>' + sourcesHtml;
+          result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          var promptText = data.prayer_prompt ? String(data.prayer_prompt).trim() : null;
+          if (prayerEl && promptText) {
+            prayerEl.querySelector('.prompt-text').textContent = '\u201c' + promptText + '\u201d';
+            prayerEl.classList.remove('hidden');
+            var copyBtn = prayerEl.querySelector('.copy-btn');
+            if (copyBtn) {
+              copyBtn.onclick = function () {
+                navigator.clipboard.writeText(promptText).then(function () {
+                  if (typeof showEliteToast === 'function') showEliteToast('Prompt copied');
+                }).catch(function () {});
+              };
+            }
+          } else if (prayerEl) {
+            prayerEl.classList.add('hidden');
+          }
+        })
+        .catch(function (err) {
+          if (btn) { btn.disabled = false; btn.textContent = 'Ask'; }
+          result.innerHTML = '<p class="empty">Couldn\'t answer—try again or use verse lookup below.</p>';
+          if (prayerEl) prayerEl.classList.add('hidden');
+          if (typeof showEliteToast === 'function') showEliteToast('Couldn\'t answer—try again.');
+        });
+    }
+    if (input) input.addEventListener('keypress', function (e) { if (e.key === 'Enter') runQa(); });
+    if (btn) btn.addEventListener('click', runQa);
   })();
 })();
   </script>

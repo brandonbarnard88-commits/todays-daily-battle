@@ -29,6 +29,10 @@
 /church/ /church/index.html 200!
 /church/daily /church/daily.html 200!
 
+# Battle Plans
+/plans /plans.html 200!
+/plans/ /plans.html 200!
+
 # Auth routes
 /login /login.html 200!
 /admin /admin.html 200!

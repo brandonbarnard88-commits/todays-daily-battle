@@ -42,6 +42,8 @@ const rootFiles = [
   'service-worker.js',
   'daily-verse-widget.js',
   'inline-bootstrap.js',
+  'ga-config.js',
+  'gsc-verify.js',
   'search-widget.js',
   'contact-form.js',
   'firebase-push.js',

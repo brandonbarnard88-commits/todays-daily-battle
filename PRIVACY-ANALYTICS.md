@@ -21,7 +21,7 @@ If analytics or any system is ever compromised, there is nothing that could iden
 
 1. **Only `trackSearchAnalytics(eventName, params)`** may be used for search-related analytics. It is defined in `script.js` with a strict allowlist.
 2. **Allowed event names:** `quick_search`, `search_query` only.
-3. **Allowed parameters:** `topic` (string, e.g. "hope", "anxiety") and `search_type` (string, e.g. "keyword"). No other keys are passed through. Any attempt to pass `query`, `user_id`, `email`, or anything else is **stripped** and never sent.
+3. **Allowed parameters:** `topic` (string, e.g. "hope", "anxiety"), `search_type` (string, e.g. "keyword"), and `map_keys` (array of semantic labels, e.g. `["reaction:stand","feeling:overwhelmed"]`). Map keys are anonymous labels only—never raw query text. No other keys are passed through. Any attempt to pass `query`, `user_id`, `email`, or anything else is **stripped** and never sent.
 4. All search analytics call sites use `trackSearchAnalytics()`, not `trackEvent()`, for search events.
 
 So even if someone later adds `query: input` or `user_id: x` to a call, `trackSearchAnalytics()` will not forward them. Only `topic` and `search_type` can ever be sent.
@@ -37,6 +37,7 @@ So even if someone later adds `query: input` or `user_id: x` to a call, `trackSe
 
 - Sending `topic` (e.g. "hope", "free will") so we can see which topics are searched most—anonymous counts only.
 - Sending `search_type: 'keyword'` for non-topic searches so we get aggregate counts only.
+- Sending `map_keys` (e.g. `["reaction:stand","feeling:overwhelmed"]`) so we can spot common expansion patterns and refine maps—anonymous semantic labels only, never raw query text.
 
 ---
 

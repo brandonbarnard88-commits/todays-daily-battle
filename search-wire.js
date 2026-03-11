@@ -42,6 +42,8 @@
       if (!chip) return;
       var topic = topicFromChip(chip);
       if (!topic) return;
+      // Homepage feel-section: let wireSmartSearch handle it (renders to visible #feel-results)
+      if (chip.closest && chip.closest('#feel-section')) return;
       e.preventDefault();
       e.stopPropagation();
       var mainInput = document.getElementById('tdb-search') || document.querySelector('input[name="q"]');

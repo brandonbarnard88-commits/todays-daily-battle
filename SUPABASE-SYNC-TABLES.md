@@ -35,14 +35,15 @@ create index if not exists user_sync_data_user_id_idx on public.user_sync_data(u
 
 **Sync keys used by the app:**
 
-| sync_key        | Meaning                                      |
-|-----------------|----------------------------------------------|
-| `streak`        | `{ lastKey, count, dates }` (daily battle)   |
-| `prayer_list`   | `[{ text, ref? }]`                           |
-| `badges`        | `["new-warrior", ...]`                       |
-| `badge_dates`   | `{ "new-warrior": "Feb 23, 2026", ... }`     |
-| `streak_repair` | `{ month, used }` (1 free repair per month)  |
-| `challenge30`   | `"1"` if 30-day challenge started            |
+| sync_key            | Meaning                                      |
+|---------------------|----------------------------------------------|
+| `streak`            | `{ lastKey, count, dates }` (daily battle)   |
+| `prayer_wall_streak`| `['2026-03-09', ...]` (days posted to wall)  |
+| `prayer_list`       | `[{ text, ref? }]`                           |
+| `badges`            | `["new-warrior", ...]`                       |
+| `badge_dates`       | `{ "new-warrior": "Feb 23, 2026", ... }`     |
+| `streak_repair`     | `{ month, used }` (1 free repair per month)  |
+| `challenge30`       | `"1"` if 30-day challenge started            |
 
 After running the SQL, the site will sync these when users are logged in and persist to Supabase on change; on other devices, the next login pulls the latest data into local storage so the UI behaves the same.
 
@@ -83,6 +84,8 @@ After running the SQL, the site will sync these when users are logged in and per
 **Push health RPC (Stats page):** Run `supabase-push-health-rpc.sql`. This creates `get_push_health_latest()` (security definer) so `stats.html` can read only a safe latest summary row (status/sent/failed/pruned) without exposing full logs.
 
 **Push daily schedule:** Run `supabase-push-daily-verse-cron.sql` (replace placeholders first) to schedule daily POST requests to `send-daily-verse-push` via `pg_cron` + `pg_net`.
+
+**Bible Q&A (Ask the Word):** Run `supabase-bible-kjv.sql` to create `bible_kjv` table (pgvector) and `match_bible_verses` RPC. Seed with `scripts/seed-bible-kjv.mjs`, embed with `scripts/embed-bible-kjv.mjs`, deploy `bible-qa` Edge Function. See `docs/BIBLE-QA-SETUP.md`.
 
 ---
 

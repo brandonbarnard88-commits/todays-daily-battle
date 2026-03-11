@@ -32,7 +32,11 @@ window.TDB_CONFIG = {
   // Church/Team: $10/mo, $100/yr (beta)
   STRIPE_CHURCH_LINK: '',
   STRIPE_CHURCH_MONTHLY_LINK: '',
-  STRIPE_CHURCH_YEARLY_LINK: ''
+  STRIPE_CHURCH_YEARLY_LINK: '',
+  // GA4: analytics.google.com → Admin → Create Property → Web → copy Measurement ID (G-XXXXXXXXXX)
+  GA_MEASUREMENT_ID: 'G-NFQ5GWJXCB',
+  // GSC: search.google.com/search-console → Add Property → HTML tag → copy content value
+  GOOGLE_SITE_VERIFICATION: ''
 };
 
 // Abuse protection: Cloudflare Turnstile (Quick Pray). Get keys at dashboard.cloudflare.com → Turnstile.

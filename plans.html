@@ -4,12 +4,7 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NFQ5GWJXCB');
-  </script>
+  <script src="ga-config.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reading Plans • Today's Daily Battle</title>
@@ -92,6 +87,7 @@
       box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 20%, transparent);
       outline: none;
     }
+    .plan-row { text-decoration: none; }
     .plan-row-icon { font-size: 1.8rem; flex-shrink: 0; }
     .plan-row-info { flex: 1; min-width: 0; }
     .plan-row-info h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem; color: var(--text); }
@@ -300,7 +296,33 @@
         <h1>📋 Battle Plans</h1>
         <p>Pick a plan. One verse a day. Progress saves here — offline, always.</p>
       </div>
-      <div class="plan-list" id="planList" role="list"></div>
+      <div class="plan-list" id="planList" role="list">
+        <a href="plans.html?plan=battle" class="plan-row" data-plan="battle" role="listitem" aria-label="Battle Distraction — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">⚔️</span>
+          <div class="plan-row-info"><h2>Battle Distraction</h2><p>Cut through the noise. One focused verse a day for 7 days.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-battle">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=gratitude" class="plan-row" data-plan="gratitude" role="listitem" aria-label="Gratitude — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🙏</span>
+          <div class="plan-row-info"><h2>Gratitude</h2><p>Gratitude verses — from scarcity to enough. Psalm 100, 1 Thess. 5:18, and more.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-gratitude">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=strength" class="plan-row" data-plan="strength" role="listitem" aria-label="30-Day Strength — 30 days">
+          <span class="plan-row-icon" aria-hidden="true">💪</span>
+          <div class="plan-row-info"><h2>30-Day Strength</h2><p>Renewal-focused. For when the tank is empty and you need to rebuild.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">30 days</span><span class="plan-progress-pill" id="planPill-strength">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=marriage" class="plan-row" data-plan="marriage" role="listitem" aria-label="Marriage — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">💍</span>
+          <div class="plan-row-info"><h2>Marriage</h2><p>Unity verses. For couples building something worth fighting for.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-marriage">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=peace" class="plan-row" data-plan="peace" role="listitem" aria-label="7-Day Peace — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🕊️</span>
+          <div class="plan-row-info"><h2>7-Day Peace</h2><p>Rest and stillness. His peace — not the world's version.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-peace">Not started</span></div>
+        </a>
+      </div>
     </div>
 
     <!-- ── Detail view ── -->
@@ -532,33 +554,35 @@
     // ── Index view ────────────────────────────────────────────────────────────
     function renderIndex() {
       var list = document.getElementById('planList');
-      list.innerHTML = '';
+      if (!list) return;
       Object.values(PLANS).forEach(function(plan) {
         var progress = getDayProgress(plan);
-        var pct = Math.round((progress / plan.max) * 100);
         var pillText = progress === 0 ? 'Not started'
                      : progress >= plan.max ? 'Complete ✓'
                      : 'Day ' + progress + ' of ' + plan.max;
         var pillClass = progress === 0 ? '' : progress >= plan.max ? 'done' : 'active';
-
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'plan-row';
-        btn.setAttribute('role', 'listitem');
-        btn.setAttribute('aria-label', plan.label + (progress > 0 ? ' — ' + pillText : ''));
-        btn.innerHTML =
-          '<span class="plan-row-icon" aria-hidden="true">' + esc(plan.icon) + '</span>' +
-          '<div class="plan-row-info"><h2>' + esc(plan.label) + '</h2><p>' + esc(plan.desc) + '</p></div>' +
-          '<div class="plan-row-meta">' +
-            '<span class="plan-badge">' + esc(plan.max) + ' days</span>' +
-            '<span class="plan-progress-pill ' + pillClass + '">' + esc(pillText) + '</span>' +
-          '</div>';
-        btn.addEventListener('click', function(){ openPlan(plan.id); });
-        list.appendChild(btn);
+        var pill = document.getElementById('planPill-' + plan.id);
+        var row = list.querySelector('[data-plan="' + plan.id + '"]');
+        if (pill) {
+          pill.textContent = pillText;
+          pill.className = 'plan-progress-pill ' + pillClass;
+        }
+        if (row) row.setAttribute('aria-label', plan.label + (progress > 0 ? ' — ' + pillText : ''));
       });
       document.getElementById('planIndex').classList.remove('hidden');
       document.getElementById('planDetail').classList.remove('active');
     }
+    (function wirePlanListClicks() {
+      var list = document.getElementById('planList');
+      if (!list) return;
+      list.addEventListener('click', function(e) {
+        var row = e.target.closest('[data-plan]');
+        if (row && PLANS[row.getAttribute('data-plan')]) {
+          e.preventDefault();
+          openPlan(row.getAttribute('data-plan'));
+        }
+      });
+    })();
 
     // ── Detail view ───────────────────────────────────────────────────────────
     function openPlan(id) {
@@ -750,13 +774,23 @@
     });
 
     // ── URL routing — open plan directly if ?plan=id in URL ──────────────────
-    var params = new URLSearchParams(window.location.search);
-    var planParam = params.get('plan');
-    if (planParam && PLANS[planParam]) {
-      renderIndex(); // build index first (for back button)
-      openPlan(planParam);
+    function init() {
+      var list = document.getElementById('planList');
+      if (list) list.setAttribute('aria-busy', 'true');
+      var params = new URLSearchParams(window.location.search);
+      var planParam = params.get('plan');
+      if (planParam && PLANS[planParam]) {
+        renderIndex();
+        openPlan(planParam);
+      } else {
+        renderIndex();
+      }
+      if (list) list.removeAttribute('aria-busy');
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
     } else {
-      renderIndex();
+      init();
     }
 
   }());

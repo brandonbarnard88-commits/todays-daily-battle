@@ -34,6 +34,7 @@ const config = {
   ERROR_REPORT_URL: process.env.ERROR_REPORT_URL || '',
   VAPID_PUBLIC_KEY: process.env.VAPID_PUBLIC_KEY || '',
   PUSH_SUBSCRIBE_URL: process.env.PUSH_SUBSCRIBE_URL || '',
+  PUSH_UNSUBSCRIBE_URL: process.env.PUSH_UNSUBSCRIBE_URL || '',
   STATS_PASSWORD: process.env.STATS_PASSWORD || ''
 };
 

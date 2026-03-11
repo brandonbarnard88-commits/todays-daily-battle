@@ -1520,6 +1520,109 @@ const ACTION_MAP = {
   worship: ['worship', 'praise', 'adoration', 'glorify']
 };
 
+/** Feeling/state → scripture concepts that speak to it (meaning, action, outcome). */
+const FEELING_NEED_MAP = {
+  givingup: ['persevere', 'endure', 'hope', 'run', 'faint', 'weary', 'strength', 'patience', 'finish', 'race'],
+  giveup: ['persevere', 'endure', 'hope', 'run', 'weary', 'strength'],
+  quit: ['endure', 'persevere', 'patience', 'hope'],
+  exhausted: ['rest', 'renew', 'strength', 'weary', 'wait', 'refresh'],
+  burnout: ['rest', 'renew', 'strength', 'weary', 'refresh'],
+  overwhelmed: ['peace', 'rest', 'cast', 'care', 'burden', 'yoke', 'easy', 'light'],
+  hopeless: ['hope', 'expectation', 'assurance', 'faith'],
+  despair: ['hope', 'comfort', 'restore', 'joy'],
+  discouraged: ['hope', 'courage', 'strength', 'comfort'],
+  defeated: ['victory', 'overcome', 'strength', 'stand'],
+  worthless: ['love', 'precious', 'worth', 'created', 'image'],
+  useless: ['purpose', 'work', 'serve', 'gift'],
+  rejected: ['chosen', 'accepted', 'love', 'beloved'],
+  abandoned: ['forsake', 'never', 'leave', 'with', 'presence'],
+  betrayed: ['forgive', 'trust', 'restore', 'love'],
+  angry: ['anger', 'wrath', 'slow', 'patience', 'forgive'],
+  bitter: ['forgive', 'bitterness', 'root', 'peace'],
+  anxious: ['careful', 'nothing', 'prayer', 'supplication', 'thanksgiving', 'peace'],
+  worried: ['care', 'cast', 'anxious', 'peace'],
+  afraid: ['fear', 'not', 'afraid', 'courage', 'with', 'strength'],
+  scared: ['fear', 'courage', 'strength', 'with'],
+  lonely: ['with', 'presence', 'forsake', 'comfort', 'love'],
+  isolated: ['together', 'body', 'church', 'love', 'one'],
+  guilty: ['forgive', 'cleanse', 'blood', 'mercy', 'grace'],
+  ashamed: ['shame', 'glory', 'hope', 'restore'],
+  grieving: ['comfort', 'mourn', 'tears', 'hope', 'restore'],
+  mourning: ['comfort', 'blessed', 'mourn', 'joy'],
+  loss: ['comfort', 'restore', 'hope', 'peace'],
+  tired: ['rest', 'weary', 'renew', 'strength'],
+  weary: ['rest', 'renew', 'strength', 'faint', 'wait'],
+  weak: ['strength', 'power', 'weakness', 'perfect'],
+  confused: ['wisdom', 'understanding', 'guide', 'light'],
+  lost: ['seek', 'find', 'shepherd', 'guide', 'way'],
+  doubtful: ['faith', 'believe', 'doubt', 'assurance'],
+  doubting: ['faith', 'believe', 'trust', 'assurance'],
+  tempted: ['temptation', 'escape', 'resist', 'flee'],
+  addicted: ['free', 'bondage', 'liberty', 'overcome'],
+  restless: ['rest', 'peace', 'still', 'quiet'],
+  impatient: ['wait', 'patience', 'endure', 'hope'],
+  jealous: ['content', 'covet', 'love', 'charity'],
+  envious: ['content', 'covet', 'grateful', 'thanks'],
+  prideful: ['humble', 'pride', 'lowly', 'grace'],
+  pride: ['humble', 'pride', 'lowly', 'exalt'],
+  cantgoon: ['endure', 'strength', 'renew', 'wait', 'hope'],
+  canttakeit: ['burden', 'yoke', 'easy', 'light', 'rest', 'cast'],
+  breakingpoint: ['strength', 'endure', 'escape', 'bear', 'temptation'],
+  rockbottom: ['restore', 'hope', 'lift', 'redeem', 'save']
+};
+
+/** Reaction words: how Scripture calls us to respond (stand, resist, flee, etc.). */
+const REACTION_MAP = {
+  stand: ['stand', 'stood', 'withstanding', 'armour', 'armor'],
+  resist: ['resist', 'resisted', 'resisting', 'withstand', 'oppose'],
+  flee: ['flee', 'fled', 'fleeing', 'escape', 'avoid'],
+  fight: ['fight', 'fought', 'fighting', 'warfare', 'battle'],
+  endure: ['endure', 'endured', 'enduring', 'patience', 'patient'],
+  overcome: ['overcome', 'overcame', 'overcoming', 'victory', 'conquer'],
+  wait: ['wait', 'waited', 'waiting', 'patience', 'tarry'],
+  trust: ['trust', 'trusted', 'trusting', 'believe', 'faith'],
+  pray: ['pray', 'prayed', 'praying', 'supplication', 'call'],
+  obey: ['obey', 'obeyed', 'obeying', 'heed', 'follow'],
+  submit: ['submit', 'submitted', 'submitting', 'yield', 'humble'],
+  cast: ['cast', 'casting', 'casteth', 'care', 'burden']
+};
+const REACTION_TERMS = new Set(function () {
+  var s = new Set();
+  Object.keys(REACTION_MAP).forEach(function (k) { s.add(k); (REACTION_MAP[k] || []).forEach(function (w) { s.add(w); }); });
+  return s;
+}());
+
+/** Direct God-promises: "I will never leave thee", "I will strengthen thee", etc. */
+const PROMISE_MAP = {
+  neverleave: ['forsake', 'leave', 'with', 'presence', 'abide'],
+  strengthen: ['strength', 'strengthen', 'uphold', 'help', 'power'],
+  givepeace: ['peace', 'rest', 'quiet', 'calm', 'troubled'],
+  givehope: ['hope', 'expected', 'end', 'thoughts', 'peace'],
+  givecourage: ['fear', 'not', 'courage', 'dismayed', 'with'],
+  givecomfort: ['comfort', 'consolation', 'mourn', 'blessed'],
+  givewisdom: ['wisdom', 'ask', 'liberally', 'upbraid', 'not'],
+  givegrace: ['grace', 'sufficient', 'weakness', 'perfect'],
+  provide: ['supply', 'need', 'according', 'riches', 'glory', 'giveth', 'daily', 'bread'],
+  protect: ['defence', 'fortress', 'shield', 'deliver', 'preserve', 'shadow', 'refuge', 'strong'],
+  heal: ['heal', 'healed', 'healing', 'restore', 'whole', 'cleansed', 'bind', 'wounds'],
+  guide: ['guide', 'lead', 'path', 'way', 'counsel', 'direct', 'teach', 'shepherd']
+};
+
+/** Outcome words: what God promises or forms in response. */
+const OUTCOME_MAP = {
+  peace: ['peace', 'rest', 'calm', 'quiet', 'still', 'shalom'],
+  hope: ['hope', 'expectation', 'assurance', 'confidence'],
+  strength: ['strength', 'power', 'might', 'renew', 'mount'],
+  comfort: ['comfort', 'consolation', 'restore', 'heal'],
+  courage: ['courage', 'bold', 'brave', 'fear', 'not'],
+  joy: ['joy', 'rejoice', 'gladness', 'delight'],
+  love: ['love', 'charity', 'compassion', 'kindness'],
+  faith: ['faith', 'believe', 'trust', 'assurance'],
+  wisdom: ['wisdom', 'understanding', 'knowledge', 'discernment'],
+  healing: ['heal', 'restore', 'whole', 'cleansed'],
+  freedom: ['free', 'liberty', 'deliver', 'redeem']
+};
+
 function buildReverseLexicon(source) {
   var out = {};
   if (!source || typeof source !== 'object') return out;
@@ -3050,6 +3153,7 @@ function recordPrayerWallDay() {
       days.sort();
       if (days.length > 90) days = days.slice(-90);
       localStorage.setItem(PRAYER_WALL_STREAK_KEY, JSON.stringify(days));
+      if (typeof setSyncData === 'function') setSyncData('prayer_wall_streak', days);
     }
     return calculateStreak(days, today);
   } catch (e) { return 0; }
@@ -8222,7 +8326,8 @@ function bumpStat(key) {
  * SEARCH ANALYTICS — USER SAFETY IS THE KEY (DO NOT CHANGE)
  * This is a safe place. We NEVER send who searched (no user ID, email, IP, or any identifier).
  * We NEVER send raw search query text (what the user typed).
- * We ONLY send: topic (known topic key, e.g. "hope", "anxiety") or search_type ("keyword").
+ * We ONLY send: topic (known topic key, e.g. "hope", "anxiety"), search_type ("keyword"),
+ * or map_keys (array of semantic labels like "reaction:stand", "feeling:overwhelmed" — never raw query).
  * This protects users from data breaches. Any change that adds query, user_id, email, or
  * similar to search analytics is forbidden. Use trackSearchAnalytics() for all search-related events.
  * See PRIVACY-ANALYTICS.md.
@@ -8233,6 +8338,12 @@ function trackSearchAnalytics(eventName, params) {
   if (params && typeof params === 'object') {
     if (params.topic != null && typeof params.topic === 'string') safe.topic = params.topic;
     if (params.search_type != null && typeof params.search_type === 'string') safe.search_type = params.search_type;
+    if (Array.isArray(params.map_keys) && params.map_keys.length > 0) {
+      var allowed = ['reaction:', 'feeling:', 'outcome:', 'meaning:', 'action:', 'promise:'];
+      safe.map_keys = params.map_keys.filter(function (k) {
+        return typeof k === 'string' && allowed.some(function (p) { return k.indexOf(p) === 0; });
+      }).slice(0, 10);
+    }
   }
   trackEvent(eventName, safe);
 }
@@ -11080,7 +11191,18 @@ const IRREGULAR_WORD_BASES = {
   better: 'good', best: 'good', worse: 'bad', worst: 'bad',
   ran: 'run', running: 'run', spoken: 'speak', spoke: 'speak', led: 'lead', gave: 'give', given: 'give',
   took: 'take', taken: 'take', thought: 'think', felt: 'feel', knew: 'know', known: 'know',
-  began: 'begin', begun: 'begin', came: 'come', gone: 'go', went: 'go', did: 'do', done: 'do'
+  began: 'begin', begun: 'begin', came: 'come', gone: 'go', went: 'go', did: 'do', done: 'do',
+  wept: 'weep'
+};
+/** KJV verb/word forms: query word -> verse forms for phrase/question understanding */
+const KJV_WORD_FORMS = {
+  weep: ['wept', 'weeping'], say: ['said', 'saith', 'speak', 'spake'], give: ['gave', 'given', 'giveth'],
+  love: ['loved', 'loveth'], fear: ['feared', 'feareth', 'afraid'], trust: ['trusted', 'trusteth'],
+  hope: ['hoped', 'hopeth'], believe: ['believed', 'believeth'], know: ['knew', 'known', 'knoweth'],
+  come: ['came', 'cometh'], go: ['went', 'gone', 'goeth'], see: ['saw', 'seen', 'seeth'],
+  hear: ['heard', 'heareth'], do: ['did', 'done', 'doeth'], make: ['made', 'maketh'],
+  find: ['found', 'findeth'], seek: ['sought', 'seeketh'], tell: ['told', 'telleth'],
+  call: ['called', 'calleth'], answer: ['answered', 'answereth'], comfort: ['comforted', 'comforteth']
 };
 
 function generateWordVariants(token) {
@@ -11173,13 +11295,38 @@ function resolveTopicFromToken(token) {
 
 function expandKeywords(keywords) {
   const expanded = new Set();
+  const mapKeysHit = [];
   keywords.forEach(token => {
     const base = token.toLowerCase();
+    expanded.add(base);
     getSemanticTokenSet(base).forEach(function (word) { expanded.add(word); });
     const meaning = MEANING_MAP[base];
-    if (meaning) meaning.forEach(word => expanded.add(word));
+    if (meaning) { meaning.forEach(word => expanded.add(word)); mapKeysHit.push('meaning:' + base); }
     const action = ACTION_MAP[base];
-    if (action) action.forEach(word => expanded.add(word));
+    if (action) { action.forEach(word => expanded.add(word)); mapKeysHit.push('action:' + base); }
+    const outcome = OUTCOME_MAP[base];
+    if (outcome) { outcome.forEach(word => expanded.add(word)); mapKeysHit.push('outcome:' + base); }
+    const reaction = REACTION_MAP[base];
+    if (reaction) { reaction.forEach(word => expanded.add(word)); mapKeysHit.push('reaction:' + base); }
+    const feelingNeed = FEELING_NEED_MAP[base];
+    if (feelingNeed) { feelingNeed.forEach(word => expanded.add(word)); mapKeysHit.push('feeling:' + base); }
+    const promise = PROMISE_MAP[base];
+    if (promise) { promise.forEach(word => expanded.add(word)); mapKeysHit.push('promise:' + base); }
+    // KJV verb forms so "why did Jesus weep" matches "Jesus wept"
+    const forms = KJV_WORD_FORMS[base];
+    if (forms) forms.forEach(function (f) { expanded.add(f); });
+    Object.keys(KJV_WORD_FORMS).forEach(function (k) {
+      if (KJV_WORD_FORMS[k].indexOf(base) !== -1) { expanded.add(k); expanded.add(base); }
+    });
+    Object.keys(FEELING_NEED_MAP).forEach(function (k) {
+      if (FEELING_NEED_MAP[k].indexOf(base) !== -1) { expanded.add(k); FEELING_NEED_MAP[k].forEach(function (w) { expanded.add(w); }); }
+    });
+    Object.keys(REACTION_MAP).forEach(function (k) {
+      if (REACTION_MAP[k].indexOf(base) !== -1) { expanded.add(k); REACTION_MAP[k].forEach(function (w) { expanded.add(w); }); }
+    });
+    Object.keys(PROMISE_MAP).forEach(function (k) {
+      if (PROMISE_MAP[k].indexOf(base) !== -1) { expanded.add(k); PROMISE_MAP[k].forEach(function (w) { expanded.add(w); }); }
+    });
   });
 
   Object.keys(topics).forEach(topic => {
@@ -11191,7 +11338,7 @@ function expandKeywords(keywords) {
     }
   });
 
-  return Array.from(expanded).filter(Boolean);
+  return { expanded: Array.from(expanded).filter(Boolean), mapKeysHit: [...new Set(mapKeysHit)] };
 }
 
 function buildWordRegex(terms) {
@@ -11568,7 +11715,7 @@ function mergeBadgeDateSyncData(localRaw, remoteRaw) {
 
 async function syncUserData() {
   if (!canUseSupabase()) return;
-  const [notesData, versesData, sermonsData, lessonsData, collectionsData, collectionItemsData, streakData, prayerData, badgesData, badgeDatesData, repairData, challenge30Data, prayerTotalData, silentAmenTotalData] = await Promise.all([
+  const [notesData, versesData, sermonsData, lessonsData, collectionsData, collectionItemsData, streakData, prayerData, badgesData, badgeDatesData, repairData, challenge30Data, prayerTotalData, silentAmenTotalData, prayerWallStreakData] = await Promise.all([
     supabaseClient.from('notes').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('saved_verses').select('id, ref, text, created_at').eq('user_id', currentUserId).order('created_at', { ascending: false }),
     supabaseClient.from('sermons').select('id, title, theme, text_ref, outline, points, application, prayer, date, status, updated_at').eq('user_id', currentUserId).order('updated_at', { ascending: false }).limit(1),
@@ -11582,7 +11729,8 @@ async function syncUserData() {
     getSyncData('streak_repair'),
     getSyncData('challenge30'),
     getSyncData(SYNC_PRAYER_TOTAL_KEY),
-    getSyncData(SYNC_SILENT_AMEN_TOTAL_KEY)
+    getSyncData(SYNC_SILENT_AMEN_TOTAL_KEY),
+    getSyncData('prayer_wall_streak')
   ]);
   var localStreakData = {};
   try { localStreakData = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}'); } catch (e) {}
@@ -11647,7 +11795,18 @@ async function syncUserData() {
   var mergedSilentAmenTotal = Math.max(getLocalSilentAmenTotalCount(), remoteSilentAmenTotal);
   if (mergedSilentAmenTotal > 0) setLocalSilentAmenTotalCount(mergedSilentAmenTotal);
 
+  var localPrayerWallDays = [];
+  try { localPrayerWallDays = JSON.parse(localStorage.getItem(PRAYER_WALL_STREAK_KEY) || '[]'); } catch (e) {}
+  var remotePrayerWallDays = Array.isArray(prayerWallStreakData) ? prayerWallStreakData : [];
+  var mergedPrayerWallDays = [...new Set([...localPrayerWallDays, ...remotePrayerWallDays])].sort();
+  if (mergedPrayerWallDays.length > 90) mergedPrayerWallDays = mergedPrayerWallDays.slice(-90);
+  if (mergedPrayerWallDays.length > 0) {
+    try { localStorage.setItem(PRAYER_WALL_STREAK_KEY, JSON.stringify(mergedPrayerWallDays)); } catch (e) {}
+    setSyncData('prayer_wall_streak', mergedPrayerWallDays);
+  }
+
   updateDailyBattleStreak();
+  updatePrayerWallStreakBadge();
   renderPrayerList();
   renderBadgesSection();
   updateSyncStatusUI();
@@ -13975,6 +14134,8 @@ function parseQuery(input) {
       }
     }
   }
+  // Always do full-text search: understand the phrase, word, or question and find matching verses.
+  // No topic classification — search the entire Bible for what the user actually typed.
   var keywords = tokens.length > 0 ? tokens : rawTokens;
   var phraseTokens = [];
   var phraseKeys = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
@@ -13985,57 +14146,30 @@ function parseQuery(input) {
       break;
     }
   }
-  if (phraseTokens.length === 0 && normalized.length > 10 && tokens.length <= 2) {
-    phraseTokens = ['hope', 'faith', 'strength', 'peace'];
-  }
   if (negatedTokens.size > 0) {
     phraseTokens = Array.from(new Set(phraseTokens.concat(['courage', 'faith', 'strength', 'peace'])));
   }
   if (phraseTokens.length) keywords = keywords.concat(phraseTokens);
+  // Compound feelings: "giving up" → givingup, "feel like" → check next tokens
+  for (var ci = 0; ci < rawTokens.length - 1; ci++) {
+    var compound = rawTokens[ci] + rawTokens[ci + 1];
+    if (FEELING_NEED_MAP[compound]) keywords.push(compound);
+    if (ci < rawTokens.length - 2) {
+      var triple = rawTokens[ci] + rawTokens[ci + 1] + rawTokens[ci + 2];
+      if (FEELING_NEED_MAP[triple]) keywords.push(triple);
+    }
+  }
   var semanticRawTokens = [];
   rawTokens.forEach(function (token) {
     semanticRawTokens = semanticRawTokens.concat(Array.from(getSemanticTokenSet(token)));
   });
-  var expandedKeywords = expandKeywords(keywords.concat(semanticRawTokens));
+  var exp = expandKeywords(keywords.concat(semanticRawTokens));
+  var expandedKeywords = exp.expanded || exp;
   if (phraseTokens.length) expandedKeywords = Array.from(new Set(expandedKeywords.concat(phraseTokens)));
+  // Include raw tokens so exact words in the query always participate in matching
+  expandedKeywords = Array.from(new Set(expandedKeywords.concat(rawTokens.filter(function (t) { return t.length > 1 && !negatedTokens.has(t); }))));
 
-  // Single-word query: match by topic, synonym, meaning/action map, semantic variants, or stem.
-  const singleWord = rawTokens.length === 1 ? normalized : null;
-  if (singleWord) {
-    for (const topic of Object.keys(topics)) {
-      if (topics[topic].synonyms && topics[topic].synonyms.some(function (syn) { return syn === singleWord; })) {
-        return { intent: 'topic', payload: { topic: topic } };
-      }
-    }
-    var directTopic = resolveTopicFromToken(singleWord);
-    if (directTopic) return { intent: 'topic', payload: { topic: directTopic } };
-  }
-
-  // Multi-word query: if it exactly matches a topic key, use it (e.g. "free will" -> free will, not addiction via "freedom" tie)
-  if (topics[normalized]) return { intent: 'topic', payload: { topic: normalized } };
-
-  const topicScores = {};
-  var phraseSet = new Set(phraseTokens);
-  Object.keys(topics).forEach(topic => {
-    let score = 0;
-    expandedKeywords.forEach(token => {
-      if (negatedTokens.has(token)) return;
-      if (topic.includes(token) || (topics[topic].synonyms && topics[topic].synonyms.some(syn => syn.includes(token)))) {
-        score += phraseSet.has(token) ? 4 : 1;
-      }
-    });
-    rawTokens.forEach(token => {
-      if (negatedTokens.has(token)) return;
-      var mapped = QUERY_TO_TOPIC[token];
-      if (mapped === topic) score += 2;
-    });
-    if (score > 0) topicScores[topic] = score;
-  });
-
-  const topTopic = Object.keys(topicScores).sort((a,b) => topicScores[b] - topicScores[a])[0];
-  if (topTopic) return { intent: 'topic', payload: { topic: topTopic } };
-
-  return { intent: 'keyword', payload: { keywords: expandedKeywords, phrase: normalized, rawTokens: rawTokens } };
+  return { intent: 'keyword', payload: { keywords: expandedKeywords, phrase: normalized, rawTokens: rawTokens, mapKeysHit: exp.mapKeysHit || [] } };
 }
 
 function getSearchFilters() {
@@ -14267,6 +14401,9 @@ function executeQuery(parsed, tier, filters) {
         const normText = normalizeInput(text);
         let score = countWordMatches(normText, wordRegex);
         if (phrase && phrase.length > 3 && normText.includes(phrase)) score += 2;
+        // REACTION priority: verses with clear "do this" actions get a slight boost
+        const normWords = normText.split(/\s+/);
+        if (normWords.some(w => REACTION_TERMS.has(w.replace(/\W/g, '')))) score += 1;
         if (score > 0) {
           const snippet = wordRegex ? text.replace(wordRegex, '<span class="highlight">$&</span>') : text;
           return { ref, text: snippet, score };
@@ -14276,6 +14413,9 @@ function executeQuery(parsed, tier, filters) {
       .sort((a,b) => b.score - a.score)
       .slice(0, 30);
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
+    var rawSet = new Set(rawTokens.map(function (t) { return normalizeInput(String(t || '')); }));
+    var expansionOnly = keywords.filter(function (k) { return k && !rawSet.has(normalizeInput(k)); });
+    if (expansionOnly.length) results.expandedForDisplay = expansionOnly.slice(0, 8);
     if (results.verses.length === 0 && results.relatedMatches && results.relatedMatches.length > 0) {
       results.verses = results.relatedMatches.slice(0, 15);
       results.relatedMatches = [];
@@ -14369,6 +14509,14 @@ function renderResults(results) {
       }
     }
   }
+  // Homepage: #output is inside sr-only #main-search — use visible #feel-results instead (desktop + mobile)
+  if (output && output.closest && output.closest('.sr-only') && document.getElementById('feel-results')) {
+    output = document.getElementById('feel-results');
+    output.classList.add('results');
+    output.setAttribute('role', 'region');
+    output.setAttribute('aria-live', 'polite');
+    output.setAttribute('aria-label', 'Search results');
+  }
   if (!output) return;
   output.innerHTML = '';
   lastResults = results;
@@ -14398,6 +14546,47 @@ function renderResults(results) {
     output.appendChild(fallbackMsg);
   }
   appendHeartfeltSearchMessage(output, results, queryText);
+  if (results.intent === 'keyword' && results.expandedForDisplay && results.expandedForDisplay.length > 0) {
+    var expList = results.expandedForDisplay;
+    var expTag = document.createElement('p');
+    expTag.className = 'search-expanded-hint section-note';
+    expTag.style.cssText = 'font-size:0.875rem;color:var(--color-muted,#94a3b8);margin-top:0.25rem;';
+    var showCount = Math.min(4, expList.length);
+    var short = expList.slice(0, showCount).join(', ');
+    var full = expList.join(', ');
+    var span = document.createElement('span');
+    span.textContent = 'Expanded for: ' + short;
+    span.setAttribute('title', full);
+    span.setAttribute('aria-label', 'Search expanded to include: ' + full + (expList.length > showCount ? '. Click to see full list.' : ''));
+    span.style.cursor = expList.length > showCount ? 'pointer' : 'default';
+    span.style.textDecoration = expList.length > showCount ? 'underline' : 'none';
+    span.style.textDecorationStyle = 'dotted';
+    if (expList.length > showCount) span.setAttribute('role', 'button');
+    if (expList.length > showCount) span.setAttribute('tabindex', '0');
+    expTag.appendChild(span);
+    if (expList.length > showCount) {
+      var more = document.createElement('span');
+      more.textContent = ' …more';
+      more.setAttribute('aria-hidden', 'true');
+      span.appendChild(more);
+      function toggleExpanded() {
+        if (span.dataset.expanded === '1') {
+          span.textContent = 'Expanded for: ' + short;
+          var moreAgain = document.createElement('span');
+          moreAgain.textContent = ' …more';
+          moreAgain.setAttribute('aria-hidden', 'true');
+          span.appendChild(moreAgain);
+          span.dataset.expanded = '';
+        } else {
+          span.textContent = 'Expanded for: ' + full;
+          span.dataset.expanded = '1';
+        }
+      }
+      span.addEventListener('click', toggleExpanded);
+      span.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleExpanded(); } });
+    }
+    output.appendChild(expTag);
+  }
   var verses = [...results.verses];
   var SHOWN_REFS_KEY = 'tdb_shown_refs';
   try {
@@ -15019,7 +15208,7 @@ function renderResults(results) {
   if (results.intent === 'topic' && results.topic) {
     resultsTitle = 'Verses on ' + (results.topic.charAt(0).toUpperCase() + results.topic.slice(1));
   } else if (results.intent === 'keyword') {
-    resultsTitle = 'Keyword Matches';
+    resultsTitle = 'Matching Verses';
   }
   renderSection(resultsTitle, verses, 6, isJesusSaidQuery);
   if (queryText.includes('family') || queryText.includes('parenting') || queryText.includes('parents') || queryText.includes('home')) {
@@ -15405,6 +15594,8 @@ function writeNbaSignal(key) {
             if (input) writeNbaSignal('tdb_nba_last_search_at');
             if (input && typeof trackSearchAnalytics === 'function') {
               var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
+              var mapKeys = parsed.payload && Array.isArray(parsed.payload.mapKeysHit) ? parsed.payload.mapKeysHit : [];
+              if (mapKeys.length) params.map_keys = mapKeys;
               trackSearchAnalytics('search_query', params);
             }
             try { await renderDailyBattleCard(); } catch (_) {}

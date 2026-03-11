@@ -99,17 +99,17 @@ function run() {
         failed++;
       }
     }
-    // Search logic check (selfless -> love)
+    // Search logic: full-text search with synonym expansion (selfless→love) and fallback verses
     const fs = require('fs');
     const script = fs.readFileSync(__dirname + '/script.js', 'utf8');
-    const hasSelflessSynonym = script.includes("'selfless'") && script.includes('love');
-    const hasSingleWordSynonym = script.includes('singleWord') && script.includes("syn === singleWord");
+    const hasSelflessExpansion = script.includes("'selfless'") && script.includes('love');
+    const hasExpandKeywords = script.includes('expandKeywords') && script.includes('rawTokens');
     const hasFallback = script.includes('results.fallback') && script.includes('hope');
-    if (!hasSelflessSynonym || !hasSingleWordSynonym || !hasFallback) {
-      console.log('\nFAIL search logic: selfless/love synonym or fallback verses missing in script.js');
+    if (!hasSelflessExpansion || !hasExpandKeywords || !hasFallback) {
+      console.log('\nFAIL search logic: selfless/love expansion or fallback verses missing in script.js');
       failed++;
     } else {
-      console.log('\nOK  search logic (selfless→love, fallback verses)');
+      console.log('\nOK  search logic (phrase search, synonym expansion, fallback verses)');
     }
     // Prayer counter: element present on home, script wires it and formats numbers
     let homeBody = '';

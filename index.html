@@ -4,12 +4,7 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NFQ5GWJXCB');
-  </script>
+  <script src="ga-config.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,17 +26,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Today's Daily Battle">
   <!-- Google Search Console verification — set GOOGLE_SITE_VERIFICATION in config.js -->
-  <script>
-    (function() {
-      var cfg = window.TDB_CONFIG;
-      if (cfg && cfg.GOOGLE_SITE_VERIFICATION) {
-        var m = document.createElement('meta');
-        m.name = 'google-site-verification';
-        m.content = cfg.GOOGLE_SITE_VERIFICATION;
-        document.head.appendChild(m);
-      }
-    })();
-  </script>
+  <script defer src="gsc-verify.js"></script>
 
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
@@ -792,6 +777,10 @@
     .feel-search-wrap {
       position: relative;
     }
+    #feel-search, .quick-grid .quick-topic {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2);
+    }
 
     #feel-search {
       width: 100%;
@@ -835,6 +824,7 @@
 
     .feel-suggest-item {
       padding: 11px 18px;
+      min-height: 44px;
       cursor: pointer;
       font-size: 0.93rem;
       color: var(--text);
@@ -846,6 +836,7 @@
       width: 100%;
       text-align: left;
       transition: background 0.14s ease;
+      touch-action: manipulation;
     }
 
     .feel-suggest-item:hover,
@@ -3696,13 +3687,14 @@
     };
 
     // ── Feel Search Mappings ──
+    // All 30 quick-topic buttons must resolve; add each data-topic to the right group.
     const FEEL_MAP = [
-      { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","scared","fear","afraid","fearful","dread","dreading"], group: "anxious" },
-      { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out"], group: "tired" },
-      { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate"], group: "angry" },
-      { keys: ["lonely","alone","isolated","solitude","nobody","no one","forgotten","invisible"], group: "lonely" },
-      { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good"], group: "hopeful" },
-      { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful"], group: "sad" },
+      { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","scared","fear","afraid","fearful","dread","dreading","finances"], group: "anxious" },
+      { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","strength","sleep"], group: "tired" },
+      { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
+      { keys: ["lonely","alone","isolated","solitude","nobody","no one","forgotten","invisible","loneliness"], group: "lonely" },
+      { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
+      { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful","guilt","trauma","addiction","heartache"], group: "sad" },
       { keys: ["peace","peaceful","calm","still","quiet","rest","restless","unsettled","unrest","serene","tranquil","settled"], group: "peace" }
     ];
 
@@ -4482,22 +4474,27 @@
       localStorage.setItem("tdb-pwa-nudge-dismissed", "1");
     });
 
-    // ── Verse image card share button ──
+    // ── Verse image card share button (creates shareable image) ──
     (function wireVerseImgShare() {
       const btn = document.getElementById('verseImgShare');
       if (!btn) return;
       btn.addEventListener('click', () => {
-        const text = document.getElementById('verseImgText');
-        const ref  = document.getElementById('verseImgRef');
-        const shareText = (ref ? ref.textContent : '') + '\n' +
-          (text ? text.textContent : '') + '\n— todaysdailybattle.com';
-        if (navigator.share) {
-          navigator.share({ text: shareText }).catch(() => {});
+        const textEl = document.getElementById('verseImgText');
+        const refEl  = document.getElementById('verseImgRef');
+        const text = (textEl && textEl.textContent || '').replace(/^["\u201c]|["\u201d]$/g, '').trim();
+        const ref  = (refEl && refEl.textContent || '').trim();
+        if (ref && text && typeof generateShareImage === 'function') {
+          generateShareImage(text, ref);
         } else {
-          navigator.clipboard.writeText(shareText).then(() => {
-            btn.textContent = 'Copied \u2713';
-            setTimeout(() => { btn.textContent = 'Share \u2197'; }, 1800);
-          }).catch(() => {});
+          const shareText = (ref || '') + '\n' + (text || '') + '\n— todaysdailybattle.com';
+          if (navigator.share) {
+            navigator.share({ text: shareText }).catch(() => {});
+          } else {
+            navigator.clipboard.writeText(shareText).then(() => {
+              btn.textContent = 'Copied \u2713';
+              setTimeout(() => { btn.textContent = 'Share \u2197'; }, 1800);
+            }).catch(() => {});
+          }
         }
       });
     }());
@@ -6108,17 +6105,16 @@
         });
       }
 
-      // ── Search nav button — scroll to and focus search input ──
+      // ── Search nav button — scroll to and focus visible search input ──
       var navSearchBtn = document.getElementById('nav-search-btn');
       if (navSearchBtn) {
         navSearchBtn.addEventListener('click', function(e) {
           e.preventDefault();
-          var input = document.getElementById('query') || document.getElementById('main-search');
+          var input = document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
           if (input) {
             input.scrollIntoView({ behavior: 'smooth', block: 'center' });
             setTimeout(function() {
-              var q = document.getElementById('query');
-              if (q) q.focus();
+              if (input && typeof input.focus === 'function') input.focus();
             }, 300);
           }
         });

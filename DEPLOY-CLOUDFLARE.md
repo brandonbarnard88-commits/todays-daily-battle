@@ -30,8 +30,13 @@ In **Pages** → your project → **Settings** → **Environment variables** (or
 
 Recommended for analytics: `GA_MEASUREMENT_ID` = `G-NFQ5GWJXCB`.
 
+**Push notifications (daily verse):** Generate keys with `node scripts/generate-vapid-keys.mjs`, then add:
+- `VAPID_PUBLIC_KEY` (public key only; private stays in Supabase secrets)
+- `PUSH_SUBSCRIBE_URL` = `https://YOUR_PROJECT.supabase.co/functions/v1/save-push-subscription`
+- `PUSH_UNSUBSCRIBE_URL` = `https://YOUR_PROJECT.supabase.co/functions/v1/remove-push-subscription`
+
 Optional (add later if you use them):  
-`MASTER_EMAILS`, `STATS_PASSWORD`, `WALKTHROUGH_VIDEO_URL`, `STRIPE_*`, `ERROR_REPORT_URL`, `VAPID_PUBLIC_KEY`, `PUSH_SUBSCRIBE_URL`, `CF_ANALYTICS_TOKEN`, `GOOGLE_SITE_VERIFICATION`, `BATTLE_MUG_URL`.
+`MASTER_EMAILS`, `STATS_PASSWORD`, `WALKTHROUGH_VIDEO_URL`, `STRIPE_*`, `ERROR_REPORT_URL`, `CF_ANALYTICS_TOKEN`, `GOOGLE_SITE_VERIFICATION`, `BATTLE_MUG_URL`.
 
 For **MASTER_EMAILS** (array), set the value as JSON, e.g. `["brandon@todaysdailybattle.com"]`.
 

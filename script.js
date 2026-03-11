@@ -189,11 +189,9 @@ function wireEarlySearchFallbacks() {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
-  document.addEventListener('DOMContentLoaded', mountRotatingHeroVerse);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
-  mountRotatingHeroVerse();
 }
 
 function wireHashLinkFallbacks() {
@@ -3258,6 +3256,12 @@ var ROTATING_HERO_VERSES = [
   { ref: 'Psalm 116:1',            text: 'I love the Lord, because he hath heard my voice and my supplications.',                                                                                                                                breakdown: ['He heard.', 'Voice + prayer.', 'Love follows.'],                                          app: "Voice? 'Heard.'" },
   { ref: 'Philippians 3:13',       text: 'Forgetting those things which are behind, and reaching forth unto those things which are before.',                                                                                                     breakdown: ['Forget behind.', 'Reach forward.', 'Press on.'],                                          app: 'Past? Forget.' }
 ];
+// Run now that the array is fully initialized (guards against hoisting order)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mountRotatingHeroVerse);
+} else {
+  mountRotatingHeroVerse();
+}
 
 var HERO_IDX_KEY = 'tdb_hero_idx_v1';
 var HERO_ORDER_KEY = 'tdb_hero_order_v1';
@@ -3462,6 +3466,7 @@ function renderSmartResult(query) {
 
 function mountRotatingHeroVerse() {
   var verses = ROTATING_HERO_VERSES;
+  if (!Array.isArray(verses) || verses.length === 0) return;
   var order, idx;
   try {
     var rawOrder = localStorage.getItem(HERO_ORDER_KEY);

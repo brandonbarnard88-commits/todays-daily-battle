@@ -1011,13 +1011,13 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: min(calc(100% - 20px), 580px);
+      width: min(calc(100% - 20px), 420px);
       border: 1px solid var(--line);
       border-radius: 16px;
       background: color-mix(in srgb, var(--card) 90%, transparent);
       backdrop-filter: blur(12px);
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       padding: 8px 6px;
       z-index: 40;
       gap: 4px;
@@ -1053,6 +1053,75 @@
     }
 
     .nav-link span:first-child { font-size: 1.15rem; }
+
+    /* ── More Drawer ── */
+    .nav-more-overlay {
+      position: fixed; inset: 0; z-index: 200;
+    }
+    .nav-more-overlay[hidden] { display: none; }
+    .nav-more-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+    .nav-more-drawer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: var(--card, #161b27);
+      border-radius: 20px 20px 0 0;
+      border-top: 1px solid var(--line);
+      padding: 0.6rem 1.1rem 2.2rem;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .nav-more-handle {
+      width: 36px; height: 4px;
+      border-radius: 99px;
+      background: var(--muted, #64748b);
+      margin: 0 auto 0.9rem;
+      opacity: 0.5;
+    }
+    .nav-more-title {
+      font-size: 1rem; font-weight: 700;
+      color: var(--gold, #e3bc67);
+      margin: 0 0 0.75rem;
+    }
+    .nav-more-list {
+      list-style: none; margin: 0; padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .nav-more-list a,
+    .nav-more-btn-item {
+      display: flex; align-items: center; gap: 0.45rem;
+      padding: 0.7rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft, rgba(255,255,255,0.04));
+      color: var(--text, #e2e8f0);
+      font-size: 0.88rem; font-weight: 500;
+      text-decoration: none;
+      width: 100%;
+      transition: border-color 0.15s ease;
+    }
+    .nav-more-list a:hover,
+    .nav-more-list a:focus-visible,
+    .nav-more-btn-item:hover,
+    .nav-more-btn-item:focus-visible {
+      border-color: var(--gold, #e3bc67);
+      outline: none;
+    }
+    .nav-more-close {
+      display: block; width: 100%; margin-top: 1rem;
+      padding: 0.7rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted, #94a3b8);
+      font-size: 0.9rem; font-weight: 600;
+      cursor: pointer;
+    }
+    .nav-more-close:hover { border-color: var(--gold, #e3bc67); color: var(--text); }
 
     /* ── Closing breath ── */
     .closing-breath {
@@ -2711,13 +2780,33 @@
   <!-- ── Bottom Nav ── -->
   <nav class="bottom-nav" aria-label="Primary tools">
     <a class="nav-link nav-link--active" href="/" aria-label="Home"><span>🏠</span><span>Home</span></a>
+    <a class="nav-link" href="reader.html" aria-label="Chapter Reader"><span>📖</span><span>Read</span></a>
+    <a class="nav-link" href="#main-search" id="nav-search-btn" aria-label="Search Scripture"><span>🔍</span><span>Search</span></a>
     <a class="nav-link" href="#prayer-wall" aria-label="Prayer Wall"><span>🙏</span><span>Prayer</span></a>
-    <a class="nav-link" href="sermon.html" aria-label="Sermon Builder"><span>📝</span><span>Sermon</span></a>
-    <a class="nav-link" href="bible-tool.html" aria-label="Bible Tool"><span>📖</span><span>Bible Tool</span></a>
-    <a class="nav-link" href="kids/index.html" aria-label="Kids Corner"><span>🧒</span><span>Kids</span></a>
-    <button type="button" id="about-link" class="nav-link nav-link-btn" aria-label="About this app" aria-haspopup="dialog"><span>❤️</span><span>About</span></button>
-    <button type="button" id="settings-btn" class="nav-link nav-link-btn" aria-label="Settings — morning reminder and more" aria-haspopup="true" aria-expanded="false"><span>⚙️</span><span>Settings</span></button>
+    <button type="button" id="nav-more-btn" class="nav-link nav-link-btn" aria-label="More tools" aria-haspopup="dialog" aria-expanded="false"><span>☰</span><span>More</span></button>
   </nav>
+
+  <!-- ── More drawer ── -->
+  <div id="nav-more-sheet" class="nav-more-overlay" role="dialog" aria-modal="true" aria-label="More tools" hidden>
+    <div class="nav-more-backdrop"></div>
+    <div class="nav-more-drawer" role="document">
+      <div class="nav-more-handle" aria-hidden="true"></div>
+      <h2 class="nav-more-title">Tools</h2>
+      <ul class="nav-more-list">
+        <li><a href="bible-tool.html">📚 Bible Tool</a></li>
+        <li><a href="kids/index.html">🧒 Kids Corner</a></li>
+        <li><a href="sermon.html">📝 Sermon Builder</a></li>
+        <li><a href="reader.html">📖 Chapter Reader</a></li>
+        <li><a href="reading-plan.html">🗓 7-Day Plan</a></li>
+        <li><a href="study.html">✏️ Study Workspace</a></li>
+        <li><a href="message.html">💬 Message Board</a></li>
+        <li><a href="about.html">ℹ️ About</a></li>
+        <li><button type="button" id="about-link" class="nav-more-btn-item" aria-haspopup="dialog">❤️ About This App</button></li>
+        <li><button type="button" id="settings-btn" class="nav-more-btn-item" aria-haspopup="true" aria-expanded="false">⚙️ Settings</button></li>
+      </ul>
+      <button type="button" id="nav-more-close" class="nav-more-close" aria-label="Close menu">Done</button>
+    </div>
+  </div>
 
   <!-- ── First-visit Read-Aloud Modal ── -->
   
@@ -5446,7 +5535,52 @@
       wireSettings();
       wireAboutModal();
       wireSosButton();
+      wireMoreDrawer();
     });
+
+    function wireMoreDrawer() {
+      var sheet = document.getElementById('nav-more-sheet');
+      var openBtn = document.getElementById('nav-more-btn');
+      var closeBtn = document.getElementById('nav-more-close');
+      var backdrop = sheet && sheet.querySelector('.nav-more-backdrop');
+      if (!sheet || !openBtn) return;
+
+      function open() {
+        sheet.hidden = false;
+        openBtn.setAttribute('aria-expanded', 'true');
+        if (closeBtn) closeBtn.focus();
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        sheet.hidden = true;
+        openBtn.setAttribute('aria-expanded', 'false');
+        openBtn.focus();
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (backdrop) backdrop.addEventListener('click', close);
+      sheet.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+      });
+
+      // Search nav button — scroll to search bar and focus
+      var navSearchBtn = document.getElementById('nav-search-btn');
+      if (navSearchBtn) {
+        navSearchBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var input = document.getElementById('query') || document.getElementById('main-search');
+          if (input) {
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(function () {
+              var q = document.getElementById('query');
+              if (q) q.focus();
+            }, 300);
+          }
+        });
+      }
+    }
   </script>
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="I'm struggling — show me a verse now">SOS</button>

@@ -1,3 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-  <image href="/favicon-192.png" width="512" height="512"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Today's Daily Battle — shield with sunrise cross -->
+  <!-- Self-contained: no external refs; renders in all browsers as favicon, SW badge, notifications -->
+
+  <!-- Shield background -->
+  <path d="M256 16 L480 96 L480 272 C480 384 368 464 256 496 C144 464 32 384 32 272 L32 96 Z" fill="#0f1218"/>
+  <!-- Shield border -->
+  <path d="M256 28 L468 104 L468 272 C468 378 360 454 256 484 C152 454 44 378 44 272 L44 104 Z" fill="none" stroke="#e3bc67" stroke-width="8"/>
+
+  <!-- Sunrise glow at base of cross -->
+  <ellipse cx="256" cy="330" rx="100" ry="28" fill="#e87020" opacity="0.25"/>
+  <ellipse cx="256" cy="330" rx="66" ry="18" fill="#ff8c00" opacity="0.35"/>
+  <ellipse cx="256" cy="330" rx="38" ry="10" fill="#ffa040" opacity="0.50"/>
+
+  <!-- Vertical beam of cross -->
+  <path d="M244 90 C242 160 240 220 240 270 C240 320 242 370 244 430 C247 430 265 430 268 430 C270 370 272 320 272 270 C272 220 270 160 268 90 Z" fill="url(#bv)"/>
+  <!-- Horizontal beam of cross -->
+  <path d="M100 220 C160 218 210 216 256 216 C302 216 352 218 412 220 C412 222 412 246 412 248 C352 250 302 252 256 252 C210 252 160 250 100 248 Z" fill="url(#bh)"/>
+
+  <defs>
+    <linearGradient id="bv" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.97)"/>
+      <stop offset="40%"  stop-color="rgba(255,240,190,0.93)"/>
+      <stop offset="75%"  stop-color="rgba(255,190,80,0.72)"/>
+      <stop offset="100%" stop-color="rgba(240,130,20,0.28)"/>
+    </linearGradient>
+    <linearGradient id="bh" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.22)"/>
+      <stop offset="30%"  stop-color="rgba(255,255,255,0.96)"/>
+      <stop offset="50%"  stop-color="rgba(255,248,210,0.99)"/>
+      <stop offset="70%"  stop-color="rgba(255,255,255,0.96)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.22)"/>
+    </linearGradient>
+  </defs>
 </svg>

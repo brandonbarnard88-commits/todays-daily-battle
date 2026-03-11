@@ -3050,18 +3050,51 @@ function updatePrayerWallStreakBadge() {
   var el = document.getElementById('prayerWallStreakBadge');
   if (!el) return;
   var n = getPrayerWallStreak();
+
+  // Detect a broken streak: had past entries but current streak is 0 today
+  var graceKey = 'tdb_pw_grace_shown_' + getDailyKey();
+  var hadPastActivity = false;
+  try {
+    var days = JSON.parse(localStorage.getItem(PRAYER_WALL_STREAK_KEY) || '[]');
+    hadPastActivity = Array.isArray(days) && days.length > 0;
+  } catch (e) {}
+
+  // Show one-time grace message when streak broke (had history, streak=0, not shown today)
+  var graceEl = document.getElementById('prayerWallGraceMsg');
+  if (graceEl) {
+    var showGrace = n === 0 && hadPastActivity && !localStorage.getItem(graceKey);
+    graceEl.hidden = !showGrace;
+    if (showGrace) {
+      graceEl.textContent = 'Missed a day? No shame\u2014fresh start today. 🙏';
+    }
+  }
+
   if (n >= 2) {
-    el.textContent = n + ' day streak 🔥';
+    el.textContent = n + ' day streak \uD83D\uDD25';
+    el.title = 'Post daily to keep your streak going\u2014grace for off days \uD83D\uDE4F';
     el.removeAttribute('hidden');
     el.setAttribute('aria-label', n + '-day prayer wall streak');
   } else if (n === 1) {
-    el.textContent = 'Day 1 🙏';
+    el.textContent = 'Day 1 \uD83D\uDE4F';
+    el.title = 'Post tomorrow to start a streak\u2014one prayer at a time.';
     el.removeAttribute('hidden');
     el.setAttribute('aria-label', 'First day of prayer wall streak');
   } else {
     el.setAttribute('hidden', '');
   }
 }
+
+/**
+ * Dismiss the grace message and record that it was shown today.
+ * Called by the grace message's dismiss button.
+ */
+function dismissPrayerWallGrace() {
+  try { localStorage.setItem('tdb_pw_grace_shown_' + getDailyKey(), '1'); } catch (e) {}
+  var graceEl = document.getElementById('prayerWallGraceMsg');
+  if (graceEl) graceEl.hidden = true;
+}
+// Expose for inline onclick in index.html (module scope ≠ window scope)
+window.dismissPrayerWallGrace = dismissPrayerWallGrace;
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
@@ -3499,6 +3532,11 @@ var SMART_DICTIONARY = {
   heartache:      { def: "He is near the brokenhearted.",             action: "Cry\u2014let Him hold it.", outcome: "Comfort arrives.",        verseRef: "Psalm 34:18"         },
   struggle:       { def: "Still here\u2014that\u2019s enough. He\u2019s closer in struggle than anywhere else.", action: "Be still\u2014just breathe.", outcome: "He meets you here.",    verseRef: "Psalm 46:10"         }
 };
+// Expose onto window so sermon.html inline scripts (non-module) can read them.
+// script.js runs as type="module" (module scope ≠ global scope), so explicit
+// window assignment is the only reliable bridge to inline scripts.
+window.ROTATING_HERO_VERSES = ROTATING_HERO_VERSES;
+window.SMART_DICTIONARY     = SMART_DICTIONARY;
 
 function renderSmartResult(query) {
   var key = String(query || '').toLowerCase().trim();
@@ -17808,6 +17846,8 @@ function writeNbaSignal(key) {
         // Record today on the prayer wall streak and update the badge
         if (typeof recordPrayerWallDay === 'function') recordPrayerWallDay();
         if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
+        // Posting today dismisses any visible grace message
+        if (typeof dismissPrayerWallGrace === 'function') dismissPrayerWallGrace();
         // Show "Saved to cloud" vs "Saved locally" toast-style on note element
         var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
         updateNoteEl(isSynced);

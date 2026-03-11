@@ -543,6 +543,13 @@
       <button type="button" class="sb-popover-close" id="sbCompareClose" aria-label="Close Compare">✕</button>
       <h3 class="sb-popover-title">⇄ Parallel Passages</h3>
       <p class="sb-popover-sub">Classic side-by-side comparisons — tap to insert.</p>
+      <label for="sbCompareInsertTarget" class="sb-notes-label" style="margin-top:0">Insert into:</label>
+      <select id="sbCompareInsertTarget" class="sb-insert-target" aria-label="Choose which sermon field to insert passage into">
+        <option value="sermon-points">Key Points &amp; Illustrations</option>
+        <option value="sermon-outline">Outline</option>
+        <option value="sermon-application">Application</option>
+        <option value="sermon-prayer">Closing Prayer</option>
+      </select>
       <div class="sb-compare-grid" id="sbCompareGrid">
         <!-- populated by JS -->
       </div>
@@ -868,10 +875,10 @@
           var ref  = document.createElement('p');  ref.className = 'sb-compare-ref';  ref.textContent = p.ref;
           var text = document.createElement('p');  text.className = 'sb-compare-text'; text.textContent = p.text;
           var ins  = document.createElement('button'); ins.type = 'button'; ins.className = 'sb-compare-insert-btn';
-          ins.textContent = '+ Insert'; ins.setAttribute('aria-label', 'Insert ' + p.ref + ' into Key Points');
+          ins.textContent = '+ Insert'; ins.setAttribute('aria-label', 'Insert ' + p.ref + ' into selected field');
           ins.addEventListener('click', function () {
             var insertText = p.ref + ': "' + p.text + '"';
-            var fid = document.getElementById('sbInsertTarget')?.value || 'sermon-points';
+            var fid = document.getElementById('sbCompareInsertTarget')?.value || 'sermon-points';
             appendToField(fid, insertText);
             closeBackdrop('sbCompareBackdrop', 'sb-compare-btn');
           });

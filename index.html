@@ -1596,6 +1596,44 @@
     }
     .prayer-wall-streak-badge[hidden] { display: none !important; }
 
+    /* Subtle fade-in when badge appears */
+    @keyframes pwBadgeFadeIn {
+      from { opacity: 0; transform: translateY(-3px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .prayer-wall-streak-badge:not([hidden]) {
+      animation: pwBadgeFadeIn 0.25s ease both;
+    }
+
+    /* Grace message — broken streak nudge, shown once per day */
+    .prayer-wall-grace-msg {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted, #bcc5d6);
+      background: rgba(212,175,55,.07);
+      border: 1px solid rgba(212,175,55,.15);
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin: 0 0 0.75rem;
+      line-height: 1.45;
+    }
+    .prayer-wall-grace-msg[hidden] { display: none !important; }
+    .prayer-wall-grace-dismiss {
+      background: none;
+      border: none;
+      color: var(--muted, #bcc5d6);
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 0 0 0 auto;
+      margin-left: auto;
+      opacity: 0.6;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .prayer-wall-grace-dismiss:hover { opacity: 1; }
+
     .prayer-wall-card .prayer-wall-label {
       margin: 0 0 5px;
       font-size: 0.8rem;
@@ -3114,6 +3152,11 @@
           <p class="prayer-wall-label">Prayer Wall</p>
           <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
         </div>
+        <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
+        <p id="prayerWallGraceMsg" class="prayer-wall-grace-msg" hidden aria-live="polite">
+          Missed a day? No shame&#8212;fresh start today. 🙏
+          <button type="button" class="prayer-wall-grace-dismiss" aria-label="Dismiss message" onclick="if(typeof dismissPrayerWallGrace==='function')dismissPrayerWallGrace()">&#x2715;</button>
+        </p>
         <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
         <div class="prayer-counter-row">
           <span class="prayer-today-label" id="prayerTodayLabel">0 prayers today</span>

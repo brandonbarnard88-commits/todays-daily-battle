@@ -3564,6 +3564,15 @@ var SMART_DICTIONARY = {
 window.ROTATING_HERO_VERSES = ROTATING_HERO_VERSES;
 window.SMART_DICTIONARY     = SMART_DICTIONARY;
 
+// Declared here (before mountRotatingHeroVerse fires) so normalizeEmotionSignal
+// can reference EMOTION_ALIAS without hitting a TDZ/undefined error.
+var EMOTION_SIGNAL_KEY = 'tdb_emotion_signal_v1';
+var EMOTION_ALIAS = {
+  fear: 'fear', anxiety: 'fear', anxious: 'fear', worry: 'fear', worried: 'fear', stress: 'fear',
+  hope: 'hope', hopeless: 'hope', grief: 'grief', sadness: 'grief', heartache: 'grief',
+  courage: 'courage', strength: 'strength', peace: 'peace', family: 'family'
+};
+
 function renderSmartResult(query) {
   var key = String(query || '').toLowerCase().trim();
   if (!key) return;
@@ -8853,13 +8862,6 @@ function getAuthDailyVerseBreakdownData(ref, verseText) {
     application: data.application
   };
 }
-
-var EMOTION_SIGNAL_KEY = 'tdb_emotion_signal_v1';
-var EMOTION_ALIAS = {
-  fear: 'fear', anxiety: 'fear', anxious: 'fear', worry: 'fear', worried: 'fear', stress: 'fear',
-  hope: 'hope', hopeless: 'hope', grief: 'grief', sadness: 'grief', heartache: 'grief',
-  courage: 'courage', strength: 'strength', peace: 'peace', family: 'family'
-};
 
 function normalizeEmotionSignal(topic) {
   var raw = String(topic || '').trim().toLowerCase();

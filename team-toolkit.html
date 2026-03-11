@@ -86,9 +86,11 @@
       transition: background 0.15s, border-color 0.15s;
       white-space: nowrap;
     }
-    .tt-btn:hover, .tt-btn:focus-visible {
+    .tt-btn:hover { background: rgba(227,188,103,0.2); }
+    .tt-btn:focus-visible {
       background: rgba(227,188,103,0.2);
-      outline: none;
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 2px;
     }
     .tt-btn-sm { padding: 0.3rem 0.65rem; font-size: 0.78rem; border-radius: 7px; }
     .tt-btn-danger { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.08); color: #f87171; }
@@ -427,7 +429,7 @@
 
     /* ── Toast ─────────────────────────────────────────── */
     .tt-toast {
-      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
       background: rgba(10,14,24,0.95);
       border: 1px solid rgba(239,68,68,0.5);
       color: #fca5a5;
@@ -499,7 +501,7 @@
       <div class="content-inner">
         <header class="hero-banner">
           <h1>Team Toolkit</h1>
-          <p class="hero-tagline">Calendar, attendance, shared files, prayer chain, verse packs — everything your group needs to run well. All local, all private.</p>
+          <p class="hero-tagline">Calendar, attendance, files, prayer chain, verse packs — all on this device, all yours.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="church.html">Church Center</a>
             <a class="btn btn-secondary" href="message.html">Message Board</a>
@@ -510,11 +512,11 @@
         <div id="tt-onboard-banner" class="tt-onboard" role="status" aria-live="polite">
           <div class="tt-onboard-icon" aria-hidden="true">⚔️</div>
           <div class="tt-onboard-body">
-            <div class="tt-onboard-title">Set your Team ID to get started</div>
+            <div class="tt-onboard-title">Give your group a shared name</div>
             <ul class="tt-onboard-steps">
-              <li>Pick a Team ID and tap <strong>Set Team</strong> — everyone in your group uses the same one.</li>
-              <li>Open <strong>Calendar</strong> to set your next meeting or study date.</li>
-              <li>Use <strong>Prayer Chain</strong> for urgent requests — only visible to people with your Team ID.</li>
+              <li>Type a name for your group below and tap <strong>Set Team</strong> — use the same one on every phone.</li>
+              <li>Open <strong>Calendar</strong> to add your next meeting or study date.</li>
+              <li>Use <strong>Prayer Chain</strong> for urgent requests — visible on this device only.</li>
               <li>Set a <strong>Verse Pack</strong> so your whole group reads the same verse each morning.</li>
             </ul>
           </div>
@@ -530,7 +532,7 @@
             <span id="tt-team-name" style="font-size:0.82rem;color:var(--gold);"></span>
             <span class="tt-privacy-badge" title="Nothing is sent to a server. All data stays in this browser.">🔒 Local only — this device</span>
           </div>
-          <p class="section-note" style="margin-top:0.5rem;font-size:0.78rem;">All data is stored locally in your browser, keyed to this team ID. Give everyone on your team the same ID to share a local workspace on one device.</p>
+          <p class="section-note" style="margin-top:0.5rem;font-size:0.78rem;">All data stays in this browser, under the name you set. Everyone on the same device who uses the same name shares the same workspace.</p>
         </section>
 
         <!-- ── Tool tabs ────────────────────────────────────────── -->
@@ -541,7 +543,7 @@
             <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-library"     id="tab-library">📁 Files</button>
             <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-prayer"      id="tab-prayer">🔴 Prayer Chain</button>
             <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-verse-packs" id="tab-verse-packs">📖 Verse Packs</button>
-            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-comms"       id="tab-comms">💬 More</button>
+            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-comms"       id="tab-comms">🔗 More Tools</button>
           </div>
 
           <!-- ════════ CALENDAR ═══════════════════════════════════ -->
@@ -689,6 +691,7 @@
                 <input class="tt-input" id="chain-poster" placeholder="Your name (optional)" aria-label="Your name" style="max-width:180px;">
                 <input class="tt-input" id="chain-desc" placeholder="Details (optional)" aria-label="Details">
                 <button class="tt-btn" id="chain-add-btn" type="button">Add Request</button>
+                <p class="section-note" style="opacity:0.55;font-size:0.72rem;margin-top:0.3rem;">Requests expire after 30 days.</p>
               </div>
             </div>
 
@@ -698,7 +701,7 @@
 
             <!-- Answered section -->
             <div class="chain-answered-section" id="chain-answered-section" style="display:none;">
-              <button class="chain-answered-toggle" id="chain-answered-toggle" type="button">▸ Show answered prayers</button>
+              <button class="chain-answered-toggle" id="chain-answered-toggle" type="button" aria-expanded="false">▸ Show answered prayers</button>
               <div id="chain-answered-list" style="display:none;margin-top:0.6rem;"></div>
             </div>
           </div>
@@ -713,12 +716,13 @@
 
             <!-- Password gate -->
             <div id="vp-gate" class="vp-gate">
-              <p class="section-note" style="margin-bottom:0.5rem;">Enter the admin password to manage packs.</p>
+              <p class="section-note" id="vp-gate-msg" style="margin-bottom:0.5rem;">Enter the admin password to manage packs.</p>
               <div class="tt-row">
                 <input class="tt-input" id="vp-pw-input" type="password" placeholder="Password" aria-label="Admin password" style="max-width:200px;">
                 <button class="tt-btn tt-btn-sm" id="vp-unlock-btn" type="button">Unlock</button>
               </div>
               <p class="section-note" id="vp-pw-err" style="color:#f87171;margin-top:0.4rem;display:none;">Wrong password.</p>
+              <p class="section-note" style="margin-top:0.5rem;opacity:0.6;font-size:0.72rem;">Forgot it? Clear this site&#8217;s data in your browser settings to reset.</p>
             </div>
 
             <!-- Admin panel (hidden until unlocked) -->
@@ -730,8 +734,8 @@
                   <input class="tt-input" id="vp-pack-name" placeholder='Pack name — e.g. "Sunday Hope Series"' aria-label="Pack name">
                 </div>
                 <textarea id="vp-pack-text" class="tt-input" rows="6"
-                  placeholder="One verse per line. Format: Book Ch:Vs Verse text&#10;Example:&#10;John 3:16 For God so loved the world...&#10;Philippians 4:13 I can do all things..."
-                  aria-label="Verse list" style="resize:vertical;font-family:inherit;"></textarea>
+                  placeholder="KJV text only. One verse per line. Format: Book Ch:Vs Verse text&#10;Example:&#10;John 3:16 For God so loved the world...&#10;Philippians 4:13 I can do all things..."
+                  aria-label="Verse list (KJV only)" style="resize:vertical;font-family:inherit;"></textarea>
                 <div class="tt-row">
                   <button class="tt-btn" id="vp-save-btn" type="button">Save Pack</button>
                   <label class="tt-btn tt-btn-ghost" for="vp-import-file" style="cursor:pointer;">Import JSON</label>
@@ -765,7 +769,7 @@
               <div class="list-item"><div><strong><a href="sermon.html">Sermon Builder</a></strong><p>Build and share outlines with your congregation or co-leaders.</p></div></div>
             </div>
             <div class="section-note" style="margin-top:1rem;">
-              <strong>$49/month Church plan</strong> adds team logins, group progress tracking, church-branded exports, shared lesson library, and verse + announcement pairing. <a href="pricing.html">See Pricing →</a>
+              <strong>$49/month Church plan:</strong> team logins, shared notes library, and your church's verse sent to everyone's morning screen. <a href="pricing.html">See Pricing →</a>
             </div>
           </div>
         </section>
@@ -783,7 +787,7 @@
       </nav>
       <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
       <p class="footer-copyright">© 2026 Today's Daily Battle. All rights reserved.</p>
-      <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+      <p class="footer-updated">Last updated: <span id="footer-date">2026</span></p>
     </footer>
   </div>
 
@@ -1005,7 +1009,11 @@
 
     if (setTeamBtn) {
       setTeamBtn.addEventListener('click', function() {
-        var v = (teamInput.value || '').trim().replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,40) || 'default';
+        var raw = (teamInput.value || '').trim();
+        if (!raw) { showToast('Enter a group name first.'); return; }
+        var v = raw.replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,40);
+        // Show feedback if normalization changed the value
+        if (v !== raw) showToast('Saved as: ' + v);
         teamInput.value = v;
         teamLabel.textContent = 'Active: ' + v;
         try { localStorage.setItem('tdb_tt_active_team', v); } catch(_) {}
@@ -1191,8 +1199,8 @@
           (ev.desc ? '<div class="cal-event-desc">' + escHtml(ev.desc) + '</div>' : '') +
           (ev.recurringGroup ? '<div class="cal-event-recurring">↺ Recurring</div>' : '') +
           '<div class="cal-event-actions">' +
-            '<button class="tt-btn tt-btn-sm tt-btn-ghost cal-edit-btn" data-id="' + ev.id + '" type="button">Edit</button>' +
-            '<button class="tt-btn tt-btn-sm tt-btn-danger cal-del-btn" data-id="' + ev.id + '" type="button">Delete</button>' +
+            '<button class="tt-btn tt-btn-sm tt-btn-ghost cal-edit-btn" data-id="' + ev.id + '" type="button" aria-label="Edit: ' + escHtml(ev.title) + '">Edit</button>' +
+            '<button class="tt-btn tt-btn-sm tt-btn-danger cal-del-btn" data-id="' + ev.id + '" type="button" aria-label="Delete: ' + escHtml(ev.title) + '">Delete</button>' +
           '</div>' +
         '</div>' +
         '<div class="cal-swipe-del" data-id="' + ev.id + '">Delete</div>';
@@ -1227,16 +1235,16 @@
         var swipeDel = e.target.closest('.cal-swipe-del');
 
         if (delBtn || swipeDel) {
-          var id = (delBtn || swipeDel).dataset.id;
-          saveEvents(getEvents().filter(function(ev){ return ev.id !== id; }));
+          var delId = (delBtn || swipeDel).dataset.id;
+          saveEvents(getEvents().filter(function(ev){ return ev.id !== delId; }));
           renderCalendar();
           return;
         }
         if (editBtn) {
-          var id = editBtn.dataset.id;
-          var ev = getEvents().find(function(e){ return e.id === id; });
+          var editId = editBtn.dataset.id;
+          var ev = getEvents().find(function(e){ return e.id === editId; });
           if (!ev) return;
-          editingCalId = id;
+          editingCalId = editId;
           calTitleInput.value = ev.title;
           if (calDateHidden) calDateHidden.value = ev.date;
           var displayEl = document.getElementById('cal-date-display');
@@ -1396,11 +1404,17 @@
       var total = members.length;
       var present = members.filter(function(n){ return !!record[n]; }).length;
       var pct = total ? Math.round(100 * present / total) : 0;
-      if (statsEl) statsEl.innerHTML =
-        '<div class="att-stat"><div class="att-stat-val">' + present + '</div><div class="att-stat-lbl">Present</div></div>' +
-        '<div class="att-stat"><div class="att-stat-val">' + (total-present) + '</div><div class="att-stat-lbl">Absent</div></div>' +
-        '<div class="att-stat"><div class="att-stat-val">' + pct + '%</div><div class="att-stat-lbl">Rate</div></div>' +
-        '<div class="att-stat"><div class="att-stat-val">' + total + '</div><div class="att-stat-lbl">Total</div></div>';
+      if (statsEl) {
+        if (total === 0) {
+          statsEl.innerHTML = '';
+        } else {
+          statsEl.innerHTML =
+            '<div class="att-stat"><div class="att-stat-val">' + present + '</div><div class="att-stat-lbl">Present</div></div>' +
+            '<div class="att-stat"><div class="att-stat-val">' + (total-present) + '</div><div class="att-stat-lbl">Absent</div></div>' +
+            '<div class="att-stat"><div class="att-stat-val">' + pct + '%</div><div class="att-stat-lbl">Rate</div></div>' +
+            '<div class="att-stat"><div class="att-stat-val">' + total + '</div><div class="att-stat-lbl">Total</div></div>';
+        }
+      }
     }
 
     var attTableWrap = document.getElementById('att-table-wrap');
@@ -1410,17 +1424,17 @@
         var remove = e.target.closest('.att-remove');
         var date = getAttDate();
         if (check) {
-          var name = check.dataset.name;
+          var checkName = check.dataset.name;
           var rec = getRecord(date);
-          rec[name] = !rec[name];
+          rec[checkName] = !rec[checkName];
           saveRecord(date, rec);
           renderAttendance();
           renderAttDateStrip();
         }
         if (remove) {
-          var name = remove.dataset.name;
-          if (!confirm('Remove ' + name + ' from the list?')) return;
-          saveMembers(getMembers().filter(function(m){ return m !== name; }));
+          var removeName = remove.dataset.name;
+          if (!confirm('Remove ' + removeName + ' from the list?')) return;
+          saveMembers(getMembers().filter(function(m){ return m !== removeName; }));
           renderAttendance();
         }
       });
@@ -1475,7 +1489,7 @@
         }
       };
       req.onsuccess = function(e) { libDB = e.target.result; callback(libDB); };
-      req.onerror   = function()  { showToast('File storage unavailable.'); };
+      req.onerror   = function()  { showToast('File storage unavailable — try a different browser or turn off private mode.'); };
     }
 
     function libTeamPrefix() {
@@ -1542,13 +1556,14 @@
       if (!grid) return;
 
       getLibFiles(function(files) {
-        // Quota
+        // Quota — base64 storage is ~1.37× raw file size; reflect actual storage usage
         var totalBytes = files.reduce(function(s,f){ return s+(f.size||0); }, 0);
-        var pct = Math.min(100, Math.round(100 * totalBytes / LIB_MAX));
+        var storedBytes = Math.round(totalBytes * 1.37);
+        var pct = Math.min(100, Math.round(100 * storedBytes / LIB_MAX));
         var fill = document.getElementById('lib-quota-fill');
         var text = document.getElementById('lib-quota-text');
         if (fill) fill.style.width = pct + '%';
-        if (text) text.textContent = fmtSize(totalBytes) + ' used of 100 MB';
+        if (text) text.textContent = fmtSize(storedBytes) + ' used of 100 MB';
 
         // Filter
         var q = search.toLowerCase();
@@ -1602,7 +1617,10 @@
             '<div class="lib-tags">' + tagsHtml + '</div>' +
             '<div class="lib-actions">' +
               '<a class="tt-btn tt-btn-sm" href="' + escHtml(f.data) + '" download="' + escHtml(f.name) + '" aria-label="Download ' + escHtml(f.name) + '">⬇ Get</a>' +
-              '<button class="tt-btn tt-btn-sm tt-btn-danger lib-del-btn" data-id="' + escHtml(f.id) + '" type="button" aria-label="Delete">✕</button>' +
+              (f.data && f.data.startsWith('data:application/pdf')
+                ? '<a class="tt-btn tt-btn-sm tt-btn-ghost" href="' + escHtml(f.data) + '" target="_blank" rel="noopener" aria-label="Open ' + escHtml(f.name) + ' in new tab">Open</a>'
+                : '') +
+              '<button class="tt-btn tt-btn-sm tt-btn-danger lib-del-btn" data-id="' + escHtml(f.id) + '" type="button" aria-label="Delete ' + escHtml(f.name) + '">✕</button>' +
             '</div>';
 
           // Edit-title on blur
@@ -1665,7 +1683,8 @@
         getLibFiles(function(existing) {
           var used = existing.reduce(function(s,f){ return s+(f.size||0); }, 0);
           var adding = files.reduce(function(s,f){ return s+f.size; }, 0);
-          if (used + adding > LIB_MAX) {
+          // Account for base64 overhead (~1.37×) when checking against quota
+          if (Math.round((used + adding) * 1.37) > LIB_MAX) {
             showToast('Upload would exceed 100 MB. Delete some files first.');
             return;
           }
@@ -1752,10 +1771,10 @@
         ((item.prayedBy && item.prayedBy.length) ? '<div class="chain-prayed-by">Prayed ' + item.prayedBy.length + ' time' + (item.prayedBy.length===1?'':'s') + '</div>' : '') +
         '<div class="chain-actions">' +
           (!isAnswered
-            ? '<button class="tt-btn tt-btn-sm" data-chain-pray="' + item.id + '" type="button">I Prayed ✓</button>' +
-              '<button class="tt-btn tt-btn-sm tt-btn-green" data-chain-answer="' + item.id + '" type="button">Mark Answered</button>'
+            ? '<button class="tt-btn tt-btn-sm" data-chain-pray="' + item.id + '" type="button" aria-label="I prayed for: ' + escHtml(item.title) + '">I Prayed ✓</button>' +
+              '<button class="tt-btn tt-btn-sm tt-btn-green" data-chain-answer="' + item.id + '" type="button" aria-label="Mark answered: ' + escHtml(item.title) + '">Mark Answered</button>'
             : '') +
-          '<button class="tt-btn tt-btn-sm tt-btn-danger" data-chain-del="' + item.id + '" type="button">Remove</button>' +
+          '<button class="tt-btn tt-btn-sm tt-btn-danger" data-chain-del="' + item.id + '" type="button" aria-label="Remove request: ' + escHtml(item.title) + '">Remove</button>' +
         '</div>';
       return card;
     }
@@ -1784,7 +1803,7 @@
       if (chainUrgency) chainUrgency.value = 'low';
       if (urg === 'high') {
         showToast('🔔 Urgent: ' + title);
-        console.info('Urgent prayer request:', title);
+        // console.info removed — prayer content is private
       }
       renderChain();
     });
@@ -1796,20 +1815,20 @@
         var ansBtn    = e.target.closest('[data-chain-answer]');
         var delBtn    = e.target.closest('[data-chain-del]');
         if (prayBtn) {
-          var id = prayBtn.dataset.chainPray;
-          var items = getChain().map(function(i) {
-            if (i.id !== id) return i;
+          var prayId = prayBtn.dataset.chainPray;
+          var prayItems = getChain().map(function(i) {
+            if (i.id !== prayId) return i;
             var pb = (i.prayedBy||[]).slice(); pb.push(Date.now());
             return Object.assign({}, i, { prayed: true, prayedBy: pb });
           });
-          saveChain(items); renderChain();
+          saveChain(prayItems); renderChain();
         }
         if (ansBtn) {
-          var id = ansBtn.dataset.chainAnswer;
-          var items = getChain().map(function(i) {
-            return i.id === id ? Object.assign({}, i, { answeredAt: Date.now() }) : i;
+          var ansId = ansBtn.dataset.chainAnswer;
+          var ansItems = getChain().map(function(i) {
+            return i.id === ansId ? Object.assign({}, i, { answeredAt: Date.now() }) : i;
           });
-          saveChain(items); renderChain();
+          saveChain(ansItems); renderChain();
           showToast('Marked answered. God is faithful. 🙏', 'info');
         }
         if (delBtn) {
@@ -1840,6 +1859,7 @@
         var shown = answeredListWrap.style.display !== 'none';
         answeredListWrap.style.display = shown ? 'none' : 'block';
         answeredToggle.textContent = (shown ? '▸' : '▾') + ' ' + (shown ? 'Show' : 'Hide') + ' answered prayers';
+        answeredToggle.setAttribute('aria-expanded', shown ? 'false' : 'true');
         if (!shown) {
           answeredListWrap.innerHTML = '';
           var answered = getChain().filter(function(i){ return !!i.answeredAt; });
@@ -1993,14 +2013,35 @@
       reader.readAsText(file);
     });
 
-    // Password gate
+    // Password gate — no default password shipped in source
     var vpUnlockBtn = document.getElementById('vp-unlock-btn');
     var vpPwInput   = document.getElementById('vp-pw-input');
     var vpPwErr     = document.getElementById('vp-pw-err');
+    var vpGateMsg   = document.getElementById('vp-gate-msg');
+    // If no password set yet, prompt the user to create one on first unlock
+    (function initVpGate() {
+      try {
+        var hasPassword = !!localStorage.getItem(VP_PW_KEY);
+        if (!hasPassword && vpGateMsg) {
+          vpGateMsg.textContent = 'No password set yet. Type one below and tap Unlock to create it.';
+        }
+      } catch(_) {}
+    })();
     if (vpUnlockBtn) vpUnlockBtn.addEventListener('click', function() {
       var pw = (vpPwInput.value || '').trim();
-      var stored = (function(){ try { return localStorage.getItem(VP_PW_KEY) || 'battle2026'; } catch(_){ return 'battle2026'; } })();
-      if (pw === stored) {
+      if (!pw) { showToast('Enter a password first.'); return; }
+      var stored;
+      try { stored = localStorage.getItem(VP_PW_KEY); } catch(_) { stored = null; }
+      if (!stored) {
+        // First time — set the password now
+        try { localStorage.setItem(VP_PW_KEY, pw); } catch(_) {}
+        vpUnlocked = true;
+        document.getElementById('vp-gate').style.display = 'none';
+        document.getElementById('vp-admin').style.display = 'block';
+        if (vpPwErr) vpPwErr.style.display = 'none';
+        renderVersePacks();
+        showToast('Password set. You\'re in.');
+      } else if (pw === stored) {
         vpUnlocked = true;
         document.getElementById('vp-gate').style.display = 'none';
         document.getElementById('vp-admin').style.display = 'block';

@@ -18090,7 +18090,10 @@ function writeNbaSignal(key) {
         // Show "Saved to cloud" vs "Saved locally" toast-style on note element
         var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
         updateNoteEl(isSynced);
+        if (typeof showEliteToast === 'function') showEliteToast(isSynced ? 'Prayer added—synced.' : 'Prayer added—saved locally.');
         if (typeof trackEvent === 'function') trackEvent('prayer_wall_add');
+        // Scroll new item into view
+        if (listEl && listEl.lastElementChild) listEl.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
       // Also allow Enter key to submit
       inputEl.addEventListener('keydown', function(e) {

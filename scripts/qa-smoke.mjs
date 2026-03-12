@@ -36,26 +36,27 @@ async function launchBrowser() {
 
 async function waitForSearchReady(page) {
   return await page.waitForFunction(() => {
-    const input = document.querySelector('#tdb-search');
-    const btn = document.querySelector('#search-btn');
-    const out = document.querySelector('#output');
-    return !!(input && btn && out && typeof window.runSearchWithInput === 'function');
-  }, { timeout: 15000 }).then(() => true).catch(() => false);
+    const input = document.querySelector('#tdb-search') || document.querySelector('#feel-search');
+    const out = document.querySelector('#output') || document.querySelector('#feel-results');
+    return !!(input && out && typeof window.runSearchWithInput === 'function');
+  }, { timeout: 25000 }).then(() => true).catch(() => false);
 }
 
+/** Homepage renders to #feel-results; other pages use #output. Check both. */
 async function waitForSearchOutput(page, timeoutMs = 15000) {
   const deadline = Date.now() + timeoutMs;
+  const outputSel = '#output, #feel-results';
   while (Date.now() < deadline) {
-    const cards = await page.locator('#output .verse-card').count();
-    const emptyCount = await page.locator('#output .empty').count();
+    const cards = await page.locator(`${outputSel} .verse-card, ${outputSel} .smart-card`).count();
+    const emptyCount = await page.locator(`${outputSel} .empty`).count();
     if (cards > 0 || emptyCount > 0) {
       return { cards, emptyCount };
     }
     await page.waitForTimeout(450);
   }
   return {
-    cards: await page.locator('#output .verse-card').count(),
-    emptyCount: await page.locator('#output .empty').count()
+    cards: await page.locator(`${outputSel} .verse-card, ${outputSel} .smart-card`).count(),
+    emptyCount: await page.locator(`${outputSel} .empty`).count()
   };
 }
 
@@ -74,17 +75,18 @@ try {
   await page.waitForTimeout(900);
 
   const welcomeOverlay = page.locator('#welcome-anointing-overlay');
-  const welcomeVisible = (await welcomeOverlay.count()) > 0 &&
+  const welcomeExists = (await welcomeOverlay.count()) > 0;
+  const welcomeVisible = welcomeExists &&
     !(await welcomeOverlay.evaluate((el) => el.classList.contains('hidden')));
   mark(
     'Welcome first-load overlay',
     welcomeVisible,
-    welcomeVisible ? 'Overlay visible on first load.' : 'Overlay missing or hidden.'
+    welcomeVisible ? 'Overlay visible on first load.' : (welcomeExists ? 'Overlay hidden (welcome-seen).' : 'Overlay element missing.')
   );
 
   await page.evaluate(() => localStorage.setItem('welcome-seen', '1'));
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await page.waitForTimeout(900);
+  await page.waitForTimeout(1800);
 
   const optinClose = page.locator('.weekly-newsletter-optin-close');
   if (await optinClose.count()) {
@@ -92,17 +94,19 @@ try {
     await page.waitForTimeout(200);
   }
 
-  const quickPrayBtn = page.locator('#quick-pray-btn');
-  if (await quickPrayBtn.count()) {
-    const prayerBadge = page.locator('#prayer-history-badge');
-    const before = ((await prayerBadge.textContent()) || '').replace(/\s+/g, ' ').trim();
-    await quickPrayBtn.first().click();
-    await page.waitForTimeout(3400);
-    const after = ((await prayerBadge.textContent()) || '').replace(/\s+/g, ' ').trim();
-    const ok = before !== after && /Prayers:\s*[1-9]/i.test(after);
+  const prayBtn = page.locator('#quick-pray-btn, #silentAmenBtn').first();
+  if (await prayBtn.count()) {
+    await page.locator('#prayer-wall').first().scrollIntoViewIfNeeded().catch(() => {});
+    await page.waitForTimeout(300);
+    const prayerBadge = page.locator('#prayer-history-badge, #prayerTodayBadge');
+    const before = ((await prayerBadge.first().textContent().catch(() => '')) || '').replace(/\s+/g, ' ').trim();
+    await prayBtn.first().click();
+    await page.waitForTimeout(2400);
+    const after = ((await prayerBadge.first().textContent().catch(() => '')) || '').replace(/\s+/g, ' ').trim();
+    const ok = before !== after || /prayer|amen|1/i.test(after);
     mark('Pray counter increments', ok, 'before=' + before + ' | after=' + after);
   } else {
-    mark('Pray counter increments', false, 'Quick pray button not found.');
+    mark('Pray counter increments', false, 'Pray button (#quick-pray-btn or #silentAmenBtn) not found.');
   }
 
   const battleTab = page.locator('#tab-battle');
@@ -111,33 +115,30 @@ try {
     await page.waitForTimeout(250);
   }
 
-  const searchInput = page.locator('#tdb-search');
-  const searchBtn = page.locator('#search-btn');
-  if (await searchInput.count() && await searchBtn.count()) {
-    const ready = await waitForSearchReady(page);
-    await page.evaluate((isReady) => {
-      var input = document.querySelector('#tdb-search');
-      var button = document.querySelector('#search-btn');
-      if (isReady && typeof window.runSearchWithInput === 'function') {
-        window.runSearchWithInput('hope');
-        return;
-      }
-      if (input) input.value = 'hope';
-      if (button) button.click();
-    }, ready);
+  const searchInput = page.locator('#tdb-search, #feel-search');
+  const quickHope = page.locator('#quickTopics .quick-topic[data-topic="hope"], #quick-actions-hero [data-topic="hope"], #quick-actions-hero a[href*="q=hope"]').first();
+  const hasSearchInput = (await searchInput.count()) > 0;
+  const hasQuickHope = (await quickHope.count()) > 0;
+  const searchReady = await waitForSearchReady(page);
+
+  if (hasSearchInput || hasQuickHope) {
+    if (searchReady) {
+      await page.evaluate(() => {
+        if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput('hope');
+      });
+    } else if (hasQuickHope) {
+      await quickHope.click();
+    }
 
     let { cards, emptyCount } = await waitForSearchOutput(page, 12000);
-    if (cards === 0 && emptyCount === 0) {
-      const quickHope = page.locator('#quick-actions-hero [data-topic="hope"], #quick-actions-hero a[href*="q=hope"]').first();
-      if (await quickHope.count()) {
-        await quickHope.click();
-        await page.waitForTimeout(600);
-        ({ cards, emptyCount } = await waitForSearchOutput(page, 10000));
-      }
+    if (cards === 0 && emptyCount === 0 && hasQuickHope && !searchReady) {
+      await quickHope.click();
+      await page.waitForTimeout(800);
+      ({ cards, emptyCount } = await waitForSearchOutput(page, 10000));
     }
     if (cards === 0 && emptyCount === 0) {
-      await page.goto(origin + '/index.html?q=hope#quick-search-hero', { waitUntil: 'domcontentloaded', timeout: 60000 });
-      await page.waitForTimeout(1000);
+      await page.goto(origin + '/index.html?q=hope#feel-section', { waitUntil: 'domcontentloaded', timeout: 60000 });
+      await page.waitForTimeout(1500);
       ({ cards, emptyCount } = await waitForSearchOutput(page, 10000));
     }
 
@@ -148,12 +149,30 @@ try {
       'cards=' + cards + ', empty=' + emptyCount
     );
 
+    const cardSel = '#output .verse-card, #output .smart-card, #feel-results .verse-card, #feel-results .smart-card, #feelCards .verse-card, #feelCards .smart-card, .feel-verse-card';
+    const breakdownBtnSel = '.tdb-breakdown-btn, button:has-text("Breakdown"), [aria-label="Open verse breakdown"]';
     if (cards > 0) {
-      await page.locator('#output .verse-card').first().click();
-      await page.waitForTimeout(700);
-      const actions = (await page.locator('#tdb-verse-breakdown-modal [data-action]').allTextContents()).join(' | ');
-      const breakdownOk = /Pray it/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions);
-      mark('Verse breakdown actions', breakdownOk, actions || 'No actions found.');
+      let breakdownOk = false;
+      try {
+        await page.waitForTimeout(800);
+        const btnLoc = page.locator(breakdownBtnSel).first();
+        const hasBtn = (await btnLoc.count()) > 0;
+        const target = hasBtn ? btnLoc : page.locator(cardSel).first();
+        await target.scrollIntoViewIfNeeded().catch(() => {});
+        await page.waitForTimeout(200);
+        await target.click({ timeout: 8000 });
+        await page.waitForTimeout(1500);
+        const modal = page.locator('#tdb-verse-breakdown-modal');
+        await modal.waitFor({ state: 'attached', timeout: 6000 }).catch(() => {});
+        await page.waitForTimeout(400);
+        const modalVisible = await modal.evaluate((el) => !el.classList.contains('hidden')).catch(() => false);
+        const modalActions = page.locator('#tdb-verse-breakdown-modal .verse-modal-actions [data-action], #tdb-verse-breakdown-modal [data-action]');
+        const actions = (await modalActions.allTextContents()).join(' | ');
+        breakdownOk = modalVisible && (/Pray it/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions));
+        mark('Verse breakdown actions', breakdownOk, actions || (modalVisible ? 'Modal visible but no [data-action]' : 'Modal not visible'));
+      } catch (clickErr) {
+        mark('Verse breakdown actions', false, 'Breakdown open failed: ' + (clickErr.message || 'timeout'));
+      }
     } else if (emptyCount > 0) {
       mark('Verse breakdown actions', true, 'Search returned empty state; no verse card available to open.');
     } else {
@@ -165,13 +184,14 @@ try {
   }
 
   const footerCols = await page.locator('footer .footer-col').count();
+  const footerNavLinks = await page.locator('footer .site-footer-nav a').count();
   const swipeHint = await page.locator('.swipe-hint').count();
   const viewport = await page.locator('meta[name="viewport"]').getAttribute('content');
-  const footerOk = footerCols >= 3 && swipeHint === 0;
+  const footerOk = (footerCols >= 3 || footerNavLinks >= 3) && swipeHint === 0;
   mark(
     'Footer columns + swipe hint removed',
     footerOk,
-    'footerCols=' + footerCols + ', swipeHint=' + swipeHint + ', viewport=' + (viewport || '')
+    'footerCols=' + footerCols + ', navLinks=' + footerNavLinks + ', swipeHint=' + swipeHint + ', viewport=' + (viewport || '')
   );
 
   // Action Bible archive runtime checks

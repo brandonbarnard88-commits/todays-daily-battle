@@ -145,6 +145,20 @@ for (const f of otherHtml) {
   let content = fs.readFileSync(path.join(root, f), 'utf8');
   content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);
   fs.writeFileSync(path.join(dist, f), content);
+  if (f === 'plans.html') {
+    if (!content.includes('plan-list') || !content.includes('Battle Distraction')) {
+      console.error('BUILD FAIL: plans.html must contain plan-list and Battle Distraction. Plan cards are required.');
+      process.exit(1);
+    }
+    console.log('Copied plans.html (5 battle plans)');
+  }
+  if (f === 'privacy.html') {
+    if (!content.includes('Privacy') || !content.includes('Supabase')) {
+      console.error('BUILD FAIL: privacy.html must contain Privacy and Supabase. Required for trust.');
+      process.exit(1);
+    }
+    console.log('Copied privacy.html');
+  }
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
     const required = [

@@ -9620,6 +9620,17 @@ body.has-promo-banner .header-search-sticky {
   padding: 1rem;
 }
 .verse-modal.hidden { display: none; }
+.verse-modal.closing .verse-modal-inner {
+  transform: scale(0.98);
+  opacity: 0.92;
+}
+.verse-modal.closing .verse-modal-backdrop {
+  opacity: 0.4;
+}
+.verse-modal-inner,
+.verse-modal-backdrop {
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
 .verse-modal-backdrop {
   position: absolute;
   inset: 0;
@@ -9648,8 +9659,20 @@ body.has-promo-banner .header-search-sticky {
   cursor: pointer;
   padding: 0.25rem;
   line-height: 1;
+  transition: color 0.15s ease, transform 0.15s ease, background 0.15s ease;
 }
-.verse-modal-close:hover { color: #fde047; }
+.verse-modal-close:hover {
+  color: #fde047;
+  transform: scale(1.1);
+  background: rgba(250, 204, 21, 0.15);
+}
+.verse-modal-close:focus-visible {
+  outline: 2px solid rgba(250, 204, 21, 0.8);
+  outline-offset: 2px;
+  color: #fde047;
+  transform: scale(1.1);
+  background: rgba(250, 204, 21, 0.12);
+}
 .verse-modal-ref {
   font-size: 1.25rem;
   font-weight: 600;
@@ -9730,7 +9753,30 @@ body.has-promo-banner .header-search-sticky {
 @media (max-width: 768px) {
   .verse-modal {
     font-size: 1.1rem;
-    padding: 16px;
+    padding: 0.75rem;
+    align-items: stretch;
+  }
+  .verse-modal-inner {
+    display: flex;
+    flex-direction: column;
+    max-height: min(90vh, 40rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  .verse-modal-close {
+    position: sticky;
+    top: 0;
+    align-self: flex-end;
+    flex-shrink: 0;
+    margin: -0.25rem -0.25rem 0.5rem 0.5rem;
+    z-index: 2;
+    background: #111;
+    border-radius: 6px;
+    min-width: 44px;
+    min-height: 44px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(250, 204, 21, 0.2);
   }
   .verse-modal h3 {
     font-size: 1.3rem;

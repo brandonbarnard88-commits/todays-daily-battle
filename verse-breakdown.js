@@ -268,8 +268,17 @@
       '</div>' +
       '</div></div>';
     document.body.appendChild(modal);
-    modal.querySelector('.verse-modal-close').addEventListener('click', function () { modal.classList.add('hidden'); });
-    modal.querySelector('.verse-modal-backdrop').addEventListener('click', function () { modal.classList.add('hidden'); });
+    function closeModal() {
+      var ref = modal.getAttribute('data-ref') || '';
+      if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_close', { ref: ref.slice(0, 32) });
+      modal.classList.add('closing');
+      setTimeout(function () {
+        modal.classList.remove('closing');
+        modal.classList.add('hidden');
+      }, 120);
+    }
+    modal.querySelector('.verse-modal-close').addEventListener('click', closeModal);
+    modal.querySelector('.verse-modal-backdrop').addEventListener('click', closeModal);
     modal.querySelectorAll('.verse-age-actions [data-age]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var mode = setAgeMode(btn.getAttribute('data-age') || 'adult');
@@ -379,6 +388,22 @@
       bubble.className = 'verse-modal-bubble verse-modal-bubble-' + ageMode;
     }
     modal.classList.remove('hidden');
+    if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_open', { ref: (ref || '').slice(0, 32) });
+    (function setupScrollDepth() {
+      var inner = modal.querySelector('.verse-modal-inner');
+      if (!inner) return;
+      var fired = false;
+      function onScroll() {
+        if (fired) return;
+        var scrolled = inner.scrollTop + inner.clientHeight;
+        if (scrolled >= inner.scrollHeight * 0.5) {
+          fired = true;
+          if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_scrolled_50', { ref: (ref || '').slice(0, 32) });
+          inner.removeEventListener('scroll', onScroll);
+        }
+      }
+      inner.addEventListener('scroll', onScroll);
+    })();
     if (!resolvedText && ref) {
       loadBibleDict().then(function () {
         if (modal.getAttribute('data-ref') !== String(ref || '')) return;

@@ -247,4 +247,16 @@ if (fs.existsSync(wellKnown)) {
 
 // Write build-date.txt so JS can fetch it as fallback if HTML replacement missed
 fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
+
+// Verify critical pages exist (fail build if missing)
+const CRITICAL_PAGES = [
+  'index.html', 'bible-tool.html', 'pastor-toolkit.html', 'sermon.html', 'plans.html',
+  'pastor/index.html', 'bible/index.html', 'script.js'
+];
+const missing = CRITICAL_PAGES.filter(function (f) { return !fs.existsSync(path.join(dist, f)); });
+if (missing.length) {
+  console.error('BUILD FAIL: Missing critical files in dist/: ' + missing.join(', '));
+  process.exit(1);
+}
 console.log('build-copy-static.js: copied all static files to dist/ (including topic-*.html).');
+console.log('Verified: Bible Tool, Pastor Toolkit, plans, pastor/, bible/ present.');

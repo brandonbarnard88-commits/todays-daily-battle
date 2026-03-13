@@ -1,4 +1,4 @@
-# Ask the Word — Bible Q&A Setup
+# Ask the Bible — Bible Q&A Setup
 
 Bible Q&A uses semantic search over KJV verses (pgvector + HuggingFace embeddings). No paid LLM.
 

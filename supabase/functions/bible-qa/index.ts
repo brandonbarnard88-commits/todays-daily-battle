@@ -3,7 +3,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") ?? "";
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
 const HF_TOKEN = Deno.env.get("HF_TOKEN") ?? "";
-const HF_MODEL = Deno.env.get("HF_MODEL") ?? "HuggingFaceH4/zephyr-7b-beta";
+const HF_MODEL = Deno.env.get("HF_MODEL") ?? "microsoft/Phi-3-mini-4k-instruct";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -129,7 +129,11 @@ Deno.serve(async (req) => {
   let prayerPrompt: string | null = null;
 
   if (HF_TOKEN && versesBlock) {
-    const answerPrompt = `Answer this Bible question using ONLY KJV quotes from these verses. Cite book/chapter/verse. Be short, direct, no opinion.\n\nVerses:\n${versesBlock}\n\nQuestion: ${query}`;
+    const answerPrompt = `You are Ask the Word, a KJV Bible helper. Answer ONLY using KJV verses. Be short, honest, cite exact references. If unsure or off-topic, say "I don't know—talk to a pastor." Keep replies 1-3 sentences max. Examples: "What is love?" → "Love is patient, love is kind..." (1 Corinthians 13:4-7). "Why did God create us?" → "For His glory..." (Isaiah 43:7).
+
+Verses:\n${versesBlock}
+
+Question: ${query}`;
     const genAnswer = await generateText(answerPrompt, 150);
     if (genAnswer) answer = genAnswer;
 
@@ -138,7 +142,7 @@ Deno.serve(async (req) => {
   }
 
   return jsonResponse({
-    answer: answer.startsWith("The Word says") ? answer : "The Word says: " + answer,
+    answer: answer.startsWith("The Word says") || answer.startsWith("I don't know") ? answer : "The Word says: " + answer,
     sources,
     prayer_prompt: prayerPrompt || undefined,
   }, 200);

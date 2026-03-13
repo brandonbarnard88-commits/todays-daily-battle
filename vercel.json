@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/anxiety", "destination": "/about.html", "permanent": true },
+    { "source": "/our-approach", "destination": "/about.html", "permanent": true },
+    { "source": "/contract", "destination": "/faq.html", "permanent": true },
+    { "source": "/support", "destination": "/faq.html", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

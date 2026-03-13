@@ -1,5 +1,5 @@
 -- =============================================================================
--- Bible KJV table with pgvector for semantic search (Ask the Word)
+-- Bible KJV table with pgvector for semantic search (Ask the Bible)
 -- Run in Supabase SQL Editor. Requires pgvector extension.
 -- =============================================================================
 

@@ -16,7 +16,7 @@ Concise summaries for site pages. Updated to reflect semantic search (FEELING_NE
 
 **Battle Plans (plans.html)** — Five plans: Battle Distraction, Gratitude, 30-Day Strength, Marriage, 7-Day Peace. Each with day pills, progress bar, reflections, Mark Complete. Progress saves offline. DOMContentLoaded + aria-busy for robust render.
 
-**Bible Tools (bible-tool.html)** — KJV verse lookup, book/chapter/verse picker, Ask the Word (bible-qa when deployed), Win the Day (3 topic verses), Battle Ready (1 verse + prayer), notes, plan checkboxes. Semantic search: expandKeywords injects MEANING/ACTION/OUTCOME/FEELING_NEED_MAP/REACTION_MAP; "Matching Verses" title; fallback hope/love/peace/strength/faith.
+**Bible Tools (bible-tool.html)** — KJV verse lookup, book/chapter/verse picker, Ask the Bible (bible-qa when deployed), Win the Day (3 topic verses), Battle Ready (1 verse + prayer), notes, plan checkboxes. Semantic search: expandKeywords injects MEANING/ACTION/OUTCOME/FEELING_NEED_MAP/REACTION_MAP; "Matching Verses" title; fallback hope/love/peace/strength/faith.
 
 **Kids Corner (kids-corner.html)** — Bible Loop Library: 10–15 sec animated story loops (hand-drawn, ukulele + SFX), 12 starter loops, 160 total; watch 3× + pray to unlock next; Story Stars progress; weekly Sunday drops. Links to coloring, Kids Battle Home.
 

@@ -85,7 +85,7 @@ After running the SQL, the site will sync these when users are logged in and per
 
 **Push daily schedule:** Run `supabase-push-daily-verse-cron.sql` (replace placeholders first) to schedule daily POST requests to `send-daily-verse-push` via `pg_cron` + `pg_net`.
 
-**Bible Q&A (Ask the Word):** Run `supabase-bible-kjv.sql` to create `bible_kjv` table (pgvector) and `match_bible_verses` RPC. Seed with `scripts/seed-bible-kjv.mjs`, embed with `scripts/embed-bible-kjv.mjs`, deploy `bible-qa` Edge Function. See `docs/BIBLE-QA-SETUP.md`.
+**Bible Q&A (Ask the Bible):** Run `supabase-bible-kjv.sql` to create `bible_kjv` table (pgvector) and `match_bible_verses` RPC. Seed with `scripts/seed-bible-kjv.mjs`, embed with `scripts/embed-bible-kjv.mjs`, deploy `bible-qa` Edge Function. See `docs/BIBLE-QA-SETUP.md`.
 
 ---
 

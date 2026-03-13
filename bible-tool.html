@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <script src="scripts/header-search-bar.js?v=2" defer></script>
   <script src="people-verse-map.js" defer></script>
+  <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,16 +101,19 @@
       margin: 20px 0;
     }
     .bible-qa-title { font-size: 1.25rem; margin: 0 0 1rem; color: #d4af37; font-weight: 600; }
-    .qa-input-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .bible-qa .qa-input-group { display: flex !important; gap: 10px; flex-wrap: wrap; visibility: visible !important; }
     #bible-qa-search {
       flex: 1;
       min-width: 12rem;
+      min-height: 44px;
       font-size: 1.2rem;
       padding: 12px;
       background: #222;
       color: #fff;
       border: 1px solid rgba(212,175,55,0.4);
       border-radius: 4px;
+      display: block;
+      visibility: visible;
     }
     #bible-qa-search:focus { outline: 2px solid rgba(212,175,55,0.6); outline-offset: 2px; }
     #bible-qa-search::placeholder { color: #94a3b8; }
@@ -118,12 +122,29 @@
       color: #000;
       border: none;
       padding: 12px 24px;
+      min-height: 44px;
       font-weight: bold;
       border-radius: 4px;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      visibility: visible;
     }
     .qa-btn:hover { background: #e3bc67; }
     .qa-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .qa-btn .qa-spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(0,0,0,0.3);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: qa-spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    @keyframes qa-spin { to { transform: rotate(360deg); } }
     .qa-result {
       margin-top: 20px;
       padding: 15px;
@@ -132,9 +153,11 @@
       border-radius: 4px;
     }
     .qa-result.hidden { display: none; }
+    .qa-result .qa-answer { margin: 0; line-height: 1.5; }
     .qa-result .qa-sources { margin-top: 0.75rem; font-size: 0.9rem; color: #94a3b8; }
     .qa-result .qa-sources a { color: #d4af37; text-decoration: none; }
     .qa-result .qa-sources a:hover { text-decoration: underline; }
+    .qa-disclaimer { font-size: 0.8rem; color: #64748b; margin-top: 1rem; font-style: italic; }
     .prayer-prompt { color: #888; font-style: italic; margin-top: 15px; }
     .prayer-prompt.hidden { display: none; }
     .prayer-prompt .copy-btn { background: none; border: none; color: #d4af37; cursor: pointer; font-style: normal; }
@@ -265,21 +288,105 @@
         <h1 class="section-divider">Bible Tool</h1>
         <p class="section-note">Look up any verse, take notes, track your reading — KJV, no account needed. Sign in to sync across devices.</p>
 
-        <!-- Ask the Word — Bible Q&A (RAG) -->
-        <section class="bible-qa" aria-label="Ask the Word">
+        <!-- Ask the Word — Bible Q&A (standalone, runs before main script) -->
+        <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search">
           <h2 class="bible-qa-title">✝️ Ask the Word</h2>
-          <div class="qa-input-group">
-            <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question">
-            <button type="button" class="qa-btn" id="bible-qa-btn">Ask</button>
+          <div class="qa-input-group" style="display:flex !important; gap:10px; flex-wrap:wrap;">
+            <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question" autocomplete="off" style="flex:1; min-width:12rem; min-height:44px; padding:12px; background:#222; color:#fff; border:1px solid rgba(212,175,55,0.4); border-radius:4px; font-size:1.1rem;">
+            <button type="button" class="qa-btn" id="bible-qa-btn" style="min-height:44px;">Ask</button>
           </div>
           <div id="qa-result" class="qa-result hidden" role="region" aria-live="polite" aria-label="Bible Q&A answer">
-            <!-- RAG answer loads here -->
+            <!-- Answer loads here -->
           </div>
-          <div class="prayer-prompt hidden" id="qa-prayer-prompt" aria-live="polite">
+          <div class="prayer-prompt hidden" id="qa-prayer-prompt" aria-live="polite" aria-hidden="true">
             Prayer prompt: <span class="prompt-text"></span>
             <button type="button" class="copy-btn" aria-label="Copy prayer prompt">Copy</button>
           </div>
+          <p class="qa-disclaimer" style="margin-top:1rem; font-size:0.8rem; color:#64748b; font-style:italic;">This is not a pastor—just a tool. For deep questions, talk to someone real.</p>
         </section>
+        <script nonce="tdb2025">
+        (function askTheWordBootstrap() {
+          var input = document.getElementById('bible-qa-search');
+          var btn = document.getElementById('bible-qa-btn');
+          var result = document.getElementById('qa-result');
+          var prayerEl = document.getElementById('qa-prayer-prompt');
+          if (typeof console !== 'undefined' && console.log) console.log('Ask the Word bootstrap loaded');
+          if (!input || !btn || !result) { if (typeof console !== 'undefined' && console.warn) console.warn('Ask the Word: missing input/btn/result'); return; }
+          var CACHE_KEY = 'tdb-ask-the-word-cache';
+          var CACHE_TTL = 24 * 60 * 60 * 1000;
+          function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+          function getCache() { try { var r = localStorage.getItem(CACHE_KEY); return r ? JSON.parse(r) : {}; } catch(e) { return {}; } }
+          function setCache(k, v) { try { var c = getCache(); c[k] = { v: v, t: Date.now() }; var keys = Object.keys(c); if (keys.length > 50) { keys.sort(function(a,b){ return (c[a].t||0) - (c[b].t||0); }); for (var i = 0; i < keys.length - 50; i++) delete c[keys[i]]; } localStorage.setItem(CACHE_KEY, JSON.stringify(c)); } catch(e) {} }
+          function getCached(q) { var k = q.toLowerCase().replace(/\s+/g,' ').trim(); var c = getCache(); var e = c[k]; if (!e || !e.v) return null; if (Date.now() - (e.t||0) > CACHE_TTL) { delete c[k]; return null; } return e.v; }
+          function isOffTopic(q) { var l = q.toLowerCase(); return /pineapple|pizza|football|sports|movie|netflix|recipe|cooking/.test(l); }
+          function localSearch(q) {
+            var urls = ['kjv.json','/kjv.json','https://todaysdailybattle.com/kjv.json'];
+            function tryF(i) { if (i >= urls.length) return Promise.reject(); return fetch(urls[i]).then(function(r){ return r.ok ? r.json() : Promise.reject(); }).catch(function(){ return tryF(i+1); }); }
+            return tryF(0).then(function(arr){
+              if (!Array.isArray(arr)) return { answer: 'Not sure—try "hope" or read John 14.', sources: ['John 14:6'] };
+              var words = q.toLowerCase().replace(/[^\w\s]/g,' ').split(/\s+/).filter(Boolean);
+              var syn = { love: ['love','charity'], wrote: ['wrote','paul','author'] };
+              for (var i = 0; i < words.length; i++) if (syn[words[i]]) words = words.concat(syn[words[i]]);
+              var scored = [];
+              for (var i = 0; i < arr.length; i++) {
+                var v = arr[i]; if (!v || !v.ref || !v.text) continue;
+                var txt = ((v.ref||'')+' '+(v.text||'')).toLowerCase();
+                var sc = 0; for (var j = 0; j < words.length; j++) if (words[j].length >= 2 && txt.indexOf(words[j]) !== -1) sc++;
+                if (sc > 0) scored.push({ v: v, sc: sc });
+              }
+              scored.sort(function(a,b){ return b.sc - a.sc; });
+              var top = scored.slice(0,3).map(function(x){ return x.v; });
+              if (!top.length) top = arr.slice(0,3).filter(function(v){ return v && v.ref; });
+              var parts = top.map(function(v){ var s = (v.text||'').substring(0,80); return v.ref + ' — ' + (v.text && v.text.length > 80 ? s + '…' : s); });
+              return { answer: parts.length ? 'From the Word: ' + parts.join(' ') : 'Not sure—try "hope" or read John 14.', sources: top.map(function(v){ return v.ref; }) };
+            });
+          }
+          function invokeBibleQa(q) {
+            var cfg = window.TDB_CONFIG || {};
+            var url = (cfg.SUPABASE_URL || '').replace(/\/$/,'') + '/functions/v1/bible-qa';
+            var key = cfg.SUPABASE_ANON_KEY || '';
+            if (!url || url === '/functions/v1/bible-qa' || !key) return Promise.reject(new Error('Config missing'));
+            return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key }, body: JSON.stringify({ query: q }) })
+              .then(function(r){ if (!r.ok && r.status === 404) return Promise.reject(new Error('not deployed')); return r.json().catch(function(){ return Promise.reject(); }); });
+          }
+          function render(data) {
+            var src = Array.isArray(data.sources) && data.sources.length ? data.sources.map(function(r){ return '<a href="bible-tool.html?ref=' + encodeURIComponent(r) + '">' + escapeHtml(r) + '</a>'; }).join(', ') : '';
+            result.innerHTML = '<p class="qa-answer">' + escapeHtml(data.answer) + '</p>' + (src ? '<p class="qa-sources">Sources: ' + src + '</p>' : '');
+            result.classList.remove('hidden');
+            result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            if (prayerEl) { prayerEl.classList.add('hidden'); prayerEl.setAttribute('aria-hidden','true'); }
+            if (data.prayer_prompt) {
+              var pt = String(data.prayer_prompt).trim();
+              if (pt && prayerEl) { prayerEl.querySelector('.prompt-text').textContent = '\u201c' + pt + '\u201d'; prayerEl.classList.remove('hidden'); prayerEl.setAttribute('aria-hidden','false');
+                var cb = prayerEl.querySelector('.copy-btn'); if (cb) cb.onclick = function(){ navigator.clipboard.writeText(pt).then(function(){ if (typeof showEliteToast === 'function') showEliteToast('Prompt copied'); }).catch(function(){}); };
+              }
+            }
+          }
+          function setLoading(on) { btn.disabled = on; btn.innerHTML = on ? '<span class="qa-spinner" aria-hidden="true"></span> Asking…' : 'Ask'; }
+          function runAsk() {
+            var q = (input.value || '').trim();
+            if (!q) return;
+            if (isOffTopic(q)) { result.classList.remove('hidden'); result.innerHTML = '<p class="qa-answer">I don\'t know—talk to a pastor.</p>'; if (prayerEl) prayerEl.classList.add('hidden'); return; }
+            var cached = getCached(q);
+            if (cached) { render(cached); return; }
+            setLoading(true);
+            result.classList.remove('hidden');
+            result.innerHTML = '<p class="empty">Seeking the Word…</p>';
+            var cfg = window.TDB_CONFIG || {};
+            var hasSupabase = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY);
+            var req = hasSupabase ? invokeBibleQa(q) : Promise.reject(new Error('Config missing'));
+            req.then(function(res){
+              setLoading(false);
+              if (res && res.answer) { setCache(q.toLowerCase().replace(/\s+/g,' ').trim(), res); render(res); return; }
+              return localSearch(q).then(function(d){ setCache(q.toLowerCase().replace(/\s+/g,' ').trim(), d); render(d); });
+            }).catch(function(){
+              return localSearch(q).then(function(d){ setLoading(false); setCache(q.toLowerCase().replace(/\s+/g,' ').trim(), d); render(d); }).catch(function(){ setLoading(false); result.innerHTML = '<p class="empty">Check your connection—or use verse lookup below.</p>'; if (prayerEl) prayerEl.classList.add('hidden'); });
+            });
+          }
+          btn.addEventListener('click', runAsk);
+          input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); runAsk(); } });
+        })();
+        </script>
 
         <section class="verse-card glass" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0">Verse Mode</h2>
@@ -672,7 +779,7 @@
     var refs = getCrossRefs(data.reference);
     if (crossEl) {
       crossEl.innerHTML = refs.length ? 'Related: ' + refs.map(function (r) {
-        return '<a href="#" class="cross-ref-link" data-ref="' + escHtml(r) + '">' + escHtml(r) + '</a>';
+        return '<a href="#" class="cross-ref-link" data-ref="' + escapeHtml(r) + '">' + escapeHtml(r) + '</a>';
       }).join(', ') : '';
     }
     block.classList.remove('hidden');
@@ -1265,7 +1372,7 @@
 
     progress.innerHTML = '<p class="section-note util-mb-0_5">Check off as you read</p>' + list.map(function (ref) {
       var done = saved[ref];
-      return '<label class="plan-progress label"><input type="checkbox" data-ref="' + escHtml(ref) + '" ' + (done ? 'checked' : '') + ' /> <span>' + escHtml(ref) + '</span></label>';
+      return '<label class="plan-progress label"><input type="checkbox" data-ref="' + escapeHtml(ref) + '" ' + (done ? 'checked' : '') + ' /> <span>' + escapeHtml(ref) + '</span></label>';
     }).join('');
     progress.querySelectorAll('input[type=checkbox]').forEach(function (cb) {
       cb.addEventListener('change', function () {
@@ -1425,86 +1532,7 @@
     };
   })();
 
-  // Ask the Word — Bible Q&A (RAG)
-  (function wireBibleQa() {
-    var input = document.getElementById('bible-qa-search');
-    var btn = document.getElementById('bible-qa-btn');
-    var result = document.getElementById('qa-result');
-    var prayerEl = document.getElementById('qa-prayer-prompt');
-    if (!input || !result) return;
-    function invokeBibleQa(query) {
-      var cfg = window.TDB_CONFIG || {};
-      var url = (cfg.SUPABASE_URL || '').replace(/\/$/, '') + '/functions/v1/bible-qa';
-      var key = cfg.SUPABASE_ANON_KEY || '';
-      if (!url || !key) return Promise.reject(new Error('Config missing'));
-      return fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
-        body: JSON.stringify({ query: query })
-      }).then(function (r) { return r.json(); });
-    }
-    function runQa() {
-      var query = (input.value || '').trim();
-      if (!query) return;
-      var client = (typeof supabaseClient !== 'undefined' && supabaseClient) ? supabaseClient : (window.__tdbSupabaseClient || null);
-      var useFetch = !client || !client.functions;
-      if (useFetch) {
-        var cfg = window.TDB_CONFIG || {};
-        if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
-          if (typeof showEliteToast === 'function') showEliteToast('Search coming soon — try a verse lookup below.');
-          return;
-        }
-      }
-      if (btn) { btn.disabled = true; btn.textContent = '…'; }
-      result.classList.add('hidden');
-      result.innerHTML = '<p class="empty">Seeking the Word…</p>';
-      result.classList.remove('hidden');
-      var req = useFetch ? invokeBibleQa(query) : client.functions.invoke('bible-qa', { body: { query: query } }).then(function (r) { return r.data || r; });
-      req
-        .then(function (res) {
-          if (btn) { btn.disabled = false; btn.textContent = 'Ask'; }
-          var data = res;
-          if (!data || !data.answer) {
-            result.innerHTML = '<p class="empty">Not sure—try "hope" or read John 14.</p>';
-            if (prayerEl) prayerEl.classList.add('hidden');
-            return;
-          }
-          var sources = Array.isArray(data.sources) ? data.sources : [];
-          var sourcesHtml = sources.length
-            ? '<p class="qa-sources">Sources: ' + sources.map(function (ref) {
-                var safe = String(ref || '').trim();
-                if (!safe) return '';
-                return '<a href="bible-tool.html?ref=' + encodeURIComponent(safe) + '">' + escapeHtml(safe) + '</a>';
-              }).filter(Boolean).join(', ') + '</p>'
-            : '';
-          result.innerHTML = '<p class="qa-answer">' + escapeHtml(data.answer) + '</p>' + sourcesHtml;
-          result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          var promptText = data.prayer_prompt ? String(data.prayer_prompt).trim() : null;
-          if (prayerEl && promptText) {
-            prayerEl.querySelector('.prompt-text').textContent = '\u201c' + promptText + '\u201d';
-            prayerEl.classList.remove('hidden');
-            var copyBtn = prayerEl.querySelector('.copy-btn');
-            if (copyBtn) {
-              copyBtn.onclick = function () {
-                navigator.clipboard.writeText(promptText).then(function () {
-                  if (typeof showEliteToast === 'function') showEliteToast('Prompt copied');
-                }).catch(function () {});
-              };
-            }
-          } else if (prayerEl) {
-            prayerEl.classList.add('hidden');
-          }
-        })
-        .catch(function (err) {
-          if (btn) { btn.disabled = false; btn.textContent = 'Ask'; }
-          result.innerHTML = '<p class="empty">Couldn\'t answer—try again or use verse lookup below.</p>';
-          if (prayerEl) prayerEl.classList.add('hidden');
-          if (typeof showEliteToast === 'function') showEliteToast('Couldn\'t answer—try again.');
-        });
-    }
-    if (input) input.addEventListener('keypress', function (e) { if (e.key === 'Enter') runQa(); });
-    if (btn) btn.addEventListener('click', runQa);
-  })();
+  // Ask the Word — wired by inline bootstrap script (runs before this block)
 })();
   </script>
 </body>

@@ -41,7 +41,7 @@
 # Block package.json from public (security)
 /package.json  /404.html  404
 
-# 301 redirects for broken/legacy paths
+# 301 redirects for broken/legacy paths (enforce, no conflicts)
 /anxiety /about.html 301
 /our-approach /about.html 301
 /contract /faq.html 301

@@ -1409,7 +1409,7 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
   topics.forEach(function (item, i) {
     var isPrimary = firstIsPrimary && i === 0;
     var cls = isPrimary ? 'btn btn-primary topic-chip quick-topic' : 'btn btn-secondary topic-chip quick-topic';
-    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '">' + escapeHtml(item.label) + '</button>';
+    html += '<button type="button" class="' + cls + '" data-topic="' + escapeHtml(item.topic) + '" aria-label="Search verses about ' + escapeHtml(item.label) + '">' + escapeHtml(item.label) + '</button>';
   });
   container.innerHTML = html;
 }

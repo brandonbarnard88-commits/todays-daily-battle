@@ -56,33 +56,52 @@
   <h1>Privacy Policy</h1>
   <p class="updated">Last updated: March 2026</p>
 
-  <p>Today's Daily Battle is a free, faith-based daily devotional tool. This policy explains what data is collected and how it is used. Plain language — no legal fog.</p>
+  <p>At Today's Daily Battle, we built this as a safe, quiet place for anyone needing a verse or a prayer—no strings, no ads, no selling your data. We collect nothing personal by default. Your searches, moods, and prayers stay on your device unless you choose to sign in and sync. Here's the full, transparent breakdown.</p>
 
-  <h2>What we collect</h2>
-  <p><strong>Nothing you don't choose to give.</strong> The site works fully without an account. No tracking pixels, no ad networks, no selling of data — ever.</p>
-  <p>If you create an optional account (via Supabase Auth), we store your email address and your saved content (notes, prayer entries, streak data) so it syncs across your devices. You can delete your account and all associated data at any time by emailing <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</p>
+  <h2>Data We Don't Collect</h2>
+  <p>Nothing you don't choose to give. No tracking pixels, no ad networks, no selling of data—ever. We don't log your IP for identification, don't store raw search queries or prayer content in analytics, and don't use any creepy fingerprinting.</p>
 
-  <h2>Local storage</h2>
-  <p>Mood check-ins, streak counts, saved verses, and reading plan progress are stored locally on your device using <code>localStorage</code>. This data never leaves your device unless you sign in and sync.</p>
+  <h2>What Happens Without an Account (Default Experience)</h2>
+  <p>Everything runs locally in your browser:</p>
+  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
+    <li>Prayers, notes, streaks, saved verses, and reading plans stay in <code>localStorage</code> on your device only.</li>
+    <li>No data leaves your phone/computer unless you hit "sync" after signing in.</li>
+  </ul>
+  <p>This keeps your private moments truly private.</p>
 
-  <h2>Push notifications</h2>
-  <p>If you allow daily verse reminders, your browser's push subscription token is sent to our server (Supabase). It is only used to deliver the daily verse notification. You can revoke permission in your browser settings at any time.</p>
+  <h2>Anonymous Usage Stats (Why We Have Them)</h2>
+  <p>To improve the site and see what's helping people most, we use:</p>
+  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
+    <li><strong>Google Analytics 4 (GA4)</strong> — anonymous page views, feature usage, country-level location only (no IPs tied to individuals, no prayer content).</li>
+    <li><strong>Plausible Analytics</strong> — even lighter, privacy-first stats (same anonymous level).</li>
+  </ul>
+  <p>These help us know if the anxiety plan or kids' corner is getting used—no personal details ever.</p>
 
-  <h2>Analytics</h2>
-  <p>We use Google Analytics 4 and Plausible for anonymous usage statistics — page views, feature usage, general location (country level). No personally identifiable information is included. No raw search queries or prayer content is ever sent to analytics.</p>
+  <h2>When You Choose to Sign In / Sync</h2>
+  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
+    <li>Optional account via Supabase Auth: stores your email + saved content (prayers, notes, streaks) so it syncs across devices.</li>
+    <li>Push notification tokens (for daily verse reminders) go to Supabase/Firebase for delivery only—you can revoke in browser settings.</li>
+    <li>You can delete everything anytime: email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</li>
+  </ul>
 
-  <h2>Third-party services</h2>
-  <p>The site uses Supabase (database and auth), Firebase (push notifications), Cloudflare (CDN and security), Stripe (optional supporter payments), and Google Fonts. Each has its own privacy policy. We do not share your data with any of these services beyond what is necessary for the feature to work.</p>
+  <h2>Other Services We Use</h2>
+  <ul style="margin: 0.5rem 0 1rem 1.5rem;">
+    <li><strong>Cloudflare</strong> — CDN and basic security (standard for fast, safe sites).</li>
+    <li><strong>Google Fonts</strong> — for clean typography.</li>
+    <li><strong>Stripe</strong> — only if you choose to support us (one-time donations).</li>
+  </ul>
+  <p>None access your prayers or searches.</p>
 
-  <h2>Children</h2>
-  <p>The Kids Corner section of this site is designed for children with parental involvement. We do not knowingly collect personal information from children under 13.</p>
+  <h2>Kids & Special Notes</h2>
+  <p>We don't knowingly collect data from kids under 13. Kids Corner is for parents/guardians to use together.</p>
+  <p>GDPR/EU rights? Email us to delete or ask questions.</p>
 
   <h2>Contact</h2>
   <p>Questions? <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a></p>
 
   <p style="margin-top:2rem;">We respect EU data rights (GDPR)—email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a> to delete your data or request info.</p>
 
-  <p style="margin-top:2rem;font-size:0.8rem;color:#475569;">© 2026 Brandon Barnard · Today's Daily Battle · All rights reserved · <a href="terms.html">Terms</a> · <a href="/">Home</a></p>
+  <p style="margin-top:2rem;font-size:0.8rem;color:#475569;">© 2026 Todays Daily Battle · All rights reserved · <a href="terms.html">Terms</a> · <a href="/">Home</a></p>
 
 </body>
 </html>

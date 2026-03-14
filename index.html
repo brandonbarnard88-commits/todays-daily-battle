@@ -389,6 +389,8 @@
       .site-title { font-size: 1.65rem; }
       .site-tagline { font-size: 0.6rem; letter-spacing: 0.14em; }
       .site-title-underline { width: 110px; }
+      .site-top-links { font-size: 0.82rem; margin-top: 0.5rem; }
+      .site-top-links a { margin: 0 0.35rem; }
     }
 
     .site-title {
@@ -417,6 +419,27 @@
       filter: blur(0.4px);
     }
 
+    .site-top-links {
+      position: relative;
+      z-index: 3;
+      margin: 0.75rem 0 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .site-top-links a {
+      color: rgba(148, 163, 184, 0.85);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.2s ease;
+    }
+    .site-top-links a:hover {
+      color: rgba(234, 179, 8, 0.9);
+    }
+    .site-top-links a:focus-visible {
+      outline: 2px solid rgba(234, 179, 8, 0.6);
+      outline-offset: 2px;
+    }
+    /* .landing-privacy-teaser — inline styles on element for reliability */
     .site-tagline {
       position: relative;
       z-index: 3;
@@ -2966,6 +2989,12 @@
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <p class="site-tagline">For God · For Country · For Family</p>
+      <nav class="site-top-links" aria-label="Site information links">
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </header>
 
     <!-- Hidden search plumbing for script.js compatibility -->
@@ -3051,6 +3080,7 @@
         <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share today's verse with a friend">Share this verse</button>
         <p class="share-verse-whisper">If this helped, tell a friend.</p>
       </div>
+      <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads • No personal tracking • Built during recovery from serious illness • Your moments stay private here.</div>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter in context">📖 Read the full chapter</a>
@@ -3262,7 +3292,7 @@
         <a href="security.html">Security</a>
         <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
       </nav>
-      <p class="site-footer-copy">© Brandon Barnard 2026</p>
+      <p class="site-footer-copy">© Todays Daily Battle 2026</p>
       <p class="site-footer-tagline">Made with love while fighting daily battles.</p>
       <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
       <p class="site-footer-privacy-note">When signed in, prayers and progress sync securely via <a href="https://supabase.com/security" rel="noopener noreferrer" target="_blank">Supabase</a> (encrypted in transit and at rest). Sign-in is always optional — everything works offline without an account. <a href="privacy.html">Privacy policy</a>.</p>

@@ -44,6 +44,7 @@ const rootFiles = [
   'inline-bootstrap.js',
   'ga-config.js',
   'gsc-verify.js',
+  'ask-the-word.js',
   'search-widget.js',
   'contact-form.js',
   'firebase-push.js',
@@ -158,6 +159,20 @@ for (const f of otherHtml) {
       process.exit(1);
     }
     console.log('Copied privacy.html');
+  }
+  if (f === 'bible-tool.html') {
+    const askRequired = ['id="bible-qa-search"', 'id="bible-qa-btn"', 'ask-the-word.js', 'id="qa-result"'];
+    for (const needle of askRequired) {
+      if (!content.includes(needle)) {
+        console.error('BUILD FAIL: bible-tool.html must contain Ask the Word (' + needle + ').');
+        process.exit(1);
+      }
+    }
+    if (!fs.existsSync(path.join(dist, 'ask-the-word.js'))) {
+      console.error('BUILD FAIL: ask-the-word.js must exist in dist/ (add to rootFiles in build-copy-static.js).');
+      process.exit(1);
+    }
+    console.log('Copied bible-tool.html (Ask the Word wired)');
   }
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');

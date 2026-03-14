@@ -5901,10 +5901,11 @@
     }
 
     // ── Sky System (CSS-first, no canvas) ──
+    // Sunset/dusk shifted +1h15m to match typical Central US (Memphis/Union City)
     function getSkyClass(h) {
-      var isDawn  = h >= 5  && h < 7.5;
-      var isDusk  = h >= 18 && h < 20.5;
-      var isNight = !(h >= 6 && h < 19.5);
+      var isDawn  = h >= 5   && h < 7.5;
+      var isDusk  = h >= 19.25 && h < 21.75;
+      var isNight = !(h >= 6 && h < 20.75);
       return isDawn ? 'sky-dawn' : isDusk ? 'sky-dusk' : isNight ? 'sky-night' : 'sky-day';
     }
 
@@ -5921,9 +5922,9 @@
 
     function initHeaderSky() {
       var h   = new Date().getHours() + new Date().getMinutes() / 60;
-      var isDay   = h >= 6   && h < 19.5;
+      var isDay   = h >= 6   && h < 20.75;
       var isDawn  = h >= 5   && h < 7.5;
-      var isDusk  = h >= 18  && h < 20.5;
+      var isDusk  = h >= 19.25 && h < 21.75;
       var isNight = !isDay;
       var isMobile = window.innerWidth < 600;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

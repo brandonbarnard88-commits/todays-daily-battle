@@ -50,6 +50,7 @@
     .mobius-mantra-text.warm.active { color: #ffd9b3; text-shadow: 0 0 12px rgba(255, 204, 153, 0.4); }
     .mobius-mantra-heartbeat { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); font-size: 1.2rem; opacity: 0.6; }
     #mobius-mantra-start, #mobius-enoch-start { padding: 1rem 2rem; font-size: 1.25rem; }
+    .mobius-enoch-share-wrap { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); }
     .mobius-enoch-footer-note { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); width: min(90%, 480px); font-size: 0.75rem; color: var(--tool-muted); text-align: center; line-height: 1.4; }
     .mobius-enoch-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); padding: 1rem; }
     .mobius-enoch-modal[hidden] { display: none; }
@@ -105,6 +106,7 @@
           <div class="mobius-mantra-text" data-idx="8">The heavens remember... the loop closes, yet the judgment comes.</div>
           <div class="mobius-mantra-text" data-idx="9">All shall quake... but the righteous shall inherit light and peace.</div>
         </div>
+        <div class="mobius-enoch-share-wrap"><button type="button" id="mobius-enoch-share" class="tool-btn" aria-label="Share this loop">Share this loop</button></div>
         <p id="mobius-enoch-disclaimer" class="mobius-enoch-footer-note" aria-live="polite">Ancient apocryphal texts (1–3 Enoch)—not Bible canon. Historical, reflective. Read prayerfully, test against Scripture. Not doctrine.</p>
       </div>
     </div>
@@ -187,6 +189,27 @@
         try { localStorage.setItem(DISCLAIMER_KEY, '1'); } catch (e) {}
         if (modal) { modal.hidden = true; modal.setAttribute('hidden', ''); }
       });
+
+      var enochShareBtn = document.getElementById('mobius-enoch-share');
+      if (enochShareBtn) {
+        enochShareBtn.addEventListener('click', function () {
+          var url = window.location.href;
+          var shareData = { title: 'Möbius Loop on Today\'s Daily Battle', text: 'Ancient apocryphal texts (1–3 Enoch)—reflect, don\'t rely. One endless loop.', url: url };
+          try {
+            if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+              navigator.share(shareData).then(function () {
+                try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {}
+              }).catch(function () {
+                navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+              });
+            } else {
+              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+            }
+          } catch (e) {
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+          }
+        });
+      }
 
       if (!startBtn || !texts.length) {} else {
         var index = 0;

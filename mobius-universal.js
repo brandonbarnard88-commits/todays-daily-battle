@@ -456,12 +456,19 @@
     if (shareBtn) {
       shareBtn.addEventListener('click', function () {
         var url = window.location.origin + window.location.pathname + '?mood=' + encodeURIComponent(currentStart);
-        if (navigator.share) {
-          navigator.share({ title: 'Möbius Loop', text: 'One journey, infinite turns.', url: url }).catch(function () {
-            navigator.clipboard.writeText(url).then(function () { alert('Link copied.'); });
-          });
-        } else {
-          navigator.clipboard.writeText(url).then(function () { alert('Link copied.'); });
+        var shareData = { title: 'Möbius Loop on Today\'s Daily Battle', text: 'Trace any mood in an endless journey—fear twists to faith, everything loops back stronger. Check it out!', url: url };
+        try {
+          if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+            navigator.share(shareData).then(function () {
+              try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {}
+            }).catch(function () {
+              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+            });
+          } else {
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+          }
+        } catch (e) {
+          navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
         }
       });
     }

@@ -184,7 +184,7 @@
   function applyFixedCircle(simNodes, width, height) {
     var cx = width / 2;
     var cy = height / 2;
-    var radius = Math.min(width, height) / 3;
+    var radius = Math.min(width, height) / 2.5;
     var n = simNodes.length;
     for (var i = 0; i < n; i++) {
       var angle = (i / n) * Math.PI * 2 - Math.PI / 2;
@@ -260,7 +260,8 @@
     });
 
     var isTouch = isTouchDevice();
-    var nodeRadius = isTouch ? 24 : 28;
+    var nodeRadius = isTouch ? 28 : 30;
+    var hitRadius = isTouch ? 44 : 36;
 
     var forceNode = d3.forceManyBody().strength(-180);
     var forceLink = d3.forceLink(simLinks).id(function (d) { return d.id; }).distance(90);
@@ -316,13 +317,14 @@
       .attr('d', '');
 
     var highlightFear = isFearPreferred();
-    var nodeGroup = svg.append('g').attr('class', 'mobius-nodes');
+    var nodeGroup = svg.append('g').attr('class', 'mobius-nodes').style('pointer-events', 'all');
     var nodeEls = nodeGroup.selectAll('g')
       .data(simNodes)
       .join('g')
       .attr('class', function (d) { return 'mobius-node' + (d.id === 'fear' && highlightFear ? ' active-node' : ''); })
       .attr('cursor', 'pointer')
-      .style('touch-action', 'manipulation');
+      .style('touch-action', 'manipulation')
+      .style('pointer-events', 'all');
 
     if (!isTouch) {
       nodeEls.call(d3.drag()
@@ -332,10 +334,18 @@
     }
 
     nodeEls.append('circle')
+      .attr('class', 'mobius-node-hit')
+      .attr('r', hitRadius)
+      .attr('fill', 'transparent')
+      .attr('stroke', 'none')
+      .style('pointer-events', 'all');
+    nodeEls.append('circle')
+      .attr('class', 'mobius-node-circle')
       .attr('r', nodeRadius)
       .attr('fill', function (d) { return d.color || '#8b9dc3'; })
       .attr('stroke', 'rgba(255,255,255,0.3)')
-      .attr('stroke-width', 2);
+      .attr('stroke-width', 2)
+      .style('pointer-events', 'none');
 
     nodeEls.append('text')
       .attr('text-anchor', 'middle')
@@ -343,6 +353,7 @@
       .attr('fill', '#0d0d0d')
       .attr('font-size', isTouch ? '10px' : '11px')
       .attr('font-weight', '600')
+      .style('pointer-events', 'none')
       .text(function (d) {
         var lbl = d.label;
         if (lbl.length > 12) return lbl.slice(0, 10) + '…';
@@ -362,11 +373,11 @@
     function hideCard() {
       cardContainer.classList.remove('visible');
     }
-    nodeEls.on('mouseenter', function (event, d) {
+    nodeEls.on('mouseover', function (event, d) {
       if (hoverTimer) clearTimeout(hoverTimer);
-      hoverTimer = setTimeout(function () { showCard(d); hoverTimer = null; }, 120);
+      hoverTimer = setTimeout(function () { showCard(d); hoverTimer = null; }, 100);
     });
-    nodeEls.on('mouseleave', function () {
+    nodeEls.on('mouseout', function () {
       if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
       hideCard();
     });
@@ -375,6 +386,20 @@
       if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
       showCard(d);
     });
+    nodeEls.select('.mobius-node-hit')
+      .on('touchend', function (event, d) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+        showCard(d);
+      })
+      .on('pointerdown', function (event, d) {
+        if (event.pointerType === 'touch') {
+          event.preventDefault();
+          if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+          showCard(d);
+        }
+      });
 
     function dragStarted(event) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -405,25 +430,61 @@
 
     simulation.on('tick', function () {
       tickCount++;
-      if (tickCount > 100 || simulation.alpha() < 0.01) {
+      if (tickCount > 80 || simulation.alpha() < 0.005) {
         settleAndLock();
         return;
       }
       updatePositions(link, nodeEls, ribbonPath, simNodes, lineGen);
     });
 
+    simulation.on('end', function () {
+      settleAndLock();
+    });
+
+    var tracerDot = null;
+    var tracerTimeout = null;
+
+    function runTraceJourney() {
+      if (!settled) return;
+      bumpMobiusCounter('mobiusTraces');
+      if (tracerTimeout) {
+        clearTimeout(tracerTimeout);
+        tracerTimeout = null;
+      }
+      svg.selectAll('.mobius-tracer-dot').remove();
+      tracerDot = svg.append('circle')
+        .attr('class', 'mobius-tracer-dot')
+        .attr('r', 6)
+        .attr('fill', '#e3bc67')
+        .attr('stroke', 'rgba(255,255,255,0.6)')
+        .attr('stroke-width', 2)
+        .attr('cx', simNodes[0].x)
+        .attr('cy', simNodes[0].y);
+
+      var segDuration = 5000 / simNodes.length;
+      var pauseMs = 800;
+
+      function step(i) {
+        if (!tracerDot || !tracerDot.node()) return;
+        var target = simNodes[i % simNodes.length];
+        tracerDot.transition()
+          .duration(segDuration)
+          .ease(d3.easeLinear)
+          .attr('cx', target.x)
+          .attr('cy', target.y)
+          .on('end', function () {
+            tracerTimeout = setTimeout(function () {
+              step(i + 1);
+            }, pauseMs);
+          });
+      }
+      step(1);
+    }
+
     var traceBtn = document.getElementById('mobius-trace-btn');
     if (traceBtn) {
       traceBtn.onclick = function () {
-        bumpMobiusCounter('mobiusTraces');
-        if (settled) {
-          simulation.alpha(0.4).restart();
-          settled = false;
-          tickCount = 0;
-          simNodes.forEach(function (n) { n.fx = null; n.fy = null; });
-        } else {
-          simulation.alpha(0.5).restart();
-        }
+        runTraceJourney();
       };
     }
 

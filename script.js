@@ -10685,6 +10685,20 @@ function renderMessages(items, previewLimit) {
       renderMessages(lastMessageItems || []);
     };
     actions.appendChild(amenBtn);
+    const shareBtn = document.createElement('button');
+    shareBtn.textContent = 'Share';
+    shareBtn.setAttribute('aria-label', 'Share this message');
+    shareBtn.onclick = () => {
+      const shareText = (displayName !== 'Member' ? displayName + ': ' : '') + text + '\n— todaysdailybattle.com';
+      if (navigator.share && navigator.canShare && navigator.canShare({ text: shareText })) {
+        navigator.share({ text: shareText, url: window.location.href, title: 'Message from Today\'s Daily Battle' }).catch(() => {
+          navigator.clipboard.writeText(shareText).then(() => { shareBtn.textContent = 'Copied'; setTimeout(() => { shareBtn.textContent = 'Share'; }, 2000); }).catch(() => {});
+        });
+      } else {
+        navigator.clipboard.writeText(shareText).then(() => { shareBtn.textContent = 'Copied'; setTimeout(() => { shareBtn.textContent = 'Share'; }, 2000); }).catch(() => {});
+      }
+    };
+    actions.appendChild(shareBtn);
     const reportBtn = document.createElement('button');
     reportBtn.textContent = 'Report';
     reportBtn.onclick = async () => {
@@ -18244,6 +18258,23 @@ function writeNbaSignal(key) {
         li.appendChild(countSpan);
         li.appendChild(document.createTextNode(' '));
         li.appendChild(textSpan);
+        var shareBtn = document.createElement('button');
+        shareBtn.type = 'button';
+        shareBtn.className = 'share-btn prayer-wall-share';
+        shareBtn.textContent = 'Share';
+        shareBtn.setAttribute('aria-label', 'Share this prayer');
+        shareBtn.addEventListener('click', function () {
+          var text = (item.text || '').substring(0, 100) + ((item.text || '').length > 100 ? '...' : '');
+          var shareText = text + '\n— todaysdailybattle.com';
+          if (navigator.share && navigator.canShare && navigator.canShare({ text: shareText })) {
+            navigator.share({ text: shareText, url: window.location.href, title: 'Prayer from Today\'s Daily Battle' }).catch(function () {
+              navigator.clipboard.writeText(shareText).then(function () { shareBtn.textContent = 'Copied'; setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000); }).catch(function () {});
+            });
+          } else {
+            navigator.clipboard.writeText(shareText).then(function () { shareBtn.textContent = 'Copied'; setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000); }).catch(function () {});
+          }
+        });
+        li.appendChild(shareBtn);
         listEl.appendChild(li);
       });
       listEl.querySelectorAll('.prayer-wall-heart').forEach(function (btn) {

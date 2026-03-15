@@ -102,6 +102,41 @@
   opacity: 0.8;
 }
 
+/* Share this page — reusable across tool pages */
+.share-page-btn {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--tool-gold-soft);
+  background: transparent;
+  border: 1px solid var(--tool-gold);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+.share-page-btn:hover,
+.share-page-btn:focus-visible {
+  color: var(--tool-gold-soft);
+  border-color: var(--tool-gold);
+  box-shadow: 0 0 12px rgba(227, 188, 103, 0.35);
+  outline: none;
+}
+.share-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  color: var(--tool-text);
+  background: var(--tool-bg-soft);
+  border: 1px solid var(--tool-gold);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  z-index: 9999;
+  transition: opacity 0.3s;
+}
+.share-toast-fade { opacity: 0; }
+
 .tool-btn {
   padding: 0.5rem 1rem;
   min-height: 44px;

@@ -221,7 +221,13 @@
   }
 
   var _tracerInterval = null;
+  var _tracerDuration = 15000;
+  var _lastSvg = null;
+  var _tracerSpeeds = [15000, 10000, 6000, 15000];
+  var _tracerSpeedIdx = 0;
   function runTracer(svg, duration) {
+    _lastSvg = svg;
+    var d = duration != null ? duration : _tracerDuration;
     if (_tracerInterval) clearInterval(_tracerInterval);
     var path = svg.select('.mobius-tracer-path');
     if (path.empty()) return;
@@ -229,7 +235,7 @@
     var start = Date.now();
     function tick() {
       var elapsed = Date.now() - start;
-      var pct = (elapsed / (duration || 15000)) % 1;
+      var pct = (elapsed / d) % 1;
       var len = totalLen * pct;
       var pt = path.node().getPointAtLength(len);
       var dot = svg.select('.mobius-tracer-dot');
@@ -378,8 +384,17 @@
       showCard(d);
     });
 
-    runTracer(svg, 15000);
+    runTracer(svg, _tracerDuration);
     return { svg: svg, nodes: simNodes, startKey: start };
+  }
+
+  function showTracerToast(msg) {
+    var t = document.createElement('div');
+    t.className = 'mobius-tracer-toast';
+    t.textContent = msg;
+    t.setAttribute('role', 'status');
+    document.body.appendChild(t);
+    setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2000);
   }
 
   function getMoodFromUrl() {
@@ -446,7 +461,27 @@
       if (selector) selector.value = currentStart;
       doMount();
     });
-    if (traceBtn) traceBtn.addEventListener('click', function () { doMount(); });
+    if (traceBtn) traceBtn.addEventListener('click', function () {
+      doMount();
+      try {
+        var n = parseInt(sessionStorage.getItem('mobiusTraceCount') || '0', 10);
+        n++;
+        sessionStorage.setItem('mobiusTraceCount', String(n));
+        if (n >= 3 && !sessionStorage.getItem('mobiusEnochTeaserShown')) {
+          sessionStorage.setItem('mobiusEnochTeaserShown', '1');
+          var wrap = document.createElement('div');
+          wrap.className = 'mobius-enoch-teaser';
+          wrap.setAttribute('role', 'status');
+          wrap.setAttribute('aria-live', 'polite');
+          wrap.innerHTML = '<p class="mobius-enoch-teaser-msg">You\'ve walked the loop thrice—want a glimpse of ancient wonders?</p><p class="mobius-enoch-teaser-cta">Switch to Enoch Echoes…</p>';
+          document.body.appendChild(wrap);
+          setTimeout(function () {
+            wrap.classList.add('mobius-enoch-teaser-fade');
+            setTimeout(function () { wrap.remove(); }, 400);
+          }, 4000);
+        }
+      } catch (e) {}
+    });
     if (fullscreenBtn) {
       fullscreenBtn.addEventListener('click', function () {
         if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(function () {});
@@ -491,6 +526,16 @@
     }
 
     if (container) doMount();
+
+    document.addEventListener('keydown', function (e) {
+      if (e.altKey && e.key === 'ArrowRight') {
+        e.preventDefault();
+        _tracerSpeedIdx = (_tracerSpeedIdx + 1) % _tracerSpeeds.length;
+        _tracerDuration = _tracerSpeeds[_tracerSpeedIdx];
+        if (_lastSvg && !_lastSvg.empty()) runTracer(_lastSvg, _tracerDuration);
+        showTracerToast('Tracer speed changed.');
+      }
+    });
 
     var resizeTimer;
     window.addEventListener('resize', function () {

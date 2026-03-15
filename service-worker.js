@@ -57,6 +57,8 @@ const CORE_ASSETS = [
   '/mobius-loop.js',
   '/mobius-universal.js',
   '/mobius.html',
+  '/morpheus-loop.html',
+  '/tool-pages.css',
   '/reader.html',
   '/study.html',
   '/sermon.html',

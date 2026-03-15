@@ -38,6 +38,7 @@ const rootFiles = [
   'manifest.json',
   'icon.svg',
   'styles.css',
+  'tool-pages.css',
   'script.js',
   'service-worker.js',
   'sw.js',

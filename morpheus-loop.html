@@ -1,89 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Morpheus Loop</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morpheus Loop • Today's Daily Battle</title>
+  <meta name="description" content="Power. Love. Sound mind. Let go. Deeper. Still here. A guided meditation loop through 2 Timothy 1:7.">
+  <link rel="canonical" href="https://todaysdailybattle.com/morpheus-loop.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="stylesheet" href="tool-pages.css?v=20260305p">
   <style>
-    body, html { margin:0; padding:0; height:100%; overflow:hidden; background:#000; color:#fff; font-family: 'Georgia', serif; }
-    #container { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; transition:all 3s ease; }
-    .text { opacity:0; transform:translateY(50px); font-size:2.5rem; text-align:center; max-width:80%; line-height:1.4; letter-spacing:1px; transition: opacity 0.4s ease, transform 0.4s ease; }
-    .text.active { opacity:1; transform:translateY(0); color:#ffd700; text-shadow:0 0 12px rgba(255,215,0,0.5); }
-    .text.stronger { font-weight:900; color:#ffd700; }
-    .text.warm { color:#ffcc99; }
-    #heartbeat { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); font-size:1.2rem; opacity:0.6; }
-    #start { padding:1.5rem 3rem; font-size:2rem; background:#c00; color:#fff; border:none; border-radius:50px; cursor:pointer; transition:transform 0.3s; }
-    #start:hover { transform:scale(1.1); }
+    .morpheus-main { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; min-height: 0; }
+    #container { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: all 3s ease; }
+    .text { opacity: 0; transform: translateY(50px); font-size: clamp(1.5rem, 5vw, 2.5rem); text-align: center; max-width: 80%; line-height: 1.4; letter-spacing: 1px; transition: opacity 0.4s ease, transform 0.4s ease; color: var(--tool-muted); }
+    .text.active { opacity: 1; transform: translateY(0); color: var(--tool-gold); text-shadow: 0 0 12px rgba(227, 188, 103, 0.5); }
+    .text.stronger { font-weight: 700; }
+    .text.stronger.active { color: var(--tool-gold-soft); text-shadow: 0 0 16px rgba(242, 220, 152, 0.6); }
+    .text.warm { color: #ffcc99; }
+    .text.warm.active { color: #ffd9b3; text-shadow: 0 0 12px rgba(255, 204, 153, 0.4); }
+    #heartbeat { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); font-size: 1.2rem; opacity: 0.6; }
+    #start { padding: 1rem 2rem; font-size: 1.25rem; }
   </style>
 </head>
-<body>
+<body class="tool-page-shell">
+  <header class="tool-page-header" role="banner">
+    <a href="/" class="tool-header-home" aria-label="Back to Today's Daily Battle">← Home</a>
+    <a href="/" class="tool-header-brand">Today's Daily Battle</a>
+  </header>
 
-<div id="container" role="status" aria-live="polite" aria-atomic="true">
-  <button id="start">ENTER THE LOOP</button>
-  <div class="text" id="t1">You're not ready.</div>
-  <div class="text" id="t2">But you're not alone.</div>
-  <div class="text stronger" id="t3">Power. Love. Sound mind.</div>
-  <div class="text" id="t4">Let go.</div>
-  <div class="text stronger" id="t5">You're stronger than you know.</div>
-  <div class="text warm" id="t6">Keep falling.</div>
-  <div class="text" id="t7">Deeper.</div>
-  <div class="text stronger" id="t8">Still here.</div>
-  <div class="text warm" id="t9">The weight isn't crushing—it's building.</div>
-  <div class="text" id="t10">You were made for this.</div>
-  <div class="text" id="t11">Breathe.</div>
-  <div class="text stronger" id="t12">You made it.</div>
-</div>
+  <main class="morpheus-main" role="main">
+    <div id="container" role="status" aria-live="polite" aria-atomic="true">
+      <button type="button" id="start" class="tool-btn" aria-label="Enter the loop">ENTER THE LOOP</button>
+      <div class="text" id="t1">You're not ready.</div>
+      <div class="text" id="t2">But you're not alone.</div>
+      <div class="text stronger" id="t3">Power. Love. Sound mind.</div>
+      <div class="text" id="t4">Let go.</div>
+      <div class="text stronger" id="t5">You're stronger than you know.</div>
+      <div class="text warm" id="t6">Keep falling.</div>
+      <div class="text" id="t7">Deeper.</div>
+      <div class="text stronger" id="t8">Still here.</div>
+      <div class="text warm" id="t9">The weight isn't crushing—it's building.</div>
+      <div class="text" id="t10">You were made for this.</div>
+      <div class="text" id="t11">Breathe.</div>
+      <div class="text stronger" id="t12">You made it.</div>
+    </div>
+    <div id="heartbeat" aria-hidden="true">♡</div>
+  </main>
 
-<div id="heartbeat">♡</div>
+  <footer class="tool-page-footer" role="contentinfo">
+    <p class="tool-footer-tagline">No ads • No tracking • Works offline</p>
+    <nav class="tool-footer-links" aria-label="Footer links">
+      <a href="privacy.html">Privacy</a>
+      <a href="message.html">Prayer Wall</a>
+      <a href="/">Home</a>
+    </nav>
+    <p class="tool-footer-copy">© Todays Daily Battle 2026</p>
+  </footer>
 
-<script>
-  const startBtn = document.getElementById('start');
-  const texts = document.querySelectorAll('.text');
-  const container = document.getElementById('container');
-  const heartbeat = document.getElementById('heartbeat');
+  <script>
+    (function (){
+      var startBtn = document.getElementById('start');
+      var texts = document.querySelectorAll('.text');
+      var container = document.getElementById('container');
+      var heartbeat = document.getElementById('heartbeat');
 
-  let index = 0;
-  let audio = null;
+      if (!startBtn || !texts.length) return;
 
-  function playHeartbeat() {
-    if (!audio) {
-      audio = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=');
-      audio.loop = true;
-      audio.volume = 0.3;
-    }
-    audio.play().catch(() => {});
-  }
+      var index = 0;
+      var audio = null;
 
-  function nextLayer() {
-    if (index >= texts.length) {
-      heartbeat.innerHTML = '♡';
-      container.style.background = '#111';
-      texts.forEach(t => t.classList.remove('active'));
-      setTimeout(function () {
-        texts[0].classList.add('active');
-        index = 0;
+      function playHeartbeat() {
+        if (!audio) {
+          audio = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=');
+          audio.loop = true;
+          audio.volume = 0.3;
+        }
+        audio.play().catch(function () {});
+      }
+
+      function nextLayer() {
+        if (index >= texts.length) {
+          heartbeat.innerHTML = '♡';
+          container.style.background = 'transparent';
+          texts.forEach(function (t) { t.classList.remove('active'); });
+          setTimeout(function () {
+            texts[0].classList.add('active');
+            index = 0;
+            setTimeout(nextLayer, 2800);
+          }, 1500);
+          return;
+        }
+
+        texts.forEach(function (t) { t.classList.remove('active'); });
+        texts[index].classList.add('active');
+        index++;
+
+        if (index > 3) container.style.transform = 'scale(' + (1 + (index - 3) * 0.05) + ')';
+        if (index > 6) container.style.filter = 'brightness(' + (1 + (index - 6) * 0.1) + ')';
+        if (index > 9) heartbeat.style.opacity = 1;
+
         setTimeout(nextLayer, 2800);
-      }, 1500);
-      return;
-    }
+      }
 
-    texts.forEach(t => t.classList.remove('active'));
-    texts[index].classList.add('active');
-    index++;
-
-    if (index > 3) container.style.transform = `scale(${1 + (index - 3) * 0.05})`;
-    if (index > 6) container.style.filter = `brightness(${1 + (index - 6) * 0.1})`;
-    if (index > 9) heartbeat.style.opacity = 1;
-
-    setTimeout(nextLayer, 2800);
-  }
-
-  startBtn.addEventListener('click', () => {
-    startBtn.style.display = 'none';
-    playHeartbeat();
-    container.style.background = '#000';
-    nextLayer();
-  });
-</script>
+      startBtn.addEventListener('click', function () {
+        startBtn.style.display = 'none';
+        playHeartbeat();
+        container.style.background = 'transparent';
+        nextLayer();
+      });
+    })();
+  </script>
 </body>
 </html>

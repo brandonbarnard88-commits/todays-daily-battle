@@ -1469,15 +1469,97 @@ const STOP_WORDS = new Set([
 /** Common misspellings for emotional/faith-related words. Applied before normalization. */
 const TYPO_CORRECTION = {
   anixety: 'anxiety', anixious: 'anxious', anxitey: 'anxiety', anxiaty: 'anxiety', ansiety: 'anxiety', anxioty: 'anxiety',
-  stresed: 'stressed', stres: 'stress', stressd: 'stressed', streessed: 'stressed',
-  peice: 'peace', pease: 'peace', pesce: 'peace',
-  feer: 'fear', afriad: 'afraid', afraide: 'afraid', scard: 'scared', scaired: 'scared',
-  fait: 'faith', fath: 'faith', hoep: 'hope', hoppe: 'hope',
-  depresion: 'depression', deppresed: 'depressed', deppressed: 'depressed',
-  lonley: 'lonely', greif: 'grief',
+  anxity: 'anxiety', anxous: 'anxious', anxety: 'anxiety',
+  stresed: 'stressed', stres: 'stress', stressd: 'stressed', streessed: 'stressed', stessed: 'stressed',
+  peice: 'peace', pease: 'peace', pesce: 'peace', peac: 'peace',
+  feer: 'fear', afriad: 'afraid', afraide: 'afraid', scard: 'scared', scaired: 'scared', fraid: 'afraid',
+  fait: 'faith', fath: 'faith', hoep: 'hope', hoppe: 'hope', hop: 'hope',
+  depresion: 'depression', deppresed: 'depressed', deppressed: 'depressed', depresed: 'depressed',
+  lonley: 'lonely', lonleyness: 'loneliness', greif: 'grief', greef: 'grief',
   forgiv: 'forgive', forgivness: 'forgiveness', angrey: 'angry', angery: 'angry',
-  woried: 'worried', wory: 'worry', jeleous: 'jealous', thankfull: 'thankful', joyfull: 'joyful'
+  woried: 'worried', wory: 'worry', jeleous: 'jealous', thankfull: 'thankful', joyfull: 'joyful',
+  overwelmed: 'overwhelmed', overwelm: 'overwhelm', streanth: 'strength', strenght: 'strength',
+  patiance: 'patience', patince: 'patience', gult: 'guilt', adiction: 'addiction'
 };
+
+/** Levenshtein distance — vanilla JS, ~1.5kb. Used for fuzzy typo correction and "Did you mean?" suggestions. */
+function levenshteinDistance(a, b) {
+  if (!a || !b) return Math.max((a || '').length, (b || '').length);
+  var m = a.length, n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  var prev = [];
+  for (var j = 0; j <= n; j++) prev[j] = j;
+  for (var i = 1; i <= m; i++) {
+    var curr = [i];
+    for (j = 1; j <= n; j++) {
+      var cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      curr[j] = Math.min(curr[j - 1] + 1, prev[j] + 1, prev[j - 1] + cost);
+    }
+    prev = curr;
+  }
+  return prev[n];
+}
+
+/** Build flat list of topic keys + synonyms for fuzzy matching. Cached on first call. */
+var _fuzzyTopicList = null;
+function getFuzzyTopicCandidates() {
+  if (_fuzzyTopicList) return _fuzzyTopicList;
+  var list = [];
+  var seen = {};
+  function add(topic, label) {
+    var k = normalizeInput(String(topic || ''));
+    if (k && !seen[k]) { seen[k] = 1; list.push({ topic: topic, label: label || topic }); }
+  }
+  Object.keys(typeof topics !== 'undefined' ? topics : {}).forEach(function (t) {
+    add(t, t);
+    var syns = (topics[t] && topics[t].synonyms) || [];
+    syns.forEach(function (s) { add(s, t); });
+  });
+  Object.keys(QUERY_TO_TOPIC || {}).forEach(function (k) { add(k, QUERY_TO_TOPIC[k]); });
+  _fuzzyTopicList = list;
+  return list;
+}
+
+/** Returns top N closest topics for "Did you mean?" when no match. */
+function getFuzzyTopicSuggestions(query, limit) {
+  limit = limit || 3;
+  var q = normalizeInput(String(query || ''));
+  if (!q || q.length < 2) return [];
+  var candidates = getFuzzyTopicCandidates();
+  var scored = candidates.map(function (c) {
+    var key = normalizeInput(String(c.topic || c.label || ''));
+    var d = levenshteinDistance(q, key);
+    var len = Math.max(q.length, key.length);
+    var score = len > 0 ? 1 - d / len : 0;
+    return { topic: c.label, label: c.label, score: score, distance: d };
+  }).filter(function (x) { return x.distance <= 4 && x.score > 0.3; });
+  scored.sort(function (a, b) { return b.score - a.score; });
+  var out = [];
+  var seen = {};
+  for (var i = 0; i < scored.length && out.length < limit; i++) {
+    var t = scored[i].topic;
+    if (!seen[t]) { seen[t] = 1; out.push({ topic: t, label: t.charAt(0).toUpperCase() + t.slice(1) }); }
+  }
+  return out;
+}
+
+/** Fuzzy-correct a single token if it doesn't match. Returns corrected token or original. */
+function fuzzyCorrectToken(token) {
+  var norm = normalizeInput(String(token || ''));
+  if (!norm || norm.length < 3) return token;
+  if (resolveTopicFromToken(norm)) return token;
+  if (QUERY_TO_TOPIC && QUERY_TO_TOPIC[norm]) return token;
+  var candidates = getFuzzyTopicCandidates();
+  var best = null, bestD = 5;
+  for (var i = 0; i < candidates.length; i++) {
+    var k = normalizeInput(String(candidates[i].topic || ''));
+    if (!k) continue;
+    var d = levenshteinDistance(norm, k);
+    if (d < bestD && d <= 2) { bestD = d; best = candidates[i].label; }
+  }
+  return best || token;
+}
 
 const NEGATION_WORDS = ['not', 'no', 'never', 'dont', 'cant', 'cannot', 'without'];
 
@@ -1643,11 +1725,14 @@ const ACTION_REVERSE_MAP = buildReverseLexicon(ACTION_MAP);
 
 /** Maps search words (meaning, action, emotion) to topics so search is always on topic. */
 const QUERY_TO_TOPIC = {
-  // anxiety / stress / worry
+  // anxiety / stress / worry — expanded synonyms
   stressed: 'anxiety', stressedout: 'anxiety', stressing: 'anxiety', overwhelm: 'anxiety', overwhelmed: 'anxiety',
   nervous: 'anxiety', nervousness: 'anxiety', worry: 'worry', worrying: 'worry', worried: 'worry',
   anxious: 'anxiety', anxiety: 'anxiety', tense: 'anxiety', uneasy: 'anxiety', restless: 'anxiety',
   burnout: 'anxiety', exhausted: 'anxiety', pressure: 'anxiety', overloaded: 'anxiety', burnedout: 'anxiety',
+  onedge: 'anxiety', mindracing: 'anxiety', spiraling: 'anxiety', frazzled: 'anxiety', panicky: 'anxiety',
+  jittery: 'anxiety', woundup: 'anxiety', keyedup: 'anxiety', cantrelax: 'anxiety', freakingout: 'anxiety',
+  meltdown: 'anxiety', wired: 'anxiety', uptight: 'anxiety', edgy: 'anxiety', unsettled: 'anxiety',
   panic: 'fear', panicking: 'fear', scared: 'fear', afraid: 'fear', fearful: 'fear', terrified: 'fear',
   dread: 'fear', dreadful: 'fear', freaking: 'fear', terrifying: 'fear',
   // grief / sadness
@@ -1899,6 +1984,26 @@ const PHRASE_TO_TOKENS = {
   'i feel blessed': ['gratitude', 'joy', 'love'],
   'happy': ['joy', 'gratitude', 'peace'],
   'feeling happy': ['joy', 'gratitude', 'love'],
+  // anxiety expansion
+  'overwhelmed': ['anxiety', 'peace', 'rest', 'burden'],
+  'stressed out': ['anxiety', 'peace', 'rest'],
+  'on edge': ['anxiety', 'peace', 'fear'],
+  'mind racing': ['anxiety', 'peace', 'rest'],
+  'cant relax': ['anxiety', 'peace', 'rest'],
+  'freaking out': ['anxiety', 'fear', 'peace'],
+  'so overwhelmed': ['anxiety', 'peace', 'faith'],
+  'feeling overwhelmed': ['anxiety', 'peace', 'rest'],
+  'anxious about': ['anxiety', 'peace', 'faith'],
+  'worried about': ['worry', 'anxiety', 'peace'],
+  'stressed about': ['anxiety', 'peace', 'rest'],
+  // loneliness + marriage blend
+  'lonely marriage': ['loneliness', 'marriage', 'love', 'comfort'],
+  'lonely in marriage': ['loneliness', 'marriage', 'love'],
+  'marriage lonely': ['marriage', 'loneliness', 'love'],
+  // grief expansion
+  'lost my': ['grief', 'hope', 'comfort'],
+  'missing someone': ['grief', 'comfort', 'hope'],
+  'cant stop thinking': ['grief', 'anxiety', 'peace'],
 };
 
 const topics = {
@@ -14161,17 +14266,41 @@ function parseQuery(input) {
       if (FEELING_NEED_MAP[triple]) keywords.push(triple);
     }
   }
+  // Fuzzy-correct tokens that don't match (e.g. "anxity" → anxiety)
+  var correctedTokens = rawTokens.map(function (t) {
+    if (resolveTopicFromToken(t) || (QUERY_TO_TOPIC && QUERY_TO_TOPIC[normalizeInput(t)])) return t;
+    var fixed = fuzzyCorrectToken(t);
+    return fixed !== t ? fixed : t;
+  });
+  var allTokens = Array.from(new Set(rawTokens.concat(correctedTokens).filter(Boolean)));
+
+  // Multi-word: collect topics from each token for blending (e.g. "lonely marriage" → loneliness + marriage)
+  var blendedTopics = [];
+  allTokens.forEach(function (token) {
+    var topic = resolveTopicFromToken(token);
+    if (topic && topics[topic] && blendedTopics.indexOf(topic) === -1) blendedTopics.push(topic);
+  });
+
   var semanticRawTokens = [];
-  rawTokens.forEach(function (token) {
+  allTokens.forEach(function (token) {
     semanticRawTokens = semanticRawTokens.concat(Array.from(getSemanticTokenSet(token)));
   });
   var exp = expandKeywords(keywords.concat(semanticRawTokens));
   var expandedKeywords = exp.expanded || exp;
   if (phraseTokens.length) expandedKeywords = Array.from(new Set(expandedKeywords.concat(phraseTokens)));
-  // Include raw tokens so exact words in the query always participate in matching
-  expandedKeywords = Array.from(new Set(expandedKeywords.concat(rawTokens.filter(function (t) { return t.length > 1 && !negatedTokens.has(t); }))));
+  // Include raw + corrected tokens so exact words in the query always participate in matching
+  expandedKeywords = Array.from(new Set(expandedKeywords.concat(allTokens.filter(function (t) { return t && t.length > 1 && !negatedTokens.has(t); }))));
 
-  return { intent: 'keyword', payload: { keywords: expandedKeywords, phrase: normalized, rawTokens: rawTokens, mapKeysHit: exp.mapKeysHit || [] } };
+  return {
+    intent: 'keyword',
+    payload: {
+      keywords: expandedKeywords,
+      phrase: normalized,
+      rawTokens: rawTokens,
+      blendedTopics: blendedTopics,
+      mapKeysHit: exp.mapKeysHit || []
+    }
+  };
 }
 
 function getSearchFilters() {
@@ -14353,6 +14482,8 @@ function executeQuery(parsed, tier, filters) {
     const keywords = parsed.payload.keywords;
     const phrase = parsed.payload.phrase;
     const rawTokens = Array.isArray(parsed.payload.rawTokens) ? parsed.payload.rawTokens : [];
+    const blendedTopics = Array.isArray(parsed.payload.blendedTopics) ? parsed.payload.blendedTopics : [];
+
     const wordRegex = buildWordRegex(keywords);
     const phraseRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'i') : null;
     const phraseHighlightRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'gi') : null;
@@ -14415,6 +14546,24 @@ function executeQuery(parsed, tier, filters) {
       .sort((a,b) => b.score - a.score)
       .slice(0, 30);
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
+
+    // Multi-word blend: when 2+ tokens map to topics (e.g. "lonely marriage"), prepend merged verses
+    if (blendedTopics.length >= 2) {
+      var blendRefs = new Set();
+      blendedTopics.forEach(function (tk) {
+        var t = topics[tk];
+        if (t && Array.isArray(t.verses)) t.verses.forEach(function (ref) { blendRefs.add(ref); });
+      });
+      var existingRefs = new Set(results.verses.map(function (v) { return v.ref; }));
+      var blendList = Array.from(blendRefs).filter(function (ref) { return !existingRefs.has(ref); });
+      var blendVerses = [];
+      blendList.slice(0, 15).forEach(function (ref) {
+        var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+        if (text) blendVerses.push({ ref: ref, text: text });
+      });
+      if (blendVerses.length) results.verses = blendVerses.concat(results.verses);
+    }
+
     var rawSet = new Set(rawTokens.map(function (t) { return normalizeInput(String(t || '')); }));
     var expansionOnly = keywords.filter(function (k) { return k && !rawSet.has(normalizeInput(k)); });
     if (expansionOnly.length) results.expandedForDisplay = expansionOnly.slice(0, 8);
@@ -14534,9 +14683,39 @@ function renderResults(results) {
   if (results.verses.length === 0) {
     output.innerHTML = '<p class="empty topic-explain">Nothing found for that search — try a feeling, topic, or Bible reference (e.g. "John 3:16").</p>';
     appendHeartfeltSearchMessage(output, results, queryText);
-    const suggestions = document.createElement('div');
+    var fuzzySuggestions = typeof getFuzzyTopicSuggestions === 'function' ? getFuzzyTopicSuggestions(queryText || lastQueryInput || '', 3) : [];
+    var suggestions = document.createElement('div');
     suggestions.className = 'quick-start';
-    suggestions.innerHTML = '<p class="section-note util-mt-0_5">Try: <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="family">Family</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="hope">Hope</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="fear">Fear</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="peace">Peace</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="strength">Strength</button> <button class="topic-chip quick-topic btn btn-secondary" type="button" data-topic="courage">Courage</button></p>';
+    if (fuzzySuggestions.length > 0) {
+      var didYouMean = document.createElement('p');
+      didYouMean.className = 'section-note util-mt-0_5';
+      didYouMean.textContent = 'Did you mean: ';
+      fuzzySuggestions.forEach(function (s, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'topic-chip quick-topic btn btn-secondary';
+        btn.setAttribute('data-topic', s.topic);
+        btn.textContent = s.label;
+        btn.setAttribute('aria-label', 'Search verses about ' + s.label);
+        if (i > 0) didYouMean.appendChild(document.createTextNode(' '));
+        didYouMean.appendChild(btn);
+      });
+      suggestions.appendChild(didYouMean);
+    }
+    suggestions.appendChild(document.createElement('p'));
+    var tryP = suggestions.lastChild;
+    tryP.className = 'section-note util-mt-0_5';
+    tryP.textContent = 'Or try: ';
+    ['family', 'hope', 'fear', 'peace', 'strength', 'courage'].forEach(function (topic, i) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'topic-chip quick-topic btn btn-secondary';
+      btn.setAttribute('data-topic', topic);
+      btn.textContent = topic.charAt(0).toUpperCase() + topic.slice(1);
+      btn.setAttribute('aria-label', 'Search verses about ' + topic);
+      if (i > 0) tryP.appendChild(document.createTextNode(' '));
+      tryP.appendChild(btn);
+    });
     output.appendChild(suggestions);
     triggerResultsFade(output);
     return;
@@ -15704,7 +15883,7 @@ function writeNbaSignal(key) {
       document.addEventListener('click', function (e) {
         var btn = e.target && (e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null);
         if (!btn) return;
-        var inSearchSurface = btn.closest && btn.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion');
+        var inSearchSurface = btn.closest && btn.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section');
         if (!inSearchSurface) return;
         try {
           e.preventDefault();

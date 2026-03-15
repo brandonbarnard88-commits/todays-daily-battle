@@ -1057,7 +1057,7 @@
       setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 5000);
     })();
 
-    // Sunday reload: extra subtle sunrise + Psalm 118:24. Easter Sunday 5–9 AM: enhanced.
+    // Sunday reload: extra subtle sunrise + Psalm 118:24. Easter Sunday 6 AM–12 PM: enhanced (broader window for church/reflection).
     (function easterSunday() {
       if (!enabled()) return;
       if (new Date().getDay() !== 0) return;
@@ -1067,7 +1067,7 @@
         localStorage.setItem('easterSundayDay', today);
       } catch (x) { return; }
       var h = new Date().getHours();
-      var isEasterMorning = (h >= 5 && h < 9);
+      var isEasterMorning = (h >= 6 && h < 12);
       document.body.classList.add(isEasterMorning ? 'easter-sunday-bg easter-sunday-morning' : 'easter-sunday-bg');
       setTimeout(function () { document.body.classList.remove('easter-sunday-bg', 'easter-sunday-morning'); }, isEasterMorning ? 8000 : 6000);
       var toast = document.createElement('div');

@@ -55,6 +55,7 @@ const rootFiles = [
   'utils.js',
   'fallback-search.js',
   'search-wire.js',
+  'mobius-loop.js',
   '_redirects',
   '_headers',
   'kjv.json',

@@ -2535,6 +2535,8 @@ const topics = {
   }
   // You can keep adding more here
 };
+// Expose for mobius-loop.js (Fear → Faith Loop visualization)
+if (typeof window !== 'undefined') window.TDB_TOPIC_DATA = topics;
 
 // Supabase: use imported config (SUPABASE_URL, SUPABASE_ANON_KEY) and window.TDB_CONFIG for other consumers.
 if (typeof window !== 'undefined' && (window.TDB_CONFIG == null || typeof window.TDB_CONFIG !== 'object')) {

@@ -54,6 +54,7 @@ const CORE_ASSETS = [
   '/verse.html',
   '/bible-tool.html',
   '/ask-the-word.js',
+  '/mobius-loop.js',
   '/reader.html',
   '/study.html',
   '/sermon.html',

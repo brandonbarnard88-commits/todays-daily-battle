@@ -63,9 +63,17 @@
     var feelSearch = document.getElementById('feel-search');
     var feelBtn = document.getElementById('feel-search-btn');
     if (feelSearch && feelBtn) {
-      feelBtn.addEventListener('click', function () { tryHallelujah(feelSearch); });
+      feelBtn.addEventListener('click', function () {
+        if (tryHallelujah(feelSearch)) return;
+        var val = String(feelSearch.value || '').trim();
+        if (val && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(val);
+      });
       feelSearch.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') { e.preventDefault(); tryHallelujah(feelSearch); }
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        if (tryHallelujah(feelSearch)) return;
+        var val = String(feelSearch.value || '').trim();
+        if (val && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(val);
       });
     }
     // jesus typed — screen softens, toast. One-time per session.
@@ -1126,7 +1134,10 @@
       badge.className = 'easter-egg-badge';
       badge.textContent = '56 hidden moments';
       badge.setAttribute('aria-label', unlocked ? 'View hints for 56 hidden moments' : '56 hidden moments to discover');
-      if (unlocked) badge.href = '/secrets.html';
+      if (unlocked) {
+        badge.href = '/secrets.html';
+        badge.title = '56 hidden moments discovered';
+      }
       footer.appendChild(badge);
       if (pulseFirst && !reducedMotion()) {
         badge.classList.add('pulse-once');

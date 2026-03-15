@@ -4081,7 +4081,7 @@
       { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","strength","sleep"], group: "tired" },
       { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
       { keys: ["lonely","alone","isolated","solitude","nobody","no one","forgotten","invisible","loneliness"], group: "lonely" },
-      { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
+      { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","god","jesus","christ","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
       { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful","guilt","trauma","addiction","heartache"], group: "sad" },
       { keys: ["peace","peaceful","calm","still","quiet","rest","restless","unsettled","unrest","serene","tranquil","settled"], group: "peace" }
     ];
@@ -4768,13 +4768,14 @@
         if (typeof window.tryAmenEaster === "function" && window.tryAmenEaster(input)) return;
         const group = resolveFeelGroup(val);
         if (group) showGroup(group, val);
-        else if (typeof window.runSearchWithInput === "function") {
+        // Always run battle search for any query — ensures results for any term
+        if (typeof window.runSearchWithInput === "function") {
           var tdb = document.getElementById("tdb-search");
           if (tdb) tdb.value = val;
           window.runSearchWithInput(val);
           var out = document.getElementById("output");
           if (out) setTimeout(function () { out.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 200);
-        } else showNoMatch();
+        } else if (!group) showNoMatch();
       }
 
       var searchBtn = document.getElementById("feel-search-btn");

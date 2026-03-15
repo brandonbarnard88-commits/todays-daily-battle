@@ -14624,6 +14624,12 @@ function executeQuery(parsed, tier, filters) {
       results.verses.push({ ref: 'John 3:16', text: bible['John 3:16'] });
       results.fallback = true;
     }
+    // When bible not loaded yet: use bundled text so search always returns something
+    if (results.verses.length === 0 && typeof BUNDLED_DAILY_VERSE_FALLBACKS !== 'undefined' && BUNDLED_DAILY_VERSE_FALLBACKS[0]) {
+      var b = BUNDLED_DAILY_VERSE_FALLBACKS[0];
+      results.verses.push({ ref: b.ref, text: b.text });
+      results.fallback = true;
+    }
   }
   return results;
 }

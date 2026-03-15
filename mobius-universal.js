@@ -473,7 +473,7 @@
           wrap.className = 'mobius-enoch-teaser';
           wrap.setAttribute('role', 'status');
           wrap.setAttribute('aria-live', 'polite');
-          wrap.innerHTML = '<p class="mobius-enoch-teaser-msg">You\'ve walked the loop thrice—want a glimpse of ancient wonders?</p><p class="mobius-enoch-teaser-cta">Switch to Enoch Echoes…</p>';
+          wrap.innerHTML = '<p class="mobius-enoch-teaser-msg">You\'ve walked the loop thrice—want a glimpse of ancient wonders?</p><p class="mobius-enoch-teaser-cta">Switch to Hidden Scrolls…</p>';
           document.body.appendChild(wrap);
           setTimeout(function () {
             wrap.classList.add('mobius-enoch-teaser-fade');
@@ -549,6 +549,10 @@
 
     document.addEventListener('keydown', function (e) {
       if (e.altKey && e.key === 'ArrowRight') {
+        var tabExplore = document.getElementById('mobius-tab-explore');
+        var isGraphMode = tabExplore && tabExplore.classList.contains('active');
+        if (typeof console !== 'undefined' && console.log) console.log('Alt+Right detected, graph mode: ' + isGraphMode);
+        if (!isGraphMode) return;
         e.preventDefault();
         _tracerSpeedIdx = (_tracerSpeedIdx + 1) % _tracerSpeeds.length;
         _tracerDuration = _tracerSpeeds[_tracerSpeedIdx];

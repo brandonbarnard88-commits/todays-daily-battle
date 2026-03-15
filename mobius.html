@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Möbius Loop • Today's Daily Battle</title>
-  <meta name="description" content="One journey, two modes. Graph (Bible canon) or Enoch Echoes—ancient apocryphal texts. Reflect, don't rely.">
+  <meta name="description" content="One journey, three modes. Graph (canon), Text (meditation), or Hidden Scrolls—ancient apocryphal texts. Reflect, don't rely.">
   <link rel="canonical" href="https://todaysdailybattle.com/mobius.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
@@ -84,12 +84,13 @@
   <main class="tool-page-main" role="main">
     <header class="mobius-hero">
       <h1>Möbius Loop</h1>
-      <p>One journey, two modes. Graph (Bible canon) or Enoch Echoes—ancient apocryphal texts.</p>
+      <p>One journey, three modes. Graph (canon), Text (meditation), or Hidden Scrolls—ancient apocryphal texts.</p>
     </header>
 
     <div class="mobius-mode-tabs" role="tablist" aria-label="Möbius Loop mode">
       <button type="button" class="mobius-mode-tab active" role="tab" aria-selected="true" aria-controls="mobius-panel-explore" id="mobius-tab-explore" data-mode="explore">Graph (Canon)</button>
-      <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-enoch" id="mobius-tab-enoch" data-mode="enoch">Enoch Echoes</button>
+      <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-text" id="mobius-tab-text" data-mode="text">Text Mode</button>
+      <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-enoch" id="mobius-tab-enoch" data-mode="hidden">Hidden Scrolls</button>
     </div>
 
     <div id="mobius-panel-explore" class="mobius-panel active" role="tabpanel" aria-labelledby="mobius-tab-explore">
@@ -106,7 +107,7 @@
       <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
       <section id="mobius-deep-walk" class="mobius-deep-walk" aria-labelledby="mobius-deep-walk-title">
-        <h2 id="mobius-deep-walk-title">Enoch Echoes: Deep Walk</h2>
+        <h2 id="mobius-deep-walk-title">Hidden Scrolls: Deep Walk</h2>
         <p class="mobius-deep-intro">"Enoch walked with God: and he was not; for God took him." — Genesis 5:24<br>One ribbon. No separation. Fear turns… faith turns… presence remains.</p>
         <p>Begin here. Sit still. Breathe slow. Let the loop carry you.</p>
         <ol>
@@ -120,6 +121,30 @@
         </ol>
         <p class="mobius-deep-echo">Echo from Enoch: "I saw the Ancient of Days… His head white like wool." (1 Enoch 46)<br>Sit longer if called. The text waits in the flip.</p>
       </section>
+    </div>
+
+    <div id="mobius-panel-text" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-text" hidden>
+      <div class="mobius-mantra-wrap">
+        <div id="mobius-text-container" class="mobius-mantra-container" role="status" aria-live="polite" aria-atomic="true">
+          <button type="button" id="mobius-text-start" class="tool-btn" aria-label="Enter the loop">ENTER THE LOOP</button>
+          <div class="mobius-mantra-text" data-idx="0">You're not ready.</div>
+          <div class="mobius-mantra-text" data-idx="1">But you're not alone.</div>
+          <div class="mobius-mantra-text stronger" data-idx="2">Power. Love. Sound mind.</div>
+          <div class="mobius-mantra-text" data-idx="3">Let go.</div>
+          <div class="mobius-mantra-text stronger" data-idx="4">You're stronger than you know.</div>
+          <div class="mobius-mantra-text warm" data-idx="5">Keep falling.</div>
+          <div class="mobius-mantra-text" data-idx="6">Deeper.</div>
+          <div class="mobius-mantra-text stronger" data-idx="7">Still here.</div>
+          <div class="mobius-mantra-text" data-idx="8">Fear twists—faith holds.</div>
+          <div class="mobius-mantra-text warm" data-idx="9">The weight isn't crushing—it's building.</div>
+          <div class="mobius-mantra-text" data-idx="10">You were made for this.</div>
+          <div class="mobius-mantra-text" data-idx="11">Breathe.</div>
+          <div class="mobius-mantra-text stronger" data-idx="12">You made it.</div>
+          <div class="mobius-mantra-text warm" data-idx="13">♡ The loop continues.</div>
+        </div>
+        <div class="mobius-enoch-share-wrap"><button type="button" id="mobius-text-share" class="tool-btn" aria-label="Share this loop">Share this loop</button></div>
+        <div id="mobius-text-heartbeat" class="mobius-mantra-heartbeat" aria-hidden="true">♡</div>
+      </div>
     </div>
 
     <div id="mobius-panel-enoch" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-enoch" hidden>
@@ -138,21 +163,21 @@
           <div class="mobius-mantra-text" data-idx="9">All shall quake... but the righteous shall inherit light and peace.</div>
         </div>
         <div class="mobius-enoch-share-wrap"><button type="button" id="mobius-enoch-share" class="tool-btn" aria-label="Share this loop">Share this loop</button></div>
-        <p id="mobius-enoch-disclaimer" class="mobius-enoch-footer-note" aria-live="polite">Ancient apocryphal texts (1–3 Enoch)—not Bible canon. Historical, reflective. Read prayerfully, test against Scripture. Not doctrine.</p>
+        <p id="mobius-enoch-disclaimer" class="mobius-enoch-footer-note" aria-live="polite">Hidden Scrolls: apocryphal texts (1–3 Enoch)—not Bible canon. Ancient writings for reflection only. Not Scripture.</p>
       </div>
     </div>
   </main>
 
   <div id="mobius-enoch-modal" class="mobius-enoch-modal" role="dialog" aria-labelledby="mobius-enoch-modal-title" aria-describedby="mobius-enoch-modal-desc" aria-modal="true" hidden>
     <div class="mobius-enoch-modal-inner">
-      <h2 id="mobius-enoch-modal-title">Apocryphal Texts</h2>
-      <p id="mobius-enoch-modal-desc">These are from ancient apocryphal texts (1–3 Enoch)—not Bible canon. Historical/reflective only. Read prayerfully, test against Scripture. Not doctrine.</p>
-      <button type="button" id="mobius-enoch-modal-ok" class="tool-btn">Understood</button>
+      <h2 id="mobius-enoch-modal-title">Hidden Scrolls</h2>
+      <p id="mobius-enoch-modal-desc">Hidden Scrolls uses apocryphal texts—not Bible canon. Ancient writings for reflection only. Not Scripture. Close to continue.</p>
+      <button type="button" id="mobius-enoch-modal-ok" class="tool-btn">Close</button>
     </div>
   </div>
 
   <footer class="tool-page-footer" role="contentinfo">
-    <p id="mobius-enoch-footer-disclaimer" class="mobius-enoch-footer-disclaimer" hidden>Ancient apocryphal texts (1–3 Enoch)—not Bible canon. Reflect, don't rely.</p>
+    <p id="mobius-enoch-footer-disclaimer" class="mobius-enoch-footer-disclaimer" hidden>Hidden Scrolls: apocryphal texts—not Bible canon. Reflect, don't rely.</p>
     <p class="tool-footer-share-wrap" style="margin: 0 0 0.5rem;"><button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button></p>
     <p class="tool-footer-tagline">No ads • No tracking • Works offline</p>
     <nav class="tool-footer-links" aria-label="Footer links">
@@ -171,9 +196,12 @@
   <script src="share-page.js" defer></script>
   <script nonce="tdb2025">
     (function () {
+      function runMobiusMode() {
       var tabExplore = document.getElementById('mobius-tab-explore');
+      var tabText = document.getElementById('mobius-tab-text');
       var tabEnoch = document.getElementById('mobius-tab-enoch');
       var panelExplore = document.getElementById('mobius-panel-explore');
+      var panelText = document.getElementById('mobius-panel-text');
       var panelEnoch = document.getElementById('mobius-panel-enoch');
       var startBtn = document.getElementById('mobius-enoch-start');
       var container = document.getElementById('mobius-enoch-container');
@@ -181,26 +209,36 @@
       var modal = document.getElementById('mobius-enoch-modal');
       var modalOk = document.getElementById('mobius-enoch-modal-ok');
       var footerDisclaimer = document.getElementById('mobius-enoch-footer-disclaimer');
-      var DISCLAIMER_KEY = 'seenEnochDisclaimer';
+      var DISCLAIMER_KEY = 'seenHiddenDisclaimer';
       var DELAY_PER_LINE = 1800;
       var DELAY_AT_END = 2000;
 
       function setMode(mode) {
-        var isEnoch = mode === 'enoch';
-        if (tabExplore) tabExplore.classList.toggle('active', !isEnoch);
-        if (tabEnoch) tabEnoch.classList.toggle('active', isEnoch);
-        if (tabExplore) tabExplore.setAttribute('aria-selected', !isEnoch);
-        if (tabEnoch) tabEnoch.setAttribute('aria-selected', isEnoch);
-        if (panelExplore) { panelExplore.classList.toggle('active', !isEnoch); panelExplore.hidden = isEnoch; }
+        var isExplore = mode === 'explore';
+        var isText = mode === 'text';
+        var isEnoch = mode === 'hidden' || mode === 'enoch';
+        if (tabExplore) { tabExplore.classList.toggle('active', isExplore); tabExplore.setAttribute('aria-selected', isExplore); }
+        if (tabText) { tabText.classList.toggle('active', isText); tabText.setAttribute('aria-selected', isText); }
+        if (tabEnoch) { tabEnoch.classList.toggle('active', isEnoch); tabEnoch.setAttribute('aria-selected', isEnoch); }
+        if (panelExplore) { panelExplore.classList.toggle('active', isExplore); panelExplore.hidden = !isExplore; }
+        if (panelText) { panelText.classList.toggle('active', isText); panelText.hidden = !isText; }
         if (panelEnoch) { panelEnoch.classList.toggle('active', isEnoch); panelEnoch.hidden = !isEnoch; }
         if (footerDisclaimer) footerDisclaimer.hidden = !isEnoch;
         try {
           var url = new URL(window.location.href);
-          url.searchParams.set('mode', mode);
-          window.history.replaceState({}, '', url.toString());
+          var normMode = (mode === 'enoch' || mode === 'hidden') ? 'hidden' : mode;
+          url.searchParams.set('mode', normMode);
+          if (window.location.search !== url.search) {
+            window.history.replaceState(null, '', url.toString());
+            if (mode === 'enoch' && typeof console !== 'undefined' && console.log) console.log('Legacy enoch param normalized to hidden');
+          }
         } catch (e) {}
         if (isEnoch) {
-          try { var n = parseInt(localStorage.getItem('enochModeUses') || '0', 10); localStorage.setItem('enochModeUses', String(n + 1)); } catch (e) {}
+          if (typeof console !== 'undefined' && console.log) console.log('Hidden Scrolls mode activated');
+          try {
+            var n = parseInt(localStorage.getItem('hiddenModeUses') || '0', 10);
+            localStorage.setItem('hiddenModeUses', String(n + 1));
+          } catch (e) {}
           if (!localStorage.getItem(DISCLAIMER_KEY)) {
             if (modal) { modal.hidden = false; modal.removeAttribute('hidden'); }
           }
@@ -210,12 +248,14 @@
       function initFromUrl() {
         try {
           var m = new URLSearchParams(window.location.search).get('mode');
-          if (m === 'enoch') setMode('enoch');
+          if (m === 'enoch' || m === 'hidden') setMode('hidden');
+          else if (m === 'text') setMode('text');
         } catch (e) {}
       }
 
       if (tabExplore) tabExplore.addEventListener('click', function () { setMode('explore'); });
-      if (tabEnoch) tabEnoch.addEventListener('click', function () { setMode('enoch'); });
+      if (tabText) tabText.addEventListener('click', function () { setMode('text'); });
+      if (tabEnoch) tabEnoch.addEventListener('click', function () { setMode('hidden'); });
       initFromUrl();
 
       if (modalOk) modalOk.addEventListener('click', function () {
@@ -227,7 +267,7 @@
       if (enochShareBtn) {
         enochShareBtn.addEventListener('click', function () {
           var url = window.location.href;
-          var shareData = { title: 'Möbius Loop on Today\'s Daily Battle', text: 'Ancient apocryphal texts (1–3 Enoch)—reflect, don\'t rely. One endless loop.', url: url };
+          var shareData = { title: 'Möbius Loop on Today\'s Daily Battle', text: 'Hidden Scrolls—ancient apocryphal texts. Reflect, don\'t rely. One endless loop.', url: url };
           try {
             if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
               navigator.share(shareData).then(function () {
@@ -269,6 +309,100 @@
           index = 0;
           nextLayer();
         });
+      }
+
+      var textStartBtn = document.getElementById('mobius-text-start');
+      var textContainer = document.getElementById('mobius-text-container');
+      var textLines = textContainer ? textContainer.querySelectorAll('.mobius-mantra-text') : [];
+      var textHeartbeat = document.getElementById('mobius-text-heartbeat');
+      var TEXT_DELAY = 2800;
+      var TEXT_PAUSE = 1500;
+      if (textStartBtn && textLines.length) {
+        var textIdx = 0;
+        var textTimer = null;
+        function nextTextLine() {
+          if (textTimer) clearTimeout(textTimer);
+          if (textIdx >= textLines.length) {
+            textLines.forEach(function (t) { t.classList.remove('active'); });
+            if (textHeartbeat) textHeartbeat.textContent = '\u2661';
+            if (textContainer) textContainer.style.background = 'transparent';
+            textTimer = setTimeout(function () {
+              textLines[0].classList.add('active');
+              textIdx = 0;
+              textTimer = setTimeout(nextTextLine, TEXT_DELAY);
+            }, TEXT_PAUSE);
+            return;
+          }
+          textLines.forEach(function (t) { t.classList.remove('active'); });
+          textLines[textIdx].classList.add('active');
+          textIdx++;
+          if (textIdx > 3 && textContainer) textContainer.style.transform = 'scale(' + (1 + (textIdx - 3) * 0.05) + ')';
+          if (textIdx > 6 && textContainer) textContainer.style.filter = 'brightness(' + (1 + (textIdx - 6) * 0.1) + ')';
+          if (textIdx > 9 && textHeartbeat) textHeartbeat.style.opacity = 1;
+          textTimer = setTimeout(nextTextLine, TEXT_DELAY);
+        }
+        textStartBtn.addEventListener('click', function () {
+          textStartBtn.style.display = 'none';
+          if (textContainer) textContainer.style.background = 'transparent';
+          if (textHeartbeat) textHeartbeat.style.opacity = 0.6;
+          textIdx = 0;
+          nextTextLine();
+        });
+      }
+
+      var textShareBtn = document.getElementById('mobius-text-share');
+      if (textShareBtn) {
+        textShareBtn.addEventListener('click', function () {
+          var url = window.location.href;
+          var shareData = { title: 'M\u00f6bius Loop on Today\'s Daily Battle', text: 'Power. Love. Sound mind. One endless loop.', url: url };
+          try {
+            if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
+              navigator.share(shareData).then(function () {
+                try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {}
+              }).catch(function () {
+                navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share\u2014try copying the URL manually: ' + url); });
+              });
+            } else {
+              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('Could not share\u2014try copying the URL manually: ' + url); });
+            }
+          } catch (e) {
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share\u2014try copying the URL manually: ' + url); });
+          }
+        });
+      }
+      }
+
+      function migrateAndInit() {
+        try {
+          if (localStorage.getItem('seenEnochDisclaimer')) {
+            localStorage.setItem('seenHiddenDisclaimer', '1');
+            localStorage.removeItem('seenEnochDisclaimer');
+            if (typeof console !== 'undefined' && console.log) console.log('Migrated seenEnochDisclaimer to seenHiddenDisclaimer');
+          }
+          if (localStorage.getItem('enochModeUses')) {
+            var uses = parseInt(localStorage.getItem('enochModeUses') || '0', 10);
+            var hiddenUses = parseInt(localStorage.getItem('hiddenModeUses') || '0', 10) + uses;
+            localStorage.setItem('hiddenModeUses', String(hiddenUses));
+            localStorage.removeItem('enochModeUses');
+            if (typeof console !== 'undefined' && console.log) console.log('Migrated enochModeUses to hiddenModeUses');
+          }
+        } catch (e) {}
+        try {
+          var m = new URLSearchParams(window.location.search).get('mode');
+          if (m === 'enoch') {
+            var u = new URL(window.location.href);
+            u.searchParams.set('mode', 'hidden');
+            window.history.replaceState(null, '', u.toString());
+            if (typeof console !== 'undefined' && console.log) console.log('Legacy enoch param normalized to hidden');
+          }
+        } catch (e) {}
+        runMobiusMode();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', migrateAndInit);
+      } else {
+        migrateAndInit();
       }
     })();
   </script>

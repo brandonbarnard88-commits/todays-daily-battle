@@ -1,6 +1,6 @@
 # Tool Pages Style Guide
 
-Tool pages (e.g. `/mobius.html`, `/morpheus-loop.html`) share a consistent look with the main site. Use this guide when adding new tools.
+Tool pages (e.g. `/mobius.html`) share a consistent look with the main site. Use this guide when adding new tools.
 
 ## Shared Assets
 

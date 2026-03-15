@@ -179,17 +179,19 @@
       });
     }
 
-    // 5b. Triple-tap daily verse text (3 taps in 2s)
-    var heroVerse = document.getElementById('heroVerse');
+    // 5b. Triple-tap daily verse text (3 clicks within 500ms)
+    var heroVerse = document.getElementById('heroVerse') || document.querySelector('.hero-verse') || document.querySelector('.verse-text, .daily-verse p');
     if (heroVerse) {
-      var verseTapCount = 0;
-      var verseTapTimer = null;
+      var verseClickCount = 0;
+      var verseLastClick = 0;
       function onVerseTap(e) {
         if (!enabled()) return;
-        verseTapCount++;
-        if (verseTapTimer) clearTimeout(verseTapTimer);
-        if (verseTapCount >= 3) {
-          verseTapCount = 0;
+        var now = Date.now();
+        if (now - verseLastClick < 500) verseClickCount++; else verseClickCount = 1;
+        verseLastClick = now;
+        if (typeof console !== 'undefined' && console.log) console.log('verse click count: ' + verseClickCount);
+        if (verseClickCount >= 3) {
+          verseClickCount = 0;
           e.stopPropagation();
           var toast = document.createElement('div');
           toast.className = 'easter-triple-toast' + (reducedMotion() ? ' easter-no-motion' : '');
@@ -201,24 +203,23 @@
             toast.classList.add('easter-triple-fade');
             setTimeout(function () { toast.remove(); }, 400);
           }, 3600);
-        } else {
-          verseTapTimer = setTimeout(function () { verseTapCount = 0; verseTapTimer = null; }, 2000);
         }
       }
       heroVerse.addEventListener('click', onVerseTap, true);
     }
 
-    // 5c. "still" in search (handled in wrapRunSearch above)
+    // 5c. "still" in search — must run before resolveFeelGroup
     function tryStill(input) {
       if (!enabled()) return false;
-      var val = input ? String(input.value || '').trim().toLowerCase() : '';
+      var inp = input || document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      var val = inp ? String(inp.value || '').trim().toLowerCase() : '';
+      if (typeof console !== 'undefined' && console.log) console.log('still egg check: ' + val);
       if (val !== 'still') return false;
       try {
         if (sessionStorage.getItem('stillFound')) return false;
         sessionStorage.setItem('stillFound', '1');
       } catch (x) { return false; }
       showStill();
-      var inp = document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
       if (inp) inp.value = '';
       return true;
     }
@@ -228,6 +229,8 @@
       if (out) {
         out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>';
         out.style.display = '';
+        out.classList.add('easter-still-glow');
+        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
         out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
       var inp = document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');

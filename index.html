@@ -4710,9 +4710,7 @@
       function runSearch() {
         const val = (input.value || "").trim();
         if (!val) return;
-        if (val.toLowerCase() === "still" && typeof window.tryStillEaster === "function") {
-          if (window.tryStillEaster(input)) return;
-        }
+        if (typeof window.tryStillEaster === "function" && window.tryStillEaster(input)) return;
         const group = resolveFeelGroup(val);
         if (group) showGroup(group, val);
         else if (typeof window.runSearchWithInput === "function") {

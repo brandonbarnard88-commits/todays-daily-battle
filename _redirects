@@ -41,6 +41,10 @@
 # Block package.json from public (security)
 /package.json  /404.html  404
 
+# Legacy loop URLs → Möbius Text Mode
+/morpheus-loop /mobius.html?mode=text 301
+/morpheus-loop.html /mobius.html?mode=text 301
+
 # 301 redirects for broken/legacy paths (enforce, no conflicts)
 /anxiety /about.html 301
 /our-approach /about.html 301

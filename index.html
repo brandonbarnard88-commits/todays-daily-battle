@@ -51,6 +51,8 @@
   <!-- DNS prefetch for analytics + CDN -->
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="modulepreload" href="config.js">
+  <link rel="modulepreload" href="script.js?v=20260311k">
   <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js">
   <style>
     :root {
@@ -4806,10 +4808,17 @@
       });
     }());
 
-    // ── Service Worker ──
+    // ── Service Worker (delayed to avoid blocking initial load) ──
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
-      navigator.serviceWorker.register("/sw.js?v=20260309", { scope: "/" }).catch(() => {});
+      var doReg = function () {
+        navigator.serviceWorker.register("/sw.js?v=20260309", { scope: "/" }).catch(function () {});
+      };
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(doReg, { timeout: 2000 });
+      } else {
+        setTimeout(doReg, 1);
+      }
     }
 
     // ── Daily prayer counter (anonymous, localStorage, midnight reset) ──
@@ -6333,7 +6342,34 @@
       wireAboutModal();
       wireSosButton();
       wireMoreDrawer();
+      wireMobiusLazyTrigger();
     });
+
+    function wireMobiusLazyTrigger() {
+      var trigger = document.getElementById('mobius-loop-trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (typeof window.openMobiusLoopDrawer === 'function') {
+          window.openMobiusLoopDrawer();
+          return;
+        }
+        if (trigger.dataset.mobiusLoading === '1') return;
+        trigger.dataset.mobiusLoading = '1';
+        var d3 = document.createElement('script');
+        d3.src = 'https://cdn.jsdelivr.net/npm/d3@7';
+        d3.onload = function () {
+          var m = document.createElement('script');
+          m.src = 'mobius-loop.js';
+          m.onload = function () {
+            trigger.dataset.mobiusLoading = '0';
+            if (typeof window.openMobiusLoopDrawer === 'function') window.openMobiusLoopDrawer();
+          };
+          document.head.appendChild(m);
+        };
+        document.head.appendChild(d3);
+      });
+    }
 
     function wireMoreDrawer() {
       var sheet   = document.getElementById('nav-more-sheet');
@@ -6550,7 +6586,5 @@
   <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
-  <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
-  <script src="mobius-loop.js" defer></script>
 </body>
 </html>

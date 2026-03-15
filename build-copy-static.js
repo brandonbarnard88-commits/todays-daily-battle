@@ -40,6 +40,7 @@ const rootFiles = [
   'styles.css',
   'script.js',
   'service-worker.js',
+  'sw.js',
   'daily-verse-widget.js',
   'inline-bootstrap.js',
   'ga-config.js',

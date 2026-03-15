@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Möbius Loop: One Endless Journey • Today's Daily Battle</title>
-  <meta name="description" content="Start with any battle. Watch it twist and redeem. Everything loops back stronger. 2 Timothy 1:7 as central pivot—one journey, infinite turns.">
+  <title>Möbius Loop • Today's Daily Battle</title>
+  <meta name="description" content="One journey, two modes. Graph (Bible canon) or Enoch Echoes—ancient apocryphal texts. Reflect, don't rely.">
   <link rel="canonical" href="https://todaysdailybattle.com/mobius.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
@@ -15,6 +15,10 @@
     .mobius-hero { text-align: center; margin-bottom: 0.75rem; flex-shrink: 0; }
     .mobius-hero h1 { margin: 0; font-size: clamp(1.15rem, 4vw, 1.5rem); font-weight: 600; color: var(--tool-text, #f5f7fb); }
     .mobius-hero p { margin: 0.4rem 0 0; font-size: 0.9rem; color: var(--tool-muted, #bcc5d6); max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+    .mobius-mode-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .mobius-mode-tab { padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--tool-muted); background: transparent; border: 1px solid var(--tool-line); border-radius: 999px; cursor: pointer; transition: color 0.18s, border-color 0.18s, background 0.18s; }
+    .mobius-mode-tab:hover, .mobius-mode-tab:focus-visible { color: var(--tool-gold-soft); border-color: var(--tool-gold); outline: none; }
+    .mobius-mode-tab.active { color: var(--tool-gold-soft); border-color: var(--tool-gold); background: rgba(227, 188, 103, 0.12); }
     .mobius-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem 1rem; margin-bottom: 1rem; }
     .mobius-controls label { font-size: 0.85rem; color: var(--tool-muted); }
     .mobius-mood-select { padding: 0.4rem 0.75rem; font-size: 0.9rem; color: var(--tool-text); background: rgba(26, 33, 45, 0.9); border: 1px solid var(--tool-line); border-radius: 8px; min-width: 140px; }
@@ -34,6 +38,25 @@
     .mobius-card-verse { font-style: italic; }
     .mobius-card-prayer { margin: 0.6rem 0 0; color: var(--tool-gold-soft); }
     .mobius-fallback { padding: 2rem; text-align: center; color: var(--tool-muted); }
+    .mobius-panel { display: none; flex: 1; flex-direction: column; align-items: center; justify-content: center; min-height: 0; width: 100%; }
+    .mobius-panel.active { display: flex; }
+    .mobius-mantra-wrap { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; min-height: 0; width: 100%; }
+    .mobius-mantra-container { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: all 3s ease; }
+    .mobius-mantra-text { opacity: 0; transform: translateY(50px); font-size: clamp(1.5rem, 5vw, 2.5rem); text-align: center; max-width: 80%; line-height: 1.4; letter-spacing: 1px; transition: opacity 0.4s ease, transform 0.4s ease; color: var(--tool-muted); }
+    .mobius-mantra-text.active { opacity: 1; transform: translateY(0); color: var(--tool-gold); text-shadow: 0 0 12px rgba(227, 188, 103, 0.5); }
+    .mobius-mantra-text.stronger { font-weight: 700; }
+    .mobius-mantra-text.stronger.active { color: var(--tool-gold-soft); text-shadow: 0 0 16px rgba(242, 220, 152, 0.6); }
+    .mobius-mantra-text.warm { color: #ffcc99; }
+    .mobius-mantra-text.warm.active { color: #ffd9b3; text-shadow: 0 0 12px rgba(255, 204, 153, 0.4); }
+    .mobius-mantra-heartbeat { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); font-size: 1.2rem; opacity: 0.6; }
+    #mobius-mantra-start, #mobius-enoch-start { padding: 1rem 2rem; font-size: 1.25rem; }
+    .mobius-enoch-footer-note { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); width: min(90%, 480px); font-size: 0.75rem; color: var(--tool-muted); text-align: center; line-height: 1.4; }
+    .mobius-enoch-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); padding: 1rem; }
+    .mobius-enoch-modal[hidden] { display: none; }
+    .mobius-enoch-modal-inner { max-width: 420px; padding: 1.5rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; }
+    .mobius-enoch-modal-inner h2 { margin: 0 0 0.75rem; font-size: 1.1rem; color: var(--tool-gold-soft); }
+    .mobius-enoch-modal-inner p { margin: 0 0 1rem; font-size: 0.9rem; color: var(--tool-muted); line-height: 1.5; }
+    .mobius-enoch-footer-disclaimer { font-size: 0.8rem; color: var(--tool-muted); margin-bottom: 0.5rem; max-width: 480px; margin-left: auto; margin-right: auto; text-align: center; }
   </style>
 </head>
 <body class="tool-page-shell">
@@ -44,25 +67,59 @@
 
   <main class="tool-page-main" role="main">
     <header class="mobius-hero">
-      <h1>Möbius Loop: One Endless Journey</h1>
-      <p>Start with any battle. Watch it twist and redeem. Everything loops back stronger.</p>
+      <h1>Möbius Loop</h1>
+      <p>One journey, two modes. Graph (Bible canon) or Enoch Echoes—ancient apocryphal texts.</p>
     </header>
 
-    <div class="mobius-controls">
-      <label for="mobius-mood-select">Begin here:</label>
-      <select id="mobius-mood-select" class="mobius-mood-select" aria-label="Choose starting mood"></select>
-      <button type="button" class="tool-btn" id="mobius-surprise" aria-label="Pick random starting mood">Surprise Me</button>
-      <button type="button" class="tool-btn" id="mobius-restart" aria-label="Restart with Fear">Restart</button>
-      <button type="button" class="tool-btn" id="mobius-trace-btn" aria-label="Trace the cycle">Trace Cycle</button>
-      <button type="button" class="tool-btn" id="mobius-share" aria-label="Share this loop">Share</button>
-      <button type="button" class="tool-btn" id="mobius-timer" aria-label="5-minute meditation mode">5-min meditation</button>
-      <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
+    <div class="mobius-mode-tabs" role="tablist" aria-label="Möbius Loop mode">
+      <button type="button" class="mobius-mode-tab active" role="tab" aria-selected="true" aria-controls="mobius-panel-explore" id="mobius-tab-explore" data-mode="explore">Graph (Canon)</button>
+      <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-enoch" id="mobius-tab-enoch" data-mode="enoch">Enoch Echoes</button>
     </div>
 
-    <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
+    <div id="mobius-panel-explore" class="mobius-panel active" role="tabpanel" aria-labelledby="mobius-tab-explore">
+      <div class="mobius-controls">
+        <label for="mobius-mood-select">Begin here:</label>
+        <select id="mobius-mood-select" class="mobius-mood-select" aria-label="Choose starting mood"></select>
+        <button type="button" class="tool-btn" id="mobius-surprise" aria-label="Pick random starting mood">Surprise Me</button>
+        <button type="button" class="tool-btn" id="mobius-restart" aria-label="Restart with Fear">Restart</button>
+        <button type="button" class="tool-btn" id="mobius-trace-btn" aria-label="Trace the cycle">Trace Cycle</button>
+        <button type="button" class="tool-btn" id="mobius-share" aria-label="Share this loop">Share</button>
+        <button type="button" class="tool-btn" id="mobius-timer" aria-label="5-minute meditation mode">5-min meditation</button>
+        <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
+      </div>
+      <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
+    </div>
+
+    <div id="mobius-panel-enoch" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-enoch" hidden>
+      <div class="mobius-mantra-wrap">
+        <div id="mobius-enoch-container" class="mobius-mantra-container" role="status" aria-live="polite" aria-atomic="true">
+          <button type="button" id="mobius-enoch-start" class="tool-btn" aria-label="Enter the loop">ENTER THE LOOP</button>
+          <div class="mobius-mantra-text" data-idx="0">The Watchers descended to earth... and took wives among the daughters of men.</div>
+          <div class="mobius-mantra-text" data-idx="1">They taught forbidden arts: swords, metals, enchantments, and the signs of the stars.</div>
+          <div class="mobius-mantra-text" data-idx="2">Giants were born... and the earth filled with violence because of them.</div>
+          <div class="mobius-mantra-text" data-idx="3">I, Enoch, was taken up... and beheld the great sea above the clouds.</div>
+          <div class="mobius-mantra-text" data-idx="4">In the second heaven, prisoners hung in darkness... awaiting boundless judgment.</div>
+          <div class="mobius-mantra-text" data-idx="5">I saw fiery troops, archangels, cherubim, seraphim... and thrones of light.</div>
+          <div class="mobius-mantra-text" data-idx="6">The Holy One made me a throne... like the throne of glory itself.</div>
+          <div class="mobius-mantra-text" data-idx="7">Metatron stands before the Throne... voice of the Lord, scribe of secrets.</div>
+          <div class="mobius-mantra-text" data-idx="8">The heavens remember... the loop closes, yet the judgment comes.</div>
+          <div class="mobius-mantra-text" data-idx="9">All shall quake... but the righteous shall inherit light and peace.</div>
+        </div>
+        <p id="mobius-enoch-disclaimer" class="mobius-enoch-footer-note" aria-live="polite">Ancient apocryphal texts (1–3 Enoch)—not Bible canon. Historical, reflective. Read prayerfully, test against Scripture. Not doctrine.</p>
+      </div>
+    </div>
   </main>
 
+  <div id="mobius-enoch-modal" class="mobius-enoch-modal" role="dialog" aria-labelledby="mobius-enoch-modal-title" aria-describedby="mobius-enoch-modal-desc" aria-modal="true" hidden>
+    <div class="mobius-enoch-modal-inner">
+      <h2 id="mobius-enoch-modal-title">Apocryphal Texts</h2>
+      <p id="mobius-enoch-modal-desc">These are from ancient apocryphal texts (1–3 Enoch)—not Bible canon. Historical/reflective only. Read prayerfully, test against Scripture. Not doctrine.</p>
+      <button type="button" id="mobius-enoch-modal-ok" class="tool-btn">Understood</button>
+    </div>
+  </div>
+
   <footer class="tool-page-footer" role="contentinfo">
+    <p id="mobius-enoch-footer-disclaimer" class="mobius-enoch-footer-disclaimer" hidden>Ancient apocryphal texts (1–3 Enoch)—not Bible canon. Reflect, don't rely.</p>
     <p class="tool-footer-tagline">No ads • No tracking • Works offline</p>
     <nav class="tool-footer-links" aria-label="Footer links">
       <a href="privacy.html">Privacy</a>
@@ -72,10 +129,92 @@
     <p class="tool-footer-copy">© Todays Daily Battle 2026</p>
   </footer>
 
-  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
   <script src="mobius-universal.js" defer></script>
+  <script nonce="tdb2025">
+    (function () {
+      var tabExplore = document.getElementById('mobius-tab-explore');
+      var tabEnoch = document.getElementById('mobius-tab-enoch');
+      var panelExplore = document.getElementById('mobius-panel-explore');
+      var panelEnoch = document.getElementById('mobius-panel-enoch');
+      var startBtn = document.getElementById('mobius-enoch-start');
+      var container = document.getElementById('mobius-enoch-container');
+      var texts = container ? container.querySelectorAll('.mobius-mantra-text') : [];
+      var modal = document.getElementById('mobius-enoch-modal');
+      var modalOk = document.getElementById('mobius-enoch-modal-ok');
+      var footerDisclaimer = document.getElementById('mobius-enoch-footer-disclaimer');
+      var DISCLAIMER_KEY = 'seenEnochDisclaimer';
+      var DELAY_PER_LINE = 1800;
+      var DELAY_AT_END = 2000;
+
+      function setMode(mode) {
+        var isEnoch = mode === 'enoch';
+        if (tabExplore) tabExplore.classList.toggle('active', !isEnoch);
+        if (tabEnoch) tabEnoch.classList.toggle('active', isEnoch);
+        if (tabExplore) tabExplore.setAttribute('aria-selected', !isEnoch);
+        if (tabEnoch) tabEnoch.setAttribute('aria-selected', isEnoch);
+        if (panelExplore) { panelExplore.classList.toggle('active', !isEnoch); panelExplore.hidden = isEnoch; }
+        if (panelEnoch) { panelEnoch.classList.toggle('active', isEnoch); panelEnoch.hidden = !isEnoch; }
+        if (footerDisclaimer) footerDisclaimer.hidden = !isEnoch;
+        try {
+          var url = new URL(window.location.href);
+          url.searchParams.set('mode', mode);
+          window.history.replaceState({}, '', url.toString());
+        } catch (e) {}
+        if (isEnoch) {
+          try { var n = parseInt(localStorage.getItem('enochModeUses') || '0', 10); localStorage.setItem('enochModeUses', String(n + 1)); } catch (e) {}
+          if (!localStorage.getItem(DISCLAIMER_KEY)) {
+            if (modal) { modal.hidden = false; modal.removeAttribute('hidden'); }
+          }
+        }
+      }
+
+      function initFromUrl() {
+        try {
+          var m = new URLSearchParams(window.location.search).get('mode');
+          if (m === 'enoch') setMode('enoch');
+        } catch (e) {}
+      }
+
+      if (tabExplore) tabExplore.addEventListener('click', function () { setMode('explore'); });
+      if (tabEnoch) tabEnoch.addEventListener('click', function () { setMode('enoch'); });
+      initFromUrl();
+
+      if (modalOk) modalOk.addEventListener('click', function () {
+        try { localStorage.setItem(DISCLAIMER_KEY, '1'); } catch (e) {}
+        if (modal) { modal.hidden = true; modal.setAttribute('hidden', ''); }
+      });
+
+      if (!startBtn || !texts.length) {} else {
+        var index = 0;
+        var timer = null;
+        function nextLayer() {
+          if (timer) clearTimeout(timer);
+          if (index >= texts.length) {
+            texts.forEach(function (t) { t.classList.remove('active'); });
+            timer = setTimeout(function () {
+              texts[0].classList.add('active');
+              index = 0;
+              timer = setTimeout(nextLayer, DELAY_PER_LINE);
+            }, DELAY_AT_END);
+            return;
+          }
+          texts.forEach(function (t) { t.classList.remove('active'); });
+          texts[index].classList.add('active');
+          index++;
+          timer = setTimeout(nextLayer, DELAY_PER_LINE);
+        }
+        startBtn.addEventListener('click', function () {
+          startBtn.style.display = 'none';
+          if (container) container.style.background = 'transparent';
+          index = 0;
+          nextLayer();
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

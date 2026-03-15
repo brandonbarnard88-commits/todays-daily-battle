@@ -681,6 +681,20 @@
       pointer-events: none;
     }
     .offline-pill.visible { display: flex; }
+    #offline-banner {
+      background: color-mix(in srgb, var(--gold) 25%, #1b212d);
+      color: var(--text);
+      padding: 0.65rem 1rem;
+      text-align: center;
+      font-size: 0.88rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+    }
+    #offline-banner.hidden { display: none; }
     .offline-pill-dot {
       width: 7px;
       height: 7px;
@@ -2872,6 +2886,17 @@
     .plans-teaser-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
     .plans-teaser-explore { font-size: 0.8rem; color: var(--gold); text-decoration: none; }
     .plans-teaser-explore:hover { text-decoration: underline; }
+    .plans-teaser-banner {
+      display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem; border-radius: 10px;
+      background: color-mix(in srgb, var(--gold) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      color: var(--text); text-decoration: none; font-size: 0.85rem;
+      transition: background 0.15s ease;
+    }
+    .plans-teaser-banner:hover { background: color-mix(in srgb, var(--gold) 28%, transparent); }
+    .plans-teaser-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gold); }
+    .plans-teaser-arrow { margin-left: auto; color: var(--gold); }
     .plans-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .plan-chip {
       background: color-mix(in srgb, var(--gold) 10%, transparent);
@@ -3278,6 +3303,9 @@
 
     <main>
 
+      <!-- ── Offline banner (reassuring message when offline) ── -->
+      <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — your verse &amp; prayers are still here. We'll sync when you're back.</div>
+
       <!-- ── Offline pill badge ── -->
       <div id="offline-pill" class="offline-pill" role="status" aria-live="polite" aria-atomic="true">
         <span class="offline-pill-dot" aria-hidden="true"></span>
@@ -3380,6 +3408,11 @@
           <span class="plans-teaser-title">📋 Battle Plans</span>
           <a href="plans.html" class="plans-teaser-explore" aria-label="See all battle plans">All Plans →</a>
         </div>
+        <a href="plans.html" class="plans-teaser-banner" aria-label="See all 9 battle plans — 7 to 30 days">
+          <span class="plans-teaser-badge" aria-hidden="true">New</span>
+          <span>7–30 day plans — pick your rhythm.</span>
+          <span class="plans-teaser-arrow" aria-hidden="true">→</span>
+        </a>
         <div class="plans-grid" id="plansGrid">
           <button type="button" class="plan-chip" data-plan="battle" aria-label="7 Days Battle Distraction plan">⚔️ Battle Distraction<span class="plan-chip-days" id="planChip-battle"></span></button>
           <button type="button" class="plan-chip" data-plan="gratitude" aria-label="7 Days Gratitude plan">🙏 Gratitude<span class="plan-chip-days" id="planChip-gratitude"></span></button>

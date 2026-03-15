@@ -225,6 +225,8 @@
   var _lastSvg = null;
   var _tracerSpeeds = [15000, 10000, 6000, 15000];
   var _tracerSpeedIdx = 0;
+  var _tracerReverse = false;
+  var _tracerReverseStart = 0;
   function runTracer(svg, duration) {
     _lastSvg = svg;
     var d = duration != null ? duration : _tracerDuration;
@@ -235,7 +237,12 @@
     var start = Date.now();
     function tick() {
       var elapsed = Date.now() - start;
-      var pct = (elapsed / d) % 1;
+      var rawPct = (elapsed / d) % 1;
+      if (_tracerReverse) {
+        if (Date.now() - _tracerReverseStart > d) _tracerReverse = false;
+        rawPct = 1 - rawPct;
+      }
+      var pct = rawPct;
       var len = totalLen * pct;
       var pt = path.node().getPointAtLength(len);
       var dot = svg.select('.mobius-tracer-dot');
@@ -303,10 +310,12 @@
 
     var lineGen = d3.line().curve(d3.curveCatmullRomClosed);
     var pathGroup = svg.append('g').attr('class', 'mobius-path');
-    pathGroup.append('path').attr('class', 'mobius-ribbon')
-      .attr('fill', 'none').attr('stroke', 'url(#mobius-ribbon-grad)')
-      .attr('stroke-width', 3).attr('stroke-opacity', 0.35)
+    var ribbonClass = 'mobius-ribbon' + (window.__mobiusTraceGold ? ' mobius-ribbon-gold-trail' : '');
+    pathGroup.append('path').attr('class', ribbonClass)
+      .attr('fill', 'none').attr('stroke', window.__mobiusTraceGold ? '#e3bc67' : 'url(#mobius-ribbon-grad)')
+      .attr('stroke-width', window.__mobiusTraceGold ? 4 : 3).attr('stroke-opacity', window.__mobiusTraceGold ? 0.6 : 0.35)
       .attr('d', lineGen(pts));
+    if (window.__mobiusTraceGold) window.__mobiusTraceGold = false;
     pathGroup.append('path').attr('class', 'mobius-tracer-path')
       .attr('fill', 'none').attr('stroke', 'transparent').attr('stroke-width', 1)
       .attr('d', lineGen(pts));
@@ -381,6 +390,23 @@
     nodeEls.on('click', function (ev, d) {
       ev.stopPropagation();
       if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+      if (ev.altKey) {
+        try {
+          var key = 'mobiusNodeSeen_' + (d.id || d.key || '');
+          if (localStorage.getItem(key)) return;
+          localStorage.setItem(key, '1');
+        } catch (x) {}
+        var nodeEl = ev.currentTarget;
+        if (nodeEl) nodeEl.classList.add('mobius-node-seen');
+        setTimeout(function () { if (nodeEl) nodeEl.classList.remove('mobius-node-seen'); }, 1500);
+        var t = document.createElement('div');
+        t.className = 'mobius-tracer-toast';
+        t.textContent = 'Seen.';
+        t.setAttribute('role', 'status');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2000);
+        return;
+      }
       showCard(d);
     });
 
@@ -461,7 +487,33 @@
       if (selector) selector.value = currentStart;
       doMount();
     });
-    if (traceBtn) traceBtn.addEventListener('click', function () {
+    var traceClickCount = 0;
+    var traceLastClick = 0;
+    if (traceBtn) traceBtn.addEventListener('click', function (e) {
+      if (e.shiftKey) {
+        window.__mobiusTraceGold = true;
+        var t = document.createElement('div');
+        t.className = 'mobius-tracer-toast';
+        t.textContent = 'Your path is marked.';
+        t.setAttribute('role', 'status');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2500);
+      }
+      var now = Date.now();
+      if (now - traceLastClick < 500) traceClickCount++; else traceClickCount = 1;
+      traceLastClick = now;
+      if (traceClickCount >= 3) {
+        traceClickCount = 0;
+        _tracerDuration = 4000;
+        _tracerSpeedIdx = 2;
+        if (_lastSvg && !_lastSvg.empty()) runTracer(_lastSvg, _tracerDuration);
+        var t = document.createElement('div');
+        t.className = 'mobius-tracer-toast';
+        t.textContent = 'You\'re tracing faster now.';
+        t.setAttribute('role', 'status');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2500);
+      }
       doMount();
       try {
         var n = parseInt(sessionStorage.getItem('mobiusTraceCount') || '0', 10);
@@ -591,5 +643,10 @@
   window.mountMobiusUniversal = function (containerId, startKey) {
     var el = document.getElementById(containerId || CONTAINER_ID);
     if (el) mountViz(el, startKey);
+  };
+
+  window.__mobiusReverseTracer = function () {
+    _tracerReverse = true;
+    _tracerReverseStart = Date.now();
   };
 })();

@@ -1480,6 +1480,7 @@
       opacity: 0.42;
       margin: 0;
     }
+    .site-footer-hint { font-size: 0.8rem; color: var(--muted); opacity: 0.5; margin: 0.25rem 0 0; }
 
     .site-footer a {
       color: color-mix(in srgb, var(--gold) 70%, var(--muted));
@@ -1511,6 +1512,21 @@
     .easter-hallelujah-text { position: relative; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; color: var(--gold); text-shadow: 0 0 20px rgba(227,188,103,0.8); margin: 0 0 0.5rem; z-index: 1; }
     .easter-hallelujah-verse { position: relative; font-size: 1rem; color: rgba(0,0,0,0.8); max-width: 90%; text-align: center; z-index: 1; }
     .easter-hallelujah-fade { animation: easter-fade-out 0.5s ease forwards; }
+    .easter-hallelujah-dove { position: absolute; bottom: 2rem; right: 2rem; font-size: 2rem; opacity: 0.7; animation: easter-dove-float 3s ease-in-out infinite; z-index: 2; }
+    .easter-dove-wing-flutter { animation: easter-dove-flutter 0.6s ease; }
+    .easter-amen-glow { box-shadow: 0 0 20px rgba(212,175,55,0.5) !important; border-color: rgba(212,175,55,0.6) !important; transition: box-shadow 0.4s, border-color 0.4s; }
+    .easter-amen-pulse { animation: easter-amen-pulse 0.8s ease; }
+    .easter-amen-corner { position: fixed; bottom: 1.5rem; right: 1.5rem; font-size: 1.2rem; color: var(--gold); opacity: 0; animation: easter-fade-in 0.5s ease 0.2s forwards; z-index: 9998; }
+    .easter-amen-fade { animation: easter-fade-out 0.5s ease forwards; }
+    @keyframes easter-amen-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.08); } }
+    .easter-hope-lift { transform: translateY(-4px); background: linear-gradient(135deg, rgba(255,200,100,0.15), rgba(150,200,255,0.1)) !important; transition: transform 0.3s, background 0.3s; }
+    .easter-forgive-spin { animation: easter-forgive-spin 0.6s ease; }
+    @keyframes easter-forgive-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .easter-footer-dove { display: inline-block; animation: easter-dove-fly-up 2s ease forwards; margin-left: 0.25rem; }
+    @keyframes easter-dove-fly-up { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-40px); } }
+    .easter-sunrise-bg { background: linear-gradient(180deg, rgba(255,180,80,0.12) 0%, transparent 30%) !important; transition: background 2s ease; }
+    @keyframes easter-dove-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.05); } }
+    @keyframes easter-dove-flutter { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.08) rotate(-3deg); } 75% { transform: scale(1.08) rotate(3deg); } }
     .easter-god-sees { font-size: 0.85rem; color: rgba(227,188,103,0.7); margin: 0.5rem 0 0; animation: easter-pulse 2s ease infinite; }
     .easter-hidden-dove { position: fixed; top: 0.5rem; right: 0.5rem; font-size: 1.2rem; opacity: 0.5; cursor: pointer; z-index: 9998; transition: opacity 0.3s; }
     .easter-hidden-dove:hover, .easter-dove-hover { opacity: 1; }
@@ -1534,6 +1550,41 @@
     .easter-angel-num { font-weight: 700; margin-right: 0.35rem; }
     .easter-angel-msg { font-style: italic; opacity: 0.9; }
     .easter-angel-fade { animation: easter-fade-out 0.6s ease forwards; }
+    .easter-footer-dove-trigger { cursor: default; display: inline-block; margin-left: 0.2rem; transition: transform 0.3s; }
+    .easter-footer-dove-trigger.easter-dove-flutter { animation: easter-dove-flutter 0.6s ease; }
+    .easter-jesus-brightness { filter: brightness(0.9); transition: filter 0.5s; }
+    .easter-grace-rain { position: fixed; inset: 0; pointer-events: none; z-index: 9998; overflow: hidden; }
+    .easter-grace-rain span { position: absolute; color: var(--gold); font-size: 1rem; opacity: 0.7; animation: easter-grace-fall 3s linear forwards; }
+    @keyframes easter-grace-fall { from { transform: translateY(-20px); opacity: 0.7; } to { transform: translateY(100vh); opacity: 0; } }
+    .easter-forgive-glow { box-shadow: 0 0 24px rgba(255,255,255,0.4) !important; border-color: rgba(255,255,255,0.5) !important; }
+    .easter-rest-float { transform: translateY(-6px) scale(1.02); transition: transform 0.3s; box-shadow: 0 0 12px rgba(227,188,103,0.4); }
+    .easter-joy-bounce { animation: easter-joy-bounce 0.6s ease; }
+    @keyframes easter-joy-bounce { 0%, 100% { transform: scale(1); } 30% { transform: scale(1.15); } 60% { transform: scale(0.95); } }
+    .easter-joy-particles { position: absolute; pointer-events: none; font-size: 0.9rem; opacity: 0.8; animation: easter-sun-fade 1.5s ease forwards; }
+    @keyframes easter-sun-fade { from { opacity: 0.8; transform: scale(1); } to { opacity: 0; transform: scale(1.5); } }
+    .easter-cross-float { position: fixed; top: 1rem; right: 1rem; font-size: 2rem; color: var(--gold); z-index: 9997; opacity: 0; animation: easter-fade-in 0.8s ease forwards, easter-fade-out 0.5s ease 5.5s forwards; }
+    .easter-cross-float.easter-no-motion { animation: none; opacity: 1; }
+    .easter-tomb-emoji { position: fixed; top: 1rem; right: 1rem; font-size: 1.8rem; z-index: 9998; opacity: 0; animation: easter-fade-in 0.4s ease forwards, easter-fade-out 0.4s ease 2.6s forwards; }
+    .easter-share-spin { animation: easter-forgive-spin 0.6s ease; }
+    .easter-share-glow { box-shadow: 0 0 16px rgba(227,188,103,0.5) !important; transition: box-shadow 0.3s; }
+    .easter-shabbat-dark { filter: brightness(0.9); transition: filter 0.5s; }
+    .easter-candle-flicker { animation: easter-candle-flicker 2.5s ease-in-out infinite; }
+    @keyframes easter-candle-flicker { 0%, 100% { filter: brightness(0.9); } 50% { filter: brightness(0.85); } }
+    .easter-sunday-bg { background: linear-gradient(180deg, rgba(255,200,120,0.08) 0%, transparent 25%) !important; transition: background 2s ease; }
+    .easter-sunday-morning { background: linear-gradient(180deg, rgba(255,180,80,0.18) 0%, rgba(255,200,120,0.1) 30%, transparent 50%) !important; }
+    .easter-toast-large { font-size: 1.05rem; padding: 1rem 1.5rem; }
+    .easter-risen-sunrise { background: linear-gradient(180deg, rgba(255,200,100,0.2) 0%, rgba(255,180,60,0.08) 40%, transparent 70%) !important; transition: background 0.6s ease; }
+    .easter-lamb-float { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; opacity: 0.8; animation: easter-lamb-pulse 2s ease-in-out infinite; z-index: 9997; pointer-events: none; }
+    @keyframes easter-lamb-pulse { 0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.08); } }
+    .easter-resurrection-glow { box-shadow: 0 0 28px rgba(255, 240, 200, 0.35) !important; border-color: rgba(255, 230, 180, 0.5) !important; }
+    .easter-do-this-pulse { animation: easter-do-this-pulse 2s ease; }
+    @keyframes easter-do-this-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.08); } }
+    .easter-cross-glow { position: relative; }
+    .easter-cross-glow::after { content: '\271D'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8rem; opacity: 0.06; color: var(--gold); pointer-events: none; z-index: 0; }
+    .easter-egg-badge { font-size: 0.8rem; color: var(--gold); opacity: 0.85; margin: 0.5rem 0 0; text-align: center; }
+    .easter-egg-badge.pulse-once { animation: easter-badge-pulse 1.2s ease; }
+    @keyframes easter-badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
 
     /* ── PWA nudge ── */
     .pwa-nudge {
@@ -3517,7 +3568,8 @@
         <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
       </nav>
       <p class="site-footer-copy">© Todays Daily Battle 2026</p>
-      <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️</p>
+      <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
+      <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
       <p class="site-footer-updated">Last updated: <span id="last-updated">—</span></p>
       <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
     </footer>
@@ -4694,6 +4746,8 @@
         const val = input.value;
         if (!val.trim()) { clearResult(); closeSuggest(); return; }
         debounceTimer = setTimeout(() => {
+          if (val.trim().toLowerCase() === 'still' && typeof window.tryStillEaster === 'function' && window.tryStillEaster(input)) return;
+          if (val.trim().toLowerCase() === 'amen' && typeof window.tryAmenEaster === 'function' && window.tryAmenEaster(input)) return;
           const sugs = getSuggestions(val);
           renderSuggestions(sugs);
           const group = resolveFeelGroup(val);
@@ -4711,6 +4765,7 @@
         const val = (input.value || "").trim();
         if (!val) return;
         if (typeof window.tryStillEaster === "function" && window.tryStillEaster(input)) return;
+        if (typeof window.tryAmenEaster === "function" && window.tryAmenEaster(input)) return;
         const group = resolveFeelGroup(val);
         if (group) showGroup(group, val);
         else if (typeof window.runSearchWithInput === "function") {

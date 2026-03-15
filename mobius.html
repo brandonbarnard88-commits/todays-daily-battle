@@ -65,6 +65,7 @@
     @keyframes mobius-teaser-in { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
     @keyframes mobius-teaser-out { from { opacity: 1; } to { opacity: 0; } }
     .mobius-tracer-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--tool-gold-soft); background: var(--tool-bg-soft); border: 1px solid var(--tool-gold); border-radius: 8px; z-index: 60; animation: mobius-teaser-in 0.3s ease; }
+    .mobius-node-seen circle { filter: drop-shadow(0 0 8px var(--tool-gold)); }
     .mobius-tracer-toast-fade { opacity: 0; transition: opacity 0.4s; }
     .mobius-deep-walk { margin-top: 2rem; max-width: 560px; text-align: center; padding: 1.5rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; }
     .mobius-deep-walk h2 { font-size: 1.25rem; margin: 0 0 1rem; color: var(--tool-gold-soft); font-weight: 600; }
@@ -73,6 +74,11 @@
     .mobius-deep-walk ol li { margin-bottom: 0.6rem; }
     .mobius-deep-walk .mobius-deep-echo { font-size: 0.85rem; color: var(--tool-muted); margin-top: 1.5rem; font-style: italic; }
     .mobius-timer-display { font-size: 2.5rem; font-variant-numeric: tabular-nums; color: var(--tool-gold-soft); text-align: center; margin: 1.5rem 0; min-height: 3rem; }
+    .mode-label { display: none; text-align: center; margin-top: 0.5rem; color: #9ca3af; font-size: 0.9rem; opacity: 0; transition: opacity 0.4s; }
+    .mode-label.visible { display: block; opacity: 1; }
+    .easter-share-spin { animation: easter-share-spin 0.6s ease; }
+    @keyframes easter-share-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .easter-share-glow { box-shadow: 0 0 16px rgba(227,188,103,0.5) !important; }
   </style>
 </head>
 <body class="tool-page-shell">
@@ -92,6 +98,7 @@
       <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-text" id="mobius-tab-text" data-mode="text">Text Mode</button>
       <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-enoch" id="mobius-tab-enoch" data-mode="hidden">Hidden Scrolls</button>
     </div>
+    <div class="mode-label" role="status" aria-live="polite">Hidden Scrolls: apocryphal reflections</div>
 
     <div id="mobius-panel-explore" class="mobius-panel active" role="tabpanel" aria-labelledby="mobius-tab-explore">
       <div class="mobius-controls">
@@ -194,6 +201,7 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
   <script src="mobius-universal.js" defer></script>
   <script src="share-page.js" defer></script>
+  <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025">
     (function () {
       function runMobiusMode() {
@@ -224,6 +232,16 @@
         if (panelText) { panelText.classList.toggle('active', isText); panelText.hidden = !isText; }
         if (panelEnoch) { panelEnoch.classList.toggle('active', isEnoch); panelEnoch.hidden = !isEnoch; }
         if (footerDisclaimer) footerDisclaimer.hidden = !isEnoch;
+        var modeLabel = document.querySelector('.mode-label');
+        if (modeLabel) {
+          if (isEnoch) {
+            modeLabel.style.display = 'block';
+            modeLabel.classList.add('visible');
+          } else {
+            modeLabel.classList.remove('visible');
+            setTimeout(function () { modeLabel.style.display = 'none'; }, 400);
+          }
+        }
         try {
           var url = new URL(window.location.href);
           var normMode = (mode === 'enoch' || mode === 'hidden') ? 'hidden' : mode;
@@ -332,11 +350,14 @@
       var textHeartbeat = document.getElementById('mobius-text-heartbeat');
       var TEXT_DELAY = 2800;
       var TEXT_PAUSE = 1500;
+      var textDelayOverride = null;
       if (textStartBtn && textLines.length) {
         var textIdx = 0;
         var textTimer = null;
+        function getTextDelay() { return textDelayOverride != null ? textDelayOverride : TEXT_DELAY; }
         function nextTextLine() {
           if (textTimer) clearTimeout(textTimer);
+          var delay = getTextDelay();
           if (textIdx >= textLines.length) {
             textLines.forEach(function (t) { t.classList.remove('active'); });
             if (textHeartbeat) textHeartbeat.textContent = '\u2661';
@@ -344,7 +365,7 @@
             textTimer = setTimeout(function () {
               textLines[0].classList.add('active');
               textIdx = 0;
-              textTimer = setTimeout(nextTextLine, TEXT_DELAY);
+              textTimer = setTimeout(nextTextLine, delay);
             }, TEXT_PAUSE);
             return;
           }
@@ -354,7 +375,7 @@
           if (textIdx > 3 && textContainer) textContainer.style.transform = 'scale(' + (1 + (textIdx - 3) * 0.05) + ')';
           if (textIdx > 6 && textContainer) textContainer.style.filter = 'brightness(' + (1 + (textIdx - 6) * 0.1) + ')';
           if (textIdx > 9 && textHeartbeat) textHeartbeat.style.opacity = 1;
-          textTimer = setTimeout(nextTextLine, TEXT_DELAY);
+          textTimer = setTimeout(nextTextLine, delay);
         }
         textStartBtn.addEventListener('click', function () {
           textStartBtn.style.display = 'none';
@@ -364,6 +385,59 @@
           nextTextLine();
         });
       }
+
+      var loopKeyBuf = '';
+      document.addEventListener('keydown', function (e) {
+        if (!e.ctrlKey && !e.metaKey && e.key && e.key.length === 1) {
+          loopKeyBuf = (loopKeyBuf + e.key.toLowerCase()).slice(-12);
+          if (loopKeyBuf === 'loop') {
+            var tabText = document.getElementById('mobius-tab-text');
+            if (tabText && tabText.classList.contains('active')) {
+              loopKeyBuf = '';
+              textDelayOverride = 1400;
+              var toast = document.createElement('div');
+              toast.className = 'mobius-tracer-toast';
+              toast.textContent = 'The loop remembers.';
+              toast.setAttribute('role', 'status');
+              document.body.appendChild(toast);
+              setTimeout(function () { toast.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { toast.remove(); }, 400); }, 2500);
+              setTimeout(function () { textDelayOverride = null; }, 10000);
+            }
+          }
+          if (loopKeyBuf === 'eternal') {
+            var tabText = document.getElementById('mobius-tab-text');
+            if (tabText && tabText.classList.contains('active')) {
+              loopKeyBuf = '';
+              textDelayOverride = 4000;
+              var toast = document.createElement('div');
+              toast.className = 'mobius-tracer-toast';
+              toast.textContent = 'Eternal life — the gift of God. (Romans 6:23)';
+              toast.setAttribute('role', 'status');
+              document.body.appendChild(toast);
+              setTimeout(function () { toast.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+              setTimeout(function () { textDelayOverride = null; }, 15000);
+            }
+          }
+          if (loopKeyBuf.slice(-10) === 'empty tomb') {
+            var tabText = document.getElementById('mobius-tab-text');
+            if (tabText && tabText.classList.contains('active')) {
+              try {
+                if (sessionStorage.getItem('mobiusEmptyTombSeen')) return;
+                sessionStorage.setItem('mobiusEmptyTombSeen', '1');
+              } catch (e) {}
+              loopKeyBuf = '';
+              textDelayOverride = 4000;
+              var toast = document.createElement('div');
+              toast.className = 'mobius-tracer-toast';
+              toast.textContent = 'The stone was rolled away... (Matthew 28:2)';
+              toast.setAttribute('role', 'status');
+              document.body.appendChild(toast);
+              setTimeout(function () { toast.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+              setTimeout(function () { textDelayOverride = null; }, 8000);
+            }
+          }
+        }
+      });
 
       var textShareBtn = document.getElementById('mobius-text-share');
       if (textShareBtn) {

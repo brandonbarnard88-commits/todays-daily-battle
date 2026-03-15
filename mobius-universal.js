@@ -495,10 +495,21 @@
     });
   }
 
+  function tryInit(attempt) {
+    attempt = attempt || 0;
+    var d3Ready = !!window.d3;
+    var dataReady = (getTopicData() && Object.keys(getTopicData()).length > 0) || !!window.TDB_TOPIC_DATA;
+    if ((d3Ready && dataReady) || attempt >= 5) {
+      init();
+      return;
+    }
+    setTimeout(function () { tryInit(attempt + 1); }, 150);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function () { tryInit(0); });
   } else {
-    init();
+    tryInit(0);
   }
 
   window.mountMobiusUniversal = function (containerId, startKey) {

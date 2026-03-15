@@ -398,7 +398,7 @@
 
   function init() {
     var container = document.getElementById(CONTAINER_ID);
-    var selector = document.getElementById('mobius-mood-selector');
+    var selector = document.getElementById('mobius-mood-select') || document.getElementById('mobius-mood-selector');
     var restartBtn = document.getElementById('mobius-restart');
     var surpriseBtn = document.getElementById('mobius-surprise');
     var traceBtn = document.getElementById('mobius-trace-btn');

@@ -157,7 +157,7 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must contain plan-list and Battle Distraction. Plan cards are required.');
       process.exit(1);
     }
-    console.log('Copied plans.html (5 battle plans)');
+    console.log('Copied plans.html (9 battle plans)');
   }
   if (f === 'privacy.html') {
     if (!content.includes('Privacy') || !content.includes('Supabase')) {

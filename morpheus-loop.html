@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morpheus Loop</title>
+  <style>
+    body, html { margin:0; padding:0; height:100%; overflow:hidden; background:#000; color:#fff; font-family: 'Georgia', serif; }
+    #container { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; transition:all 3s ease; }
+    .text { opacity:0; transform:translateY(50px); font-size:2.5rem; text-align:center; max-width:80%; line-height:1.4; letter-spacing:1px; transition: opacity 0.4s ease, transform 0.4s ease; }
+    .text.active { opacity:1; transform:translateY(0); color:#ffd700; text-shadow:0 0 12px rgba(255,215,0,0.5); }
+    .text.stronger { font-weight:900; color:#ffd700; }
+    .text.warm { color:#ffcc99; }
+    #heartbeat { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); font-size:1.2rem; opacity:0.6; }
+    #start { padding:1.5rem 3rem; font-size:2rem; background:#c00; color:#fff; border:none; border-radius:50px; cursor:pointer; transition:transform 0.3s; }
+    #start:hover { transform:scale(1.1); }
+  </style>
+</head>
+<body>
+
+<div id="container" role="status" aria-live="polite" aria-atomic="true">
+  <button id="start">ENTER THE LOOP</button>
+  <div class="text" id="t1">You're not ready.</div>
+  <div class="text" id="t2">But you're not alone.</div>
+  <div class="text stronger" id="t3">Power. Love. Sound mind.</div>
+  <div class="text" id="t4">Let go.</div>
+  <div class="text stronger" id="t5">You're stronger than you know.</div>
+  <div class="text warm" id="t6">Keep falling.</div>
+  <div class="text" id="t7">Deeper.</div>
+  <div class="text stronger" id="t8">Still here.</div>
+  <div class="text warm" id="t9">The weight isn't crushing—it's building.</div>
+  <div class="text" id="t10">You were made for this.</div>
+  <div class="text" id="t11">Breathe.</div>
+  <div class="text stronger" id="t12">You made it.</div>
+</div>
+
+<div id="heartbeat">♡</div>
+
+<script>
+  const startBtn = document.getElementById('start');
+  const texts = document.querySelectorAll('.text');
+  const container = document.getElementById('container');
+  const heartbeat = document.getElementById('heartbeat');
+
+  let index = 0;
+  let audio = null;
+
+  function playHeartbeat() {
+    if (!audio) {
+      audio = new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=');
+      audio.loop = true;
+      audio.volume = 0.3;
+    }
+    audio.play().catch(() => {});
+  }
+
+  function nextLayer() {
+    if (index >= texts.length) {
+      heartbeat.innerHTML = '♡';
+      container.style.background = '#111';
+      texts.forEach(t => t.classList.remove('active'));
+      setTimeout(function () {
+        texts[0].classList.add('active');
+        index = 0;
+        setTimeout(nextLayer, 2800);
+      }, 1500);
+      return;
+    }
+
+    texts.forEach(t => t.classList.remove('active'));
+    texts[index].classList.add('active');
+    index++;
+
+    if (index > 3) container.style.transform = `scale(${1 + (index - 3) * 0.05})`;
+    if (index > 6) container.style.filter = `brightness(${1 + (index - 6) * 0.1})`;
+    if (index > 9) heartbeat.style.opacity = 1;
+
+    setTimeout(nextLayer, 2800);
+  }
+
+  startBtn.addEventListener('click', () => {
+    startBtn.style.display = 'none';
+    playHeartbeat();
+    container.style.background = '#000';
+    nextLayer();
+  });
+</script>
+</body>
+</html>

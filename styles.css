@@ -6120,6 +6120,23 @@ button:active {
   margin-bottom: 0.5rem;
 }
 
+.loop-teaser {
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  color: var(--muted, #bcc5d6);
+}
+.loop-teaser-link {
+  color: var(--gold, #e3bc67);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+.loop-teaser-link:hover,
+.loop-teaser-link:focus-visible {
+  color: var(--gold-soft, #f2dc98);
+  outline: none;
+}
+
 .related-verses {
   margin-top: 0.75rem;
   font-size: 0.9rem;

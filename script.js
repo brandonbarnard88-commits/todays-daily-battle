@@ -14548,6 +14548,22 @@ function renderResults(results) {
     output.appendChild(fallbackMsg);
   }
   appendHeartfeltSearchMessage(output, results, queryText);
+  var fearTopics = ['fear', 'anxiety', 'worry'];
+  var isFearQuery = (results.intent === 'topic' && fearTopics.indexOf(results.topic) !== -1) ||
+    (results.intent === 'keyword' && /\b(fear|anxiety|worry|scared|afraid)\b/i.test(queryText));
+  if (isFearQuery && typeof window.openMobiusLoopDrawer === 'function') {
+    var loopTeaser = document.createElement('div');
+    loopTeaser.className = 'loop-teaser';
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'loop-teaser-link';
+    link.textContent = 'Explore Fear → Faith Loop →';
+    link.setAttribute('aria-label', 'Open Fear to Faith Loop visualization');
+    link.addEventListener('click', function (e) { e.preventDefault(); window.openMobiusLoopDrawer(); });
+    loopTeaser.appendChild(document.createTextNode('Seeing how fear twists into faith? '));
+    loopTeaser.appendChild(link);
+    output.appendChild(loopTeaser);
+  }
   if (results.intent === 'keyword' && results.expandedForDisplay && results.expandedForDisplay.length > 0) {
     var expList = results.expandedForDisplay;
     var expTag = document.createElement('p');

@@ -184,12 +184,13 @@
     if (heroVerse) {
       var verseTapCount = 0;
       var verseTapTimer = null;
-      function onVerseTap() {
+      function onVerseTap(e) {
         if (!enabled()) return;
         verseTapCount++;
         if (verseTapTimer) clearTimeout(verseTapTimer);
         if (verseTapCount >= 3) {
           verseTapCount = 0;
+          e.stopPropagation();
           var toast = document.createElement('div');
           toast.className = 'easter-triple-toast' + (reducedMotion() ? ' easter-no-motion' : '');
           toast.setAttribute('role', 'status');
@@ -204,7 +205,7 @@
           verseTapTimer = setTimeout(function () { verseTapCount = 0; verseTapTimer = null; }, 2000);
         }
       }
-      heroVerse.addEventListener('click', onVerseTap);
+      heroVerse.addEventListener('click', onVerseTap, true);
     }
 
     // 5c. "still" in search (handled in wrapRunSearch above)
@@ -223,7 +224,7 @@
     }
 
     function showStill() {
-      var out = document.getElementById('output') || document.getElementById('feel-results');
+      var out = document.getElementById('feel-results') || document.getElementById('output');
       if (out) {
         out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>';
         out.style.display = '';
@@ -235,6 +236,8 @@
         setTimeout(function () { inp.classList.remove('easter-still-glow'); }, 5000);
       }
     }
+
+    window.tryStillEaster = tryStill;
 
     // 5d. Shift + hover Peace chip 3s (or long-press on mobile)
     (function wirePeaceChip() {

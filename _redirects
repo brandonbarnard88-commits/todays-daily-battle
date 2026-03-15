@@ -41,10 +41,6 @@
 # Block package.json from public (security)
 /package.json  /404.html  404
 
-# Möbius Loop: unified page, Enoch Echoes mode
-/morpheus-loop.html /mobius.html?mode=enoch 302
-/morpheus-loop /mobius.html?mode=enoch 302
-
 # 301 redirects for broken/legacy paths (enforce, no conflicts)
 /anxiety /about.html 301
 /our-approach /about.html 301

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Möbius Loop: One Endless Journey • Today's Daily Battle</title>
+  <meta name="description" content="Start with any battle. Watch it twist and redeem. Everything loops back stronger. 2 Timothy 1:7 as central pivot—one journey, infinite turns.">
+  <link rel="canonical" href="https://todaysdailybattle.com/mobius.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #0d0d0d;
+      color: #f5f7fb;
+      font-family: ui-rounded, "Avenir Next", "Segoe UI", Inter, sans-serif;
+      overflow-x: hidden;
+    }
+    .mobius-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem 1rem 2rem;
+    }
+    .mobius-hero {
+      text-align: center;
+      margin-bottom: 0.75rem;
+      flex-shrink: 0;
+    }
+    .mobius-hero h1 {
+      margin: 0;
+      font-size: clamp(1.15rem, 4vw, 1.5rem);
+      font-weight: 600;
+      color: #f5f7fb;
+      letter-spacing: 0.02em;
+    }
+    .mobius-hero p {
+      margin: 0.4rem 0 0;
+      font-size: 0.9rem;
+      color: #bcc5d6;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+    .mobius-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 1rem;
+      margin-bottom: 1rem;
+    }
+    .mobius-controls label {
+      font-size: 0.85rem;
+      color: #bcc5d6;
+    }
+    .mobius-mood-select {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.9rem;
+      color: #f5f7fb;
+      background: rgba(26, 33, 45, 0.9);
+      border: 1px solid #2a3344;
+      border-radius: 8px;
+      min-width: 140px;
+    }
+    .mobius-mood-select:focus {
+      outline: none;
+      border-color: rgba(227, 188, 103, 0.6);
+    }
+    .mobius-btn {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      color: #f2dc98;
+      background: transparent;
+      border: 1px solid rgba(227, 188, 103, 0.45);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s;
+    }
+    .mobius-btn:hover,
+    .mobius-btn:focus-visible {
+      background: rgba(227, 188, 103, 0.1);
+      border-color: #e3bc67;
+      outline: none;
+    }
+    .mobius-viz-wrap {
+      width: 90%;
+      max-width: 900px;
+      height: 70vh;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+    .mobius-viz-wrap svg {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .mobius-node.mobius-start-node circle {
+      stroke: #e3bc67;
+      stroke-width: 3;
+    }
+    .mobius-node.mobius-pivot-node circle {
+      stroke: rgba(227, 188, 103, 0.7);
+      stroke-width: 2;
+    }
+    .mobius-node.mobius-preferred-node circle {
+      stroke: #e3bc67;
+      stroke-width: 2;
+      filter: drop-shadow(0 0 6px rgba(227, 188, 103, 0.5));
+    }
+    .mobius-link-redeemed {
+      stroke-opacity: 0.8;
+      animation: mobius-redeemed-pulse 3s ease-in-out infinite;
+    }
+    @keyframes mobius-redeemed-pulse {
+      0%, 100% { stroke-opacity: 0.7; }
+      50% { stroke-opacity: 1; }
+    }
+    .mobius-card-container {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(92%, 400px);
+      max-height: 260px;
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      z-index: 10;
+    }
+    .mobius-card-container.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobius-node-card {
+      padding: 1rem;
+      background: #171c25;
+      border: 1px solid #2a3344;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+    }
+    .mobius-card-title { margin: 0 0 0.5rem; font-size: 1rem; color: #f2dc98; }
+    .mobius-card-verse { margin: 0.5rem 0; font-style: italic; color: #bcc5d6; font-size: 0.9rem; }
+    .mobius-card-breakdown { margin: 0.5rem 0; padding-left: 1.25rem; }
+    .mobius-card-guidance { margin: 0.5rem 0; color: #e0e0e0; }
+    .mobius-card-prayer { margin: 0.6rem 0 0; color: #f2dc98; font-size: 0.9rem; }
+    .mobius-fallback { padding: 2rem; text-align: center; color: #bcc5d6; }
+    .mobius-footer {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6b7b8b;
+    }
+    .mobius-footer a {
+      color: #bcc5d6;
+      text-decoration: none;
+    }
+    .mobius-footer a:hover { color: #f2dc98; }
+    .mobius-home {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      color: #bcc5d6;
+      background: rgba(26, 33, 45, 0.85);
+      border: 1px solid #2a3344;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: color 0.18s, border-color 0.18s;
+      z-index: 20;
+    }
+    .mobius-home:hover,
+    .mobius-home:focus-visible {
+      color: #f5f7fb;
+      border-color: #4a5568;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="/" class="mobius-home" aria-label="Back to Today's Daily Battle">← Home</a>
+
+  <main class="mobius-page" role="main">
+    <header class="mobius-hero">
+      <h1>Möbius Loop: One Endless Journey</h1>
+      <p>Start with any battle. Watch it twist and redeem. Everything loops back stronger.</p>
+    </header>
+
+    <div class="mobius-controls">
+      <label for="mobius-mood-select">Begin here:</label>
+      <select id="mobius-mood-select" class="mobius-mood-select" aria-label="Choose starting mood"></select>
+      <button type="button" class="mobius-btn" id="mobius-surprise" aria-label="Pick random starting mood">Surprise Me</button>
+      <button type="button" class="mobius-btn" id="mobius-restart" aria-label="Restart with Fear">Restart</button>
+      <button type="button" class="mobius-btn" id="mobius-trace-btn" aria-label="Trace the cycle">Trace Cycle</button>
+      <button type="button" class="mobius-btn" id="mobius-share" aria-label="Share this loop">Share</button>
+      <button type="button" class="mobius-btn" id="mobius-timer" aria-label="5-minute meditation mode">5-min meditation</button>
+      <button type="button" class="mobius-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
+    </div>
+
+    <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
+
+    <footer class="mobius-footer" role="contentinfo">
+      <a href="/">Today's Daily Battle</a> · <a href="privacy.html">Privacy</a>
+    </footer>
+  </main>
+
+  <script>window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+  <script src="mobius-universal.js" defer></script>
+</body>
+</html>

@@ -211,14 +211,18 @@
 
   var _resizeTimer = null;
   function onResize() {
-    var c = document.getElementById(CONTAINER_ID);
     var drawer = document.getElementById(DRAWER_ID);
-    if (!c || !drawer || !drawer.classList.contains('mobius-drawer-open')) return;
-    if (_resizeTimer) clearTimeout(_resizeTimer);
-    _resizeTimer = setTimeout(function () {
-      _resizeTimer = null;
-      mountViz(c);
-    }, 150);
+    var drawerOpen = drawer && drawer.classList.contains('mobius-drawer-open');
+    var standalone = document.getElementById('mobius-standalone-viz');
+    var c = drawerOpen ? document.getElementById(CONTAINER_ID) : standalone;
+    if (!c) return;
+    if (drawerOpen || (standalone && standalone.classList.contains('mobius-standalone'))) {
+      if (_resizeTimer) clearTimeout(_resizeTimer);
+      _resizeTimer = setTimeout(function () {
+        _resizeTimer = null;
+        mountViz(c);
+      }, 150);
+    }
   }
 
   function mountViz(container) {
@@ -231,8 +235,11 @@
       return;
     }
 
-    var width = Math.min(600, container.clientWidth || 600);
-    var height = Math.min(400, Math.max(300, (container.clientWidth || 600) * 0.55));
+    var w = container.clientWidth || 600;
+    var h = container.clientHeight || 400;
+    var isStandalone = container.classList && container.classList.contains('mobius-standalone');
+    var width = isStandalone ? w : Math.min(600, w);
+    var height = isStandalone ? h : Math.min(400, Math.max(300, w * 0.55));
 
     container.innerHTML = '';
     var svg = d3.select(container)
@@ -504,6 +511,7 @@
           '</div>' +
           '<div id="' + CONTAINER_ID + '" class="mobius-viz-wrap" role="img" aria-label="Cyclic graph of fear transforming through power, love, and sound mind into faith"></div>' +
           '<button type="button" class="mobius-trace-btn" id="mobius-trace-btn" aria-label="Trace the journey">Trace Journey</button>' +
+          '<a href="mobius.html" class="mobius-go-universal" aria-label="Open universal Möbius Loop with any mood">Go Universal →</a>' +
         '</div>' +
       '</div>';
 

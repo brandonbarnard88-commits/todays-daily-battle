@@ -54,6 +54,12 @@
       "short_name": "Bible",
       "url": "/bible-tool.html",
       "description": "Search and study scripture."
+    },
+    {
+      "name": "Möbius Loop",
+      "short_name": "Loop",
+      "url": "/mobius.html",
+      "description": "One journey, no dead ends. Every mood connects."
     }
   ]
 }

@@ -1008,9 +1008,11 @@
     .feel-no-match.visible { display: block; }
 
     /* ── Fear → Faith Loop (Möbius) ── */
+    .mobius-loop-row { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.85rem; }
+    .mobius-loop-full-link { font-size: 0.8rem; color: #bcc5d6; text-decoration: none; }
+    .mobius-loop-full-link:hover { color: var(--gold-soft); }
     .mobius-loop-chip {
       display: inline-block;
-      margin-top: 0.85rem;
       padding: 0.5rem 1rem;
       min-height: 44px;
       font-size: 0.9rem;
@@ -1124,6 +1126,16 @@
     }
     .mobius-trace-btn:hover,
     .mobius-trace-btn:focus-visible { background: color-mix(in srgb, var(--gold) 12%, transparent); border-color: var(--gold); outline: none; }
+    .mobius-go-universal {
+      display: block;
+      margin-top: 0.75rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gold-soft);
+      text-decoration: none;
+    }
+    .mobius-go-universal:hover,
+    .mobius-go-universal:focus-visible { color: var(--gold); outline: none; }
     .mobius-fallback { padding: 2rem; text-align: center; color: #bcc5d6; }
     .mobius-onboard-toast {
       position: sticky;
@@ -3340,7 +3352,10 @@
           <button type="button" class="quick-topic" data-topic="purpose" aria-label="Search verses about Purpose">🎯 Purpose</button>
           <button type="button" class="quick-topic" data-topic="heartache" aria-label="Search verses about Heartache">💔 Heartache</button>
         </div>
-        <button type="button" class="mobius-loop-chip" id="mobius-loop-trigger" aria-label="Explore Fear to Faith Loop — 2 Timothy 1:7 journey">🔄 Explore Fear → Faith Loop</button>
+        <span class="mobius-loop-row">
+          <button type="button" class="mobius-loop-chip" id="mobius-loop-trigger" aria-label="Explore Fear to Faith Loop — 2 Timothy 1:7 journey">🔄 Explore Fear → Faith Loop</button>
+          <a href="mobius.html" class="mobius-loop-full-link" aria-label="Enter the Möbius Loop">Enter the Möbius →</a>
+        </span>
         <div id="feel-results" aria-live="polite"></div>
         <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>

@@ -2318,9 +2318,17 @@
       height: 100%;
       border-radius: 999px;
       background: var(--gold);
-      width: calc(var(--plan-day, 1) / 7 * 100%);
+      width: calc(var(--plan-day, 1) / var(--plan-max, 7) * 100%);
       transition: width 0.6s ease;
     }
+    .plan-progress-link {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .plan-progress-link:hover { text-decoration: underline; }
 
     /* ── Encouragement Nudge Popover ── */
     .nudge-popover {
@@ -3372,7 +3380,7 @@
 
       <!-- ── Share this verse ── -->
       <div class="share-verse-row">
-        <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share today's verse with a friend">Share this verse</button>
+        <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share today's battle with a friend">Share this battle</button>
         <p class="share-verse-whisper">If this helped, tell a friend.</p>
       </div>
       <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads • No personal tracking • Built during recovery from serious illness • Your moments stay private here.</div>
@@ -3381,15 +3389,16 @@
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter in context">📖 Read the full chapter</a>
       </div>
 
-      <!-- ── 7-Day Battle Plan Progress ── -->
-      <section class="card plan-progress-card" id="plan-progress-card" aria-label="7-Day Battle Plan">
+      <!-- ── Battle Plan Progress (shows active plan with highest progress) ── -->
+      <section class="card plan-progress-card" id="plan-progress-card" aria-label="Battle Plan progress">
         <div class="plan-progress-header">
-          <span class="plan-progress-title">🗓 7-Day Battle Plan</span>
+          <span class="plan-progress-title" id="planProgressTitle">🗓 Battle Plan</span>
           <span class="plan-progress-label" id="planProgressLabel">Day 1 of 7 — keep going</span>
         </div>
         <div class="plan-progress-track" aria-hidden="true">
           <div class="plan-progress-bar" id="planProgressBar" style="--plan-day:1"></div>
         </div>
+        <a href="plans.html" class="plan-progress-link" id="planProgressLink" aria-label="View all plans">All plans →</a>
       </section>
 
       <!-- ── Notification Permission Card (shown after streak ≥3 or plan day ≥2) ── -->
@@ -3408,9 +3417,9 @@
           <span class="plans-teaser-title">📋 Battle Plans</span>
           <a href="plans.html" class="plans-teaser-explore" aria-label="See all battle plans">All Plans →</a>
         </div>
-        <a href="plans.html" class="plans-teaser-banner" aria-label="See all 9 battle plans — 7 to 30 days">
+        <a href="plans.html" class="plans-teaser-banner" aria-label="See all 10 battle plans — 7 to 40 days">
           <span class="plans-teaser-badge" aria-hidden="true">New</span>
-          <span>7–30 day plans — pick your rhythm.</span>
+          <span>7–40 day plans — pick your rhythm.</span>
           <span class="plans-teaser-arrow" aria-hidden="true">→</span>
         </a>
         <div class="plans-grid" id="plansGrid">
@@ -5221,24 +5230,47 @@
       });
     }
 
-    // ── 7-Day Battle Plan Progress (reads from plans.html; streak uses separate key) ──
-    var PLAN_STREAK_KEY = 'tdb-plan-battle-streak';
+    // ── Battle Plan Progress (shows plan with highest progress; streak flame when \u2265 2) ──
     function updatePlanStreak() {
-      var today = new Date().toISOString().slice(0, 10);
-      var yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-      var state = {};
-      try { state = JSON.parse(localStorage.getItem(PLAN_STREAK_KEY) || '{}'); } catch (_) {}
-      var day = parseInt(state.day || '0', 10) || 0;
-      if (state.lastDate !== today) {
-        day = state.lastDate === yesterday ? Math.min(day + 1, 7) : 1;
-        localStorage.setItem(PLAN_STREAK_KEY, JSON.stringify({ day: day, lastDate: today }));
-      }
+      var PLAN_CONFIGS = {
+        battle:   { label: '\u2694\uFE0F Battle Distraction', key: 'tdb-plan-day',           max: 7  },
+        gratitude:{ label: '\uD83D\uDE4F Gratitude',           key: 'tdb-plan-gratitude-day', max: 7  },
+        strength: { label: '\uD83D\uDCAA 30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
+        marriage: { label: '\uD83D\uDC8D Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
+        peace:    { label: '\uD83D\uDD4A\uFE0F 7-Day Peace',   key: 'tdb-plan-peace-day',     max: 7  },
+        battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
+        battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
+        battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
+        battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
+        battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 }
+      };
+      var best = { planId: null, day: 0, max: 7, label: '' };
+      Object.keys(PLAN_CONFIGS).forEach(function (planId) {
+        var cfg = PLAN_CONFIGS[planId];
+        var raw = localStorage.getItem(cfg.key);
+        var day = 0;
+        try {
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            day = (parsed && typeof parsed === 'object' && typeof parsed.day === 'number') ? parsed.day : parseInt(raw, 10);
+          }
+        } catch (_) { day = parseInt(raw || '0', 10); }
+        day = Math.min(Math.max(day, 0), cfg.max);
+        if (day > best.day) { best = { planId: planId, day: day, max: cfg.max, label: cfg.label }; }
+      });
+      if (best.day === 0) best = { planId: null, day: 0, max: 7, label: 'Battle Plan', labelFull: 'Pick a plan \u2014 start today' };
       var bar = document.getElementById('planProgressBar');
       var label = document.getElementById('planProgressLabel');
-      if (bar) bar.style.setProperty('--plan-day', String(day));
-      if (label) label.textContent = 'Day ' + day + ' of 7 \u2014 keep going';
-      if (day === 7) setTimeout(burstConfetti, 600);
-      if (day >= 2) setTimeout(maybeShowNotifPrompt, 2000);
+      var title = document.getElementById('planProgressTitle');
+      var link = document.getElementById('planProgressLink');
+      if (bar) bar.style.setProperty('--plan-day', String(best.day));
+      if (bar) bar.style.setProperty('--plan-max', String(best.max));
+      var streakFlame = best.day >= 2 ? '\uD83D\uDD25 ' : '';
+      if (label) label.textContent = best.day > 0 ? streakFlame + 'Day ' + best.day + ' of ' + best.max + ' \u2014 keep going' : (best.labelFull || 'Pick a plan \u2014 start today');
+      if (title) title.textContent = '\uD83D\uDCC5 ' + best.label;
+      if (link) link.href = best.planId ? 'plans.html?plan=' + encodeURIComponent(best.planId) : 'plans.html';
+      if (best.day >= best.max) setTimeout(burstConfetti, 600);
+      if (best.day >= 2) setTimeout(maybeShowNotifPrompt, 2000);
       updatePlanChips();
     }
 
@@ -5335,7 +5367,8 @@
       battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
       battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
       battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
-      battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 }
+      battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
+      battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 }
     };
     function updatePlanChips() {
       var barList = document.getElementById('plansMiniBarsList');

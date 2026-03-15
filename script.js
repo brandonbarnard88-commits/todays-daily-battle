@@ -9284,25 +9284,19 @@ function shareDailyBattle() {
     navigator.share({ text: shareText, url: window.location.href }).catch(() => {});
     return;
   }
-  navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
-  alert('Copied.');
+  var full = shareText + '\n' + (window.location.href || window.location.origin + '/');
+  navigator.clipboard.writeText(full).then(function () {
+    if (typeof showEliteToast === 'function') showEliteToast('Copied.');
+    else alert('Copied.');
+  }).catch(function () { alert('Copied.'); });
 }
 
 function buildDailyBattleShareText() {
-  var base = '';
-  if (currentDailyBattle?.ref) {
-    const verseLine = currentDailyBattle.verse
-      ? `${currentDailyBattle.ref}: ${currentDailyBattle.verse}`
-      : currentDailyBattle.ref;
-    base = `Today’s Daily Battle — ${verseLine}`;
-  } else {
-    const ref = getDailyVerseRef();
-    base = ref && bible[ref] ? `Today’s Daily Battle — ${ref}: ${bible[ref]}` : '';
-  }
-  if (!base) return '';
-  return base + ' Daily Scripture and prayer from Today\'s Daily Battle. #TodaysDailyBattle #Bible';
+  var ref = (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : (getDailyVerseRef() || '');
+  if (!ref) return '';
+  var domain = (window.location && window.location.origin) ? window.location.origin.replace(/^https?:\/\//, '') : 'todaysdailybattle.com';
+  return 'Fighting today with ' + ref + '. Join me at ' + domain;
 }
-
 function updateDailyBattleMetaDesc(verseRef) {
   if (!document.querySelector) return;
   var desc = 'Join the 30-Day Scripture challenge: verse, prayer, and daily consistency.';

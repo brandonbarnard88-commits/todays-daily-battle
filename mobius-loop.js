@@ -177,6 +177,50 @@
     container.appendChild(card);
   }
 
+  function isTouchDevice() {
+    return window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  }
+
+  function applyFixedCircle(simNodes, width, height) {
+    var cx = width / 2;
+    var cy = height / 2;
+    var radius = Math.min(width, height) / 3;
+    var n = simNodes.length;
+    for (var i = 0; i < n; i++) {
+      var angle = (i / n) * Math.PI * 2 - Math.PI / 2;
+      simNodes[i].x = cx + radius * Math.cos(angle);
+      simNodes[i].y = cy + radius * Math.sin(angle);
+      simNodes[i].fx = simNodes[i].x;
+      simNodes[i].fy = simNodes[i].y;
+    }
+  }
+
+  function updatePositions(link, nodeEls, ribbonPath, simNodes, lineGen) {
+    link
+      .attr('x1', function (d) { return d.source.x; })
+      .attr('y1', function (d) { return d.source.y; })
+      .attr('x2', function (d) { return d.target.x; })
+      .attr('y2', function (d) { return d.target.y; });
+    nodeEls.attr('transform', function (d) {
+      return 'translate(' + d.x + ',' + d.y + ')';
+    });
+    var pts = simNodes.map(function (d) { return [d.x, d.y]; });
+    pts.push([simNodes[0].x, simNodes[0].y]);
+    ribbonPath.attr('d', lineGen(pts));
+  }
+
+  var _resizeTimer = null;
+  function onResize() {
+    var c = document.getElementById(CONTAINER_ID);
+    var drawer = document.getElementById(DRAWER_ID);
+    if (!c || !drawer || !drawer.classList.contains('mobius-drawer-open')) return;
+    if (_resizeTimer) clearTimeout(_resizeTimer);
+    _resizeTimer = setTimeout(function () {
+      _resizeTimer = null;
+      mountViz(c);
+    }, 150);
+  }
+
   function mountViz(container) {
     if (!container) return;
     var nodes = buildNodes();
@@ -198,9 +242,6 @@
       .attr('viewBox', [0, 0, width, height])
       .attr('aria-hidden', 'true');
 
-    var nodeById = {};
-    nodes.forEach(function (n) { nodeById[n.id] = n; });
-
     var simNodes = nodes.map(function (n) {
       return { id: n.id, label: n.label, color: n.color, data: n };
     });
@@ -211,16 +252,22 @@
       };
     });
 
+    var isTouch = isTouchDevice();
+    var nodeRadius = isTouch ? 24 : 28;
+
     var forceNode = d3.forceManyBody().strength(-180);
     var forceLink = d3.forceLink(simLinks).id(function (d) { return d.id; }).distance(90);
     var forceCenter = d3.forceCenter(width / 2, height / 2);
-    var forceCollide = d3.forceCollide().radius(36);
+    var forceCollide = d3.forceCollide().radius(nodeRadius + 8);
 
     var simulation = d3.forceSimulation(simNodes)
       .force('link', forceLink)
       .force('charge', forceNode)
       .force('center', forceCenter)
-      .force('collision', forceCollide);
+      .force('collision', forceCollide)
+      .alphaDecay(0.05)
+      .alphaMin(0.001)
+      .velocityDecay(0.8);
 
     var link = svg.append('g').attr('class', 'mobius-links')
       .selectAll('line')
@@ -253,10 +300,8 @@
     twistGrad.append('stop').attr('offset', '40%').attr('stop-color', '#c4a35a');
     twistGrad.append('stop').attr('offset', '100%').attr('stop-color', '#8b9dc3');
 
-    var pathGroup = svg.append('g').attr('class', 'mobius-path');
-    var pathData = simNodes.concat([simNodes[0]]);
     var lineGen = d3.line().curve(d3.curveCatmullRomClosed);
-    var ribbonPath = pathGroup.append('path')
+    var ribbonPath = svg.append('g').attr('class', 'mobius-path').append('path')
       .attr('fill', 'none')
       .attr('stroke', 'url(#mobius-ribbon-gradient)')
       .attr('stroke-width', 3)
@@ -270,14 +315,17 @@
       .join('g')
       .attr('class', function (d) { return 'mobius-node' + (d.id === 'fear' && highlightFear ? ' active-node' : ''); })
       .attr('cursor', 'pointer')
-      .style('touch-action', 'manipulation')
-      .call(d3.drag()
+      .style('touch-action', 'manipulation');
+
+    if (!isTouch) {
+      nodeEls.call(d3.drag()
         .on('start', dragStarted)
         .on('drag', dragged)
         .on('end', dragEnded));
+    }
 
     nodeEls.append('circle')
-      .attr('r', 28)
+      .attr('r', nodeRadius)
       .attr('fill', function (d) { return d.color || '#8b9dc3'; })
       .attr('stroke', 'rgba(255,255,255,0.3)')
       .attr('stroke-width', 2);
@@ -286,7 +334,7 @@
       .attr('text-anchor', 'middle')
       .attr('dy', 5)
       .attr('fill', '#0d0d0d')
-      .attr('font-size', '11px')
+      .attr('font-size', isTouch ? '10px' : '11px')
       .attr('font-weight', '600')
       .text(function (d) {
         var lbl = d.label;
@@ -299,17 +347,26 @@
     cardContainer.setAttribute('aria-live', 'polite');
     container.appendChild(cardContainer);
 
-    nodeEls.on('mouseenter', function (event, d) {
+    var hoverTimer = null;
+    function showCard(d) {
       renderNodeCard(d.data, cardContainer);
       cardContainer.classList.add('visible');
+    }
+    function hideCard() {
+      cardContainer.classList.remove('visible');
+    }
+    nodeEls.on('mouseenter', function (event, d) {
+      if (hoverTimer) clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(function () { showCard(d); hoverTimer = null; }, 120);
     });
     nodeEls.on('mouseleave', function () {
-      cardContainer.classList.remove('visible');
+      if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+      hideCard();
     });
     nodeEls.on('click', function (event, d) {
       event.stopPropagation();
-      renderNodeCard(d.data, cardContainer);
-      cardContainer.classList.add('visible');
+      if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+      showCard(d);
     });
 
     function dragStarted(event) {
@@ -327,27 +384,39 @@
       event.subject.fy = null;
     }
 
+    var settled = false;
+    var tickCount = 0;
+
+    function settleAndLock() {
+      if (settled) return;
+      settled = true;
+      simulation.stop();
+      simNodes.forEach(function (n) { n.fx = null; n.fy = null; });
+      applyFixedCircle(simNodes, width, height);
+      updatePositions(link, nodeEls, ribbonPath, simNodes, lineGen);
+    }
+
     simulation.on('tick', function () {
-      link
-        .attr('x1', function (d) { return d.source.x; })
-        .attr('y1', function (d) { return d.source.y; })
-        .attr('x2', function (d) { return d.target.x; })
-        .attr('y2', function (d) { return d.target.y; });
-
-      nodeEls.attr('transform', function (d) {
-        return 'translate(' + d.x + ',' + d.y + ')';
-      });
-
-      var pts = simNodes.map(function (d) { return [d.x, d.y]; });
-      pts.push([simNodes[0].x, simNodes[0].y]);
-      ribbonPath.attr('d', lineGen(pts));
+      tickCount++;
+      if (tickCount > 100 || simulation.alpha() < 0.01) {
+        settleAndLock();
+        return;
+      }
+      updatePositions(link, nodeEls, ribbonPath, simNodes, lineGen);
     });
 
     var traceBtn = document.getElementById('mobius-trace-btn');
     if (traceBtn) {
       traceBtn.onclick = function () {
         bumpMobiusCounter('mobiusTraces');
-        simulation.alpha(0.5).restart();
+        if (settled) {
+          simulation.alpha(0.4).restart();
+          settled = false;
+          tickCount = 0;
+          simNodes.forEach(function (n) { n.fx = null; n.fy = null; });
+        } else {
+          simulation.alpha(0.5).restart();
+        }
       };
     }
 
@@ -464,6 +533,9 @@
   function init() {
     createDrawer();
     wireTrigger();
+    if (typeof window.addEventListener === 'function') {
+      window.addEventListener('resize', onResize);
+    }
   }
 
   if (document.readyState === 'loading') {

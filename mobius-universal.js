@@ -508,20 +508,40 @@
       });
     }
     if (timerBtn) {
+      var timerDisplay = document.getElementById('mobius-timer-display');
+      var timerInterval = null;
+      var timeLeft = 0;
+      function formatTime(sec) {
+        var m = Math.floor(sec / 60);
+        var s = sec % 60;
+        return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      }
+      function stopTimer() {
+        if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+        if (timerDisplay) timerDisplay.textContent = '';
+        if (timerBtn) { timerBtn.dataset.timerActive = '0'; timerBtn.textContent = 'Deep meditation (10 min)'; }
+      }
       timerBtn.addEventListener('click', function () {
         var btn = timerBtn;
+        var deepWalk = document.getElementById('mobius-deep-walk');
         if (btn.dataset.timerActive === '1') {
-          btn.dataset.timerActive = '0';
-          btn.textContent = '5-min meditation';
-          clearTimeout(window._mobiusTimer);
+          stopTimer();
           return;
         }
+        if (deepWalk) deepWalk.scrollIntoView({ behavior: 'smooth', block: 'start' });
         btn.dataset.timerActive = '1';
         btn.textContent = 'Stop meditation';
-        window._mobiusTimer = setTimeout(function () {
-          btn.dataset.timerActive = '0';
-          btn.textContent = '5-min meditation';
-        }, 5 * 60 * 1000);
+        timeLeft = 10 * 60;
+        if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
+        timerInterval = setInterval(function () {
+          timeLeft--;
+          if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
+          if (timeLeft <= 0) {
+            stopTimer();
+            if (timerDisplay) timerDisplay.textContent = 'Meditation complete.';
+            setTimeout(function () { if (timerDisplay) timerDisplay.textContent = ''; }, 4000);
+          }
+        }, 1000);
       });
     }
 

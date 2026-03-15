@@ -66,6 +66,13 @@
     @keyframes mobius-teaser-out { from { opacity: 1; } to { opacity: 0; } }
     .mobius-tracer-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--tool-gold-soft); background: var(--tool-bg-soft); border: 1px solid var(--tool-gold); border-radius: 8px; z-index: 60; animation: mobius-teaser-in 0.3s ease; }
     .mobius-tracer-toast-fade { opacity: 0; transition: opacity 0.4s; }
+    .mobius-deep-walk { margin-top: 2rem; max-width: 560px; text-align: center; padding: 1.5rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; }
+    .mobius-deep-walk h2 { font-size: 1.25rem; margin: 0 0 1rem; color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-deep-walk .mobius-deep-intro { font-style: italic; color: var(--tool-muted); line-height: 1.6; margin-bottom: 1rem; }
+    .mobius-deep-walk ol { text-align: left; margin: 1.25rem auto; padding-left: 1.5rem; max-width: 480px; line-height: 1.7; color: var(--tool-text); }
+    .mobius-deep-walk ol li { margin-bottom: 0.6rem; }
+    .mobius-deep-walk .mobius-deep-echo { font-size: 0.85rem; color: var(--tool-muted); margin-top: 1.5rem; font-style: italic; }
+    .mobius-timer-display { font-size: 2.5rem; font-variant-numeric: tabular-nums; color: var(--tool-gold-soft); text-align: center; margin: 1.5rem 0; min-height: 3rem; }
   </style>
 </head>
 <body class="tool-page-shell">
@@ -93,10 +100,26 @@
         <button type="button" class="tool-btn" id="mobius-restart" aria-label="Restart with Fear">Restart</button>
         <button type="button" class="tool-btn" id="mobius-trace-btn" aria-label="Trace the cycle">Trace Cycle</button>
         <button type="button" class="tool-btn" id="mobius-share" aria-label="Share this loop">Share</button>
-        <button type="button" class="tool-btn" id="mobius-timer" aria-label="5-minute meditation mode">5-min meditation</button>
+        <button type="button" class="tool-btn" id="mobius-timer" aria-label="Deep meditation—10 minute guided walk">Deep meditation (10 min)</button>
         <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
       </div>
+      <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
+      <section id="mobius-deep-walk" class="mobius-deep-walk" aria-labelledby="mobius-deep-walk-title">
+        <h2 id="mobius-deep-walk-title">Enoch Echoes: Deep Walk</h2>
+        <p class="mobius-deep-intro">"Enoch walked with God: and he was not; for God took him." — Genesis 5:24<br>One ribbon. No separation. Fear turns… faith turns… presence remains.</p>
+        <p>Begin here. Sit still. Breathe slow. Let the loop carry you.</p>
+        <ol>
+          <li>Close your eyes. Picture the Möbius: one surface, twisting forever.</li>
+          <li>Inhale: "I walk…" (feel the step into the unknown, like Enoch into heaven).</li>
+          <li>Exhale: "…with God." (release fear—the watchers fell, but the path didn't break).</li>
+          <li>Repeat softly for 5–10 breaths. No forcing. Just motion.</li>
+          <li>When thoughts come (doubt, giants, watchers), notice: they're on the same side. Let them flip past.</li>
+          <li>Rest in the silence. Enoch didn't strive—he walked until he was taken. You're already on the path.</li>
+          <li>Open eyes when ready. Carry the loop: one journey, endless turns.</li>
+        </ol>
+        <p class="mobius-deep-echo">Echo from Enoch: "I saw the Ancient of Days… His head white like wool." (1 Enoch 46)<br>Sit longer if called. The text waits in the flip.</p>
+      </section>
     </div>
 
     <div id="mobius-panel-enoch" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-enoch" hidden>

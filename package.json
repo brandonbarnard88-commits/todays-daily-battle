@@ -9,6 +9,7 @@
     "test:security": "node test-security.js",
     "test:site": "node test-site.js --offline",
     "test:mobile": "node scripts/mobile-smoke-test.mjs",
+    "test:mobile:local": "node scripts/mobile-test-local.mjs",
     "audit:paranoid": "node scripts/audit-paranoid.mjs",
     "qa:smoke": "node scripts/qa-smoke.mjs",
     "reel:batch": "node scripts/build-batch-reel.mjs",

@@ -14,6 +14,11 @@
   function reducedMotion() {
     return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
+  function escapeHtml(str) {
+    if (str == null || str === '') return '';
+    var s = String(str);
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
 
   var PRAISE_VERSES = [
     { ref: 'Psalm 150:6', text: 'Let every thing that hath breath praise the LORD. Praise ye the LORD.' },
@@ -51,7 +56,7 @@
       wrap.className = 'easter-seven-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
       wrap.setAttribute('role', 'status');
       wrap.setAttribute('aria-live', 'polite');
-      wrap.innerHTML = '<p class="easter-seven-msg">7 clicks for the perfect number!</p><p class="easter-seven-verse">"' + String(BLESSING_VERSE.text).replace(/"/g, '&quot;') + '" (' + BLESSING_VERSE.ref + ')</p>';
+      wrap.innerHTML = '<p class="easter-seven-msg">7 clicks for the perfect number!</p><p class="easter-seven-verse">"' + escapeHtml(BLESSING_VERSE.text) + '" (' + escapeHtml(BLESSING_VERSE.ref) + ')</p>';
       document.body.appendChild(wrap);
       setTimeout(function () {
         wrap.classList.add('easter-seven-fade');
@@ -369,7 +374,7 @@
       wrap.className = 'easter-hallelujah-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
       wrap.setAttribute('role', 'status');
       wrap.setAttribute('aria-live', 'polite');
-      wrap.innerHTML = '<div class="easter-hallelujah-bg"></div><p class="easter-hallelujah-text">Hallelujah! Praise the Lord!</p><p class="easter-hallelujah-verse">"' + String(v.text).replace(/"/g, '&quot;') + '" — ' + v.ref + '</p>';
+      wrap.innerHTML = '<div class="easter-hallelujah-bg"></div><p class="easter-hallelujah-text">Hallelujah! Praise the Lord!</p><p class="easter-hallelujah-verse">"' + escapeHtml(v.text) + '" — ' + escapeHtml(v.ref) + '</p>';
       if (!reducedMotion()) {
         var dove = document.createElement('span');
         dove.className = 'easter-hallelujah-dove';
@@ -1011,7 +1016,7 @@
       var angel = document.createElement('div');
       angel.className = 'easter-angel-number' + (reducedMotion() ? ' easter-no-motion' : '');
       angel.setAttribute('aria-hidden', 'true');
-      angel.innerHTML = '<span class="easter-angel-num">' + num + '</span><span class="easter-angel-msg">He\'s speaking.</span>';
+      angel.innerHTML = '<span class="easter-angel-num">' + escapeHtml(num) + '</span><span class="easter-angel-msg">He\'s speaking.</span>';
       document.body.appendChild(angel);
       setTimeout(function () {
         angel.classList.add('easter-angel-fade');
@@ -1098,7 +1103,7 @@
           wrap.className = 'easter-konami-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
           wrap.setAttribute('role', 'status');
           wrap.setAttribute('aria-live', 'polite');
-          wrap.innerHTML = '<div class="easter-konami-cross" aria-hidden="true">✝</div><p class="easter-konami-text">You found a hidden blessing!</p><p class="easter-konami-verse">"' + String(v.text || '').replace(/"/g, '&quot;') + '" — ' + String(v.ref || '') + '</p>';
+          wrap.innerHTML = '<div class="easter-konami-cross" aria-hidden="true">✝</div><p class="easter-konami-text">You found a hidden blessing!</p><p class="easter-konami-verse">"' + escapeHtml(v.text || '') + '" — ' + escapeHtml(v.ref || '') + '</p>';
           document.body.appendChild(wrap);
           setTimeout(function () {
             wrap.classList.add('easter-konami-fade');

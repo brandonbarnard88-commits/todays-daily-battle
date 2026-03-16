@@ -45,8 +45,20 @@ async function runMobileSmokeTest() {
   
   try {
     browser = await chromium.launch({
-      headless: true // Set to false to watch the test
+      headless: true, // Set to false to watch the test
+      timeout: 15000
     });
+  } catch (err) {
+    const msg = err?.message || String(err);
+    if (/Executable doesn't exist|browserType\.launch|spawn Unknown system error/i.test(msg)) {
+      console.log('⏭️  Skipping: Playwright browsers not installed. Run: npx playwright install');
+      console.log('   Then re-run: npm run test:mobile\n');
+      process.exit(0); // Skip, don't fail
+    }
+    throw err;
+  }
+  
+  try {
 
     const context = await browser.newContext({
       viewport: MOBILE_VIEWPORT,

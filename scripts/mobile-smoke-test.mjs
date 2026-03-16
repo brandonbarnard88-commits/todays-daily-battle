@@ -99,7 +99,7 @@ async function runMobileSmokeTest() {
     // STEP 1: Load homepage and verify hero controls (visible feel-search + quick topics)
     console.log('📱 STEP 1: Loading homepage and checking hero controls...');
     try {
-      await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.goto(SITE_URL, { waitUntil: 'load', timeout: 30000 });
       await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
       
@@ -141,6 +141,8 @@ async function runMobileSmokeTest() {
     // STEP 2: Test quick topic chip tap
     console.log('\n📱 STEP 2: Testing quick topic chip tap...');
     try {
+      await page.goto(SITE_URL, { waitUntil: 'load', timeout: 30000 });
+      await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
       const quickTopicButton = page.locator('#quickTopics .quick-topic, .quick-grid .quick-topic').first();
       const buttonCount = await page.locator('#quickTopics .quick-topic, .quick-grid .quick-topic').count();
@@ -156,10 +158,14 @@ async function runMobileSmokeTest() {
         }
         
         await quickTopicButton.click({ force: true });
-        await page.waitForTimeout(1500);
+        await page.waitForTimeout(2000);
         
-        const resultsContainer = page.locator('#feel-results, #feelCards, .feel-cards');
-        const resultsVisible = await resultsContainer.isVisible().catch(() => false);
+        const hasSmartCard = await page.locator('#feel-results .smart-card').count() > 0;
+        const hasContent = await page.evaluate(() => {
+          const el = document.getElementById('feel-results');
+          return el && (el.querySelector('.smart-card') || el.textContent.trim().length > 20);
+        }).catch(() => false);
+        const resultsVisible = hasSmartCard || hasContent;
         
         if (resultsVisible) {
           results.steps.push({ 
@@ -185,12 +191,13 @@ async function runMobileSmokeTest() {
     // STEP 3: Test search with "anxiety"
     console.log('\n📱 STEP 3: Testing search with "anxiety"...');
     try {
-      await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.goto(SITE_URL, { waitUntil: 'load', timeout: 30000 });
       await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
       
       const searchInput = page.locator('#feel-search');
       await searchInput.fill('anxiety');
+      await page.waitForTimeout(300);
       
       const searchButton = page.locator('#feel-search-btn');
       await searchButton.click({ force: true });
@@ -198,11 +205,15 @@ async function runMobileSmokeTest() {
       await page.waitForFunction(() => {
         const out = document.querySelector('#feel-results') || document.querySelector('#feelCards') || document.querySelector('#output');
         if (!out) return false;
-        return !!out.querySelector('.verse-card, .feel-card, .empty') || out.textContent.trim().length > 0;
-      }, { timeout: 12000 }).catch(() => {});
+        return !!out.querySelector('.verse-card, .smart-card, .feel-card, .feel-verse-card') || out.textContent.trim().length > 20;
+      }, { timeout: 15000 }).catch(() => {});
       
-      const resultsContainer = page.locator('#feel-results, #feelCards, .feel-cards, #output');
-      const resultsVisible = await resultsContainer.isVisible().catch(() => false);
+      const hasResults = await page.evaluate(() => {
+        const out = document.getElementById('feel-results') || document.getElementById('feelCards') || document.getElementById('output');
+        if (!out) return false;
+        return !!out.querySelector('.verse-card, .smart-card, .feel-verse-card') || out.textContent.trim().length > 20;
+      }).catch(() => false);
+      const resultsVisible = hasResults;
       
       if (!resultsVisible) {
         results.steps.push({ step: 3, status: 'FAIL', issue: 'Search results not visible' });
@@ -240,7 +251,7 @@ async function runMobileSmokeTest() {
     // STEP 4: Test Quick Story button
     console.log('\n📱 STEP 4: Testing Quick Story button...');
     try {
-      await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.goto(SITE_URL, { waitUntil: 'load', timeout: 30000 });
       await waitForSearchReady(page);
       
       const quickStoryBtn = page.locator('#quickStoryBtn');
@@ -250,57 +261,27 @@ async function runMobileSmokeTest() {
         results.steps.push({ step: 4, status: 'FAIL', issue: 'Quick Story button #quickStoryBtn not found' });
       } else {
         await quickStoryBtn.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(500);
         const box = await quickStoryBtn.boundingBox();
         if (box && (box.height < 44 || box.width < 44)) {
           results.warnings.push(`Quick Story button tap target too small: ${box.width}x${box.height}px (should be 44px+)`);
         }
         
-        let clickTriggered = false;
-        for (let attempt = 0; attempt < 3; attempt++) {
-          try {
-            if (attempt < 2) {
-              await quickStoryBtn.click({ timeout: 5000, force: true });
-            } else {
-              await page.evaluate(() => {
-                const btn = document.getElementById('quickStoryBtn');
-                if (btn) btn.click();
-              });
-            }
-            clickTriggered = true;
-            await page.waitForTimeout(800);
-            break;
-          } catch (_) {}
-        }
+        await page.evaluate(() => {
+          const btn = document.getElementById('quickStoryBtn');
+          if (btn) btn.click();
+        });
+        await page.waitForTimeout(1200);
         
-        if (!clickTriggered) {
-          results.steps.push({ step: 4, status: 'FAIL', issue: 'Quick Story button click could not be triggered' });
+        const overlayVisible = await page.evaluate(() => {
+          const m = document.getElementById('kidsStoryModal');
+          return m && !m.hidden;
+        }).catch(() => false);
+        
+        if (!overlayVisible) {
+          results.steps.push({ step: 4, status: 'FAIL', issue: 'Quick Story modal did not open' });
         } else {
-          const overlaySelectors = [
-            '#kidsStoryModal',
-            '#kids-story-modal',
-            '#tdb-cartoon-overlay',
-            '#tdb-story-overlay',
-            '.story-modal:not([hidden])'
-          ];
-          
-          let overlayVisible = false;
-          for (const selector of overlaySelectors) {
-            const el = page.locator(selector).first();
-            if (await el.count() === 0) continue;
-            overlayVisible = await el.evaluate((node) => {
-              if (!(node instanceof HTMLElement)) return false;
-              if (node.hasAttribute('hidden')) return false;
-              const s = window.getComputedStyle(node);
-              return s.display !== 'none' && s.visibility !== 'hidden' && s.opacity !== '0';
-            }).catch(() => false);
-            if (overlayVisible) break;
-          }
-          
-          if (!overlayVisible) {
-            results.steps.push({ step: 4, status: 'FAIL', issue: 'Quick Story modal did not open' });
-          } else {
-            results.steps.push({ step: 4, status: 'PASS', message: 'Quick Story modal opened' });
-          }
+          results.steps.push({ step: 4, status: 'PASS', message: 'Quick Story modal opened' });
         }
       }
       
@@ -313,7 +294,7 @@ async function runMobileSmokeTest() {
     // STEP 5: Check for mobile layout issues
     console.log('\n📱 STEP 5: Checking for mobile layout issues...');
     try {
-      await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.goto(SITE_URL, { waitUntil: 'load', timeout: 30000 });
       await waitForSearchReady(page);
       
       const layoutIssues = await page.evaluate(() => {

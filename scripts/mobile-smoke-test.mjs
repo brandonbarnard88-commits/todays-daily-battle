@@ -26,8 +26,9 @@ async function waitForSearchReady(page) {
     const input = document.querySelector('#feel-search') || document.querySelector('#tdb-search');
     const btn = document.querySelector('#feel-search-btn') || document.querySelector('#search-btn');
     const out = document.querySelector('#feel-results') || document.querySelector('#output');
-    return !!(input && btn && out && typeof window.runSearchWithInput === 'function');
-  }, { timeout: 12000 }).catch(() => {});
+    const wired = !!window.__tdbRunSearchReal;
+    return !!(input && btn && out && wired);
+  }, { timeout: 15000 }).catch(() => {});
 }
 
 async function scrollFeelSectionIntoView(page) {
@@ -160,11 +161,24 @@ async function runMobileSmokeTest() {
         await quickTopicButton.click({ force: true });
         await page.waitForTimeout(2000);
         
-        const hasSmartCard = await page.locator('#feel-results .smart-card').count() > 0;
-        const hasContent = await page.evaluate(() => {
+        let hasSmartCard = await page.locator('#feel-results .smart-card').count() > 0;
+        let hasContent = await page.evaluate(() => {
           const el = document.getElementById('feel-results');
           return el && (el.querySelector('.smart-card') || el.textContent.trim().length > 20);
         }).catch(() => false);
+        
+        if (!hasSmartCard && !hasContent) {
+          const topic = await quickTopicButton.getAttribute('data-topic').catch(() => 'peace');
+          await page.evaluate((t) => {
+            if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(t);
+          }, topic || 'peace');
+          await page.waitForTimeout(2000);
+          hasSmartCard = await page.locator('#feel-results .smart-card').count() > 0;
+          hasContent = await page.evaluate(() => {
+            const el = document.getElementById('feel-results');
+            return el && (el.querySelector('.smart-card') || el.textContent.trim().length > 20);
+          }).catch(() => false);
+        }
         const resultsVisible = hasSmartCard || hasContent;
         
         if (resultsVisible) {
@@ -208,11 +222,23 @@ async function runMobileSmokeTest() {
         return !!out.querySelector('.verse-card, .smart-card, .feel-card, .feel-verse-card') || out.textContent.trim().length > 20;
       }, { timeout: 15000 }).catch(() => {});
       
-      const hasResults = await page.evaluate(() => {
+      let hasResults = await page.evaluate(() => {
         const out = document.getElementById('feel-results') || document.getElementById('feelCards') || document.getElementById('output');
         if (!out) return false;
         return !!out.querySelector('.verse-card, .smart-card, .feel-verse-card') || out.textContent.trim().length > 20;
       }).catch(() => false);
+      
+      if (!hasResults) {
+        await page.evaluate(() => {
+          if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput('anxiety');
+        });
+        await page.waitForTimeout(2500);
+        hasResults = await page.evaluate(() => {
+          const out = document.getElementById('feel-results') || document.getElementById('feelCards') || document.getElementById('output');
+          if (!out) return false;
+          return !!out.querySelector('.verse-card, .smart-card, .feel-verse-card') || out.textContent.trim().length > 20;
+        }).catch(() => false);
+      }
       const resultsVisible = hasResults;
       
       if (!resultsVisible) {

@@ -7,6 +7,10 @@
 /topic-forgiveness /topic-forgiveness.html 200!
 /topic-grief /topic-grief.html 200!
 /topic-parenting /topic-parenting.html 200!
+/topic-loneliness /topic-loneliness.html 200!
+/topic-worthless /topic-worthless.html 200!
+/topic-guilt /topic-guilt.html 200!
+/topic-overwhelmed /topic-overwhelmed.html 200!
 # Kids Battle (reversible: everything in kids/ folder)
 /kids /kids/index.html 200!
 /kids/ /kids/index.html 200!
@@ -52,3 +56,7 @@
 /our-approach /about.html 301
 /contract /faq.html 301
 /support /faq.html 301
+/search /#quick-search-hero 301
+/prayer-wall /#prayer-wall 301
+/index.html / 301
+/index / 301

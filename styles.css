@@ -3644,6 +3644,26 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 }
 .dark-mode .quick-pray-today { color: rgba(148, 163, 184, 0.85); }
 
+.referral-nudge {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+}
+.referral-nudge-text {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--text-muted, #94a3b8);
+}
+.referral-nudge-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.referral-copy-btn, .referral-x-btn {
+  font-size: 0.9rem;
+  padding: 0.45rem 0.75rem;
+}
+
 .turnstile-container {
   margin-top: 0.5rem;
   min-height: 65px;
@@ -3883,6 +3903,16 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   transition: color 0.15s ease;
   -webkit-appearance: none;
 }
+.prayer-invite-row {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+}
+.prayer-invite-btn {
+  font-size: 0.9rem;
+  padding: 0.45rem 0.75rem;
+}
+
 .share-prayer-btn:hover,
 .share-prayer-btn:focus-visible {
   color: #f2dc98;

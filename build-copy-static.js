@@ -114,8 +114,12 @@ const topics = [
   'topic-forgiveness.html',
   'topic-grief.html',
   'topic-hope.html',
+  'topic-guilt.html',
+  'topic-loneliness.html',
+  'topic-overwhelmed.html',
   'topic-parenting.html',
-  'topic-strength.html'
+  'topic-strength.html',
+  'topic-worthless.html'
 ];
 mkdir(dist);
 function formatBuildDate() {

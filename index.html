@@ -8,9 +8,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Today's Daily Battle</title>
-  <meta name="description" content="A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise.">
-  <meta name="keywords" content="daily KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English">
+  <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
+  <meta name="description" content="Bible verses for when you feel heartbroken, anxious, or alone. KJV comfort, mood-based search, and prayer wall. Offline-ready. Daily habit, two minutes.">
+  <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
   <!-- Schema.org: Organization + WebSite -->
@@ -757,16 +757,32 @@
       gap: 10px;
       min-width: 0;
     }
-    .verse-ref-row #heroVerse { flex: 1; margin: 0; min-width: 0; overflow-wrap: break-word; word-break: break-word; }
+    .hero-verse-wrap-inner { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .verse-ref-row #heroVerse, .hero-verse-wrap-inner #heroVerse { flex: 1; margin: 0; min-width: 0; overflow-wrap: break-word; word-break: break-word; }
+    .verse-font-controls { display: flex; gap: 0.35rem; }
+    .verse-font-btn {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      font-weight: 600;
+      background: transparent;
+      border: 1px solid var(--border-subtle, rgba(255,255,255,0.2));
+      border-radius: 6px;
+      color: var(--muted, #94a3b8);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .verse-font-btn:hover, .verse-font-btn:focus-visible { color: var(--gold-soft); border-color: var(--gold); background: rgba(255,255,255,0.04); outline: none; }
 
     .read-aloud-btn {
       flex-shrink: 0;
-      width: 36px;
-      height: 36px;
       margin-top: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.6rem;
+      min-height: 36px;
+      min-width: 36px;
       background: transparent;
       border: 1.5px solid var(--gold);
       border-radius: 50%;
@@ -812,6 +828,8 @@
     .read-aloud-btn .ra-icon-pause { display: none; }
     .read-aloud-btn.is-playing .ra-icon-speaker { display: none; }
     .read-aloud-btn.is-playing .ra-icon-pause   { display: block; }
+    .read-aloud-label { font-size: 0.8rem; font-weight: 600; color: var(--gold-soft); }
+    @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn { padding: 0.35rem; min-width: 40px; } }
     /* loading skeleton hides it */
     .verse-card.is-loading .read-aloud-btn,
     .verse-card.is-loading .verse-ref-row { display: none; }
@@ -1060,6 +1078,49 @@
     }
 
     .feel-no-match.visible { display: block; }
+
+    .first-visit-hint {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      margin: 0 0 1rem;
+      background: color-mix(in srgb, var(--gold) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
+      border-radius: 12px;
+    }
+    .first-visit-hint[hidden] { display: none !important; }
+    .first-visit-text { margin: 0; font-size: 0.9rem; color: var(--text); }
+    .first-visit-dismiss {
+      flex-shrink: 0;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: transparent;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      color: var(--gold-soft);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .first-visit-dismiss:hover, .first-visit-dismiss:focus-visible { background: color-mix(in srgb, var(--gold) 15%, transparent); outline: none; }
+
+    .start-here-card { margin-top: 0.5rem; }
+    .start-here-steps { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+    .start-here-steps li { margin-bottom: 0.35rem; }
+
+    .plan-start-note { font-size: 0.8rem; color: var(--muted); margin: 0.25rem 0 0.5rem 0; }
+    .prayer-wall-badge { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
+    .welcome-back-msg { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.5rem 0; }
+    .welcome-back-msg[hidden] { display: none !important; }
+    .armor-builder-card { border-left: 3px solid color-mix(in srgb, var(--gold) 40%, transparent); }
+    .armor-progress-teaser { font-size: 0.85rem; color: var(--gold-soft); margin-bottom: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start; }
+    .armor-progress-teaser[hidden] { display: none !important; }
+    .armor-teaser-icons { display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap; }
+    .armor-teaser-slot { font-size: 0.75rem; color: rgba(148,163,184,0.4); transition: color 0.2s, filter 0.2s; }
+    .armor-teaser-slot.earned { color: var(--gold-soft); filter: drop-shadow(0 0 6px rgba(251,191,36,0.5)); }
+    .armor-teaser-text { line-height: 1.35; }
 
     /* ── Fear → Faith Loop (Möbius) ── */
     .mobius-loop-row { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; margin-bottom: 1rem; }
@@ -3059,6 +3120,14 @@
       gap: 0.5rem;
       margin: 0.1rem 0 0.6rem;
     }
+    .share-verse-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .share-verse-listen { border-color: rgba(148,163,184,0.4); color: var(--muted, #94a3b8); }
+    .share-verse-listen:hover, .share-verse-listen:focus-visible { border-color: rgba(148,163,184,0.6); color: var(--text); }
     .share-verse-btn {
       background: transparent;
       border: 1px solid rgba(227, 188, 103, 0.5);
@@ -3083,6 +3152,36 @@
       color: var(--muted, #94a3b8);
       margin: 0;
       font-style: italic;
+    }
+    .verse-feedback-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .verse-feedback-label {
+      font-size: 0.8rem;
+      color: var(--muted, #94a3b8);
+    }
+    .verse-feedback-btns { display: flex; gap: 0.35rem; }
+    .verse-feedback-btn {
+      background: transparent;
+      border: 1px solid var(--border-subtle, rgba(255,255,255,0.15));
+      border-radius: 8px;
+      padding: 0.25rem 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .verse-feedback-btn:hover, .verse-feedback-btn:focus-visible {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.25);
+    }
+    .site-footer-social-proof {
+      font-size: 0.85rem;
+      color: var(--muted, #94a3b8);
+      margin: 0.5rem 0 0;
     }
     .read-chapter-row {
       text-align: center;
@@ -3353,7 +3452,7 @@
       <!-- ── PWA Install Nudge ── -->
       <div class="pwa-nudge" id="pwaNudge" role="status" aria-live="polite">
         <span class="pwa-nudge-icon">📲</span>
-        <span>Add to home screen — works offline, no app store needed.</span>
+        <span>Add for daily nudges &amp; offline access — no app store needed.</span>
         <button class="pwa-nudge-dismiss" type="button" id="pwaDismiss" aria-label="Dismiss install nudge">✕</button>
       </div>
 
@@ -3370,16 +3469,23 @@
       <!-- ── Hero Verse ── -->
       <div id="hero-verse-wrap" class="hero-verse-wrap">
       <section class="card verse-card is-loading" id="verseCard" aria-live="polite">
+        <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="verse-ref-row">
-          <p class="hero-verse" id="heroVerse"></p>
+          <div class="hero-verse-wrap-inner">
+            <p class="hero-verse" id="heroVerse"></p>
+            <div class="verse-font-controls" aria-label="Adjust verse text size">
+              <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
+              <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
+            </div>
+          </div>
           <button
-            class="read-aloud-btn"
+            class="read-aloud-btn read-aloud-with-label"
             id="readAloudBtn"
             type="button"
-            aria-label="Read this verse aloud"
+            aria-label="Listen to this verse read aloud"
             aria-pressed="false"
           >
             <svg class="ra-icon-speaker" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3391,6 +3497,7 @@
               <rect x="6" y="4" width="4" height="16" rx="1"></rect>
               <rect x="14" y="4" width="4" height="16" rx="1"></rect>
             </svg>
+            <span class="read-aloud-label">Listen</span>
           </button>
         </div>
         <p class="verse-ref" id="heroRef"></p>
@@ -3410,11 +3517,31 @@
       </section>
       </div><!-- /#hero-verse-wrap -->
 
-      <!-- ── Share this verse ── -->
+      <!-- ── Listen + Share this verse ── -->
       <div class="share-verse-row">
-        <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share today's battle with a friend">Share this battle</button>
+        <div class="share-verse-actions">
+          <button type="button" class="share-verse-btn share-verse-listen" id="shareVerseListenBtn" aria-label="Listen to this verse read aloud">Listen</button>
+          <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
+        </div>
         <p class="share-verse-whisper">If this helped, tell a friend.</p>
       </div>
+      <!-- ── How's this helping? (feedback for future priorities) ── -->
+      <div class="verse-feedback-row" id="verseFeedbackRow" role="group" aria-label="Verse feedback" hidden>
+        <span class="verse-feedback-label">How's this helping?</span>
+        <div class="verse-feedback-btns">
+          <button type="button" class="verse-feedback-btn verse-feedback-up" id="verseFeedbackUp" aria-label="This helped">👍</button>
+          <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
+        </div>
+      </div>
+      <!-- ── Start here (3-step path for new users) ── -->
+      <section class="card start-here-card" id="startHereCard" aria-label="Quick start guide" hidden>
+        <h2 class="section-divider">Start here</h2>
+        <ol class="start-here-steps">
+          <li><strong>See today's verse</strong> — above</li>
+          <li><strong>Search by feeling</strong> — type anxious, hope, grief… or tap a topic</li>
+          <li><strong>Post a prayer</strong> — no account needed</li>
+        </ol>
+      </section>
       <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads • No personal tracking • Built during recovery from serious illness • Your moments stay private here.</div>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
@@ -3451,7 +3578,7 @@
         </div>
         <a href="plans.html" class="plans-teaser-banner" aria-label="See all 11 battle plans — 7 to 40 days">
           <span class="plans-teaser-badge" aria-hidden="true">New</span>
-          <span>7–40 day plans — Resurrection Hope for Easter.</span>
+          <span>7–40 day plans — one tap to start, progress saved automatically.</span>
           <span class="plans-teaser-arrow" aria-hidden="true">→</span>
         </a>
         <div class="plans-grid" id="plansGrid">
@@ -3465,6 +3592,12 @@
         <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
       </section>
 
+      <!-- ── First-visit hint (dismissible, once per device) ── -->
+      <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
+        <p class="first-visit-text">Type how you feel (e.g. anxious, tired) to find verses — or tap a topic below.</p>
+        <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss hint">Got it</button>
+      </div>
+
       <!-- ── Feel Search (nav anchor: #quick-search-hero) ── -->
       <div id="quick-search-hero">
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
@@ -3477,7 +3610,7 @@
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
-            placeholder="How're you feeling? (anxious, tired, angry…)"
+            placeholder="Try: anxiety, hope, grief — or tap a topic below"
             aria-label="How are you feeling right now?"
             aria-autocomplete="list"
             aria-controls="feelSuggestDropdown"
@@ -3536,7 +3669,7 @@
         <p class="warm-intro" id="feelWelcome" aria-live="polite"></p>
         <div class="feel-cards" id="feelCards" aria-live="polite"></div>
         <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">More verses →</a>
-        <p class="feel-no-match" id="feelNoMatch">Try "worry" or "rest" — type what you're carrying.</p>
+        <p class="feel-no-match" id="feelNoMatch">Try "peace" or "rest" — or tap a topic above.</p>
       </section>
       </div><!-- /#quick-search-hero -->
 
@@ -3590,6 +3723,7 @@
       <section class="card prayer-wall-card" id="prayer-wall" aria-label="Prayer Wall">
         <div class="prayer-wall-header-row">
           <p class="prayer-wall-label">Prayer Wall</p>
+          <span class="prayer-wall-badge">Post anonymously — no account needed</span>
           <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
         </div>
         <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
@@ -3624,6 +3758,9 @@
           <button class="share-prayer-btn" type="button" id="share-prayer-btn" aria-label="Copy prayer to clipboard">Share this prayer?</button>
           <button class="prayer-share-dismiss" type="button" id="prayerShareDismissBtn" aria-label="Dismiss share prompt">✕</button>
         </div>
+        <div class="prayer-invite-row" role="status" aria-live="polite">
+          <button type="button" id="prayer-invite-friend-btn" class="btn btn-secondary prayer-invite-btn" aria-label="Invite a friend to pray with you">Invite a friend to pray with you</button>
+        </div>
       </section>
 
       <!-- ── Revival & Outreach (nav anchors) ── -->
@@ -3637,14 +3774,16 @@
         <p class="section-note">Sing, pray, and remember.</p>
         <div id="patriotic-hymns-grid" class="patriotic-hymns-grid"></div>
       </section>
-      <section class="card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
+      <section class="card armor-builder-card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
         <h2 class="section-divider">Family Armor &amp; Stories</h2>
-        <p class="section-note">Link your household, track progress, share stories.</p>
+        <p class="section-note">Link your household, track progress, share stories. Each story adds a piece to your armor.</p>
+        <div class="armor-progress-teaser" id="armorProgressTeaser" aria-live="polite" hidden></div>
         <button type="button" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" aria-label="Open Family Armor">Open Family Armor</button>
       </section>
       <section class="card challenge-30-banner" id="challenge-30-banner" aria-label="30-Day Battle Plan">
         <h2 class="section-divider">30-Day Battle Plan</h2>
         <p class="section-note">Stay consistent. One verse, one day at a time.</p>
+        <p class="plan-start-note">One tap — progress saved automatically.</p>
         <button type="button" id="challenge-start-day-1" class="btn btn-secondary" aria-label="Start 30-day challenge">Start Day 1</button>
       </section>
       <section class="card quick-pray-wrap" id="quick-pray-wrap" aria-label="Invite / Share">
@@ -3655,9 +3794,16 @@
           <button type="button" id="quick-pray-btn" class="btn btn-secondary" aria-label="Post quick prayer">Pray</button>
         </div>
         <p id="quick-pray-feedback" class="section-note" aria-live="polite" hidden></p>
+        <div class="referral-nudge" id="referralNudge" role="status" aria-live="polite">
+          <p class="referral-nudge-text">Helped today? Tell a friend who needs hope.</p>
+          <div class="referral-nudge-actions">
+            <button type="button" id="referral-copy-link" class="btn btn-secondary referral-copy-btn" aria-label="Copy share link">Copy my link</button>
+            <a href="https://twitter.com/intent/tweet?text=Found%20this%20KJV%20verse%20helpful%20today%20%E2%80%94%20todaysdailybattle.com%20%40todaysdailybattle%20%E2%9A%94%EF%B8%8F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary referral-x-btn" aria-label="Share on X">Share on X</a>
+          </div>
+        </div>
       </section>
       <section class="card" id="newsletter" aria-label="Join the Battle Plan">
-        <h2 class="section-divider">Weekly Encouragement &amp; Daily Verse</h2>
+        <h2 class="section-divider">Get Daily Verse + Prayer Nudge</h2>
         <p class="section-note">One email—Friday recap or daily verse. No spam.</p>
         <div class="newsletter-form">
           <input id="newsletter-name" type="text" placeholder="Name" aria-label="Your name" autocomplete="name">
@@ -3690,6 +3836,7 @@
       </nav>
       <p class="site-footer-copy">© Todays Daily Battle 2026</p>
       <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
+      <p class="site-footer-social-proof" id="footerSocialProof" aria-live="polite">Join <span id="footerVisitsCount">26k+</span> monthly visitors finding daily KJV encouragement — verse by verse, win the day ⚔️</p>
       <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
       <p class="site-footer-updated">Last updated: <span id="last-updated">—</span></p>
       <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
@@ -3717,7 +3864,7 @@
   <nav class="bottom-nav" aria-label="Primary tools">
     <a class="nav-link nav-link--active" href="/" aria-label="Home"><span>🏠</span><span>Home</span></a>
     <a class="nav-link" href="reader.html" aria-label="Chapter Reader"><span>📖</span><span>Read</span></a>
-    <a class="nav-link" href="#main-search" id="nav-search-btn" aria-label="Search Scripture"><span>🔍</span><span>Search</span></a>
+    <a class="nav-link" href="#quick-search-hero" id="nav-search-btn" aria-label="Search Scripture"><span>🔍</span><span>Search</span></a>
     <a class="nav-link" href="#prayer-wall" aria-label="Prayer Wall"><span>🙏</span><span>Prayer</span></a>
     <button type="button" id="nav-more-btn" class="nav-link nav-link-btn" aria-label="More tools" aria-haspopup="dialog" aria-expanded="false"><span>☰</span><span>More</span><span class="nav-more-btn-badge" aria-hidden="true"></span></button>
   </nav>
@@ -3756,6 +3903,10 @@
         <li><a href="topic-hope.html">✨ Hope</a></li>
         <li><a href="topic-forgiveness.html">🕊 Forgiveness</a></li>
         <li><a href="topic-strength.html">💪 Strength</a></li>
+        <li><a href="topic-loneliness.html">🤗 Loneliness</a></li>
+        <li><a href="topic-worthless.html">💎 Worth</a></li>
+        <li><a href="topic-guilt.html">💭 Guilt</a></li>
+        <li><a href="topic-overwhelmed.html">🌊 Overwhelmed</a></li>
         <li><a href="topic-parenting.html">👨‍👩‍👧 Parenting</a></li>
       </ul>
       <button type="button" id="nav-more-close" class="nav-more-close" aria-label="Close menu">Done</button>
@@ -4414,6 +4565,7 @@
 
       renderVerseContent(verseData);
       setVerseLoadingState(false);
+      if (typeof showVerseFeedbackIfNeeded === 'function') showVerseFeedbackIfNeeded(verseData.ref);
 
       const verseRef = verseData.ref ? sanitizeText(verseData.ref) : '';
       if (verseRef) {
@@ -4987,6 +5139,9 @@
         next = state.lastDate === yesterday ? next + 1 : 1;
         localStorage.setItem(key, JSON.stringify({ count: next, lastDate: today }));
       }
+      if (next >= 2 && typeof showPwaNudgeAfterEngagement === "function") {
+        setTimeout(showPwaNudgeAfterEngagement, 1200);
+      }
       const badge = document.getElementById("heroStreakBadge");
       if (badge) {
         if (next >= 2) {
@@ -4998,18 +5153,47 @@
       }
     }
 
+    // ── Verse feedback (How's this helping?) ──
+    function showVerseFeedbackIfNeeded(verseRef) {
+      var row = document.getElementById('verseFeedbackRow');
+      if (!row) return;
+      var today = new Date().toISOString().slice(0, 10);
+      if (localStorage.getItem('tdb-verse-feedback-' + today)) {
+        row.hidden = true;
+        return;
+      }
+      row.hidden = false;
+      row.dataset.verseRef = verseRef || '';
+    }
+    function recordVerseFeedback(sentiment) {
+      var row = document.getElementById('verseFeedbackRow');
+      var ref = (row && row.dataset.verseRef) || '';
+      var today = new Date().toISOString().slice(0, 10);
+      try {
+        localStorage.setItem('tdb-verse-feedback-' + today, sentiment);
+        if (row) row.hidden = true;
+        if (typeof trackEvent === 'function') trackEvent('verse_feedback', { sentiment: sentiment, ref: ref });
+      } catch (e) {}
+    }
     // ── PWA Nudge ──
     function initPwaNudge() {
       if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;
-      // Only show after 3+ visits (don't nag first-timers)
       const visitKey = "tdb-visit-count";
       const visits = (parseInt(localStorage.getItem(visitKey) || "0", 10) || 0) + 1;
       localStorage.setItem(visitKey, String(visits));
-      if (visits < 3) return;
       const isStandalone = window.matchMedia("(display-mode: standalone)").matches
         || window.navigator.standalone === true;
-      if (!isStandalone) pwaNudge.classList.add("show");
+      if (!isStandalone && visits >= 3) pwaNudge.classList.add("show");
     }
+    function showPwaNudgeAfterEngagement() {
+      if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;
+      const isStandalone = window.matchMedia("(display-mode: standalone)").matches
+        || window.navigator.standalone === true;
+      if (!isStandalone && pwaNudge && !pwaNudge.classList.contains("show")) {
+        pwaNudge.classList.add("show");
+      }
+    }
+    window.showPwaNudgeAfterEngagement = showPwaNudgeAfterEngagement;
 
     pwaDismiss.addEventListener("click", () => {
       pwaNudge.classList.remove("show");
@@ -5197,7 +5381,9 @@
       function setPlaying(yes) {
         btn.classList.toggle('is-playing', yes);
         btn.setAttribute('aria-pressed', yes ? 'true' : 'false');
-        btn.setAttribute('aria-label', yes ? 'Pause verse reading' : 'Read this verse aloud');
+        btn.setAttribute('aria-label', yes ? 'Pause verse reading' : 'Listen to this verse read aloud');
+        var lbl = btn.querySelector('.read-aloud-label');
+        if (lbl) lbl.textContent = yes ? 'Pause' : 'Listen';
       }
 
       // ── TTS fallback (used when MP3 unavailable) ──
@@ -5219,9 +5405,17 @@
 
       function wireTtsFallback() {
         let dailyUtterance = null;
+        let cachedVoices = [];
+        const synth = window.speechSynthesis;
+        function refreshVoices() {
+          const v = synth.getVoices();
+          if (v && v.length) cachedVoices = v;
+          return cachedVoices;
+        }
+        synth.addEventListener('voiceschanged', refreshVoices);
+        refreshVoices();
         setReady();
         btn.addEventListener('click', () => {
-          const synth = window.speechSynthesis;
           if (synth.speaking && !synth.paused) {
             synth.pause();
             setPlaying(false);
@@ -5239,10 +5433,14 @@
           dailyUtterance.rate  = 0.88;
           dailyUtterance.pitch = 1;
           dailyUtterance.lang  = 'en-US';
-          const voices = synth.getVoices();
-          const best = voices.find(v => /samantha|karen|daniel|alex|moira/i.test(v.name))
-                    || voices.find(v => v.lang === 'en-US' && v.localService)
-                    || null;
+          const voices = refreshVoices();
+          let best = null;
+          if (voices.length) {
+            const en = v => ((v&&v.lang)||'').toLowerCase().indexOf('en')===0;
+            const natural = voices.filter(v => en(v) && /(natural|neural|premium|enhanced|siri|google us english|microsoft (aria|jenny|sara))/i.test((v.name||'')));
+            const warm = voices.filter(v => en(v) && /(female|woman|zira|samantha|victoria|ava|allison|karen|moira|susan|aria|serena|salli|jenny|daniel|alex)/i.test((v.name||'')));
+            best = natural[0] || warm[0] || voices.find(v => en(v) && v.localService) || voices.find(v => en(v)) || voices[0];
+          }
           if (best) dailyUtterance.voice = best;
           dailyUtterance.onstart = () => setPlaying(true);
           dailyUtterance.onend = dailyUtterance.onerror = () => { setPlaying(false); dailyUtterance = null; };
@@ -5429,7 +5627,9 @@
         e.stopPropagation();
         const ref  = (document.getElementById('heroRef')?.textContent  || '').replace(' (KJV)', '');
         const text = document.getElementById('heroVerse')?.textContent || '';
-        const shareText = ref + ': ' + text + '\n\u2014 todaysdailybattle.com';
+        const clean = (text || '').replace(/<[^>]+>/g, '').trim();
+        const short = clean.length > 120 ? clean.slice(0, 117) + '\u2026' : clean;
+        const shareText = 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle \u2694\uFE0F';
         navigator.clipboard?.writeText(shareText).then(function () {
           const btn = document.getElementById('heroMenuShare');
           if (btn) { btn.textContent = 'Copied \u2713'; setTimeout(function () { btn.textContent = '\uD83D\uDCC4 Share'; }, 1500); }
@@ -6623,6 +6823,99 @@
       wireMoreDrawer();
       wireMobiusLazyTrigger();
       wireKidsStoryModal();
+      // Referral nudge: Copy my link
+      var refCopy = document.getElementById('referral-copy-link');
+      if (refCopy) refCopy.addEventListener('click', function () {
+        var url = (window.location.origin || 'https://todaysdailybattle.com') + '/';
+        var msg = 'Found this KJV verse helpful today — todaysdailybattle.com';
+        var full = msg + '\n' + url;
+        navigator.clipboard && navigator.clipboard.writeText(full).then(function () {
+          refCopy.textContent = 'Copied \u2713';
+          setTimeout(function () { refCopy.textContent = 'Copy my link'; }, 2000);
+        }).catch(function () {});
+      });
+      // First-visit hint
+      var firstHint = document.getElementById('firstVisitHint');
+      var firstDismiss = document.getElementById('firstVisitDismiss');
+      if (firstHint && firstDismiss) {
+        var visits = parseInt(localStorage.getItem('tdb-visit-count') || '0', 10) || 0;
+        if (!localStorage.getItem('tdb-first-visit-hint-dismissed') && visits <= 2) {
+          firstHint.hidden = false;
+        }
+        firstDismiss.addEventListener('click', function () {
+          firstHint.hidden = true;
+          localStorage.setItem('tdb-first-visit-hint-dismissed', '1');
+        });
+      }
+      // Start here card (new users)
+      var startHere = document.getElementById('startHereCard');
+      if (startHere) {
+        var v = parseInt(localStorage.getItem('tdb-visit-count') || '0', 10) || 0;
+        if (v <= 2 && !localStorage.getItem('tdb-start-here-seen')) {
+          startHere.hidden = false;
+          localStorage.setItem('tdb-start-here-seen', '1');
+        }
+      }
+      // Returning user greeting
+      var welcomeBack = document.getElementById('welcomeBackMsg');
+      if (welcomeBack) {
+        var v = parseInt(localStorage.getItem('tdb-visit-count') || '0', 10) || 0;
+        if (v >= 3) {
+          try {
+            var streakData = JSON.parse(localStorage.getItem('tdb-streak') || '{}');
+            var count = parseInt(streakData.count || '0', 10) || 0;
+            if (count >= 1) {
+              welcomeBack.textContent = 'Welcome back — ' + count + ' day' + (count === 1 ? '' : 's') + ' and counting.';
+            } else {
+              welcomeBack.textContent = 'Welcome back.';
+            }
+            welcomeBack.hidden = false;
+          } catch (e) { welcomeBack.textContent = 'Welcome back.'; welcomeBack.hidden = false; }
+        }
+      }
+      if (typeof updateStreak === 'function') updateStreak();
+      // Verse font size controls
+      var heroVerse = document.getElementById('heroVerse');
+      var smallerBtn = document.getElementById('verseFontSmaller');
+      var largerBtn = document.getElementById('verseFontLarger');
+      if (heroVerse && smallerBtn && largerBtn) {
+        var baseSize = 1;
+        try { baseSize = parseFloat(localStorage.getItem('tdb-verse-font-scale') || '1') || 1; } catch (e) {}
+        baseSize = Math.max(0.85, Math.min(1.35, baseSize));
+        heroVerse.style.fontSize = 'calc(clamp(1.7rem, 2.6vw, 2.4rem) * ' + baseSize + ')';
+        function applyScale(s) {
+          baseSize = Math.max(0.85, Math.min(1.35, baseSize + s));
+          heroVerse.style.fontSize = 'calc(clamp(1.7rem, 2.6vw, 2.4rem) * ' + baseSize + ')';
+          try { localStorage.setItem('tdb-verse-font-scale', String(baseSize)); } catch (e) {}
+        }
+        smallerBtn.addEventListener('click', function () { applyScale(-0.08); });
+        largerBtn.addEventListener('click', function () { applyScale(0.08); });
+      }
+      // Verse feedback: How's this helping?
+      var upBtn = document.getElementById('verseFeedbackUp');
+      var downBtn = document.getElementById('verseFeedbackDown');
+      if (upBtn) upBtn.addEventListener('click', function () { if (typeof recordVerseFeedback === 'function') recordVerseFeedback('up'); });
+      if (downBtn) downBtn.addEventListener('click', function () { if (typeof recordVerseFeedback === 'function') recordVerseFeedback('down'); });
+      // Prayer wall: Invite a friend to pray with you
+      var prayInvite = document.getElementById('prayer-invite-friend-btn');
+      if (prayInvite) prayInvite.addEventListener('click', function () {
+        var url = (window.location.origin || 'https://todaysdailybattle.com') + '/#prayer-wall';
+        var msg = 'Join me in prayer — todaysdailybattle.com';
+        var full = msg + '\n' + url;
+        if (navigator.share) {
+          navigator.share({ title: 'Pray with me', text: msg, url: url }).catch(function () {
+            if (navigator.clipboard) navigator.clipboard.writeText(full).then(function () {
+              prayInvite.textContent = 'Link copied \u2713';
+              setTimeout(function () { prayInvite.textContent = 'Invite a friend to pray with you'; }, 2000);
+            }).catch(function () {});
+          });
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(full).then(function () {
+            prayInvite.textContent = 'Link copied \u2713';
+            setTimeout(function () { prayInvite.textContent = 'Invite a friend to pray with you'; }, 2000);
+          }).catch(function () {});
+        }
+      });
     });
 
     function wireMobiusLazyTrigger() {

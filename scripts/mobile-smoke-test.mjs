@@ -140,11 +140,10 @@ async function runMobileSmokeTest() {
       console.log(`   ❌ Step 1: FAIL - ${error.message}`);
     }
 
-    // STEP 2: Test quick topic chip tap (call runSearchWithInput directly for reliability; live site needs time for Bible load)
+    // STEP 2: Test quick topic chip tap (simulate real tap → renderSmartResult; no Bible load needed)
     console.log('\n📱 STEP 2: Testing quick topic chip tap...');
     try {
-      await page.goto(SITE_URL, { waitUntil: 'load', timeout: 45000 });
-      await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
+      await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
       const quickTopicButton = page.locator('#quickTopics .quick-topic, .quick-grid .quick-topic').first();
@@ -154,26 +153,40 @@ async function runMobileSmokeTest() {
         results.steps.push({ step: 2, status: 'FAIL', issue: 'No quick topic buttons found' });
       } else {
         const buttonText = await quickTopicButton.textContent();
-        const topic = await quickTopicButton.getAttribute('data-topic').catch(() => 'peace');
+        const topic = (await quickTopicButton.getAttribute('data-topic')) || 'peace';
         
         const box = await quickTopicButton.boundingBox();
         if (box && (box.height < 44 || box.width < 44)) {
           results.warnings.push(`Quick topic button tap target too small: ${box.width}x${box.height}px (should be 44px+)`);
         }
         
-        // Trigger search: call runSearchWithInput directly (stub may redirect to ?q= if real not ready)
-        await page.evaluate((t) => {
-          if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(t);
-        }, topic || 'peace');
-        await page.waitForURL(/q=/, { timeout: 2000 }).catch(() => {});
-        await page.waitForLoadState('domcontentloaded').catch(() => {});
+        // Simulate real tap: triggers renderSmartResult (sync, no Bible load) → .smart-card in #feel-results
+        await quickTopicButton.scrollIntoViewIfNeeded();
+        await page.waitForTimeout(300);
+        await quickTopicButton.click({ force: true });
+        await page.waitForTimeout(800);
         const resultsSelector = '#feel-results .verse-card, #feel-results .smart-card, #feel-results .verse-item, #feel-results .result-section, #feelCards .verse-card, #feelCards .feel-verse-card, #output .verse-card, #output .verse-item';
         await page.locator('#feel-results, #output').first().scrollIntoViewIfNeeded().catch(() => {});
-        let card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 15000 }).catch(() => null);
+        let card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 4000 }).catch(() => null);
+        // Fallback 1: trigger input flow (wireQuickTopics path) if click didn't render
         if (!card) {
-          const seeking = await page.locator('#feel-results .empty').first().waitFor({ state: 'attached', timeout: 3000 }).catch(() => null);
-          if (seeking) await new Promise(r => setTimeout(r, 8000));
-          card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 12000 }).catch(() => null);
+          await page.evaluate((t) => {
+            const input = document.getElementById('feel-search');
+            if (input) {
+              input.value = t;
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+          }, topic);
+          await page.waitForTimeout(600);
+          card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 3000 }).catch(() => null);
+        }
+        // Fallback 2: direct renderSmartResult call if exposed
+        if (!card) {
+          await page.evaluate((t) => {
+            if (typeof renderSmartResult === 'function') renderSmartResult(t);
+          }, topic);
+          await page.waitForTimeout(400);
+          card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 2000 }).catch(() => null);
         }
         const resultsVisible = !!card;
         
@@ -202,11 +215,10 @@ async function runMobileSmokeTest() {
       console.log(`   ❌ Step 2: FAIL - ${error.message}`);
     }
 
-    // STEP 3: Test search with "anxiety" (call runSearchWithInput directly for reliability)
+    // STEP 3: Test full search with "anxiety" (runSearchWithInput; needs Bible load on slow networks)
     console.log('\n📱 STEP 3: Testing search with "anxiety"...');
     try {
-      await page.goto(SITE_URL, { waitUntil: 'load', timeout: 45000 });
-      await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
+      await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
       
@@ -214,13 +226,12 @@ async function runMobileSmokeTest() {
         if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput('anxiety');
       });
       await page.waitForURL(/q=/, { timeout: 2000 }).catch(() => {});
-      await page.waitForLoadState('domcontentloaded').catch(() => {});
       const resultsSelector = '#feel-results .verse-card, #feel-results .smart-card, #feel-results .verse-item, #feel-results .result-section, #feelCards .verse-card, #feelCards .feel-verse-card, #output .verse-card, #output .verse-item';
-      let card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 15000 }).catch(() => null);
+      let card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 20000 }).catch(() => null);
       if (!card) {
         const seeking = await page.locator('#feel-results .empty').first().waitFor({ state: 'attached', timeout: 3000 }).catch(() => null);
         if (seeking) await new Promise(r => setTimeout(r, 8000));
-        card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 12000 }).catch(() => null);
+        card = await page.locator(resultsSelector).first().waitFor({ state: 'attached', timeout: 15000 }).catch(() => null);
       }
       const resultsVisible = !!card;
       

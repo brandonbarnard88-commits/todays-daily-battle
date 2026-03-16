@@ -122,22 +122,32 @@ window.runSearchWithInput = function (inputStr) {
     window.__tdbPendingSearchTimer = null;
     if (pending) window.__tdbRunSearchReal(pending);
   }, 120);
-  // Fail over quickly if real search wiring never initializes.
+  // Fail over if real search wiring never initializes (give tdbInit time on slow devices).
   setTimeout(function () {
     if (!window.__tdbPendingSearchTimer) return;
     var pending = window.__tdbPendingSearch || '';
+    if (!pending || window.__tdbRunSearchReal) return;
     clearInterval(window.__tdbPendingSearchTimer);
     window.__tdbPendingSearchTimer = null;
-    // Last-resort fallback: if real search never boots, navigate with ?q=
-    // so fallback-search can still render results.
-    if (pending && !window.__tdbRunSearchReal) {
-      try {
-        window.location.href = (window.location.pathname || '/') + '?q=' + encodeURIComponent(pending);
-      } catch (_) {}
-    }
-  }, 900);
+    // Try renderSmartResult first (feel-section) — instant result, no reload.
+    try {
+      var container = document.getElementById('feel-results');
+      if (container && typeof renderSmartResult === 'function') {
+        renderSmartResult(pending);
+        if (typeof showEliteToast === 'function') showEliteToast('Here are verses for you.');
+        return;
+      }
+    } catch (_) {}
+    // Last resort: navigate with ?q= so page load runs search.
+    try {
+      if (typeof showEliteToast === 'function') showEliteToast('Refreshing to show your results…');
+      window.location.href = (window.location.pathname || '/') + '?q=' + encodeURIComponent(pending);
+    } catch (_) {}
+  }, 2500);
 };
-function getQueryInput() { return document.getElementById('tdb-search') || document.getElementById('query'); }
+function getQueryInput() {
+  return document.getElementById('feel-search') || document.getElementById('tdb-search') || document.getElementById('query');
+}
 
 function normalizeHomeMainOrder() {
   if (window.__tdbHomeOrderNormalized) return;
@@ -1235,7 +1245,26 @@ function addHouseholdArmorPiece(source) {
   }
   var modal = document.getElementById('armor-builder-modal');
   if (modal && typeof renderArmorModal === 'function') renderArmorModal();
+  if (typeof updateArmorProgressTeaser === 'function') updateArmorProgressTeaser();
   return true;
+}
+function updateArmorProgressTeaser() {
+  var el = document.getElementById('armorProgressTeaser');
+  if (!el) return;
+  var data = getHouseholdArmor();
+  if (data.count === 0) {
+    el.hidden = true;
+    return;
+  }
+  el.hidden = false;
+  var iconsHtml = '';
+  for (var i = 0; i < ARMOR_PIECES.length; i++) {
+    var p = ARMOR_PIECES[i];
+    var earned = data.pieces.indexOf(p.key) !== -1;
+    iconsHtml += '<span class="armor-teaser-slot' + (earned ? ' earned' : '') + '" role="img" aria-label="' + escapeHtml(p.label) + (earned ? ' earned' : ' locked') + '">\u25C6</span>';
+  }
+  var text = data.count >= 6 ? 'Full armor \u2014 all 6 pieces earned.' : data.count + ' of 6 pieces \u2014 pray through stories to earn more.';
+  el.innerHTML = '<span class="armor-teaser-icons" aria-hidden="true">' + iconsHtml + '</span><span class="armor-teaser-text">' + escapeHtml(text) + '</span>';
 }
 function getHeavenlyJewels() {
   try {
@@ -1470,6 +1499,7 @@ const TDB_TOPICS = [
   { topic: 'gratitude', label: 'Gratitude' },
   { topic: 'loneliness', label: 'Loneliness' },
   { topic: 'guilt', label: 'Guilt' },
+  { topic: 'overwhelmed', label: 'Overwhelmed' },
   { topic: 'strength', label: 'Strength' },
   { topic: 'heartache', label: 'Heartache' },
   { topic: 'grief', label: 'Grief' },
@@ -1659,26 +1689,55 @@ function fuzzyCorrectToken(token) {
 const NEGATION_WORDS = ['not', 'no', 'never', 'dont', 'cant', 'cannot', 'without'];
 
 const MEANING_MAP = {
-  love: ['charity', 'compassion', 'kindness', 'affection'],
-  faith: ['belief', 'trust', 'confidence', 'assurance'],
-  hope: ['expectation', 'confidence', 'assurance'],
-  peace: ['rest', 'calm', 'stillness', 'quietness'],
-  joy: ['gladness', 'delight', 'rejoice'],
-  grace: ['favor', 'kindness', 'mercy'],
-  mercy: ['compassion', 'pity', 'kindness'],
-  truth: ['faithfulness', 'honesty', 'reality'],
-  wisdom: ['understanding', 'knowledge', 'insight'],
-  fear: ['afraid', 'anxious', 'worried', 'dread'],
-  anger: ['wrath', 'rage', 'fury'],
-  heartache: ['grief', 'sorrow', 'sadness', 'brokenhearted', 'mourning'],
-  sin: ['evil', 'wrongdoing', 'transgression'],
-  salvation: ['rescue', 'deliverance', 'save'],
-  gratitude: ['thanks', 'thankful', 'grateful', 'thanksgiving'],
-  loneliness: ['alone', 'isolated', 'abandoned', 'left out'],
-  guilt: ['guilty', 'shame', 'condemnation', 'remorse'],
-  overwhelm: ['overwhelmed', 'pressure', 'burnout', 'exhausted'],
-  jealousy: ['jealous', 'envy', 'covet', 'resentment'],
-  rest: ['rest', 'sabbath', 'refresh', 'renew']
+  love: ['charity', 'compassion', 'kindness', 'affection', 'beloved', 'mercy'],
+  faith: ['belief', 'trust', 'confidence', 'assurance', 'believe', 'believed'],
+  hope: ['expectation', 'confidence', 'assurance', 'expected', 'wait', 'waiting'],
+  peace: ['rest', 'calm', 'stillness', 'quietness', 'quiet', 'troubled', 'care'],
+  joy: ['gladness', 'delight', 'rejoice', 'rejoicing', 'joyful', 'glad'],
+  grace: ['favor', 'kindness', 'mercy', 'gracious', 'sufficient'],
+  mercy: ['compassion', 'pity', 'kindness', 'merciful', 'compassionate'],
+  truth: ['faithfulness', 'honesty', 'reality', 'true', 'verity'],
+  wisdom: ['understanding', 'knowledge', 'insight', 'wise', 'prudent', 'counsel'],
+  fear: ['afraid', 'anxious', 'worried', 'dread', 'dismayed', 'terror', 'frightened'],
+  anxiety: ['care', 'careful', 'careth', 'anxious', 'thought', 'troubled', 'peace'],
+  anger: ['wrath', 'rage', 'fury', 'angry', 'wrathful', 'slow', 'patience'],
+  heartache: ['grief', 'sorrow', 'sadness', 'brokenhearted', 'mourning', 'mourn', 'comfort'],
+  sin: ['evil', 'wrongdoing', 'transgression', 'iniquity', 'transgress'],
+  salvation: ['rescue', 'deliverance', 'save', 'saved', 'deliver', 'redeem'],
+  gratitude: ['thanks', 'thankful', 'grateful', 'thanksgiving', 'praise', 'bless'],
+  loneliness: ['alone', 'isolated', 'abandoned', 'forsake', 'forsaken', 'leave', 'presence'],
+  guilt: ['guilty', 'shame', 'condemnation', 'remorse', 'cleanse', 'forgive'],
+  overwhelm: ['overwhelmed', 'pressure', 'burden', 'yoke', 'heavy', 'laden', 'rest'],
+  jealousy: ['jealous', 'envy', 'covet', 'resentment', 'envious'],
+  rest: ['rest', 'sabbath', 'refresh', 'renew', 'weary', 'rested'],
+  strength: ['strong', 'strengthen', 'power', 'might', 'weak', 'weakness', 'perfect'],
+  courage: ['bold', 'brave', 'fear', 'dismayed', 'courage', 'courageous'],
+  trepidation: ['fear', 'afraid', 'dread', 'anxious', 'care'],
+  apprehension: ['fear', 'care', 'anxious', 'thought'],
+  melancholy: ['sorrow', 'mourning', 'grief', 'comfort', 'weep'],
+  despair: ['hope', 'comfort', 'restore', 'expectation'],
+  // 4D: domain expansion for KJV matching
+  elation: ['rejoice', 'joy', 'glad', 'delight'],
+  anguish: ['sorrow', 'grief', 'mourn', 'tears', 'comfort'],
+  fortitude: ['strength', 'endure', 'patience', 'bear'],
+  resilience: ['renew', 'strength', 'weary', 'mount', 'eagle'],
+  compulsion: ['temptation', 'flee', 'resist', 'escape'],
+  redemption: ['redeem', 'save', 'deliver', 'ransom'],
+  vindication: ['justify', 'righteous', 'judge', 'avenge'],
+  // 5D: tense/state forms
+  grieving: ['mourn', 'comfort', 'tears', 'hope', 'restore'],
+  rejoiced: ['rejoice', 'joy', 'glad', 'praise'],
+  // 6D: edge KJV terms
+  forsaken: ['forsake', 'leave', 'never', 'presence'],
+  afflicted: ['afflict', 'comfort', 'trouble', 'deliver'],
+  oppressed: ['oppress', 'deliver', 'rescue', 'save'],
+  // 4D: domain expansion
+  breakthrough: ['break', 'through', 'deliver', 'restore', 'hope'],
+  perseverance: ['endure', 'patience', 'run', 'race', 'finish'],
+  endurance: ['endure', 'patience', 'bear', 'tribulation', 'hope'],
+  restoration: ['restore', 'heal', 'comfort', 'redeem', 'save'],
+  worthless: ['precious', 'worth', 'created', 'image', 'love'],
+  empty: ['fill', 'restore', 'hope', 'presence', 'comfort']
 };
 
 const ACTION_MAP = {
@@ -1745,7 +1804,54 @@ const FEELING_NEED_MAP = {
   cantgoon: ['endure', 'strength', 'renew', 'wait', 'hope'],
   canttakeit: ['burden', 'yoke', 'easy', 'light', 'rest', 'cast'],
   breakingpoint: ['strength', 'endure', 'escape', 'bear', 'temptation'],
-  rockbottom: ['restore', 'hope', 'lift', 'redeem', 'save']
+  rockbottom: ['restore', 'hope', 'lift', 'redeem', 'save'],
+  // 2D: compound feeling→scripture
+  brokenheart: ['comfort', 'heal', 'bind', 'restore', 'hope', 'peace'],
+  heartbroken: ['comfort', 'heal', 'bind', 'restore', 'hope', 'peace'],
+  losthope: ['hope', 'expectation', 'assurance', 'faith', 'restore'],
+  nopurpose: ['purpose', 'calling', 'plan', 'thoughts', 'peace'],
+  feelalone: ['with', 'presence', 'forsake', 'comfort', 'love'],
+  feelstuck: ['way', 'path', 'guide', 'lead', 'deliver'],
+  cantforgive: ['forgive', 'mercy', 'grace', 'seventy', 'seven'],
+  needcourage: ['fear', 'not', 'courage', 'dismayed', 'strength'],
+  needpeace: ['peace', 'rest', 'quiet', 'troubled', 'heart'],
+  needhope: ['hope', 'expected', 'end', 'thoughts', 'peace'],
+  needstrength: ['strength', 'renew', 'weary', 'mount', 'eagle'],
+  needwisdom: ['wisdom', 'ask', 'liberally', 'upbraid', 'not'],
+  needfaith: ['faith', 'believe', 'trust', 'assurance', 'hope'],
+  // 3D: multi-word compounds
+  givinguponlife: ['hope', 'restore', 'redeem', 'save', 'purpose'],
+  lostmyway: ['way', 'path', 'guide', 'shepherd', 'lead'],
+  hittingrockbottom: ['restore', 'hope', 'lift', 'redeem', 'save'],
+  atmybreakingpoint: ['strength', 'endure', 'escape', 'bear', 'grace'],
+  // 4D: domain blends
+  spirituallydry: ['refresh', 'renew', 'water', 'spirit', 'restore'],
+  emotionallyexhausted: ['rest', 'weary', 'renew', 'comfort', 'peace'],
+  mentallydrained: ['renew', 'mind', 'peace', 'rest', 'strength'],
+  physicallytired: ['rest', 'weary', 'renew', 'strength', 'sabbath'],
+  // 5D: temporal states
+  usedtohavehope: ['hope', 'restore', 'expected', 'faith', 'renew'],
+  cantseemtohope: ['hope', 'faith', 'assurance', 'restore', 'comfort'],
+  strugglingtobelieve: ['faith', 'believe', 'help', 'unbelief', 'trust'],
+  // 6D: edge/antonym
+  feelingnothing: ['comfort', 'restore', 'presence', 'love', 'hope'],
+  toohardtoforgive: ['forgiveness', 'mercy', 'grace', 'seventy', 'love'],
+  // High-impact compounds (2D)
+  overwhelmedbyfear: ['fear', 'courage', 'strength', 'peace', 'with'],
+  drowninginsorrow: ['grief', 'comfort', 'hope', 'restore', 'deliver'],
+  feelworthless: ['love', 'precious', 'worth', 'created', 'image'],
+  feelbetrayed: ['forgive', 'trust', 'restore', 'love', 'comfort'],
+  feelabandoned: ['forsake', 'never', 'leave', 'with', 'presence'],
+  feelrejected: ['chosen', 'accepted', 'love', 'beloved'],
+  strugglingwithguilt: ['guilt', 'forgiveness', 'grace', 'cleanse', 'mercy'],
+  battlingdepression: ['grief', 'hope', 'comfort', 'strength', 'faith'],
+  fightingaddiction: ['addiction', 'strength', 'freedom', 'liberty', 'overcome'],
+  dealingwithanger: ['anger', 'patience', 'forgiveness', 'peace', 'slow'],
+  needforgiveness: ['forgiveness', 'mercy', 'grace', 'cleanse', 'blood'],
+  needdirection: ['wisdom', 'guide', 'path', 'way', 'counsel'],
+  needcomfort: ['comfort', 'mourn', 'blessed', 'consolation', 'restore'],
+  needrest: ['rest', 'weary', 'renew', 'sabbath', 'refresh'],
+  needhealing: ['heal', 'restore', 'whole', 'bind', 'wounds']
 };
 
 /** Reaction words: how Scripture calls us to respond (stand, resist, flee, etc.). */
@@ -1935,6 +2041,100 @@ const QUERY_TO_TOPIC = {
   weak: 'strength', weakened: 'strength',
 };
 
+/** Comprehensive vocabulary: maps common words to topics so search understands what is being asked. */
+const VOCABULARY = {
+  // anxiety / worry / stress
+  trepidation: 'anxiety', apprehension: 'anxiety', apprehensive: 'anxiety', unease: 'anxiety', uneasy: 'anxiety',
+  agitation: 'anxiety', agitated: 'anxiety', distress: 'anxiety', distressed: 'anxiety', turmoil: 'anxiety',
+  fret: 'anxiety', fretful: 'anxiety', flustered: 'anxiety', rattled: 'anxiety', unhinged: 'anxiety',
+  hypervigilant: 'anxiety', hypervigilance: 'anxiety', catastrophizing: 'anxiety', spiraling: 'anxiety',
+  // fear
+  terror: 'fear', terrorized: 'fear', horror: 'fear', horrified: 'fear', fright: 'fear', frighten: 'fear',
+  alarm: 'fear', alarmed: 'fear', petrified: 'fear', paralyzed: 'fear', phobia: 'fear', phobic: 'fear',
+  intimidation: 'fear', intimidated: 'fear', trepidation: 'fear', dread: 'fear', dreaded: 'fear',
+  // grief / sadness / depression
+  melancholy: 'grief', melancholic: 'grief', despondent: 'grief', despondency: 'grief', dejected: 'grief',
+  mournful: 'grief', lament: 'grief', lamenting: 'grief', anguish: 'grief', anguished: 'grief',
+  misery: 'grief', miserable: 'grief', gloom: 'grief', gloomy: 'grief', bleak: 'grief',
+  despairing: 'grief', forlorn: 'grief', woeful: 'grief', wretched: 'grief', downcast: 'grief',
+  // loneliness / isolation
+  solitude: 'loneliness', solitary: 'loneliness', estranged: 'loneliness', disconnected: 'loneliness',
+  ostracized: 'loneliness', outcast: 'loneliness', forsaken: 'loneliness', deserted: 'loneliness',
+  // guilt / shame
+  remorseful: 'guilt', contrition: 'guilt', penitent: 'guilt', culpable: 'guilt', blameworthy: 'guilt',
+  disgrace: 'guilt', disgraced: 'guilt', humiliation: 'guilt', humiliated: 'guilt', mortified: 'guilt',
+  // anger
+  indignation: 'anger', indignant: 'anger', outrage: 'anger', outraged: 'anger', livid: 'anger',
+  irate: 'anger', furious: 'anger', rage: 'anger', wrath: 'anger', fury: 'anger', hostile: 'anger',
+  // gratitude / thankfulness
+  appreciation: 'gratitude', appreciative: 'gratitude', thanksgiving: 'gratitude', gratitude: 'gratitude',
+  // joy / happiness
+  elation: 'joy', elated: 'joy', jubilant: 'joy', jubilation: 'joy', ecstatic: 'joy', ecstasy: 'joy',
+  bliss: 'joy', blissful: 'joy', contentment: 'joy', content: 'joy', cheer: 'joy', cheerful: 'joy',
+  // peace / calm
+  tranquility: 'peace', tranquil: 'peace', serenity: 'peace', serene: 'peace', placid: 'peace',
+  composure: 'peace', composed: 'peace', equanimity: 'peace', stillness: 'peace',
+  // hope
+  optimism: 'hope', optimistic: 'hope', expectancy: 'hope', anticipation: 'hope', aspiration: 'hope',
+  // faith / trust
+  conviction: 'faith', convinced: 'faith', credence: 'faith', reliance: 'faith', reliant: 'faith',
+  // love
+  tenderness: 'love', tender: 'love', empathy: 'love', empathetic: 'love', sympathy: 'love',
+  benevolence: 'love', benevolent: 'love', devotion: 'love', devoted: 'love', fondness: 'love',
+  // strength / weakness
+  fortitude: 'strength', resilience: 'strength', resilient: 'strength', stamina: 'strength',
+  vigor: 'strength', vigorous: 'strength', vitality: 'strength', feeble: 'strength', frail: 'strength',
+  // courage
+  valor: 'courage', valiant: 'courage', gallantry: 'courage', intrepid: 'courage', dauntless: 'courage',
+  // patience
+  forbearance: 'patience', tolerance: 'patience', tolerant: 'patience', longsuffering: 'patience',
+  // wisdom
+  prudence: 'wisdom', prudent: 'wisdom', sagacity: 'wisdom', sagacious: 'wisdom', acumen: 'wisdom',
+  // addiction / bondage
+  compulsion: 'addiction', compulsive: 'addiction', craving: 'addiction', enslaved: 'addiction',
+  // trauma / healing
+  wounded: 'trauma', shattered: 'trauma', devastation: 'trauma', devastated: 'trauma',
+  // finances
+  poverty: 'finances', impoverished: 'finances', destitute: 'finances', insolvent: 'finances',
+  // purpose
+  vocation: 'purpose', calling: 'purpose', mission: 'purpose', destiny: 'purpose',
+  // sleep / rest
+  insomnia: 'sleep', insomniac: 'sleep', sleepless: 'sleep', slumber: 'sleep', repose: 'rest',
+  // spiritual warfare
+  spiritualwarfare: 'spiritualwarfare', adversary: 'spiritualwarfare', temptation: 'spiritualwarfare',
+  // 1D extended: emotional depth
+  vexed: 'anger', irritable: 'anger', exasperated: 'anger', aggrieved: 'anger', offended: 'anger',
+  wistful: 'grief', nostalgic: 'grief', pensive: 'grief', somber: 'grief', sullen: 'grief',
+  jittery: 'anxiety', skittish: 'anxiety', antsy: 'anxiety', overwrought: 'anxiety',
+  timid: 'courage', meek: 'courage', bashful: 'courage', reticent: 'courage',
+  zealous: 'faith', fervent: 'faith', ardent: 'faith', devout: 'faith', pious: 'faith',
+  // 2D: physical/mental/spiritual planes
+  aching: 'grief', achy: 'grief', drained: 'strength', depleted: 'strength', rundown: 'strength',
+  foggy: 'wisdom', muddled: 'wisdom', bewildered: 'wisdom', perplexed: 'wisdom', baffled: 'wisdom',
+  convicted: 'guilt', repentant: 'forgiveness', penitent: 'forgiveness', absolved: 'forgiveness',
+  // 3D: relational/situational
+  estranged: 'loneliness', alienated: 'loneliness', shunned: 'loneliness', spurned: 'loneliness',
+  indebted: 'finances', bankrupt: 'finances', insolvent: 'finances', penniless: 'finances',
+  aimless: 'purpose', adrift: 'purpose', directionless: 'purpose', purposeless: 'purpose',
+  // 4D: spiritual/transcendent
+  redeemed: 'faith', sanctified: 'faith', justified: 'faith', reconciled: 'forgiveness',
+  oppressed: 'spiritualwarfare', afflicted: 'trauma', persecuted: 'spiritualwarfare',
+  // 5D: temporal/state variations
+  grieving: 'grief', mourned: 'grief', wept: 'grief', sorrowed: 'grief',
+  rejoiced: 'joy', celebrated: 'joy', praised: 'gratitude', thanked: 'gratitude',
+  // 6D: edge cases, antonyms, related
+  indifferent: 'love', apathetic: 'hope', numb: 'grief', detached: 'loneliness',
+  vindicated: 'guilt', exonerated: 'guilt', acquitted: 'forgiveness',
+  emboldened: 'courage', empowered: 'strength', invigorated: 'strength', refreshed: 'rest',
+  // High-impact real-user patterns (1D)
+  overwhelmed: 'anxiety', hopeless: 'hope', despairing: 'grief', fearful: 'fear', terrified: 'fear',
+  panicked: 'fear', worthless: 'love', ashamed: 'guilt', bitter: 'anger', resentful: 'anger',
+  betrayed: 'loneliness', abandoned: 'loneliness', rejected: 'loneliness', empty: 'hope',
+  purposeless: 'purpose', joyful: 'joy', peaceful: 'peace', content: 'joy', grateful: 'gratitude',
+  unforgiveness: 'forgiveness', breakthrough: 'hope', perseverance: 'strength', endurance: 'strength',
+};
+Object.keys(VOCABULARY).forEach(function (k) { if (!QUERY_TO_TOPIC[k]) QUERY_TO_TOPIC[k] = VOCABULARY[k]; });
+
 /** Expands common natural-language phrases to topic-relevant tokens. Check phrase match first, then score topics. */
 const PHRASE_TO_TOKENS = {
   // anxiety / peace
@@ -2099,6 +2299,56 @@ const PHRASE_TO_TOKENS = {
   'lost my': ['grief', 'hope', 'comfort'],
   'missing someone': ['grief', 'comfort', 'hope'],
   'cant stop thinking': ['grief', 'anxiety', 'peace'],
+  // 3D: three-word+ phrases
+  'what do i do when': ['wisdom', 'guidance', 'faith'],
+  'how do i get through': ['hope', 'strength', 'faith'],
+  'why do i feel so': ['comfort', 'hope', 'peace'],
+  'i dont feel gods presence': ['faith', 'presence', 'comfort'],
+  'god feels far away': ['faith', 'presence', 'draw', 'near'],
+  'cant feel anything anymore': ['comfort', 'restore', 'hope', 'presence'],
+  'lost my faith in god': ['faith', 'hope', 'restore', 'trust'],
+  'going through a hard time': ['hope', 'strength', 'comfort', 'faith'],
+  'life is too hard': ['hope', 'strength', 'rest', 'burden'],
+  'nothing makes sense anymore': ['wisdom', 'peace', 'trust', 'faith'],
+  // 4D: domain-specific
+  'spiritually empty': ['faith', 'refresh', 'restore', 'presence'],
+  'emotionally numb': ['comfort', 'restore', 'hope', 'presence'],
+  'mentally exhausted': ['rest', 'peace', 'renew', 'strength'],
+  'physically drained': ['rest', 'strength', 'renew', 'weary'],
+  // 5D: temporal/state
+  'used to believe': ['faith', 'restore', 'hope', 'trust'],
+  'cant believe anymore': ['faith', 'hope', 'help', 'unbelief'],
+  'used to have hope': ['hope', 'restore', 'faith', 'comfort'],
+  'will it ever get better': ['hope', 'faith', 'restore', 'comfort'],
+  // 6D: edge / full-sentence
+  'i give up': ['hope', 'strength', 'endure', 'persevere'],
+  'want to give up': ['hope', 'strength', 'endure', 'persevere'],
+  'ready to give up': ['hope', 'strength', 'endure', 'persevere'],
+  'nothing left': ['hope', 'restore', 'faith', 'comfort'],
+  'at the end of my rope': ['hope', 'strength', 'rest', 'burden'],
+  'drowning in': ['hope', 'rescue', 'deliver', 'strength'],
+  'drowning in sorrow': ['grief', 'comfort', 'hope', 'restore'],
+  'drowning in anxiety': ['anxiety', 'peace', 'rest', 'faith'],
+  // High-impact natural phrases (3D)
+  'i feel worthless': ['love', 'worth', 'precious', 'created', 'image'],
+  'why is god silent': ['faith', 'presence', 'wait', 'hear', 'answer'],
+  'god why have you forsaken me': ['forsake', 'presence', 'comfort', 'psalm', 'deliver'],
+  'how to forgive someone': ['forgiveness', 'mercy', 'grace', 'seventy', 'love'],
+  'verses for strength': ['strength', 'renew', 'weary', 'power', 'mount'],
+  'bible verses when scared': ['fear', 'courage', 'strength', 'with', 'afraid'],
+  'scripture for peace of mind': ['peace', 'mind', 'heart', 'rest', 'troubled'],
+  'what the bible says about depression': ['grief', 'hope', 'comfort', 'strength', 'faith'],
+  'feeling empty inside': ['hope', 'restore', 'fill', 'presence', 'comfort'],
+  'overcome by fear': ['fear', 'courage', 'strength', 'with', 'power'],
+  'where is god in my pain': ['comfort', 'presence', 'suffer', 'hope', 'restore'],
+  'will this pain ever end': ['hope', 'comfort', 'restore', 'joy', 'morning'],
+  'i cant keep going': ['hope', 'strength', 'endure', 'renew', 'weary'],
+  'feel like giving up': ['hope', 'strength', 'endure', 'persevere', 'run'],
+  'lost all hope': ['hope', 'restore', 'faith', 'comfort', 'expected'],
+  'verses when overwhelmed': ['anxiety', 'peace', 'burden', 'rest', 'yoke'],
+  'bible verses for anxiety': ['anxiety', 'peace', 'worry', 'care', 'rest'],
+  'verses for depression': ['grief', 'hope', 'comfort', 'strength', 'faith'],
+  'feeling empty': ['hope', 'restore', 'fill', 'presence', 'comfort']
 };
 
 const topics = {
@@ -7123,7 +7373,8 @@ function renderArmorModal() {
     var li = document.createElement('li');
     li.className = 'armor-piece-item armor-piece-card' + (earned ? ' armor-earned' : '');
     li.setAttribute('role', 'listitem');
-    li.innerHTML = '<span class="armor-piece-icon" aria-hidden="true">◆</span><span class="armor-piece-label">' + escapeHtml(p.label) + '</span><span class="armor-piece-desc">' + escapeHtml(p.desc) + '</span>';
+    var icon = { 'Belt of Truth': '\u271A', 'Breastplate of Righteousness': '\u25C6', 'Shoes of Peace': '\u25A1', 'Shield of Faith': '\u26E8', 'Helmet of Salvation': '\u25B2', 'Sword of the Spirit': '\u2694' }[p.key] || '\u25C6';
+    li.innerHTML = '<span class="armor-piece-icon" aria-hidden="true" data-piece="' + escapeHtml(p.key) + '">' + icon + '</span><span class="armor-piece-label">' + escapeHtml(p.label) + '</span><span class="armor-piece-desc">' + escapeHtml(p.desc) + '</span>';
     listEl.appendChild(li);
   });
   if (avatarEl) {
@@ -7345,6 +7596,7 @@ function wireArmorBuilderModal() {
   var badgeEl = document.getElementById('armor-badge');
   if (badgeEl && data.count >= 6) badgeEl.classList.remove('hidden');
   if (typeof updateArmorChainDisplay === 'function') updateArmorChainDisplay();
+  if (typeof updateArmorProgressTeaser === 'function') updateArmorProgressTeaser();
   var sidebarLink = document.getElementById('sidebar-family-armor-stories');
   if (sidebarLink) sidebarLink.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
   var toolboxFamilyArmor = document.getElementById('toolbox-family-armor');
@@ -9475,9 +9727,10 @@ function shareDailyBattle() {
 
 function buildDailyBattleShareText() {
   var ref = (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : (getDailyVerseRef() || '');
+  var verse = (currentDailyBattle && currentDailyBattle.verse) ? (currentDailyBattle.verse || '').replace(/<[^>]+>/g, ' ').trim() : '';
   if (!ref) return '';
-  var domain = (window.location && window.location.origin) ? window.location.origin.replace(/^https?:\/\//, '') : 'todaysdailybattle.com';
-  return 'Fighting today with ' + ref + '. Join me at ' + domain;
+  var short = verse ? (verse.length > 120 ? verse.slice(0, 117) + '…' : verse) : ref;
+  return 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle ⚔️';
 }
 function updateDailyBattleMetaDesc(verseRef) {
   if (!document.querySelector) return;
@@ -11024,8 +11277,9 @@ function getVersePageUrl(ref) {
 }
 
 function buildVerseShareText(ref, text) {
-  const clean = text.replace(/<[^>]+>/g, '');
-  return `Battling today? Here’s hope from God’s Word:\n${ref}\n${clean}\n\n${getVersePageUrl(ref)}`;
+  const clean = (text || '').replace(/<[^>]+>/g, '').trim();
+  const short = clean.length > 120 ? clean.slice(0, 117) + '\u2026' : clean;
+  return 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle \u2694\uFE0F';
 }
 
 function shareVerse(ref, text) {
@@ -11597,6 +11851,12 @@ function expandKeywords(keywords) {
     const base = token.toLowerCase();
     expanded.add(base);
     getSemanticTokenSet(base).forEach(function (word) { expanded.add(word); });
+    // Vocabulary: when word maps to topic, expand with that topic's synonyms for better verse matching
+    const mappedTopic = QUERY_TO_TOPIC && QUERY_TO_TOPIC[base];
+    if (mappedTopic && topics && topics[mappedTopic]) {
+      expanded.add(mappedTopic);
+      (topics[mappedTopic].synonyms || []).forEach(function (s) { expanded.add(String(s || '').toLowerCase()); });
+    }
     const meaning = MEANING_MAP[base];
     if (meaning) { meaning.forEach(word => expanded.add(word)); mapKeysHit.push('meaning:' + base); }
     const action = ACTION_MAP[base];
@@ -14432,15 +14692,47 @@ function parseQuery(input) {
     }
   }
   // Always do full-text search: understand the phrase, word, or question and find matching verses.
-  // No topic classification — search the entire Bible for what the user actually typed.
   var keywords = tokens.length > 0 ? tokens : rawTokens;
   var phraseTokens = [];
-  var phraseKeys = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
-  for (var i = 0; i < phraseKeys.length; i++) {
-    var phrase = phraseKeys[i];
-    if (normalized.indexOf(phrase) !== -1 || normalized === phrase) {
-      phraseTokens = PHRASE_TO_TOKENS[phrase];
-      break;
+  // Question-style queries: "What does God say about anxiety?" → extract topic and search
+  var questionPrefixes = [
+    'what does god say about ', 'what does the bible say about ', 'what does scripture say about ',
+    'how do i find ', 'how can i find ', 'how do i get ', 'how can i get ',
+    'why do i feel ', 'why am i ', 'why do i ', 'how do i deal with ', 'how can i deal with ',
+    'where do i find ', 'verses about ', 'bible verses about ', 'scripture about ',
+    'what does god say about', 'what does the bible say about', 'help with ',
+    'can you help me with ', 'i need verses for ', 'show me verses about ', 'verses for ',
+    'what does the bible say when ', 'scripture for when ', 'bible verses when ',
+    'god help me with ', 'prayer for ', 'prayers for ', 'comfort for ', 'hope for ',
+    'encouraging verses for ', 'scripture on ', 'what the bible says about ',
+    'help me pray for ', 'lord give me ', 'god i need ', 'jesus help me with ',
+    'find peace in ', 'find hope when ', 'verses when i feel ', 'verses for when '
+  ];
+  for (var qi = 0; qi < questionPrefixes.length && phraseTokens.length === 0; qi++) {
+    var prefix = questionPrefixes[qi];
+    var idx = normalized.indexOf(prefix);
+    if (idx !== -1) {
+      var rest = normalized.slice(idx + prefix.length).trim();
+      if (rest) {
+        var topic = resolveTopicFromToken(rest) || (QUERY_TO_TOPIC && QUERY_TO_TOPIC[rest]);
+        if (topic && topics[topic]) {
+          phraseTokens = [topic].concat((topics[topic].synonyms || []).slice(0, 3));
+        } else {
+          phraseTokens = rest.split(/\s+/).filter(function (t) { return t.length > 2 && !STOP_WORDS.has(t); });
+        }
+        break;
+      }
+    }
+  }
+  // Exact phrase match (PHRASE_TO_TOKENS)
+  if (phraseTokens.length === 0) {
+    var phraseKeys = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
+    for (var i = 0; i < phraseKeys.length; i++) {
+      var phrase = phraseKeys[i];
+      if (normalized.indexOf(phrase) !== -1 || normalized === phrase) {
+        phraseTokens = PHRASE_TO_TOKENS[phrase];
+        break;
+      }
     }
   }
   if (negatedTokens.size > 0) {
@@ -15967,7 +16259,7 @@ function sanitizeNudgeElements() {
         var loadingEl = document.getElementById('loading');
         if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.classList.remove('hidden'); }
         if (outputEl) {
-          outputEl.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Seeking God\'s truth…</p>';
+          outputEl.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Finding verses…</p>';
           outputEl.style.display = 'grid';
         }
         setTimeout(async function () {
@@ -16816,6 +17108,13 @@ function sanitizeNudgeElements() {
   if (shareVerseBtn) {
     shareVerseBtn.addEventListener('click', function () {
       if (typeof shareDailyBattle === 'function') shareDailyBattle();
+    });
+  }
+  var shareVerseListenBtn = document.getElementById('shareVerseListenBtn');
+  if (shareVerseListenBtn) {
+    shareVerseListenBtn.addEventListener('click', function () {
+      var readAloud = document.getElementById('readAloudBtn');
+      if (readAloud && !readAloud.classList.contains('is-unavailable')) readAloud.click();
     });
   }
   wireWeeklyRecapNudge();
@@ -17801,6 +18100,7 @@ function sanitizeNudgeElements() {
       if (typeof trackEvent === 'function') { trackEvent('pray_click', { source: 'quick_pray' }); trackEvent('quick_pray_add'); }
       try { localStorage.setItem(DONE_FOR_TODAY_KEY, getDailyKey()); } catch (e) {}
       if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
+      if (typeof window.showPwaNudgeAfterEngagement === 'function') setTimeout(window.showPwaNudgeAfterEngagement, 1500);
     }
     var shareStreakBtnEl = document.getElementById('share-streak-btn');
     if (shareStreakBtnEl) {

@@ -531,14 +531,21 @@
         row-gap: 1.5rem !important;
         align-items: start;
       }
-      #verseCard          { grid-column: 1 !important; grid-row: 1 / 4 !important; }
+      #hero-verse-wrap    { grid-column: 1 !important; grid-row: 1 / 4 !important; }
       #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
       #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
-      #feel-section       { grid-column: 1 / -1 !important; grid-row: 4 !important; }
+      .share-verse-row       { grid-column: 1 / -1 !important; grid-row: 4 !important; }
+      .landing-privacy-teaser{ grid-column: 1 / -1 !important; grid-row: 5 !important; }
+      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 6 !important; }
+      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 7 !important; }
+      .verse-img-card,
+      #offline-banner,
+      .pwa-nudge,
+      .offline-pill,
+      .quick-links       { grid-column: 1 / -1 !important; }
       main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser):not(#feel-section) {
         grid-column: 1 / -1 !important;
       }
-      .verse-img-card { grid-column: 1 / -1 !important; }
       .card              { padding: 2rem 2.25rem; }
       #heroVerse         { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.35; }
       #heroRef           { font-size: 1.25rem; }

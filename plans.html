@@ -111,6 +111,21 @@
     }
     .plan-progress-pill.active { color: var(--green); background: color-mix(in srgb, var(--green) 12%, transparent); }
     .plan-progress-pill.done   { color: var(--gold);  background: color-mix(in srgb, var(--gold)  12%, transparent); }
+    .plan-badge-easter { background: color-mix(in srgb, #e3bc67 20%, transparent); border-color: color-mix(in srgb, var(--gold) 50%, transparent); }
+    .plan-row-easter { border-color: color-mix(in srgb, var(--gold) 35%, transparent); }
+
+    .easter-banner {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--gold) 12%, transparent), color-mix(in srgb, var(--gold) 6%, transparent));
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;
+    }
+    .easter-banner.hidden { display: none; }
+    .easter-banner p { margin: 0; font-size: 0.92rem; color: var(--text); }
+    .easter-banner a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .easter-banner a:hover { text-decoration: underline; }
+    .easter-banner-dismiss { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.2rem; padding: 0 0.25rem; line-height: 1; }
+    .easter-banner-dismiss:hover { color: var(--text); }
 
     /* ── Detail view ── */
     .plan-detail { display: none; }
@@ -236,13 +251,13 @@
       background: color-mix(in srgb, var(--green) 18%, var(--card));
       color: var(--green); border: 1px solid var(--green);
     }
-    .btn-share {
+    .btn-read-aloud, .btn-share {
       background: none; border: 1px solid var(--line);
       color: var(--muted); border-radius: 12px;
       padding: 0.75rem 1rem; font-size: 0.85rem;
       cursor: pointer; transition: color 0.15s, border-color 0.15s;
     }
-    .btn-share:hover { color: var(--gold); border-color: var(--gold); }
+    .btn-read-aloud:hover, .btn-share:hover { color: var(--gold); border-color: var(--gold); }
 
     /* Streak badge */
     .streak-banner {
@@ -308,6 +323,10 @@
         <p>Pick a plan. One verse a day. Progress saves here — offline, always.</p>
         <p class="plans-hero-hint">Verses, real talk, actions &amp; prayers. Tap to start.</p>
       </div>
+      <div class="easter-banner" id="easterBanner" role="region" aria-label="Easter plan">
+        <p><a href="plans.html?plan=easter">✨ Resurrection Hope</a> — 7-day Easter plan. Death to life.</p>
+        <button type="button" class="easter-banner-dismiss" id="easterBannerDismiss" aria-label="Dismiss Easter banner">×</button>
+      </div>
       <div class="plan-list" id="planList" role="list">
         <a href="plans.html?plan=battle" class="plan-row" data-plan="battle" role="listitem" aria-label="Battle Distraction — 7 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
@@ -358,6 +377,11 @@
           <span class="plan-row-icon" aria-hidden="true">🏔️</span>
           <div class="plan-row-info"><h2>40-Day Wilderness</h2><p>Trust, provision, temptation. The classic spiritual rhythm—Lent, wilderness seasons.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">40 days</span><span class="plan-progress-pill" id="planPill-battle40">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=easter" class="plan-row plan-row-easter" data-plan="easter" role="listitem" aria-label="Resurrection Hope — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">✨</span>
+          <div class="plan-row-info"><h2>Resurrection Hope</h2><p>7 days of resurrection verses. Death to life. Doubt to faith.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge plan-badge-easter">7 days</span><span class="plan-progress-pill" id="planPill-easter">Not started</span></div>
         </a>
       </div>
     </div>
@@ -827,12 +851,35 @@
           { title: '40 days complete', ref: 'Deuteronomy 8:2', text: 'And thou shalt remember all the way which the LORD thy God led thee these forty years in the wilderness, to humble thee, and to prove thee, to know what was in thine heart, whether thou wouldest keep his commandments, or no.',
             speaker: 'Moses — to Israel before the promised land', plain: 'Forty days. He led you. He humbled you. He proved you. You kept His commandments.', today: 'Look back. What did the wilderness reveal in your heart?', action: 'Write down one thing the wilderness proved. Thank Him for the journey.', prayer: 'Lord, I remember the way You led me. Thank You for 40 days. Amen.' }
         ]
+      },
+
+      easter: {
+        id: 'easter', icon: '\u2728', label: 'Resurrection Hope',
+        desc: '7 days of resurrection verses. Death to life. Doubt to faith.',
+        key: 'tdb-plan-easter-day', max: 7,
+        days: [
+          { title: 'I am the resurrection', ref: 'John 11:25-26', text: 'Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die.',
+            speaker: 'Jesus to Martha at Lazarus\' tomb', plain: 'Death isn\'t the end. He is the resurrection. Believers live—even after death.', today: 'What feels dead in your life? He is the resurrection there too.', action: 'Name one thing that feels dead. Say: "Jesus is the resurrection here."', prayer: 'Lord, You are the resurrection and the life. I believe. Amen.' },
+          { title: 'Victory over death', ref: '1 Corinthians 15:54-57', text: 'So when this corruptible shall have put on incorruption, and this mortal shall have put on immortality, then shall be brought to pass the saying that is written, Death is swallowed up in victory. O death, where is thy sting? O grave, where is thy victory? The sting of death is sin; and the strength of sin is the law. But thanks be to God, which giveth us the victory through our Lord Jesus Christ.',
+            speaker: 'Paul — after explaining the resurrection', plain: 'Death has no sting. The grave has no victory. Christ won.', today: 'Where does death still sting you? Bring it to the Victor.', action: 'Say out loud: "Death, where is thy sting? Thanks be to God."', prayer: 'Thanks be to God. He gives the victory. Amen.' },
+          { title: 'He is risen', ref: 'Matthew 28:6', text: 'He is not here: for he is risen, as he said. Come, see the place where the Lord lay.',
+            speaker: 'The angel at the empty tomb', plain: 'The tomb is empty. He is not here. He is risen—as He said.', today: 'The grave could not hold Him. What grave are you still visiting?', action: 'Leave the empty tomb today. He is risen. Walk in that.', prayer: 'Lord, You are risen. I leave the grave. Amen.' },
+          { title: 'Walk in newness of life', ref: 'Romans 6:4', text: 'Therefore we are buried with him by baptism into death: that like as Christ was raised up from the dead by the glory of the Father, even so we also should walk in newness of life.',
+            speaker: 'Paul — on union with Christ in death and resurrection', plain: 'Buried with Him. Raised with Him. Walk in newness—today.', today: 'What old thing needs to stay buried so you can walk in newness?', action: 'Name one thing you\'re leaving in the grave. Walk in newness.', prayer: 'Lord, I walk in newness of life. The old is buried. Amen.' },
+          { title: 'Lively hope', ref: '1 Peter 1:3', text: 'Blessed be the God and Father of our Lord Jesus Christ, which according to his abundant mercy hath begotten us again unto a lively hope by the resurrection of Jesus Christ from the dead.',
+            speaker: 'Peter — to scattered believers', plain: 'A lively hope. Not a faint one. Born again by His resurrection.', today: 'Is your hope lively—or has it gone dull?', action: 'Ask God to renew your hope today. "Begotten again unto a lively hope."', prayer: 'Blessed be God. Give me a lively hope. Amen.' },
+          { title: 'New creature', ref: '2 Corinthians 5:17', text: 'Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.',
+            speaker: 'Paul — on what the resurrection means for believers', plain: 'In Christ: new creature. Old passed away. All things new.', today: 'What old thing are you still carrying that has passed away?', action: 'Release one old thing today. Behold: all things new.', prayer: 'Lord, I am a new creature. Old things passed away. Amen.' },
+          { title: 'Because I live', ref: 'John 14:19', text: 'Yet a little while, and the world seeth me no more; but ye see me: because I live, ye shall live also.',
+            speaker: 'Jesus — the night before the cross', plain: 'Because He lives, you live. Not theory. Promise.', today: 'Seven days of resurrection hope. Where do you live differently now?', action: 'Write one sentence: "Because He lives, I ___." Offer it to Him.', prayer: 'Lord, because You live, I live. Thank You. Amen.' }
+        ]
       }
     };
 
     // ── State ──────────────────────────────────────────────────────────────────
     var currentPlan = null;
     var currentDay  = 0; // 0-indexed
+    var plansReadAloudBtn = null;
 
     function getDayProgress(plan) {
       return parseInt(localStorage.getItem(plan.key) || '0', 10);
@@ -959,6 +1006,8 @@
     }
 
     function renderDayCard() {
+      try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
+      plansReadAloudBtn = null;
       // Update pill highlight
       var pills = document.querySelectorAll('.day-pill');
       pills.forEach(function(p, i){ p.classList.toggle('current', i === currentDay); });
@@ -989,6 +1038,7 @@
             '<button type="button" class="btn-complete' + (isDone ? ' done' : '') + '" id="btnComplete" aria-label="' + (isDone ? 'Day complete' : 'Mark day complete') + '">' +
               (isDone ? '✓ Day Complete' : 'Mark Complete') +
             '</button>' +
+            '<button type="button" class="btn-read-aloud" id="btnReadAloud" aria-label="Read this verse aloud" aria-pressed="false">\uD83D\uDD0A Listen</button>' +
             '<button type="button" class="btn-share" id="btnShareDay" aria-label="Share this verse">Share ↗</button>' +
           '</div>' +
         '</div>';
@@ -996,6 +1046,77 @@
       // Wire buttons
       document.getElementById('btnComplete').addEventListener('click', markComplete);
       document.getElementById('btnShareDay').addEventListener('click', shareDay);
+      var readAloudBtn = document.getElementById('btnReadAloud');
+      if (readAloudBtn) readAloudBtn.addEventListener('click', function () { readDayAloud(dayData, readAloudBtn); });
+    }
+
+    function readDayAloud(dayData, listenBtn) {
+      if (!dayData) return;
+      if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+        showToast('Voice not supported — try Chrome or Edge');
+        return;
+      }
+      var synth = window.speechSynthesis;
+      if (synth.speaking && !synth.paused) {
+        synth.pause();
+        if (listenBtn) {
+          listenBtn.setAttribute('aria-pressed', 'false');
+          listenBtn.setAttribute('aria-label', 'Resume narration');
+          listenBtn.textContent = '\u25B6 Resume';
+        }
+        plansReadAloudBtn = listenBtn;
+        return;
+      }
+      if (synth.paused) {
+        synth.resume();
+        if (listenBtn) {
+          listenBtn.setAttribute('aria-pressed', 'true');
+          listenBtn.setAttribute('aria-label', 'Pause narration');
+          listenBtn.textContent = '\u23F8 Pause';
+        }
+        plansReadAloudBtn = listenBtn;
+        return;
+      }
+      try { synth.cancel(); } catch (_) {}
+      var text = (dayData.ref || '') + '. ' + (dayData.text || '');
+      if (!text.trim()) return;
+      plansReadAloudBtn = listenBtn;
+      var u = new SpeechSynthesisUtterance(text);
+      u.rate = 0.95;
+      var voices = synth.getVoices();
+      var en = voices.filter(function (v) { return v.lang && v.lang.startsWith('en'); })[0];
+      if (en) u.voice = en;
+      u.onstart = function () {
+        if (plansReadAloudBtn) {
+          plansReadAloudBtn.setAttribute('aria-pressed', 'true');
+          plansReadAloudBtn.setAttribute('aria-label', 'Pause narration');
+          plansReadAloudBtn.textContent = '\u23F8 Pause';
+        }
+      };
+      u.onend = u.onerror = function () {
+        if (plansReadAloudBtn) {
+          plansReadAloudBtn.setAttribute('aria-pressed', 'false');
+          plansReadAloudBtn.setAttribute('aria-label', 'Read this verse aloud');
+          plansReadAloudBtn.textContent = '\uD83D\uDD0A Listen';
+          plansReadAloudBtn = null;
+        }
+      };
+      u.onpause = function () {
+        if (plansReadAloudBtn) {
+          plansReadAloudBtn.setAttribute('aria-pressed', 'false');
+          plansReadAloudBtn.setAttribute('aria-label', 'Resume narration');
+          plansReadAloudBtn.textContent = '\u25B6 Resume';
+        }
+      };
+      u.onresume = function () {
+        if (plansReadAloudBtn) {
+          plansReadAloudBtn.setAttribute('aria-pressed', 'true');
+          plansReadAloudBtn.setAttribute('aria-label', 'Pause narration');
+          plansReadAloudBtn.textContent = '\u23F8 Pause';
+        }
+      };
+      synth.speak(u);
+      showToast('Reading aloud…');
     }
 
     function markComplete() {
@@ -1015,6 +1136,7 @@
       setDayProgress(plan, newProgress);
 
       // Streak
+      var prevLongest = parseInt(localStorage.getItem('tdb-longest-streak') || '0', 10);
       var today     = new Date().toDateString();
       var lastDay   = localStorage.getItem('tdb-streak-' + plan.id + '-date') || '';
       var yesterday = new Date(Date.now() - 86400000).toDateString();
@@ -1023,13 +1145,26 @@
       else if (lastDay !== today) { streak = 1; }
       localStorage.setItem('tdb-streak-' + plan.id, String(streak));
       localStorage.setItem('tdb-streak-' + plan.id + '-date', today);
+      var longest = parseInt(localStorage.getItem('tdb-longest-streak') || '0', 10);
+      if (streak > longest) localStorage.setItem('tdb-longest-streak', String(streak));
+      var didIncreaseLongest = streak > prevLongest && prevLongest >= 0;
 
       // Move to next day
       if (newProgress < plan.max) {
         currentDay = newProgress;
-        showToast(streak > 1 ? '🔥 ' + streak + '-day streak!' : 'Day ' + newProgress + ' done ✓');
+        if (didIncreaseLongest && streak > 0) {
+          var diff = streak - prevLongest;
+          showToast((diff === 1 ? '+1 to your streak!' : '+' + diff + ' to your streak!') + ' \uD83D\uDD25');
+        } else {
+          showToast(streak > 1 ? '🔥 ' + streak + '-day streak!' : 'Day ' + newProgress + ' done ✓');
+        }
       } else {
-        showToast('🏆 Plan done. One more battle won.');
+        if (didIncreaseLongest && streak > 0) {
+          var diff = streak - prevLongest;
+          showToast((diff === 1 ? '+1 to your streak!' : '+' + diff + ' to your streak!') + ' \uD83D\uDD25');
+        } else {
+          showToast('🏆 Plan done. One more battle won.');
+        }
       }
       renderDetail();
     }
@@ -1074,6 +1209,18 @@
       showToast('Starting fresh ✓');
       renderDetail();
     });
+
+    // ── Easter banner dismiss ────────────────────────────────────────────────
+    (function () {
+      var key = 'tdb-easter-banner-dismissed';
+      var banner = document.getElementById('easterBanner');
+      var dismiss = document.getElementById('easterBannerDismiss');
+      if (banner && dismiss && localStorage.getItem(key) === '1') banner.classList.add('hidden');
+      if (dismiss) dismiss.addEventListener('click', function () {
+        try { localStorage.setItem(key, '1'); } catch (_) {}
+        if (banner) banner.classList.add('hidden');
+      });
+    })();
 
     // ── URL routing — open plan directly if ?plan=id in URL ──────────────────
     function init() {

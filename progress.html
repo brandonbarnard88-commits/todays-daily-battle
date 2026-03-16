@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
+  <script src="ga-config.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progress • Today's Daily Battle</title>
+  <meta name="description" content="Your battle plan progress, streaks, and stats. All saved locally—your journey, your pace.">
+  <link rel="canonical" href="https://todaysdailybattle.com/progress.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161c26;
+      --text: #f5f7fb;
+      --muted: #8896b0;
+      --gold: #e3bc67;
+      --gold-soft: #c9a84c;
+      --line: #242d3d;
+      --green: #4ade80;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; width: 100%; background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif; font-size: 1rem; line-height: 1.6; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; }
+
+    .progress-page { max-width: 600px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    .progress-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-bottom: 1.5rem;
+      transition: color 0.15s;
+    }
+    .progress-back:hover { color: var(--gold); }
+    .progress-hero { text-align: center; margin-bottom: 2rem; }
+    .progress-hero h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; color: var(--gold); margin: 0 0 0.4rem; }
+    .progress-hero p { font-size: 0.92rem; color: var(--muted); margin: 0; }
+
+    .progress-section { margin-bottom: 2rem; }
+    .progress-section h2 { font-size: 1rem; font-weight: 700; color: var(--text); margin: 0 0 0.75rem; }
+    .progress-streak {
+      font-size: 1.5rem; font-weight: 700; color: var(--gold);
+      padding: 1rem 1.25rem; background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      border-radius: 12px; text-align: center;
+    }
+    .progress-streak.flame-active {
+      animation: flame-pulse 2s ease-in-out infinite;
+    }
+    @keyframes flame-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    .progress-longest { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    .progress-card {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.75rem;
+      transition: border-color 0.15s;
+    }
+    .progress-card:hover { border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+    .progress-card h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem; color: var(--text); }
+    .progress-card p { font-size: 0.82rem; color: var(--muted); margin: 0 0 0.5rem; }
+    .progress-bar-wrap {
+      height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 0.6rem;
+    }
+    .progress-bar-fill {
+      height: 100%; border-radius: 999px;
+      background: linear-gradient(90deg, #ff8c00, #e3bc67, #ff8c00);
+      background-size: 200% 100%;
+      animation: gradient-flow 3s linear infinite;
+      transition: width 0.4s ease;
+    }
+    @keyframes gradient-flow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .progress-card a {
+      font-size: 0.85rem; color: var(--gold); text-decoration: none; font-weight: 600;
+    }
+    .progress-card a:hover { text-decoration: underline; }
+    .progress-completed { color: var(--green); }
+    .progress-completed-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 0; font-size: 0.9rem; color: var(--muted);
+    }
+    .progress-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+    }
+    .progress-stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.85rem;
+      text-align: center;
+    }
+    .progress-stat-value { font-size: 1.25rem; font-weight: 700; color: var(--gold); }
+    .progress-stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+    .progress-empty { font-size: 0.9rem; color: var(--muted); font-style: italic; padding: 0.5rem 0; }
+
+    .progress-actions { text-align: center; margin-top: 2rem; }
+    .btn-reset {
+      background: transparent;
+      border: 1px solid color-mix(in srgb, #ff4444 50%, transparent);
+      color: var(--muted);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-reset:hover { border-color: #ff4444; color: #ff6b6b; }
+
+    .btn-export {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-export:hover { background: color-mix(in srgb, var(--gold) 15%, transparent); }
+
+    .modal-overlay {
+      display: none;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.75);
+      justify-content: center; align-items: center;
+      z-index: 1000;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal-content {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      text-align: center;
+    }
+    .modal-content h2 { font-size: 1.1rem; margin: 0 0 0.75rem; color: var(--text); }
+    .modal-content p { font-size: 0.9rem; color: var(--muted); margin: 0 0 1.25rem; line-height: 1.5; }
+    .modal-buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn-confirm-reset {
+      background: #b91c1c;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-confirm-reset:hover { background: #991b1b; }
+    .btn-cancel { background: var(--line); color: var(--text); border: none; padding: 0.6rem 1.25rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer; }
+    .btn-cancel:hover { background: var(--muted); }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #0d1117;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 1001;
+      animation: toast-in 0.2s ease;
+    }
+    @keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <main class="progress-page" id="main" role="main">
+    <a href="/" class="progress-back" aria-label="Back to Today's Daily Battle">← Home</a>
+    <header class="progress-hero">
+      <h1>Progress</h1>
+      <p>Your battles, your pace — all saved locally.</p>
+    </header>
+
+    <section class="progress-section" id="streak-section" aria-label="Streaks">
+      <h2>Current Streak</h2>
+      <div id="streak-display" class="progress-streak" role="status" aria-live="polite">Calculating…</div>
+      <div id="longest-display" class="progress-longest" aria-live="polite"></div>
+    </section>
+
+    <section class="progress-section" id="active-plans" aria-label="Active plans">
+      <h2>Active Plans</h2>
+      <div id="active-list"></div>
+    </section>
+
+    <section class="progress-section" id="completed-plans" aria-label="Completed plans">
+      <h2>Completed Plans</h2>
+      <div id="completed-list"></div>
+    </section>
+
+    <section class="progress-section" id="stats" aria-label="Stats">
+      <h2>Stats</h2>
+      <div class="progress-stats">
+        <div class="progress-stat">
+          <div class="progress-stat-value" id="total-verses">0</div>
+          <div class="progress-stat-label">Verses read</div>
+        </div>
+        <div class="progress-stat">
+          <div class="progress-stat-value" id="plans-started">0</div>
+          <div class="progress-stat-label">Plans started</div>
+        </div>
+        <div class="progress-stat">
+          <div class="progress-stat-value" id="days-battled">0</div>
+          <div class="progress-stat-label">Days battled</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:1rem;">
+        <button type="button" id="export-stats" class="btn-export" aria-label="Copy my progress stats to clipboard">Copy My Stats</button>
+      </p>
+    </section>
+
+    <p style="text-align:center; margin-top:2rem;">
+      <a href="plans.html" style="color:var(--gold);">Pick a plan →</a>
+    </p>
+
+    <div class="progress-actions">
+      <button type="button" id="reset-progress" class="btn-reset" aria-label="Reset all progress">Reset Progress</button>
+    </div>
+  </main>
+
+  <div id="reset-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-content">
+      <h2 id="modal-title">Reset Progress?</h2>
+      <p id="modal-desc">This will clear all plans, streaks, and stats. Your data is local only—no recovery.</p>
+      <div class="modal-buttons">
+        <button type="button" id="confirm-reset" class="btn-confirm-reset">Yes, Reset</button>
+        <button type="button" id="cancel-reset" class="btn-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var PLAN_CONFIGS = {
+      battle:    { id: 'battle',    label: 'Battle Distraction',  key: 'tdb-plan-day',            max: 7  },
+      gratitude: { id: 'gratitude', label: 'Gratitude',            key: 'tdb-plan-gratitude-day', max: 7  },
+      strength:  { id: 'strength',  label: '30-Day Strength',      key: 'tdb-plan-strength-day',  max: 30 },
+      marriage:  { id: 'marriage',  label: 'Marriage',             key: 'tdb-plan-marriage-day',  max: 7  },
+      peace:     { id: 'peace',     label: '7-Day Peace',         key: 'tdb-plan-peace-day',     max: 7  },
+      battle10:  { id: 'battle10',  label: '10-Day Battle',       key: 'tdb-plan-battle10-day', max: 10 },
+      battle14:  { id: 'battle14',  label: '14-Day Battle',        key: 'tdb-plan-battle14-day', max: 14 },
+      battle21:  { id: 'battle21',  label: '21-Day Battle',        key: 'tdb-plan-battle21-day', max: 21 },
+      battle30:  { id: 'battle30',  label: '30-Day Battle',       key: 'tdb-plan-battle30-day', max: 30 },
+      battle40:  { id: 'battle40',  label: '40-Day Wilderness',   key: 'tdb-plan-battle40-day', max: 40 },
+      easter:    { id: 'easter',    label: 'Resurrection Hope',  key: 'tdb-plan-easter-day',   max: 7  }
+    };
+
+    var LONGEST_KEY = 'tdb-longest-streak';
+
+    function getDay(plan) {
+      try {
+        var raw = localStorage.getItem(plan.key);
+        if (!raw) return 0;
+        var parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object' && typeof parsed.day === 'number') return parsed.day;
+        return parseInt(raw, 10) || 0;
+      } catch (_) {
+        return parseInt(localStorage.getItem(plan.key) || '0', 10) || 0;
+      }
+    }
+
+    function getStreak(planId) {
+      return parseInt(localStorage.getItem('tdb-streak-' + planId) || '0', 10) || 0;
+    }
+
+    function getLongestStreak() {
+      return parseInt(localStorage.getItem(LONGEST_KEY) || '0', 10) || 0;
+    }
+
+    function showToast(message) {
+      var container = document.getElementById('toast-container');
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(function () { toast.remove(); }, 3000);
+    }
+
+    function clearAllProgress() {
+      var keys = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && (k.indexOf('tdb-plan') === 0 || k.indexOf('tdb-streak') === 0 || k === LONGEST_KEY)) {
+          keys.push(k);
+        }
+      }
+      keys.forEach(function (k) { localStorage.removeItem(k); });
+    }
+
+    function loadProgress() {
+      var prevLongest = getLongestStreak();
+      var active = [];
+      var completed = [];
+      var totalVerses = 0;
+      var plansStarted = 0;
+      var maxStreak = 0;
+
+      Object.keys(PLAN_CONFIGS).forEach(function (planId) {
+        var plan = PLAN_CONFIGS[planId];
+        var day = Math.min(Math.max(getDay(plan), 0), plan.max);
+        var streak = getStreak(planId);
+
+        if (day > 0) {
+          plansStarted++;
+          totalVerses += day;
+        }
+        if (streak > maxStreak) maxStreak = streak;
+
+        if (day >= plan.max) {
+          completed.push({ plan: plan, day: day });
+        } else if (day > 0) {
+          active.push({ plan: plan, day: day, percent: Math.round((day / plan.max) * 100) });
+        }
+      });
+
+      var displayStreak = maxStreak;
+      if (displayStreak === 0 && active.length > 0) {
+        var best = active.reduce(function (a, b) { return a.day > b.day ? a : b; }, active[0]);
+        displayStreak = best.day;
+      }
+
+      var longest = getLongestStreak();
+      if (displayStreak > longest) longest = displayStreak;
+      var didIncrease = longest > prevLongest && prevLongest >= 0;
+      if (longest > 0 && getLongestStreak() < longest) {
+        try { localStorage.setItem(LONGEST_KEY, String(longest)); } catch (_) {}
+      }
+      if (didIncrease && longest > 0) {
+        var diff = longest - prevLongest;
+        showToast((diff === 1 ? '+1 to your streak!' : '+' + diff + ' to your streak!') + ' \uD83D\uDD25');
+      }
+
+      var streakEl = document.getElementById('streak-display');
+      streakEl.textContent = displayStreak > 0
+        ? '\uD83D\uDD25 ' + displayStreak + '-day streak'
+        : '\uD83D\uDD25 Start a plan to build your streak';
+      streakEl.classList.toggle('flame-active', displayStreak > 0);
+
+      var longestEl = document.getElementById('longest-display');
+      longestEl.textContent = longest > 0 ? 'Longest: ' + longest + ' day' + (longest > 1 ? 's' : '') : '';
+
+      var activeEl = document.getElementById('active-list');
+      if (active.length === 0) {
+        activeEl.innerHTML = '<p class="progress-empty">No active plans yet — <a href="plans.html">start one</a>.</p>';
+      } else {
+        activeEl.innerHTML = '';
+        active.forEach(function (p) {
+          var card = document.createElement('div');
+          card.className = 'progress-card';
+          card.innerHTML =
+            '<h3>' + escapeHtml(p.plan.label) + '</h3>' +
+            '<p>Day ' + p.day + ' of ' + p.plan.max + '</p>' +
+            '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + p.percent + '%"></div></div>' +
+            '<a href="plans.html?plan=' + encodeURIComponent(p.plan.id) + '">Continue →</a>';
+          activeEl.appendChild(card);
+        });
+      }
+
+      var completedEl = document.getElementById('completed-list');
+      if (completed.length === 0) {
+        completedEl.innerHTML = '<p class="progress-empty">No completed plans yet.</p>';
+      } else {
+        completedEl.innerHTML = '';
+        completed.forEach(function (p) {
+          var item = document.createElement('div');
+          item.className = 'progress-completed-item progress-completed';
+          item.innerHTML = '\u2713 ' + escapeHtml(p.plan.label) + ' \u2014 ' + p.plan.max + '/' + p.plan.max;
+          completedEl.appendChild(item);
+        });
+      }
+
+      document.getElementById('total-verses').textContent = totalVerses;
+      document.getElementById('plans-started').textContent = plansStarted;
+      document.getElementById('days-battled').textContent = totalVerses;
+    }
+
+    function escapeHtml(s) {
+      var div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    function exportStats() {
+      var longest = getLongestStreak();
+      var totalVerses = document.getElementById('total-verses').textContent || '0';
+      var plansStarted = document.getElementById('plans-started').textContent || '0';
+      var daysBattled = document.getElementById('days-battled').textContent || '0';
+      var activeCount = document.querySelectorAll('#active-list .progress-card').length || 0;
+      var completedCount = document.querySelectorAll('#completed-list .progress-completed-item').length || 0;
+
+      var statsText = 'My Today\'s Daily Battle progress:\n' +
+        '\uD83D\uDD25 Longest streak: ' + longest + ' day' + (longest !== 1 ? 's' : '') + '\n' +
+        'Verses read: ' + totalVerses + '\n' +
+        'Plans started: ' + plansStarted + ' (' + activeCount + ' active, ' + completedCount + ' completed)\n' +
+        'Days battled: ' + daysBattled + '\n\n' +
+        'Join me at https://todaysdailybattle.com';
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(statsText).then(function () {
+          showToast('Copied!');
+        }).catch(function () {
+          showToast('Copy failed');
+        });
+      } else {
+        showToast('Copy not available');
+      }
+    }
+
+    document.getElementById('reset-progress').addEventListener('click', function () {
+      document.getElementById('reset-modal').classList.add('show');
+    });
+    document.getElementById('cancel-reset').addEventListener('click', function () {
+      document.getElementById('reset-modal').classList.remove('show');
+    });
+    document.getElementById('confirm-reset').addEventListener('click', function () {
+      clearAllProgress();
+      document.getElementById('reset-modal').classList.remove('show');
+      showToast('Progress cleared');
+      loadProgress();
+    });
+    document.getElementById('export-stats').addEventListener('click', exportStats);
+
+    loadProgress();
+  })();
+  </script>
+</body>
+</html>

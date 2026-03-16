@@ -1253,7 +1253,9 @@
       caption: 'Swipe to see how God helped David be brave! ⚔️',
       videoId: 'QuLN7IWFJNY',
       videoTitle: 'David and Goliath – Animated!',
-      keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot']
+      keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot'],
+      kjvRef: '1 Samuel 17',
+      kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Be brave—He fights for you!' }
     },
     noah: {
       title: "Noah's Ark",
@@ -1265,7 +1267,9 @@
       caption: "Swipe to see God's promise with Noah and the rainbow! 🌈",
       videoId: 'qzYjy6lhRag',
       videoTitle: "Noah's Ark – Animated!",
-      keywords: ['noah', 'ark', 'rainbow', 'promise', 'flood', 'animals']
+      keywords: ['noah', 'ark', 'rainbow', 'promise', 'flood', 'animals'],
+      kjvRef: 'Genesis 6–9',
+      kidContext: { who: 'God', to: 'Noah and his family', apply: 'God keeps His promises! When you obey, He takes care of you.' }
     },
     jesus: {
       title: 'Jesus the Good Shepherd',
@@ -1277,7 +1281,9 @@
       caption: 'Swipe to see Jesus loving the children and being our shepherd! ❤️',
       videoId: '8qPP0SgxAvw',
       videoTitle: 'Jesus the Good Shepherd – Animated!',
-      keywords: ['jesus', 'shepherd', 'children', 'love', 'lamb']
+      keywords: ['jesus', 'shepherd', 'children', 'love', 'lamb'],
+      kjvRef: 'John 10',
+      kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! Come to Him—He loves you like a shepherd loves his sheep!' }
     },
     jonah: {
       title: 'Jonah & the Big Fish',
@@ -1289,7 +1295,9 @@
       caption: 'Swipe to see Jonah learn to obey God! 🐋',
       videoId: 'WOSadLyqshg',
       videoTitle: "Jonah and the Fish – Saddleback Kids!",
-      keywords: ['jonah', 'whale', 'fish', 'obey', 'nineveh']
+      keywords: ['jonah', 'whale', 'fish', 'obey', 'nineveh'],
+      kjvRef: 'Jonah 1:17',
+      kidContext: { who: 'God', to: 'Jonah (and us)', apply: 'God gives second chances! When you run away, turn back—He\'s waiting!' }
     },
     daniel: {
       title: 'Daniel & the Lions',
@@ -1301,45 +1309,50 @@
       caption: 'Swipe to see God protect Daniel! 🦁',
       videoId: 'odcRHDqcVlc',
       videoTitle: "Daniel and the Lions' Den – God's Story!",
-      keywords: ['daniel', 'lion', 'lions', 'den', 'pray', 'protect']
+      keywords: ['daniel', 'lion', 'lions', 'den', 'pray', 'protect'],
+      kjvRef: 'Daniel 6:22',
+      kidContext: { who: 'God', to: 'Daniel (and us)', apply: 'Keep praying—God shuts the lions\' mouths! He protects those who trust Him.' }
     },
     adamEve: {
       title: 'Adam & Eve',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Adam and Eve in the garden' },
-        { src: 'panel-noah-2.svg', alt: 'The serpent and the apple' },
-        { src: 'panel-noah-3.svg', alt: 'God still loves them' }
+        { src: 'panel-jesus-1.svg', alt: 'Adam and Eve in the garden' },
+        { src: 'panel-jesus-2.svg', alt: 'The serpent and the apple' },
+        { src: 'panel-jesus-3.svg', alt: 'God still loves them' }
       ],
       caption: 'Swipe to see the first family in God\'s garden! 🌳',
       videoId: 'l7TDvJrjjz0',
       videoTitle: 'Adam and Eve – Saddleback Kids!',
       keywords: ['adam', 'eve', 'garden', 'apple', 'hide', 'eden', 'creation'],
+      kjvRef: 'Genesis 3',
       kidContext: { who: 'God', to: 'Adam and Eve (the first people)', apply: 'God made you special! Even when we make mistakes, He still loves us.' }
     },
     cainAbel: {
       title: 'Cain & Abel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Cain and Abel bring offerings' },
-        { src: 'panel-david-2.svg', alt: 'God is pleased with Abel' },
-        { src: 'panel-david-3.svg', alt: 'God warns Cain about anger' }
+        { src: 'panel-jesus-1.svg', alt: 'Cain and Abel bring offerings' },
+        { src: 'panel-jesus-2.svg', alt: 'God is pleased with Abel' },
+        { src: 'panel-jesus-3.svg', alt: 'God warns Cain about anger' }
       ],
       caption: 'Swipe to see why giving our best to God matters! 🐑',
       videoId: 'vT8Yjc-4es8',
       videoTitle: "Cain and Abel – Bible Story for Kids!",
       keywords: ['cain', 'abel', 'jealousy', 'offering', 'brothers'],
+      kjvRef: 'Genesis 4',
       kidContext: { who: 'God', to: 'Cain and Abel (first brothers)', apply: 'Give God your best! When you feel jealous, talk to God instead of getting angry.' }
     },
     towerBabel: {
       title: 'Tower of Babel',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'People build a tall tower' },
-        { src: 'panel-jonah-2.svg', alt: 'God mixes up their words' },
-        { src: 'panel-jonah-3.svg', alt: 'Everyone speaks different languages' }
+        { src: 'panel-noah-1.svg', alt: 'People build a tall tower' },
+        { src: 'panel-noah-2.svg', alt: 'God mixes up their words' },
+        { src: 'panel-noah-3.svg', alt: 'Everyone speaks different languages' }
       ],
       caption: 'Swipe to see how God made many languages! 🌍',
       videoId: '4EQh7C-IUcM',
       videoTitle: 'Tower of Babel – Bible Stories for Kids!',
       keywords: ['babel', 'tower', 'confusion', 'languages', 'babylon'],
+      kjvRef: 'Genesis 11',
       kidContext: { who: 'God', to: 'The people building the tower', apply: 'God is bigger than any tower! He made all the languages—that\'s why we have so many ways to talk!' }
     },
     abrahamIsaac: {
@@ -1353,6 +1366,7 @@
       videoId: '8QTk848O-yQ',
       videoTitle: 'Abraham and Isaac – Bible Stories for Kids!',
       keywords: ['abraham', 'isaac', 'sacrifice', 'ram', 'trust', 'faith'],
+      kjvRef: 'Genesis 22',
       kidContext: { who: 'God', to: 'Abraham (father of faith)', apply: 'When you trust God, He takes care of you. Abraham obeyed—and God provided!' }
     },
     josephCoat: {
@@ -1366,6 +1380,7 @@
       videoId: 'MKW6ylouF1s',
       videoTitle: "Joseph's Coat of Many Colors – Bible Stories!",
       keywords: ['joseph', 'coat', 'dreams', 'brothers', 'colors'],
+      kjvRef: 'Genesis 37',
       kidContext: { who: 'God', to: 'Joseph (Jacob\'s son)', apply: 'God had big plans for Joseph! Even when things seem bad, God is working for good.' }
     },
     mosesBush: {
@@ -1379,6 +1394,7 @@
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
       keywords: ['moses', 'bush', 'fire', 'staff', 'call', 'exodus 3', 'burning'],
+      kjvRef: 'Exodus 3',
       kidContext: { who: 'God', to: 'Moses (in the desert)', apply: 'God called Moses from a burning bush! When God calls you, say yes—He will help you!' }
     },
     redSea: {
@@ -1392,6 +1408,7 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'waters', 'part', 'exodus 14', 'egypt', 'escape'],
+      kjvRef: 'Exodus 14',
       kidContext: { who: 'God', to: 'Moses and the Israelites', apply: 'God makes a way! When things seem impossible, trust Him—He can do anything!' }
     },
     manna: {
@@ -1405,6 +1422,7 @@
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
       keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'food', 'provide'],
+      kjvRef: 'Exodus 16',
       kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: 'God gives what we need! Trust Him for your food, your family—He takes care of you!' }
     },
     tenCommandments: {
@@ -1418,6 +1436,7 @@
       videoId: 'P12cLzy1-3Q',
       videoTitle: 'The Ten Commandments – Bible Stories for Kids!',
       keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules', 'law'],
+      kjvRef: 'Exodus 20',
       kidContext: { who: 'God', to: 'Moses and the Israelites', apply: 'God gives rules to keep us safe! Love God and love others—that\'s what matters!' }
     },
     samson: {
@@ -1431,6 +1450,7 @@
       videoId: 'vnRAdASpsz4',
       videoTitle: "Samson and Delilah – Bible Lessons for Kids!",
       keywords: ['samson', 'hair', 'strength', 'pillars', 'judges 16', 'power', 'delilah'],
+      kjvRef: 'Judges 16',
       kidContext: { who: 'God', to: 'Samson (a strong man)', apply: 'God gives power—use it right! Be strong for good, not for showing off.' }
     },
     fieryFurnace: {
@@ -1444,6 +1464,7 @@
       videoId: 'kAzX-Icrbm0',
       videoTitle: 'The Fiery Furnace – Shadrach, Meshach & Abednego!',
       keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3'],
+      kjvRef: 'Daniel 3',
       kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: 'God keeps friends safe! When you stand for God, He stands with you!' }
     },
     esther: {
@@ -1457,6 +1478,7 @@
       videoId: '7945Bh5iG_A',
       videoTitle: 'The Story of Esther – Bible Stories for Kids!',
       keywords: ['esther', 'queen', 'king', 'brave', 'save', 'such a time'],
+      kjvRef: 'Esther 4',
       kidContext: { who: 'God', to: 'Esther (queen who saved her people)', apply: 'Be brave—God uses you! You were made for such a time as this!' }
     },
     jesusBirth: {
@@ -1470,6 +1492,7 @@
       videoId: 'v3656G6tWuI',
       videoTitle: 'The Story of Christmas – Jesus is Born!',
       keywords: ['jesus', 'birth', 'manger', 'shepherds', 'angels', 'bethlehem', 'luke 2', 'christmas'],
+      kjvRef: 'Luke 2',
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came as a baby—God loves us! Christmas is about God\'s greatest gift!' }
     },
     jesusCalmsStorm: {
@@ -1483,6 +1506,7 @@
       videoId: 'uYLHqdSO9OY',
       videoTitle: 'Jesus Calms the Storm – Bible Story for Kids!',
       keywords: ['jesus', 'storm', 'boat', 'waves', 'peace', 'matthew 14', 'mark 4'],
+      kjvRef: 'Mark 4:39',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus stops storms—trust Him! When you\'re scared, He says: Don\'t be afraid—I\'m here!' }
     },
     jesusFeeds5000: {
@@ -1496,6 +1520,7 @@
       videoId: 'S6rj9cAJrWE',
       videoTitle: 'Jesus Feeds the 5,000 – Saddleback Kids!',
       keywords: ['jesus', 'feeds', '5000', 'bread', 'fish', 'miracle', 'matthew 14', 'john 6'],
+      kjvRef: 'John 6',
       kidContext: { who: 'Jesus', to: 'The 5,000 people (and us)', apply: 'Jesus feeds everyone—He cares! Give God what you have—He can multiply it!' }
     },
     goodSamaritan: {
@@ -1509,6 +1534,7 @@
       videoId: 'juBnHljnB0I',
       videoTitle: 'The Good Samaritan – Bible Story for Kids!',
       keywords: ['good samaritan', 'neighbor', 'help', 'stranger', 'bandage', 'luke 10'],
+      kjvRef: 'Luke 10',
       kidContext: { who: 'Jesus', to: 'A man who asked "Who is my neighbor?"', apply: 'Love your neighbor—help anyone! Be kind to people who need you.' }
     },
     prodigalSon: {
@@ -1522,6 +1548,7 @@
       videoId: '29qEf9afdcA',
       videoTitle: 'The Prodigal Son – Bible Stories for Kids!',
       keywords: ['prodigal', 'son', 'run away', 'come back', 'party', 'forgiveness', 'luke 15'],
+      kjvRef: 'Luke 15',
       kidContext: { who: 'Jesus', to: 'People who wondered if God forgives', apply: 'God welcomes you home! No matter what you did, come back—He runs to meet you!' }
     },
     zacchaeus: {
@@ -1535,6 +1562,7 @@
       videoId: 'U-HjFU4wkUY',
       videoTitle: 'The Story of Zacchaeus – Bible Story for Kids!',
       keywords: ['zacchaeus', 'tree', 'short', 'jesus calls', 'luke 19', 'tax collector'],
+      kjvRef: 'Luke 19',
       kidContext: { who: 'Jesus', to: 'Zacchaeus (a short man in a tree)', apply: 'Jesus sees you—even if you\'re small! He knows your name and wants to be your friend!' }
     },
     lazarus: {
@@ -1548,6 +1576,7 @@
       videoId: '1FT04jjh3Q8',
       videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
       keywords: ['lazarus', 'raised', 'dead', 'come out', 'alive', 'john 11'],
+      kjvRef: 'John 11',
       kidContext: { who: 'Jesus', to: 'Mary, Martha, and Lazarus', apply: 'Jesus gives life—don\'t be sad! He is the Resurrection and the Life!' }
     },
     resurrection: {
@@ -1561,6 +1590,7 @@
       videoId: '2_dKPsPDXGM',
       videoTitle: 'Jesus Rose from the Grave – Kids Club Bible Story!',
       keywords: ['resurrection', 'empty tomb', 'alive', 'easter', 'matthew 28', 'john 20'],
+      kjvRef: 'Matthew 28',
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus beat death—He lives forever! That\'s why we celebrate Easter—He won!' }
     },
     creation: {
@@ -1574,6 +1604,7 @@
       videoId: 'teu7BCZTgDs',
       videoTitle: 'Creation (Genesis 1-2) – Saddleback Kids!',
       keywords: ['creation', 'genesis 1', 'light', 'animals', 'rest', 'god made'],
+      kjvRef: 'Genesis 1',
       kidContext: { who: 'God', to: 'Everyone', apply: 'God made everything—wow! You are part of His amazing creation!' }
     },
     fallOfJericho: {
@@ -1587,6 +1618,7 @@
       videoId: 'Ertlm3D9Cfs',
       videoTitle: 'The Walls of Jericho – Bible Story for Kids!',
       keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey'],
+      kjvRef: 'Joshua 6',
       kidContext: { who: 'God', to: 'Joshua and the Israelites', apply: 'God makes walls fall—trust Him! Obey God even when it seems weird!' }
     },
     davidSheep: {
@@ -1600,6 +1632,7 @@
       videoId: 'N5zP9YxUaLI',
       videoTitle: 'David, Lion & Bear – Bible Stories for Kids!',
       keywords: ['david', 'sheep', 'shepherd', 'harp', 'lion', '1 samuel 17'],
+      kjvRef: '1 Samuel 17',
       kidContext: { who: 'David', to: 'King Saul (and us)', apply: 'David protected sheep—God protects us! Like a shepherd cares for his flock!' }
     },
     elijahFire: {
@@ -1613,6 +1646,7 @@
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
       keywords: ['elijah', 'baal', 'fire', 'carmel', '1 kings 18', 'altar'],
+      kjvRef: '1 Kings 18',
       kidContext: { who: 'God', to: 'Elijah and all Israel', apply: 'God answers with fire—He\'s real! The LORD is God—trust Him alone!' }
     },
     elishaOil: {
@@ -1626,6 +1660,7 @@
       videoId: '6E2WJ0vp4g4',
       videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
       keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'jar'],
+      kjvRef: '2 Kings 4',
       kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies—He provides! Give God what you have—He can do more!' }
     },
     naaman: {
@@ -1639,6 +1674,7 @@
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: ['naaman', 'river', 'leprosy', 'dip', 'jordan', '2 kings 5', 'elisha'],
+      kjvRef: '2 Kings 5',
       kidContext: { who: 'God', to: 'Naaman (through Elisha)', apply: 'Obey God—get healed! Even when it seems simple, do what He says!' }
     },
     jesusWalksWater: {
@@ -1652,6 +1688,7 @@
       videoId: 'U69Ag6wEyB0',
       videoTitle: 'Jesus Walks on Water – Stories of the Bible!',
       keywords: ['jesus', 'walks', 'water', 'peter', 'waves', 'matthew 14'],
+      kjvRef: 'Matthew 14',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus walks on waves—He lifts us! Keep your eyes on Him—don\'t be afraid!' }
     },
     lostSheep: {
@@ -1665,6 +1702,7 @@
       videoId: 'CLpq2K-Jf0M',
       videoTitle: 'The Parable of the Lost Sheep – Animated Bible Story!',
       keywords: ['lost sheep', 'parable', 'shepherd', 'luke 15', 'find', 'rejoice'],
+      kjvRef: 'Luke 15',
       kidContext: { who: 'Jesus', to: 'People who wondered about God\'s love', apply: 'Jesus finds lost sheep—you\'re never lost! God searches for you!' }
     },
     palmSunday: {
@@ -1678,6 +1716,7 @@
       videoId: 'PCqqhfltyKM',
       videoTitle: 'Palm Sunday – Jesus Enters Jerusalem!',
       keywords: ['palm sunday', 'hosanna', 'donkey', 'jerusalem', 'matthew 21', 'luke 19'],
+      kjvRef: 'Matthew 21',
       kidContext: { who: 'The crowds', to: 'Jesus (the King)', apply: 'Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!' }
     },
     lastSupper: {
@@ -1691,6 +1730,7 @@
       videoId: 'y-SrXeZcVhU',
       videoTitle: 'The Last Supper – Sharefaith Kids!',
       keywords: ['last supper', 'bread', 'wine', 'luke 22', 'matthew 26', 'passover'],
+      kjvRef: 'Luke 22',
       kidContext: { who: 'Jesus', to: 'His twelve disciples', apply: 'Jesus shares bread—He loves us! Remember Him when you eat together!' }
     },
     jesusTemptation: {
@@ -1704,6 +1744,7 @@
       videoId: 'CN77fk1xNPQ',
       videoTitle: "Temptation of Jesus – Matthew 4 | Sharefaith Kids!",
       keywords: ['temptation', 'desert', 'devil', 'matthew 4', 'word', 'stones'],
+      kjvRef: 'Matthew 4',
       kidContext: { who: 'Jesus', to: 'Us (when we\'re tempted)', apply: "Jesus says no—use God's word! When the devil lies, quote the Bible!" }
     },
     parableSower: {
@@ -1717,6 +1758,7 @@
       videoId: 'Y01N77fQrTU',
       videoTitle: 'The Parable of the Sower – Animated Scripture Lesson!',
       keywords: ['sower', 'parable', 'seeds', 'soil', 'grow', 'matthew 13', 'mark 4'],
+      kjvRef: 'Matthew 13',
       kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Plant good words—grow strong! Let God\'s word take root in your heart!' }
     },
     richYoungRuler: {
@@ -1730,6 +1772,7 @@
       videoId: 'Z5tCVTOLnQ0',
       videoTitle: 'The Rich Young Ruler – Animated Bible Story!',
       keywords: ['rich young ruler', 'give', 'follow', 'mark 10', 'matthew 19', 'treasure'],
+      kjvRef: 'Mark 10',
       kidContext: { who: 'Jesus', to: 'The rich young ruler', apply: 'Give to others—follow Jesus! He\'s worth more than anything!' }
     },
     widowsMite: {
@@ -1743,6 +1786,7 @@
       videoId: 'cauP52JaBdQ',
       videoTitle: "The Widow's Coins – Animated Bible Story!",
       keywords: ['widow', 'mite', 'coins', 'mark 12', 'luke 21', 'small gift'],
+      kjvRef: 'Mark 12',
       kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Small gifts matter—God sees! Give what you have from the heart!' }
     },
     gardenPrayer: {
@@ -1756,6 +1800,7 @@
       videoId: 'mk7Ey0XDx0w',
       videoTitle: 'Garden of Gethsemane – CQ Kids!',
       keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22'],
+      kjvRef: 'Matthew 26',
       kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'Jesus talks to God—talk to Him! Pray when you\'re scared or sad!' }
     },
     betrayal: {
@@ -1769,6 +1814,7 @@
       videoId: '79iFRXt4470',
       videoTitle: 'Judas Betrays Jesus – Bible Stories!',
       keywords: ['judas', 'betrayal', 'kiss', 'matthew 26', 'mark 14', 'fail'],
+      kjvRef: 'Matthew 26',
       kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even friends fail—Jesus forgives! He still loves you when people hurt you.' }
     },
     trial: {
@@ -1782,6 +1828,7 @@
       videoId: 'zmYLuYfPQI8',
       videoTitle: 'Jesus & Pilate – The Miracle Maker!',
       keywords: ['pilate', 'trial', 'quiet', 'john 18', 'matthew 27', 'king'],
+      kjvRef: 'John 18',
       kidContext: { who: 'Jesus', to: 'Pilate (and us)', apply: 'Jesus stays quiet—trust God! When things are unfair, He knows the truth!' }
     },
     crucifixion: {
@@ -1795,6 +1842,7 @@
       videoId: 'bNq5tWl3OGk',
       videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
       keywords: ['crucifixion', 'cross', 'love', 'matthew 27', 'john 19', 'dies'],
+      kjvRef: 'John 19',
       kidContext: { who: 'Jesus', to: 'The whole world', apply: 'Jesus dies for us—love wins! He took our sins so we could be free!' }
     },
     roadToEmmaus: {
@@ -1808,6 +1856,7 @@
       videoId: 'PPsWHNa84Tc',
       videoTitle: 'Jesus on the Road to Emmaus – LifeKids!',
       keywords: ['emmaus', 'road', 'walk', 'luke 24', 'explain', 'bread'],
+      kjvRef: 'Luke 24',
       kidContext: { who: 'Jesus', to: 'Cleopas and his friend', apply: 'Jesus walks with us—He explains! He\'s with you on every road!' }
     },
     ascension: {
@@ -1821,6 +1870,7 @@
       videoId: 'TedR27BUBfw',
       videoTitle: 'Jesus Goes to Heaven – Stories of the Bible!',
       keywords: ['ascension', 'heaven', 'up', 'acts 1', 'luke 24', 'promise'],
+      kjvRef: 'Acts 1',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus goes up—He\'s with God! He promised to come back—spread His love!' }
     },
     pentecost: {
@@ -1834,6 +1884,7 @@
       videoId: '0kWV5-JQ9Yg',
       videoTitle: 'Pentecost – God Gives Us the Holy Spirit | LifeKids!',
       keywords: ['pentecost', 'holy spirit', 'tongues', 'acts 2', 'fire', 'wind'],
+      kjvRef: 'Acts 2',
       kidContext: { who: 'God', to: 'The disciples (and us)', apply: 'Holy Spirit comes—power for us! God fills you with His Spirit!' }
     },
     stephen: {
@@ -1847,6 +1898,7 @@
       videoId: 'J9wp38EfRqA',
       videoTitle: 'The Stoning of Stephen – Bible Story!',
       keywords: ['stephen', 'martyr', 'stones', 'forgive', 'acts 7', 'first'],
+      kjvRef: 'Acts 7',
       kidContext: { who: 'Stephen', to: 'Those who stoned him (and us)', apply: 'Stephen forgives—be like him! Even when hurt, pray for others!' }
     },
     paulDamascus: {
@@ -1860,6 +1912,7 @@
       videoId: 'oi95cv0tk9Q',
       videoTitle: 'Paul, Jesus, and the Road to Damascus – LifeKids!',
       keywords: ['paul', 'damascus', 'saul', 'light', 'change', 'acts 9'],
+      kjvRef: 'Acts 9',
       kidContext: { who: 'Jesus', to: 'Saul (who became Paul)', apply: 'Jesus changes Paul—He changes us! No one is too far for God!' }
     },
     heavenPromise: {
@@ -1873,6 +1926,7 @@
       videoId: 'ZWyITw1yuoA',
       videoTitle: 'Heavenly Hope – Revelation 21 | Kids Church!',
       keywords: ['heaven', 'revelation 21', 'no tears', 'new home', 'promise'],
+      kjvRef: 'Revelation 21',
       kidContext: { who: 'God', to: 'Everyone who believes', apply: 'God makes new home—no more sad! No tears, no pain—forever with Him!' }
     },
     ruthBoaz: {
@@ -1886,6 +1940,7 @@
       videoId: 'irThVpdeSXk',
       videoTitle: "God's Story: Ruth – Bible Story for Kids!",
       keywords: ['ruth', 'boaz', 'loyalty', 'harvest', 'naomi', 'ruth 1'],
+      kjvRef: 'Ruth 1',
       kidContext: { who: 'God', to: 'Ruth and Boaz', apply: 'Be kind—God sees! Loyalty and kindness matter to Him!' }
     },
     parableTalents: {
@@ -1899,6 +1954,7 @@
       videoId: '4M7BHiN5Ro0',
       videoTitle: "God's Story: Parable of the Talents!",
       keywords: ['talents', 'parable', 'money', 'servants', 'matthew 25', 'gifts'],
+      kjvRef: 'Matthew 25',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Use what God gave you—grow it! Don\'t hide your gifts—use them!' }
     },
     armorOfGod: {
@@ -1912,6 +1968,7 @@
       videoId: 'pFNzSpXhI_c',
       videoTitle: 'The Armor of God – Stories of the Bible!',
       keywords: ['armor', 'ephesians 6', 'helmet', 'sword', 'shield', 'truth'],
+      kjvRef: 'Ephesians 6',
       kidContext: { who: 'Paul', to: 'Christians in Ephesus (and us)', apply: 'Put on God\'s armor—you\'re strong! Truth, faith, peace—stand firm!' }
     },
     /* ── Week 1 (13–24) ── */
@@ -1924,6 +1981,7 @@
       ],
       caption: 'Swipe to see God split the sea—He makes a way! 🌊',
       keywords: ['moses', 'red sea', 'staff', 'parting', 'exodus 14', 'miracle'],
+      kjvRef: 'Exodus 14',
       kidContext: { who: 'God', to: 'Moses and Israel', apply: 'When the way looks impossible, God makes a way! Trust Him.' }
     },
     burningBush: {
@@ -1935,6 +1993,7 @@
       ],
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
       keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call'],
+      kjvRef: 'Exodus 3',
       kidContext: { who: 'God', to: 'Moses', apply: 'God calls you by name! When God calls, say yes—He will help you.' }
     },
     tenPlagues: {
@@ -1946,6 +2005,7 @@
       ],
       caption: 'Swipe to see God\'s power over Egypt—nothing stops Him! 🐸',
       keywords: ['plagues', 'egypt', 'frogs', 'darkness', 'exodus 8', 'pharaoh'],
+      kjvRef: 'Exodus 8',
       kidContext: { who: 'God', to: 'Pharaoh and Egypt', apply: 'Nothing is too hard for God! He fights for His people.' }
     },
     manna: {
@@ -1956,7 +2016,10 @@
         { src: 'panel-noah-3.svg', alt: 'Everyone has enough—God provides!' }
       ],
       caption: 'Swipe to see God feed His people with bread from heaven! 🍞',
+      videoId: 'Ln5Aa8jiEAM',
+      videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
       keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'provide'],
+      kjvRef: 'Exodus 16',
       kidContext: { who: 'God', to: 'Israel in the wilderness', apply: 'God gives what you need, one day at a time. Trust Him for today.' }
     },
     tenCommandments: {
@@ -1967,7 +2030,10 @@
         { src: 'panel-david-3.svg', alt: 'Rules to keep us safe and happy' }
       ],
       caption: 'Swipe to see God give rules to keep us safe! 📜',
+      videoId: 'P12cLzy1-3Q',
+      videoTitle: 'The Ten Commandments – Bible Stories for Kids!',
       keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules'],
+      kjvRef: 'Exodus 20',
       kidContext: { who: 'God', to: 'Moses and Israel', apply: 'God\'s rules keep us safe! Love God and love others—that\'s what matters.' }
     },
     elijahFire: {
@@ -1978,7 +2044,10 @@
         { src: 'panel-david-3.svg', alt: 'The people cry: The Lord, He is God!' }
       ],
       caption: 'Swipe to see God answer Elijah with fire! 🔥',
+      videoId: 'dKcQHonmOi8',
+      videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
       keywords: ['elijah', 'fire', 'altar', '1 kings 18', 'baal', 'miracle'],
+      kjvRef: '1 Kings 18',
       kidContext: { who: 'God', to: 'Elijah and Israel', apply: 'God answers when we call! He is the one true God.' }
     },
     elishaOil: {
@@ -1989,7 +2058,10 @@
         { src: 'panel-noah-3.svg', alt: 'Oil multiplies—God provides!' }
       ],
       caption: 'Swipe to see God multiply oil—He provides! 🫙',
+      videoId: '6E2WJ0vp4g4',
+      videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
       keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'miracle'],
+      kjvRef: '2 Kings 4',
       kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies what we give Him! Even a little becomes enough.' }
     },
     naamanDip: {
@@ -2001,6 +2073,7 @@
       ],
       caption: 'Swipe to see Naaman healed—obey and be made new! 💧',
       keywords: ['naaman', 'river', 'jordan', '2 kings 5', 'leprosy', 'heal', 'obey'],
+      kjvRef: '2 Kings 5',
       kidContext: { who: 'God', to: 'Naaman through Elisha', apply: 'When God says obey—even when it seems strange—He heals!' }
     },
     creationLight: {
@@ -2012,28 +2085,35 @@
       ],
       caption: 'Swipe to see God speak light into darkness! ☀️',
       keywords: ['creation', 'light', 'genesis 1', 'let there be light', 'darkness', 'god speaks'],
+      kjvRef: 'Genesis 1',
       kidContext: { who: 'God', to: 'All creation', apply: 'God speaks and things happen! His word is powerful.' }
     },
     adamEve: {
       title: 'Adam and Eve',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'The garden tree and the serpent' },
-        { src: 'panel-noah-2.svg', alt: 'Eve and Adam eat the fruit' },
-        { src: 'panel-noah-3.svg', alt: 'God still loves them—but choices matter' }
+        { src: 'panel-jesus-1.svg', alt: 'The garden tree and the serpent' },
+        { src: 'panel-jesus-2.svg', alt: 'Eve and Adam eat the fruit' },
+        { src: 'panel-jesus-3.svg', alt: 'God still loves them—but choices matter' }
       ],
       caption: 'Swipe to see the first family in God\'s garden! 🌳',
+      videoId: 'l7TDvJrjjz0',
+      videoTitle: 'Adam and Eve – Saddleback Kids!',
       keywords: ['adam', 'eve', 'garden', 'snake', 'genesis 3', 'fruit', 'choice'],
+      kjvRef: 'Genesis 3',
       kidContext: { who: 'God', to: 'Adam and Eve', apply: 'Choices matter! God still loves us even when we make mistakes.' }
     },
     towerBabel: {
       title: 'Tower of Babel',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'People build a tall tower' },
-        { src: 'panel-david-2.svg', alt: 'God scatters the languages' },
-        { src: 'panel-david-3.svg', alt: 'People spread across the earth' }
+        { src: 'panel-noah-1.svg', alt: 'People build a tall tower' },
+        { src: 'panel-noah-2.svg', alt: 'God scatters the languages' },
+        { src: 'panel-noah-3.svg', alt: 'People spread across the earth' }
       ],
       caption: 'Swipe to see what happens when people forget God! 🏗️',
+      videoId: '4EQh7C-IUcM',
+      videoTitle: 'Tower of Babel – Bible Stories for Kids!',
       keywords: ['babel', 'tower', 'genesis 11', 'languages', 'pride', 'scatter'],
+      kjvRef: 'Genesis 11',
       kidContext: { who: 'God', to: 'All people', apply: 'God is bigger than our plans! Stay humble—He is in charge.' }
     },
     /* ── Week 2 (25–36) ── */
@@ -2046,6 +2126,7 @@
       ],
       caption: 'Swipe to see Abraham trust God—He always provides! 🐏',
       keywords: ['abraham', 'isaac', 'altar', 'ram', 'genesis 22', 'trust', 'provide'],
+      kjvRef: 'Genesis 22',
       kidContext: { who: 'God', to: 'Abraham', apply: 'God provides! When you trust Him completely, He makes a way.' }
     },
     sarahLaughs: {
@@ -2057,6 +2138,7 @@
       ],
       caption: 'Swipe to see God do the impossible for Sarah! 😂',
       keywords: ['sarah', 'laugh', 'angel', 'genesis 18', 'baby', 'impossible', 'promise'],
+      kjvRef: 'Genesis 18',
       kidContext: { who: 'God', to: 'Sarah and Abraham', apply: 'Nothing is impossible with God! He keeps every promise.' }
     },
     jacobLadder: {
@@ -2068,6 +2150,7 @@
       ],
       caption: 'Swipe to see Jacob\'s dream of heaven! 🪜',
       keywords: ['jacob', 'ladder', 'dream', 'angels', 'genesis 28', 'heaven', 'promise'],
+      kjvRef: 'Genesis 28',
       kidContext: { who: 'God', to: 'Jacob', apply: 'God is with you wherever you go! He never leaves.' }
     },
     josephDreams: {
@@ -2079,6 +2162,7 @@
       ],
       caption: 'Swipe to see Joseph\'s dream—God\'s plans always happen! ⭐',
       keywords: ['joseph', 'dreams', 'stars', 'brothers', 'genesis 37', 'jealous'],
+      kjvRef: 'Genesis 37',
       kidContext: { who: 'God', to: 'Joseph', apply: 'God\'s plans always happen! When you wait on God, He comes through.' }
     },
     josephPrison: {
@@ -2090,6 +2174,7 @@
       ],
       caption: 'Swipe to see God with Joseph in the hard place! 🪣',
       keywords: ['joseph', 'prison', 'cupbearer', 'dream', 'genesis 40', 'faithful'],
+      kjvRef: 'Genesis 40',
       kidContext: { who: 'God', to: 'Joseph in prison', apply: 'God is with you in hard places! He never forgets you.' }
     },
     pharaohDreams: {
@@ -2101,6 +2186,7 @@
       ],
       caption: 'Swipe to see God use Joseph to save everyone! 🐄',
       keywords: ['pharaoh', 'dreams', 'cows', 'joseph', 'genesis 41', 'famine', 'wisdom'],
+      kjvRef: 'Genesis 41',
       kidContext: { who: 'God', to: 'Joseph (through Pharaoh)', apply: 'God promotes the faithful! Stay humble and trust His timing.' }
     },
     mosesBaby: {
@@ -2112,6 +2198,7 @@
       ],
       caption: 'Swipe to see God protect baby Moses! 🌿',
       keywords: ['moses', 'basket', 'nile', 'princess', 'exodus 2', 'protect', 'baby'],
+      kjvRef: 'Exodus 2',
       kidContext: { who: 'God', to: 'Baby Moses', apply: 'God watches over you! He protected Moses—He protects you too.' }
     },
     mosesStaffSnake: {
@@ -2123,6 +2210,7 @@
       ],
       caption: 'Swipe to see God\'s power through Moses\' staff! 🐍',
       keywords: ['moses', 'staff', 'snake', 'exodus 7', 'pharaoh', 'sign', 'power'],
+      kjvRef: 'Exodus 7',
       kidContext: { who: 'God', to: 'Moses (and Pharaoh)', apply: 'God\'s power is real! He gives us what we need to do His work.' }
     },
     passoverLamb: {
@@ -2134,6 +2222,7 @@
       ],
       caption: 'Swipe to see God\'s rescue—the Passover lamb! 🐑',
       keywords: ['passover', 'lamb', 'blood', 'doorposts', 'exodus 12', 'rescue', 'save'],
+      kjvRef: 'Exodus 12',
       kidContext: { who: 'God', to: 'Israel in Egypt', apply: 'Jesus is our Passover Lamb! He saves us—just believe and be covered.' }
     },
     redSeaCrossing: {
@@ -2145,6 +2234,7 @@
       ],
       caption: 'Swipe to see God stop the enemy at the sea! 🌊',
       keywords: ['red sea', 'chariot', 'egypt', 'exodus 14', 'army', 'rescue'],
+      kjvRef: 'Exodus 14',
       kidContext: { who: 'God', to: 'Israel', apply: 'God stops the enemy for you! When you\'re afraid, He fights your battle.' }
     },
     /* ── Week 3 (37–48) ── */
@@ -2157,6 +2247,7 @@
       ],
       caption: 'Swipe to see God stop the Jordan River—He always leads! 🏞️',
       keywords: ['joshua', 'jordan', 'ark', 'river', 'joshua 3', 'priests', 'miracle'],
+      kjvRef: 'Joshua 3',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God leads you into the new! Step forward in faith—He holds the water back.' }
     },
     jerichoWalls: {
@@ -2168,6 +2259,7 @@
       ],
       caption: 'Swipe to see God tumble those walls—He wins every battle! 🎺',
       keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'shout', 'victory'],
+      kjvRef: 'Joshua 6',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God wins battles in surprising ways! Obey—then shout for joy.' }
     },
     rahabRope: {
@@ -2179,6 +2271,7 @@
       ],
       caption: 'Swipe to see how faith in God saves! 🔴',
       keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save'],
+      kjvRef: 'Joshua 2',
       kidContext: { who: 'God', to: 'Rahab', apply: 'Faith saves! Even when you\'re afraid, trust God and He rescues you.' }
     },
     balaamDonkey: {
@@ -2190,6 +2283,7 @@
       ],
       caption: 'Swipe to see God speak through a donkey—He uses anyone! 🫏',
       keywords: ['balaam', 'donkey', 'angel', 'numbers 22', 'talking', 'listen', 'obey'],
+      kjvRef: 'Numbers 22',
       kidContext: { who: 'God', to: 'Balaam', apply: 'God can use anyone to speak truth! Always listen—even when it\'s surprising.' }
     },
     samsonHair: {
@@ -2201,6 +2295,7 @@
       ],
       caption: 'Swipe to see Samson\'s story—stay close to God! 💪',
       keywords: ['samson', 'hair', 'delilah', 'judges 16', 'strength', 'cut', 'power'],
+      kjvRef: 'Judges 16',
       kidContext: { who: 'God', to: 'Samson', apply: 'Your strength comes from God! Stay close to Him and nothing can stop you.' }
     },
     ruthGlean: {
@@ -2212,6 +2307,7 @@
       ],
       caption: 'Swipe to see Ruth\'s faithfulness—God sees your hard work! 🌾',
       keywords: ['ruth', 'glean', 'boaz', 'field', 'ruth 2', 'faithful', 'kind'],
+      kjvRef: 'Ruth 2',
       kidContext: { who: 'God', to: 'Ruth and Naomi', apply: 'God sees your faithfulness! Stay loyal and kind—He rewards it.' }
     },
     samuelCall: {
@@ -2223,6 +2319,7 @@
       ],
       caption: 'Swipe to see God call Samuel—He calls you too! 👂',
       keywords: ['samuel', 'call', 'temple', '1 samuel 3', 'eli', 'voice', 'listen'],
+      kjvRef: '1 Samuel 3',
       kidContext: { who: 'God', to: 'Young Samuel', apply: 'God calls children! Say yes: "Speak, Lord—I am listening."' }
     },
     davidHarp: {
@@ -2234,6 +2331,7 @@
       ],
       caption: 'Swipe to see David worship God in the fields! 🎶',
       keywords: ['david', 'harp', 'worship', 'sheep', '1 samuel 16', 'music', 'praise'],
+      kjvRef: '1 Samuel 16',
       kidContext: { who: 'David', to: 'God', apply: 'God loves your worship! Sing and praise wherever you are.' }
     },
     goliathChallenge: {
@@ -2245,6 +2343,7 @@
       ],
       caption: 'Swipe to see David face the giant—God wins! ⚔️',
       keywords: ['goliath', 'challenge', 'david', '1 samuel 17', 'giant', 'brave', 'faith'],
+      kjvRef: '1 Samuel 17',
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Face your fears—He\'s with you.' }
     },
     davidAnointed: {
@@ -2256,6 +2355,7 @@
       ],
       caption: 'Swipe to see God choose David—He looks at your heart! 💛',
       keywords: ['david', 'anoint', 'samuel', '1 samuel 16', 'king', 'heart', 'chosen'],
+      kjvRef: '1 Samuel 16',
       kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart! Be faithful where you are—He sees you.' }
     },
     saulSpear: {
@@ -2267,6 +2367,7 @@
       ],
       caption: 'Swipe to see David trust God—not react in anger! 🎯',
       keywords: ['saul', 'spear', 'david', '1 samuel 18', 'jealous', 'escape', 'trust'],
+      kjvRef: '1 Samuel 18',
       kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
     },
     davidCave: {
@@ -2278,6 +2379,7 @@
       ],
       caption: 'Swipe to see David trust God even in the cave! 🕳️',
       keywords: ['david', 'cave', 'adullam', '1 samuel 22', 'hiding', 'prayer', 'psalm'],
+      kjvRef: '1 Samuel 22',
       kidContext: { who: 'David', to: 'God', apply: 'Even in dark or scary times, God is with you! Talk to Him wherever you are.' }
     },
     /* ── Week 4 (49–60) ── */
@@ -2290,6 +2392,7 @@
       ],
       caption: 'Swipe to see God bring a boy back to life! 🤧',
       keywords: ['elisha', 'raise', 'shunammite', '2 kings 4', 'boy', 'dead', 'life', 'miracle'],
+      kjvRef: '2 Kings 4',
       kidContext: { who: 'God', to: 'Elisha and the Shunammite', apply: 'God can bring life back! Nothing is too hard for Him.' }
     },
     estherCrown: {
@@ -2301,6 +2404,7 @@
       ],
       caption: 'Swipe to see Esther\'s courage save her people! 👑',
       keywords: ['esther', 'crown', 'queen', 'esther 5', 'scepter', 'courage', 'save'],
+      kjvRef: 'Esther 5',
       kidContext: { who: 'God', to: 'Esther', apply: 'God puts you where you are for a reason! Be brave—maybe it\'s for such a time as this.' }
     },
     nehemiahWalls: {
@@ -2312,6 +2416,7 @@
       ],
       caption: 'Swipe to see Nehemiah rebuild—pray and work together! 🧱',
       keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 4', 'rebuild', 'pray', 'sword'],
+      kjvRef: 'Nehemiah 4',
       kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken.' }
     },
     jobSuffering: {
@@ -2323,6 +2428,7 @@
       ],
       caption: 'Swipe to see Job\'s faith in hard times—God is enough! 🌧️',
       keywords: ['job', 'suffering', 'boils', 'friends', 'job 2', 'trust', 'faith', 'restore'],
+      kjvRef: 'Job 2',
       kidContext: { who: 'God', to: 'Job', apply: 'You can trust God in hard times! He always comes through for those who hold on.' }
     },
     psalm23Shepherd: {
@@ -2334,6 +2440,7 @@
       ],
       caption: 'Swipe to see God as your Good Shepherd! 🐑',
       keywords: ['psalm 23', 'shepherd', 'sheep', 'staff', 'peace', 'david', 'green pastures'],
+      kjvRef: 'Psalm 23',
       kidContext: { who: 'God', to: 'David (and us)', apply: 'God is your Good Shepherd! He leads you, protects you, and gives you rest.' }
     },
     solomonWisdom: {
@@ -2345,6 +2452,7 @@
       ],
       caption: 'Swipe to see Solomon use God\'s wisdom! 👶',
       keywords: ['solomon', 'wisdom', 'baby', 'sword', '1 kings 3', 'judge', 'moms'],
+      kjvRef: '1 Kings 3',
       kidContext: { who: 'God', to: 'Solomon', apply: 'Ask God for wisdom! He gives it freely to those who ask.' }
     },
     elijahChariot: {
@@ -2356,6 +2464,7 @@
       ],
       caption: 'Swipe to see Elijah taken up to heaven! 🔥',
       keywords: ['elijah', 'chariot', 'fire', '2 kings 2', 'whirlwind', 'heaven', 'elisha'],
+      kjvRef: '2 Kings 2',
       kidContext: { who: 'God', to: 'Elijah', apply: 'God honors His faithful servants! Heaven is real—and it\'s wonderful.' }
     },
     jonahVine: {
@@ -2367,6 +2476,7 @@
       ],
       caption: 'Swipe to see God\'s big heart—He cares for everyone! 🌿',
       keywords: ['jonah', 'vine', 'worm', 'jonah 4', 'nineveh', 'anger', 'mercy'],
+      kjvRef: 'Jonah 4',
       kidContext: { who: 'God', to: 'Jonah', apply: 'God loves everyone—even people we think don\'t deserve it. So should we!' }
     },
     danielPray: {
@@ -2378,6 +2488,7 @@
       ],
       caption: 'Swipe to see Daniel pray no matter what—so brave! 🙏',
       keywords: ['daniel', 'pray', 'window', 'daniel 6', 'law', 'brave', 'lions'],
+      kjvRef: 'Daniel 6',
       kidContext: { who: 'God', to: 'Daniel', apply: 'Nothing should stop you from praying! God sees your faithfulness.' }
     },
     estherBanquet: {
@@ -2389,6 +2500,7 @@
       ],
       caption: 'Swipe to see Esther stand up for her people! 🍷',
       keywords: ['esther', 'banquet', 'haman', 'esther 7', 'king', 'courage', 'reveal'],
+      kjvRef: 'Esther 7',
       kidContext: { who: 'God', to: 'Esther (through timing)', apply: 'God gives you the right moment! Be ready—He orders the steps.' }
     },
     /* ── Week 5 (61–72) ── */
@@ -2401,6 +2513,7 @@
       ],
       caption: 'Swipe to see the angel tell Mary the great news! 🌸',
       keywords: ['angel', 'mary', 'gabriel', 'luke 1', 'fear not', 'chosen', 'jesus'],
+      kjvRef: 'Luke 1',
       kidContext: { who: 'God', to: 'Mary', apply: 'God chooses ordinary people! When God calls you, say yes like Mary.' }
     },
     shepherdsStar: {
@@ -2412,6 +2525,7 @@
       ],
       caption: 'Swipe to see the shepherds run to baby Jesus! ✨',
       keywords: ['shepherds', 'star', 'angels', 'luke 2', 'bethlehem', 'birth', 'glory'],
+      kjvRef: 'Luke 2',
       kidContext: { who: 'God', to: 'The shepherds', apply: 'God shares good news first with humble people! Run to Jesus—everyone is invited.' }
     },
     jesusManger: {
@@ -2423,6 +2537,7 @@
       ],
       caption: 'Swipe to see the night Jesus was born! 🎁',
       keywords: ['jesus', 'manger', 'baby', 'luke 2', 'bethlehem', 'wise men', 'star', 'born'],
+      kjvRef: 'Luke 2',
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came for you! God\'s greatest gift is His Son.' }
     },
     jesusTemple: {
@@ -2434,6 +2549,7 @@
       ],
       caption: 'Swipe to see Jesus in the temple—even as a kid! 📖',
       keywords: ['jesus', 'temple', 'teaching', 'luke 2', 'elders', 'wisdom', 'boy', 'father'],
+      kjvRef: 'Luke 2',
       kidContext: { who: 'Jesus', to: 'The teachers (and us)', apply: 'Jesus loved God\'s house and Word even as a boy—so can you!' }
     },
     johnBaptize: {
@@ -2445,6 +2561,7 @@
       ],
       caption: 'Swipe to see Jesus baptized—the dove and the voice! 🕊️',
       keywords: ['john', 'baptize', 'jordan', 'matthew 3', 'dove', 'voice', 'heaven', 'spirit'],
+      kjvRef: 'Matthew 3',
       kidContext: { who: 'God', to: 'Jesus (and us)', apply: 'God said yes to Jesus—He says yes to you too! Baptism is a big, happy yes.' }
     },
     jesusTempt: {
@@ -2456,6 +2573,7 @@
       ],
       caption: 'Swipe to see Jesus fight temptation with Scripture! 📜',
       keywords: ['jesus', 'temptation', 'desert', 'matthew 4', 'devil', 'bread', 'scripture', 'word'],
+      kjvRef: 'Matthew 4',
       kidContext: { who: 'Jesus', to: 'The devil (and us)', apply: 'Use God\'s Word when you\'re tempted! Jesus showed us how—it works.' }
     },
     weddingWine: {
@@ -2467,6 +2585,7 @@
       ],
       caption: 'Swipe to see Jesus\' first miracle at the wedding! 🍷',
       keywords: ['wedding', 'wine', 'water', 'john 2', 'miracle', 'cana', 'mary'],
+      kjvRef: 'John 2',
       kidContext: { who: 'Jesus', to: 'The wedding guests', apply: 'Jesus loves to help! When we bring Him our empty jars, He fills them.' }
     },
     healBlind: {
@@ -2478,6 +2597,7 @@
       ],
       caption: 'Swipe to see Jesus open blind eyes! 👁️',
       keywords: ['blind', 'heal', 'mud', 'john 9', 'eyes', 'wash', 'see', 'miracle'],
+      kjvRef: 'John 9',
       kidContext: { who: 'Jesus', to: 'The blind man', apply: 'Jesus opens our eyes—in our hearts too! Ask Him to help you see.' }
     },
     jesusBlessKids: {
@@ -2489,6 +2609,7 @@
       ],
       caption: 'Swipe to see Jesus love and bless kids just like you! ❤️',
       keywords: ['jesus', 'children', 'bless', 'mark 10', 'kids', 'kingdom', 'come'],
+      kjvRef: 'Mark 10',
       kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! He invites every child to come to Him.' }
     },
     /* ── Week 6 (73–84) ── */
@@ -2501,6 +2622,7 @@
       ],
       caption: 'Swipe to see a tiny seed grow huge—faith works! 🌱',
       keywords: ['mustard seed', 'faith', 'tree', 'matthew 13', 'kingdom', 'grow', 'small'],
+      kjvRef: 'Matthew 13',
       kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Faith as small as a seed can move mountains! Don\'t give up—keep trusting.' }
     },
     healLeper: {
@@ -2512,6 +2634,7 @@
       ],
       caption: 'Swipe to see Jesus heal ten lepers—be thankful! 🙌',
       keywords: ['leper', 'heal', 'luke 17', 'mercy', 'clean', 'thankful', 'ten'],
+      kjvRef: 'Luke 17',
       kidContext: { who: 'Jesus', to: 'The lepers', apply: 'Jesus heals and cleans us inside! Always say thank you to Him.' }
     },
     jairus: {
@@ -2523,6 +2646,7 @@
       ],
       caption: 'Swipe to see Jesus bring a girl back to life! 🌸',
       keywords: ['jairus', 'daughter', 'raise', 'mark 5', 'talitha cumi', 'miracle', 'faith'],
+      kjvRef: 'Mark 5',
       kidContext: { who: 'Jesus', to: 'Jairus and his daughter', apply: 'Jesus is never too late! Keep believing even when it seems impossible.' }
     },
     transfigure: {
@@ -2534,6 +2658,7 @@
       ],
       caption: 'Swipe to see Jesus glow on the mountain! ✨',
       keywords: ['transfigure', 'mountain', 'matthew 17', 'glow', 'moses', 'elijah', 'cloud'],
+      kjvRef: 'Matthew 17',
       kidContext: { who: 'God', to: 'Peter, James, John', apply: 'Jesus is the Son of God—really listen to Him! He is glorious.' }
     },
     judasKiss: {
@@ -2545,6 +2670,7 @@
       ],
       caption: 'Swipe to see Jesus stay calm—even when betrayed! 🕯️',
       keywords: ['judas', 'betray', 'kiss', 'matthew 26', 'arrest', 'garden', 'soldiers'],
+      kjvRef: 'Matthew 26',
       kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even when people hurt you, choose love like Jesus did! He forgave.' }
     },
     /* ── Week 7 (85–96) ── */
@@ -2557,6 +2683,7 @@
       ],
       caption: 'Swipe to see Simon help carry—be a helper! 🤝',
       keywords: ['cross', 'simon', 'carry', 'luke 23', 'cyrene', 'help', 'burden'],
+      kjvRef: 'Luke 23',
       kidContext: { who: 'God', to: 'Simon (and us)', apply: 'God calls us to help carry each other\'s burdens! Be a Simon for someone today.' }
     },
     crucifixion: {
@@ -2567,7 +2694,10 @@
         { src: 'panel-noah-3.svg', alt: 'It is finished—He did it for us!' }
       ],
       caption: 'Swipe to see Jesus give His life—for you! ❤️',
+      videoId: 'bNq5tWl3OGk',
+      videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
       keywords: ['crucifixion', 'cross', 'nails', 'john 19', 'love', 'finished', 'sacrifice'],
+      kjvRef: 'John 19',
       kidContext: { who: 'Jesus', to: 'Everyone who will believe', apply: 'Jesus died because He loves you! That love is the greatest love ever.' }
     },
     tombEmpty: {
@@ -2579,6 +2709,7 @@
       ],
       caption: 'Swipe to see the empty tomb—Jesus is alive! 🪨',
       keywords: ['tomb', 'empty', 'risen', 'matthew 28', 'angel', 'stone', 'resurrection'],
+      kjvRef: 'Matthew 28',
       kidContext: { who: 'Jesus', to: 'The women (and us)', apply: 'Jesus is alive! Death couldn\'t hold Him—and He gives that life to you!' }
     },
     emmausRoad: {
@@ -2590,6 +2721,7 @@
       ],
       caption: 'Swipe to see Jesus walk with sad hearts—He walks with yours! 🛤️',
       keywords: ['emmaus', 'road', 'luke 24', 'disciples', 'walk', 'stranger', 'bread', 'recognize'],
+      kjvRef: 'Luke 24',
       kidContext: { who: 'Jesus', to: 'Two disciples', apply: 'Jesus walks with you even when you don\'t recognize Him! He never leaves.' }
     },
     thomasDoubt: {
@@ -2601,6 +2733,7 @@
       ],
       caption: 'Swipe to see Jesus answer Thomas\'s doubts—He answers yours too! 🙏',
       keywords: ['thomas', 'doubt', 'john 20', 'hands', 'believe', 'risen', 'faith'],
+      kjvRef: 'John 20',
       kidContext: { who: 'Jesus', to: 'Thomas', apply: 'It\'s okay to have questions! Jesus is patient—keep coming back to Him.' }
     },
     pentecostFire: {
@@ -2612,6 +2745,7 @@
       ],
       caption: 'Swipe to see the Holy Spirit arrive with fire and wind! 🔥',
       keywords: ['pentecost', 'fire', 'wind', 'acts 2', 'holy spirit', 'tongues', 'disciples'],
+      kjvRef: 'Acts 2',
       kidContext: { who: 'Holy Spirit', to: 'The disciples (and us)', apply: 'God\'s Spirit lives in you! He gives you power, love, and boldness.' }
     },
     peterShadow: {
@@ -2623,6 +2757,7 @@
       ],
       caption: 'Swipe to see God\'s power flow through Peter! 🌟',
       keywords: ['peter', 'shadow', 'heal', 'acts 5', 'miracle', 'sick', 'power'],
+      kjvRef: 'Acts 5',
       kidContext: { who: 'God', to: 'Peter (and us)', apply: 'God works through ordinary people! You carry His presence—make it count.' }
     },
     paulDamascus: {
@@ -2633,7 +2768,10 @@
         { src: 'panel-david-3.svg', alt: 'Saul becomes Paul—a new man!' }
       ],
       caption: 'Swipe to see God change Paul completely—He changes hearts! ⚡',
+      videoId: 'oi95cv0tk9Q',
+      videoTitle: 'Paul, Jesus, and the Road to Damascus – LifeKids!',
       keywords: ['paul', 'damascus', 'saul', 'acts 9', 'light', 'blind', 'change', 'conversion'],
+      kjvRef: 'Acts 9',
       kidContext: { who: 'Jesus', to: 'Saul/Paul', apply: 'God can change anyone! No one is too far from His reach—not even you or your friends.' }
     },
     paulShipwreck: {
@@ -2645,6 +2783,7 @@
       ],
       caption: 'Swipe to see Paul survive the storm—God keeps His own! ⛵',
       keywords: ['paul', 'shipwreck', 'storm', 'acts 28', 'snake', 'island', 'protect'],
+      kjvRef: 'Acts 28',
       kidContext: { who: 'God', to: 'Paul', apply: 'God protects His people through storms! When life gets hard, He keeps you safe.' }
     },
     paulSilas: {
@@ -2656,6 +2795,7 @@
       ],
       caption: 'Swipe to see Paul and Silas worship in the dark! 🎶',
       keywords: ['paul', 'silas', 'jail', 'acts 16', 'sing', 'pray', 'earthquake', 'midnight'],
+      kjvRef: 'Acts 16',
       kidContext: { who: 'God', to: 'Paul and Silas', apply: 'Praise God even in hard places! Your worship opens doors—literally.' }
     },
     tenVirgins: {
@@ -2667,6 +2807,7 @@
       ],
       caption: 'Swipe to see the ten virgins—always be ready! 🪔',
       keywords: ['virgins', 'lamps', 'oil', 'matthew 25', 'ready', 'wise', 'foolish', 'return'],
+      kjvRef: 'Matthew 25',
       kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Be ready! Fill up with God\'s Word and Spirit every day—don\'t run empty.' }
     },
     /* ── Week 8 (97–108) ── */
@@ -2679,6 +2820,7 @@
       ],
       caption: 'Swipe to see the shield of faith block every arrow! 🛡️',
       keywords: ['armor', 'shield', 'faith', 'ephesians 6', 'arrows', 'protect', 'stand'],
+      kjvRef: 'Ephesians 6',
       kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Hold up your shield of faith! When doubt or fear comes, believe—God blocks it.' }
     },
     armorSword: {
@@ -2690,6 +2832,7 @@
       ],
       caption: 'Swipe to see the Word of God as your sword! ⚔️',
       keywords: ['armor', 'sword', 'word', 'ephesians 6', 'scripture', 'spirit', 'fight'],
+      kjvRef: 'Ephesians 6',
       kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Know your Bible! God\'s Word is a sword—it defeats darkness and confusion.' }
     },
     fruitSpirit: {
@@ -2701,6 +2844,7 @@
       ],
       caption: 'Swipe to see the fruit God grows in you! 🍎',
       keywords: ['fruit', 'spirit', 'galatians 5', 'love', 'joy', 'peace', 'patience', 'kind'],
+      kjvRef: 'Galatians 5',
       kidContext: { who: 'Holy Spirit', to: 'All believers (and us)', apply: 'Stay close to Jesus like a branch on a vine—good fruit grows naturally!' }
     },
     loveChapter: {
@@ -2712,6 +2856,7 @@
       ],
       caption: 'Swipe to see what real love looks like! ❤️',
       keywords: ['love', '1 corinthians 13', 'patient', 'kind', 'heart', 'never fails'],
+      kjvRef: '1 Corinthians 13',
       kidContext: { who: 'Paul', to: 'The church (and us)', apply: 'Love isn\'t a feeling—it\'s a choice! Choose to be patient and kind like God.' }
     },
     faithMustard: {
@@ -2723,6 +2868,7 @@
       ],
       caption: 'Swipe to see how small faith can move mountains! 🏔️',
       keywords: ['faith', 'mustard seed', 'matthew 17', 'mountain', 'move', 'believe', 'small'],
+      kjvRef: 'Matthew 17',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'You don\'t need huge faith—just genuine faith! Give it to God and watch.' }
     },
     prayerKnock: {
@@ -2734,6 +2880,7 @@
       ],
       caption: 'Swipe to see the promise: ask, seek, knock—He answers! 🚪',
       keywords: ['ask', 'seek', 'knock', 'matthew 7', 'prayer', 'door', 'answer', 'receive'],
+      kjvRef: 'Matthew 7',
       kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Keep knocking! God loves when you keep coming to Him in prayer.' }
     },
     worryBirds: {
@@ -2745,6 +2892,7 @@
       ],
       caption: 'Swipe to see why you don\'t need to worry—God\'s got you! 🐦',
       keywords: ['worry', 'birds', 'lilies', 'matthew 6', 'sparrows', 'care', 'trust'],
+      kjvRef: 'Matthew 6',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God feeds the birds—He definitely takes care of you! Don\'t worry; trust.' }
     },
     forgive70x7: {
@@ -2756,6 +2904,7 @@
       ],
       caption: 'Swipe to see why forgiving feels so good! 🤗',
       keywords: ['forgive', '70 times', 'matthew 18', 'peter', 'always', 'mercy', 'hug'],
+      kjvRef: 'Matthew 18',
       kidContext: { who: 'Jesus', to: 'Peter (and us)', apply: 'Forgiveness is never too much! When you forgive, you\'re free—not the other person.' }
     },
     widowMite: {
@@ -2767,6 +2916,7 @@
       ],
       caption: 'Swipe to see the widow\'s offering—God sees the heart! 🪙',
       keywords: ['widow', 'mite', 'coins', 'mark 12', 'offering', 'give', 'heart', 'all'],
+      kjvRef: 'Mark 12',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God sees generosity, not amount! Give from your heart—even a little is big to God.' }
     },
     richYoungRuler: {
@@ -2777,7 +2927,10 @@
         { src: 'panel-noah-3.svg', alt: 'He walks away sad—things can\'t satisfy like God' }
       ],
       caption: 'Swipe to see what matters more than stuff—Jesus! 💎',
+      videoId: 'Z5tCVTOLnQ0',
+      videoTitle: 'The Rich Young Ruler – Animated Bible Story!',
       keywords: ['rich', 'young ruler', 'mark 10', 'eternal life', 'camel', 'needle', 'follow'],
+      kjvRef: 'Mark 10',
       kidContext: { who: 'Jesus', to: 'The rich young man (and us)', apply: 'Nothing is worth more than following Jesus! Let go of what holds you back.' }
     },
     maryAnoint: {
@@ -2789,6 +2942,7 @@
       ],
       caption: 'Swipe to see Mary\'s beautiful act of worship! 🌹',
       keywords: ['mary', 'anoint', 'perfume', 'john 12', 'feet', 'worship', 'pour'],
+      kjvRef: 'John 12',
       kidContext: { who: 'Mary', to: 'Jesus', apply: 'Give Jesus your best—not just what\'s left! Extravagant love honors Him.' }
     },
     /* ── Week 9 (109–120) ── */
@@ -2801,6 +2955,7 @@
       ],
       caption: 'Swipe to see Stephen\'s courage and forgiveness—amazing! 💎',
       keywords: ['stephen', 'stones', 'acts 7', 'forgive', 'heaven', 'bold', 'first martyr'],
+      kjvRef: 'Acts 7',
       kidContext: { who: 'Jesus', to: 'Stephen', apply: 'Be bold for Jesus—even when it\'s hard! And always forgive like Stephen did.' }
     },
     philipChariot: {
@@ -2812,6 +2967,7 @@
       ],
       caption: 'Swipe to see Philip share the good news on the road! 📖',
       keywords: ['philip', 'ethiopian', 'chariot', 'acts 8', 'isaiah', 'read', 'baptize', 'explain'],
+      kjvRef: 'Acts 8',
       kidContext: { who: 'God', to: 'Philip (and us)', apply: 'Be ready to share Jesus wherever you go! God sets up divine appointments.' }
     },
     paulShip: {
@@ -2823,6 +2979,7 @@
       ],
       caption: 'Swipe to see God keep His word in the storm! ⛵',
       keywords: ['paul', 'ship', 'storm', 'acts 27', 'angel', 'safe', 'fear not'],
+      kjvRef: 'Acts 27',
       kidContext: { who: 'God', to: 'Paul and the sailors', apply: 'God keeps His promises in storms! When you\'re afraid, His word says: fear not.' }
     },
     revelationThrone: {
@@ -3211,6 +3368,7 @@
       ],
       caption: 'Swipe to see Jesus send His followers to the whole world! 🌍',
       keywords: ['great commission', 'matthew 28', 'go', 'make disciples', 'baptize', 'nations', 'with you always'],
+      kjvRef: 'Matthew 28',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'You are sent! Tell everyone the good news—and Jesus is with you every step.' }
     },
     ascension: {
@@ -3221,7 +3379,10 @@
         { src: 'panel-noah-3.svg', alt: 'Angels say: He will come back the same way!' }
       ],
       caption: 'Swipe to see Jesus go up to heaven—He\'s coming back! ☁️',
+      videoId: 'TedR27BUBfw',
+      videoTitle: 'Jesus Goes to Heaven – Stories of the Bible!',
       keywords: ['ascension', 'acts 1', 'heaven', 'cloud', 'angels', 'return', 'go'],
+      kjvRef: 'Acts 1',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus went to prepare a place for you! He is coming back—be ready and joyful.' }
     },
     pentecostTongues: {
@@ -3233,6 +3394,7 @@
       ],
       caption: 'Swipe to see the Holy Spirit arrive with fire! 🔥',
       keywords: ['pentecost', 'tongues', 'acts 2', 'fire', 'languages', 'spirit', 'church', 'power'],
+      kjvRef: 'Acts 2',
       kidContext: { who: 'Holy Spirit', to: 'The disciples (and all believers)', apply: 'God\'s Spirit lives in you! You have power to tell the world about Jesus.' }
     },
     armorBelt: {
@@ -3244,6 +3406,7 @@
       ],
       caption: 'Swipe to see the belt of truth—God\'s Word holds it all! 🪢',
       keywords: ['armor', 'belt', 'truth', 'ephesians 6', 'stand', 'firm', 'word'],
+      kjvRef: 'Ephesians 6',
       kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Truth is your foundation! Know what God says—and stand on it every day.' }
     },
     prayerCloset: {
@@ -3255,6 +3418,7 @@
       ],
       caption: 'Swipe to see how to pray in private—God loves it! 🚪',
       keywords: ['prayer', 'closet', 'matthew 6', 'secret', 'room', 'father', 'reward'],
+      kjvRef: 'Matthew 6',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Private prayer matters most! Find a quiet place and just talk to God—He\'s listening.' }
     },
     faithMountain: {
@@ -3365,6 +3529,7 @@
       ],
       caption: 'Swipe to hear the last prayer in the Bible—come, Lord Jesus! 🙏',
       keywords: ['come lord jesus', 'revelation 22', 'amen', 'quickly', 'maranatha', 'last', 'return'],
+      kjvRef: 'Revelation 22',
       kidContext: { who: 'Jesus', to: 'John (and us)', apply: 'The last word of the Bible is a prayer: Come, Lord Jesus! Say it with your whole heart.' }
     }
   };
@@ -4376,9 +4541,25 @@
 
   function wireVerseSpeak() {
     const btn = document.getElementById('kids-verse-speak');
-    if (!btn) return;
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-    btn.style.display = 'none';
+    const refEl = document.getElementById('kids-verse-ref');
+    const textEl = document.getElementById('kids-verse-text');
+    if (!btn || !textEl) return;
+    if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+      btn.style.display = 'none';
+      return;
+    }
+    btn.addEventListener('click', function () {
+      try { window.speechSynthesis.cancel(); } catch (_) {}
+      var ref = refEl ? refEl.textContent.trim() : '';
+      var text = (ref ? ref + '. ' : '') + (textEl.textContent || '').trim();
+      if (!text) return;
+      var u = new SpeechSynthesisUtterance(text);
+      u.rate = 0.9;
+      var voices = window.speechSynthesis.getVoices();
+      var en = voices.filter(function (v) { return v.lang.startsWith('en'); })[0];
+      if (en) u.voice = en;
+      window.speechSynthesis.speak(u);
+    });
   }
 
   function generateShareImage(callback) {

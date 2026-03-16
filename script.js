@@ -20595,5 +20595,42 @@ function wireRandomBattleVerseHero() {
       scheduleNextMidnight();
     }
   }());
+
+  // ── Gentle nudge: "Missed yesterday? Here's a quick reset verse" ─────────────
+  // Shows when last visit was >1 day ago. Encouraging re-engagement without guilt.
+  // Only on homepage; dismissible; one-time per return visit.
+  // ───────────────────────────────────────────────────────────────────────────
+  (function initMissedYesterdayNudge() {
+    var LAST_SEEN_KEY = 'tdb-last-seen';
+    var RESET_VERSES = [
+      { ref: 'Psalm 51:10', text: 'Create in me a clean heart, O God; and renew a right spirit within me.' },
+      { ref: 'Lamentations 3:22-23', text: "It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness." },
+      { ref: 'Isaiah 43:19', text: 'Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.' },
+      { ref: 'Psalm 103:12', text: 'As far as the east is from the west, so far hath he removed our transgressions from us.' }
+    ];
+    var path = typeof location !== 'undefined' ? (location.pathname || '') : '';
+    if (path !== '/' && path !== '/index.html' && path !== '') return;
+    function todayStr() {
+      var d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+    var today = todayStr();
+    var lastSeen;
+    try { lastSeen = localStorage.getItem(LAST_SEEN_KEY); } catch (e) {}
+    if (!lastSeen) {
+      try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
+      return;
+    }
+    var lastDate = new Date(lastSeen + 'T12:00:00');
+    var daysMissed = Math.floor((Date.now() - lastDate.getTime()) / 86400000);
+    if (daysMissed < 1) {
+      try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
+      return;
+    }
+    var verse = RESET_VERSES[Math.floor(Math.random() * RESET_VERSES.length)];
+    var msg = 'Missed yesterday? Here\'s a quick reset verse: ' + verse.ref + ' — ' + verse.text + ' Welcome back.';
+    if (typeof showEliteToast === 'function') showEliteToast(msg, { gold: true, duration: 7000 });
+    try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
+  }());
 })();
 }  // Workaround: closes unclosed block (fixes "Unexpected end of script" parse error)

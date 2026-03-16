@@ -3417,9 +3417,9 @@
           <span class="plans-teaser-title">📋 Battle Plans</span>
           <a href="plans.html" class="plans-teaser-explore" aria-label="See all battle plans">All Plans →</a>
         </div>
-        <a href="plans.html" class="plans-teaser-banner" aria-label="See all 10 battle plans — 7 to 40 days">
+        <a href="plans.html" class="plans-teaser-banner" aria-label="See all 11 battle plans — 7 to 40 days">
           <span class="plans-teaser-badge" aria-hidden="true">New</span>
-          <span>7–40 day plans — pick your rhythm.</span>
+          <span>7–40 day plans — Resurrection Hope for Easter.</span>
           <span class="plans-teaser-arrow" aria-hidden="true">→</span>
         </a>
         <div class="plans-grid" id="plansGrid">
@@ -3428,6 +3428,7 @@
           <button type="button" class="plan-chip" data-plan="strength" aria-label="30 Days Strength plan">💪 30-Day Strength<span class="plan-chip-days" id="planChip-strength"></span></button>
           <button type="button" class="plan-chip" data-plan="marriage" aria-label="7 Days Marriage plan">💍 Marriage<span class="plan-chip-days" id="planChip-marriage"></span></button>
           <button type="button" class="plan-chip" data-plan="peace" aria-label="7 Days Peace plan">🕊️ 7-Day Peace<span class="plan-chip-days" id="planChip-peace"></span></button>
+          <button type="button" class="plan-chip" data-plan="easter" aria-label="7 Days Resurrection Hope plan">✨ Resurrection Hope<span class="plan-chip-days" id="planChip-easter"></span></button>
         </div>
         <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
       </section>
@@ -5136,26 +5137,37 @@
       }
 
       function wireTtsFallback() {
-        let utterance = null;
+        let dailyUtterance = null;
         setReady();
         btn.addEventListener('click', () => {
-          if (window.speechSynthesis.speaking) {
-            window.speechSynthesis.cancel();
+          const synth = window.speechSynthesis;
+          if (synth.speaking && !synth.paused) {
+            synth.pause();
             setPlaying(false);
             return;
           }
-          utterance = new SpeechSynthesisUtterance(buildTtsText());
-          utterance.rate  = 0.88;
-          utterance.pitch = 1;
-          utterance.lang  = 'en-US';
-          const voices = window.speechSynthesis.getVoices();
+          if (synth.paused) {
+            synth.resume();
+            setPlaying(true);
+            return;
+          }
+          try { synth.cancel(); } catch (_) {}
+          const text = buildTtsText();
+          if (!text.trim()) return;
+          dailyUtterance = new SpeechSynthesisUtterance(text);
+          dailyUtterance.rate  = 0.88;
+          dailyUtterance.pitch = 1;
+          dailyUtterance.lang  = 'en-US';
+          const voices = synth.getVoices();
           const best = voices.find(v => /samantha|karen|daniel|alex|moira/i.test(v.name))
                     || voices.find(v => v.lang === 'en-US' && v.localService)
                     || null;
-          if (best) utterance.voice = best;
-          utterance.onstart = ()         => setPlaying(true);
-          utterance.onend   = utterance.onerror = () => setPlaying(false);
-          window.speechSynthesis.speak(utterance);
+          if (best) dailyUtterance.voice = best;
+          dailyUtterance.onstart = () => setPlaying(true);
+          dailyUtterance.onend = dailyUtterance.onerror = () => { setPlaying(false); dailyUtterance = null; };
+          dailyUtterance.onpause = () => setPlaying(false);
+          dailyUtterance.onresume = () => setPlaying(true);
+          synth.speak(dailyUtterance);
         });
       }
 
@@ -5242,7 +5254,8 @@
         battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
         battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
         battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
-        battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 }
+        battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 },
+        easter:   { label: '\u2728 Resurrection Hope', key: 'tdb-plan-easter-day',   max: 7  }
       };
       var best = { planId: null, day: 0, max: 7, label: '' };
       Object.keys(PLAN_CONFIGS).forEach(function (planId) {
@@ -5368,7 +5381,8 @@
       battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
       battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
       battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
-      battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 }
+      battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 },
+      easter:   { label: '\u2728 Resurrection Hope', key: 'tdb-plan-easter-day',   max: 7  }
     };
     function updatePlanChips() {
       var barList = document.getElementById('plansMiniBarsList');

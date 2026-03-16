@@ -3018,6 +3018,9 @@
   var STORY_MASTER_THRESHOLD = 7;
   var currentOpenStoryKey = null;
   var currentVisibleKeys = [];
+  var modalPreviousFocus = null;
+  var modalFocusTrapHandler = null;
+  var kidsStorySpeakBtn = null;
   var STORY_JOURNEY_ORDER = [
     'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat',
     'mosesBush', 'redSea', 'manna', 'tenCommandments', 'fallOfJericho', 'ruthBoaz',
@@ -3065,6 +3068,23 @@
 
   function getStoryThemes() {
     return window.TDB_STORY_THEMES || {};
+  }
+
+  /** Resolve URL story param to canonical key. Handles aliases and case-insensitivity. */
+  function resolveStoryKey(param) {
+    if (!param || typeof param !== 'string') return null;
+    var raw = param.trim();
+    if (!raw) return null;
+    var stories = getStories();
+    if (stories[raw]) return raw;
+    var aliases = { 'jesus-children': 'jesus', 'jesuschildren': 'jesus' };
+    if (aliases[raw]) return stories[aliases[raw]] ? aliases[raw] : null;
+    var lower = raw.toLowerCase();
+    var keys = Object.keys(stories);
+    for (var i = 0; i < keys.length; i++) {
+      if (keys[i].toLowerCase() === lower) return keys[i];
+    }
+    return null;
   }
 
   function getJourneyKeys() {
@@ -3262,22 +3282,39 @@
     var s = stories[key];
     if (!s) return;
     var panels = s.panels || [];
+    var applyText = (s.kidContext && s.kidContext.apply) ? s.kidContext.apply : '';
+    var themeSnippet = applyText ? (applyText.split(/[.!?]/)[0] || applyText).trim().substring(0, 60) : (s.title || '');
     var panelsHtml = panels.map(function (p) {
-      return '<img src="' + escAttr(p.src || '') + '" alt="' + escAttr(p.alt || '') + '" class="comic-panel" width="200" height="160">';
+      var baseAlt = p.alt || (s.title + ' illustration');
+      var fullAlt = themeSnippet ? baseAlt + ' – ' + themeSnippet : baseAlt + ' – ' + (s.kjvRef || s.title);
+      return '<img src="' + escAttr(p.src || '') + '" alt="' + escAttr(fullAlt) + '" class="comic-panel" width="200" height="160">';
     }).join('');
     var safeVideoId = safeYouTubeId(s.videoId);
     var videoTitle = escAttr(s.videoTitle || '');
     var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
     var shareBtnHtml = '<button type="button" class="kids-share-btn" data-story="' + escAttr(key) + '">📤 Share with friends!</button>';
+    var speakBtnHtml = '';
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance !== 'undefined') {
+      speakBtnHtml = '<button type="button" class="kids-story-speak-btn kids-speak-btn" data-story-key="' + escAttr(key) + '" aria-label="Play story narration" aria-pressed="false">🔊 Tap to hear</button>';
+    }
+    try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
+    kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
     if (modalTitle) modalTitle.textContent = s.title || key;
     if (modalCarousel) {
-      modalCarousel.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtml(s.caption || '') + '</p>' + btnHtml + shareBtnHtml + '</div>';
+      modalCarousel.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtml(s.caption || '') + '</p>' + speakBtnHtml + btnHtml + shareBtnHtml + '</div>';
     }
     if (modalContext) {
       var ctx = s.kidContext;
+      var ref = s.kjvRef;
+      var parts = [];
       if (ctx && (ctx.who || ctx.to || ctx.apply)) {
-        modalContext.innerHTML = '<p><strong>Who:</strong> ' + escHtml(ctx.who || '') + '</p><p><strong>For you:</strong> ' + escHtml(ctx.apply || '') + '</p>';
+        if (ctx.who) parts.push('<p><strong>Who:</strong> ' + escHtml(ctx.who) + '</p>');
+        if (ctx.apply) parts.push('<p><strong>For you:</strong> ' + escHtml(ctx.apply) + '</p>');
+      }
+      if (ref) parts.push('<p class="kids-kjv-ref">' + escHtml(ref) + '</p>');
+      if (parts.length) {
+        modalContext.innerHTML = parts.join('');
         modalContext.classList.remove('hidden');
       } else {
         modalContext.classList.add('hidden');
@@ -3285,7 +3322,40 @@
       }
     }
     if (modalVideo) modalVideo.innerHTML = '';
-    if (modal) modal.classList.remove('hidden');
+    if (modal) {
+      modal.classList.remove('hidden');
+      modalPreviousFocus = document.activeElement;
+      if (modalFocusTrapHandler) {
+        modal.removeEventListener('keydown', modalFocusTrapHandler);
+      }
+      modalFocusTrapHandler = function (e) {
+        if (e.key !== 'Tab') return;
+        var focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        focusable = Array.prototype.filter.call(focusable, function (el) {
+          return el.offsetParent !== null && !el.disabled && el.getAttribute('aria-hidden') !== 'true';
+        });
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (!first) return;
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            if (last) last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      };
+      modal.addEventListener('keydown', modalFocusTrapHandler);
+      var focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      var firstBtn = Array.prototype.find.call(focusable, function (el) {
+        return el.offsetParent !== null && !el.disabled;
+      });
+      if (firstBtn) firstBtn.focus();
+    }
     syncStoryNavButtons();
     addViewedStory(key);
     advanceJourneyFromStory(key);
@@ -3293,8 +3363,18 @@
 
   function closeStoryModal() {
     if (!modal) return;
+    try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
+    kidsStorySpeakBtn = null;
+    if (modalFocusTrapHandler) {
+      modal.removeEventListener('keydown', modalFocusTrapHandler);
+      modalFocusTrapHandler = null;
+    }
     modal.classList.add('hidden');
     if (modalVideo) modalVideo.innerHTML = '';
+    if (modalPreviousFocus && typeof modalPreviousFocus.focus === 'function') {
+      try { modalPreviousFocus.focus(); } catch (_) {}
+      modalPreviousFocus = null;
+    }
   }
 
   function currentStoryIndexInVisible() {
@@ -3333,8 +3413,8 @@
       var params = new URLSearchParams(location.search);
       var q = params.get('q');
       if (q && searchInput) searchInput.value = q;
-      var storyKey = params.get('story');
-      if (storyKey && getStories()[storyKey]) {
+      var storyKey = resolveStoryKey(params.get('story'));
+      if (storyKey) {
         setTimeout(function () { openStory(storyKey); }, 300);
       }
     } catch (e) {}
@@ -3495,6 +3575,74 @@
               vidDiv.innerHTML = '<div class="kids-video-wrapper"><iframe src="https://www.youtube.com/embed/' + escHtml(id) + '?rel=0&modestbranding=1&playsinline=1" width="100%" height="100%" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="Bible story video"></iframe></div>';
             }
           }
+        }
+        return;
+      }
+      var speakBtn = e.target && e.target.closest ? e.target.closest('.kids-story-speak-btn') : null;
+      if (speakBtn) {
+        var synth = window.speechSynthesis;
+        var key = speakBtn.getAttribute('data-story-key') || currentOpenStoryKey;
+        var stories = getStories();
+        var story = stories[key];
+        if (!story || !synth || typeof window.SpeechSynthesisUtterance === 'undefined') return;
+        if (synth.speaking && !synth.paused) {
+          synth.pause();
+          speakBtn.setAttribute('aria-pressed', 'false');
+          speakBtn.setAttribute('aria-label', 'Resume narration');
+          speakBtn.textContent = '\u25B6 Tap to resume';
+          kidsStorySpeakBtn = speakBtn;
+          return;
+        }
+        if (synth.paused) {
+          synth.resume();
+          speakBtn.setAttribute('aria-pressed', 'true');
+          speakBtn.setAttribute('aria-label', 'Pause narration');
+          speakBtn.textContent = '\u23F8 Pause';
+          kidsStorySpeakBtn = speakBtn;
+          return;
+        }
+        try { synth.cancel(); } catch (_) {}
+        var parts = [story.title || key, story.caption || ''];
+        if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
+        if (story.kjvRef) parts.push(story.kjvRef);
+        var text = parts.filter(Boolean).join('. ').trim();
+        if (text) {
+          kidsStorySpeakBtn = speakBtn;
+          var u = new window.SpeechSynthesisUtterance(text);
+          u.rate = 0.9;
+          var voices = synth.getVoices();
+          var en = voices.filter(function (v) { return v.lang && v.lang.startsWith('en'); })[0];
+          if (en) u.voice = en;
+          u.onstart = function () {
+            if (kidsStorySpeakBtn) {
+              kidsStorySpeakBtn.setAttribute('aria-pressed', 'true');
+              kidsStorySpeakBtn.setAttribute('aria-label', 'Pause narration');
+              kidsStorySpeakBtn.textContent = '\u23F8 Pause';
+            }
+          };
+          u.onend = u.onerror = function () {
+            if (kidsStorySpeakBtn) {
+              kidsStorySpeakBtn.setAttribute('aria-pressed', 'false');
+              kidsStorySpeakBtn.setAttribute('aria-label', 'Play story narration');
+              kidsStorySpeakBtn.textContent = '\uD83D\uDD0A Tap to hear';
+              kidsStorySpeakBtn = null;
+            }
+          };
+          u.onpause = function () {
+            if (kidsStorySpeakBtn) {
+              kidsStorySpeakBtn.setAttribute('aria-pressed', 'false');
+              kidsStorySpeakBtn.setAttribute('aria-label', 'Resume narration');
+              kidsStorySpeakBtn.textContent = '\u25B6 Tap to resume';
+            }
+          };
+          u.onresume = function () {
+            if (kidsStorySpeakBtn) {
+              kidsStorySpeakBtn.setAttribute('aria-pressed', 'true');
+              kidsStorySpeakBtn.setAttribute('aria-label', 'Pause narration');
+              kidsStorySpeakBtn.textContent = '\u23F8 Pause';
+            }
+          };
+          synth.speak(u);
         }
         return;
       }

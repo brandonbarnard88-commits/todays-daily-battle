@@ -3,6 +3,28 @@
   gap: 1rem;
 }
 
+.kids-corner-report-banner {
+  background: #fff9e6;
+  border: 1px solid rgba(255, 215, 0, 0.6);
+  padding: 0.75rem 1rem;
+  margin: 0 auto 0.5rem;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.45;
+}
+
+.kids-corner-report-banner strong {
+  font-weight: 600;
+}
+
+.kids-corner-report-banner em {
+  font-style: italic;
+  color: #6b7280;
+}
+
 .loop-library-hero {
   border-color: rgba(250, 204, 21, 0.55);
   background: linear-gradient(140deg, rgba(255, 249, 236, 0.94), rgba(224, 242, 254, 0.92));
@@ -215,6 +237,29 @@
 
 .loop-speaker-label {
   white-space: nowrap;
+}
+
+.loop-report-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.24rem;
+  padding: 0.24rem 0.4rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.68rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease;
+  line-height: 1;
+}
+
+.loop-report-btn:hover,
+.loop-report-btn:focus-visible {
+  color: #b91c1c;
+  background: rgba(254, 226, 226, 0.5);
+  outline: none;
 }
 
 /* ── Audio section inside modal ─────────────────────────────────── */

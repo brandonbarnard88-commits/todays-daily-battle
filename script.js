@@ -258,6 +258,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
   var TOTAL_LOOPS = 160;
+  /* Google Form for reports: set when ready. Example:
+     LOOP_FEEDBACK_FORM = { url: 'https://docs.google.com/forms/d/e/XXX/viewform', storyEntry: 'entry.123456789', commentEntry: 'entry.987654321' };
+  */
+  var LOOP_FEEDBACK_FORM = null;
 
   var progressText = document.getElementById('loop-progress-text');
   var progressFill = document.getElementById('loop-progress-fill');
@@ -488,6 +492,36 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       });
     }
     audioRow.appendChild(speakerBtn);
+    var reportBtn = document.createElement('button');
+    reportBtn.type = 'button';
+    reportBtn.className = 'loop-report-btn';
+    reportBtn.setAttribute('aria-label', 'Report animation mismatch for ' + String(loop.title));
+    reportBtn.setAttribute('title', 'Something wrong with this animation? Let us know.');
+    reportBtn.innerHTML = '<span aria-hidden="true">⚠</span> Report mismatch';
+    reportBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var comment = '';
+      try { comment = window.prompt('What\'s wrong with this animation? (optional)', '') || ''; } catch (err) {}
+      if (typeof trackEvent === 'function') trackEvent('loop_mismatch_report', { story_id: String(loop.id), story_title: String(loop.title) });
+      var form = LOOP_FEEDBACK_FORM;
+      if (form && form.url && form.storyEntry) {
+        var m = (loop.file || '').match(/\/([^/]+)\.webm$/);
+        var slug = m ? m[1] : String(loop.id);
+        var storyVal = encodeURIComponent(String(loop.id) + ' - ' + String(loop.title) + ' (' + slug + ')');
+        var q = 'usp=pp_url&' + form.storyEntry + '=' + storyVal;
+        if (form.commentEntry && comment) q += '&' + form.commentEntry + '=' + encodeURIComponent(comment);
+        var sep = form.url.indexOf('?') >= 0 ? '&' : '?';
+        window.open(form.url + sep + q, '_blank');
+        try { window.alert('Thanks! Form opened—submit when ready. 🙌'); } catch (err) {}
+      } else {
+        var subject = 'Mismatch Report: ' + String(loop.title) + ' (' + String(loop.id) + ')';
+        var body = comment ? encodeURIComponent(comment) : '';
+        var mailto = 'mailto:support@todaysdailybattle.com?subject=' + encodeURIComponent(subject) + (body ? '&body=' + body : '');
+        window.location.href = mailto;
+        try { window.alert('Thanks! We\'ll check it out.'); } catch (err) {}
+      }
+    });
+    audioRow.appendChild(reportBtn);
     card.appendChild(audioRow);
 
     lazyObserver.observe(video);
@@ -15753,6 +15787,9 @@ function writeNbaSignal(key) {
         var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
         ensureBattleSearchVisible();
         var outputEl = ensureOutputElement();
+        if (outputEl && outputEl.closest && outputEl.closest('.sr-only') && document.getElementById('feel-results')) {
+          outputEl = document.getElementById('feel-results');
+        }
         if (outputEl) outputEl.style.display = 'grid';
         try { if (typeof setView === 'function') setView('search'); } catch (_) {}
         var loadingEl = document.getElementById('loading');
@@ -15772,6 +15809,9 @@ function writeNbaSignal(key) {
               try { if (typeof refreshBibleView === 'function') refreshBibleView(); } catch (_) {}
             }
             var out = document.getElementById('output');
+            if (out && out.closest && out.closest('.sr-only') && document.getElementById('feel-results')) {
+              out = document.getElementById('feel-results');
+            }
             if (Object.keys(bible).length === 0) {
               if (out) {
                 out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh. Having trouble? Try <a href="https://todaysdailybattle.com" style="color:var(--primary);">todaysdailybattle.com</a>.</p>';

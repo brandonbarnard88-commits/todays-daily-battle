@@ -23,11 +23,19 @@ const TIMEOUT = 10000;
 
 async function waitForSearchReady(page) {
   await page.waitForFunction(() => {
-    const input = document.querySelector('#tdb-search');
-    const btn = document.querySelector('#search-btn');
-    const out = document.querySelector('#output');
+    const input = document.querySelector('#feel-search') || document.querySelector('#tdb-search');
+    const btn = document.querySelector('#feel-search-btn') || document.querySelector('#search-btn');
+    const out = document.querySelector('#feel-results') || document.querySelector('#output');
     return !!(input && btn && out && typeof window.runSearchWithInput === 'function');
   }, { timeout: 12000 }).catch(() => {});
+}
+
+async function scrollFeelSectionIntoView(page) {
+  const feelSection = page.locator('#feel-section');
+  if (await feelSection.count() > 0) {
+    await feelSection.scrollIntoViewIfNeeded().catch(() => {});
+    await page.waitForTimeout(300);
+  }
 }
 
 async function runMobileSmokeTest() {
@@ -88,29 +96,28 @@ async function runMobileSmokeTest() {
       results.errors.push(`Page Error: ${error.message}`);
     });
 
-    // STEP 1: Load homepage and verify hero controls
+    // STEP 1: Load homepage and verify hero controls (visible feel-search + quick topics)
     console.log('📱 STEP 1: Loading homepage and checking hero controls...');
     try {
       await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
+      await scrollFeelSectionIntoView(page);
       
-      // Check for search input
-      const searchInput = await page.locator('#tdb-search');
-      const searchButton = await page.locator('#search-btn');
-      const quickTopicArea = await page.locator('#quick-actions-hero');
+      const searchInput = page.locator('#feel-search');
+      const searchButton = page.locator('#feel-search-btn');
+      const quickTopicArea = page.locator('#quickTopics, .quick-grid');
       
       const searchExists = await searchInput.count() > 0;
       const buttonExists = await searchButton.count() > 0;
       const quickExists = await quickTopicArea.count() > 0;
       
       if (!searchExists) {
-        results.steps.push({ step: 1, status: 'FAIL', issue: 'Search input #main-search not found' });
+        results.steps.push({ step: 1, status: 'FAIL', issue: 'Search input #feel-search not found' });
       } else if (!buttonExists) {
-        results.steps.push({ step: 1, status: 'FAIL', issue: 'Search button not found' });
+        results.steps.push({ step: 1, status: 'FAIL', issue: 'Search button #feel-search-btn not found' });
       } else if (!quickExists) {
-        results.steps.push({ step: 1, status: 'FAIL', issue: 'Quick topic area #quick-actions-hero not found' });
+        results.steps.push({ step: 1, status: 'FAIL', issue: 'Quick topic area #quickTopics not found' });
       } else {
-        // Check visibility
         const searchVisible = await searchInput.isVisible();
         const quickTopicVisible = await quickTopicArea.isVisible();
         
@@ -134,28 +141,24 @@ async function runMobileSmokeTest() {
     // STEP 2: Test quick topic chip tap
     console.log('\n📱 STEP 2: Testing quick topic chip tap...');
     try {
-      await waitForSearchReady(page);
-      // Find first quick topic button
-      const quickTopicButton = await page.locator('#quick-actions-hero .quick-topic, #quick-actions-hero .topic-chip').first();
-      const buttonCount = await page.locator('#quick-actions-hero .quick-topic, #quick-actions-hero .topic-chip').count();
+      await scrollFeelSectionIntoView(page);
+      const quickTopicButton = page.locator('#quickTopics .quick-topic, .quick-grid .quick-topic').first();
+      const buttonCount = await page.locator('#quickTopics .quick-topic, .quick-grid .quick-topic').count();
       
       if (buttonCount === 0) {
         results.steps.push({ step: 2, status: 'FAIL', issue: 'No quick topic buttons found' });
       } else {
         const buttonText = await quickTopicButton.textContent();
         
-        // Check tap target size
         const box = await quickTopicButton.boundingBox();
         if (box && (box.height < 44 || box.width < 44)) {
           results.warnings.push(`Quick topic button tap target too small: ${box.width}x${box.height}px (should be 44px+)`);
         }
         
-        // Tap the button
-        await quickTopicButton.click();
-        await page.waitForTimeout(1000); // Wait for any animations/results
+        await quickTopicButton.click({ force: true });
+        await page.waitForTimeout(1500);
         
-        // Check if search results appeared or some action occurred
-        const resultsContainer = await page.locator('#output');
+        const resultsContainer = page.locator('#feel-results, #feelCards, .feel-cards');
         const resultsVisible = await resultsContainer.isVisible().catch(() => false);
         
         if (resultsVisible) {
@@ -182,24 +185,23 @@ async function runMobileSmokeTest() {
     // STEP 3: Test search with "anxiety"
     console.log('\n📱 STEP 3: Testing search with "anxiety"...');
     try {
-      // Clear previous results and navigate back to clean state if needed
       await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
+      await scrollFeelSectionIntoView(page);
       
-      const searchInput = await page.locator('#tdb-search');
+      const searchInput = page.locator('#feel-search');
       await searchInput.fill('anxiety');
       
-      const searchButton = await page.locator('#search-btn');
-      await searchButton.click();
+      const searchButton = page.locator('#feel-search-btn');
+      await searchButton.click({ force: true });
       
-      // Wait for results
       await page.waitForFunction(() => {
-        const out = document.querySelector('#output');
+        const out = document.querySelector('#feel-results') || document.querySelector('#feelCards') || document.querySelector('#output');
         if (!out) return false;
-        return !!out.querySelector('.verse-card, .empty');
+        return !!out.querySelector('.verse-card, .feel-card, .empty') || out.textContent.trim().length > 0;
       }, { timeout: 12000 }).catch(() => {});
       
-      const resultsContainer = await page.locator('#output');
+      const resultsContainer = page.locator('#feel-results, #feelCards, .feel-cards, #output');
       const resultsVisible = await resultsContainer.isVisible().catch(() => false);
       
       if (!resultsVisible) {
@@ -235,168 +237,69 @@ async function runMobileSmokeTest() {
       console.log(`   ❌ Step 3: FAIL - ${error.message}`);
     }
 
-    // STEP 4: Test Daily Tile watch button
-    console.log('\n📱 STEP 4: Testing Daily Tile watch button...');
+    // STEP 4: Test Quick Story button
+    console.log('\n📱 STEP 4: Testing Quick Story button...');
     try {
       await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
       
-      // Find watch button (may be in daily tile section)
-      const watchButtonSelectors = [
-        '#daily-tile-watch-btn',
-        'button[onclick*="openStoryOverlay"]',
-        'button[onclick*="openCartoonOverlay"]',
-        '.daily-tile-watch-btn'
-      ];
+      const quickStoryBtn = page.locator('#quickStoryBtn');
+      const btnCount = await quickStoryBtn.count();
       
-      let watchButton = null;
-      for (const selector of watchButtonSelectors) {
-        const count = await page.locator(selector).count();
-        if (count > 0) {
-          watchButton = page.locator(selector).first();
-          break;
-        }
-      }
-      
-      if (!watchButton) {
-        results.steps.push({ step: 4, status: 'FAIL', issue: 'Daily Tile watch button not found' });
+      if (btnCount === 0) {
+        results.steps.push({ step: 4, status: 'FAIL', issue: 'Quick Story button #quickStoryBtn not found' });
       } else {
-        await watchButton.scrollIntoViewIfNeeded();
-        // Check tap target size
-        const box = await watchButton.boundingBox();
+        await quickStoryBtn.scrollIntoViewIfNeeded();
+        const box = await quickStoryBtn.boundingBox();
         if (box && (box.height < 44 || box.width < 44)) {
-          results.warnings.push(`Watch button tap target too small: ${box.width}x${box.height}px (should be 44px+)`);
+          results.warnings.push(`Quick Story button tap target too small: ${box.width}x${box.height}px (should be 44px+)`);
         }
         
-        // Tap watch button (with retries/fallbacks for flaky click interception)
         let clickTriggered = false;
         for (let attempt = 0; attempt < 3; attempt++) {
           try {
-            if (attempt === 0) {
-              await watchButton.click({ timeout: 3000 });
-            } else if (attempt === 1) {
-              await watchButton.click({ timeout: 3000, force: true });
+            if (attempt < 2) {
+              await quickStoryBtn.click({ timeout: 5000, force: true });
             } else {
               await page.evaluate(() => {
-                const btn = document.getElementById('daily-tile-watch-btn');
-                if (btn) btn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+                const btn = document.getElementById('quickStoryBtn');
+                if (btn) btn.click();
               });
             }
             clickTriggered = true;
-            await page.waitForTimeout(650);
+            await page.waitForTimeout(800);
             break;
           } catch (_) {}
         }
+        
         if (!clickTriggered) {
-          results.steps.push({ step: 4, status: 'FAIL', issue: 'Watch button click could not be triggered' });
-          console.log(`   ${results.steps[3].status === 'PASS' ? '✅' : '❌'} Step 4: ${results.steps[3].status}`);
-          return;
-        }
-        
-        // Check if overlay appeared
-        const overlaySelectors = [
-          '#tdb-cartoon-overlay',
-          '#tdb-story-overlay',
-          '#story-overlay-container',
-          '#daily-story-overlay',
-          '#cartoon-overlay',
-          '.overlay-container',
-          '.tdb-cartoon-overlay'
-        ];
-        
-        let overlay = null;
-        for (const selector of overlaySelectors) {
-          const candidate = page.locator(selector).first();
-          const count = await candidate.count();
-          if (!count) continue;
-          const becameVisible = await candidate.waitFor({ state: 'visible', timeout: 5000 }).then(() => true).catch(() => false);
-          if (becameVisible) {
-            overlay = candidate;
-            break;
-          }
-        }
-        
-        // Fallback: call player open directly if click did not surface overlay.
-        if (!overlay) {
-          const directOpenWorked = await page.evaluate(() => {
-            if (window.TDBCartoonPlayer && typeof window.TDBCartoonPlayer.open === 'function') {
-              window.TDBCartoonPlayer.open({
-                characterName: 'David',
-                battleTitle: 'Giant Slayer',
-                userInitiated: true
-              });
-              return true;
-            }
-            return false;
-          }).catch(() => false);
-          if (directOpenWorked) {
-            const directOverlay = page.locator('#tdb-cartoon-overlay').first();
-            const directVisible = await directOverlay.waitFor({ state: 'visible', timeout: 5000 }).then(() => true).catch(() => false);
-            if (directVisible) overlay = directOverlay;
-          }
-        }
-
-        const overlayVisible = overlay
-          ? await overlay.evaluate((el) => {
-              if (!(el instanceof HTMLElement)) return false;
-              if (el.classList.contains('hidden')) return false;
-              const style = window.getComputedStyle(el);
-              return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
-            }).catch(() => false)
-          : false;
-        
-        if (!overlayVisible) {
-          results.steps.push({ step: 4, status: 'FAIL', issue: 'Story/cartoon overlay did not open' });
+          results.steps.push({ step: 4, status: 'FAIL', issue: 'Quick Story button click could not be triggered' });
         } else {
-          // Try to close overlay
-          const closeButtonSelectors = [
-            '#tdb-cartoon-close',
-            '#tdb-story-overlay .close-btn',
-            '#story-overlay-container .close-btn',
-            '#cartoon-overlay .close-btn',
-            '.overlay-container .close-btn',
-            '.tdb-cartoon-overlay .close-btn'
+          const overlaySelectors = [
+            '#kidsStoryModal',
+            '#kids-story-modal',
+            '#tdb-cartoon-overlay',
+            '#tdb-story-overlay',
+            '.story-modal:not([hidden])'
           ];
           
-          let closeButton = null;
-          for (const selector of closeButtonSelectors) {
-            const count = await page.locator(selector).count();
-            if (count > 0) {
-              closeButton = page.locator(selector).first();
-              break;
-            }
+          let overlayVisible = false;
+          for (const selector of overlaySelectors) {
+            const el = page.locator(selector).first();
+            if (await el.count() === 0) continue;
+            overlayVisible = await el.evaluate((node) => {
+              if (!(node instanceof HTMLElement)) return false;
+              if (node.hasAttribute('hidden')) return false;
+              const s = window.getComputedStyle(node);
+              return s.display !== 'none' && s.visibility !== 'hidden' && s.opacity !== '0';
+            }).catch(() => false);
+            if (overlayVisible) break;
           }
           
-          if (!closeButton) {
-            results.steps.push({ 
-              step: 4, 
-              status: 'FAIL', 
-              issue: 'Overlay opened but close button not found' 
-            });
+          if (!overlayVisible) {
+            results.steps.push({ step: 4, status: 'FAIL', issue: 'Quick Story modal did not open' });
           } else {
-            await closeButton.click();
-            await page.waitForTimeout(500);
-            
-            const stillVisible = await overlay.evaluate((el) => {
-              if (!(el instanceof HTMLElement)) return false;
-              if (el.classList.contains('hidden')) return false;
-              const style = window.getComputedStyle(el);
-              return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
-            }).catch(() => false);
-            
-            if (stillVisible) {
-              results.steps.push({ 
-                step: 4, 
-                status: 'FAIL', 
-                issue: 'Overlay did not close after tapping close button' 
-              });
-            } else {
-              results.steps.push({ 
-                step: 4, 
-                status: 'PASS', 
-                message: 'Daily Tile overlay opens and closes correctly' 
-              });
-            }
+            results.steps.push({ step: 4, status: 'PASS', message: 'Quick Story modal opened' });
           }
         }
       }

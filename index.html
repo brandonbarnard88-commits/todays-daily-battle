@@ -3542,7 +3542,7 @@
           <li><strong>Post a prayer</strong> — no account needed</li>
         </ol>
       </section>
-      <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads • No personal tracking • Built during recovery from serious illness • Your moments stay private here.</div>
+      <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads. No personal data collected. Made during recovery from serious illness. Everything you do here stays between you and God.</div>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter in context">📖 Read the full chapter</a>
@@ -3837,6 +3837,7 @@
       <p class="site-footer-copy">© Todays Daily Battle 2026</p>
       <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
       <p class="site-footer-social-proof" id="footerSocialProof" aria-live="polite">Join <span id="footerVisitsCount">26k+</span> monthly visitors finding daily KJV encouragement — verse by verse, win the day ⚔️</p>
+      <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
       <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
       <p class="site-footer-updated">Last updated: <span id="last-updated">—</span></p>
       <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
@@ -3847,6 +3848,31 @@
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025">
+  (function() {
+    var moodEl = document.getElementById('footerMoodInsight');
+    if (!moodEl) return;
+    var byMonth = [
+      ['Peace', 'Strength', 'Anxiety'],
+      ['Hope', 'Fear', 'Grief'],
+      ['Rest', 'Courage', 'Worry'],
+      ['Forgiveness', 'Loneliness', 'Peace'],
+      ['Strength', 'Anxiety', 'Hope'],
+      ['Grief', 'Rest', 'Courage'],
+      ['Peace', 'Hope', 'Strength'],
+      ['Anxiety', 'Fear', 'Rest'],
+      ['Loneliness', 'Grief', 'Peace'],
+      ['Strength', 'Courage', 'Hope'],
+      ['Worry', 'Anxiety', 'Rest'],
+      ['Peace', 'Hope', 'Forgiveness']
+    ];
+    var month = 0;
+    try { month = new Date().getMonth(); } catch (e) {}
+    var set = byMonth[month] || byMonth[0];
+    moodEl.textContent = 'This month people searched most for: ' + set.join(' \u00B7 ') + '.';
+    moodEl.style.fontSize = '0.85rem';
+    moodEl.style.color = 'var(--muted, #94a3b8)';
+    moodEl.style.margin = '0 0 0.5rem';
+  })();
   (function() {
     var el = document.getElementById('last-updated');
     if (!el) return;
@@ -5192,6 +5218,7 @@
       if (!isStandalone && pwaNudge && !pwaNudge.classList.contains("show")) {
         pwaNudge.classList.add("show");
       }
+      if (typeof window.__showInstallPromptWhenReady === "function") window.__showInstallPromptWhenReady();
     }
     window.showPwaNudgeAfterEngagement = showPwaNudgeAfterEngagement;
 

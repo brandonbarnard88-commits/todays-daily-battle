@@ -24,12 +24,17 @@
     .calm-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
     .mobile-only { display: block; }
     .desktop-only { display: none; }
+    @media (min-width: 768px) {
+      .calm-page .categories { margin-bottom: 1.5rem; }
+    }
     .intro { margin-bottom: 1.5rem; }
     .intro h2 { font-size: 1.1rem; font-weight: 500; color: var(--muted, #94a3b8); margin: 0; }
     .categories { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
     .categories button { padding: 1rem 1.5rem; min-height: 48px; font-size: 1rem; border-radius: 12px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.08); color: var(--gold); cursor: pointer; transition: background 0.15s; }
     .categories button:hover, .categories button:focus-visible { background: rgba(227,188,103,0.18); outline: 2px solid var(--gold); outline-offset: 2px; }
     .back-home { margin-top: 1rem; }
+    .calm-copy-btn { margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 0.88rem; border-radius: 8px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.08); color: var(--gold); cursor: pointer; }
+    .calm-copy-btn:hover, .calm-copy-btn:focus-visible { background: rgba(227,188,103,0.18); outline: 2px solid var(--gold); outline-offset: 2px; }
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
       .desktop-only { display: block !important; }
@@ -51,27 +56,29 @@
 
     <main class="app-content" id="main-content">
       <div class="calm-page">
-        <div class="intro mobile-only">
+        <div class="intro" id="calm-intro">
           <h2>What's weighing on you?</h2>
         </div>
-        <div class="categories mobile-only" id="calm-categories" role="group" aria-label="Choose a feeling">
+        <div class="categories" id="calm-categories" role="group" aria-label="Choose a feeling">
           <button type="button" class="calm-btn" data-category="anxiety" aria-label="Anxious or afraid">Anxious / Fear</button>
           <button type="button" class="calm-btn" data-category="worry" aria-label="Worried or overwhelmed">Worried / Overwhelmed</button>
           <button type="button" class="calm-btn" data-category="peace" aria-label="Need peace">Need Peace</button>
           <button type="button" class="calm-btn" data-category="strength" aria-label="Need strength">Strength / Courage</button>
           <button type="button" class="calm-btn" data-category="grief" aria-label="Grief or sadness">Grief / Sadness</button>
         </div>
-        <div id="verse-container" class="verse-centered mobile-only" style="display: none;">
+        <div id="verse-container" class="verse-centered" style="display: none;">
           <p id="verse-text" class="verse" aria-live="polite"></p>
           <p id="verse-ref" class="ref"></p>
+          <button type="button" class="calm-copy-btn" id="copy-verse-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="another-btn" aria-label="Show another verse in this category">Another in this category</button>
             <button type="button" class="calm-btn" id="back-categories" aria-label="Back to categories">Back to categories</button>
           </div>
         </div>
-        <div id="desktop-verse" class="desktop-only verse-centered">
+        <div id="desktop-verse" class="desktop-only verse-centered" style="display: none;">
           <p id="desktop-verse-text" class="verse" aria-live="polite"></p>
           <p id="desktop-verse-ref" class="ref"></p>
+          <button type="button" class="calm-copy-btn" id="desktop-copy-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="desktop-another" aria-label="Show another verse">Another verse</button>
           </div>
@@ -152,18 +159,69 @@
       }
       if (isMobile()) {
         document.getElementById('verse-container').style.display = 'none';
+        document.getElementById('calm-categories').style.display = 'flex';
+        document.getElementById('calm-intro').style.display = 'block';
+        document.getElementById('desktop-verse').style.display = 'none';
       } else {
+        document.getElementById('calm-categories').style.display = 'flex';
+        document.getElementById('calm-intro').style.display = 'block';
+        document.getElementById('verse-container').style.display = 'none';
+        document.getElementById('desktop-verse').style.display = 'flex';
         showDesktopVerse();
       }
       document.querySelectorAll('.categories button[data-category]').forEach(function (btn) {
-        btn.addEventListener('click', function () { showVerseView(btn.dataset.category); });
+        btn.addEventListener('click', function () {
+          if (isMobile()) {
+            showVerseView(btn.dataset.category);
+          } else {
+            currentCategory = btn.dataset.category;
+            var v = pickVerse(currentCategory);
+            var textEl = document.getElementById('desktop-verse-text');
+            var refEl = document.getElementById('desktop-verse-ref');
+            if (textEl) textEl.textContent = v.text;
+            if (refEl) refEl.textContent = v.ref;
+          }
+        });
       });
       var anotherBtn = document.getElementById('another-btn');
       if (anotherBtn) anotherBtn.addEventListener('click', function () { showVerse(currentCategory); });
       var backBtn = document.getElementById('back-categories');
       if (backBtn) backBtn.addEventListener('click', showCategories);
       var desktopAnother = document.getElementById('desktop-another');
-      if (desktopAnother) desktopAnother.addEventListener('click', showDesktopVerse);
+      if (desktopAnother) desktopAnother.addEventListener('click', function () {
+        if (currentCategory) {
+          showVerse(currentCategory);
+          var textEl = document.getElementById('desktop-verse-text');
+          var refEl = document.getElementById('desktop-verse-ref');
+          var v = pickVerse(currentCategory);
+          if (textEl) textEl.textContent = v.text;
+          if (refEl) refEl.textContent = v.ref;
+        } else {
+          showDesktopVerse();
+        }
+      });
+      function copyVerse(text, ref) {
+        var s = ref + ': "' + text + '" — todaysdailybattle.com';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(s).then(function () {}).catch(function () {});
+        }
+      }
+      var copyBtn = document.getElementById('copy-verse-btn');
+      if (copyBtn) copyBtn.addEventListener('click', function () {
+        var t = document.getElementById('verse-text');
+        var r = document.getElementById('verse-ref');
+        copyVerse((t && t.textContent) || '', (r && r.textContent) || '');
+        copyBtn.textContent = 'Copied';
+        setTimeout(function () { copyBtn.textContent = 'Copy to clipboard'; }, 2000);
+      });
+      var desktopCopy = document.getElementById('desktop-copy-btn');
+      if (desktopCopy) desktopCopy.addEventListener('click', function () {
+        var t = document.getElementById('desktop-verse-text');
+        var r = document.getElementById('desktop-verse-ref');
+        copyVerse((t && t.textContent) || '', (r && r.textContent) || '');
+        desktopCopy.textContent = 'Copied';
+        setTimeout(function () { desktopCopy.textContent = 'Copy to clipboard'; }, 2000);
+      });
     })();
   </script>
 </body>

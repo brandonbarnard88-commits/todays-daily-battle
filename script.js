@@ -4918,16 +4918,16 @@ function wireInstallPrompt() {
     }
     installCta.classList.add('show');
   }
+  window.__showInstallPromptWhenReady = function () {
+    if (isSuppressed()) return;
+    if (deferredInstallPrompt || isIosSafari()) showInstallCta();
+  };
   if (!isStandalone()) {
     window.addEventListener('beforeinstallprompt', (event) => {
       if (isSuppressed()) return;
       event.preventDefault();
       deferredInstallPrompt = event;
-      setTimeout(showInstallCta, INSTALL_PROMPT_DELAY_MS);
     });
-    if (isIosSafari() && !isSuppressed()) {
-      setTimeout(showInstallCta, INSTALL_PROMPT_DELAY_MS);
-    }
   }
   installBtn.addEventListener('click', async () => {
     if (isIosSafari() || !deferredInstallPrompt) {
@@ -9715,7 +9715,7 @@ function shareDailyBattle() {
   if (!shareText) return;
   emitEasterEgg('share_cape', { source: 'daily_battle' });
   if (navigator.share) {
-    navigator.share({ text: shareText, url: window.location.href }).catch(() => {});
+    navigator.share({ title: "Today's Daily Battle", text: shareText, url: window.location.href }).catch(() => {});
     return;
   }
   var full = shareText + '\n' + (window.location.href || window.location.origin + '/');
@@ -18063,6 +18063,16 @@ function sanitizeNudgeElements() {
       }
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('prayer');
       if (typeof addHeavenlyJewel === 'function' && getHouseholdArmor().count >= 6) addHeavenlyJewel('prayer');
+      if (quickPrayBtn) {
+        quickPrayBtn.textContent = 'Prayer saved';
+        quickPrayBtn.classList.add('quick-pray-saved');
+        quickPrayBtn.disabled = true;
+        setTimeout(function () {
+          quickPrayBtn.textContent = 'Pray';
+          quickPrayBtn.classList.remove('quick-pray-saved');
+          quickPrayBtn.disabled = false;
+        }, 2000);
+      }
       if (quickPrayFeedback) {
         quickPrayFeedback.textContent = 'Added!';
         quickPrayFeedback.style.display = 'block';
@@ -18101,6 +18111,7 @@ function sanitizeNudgeElements() {
       try { localStorage.setItem(DONE_FOR_TODAY_KEY, getDailyKey()); } catch (e) {}
       if (typeof applyDoneForTodayUI === 'function') applyDoneForTodayUI();
       if (typeof window.showPwaNudgeAfterEngagement === 'function') setTimeout(window.showPwaNudgeAfterEngagement, 1500);
+      if (typeof window.__showInstallPromptWhenReady === 'function') setTimeout(window.__showInstallPromptWhenReady, 1500);
     }
     var shareStreakBtnEl = document.getElementById('share-streak-btn');
     if (shareStreakBtnEl) {

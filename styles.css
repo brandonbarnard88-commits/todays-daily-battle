@@ -3620,6 +3620,16 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   margin-top: 0.5rem;
   color: var(--accent, #6d28d9);
 }
+.quick-pray-btn.quick-pray-saved,
+#quick-pray-btn.quick-pray-saved {
+  color: var(--green, #4ade80);
+  border-color: rgba(74, 222, 128, 0.5);
+  background: rgba(74, 222, 128, 0.1);
+}
+#quick-pray-btn.quick-pray-saved::before {
+  content: '\2713 ';
+  margin-right: 0.25rem;
+}
 .dark-mode .quick-pray-feedback { color: #a78bfa; }
 .quick-pray-toast {
   position: relative;

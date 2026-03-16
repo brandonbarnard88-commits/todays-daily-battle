@@ -311,6 +311,16 @@
       pointer-events: none; z-index: 100; white-space: nowrap;
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .recent-plans-carousel { margin-bottom: 1.5rem; }
+    .recent-plans-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 0.5rem; }
+    .recent-plans-row { display: flex; gap: 0.75rem; overflow-x: auto; padding-bottom: 0.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .recent-plan-card { flex-shrink: 0; scroll-snap-align: start; min-width: 140px; max-width: 180px; padding: 0.75rem 1rem; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--gold) 25%, transparent); background: var(--card); text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 0.35rem; transition: border-color 0.15s; }
+    .recent-plan-card:hover { border-color: var(--gold); }
+    .recent-plan-icon { font-size: 1.2rem; }
+    .recent-plan-label { font-size: 0.85rem; font-weight: 600; }
+    .recent-plan-progress { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+    .recent-plan-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); transition: width 0.3s; }
   </style>
 </head>
 <body>
@@ -330,6 +340,7 @@
         <p><a href="plans.html?plan=easter">✨ Resurrection Hope</a> — 7-day Easter plan. Death to life.</p>
         <button type="button" class="easter-banner-dismiss" id="easterBannerDismiss" aria-label="Dismiss Easter banner">×</button>
       </div>
+      <div class="recent-plans-carousel" id="recentPlansCarousel" role="region" aria-label="Recently viewed plans" style="display:none;"></div>
       <div class="plan-list" id="planList" role="list">
         <a href="plans.html?plan=battle" class="plan-row" data-plan="battle" role="listitem" aria-label="Battle Distraction — 7 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
@@ -355,6 +366,11 @@
           <span class="plan-row-icon" aria-hidden="true">🕊️</span>
           <div class="plan-row-info"><h2>7-Day Peace</h2><p>Rest and stillness. His peace — not the world's version.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-peace">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=trust" class="plan-row" data-plan="trust" role="listitem" aria-label="7-Day Trust in Uncertainty — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">✨</span>
+          <div class="plan-row-info"><h2>7-Day Trust in Uncertainty</h2><p>For seasons of job uncertainty, health scares, or when the future feels shaky. Trust when you can't see the path.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-trust">Not started</span></div>
         </a>
         <a href="plans.html?plan=battle10" class="plan-row" data-plan="battle10" role="listitem" aria-label="10-Day Battle — 10 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
@@ -589,6 +605,28 @@
             speaker: 'Paul closing a letter — not wishing peace, but pointing to its source', plain: 'Peace isn\'t a feeling you maintain. It\'s a Person you stay near.', today: 'How close are you staying to the God of peace today?', action: 'Come back to Him three times today. Just check in. Just be near.', prayer: 'God of peace, be with me. I stay near. Amen.' },
           { title: 'Guarded heart', ref: 'Colossians 3:15', text: 'And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.',
             speaker: 'Paul on letting God\'s peace be the referee of your heart', plain: 'Let peace rule — not anxiety, not opinion, not fear. Peace decides.', today: 'After 7 days of pursuing His peace — what does your heart feel?', action: 'Write one sentence: what does peace feel like for you right now? Offer it to God in thanks.', prayer: 'Lord, let Your peace rule in my heart. Be thankful. Amen.' }
+        ]
+      },
+
+      trust: {
+        id: 'trust', icon: '\u2728', label: '7-Day Trust in Uncertainty',
+        desc: 'For seasons of job uncertainty, health scares, or when the future feels shaky. Trust when you can\'t see the path.',
+        key: 'tdb-plan-trust-day', max: 7,
+        days: [
+          { title: 'Trust in the dark', ref: 'Proverbs 3:5-6', text: 'Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.',
+            speaker: 'Solomon — father to son — on where to put your weight', plain: 'Your understanding will fail. His direction won\'t. Lean on Him, not your plans.', today: 'What are you leaning on that might give way?', action: 'Name one thing you\'re trying to figure out alone. Hand it to Him. Say: "I lean on You."', prayer: 'Lord, I lean not on my understanding. Direct my paths. Amen.' },
+          { title: 'He knows the way', ref: 'Isaiah 43:2', text: 'When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee: when thou walkest through the fire, thou shalt not be burned; neither shall the flame kindle upon thee.',
+            speaker: 'God to Israel facing exile — and to you in the flood', plain: 'He doesn\'t promise no waters. He promises presence in them.', today: 'What waters or fire are you passing through right now?', action: 'Say out loud: "You are with me in this." Let that land.', prayer: 'Lord, You are with me. The waters will not overflow. Amen.' },
+          { title: 'All things work together', ref: 'Romans 8:28', text: 'And we know that all things work together for good to them that love God, to them who are the called according to his purpose.',
+            speaker: 'Paul — who had lost everything and found purpose', plain: 'Not some things. All things. Even the ones that don\'t make sense yet.', today: 'What feels like it\'s working against you right now?', action: 'Write it down. Then write: "God can work this for good." Pray over both.', prayer: 'Lord, I don\'t see it yet. Work this for good. Amen.' },
+          { title: 'He will provide', ref: 'Matthew 6:31-33', text: 'Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.',
+            speaker: 'Jesus — to people who had real needs', plain: 'Your Father knows what you need. Seek Him first. The rest follows.', today: 'What need is consuming your thoughts right now?', action: 'Name it. Then say: "You know I need this. I seek You first."', prayer: 'Father, You know what I need. I seek You first. Amen.' },
+          { title: 'Peace in the storm', ref: 'Mark 4:39', text: 'And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm.',
+            speaker: 'Jesus — in the boat with terrified disciples', plain: 'He speaks to storms. Yours included.', today: 'What storm needs to hear "Peace, be still"?', action: 'Bring your storm to Him. Say: "Peace, be still." Trust that He\'s in the boat.', prayer: 'Lord, speak to my storm. Peace, be still. Amen.' },
+          { title: 'Strength for today', ref: 'Lamentations 3:22-23', text: 'It is of the LORD\'s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',
+            speaker: 'Jeremiah — in ruins — still finding mercy', plain: 'New mercies every morning. You don\'t have to have tomorrow figured out.', today: 'What are you trying to figure out that you don\'t need to know yet?', action: 'Receive today\'s mercy. That\'s enough for now.', prayer: 'Lord, new mercies this morning. Great is Thy faithfulness. Amen.' },
+          { title: 'He holds the future', ref: 'Jeremiah 29:11', text: 'For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.',
+            speaker: 'God to exiles who couldn\'t see the end', plain: 'He has thoughts toward you. Thoughts of peace. An expected end.', today: 'After 7 days of trusting in uncertainty — what has shifted?', action: 'Write one sentence: what does trust feel like for you now? Offer it to Him.', prayer: 'Lord, I trust Your thoughts toward me. You hold my future. Amen.' }
         ]
       },
 
@@ -903,7 +941,33 @@
     }
 
     // ── Index view ────────────────────────────────────────────────────────────
+    function renderRecentCarousel() {
+      var wrap = document.getElementById('recentPlansCarousel');
+      if (!wrap) return;
+      var recent = getRecentPlans();
+      if (!recent.length) {
+        wrap.style.display = 'none';
+        return;
+      }
+      wrap.style.display = 'block';
+      var html = '<p class="recent-plans-label">Continue</p><div class="recent-plans-row">';
+      recent.forEach(function (id) {
+        var plan = PLANS[id];
+        if (!plan) return;
+        var progress = getDayProgress(plan);
+        var pct = plan.max > 0 ? Math.round((progress / plan.max) * 100) : 0;
+        var label = progress >= plan.max ? plan.label + ' ✓' : plan.label;
+        html += '<a href="plans.html?plan=' + esc(id) + '" class="recent-plan-card" data-plan="' + esc(id) + '" aria-label="Continue ' + esc(plan.label) + '">';
+        html += '<span class="recent-plan-icon">' + (plan.icon || '\u2694') + '</span>';
+        html += '<span class="recent-plan-label">' + esc(label) + '</span>';
+        html += '<div class="recent-plan-progress"><div class="recent-plan-bar" style="width:' + pct + '%"></div></div>';
+        html += '</a>';
+      });
+      html += '</div>';
+      wrap.innerHTML = html;
+    }
     function renderIndex() {
+      renderRecentCarousel();
       var list = document.getElementById('planList');
       if (!list) return;
       Object.values(PLANS).forEach(function(plan) {
@@ -936,9 +1000,29 @@
     })();
 
     // ── Detail view ───────────────────────────────────────────────────────────
+    var RECENT_PLANS_KEY = 'tdb_recent_plans_v1';
+    var RECENT_PLANS_MAX = 5;
+    function pushRecentPlan(id) {
+      try {
+        var raw = localStorage.getItem(RECENT_PLANS_KEY) || '[]';
+        var arr = JSON.parse(raw);
+        arr = arr.filter(function (x) { return x !== id; });
+        arr.unshift(id);
+        arr = arr.slice(0, RECENT_PLANS_MAX);
+        localStorage.setItem(RECENT_PLANS_KEY, JSON.stringify(arr));
+      } catch (e) {}
+    }
+    function getRecentPlans() {
+      try {
+        var raw = localStorage.getItem(RECENT_PLANS_KEY) || '[]';
+        var arr = JSON.parse(raw);
+        return arr.filter(function (id) { return PLANS[id]; });
+      } catch (e) { return []; }
+    }
     function openPlan(id) {
       currentPlan = PLANS[id];
       if (!currentPlan) return;
+      pushRecentPlan(id);
       var progress = getDayProgress(currentPlan);
       // default to first incomplete day, or last if all done
       currentDay = Math.min(Math.max(progress, 0), currentPlan.max - 1);

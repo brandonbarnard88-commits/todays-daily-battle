@@ -53,6 +53,12 @@
       transition: background 0.2s ease;
     }
     .offline-retry-btn:hover { background: #fbbf24; }
+    .offline-verse-widget { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(245,158,11,0.3); text-align: left; }
+    .offline-verse-intro { font-size: 0.9rem; color: #94a3b8; margin: 0 0 0.5rem; }
+    .offline-verse-text { font-size: 1rem; line-height: 1.5; color: #e2e8f0; margin: 0 0 0.35rem; font-style: italic; }
+    .offline-verse-ref { font-size: 0.85rem; color: #fbbf24; margin: 0 0 0.6rem; }
+    .offline-copy-btn { padding: 0.4rem 0.9rem; font-size: 0.85rem; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.5); color: #fbbf24; border-radius: 8px; cursor: pointer; }
+    .offline-copy-btn:hover { background: rgba(245,158,11,0.25); }
   </style>
 </head>
 <body>
@@ -60,7 +66,37 @@
     <h1>You're offline</h1>
     <p>Check your connection and try again.</p>
     <p>Your last cached verse is still available when possible.</p>
+    <div class="offline-verse-widget" id="offlineVerseWidget" aria-label="Verse for today">
+      <p class="offline-verse-intro">Even offline, God's word is with you.</p>
+      <p class="offline-verse-text" id="offlineVerseText"></p>
+      <p class="offline-verse-ref" id="offlineVerseRef"></p>
+      <button type="button" class="offline-copy-btn" id="offlineCopyBtn" aria-label="Copy verse to clipboard">Copy verse</button>
+    </div>
     <button type="button" onclick="location.reload()" class="offline-retry-btn" aria-label="Retry connection">Retry</button>
   </main>
+  <script>
+    (function () {
+      var verses = [
+        { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee; be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.' },
+        { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' },
+        { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' },
+        { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+        { ref: 'Joshua 1:9', text: 'Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.' }
+      ];
+      var day = Math.floor(Date.now() / 86400000) % verses.length;
+      var v = verses[day];
+      var textEl = document.getElementById('offlineVerseText');
+      var refEl = document.getElementById('offlineVerseRef');
+      var btn = document.getElementById('offlineCopyBtn');
+      if (textEl) textEl.textContent = v.text;
+      if (refEl) refEl.textContent = v.ref;
+      if (btn) btn.addEventListener('click', function () {
+        var s = v.ref + ': "' + v.text + '" — todaysdailybattle.com';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(s).then(function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy verse'; }, 2000); }).catch(function () {});
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

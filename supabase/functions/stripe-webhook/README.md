@@ -26,7 +26,7 @@ In **Project Settings** → **Edge Functions** → **Secrets** (or via CLI):
 When creating Payment Links in Stripe, add **metadata** so the webhook can identify the user and tier:
 
 - `user_id` — Supabase auth user UUID (required). Pass it from your frontend when redirecting to Checkout (e.g. append to success_url or use Stripe Customer Portal / Checkout client_options).
-- `tier` (optional) — `supporter` | `battle_pro` | `church`. Defaults to `battle_pro` if omitted. For **military discount** Payment Links ($1/mo, $10/yr), set `tier` to `battle_pro` so the webhook grants the same Pro access. Set the Payment Link **success URL** to include `&military=1` (e.g. `https://yoursite.com/pricing.html?success=1&military=1`) so returning subscribers see "Welcome Home" on the thank-you message.
+- `tier` (optional) — `supporter` | `battle_pro` | `church`. Defaults to `battle_pro` if omitted. For **military honored rate** Payment Links ($5/mo, $50/yr), set `tier` to `battle_pro` so the webhook grants the same Pro access. Set the Payment Link **success URL** to include `&military=1` (e.g. `https://yoursite.com/pricing.html?success=1&military=1`) so returning subscribers see "Welcome Home" on the thank-you message.
 
 If you use Stripe Checkout with `client_reference_id` or allow signed-in users to pass `user_id` via the success URL, you may need a small frontend step that redirects to the Payment Link with that id in session; Stripe Payment Links support prefilled customer email but not custom metadata from the URL. Alternative: use Stripe Checkout API (create session server-side) so you can set `metadata.user_id` from the server.
 

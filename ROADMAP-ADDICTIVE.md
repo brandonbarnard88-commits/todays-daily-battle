@@ -50,7 +50,7 @@ Vision doc for retention, personalization, community, and Battle Pro. Use with *
 
 ---
 
-## 7. Endgame: Battle Pro ($3/mo)
+## 7. Endgame: Battle Pro ($10/mo)
 
 Make it worth paying for:
 

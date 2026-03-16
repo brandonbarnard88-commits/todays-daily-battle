@@ -53,7 +53,7 @@ window.TDB_CONFIG = {
   STRIPE_SUPPORTER_YEARLY_URL: '',
   STRIPE_BATTLEPRO_MONTHLY_URL: '',
   STRIPE_BATTLEPRO_YEARLY_URL: '',
-  // Military discount: Battle Pro $1/mo, $10/yr (create separate Stripe Payment Links; set tier metadata to battle_pro in Stripe).
+  // Military honored rate: Battle Pro $5/mo, $50/yr (create separate Stripe Payment Links; set tier metadata to battle_pro in Stripe).
   STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK: '',
   STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK: '',
   STRIPE_CHURCH_MONTHLY_URL: '',

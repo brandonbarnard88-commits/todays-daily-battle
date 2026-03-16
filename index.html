@@ -13,6 +13,34 @@
   <meta name="keywords" content="daily KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
+  <!-- Schema.org: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://todaysdailybattle.com/#organization",
+    "name": "Today's Daily Battle",
+    "url": "https://todaysdailybattle.com",
+    "logo": "https://todaysdailybattle.com/logo-shield-600.png",
+    "description": "A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Today's Daily Battle",
+    "url": "https://todaysdailybattle.com",
+    "description": "One verse. One moment. Every day. Less scroll, more soul.",
+    "publisher": { "@id": "https://todaysdailybattle.com/#organization" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": { "@type": "EntryPoint", "urlTemplate": "https://todaysdailybattle.com/?q={search_term_string}" },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <!-- Favicon + touch icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
@@ -1027,7 +1055,7 @@
     .feel-no-match.visible { display: block; }
 
     /* ── Fear → Faith Loop (Möbius) ── */
-    .mobius-loop-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; margin-bottom: 0.5rem; }
+    .mobius-loop-row { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; margin-bottom: 1rem; }
     .mobius-loop-full-link { font-size: 0.8rem; color: #bcc5d6; text-decoration: none; }
     .mobius-loop-full-link:hover { color: var(--gold-soft); }
     .mobius-loop-chip {
@@ -1104,7 +1132,7 @@
     .mobius-drawer-close:hover,
     .mobius-drawer-close:focus-visible { color: #f5f7fb; background: rgba(255,255,255,0.08); outline: none; }
     .mobius-drawer-body {
-      padding: 1rem 1.25rem;
+      padding: 1.25rem 1.5rem;
       overflow-y: auto;
     }
     .mobius-viz-wrap {
@@ -1112,10 +1140,10 @@
       min-height: 300px;
       background: rgba(13,13,13,0.5);
       border-radius: 12px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
     .mobius-node-card {
-      margin-top: 1rem;
+      margin-top: 1.25rem;
       padding: 1rem;
       background: #171c25;
       border: 1px solid #2a3344;
@@ -3332,6 +3360,7 @@
       </div>
 
       <!-- ── Hero Verse ── -->
+      <div id="hero-verse-wrap" class="hero-verse-wrap">
       <section class="card verse-card is-loading" id="verseCard" aria-live="polite">
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
@@ -3371,6 +3400,7 @@
           <button type="button" class="hero-menu-btn" id="heroMenuImage" role="menuitem" aria-label="Create shareable verse image">🖼 Image</button>
         </div>
       </section>
+      </div><!-- /#hero-verse-wrap -->
 
       <!-- ── Share this verse ── -->
       <div class="share-verse-row">
@@ -3427,7 +3457,8 @@
         <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
       </section>
 
-      <!-- ── Feel Search ── -->
+      <!-- ── Feel Search (nav anchor: #quick-search-hero) ── -->
+      <div id="quick-search-hero">
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
         <h2 class="mood-title">How're you feeling?</h2>
         <div class="feel-search-wrap">
@@ -3499,6 +3530,7 @@
         <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">More verses →</a>
         <p class="feel-no-match" id="feelNoMatch">Try "worry" or "rest" — type what you're carrying.</p>
       </section>
+      </div><!-- /#quick-search-hero -->
 
       <!-- ── Sermon Builder teaser ── -->
       <div class="quick-links">
@@ -3584,6 +3616,50 @@
           <button class="share-prayer-btn" type="button" id="share-prayer-btn" aria-label="Copy prayer to clipboard">Share this prayer?</button>
           <button class="prayer-share-dismiss" type="button" id="prayerShareDismissBtn" aria-label="Dismiss share prompt">✕</button>
         </div>
+      </section>
+
+      <!-- ── Revival & Outreach (nav anchors) ── -->
+      <section class="card" id="patriotic-scriptures" aria-label="Patriotic Scriptures">
+        <h2 class="section-divider">Patriotic Scriptures</h2>
+        <p class="section-note">Verses for our nation—pray, share, stand.</p>
+        <div id="patriotic-scriptures-grid" class="patriotic-scriptures-grid"></div>
+      </section>
+      <section class="card" id="patriotic-hymns" aria-label="Patriotic Hymns">
+        <h2 class="section-divider">Patriotic Hymns</h2>
+        <p class="section-note">Sing, pray, and remember.</p>
+        <div id="patriotic-hymns-grid" class="patriotic-hymns-grid"></div>
+      </section>
+      <section class="card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
+        <h2 class="section-divider">Family Armor &amp; Stories</h2>
+        <p class="section-note">Link your household, track progress, share stories.</p>
+        <button type="button" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" aria-label="Open Family Armor">Open Family Armor</button>
+      </section>
+      <section class="card challenge-30-banner" id="challenge-30-banner" aria-label="30-Day Battle Plan">
+        <h2 class="section-divider">30-Day Battle Plan</h2>
+        <p class="section-note">Stay consistent. One verse, one day at a time.</p>
+        <button type="button" id="challenge-start-day-1" class="btn btn-secondary" aria-label="Start 30-day challenge">Start Day 1</button>
+      </section>
+      <section class="card quick-pray-wrap" id="quick-pray-wrap" aria-label="Invite / Share">
+        <h2 class="section-divider">Invite &amp; Share</h2>
+        <p class="section-note">Add a short prayer or share this battle with a friend.</p>
+        <div class="quick-pray-row">
+          <input type="text" id="quick-pray" class="quick-pray-input" placeholder="Lord, keep me in truth today…" maxlength="200" aria-label="Quick prayer">
+          <button type="button" id="quick-pray-btn" class="btn btn-secondary" aria-label="Post quick prayer">Pray</button>
+        </div>
+        <p id="quick-pray-feedback" class="section-note" aria-live="polite" hidden></p>
+      </section>
+      <section class="card" id="newsletter" aria-label="Join the Battle Plan">
+        <h2 class="section-divider">Weekly Encouragement &amp; Daily Verse</h2>
+        <p class="section-note">One email—Friday recap or daily verse. No spam.</p>
+        <div class="newsletter-form">
+          <input id="newsletter-name" type="text" placeholder="Name" aria-label="Your name" autocomplete="name">
+          <input id="newsletter-email" type="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+          <label class="newsletter-opt"><input type="checkbox" id="newsletter-weekly" checked> Weekly recap</label>
+          <label class="newsletter-opt"><input type="checkbox" id="newsletter-daily"> Daily verse</label>
+          <select id="newsletter-time" aria-label="Preferred time"><option value="">Any time</option><option value="7">7 AM</option><option value="9">9 AM</option><option value="19">7 PM</option></select>
+          <button type="button" id="newsletter-submit" class="btn btn-primary" aria-label="Subscribe">Subscribe</button>
+        </div>
+        <p id="newsletter-status" class="section-note" aria-live="polite"></p>
       </section>
 
       <p class="closing-breath">Still. He&#8217;s got it.</p>

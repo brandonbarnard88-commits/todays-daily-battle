@@ -58,10 +58,10 @@
     // Load kids
     var kidsList = document.getElementById('kids-list');
     if (kidsList) {
-      kidsList.innerHTML = '';
       try {
         var kidsRes = await client.from('profile_kids').select('*').eq('parent_id', uid).order('created_at', { ascending: true });
         var kids = (kidsRes && kidsRes.data) || [];
+        kidsList.innerHTML = '';
         kids.forEach(function (k) {
           var li = document.createElement('li');
           li.innerHTML = '<span>' + escapeHtml(k.name) + (k.age_range ? ' <span style="color:var(--muted);font-size:0.85em;">(' + escapeHtml(k.age_range) + ')</span>' : '') + '</span>';
@@ -82,13 +82,13 @@
     // Load groups (user is creator or member)
     var groupsList = document.getElementById('groups-list');
     if (groupsList) {
-      groupsList.innerHTML = '';
       try {
         var membersRes = await client.from('profile_group_members').select('group_id').eq('user_id', uid);
         var memberIds = (membersRes && membersRes.data) ? membersRes.data.map(function (m) { return m.group_id; }) : [];
         var orFilter = 'created_by.eq.' + uid + (memberIds.length ? ',id.in.(' + memberIds.join(',') + ')' : '');
         var groupsRes = await client.from('profile_bible_study_groups').select('*').or(orFilter);
         var groups = (groupsRes && groupsRes.data) || [];
+        groupsList.innerHTML = '';
         groups.forEach(function (g) {
           var li = document.createElement('li');
           var isCreator = g.created_by === uid;
@@ -352,6 +352,48 @@
     }
   }
 
+  async function deleteAccount() {
+    var client = getClient();
+    if (!client) return;
+    var confirmText = window.prompt('Type DELETE to permanently remove your account and all data. This cannot be undone.');
+    if (!confirmText || confirmText.trim().toUpperCase() !== 'DELETE') {
+      setStatus('delete-account-status', 'Cancelled.');
+      setTimeout(function () { setStatus('delete-account-status', ''); }, 2000);
+      return;
+    }
+    var btn = document.getElementById('delete-account-btn');
+    if (btn) btn.disabled = true;
+    setStatus('delete-account-status', 'Removing…');
+    try {
+      var sess = await client.auth.getSession();
+      var uid = sess && sess.data && sess.data.session ? sess.data.session.user.id : null;
+      if (!uid) {
+        setStatus('delete-account-status', 'Not signed in.', true);
+        if (btn) btn.disabled = false;
+        return;
+      }
+      await client.from('profile_group_members').delete().eq('user_id', uid);
+      var groupsRes = await client.from('profile_bible_study_groups').select('id').eq('created_by', uid);
+      var groupIds = (groupsRes && groupsRes.data) ? groupsRes.data.map(function (g) { return g.id; }) : [];
+      for (var i = 0; i < groupIds.length; i++) {
+        await client.from('profile_group_members').delete().eq('group_id', groupIds[i]);
+        await client.from('profile_bible_study_groups').delete().eq('id', groupIds[i]);
+      }
+      await client.from('profile_kids').delete().eq('parent_id', uid);
+      await client.from('profile_user_churches').delete().eq('user_id', uid);
+      await client.from('user_sync_data').delete().eq('user_id', uid);
+      try {
+        await client.from('prayers').delete().eq('user_id', uid);
+      } catch (e) { /* prayers may not have user_id */ }
+      await client.auth.signOut();
+      setStatus('delete-account-status', 'Account removed. Redirecting…');
+      setTimeout(function () { window.location.href = '/'; }, 1500);
+    } catch (err) {
+      setStatus('delete-account-status', 'Something went wrong — try again.', true);
+      if (btn) btn.disabled = false;
+    }
+  }
+
   async function exportData() {
     var client = getClient();
     if (!client) return;
@@ -418,6 +460,8 @@
     if (saveChurchBtn) saveChurchBtn.addEventListener('click', saveChurch);
     var exportBtn = document.getElementById('export-data-btn');
     if (exportBtn) exportBtn.addEventListener('click', exportData);
+    var deleteAccountBtn = document.getElementById('delete-account-btn');
+    if (deleteAccountBtn) deleteAccountBtn.addEventListener('click', deleteAccount);
     var changeBtn = document.getElementById('church-change-btn');
     if (changeBtn) {
       changeBtn.addEventListener('click', function () {

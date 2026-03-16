@@ -55,6 +55,7 @@
     }
     .profile-btn:hover { background: rgba(227,188,103,0.2); }
     .profile-btn:focus-visible { outline: 2px solid var(--gold,#e3bc67); outline-offset: 2px; }
+    .profile-btn:disabled { opacity: 0.6; cursor: not-allowed; }
     .profile-btn-danger { border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.08); color: #f87171; }
     .profile-btn-danger:hover { background: rgba(239,68,68,0.16); }
     .profile-btn-ghost { border: none; background: transparent; color: var(--gold,#e3bc67); }
@@ -85,6 +86,10 @@
     .profile-status { font-size: 0.85rem; margin-top: 0.5rem; color: var(--muted,#94a3b8); }
     .profile-status.err { color: #f87171; }
     .profile-status.ok { color: #4ade80; }
+    .profile-skeleton { background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%); background-size: 200% 100%; animation: profile-skeleton-shine 1.2s ease-in-out infinite; border-radius: 8px; }
+    .profile-skeleton-line { height: 0.9rem; margin-bottom: 0.5rem; }
+    .profile-skeleton-line:last-child { margin-bottom: 0; width: 60%; }
+    @keyframes profile-skeleton-shine { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
     @media (max-width: 480px) {
       .profile-form-row { flex-direction: column; }
       .profile-form-row .profile-input { min-width: 100%; }
@@ -114,21 +119,25 @@
 
         <section class="profile-section" id="profile-welcome">
           <h3>Account</h3>
-          <p id="profile-email" aria-live="polite">Loading…</p>
+          <p id="profile-email" aria-live="polite"><span class="profile-skeleton profile-skeleton-line" style="display:inline-block;width:8rem;height:1rem;"></span></p>
         </section>
 
         <section class="profile-section" id="section-kids">
           <h3>Your Kids</h3>
           <p>Add child profiles for Kids Corner progress and stars.</p>
-          <ul class="profile-list" id="kids-list"></ul>
+          <ul class="profile-list" id="kids-list">
+            <li class="profile-skeleton profile-skeleton-line" style="height:2.5rem;list-style:none;margin:0;"></li>
+            <li class="profile-skeleton profile-skeleton-line" style="height:2.5rem;list-style:none;margin:0;"></li>
+          </ul>
           <div class="profile-form-row">
             <input type="text" id="kid-name" class="profile-input" placeholder="Child's name" maxlength="64" aria-label="Child's name">
-            <select id="kid-age" class="profile-input" style="max-width: 140px;" aria-label="Age range">
+            <select id="kid-age" class="profile-input" style="max-width: 180px;" aria-label="Age range">
               <option value="">Age range</option>
-              <option value="3-5">3–5</option>
-              <option value="5-8">5–8</option>
-              <option value="9-12">9–12</option>
-              <option value="12+">12+</option>
+              <option value="0-3">Toddler (0–3)</option>
+              <option value="3-5">Preschool (3–5)</option>
+              <option value="6-8">Early Elementary (6–8)</option>
+              <option value="9-12">Upper Elementary (9–12)</option>
+              <option value="13+">Teen (13+)</option>
             </select>
             <button type="button" id="add-kid-btn" class="profile-btn">+ Add Child</button>
           </div>
@@ -138,7 +147,9 @@
         <section class="profile-section" id="section-groups">
           <h3>Bible Study Groups</h3>
           <p>Create a group or join one with an invite code.</p>
-          <ul class="profile-list" id="groups-list"></ul>
+          <ul class="profile-list" id="groups-list">
+            <li class="profile-skeleton profile-skeleton-line" style="height:2.5rem;list-style:none;margin:0;"></li>
+          </ul>
           <div class="profile-form-row" style="flex-direction: column; gap: 0.75rem;">
             <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;">
               <input type="text" id="group-name" class="profile-input" placeholder="Group name" maxlength="80" style="min-width: 180px;" aria-label="Group name">
@@ -171,6 +182,13 @@
           <p>Download a copy of your profile data (kids, groups, church, synced prayers, streaks, badges). For your records or to move elsewhere.</p>
           <button type="button" id="export-data-btn" class="profile-btn profile-btn-ghost">Export my data</button>
           <span id="export-status" class="profile-status" style="margin-left: 0.5rem; display: inline-block;" aria-live="polite"></span>
+        </section>
+
+        <section class="profile-section" id="section-delete-account">
+          <h3>Remove account</h3>
+          <p>Permanently delete your profile data (kids, groups, church, synced data). You will be signed out. This cannot be undone.</p>
+          <button type="button" id="delete-account-btn" class="profile-btn profile-btn-danger">Delete my account</button>
+          <p id="delete-account-status" class="profile-status" aria-live="polite"></p>
         </section>
 
         <p class="section-note" style="margin-top: 2rem;">

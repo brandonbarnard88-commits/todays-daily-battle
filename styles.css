@@ -8354,8 +8354,25 @@ body.red-letter-off .red-letter-card {
   45% { transform: scale(1.08); }
   100% { transform: scale(1); }
 }
+/* Family Armor modal backdrop */
+#family-armor-stories-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.65);
+  overflow-y: auto;
+}
+#family-armor-stories-modal.hidden { display: none !important; }
 /* Elite tier: modal as sacred gold-framed panel */
 .family-armor-stories-modal-inner {
+  border-radius: 14px;
+  padding: 1.25rem;
+  overflow-y: auto;
+  margin: auto;
   max-width: 36rem;
   width: min(94vw, 36rem);
   max-height: min(88dvh, 860px);

@@ -3306,17 +3306,17 @@
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <p class="site-tagline">For God · For Country · For Family</p>
-      <nav class="site-top-links" aria-label="Site information links">
-        <a href="calm.html">Need a verse now?</a>
+      <nav class="site-top-links" aria-label="Site navigation and information">
+        <a href="calm.html" aria-label="Need a verse now? Get a calm verse instantly">Need a verse now?</a>
         <span id="header-auth-links">
-          <a href="login.html">Sign In</a>
+          <a href="login.html" aria-label="Sign in to your account">Sign In</a>
           <span aria-hidden="true"> · </span>
-          <a href="login.html?mode=signup">Sign Up</a>
+          <a href="login.html?mode=signup" aria-label="Create an account">Sign Up</a>
         </span>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="about.html" aria-label="About Today's Daily Battle">About</a>
+        <a href="faq.html" aria-label="Frequently asked questions">FAQ</a>
+        <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
+        <a href="terms.html" aria-label="Terms of service">Terms</a>
       </nav>
     </header>
 
@@ -6764,6 +6764,38 @@
       </div>
 
       <button type="button" class="about-close-btn" id="aboutCloseBtnBottom" aria-label="Close About">Close</button>
+    </div>
+  </div>
+
+  <!-- ── Family Armor & Stories Modal ── -->
+  <div id="family-armor-stories-modal" class="hidden" role="dialog" aria-modal="true" aria-label="Family Armor & Stories">
+    <div class="family-armor-stories-modal-inner" tabindex="-1">
+      <button type="button" id="family-armor-stories-close" class="about-modal-close" aria-label="Close Family Armor">✕</button>
+      <h2 class="about-modal-title">Family Armor &amp; Stories</h2>
+      <p class="family-armor-elite-note">Pray together with Bible stories. Each story adds a piece to your household&#8217;s armor.</p>
+      <div class="family-armor-tabs" role="tablist" aria-label="Family Armor tabs">
+        <button type="button" id="tab-stories" class="family-armor-tab active" role="tab" aria-selected="true" aria-controls="family-stories-panel">Stories</button>
+        <button type="button" id="tab-armor" class="family-armor-tab" role="tab" aria-selected="false" aria-controls="family-armor-panel">Armor</button>
+      </div>
+      <div id="family-stories-panel" class="family-armor-tab-panel" role="tabpanel" aria-labelledby="tab-stories">
+        <div id="family-stories-grid" class="kids-corner-grid"></div>
+      </div>
+      <div id="family-armor-panel" class="family-armor-tab-panel hidden" role="tabpanel" aria-labelledby="tab-armor">
+        <p id="armor-welcome-msg" class="armor-welcome-msg" style="display:none"></p>
+        <ul id="armor-pieces-list" class="armor-pieces-list" role="list"></ul>
+        <div id="armor-avatar-household" class="armor-avatar-wrap armor-avatar-household"></div>
+        <div id="armor-crown-wrap" class="armor-crown-wrap" style="display:none">
+          <div id="armor-crown" class="armor-crown"></div>
+        </div>
+        <div id="armor-heavenly-wrap" class="armor-heavenly-wrap" style="display:none">
+          <span id="armor-heavenly-count" class="armor-heavenly-text"></span>
+        </div>
+        <p id="armor-complete-msg" class="armor-complete-msg" style="display:none">Armor complete. You&#8217;re ready.</p>
+        <div id="armor-join-wrap" class="armor-join-wrap" style="display:none">
+          <button type="button" id="armor-join-household-btn" class="btn btn-secondary" aria-label="Copy invite link to share with family">Copy Invite Link</button>
+        </div>
+        <span id="armor-badge" class="armor-badge hidden" aria-hidden="true">Family Armor</span>
+      </div>
     </div>
   </div>
 

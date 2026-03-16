@@ -15,12 +15,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     .calm-page { min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.5rem; text-align: center; }
-    .calm-verse { font-family: Cormorant Garamond, Georgia, serif; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.5; color: var(--text, #e2e8f0); max-width: 32rem; margin: 0 auto 1rem; }
-    .calm-ref { font-size: 0.95rem; color: var(--gold, #e3bc67); margin-bottom: 2rem; }
-    .calm-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .calm-page .verse { font-family: Cormorant Garamond, Georgia, serif; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.5; color: var(--text, #e2e8f0); max-width: 32rem; margin: 0 auto 1rem; }
+    .calm-page .ref { font-size: 0.95rem; color: var(--gold, #e3bc67); margin-bottom: 1.5rem; }
+    .calm-page .verse-centered { display: flex; flex-direction: column; align-items: center; }
     .calm-btn { padding: 0.6rem 1.2rem; border-radius: 10px; border: 1px solid var(--gold, #e3bc67); background: rgba(227,188,103,0.1); color: var(--gold); font-size: 0.9rem; text-decoration: none; cursor: pointer; transition: background 0.15s; }
     .calm-btn:hover { background: rgba(227,188,103,0.2); }
     .calm-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .calm-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .mobile-only { display: block; }
+    .desktop-only { display: none; }
+    .intro { margin-bottom: 1.5rem; }
+    .intro h2 { font-size: 1.1rem; font-weight: 500; color: var(--muted, #94a3b8); margin: 0; }
+    .categories { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
+    .categories button { padding: 1rem 1.5rem; min-height: 48px; font-size: 1rem; border-radius: 12px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.08); color: var(--gold); cursor: pointer; transition: background 0.15s; }
+    .categories button:hover, .categories button:focus-visible { background: rgba(227,188,103,0.18); outline: 2px solid var(--gold); outline-offset: 2px; }
+    .back-home { margin-top: 1rem; }
+    @media (min-width: 768px) {
+      .mobile-only { display: none !important; }
+      .desktop-only { display: block !important; }
+    }
   </style>
 </head>
 <body class="dark-mode">
@@ -38,44 +51,119 @@
 
     <main class="app-content" id="main-content">
       <div class="calm-page">
-        <p class="calm-verse" id="calm-text" aria-live="polite">God is our refuge and strength, a very present help in trouble.</p>
-        <p class="calm-ref" id="calm-ref">Psalm 46:1</p>
-        <div class="calm-actions">
-          <button type="button" class="calm-btn" id="calm-another" aria-label="Show another verse">Another verse</button>
-          <a href="/" class="calm-btn">Back to home</a>
+        <div class="intro mobile-only">
+          <h2>What's weighing on you?</h2>
         </div>
+        <div class="categories mobile-only" id="calm-categories" role="group" aria-label="Choose a feeling">
+          <button type="button" class="calm-btn" data-category="anxiety" aria-label="Anxious or afraid">Anxious / Fear</button>
+          <button type="button" class="calm-btn" data-category="worry" aria-label="Worried or overwhelmed">Worried / Overwhelmed</button>
+          <button type="button" class="calm-btn" data-category="peace" aria-label="Need peace">Need Peace</button>
+          <button type="button" class="calm-btn" data-category="strength" aria-label="Need strength">Strength / Courage</button>
+          <button type="button" class="calm-btn" data-category="grief" aria-label="Grief or sadness">Grief / Sadness</button>
+        </div>
+        <div id="verse-container" class="verse-centered mobile-only" style="display: none;">
+          <p id="verse-text" class="verse" aria-live="polite"></p>
+          <p id="verse-ref" class="ref"></p>
+          <div class="calm-actions">
+            <button type="button" class="calm-btn" id="another-btn" aria-label="Show another verse in this category">Another in this category</button>
+            <button type="button" class="calm-btn" id="back-categories" aria-label="Back to categories">Back to categories</button>
+          </div>
+        </div>
+        <div id="desktop-verse" class="desktop-only verse-centered">
+          <p id="desktop-verse-text" class="verse" aria-live="polite"></p>
+          <p id="desktop-verse-ref" class="ref"></p>
+          <div class="calm-actions">
+            <button type="button" class="calm-btn" id="desktop-another" aria-label="Show another verse">Another verse</button>
+          </div>
+        </div>
+        <a href="/" class="calm-btn back-home">Back to home</a>
       </div>
     </main>
   </div>
   <script>
     (function () {
       'use strict';
-      var EMERGENCY_VERSES = [
-        { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' },
-        { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee; be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.' },
-        { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' },
-        { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
-        { ref: 'Psalm 34:18', text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.' },
-        { ref: '2 Timothy 1:7', text: 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.' },
-        { ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you; not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.' },
-        { ref: 'Psalm 46:10', text: 'Be still, and know that I am God.' },
-        { ref: '1 Peter 5:7', text: 'Casting all your care upon him; for he careth for you.' },
-        { ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.' }
-      ];
-      function pickVerse() {
-        var i = Math.floor(Math.random() * EMERGENCY_VERSES.length);
-        return EMERGENCY_VERSES[i];
+      var VERSES = {
+        anxiety: [
+          { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee; be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.' },
+          { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' },
+          { ref: '2 Timothy 1:7', text: 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.' },
+          { ref: 'Psalm 34:18', text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.' },
+          { ref: '1 Peter 5:7', text: 'Casting all your care upon him; for he careth for you.' }
+        ],
+        worry: [
+          { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' },
+          { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+          { ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.' },
+          { ref: 'Psalm 46:10', text: 'Be still, and know that I am God.' }
+        ],
+        peace: [
+          { ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you; not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.' },
+          { ref: 'Psalm 46:10', text: 'Be still, and know that I am God.' },
+          { ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.' },
+          { ref: 'Philippians 4:7', text: 'And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' }
+        ],
+        strength: [
+          { ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.' },
+          { ref: 'Philippians 4:13', text: 'I can do all things through Christ which strengtheneth me.' },
+          { ref: 'Joshua 1:9', text: 'Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.' },
+          { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' }
+        ],
+        grief: [
+          { ref: 'Psalm 34:18', text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.' },
+          { ref: 'Matthew 5:4', text: 'Blessed are they that mourn: for they shall be comforted.' },
+          { ref: '2 Corinthians 1:3', text: 'Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort.' },
+          { ref: 'Psalm 23:4', text: 'Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.' }
+        ]
+      };
+      var ALL = [];
+      Object.keys(VERSES).forEach(function (k) { VERSES[k].forEach(function (v) { ALL.push(v); }); });
+      var currentCategory = null;
+      var isMobile = function () { return window.innerWidth < 768; };
+      function pickVerse(cat) {
+        var list = (cat && VERSES[cat]) ? VERSES[cat] : ALL;
+        return list[Math.floor(Math.random() * list.length)];
       }
-      function showVerse() {
-        var v = pickVerse();
-        var textEl = document.getElementById('calm-text');
-        var refEl = document.getElementById('calm-ref');
+      function showVerse(cat) {
+        var v = pickVerse(cat);
+        var textEl = document.getElementById('verse-text');
+        var refEl = document.getElementById('verse-ref');
         if (textEl) textEl.textContent = v.text;
         if (refEl) refEl.textContent = v.ref;
       }
-      showVerse();
-      var btn = document.getElementById('calm-another');
-      if (btn) btn.addEventListener('click', showVerse);
+      function showDesktopVerse() {
+        var v = pickVerse();
+        var textEl = document.getElementById('desktop-verse-text');
+        var refEl = document.getElementById('desktop-verse-ref');
+        if (textEl) textEl.textContent = v.text;
+        if (refEl) refEl.textContent = v.ref;
+      }
+      function showCategories() {
+        document.getElementById('calm-categories').style.display = 'flex';
+        document.querySelector('.intro').style.display = 'block';
+        document.getElementById('verse-container').style.display = 'none';
+      }
+      function showVerseView(cat) {
+        currentCategory = cat;
+        document.getElementById('calm-categories').style.display = 'none';
+        document.querySelector('.intro').style.display = 'none';
+        document.getElementById('verse-container').style.display = 'flex';
+        showVerse(currentCategory);
+      }
+      if (isMobile()) {
+        document.getElementById('verse-container').style.display = 'none';
+      } else {
+        showDesktopVerse();
+      }
+      document.querySelectorAll('.categories button[data-category]').forEach(function (btn) {
+        btn.addEventListener('click', function () { showVerseView(btn.dataset.category); });
+      });
+      var anotherBtn = document.getElementById('another-btn');
+      if (anotherBtn) anotherBtn.addEventListener('click', function () { showVerse(currentCategory); });
+      var backBtn = document.getElementById('back-categories');
+      if (backBtn) backBtn.addEventListener('click', showCategories);
+      var desktopAnother = document.getElementById('desktop-another');
+      if (desktopAnother) desktopAnother.addEventListener('click', showDesktopVerse);
     })();
   </script>
 </body>

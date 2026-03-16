@@ -352,6 +352,61 @@
     }
   }
 
+  async function exportData() {
+    var client = getClient();
+    if (!client) return;
+    var btn = document.getElementById('export-data-btn');
+    if (btn) btn.disabled = true;
+    setStatus('export-status', 'Exporting…');
+    try {
+      var sess = await client.auth.getSession();
+      var uid = sess && sess.data && sess.data.session ? sess.data.session.user.id : null;
+      if (!uid) {
+        setStatus('export-status', 'Sign in to export.', true);
+        if (btn) btn.disabled = false;
+        return;
+      }
+      var out = { exportedAt: new Date().toISOString(), kids: [], groups: [], church: null, sync: {}, prayers: [] };
+      try {
+        var kidsRes = await client.from('profile_kids').select('*').eq('parent_id', uid).order('created_at', { ascending: true });
+        out.kids = (kidsRes && kidsRes.data) || [];
+      } catch (e) { /* skip */ }
+      try {
+        var membersRes = await client.from('profile_group_members').select('group_id').eq('user_id', uid);
+        var memberIds = (membersRes && membersRes.data) ? membersRes.data.map(function (m) { return m.group_id; }) : [];
+        var orFilter = 'created_by.eq.' + uid + (memberIds.length ? ',id.in.(' + memberIds.join(',') + ')' : '');
+        var groupsRes = await client.from('profile_bible_study_groups').select('*').or(orFilter);
+        out.groups = (groupsRes && groupsRes.data) || [];
+      } catch (e) { /* skip */ }
+      try {
+        var churchRes = await client.from('profile_user_churches').select('*').eq('user_id', uid).maybeSingle();
+        out.church = (churchRes && churchRes.data) || null;
+      } catch (e) { /* skip */ }
+      try {
+        var syncRes = await client.from('user_sync_data').select('sync_key, sync_value, updated_at').eq('user_id', uid);
+        var rows = (syncRes && syncRes.data) || [];
+        rows.forEach(function (r) { out.sync[r.sync_key] = r.sync_value; });
+      } catch (e) { /* skip */ }
+      try {
+        var prayersRes = await client.from('prayers').select('intent, created_at, family_name').eq('user_id', uid).order('created_at', { ascending: false }).limit(500);
+        out.prayers = (prayersRes && prayersRes.data) || [];
+      } catch (e) { /* skip */ }
+      var json = JSON.stringify(out, null, 2);
+      var blob = new Blob([json], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'todaysdailybattle-export-' + new Date().toISOString().split('T')[0] + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      setStatus('export-status', 'Downloaded!');
+      setTimeout(function () { setStatus('export-status', ''); }, 3000);
+    } catch (err) {
+      setStatus('export-status', 'Something went wrong — try again.', true);
+    }
+    if (btn) btn.disabled = false;
+  }
+
   function wire() {
     var addKidBtn = document.getElementById('add-kid-btn');
     if (addKidBtn) addKidBtn.addEventListener('click', addKid);
@@ -361,6 +416,8 @@
     if (joinGroupBtn) joinGroupBtn.addEventListener('click', joinGroup);
     var saveChurchBtn = document.getElementById('save-church-btn');
     if (saveChurchBtn) saveChurchBtn.addEventListener('click', saveChurch);
+    var exportBtn = document.getElementById('export-data-btn');
+    if (exportBtn) exportBtn.addEventListener('click', exportData);
     var changeBtn = document.getElementById('church-change-btn');
     if (changeBtn) {
       changeBtn.addEventListener('click', function () {

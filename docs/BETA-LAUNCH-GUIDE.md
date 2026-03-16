@@ -14,10 +14,11 @@ Step-by-step checklist to go from current state to beta launch (share with 5–1
 
 **Steps:**
 
-1. Go to [supabase.com/dashboard](https://supabase.com/dashboard) → your project → **SQL Editor** (left sidebar)
-2. **First script:** Paste contents of `supabase-rls-lockdown.sql` → **Run**
-3. Look for green "Query executed successfully" (or similar). If errors, note line/table and fix (common: missing policy names or copy-paste syntax)
-4. **Second script:** New query tab → paste `supabase-prayers-anon-read.sql` → **Run** → confirm success
+1. Open Supabase SQL Editor: [supabase.com/dashboard](https://supabase.com/dashboard) → your project → **SQL Editor** (or go directly to `https://supabase.com/dashboard/project/[your-project-id]/sql`)
+2. **First script:** New query → paste full contents of `supabase-rls-lockdown.sql` → **Run**
+3. **Success:** Green "Query executed successfully." No red errors, completes in <5 sec. If error: note line/table; common fixes: missing quotes, typo, or policy exists (script uses DROP POLICY IF EXISTS).
+4. **Second script:** New query tab → paste **full** contents of `supabase-prayers-anon-read.sql` (includes GRANT + policy) → **Run**
+5. **Success:** Green success banner.
 
 **Post-run checks:**
 
@@ -73,8 +74,8 @@ Only needed if you want 9 AM push notifications. If skipping: defer and launch w
 - Commit any last tweaks (if you made changes during testing)
 - `git push origin main`
 - Wait 1–2 min for Cloudflare Pages auto-deploy
-- Purge cache (Cloudflare → Caching → Purge Everything)
-- Hard refresh (Cmd+Shift+R / Ctrl+F5) → confirm latest (wins.html year, voice toggle, nudge)
+- Purge cache: Cloudflare dashboard → Caching → Configuration → **Purge Everything** → wait 30–60 sec
+- Hard refresh (Cmd+Shift+R / Ctrl+F5) → confirm latest (wins year, voice toggle, nudge)
 
 ---
 

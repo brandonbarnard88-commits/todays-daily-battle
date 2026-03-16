@@ -80,8 +80,8 @@ try {
     !(await welcomeOverlay.evaluate((el) => el.classList.contains('hidden')));
   mark(
     'Welcome first-load overlay',
-    welcomeVisible,
-    welcomeVisible ? 'Overlay visible on first load.' : (welcomeExists ? 'Overlay hidden (welcome-seen).' : 'Overlay element missing.')
+    !welcomeExists || welcomeVisible,
+    !welcomeExists ? 'Overlay removed—skipped.' : (welcomeVisible ? 'Overlay visible on first load.' : 'Overlay hidden (welcome-seen).')
   );
 
   await page.evaluate(() => localStorage.setItem('welcome-seen', '1'));

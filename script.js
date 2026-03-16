@@ -15766,8 +15766,31 @@ function writeNbaSignal(key) {
   try { localStorage.setItem(key, String(Date.now())); } catch (e) {}
 }
 
+/** Sanitize nudge elements — reset if cache/extension injected unexpected text. */
+function sanitizeNudgeElements() {
+  var nudge = document.getElementById('daily-nudge');
+  var encourage = document.getElementById('encourageMsg');
+  var DAILY_OK = /New day|still here if you need/i;
+  var ENCOURAGE_OK = /He'?s got you|verse|ref|Philippians|Matthew|Psalm|Isaiah|John/i;
+  if (nudge) {
+    var t = (nudge.textContent || '').trim();
+    if (t && !DAILY_OK.test(t) && t.indexOf('does nothing') !== -1) {
+      if (typeof console !== 'undefined' && console.warn) console.warn('TDB: unexpected daily-nudge content, resetting');
+      nudge.textContent = 'New day—still here if you need.';
+    }
+  }
+  if (encourage) {
+    var e = (encourage.textContent || '').trim();
+    if (e && e.length > 0 && !ENCOURAGE_OK.test(e) && (e.indexOf('does nothing') !== -1 || e.indexOf('does it not') !== -1)) {
+      if (typeof console !== 'undefined' && console.warn) console.warn('TDB: unexpected encourageMsg content, clearing');
+      encourage.textContent = '';
+    }
+  }
+}
+
 (typeof window !== 'undefined' ? window : {}).tdbInit = async function tdbInit() {
   if (!document.body) return;
+  sanitizeNudgeElements();
   wirePrayerQueueHealthDebug();
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');

@@ -14,8 +14,22 @@ Post-March 2026 polish features: offline widget, copy verse, pray feedback, caro
 
 ### 1. Purge Cloudflare cache
 
+**Option A — Dashboard:**  
 - **Dashboard** → **Caching** → **Configuration**
 - Click **Purge Everything** (safest for full refresh)
+
+**Option B — API (one-liner):**  
+```bash
+CF_ZONE_ID=your_zone_id CF_API_TOKEN=your_token npm run purge:cloudflare
+```
+- Zone ID: Cloudflare → your domain → Overview (right sidebar)
+- Token: My Profile → API Tokens → Create Token → "Edit zone cache" template
+
+**Option C — GitHub Action (one-click):**  
+1. Add repo secrets: **Settings** → **Secrets and variables** → **Actions** → **New repository secret**  
+   - `CF_ZONE_ID` (from Cloudflare → domain → Overview)  
+   - `CF_API_TOKEN` (from My Profile → API Tokens → "Edit zone cache")  
+2. **Actions** → **Purge Cloudflare Cache** → **Run workflow**
 - Or **Custom Purge** → enter:
   - `https://todaysdailybattle.com/`
   - `https://todaysdailybattle.com/offline.html`

@@ -3602,10 +3602,12 @@
           return;
         }
         try { synth.cancel(); } catch (_) {}
-        var parts = [story.title || key, story.caption || ''];
-        if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
-        if (story.kjvRef) parts.push(story.kjvRef);
-        var text = parts.filter(Boolean).join('. ').trim();
+        var text = (story.narration && story.narration.trim()) || (function () {
+          var parts = [story.title || key, story.caption || ''];
+          if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
+          if (story.kjvRef) parts.push(story.kjvRef);
+          return parts.filter(Boolean).join('. ').trim();
+        })();
         if (text) {
           kidsStorySpeakBtn = speakBtn;
           var u = new window.SpeechSynthesisUtterance(text);

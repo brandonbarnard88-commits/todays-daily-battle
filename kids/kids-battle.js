@@ -1246,30 +1246,32 @@
     david: {
       title: 'David & Goliath',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'David as shepherd boy' },
-        { src: 'panel-david-2.svg', alt: 'David faces Goliath' },
-        { src: 'panel-david-3.svg', alt: "David wins with God's help" }
+        { src: 'panel-david-1.svg', alt: 'David as shepherd boy – Small but faithful' },
+        { src: 'panel-david-2.svg', alt: 'David faces Goliath – God is bigger than any giant' },
+        { src: 'panel-david-3.svg', alt: "David wins with God's help – One stone, one faith" }
       ],
       caption: 'Swipe to see how God helped David be brave! ⚔️',
       videoId: 'QuLN7IWFJNY',
       videoTitle: 'David and Goliath – Animated!',
       keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot'],
       kjvRef: '1 Samuel 17',
-      kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Be brave—He fights for you!' }
+      kidContext: { who: 'David', to: 'Goliath (and us)', apply: "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord\'s!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you." },
+      narration: "David and Goliath – 1 Samuel 17. Goliath was a huge giant. He shouted at God's army every day. Everyone was scared—except David. David was young and small, but he knew God. He said, 'Who is this giant? The Lord will deliver him into my hand.' David ran toward Goliath with a sling and five stones. He swung once—and the stone hit Goliath. The giant fell. God gave David the victory! For you: Your giants might be fear, worry, or someone who hurts you. God is bigger. Trust Him and be brave."
     },
     noah: {
       title: "Noah's Ark",
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Noah building the ark' },
-        { src: 'panel-noah-2.svg', alt: 'Animals boarding two by two' },
-        { src: 'panel-noah-3.svg', alt: "God's rainbow promise" }
+        { src: 'panel-noah-1.svg', alt: "Noah building the huge ark – Obeying God's instructions" },
+        { src: 'panel-noah-2.svg', alt: 'Animals marching two by two into the ark – God saves His creation' },
+        { src: 'panel-noah-3.svg', alt: "Rainbow in the sky after the flood – God's promise never to flood the earth again" }
       ],
       caption: "Swipe to see God's promise with Noah and the rainbow! 🌈",
       videoId: 'qzYjy6lhRag',
       videoTitle: "Noah's Ark – Animated!",
       keywords: ['noah', 'ark', 'rainbow', 'promise', 'flood', 'animals'],
       kjvRef: 'Genesis 6–9',
-      kidContext: { who: 'God', to: 'Noah and his family', apply: 'God keeps His promises! When you obey, He takes care of you.' }
+      kidContext: { who: 'God', to: 'Noah and his family', apply: "God told Noah to build the ark and save the animals. Noah obeyed, even when it seemed strange. God kept His promise to protect them and gave a rainbow as a sign. When things feel scary or hard, remember: God keeps His promises to you too! You can trust Him every day." },
+      narration: "Noah's Ark – Genesis 6 to 9. Long ago, people were doing bad things. God was sad, but Noah was a good man who walked with God. God told Noah, 'Build a big boat called an ark.' Noah obeyed and built it just right. God sent animals two by two into the ark—elephants, lions, birds, everything! Noah's family went in too. God shut the door. Then it rained for 40 days and nights. Water covered the whole earth. But everyone in the ark was safe. After many months, the water went down. Noah sent a dove—it came back with an olive leaf! Plants were growing again. God said, 'Never again will I flood the whole earth.' He put a beautiful rainbow in the sky as His promise. God keeps His promises! For you: When you obey God, even when it's hard or takes a long time, He protects you and gives new beginnings. Trust Him today."
     },
     jesus: {
       title: 'Jesus the Good Shepherd',
@@ -1288,30 +1290,32 @@
     jonah: {
       title: 'Jonah & the Big Fish',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Jonah running from God' },
-        { src: 'panel-jonah-2.svg', alt: 'Jonah and the big fish' },
-        { src: 'panel-jonah-3.svg', alt: 'Jonah obeys and goes to Nineveh' }
+        { src: 'panel-jonah-1.svg', alt: 'Jonah running away on a ship – Disobeying God' },
+        { src: 'panel-jonah-2.svg', alt: 'Big fish swallowing Jonah – God gets his attention' },
+        { src: 'panel-jonah-3.svg', alt: 'Jonah praying inside the fish – God hears and forgives' }
       ],
       caption: 'Swipe to see Jonah learn to obey God! 🐋',
       videoId: 'WOSadLyqshg',
       videoTitle: "Jonah and the Fish – Saddleback Kids!",
       keywords: ['jonah', 'whale', 'fish', 'obey', 'nineveh'],
       kjvRef: 'Jonah 1:17',
-      kidContext: { who: 'God', to: 'Jonah (and us)', apply: 'God gives second chances! When you run away, turn back—He\'s waiting!' }
+      kidContext: { who: 'God', to: 'Jonah (and us)', apply: "Jonah ran from God, but God sent a big fish to swallow him. Jonah prayed, and God saved him. Jonah learned to obey. God gives us second chances too! When you make a mistake, pray and turn back to God—He loves you and forgives." },
+      narration: "Jonah Whale – Jonah 1:17. God told Jonah, 'Go to Nineveh and tell the people to turn from their bad ways.' Jonah didn't want to, so he ran away on a ship. A big storm came. Jonah said, 'Throw me into the sea.' The sailors did, and a huge fish swallowed Jonah. Inside the fish for three days, Jonah prayed and said sorry. God made the fish spit Jonah out on dry land. God gave Jonah a second chance and sent him to Nineveh again. The people listened and turned to God! God gives second chances! For you: If you run from God or make a mistake, pray and say sorry. He forgives and gives you a new start."
     },
     daniel: {
       title: 'Daniel & the Lions',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Daniel praying' },
-        { src: 'panel-daniel-2.svg', alt: 'Daniel in the lions den' },
-        { src: 'panel-daniel-3.svg', alt: 'Daniel safe—king amazed' }
+        { src: 'panel-daniel-1.svg', alt: "Daniel praying at his window – Staying faithful to God" },
+        { src: 'panel-daniel-2.svg', alt: "Daniel thrown into the lions' den – Facing danger bravely" },
+        { src: 'panel-daniel-3.svg', alt: "Daniel safe among the lions – God shuts their mouths" }
       ],
       caption: 'Swipe to see God protect Daniel! 🦁',
       videoId: 'odcRHDqcVlc',
       videoTitle: "Daniel and the Lions' Den – God's Story!",
       keywords: ['daniel', 'lion', 'lions', 'den', 'pray', 'protect'],
       kjvRef: 'Daniel 6:22',
-      kidContext: { who: 'God', to: 'Daniel (and us)', apply: 'Keep praying—God shuts the lions\' mouths! He protects those who trust Him.' }
+      kidContext: { who: 'God', to: 'Daniel (and us)', apply: "Daniel prayed to God even when it was against the law. God sent an angel to shut the lions' mouths. Daniel was safe all night! When you stand up for what's right and trust God, He is with you and protects you, just like He did for Daniel." },
+      narration: "Daniel and the Lions – Daniel 6:22. Daniel loved God and prayed every day. Some bad men tricked the king into making a law: 'No one can pray to anyone but the king.' Daniel kept praying to God anyway. The king was sad, but he had to throw Daniel into the lions' den. The king worried all night. In the morning, Daniel was safe! God sent an angel to shut the lions' mouths. Daniel said, 'My God sent his angel and shut the lions' mouths.' God protects those who trust Him! For you: When it's hard to do the right thing, pray and trust God. He is with you and keeps you safe."
     },
     adamEve: {
       title: 'Adam & Eve',
@@ -1372,16 +1376,17 @@
     josephCoat: {
       title: "Joseph & the Coat",
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Joseph gets a colorful coat' },
-        { src: 'panel-david-2.svg', alt: 'Joseph dreams of greatness' },
-        { src: 'panel-david-3.svg', alt: 'Brothers are jealous' }
+        { src: 'panel-david-1.svg', alt: "Joseph wearing his coat of many colors – Loved by his father" },
+        { src: 'panel-david-2.svg', alt: "Brothers selling Joseph to traders – Jealousy turns to betrayal" },
+        { src: 'panel-david-3.svg', alt: "Joseph as leader in Egypt – God turns bad into good" }
       ],
       caption: 'Swipe to see Joseph\'s dreams and his special coat! 🌈',
       videoId: 'MKW6ylouF1s',
       videoTitle: "Joseph's Coat of Many Colors – Bible Stories!",
       keywords: ['joseph', 'coat', 'dreams', 'brothers', 'colors'],
-      kjvRef: 'Genesis 37',
-      kidContext: { who: 'God', to: 'Joseph (Jacob\'s son)', apply: 'God had big plans for Joseph! Even when things seem bad, God is working for good.' }
+      kjvRef: 'Genesis 37:3',
+      kidContext: { who: 'God', to: 'Joseph (Jacob\'s son)', apply: "Joseph's brothers were jealous of his special coat and dreams. They sold him into slavery, but God used it for good—Joseph became a leader in Egypt and saved his family. Even when bad things happen, God can turn them into something good. Trust Him with your hard days." },
+      narration: "Joseph and the Coat – Genesis 37:3. Joseph had a beautiful coat of many colors from his dad. His brothers were jealous. Joseph had dreams that one day they would bow to him. The brothers got angry and sold Joseph to traders going to Egypt. Joseph worked hard in Egypt, but bad things kept happening—he was put in prison unfairly. But God was with Joseph. He helped interpret dreams and became second in command to Pharaoh. When a famine came, Joseph's brothers came to Egypt for food. Joseph forgave them and saved his whole family! God turned bad into good. For you: When people are mean or life feels unfair, remember God can use it for something good. Stay faithful—He has a plan."
     },
     mosesBush: {
       title: 'Moses & the Burning Bush',
@@ -1400,86 +1405,92 @@
     redSea: {
       title: 'Red Sea Crossing',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Moses and the people at the sea' },
-        { src: 'panel-noah-2.svg', alt: 'God parts the waters' },
-        { src: 'panel-noah-3.svg', alt: 'People walk through on dry ground' }
+        { src: 'panel-noah-1.svg', alt: "Israelites trapped by the Red Sea – Pharaoh's army chasing" },
+        { src: 'panel-noah-2.svg', alt: "Moses stretching his hand over the sea – God parts the waters" },
+        { src: 'panel-noah-3.svg', alt: "People walking on dry ground between walls of water – God makes a way" }
       ],
       caption: 'Swipe to see God make a way through the sea! 🌊',
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'waters', 'part', 'exodus 14', 'egypt', 'escape'],
-      kjvRef: 'Exodus 14',
-      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: 'God makes a way! When things seem impossible, trust Him—He can do anything!' }
+      kjvRef: 'Exodus 14:21',
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
+      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
     },
     manna: {
       title: 'Manna from Heaven',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'People hungry in the desert' },
-        { src: 'panel-jonah-2.svg', alt: 'Bread falls from the sky' },
-        { src: 'panel-jonah-3.svg', alt: 'Everyone gathers what they need' }
+        { src: 'panel-jonah-1.svg', alt: "Israelites hungry in the desert – Complaining to Moses" },
+        { src: 'panel-jonah-2.svg', alt: "Manna falling from heaven – God sends bread" },
+        { src: 'panel-jonah-3.svg', alt: "People gathering manna each morning – God provides daily" }
       ],
       caption: 'Swipe to see God give bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
       keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'food', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: 'God gives what we need! Trust Him for your food, your family—He takes care of you!' }
+      kjvRef: 'Exodus 16:15',
+      kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
+      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
     },
     tenCommandments: {
       title: 'Ten Commandments',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Moses goes up the mountain' },
-        { src: 'panel-david-2.svg', alt: 'God gives the stone tablets' },
-        { src: 'panel-david-3.svg', alt: 'Rules to keep us safe and happy' }
+        { src: 'panel-david-1.svg', alt: "Moses on Mount Sinai – God speaks to him" },
+        { src: 'panel-david-2.svg', alt: "God writing the Ten Commandments on stone tablets" },
+        { src: 'panel-david-3.svg', alt: "Moses bringing the tablets down – God's good rules for His people" }
       ],
       caption: 'Swipe to see God give rules to keep us safe! 📜',
       videoId: 'P12cLzy1-3Q',
       videoTitle: 'The Ten Commandments – Bible Stories for Kids!',
       keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules', 'law'],
-      kjvRef: 'Exodus 20',
-      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: 'God gives rules to keep us safe! Love God and love others—that\'s what matters!' }
+      kjvRef: 'Exodus 20:1-17',
+      kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "God gave Moses ten rules on stone tablets to help people love God and love others. They were good laws to live by. God's rules show us how to live happy and right. When you follow them, you honor God and treat people well." },
+      narration: "Ten Commandments – Exodus 20:1-17. The Israelites came to Mount Sinai. God called Moses up the mountain. There, God spoke ten important rules and wrote them on stone tablets. The first four were about loving God: no other gods, no idols, honor His name, keep the Sabbath. The last six were about loving others: honor parents, no murder, no stealing, no lying, no wanting what others have. God gave these rules to help His people live good lives. For you: God's rules are like guardrails—they keep you safe and happy. Love God with all your heart, and love others like yourself. Following them makes life better."
     },
     samson: {
       title: 'Samson & His Strength',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Samson has super strength' },
-        { src: 'panel-daniel-2.svg', alt: 'Samson and the pillars' },
-        { src: 'panel-daniel-3.svg', alt: 'God gives power—use it right!' }
+        { src: 'panel-daniel-1.svg', alt: "Samson with long hair – Strong because of God" },
+        { src: 'panel-daniel-2.svg', alt: "Delilah cutting Samson's hair – Losing his strength" },
+        { src: 'panel-daniel-3.svg', alt: "Samson pushing the pillars – God gives power one last time" }
       ],
       caption: 'Swipe to see God give Samson strength! 💪',
       videoId: 'vnRAdASpsz4',
       videoTitle: "Samson and Delilah – Bible Lessons for Kids!",
       keywords: ['samson', 'hair', 'strength', 'pillars', 'judges 16', 'power', 'delilah'],
-      kjvRef: 'Judges 16',
-      kidContext: { who: 'God', to: 'Samson (a strong man)', apply: 'God gives power—use it right! Be strong for good, not for showing off.' }
+      kjvRef: 'Judges 16:30',
+      kidContext: { who: 'God', to: 'Samson (a strong man)', apply: "Samson was super strong because God gave him power, but he didn't always use it wisely. In the end, he prayed for strength one last time and brought down the pillars to defeat the enemies. God gives us strength too—use it to help others and honor Him, not for selfish things." },
+      narration: "Samson and the Pillars – Judges 16:30. Samson was born with special strength from God—no razor on his head. He fought bad guys and did amazing things. But Samson made mistakes and told his secret to Delilah. She cut his hair, and his strength left. The enemies captured him and made fun of him in their temple. Samson prayed, 'Lord, remember me and give me strength just this once.' God answered! Samson pushed the two middle pillars, and the whole building fell on the enemies and himself. God gave him power one last time. For you: God gives you strength in different ways. Use it to do good, help others, and follow Him—not for showing off or getting even."
     },
     fieryFurnace: {
       title: 'Fiery Furnace',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Shadrach, Meshach, Abednego refuse to bow' },
-        { src: 'panel-daniel-2.svg', alt: 'Thrown into the fiery furnace' },
-        { src: 'panel-daniel-3.svg', alt: 'Angel keeps them safe—king amazed!' }
+        { src: 'panel-daniel-1.svg', alt: "Three friends refusing to bow – Standing for God" },
+        { src: 'panel-daniel-2.svg', alt: "Thrown into the fiery furnace – Heat so hot it kills soldiers" },
+        { src: 'panel-daniel-3.svg', alt: "Four men walking in the fire – God protects His friends" }
       ],
       caption: 'Swipe to see God keep friends safe in the fire! 🔥',
       videoId: 'kAzX-Icrbm0',
       videoTitle: 'The Fiery Furnace – Shadrach, Meshach & Abednego!',
       keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3'],
-      kjvRef: 'Daniel 3',
-      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: 'God keeps friends safe! When you stand for God, He stands with you!' }
+      kjvRef: 'Daniel 3:25',
+      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them safe. When you're in a tough or scary situation, God is right there with you—He never leaves you alone." },
+      narration: "Fiery Furnace Three – Daniel 3:25. King Nebuchadnezzar made a huge gold statue and said everyone must bow to it or be thrown into a fiery furnace. Shadrach, Meshach, and Abednego loved God and said, 'We will not bow.' The king was furious and made the furnace seven times hotter. The soldiers who threw them in died from the heat. But the king looked in and saw four men walking around! The fourth looked like the Son of God. The three friends came out unharmed—no burns, no smoke smell. God was with them in the fire! For you: When you face hard times or pressure to do wrong, stand strong for God. He is with you in the fire and will protect you."
     },
     esther: {
       title: 'Esther Saves Her People',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Esther becomes queen' },
-        { src: 'panel-jesus-2.svg', alt: 'Esther goes to the king' },
-        { src: 'panel-jesus-3.svg', alt: 'God uses her to save the people!' }
+        { src: 'panel-jesus-1.svg', alt: 'Esther becomes queen – God puts her in place' },
+        { src: 'panel-jesus-2.svg', alt: 'Esther goes to the king – Brave when it mattered' },
+        { src: 'panel-jesus-3.svg', alt: 'God uses her to save the people – Such a time as this!' }
       ],
       caption: 'Swipe to see Esther be brave—God uses you! 👑',
       videoId: '7945Bh5iG_A',
       videoTitle: 'The Story of Esther – Bible Stories for Kids!',
       keywords: ['esther', 'queen', 'king', 'brave', 'save', 'such a time'],
       kjvRef: 'Esther 4',
-      kidContext: { who: 'God', to: 'Esther (queen who saved her people)', apply: 'Be brave—God uses you! You were made for such a time as this!' }
+      kidContext: { who: 'God', to: 'Esther (queen who saved her people)', apply: "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for such a time as this.' Esther bravely went to the king and asked for help. God used her to save her people! You are where you are for a reason. Be brave when it matters." },
+      narration: "Esther Saves Her People – Esther 4. Esther was a queen, but a bad man named Haman wanted to hurt all of God's people. Esther's uncle Mordecai said, 'Who knows? Maybe you were made queen for such a time as this.' Esther was scared—but she prayed and went to the king. She told him the truth. The king listened and stopped Haman. God used Esther to save her people! For you: God put you where you are for a reason. When it's hard to be brave, pray and step forward. He uses you."
     },
     jesusBirth: {
       title: 'Jesus Birth',
@@ -1498,16 +1509,17 @@
     jesusCalmsStorm: {
       title: 'Jesus Calms the Storm',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Disciples in a boat, big waves' },
-        { src: 'panel-jonah-2.svg', alt: 'Jesus sleeps—then wakes' },
-        { src: 'panel-jonah-3.svg', alt: 'Jesus says peace—storm stops!' }
+        { src: 'panel-jonah-1.svg', alt: "Storm raging on the lake – Disciples afraid in the boat" },
+        { src: 'panel-jonah-2.svg', alt: "Jesus sleeping in the storm – Trusting God" },
+        { src: 'panel-jonah-3.svg', alt: "Jesus speaking to the wind and waves – Peace, be still" }
       ],
       caption: 'Swipe to see Jesus calm the storm—trust Him! ⛵',
       videoId: 'uYLHqdSO9OY',
       videoTitle: 'Jesus Calms the Storm – Bible Story for Kids!',
       keywords: ['jesus', 'storm', 'boat', 'waves', 'peace', 'matthew 14', 'mark 4'],
       kjvRef: 'Mark 4:39',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus stops storms—trust Him! When you\'re scared, He says: Don\'t be afraid—I\'m here!' }
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus is with you in every storm. When you feel scared, call on Him—He can bring peace." },
+      narration: "Jesus Calms the Boat – Mark 4:39. Jesus and His disciples were crossing the lake in a boat. A huge storm came up—waves crashed, wind howled, and the boat was filling with water. The disciples were terrified and woke Jesus, saying, 'Master, don't You care that we are perishing?' Jesus stood up and said to the wind and waves, 'Peace, be still.' Immediately the wind stopped, and there was a great calm. Jesus asked them, 'Why are you so fearful? How is it that you have no faith?' The disciples were amazed—'Even the wind and sea obey Him!' For you: When life feels stormy or scary, Jesus is right there with you. Call on Him—He has power to bring peace to your heart."
     },
     jesusFeeds5000: {
       title: 'Jesus Feeds 5,000',
@@ -1568,16 +1580,17 @@
     lazarus: {
       title: 'Lazarus Raised',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Lazarus is sick, then dies' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus comes to the tomb' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus says: Come out!—Lazarus lives!' }
+        { src: 'panel-jesus-1.svg', alt: "Mary and Martha sad – Lazarus is dead" },
+        { src: 'panel-jesus-2.svg', alt: "Jesus at the tomb – Calling Lazarus out" },
+        { src: 'panel-jesus-3.svg', alt: "Lazarus walking out alive – Jesus has power over death" }
       ],
       caption: 'Swipe to see Jesus give life—don\'t be sad! ✨',
       videoId: '1FT04jjh3Q8',
       videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
       keywords: ['lazarus', 'raised', 'dead', 'come out', 'alive', 'john 11'],
-      kjvRef: 'John 11',
-      kidContext: { who: 'Jesus', to: 'Mary, Martha, and Lazarus', apply: 'Jesus gives life—don\'t be sad! He is the Resurrection and the Life!' }
+      kjvRef: 'John 11:43-44',
+      kidContext: { who: 'Jesus', to: 'Mary, Martha, and Lazarus', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
+      narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
     },
     resurrection: {
       title: 'Resurrection',
@@ -1610,16 +1623,17 @@
     fallOfJericho: {
       title: 'Fall of Jericho',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Joshua and the people march' },
-        { src: 'panel-david-2.svg', alt: 'Trumpets blow, people shout' },
-        { src: 'panel-david-3.svg', alt: 'Walls fall down—God wins!' }
+        { src: 'panel-david-1.svg', alt: "Israelites marching around Jericho – Obeying God's strange plan" },
+        { src: 'panel-david-2.svg', alt: "Trumpets blowing on day 7 – Time to shout" },
+        { src: 'panel-david-3.svg', alt: "Walls of Jericho falling down – God gives victory" }
       ],
       caption: 'Swipe to see God make the walls fall—trust Him! 🏛️',
       videoId: 'Ertlm3D9Cfs',
       videoTitle: 'The Walls of Jericho – Bible Story for Kids!',
       keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey'],
-      kjvRef: 'Joshua 6',
-      kidContext: { who: 'God', to: 'Joshua and the Israelites', apply: 'God makes walls fall—trust Him! Obey God even when it seems weird!' }
+      kjvRef: 'Joshua 6:20',
+      kidContext: { who: 'God', to: 'Joshua and the Israelites', apply: "God told Joshua to march around Jericho for 7 days, blow trumpets, and shout. It seemed strange, but they obeyed. The walls fell down! When God asks you to do something that doesn't make sense, obey—He has a reason and will make it work." },
+      narration: "Fall of Jericho – Joshua 6:20. The Israelites came to Jericho, a strong city with big walls. God told Joshua, 'March around the city once a day for 6 days. On day 7, march 7 times, blow trumpets, and shout!' The people obeyed, even though it seemed weird. On day 7, they marched, trumpets blew, they shouted—and the walls fell flat! The Israelites marched in and took the city. God gave them the victory because they obeyed. For you: Sometimes God asks us to do things that seem odd or hard. Trust Him and obey. He makes impossible things happen when we follow His way."
     },
     davidSheep: {
       title: 'David & the Sheep',
@@ -1975,159 +1989,183 @@
     mosesSea: {
       title: 'Moses Parts the Sea',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Moses raises his staff' },
-        { src: 'panel-noah-2.svg', alt: 'The sea splits open' },
-        { src: 'panel-noah-3.svg', alt: 'Israel walks through on dry ground' }
+        { src: 'panel-noah-1.svg', alt: "Israelites trapped by the Red Sea – Pharaoh's army chasing" },
+        { src: 'panel-noah-2.svg', alt: "Moses stretching his hand over the sea – God parts the waters" },
+        { src: 'panel-noah-3.svg', alt: "People walking on dry ground between walls of water – God makes a way" }
       ],
       caption: 'Swipe to see God split the sea—He makes a way! 🌊',
+      videoId: 'GYZh5eY6FGg',
+      videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'staff', 'parting', 'exodus 14', 'miracle'],
-      kjvRef: 'Exodus 14',
-      kidContext: { who: 'God', to: 'Moses and Israel', apply: 'When the way looks impossible, God makes a way! Trust Him.' }
+      kjvRef: 'Exodus 14:21',
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
+      narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
     },
     burningBush: {
       title: 'The Burning Bush',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Moses sees a bush on fire' },
-        { src: 'panel-noah-2.svg', alt: 'God speaks from the flames' },
-        { src: 'panel-noah-3.svg', alt: 'Moses takes off his sandals—holy ground!' }
+        { src: 'panel-noah-1.svg', alt: "Moses seeing the burning bush – Fire but no ashes" },
+        { src: 'panel-noah-2.svg', alt: "God speaking from the bush – Calling Moses by name" },
+        { src: 'panel-noah-3.svg', alt: "Moses taking off his shoes – Holy ground with God" }
       ],
       caption: 'Swipe to see God call Moses from the burning bush! 🔥',
+      videoId: 'bWcwZIV-ip8',
+      videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
       keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call'],
-      kjvRef: 'Exodus 3',
-      kidContext: { who: 'God', to: 'Moses', apply: 'God calls you by name! When God calls, say yes—He will help you.' }
+      kjvRef: 'Exodus 3:2',
+      kidContext: { who: 'God', to: 'Moses', apply: "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you." },
+      narration: "Burning Bush – Exodus 3:2. Moses was taking care of sheep when he saw something amazing—a bush burning with fire but not burning up. He went closer. God called from the bush, 'Moses, Moses!' God said, 'I am the God of your fathers. I have seen My people's suffering in Egypt. Go tell Pharaoh to let them go.' Moses was afraid, but God promised, 'I will be with you.' God even told Moses His name: 'I AM THAT I AM.' God speaks to us! For you: God still speaks today—through the Bible, prayer, and when your heart feels a gentle nudge. Listen, trust, and obey when He calls your name."
     },
     tenPlagues: {
       title: 'Ten Plagues of Egypt',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Frogs cover everything in Egypt' },
-        { src: 'panel-david-2.svg', alt: 'Darkness falls over the land' },
-        { src: 'panel-david-3.svg', alt: 'Pharaoh finally lets God\'s people go' }
+        { src: 'panel-david-1.svg', alt: "Moses and Aaron before Pharaoh – Asking to let people go" },
+        { src: 'panel-david-2.svg', alt: "Plagues coming on Egypt – God shows His power" },
+        { src: 'panel-david-3.svg', alt: "Passover door with blood – God protects His people" }
       ],
       caption: 'Swipe to see God\'s power over Egypt—nothing stops Him! 🐸',
+      videoId: '',
+      videoTitle: '',
       keywords: ['plagues', 'egypt', 'frogs', 'darkness', 'exodus 8', 'pharaoh'],
-      kjvRef: 'Exodus 8',
-      kidContext: { who: 'God', to: 'Pharaoh and Egypt', apply: 'Nothing is too hard for God! He fights for His people.' }
+      kjvRef: 'Exodus 7–12',
+      kidContext: { who: 'God', to: 'Pharaoh and Egypt', apply: "God sent ten plagues to show Pharaoh He was stronger than any false gods. The last plague was hard, but God protected His people with the Passover lamb. God shows His power to save and protect. When you face big problems, remember God is stronger than anything." },
+      narration: "Ten Plagues – Exodus 7 to 12. Pharaoh would not let God's people go. God sent Moses and Aaron to tell him, 'Let My people go.' Pharaoh said no, so God sent ten plagues: water to blood, frogs, lice, flies, sick animals, boils, hail, locusts, darkness, and finally the death of the firstborn. Each plague showed God was stronger than Egypt's gods. For the last plague, God told His people to put lamb blood on their doors—the angel passed over them. Pharaoh finally let them go! God shows His power to save. For you: When bad things happen or people are mean, God is stronger than anything. Trust Him—He protects and sets free."
     },
     manna: {
       title: 'Manna from Heaven',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Israel is hungry in the desert' },
-        { src: 'panel-noah-2.svg', alt: 'Bread falls from the sky each morning' },
-        { src: 'panel-noah-3.svg', alt: 'Everyone has enough—God provides!' }
+        { src: 'panel-noah-1.svg', alt: "Israelites hungry in the desert – Complaining to Moses" },
+        { src: 'panel-noah-2.svg', alt: "Manna falling from heaven – God sends bread" },
+        { src: 'panel-noah-3.svg', alt: "People gathering manna each morning – God provides daily" }
       ],
       caption: 'Swipe to see God feed His people with bread from heaven! 🍞',
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
       keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'provide'],
-      kjvRef: 'Exodus 16',
-      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: 'God gives what you need, one day at a time. Trust Him for today.' }
+      kjvRef: 'Exodus 16:15',
+      kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
+      narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
     },
     tenCommandments: {
       title: 'Ten Commandments',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Moses goes up the mountain' },
-        { src: 'panel-david-2.svg', alt: 'God gives the stone tablets' },
-        { src: 'panel-david-3.svg', alt: 'Rules to keep us safe and happy' }
+        { src: 'panel-david-1.svg', alt: "Moses on Mount Sinai – God speaks to him" },
+        { src: 'panel-david-2.svg', alt: "God writing the Ten Commandments on stone tablets" },
+        { src: 'panel-david-3.svg', alt: "Moses bringing the tablets down – God's good rules for His people" }
       ],
       caption: 'Swipe to see God give rules to keep us safe! 📜',
       videoId: 'P12cLzy1-3Q',
       videoTitle: 'The Ten Commandments – Bible Stories for Kids!',
       keywords: ['ten commandments', 'moses', 'mountain', 'tablets', 'exodus 20', 'rules'],
-      kjvRef: 'Exodus 20',
-      kidContext: { who: 'God', to: 'Moses and Israel', apply: 'God\'s rules keep us safe! Love God and love others—that\'s what matters.' }
+      kjvRef: 'Exodus 20:1-17',
+      kidContext: { who: 'God', to: 'Moses and Israel', apply: "God gave Moses ten rules on stone tablets to help people love God and love others. They were good laws to live by. God's rules show us how to live happy and right. When you follow them, you honor God and treat people well." },
+      narration: "Ten Commandments – Exodus 20:1-17. The Israelites came to Mount Sinai. God called Moses up the mountain. There, God spoke ten important rules and wrote them on stone tablets. The first four were about loving God: no other gods, no idols, honor His name, keep the Sabbath. The last six were about loving others: honor parents, no murder, no stealing, no lying, no wanting what others have. God gave these rules to help His people live good lives. For you: God's rules are like guardrails—they keep you safe and happy. Love God with all your heart, and love others like yourself. Following them makes life better."
     },
     elijahFire: {
       title: 'Elijah and the Fire',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Elijah builds an altar' },
-        { src: 'panel-david-2.svg', alt: 'Fire falls from heaven' },
-        { src: 'panel-david-3.svg', alt: 'The people cry: The Lord, He is God!' }
+        { src: 'panel-david-1.svg', alt: "Elijah building the altar and pouring water – Setting up the challenge" },
+        { src: 'panel-david-2.svg', alt: "Prophets of Baal praying with no answer – False gods fail" },
+        { src: 'panel-david-3.svg', alt: "Fire falling from heaven on Elijah's altar – God answers prayer" }
       ],
       caption: 'Swipe to see God answer Elijah with fire! 🔥',
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
       keywords: ['elijah', 'fire', 'altar', '1 kings 18', 'baal', 'miracle'],
-      kjvRef: '1 Kings 18',
-      kidContext: { who: 'God', to: 'Elijah and Israel', apply: 'God answers when we call! He is the one true God.' }
+      kjvRef: '1 Kings 18:38',
+      kidContext: { who: 'God', to: 'Elijah and Israel', apply: "Elijah prayed for fire from heaven to show God was real, and God sent fire that burned everything. The people saw and believed. When you pray and trust God, He hears and answers in His perfect way. Keep praying—God shows up!" },
+      narration: "Elijah Fire on Carmel – 1 Kings 18:38. The people of Israel were worshiping false gods. Elijah said, 'Let's see whose God is real.' He built an altar, put a sacrifice on it, and poured water over it three times. The prophets of Baal prayed all day, but nothing happened. Elijah prayed, 'Lord God, let it be known that You are God in Israel.' Suddenly fire fell from heaven! It burned the sacrifice, the wood, the stones, and even licked up the water in the trench. The people shouted, 'The Lord, He is God!' For you: When things seem impossible or people doubt God, pray and trust Him. God hears your prayers and shows His power in amazing ways."
     },
     elishaOil: {
       title: 'Elisha and the Oil',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A widow has only a little oil' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says: pour into jars' },
-        { src: 'panel-noah-3.svg', alt: 'Oil multiplies—God provides!' }
+        { src: 'panel-noah-1.svg', alt: "Widow asking Elisha for help – She has only a little oil" },
+        { src: 'panel-noah-2.svg', alt: "Widow borrowing pots from neighbors – Obeying Elisha" },
+        { src: 'panel-noah-3.svg', alt: "Oil filling every pot – God multiplies abundantly" }
       ],
       caption: 'Swipe to see God multiply oil—He provides! 🫙',
       videoId: '6E2WJ0vp4g4',
       videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
       keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'miracle'],
-      kjvRef: '2 Kings 4',
-      kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies what we give Him! Even a little becomes enough.' }
+      kjvRef: '2 Kings 4:6',
+      kidContext: { who: 'God', to: 'The widow through Elisha', apply: "A widow had only a little oil. Elisha told her to borrow pots—God filled them all! She sold the oil and paid her debts. God can multiply the little you have when you trust Him and obey. Bring what you have to God—He can make it enough." },
+      narration: "Elisha Oil Pots – 2 Kings 4:6. A poor widow owed money and was afraid her sons would be taken as slaves. She asked Elisha for help. Elisha asked, 'What do you have in the house?' She said, 'Only a little oil.' Elisha told her, 'Go borrow empty pots from your neighbors—don't borrow just a few.' She obeyed. She poured her little oil into the pots. God made the oil keep flowing until every pot was full! She sold the oil, paid her debts, and had money left. God multiplies! For you: When you feel like you don't have enough—time, money, courage—bring it to God. Obey Him, and watch Him multiply what you have to meet your needs."
     },
     naamanDip: {
       title: 'Naaman Dips in the River',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Naaman has leprosy' },
-        { src: 'panel-noah-2.svg', alt: 'Elisha says: dip seven times in the Jordan' },
-        { src: 'panel-noah-3.svg', alt: 'Naaman dips—his skin is healed!' }
+        { src: 'panel-noah-1.svg', alt: "Naaman with leprosy – Proud captain needing help" },
+        { src: 'panel-noah-2.svg', alt: "Naaman dipping in the Jordan River – Obeying Elisha" },
+        { src: 'panel-noah-3.svg', alt: "Naaman healed – Skin clean like new" }
       ],
       caption: 'Swipe to see Naaman healed—obey and be made new! 💧',
+      videoId: '8Y1Sh5bZAiM',
+      videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: ['naaman', 'river', 'jordan', '2 kings 5', 'leprosy', 'heal', 'obey'],
-      kjvRef: '2 Kings 5',
-      kidContext: { who: 'God', to: 'Naaman through Elisha', apply: 'When God says obey—even when it seems strange—He heals!' }
+      kjvRef: '2 Kings 5:14',
+      kidContext: { who: 'God', to: 'Naaman through Elisha', apply: "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect." },
+      narration: "Naaman Washed Clean – 2 Kings 5:14. Naaman was a great army captain, but he had leprosy. A little servant girl said, 'Go to the prophet in Israel—God can heal you.' Naaman went to Elisha. Elisha said, 'Go wash in the Jordan River seven times.' Naaman was angry—'The rivers in my country are better!' But his servants said, 'If he asked something hard, you would do it—why not this?' Naaman obeyed, dipped seven times, and his skin became clean like a child's! God healed him. For you: Sometimes God asks us to do simple things like pray, forgive, or be kind. Obey even if it seems small—God can do big miracles when we trust and follow Him."
     },
     creationLight: {
       title: '"Let There Be Light"',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Darkness and nothing' },
-        { src: 'panel-noah-2.svg', alt: 'God speaks: Let there be light!' },
-        { src: 'panel-noah-3.svg', alt: 'Light bursts into the world' }
+        { src: 'panel-noah-1.svg', alt: "Dark empty earth – Before God spoke" },
+        { src: 'panel-noah-2.svg', alt: "God saying 'Let there be light' – Creation begins" },
+        { src: 'panel-noah-3.svg', alt: "Light and darkness separated – First day complete" }
       ],
       caption: 'Swipe to see God speak light into darkness! ☀️',
+      videoId: 'teu7BCZTgDs',
+      videoTitle: 'Creation (Genesis 1-2) – Saddleback Kids!',
       keywords: ['creation', 'light', 'genesis 1', 'let there be light', 'darkness', 'god speaks'],
-      kjvRef: 'Genesis 1',
-      kidContext: { who: 'God', to: 'All creation', apply: 'God speaks and things happen! His word is powerful.' }
+      kjvRef: 'Genesis 1:3',
+      kidContext: { who: 'God', to: 'All creation', apply: "God spoke, 'Let there be light,' and light appeared. Everything God made was good. He created the world perfectly for us. When you see the beauty around you—sun, sky, animals—remember God made it all with His word. Thank Him for His wonderful creation." },
+      narration: "Creation Day One – Genesis 1:3. In the beginning, God created the heavens and the earth. It was dark and empty. God said, 'Let there be light,' and there was light! God saw the light and called it good. He separated light from darkness—He called light Day and darkness Night. That was the first day. God made everything perfectly by speaking it into being. For you: Look around at the sun, sky, trees, animals—God made them all. He spoke, and they came to be. Thank God for creating such a beautiful world for you to enjoy and take care of."
     },
     adamEve: {
       title: 'Adam and Eve',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'The garden tree and the serpent' },
-        { src: 'panel-jesus-2.svg', alt: 'Eve and Adam eat the fruit' },
-        { src: 'panel-jesus-3.svg', alt: 'God still loves them—but choices matter' }
+        { src: 'panel-jesus-1.svg', alt: "God making Adam from dust – Breathing life into him" },
+        { src: 'panel-jesus-2.svg', alt: "Adam and Eve in the beautiful Garden of Eden" },
+        { src: 'panel-jesus-3.svg', alt: "God walking with Adam and Eve – Perfect friendship" }
       ],
       caption: 'Swipe to see the first family in God\'s garden! 🌳',
       videoId: 'l7TDvJrjjz0',
       videoTitle: 'Adam and Eve – Saddleback Kids!',
       keywords: ['adam', 'eve', 'garden', 'snake', 'genesis 3', 'fruit', 'choice'],
-      kjvRef: 'Genesis 3',
-      kidContext: { who: 'God', to: 'Adam and Eve', apply: 'Choices matter! God still loves us even when we make mistakes.' }
+      kjvRef: 'Genesis 2:15',
+      kidContext: { who: 'God', to: 'Adam and Eve', apply: "God made Adam and Eve and put them in a beautiful garden. They walked with God and had everything they needed. But they disobeyed. God still loved them and promised a Savior. God gives us good things and loves us even when we make mistakes." },
+      narration: "Adam and Eve Garden – Genesis 2:15. God made Adam from dust and breathed life into him. God planted a beautiful garden called Eden with every good tree and a river. God put Adam in the garden to care for it. God made Eve from Adam's rib so they could be together. They walked with God every day in the cool of the evening. God gave them one rule: don't eat from the tree of the knowledge of good and evil. For you: God made the world perfect and gave us good things. He wants to walk with you too. When we make mistakes, God still loves us and has a plan to make everything right again."
     },
     towerBabel: {
       title: 'Tower of Babel',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'People build a tall tower' },
-        { src: 'panel-noah-2.svg', alt: 'God scatters the languages' },
-        { src: 'panel-noah-3.svg', alt: 'People spread across the earth' }
+        { src: 'panel-noah-1.svg', alt: "People building the tall tower – Trying to reach heaven" },
+        { src: 'panel-noah-2.svg', alt: "God confusing their languages – People can't understand" },
+        { src: 'panel-noah-3.svg', alt: "People scattering across the earth – God scatters pride" }
       ],
       caption: 'Swipe to see what happens when people forget God! 🏗️',
       videoId: '4EQh7C-IUcM',
       videoTitle: 'Tower of Babel – Bible Stories for Kids!',
       keywords: ['babel', 'tower', 'genesis 11', 'languages', 'pride', 'scatter'],
-      kjvRef: 'Genesis 11',
-      kidContext: { who: 'God', to: 'All people', apply: 'God is bigger than our plans! Stay humble—He is in charge.' }
+      kjvRef: 'Genesis 11:4',
+      kidContext: { who: 'God', to: 'All people', apply: "People wanted to build a tall tower to make a name for themselves instead of honoring God. God confused their languages so they couldn't finish. When we try to be big without God, it leads to confusion. Stay humble and give glory to God in everything you do." },
+      narration: "Tower of Babel – Genesis 11:4. After the flood, people spoke one language. They said, 'Let's build a city and a tower whose top reaches heaven, so we can make a name for ourselves.' They wanted to be famous without God. God came down and said, 'They are one people with one language—nothing will be impossible for them.' God confused their language so they couldn't understand each other. They stopped building and scattered over the earth. For you: When we want to be famous or big without God, it causes confusion and separation. Stay humble, honor God, and work together in His name—He blesses that."
     },
     /* ── Week 2 (25–36) ── */
     abrahamIsaac: {
       title: 'Abraham and Isaac',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Abraham trusts God with Isaac' },
-        { src: 'panel-david-2.svg', alt: 'The altar—and a ram in the bush' },
-        { src: 'panel-david-3.svg', alt: 'God provides! He always has a way.' }
+        { src: 'panel-david-1.svg', alt: "Abraham and Isaac walking up the mountain – Trusting God" },
+        { src: 'panel-david-2.svg', alt: "Isaac on the altar – Abraham ready to obey" },
+        { src: 'panel-david-3.svg', alt: "Ram in the bush – God provides a sacrifice" }
       ],
       caption: 'Swipe to see Abraham trust God—He always provides! 🐏',
+      videoId: '8QTk848O-yQ',
+      videoTitle: 'Abraham and Isaac – Bible Stories for Kids!',
       keywords: ['abraham', 'isaac', 'altar', 'ram', 'genesis 22', 'trust', 'provide'],
-      kjvRef: 'Genesis 22',
-      kidContext: { who: 'God', to: 'Abraham', apply: 'God provides! When you trust Him completely, He makes a way.' }
+      kjvRef: 'Genesis 22:12',
+      kidContext: { who: 'God', to: 'Abraham', apply: "God asked Abraham to sacrifice his son Isaac, but Abraham trusted God. God stopped him and provided a ram instead. Abraham showed he loved God most. When God asks you to trust Him with something precious, obey—He always provides and has a better plan." },
+      narration: "Abraham and Isaac – Genesis 22:12. God promised Abraham a son, and Isaac was born when Abraham was very old. God tested Abraham: 'Take Isaac and offer him as a sacrifice.' Abraham obeyed, even though it hurt. He took Isaac up the mountain. Isaac asked, 'Where is the lamb?' Abraham said, 'God will provide.' Abraham bound Isaac on the altar. An angel stopped him! God said, 'Now I know you fear God.' A ram was caught in a bush—Abraham sacrificed it instead. God provided! For you: Sometimes God asks us to trust Him with our most precious things. Obey and trust—He always provides and has something better in mind."
     },
     sarahLaughs: {
       title: 'Sarah Laughs',
@@ -2137,6 +2175,8 @@
         { src: 'panel-noah-3.svg', alt: 'Sarah laughs—then holds baby Isaac!' }
       ],
       caption: 'Swipe to see God do the impossible for Sarah! 😂',
+      videoId: '',
+      videoTitle: '',
       keywords: ['sarah', 'laugh', 'angel', 'genesis 18', 'baby', 'impossible', 'promise'],
       kjvRef: 'Genesis 18',
       kidContext: { who: 'God', to: 'Sarah and Abraham', apply: 'Nothing is impossible with God! He keeps every promise.' }
@@ -2144,14 +2184,17 @@
     jacobLadder: {
       title: 'Jacob\'s Ladder',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jacob sleeps in the wilderness' },
-        { src: 'panel-noah-2.svg', alt: 'A ladder reaches heaven—angels go up and down' },
-        { src: 'panel-noah-3.svg', alt: 'God speaks: I am with you wherever you go' }
+        { src: 'panel-noah-1.svg', alt: "Jacob sleeping with a stone pillow – Running away" },
+        { src: 'panel-noah-2.svg', alt: "Ladder from earth to heaven with angels – God's promise" },
+        { src: 'panel-noah-3.svg', alt: "Jacob setting up the stone pillar – God is here" }
       ],
       caption: 'Swipe to see Jacob\'s dream of heaven! 🪜',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jacob', 'ladder', 'dream', 'angels', 'genesis 28', 'heaven', 'promise'],
-      kjvRef: 'Genesis 28',
-      kidContext: { who: 'God', to: 'Jacob', apply: 'God is with you wherever you go! He never leaves.' }
+      kjvRef: 'Genesis 28:12',
+      kidContext: { who: 'God', to: 'Jacob', apply: "Jacob was running away, but God showed him a ladder to heaven with angels going up and down. God promised to be with him and bring him home. Even when you're far from home or feel alone, God is with you and has good plans for your future." },
+      narration: "Jacob Dream Ladder – Genesis 28:12. Jacob had to run away from his brother Esau. He slept on a stone pillow under the stars. In a dream, he saw a ladder reaching from earth to heaven with angels going up and down. God stood above it and said, 'I am the Lord God of Abraham and Isaac. I will give you this land. Your family will be many. I am with you and will keep you wherever you go.' Jacob woke up and said, 'God is in this place!' He set up the stone as a pillar and called it Bethel—House of God. For you: When you feel alone or far away, God is still with you. He promises to watch over you and bring you safely through every journey."
     },
     josephDreams: {
       title: 'Joseph\'s Dreams',
@@ -2161,6 +2204,8 @@
         { src: 'panel-david-3.svg', alt: 'God\'s plan will come true—wait!' }
       ],
       caption: 'Swipe to see Joseph\'s dream—God\'s plans always happen! ⭐',
+      videoId: 'MKW6ylouF1s',
+      videoTitle: "Joseph's Coat of Many Colors – Bible Stories!",
       keywords: ['joseph', 'dreams', 'stars', 'brothers', 'genesis 37', 'jealous'],
       kjvRef: 'Genesis 37',
       kidContext: { who: 'God', to: 'Joseph', apply: 'God\'s plans always happen! When you wait on God, He comes through.' }
@@ -2173,6 +2218,8 @@
         { src: 'panel-noah-3.svg', alt: 'God is with Joseph even in prison' }
       ],
       caption: 'Swipe to see God with Joseph in the hard place! 🪣',
+      videoId: '',
+      videoTitle: '',
       keywords: ['joseph', 'prison', 'cupbearer', 'dream', 'genesis 40', 'faithful'],
       kjvRef: 'Genesis 40',
       kidContext: { who: 'God', to: 'Joseph in prison', apply: 'God is with you in hard places! He never forgets you.' }
@@ -2185,6 +2232,8 @@
         { src: 'panel-david-3.svg', alt: 'Joseph is put in charge—God\'s plan works!' }
       ],
       caption: 'Swipe to see God use Joseph to save everyone! 🐄',
+      videoId: '',
+      videoTitle: '',
       keywords: ['pharaoh', 'dreams', 'cows', 'joseph', 'genesis 41', 'famine', 'wisdom'],
       kjvRef: 'Genesis 41',
       kidContext: { who: 'God', to: 'Joseph (through Pharaoh)', apply: 'God promotes the faithful! Stay humble and trust His timing.' }
@@ -2192,14 +2241,17 @@
     mosesBaby: {
       title: 'Baby Moses in the Basket',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Baby Moses is placed in a basket' },
-        { src: 'panel-noah-2.svg', alt: 'The basket floats on the Nile' },
-        { src: 'panel-noah-3.svg', alt: 'The princess finds him—God protected him!' }
+        { src: 'panel-noah-1.svg', alt: "Moses' mom making the basket – Protecting her baby" },
+        { src: 'panel-noah-2.svg', alt: "Basket floating on the river – God keeps Moses safe" },
+        { src: 'panel-noah-3.svg', alt: "Pharaoh's daughter finding Moses – God has a plan" }
       ],
       caption: 'Swipe to see God protect baby Moses! 🌿',
+      videoId: '',
+      videoTitle: '',
       keywords: ['moses', 'basket', 'nile', 'princess', 'exodus 2', 'protect', 'baby'],
-      kjvRef: 'Exodus 2',
-      kidContext: { who: 'God', to: 'Baby Moses', apply: 'God watches over you! He protected Moses—He protects you too.' }
+      kjvRef: 'Exodus 2:5',
+      kidContext: { who: 'God', to: 'Baby Moses', apply: "Baby Moses was hidden in a basket on the river to stay safe from the king. God protected him, and Pharaoh's daughter found and adopted him. God watches over you too, even when things seem scary—He has a plan for your life." },
+      narration: "Baby Moses Basket – Exodus 2:5. The king was afraid of the Israelites and ordered baby boys to be killed. Moses' mom hid him for three months. She made a basket, put baby Moses in it, and set it in the river reeds. His big sister Miriam watched. Pharaoh's daughter came to bathe and found the basket. She felt sorry for the baby and adopted him as her son. Moses grew up in the palace, but God had a big plan for him to lead His people! God watched over baby Moses. For you: When you feel small or scared, remember God is watching over you. He has a plan and protects you, just like He did for Moses."
     },
     mosesStaffSnake: {
       title: 'Moses\' Staff Becomes a Snake',
@@ -2209,6 +2261,8 @@
         { src: 'panel-david-3.svg', alt: 'God shows His power through Moses' }
       ],
       caption: 'Swipe to see God\'s power through Moses\' staff! 🐍',
+      videoId: '',
+      videoTitle: '',
       keywords: ['moses', 'staff', 'snake', 'exodus 7', 'pharaoh', 'sign', 'power'],
       kjvRef: 'Exodus 7',
       kidContext: { who: 'God', to: 'Moses (and Pharaoh)', apply: 'God\'s power is real! He gives us what we need to do His work.' }
@@ -2221,6 +2275,8 @@
         { src: 'panel-noah-3.svg', alt: 'The angel passes over—God saves His people' }
       ],
       caption: 'Swipe to see God\'s rescue—the Passover lamb! 🐑',
+      videoId: '',
+      videoTitle: '',
       keywords: ['passover', 'lamb', 'blood', 'doorposts', 'exodus 12', 'rescue', 'save'],
       kjvRef: 'Exodus 12',
       kidContext: { who: 'God', to: 'Israel in Egypt', apply: 'Jesus is our Passover Lamb! He saves us—just believe and be covered.' }
@@ -2233,6 +2289,8 @@
         { src: 'panel-noah-3.svg', alt: 'Israel is safe—Egypt is stopped!' }
       ],
       caption: 'Swipe to see God stop the enemy at the sea! 🌊',
+      videoId: '',
+      videoTitle: '',
       keywords: ['red sea', 'chariot', 'egypt', 'exodus 14', 'army', 'rescue'],
       kjvRef: 'Exodus 14',
       kidContext: { who: 'God', to: 'Israel', apply: 'God stops the enemy for you! When you\'re afraid, He fights your battle.' }
@@ -2246,6 +2304,8 @@
         { src: 'panel-noah-3.svg', alt: 'Israel crosses on dry ground' }
       ],
       caption: 'Swipe to see God stop the Jordan River—He always leads! 🏞️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['joshua', 'jordan', 'ark', 'river', 'joshua 3', 'priests', 'miracle'],
       kjvRef: 'Joshua 3',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God leads you into the new! Step forward in faith—He holds the water back.' }
@@ -2258,6 +2318,8 @@
         { src: 'panel-david-3.svg', alt: 'The walls fall down—God wins!' }
       ],
       caption: 'Swipe to see God tumble those walls—He wins every battle! 🎺',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'shout', 'victory'],
       kjvRef: 'Joshua 6',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God wins battles in surprising ways! Obey—then shout for joy.' }
@@ -2270,6 +2332,8 @@
         { src: 'panel-noah-3.svg', alt: 'Rahab and her family are saved!' }
       ],
       caption: 'Swipe to see how faith in God saves! 🔴',
+      videoId: '',
+      videoTitle: '',
       keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save'],
       kjvRef: 'Joshua 2',
       kidContext: { who: 'God', to: 'Rahab', apply: 'Faith saves! Even when you\'re afraid, trust God and He rescues you.' }
@@ -2282,6 +2346,8 @@
         { src: 'panel-david-3.svg', alt: 'The donkey speaks—God uses anything!' }
       ],
       caption: 'Swipe to see God speak through a donkey—He uses anyone! 🫏',
+      videoId: '',
+      videoTitle: '',
       keywords: ['balaam', 'donkey', 'angel', 'numbers 22', 'talking', 'listen', 'obey'],
       kjvRef: 'Numbers 22',
       kidContext: { who: 'God', to: 'Balaam', apply: 'God can use anyone to speak truth! Always listen—even when it\'s surprising.' }
@@ -2294,6 +2360,8 @@
         { src: 'panel-noah-3.svg', alt: 'Samson calls on God one last time' }
       ],
       caption: 'Swipe to see Samson\'s story—stay close to God! 💪',
+      videoId: '',
+      videoTitle: '',
       keywords: ['samson', 'hair', 'delilah', 'judges 16', 'strength', 'cut', 'power'],
       kjvRef: 'Judges 16',
       kidContext: { who: 'God', to: 'Samson', apply: 'Your strength comes from God! Stay close to Him and nothing can stop you.' }
@@ -2301,14 +2369,17 @@
     ruthGlean: {
       title: 'Ruth Gleans in the Field',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ruth follows Naomi to a new land' },
-        { src: 'panel-noah-2.svg', alt: 'Ruth works hard in Boaz\'s field' },
-        { src: 'panel-noah-3.svg', alt: 'Boaz is kind—God is watching!' }
+        { src: 'panel-noah-1.svg', alt: "Ruth with Naomi – Staying loyal in hard times" },
+        { src: 'panel-noah-2.svg', alt: "Ruth gleaning in the fields – Working hard and faithfully" },
+        { src: 'panel-noah-3.svg', alt: "Boaz noticing Ruth – God blesses kindness" }
       ],
       caption: 'Swipe to see Ruth\'s faithfulness—God sees your hard work! 🌾',
+      videoId: '',
+      videoTitle: '',
       keywords: ['ruth', 'glean', 'boaz', 'field', 'ruth 2', 'faithful', 'kind'],
-      kjvRef: 'Ruth 2',
-      kidContext: { who: 'God', to: 'Ruth and Naomi', apply: 'God sees your faithfulness! Stay loyal and kind—He rewards it.' }
+      kjvRef: 'Ruth 2:2',
+      kidContext: { who: 'God', to: 'Ruth and Naomi', apply: "Ruth stayed loyal to her mother-in-law Naomi and worked hard gleaning in the fields. God saw her kindness and blessed her with Boaz. When you are faithful and kind, even in hard times, God notices and takes care of you." },
+      narration: "Ruth Gleans – Ruth 2:2. Ruth's husband died, and she could have gone back home. But she said to Naomi, 'Your people will be my people, and your God my God.' They went to Bethlehem. Ruth worked in the fields picking leftover grain. The owner, Boaz, noticed her kindness and hard work. He told his workers to leave extra grain for her and protected her. Boaz married Ruth, and they had a son who became part of Jesus' family line! God saw Ruth's faithfulness and blessed her. For you: When you stay loyal, help others, and work hard, God sees it. He blesses faithfulness and can turn hard times into joy."
     },
     samuelCall: {
       title: 'God Calls Samuel',
@@ -2318,6 +2389,8 @@
         { src: 'panel-noah-3.svg', alt: 'Samuel answers: Speak, Lord—I\'m listening!' }
       ],
       caption: 'Swipe to see God call Samuel—He calls you too! 👂',
+      videoId: '',
+      videoTitle: '',
       keywords: ['samuel', 'call', 'temple', '1 samuel 3', 'eli', 'voice', 'listen'],
       kjvRef: '1 Samuel 3',
       kidContext: { who: 'God', to: 'Young Samuel', apply: 'God calls children! Say yes: "Speak, Lord—I am listening."' }
@@ -2330,6 +2403,8 @@
         { src: 'panel-david-3.svg', alt: 'God listens—worship from the heart!' }
       ],
       caption: 'Swipe to see David worship God in the fields! 🎶',
+      videoId: '',
+      videoTitle: '',
       keywords: ['david', 'harp', 'worship', 'sheep', '1 samuel 16', 'music', 'praise'],
       kjvRef: '1 Samuel 16',
       kidContext: { who: 'David', to: 'God', apply: 'God loves your worship! Sing and praise wherever you are.' }
@@ -2342,6 +2417,8 @@
         { src: 'panel-david-3.svg', alt: 'David says: The Lord will deliver you!' }
       ],
       caption: 'Swipe to see David face the giant—God wins! ⚔️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['goliath', 'challenge', 'david', '1 samuel 17', 'giant', 'brave', 'faith'],
       kjvRef: '1 Samuel 17',
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Face your fears—He\'s with you.' }
@@ -2354,6 +2431,8 @@
         { src: 'panel-david-3.svg', alt: 'Oil on David\'s head—the youngest chosen!' }
       ],
       caption: 'Swipe to see God choose David—He looks at your heart! 💛',
+      videoId: '',
+      videoTitle: '',
       keywords: ['david', 'anoint', 'samuel', '1 samuel 16', 'king', 'heart', 'chosen'],
       kjvRef: '1 Samuel 16',
       kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart! Be faithful where you are—He sees you.' }
@@ -2366,6 +2445,8 @@
         { src: 'panel-noah-3.svg', alt: 'David escapes—trust God, not fear!' }
       ],
       caption: 'Swipe to see David trust God—not react in anger! 🎯',
+      videoId: '',
+      videoTitle: '',
       keywords: ['saul', 'spear', 'david', '1 samuel 18', 'jealous', 'escape', 'trust'],
       kjvRef: '1 Samuel 18',
       kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
@@ -2378,6 +2459,8 @@
         { src: 'panel-noah-3.svg', alt: 'God is with David in the dark place' }
       ],
       caption: 'Swipe to see David trust God even in the cave! 🕳️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['david', 'cave', 'adullam', '1 samuel 22', 'hiding', 'prayer', 'psalm'],
       kjvRef: '1 Samuel 22',
       kidContext: { who: 'David', to: 'God', apply: 'Even in dark or scary times, God is with you! Talk to Him wherever you are.' }
@@ -2391,6 +2474,8 @@
         { src: 'panel-noah-3.svg', alt: 'The boy sneezes seven times—alive!' }
       ],
       caption: 'Swipe to see God bring a boy back to life! 🤧',
+      videoId: '',
+      videoTitle: '',
       keywords: ['elisha', 'raise', 'shunammite', '2 kings 4', 'boy', 'dead', 'life', 'miracle'],
       kjvRef: '2 Kings 4',
       kidContext: { who: 'God', to: 'Elisha and the Shunammite', apply: 'God can bring life back! Nothing is too hard for Him.' }
@@ -2403,6 +2488,8 @@
         { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—God gives courage!' }
       ],
       caption: 'Swipe to see Esther\'s courage save her people! 👑',
+      videoId: '',
+      videoTitle: '',
       keywords: ['esther', 'crown', 'queen', 'esther 5', 'scepter', 'courage', 'save'],
       kjvRef: 'Esther 5',
       kidContext: { who: 'God', to: 'Esther', apply: 'God puts you where you are for a reason! Be brave—maybe it\'s for such a time as this.' }
@@ -2415,6 +2502,8 @@
         { src: 'panel-david-3.svg', alt: 'The walls are rebuilt in 52 days—God did it!' }
       ],
       caption: 'Swipe to see Nehemiah rebuild—pray and work together! 🧱',
+      videoId: '',
+      videoTitle: '',
       keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 4', 'rebuild', 'pray', 'sword'],
       kjvRef: 'Nehemiah 4',
       kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken.' }
@@ -2427,6 +2516,8 @@
         { src: 'panel-noah-3.svg', alt: 'God speaks—and restores Job!' }
       ],
       caption: 'Swipe to see Job\'s faith in hard times—God is enough! 🌧️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['job', 'suffering', 'boils', 'friends', 'job 2', 'trust', 'faith', 'restore'],
       kjvRef: 'Job 2',
       kidContext: { who: 'God', to: 'Job', apply: 'You can trust God in hard times! He always comes through for those who hold on.' }
@@ -2439,6 +2530,8 @@
         { src: 'panel-noah-3.svg', alt: 'God leads us—we shall not want!' }
       ],
       caption: 'Swipe to see God as your Good Shepherd! 🐑',
+      videoId: '',
+      videoTitle: '',
       keywords: ['psalm 23', 'shepherd', 'sheep', 'staff', 'peace', 'david', 'green pastures'],
       kjvRef: 'Psalm 23',
       kidContext: { who: 'God', to: 'David (and us)', apply: 'God is your Good Shepherd! He leads you, protects you, and gives you rest.' }
@@ -2451,6 +2544,8 @@
         { src: 'panel-david-3.svg', alt: 'The real mom speaks up—God gives wisdom!' }
       ],
       caption: 'Swipe to see Solomon use God\'s wisdom! 👶',
+      videoId: '',
+      videoTitle: '',
       keywords: ['solomon', 'wisdom', 'baby', 'sword', '1 kings 3', 'judge', 'moms'],
       kjvRef: '1 Kings 3',
       kidContext: { who: 'God', to: 'Solomon', apply: 'Ask God for wisdom! He gives it freely to those who ask.' }
@@ -2463,6 +2558,8 @@
         { src: 'panel-noah-3.svg', alt: 'Elijah goes up to heaven in a whirlwind!' }
       ],
       caption: 'Swipe to see Elijah taken up to heaven! 🔥',
+      videoId: '',
+      videoTitle: '',
       keywords: ['elijah', 'chariot', 'fire', '2 kings 2', 'whirlwind', 'heaven', 'elisha'],
       kjvRef: '2 Kings 2',
       kidContext: { who: 'God', to: 'Elijah', apply: 'God honors His faithful servants! Heaven is real—and it\'s wonderful.' }
@@ -2475,6 +2572,8 @@
         { src: 'panel-noah-3.svg', alt: 'God says: I care about people even more than the vine' }
       ],
       caption: 'Swipe to see God\'s big heart—He cares for everyone! 🌿',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jonah', 'vine', 'worm', 'jonah 4', 'nineveh', 'anger', 'mercy'],
       kjvRef: 'Jonah 4',
       kidContext: { who: 'God', to: 'Jonah', apply: 'God loves everyone—even people we think don\'t deserve it. So should we!' }
@@ -2487,6 +2586,8 @@
         { src: 'panel-noah-3.svg', alt: 'God protects Daniel!' }
       ],
       caption: 'Swipe to see Daniel pray no matter what—so brave! 🙏',
+      videoId: '',
+      videoTitle: '',
       keywords: ['daniel', 'pray', 'window', 'daniel 6', 'law', 'brave', 'lions'],
       kjvRef: 'Daniel 6',
       kidContext: { who: 'God', to: 'Daniel', apply: 'Nothing should stop you from praying! God sees your faithfulness.' }
@@ -2499,6 +2600,8 @@
         { src: 'panel-noah-3.svg', alt: 'Esther reveals Haman\'s evil plan—he is shocked!' }
       ],
       caption: 'Swipe to see Esther stand up for her people! 🍷',
+      videoId: '',
+      videoTitle: '',
       keywords: ['esther', 'banquet', 'haman', 'esther 7', 'king', 'courage', 'reveal'],
       kjvRef: 'Esther 7',
       kidContext: { who: 'God', to: 'Esther (through timing)', apply: 'God gives you the right moment! Be ready—He orders the steps.' }
@@ -2512,6 +2615,8 @@
         { src: 'panel-noah-3.svg', alt: 'Mary says: I will do what God says!' }
       ],
       caption: 'Swipe to see the angel tell Mary the great news! 🌸',
+      videoId: '',
+      videoTitle: '',
       keywords: ['angel', 'mary', 'gabriel', 'luke 1', 'fear not', 'chosen', 'jesus'],
       kjvRef: 'Luke 1',
       kidContext: { who: 'God', to: 'Mary', apply: 'God chooses ordinary people! When God calls you, say yes like Mary.' }
@@ -2524,6 +2629,8 @@
         { src: 'panel-noah-3.svg', alt: 'They run to Bethlehem—Jesus is born!' }
       ],
       caption: 'Swipe to see the shepherds run to baby Jesus! ✨',
+      videoId: '',
+      videoTitle: '',
       keywords: ['shepherds', 'star', 'angels', 'luke 2', 'bethlehem', 'birth', 'glory'],
       kjvRef: 'Luke 2',
       kidContext: { who: 'God', to: 'The shepherds', apply: 'God shares good news first with humble people! Run to Jesus—everyone is invited.' }
@@ -2536,6 +2643,8 @@
         { src: 'panel-noah-3.svg', alt: 'Wise men bring gifts—a King is born!' }
       ],
       caption: 'Swipe to see the night Jesus was born! 🎁',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jesus', 'manger', 'baby', 'luke 2', 'bethlehem', 'wise men', 'star', 'born'],
       kjvRef: 'Luke 2',
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came for you! God\'s greatest gift is His Son.' }
@@ -2548,6 +2657,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus says: I must be about my Father\'s business' }
       ],
       caption: 'Swipe to see Jesus in the temple—even as a kid! 📖',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jesus', 'temple', 'teaching', 'luke 2', 'elders', 'wisdom', 'boy', 'father'],
       kjvRef: 'Luke 2',
       kidContext: { who: 'Jesus', to: 'The teachers (and us)', apply: 'Jesus loved God\'s house and Word even as a boy—so can you!' }
@@ -2560,6 +2671,8 @@
         { src: 'panel-noah-3.svg', alt: 'A dove lands—God says: This is my Son!' }
       ],
       caption: 'Swipe to see Jesus baptized—the dove and the voice! 🕊️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['john', 'baptize', 'jordan', 'matthew 3', 'dove', 'voice', 'heaven', 'spirit'],
       kjvRef: 'Matthew 3',
       kidContext: { who: 'God', to: 'Jesus (and us)', apply: 'God said yes to Jesus—He says yes to you too! Baptism is a big, happy yes.' }
@@ -2572,6 +2685,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus uses God\'s Word—the devil leaves!' }
       ],
       caption: 'Swipe to see Jesus fight temptation with Scripture! 📜',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jesus', 'temptation', 'desert', 'matthew 4', 'devil', 'bread', 'scripture', 'word'],
       kjvRef: 'Matthew 4',
       kidContext: { who: 'Jesus', to: 'The devil (and us)', apply: 'Use God\'s Word when you\'re tempted! Jesus showed us how—it works.' }
@@ -2584,6 +2699,8 @@
         { src: 'panel-noah-3.svg', alt: 'Water becomes wine—the first miracle!' }
       ],
       caption: 'Swipe to see Jesus\' first miracle at the wedding! 🍷',
+      videoId: '',
+      videoTitle: '',
       keywords: ['wedding', 'wine', 'water', 'john 2', 'miracle', 'cana', 'mary'],
       kjvRef: 'John 2',
       kidContext: { who: 'Jesus', to: 'The wedding guests', apply: 'Jesus loves to help! When we bring Him our empty jars, He fills them.' }
@@ -2596,6 +2713,8 @@
         { src: 'panel-noah-3.svg', alt: 'He washes and sees—I was blind, now I see!' }
       ],
       caption: 'Swipe to see Jesus open blind eyes! 👁️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['blind', 'heal', 'mud', 'john 9', 'eyes', 'wash', 'see', 'miracle'],
       kjvRef: 'John 9',
       kidContext: { who: 'Jesus', to: 'The blind man', apply: 'Jesus opens our eyes—in our hearts too! Ask Him to help you see.' }
@@ -2608,6 +2727,8 @@
         { src: 'panel-noah-3.svg', alt: 'He holds them—they are of such is the kingdom!' }
       ],
       caption: 'Swipe to see Jesus love and bless kids just like you! ❤️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jesus', 'children', 'bless', 'mark 10', 'kids', 'kingdom', 'come'],
       kjvRef: 'Mark 10',
       kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! He invites every child to come to Him.' }
@@ -2621,6 +2742,8 @@
         { src: 'panel-noah-3.svg', alt: 'It grows into the biggest tree—birds nest in it!' }
       ],
       caption: 'Swipe to see a tiny seed grow huge—faith works! 🌱',
+      videoId: '',
+      videoTitle: '',
       keywords: ['mustard seed', 'faith', 'tree', 'matthew 13', 'kingdom', 'grow', 'small'],
       kjvRef: 'Matthew 13',
       kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Faith as small as a seed can move mountains! Don\'t give up—keep trusting.' }
@@ -2633,6 +2756,8 @@
         { src: 'panel-noah-3.svg', alt: 'As they go—all ten are clean!' }
       ],
       caption: 'Swipe to see Jesus heal ten lepers—be thankful! 🙌',
+      videoId: '',
+      videoTitle: '',
       keywords: ['leper', 'heal', 'luke 17', 'mercy', 'clean', 'thankful', 'ten'],
       kjvRef: 'Luke 17',
       kidContext: { who: 'Jesus', to: 'The lepers', apply: 'Jesus heals and cleans us inside! Always say thank you to Him.' }
@@ -2645,6 +2770,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus takes her hand: Talitha cumi! She rises!' }
       ],
       caption: 'Swipe to see Jesus bring a girl back to life! 🌸',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jairus', 'daughter', 'raise', 'mark 5', 'talitha cumi', 'miracle', 'faith'],
       kjvRef: 'Mark 5',
       kidContext: { who: 'Jesus', to: 'Jairus and his daughter', apply: 'Jesus is never too late! Keep believing even when it seems impossible.' }
@@ -2657,6 +2784,8 @@
         { src: 'panel-noah-3.svg', alt: 'God\'s voice says: This is my Son—listen to Him!' }
       ],
       caption: 'Swipe to see Jesus glow on the mountain! ✨',
+      videoId: '',
+      videoTitle: '',
       keywords: ['transfigure', 'mountain', 'matthew 17', 'glow', 'moses', 'elijah', 'cloud'],
       kjvRef: 'Matthew 17',
       kidContext: { who: 'God', to: 'Peter, James, John', apply: 'Jesus is the Son of God—really listen to Him! He is glorious.' }
@@ -2669,6 +2798,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus goes peacefully—He loves us that much' }
       ],
       caption: 'Swipe to see Jesus stay calm—even when betrayed! 🕯️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['judas', 'betray', 'kiss', 'matthew 26', 'arrest', 'garden', 'soldiers'],
       kjvRef: 'Matthew 26',
       kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even when people hurt you, choose love like Jesus did! He forgave.' }
@@ -2682,6 +2813,8 @@
         { src: 'panel-noah-3.svg', alt: 'Sometimes God calls us to help carry burdens' }
       ],
       caption: 'Swipe to see Simon help carry—be a helper! 🤝',
+      videoId: '',
+      videoTitle: '',
       keywords: ['cross', 'simon', 'carry', 'luke 23', 'cyrene', 'help', 'burden'],
       kjvRef: 'Luke 23',
       kidContext: { who: 'God', to: 'Simon (and us)', apply: 'God calls us to help carry each other\'s burdens! Be a Simon for someone today.' }
@@ -2708,6 +2841,8 @@
         { src: 'panel-noah-3.svg', alt: 'An angel says: He is not here—He is risen!' }
       ],
       caption: 'Swipe to see the empty tomb—Jesus is alive! 🪨',
+      videoId: '',
+      videoTitle: '',
       keywords: ['tomb', 'empty', 'risen', 'matthew 28', 'angel', 'stone', 'resurrection'],
       kjvRef: 'Matthew 28',
       kidContext: { who: 'Jesus', to: 'The women (and us)', apply: 'Jesus is alive! Death couldn\'t hold Him—and He gives that life to you!' }
@@ -2720,6 +2855,8 @@
         { src: 'panel-noah-3.svg', alt: 'He breaks bread—their eyes open!' }
       ],
       caption: 'Swipe to see Jesus walk with sad hearts—He walks with yours! 🛤️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['emmaus', 'road', 'luke 24', 'disciples', 'walk', 'stranger', 'bread', 'recognize'],
       kjvRef: 'Luke 24',
       kidContext: { who: 'Jesus', to: 'Two disciples', apply: 'Jesus walks with you even when you don\'t recognize Him! He never leaves.' }
@@ -2732,6 +2869,8 @@
         { src: 'panel-noah-3.svg', alt: 'Thomas cries: My Lord and my God!' }
       ],
       caption: 'Swipe to see Jesus answer Thomas\'s doubts—He answers yours too! 🙏',
+      videoId: '',
+      videoTitle: '',
       keywords: ['thomas', 'doubt', 'john 20', 'hands', 'believe', 'risen', 'faith'],
       kjvRef: 'John 20',
       kidContext: { who: 'Jesus', to: 'Thomas', apply: 'It\'s okay to have questions! Jesus is patient—keep coming back to Him.' }
@@ -2744,6 +2883,8 @@
         { src: 'panel-noah-3.svg', alt: 'They speak in new languages—the Holy Spirit is here!' }
       ],
       caption: 'Swipe to see the Holy Spirit arrive with fire and wind! 🔥',
+      videoId: '',
+      videoTitle: '',
       keywords: ['pentecost', 'fire', 'wind', 'acts 2', 'holy spirit', 'tongues', 'disciples'],
       kjvRef: 'Acts 2',
       kidContext: { who: 'Holy Spirit', to: 'The disciples (and us)', apply: 'God\'s Spirit lives in you! He gives you power, love, and boldness.' }
@@ -2756,6 +2897,8 @@
         { src: 'panel-noah-3.svg', alt: 'They are healed! God\'s power is in His people' }
       ],
       caption: 'Swipe to see God\'s power flow through Peter! 🌟',
+      videoId: '',
+      videoTitle: '',
       keywords: ['peter', 'shadow', 'heal', 'acts 5', 'miracle', 'sick', 'power'],
       kjvRef: 'Acts 5',
       kidContext: { who: 'God', to: 'Peter (and us)', apply: 'God works through ordinary people! You carry His presence—make it count.' }
@@ -2782,6 +2925,8 @@
         { src: 'panel-noah-3.svg', alt: 'A snake bites Paul—he is fine! God protects him' }
       ],
       caption: 'Swipe to see Paul survive the storm—God keeps His own! ⛵',
+      videoId: '',
+      videoTitle: '',
       keywords: ['paul', 'shipwreck', 'storm', 'acts 28', 'snake', 'island', 'protect'],
       kjvRef: 'Acts 28',
       kidContext: { who: 'God', to: 'Paul', apply: 'God protects His people through storms! When life gets hard, He keeps you safe.' }
@@ -2794,6 +2939,8 @@
         { src: 'panel-noah-3.svg', alt: 'An earthquake—the prison opens! They stay and the jailer believes' }
       ],
       caption: 'Swipe to see Paul and Silas worship in the dark! 🎶',
+      videoId: '',
+      videoTitle: '',
       keywords: ['paul', 'silas', 'jail', 'acts 16', 'sing', 'pray', 'earthquake', 'midnight'],
       kjvRef: 'Acts 16',
       kidContext: { who: 'God', to: 'Paul and Silas', apply: 'Praise God even in hard places! Your worship opens doors—literally.' }
@@ -2806,6 +2953,8 @@
         { src: 'panel-noah-3.svg', alt: 'Be ready—Jesus is coming!' }
       ],
       caption: 'Swipe to see the ten virgins—always be ready! 🪔',
+      videoId: '',
+      videoTitle: '',
       keywords: ['virgins', 'lamps', 'oil', 'matthew 25', 'ready', 'wise', 'foolish', 'return'],
       kjvRef: 'Matthew 25',
       kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Be ready! Fill up with God\'s Word and Spirit every day—don\'t run empty.' }
@@ -2819,6 +2968,8 @@
         { src: 'panel-david-3.svg', alt: 'Stand firm—faith stops every attack!' }
       ],
       caption: 'Swipe to see the shield of faith block every arrow! 🛡️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['armor', 'shield', 'faith', 'ephesians 6', 'arrows', 'protect', 'stand'],
       kjvRef: 'Ephesians 6',
       kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Hold up your shield of faith! When doubt or fear comes, believe—God blocks it.' }
@@ -2831,6 +2982,8 @@
         { src: 'panel-david-3.svg', alt: 'Know God\'s Word—it\'s your best weapon!' }
       ],
       caption: 'Swipe to see the Word of God as your sword! ⚔️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['armor', 'sword', 'word', 'ephesians 6', 'scripture', 'spirit', 'fight'],
       kjvRef: 'Ephesians 6',
       kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Know your Bible! God\'s Word is a sword—it defeats darkness and confusion.' }
@@ -2843,6 +2996,8 @@
         { src: 'panel-noah-3.svg', alt: 'Stay connected to Jesus—grow good fruit!' }
       ],
       caption: 'Swipe to see the fruit God grows in you! 🍎',
+      videoId: '',
+      videoTitle: '',
       keywords: ['fruit', 'spirit', 'galatians 5', 'love', 'joy', 'peace', 'patience', 'kind'],
       kjvRef: 'Galatians 5',
       kidContext: { who: 'Holy Spirit', to: 'All believers (and us)', apply: 'Stay close to Jesus like a branch on a vine—good fruit grows naturally!' }
@@ -2855,6 +3010,8 @@
         { src: 'panel-noah-3.svg', alt: 'Love never fails—God is love!' }
       ],
       caption: 'Swipe to see what real love looks like! ❤️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['love', '1 corinthians 13', 'patient', 'kind', 'heart', 'never fails'],
       kjvRef: '1 Corinthians 13',
       kidContext: { who: 'Paul', to: 'The church (and us)', apply: 'Love isn\'t a feeling—it\'s a choice! Choose to be patient and kind like God.' }
@@ -2867,6 +3024,8 @@
         { src: 'panel-noah-3.svg', alt: 'Even small faith is enough—God does the rest!' }
       ],
       caption: 'Swipe to see how small faith can move mountains! 🏔️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['faith', 'mustard seed', 'matthew 17', 'mountain', 'move', 'believe', 'small'],
       kjvRef: 'Matthew 17',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'You don\'t need huge faith—just genuine faith! Give it to God and watch.' }
@@ -2879,6 +3038,8 @@
         { src: 'panel-noah-3.svg', alt: 'The door opens—God answers!' }
       ],
       caption: 'Swipe to see the promise: ask, seek, knock—He answers! 🚪',
+      videoId: '',
+      videoTitle: '',
       keywords: ['ask', 'seek', 'knock', 'matthew 7', 'prayer', 'door', 'answer', 'receive'],
       kjvRef: 'Matthew 7',
       kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Keep knocking! God loves when you keep coming to Him in prayer.' }
@@ -2891,6 +3052,8 @@
         { src: 'panel-noah-3.svg', alt: 'You are worth more—God takes care of you!' }
       ],
       caption: 'Swipe to see why you don\'t need to worry—God\'s got you! 🐦',
+      videoId: '',
+      videoTitle: '',
       keywords: ['worry', 'birds', 'lilies', 'matthew 6', 'sparrows', 'care', 'trust'],
       kjvRef: 'Matthew 6',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God feeds the birds—He definitely takes care of you! Don\'t worry; trust.' }
@@ -2903,6 +3066,8 @@
         { src: 'panel-noah-3.svg', alt: 'Two brothers hug—forgiveness sets you free!' }
       ],
       caption: 'Swipe to see why forgiving feels so good! 🤗',
+      videoId: '',
+      videoTitle: '',
       keywords: ['forgive', '70 times', 'matthew 18', 'peter', 'always', 'mercy', 'hug'],
       kjvRef: 'Matthew 18',
       kidContext: { who: 'Jesus', to: 'Peter (and us)', apply: 'Forgiveness is never too much! When you forgive, you\'re free—not the other person.' }
@@ -2915,6 +3080,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus says: she gave the most—she gave all!' }
       ],
       caption: 'Swipe to see the widow\'s offering—God sees the heart! 🪙',
+      videoId: '',
+      videoTitle: '',
       keywords: ['widow', 'mite', 'coins', 'mark 12', 'offering', 'give', 'heart', 'all'],
       kjvRef: 'Mark 12',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God sees generosity, not amount! Give from your heart—even a little is big to God.' }
@@ -2941,6 +3108,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus says: what she did will be remembered forever!' }
       ],
       caption: 'Swipe to see Mary\'s beautiful act of worship! 🌹',
+      videoId: '',
+      videoTitle: '',
       keywords: ['mary', 'anoint', 'perfume', 'john 12', 'feet', 'worship', 'pour'],
       kjvRef: 'John 12',
       kidContext: { who: 'Mary', to: 'Jesus', apply: 'Give Jesus your best—not just what\'s left! Extravagant love honors Him.' }
@@ -2954,6 +3123,8 @@
         { src: 'panel-david-3.svg', alt: 'He sees Jesus standing—and forgives them!' }
       ],
       caption: 'Swipe to see Stephen\'s courage and forgiveness—amazing! 💎',
+      videoId: '',
+      videoTitle: '',
       keywords: ['stephen', 'stones', 'acts 7', 'forgive', 'heaven', 'bold', 'first martyr'],
       kjvRef: 'Acts 7',
       kidContext: { who: 'Jesus', to: 'Stephen', apply: 'Be bold for Jesus—even when it\'s hard! And always forgive like Stephen did.' }
@@ -2966,6 +3137,8 @@
         { src: 'panel-noah-3.svg', alt: 'Philip explains—the Ethiopian believes and is baptized!' }
       ],
       caption: 'Swipe to see Philip share the good news on the road! 📖',
+      videoId: '',
+      videoTitle: '',
       keywords: ['philip', 'ethiopian', 'chariot', 'acts 8', 'isaiah', 'read', 'baptize', 'explain'],
       kjvRef: 'Acts 8',
       kidContext: { who: 'God', to: 'Philip (and us)', apply: 'Be ready to share Jesus wherever you go! God sets up divine appointments.' }
@@ -2978,6 +3151,8 @@
         { src: 'panel-noah-3.svg', alt: 'They swim to shore—everyone safe, just like God said!' }
       ],
       caption: 'Swipe to see God keep His word in the storm! ⛵',
+      videoId: '',
+      videoTitle: '',
       keywords: ['paul', 'ship', 'storm', 'acts 27', 'angel', 'safe', 'fear not'],
       kjvRef: 'Acts 27',
       kidContext: { who: 'God', to: 'Paul and the sailors', apply: 'God keeps His promises in storms! When you\'re afraid, His word says: fear not.' }
@@ -2990,6 +3165,8 @@
         { src: 'panel-noah-3.svg', alt: 'Elders bow and worship—heaven is amazing!' }
       ],
       caption: 'Swipe to see John\'s vision of God\'s throne! 🌈',
+      videoId: '',
+      videoTitle: '',
       keywords: ['revelation', 'throne', 'heaven', 'revelation 4', 'rainbow', 'elders', 'worship'],
       kidContext: { who: 'God', to: 'John (and us)', apply: 'Heaven is real and beautiful! Worship God now—that\'s what heaven is like forever.' }
     },
@@ -3001,6 +3178,8 @@
         { src: 'panel-noah-3.svg', alt: 'God shows what will happen—He is in control!' }
       ],
       caption: 'Swipe to see the four horses of Revelation! 🐎',
+      videoId: '',
+      videoTitle: '',
       keywords: ['horsemen', 'revelation 6', 'seals', 'white', 'red', 'black', 'pale', 'lamb'],
       kidContext: { who: 'God', to: 'John (and us)', apply: 'Even big scary things are in God\'s hands! He knows the end—and He wins.' }
     },
@@ -3012,6 +3191,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus is Lord of everything—always!' }
       ],
       caption: 'Swipe to see Jesus as the beginning and end of everything! ∞',
+      videoId: '',
+      videoTitle: '',
       keywords: ['alpha', 'omega', 'revelation 1', 'beginning', 'end', 'lord', 'eternal'],
       kidContext: { who: 'God', to: 'John (and us)', apply: 'God started everything and He finishes it! He has the first word and the last word.' }
     },
@@ -3023,6 +3204,8 @@
         { src: 'panel-noah-3.svg', alt: 'God\'s home is with His people forever!' }
       ],
       caption: 'Swipe to see God\'s brand-new world—no more sad! 🏠',
+      videoId: '',
+      videoTitle: '',
       keywords: ['new heaven', 'earth', 'revelation 21', 'no tears', 'new', 'eternal', 'gold'],
       kidContext: { who: 'God', to: 'All His people', apply: 'The best is coming! A new world with no pain, no sadness—only God and joy.' }
     },
@@ -3034,6 +3217,8 @@
         { src: 'panel-noah-3.svg', alt: 'Its leaves heal the nations—God provides!' }
       ],
       caption: 'Swipe to see the Tree of Life in the new city! 🌿',
+      videoId: '',
+      videoTitle: '',
       keywords: ['tree of life', 'revelation 22', 'fruit', 'heal', 'leaves', 'river', 'nations'],
       kidContext: { who: 'God', to: 'His people in the new creation', apply: 'God\'s healing never runs out! In His new world, everything is made whole.' }
     },
@@ -3045,6 +3230,8 @@
         { src: 'panel-noah-3.svg', alt: 'God\'s throne is there—eternal life!' }
       ],
       caption: 'Swipe to see the river flowing from God\'s throne! 💧',
+      videoId: '',
+      videoTitle: '',
       keywords: ['river', 'life', 'revelation 22', 'crystal', 'throne', 'tree', 'eternal'],
       kidContext: { who: 'God', to: 'All His people', apply: 'Living water flows from God forever! Come to Him—He is the source of all life.' }
     },
@@ -3056,6 +3243,8 @@
         { src: 'panel-noah-3.svg', alt: 'Believe in Jesus—your name is in it!' }
       ],
       caption: 'Swipe to see the Book of Life—is your name written? 📖',
+      videoId: '',
+      videoTitle: '',
       keywords: ['lamb', 'book of life', 'revelation 21', 'names', 'written', 'believe', 'eternal'],
       kidContext: { who: 'God', to: 'All who believe', apply: 'Believe in Jesus and your name is in the Lamb\'s Book of Life! That\'s the best news.' }
     },
@@ -3067,6 +3256,8 @@
         { src: 'panel-david-3.svg', alt: 'The dragon is thrown down—God\'s angels win!' }
       ],
       caption: 'Swipe to see Michael fight the dragon—God\'s angels win! ⚔️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['dragon', 'michael', 'revelation 12', 'angels', 'battle', 'heaven', 'satan', 'fight'],
       kidContext: { who: 'God', to: 'John (and us)', apply: 'God\'s angels fight for you! Evil is already beaten—Jesus won at the cross.' }
     },
@@ -3078,6 +3269,8 @@
         { src: 'panel-noah-3.svg', alt: 'Choose God\'s mark—belong to Jesus, not the world!' }
       ],
       caption: 'Swipe to see why belonging to Jesus is everything! 🔑',
+      videoId: '',
+      videoTitle: '',
       keywords: ['beast', '666', 'revelation 13', 'mark', 'forehead', 'warning', 'choose'],
       kidContext: { who: 'God', to: 'John (and us)', apply: 'Choose Jesus—belong to Him, not the world! His mark of love is the one that lasts.' }
     },
@@ -3090,6 +3283,8 @@
         { src: 'panel-noah-3.svg', alt: 'God keeps His promise—she is saved!' }
       ],
       caption: 'Swipe to see Rahab\'s faith and God\'s promise! 🔴',
+      videoId: '',
+      videoTitle: '',
       keywords: ['rahab', 'window', 'cord', 'scarlet', 'joshua 2', 'rope', 'faith', 'save'],
       kidContext: { who: 'God', to: 'Rahab', apply: 'Even outsiders are welcomed by God! Faith is the cord that saves—hold on!' }
     },
@@ -3101,6 +3296,8 @@
         { src: 'panel-noah-3.svg', alt: 'Israel is delivered—God uses Deborah!' }
       ],
       caption: 'Swipe to see Deborah lead Israel with wisdom and courage! 🌴',
+      videoId: '',
+      videoTitle: '',
       keywords: ['deborah', 'judge', 'palm tree', 'judges 4', 'barak', 'brave', 'leader'],
       kidContext: { who: 'God', to: 'Deborah (and us)', apply: 'God uses girls too! Be brave, be wise—He can use you in big ways.' }
     },
@@ -3112,6 +3309,8 @@
         { src: 'panel-noah-3.svg', alt: 'God\'s victory comes through unexpected hands!' }
       ],
       caption: 'Swipe to see God win through brave Jael! ⛺',
+      videoId: '',
+      videoTitle: '',
       keywords: ['jael', 'tent', 'sisera', 'judges 4', 'peg', 'courage', 'victory'],
       kidContext: { who: 'God', to: 'Jael', apply: 'God uses ordinary people in extraordinary moments! Be ready—your moment may come.' }
     },
@@ -3123,6 +3322,8 @@
         { src: 'panel-noah-3.svg', alt: 'David\'s anger calms—wise words prevent disaster!' }
       ],
       caption: 'Swipe to see Abigail use wisdom to stop a fight! 🍞',
+      videoId: '',
+      videoTitle: '',
       keywords: ['abigail', 'wise', 'nabal', '1 samuel 25', 'bread', 'donkey', 'peace', 'wisdom'],
       kidContext: { who: 'God', to: 'Abigail (and us)', apply: 'Wise words stop anger and save lives! Be quick to bring peace, not fuel.' }
     },
@@ -3134,6 +3335,8 @@
         { src: 'panel-noah-3.svg', alt: 'God answers—baby Samuel is born!' }
       ],
       caption: 'Swipe to see God answer Hannah\'s prayer! 🙏',
+      videoId: '',
+      videoTitle: '',
       keywords: ['hannah', 'pray', 'baby', '1 samuel 1', 'temple', 'samuel', 'vow', 'answer'],
       kidContext: { who: 'God', to: 'Hannah', apply: 'God hears every prayer! Pour out your heart—He is listening and He cares.' }
     },
@@ -3145,6 +3348,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus says her name: Mary! She knows Him!' }
       ],
       caption: 'Swipe to see the moment Jesus called Mary\'s name! 🌅',
+      videoId: '',
+      videoTitle: '',
       keywords: ['mary magdalene', 'tomb', 'john 20', 'risen', 'gardener', 'name', 'love'],
       kidContext: { who: 'Jesus', to: 'Mary Magdalene', apply: 'Jesus knows your name and calls you! He is always the first to find His own.' }
     },
@@ -3156,6 +3361,8 @@
         { src: 'panel-noah-3.svg', alt: 'God opens her heart—she believes and is baptized!' }
       ],
       caption: 'Swipe to see Lydia\'s open heart—God opens our hearts! 💜',
+      videoId: '',
+      videoTitle: '',
       keywords: ['lydia', 'purple', 'acts 16', 'cloth', 'believe', 'baptize', 'heart', 'open'],
       kidContext: { who: 'God', to: 'Lydia', apply: 'God is the one who opens our hearts to believe! Ask Him to open yours.' }
     },
@@ -3167,6 +3374,8 @@
         { src: 'panel-noah-3.svg', alt: 'Apollos grows—we all need good teachers!' }
       ],
       caption: 'Swipe to see Priscilla teach Apollos—help each other grow! 📖',
+      videoId: '',
+      videoTitle: '',
       keywords: ['priscilla', 'aquila', 'apollos', 'acts 18', 'teach', 'tent', 'explain', 'grow'],
       kidContext: { who: 'God', to: 'Priscilla, Aquila, and Apollos', apply: 'Help each other understand God better! Teaching is one of God\'s gifts.' }
     },
@@ -3178,6 +3387,8 @@
         { src: 'panel-noah-3.svg', alt: 'Ruth gleans in Boaz\'s field—God provides!' }
       ],
       caption: 'Swipe to see Ruth\'s faithful love for Naomi! 🌾',
+      videoId: '',
+      videoTitle: '',
       keywords: ['ruth', 'naomi', 'moab', 'ruth 2', 'loyal', 'wherever', 'field', 'faithful'],
       kidContext: { who: 'God', to: 'Ruth', apply: 'Stick with those you love even in hard times! Loyalty is a gift—and God honors it.' }
     },
@@ -3189,6 +3400,8 @@
         { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—scepter out, she\'s safe!' }
       ],
       caption: 'Swipe to see Esther fast, pray, and step out brave! 👑',
+      videoId: '',
+      videoTitle: '',
       keywords: ['esther', 'fast', 'esther 4', 'scepter', 'pray', 'brave', 'mordecai'],
       kidContext: { who: 'God', to: 'Esther', apply: 'Fast, pray, then go! God gives courage to those who seek Him first.' }
     },
@@ -3200,6 +3413,8 @@
         { src: 'panel-noah-3.svg', alt: 'Baby Isaac is born—the promise kept!' }
       ],
       caption: 'Swipe to see God keep His promise to Sarah! 👶',
+      videoId: '',
+      videoTitle: '',
       keywords: ['sarah', 'promise', 'genesis 18', 'isaac', 'laugh', 'impossible', 'faithful'],
       kidContext: { who: 'God', to: 'Sarah', apply: 'God always keeps His promises! Even the ones that seem impossible are safe in His hands.' }
     },
@@ -3211,6 +3426,8 @@
         { src: 'panel-noah-3.svg', alt: 'She sings: The Lord has triumphed gloriously!' }
       ],
       caption: 'Swipe to see Miriam lead worship by the sea! 🥁',
+      videoId: '',
+      videoTitle: '',
       keywords: ['miriam', 'song', 'tambourine', 'exodus 15', 'worship', 'dance', 'sea', 'praise'],
       kidContext: { who: 'God', to: 'Miriam (and us)', apply: 'When God saves you—sing about it! Let praise pour out.' }
     },
@@ -3223,6 +3440,8 @@
         { src: 'panel-noah-3.svg', alt: 'Anna sees Jesus—she praises God!' }
       ],
       caption: 'Swipe to see Anna recognize baby Jesus—she never stopped praying! 🕍',
+      videoId: '',
+      videoTitle: '',
       keywords: ['anna', 'prophet', 'temple', 'luke 2', 'baby jesus', 'pray', 'praise'],
       kidContext: { who: 'God', to: 'Anna', apply: 'Never stop praying! Like Anna—stay close to God and He will show you His glory.' }
     },
@@ -3234,6 +3453,8 @@
         { src: 'panel-noah-3.svg', alt: 'Oil fills every jar—God provides more than enough!' }
       ],
       caption: 'Swipe to see God\'s endless supply for the widow! 🫙',
+      videoId: '',
+      videoTitle: '',
       keywords: ['widow', 'oil', 'elisha', '2 kings 4', 'jars', 'multiply', 'provide'],
       kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God\'s supply never runs out! Bring what little you have—He multiplies it.' }
     },
@@ -3245,6 +3466,8 @@
         { src: 'panel-noah-3.svg', alt: 'He finally helps her—keep praying, God hears!' }
       ],
       caption: 'Swipe to see the woman who kept asking—and got her answer! 🚪',
+      videoId: '',
+      videoTitle: '',
       keywords: ['widow', 'persistent', 'judge', 'luke 18', 'keep asking', 'prayer', 'justice'],
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Don\'t give up in prayer! God always answers those who keep coming to Him.' }
     },
@@ -3256,6 +3479,8 @@
         { src: 'panel-noah-3.svg', alt: 'He offers living water—she runs to tell everyone!' }
       ],
       caption: 'Swipe to see Jesus change a woman\'s life at the well! 💧',
+      videoId: '',
+      videoTitle: '',
       keywords: ['samaritan', 'woman', 'well', 'john 4', 'water', 'living water', 'believe', 'tell'],
       kidContext: { who: 'Jesus', to: 'The Samaritan woman', apply: 'Jesus talks to everyone—even those people ignore! He offers living water to all.' }
     },
@@ -3267,6 +3492,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus says: one thing is needed—choose the best thing!' }
       ],
       caption: 'Swipe to see what Jesus says about busyness and rest! 🍽️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['martha', 'serve', 'luke 10', 'busy', 'kitchen', 'best', 'mary', 'one thing'],
       kidContext: { who: 'Jesus', to: 'Martha', apply: 'Don\'t be so busy you miss being with Jesus! Choose His presence first—then serve.' }
     },
@@ -3278,6 +3505,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus says: Mary chose the better thing!' }
       ],
       caption: 'Swipe to see Mary choose the one thing that matters—listening! 👂',
+      videoId: '',
+      videoTitle: '',
       keywords: ['mary', 'sit', 'listen', 'luke 10', 'feet', 'better thing', 'jesus', 'word'],
       kidContext: { who: 'Jesus', to: 'Mary (and us)', apply: 'Sit with Jesus! Listening to Him is the most important thing you can do each day.' }
     },
@@ -3289,6 +3518,8 @@
         { src: 'panel-noah-3.svg', alt: 'Peter prays—she opens her eyes! Life again!' }
       ],
       caption: 'Swipe to see Dorcas raised back to life! 🧵',
+      videoId: '',
+      videoTitle: '',
       keywords: ['dorcas', 'raise', 'acts 9', 'peter', 'clothes', 'poor', 'widow', 'life'],
       kidContext: { who: 'God', to: 'Dorcas and Peter', apply: 'Your kindness matters to God! And He can raise what seems dead to life again.' }
     },
@@ -3300,6 +3531,8 @@
         { src: 'panel-noah-3.svg', alt: 'She serves faithfully—a helper of many!' }
       ],
       caption: 'Swipe to see Phoebe faithfully serve God\'s people! ✉️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['phoebe', 'deacon', 'romans 16', 'letter', 'rome', 'serve', 'faithful'],
       kidContext: { who: 'God', to: 'Phoebe (and us)', apply: 'Faithful service matters! Like Phoebe—do your part well and God calls it great.' }
     },
@@ -3311,6 +3544,8 @@
         { src: 'panel-noah-3.svg', alt: 'Junia was in prison for the gospel—so brave!' }
       ],
       caption: 'Swipe to see Junia honored as a brave servant of Jesus! 🌟',
+      videoId: '',
+      videoTitle: '',
       keywords: ['junia', 'apostle', 'romans 16', 'paul', 'brave', 'gospel', 'outstanding'],
       kidContext: { who: 'God', to: 'Junia (and us)', apply: 'God calls you by name and honors your faithfulness! You are seen and valued.' }
     },
@@ -3322,6 +3557,8 @@
         { src: 'panel-noah-3.svg', alt: 'Timothy becomes a great minister—faith passed on!' }
       ],
       caption: 'Swipe to see how Grandma Lois shaped Timothy\'s faith! 📖',
+      videoId: '',
+      videoTitle: '',
       keywords: ['lois', 'timothy', '2 timothy 1', 'grandmother', 'faith', 'scripture', 'teach'],
       kidContext: { who: 'God', to: 'Lois and Timothy', apply: 'Faith is passed on! Listen to godly people in your family—they give you something priceless.' }
     },
@@ -3333,6 +3570,8 @@
         { src: 'panel-noah-3.svg', alt: 'Timothy grows up to serve God—thank you, Mom!' }
       ],
       caption: 'Swipe to see how a faithful mom changes the world! 💛',
+      videoId: '',
+      videoTitle: '',
       keywords: ['eunice', 'mother', '2 timothy 1', 'timothy', 'scripture', 'teach', 'faith'],
       kidContext: { who: 'God', to: 'Eunice and Timothy', apply: 'Thank God for people who teach you His Word! A faithful mom is a gift from heaven.' }
     },
@@ -3344,6 +3583,8 @@
         { src: 'panel-noah-3.svg', alt: 'Their home becomes a church—faithful servants!' }
       ],
       caption: 'Swipe to see how Priscilla and Aquila served God together! ⛺',
+      videoId: '',
+      videoTitle: '',
       keywords: ['priscilla', 'tent', 'aquila', 'acts 18', 'paul', 'work', 'church', 'teach'],
       kidContext: { who: 'God', to: 'Priscilla and Aquila', apply: 'Your home can be a place where God works! Serve Him together with your family.' }
     },
@@ -3351,13 +3592,17 @@
     lazarus: {
       title: 'Jesus Raises Lazarus',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Lazarus dies—Mary and Martha are sad' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus weeps—then commands: Lazarus, come out!' },
-        { src: 'panel-noah-3.svg', alt: 'Lazarus walks out—I am the resurrection and the life!' }
+        { src: 'panel-noah-1.svg', alt: "Mary and Martha sad – Lazarus is dead" },
+        { src: 'panel-noah-2.svg', alt: "Jesus at the tomb – Calling Lazarus out" },
+        { src: 'panel-noah-3.svg', alt: "Lazarus walking out alive – Jesus has power over death" }
       ],
       caption: 'Swipe to see Jesus raise Lazarus from the dead! 🪨',
+      videoId: '1FT04jjh3Q8',
+      videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
       keywords: ['lazarus', 'raise', 'john 11', 'resurrection', 'mary', 'martha', 'come out'],
-      kidContext: { who: 'Jesus', to: 'Mary and Martha (and us)', apply: 'Jesus has power over death! He is the resurrection—trust Him with everything.' }
+      kjvRef: 'John 11:43-44',
+      kidContext: { who: 'Jesus', to: 'Mary and Martha (and us)', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
+      narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
     },
     greatCommission: {
       title: 'The Great Commission',
@@ -3367,6 +3612,8 @@
         { src: 'panel-noah-3.svg', alt: 'And I am with you always—to the end!' }
       ],
       caption: 'Swipe to see Jesus send His followers to the whole world! 🌍',
+      videoId: '',
+      videoTitle: '',
       keywords: ['great commission', 'matthew 28', 'go', 'make disciples', 'baptize', 'nations', 'with you always'],
       kjvRef: 'Matthew 28',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'You are sent! Tell everyone the good news—and Jesus is with you every step.' }
@@ -3393,6 +3640,8 @@
         { src: 'panel-noah-3.svg', alt: 'Three thousand believe that day—the church begins!' }
       ],
       caption: 'Swipe to see the Holy Spirit arrive with fire! 🔥',
+      videoId: '',
+      videoTitle: '',
       keywords: ['pentecost', 'tongues', 'acts 2', 'fire', 'languages', 'spirit', 'church', 'power'],
       kjvRef: 'Acts 2',
       kidContext: { who: 'Holy Spirit', to: 'The disciples (and all believers)', apply: 'God\'s Spirit lives in you! You have power to tell the world about Jesus.' }
@@ -3405,6 +3654,8 @@
         { src: 'panel-david-3.svg', alt: 'Stand firm in God\'s truth—it never changes!' }
       ],
       caption: 'Swipe to see the belt of truth—God\'s Word holds it all! 🪢',
+      videoId: '',
+      videoTitle: '',
       keywords: ['armor', 'belt', 'truth', 'ephesians 6', 'stand', 'firm', 'word'],
       kjvRef: 'Ephesians 6',
       kidContext: { who: 'Paul', to: 'Christians (and us)', apply: 'Truth is your foundation! Know what God says—and stand on it every day.' }
@@ -3417,6 +3668,8 @@
         { src: 'panel-noah-3.svg', alt: 'Your Father who sees in secret will reward you!' }
       ],
       caption: 'Swipe to see how to pray in private—God loves it! 🚪',
+      videoId: '',
+      videoTitle: '',
       keywords: ['prayer', 'closet', 'matthew 6', 'secret', 'room', 'father', 'reward'],
       kjvRef: 'Matthew 6',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Private prayer matters most! Find a quiet place and just talk to God—He\'s listening.' }
@@ -3429,6 +3682,8 @@
         { src: 'panel-noah-3.svg', alt: 'A mountain moves—because faith in God does the impossible!' }
       ],
       caption: 'Swipe to see how faith really moves mountains! 🏔️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['faith', 'mountain', 'matthew 17', 'impossible', 'mustard', 'move', 'believe'],
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Say it out loud: nothing is impossible with God! Your faith moves things in the spirit.' }
     },
@@ -3440,6 +3695,8 @@
         { src: 'panel-noah-3.svg', alt: 'Jesus says: go and do the same!' }
       ],
       caption: 'Swipe to see what loving your neighbor really looks like! ❤️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['neighbor', 'love', 'luke 10', 'good samaritan', 'help', 'stranger', 'kind'],
       kidContext: { who: 'Jesus', to: 'The lawyer (and us)', apply: 'Your neighbor is anyone who needs help! Go—be the one who stops and cares.' }
     },
@@ -3451,6 +3708,8 @@
         { src: 'panel-noah-3.svg', alt: 'Open the door to Jesus—He is waiting!' }
       ],
       caption: 'Swipe to see Jesus knock on your heart\'s door—open it! 🚪',
+      videoId: '',
+      videoTitle: '',
       keywords: ['door', 'knock', 'revelation 3', 'come in', 'heart', 'jesus', 'open'],
       kidContext: { who: 'Jesus', to: 'The church (and us)', apply: 'Jesus is knocking right now! Open the door—He wants to come in and stay.' }
     },
@@ -3462,6 +3721,8 @@
         { src: 'panel-noah-3.svg', alt: 'God with His people—forever and ever!' }
       ],
       caption: 'Swipe to see the great wedding day—Jesus and His people! 💍',
+      videoId: '',
+      videoTitle: '',
       keywords: ['bride', 'lamb', 'revelation 21', 'wedding', 'supper', 'feast', 'forever'],
       kidContext: { who: 'God', to: 'All His people', apply: 'The best day is coming—Jesus\' wedding feast! All who believe are invited—that means you!' }
     },
@@ -3473,6 +3734,8 @@
         { src: 'panel-noah-3.svg', alt: 'In God\'s city—everything is made whole!' }
       ],
       caption: 'Swipe to see the healing tree in God\'s new city! 🌿',
+      videoId: '',
+      videoTitle: '',
       keywords: ['tree', 'fruit', 'revelation 22', 'heal', 'nations', 'leaves', 'life'],
       kidContext: { who: 'God', to: 'All creation', apply: 'God\'s healing reaches every nation! His love is for everyone—share it.' }
     },
@@ -3484,6 +3747,8 @@
         { src: 'panel-noah-3.svg', alt: 'No night there—God\'s light never goes out!' }
       ],
       caption: 'Swipe to see a world lit only by God\'s glory! ☀️',
+      videoId: '',
+      videoTitle: '',
       keywords: ['night', 'light', 'revelation 22', 'glory', 'god', 'city', 'shine', 'dark'],
       kidContext: { who: 'God', to: 'All His people', apply: 'You never need to be afraid of the dark—God\'s light is coming! And it lasts forever.' }
     },
@@ -3495,6 +3760,8 @@
         { src: 'panel-noah-3.svg', alt: 'Every tongue confesses: Jesus Christ is Lord!' }
       ],
       caption: 'Swipe to see every knee bow to Jesus—the day is coming! 🙇',
+      videoId: '',
+      videoTitle: '',
       keywords: ['knee bow', 'philippians 2', 'every tongue', 'lord', 'throne', 'praise', 'glory'],
       kidContext: { who: 'God', to: 'All people', apply: 'One day everyone will know Jesus is Lord! Choose to bow your heart to Him now—gladly.' }
     },
@@ -3506,6 +3773,8 @@
         { src: 'panel-noah-3.svg', alt: 'The new earth—perfected and full of God\'s love!' }
       ],
       caption: 'Swipe to see God\'s brand-new perfect earth! 🌍',
+      videoId: '',
+      videoTitle: '',
       keywords: ['new earth', 'revelation 21', 'all things new', 'no pain', 'perfect', 'eternal', 'glory'],
       kidContext: { who: 'God', to: 'All creation', apply: 'The best world is coming! God is making all things new—and He never makes anything bad.' }
     },
@@ -3517,6 +3786,8 @@
         { src: 'panel-noah-3.svg', alt: 'He was, He is, and He is to come—forever!' }
       ],
       caption: 'Swipe to see Jesus: the beginning, middle, and end of everything! ∞',
+      videoId: '',
+      videoTitle: '',
       keywords: ['alpha omega', 'revelation 22', 'first', 'last', 'beginning', 'end', 'eternal', 'forever'],
       kidContext: { who: 'Jesus', to: 'All creation', apply: 'Jesus is the start and finish of your story too! Give Him every chapter.' }
     },
@@ -3528,6 +3799,8 @@
         { src: 'panel-noah-3.svg', alt: 'Every heart that loves Him says: come!' }
       ],
       caption: 'Swipe to hear the last prayer in the Bible—come, Lord Jesus! 🙏',
+      videoId: '',
+      videoTitle: '',
       keywords: ['come lord jesus', 'revelation 22', 'amen', 'quickly', 'maranatha', 'last', 'return'],
       kjvRef: 'Revelation 22',
       kidContext: { who: 'Jesus', to: 'John (and us)', apply: 'The last word of the Bible is a prayer: Come, Lord Jesus! Say it with your whole heart.' }

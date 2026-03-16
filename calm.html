@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Need a verse now? • Today's Daily Battle</title>
+  <meta name="description" content="One verse. Right now. KJV. For when you need it most.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/calm.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260315p">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .calm-page { min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.5rem; text-align: center; }
+    .calm-verse { font-family: Cormorant Garamond, Georgia, serif; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.5; color: var(--text, #e2e8f0); max-width: 32rem; margin: 0 auto 1rem; }
+    .calm-ref { font-size: 0.95rem; color: var(--gold, #e3bc67); margin-bottom: 2rem; }
+    .calm-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .calm-btn { padding: 0.6rem 1.2rem; border-radius: 10px; border: 1px solid var(--gold, #e3bc67); background: rgba(227,188,103,0.1); color: var(--gold); font-size: 0.9rem; text-decoration: none; cursor: pointer; transition: background 0.15s; }
+    .calm-btn:hover { background: rgba(227,188,103,0.2); }
+    .calm-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar" style="minimal">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="verse.html">Daily verse</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="calm-page">
+        <p class="calm-verse" id="calm-text" aria-live="polite">God is our refuge and strength, a very present help in trouble.</p>
+        <p class="calm-ref" id="calm-ref">Psalm 46:1</p>
+        <div class="calm-actions">
+          <button type="button" class="calm-btn" id="calm-another" aria-label="Show another verse">Another verse</button>
+          <a href="/" class="calm-btn">Back to home</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    (function () {
+      'use strict';
+      var EMERGENCY_VERSES = [
+        { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' },
+        { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee; be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.' },
+        { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' },
+        { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+        { ref: 'Psalm 34:18', text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.' },
+        { ref: '2 Timothy 1:7', text: 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.' },
+        { ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you; not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.' },
+        { ref: 'Psalm 46:10', text: 'Be still, and know that I am God.' },
+        { ref: '1 Peter 5:7', text: 'Casting all your care upon him; for he careth for you.' },
+        { ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.' }
+      ];
+      function pickVerse() {
+        var i = Math.floor(Math.random() * EMERGENCY_VERSES.length);
+        return EMERGENCY_VERSES[i];
+      }
+      function showVerse() {
+        var v = pickVerse();
+        var textEl = document.getElementById('calm-text');
+        var refEl = document.getElementById('calm-ref');
+        if (textEl) textEl.textContent = v.text;
+        if (refEl) refEl.textContent = v.ref;
+      }
+      showVerse();
+      var btn = document.getElementById('calm-another');
+      if (btn) btn.addEventListener('click', showVerse);
+    })();
+  </script>
+</body>
+</html>

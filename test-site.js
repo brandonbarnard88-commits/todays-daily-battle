@@ -20,6 +20,7 @@ const pages = [
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
   { path: '/study.html', name: 'Study', mustInclude: ['Study', 'notes'] },
   { path: '/verse.html', name: 'Verse of the Day', mustInclude: ['Verse'] },
+  { path: '/calm.html', name: 'Need a verse now', mustInclude: ['God', 'Another verse', 'Back to home'] },
   { path: '/church.html', name: 'Church', mustInclude: ['Church'] },
   { path: '/sermon.html', name: 'Sermon', mustInclude: ['Sermon'] },
   { path: '/reading-plan.html', name: 'Reading plan', mustInclude: ['Reading'] },

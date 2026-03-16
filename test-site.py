@@ -26,6 +26,7 @@ PAGES = [
     ("/contact.html", "Contact", ["Contact", "id=\"auth-section\"", "sidebar"]),
     ("/faq.html", "FAQ", ["FAQ", "pricing.html"]),
     ("/verse.html", "Verse of the Day", ["Verse", "id=\"auth-section\"", "verse-page-share", "verse-page-copy"]),
+    ("/calm.html", "Need a verse now", ["God", "Psalm", "Isaiah", "Matthew", "Philippians", "Another verse"]),
     ("/study.html", "Study", ["Study", "notes", "id=\"auth-section\"", "study-note-status"]),
     ("/reader.html", "Chapter Reader", ["Reader", "Chapter", "id=\"auth-section\""]),
     ("/church.html", "Church Center", ["Church", "id=\"auth-section\""]),

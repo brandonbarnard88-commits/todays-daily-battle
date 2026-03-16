@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="kids-corner.css?v=1">
   <link rel="stylesheet" href="loop-player.css?v=1">
   <link rel="manifest" href="manifest.json">
+  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -149,6 +150,12 @@
         </div>
 
         <section class="glass card-gold loop-progress-wrap" aria-label="Story star progress">
+          <div id="loop-kid-selector-wrap" class="loop-kid-selector-wrap hidden" aria-label="Select child for progress">
+            <label for="loop-kid-select" class="loop-kid-select-label">Track progress for:</label>
+            <select id="loop-kid-select" class="loop-kid-select" aria-label="Select which child's progress to view">
+              <option value="">This device</option>
+            </select>
+          </div>
           <div class="loop-progress-head">
             <h2 class="section-divider kids-section-divider">Story Stars</h2>
             <p id="loop-progress-text" class="loop-progress-text">12/160 stars</p>
@@ -187,6 +194,7 @@
   </div>
 
   <script type="module" src="config.js"></script>
+  <script src="loop-feedback-config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
 </body>
 </html>

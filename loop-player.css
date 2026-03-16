@@ -3,6 +3,32 @@
   gap: 1rem;
 }
 
+.loop-kid-selector-wrap {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.loop-kid-selector-wrap.hidden { display: none; }
+.loop-kid-select-label {
+  font-size: 0.9rem;
+  color: var(--muted, #94a3b8);
+}
+.loop-kid-select {
+  padding: 0.4rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: rgba(15, 22, 36, 0.6);
+  color: var(--text, #e2e8f0);
+  font-size: 0.9rem;
+  min-width: 140px;
+}
+.loop-kid-select:focus {
+  outline: 2px solid rgba(212, 175, 55, 0.6);
+  outline-offset: 2px;
+}
+
 .kids-corner-report-banner {
   background: #fff9e6;
   border: 1px solid rgba(255, 215, 0, 0.6);

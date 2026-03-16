@@ -441,6 +441,9 @@
       outline: 2px solid rgba(234, 179, 8, 0.6);
       outline-offset: 2px;
     }
+    .site-top-links .header-auth-welcome { color: rgba(148, 163, 184, 0.85); margin-right: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .site-top-links .header-auth-sep { color: rgba(148, 163, 184, 0.5); margin: 0 0.25rem; }
+    .site-top-links .auth-avatar { background: rgba(234, 179, 8, 0.35); color: rgba(255,255,255,0.95); border-radius: 50%; width: 26px; height: 26px; line-height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; vertical-align: middle; margin-right: 0.5rem; }
     /* .landing-privacy-teaser — inline styles on element for reliability */
     .site-tagline {
       position: relative;
@@ -3276,6 +3279,10 @@
       <span class="site-title-underline" aria-hidden="true"></span>
       <p class="site-tagline">For God · For Country · For Family</p>
       <nav class="site-top-links" aria-label="Site information links">
+        <span id="header-auth-links" style="visibility: hidden;">
+          <a href="login.html">Sign In</a>
+          <a href="login.html?mode=signup">Sign Up</a>
+        </span>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
         <a href="privacy.html">Privacy</a>
@@ -6771,6 +6778,7 @@
   <!-- ── Daily midnight nudge toast ── -->
   <div id="daily-nudge" class="toast-gold" role="status" aria-live="polite" aria-atomic="true">New day—still here if you need.</div>
 
+  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false"></script>
   <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>

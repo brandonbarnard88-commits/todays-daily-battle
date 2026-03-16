@@ -1,0 +1,384 @@
+/**
+ * Profile page: Kids, Bible Study Groups, Church.
+ * Requires auth. Redirects to login if not signed in.
+ */
+(function () {
+  'use strict';
+
+  function getClient() {
+    if (window.__tdbSupabaseClient) return window.__tdbSupabaseClient;
+    var cfg = window.TDB_CONFIG;
+    var url = (cfg && cfg.SUPABASE_URL) || '';
+    var key = (cfg && cfg.SUPABASE_ANON_KEY) || '';
+    if (!url || !key || !window.supabase || typeof window.supabase.createClient !== 'function') return null;
+    try {
+      window.__tdbSupabaseClient = window.supabase.createClient(url, key, { auth: { detectSessionInUrl: true } });
+      return window.__tdbSupabaseClient;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setStatus(elId, msg, isErr) {
+    var el = document.getElementById(elId);
+    if (!el) return;
+    el.textContent = msg || '';
+    el.className = 'profile-status' + (isErr ? ' err' : msg ? ' ok' : '');
+  }
+
+  async function generateInviteCode() {
+    var client = getClient();
+    if (!client) return null;
+    try {
+      var res = await client.rpc('profile_generate_invite_code');
+      return (res && res.data) ? res.data : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function loadProfile() {
+    var client = getClient();
+    if (!client) {
+      window.location.href = '/login.html?next=' + encodeURIComponent('/profile.html');
+      return;
+    }
+    var sess = await client.auth.getSession();
+    var session = sess && sess.data ? sess.data.session : null;
+    if (!session || !session.user) {
+      window.location.href = '/login.html?next=' + encodeURIComponent('/profile.html');
+      return;
+    }
+
+    var emailEl = document.getElementById('profile-email');
+    if (emailEl) emailEl.textContent = session.user.email || 'Signed in';
+
+    var uid = session.user.id;
+
+    // Load kids
+    var kidsList = document.getElementById('kids-list');
+    if (kidsList) {
+      kidsList.innerHTML = '';
+      try {
+        var kidsRes = await client.from('profile_kids').select('*').eq('parent_id', uid).order('created_at', { ascending: true });
+        var kids = (kidsRes && kidsRes.data) || [];
+        kids.forEach(function (k) {
+          var li = document.createElement('li');
+          li.innerHTML = '<span>' + escapeHtml(k.name) + (k.age_range ? ' <span style="color:var(--muted);font-size:0.85em;">(' + escapeHtml(k.age_range) + ')</span>' : '') + '</span>';
+          var delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'profile-btn profile-btn-danger';
+          delBtn.textContent = 'Remove';
+          delBtn.setAttribute('aria-label', 'Remove ' + escapeHtml(k.name));
+          delBtn.addEventListener('click', function () { deleteKid(k.id); });
+          li.appendChild(delBtn);
+          kidsList.appendChild(li);
+        });
+      } catch (err) {
+        setStatus('kids-status', 'Could not load kids.', true);
+      }
+    }
+
+    // Load groups (user is creator or member)
+    var groupsList = document.getElementById('groups-list');
+    if (groupsList) {
+      groupsList.innerHTML = '';
+      try {
+        var membersRes = await client.from('profile_group_members').select('group_id').eq('user_id', uid);
+        var memberIds = (membersRes && membersRes.data) ? membersRes.data.map(function (m) { return m.group_id; }) : [];
+        var orFilter = 'created_by.eq.' + uid + (memberIds.length ? ',id.in.(' + memberIds.join(',') + ')' : '');
+        var groupsRes = await client.from('profile_bible_study_groups').select('*').or(orFilter);
+        var groups = (groupsRes && groupsRes.data) || [];
+        groups.forEach(function (g) {
+          var li = document.createElement('li');
+          var isCreator = g.created_by === uid;
+          li.innerHTML = '<span><strong>' + escapeHtml(g.name) + '</strong>' + (isCreator ? ' <span style="color:var(--gold);font-size:0.8em;">(creator)</span>' : '') + '<br><code class="profile-invite-code" style="font-size:0.75rem;margin-top:0.25rem;">' + escapeHtml(g.invite_code) + '</code></span>';
+          var copyBtn = document.createElement('button');
+          copyBtn.type = 'button';
+          copyBtn.className = 'profile-btn profile-copy-btn';
+          copyBtn.textContent = '\uD83D\uDCCB Copy Code';
+          copyBtn.setAttribute('aria-label', 'Copy invite code');
+          copyBtn.setAttribute('title', 'Copy invite code to clipboard');
+          copyBtn.addEventListener('click', function () {
+            var code = g.invite_code || '';
+            var done = function () {
+              copyBtn.classList.add('copied');
+              copyBtn.textContent = '\u2713 Copied!';
+              setTimeout(function () {
+                copyBtn.classList.remove('copied');
+                copyBtn.textContent = '\uD83D\uDCCB Copy Code';
+              }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(code).then(done).catch(function () {
+                try {
+                  var ta = document.createElement('textarea');
+                  ta.value = code;
+                  ta.style.position = 'fixed';
+                  ta.style.opacity = '0';
+                  document.body.appendChild(ta);
+                  ta.select();
+                  document.execCommand('copy');
+                  document.body.removeChild(ta);
+                  done();
+                } catch (e) {
+                  copyBtn.textContent = 'Copy failed';
+                  setTimeout(function () {
+                    copyBtn.textContent = '\uD83D\uDCCB Copy Code';
+                  }, 2000);
+                }
+              });
+            } else {
+              try {
+                var ta = document.createElement('textarea');
+                ta.value = code;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                done();
+              } catch (e) {
+                copyBtn.textContent = 'Copy failed';
+                setTimeout(function () {
+                  copyBtn.textContent = '\uD83D\uDCCB Copy Code';
+                }, 2000);
+              }
+            }
+          });
+          var leaveBtn = document.createElement('button');
+          leaveBtn.type = 'button';
+          leaveBtn.className = 'profile-btn profile-btn-danger';
+          leaveBtn.textContent = isCreator ? 'Delete' : 'Leave';
+          leaveBtn.setAttribute('aria-label', (isCreator ? 'Delete' : 'Leave') + ' group ' + escapeHtml(g.name));
+          leaveBtn.addEventListener('click', function () { leaveOrDeleteGroup(g.id, g.created_by === uid); });
+          li.appendChild(copyBtn);
+          li.appendChild(leaveBtn);
+          groupsList.appendChild(li);
+        });
+      } catch (err) {
+        setStatus('groups-status', 'Could not load groups.', true);
+      }
+    }
+
+    // Load church
+    var churchInfo = document.getElementById('church-info');
+    var churchFormRow = document.getElementById('church-form-row');
+    if (churchInfo) {
+      try {
+        var churchRes = await client.from('profile_user_churches').select('*').eq('user_id', uid).maybeSingle();
+        var church = (churchRes && churchRes.data) || null;
+        if (church && (church.church_name || church.church_location)) {
+          churchInfo.innerHTML = '<p><strong>' + escapeHtml(church.church_name || 'Church') + '</strong>' + (church.church_location ? ' — ' + escapeHtml(church.church_location) : '') + (church.verified ? ' <span style="color:#4ade80;font-size:0.85em;">✓ Verified</span>' : '') + '</p>';
+          if (churchFormRow) churchFormRow.style.display = 'none';
+          var changeWrap = document.getElementById('church-change-wrap');
+          if (changeWrap) changeWrap.style.display = 'block';
+          var nameEl = document.getElementById('church-name');
+          var locEl = document.getElementById('church-location');
+          var pastorEl = document.getElementById('church-pastor');
+          if (nameEl) nameEl.value = church.church_name || '';
+          if (locEl) locEl.value = church.church_location || '';
+          if (pastorEl) pastorEl.value = church.pastor_email || '';
+        } else {
+          churchInfo.innerHTML = '';
+          if (churchFormRow) churchFormRow.style.display = 'flex';
+          var changeWrap = document.getElementById('church-change-wrap');
+          if (changeWrap) changeWrap.style.display = 'none';
+        }
+      } catch (err) {
+        churchInfo.innerHTML = '';
+        if (churchFormRow) churchFormRow.style.display = 'flex';
+        var changeWrap = document.getElementById('church-change-wrap');
+        if (changeWrap) changeWrap.style.display = 'none';
+      }
+    }
+  }
+
+  function escapeHtml(s) {
+    if (!s) return '';
+    var div = document.createElement('div');
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  async function addKid() {
+    var client = getClient();
+    if (!client) return;
+    var nameEl = document.getElementById('kid-name');
+    var ageEl = document.getElementById('kid-age');
+    var name = (nameEl && nameEl.value || '').trim();
+    if (!name) {
+      setStatus('kids-status', 'Enter a name.', true);
+      return;
+    }
+    setStatus('kids-status', '');
+    var sess = await client.auth.getSession();
+    var uid = sess && sess.data && sess.data.session ? sess.data.session.user.id : null;
+    if (!uid) return;
+    try {
+      var res = await client.from('profile_kids').insert({ parent_id: uid, name: name, age_range: (ageEl && ageEl.value) || null }).select().single();
+      if (res && res.data) {
+        if (nameEl) nameEl.value = '';
+        if (ageEl) ageEl.value = '';
+        setStatus('kids-status', 'Added.');
+        loadProfile();
+      } else {
+        setStatus('kids-status', 'Could not add. Try again.', true);
+      }
+    } catch (err) {
+      setStatus('kids-status', 'Could not add. Tables may not exist yet—run supabase-profile-family-groups.sql.', true);
+    }
+  }
+
+  async function deleteKid(kidId) {
+    var client = getClient();
+    if (!client || !kidId) return;
+    if (!confirm('Remove this child from your profile?')) return;
+    try {
+      await client.from('profile_kids').delete().eq('id', kidId);
+      setStatus('kids-status', 'Removed.');
+      loadProfile();
+    } catch (err) {
+      setStatus('kids-status', 'Could not remove.', true);
+    }
+  }
+
+  async function createGroup() {
+    var client = getClient();
+    if (!client) return;
+    var nameEl = document.getElementById('group-name');
+    var name = (nameEl && nameEl.value || '').trim();
+    if (!name) {
+      setStatus('groups-status', 'Enter a group name.', true);
+      return;
+    }
+    setStatus('groups-status', '');
+    var sess = await client.auth.getSession();
+    var uid = sess && sess.data && sess.data.session ? sess.data.session.user.id : null;
+    if (!uid) return;
+    var code = await generateInviteCode();
+    if (!code) {
+      setStatus('groups-status', 'Could not generate invite code. Run supabase-profile-family-groups.sql.', true);
+      return;
+    }
+    try {
+      var res = await client.from('profile_bible_study_groups').insert({ name: name, invite_code: code, created_by: uid }).select().single();
+      if (res && res.data) {
+        await client.from('profile_group_members').insert({ group_id: res.data.id, user_id: uid, role: 'admin' });
+        if (nameEl) nameEl.value = '';
+        setStatus('groups-status', 'Group created. Invite code: ' + code);
+        loadProfile();
+      } else {
+        setStatus('groups-status', 'Could not create. Try again.', true);
+      }
+    } catch (err) {
+      setStatus('groups-status', 'Could not create. Tables may not exist—run supabase-profile-family-groups.sql.', true);
+    }
+  }
+
+  async function joinGroup() {
+    var client = getClient();
+    if (!client) return;
+    var codeEl = document.getElementById('join-code');
+    var code = (codeEl && codeEl.value || '').trim();
+    if (!code) {
+      setStatus('groups-status', 'Enter an invite code.', true);
+      return;
+    }
+    setStatus('groups-status', '');
+    try {
+      var res = await client.rpc('profile_join_group_by_code', { p_invite_code: code });
+      var data = res && res.data ? res.data : res;
+      if (data && data.ok) {
+        if (codeEl) codeEl.value = '';
+        setStatus('groups-status', 'Joined.');
+        loadProfile();
+      } else {
+        setStatus('groups-status', (data && data.reason === 'not_found') ? 'Code not found.' : 'Could not join.', true);
+      }
+    } catch (err) {
+      setStatus('groups-status', 'Could not join. Try again.', true);
+    }
+  }
+
+  async function leaveOrDeleteGroup(groupId, isCreator) {
+    var client = getClient();
+    if (!client || !groupId) return;
+    if (!confirm(isCreator ? 'Delete this group? Members will lose access.' : 'Leave this group?')) return;
+    try {
+      if (isCreator) {
+        await client.from('profile_bible_study_groups').delete().eq('id', groupId);
+      } else {
+        var sess = await client.auth.getSession();
+        var uid = sess && sess.data && sess.data.session ? sess.data.session.user.id : null;
+        if (uid) await client.from('profile_group_members').delete().eq('group_id', groupId).eq('user_id', uid);
+      }
+      setStatus('groups-status', isCreator ? 'Group deleted.' : 'Left group.');
+      loadProfile();
+    } catch (err) {
+      setStatus('groups-status', 'Could not update.', true);
+    }
+  }
+
+  async function saveChurch() {
+    var client = getClient();
+    if (!client) return;
+    var sess = await client.auth.getSession();
+    var uid = sess && sess.data && sess.data.session ? sess.data.session.user.id : null;
+    if (!uid) return;
+    var nameEl = document.getElementById('church-name');
+    var locEl = document.getElementById('church-location');
+    var pastorEl = document.getElementById('church-pastor');
+    var name = (nameEl && nameEl.value || '').trim();
+    var loc = (locEl && locEl.value || '').trim();
+    var pastor = (pastorEl && pastorEl.value || '').trim();
+    if (!name && !loc) {
+      setStatus('church-status', 'Enter church name or location.', true);
+      return;
+    }
+    setStatus('church-status', '');
+    try {
+      await client.from('profile_user_churches').upsert({
+        user_id: uid,
+        church_name: name || null,
+        church_location: loc || null,
+        pastor_email: pastor || null
+      }, { onConflict: 'user_id' });
+      setStatus('church-status', 'Saved.');
+      loadProfile();
+    } catch (err) {
+      setStatus('church-status', 'Could not save. Tables may not exist—run supabase-profile-family-groups.sql.', true);
+    }
+  }
+
+  function wire() {
+    var addKidBtn = document.getElementById('add-kid-btn');
+    if (addKidBtn) addKidBtn.addEventListener('click', addKid);
+    var createGroupBtn = document.getElementById('create-group-btn');
+    if (createGroupBtn) createGroupBtn.addEventListener('click', createGroup);
+    var joinGroupBtn = document.getElementById('join-group-btn');
+    if (joinGroupBtn) joinGroupBtn.addEventListener('click', joinGroup);
+    var saveChurchBtn = document.getElementById('save-church-btn');
+    if (saveChurchBtn) saveChurchBtn.addEventListener('click', saveChurch);
+    var changeBtn = document.getElementById('church-change-btn');
+    if (changeBtn) {
+      changeBtn.addEventListener('click', function () {
+        var churchFormRow = document.getElementById('church-form-row');
+        var changeWrap = document.getElementById('church-change-wrap');
+        if (churchFormRow) churchFormRow.style.display = 'flex';
+        if (changeWrap) changeWrap.style.display = 'none';
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      wire();
+      loadProfile();
+    });
+  } else {
+    wire();
+    loadProfile();
+  }
+})();

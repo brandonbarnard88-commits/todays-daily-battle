@@ -258,10 +258,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
   var TOTAL_LOOPS = 160;
-  /* Google Form for reports: set when ready. Example:
-     LOOP_FEEDBACK_FORM = { url: 'https://docs.google.com/forms/d/e/XXX/viewform', storyEntry: 'entry.123456789', commentEntry: 'entry.987654321' };
-  */
-  var LOOP_FEEDBACK_FORM = null;
+  /* Google Form: set in loop-feedback-config.js (edit that file when ready) or leave null for mailto fallback */
+  var LOOP_FEEDBACK_FORM = (typeof window !== 'undefined' && window.LOOP_FEEDBACK_FORM) || null;
 
   var progressText = document.getElementById('loop-progress-text');
   var progressFill = document.getElementById('loop-progress-fill');
@@ -346,8 +344,14 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     }
   }
 
+  var selectedKidId = null;
+
   function writeState() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+    if (selectedKidId && window.__tdbSupabaseClient) {
+      var payload = { starred_ids: state.starredIds, watch_counts: state.watchCounts, sunday_refresh_tag: state.sundayRefreshTag || '' };
+      window.__tdbSupabaseClient.from('profile_kid_loop_progress').upsert({ kid_id: selectedKidId, starred_ids: payload.starred_ids, watch_counts: payload.watch_counts, sunday_refresh_tag: payload.sunday_refresh_tag, updated_at: new Date().toISOString() }, { onConflict: 'kid_id' }).then(function () {}).catch(function () {});
+    }
   }
 
   function showToast(msg) {
@@ -681,6 +685,62 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     nextBtn.classList.remove('is-hidden');
   });
 
+  function loadStateForSelection(kidId) {
+    selectedKidId = kidId || null;
+    if (!kidId) {
+      state.starredIds = readState().starredIds;
+      state.watchCounts = readState().watchCounts;
+      state.sundayRefreshTag = readState().sundayRefreshTag;
+    } else if (window.__tdbSupabaseClient) {
+      window.__tdbSupabaseClient.from('profile_kid_loop_progress').select('starred_ids, watch_counts, sunday_refresh_tag').eq('kid_id', kidId).maybeSingle().then(function (r) {
+        var row = r && r.data;
+        if (row) {
+          state.starredIds = Array.isArray(row.starred_ids) ? row.starred_ids.map(Number) : [];
+          state.watchCounts = row.watch_counts && typeof row.watch_counts === 'object' ? row.watch_counts : {};
+          state.sundayRefreshTag = typeof row.sunday_refresh_tag === 'string' ? row.sunday_refresh_tag : '';
+        } else {
+          state.starredIds = [];
+          state.watchCounts = {};
+          state.sundayRefreshTag = '';
+        }
+        recomputeUnlocked();
+      }).catch(function () { recomputeUnlocked(); });
+      return;
+    }
+    recomputeUnlocked();
+  }
+
+  function initLoopKidSelector() {
+    var wrap = document.getElementById('loop-kid-selector-wrap');
+    var sel = document.getElementById('loop-kid-select');
+    if (!wrap || !sel) return;
+    var client = window.__tdbSupabaseClient;
+    if (!client || !client.auth) return;
+    client.auth.getSession().then(function (sess) {
+      var session = sess && sess.data ? sess.data.session : null;
+      if (!session || !session.user) return;
+      client.from('profile_kids').select('id, name').eq('parent_id', session.user.id).order('created_at', { ascending: true }).then(function (r) {
+        var kids = (r && r.data) || [];
+        if (!kids.length) return;
+        wrap.classList.remove('hidden');
+        sel.innerHTML = '<option value="">This device</option>';
+        kids.forEach(function (k) {
+          var opt = document.createElement('option');
+          opt.value = k.id;
+          opt.textContent = k.name || 'Child';
+          sel.appendChild(opt);
+        });
+        sel.addEventListener('change', function () {
+          loadStateForSelection(sel.value || null);
+        });
+      }).catch(function () {});
+    }).catch(function () {});
+  }
+
+  document.addEventListener('tdb:loop-kid-changed', function (e) {
+    loadStateForSelection(e.detail && e.detail.kidId ? e.detail.kidId : null);
+  });
+
   loadLoops(false).then(function () {
     var now = new Date();
     if (inSundayRefreshWindow(now)) {
@@ -691,6 +751,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         loadLoops(true).then(function () { showToast('New stories added.'); });
       }
     }
+    initLoopKidSelector();
   });
 
   setInterval(function () {
@@ -2855,6 +2916,81 @@ function initSupabaseClient() {
   supabaseClient = sdk.createClient(supabaseUrl, supabaseKey, supabaseGlobalOptions);
   window.__tdbSupabaseClient = supabaseClient;
   return Boolean(supabaseClient);
+}
+
+var _headerAuthListenerWired = false;
+async function updateHeaderAuth() {
+  var el = document.getElementById('header-auth-links');
+  if (!el) return;
+  if (!initSupabaseClient() || !supabaseClient) {
+    el.style.visibility = 'visible';
+    return;
+  }
+  var session = null;
+  try {
+    var _session = await supabaseClient.auth.getSession();
+    session = _session && _session.data ? _session.data.session : null;
+  } catch (err) {
+    if (typeof console !== 'undefined' && console.warn) console.warn('Auth session check failed:', err);
+  }
+  el.textContent = '';
+  if (session && session.user) {
+    var name = (session.user.user_metadata && session.user.user_metadata.display_name) || (session.user.email || '').split('@')[0] || 'User';
+    var initial = (name.charAt(0) || 'U').toUpperCase();
+    var welcome = document.createElement('span');
+    welcome.className = 'header-auth-welcome';
+    var avatar = document.createElement('span');
+    avatar.className = 'auth-avatar';
+    avatar.textContent = initial;
+    avatar.setAttribute('aria-hidden', 'true');
+    welcome.appendChild(avatar);
+    welcome.appendChild(document.createTextNode('Welcome, ' + name));
+    var sep = document.createElement('span');
+    sep.textContent = ' \u00B7 ';
+    sep.className = 'header-auth-sep';
+    var account = document.createElement('a');
+    account.href = '/profile.html';
+    account.textContent = 'Account';
+    account.setAttribute('aria-label', 'Account settings');
+    var sep2 = document.createElement('span');
+    sep2.textContent = ' \u00B7 ';
+    sep2.className = 'header-auth-sep';
+    var logout = document.createElement('a');
+    logout.href = '#';
+    logout.id = 'header-logout';
+    logout.textContent = 'Log Out';
+    logout.setAttribute('aria-label', 'Sign out');
+    logout.setAttribute('role', 'button');
+    logout.addEventListener('click', function (e) {
+      e.preventDefault();
+      supabaseClient.auth.signOut().then(function () { updateHeaderAuth(); }).catch(function (err) {
+        if (typeof console !== 'undefined' && console.warn) console.warn('Sign out failed:', err);
+        updateHeaderAuth();
+      });
+    });
+    el.appendChild(welcome);
+    el.appendChild(sep);
+    el.appendChild(account);
+    el.appendChild(sep2);
+    el.appendChild(logout);
+  } else {
+    var signIn = document.createElement('a');
+    signIn.href = '/login.html';
+    signIn.textContent = 'Sign In';
+    var signUp = document.createElement('a');
+    signUp.href = '/login.html?mode=signup';
+    signUp.textContent = 'Sign Up';
+    el.appendChild(signIn);
+    var sp = document.createElement('span');
+    sp.textContent = ' \u00B7 ';
+    el.appendChild(sp);
+    el.appendChild(signUp);
+  }
+  el.style.visibility = 'visible';
+  if (!_headerAuthListenerWired && supabaseClient.auth && typeof supabaseClient.auth.onAuthStateChange === 'function') {
+    _headerAuthListenerWired = true;
+    supabaseClient.auth.onAuthStateChange(function () { updateHeaderAuth(); });
+  }
 }
 
 /**
@@ -15636,6 +15772,7 @@ function writeNbaSignal(key) {
   document.body.classList.remove('light');
   document.body.classList.add('dark-mode');
   initMobileAuthDisclosure();
+  if (document.getElementById('header-auth-links')) updateHeaderAuth();
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
   var clearBtn = document.getElementById('clear-local-data-btn');
   if (clearBtn) clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearLocalData(); });

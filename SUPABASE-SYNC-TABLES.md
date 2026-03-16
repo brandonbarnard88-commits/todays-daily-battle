@@ -73,6 +73,10 @@ After running the SQL, the site will sync these when users are logged in and per
 
 **Church Attendance Check-in:** Run `supabase-church-attendance.sql` after church-groups. Creates `church_attendance` (group_id, anon_id, date, present). RPCs: `upsert_church_attendance`, `get_church_attendance_week`, `apply_church_attendance_streak_bonus`. Members mark "I'm Here!" once/day (localStorage); pastor sees full list + "80%+ → +0.5 group streak" toast.
 
+**Profile Family & Groups:** Run `supabase-profile-family-groups.sql` after supabase-profiles-tier.sql. Creates `profile_kids` (child profiles linked to parent), `profile_bible_study_groups` (user-created groups, join via invite code), `profile_group_members` (many-to-many), `profile_user_churches` (user church connection). RPCs: `profile_join_group_by_code`, `profile_generate_invite_code`. Used by `/profile.html` for account management.
+
+**Profile Kid Loop Progress:** Run `supabase-profile-kid-loop-progress.sql` after supabase-profile-family-groups.sql. Creates `profile_kid_loop_progress` (kid_id, starred_ids, watch_counts, sunday_refresh_tag) for per-kid Kids Corner stars. Parent-only RLS via profile_kids join. Used by `/kids-corner.html` when signed in with kids.
+
 ---
 
 **Web Push (VAPID, no Firebase lock-in):** Run `supabase-push-subscriptions.sql`. This creates `push_subscriptions` for browser push endpoints/keys. Writes are service-role only via Edge Functions (`save-push-subscription`, `remove-push-subscription`), then `send-daily-verse-push` sends daily verse notifications and prunes stale endpoints.

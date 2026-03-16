@@ -56,7 +56,7 @@ After #1–4 + push:
 3. **Test push** if you want to see it work end-to-end.
 4. **Draft announcement** — use the drafts in LAUNCH-GUIDE.md or ask for a short social/email/blog version.
 
-Exact step-by-step for each item is in **docs/LAUNCH-GUIDE.md**.
+Exact step-by-step for each item is in **docs/LAUNCH-GUIDE.md**. For RLS walkthrough, device test checklist, and beta invite copy, see **docs/BETA-LAUNCH-GUIDE.md**.
 
 ---
 

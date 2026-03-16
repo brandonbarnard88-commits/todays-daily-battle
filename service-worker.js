@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v13-20260315';
+const CACHE_NAME = 'tdb-v15-20260315';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -65,6 +65,8 @@ const CORE_ASSETS = [
   '/sermon.html',
   '/message.html',
   '/wins-report.html',
+  '/wins.html',
+  '/progress.html',
   '/church.html',
   '/reading-plan.html',
   '/topic-anxiety.html',

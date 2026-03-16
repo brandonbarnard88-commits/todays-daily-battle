@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
+  <script src="ga-config.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your 2026 Battle Wins • Today's Daily Battle</title>
+  <meta name="description" content="Your 2026 wins—longest streak, verses read, plans completed. All local, all yours. Share your journey.">
+  <link rel="canonical" href="https://todaysdailybattle.com/wins.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161c26;
+      --text: #f5f7fb;
+      --muted: #8896b0;
+      --gold: #e3bc67;
+      --gold-soft: #c9a84c;
+      --line: #242d3d;
+      --green: #4ade80;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; width: 100%; background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif; font-size: 1rem; line-height: 1.6; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; }
+
+    .wins-page { max-width: 560px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    .wins-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-bottom: 1.5rem;
+      transition: color 0.15s;
+    }
+    .wins-back:hover { color: var(--gold); }
+    .wins-hero { text-align: center; margin-bottom: 2rem; }
+    .wins-hero h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; color: var(--gold); margin: 0 0 0.4rem; }
+    .wins-hero p { font-size: 0.92rem; color: var(--muted); margin: 0; }
+
+    .wins-card {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.15s;
+    }
+    .wins-card:hover { border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+    .wins-card h2 { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .wins-card .highlight { font-size: 1.75rem; font-weight: 700; color: var(--gold); margin: 0; }
+
+    .wins-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .wins-grid > div {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.9rem;
+      text-align: center;
+    }
+    .wins-grid h3 { font-size: 0.72rem; font-weight: 600; color: var(--muted); margin: 0 0 0.35rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .wins-grid p { font-size: 1.25rem; font-weight: 700; color: var(--gold); margin: 0; }
+
+    .wins-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 2rem; }
+    .wins-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .wins-btn:hover { background: color-mix(in srgb, var(--gold) 15%, transparent); }
+    .wins-btn.secondary { border-color: var(--line); color: var(--muted); }
+    .wins-btn.secondary:hover { border-color: var(--muted); color: var(--text); }
+
+    .wins-toast {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: #0d1117;
+      padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+      z-index: 1001; animation: wins-toast-in 0.2s ease;
+    }
+    @keyframes wins-toast-in { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <main class="wins-page" id="main" role="main">
+    <a href="/" class="wins-back" aria-label="Back to Today's Daily Battle">← Home</a>
+    <a href="progress.html" class="wins-back" style="margin-left: 1rem;">Progress</a>
+
+    <header class="wins-hero">
+      <h1>Your 2026 Battle Wins</h1>
+      <p>All local, all yours — here's your journey so far.</p>
+    </header>
+
+    <div class="wins-card">
+      <h2>Longest Streak</h2>
+      <p class="highlight" aria-live="polite">🔥 <span id="longest-streak">0</span> days</p>
+    </div>
+
+    <div class="wins-grid">
+      <div>
+        <h3>Verses Read</h3>
+        <p id="total-verses">0</p>
+      </div>
+      <div>
+        <h3>Plans Completed</h3>
+        <p id="plans-completed">0</p>
+      </div>
+      <div>
+        <h3>Days Battled</h3>
+        <p id="days-battled">0</p>
+      </div>
+    </div>
+
+    <div class="wins-actions">
+      <button type="button" id="export-wins" class="wins-btn" aria-label="Copy my wins to clipboard">Copy My Wins</button>
+      <button type="button" id="share-graphic" class="wins-btn secondary" aria-label="Create share graphic (coming soon)">Create Share Graphic</button>
+    </div>
+
+    <p style="text-align:center; margin-top:2rem;">
+      <a href="plans.html" style="color:var(--gold);">Pick a plan →</a>
+    </p>
+  </main>
+
+  <div id="toast-container" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var PLAN_CONFIGS = {
+      battle:    { id: 'battle',    label: 'Battle Distraction',  key: 'tdb-plan-day',            max: 7  },
+      gratitude: { id: 'gratitude', label: 'Gratitude',            key: 'tdb-plan-gratitude-day', max: 7  },
+      strength:  { id: 'strength',  label: '30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
+      marriage:  { id: 'marriage',  label: 'Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
+      peace:     { id: 'peace',     label: '7-Day Peace',         key: 'tdb-plan-peace-day',     max: 7  },
+      battle10:  { id: 'battle10',  label: '10-Day Battle',      key: 'tdb-plan-battle10-day',  max: 10 },
+      battle14:  { id: 'battle14',  label: '14-Day Battle',      key: 'tdb-plan-battle14-day',  max: 14 },
+      battle21:  { id: 'battle21',  label: '21-Day Battle',      key: 'tdb-plan-battle21-day',  max: 21 },
+      battle30:  { id: 'battle30',  label: '30-Day Battle',      key: 'tdb-plan-battle30-day',  max: 30 },
+      battle40:  { id: 'battle40',  label: '40-Day Wilderness',  key: 'tdb-plan-battle40-day',  max: 40 },
+      easter:    { id: 'easter',    label: 'Resurrection Hope',   key: 'tdb-plan-easter-day',    max: 7  }
+    };
+
+    var LONGEST_KEY = 'tdb-longest-streak';
+
+    function getDay(plan) {
+      try {
+        var raw = localStorage.getItem(plan.key);
+        if (!raw) return 0;
+        var parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object' && typeof parsed.day === 'number') return parsed.day;
+        return parseInt(raw, 10) || 0;
+      } catch (_) {
+        return parseInt(localStorage.getItem(plan.key) || '0', 10) || 0;
+      }
+    }
+
+    function getLongestStreak() {
+      return parseInt(localStorage.getItem(LONGEST_KEY) || '0', 10) || 0;
+    }
+
+    function showToast(message) {
+      var container = document.getElementById('toast-container');
+      var toast = document.createElement('div');
+      toast.className = 'wins-toast';
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(function () { toast.remove(); }, 3000);
+    }
+
+    function loadWins() {
+      var longest = getLongestStreak();
+      var totalVerses = 0;
+      var plansCompleted = 0;
+
+      Object.keys(PLAN_CONFIGS).forEach(function (planId) {
+        var plan = PLAN_CONFIGS[planId];
+        var day = Math.min(Math.max(getDay(plan), 0), plan.max);
+        if (day > 0) totalVerses += day;
+        if (day >= plan.max) plansCompleted++;
+      });
+
+      document.getElementById('longest-streak').textContent = longest;
+      document.getElementById('total-verses').textContent = totalVerses;
+      document.getElementById('plans-completed').textContent = plansCompleted;
+      document.getElementById('days-battled').textContent = totalVerses;
+    }
+
+    function exportWins() {
+      var longest = getLongestStreak();
+      var totalVerses = document.getElementById('total-verses').textContent || '0';
+      var plansCompleted = document.getElementById('plans-completed').textContent || '0';
+      var daysBattled = document.getElementById('days-battled').textContent || '0';
+
+      var year = new Date().getFullYear();
+      var text = 'My ' + year + ' Battle Wins:\n' +
+        '\uD83D\uDD25 Longest streak: ' + longest + ' day' + (longest !== 1 ? 's' : '') +
+        '\nVerses read: ' + totalVerses +
+        '\nPlans completed: ' + plansCompleted +
+        '\nDays battled: ' + daysBattled +
+        '\n\nGod is faithful — join me at todaysdailybattle.com';
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          showToast('Copied!');
+        }).catch(function () {
+          showToast('Copy failed');
+        });
+      } else {
+        showToast('Copy not available');
+      }
+    }
+
+    document.getElementById('export-wins').addEventListener('click', exportWins);
+    document.getElementById('share-graphic').addEventListener('click', function () {
+      showToast('Share graphic coming soon!');
+    });
+
+    loadWins();
+  })();
+  </script>
+</body>
+</html>

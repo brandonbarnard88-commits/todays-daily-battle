@@ -2977,12 +2977,24 @@ async function updateHeaderAuth() {
     var signIn = document.createElement('a');
     signIn.href = '/login.html';
     signIn.textContent = 'Sign In';
+    signIn.setAttribute('aria-label', 'Sign in to your account');
     var signUp = document.createElement('a');
     signUp.href = '/login.html?mode=signup';
     signUp.textContent = 'Sign Up';
+    signUp.setAttribute('aria-label', 'Create an account');
+    var authModal = document.getElementById('auth-modal');
+    if (authModal) {
+      signIn.addEventListener('click', function (e) {
+        if (typeof window.openLoginModal === 'function') { e.preventDefault(); window.openLoginModal('login'); }
+      });
+      signUp.addEventListener('click', function (e) {
+        if (typeof window.openLoginModal === 'function') { e.preventDefault(); window.openLoginModal('signup'); }
+      });
+    }
     el.appendChild(signIn);
     var sp = document.createElement('span');
     sp.textContent = ' \u00B7 ';
+    sp.setAttribute('aria-hidden', 'true');
     el.appendChild(sp);
     el.appendChild(signUp);
   }
@@ -17137,7 +17149,9 @@ function sanitizeNudgeElements() {
       b.setAttribute('aria-selected', b.dataset.tab === t ? 'true' : 'false');
     });
     if (submitBtn) submitBtn.textContent = t === 'signup' ? 'Sign Up' : 'Log In';
-    if (titleEl) titleEl.textContent = t === 'signup' ? 'Create Account' : 'Sign In';
+    if (titleEl) titleEl.textContent = t === 'signup' ? 'Join the Daily Battle' : 'Welcome Back';
+    var subtextEl = document.getElementById('auth-modal-subtext');
+    if (subtextEl) subtextEl.textContent = t === 'signup' ? 'Create an account to save your prayers, notes, streaks, and family armor.' : 'Enter to access your prayers, notes, streaks, and family armor.';
     if (signupNameRow) signupNameRow.classList.toggle('hidden', t !== 'signup');
     if (modalPassword) modalPassword.setAttribute('autocomplete', t === 'signup' ? 'new-password' : 'current-password');
     if (t === 'signup' && modalFirstName && modalLastName) {
@@ -17355,7 +17369,9 @@ function sanitizeNudgeElements() {
       var isSignupTab = tab === 'signup';
       if (submitBtn) submitBtn.textContent = isSignupTab ? 'Sign Up' : 'Log In';
       var titleEl = document.getElementById('auth-modal-title');
-      if (titleEl) titleEl.textContent = isSignupTab ? 'Create Account' : 'Sign In';
+      if (titleEl) titleEl.textContent = isSignupTab ? 'Join the Daily Battle' : 'Welcome Back';
+      var subtextEl = document.getElementById('auth-modal-subtext');
+      if (subtextEl) subtextEl.textContent = isSignupTab ? 'Create an account to save your prayers, notes, streaks, and family armor.' : 'Enter to access your prayers, notes, streaks, and family armor.';
       if (signupNameRow) signupNameRow.classList.toggle('hidden', !isSignupTab);
       var passwordEl = document.getElementById('auth-modal-password');
       if (passwordEl) passwordEl.setAttribute('autocomplete', isSignupTab ? 'new-password' : 'current-password');

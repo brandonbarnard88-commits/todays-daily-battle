@@ -6806,6 +6806,34 @@
     </div>
   </div>
 
+  <!-- ── Welcome Back / Auth Modal ── -->
+  <div id="auth-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" aria-hidden="true">
+    <div class="modal-inner auth-modal-inner auth-modal-card">
+      <button type="button" id="auth-modal-close" class="about-modal-close" aria-label="Close">✕</button>
+      <h2 id="auth-modal-title" class="auth-modal-headline">Welcome Back</h2>
+      <p id="auth-modal-subtext" class="auth-modal-subtext">Enter to access your prayers, notes, streaks, and family armor.</p>
+      <p id="auth-modal-verse" class="auth-modal-verse" aria-hidden="true">&#8220;Come unto me, all ye that labour and are heavy laden, and I will give you rest.&#8221; — Matthew 11:28</p>
+      <div class="auth-modal-tabs" role="tablist" aria-label="Sign in or sign up">
+        <button type="button" class="auth-tab active" data-tab="login" role="tab" aria-selected="true">Sign In</button>
+        <button type="button" class="auth-tab" data-tab="signup" role="tab" aria-selected="false">Sign Up</button>
+      </div>
+      <div id="auth-modal-signup-name-row" class="auth-modal-name-row hidden">
+        <input type="text" id="auth-modal-first-name" class="auth-modal-input" placeholder="First name" autocomplete="given-name" aria-label="First name">
+        <input type="text" id="auth-modal-last-name" class="auth-modal-input" placeholder="Last name" autocomplete="family-name" aria-label="Last name">
+      </div>
+      <input type="email" id="auth-modal-email" class="auth-modal-input" placeholder="Email" autocomplete="email" aria-label="Email">
+      <input type="password" id="auth-modal-password" class="auth-modal-input" placeholder="Password" autocomplete="current-password" aria-label="Password">
+      <p id="auth-modal-status" class="section-note auth-modal-status" aria-live="polite"></p>
+      <button type="button" id="auth-modal-submit" class="btn btn-primary" style="width:100%;">Log In</button>
+      <button type="button" id="auth-modal-forgot" class="auth-modal-forgot section-note" style="display:block;margin-top:0.5rem;background:none;border:none;padding:0;color:var(--primary,#a78bfa);cursor:pointer;text-align:left;">Forgot password?</button>
+      <div class="auth-modal-divider">or</div>
+      <div id="auth-modal-oauth" class="auth-modal-oauth">
+        <button type="button" id="auth-modal-google-btn" class="btn btn-secondary auth-oauth-btn">Continue with Google</button>
+        <button type="button" id="auth-modal-apple-btn" class="btn btn-secondary auth-oauth-btn">Continue with Apple</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Encouragement Nudge Popover ── -->
   <div id="encouragePopover" class="nudge-popover" hidden aria-live="polite" aria-atomic="true" role="status">
     <div class="nudge-popover-body">

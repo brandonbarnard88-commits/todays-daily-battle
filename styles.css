@@ -8170,6 +8170,19 @@ body.red-letter-off .red-letter-card {
 }
 .modal.hidden { display: none; }
 .modal-inner { padding: 1.5rem; max-width: 28rem; width: 90%; max-height: 85vh; overflow-y: auto; margin: 0 auto 2rem; }
+#auth-modal { z-index: 1050; background: rgba(0, 0, 0, 0.7); }
+#auth-modal .auth-modal-card { background: linear-gradient(160deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.96)); border: 1px solid rgba(148, 163, 184, 0.28); border-radius: 20px; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5); padding: 2rem 1.75rem; max-width: 28rem; }
+#auth-modal .auth-modal-headline { font-size: 1.5rem; font-weight: 700; color: #e2e8f0; text-align: center; margin: 0 0 0.5rem; }
+#auth-modal .auth-modal-subtext { color: #94a3b8; text-align: center; margin: 0 0 1.25rem; font-size: 0.95rem; line-height: 1.45; }
+#auth-modal .auth-modal-verse { color: rgba(148, 163, 184, 0.7); text-align: center; font-size: 0.8rem; font-style: italic; margin: 0 0 1.25rem; line-height: 1.4; }
+#auth-modal .auth-modal-input:focus { outline: none; border-color: rgba(212, 175, 55, 0.6); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15); }
+#auth-modal .auth-modal-tabs { border-bottom: 2px solid rgba(51, 65, 85, 0.8); margin-bottom: 1.25rem; padding-bottom: 0; }
+#auth-modal .auth-modal-tabs .auth-tab { flex: 1; padding: 0.75rem; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; border-radius: 0; }
+#auth-modal .auth-modal-tabs .auth-tab.active { border-bottom-color: rgba(212, 175, 55, 0.8); }
+@media (max-width: 480px) {
+  #auth-modal .auth-modal-card { border-radius: 0; max-height: 100%; padding: 1.5rem 1.25rem; }
+  #auth-modal { align-items: stretch; padding: 0; }
+}
 .first-visit-read-modal {
   background: rgba(7, 14, 28, 0.44);
   backdrop-filter: blur(3px);

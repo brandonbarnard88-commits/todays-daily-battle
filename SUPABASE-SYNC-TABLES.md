@@ -83,7 +83,7 @@ After running the SQL, the site will sync these when users are logged in and per
 
 **Offline prayer failure logging:** Run `supabase-failed-prayer-attempts.sql`. This creates `failed_prayer_attempts` for retry failures from the offline prayer queue. Authenticated users can insert/select their own rows; app uses this for queue observability and troubleshooting.
 
-**Push send observability:** Run `supabase-push-send-logs.sql`. This creates `push_send_logs`, where `send-daily-verse-push` records each run (`status`, `sent_count`, `failed_count`, `pruned_count`, `error_message`) for monitoring.
+**Push send observability:** Run `supabase-push-send-logs.sql`. This creates `push_send_logs`, where `send-daily-verse-push` records each run (`status`, `sent_count`, `failed_count`, `pruned_count`, `error_message`) for monitoring. If the table exists but RLS is missing, run `supabase-push-send-logs-rls-fix.sql` to enable RLS and lock down access (service_role only).
 
 **Push health RPC (Stats page):** Run `supabase-push-health-rpc.sql`. This creates `get_push_health_latest()` (security definer) so `stats.html` can read only a safe latest summary row (status/sent/failed/pruned) without exposing full logs.
 

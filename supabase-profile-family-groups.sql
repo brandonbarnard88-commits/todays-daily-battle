@@ -4,8 +4,17 @@
 -- RLS: users only see their own kids, groups they own/join, and their church.
 -- =============================================================================
 
--- Extend profiles with display_name if missing
-ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS display_name text;
+-- Extend profiles with display_name if missing (only if profiles table exists)
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+    WHERE c.relname = 'profiles' AND n.nspname = 'public'
+  ) THEN
+    ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS display_name text;
+  END IF;
+END $$;
 
 -- Kids: children linked to parent (auth user)
 CREATE TABLE IF NOT EXISTS public.profile_kids (

@@ -14,3 +14,4 @@ ios/
 .vscode/
 supabase/.temp/
 lighthouse-*.html
+*.zip

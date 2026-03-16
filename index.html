@@ -2953,7 +2953,8 @@
       display: block; width: 100%; margin-top: 0.65rem;
       background: color-mix(in srgb, var(--gold) 12%, transparent);
       border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
-      border-radius: 8px; padding: 0.55rem;
+      border-radius: 8px; padding: 0.55rem 1rem;
+      min-height: 44px; min-width: 44px;
       font-size: 0.82rem; color: var(--gold); cursor: pointer;
       transition: background 0.15s ease;
     }
@@ -4822,7 +4823,10 @@
       }
 
       var searchBtn = document.getElementById("feel-search-btn");
-      if (searchBtn) searchBtn.addEventListener("click", runSearch);
+      if (searchBtn) {
+        searchBtn.addEventListener("click", runSearch);
+        searchBtn.addEventListener("touchend", function (e) { e.preventDefault(); runSearch(); }, { passive: false });
+      }
 
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -5554,8 +5558,14 @@
       var modal = document.getElementById('kidsStoryModal');
       var close = document.getElementById('storyModalClose');
       if (!btn || !modal) return;
-      btn.addEventListener('click', function () { modal.hidden = false; });
-      if (close) close.addEventListener('click', function () { modal.hidden = true; btn.focus(); });
+      function openModal() { modal.hidden = false; }
+      function closeModal() { modal.hidden = true; btn.focus(); }
+      btn.addEventListener('click', openModal);
+      btn.addEventListener('touchend', function (e) { e.preventDefault(); openModal(); }, { passive: false });
+      if (close) {
+        close.addEventListener('click', closeModal);
+        close.addEventListener('touchend', function (e) { e.preventDefault(); closeModal(); }, { passive: false });
+      }
       modal.addEventListener('keydown', function (e) { if (e.key === 'Escape') { modal.hidden = true; btn.focus(); } });
     }
 

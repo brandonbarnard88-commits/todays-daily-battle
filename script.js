@@ -15894,13 +15894,13 @@ function writeNbaSignal(key) {
           _valLen = len;
         });
       }
-      document.addEventListener('click', function (e) {
+      function onTopicChipTap(e) {
         var btn = e.target && (e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null);
         if (!btn) return;
         var inSearchSurface = btn.closest && btn.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section');
         if (!inSearchSurface) return;
         try {
-          e.preventDefault();
+          if (e.type === 'touchend') e.preventDefault();
           e.stopPropagation();
           var topic = topicFromChip(btn);
           if (!topic) return;
@@ -15910,7 +15910,9 @@ function writeNbaSignal(key) {
           ensureBattleSearchVisible();
           if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
         } catch (err) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB quick-topic click:', err); }
-      });
+      }
+      document.addEventListener('click', onTopicChipTap);
+      document.addEventListener('touchend', onTopicChipTap, { passive: false });
       var testamentFilter = document.getElementById('testament-filter');
       var bookFilter = document.getElementById('book-filter');
       if (testamentFilter) testamentFilter.addEventListener('change', handleSearchFilterChange);
@@ -20500,12 +20502,15 @@ function wireRandomBattleVerseHero() {
     }
     var quickTopics = document.getElementById('quickTopics');
     if (quickTopics) {
-      quickTopics.addEventListener('click', function (e) {
+      function onQuickTopicTap(e) {
         var btn = e.target && e.target.closest ? e.target.closest('.quick-topic[data-topic]') : null;
         if (!btn) return;
         e.stopPropagation();
+        if (e.type === 'touchend') e.preventDefault();
         renderSmartResult(btn.getAttribute('data-topic'));
-      });
+      }
+      quickTopics.addEventListener('click', onQuickTopicTap);
+      quickTopics.addEventListener('touchend', onQuickTopicTap, { passive: false });
     }
   }());
 

@@ -36,11 +36,17 @@ const body = JSON.stringify({ purge_everything: true });
 
 try {
   const res = await fetch(url, { method: 'POST', headers, body });
-  const data = await res.json();
+  const data = await res.json().catch(() => ({}));
   if (data.success) {
     console.log('Purge successful. Wait 30–60s, then test in incognito.');
   } else {
-    console.error('Purge failed:', data.errors || data);
+    console.error('Purge failed. HTTP', res.status);
+    console.error('Response:', JSON.stringify(data, null, 2));
+    if (data.errors && data.errors[0]) {
+      const e = data.errors[0];
+      if (e.code === 7003) console.error('Hint: CF_ZONE_ID may be wrong. Use Zone ID from domain Overview, not Pages project ID.');
+      if (e.code === 9109 || e.code === 6003) console.error('Hint: Token may lack "Cache Purge" permission. Recreate with "Edit zone cache" template.');
+    }
     process.exit(1);
   }
 } catch (err) {

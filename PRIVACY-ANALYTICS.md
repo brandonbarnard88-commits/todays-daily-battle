@@ -21,7 +21,7 @@ If analytics or any system is ever compromised, there is nothing that could iden
 
 1. **Only `trackSearchAnalytics(eventName, params)`** may be used for search-related analytics. It is defined in `script.js` with a strict allowlist.
 2. **Allowed event names:** `quick_search`, `search_query` only.
-3. **Allowed parameters:** `topic`, `search_type`, `map_keys`, `semantic_blended`, `blended_count`, `blended_topics`, `heartfelt_template_used` (string, e.g. "pair:fear,loneliness" or "default"—which blended message fired), `default_rate` (0 or 1—1 if the query fell to the generic default message, 0 if a topic/blend matched). All are anonymous labels only—never raw query text. No other keys are passed through. Any attempt to pass `query`, `user_id`, `email`, or anything else is **stripped** and never sent.
+3. **Allowed parameters:** `topic`, `search_type`, `map_keys`, `semantic_blended`, `blended_count`, `blended_topics`, `heartfelt_template_used` (string, e.g. "pair:fear,loneliness" or "default"—which blended message fired), `default_rate` (0 or 1—1 if the query fell to the generic default message, 0 if a topic/blend matched), `verse_count_returned` (number 1–30—how many verses were returned), `used_default_verses` (0 or 1—1 if the curated hope set padded or filled the results). All are anonymous labels only—never raw query text. No other keys are passed through. Any attempt to pass `query`, `user_id`, `email`, or anything else is **stripped** and never sent.
 4. All search analytics call sites use `trackSearchAnalytics()`, not `trackEvent()`, for search events.
 
 So even if someone later adds `query: input` or `user_id: x` to a call, `trackSearchAnalytics()` will not forward them. Only `topic` and `search_type` can ever be sent.
@@ -40,6 +40,7 @@ So even if someone later adds `query: input` or `user_id: x` to a call, `trackSe
 - Sending `map_keys` (e.g. `["reaction:stand","feeling:overwhelmed"]`) so we can spot common expansion patterns and refine maps—anonymous semantic labels only, never raw query text.
 - Sending `semantic_blended`, `blended_count`, `blended_topics`, and `heartfelt_template_used` (e.g. "pair:fear,loneliness" or "default") when topic blending occurs—anonymous labels only, to surface common pairs and which tailored messages fire most.
 - Sending `default_rate` (0 or 1) so we can measure % of searches that fall to the generic default—helps prioritize phrase/topic additions. No raw query is ever sent.
+- Sending `verse_count_returned` (number) and `used_default_verses` (0 or 1) to see how often the hope set is padding and how many verses users typically receive—aggregate counts only.
 
 ---
 

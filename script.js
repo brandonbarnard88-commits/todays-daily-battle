@@ -9402,6 +9402,8 @@ function trackSearchAnalytics(eventName, params) {
       if (/^(pair:[a-z0-9,_-]+|default)$/.test(tpl)) safe.heartfelt_template_used = tpl;
     }
     if (typeof params.default_rate === 'number' && (params.default_rate === 0 || params.default_rate === 1)) safe.default_rate = params.default_rate;
+    if (typeof params.verse_count_returned === 'number' && params.verse_count_returned >= 1 && params.verse_count_returned <= 30) safe.verse_count_returned = params.verse_count_returned;
+    if (typeof params.used_default_verses === 'number' && (params.used_default_verses === 0 || params.used_default_verses === 1)) safe.used_default_verses = params.used_default_verses;
   }
   trackEvent(eventName, safe);
 }
@@ -12732,6 +12734,9 @@ function getSemanticMatchesAboveThreshold(input) {
         break;
       }
     }
+  }
+  if (collected.length === 0 && /brothers|siblings|fighting|arguing|quarreling|inheritance|parents\s+(health|will)|estate|caregiving/i.test(q) && topics && topics.family) {
+    add('family', 'family', 0.7);
   }
   return collected
     .sort(function (a, b) { return b.score - a.score; })
@@ -16074,13 +16079,14 @@ function executeQuery(parsed, tier, filters) {
   if (results.verses.length === 0) {
     // Curated hope verses with full breakdowns—no search leaves empty-handed
     if (typeof DEFAULT_VERSES !== 'undefined' && DEFAULT_VERSES.length > 0) {
-      var defaultSet = DEFAULT_VERSES.slice(0, 8);
-      defaultSet.forEach(function(d) {
+      var shuffled = DEFAULT_VERSES.slice();
+      if (typeof shuffleArray === 'function') shuffleArray(shuffled);
+      shuffled.slice(0, 8).forEach(function(d) {
         var text = d.text || (typeof bible !== 'undefined' && bible[d.ref]) || (typeof getBibleVerseText === 'function' ? getBibleVerseText(d.ref) : '');
         if (text) results.verses.push({ ref: d.ref, text: text, breakdown: d.breakdown });
       });
       results.verses = filterVerseList(results.verses, filters);
-      if (results.verses.length > 0) results.fallback = true;
+      if (results.verses.length > 0) { results.fallback = true; results.usedDefaultVerses = true; }
     }
     // Absolute last resort: John 3:16 or bundled fallback
     if (results.verses.length === 0 && typeof bible !== 'undefined' && bible['John 3:16']) {
@@ -16095,10 +16101,12 @@ function executeQuery(parsed, tier, filters) {
   }
   // Pad to at least 6 verses when we have some but fewer than 6
   if (results.verses.length > 0 && results.verses.length < 6 && typeof DEFAULT_VERSES !== 'undefined' && DEFAULT_VERSES.length > 0) {
+    var shuffledPad = DEFAULT_VERSES.slice();
+    if (typeof shuffleArray === 'function') shuffleArray(shuffledPad);
     var existingRefs = new Set(results.verses.map(function(v) { return v.ref; }));
     var padCount = 6 - results.verses.length;
-    for (var pi = 0; pi < DEFAULT_VERSES.length && padCount > 0; pi++) {
-      var d = DEFAULT_VERSES[pi];
+    for (var pi = 0; pi < shuffledPad.length && padCount > 0; pi++) {
+      var d = shuffledPad[pi];
       if (existingRefs.has(d.ref)) continue;
       var ptext = d.text || (typeof bible !== 'undefined' && bible[d.ref]) || (typeof getBibleVerseText === 'function' ? getBibleVerseText(d.ref) : '');
       if (ptext) {
@@ -16108,6 +16116,7 @@ function executeQuery(parsed, tier, filters) {
       }
     }
     results.verses = filterVerseList(results.verses, filters);
+    results.usedDefaultVerses = true;
   }
   return results;
 }
@@ -16688,7 +16697,8 @@ function renderResults(results) {
   } else if (results.intent === 'keyword') {
     resultsTitle = 'Matching Verses';
   }
-  renderSection(resultsTitle, verses, 10, isJesusSaidQuery);
+  var initialVerseLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 6 : 10;
+  renderSection(resultsTitle, verses, initialVerseLimit, isJesusSaidQuery);
   if (queryText.includes('family') || queryText.includes('parenting') || queryText.includes('parents') || queryText.includes('home')) {
     const familyTreeWrap = document.createElement('div');
     familyTreeWrap.className = 'family-tree-image-wrap';
@@ -17159,6 +17169,8 @@ function sanitizeNudgeElements() {
               }
               var hasMatch = searchTopic || (searchResults && searchResults.semanticTopic) || (searchResults && searchResults.semanticBlendedTopics && searchResults.semanticBlendedTopics.length >= 2);
               params.default_rate = hasMatch ? 0 : 1;
+              if (searchResults && searchResults.verses) params.verse_count_returned = searchResults.verses.length;
+              if (searchResults && searchResults.usedDefaultVerses) params.used_default_verses = 1; else params.used_default_verses = 0;
               trackSearchAnalytics('search_query', params);
             }
             try { await renderDailyBattleCard(); } catch (_) {}

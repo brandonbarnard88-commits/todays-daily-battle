@@ -6,21 +6,32 @@ When you have entries in `feeling_suggestions`, use this process to map them int
 
 ## 1. Pull recent submissions
 
-In Supabase SQL Editor (run as service_role or admin):
+**Option A — Script (recommended):**
+
+```bash
+SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... npm run suggest:fetch
+```
+
+Last 30 days only:
+
+```bash
+SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... npm run suggest:fetch -- --days 30
+```
+
+Outputs anonymized top phrases by frequency, plus a "Top 8" line for copy-paste.
+
+**Option B — Supabase SQL Editor** (run as service_role or admin):
 
 ```sql
-SELECT
-  created_at,
-  phrase
+SELECT created_at, phrase
 FROM public.feeling_suggestions
 ORDER BY created_at DESC
 LIMIT 50;
 ```
 
-Filter by date if needed:
+Filter by date:
 
 ```sql
--- Last 30 days
 WHERE created_at > now() - interval '30 days'
 ```
 

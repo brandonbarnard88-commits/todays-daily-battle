@@ -1605,8 +1605,21 @@ const TYPO_CORRECTION = {
   woried: 'worried', wory: 'worry', jeleous: 'jealous', thankfull: 'thankful', joyfull: 'joyful',
   overwelmed: 'overwhelmed', overwelm: 'overwhelm', streanth: 'strength', strenght: 'strength',
   patiance: 'patience', patince: 'patience', gult: 'guilt', adiction: 'addiction',
-  attck: 'attack', breth: 'breath'
+  attck: 'attack', breth: 'breath',
+  suicdal: 'suicidal', sucidal: 'suicidal', suicial: 'suicidal', sucide: 'suicide'
 };
+
+function applyTypoCorrection(text) {
+  if (!text || typeof text !== 'string') return text;
+  var out = text;
+  for (var k in TYPO_CORRECTION) {
+    if (TYPO_CORRECTION.hasOwnProperty(k)) {
+      var re = new RegExp('\\b' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
+      out = out.replace(re, TYPO_CORRECTION[k]);
+    }
+  }
+  return out;
+}
 
 /** Levenshtein distance — vanilla JS, ~1.5kb. Used for fuzzy typo correction and "Did you mean?" suggestions. */
 function levenshteinDistance(a, b) {
@@ -2293,6 +2306,17 @@ const PHRASE_TO_TOKENS = {
   'anxiety is killing me': ['anxiety', 'peace', 'Phil 4', '1 Peter 5'],
   'feel like im drowning': ['anxiety', 'overwhelm', 'Psalm 69', 'Isaiah 43'],
   'god even real': ['faith', 'doubt', 'Hebrews 11', 'John 20'],
+  'feeling trapped': ['hope', 'strength', 'Psalm 34', 'Isaiah 43'],
+  'no way out': ['hope', 'comfort', 'Psalm 34', '2 Cor 4'],
+  'unbearable pain': ['hope', 'comfort', 'Psalm 34', 'Rev 21'],
+  'stuck in hell': ['hope', 'comfort', 'Psalm 23', 'Isaiah 43'],
+  'giving away my stuff': ['hope', 'life', 'comfort', 'Psalm 55'],
+  'making a plan to die': ['hope', 'life', 'comfort', 'Psalm 139'],
+  'go to sleep forever': ['hope', 'life', 'comfort', 'Psalm 139'],
+  'fade away': ['hope', 'comfort', 'Psalm 23', 'Isaiah 41'],
+  'quiero morir': ['hope', 'life', 'comfort', 'John 10'],
+  'me quiero matar': ['hope', 'life', 'comfort', 'Psalm 139'],
+  'no quiero vivir': ['hope', 'life', 'comfort', 'Psalm 55'],
   // finances
   'financial stress': ['finances', 'provision', 'faith'],
   'money problems': ['finances', 'provision', 'faith'],
@@ -4277,6 +4301,32 @@ var SMART_DICTIONARY = {
 window.ROTATING_HERO_VERSES = ROTATING_HERO_VERSES;
 window.SMART_DICTIONARY     = SMART_DICTIONARY;
 
+/** Map common emotion words to SMART_DICTIONARY keys — makes "anxious", "stressed" etc. show smart cards. */
+var FEEL_TO_SMART = {
+  anxious: 'anxiety', stressed: 'anxiety', overwhelmed: 'anxiety', burnout: 'rest', exhausted: 'rest',
+  afraid: 'fear', scared: 'fear', panic: 'fear', worried: 'worry',
+  hopeless: 'hope', sad: 'grief', sadness: 'grief', heartbroken: 'heartache', brokenhearted: 'heartache',
+  lonely: 'loneliness', alone: 'loneliness', isolated: 'loneliness',
+  angry: 'anger', furious: 'anger', rage: 'anger',
+  guilty: 'guilt', ashamed: 'guilt', shame: 'guilt',
+  weak: 'strength', weary: 'strength', tired: 'strength',
+  brave: 'courage', bold: 'courage',
+  calm: 'peace', stillness: 'peace',
+  thankful: 'gratitude', thanks: 'gratitude',
+  wise: 'wisdom', discern: 'wisdom', decision: 'wisdom',
+  worthless: 'identity', value: 'identity',
+  calling: 'purpose', direction: 'purpose',
+  forgive: 'forgiveness', forgiven: 'forgiveness',
+  impatient: 'patience', waiting: 'patience', wait: 'patience',
+  addicted: 'addiction', bondage: 'addiction',
+  traumatized: 'trauma', wounded: 'trauma', ptsd: 'trauma',
+  depressed: 'grief',
+  spouse: 'marriage', money: 'finances', provision: 'finances', bills: 'finances',
+  insomnia: 'sleep', parents: 'family', home: 'family',
+  believe: 'faith', belief: 'faith', doubt: 'faith',
+  pray: 'wisdom'
+};
+
 /** Heartfelt messages before results — one per inquiry, warm and uplifting. Checked in order; first match wins. */
 var HEARTFELT_INQUIRY_MESSAGES = [
   { patterns: ['piece of shit', 'difficult person', 'toxic coworker', 'bad coworker', 'hate my coworker', 'difficult boss'], message: 'Dealing with someone difficult is exhausting. God sees you and gives grace to respond with patience and love—even when it feels impossible.' },
@@ -4351,6 +4401,21 @@ function renderSmartResult(query) {
   var container = document.getElementById('feel-results');
   if (!container) return;
   var info = SMART_DICTIONARY[key];
+  if (!info && typeof FEEL_TO_SMART !== 'undefined' && FEEL_TO_SMART[key]) {
+    info = SMART_DICTIONARY[FEEL_TO_SMART[key]];
+  }
+  if (!info && typeof resolveTopicFromToken === 'function') {
+    var topic = resolveTopicFromToken(key);
+    if (!topic && typeof QUERY_TO_TOPIC !== 'undefined') {
+      var mapped = QUERY_TO_TOPIC[normalizeInput(key)];
+      if (Array.isArray(mapped)) {
+        for (var ti = 0; ti < mapped.length; ti++) {
+          if (SMART_DICTIONARY[mapped[ti]]) { topic = mapped[ti]; break; }
+        }
+      } else if (mapped && SMART_DICTIONARY[mapped]) topic = mapped;
+    }
+    if (topic && SMART_DICTIONARY[topic]) info = SMART_DICTIONARY[topic];
+  }
   if (!info && typeof PHRASE_TO_TOKENS !== 'undefined') {
     var norm = (key || '').replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
     var phraseKeys = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
@@ -4362,12 +4427,12 @@ function renderSmartResult(query) {
       }
     }
   }
-  info = info || {
-    def: "You\u2019re searching\u2014He\u2019s answering.",
-    action: "Hold this verse today.",
-    outcome: "Light comes.",
-    verseRef: "Psalm 119:105"
-  };
+  var wordCount = (key || '').split(/\s+/).filter(function (w) { return w.length >= 2; }).length;
+  if (!info) {
+    if (key.length < 3) return;
+    if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(query);
+    return;
+  }
   var verse = null;
   for (var i = 0; i < ROTATING_HERO_VERSES.length; i++) {
     if (ROTATING_HERO_VERSES[i].ref.indexOf(info.verseRef) !== -1) { verse = ROTATING_HERO_VERSES[i]; break; }
@@ -4514,9 +4579,9 @@ function renderSmartResult(query) {
   card.appendChild(actions);
 
   container.appendChild(card);
-  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going|dont\s*want\s*to\s*be\s*here|better\s*off\s*without\s*me|pain\s*to\s*stop\s*forever|wish\s*(i|im)\s*could\s*disappear|hate\s*myself|better\s*off\s*gone|no\s*will\s*to\s*live)\b/i;
+  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going|dont\s*want\s*to\s*be\s*here|better\s*off\s*without\s*me|pain\s*to\s*stop\s*forever|wish\s*(i|im)\s*could\s*disappear|hate\s*myself|better\s*off\s*gone|no\s*will\s*to\s*live|feeling\s*trapped|feel\s*trapped|unbearable\s*pain|no\s*way\s*out|stuck\s*in\s*hell|giving\s*away\s*my\s*stuff|making\s*a\s*plan\s*to\s*die|plan\s*to\s*die|researching\s*ways\s*to\s*die|sleep\s*forever|fade\s*away|join\s*loved\s*ones|quiero\s*morir|me\s*quiero\s*matar|no\s*quiero\s*vivir)\b/i;
   var normKey = (key || '').toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
-  if (crisisPattern.test(normKey)) {
+  if (crisisPattern.test(applyTypoCorrection(normKey))) {
     var crisisNote = document.createElement('div');
     crisisNote.className = 'crisis-resources-note';
     crisisNote.setAttribute('role', 'complementary');
@@ -15895,8 +15960,8 @@ function renderResults(results) {
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';
   output.appendChild(contextNote);
-  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going|dont\s*want\s*to\s*be\s*here|better\s*off\s*without\s*me|pain\s*to\s*stop\s*forever|wish\s*(i|im)\s*could\s*disappear|hate\s*myself|better\s*off\s*gone|no\s*will\s*to\s*live)\b/i;
-  if (crisisPattern.test(queryText)) {
+  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going|dont\s*want\s*to\s*be\s*here|better\s*off\s*without\s*me|pain\s*to\s*stop\s*forever|wish\s*(i|im)\s*could\s*disappear|hate\s*myself|better\s*off\s*gone|no\s*will\s*to\s*live|feeling\s*trapped|feel\s*trapped|unbearable\s*pain|no\s*way\s*out|stuck\s*in\s*hell|giving\s*away\s*my\s*stuff|making\s*a\s*plan\s*to\s*die|plan\s*to\s*die|researching\s*ways\s*to\s*die|sleep\s*forever|fade\s*away|join\s*loved\s*ones|quiero\s*morir|me\s*quiero\s*matar|no\s*quiero\s*vivir)\b/i;
+  if (crisisPattern.test(applyTypoCorrection(queryText))) {
     var crisisNote = document.createElement('div');
     crisisNote.className = 'crisis-resources-note';
     crisisNote.setAttribute('role', 'complementary');

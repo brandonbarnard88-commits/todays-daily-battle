@@ -19,9 +19,15 @@ const QUERIES = [
   'end my pain please make it stop',
   'die laughing at how pointless everything is',
   'kill time till i can end it all',
+  // Weak-spot validation (Round 4)
+  'feeling trapped no way out',
+  'giving away my stuff before its too late',
+  'unbearable pain i cant take it',
+  'quiero morir tonight',
+  'suicdal thoughts killing me',
 ];
-/** Round 3: 1-8 trigger crisis note, 9 no (die laughing), 10 no (kill time = metaphorical) */
-const CRISIS_NOTE_EXPECTED = [true, true, true, true, true, true, true, true, false, false];
+/** Round 3: 1-8 trigger crisis note, 9-10 no. Round 4: 11-15 all trigger (weak-spot fixes). */
+const CRISIS_NOTE_EXPECTED = [true, true, true, true, true, true, true, true, false, false, true, true, true, true, true];
 
 async function main() {
   console.log('Live Search Torture Test');

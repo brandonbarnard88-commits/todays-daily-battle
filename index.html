@@ -1701,6 +1701,28 @@
     @keyframes easter-badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
     a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
 
+    /* ── Need Him Right Now? Anytime anchor ── */
+    .need-him-now-card {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 1.1rem; margin: 0 0 0.6rem;
+      background: linear-gradient(135deg, rgba(227,188,103,0.18), rgba(227,188,103,0.08));
+      border: 1px solid rgba(227,188,103,0.45);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .need-him-now-card:hover, .need-him-now-card:focus-visible {
+      background: rgba(227,188,103,0.22);
+      border-color: rgba(227,188,103,0.55);
+      outline: 2px solid rgba(227,188,103,0.4);
+      outline-offset: 2px;
+    }
+    .need-him-now-icon { font-size: 1.35rem; flex-shrink: 0; }
+    .need-him-now-text { flex: 1; }
+    .need-him-now-arrow { color: var(--gold); font-weight: 600; }
+
     /* ── Calm crisis card (prominent discoverability) ── */
     .calm-crisis-card {
       display: flex; align-items: center; gap: 0.6rem;
@@ -3473,6 +3495,13 @@
     </section>
 
     <main>
+
+      <!-- ── Need Him Right Now? Anytime anchor (mood search + Möbius) ── -->
+      <a href="#quick-search-hero" class="need-him-now-card" aria-label="Need Him Right Now? Search by feeling or breathe — anytime, not just mornings">
+        <span class="need-him-now-icon" aria-hidden="true">✝️</span>
+        <span class="need-him-now-text"><strong>Need Him Right Now?</strong> Search by feeling or breathe — anytime.</span>
+        <span class="need-him-now-arrow" aria-hidden="true">→</span>
+      </a>
 
       <!-- ── Calm flow: crisis moment shortcut (prominent discoverability) ── -->
       <a href="calm.html" class="calm-crisis-card" aria-label="Feeling overwhelmed? Get a verse right now — one tap, instant comfort">

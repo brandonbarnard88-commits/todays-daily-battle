@@ -26,6 +26,8 @@
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke",
     "validate:prod": "node scripts/prod-validation.mjs",
     "suggest:fetch": "node scripts/fetch-feeling-suggestions.mjs",
+    "deploy:webhook": "bash scripts/deploy-stripe-webhook.sh",
+    "deploy:seed": "npx supabase functions deploy seed-daily-battle",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
     "purge:check": "node scripts/cloudflare-purge-check.mjs",
     "audit:links": "npm run build && node scripts/audit-links.mjs",

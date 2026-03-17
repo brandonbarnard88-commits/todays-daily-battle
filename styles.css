@@ -12600,6 +12600,9 @@ a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
 .easter-still-result { padding: 1.5rem; text-align: center; }
 .easter-still-verse { font-size: 1.4rem; color: var(--elite-gold-solid, #d4af37); margin: 0 0 0.25rem; font-style: italic; }
 .easter-still-ref { font-size: 0.9rem; color: var(--text-muted, #bcc5d6); margin: 0; }
+.easter-nothing-can-stop .easter-nothing-ref { font-size: 0.95rem; color: var(--elite-gold-solid, #d4af37); margin: 1rem 0 0.25rem; font-weight: 600; }
+.easter-nothing-can-stop .easter-nothing-text { font-size: 1rem; color: var(--text); margin: 0 0 0.5rem; font-style: italic; line-height: 1.5; }
+.easter-nothing-can-stop .easter-nothing-close { font-size: 1.05rem; color: var(--elite-gold-solid, #d4af37); margin: 1.25rem 0 0; font-weight: 500; }
 .easter-still-glow { box-shadow: 0 0 16px rgba(212,175,55,0.6) !important; border-color: var(--elite-gold-solid, #d4af37) !important; transition: box-shadow 0.3s, border-color 0.3s; }
 @keyframes easter-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes easter-fade-out { from { opacity: 1; } to { opacity: 0; } }

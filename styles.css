@@ -6605,6 +6605,36 @@ body.red-letter-off .red-letter-card {
   color: #94a3b8;
 }
 
+/* Crisis resources — small, neutral, always on results. Scripture + real help when it's life-or-death. */
+.crisis-resources-note {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(100, 116, 139, 0.08);
+}
+.crisis-resources-note a {
+  color: #64748b;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+.crisis-resources-note a:hover {
+  color: #94a3b8;
+}
+.dark-mode .crisis-resources-note {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.06);
+}
+.dark-mode .crisis-resources-note a {
+  color: #94a3b8;
+}
+.dark-mode .crisis-resources-note a:hover {
+  color: #cbd5e1;
+}
+
 /* Family tree image — Family/Parenting quick results */
 .family-tree-image-wrap {
   margin: 1.5rem 0;

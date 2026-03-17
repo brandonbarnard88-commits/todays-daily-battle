@@ -15837,6 +15837,15 @@ function renderResults(results) {
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';
   output.appendChild(contextNote);
+  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going)\b/i;
+  if (crisisPattern.test(queryText)) {
+    var crisisNote = document.createElement('div');
+    crisisNote.className = 'crisis-resources-note';
+    crisisNote.setAttribute('role', 'complementary');
+    crisisNote.setAttribute('aria-label', 'Crisis support resources');
+    crisisNote.innerHTML = 'If you\'re in immediate danger or thinking of harming yourself, please reach out right now: <a href="tel:988">Call or text 988</a> (24/7, free, confidential). Or <a href="https://988lifeline.org/chat/" target="_blank" rel="noopener noreferrer">chat at 988lifeline.org</a>. Text HOME to 741741 for Crisis Text Line. You\'re not alone.';
+    output.appendChild(crisisNote);
+  }
   const refreshOrderBtn = document.createElement('button');
   refreshOrderBtn.type = 'button';
   refreshOrderBtn.className = 'btn btn-secondary refresh-order-btn';

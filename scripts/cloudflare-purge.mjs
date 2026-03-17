@@ -26,6 +26,10 @@ if (!headers.Authorization && !headers['X-Auth-Email']) {
   console.error('Missing CF_API_TOKEN. Get from Cloudflare → My Profile → API Tokens → "Edit zone cache" template.');
   process.exit(1);
 }
+if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder/i.test(API_TOKEN) || API_TOKEN.length < 30)) {
+  console.error('CF_API_TOKEN looks like a placeholder. Use your real token from Cloudflare.');
+  process.exit(1);
+}
 
 async function findZoneId() {
   const res = await fetch(`https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}`, { headers });

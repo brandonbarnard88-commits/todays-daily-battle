@@ -14,6 +14,11 @@ if (!API_TOKEN) {
   console.error('Set CF_API_TOKEN. Get from Cloudflare → My Profile → API Tokens.');
   process.exit(1);
 }
+if (/your_token|paste_your|actual_token|example|placeholder/i.test(API_TOKEN) || API_TOKEN.length < 30) {
+  console.error('CF_API_TOKEN looks like a placeholder. Use your real token from Cloudflare.');
+  console.error('Create one: dash.cloudflare.com → My Profile → API Tokens → Create Token → Edit zone cache');
+  process.exit(1);
+}
 
 const headers = {
   'Content-Type': 'application/json',

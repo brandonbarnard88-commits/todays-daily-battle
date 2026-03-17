@@ -7553,6 +7553,7 @@ function wireArmorBuilderModal() {
     modal.classList.add('hidden');
   }
   function openModal(toArmor) {
+    if (typeof trackEvent === 'function') trackEvent('family_armor_modal_open', { tab: toArmor ? 'armor' : 'stories' });
     renderFamilyStoriesTab();
     if (toArmor) switchFamilyArmorTab('armor'); else switchFamilyArmorTab('stories');
     modal.classList.remove('hidden');

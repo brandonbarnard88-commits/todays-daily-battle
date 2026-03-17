@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
+  <script src="ga-config.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Need a verse now? • Today's Daily Battle</title>
@@ -152,6 +154,7 @@
       }
       function showVerseView(cat) {
         currentCategory = cat;
+        if (typeof gtag === 'function') gtag('event', 'calm_category_tap', { category: cat });
         document.getElementById('calm-categories').style.display = 'none';
         document.querySelector('.intro').style.display = 'none';
         document.getElementById('verse-container').style.display = 'flex';
@@ -175,6 +178,7 @@
             showVerseView(btn.dataset.category);
           } else {
             currentCategory = btn.dataset.category;
+            if (typeof gtag === 'function') gtag('event', 'calm_category_tap', { category: currentCategory });
             var v = pickVerse(currentCategory);
             var textEl = document.getElementById('desktop-verse-text');
             var refEl = document.getElementById('desktop-verse-ref');
@@ -211,6 +215,7 @@
         var t = document.getElementById('verse-text');
         var r = document.getElementById('verse-ref');
         copyVerse((t && t.textContent) || '', (r && r.textContent) || '');
+        if (typeof gtag === 'function') gtag('event', 'calm_copy_verse', { category: currentCategory || 'desktop' });
         copyBtn.textContent = 'Copied';
         setTimeout(function () { copyBtn.textContent = 'Copy to clipboard'; }, 2000);
       });
@@ -219,6 +224,7 @@
         var t = document.getElementById('desktop-verse-text');
         var r = document.getElementById('desktop-verse-ref');
         copyVerse((t && t.textContent) || '', (r && r.textContent) || '');
+        if (typeof gtag === 'function') gtag('event', 'calm_copy_verse', { category: currentCategory || 'desktop' });
         desktopCopy.textContent = 'Copied';
         setTimeout(function () { desktopCopy.textContent = 'Copy to clipboard'; }, 2000);
       });

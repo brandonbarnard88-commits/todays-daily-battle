@@ -2000,6 +2000,7 @@ const QUERY_TO_TOPIC = {
   // family / parenting
   family: 'family', children: 'parenting', kids: 'parenting', parenting: 'parenting', parents: 'family',
   father: 'family', mother: 'family', son: 'family', daughter: 'family', sibling: 'family',
+  mom: 'parenting', teenager: 'parenting', failure: 'grace',
   // marriage / relationships
   marriage: 'marriage', spouse: 'marriage', husband: 'marriage', wife: 'marriage', covenant: 'marriage',
   divorce: 'marriage', reconcile: 'marriage', relationship: 'relationships', friendship: 'relationships',
@@ -2007,6 +2008,7 @@ const QUERY_TO_TOPIC = {
   coworker: 'patience', coworkers: 'patience', colleague: 'patience', colleagues: 'patience',
   boss: 'patience', toxic: 'forgiveness', difficult: 'patience', enemy: 'forgiveness', enemies: 'forgiveness',
   workplace: 'patience', work: 'patience', job: 'patience', office: 'patience',
+  asshole: 'patience', fighting: 'marriage',
   // finances
   money: 'finances', finances: 'finances', provision: 'finances', wealth: 'finances', bills: 'finances',
   debt: 'finances', poor: 'finances', broke: 'finances', financial: 'finances', provide: 'finances',
@@ -2046,6 +2048,9 @@ const QUERY_TO_TOPIC = {
   weak: 'strength', weakened: 'strength',
   // crisis / suicidal — map to hope, life, comfort so verses surface immediately
   kms: 'hope', suicidal: 'hope', suicide: 'hope', dying: 'hope', enditall: 'hope',
+  // nightmare queries — self-worth, grief, addiction, doubt
+  trash: 'love', ruined: 'forgiveness', relapsing: 'addiction', invisible: 'loneliness',
+  drowning: 'anxiety', forgotten: 'faith', disappear: 'hope', pretending: 'rest',
 };
 
 /** Comprehensive vocabulary: maps common words to topics so search understands what is being asked. */
@@ -2257,6 +2262,37 @@ const PHRASE_TO_TOKENS = {
   'fuck this world': ['hope', 'life', 'comfort', 'world'],
   'nothing matters': ['hope', 'life', 'purpose', 'despair'],
   'nothing matters anymore': ['hope', 'life', 'purpose', 'despair'],
+  // nightmare queries — real pain, real searches
+  'piece of trash': ['love', 'worth', 'precious', 'created', 'image'],
+  'nobody loves me': ['love', 'comfort', 'Romans 8'],
+  'why am i still alive': ['hope', 'life', 'purpose', 'Psalm 139'],
+  'ruined everything': ['forgiveness', 'grace', 'restore', '2 Cor 5'],
+  'husband left me': ['grief', 'marriage', 'comfort', 'Psalm 34'],
+  'cant stop crying': ['grief', 'comfort', 'hope'],
+  'god forgot about me': ['faith', 'Isaiah 49', 'Hebrews 13'],
+  'scared to wake up': ['fear', 'anxiety', 'Psalm 118', 'Matt 6'],
+  'pain to stop forever': ['hope', 'comfort', 'Psalm 34', 'Rev 21'],
+  'better off without me': ['hope', 'burden', 'love', 'Psalm 139'],
+  'better off gone': ['hope', 'life', 'comfort', 'Psalm 139'],
+  'no will to live': ['hope', 'life', 'comfort', 'Psalm 55'],
+  'keep relapsing': ['addiction', 'grace', 'Romans 7', '1 Cor 10'],
+  'cant stop drinking': ['addiction', 'temptation', '1 Cor 10', 'Romans 7'],
+  'hate myself': ['love', 'grace', 'Psalm 139', 'forgiveness'],
+  'baby died': ['grief', 'comfort', 'Psalm 34', '2 Cor 1'],
+  'cant breathe': ['anxiety', 'peace', 'Psalm 23', 'Isaiah 41'],
+  'feel invisible': ['loneliness', 'Psalm 139', 'Hebrews 13'],
+  'nothing is ever enough': ['grace', '2 Cor 12', 'Eph 2'],
+  'is ever enough': ['grace', '2 Cor 12', 'Eph 2'],
+  'nothing i do': ['grace', 'enough', '2 Cor 12'],
+  'wish i could disappear': ['hope', 'comfort', 'Psalm 139'],
+  'tired of pretending': ['rest', 'honesty', 'Matt 11', 'Psalm 62'],
+  'forgive someone who ruined': ['forgiveness', 'Eph 4', 'Matt 18'],
+  'dont want to be here': ['hope', 'rest', 'Psalm 55', 'Matt 11'],
+  'want to give up': ['strength', 'rest', 'Psalm 55', 'Matt 11'],
+  'just want to give up': ['strength', 'rest', 'Psalm 55', 'Matt 11'],
+  'anxiety is killing me': ['anxiety', 'peace', 'Phil 4', '1 Peter 5'],
+  'feel like im drowning': ['anxiety', 'overwhelm', 'Psalm 69', 'Isaiah 43'],
+  'god even real': ['faith', 'doubt', 'Hebrews 11', 'John 20'],
   // finances
   'financial stress': ['finances', 'provision', 'faith'],
   'money problems': ['finances', 'provision', 'faith'],
@@ -4314,7 +4350,19 @@ function renderSmartResult(query) {
   if (!key) return;
   var container = document.getElementById('feel-results');
   if (!container) return;
-  var info = SMART_DICTIONARY[key] || {
+  var info = SMART_DICTIONARY[key];
+  if (!info && typeof PHRASE_TO_TOKENS !== 'undefined') {
+    var norm = (key || '').replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
+    var phraseKeys = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
+    for (var pi = 0; pi < phraseKeys.length; pi++) {
+      var pnorm = phraseKeys[pi].replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').toLowerCase();
+      if (pnorm.length >= 4 && norm.indexOf(pnorm) !== -1) {
+        if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(query);
+        return;
+      }
+    }
+  }
+  info = info || {
     def: "You\u2019re searching\u2014He\u2019s answering.",
     action: "Hold this verse today.",
     outcome: "Light comes.",
@@ -4466,6 +4514,16 @@ function renderSmartResult(query) {
   card.appendChild(actions);
 
   container.appendChild(card);
+  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going|dont\s*want\s*to\s*be\s*here|better\s*off\s*without\s*me|pain\s*to\s*stop\s*forever|wish\s*(i|im)\s*could\s*disappear|hate\s*myself|better\s*off\s*gone|no\s*will\s*to\s*live)\b/i;
+  var normKey = (key || '').toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
+  if (crisisPattern.test(normKey)) {
+    var crisisNote = document.createElement('div');
+    crisisNote.className = 'crisis-resources-note';
+    crisisNote.setAttribute('role', 'complementary');
+    crisisNote.setAttribute('aria-label', 'Crisis support resources');
+    crisisNote.innerHTML = 'If you\'re in immediate danger or thinking of harming yourself, please reach out right now: <a href="tel:988">Call or text 988</a> (24/7, free, confidential). Or <a href="https://988lifeline.org/chat/" target="_blank" rel="noopener noreferrer">chat at 988lifeline.org</a>. Text HOME to 741741 for Crisis Text Line. You\'re not alone.';
+    container.appendChild(crisisNote);
+  }
   container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
@@ -15313,7 +15371,7 @@ function renderResults(results) {
   try { sessionStorage.setItem('tdb_last_results', JSON.stringify(results)); } catch (e) {}
   updateNoteSelect(results);
   updateGroupPrompts(results);
-  const queryText = normalizeInput(lastQueryInput || '');
+  const queryText = (results && results.queryText) || normalizeInput(lastQueryInput || '');
   if (results.intent === 'empty') {
     output.innerHTML = '<p class="empty">Type a topic, keyword, or Bible reference to begin.</p>';
     triggerResultsFade(output);
@@ -15837,7 +15895,7 @@ function renderResults(results) {
   contextNote.className = 'context-note';
   contextNote.textContent = 'Read the surrounding passage in your Bible for full context.';
   output.appendChild(contextNote);
-  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going)\b/i;
+  var crisisPattern = /\b(kms|suicidal|suicide|kill\s*myself|end\s*my\s*life|want\s*to\s*die|hurt\s*myself|self\s*harm|end\s*it\s*all|take\s*my\s*life|harm\s*myself|kill\s*someone|hurt\s*someone|harm\s*someone|hurt\s*them|kill\s*them|gonna\s*kill|going\s*to\s*kill|better\s*off\s*dead|cant\s*live\s*like\s*this|end\s*my\s*pain|no\s*point\s*(in\s*)?living|wish\s*(i|im)\s*(was|were)\s*gone|cant\s*go\s*on|im\s*a\s*burden|no\s*reason\s*to\s*live|why\s*bother\s*living|better\s*if\s*(i|im)\s*(wasnt|werent)\s*here|cant\s*keep\s*going|dont\s*want\s*to\s*be\s*here|better\s*off\s*without\s*me|pain\s*to\s*stop\s*forever|wish\s*(i|im)\s*could\s*disappear|hate\s*myself|better\s*off\s*gone|no\s*will\s*to\s*live)\b/i;
   if (crisisPattern.test(queryText)) {
     var crisisNote = document.createElement('div');
     crisisNote.className = 'crisis-resources-note';
@@ -16236,9 +16294,12 @@ function sanitizeNudgeElements() {
               if (maybeEmotion && EMOTION_ALIAS[maybeEmotion]) rememberEmotionSignal(maybeEmotion);
             }
             if (cacheKey && searchCache.has(cacheKey)) {
-              renderResults(searchCache.get(cacheKey));
+              var cached = searchCache.get(cacheKey);
+              cached.queryText = normalizeInput(input || '');
+              renderResults(cached);
             } else {
               var results = executeQuery(parsed, tier, filters);
+              results.queryText = normalizeInput(input || '');
               if (cacheKey) searchCache.set(cacheKey, results);
               renderResults(results);
             }

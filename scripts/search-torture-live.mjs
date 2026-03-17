@@ -9,17 +9,19 @@ import { chromium, firefox } from 'playwright';
 const URL = process.env.TORTURE_URL || 'https://todaysdailybattle.com/index.html';
 
 const QUERIES = [
-  'im gonna kms tonight fuck this world',
-  'god hates me im worthless piece of shit',
-  'my kid has cancer im losing my mind',
-  'divorced yesterday alone broke suicidal',
-  'why the fuck would god let my wife die',
-  'memphis shooting my brother got hit help',
-  'i hate everyone including myself die',
-  'anxiaty panic attck cant breth',
-  'zzzzz nothing matters anymore zzzzzz',
-  '   ',
+  'better off dead than this shit life',
+  'why bother living when nobody cares',
+  'cant keep going another day',
+  'better if i wasnt here anymore',
+  'i wish i was gone forever no one would miss me',
+  'im a burden everyone would be happier if i died',
+  'no reason to live kill myself tonight',
+  'end my pain please make it stop',
+  'die laughing at how pointless everything is',
+  'kill time till i can end it all',
 ];
+/** Round 3: 1-8 trigger crisis note, 9 no (die laughing), 10 no (kill time = metaphorical) */
+const CRISIS_NOTE_EXPECTED = [true, true, true, true, true, true, true, true, false, false];
 
 async function main() {
   console.log('Live Search Torture Test');
@@ -69,31 +71,34 @@ async function main() {
       window.runSearchWithInput(query);
     }, q);
 
-    await page.waitForTimeout(2500);
+    await page.waitForTimeout(i === 0 ? 4000 : 2500);
 
     const result = await page.evaluate(() => {
       const out = document.querySelector('#feel-results') || document.querySelector('#output');
-      if (!out) return { cards: 0, nothingFound: false, msg: '' };
+      if (!out) return { cards: 0, nothingFound: false, crisisNote: false };
       const cards = out.querySelectorAll('.verse-card, .smart-card, .result-card').length;
       const empty = out.querySelector('.empty');
       const nothingFound = empty && /Nothing found/i.test(empty.textContent || '');
-      const heartfelt = out.querySelector('.heartfelt-search-message');
-      const fallback = out.querySelector('.topic-explain');
-      return {
-        cards,
-        nothingFound,
-        msg: heartfelt ? heartfelt.textContent?.slice(0, 60) + '...' : (fallback?.textContent?.slice(0, 60) || '') + '...'
-      };
+      const crisisEl = out.querySelector('.crisis-resources-note');
+      const crisisNote = !!(crisisEl && crisisEl.textContent && crisisEl.textContent.includes('988'));
+      return { cards, nothingFound, crisisNote };
     });
 
-    if (result.cards > 0) {
-      console.log('PASS', (i + 1).toString().padStart(2), display.padEnd(48), '→', result.cards, 'verses');
+    const expectCrisis = CRISIS_NOTE_EXPECTED[i];
+    const crisisOk = result.crisisNote === expectCrisis;
+    const versesOk = result.cards > 0;
+    const pass = versesOk && crisisOk;
+
+    let status = pass ? 'PASS' : 'FAIL';
+    let detail = result.cards + ' verses';
+    if (!crisisOk) detail += ', note ' + (result.crisisNote ? 'YES' : 'NO') + ' (expected ' + (expectCrisis ? 'YES' : 'NO') + ')';
+    else detail += ', note ' + (result.crisisNote ? 'YES' : 'NO');
+
+    if (pass) {
+      console.log(status, (i + 1).toString().padStart(2), display.padEnd(48), '→', detail);
       passed++;
-    } else if (result.nothingFound) {
-      console.log('FAIL', (i + 1).toString().padStart(2), display.padEnd(48), '→ Nothing found');
-      failed++;
     } else {
-      console.log('FAIL', (i + 1).toString().padStart(2), display.padEnd(48), '→ 0 verses');
+      console.log(status, (i + 1).toString().padStart(2), display.padEnd(48), '→', detail);
       failed++;
     }
   }
@@ -103,7 +108,7 @@ async function main() {
   console.log('\n---');
   console.log('Passed:', passed, '/', QUERIES.length);
   if (failed > 0) process.exit(1);
-  console.log('All torture queries returned verses.');
+  console.log('All torture queries passed (verses + crisis note triggers).');
 }
 
 main().catch((e) => {

@@ -11,6 +11,13 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var honeypot = document.getElementById('feeling-suggest-website');
+      if (honeypot && honeypot.value && honeypot.value.trim() !== '') {
+        status.textContent = 'Thank you. Your suggestion helps us add more verses for others.';
+        status.style.color = 'var(--accent, #8ba6d9)';
+        if (form.reset) form.reset();
+        return;
+      }
       var textarea = document.getElementById('feeling-suggest-phrase');
       var raw = (textarea && textarea.value) ? String(textarea.value) : '';
       var phrase = raw.replace(/<[^>]*>/g, '').trim();

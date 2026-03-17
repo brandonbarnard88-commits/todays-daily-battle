@@ -2542,7 +2542,23 @@ const PHRASE_TO_TOKENS = {
   'empty womb bible': ['grief'],
   'elder abuse': ['trauma', 'anger'],
   'aging alone': ['loneliness', 'fear'],
-  'parents old scared': ['caregiver', 'grief']
+  'parents old scared': ['caregiver', 'grief'],
+  'postpartum depression': ['suffering', 'grief', 'anxiety'],
+  'postpartum depression bible': ['suffering', 'grief', 'hope'],
+  'postpartum anxiety': ['anxiety', 'suffering'],
+  'new mom overwhelmed': ['caregiver', 'anxiety'],
+  'baby blues bible': ['suffering', 'hope'],
+  'divorce pain': ['grief', 'anger', 'loneliness'],
+  'divorce hurts bible': ['grief', 'hope'],
+  'going through divorce': ['grief', 'anger'],
+  'divorced and alone': ['loneliness', 'grief'],
+  'marriage ended god why': ['grief', 'faith'],
+  'pet died': ['grief'],
+  'pet died sad': ['grief'],
+  'dog died bible': ['grief'],
+  'cat died heartbroken': ['grief'],
+  'lost my pet': ['grief', 'loneliness'],
+  'pet loss bible verse': ['grief']
 };
 
 const topics = {
@@ -2575,8 +2591,8 @@ const topics = {
     }
   },
   grief: {
-    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted', 'bereavement', 'widow', 'terminal', 'dying', 'infertility'],
-    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38', 'John 11:25', '1 Corinthians 15:54', '1 Thessalonians 4:13'],
+    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted', 'bereavement', 'widow', 'terminal', 'dying', 'infertility', 'postpartum', 'divorce', 'pet loss', 'baby blues'],
+    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38', 'John 11:25', '1 Corinthians 15:54', '1 Thessalonians 4:13', 'Malachi 2:16', 'Psalms 36:6', 'Matthew 10:29'],
     guidance: {
       kid: "When you're sad, God is close and will comfort you. It's okay to cry; He sees your tears.",
       teen: "It's okay to grieve. God comforts those who are hurting and promises that nothing can separate you from His love.",
@@ -2688,7 +2704,7 @@ const topics = {
   },
   addiction: {
     synonyms: ['addicted', 'bondage', 'habit', 'freedom', 'sober', 'temptation', 'overcome', 'relapse', 'porn'],
-    verses: ['John 8:36', '1 Corinthians 10:13', '2 Corinthians 5:17', 'Galatians 5:1', 'Philippians 4:13', 'Romans 6:14'],
+    verses: ['John 8:36', 'Romans 6:6-7', 'Galatians 5:1', '1 Corinthians 10:13', '2 Corinthians 5:17', 'Philippians 4:13', 'Romans 6:14'],
     guidance: {
       kid: "God is stronger than any habit. Ask Him for help every day.",
       teen: "You don't have to fight alone. God gives a way out and strength to walk in freedom.",
@@ -2743,8 +2759,8 @@ const topics = {
     }
   },
   suffering: {
-    synonyms: ['cancer', 'illness', 'sick', 'treatment', 'chemo', 'diagnosis', 'pain', 'affliction', 'chronic pain', 'arthritis', 'migraine', 'body hurts'],
-    verses: ['Isaiah 41:10', 'Psalms 34:18', '2 Corinthians 12:9', 'Deuteronomy 31:6', 'Isaiah 40:31', 'Romans 8:38', 'Psalms 46:1', 'Revelation 21:4'],
+    synonyms: ['cancer', 'illness', 'sick', 'treatment', 'chemo', 'diagnosis', 'pain', 'affliction', 'chronic pain', 'arthritis', 'migraine', 'body hurts', 'postpartum depression', 'postpartum anxiety'],
+    verses: ['Isaiah 41:10', 'Psalms 34:18', '2 Corinthians 12:9', 'Deuteronomy 31:6', 'Isaiah 40:31', 'Romans 8:38', 'Psalms 46:1', 'Revelation 21:4', 'Psalms 30:5', 'Isaiah 40:11'],
     guidance: {
       kid: "When you or someone you love is sick, God is close. He sees every tear and promises to help.",
       teen: "A diagnosis shakes everything—but God's strength is made perfect in weakness. He is with you through every scan and weary night.",
@@ -3052,7 +3068,7 @@ const topics = {
     }
   },
   loneliness: {
-    synonyms: ['alone', 'isolated', 'friendless', 'abandoned'],
+    synonyms: ['alone', 'isolated', 'friendless', 'abandoned', 'divorced and alone', 'lost my pet'],
     verses: ['Psalms 68:6', 'Hebrews 13:5', 'Psalms 23:4', 'Matthew 28:20', 'Isaiah 41:10'],
     guidance: {
       kid: "God is always with you, even when you feel alone.",
@@ -4478,10 +4494,13 @@ var HEARTFELT_INQUIRY_MESSAGES = [
   { patterns: ['gen z anxious', 'young adult hopeless', 'future scary', 'cant see future', 'generation lost'], message: "When the future feels scary or hopeless—God has plans for hope and a future. He sees you and isn't done with your story." },
   { patterns: ['fake news depression', 'cant trust anyone', 'misinformation', 'dont know what to believe'], message: "When you can't trust what you hear—God's Word is steady. He is truth when everything else feels uncertain." },
   { patterns: ['migrant fear', 'asylum stress', 'immigrant alone', 'left everything behind'], message: "When you've left everything behind—God is with you in the unknown. He is your refuge and strength, no matter where you land." },
-  { patterns: ['addiction help', 'cant stop drinking', 'porn addiction bible', 'drug relapse', 'addiction hopeless'], message: "When addiction feels impossible to break—God sees you. His grace is not earned; it meets you where you are and offers strength for the next step." },
+  { patterns: ['addiction help', 'cant stop drinking', 'porn addiction bible', 'drug relapse', 'addiction hopeless'], message: "Addiction traps you in cycles of shame and relapse, but Christ has already broken those chains. You're not defined by the struggle—God offers true freedom and strength to stand firm in the liberty He won for you." },
   { patterns: ['racial trauma', 'racism depression', 'injustice god why'], message: "When injustice and trauma cut deep—God sees every wound. He is a God of justice and comfort; He is near in the pain." },
   { patterns: ['cant have kids', 'infertility pain', 'empty womb bible'], message: "When the longing for children is unfulfilled—God sees your grief. He holds you in the ache and offers hope that does not depend on circumstances." },
   { patterns: ['elder abuse', 'aging alone', 'parents old scared'], message: "When aging brings fear or abuse—God sees you. He is a refuge for the vulnerable and a comfort to those who care for them." },
+  { patterns: ['postpartum depression', 'postpartum depression bible', 'postpartum anxiety', 'new mom overwhelmed', 'baby blues bible'], message: "The weight of new motherhood—overwhelm, tears, feeling like you can't do this—God sees every exhausted moment and offers rest and hope even in the hardest days." },
+  { patterns: ['divorce pain', 'divorce hurts bible', 'going through divorce', 'divorced and alone', 'marriage ended god why'], message: "When a marriage ends, the grief, anger, and loneliness can feel crushing. God walks with you through the brokenness and promises to be closer than any human relationship." },
+  { patterns: ['pet died', 'pet died sad', 'dog died bible', 'cat died heartbroken', 'lost my pet', 'pet loss bible verse'], message: "Losing a pet hurts deeply—they were family, companions, unconditional love. God cares for every creature and collects every tear; your grief is seen and held." },
   { patterns: ['brothers fighting', 'siblings arguing', 'fighting over inheritance', 'caregiving resentment', 'family greedy', 'siblings over will', 'parents health', 'family divided', 'siblings wont talk', 'brothers wont speak', 'sisters fighting', 'dying mom', 'sick parent', 'nursing home', 'parents will', 'inheritance battle', 'estate fight', 'hospice'], message: "When siblings fight over parents' care or inheritance, the grief runs deep—God sees the pain on all sides and calls us to forgiveness and unity, even when it hurts." },
   { patterns: ['piece of shit', 'difficult person', 'toxic coworker', 'bad coworker', 'hate my coworker', 'difficult boss', 'boss is a dick', 'work with asshole', 'coworker asshole', 'hate my job', 'workplace hell', 'cant stand work', 'my boss is a dick', 'boss sucks', 'job sucks', 'toxic workplace', 'toxic boss', 'awful coworker', 'boss is toxic', 'workplace sucks', 'colleague is awful', 'boss is an asshole', 'dickhead boss', 'manager from hell', 'work with idiots', 'workplace nightmare', 'toxic workplace hell', 'boss treats me like shit'], message: "Dealing with someone difficult at work is exhausting. God doesn't ask you to like them—He asks you to work as unto Him and trust Him with the justice." },
   { patterns: ['life is pointless', 'im so done', 'this is bullshit', 'hate everything', 'fed up with life', 'nothing matters anymore', 'why does everything go wrong'], message: "When everything feels pointless or wrong, God isn't surprised. He meets you in the exhaustion and offers hope that doesn't depend on circumstances." },
@@ -4537,8 +4556,10 @@ var BLENDED_HEARTFELT_TEMPLATES = {
   'anxiety,faith': "When you can't trust what you hear or who to believe—God's Word is steady. He is truth when everything else feels uncertain.",
   'trauma,faith': "When displacement or migration meets doubt—God is with you in the unknown. He is your refuge and strength, no matter where you land.",
   'addiction,grief': "When addiction and despair meet—God sees both. His grace is sufficient; there is no condemnation in Christ.",
+  'addiction,guilt': "When addiction brings deep guilt and the feeling of being stuck, remember: your old self was crucified with Christ. You're freed from sin's power and can stand firm in the liberty He gives—no longer entangled.",
   'trauma,anger': "When trauma and anger mix—injustice, abuse, or racial pain—God sees every wound. He is a refuge and a God of justice.",
   'grief,faith': "When grief and doubt overlap—God holds both. He is near the brokenhearted and meets you in the questions.",
+  'grief,loneliness': "Grief often brings deep loneliness—after divorce, pet loss, or any ending. God sets the lonely in families and draws near when no one else does.",
   default: "In a world full of worry, stress, war, loss, or just feeling overwhelmed—God sees every tear and every fear. He's near, no matter where you are or what you're carrying."
 };
 
@@ -4550,7 +4571,10 @@ var DEFAULT_FALLBACK_MESSAGES = {
   hi: "चाहे आप कहीं भी हों, कौन सी भाषा बोलते हों, या किस संकट से जूझ रहे हों—युद्ध, गरीबी, अकेलापन, पुराना दर्द या दुनिया का बोझ—परमेश्वर हर आंसू और हर सवाल के पास है। आप अकेले नहीं हैं।",
   pt: "Não importa onde você esteja, que idioma fale, ou qual crise enfrente—guerra, pobreza, solidão, dor crônica ou o peso do mundo—Deus está perto em cada lágrima e cada pergunta. Você não está sozinho. Sua Palavra pode atravessar o caos com verdade, esperança, ou um lembrete de que você é visto.",
   zh: "无论你在哪里，说什么语言，或面对什么危机—战争、贫困、孤独、慢性疼痛或世界的重担—上帝在每滴眼泪和每个问题中都与你同在。你并不孤单。祂的话语可以在混乱中带来真理、盼望，或提醒你被看见。",
-  sw: "Haijalishi unapo, lugha unayozungumza, au mshindo unaokabili—vita, umaskini, upweke, maumivu ya muda mrefu au mzigo wa ulimwengu—Mungu yuko karibu katika kila chozi na kila swali. Hauko peke yako. Neno Lake linaweza kuvuka mvurugiko kwa ukweli, matumaini, au ukumbusho kwamba unaonekana."
+  sw: "Haijalishi unapo, lugha unayozungumza, au mshindo unaokabili—vita, umaskini, upweke, maumivu ya muda mrefu au mzigo wa ulimwengu—Mungu yuko karibu katika kila chozi na kila swali. Hauko peke yako. Neno Lake linaweza kuvuka mvurugiko kwa ukweli, matumaini, au ukumbusho kwamba unaonekana.",
+  id: "Tak peduli di mana Anda berada, bahasa apa yang Anda bicarakan, atau krisis apa yang Anda hadapi—perang, kemiskinan, kesepian, nyeri kronis, atau hanya beban dunia—Tuhan dekat di setiap air mata dan setiap pertanyaan. Anda tidak sendirian. Firman-Nya dapat menembus kekacauan dengan kebenaran, harapan, atau sekadar pengingat bahwa Anda dilihat.",
+  ru: "Не важно, где вы находитесь, на каком языке говорите или с каким кризисом сталкиваетесь—война, бедность, одиночество, хроническая боль или просто тяжесть мира—Бог близок в каждой слезе и каждом вопросе. Вы не одиноки. Его Слово может прорезать хаос истиной, надеждой или просто напоминанием, что вы увидены.",
+  bn: "আপনি যেখানেই থাকুন না কেন, কোন ভাষায় কথা বলুন বা কোন সংকটের মুখোমুখি হোন—যুদ্ধ, দারিদ্র্য, একাকীত্ব, দীর্ঘস্থায়ী ব্যথা, অথবা শুধুমাত্র বিশ্বের ভার—ঈশ্বর প্রতিটি অশ্রু এবং প্রতিটি প্রশ্নে কাছে আছেন। আপনি একা নন। তাঁর বাক্য বিশৃঙ্খলাকে সত্য, আশা দিয়ে ভেদ করতে পারে, অথবা শুধুমাত্র আপনাকে দেখা হয়েছে এমন একটি স্মারক।"
 };
 
 function getDefaultFallbackMessage() {
@@ -12454,7 +12478,16 @@ var PHRASE_SEMANTIC_MAP = {
   // Infertility / family longing
   'cant have kids': 'grief', 'infertility pain': 'grief', 'empty womb bible': 'grief',
   // Elder abuse / aging fears
-  'elder abuse': 'trauma', 'aging alone': 'loneliness', 'parents old scared': 'caregiver'
+  'elder abuse': 'trauma', 'aging alone': 'loneliness', 'parents old scared': 'caregiver',
+  // Postpartum / new-mom depression & anxiety
+  'postpartum depression': 'suffering', 'postpartum depression bible': 'suffering',
+  'postpartum anxiety': 'anxiety', 'new mom overwhelmed': 'caregiver', 'baby blues bible': 'suffering',
+  // Divorce / marriage ending pain
+  'divorce pain': 'grief', 'divorce hurts bible': 'grief', 'going through divorce': 'grief',
+  'divorced and alone': 'loneliness', 'marriage ended god why': 'grief',
+  // Pet loss / animal grief
+  'pet died': 'grief', 'pet died sad': 'grief', 'dog died bible': 'grief',
+  'cat died heartbroken': 'grief', 'lost my pet': 'grief', 'pet loss bible verse': 'grief'
 };
 
 /** Maps script.js topics to index.html FEEL_GROUPS keys for unified semantic feel-search. */

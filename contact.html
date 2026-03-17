@@ -95,7 +95,11 @@
           <p class="section-note">Help us add more phrases so others can find verses. What feeling or situation would you want to search for? (Anonymous—no email required.)</p>
           <form class="feeling-suggest-form" id="feeling-suggest-form" aria-label="Suggest a feeling or phrase">
             <label for="feeling-suggest-phrase">Feeling or phrase (e.g. &quot;social media burnout&quot;, &quot;can&apos;t sleep&quot;)</label>
-            <textarea id="feeling-suggest-phrase" rows="2" placeholder="Type a feeling or situation..." maxlength="200" aria-label="Feeling or phrase to suggest"></textarea>
+            <textarea id="feeling-suggest-phrase" name="phrase" rows="2" placeholder="Type a feeling or situation..." maxlength="200" aria-label="Feeling or phrase to suggest"></textarea>
+            <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+              <label for="feeling-suggest-website">Website (leave blank)</label>
+              <input type="text" id="feeling-suggest-website" name="website" autocomplete="off" tabindex="-1" />
+            </div>
             <button type="submit" class="btn btn-secondary" aria-label="Submit suggestion">Submit</button>
           </form>
           <p id="feeling-suggest-status" class="section-note" style="margin-top:0.5rem; min-height:1.5em;" aria-live="polite"></p>

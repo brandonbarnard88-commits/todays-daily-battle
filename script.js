@@ -4982,6 +4982,25 @@ var VERSE_PLAIN_MEANINGS = {
 /** Book context for auto-generated verse breakdowns (31k+ verses). speaker, audience, genre. */
 var BOOK_CONTEXT = { Genesis: { s: 'Moses', a: 'Israel', g: 'narrative' }, Exodus: { s: 'Moses', a: 'Israel', g: 'narrative' }, Leviticus: { s: 'Moses', a: 'Israel', g: 'law' }, Numbers: { s: 'Moses', a: 'Israel', g: 'narrative' }, Deuteronomy: { s: 'Moses', a: 'Israel', g: 'law' }, Joshua: { s: 'Joshua', a: 'Israel', g: 'narrative' }, Judges: { s: 'Unknown', a: 'Israel', g: 'narrative' }, Ruth: { s: 'Unknown', a: 'Israel', g: 'narrative' }, '1 Samuel': { s: 'Samuel', a: 'Israel', g: 'narrative' }, '2 Samuel': { s: 'Nathan', a: 'Israel', g: 'narrative' }, '1 Kings': { s: 'Unknown', a: 'Israel', g: 'narrative' }, '2 Kings': { s: 'Unknown', a: 'Israel', g: 'narrative' }, '1 Chronicles': { s: 'Chronicler', a: 'Exiles', g: 'narrative' }, '2 Chronicles': { s: 'Chronicler', a: 'Exiles', g: 'narrative' }, Ezra: { s: 'Ezra', a: 'Exiles', g: 'narrative' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles', g: 'narrative' }, Esther: { s: 'Unknown', a: 'Israel', g: 'narrative' }, Job: { s: 'Job/God', a: 'All', g: 'wisdom' }, Psalm: { s: 'David or others praising God', a: 'Everyone hurting or thankful', g: 'psalm' }, Psalms: { s: 'David or others praising God', a: 'Everyone hurting or thankful', g: 'psalm' }, Proverbs: { s: 'Solomon giving wisdom', a: 'Everyone seeking guidance', g: 'wisdom' }, Ecclesiastes: { s: 'Solomon', a: 'All', g: 'wisdom' }, 'Song of Solomon': { s: 'Solomon', a: 'All', g: 'poetry' }, Isaiah: { s: 'Isaiah', a: 'Judah', g: 'prophecy' }, Jeremiah: { s: 'Jeremiah', a: 'Judah/exiles', g: 'prophecy' }, Lamentations: { s: 'Jeremiah', a: 'Exiles', g: 'poetry' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles', g: 'prophecy' }, Daniel: { s: 'Daniel', a: 'Exiles', g: 'prophecy' }, Hosea: { s: 'Hosea', a: 'Israel', g: 'prophecy' }, Joel: { s: 'Joel', a: 'Judah', g: 'prophecy' }, Amos: { s: 'Amos', a: 'Israel', g: 'prophecy' }, Obadiah: { s: 'Obadiah', a: 'Edom', g: 'prophecy' }, Jonah: { s: 'Jonah', a: 'Nineveh', g: 'prophecy' }, Micah: { s: 'Micah', a: 'Judah', g: 'prophecy' }, Nahum: { s: 'Nahum', a: 'Nineveh', g: 'prophecy' }, Habakkuk: { s: 'Habakkuk', a: 'Judah', g: 'prophecy' }, Zephaniah: { s: 'Zephaniah', a: 'Judah', g: 'prophecy' }, Haggai: { s: 'Haggai', a: 'Exiles', g: 'prophecy' }, Zechariah: { s: 'Zechariah', a: 'Exiles', g: 'prophecy' }, Malachi: { s: 'Malachi', a: 'Israel', g: 'prophecy' }, Matthew: { s: 'Jesus', a: 'Believers', g: 'gospel' }, Mark: { s: 'Jesus', a: 'Believers', g: 'gospel' }, Luke: { s: 'Jesus', a: 'Believers', g: 'gospel' }, John: { s: 'Jesus', a: 'Believers', g: 'gospel' }, Acts: { s: 'Luke', a: 'Church', g: 'narrative' }, Romans: { s: 'Paul', a: 'Rome', g: 'letter' }, '1 Corinthians': { s: 'Paul', a: 'Corinth', g: 'letter' }, '2 Corinthians': { s: 'Paul', a: 'Corinth', g: 'letter' }, Galatians: { s: 'Paul', a: 'Galatia', g: 'letter' }, Ephesians: { s: 'Paul', a: 'Ephesus', g: 'letter' }, Philippians: { s: 'Paul', a: 'Philippi', g: 'letter' }, Colossians: { s: 'Paul', a: 'Colosse', g: 'letter' }, '1 Thessalonians': { s: 'Paul', a: 'Thessalonica', g: 'letter' }, '2 Thessalonians': { s: 'Paul', a: 'Thessalonica', g: 'letter' }, '1 Timothy': { s: 'Paul', a: 'Timothy', g: 'letter' }, '2 Timothy': { s: 'Paul', a: 'Timothy', g: 'letter' }, Titus: { s: 'Paul', a: 'Titus', g: 'letter' }, Philemon: { s: 'Paul', a: 'Philemon', g: 'letter' }, Hebrews: { s: 'Unknown', a: 'Hebrew Christians', g: 'letter' }, James: { s: 'James', a: 'Believers', g: 'letter' }, '1 Peter': { s: 'Peter', a: 'Believers', g: 'letter' }, '2 Peter': { s: 'Peter', a: 'Believers', g: 'letter' }, '1 John': { s: 'John', a: 'Believers', g: 'letter' }, '2 John': { s: 'John', a: 'Believers', g: 'letter' }, '3 John': { s: 'John', a: 'Gaius', g: 'letter' }, Jude: { s: 'Jude', a: 'Believers', g: 'letter' }, Revelation: { s: 'John (vision)', a: 'Seven churches', g: 'prophecy' } };
 var ARCHAIC_WORDS = { careful: 'worried', beseech: 'ask', supplication: 'prayer', thee: 'you', thou: 'you', thy: 'your', ye: 'you', hath: 'has', doth: 'does', believeth: 'believes', loveth: 'loves', giveth: 'gives', knoweth: 'knows', maketh: 'makes', passeth: 'passes', strengtheneth: 'strengthens', keepeth: 'keeps', worketh: 'works', whosoever: 'whoever', whatsoever: 'whatever', unto: 'to', saith: 'says', behold: 'look', verily: 'truly', begotten: 'only', perish: 'be lost', everlasting: 'eternal', labour: 'labor', laden: 'burdened', dismayed: 'discouraged', whithersoever: 'wherever', wiles: 'tricks', armour: 'armor', brethren: 'brothers', heartily: 'wholeheartedly', substance: 'assurance', evidence: 'proof', mount: 'rise', faint: 'give up', expected: 'hoped-for' };
+/** Modern word -> KJV forms for search. Reverses ARCHAIC_WORDS so user queries match KJV text. */
+var MODERN_TO_KJV = (function () {
+  var out = {};
+  var aw = ARCHAIC_WORDS || {};
+  for (var kjv in aw) {
+    if (!aw.hasOwnProperty(kjv)) continue;
+    var mod = String(aw[kjv] || '').toLowerCase().trim();
+    if (!mod) continue;
+    if (!out[mod]) out[mod] = [];
+    if (out[mod].indexOf(kjv) === -1) out[mod].push(kjv);
+  }
+  var extra = { brother: ['brethren'], worry: ['careful'], lost: ['perish'], forgive: ['forgiven', 'forgiving'], sisters: ['sister'] };
+  for (var k in extra) {
+    if (!extra.hasOwnProperty(k)) continue;
+    if (!out[k]) out[k] = [];
+    (extra[k] || []).forEach(function (v) { if (out[k].indexOf(v) === -1) out[k].push(v); });
+  }
+  return out;
+})();
 
 function getPlainMeaning(ref) {
   if (!ref) return '';
@@ -12348,7 +12367,9 @@ const KJV_WORD_FORMS = {
   come: ['came', 'cometh'], go: ['went', 'gone', 'goeth'], see: ['saw', 'seen', 'seeth'],
   hear: ['heard', 'heareth'], do: ['did', 'done', 'doeth'], make: ['made', 'maketh'],
   find: ['found', 'findeth'], seek: ['sought', 'seeketh'], tell: ['told', 'telleth'],
-  call: ['called', 'calleth'], answer: ['answered', 'answereth'], comfort: ['comforted', 'comforteth']
+  call: ['called', 'calleth'], answer: ['answered', 'answereth'], comfort: ['comforted', 'comforteth'],
+  fight: ['fight', 'fighteth', 'fighting', 'fought'], brothers: ['brothers', 'brethren', 'brother'],
+  forgiveness: ['forgive', 'forgiving', 'forgiven', 'forgiveness']
 };
 
 function generateWordVariants(token) {
@@ -12774,6 +12795,9 @@ function expandKeywords(keywords) {
     Object.keys(KJV_WORD_FORMS).forEach(function (k) {
       if (KJV_WORD_FORMS[k].indexOf(base) !== -1) { expanded.add(k); expanded.add(base); }
     });
+    // Modern -> KJV archaic: user types "brothers" -> match "brethren", "you" -> match "thee/thou/ye"
+    var kjvForms = MODERN_TO_KJV && MODERN_TO_KJV[base];
+    if (kjvForms && Array.isArray(kjvForms)) kjvForms.forEach(function (f) { expanded.add(f); });
     Object.keys(FEELING_NEED_MAP).forEach(function (k) {
       if (FEELING_NEED_MAP[k].indexOf(base) !== -1) { expanded.add(k); FEELING_NEED_MAP[k].forEach(function (w) { expanded.add(w); }); }
     });
@@ -15641,6 +15665,11 @@ function parseQuery(input) {
   var semanticScore = 0;
   var semanticBlendedTopics = [];
   var semanticBlendedMatches = null;
+  // When PHRASE_TO_TOKENS matches, first token is often the primary topic—set semanticTopic so executeQuery can use topic.verses
+  if (phraseTokens.length > 0 && !semanticTopic && phraseTokens[0] && topics && topics[phraseTokens[0]]) {
+    semanticTopic = phraseTokens[0];
+    semanticScore = 0.85;
+  }
   if (phraseTokens.length === 0 && typeof getSemanticMatchesAboveThreshold === 'function') {
     var matches = getSemanticMatchesAboveThreshold(normalized);
     if (matches.length > 0) {
@@ -15976,6 +16005,22 @@ function executeQuery(parsed, tier, filters) {
       .slice(0, 30);
     results.verses = matches.map(m => ({ ref: m.ref, text: m.text }));
 
+    // Phrase-to-topic (e.g. "brothers fighting" -> family): prepend curated topic verses so we always return relevant results
+    if (results.verses.length === 0 && parsed.payload.semanticTopic && topics && topics[parsed.payload.semanticTopic]) {
+      var st = topics[parsed.payload.semanticTopic];
+      if (st.verses && Array.isArray(st.verses)) {
+        var topicVerses = [];
+        st.verses.forEach(function (ref) {
+          var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+          if (text) topicVerses.push({ ref: ref, text: text });
+        });
+        if (topicVerses.length) {
+          results.verses = topicVerses;
+          results.usedSemanticTopic = true;
+          results.fallback = true;
+        }
+      }
+    }
     // Multi-word blend: when 2+ tokens map to topics (e.g. "lonely marriage"), prepend merged verses
     if (blendedTopics.length >= 2) {
       var semanticMatches = Array.isArray(parsed.payload.semanticBlendedMatches) && parsed.payload.semanticBlendedMatches.length >= 2
@@ -16036,6 +16081,17 @@ function executeQuery(parsed, tier, filters) {
     var rawSet = new Set(rawTokens.map(function (t) { return normalizeInput(String(t || '')); }));
     var expansionOnly = keywords.filter(function (k) { return k && !rawSet.has(normalizeInput(k)); });
     if (expansionOnly.length) results.expandedForDisplay = expansionOnly.slice(0, 8);
+    // Semantic topic fallback: when keyword search returns nothing, use curated topic verses (e.g. "brothers fighting" -> family)
+    if (results.verses.length === 0 && parsed.payload.semanticTopic && topics && topics[parsed.payload.semanticTopic]) {
+      var st = topics[parsed.payload.semanticTopic];
+      if (st.verses && Array.isArray(st.verses)) {
+        st.verses.forEach(function (ref) {
+          var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+          if (text) results.verses.push({ ref: ref, text: text });
+        });
+        results.fallback = true;
+      }
+    }
     if (results.verses.length === 0 && results.relatedMatches && results.relatedMatches.length > 0) {
       results.verses = results.relatedMatches.slice(0, 15);
       results.relatedMatches = [];

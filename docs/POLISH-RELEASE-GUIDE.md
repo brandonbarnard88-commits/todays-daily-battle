@@ -26,9 +26,9 @@ CF_ZONE_ID=your_zone_id CF_API_TOKEN=your_token npm run purge:cloudflare
 - Token: My Profile → API Tokens → Create Token → "Edit zone cache" template
 
 **Option C — GitHub Action (one-click):**  
-1. Add repo secrets: **Settings** → **Secrets and variables** → **Actions** → **New repository secret**  
-   - `CF_ZONE_ID` (from Cloudflare → domain → Overview)  
-   - `CF_API_TOKEN` (from My Profile → API Tokens → "Edit zone cache")  
+1. Add repo secret: **Settings** → **Secrets and variables** → **Actions** → **New repository secret**  
+   - `CF_API_TOKEN` — My Profile → API Tokens → Create Token → **Custom token** → Permissions: Zone / Cache Purge (Edit) + Zone / Zone (Read). Zone Resources: Include / Specific zone / todaysdailybattle.com  
+   - Optional: `CF_ZONE_ID` — from Cloudflare → todaysdailybattle.com → Overview (right sidebar). If wrong, script auto-retries with zone lookup.  
 2. **Actions** → **Purge Cloudflare Cache** → **Run workflow**
 - Or **Custom Purge** → enter:
   - `https://todaysdailybattle.com/`

@@ -14,29 +14,14 @@ Post-March 2026 polish features: offline widget, copy verse, pray feedback, caro
 
 ### 1. Purge Cloudflare cache
 
-**Option A — Dashboard:**  
-- **Dashboard** → **Caching** → **Configuration**
-- Click **Purge Everything** (safest for full refresh)
+**→ Easiest (no API token):** See **docs/PURGE-NOW.md** — Dashboard → Caching → Purge Everything.
 
-**Option B — API (one-liner):**  
-```bash
-CF_ZONE_ID=your_zone_id CF_API_TOKEN=your_token npm run purge:cloudflare
-```
-- Zone ID: Cloudflare → your domain → Overview (right sidebar)
-- Token: My Profile → API Tokens → Create Token → "Edit zone cache" template
+**Option A — Dashboard (no token):**  
+1. https://dash.cloudflare.com → select **todaysdailybattle.com**  
+2. **Caching** → **Configuration** → **Purge Everything**  
+3. Wait 30–60s, then test in incognito  
 
-**Option C — GitHub Action (one-click):**  
-1. **Verify credentials locally:** `CF_API_TOKEN=xxx npm run purge:check` — prints correct Zone ID.  
-2. Add repo secrets: `CF_ZONE_ID` (from step 1) and `CF_API_TOKEN`.  
-3. **Actions** → **Purge Cloudflare Cache** → **Run workflow**  
-
-If purge fails: run `npm run purge:check` locally to get the correct Zone ID. Token needs Zone Read + Cache Purge (Custom token).
-- Or **Custom Purge** → enter:
-  - `https://todaysdailybattle.com/`
-  - `https://todaysdailybattle.com/offline.html`
-  - `https://todaysdailybattle.com/plans.html`
-  - `https://todaysdailybattle.com/about.html`
-  - `https://todaysdailybattle.com/calm.html`
+**Option B — API / GitHub Action:** Requires API token. Create at My Profile → API Tokens → "Edit zone cache". See `npm run purge:check` for Zone ID.
 - Wait 10–30 seconds for purge to complete.
 - **After purge:** Wait 30–60 seconds before testing (Cloudflare propagation time).
 

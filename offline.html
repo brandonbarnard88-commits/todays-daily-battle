@@ -59,10 +59,13 @@
     .offline-verse-ref { font-size: 0.85rem; color: #fbbf24; margin: 0 0 0.6rem; }
     .offline-copy-btn { padding: 0.4rem 0.9rem; font-size: 0.85rem; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.5); color: #fbbf24; border-radius: 8px; cursor: pointer; }
     .offline-copy-btn:hover { background: rgba(245,158,11,0.25); }
+    .skip-link { position: absolute; top: -3rem; left: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #f59e0b; color: #020617; font-weight: 600; text-decoration: none; border-radius: 4px; transition: top 0.2s ease; }
+    .skip-link:focus, .skip-link:focus-visible { top: 0.75rem; outline: 2px solid #fff; outline-offset: 2px; }
   </style>
 </head>
 <body>
-  <main class="wrap" role="main" aria-label="Offline status">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main class="wrap" id="main-content" role="main" aria-label="Offline status">
     <h1>You're offline</h1>
     <p>Check your connection and try again.</p>
     <p>Your last cached verse is still available when possible.</p>

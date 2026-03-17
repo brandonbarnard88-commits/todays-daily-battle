@@ -48,6 +48,7 @@
           status.textContent = 'Thank you. Your suggestion helps us add more verses for others.';
           status.style.color = 'var(--accent, #8ba6d9)';
           if (textarea) textarea.value = '';
+          try { document.dispatchEvent(new CustomEvent('tdb:suggest-success')); } catch (e) {}
         })
         .catch(function () {
           status.textContent = 'Something went wrong. Please try again.';

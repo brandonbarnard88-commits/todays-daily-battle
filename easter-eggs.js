@@ -29,6 +29,7 @@
   var BLESSING_VERSE = { ref: 'Numbers 6:24-26', text: 'The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.' };
 
   function initIndex() {
+    wrapRunSearch();
     if (!enabled() || !document.getElementById('verseCard')) return;
 
     // 1. 7 clicks on verse ref (reset daily)
@@ -120,10 +121,10 @@
         if (val === 'lamb' && tryLambSearch(inputStr, orig)) return;
         if (val === 'resurrection' && tryResurrectionSearch(inputStr, orig)) return;
         if (val === 'secrets' && trySecretsUnlock(inputStr)) return;
+        if (val === 'abide' && tryAbideSearch(inputStr, orig)) return;
         orig.apply(this, arguments);
       };
     }
-    wrapRunSearch();
     setTimeout(wrapRunSearch, 400);
     setTimeout(wrapRunSearch, 1200);
 
@@ -320,6 +321,32 @@
       toast.setAttribute('role', 'status');
       toast.setAttribute('aria-live', 'polite');
       toast.textContent = 'Why seek ye the living among the dead? (Luke 24:5)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryAbideSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'abide') return false;
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.</p><p class="easter-still-ref">(John 15:4)</p></div>';
+        out.style.display = '';
+        out.classList.remove('hidden');
+        out.classList.add('easter-still-glow', 'has-results');
+        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
+        out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Without Him, we can do nothing. (John 15:5)';
       document.body.appendChild(toast);
       setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
       if (inp) inp.value = '';
@@ -1109,13 +1136,15 @@
     if (!enabled()) return;
     var verses = (window.ROTATING_HERO_VERSES || []);
     if (!verses.length) verses = [{ ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.' }];
-    var konami = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    var konamiCodes = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    var konamiKeys = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     var konamiIdx = 0;
     document.addEventListener('keydown', function (e) {
       if (!enabled()) return;
-      if (e.keyCode === konami[konamiIdx]) {
+      var match = (e.keyCode === konamiCodes[konamiIdx]) || (e.key && e.key.toLowerCase() === konamiKeys[konamiIdx]);
+      if (match) {
         konamiIdx++;
-        if (konamiIdx === konami.length) {
+        if (konamiIdx === konamiCodes.length) {
           konamiIdx = 0;
           try { if (sessionStorage.getItem('konamiFound')) return; sessionStorage.setItem('konamiFound', '1'); } catch (x) {}
           var v = verses[Math.floor(Math.random() * verses.length)];
@@ -1157,11 +1186,11 @@
       var badge = document.createElement(unlocked ? 'a' : 'p');
       badge.id = EGG_BADGE_ID;
       badge.className = 'easter-egg-badge';
-      badge.textContent = '56 hidden moments';
-      badge.setAttribute('aria-label', unlocked ? 'View hints for 56 hidden moments' : '56 hidden moments to discover');
+      badge.textContent = '57 hidden moments';
+      badge.setAttribute('aria-label', unlocked ? 'View hints for 57 hidden moments' : '57 hidden moments to discover');
       if (unlocked) {
         badge.href = '/secrets.html';
-        badge.title = '56 hidden moments discovered';
+        badge.title = '57 hidden moments discovered';
       }
       footer.appendChild(badge);
       if (pulseFirst && !reducedMotion()) {
@@ -1193,17 +1222,71 @@
 
   function init() {
     initGlobal();
-    if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '') {
-      initIndex();
-    } else {
+    initIndex();
+    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html' && window.location.pathname !== '') {
       initOtherPages();
     }
+    setTimeout(wireUniversalSearchInputs, 100);
     wireEggBadgeObserver();
+  }
+
+  var EGG_TERMS = ['still', 'hallelujah', 'amen', 'grace', 'forgive', 'mercy', 'shabbat', 'risen', 'lamb', 'resurrection', 'secrets', 'abide'];
+  var EGG_TERM_NOTHING = /^nothing can stop (you|me|us)$/;
+
+  function isEasterEggTerm(val) {
+    if (!val || typeof val !== 'string') return false;
+    var v = val.trim().toLowerCase();
+    if (EGG_TERMS.indexOf(v) !== -1) return true;
+    if (EGG_TERM_NOTHING.test(v)) return true;
+    return false;
+  }
+
+  function wireUniversalSearchInputs() {
+    if (!enabled() || typeof window.runSearchWithInput !== 'function') return;
+    var ids = ['global-search', 'church-query', 'kids-search-input', 'kids-library-search-input', 'mystudy-search', 'ab-search', 'bible-qa-search', 'pastor-verse-search', 'bible-study-search-input', 'verse-maps-input', 'concordance-search-input', 'lib-search', 'sbVerseInput'];
+    ids.forEach(function (id) {
+      var input = document.getElementById(id);
+      if (!input) return;
+      if (input.getAttribute('data-tdb-egg-wired') === '1') return;
+      input.setAttribute('data-tdb-egg-wired', '1');
+
+      function handleEggSubmit(e) {
+        var val = (input.value || '').trim();
+        if (!val) return;
+        if (!isEasterEggTerm(val)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.runSearchWithInput === 'function') {
+          window.runSearchWithInput(val);
+          input.value = '';
+        }
+      }
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleEggSubmit(e);
+      }, true);
+
+      var btnIdMap = { 'bible-qa-search': 'bible-qa-btn', 'church-query': 'church-search-btn', 'mystudy-search': 'mystudy-search-btn', 'pastor-verse-search': 'pastor-search-btn', 'bible-study-search-input': 'bible-study-search-btn', 'concordance-search-input': 'concordance-search-btn' };
+      var btn = document.getElementById(btnIdMap[id]) || (input.form && input.form.querySelector('button[type="submit"]'));
+      if (btn) {
+        btn.addEventListener('click', function (e) {
+          var val = (input.value || '').trim();
+          if (!val || !isEasterEggTerm(val)) return;
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          if (typeof window.runSearchWithInput === 'function') {
+            window.runSearchWithInput(val);
+            input.value = '';
+          }
+        }, true);
+      }
+    });
   }
 
   function initOtherPages() {
     if (!enabled()) return;
     var path = window.location.pathname || '';
+    wireUniversalSearchInputs();
     if (path.indexOf('bible-tool') !== -1 || path.indexOf('bible/tools') !== -1) {
       wireStillInBibleSearch();
     }
@@ -1213,6 +1296,28 @@
     if (path.indexOf('mobius') !== -1) {
       wireMobiusEgg();
     }
+    if (path.indexOf('contact') !== -1) {
+      wireSuggestFormEgg();
+    }
+  }
+
+  function wireSuggestFormEgg() {
+    if (!enabled()) return;
+    document.addEventListener('tdb:suggest-success', function () {
+      try {
+        if (localStorage.getItem('tdb_suggestSubmitted') === '1') return;
+        localStorage.setItem('tdb_suggestSubmitted', '1');
+      } catch (x) { return; }
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Your suggestion helps others find light. You\'re part of the map.';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      if (typeof markEggTriggered === 'function') markEggTriggered();
+      else document.dispatchEvent(new CustomEvent('tdb:egg-triggered', { detail: { id: 'suggest_first', shown: true } }));
+    });
   }
 
   function wireStillInBibleSearch() {

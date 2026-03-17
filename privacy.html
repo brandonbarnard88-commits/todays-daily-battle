@@ -48,12 +48,15 @@
       color: #64748b;
       margin-bottom: 2rem;
     }
+    .skip-link { position: absolute; top: -3rem; left: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #e3bc67; color: #0f1218; font-weight: 600; text-decoration: none; border-radius: 4px; transition: top 0.2s ease; }
+    .skip-link:focus, .skip-link:focus-visible { top: 0.75rem; outline: 2px solid #fff; outline-offset: 2px; }
   </style>
 </head>
 <body>
-
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <a class="back" href="/">← Back to Today's Daily Battle</a>
 
+  <main id="main-content">
   <h1>Privacy Policy</h1>
   <p class="updated">Last updated: March 2026</p>
 
@@ -104,5 +107,6 @@
 
   <p style="margin-top:2rem;font-size:0.8rem;color:#475569;">© 2026 Todays Daily Battle · All rights reserved · <a href="terms.html">Terms</a> · <a href="/">Home</a></p>
 
+  </main>
 </body>
 </html>

@@ -2530,7 +2530,19 @@ const PHRASE_TO_TOKENS = {
   'world angry': ['anger', 'peace'],
   'future scary': ['anxiety', 'hope'],
   'cant trust anyone': ['faith', 'hope'],
-  'migrant fear': ['trauma', 'hope']
+  'migrant fear': ['trauma', 'hope'],
+  'addiction help': ['addiction', 'hope'],
+  'porn addiction bible': ['addiction', 'guilt'],
+  'drug relapse': ['addiction', 'grief'],
+  'racial trauma': ['trauma', 'anger'],
+  'racism depression': ['anger', 'grief'],
+  'injustice god why': ['anger', 'faith'],
+  'cant have kids': ['grief', 'hope'],
+  'infertility pain': ['grief', 'suffering'],
+  'empty womb bible': ['grief'],
+  'elder abuse': ['trauma', 'anger'],
+  'aging alone': ['loneliness', 'fear'],
+  'parents old scared': ['caregiver', 'grief']
 };
 
 const topics = {
@@ -2563,7 +2575,7 @@ const topics = {
     }
   },
   grief: {
-    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted', 'bereavement', 'widow', 'terminal', 'dying'],
+    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted', 'bereavement', 'widow', 'terminal', 'dying', 'infertility'],
     verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38', 'John 11:25', '1 Corinthians 15:54', '1 Thessalonians 4:13'],
     guidance: {
       kid: "When you're sad, God is close and will comfort you. It's okay to cry; He sees your tears.",
@@ -2675,7 +2687,7 @@ const topics = {
     }
   },
   addiction: {
-    synonyms: ['addicted', 'bondage', 'habit', 'freedom', 'sober', 'temptation', 'overcome'],
+    synonyms: ['addicted', 'bondage', 'habit', 'freedom', 'sober', 'temptation', 'overcome', 'relapse', 'porn'],
     verses: ['John 8:36', '1 Corinthians 10:13', '2 Corinthians 5:17', 'Galatians 5:1', 'Philippians 4:13', 'Romans 6:14'],
     guidance: {
       kid: "God is stronger than any habit. Ask Him for help every day.",
@@ -2689,7 +2701,7 @@ const topics = {
     }
   },
   trauma: {
-    synonyms: ['traumatized', 'wounded', 'hurt', 'healing', 'ptsd', 'abuse', 'refuge', 'safe', 'war', 'refugee', 'displacement', 'conflict', 'violence', 'fleeing'],
+    synonyms: ['traumatized', 'wounded', 'hurt', 'healing', 'ptsd', 'abuse', 'refuge', 'safe', 'war', 'refugee', 'displacement', 'conflict', 'violence', 'fleeing', 'elder abuse', 'racial'],
     verses: ['Psalms 34:18', 'Psalms 147:3', 'Isaiah 41:10', '2 Corinthians 1:3', 'Revelation 21:4', 'Psalms 46:1', 'Isaiah 43:2', 'Psalms 91:1'],
     guidance: {
       kid: "When something really scary happened, God is close and wants to help you feel safe.",
@@ -4466,6 +4478,10 @@ var HEARTFELT_INQUIRY_MESSAGES = [
   { patterns: ['gen z anxious', 'young adult hopeless', 'future scary', 'cant see future', 'generation lost'], message: "When the future feels scary or hopeless—God has plans for hope and a future. He sees you and isn't done with your story." },
   { patterns: ['fake news depression', 'cant trust anyone', 'misinformation', 'dont know what to believe'], message: "When you can't trust what you hear—God's Word is steady. He is truth when everything else feels uncertain." },
   { patterns: ['migrant fear', 'asylum stress', 'immigrant alone', 'left everything behind'], message: "When you've left everything behind—God is with you in the unknown. He is your refuge and strength, no matter where you land." },
+  { patterns: ['addiction help', 'cant stop drinking', 'porn addiction bible', 'drug relapse', 'addiction hopeless'], message: "When addiction feels impossible to break—God sees you. His grace is not earned; it meets you where you are and offers strength for the next step." },
+  { patterns: ['racial trauma', 'racism depression', 'injustice god why'], message: "When injustice and trauma cut deep—God sees every wound. He is a God of justice and comfort; He is near in the pain." },
+  { patterns: ['cant have kids', 'infertility pain', 'empty womb bible'], message: "When the longing for children is unfulfilled—God sees your grief. He holds you in the ache and offers hope that does not depend on circumstances." },
+  { patterns: ['elder abuse', 'aging alone', 'parents old scared'], message: "When aging brings fear or abuse—God sees you. He is a refuge for the vulnerable and a comfort to those who care for them." },
   { patterns: ['brothers fighting', 'siblings arguing', 'fighting over inheritance', 'caregiving resentment', 'family greedy', 'siblings over will', 'parents health', 'family divided', 'siblings wont talk', 'brothers wont speak', 'sisters fighting', 'dying mom', 'sick parent', 'nursing home', 'parents will', 'inheritance battle', 'estate fight', 'hospice'], message: "When siblings fight over parents' care or inheritance, the grief runs deep—God sees the pain on all sides and calls us to forgiveness and unity, even when it hurts." },
   { patterns: ['piece of shit', 'difficult person', 'toxic coworker', 'bad coworker', 'hate my coworker', 'difficult boss', 'boss is a dick', 'work with asshole', 'coworker asshole', 'hate my job', 'workplace hell', 'cant stand work', 'my boss is a dick', 'boss sucks', 'job sucks', 'toxic workplace', 'toxic boss', 'awful coworker', 'boss is toxic', 'workplace sucks', 'colleague is awful', 'boss is an asshole', 'dickhead boss', 'manager from hell', 'work with idiots', 'workplace nightmare', 'toxic workplace hell', 'boss treats me like shit'], message: "Dealing with someone difficult at work is exhausting. God doesn't ask you to like them—He asks you to work as unto Him and trust Him with the justice." },
   { patterns: ['life is pointless', 'im so done', 'this is bullshit', 'hate everything', 'fed up with life', 'nothing matters anymore', 'why does everything go wrong'], message: "When everything feels pointless or wrong, God isn't surprised. He meets you in the exhaustion and offers hope that doesn't depend on circumstances." },
@@ -4520,12 +4536,21 @@ var BLENDED_HEARTFELT_TEMPLATES = {
   'anger,anxiety': "When anger and anxiety mix—division, hate, or fear of the future—God offers peace that guards heart and mind. He sees the chaos.",
   'anxiety,faith': "When you can't trust what you hear or who to believe—God's Word is steady. He is truth when everything else feels uncertain.",
   'trauma,faith': "When displacement or migration meets doubt—God is with you in the unknown. He is your refuge and strength, no matter where you land.",
+  'addiction,grief': "When addiction and despair meet—God sees both. His grace is sufficient; there is no condemnation in Christ.",
+  'trauma,anger': "When trauma and anger mix—injustice, abuse, or racial pain—God sees every wound. He is a refuge and a God of justice.",
+  'grief,faith': "When grief and doubt overlap—God holds both. He is near the brokenhearted and meets you in the questions.",
   default: "In a world full of worry, stress, war, loss, or just feeling overwhelmed—God sees every tear and every fear. He's near, no matter where you are or what you're carrying."
 };
 
 var DEFAULT_FALLBACK_MESSAGES = {
   en: "No matter where you are, what language you speak, or what crisis you're facing—war, poverty, loneliness, chronic pain, or just the weight of the world—God is near in every tear and every question. You're not alone. His Word can cut through the chaos with truth, hope, or just a reminder you're seen.",
-  es: "No importa dónde estés, qué idioma hables, o qué crisis enfrentes—guerra, pobreza, soledad, dolor crónico o simplemente el peso del mundo—Dios está cerca en cada lágrima y cada pregunta. No estás solo. Su Palabra puede atravesar el caos con verdad, esperanza, o solo un recordatorio de que te ve."
+  es: "No importa dónde estés, qué idioma hables, o qué crisis enfrentes—guerra, pobreza, soledad, dolor crónico o simplemente el peso del mundo—Dios está cerca en cada lágrima y cada pregunta. No estás solo. Su Palabra puede atravesar el caos con verdad, esperanza, o solo un recordatorio de que te ve.",
+  fr: "Peu importe où vous êtes, quelle langue vous parlez, ou quelle crise vous affrontez—guerre, pauvreté, solitude, douleur chronique ou simplement le poids du monde—Dieu est proche dans chaque larme et chaque question. Vous n'êtes pas seul. Sa Parole peut traverser le chaos avec vérité, espérance, ou simplement un rappel que vous êtes vu.",
+  ar: "مهما كان مكانك أو لغتك أو أزمتك—حرب، فقر، وحدة، ألم مزمن أو ثقل العالم—الله قريب في كل دمعة وكل سؤال. أنت لست وحدك.",
+  hi: "चाहे आप कहीं भी हों, कौन सी भाषा बोलते हों, या किस संकट से जूझ रहे हों—युद्ध, गरीबी, अकेलापन, पुराना दर्द या दुनिया का बोझ—परमेश्वर हर आंसू और हर सवाल के पास है। आप अकेले नहीं हैं।",
+  pt: "Não importa onde você esteja, que idioma fale, ou qual crise enfrente—guerra, pobreza, solidão, dor crônica ou o peso do mundo—Deus está perto em cada lágrima e cada pergunta. Você não está sozinho. Sua Palavra pode atravessar o caos com verdade, esperança, ou um lembrete de que você é visto.",
+  zh: "无论你在哪里，说什么语言，或面对什么危机—战争、贫困、孤独、慢性疼痛或世界的重担—上帝在每滴眼泪和每个问题中都与你同在。你并不孤单。祂的话语可以在混乱中带来真理、盼望，或提醒你被看见。",
+  sw: "Haijalishi unapo, lugha unayozungumza, au mshindo unaokabili—vita, umaskini, upweke, maumivu ya muda mrefu au mzigo wa ulimwengu—Mungu yuko karibu katika kila chozi na kila swali. Hauko peke yako. Neno Lake linaweza kuvuka mvurugiko kwa ukweli, matumaini, au ukumbusho kwamba unaonekana."
 };
 
 function getDefaultFallbackMessage() {
@@ -12420,7 +12445,16 @@ var PHRASE_SEMANTIC_MAP = {
   'dont know what to believe': 'faith',
   // Displacement / migration (build on refugee)
   'migrant fear': 'trauma', 'asylum stress': 'trauma', 'immigrant alone': 'trauma',
-  'left everything behind': 'trauma'
+  'left everything behind': 'trauma',
+  // Addiction (global)
+  'addiction help': 'addiction', 'cant stop drinking': 'addiction', 'porn addiction bible': 'addiction',
+  'drug relapse': 'addiction', 'addiction hopeless': 'addiction',
+  // Racial / social injustice trauma
+  'racial trauma': 'trauma', 'racism depression': 'anger', 'injustice god why': 'faith',
+  // Infertility / family longing
+  'cant have kids': 'grief', 'infertility pain': 'grief', 'empty womb bible': 'grief',
+  // Elder abuse / aging fears
+  'elder abuse': 'trauma', 'aging alone': 'loneliness', 'parents old scared': 'caregiver'
 };
 
 /** Maps script.js topics to index.html FEEL_GROUPS keys for unified semantic feel-search. */

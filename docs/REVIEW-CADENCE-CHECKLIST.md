@@ -19,7 +19,7 @@
 - [ ] If `default_pct` > 10%: identify top unmatched patterns
 - [ ] If a blend spikes (e.g. suffering+anxiety): add or refine template
 - [ ] If a topic dominates: add more phrases/verses for that cluster
-- [ ] Review `feeling_suggestions` table for crowdsourced phrases
+- [ ] Review `feeling_suggestions` table for crowdsourced phrases (see docs/SUGGEST-FORM-REVIEW.md)
 
 ---
 

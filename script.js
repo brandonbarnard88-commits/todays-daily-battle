@@ -1604,7 +1604,8 @@ const TYPO_CORRECTION = {
   forgiv: 'forgive', forgivness: 'forgiveness', angrey: 'angry', angery: 'angry',
   woried: 'worried', wory: 'worry', jeleous: 'jealous', thankfull: 'thankful', joyfull: 'joyful',
   overwelmed: 'overwhelmed', overwelm: 'overwhelm', streanth: 'strength', strenght: 'strength',
-  patiance: 'patience', patince: 'patience', gult: 'guilt', adiction: 'addiction'
+  patiance: 'patience', patince: 'patience', gult: 'guilt', adiction: 'addiction',
+  attck: 'attack', breth: 'breath'
 };
 
 /** Levenshtein distance — vanilla JS, ~1.5kb. Used for fuzzy typo correction and "Did you mean?" suggestions. */
@@ -2043,6 +2044,8 @@ const QUERY_TO_TOPIC = {
   help: 'hope', helping: 'love',
   scared: 'fear', frightened: 'fear', terrified: 'fear',
   weak: 'strength', weakened: 'strength',
+  // crisis / suicidal — map to hope, life, comfort so verses surface immediately
+  kms: 'hope', suicidal: 'hope', suicide: 'hope', dying: 'hope', enditall: 'hope',
 };
 
 /** Comprehensive vocabulary: maps common words to topics so search understands what is being asked. */
@@ -2243,6 +2246,17 @@ const PHRASE_TO_TOKENS = {
   'difficult boss': ['patience', 'forgiveness', 'love'],
   'love your enemies': ['forgiveness', 'love', 'enemy', 'bless', 'pray'],
   'dealing with difficult people': ['patience', 'forgiveness', 'love', 'bless'],
+  // crisis / suicidal — surface hope, life, comfort verses immediately
+  'gonna kms': ['hope', 'life', 'comfort', 'despair'],
+  'im gonna kms': ['hope', 'life', 'comfort', 'despair'],
+  'kms tonight': ['hope', 'life', 'comfort'],
+  'want to die': ['hope', 'life', 'comfort', 'despair'],
+  'kill myself': ['hope', 'life', 'comfort', 'despair'],
+  'end my life': ['hope', 'life', 'comfort', 'despair'],
+  'end it all': ['hope', 'life', 'comfort', 'despair'],
+  'fuck this world': ['hope', 'life', 'comfort', 'world'],
+  'nothing matters': ['hope', 'life', 'purpose', 'despair'],
+  'nothing matters anymore': ['hope', 'life', 'purpose', 'despair'],
   // finances
   'financial stress': ['finances', 'provision', 'faith'],
   'money problems': ['finances', 'provision', 'faith'],

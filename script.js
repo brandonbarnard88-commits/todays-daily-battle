@@ -17258,7 +17258,10 @@ function sanitizeNudgeElements() {
         }, 150);
       }
       window.__tdbRunSearchReal = runSearchWithInput;
-      window.runSearchWithInput = runSearchWithInput;
+      // Preserve easter-egg wrap if it already wrapped runSearchWithInput; otherwise overwrite.
+      if (!window.__tdbHallelujahWrapped) {
+        window.runSearchWithInput = runSearchWithInput;
+      }
       var searchBtn = document.getElementById('search-btn');
       if (searchBtn) searchBtn.addEventListener('click', function (e) {
         e.preventDefault();

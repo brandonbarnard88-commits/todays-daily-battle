@@ -200,12 +200,13 @@
               output.innerHTML = '<p class="empty">Chapter not found. Try another book or chapter.</p>';
               return;
             }
-            var html = '<div class="chapter-title">' + safeBook + ' ' + safeChapter + '</div>';
+            function esc(s) { if (s == null || s === '') return ''; return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+            var html = '<div class="chapter-title">' + esc(safeBook) + ' ' + esc(safeChapter) + '</div>';
             for (var i = 0; i < verses.length; i++) {
               var v = verses[i] || {};
               var ref = (v.book_name || safeBook) + ' ' + (v.chapter || safeChapter) + ':' + (v.verse || '');
-              var text = String(v.text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;').trim();
-              html += '<div class="context-line"><strong>' + ref + '</strong> ' + text + '</div>';
+              var text = String(v.text || '').trim();
+              html += '<div class="context-line"><strong>' + esc(ref) + '</strong> ' + esc(text) + '</div>';
             }
             output.innerHTML = html;
           })

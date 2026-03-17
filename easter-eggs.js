@@ -111,6 +111,7 @@
         if (val === 'hallelujah' && tryHallelujah(null)) return;
         if (val === 'still' && tryStill(inputStr)) return;
         if (val === 'amen' && tryAmen(inputStr)) return;
+        if (/^nothing can stop (you|me|us)$/.test(val) && tryNothingCanStopYou(inputStr, orig)) return;
         if (val === 'grace' && tryGraceSearch(inputStr, orig)) return;
         if (val === 'forgive' && tryForgiveSearch(inputStr, orig)) return;
         if (val === 'mercy' && tryMercySearch(inputStr, orig)) return;
@@ -123,7 +124,26 @@
       };
     }
     wrapRunSearch();
-    setTimeout(wrapRunSearch, 800);
+    setTimeout(wrapRunSearch, 400);
+    setTimeout(wrapRunSearch, 1200);
+
+    function tryNothingCanStopYou(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      if (!/^nothing can stop (you|me|us)$/.test(val)) return false;
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee.</p><p class="easter-still-ref">(Isaiah 43:2)</p><p class="easter-still-verse" style="margin-top:1rem;">For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God.</p><p class="easter-still-ref">(Romans 8:38–39)</p><p style="margin-top:1rem;font-style:italic;opacity:0.95;">Nothing can stop you. He is with you.</p></div>';
+        out.style.display = '';
+        out.classList.remove('hidden');
+        out.classList.add('easter-still-glow', 'has-results');
+        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
+        out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      var inp = document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (inp) inp.value = '';
+      return true;
+    }
 
     function tryGraceSearch(input, orig) {
       if (!enabled()) return false;

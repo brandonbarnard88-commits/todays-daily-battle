@@ -291,6 +291,21 @@
         <h1 class="section-divider">Bible Tool</h1>
         <p class="section-note">Look up any verse, take notes, track your reading — KJV, no account needed. Sign in to sync across devices.</p>
 
+        <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
+          <label for="query" class="search-hero-label">Search by emotion or verse</label>
+          <div class="search-hero-row">
+            <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
+            <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
+          </div>
+          <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
+          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" aria-label="Quick topic search"></div>
+          <details class="home-accordion util-mt-0_5">
+            <summary class="home-accordion-summary">More topics</summary>
+            <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
+          </details>
+          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
+        </section>
+
         <!-- Ask the Word — Bible Q&A (standalone, runs before main script) -->
         <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search">
           <h2 class="bible-qa-title">✝️ Ask the Word</h2>

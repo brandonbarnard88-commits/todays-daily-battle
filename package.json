@@ -25,7 +25,8 @@
     "validate:prod": "node scripts/prod-validation.mjs",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
     "purge:check": "node scripts/cloudflare-purge-check.mjs",
-    "audit:links": "npm run build && node scripts/audit-links.mjs"
+    "audit:links": "npm run build && node scripts/audit-links.mjs",
+    "audit:lighthouse": "npx lighthouse https://www.todaysdailybattle.com --output=html --output-path=./lighthouse-report.html --chrome-flags='--headless' --only-categories=performance,accessibility,best-practices"
   },
   "devDependencies": {
     "jsdom": "^28.1.0",

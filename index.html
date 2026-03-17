@@ -82,6 +82,7 @@
   <link rel="modulepreload" href="config.js">
   <link rel="modulepreload" href="script.js?v=20260311k">
   <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js">
+  <link rel="prefetch" href="calm.html">
   <style>
     :root {
       --bg: #0f1218;
@@ -539,6 +540,7 @@
       .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 6 !important; }
       #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 7 !important; }
       .verse-img-card,
+      .calm-crisis-card,
       #offline-banner,
       .pwa-nudge,
       .offline-pill,
@@ -1699,6 +1701,33 @@
     @keyframes easter-badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
     a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
 
+    /* ── Calm crisis card (prominent discoverability) ── */
+    .calm-crisis-card {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.75rem 1rem; margin: 0 0 0.75rem;
+      background: linear-gradient(135deg, rgba(227,188,103,0.12), rgba(227,188,103,0.06));
+      border: 1px solid rgba(227,188,103,0.35);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .calm-crisis-card:hover, .calm-crisis-card:focus-visible {
+      background: rgba(227,188,103,0.18);
+      border-color: rgba(227,188,103,0.5);
+      outline: 2px solid rgba(227,188,103,0.4);
+      outline-offset: 2px;
+    }
+    .calm-crisis-icon { font-size: 1.25rem; flex-shrink: 0; }
+    .calm-crisis-text { flex: 1; }
+    .calm-crisis-arrow { color: var(--gold); font-weight: 600; }
+
+    /* ── Prayer social proof ── */
+    .prayer-social-proof { font-size: 0.85rem; color: var(--muted); margin: 0.35rem 0 0; }
+    .streak-milestone-card { margin-top: 0.75rem; padding: 0.6rem 1rem; background: rgba(227,188,103,0.12); border-radius: 10px; font-size: 0.9rem; color: var(--gold-soft); }
+    .streak-milestone-card.hidden { display: none !important; }
+
     /* ── PWA nudge ── */
     .pwa-nudge {
       display: none;
@@ -1969,6 +1998,9 @@
       font-style: italic;
     }
     .prayer-offline-notice.hidden { display: none; }
+    .prayer-retry-sync-btn { font-size: 0.8rem; padding: 0.35rem 0.7rem; margin-left: 0.5rem; border: 1px solid var(--gold); border-radius: 6px; background: transparent; color: var(--gold); cursor: pointer; }
+    .prayer-retry-sync-btn:hover, .prayer-retry-sync-btn:focus-visible { background: rgba(227,188,103,0.15); outline: none; }
+    .prayer-retry-sync-btn.hidden { display: none !important; }
     .silent-amen-btn {
       display: inline-flex;
       align-items: center;
@@ -3231,7 +3263,9 @@
     }
     @media (prefers-reduced-motion: reduce) {
       #auth-daily-verse-text, #brand-verse-echo-text { animation: none; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     }
+    .trust-badge { font-size: 0.75rem; color: var(--muted); margin: 0.5rem 0 0; opacity: 0.85; }
   </style>
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
   <script type="application/ld+json">
@@ -3440,8 +3474,15 @@
 
     <main>
 
+      <!-- ── Calm flow: crisis moment shortcut (prominent discoverability) ── -->
+      <a href="calm.html" class="calm-crisis-card" aria-label="Feeling overwhelmed? Get a verse right now — one tap, instant comfort">
+        <span class="calm-crisis-icon" aria-hidden="true">🕊️</span>
+        <span class="calm-crisis-text">Feeling overwhelmed? <strong>Need a verse right now</strong> — one tap.</span>
+        <span class="calm-crisis-arrow" aria-hidden="true">→</span>
+      </a>
+
       <!-- ── Offline banner (reassuring message when offline) ── -->
-      <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — your verse &amp; prayers are still here. We'll sync when you're back.</div>
+      <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>
 
       <!-- ── Offline pill badge ── -->
       <div id="offline-pill" class="offline-pill" role="status" aria-live="polite" aria-atomic="true">
@@ -3502,6 +3543,7 @@
         </div>
         <p class="verse-ref" id="heroRef"></p>
         <span id="heroStreakBadge" class="hero-streak-badge" aria-label="Daily streak" hidden></span>
+        <div id="streak-milestone-card" class="streak-milestone-card hidden" role="status" aria-live="polite" aria-label="Streak milestone"></div>
         <ul class="breakdown" id="heroBreakdown"></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels"></div>
         <p class="application" id="heroApplication"></p>
@@ -3524,6 +3566,7 @@
           <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
         </div>
         <p class="share-verse-whisper">If this helped, tell a friend.</p>
+        <p class="trust-badge" aria-label="Privacy and ad policy">Privacy-first · No ads</p>
       </div>
       <!-- ── How's this helping? (feedback for future priorities) ── -->
       <div class="verse-feedback-row" id="verseFeedbackRow" role="group" aria-label="Verse feedback" hidden>
@@ -3736,8 +3779,10 @@
           <span class="prayer-today-label" id="prayerTodayLabel">0 prayers today</span>
           <span class="prayer-today-badge" id="prayerTodayBadge" aria-live="polite" aria-atomic="true"></span>
           <span class="prayer-offline-notice hidden" id="prayerOfflineNotice">Saved locally—sync when back</span>
+          <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
         </div>
         <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">0</span></p>
+        <p class="prayer-social-proof" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
         <button class="silent-amen-btn" type="button" id="silentAmenBtn" aria-label="Add a silent amen">
           Silent Amen
         </button>
@@ -5210,7 +5255,7 @@
       localStorage.setItem(visitKey, String(visits));
       const isStandalone = window.matchMedia("(display-mode: standalone)").matches
         || window.navigator.standalone === true;
-      if (!isStandalone && visits >= 3) pwaNudge.classList.add("show");
+      if (!isStandalone && visits >= 2) pwaNudge.classList.add("show");
     }
     function showPwaNudgeAfterEngagement() {
       if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;

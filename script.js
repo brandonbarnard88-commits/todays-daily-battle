@@ -5226,6 +5226,7 @@ function wireRealPrayerCounter() {
     var todayEl = document.getElementById('prayer-count-today');
     var wrapEl = document.getElementById('prayer-count-today-wrap');
     var prayerOfDayEl = document.getElementById('prayer-of-day-count');
+    var socialProofEl = document.getElementById('prayer-social-proof-num');
     if (!todayEl || !supabaseClient) return;
     var prayersTodayRpcDisabled = false;
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
@@ -5237,15 +5238,18 @@ function wireRealPrayerCounter() {
         if (localN > 0 && prayerOfDayEl) {
           prayerOfDayEl.textContent = formatCount(localN);
           if (wrapEl) wrapEl.classList.remove('hidden');
+          if (socialProofEl) socialProofEl.textContent = formatCount(localN);
         } else {
           if (wrapEl) wrapEl.classList.add('hidden');
           if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
+          if (socialProofEl) socialProofEl.textContent = '0';
         }
         return;
       }
       if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED === true)) {
         if (wrapEl) wrapEl.classList.add('hidden');
         if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
+        if (socialProofEl) socialProofEl.textContent = '0';
         return;
       }
       supabaseClient.rpc('get_prayers_today_count')
@@ -5257,9 +5261,11 @@ function wireRealPrayerCounter() {
             if (localN > 0 && prayerOfDayEl) {
               prayerOfDayEl.textContent = formatCount(localN);
               if (wrapEl) wrapEl.classList.remove('hidden');
+              if (socialProofEl) socialProofEl.textContent = formatCount(localN);
             } else {
               if (wrapEl) wrapEl.classList.add('hidden');
               if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
+              if (socialProofEl) socialProofEl.textContent = '0';
             }
             return;
           }
@@ -5271,9 +5277,11 @@ function wireRealPrayerCounter() {
             if (todayEl) todayEl.textContent = formatCount(displayN);
             if (wrapEl) wrapEl.classList.remove('hidden');
             if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
+            if (socialProofEl) socialProofEl.textContent = formatCount(displayN);
           } else {
             if (wrapEl) wrapEl.classList.add('hidden');
             if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
+            if (socialProofEl) socialProofEl.textContent = '0';
           }
         })
         .catch(function () {
@@ -5283,9 +5291,11 @@ function wireRealPrayerCounter() {
           if (localN > 0 && prayerOfDayEl) {
             prayerOfDayEl.textContent = formatCount(localN);
             if (wrapEl) wrapEl.classList.remove('hidden');
+            if (socialProofEl) socialProofEl.textContent = formatCount(localN);
           } else {
             if (wrapEl) wrapEl.classList.add('hidden');
             if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
+            if (socialProofEl) socialProofEl.textContent = '0';
           }
         });
     }
@@ -5330,9 +5340,40 @@ function wirePrayerRealtimeCounter() {
   }
 }
 
+function wirePrayerRetrySync() {
+  var btn = document.getElementById('prayerRetrySyncBtn');
+  if (!btn) return;
+  function updateVisibility() {
+    var q = typeof getPrayerOfflineQueue === 'function' ? getPrayerOfflineQueue() : [];
+    var show = navigator.onLine && q && q.length > 0;
+    btn.classList.toggle('hidden', !show);
+  }
+  updateVisibility();
+  btn.addEventListener('click', function () {
+    if (typeof flushPrayerOfflineQueue !== 'function') return;
+    btn.disabled = true;
+    var p = flushPrayerOfflineQueue();
+    if (p && typeof p.then === 'function') {
+      p.then(function () {
+        updateVisibility();
+        if (typeof showEliteToast === 'function') showEliteToast('Prayers synced.');
+      }).catch(function () {}).finally(function () {
+        btn.disabled = false;
+        updateVisibility();
+      });
+    } else {
+      btn.disabled = false;
+      updateVisibility();
+    }
+  });
+  window.addEventListener('online', updateVisibility);
+  setInterval(updateVisibility, 5000);
+}
+
 function wirePrayerCounter() {
   wireRealPrayerCounter();
   wirePrayerRealtimeCounter();
+  wirePrayerRetrySync();
 }
 
 function wireKidsBetaCount() {
@@ -8308,6 +8349,12 @@ function updateDailyBattleStreak() {
   window.__currentStreakCount = nextCount;
   if (nextCount === 7) emitEasterEgg('streak7_fist_bump', { streak: 7 });
   updateChallengeBannerState();
+  var milestoneCard = document.getElementById('streak-milestone-card');
+  if (milestoneCard && [7, 30].indexOf(nextCount) >= 0) {
+    milestoneCard.textContent = nextCount === 7 ? "You've been here a week. That's a week in the Word." : "Thirty days straight. You're still here.";
+    milestoneCard.classList.remove('hidden');
+    setTimeout(function () { milestoneCard.classList.add('hidden'); }, 8000);
+  }
   var milestoneToast = [3, 7, 14, 30, 60].indexOf(nextCount) >= 0;
   try {
     var lastMilestone = parseInt(localStorage.getItem('tdb_last_milestone_toast') || '0', 10);
@@ -9721,7 +9768,7 @@ function shareDailyBattle() {
   }
   var full = shareText + '\n' + (window.location.href || window.location.origin + '/');
   navigator.clipboard.writeText(full).then(function () {
-    if (typeof showEliteToast === 'function') showEliteToast('Copied.');
+    if (typeof showEliteToast === 'function') showEliteToast('Verse + link copied—paste to share.');
     else alert('Copied.');
   }).catch(function () { alert('Copied.'); });
 }
@@ -16317,11 +16364,21 @@ function sanitizeNudgeElements() {
             try { await renderDailyBattleCard(); } catch (_) {}
           } catch (err) {
             var out = document.getElementById('output');
+            if (out && out.closest && out.closest('.sr-only') && document.getElementById('feel-results')) out = document.getElementById('feel-results');
             if (out) {
               renderEmergencySearchResults(input);
               if (!hasSearchCards(out)) {
-                out.innerHTML = '<p style="text-align:center; color:#888;">Something went wrong. Please refresh and try again.</p>';
+                var failMsg = '<p style="text-align:center; color:#888;">Something went wrong.</p>';
+                var retryBtn = '<button type="button" class="btn btn-secondary" id="search-retry-btn" aria-label="Try search again" style="display:block;margin:0.75rem auto 0;">Try again</button>';
+                out.innerHTML = failMsg + retryBtn;
                 out.style.display = 'grid';
+                var retryEl = document.getElementById('search-retry-btn');
+                if (retryEl && typeof runSearchWithInput === 'function') {
+                  retryEl.addEventListener('click', function () {
+                    var q = getQueryInput();
+                    runSearchWithInput(q ? String(q.value || '').trim() : (input || ''));
+                  });
+                }
               }
               out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }

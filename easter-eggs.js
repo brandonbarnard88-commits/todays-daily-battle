@@ -119,7 +119,6 @@
         if (val === 'lamb' && tryLambSearch(inputStr, orig)) return;
         if (val === 'resurrection' && tryResurrectionSearch(inputStr, orig)) return;
         if (val === 'secrets' && trySecretsUnlock(inputStr)) return;
-        if (/^nothing can stop (you|me|us)$/.test(val) && tryNothingCanStopYou(inputStr)) return;
         orig.apply(this, arguments);
       };
     }
@@ -572,42 +571,6 @@
     }
 
     window.tryStillEaster = tryStill;
-
-    function tryNothingCanStopYou(input) {
-      if (!enabled()) return false;
-      var val = (typeof input === 'string' ? input : '');
-      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
-      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
-      if (!/^nothing can stop (you|me|us)$/.test(val)) return false;
-      showNothingCanStopYou();
-      if (inp) inp.value = '';
-      return true;
-    }
-
-    function showNothingCanStopYou() {
-      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output') || document.getElementById('lookup-result');
-      if (out) {
-        out.innerHTML = '<div class="easter-still-result easter-nothing-can-stop">' +
-          '<p class="easter-still-verse">Nothing can stop you.</p>' +
-          '<p class="easter-nothing-ref">' + escapeHtml('Isaiah 43:2') + '</p>' +
-          '<p class="easter-nothing-text">"' + escapeHtml('When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee: when thou walkest through the fire, thou shalt not be burned; neither shall the flame kindle upon thee.') + '"</p>' +
-          '<p class="easter-nothing-ref">' + escapeHtml('Romans 8:38-39') + '</p>' +
-          '<p class="easter-nothing-text">"' + escapeHtml('For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.') + '"</p>' +
-          '<p class="easter-nothing-close">Not because you\'re unbreakable—because the One holding you cannot be broken.</p></div>';
-        out.style.display = '';
-        out.classList.remove('hidden');
-        out.classList.add('easter-still-glow', 'has-results');
-        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
-        out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-      var toast = document.createElement('div');
-      toast.className = 'easter-triple-toast';
-      toast.setAttribute('role', 'status');
-      toast.setAttribute('aria-live', 'polite');
-      toast.textContent = 'He\'s got you.';
-      document.body.appendChild(toast);
-      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
-    }
 
     // 5d. Shift + hover Peace chip 3s (or long-press on mobile)
     (function wirePeaceChip() {

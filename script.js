@@ -2446,6 +2446,7 @@ const PHRASE_TO_TOKENS = {
   'god has empathy but world doesnt': ['grief', 'comfort', 'faith', 'presence'],
   'world doesnt care': ['grief', 'comfort', 'faith', 'presence'],
   'nobody gets it': ['loneliness', 'comfort', 'faith', 'presence'],
+  'nothing can stop you': ['strength', 'courage', 'hope'],
   'brothers fighting': ['family', 'forgiveness', 'peace', 'unity'],
   'siblings arguing': ['family', 'forgiveness', 'peace'],
   'fighting over inheritance': ['family', 'forgiveness', 'wisdom'],
@@ -12490,7 +12491,7 @@ var PHRASE_SEMANTIC_MAP = {
   'nobody gets it': 'loneliness', 'god sees me': 'grief', 'god understands': 'grief',
   'god has empathy but world doesnt': 'grief', 'world doesnt get it': 'loneliness',
   // Family conflict / caregiving / inheritance
-  'brothers fighting': 'family', 'siblings arguing': 'family', 'fighting over inheritance': 'family',
+  'nothing can stop you': 'strength', 'brothers fighting': 'family', 'siblings arguing': 'family', 'fighting over inheritance': 'family',
   'parents health siblings': 'family', 'caregiving resentment': 'family', 'family greedy inheritance': 'family',
   'brothers over mom': 'family', 'brothers over dad': 'family', 'siblings over will': 'family',
   'fighting over parents health': 'family', 'brothers over parents health': 'family', 'siblings over parents health': 'family',

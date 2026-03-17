@@ -540,6 +540,7 @@
       .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 6 !important; }
       #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 7 !important; }
       .verse-img-card,
+      .calm-cta-wrap,
       .calm-crisis-card,
       #offline-banner,
       .pwa-nudge,
@@ -1701,10 +1702,12 @@
     @keyframes easter-badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
     a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
 
-    /* ── Need Him Right Now? Anytime anchor ── */
-    .need-him-now-card {
+    /* ── Need Him right now? Single entry (calm flow) ── */
+    .calm-cta-wrap { margin-bottom: 0.75rem; }
+    .calm-cta-note { margin: 0.35rem 0 0; font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
+    .calm-crisis-card {
       display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.85rem 1.1rem; margin: 0 0 0.6rem;
+      padding: 0.85rem 1.1rem; margin: 0;
       background: linear-gradient(135deg, rgba(227,188,103,0.18), rgba(227,188,103,0.08));
       border: 1px solid rgba(227,188,103,0.45);
       border-radius: 12px;
@@ -1713,37 +1716,24 @@
       font-size: 1rem;
       transition: background 0.2s, border-color 0.2s;
     }
-    .need-him-now-card:hover, .need-him-now-card:focus-visible {
+    .calm-crisis-card:hover, .calm-crisis-card:focus-visible {
       background: rgba(227,188,103,0.22);
       border-color: rgba(227,188,103,0.55);
       outline: 2px solid rgba(227,188,103,0.4);
       outline-offset: 2px;
     }
-    .need-him-now-icon { font-size: 1.35rem; flex-shrink: 0; }
-    .need-him-now-text { flex: 1; }
-    .need-him-now-arrow { color: var(--gold); font-weight: 600; }
-
-    /* ── Calm crisis card (prominent discoverability) ── */
-    .calm-crisis-card {
-      display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.75rem 1rem; margin: 0 0 0.75rem;
-      background: linear-gradient(135deg, rgba(227,188,103,0.12), rgba(227,188,103,0.06));
-      border: 1px solid rgba(227,188,103,0.35);
-      border-radius: 12px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .calm-crisis-card:hover, .calm-crisis-card:focus-visible {
-      background: rgba(227,188,103,0.18);
-      border-color: rgba(227,188,103,0.5);
-      outline: 2px solid rgba(227,188,103,0.4);
-      outline-offset: 2px;
-    }
-    .calm-crisis-icon { font-size: 1.25rem; flex-shrink: 0; }
+    .calm-crisis-icon { font-size: 1.35rem; flex-shrink: 0; }
     .calm-crisis-text { flex: 1; }
-    .calm-crisis-arrow { color: var(--gold); font-weight: 600; }
+    .calm-crisis-enter {
+      flex-shrink: 0;
+      padding: 0.35rem 0.7rem;
+      background: rgba(227,188,103,0.25);
+      border: 1px solid rgba(227,188,103,0.5);
+      border-radius: 8px;
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
 
     /* ── Prayer social proof ── */
     .prayer-social-proof { font-size: 0.85rem; color: var(--muted); margin: 0.35rem 0 0; }
@@ -3469,7 +3459,7 @@
       <span class="site-title-underline" aria-hidden="true"></span>
       <p class="site-tagline">For God · For Country · For Family</p>
       <nav class="site-top-links" aria-label="Site navigation and information">
-        <a href="calm.html" aria-label="Need a verse now? Get a calm verse instantly">Need a verse now?</a>
+        <a href="calm.html" aria-label="Need Him right now? One-tap verse for whatever you're carrying">Need Him right now?</a>
         <span id="header-auth-links">
           <a href="login.html" aria-label="Sign in to your account">Sign In</a>
           <span aria-hidden="true"> · </span>
@@ -3496,19 +3486,15 @@
 
     <main>
 
-      <!-- ── Need Him Right Now? Anytime anchor (mood search + Möbius) ── -->
-      <a href="#quick-search-hero" class="need-him-now-card" aria-label="Need Him Right Now? Search by feeling or breathe — anytime, not just mornings">
-        <span class="need-him-now-icon" aria-hidden="true">✝️</span>
-        <span class="need-him-now-text"><strong>Need Him Right Now?</strong> Search by feeling or breathe — anytime.</span>
-        <span class="need-him-now-arrow" aria-hidden="true">→</span>
-      </a>
-
-      <!-- ── Calm flow: crisis moment shortcut (prominent discoverability) ── -->
-      <a href="calm.html" class="calm-crisis-card" aria-label="Feeling overwhelmed? Get a verse right now — one tap, instant comfort">
-        <span class="calm-crisis-icon" aria-hidden="true">🕊️</span>
-        <span class="calm-crisis-text">Feeling overwhelmed? <strong>Need a verse right now</strong> — one tap.</span>
-        <span class="calm-crisis-arrow" aria-hidden="true">→</span>
-      </a>
+      <!-- ── Need Him right now? Single entry (calm flow: search by feeling, one tap) ── -->
+      <div class="calm-cta-wrap">
+        <a href="calm.html" class="calm-crisis-card" aria-label="Need Him right now? One-tap verse for whatever you're carrying">
+          <span class="calm-crisis-icon" aria-hidden="true">✝️</span>
+          <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
+          <span class="calm-crisis-enter">→</span>
+        </a>
+        <p class="calm-cta-note">Not just one morning moment—use anytime anxiety, grief, or life hits.</p>
+      </div>
 
       <!-- ── Offline banner (reassuring message when offline) ── -->
       <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>

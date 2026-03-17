@@ -38,6 +38,9 @@
     .back-home { margin-top: 1rem; }
     .calm-copy-btn { margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 0.88rem; border-radius: 8px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.08); color: var(--gold); cursor: pointer; }
     .calm-copy-btn:hover, .calm-copy-btn:focus-visible { background: rgba(227,188,103,0.18); outline: 2px solid var(--gold); outline-offset: 2px; }
+    .calm-helped-row { margin-bottom: 0.75rem; }
+    .calm-helped-btn { background: none; border: none; color: var(--muted); font-size: 0.85rem; cursor: pointer; padding: 0.25rem 0; }
+    .calm-helped-btn:hover, .calm-helped-btn:focus-visible { color: var(--gold); outline: 2px solid var(--gold); outline-offset: 2px; }
     .calm-input-wrap { margin-bottom: 1.5rem; max-width: 20rem; margin-left: auto; margin-right: auto; }
     .calm-input-wrap input { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 10px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.06); color: var(--text, #e2e8f0); }
     .calm-input-wrap input::placeholder { color: var(--muted, #94a3b8); }
@@ -82,17 +85,24 @@
           <p id="verse-text" class="verse" aria-live="polite"></p>
           <p id="verse-ref" class="ref"></p>
           <button type="button" class="calm-copy-btn" id="copy-verse-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
+          <div class="calm-helped-row">
+            <button type="button" class="calm-helped-btn" id="helped-btn" aria-label="Verse helped">Helped? 👍</button>
+          </div>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="another-btn" aria-label="Show another verse in this category">Another in this category</button>
-            <button type="button" class="calm-btn" id="back-categories" aria-label="Back to categories">Back to categories</button>
+            <button type="button" class="calm-btn" id="back-categories" aria-label="Still heavy? Try another feeling">Still heavy? Try another feeling</button>
           </div>
         </div>
         <div id="desktop-verse" class="desktop-only verse-centered" style="display: none;">
           <p id="desktop-verse-text" class="verse" aria-live="polite"></p>
           <p id="desktop-verse-ref" class="ref"></p>
           <button type="button" class="calm-copy-btn" id="desktop-copy-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
+          <div class="calm-helped-row">
+            <button type="button" class="calm-helped-btn" id="desktop-helped-btn" aria-label="Verse helped">Helped? 👍</button>
+          </div>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="desktop-another" aria-label="Show another verse">Another verse</button>
+            <button type="button" class="calm-btn" id="desktop-back-categories" aria-label="Still heavy? Try another feeling">Still heavy? Try another feeling</button>
           </div>
         </div>
         <a href="/" class="calm-btn back-home">Back to home</a>
@@ -103,6 +113,15 @@
   <script>
     (function () {
       'use strict';
+      (function calmAnalytics() {
+        var key = 'calm_visits_' + new Date().toISOString().slice(0, 10);
+        var n = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+        try { localStorage.setItem(key, String(n)); } catch (e) {}
+        if (typeof gtag === 'function') {
+          gtag('event', 'calm_page_view', {});
+          if (n > 1) gtag('event', 'calm_repeat_visit', { visits_today: n });
+        }
+      })();
       var VERSES = {
         anxiety: [
           { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee; be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.' },
@@ -202,6 +221,11 @@
       if (anotherBtn) anotherBtn.addEventListener('click', function () { showVerse(currentCategory); });
       var backBtn = document.getElementById('back-categories');
       if (backBtn) backBtn.addEventListener('click', showCategories);
+      var desktopBack = document.getElementById('desktop-back-categories');
+      if (desktopBack) desktopBack.addEventListener('click', function () {
+        var el = document.getElementById('calm-categories');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
       var desktopAnother = document.getElementById('desktop-another');
       if (desktopAnother) desktopAnother.addEventListener('click', function () {
         if (currentCategory) {
@@ -239,6 +263,14 @@
         desktopCopy.textContent = 'Copied';
         setTimeout(function () { desktopCopy.textContent = 'Copy to clipboard'; }, 2000);
       });
+      function onHelped(btn) {
+        if (typeof gtag === 'function') gtag('event', 'calm_verse_helped', { category: currentCategory || 'desktop' });
+        if (btn) { btn.textContent = 'Thanks'; btn.disabled = true; }
+      }
+      var helpedBtn = document.getElementById('helped-btn');
+      if (helpedBtn) helpedBtn.addEventListener('click', function () { onHelped(helpedBtn); });
+      var desktopHelped = document.getElementById('desktop-helped-btn');
+      if (desktopHelped) desktopHelped.addEventListener('click', function () { onHelped(desktopHelped); });
       var FEEL_TO_CALM = { anxious: 'anxiety', sad: 'grief', peace: 'peace', tired: 'strength', hopeful: 'peace', difficult: 'worry', angry: 'strength', lonely: 'grief' };
       function debounce(fn, ms) {
         var t;

@@ -20,11 +20,12 @@
     "assets:story-svg": "node scripts/generate-story-svg-assets.mjs",
     "actionbible": "node build-action-bible.js",
     "actionbible:packs": "node build-action-bible-packs.js",
-    "quality:gate": "npm run build && npm run audit:paranoid && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
+    "quality:gate": "npm run build && npm run audit:paranoid && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke",
     "validate:prod": "node scripts/prod-validation.mjs",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
-    "purge:check": "node scripts/cloudflare-purge-check.mjs"
+    "purge:check": "node scripts/cloudflare-purge-check.mjs",
+    "audit:links": "npm run build && node scripts/audit-links.mjs"
   },
   "devDependencies": {
     "jsdom": "^28.1.0",

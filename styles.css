@@ -6237,6 +6237,17 @@ button:active {
   color: rgba(148, 163, 184, 0.95);
   font-weight: 600;
 }
+.verse-breakdown-content.breakdown-panels {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  background: rgba(212, 175, 55, 0.08);
+  border-radius: 8px;
+  border-left: 3px solid rgba(212, 175, 55, 0.35);
+}
+.dark-mode .verse-breakdown-content.breakdown-panels {
+  background: rgba(212, 175, 55, 0.06);
+  border-left-color: rgba(212, 175, 55, 0.4);
+}
 
 .verse-card p.memory-mode .memory-word {
   cursor: pointer;

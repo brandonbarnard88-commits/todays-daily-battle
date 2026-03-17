@@ -10688,6 +10688,82 @@ var BUNDLED_DAILY_VERSE_FALLBACKS = [
   }
 ];
 
+/** Curated hope verses with full breakdowns for no-match/low-match search fallback. Always 6–12 verses with context + real-talk + do-this. */
+var DEFAULT_VERSES = [
+  {
+    ref: 'Psalm 34:18',
+    text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
+    breakdown: {
+      context: 'David in distress, crying out when surrounded by enemies.',
+      realTalk: 'When your heart feels shattered, God doesn\'t stand far off—He\'s right there.',
+      doThis: 'Whisper this verse when tears come: "Lord, You\'re close to my broken heart."'
+    }
+  },
+  {
+    ref: 'Isaiah 41:10',
+    text: 'Fear thou not; for I am with thee; be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
+    breakdown: {
+      context: 'God speaking to Israel in exile, promising presence.',
+      realTalk: 'Fear wants to own you, but God says "I am with you"—He\'s not leaving.',
+      doThis: 'Repeat "Fear not, I am with thee" when panic hits.'
+    }
+  },
+  {
+    ref: 'Matthew 11:28',
+    text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+    breakdown: {
+      context: 'Jesus inviting the weary to Himself.',
+      realTalk: 'Life\'s burdens can crush—Jesus offers rest, not more rules.',
+      doThis: 'Say "Come unto me" and breathe deep when overwhelmed.'
+    }
+  },
+  {
+    ref: 'Jeremiah 29:11',
+    text: 'For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.',
+    breakdown: {
+      context: 'God speaking to exiles in Babylon—He has a future for them.',
+      realTalk: 'When tomorrow feels dark, God\'s thoughts toward you are peace, not harm.',
+      doThis: 'Write "thoughts of peace" on a note and keep it where you\'ll see it.'
+    }
+  },
+  {
+    ref: 'Psalm 23:4',
+    text: 'Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.',
+    breakdown: {
+      context: 'David describing God as shepherd through the darkest valley.',
+      realTalk: 'Even in the shadow, you\'re not alone—His rod and staff are there.',
+      doThis: 'When fear rises, say out loud: "Thou art with me."'
+    }
+  },
+  {
+    ref: 'Romans 8:28',
+    text: 'And we know that all things work together for good to them that love God, to them who are the called according to his purpose.',
+    breakdown: {
+      context: 'Paul assuring believers that God weaves even hardship for good.',
+      realTalk: 'What feels broken can still be part of a good story—God is at work.',
+      doThis: 'Name one hard thing and say: "God, I trust You to work this for good."'
+    }
+  },
+  {
+    ref: 'Philippians 4:6-7',
+    text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+    breakdown: {
+      context: 'Paul writing to Philippi—pray instead of worry.',
+      realTalk: 'Anxiety screams; prayer quiets. God\'s peace guards your heart.',
+      doThis: 'Before you spiral, tell God one thing you\'re carrying—then breathe.'
+    }
+  },
+  {
+    ref: 'Psalm 147:3',
+    text: 'He healeth the broken in heart, and bindeth up their wounds.',
+    breakdown: {
+      context: 'Psalmist praising God for His care of the hurting.',
+      realTalk: 'God doesn\'t just see your wounds—He binds them up.',
+      doThis: 'Let this verse sit with you; no rush. He is healing.'
+    }
+  }
+];
+
 function pickBundledDailyFallback() {
   var list = Array.isArray(BUNDLED_DAILY_VERSE_FALLBACKS) ? BUNDLED_DAILY_VERSE_FALLBACKS : [];
   if (!list.length) {
@@ -15996,44 +16072,42 @@ function executeQuery(parsed, tier, filters) {
   results.relatedMatches = filterVerseList(results.relatedMatches, filters);
 
   if (results.verses.length === 0) {
-    // Smart fallback: try topics related to the query first, then universal defaults
-    var fallbackRefs = [];
-    var fallbackTopics = [];
-    // Try to find any related topics from raw tokens
-    if (parsed.payload && (parsed.payload.rawTokens || parsed.payload.keywords)) {
-      var rawForFallback = parsed.payload.rawTokens || parsed.payload.keywords || [];
-      rawForFallback.forEach(function(token) {
-        var mapped = QUERY_TO_TOPIC[normalizeInput(String(token || ''))];
-        if (mapped && topics[mapped] && !fallbackTopics.includes(mapped)) fallbackTopics.push(mapped);
+    // Curated hope verses with full breakdowns—no search leaves empty-handed
+    if (typeof DEFAULT_VERSES !== 'undefined' && DEFAULT_VERSES.length > 0) {
+      var defaultSet = DEFAULT_VERSES.slice(0, 8);
+      defaultSet.forEach(function(d) {
+        var text = d.text || (typeof bible !== 'undefined' && bible[d.ref]) || (typeof getBibleVerseText === 'function' ? getBibleVerseText(d.ref) : '');
+        if (text) results.verses.push({ ref: d.ref, text: text, breakdown: d.breakdown });
       });
+      results.verses = filterVerseList(results.verses, filters);
+      if (results.verses.length > 0) results.fallback = true;
     }
-    // Add universal fallback topics that always have good verses
-    ['hope', 'love', 'peace', 'strength', 'faith'].forEach(function(t) {
-      if (!fallbackTopics.includes(t)) fallbackTopics.push(t);
-    });
-    fallbackTopics.slice(0, 4).forEach(function(t) {
-      if (topics[t] && topics[t].verses) {
-        topics[t].verses.forEach(function(ref) { fallbackRefs.push(ref); });
-      }
-    });
-    fallbackRefs = fallbackRefs.filter(function(ref, i, arr) { return arr.indexOf(ref) === i; });
-    fallbackRefs.slice(0, 12).forEach(function(ref) {
-      var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
-      if (text) results.verses.push({ ref: ref, text: text });
-    });
-    results.verses = filterVerseList(results.verses, filters);
-    if (results.verses.length > 0) results.fallback = true;
-    // Absolute last resort: John 3:16 is always in the KJV
-    if (results.verses.length === 0 && bible['John 3:16']) {
+    // Absolute last resort: John 3:16 or bundled fallback
+    if (results.verses.length === 0 && typeof bible !== 'undefined' && bible['John 3:16']) {
       results.verses.push({ ref: 'John 3:16', text: bible['John 3:16'] });
       results.fallback = true;
     }
-    // When bible not loaded yet: use bundled text so search always returns something
     if (results.verses.length === 0 && typeof BUNDLED_DAILY_VERSE_FALLBACKS !== 'undefined' && BUNDLED_DAILY_VERSE_FALLBACKS[0]) {
       var b = BUNDLED_DAILY_VERSE_FALLBACKS[0];
       results.verses.push({ ref: b.ref, text: b.text });
       results.fallback = true;
     }
+  }
+  // Pad to at least 6 verses when we have some but fewer than 6
+  if (results.verses.length > 0 && results.verses.length < 6 && typeof DEFAULT_VERSES !== 'undefined' && DEFAULT_VERSES.length > 0) {
+    var existingRefs = new Set(results.verses.map(function(v) { return v.ref; }));
+    var padCount = 6 - results.verses.length;
+    for (var pi = 0; pi < DEFAULT_VERSES.length && padCount > 0; pi++) {
+      var d = DEFAULT_VERSES[pi];
+      if (existingRefs.has(d.ref)) continue;
+      var ptext = d.text || (typeof bible !== 'undefined' && bible[d.ref]) || (typeof getBibleVerseText === 'function' ? getBibleVerseText(d.ref) : '');
+      if (ptext) {
+        results.verses.push({ ref: d.ref, text: ptext, breakdown: d.breakdown });
+        existingRefs.add(d.ref);
+        padCount--;
+      }
+    }
+    results.verses = filterVerseList(results.verses, filters);
   }
   return results;
 }
@@ -16218,7 +16292,7 @@ function renderResults(results) {
     shuffleArray(notShown);
     shuffleArray(alreadyShown);
     verses = notShown.concat(alreadyShown);
-    var toRecord = verses.slice(0, 6).map(function (v) { return v.ref; });
+    var toRecord = verses.slice(0, 10).map(function (v) { return v.ref; });
     toRecord.forEach(function (ref) { return shownSet.add(ref); });
     if (shownSet.size >= results.verses.length) shownSet.clear();
     sessionStorage.setItem(SHOWN_REFS_KEY, JSON.stringify(Array.from(shownSet)));
@@ -16262,37 +16336,50 @@ function renderResults(results) {
           plainP.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
           card.appendChild(plainP);
         }
-        var breakdown = typeof getVerseBreakdown === 'function' ? getVerseBreakdown(v.ref, v.text) : null;
-        if (breakdown && breakdown.layman) {
-          var details = document.createElement('details');
-          details.className = 'verse-breakdown';
-          var summary = document.createElement('summary');
-          summary.textContent = 'Verse breakdown';
-          summary.setAttribute('aria-label', 'Expand verse breakdown');
-          details.appendChild(summary);
-          var content = document.createElement('div');
-          content.className = 'verse-breakdown-content';
+        var breakdown = v.breakdown && v.breakdown.context ? v.breakdown : (typeof getVerseBreakdown === 'function' ? getVerseBreakdown(v.ref, v.text) : null);
+        var useDailyFormat = breakdown && breakdown.context && breakdown.realTalk && breakdown.doThis;
+        var details = document.createElement('details');
+        details.className = 'verse-breakdown';
+        details.setAttribute('open', '');
+        var summary = document.createElement('summary');
+        summary.textContent = 'Verse breakdown';
+        summary.setAttribute('aria-label', 'Expand verse breakdown');
+        details.appendChild(summary);
+        var content = document.createElement('div');
+        content.className = 'verse-breakdown-content' + (useDailyFormat ? ' breakdown-panels' : '');
+        if (useDailyFormat) {
+          var ctxP = document.createElement('p');
+          ctxP.innerHTML = '<strong>Context:</strong> ' + escapeHtml(breakdown.context);
+          content.appendChild(ctxP);
+          var rtP = document.createElement('p');
+          rtP.innerHTML = '<strong>Real talk:</strong> ' + escapeHtml(breakdown.realTalk);
+          content.appendChild(rtP);
+          var dtP = document.createElement('p');
+          dtP.innerHTML = '<strong>Do this:</strong> ' + escapeHtml(breakdown.doThis);
+          content.appendChild(dtP);
+        } else {
+          var layman = (breakdown && breakdown.layman) ? breakdown.layman : 'A timeless truth from Scripture—reflect on how it speaks to you today.';
           var laymanP = document.createElement('p');
-          laymanP.innerHTML = '<strong>Layman\'s terms:</strong> ' + escapeHtml(breakdown.layman);
+          laymanP.innerHTML = '<strong>Layman\'s terms:</strong> ' + escapeHtml(layman);
           content.appendChild(laymanP);
-          if (breakdown.about) {
+          if (breakdown && breakdown.about) {
             var aboutP = document.createElement('p');
             aboutP.innerHTML = '<strong>Who it\'s talking about:</strong> ' + escapeHtml(breakdown.about);
             content.appendChild(aboutP);
           }
-          if (breakdown.to) {
+          if (breakdown && breakdown.to) {
             var toP = document.createElement('p');
             toP.innerHTML = '<strong>Who it\'s talking to:</strong> ' + escapeHtml(breakdown.to);
             content.appendChild(toP);
           }
-          if (breakdown.applies) {
+          if (breakdown && breakdown.applies) {
             var appliesP = document.createElement('p');
             appliesP.innerHTML = '<strong>How it applies today:</strong> ' + escapeHtml(breakdown.applies);
             content.appendChild(appliesP);
           }
-          details.appendChild(content);
-          card.appendChild(details);
         }
+        details.appendChild(content);
+        card.appendChild(details);
         if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) {
           card.classList.add('red-letter-card');
           const verseText = card.querySelector('p');
@@ -16584,8 +16671,8 @@ function renderResults(results) {
   };
 
   if (results.intent === 'keyword') {
-    renderSection('Phrase Matches', phraseMatches, 4, isJesusSaidQuery);
-    renderSection('Related Topics', relatedMatches, 4, isJesusSaidQuery);
+    renderSection('Phrase Matches', phraseMatches, 6, isJesusSaidQuery);
+    renderSection('Related Topics', relatedMatches, 6, isJesusSaidQuery);
   }
 
   var resultsTitle = 'Results';
@@ -16601,7 +16688,7 @@ function renderResults(results) {
   } else if (results.intent === 'keyword') {
     resultsTitle = 'Matching Verses';
   }
-  renderSection(resultsTitle, verses, 6, isJesusSaidQuery);
+  renderSection(resultsTitle, verses, 10, isJesusSaidQuery);
   if (queryText.includes('family') || queryText.includes('parenting') || queryText.includes('parents') || queryText.includes('home')) {
     const familyTreeWrap = document.createElement('div');
     familyTreeWrap.className = 'family-tree-image-wrap';

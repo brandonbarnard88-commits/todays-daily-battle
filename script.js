@@ -2002,6 +2002,10 @@ const QUERY_TO_TOPIC = {
   // marriage / relationships
   marriage: 'marriage', spouse: 'marriage', husband: 'marriage', wife: 'marriage', covenant: 'marriage',
   divorce: 'marriage', reconcile: 'marriage', relationship: 'relationships', friendship: 'relationships',
+  // difficult people / workplace
+  coworker: 'patience', coworkers: 'patience', colleague: 'patience', colleagues: 'patience',
+  boss: 'patience', toxic: 'forgiveness', difficult: 'patience', enemy: 'forgiveness', enemies: 'forgiveness',
+  workplace: 'patience', work: 'patience', job: 'patience', office: 'patience',
   // finances
   money: 'finances', finances: 'finances', provision: 'finances', wealth: 'finances', bills: 'finances',
   debt: 'finances', poor: 'finances', broke: 'finances', financial: 'finances', provide: 'finances',
@@ -2223,6 +2227,22 @@ const PHRASE_TO_TOKENS = {
   'marriage problems': ['marriage', 'love', 'patience'],
   'relationship problems': ['relationships', 'love', 'forgiveness'],
   'struggling in marriage': ['marriage', 'love', 'patience'],
+  // difficult people / workplace / coworkers
+  'work with a piece of shit': ['forgiveness', 'patience', 'love', 'enemy', 'bless', 'pray'],
+  'piece of shit': ['forgiveness', 'patience', 'love', 'enemy', 'bless'],
+  'difficult person': ['patience', 'forgiveness', 'love', 'bless'],
+  'toxic coworker': ['patience', 'forgiveness', 'love', 'enemy'],
+  'bad coworker': ['patience', 'forgiveness', 'love'],
+  'hate my coworker': ['forgiveness', 'patience', 'love', 'enemy'],
+  'difficult coworker': ['patience', 'forgiveness', 'love'],
+  'work with someone difficult': ['patience', 'forgiveness', 'love', 'bless'],
+  'someone difficult at work': ['patience', 'forgiveness', 'love'],
+  'difficult person at work': ['patience', 'forgiveness', 'love', 'bless'],
+  'cant stand my coworker': ['patience', 'forgiveness', 'love', 'enemy'],
+  'hate my boss': ['forgiveness', 'patience', 'love', 'enemy'],
+  'difficult boss': ['patience', 'forgiveness', 'love'],
+  'love your enemies': ['forgiveness', 'love', 'enemy', 'bless', 'pray'],
+  'dealing with difficult people': ['patience', 'forgiveness', 'love', 'bless'],
   // finances
   'financial stress': ['finances', 'provision', 'faith'],
   'money problems': ['finances', 'provision', 'faith'],
@@ -2536,7 +2556,7 @@ const topics = {
   },
   forgiveness: {
     synonyms: ['forgive', 'pardon', 'mercy', 'absolve'],
-    verses: ['Ephesians 4:32', 'Matthew 6:14', 'Colossians 3:13', 'Luke 6:37', 'Acts 13:38'],
+    verses: ['Matthew 5:44', 'Ephesians 4:32', 'Matthew 6:14', 'Colossians 3:13', 'Luke 6:37', 'Acts 13:38'],
     guidance: {
       kid: "Forgive others just like God forgives you.",
       teen: "Let go of grudges; forgiveness sets you free.",
@@ -4206,6 +4226,65 @@ var SMART_DICTIONARY = {
 // window assignment is the only reliable bridge to inline scripts.
 window.ROTATING_HERO_VERSES = ROTATING_HERO_VERSES;
 window.SMART_DICTIONARY     = SMART_DICTIONARY;
+
+/** Heartfelt messages before results — one per inquiry, warm and uplifting. Checked in order; first match wins. */
+var HEARTFELT_INQUIRY_MESSAGES = [
+  { patterns: ['piece of shit', 'difficult person', 'toxic coworker', 'bad coworker', 'hate my coworker', 'difficult boss'], message: 'Dealing with someone difficult is exhausting. God sees you and gives grace to respond with patience and love—even when it feels impossible.' },
+  { patterns: ['heartache', 'heart ache', 'brokenhearted', 'heartbroken'], message: 'God sees your pain and stays near to the brokenhearted. You are not alone in this.' },
+  { patterns: ['grief', 'grieving', 'sorrow', 'lost someone', 'someone died'], message: 'Grief is heavy, but God is near. He will comfort you and hold you through this.' },
+  { patterns: ['addiction', 'addicted', 'bondage'], message: 'You are not defined by this struggle. God offers freedom and walks with you step by step.' },
+  { patterns: ['trauma', 'trama', 'traumatized', 'wounded', 'ptsd'], message: 'God is near to the wounded. He sees your pain, brings healing, and gives safe refuge.' },
+  { patterns: ['depression', 'depressed', 'hopeless'], message: 'You matter deeply. There is hope, and God has not forgotten you.' },
+  { patterns: ['anxiety', 'anxious', 'worry', 'worried'], message: 'Take a breath. God cares for you and welcomes every worry in prayer.' },
+  { patterns: ['fear', 'afraid', 'scared', 'panic'], message: 'When fear rises, God gives courage and peace for this moment. You are not alone.' },
+  { patterns: ['lonely', 'loneliness', 'alone', 'isolated'], message: 'You are not alone. God is with you and for you, even when it feels otherwise.' },
+  { patterns: ['forgiveness', 'forgive', 'forgiven', 'cant forgive'], message: 'Forgiveness is hard, but God gives grace to release what hurts and begin healing.' },
+  { patterns: ['anger', 'angry', 'rage', 'furious'], message: 'God is patient with you. Ask Him for calm, wisdom, and self-control.' },
+  { patterns: ['guilt', 'guilty', 'shame', 'ashamed'], message: 'There is no condemnation in Christ. You can come to Him and find mercy.' },
+  { patterns: ['stress', 'overwhelmed', 'burnout', 'exhausted'], message: 'You do not have to carry this alone. God gives rest and steady help.' },
+  { patterns: ['hope', 'hopeless'], message: 'Hope is still alive. God is working, even when you cannot yet see it.' },
+  { patterns: ['love', 'loving', 'loved', 'selfless', 'compassion', 'kindness'], message: 'You are loved by God and never beyond His reach. Receive it, then pass it on.' },
+  { patterns: ['peace', 'calm', 'rest', 'stillness'], message: 'God offers peace that steadies both heart and mind. Receive it today.' },
+  { patterns: ['patience', 'wait', 'waiting', 'impatient'], message: 'Waiting is hard, but God is still working while you wait. Trust His timing.' },
+  { patterns: ['strength', 'weak', 'weary', 'tired'], message: 'When you feel weak, God\'s strength can carry you. Lean on Him.' },
+  { patterns: ['courage', 'brave', 'bold'], message: 'God is with you. You can take the next faithful, brave step.' },
+  { patterns: ['relationship', 'relationships', 'marriage', 'spouse'], message: 'Strong relationships grow through grace, truth, and forgiveness. God is for your connection.' },
+  { patterns: ['family', 'parents', 'home', 'parenting'], message: 'God cares about your home. He brings grace, patience, and peace to families.' },
+  { patterns: ['finances', 'money', 'provision', 'bills'], message: 'God promises to provide what you need. Seek Him first and trust His care.' },
+  { patterns: ['sleep', 'insomnia', 'cant sleep'], message: 'The Lord gives rest to His beloved. Receive His peace tonight.' },
+  { patterns: ['wisdom', 'wise', 'discern', 'decision'], message: 'God gives wisdom generously when you ask. You are not alone in your decisions.' },
+  { patterns: ['identity', 'worth', 'value', 'worthless'], message: 'Your value is secure in God\'s love. You are seen, known, and chosen.' },
+  { patterns: ['purpose', 'calling', 'direction'], message: 'God has purpose for your life. Keep taking faithful steps forward.' },
+  { patterns: ['faith', 'believe', 'belief', 'doubt'], message: 'Faith grows as you lean on God one step at a time. He meets you where you are.' },
+  { patterns: ['prayer', 'pray'], message: 'God hears you. Bring Him your heart with simple, honest prayer.' },
+  { patterns: ['gratitude', 'thankful', 'thanks'], message: 'Gratitude opens your eyes to God\'s goodness today. Name one blessing.' },
+  { patterns: ['jesus said', 'red letter', 'words of jesus'], message: 'These are the words of Jesus. Let them steady your heart and guide your next step.' },
+  { patterns: ['spiritualwarfare', 'armor', 'spiritual battle'], message: 'Stand firm in the Lord. Put on the full armor of God each day.' }
+];
+
+function getHeartfeltMessageForQuery(normalizedQuery, results) {
+  if (!results || results.intent === 'empty') return '';
+  var q = String(normalizedQuery || '');
+  if (results.intent === 'topic' && results.topic && topics[results.topic] && topics[results.topic].explain) {
+    var tierKey = String(results.tier || 'adult');
+    var explain = topics[results.topic].explain;
+    return String(explain[tierKey] || explain.adult || '').trim();
+  }
+  if (results.intent === 'reference') {
+    var ref = results.verses && results.verses[0] ? results.verses[0].ref : '';
+    var ctx = ref && typeof getVerseContext === 'function' ? getVerseContext(ref) : null;
+    var app = ctx && ctx.application ? String(ctx.application).trim() : '';
+    return app ? ('Take this with you today: ' + app) : 'God sees you and meets you in His Word right where you are today.';
+  }
+  if (results.intent === 'jesus_said') return 'These are the words of Jesus. Let them steady your heart and guide your next step.';
+  for (var i = 0; i < HEARTFELT_INQUIRY_MESSAGES.length; i++) {
+    var entry = HEARTFELT_INQUIRY_MESSAGES[i];
+    for (var j = 0; j < entry.patterns.length; j++) {
+      if (q.indexOf(entry.patterns[j]) !== -1) return entry.message;
+    }
+  }
+  return 'God sees what you are carrying. He is faithful to meet you here in His Word.';
+}
 
 // Declared here (before mountRotatingHeroVerse fires) so normalizeEmotionSignal
 // can reference EMOTION_ALIAS without hitting a TDZ/undefined error.
@@ -11997,7 +12076,10 @@ function getCanonicalBibleBookName(bookRaw) {
 
 function parseReference(rawInput) {
   const trimmed = String(rawInput || '').trim();
-  const refMatch = trimmed.match(/^((?:[1-3]\s+)?[a-zA-Z][a-zA-Z.\s']+?)\s+(\d+)\s*:\s*(\d+)$/i);
+  // Colon format: "John 3:16", "1 Cor 13:4"
+  var refMatch = trimmed.match(/^((?:[1-3]\s+)?[a-zA-Z][a-zA-Z.\s']+?)\s+(\d+)\s*:\s*(\d+)$/i);
+  // Space format: "john 3 16", "1 corinthians 13 4" (no colon)
+  if (!refMatch) refMatch = trimmed.match(/^((?:[1-3]\s+)?[a-zA-Z][a-zA-Z.\s']+?)\s+(\d+)\s+(\d+)$/i);
   if (!refMatch) return null;
 
   const bookRaw = refMatch[1].replace(/\s+/g, ' ').trim();
@@ -14990,7 +15072,8 @@ function executeQuery(parsed, tier, filters) {
   }
   if (parsed.intent === 'reference') {
     const key = parsed.payload;
-    if (bible[key]) results.verses.push({ ref: key, text: bible[key] });
+    const text = bible[key] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(key) : '');
+    if (text) results.verses.push({ ref: key, text: text });
   } else if (parsed.intent === 'topic') {
     const topicKey = parsed.payload && parsed.payload.topic;
     const topic = topicKey ? topics[topicKey] : null;
@@ -15101,6 +15184,36 @@ function executeQuery(parsed, tier, filters) {
       results.verses = results.relatedMatches.slice(0, 15);
       results.relatedMatches = [];
     }
+    // Loose match: when strict search returns nothing, find verses with ANY substantive word from the query
+    if (results.verses.length === 0 && rawTokens.length > 0) {
+      var looseTokens = rawTokens.filter(function (t) {
+        t = String(t || '').trim();
+        return t.length >= 3 && !STOP_WORDS.has(t.toLowerCase());
+      });
+      if (looseTokens.length > 0) {
+        var looseRegex = buildWordRegex(looseTokens);
+        if (looseRegex) {
+          var looseMatches = bibleEntries
+            .map(function (pair) {
+              var ref = pair[0], text = pair[1];
+              var normText = normalizeInput(text);
+              var score = countWordMatches(normText, looseRegex);
+              if (score > 0) {
+                var snippet = text.replace(looseRegex, '<span class="highlight">$&</span>');
+                return { ref: ref, text: snippet, score: score };
+              }
+              return null;
+            })
+            .filter(Boolean)
+            .sort(function (a, b) { return b.score - a.score; })
+            .slice(0, 30);
+          if (looseMatches.length > 0) {
+            results.verses = looseMatches.map(function (m) { return { ref: m.ref, text: m.text }; });
+            results.fallback = true;
+          }
+        }
+      }
+    }
   }
 
   results.verses = filterVerseList(results.verses, filters);
@@ -15151,30 +15264,6 @@ function executeQuery(parsed, tier, filters) {
 }
 
 function renderResults(results) {
-  function appendHeartfeltSearchMessage(target, searchResults, normalizedQuery) {
-    if (!target || !searchResults || searchResults.intent === 'empty') return;
-    var message = '';
-    var q = String(normalizedQuery || '');
-    if (searchResults.intent === 'topic' && searchResults.topic && topics[searchResults.topic] && topics[searchResults.topic].explain) {
-      var tierKey = String(searchResults.tier || 'adult');
-      var explain = topics[searchResults.topic].explain;
-      message = String(explain[tierKey] || explain.adult || '').trim();
-    } else if (searchResults.intent === 'reference' && searchResults.reference) {
-      var ctx = typeof getVerseContext === 'function' ? getVerseContext(searchResults.reference) : null;
-      var app = ctx && ctx.application ? String(ctx.application).trim() : '';
-      message = app ? ('Take this with you today: ' + app) : 'God sees you and meets you in His Word right where you are today.';
-    } else if (searchResults.intent === 'jesus_said') {
-      message = 'These are the words of Jesus. Let them steady your heart and guide your next step.';
-    } else if (q) {
-      message = 'God sees what you are carrying. Keep searching the Word - He is faithful to meet you here.';
-    }
-    if (!message) return;
-    var note = document.createElement('p');
-    note.className = 'topic-explain heartfelt-search-message';
-    note.textContent = message;
-    target.appendChild(note);
-  }
-
   var output = document.getElementById('output');
   if (!output) {
     var searchHero = document.getElementById('quick-search-hero') || document.getElementById('search-hero');
@@ -15217,8 +15306,26 @@ function renderResults(results) {
     return;
   }
   if (results.verses.length === 0) {
-    output.innerHTML = '<p class="empty topic-explain">Nothing found for that search — try a feeling, topic, or Bible reference (e.g. "John 3:16").</p>';
-    appendHeartfeltSearchMessage(output, results, queryText);
+    // Absolute last resort: always show verses when user searched (never leave them with nothing)
+    var emergencyRefs = ['John 3:16', 'Philippians 4:6', 'Isaiah 41:10', 'Psalm 23:1', 'Romans 8:28'];
+    for (var ei = 0; ei < emergencyRefs.length && results.verses.length < 5; ei++) {
+      var er = emergencyRefs[ei];
+      var et = (typeof bible !== 'undefined' && bible[er]) || (typeof getBibleVerseText === 'function' ? getBibleVerseText(er) : '');
+      if (et) { results.verses.push({ ref: er, text: et }); results.fallback = true; }
+    }
+  }
+  if (results.verses.length === 0) {
+    var emptyHeartfelt = getHeartfeltMessageForQuery(queryText, results);
+    if (emptyHeartfelt) {
+      var emptyNote = document.createElement('p');
+      emptyNote.className = 'topic-explain heartfelt-search-message';
+      emptyNote.textContent = emptyHeartfelt;
+      output.appendChild(emptyNote);
+    }
+    var emptyP = document.createElement('p');
+    emptyP.className = 'empty topic-explain';
+    emptyP.textContent = 'Nothing found for that search — try a feeling, topic, or Bible reference (e.g. "John 3:16").';
+    output.appendChild(emptyP);
     var fuzzySuggestions = typeof getFuzzyTopicSuggestions === 'function' ? getFuzzyTopicSuggestions(queryText || lastQueryInput || '', 3) : [];
     var suggestions = document.createElement('div');
     suggestions.className = 'quick-start';
@@ -15256,13 +15363,19 @@ function renderResults(results) {
     triggerResultsFade(output);
     return;
   }
+  var heartfeltMsg = getHeartfeltMessageForQuery(queryText, results);
+  if (heartfeltMsg) {
+    var heartfeltEl = document.createElement('p');
+    heartfeltEl.className = 'topic-explain heartfelt-search-message';
+    heartfeltEl.textContent = heartfeltMsg;
+    output.insertBefore(heartfeltEl, output.firstChild);
+  }
   if (results.fallback) {
     var fallbackMsg = document.createElement('p');
     fallbackMsg.className = 'topic-explain';
     fallbackMsg.textContent = 'No exact match — but here are verses that may speak to what you\'re carrying. God\'s Word is for you right where you are.';
     output.appendChild(fallbackMsg);
   }
-  appendHeartfeltSearchMessage(output, results, queryText);
   var fearTopics = ['fear', 'anxiety', 'worry'];
   var isFearQuery = (results.intent === 'topic' && fearTopics.indexOf(results.topic) !== -1) ||
     (results.intent === 'keyword' && /\b(fear|anxiety|worry|scared|afraid)\b/i.test(queryText));
@@ -15339,250 +15452,6 @@ function renderResults(results) {
   var relatedMatches = results.relatedMatches && results.relatedMatches.length ? [...results.relatedMatches] : [];
   if (phraseMatches.length) shuffleArray(phraseMatches);
   if (relatedMatches.length) shuffleArray(relatedMatches);
-  if (queryText.includes('heartache') || queryText.includes('heart ache')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God sees your pain and stays near to the brokenhearted.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('grief') || queryText.includes('grieving') || queryText.includes('sorrow')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Grief is heavy, but God is near and He will comfort you.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('addiction') || queryText.includes('addicted') || queryText.includes('bondage')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'You are not defined by this struggle. God offers freedom and walks with you step by step.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('trauma') || queryText.includes('trama') || queryText.includes('traumatized') || queryText.includes('wounded') || queryText.includes('ptsd')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God is near to the wounded. He sees your pain, brings healing, and gives safe refuge.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('love') || queryText.includes('selfless') || queryText.includes('giving') || queryText.includes('servant') || queryText.includes('sacrifice') || queryText.includes('compassion') || queryText.includes('kindness')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God loves you with a faithful love. Receive it deeply, then pass it on with grace.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('anxiety') || queryText.includes('anxious') || queryText.includes('worry')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Take a breath. God cares for you and welcomes every worry in prayer.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('depression') || queryText.includes('depressed') || queryText.includes('hopeless')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'You matter deeply. There is hope, and God has not forgotten you.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('fear') || queryText.includes('afraid') || queryText.includes('panic')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'When fear rises, God gives courage and peace for this moment.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('hope') || queryText.includes('hopeless')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Hope is still alive. God is working, even when you cannot yet see it.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('forgiveness') || queryText.includes('forgive') || queryText.includes('forgiven')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Forgiveness is hard, but God gives grace to release what hurts and begin healing.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('anger') || queryText.includes('angry') || queryText.includes('rage')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God is patient with you. Ask Him for calm, wisdom, and self-control.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('joy') || queryText.includes('rejoice') || queryText.includes('glad')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Joy runs deeper than circumstances. God can restore steady joy.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('relationship') || queryText.includes('relationships') || queryText.includes('marriage') || queryText.includes('friend')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Strong relationships grow through grace, truth, and forgiveness.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('jesus said') || queryText.includes('red letter')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'These are the words of Jesus. Let them lead your heart and your next step.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('peace') || queryText.includes('calm') || queryText.includes('rest')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God offers peace that steadies both heart and mind.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('patience') || queryText.includes('wait') || queryText.includes('waiting')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Waiting is hard, but God is still working while you wait.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('stress') || queryText.includes('overwhelmed') || queryText.includes('burnout')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'You do not have to carry this alone. God gives rest and steady help.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('courage') || queryText.includes('brave') || queryText.includes('bold')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God is with you. You can take the next faithful, brave step.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('gratitude') || queryText.includes('thankful') || queryText.includes('thanks')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Gratitude opens your eyes to God\'s goodness today.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('kindness') || queryText.includes('kind') || queryText.includes('compassion')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Kindness reflects God\'s heart and can change the atmosphere around you.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('trust') || queryText.includes('rely') || queryText.includes('depend')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'You can trust God with what you cannot control.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('prayer') || queryText.includes('pray')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God hears you. Bring Him your heart with simple, honest prayer.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('identity') || queryText.includes('worth') || queryText.includes('value')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Your value is secure in God\'s love. You are seen, known, and chosen.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('purpose') || queryText.includes('calling') || queryText.includes('direction')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God has purpose for your life. Keep taking faithful steps forward.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('friendship') || queryText.includes('friends') || queryText.includes('friend')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Healthy friendships bring life. Ask God to guide and strengthen yours.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('family') || queryText.includes('parents') || queryText.includes('home')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God cares about your home. He brings grace, patience, and peace to families.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('wisdom') || queryText.includes('wise') || queryText.includes('discern')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God gives wisdom generously when you ask. You are not alone in your decisions.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('obedience') || queryText.includes('obey') || queryText.includes('listen')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Obedience is love in action. God honors faithful steps, even the small ones.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('faith') || queryText.includes('believe') || queryText.includes('belief')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Faith grows as you lean on God one step at a time.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('strength') || queryText.includes('weak') || queryText.includes('tired')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'When you feel weak, God\'s strength can carry you.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('discipline') || queryText.includes('self-control') || queryText.includes('self control')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God uses discipline to shape you with love and wisdom.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('leadership') || queryText.includes('leader') || queryText.includes('lead')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Godly leadership serves others with humility, courage, and care.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('purity') || queryText.includes('lust') || queryText.includes('temptation')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God gives strength to choose what is pure and life-giving.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('love') || queryText.includes('loving') || queryText.includes('loved')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'You are loved by God and never beyond His reach.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('lonely') || queryText.includes('loneliness') || queryText.includes('alone')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'You are not alone. God is with you and for you.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('finances') || queryText.includes('money') || queryText.includes('provision')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God promises to provide what you need. Seek Him first and trust His care.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('spiritualwarfare') || queryText.includes('armor') || queryText.includes('spiritual battle')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'Stand firm in the Lord. Put on the full armor of God each day.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('sleep') || queryText.includes('rest') || queryText.includes('insomnia')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'The Lord gives rest to His beloved. Receive His peace tonight.';
-    output.appendChild(gentle);
-  }
-  if (queryText.includes('marriage') || queryText.includes('spouse') || queryText.includes('husband') || queryText.includes('wife')) {
-    const gentle = document.createElement('div');
-    gentle.className = 'topic-explain';
-    gentle.textContent = 'God designed marriage for covenant love, grace, and forgiveness.';
-    output.appendChild(gentle);
-  }
-  if (results.intent === 'topic' && (results.tier === 'kid' || results.tier === 'teen')) {
-    const topic = topics[results.topic];
-    if (topic?.explain?.[results.tier]) {
-      const banner = document.createElement('div');
-      banner.className = 'topic-explain';
-      banner.textContent = topic.explain[results.tier];
-      output.appendChild(banner);
-    }
-  }
-
   const isJesusSaidQuery = queryText.includes('jesus said') || queryText.includes('red letter');
   const renderSection = (title, verses, limit = 5, forceRedLetter = false) => {
     if (!verses || verses.length === 0) return;

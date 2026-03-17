@@ -3847,6 +3847,7 @@
 
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
+  <script src="utils.js" defer></script>
   <script nonce="tdb2025">
   (function() {
     var moodEl = document.getElementById('footerMoodInsight');
@@ -7216,6 +7217,15 @@
           <button type="button" id="dismiss-extend" class="plan-extend-no" aria-label="Dismiss plan extension offer">Nah, I&#8217;m good</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ── Hymn Lyrics Modal (Patriotic Hymns "Sing with Me") ── -->
+  <div id="hymn-lyrics-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="hymn-lyrics-modal-title" aria-hidden="true">
+    <div class="modal-inner hymn-lyrics-modal-inner" role="document">
+      <button type="button" id="hymn-lyrics-modal-close" class="about-modal-close" aria-label="Close lyrics">✕</button>
+      <h2 id="hymn-lyrics-modal-title" class="about-modal-title">Hymn Lyrics</h2>
+      <pre id="hymn-lyrics-modal-body" class="hymn-lyrics-modal-body"></pre>
     </div>
   </div>
 

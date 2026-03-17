@@ -3214,12 +3214,42 @@
     storyMasterEl.classList.toggle('hidden', viewed.length < STORY_MASTER_THRESHOLD);
   }
 
+  var KIDS_SEMANTIC_MAP = {
+    scared: ['brave', 'courage', 'lion', 'david', 'protect', 'strength'],
+    afraid: ['brave', 'courage', 'lion', 'david', 'protect'],
+    sad: ['hope', 'comfort', 'love', 'shepherd', 'rejoice', 'party'],
+    mad: ['forgive', 'peace', 'calm', 'love'],
+    angry: ['forgive', 'peace', 'calm'],
+    lonely: ['shepherd', 'lost sheep', 'find', 'love'],
+    worried: ['peace', 'storm', 'trust', 'calm'],
+    tired: ['rest', 'strength', 'manna', 'provide'],
+    happy: ['rejoice', 'party', 'joy', 'celebration'],
+    brave: ['david', 'lion', 'daniel', 'courage', 'esther'],
+    strong: ['samson', 'david', 'strength', 'power'],
+    kind: ['samaritan', 'neighbor', 'help', 'love']
+  };
+
+  function expandKidsQuery(q) {
+    var terms = [q];
+    var word = q.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').toLowerCase();
+    if (KIDS_SEMANTIC_MAP[word]) terms = terms.concat(KIDS_SEMANTIC_MAP[word]);
+    if (typeof window.resolveSemanticWithScore === 'function') {
+      var sem = window.resolveSemanticWithScore(q);
+      if (sem && sem.topic && sem.score >= 0.6) {
+        var topicWords = { anxiety: ['peace', 'calm', 'storm'], fear: ['brave', 'courage', 'lion'], grief: ['comfort', 'hope', 'love'], peace: ['calm', 'storm', 'rest'], hope: ['hope', 'rejoice'], strength: ['brave', 'david', 'samson'], forgiveness: ['forgive', 'party', 'prodigal'] };
+        if (topicWords[sem.topic]) terms = terms.concat(topicWords[sem.topic]);
+      }
+    }
+    return terms;
+  }
+
   function filterStories(query, theme) {
     var stories = getStories();
     var themes = getStoryThemes();
     var keys = getStoryKeys();
     var q = (query || '').trim().toLowerCase();
     var themeVal = (theme || '').trim();
+    var searchTerms = q ? expandKidsQuery(q) : [];
     return keys.filter(function (key) {
       var s = stories[key];
       if (!s) return false;
@@ -3227,7 +3257,11 @@
       if (!q) return true;
       var title = (s.title || '').toLowerCase();
       var keywords = (s.keywords || []).join(' ').toLowerCase();
-      return title.indexOf(q) !== -1 || keywords.indexOf(q) !== -1;
+      var haystack = title + ' ' + keywords;
+      for (var i = 0; i < searchTerms.length; i++) {
+        if (haystack.indexOf(searchTerms[i]) !== -1) return true;
+      }
+      return false;
     });
   }
 

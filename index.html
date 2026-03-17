@@ -3653,7 +3653,7 @@
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
-            placeholder="Try: anxiety, hope, grief — or tap a topic below"
+            placeholder="Type how you feel (e.g. nobody cares, falling apart) — or tap a topic below"
             aria-label="How are you feeling right now?"
             aria-autocomplete="list"
             aria-controls="feelSuggestDropdown"
@@ -4415,6 +4415,43 @@
             action: "Be still for 10 minutes today. No agenda. Just presence. That's enough."
           }
         ]
+      },
+      difficult: {
+        label: "difficult person",
+        verses: [
+          {
+            ref: "Matthew 5:44",
+            speaker: "Jesus to His disciples—and to you with that person at work",
+            text: "But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you;",
+            plain: "Love isn't earned. Jesus asks you to bless the very people who make your life harder.",
+            today: "That person who drives you up the wall—Jesus is talking about them. And about you.",
+            action: "Pray for them by name today. Not to change them—to change your heart toward them."
+          },
+          {
+            ref: "Ephesians 4:32",
+            speaker: "Paul to believers in a fractured city—and to you",
+            text: "And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.",
+            plain: "Forgiveness isn't fair. It's what you received when you didn't deserve it—and what you're called to give.",
+            today: "You don't have to like them. You don't have to trust them. But you can choose to forgive.",
+            action: "Name one thing you're holding against them. Release it to God. That's the first step."
+          },
+          {
+            ref: "Romans 12:18",
+            speaker: "Paul to believers in Rome—and to you in your workplace",
+            text: "If it be possible, as much as lieth in you, live peaceably with all men.",
+            plain: "You can't control them. You can control your side—as much as it depends on you.",
+            today: "Your part is clear. Their part isn't yours to fix. Do yours and let God handle the rest.",
+            action: "What's one thing you can do today to lower the temperature? Do that."
+          },
+          {
+            ref: "Proverbs 15:1",
+            speaker: "Solomon to anyone about to escalate—and to you",
+            text: "A soft answer turneth away wrath: but grievous words stir up anger.",
+            plain: "The way you answer has more power than you think. One calm word can disarm a whole room.",
+            today: "You can't control what they say. You can control what you say back.",
+            action: "Choose the softer word today—even if it feels like backing down. It isn't."
+          }
+        ]
       }
     };
 
@@ -4424,10 +4461,11 @@
       { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","scared","fear","afraid","fearful","dread","dreading","finances"], group: "anxious" },
       { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","strength","sleep"], group: "tired" },
       { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
-      { keys: ["lonely","alone","isolated","solitude","nobody","no one","forgotten","invisible","loneliness"], group: "lonely" },
+      { keys: ["lonely","alone","isolated","solitude","nobody","no one","nobody cares","nobody gets me","nobody understands","forgotten","invisible","loneliness"], group: "lonely" },
       { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","god","jesus","christ","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
       { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful","guilt","trauma","addiction","heartache"], group: "sad" },
-      { keys: ["peace","peaceful","calm","still","quiet","rest","restless","unsettled","unrest","serene","tranquil","settled"], group: "peace" }
+      { keys: ["peace","peaceful","calm","still","quiet","rest","restless","unsettled","unrest","serene","tranquil","settled"], group: "peace" },
+      { keys: ["piece of shit","difficult person","coworker","toxic coworker","bad coworker","difficult boss","hate my boss","hate my coworker","difficult coworker","work with someone difficult","toxic boss"], group: "difficult" }
     ];
 
     function resolveFeelGroup(raw) {
@@ -4439,6 +4477,10 @@
             return FEEL_GROUPS[group.group] || null;
           }
         }
+      }
+      const semantic = typeof window.resolveSemanticWithScore === "function" ? window.resolveSemanticWithScore(q) : null;
+      if (semantic && semantic.feelGroup && FEEL_GROUPS[semantic.feelGroup]) {
+        return FEEL_GROUPS[semantic.feelGroup];
       }
       return null;
     }
@@ -4457,6 +4499,13 @@
               if (results.length >= 5) return results;
             }
           }
+        }
+      }
+      if (results.length < 5 && q.length >= 3 && typeof window.resolveSemanticWithScore === "function") {
+        const sem = window.resolveSemanticWithScore(q);
+        if (sem && sem.feelGroup && sem.score >= 0.6 && FEEL_GROUPS[sem.feelGroup] && !seen.has(sem.feelGroup)) {
+          const g = FEEL_GROUPS[sem.feelGroup];
+          results.push({ label: g.label || sem.feelGroup, mood: sem.feelGroup });
         }
       }
       return results;

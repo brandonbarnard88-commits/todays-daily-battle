@@ -5882,6 +5882,18 @@ button:active {
   font-weight: 500;
 }
 
+.badge.multi-origin {
+  font-size: 0.75rem;
+  font-family: var(--font-ui);
+  color: rgba(148, 163, 184, 0.9);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
 /* Daily Verse widget — card only when verse has loaded; no big empty box when loading */
 .daily-verse-widget-outer {
   margin-bottom: 1rem;

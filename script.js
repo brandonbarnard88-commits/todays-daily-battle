@@ -2442,7 +2442,10 @@ const PHRASE_TO_TOKENS = {
   'verses when overwhelmed': ['anxiety', 'peace', 'burden', 'rest', 'yoke'],
   'bible verses for anxiety': ['anxiety', 'peace', 'worry', 'care', 'rest'],
   'verses for depression': ['grief', 'hope', 'comfort', 'strength', 'faith'],
-  'feeling empty': ['hope', 'restore', 'fill', 'presence', 'comfort']
+  'feeling empty': ['hope', 'restore', 'fill', 'presence', 'comfort'],
+  'god has empathy but world doesnt': ['grief', 'comfort', 'faith', 'presence'],
+  'world doesnt care': ['grief', 'comfort', 'faith', 'presence'],
+  'nobody gets it': ['loneliness', 'comfort', 'faith', 'presence']
 };
 
 const topics = {
@@ -4329,6 +4332,7 @@ var FEEL_TO_SMART = {
 
 /** Heartfelt messages before results — one per inquiry, warm and uplifting. Checked in order; first match wins. */
 var HEARTFELT_INQUIRY_MESSAGES = [
+  { patterns: ['empathy', 'world doesnt care', 'world doesnt understand', 'god has empathy', 'god empathizes', 'world is cold', 'world indifferent', 'nobody gets it', 'god sees me', 'god understands', 'world doesnt get it'], message: "God's empathy is constant and personal—He sees you, feels with you, and draws near when the world feels cold or indifferent. You are not alone in that ache." },
   { patterns: ['piece of shit', 'difficult person', 'toxic coworker', 'bad coworker', 'hate my coworker', 'difficult boss'], message: 'Dealing with someone difficult is exhausting. God sees you and gives grace to respond with patience and love—even when it feels impossible.' },
   { patterns: ['heartache', 'heart ache', 'brokenhearted', 'heartbroken'], message: 'God sees your pain and stays near to the brokenhearted. You are not alone in this.' },
   { patterns: ['grief', 'grieving', 'sorrow', 'lost someone', 'someone died'], message: 'Grief is heavy, but God is near. He will comfort you and hold you through this.' },
@@ -4362,13 +4366,31 @@ var HEARTFELT_INQUIRY_MESSAGES = [
   { patterns: ['spiritualwarfare', 'armor', 'spiritual battle'], message: 'Stand firm in the Lord. Put on the full armor of God each day.' }
 ];
 
+/** Pair-specific heartfelt messages for blended semantic searches. Key: sorted topic pair (e.g. "fear,loneliness"). */
+var BLENDED_HEARTFELT_TEMPLATES = {
+  'fear,loneliness': "When loneliness and fear press in together, remember: the God who promises never to leave you is also the One who says 'Fear not.' He draws near in your isolation and steadies your heart in the unknown.",
+  'anxiety,grief': "In the overlap of anxiety and grief, God's Word meets both: He invites you to cast your cares because He cares deeply, and He binds up the brokenhearted with tender compassion.",
+  'anxiety,loneliness': "When anxiety and loneliness feel heavy together, God meets you in both. He is near the brokenhearted and gives peace that guards heart and mind.",
+  'fear,grief': "Fear and grief can feel overwhelming together. God is near the brokenhearted and says 'Fear not'—He holds you through both.",
+  'anxiety,worry': "When anxiety and worry pile up, God invites you to bring every care to Him. His peace can guard your heart and mind.",
+  default: "In moments when multiple burdens weigh heavy, God meets you in each one. His Word speaks to the whole of what you carry."
+};
+
 function getHeartfeltMessageForQuery(normalizedQuery, results) {
   if (!results || results.intent === 'empty') return '';
   var q = String(normalizedQuery || '');
+  var tierKey = String((results && results.tier) || 'adult');
   if (results.intent === 'topic' && results.topic && topics[results.topic] && topics[results.topic].explain) {
-    var tierKey = String(results.tier || 'adult');
     var explain = topics[results.topic].explain;
     return String(explain[tierKey] || explain.adult || '').trim();
+  }
+  if (results.semanticBlendedTopics && results.semanticBlendedTopics.length >= 2) {
+    var pairKey = results.semanticBlendedTopics.slice(0, 2).sort().join(',');
+    return BLENDED_HEARTFELT_TEMPLATES[pairKey] || BLENDED_HEARTFELT_TEMPLATES.default;
+  }
+  if (results.semanticTopic && topics[results.semanticTopic] && topics[results.semanticTopic].explain) {
+    var semExplain = topics[results.semanticTopic].explain;
+    return String(semExplain[tierKey] || semExplain.adult || '').trim();
   }
   if (results.intent === 'reference') {
     var ref = results.verses && results.verses[0] ? results.verses[0].ref : '';
@@ -4381,6 +4403,13 @@ function getHeartfeltMessageForQuery(normalizedQuery, results) {
     var entry = HEARTFELT_INQUIRY_MESSAGES[i];
     for (var j = 0; j < entry.patterns.length; j++) {
       if (q.indexOf(entry.patterns[j]) !== -1) return entry.message;
+    }
+  }
+  if (typeof resolveSemanticWithScore === 'function' && q.length >= 3) {
+    var sem = resolveSemanticWithScore(q);
+    if (sem && sem.topic && sem.score >= 0.6 && topics[sem.topic] && topics[sem.topic].explain) {
+      var fallbackExplain = topics[sem.topic].explain;
+      return String(fallbackExplain[tierKey] || fallbackExplain.adult || '').trim();
     }
   }
   return 'God sees what you are carrying. He is faithful to meet you here in His Word.';
@@ -4403,6 +4432,12 @@ function renderSmartResult(query) {
   var info = SMART_DICTIONARY[key];
   if (!info && typeof FEEL_TO_SMART !== 'undefined' && FEEL_TO_SMART[key]) {
     info = SMART_DICTIONARY[FEEL_TO_SMART[key]];
+  }
+  if (!info && typeof resolveSemanticWithScore === 'function' && key.length >= 3) {
+    var sem = resolveSemanticWithScore(key);
+    if (sem && sem.topic && sem.score >= 0.6 && SMART_DICTIONARY[sem.topic]) {
+      info = SMART_DICTIONARY[sem.topic];
+    }
   }
   if (!info && typeof resolveTopicFromToken === 'function') {
     var topic = resolveTopicFromToken(key);
@@ -9132,7 +9167,8 @@ function bumpStat(key) {
  * This is a safe place. We NEVER send who searched (no user ID, email, IP, or any identifier).
  * We NEVER send raw search query text (what the user typed).
  * We ONLY send: topic (known topic key, e.g. "hope", "anxiety"), search_type ("keyword"),
- * or map_keys (array of semantic labels like "reaction:stand", "feeling:overwhelmed" — never raw query).
+ * map_keys (array of semantic labels), semantic_blended (bool), blended_count (number),
+ * blended_topics (comma-separated topic keys, e.g. "loneliness,fear") — never raw query.
  * This protects users from data breaches. Any change that adds query, user_id, email, or
  * similar to search analytics is forbidden. Use trackSearchAnalytics() for all search-related events.
  * See PRIVACY-ANALYTICS.md.
@@ -9148,6 +9184,16 @@ function trackSearchAnalytics(eventName, params) {
       safe.map_keys = params.map_keys.filter(function (k) {
         return typeof k === 'string' && allowed.some(function (p) { return k.indexOf(p) === 0; });
       }).slice(0, 10);
+    }
+    if (params.semantic_blended === true) safe.semantic_blended = true;
+    if (typeof params.blended_count === 'number' && params.blended_count >= 2) safe.blended_count = params.blended_count;
+    if (params.blended_topics != null && typeof params.blended_topics === 'string') {
+      var topics = params.blended_topics.split(',').map(function (t) { return String(t || '').trim().toLowerCase(); }).filter(function (t) { return t.length > 0 && /^[a-z0-9_-]+$/.test(t); });
+      if (topics.length >= 2 && topics.length <= 5) safe.blended_topics = topics.join(',');
+    }
+    if (params.heartfelt_template_used != null && typeof params.heartfelt_template_used === 'string') {
+      var tpl = String(params.heartfelt_template_used).trim();
+      if (/^(pair:[a-z0-9,_-]+|default)$/.test(tpl)) safe.heartfelt_template_used = tpl;
     }
   }
   trackEvent(eventName, safe);
@@ -12108,6 +12154,193 @@ function resolveTopicFromToken(token) {
   return null;
 }
 
+/** Real-world phrases → primary topic. Semantic similarity: "nobody cares" ≈ loneliness. */
+var PHRASE_SEMANTIC_MAP = {
+  'nobody cares': 'loneliness', 'nobody gets me': 'loneliness', 'nobody understands': 'loneliness',
+  'nobody loves me': 'grief', 'no one cares': 'loneliness', 'no one understands': 'loneliness',
+  'feel invisible': 'loneliness', 'invisible': 'loneliness', 'forgotten': 'loneliness',
+  'cant breathe': 'anxiety', 'cant catch my breath': 'anxiety', 'cant stop crying': 'grief',
+  'feel like im drowning': 'anxiety', 'drowning': 'anxiety', 'overwhelmed': 'anxiety',
+  'want to give up': 'grief', 'giving up': 'grief', 'no point': 'grief', 'pointless': 'grief',
+  'nothing matters': 'grief', 'empty inside': 'grief', 'numb': 'grief',
+  'hate myself': 'guilt', 'worthless': 'guilt', 'piece of trash': 'guilt',
+  'scared to wake up': 'anxiety', 'cant sleep': 'anxiety', 'mind wont stop': 'anxiety',
+  'tired of pretending': 'grief', 'exhausted': 'anxiety', 'burnt out': 'anxiety',
+  'god forgot about me': 'grief', 'god abandoned me': 'grief', 'where is god': 'faith',
+  'cant forgive': 'guilt', 'cant forgive myself': 'guilt', 'dont deserve forgiveness': 'guilt',
+  'husband left': 'grief', 'wife left': 'grief', 'baby died': 'grief', 'lost someone': 'grief',
+  'work with a piece of shit': 'forgiveness', 'difficult coworker': 'forgiveness', 'hate my boss': 'forgiveness',
+  'i feel alone': 'loneliness', 'all alone': 'loneliness', 'no one to talk to': 'loneliness',
+  'cant take it anymore': 'anxiety', 'falling apart': 'anxiety', 'losing it': 'anxiety',
+  'need peace': 'peace', 'need rest': 'peace', 'need strength': 'strength',
+  'feel weak': 'strength', 'dont have the strength': 'strength',
+  'broken heart': 'grief', 'heart is broken': 'grief', 'miss them': 'grief',
+  'ashamed': 'guilt', 'so ashamed': 'guilt', 'cant face anyone': 'guilt',
+  'need hope': 'hope', 'lost hope': 'hope', 'no hope left': 'hope',
+  'afraid of tomorrow': 'anxiety', 'dread': 'anxiety', 'panic': 'anxiety',
+  'need courage': 'courage', 'too scared': 'fear', 'terrified': 'fear',
+  'world doesnt care': 'grief', 'world doesnt understand': 'loneliness', 'world is cold': 'loneliness',
+  'god has empathy': 'grief', 'god empathizes': 'grief', 'world indifferent': 'loneliness',
+  'nobody gets it': 'loneliness', 'god sees me': 'grief', 'god understands': 'grief',
+  'god has empathy but world doesnt': 'grief', 'world doesnt get it': 'loneliness'
+};
+
+/** Maps script.js topics to index.html FEEL_GROUPS keys for unified semantic feel-search. */
+var TOPIC_TO_FEEL_GROUP = {
+  anxiety: 'anxious', fear: 'anxious', worry: 'anxious',
+  grief: 'sad', heartache: 'sad',
+  loneliness: 'lonely',
+  anger: 'angry',
+  peace: 'peace', rest: 'peace',
+  hope: 'hopeful', gratitude: 'hopeful', joy: 'hopeful',
+  strength: 'tired', courage: 'hopeful',
+  forgiveness: 'difficult', patience: 'difficult'
+};
+
+/** Topics that are negated in positive phrases ("not alone anymore", "no longer afraid"). */
+var NEGATIVE_TOPICS = { loneliness: 1, fear: 1, anxiety: 1, worry: 1, grief: 1, guilt: 1, shame: 1, despair: 1, anger: 1 };
+var NEGATION_PATTERN = /\b(not|no longer|anymore|finally|never|dont|didnt|isnt|wasnt|cant|cannot)\b/i;
+
+/** Returns true if query expresses negation of a negative state (e.g. "not alone anymore" = celebrating connection). */
+function hasNegationPolarity(q) {
+  return NEGATION_PATTERN.test(q || '');
+}
+
+/**
+ * Semantic similarity scoring — understands user input by meaning, not just keywords.
+ * Returns { topic, feelGroup, score } for the best match. Used everywhere: feel-search, parseQuery, bible-tool.
+ * When negation detected ("not alone anymore", "no longer afraid") and match is a negative topic, returns null
+ * so downstream keyword path can flip to positives (courage, peace, etc.).
+ */
+function resolveSemanticWithScore(input) {
+  var q = normalizeInput(String(input || ''));
+  if (!q || q.length < 2) return null;
+  var best = { topic: null, feelGroup: null, score: 0 };
+  var negated = hasNegationPolarity(q);
+  var phraseKeys = Object.keys(PHRASE_SEMANTIC_MAP || {}).sort(function (a, b) { return b.length - a.length; });
+  for (var i = 0; i < phraseKeys.length; i++) {
+    var phrase = phraseKeys[i];
+    var pnorm = phrase.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
+    if (pnorm.length >= 4 && q.indexOf(pnorm) !== -1) {
+      var topic = PHRASE_SEMANTIC_MAP[phrase];
+      var feelGroup = (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[topic]) || topic;
+      var score = 0.85 + (phrase.length / 100);
+      if (score > best.score) best = { topic: topic, feelGroup: feelGroup, score: Math.min(1, score) };
+    }
+  }
+  if (best.topic) {
+    if (negated && NEGATIVE_TOPICS[best.topic]) {
+      if (typeof trackEvent === 'function') trackEvent('semantic_negation_override', { topic: best.topic });
+      return null;
+    }
+    return best;
+  }
+  var tokens = q.split(/\s+/).filter(function (w) { return w.length >= 2 && !STOP_WORDS.has(w); });
+  for (var j = 0; j < tokens.length; j++) {
+    var t = tokens[j];
+    var topic = resolveTopicFromToken(t) || (QUERY_TO_TOPIC && QUERY_TO_TOPIC[t]);
+    if (topic && topics && topics[topic]) {
+      var feelGroup = (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[topic]) || topic;
+      var score = 0.6 + (tokens.length === 1 ? 0.2 : 0);
+      if (score > best.score) best = { topic: topic, feelGroup: feelGroup, score: Math.min(1, score) };
+    }
+  }
+  if (best.topic) {
+    if (negated && NEGATIVE_TOPICS[best.topic]) {
+      if (typeof trackEvent === 'function') trackEvent('semantic_negation_override', { topic: best.topic });
+      return null;
+    }
+    return best;
+  }
+  var phraseMatch = null;
+  if (typeof PHRASE_TO_TOKENS !== 'undefined') {
+    var pk = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
+    for (var k = 0; k < pk.length; k++) {
+      var p = pk[k];
+      var pn = p.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').toLowerCase();
+      if (pn.length >= 4 && q.indexOf(pn) !== -1) {
+        var tokensArr = PHRASE_TO_TOKENS[p];
+        phraseMatch = tokensArr && tokensArr[0] ? tokensArr[0] : null;
+        break;
+      }
+    }
+  }
+  if (phraseMatch && topics && topics[phraseMatch]) {
+    if (negated && NEGATIVE_TOPICS[phraseMatch]) {
+      if (typeof trackEvent === 'function') trackEvent('semantic_negation_override', { topic: phraseMatch });
+      return null;
+    }
+    var fg = (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[phraseMatch]) || phraseMatch;
+    return { topic: phraseMatch, feelGroup: fg, score: 0.75 };
+  }
+  return best.topic ? best : null;
+}
+
+window.resolveSemanticWithScore = resolveSemanticWithScore;
+
+var SEMANTIC_BLEND_THRESHOLD = 0.6;
+var SEMANTIC_BLEND_CAP = 3;
+
+/**
+ * Returns all semantic matches above threshold, sorted by score descending, capped at 3.
+ * Shape: [{ topic, feelGroup, score }, ...]
+ * Used for topic blending when query expresses multiple feelings (e.g. "lonely and scared").
+ */
+function getSemanticMatchesAboveThreshold(input) {
+  var q = normalizeInput(String(input || ''));
+  if (!q || q.length < 2) return [];
+  var negated = hasNegationPolarity(q);
+  var collected = [];
+  var seen = {};
+  function add(topic, feelGroup, score) {
+    if (!topic || !topics || !topics[topic]) return;
+    if (negated && NEGATIVE_TOPICS[topic]) return;
+    if (score < SEMANTIC_BLEND_THRESHOLD) return;
+    if (seen[topic] && seen[topic] >= score) return;
+    seen[topic] = score;
+    var idx = collected.findIndex(function (m) { return m.topic === topic; });
+    if (idx >= 0) collected.splice(idx, 1);
+    collected.push({ topic: topic, feelGroup: feelGroup || topic, score: score });
+  }
+  var phraseKeys = Object.keys(PHRASE_SEMANTIC_MAP || {}).sort(function (a, b) { return b.length - a.length; });
+  for (var i = 0; i < phraseKeys.length; i++) {
+    var phrase = phraseKeys[i];
+    var pnorm = phrase.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
+    if (pnorm.length >= 4 && q.indexOf(pnorm) !== -1) {
+      var topic = PHRASE_SEMANTIC_MAP[phrase];
+      var feelGroup = (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[topic]) || topic;
+      var score = 0.85 + (phrase.length / 100);
+      add(topic, feelGroup, Math.min(1, score));
+    }
+  }
+  var tokens = q.split(/\s+/).filter(function (w) { return w.length >= 2 && !STOP_WORDS.has(w); });
+  for (var j = 0; j < tokens.length; j++) {
+    var t = tokens[j];
+    var topic = resolveTopicFromToken(t) || (QUERY_TO_TOPIC && QUERY_TO_TOPIC[t]);
+    if (topic && topics && topics[topic]) {
+      var feelGroup = (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[topic]) || topic;
+      var score = 0.6 + (tokens.length === 1 ? 0.2 : 0);
+      add(topic, feelGroup, Math.min(1, score));
+    }
+  }
+  if (typeof PHRASE_TO_TOKENS !== 'undefined') {
+    var pk = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
+    for (var k = 0; k < pk.length; k++) {
+      var p = pk[k];
+      var pn = p.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').toLowerCase();
+      if (pn.length >= 4 && q.indexOf(pn) !== -1) {
+        var tokensArr = PHRASE_TO_TOKENS[p];
+        var phraseMatch = tokensArr && tokensArr[0] ? tokensArr[0] : null;
+        if (phraseMatch && topics && topics[phraseMatch]) add(phraseMatch, (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[phraseMatch]) || phraseMatch, 0.75);
+        break;
+      }
+    }
+  }
+  return collected
+    .sort(function (a, b) { return b.score - a.score; })
+    .slice(0, SEMANTIC_BLEND_CAP);
+}
+
 function expandKeywords(keywords) {
   const expanded = new Set();
   const mapKeysHit = [];
@@ -15002,6 +15235,34 @@ function parseQuery(input) {
       }
     }
   }
+  var semanticTopic = null;
+  var semanticScore = 0;
+  var semanticBlendedTopics = [];
+  var semanticBlendedMatches = null;
+  if (phraseTokens.length === 0 && typeof getSemanticMatchesAboveThreshold === 'function') {
+    var matches = getSemanticMatchesAboveThreshold(normalized);
+    if (matches.length > 0) {
+      var primary = matches[0];
+      var blend = matches.length >= 2 && matches[1].score >= SEMANTIC_BLEND_THRESHOLD;
+      if (blend) {
+        semanticBlendedMatches = matches.slice(0, SEMANTIC_BLEND_CAP);
+        semanticBlendedTopics = semanticBlendedMatches.map(function (m) { return m.topic; });
+        phraseTokens = [];
+        semanticBlendedTopics.forEach(function (tk) {
+          if (topics[tk]) phraseTokens = phraseTokens.concat([tk].concat((topics[tk].synonyms || []).slice(0, 2)));
+        });
+        phraseTokens = Array.from(new Set(phraseTokens));
+      } else {
+        phraseTokens = [primary.topic].concat((topics[primary.topic] && topics[primary.topic].synonyms) ? topics[primary.topic].synonyms.slice(0, 3) : []);
+      }
+      semanticTopic = primary.topic;
+      semanticScore = primary.score;
+    }
+  }
+  if (phraseTokens.length > 0 && !semanticTopic && typeof resolveSemanticWithScore === 'function') {
+    var sem2 = resolveSemanticWithScore(normalized);
+    if (sem2 && sem2.topic && sem2.score >= 0.6) { semanticTopic = sem2.topic; semanticScore = sem2.score; }
+  }
   if (negatedTokens.size > 0) {
     phraseTokens = Array.from(new Set(phraseTokens.concat(['courage', 'faith', 'strength', 'peace'])));
   }
@@ -15040,16 +15301,22 @@ function parseQuery(input) {
   // Include raw + corrected tokens so exact words in the query always participate in matching
   expandedKeywords = Array.from(new Set(expandedKeywords.concat(allTokens.filter(function (t) { return t && t.length > 1 && !negatedTokens.has(t); }))));
 
-  return {
-    intent: 'keyword',
-    payload: {
-      keywords: expandedKeywords,
-      phrase: normalized,
-      rawTokens: rawTokens,
-      blendedTopics: blendedTopics,
-      mapKeysHit: exp.mapKeysHit || []
-    }
+  var payload = {
+    keywords: expandedKeywords,
+    phrase: normalized,
+    rawTokens: rawTokens,
+    blendedTopics: blendedTopics,
+    mapKeysHit: exp.mapKeysHit || []
   };
+  if (semanticTopic) {
+    payload.semanticTopic = semanticTopic;
+    payload.semanticScore = semanticScore;
+  }
+  if (semanticBlendedTopics.length >= 2) {
+    payload.semanticBlendedTopics = semanticBlendedTopics;
+    if (semanticBlendedMatches && semanticBlendedMatches.length >= 2) payload.semanticBlendedMatches = semanticBlendedMatches;
+  }
+  return { intent: 'keyword', payload: payload };
 }
 
 function getSearchFilters() {
@@ -15232,7 +15499,14 @@ function executeQuery(parsed, tier, filters) {
     const keywords = parsed.payload.keywords;
     const phrase = parsed.payload.phrase;
     const rawTokens = Array.isArray(parsed.payload.rawTokens) ? parsed.payload.rawTokens : [];
-    const blendedTopics = Array.isArray(parsed.payload.blendedTopics) ? parsed.payload.blendedTopics : [];
+    var blendedTopics = Array.isArray(parsed.payload.semanticBlendedTopics) && parsed.payload.semanticBlendedTopics.length >= 2
+      ? parsed.payload.semanticBlendedTopics
+      : (Array.isArray(parsed.payload.blendedTopics) ? parsed.payload.blendedTopics : []);
+    if (parsed.payload.semanticTopic && topics[parsed.payload.semanticTopic]) {
+      results.semanticTopic = parsed.payload.semanticTopic;
+      results.semanticScore = parsed.payload.semanticScore || 0;
+    }
+    if (blendedTopics.length >= 2) results.semanticBlendedTopics = blendedTopics;
 
     const wordRegex = buildWordRegex(keywords);
     const phraseRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'i') : null;
@@ -15299,18 +15573,58 @@ function executeQuery(parsed, tier, filters) {
 
     // Multi-word blend: when 2+ tokens map to topics (e.g. "lonely marriage"), prepend merged verses
     if (blendedTopics.length >= 2) {
-      var blendRefs = new Set();
-      blendedTopics.forEach(function (tk) {
-        var t = topics[tk];
-        if (t && Array.isArray(t.verses)) t.verses.forEach(function (ref) { blendRefs.add(ref); });
-      });
+      var semanticMatches = Array.isArray(parsed.payload.semanticBlendedMatches) && parsed.payload.semanticBlendedMatches.length >= 2
+        ? parsed.payload.semanticBlendedMatches
+        : null;
+      var verseMap = new Map();
+      if (semanticMatches) {
+        semanticMatches.forEach(function (match) {
+          var t = topics[match.topic];
+          if (!t || !Array.isArray(t.verses)) return;
+          var topicWeight = match.score || 0.6;
+          t.verses.forEach(function (ref) {
+            var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+            if (!text) return;
+            if (!verseMap.has(ref)) verseMap.set(ref, { ref: ref, text: text, totalWeight: 0, originatingTopics: [] });
+            var entry = verseMap.get(ref);
+            entry.totalWeight += topicWeight;
+            if (entry.originatingTopics.indexOf(match.topic) === -1) entry.originatingTopics.push(match.topic);
+          });
+        });
+      } else {
+        blendedTopics.forEach(function (tk) {
+          var t = topics[tk];
+          if (!t || !Array.isArray(t.verses)) return;
+          t.verses.forEach(function (ref) {
+            var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
+            if (!text) return;
+            if (!verseMap.has(ref)) verseMap.set(ref, { ref: ref, text: text, totalWeight: 0, originatingTopics: [] });
+            var entry = verseMap.get(ref);
+            entry.totalWeight += 0.6;
+            if (entry.originatingTopics.indexOf(tk) === -1) entry.originatingTopics.push(tk);
+          });
+        });
+      }
       var existingRefs = new Set(results.verses.map(function (v) { return v.ref; }));
-      var blendList = Array.from(blendRefs).filter(function (ref) { return !existingRefs.has(ref); });
-      var blendVerses = [];
-      blendList.slice(0, 15).forEach(function (ref) {
-        var text = bible[ref] || (typeof getBibleVerseText === 'function' ? getBibleVerseText(ref) : '');
-        if (text) blendVerses.push({ ref: ref, text: text });
-      });
+      var blendVerses = Array.from(verseMap.values())
+        .filter(function (e) { return !existingRefs.has(e.ref); })
+        .sort(function (a, b) { return b.totalWeight - a.totalWeight; })
+        .slice(0, 15)
+        .map(function (e) {
+          var topics = e.originatingTopics || [];
+          var cap = function (t) { return (t.charAt(0).toUpperCase() + t.slice(1)); };
+          var display = topics.length > 2
+            ? topics.slice(0, 2).map(cap).join(' & ') + ' & more'
+            : topics.length > 1
+              ? topics.map(cap).join(' & ')
+              : topics.length === 1 ? cap(topics[0]) : null;
+          return {
+            ref: e.ref,
+            text: e.text,
+            originatingTopics: topics,
+            originatingTopicsDisplay: display
+          };
+        });
       if (blendVerses.length) results.verses = blendVerses.concat(results.verses);
     }
 
@@ -15608,6 +15922,13 @@ function renderResults(results) {
         const card = document.createElement('div');
         card.className = 'verse-card verse-item';
         card.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.text || '') + '</p>';
+        if (v.originatingTopicsDisplay && results.semanticBlendedTopics && results.semanticBlendedTopics.length >= 2) {
+          var badge = document.createElement('span');
+          badge.className = 'badge multi-origin';
+          badge.textContent = 'Relevant to ' + v.originatingTopicsDisplay;
+          badge.setAttribute('aria-label', 'Relevant to ' + v.originatingTopicsDisplay);
+          card.appendChild(badge);
+        }
         var ctxHtml = typeof buildVerseContextHtml === 'function' ? buildVerseContextHtml(v.ref, true) : '';
         if (ctxHtml) card.insertAdjacentHTML('beforeend', ctxHtml);
         var plainMeaning = (v.plain_meaning !== undefined && v.plain_meaning) ? v.plain_meaning : (typeof getPlainMeaning === 'function' ? getPlainMeaning(v.ref) : '');
@@ -15944,8 +16265,15 @@ function renderResults(results) {
   }
 
   var resultsTitle = 'Results';
-  if (results.intent === 'topic' && results.topic) {
+  if (results.semanticBlendedTopics && results.semanticBlendedTopics.length >= 2) {
+    var displayTopics = results.semanticBlendedTopics.slice(0, 2).map(function (t) {
+      return (t.charAt(0).toUpperCase() + t.slice(1));
+    });
+    resultsTitle = 'Verses for When You Feel ' + displayTopics.join(' & ');
+  } else if (results.intent === 'topic' && results.topic) {
     resultsTitle = 'Verses on ' + (results.topic.charAt(0).toUpperCase() + results.topic.slice(1));
+  } else if (results.semanticTopic && topics[results.semanticTopic]) {
+    resultsTitle = 'Verses on ' + (results.semanticTopic.charAt(0).toUpperCase() + results.semanticTopic.slice(1));
   } else if (results.intent === 'keyword') {
     resultsTitle = 'Matching Verses';
   }
@@ -15998,6 +16326,33 @@ function renderResults(results) {
     activityBox.appendChild(heading);
     activityBox.appendChild(listEl);
     output.appendChild(activityBox);
+  }
+  if (output && (output.closest('#quick-search-hero') || output.closest('#search-hero')) && results.verses && results.verses.length > 0) {
+    var sharePrompt = document.createElement('p');
+    sharePrompt.className = 'share-prompt section-note';
+    sharePrompt.style.cssText = 'margin-top:1rem;';
+    var shareBtn = document.createElement('button');
+    shareBtn.type = 'button';
+    shareBtn.className = 'btn btn-secondary';
+    shareBtn.textContent = 'Share if this helped';
+    shareBtn.setAttribute('aria-label', 'Share this page with someone who might need it');
+    shareBtn.onclick = function () {
+      var url = window.location.href;
+      var text = 'This helped me today — todaysdailybattle.com';
+      if (navigator.share) {
+        navigator.share({ title: "Today's Daily Battle", text: text, url: url }).then(function () {
+          shareBtn.textContent = 'Shared!';
+          setTimeout(function () { shareBtn.textContent = 'Share if this helped'; }, 2000);
+        }).catch(function () {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          shareBtn.textContent = 'Link copied!';
+          setTimeout(function () { shareBtn.textContent = 'Share if this helped'; }, 2000);
+        }).catch(function () {});
+      }
+    };
+    sharePrompt.appendChild(shareBtn);
+    output.appendChild(sharePrompt);
   }
   triggerResultsFade(output);
 }
@@ -16352,21 +16707,22 @@ function sanitizeNudgeElements() {
             try { filters = typeof getSearchFilters === 'function' ? getSearchFilters() : filters; } catch (_) {}
             var cacheKey = tier + '|' + (filters.testament || '') + '|' + (filters.book || '') + '|' + (input || '').toLowerCase();
             var parsed = parseQuery(input || '');
-            var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : undefined;
+            var searchTopic = (parsed.intent === 'topic' && parsed.payload && parsed.payload.topic) ? parsed.payload.topic : (parsed.payload && parsed.payload.semanticTopic) ? parsed.payload.semanticTopic : undefined;
             if (searchTopic) rememberEmotionSignal(searchTopic);
             else {
               var maybeEmotion = normalizeEmotionSignal(input || '');
               if (maybeEmotion && EMOTION_ALIAS[maybeEmotion]) rememberEmotionSignal(maybeEmotion);
             }
+            var searchResults;
             if (cacheKey && searchCache.has(cacheKey)) {
-              var cached = searchCache.get(cacheKey);
-              cached.queryText = normalizeInput(input || '');
-              renderResults(cached);
+              searchResults = searchCache.get(cacheKey);
+              searchResults.queryText = normalizeInput(input || '');
+              renderResults(searchResults);
             } else {
-              var results = executeQuery(parsed, tier, filters);
-              results.queryText = normalizeInput(input || '');
-              if (cacheKey) searchCache.set(cacheKey, results);
-              renderResults(results);
+              searchResults = executeQuery(parsed, tier, filters);
+              searchResults.queryText = normalizeInput(input || '');
+              if (cacheKey) searchCache.set(cacheKey, searchResults);
+              renderResults(searchResults);
             }
             if (out && !hasSearchCards(out)) {
               renderEmergencySearchResults(input);
@@ -16377,6 +16733,13 @@ function sanitizeNudgeElements() {
               var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
               var mapKeys = parsed.payload && Array.isArray(parsed.payload.mapKeysHit) ? parsed.payload.mapKeysHit : [];
               if (mapKeys.length) params.map_keys = mapKeys;
+              if (searchResults && searchResults.semanticBlendedTopics && searchResults.semanticBlendedTopics.length >= 2) {
+                params.semantic_blended = true;
+                params.blended_count = searchResults.semanticBlendedTopics.length;
+                params.blended_topics = searchResults.semanticBlendedTopics.join(',');
+                var pairKey = searchResults.semanticBlendedTopics.slice(0, 2).sort().join(',');
+                params.heartfelt_template_used = BLENDED_HEARTFELT_TEMPLATES[pairKey] ? 'pair:' + pairKey : 'default';
+              }
               trackSearchAnalytics('search_query', params);
             }
             try { await renderDailyBattleCard(); } catch (_) {}

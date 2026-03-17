@@ -37,6 +37,10 @@
     .back-home { margin-top: 1rem; }
     .calm-copy-btn { margin-bottom: 1rem; padding: 0.5rem 1rem; font-size: 0.88rem; border-radius: 8px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.08); color: var(--gold); cursor: pointer; }
     .calm-copy-btn:hover, .calm-copy-btn:focus-visible { background: rgba(227,188,103,0.18); outline: 2px solid var(--gold); outline-offset: 2px; }
+    .calm-input-wrap { margin-bottom: 1.5rem; max-width: 20rem; margin-left: auto; margin-right: auto; }
+    .calm-input-wrap input { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 10px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.06); color: var(--text, #e2e8f0); }
+    .calm-input-wrap input::placeholder { color: var(--muted, #94a3b8); }
+    .calm-input-wrap input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
       .desktop-only { display: block !important; }
@@ -60,6 +64,11 @@
       <div class="calm-page">
         <div class="intro" id="calm-intro">
           <h2>What's weighing on you?</h2>
+        </div>
+        <div class="calm-input-wrap">
+          <label for="calm-input" class="sr-only">Or type how you feel</label>
+          <input type="text" id="calm-input" placeholder="Or type how you feel…" autocomplete="off" aria-label="Type how you feel for a verse">
+          <p class="calm-type-hint" style="margin:0.5rem 0 0;font-size:0.85rem;color:var(--muted, #94a3b8);">Or type freely: <em>lonely and scared</em></p>
         </div>
         <div class="categories" id="calm-categories" role="group" aria-label="Choose a feeling">
           <button type="button" class="calm-btn" data-category="anxiety" aria-label="Anxious or afraid">Anxious / Fear</button>
@@ -89,6 +98,7 @@
       </div>
     </main>
   </div>
+  <script type="module" src="script.js"></script>
   <script>
     (function () {
       'use strict';
@@ -228,6 +238,42 @@
         desktopCopy.textContent = 'Copied';
         setTimeout(function () { desktopCopy.textContent = 'Copy to clipboard'; }, 2000);
       });
+      var FEEL_TO_CALM = { anxious: 'anxiety', sad: 'grief', peace: 'peace', tired: 'strength', hopeful: 'peace', difficult: 'worry', angry: 'strength', lonely: 'grief' };
+      function debounce(fn, ms) {
+        var t;
+        return function () {
+          clearTimeout(t);
+          t = setTimeout(fn, ms);
+        };
+      }
+      function wireCalmInput() {
+        var input = document.getElementById('calm-input');
+        if (!input) return;
+        if (typeof window.resolveSemanticWithScore !== 'function') {
+          setTimeout(wireCalmInput, 150);
+          return;
+        }
+        input.addEventListener('input', debounce(function () {
+          var val = (input.value || '').trim();
+          if (val.length < 3) return;
+          var result = window.resolveSemanticWithScore(val);
+          if (!result || result.score < 0.6) return;
+          var cat = FEEL_TO_CALM[result.feelGroup] || (VERSES[result.topic] ? result.topic : null);
+          if (!cat || !VERSES[cat]) return;
+          if (typeof gtag === 'function') gtag('event', 'calm_semantic_input', { category: cat, score: result.score });
+          if (isMobile()) {
+            showVerseView(cat);
+          } else {
+            currentCategory = cat;
+            var v = pickVerse(cat);
+            var textEl = document.getElementById('desktop-verse-text');
+            var refEl = document.getElementById('desktop-verse-ref');
+            if (textEl) textEl.textContent = v.text;
+            if (refEl) refEl.textContent = v.ref;
+          }
+        }, 300));
+      }
+      wireCalmInput();
     })();
   </script>
 </body>

@@ -90,6 +90,15 @@
             <button type="submit" class="btn btn-primary" aria-label="Open email to send">Open email to send</button>
           </form>
           <p class="section-note" style="margin-top:1rem;">You can also <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">suggest a topic or battle</a> for future releases. Good ideas go straight into the build queue.</p>
+
+          <h2 class="section-divider" id="suggest-feeling">Suggest a feeling</h2>
+          <p class="section-note">Help us add more phrases so others can find verses. What feeling or situation would you want to search for? (Anonymous—no email required.)</p>
+          <form class="feeling-suggest-form" id="feeling-suggest-form" aria-label="Suggest a feeling or phrase">
+            <label for="feeling-suggest-phrase">Feeling or phrase (e.g. &quot;social media burnout&quot;, &quot;can&apos;t sleep&quot;)</label>
+            <textarea id="feeling-suggest-phrase" rows="2" placeholder="Type a feeling or situation..." maxlength="200" aria-label="Feeling or phrase to suggest"></textarea>
+            <button type="submit" class="btn btn-secondary" aria-label="Submit suggestion">Submit</button>
+          </form>
+          <p id="feeling-suggest-status" class="section-note" style="margin-top:0.5rem; min-height:1.5em;" aria-live="polite"></p>
         </section>
       </div>
     </main>
@@ -115,5 +124,6 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
   <script src="contact-form.js"></script>
+  <script src="feeling-suggest-form.js"></script>
 </body>
 </html>

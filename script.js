@@ -2445,12 +2445,97 @@ const PHRASE_TO_TOKENS = {
   'feeling empty': ['hope', 'restore', 'fill', 'presence', 'comfort'],
   'god has empathy but world doesnt': ['grief', 'comfort', 'faith', 'presence'],
   'world doesnt care': ['grief', 'comfort', 'faith', 'presence'],
-  'nobody gets it': ['loneliness', 'comfort', 'faith', 'presence']
+  'nobody gets it': ['loneliness', 'comfort', 'faith', 'presence'],
+  'brothers fighting': ['family', 'forgiveness', 'peace', 'unity'],
+  'siblings arguing': ['family', 'forgiveness', 'peace'],
+  'fighting over inheritance': ['family', 'forgiveness', 'wisdom'],
+  'fighting over parents health': ['family', 'grief', 'forgiveness', 'peace'],
+  'caregiving resentment': ['family', 'grief', 'strength', 'rest'],
+  'brothers fighting over mom': ['family', 'grief'],
+  'sisters arguing about dad': ['family', 'anger'],
+  'siblings over nursing home': ['family'],
+  'fighting over parents will': ['family', 'anger'],
+  'family inheritance battle': ['family'],
+  'greedy siblings parents': ['family', 'anger'],
+  'caregiving fight with brother': ['family', 'anger'],
+  'mom dying siblings arguing': ['family', 'grief'],
+  'dad sick family drama': ['family', 'grief'],
+  'estate fight brothers': ['family'],
+  'parents health siblings clash': ['family'],
+  'divided over hospice': ['family', 'grief'],
+  'piece of shit coworker': ['forgiveness', 'patience', 'Colossians 3:23'],
+  'hate my boss': ['forgiveness', 'patience', 'Colossians 3:23'],
+  'my boss is a dick': ['forgiveness', 'patience', 'Colossians 3:23'],
+  'boss is an asshole': ['forgiveness', 'anger'],
+  'coworker is toxic': ['forgiveness', 'anger'],
+  'fucking hate this job': ['forgiveness', 'grief'],
+  'manager from hell': ['forgiveness', 'anger'],
+  'work with idiots': ['forgiveness'],
+  'dickhead boss': ['forgiveness', 'anger'],
+  'workplace nightmare': ['forgiveness', 'anger'],
+  'cant stand my colleagues': ['forgiveness', 'anger'],
+  'toxic workplace hell': ['forgiveness', 'grief'],
+  'boss treats me like shit': ['forgiveness', 'anger'],
+  'everything sucks': ['grief', 'hope'],
+  'life is pointless': ['grief', 'hope', 'faith'],
+  'why does everything go wrong': ['faith', 'grief'],
+  'im so done': ['grief', 'hope'],
+  'this is bullshit': ['anger', 'faith'],
+  'hate everything': ['anger', 'grief'],
+  'fed up with life': ['faith', 'grief'],
+  'nothing matters anymore': ['grief', 'hope'],
+  'why does my dog hate me': ['grief', 'faith'],
+  'god why pizza again': ['faith', 'grief'],
+  'universe hates me': ['grief', 'faith'],
+  'cat is plotting against me': ['grief', 'faith'],
+  'why is my car evil': ['grief', 'faith'],
+  'life is a meme': ['grief', 'faith'],
+  'pineapple on pizza bible verse': ['faith', 'wisdom', 'hope'],
+  'my goldfish died and im mad': ['grief', 'anger'],
+  'why is the sky stupid today': ['grief', 'faith'],
+  'everything is rigged': ['faith', 'grief'],
+  'god hates my team': ['faith', 'anger'],
+  'why god why everything': ['faith', 'grief'],
+  'life sucks': ['grief', 'hope', 'faith'],
+  'why god why': ['faith', 'grief', 'hope'],
+  'why is my cat evil': ['grief', 'faith', 'hope'],
+  'nothing makes sense': ['faith', 'wisdom', 'hope'],
+  'cancer diagnosis': ['suffering', 'fear'],
+  'fighting cancer': ['suffering', 'strength'],
+  'chemo sucks': ['suffering', 'grief'],
+  'stage 4 cancer': ['suffering', 'grief'],
+  'terminal illness': ['grief', 'hope'],
+  'caregiving cancer': ['caregiver', 'family'],
+  'caregiving exhaustion': ['caregiver', 'rest'],
+  'lost mom to cancer': ['grief', 'hope'],
+  'grieving husband cancer': ['grief', 'comfort'],
+  'why god why cancer': ['suffering', 'faith'],
+  'cancer sucks': ['suffering', 'grief'],
+  'stage 4 cancer mom': ['suffering', 'grief', 'family'],
+  'caregiving dad dying': ['caregiver', 'grief'],
+  'no money left': ['finances', 'hope'],
+  'cant pay bills': ['finances', 'anxiety'],
+  'lost job': ['finances', 'grief', 'hope'],
+  'debt crushing me': ['finances', 'anxiety'],
+  'broke depressed': ['finances', 'grief'],
+  'war trauma': ['trauma', 'fear'],
+  'refugee fear': ['trauma', 'fear'],
+  'fleeing country': ['trauma', 'hope'],
+  'climate doom': ['anxiety', 'hope'],
+  'news overwhelming': ['anxiety', 'peace'],
+  'doomscrolling': ['anxiety', 'peace'],
+  'no friends': ['loneliness', 'hope'],
+  'lonely in crowd': ['loneliness', 'comfort'],
+  'chronic pain': ['suffering', 'strength'],
+  'world angry': ['anger', 'peace'],
+  'future scary': ['anxiety', 'hope'],
+  'cant trust anyone': ['faith', 'hope'],
+  'migrant fear': ['trauma', 'hope']
 };
 
 const topics = {
   anger: {
-    synonyms: ['angry', 'wrath', 'mad', 'furious', 'rage'],
+    synonyms: ['angry', 'wrath', 'mad', 'furious', 'rage', 'division', 'hate', 'societal'],
     verses: ['Psalms 37:8', 'Proverbs 14:29', 'James 1:20', 'Ephesians 4:26', 'Proverbs 15:1'],
     guidance: {
       kid: "When you feel mad, take a deep breath and ask God to help you calm down.",
@@ -2478,8 +2563,8 @@ const topics = {
     }
   },
   grief: {
-    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted'],
-    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38'],
+    synonyms: ['sorrow', 'mourning', 'loss', 'sadness', 'heartbroken', 'heartache', 'brokenhearted', 'bereavement', 'widow', 'terminal', 'dying'],
+    verses: ['Psalms 34:18', 'Revelation 21:4', 'Matthew 5:4', 'Psalms 147:3', '2 Corinthians 1:3', 'Lamentations 3:22', 'Psalms 23:4', 'Romans 8:38', 'John 11:25', '1 Corinthians 15:54', '1 Thessalonians 4:13'],
     guidance: {
       kid: "When you're sad, God is close and will comfort you. It's okay to cry; He sees your tears.",
       teen: "It's okay to grieve. God comforts those who are hurting and promises that nothing can separate you from His love.",
@@ -2604,8 +2689,8 @@ const topics = {
     }
   },
   trauma: {
-    synonyms: ['traumatized', 'wounded', 'hurt', 'healing', 'ptsd', 'abuse', 'refuge', 'safe'],
-    verses: ['Psalms 34:18', 'Psalms 147:3', 'Isaiah 41:10', '2 Corinthians 1:3', 'Revelation 21:4', 'Psalms 46:1'],
+    synonyms: ['traumatized', 'wounded', 'hurt', 'healing', 'ptsd', 'abuse', 'refuge', 'safe', 'war', 'refugee', 'displacement', 'conflict', 'violence', 'fleeing'],
+    verses: ['Psalms 34:18', 'Psalms 147:3', 'Isaiah 41:10', '2 Corinthians 1:3', 'Revelation 21:4', 'Psalms 46:1', 'Isaiah 43:2', 'Psalms 91:1'],
     guidance: {
       kid: "When something really scary happened, God is close and wants to help you feel safe.",
       teen: "God heals the brokenhearted. You don't have to carry this alone; He is your refuge.",
@@ -2632,8 +2717,8 @@ const topics = {
     }
   },
   forgiveness: {
-    synonyms: ['forgive', 'pardon', 'mercy', 'absolve'],
-    verses: ['Matthew 5:44', 'Ephesians 4:32', 'Matthew 6:14', 'Colossians 3:13', 'Luke 6:37', 'Acts 13:38'],
+    synonyms: ['forgive', 'pardon', 'mercy', 'absolve', 'difficult person', 'coworker', 'boss'],
+    verses: ['Matthew 5:44', 'Ephesians 4:32', 'Colossians 3:23', 'Proverbs 15:1', 'Romans 12:17-19', 'Matthew 6:14', 'Colossians 3:13', 'Luke 6:37', 'Acts 13:38'],
     guidance: {
       kid: "Forgive others just like God forgives you.",
       teen: "Let go of grudges; forgiveness sets you free.",
@@ -2643,6 +2728,34 @@ const topics = {
     explain: {
       kid: "Forgiveness means letting go of a hurt and choosing love.",
       teen: "Forgiveness frees your heart and keeps bitterness away."
+    }
+  },
+  suffering: {
+    synonyms: ['cancer', 'illness', 'sick', 'treatment', 'chemo', 'diagnosis', 'pain', 'affliction', 'chronic pain', 'arthritis', 'migraine', 'body hurts'],
+    verses: ['Isaiah 41:10', 'Psalms 34:18', '2 Corinthians 12:9', 'Deuteronomy 31:6', 'Isaiah 40:31', 'Romans 8:38', 'Psalms 46:1', 'Revelation 21:4'],
+    guidance: {
+      kid: "When you or someone you love is sick, God is close. He sees every tear and promises to help.",
+      teen: "A diagnosis shakes everything—but God's strength is made perfect in weakness. He is with you through every scan and weary night.",
+      adult: "A cancer diagnosis or serious illness brings fear and unknowns. God sees every moment, promises to strengthen you, and holds you when yours runs out.",
+      pastor: "Minister to patients and families with these verses; emphasize God's presence, grace in weakness, and eternal hope."
+    },
+    explain: {
+      kid: "God is with you when you're sick. He loves you and wants to help.",
+      teen: "God sees every scan, every weary night. His grace is sufficient when strength runs out."
+    }
+  },
+  caregiver: {
+    synonyms: ['caregiving', 'caregiver', 'exhausted', 'burnout', 'carrying load', 'supporting'],
+    verses: ['Matthew 11:28', 'Galatians 6:2', '2 Corinthians 1:3', 'Isaiah 40:29', 'Isaiah 40:31', 'Psalms 34:18', '1 Peter 5:7'],
+    guidance: {
+      kid: "Taking care of someone is hard. God wants to help you rest and be strong.",
+      teen: "Caregiving is exhausting—God invites the weary to rest in Him and promises to renew your strength.",
+      adult: "When you're carrying the load for someone you love, the exhaustion is real. God invites you to come to Him for rest and equips you to keep going.",
+      pastor: "Support caregivers with rest, burden-bearing, and the God of all comfort; remind them they cannot pour from an empty cup."
+    },
+    explain: {
+      kid: "God helps you when you're tired from helping others. Come to Him for rest.",
+      teen: "Caregiving drains you—God gives power to the faint and rest to the weary."
     }
   },
   strength: {
@@ -2912,9 +3025,9 @@ const topics = {
     }
   },
   family: {
-    synonyms: ['home', 'parents', 'siblings', 'household'],
+    synonyms: ['home', 'parents', 'siblings', 'household', 'brothers', 'sisters', 'inheritance', 'caregiving'],
     // Keep this list distinct from "free will" so topic results are unambiguous.
-    verses: ['Ephesians 6:1', 'Colossians 3:13', 'Psalms 127:3', 'Proverbs 22:6', 'Colossians 3:20'],
+    verses: ['Ephesians 6:1', 'Colossians 3:13', 'Matthew 18:15', 'Ephesians 4:31-32', 'Proverbs 17:17', 'Psalms 133:1', 'Psalms 127:3', 'Proverbs 22:6', 'Colossians 3:20'],
     guidance: {
       kid: "Love your family and help at home.",
       teen: "Honor your family even when it is hard.",
@@ -2969,8 +3082,8 @@ const topics = {
     }
   },
   finances: {
-    synonyms: ['money', 'provision', 'need', 'bills', 'wealth', 'give'],
-    verses: ['Philippians 4:19', 'Matthew 6:33', 'Proverbs 3:9', 'Malachi 3:10', 'Hebrews 13:5'],
+    synonyms: ['money', 'provision', 'need', 'bills', 'wealth', 'give', 'debt', 'broke', 'poverty', 'job loss', 'hungry'],
+    verses: ['Philippians 4:19', 'Matthew 6:25', 'Matthew 6:33', 'Psalms 37:25', 'Hebrews 13:5', 'Proverbs 3:9', 'Malachi 3:10'],
     guidance: {
       kid: "God gives us what we need; we can share with others.",
       teen: "Put God first; He promises to provide what you need.",
@@ -4296,7 +4409,9 @@ var SMART_DICTIONARY = {
   identity:       { def: "You are His\u2014called by name.",          action: "Say \u2018I\u2019m His.\u2019", outcome: "Worth settled.",      verseRef: "Isaiah 43:1"         },
   purpose:        { def: "He has plans\u2014good ones.",              action: "Ask \u2018Where next?\u2019", outcome: "Path clears.",          verseRef: "Jeremiah 29:11"      },
   heartache:      { def: "He is near the brokenhearted.",             action: "Cry\u2014let Him hold it.", outcome: "Comfort arrives.",        verseRef: "Psalm 34:18"         },
-  struggle:       { def: "Still here\u2014that\u2019s enough. He\u2019s closer in struggle than anywhere else.", action: "Be still\u2014just breathe.", outcome: "He meets you here.",    verseRef: "Psalm 46:10"         }
+  struggle:       { def: "Still here\u2014that\u2019s enough. He\u2019s closer in struggle than anywhere else.", action: "Be still\u2014just breathe.", outcome: "He meets you here.",    verseRef: "Psalm 46:10"         },
+  suffering:      { def: "A diagnosis shakes everything\u2014He sees every scan, every weary night.", action: "Say \u2018Your grace is sufficient.\u2019", outcome: "Strength when yours runs out.", verseRef: "2 Corinthians 12:9" },
+  caregiver:      { def: "Carrying the load for someone you love\u2014the exhaustion is real.", action: "Come to Him\u2014rest.", outcome: "Equipped to keep going.", verseRef: "Matthew 11:28" }
 };
 // Expose onto window so sermon.html inline scripts (non-module) can read them.
 // script.js runs as type="module" (module scope ≠ global scope), so explicit
@@ -4309,6 +4424,11 @@ var FEEL_TO_SMART = {
   anxious: 'anxiety', stressed: 'anxiety', overwhelmed: 'anxiety', burnout: 'rest', exhausted: 'rest',
   afraid: 'fear', scared: 'fear', panic: 'fear', worried: 'worry',
   hopeless: 'hope', sad: 'grief', sadness: 'grief', heartbroken: 'heartache', brokenhearted: 'heartache',
+  cancer: 'suffering', illness: 'suffering', chemo: 'suffering', diagnosis: 'suffering', terminal: 'grief',
+  caregiving: 'caregiver', caregiver: 'caregiver',
+  broke: 'finances', poverty: 'finances', debt: 'finances', jobless: 'finances',
+  war: 'trauma', refugee: 'trauma', displacement: 'trauma', fleeing: 'trauma',
+  climate: 'anxiety', doomscrolling: 'anxiety', overwhelm: 'anxiety',
   lonely: 'loneliness', alone: 'loneliness', isolated: 'loneliness',
   angry: 'anger', furious: 'anger', rage: 'anger',
   guilty: 'guilt', ashamed: 'guilt', shame: 'guilt',
@@ -4333,7 +4453,23 @@ var FEEL_TO_SMART = {
 /** Heartfelt messages before results — one per inquiry, warm and uplifting. Checked in order; first match wins. */
 var HEARTFELT_INQUIRY_MESSAGES = [
   { patterns: ['empathy', 'world doesnt care', 'world doesnt understand', 'god has empathy', 'god empathizes', 'world is cold', 'world indifferent', 'nobody gets it', 'god sees me', 'god understands', 'world doesnt get it'], message: "God's empathy is constant and personal—He sees you, feels with you, and draws near when the world feels cold or indifferent. You are not alone in that ache." },
-  { patterns: ['piece of shit', 'difficult person', 'toxic coworker', 'bad coworker', 'hate my coworker', 'difficult boss'], message: 'Dealing with someone difficult is exhausting. God sees you and gives grace to respond with patience and love—even when it feels impossible.' },
+  { patterns: ['cancer diagnosis', 'fighting cancer', 'chemo sucks', 'stage 4 cancer', 'cancer treatment', 'cancer sucks', 'cancer why me', 'why god why cancer', 'hate cancer god'], message: "A cancer diagnosis shakes everything—fear, pain, unknowns. God sees every scan, every weary night, and promises to be your strength when yours runs out." },
+  { patterns: ['caregiving cancer', 'spouse cancer caregiver', 'caregiving exhaustion', 'caregiver burnout', 'caregiving dad dying', 'caregiving mom'], message: "When you're the one fighting or the one carrying the load for someone you love, the exhaustion is real. God invites the weary to rest in Him and equips you to keep going." },
+  { patterns: ['terminal illness', 'dying of cancer', 'end of life', 'hospice', 'mom dying cancer', 'dad dying cancer', 'lost mom to cancer', 'grieving husband cancer', 'cancer death grief', 'after cancer death'], message: "Facing the end or walking through loss after—death feels final, but Jesus conquered it. Hold to the hope that tears end and reunion waits." },
+  { patterns: ['no money left', 'cant pay bills', 'lost job', 'financial ruin', 'poverty depression', 'broke no money', 'cant afford food', 'debt crushing me', 'broke depressed', 'lost job hopeless', 'hungry god why'], message: "When money runs out and bills pile up, God sees every need. He promises to supply—and invites you to seek Him first, even when the numbers don't add up." },
+  { patterns: ['war trauma', 'refugee fear', 'fleeing country', 'bombing scared', 'lost home war', 'displaced by war', 'violence trauma', 'running from war'], message: "When war or violence uproots everything—God is your refuge and strength. He is with you through every fire and flood, no matter where you are." },
+  { patterns: ['climate doom', 'world ending climate', 'eco anxiety', 'planet dying', 'climate anxiety'], message: "When the world feels like it's ending—God is still Creator and Redeemer. He cares for creation and for you. Hold to hope that groans with purpose." },
+  { patterns: ['news overwhelming', 'bad news depression', 'doomscrolling', 'world too much', 'cant stop watching news'], message: "When the news feels like too much—God invites you to cast every care on Him. His peace can guard your heart and mind, even when the world feels heavy." },
+  { patterns: ['no friends', 'feel alone world', 'disconnected everyone', 'lonely in crowd', 'no one to turn to', 'isolated from everyone'], message: "When you feel alone in a crowded world—God sets the lonely in families. He never leaves you; you're not as disconnected as it feels." },
+  { patterns: ['chronic pain', 'arthritis', 'migraine', 'body hurts', 'pain every day', 'physical pain'], message: "When your body hurts every day—God sees every ache. His strength is made perfect in weakness; He is near in the pain." },
+  { patterns: ['world angry', 'hate everyone', 'division everywhere', 'society divided', 'everyone fighting'], message: "When the world feels angry and divided—God calls us to peace and patience. He sees the chaos and offers a different way." },
+  { patterns: ['gen z anxious', 'young adult hopeless', 'future scary', 'cant see future', 'generation lost'], message: "When the future feels scary or hopeless—God has plans for hope and a future. He sees you and isn't done with your story." },
+  { patterns: ['fake news depression', 'cant trust anyone', 'misinformation', 'dont know what to believe'], message: "When you can't trust what you hear—God's Word is steady. He is truth when everything else feels uncertain." },
+  { patterns: ['migrant fear', 'asylum stress', 'immigrant alone', 'left everything behind'], message: "When you've left everything behind—God is with you in the unknown. He is your refuge and strength, no matter where you land." },
+  { patterns: ['brothers fighting', 'siblings arguing', 'fighting over inheritance', 'caregiving resentment', 'family greedy', 'siblings over will', 'parents health', 'family divided', 'siblings wont talk', 'brothers wont speak', 'sisters fighting', 'dying mom', 'sick parent', 'nursing home', 'parents will', 'inheritance battle', 'estate fight', 'hospice'], message: "When siblings fight over parents' care or inheritance, the grief runs deep—God sees the pain on all sides and calls us to forgiveness and unity, even when it hurts." },
+  { patterns: ['piece of shit', 'difficult person', 'toxic coworker', 'bad coworker', 'hate my coworker', 'difficult boss', 'boss is a dick', 'work with asshole', 'coworker asshole', 'hate my job', 'workplace hell', 'cant stand work', 'my boss is a dick', 'boss sucks', 'job sucks', 'toxic workplace', 'toxic boss', 'awful coworker', 'boss is toxic', 'workplace sucks', 'colleague is awful', 'boss is an asshole', 'dickhead boss', 'manager from hell', 'work with idiots', 'workplace nightmare', 'toxic workplace hell', 'boss treats me like shit'], message: "Dealing with someone difficult at work is exhausting. God doesn't ask you to like them—He asks you to work as unto Him and trust Him with the justice." },
+  { patterns: ['life is pointless', 'im so done', 'this is bullshit', 'hate everything', 'fed up with life', 'nothing matters anymore', 'why does everything go wrong'], message: "When everything feels pointless or wrong, God isn't surprised. He meets you in the exhaustion and offers hope that doesn't depend on circumstances." },
+  { patterns: ['why is my cat evil', 'god hates me because pizza', 'universe is stupid', 'life sucks', 'cat hates me', 'everything is stupid', 'world is stupid', 'why god why', 'my cat is evil', 'dog hates me', 'everything sucks', 'life is stupid', 'nothing makes sense', 'why does god hate me', 'pets are evil', 'why does my dog hate me', 'god why pizza again', 'universe hates me', 'cat is plotting', 'why is my car evil', 'life is a meme', 'why god why everything', 'pineapple on pizza', 'goldfish died and im mad', 'sky stupid today', 'everything is rigged', 'god hates my team'], message: "In the middle of whatever wild or frustrated thing you're feeling right now—even if it sounds silly or angry—God isn't shocked. He's near. His Word can cut through the chaos with truth, hope, or just a reminder you're not alone in the mess." },
   { patterns: ['heartache', 'heart ache', 'brokenhearted', 'heartbroken'], message: 'God sees your pain and stays near to the brokenhearted. You are not alone in this.' },
   { patterns: ['grief', 'grieving', 'sorrow', 'lost someone', 'someone died'], message: 'Grief is heavy, but God is near. He will comfort you and hold you through this.' },
   { patterns: ['addiction', 'addicted', 'bondage'], message: 'You are not defined by this struggle. God offers freedom and walks with you step by step.' },
@@ -4373,8 +4509,29 @@ var BLENDED_HEARTFELT_TEMPLATES = {
   'anxiety,loneliness': "When anxiety and loneliness feel heavy together, God meets you in both. He is near the brokenhearted and gives peace that guards heart and mind.",
   'fear,grief': "Fear and grief can feel overwhelming together. God is near the brokenhearted and says 'Fear not'—He holds you through both.",
   'anxiety,worry': "When anxiety and worry pile up, God invites you to bring every care to Him. His peace can guard your heart and mind.",
-  default: "In moments when multiple burdens weigh heavy, God meets you in each one. His Word speaks to the whole of what you carry."
+  'family,anger': "When family conflict and anger mix, God calls us to go to our brother privately, put away bitterness, and forgive as we've been forgiven—even when it feels impossible.",
+  'family,grief': "When family pain and grief overlap—sibling fights, caregiving exhaustion, inheritance wounds—God sees every side and offers wisdom, comfort, and a path toward unity.",
+  'suffering,caregiver': "When you're the one fighting or the one carrying the load for someone you love, the exhaustion is real. God invites the weary to rest in Him and equips you to keep going.",
+  'suffering,grief': "A diagnosis or serious illness brings fear and grief together. God sees every moment, promises to strengthen you, and holds you when yours runs out.",
+  'caregiver,grief': "Caregiving and grief overlap—God sees the exhaustion and the loss. He invites you to rest and comforts the brokenhearted.",
+  'finances,grief': "When money and grief mix—God sees every bill and every tear. He supplies and comforts; seek Him first.",
+  'trauma,anxiety': "When trauma and anxiety overlap—God is your refuge. He hears every fear and holds you through the storm.",
+  'suffering,anxiety': "When chronic pain or illness meets anxiety—God sees both. His strength is made perfect in weakness; cast your cares on Him.",
+  'anger,anxiety': "When anger and anxiety mix—division, hate, or fear of the future—God offers peace that guards heart and mind. He sees the chaos.",
+  'anxiety,faith': "When you can't trust what you hear or who to believe—God's Word is steady. He is truth when everything else feels uncertain.",
+  'trauma,faith': "When displacement or migration meets doubt—God is with you in the unknown. He is your refuge and strength, no matter where you land.",
+  default: "In a world full of worry, stress, war, loss, or just feeling overwhelmed—God sees every tear and every fear. He's near, no matter where you are or what you're carrying."
 };
+
+var DEFAULT_FALLBACK_MESSAGES = {
+  en: "No matter where you are, what language you speak, or what crisis you're facing—war, poverty, loneliness, chronic pain, or just the weight of the world—God is near in every tear and every question. You're not alone. His Word can cut through the chaos with truth, hope, or just a reminder you're seen.",
+  es: "No importa dónde estés, qué idioma hables, o qué crisis enfrentes—guerra, pobreza, soledad, dolor crónico o simplemente el peso del mundo—Dios está cerca en cada lágrima y cada pregunta. No estás solo. Su Palabra puede atravesar el caos con verdad, esperanza, o solo un recordatorio de que te ve."
+};
+
+function getDefaultFallbackMessage() {
+  var lang = (typeof navigator !== 'undefined' && navigator.language) ? String(navigator.language).toLowerCase().slice(0, 2) : 'en';
+  return DEFAULT_FALLBACK_MESSAGES[lang] || DEFAULT_FALLBACK_MESSAGES.en;
+}
 
 function getHeartfeltMessageForQuery(normalizedQuery, results) {
   if (!results || results.intent === 'empty') return '';
@@ -4412,7 +4569,7 @@ function getHeartfeltMessageForQuery(normalizedQuery, results) {
       return String(fallbackExplain[tierKey] || fallbackExplain.adult || '').trim();
     }
   }
-  return 'God sees what you are carrying. He is faithful to meet you here in His Word.';
+  return getDefaultFallbackMessage();
 }
 
 // Declared here (before mountRotatingHeroVerse fires) so normalizeEmotionSignal
@@ -4621,7 +4778,7 @@ function renderSmartResult(query) {
     crisisNote.className = 'crisis-resources-note';
     crisisNote.setAttribute('role', 'complementary');
     crisisNote.setAttribute('aria-label', 'Crisis support resources');
-    crisisNote.innerHTML = 'If you\'re in immediate danger or thinking of harming yourself, please reach out right now: <a href="tel:988">Call or text 988</a> (24/7, free, confidential). Or <a href="https://988lifeline.org/chat/" target="_blank" rel="noopener noreferrer">chat at 988lifeline.org</a>. Text HOME to 741741 for Crisis Text Line. You\'re not alone.';
+    crisisNote.innerHTML = 'If you\'re in immediate danger or thinking of harming yourself, please reach out right now: <a href="tel:988">Call or text 988</a> (US, 24/7). Text HOME to 741741 for Crisis Text Line. Worldwide: <a href="https://www.befrienders.org/" target="_blank" rel="noopener noreferrer">befrienders.org</a>. <a href="https://findahelpline.com/" target="_blank" rel="noopener noreferrer">findahelpline.com</a> (local options). You\'re not alone.';
     container.appendChild(crisisNote);
   }
   container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -9168,7 +9325,7 @@ function bumpStat(key) {
  * We NEVER send raw search query text (what the user typed).
  * We ONLY send: topic (known topic key, e.g. "hope", "anxiety"), search_type ("keyword"),
  * map_keys (array of semantic labels), semantic_blended (bool), blended_count (number),
- * blended_topics (comma-separated topic keys, e.g. "loneliness,fear") — never raw query.
+ * blended_topics (comma-separated topic keys, e.g. "loneliness,fear"), default_rate (0/1) — never raw query.
  * This protects users from data breaches. Any change that adds query, user_id, email, or
  * similar to search analytics is forbidden. Use trackSearchAnalytics() for all search-related events.
  * See PRIVACY-ANALYTICS.md.
@@ -9195,6 +9352,7 @@ function trackSearchAnalytics(eventName, params) {
       var tpl = String(params.heartfelt_template_used).trim();
       if (/^(pair:[a-z0-9,_-]+|default)$/.test(tpl)) safe.heartfelt_template_used = tpl;
     }
+    if (typeof params.default_rate === 'number' && (params.default_rate === 0 || params.default_rate === 1)) safe.default_rate = params.default_rate;
   }
   trackEvent(eventName, safe);
 }
@@ -12182,7 +12340,87 @@ var PHRASE_SEMANTIC_MAP = {
   'world doesnt care': 'grief', 'world doesnt understand': 'loneliness', 'world is cold': 'loneliness',
   'god has empathy': 'grief', 'god empathizes': 'grief', 'world indifferent': 'loneliness',
   'nobody gets it': 'loneliness', 'god sees me': 'grief', 'god understands': 'grief',
-  'god has empathy but world doesnt': 'grief', 'world doesnt get it': 'loneliness'
+  'god has empathy but world doesnt': 'grief', 'world doesnt get it': 'loneliness',
+  // Family conflict / caregiving / inheritance
+  'brothers fighting': 'family', 'siblings arguing': 'family', 'fighting over inheritance': 'family',
+  'parents health siblings': 'family', 'caregiving resentment': 'family', 'family greedy inheritance': 'family',
+  'brothers over mom': 'family', 'brothers over dad': 'family', 'siblings over will': 'family',
+  'fighting over parents health': 'family', 'brothers over parents health': 'family', 'siblings over parents health': 'family',
+  'dying mom siblings': 'family', 'sick parent siblings': 'family', 'family divided': 'family',
+  'siblings wont talk': 'family', 'brothers wont speak': 'family', 'sisters fighting': 'family',
+  'brothers fighting over mom': 'family', 'sisters arguing about dad': 'family', 'siblings over nursing home': 'family',
+  'fighting over parents will': 'family', 'family inheritance battle': 'family', 'greedy siblings parents': 'family',
+  'caregiving fight with brother': 'family', 'mom dying siblings arguing': 'family', 'dad sick family drama': 'family',
+  'estate fight brothers': 'family', 'parents health siblings clash': 'family', 'divided over hospice': 'family',
+  // Toxic work / rude people (raw phrases)
+  'piece of shit coworker': 'forgiveness', 'work with asshole': 'forgiveness', 'coworker asshole': 'forgiveness',
+  'boss is an asshole': 'forgiveness', 'coworker is toxic': 'forgiveness', 'fucking hate this job': 'forgiveness',
+  'manager from hell': 'forgiveness', 'work with idiots': 'forgiveness', 'dickhead boss': 'forgiveness',
+  'workplace nightmare': 'forgiveness', 'cant stand my colleagues': 'forgiveness', 'toxic workplace hell': 'forgiveness',
+  'boss treats me like shit': 'forgiveness',
+  'toxic coworker': 'forgiveness', 'bad boss': 'forgiveness', 'hate my job': 'forgiveness',
+  'boss is a dick': 'forgiveness', 'workplace hell': 'forgiveness', 'cant stand work': 'forgiveness',
+  'my boss is a dick': 'forgiveness', 'boss sucks': 'forgiveness', 'job sucks': 'forgiveness',
+  'toxic workplace': 'forgiveness', 'toxic boss': 'forgiveness', 'awful coworker': 'forgiveness',
+  'boss is toxic': 'forgiveness', 'workplace sucks': 'forgiveness', 'colleague is awful': 'forgiveness',
+  // Silly / off-the-wall (grace + hope)
+  'why is my cat evil': 'grief', 'god hates me because pizza': 'faith', 'universe is stupid': 'grief',
+  'life sucks': 'grief', 'life sucks donkey': 'grief', 'why god why': 'faith', 'god why': 'faith',
+  'cat hates me': 'grief', 'everything is stupid': 'grief', 'world is stupid': 'grief',
+  'my cat is evil': 'grief', 'dog hates me': 'grief', 'everything sucks': 'grief', 'life is stupid': 'grief',
+  'nothing makes sense': 'faith', 'why does god hate me': 'faith', 'pets are evil': 'grief',
+  // Raw frustration / life sucks (more)
+  'life is pointless': 'grief', 'why does everything go wrong': 'faith', 'im so done': 'grief',
+  'this is bullshit': 'grief', 'hate everything': 'grief', 'fed up with life': 'grief', 'nothing matters anymore': 'grief',
+  // Silly / off-the-wall / absurd (more)
+  'why does my dog hate me': 'grief', 'god why pizza again': 'faith', 'universe hates me': 'grief',
+  'cat is plotting against me': 'grief', 'why is my car evil': 'grief', 'life is a meme': 'grief',
+  'why god why everything': 'faith', 'pineapple on pizza bible verse': 'faith', 'my goldfish died and im mad': 'grief',
+  'why is the sky stupid today': 'grief', 'everything is rigged': 'faith', 'god hates my team': 'faith',
+  // Cancer / serious illness / terminal / death / caregivers
+  'cancer diagnosis': 'suffering', 'fighting cancer': 'suffering', 'chemo sucks': 'suffering',
+  'stage 4 cancer': 'suffering', 'cancer treatment fatigue': 'suffering', 'cancer sucks': 'suffering',
+  'terminal illness': 'grief', 'dying of cancer': 'grief', 'end of life cancer': 'grief',
+  'hospice care bible': 'grief', 'mom dying cancer': 'grief', 'dad dying cancer': 'grief',
+  'caregiving cancer': 'caregiver', 'spouse cancer caregiver': 'caregiver', 'kids mom cancer': 'caregiver',
+  'family cancer support': 'caregiver', 'caregiving exhaustion': 'caregiver', 'caregiver burnout': 'caregiver',
+  'lost mom to cancer': 'grief', 'grieving husband cancer': 'grief', 'cancer death grief': 'grief',
+  'after cancer death': 'grief', 'why god why cancer': 'suffering', 'hate cancer god': 'suffering',
+  'cancer why me': 'suffering', 'stage 4 cancer mom': 'suffering', 'caregiving dad dying': 'caregiver',
+  'cancer grief bible': 'grief',
+  // Financial / economic despair (global)
+  'no money left': 'finances', 'cant pay bills': 'finances', 'lost job': 'finances',
+  'financial ruin': 'finances', 'poverty depression': 'finances', 'hungry god why': 'finances',
+  'broke no money': 'finances', 'cant afford food': 'finances', 'debt crushing me': 'finances',
+  'broke depressed': 'finances', 'lost job hopeless': 'finances', 'no money for rent': 'finances',
+  // War / conflict / refugee trauma (global)
+  'war trauma': 'trauma', 'refugee fear': 'trauma', 'fleeing country': 'trauma',
+  'bombing scared': 'trauma', 'lost home war': 'trauma', 'displaced by war': 'trauma',
+  'violence trauma': 'trauma', 'running from war': 'trauma',
+  // Climate / ecological anxiety
+  'climate doom': 'anxiety', 'world ending climate': 'anxiety', 'eco anxiety': 'anxiety',
+  'planet dying': 'anxiety', 'climate anxiety': 'anxiety',
+  // News / overwhelm / doomscrolling
+  'news overwhelming': 'anxiety', 'bad news depression': 'anxiety', 'doomscrolling': 'anxiety',
+  'world too much': 'anxiety', 'cant stop watching news': 'anxiety',
+  // Loneliness / disconnection (expanded)
+  'no friends': 'loneliness', 'feel alone world': 'loneliness', 'disconnected everyone': 'loneliness',
+  'lonely in crowd': 'loneliness', 'no one to turn to': 'loneliness', 'isolated from everyone': 'loneliness',
+  // Physical pain / chronic illness (32% daily)
+  'chronic pain': 'suffering', 'arthritis': 'suffering', 'migraine': 'suffering', 'body hurts': 'suffering',
+  'pain every day': 'suffering', 'physical pain god': 'suffering',
+  // Anger / societal division (22%)
+  'world angry': 'anger', 'hate everyone': 'anger', 'division everywhere': 'anger',
+  'society divided': 'anger', 'everyone fighting': 'anger',
+  // Youth / Gen Z (higher anxiety, future fear)
+  'gen z anxious': 'anxiety', 'young adult hopeless': 'hope', 'future scary': 'anxiety',
+  'cant see future': 'anxiety', 'generation lost': 'hope',
+  // Misinformation / trust erosion
+  'fake news depression': 'anxiety', 'cant trust anyone': 'faith', 'misinformation': 'anxiety',
+  'dont know what to believe': 'faith',
+  // Displacement / migration (build on refugee)
+  'migrant fear': 'trauma', 'asylum stress': 'trauma', 'immigrant alone': 'trauma',
+  'left everything behind': 'trauma'
 };
 
 /** Maps script.js topics to index.html FEEL_GROUPS keys for unified semantic feel-search. */
@@ -12194,11 +12432,12 @@ var TOPIC_TO_FEEL_GROUP = {
   peace: 'peace', rest: 'peace',
   hope: 'hopeful', gratitude: 'hopeful', joy: 'hopeful',
   strength: 'tired', courage: 'hopeful',
-  forgiveness: 'difficult', patience: 'difficult'
+  forgiveness: 'difficult', patience: 'difficult',
+  suffering: 'sad', caregiver: 'tired'
 };
 
 /** Topics that are negated in positive phrases ("not alone anymore", "no longer afraid"). */
-var NEGATIVE_TOPICS = { loneliness: 1, fear: 1, anxiety: 1, worry: 1, grief: 1, guilt: 1, shame: 1, despair: 1, anger: 1 };
+var NEGATIVE_TOPICS = { loneliness: 1, fear: 1, anxiety: 1, worry: 1, grief: 1, guilt: 1, shame: 1, despair: 1, anger: 1, suffering: 1 };
 var NEGATION_PATTERN = /\b(not|no longer|anymore|finally|never|dont|didnt|isnt|wasnt|cant|cannot)\b/i;
 
 /** Returns true if query expresses negation of a negative state (e.g. "not alone anymore" = celebrating connection). */
@@ -12290,12 +12529,16 @@ function getSemanticMatchesAboveThreshold(input) {
   var q = normalizeInput(String(input || ''));
   if (!q || q.length < 2) return [];
   var negated = hasNegationPolarity(q);
+  var isSillyQuery = q.length < 30 || q.indexOf('why') !== -1 ||
+    /cat|dog|pet|goldfish|car|sky|meme|pizza|pineapple|team|rigged/i.test(q) ||
+    /stupid|evil|hates|plotting/i.test(q);
+  var effectiveThreshold = isSillyQuery ? 0.52 : 0.6;
   var collected = [];
   var seen = {};
   function add(topic, feelGroup, score) {
     if (!topic || !topics || !topics[topic]) return;
     if (negated && NEGATIVE_TOPICS[topic]) return;
-    if (score < SEMANTIC_BLEND_THRESHOLD) return;
+    if (score < effectiveThreshold) return;
     if (seen[topic] && seen[topic] >= score) return;
     seen[topic] = score;
     var idx = collected.findIndex(function (m) { return m.topic === topic; });
@@ -12321,6 +12564,17 @@ function getSemanticMatchesAboveThreshold(input) {
       var feelGroup = (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[topic]) || topic;
       var score = 0.6 + (tokens.length === 1 ? 0.2 : 0);
       add(topic, feelGroup, Math.min(1, score));
+    }
+  }
+  if (collected.length === 0 && isSillyQuery && tokens.length > 0) {
+    for (var s = 0; s < tokens.length; s++) {
+      var st = tokens[s];
+      var stopic = resolveTopicFromToken(st) || (QUERY_TO_TOPIC && QUERY_TO_TOPIC[st]);
+      if (stopic && topics && topics[stopic]) {
+        var sfeel = (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[stopic]) || stopic;
+        add(stopic, sfeel, 0.53);
+        break;
+      }
     }
   }
   if (typeof PHRASE_TO_TOKENS !== 'undefined') {
@@ -15243,7 +15497,10 @@ function parseQuery(input) {
     var matches = getSemanticMatchesAboveThreshold(normalized);
     if (matches.length > 0) {
       var primary = matches[0];
-      var blend = matches.length >= 2 && matches[1].score >= SEMANTIC_BLEND_THRESHOLD;
+      var isSilly = normalized.length < 30 || normalized.indexOf('why') !== -1 ||
+        /cat|dog|pet|goldfish|car|sky|meme|pizza|pineapple|team|rigged|stupid|evil|hates|plotting/i.test(normalized);
+      var blendThreshold = isSilly ? 0.52 : 0.6;
+      var blend = matches.length >= 2 && matches[1].score >= blendThreshold;
       if (blend) {
         semanticBlendedMatches = matches.slice(0, SEMANTIC_BLEND_CAP);
         semanticBlendedTopics = semanticBlendedMatches.map(function (m) { return m.topic; });
@@ -16294,7 +16551,7 @@ function renderResults(results) {
     crisisNote.className = 'crisis-resources-note';
     crisisNote.setAttribute('role', 'complementary');
     crisisNote.setAttribute('aria-label', 'Crisis support resources');
-    crisisNote.innerHTML = 'If you\'re in immediate danger or thinking of harming yourself, please reach out right now: <a href="tel:988">Call or text 988</a> (24/7, free, confidential). Or <a href="https://988lifeline.org/chat/" target="_blank" rel="noopener noreferrer">chat at 988lifeline.org</a>. Text HOME to 741741 for Crisis Text Line. You\'re not alone.';
+    crisisNote.innerHTML = 'If you\'re in immediate danger or thinking of harming yourself, please reach out right now: <a href="tel:988">Call or text 988</a> (US, 24/7). Text HOME to 741741 for Crisis Text Line. Worldwide: <a href="https://www.befrienders.org/" target="_blank" rel="noopener noreferrer">befrienders.org</a>. <a href="https://findahelpline.com/" target="_blank" rel="noopener noreferrer">findahelpline.com</a> (local options). You\'re not alone.';
     output.appendChild(crisisNote);
   }
   const refreshOrderBtn = document.createElement('button');
@@ -16306,6 +16563,11 @@ function renderResults(results) {
     if (lastResults && lastResults.verses && lastResults.verses.length) renderResults(lastResults);
   });
   output.appendChild(refreshOrderBtn);
+  var suggestLink = document.createElement('p');
+  suggestLink.className = 'section-note suggest-feeling-link';
+  suggestLink.style.cssText = 'margin-top:0.75rem; font-size:0.9em;';
+  suggestLink.innerHTML = 'Didn\'t find what you need? <a href="/contact.html#suggest-feeling">Suggest a feeling</a>.';
+  output.appendChild(suggestLink);
   if (results.guidance) {
     const guide = document.createElement('div');
     guide.className = 'guidance';
@@ -16731,6 +16993,7 @@ function sanitizeNudgeElements() {
             if (input) writeNbaSignal('tdb_nba_last_search_at');
             if (input && typeof trackSearchAnalytics === 'function') {
               var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
+              if (!params.topic && searchResults && searchResults.semanticTopic) params.topic = searchResults.semanticTopic;
               var mapKeys = parsed.payload && Array.isArray(parsed.payload.mapKeysHit) ? parsed.payload.mapKeysHit : [];
               if (mapKeys.length) params.map_keys = mapKeys;
               if (searchResults && searchResults.semanticBlendedTopics && searchResults.semanticBlendedTopics.length >= 2) {
@@ -16740,6 +17003,8 @@ function sanitizeNudgeElements() {
                 var pairKey = searchResults.semanticBlendedTopics.slice(0, 2).sort().join(',');
                 params.heartfelt_template_used = BLENDED_HEARTFELT_TEMPLATES[pairKey] ? 'pair:' + pairKey : 'default';
               }
+              var hasMatch = searchTopic || (searchResults && searchResults.semanticTopic) || (searchResults && searchResults.semanticBlendedTopics && searchResults.semanticBlendedTopics.length >= 2);
+              params.default_rate = hasMatch ? 0 : 1;
               trackSearchAnalytics('search_query', params);
             }
             try { await renderDailyBattleCard(); } catch (_) {}

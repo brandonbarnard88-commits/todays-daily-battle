@@ -60,6 +60,7 @@ const rootFiles = [
   'ask-the-word.js',
   'search-widget.js',
   'contact-form.js',
+  'feeling-suggest-form.js',
   'firebase-push.js',
   'voice-message.js',
   'voice-pray.js',

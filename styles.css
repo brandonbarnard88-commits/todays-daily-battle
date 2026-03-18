@@ -3791,6 +3791,8 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 .prayer-wall-share { margin-left: auto; flex-shrink: 0; font-size: 0.85rem; padding: 0.25rem 0.5rem; color: var(--elite-gold-solid, #d4af37); background: transparent; border: 1px solid rgba(212,175,55,0.6); border-radius: 6px; cursor: pointer; transition: box-shadow 0.2s, border-color 0.2s; }
 .prayer-wall-share:hover, .prayer-wall-share:focus-visible { box-shadow: 0 0 8px rgba(212,175,55,0.4); border-color: var(--elite-gold-solid, #d4af37); outline: none; }
 .prayer-wall-item.prayer-wall-top { border-left: 3px solid rgba(168, 85, 247, 0.6); padding-left: 0.5rem; }
+.prayer-wall-item.prayer-wall-seed .prayer-wall-heart { opacity: 0.4; pointer-events: none; cursor: default; }
+.prayer-wall-item.prayer-wall-seed .prayer-wall-count { opacity: 0.6; }
 .prayer-wall-note { font-size: 0.9rem; margin-top: 0.5rem; }
 
 .testimonials-carousel { margin-bottom: 0.75rem; }
@@ -3898,6 +3900,54 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   background: linear-gradient(135deg, #d4af37, #b8860b);
   color: #0f172a;
 }
+
+/* ── Battle Win share (after plan day completion) ── */
+.battle-win-share {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.95), rgba(22, 163, 74, 0.9));
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  z-index: 9998;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.battle-win-share.battle-win-share-show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.battle-win-share-btn {
+  background: rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #fff;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.battle-win-share-btn:hover { background: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.8); }
+.battle-win-share-dismiss {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0 0.25rem;
+  cursor: pointer;
+  margin-left: 0.15rem;
+}
+.battle-win-share-dismiss:hover { color: #fff; }
 
 /* ── Share-prayer button (small gold link after Silent Amen) ── */
 .share-prayer-btn {
@@ -4633,6 +4683,16 @@ body:has(.pricing-grid) .cta-group {
   font-size: 1.5rem;
   letter-spacing: 0.04em;
   color: rgba(248, 250, 252, 0.95);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-divider-icon {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--elite-gold);
+  opacity: 0.9;
 }
 body:has(.pricing-grid) .section-divider {
   margin-top: 0.25rem;
@@ -4693,6 +4753,17 @@ body:has(.pricing-grid) .section-divider {
   outline-offset: 2px;
   color: var(--accent-hover);
 }
+.site-footer-story {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(148, 163, 184, 0.85);
+  max-width: 42em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.site-footer-story a { color: var(--elite-gold, #d4af37); }
+.site-footer-story a:hover { text-decoration: underline; }
 .footer-analytics-note {
   margin: 1rem 0 0;
   font-size: 0.85rem;

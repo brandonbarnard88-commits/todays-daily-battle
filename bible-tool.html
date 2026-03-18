@@ -287,7 +287,7 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner bible-tool">
-        <h1 class="section-divider">Bible Tool</h1>
+        <h1 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>Bible Tool</h1>
         <p class="section-note">Look up any verse, take notes, track your reading — KJV, no account needed. Sign in to sync across devices.</p>
 
         <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
@@ -324,7 +324,7 @@
         <script src="ask-the-word.js?v=20260313" defer></script>
 
         <section class="verse-card glass" aria-label="Verse mode">
-          <h2 class="section-divider util-mt-0">Verse Mode</h2>
+          <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Verse Mode</h2>
           <div class="lookup-controls">
             <label for="bible-tool-verse-mode" class="section-note">Pick mode</label>
             <select id="bible-tool-verse-mode" aria-label="Verse mode">
@@ -352,7 +352,7 @@
 
         <!-- Verse lookup -->
         <section class="verse-card glass" aria-label="Look up a verse">
-          <h2 class="section-divider util-mt-0">Look up a verse</h2>
+          <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Look up a verse</h2>
           <p class="section-note util-mb-0_5">Type in the header search bar, or pick book, chapter, and verse below.</p>
           <fieldset style="border:none;padding:0;margin:0;">
             <legend class="sr-only">Look up a verse</legend>
@@ -390,7 +390,7 @@
 
         <!-- Notes -->
         <section class="verse-card glass" aria-label="Notes">
-          <h2 class="section-divider util-mt-0">Notes</h2>
+          <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Notes</h2>
           <textarea id="note-input" placeholder="Add a note for the verse above (after you look one up)…" rows="2" aria-label="Note for current verse"></textarea>
           <p class="section-note util-mb-0">Saved on this device — no account needed to keep notes.</p>
           <div id="notes-list" class="util-mt-1"></div>
@@ -398,7 +398,7 @@
 
         <!-- Reading plan -->
         <section class="verse-card glass">
-          <h2 class="section-divider util-mt-0">Reading plan</h2>
+          <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Reading plan</h2>
           <p class="section-note util-mb-0_5">Pick a plan below—checkboxes appear so you can track progress.</p>
           <select id="plan-picker" aria-label="Plan">
             <option value="armor">Armor of God (7 days) — Ephesians 6</option>
@@ -424,7 +424,7 @@
 
         <!-- Win the Day -->
         <section class="verse-card glass border-gold" aria-label="Win the Day">
-          <h2 class="win-title section-divider util-mt-0">Win the Day</h2>
+          <h2 class="win-title section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Win the Day</h2>
           <p class="section-note">Three verses on a topic — read them, pray one, act on one.</p>
           <select id="win-topic" aria-label="Topic">
             <option value="strength">Strength</option>
@@ -440,7 +440,7 @@
 
         <!-- Battle Ready -->
         <section class="verse-card glass border-accent" aria-label="Battle Ready">
-          <h2 class="section-divider util-mt-0">Battle Ready</h2>
+          <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Battle Ready</h2>
           <p class="section-note">One verse. One prayer. Go.</p>
           <button type="button" id="battle-ready-btn" class="btn btn-primary">Give me a verse</button>
           <div id="battle-ready-result" class="hidden util-mt-1" aria-live="polite"></div>

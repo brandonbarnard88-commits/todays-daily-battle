@@ -53,6 +53,8 @@ const CORE_ASSETS = [
   '/logo-crest.jpg',
   '/verse.html',
   '/calm.html',
+  '/story.html',
+  '/about.html',
   '/bible-tool.html',
   '/ask-the-word.js',
   '/share-page.js',

@@ -3581,7 +3581,7 @@
       </div>
       <!-- ── Start here (3-step path for new users) ── -->
       <section class="card start-here-card" id="startHereCard" aria-label="Quick start guide" hidden>
-        <h2 class="section-divider">Start here</h2>
+        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Start here</h2>
         <ol class="start-here-steps">
           <li><strong>See today's verse</strong> — above</li>
           <li><strong>Search by feeling</strong> — type anxious, hope, grief… or tap a topic</li>
@@ -3768,7 +3768,7 @@
       <!-- ── Prayer Wall ── -->
       <section class="card prayer-wall-card" id="prayer-wall" aria-label="Prayer Wall">
         <div class="prayer-wall-header-row">
-          <p class="prayer-wall-label">Prayer Wall</p>
+          <p class="prayer-wall-label"><svg class="section-divider-icon" style="display:inline-block;vertical-align:middle;margin-right:0.35rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Prayer Wall</p>
           <span class="prayer-wall-badge">Post anonymously — no account needed</span>
           <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
         </div>
@@ -3778,6 +3778,7 @@
           <button type="button" id="prayerWallGraceDismiss" class="prayer-wall-grace-dismiss" aria-label="Dismiss message">&#x2715;</button>
         </p>
         <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
+        <p id="prayerWallNudge" class="prayer-wall-nudge section-note" hidden aria-live="polite">Need to pray? Post anonymously.</p>
         <div class="prayer-counter-row">
           <span class="prayer-today-label" id="prayerTodayLabel">0 prayers today</span>
           <span class="prayer-today-badge" id="prayerTodayBadge" aria-live="polite" aria-atomic="true"></span>
@@ -3813,29 +3814,29 @@
 
       <!-- ── Revival & Outreach (nav anchors) ── -->
       <section class="card" id="patriotic-scriptures" aria-label="Patriotic Scriptures">
-        <h2 class="section-divider">Patriotic Scriptures</h2>
+        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Patriotic Scriptures</h2>
         <p class="section-note">Verses for our nation—pray, share, stand.</p>
         <div id="patriotic-scriptures-grid" class="patriotic-scriptures-grid"></div>
       </section>
       <section class="card" id="patriotic-hymns" aria-label="Patriotic Hymns">
-        <h2 class="section-divider">Patriotic Hymns</h2>
+        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Patriotic Hymns</h2>
         <p class="section-note">Sing, pray, and remember.</p>
         <div id="patriotic-hymns-grid" class="patriotic-hymns-grid"></div>
       </section>
       <section class="card armor-builder-card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
-        <h2 class="section-divider">Family Armor &amp; Stories</h2>
+        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Family Armor &amp; Stories</h2>
         <p class="section-note">Link your household, track progress, share stories. Each story adds a piece to your armor.</p>
         <div class="armor-progress-teaser" id="armorProgressTeaser" aria-live="polite" hidden></div>
         <button type="button" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" aria-label="Open Family Armor">Open Family Armor</button>
       </section>
       <section class="card challenge-30-banner" id="challenge-30-banner" aria-label="30-Day Battle Plan">
-        <h2 class="section-divider">30-Day Battle Plan</h2>
+        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>30-Day Battle Plan</h2>
         <p class="section-note">Stay consistent. One verse, one day at a time.</p>
         <p class="plan-start-note">One tap — progress saved automatically.</p>
         <button type="button" id="challenge-start-day-1" class="btn btn-secondary" aria-label="Start 30-day challenge">Start Day 1</button>
       </section>
       <section class="card quick-pray-wrap" id="quick-pray-wrap" aria-label="Invite / Share">
-        <h2 class="section-divider">Invite &amp; Share</h2>
+        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Invite &amp; Share</h2>
         <p class="section-note">Add a short prayer or share this battle with a friend.</p>
         <div class="quick-pray-row">
           <input type="text" id="quick-pray" class="quick-pray-input" placeholder="Lord, keep me in truth today…" maxlength="200" aria-label="Quick prayer">
@@ -3851,7 +3852,7 @@
         </div>
       </section>
       <section class="card" id="newsletter" aria-label="Join the Battle Plan">
-        <h2 class="section-divider">Get Daily Verse + Prayer Nudge</h2>
+        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Get Daily Verse + Prayer Nudge</h2>
         <p class="section-note">One email—Friday recap or daily verse. No spam.</p>
         <div class="newsletter-form">
           <input id="newsletter-name" type="text" placeholder="Name" aria-label="Your name" autocomplete="name">
@@ -3889,6 +3890,7 @@
       <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
       <p class="site-footer-updated">Last updated: <span id="last-updated">—</span></p>
       <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
+      <p class="site-footer-story">Built solo by Brandon during hospital recovery — needed real Scripture help without the noise. <a href="story.html">The story</a> · <a href="about.html">About</a>.</p>
     </footer>
 
   </div>

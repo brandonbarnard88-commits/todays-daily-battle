@@ -45,6 +45,7 @@
     .calm-input-wrap input { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 10px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.06); color: var(--text, #e2e8f0); }
     .calm-input-wrap input::placeholder { color: var(--muted, #94a3b8); }
     .calm-input-wrap input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .calm-one-verse-now { margin-top: 0.75rem; font-weight: 600; }
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
       .desktop-only { display: block !important; }
@@ -68,6 +69,7 @@
       <div class="calm-page">
         <div class="intro" id="calm-intro">
           <h2>What's weighing on you?</h2>
+          <button type="button" class="calm-btn calm-one-verse-now" id="calm-one-verse-now" aria-label="Skip to one verse right now">One verse now</button>
         </div>
         <div class="calm-input-wrap">
           <label for="calm-input" class="sr-only">Or type how you feel</label>
@@ -169,6 +171,10 @@
         var refEl = document.getElementById('verse-ref');
         if (textEl) textEl.textContent = v.text;
         if (refEl) refEl.textContent = v.ref;
+        var desktopText = document.getElementById('desktop-verse-text');
+        var desktopRef = document.getElementById('desktop-verse-ref');
+        if (desktopText) desktopText.textContent = v.text;
+        if (desktopRef) desktopRef.textContent = v.ref;
       }
       function showDesktopVerse() {
         var v = pickVerse();
@@ -181,10 +187,15 @@
         document.getElementById('calm-categories').style.display = 'flex';
         document.querySelector('.intro').style.display = 'block';
         document.getElementById('verse-container').style.display = 'none';
+        var dv = document.getElementById('desktop-verse');
+        if (dv && !isMobile()) dv.style.display = 'flex';
       }
       function showVerseView(cat) {
         currentCategory = cat;
-        if (typeof gtag === 'function') gtag('event', 'calm_category_tap', { category: cat });
+        if (typeof gtag === 'function') {
+          if (cat) gtag('event', 'calm_category_tap', { category: cat });
+          else gtag('event', 'calm_one_verse_now', {});
+        }
         document.getElementById('calm-categories').style.display = 'none';
         document.querySelector('.intro').style.display = 'none';
         document.getElementById('verse-container').style.display = 'flex';
@@ -201,6 +212,12 @@
         document.getElementById('verse-container').style.display = 'none';
         document.getElementById('desktop-verse').style.display = 'flex';
         showDesktopVerse();
+      }
+      var oneVerseBtn = document.getElementById('calm-one-verse-now');
+      if (oneVerseBtn) {
+        oneVerseBtn.addEventListener('click', function () {
+          showVerseView(null);
+        });
       }
       document.querySelectorAll('.categories button[data-category]').forEach(function (btn) {
         btn.addEventListener('click', function () {

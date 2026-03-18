@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Reading Plans • Today's Daily Battle","url":"https://todaysdailybattle.com/plans.html","description":"7–30 day KJV reading plans: battle distraction, gratitude, strength, marriage, peace. Offline-first. No login needed.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"Reading Plans • Today's Daily Battle","url":"https://todaysdailybattle.com/plans.html","description":"7–30 day KJV reading plans: battle distraction, gratitude, strength, marriage, peace. Offline-first. No login needed.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"},"mainEntity":{"@type":"ItemList","name":"Battle Plans","description":"KJV reading plans for spiritual growth","numberOfItems":17,"itemListElement":[{"@type":"ListItem","name":"Battle Distraction","url":"https://todaysdailybattle.com/plans.html?plan=battle"},{"@type":"ListItem","name":"Gratitude","url":"https://todaysdailybattle.com/plans.html?plan=gratitude"},{"@type":"ListItem","name":"30-Day Strength","url":"https://todaysdailybattle.com/plans.html?plan=strength"},{"@type":"ListItem","name":"7-Day Peace","url":"https://todaysdailybattle.com/plans.html?plan=peace"},{"@type":"ListItem","name":"Healing from Grief","url":"https://todaysdailybattle.com/plans.html?plan=grief"}]}}
   </script>
   <style>
     :root {
@@ -451,6 +451,7 @@
         <div class="plan-complete-icon">🏆</div>
         <p class="plan-complete-title" id="planCompleteTitle">Plan Complete!</p>
         <p class="plan-complete-sub" id="planCompleteSub"></p>
+        <button type="button" class="btn-share" id="btnShareComplete" aria-label="Share plan completion">Share</button>
         <button type="button" class="btn-extend" id="btnExtend" aria-label="Do this plan again from day one">Do it again</button>
         <button type="button" class="btn-restart" id="btnRestart" aria-label="Restart this plan from day one">Start Over</button>
       </div>
@@ -1384,7 +1385,7 @@
           var diff = streak - prevLongest;
           showToast((diff === 1 ? '+1 to your streak!' : '+' + diff + ' to your streak!') + ' \uD83D\uDD25');
         } else {
-          showToast('🏆 Plan done. One more battle won.');
+          showToast('You finished the ' + plan.label + ' plan — well done! 🏆 Share your finish?');
         }
       }
       renderDetail();
@@ -1429,6 +1430,22 @@
       currentDay = 0;
       showToast('Starting fresh ✓');
       renderDetail();
+    });
+    document.getElementById('btnShareComplete').addEventListener('click', function shareComplete(){
+      var plan = currentPlan;
+      if (!plan) return;
+      var text = 'I completed the ' + plan.label + ' plan — ' + plan.max + ' days with God\'s Word. todaysdailybattle.com';
+      if (navigator.share) {
+        navigator.share({ text: text }).catch(function(){
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
+          } else { showToast('Could not share'); }
+        });
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
+      } else {
+        showToast('Share not available');
+      }
     });
 
     // ── Easter banner dismiss ────────────────────────────────────────────────

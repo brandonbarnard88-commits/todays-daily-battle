@@ -3991,6 +3991,34 @@ function updatePrayerWallStreakBadge() {
     }
   }
 
+  // Gentle nudge: show when never posted or last post was 3+ days ago
+  var nudgeEl = document.getElementById('prayerWallNudge');
+  if (nudgeEl) {
+    var showNudge = false;
+    if (!hadPastActivity) showNudge = true;
+    else if (days.length > 0) {
+      var lastDay = days[days.length - 1];
+      try {
+        var lastMs = new Date(lastDay).getTime();
+        var diffDays = (Date.now() - lastMs) / 86400000;
+        if (diffDays >= 3) showNudge = true;
+      } catch (e) {}
+    }
+    var nudgeDismissKey = 'tdb_pw_nudge_dismissed_' + getDailyKey();
+    if (showNudge && !localStorage.getItem(nudgeDismissKey)) {
+      if (!nudgeEl.dataset.wired) {
+        nudgeEl.innerHTML = 'Need to pray? Post anonymously. <button type="button" class="link-button" id="prayerWallNudgeDismiss" aria-label="Dismiss">×</button>';
+        nudgeEl.dataset.wired = '1';
+        var dismissBtn = document.getElementById('prayerWallNudgeDismiss');
+        if (dismissBtn) dismissBtn.addEventListener('click', function () {
+          try { localStorage.setItem(nudgeDismissKey, '1'); } catch (e) {}
+          nudgeEl.hidden = true;
+        });
+      }
+      nudgeEl.hidden = false;
+    } else nudgeEl.hidden = true;
+  }
+
   if (n >= 2) {
     el.textContent = n + ' day streak \uD83D\uDD25';
     el.title = 'Post daily to keep your streak going\u2014grace for off days \uD83D\uDE4F';
@@ -4161,6 +4189,47 @@ function markTodayAsPrayed() {
   if (toastEl) toastEl.classList.add('elite-toast-done');
   if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 60, spread: 70, origin: { y: 0.7 } });
   applyDoneForTodayUI();
+  showBattleWinSharePrompt();
+}
+
+function showBattleWinSharePrompt() {
+  var key = 'tdb_battle_win_share_dismissed_' + getDailyKey();
+  try { if (localStorage.getItem(key) === '1') return; } catch (e) {}
+  var el = document.getElementById('battle-win-share');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'battle-win-share';
+    el.className = 'battle-win-share';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    el.innerHTML = '<span class="battle-win-share-text">I won today with God\'s help — </span><button type="button" class="battle-win-share-btn" aria-label="Share this win">Share</button><button type="button" class="battle-win-share-dismiss" aria-label="Dismiss">×</button>';
+    document.body.appendChild(el);
+    var shareBtn = el.querySelector('.battle-win-share-btn');
+    var dismissBtn = el.querySelector('.battle-win-share-dismiss');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', function () {
+        var text = 'I won today with God\'s help. todaysdailybattle.com';
+        if (navigator.share && navigator.canShare && navigator.canShare({ text: text })) {
+          navigator.share({ text: text, url: 'https://todaysdailybattle.com', title: 'Today\'s Daily Battle' }).catch(function () {
+            navigator.clipboard.writeText(text).then(function () { shareBtn.textContent = 'Copied!'; setTimeout(function () { hideBattleWinShare(); }, 1200); }).catch(function () { hideBattleWinShare(); });
+          });
+        } else {
+          navigator.clipboard.writeText(text).then(function () { shareBtn.textContent = 'Copied!'; setTimeout(function () { hideBattleWinShare(); }, 1200); }).catch(function () { hideBattleWinShare(); });
+        }
+        try { localStorage.setItem(key, '1'); } catch (e) {}
+        if (typeof trackEvent === 'function') trackEvent('battle_win_share', { source: 'completion' });
+      });
+    }
+    if (dismissBtn) dismissBtn.addEventListener('click', function () { hideBattleWinShare(); try { localStorage.setItem(key, '1'); } catch (e) {} });
+  }
+  setTimeout(function () {
+    el.classList.add('battle-win-share-show');
+  }, 2500);
+}
+
+function hideBattleWinShare() {
+  var el = document.getElementById('battle-win-share');
+  if (el) { el.classList.remove('battle-win-share-show'); }
 }
 
 function applyDoneForTodayUI() {
@@ -8225,6 +8294,40 @@ function wireHelpModal() {
   });
 }
 
+function wireKeyboardShortcuts() {
+  if (window.__tdbKeyboardShortcutsWired) return;
+  window.__tdbKeyboardShortcutsWired = true;
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement && document.activeElement.tagName ? document.activeElement.tagName.toLowerCase() : '';
+    var inInput = tag === 'input' || tag === 'textarea' || tag === 'select';
+    if (e.key === '/' && !inInput && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      var q = typeof getQueryInput === 'function' ? getQueryInput() : document.getElementById('query') || document.getElementById('feel-search') || document.getElementById('tdb-search');
+      if (q && typeof q.focus === 'function') {
+        q.focus();
+        if (typeof q.select === 'function') q.select();
+      }
+    }
+    if (e.key === 'Escape') {
+      var modals = [
+        { id: 'help-modal', closeId: 'help-modal-close' },
+        { id: 'family-name-modal', closeId: 'family-name-modal-close' },
+        { id: 'family-armor-stories-modal', closeId: null },
+        { id: 'add-prayer-modal', closeId: null }
+      ];
+      for (var i = 0; i < modals.length; i++) {
+        var m = document.getElementById(modals[i].id);
+        if (m && !m.classList.contains('hidden')) {
+          var closeBtn = modals[i].closeId ? document.getElementById(modals[i].closeId) : m.querySelector('[aria-label="Dismiss"], [aria-label="Close"]');
+          if (closeBtn && typeof closeBtn.click === 'function') closeBtn.click();
+          else m.classList.add('hidden');
+          break;
+        }
+      }
+    }
+  });
+}
+
 function wireHeaderFamilyQuickLinks() {
   var addLink = document.getElementById('header-add-household-link');
   var armorLink = document.getElementById('header-family-armor-link');
@@ -8643,7 +8746,7 @@ function wirePrayThisWithMe() {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(full).then(function () {
           var orig = versePageCopy.textContent;
-          versePageCopy.textContent = 'Copied!';
+          versePageCopy.textContent = 'Copied ✓';
           versePageCopy.setAttribute('aria-label', 'Copied to clipboard');
           setTimeout(function () { versePageCopy.textContent = orig; versePageCopy.setAttribute('aria-label', 'Copy verse and link to clipboard'); }, 2000);
         }).catch(function () {});
@@ -10045,6 +10148,28 @@ function updateDailyVerseWhispers(ref, verseText) {
     if (ogTitle) ogTitle.setAttribute('content', title);
     if (twTitle) twTitle.setAttribute('content', title);
     document.title = title;
+    // Schema.org Article for verse (SEO rich results)
+    var schemaEl = document.getElementById('tdb-verse-schema');
+    var schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: title,
+      description: desc,
+      text: safeText,
+      author: { '@type': 'Organization', name: 'Today\'s Daily Battle', url: 'https://todaysdailybattle.com' },
+      publisher: { '@id': 'https://todaysdailybattle.com/#organization' },
+      datePublished: new Date().toISOString().slice(0, 10),
+      mainEntityOfPage: { '@type': 'WebPage', '@id': (typeof location !== 'undefined' && location.href) || 'https://todaysdailybattle.com/' }
+    };
+    if (schemaEl) {
+      schemaEl.textContent = JSON.stringify(schema);
+    } else {
+      schemaEl = document.createElement('script');
+      schemaEl.id = 'tdb-verse-schema';
+      schemaEl.type = 'application/ld+json';
+      schemaEl.textContent = JSON.stringify(schema);
+      document.head.appendChild(schemaEl);
+    }
   }
   if (typeof updateAuthDailyVerseBreakdownContent === 'function') {
     updateAuthDailyVerseBreakdownContent(safeRef, safeText);
@@ -11093,6 +11218,24 @@ if (c && c.ref) {
   updateDailyVerseWhispers(battle.ref, verseText || '');
   try {
     localStorage.setItem(OFFLINE_BATTLE_KEY_PREFIX + key, JSON.stringify(currentDailyBattle));
+    // Cache tomorrow for offline (free users get 1 extra day)
+    var tomorrow = shiftDailyKey(key, 1);
+    if (!localStorage.getItem(OFFLINE_BATTLE_KEY_PREFIX + tomorrow) && Object.keys(bible).length && typeof getDailyBattleFallbackForKey === 'function') {
+      var nextBattle = getDailyBattleFallbackForKey(tomorrow);
+      if (nextBattle && nextBattle.ref) {
+        var nextText = (typeof getBibleVerseText === 'function' ? getBibleVerseText(nextBattle.ref) : null) || bible[nextBattle.ref] || '';
+        if (nextText) {
+          try {
+            localStorage.setItem(OFFLINE_BATTLE_KEY_PREFIX + tomorrow, JSON.stringify({
+              ref: nextBattle.ref,
+              verse: nextText,
+              reflection: nextBattle.reflection || '',
+              prayer: nextBattle.prayer || ''
+            }));
+          } catch (_) {}
+        }
+      }
+    }
   } catch (_) {}
   updateDailyBattleStreak();
   updateDailyBattleMetaDesc(battle.ref);
@@ -12202,9 +12345,32 @@ async function loadBible(version = currentVersion) {
       if (typeof console !== 'undefined' && console.error) {
         console.error('Error loading Bible data:', err.message);
       }
-      alert('Could not load Bible data. Check your connection and try again, or refresh the page.');
+      if (typeof showBibleRetryUI === 'function') showBibleRetryUI();
+      else alert('Could not load Bible data. Check your connection and try again, or refresh the page.');
     }
   }
+}
+
+function showBibleRetryUI() {
+  if (typeof document === 'undefined') return;
+  var existing = document.getElementById('bible-load-error');
+  if (existing) { existing.hidden = false; return; }
+  var wrap = document.createElement('div');
+  wrap.id = 'bible-load-error';
+  wrap.setAttribute('role', 'alert');
+  wrap.className = 'bible-load-error';
+  wrap.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(180,60,60,0.95);color:#fff;padding:0.75rem 1rem;text-align:center;font-size:0.9rem;display:flex;align-items:center;justify-content:center;gap:0.5rem;flex-wrap:wrap;';
+  wrap.innerHTML = '<span>Having trouble loading Bible data?</span><button type="button" id="bible-retry-btn" class="btn btn-secondary" style="padding:0.35rem 0.75rem;font-size:0.85rem;">Retry</button><button type="button" id="bible-dismiss-btn" aria-label="Dismiss" style="background:none;border:none;color:inherit;cursor:pointer;padding:0.25rem;font-size:1.1rem;line-height:1;">×</button>';
+  document.body.appendChild(wrap);
+  var dismissBtn = document.getElementById('bible-dismiss-btn');
+  if (dismissBtn) dismissBtn.addEventListener('click', function () { wrap.hidden = true; });
+  var btn = document.getElementById('bible-retry-btn');
+  if (btn) btn.addEventListener('click', function () {
+    wrap.hidden = true;
+    if (typeof loadBible === 'function') loadBible(currentVersion).then(function () {
+      if (Object.keys(bible || {}).length) wrap.remove();
+    });
+  });
 }
 
 function canUseSupabase() {
@@ -17218,9 +17384,15 @@ function sanitizeNudgeElements() {
             }
             if (Object.keys(bible).length === 0) {
               if (out) {
-                out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection and refresh. Having trouble? Try <a href="https://todaysdailybattle.com" style="color:var(--primary);">todaysdailybattle.com</a>.</p>';
+                out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection. <button type="button" id="bible-search-retry-btn" class="btn btn-secondary" style="margin-top:0.5rem;">Retry</button></p>';
                 out.style.display = 'grid';
                 out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                var retryBtn = document.getElementById('bible-search-retry-btn');
+                if (retryBtn) retryBtn.addEventListener('click', function () {
+                  if (typeof loadBible === 'function') loadBible(currentVersion).then(function () {
+                    if (Object.keys(bible).length && typeof runSearchWithInput === 'function' && (typeof lastQueryInput === 'string' ? lastQueryInput : '').trim()) runSearchWithInput(lastQueryInput.trim());
+                  });
+                });
               }
               if (loadingEl) { loadingEl.style.display = 'none'; loadingEl.classList.add('hidden'); }
               return;
@@ -17608,6 +17780,7 @@ function sanitizeNudgeElements() {
   wireFloatingBattleAnchor();
   wireAvatarChoiceControl();
   wireHelpModal();
+  wireKeyboardShortcuts();
   wireSacredSilenceToggle();
   wireSilentOffering();
   wireBreatheWithHim();
@@ -19699,9 +19872,10 @@ function sanitizeNudgeElements() {
     // Pull cloud items, merge with local (newest wins per id), save, render
     async function pullFromCloud() {
       if (typeof getSyncData !== 'function' || typeof canUseSupabase !== 'function' || !canUseSupabase() || typeof currentUserId === 'undefined' || !currentUserId) return;
+      updateNoteEl(null, 'syncing');
       try {
         var remote = await getSyncData(SYNC_KEY);
-        if (!Array.isArray(remote)) return;
+        if (!Array.isArray(remote)) { updateNoteEl(false); return; }
         var local = getItems();
         // Merge: remote items that aren't in local get added; hearts are max-merged
         var byId = {};
@@ -19719,38 +19893,58 @@ function sanitizeNudgeElements() {
         saveItems(merged);
         render();
         updateNoteEl(true);
-      } catch (_) {}
+      } catch (_) {
+        updateNoteEl(false, 'failed');
+      }
     }
 
-    // Update the sync-status note element
-    function updateNoteEl(synced) {
+    // Update the sync-status note element (synced: true|false|null, state: 'syncing'|'failed'|undefined)
+    function updateNoteEl(synced, state) {
       var noteEl = document.querySelector('.prayer-wall-note');
       if (!noteEl) return;
+      if (state === 'syncing') { noteEl.textContent = 'Syncing…'; noteEl.dataset.syncState = 'syncing'; return; }
+      if (state === 'failed') {
+        noteEl.innerHTML = 'Sync failed. <button type="button" class="link-button prayer-wall-sync-retry" aria-label="Retry sync">Retry</button>';
+        noteEl.dataset.syncState = 'failed';
+        var retryBtn = noteEl.querySelector('.prayer-wall-sync-retry');
+        if (retryBtn) retryBtn.addEventListener('click', function () { pullFromCloud(); });
+        return;
+      }
       noteEl.textContent = synced ? 'Synced across devices.' : 'Saved on this device.';
+      noteEl.dataset.syncState = synced ? 'synced' : 'local';
     }
 
     // ── Render ────────────────────────────────────────────────────────────────
+    var SEED_PRAYERS = [
+      { id: 'seed-1', text: 'Lord, carry my grief today.', hearts: 0, seed: true },
+      { id: 'seed-2', text: 'Give me strength to face this day.', hearts: 0, seed: true },
+      { id: 'seed-3', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true }
+    ];
     function render() {
       var items = getItems();
       var hearts = getHearts();
-      items.sort(function (a, b) { return (b.hearts || 0) - (a.hearts || 0); });
+      var displayItems = items.length > 0 ? items : SEED_PRAYERS;
+      displayItems = displayItems.slice();
+      displayItems.sort(function (a, b) { return (b.hearts || 0) - (a.hearts || 0); });
       listEl.innerHTML = '';
-      items.forEach(function (item, idx) {
+      displayItems.forEach(function (item, idx) {
+        var isSeed = item.seed === true;
         var li = document.createElement('li');
-        li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '');
-        var iHearted = hearts[item.id];
+        li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '') + (isSeed ? ' prayer-wall-seed' : '');
+        var iHearted = !isSeed && hearts[item.id];
         var heartBtn = document.createElement('button');
         heartBtn.type = 'button';
         heartBtn.className = 'prayer-wall-heart ' + (iHearted ? 'hearted' : '');
         heartBtn.setAttribute('data-id', String(item.id));
         heartBtn.setAttribute('aria-label', 'Pray');
         heartBtn.textContent = '\u2665';
+        if (isSeed) heartBtn.setAttribute('aria-hidden', 'true');
         var countSpan = document.createElement('span');
         countSpan.className = 'prayer-wall-count';
         countSpan.textContent = String(item.hearts || 0);
         var textSpan = document.createElement('span');
         textSpan.className = 'prayer-wall-text';
-        textSpan.textContent = item.text || '';
+        textSpan.textContent = (item.text || '') + (isSeed ? ' — Anonymous' : '');
         li.appendChild(heartBtn);
         li.appendChild(document.createTextNode(' '));
         li.appendChild(countSpan);

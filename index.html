@@ -576,23 +576,10 @@
       line-height: 1.5;
       font-weight: 600;
       margin: 0;
-      opacity: 0;
-      transform: translateY(8px);
     }
 
     .hero-verse.is-visible {
-      animation: breathe-fade 0.5s ease forwards, verse-glow 2s ease-out 0.2s 1;
-    }
-
-    @keyframes breathe-fade {
-      from { opacity: 0; transform: translateY(8px); filter: blur(1px); }
-      to   { opacity: 1; transform: translateY(0);   filter: blur(0);   }
-    }
-
-    @keyframes verse-glow {
-      0%   { text-shadow: 0 0 0  rgba(227, 188, 103, 0);    }
-      45%  { text-shadow: 0 0 20px rgba(227, 188, 103, 0.3); }
-      100% { text-shadow: 0 0 0  rgba(227, 188, 103, 0);    }
+      opacity: 1;
     }
 
     .verse-ref {
@@ -2465,8 +2452,10 @@
       height: 100%;
       border-radius: 999px;
       background: var(--gold);
-      width: calc(var(--plan-day, 1) / var(--plan-max, 7) * 100%);
-      transition: width 0.6s ease;
+      width: 100%;
+      transform-origin: left;
+      transform: scaleX(calc(var(--plan-day, 1) / var(--plan-max, 7)));
+      transition: transform 0.6s ease;
     }
     .plan-progress-link {
       display: block;
@@ -3529,14 +3518,14 @@
       <!-- ── Hero Verse ── -->
       <div id="main-content">
       <div id="hero-verse-wrap" class="hero-verse-wrap">
-      <section class="card verse-card is-loading" id="verseCard" aria-live="polite">
+      <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse" id="heroVerse"></p>
+            <p class="hero-verse is-visible" id="heroVerse">"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God."</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -3561,7 +3550,7 @@
             <span class="read-aloud-label">Listen</span>
           </button>
         </div>
-        <p class="verse-ref" id="heroRef"></p>
+        <p class="verse-ref" id="heroRef">Philippians 4:6 (KJV)</p>
         <div class="hero-streak-wrapper">
           <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
         </div>
@@ -3916,7 +3905,7 @@
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script src="utils.js" defer></script>
-  <script nonce="tdb2025">
+  <script nonce="tdb2025s">
   (function() {
     var moodEl = document.getElementById('footerMoodInsight');
     if (!moodEl) return;
@@ -3945,13 +3934,17 @@
   (function() {
     var el = document.getElementById('last-updated');
     if (!el) return;
-    fetch('https://api.github.com/repos/brandonbarnard88-commits/todays-daily-battle')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        var date = data && data.pushed_at ? new Date(data.pushed_at) : null;
-        el.textContent = date ? date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Recent';
-      })
-      .catch(function() { el.textContent = 'Recent'; });
+    function run() {
+      fetch('https://api.github.com/repos/brandonbarnard88-commits/todays-daily-battle')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var date = data && data.pushed_at ? new Date(data.pushed_at) : null;
+          el.textContent = date ? date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Recent';
+        })
+        .catch(function() { el.textContent = 'Recent'; });
+    }
+    if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 3000 });
+    else setTimeout(run, 2500);
   })();
   </script>
 
@@ -4012,7 +4005,7 @@
   
 
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
-  <script nonce="tdb2025">
+  <script nonce="tdb2025s">
     // ── 10-verse offline pack — shown when network fails and localStorage is empty ──
     // These are pre-loaded into the page so no fetch is ever needed for a fallback.
     const OFFLINE_PACK = [
@@ -4703,9 +4696,6 @@
 
       // Remove the stale static-fetch cache so it can't override on future visits
       try { localStorage.removeItem('tdb-last-online-verse'); } catch (_) {}
-
-      // Small render delay so loading shimmer is visible
-      await new Promise(function (resolve) { setTimeout(resolve, 200); });
 
       renderVerseContent(verseData);
       setVerseLoadingState(false);
@@ -7407,7 +7397,7 @@
   <div id="daily-nudge" class="toast-gold" role="status" aria-live="polite" aria-atomic="true">New day—still here if you need.</div>
 
   <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" defer></script>
-  <script nonce="tdb2025">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
 </body>

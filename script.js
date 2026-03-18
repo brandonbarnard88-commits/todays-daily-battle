@@ -82,9 +82,6 @@ var SUPABASE_ANON_KEY = window.__tdbSupabaseAnonKey || '';
 
 window.__tdb_script_version = '20260311';
 if (typeof history !== 'undefined' && history.scrollRestoration) history.scrollRestoration = 'manual';
-if (typeof console !== 'undefined' && console.log) {
-  console.log('TDB: Hero loaded', window.__tdb_script_version);
-}
 // Deploy check: warn if config still has placeholders (so production deploy is caught if example config is used)
 try {
   var cfg = window.TDB_CONFIG;
@@ -3236,9 +3233,6 @@ const supabaseUrl = SUPABASE_URL || '';
 const supabaseKey = SUPABASE_ANON_KEY || '';
 // Only use Supabase when URL is the real API host (never relative or same-origin)
 const supabaseUrlValid = supabaseUrl && String(supabaseUrl).includes('supabase.co') && !String(supabaseUrl).includes('project-ref-placeholder');
-if (typeof window !== 'undefined') {
-  console.log('TDB Supabase base:', supabaseUrlValid ? supabaseUrl : '(not set — prayers/presence disabled)');
-}
 // Production: no debug logs (Supabase init/count only in dev)
 if (typeof window !== 'undefined' && location.hostname.includes('localhost')) {
   if (!_cfg || !supabaseUrl || !supabaseKey) {

@@ -21,12 +21,21 @@
   } catch (_) {}
 })();
 
+function trustedScriptURL(url) {
+  if (typeof url !== 'string' || !url) return url;
+  try {
+    var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+    if (pol && typeof pol.createScriptURL === 'function') return pol.createScriptURL(url);
+  } catch (_) {}
+  return url;
+}
+
 (function loadDeferredScriptsOnIdle() {
   if (typeof document === 'undefined') return;
   function inject(src) {
     if (document.querySelector('script[src*="' + src + '"]')) return;
     var s = document.createElement('script');
-    s.src = src;
+    s.src = trustedScriptURL(src);
     s.defer = true;
     document.head.appendChild(s);
   }
@@ -811,7 +820,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   function inject() {
     if (document.querySelector('script[src*="easter-eggs.js"]')) return;
     var script = document.createElement('script');
-    script.src = '/easter-eggs.js';
+    script.src = trustedScriptURL('/easter-eggs.js');
     script.defer = true;
     script.setAttribute('data-tdb-easter-eggs', '1');
     document.head.appendChild(script);
@@ -827,7 +836,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var script = document.createElement('script');
-  script.src = '/verse-breakdown.js?v=20260306u';
+  script.src = trustedScriptURL('/verse-breakdown.js?v=20260306u');
   script.defer = true;
   script.setAttribute('data-tdb-verse-breakdown', '1');
   document.head.appendChild(script);
@@ -928,7 +937,7 @@ function ensureConfettiLoaded() {
       return;
     }
     var script = document.createElement('script');
-    script.src = src;
+    script.src = trustedScriptURL(src);
     script.defer = true;
     script.crossOrigin = 'anonymous';
     script.dataset.tdbConfetti = '1';
@@ -1484,7 +1493,7 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
     var p = document.createElement('script');
     p.defer = true;
     p.dataset.domain = plausibleDomain;
-    p.src = 'https://plausible.io/js/script.js';
+    p.src = trustedScriptURL('https://plausible.io/js/script.js');
     document.head.appendChild(p);
   }
 })();
@@ -3639,7 +3648,7 @@ function runSupabaseConnectionTest() {
 function loadSupabaseScript(url) {
   return new Promise((resolve) => {
     const script = document.createElement('script');
-    script.src = url;
+    script.src = trustedScriptURL(url);
     script.async = true;
     script.defer = true;
     script.setAttribute('data-cfasync', 'false');
@@ -5190,7 +5199,7 @@ function wireAnalyticsBeacon() {
   if (!CF_ANALYTICS_TOKEN) return;
   const script = document.createElement('script');
   script.defer = true;
-  script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  script.src = trustedScriptURL('https://static.cloudflareinsights.com/beacon.min.js');
   script.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
   document.head.appendChild(script);
 }
@@ -19024,7 +19033,7 @@ function sanitizeNudgeElements() {
         turnstileContainer.appendChild(tw);
         if (!document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
           var ts = document.createElement('script');
-          ts.src = 'https://challenges.cloudflare.com/turnstile/api.js';
+          ts.src = trustedScriptURL('https://challenges.cloudflare.com/turnstile/api.js');
           ts.async = true;
           ts.defer = true;
           document.head.appendChild(ts);

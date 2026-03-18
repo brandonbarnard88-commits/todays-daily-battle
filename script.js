@@ -6,6 +6,20 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
+(function initTrustedTypesPolicy() {
+  if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
+  if (window.trustedTypes.defaultPolicy) return;
+  try {
+    window.trustedTypes.createPolicy('default', {
+      createHTML: function (input) {
+        if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+          return DOMPurify.sanitize(String(input), { RETURN_TRUSTED_TYPE: false });
+        }
+        return String(input).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+    });
+  } catch (_) {}
+})();
 (function () {
   var l = document.createElement('link');
   l.rel = 'stylesheet';

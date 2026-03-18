@@ -44,6 +44,8 @@ const rootFiles = [
   'icon-192.png',
   'apple-touch-icon.png',
   'logo-shield-600.png',
+  'logo-crest.jpg',
+  'world-map-source.svg',
   'styles.css',
   'tool-pages.css',
   'church.css',
@@ -51,6 +53,7 @@ const rootFiles = [
   'kids-corner.css',
   'mystudy.css',
   'script.js',
+  'script.js.map',
   'service-worker.js',
   'sw.js',
   'daily-verse-widget.js',
@@ -71,6 +74,13 @@ const rootFiles = [
   'search-wire.js',
   'share-page.js',
   'easter-eggs.js',
+  'verse-breakdown.js',
+  'highlights.js',
+  'streak.js',
+  'family-hierarchy.js',
+  'crest.js',
+  'avatar-progress.js',
+  'bible-progress.js',
   'mobius-loop.js',
   'mobius-universal.js',
   '_redirects',
@@ -165,7 +175,7 @@ for (const f of scriptFiles) {
   }
 }
 
-const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f));
+const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f) && !f.startsWith('lighthouse-'));
 for (const f of otherHtml) {
   let content = fs.readFileSync(path.join(root, f), 'utf8');
   content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);

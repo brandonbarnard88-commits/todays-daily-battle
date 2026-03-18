@@ -4,7 +4,7 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
-  <script src="ga-config.js"></script>
+  <script defer src="ga-config.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,13 +72,15 @@
   <meta name="twitter:title" content="Today's Daily Battle">
   <meta name="twitter:description" content="One verse. One moment. Every day. Less scroll, more soul.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
-  <!-- Handwritten font for logo -->
+  <!-- Handwritten font for logo (async to avoid render blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
-  <!-- DNS prefetch for analytics + CDN -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"></noscript>
+  <!-- Preconnect for analytics + CDN (reduces LCP latency) -->
+  <link rel="preconnect" href="https://www.google-analytics.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="modulepreload" href="config.js">
   <link rel="modulepreload" href="script.js?v=20260311k">
   <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js">
@@ -2274,7 +2276,13 @@
       color: var(--muted);
     }
 
-    /* ── Hero Streak Badge ── */
+    /* ── Hero Streak Badge (wrapper reserves space to avoid CLS) ── */
+    .hero-streak-wrapper {
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
+      margin-top: 4px;
+    }
     .hero-streak-badge {
       display: inline-flex;
       align-items: center;
@@ -2287,7 +2295,6 @@
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      margin-top: 4px;
     }
 
     /* ── Tool Teaser Cards ── */
@@ -3558,7 +3565,9 @@
           </button>
         </div>
         <p class="verse-ref" id="heroRef"></p>
-        <span id="heroStreakBadge" class="hero-streak-badge" aria-label="Daily streak" hidden></span>
+        <div class="hero-streak-wrapper">
+          <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
+        </div>
         <div id="streak-milestone-card" class="streak-milestone-card hidden" role="status" aria-live="polite" aria-label="Streak milestone"></div>
         <ul class="breakdown" id="heroBreakdown"></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels"></div>
@@ -3955,13 +3964,13 @@
     <a class="nav-link" href="reader.html" aria-label="Chapter Reader"><span>📖</span><span>Read</span></a>
     <a class="nav-link" href="#quick-search-hero" id="nav-search-btn" aria-label="Search Scripture"><span>🔍</span><span>Search</span></a>
     <a class="nav-link" href="#prayer-wall" aria-label="Prayer Wall"><span>🙏</span><span>Prayer</span></a>
-    <button type="button" id="nav-more-btn" class="nav-link nav-link-btn" aria-label="More tools" aria-haspopup="dialog" aria-expanded="false"><span>☰</span><span>More</span><span class="nav-more-btn-badge" aria-hidden="true"></span></button>
+    <button type="button" id="nav-more-btn" class="nav-link nav-link-btn" aria-label="More tools" aria-haspopup="true" aria-expanded="false"><span>☰</span><span>More</span><span class="nav-more-btn-badge" aria-hidden="true"></span></button>
   </nav>
 
   <!-- ── More drawer ── -->
   <div id="nav-more-sheet" class="nav-more-overlay" role="dialog" aria-modal="true" aria-label="More tools" hidden>
     <div class="nav-more-backdrop"></div>
-    <div class="nav-more-drawer" role="document" id="nav-more-drawer">
+    <div class="nav-more-drawer" id="nav-more-drawer">
       <div class="nav-more-handle-wrap" aria-hidden="true">
         <div class="nav-more-handle"></div>
         <button type="button" id="nav-more-x" class="nav-more-x" aria-label="Close menu">✕</button>
@@ -3979,7 +3988,7 @@
         <li><a href="message.html">💬 Message Board</a></li>
         <li><a href="team-toolkit.html">⚔️ Team Toolkit <span class="nav-more-new-badge">New</span></a></li>
         <li><a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the work — Buy me a coffee">☕ Support</a></li>
-        <li><button type="button" id="about-link" class="nav-more-btn-item" aria-haspopup="dialog">❤️ About This App</button></li>
+        <li><button type="button" id="about-link" class="nav-more-btn-item" aria-haspopup="true">❤️ About This App</button></li>
         <li><button type="button" id="settings-btn" class="nav-more-btn-item" aria-haspopup="true" aria-expanded="false">⚙️ Settings</button></li>
         <li><a href="privacy.html">🔒 Privacy</a></li>
         <li><a href="terms.html">Terms</a></li>
@@ -5284,8 +5293,11 @@
       if (badge) {
         if (next >= 2) {
           badge.textContent = "\uD83D\uDD25 Day " + next;
+          badge.setAttribute("role", "status");
+          badge.removeAttribute("aria-label");
           badge.hidden = false;
         } else {
+          badge.removeAttribute("role");
           badge.hidden = true;
         }
       }
@@ -6273,6 +6285,11 @@
       // Restore saved state
       var savedReminder = localStorage.getItem('tdb-morning-reminder') === 'true';
       if (checkbox) checkbox.checked = savedReminder;
+      var ttsToggle = document.getElementById('morning-tts-toggle');
+      if (ttsToggle) {
+        var savedTts = localStorage.getItem('morningAudioGreeting');
+        ttsToggle.checked = savedTts === 'true';
+      }
 
       // Toggle popover open/close
       btn.addEventListener('click', function (e) {
@@ -6304,6 +6321,9 @@
           localStorage.setItem('tdb-morning-reminder', 'false');
           refreshNotifStatus();
         }
+      });
+      if (ttsToggle) ttsToggle.addEventListener('change', function () {
+        localStorage.setItem('morningAudioGreeting', ttsToggle.checked ? 'true' : 'false');
       });
 
       function refreshNotifStatus() {
@@ -6556,6 +6576,7 @@
     }
 
     // ── Morning Flow (6–9 AM gentle hero TTS + scroll) ──
+    // TTS runs only after user interaction (speechSynthesis.speak requires user gesture)
     function wireMorningFlow() {
       var hour = new Date().getHours();
       if (hour < 6 || hour > 9) return; // outside morning window
@@ -6563,7 +6584,8 @@
       if (localStorage.getItem(skipKey)) return; // already skipped today
 
       var skipBtn = document.getElementById('morningSkipBtn');
-      if (skipBtn) {
+      var optedIn = localStorage.getItem('morningAudioGreeting') === 'true';
+      if (skipBtn && optedIn) {
         skipBtn.hidden = false;
         skipBtn.addEventListener('click', function () {
           localStorage.setItem(skipKey, '1');
@@ -6572,13 +6594,9 @@
         }, { once: true });
       }
 
-      // Wait for hero verse to load, then scroll + TTS
-      setTimeout(function () {
-        var heroCard = document.getElementById('verseCard');
-        if (heroCard) heroCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        if (!('speechSynthesis' in window)) return;
-        if (localStorage.getItem(skipKey)) return;
+      function runMorningTts() {
+        if (!('speechSynthesis' in window) || localStorage.getItem(skipKey)) return;
+        if (localStorage.getItem('morningAudioGreeting') !== 'true') return; // opt-in only
         var heroText = document.getElementById('heroVerse')?.textContent || '';
         var heroRef  = (document.getElementById('heroRef')?.textContent  || '').replace(' (KJV)', '');
         if (!heroText) return;
@@ -6591,7 +6609,26 @@
         if (warm) utt.voice = warm;
         utt.onend = function () { if (skipBtn) skipBtn.hidden = true; };
         window.speechSynthesis.speak(utt);
+      }
+
+      // Scroll after verse loads (no user gesture needed)
+      setTimeout(function () {
+        var heroCard = document.getElementById('verseCard');
+        if (heroCard) heroCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 2200);
+
+      // TTS only after first user interaction (required by browsers), and only if opted in
+      if (optedIn) {
+        function onFirstInteraction() {
+          document.removeEventListener('click', onFirstInteraction);
+          document.removeEventListener('touchstart', onFirstInteraction);
+          document.removeEventListener('keydown', onFirstInteraction);
+          runMorningTts();
+        }
+        document.addEventListener('click', onFirstInteraction, { once: true, passive: true });
+        document.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true });
+        document.addEventListener('keydown', onFirstInteraction, { once: true });
+      }
     }
 
     // ── WHY_NOTES + Why Tooltip ──
@@ -7290,6 +7327,14 @@
       <input type="checkbox" id="morning-check" class="settings-toggle" aria-label="Enable daily 6 AM verse reminder" role="switch">
     </div>
 
+    <div class="settings-row">
+      <label class="settings-label" for="morning-tts-toggle">
+        <span class="settings-label-text">🔊 Morning audio greeting</span>
+        <span class="settings-label-sub">Hear today&#8217;s verse read aloud (6–9 AM, after first tap)</span>
+      </label>
+      <input type="checkbox" id="morning-tts-toggle" class="settings-toggle" aria-label="Enable morning audio greeting" role="switch">
+    </div>
+
     <p class="settings-notif-status" id="settings-notif-status" hidden></p>
 
     <div class="settings-row settings-row--journal">
@@ -7333,7 +7378,7 @@
 
   <!-- ── Hymn Lyrics Modal (Patriotic Hymns "Sing with Me") ── -->
   <div id="hymn-lyrics-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="hymn-lyrics-modal-title" aria-hidden="true">
-    <div class="modal-inner hymn-lyrics-modal-inner" role="document">
+    <div class="modal-inner hymn-lyrics-modal-inner">
       <button type="button" id="hymn-lyrics-modal-close" class="about-modal-close" aria-label="Close lyrics">✕</button>
       <h2 id="hymn-lyrics-modal-title" class="about-modal-title">Hymn Lyrics</h2>
       <pre id="hymn-lyrics-modal-body" class="hymn-lyrics-modal-body"></pre>

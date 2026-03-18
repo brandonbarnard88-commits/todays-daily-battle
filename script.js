@@ -10192,9 +10192,11 @@ function updateHeaderStreakBadge(streakCount) {
   if (heroBadge) {
     if (n >= 1) {
       heroBadge.textContent = label;
+      heroBadge.setAttribute('role', 'status');
+      heroBadge.removeAttribute('aria-label');
       heroBadge.hidden = false;
-      heroBadge.setAttribute('aria-label', 'Current streak: ' + n + ' day' + (n === 1 ? '' : 's'));
     } else {
+      heroBadge.removeAttribute('role');
       heroBadge.hidden = true;
     }
   }
@@ -22096,3 +22098,4 @@ function wireRandomBattleVerseHero() {
   }());
 })();
 }  // Workaround: closes unclosed block (fixes "Unexpected end of script" parse error)
+//# sourceMappingURL=script.js.map

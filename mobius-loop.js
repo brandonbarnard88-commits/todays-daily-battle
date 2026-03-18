@@ -559,7 +559,7 @@
     overlay.setAttribute('aria-label', 'Fear to Faith Loop');
 
     overlay.innerHTML =
-      '<div class="mobius-drawer-inner" role="document">' +
+      '<div class="mobius-drawer-inner">' +
         '<header class="mobius-drawer-header">' +
           '<h2 class="mobius-drawer-title">Fear → Faith Loop</h2>' +
           '<p class="mobius-drawer-sub">2 Timothy 1:7 — power, love, sound mind. One journey, no dead ends.</p>' +

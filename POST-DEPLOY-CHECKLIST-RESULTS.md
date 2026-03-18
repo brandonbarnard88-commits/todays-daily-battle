@@ -110,8 +110,23 @@ These come from **Cloudflare’s challenge/bot protection**, not GTM or your app
 
 - **Accessibility:** 100
 - **Best Practices:** 81 (CSP inline fixes applied; deprecations from Cloudflare)
-- **Performance:** 55 (LCP 5.2s)
-- **CLS:** 0.024
+- **Performance:** **84** (was 55) — lazy-load analytics impact
+- **LCP:** **4.3s** (was 5.2s)
+- **TBT:** **10 ms** (was 1,170 ms)
+- **CLS:** **0.005** (was 0.024)
+- **Main-thread work:** **2.4s** (was 4.4s)
+- **Unused JS:** **282 KiB** (was ~389 KiB)
 - **Console:** Clean
 
 Report saved: `lighthouse-report.html`
+
+### Before/After (Analytics Lazy-Load)
+
+| Metric | Before | After |
+|--------|--------|-------|
+| Performance | 55 | **84** |
+| TBT | 1,170 ms | **10 ms** |
+| LCP | 5.2s | 4.3s |
+| Main-thread | 4.4s | 2.4s |
+| Unused JS | ~389 KiB | 282 KiB |
+| CLS | 0.024 | 0.005 |

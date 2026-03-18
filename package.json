@@ -2,7 +2,7 @@
   "name": "todaysdailybattle-site",
   "private": true,
   "scripts": {
-    "build": "node build-config.js && node build-copy-static.js",
+    "build": "node build-config.js && node build-copy-static.js && node scripts/minify.mjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",
     "test": "python3 test-site.py --offline",
@@ -32,12 +32,15 @@
     "purge:check": "node scripts/cloudflare-purge-check.mjs",
     "audit:links": "npm run build && node scripts/audit-links.mjs",
     "audit:lighthouse": "CHROME_PATH=\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" npx lighthouse https://www.todaysdailybattle.com --output=html --output-path=./lighthouse-report.html --view --chrome-flags='--headless' --form-factor=mobile --screenEmulation.mobile=true --only-categories=performance,accessibility,best-practices",
-    "audit:lighthouse:local": "npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices",
+    "audit:lighthouse:local": "node scripts/lighthouse-local.mjs",
+    "audit:lighthouse:local:manual": "npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices",
     "pre-launch": "npm run quality:gate",
     "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke"
   },
   "devDependencies": {
+    "clean-css": "^5.3.3",
     "jsdom": "^28.1.0",
-    "playwright": "^1.55.0"
+    "playwright": "^1.55.0",
+    "terser": "^5.36.0"
   }
 }

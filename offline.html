@@ -74,10 +74,12 @@
       <p class="offline-verse-ref" id="offlineVerseRef"></p>
       <button type="button" class="offline-copy-btn" id="offlineCopyBtn" aria-label="Copy verse to clipboard">Copy verse</button>
     </div>
-    <button type="button" onclick="location.reload()" class="offline-retry-btn" aria-label="Retry connection">Retry</button>
+    <button type="button" id="offlineRetryBtn" class="offline-retry-btn" aria-label="Retry connection">Retry</button>
   </main>
   <script>
     (function () {
+      var retryBtn = document.getElementById('offlineRetryBtn');
+      if (retryBtn) retryBtn.addEventListener('click', function () { location.reload(); });
       var verses = [
         { ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee; be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.' },
         { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' },

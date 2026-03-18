@@ -31,7 +31,12 @@
     document.head.appendChild(s);
   }
   var cb = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1500); };
-  cb(function () { inject('share-page.js'); inject('utils.js'); }, { timeout: 2500 });
+  cb(function () {
+    inject('analytics-loader.js');
+    inject('gsc-verify.js');
+    inject('share-page.js');
+    inject('utils.js');
+  }, { timeout: 2500 });
 })();
 
 /**

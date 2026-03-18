@@ -2,8 +2,7 @@
 <!-- tdb build 20260316 -->
 <html lang="en">
 <head>
-  <!-- GA4 lazy-loaded after interaction (reduces TBT) -->
-  <script defer src="analytics-loader.js"></script>
+  <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -52,9 +51,6 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Today's Daily Battle">
-  <!-- Google Search Console verification — set GOOGLE_SITE_VERIFICATION in config.js -->
-  <script defer src="gsc-verify.js"></script>
-
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
@@ -74,16 +70,15 @@
   <!-- Caveat font: preload + load in head for faster LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" as="style" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"></noscript>
   <!-- Preconnect for CDN (analytics lazy-loaded, no preconnect needed) -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
   <link rel="modulepreload" href="script.js?v=20260311k">
-  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js">
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
-  <link rel="prefetch" href="calm.html">
+  <link rel="preload" as="script" href="vendor/dompurify.min.js">
+  <script src="vendor/dompurify.min.js" defer></script>
   <style>
     :root {
       --bg: #0f1218;
@@ -7391,6 +7386,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260311k" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

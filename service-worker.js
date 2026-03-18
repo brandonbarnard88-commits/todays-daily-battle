@@ -56,6 +56,7 @@ const CORE_ASSETS = [
   '/bible-tool.html',
   '/ask-the-word.js',
   '/share-page.js',
+  '/vendor/dompurify.min.js',
   '/easter-eggs.js',
   '/mobius-loop.js',
   '/mobius-universal.js',

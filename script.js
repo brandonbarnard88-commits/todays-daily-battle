@@ -19916,9 +19916,11 @@ function sanitizeNudgeElements() {
 
     // ── Render ────────────────────────────────────────────────────────────────
     var SEED_PRAYERS = [
-      { id: 'seed-1', text: 'Lord, carry my grief today.', hearts: 0, seed: true },
-      { id: 'seed-2', text: 'Give me strength to face this day.', hearts: 0, seed: true },
-      { id: 'seed-3', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true }
+      { id: 'seed-1', text: 'Lord, heal our land.', hearts: 0, seed: true },
+      { id: 'seed-2', text: 'Strength for my family today.', hearts: 0, seed: true },
+      { id: 'seed-3', text: 'Lord, carry my grief today.', hearts: 0, seed: true },
+      { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
+      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true }
     ];
     function render() {
       var items = getItems();

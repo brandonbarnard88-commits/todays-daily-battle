@@ -781,13 +781,18 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 
 (function loadEasterEggsScript() {
   if (typeof document === 'undefined') return;
-  if (document.querySelector('script[data-tdb-easter-eggs="1"]')) return;
+  if (document.querySelector('script[data-tdb-easter-eggs="1"]') || document.querySelector('script[src*="easter-eggs.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="easter-eggs.js"]')) return;
-  var script = document.createElement('script');
-  script.src = '/easter-eggs.js';
-  script.defer = true;
-  script.setAttribute('data-tdb-easter-eggs', '1');
-  document.head.appendChild(script);
+  function inject() {
+    if (document.querySelector('script[src*="easter-eggs.js"]')) return;
+    var script = document.createElement('script');
+    script.src = '/easter-eggs.js';
+    script.defer = true;
+    script.setAttribute('data-tdb-easter-eggs', '1');
+    document.head.appendChild(script);
+  }
+  var cb = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1500); };
+  cb(inject, { timeout: 2000 });
 })();
 
 (function loadVerseBreakdownScript() {
@@ -3400,11 +3405,19 @@ function initSupabaseClient() {
 }
 
 var _headerAuthListenerWired = false;
+var _supabaseDeferredLoadScheduled = false;
 async function updateHeaderAuth() {
   var el = document.getElementById('header-auth-links');
   if (!el) return;
   if (!initSupabaseClient() || !supabaseClient) {
     el.style.visibility = 'visible';
+    if (!_supabaseDeferredLoadScheduled && typeof ensureSupabaseLoaded === 'function' && supabaseUrlValid && supabaseKey) {
+      _supabaseDeferredLoadScheduled = true;
+      var cb = window.requestIdleCallback || function (fn) { return setTimeout(fn, 2500); };
+      cb(function () {
+        ensureSupabaseLoaded().then(function () { if (typeof updateHeaderAuth === 'function') updateHeaderAuth(); });
+      }, { timeout: 3000 });
+    }
     return;
   }
   var session = null;

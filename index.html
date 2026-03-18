@@ -127,7 +127,7 @@
       font-size: 1rem;
       line-height: 1.65;
       opacity: 0;
-      animation: fadeIn 0.6s ease-out forwards;
+      animation: fadeIn 0.3s ease-out forwards;
     }
     @keyframes fadeIn {
       0% { opacity: 0; }
@@ -3903,7 +3903,6 @@
   </div>
 
   <script src="share-page.js" defer></script>
-  <script src="easter-eggs.js" defer></script>
   <script src="utils.js" defer></script>
   <script nonce="tdb2025s">
   (function() {
@@ -7396,7 +7395,7 @@
   <!-- ── Daily midnight nudge toast ── -->
   <div id="daily-nudge" class="toast-gold" role="status" aria-live="polite" aria-atomic="true">New day—still here if you need.</div>
 
-  <script src="vendor/supabase-js.js?v=20260210s" data-cfasync="false" defer></script>
+  <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>

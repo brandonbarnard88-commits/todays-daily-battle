@@ -71,10 +71,11 @@
   <meta name="twitter:title" content="Today's Daily Battle">
   <meta name="twitter:description" content="One verse. One moment. Every day. Less scroll, more soul.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
-  <!-- Handwritten font for logo (async to avoid render blocking) -->
+  <!-- Caveat font: preload + load in head for faster LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Caveat font loaded via script.js to avoid CSP inline-handler violation -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"></noscript>
   <!-- Preconnect for CDN (analytics lazy-loaded, no preconnect needed) -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -127,12 +128,6 @@
     body {
       font-size: 1rem;
       line-height: 1.65;
-      opacity: 0;
-      animation: fadeIn 0.3s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
     }
 
     .app {
@@ -3903,8 +3898,6 @@
 
   </div>
 
-  <script src="share-page.js" defer></script>
-  <script src="utils.js" defer></script>
   <script nonce="tdb2025s">
   (function() {
     var moodEl = document.getElementById('footerMoodInsight');

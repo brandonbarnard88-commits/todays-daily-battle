@@ -20,12 +20,18 @@
     });
   } catch (_) {}
 })();
-(function () {
-  var l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = 'https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap';
-  l.media = 'all';
-  document.head.appendChild(l);
+
+(function loadDeferredScriptsOnIdle() {
+  if (typeof document === 'undefined') return;
+  function inject(src) {
+    if (document.querySelector('script[src*="' + src + '"]')) return;
+    var s = document.createElement('script');
+    s.src = src;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+  var cb = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1500); };
+  cb(function () { inject('share-page.js'); inject('utils.js'); }, { timeout: 2500 });
 })();
 
 /**

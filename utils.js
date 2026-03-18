@@ -47,6 +47,7 @@
       prayBtn.textContent = 'Pray this verse';
       prayBtn.setAttribute('aria-label', 'Pray ' + v.ref);
       prayBtn.onclick = function () {
+        if (typeof trackEvent === 'function') trackEvent('patriotic_pray', { ref: v.ref });
         var input = document.getElementById('quick-pray');
         var wrap = document.getElementById('quick-pray-wrap');
         if (input) {
@@ -63,6 +64,7 @@
       shareBtn.textContent = 'Share';
       shareBtn.setAttribute('aria-label', 'Share ' + v.ref);
       shareBtn.onclick = function () {
+        if (typeof trackEvent === 'function') trackEvent('patriotic_share', { ref: v.ref });
         if (typeof shareVerse === 'function') shareVerse(v.ref, v.text);
         else if (navigator.clipboard) navigator.clipboard.writeText(v.ref + '\n\n' + v.text).then(function () { if (typeof showEliteToast === 'function') showEliteToast('Copied.'); });
       };

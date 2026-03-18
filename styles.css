@@ -8971,6 +8971,12 @@ body.red-letter-off .red-letter-card {
 .patriotic-scriptures { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); content-visibility: auto; contain-intrinsic-size: auto 400px; }
 .patriotic-scriptures-title { text-align: center; font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
 .patriotic-scriptures-intro { text-align: center; margin-bottom: 1rem; }
+#patriotic-scriptures h2:hover .section-divider-icon,
+#patriotic-scriptures h2:active .section-divider-icon,
+#patriotic-scriptures h2:focus-visible .section-divider-icon {
+  filter: brightness(1.2);
+  transition: filter 0.15s ease;
+}
 .patriotic-scriptures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
 .patriotic-scriptures-card { padding: 1rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.25); background: rgba(0,0,0,0.2); }
 .patriotic-scriptures-ref { font-weight: 700; font-size: 0.95rem; color: var(--elite-gold, #D4AF37); margin: 0 0 0.5rem; }

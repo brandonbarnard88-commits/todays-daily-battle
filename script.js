@@ -19922,10 +19922,21 @@ function sanitizeNudgeElements() {
       { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
       { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true }
     ];
+    function seededShuffle(arr, seedStr) {
+      var a = arr.slice();
+      var seed = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
+      for (var i = a.length - 1; i > 0; i--) {
+        seed = (seed * 9301 + 49297) % 233280;
+        var j = Math.floor((seed / 233280) * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
     function render() {
       var items = getItems();
       var hearts = getHearts();
-      var displayItems = items.length > 0 ? items : SEED_PRAYERS;
+      var dayKey = typeof getDailyKey === 'function' ? getDailyKey() : new Date().toISOString().slice(0, 10);
+      var displayItems = items.length > 0 ? items : seededShuffle(SEED_PRAYERS, dayKey);
       displayItems = displayItems.slice();
       displayItems.sort(function (a, b) { return (b.hearts || 0) - (a.hearts || 0); });
       listEl.innerHTML = '';

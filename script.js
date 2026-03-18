@@ -1448,16 +1448,7 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
     m.content = cfg.GOOGLE_SITE_VERIFICATION;
     document.head.appendChild(m);
   }
-  if (GA_MEASUREMENT_ID) {
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: true });
-  }
+  // GA4 loaded via analytics-loader.js (lazy after interaction) — do not load here
   var plausibleDomain = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PLAUSIBLE_DOMAIN) || '';
   if (plausibleDomain) {
     var p = document.createElement('script');

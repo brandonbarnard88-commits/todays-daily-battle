@@ -59,6 +59,7 @@ const rootFiles = [
   'daily-verse-widget.js',
   'inline-bootstrap.js',
   'ga-config.js',
+  'analytics-loader.js',
   'gsc-verify.js',
   'ask-the-word.js',
   'search-widget.js',

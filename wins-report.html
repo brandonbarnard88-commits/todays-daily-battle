@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
-  <script src="ga-config.js"></script>
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Wins Report • Today's Daily Battle</title>
@@ -247,16 +246,7 @@
 
       loadWins();
 
-      var gaId = window.TDB_CONFIG && window.TDB_CONFIG.GA_MEASUREMENT_ID;
-      if (gaId) {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function() { window.dataLayer.push(arguments); };
-        window.gtag('js', new Date());
-        window.gtag('config', gaId, { send_page_view: true });
+      if (typeof window.gtag === 'function') {
         window.gtag('event', 'wins_report_view', { page_path: '/wins-report.html' });
       }
     })();

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFQ5GWJXCB"></script>
-  <script src="ga-config.js"></script>
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Sermon Builder • Today's Daily Battle</title>
@@ -423,9 +422,9 @@
           <!-- ── Enhanced Toolbar ── -->
           <div class="sb-enhance-toolbar" role="toolbar" aria-label="Sermon Builder tools">
             <span class="sb-toolbar-label">Tools</span>
-            <button type="button" id="sb-quick-start-btn" class="sb-btn" aria-label="Quick Start — choose a sermon template" aria-haspopup="dialog">✦ Quick&nbsp;Start</button>
-            <button type="button" id="sb-add-verse-btn"   class="sb-btn" aria-label="Add a verse to your sermon" aria-haspopup="dialog">📖 Add&nbsp;Verse</button>
-            <button type="button" id="sb-compare-btn"     class="sb-btn" aria-label="Compare parallel passages" aria-haspopup="dialog">⇄ Compare</button>
+            <button type="button" id="sb-quick-start-btn" class="sb-btn" aria-label="Quick Start — choose a sermon template" aria-haspopup="true">✦ Quick&nbsp;Start</button>
+            <button type="button" id="sb-add-verse-btn"   class="sb-btn" aria-label="Add a verse to your sermon" aria-haspopup="true">📖 Add&nbsp;Verse</button>
+            <button type="button" id="sb-compare-btn"     class="sb-btn" aria-label="Compare parallel passages" aria-haspopup="true">⇄ Compare</button>
             <button type="button" id="sb-notes-toggle"    class="sb-btn" aria-label="Toggle Scholar Notes sidebar" aria-pressed="false">✎ Notes</button>
             <button type="button" id="sb-tts-btn"         class="sb-btn" aria-label="Read sermon aloud" aria-pressed="false">🔊 Read&nbsp;Aloud</button>
             <button type="button" id="sb-pdf-btn"         class="sb-btn sb-btn--gold" aria-label="Export sermon as PDF">⬇ PDF</button>

@@ -6,6 +6,13 @@
  * search/parse ~4090, render results ~4320, daily battle ~1595/5010, reader ~2580/6070,
  * study/collections ~3580/1632, sermon ~3620, message board ~1975, init ~4965.
  */
+(function () {
+  var l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap';
+  l.media = 'all';
+  document.head.appendChild(l);
+})();
 
 /**
  * adaptiveInterval(fn, phases)
@@ -3995,7 +4002,6 @@ function dismissPrayerWallGrace() {
   var graceEl = document.getElementById('prayerWallGraceMsg');
   if (graceEl) graceEl.hidden = true;
 }
-// Expose for inline onclick in index.html (module scope ≠ window scope)
 window.dismissPrayerWallGrace = dismissPrayerWallGrace;
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
@@ -5841,10 +5847,18 @@ function wirePrayerRetrySync() {
   setInterval(updateVisibility, 5000);
 }
 
+function wirePrayerWallGraceDismiss() {
+  var btn = document.getElementById('prayerWallGraceDismiss');
+  if (btn && typeof dismissPrayerWallGrace === 'function') {
+    btn.addEventListener('click', dismissPrayerWallGrace);
+  }
+}
+
 function wirePrayerCounter() {
   wireRealPrayerCounter();
   wirePrayerRealtimeCounter();
   wirePrayerRetrySync();
+  wirePrayerWallGraceDismiss();
 }
 
 function wireKidsBetaCount() {

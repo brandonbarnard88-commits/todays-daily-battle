@@ -75,7 +75,7 @@
   <!-- Handwritten font for logo (async to avoid render blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" media="print" onload="this.media='all'">
+  <!-- Caveat font loaded via script.js to avoid CSP inline-handler violation -->
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"></noscript>
   <!-- Preconnect for analytics + CDN (reduces LCP latency) -->
   <link rel="preconnect" href="https://www.google-analytics.com">
@@ -3798,7 +3798,7 @@
         <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
         <p id="prayerWallGraceMsg" class="prayer-wall-grace-msg" hidden aria-live="polite">
           Missed a day? No shame&#8212;fresh start today. 🙏
-          <button type="button" class="prayer-wall-grace-dismiss" aria-label="Dismiss message" onclick="if(typeof dismissPrayerWallGrace==='function')dismissPrayerWallGrace()">&#x2715;</button>
+          <button type="button" id="prayerWallGraceDismiss" class="prayer-wall-grace-dismiss" aria-label="Dismiss message">&#x2715;</button>
         </p>
         <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
         <div class="prayer-counter-row">

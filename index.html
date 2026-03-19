@@ -502,7 +502,7 @@
       z-index: 3;
       margin: 0 0 0.35rem;
       font-family: 'Caveat', 'Patrick Hand', cursive;
-      font-size: clamp(1.65rem, 5.2vw, 3rem);
+      font-size: clamp(1.85rem, 7vw, 3.6rem);
       font-weight: 700;
       letter-spacing: 0.03em;
       color: #ffffff;
@@ -563,7 +563,7 @@
     .site-logo-wrap {
       position: relative;
       z-index: 3;
-      width: clamp(48px, 12vw, 88px);
+      width: clamp(64px, 18vw, 110px);
       display: block;
       margin: 0.1rem auto 0;
     }
@@ -572,8 +572,8 @@
       height: auto;
       display: block;
       filter:
-        drop-shadow(0 0 10px rgba(255,150,30,0.38))
-        drop-shadow(0 0 4px rgba(255,220,120,0.28));
+        drop-shadow(0 0 14px rgba(255,150,30,0.50))
+        drop-shadow(0 0 5px rgba(255,220,120,0.35));
       animation: crest-appear 1.6s ease both;
     }
     @keyframes crest-appear {
@@ -592,8 +592,8 @@
 
     /* ── Desktop: two-column layout + all scaling ── */
     @media (min-width: 900px) {
-      .site-logo-wrap { width: clamp(56px, 5vw, 84px); }
-      .site-title { font-size: clamp(2.1rem, 3.2vw, 3.35rem); letter-spacing: 0.04em; }
+      .site-logo-wrap { width: clamp(80px, 8vw, 120px); }
+      .site-title { font-size: clamp(2.6rem, 3.8vw, 4rem); letter-spacing: 0.04em; }
 
       body {
         font-size: 1.05rem;
@@ -1823,10 +1823,7 @@
       position: relative;
       border-radius: 20px;
       overflow: hidden;
-      max-width: min(100%, 440px);
-      width: 100%;
-      margin-inline: auto;
-      min-height: 200px;
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1840,7 +1837,7 @@
           rgba(10, 22, 40, 0.78) 100%),
         linear-gradient(135deg, #0a1628 0%, #0d3152 35%, #1a5276 65%, #0a2040 100%);
       box-shadow: 0 8px 40px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(227,188,103,0.18);
-      padding: 1.75rem 1.35rem 1.35rem;
+      padding: 2.5rem 2rem 1.5rem;
     }
     .verse-img-card::before {
       content: '';
@@ -1854,7 +1851,7 @@
     .verse-img-inner {
       position: relative;
       z-index: 1;
-      max-width: 100%;
+      max-width: 640px;
     }
     .verse-img-text {
       font-family: Georgia, "Times New Roman", serif;
@@ -1904,7 +1901,7 @@
       outline: none;
     }
     @media (min-width: 900px) {
-      .verse-img-card { min-height: 220px; padding: 2rem 1.75rem 1.5rem; max-width: min(100%, 480px); }
+      .verse-img-card { min-height: 260px; padding: 3rem 4rem 2rem; }
       .verse-img-text { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
       .verse-img-ref  { font-size: clamp(1.3rem, 1.8vw, 1.65rem); }
     }

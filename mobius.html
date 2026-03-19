@@ -79,6 +79,8 @@
     .mobius-deep-walk ol li { margin-bottom: 0.6rem; }
     .mobius-deep-walk .mobius-deep-echo { font-size: 0.85rem; color: var(--tool-muted); margin-top: 1.5rem; font-style: italic; }
     .mobius-timer-display { font-size: 2.5rem; font-variant-numeric: tabular-nums; color: var(--tool-gold-soft); text-align: center; margin: 1.5rem 0; min-height: 3rem; }
+    .tool-btn-muted { color: var(--tool-muted); border-color: var(--tool-line); }
+    .tool-btn-muted:hover, .tool-btn-muted:focus-visible { color: var(--tool-text); border-color: var(--tool-muted); }
     .mobius-streak-display { font-size: 0.85rem; color: var(--tool-muted); text-align: center; margin: 0.5rem 0; min-height: 1.2rem; }
     .mode-label { display: none; text-align: center; margin-top: 0.5rem; color: #9ca3af; font-size: 0.9rem; opacity: 0; transition: opacity 0.4s; }
     .mode-label.visible { display: block; opacity: 1; }
@@ -141,6 +143,7 @@
         <button type="button" class="tool-btn" id="mobius-trace-btn" aria-label="Trace the cycle">Trace Cycle</button>
         <button type="button" class="tool-btn" id="mobius-share" aria-label="Share this loop">Share</button>
         <button type="button" class="tool-btn" id="mobius-timer" aria-label="Start 10-minute guided Möbius meditation">Deep meditation (10 min)</button>
+        <button type="button" class="tool-btn tool-btn-muted" id="mobius-timer-stop" aria-label="Stop meditation" hidden>Stop</button>
         <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
       </div>
       <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>

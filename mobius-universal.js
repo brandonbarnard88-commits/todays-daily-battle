@@ -590,7 +590,9 @@
     });
     var traceClickCount = 0;
     var traceLastClick = 0;
-    if (traceBtn) traceBtn.addEventListener('click', function (e) {
+    if (traceBtn) {
+      traceBtn.title = 'Alt + Right Arrow for faster trace';
+      traceBtn.addEventListener('click', function (e) {
       if (e.shiftKey) {
         window.__mobiusTraceGold = true;
         var t = document.createElement('div');
@@ -627,6 +629,22 @@
           wrap.setAttribute('role', 'status');
           wrap.setAttribute('aria-live', 'polite');
           safeSetHTML(wrap, '<p class="mobius-enoch-teaser-msg">You\'ve walked the loop thrice—want a glimpse of ancient wonders?</p><p class="mobius-enoch-teaser-cta">Switch to Hidden Scrolls…</p>');
+          wrap.style.cursor = 'pointer';
+          wrap.setAttribute('role', 'button');
+          wrap.setAttribute('tabindex', '0');
+          wrap.setAttribute('aria-label', 'Switch to Hidden Scrolls tab');
+          wrap.addEventListener('click', function () {
+            var tab = document.getElementById('mobius-tab-enoch');
+            if (tab && !tab.classList.contains('canon-hidden')) tab.click();
+            wrap.classList.add('mobius-enoch-teaser-fade');
+            setTimeout(function () { wrap.remove(); }, 400);
+          });
+          wrap.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              wrap.click();
+            }
+          });
           document.body.appendChild(wrap);
           setTimeout(function () {
             wrap.classList.add('mobius-enoch-teaser-fade');
@@ -635,6 +653,7 @@
         }
       } catch (e) {}
     });
+    }
     if (fullscreenBtn) {
       fullscreenBtn.addEventListener('click', function () {
         if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(function () {});
@@ -662,8 +681,10 @@
     }
     if (timerBtn) {
       var timerDisplay = document.getElementById('mobius-timer-display');
+      var timerStopBtn = document.getElementById('mobius-timer-stop');
       var timerInterval = null;
       var timeLeft = 0;
+      var timerPaused = false;
       var audioEl = document.getElementById('mobius-guided-audio');
       function formatTime(sec) {
         var m = Math.floor(sec / 60);
@@ -676,26 +697,13 @@
           audioEl.pause();
           audioEl.currentTime = 0;
         }
+        timerPaused = false;
         if (timerDisplay) timerDisplay.textContent = '';
         if (timerBtn) { timerBtn.dataset.timerActive = '0'; timerBtn.textContent = 'Deep meditation (10 min)'; }
+        if (timerStopBtn) { timerStopBtn.hidden = true; }
         if (!skipBump && typeof bumpMobiusLoopStreak === 'function') bumpMobiusLoopStreak();
       }
-      timerBtn.addEventListener('click', function () {
-        var btn = timerBtn;
-        var deepWalk = document.getElementById('mobius-deep-walk');
-        if (btn.dataset.timerActive === '1') {
-          stopTimer(true);
-          return;
-        }
-        if (deepWalk) deepWalk.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        btn.dataset.timerActive = '1';
-        btn.textContent = 'Stop meditation';
-        timeLeft = 10 * 60;
-        if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
-        if (audioEl && audioEl.readyState >= 2) {
-          audioEl.currentTime = 0;
-          audioEl.play().catch(function () {});
-        }
+      function startTick() {
         timerInterval = setInterval(function () {
           timeLeft--;
           if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
@@ -705,7 +713,48 @@
             setTimeout(function () { if (timerDisplay) timerDisplay.textContent = ''; }, 4000);
           }
         }, 1000);
+      }
+      timerBtn.addEventListener('click', function () {
+        var btn = timerBtn;
+        var deepWalk = document.getElementById('mobius-deep-walk');
+        if (btn.dataset.timerActive === '1') {
+          if (timerPaused) {
+            timerPaused = false;
+            btn.textContent = 'Pause';
+            if (audioEl) audioEl.play().catch(function () {});
+            startTick();
+          } else {
+            timerPaused = true;
+            btn.textContent = 'Resume';
+            if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+            if (audioEl) audioEl.pause();
+          }
+          return;
+        }
+        if (deepWalk) deepWalk.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        btn.dataset.timerActive = '1';
+        btn.textContent = 'Pause';
+        if (timerStopBtn) timerStopBtn.hidden = false;
+        timeLeft = 10 * 60;
+        if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
+        if (audioEl) {
+          var audioFailed = false;
+          function onAudioUnavailable() {
+            if (audioFailed) return;
+            audioFailed = true;
+            showTracerToast('Audio unavailable—follow the Deep Walk steps below.');
+          }
+          audioEl.addEventListener('error', onAudioUnavailable, { once: true });
+          audioEl.currentTime = 0;
+          audioEl.play().catch(onAudioUnavailable);
+        }
+        startTick();
       });
+      if (timerStopBtn) {
+        timerStopBtn.addEventListener('click', function () {
+          stopTimer(true);
+        });
+      }
       if (audioEl) {
         audioEl.addEventListener('ended', function () {
           if (timerInterval && timerBtn && timerBtn.dataset.timerActive === '1') {

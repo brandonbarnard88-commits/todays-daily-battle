@@ -4857,6 +4857,47 @@ body:has(.pricing-grid) .section-divider {
   margin-left: auto;
   margin-right: auto;
 }
+.footer-friday-signup {
+  margin: 1rem 0 1.25rem;
+  max-width: 28em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-friday-signup-label {
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.9);
+  margin: 0 0 0.5rem;
+}
+.footer-friday-signup-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.footer-friday-email {
+  flex: 1;
+  min-width: 12rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border, #334155);
+  border-radius: 6px;
+  background: var(--bg-input, #1e293b);
+  color: var(--text, #e2e8f0);
+}
+.footer-friday-email:focus {
+  outline: 2px solid var(--border-focus, #3b82f6);
+  outline-offset: 1px;
+}
+.footer-friday-submit {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  min-height: 44px;
+}
+.footer-friday-status {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+}
 .footer-quick-links {
   display: flex;
   flex-wrap: wrap;
@@ -9102,6 +9143,7 @@ body.red-letter-off .red-letter-card {
 .daily-verse-echo-pulse { animation: verse-echo-pulse 2s ease-out; }
 @keyframes verse-echo-pulse { 0% { opacity: 1; box-shadow: 0 0 12px var(--elite-gold-dim); } 50% { opacity: 0.95; } 100% { opacity: 1; box-shadow: none; } }
 
+.prayer-wall-nudge-silent { margin: 0.25rem 0 0.75rem; font-size: 0.82rem; opacity: 0.85; }
 .silent-amen-wrap { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
 .btn-silent-amen { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--elite-gold-dim); color: var(--elite-gold-solid); padding: 0.4rem 0.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
 .btn-silent-amen:hover { box-shadow: 0 0 12px var(--elite-gold-dim); border-color: var(--elite-gold); }

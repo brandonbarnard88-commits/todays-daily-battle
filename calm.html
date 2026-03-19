@@ -42,6 +42,8 @@
     .calm-helped-row { margin-bottom: 0.75rem; }
     .calm-helped-btn { background: none; border: none; color: var(--muted); font-size: 0.85rem; cursor: pointer; padding: 0.25rem 0; }
     .calm-helped-btn:hover, .calm-helped-btn:focus-visible { color: var(--gold); outline: 2px solid var(--gold); outline-offset: 2px; }
+    .calm-mobius-cta { margin: 1rem 0; }
+    .calm-mobius-link { display: inline-block; text-decoration: none; }
     .calm-input-wrap { margin-bottom: 1.5rem; max-width: 20rem; margin-left: auto; margin-right: auto; }
     .calm-input-wrap input { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 10px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.06); color: var(--text, #e2e8f0); }
     .calm-input-wrap input::placeholder { color: var(--muted, #94a3b8); }
@@ -142,6 +144,9 @@
           <div class="calm-helped-row">
             <button type="button" class="calm-helped-btn" id="helped-btn" aria-label="Verse helped">Helped? 👍</button>
           </div>
+          <div id="calm-mobius-cta" class="calm-mobius-cta" style="display: none;">
+            <a href="mobius.html?mood=fear" class="calm-btn calm-mobius-link" aria-label="Walk the Möbius Loop—fear and faith on one ribbon">Walk the Möbius Loop →</a>
+          </div>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="another-btn" aria-label="Show another verse in this category">Another in this category</button>
             <button type="button" class="calm-btn" id="back-categories" aria-label="Still heavy? Try another feeling">Still heavy? Try another feeling</button>
@@ -153,6 +158,9 @@
           <button type="button" class="calm-copy-btn" id="desktop-copy-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
           <div class="calm-helped-row">
             <button type="button" class="calm-helped-btn" id="desktop-helped-btn" aria-label="Verse helped">Helped? 👍</button>
+          </div>
+          <div id="desktop-mobius-cta" class="calm-mobius-cta" style="display: none;">
+            <a href="mobius.html?mood=fear" class="calm-btn calm-mobius-link" aria-label="Walk the Möbius Loop—fear and faith on one ribbon">Walk the Möbius Loop →</a>
           </div>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="desktop-another" aria-label="Show another verse">Another verse</button>
@@ -239,6 +247,10 @@
         document.getElementById('calm-categories').style.display = 'flex';
         document.querySelector('.intro').style.display = 'block';
         document.getElementById('verse-container').style.display = 'none';
+        var mobiusCta = document.getElementById('calm-mobius-cta');
+        if (mobiusCta) mobiusCta.style.display = 'none';
+        var desktopMobius = document.getElementById('desktop-mobius-cta');
+        if (desktopMobius) desktopMobius.style.display = 'none';
         var dv = document.getElementById('desktop-verse');
         if (dv && !isMobile()) dv.style.display = 'flex';
       }
@@ -254,6 +266,10 @@
         vc.style.display = 'flex';
         vc.classList.add('verse-reveal');
         showVerse(currentCategory);
+        var mobiusCta = document.getElementById('calm-mobius-cta');
+        if (mobiusCta) mobiusCta.style.display = (cat === 'anxiety') ? 'block' : 'none';
+        var desktopMobius = document.getElementById('desktop-mobius-cta');
+        if (desktopMobius) desktopMobius.style.display = (cat === 'anxiety') ? 'block' : 'none';
       }
       if (isMobile()) {
         document.getElementById('verse-container').style.display = 'none';
@@ -327,6 +343,8 @@
             var refEl = document.getElementById('desktop-verse-ref');
             if (textEl) textEl.textContent = v.text;
             if (refEl) refEl.textContent = v.ref;
+            var desktopMobius = document.getElementById('desktop-mobius-cta');
+            if (desktopMobius) desktopMobius.style.display = (currentCategory === 'anxiety') ? 'block' : 'none';
           }
         });
       });
@@ -402,11 +420,17 @@
         input.addEventListener('input', debounce(function () {
           var val = (input.value || '').trim();
           if (val.length < 3) return;
-          var result = window.resolveSemanticWithScore(val);
-          if (!result || result.score < 0.6) return;
-          var cat = FEEL_TO_CALM[result.feelGroup] || (VERSES[result.topic] ? result.topic : null);
+          var lower = val.toLowerCase();
+          var cat = null;
+          if (/\b(fear|anxious|anxiety|afraid|scared)\b/.test(lower)) {
+            cat = 'anxiety';
+          } else {
+            var result = window.resolveSemanticWithScore(val);
+            if (!result || result.score < 0.6) return;
+            cat = FEEL_TO_CALM[result.feelGroup] || (VERSES[result.topic] ? result.topic : null);
+          }
           if (!cat || !VERSES[cat]) return;
-          if (typeof gtag === 'function') gtag('event', 'calm_semantic_input', { category: cat, score: result.score });
+          if (typeof gtag === 'function') gtag('event', 'calm_semantic_input', { category: cat, score: 1 });
           if (isMobile()) {
             showVerseView(cat);
           } else {
@@ -416,6 +440,8 @@
             var refEl = document.getElementById('desktop-verse-ref');
             if (textEl) textEl.textContent = v.text;
             if (refEl) refEl.textContent = v.ref;
+            var desktopMobius = document.getElementById('desktop-mobius-cta');
+            if (desktopMobius) desktopMobius.style.display = (cat === 'anxiety') ? 'block' : 'none';
           }
         }, 300));
       }

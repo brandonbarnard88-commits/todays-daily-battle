@@ -34,9 +34,11 @@
     .mobius-card-container.visible { opacity: 1; pointer-events: auto; }
     .mobius-node-card { padding: 1rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; font-size: 0.9rem; color: #e0e0e0; }
     .mobius-card-title { margin: 0 0 0.5rem; font-size: 1rem; color: var(--tool-gold-soft); }
+    .mobius-card-ref { margin: 0 0 0.25rem; font-size: 0.8rem; color: var(--tool-gold); }
     .mobius-card-verse, .mobius-card-guidance { margin: 0.5rem 0; color: var(--tool-muted); }
     .mobius-card-verse { font-style: italic; }
-    .mobius-card-prayer { margin: 0.6rem 0 0; color: var(--tool-gold-soft); }
+    .mobius-card-prayer { margin: 0.6rem 0 0; padding: 0.5rem 0; color: var(--tool-gold-soft); border-top: 1px solid rgba(227, 188, 103, 0.3); box-shadow: 0 0 12px rgba(227, 188, 103, 0.15); }
+    .mobius-card-crossref { margin: 0.25rem 0 0; font-size: 0.8rem; color: var(--tool-muted); }
     .mobius-fallback { padding: 2rem; text-align: center; color: var(--tool-muted); }
     .mobius-panel { display: none; flex: 1; flex-direction: column; align-items: center; justify-content: center; min-height: 0; width: 100%; }
     .mobius-panel.active { display: flex; }
@@ -74,6 +76,7 @@
     .mobius-deep-walk ol li { margin-bottom: 0.6rem; }
     .mobius-deep-walk .mobius-deep-echo { font-size: 0.85rem; color: var(--tool-muted); margin-top: 1.5rem; font-style: italic; }
     .mobius-timer-display { font-size: 2.5rem; font-variant-numeric: tabular-nums; color: var(--tool-gold-soft); text-align: center; margin: 1.5rem 0; min-height: 3rem; }
+    .mobius-streak-display { font-size: 0.85rem; color: var(--tool-muted); text-align: center; margin: 0.5rem 0; min-height: 1.2rem; }
     .mode-label { display: none; text-align: center; margin-top: 0.5rem; color: #9ca3af; font-size: 0.9rem; opacity: 0; transition: opacity 0.4s; }
     .mode-label.visible { display: block; opacity: 1; }
     .easter-share-spin { animation: easter-share-spin 0.6s ease; }
@@ -134,10 +137,11 @@
         <button type="button" class="tool-btn" id="mobius-restart" aria-label="Restart with Fear">Restart</button>
         <button type="button" class="tool-btn" id="mobius-trace-btn" aria-label="Trace the cycle">Trace Cycle</button>
         <button type="button" class="tool-btn" id="mobius-share" aria-label="Share this loop">Share</button>
-        <button type="button" class="tool-btn" id="mobius-timer" aria-label="Deep meditation—10 minute guided walk">Deep meditation (10 min)</button>
+        <button type="button" class="tool-btn" id="mobius-timer" aria-label="Start 10-minute guided Möbius meditation">Deep meditation (10 min)</button>
         <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
       </div>
       <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>
+      <p id="mobius-streak-display" class="mobius-streak-display" role="status" aria-live="polite"></p>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
       <section id="mobius-deep-walk" class="mobius-deep-walk" aria-labelledby="mobius-deep-walk-title">
         <h2 id="mobius-deep-walk-title">Hidden Scrolls: Deep Walk</h2>
@@ -208,6 +212,8 @@
       <button type="button" id="mobius-enoch-modal-ok" class="tool-btn">Close</button>
     </div>
   </div>
+
+  <audio id="mobius-guided-audio" src="/audio/mobius-guided-10min.mp3" preload="metadata" aria-label="10-minute guided meditation"></audio>
 
   <footer class="tool-page-footer" role="contentinfo">
     <p id="mobius-enoch-footer-disclaimer" class="mobius-enoch-footer-disclaimer" hidden>Hidden Scrolls: apocryphal texts—not Bible canon. Reflect, don't rely.</p>
@@ -380,6 +386,7 @@
         function nextLayer() {
           if (timer) clearTimeout(timer);
           if (index >= texts.length) {
+            if (typeof window.bumpMobiusLoopStreak === 'function') window.bumpMobiusLoopStreak();
             texts.forEach(function (t) { t.classList.remove('active'); });
             timer = setTimeout(function () {
               texts[0].classList.add('active');
@@ -416,6 +423,7 @@
           if (textTimer) clearTimeout(textTimer);
           var delay = getTextDelay();
           if (textIdx >= textLines.length) {
+            if (typeof window.bumpMobiusLoopStreak === 'function') window.bumpMobiusLoopStreak();
             textLines.forEach(function (t) { t.classList.remove('active'); });
             if (textHeartbeat) textHeartbeat.textContent = '\u2661';
             if (textContainer) textContainer.style.background = 'transparent';

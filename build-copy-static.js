@@ -256,6 +256,11 @@ for (const f of otherHtml) {
   }
 }
 
+if (fs.existsSync(path.join(root, 'audio'))) {
+  copyDir(path.join(root, 'audio'), path.join(dist, 'audio'));
+  console.log('Copied audio/ folder (verse clips, mobius-guided-10min.mp3)');
+}
+
 if (fs.existsSync(path.join(root, 'vendor'))) {
   copyDir(path.join(root, 'vendor'), path.join(dist, 'vendor'));
 }

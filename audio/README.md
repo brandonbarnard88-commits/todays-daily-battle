@@ -16,3 +16,13 @@ Add these MP3 files for offline TTS fallback when users tap "Listen" without int
 - Keep clips short (10–20 seconds)
 
 **Fallback:** If a verse has no MP3, the app falls back to `psalm-23-1.mp3`.
+
+---
+
+## Möbius Guided Meditation (10 min)
+
+| File | Description |
+|------|-------------|
+| `mobius-guided-10min.mp3` | 10-minute guided meditation for Möbius Loop Text mode. Script: `docs/mobius-guided-audio-script.md` |
+
+When present, the "Deep meditation (10 min)" button plays this audio and syncs the countdown.

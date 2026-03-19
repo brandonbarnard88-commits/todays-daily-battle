@@ -76,9 +76,10 @@
         id: '2tim',
         label: '2 Timothy 1:7',
         type: 'verse',
+        verseRef: '2 Timothy 1:7',
         verseText: verse2tim ? verse2tim.text : 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.',
         breakdown: verse2tim && verse2tim.breakdown ? verse2tim.breakdown : ['No fear spirit.', 'Power, love, mind.', "You're built for this."],
-        prayerPrompt: verse2tim && verse2tim.app ? verse2tim.app : 'Say: "Power over fear."',
+        prayerPrompt: 'Lord, I receive power, love, and a sound mind—not fear. Anchor me in this truth as the loop continues.',
         guidance: 'The central pivot—every battle passes through here.',
         color: '#e3bc67',
         isStart: false,
@@ -88,15 +89,17 @@
     }
     if (key === 'power') {
       var strengthData = topics.strength || {};
-      var s = smart.strength || {};
+      var powerVerse = findVerse('Isaiah 40:31');
+      var powerText = powerVerse ? powerVerse.text : 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.';
       return {
         id: 'power',
         label: 'Power / Strength',
         type: 'mood',
-        verseRefs: strengthData.verses || [],
-        verseText: (s.verseRef && findVerse(s.verseRef)) ? findVerse(s.verseRef).text : '',
-        guidance: g(strengthData),
-        prayerPrompt: s.action ? s.action + ' → ' + (s.outcome || '') : 'Wait quiet.',
+        verseRefs: strengthData.verses || ['Isaiah 40:31', 'Philippians 4:13', 'Psalm 46:1'],
+        verseText: powerText,
+        verseRef: 'Isaiah 40:31',
+        guidance: g(strengthData) || 'God gives strength to the weary. Wait on Him.',
+        prayerPrompt: 'Lord, renew my strength as I wait on You. Let me soar above the fear that once grounded me.',
         color: '#7cb9a8',
         isStart: false,
         isPivot: true,
@@ -105,15 +108,17 @@
     }
     if (key === 'love') {
       var loveData = topics.love || {};
-      var sl = smart.love || {};
+      var loveVerse = findVerse('Romans 8:38') || findVerse('Romans 8:39');
+      var loveText = loveVerse ? loveVerse.text : 'For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.';
       return {
         id: 'love',
         label: 'Love',
         type: 'mood',
-        verseRefs: loveData.verses || [],
-        verseText: (sl.verseRef && findVerse(sl.verseRef)) ? findVerse(sl.verseRef).text : '',
-        guidance: g(loveData),
-        prayerPrompt: sl.action ? sl.action + ' → ' + (sl.outcome || '') : 'Love someone—now.',
+        verseRefs: loveData.verses || ['Romans 8:38-39', '1 John 4:18', 'John 3:16'],
+        verseText: loveText,
+        verseRef: 'Romans 8:38-39',
+        guidance: g(loveData) || 'Nothing can separate you from the love of God.',
+        prayerPrompt: 'Thank You, Lord, that Your love holds me—no twist of fear can sever it.',
         color: '#c97b7b',
         isStart: false,
         isPivot: true,
@@ -121,14 +126,18 @@
       };
     }
     if (key === 'soundmind') {
+      var smVerse = findVerse('2 Timothy 1:7');
+      var smText = smVerse ? smVerse.text : 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
       return {
         id: 'soundmind',
         label: 'Sound Mind',
         type: 'mood',
-        verseRefs: ['Romans 12:2', '2 Timothy 1:7', 'Philippians 4:7'],
-        verseText: findVerse('Philippians 4:7') ? findVerse('Philippians 4:7').text : 'And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+        verseRefs: ['2 Timothy 1:7', 'Philippians 4:7', 'Romans 12:2'],
+        verseText: smText,
+        verseRef: '2 Timothy 1:7',
+        crossRef: 'Philippians 4:7',
         guidance: 'Be transformed by the renewing of your mind. God gives clarity and peace.',
-        prayerPrompt: 'Trust His clarity.',
+        prayerPrompt: 'Lord, I receive power, love, and a sound mind—not fear. Guard my thoughts in Your perfect peace.',
         color: '#a78bfa',
         isStart: false,
         isPivot: true,
@@ -208,7 +217,9 @@
     card.setAttribute('role', 'dialog');
     card.setAttribute('aria-label', 'Node details: ' + escapeHtml(node.label));
     var html = '<h3 class="mobius-card-title">' + escapeHtml(node.label) + '</h3>';
+    if (node.verseRef) html += '<p class="mobius-card-ref">' + escapeHtml(node.verseRef) + ' (KJV)</p>';
     if (node.verseText) html += '<p class="mobius-card-verse">' + escapeHtml(node.verseText) + '</p>';
+    if (node.crossRef) html += '<p class="mobius-card-crossref">See also ' + escapeHtml(node.crossRef) + '</p>';
     if (node.breakdown && node.breakdown.length) {
       html += '<ul class="mobius-card-breakdown">';
       node.breakdown.forEach(function (b) { html += '<li>' + escapeHtml(b) + '</li>'; });
@@ -423,6 +434,43 @@
     setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2000);
   }
 
+  var STREAK_KEY_PREFIX = 'mobiusLoops_';
+  function getWeekKey() {
+    var d = new Date();
+    var day = d.getDay();
+    var diff = d.getDate() - day;
+    var sunday = new Date(d.getFullYear(), d.getMonth(), diff);
+    var y = sunday.getFullYear();
+    var m = String(sunday.getMonth() + 1).padStart(2, '0');
+    var dayNum = String(sunday.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + dayNum;
+  }
+  function bumpMobiusLoopStreak() {
+    try {
+      var wk = getWeekKey();
+      var key = STREAK_KEY_PREFIX + wk;
+      var n = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+      localStorage.setItem(key, String(n));
+      refreshMobiusStreakDisplay();
+      return n;
+    } catch (e) { return 0; }
+  }
+  function refreshMobiusStreakDisplay() {
+    try {
+      var el = document.getElementById('mobius-streak-display');
+      if (!el) return;
+      var wk = getWeekKey();
+      var key = STREAK_KEY_PREFIX + wk;
+      var n = parseInt(localStorage.getItem(key) || '0', 10);
+      if (n === 0) el.textContent = '0 loops this week.';
+      else if (n === 1) el.textContent = '1 loop this week.';
+      else el.textContent = n + ' loops this week.';
+      if (n >= 3) el.textContent += ' You\'re building something real.';
+    } catch (e) {}
+  }
+  window.bumpMobiusLoopStreak = bumpMobiusLoopStreak;
+  window.refreshMobiusStreakDisplay = refreshMobiusStreakDisplay;
+
   function getMoodFromUrl() {
     try {
       var params = new URLSearchParams(window.location.search);
@@ -563,21 +611,27 @@
       var timerDisplay = document.getElementById('mobius-timer-display');
       var timerInterval = null;
       var timeLeft = 0;
+      var audioEl = document.getElementById('mobius-guided-audio');
       function formatTime(sec) {
         var m = Math.floor(sec / 60);
         var s = sec % 60;
         return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
       }
-      function stopTimer() {
+      function stopTimer(skipBump) {
         if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+        if (audioEl) {
+          audioEl.pause();
+          audioEl.currentTime = 0;
+        }
         if (timerDisplay) timerDisplay.textContent = '';
         if (timerBtn) { timerBtn.dataset.timerActive = '0'; timerBtn.textContent = 'Deep meditation (10 min)'; }
+        if (!skipBump && typeof bumpMobiusLoopStreak === 'function') bumpMobiusLoopStreak();
       }
       timerBtn.addEventListener('click', function () {
         var btn = timerBtn;
         var deepWalk = document.getElementById('mobius-deep-walk');
         if (btn.dataset.timerActive === '1') {
-          stopTimer();
+          stopTimer(true);
           return;
         }
         if (deepWalk) deepWalk.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -585,17 +639,34 @@
         btn.textContent = 'Stop meditation';
         timeLeft = 10 * 60;
         if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
+        if (audioEl && audioEl.readyState >= 2) {
+          audioEl.currentTime = 0;
+          audioEl.play().catch(function () {});
+        }
         timerInterval = setInterval(function () {
           timeLeft--;
           if (timerDisplay) timerDisplay.textContent = formatTime(timeLeft);
           if (timeLeft <= 0) {
-            stopTimer();
+            stopTimer(false);
             if (timerDisplay) timerDisplay.textContent = 'Meditation complete.';
             setTimeout(function () { if (timerDisplay) timerDisplay.textContent = ''; }, 4000);
           }
         }, 1000);
       });
+      if (audioEl) {
+        audioEl.addEventListener('ended', function () {
+          if (timerInterval && timerBtn && timerBtn.dataset.timerActive === '1') {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timeLeft = 0;
+            if (timerDisplay) timerDisplay.textContent = 'Meditation complete.';
+            setTimeout(function () { if (timerDisplay) timerDisplay.textContent = ''; }, 4000);
+            stopTimer(false);
+          }
+        });
+      }
     }
+    refreshMobiusStreakDisplay();
 
     if (container) doMount();
 

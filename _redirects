@@ -22,6 +22,10 @@
 # Root /corner.html → Kids Story Library (fix 404 when linked without /kids/)
 /corner.html /kids/corner.html 301
 
+# Pinterest / shareable KJV verse images
+/verse-cards /verse-cards/index.html 200!
+/verse-cards/ /verse-cards/index.html 200!
+
 # Bible Hub (combined Bible Study + Tools)
 /bible /bible/index.html 200!
 /bible/ /bible/index.html 200!

@@ -23,6 +23,10 @@ Minimalist KJV verse cards for Pinterest. Dark mode friendly, shareable.
 4. **Description** (copy-paste): "KJV verse for [topic]. One verse, one day. Less scroll, more soul. — Today's Daily Battle"
 5. **Hashtags:** #KJV #BibleVerse #DailyDevotional #Scripture #Christian
 
+## Gallery page
+
+After deploy, browseable index (for humans, Pinterest prep, and crawlers): `https://todaysdailybattle.com/verse-cards/`
+
 ## Deploy
 
 After deploy, image URLs will be:

@@ -3370,8 +3370,7 @@ if (typeof window !== 'undefined' && location.hostname.includes('localhost')) {
   }
 }
 const supabaseScriptUrls = [
-  'vendor/supabase-js.js?v=20260210s',
-  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
+  { url: 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js', integrity: 'sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH' },
   'https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js'
 ];
 function getSupabaseGlobal() {
@@ -3735,12 +3734,18 @@ function runSupabaseConnectionTest() {
   });
 }
 
-function loadSupabaseScript(url) {
+function loadSupabaseScript(urlOrObj) {
+  var url = typeof urlOrObj === 'object' && urlOrObj && urlOrObj.url ? urlOrObj.url : urlOrObj;
+  var integrity = typeof urlOrObj === 'object' && urlOrObj && urlOrObj.integrity ? urlOrObj.integrity : null;
   return new Promise((resolve) => {
     var trusted = trustedScriptURL(url);
     if (!trusted) { resolve(false); return; }
     const script = document.createElement('script');
     script.src = trusted;
+    if (integrity) {
+      script.integrity = integrity;
+      script.crossOrigin = 'anonymous';
+    }
     script.async = true;
     script.defer = true;
     script.setAttribute('data-cfasync', 'false');
@@ -3780,8 +3785,8 @@ async function ensureSupabaseLoaded() {
       return true;
     }
   }
-  for (const url of supabaseScriptUrls) {
-    const ok = await loadSupabaseScript(url);
+  for (const urlOrObj of supabaseScriptUrls) {
+    const ok = await loadSupabaseScript(urlOrObj);
     if (ok && initSupabaseClient()) {
       setAuthStatus('Auth ready.', 'success');
       return true;
@@ -3980,16 +3985,7 @@ function ensureForgotPasswordLinkInErrorState() {
 }
 
 async function reportSupabaseDiagnostics() {
-  try {
-    const res = await fetch('vendor/supabase-js.js', { cache: 'no-store' });
-    if (!res.ok) {
-      setAuthStatus(`Auth failed: local SDK missing (status ${res.status}).`, 'error');
-      return;
-    }
-    setAuthStatus('Auth failed: SDK loaded but not initialized.', 'error');
-  } catch {
-    setAuthStatus('Auth failed: could not fetch local SDK.', 'error');
-  }
+  setAuthStatus('Auth failed: Supabase SDK could not load. Check network or try again.', 'error');
 }
 const SHARE_STORAGE_KEY = 'shareLinks';
 const SERMON_DRAFT_ID_KEY = 'sermonDraftId';
@@ -18283,7 +18279,7 @@ function sanitizeNudgeElements() {
         note.textContent = 'Sign-in is optional. Log in to save your streak, favorite verses, and custom plans across devices.';
         authSection.querySelectorAll('input, select, button').forEach(function (el) { el.style.display = 'none'; });
       } else {
-        note.textContent = 'Sign-in loading… If this persists, check that vendor/supabase-js.js loads.';
+        note.textContent = 'Sign-in loading… If this persists, check that the Supabase SDK loads (network).';
         ensureSupabaseLoaded();
         setTimeout(function () {
           var status = document.getElementById('auth-status');

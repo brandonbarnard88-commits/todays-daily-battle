@@ -16,7 +16,7 @@
 
 - **Kid selector:** Dropdown "Track progress for:" with options "This device" | Kid 1 | Kid 2 | ...
 - **Visibility:** Shown only when signed in and user has profile_kids
-- **Supabase:** Added `vendor/supabase-js.js` so auth + profile_kids can load
+- **Supabase:** Uses CDN (`@supabase/supabase-js@2.99.2` with SRI) for auth + profile_kids
 
 ### 3. Loop Library Logic (`script.js`)
 

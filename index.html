@@ -83,7 +83,8 @@
   <link rel="modulepreload" href="script.js?v=20260311k">
   <link rel="preload" as="script" href="vendor/dompurify.min.js">
   <script src="vendor/dompurify.min.js"></script>
-  <script nonce="tdb2025s">(function(){if(typeof window==="undefined"||!window.trustedTypes||!window.trustedTypes.createPolicy)return;if(window.trustedTypes.defaultPolicy)return;try{window.trustedTypes.createPolicy("default",{createHTML:function(i){if(window.__ttDepth)return String(i||"");window.__ttDepth=1;try{if(typeof DOMPurify!=="undefined"&&DOMPurify.sanitize){return DOMPurify.sanitize(String(i||""),{RETURN_TRUSTED_TYPE:true});}return String(i||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}finally{delete window.__ttDepth;}},createScript:function(i){var s=String(i||"");try{JSON.parse(s);return s;}catch(_){}if(/<script|javascript:|<\/script|eval\s*\(/i.test(s))throw new Error("TrustedScript: disallowed");return s;},createScriptURL:function(url){var u=String(url||"");if(!u)return u;if(!/^https?:/i.test(u))return u;if(/^\/(?!\/)/.test(u)||(window.location&&u.startsWith(window.location.origin+"/")))return u;if(u.indexOf("supabase.co")!==-1)return u;var ok=["https://cdn.jsdelivr.net/","https://static.cloudflareinsights.com/","https://challenges.cloudflare.com/","https://www.gstatic.com/","https://plausible.io/","https://www.googletagmanager.com/"];if(ok.some(function(p){return u.startsWith(p)}))return u;throw new Error("TrustedScriptURL: disallowed");}});}catch(_){}})();</script>
+  <script nonce="tdb2025s">(function(){if(typeof window==="undefined"||!window.trustedTypes||!window.trustedTypes.createPolicy)return;if(window.trustedTypes.defaultPolicy)return;try{window.trustedTypes.createPolicy("default",{createHTML:function(i){var x=String(i||"");if(window.__ttDepth)return x;window.__ttDepth=1;try{if(typeof DOMPurify!=="undefined"&&DOMPurify.sanitize){var r=DOMPurify.sanitize(x,{RETURN_TRUSTED_TYPE:false});return typeof r==="string"?r:x.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}return x.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}catch(_){return x.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}finally{delete window.__ttDepth;}},createScript:function(i){var s=String(i||"");try{JSON.parse(s);return s;}catch(_){}if(/<script|javascript:|<\/script|eval\s*\(/i.test(s))throw new Error("TrustedScript: disallowed");return s;},createScriptURL:function(url){var u=String(url||"");if(!u)return u;if(/^\/(?!\/)/.test(u)||(window.location&&u.startsWith(window.location.origin+"/")))return u;if(u.startsWith("https://www.googletagmanager.com")||u.startsWith("https://www.google-analytics.com")||u.startsWith("https://static.cloudflareinsights.com")||u.startsWith("https://cdn.jsdelivr.net")||u.startsWith("https://challenges.cloudflare.com")||u.startsWith("https://www.gstatic.com")||u.startsWith("https://plausible.io")||u.indexOf("supabase.co")!==-1)return u;console.warn("Blocked script URL:",u);return null;}});if(typeof DOMPurify!=="undefined"&&DOMPurify.setConfig){DOMPurify.setConfig({TRUSTED_TYPES_POLICY:window.trustedTypes.defaultPolicy});}(function(){var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;var pol=window.trustedTypes&&window.trustedTypes.defaultPolicy;var createHTML=pol&&typeof pol.createHTML==="function"?pol.createHTML.bind(pol):null;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){if(typeof v==="string"&&createHTML){try{v=createHTML(v);}catch(_){}}return orig.call(this,v);},get:d.get,configurable:true,enumerable:d.enumerable});})();}catch(_){}})();</script>
+  <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
       --bg: #0f1218;
@@ -406,6 +407,31 @@
     /* prefers-contrast: more — mute sky opacity so content contrast isn't challenged */
     @media (prefers-contrast: more) {
       .sky { opacity: 0.35 !important; }
+    }
+
+    /* ── Persistent global nav ── */
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.25rem 0.75rem; flex-wrap: wrap;
+      padding: 0.5rem 1rem; background: rgba(8, 12, 22, 0.97);
+      border-bottom: 1px solid rgba(227, 188, 103, 0.25);
+      position: sticky; top: 0; z-index: 200;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      font-size: 0.88rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none;
+      padding: 0.4rem 0.6rem; border-radius: 6px; white-space: nowrap;
+      min-height: 44px; display: inline-flex; align-items: center;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.15s, background 0.15s;
+    }
+    .tdb-global-nav a:hover { color: #e3bc67; background: rgba(227, 188, 103, 0.1); }
+    .tdb-global-nav a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.7); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: #e3bc67; font-weight: 600; }
+    @media (max-width: 768px) {
+      .tdb-global-nav { overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0.4rem 0.75rem; gap: 0.2rem; }
+      .tdb-global-nav::-webkit-scrollbar { display: none; }
+      .tdb-global-nav a { flex-shrink: 0; padding: 0.5rem 0.65rem; }
     }
 
     /* Small-phone tightening — 400px and under */
@@ -3396,6 +3422,16 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="tdb-global-nav" aria-label="Main site navigation">
+    <a href="/" aria-current="page">Home</a>
+    <a href="/calm.html">Calm</a>
+    <a href="/mobius.html">Möbius</a>
+    <a href="/plans.html">Plans</a>
+    <a href="/#quick-actions-hero">Topics</a>
+    <a href="/kids-corner.html">Kids</a>
+    <a href="/bible-tool.html">Tools</a>
+    <a href="/story.html">Story</a>
+  </nav>
   <div class="app">
 
     <header class="site-header">
@@ -3811,7 +3847,15 @@
         <div class="prayer-export-row">
           <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers">Export my prayers</button>
         </div>
-        <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer wall entries" aria-live="polite"></ul>
+        <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer wall entries" aria-live="polite" data-prayer-wall-rendered="1">
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, heal our land. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-2" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Strength for my family today. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-3" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, carry my grief today. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-4" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Give me strength to face this day. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-5" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Peace that passes understanding—I need it. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-6" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Thank you for this day—help me use it well. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-7" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Guide my steps and guard my heart. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+        </ul>
         <div class="prayer-share-row" id="prayerShareRow" role="status" aria-live="polite">
           <button class="share-prayer-btn" type="button" id="share-prayer-btn" aria-label="Copy prayer to clipboard">Share this prayer?</button>
           <button class="prayer-share-dismiss" type="button" id="prayerShareDismissBtn" aria-label="Dismiss share prompt">✕</button>
@@ -4537,7 +4581,7 @@
 
     function sanitizeText(value) {
       if (window.DOMPurify && typeof window.DOMPurify.sanitize === "function") {
-        return window.DOMPurify.sanitize(value, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
+        return window.DOMPurify.sanitize(value, { ALLOWED_TAGS: [], ALLOWED_ATTR: [], RETURN_TRUSTED_TYPE: false });
       }
       return String(value);
     }

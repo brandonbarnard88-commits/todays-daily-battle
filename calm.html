@@ -45,7 +45,20 @@
     .calm-input-wrap input { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; border-radius: 10px; border: 1px solid rgba(227,188,103,0.5); background: rgba(227,188,103,0.06); color: var(--text, #e2e8f0); }
     .calm-input-wrap input::placeholder { color: var(--muted, #94a3b8); }
     .calm-input-wrap input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
-    .calm-one-verse-now { margin-top: 0.75rem; font-weight: 600; }
+    .calm-one-verse-now { font-weight: 600; }
+    .calm-quick-row { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 0.75rem; }
+    .calm-night-prayer { opacity: 0.9; }
+    .calm-night-prayer:hover, .calm-night-prayer:focus-visible { opacity: 1; }
+    .night-prayer-wrap { max-width: 28rem; margin: 0 auto; text-align: left; }
+    .night-prayer-verse { font-family: Cormorant Garamond, Georgia, serif; font-size: 1.25rem; line-height: 1.5; color: var(--text, #e2e8f0); margin-bottom: 1rem; }
+    .night-prayer-ref { font-size: 0.9rem; color: var(--gold, #e3bc67); margin-bottom: 1.25rem; }
+    .night-prayer-block { font-size: 0.95rem; color: var(--muted, #94a3b8); line-height: 1.6; margin-bottom: 1.25rem; }
+    .night-prayer-block strong { color: var(--text, #e2e8f0); }
+    .night-prayer-prayer { font-style: italic; color: var(--muted, #94a3b8); line-height: 1.6; margin-bottom: 1.5rem; }
+    .night-prayer-kids { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(227,188,103,0.25); }
+    .night-prayer-kids-title { font-size: 0.85rem; font-weight: 600; color: var(--gold, #e3bc67); margin-bottom: 0.5rem; }
+    .night-prayer-kids-phrase { font-size: 0.95rem; color: var(--text, #e2e8f0); margin-bottom: 0.75rem; }
+    .night-prayer-kids-prayer { font-size: 0.9rem; color: var(--muted, #94a3b8); line-height: 1.5; font-style: italic; }
     #verse-container, #desktop-verse { opacity: 0; transition: opacity 0.3s ease-out; }
     #verse-container.verse-reveal, #desktop-verse.verse-reveal { opacity: 1; }
     @media (prefers-reduced-motion: reduce) {
@@ -74,7 +87,10 @@
       <div class="calm-page">
         <div class="intro" id="calm-intro">
           <h2>What's weighing on you?</h2>
-          <button type="button" class="calm-btn calm-one-verse-now" id="calm-one-verse-now" aria-label="Skip to one verse right now">One verse now</button>
+          <div class="calm-quick-row">
+            <button type="button" class="calm-btn calm-one-verse-now" id="calm-one-verse-now" aria-label="Skip to one verse right now">One verse now</button>
+            <button type="button" class="calm-btn calm-night-prayer" id="calm-night-prayer" aria-label="Night prayer with Psalm 4:8">Night Prayer</button>
+          </div>
         </div>
         <div class="calm-input-wrap">
           <label for="calm-input" class="sr-only">Or type how you feel</label>
@@ -87,6 +103,30 @@
           <button type="button" class="calm-btn" data-category="peace" aria-label="Need peace">Need Peace</button>
           <button type="button" class="calm-btn" data-category="strength" aria-label="Need strength">Strength / Courage</button>
           <button type="button" class="calm-btn" data-category="grief" aria-label="Grief or sadness">Grief / Sadness</button>
+        </div>
+        <div id="night-prayer-container" class="verse-centered" style="display: none;">
+          <div class="night-prayer-wrap">
+            <p class="night-prayer-verse" id="night-prayer-verse" aria-live="polite">"Lord, I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety."</p>
+            <p class="night-prayer-ref" id="night-prayer-ref">Psalm 4:8 (KJV)</p>
+            <div class="night-prayer-block">
+              <strong>Real talk:</strong> The day's battles are done. Whatever weighed on you — anxiety, grief, anger, loneliness — hand it over. God's got the night watch. Let your mind rest in His promise, not your worries.
+            </div>
+            <div class="night-prayer-block">
+              <strong>Quick step:</strong> Whisper or pray it aloud once. Write one thing you're thankful for today. Close your eyes and breathe: "Thou, LORD, makest me dwell in safety."
+            </div>
+            <p class="night-prayer-prayer" id="night-prayer-text">
+              Heavenly Father, thank You for carrying me through this day. I lay down my cares at Your feet. Guard my sleep, quiet my thoughts, and let Psalm 4:8 be true in my heart tonight. Protect my family, heal what hurts, and wake me with Your mercy in the morning. In Jesus' name, Amen.
+            </p>
+            <div class="night-prayer-kids" id="night-prayer-kids" aria-label="For kids">
+              <p class="night-prayer-kids-title">For Kids</p>
+              <p class="night-prayer-kids-phrase">God never sleeps, so we can.</p>
+              <p class="night-prayer-kids-prayer">Lord, I lay me down in peace tonight, and sleep, because You keep me safe. Thank You for watching over me. Amen. — Psalm 4:8</p>
+            </div>
+            <button type="button" class="calm-copy-btn" id="night-prayer-copy" aria-label="Copy night prayer to clipboard">Copy to clipboard</button>
+            <div class="calm-actions" style="margin-top: 1rem;">
+              <button type="button" class="calm-btn" id="night-prayer-back" aria-label="Back to categories">Back</button>
+            </div>
+          </div>
         </div>
         <div id="verse-container" class="verse-centered" style="display: none;">
           <p id="verse-text" class="verse" aria-live="polite"></p>
@@ -228,6 +268,46 @@
           showVerseView(null);
         });
       }
+      function showNightPrayer() {
+        if (typeof gtag === 'function') gtag('event', 'calm_night_prayer_tap', {});
+        document.getElementById('calm-categories').style.display = 'none';
+        document.querySelector('.intro').style.display = 'none';
+        document.getElementById('verse-container').style.display = 'none';
+        var dv = document.getElementById('desktop-verse');
+        if (dv) dv.style.display = 'none';
+        var np = document.getElementById('night-prayer-container');
+        if (np) {
+          np.style.display = 'flex';
+          np.classList.add('verse-reveal');
+          np.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+      function hideNightPrayer() {
+        document.getElementById('night-prayer-container').style.display = 'none';
+        showCategories();
+      }
+      var nightPrayerBtn = document.getElementById('calm-night-prayer');
+      if (nightPrayerBtn) nightPrayerBtn.addEventListener('click', showNightPrayer);
+      var nightPrayerBack = document.getElementById('night-prayer-back');
+      if (nightPrayerBack) nightPrayerBack.addEventListener('click', hideNightPrayer);
+      var nightPrayerCopy = document.getElementById('night-prayer-copy');
+      if (nightPrayerCopy) {
+        nightPrayerCopy.addEventListener('click', function () {
+          var verse = (document.getElementById('night-prayer-verse') || {}).textContent || '';
+          var ref = (document.getElementById('night-prayer-ref') || {}).textContent || '';
+          var prayer = (document.getElementById('night-prayer-text') || {}).textContent || '';
+          var kidsEl = document.getElementById('night-prayer-kids');
+          var kidsText = kidsEl ? kidsEl.innerText.replace(/\s+/g, ' ').trim() : '';
+          var full = '"' + verse + '" — ' + ref + '\n\n' + prayer;
+          if (kidsText) full += '\n\nFor Kids: ' + kidsText;
+          full += '\n\n— todaysdailybattle.com';
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(full).then(function () {}).catch(function () {});
+          }
+          nightPrayerCopy.textContent = 'Copied';
+          setTimeout(function () { nightPrayerCopy.textContent = 'Copy to clipboard'; }, 2000);
+        });
+      }
       document.querySelectorAll('.categories button[data-category]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           if (isMobile()) {
@@ -333,6 +413,9 @@
         }, 300));
       }
       wireCalmInput();
+      if (window.location.hash === '#night-prayer') {
+        showNightPrayer();
+      }
     })();
   </script>
 </body>

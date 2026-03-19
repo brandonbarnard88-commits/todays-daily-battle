@@ -13,7 +13,7 @@
     window.trustedTypes.createPolicy('default', {
       createHTML: function (input) {
         if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-          return DOMPurify.sanitize(String(input), { RETURN_TRUSTED_TYPE: false });
+          return DOMPurify.sanitize(String(input), { RETURN_TRUSTED_TYPE: true });
         }
         return String(input).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
       }
@@ -28,6 +28,20 @@ function trustedScriptURL(url) {
     if (pol && typeof pol.createScriptURL === 'function') return pol.createScriptURL(url);
   } catch (_) {}
   return url;
+}
+
+/** Wrap string for TrustedScript sinks (document.title, script.textContent). Uses default policy when CSP requires TrustedScript. */
+function trustedScript(s) {
+  if (typeof s !== 'string') return s;
+  if (typeof window === 'undefined' || !window.trustedTypes) return s;
+  try {
+    var pol = window.trustedTypes.defaultPolicy;
+    if (pol && typeof pol.createScript === 'function') return pol.createScript(s);
+  } catch (_) {}
+  if (typeof window !== 'undefined' && window.location && /localhost|127\.0\.0\.1/.test(window.location.hostname) && typeof console !== 'undefined' && console.warn) {
+    console.warn('TDB: Trusted Types policy missing createScript; using raw string fallback.');
+  }
+  return s;
 }
 
 (function loadDeferredScriptsOnIdle() {
@@ -10177,7 +10191,7 @@ function updateDailyVerseWhispers(ref, verseText) {
     if (twDesc) twDesc.setAttribute('content', desc);
     if (ogTitle) ogTitle.setAttribute('content', title);
     if (twTitle) twTitle.setAttribute('content', title);
-    document.title = title;
+    document.title = trustedScript(title);
     // Schema.org Article for verse (SEO rich results)
     var schemaEl = document.getElementById('tdb-verse-schema');
     var schema = {
@@ -10191,13 +10205,14 @@ function updateDailyVerseWhispers(ref, verseText) {
       datePublished: new Date().toISOString().slice(0, 10),
       mainEntityOfPage: { '@type': 'WebPage', '@id': (typeof location !== 'undefined' && location.href) || 'https://todaysdailybattle.com/' }
     };
+    var schemaJson = JSON.stringify(schema);
     if (schemaEl) {
-      schemaEl.textContent = JSON.stringify(schema);
+      schemaEl.textContent = trustedScript(schemaJson);
     } else {
       schemaEl = document.createElement('script');
       schemaEl.id = 'tdb-verse-schema';
       schemaEl.type = 'application/ld+json';
-      schemaEl.textContent = JSON.stringify(schema);
+      schemaEl.textContent = trustedScript(schemaJson);
       document.head.appendChild(schemaEl);
     }
   }
@@ -17722,7 +17737,7 @@ function sanitizeNudgeElements() {
   if (isHome) {
     var today = new Date();
     var dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    document.title = 'Daily Bible Verse + Prayer – ' + dateStr;
+    document.title = trustedScript('Daily Bible Verse + Prayer – ' + dateStr);
     var ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute('content', 'Daily Bible Verse + Prayer – ' + dateStr);
     var twTitle = document.querySelector('meta[name="twitter:title"]');

@@ -1,12 +1,34 @@
 #!/usr/bin/env node
 /**
  * Purge Cloudflare cache via API.
- * Run: CF_API_TOKEN=yyy node scripts/cloudflare-purge.mjs
- * Or:  CF_ZONE_ID=xxx CF_API_TOKEN=yyy node scripts/cloudflare-purge.mjs
+ * Run: npm run purge:cloudflare (reads CF_API_TOKEN from .env)
+ * Or:  CF_API_TOKEN=yyy npm run purge:cloudflare
+ *
+ * Add to .env (gitignored):
+ *   CF_API_TOKEN=your_token_from_cloudflare
  *
  * If CF_ZONE_ID is missing, auto-discovers zone for todaysdailybattle.com.
  * Token: My Profile → API Tokens → Create Token → "Edit zone cache" (include Zone Resources: todaysdailybattle.com)
  */
+import { readFileSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const root = join(__dirname, '..');
+const envPath = join(root, '.env');
+if (existsSync(envPath)) {
+  const lines = readFileSync(envPath, 'utf8').split('\n');
+  for (const line of lines) {
+    const idx = line.indexOf('=');
+    if (idx < 0) continue;
+    const key = line.slice(0, idx).trim();
+    if (!key.startsWith('CF_') || process.env[key]) continue;
+    let val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+    process.env[key] = val;
+  }
+}
+
 const DOMAIN = process.env.CF_DOMAIN || 'todaysdailybattle.com';
 let ZONE_ID = process.env.CF_ZONE_ID;
 const API_TOKEN = process.env.CF_API_TOKEN;

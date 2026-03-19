@@ -87,6 +87,8 @@ const rootFiles = [
   'mobius-universal.js',
   '_redirects',
   '_headers',
+  'robots.txt',
+  'sitemap.xml',
   'kjv.json',
   'relations-dict.json',
   'commentary.json',
@@ -319,6 +321,23 @@ if (missing.length) {
   console.error('BUILD FAIL: Missing critical files in dist/: ' + missing.join(', '));
   process.exit(1);
 }
+
+// SEO / discovery: must ship with Pages output (dist-only deploys skip root-only files otherwise)
+const sitemapDist = path.join(dist, 'sitemap.xml');
+if (!fs.existsSync(sitemapDist)) {
+  console.error('BUILD FAIL: sitemap.xml missing in dist/. Add sitemap.xml to rootFiles in build-copy-static.js.');
+  process.exit(1);
+}
+const sitemapBody = fs.readFileSync(sitemapDist, 'utf8');
+if (!sitemapBody.includes('ansiedad.html') || !sitemapBody.includes('verse-cards')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Spanish pages and verse-cards (expected ansiedad + verse-cards).');
+  process.exit(1);
+}
+if (!fs.existsSync(path.join(dist, 'verse-cards', 'index.html'))) {
+  console.error('BUILD FAIL: verse-cards/index.html missing in dist/. Pinterest gallery will 404 on /verse-cards/.');
+  process.exit(1);
+}
+console.log('Verified: sitemap.xml + robots.txt in dist/, verse-cards/index.html + Spanish URLs in sitemap.');
 
 // Verify donation redirects in _redirects (required for bot-probe cleanup)
 const redirectsPath = path.join(dist, '_redirects');

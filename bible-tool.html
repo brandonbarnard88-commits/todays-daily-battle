@@ -163,7 +163,22 @@
     .qa-result .qa-sources { margin-top: 0.75rem; font-size: 0.9rem; color: #94a3b8; }
     .qa-result .qa-sources a { color: #d4af37; text-decoration: none; }
     .qa-result .qa-sources a:hover { text-decoration: underline; }
-    .qa-disclaimer { font-size: 0.8rem; color: #64748b; margin-top: 1rem; font-style: italic; }
+    .qa-disclaimer { font-size: 0.8rem; color: #a8b8cc; margin-top: 1rem; font-style: italic; }
+    #win-topic {
+      background: #242830;
+      color: #eceef2;
+      border: 1px solid #3d4450;
+      border-radius: 8px;
+      padding: 0.35rem 0.5rem;
+    }
+    .bible-tool-footer-links a {
+      color: #e3bc67;
+      text-decoration: none;
+    }
+    .bible-tool-footer-links a:hover,
+    .bible-tool-footer-links a:focus-visible {
+      text-decoration: underline;
+    }
     .prayer-prompt { color: #888; font-style: italic; margin-top: 15px; }
     .prayer-prompt.hidden { display: none; }
     .prayer-prompt .copy-btn { background: none; border: none; color: #d4af37; cursor: pointer; font-style: normal; }
@@ -311,7 +326,7 @@
             <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
           </div>
           <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
-          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" aria-label="Quick topic search"></div>
+          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
           <details class="home-accordion util-mt-0_5">
             <summary class="home-accordion-summary">More topics</summary>
             <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
@@ -333,7 +348,7 @@
             Prayer prompt: <span class="prompt-text"></span>
             <button type="button" class="copy-btn" aria-label="Copy prayer prompt">Copy</button>
           </div>
-          <p class="qa-disclaimer" style="margin-top:1rem; font-size:0.8rem; color:#64748b; font-style:italic;">This is not a pastor—just a tool. For deep questions, talk to someone real.</p>
+          <p class="qa-disclaimer">This is not a pastor—just a tool. For deep questions, talk to someone real.</p>
         </section>
         <script src="ask-the-word.js?v=20260313" defer></script>
 
@@ -460,7 +475,7 @@
           <div id="battle-ready-result" class="hidden util-mt-1" aria-live="polite"></div>
         </section>
 
-        <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="verse.html">Verse of the Day</a> · <a href="reading-plan.html">7-Day Plan</a> · <a href="study.html">Study Workspace</a></p>
+        <p class="section-note util-mt-1 bible-tool-footer-links"><a href="/">← Back to Home</a> · <a href="verse.html">Verse of the Day</a> · <a href="reading-plan.html">7-Day Plan</a> · <a href="study.html">Study Workspace</a></p>
       </div>
     </main>
   </div>

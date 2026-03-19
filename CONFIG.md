@@ -58,9 +58,9 @@ The featured verse is date-based: the app loads today's row from the `daily_batt
 
 Subscribe buttons use Stripe Checkout. Set these in **config.js** (see `config.example.js`) or at the top of **script.js**: `STRIPE_SUPPORTER_MONTHLY_URL`, `STRIPE_SUPPORTER_YEARLY_URL`, `STRIPE_CHURCH_MONTHLY_URL`, `STRIPE_CHURCH_YEARLY_URL`. If any are empty, the buttons show "Notify me" and scroll to the waitlist instead of opening checkout.
 
-## Walkthrough video
+## Walkthrough video (unused)
 
-The homepage shows "Watch the 60-second walkthrough (video coming soon)." When you have a video URL (e.g. Loom or YouTube), set `WALKTHROUGH_VIDEO_URL` in **config.js** (see `config.example.js`). The link will then open your video and the "(video coming soon)" text will be hidden.
+`WALKTHROUGH_VIDEO_URL` in **config.js** is reserved for a future on-page walkthrough link if you add matching markup (`#walkthrough-wrap` / `#walkthrough-para`). The homepage no longer ships a 60-second walkthrough clip or teaser.
 
 ## Analytics
 

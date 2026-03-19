@@ -45,7 +45,7 @@ window.TDB_CONFIG = {
   // Optional: force email confirmation/reset links to this origin (e.g. https://todaysdailybattle.com). If unset, redirect uses current page origin.
   AUTH_REDIRECT_BASE: '',
   // Admin is determined server-side only. In Supabase Dashboard: Auth > Users > [user] > set app_metadata to { "role": "admin" }. Do not put admin email in client config.
-  // 60-second walkthrough video URL (e.g. Loom). If set, "Watch the 60-second walkthrough" links here.
+  // Reserved: optional walkthrough URL if you add #walkthrough-wrap markup; homepage does not ship this by default.
   WALKTHROUGH_VIDEO_URL: '',
   // Stripe Payment Link URLs (pricing page). If all set, Subscribe buttons open checkout.
   // Supporter: $5/mo, $50/yr. Battle Pro: $10/mo, $100/yr. Church: $10/mo, $100/yr.

@@ -257,7 +257,6 @@
 | `tdb_prayer_session` | session id | Low |
 | `tdb_last_results` | search results | Medium (verse refs) |
 | `tdb_shown_refs` | shown refs | Low |
-| `tdb_walkthrough_seen` | walkthrough | Low |
 | `stats_auth` | stats password auth | Low |
 
 ---

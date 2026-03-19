@@ -31,6 +31,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" nonce="tdb2025s">
+  <style nonce="tdb2025s">
+    /* WCAG AA: form controls on glass card (axe contrast vs mid-gray glass) */
+    .message-board.glass .message-form input,
+    .message-board.glass .message-form textarea,
+    .message-board.glass .message-toolbar select {
+      background: #2a2e36;
+      color: #f1f5f9;
+      border: 1px solid #4b5563;
+      border-radius: 8px;
+    }
+    .message-board.glass .message-toolbar select {
+      padding: 0.35rem 0.5rem;
+    }
+  </style>
 </head>
 <body class="dark-mode">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -177,7 +191,7 @@
             <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
           </div>
           <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
-          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" aria-label="Quick topic search"></div>
+          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
           <details class="home-accordion util-mt-0_5">
             <summary class="home-accordion-summary">More topics</summary>
             <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
@@ -207,7 +221,7 @@
               <button type="button" id="voice-message-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your message"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
             </div>
           </div>
-          <div id="message-list-wrap" class="message-list-wrap" aria-live="polite" aria-busy="false" aria-label="Latest messages">
+          <div id="message-list-wrap" class="message-list-wrap" role="region" aria-live="polite" aria-busy="false" aria-label="Latest messages">
             <div id="message-list-loading" class="message-list-loading" style="display:none;" role="status" aria-live="polite">
               <span class="tdb-spinner" aria-hidden="true"></span>
               <span>Loading messages…</span>

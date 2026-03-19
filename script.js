@@ -18216,27 +18216,6 @@ function sanitizeNudgeElements() {
     if (document.getElementById('collection-select') && typeof renderCollectionSelect === 'function') renderCollectionSelect();
     if (document.getElementById('note-verse-select') && typeof updateNoteSelect === 'function') updateNoteSelect(null);
   }
-  var walkthroughWrap = document.getElementById('walkthrough-wrap');
-  var walkthroughPara = document.getElementById('walkthrough-para');
-  if (walkthroughWrap && window.TDB_CONFIG && window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL) {
-    var a = document.createElement('a');
-    a.id = 'walkthrough-video';
-    a.href = window.TDB_CONFIG.WALKTHROUGH_VIDEO_URL;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.className = 'btn-link';
-    a.textContent = 'Watch the 60-second walkthrough';
-    walkthroughWrap.parentNode.replaceChild(a, walkthroughWrap);
-  } else if (walkthroughPara && typeof sessionStorage !== 'undefined') {
-    // Show "coming March" CTA only once per session to avoid coming-soon fatigue
-    try {
-      if (sessionStorage.getItem('tdb_walkthrough_seen') === '1') {
-        walkthroughPara.style.display = 'none';
-      } else {
-        sessionStorage.setItem('tdb_walkthrough_seen', '1');
-      }
-    } catch (e) {}
-  }
   var shopBattleMugCta = document.getElementById('shop-battle-mug-cta');
   if (shopBattleMugCta && typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.BATTLE_MUG_URL) {
     shopBattleMugCta.href = window.TDB_CONFIG.BATTLE_MUG_URL;

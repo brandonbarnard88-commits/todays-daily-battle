@@ -114,6 +114,32 @@
       --shadow: 0 12px 28px rgba(64, 41, 8, 0.12);
     }
 
+    /* Light theme: WCAG AA contrast on cream cards (axe / prefers-color-scheme: light) */
+    :root[data-theme="light"] .hbp-label {
+      color: #4a3a12;
+    }
+    :root[data-theme="light"] .hbp-panel--action .hbp-label {
+      color: #3d2f0f;
+    }
+    :root[data-theme="light"] .plans-teaser-explore {
+      color: #3a2e0f;
+    }
+    :root[data-theme="light"] .plans-teaser-badge,
+    :root[data-theme="light"] .plans-teaser-arrow {
+      color: #3a2e0f;
+    }
+    :root[data-theme="light"] .prayer-wall-add-btn {
+      color: #2c230a;
+      border-color: color-mix(in srgb, #5c4818 50%, var(--line));
+    }
+    :root[data-theme="light"] .nav-link--active {
+      color: var(--text);
+    }
+    :root[data-theme="light"] .sos-btn {
+      background: #c49a3c;
+      color: #120e18;
+    }
+
     * { box-sizing: border-box; }
 
     html, body {
@@ -1146,10 +1172,6 @@
       transition: background 0.2s, color 0.2s;
     }
     .first-visit-dismiss:hover, .first-visit-dismiss:focus-visible { background: color-mix(in srgb, var(--gold) 15%, transparent); outline: none; }
-
-    .start-here-card { margin-top: 0.5rem; }
-    .start-here-steps { margin: 0.5rem 0 0; padding-left: 1.25rem; }
-    .start-here-steps li { margin-bottom: 0.35rem; }
 
     .plan-start-note { font-size: 0.8rem; color: var(--muted); margin: 0.25rem 0 0.5rem 0; }
     .prayer-wall-badge { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
@@ -3475,7 +3497,7 @@
       <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
       <div class="mood-overlay" aria-hidden="true"></div>
       <!-- Moon phase display (night only) — SVG with craters -->
-      <div id="sky-moon" role="img">
+      <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
         <svg class="sky-moon-svg" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">
           <defs>
             <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
@@ -3677,15 +3699,6 @@
           <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
         </div>
       </div>
-      <!-- ── Start here (3-step path for new users) ── -->
-      <section class="card start-here-card" id="startHereCard" aria-label="Quick start guide" hidden>
-        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Start here</h2>
-        <ol class="start-here-steps">
-          <li><strong>See today's verse</strong> — above</li>
-          <li><strong>Search by feeling</strong> — type anxious, hope, grief… or tap a topic</li>
-          <li><strong>Post a prayer</strong> — no account needed</li>
-        </ol>
-      </section>
       <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads. No personal data collected. Made during recovery from serious illness. Everything you do here stays between you and God.</div>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
@@ -7162,15 +7175,6 @@
           firstHint.hidden = true;
           localStorage.setItem('tdb-first-visit-hint-dismissed', '1');
         });
-      }
-      // Start here card (new users)
-      var startHere = document.getElementById('startHereCard');
-      if (startHere) {
-        var v = parseInt(localStorage.getItem('tdb-visit-count') || '0', 10) || 0;
-        if (v <= 2 && !localStorage.getItem('tdb-start-here-seen')) {
-          startHere.hidden = false;
-          localStorage.setItem('tdb-start-here-seen', '1');
-        }
       }
       // Returning user greeting
       var welcomeBack = document.getElementById('welcomeBackMsg');

@@ -13,7 +13,7 @@
         window.__ttDepth = 1;
         try {
           if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: false });
+            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: true });
           }
           return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         } catch (_) {

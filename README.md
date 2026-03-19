@@ -2,6 +2,8 @@
 
 [![QA Smoke](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/qa-smoke.yml/badge.svg?branch=main)](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/qa-smoke.yml)
 [![Site Offline Test](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/site-offline-test.yml/badge.svg?branch=main)](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/site-offline-test.yml)
+[![Live CSP](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/live-csp.yml/badge.svg?branch=main)](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/live-csp.yml)
+[![Playwright](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/playwright.yml/badge.svg?branch=main)](https://github.com/brandonbarnard88-commits/todays-daily-battle/actions/workflows/playwright.yml)
 
 Static web app for scripture-first daily encouragement, prayer, and study tooling.
 
@@ -16,7 +18,11 @@ Static web app for scripture-first daily encouragement, prayer, and study toolin
 ## Core CI
 
 - `QA Smoke`: browser-based critical-path verification.
-- `Site Offline Test`: build + offline route/search/prayer checks.
+- `Site Offline Test`: build + offline route/search/prayer checks (`quality:gate`).
+- `Live CSP`: production homepage must return `Content-Security-Policy` with Trusted Types + core directives (`npm run test:live-csp`).
+- `Playwright`: Calm + prayer seeds + **axe** on critical pages + core smoke (`npm run quality:gate:browser` locally after `npx playwright install chromium`).
+
+**Quality target checklist:** `docs/QUALITY-9-ROADMAP.md`
 
 ## Action Bible Coverage
 

@@ -8,6 +8,13 @@ async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page)
 }
 
 test.describe('core smoke (dist)', () => {
+  test('home: daily battle card visible', async ({ page }) => {
+    await page.goto('/');
+    await dismissFirstVisitIfPresent(page);
+    await expect(page.locator('#daily-battle-card')).toBeVisible({ timeout: 20000 });
+    await expect(page.locator('#daily-battle-card strong').first()).not.toHaveText('', { timeout: 15000 });
+  });
+
   test('home: Hope topic shows verse cards', async ({ page }) => {
     await page.goto('/');
     await dismissFirstVisitIfPresent(page);

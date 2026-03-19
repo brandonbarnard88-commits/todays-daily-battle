@@ -290,6 +290,11 @@ if (fs.existsSync(path.join(root, 'bible'))) {
   console.log('Copied bible/ folder (hub + tools)');
 }
 
+if (fs.existsSync(path.join(root, 'verse-cards'))) {
+  copyDir(path.join(root, 'verse-cards'), path.join(dist, 'verse-cards'));
+  console.log('Copied verse-cards/ folder (Pinterest verse images)');
+}
+
 const activeBibleMedia = path.join(root, 'media', 'active-bible');
 if (fs.existsSync(activeBibleMedia)) {
   copyDir(activeBibleMedia, path.join(dist, 'media', 'active-bible'));

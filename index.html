@@ -3879,10 +3879,12 @@
           <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
         </div>
         <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">0</span></p>
-        <p class="prayer-social-proof" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
+        <p class="prayer-social-proof hidden" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
+        <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
         <button class="silent-amen-btn" type="button" id="silentAmenBtn" aria-label="Add a silent amen">
           Silent Amen
         </button>
+        <p class="prayer-wall-nudge-silent section-note" aria-live="polite">No one sees this. Just you and God.</p>
         <!-- Community wall: type a short request, add to local wall, optionally sync -->
         <div class="prayer-wall-input-row">
           <label for="prayer-wall-input" class="sr-only">Add a prayer to the wall</label>
@@ -3991,9 +3993,19 @@
         <a href="terms.html">Terms</a>
         <a href="security.html">Security</a>
         <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
+        <span class="footer-lang-hint" aria-label="Spanish pages">Español: <a href="ansiedad.html">Ansiedad</a> · <a href="fuerza.html">Fuerza</a> · <a href="paz.html">Paz</a></span>
       </nav>
       <p class="site-footer-copy">© Todays Daily Battle 2026</p>
       <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
+      <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+        <p class="footer-friday-signup-label">Want one verse + prayer every Friday? No spam.</p>
+        <div class="footer-friday-signup-row">
+          <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+          <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+          <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+        </div>
+        <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+      </div>
       <p class="site-footer-social-proof" id="footerSocialProof" aria-live="polite">Join <span id="footerVisitsCount">26k+</span> monthly visitors finding daily KJV encouragement — verse by verse, win the day ⚔️</p>
       <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
       <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>

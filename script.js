@@ -5901,76 +5901,67 @@ function wireRealPrayerCounter() {
     var wrapEl = document.getElementById('prayer-count-today-wrap');
     var prayerOfDayEl = document.getElementById('prayer-of-day-count');
     var socialProofEl = document.getElementById('prayer-social-proof-num');
-    if (!todayEl || !supabaseClient) return;
+    var prayerTodayLabel = document.getElementById('prayerTodayLabel');
+    if ((!socialProofEl && !prayerTodayLabel) || !supabaseClient) return;
     var prayersTodayRpcDisabled = false;
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
-    function fetchPrayersToday() {
-      if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
-      if (!navigator.onLine) {
-        var localN = 0;
-        try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
-        if (localN > 0 && prayerOfDayEl) {
-          prayerOfDayEl.textContent = formatCount(localN);
-          if (wrapEl) wrapEl.classList.remove('hidden');
-          if (socialProofEl) socialProofEl.textContent = formatCount(localN);
-        } else {
-          if (wrapEl) wrapEl.classList.add('hidden');
-          if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
-          if (socialProofEl) socialProofEl.textContent = '0';
-        }
-        return;
-      }
-      if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED === true)) {
+    function getLocalPrayerCount() {
+      var key = getDailyKey();
+      var quick = 0, silent = 0;
+      try { quick = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + key) || '0', 10); } catch (e) {}
+      try { silent = parseInt(localStorage.getItem('tdb-prayers-day-' + key) || '0', 10); } catch (e) {}
+      return Math.max(quick, silent);
+    }
+    function setPrayerTodayLabel(n) {
+      if (!prayerTodayLabel) return;
+      prayerTodayLabel.textContent = n === 1 ? '1 prayer today' : formatCount(n) + ' prayers today';
+    }
+    var proofP = document.getElementById('prayerSocialProof');
+    var proofZeroP = document.getElementById('prayerSocialProofZero');
+    function applyCount(displayN) {
+      var s = formatCount(displayN);
+      if (displayN > 0) {
+        if (todayEl) todayEl.textContent = s;
+        if (wrapEl) wrapEl.classList.remove('hidden');
+        if (prayerOfDayEl) prayerOfDayEl.textContent = s;
+        if (socialProofEl) socialProofEl.textContent = s;
+        setPrayerTodayLabel(displayN);
+        if (proofP) proofP.classList.remove('hidden');
+        if (proofZeroP) proofZeroP.classList.add('hidden');
+      } else {
         if (wrapEl) wrapEl.classList.add('hidden');
         if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
         if (socialProofEl) socialProofEl.textContent = '0';
+        setPrayerTodayLabel(0);
+        if (proofP) proofP.classList.add('hidden');
+        if (proofZeroP) proofZeroP.classList.remove('hidden');
+      }
+    }
+    function fetchPrayersToday() {
+      if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
+      if (!navigator.onLine) {
+        applyCount(getLocalPrayerCount());
+        return;
+      }
+      if (!(window.TDB_CONFIG && window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED === true)) {
+        applyCount(0);
         return;
       }
       supabaseClient.rpc('get_prayers_today_count')
         .then(function (res) {
           if (res && res.error && (res.error.code === 404 || (res.error.message && String(res.error.message).indexOf('404') !== -1))) {
             prayersTodayRpcDisabled = true;
-            var localN = 0;
-            try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
-            if (localN > 0 && prayerOfDayEl) {
-              prayerOfDayEl.textContent = formatCount(localN);
-              if (wrapEl) wrapEl.classList.remove('hidden');
-              if (socialProofEl) socialProofEl.textContent = formatCount(localN);
-            } else {
-              if (wrapEl) wrapEl.classList.add('hidden');
-              if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
-              if (socialProofEl) socialProofEl.textContent = '0';
-            }
+            applyCount(getLocalPrayerCount());
             return;
           }
           var n = res && res.data != null ? (typeof res.data === 'number' ? res.data : parseInt(res.data, 10)) : NaN;
-          var localN = 0;
-          try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
+          var localN = getLocalPrayerCount();
           var displayN = (!isNaN(n) && n >= 0) ? Math.max(n, localN) : localN;
-          if (displayN > 0) {
-            if (todayEl) todayEl.textContent = formatCount(displayN);
-            if (wrapEl) wrapEl.classList.remove('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = formatCount(displayN);
-            if (socialProofEl) socialProofEl.textContent = formatCount(displayN);
-          } else {
-            if (wrapEl) wrapEl.classList.add('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
-            if (socialProofEl) socialProofEl.textContent = '0';
-          }
+          applyCount(displayN);
         })
         .catch(function () {
           prayersTodayRpcDisabled = true;
-          var localN = 0;
-          try { localN = parseInt(localStorage.getItem(QUICK_PRAY_COUNT_PREFIX + getDailyKey()) || '0', 10); } catch (e) {}
-          if (localN > 0 && prayerOfDayEl) {
-            prayerOfDayEl.textContent = formatCount(localN);
-            if (wrapEl) wrapEl.classList.remove('hidden');
-            if (socialProofEl) socialProofEl.textContent = formatCount(localN);
-          } else {
-            if (wrapEl) wrapEl.classList.add('hidden');
-            if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
-            if (socialProofEl) socialProofEl.textContent = '0';
-          }
+          applyCount(getLocalPrayerCount());
         });
     }
     fetchPrayersToday();
@@ -8046,6 +8037,55 @@ function wireFooterRotating() {
     el.textContent = FOOTER_ROTATING_LINES[idx % FOOTER_ROTATING_LINES.length];
     idx += 1;
   }, 30000);
+}
+
+function wireFooterFridaySignup() {
+  var wrap = document.getElementById('footerFridaySignup');
+  var input = document.getElementById('footer-friday-email');
+  var btn = document.getElementById('footer-friday-submit');
+  var status = document.getElementById('footerFridayStatus');
+  if (!wrap || !input || !btn) return;
+  var doneKey = 'tdb_friday_signup_done';
+  try {
+    if (localStorage.getItem(doneKey) === '1') {
+      if (status) status.textContent = 'You\'re in. See you Friday.';
+      input.disabled = true;
+      btn.disabled = true;
+      return;
+    }
+  } catch (e) {}
+  btn.addEventListener('click', function () {
+    var email = String((input && input.value) || '').trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (status) status.textContent = 'Enter a valid email.';
+      return;
+    }
+    btn.disabled = true;
+    if (status) status.textContent = 'Adding you…';
+    var client = supabaseClient || (typeof window.__tdbSupabaseClient !== 'undefined' ? window.__tdbSupabaseClient : null);
+    if (!client) {
+      if (status) status.textContent = 'Try again in a moment.';
+      btn.disabled = false;
+      return;
+    }
+    var payload = { email: email, weekly_opt_in: true, daily_opt_in: false };
+    try {
+      payload.preferred_time = 'friday_7pm_local';
+    } catch (e) {}
+    client.from('newsletter_signups').insert(payload).then(function (res) {
+      if (res && res.error) {
+        if (status) status.textContent = 'Try again or use the weekly opt-in above.';
+        btn.disabled = false;
+        return;
+      }
+      try { localStorage.setItem(doneKey, '1'); } catch (e) {}
+      if (status) status.textContent = 'You\'re in. One verse + prayer every Friday.';
+      input.disabled = true;
+    }).catch(function () {
+      if (status) status.textContent = 'Try again in a moment.';
+      btn.disabled = false;
+    });
+  });
 }
 
 function wireSoundEchoToggle() {
@@ -17921,6 +17961,7 @@ function sanitizeNudgeElements() {
   wireDownloadDevotionalButton();
   wireCollectiveIntention();
   wireFooterRotating();
+  wireFooterFridaySignup();
   wireSoundEchoToggle();
   wireBlessSessionBtn();
   wireArmorBuilderModal();

@@ -14,7 +14,7 @@
         try {
           if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
             var r = DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: true });
-            return typeof r === 'string' ? r : x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            return (r && typeof r === 'object' && typeof r.toString === 'function') ? r.toString() : (typeof r === 'string' ? r : x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
           }
           return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         } catch (_) {
@@ -56,6 +56,9 @@
       var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
       Object.defineProperty(Element.prototype, 'innerHTML', {
         set: function (v) {
+          if (v != null && typeof v === 'object' && v.constructor && v.constructor.name === 'TrustedHTML') {
+            return orig.call(this, v);
+          }
           var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
           if (createHTML) {
             try { v = s ? createHTML(s) : createHTML(''); } catch (_) {
@@ -71,6 +74,9 @@
       var ia = Element.prototype.insertAdjacentHTML;
       if (ia && createHTML) {
         Element.prototype.insertAdjacentHTML = function (pos, html) {
+          if (html != null && typeof html === 'object' && html.constructor && html.constructor.name === 'TrustedHTML') {
+            return ia.call(this, pos, html);
+          }
           var s = html == null ? '' : (typeof html === 'string' ? html : String(html));
           if (createHTML) {
             try { html = s ? createHTML(s) : createHTML(''); } catch (_) {

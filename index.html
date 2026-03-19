@@ -3442,7 +3442,7 @@
       <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
       <div class="mood-overlay" aria-hidden="true"></div>
       <!-- Moon phase display (night only) -->
-      <div id="sky-moon" aria-hidden="true">
+      <div id="sky-moon" role="img">
         <div class="sky-moon-disc">
           <div class="sky-moon-shadow" id="sky-moon-shadow"></div>
         </div>
@@ -6838,6 +6838,7 @@
       if (current !== next) {
         classes.forEach(function(c) { document.body.classList.remove(c); });
         document.body.classList.add(next);
+        if (next === 'sky-night' && typeof initSkyMoon === 'function') initSkyMoon();
       }
     }
 
@@ -6982,30 +6983,47 @@
       if (isNight) initSkyMoon();
     }
 
+    function getMoonPhase(date) {
+      var d = date || new Date();
+      var y = d.getFullYear(), m = d.getMonth() + 1, day = d.getDate();
+      var jd = (1461 * (y + 4800 + Math.floor((m - 14) / 12))) / 4 +
+        (367 * (m - 2 - 12 * Math.floor((m - 14) / 12))) / 12 -
+        (3 * Math.floor((y + 4900 + Math.floor((m - 14) / 12)) / 100)) / 4 + day - 32075;
+      var lunarAge = ((jd - 2451550.1) / 29.530588853) % 1;
+      if (lunarAge < 0) lunarAge += 1;
+      var illum = 0.5 * (1 - Math.cos(lunarAge * Math.PI * 2));
+      var phase = lunarAge;
+      var name = 'New Moon';
+      if (phase >= 0.03 && phase < 0.22) name = 'Waxing Crescent';
+      else if (phase >= 0.22 && phase < 0.28) name = 'First Quarter';
+      else if (phase >= 0.28 && phase < 0.47) name = 'Waxing Gibbous';
+      else if (phase >= 0.47 && phase < 0.53) name = 'Full Moon';
+      else if (phase >= 0.53 && phase < 0.72) name = 'Waning Gibbous';
+      else if (phase >= 0.72 && phase < 0.78) name = 'Last Quarter';
+      else if (phase >= 0.78 && phase < 0.97) name = 'Waning Crescent';
+      return { phase: name, fraction: phase, illumination: illum, waxing: phase < 0.5 };
+    }
+
     function initSkyMoon() {
       var shadow = document.getElementById('sky-moon-shadow');
       var label  = document.getElementById('sky-moon-label');
       if (!shadow) return;
 
-      // Illumination calc — no lib needed
-      var known = new Date(2025, 0, 29).getTime(); // known new moon Jan 29 2025
-      var daysSince = (Date.now() - known) / 86400000;
-      var cycle = ((daysSince % 29.53) + 29.53) % 29.53;
-      var illum = cycle <= 14.765 ? cycle / 14.765 : (29.53 - cycle) / 14.765;
-      var waxing = cycle <= 14.765;
+      function updateMoon() {
+        var mp = getMoonPhase();
+        var illum = mp.illumination;
+        var waxing = mp.waxing;
+        var shadowScale = 1 - illum;
+        shadow.style.setProperty('--shadow-scale', shadowScale.toFixed(3));
+        shadow.style.setProperty('--shadow-origin', waxing ? 'right center' : 'left center');
+        var pct = Math.round(illum * 100);
+        if (label) label.textContent = mp.phase + ' · ' + pct + '%';
+        var moonEl = document.getElementById('sky-moon');
+        if (moonEl) moonEl.setAttribute('aria-label', 'Moon phase: ' + mp.phase + ', ' + pct + '% illuminated');
+      }
 
-      // Shadow scale: 0 = no shadow (full), 1 = total shadow (new)
-      var shadowScale = Math.abs(1 - 2 * illum);
-      // Shadow sits on left (waxing) or right (waning)
-      shadow.style.setProperty('--shadow-scale', shadowScale.toFixed(3));
-      shadow.style.setProperty('--shadow-origin', waxing ? 'right center' : 'left center');
-
-      // Phase name
-      var phases = ['New Moon','Waxing Crescent','First Quarter','Waxing Gibbous',
-                    'Full Moon','Waning Gibbous','Last Quarter','Waning Crescent'];
-      var phaseName = phases[Math.round(cycle / 29.53 * 8) % 8];
-      var pct = Math.round(illum * 100);
-      if (label) label.textContent = phaseName + ' · ' + pct + '%';
+      updateMoon();
+      setInterval(updateMoon, 600000);
     }
 
     // ── Init ──
@@ -7452,6 +7470,10 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260311k" data-cfasync="false" fetchpriority="high"></script>
+</body>
+</html>
+>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

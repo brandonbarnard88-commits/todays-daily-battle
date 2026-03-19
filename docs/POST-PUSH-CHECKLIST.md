@@ -4,6 +4,37 @@ After you `git push` and the site redeploys, run through this.
 
 ---
 
+## 0. Force Fresh Content After Deploy (Cache Purge & Refresh)
+
+When deploying new seeds, Möbius enrichments (node cards/verses/prayers), Trusted Types patch, CSP headers, or any dynamic/JS/header change:
+
+**Deploy first** — Push to repo or run deploy → wait for Cloudflare Pages build to finish (Workers & Pages → your project → Builds tab → latest successful).
+
+**Purge cache (Cloudflare):**
+- Log in → Workers & Pages (or Cache → Overview) → select your Pages project
+- Go to Caching → Configuration (or Cache → Purge Cache)
+- Click **Purge Everything** → confirm (invalidates HTML, JS, audio, etc.)
+
+*Alternative (targeted):* Purge by URL — e.g. `https://todaysdailybattle.com/mobius.html`, `script.js`, `index.html`, `message.html`, `audio/mobius-guided-10min.mp3`
+
+**Hard refresh (browser):**
+- Open site in incognito/private window
+- Right-click reload → **Empty Cache and Hard Reload** (Chrome/Edge) or Cmd+Shift+R (Mac) / Ctrl+Shift+R (Win/Linux)
+
+**Verify:**
+- [ ] Prayer wall → 12+ entries (new seeds like "When fear overwhelms—hold me, Lord.", "Calm the storm in my mind.")
+- [ ] Möbius → hover/tap nodes → card shows verse (e.g. Isaiah 40:31 for Power), prayer, cross-ref; streak shows encouragement
+- [ ] Console: no TrustedHTML errors; `trustedTypes.defaultPolicy` returns object
+- [ ] Calm → anxiety input → verses + Möbius button
+
+**CSP header check:** `curl -sI https://todaysdailybattle.com | grep -i content-security-policy` — should include `require-trusted-types-for 'script'; trusted-types default dompurify`
+
+**If still stale:** Wait 1–5 min; try cache-buster `?v=20260319`; purge again.
+
+Do this before verifying the rest. Otherwise live may lag behind repo.
+
+---
+
 ## 1. Site works
 
 **Visit:** https://todaysdailybattle.com

@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Security & Privacy Basics · Today's Daily Battle</title>
-  <meta name="description" content="How we keep your data secure: HTTPS, Cloudflare, Supabase encryption. Plain language.">
+  <meta name="description" content="How we keep your data secure: HTTPS, Cloudflare, Supabase encryption, CSP, Trusted Types, DOMPurify. Plain language.">
   <link rel="canonical" href="https://todaysdailybattle.com/security.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="manifest" href="/manifest.json">
@@ -54,6 +54,9 @@
   <h1>Security & Privacy Basics</h1>
 
   <p>We use Cloudflare for HTTPS encryption (99%+ traffic), DDoS protection, and auto-updates. No personal data collected unless you sign in—then it's encrypted via Supabase (in transit &amp; at rest). Sign-in optional. Everything works offline without an account.</p>
+
+  <h2>XSS &amp; Script Protection</h2>
+  <p>We enforce a Content-Security-Policy (CSP) and Trusted Types so scripts and user content can't inject malicious code. User input is sanitized with DOMPurify before display. All inline scripts use nonces. No raw HTML from users or APIs reaches the DOM.</p>
 
   <h2>Questions?</h2>
   <p>Email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a></p>

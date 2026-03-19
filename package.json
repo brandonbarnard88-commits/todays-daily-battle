@@ -17,6 +17,9 @@
     "test:playwright": "playwright test",
     "test:playwright:calm": "playwright test tests/calm.spec.ts",
     "test:playwright:seeds": "QA_URL= playwright test tests/prayer-wall-seeds.spec.ts",
+    "test:a11y": "playwright test tests/a11y-critical.spec.ts",
+    "test:smoke": "playwright test tests/smoke-core.spec.ts",
+    "test:live-csp": "node scripts/verify-live-csp.mjs",
     "reel:batch": "node scripts/build-batch-reel.mjs",
     "reel:batch:night": "node scripts/build-batch-reel.mjs --profile night",
     "prompts:cinematic": "node scripts/build-cinematic-prompt-manifest.mjs",
@@ -27,6 +30,7 @@
     "actionbible:packs": "node build-action-bible-packs.js",
     "quality:gate": "npm run build && npm run audit:paranoid && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke",
+    "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts",
     "validate:prod": "node scripts/prod-validation.mjs",
     "suggest:fetch": "node scripts/fetch-feeling-suggestions.mjs",
     "deploy:webhook": "bash scripts/deploy-stripe-webhook.sh",
@@ -38,9 +42,11 @@
     "audit:lighthouse:local": "node scripts/lighthouse-local.mjs",
     "audit:lighthouse:local:manual": "npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices",
     "pre-launch": "npm run quality:gate",
-    "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke"
+    "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke",
+    "pre-launch:verify-live": "npm run test:live-csp && npm run validate:prod"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.55.0",
     "clean-css": "^5.3.3",
     "jsdom": "^28.1.0",

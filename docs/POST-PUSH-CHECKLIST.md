@@ -29,6 +29,10 @@ When deploying new seeds, Möbius enrichments (node cards/verses/prayers), Trust
 
 **CSP header check:** `curl -sI https://todaysdailybattle.com | grep -i content-security-policy` — should include `require-trusted-types-for 'script'; trusted-types default dompurify`
 
+**Same check from repo:** `npm run test:live-csp` (fails if the live document has no CSP or Trusted Types fragment).
+
+**Deeper gate (local):** `npm run quality:gate:browser` — build + Playwright axe on critical pages + core smoke (requires `npx playwright install chromium` once).
+
 **If still stale:** Wait 1–5 min; try cache-buster `?v=20260319`; purge again.
 
 Do this before verifying the rest. Otherwise live may lag behind repo.

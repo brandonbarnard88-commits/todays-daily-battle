@@ -35,7 +35,7 @@ jobs:
         run: |
           npx -y serve dist -p 8080 &
           sleep 2
-          npx playwright test tests/prayer-wall-seeds.spec.ts tests/calm.spec.ts
+          npx playwright test tests/prayer-wall-seeds.spec.ts tests/calm.spec.ts tests/a11y-critical.spec.ts tests/smoke-core.spec.ts
 
       - name: Upload report on failure
         if: failure()

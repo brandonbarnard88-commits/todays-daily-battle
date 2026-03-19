@@ -39,6 +39,18 @@
           configurable: true,
           enumerable: d.enumerable
         });
+        var ia = Element.prototype.insertAdjacentHTML;
+        if (ia && createHTML) {
+          Element.prototype.insertAdjacentHTML = function (pos, html) {
+            var s = html == null ? '' : (typeof html === 'string' ? html : String(html));
+            if (createHTML) {
+              try { html = s ? createHTML(s) : createHTML(''); } catch (_) {
+                try { html = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (__) { html = createHTML(''); }
+              }
+            }
+            return ia.call(this, pos, html);
+          };
+        }
       } else if (typeof console !== 'undefined' && console.warn) {
         console.warn('Trusted Types active but innerHTML patch could not be applied.');
       }

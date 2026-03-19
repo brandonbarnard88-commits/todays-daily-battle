@@ -33,11 +33,14 @@
         var u = String(url || '');
         if (!u) return u;
         if (u.indexOf('://') < 0 && u.charAt(0) !== '/' || u.charAt(0) === '/' && u.charAt(1) !== '/') return u;
-        if (window.location && u.startsWith(window.location.origin + '/')) return u;
+        if (window.location && (u.startsWith(window.location.origin + '/') || u === window.location.origin + '/')) return u;
         if (u.startsWith('https://www.googletagmanager.com') || u.startsWith('https://www.google-analytics.com') ||
             u.startsWith('https://static.cloudflareinsights.com') || u.startsWith('https://cdn.jsdelivr.net') ||
+            u.startsWith('https://cdnjs.cloudflare.com') || u.startsWith('https://unpkg.com') ||
             u.startsWith('https://challenges.cloudflare.com') || u.startsWith('https://www.gstatic.com') ||
-            u.startsWith('https://plausible.io') || u.indexOf('supabase.co') !== -1) return u;
+            u.startsWith('https://plausible.io') || u.startsWith('https://js.stripe.com') ||
+            u.startsWith('https://todaysdailybattle.com') || u.startsWith('https://www.todaysdailybattle.com') ||
+            u.indexOf('supabase.co') !== -1) return u;
         console.warn('Blocked script URL:', u);
         return null;
       }

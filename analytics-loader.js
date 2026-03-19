@@ -18,15 +18,17 @@
     loaded = true;
 
     var url = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    var s = document.createElement('script');
-    s.async = true;
+    var trusted = null;
     try {
       if (window.trustedTypes && window.trustedTypes.defaultPolicy && window.trustedTypes.defaultPolicy.createScriptURL) {
-        s.src = window.trustedTypes.defaultPolicy.createScriptURL(url);
-      } else {
-        s.src = url;
+        trusted = window.trustedTypes.defaultPolicy.createScriptURL(url);
       }
-    } catch (_) { s.src = url; }
+    } catch (_) {}
+    if (!trusted && !window.trustedTypes) trusted = url;
+    if (!trusted) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = trusted;
     document.head.appendChild(s);
   }
 

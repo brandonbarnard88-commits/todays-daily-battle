@@ -63,12 +63,15 @@
 })();
 
 function trustedScriptURL(url) {
-  if (typeof url !== 'string' || !url) return url;
+  if (typeof url !== 'string' || !url) return null;
   try {
     var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
-    if (pol && typeof pol.createScriptURL === 'function') return pol.createScriptURL(url);
+    if (pol && typeof pol.createScriptURL === 'function') {
+      var t = pol.createScriptURL(url);
+      if (t) return t;
+    }
   } catch (_) {}
-  return url;
+  return null;
 }
 
 /** Wrap string for TrustedScript sinks (document.title, script.textContent). Uses default policy when CSP requires TrustedScript. */
@@ -90,8 +93,10 @@ function trustedScript(s) {
   var loaded = false;
   function inject(src) {
     if (document.querySelector('script[src*="' + src + '"]')) return;
+    var trusted = trustedScriptURL(src);
+    if (!trusted) return;
     var s = document.createElement('script');
-    s.src = trustedScriptURL(src);
+    s.src = trusted;
     s.defer = true;
     document.head.appendChild(s);
   }
@@ -887,8 +892,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="easter-eggs.js"]')) return;
   function inject() {
     if (document.querySelector('script[src*="easter-eggs.js"]')) return;
+    var trusted = trustedScriptURL('/easter-eggs.js');
+    if (!trusted) return;
     var script = document.createElement('script');
-    script.src = trustedScriptURL('/easter-eggs.js');
+    script.src = trusted;
     script.defer = true;
     script.setAttribute('data-tdb-easter-eggs', '1');
     document.head.appendChild(script);
@@ -903,8 +910,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260306u');
+  if (!trusted) return;
   var script = document.createElement('script');
-  script.src = trustedScriptURL('/verse-breakdown.js?v=20260306u');
+  script.src = trusted;
   script.defer = true;
   script.setAttribute('data-tdb-verse-breakdown', '1');
   document.head.appendChild(script);
@@ -1004,8 +1013,10 @@ function ensureConfettiLoaded() {
       });
       return;
     }
+    var trusted = trustedScriptURL(src);
+    if (!trusted) { resolve(false); return; }
     var script = document.createElement('script');
-    script.src = trustedScriptURL(src);
+    script.src = trusted;
     script.defer = true;
     script.crossOrigin = 'anonymous';
     script.dataset.tdbConfetti = '1';
@@ -1559,11 +1570,14 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
   function loadDeferredThirdParty() {
     var plausibleDomain = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PLAUSIBLE_DOMAIN) || '';
     if (plausibleDomain) {
-      var p = document.createElement('script');
-      p.defer = true;
-      p.dataset.domain = plausibleDomain;
-      p.src = trustedScriptURL('https://plausible.io/js/script.js');
-      document.head.appendChild(p);
+      var trusted = trustedScriptURL('https://plausible.io/js/script.js');
+      if (trusted) {
+        var p = document.createElement('script');
+        p.defer = true;
+        p.dataset.domain = plausibleDomain;
+        p.src = trusted;
+        document.head.appendChild(p);
+      }
     }
     if (typeof wireAnalyticsBeacon === 'function') wireAnalyticsBeacon();
   }
@@ -3723,8 +3737,10 @@ function runSupabaseConnectionTest() {
 
 function loadSupabaseScript(url) {
   return new Promise((resolve) => {
+    var trusted = trustedScriptURL(url);
+    if (!trusted) { resolve(false); return; }
     const script = document.createElement('script');
-    script.src = trustedScriptURL(url);
+    script.src = trusted;
     script.async = true;
     script.defer = true;
     script.setAttribute('data-cfasync', 'false');
@@ -5273,9 +5289,11 @@ function ensureOAuthButtons() {
 
 function wireAnalyticsBeacon() {
   if (!CF_ANALYTICS_TOKEN) return;
+  var trusted = trustedScriptURL('https://static.cloudflareinsights.com/beacon.min.js');
+  if (!trusted) return;
   const script = document.createElement('script');
   script.defer = true;
-  script.src = trustedScriptURL('https://static.cloudflareinsights.com/beacon.min.js');
+  script.src = trusted;
   script.setAttribute('data-cf-beacon', JSON.stringify({ token: CF_ANALYTICS_TOKEN }));
   document.head.appendChild(script);
 }
@@ -19159,11 +19177,14 @@ function sanitizeNudgeElements() {
         tw.id = 'turnstile-quick-pray';
         turnstileContainer.appendChild(tw);
         if (!document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
-          var ts = document.createElement('script');
-          ts.src = trustedScriptURL('https://challenges.cloudflare.com/turnstile/api.js');
-          ts.async = true;
-          ts.defer = true;
-          document.head.appendChild(ts);
+          var trusted = trustedScriptURL('https://challenges.cloudflare.com/turnstile/api.js');
+          if (trusted) {
+            var ts = document.createElement('script');
+            ts.src = trusted;
+            ts.async = true;
+            ts.defer = true;
+            document.head.appendChild(ts);
+          }
         }
       }
     }

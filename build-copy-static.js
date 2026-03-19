@@ -314,5 +314,51 @@ if (missing.length) {
   console.error('BUILD FAIL: Missing critical files in dist/: ' + missing.join(', '));
   process.exit(1);
 }
+
+// Verify donation redirects in _redirects (required for bot-probe cleanup)
+const redirectsPath = path.join(dist, '_redirects');
+if (!fs.existsSync(redirectsPath)) {
+  console.error('BUILD FAIL: _redirects missing from dist/. Donation redirects required.');
+  process.exit(1);
+}
+const redirectsContent = fs.readFileSync(redirectsPath, 'utf8');
+const DONATION_REDIRECTS = [
+  { path: '/donate', desc: '/donate → Buy Me a Coffee' },
+  { path: '/stripe', desc: '/stripe → Buy Me a Coffee' },
+  { path: '/support', desc: '/support → Buy Me a Coffee' },
+  { path: '/donations', desc: '/donations → Buy Me a Coffee' },
+  { path: '/donations/*', desc: '/donations/* wildcard → Buy Me a Coffee' }
+];
+const buymeacoffee = 'https://buymeacoffee.com/todaysdailybattle';
+const missingRedirects = DONATION_REDIRECTS.filter(function (r) {
+  const lineMatch = new RegExp('^' + r.path.replace(/\*/g, '\\*') + '\\s+' + buymeacoffee.replace(/\./g, '\\.') + '\\s+301', 'm');
+  return !lineMatch.test(redirectsContent);
+});
+if (missingRedirects.length) {
+  console.error('BUILD FAIL: _redirects missing required donation rules:');
+  missingRedirects.forEach(function (r) { console.error('  - ' + r.desc); });
+  process.exit(1);
+}
+console.log('Verified: donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');
+
+// Verify vercel.json has donation redirects (Vercel deploy parity)
+const vercelPath = path.join(root, 'vercel.json');
+if (fs.existsSync(vercelPath)) {
+  const vercel = JSON.parse(fs.readFileSync(vercelPath, 'utf8'));
+  const redirects = vercel.redirects || [];
+  const requiredSources = ['/donate', '/stripe', '/support', '/donations', '/donations/:path*'];
+  const dest = 'https://buymeacoffee.com/todaysdailybattle';
+  const missingVercel = requiredSources.filter(function (src) {
+    return !redirects.some(function (r) {
+      return r.source === src && r.destination === dest && r.permanent === true;
+    });
+  });
+  if (missingVercel.length) {
+    console.error('BUILD FAIL: vercel.json missing donation redirects: ' + missingVercel.join(', '));
+    process.exit(1);
+  }
+  console.log('Verified: vercel.json donation redirects present.');
+}
+
 console.log('build-copy-static.js: copied all static files to dist/ (including topic-*.html).');
 console.log('Verified: Bible Tool, Pastor Toolkit, plans, pastor/, bible/ present.');

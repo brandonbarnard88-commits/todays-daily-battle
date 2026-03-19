@@ -12,9 +12,9 @@ See `supabase/functions/submit-prayer/index.ts` and `HARDENING-DEPLOY.md`.
 
 ## Cloudflare Worker (Optional)
 
-Prayer submissions go **directly to Supabase** (`*.supabase.co/functions/v1/submit-prayer`), not through your site’s origin. Cloudflare cannot rate limit those URLs unless you proxy them.
+Prayer submissions go **directly to Supabase** (`*.supabase.co/functions/v1/submit-prayer`), not through your site's origin. Cloudflare cannot rate limit those URLs unless you proxy them.
 
-If you ever add a proxy path (e.g. `/api/prayer` → Supabase), a Cloudflare Worker could enforce a stricter limit (e.g. 5 req/min) before forwarding. For now, the Edge Function’s 30/min limit is sufficient.
+If you ever add a proxy path (e.g. `/api/prayer` → Supabase), a Cloudflare Worker could enforce a stricter limit (e.g. 5 req/min) before forwarding. **Draft:** `workers/rate-limit-prayer.js` + `workers/wrangler.rate-limit-prayer.toml`. Deploy with `npx wrangler deploy -c wrangler.rate-limit-prayer.toml` after adding route and `SUPABASE_SUBMIT_PRAYER_URL` secret. For now, the Edge Function's 30/min limit is sufficient.
 
 ## Tightening the Limit
 

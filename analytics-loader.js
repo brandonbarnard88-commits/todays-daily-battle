@@ -17,9 +17,16 @@
     if (loaded) return;
     loaded = true;
 
+    var url = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     var s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    try {
+      if (window.trustedTypes && window.trustedTypes.defaultPolicy && window.trustedTypes.defaultPolicy.createScriptURL) {
+        s.src = window.trustedTypes.defaultPolicy.createScriptURL(url);
+      } else {
+        s.src = url;
+      }
+    } catch (_) { s.src = url; }
     document.head.appendChild(s);
   }
 

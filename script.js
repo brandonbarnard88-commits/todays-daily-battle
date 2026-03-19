@@ -32,6 +32,7 @@ function trustedScriptURL(url) {
 
 (function loadDeferredScriptsOnIdle() {
   if (typeof document === 'undefined') return;
+  var loaded = false;
   function inject(src) {
     if (document.querySelector('script[src*="' + src + '"]')) return;
     var s = document.createElement('script');
@@ -39,13 +40,25 @@ function trustedScriptURL(url) {
     s.defer = true;
     document.head.appendChild(s);
   }
-  var cb = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1500); };
-  cb(function () {
+  function loadAnalytics() {
+    if (loaded) return;
+    loaded = true;
     inject('analytics-loader.js');
     inject('gsc-verify.js');
     inject('share-page.js');
     inject('utils.js');
-  }, { timeout: 2500 });
+  }
+  function onTrigger() {
+    loadAnalytics();
+    window.removeEventListener('scroll', onScroll, { passive: true });
+    window.removeEventListener('click', onTrigger);
+    window.removeEventListener('keydown', onTrigger);
+  }
+  function onScroll() { if (window.scrollY > 80) onTrigger(); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('click', onTrigger, { once: true });
+  window.addEventListener('keydown', onTrigger, { once: true });
+  setTimeout(loadAnalytics, 5000);
 })();
 
 /**
@@ -1487,14 +1500,22 @@ const GA_MEASUREMENT_ID = (typeof window !== 'undefined' && window.TDB_CONFIG &&
     m.content = cfg.GOOGLE_SITE_VERIFICATION;
     document.head.appendChild(m);
   }
-  // GA4 loaded via analytics-loader.js (lazy after interaction) — do not load here
-  var plausibleDomain = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PLAUSIBLE_DOMAIN) || '';
-  if (plausibleDomain) {
-    var p = document.createElement('script');
-    p.defer = true;
-    p.dataset.domain = plausibleDomain;
-    p.src = trustedScriptURL('https://plausible.io/js/script.js');
-    document.head.appendChild(p);
+  // GA4: analytics-loader.js (lazy after interaction). Plausible + Cloudflare: deferred to window load.
+  function loadDeferredThirdParty() {
+    var plausibleDomain = (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.PLAUSIBLE_DOMAIN) || '';
+    if (plausibleDomain) {
+      var p = document.createElement('script');
+      p.defer = true;
+      p.dataset.domain = plausibleDomain;
+      p.src = trustedScriptURL('https://plausible.io/js/script.js');
+      document.head.appendChild(p);
+    }
+    if (typeof wireAnalyticsBeacon === 'function') wireAnalyticsBeacon();
+  }
+  if (document.readyState === 'complete') {
+    loadDeferredThirdParty();
+  } else {
+    window.addEventListener('load', loadDeferredThirdParty);
   }
 })();
 const OFFLINE_BATTLE_KEY_PREFIX = 'tdb_offline_battle_';
@@ -17751,7 +17772,7 @@ function sanitizeNudgeElements() {
       });
     })();
   }
-  wireAnalyticsBeacon();
+  // Cloudflare beacon loads via loadDeferredThirdParty on window load
   wireOfflineBanner();
   initImageLazyLoading();
   initVerseCardLazyLoading();
@@ -19929,7 +19950,9 @@ function sanitizeNudgeElements() {
       { id: 'seed-2', text: 'Strength for my family today.', hearts: 0, seed: true },
       { id: 'seed-3', text: 'Lord, carry my grief today.', hearts: 0, seed: true },
       { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
-      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true }
+      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
+      { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
+      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true }
     ];
     function seededShuffle(arr, seedStr) {
       var a = arr.slice();

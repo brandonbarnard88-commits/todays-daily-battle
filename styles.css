@@ -8968,9 +8968,10 @@ body.red-letter-off .red-letter-card {
 }
 .dark-mode .prayer-map-caption { color: var(--muted, #94a3b8); }
 
-.patriotic-scriptures { margin-top: 1.5rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); content-visibility: auto; contain-intrinsic-size: auto 400px; }
+.patriotic-scriptures { margin-top: 1.5rem; padding-top: 1rem; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.15); content-visibility: auto; contain-intrinsic-size: auto 400px; }
 .patriotic-scriptures-title { text-align: center; font-size: 1.5rem; margin: 0 0 0.5rem; color: var(--elite-gold, #D4AF37); font-family: "Playfair Display", Georgia, serif; }
 .patriotic-scriptures-intro { text-align: center; margin-bottom: 1rem; }
+#patriotic-scriptures { padding-top: 1rem; }
 #patriotic-scriptures h2:hover .section-divider-icon,
 #patriotic-scriptures h2:active .section-divider-icon,
 #patriotic-scriptures h2:focus-visible .section-divider-icon {
@@ -12418,6 +12419,14 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   .plan-chip {
     font-size: 1rem;
     padding: 0.7rem 1.1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .plan-chip:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.4);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plan-chip:hover { transform: none; }
   }
 
   /* ── Quick topic buttons ── */

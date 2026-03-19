@@ -20,7 +20,8 @@ async function minifyJs(filePath) {
   const result = await minify(code, {
     compress: { passes: 1 },
     mangle: true,
-    format: { comments: false }
+    format: { comments: false },
+    sourceMap: false
   });
   if (result.error) throw result.error;
   fs.writeFileSync(filePath, result.code);

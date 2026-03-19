@@ -14,6 +14,8 @@
     "test:mobile:local": "node scripts/mobile-test-local.mjs",
     "audit:paranoid": "node scripts/audit-paranoid.mjs",
     "qa:smoke": "node scripts/qa-smoke.mjs",
+    "test:playwright": "playwright test",
+    "test:playwright:calm": "playwright test tests/calm.spec.ts",
     "reel:batch": "node scripts/build-batch-reel.mjs",
     "reel:batch:night": "node scripts/build-batch-reel.mjs --profile night",
     "prompts:cinematic": "node scripts/build-cinematic-prompt-manifest.mjs",
@@ -38,6 +40,7 @@
     "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "clean-css": "^5.3.3",
     "jsdom": "^28.1.0",
     "playwright": "^1.55.0",

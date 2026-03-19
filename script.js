@@ -26,9 +26,12 @@
         var orig = d.set;
         Object.defineProperty(Element.prototype, 'innerHTML', {
           set: function (v) {
+            var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
             var trustedValue = v;
-            if (typeof v === 'string' && createHTML) {
-              try { trustedValue = createHTML(v); } catch (_) {}
+            if (createHTML) {
+              try { trustedValue = s ? createHTML(s) : createHTML(''); } catch (_) {
+                try { trustedValue = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (__) { trustedValue = createHTML(''); }
+              }
             }
             return orig.call(this, trustedValue);
           },

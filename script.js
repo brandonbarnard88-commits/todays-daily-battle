@@ -18,7 +18,33 @@
         return String(input).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
       }
     });
-  } catch (_) {}
+    var pol = window.trustedTypes.defaultPolicy;
+    var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
+    if (createHTML && typeof document !== 'undefined') {
+      var d = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+      if (d && d.set) {
+        var orig = d.set;
+        Object.defineProperty(Element.prototype, 'innerHTML', {
+          set: function (v) {
+            var trustedValue = v;
+            if (typeof v === 'string' && createHTML) {
+              try { trustedValue = createHTML(v); } catch (_) {}
+            }
+            return orig.call(this, trustedValue);
+          },
+          get: d.get,
+          configurable: true,
+          enumerable: d.enumerable
+        });
+      } else if (typeof console !== 'undefined' && console.warn) {
+        console.warn('Trusted Types active but innerHTML patch could not be applied.');
+      }
+    }
+  } catch (e) {
+    if (typeof console !== 'undefined' && console.warn) {
+      console.warn('Trusted Types active but innerHTML patch could not be applied.', e);
+    }
+  }
 })();
 
 function trustedScriptURL(url) {
@@ -17245,6 +17271,56 @@ function sanitizeNudgeElements() {
 
 (typeof window !== 'undefined' ? window : {}).tdbInit = async function tdbInit() {
   if (!document.body) return;
+  (function initPrayerWallEarly() {
+    var listEl = document.getElementById('prayer-wall-list');
+    if (!listEl) return;
+    try {
+      var raw = localStorage.getItem(PRAYER_WALL_KEY) || '[]';
+      var arr = JSON.parse(raw);
+      var items = Array.isArray(arr) ? arr : [];
+    } catch (e) { items = []; }
+    var SEEDS = [
+      { id: 'seed-1', text: 'Lord, heal our land.', hearts: 0, seed: true },
+      { id: 'seed-2', text: 'Strength for my family today.', hearts: 0, seed: true },
+      { id: 'seed-3', text: 'Lord, carry my grief today.', hearts: 0, seed: true },
+      { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
+      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
+      { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
+      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true },
+      { id: 'seed-8', text: 'Lord, help my unbelief in this storm.', hearts: 0, seed: true },
+      { id: 'seed-9', text: 'Peace for my anxious thoughts today.', hearts: 0, seed: true },
+      { id: 'seed-10', text: 'Calm my fear—I know You are near.', hearts: 0, seed: true },
+      { id: 'seed-11', text: 'When fear overwhelms—hold me, Lord.', hearts: 0, seed: true },
+      { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
+      { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
+      { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
+      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true }
+    ];
+    function shuffle(a, seedStr) {
+      var s = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
+      for (var i = a.length - 1; i > 0; i--) {
+        s = (s * 9301 + 49297) % 233280;
+        var j = Math.floor((s / 233280) * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+    var display = items.filter(function (it) { return it && (it.text || '').trim().length > 0; }).length > 0 ? items : shuffle(SEEDS.slice(), new Date().toISOString().slice(0, 10));
+    if (display.length === 0) display = shuffle(SEEDS.slice(), new Date().toISOString().slice(0, 10));
+    listEl.innerHTML = '';
+    display.forEach(function (item, idx) {
+      var li = document.createElement('li');
+      li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '') + (item.seed ? ' prayer-wall-seed' : '');
+      li.appendChild(document.createElement('span')).textContent = '\u2665';
+      li.appendChild(document.createTextNode(' 0 '));
+      var txt = document.createElement('span');
+      txt.className = 'prayer-wall-text';
+      txt.textContent = (item.text || '') + (item.seed ? ' — Anonymous' : '');
+      li.appendChild(txt);
+      listEl.appendChild(li);
+    });
+    listEl.setAttribute('data-prayer-wall-rendered', '1');
+  })();
   sanitizeNudgeElements();
   wirePrayerQueueHealthDebug();
   document.body.classList.remove('light');
@@ -19967,7 +20043,15 @@ function sanitizeNudgeElements() {
       { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
       { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
       { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
-      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true }
+      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true },
+      { id: 'seed-8', text: 'Lord, help my unbelief in this storm.', hearts: 0, seed: true },
+      { id: 'seed-9', text: 'Peace for my anxious thoughts today.', hearts: 0, seed: true },
+      { id: 'seed-10', text: 'Calm my fear—I know You are near.', hearts: 0, seed: true },
+      { id: 'seed-11', text: 'When fear overwhelms—hold me, Lord.', hearts: 0, seed: true },
+      { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
+      { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
+      { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
+      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true }
     ];
     function seededShuffle(arr, seedStr) {
       var a = arr.slice();
@@ -20030,6 +20114,7 @@ function sanitizeNudgeElements() {
         li.appendChild(shareBtn);
         listEl.appendChild(li);
       });
+      listEl.setAttribute('data-prayer-wall-rendered', '1');
       listEl.querySelectorAll('.prayer-wall-heart').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var id = this.getAttribute('data-id');
@@ -20080,6 +20165,7 @@ function sanitizeNudgeElements() {
       inputEl.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') { addBtn.click(); }
       });
+      listEl.setAttribute('data-prayer-wall-ready', '1');
     }
 
     // ── Initial load: local first, then pull cloud if signed in ──────────────

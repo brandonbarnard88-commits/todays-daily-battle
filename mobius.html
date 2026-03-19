@@ -8,6 +8,9 @@
   <link rel="canonical" href="https://todaysdailybattle.com/mobius.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
+  <link rel="preload" as="script" href="vendor/dompurify.min.js">
+  <script src="vendor/dompurify.min.js"></script>
+  <script nonce="tdb2025s">(function(){if(typeof window==="undefined"||!window.trustedTypes||!window.trustedTypes.createPolicy)return;if(window.trustedTypes.defaultPolicy)return;try{window.trustedTypes.createPolicy("default",{createHTML:function(i){var x=String(i||"");if(window.__ttDepth)return x;window.__ttDepth=1;try{if(typeof DOMPurify!=="undefined"&&DOMPurify.sanitize){var r=DOMPurify.sanitize(x,{RETURN_TRUSTED_TYPE:true});return typeof r==="string"?r:x.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}return x.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}catch(_){return x.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}finally{delete window.__ttDepth;}},createScript:function(i){var s=String(i||"");try{JSON.parse(s);return s;}catch(_){}if(/<script|javascript:|<\/script|eval\s*\(/i.test(s))throw new Error("TrustedScript: disallowed");return s;},createScriptURL:function(url){var u=String(url||"");if(!u)return u;if(/^\/(?!\/)/.test(u)||(window.location&&u.startsWith(window.location.origin+"/")))return u;if(u.startsWith("https://www.googletagmanager.com")||u.startsWith("https://www.google-analytics.com")||u.startsWith("https://static.cloudflareinsights.com")||u.startsWith("https://cdn.jsdelivr.net")||u.startsWith("https://challenges.cloudflare.com")||u.startsWith("https://www.gstatic.com")||u.startsWith("https://plausible.io")||u.indexOf("supabase.co")!==-1)return u;console.warn("Blocked script URL:",u);return null;}});if(typeof DOMPurify!=="undefined"&&DOMPurify.setConfig){DOMPurify.setConfig({TRUSTED_TYPES_POLICY:window.trustedTypes.defaultPolicy});}(function(){var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;var pol=window.trustedTypes&&window.trustedTypes.defaultPolicy;var createHTML=pol&&typeof pol.createHTML==="function"?pol.createHTML.bind(pol):null;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){if(typeof v==="string"&&createHTML){try{v=createHTML(v);}catch(_){}}return orig.call(this,v);},get:d.get,configurable:true,enumerable:d.enumerable});})();}catch(_){}})();</script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/d3@7" as="script">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="stylesheet" href="tool-pages.css?v=20260305p">
@@ -231,7 +234,7 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
-  <script src="mobius-universal.js" defer></script>
+  <script src="mobius-universal.js?v=20260318p" defer></script>
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025s">
@@ -336,6 +339,15 @@
         } catch (e) {}
       }
 
+      function showCanonToast(msg) {
+        var t = document.createElement('div');
+        t.className = 'mobius-tracer-toast';
+        t.textContent = msg;
+        t.setAttribute('role', 'status');
+        t.setAttribute('aria-live', 'polite');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2500);
+      }
       applyCanonOnly();
       var canonBtn = document.getElementById('mobius-canon-only');
       if (canonBtn) {
@@ -345,6 +357,9 @@
           if (next) {
             var isEnoch = tabEnoch && tabEnoch.classList.contains('active');
             if (isEnoch) setMode('explore');
+            showCanonToast('Canon view active—Hidden Scrolls hidden.');
+          } else {
+            showCanonToast('Hidden Scrolls tab visible.');
           }
         });
       }

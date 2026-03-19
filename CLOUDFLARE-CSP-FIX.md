@@ -4,6 +4,22 @@ Your site is black and the console shows "Refused to apply a stylesheet" because
 
 The fix must be done in **Cloudflare Dashboard**. The repo cannot fix this.
 
+---
+
+## Trusted Types / DOMPurify errors (quick fix)
+
+If you see:
+- `Refused to create a TrustedTypePolicy named 'dompurify' because it violates... trusted-types default`
+- `This assignment requires a TrustedHTML`
+
+**Cause:** Your Cloudflare Transform Rule sets CSP with `trusted-types default` only. DOMPurify needs its own policy.
+
+**Fix:** In Cloudflare **Rules → Transform Rules**, edit the rule that sets `Content-Security-Policy`. Change `trusted-types default` to **`trusted-types default dompurify`** (add `dompurify`).
+
+Or replace the entire CSP value with the contents of **`CLOUDFLARE-CSP-COPY-PASTE.txt`** in this repo. Then **Purge cache** and hard-refresh.
+
+---
+
 **Quick fix:** In Cloudflare go to **Rules** → **Transform Rules** → create or edit a rule that **sets** the header `Content-Security-Policy` to the **exact value in Step 3** below (it includes `'unsafe-inline'` for both `style-src` and `script-src`). Then **purge cache** and hard-refresh.
 
 > **“Refused to apply a stylesheet (line 316, x2)”** — That error will keep appearing until the Cloudflare-sent CSP includes `'unsafe-inline'` (and/or your nonce) in `style-src`. The repo has no inline styles left; the fix is only in Cloudflare.
@@ -91,18 +107,26 @@ If you added a Transform Rule to **set** Content-Security-Policy but the site is
    - Go to **Rules** → **Transform Rules**.
    - Check **every** rule. If more than one rule **sets** the header **Content-Security-Policy**, the order can make a strict one win. Edit or remove any rule that sets a CSP **without** `'unsafe-inline'` in both `style-src` and `script-src`.
 
-3. **Use this exact value in the Transform Rule**
+3. **Use the CSP from `CLOUDFLARE-CSP-COPY-PASTE.txt` in the Transform Rule**
    - Action: **Set static** → Header name: `Content-Security-Policy`.
-   - Header value (one line, no line breaks):
-   ```
-   default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://www.gstatic.com https://cdn.jsdelivr.net https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com; style-src 'self' 'unsafe-inline' 'nonce-tdb2025' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com; worker-src 'self' blob:; frame-src 'self' https://challenges.cloudflare.com; frame-ancestors 'none'; upgrade-insecure-requests
-   ```
+   - Header value: Copy the **full line** (starting with `default-src`) from `CLOUDFLARE-CSP-COPY-PASTE.txt` in this repo. It must include:
+     - `trusted-types default dompurify` (not just `trusted-types default`)
+     - `'unsafe-inline'` in both `script-src` and `style-src`
+     - `'nonce-tdb2025s'` in `script-src` and `script-src-elem`
    - Condition: **All incoming requests** (or Hostname equals `todaysdailybattle.com`).
 
-4. **Make sure the deployed site isn't sending CSP from _headers**
-   - This repo's `_headers` file has **no** Content-Security-Policy line.
-   - In **Workers & Pages** → your project → **Deployments**, trigger **Retry deployment** and enable **Clear build cache** so the latest `_headers` (without CSP) is what's deployed.
+4. **Trusted Types errors** — If you see:
+   - `Refused to create a TrustedTypePolicy named 'dompurify' because it violates... trusted-types default`
+   - `This assignment requires a TrustedHTML`
+   - Then your Cloudflare CSP has `trusted-types default` but must include **`dompurify`**: use `trusted-types default dompurify` in the CSP. The `_headers` file in this repo has the correct value; if a Transform Rule overrides it, update that rule to match `_headers` (see below).
 
-5. **Purge and test**
+5. **Make sure the deployed site sends the correct CSP**
+   - This repo's `_headers` file defines the full CSP. If Cloudflare Transform Rules also set CSP, they **override** `_headers`. Ensure the Transform Rule uses the **exact** value from `_headers` (including `trusted-types default dompurify`).
+   - In **Workers & Pages** → your project → **Deployments**, trigger **Retry deployment** and enable **Clear build cache** so the latest `_headers` and `index.html` are deployed.
+
+6. **Purge and test**
    - **Caching** → **Configuration** → **Purge Everything**.
    - Test in an **incognito/private** window after a minute.
+
+7. **Verify the CSP sent** — Run: `curl -sI https://todaysdailybattle.com | grep -i content-security-policy`
+   - The output must include `trusted-types default dompurify`. If it shows only `trusted-types default`, the Transform Rule still has the old value.

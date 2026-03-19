@@ -2,6 +2,7 @@
  * Universal Möbius Loop — One endless journey. Any mood connects; 2 Timothy 1:7 as central pivot.
  * "One journey, infinite turns—everything connects back to Him."
  * Vanilla JS, D3 v7, offline-first.
+ * Deployed 2026-03-18: streak phrases, toggle toast, aria-describedby prayer.
  */
 (function () {
   'use strict';
@@ -145,6 +146,43 @@
       };
     }
 
+    if (key === 'fear') {
+      var fearVerse = findVerse('2 Timothy 1:7') || findVerse('Isaiah 41:10');
+      var fearRef = fearVerse ? fearVerse.ref : '2 Timothy 1:7';
+      var fearText = fearVerse ? fearVerse.text : 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
+      return {
+        id: 'fear',
+        label: 'Fear',
+        type: 'mood',
+        verseRef: fearRef,
+        verseText: fearText,
+        crossRef: fearRef.indexOf('2 Timothy') !== -1 ? 'Isaiah 41:10' : '2 Timothy 1:7',
+        verseRefs: ['2 Timothy 1:7', 'Isaiah 41:10', 'Psalm 46:1'],
+        guidance: 'The starting point—every loop begins here. Fear is on the same ribbon as faith.',
+        prayerPrompt: 'Lord, I am not given a spirit of fear. Meet me here.',
+        color: NODE_COLORS.fear || '#8b9dc3',
+        isStart: key === startKey,
+        isPivot: false,
+        isPreferred: false
+      };
+    }
+    if (key === 'faith') {
+      var faithVerse = findVerse('Hebrews 11:1') || findVerse('2 Timothy 1:7');
+      return {
+        id: 'faith',
+        label: 'Faith',
+        type: 'mood',
+        verseRef: faithVerse ? faithVerse.ref : 'Hebrews 11:1',
+        verseText: faithVerse ? faithVerse.text : 'Now faith is the substance of things hoped for, the evidence of things not seen.',
+        verseRefs: ['Hebrews 11:1', '2 Timothy 1:7', 'Romans 10:17'],
+        guidance: 'The loop closes here—faith flows back into fear redeemed. One ribbon.',
+        prayerPrompt: 'Lord, my faith rests in You. The loop continues.',
+        color: NODE_COLORS.faith || '#e3bc67',
+        isStart: false,
+        isPivot: false,
+        isPreferred: key === preferred
+      };
+    }
     var topic = topics[key] || {};
     var sm = smart[key] || {};
     var label = key.charAt(0).toUpperCase() + key.slice(1);
@@ -159,6 +197,7 @@
       type: 'mood',
       verseRefs: topic.verses || [],
       verseText: verseText,
+      verseRef: verseRef ? verseRef.ref : '',
       guidance: g(topic),
       explain: e(topic),
       prayerPrompt: prayerPrompt,
@@ -216,6 +255,7 @@
     card.className = 'mobius-node-card';
     card.setAttribute('role', 'dialog');
     card.setAttribute('aria-label', 'Node details: ' + escapeHtml(node.label));
+    card.setAttribute('aria-describedby', 'mobius-card-prayer');
     var html = '<h3 class="mobius-card-title">' + escapeHtml(node.label) + '</h3>';
     if (node.verseRef) html += '<p class="mobius-card-ref">' + escapeHtml(node.verseRef) + ' (KJV)</p>';
     if (node.verseText) html += '<p class="mobius-card-verse">' + escapeHtml(node.verseText) + '</p>';
@@ -226,7 +266,7 @@
       html += '</ul>';
     }
     if (node.guidance) html += '<p class="mobius-card-guidance">' + escapeHtml(node.guidance) + '</p>';
-    html += '<p class="mobius-card-prayer"><strong>Pray:</strong> ' + escapeHtml(node.prayerPrompt) + '</p>';
+    html += '<p id="mobius-card-prayer" class="mobius-card-prayer"><strong>Pray:</strong> ' + escapeHtml(node.prayerPrompt) + '</p>';
     card.innerHTML = html;
     container.appendChild(card);
   }
@@ -463,9 +503,9 @@
       var key = STREAK_KEY_PREFIX + wk;
       var n = parseInt(localStorage.getItem(key) || '0', 10);
       if (n === 0) el.textContent = '0 loops this week.';
-      else if (n === 1) el.textContent = '1 loop this week.';
+      else if (n === 1) el.textContent = '1 loop this week. One step stronger.';
+      else if (n >= 3) el.innerHTML = n + ' loops this week. <strong>You\'re building something real.</strong>';
       else el.textContent = n + ' loops this week.';
-      if (n >= 3) el.textContent += ' You\'re building something real.';
     } catch (e) {}
   }
   window.bumpMobiusLoopStreak = bumpMobiusLoopStreak;

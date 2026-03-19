@@ -25,7 +25,7 @@
 
 ### Client-side hardening
 
-- **CSP** — `Content-Security-Policy` in `index.html` (and pricing/message) restricts script, style, connect, and frame sources. **script-src uses nonces only** (no `'unsafe-inline'`); all inline scripts have `nonce="tdb2025"`. Use `nonce="tdb2025"` for inline scripts/styles where allowed.
+- **CSP** — `Content-Security-Policy` in `_headers` (Cloudflare Pages) restricts script, style, connect, and frame sources. **script-src** includes `'nonce-tdb2025s'` and `'unsafe-inline'` for compatibility with third-party scripts (Stripe, Turnstile, analytics); **style-src** includes `'unsafe-inline'` for component styles. All inline scripts use `nonce="tdb2025s"`. See CLOUDFLARE-CSP-FIX.md if the site goes black after CSP changes.
 - **Headers** — `_headers` (Netlify/Cloudflare Pages): `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`, `Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), battery=()`, `X-XSS-Protection: 1; mode=block`.
 - **CSP violation reporting** — `script.js` listens for `securitypolicyviolation` and logs to console for debugging.
 - **Referrer** — `referrer: no-referrer` so nothing follows users when they leave the site.

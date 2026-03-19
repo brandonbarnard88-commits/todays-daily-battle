@@ -15,9 +15,10 @@ export default defineConfig({
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
   ],
-  webServer: process.env.CI ? undefined : {
+  webServer: process.env.QA_URL ? undefined : {
     command: 'npx -y serve dist -p 8080',
     url: 'http://localhost:8080',
     reuseExistingServer: !process.env.CI,
+    timeout: 120000,
   },
 });

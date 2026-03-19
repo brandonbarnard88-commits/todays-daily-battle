@@ -45,7 +45,7 @@
       prayBtn.type = 'button';
       prayBtn.className = 'btn btn-secondary patriotic-pray-btn';
       prayBtn.textContent = 'Pray this verse';
-      prayBtn.setAttribute('aria-label', 'Pray ' + v.ref);
+      prayBtn.setAttribute('aria-label', 'Pray this verse — ' + v.ref);
       prayBtn.onclick = function () {
         if (typeof trackEvent === 'function') trackEvent('patriotic_pray', { ref: v.ref });
         var input = document.getElementById('quick-pray');
@@ -62,7 +62,7 @@
       shareBtn.type = 'button';
       shareBtn.className = 'btn btn-secondary patriotic-share-btn';
       shareBtn.textContent = 'Share';
-      shareBtn.setAttribute('aria-label', 'Share ' + v.ref);
+      shareBtn.setAttribute('aria-label', 'Share — ' + v.ref);
       shareBtn.onclick = function () {
         if (typeof trackEvent === 'function') trackEvent('patriotic_share', { ref: v.ref });
         if (typeof shareVerse === 'function') shareVerse(v.ref, v.text);
@@ -122,13 +122,13 @@
       singBtn.type = 'button';
       singBtn.className = 'btn btn-secondary patriotic-hymns-sing-btn';
       singBtn.textContent = 'Sing with Me';
-      singBtn.setAttribute('aria-label', 'Open full lyrics for ' + h.title);
+      singBtn.setAttribute('aria-label', 'Sing with Me — ' + h.title);
       singBtn.onclick = function () { openHymnModal(h); };
       var prayBtn = document.createElement('button');
       prayBtn.type = 'button';
       prayBtn.className = 'btn btn-secondary patriotic-hymns-pray-btn';
       prayBtn.textContent = 'Pray with This Hymn';
-      prayBtn.setAttribute('aria-label', 'Pray with ' + h.title);
+      prayBtn.setAttribute('aria-label', 'Pray with This Hymn — ' + h.title);
       prayBtn.onclick = function () {
         var input = document.getElementById('quick-pray');
         var wrap = document.getElementById('quick-pray-wrap');

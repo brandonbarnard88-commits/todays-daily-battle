@@ -31,7 +31,7 @@ When deploying new seeds, Möbius enrichments (node cards/verses/prayers), Trust
 
 **Same check from repo:** `npm run test:live-csp` (fails if the live document has no CSP or Trusted Types fragment).
 
-**Deeper gate (local):** `npm run quality:gate:browser` — build + Playwright axe on critical pages + core smoke (requires `npx playwright install chromium` once).
+**Deeper gate (local):** `npm run quality:gate:browser` — build + Playwright axe on critical pages + core smoke + `test:live-csp` (requires `npx playwright install chromium` once; needs network for the production CSP check).
 
 **If still stale:** Wait 1–5 min; try cache-buster `?v=20260319`; purge again.
 

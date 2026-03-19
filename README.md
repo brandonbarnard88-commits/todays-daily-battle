@@ -20,7 +20,7 @@ Static web app for scripture-first daily encouragement, prayer, and study toolin
 - `QA Smoke`: browser-based critical-path verification.
 - `Site Offline Test`: build + offline route/search/prayer checks (`quality:gate`).
 - `Live CSP`: production homepage must return `Content-Security-Policy` with Trusted Types + core directives (`npm run test:live-csp`).
-- `Playwright`: Calm + prayer seeds + **axe** on critical pages + core smoke (`npm run quality:gate:browser` locally after `npx playwright install chromium`).
+- `Playwright`: Calm + prayer seeds + **axe** on critical pages + core smoke, then **live CSP** (`npm run quality:gate:browser` locally after `npx playwright install chromium`; needs network for the final probe).
 
 **Quality target checklist:** `docs/QUALITY-9-ROADMAP.md`
 

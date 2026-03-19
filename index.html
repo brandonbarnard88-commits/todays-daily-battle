@@ -6,6 +6,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
+  <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="high">
+  <script src="/vendor/dompurify.min.js"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js"></script>
+
   <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
   <meta name="description" content="Bible verses for when you feel heartbroken, anxious, or alone. KJV comfort, mood-based search, and prayer wall. Offline-ready. Daily habit, two minutes.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
@@ -81,9 +86,6 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
   <link rel="modulepreload" href="script.js?v=20260311k">
-  <link rel="preload" as="script" href="vendor/dompurify.min.js">
-  <script src="vendor/dompurify.min.js"></script>
-  <script nonce="tdb2025s" src="tt-bootstrap.js"></script>
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -7540,10 +7542,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260311k" data-cfasync="false" fetchpriority="high"></script>
-</body>
-</html>
->
   <script type="module" src="script.js?v=20260311k" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

@@ -79,6 +79,18 @@ if (!headersForCsp.includes('Content-Security-Policy')) {
 } else {
   ok('CSP present in _headers (HTTP header — correct)');
 }
+if (!headersForCsp.includes("require-trusted-types-for 'script'")) {
+  fail('_headers: CSP must require Trusted Types for script sinks');
+} else {
+  ok('CSP: require-trusted-types-for script');
+}
+if (!headersForCsp.includes('trusted-types default dompurify')) {
+  fail('_headers: CSP trusted-types must allow default and dompurify (DOMPurify internal policy)');
+} else if (headersForCsp.includes('decodeHTMLEntitiesPolicy')) {
+  warn('CSP: decodeHTMLEntitiesPolicy in trusted-types is unnecessary for this repo; prefer minimal allowlist (default dompurify)');
+} else {
+  ok('CSP: trusted-types default dompurify (minimal allowlist)');
+}
 if (!headersForCsp.includes("default-src 'self'") && !headersForCsp.includes('default-src \'self\'')) {
   warn('CSP may be weak: default-src should include self');
 }

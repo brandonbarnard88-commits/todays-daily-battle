@@ -1,6 +1,7 @@
 /**
- * Trusted Types bootstrap — must run before script.js.
+ * Trusted Types bootstrap — must run before script.js (and before any defer script that sets innerHTML).
  * Creates default policy, patches innerHTML and insertAdjacentHTML.
+ * DOMPurify.setConfig({ TRUSTED_TYPES_POLICY }) uses that policy so DOMPurify does not need extra CSP names beyond `dompurify`.
  */
 (function () {
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;

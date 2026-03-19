@@ -10,6 +10,32 @@ const path = require('path');
 const root = __dirname;
 const dist = path.join(root, 'dist');
 
+/** CSP require-trusted-types-for: sync DOMPurify + innerHTML bridge before any deferred script */
+const TT_BOOTSTRAP_MARK = 'Trusted Types: DOMPurify + innerHTML bridge';
+const TT_BOOTSTRAP_SNIPPET =
+  '\n  <!-- ' + TT_BOOTSTRAP_MARK + ' (_headers CSP) -->\n' +
+  '  <script src="/vendor/dompurify.min.js"></script>\n' +
+  '  <script src="/tt-bootstrap.js"></script>\n';
+
+function ensureTrustedTypesBootstrap(html) {
+  if (!/<head[^>]*>/i.test(html)) return html;
+  if (html.includes('tt-bootstrap.js') || html.includes('/tt-bootstrap.js')) return html;
+  return html.replace(/<head([^>]*)>/i, function (m) {
+    return m + TT_BOOTSTRAP_SNIPPET;
+  });
+}
+
+function walkHtmlUnder(dir, onFile) {
+  if (!fs.existsSync(dir)) return;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (let i = 0; i < entries.length; i++) {
+    const e = entries[i];
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walkHtmlUnder(p, onFile);
+    else if (e.name.endsWith('.html')) onFile(p);
+  }
+}
+
 function mkdir(dir) {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -155,6 +181,7 @@ topics.forEach(function (f) {
   if (fs.existsSync(src)) {
     let content = fs.readFileSync(src, 'utf8');
     content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);
+    content = ensureTrustedTypesBootstrap(content);
     fs.writeFileSync(dest, content);
     console.log('Copied topic: ' + f);
   }
@@ -183,6 +210,7 @@ const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f) && !f.startsW
 for (const f of otherHtml) {
   let content = fs.readFileSync(path.join(root, f), 'utf8');
   content = content.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR);
+  content = ensureTrustedTypesBootstrap(content);
   fs.writeFileSync(path.join(dist, f), content);
   if (f === 'plans.html') {
     if (!content.includes('plan-list') || !content.includes('Battle Distraction')) {
@@ -364,6 +392,20 @@ if (missingRedirects.length) {
   process.exit(1);
 }
 console.log('Verified: donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');
+
+// Trusted Types: every shipped HTML must load sync DOMPurify + tt-bootstrap before deferred scripts
+let ttPatched = 0;
+walkHtmlUnder(dist, function (htmlPath) {
+  const before = fs.readFileSync(htmlPath, 'utf8');
+  const after = ensureTrustedTypesBootstrap(before);
+  if (after !== before) {
+    fs.writeFileSync(htmlPath, after);
+    ttPatched++;
+  }
+});
+if (ttPatched) {
+  console.log('ensureTrustedTypesBootstrap: patched ' + ttPatched + ' HTML file(s) under dist/');
+}
 
 // Verify vercel.json has donation redirects (Vercel deploy parity)
 const vercelPath = path.join(root, 'vercel.json');

@@ -12,9 +12,11 @@ If you see:
 - `Refused to create a TrustedTypePolicy named 'dompurify' because it violates... trusted-types default`
 - `This assignment requires a TrustedHTML`
 
-**Cause:** Your Cloudflare Transform Rule sets CSP with `trusted-types default` only. DOMPurify needs its own policy.
+**Cause:** Your Cloudflare Transform Rule sets CSP with `trusted-types default` only. DOMPurify may register a policy named **`dompurify`** unless the app wires `TRUSTED_TYPES_POLICY` first; this repo does that via **`tt-bootstrap.js`** and still allowlists **`dompurify`** for compatibility.
 
-**Fix:** In Cloudflare **Rules → Transform Rules**, edit the rule that sets `Content-Security-Policy`. Change `trusted-types default` to **`trusted-types default dompurify`** (add `dompurify`).
+**Fix:** In Cloudflare **Rules → Transform Rules**, edit the rule that sets `Content-Security-Policy`. Use **`trusted-types default dompurify`** (matches `_headers` in this repo — minimal allowlist).
+
+**Rare:** If the console shows `decodeHTMLEntitiesPolicy` and you have confirmed it is **not** a browser extension, you can add that name — but it **widens** the Trusted Types surface; this codebase does not need it (vendored DOMPurify 3.2.x + `tt-bootstrap.js`).
 
 Or replace the entire CSP value with the contents of **`CLOUDFLARE-CSP-COPY-PASTE.txt`** in this repo. Then **Purge cache** and hard-refresh.
 
@@ -118,7 +120,7 @@ If you added a Transform Rule to **set** Content-Security-Policy but the site is
 4. **Trusted Types errors** — If you see:
    - `Refused to create a TrustedTypePolicy named 'dompurify' because it violates... trusted-types default`
    - `This assignment requires a TrustedHTML`
-   - Then your Cloudflare CSP has `trusted-types default` but must include **`dompurify`**: use `trusted-types default dompurify` in the CSP. The `_headers` file in this repo has the correct value; if a Transform Rule overrides it, update that rule to match `_headers` (see below).
+   - Then your Cloudflare CSP `trusted-types` list is too strict, or HTML is loading deferred scripts before **`tt-bootstrap.js`**. Use the fragment from `_headers`: **`trusted-types default dompurify`**. If a Transform Rule overrides `_headers`, update that rule to match (see below).
 
 5. **Make sure the deployed site sends the correct CSP**
    - This repo's `_headers` file defines the full CSP. If Cloudflare Transform Rules also set CSP, they **override** `_headers`. Ensure the Transform Rule uses the **exact** value from `_headers` (including `trusted-types default dompurify`).

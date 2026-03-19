@@ -190,6 +190,40 @@
     body.sky-dusk  .sky { background: linear-gradient(180deg, #080314 0%, #2a0830 20%, #700820 42%, #b83008 65%, #d85510 82%, #ff8020 100%); }
     body.sky-night .sky { background: linear-gradient(180deg, #02030e 0%, #06091a 20%, #0a0e2a 48%, #0c1030 72%, #0e0a20 88%, #120818 100%); }
 
+    /* Parallax starfield — night only, slow strafe */
+    .sky-stars-parallax {
+      position: absolute; inset: 0; z-index: 0;
+      opacity: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='10' cy='10' r='0.8' fill='white'/%3E%3Ccircle cx='35' cy='25' r='0.6' fill='white'/%3E%3Ccircle cx='60' cy='70' r='0.8' fill='white'/%3E%3Ccircle cx='85' cy='15' r='0.5' fill='white'/%3E%3Ccircle cx='20' cy='55' r='0.6' fill='white'/%3E%3Ccircle cx='75' cy='45' r='0.5' fill='white'/%3E%3Ccircle cx='45' cy='85' r='0.6' fill='white'/%3E%3Ccircle cx='90' cy='90' r='0.5' fill='white'/%3E%3C/svg%3E");
+      background-size: 100px 100px;
+      animation: sky-strafe 120s linear infinite;
+      will-change: background-position;
+    }
+    body.sky-night .sky-stars-parallax { opacity: 0.5; }
+    body:not(.sky-night) .sky-stars-parallax { display: none; }
+    @keyframes sky-strafe {
+      0% { background-position: 0 0; }
+      100% { background-position: -200px 0; }
+    }
+
+    /* Northern lights — rare overlay, night only */
+    .sky-aurora {
+      position: absolute; inset: 0; z-index: 1;
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(0,255,136,0.08) 45%, rgba(100,255,200,0.12) 55%, rgba(255,0,255,0.06) 65%, transparent 80%);
+      animation: sky-aurora 20s ease-in-out infinite paused;
+      will-change: transform, opacity;
+    }
+    body:not(.sky-night) .sky-aurora { display: none; }
+    @keyframes sky-aurora {
+      0%,100% { transform: translateX(-30%) scaleX(1.4); opacity: 0; }
+      25% { opacity: 0.3; }
+      50% { transform: translateX(15%) scaleX(1.2); opacity: 0.45; }
+      75% { opacity: 0.25; }
+    }
+
     /* Nebula glow — night only */
     body.sky-night .sky::before {
       content: ''; position: absolute; inset: 0;
@@ -353,7 +387,7 @@
     }
     body:not(.sky-night) .sky-shooter { display: none; }
 
-    /* Moon — CSS disc with phase shadow */
+    /* Moon — SVG with craters + phase shadow */
     #sky-moon {
       position: absolute;
       top: 1rem; right: 1.1rem;
@@ -367,23 +401,13 @@
       will-change: opacity;
     }
     body.sky-night #sky-moon { opacity: 0.88; }
-    .sky-moon-disc {
-      width: 34px; height: 34px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 38% 35%, rgba(255,255,240,0.96) 0%, rgba(200,210,230,0.88) 60%, rgba(140,160,190,0.72) 100%);
-      box-shadow: 0 0 10px 3px rgba(190,210,255,0.22), 0 0 22px 6px rgba(140,170,230,0.10);
-      position: relative;
-      overflow: hidden;
+    .sky-moon-svg {
+      filter: drop-shadow(0 0 10px rgba(190,210,255,0.22)) drop-shadow(0 0 22px rgba(140,170,230,0.10));
     }
-    /* Phase shadow: dark half overlay, scaleX driven by JS --shadow-scale */
-    .sky-moon-shadow {
-      position: absolute; inset: 0;
-      border-radius: 50%;
-      background: rgba(2,4,18,0.93);
-      transform-origin: var(--shadow-origin, right center);
+    /* Phase shadow: SVG circle, scaleX driven by JS --shadow-scale */
+    .sky-moon-shadow-svg {
+      transform-origin: var(--shadow-origin, 100% 50%);
       transform: scaleX(var(--shadow-scale, 0));
-      /* Soft glow along the terminator line */
-      filter: drop-shadow(0 0 6px rgba(140,170,230,0.5));
       will-change: transform;
     }
     .sky-moon-label {
@@ -397,10 +421,10 @@
       white-space: nowrap;
     }
 
-    /* prefers-reduced-motion: static sky, no flap/twinkle/shoot */
+    /* prefers-reduced-motion: static sky, no flap/twinkle/shoot/strafe/aurora */
     @media (prefers-reduced-motion: reduce) {
       .sky-sun, .sky-sun::after, .sky-sun::before, .sky-cloud, .sky-bird,
-      .sky-star, .sky-shooter { animation: none !important; }
+      .sky-star, .sky-shooter, .sky-stars-parallax, .sky-aurora { animation: none !important; }
       .sky-bird::before, .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
     }
 
@@ -3437,15 +3461,39 @@
     <header class="site-header">
       <!-- CSS-animated sky system (no canvas) -->
       <div class="sky" aria-hidden="true" id="sky-layer">
+        <!-- Parallax starfield (night only) — subtle tiling dots, slow strafe -->
+        <div class="sky-stars-parallax" aria-hidden="true"></div>
         <div class="sky-sun" id="sky-sun"></div>
       </div>
+      <!-- Northern lights (rare, night only) -->
+      <div class="sky-aurora" id="sky-aurora" aria-hidden="true"></div>
       <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
       <div class="mood-overlay" aria-hidden="true"></div>
-      <!-- Moon phase display (night only) -->
+      <!-- Moon phase display (night only) — SVG with craters -->
       <div id="sky-moon" role="img">
-        <div class="sky-moon-disc">
-          <div class="sky-moon-shadow" id="sky-moon-shadow"></div>
-        </div>
+        <svg class="sky-moon-svg" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">
+          <defs>
+            <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
+              <stop offset="60%" stop-color="rgba(200,210,230,0.88)"/>
+              <stop offset="100%" stop-color="rgba(140,160,190,0.72)"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
+          <!-- Craters — subtle dark circles on lit surface -->
+          <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
+          <circle cx="62" cy="52" r="6" fill="#080818" opacity="0.4"/>
+          <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
+          <circle cx="68" cy="32" r="4" fill="#0a0a1f" opacity="0.5"/>
+          <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
+          <circle cx="55" cy="42" r="3.5" fill="#080818" opacity="0.38"/>
+          <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
+          <circle cx="72" cy="58" r="2" fill="#0a0a1f" opacity="0.28"/>
+          <!-- Phase shadow overlay -->
+          <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
+          <!-- Soft glow halo -->
+          <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
+        </svg>
         <span class="sky-moon-label" id="sky-moon-label"></span>
       </div>
 
@@ -6981,6 +7029,15 @@
 
       // ── Moon phase (night) ──
       if (isNight) initSkyMoon();
+
+      // ── Northern lights (rare, ~8% chance per visit) ──
+      if (isNight && r() < 0.08) {
+        var aurora = document.getElementById('sky-aurora');
+        if (aurora) {
+          aurora.style.animationPlayState = 'running';
+          setTimeout(function() { aurora.style.animationPlayState = 'paused'; }, 30000);
+        }
+      }
     }
 
     function getMoonPhase(date) {
@@ -7015,7 +7072,7 @@
         var waxing = mp.waxing;
         var shadowScale = 1 - illum;
         shadow.style.setProperty('--shadow-scale', shadowScale.toFixed(3));
-        shadow.style.setProperty('--shadow-origin', waxing ? 'right center' : 'left center');
+        shadow.style.setProperty('--shadow-origin', waxing ? '100% 50%' : '0% 50%');
         var pct = Math.round(illum * 100);
         if (label) label.textContent = mp.phase + ' · ' + pct + '%';
         var moonEl = document.getElementById('sky-moon');

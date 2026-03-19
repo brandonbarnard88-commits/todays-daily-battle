@@ -56,6 +56,21 @@
 /our-approach /about.html 301
 /contract /faq.html 301
 /support /faq.html 301
+
+# Donation/payment bot probes → Buy Me a Coffee (reduces 4xx noise)
+/donate https://buymeacoffee.com/todaysdailybattle 301
+/donate/* https://buymeacoffee.com/todaysdailybattle 301
+/donations https://buymeacoffee.com/todaysdailybattle 301
+/stripe https://buymeacoffee.com/todaysdailybattle 301
+/stripe/* https://buymeacoffee.com/todaysdailybattle 301
+/checkout https://buymeacoffee.com/todaysdailybattle 301
+/checkout/* https://buymeacoffee.com/todaysdailybattle 301
+/payment https://buymeacoffee.com/todaysdailybattle 301
+/payment/* https://buymeacoffee.com/todaysdailybattle 301
+/billing https://buymeacoffee.com/todaysdailybattle 301
+/buymeacoffee https://buymeacoffee.com/todaysdailybattle 301
+/coffee https://buymeacoffee.com/todaysdailybattle 301
+/premium /pricing.html 301
 /search /#quick-search-hero 301
 /prayer-wall /#prayer-wall 301
 /index.html / 301

@@ -1,12 +1,9 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-/** Re-enable as tokens/contrast and viewport meta align with strict AA */
-const AXE_DISABLED = ['color-contrast', 'meta-viewport'];
-
 /**
  * WCAG 2.0 A + AA automated scan on critical templates (built dist).
- * Keeps scope tight: serious/critical issues only to avoid emoji/contrast noise on AA.
+ * Includes color-contrast and meta-viewport (zoom-capable viewport, AA contrast).
  */
 async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page) {
   const btn = page.locator('#firstVisitDismiss');
@@ -21,7 +18,6 @@ test.describe('axe — critical pages', () => {
     await dismissFirstVisitIfPresent(page);
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
-      .disableRules(AXE_DISABLED)
       .analyze();
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
@@ -30,7 +26,6 @@ test.describe('axe — critical pages', () => {
     await page.goto('/bible-tool.html');
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
-      .disableRules(AXE_DISABLED)
       .analyze();
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
@@ -39,7 +34,6 @@ test.describe('axe — critical pages', () => {
     await page.goto('/message.html');
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
-      .disableRules(AXE_DISABLED)
       .analyze();
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
@@ -48,7 +42,6 @@ test.describe('axe — critical pages', () => {
     await page.goto('/ansiedad.html');
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
-      .disableRules(AXE_DISABLED)
       .analyze();
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
@@ -57,7 +50,6 @@ test.describe('axe — critical pages', () => {
     await page.goto('/verse-cards/');
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
-      .disableRules(AXE_DISABLED)
       .analyze();
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });

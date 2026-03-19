@@ -14,6 +14,7 @@ ios/
 .vscode/
 supabase/.temp/
 lighthouse-*.html
+lhr-ci.json
 *.zip
 backup-*.tar.gz
 playwright-report/

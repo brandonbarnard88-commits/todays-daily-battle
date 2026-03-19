@@ -21,11 +21,20 @@
     var pol = window.trustedTypes.defaultPolicy;
     var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
     if (createHTML && typeof document !== 'undefined') {
-      var d = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
-      if (d && d.set) {
+      var protos = [Element.prototype];
+      if (typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype) protos.push(DocumentFragment.prototype);
+      if (typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype) protos.push(ShadowRoot.prototype);
+      var anyPatched = false;
+      protos.forEach(function (proto) {
+        var d = Object.getOwnPropertyDescriptor(proto, 'innerHTML');
+        if (!d || !d.set) return;
+        anyPatched = true;
         var orig = d.set;
-        Object.defineProperty(Element.prototype, 'innerHTML', {
+        Object.defineProperty(proto, 'innerHTML', {
           set: function (v) {
+            if (v != null && typeof v === 'object' && v.constructor && v.constructor.name === 'TrustedHTML') {
+              return orig.call(this, v);
+            }
             var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
             var trustedValue = v;
             if (createHTML) {
@@ -39,9 +48,12 @@
           configurable: true,
           enumerable: d.enumerable
         });
-        var ia = Element.prototype.insertAdjacentHTML;
+        var ia = proto.insertAdjacentHTML;
         if (ia && createHTML) {
-          Element.prototype.insertAdjacentHTML = function (pos, html) {
+          proto.insertAdjacentHTML = function (pos, html) {
+            if (html != null && typeof html === 'object' && html.constructor && html.constructor.name === 'TrustedHTML') {
+              return ia.call(this, pos, html);
+            }
             var s = html == null ? '' : (typeof html === 'string' ? html : String(html));
             if (createHTML) {
               try { html = s ? createHTML(s) : createHTML(''); } catch (_) {
@@ -51,7 +63,8 @@
             return ia.call(this, pos, html);
           };
         }
-      } else if (typeof console !== 'undefined' && console.warn) {
+      });
+      if (!anyPatched && typeof console !== 'undefined' && console.warn) {
         console.warn('Trusted Types active but innerHTML patch could not be applied.');
       }
     }

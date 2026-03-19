@@ -22,6 +22,9 @@
   --border-subtle: rgba(148, 163, 184, 0.14);
   --border-focus: rgba(167, 139, 250, 0.7);
   --verse-size: 20px;
+  /* Placeholders & soft labels on dark fields — meets ~4.5:1 vs #0f141f / #0d0d0d for axe color-contrast */
+  --input-placeholder-on-dark: #b8c5d4;
+  --muted-readable: #b8c5d4;
   /* Super elite: refined radii & space */
   --radius-sm: 14px;
   --radius-md: 18px;
@@ -2478,7 +2481,7 @@ body:has(.search-hero-home) #search-hero {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .search-hero-input::placeholder {
-  color: rgba(148, 163, 184, 0.55);
+  color: var(--input-placeholder-on-dark);
 }
 .search-hero-input:focus {
   outline: none;
@@ -2565,7 +2568,7 @@ body:has(.search-hero-home) #search-hero {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 .hero-search-stack #query::placeholder {
-  color: rgba(148, 163, 184, 0.6);
+  color: var(--input-placeholder-on-dark);
 }
 .hero-search-stack #query:focus {
   outline: none;
@@ -2819,9 +2822,9 @@ body:has(.search-hero-home) #search-hero {
   margin: 0.75rem 0 0;
   font-family: var(--font-ui);
   font-size: 0.85rem;
-  color: rgba(148, 163, 184, 0.7);
+  color: rgba(186, 198, 212, 0.92);
 }
-.america-in-card-link { color: rgba(148, 163, 184, 0.8); text-decoration: none; }
+.america-in-card-link { color: rgba(198, 210, 224, 0.95); text-decoration: underline; text-underline-offset: 2px; }
 .america-in-card-link:hover { text-decoration: underline; }
 .quick-pray-in-hero {
   display: flex;
@@ -5610,7 +5613,7 @@ textarea:focus-visible {
 }
 
 #main-search .search-query-row #query::placeholder {
-  color: rgba(148, 163, 184, 0.6);
+  color: var(--input-placeholder-on-dark);
 }
 
 #main-search .search-query-row #query:focus {
@@ -5653,7 +5656,7 @@ textarea:focus-visible {
   box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.15), 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 .dark-mode .search-stack input::placeholder {
-  color: rgba(226, 232, 240, 0.6);
+  color: var(--input-placeholder-on-dark);
 }
 .dark-mode .search-stack input:focus {
   border-color: var(--elite-gold-dim);
@@ -9114,13 +9117,13 @@ body.red-letter-off .red-letter-card {
   .hymn-lyrics-modal-inner { max-height: 85vh; overflow-y: auto; }
 }
 
-.footer-heading { margin: 0 auto 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(148,163,184,0.7); }
+.footer-heading { margin: 0 auto 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(186, 198, 212, 0.88); }
 .footer-why { margin: 0 auto 1rem; max-width: 52ch; line-height: 1.6; }
 .footer-rotating-line { margin: 0.5rem auto 1rem; min-height: 1.5em; color: rgba(226,232,240,0.9); font-style: italic; }
 .footer-powered { margin: 0 auto 0.75rem; font-size: 0.9rem; color: rgba(148,163,184,0.9); }
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.2rem 0.75rem; margin: 0 auto 1.25rem; padding: 0; list-style: none; }
 .footer-links a { white-space: nowrap; }
-.footer-links-sep { color: rgba(148, 163, 184, 0.5); padding: 0 0.15rem; font-weight: 400; pointer-events: none; user-select: none; }
+.footer-links-sep { color: rgba(186, 198, 212, 0.72); padding: 0 0.15rem; font-weight: 400; pointer-events: none; user-select: none; }
 .hero-collective-intent { margin-top: 0.5rem; }
 .prayer-echo { margin-top: 1rem; padding: 1rem; }
 .prayer-echo-sacred { margin: 0; font-style: italic; }
@@ -9798,7 +9801,7 @@ body.has-promo-banner .header-search-sticky {
   box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
   transition: box-shadow 0.2s, border-color 0.2s;
 }
-.header-search-input::placeholder { color: rgba(226, 232, 240, 0.5); }
+.header-search-input::placeholder { color: var(--input-placeholder-on-dark); }
 .header-search-input:focus {
   outline: none;
   border-color: #facc15;

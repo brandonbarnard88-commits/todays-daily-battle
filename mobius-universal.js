@@ -17,6 +17,10 @@
         return;
       }
     } catch (_) {}
+    if (window.trustedTypes) {
+      try { el.textContent = ''; } catch (e2) {}
+      return;
+    }
     el.innerHTML = s;
   }
 

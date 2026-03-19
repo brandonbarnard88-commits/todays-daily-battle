@@ -1,6 +1,6 @@
 /**
  * Trusted Types bootstrap — must run before script.js (and before any defer script that sets innerHTML).
- * Creates default policy, patches innerHTML and insertAdjacentHTML.
+ * Creates default policy, patches innerHTML and insertAdjacentHTML on Element, DocumentFragment, and ShadowRoot (DOMPurify uses fragments).
  * DOMPurify.setConfig({ TRUSTED_TYPES_POLICY }) uses that policy so DOMPurify does not need extra CSP names beyond `dompurify`.
  */
 (function () {
@@ -49,43 +49,50 @@
       DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: window.trustedTypes.defaultPolicy });
     }
     (function () {
-      var d = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
-      if (!d || !d.set) return;
-      var orig = d.set;
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
       var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
-      Object.defineProperty(Element.prototype, 'innerHTML', {
-        set: function (v) {
-          if (v != null && typeof v === 'object' && v.constructor && v.constructor.name === 'TrustedHTML') {
+      if (!createHTML) return;
+      /** DOMPurify and other libs assign to DocumentFragment/ShadowRoot innerHTML — separate sinks from Element (CSP require-trusted-types-for). */
+      var protos = [Element.prototype];
+      if (typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype) protos.push(DocumentFragment.prototype);
+      if (typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype) protos.push(ShadowRoot.prototype);
+      protos.forEach(function (proto) {
+        var d = Object.getOwnPropertyDescriptor(proto, 'innerHTML');
+        if (!d || !d.set) return;
+        var orig = d.set;
+        Object.defineProperty(proto, 'innerHTML', {
+          set: function (v) {
+            if (v != null && typeof v === 'object' && v.constructor && v.constructor.name === 'TrustedHTML') {
+              return orig.call(this, v);
+            }
+            var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
+            if (createHTML) {
+              try { v = s ? createHTML(s) : createHTML(''); } catch (_) {
+                try { v = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (e2) { v = createHTML(''); }
+              }
+            }
             return orig.call(this, v);
-          }
-          var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
-          if (createHTML) {
-            try { v = s ? createHTML(s) : createHTML(''); } catch (_) {
-              try { v = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (e2) { v = createHTML(''); }
+          },
+          get: d.get,
+          configurable: true,
+          enumerable: d.enumerable
+        });
+        var ia = proto.insertAdjacentHTML;
+        if (typeof ia === 'function') {
+          proto.insertAdjacentHTML = function (pos, html) {
+            if (html != null && typeof html === 'object' && html.constructor && html.constructor.name === 'TrustedHTML') {
+              return ia.call(this, pos, html);
             }
-          }
-          return orig.call(this, v);
-        },
-        get: d.get,
-        configurable: true,
-        enumerable: d.enumerable
-      });
-      var ia = Element.prototype.insertAdjacentHTML;
-      if (ia && createHTML) {
-        Element.prototype.insertAdjacentHTML = function (pos, html) {
-          if (html != null && typeof html === 'object' && html.constructor && html.constructor.name === 'TrustedHTML') {
+            var s = html == null ? '' : (typeof html === 'string' ? html : String(html));
+            if (createHTML) {
+              try { html = s ? createHTML(s) : createHTML(''); } catch (_) {
+                try { html = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (e2) { html = createHTML(''); }
+              }
+            }
             return ia.call(this, pos, html);
-          }
-          var s = html == null ? '' : (typeof html === 'string' ? html : String(html));
-          if (createHTML) {
-            try { html = s ? createHTML(s) : createHTML(''); } catch (_) {
-              try { html = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (e2) { html = createHTML(''); }
-            }
-          }
-          return ia.call(this, pos, html);
-        };
-      }
+          };
+        }
+      });
     })();
   } catch (_) {}
 })();

@@ -557,7 +557,7 @@
     if (shareBtn) shareBtn.addEventListener('click', shareDraft);
 
     var aiBtn = document.getElementById('pastor-ai-suggest-btn');
-    if (aiBtn) aiBtn.addEventListener('click', function () { showToast('AI Suggest coming soon.'); });
+    if (aiBtn && !aiBtn.disabled) aiBtn.addEventListener('click', function () { showToast('AI Suggest coming soon.'); });
   }
 
   if (document.readyState === 'loading') {

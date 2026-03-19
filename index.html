@@ -862,6 +862,9 @@
       background: transparent;
       box-shadow: none;
     }
+    .read-aloud-btn.is-unavailable:disabled {
+      cursor: not-allowed;
+    }
     /* icon visibility toggle */
     .read-aloud-btn .ra-icon-pause { display: none; }
     .read-aloud-btn.is-playing .ra-icon-speaker { display: none; }
@@ -5620,15 +5623,22 @@
       function setUnavailable() {
         btn.hidden = false;
         btn.classList.add('is-unavailable');
-        btn.setAttribute('aria-label', 'Read aloud – coming soon');
-        btn.setAttribute('title', 'Coming soon');
-        btn.addEventListener('click', () => {}, { once: false }); // silently swallow
+        btn.disabled = true;
+        btn.setAttribute('aria-disabled', 'true');
+        btn.setAttribute('aria-label', 'Read aloud unavailable — this browser does not support text-to-speech');
+        btn.setAttribute('title', 'Text-to-speech is not available in this browser');
+        var ulbl = btn.querySelector('.read-aloud-label');
+        if (ulbl) ulbl.textContent = 'Unavailable';
       }
 
       function setReady() {
         btn.hidden = false;
+        btn.disabled = false;
+        btn.removeAttribute('aria-disabled');
         btn.setAttribute('aria-label', 'Read this verse aloud');
         btn.removeAttribute('title');
+        var rlbl = btn.querySelector('.read-aloud-label');
+        if (rlbl) rlbl.textContent = 'Listen';
       }
 
       function setPlaying(yes) {

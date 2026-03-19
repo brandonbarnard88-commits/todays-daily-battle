@@ -15,5 +15,6 @@ Disallow: /newsletter-template-weekly.html
 Disallow: /kids/kids-beta.html
 Disallow: /stats.html
 Disallow: /mystudy.html
+Disallow: /secrets.html
 
 Sitemap: https://todaysdailybattle.com/sitemap.xml

@@ -84,6 +84,21 @@
     .wins-btn:hover { background: color-mix(in srgb, var(--gold) 15%, transparent); }
     .wins-btn.secondary { border-color: var(--line); color: var(--muted); }
     .wins-btn.secondary:hover { border-color: var(--muted); color: var(--text); }
+    .wins-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .wins-btn:disabled:hover { background: transparent; }
+    .wins-share-graphic-note {
+      text-align: center;
+      margin: 0.75rem 0 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
 
     .wins-toast {
       position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
@@ -127,8 +142,9 @@
 
     <div class="wins-actions">
       <button type="button" id="export-wins" class="wins-btn" aria-label="Copy my wins to clipboard">Copy My Wins</button>
-      <button type="button" id="share-graphic" class="wins-btn secondary" aria-label="Create share graphic — coming soon">Create Share Graphic — Coming soon</button>
+      <button type="button" id="share-graphic" class="wins-btn secondary" disabled aria-disabled="true" aria-label="Share graphic — not available yet">Generate Share Graphic</button>
     </div>
+    <p class="wins-share-graphic-note">Soon: a simple image you can share—your streak plus a favorite verse. For now, use <strong>Copy My Wins</strong>.</p>
 
     <p style="text-align:center; margin-top:2rem;">
       <a href="plans.html" style="color:var(--gold);">Pick a plan →</a>
@@ -232,9 +248,6 @@
     }
 
     document.getElementById('export-wins').addEventListener('click', exportWins);
-    document.getElementById('share-graphic').addEventListener('click', function () {
-      showToast('Share graphic coming soon!');
-    });
 
     loadWins();
   })();

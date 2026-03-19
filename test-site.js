@@ -46,6 +46,13 @@ const pages = [
   { path: '/action-bible-workshop.html', name: 'Action Bible Workshop Toolkit', mustInclude: ['Worksheet + Class Toolkit', 'Generate Worksheet', 'Build Leader Dashboard Plan', 'Load Weekly Pack', 'Download Weekly JSON'] },
   { path: '/action-bible-weekly-packs.json', name: 'Action Bible Weekly Packs', mustInclude: ['"totalWeeks"', '"weeks"'] },
   { path: '/manifest.json', name: 'Manifest (PWA)', mustInclude: ['name', 'short_name'] },
+  { path: '/shop.html', name: 'Shop', mustInclude: ['Equip Your Battle', 'Battle Mug', 'Coming Soon'] },
+  { path: '/progress.html', name: 'Progress', mustInclude: ['Progress', 'Current Streak'] },
+  { path: '/wins.html', name: 'Wins', mustInclude: ['Battle Wins', 'Copy My Wins', 'Generate Share Graphic'] },
+  { path: '/ansiedad.html', name: 'Topic Ansiedad (ES)', mustInclude: ['Ansiedad', 'preocupación'] },
+  { path: '/fuerza.html', name: 'Topic Fuerza (ES)', mustInclude: ['Fuerza'] },
+  { path: '/paz.html', name: 'Topic Paz (ES)', mustInclude: ['Paz'] },
+  { path: '/church/index.html', name: 'Church Join Hub', mustInclude: ['Church Join Hub', 'Join Hub'] },
 ];
 
 function fetchHttp(url) {

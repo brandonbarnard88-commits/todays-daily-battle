@@ -19965,10 +19965,11 @@ function sanitizeNudgeElements() {
       return a;
     }
     function render() {
-      var items = getItems();
+      var items = (getItems() || []).filter(function (it) { return it && (it.text || '').trim().length > 0; });
       var hearts = getHearts();
       var dayKey = typeof getDailyKey === 'function' ? getDailyKey() : new Date().toISOString().slice(0, 10);
       var displayItems = items.length > 0 ? items : seededShuffle(SEED_PRAYERS, dayKey);
+      if (displayItems.length === 0) displayItems = seededShuffle(SEED_PRAYERS, dayKey);
       displayItems = displayItems.slice();
       displayItems.sort(function (a, b) { return (b.hearts || 0) - (a.hearts || 0); });
       listEl.innerHTML = '';

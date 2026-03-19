@@ -16,6 +16,7 @@
     "qa:smoke": "node scripts/qa-smoke.mjs",
     "test:playwright": "playwright test",
     "test:playwright:calm": "playwright test tests/calm.spec.ts",
+    "test:playwright:seeds": "playwright test tests/prayer-wall-seeds.spec.ts",
     "reel:batch": "node scripts/build-batch-reel.mjs",
     "reel:batch:night": "node scripts/build-batch-reel.mjs --profile night",
     "prompts:cinematic": "node scripts/build-cinematic-prompt-manifest.mjs",

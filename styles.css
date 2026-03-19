@@ -12422,8 +12422,8 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .plan-chip:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.5);
   }
   @media (prefers-reduced-motion: reduce) {
     .plan-chip:hover { transform: none; }
@@ -12560,6 +12560,14 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   .plan-chip {
     font-size: 1.1rem;
     padding: 0.9rem 1.2rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .plan-chip:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.5);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plan-chip:hover { transform: none; }
   }
 
   /* ── Quick topic buttons ── */

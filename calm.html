@@ -46,10 +46,10 @@
     .calm-input-wrap input::placeholder { color: var(--muted, #94a3b8); }
     .calm-input-wrap input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
     .calm-one-verse-now { margin-top: 0.75rem; font-weight: 600; }
-    .verse-reveal { animation: calmVerseFade 0.3s ease-out forwards; }
-    @keyframes calmVerseFade { from { opacity: 0; } to { opacity: 1; } }
+    #verse-container, #desktop-verse { opacity: 0; transition: opacity 0.3s ease-out; }
+    #verse-container.verse-reveal, #desktop-verse.verse-reveal { opacity: 1; }
     @media (prefers-reduced-motion: reduce) {
-      .verse-reveal { animation: none; opacity: 1; }
+      #verse-container, #desktop-verse { opacity: 1; transition: none; }
     }
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }

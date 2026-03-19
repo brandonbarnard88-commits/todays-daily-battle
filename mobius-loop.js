@@ -7,6 +7,19 @@
 (function () {
   'use strict';
 
+  function safeSetHTML(el, html) {
+    if (!el) return;
+    var s = html == null ? '' : String(html);
+    try {
+      var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+      if (pol && typeof pol.createHTML === 'function') {
+        el.innerHTML = pol.createHTML(s);
+        return;
+      }
+    } catch (_) {}
+    el.innerHTML = s;
+  }
+
   var CONTAINER_ID = 'mobius-loop-container';
   var DRAWER_ID = 'mobius-loop-drawer';
   var TRIGGER_ID = 'mobius-loop-trigger';
@@ -151,7 +164,7 @@
   }
 
   function renderNodeCard(node, container) {
-    container.innerHTML = '';
+    safeSetHTML(container, '');
     var card = document.createElement('div');
     card.className = 'mobius-node-card';
     card.setAttribute('role', 'dialog');
@@ -173,7 +186,7 @@
     }
     html += '<p class="mobius-card-prayer"><strong>Pray:</strong> ' + escapeHtml(node.prayerPrompt) + '</p>';
 
-    card.innerHTML = html;
+    safeSetHTML(card, html);
     container.appendChild(card);
   }
 
@@ -231,7 +244,7 @@
     var links = buildLinks();
     var d3 = window.d3;
     if (!d3) {
-      container.innerHTML = '<p class="mobius-fallback">Fear → Faith Loop requires D3.js. Refresh to load.</p>';
+      safeSetHTML(container, '<p class="mobius-fallback">Fear → Faith Loop requires D3.js. Refresh to load.</p>');
       return;
     }
 
@@ -241,7 +254,7 @@
     var width = isStandalone ? w : Math.min(600, w);
     var height = isStandalone ? h : Math.min(400, Math.max(300, w * 0.55));
 
-    container.innerHTML = '';
+    safeSetHTML(container, '');
     var svg = d3.select(container)
       .append('svg')
       .attr('width', width)
@@ -558,7 +571,7 @@
     overlay.setAttribute('aria-hidden', 'true');
     overlay.setAttribute('aria-label', 'Fear to Faith Loop');
 
-    overlay.innerHTML =
+    safeSetHTML(overlay,
       '<div class="mobius-drawer-inner">' +
         '<header class="mobius-drawer-header">' +
           '<h2 class="mobius-drawer-title">Fear → Faith Loop</h2>' +

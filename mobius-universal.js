@@ -7,6 +7,19 @@
 (function () {
   'use strict';
 
+  function safeSetHTML(el, html) {
+    if (!el) return;
+    var s = html == null ? '' : String(html);
+    try {
+      var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+      if (pol && typeof pol.createHTML === 'function') {
+        el.innerHTML = pol.createHTML(s);
+        return;
+      }
+    } catch (_) {}
+    el.innerHTML = s;
+  }
+
   var CONTAINER_ID = 'mobius-universal-viz';
   var EMOTION_SIGNAL_KEY = 'tdb_emotion_signal_v1';
 
@@ -250,7 +263,7 @@
   }
 
   function renderNodeCard(node, container) {
-    container.innerHTML = '';
+    safeSetHTML(container, '');
     var card = document.createElement('div');
     card.className = 'mobius-node-card';
     card.setAttribute('role', 'dialog');
@@ -267,7 +280,7 @@
     }
     if (node.guidance) html += '<p class="mobius-card-guidance">' + escapeHtml(node.guidance) + '</p>';
     html += '<p id="mobius-card-prayer" class="mobius-card-prayer"><strong>Pray:</strong> ' + escapeHtml(node.prayerPrompt) + '</p>';
-    card.innerHTML = html;
+    safeSetHTML(card, html);
     container.appendChild(card);
   }
 
@@ -320,7 +333,7 @@
     if (!container) return;
     var d3 = window.d3;
     if (!d3) {
-      container.innerHTML = '<p class="mobius-fallback">Möbius Loop requires D3.js. Refresh to load.</p>';
+      safeSetHTML(container, '<p class="mobius-fallback">Möbius Loop requires D3.js. Refresh to load.</p>');
       return;
     }
     var topics = getTopicData();
@@ -339,7 +352,7 @@
     var width = w;
     var height = h;
 
-    container.innerHTML = '';
+    safeSetHTML(container, '');
     var svg = d3.select(container).append('svg')
       .attr('width', width).attr('height', height)
       .attr('viewBox', [0, 0, width, height])
@@ -504,7 +517,7 @@
       var n = parseInt(localStorage.getItem(key) || '0', 10);
       if (n === 0) el.textContent = '0 loops this week.';
       else if (n === 1) el.textContent = '1 loop this week. One step stronger.';
-      else if (n >= 3) el.innerHTML = n + ' loops this week. <strong>You\'re building something real.</strong>';
+      else if (n >= 3) safeSetHTML(el, n + ' loops this week. <strong>You\'re building something real.</strong>');
       else el.textContent = n + ' loops this week.';
     } catch (e) {}
   }
@@ -551,7 +564,7 @@
     }
 
     if (selector) {
-      selector.innerHTML = '';
+      safeSetHTML(selector, '');
       moodKeys.forEach(function (key) {
         var opt = document.createElement('option');
         opt.value = key;
@@ -613,7 +626,7 @@
           wrap.className = 'mobius-enoch-teaser';
           wrap.setAttribute('role', 'status');
           wrap.setAttribute('aria-live', 'polite');
-          wrap.innerHTML = '<p class="mobius-enoch-teaser-msg">You\'ve walked the loop thrice—want a glimpse of ancient wonders?</p><p class="mobius-enoch-teaser-cta">Switch to Hidden Scrolls…</p>';
+          safeSetHTML(wrap, '<p class="mobius-enoch-teaser-msg">You\'ve walked the loop thrice—want a glimpse of ancient wonders?</p><p class="mobius-enoch-teaser-cta">Switch to Hidden Scrolls…</p>');
           document.body.appendChild(wrap);
           setTimeout(function () {
             wrap.classList.add('mobius-enoch-teaser-fade');

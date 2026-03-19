@@ -13,8 +13,7 @@
         window.__ttDepth = 1;
         try {
           if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-            var r = DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: true });
-            return (r && typeof r === 'object' && typeof r.toString === 'function') ? r.toString() : (typeof r === 'string' ? r : x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
+            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: false });
           }
           return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         } catch (_) {

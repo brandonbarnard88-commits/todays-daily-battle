@@ -82,7 +82,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260320reader-sk">
+  <link rel="modulepreload" href="script.js?v=20260320featured-prayer">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -2615,6 +2615,41 @@
       max-width: 26rem;
     }
 
+    /* Daily spotlight — same starter list as below, rotates with local calendar day */
+    .featured-prayer-container {
+      margin: 0.75rem 0 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(227, 188, 103, 0.28);
+      border-left: 4px solid var(--gold-soft, #c9a84c);
+      background: rgba(227, 188, 103, 0.06);
+      box-sizing: border-box;
+    }
+    .featured-prayer-container:empty { display: none; }
+    .featured-prayer-heading {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0 0 0.45rem;
+      color: var(--text-dark, #e2e8f0);
+      letter-spacing: 0.02em;
+    }
+    .featured-prayer-text {
+      margin: 0 0 0.4rem;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: var(--text-dark, #e2e8f0);
+    }
+    .featured-prayer-note {
+      margin: 0;
+      font-size: 0.78rem;
+      opacity: 0.88;
+    }
+    :root[data-theme="light"] .featured-prayer-container {
+      background: rgba(253, 246, 227, 0.45);
+      border-color: rgba(180, 140, 60, 0.35);
+    }
+
     /* ── Mic Button ── */
     .mic-btn {
       flex-shrink: 0;
@@ -4192,6 +4227,7 @@
           <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers" aria-describedby="prayer-export-hint">Export my prayers</button>
           <p id="prayer-export-hint" class="prayer-export-hint section-note">Save as a text file—or share a verse anonymously with Share on any line.</p>
         </div>
+        <div id="featured-prayer" class="featured-prayer-container" aria-live="polite"></div>
         <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer wall entries" aria-live="polite" data-prayer-wall-rendered="1">
           <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, calm my anxious thoughts today — Phil 4:6-7 — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
           <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-2" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Healing for my marriage — Eph 5:25 — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
@@ -8090,6 +8126,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260320reader-sk" data-cfasync="false" fetchpriority="high"></script>
+    <script type="module" src="script.js?v=20260320featured-prayer" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

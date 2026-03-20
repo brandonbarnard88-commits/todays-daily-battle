@@ -7586,6 +7586,12 @@ body.red-letter-off .red-letter-card {
   overflow: auto;
 }
 
+/* Reader only: match min-height to max-height when loading or loaded so the pane
+   does not jump from skeleton → full chapter (major CLS win; empty state unchanged). */
+#chapter-reader #reader-output:not(.reader-output-empty) {
+  min-height: 420px;
+}
+
 .chapter-output.reader-output-empty {
   min-height: 4rem;
   display: flex;
@@ -8342,6 +8348,9 @@ body.red-letter-off .red-letter-card {
   .reader-actions .inline-toggle { grid-column: 1 / -1; font-size: 1rem; }
   .reader-actions button { min-height: 48px; font-size: 1rem; }
   .chapter-output { max-height: 50vh; }
+  #chapter-reader #reader-output:not(.reader-output-empty) {
+    min-height: 50vh;
+  }
 }
 
 /* Narrow mobile: stack search, full-width controls */
@@ -8433,6 +8442,9 @@ body.red-letter-off .red-letter-card {
   .card-actions button { min-height: 52px; padding: 0.75rem 1rem; font-size: 1rem; }
   .related-verses { font-size: 1rem; margin-top: 0.6rem; }
   .chapter-output { max-height: 320px; }
+  #chapter-reader #reader-output:not(.reader-output-empty) {
+    min-height: 320px;
+  }
   .section-divider { font-size: 1.3rem; }
   .daily-battle-actions .btn { font-size: 1rem; min-height: 52px; }
   .newsletter-tagline { font-size: 1rem; }

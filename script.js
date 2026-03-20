@@ -20188,6 +20188,37 @@ function sanitizeNudgeElements() {
       { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
       { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true }
     ];
+    function updateFeaturedPrayerHighlight() {
+      var featuredEl = document.getElementById('featured-prayer');
+      if (!featuredEl) return;
+      if (!SEED_PRAYERS.length) return;
+      var dayKey = typeof getDailyKey === 'function' ? getDailyKey() : '';
+      var h = 0;
+      for (var fi = 0; fi < dayKey.length; fi++) {
+        h = ((h << 5) - h) + dayKey.charCodeAt(fi);
+      }
+      var fidx = Math.abs(h) % SEED_PRAYERS.length;
+      var featured = SEED_PRAYERS[fidx];
+      featuredEl.textContent = '';
+      var card = document.createElement('div');
+      card.className = 'featured-prayer-card';
+      card.setAttribute('role', 'region');
+      card.setAttribute('aria-labelledby', 'featured-prayer-heading');
+      var h3 = document.createElement('h3');
+      h3.id = 'featured-prayer-heading';
+      h3.className = 'featured-prayer-heading';
+      h3.textContent = 'Featured quiet prayer today';
+      var pText = document.createElement('p');
+      pText.className = 'featured-prayer-text';
+      pText.textContent = (featured.text || '') + ' — Anonymous';
+      var note = document.createElement('p');
+      note.className = 'featured-prayer-note section-note';
+      note.textContent = 'One of the starter prayers below—rotates daily.';
+      card.appendChild(h3);
+      card.appendChild(pText);
+      card.appendChild(note);
+      featuredEl.appendChild(card);
+    }
     function seededShuffle(arr, seedStr) {
       var a = arr.slice();
       var seed = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
@@ -20249,6 +20280,7 @@ function sanitizeNudgeElements() {
         li.appendChild(shareBtn);
         listEl.appendChild(li);
       });
+      updateFeaturedPrayerHighlight();
       listEl.setAttribute('data-prayer-wall-rendered', '1');
       listEl.querySelectorAll('.prayer-wall-heart').forEach(function (btn) {
         btn.addEventListener('click', function () {

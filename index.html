@@ -2331,6 +2331,14 @@
       line-height: 1.55;
     }
 
+    .prayer-wall-battle-q {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text, #e2e8f0);
+      line-height: 1.45;
+    }
+
     .prayer-wall-input-row {
       display: flex;
       gap: 0.5rem;
@@ -4163,19 +4171,20 @@
           <span class="prayer-offline-notice hidden" id="prayerOfflineNotice">Saved locally—sync when back</span>
           <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
         </div>
-        <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">15</span></p>
+        <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">20</span></p>
         <p class="prayer-social-proof hidden" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
         <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
         <button class="silent-amen-btn" type="button" id="silentAmenBtn" aria-label="Add a silent amen">
           Silent Amen
         </button>
         <p class="prayer-wall-nudge-silent section-note" aria-live="polite">No one sees this. Just you and God.</p>
-        <!-- Community wall: type a short request, add to local wall, optionally sync -->
+        <p class="prayer-wall-battle-q" id="prayer-wall-battle-prompt">What battle are you facing today?</p>
+        <!-- Community wall: name the battle in a few words; stored as "Facing … today" -->
         <div class="prayer-wall-input-row">
-          <label for="prayer-wall-input" class="sr-only">Add a prayer to the wall</label>
+          <label for="prayer-wall-input" class="sr-only">Name your battle in a few words (posts anonymously)</label>
           <input type="text" id="prayer-wall-input" class="prayer-wall-input" maxlength="120"
-            placeholder="Add a short prayer…" aria-label="Add a prayer to the wall" autocomplete="off">
-          <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Post prayer to wall">Post</button>
+            placeholder="e.g. anxiety, caregiving, chronic pain" aria-label="Name your battle in a few words (posts anonymously)" autocomplete="off">
+          <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Share anonymously on the prayer wall">Share anonymously</button>
         </div>
         <!-- Sync status note — updated by updateSyncStatusUI() -->
         <p class="prayer-wall-note" aria-live="polite">Stays on this device until you sign in.</p>
@@ -4199,6 +4208,11 @@
           <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-13" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Calm the storm in my mind. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
           <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-14" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">I'm afraid of what comes next. Walk with me. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
           <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-15" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">This loss is heavy. Help me breathe. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-16" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, give me patience with my kids when I'm exhausted — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-17" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Healing for chronic pain that won't let up — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-18" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Wisdom for decisions I have to make alone — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-19" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Courage to keep going when I'm worn thin — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-20" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Grace for someone I love who is far from You — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
         </ul>
         <div class="prayer-share-row" id="prayerShareRow" role="status" aria-live="polite">
           <button class="share-prayer-btn" type="button" id="share-prayer-btn" aria-label="Copy prayer to clipboard">Share this prayer?</button>

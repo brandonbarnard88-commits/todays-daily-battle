@@ -17,7 +17,7 @@ OFFLINE = "--offline" in sys.argv
 
 # (path, name, list of strings that must appear in body)
 PAGES = [
-    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\"", "V2 Command Deck", "Search by what you feel right now"]),  # id="query" or id="tdb-search"
+    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now"]),  # id="query" or id="tdb-search"
     ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\""]),
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),

@@ -5,7 +5,7 @@ Prioritized levers to make the site feel **alive**, **complete**, and **discover
 ## 1. Community signals (Prayer Wall)
 
 - **Seeds:** Sparse, honest anonymous starters (KJV refs where helpful). Client-side shuffle uses `SEEDS` / `SEED_PRAYERS` in `script.js`; optional Supabase inserts follow runbook §2.
-- **Total counter floor:** `wireRealPrayerCounter` applies a display minimum (`PRAYER_WALL_SEED_DISPLAY_MIN`, matches starter pool size) so the number aligns with visible starters—not a database fake, just UI honesty with the seeded wall.
+- **Total counter floor:** `wireRealPrayerCounter` applies a display minimum (`PRAYER_WALL_SEED_DISPLAY_MIN`, matches starter pool size, currently 20) so the number aligns with visible starters—not a database fake, just UI honesty with the seeded wall.
 - **Nudges:** Homepage + Battle Plans callouts to the wall; Calm → “leave it on the Prayer Wall” after a verse.
 - **Export/share:** Surface export + Share on each line (copy already in UI).
 

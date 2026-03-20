@@ -5703,7 +5703,7 @@ function wireRealPrayerCounter() {
   var previousCount = null;
   var lastKnownTotal = null;
   // Display floor matches anonymous starter pool on the wall (honest warmth—not inflating DB totals).
-  var PRAYER_WALL_SEED_DISPLAY_MIN = 15;
+  var PRAYER_WALL_SEED_DISPLAY_MIN = 20;
   function floorPrayerTotalDisplay(n) {
     var x = typeof n === 'number' && !isNaN(n) ? n : parseInt(n, 10);
     if (isNaN(x) || x < 0) x = 0;
@@ -17432,7 +17432,12 @@ function sanitizeNudgeElements() {
       { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
       { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
       { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
-      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true }
+      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true },
+      { id: 'seed-16', text: 'Lord, give me patience with my kids when I\'m exhausted', hearts: 0, seed: true },
+      { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
+      { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
+      { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
+      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true }
     ];
     function shuffle(a, seedStr) {
       var s = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
@@ -20172,7 +20177,12 @@ function sanitizeNudgeElements() {
       { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
       { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
       { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
-      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true }
+      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true },
+      { id: 'seed-16', text: 'Lord, give me patience with my kids when I\'m exhausted', hearts: 0, seed: true },
+      { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
+      { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
+      { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
+      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true }
     ];
     function seededShuffle(arr, seedStr) {
       var a = arr.slice();
@@ -20261,10 +20271,14 @@ function sanitizeNudgeElements() {
     // ── Add handler ──────────────────────────────────────────────────────────
     if (addBtn && inputEl) {
       addBtn.addEventListener('click', function () {
-        var text = (inputEl.value || '').trim();
-        if (!text) return;
+        var raw = typeof sanitizeUserInput === 'function'
+          ? sanitizeUserInput((inputEl.value || '').trim())
+          : String((inputEl.value || '').trim()).slice(0, 120);
+        if (!raw) return;
+        var core = raw.slice(0, 106);
+        var text = ('Facing ' + core + ' today').slice(0, 120);
         var items = getItems();
-        items.push({ id: Date.now(), text: text.slice(0, 120), hearts: 0 });
+        items.push({ id: Date.now(), text: text, hearts: 0 });
         saveItems(items);
         pushToCloud(items);
         inputEl.value = '';
@@ -20278,7 +20292,7 @@ function sanitizeNudgeElements() {
         var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
         updateNoteEl(isSynced);
         if (typeof showEliteToast === 'function') showEliteToast(isSynced ? 'Prayer added—synced.' : 'Prayer added—saved locally.');
-        if (typeof trackEvent === 'function') trackEvent('prayer_wall_add');
+        if (typeof trackEvent === 'function') trackEvent('prayer_wall_add', { battle_prompt: true });
         // Scroll new item into view
         if (listEl && listEl.lastElementChild) listEl.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });

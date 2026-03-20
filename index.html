@@ -3813,7 +3813,7 @@
           <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
         </div>
       </div>
-      <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads. No personal data collected. Made during recovery from serious illness. Everything you do here stays between you and God.</div>
+      <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads. No personal data collected. Everything you do here stays between you and God.</div>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>
@@ -7022,59 +7022,125 @@
     }
 
     // ── Sky System (CSS-first, no canvas) ──
-    // Dawn 5–7:30a, day 7:30a–6:30p, dusk 6:30p–9p, night 9p–5a (Central US feel)
-    function getSkyClass(h) {
+    // With geolocation (cached same-day in sessionStorage): sky-dawn/day/dusk/night follow civil dawn → sunrise → sunset → civil dusk (sun disk hidden after sunset).
+    // Fallback: fixed windows — dawn 5–7:30a, day 7:30a–6:30p, dusk 6:30p–9p, night 9p–5a.
+    // Sun times: adapted from SunCalc (c) Vladimir Agafonkin, MIT — https://github.com/mourner/suncalc
+    var tdbSkySolarTimes = null;
+
+    function tdbGetSunTimes(date, lat, lng, height) {
+      height = height || 0;
+      var PI = Math.PI, sin = Math.sin, cos = Math.cos, tan = Math.tan, asin = Math.asin, atan = Math.atan2, acos = Math.acos, rad = PI / 180;
+      var dayMs = 86400000, J1970 = 2440588, J2000 = 2451545;
+      function toJulian(d) { return d.valueOf() / dayMs - 0.5 + J1970; }
+      function fromJulian(j) { return new Date((j + 0.5 - J1970) * dayMs); }
+      function toDays(d) { return toJulian(d) - J2000; }
+      var e = rad * 23.4397;
+      function rightAscension(l, b) { return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l)); }
+      function declination(l, b) { return asin(sin(b) * cos(e) + cos(b) * sin(e) * sin(l)); }
+      function solarMeanAnomaly(d) { return rad * (357.5291 + 0.98560028 * d); }
+      function eclipticLongitude(M) {
+        var C = rad * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M));
+        var P = rad * 102.9372;
+        return M + C + P + PI;
+      }
+      function sunCoords(d) {
+        var M = solarMeanAnomaly(d), L = eclipticLongitude(M);
+        return { dec: declination(L, 0), ra: rightAscension(L, 0) };
+      }
+      var J0 = 0.0009;
+      function julianCycle(d, lw) { return Math.round(d - J0 - lw / (2 * PI)); }
+      function approxTransit(Ht, lw, n) { return J0 + (Ht + lw) / (2 * PI) + n; }
+      function solarTransitJ(ds, M, L) { return J2000 + ds + 0.0053 * sin(M) - 0.0069 * sin(2 * L); }
+      function hourAngle(h, phi, d) { return acos((sin(h) - sin(phi) * sin(d)) / (cos(phi) * cos(d))); }
+      function observerAngle(heightM) { return -2.076 * Math.sqrt(heightM) / 60; }
+      function getSetJ(h, lw, phi, dec, n, M, L) {
+        var w = hourAngle(h, phi, dec), a = approxTransit(w, lw, n);
+        return solarTransitJ(a, M, L);
+      }
+      var lw = rad * -lng, phi = rad * lat, dh = observerAngle(height);
+      var d = toDays(date), n = julianCycle(d, lw), ds = approxTransit(0, lw, n);
+      var M = solarMeanAnomaly(ds), L = eclipticLongitude(M), dec = declination(L, 0), Jnoon = solarTransitJ(ds, M, L);
+      var result = { solarNoon: fromJulian(Jnoon), nadir: fromJulian(Jnoon - 0.5) };
+      var tList = [
+        [-0.833, 'sunrise', 'sunset'],
+        [-0.3, 'sunriseEnd', 'sunsetStart'],
+        [-6, 'dawn', 'dusk'],
+        [-12, 'nauticalDawn', 'nauticalDusk'],
+        [-18, 'nightEnd', 'night'],
+        [6, 'goldenHourEnd', 'goldenHour']
+      ];
+      for (var ti = 0; ti < tList.length; ti++) {
+        var tm = tList[ti], h0 = (tm[0] + dh) * rad;
+        var Jset = getSetJ(h0, lw, phi, dec, n, M, L);
+        var Jrise = Jnoon - (Jset - Jnoon);
+        result[tm[1]] = fromJulian(Jrise);
+        result[tm[2]] = fromJulian(Jset);
+      }
+      return result;
+    }
+
+    function tdbSkySolarValid(t) {
+      if (!t || !t.dawn || !t.sunrise || !t.sunset || !t.dusk) return false;
+      if (!isFinite(t.dawn.getTime()) || !isFinite(t.sunrise.getTime()) || !isFinite(t.sunset.getTime()) || !isFinite(t.dusk.getTime())) return false;
+      return t.dawn.getTime() <= t.sunrise.getTime() && t.sunrise.getTime() < t.sunset.getTime() && t.sunset.getTime() <= t.dusk.getTime();
+    }
+
+    function skyClassFromSolar(now, t) {
+      if (!tdbSkySolarValid(t)) return null;
+      var ts = now.getTime();
+      if (ts < t.dawn.getTime()) return 'sky-night';
+      if (ts < t.sunrise.getTime()) return 'sky-dawn';
+      if (ts < t.sunset.getTime()) return 'sky-day';
+      if (ts < t.dusk.getTime()) return 'sky-dusk';
+      return 'sky-night';
+    }
+
+    function getSkyClassFixed(h) {
       var isDawn  = h >= 5   && h < 7.5;
       var isDusk  = h >= 18.5 && h < 21;
       var isNight = !(h >= 6 && h < 21);
       return isDawn ? 'sky-dawn' : isDusk ? 'sky-dusk' : isNight ? 'sky-night' : 'sky-day';
     }
 
-    function updateSkyClass() {
-      var h = new Date().getHours() + new Date().getMinutes() / 60;
-      var next = getSkyClass(h);
-      var classes = ['sky-dawn', 'sky-day', 'sky-dusk', 'sky-night'];
-      var current = classes.find(function(c) { return document.body.classList.contains(c); });
-      if (current !== next) {
-        classes.forEach(function(c) { document.body.classList.remove(c); });
-        document.body.classList.add(next);
-        if (next === 'sky-night' && typeof initSkyMoon === 'function') initSkyMoon();
-      }
+    function resolveSkyClassNow() {
+      var now = new Date();
+      try {
+        var rawGeo = sessionStorage.getItem('tdbSkyGeo');
+        if (rawGeo) {
+          var og = JSON.parse(rawGeo);
+          if (og && typeof og.lat === 'number' && typeof og.lon === 'number') {
+            var todayStr = now.toDateString();
+            if (og.saved !== todayStr) {
+              og.saved = todayStr;
+              try { sessionStorage.setItem('tdbSkyGeo', JSON.stringify(og)); } catch (e0) {}
+            }
+            var stFresh = tdbGetSunTimes(now, og.lat, og.lon);
+            if (tdbSkySolarValid(stFresh)) tdbSkySolarTimes = stFresh;
+          }
+        }
+      } catch (eR) { /* keep existing tdbSkySolarTimes */ }
+      var fromSun = skyClassFromSolar(now, tdbSkySolarTimes);
+      if (fromSun) return fromSun;
+      var h = now.getHours() + now.getMinutes() / 60;
+      return getSkyClassFixed(h);
     }
 
-    function initHeaderSky() {
-      var h   = new Date().getHours() + new Date().getMinutes() / 60;
-      var isDay   = h >= 6   && h < 21;
-      var isDawn  = h >= 5   && h < 7.5;
-      var isDusk  = h >= 18.5 && h < 21;
-      var isNight = !isDay;
+    function clearDynamicSkyDecor(layer) {
+      if (!layer) return;
+      var dyn = layer.querySelectorAll('.sky-star, .sky-shooter, .sky-cloud, .sky-bird');
+      for (var ei = dyn.length - 1; ei >= 0; ei--) dyn[ei].remove();
+    }
+
+    function paintSkyDecorations(layer, r, skyClass) {
+      if (!layer) return;
       var isMobile = window.innerWidth < 600;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isNightSky = skyClass === 'sky-night';
+      var showDayDecor = !isNightSky;
+      var isDawn = skyClass === 'sky-dawn';
+      var isDusk = skyClass === 'sky-dusk';
 
-      // Apply time-of-day body class
-      document.body.classList.add(getSkyClass(h));
-
-      // Re-check every 60 s — swaps gradient if time window changes (no DOM rebuild)
-      setInterval(updateSkyClass, 60000);
-
-      // Eclipse: ~20% chance, seeded consistently by day hash
-      var ds = new Date().toDateString();
-      var dh = 0;
-      for (var di = 0; di < ds.length; di++) { dh = (dh * 31 + ds.charCodeAt(di)) % 100; }
-      if (dh < 20) document.body.classList.add('sky-eclipse');
-
-      var layer = document.getElementById('sky-layer');
-      if (!layer) return;
-
-      // Seeded RNG
-      function sr(seed) {
-        var s = seed;
-        return function() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
-      }
-      var r = sr(20260311 + dh);
-
-      // ── Stars (night only) ──
-      if (isNight && !reduced) {
+      if (isNightSky && !reduced) {
         var starCount = isMobile ? 55 : 110;
         for (var i = 0; i < starCount; i++) {
           var st = document.createElement('div');
@@ -7090,13 +7156,10 @@
             '--so-scale:' + scale + ';' +
             'animation-duration:' + (r() * 3 + 2) + 's;' +
             'animation-delay:-' + (r() * 5) + 's;';
-          // Color variation: blue-white / warm-white / pure white
           var cv = r();
           st.style.background = cv > 0.65 ? 'rgba(220,228,255,1)' : cv > 0.3 ? 'rgba(255,248,230,1)' : '#fff';
           layer.appendChild(st);
         }
-
-        // Shooting stars (2 on a staggered schedule)
         if (!isMobile) {
           for (var si = 0; si < 2; si++) {
             (function scheduleShooter(delay) {
@@ -7121,8 +7184,7 @@
         }
       }
 
-      // ── Clouds (day/dawn/dusk) ──
-      if (isDay && !reduced) {
+      if (showDayDecor && !reduced) {
         var cloudDefs = [
           { w:180, h:55, top: 12, op: 0.68, dur: 130 },
           { w:140, h:45, top: 24, op: 0.55, dur: 95  },
@@ -7132,14 +7194,12 @@
           { w:110, h:40, top: 33, op: 0.60, dur: 75  },
           { w:160, h:50, top: 18, op: 0.40, dur: 110 }
         );
-        // Random easing functions for organic drift variation
         var timings = ['ease-in-out', 'ease-in', 'ease-out', 'linear', 'ease-in-out'];
         var warmTint = isDusk || isDawn;
         cloudDefs.forEach(function(cd, idx) {
           var cl = document.createElement('div');
           cl.className = 'sky-cloud';
           var startX = -(cd.w + r() * 60);
-          // Random delay: negative so cloud starts mid-drift on load (no empty sky)
           var delay = -(r() * cd.dur * 0.8);
           var base = warmTint ? 'rgba(255,' + Math.round(190 - r()*60) + ',' + Math.round(130 - r()*80) + ',' : 'rgba(255,255,255,';
           cl.style.cssText =
@@ -7156,8 +7216,6 @@
             'animation-timing-function:' + timings[idx % timings.length] + ';';
           layer.appendChild(cl);
         });
-
-        // ── Birds ──
         var birdCount = isMobile ? 4 : 7 + Math.floor(r() * 4);
         for (var bi = 0; bi < birdCount; bi++) {
           var bd = document.createElement('div');
@@ -7179,16 +7237,103 @@
         }
       }
 
-      // ── Moon phase (night) ──
-      if (isNight) initSkyMoon();
+      if (isNightSky) initSkyMoon();
 
-      // ── Northern lights (rare, ~8% chance per visit) ──
-      if (isNight && r() < 0.08) {
+      if (isNightSky && r() < 0.08) {
         var aurora = document.getElementById('sky-aurora');
         if (aurora) {
           aurora.style.animationPlayState = 'running';
           setTimeout(function() { aurora.style.animationPlayState = 'paused'; }, 30000);
         }
+      }
+    }
+
+    function updateSkyClass() {
+      var next = resolveSkyClassNow();
+      var classes = ['sky-dawn', 'sky-day', 'sky-dusk', 'sky-night'];
+      var current = classes.find(function(c) { return document.body.classList.contains(c); });
+      if (current !== next) {
+        classes.forEach(function(c) { document.body.classList.remove(c); });
+        document.body.classList.add(next);
+        var layer = document.getElementById('sky-layer');
+        if (layer) {
+          clearDynamicSkyDecor(layer);
+          var ds = new Date().toDateString();
+          var dh = 0;
+          for (var di = 0; di < ds.length; di++) { dh = (dh * 31 + ds.charCodeAt(di)) % 100; }
+          function sr(seed) {
+            var s = seed;
+            return function() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+          }
+          paintSkyDecorations(layer, sr(20260311 + dh), next);
+        }
+      }
+    }
+
+    function initHeaderSky() {
+      try {
+        var raw = sessionStorage.getItem('tdbSkyGeo');
+        if (raw) {
+          var o = JSON.parse(raw);
+          if (o && typeof o.lat === 'number' && typeof o.lon === 'number' && o.saved === new Date().toDateString()) {
+            var st = tdbGetSunTimes(new Date(), o.lat, o.lon);
+            if (tdbSkySolarValid(st)) tdbSkySolarTimes = st;
+          }
+        }
+      } catch (err) { tdbSkySolarTimes = null; }
+
+      var layer = document.getElementById('sky-layer');
+      if (!layer) return;
+
+      var ds = new Date().toDateString();
+      var dh = 0;
+      for (var di = 0; di < ds.length; di++) { dh = (dh * 31 + ds.charCodeAt(di)) % 100; }
+      if (dh < 20) document.body.classList.add('sky-eclipse');
+
+      function sr(seed) {
+        var s = seed;
+        return function() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+      }
+      var r = sr(20260311 + dh);
+
+      var next = resolveSkyClassNow();
+      document.body.classList.add(next);
+
+      paintSkyDecorations(layer, r, next);
+
+      setInterval(updateSkyClass, 60000);
+
+      function requestSkyGeolocation() {
+        if (!navigator.geolocation) return;
+        navigator.geolocation.getCurrentPosition(
+          function (pos) {
+            var lat = pos.coords.latitude, lon = pos.coords.longitude;
+            try {
+              sessionStorage.setItem('tdbSkyGeo', JSON.stringify({
+                lat: lat, lon: lon, saved: new Date().toDateString()
+              }));
+            } catch (e2) {}
+            var times = tdbGetSunTimes(new Date(), lat, lon);
+            if (!tdbSkySolarValid(times)) return;
+            var skyNames = ['sky-dawn', 'sky-day', 'sky-dusk', 'sky-night'];
+            var prevClass = skyNames.find(function (c) { return document.body.classList.contains(c); });
+            tdbSkySolarTimes = times;
+            var after = skyClassFromSolar(new Date(), times);
+            if (!after || prevClass === after) return;
+            clearDynamicSkyDecor(layer);
+            var classes = ['sky-dawn', 'sky-day', 'sky-dusk', 'sky-night'];
+            classes.forEach(function(c) { document.body.classList.remove(c); });
+            document.body.classList.add(after);
+            paintSkyDecorations(layer, r, after);
+          },
+          function () { /* keep fixed or cached windows */ },
+          { enableHighAccuracy: false, timeout: 12000, maximumAge: 43200000 }
+        );
+      }
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(function () { requestSkyGeolocation(); }, { timeout: 5000 });
+      } else {
+        setTimeout(requestSkyGeolocation, 2000);
       }
     }
 

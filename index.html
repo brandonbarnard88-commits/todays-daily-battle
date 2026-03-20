@@ -237,48 +237,76 @@
       100% { background-position: -200px 0; }
     }
 
-    /* Northern lights — night only; layered curtains behind stars (see z-index on .sky-star) */
+    /* Northern lights — night only; zenith-heavy mask, three depths, calm oxygen/teal/violet (not neon) */
     .sky-aurora {
       position: absolute; inset: 0; z-index: 1;
       pointer-events: none;
       overflow: hidden;
       isolation: isolate;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 32%, rgba(0,0,0,0.92) 52%, rgba(0,0,0,0.45) 78%, transparent 100%);
+      mask-image: linear-gradient(180deg, #000 0%, #000 32%, rgba(0,0,0,0.92) 52%, rgba(0,0,0,0.45) 78%, transparent 100%);
     }
     body:not(.sky-night) .sky-aurora { display: none; }
+    /* Slow base wash — behind ::before / ::after (z-order) */
+    .sky-aurora-veil {
+      position: absolute;
+      z-index: 0;
+      left: -25%; right: -25%; top: -20%; bottom: 15%;
+      background:
+        radial-gradient(ellipse 95% 70% at 50% -5%, rgba(35, 85, 95, 0.55) 0%, rgba(25, 55, 75, 0.2) 45%, transparent 72%),
+        radial-gradient(ellipse 80% 55% at 22% 25%, rgba(55, 140, 120, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 75% 50% at 78% 30%, rgba(70, 110, 165, 0.22) 0%, transparent 58%);
+      filter: blur(32px);
+      mix-blend-mode: screen;
+      opacity: 0.5;
+      will-change: transform, opacity;
+      animation: sky-aurora-veil 96s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+    }
     .sky-aurora::before,
     .sky-aurora::after {
       content: '';
       position: absolute;
-      left: -35%; right: -35%; top: -8%; height: 62%;
+      z-index: 1;
+      left: -40%; right: -40%; top: -12%; height: 68%;
       background:
-        radial-gradient(ellipse 55% 70% at 28% 55%, rgba(100, 255, 200, 0.45) 0%, rgba(60, 200, 160, 0.12) 42%, transparent 68%),
-        radial-gradient(ellipse 50% 65% at 62% 48%, rgba(140, 210, 255, 0.38) 0%, rgba(90, 120, 220, 0.1) 45%, transparent 65%),
-        radial-gradient(ellipse 40% 55% at 48% 62%, rgba(200, 120, 255, 0.22) 0%, transparent 55%);
-      filter: blur(18px);
+        linear-gradient(101deg, transparent 0%, rgba(72, 210, 165, 0.07) 18%, transparent 21%, transparent 44%, rgba(140, 200, 255, 0.09) 49%, transparent 53%, transparent 71%, rgba(95, 185, 155, 0.06) 76%, transparent 80%),
+        radial-gradient(ellipse 52% 72% at 26% 52%, rgba(85, 235, 185, 0.42) 0%, rgba(45, 160, 130, 0.14) 38%, transparent 70%),
+        radial-gradient(ellipse 48% 68% at 58% 46%, rgba(130, 205, 255, 0.36) 0%, rgba(75, 105, 195, 0.12) 42%, transparent 68%),
+        radial-gradient(ellipse 38% 58% at 46% 64%, rgba(195, 130, 235, 0.2) 0%, transparent 58%);
+      filter: blur(20px);
       mix-blend-mode: screen;
-      opacity: 0.72;
+      opacity: 0.78;
       will-change: transform, opacity;
-      animation: sky-aurora-a 36s ease-in-out infinite;
+      animation: sky-aurora-a 44s cubic-bezier(0.4, 0.02, 0.6, 0.98) infinite;
     }
     .sky-aurora::after {
-      top: 2%; height: 58%;
+      z-index: 2;
+      top: 0; height: 64%;
       background:
-        radial-gradient(ellipse 60% 75% at 72% 52%, rgba(80, 255, 180, 0.35) 0%, transparent 58%),
-        radial-gradient(ellipse 45% 60% at 38% 44%, rgba(160, 190, 255, 0.32) 0%, transparent 62%),
-        linear-gradient(100deg, transparent 10%, rgba(50, 160, 140, 0.15) 45%, rgba(120, 80, 200, 0.1) 60%, transparent 88%);
-      filter: blur(22px);
-      animation: sky-aurora-b 52s ease-in-out infinite;
-      animation-delay: -8s;
+        linear-gradient(96deg, transparent 8%, rgba(60, 175, 155, 0.08) 38%, transparent 43%, transparent 62%, rgba(165, 145, 230, 0.07) 67%, transparent 73%),
+        radial-gradient(ellipse 58% 78% at 74% 48%, rgba(65, 220, 175, 0.38) 0%, transparent 60%),
+        radial-gradient(ellipse 46% 62% at 34% 42%, rgba(155, 185, 255, 0.34) 0%, transparent 64%),
+        radial-gradient(ellipse 36% 52% at 52% 58%, rgba(210, 100, 180, 0.12) 0%, transparent 56%);
+      filter: blur(26px);
+      opacity: 0.68;
+      animation: sky-aurora-b 63s cubic-bezier(0.38, 0.01, 0.62, 0.99) infinite;
+      animation-delay: -14s;
+    }
+    @keyframes sky-aurora-veil {
+      0%, 100% { opacity: 0.38; transform: scale(1) translate3d(0, 0, 0); }
+      33%      { opacity: 0.58; transform: scale(1.035) translate3d(1.5%, -0.8%, 0); }
+      66%      { opacity: 0.46; transform: scale(1.02) translate3d(-1%, 0.6%, 0); }
     }
     @keyframes sky-aurora-a {
-      0%,100% { transform: translateX(-8%) scaleX(1.15) skewX(-2deg); opacity: 0.55; }
-      33%     { transform: translateX(6%) scaleX(1.05) skewX(1deg);  opacity: 0.88; }
-      66%     { transform: translateX(-4%) scaleX(1.12) skewX(-1deg); opacity: 0.7; }
+      0%, 100% { transform: translate3d(-7%, -1.2%, 0) scaleX(1.14) skewX(-1.6deg); opacity: 0.58; }
+      22%      { transform: translate3d(5%, 2.2%, 0) scaleX(1.04) skewX(1.1deg);  opacity: 0.94; }
+      48%      { transform: translate3d(9%, -0.4%, 0) scaleX(1.16) skewX(2.2deg); opacity: 0.72; }
+      74%      { transform: translate3d(-3%, 1.6%, 0) scaleX(1.08) skewX(-0.9deg); opacity: 0.86; }
     }
     @keyframes sky-aurora-b {
-      0%,100% { transform: translateX(12%) scaleX(1.08) skewX(3deg); opacity: 0.45; }
-      40%     { transform: translateX(-10%) scaleX(1.2) skewX(-2deg); opacity: 0.78; }
-      70%     { transform: translateX(4%) scaleX(1.02) skewX(1deg);  opacity: 0.62; }
+      0%, 100% { transform: translate3d(11%, 0.8%, 0) scaleX(1.1) skewX(2.8deg); opacity: 0.48; }
+      35%      { transform: translate3d(-11%, -1.5%, 0) scaleX(1.22) skewX(-2deg); opacity: 0.82; }
+      62%      { transform: translate3d(3%, 2%, 0) scaleX(1.03) skewX(0.6deg);  opacity: 0.64; }
     }
 
     /* Nebula glow — night only */
@@ -503,7 +531,7 @@
     /* prefers-reduced-motion: static sky, no flap/twinkle/shoot/strafe/aurora */
     @media (prefers-reduced-motion: reduce) {
       .sky-sun, .sky-sun::after, .sky-sun::before, .sky-cloud, .sky-bird,
-      .sky-star, .sky-shooter, .sky-stars-parallax, .sky-aurora::before, .sky-aurora::after, #sky-moon { animation: none !important; }
+      .sky-star, .sky-shooter, .sky-stars-parallax, .sky-aurora-veil, .sky-aurora::before, .sky-aurora::after, #sky-moon { animation: none !important; }
       .sky-bird::before, .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
     }
 
@@ -3647,7 +3675,9 @@
       <div class="sky" aria-hidden="true" id="sky-layer">
         <!-- Parallax starfield (night only) — subtle tiling dots, slow strafe -->
         <div class="sky-stars-parallax" aria-hidden="true"></div>
-        <div class="sky-aurora" id="sky-aurora" aria-hidden="true"></div>
+        <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
+          <div class="sky-aurora-veil" aria-hidden="true"></div>
+        </div>
         <div class="sky-sun" id="sky-sun"></div>
         <!-- Moon (night only): same header slot as sun — accurate phase via SunCalc-style illumination -->
         <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">

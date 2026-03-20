@@ -5,9 +5,13 @@ Use this before or after each deploy to keep the site healthy and ready for real
 ## Quick wins (do once)
 
 ### 1. Cache-bust after deploy
-- Bump `script.js?v=YYYYMMDD` in all HTML when you change script (e.g. `20260301`). Prevents users stuck on old JS (404s, `shareStreakBtn`, etc.).
+- Bump `script.js?v=YYYYMMDD` in all HTML when you change script (e.g. `20260301`). Prevents users stuck on old JS (404s, `shareStreakBtn`, etc.). `/*.js` is cached long-term in `_headers`; the **query string** is the real cache buster.
 - **Before deploy:** run `npm run test` (or `python3 test-site.py --offline`) so all page checks pass.
 - After deploy: hard refresh (Cmd+Shift+R) and confirm Console shows latest behavior.
+- **Verify origin (not your browser cache):**  
+  `curl -sS https://todaysdailybattle.com/ | grep script.js` → should show the new `?v=` string.  
+  `curl -sS "https://todaysdailybattle.com/script.js?v=THAT_VERSION" | grep 'readChapterLink'` → should show the early-return guard in `mountRotatingHeroVerse`.  
+  If HTML is new but behavior is old, purge Cloudflare cache (`npm run purge:cloudflare` with `CF_API_TOKEN`) or **Purge Everything** in the dashboard.
 
 ### 2. “Prayed by X warriors today” (optional)
 - Run `supabase-get-prayers-today-count.sql` in Supabase SQL Editor (creates `get_prayers_today_count` RPC).

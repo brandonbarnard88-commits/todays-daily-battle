@@ -415,22 +415,42 @@
     }
     body:not(.sky-night) .sky-shooter { display: none; }
 
-    /* Moon — SVG with craters + phase shadow */
+    /* Moon — same “sky body” placement as .sky-sun (day disk), night only; SunCalc-accurate phase in JS */
     #sky-moon {
       position: absolute;
-      top: 1rem; right: 1.1rem;
-      z-index: 3;
+      left: 68%;
+      top: 12%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       opacity: 0;
       transition: opacity 1s ease;
-      will-change: opacity;
+      pointer-events: none;
+      will-change: transform, opacity;
     }
-    body.sky-night #sky-moon { opacity: 0.88; }
+    body.sky-night #sky-moon {
+      opacity: 0.94;
+      animation: moon-drift 90s ease-in-out infinite;
+    }
+    @keyframes moon-drift {
+      0%   { transform: translate(-50%, -50%) translateY(0px); }
+      50%  { transform: translate(-50%, -50%) translateY(-5px); }
+      100% { transform: translate(-50%, -50%) translateY(0px); }
+    }
     .sky-moon-svg {
-      filter: drop-shadow(0 0 10px rgba(190,210,255,0.22)) drop-shadow(0 0 22px rgba(140,170,230,0.10));
+      width: 88px;
+      height: 88px;
+      filter:
+        drop-shadow(0 0 8px rgba(220,235,255,0.45))
+        drop-shadow(0 0 20px rgba(180,205,255,0.22))
+        drop-shadow(0 0 42px rgba(140,170,230,0.14));
+    }
+    @media (max-width: 600px) {
+      #sky-moon { left: 70%; top: 11%; }
+      .sky-moon-svg { width: 72px; height: 72px; }
     }
     /* Phase shadow: SVG circle, scaleX driven by JS --shadow-scale */
     .sky-moon-shadow-svg {
@@ -440,7 +460,7 @@
     }
     .sky-moon-label {
       font-family: 'Palatino Linotype', Palatino, Georgia, serif;
-      font-size: 0.54rem;
+      font-size: 0.62rem;
       font-style: italic;
       letter-spacing: 0.05em;
       color: rgba(210,225,255,0.62);
@@ -452,7 +472,7 @@
     /* prefers-reduced-motion: static sky, no flap/twinkle/shoot/strafe/aurora */
     @media (prefers-reduced-motion: reduce) {
       .sky-sun, .sky-sun::after, .sky-sun::before, .sky-cloud, .sky-bird,
-      .sky-star, .sky-shooter, .sky-stars-parallax, .sky-aurora { animation: none !important; }
+      .sky-star, .sky-shooter, .sky-stars-parallax, .sky-aurora, #sky-moon { animation: none !important; }
       .sky-bird::before, .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
     }
 
@@ -3597,14 +3617,9 @@
         <!-- Parallax starfield (night only) — subtle tiling dots, slow strafe -->
         <div class="sky-stars-parallax" aria-hidden="true"></div>
         <div class="sky-sun" id="sky-sun"></div>
-      </div>
-      <!-- Northern lights (rare, night only) -->
-      <div class="sky-aurora" id="sky-aurora" aria-hidden="true"></div>
-      <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
-      <div class="mood-overlay" aria-hidden="true"></div>
-      <!-- Moon phase display (night only) — SVG with craters -->
-      <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
-        <svg class="sky-moon-svg" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">
+        <!-- Moon (night only): same header slot as sun — accurate phase via SunCalc-style illumination -->
+        <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
+        <svg class="sky-moon-svg" viewBox="0 0 100 100" aria-hidden="true">
           <defs>
             <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
               <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
@@ -3631,7 +3646,12 @@
           <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
         </svg>
         <span class="sky-moon-label" id="sky-moon-label"></span>
+        </div>
       </div>
+      <!-- Northern lights (rare, night only) -->
+      <div class="sky-aurora" id="sky-aurora" aria-hidden="true"></div>
+      <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
+      <div class="mood-overlay" aria-hidden="true"></div>
 
       <div class="site-logo-wrap" aria-hidden="true">
         <!-- Inline SVG cross — clean, crisp, dark-mode native. No image bleed. -->
@@ -7027,7 +7047,7 @@
     // ── Sky System (CSS-first, no canvas) ──
     // With geolocation (cached same-day in sessionStorage): sky-dawn/day/dusk/night follow civil dawn → sunrise → sunset → civil dusk (sun disk hidden after sunset).
     // Fallback: fixed windows — dawn 5–7:30a, day 7:30a–6:30p, dusk 6:30p–9p, night 9p–5a.
-    // Sun times: adapted from SunCalc (c) Vladimir Agafonkin, MIT — https://github.com/mourner/suncalc
+    // Sun + moon illumination: adapted from SunCalc (c) Vladimir Agafonkin, MIT — https://github.com/mourner/suncalc
     var tdbSkySolarTimes = null;
     var tdbSkyMoonIntervalId = null;
     var tdbAuroraIntervalId = null;
@@ -7387,25 +7407,58 @@
       }
     }
 
-    function getMoonPhase(date) {
-      var d = date || new Date();
-      var y = d.getFullYear(), m = d.getMonth() + 1, day = d.getDate();
-      var jd = (1461 * (y + 4800 + Math.floor((m - 14) / 12))) / 4 +
-        (367 * (m - 2 - 12 * Math.floor((m - 14) / 12))) / 12 -
-        (3 * Math.floor((y + 4900 + Math.floor((m - 14) / 12)) / 100)) / 4 + day - 32075;
-      var lunarAge = ((jd - 2451550.1) / 29.530588853) % 1;
-      if (lunarAge < 0) lunarAge += 1;
-      var illum = 0.5 * (1 - Math.cos(lunarAge * Math.PI * 2));
-      var phase = lunarAge;
-      var name = 'New Moon';
-      if (phase >= 0.03 && phase < 0.22) name = 'Waxing Crescent';
-      else if (phase >= 0.22 && phase < 0.28) name = 'First Quarter';
-      else if (phase >= 0.28 && phase < 0.47) name = 'Waxing Gibbous';
-      else if (phase >= 0.47 && phase < 0.53) name = 'Full Moon';
-      else if (phase >= 0.53 && phase < 0.72) name = 'Waning Gibbous';
-      else if (phase >= 0.72 && phase < 0.78) name = 'Last Quarter';
-      else if (phase >= 0.78 && phase < 0.97) name = 'Waning Crescent';
-      return { phase: name, fraction: phase, illumination: illum, waxing: phase < 0.5 };
+    /** Geocentric illumination: SunCalc getMoonIllumination (Meeus ch.48 / NASA mphase). */
+    function tdbGetMoonIllumination(date) {
+      var PI = Math.PI, sin = Math.sin, cos = Math.cos, tan = Math.tan, atan = Math.atan2, acos = Math.acos;
+      var rad = PI / 180;
+      var dayMs = 86400000, J1970 = 2440588, J2000 = 2451545;
+      function toJulian(d) { return d.valueOf() / dayMs - 0.5 + J1970; }
+      function toDays(d) { return toJulian(d) - J2000; }
+      var e = rad * 23.4397;
+      function rightAscension(l, b) { return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l)); }
+      function declination(l, b) { return Math.asin(sin(b) * cos(e) + cos(b) * sin(e) * sin(l)); }
+      function solarMeanAnomaly(d) { return rad * (357.5291 + 0.98560028 * d); }
+      function eclipticLongitude(M) {
+        var C = rad * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M));
+        var P = rad * 102.9372;
+        return M + C + P + PI;
+      }
+      function sunCoords(d) {
+        var M = solarMeanAnomaly(d), L = eclipticLongitude(M);
+        return { dec: declination(L, 0), ra: rightAscension(L, 0) };
+      }
+      function moonCoords(d) {
+        var L = rad * (218.316 + 13.176396 * d);
+        var Mm = rad * (134.963 + 13.064993 * d);
+        var F = rad * (93.272 + 13.229350 * d);
+        var l = L + rad * 6.289 * sin(Mm);
+        var b = rad * 5.128 * sin(F);
+        var dist = 385001 - 20905 * cos(Mm);
+        return { ra: rightAscension(l, b), dec: declination(l, b), dist: dist };
+      }
+      var d = toDays(date || new Date());
+      var s = sunCoords(d), m = moonCoords(d);
+      var sdist = 149598000;
+      var phi = acos(sin(s.dec) * sin(m.dec) + cos(s.dec) * cos(m.dec) * cos(s.ra - m.ra));
+      var inc = atan(sdist * sin(phi), m.dist - sdist * cos(phi));
+      var angle = atan(cos(s.dec) * sin(s.ra - m.ra), sin(s.dec) * cos(m.dec) - cos(s.dec) * sin(m.dec) * cos(s.ra - m.ra));
+      var fraction = (1 + cos(inc)) / 2;
+      var phase = 0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / PI;
+      return { fraction: fraction, phase: phase, angle: angle };
+    }
+
+    function tdbMoonPhaseName(synodicPhase) {
+      var ph = synodicPhase % 1;
+      if (ph < 0) ph += 1;
+      if (ph < 0.03 || ph > 0.97) return 'New Moon';
+      if (ph < 0.22) return 'Waxing Crescent';
+      if (ph < 0.28) return 'First Quarter';
+      if (ph < 0.47) return 'Waxing Gibbous';
+      if (ph < 0.53) return 'Full Moon';
+      if (ph < 0.72) return 'Waning Gibbous';
+      if (ph < 0.78) return 'Last Quarter';
+      if (ph < 0.97) return 'Waning Crescent';
+      return 'New Moon';
     }
 
     function initSkyMoon() {
@@ -7417,20 +7470,21 @@
 
       function updateMoon() {
         if (!document.body.classList.contains('sky-night')) return;
-        var mp = getMoonPhase();
-        var illum = mp.illumination;
-        var waxing = mp.waxing;
-        var shadowScale = 1 - illum;
+        var ill = tdbGetMoonIllumination(new Date());
+        var name = tdbMoonPhaseName(ill.phase);
+        var frac = ill.fraction;
+        var waxing = ill.phase < 0.5 || ill.phase > 0.98;
+        var shadowScale = 1 - frac;
         shadow.style.setProperty('--shadow-scale', shadowScale.toFixed(3));
         shadow.style.setProperty('--shadow-origin', waxing ? '100% 50%' : '0% 50%');
-        var pct = Math.round(illum * 100);
-        if (label) label.textContent = mp.phase + ' · ' + pct + '%';
+        var pct = Math.round(frac * 100);
+        if (label) label.textContent = name + ' · ' + pct + '%';
         var moonEl = document.getElementById('sky-moon');
-        if (moonEl) moonEl.setAttribute('aria-label', 'Moon phase: ' + mp.phase + ', ' + pct + '% illuminated');
+        if (moonEl) moonEl.setAttribute('aria-label', 'Moon phase: ' + name + ', ' + pct + '% illuminated');
       }
 
       updateMoon();
-      tdbSkyMoonIntervalId = setInterval(updateMoon, 300000);
+      tdbSkyMoonIntervalId = setInterval(updateMoon, 60000);
     }
 
     // ── Init ──

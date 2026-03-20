@@ -8,6 +8,9 @@ firebase-config.js
 .DS_Store
 node_modules/
 dist/
+/build
+/build/
+*.tar.gz
 android/
 ios/
 .idea/
@@ -17,6 +20,5 @@ lighthouse-*.html
 lighthouse-*.json
 lhr-ci.json
 *.zip
-backup-*.tar.gz
 playwright-report/
 test-results/

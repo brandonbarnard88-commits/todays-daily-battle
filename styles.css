@@ -4056,6 +4056,12 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   left: 50%;
   transform: translateX(-50%) translateY(12px);
   z-index: 9000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  max-width: min(420px, calc(100vw - 32px));
   background: #141a24;
   border: 1.5px solid #e3bc67;
   border-radius: 16px;
@@ -4065,12 +4071,43 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   color: #f2dc98;
   letter-spacing: 0.015em;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(227, 188, 103, 0.12);
-  white-space: nowrap;
+  text-align: center;
   opacity: 0;
   pointer-events: none;
   /* 1.5s fade transitions as spec'd */
   transition: opacity 1.5s ease, transform 1.5s ease;
   user-select: none;
+}
+.toast-gold-msg {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.toast-gold-cta {
+  flex: 0 0 auto;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #e3bc67;
+  background: rgba(227, 188, 103, 0.14);
+  color: #f2dc98;
+  min-height: 44px;
+  box-sizing: border-box;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.toast-gold-cta:hover {
+  background: rgba(227, 188, 103, 0.24);
+}
+.toast-gold-cta:focus {
+  outline: none;
+}
+.toast-gold-cta:focus-visible {
+  outline: 2px solid #e3bc67;
+  outline-offset: 3px;
 }
 .toast-gold.toast-gold--visible {
   opacity: 1;

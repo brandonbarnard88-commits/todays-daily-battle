@@ -17389,13 +17389,17 @@ function writeNbaSignal(key) {
 function sanitizeNudgeElements() {
   var nudge = document.getElementById('daily-nudge');
   var encourage = document.getElementById('encourageMsg');
-  var DAILY_OK = /New day|still here if you need/i;
+  var DAILY_OK = /New day|still here/i;
   var ENCOURAGE_OK = /He'?s got you|verse|ref|Philippians|Matthew|Psalm|Isaiah|John/i;
+  var DAILY_NUDGE_RESET =
+    '<span class="toast-gold-msg">New day—still here.</span>' +
+    '<button type="button" class="toast-gold-cta" id="daily-nudge-open-armor" aria-label="Open Family Armor and Bible stories">Open Family Armor</button>';
   if (nudge) {
-    var t = (nudge.textContent || '').trim();
+    var msgEl = nudge.querySelector('.toast-gold-msg');
+    var t = (msgEl ? msgEl.textContent : nudge.textContent || '').trim();
     if (t && !DAILY_OK.test(t) && t.indexOf('does nothing') !== -1) {
       if (typeof console !== 'undefined' && console.warn) console.warn('TDB: unexpected daily-nudge content, resetting');
-      nudge.textContent = 'New day—still here if you need.';
+      nudge.innerHTML = DAILY_NUDGE_RESET;
     }
   }
   if (encourage) {
@@ -22507,7 +22511,7 @@ function wireRandomBattleVerseHero() {
   // ───────────────────────────────────────────────────────────────────────────
   (function initDailyNudge() {
     var NUDGE_KEY = 'tdb-daily-nudge-shown';
-    var SHOW_MS   = 3000;   // visible duration
+    var SHOW_MS   = 5000;   // visible duration (interactive CTA needs a moment)
     var FADE_MS   = 1500;   // matches CSS transition
 
     function todayStr() {
@@ -22535,18 +22539,28 @@ function wireRandomBattleVerseHero() {
       // Fade in
       toast.classList.add('toast-gold--visible');
 
-      // Dismiss on click
+      // Dismiss on click; CTA opens Family Armor modal first (same as main button)
       function dismiss() {
-        toast.removeEventListener('click', dismiss);
+        toast.removeEventListener('click', onToastClick);
         toast.classList.remove('toast-gold--visible');
         toast.classList.add('toast-gold--out');
         setTimeout(function () { toast.classList.remove('toast-gold--out'); }, FADE_MS);
       }
-      toast.addEventListener('click', dismiss);
+      function onToastClick(e) {
+        var t = e && e.target;
+        var cta = t && typeof t.closest === 'function' ? t.closest('#daily-nudge-open-armor') : null;
+        if (cta) {
+          var armorBtn = document.getElementById('family-armor-stories-btn');
+          if (armorBtn) armorBtn.click();
+          if (typeof trackEvent === 'function') trackEvent('daily_nudge_family_armor', {});
+        }
+        dismiss();
+      }
+      toast.addEventListener('click', onToastClick);
 
       // Auto-hide after SHOW_MS
       setTimeout(function () {
-        toast.removeEventListener('click', dismiss);
+        toast.removeEventListener('click', onToastClick);
         toast.classList.remove('toast-gold--visible');
         toast.classList.add('toast-gold--out');
         setTimeout(function () { toast.classList.remove('toast-gold--out'); }, FADE_MS);

@@ -608,10 +608,9 @@
       #hero-verse-wrap    { grid-column: 1 !important; grid-row: 1 / 4 !important; }
       #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
       #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
-      .share-verse-row       { grid-column: 1 / -1 !important; grid-row: 4 !important; }
-      .landing-privacy-teaser{ grid-column: 1 / -1 !important; grid-row: 5 !important; }
-      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 6 !important; }
-      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 7 !important; }
+      .landing-privacy-teaser{ grid-column: 1 / -1 !important; grid-row: 4 !important; }
+      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 5 !important; }
+      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 6 !important; }
       .verse-img-card,
       .calm-cta-wrap,
       .calm-crisis-card,
@@ -3297,6 +3296,80 @@
       margin: 0;
       font-style: italic;
     }
+    /* Below site header: share + Battle Plans (same band) */
+    .header-sub-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem 1.5rem;
+      padding: 0.65rem 0 1.1rem;
+      margin: 0 0 0.25rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 85%, var(--gold) 15%);
+    }
+    .header-sub-toolbar .share-verse-row {
+      margin: 0;
+      flex: 1 1 220px;
+      min-width: 0;
+    }
+    .header-battle-plans {
+      flex: 0 1 auto;
+      text-align: center;
+    }
+    .header-battle-plans-link {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.5rem 0.85rem;
+      min-height: 44px;
+      justify-content: center;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 80%, var(--gold) 20%);
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
+    .header-battle-plans-link:hover,
+    .header-battle-plans-link:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold-soft);
+      box-shadow: 0 0 12px color-mix(in srgb, var(--gold) 22%, transparent);
+      outline: none;
+    }
+    .header-battle-plans-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .header-battle-plans-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .header-battle-plans-link:hover .header-battle-plans-sub,
+    .header-battle-plans-link:focus-visible .header-battle-plans-sub {
+      color: var(--muted);
+    }
+    @media (min-width: 600px) {
+      .header-sub-toolbar {
+        justify-content: space-between;
+        align-items: stretch;
+      }
+      .header-sub-toolbar .share-verse-row {
+        align-items: flex-start;
+        text-align: left;
+      }
+      .header-battle-plans {
+        text-align: right;
+        align-self: center;
+      }
+      .header-battle-plans-link {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
     .verse-feedback-row {
       display: flex;
       align-items: center;
@@ -3609,6 +3682,23 @@
       </nav>
     </header>
 
+    <div class="header-sub-toolbar" role="region" aria-label="Share today’s verse and reading plans">
+      <div class="share-verse-row">
+        <div class="share-verse-actions">
+          <button type="button" class="share-verse-btn share-verse-listen" id="shareVerseListenBtn" aria-label="Listen to this verse read aloud">Listen</button>
+          <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
+        </div>
+        <p class="share-verse-whisper">If this helped, tell a friend.</p>
+        <p class="trust-badge" aria-label="Privacy and ad policy">Privacy-first · No ads</p>
+      </div>
+      <div class="header-battle-plans">
+        <a href="plans.html" class="header-battle-plans-link" aria-label="Battle Plans — browse 7 to 40 day KJV reading plans">
+          <span class="header-battle-plans-title">📋 Battle Plans</span>
+          <span class="header-battle-plans-sub">7–40 day plans, saved on your device →</span>
+        </a>
+      </div>
+    </div>
+
     <!-- Hidden search plumbing for script.js compatibility -->
     <!-- DO NOT REMOVE: #main-search, #quick-actions-hero are protected core tools — build fails if missing -->
     <section class="sr-only" aria-hidden="true" id="main-search">
@@ -3715,15 +3805,6 @@
       </div><!-- /#hero-verse-wrap -->
       </div><!-- /#main-content -->
 
-      <!-- ── Listen + Share this verse ── -->
-      <div class="share-verse-row">
-        <div class="share-verse-actions">
-          <button type="button" class="share-verse-btn share-verse-listen" id="shareVerseListenBtn" aria-label="Listen to this verse read aloud">Listen</button>
-          <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
-        </div>
-        <p class="share-verse-whisper">If this helped, tell a friend.</p>
-        <p class="trust-badge" aria-label="Privacy and ad policy">Privacy-first · No ads</p>
-      </div>
       <!-- ── How's this helping? (feedback for future priorities) ── -->
       <div class="verse-feedback-row" id="verseFeedbackRow" role="group" aria-label="Verse feedback" hidden>
         <span class="verse-feedback-label">How's this helping?</span>

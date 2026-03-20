@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="tool-pages.css?v=20260305p">
   <style>
     .mobius-hero { text-align: center; margin-bottom: 1.25rem; flex-shrink: 0; }
+    .mobius-kjv-banner { font-size: 0.82rem; color: var(--tool-muted); max-width: 36rem; margin: 0 auto 0.75rem; line-height: 1.45; }
+    .mobius-kjv-banner strong { color: var(--tool-text); font-weight: 600; }
     .mobius-hero h1 { margin: 0; font-size: clamp(1.15rem, 4vw, 1.5rem); font-weight: 600; color: var(--tool-text, #f5f7fb); }
     .mobius-hero p { margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--tool-muted, #bcc5d6); max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5; }
     .mobius-mode-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.25rem; }
@@ -117,6 +119,7 @@
 
   <main class="tool-page-main" id="main-content" role="main">
     <header class="mobius-hero">
+      <p class="mobius-kjv-banner" role="note">This site’s Bible text is <strong>KJV only</strong>. “Hidden Scrolls” is optional non-canonical material for reflection—<strong>not Scripture</strong>, not mixed with the reader or daily verse.</p>
       <h1>Möbius Loop</h1>
       <p>One journey, three modes. Graph (canon), Text (meditation), or Hidden Scrolls—ancient apocryphal texts.</p>
     </header>
@@ -236,7 +239,7 @@
 
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260311k" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260320a" data-cfasync="false"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
   <script src="mobius-universal.js?v=20260318p" defer></script>
   <script src="share-page.js" defer></script>

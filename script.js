@@ -5045,6 +5045,8 @@ function renderSmartResult(query) {
 function mountRotatingHeroVerse() {
   var verses = ROTATING_HERO_VERSES;
   if (!Array.isArray(verses) || verses.length === 0) return;
+  // Homepage: loadTodaysVerse() owns hero + #readChapterLink. Never overwrite (would desync ref vs reader URL).
+  if (document.querySelector('[data-daily-verse="true"]') || document.getElementById('readChapterLink')) return;
   var order, idx;
   try {
     var rawOrder = localStorage.getItem(HERO_ORDER_KEY);

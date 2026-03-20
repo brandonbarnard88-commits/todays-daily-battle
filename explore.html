@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Explore the Site • Topics, Tools, Plans &amp; More • Today's Daily Battle</title>
+  <meta name="description" content="Every public page in one place — KJV topic guides, Calm, battle plans, kids, church hubs, pastor tools, and legal pages. Find what you need without guessing the URL.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/explore.html">
+  <meta property="og:title" content="Explore the Site • Today's Daily Battle">
+  <meta property="og:description" content="Topics, tools, plans, kids, church, and pastor pages — all in one calm list.">
+  <meta property="og:url" content="https://todaysdailybattle.com/explore.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explore the Site • Today's Daily Battle">
+  <meta name="twitter:description" content="Every public page — topics, tools, plans, and more.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260320explore">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Every page — one list</span>
+      </div>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <button id="signup-btn" type="button">Sign Up</button>
+        <button id="login-btn" type="button">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" class="hidden" type="button">Log Out</button>
+      </div>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="explore.html" aria-current="page">Explore</a>
+        <a href="verse.html">Verse of the Day</a>
+        <a href="calm.html">Calm</a>
+        <a href="plans.html">Battle plans</a>
+        <a href="message.html">Prayer wall</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner explore-page">
+        <header class="hero-banner">
+          <h1>Explore the site</h1>
+          <p class="hero-tagline">KJV-first tools and topic pages — find the right door without memorizing URLs. Same privacy: your search stays yours.</p>
+        </header>
+
+        <section class="glass">
+          <h2 class="section-divider">How to use this page</h2>
+          <p class="section-note">Jump to a section below, or use your browser’s find (Ctrl+F / ⌘F) on this page. Core routes follow the public sitemap; a few trusted tools (documentary archive, class workshop, print packs) are listed here too so nothing important stays URL-only.</p>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="topics-en">Topics (English)</h2>
+          <p class="section-note util-mb-0_5">Short devotionals keyed to real struggles — each page is KJV text with plain help.</p>
+          <ul class="explore-link-list">
+            <li><a href="topic-anxiety.html">Anxiety</a> — When your mind won’t slow down.</li>
+            <li><a href="topic-fear.html">Fear</a> — When fear runs ahead of facts.</li>
+            <li><a href="topic-grief.html">Grief</a> — When loss still aches.</li>
+            <li><a href="topic-hope.html">Hope</a> — Anchors when tomorrow feels thin.</li>
+            <li><a href="topic-forgiveness.html">Forgiveness</a> — Letting go without pretending.</li>
+            <li><a href="topic-strength.html">Strength</a> — Weak days, strong Word.</li>
+            <li><a href="topic-parenting.html">Parenting</a> — Leading little hearts with Scripture.</li>
+            <li><a href="topic-loneliness.html">Loneliness</a> — When it feels like no one sees you.</li>
+            <li><a href="topic-guilt.html">Guilt</a> — Truth without drowning in shame.</li>
+            <li><a href="topic-overwhelmed.html">Overwhelmed</a> — When everything hits at once.</li>
+            <li><a href="topic-worthless.html">Worth / identity</a> — Who God says you are.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="topics-es">Topics (Español)</h2>
+          <p class="section-note util-mb-0_5">UI in Spanish; verse text remains KJV English on-page.</p>
+          <ul class="explore-link-list">
+            <li><a href="ansiedad.html" hreflang="es">Ansiedad</a> — Ansiedad y versículos.</li>
+            <li><a href="fuerza.html" hreflang="es">Fuerza</a> — Fuerza y descanso.</li>
+            <li><a href="paz.html" hreflang="es">Paz</a> — Paz que guarda el corazón.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="daily">Daily Scripture &amp; study</h2>
+          <ul class="explore-link-list">
+            <li><a href="/">Home</a> — Verse of the day, mood search, prayer wall.</li>
+            <li><a href="verse.html">Verse of the Day</a> — Standalone daily verse view.</li>
+            <li><a href="reader.html">Chapter reader</a> — Full chapters, book by book.</li>
+            <li><a href="bible/">Bible hub</a> — Entry to Bible tools and rhythm.</li>
+            <li><a href="bible/study.html">Bible study (hub)</a> — Study path from the Bible section.</li>
+            <li><a href="bible/tools.html">Bible tools (hub)</a> — Tools index inside Bible.</li>
+            <li><a href="bible-tool.html">Bible tool</a> — Ask-the-Word style lookup and context.</li>
+            <li><a href="reading-plan.html">7-day reading plan</a> — Structured week of readings.</li>
+            <li><a href="plans.html">Battle plans</a> — Multi-day plans library.</li>
+            <li><a href="study.html">Study workspace</a> — Notes and workspace in one place.</li>
+            <li><a href="calm.html">Calm</a> — When you need one verse right now.</li>
+            <li><a href="mobius.html">Möbius</a> — Canon graph and exploration.</li>
+            <li><a href="bible-study.html">Bible studies</a> — Study starters and helps.</li>
+            <li><a href="curriculum.html">Curriculum</a> — Structured learning tracks.</li>
+            <li><a href="mystudy.html">My Study</a> — Private verse, notes, and prayer on this device.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="documentary">Documentary &amp; class tools</h2>
+          <p class="section-note util-mb-0_5">Public pages; some are not yet in the main XML sitemap — they stay linked from tools and this hub.</p>
+          <ul class="explore-link-list">
+            <li><a href="action-bible.html">Action Bible Archive</a> — Season-style documentary entries, listen, read-along.</li>
+            <li><a href="action-bible-workshop.html">Action Bible Workshop</a> — Worksheets, leader dashboard JSON, weekly packs.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="progress">Progress &amp; community</h2>
+          <ul class="explore-link-list">
+            <li><a href="message.html">Prayer wall</a> — Quiet posts; anonymous option.</li>
+            <li><a href="wins.html">Wins</a> — Track encouragements and copy wins.</li>
+            <li><a href="progress.html">Progress</a> — Streaks and plan progress.</li>
+            <li><a href="wins-report.html">Wins report</a> — Shareable summary of wins.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="kids">Kids &amp; family</h2>
+          <ul class="explore-link-list">
+            <li><a href="kids/">Kids Battle</a> — Home for kids’ loops and games.</li>
+            <li><a href="kids/parent.html">Parent dashboard</a> — Family view and favorites.</li>
+            <li><a href="kids/corner.html">Kids library</a> — Stories and activities.</li>
+            <li><a href="kids-corner.html">Kids corner</a> — Family activities hub.</li>
+            <li><a href="coloring.html">Kids coloring</a> — Printable pages.</li>
+            <li><a href="kids-activities-print.html">Kids activities (print)</a> — Printable activities pack.</li>
+            <li><a href="kids-coloring-pack.html">Kids coloring pack</a> — Extra coloring pack.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="church">Church &amp; teams</h2>
+          <ul class="explore-link-list">
+            <li><a href="church/">Church join hub</a> — Groups and onboarding.</li>
+            <li><a href="church/daily.html">Daily for churches</a> — Corporate daily rhythm.</li>
+            <li><a href="church.html">Church center</a> — Deacons, visitation, ministry helps.</li>
+            <li><a href="team-toolkit.html">Team toolkit</a> — Teams and group workflows.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="pastor">Pastors &amp; teaching</h2>
+          <ul class="explore-link-list">
+            <li><a href="pastor/">Pastor hub</a> — Central pastor entry.</li>
+            <li><a href="pastor/library.html">Pastor library</a> — Sermon and study library.</li>
+            <li><a href="pastor/builder.html">Pastor builder</a> — Build lessons and outlines.</li>
+            <li><a href="pastor/tools.html">Pastor tools</a> — Tool index for shepherds.</li>
+            <li><a href="pastor-toolkit.html">Pastor toolkit</a> — Full toolkit page.</li>
+            <li><a href="sermon.html">Sermon builder</a> — Outline and prep starter.</li>
+            <li><a href="resources.html">Pastor resources</a> — Downloads and references.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="share-media">Share &amp; media</h2>
+          <ul class="explore-link-list">
+            <li><a href="verse-cards/">Verse cards</a> — Shareable KJV verse images.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="story-account">Story, account &amp; support</h2>
+          <ul class="explore-link-list">
+            <li><a href="story.html">Story</a> — Why this site exists.</li>
+            <li><a href="about.html">About</a> — People and purpose.</li>
+            <li><a href="faq.html">FAQ</a> — Common answers.</li>
+            <li><a href="pricing.html">Pricing</a> — Free core and paid tiers.</li>
+            <li><a href="shop.html">Shop</a> — Gear and waitlist.</li>
+            <li><a href="contact.html">Contact</a> — Reach the builder.</li>
+          </ul>
+        </section>
+
+        <section class="glass explore-section">
+          <h2 class="section-divider" id="legal">Legal &amp; trust</h2>
+          <ul class="explore-link-list">
+            <li><a href="privacy.html">Privacy</a> — What is collected and what is not.</li>
+            <li><a href="terms.html">Terms</a> — Terms of use.</li>
+            <li><a href="security.html">Security</a> — How we protect accounts and data.</li>
+            <li><a href="approach.html">How we respond</a> — Feedback and accountability.</li>
+          </ul>
+        </section>
+
+        <p class="section-note explore-back"><a href="/">← Back to home</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the work — Buy me a coffee">Support ☕</a>
+      </nav>
+      <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
+      <p class="footer-copyright">© 2026 Todays Daily Battle. All rights reserved.</p>
+      <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+    </footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260320reader-sk" data-cfasync="false"></script>
+</body>
+</html>

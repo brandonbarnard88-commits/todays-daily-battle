@@ -15115,6 +15115,38 @@ function populateTemplateList() {
   });
 }
 
+function showReaderChapterSkeleton(output) {
+  if (!output) return;
+  output.classList.remove('reader-output-empty');
+  output.classList.add('reader-output-loading');
+  output.setAttribute('aria-busy', 'true');
+  output.innerHTML = '';
+  const wrap = document.createElement('div');
+  wrap.className = 'reader-chapter-skeleton';
+  wrap.setAttribute('aria-hidden', 'true');
+  const titleBar = document.createElement('div');
+  titleBar.className = 'reader-skeleton-title';
+  wrap.appendChild(titleBar);
+  const widths = [0.92, 0.78, 0.88, 0.65, 0.9, 0.72, 0.85, 0.68, 0.91, 0.74, 0.82, 0.7, 0.89];
+  for (let i = 0; i < widths.length; i++) {
+    const line = document.createElement('div');
+    line.className = 'reader-skeleton-line';
+    line.style.width = Math.round(widths[i] * 100) + '%';
+    wrap.appendChild(line);
+  }
+  const sr = document.createElement('p');
+  sr.className = 'sr-only';
+  sr.textContent = 'Loading chapter…';
+  output.appendChild(sr);
+  output.appendChild(wrap);
+}
+
+function clearReaderLoadingState(output) {
+  if (!output) return;
+  output.classList.remove('reader-output-loading');
+  output.removeAttribute('aria-busy');
+}
+
 function populateReaderBooks() {
   const bookSelect = document.getElementById('reader-book');
   if (!bookSelect) return;
@@ -15160,7 +15192,7 @@ function renderReaderChapter(book, chapter) {
     renderReaderChapterFromApiData(output, book, chapter, key, cached.verses);
     return;
   }
-  output.innerHTML = '<p class="section-note empty">Loading chapter…</p>';
+  showReaderChapterSkeleton(output);
   var apiBase = 'https://bible-api.com';
   var path = encodeURIComponent(book).replace(/%20/g, '+') + '+' + String(chapter);
   var url = apiBase + '/' + path + '?translation=kjv';
@@ -15174,6 +15206,7 @@ function renderReaderChapter(book, chapter) {
       if (list.length) setReaderCache(key, { verses: list });
       output.innerHTML = '';
       if (!list.length) {
+        clearReaderLoadingState(output);
         output.innerHTML = '<p class="empty">Chapter not found. Try another book or chapter.</p>';
         return;
       }
@@ -15182,6 +15215,7 @@ function renderReaderChapter(book, chapter) {
     .catch(function (err) {
       clearTimeout(timeoutId);
       output.innerHTML = '';
+      clearReaderLoadingState(output);
       var errP = document.createElement('p');
       errP.className = 'empty';
       errP.textContent = (err.name === 'AbortError'
@@ -15192,6 +15226,7 @@ function renderReaderChapter(book, chapter) {
 }
 
 function renderReaderChapterFromApiData(output, book, chapter, key, list) {
+  clearReaderLoadingState(output);
   output.innerHTML = '';
   var heading = document.createElement('div');
   heading.className = 'chapter-title';
@@ -15231,6 +15266,7 @@ function renderReaderChapterFromApiData(output, book, chapter, key, list) {
 }
 
 function renderReaderChapterFromVerses(output, book, chapter, verses) {
+  clearReaderLoadingState(output);
   var key = (typeof book === 'string' && typeof chapter === 'string') ? book + ' ' + chapter : '';
   if (!key) key = verses[0] ? (verses[0].ref || '').replace(/\s*\d+:\d+$/, '') + ' ' + (verses[0].ref || '').match(/\d+$/)?.[0] || '' : '';
   var heading = document.createElement('div');

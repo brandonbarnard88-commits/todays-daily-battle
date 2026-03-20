@@ -82,7 +82,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260320g">
+  <link rel="modulepreload" href="script.js?v=20260320reader-sk">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -3543,6 +3543,26 @@
       border-color: rgba(227,188,103,0.45);
       outline: none;
     }
+    .explore-hero-row {
+      text-align: center;
+      margin: 0 0 1.1rem;
+    }
+    .explore-hero-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--gold-soft, #f2dc98);
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(227, 188, 103, 0.35);
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .explore-hero-link:hover, .explore-hero-link:focus-visible {
+      color: #fff8e8;
+      border-color: rgba(227,188,103,0.55);
+      background: rgba(227, 188, 103, 0.08);
+      outline: none;
+    }
 
     /* ── Mood overlay ─────────────────────────────── */
     :root {
@@ -3705,6 +3725,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="tdb-global-nav" aria-label="Main site navigation">
     <a href="/" aria-current="page">Home</a>
+    <a href="/explore.html">Explore</a>
     <a href="/calm.html">Calm</a>
     <a href="/mobius.html">Möbius</a>
     <a href="/plans.html">Plans</a>
@@ -3945,6 +3966,9 @@
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>
+      </div>
+      <div class="explore-hero-row">
+        <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore every page — topics, tools, plans</a>
       </div>
 
       <!-- ── Battle Plan Progress (shows active plan with highest progress) ── -->
@@ -4248,6 +4272,7 @@
         <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
       </p>
       <nav class="site-footer-nav" aria-label="Footer navigation">
+        <a href="explore.html">Explore</a>
         <a href="about.html">About</a>
         <a href="pricing.html">Plans</a>
         <a href="faq.html">FAQ</a>
@@ -4263,6 +4288,7 @@
         <div class="footer-sitemap-grid">
           <div class="footer-sitemap-col">
             <h3>Topics</h3>
+            <a href="explore.html">Full list (all pages)</a>
             <a href="topic-anxiety.html">Anxiety</a>
             <a href="topic-fear.html">Fear</a>
             <a href="topic-grief.html">Grief</a>
@@ -8047,6 +8073,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260320g" data-cfasync="false" fetchpriority="high"></script>
+  <script type="module" src="script.js?v=20260320reader-sk" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

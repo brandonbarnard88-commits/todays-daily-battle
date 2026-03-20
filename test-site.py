@@ -22,6 +22,7 @@ PAGES = [
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
     ("/pricing.html", "Pricing", ["Pricing", "Subscribe", "terms.html", "id=\"auth-section\"", "id=\"sidebar-toggle\""]),
+    ("/explore.html", "Explore", ["Explore the site", "explore-link-list", "id=\"auth-section\""]),
     ("/about.html", "About", ["About", "Brandon", "contact.html"]),
     ("/contact.html", "Contact", ["Contact", "id=\"auth-section\"", "sidebar"]),
     ("/faq.html", "FAQ", ["FAQ", "pricing.html"]),

@@ -56,3 +56,9 @@ Run: `npm run audit:lighthouse:live` (writes `lighthouse-home.json` / `lighthous
 | 2026-03-20 | `reader.html` | ~45 | very high | Dominated by late content paint + CLS; meta images pointed at remote Unsplash before fix |
 
 **Shipped mitigations (2026-03-20):** Combined Google Fonts on index into one non-blocking stylesheet (`preload` + `onload` → `stylesheet`); `reader.html` og/twitter image → site logo; `#reader-output` min-height for CLS; reader `script.js` cache bump + `fetchpriority="low"` on module.
+
+**Shipped mitigations (2026-03-20, reader polish):** Gray verse-line **skeleton** in `#reader-output` during network fetch (`showReaderChapterSkeleton` in `script.js` + matching fallback HTML in `reader.html`); `aria-busy` + `.reader-output-loading` for assistive tech; **sticky** `.reader-controls-panel` below the top bar (`top: calc(56px + safe-area)`); shimmer respects `prefers-reduced-motion`. Re-run `npm run audit:lighthouse:live` and update the snapshot table when you have numbers (target CLS improvement vs. prior ~0.386 on reader).
+
+**Shipped mitigations (2026-03-20, discoverability):** **`explore.html`** — single page listing public routes (topics, tools, plans, kids, church, pastor, legal) with short descriptions; linked from **home** (global nav + hero callout under “Read full chapter” + footer nav + footer sitemap “Full list”). Listed in **`sitemap.xml`**. Improves crawlability and human wayfinding without replacing the homepage quick-topic UX.
+
+**Follow-up (same pass):** Explore link added to **`footer-quick-links`** (and matching footers) across tool/topic pages; **Calm** nav + **`bible-tool`** inline footer + **privacy/security** legal footers + **progress/wins** + **kids hub** + **Action Bible** pages + **offline** + **verse-cards** gallery. Explore hub extended with **Action Bible** workshop, **My Study**, **kids print packs** (non-sitemap routes called out in copy).

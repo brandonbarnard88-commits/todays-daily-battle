@@ -8,9 +8,11 @@ Use this before or after each deploy to keep the site healthy and ready for real
 - Bump `script.js?v=YYYYMMDD` in all HTML when you change script (e.g. `20260301`). Prevents users stuck on old JS (404s, `shareStreakBtn`, etc.). `/*.js` is cached long-term in `_headers`; the **query string** is the real cache buster.
 - **Before deploy:** run `npm run test` (or `python3 test-site.py --offline`) so all page checks pass.
 - After deploy: hard refresh (Cmd+Shift+R) and confirm Console shows latest behavior.
-- **Verify origin (not your browser cache):**  
-  `curl -sS https://todaysdailybattle.com/ | grep script.js` → should show the new `?v=` string.  
-  `curl -sS "https://todaysdailybattle.com/script.js?v=THAT_VERSION" | grep 'readChapterLink'` → should show the early-return guard in `mountRotatingHeroVerse`.  
+- **Verify origin (not your browser cache):** use **`curl -sSL`** (capital **L** = follow redirects). Some paths return **308** to a canonical URL; without `-L`, `curl` gets an empty body and greps find nothing—easy to mistake for “not deployed.”  
+  `curl -sSL https://todaysdailybattle.com/ | grep script.js` → should show `script.js?v=…` on `modulepreload` and `<script type="module">`.  
+  `curl -sSL https://todaysdailybattle.com/ | grep data-daily-verse` → should show `data-daily-verse="true"` on `#verseCard`.  
+  `curl -sSL https://todaysdailybattle.com/mobius.html | grep mobius-kjv-banner` → should find the hero banner line.  
+  `curl -sS "https://todaysdailybattle.com/script.js?v=THAT_VERSION" | grep 'readChapterLink'` → should show the early-return guard in `mountRotatingHeroVerse` (script URL returns **200**; both `?v=20260320a` and `?v=20260320b` may still exist while caches roll forward).  
   If HTML is new but behavior is old, purge Cloudflare cache (`npm run purge:cloudflare` with `CF_API_TOKEN`) or **Purge Everything** in the dashboard.
 
 ### 2. “Prayed by X warriors today” (optional)

@@ -54,6 +54,8 @@ Run: `npm run audit:lighthouse:live` (writes `lighthouse-home.json` / `lighthous
 |------|------|------------|--------------|--------|
 | 2026-03-20 | `/` | ~69 | ~4.9s | Baseline before font + reader tweaks |
 | 2026-03-20 | `reader.html` | ~45 | very high | Dominated by late content paint + CLS; meta images pointed at remote Unsplash before fix |
+| 2026-03-20 | `/` | 85 | 3.4s | `npm run audit:lighthouse:live` (mobile, production); CLS 0 |
+| 2026-03-20 | `reader.html` | 72 | 5.8s | Same run; CLS 0, TBT 0 ms (deploy may lag latest commit) |
 
 **Shipped mitigations (2026-03-20):** Combined Google Fonts on index into one non-blocking stylesheet (`preload` + `onload` → `stylesheet`); `reader.html` og/twitter image → site logo; `#reader-output` min-height for CLS; reader `script.js` cache bump + `fetchpriority="low"` on module.
 

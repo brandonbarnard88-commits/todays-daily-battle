@@ -212,6 +212,8 @@
       background: #000818;
       transition: background 6s ease;
     }
+    /* Night: lift sky above .mood-overlay (z-index 1) so aurora and stars aren’t blended away */
+    body.sky-night .sky { z-index: 2; }
     /* Time-of-day backgrounds */
     body.sky-dawn  .sky { background: linear-gradient(180deg, #060410 0%, #1a0428 15%, #5c0a2a 36%, #8b1a0a 56%, #c84000 75%, #e86010 88%, #ff8c28 100%); }
     body.sky-day   .sky { background: linear-gradient(180deg, #060e28 0%, #0d2a5e 28%, #1a58a0 55%, #4080c0 78%, #80b8d8 100%); }
@@ -235,21 +237,48 @@
       100% { background-position: -200px 0; }
     }
 
-    /* Northern lights — night only; JS runs ~22s burst each minute (see TDB_AURORA_BURST_MS) */
+    /* Northern lights — night only; layered curtains behind stars (see z-index on .sky-star) */
     .sky-aurora {
       position: absolute; inset: 0; z-index: 1;
       pointer-events: none;
-      opacity: 0;
-      background: linear-gradient(180deg, transparent 30%, rgba(0,255,136,0.08) 45%, rgba(100,255,200,0.12) 55%, rgba(255,0,255,0.06) 65%, transparent 80%);
-      animation: sky-aurora 20s ease-in-out infinite paused;
-      will-change: transform, opacity;
+      overflow: hidden;
+      isolation: isolate;
     }
     body:not(.sky-night) .sky-aurora { display: none; }
-    @keyframes sky-aurora {
-      0%,100% { transform: translateX(-30%) scaleX(1.4); opacity: 0; }
-      25% { opacity: 0.3; }
-      50% { transform: translateX(15%) scaleX(1.2); opacity: 0.45; }
-      75% { opacity: 0.25; }
+    .sky-aurora::before,
+    .sky-aurora::after {
+      content: '';
+      position: absolute;
+      left: -35%; right: -35%; top: -8%; height: 62%;
+      background:
+        radial-gradient(ellipse 55% 70% at 28% 55%, rgba(100, 255, 200, 0.45) 0%, rgba(60, 200, 160, 0.12) 42%, transparent 68%),
+        radial-gradient(ellipse 50% 65% at 62% 48%, rgba(140, 210, 255, 0.38) 0%, rgba(90, 120, 220, 0.1) 45%, transparent 65%),
+        radial-gradient(ellipse 40% 55% at 48% 62%, rgba(200, 120, 255, 0.22) 0%, transparent 55%);
+      filter: blur(18px);
+      mix-blend-mode: screen;
+      opacity: 0.72;
+      will-change: transform, opacity;
+      animation: sky-aurora-a 36s ease-in-out infinite;
+    }
+    .sky-aurora::after {
+      top: 2%; height: 58%;
+      background:
+        radial-gradient(ellipse 60% 75% at 72% 52%, rgba(80, 255, 180, 0.35) 0%, transparent 58%),
+        radial-gradient(ellipse 45% 60% at 38% 44%, rgba(160, 190, 255, 0.32) 0%, transparent 62%),
+        linear-gradient(100deg, transparent 10%, rgba(50, 160, 140, 0.15) 45%, rgba(120, 80, 200, 0.1) 60%, transparent 88%);
+      filter: blur(22px);
+      animation: sky-aurora-b 52s ease-in-out infinite;
+      animation-delay: -8s;
+    }
+    @keyframes sky-aurora-a {
+      0%,100% { transform: translateX(-8%) scaleX(1.15) skewX(-2deg); opacity: 0.55; }
+      33%     { transform: translateX(6%) scaleX(1.05) skewX(1deg);  opacity: 0.88; }
+      66%     { transform: translateX(-4%) scaleX(1.12) skewX(-1deg); opacity: 0.7; }
+    }
+    @keyframes sky-aurora-b {
+      0%,100% { transform: translateX(12%) scaleX(1.08) skewX(3deg); opacity: 0.45; }
+      40%     { transform: translateX(-10%) scaleX(1.2) skewX(-2deg); opacity: 0.78; }
+      70%     { transform: translateX(4%) scaleX(1.02) skewX(1deg);  opacity: 0.62; }
     }
 
     /* Nebula glow — night only */
@@ -379,6 +408,7 @@
     /* Stars — CSS animated, JS places them */
     .sky-star {
       position: absolute;
+      z-index: 2;
       border-radius: 50%;
       background: #fff;
       animation: star-twinkle ease-in-out infinite;
@@ -399,6 +429,7 @@
     /* Shooting stars */
     .sky-shooter {
       position: absolute;
+      z-index: 3;
       height: 2px;
       width: 120px;
       background: linear-gradient(90deg, transparent, rgba(220,235,255,0.9), #fff);
@@ -421,7 +452,7 @@
       left: 68%;
       top: 12%;
       transform: translate(-50%, -50%);
-      z-index: 2;
+      z-index: 4;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -472,7 +503,7 @@
     /* prefers-reduced-motion: static sky, no flap/twinkle/shoot/strafe/aurora */
     @media (prefers-reduced-motion: reduce) {
       .sky-sun, .sky-sun::after, .sky-sun::before, .sky-cloud, .sky-bird,
-      .sky-star, .sky-shooter, .sky-stars-parallax, .sky-aurora, #sky-moon { animation: none !important; }
+      .sky-star, .sky-shooter, .sky-stars-parallax, .sky-aurora::before, .sky-aurora::after, #sky-moon { animation: none !important; }
       .sky-bird::before, .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
     }
 
@@ -3616,6 +3647,7 @@
       <div class="sky" aria-hidden="true" id="sky-layer">
         <!-- Parallax starfield (night only) — subtle tiling dots, slow strafe -->
         <div class="sky-stars-parallax" aria-hidden="true"></div>
+        <div class="sky-aurora" id="sky-aurora" aria-hidden="true"></div>
         <div class="sky-sun" id="sky-sun"></div>
         <!-- Moon (night only): same header slot as sun — accurate phase via SunCalc-style illumination -->
         <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
@@ -3648,8 +3680,6 @@
         <span class="sky-moon-label" id="sky-moon-label"></span>
         </div>
       </div>
-      <!-- Northern lights (rare, night only) -->
-      <div class="sky-aurora" id="sky-aurora" aria-hidden="true"></div>
       <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
       <div class="mood-overlay" aria-hidden="true"></div>
 
@@ -7050,11 +7080,6 @@
     // Sun + moon illumination: adapted from SunCalc (c) Vladimir Agafonkin, MIT — https://github.com/mourner/suncalc
     var tdbSkySolarTimes = null;
     var tdbSkyMoonIntervalId = null;
-    var tdbAuroraIntervalId = null;
-    var tdbAuroraPauseTimerId = null;
-    var TDB_AURORA_INTERVAL_MS = 60000;
-    var TDB_AURORA_BURST_MS = 22000;
-
     function tdbGetSunTimes(date, lat, lng, height) {
       height = height || 0;
       var PI = Math.PI, sin = Math.sin, cos = Math.cos, tan = Math.tan, asin = Math.asin, atan = Math.atan2, acos = Math.acos, rad = PI / 180;
@@ -7166,41 +7191,6 @@
       }
     }
 
-    function stopSkyAuroraSchedule() {
-      if (tdbAuroraIntervalId) {
-        clearInterval(tdbAuroraIntervalId);
-        tdbAuroraIntervalId = null;
-      }
-      if (tdbAuroraPauseTimerId) {
-        clearTimeout(tdbAuroraPauseTimerId);
-        tdbAuroraPauseTimerId = null;
-      }
-      var auroraEl = document.getElementById('sky-aurora');
-      if (auroraEl) auroraEl.style.animationPlayState = 'paused';
-    }
-
-    /** Night only: aurora “wave” every TDB_AURORA_INTERVAL_MS (~1 min), each burst ~one 20s CSS cycle. */
-    function startSkyAuroraSchedule() {
-      stopSkyAuroraSchedule();
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var aurora = document.getElementById('sky-aurora');
-      if (!aurora || !document.body.classList.contains('sky-night')) return;
-      function burst() {
-        if (!document.body.classList.contains('sky-night')) {
-          stopSkyAuroraSchedule();
-          return;
-        }
-        aurora.style.animationPlayState = 'running';
-        if (tdbAuroraPauseTimerId) clearTimeout(tdbAuroraPauseTimerId);
-        tdbAuroraPauseTimerId = setTimeout(function () {
-          aurora.style.animationPlayState = 'paused';
-          tdbAuroraPauseTimerId = null;
-        }, TDB_AURORA_BURST_MS);
-      }
-      burst();
-      tdbAuroraIntervalId = setInterval(burst, TDB_AURORA_INTERVAL_MS);
-    }
-
     function paintSkyDecorations(layer, r, skyClass) {
       if (!layer) return;
       var isMobile = window.innerWidth < 600;
@@ -7208,7 +7198,6 @@
       var isNightSky = skyClass === 'sky-night';
 
       if (!isNightSky) {
-        stopSkyAuroraSchedule();
         stopSkyMoonUpdates();
       }
       var showDayDecor = !isNightSky;
@@ -7312,10 +7301,7 @@
         }
       }
 
-      if (isNightSky) {
-        initSkyMoon();
-        startSkyAuroraSchedule();
-      }
+      if (isNightSky) initSkyMoon();
     }
 
     function updateSkyClass() {

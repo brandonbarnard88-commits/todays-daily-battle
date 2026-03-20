@@ -45,3 +45,14 @@ No automated Lighthouse CI is configured; this doc is a manual checklist and log
 - For CI-style gates, `scripts/assert-lighthouse.mjs` / `scripts/lighthouse-ci.mjs` can wrap Lighthouse with thresholds (run in your environment when Chrome is available).
 
 **Note:** Homepage and other heavy pages may report “unused JavaScript” for `script.js` because one bundle serves many routes; splitting non-core bundles (reader, admin) is a longer-term optimization—see “Unused JavaScript” above.
+
+### Snapshot log (automated mobile, production)
+
+Run: `npm run audit:lighthouse:live` (writes `lighthouse-home.json` / `lighthouse-reader.json`, gitignored).
+
+| Date | Page | Perf score | LCP (approx) | Notes |
+|------|------|------------|--------------|--------|
+| 2026-03-20 | `/` | ~69 | ~4.9s | Baseline before font + reader tweaks |
+| 2026-03-20 | `reader.html` | ~45 | very high | Dominated by late content paint + CLS; meta images pointed at remote Unsplash before fix |
+
+**Shipped mitigations (2026-03-20):** Combined Google Fonts on index into one non-blocking stylesheet (`preload` + `onload` → `stylesheet`); `reader.html` og/twitter image → site logo; `#reader-output` min-height for CLS; reader `script.js` cache bump + `fetchpriority="low"` on module.

@@ -17,11 +17,11 @@
   <meta property="og:description" content="Read full Bible chapters in context with the chapter reader.">
   <meta property="og:url" content="https://todaysdailybattle.com/reader.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chapter Reader • Today's Daily Battle">
   <meta name="twitter:description" content="Read full Bible chapters in context with the chapter reader.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260323e">
   <link rel="manifest" href="manifest.json">
@@ -30,6 +30,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Reserve space before chapter fetch/render — reduces CLS when verses appear */
+    #reader-output {
+      min-height: 14rem;
+      box-sizing: border-box;
+    }
     .reader-back-btn {
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.82rem; font-weight: 600;
@@ -347,6 +352,6 @@
       setTimeout(run, 1600);
     })();
   </script>
-  <script type="module" src="script.js?v=20260308-readerfix4" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260320f" data-cfasync="false" fetchpriority="low"></script>
 </body>
 </html>

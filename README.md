@@ -46,3 +46,4 @@ Static web app for scripture-first daily encouragement, prayer, and study toolin
 - **Deploy cache, Supabase forms, cron verification, shop launch, Lighthouse:** `docs/SITE-OPS-RUNBOOK.md`
 - **Community, shop MVP, perf, discoverability backlog:** `docs/GROWTH-ROADMAP.md`
 - **Deploy checklist (cache-bust, tests):** `docs/CHECKLIST-DEPLOY.md`
+- **Lighthouse (mobile `/` + `reader.html`):** `LIGHTHOUSE-AUDIT.md` — run `npm run audit:lighthouse:live` after deploy (writes JSON summaries to repo root, gitignored).

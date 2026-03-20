@@ -21,8 +21,13 @@ Prioritized levers to make the site feel **alive**, **complete**, and **discover
 ## 4. Discoverability
 
 - Footer sitemap **default-open** on homepage (`<details open>`).
-- External sharing (story + link), backlinks over time.
+- External sharing (story + link), backlinks over time — see [SOCIAL-SHARE-NUDGE.md](./SOCIAL-SHARE-NUDGE.md) for a one-line template.
 - Optional: “What battle are you facing?” → `contact.html` / support.
+
+## Monitoring (organic)
+
+- Glance at **Prayer Wall** posts and **contact / shop waitlist** mail occasionally; real posts beat synthetic seeding.
+- If the wall stays silent for a long stretch, add **1–2** more honest starters (runbook §2)—sparingly.
 
 ---
 

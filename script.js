@@ -25,6 +25,11 @@
       if (typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype) protos.push(DocumentFragment.prototype);
       if (typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype) protos.push(ShadowRoot.prototype);
       var anyPatched = false;
+      function isTrustedHTMLValue(v) {
+        if (v == null || typeof v !== 'object') return false;
+        if (typeof TrustedHTML !== 'undefined' && v instanceof TrustedHTML) return true;
+        return !!(v.constructor && v.constructor.name === 'TrustedHTML');
+      }
       protos.forEach(function (proto) {
         var d = Object.getOwnPropertyDescriptor(proto, 'innerHTML');
         if (!d || !d.set) return;
@@ -32,7 +37,7 @@
         var orig = d.set;
         Object.defineProperty(proto, 'innerHTML', {
           set: function (v) {
-            if (v != null && typeof v === 'object' && v.constructor && v.constructor.name === 'TrustedHTML') {
+            if (isTrustedHTMLValue(v)) {
               return orig.call(this, v);
             }
             var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
@@ -51,7 +56,7 @@
         var ia = proto.insertAdjacentHTML;
         if (ia && createHTML) {
           proto.insertAdjacentHTML = function (pos, html) {
-            if (html != null && typeof html === 'object' && html.constructor && html.constructor.name === 'TrustedHTML') {
+            if (isTrustedHTMLValue(html)) {
               return ia.call(this, pos, html);
             }
             var s = html == null ? '' : (typeof html === 'string' ? html : String(html));

@@ -72,11 +72,11 @@
   <meta name="twitter:title" content="Today's Daily Battle">
   <meta name="twitter:description" content="One verse. One moment. Every day. Less scroll, more soul.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
-  <!-- Caveat + Cormorant: one stylesheet, non-blocking (display=swap) — fewer round trips, better FCP/LCP -->
+  <!-- Caveat + Cormorant (display=swap). Preload + stylesheet same URL — no inline onload (CSP script-src / Trusted Types). -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
   <!-- Preconnect for analytics (deferred load; preconnect reduces latency when they load) -->
   <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="preconnect" href="https://plausible.io">
@@ -622,7 +622,99 @@
     .site-top-links .header-auth-welcome { color: rgba(148, 163, 184, 0.85); margin-right: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem; }
     .site-top-links .header-auth-sep { color: rgba(148, 163, 184, 0.5); margin: 0 0.25rem; }
     .site-top-links .auth-avatar { background: rgba(234, 179, 8, 0.35); color: rgba(255,255,255,0.95); border-radius: 50%; width: 26px; height: 26px; line-height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; vertical-align: middle; margin-right: 0.5rem; }
-    /* .landing-privacy-teaser — inline styles on element for reliability */
+    .landing-privacy-teaser {
+      text-align: center;
+      margin: 1rem auto;
+      max-width: 36rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--muted);
+      padding: 0.85rem 1rem;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 88%, var(--bg) 12%);
+      border-radius: 12px;
+    }
+    .landing-privacy-teaser a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .landing-privacy-teaser a:hover,
+    .landing-privacy-teaser a:focus-visible {
+      color: var(--gold-soft);
+    }
+    .site-feedback-hint {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0.35rem auto 0;
+      max-width: 36rem;
+      line-height: 1.5;
+    }
+    .site-feedback-hint a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .site-feedback-hint a:hover,
+    .site-feedback-hint a:focus-visible {
+      text-decoration: underline;
+    }
+    /* Today strip — inside #main-content, above hero (does not replace search/topics) */
+    #main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .hero-daily-path {
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: var(--muted);
+      text-align: center;
+      margin: 0;
+      padding: 0.5rem 0.65rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 92%, #1a2230) 0%, color-mix(in srgb, var(--bg-soft) 70%, var(--card)) 100%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 4%, transparent);
+    }
+    :root[data-theme="light"] .hero-daily-path {
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 96%, #fff) 0%, var(--card) 100%);
+      border-color: color-mix(in srgb, var(--line) 95%, var(--gold) 5%);
+    }
+    .hero-daily-path-label {
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      color: color-mix(in srgb, var(--muted) 85%, var(--gold) 15%);
+      margin-right: 0.35rem;
+    }
+    .hero-daily-path-links a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.12rem;
+    }
+    .hero-daily-path-links a:hover,
+    .hero-daily-path-links a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+    .hero-daily-path-links a:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .hero-daily-path-sep {
+      color: color-mix(in srgb, var(--muted) 75%, transparent);
+      margin: 0 0.1rem;
+    }
+    @media (min-width: 900px) {
+      .hero-daily-path { font-size: 0.88rem; padding: 0.55rem 0.85rem; }
+    }
     .site-tagline {
       position: relative;
       z-index: 3;
@@ -685,8 +777,9 @@
       #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
       #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
       .landing-privacy-teaser{ grid-column: 1 / -1 !important; grid-row: 4 !important; }
-      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 5 !important; }
-      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 6 !important; }
+      .site-feedback-hint    { grid-column: 1 / -1 !important; grid-row: 5 !important; }
+      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 6 !important; }
+      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 7 !important; }
       .verse-img-card,
       .calm-cta-wrap,
       .calm-crisis-card,
@@ -711,10 +804,10 @@
     }
 
     .card {
-      border: 1px solid var(--line);
+      border: 1px solid color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
       background: linear-gradient(160deg, color-mix(in srgb, var(--card) 94%, #fff 6%), var(--card));
       border-radius: 20px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow), inset 0 1px 0 color-mix(in srgb, #fff 5%, transparent);
       padding: 1.5rem 1.4rem;
     }
 
@@ -755,8 +848,8 @@
     .hero-verse {
       font-family: 'Cormorant Garamond', Georgia, serif;
       color: var(--gold-soft);
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
-      line-height: 1.5;
+      font-size: clamp(1.55rem, 4.1vw, 2.38rem);
+      line-height: 1.48;
       font-weight: 600;
       margin: 0;
     }
@@ -3881,7 +3974,7 @@
           <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
         </div>
         <p class="share-verse-whisper">If this helped, tell a friend.</p>
-        <p class="trust-badge" aria-label="Privacy and ad policy">Privacy-first · No ads</p>
+        <p class="trust-badge" aria-label="Privacy: no ads, no personal tracking; minimal anonymous usage stats. See Privacy policy.">Privacy-first · No ads · No personal tracking</p>
       </div>
       <div class="header-battle-plans">
         <a href="plans.html" class="header-battle-plans-link" aria-label="Battle Plans — browse 7 to 40 day KJV reading plans">
@@ -3942,7 +4035,16 @@
       </div>
 
       <!-- ── Hero Verse ── -->
-      <div id="main-content">
+      <div id="main-content" tabindex="-1">
+      <nav class="hero-daily-path" aria-label="Today on this site">
+        <span class="hero-daily-path-label">Today</span>
+        <span class="hero-daily-path-links">
+          <a href="#hero-verse-wrap">Verse</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="#plan-progress-card">Plan progress</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="calm.html">Calm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="plans.html">Plans</a>
+        </span>
+      </nav>
       <div id="hero-verse-wrap" class="hero-verse-wrap">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -4005,7 +4107,8 @@
           <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
         </div>
       </div>
-      <div class="landing-privacy-teaser" style="text-align: center; margin: 20px auto; max-width: 600px; font-size: 14px; color: #aaa; padding: 12px; border-top: 1px solid #444; border-bottom: 1px solid #444; background: #111;">No ads. No personal data collected. Everything you do here stays between you and God.</div>
+      <div class="landing-privacy-teaser">No ads. No personal tracking. We use <strong>minimal anonymous usage stats</strong> (how pages are used—not who you are). Prayer text and searches are <strong>not</strong> logged for analytics. <a href="privacy.html">Privacy</a>.</div>
+      <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>

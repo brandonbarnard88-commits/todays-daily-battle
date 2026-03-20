@@ -52,6 +52,11 @@
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
       var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
       if (!createHTML) return;
+      function isTrustedHTMLValue(v) {
+        if (v == null || typeof v !== 'object') return false;
+        if (typeof TrustedHTML !== 'undefined' && v instanceof TrustedHTML) return true;
+        return !!(v.constructor && v.constructor.name === 'TrustedHTML');
+      }
       /** DOMPurify and other libs assign to DocumentFragment/ShadowRoot innerHTML — separate sinks from Element (CSP require-trusted-types-for). */
       var protos = [Element.prototype];
       if (typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype) protos.push(DocumentFragment.prototype);
@@ -62,7 +67,7 @@
         var orig = d.set;
         Object.defineProperty(proto, 'innerHTML', {
           set: function (v) {
-            if (v != null && typeof v === 'object' && v.constructor && v.constructor.name === 'TrustedHTML') {
+            if (isTrustedHTMLValue(v)) {
               return orig.call(this, v);
             }
             var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
@@ -80,7 +85,7 @@
         var ia = proto.insertAdjacentHTML;
         if (typeof ia === 'function') {
           proto.insertAdjacentHTML = function (pos, html) {
-            if (html != null && typeof html === 'object' && html.constructor && html.constructor.name === 'TrustedHTML') {
+            if (isTrustedHTMLValue(html)) {
               return ia.call(this, pos, html);
             }
             var s = html == null ? '' : (typeof html === 'string' ? html : String(html));

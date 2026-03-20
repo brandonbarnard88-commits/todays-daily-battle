@@ -66,6 +66,7 @@
         status.textContent = 'Sending…';
         status.style.color = 'var(--muted, #888)';
       }
+      form.setAttribute('aria-busy', 'true');
 
       waitForClient(8000, 100).then(function (client) {
         if (!client) {
@@ -75,6 +76,7 @@
           }
           var fb = document.getElementById('contact-mailto-fallback');
           if (fb) fb.hidden = false;
+          form.removeAttribute('aria-busy');
           return;
         }
         client
@@ -112,6 +114,9 @@
             }
             var fb3 = document.getElementById('contact-mailto-fallback');
             if (fb3) fb3.hidden = false;
+          })
+          .finally(function () {
+            form.removeAttribute('aria-busy');
           });
       });
     });

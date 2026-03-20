@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260316 -->
+<!-- tdb build 20260320 -->
 <html lang="en">
 <head>
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
@@ -661,6 +661,23 @@
     .site-feedback-hint a:focus-visible {
       text-decoration: underline;
     }
+    .site-plan-nudge {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0.15rem auto 0;
+      max-width: 36rem;
+      line-height: 1.5;
+    }
+    .site-plan-nudge a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .site-plan-nudge a:hover,
+    .site-plan-nudge a:focus-visible {
+      text-decoration: underline;
+    }
     /* Today strip — inside #main-content, above hero (does not replace search/topics) */
     #main-content {
       display: flex;
@@ -801,9 +818,12 @@
       #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
       #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
       .landing-privacy-teaser{ grid-column: 1 / -1 !important; grid-row: 4 !important; }
-      .site-feedback-hint    { grid-column: 1 / -1 !important; grid-row: 5 !important; }
-      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 6 !important; }
-      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 7 !important; }
+      .site-feedback-hint,
+      .site-plan-nudge        { grid-column: 1 / -1 !important; }
+      .site-feedback-hint    { grid-row: 5 !important; }
+      .site-plan-nudge       { grid-row: 6 !important; }
+      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 7 !important; }
+      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 8 !important; }
       .verse-img-card,
       .calm-cta-wrap,
       .calm-crisis-card,
@@ -4133,6 +4153,7 @@
       </div>
       <div class="landing-privacy-teaser">No ads. No personal tracking. Minimal anonymous stats only (no prayers or searches logged). Everything stays between you and God. <a href="privacy.html">Privacy</a>.</div>
       <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
+      <p class="site-plan-nudge">Want a longer rhythm? <a href="plans.html">Battle Plans</a> — 7–40 days, progress saved on your device.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>

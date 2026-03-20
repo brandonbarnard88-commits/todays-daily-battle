@@ -235,7 +235,7 @@
       100% { background-position: -200px 0; }
     }
 
-    /* Northern lights — rare overlay, night only */
+    /* Northern lights — night only; JS runs ~22s burst each minute (see TDB_AURORA_BURST_MS) */
     .sky-aurora {
       position: absolute; inset: 0; z-index: 1;
       pointer-events: none;
@@ -3613,15 +3613,18 @@
             </radialGradient>
           </defs>
           <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
-          <!-- Craters — subtle dark circles on lit surface -->
+          <!-- Craters + maria — soft ellipses (lit side reads like texture, not stickers) -->
+          <ellipse cx="36" cy="40" rx="7" ry="5" fill="#090918" opacity="0.22"/>
+          <ellipse cx="58" cy="48" rx="9" ry="6" fill="#0a0a1c" opacity="0.18"/>
           <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
-          <circle cx="62" cy="52" r="6" fill="#080818" opacity="0.4"/>
+          <ellipse cx="64" cy="54" rx="6.5" ry="5" fill="#080818" opacity="0.38"/>
           <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
-          <circle cx="68" cy="32" r="4" fill="#0a0a1f" opacity="0.5"/>
+          <ellipse cx="70" cy="34" rx="5" ry="3.5" fill="#0a0a1f" opacity="0.42"/>
           <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
-          <circle cx="55" cy="42" r="3.5" fill="#080818" opacity="0.38"/>
+          <ellipse cx="54" cy="44" rx="4" ry="3" fill="#080818" opacity="0.34"/>
           <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
-          <circle cx="72" cy="58" r="2" fill="#0a0a1f" opacity="0.28"/>
+          <ellipse cx="74" cy="60" rx="3" ry="2" fill="#0a0a1f" opacity="0.26"/>
+          <circle cx="48" cy="30" r="2" fill="#0b0b22" opacity="0.24"/>
           <!-- Phase shadow overlay -->
           <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
           <!-- Soft glow halo -->
@@ -7026,6 +7029,11 @@
     // Fallback: fixed windows — dawn 5–7:30a, day 7:30a–6:30p, dusk 6:30p–9p, night 9p–5a.
     // Sun times: adapted from SunCalc (c) Vladimir Agafonkin, MIT — https://github.com/mourner/suncalc
     var tdbSkySolarTimes = null;
+    var tdbSkyMoonIntervalId = null;
+    var tdbAuroraIntervalId = null;
+    var tdbAuroraPauseTimerId = null;
+    var TDB_AURORA_INTERVAL_MS = 60000;
+    var TDB_AURORA_BURST_MS = 22000;
 
     function tdbGetSunTimes(date, lat, lng, height) {
       height = height || 0;
@@ -7131,11 +7139,58 @@
       for (var ei = dyn.length - 1; ei >= 0; ei--) dyn[ei].remove();
     }
 
+    function stopSkyMoonUpdates() {
+      if (tdbSkyMoonIntervalId) {
+        clearInterval(tdbSkyMoonIntervalId);
+        tdbSkyMoonIntervalId = null;
+      }
+    }
+
+    function stopSkyAuroraSchedule() {
+      if (tdbAuroraIntervalId) {
+        clearInterval(tdbAuroraIntervalId);
+        tdbAuroraIntervalId = null;
+      }
+      if (tdbAuroraPauseTimerId) {
+        clearTimeout(tdbAuroraPauseTimerId);
+        tdbAuroraPauseTimerId = null;
+      }
+      var auroraEl = document.getElementById('sky-aurora');
+      if (auroraEl) auroraEl.style.animationPlayState = 'paused';
+    }
+
+    /** Night only: aurora “wave” every TDB_AURORA_INTERVAL_MS (~1 min), each burst ~one 20s CSS cycle. */
+    function startSkyAuroraSchedule() {
+      stopSkyAuroraSchedule();
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var aurora = document.getElementById('sky-aurora');
+      if (!aurora || !document.body.classList.contains('sky-night')) return;
+      function burst() {
+        if (!document.body.classList.contains('sky-night')) {
+          stopSkyAuroraSchedule();
+          return;
+        }
+        aurora.style.animationPlayState = 'running';
+        if (tdbAuroraPauseTimerId) clearTimeout(tdbAuroraPauseTimerId);
+        tdbAuroraPauseTimerId = setTimeout(function () {
+          aurora.style.animationPlayState = 'paused';
+          tdbAuroraPauseTimerId = null;
+        }, TDB_AURORA_BURST_MS);
+      }
+      burst();
+      tdbAuroraIntervalId = setInterval(burst, TDB_AURORA_INTERVAL_MS);
+    }
+
     function paintSkyDecorations(layer, r, skyClass) {
       if (!layer) return;
       var isMobile = window.innerWidth < 600;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var isNightSky = skyClass === 'sky-night';
+
+      if (!isNightSky) {
+        stopSkyAuroraSchedule();
+        stopSkyMoonUpdates();
+      }
       var showDayDecor = !isNightSky;
       var isDawn = skyClass === 'sky-dawn';
       var isDusk = skyClass === 'sky-dusk';
@@ -7237,14 +7292,9 @@
         }
       }
 
-      if (isNightSky) initSkyMoon();
-
-      if (isNightSky && r() < 0.08) {
-        var aurora = document.getElementById('sky-aurora');
-        if (aurora) {
-          aurora.style.animationPlayState = 'running';
-          setTimeout(function() { aurora.style.animationPlayState = 'paused'; }, 30000);
-        }
+      if (isNightSky) {
+        initSkyMoon();
+        startSkyAuroraSchedule();
       }
     }
 
@@ -7363,7 +7413,10 @@
       var label  = document.getElementById('sky-moon-label');
       if (!shadow) return;
 
+      stopSkyMoonUpdates();
+
       function updateMoon() {
+        if (!document.body.classList.contains('sky-night')) return;
         var mp = getMoonPhase();
         var illum = mp.illumination;
         var waxing = mp.waxing;
@@ -7377,7 +7430,7 @@
       }
 
       updateMoon();
-      setInterval(updateMoon, 600000);
+      tdbSkyMoonIntervalId = setInterval(updateMoon, 300000);
     }
 
     // ── Init ──

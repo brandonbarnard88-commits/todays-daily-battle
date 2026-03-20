@@ -643,6 +643,39 @@
       padding: 1.5rem 1.4rem;
     }
 
+    /*
+      Section titles use inline SVG icons. This page does not load styles.css, so without
+      explicit dimensions SVGs use the HTML default (~300×150px) — reads as a giant “logo.”
+    */
+    h2.section-divider {
+      margin: 0 0 0.85rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+      box-shadow: 0 1px 0 color-mix(in srgb, var(--gold) 35%, transparent);
+      font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.05rem, 3.1vw, 1.3rem);
+      letter-spacing: 0.03em;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1.3;
+    }
+    .section-divider-icon {
+      flex-shrink: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      max-width: 1.2rem;
+      max-height: 1.2rem;
+      color: var(--gold, #e3bc67);
+      opacity: 0.92;
+      display: block;
+    }
+    #newsletter h2.section-divider {
+      font-size: clamp(1.02rem, 2.9vw, 1.22rem);
+    }
+
     /* ── Hero Verse ── */
     .hero-verse {
       font-family: 'Cormorant Garamond', Georgia, serif;

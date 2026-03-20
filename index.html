@@ -82,7 +82,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260320f">
+  <link rel="modulepreload" href="script.js?v=20260320g">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -7208,8 +7208,8 @@
     }
 
     // ── Sky System (CSS-first, no canvas) ──
-    // With geolocation (cached same-day in sessionStorage): sky-dawn/day/dusk/night follow civil dawn → sunrise → sunset → civil dusk (sun disk hidden after sunset).
-    // Fallback: fixed windows — dawn 5–7:30a, day 7:30a–6:30p, dusk 6:30p–9p, night 9p–5a.
+    // Default: fixed time windows (no GPS prompt) — dawn 5–7:30a, day 7:30a–6:30p, dusk 6:30p–9p, night 9p–5a.
+    // Optional solar-accurate bands: set localStorage tdbSkyGeoOptIn to "1", then reload — getCurrentPosition runs once idle; coords cached same-day in sessionStorage only (never sent to our servers).
     // Sun + moon illumination: adapted from SunCalc (c) Vladimir Agafonkin, MIT — https://github.com/mourner/suncalc
     var tdbSkySolarTimes = null;
     var tdbSkyMoonIntervalId = null;
@@ -7519,10 +7519,16 @@
           { enableHighAccuracy: false, timeout: 12000, maximumAge: 43200000 }
         );
       }
-      if (typeof requestIdleCallback === 'function') {
-        requestIdleCallback(function () { requestSkyGeolocation(); }, { timeout: 5000 });
-      } else {
-        setTimeout(requestSkyGeolocation, 2000);
+      // Never request geolocation on load — avoids repeat browser prompts. Opt-in: localStorage.setItem('tdbSkyGeoOptIn','1')
+      function skyGeoOptIn() {
+        try { return localStorage.getItem('tdbSkyGeoOptIn') === '1'; } catch (e) { return false; }
+      }
+      if (skyGeoOptIn()) {
+        if (typeof requestIdleCallback === 'function') {
+          requestIdleCallback(function () { requestSkyGeolocation(); }, { timeout: 5000 });
+        } else {
+          setTimeout(requestSkyGeolocation, 2000);
+        }
       }
     }
 
@@ -8041,6 +8047,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260320f" data-cfasync="false" fetchpriority="high"></script>
+  <script type="module" src="script.js?v=20260320g" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

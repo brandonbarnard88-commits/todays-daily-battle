@@ -5702,6 +5702,13 @@ function wireRealPrayerCounter() {
   if (!el) return;
   var previousCount = null;
   var lastKnownTotal = null;
+  // Display floor matches anonymous starter pool on the wall (honest warmth—not inflating DB totals).
+  var PRAYER_WALL_SEED_DISPLAY_MIN = 15;
+  function floorPrayerTotalDisplay(n) {
+    var x = typeof n === 'number' && !isNaN(n) ? n : parseInt(n, 10);
+    if (isNaN(x) || x < 0) x = 0;
+    return Math.max(x, PRAYER_WALL_SEED_DISPLAY_MIN);
+  }
   function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
   function updateBetaWarriorsCount(n) {
     var betaEl = document.getElementById('beta-warriors-count');
@@ -5718,22 +5725,25 @@ function wireRealPrayerCounter() {
     if (localCount > 0) {
       lastKnownTotal = Math.max(lastKnownTotal == null ? 0 : Number(lastKnownTotal), localCount);
       setLocalPrayerTotalCount(lastKnownTotal, { skipDom: true });
-      animateCountAndSet(lastKnownTotal);
-      updateBetaWarriorsCount(lastKnownTotal);
+      animateCountAndSet(floorPrayerTotalDisplay(lastKnownTotal));
+      updateBetaWarriorsCount(floorPrayerTotalDisplay(lastKnownTotal));
       return true;
     }
     return false;
   }
   var localBootCount = getLocalPrayerTotalCount();
   if (!isNaN(localBootCount) && localBootCount > 0) {
-    previousCount = localBootCount;
+    previousCount = floorPrayerTotalDisplay(localBootCount);
     lastKnownTotal = localBootCount;
     setLocalPrayerTotalCount(localBootCount, { skipDom: true });
-    el.textContent = formatCount(localBootCount);
-    updateBetaWarriorsCount(localBootCount);
+    el.textContent = formatCount(floorPrayerTotalDisplay(localBootCount));
+    updateBetaWarriorsCount(floorPrayerTotalDisplay(localBootCount));
+  } else {
+    el.textContent = formatCount(floorPrayerTotalDisplay(0));
   }
   function animateCountAndSet(newCount) {
     var num = typeof newCount === 'number' ? newCount : (parseInt(newCount, 10) || 0);
+    num = floorPrayerTotalDisplay(num);
     var start = previousCount != null && !isNaN(previousCount) ? previousCount : num;
     previousCount = num;
     if (start === num) {
@@ -5801,12 +5811,12 @@ function wireRealPrayerCounter() {
     tick += 1;
     if (tick % 6 === 0) window.__tdb_prayers_404 = false;
     if (!supabaseClient) {
-      if (!applyLocalPrayerFallback() && lastKnownTotal == null) el.textContent = '0';
+      if (!applyLocalPrayerFallback() && lastKnownTotal == null) el.textContent = formatCount(floorPrayerTotalDisplay(0));
       return;
     }
     if (!navigator.onLine) {
       if (!applyLocalPrayerFallback() && lastKnownTotal == null) {
-        el.textContent = '0';
+        el.textContent = formatCount(floorPrayerTotalDisplay(0));
         var p = document.getElementById('prayer-count-promo');
         if (p) p.textContent = '';
       }
@@ -5821,7 +5831,7 @@ function wireRealPrayerCounter() {
       if (res && res.error && is404Like(res)) {
         setPrayersApiUnavailable();
         if (!applyLocalPrayerFallback()) {
-          el.textContent = '0';
+          el.textContent = formatCount(floorPrayerTotalDisplay(0));
           var p = document.getElementById('prayer-count-promo');
           if (p) p.textContent = '';
         }
@@ -5840,9 +5850,9 @@ function wireRealPrayerCounter() {
             window.dispatchEvent(new CustomEvent('tdb:prayer-total-updated', { detail: { count: displayCount } }));
           }
         } catch (_) {}
-        updateBetaWarriorsCount(displayCount);
+        updateBetaWarriorsCount(floorPrayerTotalDisplay(displayCount));
         var promo = document.getElementById('prayer-count-promo');
-        if (promo) promo.textContent = formatCount(displayCount) + ' prayers offered worldwide. Join this prayer rhythm today.';
+        if (promo) promo.textContent = formatCount(floorPrayerTotalDisplay(displayCount)) + ' prayers offered worldwide. Join this prayer rhythm today.';
         updateLastPrayerBadge();
         return;
       }
@@ -5854,7 +5864,7 @@ function wireRealPrayerCounter() {
       if (restRes && is404Like(restRes)) {
         setPrayersApiUnavailable();
         if (!applyLocalPrayerFallback()) {
-          el.textContent = '0';
+          el.textContent = formatCount(floorPrayerTotalDisplay(0));
           var p = document.getElementById('prayer-count-promo');
           if (p) p.textContent = '';
         }
@@ -5862,7 +5872,7 @@ function wireRealPrayerCounter() {
       }
       if (restRes && restRes.error) {
         if (!applyLocalPrayerFallback()) {
-          el.textContent = '0';
+          el.textContent = formatCount(floorPrayerTotalDisplay(0));
           var p = document.getElementById('prayer-count-promo');
           if (p) p.textContent = '';
         }
@@ -5870,7 +5880,7 @@ function wireRealPrayerCounter() {
       }
       if (restRes && restRes.count != null) animateCountAndSet(restRes.count);
       else if (restRes && Array.isArray(restRes.data)) animateCountAndSet(restRes.data.length);
-      else el.textContent = '0';
+      else el.textContent = formatCount(floorPrayerTotalDisplay(0));
       var finalCount = restRes && (restRes.count != null ? restRes.count : (Array.isArray(restRes.data) ? restRes.data.length : null));
       if (finalCount != null && !isNaN(finalCount)) {
         var mergedCount = Math.max(getLocalPrayerTotalCount(), Number(finalCount));
@@ -5884,9 +5894,9 @@ function wireRealPrayerCounter() {
           }
         } catch (_) {}
       }
-      updateBetaWarriorsCount(lastKnownTotal);
+      updateBetaWarriorsCount(lastKnownTotal != null ? floorPrayerTotalDisplay(lastKnownTotal) : null);
       var promo = document.getElementById('prayer-count-promo');
-      if (promo) promo.textContent = (lastKnownTotal != null ? formatCount(lastKnownTotal) + ' prayers offered worldwide. Join this prayer rhythm today.' : '');
+      if (promo) promo.textContent = (lastKnownTotal != null ? formatCount(floorPrayerTotalDisplay(lastKnownTotal)) + ' prayers offered worldwide. Join this prayer rhythm today.' : '');
       updateLastPrayerBadge();
     } catch (e) {
       if (retryCount < MAX_RETRY) {
@@ -5896,7 +5906,7 @@ function wireRealPrayerCounter() {
       }
       setPrayersApiUnavailable();
       if (!applyLocalPrayerFallback()) {
-        el.textContent = '0';
+        el.textContent = formatCount(floorPrayerTotalDisplay(0));
         var promo = document.getElementById('prayer-count-promo');
         if (promo) promo.textContent = '';
       }
@@ -5917,7 +5927,7 @@ function wireRealPrayerCounter() {
     var prayerOfDayEl = document.getElementById('prayer-of-day-count');
     var socialProofEl = document.getElementById('prayer-social-proof-num');
     var prayerTodayLabel = document.getElementById('prayerTodayLabel');
-    if ((!socialProofEl && !prayerTodayLabel) || !supabaseClient) return;
+    if (!socialProofEl && !prayerTodayLabel) return;
     var prayersTodayRpcDisabled = false;
     function formatCount(n) { return (n != null && !isNaN(n)) ? Number(n).toLocaleString() : '0'; }
     function getLocalPrayerCount() {
@@ -5929,6 +5939,10 @@ function wireRealPrayerCounter() {
     }
     function setPrayerTodayLabel(n) {
       if (!prayerTodayLabel) return;
+      if (n === 0) {
+        prayerTodayLabel.textContent = 'Quiet today—open starters on the wall';
+        return;
+      }
       prayerTodayLabel.textContent = n === 1 ? '1 prayer today' : formatCount(n) + ' prayers today';
     }
     var proofP = document.getElementById('prayerSocialProof');
@@ -5951,6 +5965,10 @@ function wireRealPrayerCounter() {
         if (proofP) proofP.classList.add('hidden');
         if (proofZeroP) proofZeroP.classList.remove('hidden');
       }
+    }
+    if (!supabaseClient) {
+      applyCount(getLocalPrayerCount());
+      return;
     }
     function fetchPrayersToday() {
       if (!isPrayersApiAvailable() || prayersTodayRpcDisabled) return;
@@ -17364,9 +17382,9 @@ function sanitizeNudgeElements() {
       var items = Array.isArray(arr) ? arr : [];
     } catch (e) { items = []; }
     var SEEDS = [
-      { id: 'seed-1', text: 'Lord, heal our land.', hearts: 0, seed: true },
-      { id: 'seed-2', text: 'Strength for my family today.', hearts: 0, seed: true },
-      { id: 'seed-3', text: 'Lord, carry my grief today.', hearts: 0, seed: true },
+      { id: 'seed-1', text: 'Lord, calm my anxious thoughts today — Phil 4:6-7', hearts: 0, seed: true },
+      { id: 'seed-2', text: 'Healing for my marriage — Eph 5:25', hearts: 0, seed: true },
+      { id: 'seed-3', text: 'Strength to parent with grace', hearts: 0, seed: true },
       { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
       { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
       { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
@@ -20104,9 +20122,9 @@ function sanitizeNudgeElements() {
 
     // ── Render ────────────────────────────────────────────────────────────────
     var SEED_PRAYERS = [
-      { id: 'seed-1', text: 'Lord, heal our land.', hearts: 0, seed: true },
-      { id: 'seed-2', text: 'Strength for my family today.', hearts: 0, seed: true },
-      { id: 'seed-3', text: 'Lord, carry my grief today.', hearts: 0, seed: true },
+      { id: 'seed-1', text: 'Lord, calm my anxious thoughts today — Phil 4:6-7', hearts: 0, seed: true },
+      { id: 'seed-2', text: 'Healing for my marriage — Eph 5:25', hearts: 0, seed: true },
+      { id: 'seed-3', text: 'Strength to parent with grace', hearts: 0, seed: true },
       { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
       { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
       { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },

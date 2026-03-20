@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260311f -->
+<!-- tdb build 20260320e -->
 <html lang="en">
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
@@ -105,6 +105,20 @@
     .plans-hero h1 { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 800; color: var(--gold); margin: 0 0 0.4rem; }
     .plans-hero p  { font-size: 0.92rem; color: var(--muted); margin: 0; }
     .plans-hero-hint { font-size: 0.82rem; margin-top: 0.4rem !important; opacity: 0.85; }
+    .plans-prayer-callout {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0.65rem auto 0;
+      max-width: 22rem;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .plans-prayer-callout a {
+      color: var(--gold-soft);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(227, 188, 103, 0.35);
+    }
+    .plans-prayer-callout a:hover, .plans-prayer-callout a:focus-visible { color: var(--gold); outline: none; }
 
     /* ── Plan list (index view) ── */
     .plan-list { display: grid; gap: 0.85rem; }
@@ -373,6 +387,7 @@
         <h1>📋 Battle Plans</h1>
         <p>Pick a plan. One verse a day. Progress saves here — offline, always.</p>
         <p class="plans-hero-hint">Verses, real talk, actions &amp; prayers. Tap to start.</p>
+        <p class="plans-prayer-callout">Join others praying quietly—<a href="index.html#prayer-wall">your silent amen</a> still matters.</p>
       </div>
       <div class="easter-banner" id="easterBanner" role="region" aria-label="Easter plan">
         <p><a href="plans.html?plan=easter">✨ Resurrection Hope</a> — 7-day Easter plan. Death to life.</p>

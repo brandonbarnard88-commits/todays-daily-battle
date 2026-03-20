@@ -10,12 +10,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Page not found • Today's Daily Battle</title>
-  <meta name="description" content="Page not found. Return to Today's Daily Battle for daily KJV verses, prayer, and Bible tools.">
+  <meta name="description" content="That page isn’t here. Return to Today’s Daily Battle for KJV verses, prayer, and Scripture search.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/404.html">
   <meta name="referrer" content="no-referrer">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="stylesheet" href="styles.css?v=20260320e">
+  <style>
+    .tdb-404-verse {
+      margin: 0 auto 1.5rem;
+      max-width: 22rem;
+      padding: 1rem 1.25rem;
+      border-left: 3px solid rgba(227, 188, 103, 0.45);
+      border-radius: 0 10px 10px 0;
+      background: rgba(15, 23, 42, 0.45);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: rgba(226, 232, 240, 0.92);
+      text-align: left;
+    }
+    .tdb-404-ref { display: block; margin-top: 0.5rem; font-size: 0.82rem; font-style: normal; color: rgba(148, 163, 184, 0.95); font-family: Inter, system-ui, sans-serif; }
+  </style>
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,17 +69,17 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <section class="glass" style="text-align: center; padding: 3rem 2rem;">
-          <h1 class="section-divider" style="margin-bottom: 0.5rem;">Page not found</h1>
-          <p class="section-note" style="margin-bottom: 1rem;">The page you’re looking for doesn’t exist or may have moved.</p>
-          <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&auto=format&fit=crop&q=80" alt="Peaceful moment — a reminder to turn to God" width="400" height="300" style="width: 100%; max-width: 400px; height: auto; border-radius: 12px; display: block; margin: 0 auto 1.5rem;" loading="lazy">
+        <section class="glass tdb-404-hero" style="text-align: center; padding: 3rem 2rem;">
+          <h1 class="section-divider" style="margin-bottom: 0.5rem;">Lost in the fight?</h1>
+          <p class="section-note" style="margin-bottom: 1rem;">That page isn’t here—but you’re not lost to God. Head home or search Scripture.</p>
+          <blockquote class="tdb-404-verse" cite="https://www.kingjamesbibleonline.org/">“Thy word is a lamp unto my feet, and a light unto my path.” <span class="tdb-404-ref">— Psalm 119:105 (KJV)</span></blockquote>
           <div class="cta-group" style="justify-content: center;">
             <a class="btn btn-primary" href="/" aria-label="Go to homepage">Go to homepage</a>
             <a class="btn btn-secondary" href="verse.html">Today's verse</a>
             <a class="btn btn-secondary" href="reader.html">Chapter reader</a>
             <a class="btn btn-secondary" href="/#main-search">Search Scripture</a>
           </div>
-          <div id="topic-pages" style="margin-top: 2rem; display: none;">
+          <div id="topic-pages" style="margin-top: 2rem;">
             <p class="section-note" style="margin-bottom: 0.75rem;">Looking for a topic? Try one of these:</p>
             <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem;">
               <li><a href="topic-hope.html">Hope</a></li>

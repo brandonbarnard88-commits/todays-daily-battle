@@ -85,7 +85,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260320c">
+  <link rel="modulepreload" href="script.js?v=20260320e">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -2598,6 +2598,17 @@
     }
     .prayer-export-btn:hover,
     .prayer-export-btn:focus-visible { color: var(--gold); outline: none; }
+    .prayer-wall-community-line {
+      margin: 0.35rem 0 0.6rem;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+    .prayer-wall-community-line a { color: var(--gold-soft, #c9a84c); text-decoration: underline; text-underline-offset: 2px; }
+    .prayer-export-hint {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+      max-width: 26rem;
+    }
 
     /* ── Mic Button ── */
     .mic-btn {
@@ -4117,6 +4128,7 @@
           <span class="prayer-wall-badge">Post anonymously — no account needed</span>
           <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
         </div>
+        <p class="prayer-wall-community-line section-note">Join others in quiet prayer—your silent amen counts. <a href="message.html#message-board">Full prayer board</a></p>
         <!-- Grace message: shown once when a streak breaks, dismissed on next post or click -->
         <p id="prayerWallGraceMsg" class="prayer-wall-grace-msg" hidden aria-live="polite">
           Missed a day? No shame&#8212;fresh start today. 🙏
@@ -4125,12 +4137,12 @@
         <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
         <p id="prayerWallNudge" class="prayer-wall-nudge section-note" hidden aria-live="polite">Need to pray? Post anonymously.</p>
         <div class="prayer-counter-row">
-          <span class="prayer-today-label" id="prayerTodayLabel">0 prayers today</span>
+          <span class="prayer-today-label" id="prayerTodayLabel">Quiet today—open starters on the wall</span>
           <span class="prayer-today-badge" id="prayerTodayBadge" aria-live="polite" aria-atomic="true"></span>
           <span class="prayer-offline-notice hidden" id="prayerOfflineNotice">Saved locally—sync when back</span>
           <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
         </div>
-        <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">0</span></p>
+        <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">15</span></p>
         <p class="prayer-social-proof hidden" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
         <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
         <button class="silent-amen-btn" type="button" id="silentAmenBtn" aria-label="Add a silent amen">
@@ -4147,12 +4159,13 @@
         <!-- Sync status note — updated by updateSyncStatusUI() -->
         <p class="prayer-wall-note" aria-live="polite">Stays on this device until you sign in.</p>
         <div class="prayer-export-row">
-          <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers">Export my prayers</button>
+          <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers" aria-describedby="prayer-export-hint">Export my prayers</button>
+          <p id="prayer-export-hint" class="prayer-export-hint section-note">Save as a text file—or share a verse anonymously with Share on any line.</p>
         </div>
         <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer wall entries" aria-live="polite" data-prayer-wall-rendered="1">
-          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, heal our land. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-2" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Strength for my family today. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-3" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, carry my grief today. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, calm my anxious thoughts today — Phil 4:6-7 — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-2" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Healing for my marriage — Eph 5:25 — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-3" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Strength to parent with grace — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
           <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-4" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Give me strength to face this day. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
           <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-5" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Peace that passes understanding—I need it. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
           <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-6" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Thank you for this day—help me use it well. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
@@ -4248,7 +4261,7 @@
         <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
         <span class="footer-lang-hint" aria-label="Spanish pages">Español: <a href="ansiedad.html">Ansiedad</a> · <a href="fuerza.html">Fuerza</a> · <a href="paz.html">Paz</a></span>
       </nav>
-      <details class="footer-sitemap">
+      <details class="footer-sitemap" open>
         <summary>Explore all pages — topics, tools, church</summary>
         <div class="footer-sitemap-grid">
           <div class="footer-sitemap-col">
@@ -8031,6 +8044,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260320c" data-cfasync="false" fetchpriority="high"></script>
+  <script type="module" src="script.js?v=20260320e" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

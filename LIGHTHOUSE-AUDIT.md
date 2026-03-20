@@ -31,8 +31,10 @@ Quick checklist for performance, SEO, and accessibility on key pages. Run Lighth
 
 1. Open Chrome DevTools → Lighthouse.
 2. Select Performance, Accessibility, Best Practices, SEO (and optionally PWA).
-3. Run against a production or local build; use “Mobile” or “Desktop” as needed.
+3. Run against a production or local build; use **Mobile** first for `/` and `reader.html` (realistic for this site).
 4. Address reported issues and re-run to confirm.
+
+**Quick pass (when you have ~10 minutes):** Fix only meaningful regressions — LCP if poor on 3G throttle, render-blocking CSS/JS, largest unused bundle hints. Ignore vanity scores if the app feels fine on a mid-range phone. See `docs/SITE-OPS-RUNBOOK.md` §4.
 
 No automated Lighthouse CI is configured; this doc is a manual checklist and log of changes made.
 

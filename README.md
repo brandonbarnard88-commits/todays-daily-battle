@@ -40,3 +40,8 @@ Static web app for scripture-first daily encouragement, prayer, and study toolin
   - `echo "alias npm='env -u npm_config_devdir -u NPM_CONFIG_DEVDIR npm'" >> ~/.zshrc`
   - `source ~/.zshrc`
 - Verify with: `npm config get devdir` (should return `undefined`).
+
+## Operations & launch
+
+- **Deploy cache, Supabase forms, cron verification, shop launch, Lighthouse:** `docs/SITE-OPS-RUNBOOK.md`
+- **Deploy checklist (cache-bust, tests):** `docs/CHECKLIST-DEPLOY.md`

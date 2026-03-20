@@ -20,7 +20,11 @@ Use this before or after each deploy to keep the site healthy and ready for real
 - In `config.js` set `PRAYERS_TODAY_COUNT_ENABLED = true`.
 - Redeploy so home shows live count instead of “—”.
 
-### 3. One test payment (Stripe)
+### 3. Supabase forms + retention (after deploy)
+- Run SQL for `contact_messages`, `shop_waitlist`, and optional `pg_cron` cleanup — see **`docs/SITE-OPS-RUNBOOK.md` §1**.
+- Verify cron: `SELECT * FROM cron.job WHERE jobname = 'cleanup-old-contact-shop';`
+
+### 4. One test payment (Stripe)
 - Stripe Dashboard → Payment Links → open your **$9.99/mo, 7-day trial** link.
 - Send the link to yourself or a friend; complete one test payment.
 - Confirms checkout, webhooks, and Pro access end-to-end.
@@ -50,3 +54,9 @@ See `SUPABASE-SYNC-TABLES.md` and Supabase docs for exact policies.
 - Countdown uses `TDB_CONFIG.PROMO_END_DATE` (home + pricing stay in sync).
 - When promo ends, banner auto-hides and shows “Promo ended” where applicable.
 - To show “X of 50 spots claimed”: use total prayer count or a dedicated Pro signup count and cap at 50 in the copy (e.g. in `updateBetaWarriorsCount` or promo section).
+
+---
+
+## Related
+
+- **Operations (cron, shop launch, Lighthouse, prayer seeding ethics):** `docs/SITE-OPS-RUNBOOK.md`

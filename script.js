@@ -21954,13 +21954,21 @@ function sanitizeNudgeElements() {
           saveMessageNameMap(map);
         }
       }
-      await postMessage(text);
-      messageInput.value = '';
-      scheduleMessageLoad();
-      const announce = document.getElementById('message-added-announce');
-      if (announce) {
-        announce.textContent = 'Message added.';
-        setTimeout(function () { announce.textContent = ''; }, 2500);
+      try {
+        await postMessage(text);
+        messageInput.value = '';
+        scheduleMessageLoad();
+        const announce = document.getElementById('message-added-announce');
+        if (announce) {
+          announce.textContent = 'Message posted. List updating.';
+          setTimeout(function () { announce.textContent = ''; }, 2800);
+        }
+      } catch (err) {
+        const announce = document.getElementById('message-added-announce');
+        if (announce) {
+          announce.textContent = 'Could not post. Try again in a moment.';
+          setTimeout(function () { announce.textContent = ''; }, 4200);
+        }
       }
     });
   }

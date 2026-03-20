@@ -671,13 +671,17 @@
       font-size: 0.84rem;
       line-height: 1.45;
       color: var(--muted);
-      text-align: center;
       margin: 0;
-      padding: 0.5rem 0.65rem;
+      padding: 0.75rem 1rem;
       border-radius: 14px;
       border: 1px solid color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
       background: linear-gradient(180deg, color-mix(in srgb, var(--card) 92%, #1a2230) 0%, color-mix(in srgb, var(--bg-soft) 70%, var(--card)) 100%);
       box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 4%, transparent);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 1rem;
     }
     :root[data-theme="light"] .hero-daily-path {
       background: linear-gradient(180deg, color-mix(in srgb, var(--card) 96%, #fff) 0%, var(--card) 100%);
@@ -690,13 +694,28 @@
       text-transform: uppercase;
       font-size: 0.68rem;
       color: color-mix(in srgb, var(--muted) 85%, var(--gold) 15%);
-      margin-right: 0.35rem;
+      flex-shrink: 0;
+    }
+    .hero-daily-path-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem 1.25rem;
     }
     .hero-daily-path-links a {
       color: var(--gold);
       text-decoration: none;
       font-weight: 600;
-      margin: 0 0.12rem;
+      padding: 0.5rem 0.75rem;
+      min-height: 44px;
+      min-width: 60px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 8px;
     }
     .hero-daily-path-links a:hover,
     .hero-daily-path-links a:focus-visible {
@@ -710,10 +729,15 @@
     }
     .hero-daily-path-sep {
       color: color-mix(in srgb, var(--muted) 75%, transparent);
-      margin: 0 0.1rem;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    @media (max-width: 400px) {
+      .hero-daily-path-links { gap: 0.35rem 0.75rem; }
+      .hero-daily-path-links a { padding: 0.45rem 0.6rem; min-width: 56px; }
     }
     @media (min-width: 900px) {
-      .hero-daily-path { font-size: 0.88rem; padding: 0.55rem 0.85rem; }
+      .hero-daily-path { font-size: 0.88rem; padding: 0.75rem 1.1rem; }
     }
     .site-tagline {
       position: relative;
@@ -4107,7 +4131,7 @@
           <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
         </div>
       </div>
-      <div class="landing-privacy-teaser">No ads. No personal tracking. We use <strong>minimal anonymous usage stats</strong> (how pages are used—not who you are). Prayer text and searches are <strong>not</strong> logged for analytics. <a href="privacy.html">Privacy</a>.</div>
+      <div class="landing-privacy-teaser">No ads. No personal tracking. Minimal anonymous stats only (no prayers or searches logged). Everything stays between you and God. <a href="privacy.html">Privacy</a>.</div>
       <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">

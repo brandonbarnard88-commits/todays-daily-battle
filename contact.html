@@ -82,16 +82,24 @@
         </header>
         <section class="glass">
           <h2 class="section-divider">Send a message</h2>
-          <p class="section-note">Use the form below to open your email client, or write directly to <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>. Include your browser/device if you need technical help so we can diagnose quickly.</p>
-          <form class="contact-form" id="contact-form" method="get" aria-label="Contact form">
+          <p class="section-note">Use the form below to send securely through our site. We read every message. You can also write directly to <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>. Include your browser/device if you need technical help.</p>
+          <form class="contact-form" id="contact-form" method="post" aria-label="Contact form">
+            <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+              <label for="contact-website">Website (leave blank)</label>
+              <input type="text" id="contact-website" name="website" autocomplete="off" tabindex="-1" />
+            </div>
             <label for="contact-name">Your name (optional)</label>
-            <input id="contact-name" type="text" placeholder="Your name" aria-label="Your name">
+            <input id="contact-name" type="text" placeholder="Your name" name="name" autocomplete="name" aria-label="Your name">
             <label for="contact-email">Your email</label>
-            <input id="contact-email" type="email" placeholder="you@example.com" required aria-label="Your email">
+            <input id="contact-email" type="email" placeholder="you@example.com" name="email" required autocomplete="email" aria-label="Your email">
             <label for="contact-message">Message</label>
-            <textarea id="contact-message" rows="5" placeholder="Tell us what happened, what you expected, and how we can help..." required aria-label="Message"></textarea>
-            <button type="submit" class="btn btn-primary" aria-label="Open email to send">Open email to send</button>
+            <textarea id="contact-message" rows="5" placeholder="Tell us what happened, what you expected, and how we can help..." name="message" required aria-label="Message" maxlength="8000"></textarea>
+            <button type="submit" class="btn btn-primary" aria-label="Send message">Send message</button>
           </form>
+          <p class="section-note" id="contact-status" aria-live="polite" style="margin-top:0.75rem;min-height:1.5em;"></p>
+          <p class="section-note" id="contact-mailto-fallback" hidden style="margin-top:0.5rem;">
+            <button type="button" class="btn btn-secondary" id="contact-open-mailto">Open email app instead</button>
+          </p>
           <p class="section-note" style="margin-top:1rem;">You can also <a href="mailto:support@todaysdailybattle.com?subject=Topic%20or%20battle%20suggestion">suggest a topic or battle</a> for future releases. Good ideas go straight into the build queue.</p>
 
           <h2 class="section-divider" id="suggest-feeling">Suggest a feeling</h2>
@@ -129,7 +137,7 @@
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260320b" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260320c" data-cfasync="false"></script>
   <script src="easter-eggs.js" defer></script>
   <script src="contact-form.js"></script>
   <script src="feeling-suggest-form.js"></script>

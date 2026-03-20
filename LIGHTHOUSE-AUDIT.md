@@ -35,3 +35,11 @@ Quick checklist for performance, SEO, and accessibility on key pages. Run Lighth
 4. Address reported issues and re-run to confirm.
 
 No automated Lighthouse CI is configured; this doc is a manual checklist and log of changes made.
+
+### Scripts (optional)
+
+- `npm run audit:lighthouse` — remote run against production (requires Chrome path on macOS in `package.json`).
+- `npm run audit:lighthouse:local` — local server via `scripts/lighthouse-local.mjs` when present.
+- For CI-style gates, `scripts/assert-lighthouse.mjs` / `scripts/lighthouse-ci.mjs` can wrap Lighthouse with thresholds (run in your environment when Chrome is available).
+
+**Note:** Homepage and other heavy pages may report “unused JavaScript” for `script.js` because one bundle serves many routes; splitting non-core bundles (reader, admin) is a longer-term optimization—see “Unused JavaScript” above.

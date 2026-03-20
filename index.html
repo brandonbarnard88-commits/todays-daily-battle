@@ -85,7 +85,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260320b">
+  <link rel="modulepreload" href="script.js?v=20260320c">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -1761,6 +1761,43 @@
     }
 
     .site-footer-nav a:hover { text-decoration: underline; }
+
+    .footer-sitemap {
+      margin: 1rem auto 0;
+      max-width: 52rem;
+      text-align: left;
+    }
+    .footer-sitemap summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--gold-soft);
+      padding: 0.5rem;
+      text-align: center;
+    }
+    .footer-sitemap summary::-webkit-details-marker { display: none; }
+    .footer-sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      padding: 0.75rem 0.5rem 0.25rem;
+      border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+    }
+    .footer-sitemap-col h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .footer-sitemap-col a {
+      display: block;
+      font-size: 0.74rem;
+      line-height: 1.5;
+      margin: 0.15rem 0;
+    }
 
     .site-footer-copy {
       font-size: 0.71rem;
@@ -4211,6 +4248,62 @@
         <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
         <span class="footer-lang-hint" aria-label="Spanish pages">Español: <a href="ansiedad.html">Ansiedad</a> · <a href="fuerza.html">Fuerza</a> · <a href="paz.html">Paz</a></span>
       </nav>
+      <details class="footer-sitemap">
+        <summary>Explore all pages — topics, tools, church</summary>
+        <div class="footer-sitemap-grid">
+          <div class="footer-sitemap-col">
+            <h3>Topics</h3>
+            <a href="topic-anxiety.html">Anxiety</a>
+            <a href="topic-fear.html">Fear</a>
+            <a href="topic-grief.html">Grief</a>
+            <a href="topic-hope.html">Hope</a>
+            <a href="topic-strength.html">Strength</a>
+            <a href="topic-parenting.html">Parenting</a>
+            <a href="topic-loneliness.html">Loneliness</a>
+            <a href="topic-forgiveness.html">Forgiveness</a>
+            <a href="topic-guilt.html">Guilt</a>
+            <a href="topic-overwhelmed.html">Overwhelmed</a>
+            <a href="topic-worthless.html">Worth / identity</a>
+          </div>
+          <div class="footer-sitemap-col">
+            <h3>Tools</h3>
+            <a href="verse.html">Verse of the Day</a>
+            <a href="reader.html">Chapter reader</a>
+            <a href="bible-tool.html">Bible tool</a>
+            <a href="calm.html">Calm</a>
+            <a href="mobius.html">Möbius</a>
+            <a href="plans.html">Battle plans</a>
+            <a href="reading-plan.html">7-day plan</a>
+            <a href="study.html">Study workspace</a>
+            <a href="wins.html">Wins</a>
+            <a href="progress.html">Progress</a>
+          </div>
+          <div class="footer-sitemap-col">
+            <h3>Church &amp; family</h3>
+            <a href="church.html">Church center</a>
+            <a href="church/">Church join hub</a>
+            <a href="team-toolkit.html">Team toolkit</a>
+            <a href="pastor-toolkit.html">Pastor toolkit</a>
+            <a href="pastor/">Pastor hub</a>
+            <a href="sermon.html">Sermon builder</a>
+            <a href="kids-corner.html">Kids corner</a>
+            <a href="kids/">Kids battle</a>
+            <a href="coloring.html">Kids coloring</a>
+          </div>
+          <div class="footer-sitemap-col">
+            <h3>More</h3>
+            <a href="message.html">Prayer wall</a>
+            <a href="bible-study.html">Bible studies</a>
+            <a href="shop.html">Shop</a>
+            <a href="story.html">Story</a>
+            <a href="approach.html">How we respond</a>
+            <a href="curriculum.html">Curriculum</a>
+            <a href="verse-cards/">Verse cards</a>
+            <a href="contact.html">Contact</a>
+            <a href="security.html">Security</a>
+          </div>
+        </div>
+      </details>
       <p class="site-footer-copy">© Todays Daily Battle 2026</p>
       <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
       <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -7938,6 +8031,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260320b" data-cfasync="false" fetchpriority="high"></script>
+  <script type="module" src="script.js?v=20260320c" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

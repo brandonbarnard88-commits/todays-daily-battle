@@ -1,11 +1,16 @@
 /**
- * Optional read-quiz art: Bible loop poster PNGs at /assets/loops/{id}.png (same as loop grid).
- * When a story has no readAlongImages, kids-corner shows this poster if the file exists (onerror hides).
- * Regenerate: edit this map when loops.json or bibleStories keys change.
+ * Optional read-along art: loop poster PNGs at /assets/loops/{id}.png (same numeric id as loops.json).
+ * When readAlongImages is empty, kids-corner may show this poster (see kids-corner.js).
+ *
+ * LOOP_POSTERS_SHIPPED — set true only when those PNGs are actually deployed with the site.
+ * While false, TDB_READ_QUIZ_LOOP_POSTERS is {} so the browser never requests missing files (no 404 spam).
  */
 (function (global) {
   'use strict';
-  global.TDB_READ_QUIZ_LOOP_POSTERS = {
+
+  var LOOP_POSTERS_SHIPPED = false;
+
+  var READ_QUIZ_LOOP_POSTER_MAP = {
     abigailWise: 125,
     abrahamIsaac: 25,
     adamEve: 23,
@@ -130,6 +135,9 @@
     treeOfLife: 119,
     weddingWine: 69,
     widowsMite: 82,
-    zacchaeus: 80,
+    zacchaeus: 80
   };
+
+  global.TDB_READ_QUIZ_LOOP_POSTERS = LOOP_POSTERS_SHIPPED ? READ_QUIZ_LOOP_POSTER_MAP : {};
+  global.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED = LOOP_POSTERS_SHIPPED;
 })(typeof window !== 'undefined' ? window : this);

@@ -2076,5 +2076,315 @@ module.exports = {
       doneMessage: 'You earned a star — obedience wins!',
       takeaway: 'Obedience to God brings victory — deal with sin quickly.',
       prayer: 'God, help me obey You and turn from sin. Thank You for victory. Amen.'
+    },
+
+    gideonFleece: {
+      kjvRef: 'Judges 6:36–40',
+      paragraphs: [
+        'God chose Gideon to lead Israel against the Midianites. Gideon was afraid and asked God for a sign.',
+        'Gideon said, "If you are with me, make the fleece wet with dew but the ground dry." God did it.',
+        'Gideon asked for a second sign: "Make the fleece dry and the ground wet with dew." God did it again.',
+        'Gideon knew God was with him. He gathered an army but God said it was too big.',
+        'God wanted Gideon to trust Him, not the size of his army.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Gideon laying fleece on ground at night, dew falling, no text',
+        'fun kid illustration: Gideon checking fleece — wet fleece, dry ground, surprised face, no text',
+        'colorful Bible scene for children: second test, fleece dry, ground wet with dew, Gideon praying, no text',
+        'exciting cartoon: Gideon trusting God, army gathering in background, no text',
+        'hopeful ending illustration: Gideon ready to fight with small army, God with him, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Gideon needed signs to be sure God was with him!',
+      quizHeading: 'Gideon & Fleece Questions',
+      questions: [
+        {
+          question: 'Why did Gideon ask God for a sign with the fleece?',
+          choices: ['He was cold', 'He wanted to be sure God was with him', 'He wanted wool', 'He was tired'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Gideon was afraid and needed to know God would help.',
+          wrongFeedback: 'Not cold or wool. Gideon wanted confirmation that God would be with him in battle (Judges 6:36).'
+        },
+        {
+          question: 'What was the first sign Gideon asked for?',
+          choices: ['Fleece wet, ground dry', 'Fleece dry, ground wet', 'Fleece on fire', 'Fleece gone'],
+          correctIndex: 0,
+          correctFeedback: 'Right! Wet fleece and dry ground — God did it.',
+          wrongFeedback: 'The first request was fleece wet and ground dry. God answered exactly (Judges 6:37–38).'
+        },
+        {
+          question: 'What was the second sign?',
+          choices: ['Fleece wet again', 'Fleece dry and ground wet', 'Fleece on fire', 'Fleece floating'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Fleece dry, ground wet — God did it again.',
+          wrongFeedback: 'Not wet again. The second test was fleece dry and ground wet (Judges 6:39–40).'
+        },
+        {
+          question: 'What did Gideon learn from the fleece?',
+          choices: ['God is not powerful', 'God is with him', 'Fleece is magic', 'Don’t ask God questions'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God answered and showed He was with Gideon.',
+          wrongFeedback: 'The fleece showed God’s power and presence. Gideon could trust Him for the battle.'
+        },
+        {
+          question: 'What can we learn from Gideon’s fleece?',
+          choices: ['Ask God for signs when afraid', 'God answers when we seek Him', 'Never ask God anything', 'Signs are bad'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! God is patient and answers when we honestly seek Him.',
+          wrongFeedback: 'The story shows God is kind and patient. He answered Gideon’s honest prayer for confirmation.'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God answers when we seek Him!',
+      takeaway: 'When we are afraid, we can ask God for confirmation — He is patient and powerful.',
+      prayer: 'God, when I am afraid, help me ask You for signs and trust Your answers. Amen.'
+    },
+
+    gideonMidianites: {
+      kjvRef: 'Judges 7',
+      paragraphs: [
+        'Gideon had a big army, but God said it was too many. God wanted them to trust Him, not numbers.',
+        'God told Gideon to send home the fearful soldiers. Then God reduced the army to 300 men.',
+        'God gave a strange battle plan: 300 men with trumpets, jars, and torches. They surrounded the Midianite camp at night.',
+        'They broke the jars, blew trumpets, and shouted "A sword for the Lord and for Gideon!" The Midianites panicked and fought each other.',
+        'God gave the victory with only 300 men. Gideon learned to trust God completely.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Gideon with huge army, God saying "too many", no text',
+        'fun kid illustration: fearful soldiers leaving, Gideon with 300 men left, no text',
+        'colorful Bible scene for children: 300 men with trumpets, jars, and torches at night, no text',
+        'exciting cartoon: jars breaking, trumpets blowing, Midianites running in panic, no text',
+        'happy ending illustration: Gideon victorious with 300 men, praising God, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'God used only 300 men to show His power!',
+      quizHeading: 'Gideon’s Victory Questions',
+      questions: [
+        {
+          question: 'Why did God reduce Gideon’s army?',
+          choices: ['Too many soldiers — they might think they won by themselves', 'Too few soldiers', 'They were tired', 'They had no weapons'],
+          correctIndex: 0,
+          correctFeedback: 'Yes! God wanted them to trust Him, not their own strength.',
+          wrongFeedback: 'Not too few. God said the army was too big — they might take credit instead of giving it to God (Judges 7:2).'
+        },
+        {
+          question: 'How many men were left in Gideon’s army?',
+          choices: ['300', '3,000', '30,000', '300,000'],
+          correctIndex: 0,
+          correctFeedback: 'Right! Only 300 men — God’s perfect number.',
+          wrongFeedback: 'Not thousands. God reduced it to 300 so everyone would know the victory was from Him (Judges 7:7).'
+        },
+        {
+          question: 'What weapons did the 300 men have?',
+          choices: ['Swords and shields', 'Trumpets, jars, and torches', 'Bows and arrows', 'Horses'],
+          correctIndex: 1,
+          correctFeedback: 'Exactly! Trumpets, empty jars, and torches — strange but powerful.',
+          wrongFeedback: 'Not swords. They had trumpets, jars with torches inside, and shouted — God caused the enemy to panic (Judges 7:16).'
+        },
+        {
+          question: 'What happened when the 300 men shouted?',
+          choices: ['The Midianites ran away', 'The Midianites fought each other', 'Nothing happened', 'The sun rose'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! The Midianites panicked and turned on each other.',
+          wrongFeedback: 'They didn’t just run. God caused confusion — the enemy army fought itself (Judges 7:22).'
+        },
+        {
+          question: 'What can we learn from Gideon’s 300 men?',
+          choices: ['Big armies win', 'God wins with small numbers when we trust Him', 'Torches are magic', 'Never fight at night'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God’s power is greater than numbers — trust Him.',
+          wrongFeedback: 'The story shows God wins with few when we obey. The victory was God’s, not the army’s!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God wins with small numbers!',
+      takeaway: 'God’s power is greater than numbers — trust Him completely.',
+      prayer: 'God, thank You for Your power. Help me trust You even when I feel small. Amen.'
+    },
+
+    deborahBarak: {
+      kjvRef: 'Judges 4',
+      paragraphs: [
+        'Deborah was a judge and prophetess in Israel. The people came to her for God’s words.',
+        'Israel was oppressed by King Jabin and his army commander Sisera with iron chariots.',
+        'God told Deborah to tell Barak to lead the army against Sisera. Barak said he would go only if Deborah went with him.',
+        'Deborah agreed. She said, "The victory will go to a woman." They fought and God gave them victory.',
+        'Sisera ran and was killed by Jael. Israel was free because they listened to God’s prophetess Deborah.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Deborah sitting under palm tree judging people, wise and kind, no text',
+        'fun kid illustration: Deborah telling Barak to fight Sisera, Barak asking her to come, no text',
+        'colorful Bible scene for children: Barak and Deborah leading army, God fighting for them, no text',
+        'exciting cartoon: Sisera’s iron chariots stuck in mud, Israelites winning, no text',
+        'happy ending illustration: Deborah and Barak celebrating victory, Israel free, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Deborah listened to God and led with courage!',
+      quizHeading: 'Deborah & Barak Questions',
+      questions: [
+        {
+          question: 'What was Deborah’s job?',
+          choices: ['Queen', 'Judge and prophetess', 'Soldier', 'Farmer'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! She judged Israel and spoke God’s words.',
+          wrongFeedback: 'Not queen or soldier. Deborah was a judge and prophetess under the palm tree (Judges 4:4–5).'
+        },
+        {
+          question: 'Who was oppressing Israel?',
+          choices: ['Pharaoh', 'King Jabin and Sisera', 'The Philistines', 'The Amalekites'],
+          correctIndex: 1,
+          correctFeedback: 'Right! King Jabin and his commander Sisera with iron chariots.',
+          wrongFeedback: 'Not Pharaoh. It was Jabin of Canaan and his army commander Sisera (Judges 4:2).'
+        },
+        {
+          question: 'What did Barak say before going to battle?',
+          choices: ['I will go alone', 'I will go only if Deborah comes', 'I am afraid', 'I will not fight'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! He wanted Deborah to come with him.',
+          wrongFeedback: 'Not alone or afraid only. Barak said "If you will go with me, I will go" (Judges 4:8).'
+        },
+        {
+          question: 'How did God help Israel win?',
+          choices: ['Sent rain and mud', 'Gave them swords', 'Made Sisera sleep', 'All of the above'],
+          correctIndex: 0,
+          correctFeedback: 'Yes! Rain and mud stopped the chariots — God fought for them.',
+          wrongFeedback: 'God sent rain that made the ground muddy — the iron chariots got stuck. God gave the victory.'
+        },
+        {
+          question: 'What can we learn from Deborah?',
+          choices: ['Women can’t lead', 'Listen to God and be courageous', 'Never fight', 'Hide from enemies'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Deborah listened to God and showed courage.',
+          wrongFeedback: 'The story shows God uses anyone who listens to Him — Deborah was brave and wise!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God uses courageous people!',
+      takeaway: 'Listen to God and be courageous — He gives victory.',
+      prayer: 'God, help me listen to You and be brave like Deborah. Amen.'
+    },
+
+    samsonBirth: {
+      kjvRef: 'Judges 13',
+      paragraphs: [
+        'Manoah and his wife had no children. An angel appeared to the wife and said she would have a son.',
+        'The angel said the boy must be a Nazirite — never cut his hair, never drink wine, never eat unclean food.',
+        'The wife told Manoah. He prayed and the angel came again to confirm the instructions.',
+        'The woman had a baby boy and named him Samson. The Lord blessed him and the Spirit of the Lord began to stir in him.',
+        'Samson would be a deliverer for Israel from the Philistines.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: angel appearing to Manoah’s wife, surprised but happy, no text',
+        'fun kid illustration: angel telling the wife about baby Samson and Nazirite rules, no text',
+        'colorful Bible scene for children: Manoah praying, angel appearing again to confirm, no text',
+        'exciting cartoon: baby Samson born, parents happy, God blessing the baby, no text',
+        'hopeful ending illustration: young Samson growing strong, Spirit of the Lord with him, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'God had a special plan for baby Samson!',
+      quizHeading: 'Samson’s Birth Questions',
+      questions: [
+        {
+          question: 'Who appeared to Samson’s mother?',
+          choices: ['A king', 'An angel of the Lord', 'A priest', 'A neighbor'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! An angel told her she would have a special son.',
+          wrongFeedback: 'Not a king or priest. The angel of the Lord appeared to her (Judges 13:3).'
+        },
+        {
+          question: 'What special promise did the angel give?',
+          choices: ['A daughter', 'A son who would be a Nazirite', 'A farm', 'A crown'],
+          correctIndex: 1,
+          correctFeedback: 'Right! A son who would be a Nazirite — set apart for God.',
+          wrongFeedback: 'Not a daughter or farm. The angel said she would have a son who would deliver Israel (Judges 13:5).'
+        },
+        {
+          question: 'What were the Nazirite rules for Samson?',
+          choices: ['Never cut hair, no wine, no unclean food', 'Eat only fruit', 'Sleep all day', 'Never speak'],
+          correctIndex: 0,
+          correctFeedback: 'Yes! Never cut hair, no wine, no unclean food — set apart for God.',
+          wrongFeedback: 'Not fruit or silence. The rules were no razor on his head, no wine, and no unclean food (Judges 13:7).'
+        },
+        {
+          question: 'What did Manoah do when he heard the news?',
+          choices: ['Ignored it', 'Prayed for the angel to return', 'Built a temple', 'Ran away'],
+          correctIndex: 1,
+          correctFeedback: 'Correct! He prayed for God to send the angel again.',
+          wrongFeedback: 'Not ignore or run. Manoah prayed and the angel came back to confirm (Judges 13:8–9).'
+        },
+        {
+          question: 'What can we learn from Samson’s birth?',
+          choices: ['God has special plans for each of us', 'Babies are not important', 'Angels are scary', 'Never pray'],
+          correctIndex: 0,
+          correctFeedback: 'Perfect! God had a special purpose for Samson from before he was born.',
+          wrongFeedback: 'The story shows God has plans for every life. He chose Samson before he was even born!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God has plans for you!',
+      takeaway: 'God has a special plan for every life — even before we are born.',
+      prayer: 'God, thank You for having a plan for my life. Help me follow it. Amen.'
+    },
+
+    ruthNaomi: {
+      kjvRef: 'Ruth 1–4',
+      paragraphs: [
+        'Naomi’s husband and two sons died. She was left with her two daughters-in-law, Orpah and Ruth.',
+        'Naomi decided to go back to Bethlehem. She told the girls to go home to their families.',
+        'Orpah went home, but Ruth said, "Where you go I will go. Your God will be my God."',
+        'Ruth worked in the fields of Boaz, a relative. Boaz showed kindness to Ruth.',
+        'Boaz married Ruth. They had a son named Obed — he became the grandfather of King David. God used Ruth in His big plan.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Naomi, Ruth, and Orpah walking, sad faces, no text',
+        'fun kid illustration: Ruth saying "Where you go I will go" to Naomi, loving moment, no text',
+        'colorful Bible scene for children: Ruth working in Boaz’s field, picking grain, kind face, no text',
+        'exciting cartoon: Boaz and Ruth getting married, happy celebration, no text',
+        'happy ending illustration: baby Obed in Ruth’s arms, Naomi smiling, family together, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Ruth showed great loyalty and love!',
+      quizHeading: 'Ruth & Naomi Questions',
+      questions: [
+        {
+          question: 'What happened to Naomi’s husband and sons?',
+          choices: ['They moved away', 'They died', 'They got lost', 'They became kings'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! They died, and Naomi was left alone.',
+          wrongFeedback: 'Not moved away. Naomi’s husband and two sons died in Moab (Ruth 1:3–5).'
+        },
+        {
+          question: 'What did Ruth say to Naomi?',
+          choices: ['I will go home', 'Where you go I will go — your God will be my God', 'I am afraid', 'Goodbye'],
+          correctIndex: 1,
+          correctFeedback: 'Right! Ruth chose to stay with Naomi and follow her God.',
+          wrongFeedback: 'Not goodbye. Ruth said "Where you go I will go… your people will be my people and your God my God" (Ruth 1:16).'
+        },
+        {
+          question: 'Where did Ruth work to help Naomi?',
+          choices: ['In a shop', 'In Boaz’s field', 'In the temple', 'At home'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! She gleaned grain in Boaz’s field.',
+          wrongFeedback: 'Not shop or temple. Ruth worked in the fields picking leftover grain (Ruth 2:2–3).'
+        },
+        {
+          question: 'Who showed kindness to Ruth?',
+          choices: ['The king', 'Boaz', 'The priest', 'Orpah'],
+          correctIndex: 1,
+          correctFeedback: 'Exactly! Boaz was kind and later married Ruth.',
+          wrongFeedback: 'Not the king. Boaz, a relative, showed kindness and became Ruth’s husband (Ruth 4).'
+        },
+        {
+          question: 'What can we learn from Ruth?',
+          choices: ['Run away when hard', 'Stay loyal and trust God', 'Hide from family', 'Never help others'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Ruth’s loyalty and trust in God brought blessing.',
+          wrongFeedback: 'The story shows loyalty and choosing God leads to beautiful things — Ruth became part of Jesus’ family line!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — loyalty and faith win!',
+      takeaway: 'Loyalty and trusting God bring beautiful blessings.',
+      prayer: 'God, help me be loyal like Ruth and trust You always. Amen.'
     }
 };

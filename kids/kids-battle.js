@@ -2422,6 +2422,76 @@
       kjvRef: 'Joshua 8',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'After sin was removed, God\'s plan worked — obey Him and watch Him fight for you.' }
     },
+    gideonFleece: {
+      title: 'Gideon\'s Fleece',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Gideon lays a fleece on the ground at night' },
+        { src: 'panel-noah-2.svg', alt: 'Dew on the fleece only — then dew on the ground only' },
+        { src: 'panel-noah-3.svg', alt: 'Gideon trusts God to lead Israel against Midian' }
+      ],
+      caption: 'Swipe to see God answer Gideon with the wet and dry fleece! 🐑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gideon', 'fleece', 'dew', 'judges 6', 'sign', 'trust', 'midian'],
+      kjvRef: 'Judges 6:36–40',
+      kidContext: { who: 'God', to: 'Gideon (and us)', apply: 'When you are scared, you can ask God honestly — He is patient and powerful.' }
+    },
+    gideonMidianites: {
+      title: 'Gideon\'s Three Hundred',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'God shrinks Gideon\'s army — trust Me, not numbers' },
+        { src: 'panel-david-2.svg', alt: 'Three hundred with jars, torches, and trumpets at night' },
+        { src: 'panel-david-3.svg', alt: 'God gives victory — the enemy panics' }
+      ],
+      caption: 'Swipe to see God win with only three hundred brave men! 🎺',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gideon', '300', 'midian', 'judges 7', 'trumpet', 'jar', 'torch', 'victory'],
+      kjvRef: 'Judges 7',
+      kidContext: { who: 'God', to: 'Gideon and Israel', apply: 'God\'s power beats big numbers — obey His strange plans and watch Him win.' }
+    },
+    deborahBarak: {
+      title: 'Deborah and Barak',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Deborah judges under the palm tree' },
+        { src: 'panel-noah-2.svg', alt: 'Barak leads the army — Deborah goes too' },
+        { src: 'panel-noah-3.svg', alt: 'God gives victory over Sisera\'s chariots' }
+      ],
+      caption: 'Swipe to see Deborah and Barak trust God for the battle! 🌴',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['deborah', 'barak', 'sisera', 'judges 4', 'judge', 'prophetess', 'chariot', 'victory'],
+      kjvRef: 'Judges 4',
+      kidContext: { who: 'God', to: 'Deborah and Barak (and us)', apply: 'Listen to God and step out brave — He fights for those who trust Him.' }
+    },
+    samsonBirth: {
+      title: 'Baby Samson',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'An angel tells Manoah\'s wife she will have a son' },
+        { src: 'panel-noah-2.svg', alt: 'A Nazirite — set apart for God from the womb' },
+        { src: 'panel-noah-3.svg', alt: 'Samson is born — the Spirit of the Lord begins to move him' }
+      ],
+      caption: 'Swipe to see God\'s plan for baby Samson before he was born! 👶',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['samson', 'manoah', 'nazirite', 'judges 13', 'angel', 'baby', 'promise'],
+      kjvRef: 'Judges 13',
+      kidContext: { who: 'God', to: 'Samson\'s parents (and us)', apply: 'God has a purpose for your life too — even before anyone sees it.' }
+    },
+    ruthNaomi: {
+      title: 'Ruth and Naomi',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ruth stays with Naomi on the road to Bethlehem' },
+        { src: 'panel-noah-2.svg', alt: 'Ruth gleans in Boaz\'s field — kindness and care' },
+        { src: 'panel-noah-3.svg', alt: 'Boaz and Ruth — Obed, and the line to King David' }
+      ],
+      caption: 'Swipe to see Ruth\'s loyal love and God\'s kindness! 🌾',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['ruth', 'naomi', 'boaz', 'obed', 'ruth 1', 'loyal', 'bethlehem', 'david'],
+      kjvRef: 'Ruth 1–4',
+      kidContext: { who: 'God', to: 'Ruth (and us)', apply: 'Stay loyal and choose God — He weaves faithful love into His big story.' }
+    },
     rahabRope: {
       title: 'Rahab\'s Scarlet Cord',
       panels: [
@@ -3968,7 +4038,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'battleOfAi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
       'ruthGlean', 'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       /* Week 4 */
@@ -5813,7 +5883,9 @@
     josephPrison: 'Protection', pharaohDreams: 'Miracles', josephRuler: 'Miracles', mosesBaby: 'Protection',
     mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
     /* Week 3 */
-    joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
+    joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience',
+    gideonFleece: 'Miracles', gideonMidianites: 'Miracles', deborahBarak: 'Protection', samsonBirth: 'Protection', ruthNaomi: 'Love',
+    rahabRope: 'Obedience', rahabJericho: 'Obedience',
     balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',

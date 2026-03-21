@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (181 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (186 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -177,6 +177,11 @@
       webm: '/media/kids-stories/david-sheep.webm',
       captionsVtt: '/media/kids-stories/david-sheep.vtt'
     },
+    deborahBarak: {
+      mp4: '/media/kids-stories/deborah-barak.mp4',
+      webm: '/media/kids-stories/deborah-barak.webm',
+      captionsVtt: '/media/kids-stories/deborah-barak.vtt'
+    },
     deborahJudge: {
       mp4: '/media/kids-stories/deborah-judge.mp4',
       webm: '/media/kids-stories/deborah-judge.webm',
@@ -286,6 +291,16 @@
       mp4: '/media/kids-stories/garden-prayer.mp4',
       webm: '/media/kids-stories/garden-prayer.webm',
       captionsVtt: '/media/kids-stories/garden-prayer.vtt'
+    },
+    gideonFleece: {
+      mp4: '/media/kids-stories/gideon-fleece.mp4',
+      webm: '/media/kids-stories/gideon-fleece.webm',
+      captionsVtt: '/media/kids-stories/gideon-fleece.vtt'
+    },
+    gideonMidianites: {
+      mp4: '/media/kids-stories/gideon-midianites.mp4',
+      webm: '/media/kids-stories/gideon-midianites.webm',
+      captionsVtt: '/media/kids-stories/gideon-midianites.vtt'
     },
     goldenCalf: {
       mp4: '/media/kids-stories/golden-calf.mp4',
@@ -782,6 +797,11 @@
       webm: '/media/kids-stories/ruth-moab.webm',
       captionsVtt: '/media/kids-stories/ruth-moab.vtt'
     },
+    ruthNaomi: {
+      mp4: '/media/kids-stories/ruth-naomi.mp4',
+      webm: '/media/kids-stories/ruth-naomi.webm',
+      captionsVtt: '/media/kids-stories/ruth-naomi.vtt'
+    },
     samaritanWoman: {
       mp4: '/media/kids-stories/samaritan-woman.mp4',
       webm: '/media/kids-stories/samaritan-woman.webm',
@@ -791,6 +811,11 @@
       mp4: '/media/kids-stories/samson.mp4',
       webm: '/media/kids-stories/samson.webm',
       captionsVtt: '/media/kids-stories/samson.vtt'
+    },
+    samsonBirth: {
+      mp4: '/media/kids-stories/samson-birth.mp4',
+      webm: '/media/kids-stories/samson-birth.webm',
+      captionsVtt: '/media/kids-stories/samson-birth.vtt'
     },
     samsonHair: {
       mp4: '/media/kids-stories/samson-hair.mp4',

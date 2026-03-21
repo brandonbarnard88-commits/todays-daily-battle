@@ -1416,5 +1416,335 @@ module.exports = {
       doneMessage: 'You earned a star — God makes a way!',
       takeaway: 'When we feel trapped, God can make a way — trust Him.',
       prayer: 'God, when I feel stuck, show me Your way. Thank You for Your power. Amen.'
+    },
+    tenCommandments: {
+      kjvRef: 'Exodus 20:1–17',
+      paragraphs: [
+        'God led His people out of Egypt. They came to Mount Sinai. There was thunder, lightning, and a thick cloud.',
+        'God came down on the mountain in fire. He spoke the Ten Commandments to the people.',
+        'The first four are about loving God: No other gods, no idols, no wrong use of God\'s name, keep the Sabbath holy.',
+        'The last six are about loving others: Honour parents, no murder, no adultery, no stealing, no false witness, no coveting.',
+        'The people were afraid and asked Moses to speak to God for them. God gave the commandments so they could live His way.'
+      ],
+      imagePrompts: [
+        'bright bouncy cartoon for kids: Mount Sinai with thunder clouds, lightning, fire on top, people at bottom, no text',
+        'fun kid illustration: God speaking from mountain, two stone tablets, Moses listening, no text',
+        'colorful Bible scene for children: people trembling at base of mountain, Moses with God above, no text',
+        'exciting cartoon: two stone tablets glowing, simple symbols suggesting love for God and neighbour, no text',
+        'happy ending illustration: families learning together, peaceful camp, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'God gave rules because He loves us!',
+      quizHeading: 'Ten Commandments Questions',
+      questions: [
+        {
+          question: 'Where did God give the Ten Commandments?',
+          choices: ['In Egypt', 'At Mount Sinai', 'In the desert only', 'In Canaan'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! At Mount Sinai after leaving Egypt.',
+          wrongFeedback:
+            'Not Egypt or Canaan. God spoke from the mountain with thunder and fire (Exodus 19–20).'
+        },
+        {
+          question: 'How many commandments did God give?',
+          choices: ['Five', 'Ten', 'Twenty', 'One hundred'],
+          correctIndex: 1,
+          correctFeedback: 'Right! Ten special rules to help us love God and people.',
+          wrongFeedback:
+            'Not five or twenty. God gave exactly ten commandments (Exodus 20:1–17).'
+        },
+        {
+          question: 'What are the first four commandments about?',
+          choices: ['Loving others', 'Loving God', 'Eating food', 'Building houses'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! They tell us how to love and honour God.',
+          wrongFeedback:
+            'Not others or food. The first four are about God: no other gods, no idols, honour His name, keep the Sabbath holy.'
+        },
+        {
+          question: 'What does "honour thy father and thy mother" mean?',
+          choices: ['Obey and respect them', 'Ignore them', 'Give them gifts only', 'Fight with them'],
+          correctIndex: 0,
+          correctFeedback: 'Perfect! Honour means obey and respect parents — it is one of God\'s rules.',
+          wrongFeedback:
+            'Not ignore or fight. God said to honour father and mother that thy days may be long (Exodus 20:12).'
+        },
+        {
+          question: 'Why did God give the commandments?',
+          choices: ['To make life hard', 'To help us live His way and love others', 'To punish us', 'To confuse us'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! God gave rules out of love — to help us live right.',
+          wrongFeedback:
+            'Not to punish or confuse. They teach His people to love Him and each other well.'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star for learning God\'s rules!',
+      takeaway: 'God gave rules because He loves us — they show us how to love Him and others.',
+      prayer: 'God, thank You for Your rules. Help me obey them with a happy heart. Amen.'
+    },
+    goldenCalf: {
+      kjvRef: 'Exodus 32',
+      paragraphs: [
+        'Moses went up Mount Sinai to talk with God. The people waited a long time.',
+        'They got impatient. They asked Aaron, "Make us gods to go before us." Aaron made a golden calf from their jewellery.',
+        'The people said, "These be thy gods, O Israel, which brought thee up out of the land of Egypt!" They had a feast and worshiped the calf.',
+        'God told Moses the people had corrupted themselves. Moses was angry and broke the stone tablets when he saw the calf.',
+        'Moses prayed for the people. God forgave in mercy, but sin still had serious consequences. God still loved His people.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: people waiting at base of Mount Sinai, Moses up the mountain, no text',
+        'fun kid illustration: Aaron and people bringing gold, shaping a calf figure, no text',
+        'colorful Bible scene for children: crowd celebrating wrongly near a golden calf, teachable not party-glorifying, no text',
+        'exciting cartoon: Moses coming down with tablets, seeing the camp, broken tablets at feet, no text',
+        'hopeful ending illustration: Moses praying upward, people bowing heads sorry, soft light, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'The people forgot God quickly — what did they do wrong?',
+      quizHeading: 'Golden Calf Questions',
+      questions: [
+        {
+          question: 'Why did the people make a golden calf?',
+          choices: ['They were hungry', 'Moses was gone too long and they got impatient', 'They wanted a new pet', 'God told them to'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! They got tired of waiting and wanted something to lead them.',
+          wrongFeedback:
+            'Not hunger or a pet. Moses was up the mountain a long time, so they asked Aaron to make gods (Exodus 32:1).'
+        },
+        {
+          question: 'What did Aaron do with the people\'s gold?',
+          choices: ['Hid it', 'Made a golden calf', 'Gave it to Moses', 'Threw it away'],
+          correctIndex: 1,
+          correctFeedback: 'Right! He melted it and shaped a calf idol.',
+          wrongFeedback:
+            'Not hide or throw. Aaron fashioned it with a graving tool after he received their golden earrings (Exodus 32:2–4).'
+        },
+        {
+          question: 'What did the people say about the calf?',
+          choices: ['These be thy gods, O Israel, which brought thee up', 'This is a toy', 'This is Moses', 'This is food'],
+          correctIndex: 0,
+          correctFeedback: 'Yes! They worshiped the calf instead of the Lord.',
+          wrongFeedback:
+            'They did not call it a toy. They said, "These be thy gods, O Israel, which brought thee up out of the land of Egypt" (Exodus 32:4).'
+        },
+        {
+          question: 'How did Moses react when he came down?',
+          choices: ['He danced with them', 'He broke the stone tablets', 'He joined the feast', 'He ignored it'],
+          correctIndex: 1,
+          correctFeedback: 'Correct! Moses was angry and broke the tablets.',
+          wrongFeedback:
+            'He did not join them. His anger waxed hot, and he cast the tablets out of his hands and broke them (Exodus 32:19).'
+        },
+        {
+          question: 'What can we learn from the golden calf?',
+          choices: ['Make idols when waiting', 'Worship God only', 'Forget God\'s rules', 'Gold is best'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Worship God alone — do not make idols or forget Him.',
+          wrongFeedback:
+            'Impatience led to awful sin. God wants our whole heart — no substitutes!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star for remembering to worship God only!',
+      takeaway: 'Worship God alone — don\'t let impatience lead to wrong choices.',
+      prayer: 'God, help me worship only You. Keep my heart true. Amen.'
+    },
+    spiesInCanaan: {
+      kjvRef: 'Numbers 13–14',
+      paragraphs: [
+        'God told Moses to send twelve spies into Canaan, the promised land.',
+        'The spies came back after forty days. Ten said, "The land is good but the people are giants — we cannot win."',
+        'Joshua and Caleb said, "The land is wonderful! God is with us — let us go up at once and possess it."',
+        'The people listened to the ten fearful spies and wept. They wanted to go back to Egypt.',
+        'God was grieved by their unbelief. That generation would not enter the land — only their children would. God still kept His promise.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: twelve men exploring green hills and vineyards, big grape cluster, no text',
+        'fun kid illustration: two men carrying huge grapes on a pole between them, amazed faces, no text',
+        'colorful Bible scene for children: ten men looking scared at shadow of giants, two men standing brave, no text',
+        'exciting cartoon: crowd weeping, Moses and Aaron bowed, desert tents, no text',
+        'hopeful ending illustration: Joshua and Caleb strong in foreground, younger generation beyond, sunrise, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Two spies trusted God — the others were afraid!',
+      quizHeading: 'Spies in Canaan Questions',
+      questions: [
+        {
+          question: 'How many spies did Moses send?',
+          choices: ['Two', 'Ten', 'Twelve', 'Forty'],
+          correctIndex: 2,
+          correctFeedback: 'Yes! Twelve spies — one from each tribe.',
+          wrongFeedback:
+            'Not two or ten. Moses sent twelve men to search the land of Canaan (Numbers 13:1–3).'
+        },
+        {
+          question: 'What did the spies find in Canaan?',
+          choices: ['A desert', 'A land flowing with milk and honey', 'Only giants', 'Nothing'],
+          correctIndex: 1,
+          correctFeedback: 'Right! It was beautiful and full of good things.',
+          wrongFeedback:
+            'They brought back one cluster of grapes so big two men carried it — it flowed with milk and honey (Numbers 13:27).'
+        },
+        {
+          question: 'Who said God would help them take the land?',
+          choices: ['The ten spies', 'Joshua and Caleb', 'Moses only', 'The whole crowd'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Joshua and Caleb trusted God.',
+          wrongFeedback:
+            'The ten brought an evil report. Caleb said, "Let us go up at once, and possess it; for we are well able to overcome it" (Numbers 13:30).'
+        },
+        {
+          question: 'What did the people want to do after hearing the report?',
+          choices: ['Go in and take the land', 'Go back to Egypt', 'Stay quiet', 'Fight the giants alone'],
+          correctIndex: 1,
+          correctFeedback: 'Correct! They wanted to return — that showed unbelief.',
+          wrongFeedback:
+            'They said, "Let us make a captain, and let us return into Egypt" (Numbers 14:4).'
+        },
+        {
+          question: 'What can we learn from the spies?',
+          choices: ['Be afraid of big problems', 'Trust God even when things look hard', 'Always follow the crowd', 'Give up easily'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Trust God — He keeps His promises.',
+          wrongFeedback:
+            'The ten saw giants. Joshua and Caleb saw God. Faith is stronger than fear!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star for trusting God\'s promises!',
+      takeaway: 'Trust God\'s promises — don\'t let fear stop you.',
+      prayer: 'God, help me trust Your promises even when things look scary. Amen.'
+    },
+    rahabJericho: {
+      kjvRef: 'Joshua 2; 6:22–25',
+      paragraphs: [
+        'Joshua sent two spies into Jericho. A woman named Rahab hid them on her roof.',
+        'The king\'s men came looking for the spies. Rahab said they had gone another way — and helped the men escape by a rope from her window.',
+        'Rahab said, "I know that the LORD hath given you the land." She asked them to save her family when God gave the city.',
+        'The spies told her to bind a scarlet cord in her window. When the walls fell, Joshua sent them to bring out Rahab and all hers.',
+        'Rahab believed in God and was saved. She became part of God\'s people.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: two spies on a flat roof, Rahab quietly helping, clay houses, no text',
+        'fun kid illustration: Rahab at door speaking calmly to soldiers, spies hidden, no text',
+        'colorful Bible scene for children: rope from window at night, spies lowering safely, no text',
+        'exciting cartoon: scarlet cord hanging from window, city wall behind, no text',
+        'happy ending illustration: Rahab with family safe, walls fallen in distance, gentle light, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Rahab believed in God and helped His people!',
+      quizHeading: 'Rahab Questions',
+      questions: [
+        {
+          question: 'Who hid the spies in Jericho?',
+          choices: ['The king', 'Rahab', 'Joshua', 'The priests'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Rahab hid them on her roof.',
+          wrongFeedback:
+            'Not the king or Joshua. Rahab took the men and hid them on the roof of her house (Joshua 2:4–6).'
+        },
+        {
+          question: 'What did Rahab do when the king\'s men came?',
+          choices: ['Gave up the spies', 'Sent the searchers another way and hid the spies', 'Helped capture them', 'Ran away'],
+          correctIndex: 1,
+          correctFeedback: 'Right! She protected them and pointed the soldiers elsewhere.',
+          wrongFeedback:
+            'She did not give them up. She hid the spies and said they had gone out when it was dark (Joshua 2:4–5).'
+        },
+        {
+          question: 'What did Rahab ask the spies?',
+          choices: ['Harm my family', 'Save my family when you take the city', 'Give me gold only', 'Leave me alone'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! She believed in God and asked for kindness.',
+          wrongFeedback:
+            'She said she knew the Lord had given them the land and asked to save her father\'s household alive (Joshua 2:12–13).'
+        },
+        {
+          question: 'What was the sign for Rahab\'s house?',
+          choices: ['A flag', 'A scarlet cord in the window', 'A lamp', 'A door mark'],
+          correctIndex: 1,
+          correctFeedback: 'Exactly! A scarlet line in the window.',
+          wrongFeedback:
+            'She bound the line of scarlet thread in the window as the token (Joshua 2:18).'
+        },
+        {
+          question: 'What can we learn from Rahab?',
+          choices: ['Hide from God\'s people', 'Believe in God and help others', 'Fear only kings', 'Keep every secret'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Rahab believed and acted bravely — God saved her.',
+          wrongFeedback:
+            'She trusted the Lord God of heaven and earth — faith changes everything!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — faith saves!',
+      takeaway: 'Faith in God saves us — even when we were far from Him.',
+      prayer: 'God, thank You for saving anyone who believes in You. Help my faith grow. Amen.'
+    },
+    joshuaAi: {
+      kjvRef: 'Joshua 8',
+      paragraphs: [
+        'After Jericho, Joshua led the people against the city of Ai.',
+        'The first attack failed because Achan had taken things God said belonged to Him from Jericho.',
+        'God told Joshua to remove the sin from the camp. Achan confessed, and the trouble was purged.',
+        'God gave a new plan: part of the army hid, part pretended to flee. The men of Ai chased Israel.',
+        'The hidden soldiers took the city. God gave the victory when the people obeyed.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Joshua leading people toward a small city on a hill, no text',
+        'fun kid illustration: soldiers turning back, battle not going well, surprised faces, no text',
+        'colorful Bible scene for children: serious moment of truth — hidden things brought out, humble colours, no text',
+        'exciting cartoon: ambush diagram style — some soldiers hiding, some running as decoy, simple and clear, no text',
+        'happy ending illustration: people thankful, city quiet, dawn light, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Sin caused trouble, but God gave a new plan!',
+      quizHeading: 'Battle of Ai Questions',
+      questions: [
+        {
+          question: 'Why did the first attack on Ai fail?',
+          choices: ['Too many soldiers', 'Sin in the camp — Achan disobeyed God', 'Bad weather', 'No plan'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! One man\'s disobedience brought defeat.',
+          wrongFeedback:
+            'Israel could not stand before their enemies because accursed thing was in the camp (Joshua 7:11–12).'
+        },
+        {
+          question: 'What did God tell Joshua to do?',
+          choices: ['Give up', 'Remove the sin from the camp', 'Attack again the same way', 'Build a wall'],
+          correctIndex: 1,
+          correctFeedback: 'Right! Deal with the sin first.',
+          wrongFeedback:
+            'God said to sanctify the people — the trespass must be put away before victory (Joshua 7:13).'
+        },
+        {
+          question: 'What was the new plan for Ai?',
+          choices: ['Full frontal attack only', 'Ambush with hidden soldiers', 'Wait forever', 'Run away'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Hide part of the army, draw the city out, then take it.',
+          wrongFeedback:
+            'Joshua laid an ambush behind the city as the Lord commanded (Joshua 8:3–8).'
+        },
+        {
+          question: 'What happened when the men of Ai chased Israel?',
+          choices: ['They caught everyone', 'The hidden men took the city', 'They turned back', 'Rain stopped them'],
+          correctIndex: 1,
+          correctFeedback: 'Correct! The trap worked — the city was left open.',
+          wrongFeedback:
+            'When Ai pursued Joshua\'s men, those in ambush rose and entered the city (Joshua 8:19).'
+        },
+        {
+          question: 'What can we learn from Ai?',
+          choices: ['Sin does not matter', 'Obedience brings victory', 'Always charge first', 'Hide from problems'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Turn from sin and obey God — He helps His people win.',
+          wrongFeedback:
+            'Sin blocked God\'s help; when the camp was clean, He fought for them again!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star for learning obedience matters!',
+      takeaway: 'Obedience to God brings victory — deal with sin quickly.',
+      prayer: 'God, help me obey You and turn from sin. Thank You for victory. Amen.'
     }
 };

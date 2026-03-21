@@ -1461,6 +1461,34 @@
       kidContext: { who: 'God', to: 'Moses and the Israelites', apply: "God gave Moses ten rules on stone tablets to help people love God and love others. They were good laws to live by. God's rules show us how to live happy and right. When you follow them, you honor God and treat people well." },
       narration: "Ten Commandments – Exodus 20:1-17. The Israelites came to Mount Sinai. God called Moses up the mountain. There, God spoke ten important rules and wrote them on stone tablets. The first four were about loving God: no other gods, no idols, honor His name, keep the Sabbath. The last six were about loving others: honor parents, no murder, no stealing, no lying, no wanting what others have. God gave these rules to help His people live good lives. For you: God's rules are like guardrails—they keep you safe and happy. Love God with all your heart, and love others like yourself. Following them makes life better."
     },
+    goldenCalf: {
+      title: 'The Golden Calf',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Israel waits at the mountain while Moses is with God' },
+        { src: 'panel-david-2.svg', alt: 'A golden calf — the people worship wrongly' },
+        { src: 'panel-david-3.svg', alt: 'Moses breaks the tablets — God still forgives His people' }
+      ],
+      caption: 'Swipe to see why we worship God alone! 🐂',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['golden calf', 'exodus 32', 'idol', 'moses', 'aaron', 'worship', 'sinai'],
+      kjvRef: 'Exodus 32',
+      kidContext: { who: 'God', to: 'Israel', apply: 'Impatience led to idolatry — wait for God and worship Him only.' }
+    },
+    spiesInCanaan: {
+      title: 'Spies in Canaan',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Twelve spies see how good the land is' },
+        { src: 'panel-noah-2.svg', alt: 'Huge grapes — ten spies are afraid of giants' },
+        { src: 'panel-noah-3.svg', alt: 'Joshua and Caleb trust God to give the land' }
+      ],
+      caption: 'Swipe to see faith beat fear! 🍇',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['spies', 'canaan', 'numbers 13', 'joshua', 'caleb', 'grapes', 'giants'],
+      kjvRef: 'Numbers 13',
+      kidContext: { who: 'God', to: 'Israel', apply: 'Giants look big, but God is bigger — trust His promise.' }
+    },
     samson: {
       title: 'Samson & His Strength',
       panels: [
@@ -2352,6 +2380,20 @@
       kjvRef: 'Joshua 6',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God wins battles in surprising ways! Obey—then shout for joy.' }
     },
+    joshuaAi: {
+      title: 'Joshua and Ai',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'First attack on Ai — Israel stumbles' },
+        { src: 'panel-david-2.svg', alt: 'Sin is found and removed from the camp' },
+        { src: 'panel-david-3.svg', alt: 'God gives Joshua victory at Ai' }
+      ],
+      caption: 'Swipe to see obedience bring victory! 🏙️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['joshua', 'ai', 'achan', 'joshua 7', 'joshua 8', 'obey', 'ambush'],
+      kjvRef: 'Joshua 8',
+      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'Hidden sin blocked the win — when the camp obeyed God again, He gave the city.' }
+    },
     rahabRope: {
       title: 'Rahab\'s Scarlet Cord',
       panels: [
@@ -2365,6 +2407,20 @@
       keywords: ['rahab', 'cord', 'spies', 'joshua 2', 'window', 'scarlet', 'faith', 'save'],
       kjvRef: 'Joshua 2',
       kidContext: { who: 'God', to: 'Rahab', apply: 'Faith saves! Even when you\'re afraid, trust God and He rescues you.' }
+    },
+    rahabJericho: {
+      title: 'Rahab at Jericho',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Rahab hides the two spies on her roof' },
+        { src: 'panel-noah-2.svg', alt: 'Scarlet cord in the window — a sign of faith' },
+        { src: 'panel-noah-3.svg', alt: 'Rahab and her family brought out safe' }
+      ],
+      caption: 'Swipe to see faith in God save a whole family! 🏠',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['rahab', 'jericho', 'spies', 'joshua 2', 'cord', 'scarlet', 'faith'],
+      kjvRef: 'Joshua 2',
+      kidContext: { who: 'God', to: 'Rahab', apply: 'She believed the Lord is God in heaven above — and He kept her safe.' }
     },
     balaamDonkey: {
       title: 'Balaam\'s Talking Donkey',
@@ -3841,7 +3897,7 @@
     var isWeeklyStory = (dayIndex % 7) === 0;
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
-      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments',
+      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan',
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
@@ -3856,7 +3912,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jerichoWalls', 'rahabRope', 'balaamDonkey', 'samsonHair',
+      'joshuaJordan', 'jerichoWalls', 'joshuaAi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaamDonkey', 'samsonHair',
       'ruthGlean', 'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       /* Week 4 */
@@ -5684,7 +5740,7 @@
   var STORY_THEMES = {
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
-    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', samson: 'Protection',
+    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', spiesInCanaan: 'Obedience', samson: 'Protection',
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
@@ -5701,7 +5757,7 @@
     josephPrison: 'Protection', pharaohDreams: 'Miracles', josephRuler: 'Miracles', mosesBaby: 'Protection',
     mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
     /* Week 3 */
-    joshuaJordan: 'Miracles', jerichoWalls: 'Obedience', rahabRope: 'Obedience',
+    joshuaJordan: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
     balaamDonkey: 'Obedience', samsonHair: 'Protection', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',

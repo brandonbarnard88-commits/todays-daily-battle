@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (173 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (177 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -272,6 +272,11 @@
       webm: '/media/kids-stories/garden-prayer.webm',
       captionsVtt: '/media/kids-stories/garden-prayer.vtt'
     },
+    goldenCalf: {
+      mp4: '/media/kids-stories/golden-calf.mp4',
+      webm: '/media/kids-stories/golden-calf.webm',
+      captionsVtt: '/media/kids-stories/golden-calf.vtt'
+    },
     goliathChallenge: {
       mp4: '/media/kids-stories/goliath-challenge.mp4',
       webm: '/media/kids-stories/goliath-challenge.webm',
@@ -426,6 +431,11 @@
       mp4: '/media/kids-stories/joseph-sold.mp4',
       webm: '/media/kids-stories/joseph-sold.webm',
       captionsVtt: '/media/kids-stories/joseph-sold.vtt'
+    },
+    joshuaAi: {
+      mp4: '/media/kids-stories/joshua-ai.mp4',
+      webm: '/media/kids-stories/joshua-ai.webm',
+      captionsVtt: '/media/kids-stories/joshua-ai.vtt'
     },
     joshuaJordan: {
       mp4: '/media/kids-stories/joshua-jordan.mp4',
@@ -682,6 +692,11 @@
       webm: '/media/kids-stories/psalm23-shepherd.webm',
       captionsVtt: '/media/kids-stories/psalm23-shepherd.vtt'
     },
+    rahabJericho: {
+      mp4: '/media/kids-stories/rahab-jericho.mp4',
+      webm: '/media/kids-stories/rahab-jericho.webm',
+      captionsVtt: '/media/kids-stories/rahab-jericho.vtt'
+    },
     rahabRope: {
       mp4: '/media/kids-stories/rahab-rope.mp4',
       webm: '/media/kids-stories/rahab-rope.webm',
@@ -791,6 +806,11 @@
       mp4: '/media/kids-stories/solomon-wisdom.mp4',
       webm: '/media/kids-stories/solomon-wisdom.webm',
       captionsVtt: '/media/kids-stories/solomon-wisdom.vtt'
+    },
+    spiesInCanaan: {
+      mp4: '/media/kids-stories/spies-in-canaan.mp4',
+      webm: '/media/kids-stories/spies-in-canaan.webm',
+      captionsVtt: '/media/kids-stories/spies-in-canaan.vtt'
     },
     stephen: {
       mp4: '/media/kids-stories/stephen.mp4',

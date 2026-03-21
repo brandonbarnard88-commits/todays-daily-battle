@@ -11,20 +11,35 @@ The Kids Story Library (`/kids/corner.html`) supports **one complete animated vi
 | Read-along | `/media/kids-stories/{slug}.vtt` | **WebVTT** subtitles (timed lines) |
 | Poster | `/kids/panel-*-1.svg` or PNG/WebP | Optional `poster` in catalog |
 
-## Register a story
+## Catalog (all stories)
 
-Edit `kids/kids-full-story-assets.js` and add an entry to `FULL_STORY_MEDIA` whose **key** matches `kids-battle.js` (`david`, `noah`, `jonah`, etc.):
+`kids/kids-full-story-assets.js` lists **every** top-level story key from `kids/kids-battle.js` (currently **171** unique keys). Each entry uses predictable paths:
 
-```js
-david: {
-  mp4: '/media/kids-stories/david-goliath.mp4',
-  webm: '/media/kids-stories/david-goliath.webm',
-  captionsVtt: '/media/kids-stories/david-goliath.vtt',
-  poster: '/kids/panel-david-1.svg'
-},
+| Field | Pattern |
+|--------|---------|
+| `mp4` | `/media/kids-stories/{kebab-key}.mp4` |
+| `webm` | `/media/kids-stories/{kebab-key}.webm` |
+| `captionsVtt` | `/media/kids-stories/{kebab-key}.vtt` |
+
+**Kebab-case** is derived from the camelCase key (e.g. `goliathChallenge` → `goliath-challenge`). Digits stay in the slug (`alphaOmega2` → `alpha-omega2`).
+
+### Turn on full video for a story
+
+1. Upload the three files (or at least `.mp4` + `.vtt`) under `/media/kids-stories/` using the slug names above.
+2. Add the **exact** story key string to `FULL_STORY_LIVE_KEYS` in `kids/kids-full-story-assets.js` (e.g. `'david', 'noah'`). Nothing plays until the key is listed—this avoids mass 404s before media exists.
+3. Optional: add `poster` on that story’s object if you want a custom still (otherwise the modal keeps panel/YouTube behavior as today).
+
+After full site-wide rollout, you can replace `FULL_STORY_LIVE_KEYS` with `new Set(Object.keys(FULL_STORY_MEDIA))` so any uploaded file set goes live.
+
+### Regenerate after adding stories to `kids-battle.js`
+
+```bash
+node scripts/generate-kids-full-story-assets.js
 ```
 
-Until an entry exists, the modal uses **comic panels** and an optional **YouTube** preview button (`videoId` in story data).
+Then re-add any keys you had in `FULL_STORY_LIVE_KEYS` (the generator preserves the empty Set template).
+
+Until a story is in `FULL_STORY_LIVE_KEYS`, the modal uses **comic panels** and an optional **YouTube** preview button (`videoId` in story data).
 
 ## WebVTT
 

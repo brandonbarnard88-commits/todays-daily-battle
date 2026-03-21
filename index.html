@@ -902,11 +902,22 @@
     }
 
     .verse-ref {
-      margin: 10px 0 14px;
+      margin: 10px 0 6px;
       color: var(--muted);
       font-size: 0.88rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+    }
+
+    .hero-daily-bread-line {
+      margin: 0 0 12px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.02rem, 2.6vw, 1.18rem);
+      font-style: italic;
+      font-weight: 500;
+      color: color-mix(in srgb, var(--muted) 92%, var(--gold) 8%);
+      line-height: 1.45;
+      letter-spacing: 0.01em;
     }
 
     .breakdown {
@@ -963,6 +974,7 @@
     /* ── Verse skeleton ── */
     .verse-card.is-loading .hero-verse,
     .verse-card.is-loading .verse-ref,
+    .verse-card.is-loading .hero-daily-bread-line,
     .verse-card.is-loading .breakdown,
     .verse-card.is-loading .hero-breakdown-panels,
     .verse-card.is-loading .application,
@@ -3434,7 +3446,13 @@
       margin-bottom: 0;
     }
     .plans-teaser-header {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;
+    }
+    .plans-teaser-thesis {
+      margin: 0 0 0.75rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.45;
     }
     .plans-teaser-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
     .plans-teaser-explore { font-size: 0.8rem; color: var(--gold); text-decoration: none; }
@@ -3450,6 +3468,13 @@
     .plans-teaser-banner:hover { background: color-mix(in srgb, var(--gold) 28%, transparent); }
     .plans-teaser-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gold); }
     .plans-teaser-arrow { margin-left: auto; color: var(--gold); }
+    .referral-share-blurb {
+      margin: 0.85rem 0 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .referral-share-blurb a { color: var(--accent); }
     .plans-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .plan-chip {
       background: color-mix(in srgb, var(--gold) 10%, transparent);
@@ -4020,7 +4045,7 @@
         <p class="trust-badge" aria-label="Privacy: no ads, no personal tracking; minimal anonymous usage stats. See Privacy policy.">Privacy-first · No ads · No personal tracking</p>
       </div>
       <div class="header-battle-plans">
-        <a href="plans.html" class="header-battle-plans-link" aria-label="Battle Plans — browse 7 to 40 day KJV reading plans">
+        <a href="plans.html" class="header-battle-plans-link" aria-label="Battle Plans — browse 7 to 40 day KJV reading plans" title="7–40 day plans, saved on your device. Daily bread for today’s daily battle — one verse, one day at a time.">
           <span class="header-battle-plans-title">📋 Battle Plans</span>
           <span class="header-battle-plans-sub">7–40 day plans, saved on your device →</span>
         </a>
@@ -4122,6 +4147,7 @@
           </button>
         </div>
         <p class="verse-ref" id="heroRef">Philippians 4:6 (KJV)</p>
+        <p class="hero-daily-bread-line" role="text">Daily bread for today&rsquo;s daily battle.</p>
         <div class="hero-streak-wrapper">
           <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
         </div>
@@ -4189,6 +4215,7 @@
           <span class="plans-teaser-title">📋 Battle Plans</span>
           <a href="plans.html" class="plans-teaser-explore" aria-label="All Plans">All Plans →</a>
         </div>
+        <p class="plans-teaser-thesis section-note" role="text">Daily bread for today&rsquo;s daily battle — one verse, one day at a time.</p>
         <a href="plans.html" class="plans-teaser-banner" aria-label="7–40 day plans — one tap to start">
           <span class="plans-teaser-badge" aria-hidden="true">New</span>
           <span>7–40 day plans — one tap to start, progress saved automatically.</span>
@@ -4443,11 +4470,12 @@
             <button type="button" id="referral-copy-link" class="btn btn-secondary referral-copy-btn" aria-label="Copy my link">Copy my link</button>
             <a href="https://twitter.com/intent/tweet?text=Found%20this%20KJV%20verse%20helpful%20today%20%E2%80%94%20todaysdailybattle.com%20%40todaysdailybattle%20%E2%9A%94%EF%B8%8F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary referral-x-btn" aria-label="Share on X">Share on X</a>
           </div>
+          <p class="referral-share-blurb section-note" id="referralShareBlurb"><span class="sr-only">Copy-paste to share: </span>&ldquo;Daily bread for today&rsquo;s daily battle&rdquo; &mdash; verses, prayers, and plans when life hits. <a href="https://todaysdailybattle.com/">todaysdailybattle.com</a></p>
         </div>
       </section>
       <section class="card" id="newsletter" aria-label="Join the Battle Plan">
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Get Daily Verse + Prayer Nudge</h2>
-        <p class="section-note">One email—Friday recap or daily verse. No spam.</p>
+        <p class="section-note newsletter-thesis">One email&mdash;Friday recap or daily verse. Daily bread for today&rsquo;s daily battle. No spam.</p>
         <div class="newsletter-form">
           <input id="newsletter-name" type="text" placeholder="Name" aria-label="Your name" autocomplete="name">
           <input id="newsletter-email" type="email" placeholder="Email" aria-label="Email" autocomplete="email" required>

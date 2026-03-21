@@ -8,6 +8,7 @@
     "test": "python3 test-site.py --offline",
     "test:security": "node test-security.js",
     "test:site": "node test-site.js --offline",
+    "test:authz-smoke": "bash scripts/authz-smoke.sh",
     "test:search-torture": "node scripts/search-torture-test.mjs",
     "test:search-torture-live": "node scripts/search-torture-live.mjs",
     "test:mobile": "node scripts/mobile-smoke-test.mjs",

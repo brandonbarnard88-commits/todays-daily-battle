@@ -22,11 +22,11 @@
 - **RLS on all synced tables** — `user_sync_data`, `messages`, `message_reports`, `newsletter_signups`, `prayers`, `daily_battles`. Policies restrict access by `auth.uid()` or role. See `supabase-rls-lockdown.sql` and `supabase-rls-quick.sql`.
 - **Public write-only helpers** — `feeling_suggestions`, `contact_messages`, and `shop_waitlist` allow **anon INSERT only** (no anon SELECT), with length checks in RLS. Run `supabase-feeling-suggestions.sql`, `supabase-contact-messages.sql`, and `supabase-shop-waitlist.sql` in Supabase. Review rows in Dashboard or via `service_role`. Periodically delete old rows (e.g. &gt;90 days) via SQL job or manual review to match `privacy.html` retention. **Optional:** run `supabase-cron-cleanup-contact-shop.sql` in the SQL Editor to schedule daily deletes with `pg_cron` (requires extension enabled on the project). Verification query and fallbacks: **`docs/SITE-OPS-RUNBOOK.md`**.
 - **Signup role** — Trigger `auth.force_member_role_trigger` ensures new users get `role: member`; admin is set only via Supabase Dashboard `app_metadata`, never from the client.
-- **Admin** — Determined by `app_metadata.role === 'admin'` or email match to a server/config-controlled list. Do not add admin emails from user input. For production, protect `/admin` with the Cloudflare Worker in `workers/admin-guard.js` (see `workers/README-ADMIN-GUARD.md`) or Cloudflare Access.
+- **Admin** — Determined only by Supabase JWT `app_metadata.role === 'admin'` (set in Supabase Dashboard, never from client input). Do not ship admin email addresses or allowlists in `config.js` or HTML. For production, protect `/admin` with the Cloudflare Worker in `workers/admin-guard.js` (see `workers/README-ADMIN-GUARD.md`) or Cloudflare Access.
 
 ### Client-side hardening
 
-- **CSP** — `Content-Security-Policy` in `_headers` (Cloudflare Pages) restricts script, style, connect, and frame sources. **script-src** includes `'nonce-tdb2025s'` and `'unsafe-inline'` for compatibility with third-party scripts (Stripe, Turnstile, analytics); **style-src** includes `'unsafe-inline'` for component styles. All inline scripts use `nonce="tdb2025s"`. See CLOUDFLARE-CSP-FIX.md if the site goes black after CSP changes.
+- **CSP** — `Content-Security-Policy` in `_headers` (Cloudflare Pages) restricts script, style, connect, and frame sources. **script-src** includes `'nonce-tdb2025s'` and `'unsafe-inline'` for compatibility with JSON-LD, third-party scripts (Stripe, Turnstile, analytics), and legacy inline bootstraps; **style-src** includes `'unsafe-inline'` for component styles. Inline executable scripts use `nonce="tdb2025s"` where applicable. `wasm-unsafe-eval` was removed (no WebAssembly in app scripts). Tightening further (nonce/hash-only, drop `'unsafe-inline'` on script-src) is tracked as a follow-up. See CLOUDFLARE-CSP-FIX.md if the site goes black after CSP changes.
 - **Headers** — `_headers` (Netlify/Cloudflare Pages): `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`, `Permissions-Policy: geolocation=(self), microphone=(), camera=(), payment=(), usb=(), battery=()` (homepage sky does **not** call `getCurrentPosition` unless the user opts in via `localStorage` key `tdbSkyGeoOptIn === '1'`; default is fixed time-of-day bands with **no** prompt; cached lat/lon stay in `sessionStorage` client-side only—see `index.html` sky script), `X-XSS-Protection: 1; mode=block`.
 - **CSP violation reporting** — `script.js` listens for `securitypolicyviolation` and logs to console for debugging.
 - **Referrer** — `referrer: no-referrer` so nothing follows users when they leave the site.
@@ -80,6 +80,12 @@
 
 ---
 
+## Canonical hostname (www vs apex)
+
+Both `https://todaysdailybattle.com` and `https://www.todaysdailybattle.com` must not serve duplicate 200s long term. **Prefer a single 301/308** from one host to the other (match `<link rel="canonical">`, sitemap, and `robots.txt` — currently apex). This is enforced at **Cloudflare** (Redirect Rules or Bulk Redirects), not in static `_redirects` (same-origin only). Step-by-step: **`docs/CLOUDFLARE-HOST-CANONICAL.md`**.
+
+---
+
 ## Subresource Integrity (SRI)
 
 External scripts (Firebase, DOMPurify, canvas-confetti) include `integrity="sha384-..."` and `crossorigin="anonymous"`. Regenerate hashes when updating versions: `curl -sL "URL" | openssl dgst -sha384 -binary | openssl base64 -A`. Or use [srihash.org](https://www.srihash.org/).
@@ -99,6 +105,7 @@ External scripts (Firebase, DOMPurify, canvas-confetti) include `integrity="sha3
 | `HARDENING-DEPLOY.md` | Steps to deploy rate-limit table, Edge Functions, and admin Worker |
 | `PRIVACY-ANALYTICS.md` | Search analytics and user safety rules |
 | `script.js` | `sanitizeUserInput`, `escapeHtml`, `sanitizeHtml`, `truncateForDb` |
+| `docs/PRE-LAUNCH-AUTHZ-TEST-PACK.md` | Repeatable RLS / Edge Function / IDOR / XSS / rate-limit checks before launch |
 | `BACKLASH-PREP.md` | Anticipated critiques, response copy, escalation notes |
 
 ---

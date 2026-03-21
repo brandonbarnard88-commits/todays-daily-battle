@@ -4,7 +4,7 @@ For product and growth strategy (benchmark vs. leaders, next 6–12 months, mone
 
 ## config.js (optional)
 
-To override Supabase or master emails without editing `script.js`:
+To override Supabase or other public config without editing `script.js`:
 
 1. Copy `config.example.js` to `config.js`.
 2. Set your values in `config.js`.
@@ -27,18 +27,13 @@ If `config.js` is missing, the app uses built-in defaults and still works. Add `
 
 ## Admin panel
 
-The **Admin** panel (admin.html) is only available to the **master account**. To view it:
+The **Admin** panel (`admin.html`) is only for accounts with **admin** in Supabase Auth **app metadata** (`role: admin`). The client does not use email allowlists.
 
-1. **Set your master email in config.js**  
-   In `config.js`, set `MASTER_EMAIL` to the email you use to sign in (e.g. `MASTER_EMAIL: 'support@todaysdailybattle.com'`). You can use `config.example.js` as a template. If `MASTER_EMAIL` is missing or wrong, the Admin link will not appear and visiting admin.html will redirect to the access-denied page.
+1. **In Supabase Dashboard** → Authentication → Users → your user → User Metadata / App Metadata: set `role` to `admin` under **app_metadata** (or use SQL / Admin API as your policy allows).
+2. **Sign in** on the site with that account (**Sign In Free** or header login).
+3. **Open Admin** — After login, an **Admin** link appears in the sidebar. You can also open `admin.html`. Non-admin users see the access-denied flow.
 
-2. **Sign in with that email**  
-   On the site, use **Sign In Free** (or the header login) and log in with the same email you set as `MASTER_EMAIL`.
-
-3. **Open Admin**  
-   After login, an **Admin** link appears in the sidebar (only for the master account). You can also go directly to `admin.html`. If you're not the master user, you'll be redirected to the access-denied page.
-
-**If you still can't get in:** Confirm `config.js` exists and is loaded before `script.js`, and that the email in `MASTER_EMAIL` matches your login email exactly (case doesn't matter). Check the browser console for errors.
+**If you still can't get in:** Confirm the JWT shows `app_metadata.role === 'admin'` (Supabase Dashboard or a decoded session). Check the browser console for auth errors. Do not put admin email addresses in `config.js`.
 
 ## Web Push (8 AM streak reminder)
 

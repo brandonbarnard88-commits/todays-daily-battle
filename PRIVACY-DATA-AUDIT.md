@@ -308,7 +308,7 @@ Supabase Auth uses session cookies (httpOnly, secure) managed by Supabase client
 
 ### 🔴 HIGH
 
-1. **`config.js` / `inline-bootstrap.js`** — Supabase URL and anon key are public (by design). RLS protects data. **MASTER_EMAIL_OBFUSCATED** decodes to `brandon@todaysdailybattle.com` — admin email in client. **Mitigation:** Admin is server-side; avoid exposing in logs. Consider moving to env-only for production.
+1. **`config.js` / `inline-bootstrap.js`** — Supabase URL and anon key are public (by design). RLS protects data. **Admin identity** must not appear in client bundles (no email allowlists). **Mitigation:** Admin = `app_metadata.role === 'admin'` in Supabase only; optional Cloudflare Access / Worker on `/admin*`.
 
 2. **Kids doodles** — PNGs uploaded to Supabase Storage `kid-doodles` with path `doodles/{familyCode}/{kidName}-{timestamp}.png`. Kid name in filename. **Mitigation:** RLS allows anon read; ensure bucket is not public-listable. Consider hashing filenames.
 

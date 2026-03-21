@@ -1,6 +1,6 @@
 /**
  * Config for Today's Daily Battle. Supabase anon key is public by design; RLS protects data.
- * Admin: Supabase app_metadata.role === 'admin' OR login email in MASTER_EMAIL_OBFUSCATED / MASTER_EMAIL.
+ * Admin: Supabase app_metadata.role === 'admin' only (set in Supabase Auth). Do not ship admin email in client bundles.
  * Stripe: add keys locally (or env); keep config.js in .gitignore for production secrets.
  */
 export const SUPABASE_URL = 'https://rixsnhpwrlbvvymkfamj.supabase.co';
@@ -15,8 +15,6 @@ window.TDB_CONFIG = {
   VAPID_PUBLIC_KEY: '',
   PUSH_SUBSCRIBE_URL: 'https://rixsnhpwrlbvvymkfamj.supabase.co/functions/v1/save-push-subscription',
   PUSH_UNSUBSCRIBE_URL: 'https://rixsnhpwrlbvvymkfamj.supabase.co/functions/v1/remove-push-subscription',
-  // Master login (HTML-entity obfuscated): decoded at runtime for admin / Pro access
-  MASTER_EMAIL_OBFUSCATED: '&#98;&#114;&#97;&#110;&#100;&#111;&#110;&#64;&#116;&#111;&#100;&#97;&#121;&#115;&#100;&#97;&#105;&#108;&#121;&#98;&#97;&#116;&#116;&#108;&#101;&#46;&#99;&#111;&#109',
   // Battle Pro / Stripe — paste Payment Link URLs from Stripe Dashboard; see STRIPE-CONFIG.md
   STRIPE_PUBLISHABLE_KEY: '',
   // Supporter: $5/mo, $50/yr

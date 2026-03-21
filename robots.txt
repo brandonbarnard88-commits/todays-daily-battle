@@ -1,20 +1,31 @@
 User-agent: *
 Allow: /
 
-# Block admin, test, and internal pages from indexing
+# Block admin, test, and internal pages from indexing (.html and extensionless / pretty URLs)
 Disallow: /admin.html
+Disallow: /admin
 Disallow: /admin/
 Disallow: /login.html
+Disallow: /login
 Disallow: /reset.html
+Disallow: /reset
 Disallow: /modal.html
+Disallow: /modal
 Disallow: /404-admin.html
 Disallow: /test-search-diagnosis.html
+Disallow: /test-search-diagnosis
 Disallow: /crest-generator.html
+Disallow: /crest-generator
 Disallow: /weekly-email-template.html
+Disallow: /weekly-email-template
 Disallow: /newsletter-template-weekly.html
+Disallow: /newsletter-template-weekly
 Disallow: /kids/kids-beta.html
 Disallow: /stats.html
+Disallow: /stats
 Disallow: /mystudy.html
+Disallow: /mystudy
 Disallow: /secrets.html
+Disallow: /secrets
 
 Sitemap: https://todaysdailybattle.com/sitemap.xml

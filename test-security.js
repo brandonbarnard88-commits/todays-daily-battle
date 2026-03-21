@@ -255,7 +255,16 @@ if (winsReport.includes('statsEl.innerHTML = html') && !winsReport.includes('esc
   warn('wins-report.html: innerHTML from localStorage (lastKey) — consider escaping for defense in depth');
 }
 
-// O4. MASTER_EMAIL or admin emails in any client module (documented risk)
+// O4. No admin email allowlist in shipped config/bootstrap (role-only admin in Supabase)
+const configJs = read('config.js');
+const inlineBoot = read('inline-bootstrap.js');
+if (configJs.includes('MASTER_EMAIL_OBFUSCATED') || inlineBoot.includes('MASTER_EMAIL_OBFUSCATED')) {
+  fail('config.js or inline-bootstrap.js must not ship MASTER_EMAIL_OBFUSCATED (use app_metadata.role === admin only)');
+} else {
+  ok('No MASTER_EMAIL_OBFUSCATED in config.js / inline-bootstrap.js');
+}
+
+// O4b. MASTER_EMAIL literal in any client module (documented risk)
 const adminEmailFindings = [];
 for (const absPath of runtimeJsFiles) {
   const rel = relPath(absPath);

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * One-time setup: writes config.js with your Supabase URL, anon key, and admin email.
+ * One-time setup: writes config.js with your Supabase URL and anon key.
+ * Admin access is not configured here — set app_metadata.role = admin in Supabase Dashboard.
  * Run from project root. Your values stay in your terminal only (never paste them in chat).
  *
  * Usage:
  *   node setup-config.js
- *   (then enter URL, anon key, and email when prompted)
  *
  * Or with env vars (paste in terminal, not in chat):
- *   SUPABASE_URL="https://xxxx.supabase.co" SUPABASE_ANON_KEY="eyJ..." MASTER_EMAIL="you@email.com" node setup-config.js
+ *   SUPABASE_URL="https://xxxx.supabase.co" SUPABASE_ANON_KEY="eyJ..." node setup-config.js
  */
 
 const fs = require('fs');
@@ -18,10 +18,9 @@ const configPath = path.join(__dirname, 'config.js');
 
 const url = process.env.SUPABASE_URL || '';
 const key = process.env.SUPABASE_ANON_KEY || '';
-const email = process.env.MASTER_EMAIL || '';
 
-if (url && key && email) {
-  writeConfig(url, key, email);
+if (url && key) {
+  writeConfig(url, key);
   console.log('config.js written successfully. Reload the site and try signing in.');
   process.exit(0);
 }
@@ -37,17 +36,16 @@ function ask(q) {
   console.log('Enter your Supabase values (from Dashboard → Project Settings → API).\n');
   const u = (process.env.SUPABASE_URL || await ask('SUPABASE_URL (e.g. https://xxxx.supabase.co): ')).trim();
   const k = (process.env.SUPABASE_ANON_KEY || await ask('SUPABASE_ANON_KEY (anon public key): ')).trim();
-  const e = (process.env.MASTER_EMAIL || await ask('MASTER_EMAIL (your admin email): ')).trim();
   rl.close();
-  if (!u || !k || !e) {
-    console.log('Missing a value. Run again and fill all three.');
+  if (!u || !k) {
+    console.log('Missing SUPABASE_URL or SUPABASE_ANON_KEY. Run again.');
     process.exit(1);
   }
-  writeConfig(u, k, e);
-  console.log('config.js written. Reload the site and try signing in.');
+  writeConfig(u, k);
+  console.log('config.js written. Set admin via Supabase app_metadata if needed; see CONFIG.md.');
 })();
 
-function writeConfig(supabaseUrl, anonKey, masterEmail) {
+function writeConfig(supabaseUrl, anonKey) {
   const content = `/**
  * Optional config for Today's Daily Battle.
  * Add config.js to .gitignore — do not commit keys.
@@ -55,8 +53,6 @@ function writeConfig(supabaseUrl, anonKey, masterEmail) {
 window.TDB_CONFIG = {
   SUPABASE_URL: ${JSON.stringify(supabaseUrl)},
   SUPABASE_ANON_KEY: ${JSON.stringify(anonKey)},
-  MASTER_EMAIL: ${JSON.stringify(masterEmail)},
-  MASTER_EMAILS: [${JSON.stringify(masterEmail)}],
   WALKTHROUGH_VIDEO_URL: '',
   ERROR_REPORT_URL: ''
 };

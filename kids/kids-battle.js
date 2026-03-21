@@ -6,6 +6,24 @@
 (function () {
   'use strict';
 
+  /** CSP require-trusted-types-for: assign through default policy when available. */
+  function tdbSetHtml(el, html) {
+    if (!el) return;
+    var s = html == null ? '' : String(html);
+    var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+    if (pol && typeof pol.createHTML === 'function') {
+      try {
+        el.innerHTML = pol.createHTML(s);
+        return;
+      } catch (_) {}
+    }
+    el.innerHTML = s;
+  }
+  function tdbClearHtml(el) {
+    if (!el) return;
+    while (el.firstChild) el.removeChild(el.firstChild);
+  }
+
   // Shared with Kids Coloring (coloring.html) — hub for all kid stuff; one streak across both
   const KIDS_STREAK_KEY = 'kidsStreak';
   const KIDS_DOODLE_KEY = 'kidsDoodle';
@@ -4320,9 +4338,9 @@
       var videoTitle = escapeHtml(story.videoTitle || '');
       var safeVideoId = safeYouTubeId(story.videoId);
       var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-      container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>';
+      tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>');
     } else {
-      container.innerHTML = '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>';
+      tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>');
     }
     if (!q) {
       try {
@@ -4403,7 +4421,7 @@
     const streak = getCurrentStreak();
     const list = document.getElementById('kids-badges-list');
     if (!list) return;
-    list.innerHTML = '';
+    tdbClearHtml(list);
     BADGES.forEach(function (b) {
       const wasLocked = (prevStreak || 0) < b.days;
       const nowUnlocked = streak >= b.days;
@@ -4604,7 +4622,7 @@
       if (isQuizDoneToday()) return;
       var ref = getCurrentVerseRef();
       var questions = getQuizForVerse(ref);
-      questionsEl.innerHTML = '';
+      tdbClearHtml(questionsEl);
       questions.forEach(function (q, i) {
         var wrap = document.createElement('div');
         wrap.className = 'kids-quiz-q-wrap';
@@ -4613,7 +4631,7 @@
         opts.forEach(function (opt, j) {
           var label = document.createElement('label');
           label.className = 'kids-quiz-option';
-          label.innerHTML = '<input type="radio" name="quiz-q' + i + '" value="' + j + '" aria-label="' + escapeHtml(opt || '') + '"> <span>' + escapeHtml(opt || '') + '</span>';
+          tdbSetHtml(label, '<input type="radio" name="quiz-q' + i + '" value="' + j + '" aria-label="' + escapeHtml(opt || '') + '"> <span>' + escapeHtml(opt || '') + '</span>');
           wrap.appendChild(label);
         });
         var title = document.createElement('p');
@@ -4745,7 +4763,7 @@
       var blankIndices = {};
       blanks.forEach(function (b) { blankIndices[b.index] = b.word; });
       if (refEl) refEl.textContent = ref;
-      blanksEl.innerHTML = '';
+      tdbClearHtml(blanksEl);
       var verseHtml = '<p class="kids-memory-verse">';
       for (var k = 0; k < words.length; k++) {
         if (blankIndices[k] !== undefined) {
@@ -4755,7 +4773,7 @@
         }
       }
       verseHtml += '</p>';
-      blanksEl.innerHTML = verseHtml;
+      tdbSetHtml(blanksEl, verseHtml);
       blanks.forEach(function (b, i) {
         var wrap = document.createElement('div');
         wrap.className = 'kids-memory-input-wrap';
@@ -5161,11 +5179,11 @@
       welcome.setAttribute('role', 'status');
       section.insertBefore(welcome, board);
     }
-    board.innerHTML = '';
+    tdbClearHtml(board);
     FAITH_TRAIL_STOPS.forEach(function (stop) {
       var span = document.createElement('span');
       span.className = 'kids-trail-stop' + (streak >= stop.day ? ' unlocked' : ' locked');
-      span.innerHTML = '<span class="kids-trail-icon">' + escapeHtml(stop.icon) + '</span><span class="kids-trail-label">' + escapeHtml(stop.label) + '</span>';
+      tdbSetHtml(span, '<span class="kids-trail-icon">' + escapeHtml(stop.icon) + '</span><span class="kids-trail-label">' + escapeHtml(stop.label) + '</span>');
       span.title = streak >= stop.day ? 'Completed!' : 'Unlock at day ' + stop.day;
       board.appendChild(span);
     });
@@ -5387,9 +5405,9 @@
     if (!ctxEl) return;
     var ctx = getKidContext(ref, verseText);
     ctxEl.classList.remove('hidden');
-    ctxEl.innerHTML = '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtml(ctx.who || '') + '</p>' +
+    tdbSetHtml(ctxEl, '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtml(ctx.who || '') + '</p>' +
       '<p class="kids-context-to"><strong>To whom:</strong> ' + escapeHtml(ctx.to || '') + '</p>' +
-      '<p class="kids-context-apply"><strong>For you:</strong> ' + escapeHtml(ctx.apply || '') + '</p>';
+      '<p class="kids-context-apply"><strong>For you:</strong> ' + escapeHtml(ctx.apply || '') + '</p>');
   }
 
   function setMainVerse(index) {
@@ -5415,9 +5433,9 @@
         var videoTitle = escapeHtml(story.videoTitle || '');
         var safeVideoId = safeYouTubeId(story.videoId);
         var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-        container.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>';
+        tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>');
       } else {
-        container.innerHTML = '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>';
+        tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>');
       }
     }
   }
@@ -5470,7 +5488,7 @@
     var indices = insights.indices;
     var maxShow = 5;
     if (indices.length === 0) {
-      resultsEl.innerHTML = '<p class="kids-search-no-match">Try "brave" or "friends"!</p>';
+      tdbSetHtml(resultsEl, '<p class="kids-search-no-match">Try "brave" or "friends"!</p>');
       resultsEl.classList.remove('hidden');
       return;
     }
@@ -5514,7 +5532,7 @@
         '</span>' +
         '</button>';
     }
-    resultsEl.innerHTML = html;
+    tdbSetHtml(resultsEl, html);
     resultsEl.classList.remove('hidden');
   }
 
@@ -5533,7 +5551,7 @@
     KIDS_TOPICS.forEach(function (item) {
       html += '<button type="button" class="kids-topic-btn" data-topic="' + (item.topic || '').replace(/"/g, '&quot;') + '">' + (item.label || item.topic) + '</button>';
     });
-    container.innerHTML = html;
+    tdbSetHtml(container, html);
   }
 
   function wireKidsSearch() {

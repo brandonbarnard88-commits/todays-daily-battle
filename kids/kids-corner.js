@@ -6,6 +6,24 @@
 (function () {
   'use strict';
 
+  /** CSP require-trusted-types-for: assign through default policy when available. */
+  function tdbSetHtml(el, html) {
+    if (!el) return;
+    var s = html == null ? '' : String(html);
+    var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+    if (pol && typeof pol.createHTML === 'function') {
+      try {
+        el.innerHTML = pol.createHTML(s);
+        return;
+      } catch (_) {}
+    }
+    el.innerHTML = s;
+  }
+  function tdbClearHtml(el) {
+    if (!el) return;
+    while (el.firstChild) el.removeChild(el.firstChild);
+  }
+
   /* ────────────────────────────────────────────────────
    * COLORING MODULE — self-contained, no server needed
    * ──────────────────────────────────────────────────── */
@@ -3098,7 +3116,7 @@
 
   function clearReadQuizModal() {
     if (!modalReadQuiz) return;
-    modalReadQuiz.innerHTML = '';
+    tdbClearHtml(modalReadQuiz);
     modalReadQuiz.classList.add('hidden');
   }
 
@@ -3221,7 +3239,7 @@
     var qIndex = { v: 0 };
 
     function renderQuestion() {
-      quizHost.innerHTML = '';
+      tdbClearHtml(quizHost);
       if (qIndex.v >= qList.length) {
         var done = document.createElement('div');
         done.className = 'kids-read-quiz-done';
@@ -3601,7 +3619,7 @@
       html += '</div>';
       html += '</div>';
     }
-    grid.innerHTML = html;
+    tdbSetHtml(grid, html);
     if (noMatch) {
       noMatch.classList.toggle('hidden', keys.length > 0);
       if (keys.length === 0) {
@@ -3664,7 +3682,7 @@
       mountFullStoryPlayer(modalVideo, key, s.title || key, fullMedia);
     }
     if (modalCarousel) {
-      modalCarousel.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtml(s.caption || '') + '</p>' + speakBtnHtml + btnHtml + shareBtnHtml + '</div>';
+      tdbSetHtml(modalCarousel, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtml(s.caption || '') + '</p>' + speakBtnHtml + btnHtml + shareBtnHtml + '</div>');
     }
     if (modalContext) {
       var ctx = s.kidContext;
@@ -3676,11 +3694,11 @@
       }
       if (ref) parts.push('<p class="kids-kjv-ref">' + escHtml(ref) + '</p>');
       if (parts.length) {
-        modalContext.innerHTML = parts.join('');
+        tdbSetHtml(modalContext, parts.join(''));
         modalContext.classList.remove('hidden');
       } else {
         modalContext.classList.add('hidden');
-        modalContext.innerHTML = '';
+        tdbClearHtml(modalContext);
       }
     }
     mountReadQuizForStory(key);

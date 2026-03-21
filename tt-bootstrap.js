@@ -108,3 +108,24 @@
     })();
   } catch (_) {}
 })();
+
+/** Kids + any page: set HTML via default Trusted Types policy (raw strings fail under require-trusted-types-for). */
+(function bindTdbHtmlHelpers() {
+  if (typeof window === 'undefined') return;
+  window.tdbSetHtml = function (el, html) {
+    if (!el) return;
+    var s = html == null ? '' : String(html);
+    var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+    if (pol && typeof pol.createHTML === 'function') {
+      try {
+        el.innerHTML = pol.createHTML(s);
+        return;
+      } catch (_) {}
+    }
+    el.innerHTML = s;
+  };
+  window.tdbClearHtml = function (el) {
+    if (!el) return;
+    while (el.firstChild) el.removeChild(el.firstChild);
+  };
+})();

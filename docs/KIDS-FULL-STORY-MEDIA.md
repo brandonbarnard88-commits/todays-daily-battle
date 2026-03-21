@@ -9,6 +9,19 @@ End-to-end checklist for shipping **native `<video>` + WebVTT** on `/kids/corner
 - **Regenerate** after editing `kids/kids-battle.js` story text (`narration`, `kidContext`, `kjvRef`, panels): `npm run kids:generate-read-quiz`
 - **Hand-tuned** packs (higher-quality copy + quizzes): edit `kids/read-quiz-handcrafted.cjs` (e.g. `david`, `noah`, `jonah`, `daniel`, `fallOfJericho` + `jerichoWalls`), then run the same command so the big file picks them up.
 
+### Hand-tuned batches (3–5 stories at a time)
+
+Use this when you (or a collaborator) ship **custom** paragraphs, quizzes, and art prompts—without overwriting the big generated file by hand.
+
+1. **Keys** — Must match `bibleStories` **camelCase** exactly. Use [`KIDS-STORY-ANIMATION-QUEUE.md`](./KIDS-STORY-ANIMATION-QUEUE.md) so names line up (e.g. Jericho → `fallOfJericho` and/or `jerichoWalls`; storm → `jesusCalmsStorm`; Samaritan → `goodSamaritan`).
+2. **Where to edit** — Add or replace entries in **`kids/read-quiz-handcrafted.cjs`**, not in `kids/kids-read-quiz-data.js` (that file is **output** of `npm run kids:generate-read-quiz`).
+3. **Field names** — Each question uses **`choices`** (four strings) and **`correctIndex`** (0–3), plus **`correctFeedback`** / **`wrongFeedback`**. If your draft says `options` / `correct`, rename to match.
+4. **Copy** — `paragraphs`: 4–6 short strings is fine (~300–500 words total is a good target). Keep **`kjvRef`** in sync with the story (e.g. `Joshua 6`).
+5. **AI prompts** — Put five strings in **`imagePrompts`** (for Leonardo / Bing / etc.); they are **metadata** unless you also export images.
+6. **Optional pictures in the modal** — After you export images, upload under **`/media/kids-stories/`** and add **`readAlongImages`**: an array of up to **five** paths like `"/media/kids-stories/fall-of-jericho-1.jpg"`. The read-along block shows them above the story text (paths are restricted to that folder for safety). Naming tip: **kebab-case** + `-1` … `-5` (see `media/kids-stories/README.md`).
+7. **Ship** — Run `npm run kids:generate-read-quiz`, bump `CACHE_NAME` in `service-worker.js` if needed, `npm run build`, deploy. Smoke **`/kids/corner.html`** → open story → read + quiz (+ images if set).
+8. **Stars** — A story is still counted **viewed** when the modal opens (`addViewedStory`). Finishing the quiz does **not** yet unlock a separate star; say if you want quiz-complete gating later.
+
 ## File layout
 
 | File | Role |
@@ -16,6 +29,7 @@ End-to-end checklist for shipping **native `<video>` + WebVTT** on `/kids/corner
 | `/media/kids-stories/{key}.mp4` | H.264, web-compressed (primary) |
 | `/media/kids-stories/{key}.webm` | Optional smaller sibling |
 | `/media/kids-stories/{key}.vtt` | UTF-8 WebVTT read-along |
+| `/media/kids-stories/{kebab}-1.jpg` … `-5.jpg` (optional) | Read-along stills; list paths in pack **`readAlongImages`** |
 
 Example for **David**: `david.mp4`, `david.vtt` (keys use camelCase in JS, kebab-case filenames).
 

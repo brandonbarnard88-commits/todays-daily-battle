@@ -3092,6 +3092,16 @@
     modalReadQuiz.classList.add('hidden');
   }
 
+  /** Same-origin read-along art only (no query strings, no parent paths). */
+  function isSafeReadAlongImagePath(src) {
+    if (typeof src !== 'string') return false;
+    var s = src.trim();
+    if (s.length < 12 || s.length > 220) return false;
+    if (s.indexOf('..') !== -1 || s.indexOf('//') !== -1 || s.charAt(0) !== '/') return false;
+    if (s.indexOf('?') !== -1 || s.indexOf('#') !== -1) return false;
+    return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
+  }
+
   function mountReadQuizForStory(key) {
     clearReadQuizModal();
     if (!modalReadQuiz) return;
@@ -3107,6 +3117,31 @@
       refP.className = 'kids-read-quiz-ref';
       refP.textContent = pack.kjvRef;
       wrap.appendChild(refP);
+    }
+
+    var imgs = pack.readAlongImages;
+    if (imgs && imgs.length) {
+      var imgRow = document.createElement('div');
+      imgRow.className = 'kids-read-quiz-images';
+      imgRow.setAttribute('role', 'group');
+      imgRow.setAttribute(
+        'aria-label',
+        'Pictures for this story'
+      );
+      var stMeta = (window.TDB_BIBLE_STORIES || {})[key] || {};
+      var storyTitle = stMeta.title || key;
+      for (var im = 0; im < imgs.length; im++) {
+        var src = imgs[im];
+        if (!isSafeReadAlongImagePath(src)) continue;
+        var elImg = document.createElement('img');
+        elImg.src = src;
+        elImg.alt = 'Story picture ' + (im + 1) + ' — ' + storyTitle;
+        elImg.className = 'kids-read-quiz-panel-img';
+        elImg.setAttribute('loading', 'lazy');
+        elImg.setAttribute('decoding', 'async');
+        imgRow.appendChild(elImg);
+      }
+      if (imgRow.childNodes.length) wrap.appendChild(imgRow);
     }
 
     var readH = document.createElement('h4');

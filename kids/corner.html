@@ -202,6 +202,20 @@
       color: var(--kids-yellow);
       margin: 0 0 0.5rem;
     }
+    .kids-read-quiz-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+      gap: 0.45rem;
+      margin: 0 0 0.65rem;
+    }
+    .kids-read-quiz-panel-img {
+      width: 100%;
+      height: auto;
+      max-height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgba(250, 204, 21, 0.35);
+    }
     .kids-read-quiz-h4 {
       font-family: 'Bangers', cursive;
       font-size: 1.2rem;
@@ -459,7 +473,7 @@
   <script src="kids-read-quiz-data.js"></script>
   <script src="kids-battle.js?v=9" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=5" defer></script>
+  <script src="kids-corner.js?v=6" defer></script>
   <script type="module" src="../script.js?v=20260321full-story" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

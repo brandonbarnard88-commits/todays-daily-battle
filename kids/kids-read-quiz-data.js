@@ -1540,88 +1540,88 @@
   },
   "creation": {
     "kjvRef": "Genesis 1",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "hintAboveQuiz": "Remember what God made each day!",
     "readAlongImages": [],
     "paragraphs": [
-      "The Bible begins with a big truth: \"In the beginning God created the heaven and the earth\" (Genesis 1:1, KJV). Before people, before animals, before sun and moon—there was God, speaking worlds into being.",
-      "At first the earth was empty and dark. Then God said, \"Let there be light\" (Genesis 1:3, KJV). Light shone. He named day and night. Again and again He spoke—and sky, land, plants, lights in heaven, sea life, birds, land animals, all appeared.",
-      "On the sixth day God made people—male and female—in His own image. He blessed them and gave them good work: care for the earth and walk with Him. He looked at everything He had made, and it was \"very good\" (Genesis 1:31, KJV).",
-      "On the seventh day God rested from all His work. He blessed that day and made it holy—not because He was tired in a weak way, but to show a rhythm: work and rest, gift and thanks.",
-      "For you: when you see stars, waves, puppies, or your own face in the mirror, remember—you are not an accident. God made it all. You can thank Him today for being the Maker who loves what He made."
+      "In the beginning, God created everything. There was nothing, just darkness.",
+      "On Day 1, God said, \"Let there be light!\" And there was light. He called it day and night.",
+      "On Day 2, God made the sky and separated waters above and below.",
+      "On Day 3, He made dry land, seas, and plants of every kind.",
+      "On Day 4, God made the sun, moon, and stars. On Day 5, He made birds and sea creatures. On Day 6, He made animals and people. God saw everything was good."
     ],
-    "quizHeading": "What Do You Remember?",
+    "quizHeading": "Creation Days",
     "questions": [
       {
-        "question": "Who made the heavens and the earth?",
+        "question": "What did God create on Day 1?",
         "choices": [
-          "Chance and time alone",
-          "God",
-          "Only angels",
-          "People in factories"
+          "Animals",
+          "Light",
+          "Plants",
+          "Stars"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—Genesis 1:1 starts with God the Creator.",
-        "wrongFeedback": "Look at the very first Bible verse quoted in paragraph one. Who creates? (Answer: God.)"
+        "correctFeedback": "Yes! God said \"Let there be light\" — and there was light!",
+        "wrongFeedback": "Not quite. Animals and plants came later. On Day 1, God made light and separated it from darkness (Genesis 1:3)."
       },
       {
-        "question": "What did God say to bring light at the start?",
+        "question": "What did God make on Day 3?",
         "choices": [
-          "Let there be light",
-          "Turn on the lamps",
-          "Wait for the sun",
-          "Light is not important"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—that is Genesis 1:3 in the KJV.",
-        "wrongFeedback": "Find the quoted words in paragraph two right after the dark beginning. (Answer: Let there be light.)"
-      },
-      {
-        "question": "How does the story describe God's view of what He made?",
-        "choices": [
-          "It was a mistake",
-          "It was boring",
-          "It was very good",
-          "He changed His mind"
+          "Sun and moon",
+          "Birds and fish",
+          "Dry land and plants",
+          "People"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Exactly—God delights in His creation.",
-        "wrongFeedback": "Read paragraph three near the end. What two words describe everything? (Answer: It was very good.)"
+        "correctFeedback": "Right! Dry land, seas, and all kinds of plants.",
+        "wrongFeedback": "Sun and moon were Day 4, birds and fish Day 5, people Day 6. Day 3 was land and plants growing!"
       },
       {
-        "question": "What did God do on the seventh day?",
+        "question": "What did God say after making everything?",
         "choices": [
-          "Started creating again from scratch",
-          "Rested and blessed the day as holy",
-          "Forgot about the world",
-          "Made more people only"
+          "It is okay",
+          "It is good",
+          "It is perfect",
+          "It is finished"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—Sabbath rest is a gift pattern from the Creator.",
-        "wrongFeedback": "Skim paragraph four. Did God keep building, or stop to bless a day of rest? (Answer: Rested and blessed the day as holy.)"
+        "correctFeedback": "Yes! \"God saw all that He had made, and it was very good.\"",
+        "wrongFeedback": "Close, but the Bible says \"very good\" — everything was perfect at the start!"
       },
       {
-        "question": "What can you remember when you feel small?",
+        "question": "Who did God make on Day 6?",
         "choices": [
-          "No one planned for me to be here",
-          "The same God who made the world knows me—and I can thank Him",
-          "Stars are only decoration",
-          "People are not special to God"
+          "Only animals",
+          "Birds and fish",
+          "Animals and people",
+          "Stars and sky"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Beautiful—you matter to the Maker.",
-        "wrongFeedback": "Reread the last paragraph. Does it say you are an accident, or loved on purpose? (Answer: The same God who made the world knows me—and I can thank Him.)"
+        "correctIndex": 2,
+        "correctFeedback": "Exactly! Animals and then man and woman — in His image.",
+        "wrongFeedback": "Birds/fish were Day 5, stars/sky earlier. Day 6 was land animals and people."
+      },
+      {
+        "question": "What does Creation teach us?",
+        "choices": [
+          "God made everything",
+          "God is weak",
+          "Nothing matters",
+          "We are alone"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Perfect! God created everything good — and He made us special.",
+        "wrongFeedback": "The big truth is God made everything on purpose. He is powerful and loves us!"
       }
     ],
-    "doneHeading": "You Did It!",
-    "doneMessage": "Great job reading how God made the world in His Word today.",
-    "takeaway": "God made everything—and He says it is very good. You are part of His story.",
-    "prayer": "God, thank You for making the world and for making me. Help me honor You as my Creator. Amen.",
+    "doneHeading": "Wow!",
+    "doneMessage": "You earned a star — God made you too!",
+    "takeaway": "God created everything good, and He made us in His image to love Him.",
+    "prayer": "God, thank You for making the world and me. You are amazing! Amen.",
     "imagePrompts": [
-      "bouncy cartoon: dark void becoming light, gentle beams, God's hand implied (no face), text-free",
-      "kid illustration: sky with sun moon stars, clouds, colorful simple, no text",
-      "friendly scene: green land, plants, simple ocean waves, fish and birds, no text",
-      "warm cartoon: Adam and Eve silhouettes in garden, animals nearby, humble not graphic, no text",
-      "peaceful seventh day: sunset, rest, smile on child face praying thanks, gold accents, no text"
+      "bright bouncy cartoon for kids: dark empty void before creation, God's light starting to shine, no text",
+      "fun kid illustration: Day 1 — light and darkness separated, bright sun-like glow vs night, no text",
+      "colorful Bible scene for children: Day 2 — blue sky forming, waters above and below, fluffy clouds, no text",
+      "exciting cartoon: Day 3 — land rising from sea, green plants and trees growing everywhere, no text",
+      "happy ending illustration: Days 4–6 — sun/moon/stars, birds flying, animals and people in garden, warm golden light, no text"
     ]
   },
   "creationLight": {
@@ -3856,7 +3856,7 @@
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes! God had a special obedience plan — marching showed trust in Him.",
-        "wrongFeedback": "Not quite. The Bible doesn't say to fight with swords or climb. God told them to march around quietly for six days, then seven times on the seventh day — that was the way to win! (Answer: March around the city quietly.)"
+        "wrongFeedback": "Not quite. The Bible doesn't say to fight with swords or climb. God told them to march around quietly for six days, then seven times on the seventh day — that was the way to win!"
       },
       {
         "question": "How many times did they march on the seventh day?",
@@ -3868,7 +3868,7 @@
         ],
         "correctIndex": 2,
         "correctFeedback": "Correct! Seven times on the seventh day — God's number for completeness.",
-        "wrongFeedback": "Let's check the story: God said to march around once each day for six days, but on the seventh day, march seven times. The answer is seven! (Answer: Seven times.)"
+        "wrongFeedback": "Let's check the story: God said to march around once each day for six days, but on the seventh day, march seven times. The answer is seven!"
       },
       {
         "question": "What did the people do after the last march?",
@@ -3880,7 +3880,7 @@
         ],
         "correctIndex": 1,
         "correctFeedback": "Exactly! They shouted together when Joshua gave the command — and the walls fell!",
-        "wrongFeedback": "Close, but they did not run or sing. After marching, Joshua said \"Shout!\" and they shouted loud — that is when the walls came down (Joshua 6:20). (Answer: Shouted loudly.)"
+        "wrongFeedback": "Close, but they didn't run or sing. After marching, Joshua said \"Shout!\" and they shouted loud — that's when the walls came down (Joshua 6:20)."
       },
       {
         "question": "Why did the walls fall down?",
@@ -3892,7 +3892,7 @@
         ],
         "correctIndex": 2,
         "correctFeedback": "Right! God gave the victory — the people obeyed, and He did the miracle.",
-        "wrongFeedback": "The trumpets and shouting were part of the plan, but they were not magic. The real reason is that God made the walls fall when His people obeyed Him. (Answer: Because God made it happen.)"
+        "wrongFeedback": "The trumpets and shouting were part of the plan, but they weren't magic. The real reason is that God made the walls fall when His people obeyed Him."
       },
       {
         "question": "What can we learn from Jericho?",
@@ -3904,11 +3904,11 @@
         ],
         "correctIndex": 1,
         "correctFeedback": "Perfect! When we trust and obey God, even impossible things can happen.",
-        "wrongFeedback": "Almost! The story shows that victory came from obedience, not just noise or time passing. Trust and obey God — that is the lesson! (Answer: Obeying God brings victory.)"
+        "wrongFeedback": "Almost! The story shows that victory came from obedience, not just noise or time passing. Trust and obey God — that is the lesson!"
       }
     ],
     "doneHeading": "You Did It!",
-    "doneMessage": "Great job listening to God's story about Jericho today.",
+    "doneMessage": "Great job listening to the story and answering! You earned a star.",
     "takeaway": "Obeying God, even when the plan seems strange, leads to victory.",
     "prayer": "Dear God, help me obey You even when I don't understand. I trust You. Amen.",
     "imagePrompts": [
@@ -4432,88 +4432,88 @@
   },
   "goodSamaritan": {
     "kjvRef": "Luke 10:25–37",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "hintAboveQuiz": "Look for who helped and why!",
     "readAlongImages": [],
     "paragraphs": [
-      "A teacher of the law asked Jesus what he must do to inherit eternal life. Jesus asked him what the law said. The man answered with words close to the King James Bible: love the Lord with all your heart, soul, strength, and mind—and \"thy neighbour as thyself\" (Luke 10:27, KJV).",
-      "Wanting to justify himself, he asked, \"Who is my neighbour?\" Jesus answered with a story. A man was going down the road to Jericho when robbers hurt him, took his things, and left him half dead.",
-      "A priest came that way, saw the hurt man, and passed on the other side. So did a Levite. Both had reasons—but neither stopped to help.",
-      "A Samaritan traveler saw the man and felt deep pity. He cleaned the wounds, used oil and wine, bandaged him, put him on his own animal, walked beside him, and paid an innkeeper to care for him. He even promised to pay more if the bill grew.",
-      "Jesus asked, \"Which of these was neighbour unto him that fell among the thieves?\" The answer was obvious—the one who showed mercy. Jesus said, \"Go, and do thou likewise.\" Neighbor-love is action, not only a nice idea."
+      "A man asked Jesus, \"Who is my neighbor?\" Jesus told a story to answer.",
+      "A traveler was attacked by robbers. They took his things and hurt him. He lay on the road, injured.",
+      "A priest walked by and saw him — but he crossed to the other side and kept going.",
+      "Then a Levite (another religious man) did the same — he passed by without helping.",
+      "But a Samaritan (who was from a different group) saw him. He felt sorry, stopped, bandaged the man, put him on his donkey, took him to an inn, and paid for his care."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Who Is My Neighbor?",
     "questions": [
       {
-        "question": "What did the law teacher quote about loving others?",
+        "question": "What happened to the traveler?",
         "choices": [
-          "Love only people who look like you",
-          "Love your neighbour as yourself",
-          "Never help strangers",
-          "Neighbors do not matter"
+          "He got lost",
+          "Robbers attacked him",
+          "He fell asleep",
+          "He met friends"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that line from Luke 10:27 (KJV) is the hinge of the lesson.",
-        "wrongFeedback": "Reread paragraph one. Which choice matches the Bible words Jesus agreed were right? (Answer: Love your neighbour as yourself.)"
+        "correctFeedback": "Yes! Robbers hurt him and took his things.",
+        "wrongFeedback": "Let's read the beginning: The man was attacked by robbers on the road. They left him injured."
       },
       {
-        "question": "What happened to the man on the road to Jericho?",
+        "question": "Who was the first person to see the hurt man?",
         "choices": [
-          "He took a nap in the grass",
-          "Robbers attacked him and left him hurt and robbed",
-          "He gave a speech in the temple",
-          "He built a new house"
+          "A Samaritan",
+          "A priest",
+          "A Levite",
+          "Jesus"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—that is why someone needed help.",
-        "wrongFeedback": "Look at paragraph two after Jesus begins the story. Who hurt the traveler? (Answer: Robbers attacked him and left him hurt and robbed.)"
+        "correctFeedback": "Right! A priest saw him first but walked past.",
+        "wrongFeedback": "The story says a priest came by first. He looked at the man but crossed to the other side."
       },
       {
-        "question": "Who passed by without helping?",
+        "question": "Who helped the hurt man?",
         "choices": [
-          "Two children with bread",
-          "A priest and a Levite",
-          "The Samaritan and an angel",
-          "Jesus and Peter"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—Jesus used them to show that status without mercy is empty.",
-        "wrongFeedback": "Check paragraph three. Who saw the man and went to the other side? (Answer: A priest and a Levite.)"
-      },
-      {
-        "question": "What did the Samaritan do for the hurt man?",
-        "choices": [
-          "He ignored him completely",
-          "He told him to walk home alone",
-          "He cared for his wounds, carried him, and paid for shelter",
-          "He only threw coins from far away"
+          "The priest",
+          "The Levite",
+          "A Samaritan",
+          "The robbers"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Exactly—love looked like time, touch, and cost.",
-        "wrongFeedback": "Skim paragraph four. List what the Samaritan actually did—bandages, animal, inn, money. Which choice matches? (Answer: He cared for his wounds, carried him, and paid for shelter.)"
+        "correctFeedback": "Yes! The Samaritan stopped and helped, even though others didn't.",
+        "wrongFeedback": "The priest and Levite passed by. It was the Samaritan — from a different group — who showed kindness."
       },
       {
-        "question": "At the end, what did Jesus tell the law teacher to do?",
+        "question": "What did the Samaritan do for the man?",
         "choices": [
-          "Memorize more rules and do nothing",
-          "Argue with Samaritans",
-          "Go and do likewise—show mercy like the true neighbor",
-          "Avoid the road to Jericho forever"
+          "Walked past",
+          "Bandaged him and took him to an inn",
+          "Took his things",
+          "Called for help"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—mercy is the assignment.",
-        "wrongFeedback": "Read the last sentence of the story. What two little words start Jesus' final command? (Answer: Go and do likewise—show mercy like the true neighbor.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly! He bandaged wounds, put him on his donkey, and paid for care.",
+        "wrongFeedback": "The Samaritan didn't walk past or take things. He helped by bandaging, carrying, and paying for the inn."
+      },
+      {
+        "question": "What does this story teach us?",
+        "choices": [
+          "Only help friends",
+          "Help anyone who needs it",
+          "Ignore hurt people",
+          "Be rich to help"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! Everyone is our neighbor — show love and help anyone in need.",
+        "wrongFeedback": "The point of Jesus' story is that our neighbor is anyone who needs help. The Samaritan showed love to a stranger!"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job learning how Jesus defines a neighbor.",
-    "takeaway": "Love is not only a feeling—it is help, courage, and kindness, even when it costs you.",
-    "prayer": "God, make me quick to help and slow to walk away when someone is hurting. Amen.",
+    "doneHeading": "You Did It!",
+    "doneMessage": "Great job learning who your neighbor is!",
+    "takeaway": "Love your neighbor — that means helping anyone who needs it.",
+    "prayer": "God, help me see people who need help and show them kindness. Amen.",
     "imagePrompts": [
-      "Bouncy cartoon: hurt traveler on dusty road, torn clothes, kind colors not graphic, no text",
-      "Kid style: priest and Levite walking past on opposite side of road, humble faces, no text",
-      "Warm cartoon: Samaritan kneeling to bandage traveler, oil and cloth, donkey nearby, no text",
-      "Friendly scene: inn door, Samaritan speaking to innkeeper, coins, caring mood, no text",
-      "Bright ending: Jesus teaching, listener thoughtful, soft light, neighbor-love theme, no text"
+      "bright kid cartoon: traveler attacked by robbers on a road, hurt and left alone, no text",
+      "colorful Bible illustration for children: priest walking past injured man on the ground, looking away, no text",
+      "fun cartoon style: Levite also passing by the hurt man, crossing to the other side, no text",
+      "kind Samaritan scene for kids: Samaritan helping injured man, bandaging wounds, putting him on donkey, caring face",
+      "happy ending cartoon: Samaritan at inn paying the innkeeper to take care of the hurt man, warm and kind, no text"
     ]
   },
   "greatCommission": {
@@ -5303,7 +5303,7 @@
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes! God had a special obedience plan — marching showed trust in Him.",
-        "wrongFeedback": "Not quite. The Bible doesn't say to fight with swords or climb. God told them to march around quietly for six days, then seven times on the seventh day — that was the way to win! (Answer: March around the city quietly.)"
+        "wrongFeedback": "Not quite. The Bible doesn't say to fight with swords or climb. God told them to march around quietly for six days, then seven times on the seventh day — that was the way to win!"
       },
       {
         "question": "How many times did they march on the seventh day?",
@@ -5315,7 +5315,7 @@
         ],
         "correctIndex": 2,
         "correctFeedback": "Correct! Seven times on the seventh day — God's number for completeness.",
-        "wrongFeedback": "Let's check the story: God said to march around once each day for six days, but on the seventh day, march seven times. The answer is seven! (Answer: Seven times.)"
+        "wrongFeedback": "Let's check the story: God said to march around once each day for six days, but on the seventh day, march seven times. The answer is seven!"
       },
       {
         "question": "What did the people do after the last march?",
@@ -5327,7 +5327,7 @@
         ],
         "correctIndex": 1,
         "correctFeedback": "Exactly! They shouted together when Joshua gave the command — and the walls fell!",
-        "wrongFeedback": "Close, but they did not run or sing. After marching, Joshua said \"Shout!\" and they shouted loud — that is when the walls came down (Joshua 6:20). (Answer: Shouted loudly.)"
+        "wrongFeedback": "Close, but they didn't run or sing. After marching, Joshua said \"Shout!\" and they shouted loud — that's when the walls came down (Joshua 6:20)."
       },
       {
         "question": "Why did the walls fall down?",
@@ -5339,7 +5339,7 @@
         ],
         "correctIndex": 2,
         "correctFeedback": "Right! God gave the victory — the people obeyed, and He did the miracle.",
-        "wrongFeedback": "The trumpets and shouting were part of the plan, but they were not magic. The real reason is that God made the walls fall when His people obeyed Him. (Answer: Because God made it happen.)"
+        "wrongFeedback": "The trumpets and shouting were part of the plan, but they weren't magic. The real reason is that God made the walls fall when His people obeyed Him."
       },
       {
         "question": "What can we learn from Jericho?",
@@ -5351,11 +5351,11 @@
         ],
         "correctIndex": 1,
         "correctFeedback": "Perfect! When we trust and obey God, even impossible things can happen.",
-        "wrongFeedback": "Almost! The story shows that victory came from obedience, not just noise or time passing. Trust and obey God — that is the lesson! (Answer: Obeying God brings victory.)"
+        "wrongFeedback": "Almost! The story shows that victory came from obedience, not just noise or time passing. Trust and obey God — that is the lesson!"
       }
     ],
     "doneHeading": "You Did It!",
-    "doneMessage": "Great job listening to God's story about Jericho today.",
+    "doneMessage": "Great job listening to the story and answering! You earned a star.",
     "takeaway": "Obeying God, even when the plan seems strange, leads to victory.",
     "prayer": "Dear God, help me obey You even when I don't understand. I trust You. Amen.",
     "imagePrompts": [
@@ -5628,10 +5628,10 @@
     "readAlongImages": [],
     "paragraphs": [
       "Jesus and His disciples were in a boat on the lake. Jesus was very tired and fell asleep.",
-      "Suddenly a great storm came. Waves crashed over the boat. The disciples were afraid!",
-      "They woke Jesus and said, \"Master, carest thou not that we perish?\" (Mark 4:38, KJV). They really thought they might drown.",
-      "Jesus stood up and spoke to the wind and the waves: \"Peace, be still\" (Mark 4:39, KJV). The wind stopped. The sea became perfectly calm.",
-      "Jesus said, \"Why are ye so fearful? how is it that ye have no faith?\" The disciples wondered, \"What manner of man is this, that even the wind and the sea obey him?\" When life feels loud and scary, Jesus is still Lord—and He can calm our hearts too."
+      "Suddenly a big storm came. Waves crashed over the boat. The disciples were scared!",
+      "They woke Jesus and said, \"Master, carest thou not that we perish?\" (Mark 4:38, KJV).",
+      "Jesus stood up and said to the wind and waves, \"Peace, be still\" (Mark 4:39, KJV). Right away the storm stopped. Everything was calm.",
+      "Jesus asked, \"Why are ye so fearful? how is it that ye have no faith?\" The disciples were amazed and said, \"What manner of man is this, that even the wind and the sea obey him?\""
     ],
     "quizHeading": "Test Your Understanding",
     "questions": [
@@ -5640,64 +5640,64 @@
         "choices": [
           "Rowing the boat",
           "Sleeping",
-          "Calling down fire",
-          "Teaching a long lesson"
+          "Calming the storm",
+          "Teaching the disciples"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! Jesus was asleep in the boat when the storm roared.",
-        "wrongFeedback": "Reread paragraph one. Where was Jesus before the disciples woke Him? (Answer: Sleeping.)"
+        "correctFeedback": "Yes! Jesus was so tired He slept, even in a storm.",
+        "wrongFeedback": "Not quite. The Bible says Jesus was asleep in the boat when the storm started (Mark 4:38). He trusted God completely."
       },
       {
-        "question": "What worried the disciples when they woke Jesus?",
+        "question": "What did the disciples say to Jesus?",
         "choices": [
-          "They were late for dinner",
-          "They feared the boat would sink and they would drown",
-          "They lost their fishing nets",
-          "They wanted to go home immediately"
+          "Help us row!",
+          "We are not scared!",
+          "Master, carest thou not that we perish?",
+          "Let's jump out!"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Right—the storm felt deadly to them.",
-        "wrongFeedback": "Look at paragraph three. What did they say to Jesus in the KJV words? They were afraid of drowning. (Answer: They feared the boat would sink and they would drown.)"
+        "correctIndex": 2,
+        "correctFeedback": "Right! They were afraid and asked if Jesus cared.",
+        "wrongFeedback": "Reread paragraph three. In the King James Bible they said, \"Master, carest thou not that we perish?\" They were scared they might drown."
       },
       {
-        "question": "What did Jesus say to the wind and the waves?",
+        "question": "What did Jesus say to the storm?",
         "choices": [
-          "Row harder!",
+          "Go away!",
           "Peace, be still",
-          "Swim to shore!",
-          "Hide in the hull"
+          "Stop now!",
+          "Be calm!"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that is what Mark 4:39 records in the King James Bible.",
-        "wrongFeedback": "Find the short command in paragraph four, right before the sea goes calm. (Answer: Peace, be still.)"
+        "correctFeedback": "Exactly! \"Peace, be still\" (Mark 4:39, KJV) — and the storm obeyed Him immediately.",
+        "wrongFeedback": "Look at paragraph four. The King James Bible records Jesus's short command to the wind and waves. (Answer: Peace, be still.)"
       },
       {
-        "question": "What happened right after Jesus spoke?",
+        "question": "How did the disciples feel after the storm stopped?",
         "choices": [
-          "The storm doubled",
-          "The wind stopped and there was a great calm",
-          "The boat sank",
-          "Nothing changed"
+          "Happy and calm",
+          "Amazed and afraid",
+          "Angry at Jesus",
+          "Sleepy again"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—Jesus rules the wind and waves.",
-        "wrongFeedback": "Picture paragraph four after \"Peace, be still.\" Did it stay wild or become quiet? (Answer: The wind stopped and there was a great calm.)"
+        "correctFeedback": "Yes! They were amazed — \"Who is this? Even the wind and waves obey Him!\"",
+        "wrongFeedback": "The Bible says they wondered with fear and amazement. They asked who Jesus was — because only God has power over nature!"
       },
       {
-        "question": "What is one thing we can remember when we feel afraid?",
+        "question": "What can we learn from this story?",
         "choices": [
-          "Jesus is too busy to care",
-          "Jesus has power over everything—even storms—and we can trust Him",
-          "We should never talk to Jesus",
-          "Storms always mean God is angry at us"
+          "Storms are fun",
+          "Jesus has power over everything",
+          "Disciples are always brave",
+          "Boats sink easily"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is the faith this story grows.",
-        "wrongFeedback": "Think: who hushed the storm, and what did Jesus ask about fear and faith? Reread the last paragraph. (Answer: Jesus has power over everything—even storms—and we can trust Him.)"
+        "correctFeedback": "Perfect! Jesus has power over storms — and over our fears too.",
+        "wrongFeedback": "The big lesson is that Jesus is in control of everything, even when we feel scared. We can trust Him!"
       }
     ],
     "doneHeading": "Great Job!",
-    "doneMessage": "Great job listening to Jesus calming the storm in God's Word today.",
+    "doneMessage": "You earned a star for trusting Jesus' power!",
     "takeaway": "Jesus has power over everything — even storms. We can trust Him when we are afraid.",
     "prayer": "Jesus, when I am scared, help me remember You are with me and have power over everything. Amen.",
     "imagePrompts": [
@@ -7410,88 +7410,88 @@
   },
   "lostSheep": {
     "kjvRef": "Luke 15:3–7",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "hintAboveQuiz": "Think about how much the shepherd cared for the one lost sheep!",
     "readAlongImages": [],
     "paragraphs": [
-      "Tax collectors and sinners drew near to hear Jesus. Some proud religious leaders grumbled, \"This man receiveth sinners.\" Jesus heard their hearts. He told three stories about how much God cares when something lost is found.",
-      "The first story is tiny but loud with joy. A shepherd has a hundred sheep. If one wanders away, he leaves the ninety-nine in the wilderness and goes after the one that is lost until he finds it.",
-      "When he finds it, he lays it on his shoulders, glad and gentle. Back home he calls friends and neighbors: \"Rejoice with me; for I have found my sheep which was lost\" (Luke 15:6, KJV).",
-      "Jesus explained the meaning: \"I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance\" (Luke 15:7, KJV). Heaven cheers when someone turns back to God.",
-      "For you: if you feel far from God, you are not invisible. He searches. You can pray, \"Lord, I want to come home.\" And if you already love Jesus, be glad—He still looks for friends who are wandering."
+      "Jesus told a story about a shepherd who had 100 sheep.",
+      "One day, one sheep got lost. The shepherd left the 99 safe sheep and went to search for the lost one.",
+      "He looked everywhere until he found it! He was so happy.",
+      "The shepherd carried the sheep home on his shoulders.",
+      "He called his friends and said, \"Rejoice with me! I found my lost sheep!\" Jesus said, \"There is joy in heaven when one sinner turns to God.\" That matches Luke 15:7 (KJV): \"joy shall be in heaven over one sinner that repenteth.\""
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Find the Lost Sheep",
     "questions": [
       {
-        "question": "How many sheep did the shepherd have at the start?",
+        "question": "How many sheep did the shepherd have?",
         "choices": [
-          "Ten",
-          "Fifty",
-          "A hundred",
-          "One thousand"
+          "10",
+          "50",
+          "100",
+          "200"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Yes—one missing still mattered to him.",
-        "wrongFeedback": "Look at the first sentence of the parable in paragraph two. What number does Jesus use? (Answer: A hundred.)"
+        "correctFeedback": "Yes! 100 sheep — and he noticed when one was missing.",
+        "wrongFeedback": "The story says 100 sheep. That's a big flock, and he still cared about each one!"
       },
       {
         "question": "What did the shepherd do when one sheep was lost?",
         "choices": [
-          "He forgot about it",
-          "He sold the other ninety-nine",
-          "He left the ninety-nine safe and went to find the one",
-          "He waited a year to see if it returned"
+          "Stayed with the 99",
+          "Went to search for it",
+          "Waited for it to come back",
+          "Called the police"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—the story is about seeking, not shrugging.",
-        "wrongFeedback": "Reread paragraph two. Did he stay put or go search? (Answer: He left the ninety-nine safe and went to find the one.)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! He left the 99 and searched until he found it.",
+        "wrongFeedback": "He didn't stay or wait. The shepherd loved every sheep, so he went looking right away."
       },
       {
-        "question": "When he found the sheep, how did he carry it?",
+        "question": "How did the shepherd carry the lost sheep home?",
         "choices": [
-          "In a cart behind him",
+          "In a bag",
           "On his shoulders",
-          "Under his hat",
-          "He left it to find its own way"
+          "By pulling it",
+          "Letting it walk"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—gentle strength, like a good shepherd.",
-        "wrongFeedback": "Check paragraph three—where did the sheep rest? (Answer: On his shoulders.)"
+        "correctFeedback": "Yes! He carried it on his shoulders — so gentle and happy.",
+        "wrongFeedback": "The Bible says he put it on his shoulders and carried it home. That shows great care!"
       },
       {
-        "question": "What did the shepherd say when he came home?",
+        "question": "What did the shepherd do when he found the sheep?",
         "choices": [
-          "Hide the sheep so no one sees",
-          "Rejoice with me; I have found my sheep which was lost",
-          "Sell the sheep at market",
-          "The sheep is not important"
+          "Got angry",
+          "Called friends to rejoice",
+          "Punished it",
+          "Sold it"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—those words are straight from Luke 15:6 (KJV).",
-        "wrongFeedback": "Look for the quoted line in paragraph three. Which choice matches? (Answer: Rejoice with me; I have found my sheep which was lost.)"
+        "correctFeedback": "Exactly! He was so happy he called friends to celebrate.",
+        "wrongFeedback": "He was joyful, not angry. He said \"Rejoice with me!\" because the lost was found!"
       },
       {
-        "question": "What does Jesus say heaven does when one sinner repents?",
+        "question": "What does Jesus say happens in heaven?",
         "choices": [
-          "Stays silent",
-          "Is less joyful than for ninety-nine who need no repentance",
-          "Has joy—more than over ninety-nine who need no repentance",
-          "Forgets the person"
+          "Angels are sad",
+          "Joy when one sinner turns to God",
+          "Nothing special",
+          "Only big groups matter"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—God's joy is huge over one heart coming home.",
-        "wrongFeedback": "Read paragraph four slowly. Compare the joy over one repenting sinner to the ninety-nine. Which choice matches Jesus' words? (Answer: Has joy—more than over ninety-nine who need no repentance.)"
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! Heaven rejoices when even one person comes back to God.",
+        "wrongFeedback": "The story ends with Jesus saying there is joy in heaven over one sinner who repents. God cares about each person!"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job hearing Jesus' story about the lost sheep.",
-    "takeaway": "God looks for wandering hearts. You can always turn back—and heaven is glad.",
-    "prayer": "God, thank You for seeking me. When I wander, bring me home to You. Amen.",
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God rejoices over you too!",
+    "takeaway": "God loves each one of us so much — He searches for the lost.",
+    "prayer": "God, thank You for loving me and searching for me when I'm lost. Amen.",
     "imagePrompts": [
-      "Soft cartoon: shepherd counting fluffy sheep on green hill, one small sheep far away, no text",
-      "Kid style: shepherd walking rocky path, lantern, looking for one sheep, dusk, no text",
-      "Warm scene: shepherd smiling, sheep on shoulders, safe hugging pose, gold accents, no text",
-      "Joyful cartoon: neighbors celebrating, simple houses, shepherd raising hand, no text",
-      "Gentle ending: Jesus with children and sheep, peaceful light, you matter mood, no text"
+      "bright cartoon for kids: shepherd with 100 sheep on green hills, peaceful scene, no text",
+      "fun kid illustration: one sheep missing, shepherd looking worried, 99 sheep safe in field, no text",
+      "colorful Bible scene for children: shepherd searching high and low for lost sheep, mountains and bushes",
+      "happy cartoon: shepherd finding the lost sheep, big smile, carrying it on shoulders",
+      "joyful ending illustration: shepherd with friends celebrating, carrying sheep home, party feeling, no text"
     ]
   },
   "loveChapter": {

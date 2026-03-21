@@ -122,7 +122,7 @@ function trustedScript(s) {
   if (typeof document === 'undefined') return;
   var loaded = false;
   function inject(src) {
-    if (document.querySelector('script[src*="' + src + '"]')) return;
+    if (document.querySelector('script[src*="' + src.replace(/^\//, '') + '"]')) return;
     var trusted = trustedScriptURL(src);
     if (!trusted) return;
     var s = document.createElement('script');
@@ -133,10 +133,11 @@ function trustedScript(s) {
   function loadAnalytics() {
     if (loaded) return;
     loaded = true;
-    inject('analytics-loader.js');
-    inject('gsc-verify.js');
-    inject('share-page.js');
-    inject('utils.js');
+    /* Root-relative so lazy-injected scripts resolve on /kids/ and other subpaths, not /kids/*.js */
+    inject('/analytics-loader.js');
+    inject('/gsc-verify.js');
+    inject('/share-page.js');
+    inject('/utils.js');
   }
   function onTrigger() {
     loadAnalytics();

@@ -758,256 +758,333 @@ module.exports = {
       ]
     },
     cainAbel: {
-      kjvRef: 'Genesis 4',
-      hintAboveQuiz: 'Watch what each brother brings—and how God responds.',
-      readAlongImages: [],
+      kjvRef: 'Genesis 4:1–16',
       paragraphs: [
-        'Adam and Eve had two sons. Cain grew crops. Abel kept sheep. Both wanted to worship God.',
-        'Abel brought the firstborn of his flock—the best he had. Cain brought an offering too, but God had respect unto Abel and his offering, and not unto Cain\'s the same way (Genesis 4:4–5, KJV).',
-        'Cain burned with anger. God warned him, "If thou doest well, shalt thou not be accepted? and if thou doest not well, sin lieth at the door" (Genesis 4:7, KJV). Cain could still choose to do right.',
-        'Cain would not listen. In the field he rose up against Abel his brother and killed him. God asked, "Where is Abel thy brother?" Cain said, "Am I my brother\'s keeper?"',
-        'Sin hurts families and grieves God, but the story still teaches us: give God your heart and your best, talk to Him when jealousy rises, and never let anger make you hurt someone.'
+        'Adam and Eve had two sons: Cain and Abel. Cain was a farmer, Abel was a shepherd.',
+        'They brought offerings to God. Abel brought the best of his lambs — God was pleased.',
+        'Cain brought some of his crops, but his heart wasn\'t right. God was not pleased.',
+        'Cain got very angry. God warned him, "Sin is waiting to control you — do what is right."',
+        'Cain didn\'t listen. He hurt Abel. God asked, "Where is your brother?" Cain said, "I don\'t know." God punished Cain, but also protected him with a mark.'
       ],
-      quizHeading: 'Cain & Abel',
+      imagePrompts: [
+        'bright bouncy cartoon for kids: Cain farming crops, Abel tending sheep, brothers working, no text',
+        'colorful kid illustration: Cain and Abel bringing offerings to God, Abel with lamb, Cain with crops, no text',
+        'fun Bible scene for children: God accepting Abel\'s offering, warm light, Cain looking angry, no text',
+        'sad gentle cartoon: empty field, sense of loss and sorrow after brothers fought, no violence shown, no text',
+        'hopeful ending illustration: God talking to Cain, mark for protection, distant road, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Look at the hearts of Cain and Abel!',
+      quizHeading: 'Cain & Abel Questions',
       questions: [
         {
-          question: 'What kind of work did Abel do?',
-          choices: ['He fished', 'He kept sheep', 'He built towers', 'He wrote books'],
+          question: 'What did Abel bring to God?',
+          choices: ['Crops from his farm', 'The best of his lambs', 'A song', 'Money'],
           correctIndex: 1,
-          correctFeedback: 'Yes—he was a shepherd who offered the firstborn of his flock.',
+          correctFeedback: 'Yes! Abel brought the best of his flock — God was pleased.',
           wrongFeedback:
-            'Cain worked the ground. Abel cared for sheep—that is why he could offer a lamb (Genesis 4:2).'
+            'Cain brought crops. Abel brought the best lambs because he gave from his heart (Genesis 4:4).'
         },
         {
-          question: 'Whose offering did God accept?',
-          choices: ["Only Cain's", "Abel's when he brought his best", "Neither brother's", 'Both exactly the same'],
+          question: 'Why was God not pleased with Cain\'s offering?',
+          choices: ['It was too small', 'Cain\'s heart wasn\'t right', 'It was the wrong food', 'God doesn\'t like vegetables'],
           correctIndex: 1,
-          correctFeedback: 'Right—God had respect unto Abel and his offering.',
+          correctFeedback: 'Right! God looks at our hearts, not just what we give.',
           wrongFeedback:
-            'Read paragraph two. God received Abel\'s gift with honor. Cain needed a right heart too.'
+            'Size didn\'t matter. The Bible says Cain\'s offering was rejected because his heart wasn\'t right (Genesis 4:5).'
         },
         {
           question: 'What did God warn Cain about?',
-          choices: [
-            'To plant more wheat',
-            'That sin wanted to control him if he did not rule over it',
-            'To move to another country',
-            'To stop talking'
-          ],
-          correctIndex: 1,
-          correctFeedback: 'Yes—sin crouched at the door; Cain needed to master it.',
+          choices: ['Sin is waiting to control you', 'Be nicer to Abel', 'Give more offerings', 'Don\'t eat fruit'],
+          correctIndex: 0,
+          correctFeedback: 'Yes! God said sin was like a wild animal waiting to attack — choose right!',
           wrongFeedback:
-            'Look at Genesis 4:7 in the story block—God spoke about doing well and sin lying at the door.'
+            'God wasn\'t talking about fruit. He warned Cain that sin was crouching at the door, ready to control him if he didn\'t do right (Genesis 4:7).'
         },
         {
-          question: 'What terrible thing did Cain do to Abel?',
-          choices: ['He shared lunch', 'He hurt him until he died', 'He moved away quietly', 'He helped him build a house'],
-          correctIndex: 1,
-          correctFeedback: 'Sadly true—jealousy led to murder.',
+          question: 'What did Cain do to Abel?',
+          choices: ['Shared his food', 'Helped him', 'Hurt him', 'Played with him'],
+          correctIndex: 2,
+          correctFeedback: 'Correct! Cain hurt his brother because of jealousy.',
           wrongFeedback:
-            'The Bible says Cain talked with Abel in the field, then rose up against him (Genesis 4:8).'
+            'They were brothers, but Cain was angry. The Bible says Cain attacked and killed Abel (Genesis 4:8).'
         },
         {
-          question: 'What is one lesson for us today?',
-          choices: [
-            'God does not care about offerings',
-            'Give God your best and tell Him when you feel jealous',
-            'Anger always helps',
-            'Brothers never need kindness'
-          ],
-          correctIndex: 1,
-          correctFeedback: 'Exactly—bring your heart to God before anger grows big.',
+          question: 'What can we learn from Cain and Abel?',
+          choices: ['Give God your best', 'Be jealous', 'Hurt others when angry', 'Hide from God'],
+          correctIndex: 0,
+          correctFeedback: 'Perfect! Give God your best with a right heart — He knows what\'s inside.',
           wrongFeedback:
-            'Think: what did God want Cain to do instead of stewing in anger? Reread paragraph three.'
+            'The story shows jealousy and anger lead to sin. But Abel gave from a good heart — that\'s what pleases God!'
         }
       ],
       doneHeading: 'You Did It!',
-      doneMessage: 'Great job learning from Cain and Abel in God\'s Word today.',
-      takeaway: 'Give God your best. When jealousy knocks, pray before you act.',
-      prayer: 'God, help me give You my best and rule over angry feelings. Amen.',
-      imagePrompts: [
-        'bouncy cartoon: two brothers, fields and sheep, friendly colors, offering baskets, no text',
-        'kid illustration: Abel offering lamb, open hands, sunrise, no text',
-        'scene: Cain looking upset, shadow small, teachable not horror, no text',
-        'Bible moment: God warning Cain, gentle but serious light, no text',
-        'calm closing: wheat and shepherd staff, reminder to choose peace, no text'
-      ]
+      doneMessage: 'Great job learning about giving God your best!',
+      takeaway: 'God looks at our hearts. Give Him your best with love.',
+      prayer: 'God, help me give You my best with a happy heart. Amen.'
     },
     towerBabel: {
       kjvRef: 'Genesis 11:1–9',
-      hintAboveQuiz: 'Ask why the people built the tower—and what God did.',
-      readAlongImages: [],
       paragraphs: [
-        'After the flood, everyone spoke one language. They moved east and found a plain in the land of Shinar.',
-        'They said, "Let us make brick... let us build us a city and a tower, whose top may reach unto heaven; and let us make us a name" (Genesis 11:4, KJV). They wanted to be famous without honoring God.',
-        'The LORD came down to see the city and the tower. He said, "Let us go down, and there confound their language, that they may not understand one another\'s speech" (Genesis 11:7, KJV).',
-        'Suddenly workers could not understand each other. Building stopped. From there the LORD scattered them abroad upon the face of all the earth. So the place was called Babel—because the LORD did there confound the language of all the earth.',
-        'Pride pushes people away from God and from each other. When we humble ourselves and give Him glory, He gathers us in better ways.'
+        'After the flood, everyone spoke one language. They decided to build a big tower that reached heaven.',
+        'They wanted to make a name for themselves and not be scattered over the earth.',
+        'God came down and saw their plan. He said, "If they keep this up, nothing will stop them."',
+        'God confused their language so they couldn\'t understand each other. They stopped building the tower.',
+        'The place was called Babel because God confused their language. Then He scattered the people over the earth.'
       ],
-      quizHeading: 'Tower of Babel',
+      imagePrompts: [
+        'bright cartoon for kids: people building tall tower toward heaven, bricks and tools, one language, no text',
+        'fun kid illustration: group of people working together on huge tower, proud faces, sky high, no text',
+        'colorful Bible scene for children: God looking down from heaven at the tower, serious expression, no text',
+        'exciting cartoon: people suddenly speaking different languages, confused faces, tower unfinished, no text',
+        'peaceful illustration: families settling in new lands under wide sky, many nations, soft colors, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Why did the people want to build the tower?',
+      quizHeading: 'Tower of Babel Questions',
       questions: [
         {
-          question: 'Why did the people want to build the tall tower?',
-          choices: [
-            'To honor God alone',
-            'To make a great name for themselves and reach toward heaven',
-            'To help travelers sleep',
-            'To grow more food'
-          ],
+          question: 'What did the people all speak at first?',
+          choices: ['Many languages', 'One language', 'Animal sounds', 'No words'],
           correctIndex: 1,
-          correctFeedback: 'Yes—they wanted their own fame.',
+          correctFeedback: 'Yes! Everyone spoke one language, so they could work together easily.',
           wrongFeedback:
-            'Reread paragraph two. They wanted a name for themselves and a top reaching heaven (Genesis 11:4).'
+            'Different languages came later. At the beginning, the whole world had one language (Genesis 11:1).'
         },
         {
-          question: 'What did God do so they could not finish?',
-          choices: [
-            'He sent rain only',
-            'He confused their languages',
-            'He gave them more bricks',
-            'He taught them music'
-          ],
+          question: 'What did the people want to build?',
+          choices: ['A big house', 'A tall tower to heaven', 'A boat', 'A garden'],
           correctIndex: 1,
-          correctFeedback: 'Right—they could no longer understand each other.',
+          correctFeedback: 'Right! A tower that reached the sky — to make a name for themselves.',
           wrongFeedback:
-            'Look at paragraph three. God confounded their speech so cooperation broke apart.'
+            'Not a house or garden. They said "Let us build a city with a tower that reaches to heaven" (Genesis 11:4).'
         },
         {
-          question: 'What happened after their languages were confused?',
-          choices: [
-            'They finished the tower faster',
-            'They stopped building and scattered over the earth',
-            'They all moved underwater',
-            'They forgot how to walk'
-          ],
+          question: 'Why did they want to build it?',
+          choices: ['To help God', 'To make a name for themselves', 'To hide from God', 'To grow food'],
           correctIndex: 1,
-          correctFeedback: 'Exactly—work halted and people spread out.',
+          correctFeedback: 'Yes! They wanted fame and to stay together instead of spreading out.',
           wrongFeedback:
-            'Paragraph four says the LORD scattered them abroad on the face of all the earth.'
+            'They weren\'t helping God. Their plan was pride — to make themselves great, not obey God\'s command to fill the earth.'
         },
         {
-          question: 'What does the name Babel remind us of?',
-          choices: [
-            'A quiet picnic',
-            'That God confused the language there',
-            'A famous king only',
-            'The first rainbow'
-          ],
+          question: 'What did God do to stop them?',
+          choices: ['Sent a flood', 'Confused their language', 'Sent animals', 'Blew the tower down'],
           correctIndex: 1,
-          correctFeedback: 'Yes—Babel sounds like the Hebrew idea of confusion.',
+          correctFeedback: 'Exactly! God confused their language so they couldn\'t work together.',
           wrongFeedback:
-            'The story ends by saying the LORD confounded the language of all the earth there.'
+            'No flood this time. He mixed up their words — they couldn\'t understand each other anymore (Genesis 11:7).'
         },
         {
-          question: 'What is one wise lesson?',
-          choices: [
-            'We should try to be famous without God',
-            'Humble hearts that honor God work better than proud towers',
-            'Languages never matter',
-            'Towers are always evil'
-          ],
+          question: 'What does this story teach us?',
+          choices: ['Build big towers', 'Pride leads to problems', 'God likes confusion', 'Stay in one place'],
           correctIndex: 1,
-          correctFeedback: 'Beautiful—give glory to God, not only to ourselves.',
+          correctFeedback: 'Perfect! Pride makes us think we don\'t need God — humility and obedience please Him.',
           wrongFeedback:
-            'Think: why did God stop the project? Pride without Him leads to confusion.'
+            'The tower was about pride and disobedience. God scattered them to fulfill His plan — humility is better!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'Great job learning about Babel in God\'s Word today.',
-      takeaway: 'God is greater than any tower. Humble yourself—He blesses that.',
-      prayer: 'God, help me honor You more than my own name. Amen.',
-      imagePrompts: [
-        'bouncy cartoon: people stacking bricks toward sky, busy city, no text',
-        'kid illustration: tower mid-build, cranes and ropes simple, no text',
-        'colorful scene: confused faces, many speech bubbles with symbols not letters, no text',
-        'map-style art: families walking different directions, gentle colors, no text',
-        'peaceful closing: humble village at sunset, gratitude mood, soft colors, no text'
-      ]
+      doneMessage: 'You earned a star for learning about humility!',
+      takeaway: 'Pride leads to confusion, but humility and obedience honor God.',
+      prayer: 'God, help me stay humble and obey You, not try to be great on my own. Amen.'
     },
     abrahamIsaac: {
-      kjvRef: 'Genesis 22',
-      hintAboveQuiz: 'Listen for trust—"God will provide."',
-      readAlongImages: [],
+      kjvRef: 'Genesis 22:1–19',
       paragraphs: [
-        'God had promised Abraham a son named Isaac. When Isaac grew, God tested Abraham: "Take now thy son... whom thou lovest, and get thee into the land of Moriah; and offer him there" (Genesis 22:2, KJV).',
-        'Abraham obeyed. Early the next morning he took Isaac, wood, and fire, and walked toward the mountain. Isaac asked, "Where is the lamb for a burnt offering?" Abraham answered, "God will provide himself a lamb" (Genesis 22:8, KJV).',
-        'At the place God named, Abraham built an altar and bound Isaac. He stretched forth his hand to offer him—but the angel of the LORD called, "Lay not thine hand upon the lad" (Genesis 22:12, KJV).',
-        'Abraham looked and saw a ram caught in a thicket by his horns. He offered the ram instead of his son. Abraham called that place Jehovah-jireh—the LORD will provide.',
-        'God saw that Abraham feared Him and would not withhold his son. The story points forward to how God the Father gave His own Son, Jesus, to save us—He always provides the sacrifice we need.'
+        'God promised Abraham and Sarah a son, Isaac, even though they were old. Isaac was born!',
+        'Later God tested Abraham. He said, "Take your son Isaac and offer him as a sacrifice on a mountain."',
+        'Abraham obeyed, even though it hurt. He took Isaac and wood for the fire to the mountain.',
+        'Isaac asked, "Where is the lamb?" Abraham said, "God will provide."',
+        'Abraham was ready to obey, but God stopped him. He provided a ram caught in a bush instead. God said, "Because you obeyed, I will bless you greatly."'
       ],
-      quizHeading: 'Abraham & Isaac',
+      imagePrompts: [
+        'bright cartoon for kids: old Abraham and Sarah with baby Isaac, happy family, no text',
+        'fun kid illustration: Abraham walking with young Isaac and donkey to the mountain, carrying wood, no text',
+        'colorful Bible scene for children: Isaac asking Abraham about the lamb, Abraham answering, trusting faces, no text',
+        'gentle cartoon: bright angel light from above, Abraham listening, ram in thicket nearby, no weapons, no text',
+        'happy ending illustration: Abraham and Isaac together safely, ram nearby, blessing light, bright colors, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Abraham trusted God completely — even when it was hard!',
+      quizHeading: 'Abraham & Isaac Questions',
       questions: [
         {
-          question: 'What did God ask Abraham to do with Isaac?',
-          choices: [
-            'Send him on vacation',
-            'Offer him as a sacrifice on the mountain God would show',
-            'Build a boat with him',
-            'Name many animals'
-          ],
+          question: 'Who did God promise to Abraham and Sarah?',
+          choices: ['A daughter', 'A son named Isaac', 'A big house', 'Many animals'],
           correctIndex: 1,
-          correctFeedback: 'Yes—a hard test of trust.',
+          correctFeedback: 'Yes! God kept His promise — Isaac was born when they were old.',
           wrongFeedback:
-            'Reread paragraph one. God told Abraham to take Isaac to Moriah and offer him there (Genesis 22:2).'
+            'Not animals or a house. God promised a son, even in old age (Genesis 21:1–3).'
         },
         {
-          question: 'What did Abraham tell Isaac about the lamb?',
-          choices: [
-            'We will not need one',
-            'God will provide himself a lamb',
-            'You must find one alone',
-            'Lambs are only pets'
-          ],
+          question: 'What did God ask Abraham to do as a test?',
+          choices: ['Give away all his sheep', 'Offer Isaac as a sacrifice', 'Move to a new land again', 'Build an altar'],
           correctIndex: 1,
-          correctFeedback: 'Right—faith-filled words.',
+          correctFeedback: 'Right! God tested Abraham\'s faith with a very hard command.',
           wrongFeedback:
-            'Look at paragraph two for Abraham\'s answer about the missing lamb.'
+            'He had already moved. This test was to offer his son Isaac — but God had a plan (Genesis 22:2).'
         },
         {
-          question: 'Who stopped Abraham from harming Isaac?',
-          choices: [
-            'Isaac ran away',
-            'The angel of the LORD',
-            'A shepherd boy',
-            'Sarah arrived'
-          ],
+          question: 'What did Isaac ask on the way?',
+          choices: ['Are we there yet?', 'Where is the lamb?', 'Can I go home?', 'Is this a game?'],
           correctIndex: 1,
-          correctFeedback: 'Yes—the angel called from heaven.',
+          correctFeedback: 'Yes! "Where is the lamb for the sacrifice?"',
           wrongFeedback:
-            'Paragraph three says the angel said, "Lay not thine hand upon the lad."'
+            'Isaac was carrying wood and noticed something missing. He asked about the lamb (Genesis 22:7).'
         },
         {
-          question: 'What did God provide instead of Isaac?',
-          choices: ['A fish', 'A ram caught in a thicket', 'A loaf of bread', 'A golden coin'],
+          question: 'What did Abraham answer about the lamb?',
+          choices: ['We forgot it', 'God will provide', 'You are the lamb', 'We don\'t need one'],
           correctIndex: 1,
-          correctFeedback: 'Exactly—the ram became the offering.',
+          correctFeedback: 'Exactly! "God Himself will provide the lamb." Abraham trusted God.',
           wrongFeedback:
-            'Abraham looked and saw a ram caught by its horns in the bush (Genesis 22:13).'
+            'Abraham didn\'t say they forgot. He believed God would provide — and He did!'
         },
         {
-          question: 'What can we remember when God asks hard trust?',
-          choices: [
-            'God forgets His promises',
-            'He sees our heart and always provides what we need in His time',
-            'We should never obey',
-            'Tests never end well'
-          ],
-          correctIndex: 1,
-          correctFeedback: 'Beautiful—Jehovah-jireh: the LORD will provide.',
+          question: 'What happened when Abraham obeyed?',
+          choices: ['God stopped him and provided a ram', 'The sacrifice happened', 'Isaac ran away', 'God was angry'],
+          correctIndex: 0,
+          correctFeedback: 'Yes! God stopped him and provided a ram caught in a bush.',
           wrongFeedback:
-            'Think of Abraham\'s name for the place and the ram God gave. What does that teach about God?'
+            'The test ended when Abraham showed faith. God provided the ram instead — He always keeps His promises!'
         }
       ],
       doneHeading: 'You Did It!',
-      doneMessage: 'Great job seeing how Abraham trusted God—and God provided.',
-      takeaway: 'When God asks you to trust Him with something dear, obey—He will provide.',
-      prayer: 'God, help me trust You like Abraham, even when I do not understand. Amen.',
+      doneMessage: 'Great job learning about trusting God!',
+      takeaway: 'Trust and obey God even when it\'s hard — He always provides.',
+      prayer: 'God, help me trust You completely, even when things are scary. Amen.'
+    },
+    josephCoat: {
+      kjvRef: 'Genesis 37:3–11',
+      paragraphs: [
+        'Jacob had twelve sons. Joseph was one of the younger ones, and Jacob loved him very much.',
+        'Jacob gave Joseph a coat of many colours — a special gift. His brothers saw it and felt jealous.',
+        'Joseph dreamed that their sheaves of grain bowed down to his sheaf. He told his brothers, and they hated him more.',
+        'He dreamed again: the sun, moon, and eleven stars bowed to him. Even his father wondered at it.',
+        'Jealousy is dangerous. Still, God had a good plan for Joseph — bigger than any coat or dream.'
+      ],
       imagePrompts: [
-        'gentle cartoon: father and son walking uphill with wood, soft morning light, no text',
-        'kid illustration: boy asking about the lamb, loving faces, no text',
-        'Bible scene: angel light from above, hand stopped gesture, not graphic, no text',
-        'warm cartoon: ram in bushes, horns visible, relief and thanks, no text',
-        'hopeful ending: hilltop sunrise, small altar, peace, gold accent, no text'
-      ]
+        'bright cartoon for kids: father giving a colourful striped coat to a happy boy, brothers in background, no text',
+        'fun kid illustration: Joseph in coat of many colours, wheat fields, warm day, no text',
+        'colorful scene: dream picture of bowing sheaves, soft magical swirls, friendly not scary, no text',
+        'Bible scene for children: family around a tent, Joseph sharing a dream, mixed faces, no text',
+        'peaceful closing: night sky with stars and gentle moon, hope, gold accent, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Who gave the coat — and how did the brothers feel?',
+      quizHeading: 'Joseph\'s Coat & Dreams',
+      questions: [
+        {
+          question: 'What special gift did Jacob give Joseph?',
+          choices: ['A sword', 'A coat of many colours', 'A camel', 'A crown'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! A coat of many colours — it showed his father\'s love.',
+          wrongFeedback:
+            'The KJV calls it a coat of many colours — a beautiful robe Jacob gave only to Joseph (Genesis 37:3).'
+        },
+        {
+          question: 'How did Joseph\'s brothers feel about him?',
+          choices: ['They ignored him', 'They were jealous', 'They threw a party', 'They moved away'],
+          correctIndex: 1,
+          correctFeedback: 'Right — jealousy grew because Jacob loved Joseph in a special way.',
+          wrongFeedback:
+            'They could not speak peaceably to him. Jealousy means wanting what someone else has (Genesis 37:4).'
+        },
+        {
+          question: 'What did Joseph dream about the first time?',
+          choices: ['A flood', 'Sheaves bowing to his sheaf', 'A ladder', 'A whale'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Their sheaves bowed to his — a picture of one day bowing down.',
+          wrongFeedback:
+            'Joseph dreamed about grain sheaves in the field — his brothers\' sheaves bowed to his (Genesis 37:7).'
+        },
+        {
+          question: 'Who else was in his second big dream?',
+          choices: ['Only animals', 'Sun, moon, and eleven stars', 'Pharaoh', 'A whale'],
+          correctIndex: 1,
+          correctFeedback: 'Exactly — a family picture that made his brothers angrier.',
+          wrongFeedback:
+            'He dreamed the sun and moon and eleven stars bowed to him — his father noticed it too (Genesis 37:9).'
+        },
+        {
+          question: 'What is one wise lesson while we wait for God\'s plan?',
+          choices: ['Brag to make others mad', 'Trust God even when family feels hard', 'Throw away gifts', 'Hide every dream'],
+          correctIndex: 1,
+          correctFeedback: 'Beautiful — God was with Joseph even when feelings ran hot.',
+          wrongFeedback:
+            'Joseph\'s story warns us about jealousy, but it also shows God is working even when we cannot see the end yet.'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You learned Joseph\'s coat and dreams — God had a plan!',
+      takeaway: 'Jealousy hurts; God\'s plan is bigger than our feelings.',
+      prayer: 'God, when I feel jealous, help me talk to You and be kind. Thank You for Your good plans. Amen.'
+    },
+    josephSold: {
+      kjvRef: 'Genesis 37:17–28',
+      paragraphs: [
+        'Jacob sent Joseph to check on his brothers far away in the fields.',
+        'When they saw Joseph coming in his colourful coat, their anger boiled over. They wanted to get rid of him.',
+        'They took off his coat and threw him into an empty pit in the ground.',
+        'Some merchants came by on the way to Egypt. The brothers sold Joseph to them for pieces of silver.',
+        'It was a terrible wrong — but God did not leave Joseph. The long road to Egypt was only the start of how God would save many people.'
+      ],
+      imagePrompts: [
+        'cartoon for kids: boy walking on a path toward distant brothers, hills, sunny, no text',
+        'serious kid-safe scene: brothers with angry faces from far away, no hitting shown, no text',
+        'gentle illustration: deep pit from above, small figure safe at bottom, not dark horror, no text',
+        'bright caravan: camels and merchants on a desert road, hopeful sky, no text',
+        'hopeful closing: journey toward Egyptian skyline in soft light, God-with-you mood, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'What did the brothers do when Joseph found them?',
+      quizHeading: 'Joseph Sold Questions',
+      questions: [
+        {
+          question: 'Why did Joseph travel to his brothers?',
+          choices: ['To hide', 'His father sent him to see if they were safe', 'To sell grain', 'To build a tower'],
+          correctIndex: 1,
+          correctFeedback: 'Yes — Jacob sent him to check on them.',
+          wrongFeedback:
+            'Joseph obeyed his father and went to see how the brothers were doing with the flocks (Genesis 37:13–14).'
+        },
+        {
+          question: 'What did the brothers do with Joseph\'s coat?',
+          choices: ['They washed it', 'They took it off him', 'They traded it', 'They burned it'],
+          correctIndex: 1,
+          correctFeedback: 'Right — they stripped him of the coat his father gave.',
+          wrongFeedback:
+            'They took Joseph\'s coat of many colours from him before they threw him in the pit (Genesis 37:23).'
+        },
+        {
+          question: 'Where did they put Joseph?',
+          choices: ['On a boat', 'In an empty pit', 'In a palace', 'On a mountain top'],
+          correctIndex: 1,
+          correctFeedback: 'Yes — an empty pit in the ground.',
+          wrongFeedback:
+            'The Bible says they cast him into a pit that had no water — a dry, empty hole (Genesis 37:24).'
+        },
+        {
+          question: 'Who bought Joseph from his brothers?',
+          choices: ['Pharaoh himself', 'Merchants going to Egypt', 'Jacob', 'Angels'],
+          correctIndex: 1,
+          correctFeedback: 'Exactly — traders on the road paid silver for him.',
+          wrongFeedback:
+            'Ishmeelites / Midianite merchants passed by, and the brothers sold Joseph to them (Genesis 37:28).'
+        },
+        {
+          question: 'What can we remember when someone is treated unfairly?',
+          choices: ['God forgets', 'God is still with His people in hard days', 'Revenge is always best', 'Prayer never helps'],
+          correctIndex: 1,
+          correctFeedback: 'Beautiful — Joseph\'s hardest day was not the end of God\'s story.',
+          wrongFeedback:
+            'The brothers sinned, but the Bible keeps saying God was with Joseph — He sees and stays close.'
+        }
+      ],
+      doneHeading: 'You Did It!',
+      doneMessage: 'You learned a hard story — God stayed with Joseph!',
+      takeaway: 'Sin hurts people, but God is with us even on the hardest roads.',
+      prayer: 'God, be with kids who feel left out or hurt. Help me be kind and tell the truth. Amen.'
     }
 };

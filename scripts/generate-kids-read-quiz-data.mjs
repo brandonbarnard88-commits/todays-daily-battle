@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Generates kids/kids-read-quiz-data.js from kids/kids-battle.js bibleStories
- * (same 171 unique keys as docs/KIDS-STORY-ANIMATION-QUEUE.md).
+ * (same unique keys as bibleStories in kids-battle.js / animation queue).
  * Hand-tuned packs live in kids/read-quiz-handcrafted.cjs (david, noah, jonah, daniel).
  */
 import { readFileSync, writeFileSync } from 'fs';

@@ -1388,6 +1388,20 @@
       kidContext: { who: 'God', to: 'Joseph (Jacob\'s son)', apply: "Joseph's brothers were jealous of his special coat and dreams. They sold him into slavery, but God used it for good—Joseph became a leader in Egypt and saved his family. Even when bad things happen, God can turn them into something good. Trust Him with your hard days." },
       narration: "Joseph and the Coat – Genesis 37:3. Joseph had a beautiful coat of many colors from his dad. His brothers were jealous. Joseph had dreams that one day they would bow to him. The brothers got angry and sold Joseph to traders going to Egypt. Joseph worked hard in Egypt, but bad things kept happening—he was put in prison unfairly. But God was with Joseph. He helped interpret dreams and became second in command to Pharaoh. When a famine came, Joseph's brothers came to Egypt for food. Joseph forgave them and saved his whole family! God turned bad into good. For you: When people are mean or life feels unfair, remember God can use it for something good. Stay faithful—He has a plan."
     },
+    josephSold: {
+      title: 'Joseph Sold to Egypt',
+      panels: [
+        { src: 'panel-david-2.svg', alt: 'Joseph\'s brothers see him coming — anger and jealousy' },
+        { src: 'panel-noah-1.svg', alt: 'Joseph alone in a pit — scary moment, God still sees him' },
+        { src: 'panel-david-3.svg', alt: 'Merchants traveling toward Egypt — Joseph\'s hard road begins' }
+      ],
+      caption: 'Swipe to see a hard day for Joseph — God did not leave him! 🐪',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['joseph', 'sold', 'egypt', 'pit', 'brothers', 'genesis 37', 'ishmeelites', 'merchants'],
+      kjvRef: 'Genesis 37:28',
+      kidContext: { who: 'God', to: 'Joseph (hurt by his brothers)', apply: 'Joseph\'s brothers did something terribly wrong, but God stayed with Joseph. When people hurt you or life feels unfair, God sees you — He can still work good in His time.' }
+    },
     mosesBush: {
       title: 'Moses & the Burning Bush',
       panels: [
@@ -3813,7 +3827,7 @@
     var isWeeklyStory = (dayIndex % 7) === 0;
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
-      'abrahamIsaac', 'josephCoat', 'mosesBush', 'redSea', 'manna', 'tenCommandments',
+      'abrahamIsaac', 'josephCoat', 'josephSold', 'mosesBush', 'redSea', 'manna', 'tenCommandments',
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
@@ -5655,7 +5669,7 @@
 
   var STORY_THEMES = {
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
-    adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection',
+    adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
     mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', samson: 'Protection',
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',

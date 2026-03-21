@@ -2390,6 +2390,7 @@
     /* ── Week 2 ── */
     abrahamIsaac: 'abrahamIsaac',
     josephCoat: 'josephCoat',
+    josephSold: 'josephCoat',
     josephDreams: 'josephDreams',
     josephPrison: 'josephPrison',
     pharaohDreams: 'pharaohDreams',
@@ -3290,7 +3291,7 @@
   }
 
   var STORY_JOURNEY_ORDER = [
-    'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat',
+    'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
     'mosesBush', 'redSea', 'manna', 'tenCommandments', 'fallOfJericho', 'ruthBoaz',
     'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
     'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',

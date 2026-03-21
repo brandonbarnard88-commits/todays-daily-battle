@@ -2394,6 +2394,7 @@
     josephDreams: 'josephDreams',
     josephPrison: 'josephPrison',
     pharaohDreams: 'pharaohDreams',
+    josephRuler: 'pharaohDreams',
     mosesBaby: 'mosesBaby',
     mosesStaffSnake: 'mosesStaffSnake',
     passoverLamb: 'passoverLamb',
@@ -3292,7 +3293,8 @@
 
   var STORY_JOURNEY_ORDER = [
     'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
-    'mosesBush', 'redSea', 'manna', 'tenCommandments', 'fallOfJericho', 'ruthBoaz',
+    'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
+    'redSea', 'manna', 'tenCommandments', 'fallOfJericho', 'ruthBoaz',
     'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
     'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
     'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

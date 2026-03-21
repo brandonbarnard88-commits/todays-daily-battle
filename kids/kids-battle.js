@@ -2252,6 +2252,20 @@
       kjvRef: 'Genesis 41',
       kidContext: { who: 'God', to: 'Joseph (through Pharaoh)', apply: 'God promotes the faithful! Stay humble and trust His timing.' }
     },
+    josephRuler: {
+      title: 'Joseph Ruler in Egypt',
+      panels: [
+        { src: 'panel-david-3.svg', alt: 'Joseph dressed in linen — second in command under Pharaoh' },
+        { src: 'panel-david-2.svg', alt: 'Grain stored in Egypt during the seven full years' },
+        { src: 'panel-david-1.svg', alt: 'God gave Joseph wisdom to feed many people' }
+      ],
+      caption: 'Swipe to see God lift Joseph up to save lives! 🌾',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['joseph', 'egypt', 'ruler', 'pharaoh', 'genesis 41', 'grain', 'famine', 'second'],
+      kjvRef: 'Genesis 41:41',
+      kidContext: { who: 'God', to: 'Joseph', apply: 'After many hard years, God honored faithful Joseph and used him to save lives. God can use your faithful days too.' }
+    },
     mosesBaby: {
       title: 'Baby Moses in the Basket',
       panels: [
@@ -3827,7 +3841,7 @@
     var isWeeklyStory = (dayIndex % 7) === 0;
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
-      'abrahamIsaac', 'josephCoat', 'josephSold', 'mosesBush', 'redSea', 'manna', 'tenCommandments',
+      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments',
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
@@ -3840,7 +3854,7 @@
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
       /* Week 2 */
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
-      'pharaohDreams', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
+      'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
       'joshuaJordan', 'jerichoWalls', 'rahabRope', 'balaamDonkey', 'samsonHair',
       'ruthGlean', 'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
@@ -5684,7 +5698,7 @@
     creationLight: 'Miracles', elijahFire: 'Miracles', elishaOil: 'Miracles', towerBabel: 'Obedience',
     /* Week 2 */
     sarahLaughs: 'Miracles', jacobLadder: 'Protection', josephDreams: 'Protection',
-    josephPrison: 'Protection', pharaohDreams: 'Miracles', mosesBaby: 'Protection',
+    josephPrison: 'Protection', pharaohDreams: 'Miracles', josephRuler: 'Miracles', mosesBaby: 'Protection',
     mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
     /* Week 3 */
     joshuaJordan: 'Miracles', jerichoWalls: 'Obedience', rahabRope: 'Obedience',

@@ -1750,260 +1750,260 @@ module.exports = {
     balaamDonkey: {
       kjvRef: 'Numbers 22:21–35',
       paragraphs: [
-        'King Balak of Moab was afraid of Israel. He hired Balaam to curse them so he could defeat them.',
-        'God told Balaam, "Thou shalt not go with them; thou shalt not curse the people: for they are blessed." But Balaam still went when God allowed it — he had to speak only God\'s words.',
-        'On the way, Balaam\'s donkey saw an angel of the Lord with a sword blocking the path. The donkey turned aside.',
-        'Balaam struck the donkey. Then the Lord opened the donkey\'s mouth — it said, "What have I done unto thee?"',
-        'Balaam\'s eyes were opened; he saw the angel. The angel said, "Go with the men: but only the word that I shall speak unto thee, that thou shalt speak."'
+        'King Balak hired Balaam to curse Israel. Balaam started on his donkey to go to Balak.',
+        'God sent an angel with a sword to block the path. The donkey saw the angel and stopped.',
+        'Balaam beat the donkey to move it. God opened the donkey\'s mouth — it spoke!',
+        'The donkey said, "What have I done unto thee?" Balaam was angry — he answered the donkey!',
+        'Then God opened Balaam\'s eyes — he saw the angel. The angel said, "Go with the men: but only the word that I shall speak unto thee, that thou shalt speak."'
       ],
       imagePrompts: [
-        'bright cartoon for kids: king on wall sending messengers toward a prophet\'s house, desert road, no text',
-        'fun kid illustration: Balaam on donkey, angel with sword on narrow path, donkey turning, no text',
-        'colorful Bible scene for children: donkey looking at Balaam, speech moment, gentle surprise, no text',
-        'exciting cartoon: Balaam bowing, angel with sword, donkey nearby, humble light, no text',
-        'hopeful ending illustration: open road, sunrise, sense of listening to God, no text'
+        'bright bouncy cartoon for kids: Balaam riding donkey on narrow path, angel with sword blocking way, donkey stopping, no text',
+        'fun kid illustration: donkey looking at angel, Balaam confused and angry, striking donkey, no text',
+        'colorful Bible scene for children: donkey speaking to Balaam, Balaam surprised, miracle moment, no text',
+        'exciting cartoon: Balaam seeing the angel with sword, donkey beside him, humble light, no text',
+        'hopeful ending illustration: Balaam bowing to angel, ready to obey God, path ahead, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'Even a donkey saw the danger — God stopped Balaam!',
-      quizHeading: 'Balaam & Donkey Questions',
+      hintAboveQuiz: 'God used a donkey to stop Balaam from doing wrong!',
+      quizHeading: 'Balaam & Talking Donkey Questions',
       questions: [
         {
-          question: 'Why did King Balak hire Balaam?',
-          choices: ['To bless Israel', 'To curse Israel', 'To join Israel', 'To feed Israel'],
+          question: 'Why was Balaam going to Balak?',
+          choices: ['To bless Israel', 'To curse Israel', 'To join Israel', 'To fight Balak'],
           correctIndex: 1,
-          correctFeedback: 'Yes! Balak wanted Israel cursed so he could win against them.',
+          correctFeedback: 'Yes! Balak wanted Balaam to curse God\'s people.',
           wrongFeedback:
-            'Not bless or join. Balak sent messengers because Moab was afraid of Israel (Numbers 22:2–6).'
+            'Not bless or join. Balak hired Balaam to curse Israel so he could defeat them (Numbers 22:6).'
         },
         {
-          question: 'What did God tell Balaam at first about cursing?',
-          choices: ['Go with them', 'Do not curse the people — they are blessed', 'Curse them', 'Take the money first'],
+          question: 'What did the donkey see that Balaam didn\'t?',
+          choices: ['Food', 'An angel with a sword', 'A friend', 'A river'],
           correctIndex: 1,
-          correctFeedback: 'Right! God said not to curse — Israel is blessed.',
+          correctFeedback: 'Right! The donkey saw the angel blocking the path.',
           wrongFeedback:
-            'God said, "Thou shalt not curse the people: for they are blessed" (Numbers 22:12).'
+            'Not food or friend. The donkey saw the angel of the Lord standing in the way (Numbers 22:23).'
         },
         {
-          question: 'What did the donkey see that Balaam did not at first?',
-          choices: ['Food', 'The angel of the Lord with a sword', 'A friend', 'A river'],
+          question: 'What happened when Balaam beat the donkey?',
+          choices: ['Donkey ran faster', 'Donkey spoke to him', 'Donkey disappeared', 'Angel left'],
           correctIndex: 1,
-          correctFeedback: 'Yes! The donkey saw the angel standing in the way.',
+          correctFeedback: 'Exactly! God made the donkey talk: "What have I done unto thee?"',
           wrongFeedback:
-            'The donkey saw the angel of the Lord with a drawn sword in the way (Numbers 22:23).'
+            'The donkey did not run away. The Lord opened the mouth of the ass (Numbers 22:28).'
         },
         {
-          question: 'What happened after Balaam beat the donkey?',
-          choices: ['Donkey ran away', 'The Lord opened the donkey\'s mouth', 'Angel left', 'Path widened'],
+          question: 'What did God do after Balaam saw the angel?',
+          choices: ['Punished Balaam forever', 'Told him to go but speak only God\'s words', 'Sent him home only', 'Made him king'],
           correctIndex: 1,
-          correctFeedback: 'Exactly! The donkey spoke — "What have I done unto thee?"',
+          correctFeedback: 'Yes! Go with the men — but say only what God says.',
           wrongFeedback:
-            'The Lord opened the mouth of the ass, and she said unto Balaam (Numbers 22:28).'
+            'The angel said go with the men, but only the word God would give him might he speak (Numbers 22:35).'
         },
         {
-          question: 'What can we learn from Balaam and the donkey?',
-          choices: ['Animals always talk', 'God can use anything to warn us', 'Ignore trouble', 'Travel alone'],
+          question: 'What can we learn from the talking donkey?',
+          choices: ['Donkeys always talk', 'God can use anything to warn us', 'Ignore trouble', 'Travel alone'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! God used a donkey to get Balaam\'s attention — listen to His warnings!',
+          correctFeedback: 'Perfect! God can use even a donkey to stop us from wrong paths.',
           wrongFeedback:
-            'God protected Israel and corrected Balaam — He can guide us in surprising ways!'
+            'The miracle shows God\'s care — He stopped Balaam from harming Israel with a curse!'
         }
       ],
       doneHeading: 'Great Job!',
       doneMessage: 'You earned a star — God speaks in surprising ways!',
-      takeaway: 'God can use anything to guide us — listen when He warns.',
-      prayer: 'God, thank You for protecting me. Help me listen to Your warnings. Amen.'
+      takeaway: 'God can use anything to guide us — listen to His warnings.',
+      prayer: 'God, thank You for protecting me. Help me listen when You speak. Amen.'
     },
     balaakCurse: {
       kjvRef: 'Numbers 22:1–20',
       paragraphs: [
-        'Israel was camped near Moab. King Balak saw what God had done for Israel and was afraid.',
-        'Balak sent messengers to Balaam: "Come curse this people for me — they are too many."',
+        'Israel was strong after the Exodus. King Balak of Moab was afraid they would take his land.',
+        'Balak sent messengers to Balaam: "Come curse this people so I can defeat them."',
         'Balaam asked God. God said, "Thou shalt not go with them; thou shalt not curse the people: for they are blessed."',
-        'Balak sent princes with honour and reward. Balaam wanted to go — God told him if the men came again, rise and go, but he would speak only what God said.',
-        'Balaam saddled his donkey and went with Moab\'s princes — but God was watching every step.'
+        'Balak sent more important men with more money. Balaam wanted the reward.',
+        'God allowed Balaam to go with them but warned him — he must speak only what God said. Balaam went.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: king on city wall looking at many tents below, worried face, no text',
-        'fun kid illustration: messengers with gifts speaking to a prophet at a gate, no text',
-        'colorful Bible scene for children: quiet prayer moment, prophet listening upward, no text',
-        'exciting cartoon: richer princes arriving, more camels, prophet deciding, no text',
-        'hopeful ending illustration: small figure on donkey on road, distant angel light, no text'
+        'bright cartoon for kids: King Balak watching Israel camp from a hill, worried face, no text',
+        'fun kid illustration: messengers offering Balaam money and gifts to curse Israel, Balaam thinking, no text',
+        'colorful Bible scene for children: Balaam praying to God about going with messengers, no text',
+        'exciting cartoon: more important men arriving at Balaam\'s house, bigger rewards promised, no text',
+        'hopeful ending illustration: Balaam on donkey heading toward Moab, angel light far off, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'Balak wanted to curse God\'s people — but God had other plans!',
+      hintAboveQuiz: 'Balak wanted curses — but God protects His people!',
       quizHeading: 'Balak Hires Balaam Questions',
       questions: [
         {
-          question: 'Why was King Balak afraid?',
-          choices: ['Israel was weak', 'Israel had grown strong and Moab was troubled', 'Israel was far away', 'Israel had no leader'],
+          question: 'Why was Balak afraid of Israel?',
+          choices: ['They were weak', 'They were strong and growing', 'They were far away', 'They had no food'],
           correctIndex: 1,
-          correctFeedback: 'Yes! Moab was afraid because of what Israel had done.',
+          correctFeedback: 'Yes! Israel was victorious — Balak feared them.',
           wrongFeedback:
-            'Moab was sore afraid because of the children of Israel (Numbers 22:3).'
+            'Not weak. Moab was sore afraid of the children of Israel (Numbers 22:2–3).'
         },
         {
-          question: 'What did Balak want Balaam to do?',
-          choices: ['Bless Israel', 'Curse Israel', 'Join Israel', 'Teach Israel'],
+          question: 'What did Balak ask Balaam to do?',
+          choices: ['Bless Israel', 'Curse Israel', 'Join Israel', 'Ignore Israel'],
           correctIndex: 1,
-          correctFeedback: 'Right! He wanted Israel cursed so he could defeat them.',
+          correctFeedback: 'Right! Curse Israel so Balak could win.',
           wrongFeedback:
-            'Balak said, "Come now therefore, I pray thee, curse me this people" (Numbers 22:6).'
+            'Not bless. Balak wanted Balaam to curse this people (Numbers 22:6).'
         },
         {
-          question: 'What did God tell Balaam the first time?',
-          choices: ['Go curse them', 'Do not go — do not curse; they are blessed', 'Take all the silver', 'Stay silent'],
+          question: 'What did God say the first time Balaam asked?',
+          choices: ['Go curse them', 'Do not go with them — do not curse; they are blessed', 'Take the money', 'Stay home only'],
           correctIndex: 1,
-          correctFeedback: 'Yes! God refused the curse — Israel is blessed.',
+          correctFeedback: 'Yes! God said not to curse — Israel is blessed.',
           wrongFeedback:
             'God said, "Thou shalt not curse the people: for they are blessed" (Numbers 22:12).'
         },
         {
-          question: 'Why was Balaam tempted to go the second time?',
-          choices: ['To help Israel', 'Honour and reward from Balak', 'To see the desert', 'To find his donkey'],
+          question: 'Why did Balaam want to go the second time?',
+          choices: ['To help Israel', 'For the reward and honour', 'To see the king only', 'To make friends'],
           correctIndex: 1,
-          correctFeedback: 'Correct! Princes came with promotion and promised riches.',
+          correctFeedback: 'Correct! Tempted by money and position.',
           wrongFeedback:
-            'Balak sent more honourable princes with reward in their hand (Numbers 22:15–17).'
+            'Balak promised to promote Balaam to very great honour (Numbers 22:17).'
         },
         {
           question: 'What can we learn from Balaam\'s choice?',
-          choices: ['Always chase money', 'Obey God even when tempted', 'Curse enemies', 'Ignore princes'],
+          choices: ['Always take money', 'Obey God even when tempted', 'Curse others', 'Ignore God'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! God\'s "no" matters more than gold or fame.',
+          correctFeedback: 'Perfect! Obey God — don\'t let greed lead you wrong.',
           wrongFeedback:
-            'Temptation is strong, but God wants a heart that listens to Him first!'
+            'Temptation is strong, but God wants obedience over rewards!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'You earned a star for choosing obedience!',
-      takeaway: 'Obey God — don\'t let money or fear lead you wrong.',
-      prayer: 'God, help me obey You even when others offer rewards. Amen.'
+      doneMessage: 'You earned a star — God protects His people!',
+      takeaway: 'God\'s blessings are stronger than any curse — obey Him.',
+      prayer: 'God, thank You for blessing me. Help me obey You always. Amen.'
     },
     balaamBlessing: {
       kjvRef: 'Numbers 23–24',
       paragraphs: [
-        'Balaam came to Balak. Balak built altars and offered sacrifices on high places.',
-        'Balaam went to meet God. The Lord put a word in Balaam\'s mouth — blessing poured out instead of a curse.',
-        'Three times Balak moved Balaam to new hills hoping for a curse. Each time Balaam blessed Israel.',
-        'Balak was furious: "I called you to curse — you blessed!" Balaam answered, "Must I not take heed to speak that which the LORD hath put in my mouth?"',
-        'Balaam saw Israel by the Spirit and said, "How goodly are thy tents, O Jacob, and thy tabernacles, O Israel!" No curse could stand against God\'s people.'
+        'Balaam went to Balak. Balak built altars and offered sacrifices.',
+        'Balaam asked God what to say. God put blessings in his mouth — not curses!',
+        'Three times Balak took Balaam to different places to curse Israel. Each time Balaam blessed them more.',
+        'Balak was angry: "I hired you to curse — not bless!" Balaam said, "Must I not take heed to speak that which the LORD hath put in my mouth?"',
+        'Balaam prophesied, "How goodly are thy tents, O Jacob, and thy tabernacles, O Israel!" No curse could stand against God\'s people.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: two men on a hill, stone altars, smoke rising, tents of Israel below, no text',
-        'fun kid illustration: prophet speaking with open hands toward camp, king surprised, no text',
-        'colorful Bible scene for children: second hilltop try, king frustrated, prophet calm, no text',
-        'exciting cartoon: third high place, camp of Israel glowing peaceful, no text',
-        'happy ending illustration: wide view of tents, dawn sky, sense of God\'s care, no text'
+        'bright cartoon for kids: Balaam and Balak on mountain, altars with sacrifices, no text',
+        'fun kid illustration: Balaam speaking blessings over Israel camp, Balak surprised, no text',
+        'colorful Bible scene for children: second location, Balaam blessing again, Balak angry, no text',
+        'exciting cartoon: third try, Balaam prophesying good things, Israel camp peaceful below, no text',
+        'happy ending illustration: tents in valley, soft light, sense of God protecting Israel, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'God turned curses into blessings!',
+      hintAboveQuiz: 'God turned every curse attempt into a blessing!',
       quizHeading: 'Balaam Blesses Israel Questions',
       questions: [
         {
-          question: 'What did Balak want Balaam to do?',
-          choices: ['Bless Israel', 'Curse Israel', 'Join Israel', 'Teach Israel'],
+          question: 'What did Balak build for Balaam?',
+          choices: ['A house', 'Altars for sacrifices', 'A tower', 'A boat'],
           correctIndex: 1,
-          correctFeedback: 'Yes! Curse — but God gave blessings instead.',
+          correctFeedback: 'Yes! Altars before each try at a curse.',
           wrongFeedback:
-            'Balak hired Balaam hoping for a curse against Israel (Numbers 22:6).'
+            'Balak built seven altars and offered sacrifices (Numbers 23:1).'
         },
         {
           question: 'What did God put in Balaam\'s mouth?',
-          choices: ['Curses', 'A word of blessing', 'Silence only', 'A song about Moab'],
+          choices: ['Curses', 'Blessings', 'Silence', 'Songs'],
           correctIndex: 1,
-          correctFeedback: 'Right! The Lord put words in his mouth — they blessed Israel.',
+          correctFeedback: 'Right! Blessings instead of curses — every time.',
           wrongFeedback:
-            'The Lord put a word in Balaam\'s mouth — he took up his parable and blessed (Numbers 23:5, 7).'
+            'The Lord put a word in Balaam\'s mouth — blessing came out (Numbers 23:5).'
         },
         {
-          question: 'How many times did Balak try from different places?',
-          choices: ['One', 'Two', 'Three', 'Six'],
+          question: 'How many times did Balak try to curse Israel?',
+          choices: ['One', 'Two', 'Three', 'Four'],
           correctIndex: 2,
-          correctFeedback: 'Yes! Three setups — blessings each time.',
+          correctFeedback: 'Yes! Three times — three blessings!',
           wrongFeedback:
-            'Balak took him to three high places seeking a curse — God turned each to blessing (Numbers 23–24).'
+            'Balak tried from three high places — blessings each time (Numbers 23–24).'
         },
         {
-          question: 'What did Balaam say when Balak was angry?',
-          choices: ['I will curse now', 'I must speak only what God puts in my mouth', 'Pay me more', 'I quit'],
+          question: 'What did Balaam say when Balak got angry?',
+          choices: ['I will curse now', 'I can only speak what God tells me', 'Give me more money', 'I quit'],
           correctIndex: 1,
-          correctFeedback: 'Exactly! He could not go beyond God\'s command.',
+          correctFeedback: 'Exactly! Balaam had to obey God.',
           wrongFeedback:
             'He said, "Must I not take heed to speak that which the LORD hath put in my mouth?" (Numbers 23:12).'
         },
         {
           question: 'What can we learn from Balaam\'s blessings?',
-          choices: ['Kings always win', 'God blesses and keeps His people', 'Silver buys God', 'Curses are stronger'],
+          choices: ['God can be cursed', 'God blesses His people — no curse stands', 'Money wins', 'Listen to kings only'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! God\'s blessing stands — no plan can remove it.',
+          correctFeedback: 'Perfect! God\'s blessing is stronger than any curse.',
           wrongFeedback:
-            'What God blesses, no enemy can truly curse — trust His care!'
+            'The story shows God protects His people — what He blesses, no enemy can undo!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'You earned a star — God blesses His people!',
+      doneMessage: 'You earned a star — God\'s blessings win!',
       takeaway: 'God\'s blessings are stronger than any curse — trust Him.',
-      prayer: 'God, thank You for blessing me. Protect me always. Amen.'
+      prayer: 'God, thank You for Your strong blessings. Protect me always. Amen.'
     },
     jordanCrossing: {
       kjvRef: 'Joshua 3–4',
       paragraphs: [
-        'After Moses died, Joshua led Israel to the Jordan River. The harvest flood made the water run high.',
-        'God said the priests would carry the ark of the covenant into the river first. When their feet touched the brim, the water would stand still.',
-        'The priests stepped in. The water rose up in a heap far upstream — dry ground appeared!',
-        'All the people crossed on dry ground while the priests stood firm in the middle with the ark.',
-        'Joshua had twelve men take stones from the riverbed and set them at Gilgal — so Israel would remember what God did.'
+        'Joshua led the people to the Jordan River. It was flood season — the water was high.',
+        'God told Joshua, "When the priests carrying the ark step into the river, the water will stop."',
+        'The priests stepped in. The water piled up upstream — dry ground appeared across the river!',
+        'All the people crossed on dry land while the ark stood in the middle. God held back the water.',
+        'After crossing, they took twelve stones from the riverbed and built a memorial — to remember God\'s power.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: wide Jordan, people waiting, ark carried on poles, no text',
-        'fun kid illustration: priests\' feet at water\'s edge, water beginning to heap up, no text',
-        'colorful Bible scene for children: dry riverbed, families walking, ark in centre, no text',
-        'exciting cartoon: twelve men lifting large stones from dry ground, no text',
-        'happy ending illustration: stone memorial at camp, children listening to the story, no text'
+        'bright cartoon for kids: Israelites at high Jordan River, ark ready, no text',
+        'fun kid illustration: priests stepping into river with ark, water stopping upstream, no text',
+        'colorful Bible scene for children: dry path through river, people crossing safely, ark in middle, no text',
+        'exciting cartoon: twelve men carrying stones from riverbed, dry ground, no text',
+        'happy ending illustration: memorial stones set up, people remembering God\'s miracle, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'God made a way across the river — like He did at the Red Sea!',
+      hintAboveQuiz: 'God made another way through water — just like the Red Sea!',
       quizHeading: 'Crossing the Jordan Questions',
       questions: [
         {
-          question: 'What river did Israel cross?',
-          choices: ['Red Sea', 'Jordan River', 'Nile River', 'Euphrates'],
+          question: 'What river did they cross?',
+          choices: ['Red Sea', 'Jordan River', 'Nile', 'Euphrates'],
           correctIndex: 1,
-          correctFeedback: 'Yes! Jordan — at the time of harvest flood.',
+          correctFeedback: 'Yes! The Jordan — it was flooded.',
           wrongFeedback:
-            'The Red Sea was earlier. They crossed Jordan when it overflowed all its banks (Joshua 3:15).'
+            'Not the Red Sea. This was Jordan at the time the banks overflow (Joshua 3:15).'
         },
         {
-          question: 'Who stepped into the water first?',
-          choices: ['Joshua alone', 'Priests carrying the ark', 'All the army', 'Women and children'],
+          question: 'What did the priests carry into the river?',
+          choices: ['Food', 'The ark of the covenant', 'Stones only', 'Weapons only'],
           correctIndex: 1,
-          correctFeedback: 'Right! The ark went first on priests\' shoulders.',
+          correctFeedback: 'Right! The ark — God\'s presence went first.',
           wrongFeedback:
-            'When the soles of the priests\' feet rested in the water, Jordan was cut off (Joshua 3:13, 15–16).'
+            'When their feet touched the water, Jordan stopped — the priests bore the ark (Joshua 3:13, 15).'
         },
         {
-          question: 'What happened when the priests\' feet touched the water?',
-          choices: ['They sank', 'The waters rose up in a heap upstream', 'It began to hail', 'Fish blocked the way'],
+          question: 'What happened when the priests stepped in?',
+          choices: ['They swam', 'Water stopped upstream', 'Rain fell', 'Fish jumped'],
           correctIndex: 1,
-          correctFeedback: 'Yes! The flow stopped — a path opened.',
+          correctFeedback: 'Yes! The water piled up — a dry path!',
           wrongFeedback:
-            'The waters which came down from above stood and rose up upon an heap (Joshua 3:16).'
+            'The waters rose up upon an heap — Israel crossed on dry ground (Joshua 3:16–17).'
         },
         {
-          question: 'What did they do to remember the miracle?',
-          choices: ['Built a golden calf', 'Twelve stones from the river', 'Went back to Egypt', 'Forgot it'],
+          question: 'What did they take from the riverbed?',
+          choices: ['Fish', 'Twelve stones for a memorial', 'Water jars', 'Mud only'],
           correctIndex: 1,
-          correctFeedback: 'Exactly! Stones for the next generation to ask about.',
+          correctFeedback: 'Correct! Twelve stones to remember God\'s power.',
           wrongFeedback:
-            'Twelve stones were taken from the place where the priests stood (Joshua 4:3, 9).'
+            'Twelve stones, one man from each tribe, for a sign (Joshua 4:5–7).'
         },
         {
-          question: 'What can we learn from crossing the Jordan?',
-          choices: ['God forgets', 'God makes a way when we obey', 'Rivers never flood', 'Leaders do everything'],
+          question: 'What does the Jordan crossing teach us?',
+          choices: ['God leaves us trapped', 'God makes ways through impossible things', 'Rivers are always easy', 'Don\'t trust leaders'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! High water could not stop God\'s promise.',
+          correctFeedback: 'Perfect! God opens paths when we obey.',
           wrongFeedback:
-            'God dried the path so His people could enter the land He promised!'
+            'The story shows God\'s power and faithfulness — He made a way as He promised!'
         }
       ],
       doneHeading: 'Great Job!',
@@ -2014,67 +2014,67 @@ module.exports = {
     battleOfAi: {
       kjvRef: 'Joshua 8',
       paragraphs: [
-        'After sin was removed from the camp, God told Joshua, "Fear not — take all the people of war against Ai."',
-        'Joshua chose thirty thousand mighty men to lie in ambush behind the city by night.',
-        'At dawn Joshua drew near Ai; part of the army pretended to flee. The men of Ai chased them, leaving the city open.',
-        'The ambush arose, entered Ai, and set it on fire. Israel turned — Ai was trapped and defeated.',
-        'God gave the victory when His people obeyed. Joshua built an altar on Mount Ebal later — reminding Israel to keep God\'s law.'
+        'After Jericho, Joshua tried to take Ai. The first attack failed because of sin in the camp — Achan had taken forbidden things.',
+        'God told Joshua to remove the sin. Achan confessed — the sin was dealt with.',
+        'God gave a new plan: ambush Ai. Some soldiers hid. The main army pretended to flee.',
+        'The men of Ai chased them. The hidden soldiers attacked the city from behind.',
+        'Ai was captured. God gave victory when the people obeyed and dealt with sin.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: Joshua encouraging soldiers at sunrise, hills and small city, no text',
-        'fun kid illustration: soldiers hiding behind rocks near a city wall at night, no text',
-        'colorful Bible scene for children: army pretending to run, enemy chasing out of gates, no text',
-        'exciting cartoon: smoke from city, ambush and main army closing in, simple shapes, no text',
-        'hopeful ending illustration: people quiet and thankful, altar stones on a hill far view, no text'
+        'bright cartoon for kids: Joshua leading army toward Ai, confident faces, no text',
+        'fun kid illustration: first battle failing, Israelites turning back from Ai, surprised faces, no text',
+        'colorful Bible scene for children: Achan confessing sin, serious humble moment, no text',
+        'exciting cartoon: ambush — hidden soldiers moving while main group draws enemy out, no text',
+        'happy ending illustration: people thankful, victory won, soft morning light, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'Sin was gone — now God\'s plan worked!',
-      quizHeading: 'Second Victory at Ai Questions',
+      hintAboveQuiz: 'Sin caused the first loss — obedience brought victory!',
+      quizHeading: 'Battle of Ai Questions',
       questions: [
         {
-          question: 'What had to happen before Israel could win Ai?',
-          choices: ['More spears', 'Sin in the camp had been removed', 'Rain stopped', 'New king'],
+          question: 'Why did the first attack on Ai fail?',
+          choices: ['Too many soldiers', 'Sin in the camp (Achan)', 'Bad weather', 'No plan'],
           correctIndex: 1,
-          correctFeedback: 'Yes! After Achan\'s sin was judged, God said, "Fear not."',
+          correctFeedback: 'Yes! Achan took what God said not to take — sin blocked victory.',
           wrongFeedback:
-            'The trespass had to be put away before Israel could stand before enemies (Joshua 7:13; 8:1).'
+            'Israel could not stand before enemies because of the accursed thing (Joshua 7:11–12).'
         },
         {
-          question: 'How did God\'s plan trick the city of Ai?',
-          choices: ['Loud trumpets only', 'Part of the army hid; others drew the city out', 'They climbed walls at night', 'They sent a gift'],
+          question: 'What did God tell Joshua to do first?',
+          choices: ['Attack again the same way', 'Remove the sin', 'Give up', 'Build a wall'],
           correctIndex: 1,
-          correctFeedback: 'Right! Ambush behind the city while others feigned flight.',
+          correctFeedback: 'Right! Deal with sin before trying again.',
           wrongFeedback:
-            'Joshua set an ambush behind the city and drew Ai out (Joshua 8:3–8, 14–19).'
+            'God said sanctify the people — the trespass must be put away (Joshua 7:13).'
         },
         {
-          question: 'What happened when the men of Ai left their city?',
-          choices: ['They won easily', 'The ambush took the city and set it on fire', 'They got lost', 'It snowed'],
+          question: 'What was the new plan for Ai?',
+          choices: ['Full frontal attack only', 'Ambush with hidden soldiers', 'Wait for night only', 'Run away'],
           correctIndex: 1,
-          correctFeedback: 'Correct! The city was left open — the hidden men rushed in.',
+          correctFeedback: 'Yes! Hide some, pretend to flee, then strike from behind.',
           wrongFeedback:
-            'The ambush rose quickly, went in, and burnt Ai with fire (Joshua 8:19).'
+            'Joshua laid an ambush behind the city (Joshua 8:3–8).'
         },
         {
-          question: 'Who gave Israel the victory?',
-          choices: ['Only Joshua\'s wisdom', 'The Lord — when they obeyed His plan', 'Luck', 'The donkey'],
+          question: 'What happened when Ai chased the Israelites?',
+          choices: ['They caught them all', 'Hidden soldiers took the city', 'They turned back', 'Rain stopped them'],
           correctIndex: 1,
-          correctFeedback: 'Exactly! Obedience brought God\'s help again.',
+          correctFeedback: 'Correct! The trap worked — the city was left open.',
           wrongFeedback:
-            'The Lord told Joshua what to do — victory came from following Him (Joshua 8:1, 18).'
+            'The ambush rose and burnt Ai with fire while the men were drawn away (Joshua 8:19).'
         },
         {
-          question: 'What can we learn from the second battle?',
-          choices: ['Sin is small', 'Obedience opens the door to God\'s help', 'Always charge first', 'Hide sin'],
+          question: 'What can we learn from the second Ai battle?',
+          choices: ['Sin does not matter', 'Obedience brings victory', 'Always attack first', 'Hide from problems'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! When the camp was clean and they obeyed, God fought for them.',
+          correctFeedback: 'Perfect! Obey God and deal with sin — victory follows.',
           wrongFeedback:
-            'Sin had stopped the first try; obedience brought the win — stay right with God!'
+            'Sin blocked God\'s help the first time; obedience opened the way!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'You earned a star — God gives victory when we obey!',
-      takeaway: 'Turn from sin, obey God\'s plan — He gives victory in His time.',
-      prayer: 'God, help me obey Your commands and trust Your battle plan. Amen.'
+      doneMessage: 'You earned a star — obedience wins!',
+      takeaway: 'Obedience to God brings victory — deal with sin quickly.',
+      prayer: 'God, help me obey You and turn from sin. Thank You for victory. Amen.'
     }
 };

@@ -2211,18 +2211,18 @@
       narration: "Jacob Dream Ladder – Genesis 28:12. Jacob had to run away from his brother Esau. He slept on a stone pillow under the stars. In a dream, he saw a ladder reaching from earth to heaven with angels going up and down. God stood above it and said, 'I am the Lord God of Abraham and Isaac. I will give you this land. Your family will be many. I am with you and will keep you wherever you go.' Jacob woke up and said, 'God is in this place!' He set up the stone as a pillar and called it Bethel—House of God. For you: When you feel alone or far away, God is still with you. He promises to watch over you and bring you safely through every journey."
     },
     josephDreams: {
-      title: 'Joseph\'s Dreams',
+      title: 'Joseph Interprets Dreams',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Joseph dreams the stars bow to him' },
-        { src: 'panel-david-2.svg', alt: 'His brothers are angry and jealous' },
-        { src: 'panel-david-3.svg', alt: 'God\'s plan will come true—wait!' }
+        { src: 'panel-noah-1.svg', alt: 'Joseph in prison — cupbearer and baker need help' },
+        { src: 'panel-noah-2.svg', alt: 'Joseph explains the vine and the baskets — God shows the meaning' },
+        { src: 'panel-david-3.svg', alt: 'God is still with Joseph — faithful in the hard place' }
       ],
-      caption: 'Swipe to see Joseph\'s dream—God\'s plans always happen! ⭐',
-      videoId: 'MKW6ylouF1s',
-      videoTitle: "Joseph's Coat of Many Colors – Bible Stories!",
-      keywords: ['joseph', 'dreams', 'stars', 'brothers', 'genesis 37', 'jealous'],
-      kjvRef: 'Genesis 37',
-      kidContext: { who: 'God', to: 'Joseph', apply: 'God\'s plans always happen! When you wait on God, He comes through.' }
+      caption: 'Swipe to see God help Joseph understand dreams in prison! 🍇',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['joseph', 'prison', 'dreams', 'cupbearer', 'baker', 'genesis 40', 'interpret'],
+      kjvRef: 'Genesis 40',
+      kidContext: { who: 'God', to: 'Joseph in prison', apply: 'Joseph trusted God to explain dreams — and helped others even while he waited. God is with you in hard places too.' }
     },
     josephPrison: {
       title: 'Joseph in Prison',

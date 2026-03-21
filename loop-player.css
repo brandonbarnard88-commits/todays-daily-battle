@@ -30,25 +30,27 @@
 }
 
 .kids-corner-report-banner {
-  background: #fff9e6;
-  border: 1px solid rgba(255, 215, 0, 0.6);
-  padding: 0.75rem 1rem;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.96));
+  border: 1px solid rgba(250, 204, 21, 0.45);
+  padding: 0.85rem 1rem;
   margin: 0 auto 0.5rem;
   max-width: 800px;
   text-align: center;
-  border-radius: 8px;
+  border-radius: var(--radius-md, 12px);
   font-size: 0.95rem;
-  color: #333;
-  line-height: 1.45;
+  color: #e2e8f0;
+  line-height: 1.5;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
 }
 
 .kids-corner-report-banner strong {
-  font-weight: 600;
+  font-weight: 700;
+  color: #fef9c3;
 }
 
 .kids-corner-report-banner em {
   font-style: italic;
-  color: #6b7280;
+  color: #fde68a;
 }
 
 .loop-library-hero {
@@ -217,7 +219,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.32rem;
-  padding: 0.3rem 0.6rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 8px;
   border: 1px solid rgba(250, 204, 21, 0.6);
   background: linear-gradient(140deg, #fef9c3, #fde68a);
@@ -225,7 +227,8 @@
   font-size: 0.76rem;
   font-weight: 700;
   cursor: pointer;
-  min-height: 36px;
+  min-height: 44px;
+  min-width: 44px;
   transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
   line-height: 1;
 }
@@ -268,17 +271,20 @@
 .loop-report-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.24rem;
-  padding: 0.24rem 0.4rem;
-  border: none;
-  border-radius: 6px;
+  gap: 0.28rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
   background: transparent;
   color: #94a3b8;
-  font-size: 0.68rem;
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 600;
   cursor: pointer;
   transition: color 0.18s ease, background 0.18s ease;
   line-height: 1;
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
 }
 
 .loop-report-btn:hover,

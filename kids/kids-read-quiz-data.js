@@ -12641,7 +12641,7 @@
       "When she hath found it, she calleth her friends and neighbours together, saying, \"Rejoice with me; for I have found the piece which I had lost.\"",
       "Jesus said, \"Likewise, I say unto you, there is joy in the presence of the angels of God over one sinner that repenteth.\"",
       "The lost coin shows how God searches for the lost. One sinner repenting brings joy in heaven.",
-      "The woman sought one coin until she found it — God seeks the lost the same way, and heaven sings when one comes home."
+      "She sought one coin until she found it—God seeks the lost the same way; heaven rejoices over one sinner that repenteth."
     ],
     "imagePrompts": [
       "bright cartoon for kids: woman with ten silver coins, losing one, no text",

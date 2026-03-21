@@ -420,6 +420,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
   var STORAGE_KEY = 'tdb_loop_library_state_v2';
   var LOOPS_URL = '/loops.json';
+  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v1';
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
   var TOTAL_LOOPS = 160;
@@ -712,7 +713,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         if (form.commentEntry && comment) q += '&' + form.commentEntry + '=' + encodeURIComponent(comment);
         var sep = form.url.indexOf('?') >= 0 ? '&' : '?';
         window.open(form.url + sep + q, '_blank');
-        try { window.alert('Thanks! Form opened—submit when ready. 🙌'); } catch (err) {}
+        try { window.alert('Thanks! Form opened—submit when ready.'); } catch (err) {}
       } else {
         var subject = 'Mismatch Report: ' + String(loop.title) + ' (' + String(loop.id) + ')';
         var body = comment ? encodeURIComponent(comment) : '';
@@ -737,17 +738,27 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     grid.appendChild(fragment);
     updateProgress();
     if (unlockStatus) {
-      if (state.starredIds.length >= STAR_GOAL) unlockStatus.textContent = '12/12 stars earned. Next week loops are open early.';
-      else unlockStatus.textContent = 'Earn 12/12 stars to open next week early.';
+      if (state.starredIds.length >= STAR_GOAL) {
+        unlockStatus.textContent = 'You have ' + STAR_GOAL + ' gold stars—next week’s loops are open early. New drops most Sundays.';
+      } else {
+        unlockStatus.textContent = 'Watch a loop to the end to earn a gold star. Collect ' + STAR_GOAL + ' stars to unlock next week early.';
+      }
     }
   }
 
   function updateProgress() {
     var unlockedCount = unlockedLoops.length;
+    var starCount = state.starredIds.length;
     var pct = Math.round((Math.min(TOTAL_LOOPS, unlockedCount) / TOTAL_LOOPS) * 100);
-    if (progressText) progressText.textContent = unlockedCount + '/' + TOTAL_LOOPS + ' unlocked – new ones Sunday!';
+    if (progressText) {
+      progressText.textContent = starCount + ' gold star' + (starCount === 1 ? '' : 's') + ' · ' + unlockedCount + '/' + TOTAL_LOOPS + ' loops unlocked';
+    }
     if (progressFill) progressFill.style.width = pct + '%';
-    if (progressMeter) progressMeter.setAttribute('aria-valuenow', String(unlockedCount));
+    if (progressMeter) {
+      progressMeter.setAttribute('aria-valuenow', String(unlockedCount));
+      progressMeter.setAttribute('aria-valuemax', String(TOTAL_LOOPS));
+      progressMeter.setAttribute('aria-valuetext', unlockedCount + ' of ' + TOTAL_LOOPS + ' loops unlocked, ' + starCount + ' gold stars');
+    }
   }
 
   function openModal(loop) {
@@ -827,6 +838,27 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     renderGrid();
   }
 
+  function applyLoopsJson(json) {
+    if (!Array.isArray(json)) throw new Error('loops.json must be an array.');
+    allLoops = json
+      .filter(function (item) {
+        return item && Number.isFinite(Number(item.id)) && typeof item.title === 'string' && typeof item.file === 'string' && typeof item.ref === 'string' && Number.isFinite(Number(item.week));
+      })
+      .map(function (item) {
+        return {
+          id: Number(item.id),
+          title: String(item.title),
+          file: String(item.file),
+          audio: item.audio ? String(item.audio) : '',
+          ref: String(item.ref),
+          kjvText: item.kjvText ? String(item.kjvText) : '',
+          week: Number(item.week)
+        };
+      });
+    try { localStorage.setItem(LOOPS_CACHE_KEY, JSON.stringify(json)); } catch (e) {}
+    recomputeUnlocked();
+  }
+
   function loadLoops(force) {
     var requestUrl = LOOPS_URL + (force ? ('?ts=' + Date.now()) : '');
     return fetch(requestUrl, { cache: force ? 'no-store' : 'default' })
@@ -835,26 +867,26 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         return resp.json();
       })
       .then(function (json) {
-        if (!Array.isArray(json)) throw new Error('loops.json must be an array.');
-        allLoops = json
-          .filter(function (item) {
-            return item && Number.isFinite(Number(item.id)) && typeof item.title === 'string' && typeof item.file === 'string' && typeof item.ref === 'string' && Number.isFinite(Number(item.week));
-          })
-          .map(function (item) {
-            return {
-              id: Number(item.id),
-              title: String(item.title),
-              file: String(item.file),
-              audio: item.audio ? String(item.audio) : '',
-              ref: String(item.ref),
-              kjvText: item.kjvText ? String(item.kjvText) : '',
-              week: Number(item.week)
-            };
-          });
-        recomputeUnlocked();
+        applyLoopsJson(json);
       })
       .catch(function () {
-        if (weeklyStatus) weeklyStatus.textContent = 'Could not load loops right now. Please refresh to retry.';
+        var usedCache = false;
+        try {
+          var raw = localStorage.getItem(LOOPS_CACHE_KEY);
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+              applyLoopsJson(parsed);
+              usedCache = true;
+            }
+          }
+        } catch (e) {}
+        if (usedCache && weeklyStatus) {
+          var ew = getEffectiveWeek(getCurrentWeek());
+          weeklyStatus.textContent = 'Offline—still got you. Showing saved loops — release week ' + ew + ' of 12.';
+        } else if (weeklyStatus) {
+          weeklyStatus.textContent = 'Could not load loops. Check your connection and refresh.';
+        }
       });
   }
 

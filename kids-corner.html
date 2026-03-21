@@ -20,7 +20,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="stylesheet" href="kids-corner.css?v=1">
-  <link rel="stylesheet" href="loop-player.css?v=1">
+  <link rel="stylesheet" href="loop-player.css?v=2">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,6 @@
                 <div class="nav-dropdown-col">
                   <span class="nav-dropdown-label">Church</span>
                   <a href="/church/">Church Join Hub</a>
-                  <a href="/church/">Join Hub</a>
                   <a href="church/daily.html">Daily for Churches</a>
                 </div>
                 <div class="nav-dropdown-col">
@@ -163,8 +162,8 @@
           </div>
         </header>
 
-        <div class="kids-corner-report-banner" role="region" aria-label="Help improve loops">
-          Loop lookin' funny? ⚠ Tell us quick—new stories Sundays! 😄
+        <div class="kids-corner-report-banner" role="region" aria-label="Help improve Bible loops">
+          <strong>Something look off?</strong> Use <em>Report mismatch</em> on a card. New loops most Sundays.
         </div>
 
         <section class="glass card-gold loop-progress-wrap" aria-label="Story star progress">
@@ -176,12 +175,12 @@
           </div>
           <div class="loop-progress-head">
             <h2 class="section-divider kids-section-divider">Story Stars</h2>
-            <p id="loop-progress-text" class="loop-progress-text">12/160 stars</p>
+            <p id="loop-progress-text" class="loop-progress-text">0 gold stars · 0/160 loops unlocked</p>
           </div>
-          <div class="loop-progress-meter" role="progressbar" aria-valuemin="0" aria-valuemax="160" aria-valuenow="12" aria-label="Bible Loop story stars progress">
+          <div class="loop-progress-meter" role="progressbar" aria-valuemin="0" aria-valuemax="160" aria-valuenow="0" aria-label="Bible loops unlocked in your library">
             <div id="loop-progress-fill" class="loop-progress-fill"></div>
           </div>
-          <p class="section-note">160 stories waiting... Keep watching and praying through each story to unlock the next loop.</p>
+          <p class="section-note">Up to 160 loops over time—keep watching and praying through each story. Gold stars track what you have finished.</p>
           <p id="loop-weekly-status" class="section-note" aria-live="polite">Weekly drop checks every Sunday for fresh loops.</p>
         </section>
 

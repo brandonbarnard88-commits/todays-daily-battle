@@ -10,8 +10,8 @@
   <script type="module" src="../config.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Kids Story Library • Kids Battle • Today's Daily Battle</title>
-  <meta name="description" content="Explore 52 Bible stories—swipe through comic panels, watch videos. Kids Story Library for Kids Battle.">
+  <title>Bible Story Library • Kids Battle • Today's Daily Battle</title>
+  <meta name="description" content="Full Bible adventures for kids—complete animated stories with read-along words (captions), plus comic art and activities. Bible Story Library.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/corner.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="../styles.css?v=20260309p">
   <link rel="stylesheet" href="kids-battle.css?v=9">
   <link rel="stylesheet" href="canvas.css?v=1">
-  <link rel="stylesheet" href="../loop-player.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
@@ -150,6 +149,22 @@
       border: 2px solid var(--kids-yellow);
     }
     .kids-library-story-master.hidden { display: none; }
+    .kids-full-story-wrap { margin: 0 0 1rem; }
+    .kids-full-story-captions-hint {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      color: #bcc5d6;
+      margin: 0 0 0.5rem;
+      line-height: 1.35;
+    }
+    .kids-full-story-video {
+      width: 100%;
+      max-height: min(70vh, 520px);
+      border-radius: 14px;
+      background: #0a0c10;
+      border: 2px solid var(--kids-yellow);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page">
@@ -162,7 +177,7 @@
       </div>
       <nav class="kids-header-nav" aria-label="Kids Battle navigation">
         <a href="/kids/">Kids Battle Home</a>
-        <a href="corner.html" aria-current="page">Kids Story Library</a>
+        <a href="corner.html" aria-current="page">Bible Story Library</a>
         <a href="parent.html">Parent Dashboard</a>
       </nav>
       <a href="parent.html" class="kids-parent-link-mobile" aria-label="Parent Dashboard">Parents</a>
@@ -172,8 +187,8 @@
       <div class="content-inner kids-battle-inner">
         <span class="kids-corner-explorer-badge" aria-label="Corner Explorer badge">📚 Corner Explorer</span>
         <header class="kids-battle-hero">
-          <h1 class="kids-battle-title">Kids Story Library</h1>
-          <p class="kids-battle-tagline">Bible stories — pick one, watch it, talk about what happened.</p>
+          <h1 class="kids-battle-title">Bible Story Library</h1>
+          <p class="kids-battle-tagline">Full Bible adventures—complete animated stories (3–7+ minutes) with read-along words. Pick a story, watch, and talk about what God did.</p>
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
@@ -213,21 +228,6 @@
           <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match that search yet. Try a broader word, or switch back to All themes.</p>
         </section>
 
-        <!-- ── Bible Loop Player ── -->
-        <section class="glass loop-library-wrap" aria-label="Bible Loop Library" style="margin-top:1.5rem;">
-          <div class="loop-progress-head" style="margin-bottom:0.6rem;">
-            <h2 class="kids-section-title" style="margin:0;">Bible Loops</h2>
-            <p id="loop-progress-text" class="loop-progress-text">0/160 unlocked</p>
-          </div>
-          <div class="loop-progress-meter" role="progressbar" aria-valuemin="0" aria-valuemax="160" aria-valuenow="0" aria-label="Bible loop story progress">
-            <div id="loop-progress-fill" class="loop-progress-fill"></div>
-          </div>
-          <p id="loop-weekly-status" class="section-note" aria-live="polite" style="margin-top:0.4rem;">New loops drop every Sunday!</p>
-          <div id="loop-grid" class="loop-grid" role="list" aria-label="Bible loop cards"></div>
-          <p id="loop-unlock-status" class="section-note" aria-live="polite">Watch a loop all the way through to earn a gold star and unlock the next one.</p>
-        </section>
-        <div id="loop-toast" class="loop-toast is-hidden" role="status" aria-live="polite"></div>
-
       </div>
     </main>
 
@@ -257,9 +257,9 @@
     <div class="kids-video-modal-content kids-library-modal">
       <button type="button" class="kids-video-modal-close" id="kids-story-modal-close" aria-label="Close">×</button>
       <h3 id="kids-story-modal-title" class="kids-video-modal-title"></h3>
+      <div id="kids-story-modal-video"></div>
       <div id="kids-story-modal-carousel"></div>
       <div id="kids-story-modal-context" class="kids-ctx-block hidden"></div>
-      <div id="kids-story-modal-video"></div>
       <div class="kids-reflection-buttons util-mt-0_5" role="group" aria-label="Story navigation">
         <button type="button" id="kids-story-prev-btn" class="btn btn-secondary">← Previous Story</button>
         <button type="button" id="kids-story-next-btn" class="btn kids-btn-primary">Next Story →</button>
@@ -316,16 +316,17 @@
     <!-- Bottom bar -->
     <div class="kids-coloring-bottombar">
       <button type="button" class="kids-coloring-save-btn" id="kids-coloring-save-btn">💾 Save My Art!</button>
-      <button type="button" class="kids-coloring-back-btn" id="kids-coloring-back-btn">← Back to loops</button>
+      <button type="button" class="kids-coloring-back-btn" id="kids-coloring-back-btn">← Back to stories</button>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="../inline-bootstrap.js"></script>
+  <script src="kids-full-story-assets.js"></script>
   <script src="kids-battle.js?v=9" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=3" defer></script>
-  <script type="module" src="../script.js?v=20260321loop-tt" data-cfasync="false" defer></script>
+  <script src="kids-corner.js?v=4" defer></script>
+  <script type="module" src="../script.js?v=20260321full-story" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->
   <div id="kid-lock-modal" class="kid-lock-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="kid-lock-title">

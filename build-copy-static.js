@@ -333,6 +333,12 @@ if (fs.existsSync(activeBibleMedia)) {
   console.log('Copied media/active-bible assets');
 }
 
+const kidsStoriesMedia = path.join(root, 'media', 'kids-stories');
+if (fs.existsSync(kidsStoriesMedia)) {
+  copyDir(kidsStoriesMedia, path.join(dist, 'media', 'kids-stories'));
+  console.log('Copied media/kids-stories assets');
+}
+
 const wellKnown = path.join(root, '.well-known');
 if (fs.existsSync(wellKnown)) {
   copyDir(wellKnown, path.join(dist, '.well-known'));

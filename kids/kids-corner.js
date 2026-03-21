@@ -3021,6 +3021,70 @@
   var modalPreviousFocus = null;
   var modalFocusTrapHandler = null;
   var kidsStorySpeakBtn = null;
+
+  function clearStoryVideoContainer(el) {
+    if (!el) return;
+    var vid = el.querySelector('video');
+    if (vid) {
+      try { vid.pause(); } catch (_) {}
+      var sources = vid.querySelectorAll('source');
+      for (var si = 0; si < sources.length; si++) sources[si].removeAttribute('src');
+      var tracks = vid.querySelectorAll('track');
+      for (var ti = 0; ti < tracks.length; ti++) tracks[ti].removeAttribute('src');
+      try { vid.load(); } catch (_) {}
+    }
+    while (el.firstChild) el.removeChild(el.firstChild);
+  }
+
+  function getFullStoryMediaForKey(key) {
+    if (typeof window.getKidsFullStoryMedia === 'function') {
+      return window.getKidsFullStoryMedia(key);
+    }
+    return null;
+  }
+
+  function mountFullStoryPlayer(container, key, storyTitle, media) {
+    if (!container || !media || (!media.mp4 && !media.webm)) return false;
+    var wrap = document.createElement('div');
+    wrap.className = 'kids-full-story-wrap';
+    var hint = document.createElement('p');
+    hint.className = 'kids-full-story-captions-hint';
+    hint.textContent = 'Turn on captions (CC) for read-along words timed to the animation.';
+    var video = document.createElement('video');
+    video.className = 'kids-full-story-video';
+    video.setAttribute('controls', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('preload', 'metadata');
+    video.setAttribute('crossorigin', 'anonymous');
+    video.setAttribute('aria-label', 'Full Bible story video: ' + (storyTitle || key));
+    if (media.poster) video.setAttribute('poster', media.poster);
+    if (media.mp4) {
+      var sMp4 = document.createElement('source');
+      sMp4.src = media.mp4;
+      sMp4.type = 'video/mp4';
+      video.appendChild(sMp4);
+    }
+    if (media.webm) {
+      var sWebm = document.createElement('source');
+      sWebm.src = media.webm;
+      sWebm.type = 'video/webm';
+      video.appendChild(sWebm);
+    }
+    if (media.captionsVtt) {
+      var trk = document.createElement('track');
+      trk.kind = 'subtitles';
+      trk.srclang = 'en';
+      trk.label = 'Read along';
+      trk.src = media.captionsVtt;
+      trk.setAttribute('default', '');
+      video.appendChild(trk);
+    }
+    wrap.appendChild(hint);
+    wrap.appendChild(video);
+    container.appendChild(wrap);
+    return true;
+  }
+
   var STORY_JOURNEY_ORDER = [
     'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat',
     'mosesBush', 'redSea', 'manna', 'tenCommandments', 'fallOfJericho', 'ruthBoaz',
@@ -3308,7 +3372,7 @@
     var context = [];
     if (query) context.push('search: "' + query + '"');
     if (theme) context.push('theme: ' + theme);
-    libraryCountEl.textContent = 'Showing ' + shown + ' of ' + total + ' story cartoons' + (context.length ? ' (' + context.join(' • ') + ')' : '') + '.';
+    libraryCountEl.textContent = 'Showing ' + shown + ' of ' + total + ' Bible stories' + (context.length ? ' (' + context.join(' • ') + ')' : '') + '.';
   }
 
   function openStory(key) {
@@ -3323,9 +3387,18 @@
       var fullAlt = themeSnippet ? baseAlt + ' – ' + themeSnippet : baseAlt + ' – ' + (s.kjvRef || s.title);
       return '<img src="' + escAttr(p.src || '') + '" alt="' + escAttr(fullAlt) + '" class="comic-panel" width="200" height="160">';
     }).join('');
+    var fullMedia = getFullStoryMediaForKey(key);
+    var hasFullVideo = !!(fullMedia && (fullMedia.mp4 || fullMedia.webm));
     var safeVideoId = safeYouTubeId(s.videoId);
     var videoTitle = escAttr(s.videoTitle || '');
-    var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+    var btnHtml = '';
+    if (safeVideoId) {
+      if (!hasFullVideo) {
+        btnHtml = '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch story (YouTube)</button>';
+      } else {
+        btnHtml = '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Short YouTube preview</button>';
+      }
+    }
     var shareBtnHtml = '<button type="button" class="kids-share-btn" data-story="' + escAttr(key) + '">📤 Share with friends!</button>';
     var speakBtnHtml = '';
     if (typeof window !== 'undefined' && 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance !== 'undefined') {
@@ -3335,6 +3408,10 @@
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
     if (modalTitle) modalTitle.textContent = s.title || key;
+    clearStoryVideoContainer(modalVideo);
+    if (hasFullVideo && fullMedia) {
+      mountFullStoryPlayer(modalVideo, key, s.title || key, fullMedia);
+    }
     if (modalCarousel) {
       modalCarousel.innerHTML = '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtml(s.caption || '') + '</p>' + speakBtnHtml + btnHtml + shareBtnHtml + '</div>';
     }
@@ -3355,7 +3432,6 @@
         modalContext.innerHTML = '';
       }
     }
-    if (modalVideo) modalVideo.innerHTML = '';
     if (modal) {
       modal.classList.remove('hidden');
       modalPreviousFocus = document.activeElement;
@@ -3404,7 +3480,7 @@
       modalFocusTrapHandler = null;
     }
     modal.classList.add('hidden');
-    if (modalVideo) modalVideo.innerHTML = '';
+    clearStoryVideoContainer(modalVideo);
     if (modalPreviousFocus && typeof modalPreviousFocus.focus === 'function') {
       try { modalPreviousFocus.focus(); } catch (_) {}
       modalPreviousFocus = null;
@@ -3606,7 +3682,19 @@
           if (wrap && !wrap.classList.contains('hidden')) {
             var vidDiv = document.getElementById('kids-story-modal-video');
             if (vidDiv) {
-              vidDiv.innerHTML = '<div class="kids-video-wrapper"><iframe src="https://www.youtube.com/embed/' + escHtml(id) + '?rel=0&modestbranding=1&playsinline=1" width="100%" height="100%" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="Bible story video"></iframe></div>';
+              clearStoryVideoContainer(vidDiv);
+              var wrapDiv = document.createElement('div');
+              wrapDiv.className = 'kids-video-wrapper';
+              var iframe = document.createElement('iframe');
+              iframe.src = 'https://www.youtube.com/embed/' + escHtml(id) + '?rel=0&modestbranding=1&playsinline=1';
+              iframe.width = '100%';
+              iframe.height = '100%';
+              iframe.setAttribute('frameborder', '0');
+              iframe.setAttribute('allowfullscreen', '');
+              iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+              iframe.title = 'Bible story video';
+              wrapDiv.appendChild(iframe);
+              vidDiv.appendChild(wrapDiv);
             }
           }
         }

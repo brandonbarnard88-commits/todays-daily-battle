@@ -1302,7 +1302,7 @@
       videoId: '8qPP0SgxAvw',
       videoTitle: 'Jesus the Good Shepherd – Animated!',
       keywords: ['jesus', 'shepherd', 'children', 'love', 'lamb'],
-      kjvRef: 'John 10',
+      kjvRef: 'Matthew; Mark; Luke; John (Gospels overview)',
       kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! Come to Him—He loves you like a shepherd loves his sheep!' }
     },
     jonah: {
@@ -1548,7 +1548,7 @@
       videoId: '7945Bh5iG_A',
       videoTitle: 'The Story of Esther – Bible Stories for Kids!',
       keywords: ['esther', 'queen', 'king', 'brave', 'save', 'such a time'],
-      kjvRef: 'Esther 4',
+      kjvRef: 'Esther 2–7',
       kidContext: { who: 'God', to: 'Esther (queen who saved her people)', apply: "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for such a time as this.' Esther bravely went to the king and asked for help. God used her to save her people! You are where you are for a reason. Be brave when it matters." },
       narration: "Esther Saves Her People – Esther 4. Esther was a queen, but a bad man named Haman wanted to hurt all of God's people. Esther's uncle Mordecai said, 'Who knows? Maybe you were made queen for such a time as this.' Esther was scared—but she prayed and went to the king. She told him the truth. The king listened and stopped Haman. God used Esther to save her people! For you: God put you where you are for a reason. When it's hard to be brave, pray and step forward. He uses you."
     },
@@ -1634,7 +1634,7 @@
       videoId: 'U-HjFU4wkUY',
       videoTitle: 'The Story of Zacchaeus – Bible Story for Kids!',
       keywords: ['zacchaeus', 'tree', 'short', 'jesus calls', 'luke 19', 'tax collector'],
-      kjvRef: 'Luke 19',
+      kjvRef: 'Luke 19:1–10',
       kidContext: { who: 'Jesus', to: 'Zacchaeus (a short man in a tree)', apply: 'Jesus sees you—even if you\'re small! He knows your name and wants to be your friend!' }
     },
     lazarus: {
@@ -1648,7 +1648,7 @@
       videoId: '1FT04jjh3Q8',
       videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
       keywords: ['lazarus', 'raised', 'dead', 'come out', 'alive', 'john 11'],
-      kjvRef: 'John 11:43-44',
+      kjvRef: 'John 11:1–44',
       kidContext: { who: 'Jesus', to: 'Mary, Martha, and Lazarus', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
       narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
     },
@@ -1663,7 +1663,7 @@
       videoId: '2_dKPsPDXGM',
       videoTitle: 'Jesus Rose from the Grave – Kids Club Bible Story!',
       keywords: ['resurrection', 'empty tomb', 'alive', 'easter', 'matthew 28', 'john 20'],
-      kjvRef: 'Matthew 28',
+      kjvRef: 'Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18',
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus beat death—He lives forever! That\'s why we celebrate Easter—He won!' }
     },
     creation: {
@@ -1691,7 +1691,7 @@
       videoId: 'Ertlm3D9Cfs',
       videoTitle: 'The Walls of Jericho – Bible Story for Kids!',
       keywords: ['jericho', 'walls', 'trumpets', 'joshua 6', 'march', 'obey'],
-      kjvRef: 'Joshua 6:20',
+      kjvRef: 'Joshua 6:1–21',
       kidContext: { who: 'God', to: 'Joshua and the Israelites', apply: "God told Joshua to march around Jericho for 7 days, blow trumpets, and shout. It seemed strange, but they obeyed. The walls fell down! When God asks you to do something that doesn't make sense, obey—He has a reason and will make it work." },
       narration: "Fall of Jericho – Joshua 6:20. The Israelites came to Jericho, a strong city with big walls. God told Joshua, 'March around the city once a day for 6 days. On day 7, march 7 times, blow trumpets, and shout!' The people obeyed, even though it seemed weird. On day 7, they marched, trumpets blew, they shouted—and the walls fell flat! The Israelites marched in and took the city. God gave them the victory because they obeyed. For you: Sometimes God asks us to do things that seem odd or hard. Trust Him and obey. He makes impossible things happen when we follow His way."
     },
@@ -1779,6 +1779,20 @@
       kjvRef: 'Luke 15',
       kidContext: { who: 'Jesus', to: 'People who wondered about God\'s love', apply: 'Jesus finds lost sheep—you\'re never lost! God searches for you!' }
     },
+    lostCoin: {
+      title: 'Lost Coin',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'A woman counts ten silver coins' },
+        { src: 'panel-jesus-2.svg', alt: 'She lights a lamp and sweeps until she finds the one lost coin' },
+        { src: 'panel-jesus-3.svg', alt: 'She calls friends—rejoice! Heaven rejoices over one who turns to God' }
+      ],
+      caption: 'Swipe to see God search for the lost—every one matters! 🪙',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['lost coin', 'parable', 'silver', 'luke 15', 'search', 'repent', 'joy', 'heaven'],
+      kjvRef: 'Luke 15:8–10',
+      kidContext: { who: 'Jesus', to: 'Us', apply: 'God searches for the lost like the woman searched for her coin. When one person turns to Him, heaven rejoices!' }
+    },
     palmSunday: {
       title: 'Palm Sunday',
       panels: [
@@ -1790,7 +1804,7 @@
       videoId: 'PCqqhfltyKM',
       videoTitle: 'Palm Sunday – Jesus Enters Jerusalem!',
       keywords: ['palm sunday', 'hosanna', 'donkey', 'jerusalem', 'matthew 21', 'luke 19'],
-      kjvRef: 'Matthew 21:1–11',
+      kjvRef: 'Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19',
       kidContext: { who: 'The crowds', to: 'Jesus (the King)', apply: 'Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!' }
     },
     jesusTriumphalEntry: {
@@ -1818,7 +1832,7 @@
       videoId: 'y-SrXeZcVhU',
       videoTitle: 'The Last Supper – Sharefaith Kids!',
       keywords: ['last supper', 'bread', 'wine', 'luke 22', 'matthew 26', 'passover'],
-      kjvRef: 'Luke 22',
+      kjvRef: 'Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23',
       kidContext: { who: 'Jesus', to: 'His twelve disciples', apply: 'Jesus shares bread—He loves us! Remember Him when you eat together!' }
     },
     jesusTemptation: {
@@ -1846,7 +1860,7 @@
       videoId: 'Y01N77fQrTU',
       videoTitle: 'The Parable of the Sower – Animated Scripture Lesson!',
       keywords: ['sower', 'parable', 'seeds', 'soil', 'grow', 'matthew 13', 'mark 4'],
-      kjvRef: 'Matthew 13',
+      kjvRef: 'Matthew 13:1–23',
       kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Plant good words—grow strong! Let God\'s word take root in your heart!' }
     },
     richYoungRuler: {
@@ -1860,7 +1874,7 @@
       videoId: 'Z5tCVTOLnQ0',
       videoTitle: 'The Rich Young Ruler – Animated Bible Story!',
       keywords: ['rich young ruler', 'give', 'follow', 'mark 10', 'matthew 19', 'treasure'],
-      kjvRef: 'Mark 10',
+      kjvRef: 'Matthew 19:16–22',
       kidContext: { who: 'Jesus', to: 'The rich young ruler', apply: 'Give to others—follow Jesus! He\'s worth more than anything!' }
     },
     widowsMite: {
@@ -1916,7 +1930,7 @@
       videoId: 'zmYLuYfPQI8',
       videoTitle: 'Jesus & Pilate – The Miracle Maker!',
       keywords: ['pilate', 'trial', 'quiet', 'john 18', 'matthew 27', 'king'],
-      kjvRef: 'John 18',
+      kjvRef: 'Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16',
       kidContext: { who: 'Jesus', to: 'Pilate (and us)', apply: 'Jesus stays quiet—trust God! When things are unfair, He knows the truth!' }
     },
     crucifixion: {
@@ -1944,7 +1958,7 @@
       videoId: 'PPsWHNa84Tc',
       videoTitle: 'Jesus on the Road to Emmaus – LifeKids!',
       keywords: ['emmaus', 'road', 'walk', 'luke 24', 'explain', 'bread'],
-      kjvRef: 'Luke 24',
+      kjvRef: 'Luke 24:13–35',
       kidContext: { who: 'Jesus', to: 'Cleopas and his friend', apply: 'Jesus walks with us—He explains! He\'s with you on every road!' }
     },
     ascension: {
@@ -1958,7 +1972,7 @@
       videoId: 'TedR27BUBfw',
       videoTitle: 'Jesus Goes to Heaven – Stories of the Bible!',
       keywords: ['ascension', 'heaven', 'up', 'acts 1', 'luke 24', 'promise'],
-      kjvRef: 'Acts 1',
+      kjvRef: 'Acts 1:6–11',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus goes up—He\'s with God! He promised to come back—spread His love!' }
     },
     jesusLastSupper: {
@@ -2112,7 +2126,7 @@
       videoId: '4M7BHiN5Ro0',
       videoTitle: "God's Story: Parable of the Talents!",
       keywords: ['talents', 'parable', 'money', 'servants', 'matthew 25', 'gifts'],
-      kjvRef: 'Matthew 25',
+      kjvRef: 'Matthew 25:14–30',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Use what God gave you—grow it! Don\'t hide your gifts—use them!' }
     },
     armorOfGod: {
@@ -2246,7 +2260,7 @@
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: ['naaman', 'river', 'jordan', '2 kings 5', 'leprosy', 'heal', 'obey'],
-      kjvRef: '2 Kings 5:14',
+      kjvRef: '2 Kings 5:1–15',
       kidContext: { who: 'God', to: 'Naaman through Elisha', apply: "Naaman had a bad skin disease. Elisha told him to wash in the Jordan River seven times. Naaman was proud but obeyed—and God healed him completely. When God asks you to do something simple, obey. He can heal and help in ways you don't expect." },
       narration: "Naaman Washed Clean – 2 Kings 5:14. Naaman was a great army captain, but he had leprosy. A little servant girl said, 'Go to the prophet in Israel—God can heal you.' Naaman went to Elisha. Elisha said, 'Go wash in the Jordan River seven times.' Naaman was angry—'The rivers in my country are better!' But his servants said, 'If he asked something hard, you would do it—why not this?' Naaman obeyed, dipped seven times, and his skin became clean like a child's! God healed him. For you: Sometimes God asks us to do simple things like pray, forgive, or be kind. Obey even if it seems small—God can do big miracles when we trust and follow Him."
     },
@@ -2322,7 +2336,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['sarah', 'laugh', 'angel', 'genesis 18', 'baby', 'impossible', 'promise'],
-      kjvRef: 'Genesis 18',
+      kjvRef: 'Genesis 18:9–15',
       kidContext: { who: 'God', to: 'Sarah and Abraham', apply: 'Nothing is impossible with God! He keeps every promise.' }
     },
     jacobLadder: {
@@ -2336,7 +2350,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['jacob', 'ladder', 'dream', 'angels', 'genesis 28', 'heaven', 'promise'],
-      kjvRef: 'Genesis 28:12',
+      kjvRef: 'Genesis 28:10–22',
       kidContext: { who: 'God', to: 'Jacob', apply: "Jacob was running away, but God showed him a ladder to heaven with angels going up and down. God promised to be with him and bring him home. Even when you're far from home or feel alone, God is with you and has good plans for your future." },
       narration: "Jacob Dream Ladder – Genesis 28:12. Jacob had to run away from his brother Esau. He slept on a stone pillow under the stars. In a dream, he saw a ladder reaching from earth to heaven with angels going up and down. God stood above it and said, 'I am the Lord God of Abraham and Isaac. I will give you this land. Your family will be many. I am with you and will keep you wherever you go.' Jacob woke up and said, 'God is in this place!' He set up the stone as a pillar and called it Bethel—House of God. For you: When you feel alone or far away, God is still with you. He promises to watch over you and bring you safely through every journey."
     },
@@ -2365,7 +2379,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['joseph', 'prison', 'cupbearer', 'dream', 'genesis 40', 'faithful'],
-      kjvRef: 'Genesis 40',
+      kjvRef: 'Genesis 39–40',
       kidContext: { who: 'God', to: 'Joseph in prison', apply: 'God is with you in hard places! He never forgets you.' }
     },
     pharaohDreams: {
@@ -2689,7 +2703,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['ruth', 'glean', 'boaz', 'field', 'ruth 2', 'faithful', 'kind'],
-      kjvRef: 'Ruth 2:2',
+      kjvRef: 'Ruth 2',
       kidContext: { who: 'God', to: 'Ruth and Naomi', apply: "Ruth stayed loyal to her mother-in-law Naomi and worked hard gleaning in the fields. God saw her kindness and blessed her with Boaz. When you are faithful and kind, even in hard times, God notices and takes care of you." },
       narration: "Ruth Gleans – Ruth 2:2. Ruth's husband died, and she could have gone back home. But she said to Naomi, 'Your people will be my people, and your God my God.' They went to Bethlehem. Ruth worked in the fields picking leftover grain. The owner, Boaz, noticed her kindness and hard work. He told his workers to leave extra grain for her and protected her. Boaz married Ruth, and they had a son who became part of Jesus' family line! God saw Ruth's faithfulness and blessed her. For you: When you stay loyal, help others, and work hard, God sees it. He blesses faithfulness and can turn hard times into joy."
     },
@@ -3280,7 +3294,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['jesus', 'manger', 'baby', 'luke 2', 'bethlehem', 'wise men', 'star', 'born'],
-      kjvRef: 'Luke 2',
+      kjvRef: 'Luke 2:1–20',
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came for you! God\'s greatest gift is His Son.' }
     },
     jesusTemple: {
@@ -3294,7 +3308,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['jesus', 'temple', 'teaching', 'luke 2', 'elders', 'wisdom', 'boy', 'father'],
-      kjvRef: 'Luke 2',
+      kjvRef: 'Luke 2:41–52',
       kidContext: { who: 'Jesus', to: 'The teachers (and us)', apply: 'Jesus loved God\'s house and Word even as a boy—so can you!' }
     },
     johnBaptist: {
@@ -3322,7 +3336,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['john', 'baptize', 'jordan', 'matthew 3', 'dove', 'voice', 'heaven', 'spirit'],
-      kjvRef: 'Matthew 3',
+      kjvRef: 'Matthew 3:13–17',
       kidContext: { who: 'God', to: 'Jesus (and us)', apply: 'God said yes to Jesus—He says yes to you too! Baptism is a big, happy yes.' }
     },
     jesusBaptism: {
@@ -3350,7 +3364,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['jesus', 'temptation', 'desert', 'matthew 4', 'devil', 'bread', 'scripture', 'word'],
-      kjvRef: 'Matthew 4',
+      kjvRef: 'Matthew 4:1–11',
       kidContext: { who: 'Jesus', to: 'The devil (and us)', apply: 'Use God\'s Word when you\'re tempted! Jesus showed us how—it works.' }
     },
     weddingWine: {
@@ -3364,7 +3378,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['wedding', 'wine', 'water', 'john 2', 'miracle', 'cana', 'mary'],
-      kjvRef: 'John 2',
+      kjvRef: 'John 2:1–11',
       kidContext: { who: 'Jesus', to: 'The wedding guests', apply: 'Jesus loves to help! When we bring Him our empty jars, He fills them.' }
     },
     jesusFirstMiracle: {
@@ -3462,7 +3476,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['jesus', 'children', 'bless', 'mark 10', 'kids', 'kingdom', 'come'],
-      kjvRef: 'Mark 10',
+      kjvRef: 'Mark 10:13–16',
       kidContext: { who: 'Jesus', to: 'The children (and you!)', apply: 'Jesus wants YOU! He invites every child to come to Him.' }
     },
     /* ── Week 6 (73–84) ── */
@@ -3547,7 +3561,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['jairus', 'daughter', 'raise', 'mark 5', 'talitha cumi', 'miracle', 'faith'],
-      kjvRef: 'Mark 5',
+      kjvRef: 'Mark 5:21–43',
       kidContext: { who: 'Jesus', to: 'Jairus and his daughter', apply: 'Jesus is never too late! Keep believing even when it seems impossible.' }
     },
     transfigure: {
@@ -3561,7 +3575,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['transfigure', 'mountain', 'matthew 17', 'glow', 'moses', 'elijah', 'cloud'],
-      kjvRef: 'Matthew 17',
+      kjvRef: 'Matthew 17:1–13',
       kidContext: { who: 'God', to: 'Peter, James, John', apply: 'Jesus is the Son of God—really listen to Him! He is glorious.' }
     },
     judasKiss: {
@@ -3646,7 +3660,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['thomas', 'doubt', 'john 20', 'hands', 'believe', 'risen', 'faith'],
-      kjvRef: 'John 20',
+      kjvRef: 'John 20:24–29',
       kidContext: { who: 'Jesus', to: 'Thomas', apply: 'It\'s okay to have questions! Jesus is patient—keep coming back to Him.' }
     },
     pentecostFire: {
@@ -4543,7 +4557,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['mary', 'anoint', 'perfume', 'john 12', 'feet', 'worship', 'pour'],
-      kjvRef: 'John 12',
+      kjvRef: 'John 12:1–8',
       kidContext: { who: 'Mary', to: 'Jesus', apply: 'Give Jesus your best—not just what\'s left! Extravagant love honors Him.' }
     },
     /* ── Week 9 (109–120) ── */
@@ -4843,6 +4857,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['hannah', 'pray', 'baby', '1 samuel 1', 'temple', 'samuel', 'vow', 'answer'],
+      kjvRef: '1 Samuel 1',
       kidContext: { who: 'God', to: 'Hannah', apply: 'God hears every prayer! Pour out your heart—He is listening and He cares.' }
     },
     maryMagdalene: {
@@ -4856,6 +4871,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['mary magdalene', 'tomb', 'john 20', 'risen', 'gardener', 'name', 'love'],
+      kjvRef: 'John 20:1–18',
       kidContext: { who: 'Jesus', to: 'Mary Magdalene', apply: 'Jesus knows your name and calls you! He is always the first to find His own.' }
     },
     lydiaSell: {
@@ -4897,6 +4913,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['ruth', 'naomi', 'moab', 'ruth 2', 'loyal', 'wherever', 'field', 'faithful'],
+      kjvRef: 'Ruth 1',
       kidContext: { who: 'God', to: 'Ruth', apply: 'Stick with those you love even in hard times! Loyalty is a gift—and God honors it.' }
     },
     estherFast: {
@@ -4965,6 +4982,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['widow', 'oil', 'elisha', '2 kings 4', 'jars', 'multiply', 'provide'],
+      kjvRef: '2 Kings 4:1–7',
       kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God\'s supply never runs out! Bring what little you have—He multiplies it.' }
     },
     persistentWidow: {
@@ -4978,6 +4996,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['widow', 'persistent', 'judge', 'luke 18', 'keep asking', 'prayer', 'justice'],
+      kjvRef: 'Luke 18:1–8',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Don\'t give up in prayer! God always answers those who keep coming to Him.' }
     },
     samaritanWoman: {
@@ -5113,7 +5132,7 @@
       videoId: '1FT04jjh3Q8',
       videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
       keywords: ['lazarus', 'raise', 'john 11', 'resurrection', 'mary', 'martha', 'come out'],
-      kjvRef: 'John 11:43-44',
+      kjvRef: 'John 11:1–44',
       kidContext: { who: 'Jesus', to: 'Mary and Martha (and us)', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
       narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
     },
@@ -5170,7 +5189,7 @@
       videoId: 'TedR27BUBfw',
       videoTitle: 'Jesus Goes to Heaven – Stories of the Bible!',
       keywords: ['ascension', 'acts 1', 'heaven', 'cloud', 'angels', 'return', 'go'],
-      kjvRef: 'Acts 1',
+      kjvRef: 'Acts 1:6–11',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus went to prepare a place for you! He is coming back—be ready and joyful.' }
     },
     pentecostTongues: {
@@ -5361,7 +5380,7 @@
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
-      'lostSheep', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
+      'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
       'ruthBoaz', 'parableTalents', 'armorOfGod',
@@ -7215,7 +7234,7 @@
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
-    naaman: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
+    naaman: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
     jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',

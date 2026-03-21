@@ -412,6 +412,9 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var grid = document.getElementById('loop-grid');
   if (!grid) return;
 
+  /** Per-loop PNGs at /assets/loops/{id}.png are optional; use site asset until present (avoids 404s on /kids/corner, etc.). */
+  var LOOP_THUMB_PLACEHOLDER = '/logo-shield-600.png';
+
   var START_DATE_MS = new Date('2026-03-01').getTime();
   var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
   var STORAGE_KEY = 'tdb_loop_library_state_v2';
@@ -578,12 +581,13 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     video.setAttribute('loop', '');
     video.setAttribute('preload', 'none');
     video.setAttribute('loading', 'lazy');
-    video.poster = '/assets/loops/' + String(loop.id) + '.png';
+    video.setAttribute('data-loop-poster', '/assets/loops/' + String(loop.id) + '.png');
+    video.poster = LOOP_THUMB_PLACEHOLDER;
     var source = document.createElement('source');
     source.type = 'video/webm';
     source.setAttribute('data-src', String(loop.file || ''));
     var fallbackImg = document.createElement('img');
-    fallbackImg.src = '/assets/loops/' + String(loop.id) + '.png';
+    fallbackImg.src = LOOP_THUMB_PLACEHOLDER;
     fallbackImg.alt = String(loop.title || 'Bible story loop') + ' preview';
     fallbackImg.loading = 'lazy';
     video.appendChild(source);
@@ -631,7 +635,33 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     speakerBtn.className = 'loop-speaker-btn' + (hasAudio ? '' : ' loop-speaker-btn--disabled');
     speakerBtn.setAttribute('aria-label', hasAudio ? 'Hear the KJV verse for ' + String(loop.title) : 'Audio coming soon for ' + String(loop.title));
     speakerBtn.setAttribute('title', hasAudio ? (loop.kjvText || loop.ref) : 'Coming soon');
-    speakerBtn.innerHTML = '<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg><span class="loop-speaker-label">Hear verse</span>';
+    (function wireSpeakerIcon() {
+      var spSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      spSvg.setAttribute('aria-hidden', 'true');
+      spSvg.setAttribute('focusable', 'false');
+      spSvg.setAttribute('viewBox', '0 0 24 24');
+      spSvg.setAttribute('width', '18');
+      spSvg.setAttribute('height', '18');
+      spSvg.setAttribute('fill', 'none');
+      spSvg.setAttribute('stroke', 'currentColor');
+      spSvg.setAttribute('stroke-width', '2');
+      spSvg.setAttribute('stroke-linecap', 'round');
+      spSvg.setAttribute('stroke-linejoin', 'round');
+      var poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      poly.setAttribute('points', '11 5 6 9 2 9 2 15 6 15 11 19 11 5');
+      spSvg.appendChild(poly);
+      var pa = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pa.setAttribute('d', 'M15.54 8.46a5 5 0 0 1 0 7.07');
+      spSvg.appendChild(pa);
+      var pb = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pb.setAttribute('d', 'M19.07 4.93a10 10 0 0 1 0 14.14');
+      spSvg.appendChild(pb);
+      var lbl = document.createElement('span');
+      lbl.className = 'loop-speaker-label';
+      lbl.textContent = 'Hear verse';
+      speakerBtn.appendChild(spSvg);
+      speakerBtn.appendChild(lbl);
+    })();
     if (!hasAudio) {
       speakerBtn.disabled = true;
     } else {
@@ -662,7 +692,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     reportBtn.className = 'loop-report-btn';
     reportBtn.setAttribute('aria-label', 'Report animation mismatch for ' + String(loop.title));
     reportBtn.setAttribute('title', 'Something wrong with this animation? Let us know.');
-    reportBtn.innerHTML = '<span aria-hidden="true">⚠</span> Report mismatch';
+    var rIcon = document.createElement('span');
+    rIcon.setAttribute('aria-hidden', 'true');
+    rIcon.textContent = '\u26A0';
+    reportBtn.appendChild(rIcon);
+    reportBtn.appendChild(document.createTextNode(' Report mismatch'));
     reportBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       var comment = '';
@@ -722,7 +756,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     nextBtn.classList.add('is-hidden');
     modalTitle.textContent = String(currentLoop.title || 'Bible Loop') + ' • ' + String(currentLoop.ref || '');
     modalVideo.src = String(currentLoop.file || '');
-    modalVideo.poster = '/assets/loops/' + String(currentLoop.id) + '.png';
+    modalVideo.setAttribute('data-loop-poster', '/assets/loops/' + String(currentLoop.id) + '.png');
+    modalVideo.poster = LOOP_THUMB_PLACEHOLDER;
     modalVideo.currentTime = 0;
     modalHelper.textContent = 'Replay anytime, then jump to a random unlocked loop.';
     if (currentLoop.audio) {

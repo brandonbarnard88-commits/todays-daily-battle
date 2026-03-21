@@ -13,6 +13,7 @@
   - Homepage search + quick-topic flows
   - Search result cards and action rows
   - Kids Battle / Kids Corner UX polish
+- **Speed:** Route-level JS splits where they help most (e.g. Calm crisis path vs full `script.js`) — see `docs/QUALITY-9-ROADMAP.md` “Speed”. No feature removals; smaller bundles only.
 - Remove any remaining generic or weak-feeling copy.
 - Ensure mobile and accessibility polish on every touched area.
 

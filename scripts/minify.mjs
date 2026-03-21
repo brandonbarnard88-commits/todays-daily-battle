@@ -17,8 +17,9 @@ const CSS_FILES = ['styles.css', 'tool-pages.css', 'church.css', 'loop-player.cs
 async function minifyJs(filePath) {
   const { minify } = await import('terser');
   const code = fs.readFileSync(filePath, 'utf8');
+  /* Multiple compress passes shrink the main bundle (~1–3% typical). Avoid unsafe_* flags here — DOM-heavy code + user data. */
   const result = await minify(code, {
-    compress: { passes: 1 },
+    compress: { passes: 3 },
     mangle: true,
     format: { comments: false },
     sourceMap: false

@@ -7,7 +7,7 @@ End-to-end checklist for shipping **native `<video>` + WebVTT** on `/kids/corner
 **Read + quiz (no video required):** `kids/kids-read-quiz-data.js` defines `TDB_KIDS_READ_QUIZ` for **every** `bibleStories` key (currently **171**), wired on `/kids/corner.html` in the story modal.
 
 - **Regenerate** after editing `kids/kids-battle.js` story text (`narration`, `kidContext`, `kjvRef`, panels): `npm run kids:generate-read-quiz`
-- **Hand-tuned** packs (higher-quality copy + quizzes): edit `kids/read-quiz-handcrafted.cjs` (defaults: `david`, `noah`, `jonah`, `daniel`), then run the same command so the big file picks them up.
+- **Hand-tuned** packs (higher-quality copy + quizzes): edit `kids/read-quiz-handcrafted.cjs` (e.g. `david`, `noah`, `jonah`, `daniel`, `fallOfJericho` + `jerichoWalls`), then run the same command so the big file picks them up.
 
 ## File layout
 

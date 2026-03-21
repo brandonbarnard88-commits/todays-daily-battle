@@ -622,5 +622,392 @@ module.exports = {
         'exciting cartoon: Day 3 — land rising from sea, green plants and trees growing everywhere, no text',
         'happy ending illustration: Days 4–6 — sun/moon/stars, birds flying, animals and people in garden, warm golden light, no text'
       ]
+    },
+    creationLight: {
+      kjvRef: 'Genesis 1:1–5',
+      hintAboveQuiz: 'Remember what God did on the very first day!',
+      readAlongImages: [],
+      paragraphs: [
+        'In the beginning, God created the heavens and the earth. Everything was dark and empty.',
+        'God said, "Let there be light!" And there was light. God saw that the light was good.',
+        'He separated the light from the darkness. God called the light "day" and the darkness "night".',
+        'There was evening, and there was morning — the first day.',
+        'God made light on the very first day so we could see His wonderful creation.'
+      ],
+      quizHeading: 'Day 1 Questions',
+      questions: [
+        {
+          question: 'What was everything like before God started creating?',
+          choices: ['Bright and colorful', 'Dark and empty', 'Full of animals', 'Covered in water'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! It was dark and empty — then God began.',
+          wrongFeedback:
+            'Not quite. The Bible says the earth was without form and empty, and darkness was upon the face of the deep (Genesis 1:2). God started with nothing ready yet!'
+        },
+        {
+          question: 'What did God say on the first day?',
+          choices: ['Let there be animals', 'Let there be light', 'Let there be people', 'Let there be stars'],
+          correctIndex: 1,
+          correctFeedback: 'Right! "Let there be light!" — and light appeared.',
+          wrongFeedback:
+            'Animals and people came much later. On Day 1, God commanded light to appear (Genesis 1:3).'
+        },
+        {
+          question: 'What did God call the light?',
+          choices: ['Night', 'Day', 'Sky', 'Stars'],
+          correctIndex: 1,
+          correctFeedback: 'Exactly! He called the light "day" and the darkness "night".',
+          wrongFeedback:
+            'Night is darkness. God named the light "day" so we could tell time (Genesis 1:5).'
+        },
+        {
+          question: 'What happened after God made light?',
+          choices: ['He rested', 'He separated it from darkness', 'He made plants', 'He made animals'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! He separated light from darkness — that was the first day.',
+          wrongFeedback:
+            'Rest came later. Plants were Day 3, animals Day 6. First He separated light and dark.'
+        },
+        {
+          question: 'What does Day 1 teach us about God?',
+          choices: ['God likes darkness', 'God speaks and things happen', 'God needs help', 'God is weak'],
+          correctIndex: 1,
+          correctFeedback:
+            'Perfect! God just spoke — "Let there be light" — and it happened. He is powerful!',
+          wrongFeedback:
+            "The story shows God's word has power. He did not need help — His command was enough!"
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God spoke light into being!',
+      takeaway: 'God is powerful — He speaks and creation listens.',
+      prayer: 'God, thank You for making light. Help me listen to Your words every day. Amen.',
+      imagePrompts: [
+        'bright bouncy cartoon for kids: completely dark empty void before creation, no light anywhere, no text',
+        'fun kid illustration: bright words "Let there be light" feeling, glow breaking through darkness, colorful burst, no text on image',
+        'colorful Bible scene for children: light and darkness separated, day side bright, night side dark and starry, no text',
+        'exciting cartoon: first day complete, warm light over land and sea, peaceful feel, no text',
+        'happy ending illustration: beautiful sunrise over waters, sense of God\'s good gift of light, gold accents, no text'
+      ]
+    },
+    adamEve: {
+      kjvRef: 'Genesis 2:7–25; 3:1–24',
+      hintAboveQuiz: 'Remember what God said they could and could not do!',
+      readAlongImages: [],
+      paragraphs: [
+        'God made the first man, Adam, from dust and breathed life into him. Adam named all the animals.',
+        'God saw Adam needed a helper. He made Eve from Adam\'s rib while Adam slept.',
+        'They lived in a beautiful garden called Eden with God. They could eat any fruit except one tree.',
+        'A serpent tricked Eve into eating the forbidden fruit. She gave some to Adam, and he ate too.',
+        'Because they disobeyed, sin came into the world. God sent them out of the garden, but He still loved them. One day He would send the Savior, Jesus, to undo what sin broke.'
+      ],
+      quizHeading: 'Adam & Eve Questions',
+      questions: [
+        {
+          question: 'How did God make Adam?',
+          choices: ['From a rib', 'From dust', 'From an animal', 'From light'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! God formed Adam from dust and breathed life into him.',
+          wrongFeedback:
+            "Eve came from Adam's rib later. Adam was made from the ground (Genesis 2:7)."
+        },
+        {
+          question: 'What did God make for Adam because he was alone?',
+          choices: ['A new animal', 'Eve', 'A house', 'More friends'],
+          correctIndex: 1,
+          correctFeedback: 'Right! God made Eve from Adam\'s rib to be his helper.',
+          wrongFeedback:
+            'Adam named the animals, but none was right for him. God made Eve specially (Genesis 2:18–22).'
+        },
+        {
+          question: 'What was the one tree they could not eat from?',
+          choices: ['Tree of life', 'Tree of knowledge of good and evil', 'Orange tree', 'Banana tree'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! God said not to eat from that tree.',
+          wrongFeedback:
+            'The tree of life was different. God warned them about the tree of knowledge of good and evil (Genesis 2:17).'
+        },
+        {
+          question: 'Who tricked Eve into eating the fruit?',
+          choices: ['Adam', 'The serpent', 'God', 'An angel'],
+          correctIndex: 1,
+          correctFeedback: 'Correct! The serpent (Satan) tricked her.',
+          wrongFeedback:
+            'Adam ate after Eve. The Bible says the serpent was more subtle and deceived her (Genesis 3:1–6).'
+        },
+        {
+          question: 'What happened because Adam and Eve disobeyed?',
+          choices: ['They stayed in Eden forever', 'Sin came into the world', 'They got more fruit', 'Nothing changed'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Sin entered, but God still loved them and planned the Savior.',
+          wrongFeedback:
+            'They had to leave Eden. Disobedience brought sin and separation, but God still cared for them.'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God still loves us even when we disobey.',
+      takeaway:
+        'God made us to live with Him, but sin separates us — He sent Jesus to bring us back.',
+      prayer: 'God, forgive me when I disobey. Thank You for loving me and sending Jesus. Amen.',
+      imagePrompts: [
+        'bright cartoon for kids: God forming Adam from dust, breath of life, garden background, no text',
+        'fun kid illustration: Adam naming animals in Eden, smiling, friendly animals around him, no text',
+        "colorful Bible scene for children: God creating Eve while Adam sleeps, gentle peaceful light, no text",
+        'serious kid-safe cartoon: Eve and Adam near the forbidden tree, serpent nearby, humble colors not scary, no text',
+        'hopeful ending illustration: Adam and Eve leaving Eden, distant light suggesting God\'s promise, no text'
+      ]
+    },
+    cainAbel: {
+      kjvRef: 'Genesis 4',
+      hintAboveQuiz: 'Watch what each brother brings—and how God responds.',
+      readAlongImages: [],
+      paragraphs: [
+        'Adam and Eve had two sons. Cain grew crops. Abel kept sheep. Both wanted to worship God.',
+        'Abel brought the firstborn of his flock—the best he had. Cain brought an offering too, but God had respect unto Abel and his offering, and not unto Cain\'s the same way (Genesis 4:4–5, KJV).',
+        'Cain burned with anger. God warned him, "If thou doest well, shalt thou not be accepted? and if thou doest not well, sin lieth at the door" (Genesis 4:7, KJV). Cain could still choose to do right.',
+        'Cain would not listen. In the field he rose up against Abel his brother and killed him. God asked, "Where is Abel thy brother?" Cain said, "Am I my brother\'s keeper?"',
+        'Sin hurts families and grieves God, but the story still teaches us: give God your heart and your best, talk to Him when jealousy rises, and never let anger make you hurt someone.'
+      ],
+      quizHeading: 'Cain & Abel',
+      questions: [
+        {
+          question: 'What kind of work did Abel do?',
+          choices: ['He fished', 'He kept sheep', 'He built towers', 'He wrote books'],
+          correctIndex: 1,
+          correctFeedback: 'Yes—he was a shepherd who offered the firstborn of his flock.',
+          wrongFeedback:
+            'Cain worked the ground. Abel cared for sheep—that is why he could offer a lamb (Genesis 4:2).'
+        },
+        {
+          question: 'Whose offering did God accept?',
+          choices: ["Only Cain's", "Abel's when he brought his best", "Neither brother's", 'Both exactly the same'],
+          correctIndex: 1,
+          correctFeedback: 'Right—God had respect unto Abel and his offering.',
+          wrongFeedback:
+            'Read paragraph two. God received Abel\'s gift with honor. Cain needed a right heart too.'
+        },
+        {
+          question: 'What did God warn Cain about?',
+          choices: [
+            'To plant more wheat',
+            'That sin wanted to control him if he did not rule over it',
+            'To move to another country',
+            'To stop talking'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—sin crouched at the door; Cain needed to master it.',
+          wrongFeedback:
+            'Look at Genesis 4:7 in the story block—God spoke about doing well and sin lying at the door.'
+        },
+        {
+          question: 'What terrible thing did Cain do to Abel?',
+          choices: ['He shared lunch', 'He hurt him until he died', 'He moved away quietly', 'He helped him build a house'],
+          correctIndex: 1,
+          correctFeedback: 'Sadly true—jealousy led to murder.',
+          wrongFeedback:
+            'The Bible says Cain talked with Abel in the field, then rose up against him (Genesis 4:8).'
+        },
+        {
+          question: 'What is one lesson for us today?',
+          choices: [
+            'God does not care about offerings',
+            'Give God your best and tell Him when you feel jealous',
+            'Anger always helps',
+            'Brothers never need kindness'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Exactly—bring your heart to God before anger grows big.',
+          wrongFeedback:
+            'Think: what did God want Cain to do instead of stewing in anger? Reread paragraph three.'
+        }
+      ],
+      doneHeading: 'You Did It!',
+      doneMessage: 'Great job learning from Cain and Abel in God\'s Word today.',
+      takeaway: 'Give God your best. When jealousy knocks, pray before you act.',
+      prayer: 'God, help me give You my best and rule over angry feelings. Amen.',
+      imagePrompts: [
+        'bouncy cartoon: two brothers, fields and sheep, friendly colors, offering baskets, no text',
+        'kid illustration: Abel offering lamb, open hands, sunrise, no text',
+        'scene: Cain looking upset, shadow small, teachable not horror, no text',
+        'Bible moment: God warning Cain, gentle but serious light, no text',
+        'calm closing: wheat and shepherd staff, reminder to choose peace, no text'
+      ]
+    },
+    towerBabel: {
+      kjvRef: 'Genesis 11:1–9',
+      hintAboveQuiz: 'Ask why the people built the tower—and what God did.',
+      readAlongImages: [],
+      paragraphs: [
+        'After the flood, everyone spoke one language. They moved east and found a plain in the land of Shinar.',
+        'They said, "Let us make brick... let us build us a city and a tower, whose top may reach unto heaven; and let us make us a name" (Genesis 11:4, KJV). They wanted to be famous without honoring God.',
+        'The LORD came down to see the city and the tower. He said, "Let us go down, and there confound their language, that they may not understand one another\'s speech" (Genesis 11:7, KJV).',
+        'Suddenly workers could not understand each other. Building stopped. From there the LORD scattered them abroad upon the face of all the earth. So the place was called Babel—because the LORD did there confound the language of all the earth.',
+        'Pride pushes people away from God and from each other. When we humble ourselves and give Him glory, He gathers us in better ways.'
+      ],
+      quizHeading: 'Tower of Babel',
+      questions: [
+        {
+          question: 'Why did the people want to build the tall tower?',
+          choices: [
+            'To honor God alone',
+            'To make a great name for themselves and reach toward heaven',
+            'To help travelers sleep',
+            'To grow more food'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—they wanted their own fame.',
+          wrongFeedback:
+            'Reread paragraph two. They wanted a name for themselves and a top reaching heaven (Genesis 11:4).'
+        },
+        {
+          question: 'What did God do so they could not finish?',
+          choices: [
+            'He sent rain only',
+            'He confused their languages',
+            'He gave them more bricks',
+            'He taught them music'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Right—they could no longer understand each other.',
+          wrongFeedback:
+            'Look at paragraph three. God confounded their speech so cooperation broke apart.'
+        },
+        {
+          question: 'What happened after their languages were confused?',
+          choices: [
+            'They finished the tower faster',
+            'They stopped building and scattered over the earth',
+            'They all moved underwater',
+            'They forgot how to walk'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Exactly—work halted and people spread out.',
+          wrongFeedback:
+            'Paragraph four says the LORD scattered them abroad on the face of all the earth.'
+        },
+        {
+          question: 'What does the name Babel remind us of?',
+          choices: [
+            'A quiet picnic',
+            'That God confused the language there',
+            'A famous king only',
+            'The first rainbow'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—Babel sounds like the Hebrew idea of confusion.',
+          wrongFeedback:
+            'The story ends by saying the LORD confounded the language of all the earth there.'
+        },
+        {
+          question: 'What is one wise lesson?',
+          choices: [
+            'We should try to be famous without God',
+            'Humble hearts that honor God work better than proud towers',
+            'Languages never matter',
+            'Towers are always evil'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Beautiful—give glory to God, not only to ourselves.',
+          wrongFeedback:
+            'Think: why did God stop the project? Pride without Him leads to confusion.'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'Great job learning about Babel in God\'s Word today.',
+      takeaway: 'God is greater than any tower. Humble yourself—He blesses that.',
+      prayer: 'God, help me honor You more than my own name. Amen.',
+      imagePrompts: [
+        'bouncy cartoon: people stacking bricks toward sky, busy city, no text',
+        'kid illustration: tower mid-build, cranes and ropes simple, no text',
+        'colorful scene: confused faces, many speech bubbles with symbols not letters, no text',
+        'map-style art: families walking different directions, gentle colors, no text',
+        'peaceful closing: humble village at sunset, gratitude mood, soft colors, no text'
+      ]
+    },
+    abrahamIsaac: {
+      kjvRef: 'Genesis 22',
+      hintAboveQuiz: 'Listen for trust—"God will provide."',
+      readAlongImages: [],
+      paragraphs: [
+        'God had promised Abraham a son named Isaac. When Isaac grew, God tested Abraham: "Take now thy son... whom thou lovest, and get thee into the land of Moriah; and offer him there" (Genesis 22:2, KJV).',
+        'Abraham obeyed. Early the next morning he took Isaac, wood, and fire, and walked toward the mountain. Isaac asked, "Where is the lamb for a burnt offering?" Abraham answered, "God will provide himself a lamb" (Genesis 22:8, KJV).',
+        'At the place God named, Abraham built an altar and bound Isaac. He stretched forth his hand to offer him—but the angel of the LORD called, "Lay not thine hand upon the lad" (Genesis 22:12, KJV).',
+        'Abraham looked and saw a ram caught in a thicket by his horns. He offered the ram instead of his son. Abraham called that place Jehovah-jireh—the LORD will provide.',
+        'God saw that Abraham feared Him and would not withhold his son. The story points forward to how God the Father gave His own Son, Jesus, to save us—He always provides the sacrifice we need.'
+      ],
+      quizHeading: 'Abraham & Isaac',
+      questions: [
+        {
+          question: 'What did God ask Abraham to do with Isaac?',
+          choices: [
+            'Send him on vacation',
+            'Offer him as a sacrifice on the mountain God would show',
+            'Build a boat with him',
+            'Name many animals'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—a hard test of trust.',
+          wrongFeedback:
+            'Reread paragraph one. God told Abraham to take Isaac to Moriah and offer him there (Genesis 22:2).'
+        },
+        {
+          question: 'What did Abraham tell Isaac about the lamb?',
+          choices: [
+            'We will not need one',
+            'God will provide himself a lamb',
+            'You must find one alone',
+            'Lambs are only pets'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Right—faith-filled words.',
+          wrongFeedback:
+            'Look at paragraph two for Abraham\'s answer about the missing lamb.'
+        },
+        {
+          question: 'Who stopped Abraham from harming Isaac?',
+          choices: [
+            'Isaac ran away',
+            'The angel of the LORD',
+            'A shepherd boy',
+            'Sarah arrived'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—the angel called from heaven.',
+          wrongFeedback:
+            'Paragraph three says the angel said, "Lay not thine hand upon the lad."'
+        },
+        {
+          question: 'What did God provide instead of Isaac?',
+          choices: ['A fish', 'A ram caught in a thicket', 'A loaf of bread', 'A golden coin'],
+          correctIndex: 1,
+          correctFeedback: 'Exactly—the ram became the offering.',
+          wrongFeedback:
+            'Abraham looked and saw a ram caught by its horns in the bush (Genesis 22:13).'
+        },
+        {
+          question: 'What can we remember when God asks hard trust?',
+          choices: [
+            'God forgets His promises',
+            'He sees our heart and always provides what we need in His time',
+            'We should never obey',
+            'Tests never end well'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Beautiful—Jehovah-jireh: the LORD will provide.',
+          wrongFeedback:
+            'Think of Abraham\'s name for the place and the ram God gave. What does that teach about God?'
+        }
+      ],
+      doneHeading: 'You Did It!',
+      doneMessage: 'Great job seeing how Abraham trusted God—and God provided.',
+      takeaway: 'When God asks you to trust Him with something dear, obey—He will provide.',
+      prayer: 'God, help me trust You like Abraham, even when I do not understand. Amen.',
+      imagePrompts: [
+        'gentle cartoon: father and son walking uphill with wood, soft morning light, no text',
+        'kid illustration: boy asking about the lamb, loving faces, no text',
+        'Bible scene: angel light from above, hand stopped gesture, not graphic, no text',
+        'warm cartoon: ram in bushes, horns visible, relief and thanks, no text',
+        'hopeful ending: hilltop sunrise, small altar, peace, gold accent, no text'
+      ]
     }
 };

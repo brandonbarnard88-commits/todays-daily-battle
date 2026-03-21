@@ -95,172 +95,174 @@
   },
   "abrahamIsaac": {
     "kjvRef": "Genesis 22",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "hintAboveQuiz": "Listen for trust—\"God will provide.\"",
+    "readAlongImages": [],
     "paragraphs": [
-      "Abraham & Isaac.",
-      "We read about this in Genesis 22.",
-      "When you trust God, He takes care of you.",
-      "Abraham obeyed—and God provided!",
-      "We learn from God and how God cares for Abraham."
+      "God had promised Abraham a son named Isaac. When Isaac grew, God tested Abraham: \"Take now thy son... whom thou lovest, and get thee into the land of Moriah; and offer him there\" (Genesis 22:2, KJV).",
+      "Abraham obeyed. Early the next morning he took Isaac, wood, and fire, and walked toward the mountain. Isaac asked, \"Where is the lamb for a burnt offering?\" Abraham answered, \"God will provide himself a lamb\" (Genesis 22:8, KJV).",
+      "At the place God named, Abraham built an altar and bound Isaac. He stretched forth his hand to offer him—but the angel of the LORD called, \"Lay not thine hand upon the lad\" (Genesis 22:12, KJV).",
+      "Abraham looked and saw a ram caught in a thicket by his horns. He offered the ram instead of his son. Abraham called that place Jehovah-jireh—the LORD will provide.",
+      "God saw that Abraham feared Him and would not withhold his son. The story points forward to how God the Father gave His own Son, Jesus, to save us—He always provides the sacrifice we need."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Abraham & Isaac",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What did God ask Abraham to do with Isaac?",
         "choices": [
-          "Genesis 22",
-          "1 Samuel 22",
-          "Genesis 3",
-          "Ruth 2:2"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 22.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "The crowds",
-          "God",
-          "Jesus",
-          "Stephen"
+          "Send him on vacation",
+          "Offer him as a sacrifice on the mountain God would show",
+          "Build a boat with him",
+          "Name many animals"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Yes—a hard test of trust.",
+        "wrongFeedback": "Reread paragraph one. God told Abraham to take Isaac to Moriah and offer him there (Genesis 22:2)."
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did Abraham tell Isaac about the lamb?",
         "choices": [
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "When you trust God, He takes care of you. Abraham obeyed—and God provided!",
-          "We should hide from God when we mess up."
+          "We will not need one",
+          "God will provide himself a lamb",
+          "You must find one alone",
+          "Lambs are only pets"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: When you trust God, He takes care of you. Abraham obeyed—and God provided!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Right—faith-filled words.",
+        "wrongFeedback": "Look at paragraph two for Abraham's answer about the missing lamb."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "Who stopped Abraham from harming Isaac?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "Abraham and Isaac walk up the mountain"
+          "Isaac ran away",
+          "The angel of the LORD",
+          "A shepherd boy",
+          "Sarah arrived"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes—the angel called from heaven.",
+        "wrongFeedback": "Paragraph three says the angel said, \"Lay not thine hand upon the lad.\""
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did God provide instead of Isaac?",
         "choices": [
-          "When you trust God, He takes care of you. Abraham obeyed—and God provided!",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older."
+          "A fish",
+          "A ram caught in a thicket",
+          "A loaf of bread",
+          "A golden coin"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When you trust God, He takes care of you. Abraham obeyed—and God provided!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—the ram became the offering.",
+        "wrongFeedback": "Abraham looked and saw a ram caught by its horns in the bush (Genesis 22:13)."
+      },
+      {
+        "question": "What can we remember when God asks hard trust?",
+        "choices": [
+          "God forgets His promises",
+          "He sees our heart and always provides what we need in His time",
+          "We should never obey",
+          "Tests never end well"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—Jehovah-jireh: the LORD will provide.",
+        "wrongFeedback": "Think of Abraham's name for the place and the ram God gave. What does that teach about God?"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Abraham & Isaac with God's Word today.",
-    "takeaway": "When you trust God, He takes care of you. Abraham obeyed—and God provided!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Abraham & Isaac. Amen.",
+    "doneHeading": "You Did It!",
+    "doneMessage": "Great job seeing how Abraham trusted God—and God provided.",
+    "takeaway": "When God asks you to trust Him with something dear, obey—He will provide.",
+    "prayer": "God, help me trust You like Abraham, even when I do not understand. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Abraham and Isaac walk up the mountain (abraham)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Abraham trusts God (isaac)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God provides a ram! (sacrifice)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Abraham and Isaac walk up the mountain (ram)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Abraham trusts God (trust)"
+      "gentle cartoon: father and son walking uphill with wood, soft morning light, no text",
+      "kid illustration: boy asking about the lamb, loving faces, no text",
+      "Bible scene: angel light from above, hand stopped gesture, not graphic, no text",
+      "warm cartoon: ram in bushes, horns visible, relief and thanks, no text",
+      "hopeful ending: hilltop sunrise, small altar, peace, gold accent, no text"
     ]
   },
   "adamEve": {
-    "kjvRef": "Genesis 3",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Genesis 2:7–25; 3:1–24",
+    "hintAboveQuiz": "Remember what God said they could and could not do!",
+    "readAlongImages": [],
     "paragraphs": [
-      "Adam & Eve.",
-      "We read about this in Genesis 3.",
-      "God made you special!",
-      "Even when we make mistakes, He still loves us.",
-      "We learn from God and how God cares for Adam and Eve."
+      "God made the first man, Adam, from dust and breathed life into him. Adam named all the animals.",
+      "God saw Adam needed a helper. He made Eve from Adam's rib while Adam slept.",
+      "They lived in a beautiful garden called Eden with God. They could eat any fruit except one tree.",
+      "A serpent tricked Eve into eating the forbidden fruit. She gave some to Adam, and he ate too.",
+      "Because they disobeyed, sin came into the world. God sent them out of the garden, but He still loved them. One day He would send the Savior, Jesus, to undo what sin broke."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Adam & Eve Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "How did God make Adam?",
         "choices": [
-          "Genesis 3",
-          "1 Kings 18",
-          "Ephesians 6",
-          "Judges 16"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 3.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "God",
-          "The crowds",
-          "Stephen"
+          "From a rib",
+          "From dust",
+          "From an animal",
+          "From light"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Yes! God formed Adam from dust and breathed life into him.",
+        "wrongFeedback": "Eve came from Adam's rib later. Adam was made from the ground (Genesis 2:7)."
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did God make for Adam because he was alone?",
         "choices": [
-          "God made you special! Even when we make mistakes, He still loves us.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "A new animal",
+          "Eve",
+          "A house",
+          "More friends"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God made you special! Even when we make mistakes, He still loves us..)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! God made Eve from Adam's rib to be his helper.",
+        "wrongFeedback": "Adam named the animals, but none was right for him. God made Eve specially (Genesis 2:18–22)."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What was the one tree they could not eat from?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Adam and Eve in the garden"
+          "Tree of life",
+          "Tree of knowledge of good and evil",
+          "Orange tree",
+          "Banana tree"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes! God said not to eat from that tree.",
+        "wrongFeedback": "The tree of life was different. God warned them about the tree of knowledge of good and evil (Genesis 2:17)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Who tricked Eve into eating the fruit?",
         "choices": [
-          "God made you special! Even when we make mistakes, He still loves us.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older."
+          "Adam",
+          "The serpent",
+          "God",
+          "An angel"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God made you special! Even when we make mistakes, He still loves us..)"
+        "correctIndex": 1,
+        "correctFeedback": "Correct! The serpent (Satan) tricked her.",
+        "wrongFeedback": "Adam ate after Eve. The Bible says the serpent was more subtle and deceived her (Genesis 3:1–6)."
+      },
+      {
+        "question": "What happened because Adam and Eve disobeyed?",
+        "choices": [
+          "They stayed in Eden forever",
+          "Sin came into the world",
+          "They got more fruit",
+          "Nothing changed"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! Sin entered, but God still loved them and planned the Savior.",
+        "wrongFeedback": "They had to leave Eden. Disobedience brought sin and separation, but God still cared for them."
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Adam & Eve with God's Word today.",
-    "takeaway": "God made you special! Even when we make mistakes, He still loves us.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Adam & Eve. Amen.",
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God still loves us even when we disobey.",
+    "takeaway": "God made us to live with Him, but sin separates us — He sent Jesus to bring us back.",
+    "prayer": "God, forgive me when I disobey. Thank You for loving me and sending Jesus. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Adam and Eve in the garden (adam)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The serpent and the apple (eve)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God still loves them (garden)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Adam and Eve in the garden (apple)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The serpent and the apple (hide)"
+      "bright cartoon for kids: God forming Adam from dust, breath of life, garden background, no text",
+      "fun kid illustration: Adam naming animals in Eden, smiling, friendly animals around him, no text",
+      "colorful Bible scene for children: God creating Eve while Adam sleeps, gentle peaceful light, no text",
+      "serious kid-safe cartoon: Eve and Adam near the forbidden tree, serpent nearby, humble colors not scary, no text",
+      "hopeful ending illustration: Adam and Eve leaving Eden, distant light suggesting God's promise, no text"
     ]
   },
   "alphaOmega": {
@@ -1370,87 +1372,88 @@
   },
   "cainAbel": {
     "kjvRef": "Genesis 4",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "hintAboveQuiz": "Watch what each brother brings—and how God responds.",
+    "readAlongImages": [],
     "paragraphs": [
-      "Cain & Abel.",
-      "We read about this in Genesis 4.",
-      "Give God your best!",
-      "When you feel jealous, talk to God instead of getting angry.",
-      "We learn from God and how God cares for Cain and Abel."
+      "Adam and Eve had two sons. Cain grew crops. Abel kept sheep. Both wanted to worship God.",
+      "Abel brought the firstborn of his flock—the best he had. Cain brought an offering too, but God had respect unto Abel and his offering, and not unto Cain's the same way (Genesis 4:4–5, KJV).",
+      "Cain burned with anger. God warned him, \"If thou doest well, shalt thou not be accepted? and if thou doest not well, sin lieth at the door\" (Genesis 4:7, KJV). Cain could still choose to do right.",
+      "Cain would not listen. In the field he rose up against Abel his brother and killed him. God asked, \"Where is Abel thy brother?\" Cain said, \"Am I my brother's keeper?\"",
+      "Sin hurts families and grieves God, but the story still teaches us: give God your heart and your best, talk to Him when jealousy rises, and never let anger make you hurt someone."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Cain & Abel",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What kind of work did Abel do?",
         "choices": [
-          "Genesis 4",
-          "Matthew 25",
-          "Judges 16:30",
-          "Genesis 3"
+          "He fished",
+          "He kept sheep",
+          "He built towers",
+          "He wrote books"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 4.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes—he was a shepherd who offered the firstborn of his flock.",
+        "wrongFeedback": "Cain worked the ground. Abel cared for sheep—that is why he could offer a lamb (Genesis 4:2)."
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Whose offering did God accept?",
         "choices": [
-          "Paul",
-          "Stephen",
-          "Jesus",
-          "God"
+          "Only Cain's",
+          "Abel's when he brought his best",
+          "Neither brother's",
+          "Both exactly the same"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctIndex": 1,
+        "correctFeedback": "Right—God had respect unto Abel and his offering.",
+        "wrongFeedback": "Read paragraph two. God received Abel's gift with honor. Cain needed a right heart too."
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did God warn Cain about?",
         "choices": [
-          "Give God your best! When you feel jealous, talk to God instead of getting angry.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "To plant more wheat",
+          "That sin wanted to control him if he did not rule over it",
+          "To move to another country",
+          "To stop talking"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Give God your best! When you feel jealous, talk to God instead of getting angry..)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes—sin crouched at the door; Cain needed to master it.",
+        "wrongFeedback": "Look at Genesis 4:7 in the story block—God spoke about doing well and sin lying at the door."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What terrible thing did Cain do to Abel?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Cain and Abel bring offerings",
-          "Everyone decided to never sleep again."
+          "He shared lunch",
+          "He hurt him until he died",
+          "He moved away quietly",
+          "He helped him build a house"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Sadly true—jealousy led to murder.",
+        "wrongFeedback": "The Bible says Cain talked with Abel in the field, then rose up against him (Genesis 4:8)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What is one lesson for us today?",
         "choices": [
-          "Give God your best! When you feel jealous, talk to God instead of getting angry.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong."
+          "God does not care about offerings",
+          "Give God your best and tell Him when you feel jealous",
+          "Anger always helps",
+          "Brothers never need kindness"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Give God your best! When you feel jealous, talk to God instead of getting angry..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—bring your heart to God before anger grows big.",
+        "wrongFeedback": "Think: what did God want Cain to do instead of stewing in anger? Reread paragraph three."
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Cain & Abel with God's Word today.",
-    "takeaway": "Give God your best! When you feel jealous, talk to God instead of getting angry.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Cain & Abel. Amen.",
+    "doneHeading": "You Did It!",
+    "doneMessage": "Great job learning from Cain and Abel in God's Word today.",
+    "takeaway": "Give God your best. When jealousy knocks, pray before you act.",
+    "prayer": "God, help me give You my best and rule over angry feelings. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cain and Abel bring offerings (cain)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is pleased with Abel (abel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God warns Cain about anger (jealousy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Cain and Abel bring offerings (offering)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God is pleased with Abel (brothers)"
+      "bouncy cartoon: two brothers, fields and sheep, friendly colors, offering baskets, no text",
+      "kid illustration: Abel offering lamb, open hands, sunrise, no text",
+      "scene: Cain looking upset, shadow small, teachable not horror, no text",
+      "Bible moment: God warning Cain, gentle but serious light, no text",
+      "calm closing: wheat and shepherd staff, reminder to choose peace, no text"
     ]
   },
   "comeLordJesus": {
@@ -1625,88 +1628,89 @@
     ]
   },
   "creationLight": {
-    "kjvRef": "Genesis 1:3",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Genesis 1:1–5",
+    "hintAboveQuiz": "Remember what God did on the very first day!",
+    "readAlongImages": [],
     "paragraphs": [
-      "Creation Day One – Genesis 1:3. In the beginning, God created the heavens and the earth. It was dark and empty.",
-      "God said, 'Let there be light,' and there was light! God saw the light and called it good.",
-      "He separated light from darkness—He called light Day and darkness Night. That was the first day.",
-      "God made everything perfectly by speaking it into being. For you: Look around at the sun, sky, trees, animals—God made them all.",
-      "He spoke, and they came to be. Thank God for creating such a beautiful world for you to enjoy and take care of."
+      "In the beginning, God created the heavens and the earth. Everything was dark and empty.",
+      "God said, \"Let there be light!\" And there was light. God saw that the light was good.",
+      "He separated the light from the darkness. God called the light \"day\" and the darkness \"night\".",
+      "There was evening, and there was morning — the first day.",
+      "God made light on the very first day so we could see His wonderful creation."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Day 1 Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What was everything like before God started creating?",
         "choices": [
-          "Genesis 1:3",
-          "Joshua 3",
-          "Genesis 28:12",
-          "Matthew 25"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 1:3.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Paul",
-          "Jesus",
-          "Stephen",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God spoke, 'Let there be light,' and light appeared. Everything God made was good. He created the world perfectly for us. When you see the…",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God spoke, 'Let there be light,' and light appeared. Everything God made was good. He….)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A spaceship landed in the parking lot.",
-          "Dark empty earth – Before God spoke",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "Bright and colorful",
+          "Dark and empty",
+          "Full of animals",
+          "Covered in water"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes! It was dark and empty — then God began.",
+        "wrongFeedback": "Not quite. The Bible says the earth was without form and empty, and darkness was upon the face of the deep (Genesis 1:2). God started with nothing ready yet!"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did God say on the first day?",
         "choices": [
-          "Look around at the sun, sky, trees, animals—God made them all. He spoke, and they came to be. Thank God for creating…",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Let there be animals",
+          "Let there be light",
+          "Let there be people",
+          "Let there be stars"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Look around at the sun, sky, trees, animals—God made them all. He spoke, and they came….)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! \"Let there be light!\" — and light appeared.",
+        "wrongFeedback": "Animals and people came much later. On Day 1, God commanded light to appear (Genesis 1:3)."
+      },
+      {
+        "question": "What did God call the light?",
+        "choices": [
+          "Night",
+          "Day",
+          "Sky",
+          "Stars"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly! He called the light \"day\" and the darkness \"night\".",
+        "wrongFeedback": "Night is darkness. God named the light \"day\" so we could tell time (Genesis 1:5)."
+      },
+      {
+        "question": "What happened after God made light?",
+        "choices": [
+          "He rested",
+          "He separated it from darkness",
+          "He made plants",
+          "He made animals"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! He separated light from darkness — that was the first day.",
+        "wrongFeedback": "Rest came later. Plants were Day 3, animals Day 6. First He separated light and dark."
+      },
+      {
+        "question": "What does Day 1 teach us about God?",
+        "choices": [
+          "God likes darkness",
+          "God speaks and things happen",
+          "God needs help",
+          "God is weak"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! God just spoke — \"Let there be light\" — and it happened. He is powerful!",
+        "wrongFeedback": "The story shows God's word has power. He did not need help — His command was enough!"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading \"Let There Be Light\" with God's Word today.",
-    "takeaway": "God spoke, 'Let there be light,' and light appeared. Everything God made was good. He created the world perfectly for us. When you see the beauty around you—sun, sky, animals—remember God made it…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in \"Let There Be Light\". Amen.",
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God spoke light into being!",
+    "takeaway": "God is powerful — He speaks and creation listens.",
+    "prayer": "God, thank You for making light. Help me listen to Your words every day. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Dark empty earth – Before God spoke (creation)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God saying 'Let there be light' – Creation begins (light)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Light and darkness separated – First day complete (genesis 1)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Dark empty earth – Before God spoke (let there be light)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God saying 'Let there be light' – Creation begins (darkness)"
+      "bright bouncy cartoon for kids: completely dark empty void before creation, no light anywhere, no text",
+      "fun kid illustration: bright words \"Let there be light\" feeling, glow breaking through darkness, colorful burst, no text on image",
+      "colorful Bible scene for children: light and darkness separated, day side bright, night side dark and starry, no text",
+      "exciting cartoon: first day complete, warm light over land and sea, peaceful feel, no text",
+      "happy ending illustration: beautiful sunrise over waters, sense of God's good gift of light, gold accents, no text"
     ]
   },
   "crossCarry": {
@@ -13615,88 +13619,89 @@
     ]
   },
   "towerBabel": {
-    "kjvRef": "Genesis 11",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Genesis 11:1–9",
+    "hintAboveQuiz": "Ask why the people built the tower—and what God did.",
+    "readAlongImages": [],
     "paragraphs": [
-      "Tower of Babel.",
-      "We read about this in Genesis 11.",
-      "God is bigger than any tower!",
-      "He made all the languages—that's why we have so many ways to talk!",
-      "We learn from God and how God cares for The people building the tower."
+      "After the flood, everyone spoke one language. They moved east and found a plain in the land of Shinar.",
+      "They said, \"Let us make brick... let us build us a city and a tower, whose top may reach unto heaven; and let us make us a name\" (Genesis 11:4, KJV). They wanted to be famous without honoring God.",
+      "The LORD came down to see the city and the tower. He said, \"Let us go down, and there confound their language, that they may not understand one another's speech\" (Genesis 11:7, KJV).",
+      "Suddenly workers could not understand each other. Building stopped. From there the LORD scattered them abroad upon the face of all the earth. So the place was called Babel—because the LORD did there confound the language of all the earth.",
+      "Pride pushes people away from God and from each other. When we humble ourselves and give Him glory, He gathers us in better ways."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Tower of Babel",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Why did the people want to build the tall tower?",
         "choices": [
-          "Luke 22",
-          "Exodus 12",
-          "Genesis 11",
-          "Mark 5"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 11.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Paul",
-          "God",
-          "Stephen",
-          "Jesus"
+          "To honor God alone",
+          "To make a great name for themselves and reach toward heaven",
+          "To help travelers sleep",
+          "To grow more food"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Yes—they wanted their own fame.",
+        "wrongFeedback": "Reread paragraph two. They wanted a name for themselves and a top reaching heaven (Genesis 11:4)."
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What did God do so they could not finish?",
         "choices": [
-          "God is bigger than any tower! He made all the languages—that's why we have so many ways to talk!",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "He sent rain only",
+          "He confused their languages",
+          "He gave them more bricks",
+          "He taught them music"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is bigger than any tower! He made all the languages—that's why we have so many ways….)"
+        "correctIndex": 1,
+        "correctFeedback": "Right—they could no longer understand each other.",
+        "wrongFeedback": "Look at paragraph three. God confounded their speech so cooperation broke apart."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What happened after their languages were confused?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot.",
-          "People build a tall tower"
+          "They finished the tower faster",
+          "They stopped building and scattered over the earth",
+          "They all moved underwater",
+          "They forgot how to walk"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—work halted and people spread out.",
+        "wrongFeedback": "Paragraph four says the LORD scattered them abroad on the face of all the earth."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What does the name Babel remind us of?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "God is bigger than any tower! He made all the languages—that's why we have so many ways to talk!",
-          "Ignore God until we are older."
+          "A quiet picnic",
+          "That God confused the language there",
+          "A famous king only",
+          "The first rainbow"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God is bigger than any tower! He made all the languages—that's why we have so many ways….)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes—Babel sounds like the Hebrew idea of confusion.",
+        "wrongFeedback": "The story ends by saying the LORD confounded the language of all the earth there."
+      },
+      {
+        "question": "What is one wise lesson?",
+        "choices": [
+          "We should try to be famous without God",
+          "Humble hearts that honor God work better than proud towers",
+          "Languages never matter",
+          "Towers are always evil"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—give glory to God, not only to ourselves.",
+        "wrongFeedback": "Think: why did God stop the project? Pride without Him leads to confusion."
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Tower of Babel with God's Word today.",
-    "takeaway": "God is bigger than any tower! He made all the languages—that's why we have so many ways to talk!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Tower of Babel. Amen.",
+    "doneHeading": "Great Job!",
+    "doneMessage": "Great job learning about Babel in God's Word today.",
+    "takeaway": "God is greater than any tower. Humble yourself—He blesses that.",
+    "prayer": "God, help me honor You more than my own name. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People build a tall tower (babel)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God mixes up their words (tower)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Everyone speaks different languages (confusion)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: People build a tall tower (languages)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God mixes up their words (babylon)"
+      "bouncy cartoon: people stacking bricks toward sky, busy city, no text",
+      "kid illustration: tower mid-build, cranes and ropes simple, no text",
+      "colorful scene: confused faces, many speech bubbles with symbols not letters, no text",
+      "map-style art: families walking different directions, gentle colors, no text",
+      "peaceful closing: humble village at sunset, gratitude mood, soft colors, no text"
     ]
   },
   "transfigure": {

@@ -2,6 +2,8 @@
 
 End-to-end checklist for shipping **native `<video>` + WebVTT** on `/kids/corner.html`. Paths match `kids/kids-full-story-assets.js` (generated from `kids/kids-battle.js` story keys).
 
+**Animate one story at a time:** full checklist (all keys, filenames, suggested first five) — [`KIDS-STORY-ANIMATION-QUEUE.md`](./KIDS-STORY-ANIMATION-QUEUE.md). Refresh after catalog edits: `npm run kids:generate-animation-queue`.
+
 ## File layout
 
 | File | Role |

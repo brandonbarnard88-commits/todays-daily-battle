@@ -30,7 +30,8 @@
     "actionbible": "node build-action-bible.js",
     "actionbible:packs": "node build-action-bible-packs.js",
     "quality:gate": "npm run build && npm run audit:paranoid && node scripts/audit-links.mjs && npm run curriculum && npm run characters && npm run actionbible && npm run actionbible:packs && npm run test:security && npm run test && npm run test:site",
-    "quality:gate:full": "npm run quality:gate && npm run qa:smoke",
+    "qa:smoke:local": "node scripts/qa-smoke-local.mjs",
+    "quality:gate:full": "npm run quality:gate && npm run qa:smoke:local",
     "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts && npm run test:live-csp",
     "validate:prod": "node scripts/prod-validation.mjs",
     "suggest:fetch": "node scripts/fetch-feeling-suggestions.mjs",
@@ -47,7 +48,7 @@
     "audit:lighthouse:live": "node scripts/lighthouse-live-two.mjs",
     "audit:lighthouse:local:manual": "npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices",
     "pre-launch": "npm run quality:gate",
-    "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke",
+    "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke:local",
     "pre-launch:verify-live": "npm run test:live-csp && npm run validate:prod"
   },
   "devDependencies": {

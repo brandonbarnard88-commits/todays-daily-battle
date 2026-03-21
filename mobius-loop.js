@@ -591,7 +591,7 @@
           '<button type="button" class="mobius-trace-btn" id="mobius-trace-btn" aria-label="Trace the journey">Trace Journey</button>' +
           '<a href="mobius.html" class="mobius-go-universal" aria-label="Open universal Möbius Loop with any mood">Go Universal →</a>' +
         '</div>' +
-      '</div>';
+      '</div>');
 
     overlay.querySelector('.mobius-drawer-close').addEventListener('click', closeDrawer);
     overlay.addEventListener('click', function (e) {

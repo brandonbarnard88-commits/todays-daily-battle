@@ -24,6 +24,31 @@
     while (el.firstChild) el.removeChild(el.firstChild);
   }
 
+  /**
+   * Plain text for UI (textContent / attributes that expect human text).
+   * - Collapse repeated &amp; → & until stable (fixes double-encoded "David &amp;amp; Goliath").
+   * - Decode common HTML entities via a textarea so strings that were escaped once
+   *   (e.g. "&lt;div …&gt;" or "&quot;") do not get escaped again when building innerHTML
+   *   (which would show literal &lt; on screen).
+   */
+  function tdbPlainTextForUi(s) {
+    if (s == null || s === '') return '';
+    var str = String(s);
+    var prev;
+    for (var n = 0; n < 12; n++) {
+      prev = str;
+      str = str.replace(/&amp;/g, '&');
+      if (str === prev) break;
+    }
+    try {
+      var t = document.createElement('textarea');
+      t.innerHTML = str;
+      var out = t.value;
+      if (typeof out === 'string') return out;
+    } catch (_) {}
+    return str;
+  }
+
   /* ────────────────────────────────────────────────────
    * COLORING MODULE — self-contained, no server needed
    * ──────────────────────────────────────────────────── */
@@ -2450,7 +2475,19 @@
     jobSuffering: 'jobSuffering',
     psalm23Shepherd: 'psalm23Shepherd',
     solomonWisdom: 'solomonWisdom',
+    elijahFireFromHeaven: 'elijahFire',
+    elijahElijahElisha: 'elijahChariot',
     elijahChariot: 'elijahChariot',
+    elishaMiracles: 'elishaOil',
+    elishaFloatingAxe: 'naamanDip',
+    isaiahMessianic: 'angelMary',
+    jeremiahWeeping: 'jobSuffering',
+    ezekielValleyBones: 'elishaRaised',
+    danielFieryFurnace: 'fieryFurnace',
+    danielLionsDen: 'daniel',
+    ezraReturn: 'nehemiahWalls',
+    malachiMessage: 'tenCommandments',
+    johnBaptist: 'johnBaptize',
     jonahVine: 'jonahVine',
     danielPray: 'danielPray',
     estherBanquet: 'estherBanquet',
@@ -2461,12 +2498,21 @@
     jesusBirth: 'jesusManger',
     jesusTemple: 'jesusTemple',
     johnBaptize: 'johnBaptize',
+    jesusBaptism: 'johnBaptize',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
+    jesusFirstMiracle: 'weddingWine',
+    jesusCallingDisciples: 'jesusCalmsStorm',
+    jesusSermonMount: 'mustardSeed',
+    jesusHealsBlind: 'healBlind',
+    jesusHealsParalytic: 'healLeper',
     healBlind: 'healBlind',
     jesusBlessKids: 'jesusBlessKids',
     /* ── Week 6 ── */
+    jesusParableSower: 'parableSower',
+    jesusParableMustardSeed: 'mustardSeed',
+    jesusParableGoodShepherd: 'lostSheep',
     mustardSeed: 'mustardSeed',
     healLeper: 'healLeper',
     jairus: 'jairus',
@@ -2475,16 +2521,69 @@
     betrayal: 'judasKiss',
     gardenPrayer: 'prayerCloset',
     /* ── Week 7 ── */
+    jesusTriumphalEntry: 'palmSunday',
+    jesusLastSupper: 'lastSupper',
+    jesusGardenGethsemane: 'prayerCloset',
+    jesusCrucifixion: 'crucifixion',
+    jesusResurrection: 'resurrection',
     crossCarry: 'crossCarry',
     crucifixion: 'crucifixion',
     tombEmpty: 'tombEmpty',
     roadToEmmaus: 'emmausRoad',
     emmausRoad: 'emmausRoad',
     thomasDoubt: 'thomasDoubt',
+    pentecost: 'pentecost',
+    holySpiritPentecost: 'pentecost',
+    peterPentecostSermon: 'pentecost',
+    earlyChurchLife: 'pentecost',
     pentecostFire: 'pentecost',
     pentecostTongues: 'pentecostTongues',
+    peterHealsLame: 'peterShadow',
+    peterJailBreak: 'paulSilas',
     peterShadow: 'peterShadow',
+    paulBarnabas: 'paulShipwreck',
+    councilJerusalem: 'paulDamascus',
+    paulConversion: 'paulDamascus',
     paulDamascus: 'paulDamascus',
+    paulFirstJourney: 'paulShipwreck',
+    paulSecondJourney: 'paulSilas',
+    paulThirdJourney: 'paulShip',
+    paulEphesus: 'pentecost',
+    paulEutychus: 'lazarus',
+    paulRome: 'paulDamascus',
+    paulLetters: 'loveChapter',
+    paulPrisonEpistles: 'paulSilas',
+    paulEndurance: 'faithMustard',
+    paulTimothy: 'loisTimothy',
+    paulTitus: 'priscillaTeach',
+    paulPhilemon: 'forgive70x7',
+    hebrewsFaith: 'faithMustard',
+    jamesFaithWorks: 'fruitSpirit',
+    peterFirstLetter: 'peterPentecostSermon',
+    peterSecondLetter: 'peterShadow',
+    johnFirstLetter: 'johnPatmos',
+    judeWarning: 'dragonFight',
+    revelationLetters: 'revelationThrone',
+    revelationSeals: 'fourHorsemen',
+    revelationTrumpets: 'lambBook',
+    revelationBeasts: 'beastMark',
+    revelationThousandYears: 'dragonFight',
+    revelationNewJerusalem: 'newHeaven',
+    revelationWomanDragon: 'dragonFight',
+    revelationSongsAndHarvest: 'lambBook',
+    revelationSupperAndKing: 'comeLordJesus',
+    revelationBabylonFall: 'beastMark',
+    johnSecondThirdLetters: 'johnPatmos',
+    actsApollosPriscilla: 'priscillaTeach',
+    actsPaulBeforeAgrippa: 'paulRome',
+    actsPaulMarsHill: 'paulSilas',
+    actsPaulMelita: 'paulShipwreck',
+    romansRoadKids: 'crossCarry',
+    corinthiansOneBody: 'fruitSpirit',
+    philippiansJoy: 'paulPrisonEpistles',
+    colossiansChristSupreme: 'paulLetters',
+    thessaloniansHope: 'ascension',
+    timothyYouthExample: 'loisTimothy',
     paulShipwreck: 'paulShipwreck',
     paulSilas: 'paulSilas',
     tenVirgins: 'tenVirgins',
@@ -2504,15 +2603,20 @@
     zacchaeus: 'prayerKnock',
     maryAnoint: 'maryAnoint',
     /* ── Week 9 ── */
+    stephenMartyr: 'stephenStones',
+    philipEthiopian: 'philipChariot',
     stephenStones: 'stephenStones',
     stephen: 'stephenStones',
     philipChariot: 'philipChariot',
     paulShip: 'paulShip',
+    johnPatmos: 'revelationThrone',
     revelationThrone: 'revelationThrone',
+    revelationThroneRoom: 'revelationThrone',
     heavenPromise: 'newHeaven',
     fourHorsemen: 'fourHorsemen',
     alphaOmega: 'alphaOmega',
     newHeaven: 'newHeaven',
+    revelationNewHeaven: 'newHeaven',
     treeOfLife: 'treeOfLife',
     riverOfLife: 'riverOfLife',
     lambBook: 'lambBook',
@@ -2546,7 +2650,10 @@
     priscillaTent: 'priscillaTent',
     /* ── Week 12 ── */
     lazarus: 'lazarus',
+    jesusLazarus: 'lazarus',
     greatCommission: 'greatCommission',
+    jesusGreatCommission: 'greatCommission',
+    jesusAscension: 'ascension',
     ascension: 'ascension',
     faithMountain: 'faithMountain',
     loveNeighbor: 'loveNeighbor',
@@ -2639,7 +2746,7 @@
     coloringState.storyTitle = storyTitle || storyKey;
     coloringState.undoStack = [];
 
-    if (titleEl) titleEl.textContent = (storyTitle || 'Color Me!');
+    if (titleEl) titleEl.textContent = tdbPlainTextForUi(storyTitle || 'Color Me!');
 
     overlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
@@ -3043,6 +3150,7 @@
   var journeyStatusEl = document.getElementById('kids-journey-status');
 
   var LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
+  var LIBRARY_STORY_MASTER_KEY = 'kidsLibraryStoryMasterProgress';
   var LIBRARY_JOURNEY_KEY = 'kidsLibraryStoryJourneyState';
   var STORY_MASTER_THRESHOLD = 7;
   var currentOpenStoryKey = null;
@@ -3155,6 +3263,36 @@
     return abs;
   }
 
+  /**
+   * Shuffle multiple-choice labels for display; returns { labels, correctIndex } for this render only.
+   * Does not mutate the source pack (TDB_KIDS_READ_QUIZ is shared).
+   */
+  function shuffleReadQuizChoices(choices, correctIndex) {
+    var raw = choices || [];
+    var n = raw.length;
+    var ci = typeof correctIndex === 'number' && correctIndex === correctIndex ? Math.floor(correctIndex) : 0;
+    if (ci < 0) ci = 0;
+    if (n === 0) return { labels: [], correctIndex: 0 };
+    if (ci >= n) ci = n - 1;
+    var items = [];
+    for (var i = 0; i < n; i++) {
+      items.push({ label: String(raw[i]), orig: i });
+    }
+    for (var s = n - 1; s > 0; s--) {
+      var j = Math.floor(Math.random() * (s + 1));
+      var tmp = items[s];
+      items[s] = items[j];
+      items[j] = tmp;
+    }
+    var labels = [];
+    var shuffledCorrect = 0;
+    for (var k = 0; k < n; k++) {
+      labels.push(items[k].label);
+      if (items[k].orig === ci) shuffledCorrect = k;
+    }
+    return { labels: labels, correctIndex: shuffledCorrect };
+  }
+
   function mountReadQuizForStory(key) {
     clearReadQuizModal();
     if (!modalReadQuiz) return;
@@ -3168,7 +3306,7 @@
     if (pack.kjvRef) {
       var refP = document.createElement('p');
       refP.className = 'kids-read-quiz-ref';
-      refP.textContent = pack.kjvRef;
+      refP.textContent = tdbPlainTextForUi(pack.kjvRef);
       wrap.appendChild(refP);
     }
 
@@ -3238,20 +3376,20 @@
     if (pack.hintAboveQuiz) {
       var hint = document.createElement('p');
       hint.className = 'kids-read-quiz-hint';
-      hint.textContent = pack.hintAboveQuiz;
+      hint.textContent = tdbPlainTextForUi(pack.hintAboveQuiz);
       wrap.appendChild(hint);
     }
 
     (pack.paragraphs || []).forEach(function (para) {
       var p = document.createElement('p');
       p.className = 'kids-read-quiz-para';
-      p.textContent = para;
+      p.textContent = tdbPlainTextForUi(para);
       wrap.appendChild(p);
     });
 
     var qh = document.createElement('h4');
     qh.className = 'kids-read-quiz-h4';
-    qh.textContent = pack.quizHeading || 'Quiz';
+    qh.textContent = tdbPlainTextForUi(pack.quizHeading || 'Quiz');
     wrap.appendChild(qh);
 
     var quizHost = document.createElement('div');
@@ -3268,46 +3406,51 @@
         done.className = 'kids-read-quiz-done';
         var dh = document.createElement('h4');
         dh.className = 'kids-read-quiz-done-title';
-        dh.textContent = pack.doneHeading || 'All done!';
+        dh.textContent = tdbPlainTextForUi(pack.doneHeading || 'All done!');
         done.appendChild(dh);
         if (pack.doneMessage) {
           var dm = document.createElement('p');
-          dm.textContent = pack.doneMessage;
+          dm.textContent = tdbPlainTextForUi(pack.doneMessage);
           done.appendChild(dm);
         }
         if (pack.takeaway) {
           var tk = document.createElement('p');
           tk.className = 'kids-read-quiz-takeaway';
-          tk.textContent = pack.takeaway;
+          tk.textContent = tdbPlainTextForUi(pack.takeaway);
           done.appendChild(tk);
         }
         if (pack.prayer) {
           var pr = document.createElement('p');
           pr.className = 'kids-read-quiz-prayer';
-          pr.textContent = pack.prayer;
+          pr.textContent = tdbPlainTextForUi(pack.prayer);
           done.appendChild(pr);
         }
         quizHost.appendChild(done);
+        addStoryMasterProgress(key);
         return;
       }
 
       var qd = qList[qIndex.v];
+      var shuffled = shuffleReadQuizChoices(qd.choices, qd.correctIndex);
+      var displayChoices = shuffled.labels;
+      var displayCorrectIndex = shuffled.correctIndex;
+
       var step = document.createElement('div');
       step.className = 'kids-read-quiz-step';
 
       var qp = document.createElement('p');
       qp.className = 'kids-read-quiz-qtext';
-      qp.textContent = 'Question ' + (qIndex.v + 1) + ' of ' + qList.length + ': ' + qd.question;
+      qp.textContent = 'Question ' + (qIndex.v + 1) + ' of ' + qList.length + ': ' + tdbPlainTextForUi(qd.question);
       step.appendChild(qp);
 
       var fs = document.createElement('fieldset');
       fs.className = 'kids-read-quiz-fieldset';
       var leg = document.createElement('legend');
       leg.className = 'sr-only';
-      leg.textContent = qd.question;
+      leg.textContent = tdbPlainTextForUi(qd.question);
       fs.appendChild(leg);
       var gname = 'kq-' + key + '-' + qIndex.v;
-      (qd.choices || []).forEach(function (label, ci) {
+      displayChoices.forEach(function (label, ci) {
         var id = gname + '-c' + ci;
         var row = document.createElement('div');
         row.className = 'kids-read-quiz-choice';
@@ -3318,7 +3461,7 @@
         inp.value = String(ci);
         var lab = document.createElement('label');
         lab.setAttribute('for', id);
-        lab.textContent = label;
+        lab.textContent = tdbPlainTextForUi(label);
         row.appendChild(inp);
         row.appendChild(lab);
         fs.appendChild(row);
@@ -3349,15 +3492,15 @@
           return;
         }
         var picked = parseInt(sel.value, 10);
-        if (picked === qd.correctIndex) {
-          fb.textContent = qd.correctFeedback || 'Great job!';
+        if (picked === displayCorrectIndex) {
+          fb.textContent = tdbPlainTextForUi(qd.correctFeedback || 'Great job!');
           fb.className = 'kids-read-quiz-feedback feedback-correct';
           answered = true;
           Array.prototype.forEach.call(fs.querySelectorAll('input'), function (inp) { inp.disabled = true; });
           chk.classList.add('hidden');
           nxt.classList.remove('hidden');
         } else {
-          fb.textContent = qd.wrongFeedback || 'Try again—reread the story if you need a clue.';
+          fb.textContent = tdbPlainTextForUi(qd.wrongFeedback || 'Try again—reread the story if you need a clue.');
           fb.className = 'kids-read-quiz-feedback feedback-wrong';
         }
       });
@@ -3547,26 +3690,43 @@
     showToast('Journey reset.');
   }
 
-  function getViewedStories() {
+  function migrateStoryMasterFromLegacyViewed() {
     try {
+      if (localStorage.getItem(LIBRARY_STORY_MASTER_KEY)) return;
       var raw = localStorage.getItem(LIBRARY_VIEWED_KEY);
+      if (!raw) return;
+      var arr = JSON.parse(raw);
+      if (Array.isArray(arr) && arr.length) {
+        localStorage.setItem(LIBRARY_STORY_MASTER_KEY, JSON.stringify(arr));
+      }
+    } catch (e) {}
+  }
+
+  function getStoryMasterList() {
+    try {
+      var raw = localStorage.getItem(LIBRARY_STORY_MASTER_KEY);
       return raw ? JSON.parse(raw) : [];
     } catch (e) { return []; }
   }
 
-  function addViewedStory(key) {
-    var viewed = getViewedStories();
-    if (viewed.indexOf(key) === -1) {
-      viewed.push(key);
-      try { localStorage.setItem(LIBRARY_VIEWED_KEY, JSON.stringify(viewed)); } catch (e) {}
+  function addStoryMasterProgress(key) {
+    var list = getStoryMasterList();
+    if (list.indexOf(key) === -1) {
+      list.push(key);
+      try { localStorage.setItem(LIBRARY_STORY_MASTER_KEY, JSON.stringify(list)); } catch (e) {}
     }
     renderStoryMaster();
   }
 
+  function storyHasReadQuizPack(key) {
+    var pack = (window.TDB_KIDS_READ_QUIZ || {})[key];
+    return !!(pack && pack.paragraphs && pack.paragraphs.length && pack.questions && pack.questions.length);
+  }
+
   function renderStoryMaster() {
     if (!storyMasterEl) return;
-    var viewed = getViewedStories();
-    storyMasterEl.classList.toggle('hidden', viewed.length < STORY_MASTER_THRESHOLD);
+    var done = getStoryMasterList();
+    storyMasterEl.classList.toggle('hidden', done.length < STORY_MASTER_THRESHOLD);
   }
 
   var KIDS_SEMANTIC_MAP = {
@@ -3624,25 +3784,58 @@
     var stories = getStories();
     if (!grid) return;
     currentVisibleKeys = Array.isArray(keys) ? keys.slice() : [];
-    var html = '';
+    tdbClearHtml(grid);
     for (var i = 0; i < keys.length; i++) {
       var key = keys[i];
       var s = stories[key];
       if (!s) continue;
       var panels = s.panels || [];
-      var thumb = panels[0] ? panels[0].src : 'panel-noah-1.svg';
-      var title = escHtml(s.title || key);
-      var alt = panels[0] && panels[0].alt ? String(panels[0].alt) : String(s.title || key);
-      html += '<div class="kids-library-card" data-story="' + escAttr(key) + '" role="button" tabindex="0">';
-      html += '<img src="' + escAttr(thumb) + '" alt="' + escAttr(alt) + '">';
-      html += '<span class="kids-library-card-title">' + title + '</span>';
-      html += '<div style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;width:100%;">';
-      html += '<span class="kids-library-card-btn">Open story</span>';
-      html += '<button type="button" class="kids-card-color-btn" data-story="' + escAttr(key) + '" data-title="' + escAttr(s.title || key) + '" aria-label="Color ' + escAttr(s.title || key) + '">🎨 Color Me</button>';
-      html += '</div>';
-      html += '</div>';
+      var thumb = panels[0] ? String(panels[0].src || '') : '';
+      if (!thumb) thumb = 'panel-noah-1.svg';
+      var plainTitle = tdbPlainTextForUi(s.title || key);
+      var altRaw = panels[0] && panels[0].alt != null ? String(panels[0].alt) : String(s.title || key);
+      var plainAlt = tdbPlainTextForUi(altRaw);
+
+      var card = document.createElement('div');
+      card.className = 'kids-library-card';
+      card.setAttribute('data-story', key);
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+
+      var img = document.createElement('img');
+      img.src = thumb;
+      img.alt = plainAlt;
+      card.appendChild(img);
+
+      var titleSpan = document.createElement('span');
+      titleSpan.className = 'kids-library-card-title';
+      titleSpan.textContent = plainTitle;
+      card.appendChild(titleSpan);
+
+      var btnRow = document.createElement('div');
+      btnRow.style.display = 'flex';
+      btnRow.style.gap = '0.4rem';
+      btnRow.style.flexWrap = 'wrap';
+      btnRow.style.justifyContent = 'center';
+      btnRow.style.width = '100%';
+
+      var openLbl = document.createElement('span');
+      openLbl.className = 'kids-library-card-btn';
+      openLbl.textContent = 'Open story';
+      btnRow.appendChild(openLbl);
+
+      var colorBtn = document.createElement('button');
+      colorBtn.type = 'button';
+      colorBtn.className = 'kids-card-color-btn';
+      colorBtn.setAttribute('data-story', key);
+      colorBtn.setAttribute('data-title', plainTitle);
+      colorBtn.setAttribute('aria-label', 'Color ' + plainTitle);
+      colorBtn.textContent = '🎨 Color Me';
+      btnRow.appendChild(colorBtn);
+
+      card.appendChild(btnRow);
+      grid.appendChild(card);
     }
-    tdbSetHtml(grid, html);
     if (noMatch) {
       noMatch.classList.toggle('hidden', keys.length > 0);
       if (keys.length === 0) {
@@ -3699,7 +3892,7 @@
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
-    if (modalTitle) modalTitle.textContent = s.title || key;
+    if (modalTitle) modalTitle.textContent = tdbPlainTextForUi(s.title || key);
     clearStoryVideoContainer(modalVideo);
     if (hasFullVideo && fullMedia) {
       mountFullStoryPlayer(modalVideo, key, s.title || key, fullMedia);
@@ -3725,6 +3918,9 @@
       }
     }
     mountReadQuizForStory(key);
+    if (!storyHasReadQuizPack(key)) {
+      addStoryMasterProgress(key);
+    }
     if (modal) {
       modal.classList.remove('hidden');
       modalPreviousFocus = document.activeElement;
@@ -3760,7 +3956,6 @@
       if (firstBtn) firstBtn.focus();
     }
     syncStoryNavButtons();
-    addViewedStory(key);
     advanceJourneyFromStory(key);
   }
 
@@ -3813,6 +4008,7 @@
       setTimeout(init, 100);
       return;
     }
+    migrateStoryMasterFromLegacyViewed();
     try {
       var params = new URLSearchParams(location.search);
       var q = params.get('q');

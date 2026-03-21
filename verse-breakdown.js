@@ -506,7 +506,7 @@
       ''
     ).trim();
     if (!ref) {
-      var refNode = container.querySelector('.verse-ref, .kids-verse-ref, .concordance-verse-ref, .verse-maps-verse-ref');
+      var refNode = container.querySelector('.verse-ref, .smart-ref, .kids-verse-ref, .concordance-verse-ref, .verse-maps-verse-ref');
       if (refNode) ref = extractRefFromText(refNode.textContent || '');
     }
     if (!ref) {
@@ -521,7 +521,7 @@
       ''
     ).trim();
     if (!text) {
-      var textNode = container.querySelector('.verse-text, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text');
+      var textNode = container.querySelector('.verse-text, .smart-verse, .kids-verse-text, .concordance-verse-text, .verse-maps-verse-text');
       if (textNode) text = cleanVerseText(textNode.textContent || '');
     }
     if (!text) {
@@ -541,6 +541,7 @@
     var host = root && root.querySelectorAll ? root : document;
     var selectors = [
       '.verse-card',
+      '.smart-card',
       '.verse-item',
       '.ab-card',
       '.curriculum-verse',

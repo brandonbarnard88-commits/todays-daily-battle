@@ -97,10 +97,11 @@ function trustedScriptURL(url) {
   try {
     var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
     if (pol && typeof pol.createScriptURL === 'function') {
-      var t = pol.createScriptURL(url);
-      if (t) return t;
+      return pol.createScriptURL(url);
     }
   } catch (_) {}
+  // Local / no CSP: no default policy — plain string is valid for script.src.
+  if (!window.trustedTypes || !window.trustedTypes.defaultPolicy) return url;
   return null;
 }
 
@@ -985,7 +986,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260306u');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260320smart');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;
@@ -12291,6 +12292,12 @@ function setTtsPlaying(playing) {
   document.body.classList.toggle('tts-playing', playing);
   var stopBtn = document.getElementById('tts-stop');
   if (stopBtn) stopBtn.style.display = playing ? 'inline-flex' : 'none';
+  var readerListen = document.getElementById('reader-listen');
+  if (readerListen && !readerListen.hidden) {
+    readerListen.textContent = playing ? 'Stop' : 'Listen';
+    readerListen.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    readerListen.setAttribute('aria-label', playing ? 'Stop reading this chapter aloud' : 'Listen to this chapter read aloud');
+  }
 }
 
 function stopTts() {
@@ -12339,25 +12346,40 @@ function speakVerse(ref, text) {
   }
 }
 
+/** Verse lines only — strips reference prefix from each line for clearer TTS. */
+function getReaderChapterPlainTextFromDom(output) {
+  if (!output || !output.querySelectorAll) return '';
+  var lines = output.querySelectorAll('.context-line');
+  if (!lines.length) return '';
+  var parts = [];
+  for (var i = 0; i < lines.length; i++) {
+    var el = lines[i];
+    var clone = el.cloneNode(true);
+    var strong = clone.querySelector('strong');
+    if (strong) strong.remove();
+    var t = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+    if (t) parts.push(t);
+  }
+  return parts.join(' ');
+}
+
 function speakChapter(book, chapter) {
   const key = `${book} ${chapter}`;
   let verses = chapterIndex[key];
-  if (!verses || !verses.length) {
+  let text = '';
+  if (verses && verses.length) {
+    text = verses.map(function (v) { return v.text || ''; }).join(' ').replace(/\s+/g, ' ').trim();
+  } else {
     const output = document.getElementById('reader-output');
-    if (output && output.querySelectorAll) {
-      const lines = output.querySelectorAll('.context-line');
-      if (lines.length) {
-        const text = Array.prototype.map.call(lines, function (el) { return el.textContent || ''; }).join(' ');
-        if (text.trim()) {
-          speakVerse(key, text.trim());
-          return;
-        }
-      }
-    }
-    alert('Chapter not ready yet. Click Open Chapter first.');
+    text = output ? getReaderChapterPlainTextFromDom(output) : '';
+  }
+  if (!text) {
+    alert('Chapter not ready yet. Open a chapter first, then tap Listen.');
     return;
   }
-  const text = verses.map(v => v.text).join(' ');
+  try {
+    trackEvent('chapter_reader_listen', { book: String(book || ''), chapter: String(chapter || '') });
+  } catch (e) {}
   speakVerse(key, text);
 }
 
@@ -22005,13 +22027,24 @@ function sanitizeNudgeElements() {
   }
 
   const readerListenBtn = document.getElementById('reader-listen');
+  const readerListenHint = document.getElementById('reader-listen-hint');
   if (readerListenBtn) {
-    readerListenBtn.addEventListener('click', () => {
-      const book = document.getElementById('reader-book')?.value;
-      const chapter = document.getElementById('reader-chapter')?.value;
-      if (!book || !chapter) return;
-      speakChapter(book, chapter);
-    });
+    if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+      readerListenBtn.hidden = true;
+      readerListenBtn.setAttribute('aria-hidden', 'true');
+      if (readerListenHint) readerListenHint.hidden = true;
+    } else {
+      readerListenBtn.addEventListener('click', () => {
+        if (ttsPlaying) {
+          stopTts();
+          return;
+        }
+        const book = document.getElementById('reader-book')?.value;
+        const chapter = document.getElementById('reader-chapter')?.value;
+        if (!book || !chapter) return;
+        speakChapter(book, chapter);
+      });
+    }
   }
 
   const readerAudioBtn = document.getElementById('reader-audio');

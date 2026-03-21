@@ -1,6 +1,13 @@
-import { chromium, firefox } from 'playwright';
-import fs from 'fs';
-import path from 'path';
+// Playwright reads PLAYWRIGHT_BROWSERS_PATH when the module loads. Cursor/agent sandboxes
+// sometimes point it at a wrong-arch or incomplete cache; strip that before import.
+if (
+  typeof process.env.PLAYWRIGHT_BROWSERS_PATH === 'string' &&
+  process.env.PLAYWRIGHT_BROWSERS_PATH.includes('cursor-sandbox-cache')
+) {
+  delete process.env.PLAYWRIGHT_BROWSERS_PATH;
+}
+
+const { chromium, firefox } = await import('playwright');
 
 const url = process.env.QA_URL || 'https://todaysdailybattle.com/index.html';
 const checks = [];
@@ -20,16 +27,7 @@ function hasFailure() {
 async function launchBrowser() {
   try {
     return await firefox.launch({ headless: true });
-  } catch (err) {
-    const root = process.env.PLAYWRIGHT_BROWSERS_PATH || '';
-    const candidates = [
-      path.join(root, 'chromium_headless_shell-1208', 'chrome-headless-shell-mac-arm64', 'chrome-headless-shell'),
-      path.join(root, 'chromium_headless_shell-1208', 'chrome-headless-shell-mac-x64', 'chrome-headless-shell')
-    ];
-    const executablePath = candidates.find((p) => p && fs.existsSync(p));
-    if (executablePath) {
-      return await chromium.launch({ headless: true, executablePath });
-    }
+  } catch (_) {
     return await chromium.launch({ headless: true });
   }
 }
@@ -73,6 +71,9 @@ try {
   });
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(900);
+  await page
+    .waitForResponse((r) => /\/verse-breakdown\.js/i.test(r.url()) && r.ok(), { timeout: 35000 })
+    .catch(() => {});
 
   const welcomeOverlay = page.locator('#welcome-anointing-overlay');
   const welcomeExists = (await welcomeOverlay.count()) > 0;
@@ -154,8 +155,18 @@ try {
     if (cards > 0) {
       let breakdownOk = false;
       try {
+        await page.waitForFunction(
+          () =>
+            typeof window.TDBVerseBreakdown === 'object' &&
+            window.TDBVerseBreakdown &&
+            typeof window.TDBVerseBreakdown.open === 'function',
+          { timeout: 30000 }
+        );
         await page.waitForTimeout(800);
-        const btnLoc = page.locator(breakdownBtnSel).first();
+        // Visible homepage results live in #feel-results; #output is sr-only and appears first in DOM — do not union it.
+        const scopedBtn = page.locator('#feel-results').locator(breakdownBtnSel).first();
+        const hasScopedBtn = (await scopedBtn.count()) > 0;
+        const btnLoc = hasScopedBtn ? scopedBtn : page.locator(breakdownBtnSel).first();
         const hasBtn = (await btnLoc.count()) > 0;
         const target = hasBtn ? btnLoc : page.locator(cardSel).first();
         await target.scrollIntoViewIfNeeded().catch(() => {});

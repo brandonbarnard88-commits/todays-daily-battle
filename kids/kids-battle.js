@@ -1460,7 +1460,7 @@
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
       keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'food', 'provide'],
-      kjvRef: 'Exodus 16:15',
+      kjvRef: 'Exodus 16',
       kidContext: { who: 'God', to: 'The Israelites in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
       narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
     },
@@ -1518,7 +1518,7 @@
       videoId: 'vnRAdASpsz4',
       videoTitle: "Samson and Delilah – Bible Lessons for Kids!",
       keywords: ['samson', 'hair', 'strength', 'pillars', 'judges 16', 'power', 'delilah'],
-      kjvRef: 'Judges 16:30',
+      kjvRef: 'Judges 13–16',
       kidContext: { who: 'God', to: 'Samson (a strong man)', apply: "Samson was super strong because God gave him power, but he didn't always use it wisely. In the end, he prayed for strength one last time and brought down the pillars to defeat the enemies. God gives us strength too—use it to help others and honor Him, not for selfish things." },
       narration: "Samson and the Pillars – Judges 16:30. Samson was born with special strength from God—no razor on his head. He fought bad guys and did amazing things. But Samson made mistakes and told his secret to Delilah. She cut his hair, and his strength left. The enemies captured him and made fun of him in their temple. Samson prayed, 'Lord, remember me and give me strength just this once.' God answered! Samson pushed the two middle pillars, and the whole building fell on the enemies and himself. God gave him power one last time. For you: God gives you strength in different ways. Use it to do good, help others, and follow Him—not for showing off or getting even."
     },
@@ -1533,7 +1533,7 @@
       videoId: 'kAzX-Icrbm0',
       videoTitle: 'The Fiery Furnace – Shadrach, Meshach & Abednego!',
       keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3'],
-      kjvRef: 'Daniel 3:25',
+      kjvRef: 'Daniel 3',
       kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them safe. When you're in a tough or scary situation, God is right there with you—He never leaves you alone." },
       narration: "Fiery Furnace Three – Daniel 3:25. King Nebuchadnezzar made a huge gold statue and said everyone must bow to it or be thrown into a fiery furnace. Shadrach, Meshach, and Abednego loved God and said, 'We will not bow.' The king was furious and made the furnace seven times hotter. The soldiers who threw them in died from the heat. But the king looked in and saw four men walking around! The fourth looked like the Son of God. The three friends came out unharmed—no burns, no smoke smell. God was with them in the fire! For you: When you face hard times or pressure to do wrong, stand strong for God. He is with you in the fire and will protect you."
     },
@@ -1553,7 +1553,7 @@
       narration: "Esther Saves Her People – Esther 4. Esther was a queen, but a bad man named Haman wanted to hurt all of God's people. Esther's uncle Mordecai said, 'Who knows? Maybe you were made queen for such a time as this.' Esther was scared—but she prayed and went to the king. She told him the truth. The king listened and stopped Haman. God used Esther to save her people! For you: God put you where you are for a reason. When it's hard to be brave, pray and step forward. He uses you."
     },
     jesusBirth: {
-      title: 'Jesus Birth',
+      title: 'Birth of Jesus',
       panels: [
         { src: 'panel-jesus-1.svg', alt: 'Mary and Joseph travel to Bethlehem' },
         { src: 'panel-jesus-2.svg', alt: 'Jesus born in a manger' },
@@ -1562,9 +1562,9 @@
       caption: 'Swipe to see Jesus come as a baby—God loves us! 🎄',
       videoId: 'v3656G6tWuI',
       videoTitle: 'The Story of Christmas – Jesus is Born!',
-      keywords: ['jesus', 'birth', 'manger', 'shepherds', 'angels', 'bethlehem', 'luke 2', 'christmas'],
-      kjvRef: 'Luke 2',
-      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came as a baby—God loves us! Christmas is about God\'s greatest gift!' }
+      keywords: ['jesus', 'birth', 'manger', 'shepherds', 'angels', 'bethlehem', 'luke 2', 'matthew 2', 'wise men', 'christmas'],
+      kjvRef: 'Luke 2; Matthew 1–2',
+      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came humbly as a baby to save us — God with us. Christmas is God\'s greatest gift.' }
     },
     jesusCalmsStorm: {
       title: 'Jesus Calms the Storm',
@@ -1576,8 +1576,8 @@
       caption: 'Swipe to see Jesus calm the storm—trust Him! ⛵',
       videoId: 'uYLHqdSO9OY',
       videoTitle: 'Jesus Calms the Storm – Bible Story for Kids!',
-      keywords: ['jesus', 'storm', 'boat', 'waves', 'peace', 'matthew 14', 'mark 4'],
-      kjvRef: 'Mark 4:39',
+      keywords: ['jesus', 'storm', 'boat', 'waves', 'peace', 'matthew 8', 'mark 4'],
+      kjvRef: 'Mark 4:35–41',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus is with you in every storm. When you feel scared, call on Him—He can bring peace." },
       narration: "Jesus Calms the Boat – Mark 4:39. Jesus and His disciples were crossing the lake in a boat. A huge storm came up—waves crashed, wind howled, and the boat was filling with water. The disciples were terrified and woke Jesus, saying, 'Master, don't You care that we are perishing?' Jesus stood up and said to the wind and waves, 'Peace, be still.' Immediately the wind stopped, and there was a great calm. Jesus asked them, 'Why are you so fearful? How is it that you have no faith?' The disciples were amazed—'Even the wind and sea obey Him!' For you: When life feels stormy or scary, Jesus is right there with you. Call on Him—He has power to bring peace to your heart."
     },
@@ -1592,7 +1592,7 @@
       videoId: 'S6rj9cAJrWE',
       videoTitle: 'Jesus Feeds the 5,000 – Saddleback Kids!',
       keywords: ['jesus', 'feeds', '5000', 'bread', 'fish', 'miracle', 'matthew 14', 'john 6'],
-      kjvRef: 'John 6',
+      kjvRef: 'John 6:1–14',
       kidContext: { who: 'Jesus', to: 'The 5,000 people (and us)', apply: 'Jesus feeds everyone—He cares! Give God what you have—He can multiply it!' }
     },
     goodSamaritan: {
@@ -1620,7 +1620,7 @@
       videoId: '29qEf9afdcA',
       videoTitle: 'The Prodigal Son – Bible Stories for Kids!',
       keywords: ['prodigal', 'son', 'run away', 'come back', 'party', 'forgiveness', 'luke 15'],
-      kjvRef: 'Luke 15',
+      kjvRef: 'Luke 15:11–32',
       kidContext: { who: 'Jesus', to: 'People who wondered if God forgives', apply: 'God welcomes you home! No matter what you did, come back—He runs to meet you!' }
     },
     zacchaeus: {
@@ -1706,7 +1706,7 @@
       videoId: 'N5zP9YxUaLI',
       videoTitle: 'David, Lion & Bear – Bible Stories for Kids!',
       keywords: ['david', 'sheep', 'shepherd', 'harp', 'lion', '1 samuel 17'],
-      kjvRef: '1 Samuel 17',
+      kjvRef: '1 Samuel 16:11; 17:15, 34–37',
       kidContext: { who: 'David', to: 'King Saul (and us)', apply: 'David protected sheep—God protects us! Like a shepherd cares for his flock!' }
     },
     elijahFire: {
@@ -1720,7 +1720,7 @@
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
       keywords: ['elijah', 'baal', 'fire', 'carmel', '1 kings 18', 'altar'],
-      kjvRef: '1 Kings 18',
+      kjvRef: '1 Kings 18:20–40',
       kidContext: { who: 'God', to: 'Elijah and all Israel', apply: 'God answers with fire—He\'s real! The LORD is God—trust Him alone!' }
     },
     elishaOil: {
@@ -1734,7 +1734,7 @@
       videoId: '6E2WJ0vp4g4',
       videoTitle: 'Elisha and the Widow\'s Oil – Animated Bible Story!',
       keywords: ['elisha', 'oil', 'widow', '2 kings 4', 'multiply', 'jar'],
-      kjvRef: '2 Kings 4',
+      kjvRef: '2 Kings 4:1–7',
       kidContext: { who: 'God', to: 'The widow through Elisha', apply: 'God multiplies—He provides! Give God what you have—He can do more!' }
     },
     naaman: {
@@ -1748,7 +1748,7 @@
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: ['naaman', 'river', 'leprosy', 'dip', 'jordan', '2 kings 5', 'elisha'],
-      kjvRef: '2 Kings 5',
+      kjvRef: '2 Kings 5:1–15',
       kidContext: { who: 'God', to: 'Naaman (through Elisha)', apply: 'Obey God—get healed! Even when it seems simple, do what He says!' }
     },
     jesusWalksWater: {
@@ -1762,7 +1762,7 @@
       videoId: 'U69Ag6wEyB0',
       videoTitle: 'Jesus Walks on Water – Stories of the Bible!',
       keywords: ['jesus', 'walks', 'water', 'peter', 'waves', 'matthew 14'],
-      kjvRef: 'Matthew 14',
+      kjvRef: 'Matthew 14:22–33',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus walks on waves—He lifts us! Keep your eyes on Him—don\'t be afraid!' }
     },
     lostSheep: {
@@ -1790,8 +1790,22 @@
       videoId: 'PCqqhfltyKM',
       videoTitle: 'Palm Sunday – Jesus Enters Jerusalem!',
       keywords: ['palm sunday', 'hosanna', 'donkey', 'jerusalem', 'matthew 21', 'luke 19'],
-      kjvRef: 'Matthew 21',
+      kjvRef: 'Matthew 21:1–11',
       kidContext: { who: 'The crowds', to: 'Jesus (the King)', apply: 'Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!' }
+    },
+    jesusTriumphalEntry: {
+      title: 'Triumphal Entry',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus rides the colt into Jerusalem' },
+        { src: 'panel-jesus-2.svg', alt: 'Crowds spread branches and cry Hosanna' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus cleanses the temple — house of prayer' }
+      ],
+      caption: 'Swipe to see Hosanna — Jesus the King enters Jerusalem! 🌿',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['hosanna', 'palm sunday', 'donkey', 'colt', 'jerusalem', 'matthew 21', 'king', 'temple'],
+      kjvRef: 'Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19',
+      kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Jesus came as the promised King — we can welcome Him with praise and make room for Him in our hearts.' }
     },
     lastSupper: {
       title: 'Last Supper',
@@ -1817,8 +1831,8 @@
       caption: "Swipe to see Jesus say no—use God's word! 📖",
       videoId: 'CN77fk1xNPQ',
       videoTitle: "Temptation of Jesus – Matthew 4 | Sharefaith Kids!",
-      keywords: ['temptation', 'desert', 'devil', 'matthew 4', 'word', 'stones'],
-      kjvRef: 'Matthew 4',
+      keywords: ['temptation', 'desert', 'devil', 'matthew 4', 'luke 4', 'word', 'stones'],
+      kjvRef: 'Matthew 4:1–11; Luke 4:1–13',
       kidContext: { who: 'Jesus', to: 'Us (when we\'re tempted)', apply: "Jesus says no—use God's word! When the devil lies, quote the Bible!" }
     },
     parableSower: {
@@ -1874,7 +1888,7 @@
       videoId: 'mk7Ey0XDx0w',
       videoTitle: 'Garden of Gethsemane – CQ Kids!',
       keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22'],
-      kjvRef: 'Matthew 26',
+      kjvRef: 'Matthew 26:36–46; Luke 22:44',
       kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'Jesus talks to God—talk to Him! Pray when you\'re scared or sad!' }
     },
     betrayal: {
@@ -1916,7 +1930,7 @@
       videoId: 'bNq5tWl3OGk',
       videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
       keywords: ['crucifixion', 'cross', 'love', 'matthew 27', 'john 19', 'dies'],
-      kjvRef: 'John 19',
+      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
       kidContext: { who: 'Jesus', to: 'The whole world', apply: 'Jesus dies for us—love wins! He took our sins so we could be free!' }
     },
     roadToEmmaus: {
@@ -1947,6 +1961,76 @@
       kjvRef: 'Acts 1',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus goes up—He\'s with God! He promised to come back—spread His love!' }
     },
+    jesusLastSupper: {
+      title: 'The Last Supper',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus and the twelve at the Passover table' },
+        { src: 'panel-jesus-2.svg', alt: 'Jesus breaks bread — This is My body' },
+        { src: 'panel-jesus-3.svg', alt: 'The cup — the new testament in My blood' }
+      ],
+      caption: 'Swipe to remember Jesus — bread, cup, love! 🍞',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['last supper', 'passover', 'bread', 'cup', 'covenant', 'luke 22', 'matthew 26', 'remembrance', 'judas'],
+      kjvRef: 'Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26',
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus gave us a way to remember His death until He comes — His body and blood for us.' }
+    },
+    jesusGardenGethsemane: {
+      title: 'Prayer in Gethsemane',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus prays in the garden — Father, Thy will be done' },
+        { src: 'panel-jesus-2.svg', alt: 'Disciples sleep — Watch and pray' },
+        { src: 'panel-jesus-3.svg', alt: 'Judas comes — the hour of betrayal' }
+      ],
+      caption: 'Swipe to see Jesus pray — "Not My will, but Thine." 🙏',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22', 'cup', 'watch', 'betray'],
+      kjvRef: 'Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46',
+      kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'When life feels heavy, we can pray honestly — and still say, Thy will be done.' }
+    },
+    jesusCrucifixion: {
+      title: 'Jesus on the Cross',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus carries His cross toward Golgotha' },
+        { src: 'panel-jesus-2.svg', alt: 'Father, forgive them — darkness over the land' },
+        { src: 'panel-jesus-3.svg', alt: 'It is finished — love that saves' }
+      ],
+      caption: 'Swipe to see Jesus die for us — the greatest love. ✝️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['crucifixion', 'cross', 'golgotha', 'forgive', 'finished', 'matthew 27', 'john 19', 'luke 23'],
+      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
+      kidContext: { who: 'Jesus', to: 'The world (and us)', apply: 'Jesus took the punishment for sin so we could be forgiven — never forget that love.' }
+    },
+    jesusResurrection: {
+      title: 'He Is Risen',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'The tomb — stone rolled away' },
+        { src: 'panel-jesus-2.svg', alt: 'The angel — He is not here; He is risen' },
+        { src: 'panel-jesus-3.svg', alt: 'Jesus alive — worship and joy' }
+      ],
+      caption: 'Swipe to see the empty tomb — Jesus is alive! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['resurrection', 'risen', 'tomb', 'stone', 'angel', 'matthew 28', 'mark 16', 'luke 24', 'john 20'],
+      kjvRef: 'Matthew 28; Mark 16; Luke 24; John 20',
+      kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Death could not hold Him — because He lives, we have hope that never dies.' }
+    },
+    jesusAscension: {
+      title: 'Jesus Ascends',
+      panels: [
+        { src: 'panel-jesus-1.svg', alt: 'Jesus blesses the disciples forty days after rising' },
+        { src: 'panel-jesus-2.svg', alt: 'He is taken up — a cloud receives Him' },
+        { src: 'panel-jesus-3.svg', alt: 'He will come again in like manner' }
+      ],
+      caption: 'Swipe to see Jesus go up — He will return! ☁️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['ascension', 'olivet', 'bethany', 'acts 1', 'luke 24', 'cloud', 'return', 'witnesses'],
+      kjvRef: 'Luke 24:50–53; Acts 1:6–11',
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus rules in heaven and sends the Spirit — and He promised to come back the same way.' }
+    },
     pentecost: {
       title: 'Pentecost',
       panels: [
@@ -1972,7 +2056,7 @@
       videoId: 'J9wp38EfRqA',
       videoTitle: 'The Stoning of Stephen – Bible Story!',
       keywords: ['stephen', 'martyr', 'stones', 'forgive', 'acts 7', 'first'],
-      kjvRef: 'Acts 7',
+      kjvRef: 'Acts 6:8–7:60',
       kidContext: { who: 'Stephen', to: 'Those who stoned him (and us)', apply: 'Stephen forgives—be like him! Even when hurt, pray for others!' }
     },
     paulDamascus: {
@@ -1986,7 +2070,7 @@
       videoId: 'oi95cv0tk9Q',
       videoTitle: 'Paul, Jesus, and the Road to Damascus – LifeKids!',
       keywords: ['paul', 'damascus', 'saul', 'light', 'change', 'acts 9'],
-      kjvRef: 'Acts 9',
+      kjvRef: 'Acts 9:1–19',
       kidContext: { who: 'Jesus', to: 'Saul (who became Paul)', apply: 'Jesus changes Paul—He changes us! No one is too far for God!' }
     },
     heavenPromise: {
@@ -2057,7 +2141,7 @@
       videoId: 'GYZh5eY6FGg',
       videoTitle: 'Moses Parts the Red Sea – Animated Bible Story!',
       keywords: ['moses', 'red sea', 'staff', 'parting', 'exodus 14', 'miracle'],
-      kjvRef: 'Exodus 14:21',
+      kjvRef: 'Exodus 14',
       kidContext: { who: 'God', to: 'Moses and Israel', apply: "The Israelites were trapped between the Red Sea and the Egyptian army. God told Moses to stretch out his hand—the sea split open, and they walked through on dry ground. God makes a way even when there seems to be no way. Trust Him when you feel stuck—He will lead you through." },
       narration: "Moses Sea-Split – Exodus 14:21. The Israelites escaped Egypt, but Pharaoh chased them with his army. They were trapped—the Red Sea in front, soldiers behind. The people were afraid and cried to Moses. God said, 'Stretch out your hand over the sea.' Moses obeyed. A strong east wind blew all night, and the sea split in two! The Israelites walked on dry ground between walls of water. When the Egyptians followed, God closed the sea and saved His people. God makes a way! For you: When you feel trapped or don't know what to do, pray and trust God. He can make a path where there is none and lead you safely."
     },
@@ -2072,7 +2156,7 @@
       videoId: 'bWcwZIV-ip8',
       videoTitle: "Moses and the Burning Bush – Bible Stories for Kids!",
       keywords: ['moses', 'burning bush', 'fire', 'exodus 3', 'holy ground', 'call'],
-      kjvRef: 'Exodus 3:2',
+      kjvRef: 'Exodus 3:1–10',
       kidContext: { who: 'God', to: 'Moses', apply: "Moses saw a bush on fire but not burning up. God spoke from the bush and told Moses His name and plan. God speaks to us too—through His Word, prayer, and quiet moments. Listen for His voice and obey when He calls you." },
       narration: "Burning Bush – Exodus 3:2. Moses was taking care of sheep when he saw something amazing—a bush burning with fire but not burning up. He went closer. God called from the bush, 'Moses, Moses!' God said, 'I am the God of your fathers. I have seen My people's suffering in Egypt. Go tell Pharaoh to let them go.' Moses was afraid, but God promised, 'I will be with you.' God even told Moses His name: 'I AM THAT I AM.' God speaks to us! For you: God still speaks today—through the Bible, prayer, and when your heart feels a gentle nudge. Listen, trust, and obey when He calls your name."
     },
@@ -2102,7 +2186,7 @@
       videoId: 'Ln5Aa8jiEAM',
       videoTitle: 'Manna and Quail – Exodus 16 Bible Story!',
       keywords: ['manna', 'bread', 'heaven', 'desert', 'exodus 16', 'provide'],
-      kjvRef: 'Exodus 16:15',
+      kjvRef: 'Exodus 16',
       kidContext: { who: 'God', to: 'Israel in the wilderness', apply: "God sent bread from heaven every morning for His people in the desert. They called it manna. God gives us what we need each day. When you worry about tomorrow, trust Him—He provides just enough, one day at a time." },
       narration: "Manna from Heaven – Exodus 16:15. The Israelites were hungry in the desert. They grumbled, but God said, 'I will rain bread from heaven for you.' Every morning, white flakes appeared on the ground like frost. It tasted like honey wafers! They called it manna. God told them to gather only what they needed for each day—no more, no less. On the sixth day they gathered extra for the Sabbath. God provided every morning! For you: God gives us what we need each day—food, strength, love. When you feel worried or empty, trust Him. He provides just enough, right when you need it."
     },
@@ -2338,7 +2422,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['moses', 'staff', 'snake', 'exodus 7', 'pharaoh', 'sign', 'power'],
-      kjvRef: 'Exodus 7',
+      kjvRef: 'Exodus 7:8–13',
       kidContext: { who: 'God', to: 'Moses (and Pharaoh)', apply: 'God\'s power is real! He gives us what we need to do His work.' }
     },
     passoverLamb: {
@@ -2381,7 +2465,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['joshua', 'jordan', 'ark', 'river', 'joshua 3', 'priests', 'miracle'],
-      kjvRef: 'Joshua 3',
+      kjvRef: 'Joshua 3–4',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God leads you into the new! Step forward in faith—He holds the water back.' }
     },
     jordanCrossing: {
@@ -2648,7 +2732,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['goliath', 'challenge', 'david', '1 samuel 17', 'giant', 'brave', 'faith'],
-      kjvRef: '1 Samuel 17',
+      kjvRef: '1 Samuel 17:8–11, 16, 23–30',
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: 'God is bigger than any giant! Face your fears—He\'s with you.' }
     },
     davidAnointed: {
@@ -2690,8 +2774,162 @@
       videoId: '',
       videoTitle: '',
       keywords: ['david', 'cave', 'adullam', '1 samuel 22', 'hiding', 'prayer', 'psalm'],
-      kjvRef: '1 Samuel 22',
+      kjvRef: '1 Samuel 22:1–2; 24',
       kidContext: { who: 'David', to: 'God', apply: 'Even in dark or scary times, God is with you! Talk to Him wherever you are.' }
+    },
+    hannahSamuel: {
+      title: 'Hannah & Samuel',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Hannah praying earnestly at the temple' },
+        { src: 'panel-noah-2.svg', alt: 'Eli blesses Hannah—God hears her prayer' },
+        { src: 'panel-noah-3.svg', alt: 'Hannah brings young Samuel to serve God with Eli' }
+      ],
+      caption: 'Swipe to see God answer Hannah\'s prayer! 🙏',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['hannah', 'samuel', 'prayer', '1 samuel 1', 'eli', 'temple', 'promise', 'vow'],
+      kjvRef: '1 Samuel 1–2',
+      kidContext: { who: 'God', to: 'Hannah and Samuel', apply: 'Pray with all your heart—God hears. Hannah kept her promise and gave Samuel to serve God.' }
+    },
+    samuelAnointsDavid: {
+      title: 'Samuel Anoints David',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Samuel arrives at Jesse\'s house with oil' },
+        { src: 'panel-david-2.svg', alt: 'God says: look at the heart, not just height' },
+        { src: 'panel-david-3.svg', alt: 'Samuel anoints David—God\'s Spirit comes on him' }
+      ],
+      caption: 'Swipe to see God choose David by his heart! 💛',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['samuel', 'david', 'anoint', '1 samuel 16', 'jesse', 'heart', 'sheep', 'bethlehem'],
+      kjvRef: '1 Samuel 16:1–13',
+      kidContext: { who: 'God', to: 'David', apply: 'God looks at your heart. You do not have to be the tallest or oldest—be faithful where you are.' }
+    },
+    davidGoliath: {
+      title: 'David & Goliath',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Goliath taunts God\'s army—everyone is afraid' },
+        { src: 'panel-david-2.svg', alt: 'David trusts God with his sling and stones' },
+        { src: 'panel-david-3.svg', alt: 'The stone flies—God gives victory over the giant' }
+      ],
+      caption: 'Swipe to see God win over the giant! ⚔️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['david', 'goliath', 'sling', '1 samuel 17', 'faith', 'giant', 'stone', 'brave'],
+      kjvRef: '1 Samuel 17',
+      kidContext: { who: 'David', to: 'God\'s people', apply: 'Trust God more than your own size or strength. He wins when we come in His name.' }
+    },
+    davidSaulJealousy: {
+      title: 'David & Saul\'s Jealousy',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'People sing David\'s praises — Saul burns with jealousy' },
+        { src: 'panel-noah-2.svg', alt: 'Saul throws a spear while David plays the harp' },
+        { src: 'panel-noah-3.svg', alt: 'God keeps David safe in battle after battle' }
+      ],
+      caption: 'Swipe to see God guard David when jealousy gets ugly! 🛡️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['david', 'saul', 'jealous', 'spear', 'harp', '1 samuel 18', 'jonathan', 'protect'],
+      kjvRef: '1 Samuel 18–19',
+      kidContext: { who: 'God', to: 'David', apply: 'Jealousy can make people do scary things. Stay humble like David — God is your shield.' }
+    },
+    davidSaul: {
+      title: 'David & Saul\'s Jealousy',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'People praise David—Saul grows jealous' },
+        { src: 'panel-noah-2.svg', alt: 'Saul hurls a spear—David escapes' },
+        { src: 'panel-noah-3.svg', alt: 'David wins battles—God protects him' }
+      ],
+      caption: 'Swipe to see God protect David when Saul is jealous! 🛡️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['david', 'saul', 'jealous', 'spear', '1 samuel 18', 'jonathan', 'protect', 'army'],
+      kjvRef: '1 Samuel 18–19',
+      kidContext: { who: 'God', to: 'David', apply: 'Jealousy hurts people, but God protects those who stay faithful. Let God guard your heart from envy.' }
+    },
+    davidJonathan: {
+      title: 'David & Jonathan\'s Friendship',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Jonathan loves David like a brother' },
+        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt' },
+        { src: 'panel-david-3.svg', alt: 'They weep and promise—The Lord be between us forever' }
+      ],
+      caption: 'Swipe to see loyal friendship—Jonathan and David! 🤝',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['david', 'jonathan', 'friend', '1 samuel 18', 'covenant', 'loyal', 'love', 'brother'],
+      kjvRef: '1 Samuel 18–20',
+      kidContext: { who: 'Jonathan', to: 'David', apply: 'True friends keep promises and protect each other. Ask God to help you be a loyal friend.' }
+    },
+    davidJonathanFriendship: {
+      title: 'David & Jonathan — True Friends',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Jonathan and David — souls knit together' },
+        { src: 'panel-david-2.svg', alt: 'Jonathan gives his robe, sword, bow, and belt to David' },
+        { src: 'panel-david-3.svg', alt: 'They weep and promise: the Lord be between us forever' }
+      ],
+      caption: 'Swipe to see friendship that costs something — and keeps its promise! 🤝',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['david', 'jonathan', 'friend', 'covenant', '1 samuel 18', 'loyal', 'love', 'escape'],
+      kjvRef: '1 Samuel 18–20',
+      kidContext: { who: 'Jonathan', to: 'David', apply: 'Real friends warn you, share with you, and stand by you when it is hard. Thank God for friends like that.' }
+    },
+    samuelBirth: {
+      title: 'Samuel\'s Birth & Dedication',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Hannah brings young Samuel to Eli at the temple' },
+        { src: 'panel-noah-2.svg', alt: 'Hannah sings praise to God for His faithfulness' },
+        { src: 'panel-noah-3.svg', alt: 'Samuel grows up serving God as a prophet' }
+      ],
+      caption: 'Swipe to see Hannah keep her promise — Samuel serves God! 🙏',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['samuel', 'hannah', 'dedication', 'temple', '1 samuel 1', 'eli', 'promise', 'prophet'],
+      kjvRef: '1 Samuel 1–2',
+      kidContext: { who: 'Hannah and God', to: 'Samuel', apply: 'When you promise God something, He helps you keep it. Samuel grew up loving God because Hannah gave him back to the Lord.' }
+    },
+    samuelCalls: {
+      title: 'Samuel Hears God Calling',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Samuel sleeping in the temple at night' },
+        { src: 'panel-noah-2.svg', alt: 'Samuel runs to Eli — "Here I am!"' },
+        { src: 'panel-noah-3.svg', alt: 'Samuel says: Speak, Lord — Your servant listens' }
+      ],
+      caption: 'Swipe to see Samuel learn to listen for God\'s voice! 👂',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['samuel', 'call', 'listen', '1 samuel 3', 'eli', 'temple', 'night', 'prophet'],
+      kjvRef: '1 Samuel 3',
+      kidContext: { who: 'God', to: 'Samuel', apply: 'God still speaks today through His Word. Say, "Speak, Lord" — and listen with a quiet heart.' }
+    },
+    saulKing: {
+      title: 'Saul Becomes King',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Israel asks Samuel for a king like other nations' },
+        { src: 'panel-noah-2.svg', alt: 'Tall Saul searches for donkeys and meets Samuel' },
+        { src: 'panel-noah-3.svg', alt: 'Samuel anoints Saul — the people shout Long live the king' }
+      ],
+      caption: 'Swipe to see Israel\'s first king — God chose Saul! 👑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['saul', 'king', 'samuel', '1 samuel 9', 'donkeys', 'anoint', 'israel', 'lot'],
+      kjvRef: '1 Samuel 9–10',
+      kidContext: { who: 'God', to: 'Israel and Saul', apply: 'The people wanted a king their way — but God still picked the man. Trust God\'s timing more than copying the crowd.' }
+    },
+    saulDisobedience: {
+      title: 'Saul Disobeys God',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Saul offers the sacrifice without waiting for Samuel' },
+        { src: 'panel-noah-2.svg', alt: 'Saul spares the king of Amalek and the best animals' },
+        { src: 'panel-noah-3.svg', alt: 'Samuel tells Saul — obedience is better than sacrifice' }
+      ],
+      caption: 'Swipe to see why obeying God matters more than looking religious! ⚠️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['saul', 'disobey', 'samuel', '1 samuel 13', '1 samuel 15', 'amalek', 'sacrifice', 'obey'],
+      kjvRef: '1 Samuel 13; 15',
+      kidContext: { who: 'God', to: 'Saul (and us)', apply: 'Doing things our own way can look holy but still be wrong. God wants a heart that obeys fully — not half.' }
     },
     /* ── Week 4 (49–60) ── */
     elishaRaised: {
@@ -2719,7 +2957,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['esther', 'crown', 'queen', 'esther 5', 'scepter', 'courage', 'save'],
-      kjvRef: 'Esther 5',
+      kjvRef: 'Esther 2:15–18',
       kidContext: { who: 'God', to: 'Esther', apply: 'God puts you where you are for a reason! Be brave—maybe it\'s for such a time as this.' }
     },
     nehemiahWalls: {
@@ -2732,9 +2970,9 @@
       caption: 'Swipe to see Nehemiah rebuild—pray and work together! 🧱',
       videoId: '',
       videoTitle: '',
-      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 4', 'rebuild', 'pray', 'sword'],
-      kjvRef: 'Nehemiah 4',
-      kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken.' }
+      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 4', 'artaxerxes', 'rebuild', 'pray', 'sword', '52 days'],
+      kjvRef: 'Nehemiah 1–6',
+      kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken — even when others mock.' }
     },
     jobSuffering: {
       title: 'Job\'s Suffering',
@@ -2778,6 +3016,48 @@
       kjvRef: '1 Kings 3',
       kidContext: { who: 'God', to: 'Solomon', apply: 'Ask God for wisdom! He gives it freely to those who ask.' }
     },
+    solomonTemple: {
+      title: 'Solomon Builds the Temple',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Workers build the temple — cedar, gold, stone' },
+        { src: 'panel-noah-2.svg', alt: 'Priests carry the ark into the Holy of Holies' },
+        { src: 'panel-noah-3.svg', alt: 'God\'s glory fills the house like a cloud' }
+      ],
+      caption: 'Swipe to see God fill His house with glory! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['solomon', 'temple', 'jerusalem', '1 kings 5', '1 kings 8', 'ark', 'glory', 'worship'],
+      kjvRef: '1 Kings 5–8',
+      kidContext: { who: 'God', to: 'Israel', apply: 'God is not far off — He wants His people to meet Him in worship. Today we come to Him through Jesus, anywhere we pray.' }
+    },
+    elijahFireFromHeaven: {
+      title: 'Elijah on Mount Carmel',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elijah faces the prophets of Baal at Carmel' },
+        { src: 'panel-noah-2.svg', alt: 'Fire from heaven consumes the altar' },
+        { src: 'panel-noah-3.svg', alt: 'The people shout: The Lord — He is God!' }
+      ],
+      caption: 'Swipe to see God answer with fire — the Lord is God! 🔥',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elijah', 'carmel', 'baal', '1 kings 18', 'fire', 'altar', 'ahab', 'jezebel'],
+      kjvRef: '1 Kings 18',
+      kidContext: { who: 'God', to: 'Israel', apply: 'There is only one true God. He hears when we pray — trust Him, not pretend gods.' }
+    },
+    elijahElijahElisha: {
+      title: 'Elijah Calls Elisha',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elisha plows with oxen — Elijah throws his cloak' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha says goodbye and follows Elijah' },
+        { src: 'panel-noah-3.svg', alt: 'Elisha serves and learns — ready for God\'s work' }
+      ],
+      caption: 'Swipe to see Elisha leave the field to follow God\'s call! 🌾',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elijah', 'elisha', 'cloak', 'oxen', '1 kings 19', 'prophet', 'follow', 'call'],
+      kjvRef: '1 Kings 19:19–21',
+      kidContext: { who: 'Elisha', to: 'God', apply: 'When God calls, be willing to obey — even when it means leaving something good behind.' }
+    },
     elijahChariot: {
       title: 'Elijah\'s Fiery Chariot',
       panels: [
@@ -2789,8 +3069,134 @@
       videoId: '',
       videoTitle: '',
       keywords: ['elijah', 'chariot', 'fire', '2 kings 2', 'whirlwind', 'heaven', 'elisha'],
-      kjvRef: '2 Kings 2',
+      kjvRef: '2 Kings 2:1–14',
       kidContext: { who: 'God', to: 'Elijah', apply: 'God honors His faithful servants! Heaven is real—and it\'s wonderful.' }
+    },
+    elishaMiracles: {
+      title: 'Elisha\'s Miracles',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Salt in the water — Jericho\'s spring made clean' },
+        { src: 'panel-david-2.svg', alt: 'Oil fills every jar for the widow' },
+        { src: 'panel-david-3.svg', alt: 'Naaman washes in the Jordan — skin like a child\'s' }
+      ],
+      caption: 'Swipe to see God help people through Elisha! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elisha', 'miracle', 'widow', 'oil', 'naaman', '2 kings 4', '2 kings 5', 'jordan', 'jericho'],
+      kjvRef: '2 Kings 2:19–22; 4:1–7; 4:8–37; 5',
+      kidContext: { who: 'God', to: 'His people', apply: 'God can heal, provide, and raise the dead. He still cares about our troubles today.' }
+    },
+    elishaFloatingAxe: {
+      title: 'The Floating Axe Head',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Builders by the Jordan — the axe head splashes in' },
+        { src: 'panel-noah-2.svg', alt: 'Elisha throws a stick — iron floats!' },
+        { src: 'panel-noah-3.svg', alt: 'The man lifts the borrowed axe — God cared' }
+      ],
+      caption: 'Swipe to see God care about a small, borrowed tool! 🪓',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elisha', 'axe', 'jordan', '2 kings 6', 'borrowed', 'float', 'miracle', 'iron'],
+      kjvRef: '2 Kings 6:1–7',
+      kidContext: { who: 'God', to: 'the worried builder', apply: 'God notices little worries too. Tell Him what you need — He is kind.' }
+    },
+    isaiahMessianic: {
+      title: 'Isaiah\'s Messianic Prophecies',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Isaiah speaks God\'s word to Judah\'s king' },
+        { src: 'panel-david-2.svg', alt: 'A promised child — Immanuel, God with us' },
+        { src: 'panel-david-3.svg', alt: 'The suffering servant brings healing' }
+      ],
+      caption: 'Swipe to see God\'s promises that came true in Jesus! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['isaiah', 'prophet', 'immanuel', 'jesus', 'isaiah 7', 'isaiah 9', 'isaiah 53', 'promise'],
+      kjvRef: 'Isaiah 7:14; 9:6–7; 53:4–6',
+      kidContext: { who: 'God', to: 'us', apply: 'God said what He would do — and Jesus came. You can trust every promise in His Word.' }
+    },
+    jeremiahWeeping: {
+      title: 'Jeremiah the Weeping Prophet',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Young Jeremiah — God says, Do not say you are only a youth' },
+        { src: 'panel-noah-2.svg', alt: 'Jeremiah warns the people — they will not listen' },
+        { src: 'panel-noah-3.svg', alt: 'Jeremiah weeps — Lamentations for Jerusalem' }
+      ],
+      caption: 'Swipe to see God use a young heart that cared deeply! 💧',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['jeremiah', 'prophet', 'lamentations', 'jeremiah 1', 'youth', 'weep', 'jerusalem'],
+      kjvRef: 'Lamentations 1–5',
+      kidContext: { who: 'God', to: 'Jeremiah (and us)', apply: 'Even when things feel broken, God\'s mercies are new — great is His faithfulness.' }
+    },
+    ezekielValleyBones: {
+      title: 'Valley of Dry Bones',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ezekiel stands in a valley of dry bones' },
+        { src: 'panel-noah-2.svg', alt: 'Bones rattle together — sinews, flesh, skin' },
+        { src: 'panel-noah-3.svg', alt: 'Breath enters — a vast army lives!' }
+      ],
+      caption: 'Swipe to see God bring life where there was none! 💨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['ezekiel', 'bones', 'valley', 'ezekiel 37', 'life', 'spirit', 'prophet'],
+      kjvRef: 'Ezekiel 37:1–14',
+      kidContext: { who: 'God', to: 'His people', apply: 'Nothing is too dead or dry for God. He can make your heart alive again.' }
+    },
+    danielFieryFurnace: {
+      title: 'The Fiery Furnace',
+      panels: [
+        { src: 'panel-daniel-1.svg', alt: 'Three friends refuse to bow to the golden image' },
+        { src: 'panel-daniel-2.svg', alt: 'The furnace blazes seven times hotter' },
+        { src: 'panel-daniel-3.svg', alt: 'Four walk in the fire — God protects' }
+      ],
+      caption: 'Swipe to see three brave friends — God in the fire with them! 🔥',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['shadrach', 'meshach', 'abednego', 'furnace', 'daniel 3', 'fire', 'bow', 'nebuchadnezzar'],
+      kjvRef: 'Daniel 3',
+      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: 'Stand for what is right — God is with you even when it gets hot.' }
+    },
+    danielLionsDen: {
+      title: 'Daniel in the Lions\' Den',
+      panels: [
+        { src: 'panel-daniel-1.svg', alt: 'Daniel prays toward Jerusalem three times a day' },
+        { src: 'panel-daniel-2.svg', alt: 'Daniel is thrown to the lions' },
+        { src: 'panel-daniel-3.svg', alt: 'God stills the lions — Daniel is safe' }
+      ],
+      caption: 'Swipe to see Daniel pray and trust God in the den! 🦁',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['daniel', 'lions', 'den', 'pray', 'daniel 6', 'law', 'babylon', 'angel'],
+      kjvRef: 'Daniel 6',
+      kidContext: { who: 'God', to: 'Daniel', apply: 'Keep talking to God — He hears you and can hush every fear.' }
+    },
+    ezraReturn: {
+      title: 'Ezra Return',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'King Cyrus\'s decree — God\'s people may go home' },
+        { src: 'panel-david-2.svg', alt: 'Ezra leads the people with gifts for the temple' },
+        { src: 'panel-david-3.svg', alt: 'The Law is read — hearts turn back to God' }
+      ],
+      caption: 'Swipe to see God bring His people home and back to His Word! 📜',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'law', 'jerusalem', 'persia'],
+      kjvRef: 'Ezra 1–10; Nehemiah 8–9',
+      kidContext: { who: 'God', to: 'His people', apply: 'God still brings people home to Himself. His Word shows us how to walk with Him again.' }
+    },
+    malachiMessage: {
+      title: 'Malachi\'s Message',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Malachi speaks God\'s words to the people' },
+        { src: 'panel-david-2.svg', alt: 'God deserves our best — not leftovers' },
+        { src: 'panel-david-3.svg', alt: 'Hope: the Sun of Righteousness will rise' }
+      ],
+      caption: 'Swipe to see the last OT prophet call hearts back to God! ☀️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['malachi', 'prophet', 'offerings', 'elijah', 'malachi 4', 'love', 'temple', 'old testament'],
+      kjvRef: 'Malachi 1–4',
+      kidContext: { who: 'God', to: 'His people', apply: 'God loves you — give Him your whole heart, not leftovers. He keeps every promise.' }
     },
     jonahVine: {
       title: 'Jonah and the Vine',
@@ -2831,7 +3237,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['esther', 'banquet', 'haman', 'esther 7', 'king', 'courage', 'reveal'],
-      kjvRef: 'Esther 7',
+      kjvRef: 'Esther 5–7',
       kidContext: { who: 'God', to: 'Esther (through timing)', apply: 'God gives you the right moment! Be ready—He orders the steps.' }
     },
     /* ── Week 5 (61–72) ── */
@@ -2891,6 +3297,20 @@
       kjvRef: 'Luke 2',
       kidContext: { who: 'Jesus', to: 'The teachers (and us)', apply: 'Jesus loved God\'s house and Word even as a boy—so can you!' }
     },
+    johnBaptist: {
+      title: 'John the Baptist',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'John in the wilderness — repent, the kingdom is near' },
+        { src: 'panel-noah-2.svg', alt: 'John baptizes in the Jordan' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus is baptized — heavens open, dove, God\'s voice' }
+      ],
+      caption: 'Swipe to see John prepare the way — then Jesus steps into the water! 🕊️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['john', 'baptist', 'wilderness', 'repent', 'jordan', 'luke 3', 'matthew 3', 'dove', 'spirit'],
+      kjvRef: 'Luke 3; Matthew 3',
+      kidContext: { who: 'John', to: 'everyone listening', apply: 'Turn your heart toward God — Jesus is the One we have been waiting for.' }
+    },
     johnBaptize: {
       title: 'John Baptizes Jesus',
       panels: [
@@ -2904,6 +3324,20 @@
       keywords: ['john', 'baptize', 'jordan', 'matthew 3', 'dove', 'voice', 'heaven', 'spirit'],
       kjvRef: 'Matthew 3',
       kidContext: { who: 'God', to: 'Jesus (and us)', apply: 'God said yes to Jesus—He says yes to you too! Baptism is a big, happy yes.' }
+    },
+    jesusBaptism: {
+      title: 'Jesus Is Baptized',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus comes to the Jordan to be baptized by John' },
+        { src: 'panel-noah-2.svg', alt: 'John baptizes Jesus in the river' },
+        { src: 'panel-noah-3.svg', alt: 'Heavens open — dove, God\'s voice: This is My beloved Son!' }
+      ],
+      caption: 'Swipe to see Jesus baptized — God the Father speaks! 🕊️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['jesus', 'baptism', 'baptized', 'jordan', 'john', 'dove', 'matthew 3', 'mark 1', 'luke 3', 'spirit'],
+      kjvRef: 'Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22',
+      kidContext: { who: 'God the Father', to: 'Jesus (and us)', apply: 'God called Jesus His beloved Son — we can listen to Jesus and trust Him.' }
     },
     jesusTempt: {
       title: 'Jesus Is Tempted',
@@ -2933,6 +3367,48 @@
       kjvRef: 'John 2',
       kidContext: { who: 'Jesus', to: 'The wedding guests', apply: 'Jesus loves to help! When we bring Him our empty jars, He fills them.' }
     },
+    jesusFirstMiracle: {
+      title: 'Jesus\' First Miracle',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A wedding in Cana runs out of wine' },
+        { src: 'panel-noah-2.svg', alt: 'Mary tells the servants — do whatever He says' },
+        { src: 'panel-noah-3.svg', alt: 'Water becomes wine — disciples believe!' }
+      ],
+      caption: 'Swipe to see water become wine at Cana! 🍇',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['wedding', 'wine', 'water', 'john 2', 'miracle', 'cana', 'mary', 'first miracle'],
+      kjvRef: 'John 2:1–11',
+      kidContext: { who: 'Jesus', to: 'The wedding guests (and us)', apply: 'Jesus has real power — and He cares when something goes wrong at a celebration.' }
+    },
+    jesusCallingDisciples: {
+      title: 'Jesus Calls Disciples',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus walks by the sea — Peter and Andrew fishing' },
+        { src: 'panel-noah-2.svg', alt: 'Follow me — I will make you fishers of men' },
+        { src: 'panel-noah-3.svg', alt: 'A huge catch of fish — nets full!' }
+      ],
+      caption: 'Swipe to see Jesus call fishermen to follow Him! 🎣',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['disciples', 'fishers of men', 'sea of galilee', 'peter', 'andrew', 'matthew 4', 'luke 5', 'nets'],
+      kjvRef: 'Matthew 4:18–22; Luke 5:1–11',
+      kidContext: { who: 'Jesus', to: 'Peter, Andrew, James, and John', apply: 'Jesus calls ordinary people — kids too! — to follow Him and tell others the good news.' }
+    },
+    jesusSermonMount: {
+      title: 'Sermon on the Mount',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus teaches crowds on a mountain' },
+        { src: 'panel-noah-2.svg', alt: 'Blessed are the meek, merciful, peacemakers' },
+        { src: 'panel-noah-3.svg', alt: 'Wise man builds his house on the rock' }
+      ],
+      caption: 'Swipe to hear Jesus teach — blessed, light, rock! ⛰️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['sermon on the mount', 'beatitudes', 'matthew 5', 'matthew 6', 'matthew 7', 'golden rule', 'light of the world'],
+      kjvRef: 'Matthew 5–7',
+      kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Jesus shows God\'s way to live — hear His words and put them into practice, like building on a rock.' }
+    },
     healBlind: {
       title: 'Jesus Heals a Blind Man',
       panels: [
@@ -2946,6 +3422,34 @@
       keywords: ['blind', 'heal', 'mud', 'john 9', 'eyes', 'wash', 'see', 'miracle'],
       kjvRef: 'John 9',
       kidContext: { who: 'Jesus', to: 'The blind man', apply: 'Jesus opens our eyes—in our hearts too! Ask Him to help you see.' }
+    },
+    jesusHealsBlind: {
+      title: 'Jesus Heals the Man Born Blind',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus makes clay and anoints a blind man\'s eyes' },
+        { src: 'panel-noah-2.svg', alt: 'The man washes in the pool of Siloam' },
+        { src: 'panel-noah-3.svg', alt: 'He sees — "One thing I know: I was blind, now I see!"' }
+      ],
+      caption: 'Swipe to see Jesus open eyes — so God\'s works shine! 👁️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['blind', 'born blind', 'john 9', 'siloam', 'mud', 'clay', 'see', 'miracle', 'pharisees'],
+      kjvRef: 'John 9',
+      kidContext: { who: 'Jesus', to: 'The blind man (and us)', apply: 'Jesus has power to help us see truth — and to trust Him when others question.' }
+    },
+    jesusHealsParalytic: {
+      title: 'Through the Roof to Jesus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'So many people — no room at the door' },
+        { src: 'panel-noah-2.svg', alt: 'Four friends carry a paralyzed man up to the roof' },
+        { src: 'panel-noah-3.svg', alt: 'Lowered to Jesus — rise, take up thy bed, and walk!' }
+      ],
+      caption: 'Swipe to see friends bring him to Jesus — forgiven and healed! 🏠',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paralytic', 'palsy', 'roof', 'mark 2', 'faith', 'forgive', 'mat', 'friends', 'capernaum'],
+      kjvRef: 'Mark 2:1–12',
+      kidContext: { who: 'Jesus', to: 'The sick of the palsy (and his friends)', apply: 'When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal.' }
     },
     jesusBlessKids: {
       title: 'Jesus Blesses the Children',
@@ -2975,6 +3479,48 @@
       keywords: ['mustard seed', 'faith', 'tree', 'matthew 13', 'kingdom', 'grow', 'small'],
       kjvRef: 'Matthew 13',
       kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Faith as small as a seed can move mountains! Don\'t give up—keep trusting.' }
+    },
+    jesusParableSower: {
+      title: 'The Parable of the Sower',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A sower scatters seed — path, rocks, thorns, good ground' },
+        { src: 'panel-noah-2.svg', alt: 'Birds, shallow soil, thorns — only good soil bears fruit' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus explains — the seed is the word of God' }
+      ],
+      caption: 'Swipe to see God\'s word grow in good soil! 🌾',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['sower', 'parable', 'seed', 'word of god', 'matthew 13', 'mark 4', 'luke 8', 'soil', 'fruit'],
+      kjvRef: 'Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15',
+      kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Let God\'s word sink deep — hear, understand, and bear fruit like good ground.' }
+    },
+    jesusParableMustardSeed: {
+      title: 'The Mustard Seed Kingdom',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A tiny mustard seed in a hand' },
+        { src: 'panel-noah-2.svg', alt: 'It grows greatest among herbs — birds lodge in branches' },
+        { src: 'panel-noah-3.svg', alt: 'Small beginnings — God\'s kingdom grows great' }
+      ],
+      caption: 'Swipe to see a tiny seed become a great tree! 🌳',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['mustard seed', 'kingdom', 'matthew 13', 'mark 4', 'luke 13', 'faith', 'grow', 'tree'],
+      kjvRef: 'Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19',
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God\'s kingdom starts small but grows big — and your faith can grow too.' }
+    },
+    jesusParableGoodShepherd: {
+      title: 'The Good Shepherd',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus says: I am the good shepherd' },
+        { src: 'panel-noah-2.svg', alt: 'Sheep know His voice and follow' },
+        { src: 'panel-noah-3.svg', alt: 'He layeth down His life for the sheep' }
+      ],
+      caption: 'Swipe to hear the Shepherd who knows you by name! 🐑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['good shepherd', 'john 10', 'sheep', 'voice', 'fold', 'life', 'jesus'],
+      kjvRef: 'John 10:1–18',
+      kidContext: { who: 'Jesus', to: 'His sheep (and us)', apply: 'Listen for Jesus\' voice — He loves you, leads you, and laid down His life for you.' }
     },
     healLeper: {
       title: 'Jesus Heals Ten Lepers',
@@ -3058,7 +3604,7 @@
       videoId: 'bNq5tWl3OGk',
       videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
       keywords: ['crucifixion', 'cross', 'nails', 'john 19', 'love', 'finished', 'sacrifice'],
-      kjvRef: 'John 19',
+      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
       kidContext: { who: 'Jesus', to: 'Everyone who will believe', apply: 'Jesus died because He loves you! That love is the greatest love ever.' }
     },
     tombEmpty: {
@@ -3114,8 +3660,50 @@
       videoId: '',
       videoTitle: '',
       keywords: ['pentecost', 'fire', 'wind', 'acts 2', 'holy spirit', 'tongues', 'disciples'],
-      kjvRef: 'Acts 2',
+      kjvRef: 'Acts 2:1–4',
       kidContext: { who: 'Holy Spirit', to: 'The disciples (and us)', apply: 'God\'s Spirit lives in you! He gives you power, love, and boldness.' }
+    },
+    holySpiritPentecost: {
+      title: 'Pentecost — Wind, Fire, Tongues',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Day of Pentecost — all with one accord in one place' },
+        { src: 'panel-noah-2.svg', alt: 'Rushing mighty wind — cloven tongues like fire on each' },
+        { src: 'panel-noah-3.svg', alt: 'Filled with the Holy Ghost — speaking as the Spirit gave utterance' }
+      ],
+      caption: 'Swipe to see the Spirit arrive—no one stays the same! 🔥',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['pentecost', 'acts 2', 'holy ghost', 'wind', 'fire', 'tongues', 'filled', 'spirit'],
+      kjvRef: 'Acts 2:1–13',
+      kidContext: { who: 'God', to: 'The church (and us)', apply: 'God still fills His people—ask Him to fill you for bold, loving witness.' }
+    },
+    peterPentecostSermon: {
+      title: 'Peter’s Pentecost Sermon',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Peter stands with the eleven — hear my words' },
+        { src: 'panel-david-2.svg', alt: 'Not drunk — third hour — this is Joel’s prophecy' },
+        { src: 'panel-david-3.svg', alt: 'Repent, be baptized — about three thousand souls saved' }
+      ],
+      caption: 'Swipe to see one sermon change thousands of hearts! 📣',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['peter', 'pentecost', 'acts 2', 'joel', 'repent', 'baptized', 'three thousand', 'sermon'],
+      kjvRef: 'Acts 2:14–41',
+      kidContext: { who: 'Peter', to: 'Jerusalem (and us)', apply: 'Tell the truth about Jesus plainly—God can prick hearts and save.' }
+    },
+    earlyChurchLife: {
+      title: 'Life in the Early Church',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Doctrine, fellowship, breaking bread, prayers' },
+        { src: 'panel-noah-2.svg', alt: 'All things common — giving to every need' },
+        { src: 'panel-noah-3.svg', alt: 'Praising God daily — the Lord added such as should be saved' }
+      ],
+      caption: 'Swipe to see the first church—together, glad, generous! 🤝',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['early church', 'acts 2', 'fellowship', 'breaking bread', 'prayer', 'generosity', 'temple', 'added daily'],
+      kjvRef: 'Acts 2:42–47',
+      kidContext: { who: 'The Lord', to: 'Believers (and us)', apply: 'Stay in the Word, stay together, stay generous—God still builds His church.' }
     },
     peterShadow: {
       title: 'Peter\'s Shadow Heals',
@@ -3128,8 +3716,36 @@
       videoId: '',
       videoTitle: '',
       keywords: ['peter', 'shadow', 'heal', 'acts 5', 'miracle', 'sick', 'power'],
-      kjvRef: 'Acts 5',
+      kjvRef: 'Acts 5:12–16',
       kidContext: { who: 'God', to: 'Peter (and us)', apply: 'God works through ordinary people! You carry His presence—make it count.' }
+    },
+    peterHealsLame: {
+      title: 'Peter Heals the Lame Man',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Peter and John at the Beautiful gate' },
+        { src: 'panel-noah-2.svg', alt: 'In the name of Jesus Christ of Nazareth, rise up and walk' },
+        { src: 'panel-noah-3.svg', alt: 'He walks and leaps, praising God' }
+      ],
+      caption: 'Swipe to see Jesus\' name make a lame man walk! 🚶',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['peter', 'john', 'lame', 'temple', 'beautiful', 'acts 3', 'heal', 'name of jesus'],
+      kjvRef: 'Acts 3',
+      kidContext: { who: 'Peter', to: 'The lame man (and us)', apply: 'We may not have silver and gold — but we can offer Jesus, and His name has power.' }
+    },
+    peterJailBreak: {
+      title: 'Peter Freed from Prison',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Peter asleep in prison between two soldiers' },
+        { src: 'panel-noah-2.svg', alt: 'An angel wakes him — chains fall off' },
+        { src: 'panel-noah-3.svg', alt: 'The iron gate opens — Peter is free!' }
+      ],
+      caption: 'Swipe to see prayer break prison chains! 🔓',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['peter', 'prison', 'angel', 'herod', 'acts 12', 'prayer', 'chains', 'miracle'],
+      kjvRef: 'Acts 12:1–19',
+      kidContext: { who: 'God', to: 'Peter and the praying church', apply: 'When the church prays, God hears — He can open doors no one else can open.' }
     },
     paulDamascus: {
       title: 'Paul on the Road to Damascus',
@@ -3142,8 +3758,596 @@
       videoId: 'oi95cv0tk9Q',
       videoTitle: 'Paul, Jesus, and the Road to Damascus – LifeKids!',
       keywords: ['paul', 'damascus', 'saul', 'acts 9', 'light', 'blind', 'change', 'conversion'],
-      kjvRef: 'Acts 9',
+      kjvRef: 'Acts 9:1–19',
       kidContext: { who: 'Jesus', to: 'Saul/Paul', apply: 'God can change anyone! No one is too far from His reach—not even you or your friends.' }
+    },
+    paulConversion: {
+      title: 'Paul’s Conversion (Road to Damascus)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Saul rides with letters—he wants to arrest Christians' },
+        { src: 'panel-david-2.svg', alt: 'A blinding light—Jesus asks, Why persecutest thou Me?' },
+        { src: 'panel-david-3.svg', alt: 'Ananias prays—Saul sees again and preaches Jesus!' }
+      ],
+      caption: 'Swipe to see Jesus turn a fighter into a preacher! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'conversion', 'saul', 'damascus', 'acts 9', 'light', 'ananias', 'blind', 'change'],
+      kjvRef: 'Acts 9:1–19',
+      kidContext: { who: 'Jesus', to: 'Saul (and us)', apply: 'Jesus can change the hardest heart. No one is too far for Him to save.' }
+    },
+    paulBarnabas: {
+      title: 'Paul & Barnabas Sent Out',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The church at Antioch prays and fasts' },
+        { src: 'panel-noah-2.svg', alt: 'Hands laid on Paul and Barnabas—they are sent by the Spirit' },
+        { src: 'panel-noah-3.svg', alt: 'They preach in new places—God works with them!' }
+      ],
+      caption: 'Swipe to see the church send out missionaries! 🌍',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['barnabas', 'paul', 'saul', 'antioch', 'acts 13', 'mission', 'sent', 'holy spirit', 'fasting'],
+      kjvRef: 'Acts 13–14',
+      kidContext: { who: 'The Holy Ghost', to: 'The church (and us)', apply: 'When God sends you, go with prayer—He goes with His Word.' }
+    },
+    paulFirstJourney: {
+      title: 'Paul’s First Missionary Journey',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul and Barnabas sail to Cyprus' },
+        { src: 'panel-noah-2.svg', alt: 'A sorcerer opposes them—God shows His power' },
+        { src: 'panel-noah-3.svg', alt: 'They preach boldly—some believe, God confirms with signs' }
+      ],
+      caption: 'Swipe to see the first big journey for the gospel! ⛵',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'barnabas', 'cyprus', 'elymas', 'acts 13', 'acts 14', 'preach', 'journey', 'signs'],
+      kjvRef: 'Acts 13–14',
+      kidContext: { who: 'God', to: 'Paul, Barnabas, and us', apply: 'Speak Jesus boldly—God can back His Word with power.' }
+    },
+    councilJerusalem: {
+      title: 'The Jerusalem Council',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Leaders meet—how do we welcome Gentile believers?' },
+        { src: 'panel-david-2.svg', alt: 'Peter speaks—God gave Gentiles the Holy Ghost' },
+        { src: 'panel-david-3.svg', alt: 'A letter of peace—the churches rejoice!' }
+      ],
+      caption: 'Swipe to see the church choose grace—not a heavy yoke! 📜',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['jerusalem', 'council', 'acts 15', 'gentiles', 'peter', 'james', 'grace', 'faith', 'circumcision'],
+      kjvRef: 'Acts 15',
+      kidContext: { who: 'The apostles', to: 'Jewish and Gentile believers', apply: 'We are saved by grace through faith in Jesus—not by boasting in ourselves.' }
+    },
+    paulSecondJourney: {
+      title: 'Paul’s Second Journey (Philippi)',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul and Silas travel—Philippi ahead' },
+        { src: 'panel-noah-2.svg', alt: 'In prison at midnight—they pray and sing praises' },
+        { src: 'panel-noah-3.svg', alt: 'Earthquake—the jailer asks, What must I do to be saved?' }
+      ],
+      caption: 'Swipe to see praise in chains open doors—and save a family! 🎶',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'silas', 'philippi', 'acts 16', 'prison', 'earthquake', 'jailer', 'sing', 'second journey'],
+      kjvRef: 'Acts 15:36–18:22',
+      kidContext: { who: 'God', to: 'Paul, Silas, and us', apply: 'Worship God even when it hurts—He hears, He moves, He saves.' }
+    },
+    actsPaulMarsHill: {
+      title: 'Paul on Mars\' Hill',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Athens full of idols—Paul stands on Mars\' hill' },
+        { src: 'panel-david-2.svg', alt: 'An altar to the Unknown God—Paul tells who He really is' },
+        { src: 'panel-david-3.svg', alt: 'Some laugh, some listen—Dionysius and Damaris believe' }
+      ],
+      caption: 'Swipe to see Paul speak truth in a city of statues! 🏛️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'athens', 'mars hill', 'areopagus', 'unknown god', 'acts 17', 'preach', 'idols'],
+      kjvRef: 'Acts 17:22–34',
+      kidContext: { who: 'Paul', to: 'Us', apply: 'You may meet people who know nothing about Jesus—speak kindly and clearly; the Holy Spirit can open a heart.' }
+    },
+    actsApollosPriscilla: {
+      title: 'Apollos Learns More Perfectly',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Apollos speaks boldly—he knows John’s baptism' },
+        { src: 'panel-david-2.svg', alt: 'Priscilla and Aquila take him aside—explain God’s way more fully' },
+        { src: 'panel-david-3.svg', alt: 'Apollos goes to Achaia—Scripture shows Jesus is Christ' }
+      ],
+      caption: 'Swipe to see humble learners and kind teachers—truth grows! 📖',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['apollos', 'priscilla', 'aquila', 'ephesus', 'achaia', 'acts 18', 'scriptures', 'teach'],
+      kjvRef: 'Acts 18:24–28',
+      kidContext: { who: 'Priscilla, Aquila, Apollos', to: 'Us', apply: 'It is strong—not weak—to learn more about Jesus; thank people who teach you kindly, and pass truth on gently.' }
+    },
+    paulThirdJourney: {
+      title: 'Paul’s Third Missionary Journey',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul travels—strengthening churches in Galatia and beyond' },
+        { src: 'panel-noah-2.svg', alt: 'Ephesus—Paul teaches; God does special miracles' },
+        { src: 'panel-noah-3.svg', alt: 'From riot to Macedonia—Paul keeps encouraging believers' }
+      ],
+      caption: 'Swipe to see Paul’s long road—God keeps His Word on the move! 🗺️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'third journey', 'ephesus', 'acts 19', 'acts 20', 'miracles', 'handkerchiefs', 'asia'],
+      kjvRef: 'Acts 18:23–21:17',
+      kidContext: { who: 'God', to: 'Paul and the churches', apply: 'When you teach Jesus faithfully, God can do surprising good—even when trouble comes.' }
+    },
+    paulEphesus: {
+      title: 'Paul in Ephesus',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Disciples receive the Holy Ghost—speaking with tongues' },
+        { src: 'panel-david-2.svg', alt: 'Paul teaches daily—many in Asia hear the word' },
+        { src: 'panel-david-3.svg', alt: 'Evil is exposed—believers burn wrong books; the word grows' }
+      ],
+      caption: 'Swipe to see God’s power in Ephesus—truth wins! ⚡',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'ephesus', 'acts 19', 'holy spirit', 'tyrannus', 'miracles', 'handkerchiefs', 'riot'],
+      kjvRef: 'Acts 19',
+      kidContext: { who: 'God', to: 'The church (and us)', apply: 'Real power is from Jesus—not tricks or magic. Turn from wrong paths and follow Him.' }
+    },
+    paulEutychus: {
+      title: 'Paul Raises Eutychus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Late-night preaching at Troas—lamps burning' },
+        { src: 'panel-noah-2.svg', alt: 'Eutychus falls from the window—taken up dead' },
+        { src: 'panel-noah-3.svg', alt: 'Paul embraces him—his life is in him! God is merciful' }
+      ],
+      caption: 'Swipe to see God give life back—listen with care! 🪟',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['eutychus', 'paul', 'troas', 'acts 20', 'midnight', 'window', 'raised', 'life'],
+      kjvRef: 'Acts 20:7–12',
+      kidContext: { who: 'God', to: 'Paul and the church', apply: 'Stay awake for God’s Word—and remember Jesus has power even over death.' }
+    },
+    paulRome: {
+      title: 'Paul Preaches in Rome',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Paul in chains—still allowed to teach in his lodging' },
+        { src: 'panel-david-2.svg', alt: 'Jewish leaders hear Paul—for the hope of Israel' },
+        { src: 'panel-david-3.svg', alt: 'Two years—kingdom of God and Jesus—no one forbidding' }
+      ],
+      caption: 'Swipe to see chains cannot chain the gospel! ⛓️📖',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'rome', 'acts 28', 'prisoner', 'chain', 'gentiles', 'preach', 'kingdom'],
+      kjvRef: 'Acts 28',
+      kidContext: { who: 'Paul', to: 'Jews and Gentiles (and us)', apply: 'Hard days do not silence Jesus—keep speaking His name with love and courage.' }
+    },
+    paulLetters: {
+      title: 'Paul’s Letters to the Churches',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Paul writes with care—scrolls for many cities' },
+        { src: 'panel-david-2.svg', alt: 'Romans, Corinthians, Galatians—faith, love, freedom in Christ' },
+        { src: 'panel-david-3.svg', alt: 'Joy in Philippians—Christ first in Colossians—Scripture for us' }
+      ],
+      caption: 'Swipe to see God’s mailroom—letters that still feed the church! ✉️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'letters', 'epistles', 'romans', 'corinthians', 'galatians', 'philippians', 'scripture'],
+      kjvRef: 'Romans–Philemon',
+      kidContext: { who: 'God', to: 'The church (and us)', apply: 'Paul’s letters are living words—read them slowly and ask Jesus to shape your heart.' }
+    },
+    paulPrisonEpistles: {
+      title: 'Paul’s Prison Letters',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul in chains—still writing with joy' },
+        { src: 'panel-noah-2.svg', alt: 'Ephesians—one body, one Spirit, one hope' },
+        { src: 'panel-noah-3.svg', alt: 'Philemon—forgiveness; Christ supreme in Colossians' }
+      ],
+      caption: 'Swipe to see chains cannot chain the good news! 📜',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'prison', 'ephesians', 'philippians', 'colossians', 'philemon', 'chains', 'joy'],
+      kjvRef: 'Ephesians, Philippians, Colossians, Philemon',
+      kidContext: { who: 'Paul', to: 'Believers (and us)', apply: 'Hard days can still be holy days—let joy in Jesus be louder than your trouble.' }
+    },
+    paulEndurance: {
+      title: 'Paul’s Finish Line',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Paul writes Timothy—a faithful son in the faith' },
+        { src: 'panel-david-2.svg', alt: 'I have fought a good fight… I have kept the faith' },
+        { src: 'panel-david-3.svg', alt: 'A crown of righteousness—for all who love His appearing' }
+      ],
+      caption: 'Swipe to see faith that crosses the finish line! 🏁',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'timothy', '2 timothy', 'fight', 'faith', 'crown', 'endurance', 'course'],
+      kjvRef: '2 Timothy 4:6–8',
+      kidContext: { who: 'Paul', to: 'Timothy (and us)', apply: 'Keep going with Jesus—one day you will hear “well done” if you do not give up.' }
+    },
+    paulTimothy: {
+      title: 'Paul’s Letters to Timothy',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Paul writes Timothy—sound doctrine and a faithful heart' },
+        { src: 'panel-david-2.svg', alt: 'Fight the good fight—be an example in word and love' },
+        { src: 'panel-david-3.svg', alt: 'Preach the word—in season and out of season' }
+      ],
+      caption: 'Swipe to see Paul coach Timothy for the long haul! ✉️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'timothy', '1 timothy', '2 timothy', 'doctrine', 'fight', 'faith', 'preach'],
+      kjvRef: '1 Timothy 1–6; 2 Timothy 1–4',
+      kidContext: { who: 'Paul', to: 'Timothy (and us)', apply: 'Stand for truth gently but bravely—let your life match your words about Jesus.' }
+    },
+    paulTitus: {
+      title: 'Paul’s Letter to Titus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul writes Titus in Crete—set the church in order' },
+        { src: 'panel-noah-2.svg', alt: 'Good leaders—blameless, holding fast faithful teaching' },
+        { src: 'panel-noah-3.svg', alt: 'Grace teaches us to say no to sin—and to do good eagerly' }
+      ],
+      caption: 'Swipe to see grace that cleans house and builds kindness! 🏝️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'titus', 'crete', 'elders', 'grace', 'good works', 'sound doctrine'],
+      kjvRef: 'Titus 1–3',
+      kidContext: { who: 'Paul', to: 'Titus (and us)', apply: 'Jesus’ grace is not a free pass to be mean—let it teach you to live upright and help others.' }
+    },
+    paulPhilemon: {
+      title: 'Paul’s Letter to Philemon',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Paul writes Philemon—love for Onesimus' },
+        { src: 'panel-david-2.svg', alt: 'Receive him not as a servant only—but a brother beloved' },
+        { src: 'panel-david-3.svg', alt: 'Put it on my account—Paul pays the debt of love' }
+      ],
+      caption: 'Swipe to see forgiveness knit hearts as family! 🤝',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'philemon', 'onesimus', 'forgiveness', 'brother', 'letter', 'love'],
+      kjvRef: 'Philemon 1',
+      kidContext: { who: 'Paul', to: 'Philemon (and us)', apply: 'When Jesus forgives you, you can forgive others—and welcome them as brothers and sisters.' }
+    },
+    hebrewsFaith: {
+      title: 'Heroes of Faith (Hebrews 11)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Faith is trusting God—even when you cannot see the end' },
+        { src: 'panel-david-2.svg', alt: 'Abel, Enoch, Noah, Abraham—obeying God’s voice' },
+        { src: 'panel-david-3.svg', alt: 'They looked for a heavenly country—God is proud to be their God' }
+      ],
+      caption: 'Swipe to see faith that walks with God step by step! ⭐',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['hebrews', 'faith', 'abel', 'enoch', 'noah', 'abraham', 'heroes', 'obey'],
+      kjvRef: 'Hebrews 11',
+      kidContext: { who: 'God', to: 'Us', apply: 'Trust God today with a small step of obedience—big faith grows from little yeses.' }
+    },
+    jamesFaithWorks: {
+      title: 'James — Faith That Helps',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'James asks—can faith without works feed a hungry friend?' },
+        { src: 'panel-noah-2.svg', alt: 'Show me your faith by your works—love in action' },
+        { src: 'panel-noah-3.svg', alt: 'Abraham’s faith moved his hands—faith and works together' }
+      ],
+      caption: 'Swipe to see faith that rolls up its sleeves! 🙌',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['james', 'faith', 'works', 'love', 'help', 'abraham', 'obey'],
+      kjvRef: 'James 2:14–26',
+      kidContext: { who: 'James', to: 'Us', apply: 'If you love Jesus, let your hands help—kind words plus real care honour Him.' }
+    },
+    peterFirstLetter: {
+      title: 'Peter’s First Letter (1 Peter)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Peter writes to believers in hard days—hope shines in Christ' },
+        { src: 'panel-david-2.svg', alt: 'Love with a pure heart—cast every care on God' },
+        { src: 'panel-david-3.svg', alt: 'Be sober—the devil prowls, but God is your strength' }
+      ],
+      caption: 'Swipe to see hope that holds when life hurts! 💙',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['peter', '1 peter', 'suffering', 'hope', 'love', 'humble', 'lion', 'care'],
+      kjvRef: '1 Peter 1–5',
+      kidContext: { who: 'Peter', to: 'Believers (and us)', apply: 'When school or home feels heavy, Jesus’ resurrection gives you a living hope—tell Him your worries.' }
+    },
+    peterSecondLetter: {
+      title: 'Peter’s Second Letter (2 Peter)',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Peter says add to your faith—virtue, patience, love' },
+        { src: 'panel-noah-2.svg', alt: 'Watch for teachers who twist the truth for gain' },
+        { src: 'panel-noah-3.svg', alt: 'God is patient—He wants people to repent' }
+      ],
+      caption: 'Swipe to see grow-up faith and wise eyes! 📜',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['peter', '2 peter', 'grow', 'faith', 'false teachers', 'patience', 'repent', 'judgment'],
+      kjvRef: '2 Peter 1–3',
+      kidContext: { who: 'Peter', to: 'Us', apply: 'Keep learning Jesus—kindness and self-control are fruit; test every voice by the Bible.' }
+    },
+    johnFirstLetter: {
+      title: 'John’s First Letter (1 John)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'God is light—walk honestly with Him' },
+        { src: 'panel-david-2.svg', alt: 'If we sin, Jesus is our righteous advocate' },
+        { src: 'panel-david-3.svg', alt: 'He laid down His life—so we love each other for real' }
+      ],
+      caption: 'Swipe to see light, love, and a clean heart! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['john', '1 john', 'light', 'love', 'confess', 'advocate', 'eternal life'],
+      kjvRef: '1 John 1–5',
+      kidContext: { who: 'John', to: 'Us', apply: 'Tell God the truth about your sin—He forgives. Let your love look like helping, not just talking.' }
+    },
+    judeWarning: {
+      title: 'Jude — Stand for the Truth',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jude urges—contend for the faith once delivered' },
+        { src: 'panel-noah-2.svg', alt: 'Some creep in and deny the Lord—don’t follow smooth lies' },
+        { src: 'panel-noah-3.svg', alt: 'Build up in faith, pray, stay in God’s love—He keeps you' }
+      ],
+      caption: 'Swipe to see courage for God’s truth—not fear, faith! ⚔️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['jude', 'faith', 'false teachers', 'contend', 'holy ghost', 'keep', 'mercy'],
+      kjvRef: 'Jude 1',
+      kidContext: { who: 'Jude', to: 'Us', apply: 'Stay close to Jesus and the Bible—when ideas feel shiny but wrong, ask a trusted grown-up and compare with Scripture.' }
+    },
+    revelationLetters: {
+      title: 'Letters to the Seven Churches',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Seven lampstands—Jesus walks among His churches' },
+        { src: 'panel-david-2.svg', alt: 'Letters to Ephesus, Smyrna, Philadelphia, Laodicea…' },
+        { src: 'panel-david-3.svg', alt: 'He that hath an ear—hear what the Spirit saith' }
+      ],
+      caption: 'Swipe to see Jesus speak to every church—including ours! 🕯️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'seven churches', 'ephesus', 'lampstands', 'repent', 'overcome', 'spirit'],
+      kjvRef: 'Revelation 1–3',
+      kidContext: { who: 'Jesus', to: 'His church (and us)', apply: 'Jesus notices your heart and habits—when He says “repent” or “hold fast,” He is helping you stay close to Him.' }
+    },
+    revelationSeals: {
+      title: 'The Seven Seals',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Lamb opens the book—horses, seals, heaven’s silence' },
+        { src: 'panel-noah-2.svg', alt: 'Souls under the altar—white robes; sky turns dark' },
+        { src: 'panel-noah-3.svg', alt: 'God is on the throne—judgment is just and true' }
+      ],
+      caption: 'Swipe to see the Lamb open history—God still reigns! 📜',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'seals', 'lamb', 'four horsemen', 'white horse', 'judgment', 'heaven'],
+      kjvRef: 'Revelation 6–8:1',
+      kidContext: { who: 'Jesus (the Lamb)', to: 'John (and us)', apply: 'Scary pictures in Revelation remind us sin is serious—but the Lamb was slain for sinners. Run to Him, not away from Him.' }
+    },
+    revelationTrumpets: {
+      title: 'The Seven Trumpets',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Silence—then angels sound trumpets from heaven' },
+        { src: 'panel-david-2.svg', alt: 'Fire, sea, stars—God warns the world' },
+        { src: 'panel-david-3.svg', alt: 'The kingdoms of this world become Christ’s—Hallelujah!' }
+      ],
+      caption: 'Swipe to see heaven’s alarm clock—wake up and repent! 🎺',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'trumpets', 'wormwood', 'judgment', 'repent', 'kingdom', 'christ'],
+      kjvRef: 'Revelation 8–11',
+      kidContext: { who: 'God', to: 'The world (and us)', apply: 'When God warns, He is giving people time to turn—don’t harden your heart; say sorry and follow Jesus today.' }
+    },
+    revelationBeasts: {
+      title: 'The Beast & the False Prophet',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A beast from the sea—power from the dragon' },
+        { src: 'panel-noah-2.svg', alt: 'Another beast—looks gentle, speaks lies' },
+        { src: 'panel-noah-3.svg', alt: 'God’s people worship Jesus—not the beast' }
+      ],
+      caption: 'Swipe to see lies that roar—and truth that saves! 🐉',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'beast', '666', 'mark', 'dragon', 'worship', 'faithful'],
+      kjvRef: 'Revelation 13',
+      kidContext: { who: 'John', to: 'Us', apply: 'If a crowd pushes you to dishonour Jesus, remember: His “Well done” matters more than likes, money, or fear.' }
+    },
+    revelationThousandYears: {
+      title: 'A Thousand Years & the Great White Throne',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'An angel binds Satan—locked away a thousand years' },
+        { src: 'panel-david-2.svg', alt: 'Martyrs reign with Christ—blessed first resurrection' },
+        { src: 'panel-david-3.svg', alt: 'Satan’s end—the lake of fire; God judges with truth' }
+      ],
+      caption: 'Swipe to see evil’s last chapter—good wins forever! ⛓️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', '1000 years', 'millennium', 'satan', 'judgment', 'lake of fire', 'throne'],
+      kjvRef: 'Revelation 20',
+      kidContext: { who: 'God', to: 'Us', apply: 'God’s clock is never late—evil will not win. Stay on Jesus’ side; His kingdom is forever.' }
+    },
+    revelationNewJerusalem: {
+      title: 'The New Jerusalem',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'New heaven, new earth—no more tears' },
+        { src: 'panel-noah-2.svg', alt: 'The holy city comes down—bride bright for the Lamb' },
+        { src: 'panel-noah-3.svg', alt: 'River of life—tree of life—Come, says Jesus' }
+      ],
+      caption: 'Swipe to see the ending that never ends—home with God! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'new jerusalem', 'new heaven', 'tree of life', 'river of life', 'come', 'lamb'],
+      kjvRef: 'Revelation 21–22',
+      kidContext: { who: 'God', to: 'Us', apply: 'Someday every sad thing will be undone—until then, say “Come, Lord Jesus” and invite others to the water of life.' }
+    },
+    revelationWomanDragon: {
+      title: 'The Woman & the Dragon',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'A woman clothed with the sun—a child who will rule the nations' },
+        { src: 'panel-david-2.svg', alt: 'The dragon waits—but the child is caught up to God’s throne' },
+        { src: 'panel-david-3.svg', alt: 'Michael fights; saints overcome by the Lamb’s blood' }
+      ],
+      caption: 'Swipe to see heaven’s war—and the Lamb’s people winning! 🐉',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'woman', 'dragon', 'michael', 'lamb', 'blood', 'testimony', 'child'],
+      kjvRef: 'Revelation 12',
+      kidContext: { who: 'John', to: 'Us', apply: 'The dragon still lies—but Jesus already won at the cross. Tell the truth about Him; don’t love comfort more than Christ.' }
+    },
+    revelationSongsAndHarvest: {
+      title: 'Songs on Zion & the Harvest',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Lamb on Zion—144,000 with the Father’s name' },
+        { src: 'panel-noah-2.svg', alt: 'Angels preach fear God—Babylon fallen—don’t take the mark' },
+        { src: 'panel-noah-3.svg', alt: 'Sea of glass, harps—song of Moses and the Lamb' }
+      ],
+      caption: 'Swipe to hear heaven’s new song—only the redeemed can learn it! 🎵',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'zion', '144000', 'harvest', 'sickle', 'wormwood', 'song of moses', 'angels'],
+      kjvRef: 'Revelation 14–15',
+      kidContext: { who: 'God', to: 'Us', apply: 'When the world says “ignore God,” listen to heaven: fear Him, honour Him, and stay faithful to Jesus—not the beast’s mark.' }
+    },
+    revelationSupperAndKing: {
+      title: 'Alleluia & the Rider on the White Horse',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Heaven shouts Alleluia—the marriage of the Lamb' },
+        { src: 'panel-david-2.svg', alt: 'Faithful and True rides out—King of kings' },
+        { src: 'panel-david-3.svg', alt: 'The beast and false prophet judged—God omnipotent reigneth' }
+      ],
+      caption: 'Swipe to see the Bride ready and the King who never loses! 👑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'alleluia', 'marriage supper', 'white horse', 'word of god', 'lake of fire', 'king'],
+      kjvRef: 'Revelation 19',
+      kidContext: { who: 'Jesus', to: 'His church (and us)', apply: 'Live “fine linen” clean today—kind, honest, forgiven—so your heart matches the wedding day when Jesus returns.' }
+    },
+    revelationBabylonFall: {
+      title: 'Babylon Falls',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A proud city on a beast—rich, cruel, drunk with wrong' },
+        { src: 'panel-noah-2.svg', alt: 'God says Come out of her, my people' },
+        { src: 'panel-noah-3.svg', alt: 'Heaven rejoices—evil’s party ends; God’s justice stands' }
+      ],
+      caption: 'Swipe to see God call His people out—sin’s tower cannot stand! 🏙️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'babylon', 'fallen', 'come out', 'judgment', 'beast', 'merchants'],
+      kjvRef: 'Revelation 17–18',
+      kidContext: { who: 'God', to: 'Us', apply: 'If friends or screens push you to cheat, bully, or hide Jesus—step back. “Come out” means choose God’s way even when it costs.' }
+    },
+    johnSecondThirdLetters: {
+      title: '2 John & 3 John — Truth & Welcome',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Walk in truth and love—keep Christ’s commandments' },
+        { src: 'panel-david-2.svg', alt: 'Gaius welcomes travelling helpers—kind rooms, kind hearts' },
+        { src: 'panel-david-3.svg', alt: 'Follow good like Demetrius—not proud Diotrephes' }
+      ],
+      caption: 'Swipe to see small letters with big love—truth, tables, and courage! ✉️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['2 john', '3 john', 'gaius', 'diotrephes', 'demetrius', 'truth', 'hospitality', 'deceiver'],
+      kjvRef: '2 John; 3 John',
+      kidContext: { who: 'John', to: 'Us', apply: 'Love is obeying Jesus. Welcome His workers with respect—and don’t cheer on teachers who twist who Jesus is.' }
+    },
+    actsPaulBeforeAgrippa: {
+      title: 'Paul Before Agrippa',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Paul appeals to Caesar—he wants a fair hearing' },
+        { src: 'panel-david-2.svg', alt: 'King Agrippa listens—Paul tells the risen Christ' },
+        { src: 'panel-david-3.svg', alt: '“Almost persuaded”—Paul wishes everyone knew Jesus' }
+      ],
+      caption: 'Swipe to see courage in chains—truth spoken to power! 👑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'agrippa', 'festus', 'caesar', 'caesarea', 'testimony', 'christian', 'acts 26'],
+      kjvRef: 'Acts 25–26',
+      kidContext: { who: 'Paul', to: 'Kings (and us)', apply: 'You may never stand before a king—but you can tell the truth about Jesus kindly and clearly to anyone.' }
+    },
+    actsPaulMelita: {
+      title: 'Paul on Melita',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Kind islanders—fire in the rain' },
+        { src: 'panel-noah-2.svg', alt: 'Viper on Paul’s hand—he shakes it off; God keeps him' },
+        { src: 'panel-noah-3.svg', alt: 'Paul prays—Publius’ father healed; many come' }
+      ],
+      caption: 'Swipe to see Melita (Malta): kindness, a viper, and healing after the storm! 🏝️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul', 'malta', 'melita', 'viper', 'publius', 'healing', 'acts 28', 'kindness'],
+      kjvRef: 'Acts 28:1–10',
+      kidContext: { who: 'God', to: 'Paul (and us)', apply: 'After the worst week, God still had good work for Paul—He can use you to encourage people right where you land.' }
+    },
+    romansRoadKids: {
+      title: 'The Romans Road (for Kids)',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'All have sinned—we need a Saviour' },
+        { src: 'panel-david-2.svg', alt: 'Christ died for us while we were yet sinners' },
+        { src: 'panel-david-3.svg', alt: 'Believe in your heart—confess Jesus is Lord—saved' }
+      ],
+      caption: 'Swipe to see God’s rescue plan—straight from Romans! ✝️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['romans', 'gospel', 'sin', 'grace', 'saved', 'confess', 'believe', 'eternal life'],
+      kjvRef: 'Romans 3:23; 5:8; 6:23; 10:9–10',
+      kidContext: { who: 'Paul', to: 'Us', apply: 'If you trust Jesus died and rose for you, tell Him—and tell a trusted grown-up; baptism and church help you grow.' }
+    },
+    corinthiansOneBody: {
+      title: 'One Body, Many Gifts',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'One body—eye, hand, foot—all needed' },
+        { src: 'panel-noah-2.svg', alt: 'Don’t say “I don’t need you” in church' },
+        { src: 'panel-noah-3.svg', alt: 'We hurt together and celebrate together' }
+      ],
+      caption: 'Swipe to see the church as a team—not a contest! 🤝',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['1 corinthians', 'body of christ', 'gifts', 'spirit', 'unity', 'church', 'members'],
+      kjvRef: '1 Corinthians 12',
+      kidContext: { who: 'Paul', to: 'The church (and us)', apply: 'The shy kid, the loud kid, the helper, the singer—Jesus put you in His body on purpose; cheer for each other.' }
+    },
+    philippiansJoy: {
+      title: 'Philippians — Joy in Chains',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Paul in prison—still rejoicing in Christ' },
+        { src: 'panel-david-2.svg', alt: 'Have the mind of Christ—humble, obedient, exalted' },
+        { src: 'panel-david-3.svg', alt: 'Pray with thanks—peace guards you; Christ strengtheneth thee' }
+      ],
+      caption: 'Swipe to see joy that doesn’t need easy days! ☀️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['philippians', 'joy', 'rejoice', 'peace', 'prison', 'thanksgiving', 'strength', 'christ'],
+      kjvRef: 'Philippians 1:21; 2:5–11; 4:4–7, 13',
+      kidContext: { who: 'Paul', to: 'Us', apply: 'Hard day? Tell Jesus anyway—He can trade your panic for peace when you pray with a thankful heart.' }
+    },
+    colossiansChristSupreme: {
+      title: 'Colossians — Christ Is Supreme',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Christ—image of God; all things made by Him' },
+        { src: 'panel-noah-2.svg', alt: 'Head of the church—peace by the cross' },
+        { src: 'panel-noah-3.svg', alt: 'Set your heart on heaven—mercy, kindness, peace rule' }
+      ],
+      caption: 'Swipe to see Jesus first—in all things! 👑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['colossians', 'christ', 'supreme', 'creation', 'church', 'above', 'mercy', 'peace'],
+      kjvRef: 'Colossians 1:15–20; 3:1–4, 12–17',
+      kidContext: { who: 'Paul', to: 'Us', apply: 'When screens shout “look at me,” look up first—Jesus made you, saved you, and gets the first place in your day.' }
+    },
+    thessaloniansHope: {
+      title: 'Thessalonians — Hope When We Grieve',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Comfort for those who sleep in Jesus' },
+        { src: 'panel-david-2.svg', alt: 'The Lord will come—dead in Christ rise first' },
+        { src: 'panel-david-3.svg', alt: 'Caught up to meet the Lord—rejoice, pray, give thanks' }
+      ],
+      caption: 'Swipe to see tears held by resurrection hope! 🕊️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['thessalonians', 'hope', 'resurrection', 'comfort', 'rapture', 'pray', 'thanks', 'spirit'],
+      kjvRef: '1 Thessalonians 4:13–18; 5:16–24',
+      kidContext: { who: 'Paul', to: 'Us', apply: 'When someone you love dies in Christ, we grieve—but not like people with no hope; we’ll see them again when Jesus comes.' }
+    },
+    timothyYouthExample: {
+      title: 'Timothy — Young and Faithful',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Don’t let anyone mock your age—lead by love' },
+        { src: 'panel-noah-2.svg', alt: 'Example in word, love, faith, purity' },
+        { src: 'panel-noah-3.svg', alt: 'Read, teach, use your gift—God sees your growth' }
+      ],
+      caption: 'Swipe to see God use young hearts who obey! 🌱',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['timothy', 'youth', 'example', '1 timothy', 'faith', 'purity', 'gift', 'scripture'],
+      kjvRef: '1 Timothy 4:12',
+      kidContext: { who: 'Paul', to: 'Timothy (and us)', apply: 'You don’t wait until you’re grown to be faithful—today you can speak kindly, tell truth, and take Scripture seriously.' }
     },
     paulShipwreck: {
       title: 'Paul\'s Shipwreck',
@@ -3155,8 +4359,8 @@
       caption: 'Swipe to see Paul survive the storm—God keeps His own! ⛵',
       videoId: '',
       videoTitle: '',
-      keywords: ['paul', 'shipwreck', 'storm', 'acts 28', 'snake', 'island', 'protect'],
-      kjvRef: 'Acts 28',
+      keywords: ['paul', 'shipwreck', 'storm', 'acts 27', 'acts 28', 'snake', 'malta', 'melita', 'protect'],
+      kjvRef: 'Acts 27–28',
       kidContext: { who: 'God', to: 'Paul', apply: 'God protects His people through storms! When life gets hard, He keeps you safe.' }
     },
     paulSilas: {
@@ -3170,7 +4374,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['paul', 'silas', 'jail', 'acts 16', 'sing', 'pray', 'earthquake', 'midnight'],
-      kjvRef: 'Acts 16',
+      kjvRef: 'Acts 16:16–40',
       kidContext: { who: 'God', to: 'Paul and Silas', apply: 'Praise God even in hard places! Your worship opens doors—literally.' }
     },
     tenVirgins: {
@@ -3297,7 +4501,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['forgive', '70 times', 'matthew 18', 'peter', 'always', 'mercy', 'hug'],
-      kjvRef: 'Matthew 18',
+      kjvRef: 'Matthew 18:21–35',
       kidContext: { who: 'Jesus', to: 'Peter (and us)', apply: 'Forgiveness is never too much! When you forgive, you\'re free—not the other person.' }
     },
     widowMite: {
@@ -3357,6 +4561,20 @@
       kjvRef: 'Acts 7',
       kidContext: { who: 'Jesus', to: 'Stephen', apply: 'Be bold for Jesus—even when it\'s hard! And always forgive like Stephen did.' }
     },
+    stephenMartyr: {
+      title: 'Stephen, First Martyr',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Stephen full of faith — wonders and signs' },
+        { src: 'panel-david-2.svg', alt: 'He sees Jesus standing at God\'s right hand' },
+        { src: 'panel-david-3.svg', alt: 'He forgives those who stone him' }
+      ],
+      caption: 'Swipe to see Stephen\'s courage and love for Jesus! 💎',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['stephen', 'martyr', 'acts 6', 'acts 7', 'stones', 'forgive', 'heaven', 'bold'],
+      kjvRef: 'Acts 6:8–7:60',
+      kidContext: { who: 'Stephen', to: 'The council (and us)', apply: 'Tell the truth about Jesus with love — and trust Him with your life, like Stephen.' }
+    },
     philipChariot: {
       title: 'Philip and the Ethiopian',
       panels: [
@@ -3368,8 +4586,22 @@
       videoId: '',
       videoTitle: '',
       keywords: ['philip', 'ethiopian', 'chariot', 'acts 8', 'isaiah', 'read', 'baptize', 'explain'],
-      kjvRef: 'Acts 8',
+      kjvRef: 'Acts 8:26–40',
       kidContext: { who: 'God', to: 'Philip (and us)', apply: 'Be ready to share Jesus wherever you go! God sets up divine appointments.' }
+    },
+    philipEthiopian: {
+      title: 'Philip & the Ethiopian',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Philip runs to the chariot on the desert road' },
+        { src: 'panel-noah-2.svg', alt: 'Understandest thou what thou readest?' },
+        { src: 'panel-noah-3.svg', alt: 'He is baptized — and goes away rejoicing' }
+      ],
+      caption: 'Swipe to see Philip open the Scripture — good news travels! 📖',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['philip', 'ethiopian', 'eunuch', 'acts 8', 'isaiah', 'baptism', 'chariot', 'gaza'],
+      kjvRef: 'Acts 8:26–40',
+      kidContext: { who: 'Philip', to: 'The Ethiopian (and us)', apply: 'When you obey God\'s nudge, someone may meet Jesus — keep Scripture ready on your heart.' }
     },
     paulShip: {
       title: 'Paul\'s Ship in the Storm',
@@ -3385,6 +4617,20 @@
       kjvRef: 'Acts 27',
       kidContext: { who: 'God', to: 'Paul and the sailors', apply: 'God keeps His promises in storms! When you\'re afraid, His word says: fear not.' }
     },
+    johnPatmos: {
+      title: 'John on Patmos',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'John on the island—faithful to Jesus’ word' },
+        { src: 'panel-noah-2.svg', alt: 'A voice like a trumpet—Alpha and Omega' },
+        { src: 'panel-noah-3.svg', alt: 'The risen Lord—fear not, I am alive for evermore' }
+      ],
+      caption: 'Swipe to see Jesus walk into John’s exile—alive and glorious! 🌅',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['john', 'patmos', 'revelation 1', 'vision', 'alpha omega', 'trumpet', 'alive', 'churches'],
+      kjvRef: 'Revelation 1',
+      kidContext: { who: 'Jesus', to: 'John (and us)', apply: 'Jesus meets His people in lonely places—He is first, last, and alive forever.' }
+    },
     revelationThrone: {
       title: 'The Throne in Heaven',
       panels: [
@@ -3397,6 +4643,20 @@
       videoTitle: '',
       keywords: ['revelation', 'throne', 'heaven', 'revelation 4', 'rainbow', 'elders', 'worship'],
       kidContext: { who: 'God', to: 'John (and us)', apply: 'Heaven is real and beautiful! Worship God now—that\'s what heaven is like forever.' }
+    },
+    revelationThroneRoom: {
+      title: 'Heaven’s Throne Room (Revelation 4–5)',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A door opened in heaven — Come up hither' },
+        { src: 'panel-noah-2.svg', alt: 'Throne, rainbow, elders, living creatures — holy worship' },
+        { src: 'panel-noah-3.svg', alt: 'The Lamb is worthy — the sealed book opened — praise forever' }
+      ],
+      caption: 'Swipe to see heaven’s throne—and the Lamb who is worthy! 👑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'throne', 'revelation 4', 'revelation 5', 'lamb', 'elders', 'beasts', 'worthy'],
+      kjvRef: 'Revelation 4–5',
+      kidContext: { who: 'God', to: 'John (and us)', apply: 'Worship the Lamb who died and lives—He alone is worthy of every crown you carry.' }
     },
     fourHorsemen: {
       title: 'The Four Horsemen',
@@ -3422,6 +4682,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['alpha', 'omega', 'revelation 1', 'beginning', 'end', 'lord', 'eternal'],
+      kjvRef: 'Revelation 1:8, 11, 17–18',
       kidContext: { who: 'God', to: 'John (and us)', apply: 'God started everything and He finishes it! He has the first word and the last word.' }
     },
     newHeaven: {
@@ -3436,6 +4697,20 @@
       videoTitle: '',
       keywords: ['new heaven', 'earth', 'revelation 21', 'no tears', 'new', 'eternal', 'gold'],
       kidContext: { who: 'God', to: 'All His people', apply: 'The best is coming! A new world with no pain, no sadness—only God and joy.' }
+    },
+    revelationNewHeaven: {
+      title: 'New Jerusalem & All Things New',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'A new heaven and earth — the first passed away' },
+        { src: 'panel-noah-2.svg', alt: 'New Jerusalem comes down — God wipes every tear' },
+        { src: 'panel-noah-3.svg', alt: 'River of life, tree of life — Surely I come quickly' }
+      ],
+      caption: 'Swipe to see the end of the story—everything made new! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'new jerusalem', 'new heaven', 'revelation 21', 'revelation 22', 'river of life', 'tree of life', 'come quickly'],
+      kjvRef: 'Revelation 21–22',
+      kidContext: { who: 'God', to: 'John (and us)', apply: 'God’s promise stands: no more pain, only His presence—say “Come, Lord Jesus” with hope.' }
     },
     treeOfLife: {
       title: 'The Tree of Life',
@@ -3500,6 +4775,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['beast', '666', 'revelation 13', 'mark', 'forehead', 'warning', 'choose'],
+      kjvRef: 'Revelation 13:16–18',
       kidContext: { who: 'God', to: 'John (and us)', apply: 'Choose Jesus—belong to Him, not the world! His mark of love is the one that lasts.' }
     },
     /* ── Week 10 (121–132) ── */
@@ -3553,6 +4829,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['abigail', 'wise', 'nabal', '1 samuel 25', 'bread', 'donkey', 'peace', 'wisdom'],
+      kjvRef: '1 Samuel 25',
       kidContext: { who: 'God', to: 'Abigail (and us)', apply: 'Wise words stop anger and save lives! Be quick to bring peace, not fuel.' }
     },
     hannahPray: {
@@ -3592,6 +4869,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['lydia', 'purple', 'acts 16', 'cloth', 'believe', 'baptize', 'heart', 'open'],
+      kjvRef: 'Acts 16:11–15',
       kidContext: { who: 'God', to: 'Lydia', apply: 'God is the one who opens our hearts to believe! Ask Him to open yours.' }
     },
     priscillaTeach: {
@@ -3605,6 +4883,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['priscilla', 'aquila', 'apollos', 'acts 18', 'teach', 'tent', 'explain', 'grow'],
+      kjvRef: 'Acts 18:24–28',
       kidContext: { who: 'God', to: 'Priscilla, Aquila, and Apollos', apply: 'Help each other understand God better! Teaching is one of God\'s gifts.' }
     },
     ruthMoab: {
@@ -3631,6 +4910,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['esther', 'fast', 'esther 4', 'scepter', 'pray', 'brave', 'mordecai'],
+      kjvRef: 'Esther 4–5',
       kidContext: { who: 'God', to: 'Esther', apply: 'Fast, pray, then go! God gives courage to those who seek Him first.' }
     },
     sarahPromise: {
@@ -3671,6 +4951,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['anna', 'prophet', 'temple', 'luke 2', 'baby jesus', 'pray', 'praise'],
+      kjvRef: 'Luke 2:36–38',
       kidContext: { who: 'God', to: 'Anna', apply: 'Never stop praying! Like Anna—stay close to God and He will show you His glory.' }
     },
     widowOil: {
@@ -3749,20 +5030,22 @@
       videoId: '',
       videoTitle: '',
       keywords: ['dorcas', 'raise', 'acts 9', 'peter', 'clothes', 'poor', 'widow', 'life'],
+      kjvRef: 'Acts 9:36–43',
       kidContext: { who: 'God', to: 'Dorcas and Peter', apply: 'Your kindness matters to God! And He can raise what seems dead to life again.' }
     },
     phoebeDeacon: {
-      title: 'Phoebe the Deacon',
+      title: 'Phebe, Servant of the Church',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Paul writes: Phoebe is a deacon of the church' },
+        { src: 'panel-noah-1.svg', alt: 'Paul writes: Phebe is a servant of the church (KJV)' },
         { src: 'panel-noah-2.svg', alt: 'She carries Paul\'s letter to Rome' },
         { src: 'panel-noah-3.svg', alt: 'She serves faithfully—a helper of many!' }
       ],
       caption: 'Swipe to see Phoebe faithfully serve God\'s people! ✉️',
       videoId: '',
       videoTitle: '',
-      keywords: ['phoebe', 'deacon', 'romans 16', 'letter', 'rome', 'serve', 'faithful'],
-      kidContext: { who: 'God', to: 'Phoebe (and us)', apply: 'Faithful service matters! Like Phoebe—do your part well and God calls it great.' }
+      keywords: ['phoebe', 'phebe', 'deacon', 'servant', 'romans 16', 'letter', 'rome', 'serve', 'faithful'],
+      kjvRef: 'Romans 16:1–2',
+      kidContext: { who: 'God', to: 'Phebe (and us)', apply: 'Faithful service matters! Like Phebe—do your part well and God calls it great.' }
     },
     juniaApostle: {
       title: 'Junia the Apostle',
@@ -3801,6 +5084,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['eunice', 'mother', '2 timothy 1', 'timothy', 'scripture', 'teach', 'faith'],
+      kjvRef: '2 Timothy 1:5–7; 3:15',
       kidContext: { who: 'God', to: 'Eunice and Timothy', apply: 'Thank God for people who teach you His Word! A faithful mom is a gift from heaven.' }
     },
     priscillaTent: {
@@ -3814,6 +5098,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['priscilla', 'tent', 'aquila', 'acts 18', 'paul', 'work', 'church', 'teach'],
+      kjvRef: 'Acts 18:1–3, 18–19',
       kidContext: { who: 'God', to: 'Priscilla and Aquila', apply: 'Your home can be a place where God works! Serve Him together with your family.' }
     },
     /* ── Week 12 (145–160) ── */
@@ -3832,6 +5117,20 @@
       kidContext: { who: 'Jesus', to: 'Mary and Martha (and us)', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
       narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
     },
+    jesusLazarus: {
+      title: 'Lazarus, Come Forth',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Mary and Martha send word — Lazarus is sick' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus at the tomb — Lazarus, come forth' },
+        { src: 'panel-noah-3.svg', alt: 'Lazarus lives — many believe on Jesus' }
+      ],
+      caption: 'Swipe to see Jesus call Lazarus out of the grave! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['lazarus', 'john 11', 'resurrection', 'life', 'mary', 'martha', 'tomb', 'miracle'],
+      kjvRef: 'John 11:1–44',
+      kidContext: { who: 'Jesus', to: 'Mary, Martha, Lazarus (and us)', apply: 'Jesus is the resurrection and the life — nothing is too dead for Him to reach.' }
+    },
     greatCommission: {
       title: 'The Great Commission',
       panels: [
@@ -3843,8 +5142,22 @@
       videoId: '',
       videoTitle: '',
       keywords: ['great commission', 'matthew 28', 'go', 'make disciples', 'baptize', 'nations', 'with you always'],
-      kjvRef: 'Matthew 28',
+      kjvRef: 'Matthew 28:18–20',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'You are sent! Tell everyone the good news—and Jesus is with you every step.' }
+    },
+    jesusGreatCommission: {
+      title: 'The Great Commission (Matthew & Mark)',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus on a mountain in Galilee — disciples worship Him' },
+        { src: 'panel-noah-2.svg', alt: 'All power in heaven and earth — go, teach all nations, baptize' },
+        { src: 'panel-noah-3.svg', alt: 'Lo, I am with you alway — preach the gospel to every creature' }
+      ],
+      caption: 'Swipe to see Jesus send the world mission—with Him to the end! 🌍',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['great commission', 'matthew 28', 'mark 16', 'galilee', 'baptize', 'teach nations', 'with you alway', 'preach'],
+      kjvRef: 'Matthew 28:16–20; Mark 16:15–18',
+      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'His last marching orders still stand: go, baptize, teach—and He walks beside you.' }
     },
     ascension: {
       title: 'Jesus Ascends to Heaven',
@@ -3871,7 +5184,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['pentecost', 'tongues', 'acts 2', 'fire', 'languages', 'spirit', 'church', 'power'],
-      kjvRef: 'Acts 2',
+      kjvRef: 'Acts 2:4–21',
       kidContext: { who: 'Holy Spirit', to: 'The disciples (and all believers)', apply: 'God\'s Spirit lives in you! You have power to tell the world about Jesus.' }
     },
     armorBelt: {
@@ -3913,6 +5226,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['faith', 'mountain', 'matthew 17', 'impossible', 'mustard', 'move', 'believe'],
+      kjvRef: 'Matthew 17:20; Mark 11:23–24',
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Say it out loud: nothing is impossible with God! Your faith moves things in the spirit.' }
     },
     loveNeighbor: {
@@ -3991,6 +5305,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['knee bow', 'philippians 2', 'every tongue', 'lord', 'throne', 'praise', 'glory'],
+      kjvRef: 'Philippians 2:8–11',
       kidContext: { who: 'God', to: 'All people', apply: 'One day everyone will know Jesus is Lord! Choose to bow your heart to Him now—gladly.' }
     },
     newEarth: {
@@ -4017,6 +5332,7 @@
       videoId: '',
       videoTitle: '',
       keywords: ['alpha omega', 'revelation 22', 'first', 'last', 'beginning', 'end', 'eternal', 'forever'],
+      kjvRef: 'Revelation 22:12–13',
       kidContext: { who: 'Jesus', to: 'All creation', apply: 'Jesus is the start and finish of your story too! Give Him every chapter.' }
     },
     comeLordJesus: {
@@ -4057,26 +5373,37 @@
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
       'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'battleOfAi', 'gideonFleece', 'gideonMidianites', 'deborahBarak', 'samsonBirth', 'ruthNaomi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
-      'ruthGlean', 'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
+      'ruthGlean',       'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
+      'hannahSamuel', 'samuelBirth', 'samuelCalls', 'samuelAnointsDavid', 'davidGoliath',
+      'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
+      'saulKing', 'saulDisobedience',
       /* Week 4 */
       'elishaRaised', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd',
-      'solomonWisdom', 'elijahChariot', 'jonahVine', 'danielPray', 'estherBanquet',
+      'solomonWisdom', 'solomonTemple',
+      'elijahFireFromHeaven', 'elijahElijahElisha', 'elijahChariot', 'elishaMiracles', 'elishaFloatingAxe',
+      'isaiahMessianic', 'jeremiahWeeping', 'ezekielValleyBones',       'danielFieryFurnace', 'danielLionsDen',
+      'ezraReturn', 'malachiMessage',
+      'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
-      'angelMary', 'shepherdsStar', 'jesusManger', 'jesusTemple', 'johnBaptize',
-      'jesusTempt', 'weddingWine', 'healBlind', 'jesusBlessKids',
+      'angelMary', 'shepherdsStar', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
+      'jesusBaptism', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
+      'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
+      'jesusParableSower', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'crossCarry', 'crucifixion', 'tombEmpty', 'emmausRoad', 'thomasDoubt',
-      'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulSilas', 'tenVirgins',
+      'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
+      'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
       'armorShield', 'armorSword', 'fruitSpirit', 'loveChapter', 'faithMustard',
       'prayerKnock', 'worryBirds', 'forgive70x7', 'widowMite', 'richYoungRuler',
       'maryAnoint',
       /* Week 9 */
-      'stephenStones', 'philipChariot', 'paulShip', 'revelationThrone', 'fourHorsemen',
-      'alphaOmega', 'newHeaven', 'treeOfLife', 'riverOfLife', 'lambBook',
+      'stephenMartyr', 'philipEthiopian', 'stephenStones', 'philipChariot', 'paulShip', 'johnPatmos', 'revelationThrone', 'revelationThroneRoom', 'fourHorsemen',
+      'alphaOmega', 'newHeaven', 'revelationNewHeaven', 'treeOfLife', 'riverOfLife', 'lambBook',
       'dragonFight', 'beastMark',
       /* Week 10 */
       'rahabWindow', 'deborahJudge', 'jaelTent', 'abigailWise', 'hannahPray',
@@ -4087,7 +5414,7 @@
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
-      'lazarus', 'greatCommission', 'ascension', 'pentecostTongues', 'armorBelt',
+      'jesusLazarus', 'jesusGreatCommission', 'greatCommission', 'jesusAscension', 'pentecostTongues', 'armorBelt',
       'prayerCloset', 'faithMountain', 'loveNeighbor', 'heavenDoor', 'revelationBride',
       'treeFruit', 'noNight', 'everyKneeBow', 'newEarth', 'alphaOmega2', 'comeLordJesus'
     ];
@@ -5907,29 +7234,91 @@
     balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',
+    hannahSamuel: 'Miracles', samuelBirth: 'Obedience', samuelCalls: 'Obedience',
+    samuelAnointsDavid: 'Obedience', davidGoliath: 'Protection',
+    davidSaulJealousy: 'Protection', davidJonathanFriendship: 'Love',
+    davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaRaised: 'Miracles', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', solomonWisdom: 'Obedience',
-    elijahChariot: 'Miracles', jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', solomonWisdom: 'Obedience', solomonTemple: 'Obedience',
+    elijahFireFromHeaven: 'Miracles', elijahElijahElisha: 'Obedience', elijahChariot: 'Miracles',
+    elishaMiracles: 'Miracles', elishaFloatingAxe: 'Miracles',
+    isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
+    danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',
+    ezraReturn: 'Obedience', malachiMessage: 'Obedience',
+    jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
     angelMary: 'Miracles', shepherdsStar: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
-    johnBaptize: 'Obedience', jesusTempt: 'Obedience', weddingWine: 'Miracles',
-    healBlind: 'Miracles', jesusBlessKids: 'Love',
+    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Obedience', jesusTemptation: 'Obedience',
+    jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
+    jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */
-    mustardSeed: 'Obedience', healLeper: 'Miracles', jairus: 'Miracles',
+    jesusHealsParalytic: 'Miracles', mustardSeed: 'Obedience',
+    jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',
+    healLeper: 'Miracles', jairus: 'Miracles',
     transfigure: 'Miracles', judasKiss: 'Love',
     /* Week 7 */
-    crossCarry: 'Love', tombEmpty: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
-    pentecostFire: 'Miracles', peterShadow: 'Miracles', paulShipwreck: 'Protection',
+    jesusTriumphalEntry: 'Protection', jesusLastSupper: 'Love', jesusGardenGethsemane: 'Protection',
+    crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
+    pentecost: 'Miracles',
+    holySpiritPentecost: 'Miracles',
+    peterPentecostSermon: 'Miracles',
+    earlyChurchLife: 'Love',
+    peterHealsLame: 'Miracles', peterJailBreak: 'Miracles',
+    pentecostFire: 'Miracles',
+    paulConversion: 'Protection',
+    paulBarnabas: 'Obedience',
+    paulFirstJourney: 'Obedience',
+    councilJerusalem: 'Love',
+    paulSecondJourney: 'Protection',
+    actsPaulMarsHill: 'Obedience',
+    actsApollosPriscilla: 'Love',
+    paulThirdJourney: 'Miracles',
+    paulEphesus: 'Miracles',
+    paulEutychus: 'Miracles',
+    peterShadow: 'Miracles', paulShipwreck: 'Protection',
+    paulRome: 'Obedience',
+    paulLetters: 'Love',
+    paulPrisonEpistles: 'Love',
+    paulEndurance: 'Obedience',
+    paulTimothy: 'Love',
+    paulTitus: 'Obedience',
+    paulPhilemon: 'Love',
+    hebrewsFaith: 'Obedience',
+    jamesFaithWorks: 'Obedience',
+    peterFirstLetter: 'Protection',
+    peterSecondLetter: 'Obedience',
+    johnFirstLetter: 'Love',
+    judeWarning: 'Obedience',
+    revelationLetters: 'Obedience',
+    revelationSeals: 'Miracles',
+    revelationTrumpets: 'Miracles',
+    revelationBeasts: 'Obedience',
+    revelationThousandYears: 'Miracles',
+    revelationNewJerusalem: 'Love',
+    revelationWomanDragon: 'Miracles',
+    revelationSongsAndHarvest: 'Miracles',
+    revelationSupperAndKing: 'Love',
+    revelationBabylonFall: 'Obedience',
+    johnSecondThirdLetters: 'Love',
+    actsPaulBeforeAgrippa: 'Obedience',
+    actsPaulMelita: 'Miracles',
+    romansRoadKids: 'Love',
+    corinthiansOneBody: 'Love',
+    philippiansJoy: 'Love',
+    colossiansChristSupreme: 'Obedience',
+    thessaloniansHope: 'Love',
+    timothyYouthExample: 'Obedience',
     paulSilas: 'Protection', tenVirgins: 'Obedience',
     /* Week 8 */
     armorShield: 'Protection', armorSword: 'Protection', fruitSpirit: 'Love',
     loveChapter: 'Love', faithMustard: 'Obedience', prayerKnock: 'Obedience',
     worryBirds: 'Protection', forgive70x7: 'Love', widowMite: 'Love', maryAnoint: 'Love',
     /* Week 9 */
-    stephenStones: 'Protection', philipChariot: 'Obedience', paulShip: 'Protection',
-    revelationThrone: 'Miracles', fourHorsemen: 'Protection', alphaOmega: 'Obedience',
-    newHeaven: 'Love', treeOfLife: 'Love', riverOfLife: 'Love', lambBook: 'Obedience',
+    stephenMartyr: 'Protection', philipEthiopian: 'Obedience', stephenStones: 'Protection', philipChariot: 'Obedience', paulShip: 'Protection',
+    johnPatmos: 'Protection',
+    revelationThrone: 'Miracles', revelationThroneRoom: 'Miracles', fourHorsemen: 'Protection', alphaOmega: 'Obedience',
+    newHeaven: 'Love', revelationNewHeaven: 'Love', treeOfLife: 'Love', riverOfLife: 'Love', lambBook: 'Obedience',
     dragonFight: 'Protection', beastMark: 'Obedience',
     /* Week 10 */
     rahabWindow: 'Obedience', deborahJudge: 'Protection', jaelTent: 'Protection',
@@ -5942,7 +7331,7 @@
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',
     /* Week 12 */
-    greatCommission: 'Obedience', pentecostTongues: 'Miracles', armorBelt: 'Protection',
+    jesusLazarus: 'Miracles', jesusGreatCommission: 'Obedience', greatCommission: 'Obedience', jesusAscension: 'Protection', pentecostTongues: 'Miracles', armorBelt: 'Protection',
     prayerCloset: 'Obedience', faithMountain: 'Obedience', loveNeighbor: 'Love',
     heavenDoor: 'Love', revelationBride: 'Love', treeFruit: 'Love', noNight: 'Love',
     everyKneeBow: 'Obedience', newEarth: 'Love', alphaOmega2: 'Obedience', comeLordJesus: 'Love'

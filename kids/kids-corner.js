@@ -2403,6 +2403,10 @@
     redSeaCrossing: 'redSeaCrossing',
     /* ── Week 3 ── */
     joshuaJordan: 'joshuaJordan',
+    jordanCrossing: 'joshuaJordan',
+    battleOfAi: 'jerichoWalls',
+    balaakCurse: 'balaamDonkey',
+    balaamBlessing: 'balaamDonkey',
     jerichoWalls: 'jerichoWalls',
     fallOfJericho: 'jerichoWalls',
     joshuaAi: 'jerichoWalls',
@@ -3298,7 +3302,7 @@
   var STORY_JOURNEY_ORDER = [
     'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
     'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-    'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'joshuaJordan', 'jerichoWalls', 'rahabJericho', 'joshuaAi', 'fallOfJericho', 'ruthBoaz',
+    'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahabJericho', 'joshuaAi', 'battleOfAi', 'fallOfJericho', 'ruthBoaz',
     'davidSheep', 'david', 'elijahFire', 'elishaOil', 'naaman', 'samson', 'esther', 'daniel', 'fieryFurnace',
     'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
     'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',

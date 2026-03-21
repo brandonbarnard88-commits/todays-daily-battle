@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (177 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (181 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -77,10 +77,25 @@
       webm: '/media/kids-stories/ascension.webm',
       captionsVtt: '/media/kids-stories/ascension.vtt'
     },
+    balaakCurse: {
+      mp4: '/media/kids-stories/balaak-curse.mp4',
+      webm: '/media/kids-stories/balaak-curse.webm',
+      captionsVtt: '/media/kids-stories/balaak-curse.vtt'
+    },
+    balaamBlessing: {
+      mp4: '/media/kids-stories/balaam-blessing.mp4',
+      webm: '/media/kids-stories/balaam-blessing.webm',
+      captionsVtt: '/media/kids-stories/balaam-blessing.vtt'
+    },
     balaamDonkey: {
       mp4: '/media/kids-stories/balaam-donkey.mp4',
       webm: '/media/kids-stories/balaam-donkey.webm',
       captionsVtt: '/media/kids-stories/balaam-donkey.vtt'
+    },
+    battleOfAi: {
+      mp4: '/media/kids-stories/battle-of-ai.mp4',
+      webm: '/media/kids-stories/battle-of-ai.webm',
+      captionsVtt: '/media/kids-stories/battle-of-ai.vtt'
     },
     beastMark: {
       mp4: '/media/kids-stories/beast-mark.mp4',
@@ -406,6 +421,11 @@
       mp4: '/media/kids-stories/jonah-vine.mp4',
       webm: '/media/kids-stories/jonah-vine.webm',
       captionsVtt: '/media/kids-stories/jonah-vine.vtt'
+    },
+    jordanCrossing: {
+      mp4: '/media/kids-stories/jordan-crossing.mp4',
+      webm: '/media/kids-stories/jordan-crossing.webm',
+      captionsVtt: '/media/kids-stories/jordan-crossing.vtt'
     },
     josephCoat: {
       mp4: '/media/kids-stories/joseph-coat.mp4',

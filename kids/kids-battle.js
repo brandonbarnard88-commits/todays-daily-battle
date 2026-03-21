@@ -2366,6 +2366,20 @@
       kjvRef: 'Joshua 3',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'God leads you into the new! Step forward in faith—He holds the water back.' }
     },
+    jordanCrossing: {
+      title: 'Crossing the Jordan',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Israel at the Jordan — priests bear the ark' },
+        { src: 'panel-noah-2.svg', alt: 'Feet touch the water — the river stops upstream' },
+        { src: 'panel-noah-3.svg', alt: 'Twelve stones — remember this miracle' }
+      ],
+      caption: 'Swipe to see God dry up the river — step forward! 🏞️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['jordan', 'joshua', 'ark', 'crossing', 'joshua 3', 'joshua 4', 'stones', 'memorial'],
+      kjvRef: 'Joshua 3–4',
+      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'High water cannot stop God — He makes a path when you obey.' }
+    },
     jerichoWalls: {
       title: 'Walls of Jericho Fall',
       panels: [
@@ -2393,6 +2407,20 @@
       keywords: ['joshua', 'ai', 'achan', 'joshua 7', 'joshua 8', 'obey', 'ambush'],
       kjvRef: 'Joshua 8',
       kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'Hidden sin blocked the win — when the camp obeyed God again, He gave the city.' }
+    },
+    battleOfAi: {
+      title: 'Victory at Ai',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Joshua follows God\'s new battle plan' },
+        { src: 'panel-david-2.svg', alt: 'Israel draws Ai out — ambush closes behind' },
+        { src: 'panel-david-3.svg', alt: 'The city is taken — God gives the win' }
+      ],
+      caption: 'Swipe to see God give victory when His people obey! ⚔️',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['joshua', 'ai', 'victory', 'joshua 8', 'ambush', 'obey', 'second battle'],
+      kjvRef: 'Joshua 8',
+      kidContext: { who: 'God', to: 'Joshua and Israel', apply: 'After sin was removed, God\'s plan worked — obey Him and watch Him fight for you.' }
     },
     rahabRope: {
       title: 'Rahab\'s Scarlet Cord',
@@ -2422,6 +2450,20 @@
       kjvRef: 'Joshua 2',
       kidContext: { who: 'God', to: 'Rahab', apply: 'She believed the Lord is God in heaven above — and He kept her safe.' }
     },
+    balaakCurse: {
+      title: 'Balak Sends for Balaam',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'King Balak fears Israel — messengers ride out' },
+        { src: 'panel-david-2.svg', alt: 'Balaam hears the offer — money and honour' },
+        { src: 'panel-david-3.svg', alt: 'Balaam sets out — God will guard His word' }
+      ],
+      caption: 'Swipe to see how God guards His people! 👑',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['balak', 'balaam', 'moab', 'numbers 22', 'curse', 'messengers', 'israel'],
+      kjvRef: 'Numbers 22:1–20',
+      kidContext: { who: 'God', to: 'Israel', apply: 'Kings may be afraid of you, but God\'s blessing cannot be bought.' }
+    },
     balaamDonkey: {
       title: 'Balaam\'s Talking Donkey',
       panels: [
@@ -2435,6 +2477,20 @@
       keywords: ['balaam', 'donkey', 'angel', 'numbers 22', 'talking', 'listen', 'obey'],
       kjvRef: 'Numbers 22',
       kidContext: { who: 'God', to: 'Balaam', apply: 'God can use anyone to speak truth! Always listen—even when it\'s surprising.' }
+    },
+    balaamBlessing: {
+      title: 'Balaam Blesses Israel',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Altars on the hill — Balak waits for a curse' },
+        { src: 'panel-david-2.svg', alt: 'Balaam opens his mouth — blessings pour out' },
+        { src: 'panel-david-3.svg', alt: 'How goodly are thy tents, O Jacob!' }
+      ],
+      caption: 'Swipe to see God turn curses into blessings! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['balaam', 'blessing', 'balak', 'numbers 23', 'numbers 24', 'israel', 'prophecy'],
+      kjvRef: 'Numbers 23–24',
+      kidContext: { who: 'God', to: 'Israel', apply: 'What God blesses, no one can curse — His word stands.' }
     },
     samsonHair: {
       title: 'Samson\'s Hair',
@@ -3897,7 +3953,7 @@
     var isWeeklyStory = (dayIndex % 7) === 0;
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
-      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan',
+      'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'battleOfAi',
       'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naaman', 'jesusWalksWater',
@@ -3912,7 +3968,7 @@
       'abrahamIsaac', 'sarahLaughs', 'jacobLadder', 'josephDreams', 'josephPrison',
       'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesStaffSnake', 'passoverLamb', 'redSeaCrossing',
       /* Week 3 */
-      'joshuaJordan', 'jerichoWalls', 'joshuaAi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaamDonkey', 'samsonHair',
+      'joshuaJordan', 'jordanCrossing', 'jerichoWalls', 'joshuaAi', 'battleOfAi', 'rahabRope', 'rahabJericho', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'samsonHair',
       'ruthGlean', 'samuelCall', 'davidHarp', 'goliathChallenge', 'davidAnointed',
       'saulSpear', 'davidCave',
       /* Week 4 */
@@ -5740,7 +5796,7 @@
   var STORY_THEMES = {
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
-    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', spiesInCanaan: 'Obedience', samson: 'Protection',
+    mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
     fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
@@ -5757,8 +5813,8 @@
     josephPrison: 'Protection', pharaohDreams: 'Miracles', josephRuler: 'Miracles', mosesBaby: 'Protection',
     mosesStaffSnake: 'Miracles', passoverLamb: 'Love', redSeaCrossing: 'Protection',
     /* Week 3 */
-    joshuaJordan: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
-    balaamDonkey: 'Obedience', samsonHair: 'Protection', ruthGlean: 'Love',
+    joshuaJordan: 'Miracles', jordanCrossing: 'Miracles', jerichoWalls: 'Obedience', joshuaAi: 'Obedience', battleOfAi: 'Obedience', rahabRope: 'Obedience', rahabJericho: 'Obedience',
+    balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samsonHair: 'Protection', ruthGlean: 'Love',
     samuelCall: 'Obedience', davidHarp: 'Love', goliathChallenge: 'Protection',
     davidAnointed: 'Obedience', saulSpear: 'Protection', davidCave: 'Protection',
     /* Week 4 */

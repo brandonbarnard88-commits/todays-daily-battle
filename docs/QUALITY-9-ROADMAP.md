@@ -26,7 +26,8 @@ This doc ties “elite” shipping to **measurable** checks. Nothing here weaken
 |--------|------|
 | Done | Terser **`compress.passes: 3`** on shipped JS (`scripts/minify.mjs`) — modest gzip savings, no `unsafe_*` flags |
 | Done | Unified SW `?v=` via `SW-VERSION`; deferred third-party analytics; `modulepreload` for `config.js` + main script on homepage |
-| Next (largest win) | **Route-level split**: e.g. load Calm-only logic from `calm.js` on `calm.html` instead of full `script.js` for the crisis path |
+| Done (Calm) | **`calm.html` defers `script.js`** until `requestIdleCallback` (fallback: `load`) — first paint lighter; semantic input + share already tolerate late load |
+| Next (largest win) | **Route-level split**: optional `calm.js` with only semantic + toast if we need zero idle wait |
 | Next | Optional: set `SW-VERSION` from **CI git short hash** at build time (one source of truth) |
 | Watch | Mobile Lighthouse + **FCP/LCP**; see `docs/LIGHTHOUSE-POST-DEPLOY-CHECKLIST.md` |
 

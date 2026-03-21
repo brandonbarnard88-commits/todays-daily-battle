@@ -240,7 +240,24 @@
       </div>
     </main>
   </div>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260320reader-sk"></script>
+  <!-- Full app bundle deferred to idle — categories + inline verses work without it; semantic input polls until resolveSemanticWithScore (script.js). Share uses showEliteToast or button fallback. -->
+  <script nonce="tdb2025s">
+    (function () {
+      function loadCalmAppScript() {
+        if (document.querySelector('script[data-tdb-calm-app]')) return;
+        var s = document.createElement('script');
+        s.type = 'module';
+        s.src = 'script.js?v=20260320reader-sk';
+        s.setAttribute('data-tdb-calm-app', '1');
+        document.head.appendChild(s);
+      }
+      if (window.requestIdleCallback) {
+        requestIdleCallback(loadCalmAppScript, { timeout: 2000 });
+      } else {
+        window.addEventListener('load', function () { setTimeout(loadCalmAppScript, 0); });
+      }
+    })();
+  </script>
   <script nonce="tdb2025s">
     (function () {
       'use strict';

@@ -121,9 +121,19 @@ function trustedScript(s) {
 (function loadDeferredScriptsOnIdle() {
   if (typeof document === 'undefined') return;
   var loaded = false;
+  /** Same-origin absolute URL so script src never resolves against /kids/ or other path prefixes (cache-safe). */
+  function resolveLazyScriptUrl(src) {
+    if (typeof src !== 'string' || !src) return src;
+    if (/^https?:\/\//i.test(src)) return src;
+    if (typeof location === 'undefined' || !location.origin || location.origin === 'null') return src.charAt(0) === '/' ? src : '/' + src;
+    if (src.charAt(0) === '/') return location.origin + src;
+    return location.origin + '/' + src.replace(/^\.\//, '');
+  }
   function inject(src) {
-    if (document.querySelector('script[src*="' + src.replace(/^\//, '') + '"]')) return;
-    var trusted = trustedScriptURL(src);
+    var resolved = resolveLazyScriptUrl(src);
+    var leaf = src.replace(/^\//, '').replace(/^\.\//, '');
+    if (document.querySelector('script[src*="' + leaf + '"]')) return;
+    var trusted = trustedScriptURL(resolved);
     if (!trusted) return;
     var s = document.createElement('script');
     s.src = trusted;
@@ -133,7 +143,6 @@ function trustedScript(s) {
   function loadAnalytics() {
     if (loaded) return;
     loaded = true;
-    /* Root-relative so lazy-injected scripts resolve on /kids/ and other subpaths, not /kids/*.js */
     inject('/analytics-loader.js');
     inject('/gsc-verify.js');
     inject('/share-page.js');

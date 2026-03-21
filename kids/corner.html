@@ -17,7 +17,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=9">
+  <link rel="stylesheet" href="kids-battle.css?v=10">
   <link rel="stylesheet" href="canvas.css?v=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,6 +164,24 @@
       background: #0a0c10;
       border: 2px solid var(--kids-yellow);
       box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+    }
+    /*
+     * Read-along WebVTT — style in CSS (::cue), not ASS export.
+     * Only a subset of properties applies to ::cue (varies by browser); avoid padding/border-radius on old Safari.
+     */
+    .kids-full-story-video::cue {
+      font-family: 'Nunito', 'Comic Neue', system-ui, sans-serif;
+      font-size: clamp(0.9rem, 4.5vw, 1.35rem);
+      line-height: 1.45;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.65);
+      text-shadow: 0 2px 6px #000, 0 0 2px #000;
+      white-space: pre-wrap;
+    }
+    @media (min-width: 768px) {
+      .kids-full-story-video::cue {
+        font-size: clamp(1rem, 2.8vw, 1.2rem);
+      }
     }
   </style>
 </head>

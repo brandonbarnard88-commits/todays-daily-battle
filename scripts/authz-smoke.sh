@@ -216,4 +216,23 @@ else
   fail "E6 expected 401 without auth, got HTTP ${HTTP_CODE} body=${BODY:0:400}"
 fi
 
+# --- E6b: post-message with malformed JWT (must not accept as signed-in) ---
+out_mal="$(mktemp)"
+HTTP_CODE="$(curl -sS -o "$out_mal" -w "%{http_code}" \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer not.a.valid.jwt" \
+  -H "apikey: ${SUPABASE_ANON_KEY}" \
+  -d '{"text":"authz-smoke malformed jwt"}' \
+  "${FUNC_BASE}/post-message")"
+BODY="$(cat "$out_mal")"
+rm -f "$out_mal"
+if handle_edge_not_deployed "E6b post-message (malformed JWT)"; then
+  :
+elif [[ "$HTTP_CODE" == "401" ]]; then
+  ok "E6b POST post-message with malformed JWT → 401"
+else
+  fail "E6b expected 401 for malformed JWT, got HTTP ${HTTP_CODE} body=${BODY:0:400}"
+fi
+
 ok "authz-smoke finished"

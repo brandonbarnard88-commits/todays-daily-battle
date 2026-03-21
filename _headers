@@ -10,6 +10,19 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
+/kids/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/kids/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/kids/corner.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Static assets: long cache (versioned in build)
 /vendor/*
   Cache-Control: public, max-age=31536000, immutable

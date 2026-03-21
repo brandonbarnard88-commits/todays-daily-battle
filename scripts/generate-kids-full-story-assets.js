@@ -10,6 +10,13 @@ const root = path.join(__dirname, '..');
 const battlePath = path.join(root, 'kids/kids-battle.js');
 const outPath = path.join(root, 'kids/kids-full-story-assets.js');
 
+/**
+ * Keys for native video + WebVTT (mp4 + .vtt must exist and return 200 on production).
+ * Empty while /media/kids-stories/david.mp4 is not deployed — avoids broken <video> for David.
+ * After MP4 + VTT verify: set to ['david'], run this script, npm run build, deploy.
+ */
+const FULL_STORY_LIVE_KEYS_SEED = [];
+
 const s = fs.readFileSync(battlePath, 'utf8');
 const re = /\n    ([a-zA-Z][a-zA-Z0-9_]*): \{\n      title:/g;
 const seen = new Map();
@@ -39,9 +46,7 @@ lines.push('   * When a story key is listed here, the modal uses <video> + <trac
 lines.push('   * Add keys gradually as you ship each full animation + captions.');
 lines.push('   * To enable all at once (after full rollout), replace with: new Set(Object.keys(FULL_STORY_MEDIA))');
 lines.push('   */');
-lines.push('  var FULL_STORY_LIVE_KEYS = new Set([');
-lines.push('    /* e.g. \'david\', \'noah\' */');
-lines.push('  ]);');
+lines.push('  var FULL_STORY_LIVE_KEYS = new Set(' + JSON.stringify(FULL_STORY_LIVE_KEYS_SEED) + ');');
 lines.push('');
 lines.push('  /** @type {Object.<string, Object>} */');
 lines.push('  var FULL_STORY_MEDIA = {');

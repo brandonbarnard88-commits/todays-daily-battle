@@ -223,8 +223,61 @@ Functions use `Access-Control-Allow-Origin: *` (see `create-checkout-session`, `
 
 ## 9. CI / automation hooks (recommended)
 
+### Automated smoke script (repo)
+
+`scripts/authz-smoke.sh` runs **T1, T5, T8** (anon REST) and **E1, E2, E6, E6b** (Edge Functions) via `curl`. **E6b** sends a **malformed** `Authorization: Bearer` on `post-message` and expects **401**.
+
+```bash
+export SUPABASE_URL='https://YOUR_PROJECT_REF.supabase.co'
+export SUPABASE_ANON_KEY='eyJ...'   # anon key
+# Optional: JWT for E2 (disallowed price_id → 400)
+# export AUTHZ_ACCESS_TOKEN='eyJ...'
+# Optional: fail if tables/functions missing (fully provisioned staging)
+# export AUTHZ_STRICT=1
+
+npm run test:authz-smoke
+```
+
+**GitHub Actions:** `.github/workflows/authz-smoke.yml` runs the same command on `push` to `main` and `workflow_dispatch`, with `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and optional `AUTHZ_ACCESS_TOKEN` from repository **Secrets**; `AUTHZ_STRICT=1` is set so missing tables/functions fail the job (release-style gate).
+
+- **Missing tables** (PostgREST 404 “Could not find the table”) → **WARN** by default; **`AUTHZ_STRICT=1`** → **fail** (use after SQL is applied).
+- **Missing Edge Functions** (404 `NOT_FOUND`) → **WARN** by default; **`AUTHZ_STRICT=1`** → **fail** (use after `supabase functions deploy`).
+- **E1/E2** need **`create-checkout-session`** deployed with Stripe secret for meaningful auth/price checks; otherwise you may see WARN (Stripe not configured) or missing function.
+
+### Expected output (`authz-smoke.sh`)
+
+Use this to tell **healthy** vs **partially provisioned** vs **broken** at a glance.
+
+**A — Healthy (staging/prod fully wired, `AUTHZ_STRICT=1` passing)**  
+All lines are **`OK`** (green). No **`WARN`**. Typical pattern:
+
+- `OK   T1 anon GET user_sync_data → 200 []` (or `→ 403`)
+- `OK   T5 anon GET messages → 200 []` (or `→ 403`)
+- `OK   T8 anon GET feeling_suggestions → 403` (or `200 []` if policy allows empty public read)
+- `OK   E1 POST create-checkout-session without Bearer → 401`
+- `OK   E2 POST create-checkout-session … → 400` (with `AUTHZ_ACCESS_TOKEN` set)
+- `OK   E6 POST post-message without Bearer → 401`
+- `OK   E6b POST post-message with malformed JWT → 401`
+- `OK   authz-smoke finished` — **exit code 0**
+
+**B — Partial / dev (tolerant default, `AUTHZ_STRICT` unset)**  
+Mix of **`OK`** and **`WARN`**, **exit code 0** — *by design* so fresh projects do not fail CI. Examples:
+
+- `WARN T1 user_sync_data: table not deployed (404)` — run `SUPABASE-SYNC-TABLES.md` SQL for `user_sync_data` when you need sync.
+- `WARN E1 create-checkout-session: Edge Function not deployed (404)` — deploy Edge functions.
+- `WARN E2 skipped: set AUTHZ_ACCESS_TOKEN` — optional JWT not set; E2 not exercised.
+
+**C — Broken (security or misconfiguration)**  
+**`FAIL`** (red) and **exit code 1**. Examples:
+
+- Anon `GET user_sync_data` returns **200 with JSON objects** (rows visible) → RLS leak.
+- `E1` returns **200** without `Authorization` → checkout session created unauthenticated (critical).
+- `E6` returns **200** without JWT → message posted anonymously when it should not.
+
+**Optional follow-ups (low effort, later):** if `feeling_suggestions` policy changes to auth-only, update T8 to expect **401** for anon; add `GET` smokes for any new **intentionally public** tables. Malformed JWT on `post-message` is covered by **E6b** in the script.
+
 1. **Supabase CLI** or **pgTAP** tests applying policies — run in CI against a **branch** project or seeded DB.
-2. **Scripted curls** — store env in CI secrets: `ANON_KEY`, `TEST_USER_A_PASSWORD`, etc.; run nightly.
+2. **Scripted curls** — store env in CI secrets: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, optional `AUTHZ_ACCESS_TOKEN`; run nightly or on release branches.
 3. **Dependency audit:** `npm audit` (or `pnpm audit`) on every PR; block on critical until triaged.
 4. **Secret scan:** `gitleaks` or GitHub secret scanning on push.
 

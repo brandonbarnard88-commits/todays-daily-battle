@@ -13,9 +13,7 @@
    * Add keys gradually as you ship each full animation + captions.
    * To enable all at once (after full rollout), replace with: new Set(Object.keys(FULL_STORY_MEDIA))
    */
-  var FULL_STORY_LIVE_KEYS = new Set([
-    /* e.g. 'david', 'noah' */
-  ]);
+  var FULL_STORY_LIVE_KEYS = new Set([]);
 
   /** @type {Object.<string, Object>} */
   var FULL_STORY_MEDIA = {

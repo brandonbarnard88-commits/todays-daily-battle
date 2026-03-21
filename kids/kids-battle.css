@@ -440,6 +440,78 @@
   margin: 0;
 }
 
+/* Hub: loops vs full-story library */
+.kids-path-picker {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+.kids-path-picker-desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.88);
+  margin: 0 0 1rem;
+  line-height: 1.45;
+}
+.kids-path-picker-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 520px) {
+  .kids-path-picker-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+.kids-path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 5.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 3px solid var(--kids-yellow);
+  background: rgba(15, 23, 42, 0.75);
+  text-decoration: none;
+  color: #e2e8f0;
+  transition: background 0.2s, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.kids-path-card:hover {
+  background: rgba(255, 217, 61, 0.12);
+}
+.kids-path-card:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+.kids-path-card:active {
+  transform: scale(0.99);
+}
+.kids-path-card-loops {
+  border-color: #6bcb77;
+}
+.kids-path-card-stories {
+  border-color: #5b9bd5;
+}
+.kids-path-card-label {
+  font-family: 'Bangers', cursive;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  color: var(--kids-yellow);
+}
+.kids-path-card-loops .kids-path-card-label {
+  color: #a7f3d0;
+}
+.kids-path-card-stories .kids-path-card-label {
+  color: #93c5fd;
+}
+.kids-path-card-hint {
+  font-family: 'Comic Neue', cursive;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: rgba(226, 232, 240, 0.85);
+}
+
 /* Speech bubbles */
 .speech-bubble {
   position: relative;

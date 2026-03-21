@@ -1,0 +1,32 @@
+# Live Supabase RLS + Edge Function checks (curl). Requires repo secrets.
+# Add: Settings → Secrets and variables → Actions:
+#   SUPABASE_URL, SUPABASE_ANON_KEY
+# Optional: AUTHZ_ACCESS_TOKEN (short-lived user JWT for E2)
+name: Authz smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  authz-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run authz smoke tests
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          AUTHZ_ACCESS_TOKEN: ${{ secrets.AUTHZ_ACCESS_TOKEN }}
+          AUTHZ_STRICT: "1"
+        run: npm run test:authz-smoke

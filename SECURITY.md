@@ -64,6 +64,7 @@
 ## Verification
 
 - **RLS** — With the anon key only, unauthenticated requests to protected tables should return no rows or 403. See SUPABASE-SYNC-TABLES.md “Verify RLS (anon key test)”.
+- **Pre-deploy authz boundary smoke** — `scripts/authz-smoke.sh` via `npm run test:authz-smoke`; use **`AUTHZ_STRICT=1`** against staging (or production project ref) after tables and Edge Functions are provisioned so missing RLS or undeployed functions fail before release. See `docs/PRE-LAUNCH-AUTHZ-TEST-PACK.md` §9 for expected output.
 - **Auth** — Test sign-up, login, logout, forgot password; confirm session persists and RLS returns data only when logged in.
 - **Payments** — Test checkout with Stripe test keys; confirm metadata is set server-side from session.
 - **V2 quality gate** — Run `npm run quality:gate` (or `npm run quality:gate:full` when browser automation is available) and follow `V2-QUALITY-BASELINE.md` before shipping.
@@ -106,6 +107,7 @@ External scripts (Firebase, DOMPurify, canvas-confetti) include `integrity="sha3
 | `PRIVACY-ANALYTICS.md` | Search analytics and user safety rules |
 | `script.js` | `sanitizeUserInput`, `escapeHtml`, `sanitizeHtml`, `truncateForDb` |
 | `docs/PRE-LAUNCH-AUTHZ-TEST-PACK.md` | Repeatable RLS / Edge Function / IDOR / XSS / rate-limit checks before launch |
+| `scripts/authz-smoke.sh` | `npm run test:authz-smoke` — curl smoke for T1/T5/T8 + E1/E2/E6/E6b (set `SUPABASE_*`, optional `AUTHZ_ACCESS_TOKEN`, `AUTHZ_STRICT`) |
 | `BACKLASH-PREP.md` | Anticipated critiques, response copy, escalation notes |
 
 ---

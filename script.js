@@ -9248,21 +9248,79 @@ function showFarewellToast() {
   });
 })();
 
+function dismissEliteToast() {
+  var el = document.getElementById('elite-toast');
+  if (!el) return;
+  clearTimeout(window._eliteToastTimeout);
+  el.classList.remove('elite-toast-show');
+  setTimeout(function () {
+    el.style.display = 'none';
+    el.classList.add('hidden');
+  }, 300);
+}
+
 function showEliteToast(message, opts) {
   var el = document.getElementById('elite-toast');
+  var noDismiss = opts && opts.dismissible === false;
   if (!el) {
     el = document.createElement('div');
     el.id = 'elite-toast';
     el.className = 'elite-toast';
     el.setAttribute('role', 'status');
     el.setAttribute('aria-live', 'polite');
+    el.setAttribute('aria-atomic', 'true');
+    var msgSpan = document.createElement('span');
+    msgSpan.className = 'elite-toast-msg';
+    el.appendChild(msgSpan);
+    if (!noDismiss) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'elite-toast-dismiss';
+      btn.setAttribute('aria-label', 'Dismiss');
+      btn.textContent = '\u00D7';
+      btn.addEventListener('click', dismissEliteToast);
+      el.appendChild(btn);
+    }
     document.body.appendChild(el);
+  } else {
+    var existingMsg = el.querySelector('.elite-toast-msg');
+    if (!existingMsg) {
+      var prev = el.textContent;
+      el.textContent = '';
+      el.setAttribute('aria-atomic', 'true');
+      var span = document.createElement('span');
+      span.className = 'elite-toast-msg';
+      span.textContent = prev;
+      el.appendChild(span);
+      if (!noDismiss && !el.querySelector('.elite-toast-dismiss')) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'elite-toast-dismiss';
+        b.setAttribute('aria-label', 'Dismiss');
+        b.textContent = '\u00D7';
+        b.addEventListener('click', dismissEliteToast);
+        el.appendChild(b);
+      }
+    } else if (noDismiss) {
+      var d = el.querySelector('.elite-toast-dismiss');
+      if (d) d.remove();
+    } else if (!el.querySelector('.elite-toast-dismiss')) {
+      var b2 = document.createElement('button');
+      b2.type = 'button';
+      b2.className = 'elite-toast-dismiss';
+      b2.setAttribute('aria-label', 'Dismiss');
+      b2.textContent = '\u00D7';
+      b2.addEventListener('click', dismissEliteToast);
+      el.appendChild(b2);
+    }
   }
-  el.textContent = message;
+  var msgEl = el.querySelector('.elite-toast-msg');
+  if (msgEl) msgEl.textContent = message;
+  else el.textContent = message;
   el.classList.remove('elite-toast-done', 'elite-toast-gold');
   if (opts && opts.gold) el.classList.add('elite-toast-gold');
   el.classList.remove('hidden');
-  el.style.display = 'block';
+  el.style.display = 'flex';
   el.classList.add('elite-toast-show');
   var duration = (opts && opts.duration) || 2800;
   clearTimeout(window._eliteToastTimeout);
@@ -9271,6 +9329,7 @@ function showEliteToast(message, opts) {
     setTimeout(function () { el.style.display = 'none'; el.classList.add('hidden'); }, 300);
   }, duration);
 }
+if (typeof window !== 'undefined') window.showEliteToast = showEliteToast;
 
 /** Try clipboard; on failure run onFailure(text) so UI can show link for manual copy. Improves share reliability. */
 function safeCopyToClipboard(text, onSuccess, onFailure) {
@@ -17390,14 +17449,46 @@ function writeNbaSignal(key) {
   try { localStorage.setItem(key, String(Date.now())); } catch (e) {}
 }
 
+/** True only for site root (homepage). Not e.g. /kids/index.html. */
+function isTdbHomePage() {
+  try {
+    var p = (window.location && window.location.pathname) || '';
+    return p === '' || p === '/' || p === '/index.html';
+  } catch (e) { return false; }
+}
+
+/** Midnight toast markup lives off the main page; injected on other routes that load script.js. */
+function ensureDailyNudgeToast() {
+  if (isTdbHomePage()) return;
+  if (document.getElementById('daily-nudge')) return;
+  var wrap = document.createElement('div');
+  wrap.id = 'daily-nudge';
+  wrap.className = 'toast-gold';
+  wrap.setAttribute('role', 'status');
+  wrap.setAttribute('aria-live', 'polite');
+  wrap.setAttribute('aria-atomic', 'true');
+  var msg = document.createElement('span');
+  msg.className = 'toast-gold-msg';
+  msg.textContent = 'New day — still here with you.';
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toast-gold-cta';
+  btn.id = 'daily-nudge-open-armor';
+  btn.setAttribute('aria-label', 'Open Family Armor and Bible stories');
+  btn.textContent = 'Open Family Armor';
+  wrap.appendChild(msg);
+  wrap.appendChild(btn);
+  document.body.appendChild(wrap);
+}
+
 /** Sanitize nudge elements — reset if cache/extension injected unexpected text. */
 function sanitizeNudgeElements() {
   var nudge = document.getElementById('daily-nudge');
   var encourage = document.getElementById('encourageMsg');
-  var DAILY_OK = /New day|still here/i;
+  var DAILY_OK = /New day|still here|with you/i;
   var ENCOURAGE_OK = /He'?s got you|verse|ref|Philippians|Matthew|Psalm|Isaiah|John/i;
   var DAILY_NUDGE_RESET =
-    '<span class="toast-gold-msg">New day—still here.</span>' +
+    '<span class="toast-gold-msg">New day — still here with you.</span>' +
     '<button type="button" class="toast-gold-cta" id="daily-nudge-open-armor" aria-label="Open Family Armor and Bible stories">Open Family Armor</button>';
   if (nudge) {
     var msgEl = nudge.querySelector('.toast-gold-msg');
@@ -17418,6 +17509,7 @@ function sanitizeNudgeElements() {
 
 (typeof window !== 'undefined' ? window : {}).tdbInit = async function tdbInit() {
   if (!document.body) return;
+  ensureDailyNudgeToast();
   (function initPrayerWallEarly() {
     var listEl = document.getElementById('prayer-wall-list');
     if (!listEl) return;
@@ -22548,16 +22640,12 @@ function wireRandomBattleVerseHero() {
     }
   }
 
-  // ── Daily midnight nudge toast ──────────────────────────────────────────────
-  // Shows "#daily-nudge.toast-gold" once per day at midnight.
-  // Dismissed via click or auto-hides after 3 s; won't re-show the same calendar day.
-  //
-  // Testing: override window.__tdbMidnightTest = true to fire immediately (1 s).
-  // ───────────────────────────────────────────────────────────────────────────
+  // ── Daily midnight nudge toast (off homepage only; #daily-nudge injected by ensureDailyNudgeToast) ──
   (function initDailyNudge() {
+    if (isTdbHomePage()) return;
     var NUDGE_KEY = 'tdb-daily-nudge-shown';
-    var SHOW_MS   = 5000;   // visible duration (interactive CTA needs a moment)
-    var FADE_MS   = 1500;   // matches CSS transition
+    var SHOW_MS   = 5000;
+    var FADE_MS   = 1500;
 
     function todayStr() {
       var d = new Date();
@@ -22581,10 +22669,8 @@ function wireRandomBattleVerseHero() {
 
       markShownToday();
 
-      // Fade in
       toast.classList.add('toast-gold--visible');
 
-      // Dismiss on click; CTA opens Family Armor modal first (same as main button)
       function dismiss() {
         toast.removeEventListener('click', onToastClick);
         toast.classList.remove('toast-gold--visible');
@@ -22597,13 +22683,13 @@ function wireRandomBattleVerseHero() {
         if (cta) {
           var armorBtn = document.getElementById('family-armor-stories-btn');
           if (armorBtn) armorBtn.click();
+          else if (typeof window !== 'undefined' && window.location) window.location.href = '/#armor-builder-btn';
           if (typeof trackEvent === 'function') trackEvent('daily_nudge_family_armor', {});
         }
         dismiss();
       }
       toast.addEventListener('click', onToastClick);
 
-      // Auto-hide after SHOW_MS
       setTimeout(function () {
         toast.removeEventListener('click', onToastClick);
         toast.classList.remove('toast-gold--visible');
@@ -22619,12 +22705,10 @@ function wireRandomBattleVerseHero() {
 
       setTimeout(function fire() {
         showNudge();
-        // Re-arm for the midnight after that
         setTimeout(fire, 24 * 60 * 60 * 1000);
       }, msUntil);
     }
 
-    // Test hook: set window.__tdbMidnightTest = true before load to fire in 1 s
     if (window.__tdbMidnightTest) {
       setTimeout(showNudge, 1000);
     } else {

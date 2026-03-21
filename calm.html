@@ -24,6 +24,31 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    .calm-offline-note {
+      max-width: 26rem;
+      margin: 0 auto 1rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted, #94a3b8);
+      text-align: center;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+      border-radius: 10px;
+      background: rgba(227, 188, 103, 0.05);
+    }
+    .calm-verse-loading {
+      font-size: 0.92rem;
+      color: var(--muted, #94a3b8);
+      margin: 0 0 0.75rem;
+      min-height: 1.5em;
+    }
+    .calm-no-match-hint {
+      margin: 0.35rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted, #94a3b8);
+      min-height: 1.25em;
+    }
+    .calm-share-btn { margin-top: 0.35rem; }
     .calm-page { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 2rem 1.5rem max(1.25rem, env(safe-area-inset-bottom, 0px)); text-align: center; }
     .calm-page .verse { font-family: Cormorant Garamond, Georgia, serif; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.5; color: var(--text, #e2e8f0); max-width: 32rem; margin: 0 auto 1rem; }
     .calm-page .ref { font-size: 0.95rem; color: var(--gold, #e3bc67); margin-bottom: 1.5rem; }
@@ -91,10 +116,14 @@
     .night-prayer-kids-title { font-size: 0.85rem; font-weight: 600; color: var(--gold, #e3bc67); margin-bottom: 0.5rem; }
     .night-prayer-kids-phrase { font-size: 0.95rem; color: var(--text, #e2e8f0); margin-bottom: 0.75rem; }
     .night-prayer-kids-prayer { font-size: 0.9rem; color: var(--muted, #94a3b8); line-height: 1.5; font-style: italic; }
-    #verse-container, #desktop-verse { opacity: 0; transition: opacity 0.3s ease-out; }
-    #verse-container.verse-reveal, #desktop-verse.verse-reveal { opacity: 1; }
+    .calm-verse-container {
+      min-height: 120px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .calm-verse-container.verse-reveal { opacity: 1; }
     @media (prefers-reduced-motion: reduce) {
-      #verse-container, #desktop-verse { opacity: 1; transition: none; }
+      .calm-verse-container { opacity: 1; transition: none; }
     }
     @media (min-width: 768px) {
       .mobile-only { display: none !important; }
@@ -126,6 +155,7 @@
       <div class="calm-page">
         <div class="intro" id="calm-intro">
           <h2>What are you carrying?</h2>
+          <p class="calm-offline-note" role="note">Offline? Verses still load—saved on your device. Sync when back online if you choose.</p>
           <p class="calm-intro-sub" style="margin:0.35rem 0 0;font-size:0.88rem;color:var(--muted,#94a3b8);font-weight:400;">One tap. No account. Stay as long as you need.</p>
           <div class="calm-quick-row">
             <button type="button" class="calm-btn calm-one-verse-now" id="calm-one-verse-now" aria-label="Skip to one verse right now">One verse now</button>
@@ -136,6 +166,7 @@
           <label for="calm-input" class="sr-only">Or type how you feel</label>
           <input type="text" id="calm-input" placeholder="Or type how you feel…" autocomplete="off" aria-label="Type how you feel for a verse">
           <p class="calm-type-hint" style="margin:0.5rem 0 0;font-size:0.85rem;color:var(--muted, #94a3b8);">Or type freely: <em>lonely and scared</em></p>
+          <p id="calm-no-match-hint" class="calm-no-match-hint" hidden>No match? Try a button above or “One verse now.”</p>
         </div>
         <div class="categories" id="calm-categories" role="group" aria-label="Choose a feeling">
           <button type="button" class="calm-btn" data-category="anxiety" aria-label="Anxious or afraid">Anxious / Fear</button>
@@ -169,10 +200,12 @@
             </div>
           </div>
         </div>
-        <div id="verse-container" class="verse-centered" style="display: none;">
+        <div id="verse-container" class="verse-centered calm-verse-container" style="display: none;">
+          <p id="calm-loading-mobile" class="calm-verse-loading" hidden aria-live="polite">Finding your verse…</p>
           <p id="verse-text" class="verse" aria-live="polite"></p>
           <p id="verse-ref" class="ref"></p>
           <button type="button" class="calm-copy-btn" id="copy-verse-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
+          <button type="button" class="calm-btn calm-share-btn" id="calm-share-btn" data-calm-share-label="Helped? Share →" aria-label="Share this verse">Helped? Share →</button>
           <p class="calm-prayer-wall-nudge section-note">Copy the verse, then <a href="index.html#prayer-wall">leave it on the Prayer Wall</a> if you want—anonymous.</p>
           <div class="calm-helped-row">
             <button type="button" class="calm-helped-btn" id="helped-btn" aria-label="Verse helped">Helped? 👍</button>
@@ -185,10 +218,12 @@
             <button type="button" class="calm-btn" id="back-categories" aria-label="Still heavy? Try another feeling">Still heavy? Try another feeling</button>
           </div>
         </div>
-        <div id="desktop-verse" class="desktop-only verse-centered" style="display: none;">
+        <div id="desktop-verse" class="desktop-only verse-centered calm-verse-container" style="display: none;">
+          <p id="calm-loading-desktop" class="calm-verse-loading" hidden aria-live="polite">Finding your verse…</p>
           <p id="desktop-verse-text" class="verse" aria-live="polite"></p>
           <p id="desktop-verse-ref" class="ref"></p>
           <button type="button" class="calm-copy-btn" id="desktop-copy-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
+          <button type="button" class="calm-btn calm-share-btn" id="desktop-share-btn" data-calm-share-label="Helped? Share →" aria-label="Share this verse">Helped? Share →</button>
           <p class="calm-prayer-wall-nudge section-note">Copy the verse, then <a href="index.html#prayer-wall">leave it on the Prayer Wall</a> if you want—anonymous.</p>
           <div class="calm-helped-row">
             <button type="button" class="calm-helped-btn" id="desktop-helped-btn" aria-label="Verse helped">Helped? 👍</button>
@@ -253,8 +288,12 @@
       };
       var ALL = [];
       Object.keys(VERSES).forEach(function (k) { VERSES[k].forEach(function (v) { ALL.push(v); }); });
+      var FALLBACK_VERSE = { ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.' };
       var currentCategory = null;
       var isMobile = function () { return window.innerWidth < 768; };
+      function prefersReducedMotion() {
+        return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      }
       function setCalmChromeVisible(show) {
         var iw = document.querySelector('.calm-input-wrap');
         var topNudge = document.querySelector('.calm-prayer-wall-nudge-always');
@@ -270,6 +309,7 @@
       }
       function pickVerse(cat) {
         var list = (cat && VERSES[cat]) ? VERSES[cat] : ALL;
+        if (!list || !list.length) return FALLBACK_VERSE;
         return list[Math.floor(Math.random() * list.length)];
       }
       function showVerse(cat) {
@@ -290,17 +330,62 @@
         if (textEl) textEl.textContent = v.text;
         if (refEl) refEl.textContent = v.ref;
       }
+      function revealDesktopVerse(cat) {
+        var dv = document.getElementById('desktop-verse');
+        var ld = document.getElementById('calm-loading-desktop');
+        if (!dv) return;
+        var run = function () {
+          var v = pickVerse(cat);
+          var textEl = document.getElementById('desktop-verse-text');
+          var refEl = document.getElementById('desktop-verse-ref');
+          if (textEl) textEl.textContent = v.text;
+          if (refEl) refEl.textContent = v.ref;
+          if (ld) ld.hidden = true;
+          requestAnimationFrame(function () { dv.classList.add('verse-reveal'); });
+        };
+        dv.classList.remove('verse-reveal');
+        if (prefersReducedMotion()) {
+          run();
+        } else {
+          if (ld) ld.hidden = false;
+          requestAnimationFrame(function () { requestAnimationFrame(run); });
+        }
+      }
       function showCategories() {
         setCalmChromeVisible(true);
         document.getElementById('calm-categories').style.display = 'flex';
         document.querySelector('.intro').style.display = 'block';
-        document.getElementById('verse-container').style.display = 'none';
+        var noMatchHint = document.getElementById('calm-no-match-hint');
+        if (noMatchHint) noMatchHint.hidden = true;
+        var vc = document.getElementById('verse-container');
+        vc.style.display = 'none';
+        vc.classList.remove('verse-reveal');
+        var lm = document.getElementById('calm-loading-mobile');
+        if (lm) lm.hidden = true;
         var mobiusCta = document.getElementById('calm-mobius-cta');
         if (mobiusCta) mobiusCta.style.display = 'none';
         var desktopMobius = document.getElementById('desktop-mobius-cta');
         if (desktopMobius) desktopMobius.style.display = 'none';
         var dv = document.getElementById('desktop-verse');
         if (dv && !isMobile()) dv.style.display = 'flex';
+      }
+      function revealMobileVerseAfterLoad(cat) {
+        var vc = document.getElementById('verse-container');
+        var loadEl = document.getElementById('calm-loading-mobile');
+        var run = function () {
+          showVerse(cat);
+          if (loadEl) loadEl.hidden = true;
+          vc.classList.add('verse-reveal');
+          if (isMobile()) scrollCalmVerseIntoView(vc);
+        };
+        if (prefersReducedMotion()) {
+          run();
+        } else {
+          if (loadEl) loadEl.hidden = false;
+          requestAnimationFrame(function () {
+            requestAnimationFrame(run);
+          });
+        }
       }
       function showVerseView(cat) {
         currentCategory = cat;
@@ -313,9 +398,8 @@
         document.querySelector('.intro').style.display = 'none';
         var vc = document.getElementById('verse-container');
         vc.style.display = 'flex';
-        vc.classList.add('verse-reveal');
-        showVerse(currentCategory);
-        if (isMobile()) scrollCalmVerseIntoView(vc);
+        vc.classList.remove('verse-reveal');
+        revealMobileVerseAfterLoad(currentCategory);
         var mobiusCta = document.getElementById('calm-mobius-cta');
         if (mobiusCta) mobiusCta.style.display = (cat === 'anxiety') ? 'block' : 'none';
         var desktopMobius = document.getElementById('desktop-mobius-cta');
@@ -331,9 +415,14 @@
         document.getElementById('calm-intro').style.display = 'block';
         document.getElementById('verse-container').style.display = 'none';
         var dv = document.getElementById('desktop-verse');
+        var ld = document.getElementById('calm-loading-desktop');
         dv.style.display = 'flex';
-        dv.classList.add('verse-reveal');
+        dv.classList.remove('verse-reveal');
+        if (ld) ld.hidden = true;
         showDesktopVerse();
+        requestAnimationFrame(function () {
+          dv.classList.add('verse-reveal');
+        });
       }
       var oneVerseBtn = document.getElementById('calm-one-verse-now');
       if (oneVerseBtn) {
@@ -389,18 +478,21 @@
           } else {
             currentCategory = btn.dataset.category;
             if (typeof gtag === 'function') gtag('event', 'calm_category_tap', { category: currentCategory });
-            var v = pickVerse(currentCategory);
-            var textEl = document.getElementById('desktop-verse-text');
-            var refEl = document.getElementById('desktop-verse-ref');
-            if (textEl) textEl.textContent = v.text;
-            if (refEl) refEl.textContent = v.ref;
+            revealDesktopVerse(currentCategory);
             var desktopMobius = document.getElementById('desktop-mobius-cta');
             if (desktopMobius) desktopMobius.style.display = (currentCategory === 'anxiety') ? 'block' : 'none';
           }
         });
       });
       var anotherBtn = document.getElementById('another-btn');
-      if (anotherBtn) anotherBtn.addEventListener('click', function () { showVerse(currentCategory); });
+      if (anotherBtn) anotherBtn.addEventListener('click', function () {
+        var vc = document.getElementById('verse-container');
+        if (vc) vc.classList.remove('verse-reveal');
+        requestAnimationFrame(function () {
+          showVerse(currentCategory);
+          requestAnimationFrame(function () { if (vc) vc.classList.add('verse-reveal'); });
+        });
+      });
       var backBtn = document.getElementById('back-categories');
       if (backBtn) backBtn.addEventListener('click', showCategories);
       var desktopBack = document.getElementById('desktop-back-categories');
@@ -411,20 +503,49 @@
       var desktopAnother = document.getElementById('desktop-another');
       if (desktopAnother) desktopAnother.addEventListener('click', function () {
         if (currentCategory) {
-          showVerse(currentCategory);
-          var textEl = document.getElementById('desktop-verse-text');
-          var refEl = document.getElementById('desktop-verse-ref');
-          var v = pickVerse(currentCategory);
-          if (textEl) textEl.textContent = v.text;
-          if (refEl) refEl.textContent = v.ref;
+          revealDesktopVerse(currentCategory);
         } else {
-          showDesktopVerse();
+          var dv = document.getElementById('desktop-verse');
+          if (dv) dv.classList.remove('verse-reveal');
+          requestAnimationFrame(function () {
+            showDesktopVerse();
+            requestAnimationFrame(function () { if (dv) dv.classList.add('verse-reveal'); });
+          });
         }
       });
       function copyVerse(text, ref) {
         var s = ref + ': "' + text + '" — todaysdailybattle.com';
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(s).then(function () {}).catch(function () {});
+        }
+      }
+      function buildCalmShareText(text, ref) {
+        var t = (text || '').replace(/\s+/g, ' ').trim();
+        return 'This KJV verse met me today: "' + t + '" — ' + (ref || '') + ' — from todaysdailybattle.com/calm.html';
+      }
+      function shareCalmVerse(text, ref, btnEl) {
+        var body = buildCalmShareText(text, ref);
+        var orig = (btnEl && btnEl.getAttribute('data-calm-share-label')) || 'Helped? Share →';
+        function feedback(kind) {
+          var toast = typeof window !== 'undefined' && typeof window.showEliteToast === 'function' ? window.showEliteToast : null;
+          if (toast) {
+            toast(
+              kind === 'shared' ? 'Shared — may it help someone.' : 'Copied to clipboard — thank you for sharing.',
+              { gold: true, duration: 2000 }
+            );
+          } else if (btnEl) {
+            btnEl.textContent = kind === 'shared' ? 'Shared' : 'Copied';
+            setTimeout(function () { btnEl.textContent = orig; }, 2000);
+          }
+        }
+        if (navigator.share) {
+          navigator.share({ text: body }).then(function () { feedback('shared'); }).catch(function () {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(body).then(function () { feedback('copied'); }).catch(function () {});
+            }
+          });
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(body).then(function () { feedback('copied'); }).catch(function () {});
         }
       }
       var copyBtn = document.getElementById('copy-verse-btn');
@@ -453,6 +574,22 @@
       if (helpedBtn) helpedBtn.addEventListener('click', function () { onHelped(helpedBtn); });
       var desktopHelped = document.getElementById('desktop-helped-btn');
       if (desktopHelped) desktopHelped.addEventListener('click', function () { onHelped(desktopHelped); });
+      var shareBtn = document.getElementById('calm-share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', function () {
+          var t = document.getElementById('verse-text');
+          var r = document.getElementById('verse-ref');
+          shareCalmVerse((t && t.textContent) || '', (r && r.textContent) || '', shareBtn);
+        });
+      }
+      var desktopShare = document.getElementById('desktop-share-btn');
+      if (desktopShare) {
+        desktopShare.addEventListener('click', function () {
+          var t = document.getElementById('desktop-verse-text');
+          var r = document.getElementById('desktop-verse-ref');
+          shareCalmVerse((t && t.textContent) || '', (r && r.textContent) || '', desktopShare);
+        });
+      }
       var FEEL_TO_CALM = { anxious: 'anxiety', sad: 'grief', peace: 'peace', tired: 'strength', hopeful: 'peace', difficult: 'worry', angry: 'strength', lonely: 'grief' };
       function debounce(fn, ms) {
         var t;
@@ -468,29 +605,40 @@
           setTimeout(wireCalmInput, 150);
           return;
         }
+        input.addEventListener('input', function () {
+          var hint = document.getElementById('calm-no-match-hint');
+          if (hint && (input.value || '').trim().length < 3) hint.hidden = true;
+        });
         input.addEventListener('input', debounce(function () {
+          var hint = document.getElementById('calm-no-match-hint');
           var val = (input.value || '').trim();
-          if (val.length < 3) return;
+          if (val.length < 3) {
+            if (hint) hint.hidden = true;
+            return;
+          }
           var lower = val.toLowerCase();
           var cat = null;
           if (/\b(fear|anxious|anxiety|afraid|scared)\b/.test(lower)) {
             cat = 'anxiety';
           } else {
             var result = window.resolveSemanticWithScore(val);
-            if (!result || result.score < 0.6) return;
+            if (!result || result.score < 0.6) {
+              if (val.length >= 4 && hint) hint.hidden = false;
+              return;
+            }
             cat = FEEL_TO_CALM[result.feelGroup] || (VERSES[result.topic] ? result.topic : null);
           }
-          if (!cat || !VERSES[cat]) return;
+          if (hint) hint.hidden = true;
+          if (!cat || !VERSES[cat]) {
+            if (val.length >= 4 && hint) hint.hidden = false;
+            return;
+          }
           if (typeof gtag === 'function') gtag('event', 'calm_semantic_input', { category: cat, score: 1 });
           if (isMobile()) {
             showVerseView(cat);
           } else {
             currentCategory = cat;
-            var v = pickVerse(cat);
-            var textEl = document.getElementById('desktop-verse-text');
-            var refEl = document.getElementById('desktop-verse-ref');
-            if (textEl) textEl.textContent = v.text;
-            if (refEl) refEl.textContent = v.ref;
+            revealDesktopVerse(cat);
             var desktopMobius = document.getElementById('desktop-mobius-cta');
             if (desktopMobius) desktopMobius.style.display = (cat === 'anxiety') ? 'block' : 'none';
           }

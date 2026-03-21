@@ -133,6 +133,7 @@
     josephRuler: 28,
     josephSold: 6,
     joshuaJordan: 37,
+    juniaApostle: 139,
     lambBook: 156,
     lastSupper: 86,
     lazarus: 11,

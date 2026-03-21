@@ -19,7 +19,8 @@ Use this when you (or a collaborator) ship **custom** paragraphs, quizzes, and a
 4. **Copy** — `paragraphs`: 4–6 short strings is fine (~300–500 words total is a good target). Keep **`kjvRef`** in sync with the story (e.g. `Joshua 6`).
 5. **AI prompts** — Put five strings in **`imagePrompts`** (for Leonardo / Bing / etc.); they are **metadata** unless you also export images.
 6. **Optional pictures in the modal** — After you export images, upload under **`/media/kids-stories/`** and add **`readAlongImages`**: an array of up to **five** paths like `"/media/kids-stories/fall-of-jericho-1.jpg"`. The read-along block shows them above the story text (paths are restricted to that folder for safety). Naming tip: **kebab-case** + `-1` … `-5` (see `media/kids-stories/README.md`).
-   - **Loop poster fallback** — If **`readAlongImages`** is empty, the modal can show **`/assets/loops/{id}.png`** when **`LOOP_POSTERS_SHIPPED`** is **`true`** in **`kids/kids-read-quiz-loop-posters.js`** (then **`TDB_READ_QUIZ_LOOP_POSTERS`** maps story keys → loop **id**, same as `loops.json`). Keep **`LOOP_POSTERS_SHIPPED`** **`false`** until those PNGs ship with the build, so the page does not request hundreds of missing files (404s). When posters exist, flip it to **`true`**. A broken image still removes itself via `onerror`.
+   - **Picture fallback (no `readAlongImages`)** — **`kids-corner.js`** uses the story’s **first carousel panel** (`/kids/panel-*.svg`, basename allowlist) so read-along always has same-origin art that matches the modal. **`readAlongImages`** still override when set.
+   - **Loop poster (optional)** — If **`LOOP_POSTERS_SHIPPED`** is **`true`** in **`kids/kids-read-quiz-loop-posters.js`**, the read-along strip tries **`/assets/loops/{id}.png`** first (when the story key is in the map). While **`false`** (default), that request is skipped so missing PNGs never 404; the **panel SVG** fallback still shows.
 7. **Ship** — Run `npm run kids:generate-read-quiz`, bump `CACHE_NAME` in `service-worker.js` if needed, `npm run build`, deploy. Smoke **`/kids/corner.html`** → open story → read + quiz (+ images if set).
 8. **Stars** — A story is still counted **viewed** when the modal opens (`addViewedStory`). Finishing the quiz does **not** yet unlock a separate star; say if you want quiz-complete gating later.
 
@@ -27,7 +28,7 @@ Use this when you (or a collaborator) ship **custom** paragraphs, quizzes, and a
 
 | File | Role |
 |------|------|
-| `kids/kids-read-quiz-loop-posters.js` | Loop poster map + **`LOOP_POSTERS_SHIPPED`** gate; exposes **`TDB_READ_QUIZ_LOOP_POSTERS`** only when PNGs are deployed |
+| `kids/kids-read-quiz-loop-posters.js` | Optional loop PNG map + **`LOOP_POSTERS_SHIPPED`**; read-quiz uses **`/kids/panel-*.svg`** first panel when loop art is off |
 | `/media/kids-stories/{key}.mp4` | H.264, web-compressed (primary) |
 | `/media/kids-stories/{key}.webm` | Optional smaller sibling |
 | `/media/kids-stories/{key}.vtt` | UTF-8 WebVTT read-along |

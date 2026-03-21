@@ -3143,6 +3143,18 @@
     return n >= 1 && n <= 160;
   }
 
+  /** First comic panel from bibleStories (same files as the modal carousel). */
+  function safeKidsPanelSvgAbsFromRel(rel) {
+    if (typeof rel !== 'string') return '';
+    var r = rel.trim();
+    if (!r || r.indexOf('..') !== -1 || r.indexOf('//') !== -1) return '';
+    var base = r.indexOf('/') === -1 ? r : r.split('/').pop() || '';
+    if (!/^panel-[a-zA-Z0-9._-]+\.svg$/i.test(base)) return '';
+    var abs = '/kids/' + base;
+    if (abs.length > 80) return '';
+    return abs;
+  }
+
   function mountReadQuizForStory(key) {
     clearReadQuizModal();
     if (!modalReadQuiz) return;
@@ -3170,13 +3182,19 @@
         if (isSafeReadAlongImagePath(srcM)) imageSources.push(String(srcM));
       }
     }
-    if (!imageSources.length) {
+    if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
       var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
       var lid = posters[key];
       if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 160) {
         var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
         if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
       }
+    }
+    if (!imageSources.length) {
+      var panelsMeta = stMeta.panels || [];
+      var rel0 = panelsMeta[0] && panelsMeta[0].src;
+      var panelAbs = safeKidsPanelSvgAbsFromRel(String(rel0 || ''));
+      if (panelAbs) imageSources.push(panelAbs);
     }
     if (imageSources.length) {
       var imgRow = document.createElement('div');
@@ -3190,7 +3208,12 @@
         var srcOne = imageSources[ix];
         var elImg = document.createElement('img');
         elImg.src = srcOne;
-        elImg.alt = 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
+        var panelAlt0 = (stMeta.panels && stMeta.panels[0] && stMeta.panels[0].alt) ? String(stMeta.panels[0].alt) : '';
+        var isPanelThumb = /^\/kids\/panel-[a-zA-Z0-9._-]+\.svg$/i.test(srcOne);
+        elImg.alt =
+          ix === 0 && isPanelThumb && panelAlt0
+            ? panelAlt0 + ' — ' + storyTitle
+            : 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
         elImg.className = 'kids-read-quiz-panel-img';
         elImg.setAttribute('loading', 'lazy');
         elImg.setAttribute('decoding', 'async');

@@ -23,7 +23,7 @@
   <url><loc>https://todaysdailybattle.com/study.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://todaysdailybattle.com/message.html</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://todaysdailybattle.com/plans.html</loc><lastmod>2026-03-09</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://todaysdailybattle.com/mystudy.html</loc><lastmod>2026-03-20</lastmod><changefreq>weekly</changefreq><priority>0.88</priority></url>
+  <!-- mystudy.html omitted: robots.txt Disallow — shared-study UI; not intended for general indexing -->
 
   <!-- Action Bible / class tools -->
   <url><loc>https://todaysdailybattle.com/action-bible.html</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>

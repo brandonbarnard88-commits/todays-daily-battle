@@ -23,9 +23,11 @@ Quick verification checklist for Progressive Web App behavior.
 
 ## Service Worker (`sw.js` -> `service-worker.js`)
 
+**Version bump:** Repo root `SW-VERSION` (single line, e.g. `20260320`) is the cache-bust token. Keep in sync everywhere: `index.html`, `script.js`, `kids/kids-battle.js`, `firebase-push.js` — all use `/sw.js?v=<that token>` so registrations are not split across URLs.
+
 | Check | Status |
 |-------|--------|
-| Registers at `/` | ✅ `navigator.serviceWorker.register('/sw.js?v=...')` |
+| Registers at `/` | ✅ `navigator.serviceWorker.register('/sw.js?v=…')` (see `SW-VERSION`) |
 | `CACHE_NAME` bumped on deploy | ✅ Bump when HTML/CSS changes |
 | Core HTML/CSS precached | ✅ CORE_ASSETS |
 | `script.js`, `config.js` NOT precached | ✅ Updates deploy immediately |

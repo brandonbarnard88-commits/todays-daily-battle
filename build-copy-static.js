@@ -116,6 +116,7 @@ const rootFiles = [
   '_headers',
   'robots.txt',
   'sitemap.xml',
+  'SW-VERSION',
   'kjv.json',
   'relations-dict.json',
   'commentary.json',

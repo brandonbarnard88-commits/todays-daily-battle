@@ -53,4 +53,31 @@ test.describe('axe — critical pages', () => {
       .analyze();
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
+
+  test('topic-anxiety.html', async ({ page }) => {
+    await page.goto('/topic-anxiety.html');
+    await dismissFirstVisitIfPresent(page);
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+      .analyze();
+    expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
+  });
+
+  test('plans.html', async ({ page }) => {
+    await page.goto('/plans.html');
+    await dismissFirstVisitIfPresent(page);
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+      .analyze();
+    expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
+  });
+
+  test('team-toolkit.html', async ({ page }) => {
+    await page.goto('/team-toolkit.html');
+    await dismissFirstVisitIfPresent(page);
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+      .analyze();
+    expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
+  });
 });

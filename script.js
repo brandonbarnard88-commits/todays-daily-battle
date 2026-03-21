@@ -18082,11 +18082,12 @@ function sanitizeNudgeElements() {
     }
     updateChallengeBannerState();
   }
+  // SW registration URL must match index.html, kids/kids-battle.js, firebase-push.js — bump repo SW-VERSION together.
   if ('serviceWorker' in navigator) {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260327', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260320', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

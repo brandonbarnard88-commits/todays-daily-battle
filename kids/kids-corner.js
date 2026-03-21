@@ -3112,6 +3112,19 @@
     return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
   }
 
+  /** Optional loop-library poster: /assets/loops/{1–160}.png only (matches loops.json ids). */
+  function isSafeLoopPosterPath(src) {
+    if (typeof src !== 'string') return false;
+    var s = src.trim();
+    if (s.length < 18 || s.length > 40) return false;
+    if (s.indexOf('..') !== -1 || s.indexOf('//') !== -1 || s.charAt(0) !== '/') return false;
+    if (s.indexOf('?') !== -1 || s.indexOf('#') !== -1) return false;
+    var m = /^\/assets\/loops\/(\d{1,3})\.png$/i.exec(s);
+    if (!m) return false;
+    var n = parseInt(m[1], 10);
+    return n >= 1 && n <= 160;
+  }
+
   function mountReadQuizForStory(key) {
     clearReadQuizModal();
     if (!modalReadQuiz) return;
@@ -3130,7 +3143,24 @@
     }
 
     var imgs = pack.readAlongImages;
+    var stMeta = (window.TDB_BIBLE_STORIES || {})[key] || {};
+    var storyTitle = stMeta.title || key;
+    var imageSources = [];
     if (imgs && imgs.length) {
+      for (var im = 0; im < imgs.length; im++) {
+        var srcM = imgs[im];
+        if (isSafeReadAlongImagePath(srcM)) imageSources.push(String(srcM));
+      }
+    }
+    if (!imageSources.length) {
+      var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
+      var lid = posters[key];
+      if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 160) {
+        var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
+        if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
+      }
+    }
+    if (imageSources.length) {
       var imgRow = document.createElement('div');
       imgRow.className = 'kids-read-quiz-images';
       imgRow.setAttribute('role', 'group');
@@ -3138,17 +3168,22 @@
         'aria-label',
         'Pictures for this story'
       );
-      var stMeta = (window.TDB_BIBLE_STORIES || {})[key] || {};
-      var storyTitle = stMeta.title || key;
-      for (var im = 0; im < imgs.length; im++) {
-        var src = imgs[im];
-        if (!isSafeReadAlongImagePath(src)) continue;
+      for (var ix = 0; ix < imageSources.length; ix++) {
+        var srcOne = imageSources[ix];
         var elImg = document.createElement('img');
-        elImg.src = src;
-        elImg.alt = 'Story picture ' + (im + 1) + ' — ' + storyTitle;
+        elImg.src = srcOne;
+        elImg.alt = 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
         elImg.className = 'kids-read-quiz-panel-img';
         elImg.setAttribute('loading', 'lazy');
         elImg.setAttribute('decoding', 'async');
+        (function (imgEl) {
+          imgEl.addEventListener('error', function onReadQuizImgErr() {
+            imgEl.removeEventListener('error', onReadQuizImgErr);
+            var row = imgEl.parentNode;
+            if (row) row.removeChild(imgEl);
+            if (row && !row.childNodes.length && row.parentNode) row.parentNode.removeChild(row);
+          });
+        })(elImg);
         imgRow.appendChild(elImg);
       }
       if (imgRow.childNodes.length) wrap.appendChild(imgRow);

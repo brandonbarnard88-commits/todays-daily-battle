@@ -2999,6 +2999,7 @@
   var modalCarousel = document.getElementById('kids-story-modal-carousel');
   var modalContext = document.getElementById('kids-story-modal-context');
   var modalVideo = document.getElementById('kids-story-modal-video');
+  var modalReadQuiz = document.getElementById('kids-story-modal-read-quiz');
   var modalClose = document.getElementById('kids-story-modal-close');
   var randomBtn = document.getElementById('kids-library-random-btn');
   var pdfExportBtn = document.getElementById('pdf-export');
@@ -3083,6 +3084,174 @@
     wrap.appendChild(video);
     container.appendChild(wrap);
     return true;
+  }
+
+  function clearReadQuizModal() {
+    if (!modalReadQuiz) return;
+    modalReadQuiz.innerHTML = '';
+    modalReadQuiz.classList.add('hidden');
+  }
+
+  function mountReadQuizForStory(key) {
+    clearReadQuizModal();
+    if (!modalReadQuiz) return;
+    var pack = (window.TDB_KIDS_READ_QUIZ || {})[key];
+    if (!pack || !pack.paragraphs || !pack.questions || !pack.questions.length) return;
+    modalReadQuiz.classList.remove('hidden');
+
+    var wrap = document.createElement('div');
+    wrap.className = 'kids-read-quiz-wrap';
+
+    if (pack.kjvRef) {
+      var refP = document.createElement('p');
+      refP.className = 'kids-read-quiz-ref';
+      refP.textContent = pack.kjvRef;
+      wrap.appendChild(refP);
+    }
+
+    var readH = document.createElement('h4');
+    readH.className = 'kids-read-quiz-h4';
+    readH.textContent = 'Read the story';
+    wrap.appendChild(readH);
+
+    if (pack.hintAboveQuiz) {
+      var hint = document.createElement('p');
+      hint.className = 'kids-read-quiz-hint';
+      hint.textContent = pack.hintAboveQuiz;
+      wrap.appendChild(hint);
+    }
+
+    (pack.paragraphs || []).forEach(function (para) {
+      var p = document.createElement('p');
+      p.className = 'kids-read-quiz-para';
+      p.textContent = para;
+      wrap.appendChild(p);
+    });
+
+    var qh = document.createElement('h4');
+    qh.className = 'kids-read-quiz-h4';
+    qh.textContent = pack.quizHeading || 'Quiz';
+    wrap.appendChild(qh);
+
+    var quizHost = document.createElement('div');
+    quizHost.className = 'kids-read-quiz-host';
+    wrap.appendChild(quizHost);
+
+    var qList = pack.questions;
+    var qIndex = { v: 0 };
+
+    function renderQuestion() {
+      quizHost.innerHTML = '';
+      if (qIndex.v >= qList.length) {
+        var done = document.createElement('div');
+        done.className = 'kids-read-quiz-done';
+        var dh = document.createElement('h4');
+        dh.className = 'kids-read-quiz-done-title';
+        dh.textContent = pack.doneHeading || 'All done!';
+        done.appendChild(dh);
+        if (pack.doneMessage) {
+          var dm = document.createElement('p');
+          dm.textContent = pack.doneMessage;
+          done.appendChild(dm);
+        }
+        if (pack.takeaway) {
+          var tk = document.createElement('p');
+          tk.className = 'kids-read-quiz-takeaway';
+          tk.textContent = pack.takeaway;
+          done.appendChild(tk);
+        }
+        if (pack.prayer) {
+          var pr = document.createElement('p');
+          pr.className = 'kids-read-quiz-prayer';
+          pr.textContent = pack.prayer;
+          done.appendChild(pr);
+        }
+        quizHost.appendChild(done);
+        return;
+      }
+
+      var qd = qList[qIndex.v];
+      var step = document.createElement('div');
+      step.className = 'kids-read-quiz-step';
+
+      var qp = document.createElement('p');
+      qp.className = 'kids-read-quiz-qtext';
+      qp.textContent = 'Question ' + (qIndex.v + 1) + ' of ' + qList.length + ': ' + qd.question;
+      step.appendChild(qp);
+
+      var fs = document.createElement('fieldset');
+      fs.className = 'kids-read-quiz-fieldset';
+      var leg = document.createElement('legend');
+      leg.className = 'sr-only';
+      leg.textContent = qd.question;
+      fs.appendChild(leg);
+      var gname = 'kq-' + key + '-' + qIndex.v;
+      (qd.choices || []).forEach(function (label, ci) {
+        var id = gname + '-c' + ci;
+        var row = document.createElement('div');
+        row.className = 'kids-read-quiz-choice';
+        var inp = document.createElement('input');
+        inp.type = 'radio';
+        inp.name = gname;
+        inp.id = id;
+        inp.value = String(ci);
+        var lab = document.createElement('label');
+        lab.setAttribute('for', id);
+        lab.textContent = label;
+        row.appendChild(inp);
+        row.appendChild(lab);
+        fs.appendChild(row);
+      });
+      step.appendChild(fs);
+
+      var chk = document.createElement('button');
+      chk.type = 'button';
+      chk.className = 'btn kids-btn-primary kids-read-quiz-check';
+      chk.textContent = 'Check my answer';
+
+      var fb = document.createElement('div');
+      fb.className = 'kids-read-quiz-feedback';
+      fb.setAttribute('aria-live', 'polite');
+
+      var nxt = document.createElement('button');
+      nxt.type = 'button';
+      nxt.className = 'btn btn-secondary kids-read-quiz-next hidden';
+      nxt.textContent = 'Next question';
+
+      var answered = false;
+      chk.addEventListener('click', function () {
+        if (answered) return;
+        var sel = fs.querySelector('input[name="' + gname + '"]:checked');
+        if (!sel) {
+          fb.textContent = 'Pick an answer first, then tap Check.';
+          fb.className = 'kids-read-quiz-feedback feedback-neutral';
+          return;
+        }
+        var picked = parseInt(sel.value, 10);
+        if (picked === qd.correctIndex) {
+          fb.textContent = qd.correctFeedback || 'Great job!';
+          fb.className = 'kids-read-quiz-feedback feedback-correct';
+          answered = true;
+          Array.prototype.forEach.call(fs.querySelectorAll('input'), function (inp) { inp.disabled = true; });
+          chk.classList.add('hidden');
+          nxt.classList.remove('hidden');
+        } else {
+          fb.textContent = qd.wrongFeedback || 'Try again—reread the story if you need a clue.';
+          fb.className = 'kids-read-quiz-feedback feedback-wrong';
+        }
+      });
+      nxt.addEventListener('click', function () {
+        qIndex.v += 1;
+        renderQuestion();
+      });
+      step.appendChild(chk);
+      step.appendChild(fb);
+      step.appendChild(nxt);
+      quizHost.appendChild(step);
+    }
+
+    renderQuestion();
+    modalReadQuiz.appendChild(wrap);
   }
 
   var STORY_JOURNEY_ORDER = [
@@ -3346,7 +3515,7 @@
       html += '<img src="' + escAttr(thumb) + '" alt="' + escAttr(alt) + '">';
       html += '<span class="kids-library-card-title">' + title + '</span>';
       html += '<div style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;width:100%;">';
-      html += '<span class="kids-library-card-btn">Watch Story</span>';
+      html += '<span class="kids-library-card-btn">Open story</span>';
       html += '<button type="button" class="kids-card-color-btn" data-story="' + escAttr(key) + '" data-title="' + escAttr(s.title || key) + '" aria-label="Color ' + escAttr(s.title || key) + '">🎨 Color Me</button>';
       html += '</div>';
       html += '</div>';
@@ -3376,6 +3545,7 @@
   }
 
   function openStory(key) {
+    clearReadQuizModal();
     var stories = getStories();
     var s = stories[key];
     if (!s) return;
@@ -3432,6 +3602,7 @@
         modalContext.innerHTML = '';
       }
     }
+    mountReadQuizForStory(key);
     if (modal) {
       modal.classList.remove('hidden');
       modalPreviousFocus = document.activeElement;
@@ -3473,6 +3644,7 @@
 
   function closeStoryModal() {
     if (!modal) return;
+    clearReadQuizModal();
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
     if (modalFocusTrapHandler) {

@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Bible Story Library • Kids Battle • Today's Daily Battle</title>
-  <meta name="description" content="Full Bible adventures for kids—complete animated stories with read-along words (captions), plus comic art and activities. Bible Story Library.">
+  <meta name="description" content="Bible Story Library for kids—read stories, answer gentle quizzes, comic art, optional video, and activities.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/corner.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -183,6 +183,120 @@
         font-size: clamp(1rem, 2.8vw, 1.2rem);
       }
     }
+    /* Read + quiz (modal) */
+    #kids-story-modal-read-quiz:not(.hidden) { margin: 0 0 1rem; }
+    .kids-read-quiz-wrap {
+      margin-top: 0.75rem;
+      padding: 1rem 1.1rem 1.15rem;
+      border: 3px solid var(--kids-yellow);
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      max-height: min(55vh, 420px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .kids-read-quiz-ref {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--kids-yellow);
+      margin: 0 0 0.5rem;
+    }
+    .kids-read-quiz-h4 {
+      font-family: 'Bangers', cursive;
+      font-size: 1.2rem;
+      color: var(--kids-yellow);
+      margin: 0.75rem 0 0.35rem;
+      letter-spacing: 0.04em;
+    }
+    .kids-read-quiz-hint {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin: 0 0 0.5rem;
+    }
+    .kids-read-quiz-para {
+      font-family: 'Comic Neue', cursive;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+      margin: 0 0 0.75rem;
+    }
+    .kids-read-quiz-qtext {
+      font-family: 'Comic Neue', cursive;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 0 0 0.65rem;
+      line-height: 1.4;
+    }
+    .kids-read-quiz-fieldset {
+      border: none;
+      padding: 0;
+      margin: 0 0 0.75rem;
+    }
+    .kids-read-quiz-choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.45rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+    .kids-read-quiz-choice input {
+      margin-top: 0.2rem;
+      width: 1.15rem;
+      height: 1.15rem;
+      flex-shrink: 0;
+    }
+    .kids-read-quiz-choice label {
+      cursor: pointer;
+      line-height: 1.35;
+    }
+    .kids-read-quiz-check,
+    .kids-read-quiz-next {
+      min-height: 44px;
+      margin-top: 0.25rem;
+    }
+    .kids-read-quiz-feedback {
+      min-height: 2.5rem;
+      margin: 0.5rem 0;
+      font-family: 'Comic Neue', cursive;
+      font-size: 0.98rem;
+      line-height: 1.45;
+      padding: 0.5rem 0.65rem;
+      border-radius: 10px;
+    }
+    .kids-read-quiz-feedback.feedback-correct {
+      background: rgba(34, 197, 94, 0.15);
+      color: #bbf7d0;
+      border: 2px solid rgba(34, 197, 94, 0.45);
+    }
+    .kids-read-quiz-feedback.feedback-wrong {
+      background: rgba(248, 113, 113, 0.12);
+      color: #fecaca;
+      border: 2px solid rgba(248, 113, 113, 0.35);
+    }
+    .kids-read-quiz-feedback.feedback-neutral {
+      background: rgba(148, 163, 184, 0.12);
+      color: #cbd5e1;
+      border: 2px solid rgba(148, 163, 184, 0.35);
+    }
+    .kids-read-quiz-done-title {
+      font-family: 'Bangers', cursive;
+      font-size: 1.25rem;
+      color: var(--kids-yellow);
+      margin: 0 0 0.35rem;
+    }
+    .kids-read-quiz-takeaway,
+    .kids-read-quiz-prayer {
+      font-family: 'Comic Neue', cursive;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+      margin: 0.5rem 0 0;
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page">
@@ -206,7 +320,7 @@
         <span class="kids-corner-explorer-badge" aria-label="Corner Explorer badge">📚 Corner Explorer</span>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Bible Story Library</h1>
-          <p class="kids-battle-tagline">Full Bible adventures—complete animated stories (3–7+ minutes) with read-along words. Pick a story, watch, and talk about what God did.</p>
+          <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Pick a story and go.</p>
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
@@ -277,6 +391,7 @@
       <h3 id="kids-story-modal-title" class="kids-video-modal-title"></h3>
       <div id="kids-story-modal-video"></div>
       <div id="kids-story-modal-carousel"></div>
+      <div id="kids-story-modal-read-quiz" class="hidden" aria-live="polite"></div>
       <div id="kids-story-modal-context" class="kids-ctx-block hidden"></div>
       <div class="kids-reflection-buttons util-mt-0_5" role="group" aria-label="Story navigation">
         <button type="button" id="kids-story-prev-btn" class="btn btn-secondary">← Previous Story</button>
@@ -341,9 +456,10 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="../inline-bootstrap.js"></script>
   <script src="kids-full-story-assets.js"></script>
+  <script src="kids-read-quiz-data.js"></script>
   <script src="kids-battle.js?v=9" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=4" defer></script>
+  <script src="kids-corner.js?v=5" defer></script>
   <script type="module" src="../script.js?v=20260321full-story" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

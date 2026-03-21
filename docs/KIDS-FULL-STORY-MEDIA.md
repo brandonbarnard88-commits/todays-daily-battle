@@ -4,6 +4,8 @@ End-to-end checklist for shipping **native `<video>` + WebVTT** on `/kids/corner
 
 **Animate one story at a time:** full checklist (all keys, filenames, suggested first five) — [`KIDS-STORY-ANIMATION-QUEUE.md`](./KIDS-STORY-ANIMATION-QUEUE.md). Refresh after catalog edits: `npm run kids:generate-animation-queue`.
 
+**Read + quiz (no video required):** `kids/kids-read-quiz-data.js` defines `TDB_KIDS_READ_QUIZ` per story key (paragraphs + multiple-choice with hint-style wrong feedback). Wired on `/kids/corner.html` in the story modal. Add keys the same way you grow the catalog.
+
 ## File layout
 
 | File | Role |

@@ -1,65 +1,48 @@
-# Kids full Bible story videos (read-along)
+# Kids full-story video + read-along (Bible Story Library)
 
-The Kids Story Library (`/kids/corner.html`) supports **one complete animated video per story** (roughly **3–7 minutes**), with **WebVTT** captions for read-along text. Short **Bible Loops** are no longer part of this page.
+End-to-end checklist for shipping **native `<video>` + WebVTT** on `/kids/corner.html`. Paths match `kids/kids-full-story-assets.js` (generated from `kids/kids-battle.js` story keys).
 
-## Files
+## File layout
 
-| Asset | Suggested path | Notes |
-|--------|----------------|--------|
-| Video (H.264) | `/media/kids-stories/{slug}.mp4` | Primary for Safari / iOS |
-| Video (WebM) | `/media/kids-stories/{slug}.webm` | Optional; VP9 for smaller size |
-| Read-along | `/media/kids-stories/{slug}.vtt` | **WebVTT** subtitles (timed lines) |
-| Poster | `/kids/panel-*-1.svg` or PNG/WebP | Optional `poster` in catalog |
+| File | Role |
+|------|------|
+| `/media/kids-stories/{key}.mp4` | H.264, web-compressed (primary) |
+| `/media/kids-stories/{key}.webm` | Optional smaller sibling |
+| `/media/kids-stories/{key}.vtt` | UTF-8 WebVTT read-along |
 
-## Catalog (all stories)
+Example for **David**: `david.mp4`, `david.vtt` (keys use camelCase in JS, kebab-case filenames).
 
-`kids/kids-full-story-assets.js` lists **every** top-level story key from `kids/kids-battle.js` (currently **171** unique keys). Each entry uses predictable paths:
+## Production workflow (hand-drawn or your editor of choice)
 
-| Field | Pattern |
-|--------|---------|
-| `mp4` | `/media/kids-stories/{kebab-key}.mp4` |
-| `webm` | `/media/kids-stories/{kebab-key}.webm` |
-| `captionsVtt` | `/media/kids-stories/{kebab-key}.vtt` |
+1. **Animate** — e.g. Krita, Pencil2D, OpenToonz, or your existing pipeline. Keep tone kid-safe and faithful; third-party/AI clips are reference only unless you own the output.
+2. **Export** — MP4 (H.264) + AAC audio if any; target **~50–150 MB** for long stories after compression.
+3. **Compress** — HandBrake or FFmpeg (e.g. 720p–1080p, CRF ~23–28, 30 fps) for mobile.
+4. **Captions** — Aegisub: load MP4, time cues to **action beats**, export **WebVTT** UTF-8 no BOM. Repo `media/kids-stories/david.vtt` is a starter; retime to picture.
+5. **Upload** — Place files on the **same host/CDN** as the site so URLs resolve as `https://todaysdailybattle.com/media/kids-stories/david.mp4` (must return **200** and play in-browser).
+6. **Style** — Caption chrome lives in CSS: `kids/corner.html` uses `.kids-full-story-video::cue { … }` (limited `::cue` support across browsers).
 
-**Kebab-case** is derived from the camelCase key (e.g. `goliathChallenge` → `goliath-challenge`). Digits stay in the slug (`alphaOmega2` → `alpha-omega2`).
+## Enable native player for a story
 
-### Turn on full video for a story
+Only after **MP4 + VTT** return **200** on production (empty seed avoids a broken player):
 
-1. Upload the three files (or at least `.mp4` + `.vtt`) under `/media/kids-stories/` using the slug names above.
-2. Add the **exact** story key string to `FULL_STORY_LIVE_KEYS` in `kids/kids-full-story-assets.js` (e.g. `'david', 'noah'`). Nothing plays until the key is listed—this avoids mass 404s before media exists.
-3. Optional: add `poster` on that story’s object if you want a custom still (otherwise the modal keeps panel/YouTube behavior as today).
+1. Edit `scripts/generate-kids-full-story-assets.js` → `FULL_STORY_LIVE_KEYS_SEED = ['david']` (append more keys later: `'noah'`, …).
+2. Run `npm run kids:generate-full-story-assets` (or `node scripts/generate-kids-full-story-assets.js`).
+3. `npm run build` → deploy.
+4. Smoke: `/kids/corner.html` → story → **CC on** → Network tab: **200** on `.mp4` and `.vtt`.
 
-After full site-wide rollout, you can replace `FULL_STORY_LIVE_KEYS` with `new Set(Object.keys(FULL_STORY_MEDIA))` so any uploaded file set goes live.
+To **disable** again, set seed to `[]`, regenerate, build, deploy.
 
-### Regenerate after adding stories to `kids-battle.js`
+## Hub vs library
 
-```bash
-node scripts/generate-kids-full-story-assets.js
-```
+- **`/kids/?v=hub20260321`** (or `/kids/` after cache settles) — **Pick a path**: loops vs full stories.
+- **`/kids/corner.html`** — Bible Story Library (full-story modal).
 
-Then re-add any keys you had in `FULL_STORY_LIVE_KEYS` (the generator preserves the empty Set template).
+## Cache / PWA
 
-Until a story is in `FULL_STORY_LIVE_KEYS`, the modal uses **comic panels** and an optional **YouTube** preview button (`videoId` in story data).
+- Service worker: bump `CACHE_NAME` in `service-worker.js` when static HTML/CSS must refresh for all users.
+- Cloudflare: `npm run purge:cloudflare` (needs real `CF_API_TOKEN` in `.env`) or dashboard **Purge Everything** after deploys.
 
-## WebVTT
+## Legal / quality
 
-Create captions in **Aegisub**, **CapCut**, **Da Vinci Resolve**, or **Premiere**; export **.vtt**. Keep lines short, positive, KJV-accurate, age 4–8 friendly. Example:
-
-```vtt
-WEBVTT
-
-00:00:01.000 --> 00:00:04.500
-The giant shouted at God's army.
-
-00:00:04.600 --> 00:00:08.000
-David trusted the Lord, not the spear.
-```
-
-## QA
-
-- Cross-check script and animation against **KJV** (and narrative context).
-- Confirm captions match the picture (parents/kids test: “Do the words match what we see?”).
-
-## Hosting size
-
-Target **~50–150 MB** per story (H.264, reasonable bitrate) for phones/tablets; use CDN caching and version query strings when replacing files.
+- Do not commit **large** `.mp4` / `.webm` by accident — see `media/kids-stories/README.md` and `.gitignore`.
+- Scripture quotes in VTT: prefer **KJV** where shown as verse text (site standard).

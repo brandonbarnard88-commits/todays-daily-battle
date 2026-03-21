@@ -36,6 +36,7 @@
     "suggest:fetch": "node scripts/fetch-feeling-suggestions.mjs",
     "deploy:webhook": "bash scripts/deploy-stripe-webhook.sh",
     "deploy:seed": "npx supabase functions deploy seed-daily-battle",
+    "kids:generate-full-story-assets": "node scripts/generate-kids-full-story-assets.js",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
     "purge:check": "node scripts/cloudflare-purge-check.mjs",
     "audit:links": "npm run build && node scripts/audit-links.mjs",

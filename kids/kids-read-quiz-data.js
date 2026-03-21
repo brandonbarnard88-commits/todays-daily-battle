@@ -1541,86 +1541,87 @@
   "creation": {
     "kjvRef": "Genesis 1",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "readAlongImages": [],
     "paragraphs": [
-      "Creation.",
-      "We read about this in Genesis 1.",
-      "God made everything—wow!",
-      "You are part of His amazing creation!",
-      "We learn from God and how God cares for Everyone."
+      "The Bible begins with a big truth: \"In the beginning God created the heaven and the earth\" (Genesis 1:1, KJV). Before people, before animals, before sun and moon—there was God, speaking worlds into being.",
+      "At first the earth was empty and dark. Then God said, \"Let there be light\" (Genesis 1:3, KJV). Light shone. He named day and night. Again and again He spoke—and sky, land, plants, lights in heaven, sea life, birds, land animals, all appeared.",
+      "On the sixth day God made people—male and female—in His own image. He blessed them and gave them good work: care for the earth and walk with Him. He looked at everything He had made, and it was \"very good\" (Genesis 1:31, KJV).",
+      "On the seventh day God rested from all His work. He blessed that day and made it holy—not because He was tired in a weak way, but to show a rhythm: work and rest, gift and thanks.",
+      "For you: when you see stars, waves, puppies, or your own face in the mirror, remember—you are not an accident. God made it all. You can thank Him today for being the Maker who loves what He made."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "What Do You Remember?",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Who made the heavens and the earth?",
         "choices": [
-          "Daniel 6",
-          "Mark 12",
-          "Genesis 1",
-          "Matthew 28"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Genesis 1.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Holy Spirit",
-          "David",
-          "Paul",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God made everything—wow! You are part of His amazing creation!",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God made everything—wow! You are part of His amazing creation!.)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A talking toaster became king of the city.",
-          "God says: Let there be light!",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "Chance and time alone",
+          "God",
+          "Only angels",
+          "People in factories"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—Genesis 1:1 starts with God the Creator.",
+        "wrongFeedback": "Look at the very first Bible verse quoted in paragraph one. Who creates? (Answer: God.)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did God say to bring light at the start?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "God made everything—wow! You are part of His amazing creation!",
-          "Never say sorry when we do wrong."
+          "Let there be light",
+          "Turn on the lamps",
+          "Wait for the sun",
+          "Light is not important"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Right—that is Genesis 1:3 in the KJV.",
+        "wrongFeedback": "Find the quoted words in paragraph two right after the dark beginning. (Answer: Let there be light.)"
+      },
+      {
+        "question": "How does the story describe God's view of what He made?",
+        "choices": [
+          "It was a mistake",
+          "It was boring",
+          "It was very good",
+          "He changed His mind"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God made everything—wow! You are part of His amazing creation!.)"
+        "correctFeedback": "Exactly—God delights in His creation.",
+        "wrongFeedback": "Read paragraph three near the end. What two words describe everything? (Answer: It was very good.)"
+      },
+      {
+        "question": "What did God do on the seventh day?",
+        "choices": [
+          "Started creating again from scratch",
+          "Rested and blessed the day as holy",
+          "Forgot about the world",
+          "Made more people only"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—Sabbath rest is a gift pattern from the Creator.",
+        "wrongFeedback": "Skim paragraph four. Did God keep building, or stop to bless a day of rest? (Answer: Rested and blessed the day as holy.)"
+      },
+      {
+        "question": "What can you remember when you feel small?",
+        "choices": [
+          "No one planned for me to be here",
+          "The same God who made the world knows me—and I can thank Him",
+          "Stars are only decoration",
+          "People are not special to God"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful—you matter to the Maker.",
+        "wrongFeedback": "Reread the last paragraph. Does it say you are an accident, or loved on purpose? (Answer: The same God who made the world knows me—and I can thank Him.)"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Creation with God's Word today.",
-    "takeaway": "God made everything—wow! You are part of His amazing creation!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Creation. Amen.",
+    "doneHeading": "You Did It!",
+    "doneMessage": "Great job reading how God made the world in His Word today.",
+    "takeaway": "God made everything—and He says it is very good. You are part of His story.",
+    "prayer": "God, thank You for making the world and for making me. Help me honor You as my Creator. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: Let there be light! (creation)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God makes animals and people (genesis 1)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God rests—He made everything! (light)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: Let there be light! (animals)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God makes animals and people (rest)"
+      "bouncy cartoon: dark void becoming light, gentle beams, God's hand implied (no face), text-free",
+      "kid illustration: sky with sun moon stars, clouds, colorful simple, no text",
+      "friendly scene: green land, plants, simple ocean waves, fish and birds, no text",
+      "warm cartoon: Adam and Eve silhouettes in garden, animals nearby, humble not graphic, no text",
+      "peaceful seventh day: sunset, rest, smile on child face praying thanks, gold accents, no text"
     ]
   },
   "creationLight": {
@@ -3835,87 +3836,87 @@
   },
   "fallOfJericho": {
     "kjvRef": "Joshua 6",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "hintAboveQuiz": "Read the story carefully — God's plan was different than usual!",
     "paragraphs": [
-      "God told Joshua and His people to take the city of Jericho. The walls were very tall and strong.",
-      "God said, \"March around the city once each day for six days. On the seventh day, march seven times.\"",
-      "The people obeyed God. They marched quietly with priests carrying the ark and blowing trumpets.",
-      "On the seventh day, after marching seven times, Joshua shouted, \"Shout! The Lord has given you the city!\"",
-      "The people shouted loud. The walls fell down flat! God gave them the victory because they trusted and obeyed Him."
+      "God told Joshua that His people would take the city of Jericho. The walls were tall and very strong.",
+      "God gave a special plan: \"March around the city once a day for six days. Be quiet. Priests carry the ark and blow trumpets.\"",
+      "The people obeyed. They marched quietly every day. On the seventh day they marched seven times around the city.",
+      "After the seventh march, Joshua shouted, \"Shout! The Lord has given you the city!\"",
+      "The people shouted loud together. Suddenly the walls fell down flat! God gave them the victory because they trusted and obeyed Him."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "What Do You Remember?",
     "questions": [
       {
-        "question": "What did God tell Joshua to do with the city of Jericho?",
+        "question": "What did God tell Joshua to do with Jericho?",
         "choices": [
-          "Attack it with swords right away",
-          "March around it for seven days",
-          "Climb the walls",
-          "Wait for the walls to fall by themselves"
+          "Fight with swords right away",
+          "March around the city quietly",
+          "Climb the walls with ladders",
+          "Wait for the walls to fall alone"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! God had a special plan — marching and trusting Him.",
-        "wrongFeedback": "Not quite. God didn't say to fight with swords or climb. He told Joshua to march around the city quietly for six days, then seven times on the seventh day. That showed obedience! (Answer: March around it for seven days.)"
+        "correctFeedback": "Yes! God had a special obedience plan — marching showed trust in Him.",
+        "wrongFeedback": "Not quite. The Bible doesn't say to fight with swords or climb. God told them to march around quietly for six days, then seven times on the seventh day — that was the way to win! (Answer: March around the city quietly.)"
       },
       {
-        "question": "For the first six days, how many times did God tell them to march around Jericho each day?",
+        "question": "How many times did they march on the seventh day?",
         "choices": [
-          "Once each day",
-          "Seven times each day",
-          "They stayed in their tents",
-          "They climbed the walls at night"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right — one lap a day built trust before the big seventh day.",
-        "wrongFeedback": "Count the days in the story: six days of the same rhythm, then a different plan on day seven. Reread paragraph two. (Answer: Once each day.)"
-      },
-      {
-        "question": "What happened to the walls when the people shouted?",
-        "choices": [
-          "They got taller",
-          "They turned to glass",
-          "Nothing happened",
-          "They fell down flat"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes! God did what only He can do — the walls came down.",
-        "wrongFeedback": "Picture the ending: did the city stay sealed up, or did God open the way? Check the last paragraph. (Answer: They fell down flat.)"
-      },
-      {
-        "question": "While the people marched, who carried the ark and blew trumpets?",
-        "choices": [
-          "Only Joshua, alone",
-          "Random soldiers with drums",
-          "The priests",
-          "No one — they left everything behind"
+          "One time",
+          "Three times",
+          "Seven times",
+          "Ten times"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Exactly — worship and God's presence went first.",
-        "wrongFeedback": "Look for who walked with the ark and who made the trumpet sound in paragraph three. (Answer: The priests.)"
+        "correctFeedback": "Correct! Seven times on the seventh day — God's number for completeness.",
+        "wrongFeedback": "Let's check the story: God said to march around once each day for six days, but on the seventh day, march seven times. The answer is seven! (Answer: Seven times.)"
       },
       {
-        "question": "Why did God give Israel the victory at Jericho?",
+        "question": "What did the people do after the last march?",
         "choices": [
-          "Because the walls were already cracked",
-          "Because they trusted and obeyed God",
-          "Because they had the biggest army in the world",
-          "Because they did not need God's help"
+          "Ran away",
+          "Shouted loudly",
+          "Sang a song",
+          "Threw stones"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful — obedience and trust please God more than our own ideas.",
-        "wrongFeedback": "Ask: did they win by sneaking, or by doing the odd thing God said? Reread the last line of the story. (Answer: Because they trusted and obeyed God.)"
+        "correctFeedback": "Exactly! They shouted together when Joshua gave the command — and the walls fell!",
+        "wrongFeedback": "Close, but they did not run or sing. After marching, Joshua said \"Shout!\" and they shouted loud — that is when the walls came down (Joshua 6:20). (Answer: Shouted loudly.)"
+      },
+      {
+        "question": "Why did the walls fall down?",
+        "choices": [
+          "Because the trumpets were loud",
+          "Because the people shouted",
+          "Because God made it happen",
+          "Because the walls were old"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right! God gave the victory — the people obeyed, and He did the miracle.",
+        "wrongFeedback": "The trumpets and shouting were part of the plan, but they were not magic. The real reason is that God made the walls fall when His people obeyed Him. (Answer: Because God made it happen.)"
+      },
+      {
+        "question": "What can we learn from Jericho?",
+        "choices": [
+          "God likes quiet marching",
+          "Obeying God brings victory",
+          "Shouting always wins",
+          "Walls fall by themselves"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! When we trust and obey God, even impossible things can happen.",
+        "wrongFeedback": "Almost! The story shows that victory came from obedience, not just noise or time passing. Trust and obey God — that is the lesson! (Answer: Obeying God brings victory.)"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job walking through Jericho with God's Word today.",
-    "takeaway": "Obeying God brings victory — even when things look impossible!",
-    "prayer": "God, help me obey You even when I don't understand the plan. Amen.",
+    "doneHeading": "You Did It!",
+    "doneMessage": "Great job listening to God's story about Jericho today.",
+    "takeaway": "Obeying God, even when the plan seems strange, leads to victory.",
+    "prayer": "Dear God, help me obey You even when I don't understand. I trust You. Amen.",
     "imagePrompts": [
-      "Bright bouncy cartoon for kids: Israelite army marching around tall Jericho walls, priests with trumpets and ark, sunny day, no text",
-      "Kid cartoon style: Joshua leading people quietly around city walls, serious faces, dust on ground, no text",
-      "Colorful Bible illustration for children: seventh day march, people circling walls seven times, trumpets blowing, excitement building",
-      "Fun bouncy scene: huge Jericho walls falling down flat, Israelites shouting in joy, dust cloud, God's power shown",
-      "Happy ending cartoon: Israelites entering Jericho, smiling, praising God, bright colors, no text"
+      "bright bouncy cartoon for kids: Israelite army marching silently around tall Jericho walls, priests with trumpets and ark of the covenant, sunny day, no text",
+      "colorful kid illustration: Joshua leading people in a circle around the city, serious faces, dust on ground, big strong walls, no text",
+      "fun cartoon style for children: seventh day march, people going around Jericho seven times, trumpets blowing, excitement in air, no text",
+      "exciting Bible scene for kids: huge Jericho walls crumbling and falling down flat, Israelites shouting in joy, dust cloud, God's power shown",
+      "happy ending cartoon: Israelites walking into the city of Jericho, smiling, praising God, bright colors, no text"
     ],
     "readAlongImages": []
   },
@@ -5282,87 +5283,87 @@
   },
   "jerichoWalls": {
     "kjvRef": "Joshua 6",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "hintAboveQuiz": "Read the story carefully — God's plan was different than usual!",
     "paragraphs": [
-      "God told Joshua and His people to take the city of Jericho. The walls were very tall and strong.",
-      "God said, \"March around the city once each day for six days. On the seventh day, march seven times.\"",
-      "The people obeyed God. They marched quietly with priests carrying the ark and blowing trumpets.",
-      "On the seventh day, after marching seven times, Joshua shouted, \"Shout! The Lord has given you the city!\"",
-      "The people shouted loud. The walls fell down flat! God gave them the victory because they trusted and obeyed Him."
+      "God told Joshua that His people would take the city of Jericho. The walls were tall and very strong.",
+      "God gave a special plan: \"March around the city once a day for six days. Be quiet. Priests carry the ark and blow trumpets.\"",
+      "The people obeyed. They marched quietly every day. On the seventh day they marched seven times around the city.",
+      "After the seventh march, Joshua shouted, \"Shout! The Lord has given you the city!\"",
+      "The people shouted loud together. Suddenly the walls fell down flat! God gave them the victory because they trusted and obeyed Him."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "What Do You Remember?",
     "questions": [
       {
-        "question": "What did God tell Joshua to do with the city of Jericho?",
+        "question": "What did God tell Joshua to do with Jericho?",
         "choices": [
-          "Attack it with swords right away",
-          "March around it for seven days",
-          "Climb the walls",
-          "Wait for the walls to fall by themselves"
+          "Fight with swords right away",
+          "March around the city quietly",
+          "Climb the walls with ladders",
+          "Wait for the walls to fall alone"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! God had a special plan — marching and trusting Him.",
-        "wrongFeedback": "Not quite. God didn't say to fight with swords or climb. He told Joshua to march around the city quietly for six days, then seven times on the seventh day. That showed obedience! (Answer: March around it for seven days.)"
+        "correctFeedback": "Yes! God had a special obedience plan — marching showed trust in Him.",
+        "wrongFeedback": "Not quite. The Bible doesn't say to fight with swords or climb. God told them to march around quietly for six days, then seven times on the seventh day — that was the way to win! (Answer: March around the city quietly.)"
       },
       {
-        "question": "For the first six days, how many times did God tell them to march around Jericho each day?",
+        "question": "How many times did they march on the seventh day?",
         "choices": [
-          "Once each day",
-          "Seven times each day",
-          "They stayed in their tents",
-          "They climbed the walls at night"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right — one lap a day built trust before the big seventh day.",
-        "wrongFeedback": "Count the days in the story: six days of the same rhythm, then a different plan on day seven. Reread paragraph two. (Answer: Once each day.)"
-      },
-      {
-        "question": "What happened to the walls when the people shouted?",
-        "choices": [
-          "They got taller",
-          "They turned to glass",
-          "Nothing happened",
-          "They fell down flat"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes! God did what only He can do — the walls came down.",
-        "wrongFeedback": "Picture the ending: did the city stay sealed up, or did God open the way? Check the last paragraph. (Answer: They fell down flat.)"
-      },
-      {
-        "question": "While the people marched, who carried the ark and blew trumpets?",
-        "choices": [
-          "Only Joshua, alone",
-          "Random soldiers with drums",
-          "The priests",
-          "No one — they left everything behind"
+          "One time",
+          "Three times",
+          "Seven times",
+          "Ten times"
         ],
         "correctIndex": 2,
-        "correctFeedback": "Exactly — worship and God's presence went first.",
-        "wrongFeedback": "Look for who walked with the ark and who made the trumpet sound in paragraph three. (Answer: The priests.)"
+        "correctFeedback": "Correct! Seven times on the seventh day — God's number for completeness.",
+        "wrongFeedback": "Let's check the story: God said to march around once each day for six days, but on the seventh day, march seven times. The answer is seven! (Answer: Seven times.)"
       },
       {
-        "question": "Why did God give Israel the victory at Jericho?",
+        "question": "What did the people do after the last march?",
         "choices": [
-          "Because the walls were already cracked",
-          "Because they trusted and obeyed God",
-          "Because they had the biggest army in the world",
-          "Because they did not need God's help"
+          "Ran away",
+          "Shouted loudly",
+          "Sang a song",
+          "Threw stones"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Beautiful — obedience and trust please God more than our own ideas.",
-        "wrongFeedback": "Ask: did they win by sneaking, or by doing the odd thing God said? Reread the last line of the story. (Answer: Because they trusted and obeyed God.)"
+        "correctFeedback": "Exactly! They shouted together when Joshua gave the command — and the walls fell!",
+        "wrongFeedback": "Close, but they did not run or sing. After marching, Joshua said \"Shout!\" and they shouted loud — that is when the walls came down (Joshua 6:20). (Answer: Shouted loudly.)"
+      },
+      {
+        "question": "Why did the walls fall down?",
+        "choices": [
+          "Because the trumpets were loud",
+          "Because the people shouted",
+          "Because God made it happen",
+          "Because the walls were old"
+        ],
+        "correctIndex": 2,
+        "correctFeedback": "Right! God gave the victory — the people obeyed, and He did the miracle.",
+        "wrongFeedback": "The trumpets and shouting were part of the plan, but they were not magic. The real reason is that God made the walls fall when His people obeyed Him. (Answer: Because God made it happen.)"
+      },
+      {
+        "question": "What can we learn from Jericho?",
+        "choices": [
+          "God likes quiet marching",
+          "Obeying God brings victory",
+          "Shouting always wins",
+          "Walls fall by themselves"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! When we trust and obey God, even impossible things can happen.",
+        "wrongFeedback": "Almost! The story shows that victory came from obedience, not just noise or time passing. Trust and obey God — that is the lesson! (Answer: Obeying God brings victory.)"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job walking through Jericho with God's Word today.",
-    "takeaway": "Obeying God brings victory — even when things look impossible!",
-    "prayer": "God, help me obey You even when I don't understand the plan. Amen.",
+    "doneHeading": "You Did It!",
+    "doneMessage": "Great job listening to God's story about Jericho today.",
+    "takeaway": "Obeying God, even when the plan seems strange, leads to victory.",
+    "prayer": "Dear God, help me obey You even when I don't understand. I trust You. Amen.",
     "imagePrompts": [
-      "Bright bouncy cartoon for kids: Israelite army marching around tall Jericho walls, priests with trumpets and ark, sunny day, no text",
-      "Kid cartoon style: Joshua leading people quietly around city walls, serious faces, dust on ground, no text",
-      "Colorful Bible illustration for children: seventh day march, people circling walls seven times, trumpets blowing, excitement building",
-      "Fun bouncy scene: huge Jericho walls falling down flat, Israelites shouting in joy, dust cloud, God's power shown",
-      "Happy ending cartoon: Israelites entering Jericho, smiling, praising God, bright colors, no text"
+      "bright bouncy cartoon for kids: Israelite army marching silently around tall Jericho walls, priests with trumpets and ark of the covenant, sunny day, no text",
+      "colorful kid illustration: Joshua leading people in a circle around the city, serious faces, dust on ground, big strong walls, no text",
+      "fun cartoon style for children: seventh day march, people going around Jericho seven times, trumpets blowing, excitement in air, no text",
+      "exciting Bible scene for kids: huge Jericho walls crumbling and falling down flat, Israelites shouting in joy, dust cloud, God's power shown",
+      "happy ending cartoon: Israelites walking into the city of Jericho, smiling, praising God, bright colors, no text"
     ],
     "readAlongImages": []
   },
@@ -5622,89 +5623,89 @@
     ]
   },
   "jesusCalmsStorm": {
-    "kjvRef": "Mark 4:39",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Mark 4:35–41",
+    "hintAboveQuiz": "Pay attention to what Jesus did and said!",
     "readAlongImages": [],
     "paragraphs": [
-      "Jesus and His disciples crossed the lake in a boat. Jesus was tired, so He slept on a cushion. The sky grew dark. Wind screamed. Waves slapped the boat, and water began to fill it.",
-      "The disciples had seen storms before, but this one felt deadly. They shook Jesus awake. \"Master, carest thou not that we perish?\" They really thought they might drown.",
-      "Jesus stood up in the rocking boat. He spoke to the wind and to the waves. In the King James Bible His words are: \"Peace, be still\" (Mark 4:39, KJV). The wind stopped. The water went flat, as if Someone huge had hushed the whole lake.",
-      "Jesus turned to His friends. \"Why are ye so fearful? how is it that ye have no faith?\" He was not mean—He was teaching them. The storm obeyed Him because He is God the Son. Nothing is stronger than His voice.",
-      "The disciples whispered with wonder, \"What manner of man is this, that even the wind and the sea obey him?\" For you: when your heart feels stormy—worried, loud, shaky—tell Jesus. He is right there. He can bring peace inside you too."
+      "Jesus and His disciples were in a boat on the lake. Jesus was very tired and fell asleep.",
+      "Suddenly a great storm came. Waves crashed over the boat. The disciples were afraid!",
+      "They woke Jesus and said, \"Master, carest thou not that we perish?\" (Mark 4:38, KJV). They really thought they might drown.",
+      "Jesus stood up and spoke to the wind and the waves: \"Peace, be still\" (Mark 4:39, KJV). The wind stopped. The sea became perfectly calm.",
+      "Jesus said, \"Why are ye so fearful? how is it that ye have no faith?\" The disciples wondered, \"What manner of man is this, that even the wind and the sea obey him?\" When life feels loud and scary, Jesus is still Lord—and He can calm our hearts too."
     ],
-    "quizHeading": "Quiz — think it through",
+    "quizHeading": "Test Your Understanding",
     "questions": [
       {
-        "question": "What was happening to the boat while Jesus slept?",
+        "question": "What was Jesus doing during the storm?",
         "choices": [
-          "The lake was perfectly calm",
-          "A fierce storm tossed the boat and water came in",
-          "The disciples were fishing for dinner",
-          "They had already reached the other shore"
+          "Rowing the boat",
+          "Sleeping",
+          "Calling down fire",
+          "Teaching a long lesson"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—the storm was real danger, not a small sprinkle.",
-        "wrongFeedback": "Picture the first paragraph: wind, waves, and water in the boat. Which choice matches that? (Answer: A fierce storm tossed the boat and water came in.)"
+        "correctFeedback": "Yes! Jesus was asleep in the boat when the storm roared.",
+        "wrongFeedback": "Reread paragraph one. Where was Jesus before the disciples woke Him? (Answer: Sleeping.)"
+      },
+      {
+        "question": "What worried the disciples when they woke Jesus?",
+        "choices": [
+          "They were late for dinner",
+          "They feared the boat would sink and they would drown",
+          "They lost their fishing nets",
+          "They wanted to go home immediately"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Right—the storm felt deadly to them.",
+        "wrongFeedback": "Look at paragraph three. What did they say to Jesus in the KJV words? They were afraid of drowning. (Answer: They feared the boat would sink and they would drown.)"
       },
       {
         "question": "What did Jesus say to the wind and the waves?",
         "choices": [
           "Row harder!",
           "Peace, be still",
-          "Find another boat!",
-          "We should turn back now"
+          "Swim to shore!",
+          "Hide in the hull"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—that's what Mark records in the KJV—and the storm listened.",
-        "wrongFeedback": "Look at the sentence with the quote from Mark 4:39. What two short words did Jesus speak? (Answer: Peace, be still.)"
+        "correctFeedback": "Exactly—that is what Mark 4:39 records in the King James Bible.",
+        "wrongFeedback": "Find the short command in paragraph four, right before the sea goes calm. (Answer: Peace, be still.)"
       },
       {
         "question": "What happened right after Jesus spoke?",
         "choices": [
-          "The storm grew worse",
+          "The storm doubled",
           "The wind stopped and there was a great calm",
-          "The disciples jumped overboard",
-          "Nothing changed at all"
+          "The boat sank",
+          "Nothing changed"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—nature obeys its Maker.",
-        "wrongFeedback": "Reread paragraph three after the words \"Peace, be still.\" Did it stay wild or become quiet? (Answer: The wind stopped and there was a great calm.)"
+        "correctFeedback": "Yes—Jesus rules the wind and waves.",
+        "wrongFeedback": "Picture paragraph four after \"Peace, be still.\" Did it stay wild or become quiet? (Answer: The wind stopped and there was a great calm.)"
       },
       {
-        "question": "What did Jesus ask His disciples about next?",
+        "question": "What is one thing we can remember when we feel afraid?",
         "choices": [
-          "Whether they had packed enough food",
-          "Why they were so fearful and why they had so little faith",
-          "Who should steer the boat",
-          "If they wanted to go home"
+          "Jesus is too busy to care",
+          "Jesus has power over everything—even storms—and we can trust Him",
+          "We should never talk to Jesus",
+          "Storms always mean God is angry at us"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—He wanted them to trust Him in scary moments.",
-        "wrongFeedback": "Check paragraph four. Jesus questioned fear and faith—not snacks or steering. (Answer: Why they were so fearful and why they had so little faith.)"
-      },
-      {
-        "question": "What is one true thing we can remember when we feel afraid?",
-        "choices": [
-          "Jesus is asleep so He cannot help",
-          "Jesus has power over storms—and He is with His people",
-          "Storms mean God forgot us",
-          "We should never tell Jesus how we feel"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is the heart of the story.",
-        "wrongFeedback": "Think: who stopped the storm, and where was He the whole time? Reread the last paragraph. (Answer: Jesus has power over storms—and He is with His people.)"
+        "correctFeedback": "Beautiful—that is the faith this story grows.",
+        "wrongFeedback": "Think: who hushed the storm, and what did Jesus ask about fear and faith? Reread the last paragraph. (Answer: Jesus has power over everything—even storms—and we can trust Him.)"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading about Jesus calming the storm with God's Word today.",
-    "takeaway": "Jesus is stronger than what scares you. You can talk to Him in the noisy moments.",
-    "prayer": "Jesus, when my heart feels stormy, please bring Your peace. I trust You. Amen.",
+    "doneHeading": "Great Job!",
+    "doneMessage": "Great job listening to Jesus calming the storm in God's Word today.",
+    "takeaway": "Jesus has power over everything — even storms. We can trust Him when we are afraid.",
+    "prayer": "Jesus, when I am scared, help me remember You are with me and have power over everything. Amen.",
     "imagePrompts": [
-      "Bright bouncy cartoon: small boat on dark choppy waves, disciples worried, Jesus asleep on cushion, lightning far off, kid-safe, no text",
-      "Kid cartoon: disciples waking Jesus, rain and spray, faces scared but hopeful, no text",
-      "Colorful scene: Jesus standing in boat with hand raised toward wind and waves, light breaking through clouds, no text",
-      "Peaceful cartoon: flat calm water, soft sunrise, disciples amazed faces, boat still, no text",
-      "Warm ending: Jesus smiling at friends in boat, gentle water, gold accents, no text"
+      "bright cartoon for kids: Jesus sleeping in a boat while disciples row, calm lake at first, no text",
+      "fun kid illustration: big storm on the lake, huge waves crashing into the boat, disciples looking scared, Jesus asleep",
+      "colorful Bible scene for children: Jesus standing up in the boat, speaking to the storm, wind and waves calming down",
+      "exciting cartoon: storm suddenly stops, lake flat and peaceful, disciples amazed looking at Jesus",
+      "happy ending illustration: boat on calm water, Jesus smiling at disciples, peace and faith shown, no text"
     ]
   },
   "jesusFeeds5000": {

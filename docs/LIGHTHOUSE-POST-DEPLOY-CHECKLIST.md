@@ -23,12 +23,12 @@ Opens report in browser. Or use Chrome DevTools → Lighthouse tab (mobile, inco
 | Metric | Target | If low |
 |--------|--------|--------|
 | FCP | < 2.0s | Defer more scripts; preload critical CSS |
-| LCP | < 2.5s | Preload Caveat + Cormorant Garamond (hero verse font) |
+| LCP | < 2.5s | `preconnect` to fonts.googleapis + stylesheet (index: no font CSS preload — avoids unused-preload warnings) |
 | TBT | < 200ms | Already 0; maintain |
 | CLS | < 0.1 | Already 0; maintain |
 | Speed Index | < 3.4s | Reduce unused JS |
 
-**Font preload:** index.html preloads Caveat (hero title) and Cormorant Garamond (verse body). calm.html preloads Cormorant + Inter. Drops FCP/LCP by ~200–500ms when fonts are critical.
+**Fonts:** index.html uses `preconnect` + stylesheet for Caveat + Cormorant (no duplicate font CSS preload). calm.html may still preload Cormorant + Inter where it helps without unused-preload noise.
 
 ## 4. Quick checks
 

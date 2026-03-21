@@ -10,7 +10,14 @@
     window.trustedTypes.createPolicy('default', {
       createHTML: function (i) {
         var x = String(i || '');
-        if (window.__ttDepth) return x;
+        /* Nested call: DOMPurify's RETURN_TRUSTED_TYPE path invokes policy.createHTML(sanitized).
+           Must not return a raw string (TT violation) or recurse with RETURN_TRUSTED_TYPE: true. */
+        if (window.__ttDepth) {
+          if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: false });
+          }
+          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
         window.__ttDepth = 1;
         try {
           if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {

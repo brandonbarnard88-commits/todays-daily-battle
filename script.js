@@ -12,10 +12,22 @@
   try {
     window.trustedTypes.createPolicy('default', {
       createHTML: function (input) {
-        if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-          return DOMPurify.sanitize(String(input), { RETURN_TRUSTED_TYPE: true });
+        var x = String(input || '');
+        if (window.__ttDepth) {
+          if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: false });
+          }
+          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
-        return String(input).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        window.__ttDepth = 1;
+        try {
+          if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: true });
+          }
+          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        } finally {
+          delete window.__ttDepth;
+        }
       }
     });
     var pol = window.trustedTypes.defaultPolicy;

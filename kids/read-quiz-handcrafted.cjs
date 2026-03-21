@@ -90,7 +90,8 @@ function buildJerichoReadQuiz() {
       'Colorful Bible illustration for children: seventh day march, people circling walls seven times, trumpets blowing, excitement building',
       "Fun bouncy scene: huge Jericho walls falling down flat, Israelites shouting in joy, dust cloud, God's power shown",
       'Happy ending cartoon: Israelites entering Jericho, smiling, praising God, bright colors, no text'
-    ]
+    ],
+    readAlongImages: []
   };
 }
 
@@ -336,5 +337,263 @@ module.exports = {
       ]
     },
     fallOfJericho: buildJerichoReadQuiz(),
-    jerichoWalls: buildJerichoReadQuiz()
+    jerichoWalls: buildJerichoReadQuiz(),
+    jesusCalmsStorm: {
+      kjvRef: 'Mark 4:39',
+      hintAboveQuiz: 'Use the comic pictures above while you read.',
+      readAlongImages: [],
+      paragraphs: [
+        'Jesus and His disciples crossed the lake in a boat. Jesus was tired, so He slept on a cushion. The sky grew dark. Wind screamed. Waves slapped the boat, and water began to fill it.',
+        'The disciples had seen storms before, but this one felt deadly. They shook Jesus awake. "Master, carest thou not that we perish?" They really thought they might drown.',
+        'Jesus stood up in the rocking boat. He spoke to the wind and to the waves. In the King James Bible His words are: "Peace, be still" (Mark 4:39, KJV). The wind stopped. The water went flat, as if Someone huge had hushed the whole lake.',
+        'Jesus turned to His friends. "Why are ye so fearful? how is it that ye have no faith?" He was not mean—He was teaching them. The storm obeyed Him because He is God the Son. Nothing is stronger than His voice.',
+        'The disciples whispered with wonder, "What manner of man is this, that even the wind and the sea obey him?" For you: when your heart feels stormy—worried, loud, shaky—tell Jesus. He is right there. He can bring peace inside you too.'
+      ],
+      quizHeading: 'Quiz — think it through',
+      questions: [
+        {
+          question: 'What was happening to the boat while Jesus slept?',
+          choices: [
+            'The lake was perfectly calm',
+            'A fierce storm tossed the boat and water came in',
+            'The disciples were fishing for dinner',
+            'They had already reached the other shore'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—the storm was real danger, not a small sprinkle.',
+          wrongFeedback:
+            'Picture the first paragraph: wind, waves, and water in the boat. Which choice matches that? (Answer: A fierce storm tossed the boat and water came in.)'
+        },
+        {
+          question: 'What did Jesus say to the wind and the waves?',
+          choices: ['Row harder!', 'Peace, be still', 'Find another boat!', 'We should turn back now'],
+          correctIndex: 1,
+          correctFeedback: "Right—that's what Mark records in the KJV—and the storm listened.",
+          wrongFeedback:
+            'Look at the sentence with the quote from Mark 4:39. What two short words did Jesus speak? (Answer: Peace, be still.)'
+        },
+        {
+          question: 'What happened right after Jesus spoke?',
+          choices: [
+            'The storm grew worse',
+            'The wind stopped and there was a great calm',
+            'The disciples jumped overboard',
+            'Nothing changed at all'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Exactly—nature obeys its Maker.',
+          wrongFeedback:
+            'Reread paragraph three after the words "Peace, be still." Did it stay wild or become quiet? (Answer: The wind stopped and there was a great calm.)'
+        },
+        {
+          question: 'What did Jesus ask His disciples about next?',
+          choices: [
+            'Whether they had packed enough food',
+            'Why they were so fearful and why they had so little faith',
+            'Who should steer the boat',
+            'If they wanted to go home'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—He wanted them to trust Him in scary moments.',
+          wrongFeedback:
+            'Check paragraph four. Jesus questioned fear and faith—not snacks or steering. (Answer: Why they were so fearful and why they had so little faith.)'
+        },
+        {
+          question: 'What is one true thing we can remember when we feel afraid?',
+          choices: [
+            'Jesus is asleep so He cannot help',
+            'Jesus has power over storms—and He is with His people',
+            'Storms mean God forgot us',
+            'We should never tell Jesus how we feel'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Beautiful—that is the heart of the story.',
+          wrongFeedback:
+            'Think: who stopped the storm, and where was He the whole time? Reread the last paragraph. (Answer: Jesus has power over storms—and He is with His people.)'
+        }
+      ],
+      doneHeading: 'You did it!',
+      doneMessage: "Great job reading about Jesus calming the storm with God's Word today.",
+      takeaway: 'Jesus is stronger than what scares you. You can talk to Him in the noisy moments.',
+      prayer: 'Jesus, when my heart feels stormy, please bring Your peace. I trust You. Amen.',
+      imagePrompts: [
+        'Bright bouncy cartoon: small boat on dark choppy waves, disciples worried, Jesus asleep on cushion, lightning far off, kid-safe, no text',
+        'Kid cartoon: disciples waking Jesus, rain and spray, faces scared but hopeful, no text',
+        'Colorful scene: Jesus standing in boat with hand raised toward wind and waves, light breaking through clouds, no text',
+        'Peaceful cartoon: flat calm water, soft sunrise, disciples amazed faces, boat still, no text',
+        'Warm ending: Jesus smiling at friends in boat, gentle water, gold accents, no text'
+      ]
+    },
+    goodSamaritan: {
+      kjvRef: 'Luke 10:25–37',
+      hintAboveQuiz: 'Use the comic pictures above while you read.',
+      readAlongImages: [],
+      paragraphs: [
+        'A teacher of the law asked Jesus what he must do to inherit eternal life. Jesus asked him what the law said. The man answered with words close to the King James Bible: love the Lord with all your heart, soul, strength, and mind—and "thy neighbour as thyself" (Luke 10:27, KJV).',
+        'Wanting to justify himself, he asked, "Who is my neighbour?" Jesus answered with a story. A man was going down the road to Jericho when robbers hurt him, took his things, and left him half dead.',
+        'A priest came that way, saw the hurt man, and passed on the other side. So did a Levite. Both had reasons—but neither stopped to help.',
+        'A Samaritan traveler saw the man and felt deep pity. He cleaned the wounds, used oil and wine, bandaged him, put him on his own animal, walked beside him, and paid an innkeeper to care for him. He even promised to pay more if the bill grew.',
+        'Jesus asked, "Which of these was neighbour unto him that fell among the thieves?" The answer was obvious—the one who showed mercy. Jesus said, "Go, and do thou likewise." Neighbor-love is action, not only a nice idea.'
+      ],
+      quizHeading: 'Quiz — think it through',
+      questions: [
+        {
+          question: 'What did the law teacher quote about loving others?',
+          choices: [
+            'Love only people who look like you',
+            'Love your neighbour as yourself',
+            'Never help strangers',
+            'Neighbors do not matter'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—that line from Luke 10:27 (KJV) is the hinge of the lesson.',
+          wrongFeedback:
+            'Reread paragraph one. Which choice matches the Bible words Jesus agreed were right? (Answer: Love your neighbour as yourself.)'
+        },
+        {
+          question: 'What happened to the man on the road to Jericho?',
+          choices: [
+            'He took a nap in the grass',
+            'Robbers attacked him and left him hurt and robbed',
+            'He gave a speech in the temple',
+            'He built a new house'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Right—that is why someone needed help.',
+          wrongFeedback:
+            'Look at paragraph two after Jesus begins the story. Who hurt the traveler? (Answer: Robbers attacked him and left him hurt and robbed.)'
+        },
+        {
+          question: 'Who passed by without helping?',
+          choices: [
+            'Two children with bread',
+            'A priest and a Levite',
+            'The Samaritan and an angel',
+            'Jesus and Peter'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Yes—Jesus used them to show that status without mercy is empty.',
+          wrongFeedback:
+            'Check paragraph three. Who saw the man and went to the other side? (Answer: A priest and a Levite.)'
+        },
+        {
+          question: 'What did the Samaritan do for the hurt man?',
+          choices: [
+            'He ignored him completely',
+            'He told him to walk home alone',
+            'He cared for his wounds, carried him, and paid for shelter',
+            'He only threw coins from far away'
+          ],
+          correctIndex: 2,
+          correctFeedback: 'Exactly—love looked like time, touch, and cost.',
+          wrongFeedback:
+            'Skim paragraph four. List what the Samaritan actually did—bandages, animal, inn, money. Which choice matches? (Answer: He cared for his wounds, carried him, and paid for shelter.)'
+        },
+        {
+          question: 'At the end, what did Jesus tell the law teacher to do?',
+          choices: [
+            'Memorize more rules and do nothing',
+            'Argue with Samaritans',
+            'Go and do likewise—show mercy like the true neighbor',
+            'Avoid the road to Jericho forever'
+          ],
+          correctIndex: 2,
+          correctFeedback: 'Beautiful—mercy is the assignment.',
+          wrongFeedback:
+            "Read the last sentence of the story. What two little words start Jesus' final command? (Answer: Go and do likewise—show mercy like the true neighbor.)"
+        }
+      ],
+      doneHeading: 'You did it!',
+      doneMessage: 'Great job learning how Jesus defines a neighbor.',
+      takeaway: 'Love is not only a feeling—it is help, courage, and kindness, even when it costs you.',
+      prayer: 'God, make me quick to help and slow to walk away when someone is hurting. Amen.',
+      imagePrompts: [
+        'Bouncy cartoon: hurt traveler on dusty road, torn clothes, kind colors not graphic, no text',
+        'Kid style: priest and Levite walking past on opposite side of road, humble faces, no text',
+        'Warm cartoon: Samaritan kneeling to bandage traveler, oil and cloth, donkey nearby, no text',
+        'Friendly scene: inn door, Samaritan speaking to innkeeper, coins, caring mood, no text',
+        'Bright ending: Jesus teaching, listener thoughtful, soft light, neighbor-love theme, no text'
+      ]
+    },
+    lostSheep: {
+      kjvRef: 'Luke 15:3–7',
+      hintAboveQuiz: 'Use the comic pictures above while you read.',
+      readAlongImages: [],
+      paragraphs: [
+        'Tax collectors and sinners drew near to hear Jesus. Some proud religious leaders grumbled, "This man receiveth sinners." Jesus heard their hearts. He told three stories about how much God cares when something lost is found.',
+        'The first story is tiny but loud with joy. A shepherd has a hundred sheep. If one wanders away, he leaves the ninety-nine in the wilderness and goes after the one that is lost until he finds it.',
+        'When he finds it, he lays it on his shoulders, glad and gentle. Back home he calls friends and neighbors: "Rejoice with me; for I have found my sheep which was lost" (Luke 15:6, KJV).',
+        'Jesus explained the meaning: "I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance" (Luke 15:7, KJV). Heaven cheers when someone turns back to God.',
+        'For you: if you feel far from God, you are not invisible. He searches. You can pray, "Lord, I want to come home." And if you already love Jesus, be glad—He still looks for friends who are wandering.'
+      ],
+      quizHeading: 'Quiz — think it through',
+      questions: [
+        {
+          question: 'How many sheep did the shepherd have at the start?',
+          choices: ['Ten', 'Fifty', 'A hundred', 'One thousand'],
+          correctIndex: 2,
+          correctFeedback: 'Yes—one missing still mattered to him.',
+          wrongFeedback:
+            'Look at the first sentence of the parable in paragraph two. What number does Jesus use? (Answer: A hundred.)'
+        },
+        {
+          question: 'What did the shepherd do when one sheep was lost?',
+          choices: [
+            'He forgot about it',
+            'He sold the other ninety-nine',
+            'He left the ninety-nine safe and went to find the one',
+            'He waited a year to see if it returned'
+          ],
+          correctIndex: 2,
+          correctFeedback: 'Right—the story is about seeking, not shrugging.',
+          wrongFeedback:
+            'Reread paragraph two. Did he stay put or go search? (Answer: He left the ninety-nine safe and went to find the one.)'
+        },
+        {
+          question: 'When he found the sheep, how did he carry it?',
+          choices: ['In a cart behind him', 'On his shoulders', 'Under his hat', 'He left it to find its own way'],
+          correctIndex: 1,
+          correctFeedback: 'Yes—gentle strength, like a good shepherd.',
+          wrongFeedback:
+            'Check paragraph three—where did the sheep rest? (Answer: On his shoulders.)'
+        },
+        {
+          question: 'What did the shepherd say when he came home?',
+          choices: [
+            'Hide the sheep so no one sees',
+            'Rejoice with me; I have found my sheep which was lost',
+            'Sell the sheep at market',
+            'The sheep is not important'
+          ],
+          correctIndex: 1,
+          correctFeedback: 'Exactly—those words are straight from Luke 15:6 (KJV).',
+          wrongFeedback:
+            'Look for the quoted line in paragraph three. Which choice matches? (Answer: Rejoice with me; I have found my sheep which was lost.)'
+        },
+        {
+          question: 'What does Jesus say heaven does when one sinner repents?',
+          choices: [
+            'Stays silent',
+            'Is less joyful than for ninety-nine who need no repentance',
+            'Has joy—more than over ninety-nine who need no repentance',
+            'Forgets the person'
+          ],
+          correctIndex: 2,
+          correctFeedback: "Yes—God's joy is huge over one heart coming home.",
+          wrongFeedback:
+            "Read paragraph four slowly. Compare the joy over one repenting sinner to the ninety-nine. Which choice matches Jesus' words? (Answer: Has joy—more than over ninety-nine who need no repentance.)"
+        }
+      ],
+      doneHeading: 'You did it!',
+      doneMessage: "Great job hearing Jesus' story about the lost sheep.",
+      takeaway: 'God looks for wandering hearts. You can always turn back—and heaven is glad.',
+      prayer: 'God, thank You for seeking me. When I wander, bring me home to You. Amen.',
+      imagePrompts: [
+        'Soft cartoon: shepherd counting fluffy sheep on green hill, one small sheep far away, no text',
+        'Kid style: shepherd walking rocky path, lantern, looking for one sheep, dusk, no text',
+        'Warm scene: shepherd smiling, sheep on shoulders, safe hugging pose, gold accents, no text',
+        'Joyful cartoon: neighbors celebrating, simple houses, shepherd raising hand, no text',
+        'Gentle ending: Jesus with children and sheep, peaceful light, you matter mood, no text'
+      ]
+    }
 };

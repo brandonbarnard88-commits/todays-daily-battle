@@ -33,8 +33,11 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bangers-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Optional: when /assets/panels/*.avif exist and TDB_PANEL_RASTER is true, add e.g.
-       <link rel="preload" href="/assets/panels/panel-david-1.avif" as="image" type="image/avif"> -->
+  <!-- First comic thumb (SVG) — matches common grid lead; raster AVIF/JPG preloads when files exist + TDB_PANEL_RASTER -->
+  <link rel="preload" href="/kids/panel-david-1.svg" as="image" type="image/svg+xml">
+  <!-- Optional rasters (uncomment after upload to /assets/panels/):
+       <link rel="preload" href="/assets/panels/panel-david-1.avif" as="image" type="image/avif">
+       <link rel="preload" href="/assets/panels/panel-david-1.jpg" as="image"> -->
   <script>window.TDB_PANEL_RASTER = false;</script>
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
@@ -562,9 +565,9 @@
   <script src="kids-full-story-assets.js"></script>
   <script src="kids-read-quiz-data.js?v=69"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
-  <script src="kids-battle.js?v=72" defer></script>
+  <script src="kids-battle.js?v=73" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=73" defer></script>
+  <script src="kids-corner.js?v=74" defer></script>
   <script type="module" src="../script.js?v=20260321full-story" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

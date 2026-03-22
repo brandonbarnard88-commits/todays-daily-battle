@@ -96,9 +96,24 @@
     var supabaseKey = cfg.SUPABASE_ANON_KEY;
     var lib = window.supabase && window.supabase.createClient ? window.supabase : (typeof supabase !== 'undefined' ? supabase : null);
     if (!supabaseUrl || !supabaseKey || !lib || !lib.createClient) return null;
+    var storage = null;
     try {
-      return lib.createClient(supabaseUrl, supabaseKey);
+      storage = typeof window !== 'undefined' && window.localStorage ? window.localStorage : undefined;
+    } catch (e) {}
+    var opts = {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true
+      }
+    };
+    if (storage) opts.auth.storage = storage;
+    try {
+      return lib.createClient(supabaseUrl, supabaseKey, opts);
     } catch (e) {
+      if (typeof console !== 'undefined' && console.warn) {
+        console.warn('Supabase client init failed:', e);
+      }
       return null;
     }
   }
@@ -135,7 +150,7 @@
       if (typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function') {
         window.requestIdleCallback(run, { timeout: 1500 });
       } else {
-        setTimeout(run, 400);
+        setTimeout(run, 500);
       }
     });
     return kidSupabaseInitPromise;
@@ -148,7 +163,11 @@
       try {
         var ret = fn(client);
         if (ret && typeof ret.then === 'function') return ret;
-      } catch (e) {}
+      } catch (e) {
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('Supabase operation failed:', e);
+        }
+      }
     });
   }
 

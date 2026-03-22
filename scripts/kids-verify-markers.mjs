@@ -25,7 +25,7 @@ export const STORY_HTML_MARKERS = [
   'Download Story Library List (PDF)',
   'pdf-export',
   'aria-describedby="pdf-export-count-hint pdf-export-hint"',
-  'kids-corner.js?v=66'
+  'kids-corner.js?v=67'
 ];
 
 export const OG_ASSET_PATHS = [

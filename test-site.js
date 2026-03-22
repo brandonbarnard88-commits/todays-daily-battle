@@ -39,7 +39,7 @@ const pages = [
   { path: '/team-toolkit.html', name: 'Team Toolkit', mustInclude: ['Team'] },
   { path: '/coloring.html', name: 'Kids Coloring', mustInclude: ['Coloring', 'Kids'] },
   { path: '/kids-corner.html', name: 'Kids Corner', mustInclude: ['Bible Loop', 'Story Stars', 'loop-grid', 'kids-loop-og.jpg', 'summary_large_image', 'Download loop progress (PDF)', 'loop-pdf-export', 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', '20260322loop-pdf-summary', 'kids-corner.css?v=7'] },
-  { path: '/kids/corner.html', name: 'Bible Story Library', mustInclude: ['kids-story-library-og.jpg', 'summary_large_image', 'Download Story Library List (PDF)', 'pdf-export', 'aria-describedby="pdf-export-count-hint pdf-export-hint"', 'kids-corner.js?v=66', 'Bible Story Library'] },
+  { path: '/kids/corner.html', name: 'Bible Story Library', mustInclude: ['kids-story-library-og.jpg', 'summary_large_image', 'Download Story Library List (PDF)', 'pdf-export', 'aria-describedby="pdf-export-count-hint pdf-export-hint"', 'kids-corner.js?v=67', 'Bible Story Library'] },
   { path: '/resources.html', name: 'Pastor Resources', mustInclude: ['Resources'] },
   { path: '/reader.html', name: 'Chapter Reader', mustInclude: ['Reader', 'Chapter'] },
   { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety'] },

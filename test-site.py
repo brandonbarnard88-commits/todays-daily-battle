@@ -42,7 +42,7 @@ PAGES = [
     ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "id=\"auth-section\""]),
     ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Story Stars", "loop-grid"]),
-    ("/kids/corner.html", "Bible Story Library", ["kids-story-library-og.jpg", "Download Story Library List (PDF)", "Bible Story Library", 'aria-describedby="pdf-export-count-hint pdf-export-hint"', "kids-corner.js?v=66"]),
+    ("/kids/corner.html", "Bible Story Library", ["kids-story-library-og.jpg", "Download Story Library List (PDF)", "Bible Story Library", 'aria-describedby="pdf-export-count-hint pdf-export-hint"', "kids-corner.js?v=67"]),
     ("/kids-activities-print.html", "Kids Activities Print", ["activities", "Print"]),
     ("/kids-coloring-pack.html", "Kids Coloring Pack", ["Coloring"]),
     ("/shop.html", "Shop", ["Shop", "id=\"auth-section\""]),

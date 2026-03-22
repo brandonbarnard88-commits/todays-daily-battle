@@ -3888,33 +3888,18 @@
     var stories = getStories();
     var s = stories[key];
     if (!s) return;
+    try {
+      console.log('Story modal opened for key: ' + key);
+    } catch (_) {}
+    var fbStatic = document.getElementById('kids-library-static-fallback');
+    if (fbStatic) fbStatic.classList.add('hidden');
     var panels = s.panels || [];
     var applyText = (s.kidContext && s.kidContext.apply) ? s.kidContext.apply : '';
     var themeSnippet = applyText ? (applyText.split(/[.!?]/)[0] || applyText).trim().substring(0, 60) : (s.title || '');
-    var panelsHtml = panels.map(function (p) {
-      var baseAlt = tdbPlainTextForUi(p.alt || (s.title + ' illustration'));
-      var fullAlt = themeSnippet
-        ? baseAlt + ' – ' + tdbPlainTextForUi(themeSnippet)
-        : baseAlt + ' – ' + tdbPlainTextForUi(s.kjvRef || s.title);
-      return '<img src="' + escAttr(p.src || '') + '" alt="' + escAttr(fullAlt) + '" class="comic-panel" width="200" height="160">';
-    }).join('');
     var fullMedia = getFullStoryMediaForKey(key);
     var hasFullVideo = !!(fullMedia && (fullMedia.mp4 || fullMedia.webm));
     var safeVideoId = safeYouTubeId(s.videoId);
-    var videoTitle = escAttr(tdbPlainTextForUi(s.videoTitle || ''));
-    var btnHtml = '';
-    if (safeVideoId) {
-      if (!hasFullVideo) {
-        btnHtml = '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch story (YouTube)</button>';
-      } else {
-        btnHtml = '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Short YouTube preview</button>';
-      }
-    }
-    var shareBtnHtml = '<button type="button" class="kids-share-btn" data-story="' + escAttr(key) + '">📤 Share with friends!</button>';
-    var speakBtnHtml = '';
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance !== 'undefined') {
-      speakBtnHtml = '<button type="button" class="kids-story-speak-btn kids-speak-btn" data-story-key="' + escAttr(key) + '" aria-label="Play story narration" aria-pressed="false">🔊 Tap to hear</button>';
-    }
+    var videoTitlePlain = tdbPlainTextForUi(s.videoTitle || '');
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
@@ -3923,24 +3908,93 @@
     if (hasFullVideo && fullMedia) {
       mountFullStoryPlayer(modalVideo, key, s.title || key, fullMedia);
     }
+    /* Build carousel with DOM APIs (avoids TT/DOMPurify turning large innerHTML into visible escaped markup). */
     if (modalCarousel) {
-      tdbSetHtml(modalCarousel, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtmlPlain(s.caption || '') + '</p>' + speakBtnHtml + btnHtml + shareBtnHtml + '</div>');
+      tdbClearHtml(modalCarousel);
+      var carouselRoot = document.createElement('div');
+      carouselRoot.className = 'comic-carousel';
+      var panelsWrap = document.createElement('div');
+      panelsWrap.className = 'panels-container';
+      for (var pi = 0; pi < panels.length; pi++) {
+        var pan = panels[pi];
+        var baseAlt = tdbPlainTextForUi(pan.alt || (s.title + ' illustration'));
+        var fullAlt = themeSnippet
+          ? baseAlt + ' – ' + tdbPlainTextForUi(themeSnippet)
+          : baseAlt + ' – ' + tdbPlainTextForUi(s.kjvRef || s.title);
+        var im = document.createElement('img');
+        im.className = 'comic-panel';
+        im.setAttribute('width', '200');
+        im.setAttribute('height', '160');
+        im.setAttribute('loading', 'lazy');
+        im.setAttribute('decoding', 'async');
+        im.alt = fullAlt;
+        im.src = String(pan.src || '').trim();
+        panelsWrap.appendChild(im);
+      }
+      carouselRoot.appendChild(panelsWrap);
+      var cap = document.createElement('p');
+      cap.className = 'comic-caption';
+      cap.textContent = tdbPlainTextForUi(s.caption || '');
+      carouselRoot.appendChild(cap);
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance !== 'undefined') {
+        var spk = document.createElement('button');
+        spk.type = 'button';
+        spk.className = 'kids-story-speak-btn kids-speak-btn';
+        spk.setAttribute('data-story-key', key);
+        spk.setAttribute('aria-label', 'Play story narration');
+        spk.setAttribute('aria-pressed', 'false');
+        spk.textContent = '🔊 Tap to hear';
+        carouselRoot.appendChild(spk);
+      }
+      if (safeVideoId) {
+        var yt = document.createElement('button');
+        yt.type = 'button';
+        yt.className = 'watch-video-btn';
+        yt.setAttribute('data-video-id', safeVideoId);
+        yt.setAttribute('data-title', videoTitlePlain);
+        yt.textContent = hasFullVideo ? '🎥 Short YouTube preview' : '🎥 Watch story (YouTube)';
+        carouselRoot.appendChild(yt);
+      }
+      var shr = document.createElement('button');
+      shr.type = 'button';
+      shr.className = 'kids-share-btn';
+      shr.setAttribute('data-story', key);
+      shr.textContent = '📤 Share with friends!';
+      carouselRoot.appendChild(shr);
+      modalCarousel.appendChild(carouselRoot);
     }
     if (modalContext) {
       var ctx = s.kidContext;
       var ref = s.kjvRef;
-      var parts = [];
+      tdbClearHtml(modalContext);
       if (ctx && (ctx.who || ctx.to || ctx.apply)) {
-        if (ctx.who) parts.push('<p><strong>Who:</strong> ' + escHtmlPlain(ctx.who) + '</p>');
-        if (ctx.apply) parts.push('<p><strong>For you:</strong> ' + escHtmlPlain(ctx.apply) + '</p>');
+        if (ctx.who) {
+          var pw = document.createElement('p');
+          var sw = document.createElement('strong');
+          sw.textContent = 'Who:';
+          pw.appendChild(sw);
+          pw.appendChild(document.createTextNode(' ' + tdbPlainTextForUi(ctx.who)));
+          modalContext.appendChild(pw);
+        }
+        if (ctx.apply) {
+          var pa = document.createElement('p');
+          var sa = document.createElement('strong');
+          sa.textContent = 'For you:';
+          pa.appendChild(sa);
+          pa.appendChild(document.createTextNode(' ' + tdbPlainTextForUi(ctx.apply)));
+          modalContext.appendChild(pa);
+        }
       }
-      if (ref) parts.push('<p class="kids-kjv-ref">' + escHtmlPlain(ref) + '</p>');
-      if (parts.length) {
-        tdbSetHtml(modalContext, parts.join(''));
+      if (ref) {
+        var pr = document.createElement('p');
+        pr.className = 'kids-kjv-ref';
+        pr.textContent = tdbPlainTextForUi(ref);
+        modalContext.appendChild(pr);
+      }
+      if (modalContext.childNodes.length) {
         modalContext.classList.remove('hidden');
       } else {
         modalContext.classList.add('hidden');
-        tdbClearHtml(modalContext);
       }
     }
     mountReadQuizForStory(key);

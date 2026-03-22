@@ -1,6 +1,7 @@
 /**
- * Shared strings for Kids Loop + Story Library — used by verify-live-kids + verify-kids-dist.
- * Bump script/css query params in HTML when you change those files.
+ * Shared strings for Kids Loop + Story Library — used by verify-live-kids + verify-kids-dist + test-site.
+ * When you bump kids-corner.css, script.js?…, or kids/kids-corner.js?… in HTML, update this file and
+ * og:image ?v= in kids-corner.html / kids/corner.html (and SHARE_OG_V in scripts/cloudflare-purge.mjs).
  */
 export const LOOP_HTML_MARKERS = [
   'kids-loop-og.jpg',

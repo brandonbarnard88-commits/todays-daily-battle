@@ -350,6 +350,7 @@ fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 // Verify critical pages exist (fail build if missing)
 const CRITICAL_PAGES = [
   'index.html', 'bible-tool.html', 'pastor-toolkit.html', 'sermon.html', 'plans.html',
+  'testimonials.html',
   'pastor/index.html', 'bible/index.html', 'script.js'
 ];
 const missing = CRITICAL_PAGES.filter(function (f) { return !fs.existsSync(path.join(dist, f)); });
@@ -367,6 +368,10 @@ if (!fs.existsSync(sitemapDist)) {
 const sitemapBody = fs.readFileSync(sitemapDist, 'utf8');
 if (!sitemapBody.includes('ansiedad.html') || !sitemapBody.includes('verse-cards')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Spanish pages and verse-cards (expected ansiedad + verse-cards).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('testimonials.html') || !sitemapBody.includes('calm.html') || !sitemapBody.includes('mobius.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list testimonials.html, calm.html, and mobius.html (SEO / discoverability).');
   process.exit(1);
 }
 if (!fs.existsSync(path.join(dist, 'verse-cards', 'index.html'))) {

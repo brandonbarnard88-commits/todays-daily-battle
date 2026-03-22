@@ -1907,6 +1907,25 @@
 
     .site-footer-nav a:hover { text-decoration: underline; }
 
+    .site-footer-nav button.footer-appearance-link {
+      background: none;
+      border: none;
+      color: color-mix(in srgb, var(--gold) 70%, var(--muted));
+      font: inherit;
+      cursor: pointer;
+      padding: 0;
+      white-space: nowrap;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .site-footer-nav button.footer-appearance-link:hover {
+      color: var(--gold-soft, #f2dc98);
+    }
+    .site-footer-nav button.footer-appearance-link:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--gold) 65%, transparent);
+      outline-offset: 2px;
+    }
+
     .footer-sitemap {
       margin: 1rem auto 0;
       max-width: 52rem;
@@ -4520,6 +4539,8 @@
         <a href="terms.html">Terms</a>
         <a href="security.html">Security</a>
         <a href="verse-cards/">Verse cards</a>
+        <a href="testimonials.html">Reader stories</a>
+        <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
         <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
         <span class="footer-lang-hint" aria-label="Spanish pages">Español: <a href="ansiedad.html">Ansiedad</a> · <a href="fuerza.html">Fuerza</a> · <a href="paz.html">Paz</a></span>
       </nav>
@@ -6997,6 +7018,17 @@
         popover.hidden = true;
         btn.setAttribute('aria-expanded', 'false');
       });
+      var footerOpen = document.getElementById('footer-open-settings');
+      if (footerOpen) {
+        footerOpen.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          popover.hidden = false;
+          btn.setAttribute('aria-expanded', 'true');
+          var themeBtn = document.getElementById('settings-theme-btn');
+          if (themeBtn) setTimeout(function () { themeBtn.focus(); }, 50);
+        });
+      }
       document.addEventListener('click', function (e) {
         if (!popover.hidden && !popover.contains(e.target) && e.target !== btn) {
           popover.hidden = true;

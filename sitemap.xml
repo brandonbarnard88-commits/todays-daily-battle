@@ -3,7 +3,7 @@
   <!-- Core / homepage -->
   <url><loc>https://todaysdailybattle.com/</loc><lastmod>2026-03-09</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://todaysdailybattle.com/explore.html</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
-  <url><loc>https://todaysdailybattle.com/testimonials.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/testimonials.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- About / legal / contact -->
   <url><loc>https://todaysdailybattle.com/about.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -13,7 +13,7 @@
   <url><loc>https://todaysdailybattle.com/privacy.html</loc><lastmod>2026-03-09</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://todaysdailybattle.com/terms.html</loc><lastmod>2026-03-09</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://todaysdailybattle.com/contact.html</loc><lastmod>2026-03-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://todaysdailybattle.com/shop.html</loc><lastmod>2026-03-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://todaysdailybattle.com/shop.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://todaysdailybattle.com/security.html</loc><lastmod>2026-03-13</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
 
   <!-- Core tools -->

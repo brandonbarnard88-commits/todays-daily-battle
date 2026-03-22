@@ -88,6 +88,47 @@
       min-height: 44px;
     }
     .verse-image-page .verse-image-recent button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .verse-image-recent-gens { margin-top: 1rem; }
+    .verse-image-recent-gens h3 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--muted, #94a3b8); }
+    .recent-gens-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .recent-gens-grid li {
+      margin: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .recent-gens-grid button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+    .recent-gens-grid button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .recent-gens-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1200 / 630;
+      object-fit: cover;
+    }
+    .recent-gens-grid .recent-gen-ref {
+      display: block;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      line-height: 1.3;
+    }
   </style>
 </head>
 <body class="dark-mode verse-image-page">
@@ -118,7 +159,7 @@
           </div>
         </section>
 
-        <section id="verse-image-app" class="glass" aria-label="Verse image controls" hidden>
+        <section id="verse-image-app" class="glass" aria-label="Verse image controls" hidden data-verse-idb="tdb_verse_image_v1" data-verse-store="verseGens">
           <h2 class="section-divider util-mt-0">Your card</h2>
           <p class="section-note">Enter a KJV reference (e.g. Philippians 4:13) and load the text, or paste text yourself. Preview updates when you tap <strong>Update preview</strong>.</p>
 
@@ -162,10 +203,15 @@
             <button type="button" class="btn btn-primary" id="verse-image-preview-btn">Update preview</button>
             <button type="button" class="btn btn-secondary" id="verse-image-download-btn">Download PNG</button>
             <button type="button" class="btn btn-secondary" id="verse-image-share-btn">Share image</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-tweet-btn" aria-label="Post text on X with verse snippet and link">Post on X</button>
           </div>
 
           <p id="verse-image-status" class="verse-image-status" role="status" aria-live="polite"></p>
-          <div id="verse-image-recent" class="verse-image-recent" hidden></div>
+          <div id="recent-gens" class="verse-image-recent-gens" hidden aria-label="Recent verse images">
+            <h3>Recent</h3>
+            <p id="recent-gens-empty" class="section-note" style="margin: 0 0 0.5rem;">No saved previews yet. Update preview to store one here (saved on this device).</p>
+            <ul class="recent-gens-grid" id="recent-gens-list" role="list"></ul>
+          </div>
 
           <div class="verse-image-preview-wrap">
             <canvas id="verse-image-canvas" width="1200" height="630" role="img" aria-label="Preview of your verse image"></canvas>
@@ -189,6 +235,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script type="module" src="script.js?v=20260320reader-sk"></script>
-  <script src="verse-image.js?v=20260322" defer></script>
+  <script src="verse-image.js?v=20260323idb" defer></script>
 </body>
 </html>

@@ -1,14 +1,17 @@
 /**
  * Verse image generator — Supporter-gated canvas export (PNG) + share.
- * Analytics: verse_image_generated, verse_image_downloaded, verse_image_shared, supporter_upgrade_prompted
+ * IndexedDB recents (verseGens). Analytics: verse_image_* , supporter_upgrade_prompted
  */
 (function () {
   'use strict';
 
   var API_BASE = 'https://bible-api.com';
   var CACHE_KEY = 'tdb_verse_image_cache';
-  var RECENT_KEY = 'tdb_verse_image_recent';
   var PROMPT_KEY = 'tdb_vi_upgrade_prompted';
+  var DB_NAME = 'tdb_verse_image_v1';
+  var STORE = 'verseGens';
+  var MAX_RECENTS = 8;
+  var TWEET_VERSE_MAX = 120;
 
   function trackEvent(name, params) {
     if (typeof window.trackEvent === 'function') window.trackEvent(name, params || {});
@@ -21,6 +24,86 @@
 
   function normRef(ref) {
     return String(ref || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function newId() {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+    return String(Date.now()) + '-' + String(Math.random()).slice(2, 10);
+  }
+
+  function idbOpen() {
+    return new Promise(function (resolve, reject) {
+      var req = indexedDB.open(DB_NAME, 1);
+      req.onerror = function () {
+        reject(req.error);
+      };
+      req.onupgradeneeded = function (e) {
+        var db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE)) {
+          db.createObjectStore(STORE, { keyPath: 'id' });
+        }
+      };
+      req.onsuccess = function () {
+        resolve(req.result);
+      };
+    });
+  }
+
+  function idbGetAll() {
+    return idbOpen().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction(STORE, 'readonly');
+        var r = tx.objectStore(STORE).getAll();
+        r.onerror = function () {
+          reject(r.error);
+        };
+        r.onsuccess = function () {
+          resolve(r.result || []);
+        };
+      });
+    });
+  }
+
+  function idbPut(rec) {
+    return idbOpen().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction(STORE, 'readwrite');
+        tx.objectStore(STORE).put(rec);
+        tx.onerror = function () {
+          reject(tx.error);
+        };
+        tx.oncomplete = function () {
+          resolve(db);
+        };
+      });
+    });
+  }
+
+  function pruneExcess() {
+    return idbGetAll().then(function (rows) {
+      if (rows.length <= MAX_RECENTS) return;
+      rows.sort(function (a, b) {
+        return (b.timestamp || 0) - (a.timestamp || 0);
+      });
+      var drop = rows.slice(MAX_RECENTS);
+      return idbOpen().then(function (db) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(STORE, 'readwrite');
+          var store = tx.objectStore(STORE);
+          for (var i = 0; i < drop.length; i++) store.delete(drop[i].id);
+          tx.onerror = function () {
+            reject(tx.error);
+          };
+          tx.oncomplete = function () {
+            resolve();
+          };
+        });
+      });
+    });
+  }
+
+  function saveVerseGen(rec) {
+    return idbPut(rec).then(pruneExcess);
   }
 
   function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
@@ -102,56 +185,21 @@
     }
   }
 
-  function pushRecent(ref) {
-    try {
-      var list = [];
-      var raw = localStorage.getItem(RECENT_KEY);
-      if (raw) list = JSON.parse(raw);
-      if (!Array.isArray(list)) list = [];
-      list = list.filter(function (x) {
-        return x && x.ref !== ref;
-      });
-      list.unshift({ ref: ref, ts: Date.now() });
-      list = list.slice(0, 5);
-      localStorage.setItem(RECENT_KEY, JSON.stringify(list));
-    } catch (e) {}
+  function tweetSnippet(body) {
+    var t = stripHtml(body);
+    if (t.length <= TWEET_VERSE_MAX) return t;
+    return t.slice(0, TWEET_VERSE_MAX - 1).trim() + '…';
   }
 
-  function renderRecentList(container) {
-    if (!container) return;
+  function buildTweetText(ref, body) {
+    var origin = '';
     try {
-      var raw = localStorage.getItem(RECENT_KEY);
-      if (!raw) {
-        container.hidden = true;
-        return;
-      }
-      var list = JSON.parse(raw);
-      if (!Array.isArray(list) || !list.length) {
-        container.hidden = true;
-        return;
-      }
-      container.hidden = false;
-      container.textContent = '';
-      var p = document.createElement('p');
-      p.className = 'section-note';
-      p.appendChild(document.createTextNode('Recent: '));
-      list.forEach(function (item, i) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.textContent = item.ref;
-        btn.addEventListener('click', function () {
-          var refEl = document.getElementById('verse-image-ref');
-          var loadBtn = document.getElementById('verse-image-load');
-          if (refEl) refEl.value = item.ref;
-          if (loadBtn) loadBtn.click();
-        });
-        p.appendChild(btn);
-        if (i < list.length - 1) p.appendChild(document.createTextNode(' · '));
-      });
-      container.appendChild(p);
-    } catch (e) {
-      container.hidden = true;
-    }
+      origin = window.location.origin || '';
+    } catch (e) {}
+    var path = '/verse-image.html';
+    var link = origin ? origin + path : 'https://todaysdailybattle.com' + path;
+    var snip = tweetSnippet(body);
+    return ref + ' — ' + snip + ' #DailyBattle ' + link;
   }
 
   function fetchVerse(ref, cb) {
@@ -208,10 +256,67 @@
     var bgEl = document.getElementById('verse-image-bg');
     var fontEl = document.getElementById('verse-image-font');
     var statusEl = document.getElementById('verse-image-status');
-    var recentEl = document.getElementById('verse-image-recent');
+    var recentWrap = document.getElementById('recent-gens');
+    var recentList = document.getElementById('recent-gens-list');
+    var recentEmpty = document.getElementById('recent-gens-empty');
 
     function setStatus(msg) {
       if (statusEl) statusEl.textContent = msg || '';
+    }
+
+    function renderRecentGens() {
+      if (!recentList || !recentWrap) return;
+      idbGetAll()
+        .then(function (rows) {
+          rows.sort(function (a, b) {
+            return (b.timestamp || 0) - (a.timestamp || 0);
+          });
+          recentList.textContent = '';
+          if (!rows.length) {
+            recentWrap.hidden = false;
+            if (recentEmpty) recentEmpty.hidden = false;
+            return;
+          }
+          if (recentEmpty) recentEmpty.hidden = true;
+          recentWrap.hidden = false;
+          rows.slice(0, MAX_RECENTS).forEach(function (row) {
+            var li = document.createElement('li');
+            li.setAttribute('role', 'listitem');
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            var label = 'Load ' + row.ref + ' from recent';
+            btn.setAttribute('aria-label', label);
+            var img = document.createElement('img');
+            img.alt = '';
+            img.width = 280;
+            img.height = 147;
+            img.src = row.dataURL || '';
+            var cap = document.createElement('span');
+            cap.className = 'recent-gen-ref';
+            cap.textContent = row.ref;
+            btn.appendChild(img);
+            btn.appendChild(cap);
+            btn.addEventListener('click', function () {
+              refEl.value = row.ref || '';
+              bodyEl.value = row.text || '';
+              if (bgEl && row.bg) bgEl.value = row.bg;
+              if (fontEl && row.font) fontEl.value = row.font;
+              drawCard(canvas, normRef(row.ref), stripHtml(row.text), {
+                bg: (bgEl && row.bg) || 'dawn',
+                font: (fontEl && row.font) || 'serif'
+              });
+              setStatus('Loaded from Recent. Adjust if needed, then Update preview.');
+            });
+            li.appendChild(btn);
+            recentList.appendChild(li);
+          });
+        })
+        .catch(function () {
+          if (recentEmpty) {
+            recentEmpty.textContent = 'Could not load saved previews on this device.';
+            recentEmpty.hidden = false;
+          }
+        });
     }
 
     function runPreview() {
@@ -227,10 +332,27 @@
       }
       drawCard(canvas, ref, body, { bg: bgEl.value, font: fontEl.value });
       saveCache(ref, body);
-      pushRecent(ref);
-      renderRecentList(recentEl);
+
+      var dataURL = canvas.toDataURL('image/png');
+      var rec = {
+        id: newId(),
+        ref: ref,
+        text: body,
+        dataURL: dataURL,
+        timestamp: Date.now(),
+        bg: bgEl.value,
+        font: fontEl.value
+      };
+      saveVerseGen(rec)
+        .then(function () {
+          renderRecentGens();
+        })
+        .catch(function () {
+          renderRecentGens();
+        });
+
       trackEvent('verse_image_generated', { ref_len: ref.length, bg: bgEl.value, font: fontEl.value });
-      setStatus('Preview updated. Download or share when ready.');
+      setStatus('Preview updated. Download, share, or post on X when ready.');
     }
 
     document.getElementById('verse-image-load').addEventListener('click', function () {
@@ -316,12 +438,25 @@
         };
         go()
           .then(function () {
-            trackEvent('verse_image_shared', { ref_len: ref.length });
+            trackEvent('verse_image_shared', { ref_len: ref.length, method: 'native_share' });
           })
           .catch(function () {
-            setStatus('Share not available — use Download PNG.');
+            setStatus('Share not available — use Post on X or Download PNG.');
           });
       }, 'image/png');
+    });
+
+    document.getElementById('verse-image-tweet-btn').addEventListener('click', function () {
+      var ref = normRef(refEl.value);
+      var body = stripHtml(bodyEl.value);
+      if (!ref || !body) {
+        setStatus('Load a verse and update preview first.');
+        return;
+      }
+      var text = buildTweetText(ref, body);
+      var url = 'https://x.com/intent/tweet?text=' + encodeURIComponent(text);
+      window.open(url, '_blank', 'noopener,noreferrer');
+      trackEvent('verse_image_shared', { ref_len: ref.length, method: 'tweet' });
     });
 
     var cache = loadCache();
@@ -329,7 +464,7 @@
       refEl.value = cache.ref;
       bodyEl.value = cache.text;
     }
-    renderRecentList(recentEl);
+    renderRecentGens();
     drawCard(
       canvas,
       normRef(refEl.value) || 'Philippians 4:13',

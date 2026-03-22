@@ -32,6 +32,10 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bangers-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Optional: when /assets/panels/*.avif exist and TDB_PANEL_RASTER is true, add e.g.
+       <link rel="preload" href="/assets/panels/panel-david-1.avif" as="image" type="image/avif"> -->
+  <script>window.TDB_PANEL_RASTER = false;</script>
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
   <link rel="stylesheet" href="kids-battle.css?v=10">
@@ -553,16 +557,14 @@
     </div>
   </div>
 
-  <!-- Set true after uploading matching files to /assets/panels/*.avif and *.webp (same stem as panel-*.svg). Optional: add link rel=preload for first LCP raster in head. -->
-  <script>window.TDB_PANEL_RASTER = false;</script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="../inline-bootstrap.js"></script>
   <script src="kids-full-story-assets.js"></script>
   <script src="kids-read-quiz-data.js?v=69"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
-  <script src="kids-battle.js?v=71" defer></script>
+  <script src="kids-battle.js?v=72" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=72" defer></script>
+  <script src="kids-corner.js?v=73" defer></script>
   <script type="module" src="../script.js?v=20260321full-story" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

@@ -85,64 +85,71 @@
   const KID_QUIZ_DONE_KEY = 'kidQuizDone';
   const KID_MEMORY_DONE_KEY = 'kidMemoryDone';
 
-  /** One Supabase client per page; deferred init reduces Story Library TBT unless user needs it immediately. */
+  /** One UMD Supabase client per page — idle init for background RPC; immediate for user gestures. */
   var kidSupabaseClient = null;
+  var kidSupabaseInitPromise = null;
   var kidSupabaseDeferResolve = null;
-  var kidSupabaseDeferredPromise = null;
 
-  function getKidSupabaseClient(immediate) {
+  function createKidSupabaseClientInstance() {
     var cfg = window.TDB_CONFIG || {};
     var supabaseUrl = cfg.SUPABASE_URL;
     var supabaseKey = cfg.SUPABASE_ANON_KEY;
-    if (!supabaseUrl || !supabaseKey) {
-      return Promise.resolve(null);
-    }
     var lib = window.supabase && window.supabase.createClient ? window.supabase : (typeof supabase !== 'undefined' ? supabase : null);
-    if (!lib || !lib.createClient) {
-      return Promise.resolve(null);
+    if (!supabaseUrl || !supabaseKey || !lib || !lib.createClient) return null;
+    try {
+      return lib.createClient(supabaseUrl, supabaseKey);
+    } catch (e) {
+      return null;
     }
+  }
+
+  function getKidSupabaseClient(immediate) {
     if (kidSupabaseClient) {
       return Promise.resolve(kidSupabaseClient);
     }
     if (immediate) {
-      try {
-        kidSupabaseClient = lib.createClient(supabaseUrl, supabaseKey);
-      } catch (e) {
-        kidSupabaseClient = null;
-      }
+      kidSupabaseClient = createKidSupabaseClientInstance();
       if (kidSupabaseDeferResolve) {
         var resImm = kidSupabaseDeferResolve;
         kidSupabaseDeferResolve = null;
-        kidSupabaseDeferredPromise = null;
+        kidSupabaseInitPromise = null;
         resImm(kidSupabaseClient);
       }
       return Promise.resolve(kidSupabaseClient);
     }
-    if (kidSupabaseDeferredPromise) {
-      return kidSupabaseDeferredPromise;
+    if (kidSupabaseInitPromise) {
+      return kidSupabaseInitPromise;
     }
-    kidSupabaseDeferredPromise = new Promise(function (resolve) {
+    kidSupabaseInitPromise = new Promise(function (resolve) {
       kidSupabaseDeferResolve = resolve;
       var run = function () {
         if (!kidSupabaseClient) {
-          try {
-            kidSupabaseClient = lib.createClient(supabaseUrl, supabaseKey);
-          } catch (e) {
-            kidSupabaseClient = null;
-          }
+          kidSupabaseClient = createKidSupabaseClientInstance();
         }
         var c = kidSupabaseClient;
+        var fin = kidSupabaseDeferResolve;
         kidSupabaseDeferResolve = null;
-        kidSupabaseDeferredPromise = null;
+        kidSupabaseInitPromise = null;
         resolve(c);
       };
       if (typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function') {
-        window.requestIdleCallback(run, { timeout: 1200 });
+        window.requestIdleCallback(run, { timeout: 1500 });
       } else {
         setTimeout(run, 400);
       }
     });
-    return kidSupabaseDeferredPromise;
+    return kidSupabaseInitPromise;
+  }
+
+  /** Run fn(client) after client is ready; immediate=true for redeem / doodle upload. */
+  function withKidSupabase(immediate, fn) {
+    return getKidSupabaseClient(immediate).then(function (client) {
+      if (!client) return;
+      try {
+        var ret = fn(client);
+        if (ret && typeof ret.then === 'function') return ret;
+      } catch (e) {}
+    });
   }
 
   const KID_QUIZ_QUESTIONS = {
@@ -5988,9 +5995,8 @@
       kidReflectionQueue.push(item);
       return;
     }
-    getKidSupabaseClient(false).then(function (client) {
-      if (!client) return;
-      client.rpc('upsert_kid_reflection', item)
+    withKidSupabase(false, function (client) {
+      return client.rpc('upsert_kid_reflection', item)
         .then(function (res) {
           if (res.error) { kidReflectionQueue.push(item); return; }
           showKidReflectionSaved(true);
@@ -6439,7 +6445,7 @@
       fetch(canvas.toDataURL('image/png'))
         .then(function (r) { return r.blob(); })
         .then(function (blob) {
-          return getKidSupabaseClient(true).then(function (client) {
+          return withKidSupabase(true, function (client) {
             if (!client) return Promise.reject(new Error('no client'));
             return client.storage.from('kid-doodles').upload(path, blob, { contentType: 'image/png', upsert: false });
           });
@@ -7129,10 +7135,9 @@
     var data = getStreakData();
     var streak = Math.ceil(Number(data.count || 0));
     var lastDay = data.lastKey || getDailyKey();
-    getKidSupabaseClient(false).then(function (client) {
-      if (!client) return;
-      client.rpc('upsert_kid_streak', { p_code: code, p_streak_count: streak, p_last_day: lastDay }).catch(function () {});
-    }).catch(function () {});
+    withKidSupabase(false, function (client) {
+      return client.rpc('upsert_kid_streak', { p_code: code, p_streak_count: streak, p_last_day: lastDay }).catch(function () {});
+    });
   }
 
   function notifyParentOnRedeem(code) {
@@ -7188,12 +7193,12 @@
         return;
       }
 
-      getKidSupabaseClient(true).then(function (client) {
+      withKidSupabase(true, function (client) {
         if (!client) {
           showCodeError('Something went wrong. Please try again.');
           return;
         }
-        client.rpc('redeem_invite_code', { code: code }).then(function (res) {
+        return client.rpc('redeem_invite_code', { code: code }).then(function (res) {
           if (res.error) {
             showCodeError('Something went wrong. Please try again.');
             return;

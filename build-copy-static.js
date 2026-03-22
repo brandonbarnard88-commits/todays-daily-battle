@@ -302,6 +302,11 @@ if (fs.existsSync(path.join(root, 'icons'))) {
   copyDir(path.join(root, 'icons'), path.join(dist, 'icons'));
 }
 
+if (fs.existsSync(path.join(root, 'assets'))) {
+  copyDir(path.join(root, 'assets'), path.join(dist, 'assets'));
+  console.log('Copied assets/ folder (share images for OG/Twitter)');
+}
+
 if (fs.existsSync(path.join(root, 'kids'))) {
   copyDir(path.join(root, 'kids'), path.join(dist, 'kids'));
   console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
@@ -378,7 +383,16 @@ if (!fs.existsSync(path.join(dist, 'verse-cards', 'index.html'))) {
   console.error('BUILD FAIL: verse-cards/index.html missing in dist/. Pinterest gallery will 404 on /verse-cards/.');
   process.exit(1);
 }
+const SHARE_OG = ['home-og.jpg', 'calm-og.jpg', 'mobius-og.jpg', 'shop-og.jpg', 'testimonials-og.jpg'];
+for (let i = 0; i < SHARE_OG.length; i++) {
+  const p = path.join(dist, 'assets', 'share', SHARE_OG[i]);
+  if (!fs.existsSync(p)) {
+    console.error('BUILD FAIL: OG share image missing: ' + p);
+    process.exit(1);
+  }
+}
 console.log('Verified: sitemap.xml + robots.txt in dist/, verse-cards/index.html + Spanish URLs in sitemap.');
+console.log('Verified: assets/share OG JPEGs (1200×630) for social previews.');
 
 // Verify donation redirects in _redirects (required for bot-probe cleanup)
 const redirectsPath = path.join(dist, '_redirects');

@@ -62,12 +62,23 @@
       s = s.replace(/&amp;/g, '&');
       if (s === prev) break;
     }
+    if (typeof window.tdbSetHtml === 'function') {
+      try {
+        var div = document.createElement('div');
+        window.tdbSetHtml(div, s);
+        var decoded = div.textContent;
+        if (typeof decoded === 'string') return decoded;
+      } catch (e) {}
+    }
     try {
-      var t = document.createElement('textarea');
-      t.innerHTML = s;
-      var out = t.value;
-      if (typeof out === 'string') return out;
-    } catch (e) {}
+      var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+      if (pol && typeof pol.createHTML === 'function') {
+        var ta = document.createElement('textarea');
+        ta.innerHTML = pol.createHTML(s);
+        var out = ta.value;
+        if (typeof out === 'string') return out;
+      }
+    } catch (e2) {}
     return s;
   }
 
@@ -261,36 +272,111 @@
     return { layman: layman, about: ctx.s, to: ctx.a, applies: inferApplies(raw) };
   }
 
-  function ensureModal() {
-    var modal = byId('tdb-verse-breakdown-modal');
-    if (modal) return modal;
-    modal = document.createElement('div');
+  /**
+   * Build modal DOM without innerHTML so CSP Trusted Types + DOMPurify cannot strip controls
+   * (raw innerHTML goes through the default policy and may remove interactive nodes).
+   */
+  function buildVerseModalDom(modal) {
     modal.id = 'tdb-verse-breakdown-modal';
     modal.className = 'verse-modal hidden';
-    modal.innerHTML = '<div class="verse-modal-backdrop"></div><div class="verse-modal-inner">' +
-      '<button type="button" class="verse-modal-close" aria-label="Close">&times;</button>' +
-      '<div class="verse-age-prompt hidden" id="verse-age-prompt">' +
-      '<p class="section-note util-mb-0_5">Pick your style:</p>' +
-      '<div class="verse-age-actions">' +
-      '<button type="button" class="btn btn-secondary" data-age="kid">Kid</button>' +
-      '<button type="button" class="btn btn-secondary" data-age="teen">Teen</button>' +
-      '<button type="button" class="btn btn-secondary" data-age="adult">Adult</button>' +
-      '</div></div>' +
-      '<h3 class="verse-modal-ref"></h3><p class="verse-modal-text"></p>' +
-      '<div class="verse-modal-bubble" id="verse-modal-bubble"></div>' +
-      '<div class="verse-modal-breakdown">' +
-      '<p class="verse-modal-speaker"><strong>Who said it?</strong> <span data-bk="about"></span></p>' +
-      '<p class="verse-modal-audience"><strong>Who to:</strong> <span data-bk="to"></span></p>' +
-      '<p class="verse-modal-today"><strong>Plain talk:</strong> <span data-bk="layman"></span></p>' +
-      '<p class="verse-modal-today"><strong>How it fits you:</strong> <span data-bk="applies"></span></p>' +
-      '<p class="verse-modal-relates"><strong>How it relates today?</strong> <span data-bk="relates"></span></p>' +
-      '<div class="verse-modal-actions">' +
-      '<button type="button" class="btn btn-secondary" data-action="pray">Pray it</button>' +
-      '<button type="button" class="btn btn-secondary" data-action="note">Save</button>' +
-      '<button type="button" class="btn btn-secondary" data-action="share">Share</button>' +
-      '</div>' +
-      '</div></div>';
-    document.body.appendChild(modal);
+    while (modal.firstChild) modal.removeChild(modal.firstChild);
+
+    var backdrop = document.createElement('div');
+    backdrop.className = 'verse-modal-backdrop';
+    modal.appendChild(backdrop);
+
+    var inner = document.createElement('div');
+    inner.className = 'verse-modal-inner';
+
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'verse-modal-close';
+    closeBtn.setAttribute('aria-label', 'Close');
+    closeBtn.appendChild(document.createTextNode('\u00d7'));
+    inner.appendChild(closeBtn);
+
+    var agePrompt = document.createElement('div');
+    agePrompt.className = 'verse-age-prompt hidden';
+    agePrompt.id = 'verse-age-prompt';
+    var pickP = document.createElement('p');
+    pickP.className = 'section-note util-mb-0_5';
+    pickP.appendChild(document.createTextNode('Pick your style:'));
+    agePrompt.appendChild(pickP);
+    var ageActions = document.createElement('div');
+    ageActions.className = 'verse-age-actions';
+    ['kid', 'teen', 'adult'].forEach(function (age) {
+      var ab = document.createElement('button');
+      ab.type = 'button';
+      ab.className = 'btn btn-secondary';
+      ab.setAttribute('data-age', age);
+      ab.appendChild(document.createTextNode(age.charAt(0).toUpperCase() + age.slice(1)));
+      ageActions.appendChild(ab);
+    });
+    agePrompt.appendChild(ageActions);
+    inner.appendChild(agePrompt);
+
+    var refH = document.createElement('h3');
+    refH.className = 'verse-modal-ref';
+    inner.appendChild(refH);
+
+    var textP = document.createElement('p');
+    textP.className = 'verse-modal-text';
+    inner.appendChild(textP);
+
+    var bubble = document.createElement('div');
+    bubble.className = 'verse-modal-bubble';
+    bubble.id = 'verse-modal-bubble';
+    inner.appendChild(bubble);
+
+    var breakdown = document.createElement('div');
+    breakdown.className = 'verse-modal-breakdown';
+
+    function addBkRow(className, strongLabel, dataBk) {
+      var row = document.createElement('p');
+      row.className = className;
+      var st = document.createElement('strong');
+      st.appendChild(document.createTextNode(strongLabel));
+      row.appendChild(st);
+      row.appendChild(document.createTextNode(' '));
+      var sp = document.createElement('span');
+      sp.setAttribute('data-bk', dataBk);
+      row.appendChild(sp);
+      breakdown.appendChild(row);
+    }
+
+    addBkRow('verse-modal-speaker', 'Who said it?', 'about');
+    addBkRow('verse-modal-audience', 'Who to:', 'to');
+    addBkRow('verse-modal-today', 'Plain talk:', 'layman');
+    addBkRow('verse-modal-today', 'How it fits you:', 'applies');
+    addBkRow('verse-modal-relates', 'How it relates today?', 'relates');
+
+    var actions = document.createElement('div');
+    actions.className = 'verse-modal-actions';
+    [['pray', 'Pray it'], ['note', 'Save'], ['share', 'Share']].forEach(function (pair) {
+      var actBtn = document.createElement('button');
+      actBtn.type = 'button';
+      actBtn.className = 'btn btn-secondary';
+      actBtn.setAttribute('data-action', pair[0]);
+      actBtn.appendChild(document.createTextNode(pair[1]));
+      actions.appendChild(actBtn);
+    });
+    breakdown.appendChild(actions);
+    inner.appendChild(breakdown);
+    modal.appendChild(inner);
+  }
+
+  function ensureModal() {
+    var modal = byId('tdb-verse-breakdown-modal');
+    var shellOk = modal &&
+      modal.querySelector('.verse-modal-close') &&
+      modal.querySelector('.verse-modal-ref') &&
+      modal.querySelector('.verse-modal-inner');
+    if (shellOk) return modal;
+    if (!modal) {
+      modal = document.createElement('div');
+      document.body.appendChild(modal);
+    }
+    buildVerseModalDom(modal);
     function closeModal() {
       var ref = modal.getAttribute('data-ref') || '';
       if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_close', { ref: ref.slice(0, 32) });
@@ -300,8 +386,10 @@
         modal.classList.add('hidden');
       }, 120);
     }
-    modal.querySelector('.verse-modal-close').addEventListener('click', closeModal);
-    modal.querySelector('.verse-modal-backdrop').addEventListener('click', closeModal);
+    var closeHit = modal.querySelector('.verse-modal-close');
+    var backdropHit = modal.querySelector('.verse-modal-backdrop');
+    if (closeHit) closeHit.addEventListener('click', closeModal);
+    if (backdropHit) backdropHit.addEventListener('click', closeModal);
     modal.querySelectorAll('.verse-age-actions [data-age]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var mode = setAgeMode(btn.getAttribute('data-age') || 'adult');
@@ -388,6 +476,14 @@
 
   function open(ref, text) {
     var modal = ensureModal();
+    var refEl = modal.querySelector('.verse-modal-ref');
+    var verseTextEl = modal.querySelector('.verse-modal-text');
+    var aboutEl = modal.querySelector('[data-bk="about"]');
+    var toEl = modal.querySelector('[data-bk="to"]');
+    var layEl = modal.querySelector('[data-bk="layman"]');
+    var appEl = modal.querySelector('[data-bk="applies"]');
+    var relEl = modal.querySelector('[data-bk="relates"]');
+    if (!refEl || !verseTextEl || !aboutEl || !toEl || !layEl || !appEl || !relEl) return;
     var ageMode = getAgeMode();
     var prompt = byId('verse-age-prompt');
     if (!ageMode && prompt) prompt.classList.remove('hidden');
@@ -396,14 +492,14 @@
     var resolvedText = cleanVerseText(text || '') || getBibleVerseText(ref);
     var breakdown = personalizeBreakdown(getBreakdown(ref, resolvedText), ageMode, ref, resolvedText);
     var bubble = byId('verse-modal-bubble');
-    modal.querySelector('.verse-modal-ref').textContent = tdbPlainTextForUi(ref || 'Verse');
-    modal.querySelector('.verse-modal-text').textContent = resolvedText || 'Loading verse text...';
-    modal.querySelector('[data-bk="about"]').textContent = tdbPlainTextForUi(breakdown.about || '—');
-    modal.querySelector('[data-bk="to"]').textContent = tdbPlainTextForUi(breakdown.to || '—');
-    modal.querySelector('[data-bk="layman"]').textContent = tdbPlainTextForUi(breakdown.layman || '—');
-    modal.querySelector('[data-bk="applies"]').textContent = tdbPlainTextForUi(breakdown.applies || '—');
+    refEl.textContent = tdbPlainTextForUi(ref || 'Verse');
+    verseTextEl.textContent = resolvedText || 'Loading verse text...';
+    aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
+    toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
+    layEl.textContent = tdbPlainTextForUi(breakdown.layman || '—');
+    appEl.textContent = tdbPlainTextForUi(breakdown.applies || '—');
     var topic = inferRelationTopic(ref, resolvedText);
-    modal.querySelector('[data-bk="relates"]').textContent = buildRelationLine(topic, RELATIONS_FALLBACK);
+    relEl.textContent = buildRelationLine(topic, RELATIONS_FALLBACK);
     modal.setAttribute('data-ref', tdbPlainTextForUi(ref || ''));
     modal.setAttribute('data-text', resolvedText || '');
     if (bubble) {
@@ -433,9 +529,12 @@
         var lazyText = getBibleVerseText(ref);
         if (!lazyText) return;
         var lazyBreakdown = personalizeBreakdown(getBreakdown(ref, lazyText), ageMode, ref, lazyText);
-        modal.querySelector('.verse-modal-text').textContent = lazyText;
-        modal.querySelector('[data-bk="layman"]').textContent = tdbPlainTextForUi(lazyBreakdown.layman || '—');
-        modal.querySelector('[data-bk="applies"]').textContent = tdbPlainTextForUi(lazyBreakdown.applies || '—');
+        var lazyTextEl = modal.querySelector('.verse-modal-text');
+        var lazyLay = modal.querySelector('[data-bk="layman"]');
+        var lazyApp = modal.querySelector('[data-bk="applies"]');
+        if (lazyTextEl) lazyTextEl.textContent = lazyText;
+        if (lazyLay) lazyLay.textContent = tdbPlainTextForUi(lazyBreakdown.layman || '—');
+        if (lazyApp) lazyApp.textContent = tdbPlainTextForUi(lazyBreakdown.applies || '—');
         modal.setAttribute('data-text', lazyText);
       });
     }

@@ -65,6 +65,29 @@
           configurable: true,
           enumerable: d.enumerable
         });
+        var od = Object.getOwnPropertyDescriptor(proto, 'outerHTML');
+        if (od && od.set && createHTML) {
+          anyPatched = true;
+          var origOuter = od.set;
+          Object.defineProperty(proto, 'outerHTML', {
+            set: function (v) {
+              if (isTrustedHTMLValue(v)) {
+                return origOuter.call(this, v);
+              }
+              var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
+              var trustedOuter = v;
+              if (createHTML) {
+                try { trustedOuter = s ? createHTML(s) : createHTML(''); } catch (_) {
+                  try { trustedOuter = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (__) { trustedOuter = createHTML(''); }
+                }
+              }
+              return origOuter.call(this, trustedOuter);
+            },
+            get: od.get,
+            configurable: true,
+            enumerable: od.enumerable
+          });
+        }
         var ia = proto.insertAdjacentHTML;
         if (ia && createHTML) {
           proto.insertAdjacentHTML = function (pos, html) {
@@ -236,6 +259,21 @@ var SUPABASE_URL = window.__tdbSupabaseUrl || '';
 var SUPABASE_ANON_KEY = window.__tdbSupabaseAnonKey || '';
 
 window.__tdb_script_version = '20260311';
+(function applyTdbPerfModeClass() {
+  try {
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var on = false;
+    try { on = localStorage.getItem('tdb_perf_mode') === '1'; } catch (_) {}
+    if (reduced || on) document.documentElement.classList.add('tdb-perf-mode');
+  } catch (_) {}
+})();
+function tdbIsPerfMode() {
+  try {
+    return !!(document.documentElement && document.documentElement.classList.contains('tdb-perf-mode'));
+  } catch (_) {
+    return false;
+  }
+}
 if (typeof history !== 'undefined' && history.scrollRestoration) history.scrollRestoration = 'manual';
 // Deploy check: warn if config still has placeholders (so production deploy is caught if example config is used)
 try {
@@ -419,8 +457,9 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var START_DATE_MS = new Date('2026-03-01').getTime();
   var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
   var STORAGE_KEY = 'tdb_loop_library_state_v2';
-  var LOOPS_URL = '/loops.json';
-  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v1';
+  /* Bump ?v= when loops.json shape/media URLs change so CDN/browsers skip stale JSON. */
+  var LOOPS_URL = '/loops.json?v=20260324v6';
+  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v6';
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
   var TOTAL_LOOPS = 160;
@@ -563,7 +602,9 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (!source) return;
     var ds = source.getAttribute('data-src');
     if (!ds) return;
-    source.src = ds;
+    var ts = typeof trustedScriptURL === 'function' ? trustedScriptURL(ds) : ds;
+    if (!ts) return;
+    source.src = ts;
     videoEl.setAttribute('data-loaded', '1');
     videoEl.load();
   }
@@ -654,7 +695,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     audioRow.className = 'loop-audio-row';
     var speakerBtn = document.createElement('button');
     speakerBtn.type = 'button';
-    var hasAudio = !!loop.audio;
+    var hasAudio = !!String(loop.audio || '').trim();
     speakerBtn.className = 'loop-speaker-btn' + (hasAudio ? '' : ' loop-speaker-btn--disabled');
     speakerBtn.setAttribute('aria-label', hasAudio ? 'Hear the KJV verse for ' + String(loop.title) : 'Audio coming soon for ' + String(loop.title));
     speakerBtn.setAttribute('title', hasAudio ? (loop.kjvText || loop.ref) : 'Coming soon');
@@ -689,7 +730,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       speakerBtn.disabled = true;
     } else {
       var cardAudio = new Audio();
-      cardAudio.src = String(loop.audio);
+      var audioTrusted = typeof trustedScriptURL === 'function' ? trustedScriptURL(String(loop.audio)) : String(loop.audio);
+      if (audioTrusted) cardAudio.src = audioTrusted;
       cardAudio.preload = 'none';
       speakerBtn.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -895,13 +937,20 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     modal.classList.remove('is-hidden');
     nextBtn.classList.add('is-hidden');
     modalTitle.textContent = String(currentLoop.title || 'Bible Loop') + ' • ' + String(currentLoop.ref || '');
-    modalVideo.src = String(currentLoop.file || '');
+    var fileUrl = String(currentLoop.file || '').trim();
+    var videoTrusted = typeof trustedScriptURL === 'function' ? trustedScriptURL(fileUrl) : fileUrl;
+    if (videoTrusted) modalVideo.src = videoTrusted;
+    else modalVideo.removeAttribute('src');
     modalVideo.setAttribute('data-loop-poster', '/assets/loops/' + String(currentLoop.id) + '.png');
     modalVideo.poster = LOOP_THUMB_PLACEHOLDER;
     modalVideo.currentTime = 0;
-    modalHelper.textContent = 'Replay anytime, then jump to a random unlocked loop.';
-    if (currentLoop.audio) {
-      modalAudioEl.src = String(currentLoop.audio);
+    modalHelper.textContent = fileUrl
+      ? 'Replay anytime, then jump to a random unlocked loop.'
+      : 'This loop’s cartoon file is not on the server yet—no network fetch. When clips are uploaded to /assets/loops/, they will play here automatically.';
+    if (String(currentLoop.audio || '').trim()) {
+      var modalAudioTrusted = typeof trustedScriptURL === 'function' ? trustedScriptURL(String(currentLoop.audio).trim()) : String(currentLoop.audio).trim();
+      if (modalAudioTrusted) modalAudioEl.src = modalAudioTrusted;
+      else modalAudioEl.removeAttribute('src');
       modalAudioEl.load();
       var verseText = currentLoop.kjvText ? ('"' + String(currentLoop.kjvText) + '" — ' + String(currentLoop.ref)) : String(currentLoop.ref);
       modalAudioLabel.textContent = verseText;
@@ -976,8 +1025,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         return {
           id: Number(item.id),
           title: String(item.title),
-          file: String(item.file),
-          audio: item.audio ? String(item.audio) : '',
+          file: String(item.file != null ? item.file : '').trim(),
+          audio: item.audio ? String(item.audio).trim() : '',
           ref: String(item.ref),
           kjvText: item.kjvText ? String(item.kjvText) : '',
           week: Number(item.week)
@@ -988,7 +1037,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   }
 
   function loadLoops(force) {
-    var requestUrl = LOOPS_URL + (force ? ('?ts=' + Date.now()) : '');
+    var q = LOOPS_URL.indexOf('?') >= 0 ? '&' : '?';
+    var requestUrl = LOOPS_URL + (force ? (q + 'ts=' + Date.now()) : '');
     return fetch(requestUrl, { cache: force ? 'no-store' : 'default' })
       .then(function (resp) {
         if (!resp.ok) throw new Error('Could not load loops.');
@@ -1122,15 +1172,17 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     updateLoopPdfExportHint();
   });
 
-  setInterval(function () {
-    var now = new Date();
-    if (!inSundayRefreshWindow(now)) return;
-    var tag = todayTag(now);
-    if (state.sundayRefreshTag === tag) return;
-    state.sundayRefreshTag = tag;
-    writeState();
-    loadLoops(true).then(function () { showToast('New stories added.'); });
-  }, 60000);
+  if (!tdbIsPerfMode()) {
+    setInterval(function () {
+      var now = new Date();
+      if (!inSundayRefreshWindow(now)) return;
+      var tag = todayTag(now);
+      if (state.sundayRefreshTag === tag) return;
+      state.sundayRefreshTag = tag;
+      writeState();
+      loadLoops(true).then(function () { showToast('New stories added.'); });
+    }, 60000);
+  }
 })();
 
 (function loadEasterEggsScript() {
@@ -1941,21 +1993,8 @@ function updateMasterStatus(user) {
   } else if (badge) {
     badge.remove();
   }
-  const adminLinks = document.querySelectorAll('.admin-link');
-  const sideNav = document.querySelector('.side-nav');
-  if (isMasterUser) {
-    if (adminLinks.length === 0 && sideNav) {
-      const adminLink = document.createElement('a');
-      adminLink.href = 'admin.html';
-      adminLink.className = 'admin-link';
-      adminLink.setAttribute('data-section', 'admin');
-      adminLink.setAttribute('data-icon', 'AD');
-      adminLink.textContent = 'Admin';
-      sideNav.appendChild(adminLink);
-    }
-  } else {
-    adminLinks.forEach(link => link.remove());
-  }
+  // Admin HTML is not served in production (see _redirects → 404). Moderation via Supabase Dashboard + RLS.
+  document.querySelectorAll('.admin-link').forEach(function (link) { link.remove(); });
 }
 const STOP_WORDS = new Set([
   'the', 'and', 'a', 'an', 'of', 'to', 'in', 'is', 'it', 'for', 'on', 'with',
@@ -5232,7 +5271,8 @@ function renderSmartResult(query) {
       audioEl.setAttribute('aria-hidden', 'true');
       document.body.appendChild(audioEl);
     }
-    audioEl.src = audioSrc;
+    var smartAudioTrusted = typeof trustedScriptURL === 'function' ? trustedScriptURL(audioSrc) : audioSrc;
+    if (smartAudioTrusted) audioEl.src = smartAudioTrusted;
     audioEl.volume = window._tdbAudioVolume !== undefined ? window._tdbAudioVolume : 1;
     var played = false;
     audioEl.oncanplay = function() {
@@ -6155,11 +6195,13 @@ function wireRealPrayerCounter() {
   window.__fetchPrayerCount = fetchPrayerCount;
   fetchPrayerCount();
   // 0–5 min: every 10s (feels live) → 5–7 min: every 60s → 7 min+: every 2 min
-  adaptiveInterval(fetchPrayerCount, [
-    { after: 0,      every: 10000  },
-    { after: 300000, every: 60000  },
-    { after: 420000, every: 120000 }
-  ]);
+  if (!tdbIsPerfMode()) {
+    adaptiveInterval(fetchPrayerCount, [
+      { after: 0,      every: 10000  },
+      { after: 300000, every: 60000  },
+      { after: 420000, every: 120000 }
+    ]);
+  }
 
   (function wirePrayersTodayCount() {
     var todayEl = document.getElementById('prayer-count-today');
@@ -6238,7 +6280,7 @@ function wireRealPrayerCounter() {
         });
     }
     fetchPrayersToday();
-    setInterval(fetchPrayersToday, 60000);
+    if (!tdbIsPerfMode()) setInterval(fetchPrayersToday, 60000);
   })();
 }
 
@@ -6305,7 +6347,7 @@ function wirePrayerRetrySync() {
     }
   });
   window.addEventListener('online', updateVisibility);
-  setInterval(updateVisibility, 5000);
+  if (!tdbIsPerfMode()) setInterval(updateVisibility, 5000);
 }
 
 function wirePrayerWallGraceDismiss() {
@@ -6355,7 +6397,7 @@ function wireKidsBetaCount() {
     });
   }
   fetchCount();
-  setInterval(fetchCount, 60000);
+  if (!tdbIsPerfMode()) setInterval(fetchCount, 60000);
 }
 
 function updateSidebarStreak(streakCount) {
@@ -7057,7 +7099,7 @@ function wirePrayerMap() {
   window.addEventListener('tdb:prayer-total-updated', render);
   if (refreshBtn) refreshBtn.addEventListener('click', refreshNow);
   if (typeof window !== 'undefined') window.__refreshPrayerMap = refreshNow;
-  setInterval(render, 2000);
+  if (!tdbIsPerfMode()) setInterval(render, 2000);
 }
 
 var INTRO_VISIBLE_MS = 5000;
@@ -8306,10 +8348,12 @@ function wireFooterRotating() {
   var el = document.getElementById('footer-rotating-line');
   if (!el) return;
   var idx = 0;
-  setInterval(function () {
-    el.textContent = FOOTER_ROTATING_LINES[idx % FOOTER_ROTATING_LINES.length];
-    idx += 1;
-  }, 30000);
+  if (!tdbIsPerfMode()) {
+    setInterval(function () {
+      el.textContent = FOOTER_ROTATING_LINES[idx % FOOTER_ROTATING_LINES.length];
+      idx += 1;
+    }, 30000);
+  }
 }
 
 function wireFooterFridaySignup() {
@@ -9144,7 +9188,7 @@ function wireQuickPrayAutocomplete() {
     } catch (e) {}
   }
   fill();
-  setInterval(fill, 60000);
+  if (!tdbIsPerfMode()) setInterval(fill, 60000);
 }
 
 function wirePrayThisWithMe() {
@@ -9232,7 +9276,7 @@ function wireDawnDuskQuickPrayLabel() {
     else titleEl.textContent = 'Quick pray';
   }
   update();
-  setInterval(update, 60000);
+  if (!tdbIsPerfMode()) setInterval(update, 60000);
 }
 
 function updateFirstPrayerBadge() {
@@ -13033,10 +13077,13 @@ function tdbPlainTextForUi(s) {
     if (str === prev) break;
   }
   try {
-    var t = document.createElement('textarea');
-    t.innerHTML = str;
-    var out = t.value;
-    if (typeof out === 'string') return out;
+    var esc = escapeHtml(str);
+    var doc = new DOMParser().parseFromString(
+      '<!DOCTYPE html><html><body><textarea>' + esc + '</textarea></body></html>',
+      'text/html'
+    );
+    var ta = doc.querySelector('textarea');
+    if (ta && typeof ta.value === 'string') return ta.value;
   } catch (_) {}
   return str;
 }
@@ -18658,7 +18705,7 @@ function sanitizeNudgeElements() {
     }
     updateCountdown();
     if (typeof window.addEventListener === 'function') window.addEventListener('load', updateCountdown);
-    setInterval(updateCountdown, 60000);
+    if (!tdbIsPerfMode()) setInterval(updateCountdown, 60000);
   })();
   (function () {
     var promoBanner = document.getElementById('promo-banner');
@@ -20322,7 +20369,7 @@ function sanitizeNudgeElements() {
       });
     }
     render();
-    setInterval(render, 5 * 60 * 1000);
+    if (!tdbIsPerfMode()) setInterval(render, 5 * 60 * 1000);
   })();
 
   (function initInvite() {
@@ -20415,10 +20462,12 @@ function sanitizeNudgeElements() {
       d.addEventListener('click', function () { goTo(parseInt(this.getAttribute('data-index'), 10)); });
     });
     var current = 0;
-    setInterval(function () {
-      current += 1;
-      goTo(current);
-    }, 8000);
+    if (!tdbIsPerfMode()) {
+      setInterval(function () {
+        current += 1;
+        goTo(current);
+      }, 8000);
+    }
   })();
 
   var streakRepairBtn = document.getElementById('streak-repair-btn');

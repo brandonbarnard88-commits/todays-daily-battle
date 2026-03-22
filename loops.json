@@ -1,174 +1,1294 @@
 [
-  { "id": 1,  "title": "David vs Goliath",          "file": "/assets/loops/david-slingshot.webm",     "audio": "/assets/loops/david-slingshot.mp3",     "ref": "1 Samuel 17:49",     "kjvText": "David prevailed over the Philistine with a sling and with a stone.",                                 "week": 0 },
-  { "id": 2,  "title": "Noah Ark",                  "file": "/assets/loops/noah-ark.webm",            "audio": "/assets/loops/noah-ark.mp3",            "ref": "Genesis 7:7",        "kjvText": "And Noah went in, and his sons, and his wife, and his sons' wives with him, into the ark.",           "week": 0 },
-  { "id": 3,  "title": "Jonah Whale",               "file": "/assets/loops/jonah-whale.webm",         "audio": "/assets/loops/jonah-whale.mp3",         "ref": "Jonah 1:17",         "kjvText": "Now the LORD had prepared a great fish to swallow up Jonah.",                                        "week": 0 },
-  { "id": 4,  "title": "Daniel and the Lions",      "file": "/assets/loops/daniel-lions.webm",        "audio": "/assets/loops/daniel-lions.mp3",        "ref": "Daniel 6:22",        "kjvText": "My God hath sent his angel, and hath shut the lions' mouths.",                                       "week": 0 },
-  { "id": 5,  "title": "Esther Crown",              "file": "/assets/loops/esther-crown.webm",        "audio": "/assets/loops/esther-crown.mp3",        "ref": "Esther 4:14",        "kjvText": "Who knoweth whether thou art come to the kingdom for such a time as this?",                          "week": 0 },
-  { "id": 6,  "title": "Joseph and the Coat",       "file": "/assets/loops/joseph-coat.webm",         "audio": "/assets/loops/joseph-coat.mp3",         "ref": "Genesis 37:3",       "kjvText": "Now Israel loved Joseph more than all his children, and he made him a coat of many colours.",        "week": 0 },
-  { "id": 7,  "title": "Samson and the Pillars",    "file": "/assets/loops/samson-pillars.webm",      "audio": "/assets/loops/samson-pillars.mp3",      "ref": "Judges 16:30",       "kjvText": "Let me die with the Philistines. And he bowed himself with all his might.",                          "week": 0 },
-  { "id": 8,  "title": "Ruth Gleans",               "file": "/assets/loops/ruth-glean.webm",          "audio": "/assets/loops/ruth-glean.mp3",          "ref": "Ruth 2:2",           "kjvText": "Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace.",     "week": 0 },
-  { "id": 9,  "title": "Baby Moses Basket",         "file": "/assets/loops/baby-moses.webm",          "audio": "/assets/loops/baby-moses.mp3",          "ref": "Exodus 2:5",         "kjvText": "And the daughter of Pharaoh came down to wash herself at the river, and she saw the ark among the flags.", "week": 0 },
-  { "id": 10, "title": "Jericho Walls Tumble",      "file": "/assets/loops/jericho-walls.webm",       "audio": "/assets/loops/jericho-walls.mp3",       "ref": "Joshua 6:20",        "kjvText": "So the people shouted with a great shout, and the wall fell down flat.",                             "week": 0 },
-  { "id": 11, "title": "Lazarus Rise",              "file": "/assets/loops/lazarus-rise.webm",        "audio": "/assets/loops/lazarus-rise.mp3",        "ref": "John 11:43-44",      "kjvText": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth.",                      "week": 0 },
-  { "id": 12, "title": "Jesus Calms the Boat",      "file": "/assets/loops/jesus-boat.webm",          "audio": "/assets/loops/jesus-boat.mp3",          "ref": "Mark 4:39",          "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still.",                        "week": 0 },
-
-  { "id": 13, "title": "Moses Sea-Split",           "file": "/assets/loops/moses-sea.webm",           "ref": "Exodus 14:21",       "week": 1 },
-  { "id": 14, "title": "Burning Bush",              "file": "/assets/loops/burning-bush.webm",        "ref": "Exodus 3:2",         "week": 1 },
-  { "id": 15, "title": "Ten Plagues",               "file": "/assets/loops/ten-plagues.webm",         "ref": "Exodus 12:29",       "week": 1 },
-  { "id": 16, "title": "Manna from Heaven",         "file": "/assets/loops/manna-falls.webm",         "ref": "Exodus 16:15",       "week": 1 },
-  { "id": 17, "title": "Ten Commandments",          "file": "/assets/loops/ten-commandments.webm",    "ref": "Exodus 20:1-2",      "week": 1 },
-  { "id": 18, "title": "Elijah Fire on Carmel",     "file": "/assets/loops/elijah-fire.webm",         "ref": "1 Kings 18:38",      "week": 1 },
-  { "id": 19, "title": "Elisha Oil Pots",           "file": "/assets/loops/elisha-oil.webm",          "ref": "2 Kings 4:6",        "week": 1 },
-  { "id": 20, "title": "Fiery Furnace Three",       "file": "/assets/loops/fiery-furnace.webm",       "ref": "Daniel 3:25",        "week": 1 },
-  { "id": 21, "title": "Naaman Washed Clean",       "file": "/assets/loops/naaman-wash.webm",         "ref": "2 Kings 5:14",       "week": 1 },
-  { "id": 22, "title": "Creation Day One",          "file": "/assets/loops/creation-light.webm",      "ref": "Genesis 1:3",        "week": 1 },
-  { "id": 23, "title": "Adam and Eve Garden",       "file": "/assets/loops/adam-eve-garden.webm",     "ref": "Genesis 2:15",       "week": 1 },
-  { "id": 24, "title": "Tower of Babel",            "file": "/assets/loops/tower-babel.webm",         "ref": "Genesis 11:4",       "week": 1 },
-
-  { "id": 25, "title": "Abraham and Isaac",         "file": "/assets/loops/abraham-isaac.webm",       "ref": "Genesis 22:12",      "week": 2 },
-  { "id": 26, "title": "Jacob Dream Ladder",        "file": "/assets/loops/jacob-ladder.webm",        "ref": "Genesis 28:12",      "week": 2 },
-  { "id": 27, "title": "Joseph in Prison",          "file": "/assets/loops/joseph-prison.webm",       "ref": "Genesis 39:21",      "week": 2 },
-  { "id": 28, "title": "Joseph Pharaoh Dream",      "file": "/assets/loops/joseph-pharaoh.webm",      "ref": "Genesis 41:39-40",   "week": 2 },
-  { "id": 29, "title": "Moses Basket Found",        "file": "/assets/loops/moses-found.webm",         "ref": "Exodus 2:10",        "week": 2 },
-  { "id": 30, "title": "Passover Door",             "file": "/assets/loops/passover-door.webm",       "ref": "Exodus 12:13",       "week": 2 },
-  { "id": 31, "title": "Pillar of Fire",            "file": "/assets/loops/pillar-fire.webm",         "ref": "Exodus 13:21",       "week": 2 },
-  { "id": 32, "title": "Water from the Rock",       "file": "/assets/loops/water-rock.webm",          "ref": "Exodus 17:6",        "week": 2 },
-  { "id": 33, "title": "Golden Calf",               "file": "/assets/loops/golden-calf.webm",         "ref": "Exodus 32:4",        "week": 2 },
-  { "id": 34, "title": "Twelve Spies",              "file": "/assets/loops/twelve-spies.webm",        "ref": "Numbers 13:27",      "week": 2 },
-  { "id": 35, "title": "Bronze Serpent",            "file": "/assets/loops/bronze-serpent.webm",      "ref": "Numbers 21:9",       "week": 2 },
-  { "id": 36, "title": "Balaam Donkey",             "file": "/assets/loops/balaam-donkey.webm",       "ref": "Numbers 22:28",      "week": 2 },
-
-  { "id": 37, "title": "Joshua Cross Jordan",       "file": "/assets/loops/joshua-jordan.webm",       "ref": "Joshua 3:17",        "week": 3 },
-  { "id": 38, "title": "Gideon Fleece",             "file": "/assets/loops/gideon-fleece.webm",       "ref": "Judges 6:38",        "week": 3 },
-  { "id": 39, "title": "Gideon Three Hundred",      "file": "/assets/loops/gideon-army.webm",         "ref": "Judges 7:21",        "week": 3 },
-  { "id": 40, "title": "Hannah Prayer",             "file": "/assets/loops/hannah-prayer.webm",       "ref": "1 Samuel 1:27",      "week": 3 },
-  { "id": 41, "title": "Samuel Called at Night",    "file": "/assets/loops/samuel-call.webm",         "ref": "1 Samuel 3:10",      "week": 3 },
-  { "id": 42, "title": "David Shepherd Boy",        "file": "/assets/loops/david-shepherd.webm",      "ref": "1 Samuel 16:12",     "week": 3 },
-  { "id": 43, "title": "David and Jonathan",        "file": "/assets/loops/david-jonathan.webm",      "ref": "1 Samuel 18:1",      "week": 3 },
-  { "id": 44, "title": "David Psalm of Praise",     "file": "/assets/loops/david-psalm.webm",         "ref": "Psalm 23:1",         "week": 3 },
-  { "id": 45, "title": "Solomon Wisdom Crown",      "file": "/assets/loops/solomon-wisdom.webm",      "ref": "1 Kings 3:12",       "week": 3 },
-  { "id": 46, "title": "Elijah Raven Fed",          "file": "/assets/loops/elijah-raven.webm",        "ref": "1 Kings 17:6",       "week": 3 },
-  { "id": 47, "title": "Elijah Still Small Voice",  "file": "/assets/loops/elijah-voice.webm",        "ref": "1 Kings 19:12",      "week": 3 },
-  { "id": 48, "title": "Elijah Chariot of Fire",    "file": "/assets/loops/elijah-chariot.webm",      "ref": "2 Kings 2:11",       "week": 3 },
-
-  { "id": 49, "title": "Elisha Raises a Boy",       "file": "/assets/loops/elisha-boy.webm",          "ref": "2 Kings 4:35",       "week": 4 },
-  { "id": 50, "title": "Hezekiah Sundial",          "file": "/assets/loops/hezekiah-sundial.webm",    "ref": "2 Kings 20:11",      "week": 4 },
-  { "id": 51, "title": "Nehemiah Builds Wall",      "file": "/assets/loops/nehemiah-wall.webm",       "ref": "Nehemiah 4:6",       "week": 4 },
-  { "id": 52, "title": "Ezra Reads the Law",        "file": "/assets/loops/ezra-law.webm",            "ref": "Nehemiah 8:8",       "week": 4 },
-  { "id": 53, "title": "Jonah Preaches Nineveh",    "file": "/assets/loops/jonah-nineveh.webm",       "ref": "Jonah 3:5",          "week": 4 },
-  { "id": 54, "title": "Isaiah Vision Throne",      "file": "/assets/loops/isaiah-throne.webm",       "ref": "Isaiah 6:1",         "week": 4 },
-  { "id": 55, "title": "Jeremiah Scroll",           "file": "/assets/loops/jeremiah-scroll.webm",     "ref": "Jeremiah 1:9",       "week": 4 },
-  { "id": 56, "title": "Valley of Dry Bones",       "file": "/assets/loops/dry-bones.webm",           "ref": "Ezekiel 37:10",      "week": 4 },
-  { "id": 57, "title": "Daniel Reads the Wall",     "file": "/assets/loops/daniel-wall.webm",         "ref": "Daniel 5:25",        "week": 4 },
-  { "id": 58, "title": "Joel River of Spirit",      "file": "/assets/loops/joel-spirit.webm",         "ref": "Joel 2:28",          "week": 4 },
-  { "id": 59, "title": "Micah Bethlehem Star",      "file": "/assets/loops/micah-bethlehem.webm",     "ref": "Micah 5:2",          "week": 4 },
-  { "id": 60, "title": "Malachi Sun of Healing",    "file": "/assets/loops/malachi-sun.webm",         "ref": "Malachi 4:2",        "week": 4 },
-
-  { "id": 61, "title": "Angel Visits Mary",         "file": "/assets/loops/angel-mary.webm",          "ref": "Luke 1:31",          "week": 5 },
-  { "id": 62, "title": "Jesus Birth Manger",        "file": "/assets/loops/jesus-birth.webm",         "ref": "Luke 2:7",           "week": 5 },
-  { "id": 63, "title": "Shepherds and Angels",      "file": "/assets/loops/shepherds-angels.webm",    "ref": "Luke 2:13-14",       "week": 5 },
-  { "id": 64, "title": "Three Wise Men",            "file": "/assets/loops/wise-men.webm",            "ref": "Matthew 2:11",       "week": 5 },
-  { "id": 65, "title": "Jesus Temple at Twelve",    "file": "/assets/loops/jesus-temple-12.webm",     "ref": "Luke 2:46",          "week": 5 },
-  { "id": 66, "title": "John Baptizes Jesus",       "file": "/assets/loops/jesus-baptism.webm",       "ref": "Matthew 3:16",       "week": 5 },
-  { "id": 67, "title": "Jesus Wilderness Fast",     "file": "/assets/loops/jesus-wilderness.webm",    "ref": "Matthew 4:11",       "week": 5 },
-  { "id": 68, "title": "Jesus Calls Disciples",     "file": "/assets/loops/jesus-disciples.webm",     "ref": "Matthew 4:19",       "week": 5 },
-  { "id": 69, "title": "Jesus Wedding Miracle",     "file": "/assets/loops/jesus-water-wine.webm",    "ref": "John 2:9",           "week": 5 },
-  { "id": 70, "title": "Sermon on the Mount",       "file": "/assets/loops/sermon-mount.webm",        "ref": "Matthew 5:3",        "week": 5 },
-  { "id": 71, "title": "Lord's Prayer",             "file": "/assets/loops/lords-prayer.webm",        "ref": "Matthew 6:9",        "week": 5 },
-  { "id": 72, "title": "Jesus Heals Blind Man",     "file": "/assets/loops/blind-man.webm",           "ref": "John 9:7",           "week": 5 },
-
-  { "id": 73, "title": "Jesus Heals Leper",         "file": "/assets/loops/leper-healed.webm",        "ref": "Luke 17:14",         "week": 6 },
-  { "id": 74, "title": "Jesus Feeds 5000",          "file": "/assets/loops/feeds-5000.webm",          "ref": "John 6:11",          "week": 6 },
-  { "id": 75, "title": "Jesus Walks on Water",      "file": "/assets/loops/jesus-walks-water.webm",   "ref": "Matthew 14:29",      "week": 6 },
-  { "id": 76, "title": "Parable of the Sower",      "file": "/assets/loops/parable-sower.webm",       "ref": "Matthew 13:8",       "week": 6 },
-  { "id": 77, "title": "Good Samaritan",            "file": "/assets/loops/good-samaritan.webm",      "ref": "Luke 10:33",         "week": 6 },
-  { "id": 78, "title": "Lost Sheep Found",          "file": "/assets/loops/lost-sheep.webm",          "ref": "Luke 15:5",          "week": 6 },
-  { "id": 79, "title": "Prodigal Son Return",       "file": "/assets/loops/prodigal-son.webm",        "ref": "Luke 15:20",         "week": 6 },
-  { "id": 80, "title": "Zacchaeus Tree Climb",      "file": "/assets/loops/zacchaeus.webm",           "ref": "Luke 19:5",          "week": 6 },
-  { "id": 81, "title": "Rich Young Ruler",          "file": "/assets/loops/rich-young-ruler.webm",    "ref": "Mark 10:21",         "week": 6 },
-  { "id": 82, "title": "Widow's Mite",              "file": "/assets/loops/widows-mite.webm",         "ref": "Mark 12:44",         "week": 6 },
-  { "id": 83, "title": "Transfiguration Glow",      "file": "/assets/loops/transfiguration.webm",     "ref": "Matthew 17:2",       "week": 6 },
-  { "id": 84, "title": "Jesus Blesses Children",    "file": "/assets/loops/jesus-children.webm",      "ref": "Mark 10:16",         "week": 6 },
-
-  { "id": 85, "title": "Palm Sunday Entry",         "file": "/assets/loops/palm-sunday.webm",         "ref": "Matthew 21:9",       "week": 7 },
-  { "id": 86, "title": "Last Supper Table",         "file": "/assets/loops/last-supper.webm",         "ref": "Luke 22:19",         "week": 7 },
-  { "id": 87, "title": "Garden of Gethsemane",      "file": "/assets/loops/gethsemane.webm",          "ref": "Matthew 26:39",      "week": 7 },
-  { "id": 88, "title": "Resurrection Morning",      "file": "/assets/loops/resurrection.webm",        "ref": "Matthew 28:6",       "week": 7 },
-  { "id": 89, "title": "Road to Emmaus",            "file": "/assets/loops/road-emmaus.webm",         "ref": "Luke 24:31",         "week": 7 },
-  { "id": 90, "title": "Ascension Cloud",           "file": "/assets/loops/ascension.webm",           "ref": "Acts 1:9",           "week": 7 },
-  { "id": 91, "title": "Pentecost Wind Fire",        "file": "/assets/loops/pentecost.webm",           "ref": "Acts 2:3-4",         "week": 7 },
-  { "id": 92, "title": "Peter Heals Lame Man",      "file": "/assets/loops/peter-lame.webm",          "ref": "Acts 3:8",           "week": 7 },
-  { "id": 93, "title": "Philip and the Ethiopian",  "file": "/assets/loops/philip-ethiopian.webm",    "ref": "Acts 8:38",          "week": 7 },
-  { "id": 94, "title": "Paul Damascus Road",        "file": "/assets/loops/paul-damascus.webm",       "ref": "Acts 9:3",           "week": 7 },
-  { "id": 95, "title": "Peter Vision Sheet",        "file": "/assets/loops/peter-vision.webm",        "ref": "Acts 10:28",         "week": 7 },
-  { "id": 96, "title": "Paul and Silas Sing",       "file": "/assets/loops/paul-silas.webm",          "ref": "Acts 16:25",         "week": 7 },
-
-  { "id": 97, "title": "Armor of God",              "file": "/assets/loops/armor-of-god.webm",        "ref": "Ephesians 6:11",     "week": 8 },
-  { "id": 98, "title": "Shield of Faith",           "file": "/assets/loops/shield-faith.webm",        "ref": "Ephesians 6:16",     "week": 8 },
-  { "id": 99, "title": "Helmet of Salvation",       "file": "/assets/loops/helmet-salvation.webm",    "ref": "Ephesians 6:17",     "week": 8 },
-  { "id": 100,"title": "Sword of the Spirit",       "file": "/assets/loops/sword-spirit.webm",        "ref": "Ephesians 6:17",     "week": 8 },
-  { "id": 101,"title": "Fruit of the Spirit",       "file": "/assets/loops/fruit-spirit.webm",        "ref": "Galatians 5:22",     "week": 8 },
-  { "id": 102,"title": "Love is Patient",           "file": "/assets/loops/love-patient.webm",        "ref": "1 Corinthians 13:4", "week": 8 },
-  { "id": 103,"title": "Faith Moves Mountains",     "file": "/assets/loops/faith-mountains.webm",     "ref": "Matthew 17:20",      "week": 8 },
-  { "id": 104,"title": "Jesus I Am the Way",        "file": "/assets/loops/jesus-way.webm",           "ref": "John 14:6",          "week": 8 },
-  { "id": 105,"title": "Jesus Light of World",      "file": "/assets/loops/jesus-light.webm",         "ref": "John 8:12",          "week": 8 },
-  { "id": 106,"title": "Jesus Good Shepherd",       "file": "/assets/loops/good-shepherd.webm",       "ref": "John 10:11",         "week": 8 },
-  { "id": 107,"title": "Parable of Talents",        "file": "/assets/loops/talents.webm",             "ref": "Matthew 25:21",      "week": 8 },
-  { "id": 108,"title": "Ten Virgins Lamps",         "file": "/assets/loops/ten-virgins.webm",         "ref": "Matthew 25:4",       "week": 8 },
-
-  { "id": 109,"title": "Stephen's Vision",          "file": "/assets/loops/stephen.webm",             "ref": "Acts 7:55",          "week": 9 },
-  { "id": 110,"title": "Cornelius and Peter",       "file": "/assets/loops/cornelius.webm",           "ref": "Acts 10:44",         "week": 9 },
-  { "id": 111,"title": "Lydia Purple Cloth",        "file": "/assets/loops/lydia.webm",               "ref": "Acts 16:14",         "week": 9 },
-  { "id": 112,"title": "Paul Athens Speech",        "file": "/assets/loops/paul-athens.webm",         "ref": "Acts 17:28",         "week": 9 },
-  { "id": 113,"title": "Paul Shipwreck",            "file": "/assets/loops/paul-shipwreck.webm",      "ref": "Acts 27:44",         "week": 9 },
-  { "id": 114,"title": "Paul Malta Snake",          "file": "/assets/loops/paul-snake.webm",          "ref": "Acts 28:5",          "week": 9 },
-  { "id": 115,"title": "John's Revelation Throne",  "file": "/assets/loops/revelation-throne.webm",   "ref": "Revelation 4:2",     "week": 9 },
-  { "id": 116,"title": "Four Horsemen",             "file": "/assets/loops/four-horsemen.webm",       "ref": "Revelation 6:2",     "week": 9 },
-  { "id": 117,"title": "Michael Casts Dragon",      "file": "/assets/loops/michael-dragon.webm",      "ref": "Revelation 12:9",    "week": 9 },
-  { "id": 118,"title": "New Jerusalem City",        "file": "/assets/loops/new-jerusalem.webm",       "ref": "Revelation 21:2",    "week": 9 },
-  { "id": 119,"title": "Tree of Life",              "file": "/assets/loops/tree-of-life.webm",        "ref": "Revelation 22:2",    "week": 9 },
-  { "id": 120,"title": "Alpha and Omega",           "file": "/assets/loops/alpha-omega.webm",         "ref": "Revelation 22:13",   "week": 9 },
-
-  { "id": 121,"title": "Rahab Red Rope",            "file": "/assets/loops/rahab.webm",               "ref": "Joshua 2:21",        "week": 10 },
-  { "id": 122,"title": "Deborah Leads Victory",     "file": "/assets/loops/deborah.webm",             "ref": "Judges 4:14",        "week": 10 },
-  { "id": 123,"title": "Jephthah's Daughter Dance", "file": "/assets/loops/jephthah-daughter.webm",   "ref": "Judges 11:34",       "week": 10 },
-  { "id": 124,"title": "Ruth and Boaz Kindness",    "file": "/assets/loops/ruth-boaz.webm",           "ref": "Ruth 2:8",           "week": 10 },
-  { "id": 125,"title": "Abigail Wisdom",            "file": "/assets/loops/abigail.webm",             "ref": "1 Samuel 25:32",     "week": 10 },
-  { "id": 126,"title": "Bathsheba and Solomon",     "file": "/assets/loops/bathsheba-solomon.webm",   "ref": "1 Kings 1:30",       "week": 10 },
-  { "id": 127,"title": "Jehoshaphat Singers",       "file": "/assets/loops/jehoshaphat.webm",         "ref": "2 Chronicles 20:22", "week": 10 },
-  { "id": 128,"title": "Jabez Prayer",              "file": "/assets/loops/jabez.webm",               "ref": "1 Chronicles 4:10",  "week": 10 },
-  { "id": 129,"title": "Job Restored",              "file": "/assets/loops/job-restored.webm",        "ref": "Job 42:10",          "week": 10 },
-  { "id": 130,"title": "Proverbs Wise Child",       "file": "/assets/loops/proverbs-child.webm",      "ref": "Proverbs 22:6",      "week": 10 },
-  { "id": 131,"title": "Song of Songs Garden",      "file": "/assets/loops/song-garden.webm",         "ref": "Song of Solomon 2:1","week": 10 },
-  { "id": 132,"title": "Psalm 150 Praise",          "file": "/assets/loops/psalm-150.webm",           "ref": "Psalm 150:6",        "week": 10 },
-
-  { "id": 133,"title": "Anna the Prophetess",       "file": "/assets/loops/anna.webm",                "ref": "Luke 2:36",          "week": 11 },
-  { "id": 134,"title": "Elizabeth Hears Mary",      "file": "/assets/loops/elizabeth.webm",           "ref": "Luke 1:44",          "week": 11 },
-  { "id": 135,"title": "Jesus Heals Woman",         "file": "/assets/loops/woman-healed.webm",        "ref": "Luke 8:48",          "week": 11 },
-  { "id": 136,"title": "Mary and Martha",           "file": "/assets/loops/mary-martha.webm",         "ref": "Luke 10:42",         "week": 11 },
-  { "id": 137,"title": "Mary Anoints Jesus",        "file": "/assets/loops/mary-anoints.webm",        "ref": "John 12:3",          "week": 11 },
-  { "id": 138,"title": "Mary at the Tomb",          "file": "/assets/loops/mary-tomb.webm",           "ref": "John 20:16",         "week": 11 },
-  { "id": 139,"title": "Priscilla Teaches Apollos", "file": "/assets/loops/priscilla.webm",           "ref": "Acts 18:26",         "week": 11 },
-  { "id": 140,"title": "Dorcas Raised",             "file": "/assets/loops/dorcas.webm",              "ref": "Acts 9:40",          "week": 11 },
-  { "id": 141,"title": "Phoebe Carries the Letter", "file": "/assets/loops/phoebe.webm",              "ref": "Romans 16:1",        "week": 11 },
-  { "id": 142,"title": "Lois and Eunice Faith",     "file": "/assets/loops/lois-eunice.webm",         "ref": "2 Timothy 1:5",      "week": 11 },
-  { "id": 143,"title": "Woman Who Found the Coin",  "file": "/assets/loops/lost-coin.webm",           "ref": "Luke 15:9",          "week": 11 },
-  { "id": 144,"title": "Persistent Widow Wins",     "file": "/assets/loops/persistent-widow.webm",    "ref": "Luke 18:7",          "week": 11 },
-
-  { "id": 145,"title": "Jesus Enters Bethany",      "file": "/assets/loops/bethany.webm",             "ref": "John 11:17",         "week": 12 },
-  { "id": 146,"title": "Disciples Sent Out",        "file": "/assets/loops/disciples-sent.webm",      "ref": "Luke 10:3",          "week": 12 },
-  { "id": 147,"title": "Parable of Net",            "file": "/assets/loops/parable-net.webm",         "ref": "Matthew 13:47",      "week": 12 },
-  { "id": 148,"title": "Parable of Pearl",          "file": "/assets/loops/parable-pearl.webm",       "ref": "Matthew 13:45-46",   "week": 12 },
-  { "id": 149,"title": "Feeding 4000",              "file": "/assets/loops/feeds-4000.webm",          "ref": "Mark 8:9",           "week": 12 },
-  { "id": 150,"title": "Parable of Two Sons",       "file": "/assets/loops/two-sons.webm",            "ref": "Matthew 21:31",      "week": 12 },
-  { "id": 151,"title": "Jesus Washes Feet",         "file": "/assets/loops/feet-washing.webm",        "ref": "John 13:5",          "week": 12 },
-  { "id": 152,"title": "Vine and Branches",         "file": "/assets/loops/vine-branches.webm",       "ref": "John 15:5",          "week": 12 },
-  { "id": 153,"title": "Great Commission",          "file": "/assets/loops/great-commission.webm",    "ref": "Matthew 28:19",      "week": 12 },
-  { "id": 154,"title": "Paul Writes in Prison",     "file": "/assets/loops/paul-prison.webm",         "ref": "Philippians 4:13",   "week": 12 },
-  { "id": 155,"title": "John Writes Revelation",    "file": "/assets/loops/john-writes.webm",         "ref": "Revelation 1:3",     "week": 12 },
-  { "id": 156,"title": "Lamb on the Throne",        "file": "/assets/loops/lamb-throne.webm",         "ref": "Revelation 5:12",    "week": 12 },
-  { "id": 157,"title": "144,000 Sealed",            "file": "/assets/loops/sealed-144k.webm",         "ref": "Revelation 7:4",     "week": 12 },
-  { "id": 158,"title": "River of Life",             "file": "/assets/loops/river-life.webm",          "ref": "Revelation 22:1",    "week": 12 },
-  { "id": 159,"title": "Come Lord Jesus",           "file": "/assets/loops/come-lord-jesus.webm",     "ref": "Revelation 22:20",   "week": 12 },
-  { "id": 160,"title": "Every Knee Shall Bow",      "file": "/assets/loops/every-knee.webm",          "ref": "Philippians 2:10",   "week": 12 }
+  {
+    "id": 1,
+    "title": "David vs Goliath",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 17:49",
+    "week": 0,
+    "kjvText": "David prevailed over the Philistine with a sling and with a stone."
+  },
+  {
+    "id": 2,
+    "title": "Noah Ark",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 7:7",
+    "week": 0,
+    "kjvText": "And Noah went in, and his sons, and his wife, and his sons' wives with him, into the ark."
+  },
+  {
+    "id": 3,
+    "title": "Jonah Whale",
+    "file": "",
+    "audio": "",
+    "ref": "Jonah 1:17",
+    "week": 0,
+    "kjvText": "Now the LORD had prepared a great fish to swallow up Jonah."
+  },
+  {
+    "id": 4,
+    "title": "Daniel and the Lions",
+    "file": "",
+    "audio": "",
+    "ref": "Daniel 6:22",
+    "week": 0,
+    "kjvText": "My God hath sent his angel, and hath shut the lions' mouths."
+  },
+  {
+    "id": 5,
+    "title": "Esther Crown",
+    "file": "",
+    "audio": "",
+    "ref": "Esther 4:14",
+    "week": 0,
+    "kjvText": "Who knoweth whether thou art come to the kingdom for such a time as this?"
+  },
+  {
+    "id": 6,
+    "title": "Joseph and the Coat",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 37:3",
+    "week": 0,
+    "kjvText": "Now Israel loved Joseph more than all his children, and he made him a coat of many colours."
+  },
+  {
+    "id": 7,
+    "title": "Samson and the Pillars",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 16:30",
+    "week": 0,
+    "kjvText": "Let me die with the Philistines. And he bowed himself with all his might."
+  },
+  {
+    "id": 8,
+    "title": "Ruth Gleans",
+    "file": "",
+    "audio": "",
+    "ref": "Ruth 2:2",
+    "week": 0,
+    "kjvText": "Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace."
+  },
+  {
+    "id": 9,
+    "title": "Baby Moses Basket",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 2:5",
+    "week": 0,
+    "kjvText": "And the daughter of Pharaoh came down to wash herself at the river, and she saw the ark among the flags."
+  },
+  {
+    "id": 10,
+    "title": "Jericho Walls Tumble",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 6:20",
+    "week": 0,
+    "kjvText": "So the people shouted with a great shout, and the wall fell down flat."
+  },
+  {
+    "id": 11,
+    "title": "Lazarus Rise",
+    "file": "",
+    "audio": "",
+    "ref": "John 11:43-44",
+    "week": 0,
+    "kjvText": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth."
+  },
+  {
+    "id": 12,
+    "title": "Jesus Calms the Boat",
+    "file": "",
+    "audio": "",
+    "ref": "Mark 4:39",
+    "week": 0,
+    "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still."
+  },
+  {
+    "id": 13,
+    "title": "Moses Sea-Split",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 14:21",
+    "week": 1
+  },
+  {
+    "id": 14,
+    "title": "Burning Bush",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 3:2",
+    "week": 1
+  },
+  {
+    "id": 15,
+    "title": "Ten Plagues",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 12:29",
+    "week": 1
+  },
+  {
+    "id": 16,
+    "title": "Manna from Heaven",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 16:15",
+    "week": 1
+  },
+  {
+    "id": 17,
+    "title": "Ten Commandments",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 20:1-2",
+    "week": 1
+  },
+  {
+    "id": 18,
+    "title": "Elijah Fire on Carmel",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 18:38",
+    "week": 1
+  },
+  {
+    "id": 19,
+    "title": "Elisha Oil Pots",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 4:6",
+    "week": 1
+  },
+  {
+    "id": 20,
+    "title": "Fiery Furnace Three",
+    "file": "",
+    "audio": "",
+    "ref": "Daniel 3:25",
+    "week": 1
+  },
+  {
+    "id": 21,
+    "title": "Naaman Washed Clean",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 5:14",
+    "week": 1
+  },
+  {
+    "id": 22,
+    "title": "Creation Day One",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 1:3",
+    "week": 1
+  },
+  {
+    "id": 23,
+    "title": "Adam and Eve Garden",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 2:15",
+    "week": 1
+  },
+  {
+    "id": 24,
+    "title": "Tower of Babel",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 11:4",
+    "week": 1
+  },
+  {
+    "id": 25,
+    "title": "Abraham and Isaac",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 22:12",
+    "week": 2
+  },
+  {
+    "id": 26,
+    "title": "Jacob Dream Ladder",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 28:12",
+    "week": 2
+  },
+  {
+    "id": 27,
+    "title": "Joseph in Prison",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 39:21",
+    "week": 2
+  },
+  {
+    "id": 28,
+    "title": "Joseph Pharaoh Dream",
+    "file": "",
+    "audio": "",
+    "ref": "Genesis 41:39-40",
+    "week": 2
+  },
+  {
+    "id": 29,
+    "title": "Moses Basket Found",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 2:10",
+    "week": 2
+  },
+  {
+    "id": 30,
+    "title": "Passover Door",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 12:13",
+    "week": 2
+  },
+  {
+    "id": 31,
+    "title": "Pillar of Fire",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 13:21",
+    "week": 2
+  },
+  {
+    "id": 32,
+    "title": "Water from the Rock",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 17:6",
+    "week": 2
+  },
+  {
+    "id": 33,
+    "title": "Golden Calf",
+    "file": "",
+    "audio": "",
+    "ref": "Exodus 32:4",
+    "week": 2
+  },
+  {
+    "id": 34,
+    "title": "Twelve Spies",
+    "file": "",
+    "audio": "",
+    "ref": "Numbers 13:27",
+    "week": 2
+  },
+  {
+    "id": 35,
+    "title": "Bronze Serpent",
+    "file": "",
+    "audio": "",
+    "ref": "Numbers 21:9",
+    "week": 2
+  },
+  {
+    "id": 36,
+    "title": "Balaam Donkey",
+    "file": "",
+    "audio": "",
+    "ref": "Numbers 22:28",
+    "week": 2
+  },
+  {
+    "id": 37,
+    "title": "Joshua Cross Jordan",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 3:17",
+    "week": 3
+  },
+  {
+    "id": 38,
+    "title": "Gideon Fleece",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 6:38",
+    "week": 3
+  },
+  {
+    "id": 39,
+    "title": "Gideon Three Hundred",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 7:21",
+    "week": 3
+  },
+  {
+    "id": 40,
+    "title": "Hannah Prayer",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 1:27",
+    "week": 3
+  },
+  {
+    "id": 41,
+    "title": "Samuel Called at Night",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 3:10",
+    "week": 3
+  },
+  {
+    "id": 42,
+    "title": "David Shepherd Boy",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 16:12",
+    "week": 3
+  },
+  {
+    "id": 43,
+    "title": "David and Jonathan",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 18:1",
+    "week": 3
+  },
+  {
+    "id": 44,
+    "title": "David Psalm of Praise",
+    "file": "",
+    "audio": "",
+    "ref": "Psalm 23:1",
+    "week": 3
+  },
+  {
+    "id": 45,
+    "title": "Solomon Wisdom Crown",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 3:12",
+    "week": 3
+  },
+  {
+    "id": 46,
+    "title": "Elijah Raven Fed",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 17:6",
+    "week": 3
+  },
+  {
+    "id": 47,
+    "title": "Elijah Still Small Voice",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 19:12",
+    "week": 3
+  },
+  {
+    "id": 48,
+    "title": "Elijah Chariot of Fire",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 2:11",
+    "week": 3
+  },
+  {
+    "id": 49,
+    "title": "Elisha Raises a Boy",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 4:35",
+    "week": 4
+  },
+  {
+    "id": 50,
+    "title": "Hezekiah Sundial",
+    "file": "",
+    "audio": "",
+    "ref": "2 Kings 20:11",
+    "week": 4
+  },
+  {
+    "id": 51,
+    "title": "Nehemiah Builds Wall",
+    "file": "",
+    "audio": "",
+    "ref": "Nehemiah 4:6",
+    "week": 4
+  },
+  {
+    "id": 52,
+    "title": "Ezra Reads the Law",
+    "file": "",
+    "audio": "",
+    "ref": "Nehemiah 8:8",
+    "week": 4
+  },
+  {
+    "id": 53,
+    "title": "Jonah Preaches Nineveh",
+    "file": "",
+    "audio": "",
+    "ref": "Jonah 3:5",
+    "week": 4
+  },
+  {
+    "id": 54,
+    "title": "Isaiah Vision Throne",
+    "file": "",
+    "audio": "",
+    "ref": "Isaiah 6:1",
+    "week": 4
+  },
+  {
+    "id": 55,
+    "title": "Jeremiah Scroll",
+    "file": "",
+    "audio": "",
+    "ref": "Jeremiah 1:9",
+    "week": 4
+  },
+  {
+    "id": 56,
+    "title": "Valley of Dry Bones",
+    "file": "",
+    "audio": "",
+    "ref": "Ezekiel 37:10",
+    "week": 4
+  },
+  {
+    "id": 57,
+    "title": "Daniel Reads the Wall",
+    "file": "",
+    "audio": "",
+    "ref": "Daniel 5:25",
+    "week": 4
+  },
+  {
+    "id": 58,
+    "title": "Joel River of Spirit",
+    "file": "",
+    "audio": "",
+    "ref": "Joel 2:28",
+    "week": 4
+  },
+  {
+    "id": 59,
+    "title": "Micah Bethlehem Star",
+    "file": "",
+    "audio": "",
+    "ref": "Micah 5:2",
+    "week": 4
+  },
+  {
+    "id": 60,
+    "title": "Malachi Sun of Healing",
+    "file": "",
+    "audio": "",
+    "ref": "Malachi 4:2",
+    "week": 4
+  },
+  {
+    "id": 61,
+    "title": "Angel Visits Mary",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 1:31",
+    "week": 5
+  },
+  {
+    "id": 62,
+    "title": "Jesus Birth Manger",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 2:7",
+    "week": 5
+  },
+  {
+    "id": 63,
+    "title": "Shepherds and Angels",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 2:13-14",
+    "week": 5
+  },
+  {
+    "id": 64,
+    "title": "Three Wise Men",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 2:11",
+    "week": 5
+  },
+  {
+    "id": 65,
+    "title": "Jesus Temple at Twelve",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 2:46",
+    "week": 5
+  },
+  {
+    "id": 66,
+    "title": "John Baptizes Jesus",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 3:16",
+    "week": 5
+  },
+  {
+    "id": 67,
+    "title": "Jesus Wilderness Fast",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 4:11",
+    "week": 5
+  },
+  {
+    "id": 68,
+    "title": "Jesus Calls Disciples",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 4:19",
+    "week": 5
+  },
+  {
+    "id": 69,
+    "title": "Jesus Wedding Miracle",
+    "file": "",
+    "audio": "",
+    "ref": "John 2:9",
+    "week": 5
+  },
+  {
+    "id": 70,
+    "title": "Sermon on the Mount",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 5:3",
+    "week": 5
+  },
+  {
+    "id": 71,
+    "title": "Lord's Prayer",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 6:9",
+    "week": 5
+  },
+  {
+    "id": 72,
+    "title": "Jesus Heals Blind Man",
+    "file": "",
+    "audio": "",
+    "ref": "John 9:7",
+    "week": 5
+  },
+  {
+    "id": 73,
+    "title": "Jesus Heals Leper",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 17:14",
+    "week": 6
+  },
+  {
+    "id": 74,
+    "title": "Jesus Feeds 5000",
+    "file": "",
+    "audio": "",
+    "ref": "John 6:11",
+    "week": 6
+  },
+  {
+    "id": 75,
+    "title": "Jesus Walks on Water",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 14:29",
+    "week": 6
+  },
+  {
+    "id": 76,
+    "title": "Parable of the Sower",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 13:8",
+    "week": 6
+  },
+  {
+    "id": 77,
+    "title": "Good Samaritan",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 10:33",
+    "week": 6
+  },
+  {
+    "id": 78,
+    "title": "Lost Sheep Found",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 15:5",
+    "week": 6
+  },
+  {
+    "id": 79,
+    "title": "Prodigal Son Return",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 15:20",
+    "week": 6
+  },
+  {
+    "id": 80,
+    "title": "Zacchaeus Tree Climb",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 19:5",
+    "week": 6
+  },
+  {
+    "id": 81,
+    "title": "Rich Young Ruler",
+    "file": "",
+    "audio": "",
+    "ref": "Mark 10:21",
+    "week": 6
+  },
+  {
+    "id": 82,
+    "title": "Widow's Mite",
+    "file": "",
+    "audio": "",
+    "ref": "Mark 12:44",
+    "week": 6
+  },
+  {
+    "id": 83,
+    "title": "Transfiguration Glow",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 17:2",
+    "week": 6
+  },
+  {
+    "id": 84,
+    "title": "Jesus Blesses Children",
+    "file": "",
+    "audio": "",
+    "ref": "Mark 10:16",
+    "week": 6
+  },
+  {
+    "id": 85,
+    "title": "Palm Sunday Entry",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 21:9",
+    "week": 7
+  },
+  {
+    "id": 86,
+    "title": "Last Supper Table",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 22:19",
+    "week": 7
+  },
+  {
+    "id": 87,
+    "title": "Garden of Gethsemane",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 26:39",
+    "week": 7
+  },
+  {
+    "id": 88,
+    "title": "Resurrection Morning",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 28:6",
+    "week": 7
+  },
+  {
+    "id": 89,
+    "title": "Road to Emmaus",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 24:31",
+    "week": 7
+  },
+  {
+    "id": 90,
+    "title": "Ascension Cloud",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 1:9",
+    "week": 7
+  },
+  {
+    "id": 91,
+    "title": "Pentecost Wind Fire",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 2:3-4",
+    "week": 7
+  },
+  {
+    "id": 92,
+    "title": "Peter Heals Lame Man",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 3:8",
+    "week": 7
+  },
+  {
+    "id": 93,
+    "title": "Philip and the Ethiopian",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 8:38",
+    "week": 7
+  },
+  {
+    "id": 94,
+    "title": "Paul Damascus Road",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 9:3",
+    "week": 7
+  },
+  {
+    "id": 95,
+    "title": "Peter Vision Sheet",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 10:28",
+    "week": 7
+  },
+  {
+    "id": 96,
+    "title": "Paul and Silas Sing",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 16:25",
+    "week": 7
+  },
+  {
+    "id": 97,
+    "title": "Armor of God",
+    "file": "",
+    "audio": "",
+    "ref": "Ephesians 6:11",
+    "week": 8
+  },
+  {
+    "id": 98,
+    "title": "Shield of Faith",
+    "file": "",
+    "audio": "",
+    "ref": "Ephesians 6:16",
+    "week": 8
+  },
+  {
+    "id": 99,
+    "title": "Helmet of Salvation",
+    "file": "",
+    "audio": "",
+    "ref": "Ephesians 6:17",
+    "week": 8
+  },
+  {
+    "id": 100,
+    "title": "Sword of the Spirit",
+    "file": "",
+    "audio": "",
+    "ref": "Ephesians 6:17",
+    "week": 8
+  },
+  {
+    "id": 101,
+    "title": "Fruit of the Spirit",
+    "file": "",
+    "audio": "",
+    "ref": "Galatians 5:22",
+    "week": 8
+  },
+  {
+    "id": 102,
+    "title": "Love is Patient",
+    "file": "",
+    "audio": "",
+    "ref": "1 Corinthians 13:4",
+    "week": 8
+  },
+  {
+    "id": 103,
+    "title": "Faith Moves Mountains",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 17:20",
+    "week": 8
+  },
+  {
+    "id": 104,
+    "title": "Jesus I Am the Way",
+    "file": "",
+    "audio": "",
+    "ref": "John 14:6",
+    "week": 8
+  },
+  {
+    "id": 105,
+    "title": "Jesus Light of World",
+    "file": "",
+    "audio": "",
+    "ref": "John 8:12",
+    "week": 8
+  },
+  {
+    "id": 106,
+    "title": "Jesus Good Shepherd",
+    "file": "",
+    "audio": "",
+    "ref": "John 10:11",
+    "week": 8
+  },
+  {
+    "id": 107,
+    "title": "Parable of Talents",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 25:21",
+    "week": 8
+  },
+  {
+    "id": 108,
+    "title": "Ten Virgins Lamps",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 25:4",
+    "week": 8
+  },
+  {
+    "id": 109,
+    "title": "Stephen's Vision",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 7:55",
+    "week": 9
+  },
+  {
+    "id": 110,
+    "title": "Cornelius and Peter",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 10:44",
+    "week": 9
+  },
+  {
+    "id": 111,
+    "title": "Lydia Purple Cloth",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 16:14",
+    "week": 9
+  },
+  {
+    "id": 112,
+    "title": "Paul Athens Speech",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 17:28",
+    "week": 9
+  },
+  {
+    "id": 113,
+    "title": "Paul Shipwreck",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 27:44",
+    "week": 9
+  },
+  {
+    "id": 114,
+    "title": "Paul Malta Snake",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 28:5",
+    "week": 9
+  },
+  {
+    "id": 115,
+    "title": "John's Revelation Throne",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 4:2",
+    "week": 9
+  },
+  {
+    "id": 116,
+    "title": "Four Horsemen",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 6:2",
+    "week": 9
+  },
+  {
+    "id": 117,
+    "title": "Michael Casts Dragon",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 12:9",
+    "week": 9
+  },
+  {
+    "id": 118,
+    "title": "New Jerusalem City",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 21:2",
+    "week": 9
+  },
+  {
+    "id": 119,
+    "title": "Tree of Life",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 22:2",
+    "week": 9
+  },
+  {
+    "id": 120,
+    "title": "Alpha and Omega",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 22:13",
+    "week": 9
+  },
+  {
+    "id": 121,
+    "title": "Rahab Red Rope",
+    "file": "",
+    "audio": "",
+    "ref": "Joshua 2:21",
+    "week": 10
+  },
+  {
+    "id": 122,
+    "title": "Deborah Leads Victory",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 4:14",
+    "week": 10
+  },
+  {
+    "id": 123,
+    "title": "Jephthah's Daughter Dance",
+    "file": "",
+    "audio": "",
+    "ref": "Judges 11:34",
+    "week": 10
+  },
+  {
+    "id": 124,
+    "title": "Ruth and Boaz Kindness",
+    "file": "",
+    "audio": "",
+    "ref": "Ruth 2:8",
+    "week": 10
+  },
+  {
+    "id": 125,
+    "title": "Abigail Wisdom",
+    "file": "",
+    "audio": "",
+    "ref": "1 Samuel 25:32",
+    "week": 10
+  },
+  {
+    "id": 126,
+    "title": "Bathsheba and Solomon",
+    "file": "",
+    "audio": "",
+    "ref": "1 Kings 1:30",
+    "week": 10
+  },
+  {
+    "id": 127,
+    "title": "Jehoshaphat Singers",
+    "file": "",
+    "audio": "",
+    "ref": "2 Chronicles 20:22",
+    "week": 10
+  },
+  {
+    "id": 128,
+    "title": "Jabez Prayer",
+    "file": "",
+    "audio": "",
+    "ref": "1 Chronicles 4:10",
+    "week": 10
+  },
+  {
+    "id": 129,
+    "title": "Job Restored",
+    "file": "",
+    "audio": "",
+    "ref": "Job 42:10",
+    "week": 10
+  },
+  {
+    "id": 130,
+    "title": "Proverbs Wise Child",
+    "file": "",
+    "audio": "",
+    "ref": "Proverbs 22:6",
+    "week": 10
+  },
+  {
+    "id": 131,
+    "title": "Song of Songs Garden",
+    "file": "",
+    "audio": "",
+    "ref": "Song of Solomon 2:1",
+    "week": 10
+  },
+  {
+    "id": 132,
+    "title": "Psalm 150 Praise",
+    "file": "",
+    "audio": "",
+    "ref": "Psalm 150:6",
+    "week": 10
+  },
+  {
+    "id": 133,
+    "title": "Anna the Prophetess",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 2:36",
+    "week": 11
+  },
+  {
+    "id": 134,
+    "title": "Elizabeth Hears Mary",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 1:44",
+    "week": 11
+  },
+  {
+    "id": 135,
+    "title": "Jesus Heals Woman",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 8:48",
+    "week": 11
+  },
+  {
+    "id": 136,
+    "title": "Mary and Martha",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 10:42",
+    "week": 11
+  },
+  {
+    "id": 137,
+    "title": "Mary Anoints Jesus",
+    "file": "",
+    "audio": "",
+    "ref": "John 12:3",
+    "week": 11
+  },
+  {
+    "id": 138,
+    "title": "Mary at the Tomb",
+    "file": "",
+    "audio": "",
+    "ref": "John 20:16",
+    "week": 11
+  },
+  {
+    "id": 139,
+    "title": "Priscilla Teaches Apollos",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 18:26",
+    "week": 11
+  },
+  {
+    "id": 140,
+    "title": "Dorcas Raised",
+    "file": "",
+    "audio": "",
+    "ref": "Acts 9:40",
+    "week": 11
+  },
+  {
+    "id": 141,
+    "title": "Phoebe Carries the Letter",
+    "file": "",
+    "audio": "",
+    "ref": "Romans 16:1",
+    "week": 11
+  },
+  {
+    "id": 142,
+    "title": "Lois and Eunice Faith",
+    "file": "",
+    "audio": "",
+    "ref": "2 Timothy 1:5",
+    "week": 11
+  },
+  {
+    "id": 143,
+    "title": "Woman Who Found the Coin",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 15:9",
+    "week": 11
+  },
+  {
+    "id": 144,
+    "title": "Persistent Widow Wins",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 18:7",
+    "week": 11
+  },
+  {
+    "id": 145,
+    "title": "Jesus Enters Bethany",
+    "file": "",
+    "audio": "",
+    "ref": "John 11:17",
+    "week": 12
+  },
+  {
+    "id": 146,
+    "title": "Disciples Sent Out",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 10:3",
+    "week": 12
+  },
+  {
+    "id": 147,
+    "title": "Parable of Net",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 13:47",
+    "week": 12
+  },
+  {
+    "id": 148,
+    "title": "Parable of Pearl",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 13:45-46",
+    "week": 12
+  },
+  {
+    "id": 149,
+    "title": "Feeding 4000",
+    "file": "",
+    "audio": "",
+    "ref": "Mark 8:9",
+    "week": 12
+  },
+  {
+    "id": 150,
+    "title": "Parable of Two Sons",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 21:31",
+    "week": 12
+  },
+  {
+    "id": 151,
+    "title": "Jesus Washes Feet",
+    "file": "",
+    "audio": "",
+    "ref": "John 13:5",
+    "week": 12
+  },
+  {
+    "id": 152,
+    "title": "Vine and Branches",
+    "file": "",
+    "audio": "",
+    "ref": "John 15:5",
+    "week": 12
+  },
+  {
+    "id": 153,
+    "title": "Great Commission",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 28:19",
+    "week": 12
+  },
+  {
+    "id": 154,
+    "title": "Paul Writes in Prison",
+    "file": "",
+    "audio": "",
+    "ref": "Philippians 4:13",
+    "week": 12
+  },
+  {
+    "id": 155,
+    "title": "John Writes Revelation",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 1:3",
+    "week": 12
+  },
+  {
+    "id": 156,
+    "title": "Lamb on the Throne",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 5:12",
+    "week": 12
+  },
+  {
+    "id": 157,
+    "title": "144,000 Sealed",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 7:4",
+    "week": 12
+  },
+  {
+    "id": 158,
+    "title": "River of Life",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 22:1",
+    "week": 12
+  },
+  {
+    "id": 159,
+    "title": "Come Lord Jesus",
+    "file": "",
+    "audio": "",
+    "ref": "Revelation 22:20",
+    "week": 12
+  },
+  {
+    "id": 160,
+    "title": "Every Knee Shall Bow",
+    "file": "",
+    "audio": "",
+    "ref": "Philippians 2:10",
+    "week": 12
+  }
 ]

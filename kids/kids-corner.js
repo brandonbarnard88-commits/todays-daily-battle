@@ -15,7 +15,18 @@
       try {
         el.innerHTML = pol.createHTML(s);
         return;
-      } catch (_) {}
+      } catch (_) {
+        try {
+          var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
+            ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
+            : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+          el.innerHTML = pol.createHTML(wash);
+          return;
+        } catch (_) {
+          try { el.innerHTML = pol.createHTML(''); } catch (__) {}
+          return;
+        }
+      }
     }
     el.innerHTML = s;
   }
@@ -41,9 +52,9 @@
       if (str === prev) break;
     }
     try {
-      var t = document.createElement('textarea');
-      t.innerHTML = str;
-      var out = t.value;
+      var span = document.createElement('span');
+      tdbSetHtml(span, str);
+      var out = span.textContent;
       if (typeof out === 'string') return out;
     } catch (_) {}
     return str;

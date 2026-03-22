@@ -140,6 +140,7 @@ const rootFiles = [
   'verse-image.js',
   'profile.js',
   'loop-feedback-config.js',
+  'loops.json',
   'avatar-topic-system.js',
   'curriculum.json',
   'characters.json',

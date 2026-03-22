@@ -6285,89 +6285,90 @@
     "prayer": "God, thank You for forgiving me. Help me forgive others from the heart. Amen."
   },
   "fourHorsemen": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 6:1–8",
     "paragraphs": [
-      "The Four Horsemen.",
-      "We read about this in the Bible.",
-      "Even big scary things are in God's hands!",
-      "He knows the end—and He wins.",
-      "We learn from God and how God cares for John."
+      "John saw: when the Lamb opened the first seal, a white horse came forth. He that sat on him had a bow; and a crown was given unto him, and he went forth conquering.",
+      "When the Lamb opened the second seal, a red horse came; power was given to him that sat thereon to take peace from the earth, and that they should kill one another.",
+      "The third seal: a black horse; he that sat on him had a pair of balances in his hand — a measure of wheat for a penny, famine prices.",
+      "The fourth seal: a pale horse; his name that sat on him was Death, and Hell followed with him.",
+      "Big visions can feel heavy, but God showed John these things so we would know His Son opens history — God is still on the throne, and the Lamb is worthy."
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: Lamb opening first seal, white horse rider with bow and crown, no text",
+      "fun kid illustration: red horse rider, peace taken from earth, people in strife, no text",
+      "colorful Bible scene for children: black horse with balances, famine prices, no text",
+      "exciting cartoon: pale horse named Death, solemn scene, no text",
+      "hopeful ending illustration: glorified Lamb on throne, light and peace, sovereignty, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "Four horses — the Lamb opens the seals!",
+    "quizHeading": "Four Horsemen Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What was the first horse’s color?",
         "choices": [
-          "the Bible",
-          "Revelation 4–5",
-          "1 Samuel 18",
-          "Mark 12"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Philip",
-          "God the Father",
-          "David",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "Even big scary things are in God's hands! He knows the end—and He wins.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Even big scary things are in God's hands! He knows the end—and He wins..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A spaceship landed in the parking lot.",
-          "The Lamb opens four seals",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "Red",
+          "White",
+          "Black",
+          "Pale"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes! A white horse came first.",
+        "wrongFeedback": "John saw a white horse when the first seal was opened (Revelation 6:2)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did the rider on the red horse have power to do?",
         "choices": [
-          "Even big scary things are in God's hands! He knows the end—and He wins.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong."
+          "Plant crops",
+          "Take peace from the earth",
+          "Heal the sick",
+          "Build cities"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Even big scary things are in God's hands! He knows the end—and He wins..)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! Power was given to take peace from the earth.",
+        "wrongFeedback": "Power was given to him that sat thereon to take peace from the earth (Revelation 6:4)."
+      },
+      {
+        "question": "What did the rider on the black horse hold?",
+        "choices": [
+          "A sword",
+          "A pair of balances (scales)",
+          "A crown",
+          "A lamp"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! A pair of balances — famine prices.",
+        "wrongFeedback": "He that sat on him had a pair of balances in his hand (Revelation 6:5)."
+      },
+      {
+        "question": "What was the name of the one who sat on the pale horse?",
+        "choices": [
+          "Peace",
+          "Death",
+          "Life",
+          "Hope"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! His name was Death.",
+        "wrongFeedback": "His name that sat on him was Death, and Hell followed with him (Revelation 6:8)."
+      },
+      {
+        "question": "What can we learn from the four horsemen?",
+        "choices": [
+          "God is surprised",
+          "God holds history — the Lamb opens the seals according to God's plan",
+          "Seals are pretend",
+          "We should fear the Lamb"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! God is never surprised — the Lamb is worthy and true.",
+        "wrongFeedback": "The Lamb opens the seals — God is sovereign over judgment and mercy (Revelation 5–6)."
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Four Horsemen with God's Word today.",
-    "takeaway": "Even big scary things are in God's hands! He knows the end—and He wins.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Four Horsemen. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Lamb opens four seals (horsemen)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four horses come: white, red, black, pale (revelation 6)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God shows what will happen—He is in control! (seals)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The Lamb opens four seals (white)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Four horses come: white, red, black, pale (red)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God holds history!",
+    "takeaway": "The Lamb opens the seals — God is sovereign over judgment and mercy.",
+    "prayer": "Lord Jesus, help me trust Thee when life feels hard. Thou art worthy. Amen."
   },
   "fruitSpirit": {
     "kjvRef": "Galatians 5:22–23",
@@ -7402,89 +7403,90 @@
     "prayer": "Jesus, thank You for Your healing power. Help me trust You. Amen."
   },
   "heavenDoor": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 3:20",
     "paragraphs": [
-      "The Door to Heaven.",
-      "We read about this in the Bible.",
-      "Jesus is knocking right now!",
-      "Open the door—He wants to come in and stay.",
-      "We learn from Jesus and how God cares for The church."
+      "Jesus had tender words for seven churches in Asia — some were faithful, and some needed to hear the truth again.",
+      "To the church at Laodicea Jesus said they were lukewarm: not cold and not hot. He rebuked them and said, As many as I love, I rebuke and chasten.",
+      "Then He made a promise: Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him, and will sup with him, and he with me.",
+      "He is not far away. He knocks — and He waits for someone to hear, open, and welcome Him.",
+      "That is Jesus today: He calls to sinners. If you open the door of your heart, He comes in to fellowship with you."
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: Jesus gently knocking at a wooden door, warm light, no text",
+      "fun kid illustration: child listening at door, heart softened, hearing His voice, no text",
+      "colorful Bible scene for children: table fellowship, bread, simple meal with Jesus, no text",
+      "exciting cartoon: night city of Laodicea, church lamp, door closed then opening, no text",
+      "hopeful ending illustration: open door, Jesus welcomed in, joy and peace, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "Jesus knocks — will you open the door?",
+    "quizHeading": "The Door Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What does Jesus say He does at the door?",
         "choices": [
-          "the Bible",
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Genesis 40",
-          "Luke 24:50–53; Acts 1:6–11"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Peter",
-          "Jesus",
-          "God the Father",
-          "The apostles"
+          "He breaks the door down",
+          "He stands at the door and knocks",
+          "He walks away forever",
+          "He hides"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes! I stand at the door, and knock (Revelation 3:20).",
+        "wrongFeedback": "Behold, I stand at the door, and knock (Revelation 3:20)."
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "What must we do to open the door?",
         "choices": [
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "Jesus is knocking right now! Open the door—He wants to come in and stay.",
-          "We should hide from God when we mess up."
+          "Be loud and proud",
+          "Hear His voice and open the door",
+          "Buy gold only",
+          "Stay lukewarm"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus is knocking right now! Open the door—He wants to come in and stay..)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! Hear His voice and open the door.",
+        "wrongFeedback": "If any man hear my voice, and open the door, I will come in to him (Revelation 3:20)."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What does Jesus promise if we open the door?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "Jesus says: I stand at the door and knock"
+          "He will leave at once",
+          "He will come in and sup with him",
+          "Nothing changes",
+          "He will only rebuke"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes! I will come in to him, and will sup with him, and he with me.",
+        "wrongFeedback": "I will come in to him, and will sup with him, and he with me (Revelation 3:20)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Which church heard this promise about the door?",
         "choices": [
-          "Jesus is knocking right now! Open the door—He wants to come in and stay.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Ignore God until we are older."
+          "Ephesus only",
+          "Laodicea",
+          "Jerusalem only",
+          "Rome"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus is knocking right now! Open the door—He wants to come in and stay..)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes! These things saith the Amen… unto the church of the Laodiceans (Revelation 3:14–22).",
+        "wrongFeedback": "The letter to the church of the Laodiceans includes this promise (Revelation 3:14–22)."
+      },
+      {
+        "question": "What can we learn from the door?",
+        "choices": [
+          "Jesus never wants to come in",
+          "Jesus calls to sinners — open the door to Him",
+          "Do not listen",
+          "Do not pray"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! Jesus knocks — He invites us to fellowship with Him.",
+        "wrongFeedback": "If any man hear my voice, and open the door, I will come in to him (Revelation 3:20)."
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Door to Heaven with God's Word today.",
-    "takeaway": "Jesus is knocking right now! Open the door—He wants to come in and stay.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Door to Heaven. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: I stand at the door and knock (door)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: If anyone opens—I will come in! (knock)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Open the door to Jesus—He is waiting! (revelation 3)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: I stand at the door and knock (come in)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: If anyone opens—I will come in! (heart)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — open the door to Jesus!",
+    "takeaway": "Jesus knocks — hear His voice and welcome Him.",
+    "prayer": "Jesus, thank You for knocking. I open my heart’s door to You. Amen."
   },
   "heavenPromise": {
     "kjvRef": "Revelation 21:1–5",
@@ -19093,89 +19095,90 @@
     "prayer": "Lord Jesus, I worship Thee. Keep me faithful to Thee alone. Amen."
   },
   "revelationBride": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 19:7–9; 21:2",
     "paragraphs": [
-      "The Lamb and His Bride.",
-      "We read about this in the Bible.",
-      "The best day is coming—Jesus' wedding feast!",
-      "All who believe are invited—that means you!",
-      "We learn from God and how God cares for All His people."
+      "John heard a great voice in heaven: Let us be glad and rejoice; for the marriage of the Lamb is come, and his wife hath made herself ready.",
+      "To her was granted that she should be arrayed in fine linen, clean and white — the linen is the righteousness of saints.",
+      "Blessed are they which are called unto the marriage supper of the Lamb. These are the true sayings of God.",
+      "Later John saw the holy city, new Jerusalem, coming down from God out of heaven, prepared as a bride adorned for her husband.",
+      "God is the Bridegroom of His people — Jesus will dwell with His church forever. That is the best day to hope for!"
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: heavenly joy, wedding celebration, marriage of the Lamb, no text",
+      "fun kid illustration: white linen robes, righteous saints, clean and bright, no text",
+      "colorful Bible scene for children: blessed guests called to supper, feast of joy, no text",
+      "exciting cartoon: holy city New Jerusalem descending, bride adorned like a wedding, no text",
+      "hopeful ending illustration: Lamb and His people together forever, God dwelling with them, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "The marriage of the Lamb — the best day!",
+    "quizHeading": "Lamb and Bride Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What was called to come?",
         "choices": [
-          "the Bible",
-          "1 Samuel 3",
-          "Revelation 6–8:1",
-          "Matthew 28"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Priscilla",
-          "Mary",
-          "The Lord",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The best day is coming—Jesus' wedding feast! All who believe are invited—that means you!",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: The best day is coming—Jesus' wedding feast! All who believe are invited—that means you!.)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A spaceship landed in the parking lot.",
-          "The new city comes down—adorned like a bride",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "A war",
+          "The marriage of the Lamb",
+          "A storm",
+          "A new law"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes! The marriage of the Lamb is come (Revelation 19:7).",
+        "wrongFeedback": "The marriage of the Lamb is come, and his wife hath made herself ready (Revelation 19:7)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What was the fine linen like?",
         "choices": [
-          "The best day is coming—Jesus' wedding feast! All who believe are invited—that means you!",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Dirty and torn",
+          "Clean and white — the righteousness of saints",
+          "Rainbow only",
+          "Heavy gold only"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: The best day is coming—Jesus' wedding feast! All who believe are invited—that means you!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! Fine linen, clean and white — the righteousness of saints (Revelation 19:8).",
+        "wrongFeedback": "She was arrayed in fine linen, clean and white… the righteousness of saints (Revelation 19:8)."
+      },
+      {
+        "question": "Who are blessed?",
+        "choices": [
+          "Everyone who refuses",
+          "They which are called unto the marriage supper of the Lamb",
+          "Only angels",
+          "Only kings"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! Blessed are they which are called unto the marriage supper of the Lamb (Revelation 19:9).",
+        "wrongFeedback": "Blessed are they which are called unto the marriage supper of the Lamb (Revelation 19:9)."
+      },
+      {
+        "question": "How did John see the holy city?",
+        "choices": [
+          "Like a soldier",
+          "Prepared as a bride adorned for her husband",
+          "Like a dark tower",
+          "Hidden"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! Prepared as a bride adorned for her husband (Revelation 21:2).",
+        "wrongFeedback": "The holy city, new Jerusalem… prepared as a bride adorned for her husband (Revelation 21:2)."
+      },
+      {
+        "question": "What can we learn from the Lamb and the bride?",
+        "choices": [
+          "God forgets His people",
+          "God loves His church — His promise is forever",
+          "Weddings are meaningless",
+          "Hope is fake"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! God is faithful — His people will be with Him forever.",
+        "wrongFeedback": "Blessed is he that keepeth the sayings of the prophecy of this book (Revelation 22:7)."
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Lamb and His Bride with God's Word today.",
-    "takeaway": "The best day is coming—Jesus' wedding feast! All who believe are invited—that means you!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Lamb and His Bride. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The new city comes down—adorned like a bride (bride)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The marriage supper of the Lamb! (lamb)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God with His people—forever and ever! (revelation 21)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The new city comes down—adorned like a bride (wedding)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The marriage supper of the Lamb! (supper)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — blessed is the Lamb!",
+    "takeaway": "God is faithful — His people will feast with Him forever.",
+    "prayer": "Jesus, thank You for loving Your church. Come soon, Lord. Amen."
   },
   "revelationLetters": {
     "kjvRef": "Revelation 1–3",
@@ -20210,89 +20213,90 @@
     "prayer": "Jesus, help me follow You above everything. Amen."
   },
   "riverOfLife": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 22:1",
     "paragraphs": [
-      "The River of Life.",
-      "We read about this in the Bible.",
-      "Living water flows from God forever!",
-      "Come to Him—He is the source of all life.",
-      "We learn from God and how God cares for All His people."
+      "John saw a pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb.",
+      "In the midst of the street of it, and on either side of the river, was there the tree of life.",
+      "The river is not a small puddle — it flows from God’s throne. Life flows from God forever.",
+      "No one can buy this river with money; it is God’s gift to the people whose names are written in the Lamb’s book of life.",
+      "Jesus called Himself living water on earth — in the new city, that water is forever free and full."
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: crystal-clear river flowing from God’s throne and the Lamb, no text",
+      "fun kid illustration: city street with river of life, tree on both banks, no text",
+      "colorful Bible scene for children: light and water reflecting God’s glory, no text",
+      "exciting cartoon: people drinking from living water, joy, no text",
+      "hopeful ending illustration: throne, Lamb, river forever, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "The river of life flows from God's throne!",
+    "quizHeading": "River of Life Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Where did the river of life come from?",
         "choices": [
-          "the Bible",
-          "Daniel 6:22",
-          "Acts 1:6–11",
-          "2 Kings 2:19–22; 4:1–7; 4:8–37; 5"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Paul",
-          "The crowds",
-          "Holy Spirit",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "Living water flows from God forever! Come to Him—He is the source of all life.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Living water flows from God forever! Come to Him—He is the source of all life..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A spaceship landed in the parking lot.",
-          "A crystal-clear river flows from the throne",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "Out of the sea only",
+          "Out of the throne of God and of the Lamb",
+          "A broken well",
+          "A mountain only"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes! Proceeding out of the throne of God and of the Lamb (Revelation 22:1).",
+        "wrongFeedback": "The angel showed a pure river of water of life… proceeding out of the throne of God and of the Lamb (Revelation 22:1)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What was the river like?",
         "choices": [
-          "Living water flows from God forever! Come to Him—He is the source of all life.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Muddy",
+          "Pure clear as crystal",
+          "Dry",
+          "Hidden"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Living water flows from God forever! Come to Him—He is the source of all life..)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! Pure, clear as crystal.",
+        "wrongFeedback": "A pure river of water of life, clear as crystal (Revelation 22:1)."
+      },
+      {
+        "question": "What grew beside the river?",
+        "choices": [
+          "Only grass",
+          "The tree of life on either side of the river",
+          "Thorns only",
+          "Walls only"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! In the midst… and on either side of the river, was there the tree of life (Revelation 22:2).",
+        "wrongFeedback": "On either side of the river, was there the tree of life (Revelation 22:2)."
+      },
+      {
+        "question": "Who may take the water of life?",
+        "choices": [
+          "Only the rich",
+          "Whosoever will — freely",
+          "No one",
+          "Only angels"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! Let him that is athirst come; whosoever will, let him take the water of life freely (Revelation 22:17).",
+        "wrongFeedback": "Whosoever will, let him take the water of life freely (Revelation 22:17)."
+      },
+      {
+        "question": "What can we learn from the river of life?",
+        "choices": [
+          "God runs out of mercy",
+          "God gives life that never runs dry — come to Jesus now",
+          "Water is useless",
+          "Never pray"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! Jesus is the source of living water forever.",
+        "wrongFeedback": "The river of life flows from God’s throne — His mercy is everlasting!"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The River of Life with God's Word today.",
-    "takeaway": "Living water flows from God forever! Come to Him—He is the source of all life.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The River of Life. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A crystal-clear river flows from the throne (river)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The tree of life grows on both banks (life)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's throne is there—eternal life! (revelation 22)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A crystal-clear river flows from the throne (crystal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The tree of life grows on both banks (throne)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — take the water of life freely!",
+    "takeaway": "God gives living water that never runs dry.",
+    "prayer": "Jesus, thank You for living water. Help me come to Thee today. Amen."
   },
   "roadToEmmaus": {
     "kjvRef": "Luke 24:13–35",
@@ -23390,89 +23394,90 @@
     ]
   },
   "treeOfLife": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 22:1–2",
     "paragraphs": [
-      "The Tree of Life.",
-      "We read about this in the Bible.",
-      "God's healing never runs out!",
-      "In His new world, everything is made whole.",
-      "We learn from God and how God cares for His people in the new creation."
+      "John saw the same river of life: in the midst of the street of it, and on either side of the river, was there the tree of life.",
+      "The tree of life bare twelve manner of fruits, and yielded her fruit every month — God never runs out of good fruit for His people.",
+      "The leaves of the tree were for the healing of the nations — God heals broken hearts and nations in His new creation.",
+      "There is no curse in that city — God will wipe every tear away.",
+      "From Eden to the new heaven, God planned to keep a tree of life for those who love Him — the best is still ahead!"
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: beautiful tree of life growing along river of life, twelve kinds of fruit, no text",
+      "fun kid illustration: fruit every month, bright colors, no text",
+      "colorful Bible scene for children: healing leaves, nations blessed, no text",
+      "exciting cartoon: no curse, no sorrow, joy in God's city, no text",
+      "hopeful ending illustration: tree of life with throne and Lamb in background, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "The tree of life bears fruit every month!",
+    "quizHeading": "Tree of Life Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Where did the tree of life grow?",
         "choices": [
-          "the Bible",
-          "Luke 17",
-          "Ezekiel 37:1–14",
-          "Acts 9:36–43"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Holy Spirit",
-          "God",
-          "Jesus",
-          "The Holy Ghost"
+          "On a mountain only",
+          "In the midst of the street and on either side of the river",
+          "Under the sea",
+          "Only in Eden"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Yes! In the midst… and on either side of the river, was there the tree of life.",
+        "wrongFeedback": "In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2)."
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "How many manner of fruits did the tree bear?",
         "choices": [
-          "God's healing never runs out! In His new world, everything is made whole.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up."
+          "One",
+          "Three",
+          "Twelve",
+          "Seven"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's healing never runs out! In His new world, everything is made whole..)"
+        "correctIndex": 2,
+        "correctFeedback": "Right! Twelve manner of fruits — every month.",
+        "wrongFeedback": "The tree of life bare twelve manner of fruits, and yielded her fruit every month (Revelation 22:2)."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What were the leaves for?",
         "choices": [
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A beautiful tree grows by the river"
+          "Decoration only",
+          "For the healing of the nations",
+          "Nothing",
+          "Food only"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes! The leaves were for the healing of the nations (Revelation 22:2).",
+        "wrongFeedback": "The leaves of the tree were for the healing of the nations (Revelation 22:2)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Who has right to the tree of life?",
         "choices": [
-          "God's healing never runs out! In His new world, everything is made whole.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older."
+          "Anyone who steals",
+          "They that do his commandments — blessed to enter by the gates",
+          "No one",
+          "Animals only"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God's healing never runs out! In His new world, everything is made whole..)"
+        "correctIndex": 1,
+        "correctFeedback": "Blessed are they that do his commandments… that they may have right to the tree of life (Revelation 22:14).",
+        "wrongFeedback": "Blessed are they that do his commandments… that they may have right to the tree of life (Revelation 22:14)."
+      },
+      {
+        "question": "What can we learn from the tree of life?",
+        "choices": [
+          "God stops healing",
+          "God keeps plenty for His people — healing and fruit forever",
+          "Trees are useless",
+          "Hope ends"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! God supplies forever in His new creation.",
+        "wrongFeedback": "There shall be no more curse: but the throne of God and of the Lamb shall be in it (Revelation 22:3)."
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Tree of Life with God's Word today.",
-    "takeaway": "God's healing never runs out! In His new world, everything is made whole.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Tree of Life. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A beautiful tree grows by the river (tree of life)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It bears twelve kinds of fruit every month (revelation 22)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Its leaves heal the nations—God provides! (fruit)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A beautiful tree grows by the river (heal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: It bears twelve kinds of fruit every month (leaves)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God heals forever!",
+    "takeaway": "God’s tree of life brings healing and fruit that never end.",
+    "prayer": "God, thank You for the promise of new life. Help me obey Thee and hope in Thee. Amen."
   },
   "trial": {
     "kjvRef": "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",

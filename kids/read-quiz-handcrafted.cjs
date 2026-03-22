@@ -6661,6 +6661,68 @@ module.exports = {
       prayer: 'Jesus, Lamb of God, thank You for being worthy. Help me worship You. Amen.'
     },
 
+    fourHorsemen: {
+      kjvRef: 'Revelation 6:1–8',
+      paragraphs: [
+        'John saw: when the Lamb opened the first seal, a white horse came forth. He that sat on him had a bow; and a crown was given unto him, and he went forth conquering.',
+        'When the Lamb opened the second seal, a red horse came; power was given to him that sat thereon to take peace from the earth, and that they should kill one another.',
+        'The third seal: a black horse; he that sat on him had a pair of balances in his hand — a measure of wheat for a penny, famine prices.',
+        'The fourth seal: a pale horse; his name that sat on him was Death, and Hell followed with him.',
+        'Big visions can feel heavy, but God showed John these things so we would know His Son opens history — God is still on the throne, and the Lamb is worthy.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Lamb opening first seal, white horse rider with bow and crown, no text',
+        'fun kid illustration: red horse rider, peace taken from earth, people in strife, no text',
+        'colorful Bible scene for children: black horse with balances, famine prices, no text',
+        'exciting cartoon: pale horse named Death, solemn scene, no text',
+        'hopeful ending illustration: glorified Lamb on throne, light and peace, sovereignty, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Four horses — the Lamb opens the seals!',
+      quizHeading: 'Four Horsemen Questions',
+      questions: [
+        {
+          question: 'What was the first horse’s color?',
+          choices: ['Red', 'White', 'Black', 'Pale'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! A white horse came first.',
+          wrongFeedback: 'John saw a white horse when the first seal was opened (Revelation 6:2).'
+        },
+        {
+          question: 'What did the rider on the red horse have power to do?',
+          choices: ['Plant crops', 'Take peace from the earth', 'Heal the sick', 'Build cities'],
+          correctIndex: 1,
+          correctFeedback: 'Right! Power was given to take peace from the earth.',
+          wrongFeedback: 'Power was given to him that sat thereon to take peace from the earth (Revelation 6:4).'
+        },
+        {
+          question: 'What did the rider on the black horse hold?',
+          choices: ['A sword', 'A pair of balances (scales)', 'A crown', 'A lamp'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! A pair of balances — famine prices.',
+          wrongFeedback: 'He that sat on him had a pair of balances in his hand (Revelation 6:5).'
+        },
+        {
+          question: 'What was the name of the one who sat on the pale horse?',
+          choices: ['Peace', 'Death', 'Life', 'Hope'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! His name was Death.',
+          wrongFeedback: 'His name that sat on him was Death, and Hell followed with him (Revelation 6:8).'
+        },
+        {
+          question: 'What can we learn from the four horsemen?',
+          choices: ['God is surprised', 'God holds history — the Lamb opens the seals according to God\'s plan', 'Seals are pretend', 'We should fear the Lamb'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God is never surprised — the Lamb is worthy and true.',
+          wrongFeedback: 'The Lamb opens the seals — God is sovereign over judgment and mercy (Revelation 5–6).'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God holds history!',
+      takeaway: 'The Lamb opens the seals — God is sovereign over judgment and mercy.',
+      prayer: 'Lord Jesus, help me trust Thee when life feels hard. Thou art worthy. Amen.'
+    },
+
     newHeaven: {
       kjvRef: 'Revelation 21:1–5',
       paragraphs: [
@@ -6783,6 +6845,192 @@ module.exports = {
       doneMessage: 'You earned a star — God makes all things new!',
       takeaway: 'God will make all things new — no more pain or tears.',
       prayer: 'God, thank You for the promise of new heaven and earth. Come soon! Amen.'
+    },
+
+    revelationBride: {
+      kjvRef: 'Revelation 19:7–9; 21:2',
+      paragraphs: [
+        'John heard a great voice in heaven: Let us be glad and rejoice; for the marriage of the Lamb is come, and his wife hath made herself ready.',
+        'To her was granted that she should be arrayed in fine linen, clean and white — the linen is the righteousness of saints.',
+        'Blessed are they which are called unto the marriage supper of the Lamb. These are the true sayings of God.',
+        'Later John saw the holy city, new Jerusalem, coming down from God out of heaven, prepared as a bride adorned for her husband.',
+        'God is the Bridegroom of His people — Jesus will dwell with His church forever. That is the best day to hope for!'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: heavenly joy, wedding celebration, marriage of the Lamb, no text',
+        'fun kid illustration: white linen robes, righteous saints, clean and bright, no text',
+        'colorful Bible scene for children: blessed guests called to supper, feast of joy, no text',
+        'exciting cartoon: holy city New Jerusalem descending, bride adorned like a wedding, no text',
+        'hopeful ending illustration: Lamb and His people together forever, God dwelling with them, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'The marriage of the Lamb — the best day!',
+      quizHeading: 'Lamb and Bride Questions',
+      questions: [
+        {
+          question: 'What was called to come?',
+          choices: ['A war', 'The marriage of the Lamb', 'A storm', 'A new law'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! The marriage of the Lamb is come (Revelation 19:7).',
+          wrongFeedback: 'The marriage of the Lamb is come, and his wife hath made herself ready (Revelation 19:7).'
+        },
+        {
+          question: 'What was the fine linen like?',
+          choices: ['Dirty and torn', 'Clean and white — the righteousness of saints', 'Rainbow only', 'Heavy gold only'],
+          correctIndex: 1,
+          correctFeedback: 'Right! Fine linen, clean and white — the righteousness of saints (Revelation 19:8).',
+          wrongFeedback: 'She was arrayed in fine linen, clean and white… the righteousness of saints (Revelation 19:8).'
+        },
+        {
+          question: 'Who are blessed?',
+          choices: ['Everyone who refuses', 'They which are called unto the marriage supper of the Lamb', 'Only angels', 'Only kings'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Blessed are they which are called unto the marriage supper of the Lamb (Revelation 19:9).',
+          wrongFeedback: 'Blessed are they which are called unto the marriage supper of the Lamb (Revelation 19:9).'
+        },
+        {
+          question: 'How did John see the holy city?',
+          choices: ['Like a soldier', 'Prepared as a bride adorned for her husband', 'Like a dark tower', 'Hidden'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Prepared as a bride adorned for her husband (Revelation 21:2).',
+          wrongFeedback: 'The holy city, new Jerusalem… prepared as a bride adorned for her husband (Revelation 21:2).'
+        },
+        {
+          question: 'What can we learn from the Lamb and the bride?',
+          choices: ['God forgets His people', 'God loves His church — His promise is forever', 'Weddings are meaningless', 'Hope is fake'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God is faithful — His people will be with Him forever.',
+          wrongFeedback: 'Blessed is he that keepeth the sayings of the prophecy of this book (Revelation 22:7).'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — blessed is the Lamb!',
+      takeaway: 'God is faithful — His people will feast with Him forever.',
+      prayer: 'Jesus, thank You for loving Your church. Come soon, Lord. Amen.'
+    },
+
+    riverOfLife: {
+      kjvRef: 'Revelation 22:1',
+      paragraphs: [
+        'John saw a pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb.',
+        'In the midst of the street of it, and on either side of the river, was there the tree of life.',
+        'The river is not a small puddle — it flows from God’s throne. Life flows from God forever.',
+        'No one can buy this river with money; it is God’s gift to the people whose names are written in the Lamb’s book of life.',
+        'Jesus called Himself living water on earth — in the new city, that water is forever free and full.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: crystal-clear river flowing from God’s throne and the Lamb, no text',
+        'fun kid illustration: city street with river of life, tree on both banks, no text',
+        'colorful Bible scene for children: light and water reflecting God’s glory, no text',
+        'exciting cartoon: people drinking from living water, joy, no text',
+        'hopeful ending illustration: throne, Lamb, river forever, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'The river of life flows from God\'s throne!',
+      quizHeading: 'River of Life Questions',
+      questions: [
+        {
+          question: 'Where did the river of life come from?',
+          choices: ['Out of the sea only', 'Out of the throne of God and of the Lamb', 'A broken well', 'A mountain only'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Proceeding out of the throne of God and of the Lamb (Revelation 22:1).',
+          wrongFeedback: 'The angel showed a pure river of water of life… proceeding out of the throne of God and of the Lamb (Revelation 22:1).'
+        },
+        {
+          question: 'What was the river like?',
+          choices: ['Muddy', 'Pure clear as crystal', 'Dry', 'Hidden'],
+          correctIndex: 1,
+          correctFeedback: 'Right! Pure, clear as crystal.',
+          wrongFeedback: 'A pure river of water of life, clear as crystal (Revelation 22:1).'
+        },
+        {
+          question: 'What grew beside the river?',
+          choices: ['Only grass', 'The tree of life on either side of the river', 'Thorns only', 'Walls only'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! In the midst… and on either side of the river, was there the tree of life (Revelation 22:2).',
+          wrongFeedback: 'On either side of the river, was there the tree of life (Revelation 22:2).'
+        },
+        {
+          question: 'Who may take the water of life?',
+          choices: ['Only the rich', 'Whosoever will — freely', 'No one', 'Only angels'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Let him that is athirst come; whosoever will, let him take the water of life freely (Revelation 22:17).',
+          wrongFeedback: 'Whosoever will, let him take the water of life freely (Revelation 22:17).'
+        },
+        {
+          question: 'What can we learn from the river of life?',
+          choices: ['God runs out of mercy', 'God gives life that never runs dry — come to Jesus now', 'Water is useless', 'Never pray'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Jesus is the source of living water forever.',
+          wrongFeedback: 'The river of life flows from God’s throne — His mercy is everlasting!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — take the water of life freely!',
+      takeaway: 'God gives living water that never runs dry.',
+      prayer: 'Jesus, thank You for living water. Help me come to Thee today. Amen.'
+    },
+
+    treeOfLife: {
+      kjvRef: 'Revelation 22:1–2',
+      paragraphs: [
+        'John saw the same river of life: in the midst of the street of it, and on either side of the river, was there the tree of life.',
+        'The tree of life bare twelve manner of fruits, and yielded her fruit every month — God never runs out of good fruit for His people.',
+        'The leaves of the tree were for the healing of the nations — God heals broken hearts and nations in His new creation.',
+        'There is no curse in that city — God will wipe every tear away.',
+        'From Eden to the new heaven, God planned to keep a tree of life for those who love Him — the best is still ahead!'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: beautiful tree of life growing along river of life, twelve kinds of fruit, no text',
+        'fun kid illustration: fruit every month, bright colors, no text',
+        'colorful Bible scene for children: healing leaves, nations blessed, no text',
+        'exciting cartoon: no curse, no sorrow, joy in God\'s city, no text',
+        'hopeful ending illustration: tree of life with throne and Lamb in background, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'The tree of life bears fruit every month!',
+      quizHeading: 'Tree of Life Questions',
+      questions: [
+        {
+          question: 'Where did the tree of life grow?',
+          choices: ['On a mountain only', 'In the midst of the street and on either side of the river', 'Under the sea', 'Only in Eden'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! In the midst… and on either side of the river, was there the tree of life.',
+          wrongFeedback: 'In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2).'
+        },
+        {
+          question: 'How many manner of fruits did the tree bear?',
+          choices: ['One', 'Three', 'Twelve', 'Seven'],
+          correctIndex: 2,
+          correctFeedback: 'Right! Twelve manner of fruits — every month.',
+          wrongFeedback: 'The tree of life bare twelve manner of fruits, and yielded her fruit every month (Revelation 22:2).'
+        },
+        {
+          question: 'What were the leaves for?',
+          choices: ['Decoration only', 'For the healing of the nations', 'Nothing', 'Food only'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! The leaves were for the healing of the nations (Revelation 22:2).',
+          wrongFeedback: 'The leaves of the tree were for the healing of the nations (Revelation 22:2).'
+        },
+        {
+          question: 'Who has right to the tree of life?',
+          choices: ['Anyone who steals', 'They that do his commandments — blessed to enter by the gates', 'No one', 'Animals only'],
+          correctIndex: 1,
+          correctFeedback: 'Blessed are they that do his commandments… that they may have right to the tree of life (Revelation 22:14).',
+          wrongFeedback: 'Blessed are they that do his commandments… that they may have right to the tree of life (Revelation 22:14).'
+        },
+        {
+          question: 'What can we learn from the tree of life?',
+          choices: ['God stops healing', 'God keeps plenty for His people — healing and fruit forever', 'Trees are useless', 'Hope ends'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God supplies forever in His new creation.',
+          wrongFeedback: 'There shall be no more curse: but the throne of God and of the Lamb shall be in it (Revelation 22:3).'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God heals forever!',
+      takeaway: 'God’s tree of life brings healing and fruit that never end.',
+      prayer: 'God, thank You for the promise of new life. Help me obey Thee and hope in Thee. Amen.'
     },
 
     jesusGreatCommission: {
@@ -7713,6 +7961,68 @@ module.exports = {
       doneMessage: 'You earned a star — hear what the Spirit saith!',
       takeaway: 'Jesus knows His church — repent, be faithful, overcome.',
       prayer: 'Lord Jesus, help me hear what the Spirit saith, and follow Thee faithfully. Amen.'
+    },
+
+    heavenDoor: {
+      kjvRef: 'Revelation 3:20',
+      paragraphs: [
+        'Jesus had tender words for seven churches in Asia — some were faithful, and some needed to hear the truth again.',
+        'To the church at Laodicea Jesus said they were lukewarm: not cold and not hot. He rebuked them and said, As many as I love, I rebuke and chasten.',
+        'Then He made a promise: Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him, and will sup with him, and he with me.',
+        'He is not far away. He knocks — and He waits for someone to hear, open, and welcome Him.',
+        'That is Jesus today: He calls to sinners. If you open the door of your heart, He comes in to fellowship with you.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Jesus gently knocking at a wooden door, warm light, no text',
+        'fun kid illustration: child listening at door, heart softened, hearing His voice, no text',
+        'colorful Bible scene for children: table fellowship, bread, simple meal with Jesus, no text',
+        'exciting cartoon: night city of Laodicea, church lamp, door closed then opening, no text',
+        'hopeful ending illustration: open door, Jesus welcomed in, joy and peace, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Jesus knocks — will you open the door?',
+      quizHeading: 'The Door Questions',
+      questions: [
+        {
+          question: 'What does Jesus say He does at the door?',
+          choices: ['He breaks the door down', 'He stands at the door and knocks', 'He walks away forever', 'He hides'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! I stand at the door, and knock (Revelation 3:20).',
+          wrongFeedback: 'Behold, I stand at the door, and knock (Revelation 3:20).'
+        },
+        {
+          question: 'What must we do to open the door?',
+          choices: ['Be loud and proud', 'Hear His voice and open the door', 'Buy gold only', 'Stay lukewarm'],
+          correctIndex: 1,
+          correctFeedback: 'Right! Hear His voice and open the door.',
+          wrongFeedback: 'If any man hear my voice, and open the door, I will come in to him (Revelation 3:20).'
+        },
+        {
+          question: 'What does Jesus promise if we open the door?',
+          choices: ['He will leave at once', 'He will come in and sup with him', 'Nothing changes', 'He will only rebuke'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! I will come in to him, and will sup with him, and he with me.',
+          wrongFeedback: 'I will come in to him, and will sup with him, and he with me (Revelation 3:20).'
+        },
+        {
+          question: 'Which church heard this promise about the door?',
+          choices: ['Ephesus only', 'Laodicea', 'Jerusalem only', 'Rome'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! These things saith the Amen… unto the church of the Laodiceans (Revelation 3:14–22).',
+          wrongFeedback: 'The letter to the church of the Laodiceans includes this promise (Revelation 3:14–22).'
+        },
+        {
+          question: 'What can we learn from the door?',
+          choices: ['Jesus never wants to come in', 'Jesus calls to sinners — open the door to Him', 'Do not listen', 'Do not pray'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Jesus knocks — He invites us to fellowship with Him.',
+          wrongFeedback: 'If any man hear my voice, and open the door, I will come in to him (Revelation 3:20).'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — open the door to Jesus!',
+      takeaway: 'Jesus knocks — hear His voice and welcome Him.',
+      prayer: 'Jesus, thank You for knocking. I open my heart’s door to You. Amen.'
     },
 
     revelationSeals: {

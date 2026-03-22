@@ -565,7 +565,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     });
   }, { rootMargin: '260px 0px' });
 
-  function buildCard(loop) {
+  function buildCard(loop, isFirstVisible) {
     var card = document.createElement('article');
     card.className = 'loop-card';
     card.setAttribute('role', 'listitem');
@@ -582,7 +582,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     video.setAttribute('playsinline', '');
     video.setAttribute('loop', '');
     video.setAttribute('preload', 'none');
-    video.setAttribute('loading', 'lazy');
+    if (!isFirstVisible) video.setAttribute('loading', 'lazy');
     video.setAttribute('data-loop-poster', '/assets/loops/' + String(loop.id) + '.png');
     video.poster = LOOP_THUMB_PLACEHOLDER;
     var source = document.createElement('source');
@@ -591,7 +591,12 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     var fallbackImg = document.createElement('img');
     fallbackImg.src = LOOP_THUMB_PLACEHOLDER;
     fallbackImg.alt = String(loop.title || 'Bible story loop') + ' cartoon loop preview' + (cardStarred(loop.id) ? ' — gold star earned' : '');
-    fallbackImg.loading = 'lazy';
+    if (isFirstVisible) {
+      fallbackImg.loading = 'eager';
+      try { fallbackImg.fetchPriority = 'high'; } catch (_) {}
+    } else {
+      fallbackImg.loading = 'lazy';
+    }
     video.appendChild(source);
     video.appendChild(fallbackImg);
     mediaWrap.appendChild(video);
@@ -732,8 +737,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   function renderGrid() {
     grid.innerHTML = '';
     var fragment = document.createDocumentFragment();
-    unlockedLoops.forEach(function (loop) {
-      fragment.appendChild(buildCard(loop));
+    unlockedLoops.forEach(function (loop, idx) {
+      fragment.appendChild(buildCard(loop, idx === 0));
     });
     grid.appendChild(fragment);
     var staticStarter = document.getElementById('loop-static-starter');
@@ -18370,7 +18375,7 @@ function sanitizeNudgeElements() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260322-family-armor-v99', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260323-sw-v101', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

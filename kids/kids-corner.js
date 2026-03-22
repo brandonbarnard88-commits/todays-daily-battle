@@ -3812,6 +3812,10 @@
       var img = document.createElement('img');
       img.src = thumb;
       img.alt = plainAlt;
+      if (i === 0) {
+        img.loading = 'eager';
+        try { img.fetchPriority = 'high'; } catch (_) {}
+      }
       card.appendChild(img);
 
       var titleSpan = document.createElement('span');
@@ -3888,9 +3892,6 @@
     var stories = getStories();
     var s = stories[key];
     if (!s) return;
-    try {
-      console.log('Story modal opened for key: ' + key);
-    } catch (_) {}
     var fbStatic = document.getElementById('kids-library-static-fallback');
     if (fbStatic) fbStatic.classList.add('hidden');
     var panels = s.panels || [];
@@ -4082,6 +4083,30 @@
     return filterStories(q, theme);
   }
 
+  /** Web Speech voices often load after first paint; refresh on voiceschanged. Prefer en-US, then Google / common neural names. */
+  var kidsPreferredNarrationVoice = null;
+  function refreshKidsPreferredNarrationVoice() {
+    if (typeof window === 'undefined' || !window.speechSynthesis || typeof window.speechSynthesis.getVoices !== 'function') return;
+    var voices = window.speechSynthesis.getVoices();
+    if (!voices || !voices.length) {
+      kidsPreferredNarrationVoice = null;
+      return;
+    }
+    var list = Array.prototype.slice.call(voices);
+    var enUs = list.filter(function (v) { return v.lang && /^en-us/i.test(String(v.lang)); });
+    var en = list.filter(function (v) { return v.lang && /^en/i.test(String(v.lang)); });
+    var pool = enUs.length ? enUs : en;
+    if (!pool.length) {
+      kidsPreferredNarrationVoice = null;
+      return;
+    }
+    var pick = pool.find(function (v) { return /google.*english.*us|google us english/i.test(v.name || ''); })
+      || pool.find(function (v) { return /google/i.test(v.name || ''); })
+      || pool.find(function (v) { return /samantha|allison|aaron|zoe|nicky|susan/i.test(v.name || ''); })
+      || pool[0];
+    kidsPreferredNarrationVoice = pick || null;
+  }
+
   function init() {
     var keys = getStoryKeys();
     if (keys.length === 0) {
@@ -4089,6 +4114,12 @@
       return;
     }
     migrateStoryMasterFromLegacyViewed();
+    try {
+      refreshKidsPreferredNarrationVoice();
+      if (window.speechSynthesis) {
+        window.speechSynthesis.onvoiceschanged = refreshKidsPreferredNarrationVoice;
+      }
+    } catch (_) {}
     try {
       var params = new URLSearchParams(location.search);
       var q = params.get('q');
@@ -4305,9 +4336,9 @@
           kidsStorySpeakBtn = speakBtn;
           var u = new window.SpeechSynthesisUtterance(text);
           u.rate = 0.9;
-          var voices = synth.getVoices();
-          var en = voices.filter(function (v) { return v.lang && v.lang.startsWith('en'); })[0];
-          if (en) u.voice = en;
+          u.lang = 'en-US';
+          refreshKidsPreferredNarrationVoice();
+          if (kidsPreferredNarrationVoice) u.voice = kidsPreferredNarrationVoice;
           u.onstart = function () {
             if (kidsStorySpeakBtn) {
               kidsStorySpeakBtn.setAttribute('aria-pressed', 'true');

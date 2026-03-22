@@ -15,7 +15,7 @@ export const LOOP_HTML_MARKERS = [
   'Download loop progress (PDF)',
   'loop-pdf-export',
   'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"',
-  '20260322loop-pdf-summary',
+  '20260323lcp-loop',
   'kids-corner.css?v=7'
 ];
 
@@ -25,7 +25,9 @@ export const STORY_HTML_MARKERS = [
   'Download Story Library List (PDF)',
   'pdf-export',
   'aria-describedby="pdf-export-count-hint pdf-export-hint"',
-  'kids-corner.js?v=67'
+  'story-library-fonts.css?v=1',
+  'kids-corner.js?v=70',
+  'kids-battle.js?v=70'
 ];
 
 export const OG_ASSET_PATHS = [

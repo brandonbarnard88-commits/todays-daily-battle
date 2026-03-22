@@ -447,7 +447,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   modalClose.className = 'loop-modal-close';
   modalClose.textContent = 'Close';
   modalClose.setAttribute('aria-label', 'Close full screen player');
-  var modalTitle = document.createElement('h3');
+  var modalTitle = document.createElement('h2');
   modalTitle.className = 'loop-modal-title';
   var modalVideo = document.createElement('video');
   modalVideo.id = 'loop-modal-video';
@@ -590,7 +590,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     source.setAttribute('data-src', String(loop.file || ''));
     var fallbackImg = document.createElement('img');
     fallbackImg.src = LOOP_THUMB_PLACEHOLDER;
-    fallbackImg.alt = String(loop.title || 'Bible story loop') + ' preview';
+    fallbackImg.alt = String(loop.title || 'Bible story loop') + ' cartoon loop preview' + (cardStarred(loop.id) ? ' — gold star earned' : '');
     fallbackImg.loading = 'lazy';
     video.appendChild(source);
     video.appendChild(fallbackImg);
@@ -736,6 +736,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       fragment.appendChild(buildCard(loop));
     });
     grid.appendChild(fragment);
+    var staticStarter = document.getElementById('loop-static-starter');
+    if (staticStarter && allLoops.length > 0) staticStarter.classList.add('hidden');
     updateProgress();
     if (unlockStatus) {
       if (state.starredIds.length >= STAR_GOAL) {
@@ -744,6 +746,32 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         unlockStatus.textContent = 'Watch a loop to the end to earn a gold star. Collect ' + STAR_GOAL + ' stars to unlock next week early.';
       }
     }
+  }
+
+  function updateLoopPdfExportHint() {
+    var el = document.getElementById('loop-pdf-export-count-hint');
+    if (!el) return;
+    var starCount = state.starredIds.length;
+    var unlockedCount = unlockedLoops.length;
+    el.textContent = starCount + ' gold stars · ' + unlockedCount + '/' + TOTAL_LOOPS + ' loops unlocked — PDF matches this screen';
+  }
+
+  function getLoopWatchCount(loopId) {
+    var key = String(loopId);
+    var wc = state.watchCounts && typeof state.watchCounts === 'object' ? state.watchCounts : {};
+    var n = Number(wc[key]);
+    return Number.isFinite(n) && n >= 0 ? n : 0;
+  }
+
+  function bumpWatchCount(loopId) {
+    var id = Number(loopId);
+    if (!Number.isFinite(id)) return;
+    var key = String(id);
+    var wc = state.watchCounts && typeof state.watchCounts === 'object' ? state.watchCounts : {};
+    var prev = Number(wc[key]);
+    if (!Number.isFinite(prev) || prev < 0) prev = 0;
+    wc[key] = prev + 1;
+    state.watchCounts = wc;
   }
 
   function updateProgress() {
@@ -759,6 +787,81 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       progressMeter.setAttribute('aria-valuemax', String(TOTAL_LOOPS));
       progressMeter.setAttribute('aria-valuetext', unlockedCount + ' of ' + TOTAL_LOOPS + ' loops unlocked, ' + starCount + ' gold stars');
     }
+    updateLoopPdfExportHint();
+  }
+
+  var loopPdfExportWired = false;
+  function wireLoopPdfExport() {
+    if (loopPdfExportWired) return;
+    var btn = document.getElementById('loop-pdf-export');
+    if (!btn) return;
+    loopPdfExportWired = true;
+    btn.addEventListener('click', function () {
+      var JsPDF = window.jspdf && window.jspdf.jsPDF;
+      if (!JsPDF) {
+        showToast('PDF helper still loading—wait a beat, then tap again.');
+        return;
+      }
+      try {
+        var doc = new JsPDF('p', 'mm', 'a4');
+        var pageW = doc.internal.pageSize.getWidth();
+        var margin = 14;
+        var y = margin;
+        var now = new Date();
+        var starCount = state.starredIds.length;
+        var unlockedCount = unlockedLoops.length;
+        doc.setFontSize(15);
+        doc.setFont('helvetica', 'bold');
+        doc.text('My Bible Loops Progress', pageW / 2, y, { align: 'center' });
+        y += 8;
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        var summary = 'Generated ' + now.toLocaleString() + ' · ' + unlockedCount + '/' + TOTAL_LOOPS + ' loops unlocked · ' + starCount + ' gold stars';
+        var sumLines = doc.splitTextToSize(summary, pageW - margin * 2);
+        for (var si = 0; si < sumLines.length; si++) {
+          doc.text(sumLines[si], pageW / 2, y, { align: 'center' });
+          y += 5;
+        }
+        y += 3;
+        var includeCountsEl = document.getElementById('loop-pdf-include-counts');
+        var includeCounts = !!(includeCountsEl && includeCountsEl.checked);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text(includeCounts ? 'Loops you can open now (with full plays logged on this device)' : 'Loops you can open now', margin, y);
+        y += 6;
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        unlockedLoops.forEach(function (loop) {
+          var line;
+          if (includeCounts) {
+            var wc = getLoopWatchCount(loop.id);
+            var plays = wc + ' full play' + (wc === 1 ? '' : 's');
+            var statusLine = cardStarred(loop.id)
+              ? ('Gold star · ' + plays)
+              : ('Still earning star · ' + plays);
+            line = String(loop.title) + ' (' + String(loop.ref) + ') — ' + statusLine;
+          } else {
+            line = String(loop.title) + ' (' + String(loop.ref) + ')';
+          }
+          var lines = doc.splitTextToSize(line, pageW - margin * 2);
+          for (var li = 0; li < lines.length; li++) {
+            if (y > 278) {
+              doc.addPage();
+              y = margin;
+            }
+            doc.text(lines[li], margin, y);
+            y += 4.5;
+          }
+          y += 1.5;
+        });
+        doc.save('my-bible-loops-progress.pdf');
+        showToast('PDF downloaded!');
+        if (typeof trackEvent === 'function') trackEvent('loop_progress_pdf', { stars: starCount, unlocked: unlockedCount, mode: includeCounts ? 'full' : 'summary' });
+      } catch (err) {
+        showToast('PDF export could not be completed. Please try again.');
+        try { console.error('loop PDF', err); } catch (e2) {}
+      }
+    });
   }
 
   function openModal(loop) {
@@ -910,7 +1013,12 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   });
 
   modalVideo.addEventListener('ended', function () {
-    if (currentLoop && currentLoop.id != null) markStar(currentLoop.id);
+    if (currentLoop && currentLoop.id != null) {
+      bumpWatchCount(currentLoop.id);
+      markStar(currentLoop.id);
+      /* markStar skips writeState when star already earned — still persist watchCounts */
+      writeState();
+    }
     nextBtn.classList.remove('is-hidden');
   });
 
@@ -981,6 +1089,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       }
     }
     initLoopKidSelector();
+    wireLoopPdfExport();
+    updateLoopPdfExportHint();
   });
 
   setInterval(function () {

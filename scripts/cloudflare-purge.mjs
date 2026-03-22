@@ -83,6 +83,12 @@ const SOCIAL_PURGE_PATHS = [
   '/assets/share/shop-og.jpg',
   '/assets/share/testimonials-og.jpg',
   '/assets/share/verse-share.jpg',
+  '/kids-corner.html',
+  '/kids-corner',
+  '/kids/corner.html',
+  '/kids/corner',
+  '/assets/share/kids-loop-og.jpg',
+  '/assets/share/kids-story-library-og.jpg',
   '/bible-tool.html',
   '/reading-plan.html',
   '/verse-image.html',
@@ -91,7 +97,9 @@ const SOCIAL_PURGE_PATHS = [
   '/assets/share/mobius-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/shop-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/testimonials-og.jpg?v=' + SHARE_OG_V,
-  '/assets/share/verse-share.jpg?v=' + SHARE_OG_V
+  '/assets/share/verse-share.jpg?v=' + SHARE_OG_V,
+  '/assets/share/kids-loop-og.jpg?v=' + SHARE_OG_V,
+  '/assets/share/kids-story-library-og.jpg?v=' + SHARE_OG_V
 ];
 
 const CHUNK = 30;

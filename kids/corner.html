@@ -11,9 +11,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Bible Story Library • Kids Battle • Today's Daily Battle</title>
-  <meta name="description" content="Bible Story Library for kids—read stories, answer gentle quizzes, comic art, optional video, and activities.">
+  <meta name="description" content="Kids Bible Story Library—cartoon panels, KJV verse hooks, read-and-quiz, optional video, and Color Me. Starter stories load in-page; full grid needs JavaScript.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/corner.html">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:title" content="Bible Story Library • Kids Battle • Today's Daily Battle">
+  <meta property="og:description" content="Kids Bible Story Library—cartoon panels, KJV verse hooks, read-and-quiz, optional video, and Color Me. Starter stories in HTML; full grid needs JavaScript.">
+  <meta property="og:url" content="https://todaysdailybattle.com/kids/corner.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/kids-story-library-og.jpg?v=20260322">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Today's Daily Battle — Kids Bible Story Library">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bible Story Library • Kids Battle • Today's Daily Battle">
+  <meta name="twitter:description" content="Cartoon panels, KJV hooks, read-and-quiz, optional video, Color Me. Distinct from the animated Loop Library on kids-corner.html.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/kids-story-library-og.jpg?v=20260322">
+  <meta name="twitter:site" content="@todaysdailybattle">
+  <meta name="twitter:creator" content="@8randon8arnard">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
@@ -22,6 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" as="script" crossorigin>
   <style>
     .kids-library-grid {
       display: grid;
@@ -311,6 +327,45 @@
       color: #e2e8f0;
       margin: 0.5rem 0 0;
     }
+    /* Static starter list: visible before JS hydrates the grid (SEO + noscript) */
+    .kids-library-static-fallback {
+      margin-bottom: 1.25rem;
+    }
+    .kids-library-static-fallback .kids-library-static-list {
+      margin: 0.5rem 0 0;
+      padding-left: 1.35rem;
+      color: #e2e8f0;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+    .kids-library-static-fallback .kids-library-static-list li { margin-bottom: 0.55rem; }
+    .kids-library-static-fallback .kids-library-static-list a {
+      color: var(--kids-yellow);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .kids-library-static-fallback .kids-library-static-list a:focus-visible {
+      outline: 2px solid var(--kids-yellow);
+      outline-offset: 2px;
+    }
+    .kids-library-static-ref {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .kids-pdf-hint {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      color: #94a3b8;
+      margin: 0.35rem 0 0;
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page">
@@ -364,18 +419,49 @@
           </div>
           <p id="kids-journey-status" class="section-note util-mb-0_25" aria-live="polite"></p>
           <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
-          <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;">📄 Print 52 Stories! (PDF)</button>
+          <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;" aria-describedby="pdf-export-count-hint pdf-export-hint" aria-label="Generate PDF of the full Kids Bible Story Library titles and references">📄 Download Story Library List (PDF)</button>
+          <p id="pdf-export-count-hint" class="kids-pdf-hint" aria-live="polite"></p>
+          <p id="pdf-export-hint" class="kids-pdf-hint">Each download lists every title in the library (not the 10–15s loops on Kids Corner home). Search filters only change the grid—the PDF stays the full list. If the first tap does nothing, wait a second for the PDF helper to load, then try again.</p>
         </section>
 
-        <section class="kids-comic-panels glass" role="region" aria-label="Story grid">
-          <div id="kids-library-grid" class="kids-library-grid">
-            <!-- Filled by inline script -->
+        <section class="kids-library-static-fallback glass" id="kids-library-static-fallback" aria-label="Starter Bible stories in this library">
+          <h2 class="kids-section-title">Starter stories (first twelve)</h2>
+          <p class="section-note">These open the same way as the cards below—tap to read, quiz, and watch when JavaScript is on. Each link opens that story directly so you can bookmark the page.</p>
+          <ol class="kids-library-static-list">
+            <li><a href="?story=david">David &amp; Goliath</a> <span class="kids-library-static-ref">1 Samuel 17</span> — God is bigger than the scary giant.</li>
+            <li><a href="?story=noah">Noah's Ark</a> <span class="kids-library-static-ref">Genesis 6–9</span> — God keeps His promise; rainbow sign.</li>
+            <li><a href="?story=jesus">Jesus the Good Shepherd</a> <span class="kids-library-static-ref">Gospels</span> — Jesus loves and cares for His sheep.</li>
+            <li><a href="?story=jonah">Jonah &amp; the Big Fish</a> <span class="kids-library-static-ref">Jonah 1:17</span> — Running away didn't fool God; He gives second chances.</li>
+            <li><a href="?story=daniel">Daniel &amp; the Lions</a> <span class="kids-library-static-ref">Daniel 6:22</span> — Pray brave; God can hush the lions.</li>
+            <li><a href="?story=adamEve">Adam &amp; Eve</a> <span class="kids-library-static-ref">Genesis 3</span> — First family, first choice; God still loves.</li>
+            <li><a href="?story=cainAbel">Cain &amp; Abel</a> <span class="kids-library-static-ref">Genesis 4</span> — Give God your best; ask Him when you're mad.</li>
+            <li><a href="?story=towerBabel">Tower of Babel</a> <span class="kids-library-static-ref">Genesis 11</span> — God is bigger than any tower.</li>
+            <li><a href="?story=abrahamIsaac">Abraham &amp; Isaac</a> <span class="kids-library-static-ref">Genesis 22</span> — Trust God; He provides.</li>
+            <li><a href="?story=josephCoat">Joseph &amp; the Coat</a> <span class="kids-library-static-ref">Genesis 37:3</span> — Hard days; God turns them for good.</li>
+            <li><a href="?story=josephSold">Joseph Sold to Egypt</a> <span class="kids-library-static-ref">Genesis 37:28</span> — God stayed with Joseph in the hurt.</li>
+            <li><a href="?story=mosesBush">Moses &amp; the Burning Bush</a> <span class="kids-library-static-ref">Exodus 3</span> — God calls; He helps you say yes.</li>
+          </ol>
+        </section>
+
+        <section class="kids-comic-panels glass" role="region" aria-labelledby="kids-library-grid-heading">
+          <h2 id="kids-library-grid-heading" class="kids-section-title">All stories</h2>
+          <div id="kids-library-grid" class="kids-library-grid" aria-label="Bible story cards">
+            <!-- Filled by kids-corner.js -->
           </div>
           <p id="kids-library-no-match" class="kids-search-no-match hidden">No stories match that search yet. Try a broader word, or switch back to All themes.</p>
         </section>
 
       </div>
     </main>
+
+    <noscript>
+      <div class="content-inner kids-battle-inner" style="padding:1rem 1.25rem 2rem;">
+        <section class="glass" style="padding:1rem 1.25rem 1.25rem;">
+          <h2 class="kids-section-title">JavaScript is off</h2>
+          <p class="section-note" style="margin:0;">Turn on JavaScript for search, the full card grid, coloring, read-and-quiz, and story modals. The <strong>starter list</strong> above stays visible so you can still read titles and KJV hooks.</p>
+        </section>
+      </div>
+    </noscript>
 
     <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
       <p>© 2026 Kids Battle – Faith Trail for Kids</p>
@@ -399,10 +485,11 @@
     </nav>
   </div>
 
-  <div id="kids-story-modal" class="kids-video-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-story-modal-title">
+  <div id="kids-story-modal" class="kids-video-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-story-modal-title" aria-describedby="kids-story-modal-hint">
     <div class="kids-video-modal-content kids-library-modal">
-      <button type="button" class="kids-video-modal-close" id="kids-story-modal-close" aria-label="Close">×</button>
-      <h3 id="kids-story-modal-title" class="kids-video-modal-title"></h3>
+      <button type="button" class="kids-video-modal-close" id="kids-story-modal-close" aria-label="Close story">×</button>
+      <p id="kids-story-modal-hint" class="sr-only">Comic panels, KJV notes, optional short video, read-and-quiz when available, and share.</p>
+      <h2 id="kids-story-modal-title" class="kids-video-modal-title"></h2>
       <div id="kids-story-modal-video"></div>
       <div id="kids-story-modal-carousel"></div>
       <div id="kids-story-modal-read-quiz" class="hidden" aria-live="polite"></div>
@@ -416,8 +503,9 @@
   </div>
 
   <!-- Coloring mode overlay -->
-  <div id="kids-coloring-overlay" class="kids-coloring-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="kids-coloring-title">
+  <div id="kids-coloring-overlay" class="kids-coloring-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="kids-coloring-title" aria-describedby="kids-coloring-hint">
     <!-- Top toolbar -->
+    <p id="kids-coloring-hint" class="sr-only">Pick a brush and color, then save your picture. Use Undo or Clear if you need a fresh start.</p>
     <div class="kids-coloring-topbar" role="toolbar" aria-label="Coloring tools">
       <span id="kids-coloring-title" class="kids-coloring-title">Color Me!</span>
 
@@ -474,11 +562,11 @@
   <script src="kids-read-quiz-loop-posters.js"></script>
   <script src="kids-battle.js?v=69" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=63" defer></script>
+  <script src="kids-corner.js?v=66" defer></script>
   <script type="module" src="../script.js?v=20260321full-story" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->
-  <div id="kid-lock-modal" class="kid-lock-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="kid-lock-title">
+  <div id="kid-lock-modal" class="kid-lock-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="kid-lock-title" aria-describedby="kid-lock-hint">
     <div class="kid-lock-sheet">
       <p class="kid-lock-emoji" aria-hidden="true">🔐</p>
       <h2 id="kid-lock-title" class="kid-lock-title">Parent code?</h2>

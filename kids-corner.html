@@ -10,24 +10,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Bible Loop Library • Today's Daily Battle</title>
-  <meta name="description" content="Bible Loop Library for kids: short animated Bible story loops with stars, unlocks, and weekly Sunday drops.">
+  <meta name="description" content="Short KJV Bible cartoon loops (10–15s), gold stars, up to 160 over time—animated replay library. For comic panels and read-and-quiz stories, use Bible Story Library (/kids/corner.html).">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids-corner.html">
-  <meta property="og:title" content="Bible Loop Library • Today's Daily Battle">
-  <meta property="og:description" content="Short Bible cartoon loops kids replay, pray through, and unlock each week.">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:title" content="Bible Loop Library • Animated KJV Stories for Kids">
+  <meta property="og:description" content="Short animated Bible loops for kids: hand-drawn, 10–15s replays with ukulele SFX, no voice-over. Earn gold stars by watching to the end and praying. Up to 160 loops—new ones most Sundays. Parents: explore together.">
   <meta property="og:url" content="https://todaysdailybattle.com/kids-corner.html">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/kids-loop-og.jpg?v=20260322">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bible Loop Library — short animated KJV story loops for kids">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bible Loop Library • Animated KJV Stories for Kids">
+  <meta name="twitter:description" content="Short animated Bible loops for kids: hand-drawn, 10–15s replays with ukulele SFX, no voice-over. Gold stars, up to 160 loops, new ones most Sundays.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/kids-loop-og.jpg?v=20260322">
+  <meta name="twitter:site" content="@todaysdailybattle">
+  <meta name="twitter:creator" content="@8randon8arnard">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
-  <link rel="stylesheet" href="kids-corner.css?v=2">
+  <link rel="stylesheet" href="kids-corner.css?v=6">
   <link rel="stylesheet" href="loop-player.css?v=2">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" as="script" crossorigin>
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Bible Loop Library • Today's Daily Battle","url":"https://todaysdailybattle.com/kids-corner.html","description":"Short Bible cartoon loops kids replay, pray through, and unlock each week. Family activities — stories and armor together.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"Bible Loop Library • Today's Daily Battle","url":"https://todaysdailybattle.com/kids-corner.html","description":"Short KJV Bible cartoon loops, gold stars, up to 160 over time. Full comic and quiz stories live on Bible Story Library.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
 </head>
 <body class="dark-mode" aria-label="Bible Loop Library - short kids Bible story loops">
@@ -182,16 +194,51 @@
           </div>
           <p class="section-note">Up to 160 loops over time—keep watching and praying through each story. Gold stars track what you have finished.</p>
           <p id="loop-weekly-status" class="section-note" aria-live="polite">Weekly drop checks every Sunday for fresh loops.</p>
+          <div class="loop-pdf-export-wrap">
+            <div class="loop-pdf-option">
+              <input type="checkbox" id="loop-pdf-include-counts" name="loop-pdf-include-counts">
+              <label for="loop-pdf-include-counts">Include watch counts and per-loop star detail</label>
+            </div>
+            <button type="button" id="loop-pdf-export" class="btn btn-secondary loop-pdf-btn" aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint" aria-label="Generate PDF of gold stars and unlocked Bible loops on this device">Download loop progress (PDF)</button>
+            <p id="loop-pdf-export-count-hint" class="loop-pdf-hint" aria-live="polite"></p>
+            <p id="loop-pdf-export-hint" class="loop-pdf-hint">Default export is a short list of titles and verse refs. Turn on the checkbox above for full play counts. If the first tap does nothing, wait a second for the PDF helper to load, then try again.</p>
+          </div>
         </section>
 
         <section class="glass card-gold loop-library-wrap" aria-label="Bible Loop Library infinite grid">
           <h2 class="section-divider kids-section-divider">Starter 12 Loops</h2>
+          <div id="loop-static-starter" class="loop-static-starter" aria-label="First twelve cartoon loops in the roadmap">
+            <p class="section-note loop-static-starter-lead">These twelve ship in week 0 of the library—short cartoons, KJV verse audio, no quizzes here. For read-and-quiz <strong>stories</strong>, open <a href="/kids/corner.html">Bible Story Library</a>.</p>
+            <ol class="loop-static-starter-list">
+              <li>David vs Goliath — <span class="loop-static-ref">1 Samuel 17:49</span></li>
+              <li>Noah Ark — <span class="loop-static-ref">Genesis 7:7</span></li>
+              <li>Jonah Whale — <span class="loop-static-ref">Jonah 1:17</span></li>
+              <li>Daniel and the Lions — <span class="loop-static-ref">Daniel 6:22</span></li>
+              <li>Esther Crown — <span class="loop-static-ref">Esther 4:14</span></li>
+              <li>Joseph and the Coat — <span class="loop-static-ref">Genesis 37:3</span></li>
+              <li>Samson and the Pillars — <span class="loop-static-ref">Judges 16:30</span></li>
+              <li>Ruth Gleans — <span class="loop-static-ref">Ruth 2:2</span></li>
+              <li>Baby Moses Basket — <span class="loop-static-ref">Exodus 2:5</span></li>
+              <li>Jericho Walls Tumble — <span class="loop-static-ref">Joshua 6:20</span></li>
+              <li>Lazarus Rise — <span class="loop-static-ref">John 11:43-44</span></li>
+              <li>Jesus Calms the Boat — <span class="loop-static-ref">Mark 4:39</span></li>
+            </ol>
+          </div>
           <div id="loop-grid" class="loop-grid" role="list" aria-label="Bible loop cards"></div>
           <p id="loop-unlock-status" class="section-note" aria-live="polite">Watch 3 times, then pray that story to earn a gold star and unlock the next adventure.</p>
         </section>
         <div id="loop-toast" class="loop-toast is-hidden" role="status" aria-live="polite"></div>
       </div>
     </main>
+
+    <noscript>
+      <div class="content-inner" style="padding: 1rem 1.25rem 2rem; max-width: 52rem; margin: 0 auto;">
+        <section class="glass" style="padding: 1rem 1.25rem 1.25rem;">
+          <h2 class="section-divider kids-section-divider">JavaScript is off</h2>
+          <p class="section-note" style="margin: 0;">Turn on JavaScript for animated loops, gold stars, and progress. The <strong>Starter 12 Loops</strong> list in the main content names the first twelve cartoons in the roadmap.</p>
+        </section>
+      </div>
+    </noscript>
 
     <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
       <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️</p>
@@ -213,6 +260,7 @@
 
   <script type="module" src="config.js"></script>
   <script src="loop-feedback-config.js"></script>
-  <script type="module" src="script.js?v=20260320reader-sk" data-cfasync="false"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer crossorigin></script>
+  <script type="module" src="script.js?v=20260322loop-pdf-summary" data-cfasync="false"></script>
 </body>
 </html>

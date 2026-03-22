@@ -1,6 +1,6 @@
 /**
  * Kids Story Library — library view for Kids Battle
- * 52 Bible stories: search, filter, random, PDF export, coloring canvas.
+ * Full Bible story catalog: search, filter, random, PDF title export, coloring canvas.
  * Uses TDB_BIBLE_STORIES from kids-battle.js.
  */
 (function () {
@@ -3149,6 +3149,7 @@
   var journeyNextBtn = document.getElementById('kids-journey-next-btn');
   var journeyResetBtn = document.getElementById('kids-journey-reset-btn');
   var journeyStatusEl = document.getElementById('kids-journey-status');
+  var staticFallbackHidden = false;
 
   var LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
   var LIBRARY_STORY_MASTER_KEY = 'kidsLibraryStoryMasterProgress';
@@ -3849,6 +3850,11 @@
       }
     }
     updateLibraryCount(keys.length);
+    if (!staticFallbackHidden && keys.length > 0) {
+      var fb = document.getElementById('kids-library-static-fallback');
+      if (fb) fb.classList.add('hidden');
+      staticFallbackHidden = true;
+    }
     // Re-apply lock state whenever grid re-renders (new Color Me buttons added)
     if (window._kidLock) window._kidLock.applyLockState();
   }
@@ -3863,6 +3869,18 @@
     if (query) context.push('search: "' + query + '"');
     if (theme) context.push('theme: ' + theme);
     libraryCountEl.textContent = 'Showing ' + shown + ' of ' + total + ' Bible stories' + (context.length ? ' (' + context.join(' • ') + ')' : '') + '.';
+  }
+
+  /** PDF always exports the full catalog (not search/filter). Surface N so the button matches the file. */
+  function updatePdfExportCountHint() {
+    var el = document.getElementById('pdf-export-count-hint');
+    if (!el) return;
+    var total = getStoryKeys().length;
+    if (!total) {
+      el.textContent = '';
+      return;
+    }
+    el.textContent = total + ' titles in this PDF • full library (ignores search/filter)';
   }
 
   function openStory(key) {
@@ -4027,6 +4045,7 @@
       }
     } catch (e) {}
     renderGrid(applyFilters());
+    updatePdfExportCountHint();
     renderStoryMaster();
     syncJourneyUi();
 
@@ -4085,7 +4104,7 @@
       pdfExportBtn.addEventListener('click', function () {
         var JsPDF = window.jspdf && window.jspdf.jsPDF;
         if (!JsPDF) {
-          showToast('PDF library loading… try again in a moment.');
+          showToast('PDF helper still loading—wait a beat, then tap again.');
           return;
         }
         var stories = getStories();
@@ -4104,7 +4123,7 @@
           var cellH = 28;
           doc.setFontSize(16);
           doc.setFont('helvetica', 'bold');
-          doc.text('Kids Battle Bible Stories – One Year of Fun!', pageW / 2, y, { align: 'center' });
+          doc.text('Kids Bible Story Library — ' + keys.length + ' titles', pageW / 2, y, { align: 'center' });
           y += 12;
           doc.setFontSize(10);
           doc.setFont('helvetica', 'normal');
@@ -4135,7 +4154,7 @@
               y = margin;
             }
           }
-          doc.save('52-stories-year.pdf');
+          doc.save('kids-bible-story-library.pdf');
           showToast('PDF downloaded!');
         } catch (err) {
           showToast('PDF export could not be completed. Please try again.');

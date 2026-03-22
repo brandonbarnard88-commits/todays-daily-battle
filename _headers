@@ -23,6 +23,15 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Loop Library (root) — same freshness as /kids/corner.html (clean URLs + .html)
+/kids-corner
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/kids-corner.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Static assets: long cache (versioned in build)
 /vendor/*
   Cache-Control: public, max-age=31536000, immutable

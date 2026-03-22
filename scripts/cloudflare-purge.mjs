@@ -18,6 +18,9 @@
  * Token: My Profile → API Tokens → Create Token → "Edit zone cache" (include Zone Resources: todaysdailybattle.com)
  *
  * API: files[] batches of ≤30 URLs per request (Cloudflare limit).
+ *
+ * Share images: HTML uses og:image …/file.jpg?v=SHARE_OG_V — bump SHARE_OG_V here when you
+ * bump ?v= in index/calm/mobius/shop/testimonials so :social purges both bare and versioned URLs.
  */
 import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
@@ -62,6 +65,9 @@ if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder/i.test
   process.exit(1);
 }
 
+/** Bump with HTML og:image ?v= when replacing share art (cache-bust). */
+const SHARE_OG_V = '20260322';
+
 /** Paths appended to https://DOMAIN for post–share-image deploys */
 const SOCIAL_PURGE_PATHS = [
   '/',
@@ -75,7 +81,12 @@ const SOCIAL_PURGE_PATHS = [
   '/assets/share/calm-og.jpg',
   '/assets/share/mobius-og.jpg',
   '/assets/share/shop-og.jpg',
-  '/assets/share/testimonials-og.jpg'
+  '/assets/share/testimonials-og.jpg',
+  '/assets/share/home-og.jpg?v=' + SHARE_OG_V,
+  '/assets/share/calm-og.jpg?v=' + SHARE_OG_V,
+  '/assets/share/mobius-og.jpg?v=' + SHARE_OG_V,
+  '/assets/share/shop-og.jpg?v=' + SHARE_OG_V,
+  '/assets/share/testimonials-og.jpg?v=' + SHARE_OG_V
 ];
 
 const CHUNK = 30;

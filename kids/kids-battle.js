@@ -15,7 +15,18 @@
       try {
         el.innerHTML = pol.createHTML(s);
         return;
-      } catch (_) {}
+      } catch (_) {
+        try {
+          var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
+            ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
+            : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+          el.innerHTML = pol.createHTML(wash);
+          return;
+        } catch (_) {
+          try { el.innerHTML = pol.createHTML(''); } catch (__) {}
+          return;
+        }
+      }
     }
     el.innerHTML = s;
   }
@@ -1384,6 +1395,15 @@
     { day: 7, icon: '🏆', label: 'Day 7' }
   ];
 
+  /** When a carousel story key is missing from bibleStories, show a safe single-panel strip (matches getCartoonForVerse fallbacks). */
+  const KIDS_SINGLE_CARTOON_FALLBACKS = [
+    { type: 'single', src: 'panel-david.svg', alt: 'David with slingshot', caption: 'Be brave like David!', anim: 'cartoon-slide-david' },
+    { type: 'single', src: 'panel-noah.svg', alt: "Noah's ark", caption: 'God keeps His promises!', anim: 'cartoon-slide-noah' },
+    { type: 'single', src: 'panel-jesus.svg', alt: 'Jesus loves children', caption: 'Jesus loves you!', anim: 'cartoon-slide-jesus' },
+    { type: 'single', src: 'panel-jonah.svg', alt: 'Jonah and the big fish', caption: 'Obey God like Jonah!', anim: 'cartoon-slide-jonah' },
+    { type: 'single', src: 'panel-daniel.svg', alt: 'Daniel in the lions den', caption: 'God protects when you pray!', anim: 'cartoon-slide-daniel' }
+  ];
+
   function getDailyKey() {
     const d = new Date();
     const y = d.getFullYear();
@@ -1393,11 +1413,16 @@
   }
 
   function getNextVerseIndex() {
-    var index = 0;
+    var n = KIDS_VERSES.length;
+    if (!n) return 0;
+    var idx = 0;
     try {
-      index = parseInt(localStorage.getItem(KIDS_VERSE_INDEX_KEY), 10) || 0;
+      idx = parseInt(localStorage.getItem(KIDS_VERSE_INDEX_KEY), 10);
     } catch (e) {}
-    return index % KIDS_VERSES.length;
+    if (!isFinite(idx)) idx = 0;
+    idx = idx % n;
+    if (idx < 0) idx += n;
+    return idx;
   }
 
   /** Bible story carousels — 3-panel comic strips + optional video. Cycle weekly: one story per week (up to 52). */
@@ -5525,6 +5550,13 @@
     }
   };
 
+  /** Export stories before any init() so defer + sync-ready pages always have window.TDB_BIBLE_STORIES (Kids Corner, coloring, RPC helpers). */
+  if (typeof window !== 'undefined') {
+    normalizeBibleStoriesForUi(bibleStories);
+    window.TDB_BIBLE_STORIES = bibleStories;
+    window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
+  }
+
   function getCartoonForVerse(ref, text, index) {
     var low = (ref + ' ' + text).toLowerCase();
     var dayIndex = index;
@@ -5762,6 +5794,23 @@
     return panels[index % 5];
   }
 
+  /** Normalize carousel/single picker so we never read .panels on a missing story (fixes blank/broken Kids Battle strip). */
+  function resolveKidsCartoon(cartoon, index) {
+    var n = KIDS_SINGLE_CARTOON_FALLBACKS.length;
+    var fb = KIDS_SINGLE_CARTOON_FALLBACKS[index % n];
+    var c = cartoon;
+    if (!c || typeof c !== 'object') {
+      return fb;
+    }
+    if (c.type === 'carousel') {
+      var st = bibleStories[c.story];
+      if (!st || !Array.isArray(st.panels)) {
+        return fb;
+      }
+    }
+    return c;
+  }
+
   function getStreakData() {
     try {
       const raw = localStorage.getItem(KIDS_STREAK_KEY);
@@ -5818,7 +5867,16 @@
       var indices = getFilteredVerseIndices(q);
       if (indices.length > 0) index = indices[0];
     }
+    var nVerses = KIDS_VERSES.length;
+    if (nVerses) {
+      index = index % nVerses;
+      if (index < 0) index += nVerses;
+    }
     var v = KIDS_VERSES[index];
+    if (!v) {
+      index = 0;
+      v = KIDS_VERSES[0];
+    }
     var p = KIDS_PRAYERS[index];
     var refEl = document.getElementById('kids-verse-ref');
     var textEl = document.getElementById('kids-verse-text');
@@ -5826,9 +5884,9 @@
     var kidText = getKidText(v.ref) || v.text;
     if (refEl) refEl.textContent = v.ref;
     if (textEl) textEl.textContent = kidText;
-    if (prayerEl) prayerEl.textContent = p;
+    if (prayerEl) prayerEl.textContent = p != null ? p : '';
     renderKidContext(v.ref, kidText || v.text);
-    var cartoon = getCartoonForVerse(v.ref, v.text, index);
+    var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
     var container = document.getElementById('kids-cartoon-container');
     if (!container) return;
     if (cartoon.type === 'carousel') {
@@ -6923,9 +6981,9 @@
     var prayerEl = document.getElementById('kids-prayer-text');
     if (refEl) refEl.textContent = v.ref;
     if (textEl) textEl.textContent = kidText;
-    if (prayerEl) prayerEl.textContent = p;
+    if (prayerEl) prayerEl.textContent = p != null ? p : '';
     renderKidContext(v.ref, kidText || v.text);
-    var cartoon = getCartoonForVerse(v.ref, v.text, index);
+    var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
     var container = document.getElementById('kids-cartoon-container');
     if (container) {
       if (cartoon.type === 'carousel') {
@@ -7359,33 +7417,44 @@
   }
 
   function init() {
-    renderKidsTopicButtons();
-    renderVerseAndPrayer();
-    loadKidReflection();
-    renderStreak();
-    renderDoneState();
-    renderComeBackNudge();
-    renderBadges();
-    renderStoryOfDay();
-    updateKidGreeting();
-    showKidNameModalIfNeeded();
-    wireKidNameModal();
-    scheduleDeferredSyncKidStreak();
-    renderFaithTrail();
-    renderFamilyCode();
-    wireKidsSearch();
-    wireKidReflection();
-    wireQuiz();
-    wireMemory();
-    wireMarkDone();
-    wireRemindBtn();
-    wireFamilyCodeForm();
-    wireDoodle();
-    wireVerseSpeak();
-    wireShareBtn();
-    wireShareStreak();
-    wireSidebar();
-    wireVideoModal();
+    var steps = [
+      function () { renderKidsTopicButtons(); },
+      function () { renderVerseAndPrayer(); },
+      function () { loadKidReflection(); },
+      function () { renderStreak(); },
+      function () { renderDoneState(); },
+      function () { renderComeBackNudge(); },
+      function () { renderBadges(); },
+      function () { renderStoryOfDay(); },
+      function () { updateKidGreeting(); },
+      function () { showKidNameModalIfNeeded(); },
+      function () { wireKidNameModal(); },
+      function () { scheduleDeferredSyncKidStreak(); },
+      function () { renderFaithTrail(); },
+      function () { renderFamilyCode(); },
+      function () { wireKidsSearch(); },
+      function () { wireKidReflection(); },
+      function () { wireQuiz(); },
+      function () { wireMemory(); },
+      function () { wireMarkDone(); },
+      function () { wireRemindBtn(); },
+      function () { wireFamilyCodeForm(); },
+      function () { wireDoodle(); },
+      function () { wireVerseSpeak(); },
+      function () { wireShareBtn(); },
+      function () { wireShareStreak(); },
+      function () { wireSidebar(); },
+      function () { wireVideoModal(); }
+    ];
+    for (var si = 0; si < steps.length; si++) {
+      try {
+        steps[si]();
+      } catch (err) {
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('Kids Battle init step ' + si + ':', err);
+        }
+      }
+    }
   }
 
   if (document.readyState === 'loading') {
@@ -7525,9 +7594,6 @@
   };
 
   if (typeof window !== 'undefined') {
-    normalizeBibleStoriesForUi(bibleStories);
-    window.TDB_BIBLE_STORIES = bibleStories;
-    window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     window.TDB_STORY_THEMES = STORY_THEMES;
   }
 })();

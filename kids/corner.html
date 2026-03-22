@@ -9,7 +9,7 @@
   <script defer src="../analytics-loader.js"></script>
   <script type="module" src="../config.js"></script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bible Story Library • Kids Battle • Today's Daily Battle</title>
   <meta name="description" content="Kids Bible Story Library—cartoon panels, KJV verse hooks, read-and-quiz, optional video, and Color Me. Starter stories load in-page; full grid needs JavaScript.">
   <meta name="robots" content="index, follow">
@@ -332,6 +332,22 @@
       color: #e2e8f0;
       margin: 0.5rem 0 0;
     }
+    .kids-read-quiz-unavailable .kids-read-quiz-unavailable-msg {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+      margin: 0 0 0.75rem;
+    }
+    .kids-read-quiz-retry-btn {
+      min-height: 44px;
+      margin-top: 0.25rem;
+    }
+    .kids-read-quiz-wrap.kids-read-quiz-unavailable {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
     /* Static starter list: visible before JS hydrates the grid (SEO + noscript) */
     .kids-library-static-fallback {
       margin-bottom: 1.25rem;
@@ -565,9 +581,9 @@
   <script src="kids-full-story-assets.js"></script>
   <script src="kids-read-quiz-data.js?v=69"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
-  <script src="kids-battle.js?v=74" defer></script>
+  <script src="kids-battle.js?v=77" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=74" defer></script>
+  <script src="kids-corner.js?v=77" defer></script>
   <script type="module" src="../script.js?v=20260321full-story" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

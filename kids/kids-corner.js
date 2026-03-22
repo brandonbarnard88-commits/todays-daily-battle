@@ -3171,6 +3171,7 @@
   var modalPreviousFocus = null;
   var modalFocusTrapHandler = null;
   var kidsStorySpeakBtn = null;
+  var readQuizRetryInflight = false;
 
   function clearStoryVideoContainer(el) {
     if (!el) return;
@@ -3239,6 +3240,101 @@
     if (!modalReadQuiz) return;
     tdbClearHtml(modalReadQuiz);
     modalReadQuiz.classList.add('hidden');
+  }
+
+  /**
+   * Loads the canonical /kids/kids-read-quiz-data.js (no query) when the inline script failed
+   * (SW/cache glitch, offline stub, or bad first response). Safe to call multiple times.
+   */
+  function retryKidsReadQuizData(done) {
+    var rq = window.TDB_KIDS_READ_QUIZ;
+    var n = rq && typeof rq === 'object' ? Object.keys(rq).length : 0;
+    if (n >= 50) {
+      if (typeof done === 'function') done(true);
+      return;
+    }
+    if (readQuizRetryInflight) {
+      if (typeof done === 'function') done(false);
+      return;
+    }
+    readQuizRetryInflight = true;
+    var s = document.createElement('script');
+    s.src = '/kids/kids-read-quiz-data.js';
+    s.async = true;
+    s.setAttribute('data-tdb-read-quiz-retry', '1');
+    s.onload = function () {
+      readQuizRetryInflight = false;
+      try {
+        if (s.parentNode) s.parentNode.removeChild(s);
+      } catch (_) {}
+      var n2 = window.TDB_KIDS_READ_QUIZ && typeof window.TDB_KIDS_READ_QUIZ === 'object' ? Object.keys(window.TDB_KIDS_READ_QUIZ).length : 0;
+      if (n2 >= 50) {
+        try {
+          if (!sessionStorage.getItem('kidsReadQuizRecovered')) {
+            sessionStorage.setItem('kidsReadQuizRecovered', '1');
+            showToast('Read-aloud and quiz are ready now.');
+          }
+        } catch (e) {}
+        if (currentOpenStoryKey) mountReadQuizForStory(currentOpenStoryKey);
+        if (typeof done === 'function') done(true);
+      } else {
+        if (typeof done === 'function') done(false);
+      }
+    };
+    s.onerror = function () {
+      readQuizRetryInflight = false;
+      try {
+        if (s.parentNode) s.parentNode.removeChild(s);
+      } catch (e) {}
+      if (typeof done === 'function') done(false);
+    };
+    document.head.appendChild(s);
+  }
+
+  /**
+   * When read-quiz data is missing (failed load, offline, or per-story gap), show calm copy
+   * instead of a blank strip — titles alone feel "hollow."
+   */
+  function showReadQuizUnavailable(key) {
+    if (!modalReadQuiz) return;
+    var rq = window.TDB_KIDS_READ_QUIZ;
+    var globalMissing = !rq || typeof rq !== 'object' || Object.keys(rq).length < 10;
+    tdbClearHtml(modalReadQuiz);
+    var wrap = document.createElement('div');
+    wrap.className = 'kids-read-quiz-wrap kids-read-quiz-unavailable';
+    wrap.setAttribute('role', 'status');
+    var p = document.createElement('p');
+    p.className = 'kids-read-quiz-unavailable-msg';
+    p.textContent = globalMissing
+      ? 'The read-aloud words and quiz questions did not load. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
+      : 'This story does not have read-and-quiz content in the bundle yet. Use the comic and notes above.';
+    wrap.appendChild(p);
+    if (globalMissing) {
+      var btnTry = document.createElement('button');
+      btnTry.type = 'button';
+      btnTry.className = 'btn btn-secondary kids-read-quiz-retry-btn';
+      btnTry.textContent = 'Try loading again';
+      btnTry.addEventListener('click', function () {
+        btnTry.disabled = true;
+        retryKidsReadQuizData(function (ok) {
+          btnTry.disabled = false;
+          if (!ok) showToast('Still could not load. Check connection or refresh.');
+        });
+      });
+      wrap.appendChild(btnTry);
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'btn btn-secondary kids-read-quiz-retry-btn';
+      btn.textContent = 'Refresh page';
+      btn.addEventListener('click', function () {
+        try {
+          location.reload();
+        } catch (_) {}
+      });
+      wrap.appendChild(btn);
+    }
+    modalReadQuiz.appendChild(wrap);
+    modalReadQuiz.classList.remove('hidden');
   }
 
   /** Same-origin read-along art only (no query strings, no parent paths). */
@@ -3363,7 +3459,14 @@
     clearReadQuizModal();
     if (!modalReadQuiz) return;
     var pack = (window.TDB_KIDS_READ_QUIZ || {})[key];
-    if (!pack || !pack.paragraphs || !pack.questions || !pack.questions.length) return;
+    if (!pack || !pack.questions || !pack.questions.length) {
+      showReadQuizUnavailable(key);
+      return;
+    }
+    if (!Array.isArray(pack.paragraphs)) {
+      showReadQuizUnavailable(key);
+      return;
+    }
     modalReadQuiz.classList.remove('hidden');
 
     var wrap = document.createElement('div');
@@ -3791,7 +3894,7 @@
 
   function storyHasReadQuizPack(key) {
     var pack = (window.TDB_KIDS_READ_QUIZ || {})[key];
-    return !!(pack && pack.paragraphs && pack.paragraphs.length && pack.questions && pack.questions.length);
+    return !!(pack && Array.isArray(pack.paragraphs) && pack.questions && pack.questions.length);
   }
 
   function renderStoryMaster() {
@@ -4167,9 +4270,23 @@
   function init() {
     var keys = getStoryKeys();
     if (keys.length === 0) {
-      setTimeout(init, 100);
+      if (typeof window._kidsLibraryInitAttempts !== 'number') window._kidsLibraryInitAttempts = 0;
+      window._kidsLibraryInitAttempts++;
+      if (window._kidsLibraryInitAttempts < 60) {
+        setTimeout(init, 100);
+        return;
+      }
+      var grid = document.getElementById('kids-library-grid');
+      if (grid && !grid.querySelector('.kids-library-load-error')) {
+        var err = document.createElement('p');
+        err.className = 'kids-library-load-error kids-search-no-match';
+        err.setAttribute('role', 'alert');
+        err.textContent = 'The story list did not load (usually a blocked script or offline). Check your connection, allow scripts for this site, then refresh.';
+        grid.appendChild(err);
+      }
       return;
     }
+    window._kidsLibraryInitAttempts = 0;
     migrateStoryMasterFromLegacyViewed();
     try {
       refreshKidsPreferredNarrationVoice();
@@ -4190,6 +4307,25 @@
     updatePdfExportCountHint();
     renderStoryMaster();
     syncJourneyUi();
+
+    try {
+      var rq = window.TDB_KIDS_READ_QUIZ;
+      var n = rq && typeof rq === 'object' ? Object.keys(rq).length : 0;
+      if (n < 50) {
+        retryKidsReadQuizData(function (ok) {
+          if (ok) return;
+          var wk = 'kidsReadQuizWarned';
+          try {
+            if (!sessionStorage.getItem(wk)) {
+              sessionStorage.setItem(wk, '1');
+              showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
+            }
+          } catch (e2) {
+            showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
+          }
+        });
+      }
+    } catch (e) {}
 
     wireColoringCanvas();
     wireColoringControls();

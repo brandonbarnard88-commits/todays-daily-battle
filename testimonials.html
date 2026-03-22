@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Reader Stories • Today's Daily Battle | KJV Comfort</title>
+  <meta name="description" content="Short notes from real people who used mood search, battle plans, and prayer tools on hard days. KJV-first, offline-ready, no noise.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/testimonials.html">
+  <meta property="og:title" content="Reader Stories • Today's Daily Battle">
+  <meta property="og:description" content="Honest words from people who needed one verse and one next step.">
+  <meta property="og:url" content="https://todaysdailybattle.com/testimonials.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Reader Stories • Today's Daily Battle">
+  <meta name="twitter:description" content="Honest words from people who needed one verse and one next step.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Reader Stories","url":"https://todaysdailybattle.com/testimonials.html","description":"Short anonymized reader notes about Today's Daily Battle tools.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
+  </script>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .testimonial-page-card { border: 1px solid rgba(227,188,103,0.22); border-radius: 12px; padding: 1rem 1.15rem; margin-bottom: 1rem; background: rgba(255,255,255,0.02); }
+    .testimonial-page-card p { margin: 0; font-style: italic; color: var(--muted, #94a3b8); line-height: 1.55; }
+    .testimonial-page-meta { margin-top: 0.65rem; font-size: 0.82rem; color: var(--gold-soft, #c9a84c); }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Reader stories</span>
+      </div>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <button id="signup-btn" type="button">Sign Up</button>
+        <button id="login-btn" type="button">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" class="hidden" type="button">Log Out</button>
+      </div>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html" aria-current="page">Stories</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>Words from the field</h1>
+          <p class="hero-tagline">These are short, anonymized notes— the kind of message we receive after someone finds a verse, finishes a plan, or sits with Calm for one minute. They are not polished marketing; they are real relief, briefly told.</p>
+        </header>
+
+        <section class="glass">
+          <h2 class="section-divider">Five stories</h2>
+          <article class="testimonial-page-card">
+            <p>“I opened Calm in the parking lot before a hard conversation. One verse was enough to unclench my jaw.”</p>
+            <p class="testimonial-page-meta">— Reader in the Midwest, 2025</p>
+          </article>
+          <article class="testimonial-page-card">
+            <p>“The mood search said what I could not. I did not need a lecture—just Scripture that matched my ache.”</p>
+            <p class="testimonial-page-meta">— Parent of three, 2025</p>
+          </article>
+          <article class="testimonial-page-card">
+            <p>“Offline mode mattered. Rural signal, sick kid, long night—the verse was already there.”</p>
+            <p class="testimonial-page-meta">— Night-shift worker, 2024</p>
+          </article>
+          <article class="testimonial-page-card">
+            <p>“I used the seven-day peace plan like guardrails. Small boxes to check when my mind would not stop racing.”</p>
+            <p class="testimonial-page-meta">— College student, 2025</p>
+          </article>
+          <article class="testimonial-page-card">
+            <p>“The prayer wall is quiet. I can say what I am carrying without performing.”</p>
+            <p class="testimonial-page-meta">— Anonymous, 2025</p>
+          </article>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Share yours</h2>
+          <p class="section-note">If this site helped you, we would love a sentence we can hold alongside these—no names required. Email <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a> or use <a href="contact.html">Contact</a>. We never publish private details without clear permission.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Stories</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the work — Buy me a coffee">Support</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Todays Daily Battle. All rights reserved.</p>
+      <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+    </footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260320reader-sk" data-cfasync="false"></script>
+</body>
+</html>

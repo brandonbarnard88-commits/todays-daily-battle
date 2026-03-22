@@ -4092,6 +4092,21 @@
         <button class="pwa-nudge-dismiss" type="button" id="pwaDismiss" aria-label="Dismiss install nudge">✕</button>
       </div>
 
+      <!-- ── Chromium “Add to Home Screen” (beforeinstallprompt) — paired with wireInstallPrompt in script.js ── -->
+      <div class="install-cta" id="install-cta" role="region" aria-label="Add this site to your device">
+        <div style="flex:1;min-width:0;">
+          <p class="section-note" id="install-cta-note">Keep your daily verse one tap away—offline when you need it.</p>
+          <button type="button" class="btn btn-primary" id="install-app">Add to Home Screen</button>
+          <div class="install-dismiss-wrap" style="margin-top:0.5rem;">
+            <button type="button" class="link-button" id="install-not-now">Not now</button>
+          </div>
+          <div class="install-dismiss-wrap">
+            <input type="checkbox" id="install-dismiss-forever" />
+            <label for="install-dismiss-forever">Don&apos;t ask again</label>
+          </div>
+        </div>
+      </div>
+
       <!-- ── Daily Verse Image Card ── -->
       <div class="verse-img-card" id="verseImgCard" aria-hidden="true">
         <div class="verse-img-inner">
@@ -6002,7 +6017,9 @@
       localStorage.setItem(visitKey, String(visits));
       const isStandalone = window.matchMedia("(display-mode: standalone)").matches
         || window.navigator.standalone === true;
-      if (!isStandalone && visits >= 2) pwaNudge.classList.add("show");
+      if (!isStandalone && visits >= 2) {
+        setTimeout(function () { pwaNudge.classList.add("show"); }, 5000);
+      }
     }
     function showPwaNudgeAfterEngagement() {
       if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;

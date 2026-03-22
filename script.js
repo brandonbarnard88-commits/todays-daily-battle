@@ -1701,7 +1701,7 @@ const OFFLINE_PREFETCH_DAYS = 7;
 const INSTALL_PROMPT_SEEN_KEY = 'tdb_seen_install';
 const INSTALL_PROMPT_DISMISS_UNTIL_KEY = 'tdb_install_prompt_dismiss_until';
 const INSTALL_PROMPT_DISMISS_FOREVER_KEY = 'tdb_install_prompt_dismiss_forever';
-const INSTALL_PROMPT_DELAY_MS = 10000;
+const INSTALL_PROMPT_DELAY_MS = 5000;
 const INSTALL_PROMPT_SNOOZE_MS = 7 * 24 * 60 * 60 * 1000;
 const OT_BOOKS = new Set([
   'Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth',
@@ -5737,6 +5737,11 @@ function wireInstallPrompt() {
         }
       } catch (_) {}
     });
+  }
+  if (!isStandalone()) {
+    setTimeout(function () {
+      if (typeof window.__showInstallPromptWhenReady === 'function') window.__showInstallPromptWhenReady();
+    }, INSTALL_PROMPT_DELAY_MS);
   }
 }
 
@@ -14703,6 +14708,22 @@ async function reportMessageItem(item) {
   return true;
 }
 
+/** Anonymous prayer-wall row report (local queue; no raw text sent to analytics). */
+async function reportPrayerWallItem(item) {
+  if (!item || item.seed === true) return false;
+  const id = item.id != null ? String(item.id) : '';
+  if (!id) return false;
+  try {
+    const local = JSON.parse(localStorage.getItem('prayerWallReports') || '[]');
+    local.unshift({ id: id, created_at: new Date().toISOString() });
+    localStorage.setItem('prayerWallReports', JSON.stringify(local.slice(0, 40)));
+  } catch {}
+  if (typeof trackEvent === 'function') {
+    trackEvent('prayer_wall_report', { source: 'home_wall' });
+  }
+  return true;
+}
+
 async function loadMessageReports() {
   const local = (() => {
     try {
@@ -20539,6 +20560,23 @@ function sanitizeNudgeElements() {
           }
         });
         li.appendChild(shareBtn);
+        if (!isSeed) {
+          var reportBtn = document.createElement('button');
+          reportBtn.type = 'button';
+          reportBtn.className = 'share-btn prayer-wall-report';
+          reportBtn.textContent = 'Report';
+          reportBtn.setAttribute('aria-label', 'Report this prayer as unsafe or spam');
+          reportBtn.addEventListener('click', function () {
+            reportPrayerWallItem(item).then(function (ok) {
+              if (ok) {
+                reportBtn.textContent = 'Reported';
+                reportBtn.disabled = true;
+                if (typeof showEliteToast === 'function') showEliteToast('Thanks—we review reports.');
+              } else if (typeof showEliteToast === 'function') showEliteToast('Could not report. Try contact.');
+            });
+          });
+          li.appendChild(reportBtn);
+        }
         listEl.appendChild(li);
       });
       updateFeaturedPrayerHighlight();

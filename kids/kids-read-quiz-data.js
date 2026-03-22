@@ -6287,25 +6287,37 @@
   "fourHorsemen": {
     "kjvRef": "Revelation 6:1–8",
     "paragraphs": [
-      "John saw: when the Lamb opened the first seal, a white horse came forth. He that sat on him had a bow; and a crown was given unto him, and he went forth conquering.",
-      "When the Lamb opened the second seal, a red horse came; power was given to him that sat thereon to take peace from the earth, and that they should kill one another.",
-      "The third seal: a black horse; he that sat on him had a pair of balances in his hand — a measure of wheat for a penny, famine prices.",
-      "The fourth seal: a pale horse; his name that sat on him was Death, and Hell followed with him.",
-      "Big visions can feel heavy, but God showed John these things so we would know His Son opens history — God is still on the throne, and the Lamb is worthy."
+      "John saw the Lamb open the first seal. One of the four beasts said, \"Come and see.\" A white horse went forth; the rider had a bow and a crown.",
+      "The second seal: a red horse, its rider given power to take peace from the earth, that they should kill one another.",
+      "The third seal: a black horse, its rider had a pair of balances, saying \"A measure of wheat for a penny, and three measures of barley for a penny.\"",
+      "The fourth seal: a pale horse, its rider was Death, and Hell followed with him. Power given over a fourth part of the earth.",
+      "The four horsemen show God’s judgment — but the Lamb is still on the throne, worthy to open the seals."
     ],
     "imagePrompts": [
-      "bright cartoon for kids: Lamb opening first seal, white horse rider with bow and crown, no text",
-      "fun kid illustration: red horse rider, peace taken from earth, people in strife, no text",
-      "colorful Bible scene for children: black horse with balances, famine prices, no text",
-      "exciting cartoon: pale horse named Death, solemn scene, no text",
-      "hopeful ending illustration: glorified Lamb on throne, light and peace, sovereignty, no text"
+      "bright cartoon for kids: Lamb opening first seal, white horse with rider holding bow and crown, no text",
+      "fun kid illustration: red horse, rider bringing conflict, no text",
+      "colorful Bible scene for children: black horse, rider with balances, no text",
+      "exciting cartoon: pale horse, Death and Hell following, no text",
+      "hopeful ending illustration: Lamb on throne, worthy to open seals, no text"
     ],
     "readAlongImages": [],
-    "hintAboveQuiz": "Four horses — the Lamb opens the seals!",
+    "hintAboveQuiz": "The four horsemen — God’s judgment, but the Lamb is worthy!",
     "quizHeading": "Four Horsemen Questions",
     "questions": [
       {
-        "question": "What was the first horse’s color?",
+        "question": "Who opened the first seal?",
+        "choices": [
+          "An angel",
+          "The Lamb",
+          "John",
+          "The elders"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! The Lamb opened the first seal.",
+        "wrongFeedback": "The Lamb opened the first seal (Revelation 6:1)."
+      },
+      {
+        "question": "What was the first horse?",
         "choices": [
           "Red",
           "White",
@@ -6313,62 +6325,50 @@
           "Pale"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! A white horse came first.",
-        "wrongFeedback": "John saw a white horse when the first seal was opened (Revelation 6:2)."
+        "correctFeedback": "Yes! White horse with rider holding bow and crown.",
+        "wrongFeedback": "A white horse; and he that sat on him had a bow; and a crown was given unto him (Revelation 6:2)."
       },
       {
-        "question": "What did the rider on the red horse have power to do?",
-        "choices": [
-          "Plant crops",
-          "Take peace from the earth",
-          "Heal the sick",
-          "Build cities"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Right! Power was given to take peace from the earth.",
-        "wrongFeedback": "Power was given to him that sat thereon to take peace from the earth (Revelation 6:4)."
-      },
-      {
-        "question": "What did the rider on the black horse hold?",
-        "choices": [
-          "A sword",
-          "A pair of balances (scales)",
-          "A crown",
-          "A lamp"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes! A pair of balances — famine prices.",
-        "wrongFeedback": "He that sat on him had a pair of balances in his hand (Revelation 6:5)."
-      },
-      {
-        "question": "What was the name of the one who sat on the pale horse?",
+        "question": "What did the red horse bring?",
         "choices": [
           "Peace",
-          "Death",
-          "Life",
-          "Hope"
+          "Power to take peace from the earth",
+          "Food",
+          "Light"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! His name was Death.",
-        "wrongFeedback": "His name that sat on him was Death, and Hell followed with him (Revelation 6:8)."
+        "correctFeedback": "Right! Power to take peace from the earth.",
+        "wrongFeedback": "There went out another horse that was red: and power was given to him that sat thereon to take peace from the earth (Revelation 6:4)."
+      },
+      {
+        "question": "What did the black horse rider have?",
+        "choices": [
+          "A sword",
+          "A pair of balances",
+          "A crown",
+          "A bow"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! A pair of balances.",
+        "wrongFeedback": "A black horse; and he that sat on him had a pair of balances in his hand (Revelation 6:5)."
       },
       {
         "question": "What can we learn from the four horsemen?",
         "choices": [
-          "God is surprised",
-          "God holds history — the Lamb opens the seals according to God's plan",
-          "Seals are pretend",
-          "We should fear the Lamb"
+          "Judgment is the end",
+          "God’s judgment comes, but the Lamb is worthy",
+          "Never open seals",
+          "Fear horses"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Perfect! God is never surprised — the Lamb is worthy and true.",
-        "wrongFeedback": "The Lamb opens the seals — God is sovereign over judgment and mercy (Revelation 5–6)."
+        "correctFeedback": "Perfect! God’s judgment comes, but the Lamb is worthy.",
+        "wrongFeedback": "The Lamb opens the seals — judgment, but He is on the throne!"
       }
     ],
     "doneHeading": "Great Job!",
-    "doneMessage": "You earned a star — God holds history!",
-    "takeaway": "The Lamb opens the seals — God is sovereign over judgment and mercy.",
-    "prayer": "Lord Jesus, help me trust Thee when life feels hard. Thou art worthy. Amen."
+    "doneMessage": "You earned a star — the Lamb is worthy!",
+    "takeaway": "God’s judgment comes, but the Lamb is worthy.",
+    "prayer": "Jesus, Lamb of God, thank You for being worthy. Help me trust You. Amen."
   },
   "fruitSpirit": {
     "kjvRef": "Galatians 5:22–23",
@@ -7405,57 +7405,57 @@
   "heavenDoor": {
     "kjvRef": "Revelation 3:20",
     "paragraphs": [
-      "Jesus had tender words for seven churches in Asia — some were faithful, and some needed to hear the truth again.",
-      "To the church at Laodicea Jesus said they were lukewarm: not cold and not hot. He rebuked them and said, As many as I love, I rebuke and chasten.",
-      "Then He made a promise: Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him, and will sup with him, and he with me.",
-      "He is not far away. He knocks — and He waits for someone to hear, open, and welcome Him.",
-      "That is Jesus today: He calls to sinners. If you open the door of your heart, He comes in to fellowship with you."
+      "Jesus said, \"Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him, and will sup with him, and he with me.\"",
+      "Jesus knocks at the door of our heart. He waits for us to hear His voice and open.",
+      "When we open the door to Jesus, He comes in and fellowships with us.",
+      "Jesus promises to sup with us — share a meal, close friendship.",
+      "Open the door to Jesus — He wants to be with us always."
     ],
     "imagePrompts": [
-      "bright cartoon for kids: Jesus gently knocking at a wooden door, warm light, no text",
-      "fun kid illustration: child listening at door, heart softened, hearing His voice, no text",
-      "colorful Bible scene for children: table fellowship, bread, simple meal with Jesus, no text",
-      "exciting cartoon: night city of Laodicea, church lamp, door closed then opening, no text",
-      "hopeful ending illustration: open door, Jesus welcomed in, joy and peace, no text"
+      "bright cartoon for kids: Jesus standing at a door, knocking gently, no text",
+      "fun kid illustration: person hearing Jesus’ voice, opening the door, no text",
+      "colorful Bible scene for children: Jesus coming in, supping with the person, no text",
+      "exciting cartoon: fellowship meal with Jesus, close friendship, no text",
+      "hopeful ending illustration: Jesus with us always, open door, no text"
     ],
     "readAlongImages": [],
-    "hintAboveQuiz": "Jesus knocks — will you open the door?",
-    "quizHeading": "The Door Questions",
+    "hintAboveQuiz": "Jesus stands at the door and knocks!",
+    "quizHeading": "Heaven Door Questions",
     "questions": [
       {
-        "question": "What does Jesus say He does at the door?",
+        "question": "What does Jesus say He does?",
         "choices": [
-          "He breaks the door down",
-          "He stands at the door and knocks",
-          "He walks away forever",
-          "He hides"
+          "Stands at the door and knocks",
+          "Opens doors",
+          "Closes doors",
+          "Stays outside"
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes! I stand at the door, and knock (Revelation 3:20).",
+        "correctIndex": 0,
+        "correctFeedback": "Yes! Stands at the door and knocks.",
         "wrongFeedback": "Behold, I stand at the door, and knock (Revelation 3:20)."
       },
       {
-        "question": "What must we do to open the door?",
+        "question": "What happens if we hear His voice and open the door?",
         "choices": [
-          "Be loud and proud",
-          "Hear His voice and open the door",
-          "Buy gold only",
-          "Stay lukewarm"
+          "Jesus goes away",
+          "Jesus comes in and sups with us",
+          "Nothing",
+          "Jesus waits"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right! Hear His voice and open the door.",
-        "wrongFeedback": "If any man hear my voice, and open the door, I will come in to him (Revelation 3:20)."
+        "correctFeedback": "Right! Jesus comes in and sups with us.",
+        "wrongFeedback": "If any man hear my voice, and open the door, I will come in to him, and will sup with him (Revelation 3:20)."
       },
       {
-        "question": "What does Jesus promise if we open the door?",
+        "question": "What does Jesus want to do with us?",
         "choices": [
-          "He will leave at once",
-          "He will come in and sup with him",
-          "Nothing changes",
-          "He will only rebuke"
+          "Leave us",
+          "Sup with us — share close fellowship",
+          "Judge us",
+          "Ignore us"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! I will come in to him, and will sup with him, and he with me.",
+        "correctFeedback": "Yes! Sup with us — share close fellowship.",
         "wrongFeedback": "I will come in to him, and will sup with him, and he with me (Revelation 3:20)."
       },
       {
@@ -7471,22 +7471,22 @@
         "wrongFeedback": "The letter to the church of the Laodiceans includes this promise (Revelation 3:14–22)."
       },
       {
-        "question": "What can we learn from the door?",
+        "question": "What can we learn from Jesus at the door?",
         "choices": [
-          "Jesus never wants to come in",
-          "Jesus calls to sinners — open the door to Him",
-          "Do not listen",
-          "Do not pray"
+          "Jesus never knocks",
+          "Open the door to Jesus — He wants to be with us",
+          "Keep the door closed",
+          "Fear Jesus"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Perfect! Jesus knocks — He invites us to fellowship with Him.",
-        "wrongFeedback": "If any man hear my voice, and open the door, I will come in to him (Revelation 3:20)."
+        "correctFeedback": "Perfect! Open the door to Jesus — He wants to be with us.",
+        "wrongFeedback": "Jesus stands at the door and knocks — He wants fellowship!"
       }
     ],
     "doneHeading": "Great Job!",
     "doneMessage": "You earned a star — open the door to Jesus!",
-    "takeaway": "Jesus knocks — hear His voice and welcome Him.",
-    "prayer": "Jesus, thank You for knocking. I open my heart’s door to You. Amen."
+    "takeaway": "Open the door to Jesus — He wants to be with us.",
+    "prayer": "Jesus, thank You for knocking. I open the door to You. Come in. Amen."
   },
   "heavenPromise": {
     "kjvRef": "Revelation 21:1–5",
@@ -19097,90 +19097,90 @@
     "prayer": "Lord Jesus, I worship Thee. Keep me faithful to Thee alone. Amen."
   },
   "revelationBride": {
-    "kjvRef": "Revelation 19:7–9; 21:2",
+    "kjvRef": "Revelation 21:2, 9–11",
     "paragraphs": [
-      "John heard a great voice in heaven: Let us be glad and rejoice; for the marriage of the Lamb is come, and his wife hath made herself ready.",
-      "To her was granted that she should be arrayed in fine linen, clean and white — the linen is the righteousness of saints.",
-      "Blessed are they which are called unto the marriage supper of the Lamb. These are the true sayings of God.",
-      "Later John saw the holy city, new Jerusalem, coming down from God out of heaven, prepared as a bride adorned for her husband.",
-      "God is the Bridegroom of His people — Jesus will dwell with His church forever. That is the best day to hope for!"
+      "John saw the holy city, new Jerusalem, coming down from God out of heaven, prepared as a bride adorned for her husband.",
+      "One of the seven angels said, \"Come hither, I will shew thee the bride, the Lamb’s wife.\"",
+      "He carried John away in the spirit to a great and high mountain, and shewed him the great city, the holy Jerusalem, descending out of heaven from God.",
+      "The city had the glory of God. Her light was like unto a stone most precious, even like a jasper stone, clear as crystal.",
+      "The bride is the Lamb’s wife — the church, adorned in glory for her Husband."
     ],
     "imagePrompts": [
-      "bright cartoon for kids: heavenly joy, wedding celebration, marriage of the Lamb, no text",
-      "fun kid illustration: white linen robes, righteous saints, clean and bright, no text",
-      "colorful Bible scene for children: blessed guests called to supper, feast of joy, no text",
-      "exciting cartoon: holy city New Jerusalem descending, bride adorned like a wedding, no text",
-      "hopeful ending illustration: Lamb and His people together forever, God dwelling with them, no text"
+      "bright cartoon for kids: new Jerusalem coming down from heaven like a bride, no text",
+      "fun kid illustration: angel saying \"Come hither, I will shew thee the bride\", no text",
+      "colorful Bible scene for children: John on high mountain, seeing holy city descending, no text",
+      "exciting cartoon: city with glory of God, light like precious stone, no text",
+      "hopeful ending illustration: bride as Lamb’s wife, church adorned in glory, no text"
     ],
     "readAlongImages": [],
-    "hintAboveQuiz": "The marriage of the Lamb — the best day!",
-    "quizHeading": "Lamb and Bride Questions",
+    "hintAboveQuiz": "The bride — new Jerusalem, Lamb’s wife!",
+    "quizHeading": "Revelation Bride Questions",
     "questions": [
       {
-        "question": "What was called to come?",
+        "question": "What did John see coming down from God?",
         "choices": [
-          "A war",
-          "The marriage of the Lamb",
-          "A storm",
-          "A new law"
+          "Old Jerusalem",
+          "New Jerusalem, prepared as a bride",
+          "A mountain",
+          "A river"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! The marriage of the Lamb is come (Revelation 19:7).",
-        "wrongFeedback": "The marriage of the Lamb is come, and his wife hath made herself ready (Revelation 19:7)."
+        "correctFeedback": "Yes! New Jerusalem, prepared as a bride.",
+        "wrongFeedback": "The holy city, new Jerusalem, coming down from God out of heaven, prepared as a bride (Revelation 21:2)."
       },
       {
-        "question": "What was the fine linen like?",
+        "question": "What did the angel say to John?",
         "choices": [
-          "Dirty and torn",
-          "Clean and white — the righteousness of saints",
-          "Rainbow only",
-          "Heavy gold only"
+          "Stay here",
+          "Come hither, I will shew thee the bride",
+          "Fear not",
+          "Run away"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right! Fine linen, clean and white — the righteousness of saints (Revelation 19:8).",
-        "wrongFeedback": "She was arrayed in fine linen, clean and white… the righteousness of saints (Revelation 19:8)."
+        "correctFeedback": "Right! \"Come hither, I will shew thee the bride, the Lamb’s wife.\"",
+        "wrongFeedback": "One of the seven angels said \"Come hither, I will shew thee the bride, the Lamb’s wife\" (Revelation 21:9)."
       },
       {
-        "question": "Who are blessed?",
+        "question": "Where did the angel take John?",
         "choices": [
-          "Everyone who refuses",
-          "They which are called unto the marriage supper of the Lamb",
-          "Only angels",
-          "Only kings"
+          "To the sea",
+          "To a great and high mountain",
+          "To the city gate",
+          "To the throne"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! Blessed are they which are called unto the marriage supper of the Lamb (Revelation 19:9).",
-        "wrongFeedback": "Blessed are they which are called unto the marriage supper of the Lamb (Revelation 19:9)."
+        "correctFeedback": "Yes! To a great and high mountain.",
+        "wrongFeedback": "He carried me away in the spirit to a great and high mountain (Revelation 21:10)."
       },
       {
-        "question": "How did John see the holy city?",
+        "question": "What did the city have?",
         "choices": [
-          "Like a soldier",
-          "Prepared as a bride adorned for her husband",
-          "Like a dark tower",
-          "Hidden"
+          "Darkness",
+          "The glory of God",
+          "No light",
+          "Fear"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! Prepared as a bride adorned for her husband (Revelation 21:2).",
-        "wrongFeedback": "The holy city, new Jerusalem… prepared as a bride adorned for her husband (Revelation 21:2)."
+        "correctFeedback": "Yes! The glory of God.",
+        "wrongFeedback": "Having the glory of God (Revelation 21:11)."
       },
       {
-        "question": "What can we learn from the Lamb and the bride?",
+        "question": "What can we learn from the bride in Revelation?",
         "choices": [
-          "God forgets His people",
-          "God loves His church — His promise is forever",
-          "Weddings are meaningless",
-          "Hope is fake"
+          "Church is not beautiful",
+          "The church is the Lamb’s bride — adorned in glory",
+          "Never marry",
+          "Doubt heaven"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Perfect! God is faithful — His people will be with Him forever.",
-        "wrongFeedback": "Blessed is he that keepeth the sayings of the prophecy of this book (Revelation 22:7)."
+        "correctFeedback": "Perfect! The church is the Lamb’s bride — adorned in glory.",
+        "wrongFeedback": "New Jerusalem prepared as a bride — the church in glory!"
       }
     ],
     "doneHeading": "Great Job!",
-    "doneMessage": "You earned a star — blessed is the Lamb!",
-    "takeaway": "God is faithful — His people will feast with Him forever.",
-    "prayer": "Jesus, thank You for loving Your church. Come soon, Lord. Amen."
+    "doneMessage": "You earned a star — the Lamb’s bride!",
+    "takeaway": "The church is the Lamb’s bride — adorned in glory.",
+    "prayer": "Jesus, Lamb of God, thank You for Your bride. Help me be part of it. Amen."
   },
   "revelationLetters": {
     "kjvRef": "Revelation 1–3",
@@ -20215,90 +20215,90 @@
     "prayer": "Jesus, help me follow You above everything. Amen."
   },
   "riverOfLife": {
-    "kjvRef": "Revelation 22:1",
+    "kjvRef": "Revelation 22:1–2",
     "paragraphs": [
       "John saw a pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb.",
-      "In the midst of the street of it, and on either side of the river, was there the tree of life.",
-      "The river is not a small puddle — it flows from God’s throne. Life flows from God forever.",
-      "No one can buy this river with money; it is God’s gift to the people whose names are written in the Lamb’s book of life.",
-      "Jesus called Himself living water on earth — in the new city, that water is forever free and full."
+      "In the midst of the street of it, and on either side of the river, was there the tree of life, which bare twelve manner of fruits.",
+      "The tree yielded her fruit every month: and the leaves of the tree were for the healing of the nations.",
+      "No more curse. The throne of God and of the Lamb shall be in it; and his servants shall serve him.",
+      "The river of life flows from God’s throne — healing and life for all who come."
     ],
     "imagePrompts": [
-      "bright cartoon for kids: crystal-clear river flowing from God’s throne and the Lamb, no text",
-      "fun kid illustration: city street with river of life, tree on both banks, no text",
-      "colorful Bible scene for children: light and water reflecting God’s glory, no text",
-      "exciting cartoon: people drinking from living water, joy, no text",
-      "hopeful ending illustration: throne, Lamb, river forever, no text"
+      "bright cartoon for kids: pure river of water of life flowing from throne, clear as crystal, no text",
+      "fun kid illustration: tree of life on both sides of river, twelve fruits, no text",
+      "colorful Bible scene for children: leaves of the tree for healing of the nations, no text",
+      "exciting cartoon: no more curse, throne of God and Lamb, servants serving, no text",
+      "hopeful ending illustration: river of life, healing and life for all, no text"
     ],
     "readAlongImages": [],
-    "hintAboveQuiz": "The river of life flows from God's throne!",
+    "hintAboveQuiz": "River of life flows from the throne — healing for the nations!",
     "quizHeading": "River of Life Questions",
     "questions": [
       {
-        "question": "Where did the river of life come from?",
+        "question": "Where does the river of life flow from?",
         "choices": [
-          "Out of the sea only",
-          "Out of the throne of God and of the Lamb",
-          "A broken well",
-          "A mountain only"
+          "A mountain",
+          "The throne of God and of the Lamb",
+          "The sea",
+          "A spring"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! Proceeding out of the throne of God and of the Lamb (Revelation 22:1).",
-        "wrongFeedback": "The angel showed a pure river of water of life… proceeding out of the throne of God and of the Lamb (Revelation 22:1)."
+        "correctFeedback": "Yes! From the throne of God and of the Lamb.",
+        "wrongFeedback": "A pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb (Revelation 22:1)."
       },
       {
-        "question": "What was the river like?",
+        "question": "What is on either side of the river?",
         "choices": [
-          "Muddy",
-          "Pure clear as crystal",
-          "Dry",
-          "Hidden"
+          "Houses",
+          "The tree of life",
+          "Mountains",
+          "People"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Right! Pure, clear as crystal.",
-        "wrongFeedback": "A pure river of water of life, clear as crystal (Revelation 22:1)."
+        "correctFeedback": "Right! The tree of life.",
+        "wrongFeedback": "In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2)."
       },
       {
-        "question": "What grew beside the river?",
+        "question": "How many kinds of fruit does the tree bear?",
         "choices": [
-          "Only grass",
-          "The tree of life on either side of the river",
-          "Thorns only",
-          "Walls only"
+          "One",
+          "Twelve manner of fruits",
+          "Seven",
+          "Three"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! In the midst… and on either side of the river, was there the tree of life (Revelation 22:2).",
-        "wrongFeedback": "On either side of the river, was there the tree of life (Revelation 22:2)."
+        "correctFeedback": "Yes! Twelve manner of fruits.",
+        "wrongFeedback": "The tree of life, which bare twelve manner of fruits (Revelation 22:2)."
       },
       {
-        "question": "Who may take the water of life?",
+        "question": "What are the leaves of the tree for?",
         "choices": [
-          "Only the rich",
-          "Whosoever will — freely",
-          "No one",
-          "Only angels"
+          "Decoration",
+          "Healing of the nations",
+          "Food",
+          "Shade"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes! Let him that is athirst come; whosoever will, let him take the water of life freely (Revelation 22:17).",
-        "wrongFeedback": "Whosoever will, let him take the water of life freely (Revelation 22:17)."
+        "correctFeedback": "Yes! Healing of the nations.",
+        "wrongFeedback": "The leaves of the tree were for the healing of the nations (Revelation 22:2)."
       },
       {
         "question": "What can we learn from the river of life?",
         "choices": [
-          "God runs out of mercy",
-          "God gives life that never runs dry — come to Jesus now",
-          "Water is useless",
-          "Never pray"
+          "Life is scarce",
+          "Life and healing flow from God’s throne",
+          "Never drink",
+          "Doubt God"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Perfect! Jesus is the source of living water forever.",
-        "wrongFeedback": "The river of life flows from God’s throne — His mercy is everlasting!"
+        "correctFeedback": "Perfect! Life and healing flow from God’s throne.",
+        "wrongFeedback": "The river of life flows from God — healing for the nations!"
       }
     ],
     "doneHeading": "Great Job!",
-    "doneMessage": "You earned a star — take the water of life freely!",
-    "takeaway": "God gives living water that never runs dry.",
-    "prayer": "Jesus, thank You for living water. Help me come to Thee today. Amen."
+    "doneMessage": "You earned a star — life from the throne!",
+    "takeaway": "Life and healing flow from God’s throne.",
+    "prayer": "God, thank You for the river of life. Let Your healing flow to us. Amen."
   },
   "roadToEmmaus": {
     "kjvRef": "Luke 24:13–35",

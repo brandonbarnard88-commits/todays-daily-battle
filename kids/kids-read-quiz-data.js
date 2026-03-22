@@ -14368,89 +14368,90 @@
     "prayer": "God, help me pray and work for You even when it's hard. Amen."
   },
   "newEarth": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 21:1; 21:4–5",
     "paragraphs": [
-      "The New Earth.",
-      "We read about this in the Bible.",
-      "The best world is coming!",
-      "God is making all things new—and He never makes anything bad.",
-      "We learn from God and how God cares for All creation."
+      "John looked: he saw a new heaven and a new earth — the first heaven and the first earth were passed away.",
+      "This is the home God always meant to finish: not a broken world forever, but a remade one under His good rule.",
+      "God shall wipe away all tears from their eyes; there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain.",
+      "He that sat upon the throne said, Behold, I make all things new. God signed His promise with those words.",
+      "The best earth is coming — not fake, not gray: new, true, and full of God’s love forever."
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: fresh green earth under peaceful sky, new creation, no text",
+      "fun kid illustration: throne voice “I make all things new,” soft light, no text",
+      "colorful Bible scene for children: tears wiped away, smiles, comfort, no text",
+      "exciting cartoon: old faded world fading, bright new land ahead, no text",
+      "hopeful ending illustration: holy city and renewed earth, joy, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "Behold — God makes all things new!",
+    "quizHeading": "New Earth Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "What happened to the first heaven and earth?",
         "choices": [
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Revelation 12",
-          "Matthew 7",
-          "the Bible"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "We should hide from God when we mess up.",
-          "The best world is coming! God is making all things new—and He never makes anything bad.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "They grew bigger",
+          "They were passed away — John saw new ones",
+          "They stayed the same",
+          "They hid"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: The best world is coming! God is making all things new—and He never makes anything bad..)"
+        "correctFeedback": "Yes! The first heaven and the first earth were passed away.",
+        "wrongFeedback": "John saw a new heaven and a new earth: for the first heaven and the first earth were passed away (Revelation 21:1)."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What will God wipe away?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "God says: Behold, I make all things new!",
-          "A talking toaster became king of the city."
+          "Only rain",
+          "All tears from their eyes",
+          "Only dirt",
+          "Joy"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 1,
+        "correctFeedback": "God shall wipe away all tears from their eyes.",
+        "wrongFeedback": "God shall wipe away all tears from their eyes (Revelation 21:4)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What will be no more?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "The best world is coming! God is making all things new—and He never makes anything bad."
+          "Only birds",
+          "Death, sorrow, crying, and pain",
+          "Only night",
+          "Only rivers"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: The best world is coming! God is making all things new—and He never makes anything bad..)"
+        "correctIndex": 1,
+        "correctFeedback": "There shall be no more death, neither sorrow, nor crying, neither shall there be any more pain.",
+        "wrongFeedback": "There shall be no more death, neither sorrow, nor crying, neither shall there be any more pain (Revelation 21:4)."
+      },
+      {
+        "question": "What did He that sat on the throne say?",
+        "choices": [
+          "I will leave everything old",
+          "Behold, I make all things new",
+          "Do not hope",
+          "Stop praying"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Behold, I make all things new (Revelation 21:5).",
+        "wrongFeedback": "He that sat upon the throne said, Behold, I make all things new (Revelation 21:5)."
+      },
+      {
+        "question": "What can we learn from the new earth?",
+        "choices": [
+          "God gives up on creation",
+          "God makes all things new — the best home is still ahead",
+          "Pain wins forever",
+          "Earth does not matter"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! God’s new creation is worth hoping for.",
+        "wrongFeedback": "He makes all things new — trust His promise of life with Him!"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The New Earth with God's Word today.",
-    "takeaway": "The best world is coming! God is making all things new—and He never makes anything bad.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The New Earth. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: Behold, I make all things new! (new earth)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No more pain, no more crying, no more death (revelation 21)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The new earth—perfected and full of God's love! (all things new)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God says: Behold, I make all things new! (no pain)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No more pain, no more crying, no more death (perfect)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God makes all things new!",
+    "takeaway": "God promises a remade world — no more pain, all things new.",
+    "prayer": "God, thank You for wiping tears and making all things new. Help me hope in Thee. Amen."
   },
   "newHeaven": {
     "kjvRef": "Revelation 21:1–5",
@@ -14624,89 +14625,90 @@
     ]
   },
   "noNight": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 21:23–25; 22:5",
     "paragraphs": [
-      "No Night in God's City.",
-      "We read about this in the Bible.",
-      "You never need to be afraid of the dark—God's light is coming!",
-      "And it lasts forever.",
-      "We learn from God and how God cares for All His people."
+      "John saw the holy city, new Jerusalem — and the city had no need of the sun, neither of the moon, to shine in it.",
+      "Why? For the glory of God did lighten it, and the Lamb is the light thereof.",
+      "The nations of them which are saved shall walk in the light of it — not a flashlight kind of light, but God’s own brightness.",
+      "The gates were never shut for fear — for there shall be no night there.",
+      "And there shall be no night there; they need no candle, neither light of the sun; for the Lord God giveth them light — forever safe, forever bright."
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: golden city lit from within by God’s glory, no sun or moon needed, no text",
+      "fun kid illustration: Lamb as warm light, streets bright and peaceful, no text",
+      "colorful Bible scene for children: people walking in light, many nations, no text",
+      "exciting cartoon: open gates, no scary darkness, no text",
+      "hopeful ending illustration: Lord God giving light, calm forever, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "No night — the Lamb is the light!",
+    "quizHeading": "No Night Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Why did the city not need the sun or moon?",
         "choices": [
-          "the Bible",
-          "Romans 16:1–2",
-          "Acts 16:16–40",
-          "Revelation 4–5"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Holy Spirit",
-          "Paul",
-          "The crowds",
-          "God"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "You never need to be afraid of the dark—God's light is coming! And it lasts forever.",
-          "God never hears when kids pray."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: You never need to be afraid of the dark—God's light is coming! And it lasts forever..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A spaceship landed in the parking lot.",
-          "The new city glows—no sun or moon needed",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again."
+          "They were broken",
+          "The glory of God lightened it, and the Lamb is the light",
+          "It was always cloudy",
+          "There was no city"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes! The glory of God did lighten it, and the Lamb is the light thereof.",
+        "wrongFeedback": "The city had no need of the sun, neither of the moon… for the glory of God did lighten it, and the Lamb is the light thereof (Revelation 21:23)."
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "Who shall walk in the light of the city?",
         "choices": [
-          "You never need to be afraid of the dark—God's light is coming! And it lasts forever.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Only angels",
+          "The nations of them which are saved",
+          "No one",
+          "Only kings of Rome"
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: You never need to be afraid of the dark—God's light is coming! And it lasts forever..)"
+        "correctIndex": 1,
+        "correctFeedback": "Right! The nations of them which are saved shall walk in the light of it.",
+        "wrongFeedback": "The nations of them which are saved shall walk in the light of it (Revelation 21:24)."
+      },
+      {
+        "question": "What did John say about night in that city?",
+        "choices": [
+          "Night lasted longer",
+          "There shall be no night there",
+          "Night was louder",
+          "Night was best"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes! There shall be no night there.",
+        "wrongFeedback": "The gates… shall not be shut at all by day: for there shall be no night there (Revelation 21:25)."
+      },
+      {
+        "question": "What light do they need in the end?",
+        "choices": [
+          "Candles and lamps only",
+          "The Lord God giveth them light",
+          "Moonlight only",
+          "No light at all"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "They need no candle, neither light of the sun; for the Lord God giveth them light (Revelation 22:5).",
+        "wrongFeedback": "They need no candle… for the Lord God giveth them light (Revelation 22:5)."
+      },
+      {
+        "question": "What can we learn from “no night”?",
+        "choices": [
+          "God’s light is temporary",
+          "God’s light lasts — we never need to fear the dark with Him",
+          "Light does not matter",
+          "God stays far away"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! God’s glory is our forever light.",
+        "wrongFeedback": "The Lamb is the light; there shall be no night there — God keeps His children in light!"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading No Night in God's City with God's Word today.",
-    "takeaway": "You never need to be afraid of the dark—God's light is coming! And it lasts forever.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in No Night in God's City. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The new city glows—no sun or moon needed (night)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's glory is the light (light)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: No night there—God's light never goes out! (revelation 22)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The new city glows—no sun or moon needed (glory)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God's glory is the light (god)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God’s light never ends!",
+    "takeaway": "In God’s city the Lamb is the light — no night, no fear.",
+    "prayer": "Lord God, thank You for being our light. Help me walk in Thee today. Amen."
   },
   "palmSunday": {
     "kjvRef": "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
@@ -23309,89 +23311,90 @@
     "prayer": "Jesus, thank You for being God's Son. Help me listen to You. Amen."
   },
   "treeFruit": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Revelation 22:2",
     "paragraphs": [
-      "The Tree That Heals Nations.",
-      "We read about this in the Bible.",
-      "God's healing reaches every nation!",
-      "His love is for everyone—share it.",
-      "We learn from God and how God cares for All creation."
+      "By the river of life stood the tree of life — and it was not a stingy tree.",
+      "The tree of life bare twelve manner of fruits, and yielded her fruit every month: every month God serves something fresh.",
+      "Think of it: twelve kinds of fruit, month after month — God’s table never runs empty for His people.",
+      "The leaves of the tree were for the healing of the nations — God’s kindness reaches families far away, not just one little group.",
+      "That is the heart of heaven’s garden: plenty to eat, plenty to heal, plenty of love for the whole world God made."
     ],
-    "quizHeading": "Quiz — think it through",
+    "imagePrompts": [
+      "bright cartoon for kids: tree of life with many colorful fruit clusters by crystal river, no text",
+      "fun kid illustration: calendar pages turning, fresh fruit each month, twelve kinds, no text",
+      "colorful Bible scene for children: happy people sharing fruit, abundance, no text",
+      "exciting cartoon: gentle leaves like blessings over many nations, maps, hope, no text",
+      "hopeful ending illustration: tree, river, Lamb light in distance, no text"
+    ],
+    "readAlongImages": [],
+    "hintAboveQuiz": "Twelve fruits every month — God keeps plenty!",
+    "quizHeading": "Tree Fruit Questions",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "How many manner of fruits did the tree bear?",
         "choices": [
-          "Exodus 7:8–13",
-          "Genesis 41",
-          "Acts 15:36–18:22",
-          "the Bible"
+          "Three",
+          "Seven",
+          "Twelve",
+          "One"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
+        "correctIndex": 2,
+        "correctFeedback": "Yes! Twelve manner of fruits.",
+        "wrongFeedback": "The tree of life bare twelve manner of fruits, and yielded her fruit every month (Revelation 22:2)."
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "How often did the tree yield her fruit?",
         "choices": [
-          "God",
-          "Priscilla",
-          "Mary",
-          "Elisha"
+          "Once a year",
+          "Every month",
+          "Only at Passover",
+          "Never"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Right! It yielded her fruit every month.",
+        "wrongFeedback": "The tree… yielded her fruit every month (Revelation 22:2)."
+      },
+      {
+        "question": "What were the leaves for?",
+        "choices": [
+          "For the healing of the nations",
+          "Only for shade",
+          "To make paper",
+          "Nothing"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: God.)"
+        "correctFeedback": "Yes! The leaves were for the healing of the nations.",
+        "wrongFeedback": "The leaves of the tree were for the healing of the nations (Revelation 22:2)."
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Where did this tree grow?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "God's healing reaches every nation! His love is for everyone—share it.",
-          "The Bible is only pretend stories."
+          "Only in a desert",
+          "On either side of the river of life",
+          "Under the sea",
+          "Far from the city"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God's healing reaches every nation! His love is for everyone—share it..)"
+        "correctIndex": 1,
+        "correctFeedback": "Yes! On either side of the river was there the tree of life (Revelation 22:2).",
+        "wrongFeedback": "In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2)."
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What can we learn from the tree’s fruit?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "The tree of life grows by the river",
-          "A talking toaster became king of the city."
+          "God runs out of good things",
+          "God keeps plenty — healing and fruit for all He loves",
+          "Fruit is boring",
+          "Nations do not matter to God"
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "God's healing reaches every nation! His love is for everyone—share it."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God's healing reaches every nation! His love is for everyone—share it..)"
+        "correctIndex": 1,
+        "correctFeedback": "Perfect! God’s goodness never runs out.",
+        "wrongFeedback": "God’s tree yields fruit every month and leaves for the nations — His mercy is wide!"
       }
     ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading The Tree That Heals Nations with God's Word today.",
-    "takeaway": "God's healing reaches every nation! His love is for everyone—share it.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in The Tree That Heals Nations. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The tree of life grows by the river (tree)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Its leaves heal every nation (fruit)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: In God's city—everything is made whole! (revelation 22)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The tree of life grows by the river (heal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Its leaves heal every nation (nations)"
-    ]
+    "doneHeading": "Great Job!",
+    "doneMessage": "You earned a star — God keeps plenty!",
+    "takeaway": "God’s tree yields fresh fruit and healing for the nations.",
+    "prayer": "God, thank You for never running out of goodness. Help me share Your love. Amen."
   },
   "treeOfLife": {
     "kjvRef": "Revelation 22:1–2",

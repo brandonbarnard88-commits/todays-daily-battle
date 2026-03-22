@@ -7033,6 +7033,192 @@ module.exports = {
       prayer: 'God, thank You for the promise of new life. Help me obey Thee and hope in Thee. Amen.'
     },
 
+    treeFruit: {
+      kjvRef: 'Revelation 22:2',
+      paragraphs: [
+        'By the river of life stood the tree of life — and it was not a stingy tree.',
+        'The tree of life bare twelve manner of fruits, and yielded her fruit every month: every month God serves something fresh.',
+        'Think of it: twelve kinds of fruit, month after month — God’s table never runs empty for His people.',
+        'The leaves of the tree were for the healing of the nations — God’s kindness reaches families far away, not just one little group.',
+        'That is the heart of heaven’s garden: plenty to eat, plenty to heal, plenty of love for the whole world God made.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: tree of life with many colorful fruit clusters by crystal river, no text',
+        'fun kid illustration: calendar pages turning, fresh fruit each month, twelve kinds, no text',
+        'colorful Bible scene for children: happy people sharing fruit, abundance, no text',
+        'exciting cartoon: gentle leaves like blessings over many nations, maps, hope, no text',
+        'hopeful ending illustration: tree, river, Lamb light in distance, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Twelve fruits every month — God keeps plenty!',
+      quizHeading: 'Tree Fruit Questions',
+      questions: [
+        {
+          question: 'How many manner of fruits did the tree bear?',
+          choices: ['Three', 'Seven', 'Twelve', 'One'],
+          correctIndex: 2,
+          correctFeedback: 'Yes! Twelve manner of fruits.',
+          wrongFeedback: 'The tree of life bare twelve manner of fruits, and yielded her fruit every month (Revelation 22:2).'
+        },
+        {
+          question: 'How often did the tree yield her fruit?',
+          choices: ['Once a year', 'Every month', 'Only at Passover', 'Never'],
+          correctIndex: 1,
+          correctFeedback: 'Right! It yielded her fruit every month.',
+          wrongFeedback: 'The tree… yielded her fruit every month (Revelation 22:2).'
+        },
+        {
+          question: 'What were the leaves for?',
+          choices: ['For the healing of the nations', 'Only for shade', 'To make paper', 'Nothing'],
+          correctIndex: 0,
+          correctFeedback: 'Yes! The leaves were for the healing of the nations.',
+          wrongFeedback: 'The leaves of the tree were for the healing of the nations (Revelation 22:2).'
+        },
+        {
+          question: 'Where did this tree grow?',
+          choices: ['Only in a desert', 'On either side of the river of life', 'Under the sea', 'Far from the city'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! On either side of the river was there the tree of life (Revelation 22:2).',
+          wrongFeedback: 'In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2).'
+        },
+        {
+          question: 'What can we learn from the tree’s fruit?',
+          choices: ['God runs out of good things', 'God keeps plenty — healing and fruit for all He loves', 'Fruit is boring', 'Nations do not matter to God'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God’s goodness never runs out.',
+          wrongFeedback: 'God’s tree yields fruit every month and leaves for the nations — His mercy is wide!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God keeps plenty!',
+      takeaway: 'God’s tree yields fresh fruit and healing for the nations.',
+      prayer: 'God, thank You for never running out of goodness. Help me share Your love. Amen.'
+    },
+
+    noNight: {
+      kjvRef: 'Revelation 21:23–25; 22:5',
+      paragraphs: [
+        'John saw the holy city, new Jerusalem — and the city had no need of the sun, neither of the moon, to shine in it.',
+        'Why? For the glory of God did lighten it, and the Lamb is the light thereof.',
+        'The nations of them which are saved shall walk in the light of it — not a flashlight kind of light, but God’s own brightness.',
+        'The gates were never shut for fear — for there shall be no night there.',
+        'And there shall be no night there; they need no candle, neither light of the sun; for the Lord God giveth them light — forever safe, forever bright.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: golden city lit from within by God’s glory, no sun or moon needed, no text',
+        'fun kid illustration: Lamb as warm light, streets bright and peaceful, no text',
+        'colorful Bible scene for children: people walking in light, many nations, no text',
+        'exciting cartoon: open gates, no scary darkness, no text',
+        'hopeful ending illustration: Lord God giving light, calm forever, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'No night — the Lamb is the light!',
+      quizHeading: 'No Night Questions',
+      questions: [
+        {
+          question: 'Why did the city not need the sun or moon?',
+          choices: ['They were broken', 'The glory of God lightened it, and the Lamb is the light', 'It was always cloudy', 'There was no city'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! The glory of God did lighten it, and the Lamb is the light thereof.',
+          wrongFeedback: 'The city had no need of the sun, neither of the moon… for the glory of God did lighten it, and the Lamb is the light thereof (Revelation 21:23).'
+        },
+        {
+          question: 'Who shall walk in the light of the city?',
+          choices: ['Only angels', 'The nations of them which are saved', 'No one', 'Only kings of Rome'],
+          correctIndex: 1,
+          correctFeedback: 'Right! The nations of them which are saved shall walk in the light of it.',
+          wrongFeedback: 'The nations of them which are saved shall walk in the light of it (Revelation 21:24).'
+        },
+        {
+          question: 'What did John say about night in that city?',
+          choices: ['Night lasted longer', 'There shall be no night there', 'Night was louder', 'Night was best'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! There shall be no night there.',
+          wrongFeedback: 'The gates… shall not be shut at all by day: for there shall be no night there (Revelation 21:25).'
+        },
+        {
+          question: 'What light do they need in the end?',
+          choices: ['Candles and lamps only', 'The Lord God giveth them light', 'Moonlight only', 'No light at all'],
+          correctIndex: 1,
+          correctFeedback: 'They need no candle, neither light of the sun; for the Lord God giveth them light (Revelation 22:5).',
+          wrongFeedback: 'They need no candle… for the Lord God giveth them light (Revelation 22:5).'
+        },
+        {
+          question: 'What can we learn from “no night”?',
+          choices: ['God’s light is temporary', 'God’s light lasts — we never need to fear the dark with Him', 'Light does not matter', 'God stays far away'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God’s glory is our forever light.',
+          wrongFeedback: 'The Lamb is the light; there shall be no night there — God keeps His children in light!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God’s light never ends!',
+      takeaway: 'In God’s city the Lamb is the light — no night, no fear.',
+      prayer: 'Lord God, thank You for being our light. Help me walk in Thee today. Amen.'
+    },
+
+    newEarth: {
+      kjvRef: 'Revelation 21:1; 21:4–5',
+      paragraphs: [
+        'John looked: he saw a new heaven and a new earth — the first heaven and the first earth were passed away.',
+        'This is the home God always meant to finish: not a broken world forever, but a remade one under His good rule.',
+        'God shall wipe away all tears from their eyes; there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain.',
+        'He that sat upon the throne said, Behold, I make all things new. God signed His promise with those words.',
+        'The best earth is coming — not fake, not gray: new, true, and full of God’s love forever.'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: fresh green earth under peaceful sky, new creation, no text',
+        'fun kid illustration: throne voice “I make all things new,” soft light, no text',
+        'colorful Bible scene for children: tears wiped away, smiles, comfort, no text',
+        'exciting cartoon: old faded world fading, bright new land ahead, no text',
+        'hopeful ending illustration: holy city and renewed earth, joy, no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Behold — God makes all things new!',
+      quizHeading: 'New Earth Questions',
+      questions: [
+        {
+          question: 'What happened to the first heaven and earth?',
+          choices: ['They grew bigger', 'They were passed away — John saw new ones', 'They stayed the same', 'They hid'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! The first heaven and the first earth were passed away.',
+          wrongFeedback: 'John saw a new heaven and a new earth: for the first heaven and the first earth were passed away (Revelation 21:1).'
+        },
+        {
+          question: 'What will God wipe away?',
+          choices: ['Only rain', 'All tears from their eyes', 'Only dirt', 'Joy'],
+          correctIndex: 1,
+          correctFeedback: 'God shall wipe away all tears from their eyes.',
+          wrongFeedback: 'God shall wipe away all tears from their eyes (Revelation 21:4).'
+        },
+        {
+          question: 'What will be no more?',
+          choices: ['Only birds', 'Death, sorrow, crying, and pain', 'Only night', 'Only rivers'],
+          correctIndex: 1,
+          correctFeedback: 'There shall be no more death, neither sorrow, nor crying, neither shall there be any more pain.',
+          wrongFeedback: 'There shall be no more death, neither sorrow, nor crying, neither shall there be any more pain (Revelation 21:4).'
+        },
+        {
+          question: 'What did He that sat on the throne say?',
+          choices: ['I will leave everything old', 'Behold, I make all things new', 'Do not hope', 'Stop praying'],
+          correctIndex: 1,
+          correctFeedback: 'Behold, I make all things new (Revelation 21:5).',
+          wrongFeedback: 'He that sat upon the throne said, Behold, I make all things new (Revelation 21:5).'
+        },
+        {
+          question: 'What can we learn from the new earth?',
+          choices: ['God gives up on creation', 'God makes all things new — the best home is still ahead', 'Pain wins forever', 'Earth does not matter'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! God’s new creation is worth hoping for.',
+          wrongFeedback: 'He makes all things new — trust His promise of life with Him!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — God makes all things new!',
+      takeaway: 'God promises a remade world — no more pain, all things new.',
+      prayer: 'God, thank You for wiping tears and making all things new. Help me hope in Thee. Amen.'
+    },
+
     jesusGreatCommission: {
       kjvRef: 'Matthew 28:16–20; Mark 16:15–18',
       paragraphs: [

@@ -488,6 +488,17 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   modal.appendChild(modalInner);
   document.body.appendChild(modal);
 
+  modalVideo.addEventListener('error', function () {
+    try {
+      modalHelper.textContent = 'This loop video is not on the server yet. The poster stays visible until the file is uploaded.';
+    } catch (_) {}
+  });
+  modalAudioEl.addEventListener('error', function () {
+    try {
+      modalAudioLabel.textContent = 'Verse audio is not available yet.';
+    } catch (_) {}
+  });
+
   var state = readState();
   var allLoops = [];
   var unlockedLoops = [];
@@ -599,6 +610,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     }
     video.appendChild(source);
     video.appendChild(fallbackImg);
+    video.addEventListener('error', function onLoopCardVideoErr() {
+      if (video.getAttribute('data-loop-media-missing') === '1') return;
+      video.setAttribute('data-loop-media-missing', '1');
+      try { video.pause(); } catch (_) {}
+    });
     mediaWrap.appendChild(video);
 
     var title = document.createElement('h3');
@@ -689,6 +705,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         }
       });
       cardAudio.addEventListener('ended', function () {
+        speakerBtn.classList.remove('loop-speaker-btn--playing');
+        speakerBtn.setAttribute('aria-label', 'Hear the KJV verse for ' + String(loop.title));
+      });
+      cardAudio.addEventListener('error', function () {
         speakerBtn.classList.remove('loop-speaker-btn--playing');
         speakerBtn.setAttribute('aria-label', 'Hear the KJV verse for ' + String(loop.title));
       });

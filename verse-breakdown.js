@@ -52,6 +52,29 @@
       .replace(/'/g, '&#39;');
   }
 
+  /** Collapse &amp; chains and decode one layer so UI never shows &amp;amp; (matches script.js / kids-corner pattern). */
+  function tdbPlainTextForUi(str) {
+    if (str == null || str === '') return '';
+    var s = String(str);
+    var prev;
+    for (var i = 0; i < 12; i++) {
+      prev = s;
+      s = s.replace(/&amp;/g, '&');
+      if (s === prev) break;
+    }
+    try {
+      var t = document.createElement('textarea');
+      t.innerHTML = s;
+      var out = t.value;
+      if (typeof out === 'string') return out;
+    } catch (e) {}
+    return s;
+  }
+
+  function escapeHtmlPlain(str) {
+    return esc(tdbPlainTextForUi(str));
+  }
+
   function parseBook(ref) {
     var m = String(ref || '').trim().match(/^(.+?)\s+\d+:\d+/);
     if (!m) return '';
@@ -156,9 +179,9 @@
     var data = dict && typeof dict === 'object' ? dict : RELATIONS_FALLBACK;
     var key = String(topic || 'hope');
     var item = data[key] || data.hope || RELATIONS_FALLBACK.hope;
-    if (typeof item === 'string') return item;
-    if (item && item.line) return String(item.line);
-    return RELATIONS_FALLBACK.hope.line;
+    if (typeof item === 'string') return tdbPlainTextForUi(item);
+    if (item && item.line) return tdbPlainTextForUi(String(item.line));
+    return tdbPlainTextForUi(RELATIONS_FALLBACK.hope.line);
   }
 
   function inferAgeFromContext() {
@@ -200,7 +223,7 @@
       bubbleTitle: '',
       bubbleEmoji: ''
     };
-    var raw = String(text || '').replace(/<[^>]+>/g, '').trim();
+    var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, '').trim());
     if (ageMode === 'kid') {
       next.bubbleTitle = 'Jesus! ';
       next.bubbleEmoji = '😊✨';
@@ -225,7 +248,7 @@
   }
 
   function getBreakdown(ref, text) {
-    var raw = String(text || '').replace(/<[^>]+>/g, '').trim();
+    var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, '').trim());
     var book = parseBook(ref);
     if (!book) return { layman: 'Verse not found. Try exact format like John 3:16.', about: '', to: '', applies: '' };
     var ctx = BOOK_CONTEXT[book] || { s: 'The biblical author', a: 'Original audience' };
@@ -373,18 +396,18 @@
     var resolvedText = cleanVerseText(text || '') || getBibleVerseText(ref);
     var breakdown = personalizeBreakdown(getBreakdown(ref, resolvedText), ageMode, ref, resolvedText);
     var bubble = byId('verse-modal-bubble');
-    modal.querySelector('.verse-modal-ref').textContent = ref || 'Verse';
+    modal.querySelector('.verse-modal-ref').textContent = tdbPlainTextForUi(ref || 'Verse');
     modal.querySelector('.verse-modal-text').textContent = resolvedText || 'Loading verse text...';
-    modal.querySelector('[data-bk="about"]').textContent = breakdown.about || '—';
-    modal.querySelector('[data-bk="to"]').textContent = breakdown.to || '—';
-    modal.querySelector('[data-bk="layman"]').textContent = breakdown.layman || '—';
-    modal.querySelector('[data-bk="applies"]').textContent = breakdown.applies || '—';
+    modal.querySelector('[data-bk="about"]').textContent = tdbPlainTextForUi(breakdown.about || '—');
+    modal.querySelector('[data-bk="to"]').textContent = tdbPlainTextForUi(breakdown.to || '—');
+    modal.querySelector('[data-bk="layman"]').textContent = tdbPlainTextForUi(breakdown.layman || '—');
+    modal.querySelector('[data-bk="applies"]').textContent = tdbPlainTextForUi(breakdown.applies || '—');
     var topic = inferRelationTopic(ref, resolvedText);
     modal.querySelector('[data-bk="relates"]').textContent = buildRelationLine(topic, RELATIONS_FALLBACK);
-    modal.setAttribute('data-ref', ref || '');
+    modal.setAttribute('data-ref', tdbPlainTextForUi(ref || ''));
     modal.setAttribute('data-text', resolvedText || '');
     if (bubble) {
-      bubble.textContent = (breakdown.bubbleTitle || 'Plain') + (breakdown.bubbleEmoji ? (' ' + breakdown.bubbleEmoji) : '');
+      bubble.textContent = tdbPlainTextForUi(breakdown.bubbleTitle || 'Plain') + (breakdown.bubbleEmoji ? (' ' + breakdown.bubbleEmoji) : '');
       bubble.className = 'verse-modal-bubble verse-modal-bubble-' + ageMode;
     }
     modal.classList.remove('hidden');
@@ -411,8 +434,8 @@
         if (!lazyText) return;
         var lazyBreakdown = personalizeBreakdown(getBreakdown(ref, lazyText), ageMode, ref, lazyText);
         modal.querySelector('.verse-modal-text').textContent = lazyText;
-        modal.querySelector('[data-bk="layman"]').textContent = lazyBreakdown.layman || '—';
-        modal.querySelector('[data-bk="applies"]').textContent = lazyBreakdown.applies || '—';
+        modal.querySelector('[data-bk="layman"]').textContent = tdbPlainTextForUi(lazyBreakdown.layman || '—');
+        modal.querySelector('[data-bk="applies"]').textContent = tdbPlainTextForUi(lazyBreakdown.applies || '—');
         modal.setAttribute('data-text', lazyText);
       });
     }
@@ -465,7 +488,7 @@
   }
 
   function cleanVerseText(text) {
-    return String(text || '').replace(/\s+/g, ' ').trim();
+    return tdbPlainTextForUi(String(text || '').replace(/\s+/g, ' ').trim());
   }
 
   function getBibleVerseText(ref) {

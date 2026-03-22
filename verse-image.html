@@ -188,6 +188,8 @@
                 <option value="dawn">Dawn violet</option>
                 <option value="deep">Deep blue</option>
                 <option value="still">Still night</option>
+                <option value="cross">Subtle cross</option>
+                <option value="field">Quiet field</option>
               </select>
             </div>
             <div style="flex: 1 1 10rem;">
@@ -195,6 +197,16 @@
               <select id="verse-image-font" aria-label="Font style">
                 <option value="serif">Serif (reading)</option>
                 <option value="sans">Sans (clean)</option>
+              </select>
+            </div>
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-text-color">Verse color</label>
+              <select id="verse-image-text-color" aria-label="Verse and reference color">
+                <option value="ink" selected>Ink (near black)</option>
+                <option value="paper">Paper white</option>
+                <option value="navy">Navy</option>
+                <option value="gold">Gold</option>
+                <option value="wine">Deep red</option>
               </select>
             </div>
           </div>
@@ -235,6 +247,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script type="module" src="script.js?v=20260320reader-sk"></script>
-  <script src="verse-image.js?v=20260323idb" defer></script>
+  <script src="verse-image.js?v=20260324color" defer></script>
 </body>
 </html>

@@ -124,10 +124,77 @@
     if (line) ctx.fillText(line, x, y + offsetY);
   }
 
+  /** Preset keys for analytics (no raw hex in events beyond these fixed keys). */
+  var TEXT_COLOR_HEX = {
+    ink: '#111827',
+    paper: '#f8fafc',
+    navy: '#1e3a8a',
+    gold: '#d4af37',
+    wine: '#b91c1c'
+  };
+
   function bgGradients(bg) {
     if (bg === 'deep') return { start: '#0a1628', end: '#1e3a5f' };
     if (bg === 'still') return { start: '#0f0a14', end: '#1a1a2e' };
     return { start: '#0f172a', end: '#4c1d95' };
+  }
+
+  function drawFieldBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h * 0.92);
+    gr.addColorStop(0, '#1e2a1a');
+    gr.addColorStop(0.35, '#2d3f28');
+    gr.addColorStop(0.65, '#4a5c3a');
+    gr.addColorStop(1, '#6b7350');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    var rg = ctx.createRadialGradient(w * 0.78, h * 0.12, 0, w * 0.78, h * 0.12, h * 0.45);
+    rg.addColorStop(0, 'rgba(255, 248, 220, 0.14)');
+    rg.addColorStop(1, 'rgba(255, 248, 220, 0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  }
+
+  function drawCrossWatermark(ctx, w, h) {
+    ctx.save();
+    ctx.globalAlpha = 0.1;
+    ctx.strokeStyle = '#f8fafc';
+    ctx.lineWidth = Math.max(18, w * 0.014);
+    ctx.lineCap = 'round';
+    var cx = w * 0.74;
+    var cy = h * 0.36;
+    var v = h * 0.42;
+    var arm = w * 0.14;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - v * 0.52);
+    ctx.lineTo(cx, cy + v * 0.48);
+    ctx.moveTo(cx - arm, cy - v * 0.02);
+    ctx.lineTo(cx + arm, cy - v * 0.02);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawSceneBackground(ctx, w, h, bg) {
+    if (bg === 'field') {
+      drawFieldBackground(ctx, w, h);
+      return;
+    }
+    var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, g.start);
+    gr.addColorStop(1, g.end);
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    if (bg === 'cross') {
+      drawCrossWatermark(ctx, w, h);
+    }
+  }
+
+  function resolveTextColor(opts) {
+    var key = (opts && opts.textColor) || 'ink';
+    var hex = TEXT_COLOR_HEX[key] || TEXT_COLOR_HEX.ink;
+    return { key: key, main: hex };
   }
 
   function drawCard(canvas, ref, body, opts) {
@@ -135,13 +202,10 @@
     if (!ctx) return;
     var w = canvas.width;
     var h = canvas.height;
-    var g = bgGradients((opts && opts.bg) || 'dawn');
-    var gr = ctx.createLinearGradient(0, 0, w, h);
-    gr.addColorStop(0, g.start);
-    gr.addColorStop(1, g.end);
-    ctx.fillStyle = gr;
-    ctx.fillRect(0, 0, w, h);
+    var bg = (opts && opts.bg) || 'dawn';
+    drawSceneBackground(ctx, w, h, bg);
 
+    var tc = resolveTextColor(opts);
     var serif = !opts || opts.font === 'serif';
     var refPx = serif ? 52 : 48;
     var bodyPx = body.length > 420 ? (serif ? 22 : 21) : (serif ? 28 : 26);
@@ -153,18 +217,18 @@
       ? '400 ' + bodyPx + 'px "Cormorant Garamond", Georgia, serif'
       : '400 ' + bodyPx + 'px Inter, system-ui, sans-serif';
 
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = tc.main;
     ctx.font = refFont;
     ctx.fillText(ref, 72, 88);
 
-    ctx.fillStyle = '#e2e8f0';
+    ctx.fillStyle = tc.main;
     ctx.font = bodyFont;
     wrapCanvasText(ctx, body, 72, 150, w - 144, lh);
 
-    ctx.fillStyle = 'rgba(148, 163, 184, 0.95)';
+    ctx.fillStyle = tc.key === 'paper' ? '#475569' : 'rgba(148, 163, 184, 0.92)';
     ctx.font = '600 24px Inter, system-ui, sans-serif';
     ctx.fillText("Today's Daily Battle", 72, h - 48);
-    ctx.fillStyle = 'rgba(251, 191, 36, 0.88)';
+    ctx.fillStyle = '#d4af37';
     ctx.font = '600 20px Inter, system-ui, sans-serif';
     ctx.fillText('KJV', 72, h - 22);
   }
@@ -255,6 +319,7 @@
     var bodyEl = document.getElementById('verse-image-body');
     var bgEl = document.getElementById('verse-image-bg');
     var fontEl = document.getElementById('verse-image-font');
+    var colorEl = document.getElementById('verse-image-text-color');
     var statusEl = document.getElementById('verse-image-status');
     var recentWrap = document.getElementById('recent-gens');
     var recentList = document.getElementById('recent-gens-list');
@@ -262,6 +327,21 @@
 
     function setStatus(msg) {
       if (statusEl) statusEl.textContent = msg || '';
+    }
+
+    function getCardOpts() {
+      return {
+        bg: bgEl ? bgEl.value : 'dawn',
+        font: fontEl ? fontEl.value : 'serif',
+        textColor: colorEl ? colorEl.value : 'ink'
+      };
+    }
+
+    function maybeLiveRedraw() {
+      var ref = normRef(refEl && refEl.value);
+      var body = stripHtml(bodyEl && bodyEl.value);
+      if (!ref || !body) return;
+      drawCard(canvas, ref, body, getCardOpts());
     }
 
     function renderRecentGens() {
@@ -301,9 +381,11 @@
               bodyEl.value = row.text || '';
               if (bgEl && row.bg) bgEl.value = row.bg;
               if (fontEl && row.font) fontEl.value = row.font;
+              if (colorEl) colorEl.value = row.textColor || 'ink';
               drawCard(canvas, normRef(row.ref), stripHtml(row.text), {
                 bg: (bgEl && row.bg) || 'dawn',
-                font: (fontEl && row.font) || 'serif'
+                font: (fontEl && row.font) || 'serif',
+                textColor: (row.textColor) || 'ink'
               });
               setStatus('Loaded from Recent. Adjust if needed, then Update preview.');
             });
@@ -330,7 +412,8 @@
         setStatus('Add verse text or load from reference.');
         return;
       }
-      drawCard(canvas, ref, body, { bg: bgEl.value, font: fontEl.value });
+      var opts = getCardOpts();
+      drawCard(canvas, ref, body, opts);
       saveCache(ref, body);
 
       var dataURL = canvas.toDataURL('image/png');
@@ -340,8 +423,9 @@
         text: body,
         dataURL: dataURL,
         timestamp: Date.now(),
-        bg: bgEl.value,
-        font: fontEl.value
+        bg: opts.bg,
+        font: opts.font,
+        textColor: opts.textColor
       };
       saveVerseGen(rec)
         .then(function () {
@@ -351,7 +435,13 @@
           renderRecentGens();
         });
 
-      trackEvent('verse_image_generated', { ref_len: ref.length, bg: bgEl.value, font: fontEl.value });
+      trackEvent('verse_image_generated', {
+        ref_len: ref.length,
+        bg: opts.bg,
+        font: opts.font,
+        color: opts.textColor
+      });
+      trackEvent('verse_image_customized', { color: opts.textColor, bg: opts.bg });
       setStatus('Preview updated. Download, share, or post on X when ready.');
     }
 
@@ -382,6 +472,10 @@
 
     document.getElementById('verse-image-preview-btn').addEventListener('click', runPreview);
 
+    if (bgEl) bgEl.addEventListener('change', maybeLiveRedraw);
+    if (fontEl) fontEl.addEventListener('change', maybeLiveRedraw);
+    if (colorEl) colorEl.addEventListener('change', maybeLiveRedraw);
+
     document.getElementById('verse-image-download-btn').addEventListener('click', function () {
       var ref = normRef(refEl.value);
       var body = stripHtml(bodyEl.value);
@@ -389,7 +483,7 @@
         setStatus('Load a verse and update preview first.');
         return;
       }
-      drawCard(canvas, ref, body, { bg: bgEl.value, font: fontEl.value });
+      drawCard(canvas, ref, body, getCardOpts());
       canvas.toBlob(function (blob) {
         var base = 'tdb-verse-' + ref.replace(/[^a-z0-9]+/gi, '-').slice(0, 40) + '.png';
         if (!blob) {
@@ -420,7 +514,7 @@
         setStatus('Load a verse and update preview first.');
         return;
       }
-      drawCard(canvas, ref, body, { bg: bgEl.value, font: fontEl.value });
+      drawCard(canvas, ref, body, getCardOpts());
       canvas.toBlob(function (blob) {
         if (!blob) {
           setStatus('Share needs a supported browser.');
@@ -469,7 +563,7 @@
       canvas,
       normRef(refEl.value) || 'Philippians 4:13',
       stripHtml(bodyEl.value) || 'I can do all things through Christ which strengtheneth me.',
-      { bg: bgEl.value, font: fontEl.value }
+      getCardOpts()
     );
     setStatus('Adjust text, then Update preview.');
   }

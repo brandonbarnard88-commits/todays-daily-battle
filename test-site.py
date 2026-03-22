@@ -17,7 +17,7 @@ OFFLINE = "--offline" in sys.argv
 
 # (path, name, list of strings that must appear in body)
 PAGES = [
-    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now"]),  # id="query" or id="tdb-search"
+    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now", "Verse image generator"]),  # id="query" or id="tdb-search"
     ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\""]),
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
@@ -37,7 +37,7 @@ PAGES = [
     ("/resources.html", "Pastor Resources", ["Resources", "id=\"auth-section\""]),
     ("/message.html", "Message Board", ["Message", "id=\"auth-section\""]),
     ("/reading-plan.html", "Reading Plan", ["Reading", "id=\"auth-section\""]),
-    ("/bible-tool.html", "Bible Tool", ["Bible Tool", "id=\"lookup-btn\"", "id=\"daily-ref\"", "Read full chapter"]),
+    ("/bible-tool.html", "Bible Tool", ["Bible Tool", "id=\"lookup-btn\"", "id=\"daily-ref\"", "Read full chapter", "verse-image.html"]),
     ("/verse-image.html", "Verse image generator", ["Verse image generator", "verse-image-canvas", "Supporter", "recent-gens", "data-verse-store", "verse-image-text-color", "cross"]),
     ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "id=\"auth-section\""]),

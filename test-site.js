@@ -14,7 +14,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
@@ -28,11 +28,11 @@ const pages = [
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
-  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html'] },
+  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html'] },
   { path: '/about.html', name: 'About', mustInclude: ['About', 'Daily Battle'] },
   { path: '/testimonials.html', name: 'Reader stories', mustInclude: ['Words from the field', 'Share yours', 'support@todaysdailybattle.com'] },
   { path: '/profile.html', name: 'Profile', mustInclude: ['Family', 'Account', 'Your Kids'] },
-  { path: '/bible-tool.html', name: 'Bible Tool', mustInclude: ['Bible Tool', 'Read full chapter', 'assets/share/verse-share.jpg'] },
+  { path: '/bible-tool.html', name: 'Bible Tool', mustInclude: ['Bible Tool', 'Read full chapter', 'assets/share/verse-share.jpg', 'verse-image.html'] },
   { path: '/verse-image.html', name: 'Verse image generator', mustInclude: ['Verse image generator', 'verse-image.js', 'assets/share/verse-share.jpg', 'recent-gens', 'verse-image-tweet', 'data-verse-store="verseGens"', 'verse-image-text-color', 'value="cross"', 'Quiet field'] },
   { path: '/bible-study.html', name: 'Bible Studies', mustInclude: ['Bible', 'Study'] },
   { path: '/pastor-toolkit.html', name: 'Pastor Toolkit', mustInclude: ['Pastor'] },

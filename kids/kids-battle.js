@@ -85,7 +85,10 @@
   const KID_QUIZ_DONE_KEY = 'kidQuizDone';
   const KID_MEMORY_DONE_KEY = 'kidMemoryDone';
 
-  /** One UMD Supabase client per page — idle init for background RPC; immediate for user gestures. */
+  /**
+   * Lazy singleton Supabase JS client (UMD) — anon key only; never service_role.
+   * Deferred init (below) keeps first paint clear; RLS + policies are enforced server-side.
+   */
   var kidSupabaseClient = null;
   var kidSupabaseInitPromise = null;
   var kidSupabaseDeferResolve = null;
@@ -104,7 +107,8 @@
       auth: {
         persistSession: true,
         autoRefreshToken: true,
-        detectSessionInUrl: true
+        detectSessionInUrl: true,
+        flowType: 'pkce'
       }
     };
     if (storage) opts.auth.storage = storage;
@@ -118,6 +122,7 @@
     }
   }
 
+  /** immediate: user gesture (redeem, doodle). Else: single idle-scheduled init (timeout 1500ms, else setTimeout 500ms). */
   function getKidSupabaseClient(immediate) {
     if (kidSupabaseClient) {
       return Promise.resolve(kidSupabaseClient);

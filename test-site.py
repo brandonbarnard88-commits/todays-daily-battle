@@ -42,7 +42,7 @@ PAGES = [
     ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "id=\"auth-section\""]),
     ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Story Stars", "loop-grid", "20260323loop-media-polish", "kids-corner.css?v=7"]),
-    ("/kids/corner.html", "Bible Story Library", ["kids-story-library-og.jpg", "Download Story Library List (PDF)", "Bible Story Library", 'aria-describedby="pdf-export-count-hint pdf-export-hint"', "story-library-fonts.css?v=1", "kids-battle.js?v=73", "kids-corner.js?v=74", "TDB_PANEL_RASTER", "nunito-latin.woff2", "panel-david-1.svg"]),
+    ("/kids/corner.html", "Bible Story Library", ["kids-story-library-og.jpg", "Download Story Library List (PDF)", "Bible Story Library", 'aria-describedby="pdf-export-count-hint pdf-export-hint"', "story-library-fonts.css?v=1", "kids-battle.js?v=74", "kids-corner.js?v=74", "TDB_PANEL_RASTER", "nunito-latin.woff2", "panel-david-1.svg"]),
     ("/kids-activities-print.html", "Kids Activities Print", ["activities", "Print"]),
     ("/kids-coloring-pack.html", "Kids Coloring Pack", ["Coloring"]),
     ("/shop.html", "Shop", ["Shop", "id=\"auth-section\""]),

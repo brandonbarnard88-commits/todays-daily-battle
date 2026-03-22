@@ -137,6 +137,7 @@ const rootFiles = [
   'story-manifest.js',
   'verse-rotator.js',
   'auth.js',
+  'verse-image.js',
   'profile.js',
   'loop-feedback-config.js',
   'avatar-topic-system.js',

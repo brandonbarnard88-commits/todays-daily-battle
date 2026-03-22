@@ -85,6 +85,7 @@ const SOCIAL_PURGE_PATHS = [
   '/assets/share/verse-share.jpg',
   '/bible-tool.html',
   '/reading-plan.html',
+  '/verse-image.html',
   '/assets/share/home-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/calm-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/mobius-og.jpg?v=' + SHARE_OG_V,

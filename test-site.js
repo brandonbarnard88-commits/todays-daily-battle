@@ -33,6 +33,7 @@ const pages = [
   { path: '/testimonials.html', name: 'Reader stories', mustInclude: ['Words from the field', 'Share yours', 'support@todaysdailybattle.com'] },
   { path: '/profile.html', name: 'Profile', mustInclude: ['Family', 'Account', 'Your Kids'] },
   { path: '/bible-tool.html', name: 'Bible Tool', mustInclude: ['Bible Tool', 'Read full chapter', 'assets/share/verse-share.jpg'] },
+  { path: '/verse-image.html', name: 'Verse image generator', mustInclude: ['Verse image generator', 'verse-image.js', 'assets/share/verse-share.jpg'] },
   { path: '/bible-study.html', name: 'Bible Studies', mustInclude: ['Bible', 'Study'] },
   { path: '/pastor-toolkit.html', name: 'Pastor Toolkit', mustInclude: ['Pastor'] },
   { path: '/team-toolkit.html', name: 'Team Toolkit', mustInclude: ['Team'] },

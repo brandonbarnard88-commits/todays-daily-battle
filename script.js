@@ -1777,6 +1777,7 @@ function isProUser() {
     subscriptionTier === 'pro' || subscriptionTier === 'supporter' || subscriptionTier === 'church_team' ||
     (window.__tdb_battle_pro_active === true);
 }
+window.isProUser = isProUser;
 
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();

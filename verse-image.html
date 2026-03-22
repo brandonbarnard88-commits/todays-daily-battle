@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Verse image generator • KJV share cards • Today's Daily Battle</title>
+  <meta name="description" content="Create a custom KJV verse image: pick a reference, choose background and type, export PNG offline. Supporter feature.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/verse-image.html">
+  <meta property="og:title" content="Verse image generator • Today's Daily Battle">
+  <meta property="og:description" content="Custom KJV verse cards—export PNG and share. A Supporter perk.">
+  <meta property="og:url" content="https://todaysdailybattle.com/verse-image.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Custom KJV verse image — Today's Daily Battle">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Verse image generator • Today's Daily Battle">
+  <meta name="twitter:description" content="Custom KJV verse cards—export PNG and share. A Supporter perk.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <style>
+    .verse-image-page .verse-image-preview-wrap {
+      max-width: min(100%, 720px);
+      margin: 1rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(12, 18, 30, 0.5);
+    }
+    .verse-image-page #verse-image-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+    .verse-image-page .verse-image-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: flex-end;
+      margin-top: 0.75rem;
+    }
+    .verse-image-page .verse-image-controls label { display: block; font-size: 0.88rem; color: var(--muted, #94a3b8); margin-bottom: 0.25rem; }
+    .verse-image-page .verse-image-controls input[type="text"],
+    .verse-image-page .verse-image-controls select,
+    .verse-image-page .verse-image-controls textarea {
+      min-height: 44px;
+      padding: 0.5rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e2e8f0;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .verse-image-page .verse-image-controls textarea { min-height: 6rem; resize: vertical; }
+    .verse-image-page .verse-image-locked {
+      padding: 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      background: rgba(212, 175, 55, 0.06);
+    }
+    .verse-image-page .verse-image-app[hidden],
+    .verse-image-page .verse-image-locked[hidden] { display: none !important; }
+    .verse-image-page .verse-image-status { font-size: 0.92rem; color: var(--muted, #94a3b8); margin-top: 0.5rem; min-height: 1.25em; }
+    .verse-image-page .verse-image-recent { font-size: 0.88rem; color: var(--muted, #94a3b8); margin-top: 0.75rem; }
+    .verse-image-page .verse-image-recent button {
+      background: none;
+      border: none;
+      color: #a78bfa;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: inherit;
+      padding: 0.15rem 0.25rem;
+      min-height: 44px;
+    }
+    .verse-image-page .verse-image-recent button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+  </style>
+</head>
+<body class="dark-mode verse-image-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Verse image generator</span>
+      </div>
+      <a href="bible-tool.html" class="header-menu-link">Bible Tool</a>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner bible-tool">
+        <header class="hero-banner">
+          <h1>Verse image generator</h1>
+          <p class="hero-tagline">Build a calm, share-ready KJV card—reference, verse text, background, and type. Export PNG on your device; no upload required.</p>
+        </header>
+
+        <section id="verse-image-locked" class="glass verse-image-locked" aria-labelledby="verse-image-locked-h">
+          <h2 id="verse-image-locked-h" class="section-divider">Supporter feature</h2>
+          <p class="section-note">Custom verse images are part of the <strong>Supporter</strong> plan—along with sync, sermon tools, and more. Sign in with the account tied to your subscription, then return here.</p>
+          <p class="section-note" style="margin-top: 0.75rem;">Not subscribed yet? See <a href="pricing.html">Pricing</a> for Supporter.</p>
+          <div class="cta-group" style="margin-top: 1rem;">
+            <a href="pricing.html" class="btn btn-primary" id="verse-image-upgrade-cta" data-track-upgrade="1">View Supporter plans</a>
+            <a href="bible-tool.html" class="btn btn-secondary">Bible Tool</a>
+          </div>
+        </section>
+
+        <section id="verse-image-app" class="glass" aria-label="Verse image controls" hidden>
+          <h2 class="section-divider util-mt-0">Your card</h2>
+          <p class="section-note">Enter a KJV reference (e.g. Philippians 4:13) and load the text, or paste text yourself. Preview updates when you tap <strong>Update preview</strong>.</p>
+
+          <div class="verse-image-controls">
+            <div style="flex: 1 1 12rem;">
+              <label for="verse-image-ref">Reference</label>
+              <input type="text" id="verse-image-ref" autocomplete="off" placeholder="e.g. John 3:16" maxlength="80" />
+            </div>
+            <div style="flex: 0 0 auto;">
+              <span class="section-note" style="display:block; margin-bottom:0.25rem;">&nbsp;</span>
+              <button type="button" class="btn btn-primary" id="verse-image-load" aria-label="Load verse text from reference">Load verse</button>
+            </div>
+          </div>
+
+          <div class="verse-image-controls" style="margin-top: 0.5rem;">
+            <div style="flex: 1 1 100%;">
+              <label for="verse-image-body">Verse text (KJV)</label>
+              <textarea id="verse-image-body" maxlength="2800" aria-label="Verse text to render on the image"></textarea>
+            </div>
+          </div>
+
+          <div class="verse-image-controls">
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-bg">Background</label>
+              <select id="verse-image-bg" aria-label="Background style">
+                <option value="dawn">Dawn violet</option>
+                <option value="deep">Deep blue</option>
+                <option value="still">Still night</option>
+              </select>
+            </div>
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-font">Type</label>
+              <select id="verse-image-font" aria-label="Font style">
+                <option value="serif">Serif (reading)</option>
+                <option value="sans">Sans (clean)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cta-group" style="margin-top: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" id="verse-image-preview-btn">Update preview</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-download-btn">Download PNG</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-share-btn">Share image</button>
+          </div>
+
+          <p id="verse-image-status" class="verse-image-status" role="status" aria-live="polite"></p>
+          <div id="verse-image-recent" class="verse-image-recent" hidden></div>
+
+          <div class="verse-image-preview-wrap">
+            <canvas id="verse-image-canvas" width="1200" height="630" role="img" aria-label="Preview of your verse image"></canvas>
+          </div>
+        </section>
+
+        <p class="section-note util-mt-1"><a href="/">← Home</a> · <a href="bible-tool.html">Bible Tool</a> · <a href="explore.html">Explore</a> · <a href="pricing.html">Pricing</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="explore.html">Explore</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <p class="footer-copyright">© 2026 Today's Daily Battle</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
+  <script type="module" src="script.js?v=20260320reader-sk"></script>
+  <script src="verse-image.js?v=20260322" defer></script>
+</body>
+</html>

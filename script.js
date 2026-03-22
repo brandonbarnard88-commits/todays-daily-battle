@@ -18399,7 +18399,7 @@ function sanitizeNudgeElements() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260323-sw-v101', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260324-sw-v102', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

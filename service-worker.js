@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v101-20260323-kids-speech-sw';
+const CACHE_NAME = 'tdb-v102-20260324-pwa-opt';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -123,6 +123,9 @@ const CORE_ASSETS = [
   '/kids/panel-daniel-2.svg',
   '/kids/panel-daniel-3.svg',
   '/kids/corner.html',
+  '/kids-corner.html',
+  '/kids/story-library-fonts.css?v=1',
+  '/assets/fonts/bangers-latin.woff2',
   '/kids/kids-corner.js',
   '/kids/kids-read-quiz-data.js',
   '/kids/kids-read-quiz-loop-posters.js',
@@ -405,7 +408,27 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Only cache same-origin GETs; let cross-origin (fonts, analytics, images) load normally
+  // Self-hosted WOFF2 (Story Library / site fonts): stale-while-revalidate — paint from cache, refresh in background.
+  if (sameOrigin && url.pathname.startsWith('/assets/fonts/') && /\.woff2(\?|$)/i.test(url.pathname + url.search)) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function (cache) {
+        return cache.match(event.request).then(function (cached) {
+          var net = fetch(event.request).then(function (res) {
+            if (res && res.ok) cache.put(event.request, res.clone()).catch(function () {});
+            return res;
+          });
+          if (cached) {
+            net.catch(function () {});
+            return cached;
+          }
+          return net;
+        });
+      })
+    );
+    return;
+  }
+
+  // Only cache same-origin GETs; let cross-origin (analytics, third-party CDN) load normally
   if (!sameOrigin) return;
   // Never cache script.js or config.js so deployments take effect immediately
   if (url.pathname.endsWith('script.js') || url.pathname.endsWith('config.js')) return;

@@ -87,6 +87,8 @@ const SOCIAL_PURGE_PATHS = [
   '/kids-corner',
   '/kids/corner.html',
   '/kids/corner',
+  '/kids/index.html',
+  '/kids/',
   '/assets/share/kids-loop-og.jpg',
   '/assets/share/kids-story-library-og.jpg',
   '/bible-tool.html',

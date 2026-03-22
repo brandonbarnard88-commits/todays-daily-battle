@@ -4,7 +4,10 @@
 <head>
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+  (function(){try{var m=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var o=localStorage.getItem('tdb_perf_mode')==='1';if(m||o){document.documentElement.classList.add('tdb-perf-mode');}}catch(e){}})();
+  </script>
 
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="high">
@@ -428,6 +431,21 @@
     @keyframes bird-fly  { from { transform: translateX(var(--bx0, -10vw)); } to { transform: translateX(var(--bx1, 110vw)); } }
     @keyframes bird-flap { from { transform: rotate(-12deg); } to { transform: rotate(14deg); } }
     body.sky-night .sky-bird { display: none; }
+
+    /* Performance mode: localStorage tdb_perf_mode=1 or prefers-reduced-motion — static sky, no decorative motion */
+    html.tdb-perf-mode .sky-stars-parallax,
+    html.tdb-perf-mode .sky-aurora,
+    html.tdb-perf-mode .sky-aurora-veil,
+    html.tdb-perf-mode .sky-shooter,
+    html.tdb-perf-mode .sky-aurora::before,
+    html.tdb-perf-mode .sky-aurora::after { display: none !important; animation: none !important; }
+    html.tdb-perf-mode .sky-star { animation: none !important; opacity: 0.55 !important; }
+    html.tdb-perf-mode .sky-bird,
+    html.tdb-perf-mode .sky-aurora-veil { animation: none !important; }
+    html.tdb-perf-mode .sky-sun,
+    html.tdb-perf-mode .sky-cloud { animation: none !important; }
+    html.tdb-perf-mode body.sky-night #sky-moon { animation: none !important; }
+    html.tdb-perf-mode .sky-moon-svg { animation: none !important; }
 
     /* Stars — CSS animated, JS places them */
     .sky-star {
@@ -6100,7 +6118,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v102", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v103", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

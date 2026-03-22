@@ -5803,8 +5803,16 @@
       return fb;
     }
     if (c.type === 'carousel') {
-      var st = bibleStories[c.story];
-      if (!st || !Array.isArray(st.panels)) {
+      var key = c.story;
+      if (key == null || key === '') {
+        return fb;
+      }
+      var st = bibleStories[key];
+      if (!st || !Array.isArray(st.panels) || st.panels.length === 0) {
+        return fb;
+      }
+    } else {
+      if (!c.src || typeof c.src !== 'string') {
         return fb;
       }
     }
@@ -5857,54 +5865,72 @@
   }
 
   function renderVerseAndPrayer() {
-    var index = getNextVerseIndex();
-    var q = '';
+    if (!KIDS_VERSES.length) {
+      if (typeof console !== 'undefined' && console.warn) {
+        console.warn('Kids Battle: KIDS_VERSES is empty; skip verse render.');
+      }
+      return;
+    }
     try {
-      var params = new URLSearchParams(typeof location !== 'undefined' ? location.search : '');
-      q = (params.get('q') || '').trim();
-    } catch (e) {}
-    if (q) {
-      var indices = getFilteredVerseIndices(q);
-      if (indices.length > 0) index = indices[0];
-    }
-    var nVerses = KIDS_VERSES.length;
-    if (nVerses) {
-      index = index % nVerses;
-      if (index < 0) index += nVerses;
-    }
-    var v = KIDS_VERSES[index];
-    if (!v) {
-      index = 0;
-      v = KIDS_VERSES[0];
-    }
-    var p = KIDS_PRAYERS[index];
-    var refEl = document.getElementById('kids-verse-ref');
-    var textEl = document.getElementById('kids-verse-text');
-    var prayerEl = document.getElementById('kids-prayer-text');
-    var kidText = getKidText(v.ref) || v.text;
-    if (refEl) refEl.textContent = v.ref;
-    if (textEl) textEl.textContent = kidText;
-    if (prayerEl) prayerEl.textContent = p != null ? p : '';
-    renderKidContext(v.ref, kidText || v.text);
-    var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
-    var container = document.getElementById('kids-cartoon-container');
-    if (!container) return;
-    if (cartoon.type === 'carousel') {
-      var story = bibleStories[cartoon.story];
-      var panelsHtml = (story.panels || []).map(function (p) {
-        return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtmlPlain(p.alt || '') + '" class="comic-panel" width="200" height="160">';
-      }).join('');
-      var videoTitle = escapeHtmlPlain(story.videoTitle || '');
-      var safeVideoId = safeYouTubeId(story.videoId);
-      var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-      tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
-    } else {
-      tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
-    }
-    if (!q) {
+      var index = getNextVerseIndex();
+      var q = '';
       try {
-        localStorage.setItem(KIDS_VERSE_INDEX_KEY, String((index + 1) % KIDS_VERSES.length));
+        var params = new URLSearchParams(typeof location !== 'undefined' ? location.search : '');
+        q = (params.get('q') || '').trim();
       } catch (e) {}
+      if (q) {
+        var indices = getFilteredVerseIndices(q);
+        if (indices.length > 0) index = indices[0];
+      }
+      var nVerses = KIDS_VERSES.length;
+      if (nVerses) {
+        index = index % nVerses;
+        if (index < 0) index += nVerses;
+      }
+      var v = KIDS_VERSES[index];
+      if (!v) {
+        index = 0;
+        v = KIDS_VERSES[0];
+      }
+      var p = KIDS_PRAYERS[index];
+      var refEl = document.getElementById('kids-verse-ref');
+      var textEl = document.getElementById('kids-verse-text');
+      var prayerEl = document.getElementById('kids-prayer-text');
+      var kidText = getKidText(v.ref) || v.text;
+      if (refEl) refEl.textContent = v.ref;
+      if (textEl) textEl.textContent = kidText;
+      if (prayerEl) prayerEl.textContent = p != null ? p : '';
+      renderKidContext(v.ref, kidText || v.text);
+      var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
+      var container = document.getElementById('kids-cartoon-container');
+      if (!container) return;
+      if (cartoon.type === 'carousel') {
+        var story = bibleStories[cartoon.story];
+        var panelsHtml = (story.panels || []).map(function (pan) {
+          return '<img src="' + escapeHtml(pan.src || '') + '" alt="' + escapeHtmlPlain(pan.alt || '') + '" class="comic-panel" width="200" height="160">';
+        }).join('');
+        var videoTitle = escapeHtmlPlain(story.videoTitle || '');
+        var safeVideoId = safeYouTubeId(story.videoId);
+        var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+        tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
+      } else {
+        tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
+      }
+      if (!q) {
+        try {
+          localStorage.setItem(KIDS_VERSE_INDEX_KEY, String((index + 1) % KIDS_VERSES.length));
+        } catch (e) {}
+      }
+    } catch (err) {
+      if (typeof console !== 'undefined' && console.warn) {
+        console.warn('Kids Battle renderVerseAndPrayer:', err);
+      }
+      var ctn = document.getElementById('kids-cartoon-container');
+      if (ctn) {
+        try {
+          tdbSetHtml(ctn, '<p class="kids-cartoon-fallback-msg section-note" role="alert">We could not finish loading today\'s comic area. Your verse is still above—try a refresh.</p>');
+        } catch (e2) {}
+      }
     }
   }
 
@@ -5955,7 +5981,7 @@
           localStorage.setItem(KIDS_REMIND_OPTED_KEY, '1');
           renderComeBackNudge();
           if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js?v=20260324-sw-v102').then(function () {
+            navigator.serviceWorker.register('/sw.js?v=20260324-sw-v103').then(function () {
               return navigator.serviceWorker.ready;
             }).then(function (reg) {
               if (reg.pushManager && window.TDB_CONFIG && window.TDB_CONFIG.VAPID_PUBLIC_KEY) {
@@ -6972,31 +6998,44 @@
   }
 
   function setMainVerse(index) {
-    if (index < 0 || index >= KIDS_VERSES.length) return;
+    if (!KIDS_VERSES.length || index < 0 || index >= KIDS_VERSES.length) return;
     var v = KIDS_VERSES[index];
-    var p = KIDS_PRAYERS[index];
-    var kidText = getKidText(v.ref) || v.text;
-    var refEl = document.getElementById('kids-verse-ref');
-    var textEl = document.getElementById('kids-verse-text');
-    var prayerEl = document.getElementById('kids-prayer-text');
-    if (refEl) refEl.textContent = v.ref;
-    if (textEl) textEl.textContent = kidText;
-    if (prayerEl) prayerEl.textContent = p != null ? p : '';
-    renderKidContext(v.ref, kidText || v.text);
-    var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
-    var container = document.getElementById('kids-cartoon-container');
-    if (container) {
-      if (cartoon.type === 'carousel') {
-        var story = bibleStories[cartoon.story];
-        var panelsHtml = (story.panels || []).map(function (p) {
-          return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtmlPlain(p.alt || '') + '" class="comic-panel" width="200" height="160">';
-        }).join('');
-        var videoTitle = escapeHtmlPlain(story.videoTitle || '');
-        var safeVideoId = safeYouTubeId(story.videoId);
-        var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-        tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
-      } else {
-        tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
+    if (!v) return;
+    try {
+      var p = KIDS_PRAYERS[index];
+      var kidText = getKidText(v.ref) || v.text;
+      var refEl = document.getElementById('kids-verse-ref');
+      var textEl = document.getElementById('kids-verse-text');
+      var prayerEl = document.getElementById('kids-prayer-text');
+      if (refEl) refEl.textContent = v.ref;
+      if (textEl) textEl.textContent = kidText;
+      if (prayerEl) prayerEl.textContent = p != null ? p : '';
+      renderKidContext(v.ref, kidText || v.text);
+      var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
+      var container = document.getElementById('kids-cartoon-container');
+      if (container) {
+        if (cartoon.type === 'carousel') {
+          var story = bibleStories[cartoon.story];
+          var panelsHtml = (story.panels || []).map(function (pan) {
+            return '<img src="' + escapeHtml(pan.src || '') + '" alt="' + escapeHtmlPlain(pan.alt || '') + '" class="comic-panel" width="200" height="160">';
+          }).join('');
+          var videoTitle = escapeHtmlPlain(story.videoTitle || '');
+          var safeVideoId = safeYouTubeId(story.videoId);
+          var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
+          tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
+        } else {
+          tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
+        }
+      }
+    } catch (err) {
+      if (typeof console !== 'undefined' && console.warn) {
+        console.warn('Kids Battle setMainVerse:', err);
+      }
+      var ctn = document.getElementById('kids-cartoon-container');
+      if (ctn) {
+        try {
+          tdbSetHtml(ctn, '<p class="kids-cartoon-fallback-msg section-note" role="alert">Could not update the comic area. Try a refresh.</p>');
+        } catch (e2) {}
       }
     }
   }

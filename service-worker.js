@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v102-20260324-pwa-opt';
+const CACHE_NAME = 'tdb-v105-20260322-kids-harden';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -172,6 +172,23 @@ var AUDIO_ASSETS = [
   '/audio/joshua-1-9.mp3',
   '/audio/isaiah-41-10.mp3'
 ];
+
+/**
+ * Cache lookup: exact request URL first, then pathname-only for .js/.css so
+ * kids-read-quiz-data.js?v=… hits precached /kids/kids-read-quiz-data.js.
+ * Prevents offline fallback from serving HTML/text as script (parse errors).
+ */
+function matchCachedSameOriginAsset(cacheName, request, url) {
+  return caches.open(cacheName).then(function (cache) {
+    return cache.match(request).then(function (hit) {
+      if (hit) return hit;
+      if (/\.(js|css)$/i.test(url.pathname)) {
+        return cache.match(url.pathname);
+      }
+      return null;
+    });
+  });
+}
 
 function daySeed(offsetDays) {
   const date = new Date();
@@ -453,7 +470,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   event.respondWith(
-    caches.match(event.request).then((cached) => {
+    matchCachedSameOriginAsset(CACHE_NAME, event.request, url).then((cached) => {
       if (cached) return cached;
       return fetch(event.request).then((res) => {
         if (res && res.ok) {
@@ -465,6 +482,19 @@ self.addEventListener('fetch', (event) => {
     }).catch(() => {
       if (event.request.mode === 'navigate') {
         return caches.match(OFFLINE_URL).then((offlinePage) => offlinePage || new Response('You are offline. Check back later.', { status: 503 }));
+      }
+      if (/\.(js|css)$/i.test(url.pathname)) {
+        return caches.open(CACHE_NAME).then((cache) => cache.match(url.pathname)).then((pathHit) => {
+          if (pathHit) return pathHit;
+          /* Never serve HTML/text as JS — breaks parsing. Stub only the read-quiz bundle so the page can recover. */
+          if (/\/kids\/kids-read-quiz-data\.js$/i.test(url.pathname)) {
+            return new Response(
+              "(function(g){'use strict';try{if(!g.TDB_KIDS_READ_QUIZ||typeof g.TDB_KIDS_READ_QUIZ!=='object')g.TDB_KIDS_READ_QUIZ={};}catch(e){}})(typeof window!=='undefined'?window:this);",
+              { status: 200, headers: { 'content-type': 'application/javascript; charset=utf-8' } }
+            );
+          }
+          return new Response('You are offline. Check back later.', { status: 503 });
+        });
       }
       return new Response('You are offline. Check back later.', { status: 503 });
     })

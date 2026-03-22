@@ -6737,7 +6737,7 @@ module.exports = {
         'fun kid illustration: red horse bringing conflict, Lamb still on throne, no text',
         'colorful Bible scene for children: black horse with balances, Lamb worthy, no text',
         'exciting cartoon: pale horse, Death and Hell following, Lamb reigning, no text',
-        'hopeful ending illustration: Lamb on throne, worthy to open all seals, no text'
+        'hopeful ending illustration: Lamb on throne, worthy to open all seals, light and worship, no text'
       ],
       readAlongImages: [],
       hintAboveQuiz: 'The four horsemen — but the Lamb is worthy!',
@@ -6754,14 +6754,14 @@ module.exports = {
           question: 'What was the first horse?',
           choices: ['Red', 'White', 'Black', 'Pale'],
           correctIndex: 1,
-          correctFeedback: 'Yes! White horse with rider holding bow and crown.',
+          correctFeedback: 'Right! White horse with bow and crown.',
           wrongFeedback: 'A white horse; and he that sat on him had a bow; and a crown was given unto him (Revelation 6:2).'
         },
         {
           question: 'What did the red horse bring?',
           choices: ['Peace', 'Power to take peace from the earth', 'Food', 'Light'],
           correctIndex: 1,
-          correctFeedback: 'Right! Power to take peace from the earth.',
+          correctFeedback: 'Yes! Power to take peace from the earth.',
           wrongFeedback: 'There went out another horse that was red: and power was given to him that sat thereon to take peace from the earth (Revelation 6:4).'
         },
         {
@@ -6919,11 +6919,11 @@ module.exports = {
         'The bride is the Lamb’s wife — the church, adorned in glory for her Husband.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: new Jerusalem coming down from heaven like a bride, no text',
+        'bright cartoon for kids: new Jerusalem coming down from heaven like a bride, adorned and beautiful, no text',
         'fun kid illustration: angel saying "Come hither, I will shew thee the bride", no text',
         'colorful Bible scene for children: John on high mountain, seeing holy city descending, no text',
         'exciting cartoon: city with glory of God, light like precious stone, no text',
-        'hopeful ending illustration: bride as Lamb’s wife, church adorned in glory, no text'
+        'hopeful ending illustration: bride as Lamb’s wife, church in glory, no text'
       ],
       readAlongImages: [],
       hintAboveQuiz: 'The bride — new Jerusalem, Lamb’s wife!',
@@ -6974,18 +6974,18 @@ module.exports = {
     riverOfLife: {
       kjvRef: 'Revelation 22:1–2',
       paragraphs: [
-        'John saw a pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb.',
-        'In the midst of the street of it, and on either side of the river, was there the tree of life, which bare twelve manner of fruits.',
-        'The tree yielded her fruit every month: and the leaves of the tree were for the healing of the nations.',
-        'No more curse. The throne of God and of the Lamb shall be in it; and his servants shall serve him.',
+        'John saw a pure river of water of life, clear as crystal, flowing from the throne of God and of the Lamb.',
+        'In the midst of the street and on either side of the river was the tree of life, bearing twelve kinds of fruit.',
+        'The tree yielded fruit every month, and its leaves were for the healing of the nations.',
+        'No more curse. The throne of God and of the Lamb is there; His servants serve Him.',
         'The river of life flows from God’s throne — healing and life for all who come.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: pure river of water of life flowing from throne, clear as crystal, no text',
+        'bright cartoon for kids: pure river of water of life flowing from throne, clear and sparkling, no text',
         'fun kid illustration: tree of life on both sides of river, twelve fruits, no text',
         'colorful Bible scene for children: leaves of the tree for healing of the nations, no text',
-        'exciting cartoon: no more curse, throne of God and Lamb, servants serving, no text',
-        'hopeful ending illustration: river of life, healing and life for all, no text'
+        'exciting cartoon: no more curse, servants serving God, no text',
+        'hopeful ending illustration: eternal life, fruit and healing forever, no text'
       ],
       readAlongImages: [],
       hintAboveQuiz: 'River of life flows from the throne — healing for the nations!',
@@ -6996,24 +6996,24 @@ module.exports = {
           choices: ['A mountain', 'The throne of God and of the Lamb', 'The sea', 'A spring'],
           correctIndex: 1,
           correctFeedback: 'Yes! From the throne of God and of the Lamb.',
-          wrongFeedback: 'A pure river of water of life, clear as crystal, proceeding out of the throne of God and of the Lamb (Revelation 22:1).'
+          wrongFeedback: 'A pure river of water of life… proceeding out of the throne of God and of the Lamb (Revelation 22:1).'
         },
         {
-          question: 'What is on either side of the river?',
-          choices: ['Houses', 'The tree of life', 'Mountains', 'People'],
+          question: 'Where is the tree of life?',
+          choices: ['Only on one side', 'In the midst of the street and on either side of the river', 'In the sky', 'In the temple'],
           correctIndex: 1,
-          correctFeedback: 'Right! The tree of life.',
+          correctFeedback: 'Right! In the midst and on either side.',
           wrongFeedback: 'In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2).'
         },
         {
           question: 'How many kinds of fruit does the tree bear?',
-          choices: ['One', 'Twelve manner of fruits', 'Seven', 'Three'],
+          choices: ['One', 'Twelve', 'Seven', 'Three'],
           correctIndex: 1,
           correctFeedback: 'Yes! Twelve manner of fruits.',
-          wrongFeedback: 'The tree of life, which bare twelve manner of fruits (Revelation 22:2).'
+          wrongFeedback: 'Which bare twelve manner of fruits (Revelation 22:2).'
         },
         {
-          question: 'What are the leaves of the tree for?',
+          question: 'What are the leaves for?',
           choices: ['Decoration', 'Healing of the nations', 'Food', 'Shade'],
           correctIndex: 1,
           correctFeedback: 'Yes! Healing of the nations.',
@@ -7036,125 +7036,125 @@ module.exports = {
     treeOfLife: {
       kjvRef: 'Revelation 22:1–2',
       paragraphs: [
-        'John saw the same river of life: in the midst of the street of it, and on either side of the river, was there the tree of life.',
-        'The tree of life bare twelve manner of fruits, and yielded her fruit every month — God never runs out of good fruit for His people.',
-        'The leaves of the tree were for the healing of the nations — God heals broken hearts and nations in His new creation.',
-        'There is no curse in that city — God will wipe every tear away.',
-        'From Eden to the new heaven, God planned to keep a tree of life for those who love Him — the best is still ahead!'
+        'John saw a pure river of water of life, clear as crystal, flowing from the throne of God and of the Lamb.',
+        'In the midst of the street and on either side of the river was the tree of life, bearing twelve kinds of fruit.',
+        'The tree yielded fruit every month, and its leaves were for the healing of the nations.',
+        'No more curse. The throne of God and of the Lamb is there; His servants serve Him.',
+        'The tree of life gives fruit and healing — eternal life in God’s presence.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: beautiful tree of life growing along river of life, twelve kinds of fruit, no text',
-        'fun kid illustration: fruit every month, bright colors, no text',
-        'colorful Bible scene for children: healing leaves, nations blessed, no text',
-        'exciting cartoon: no curse, no sorrow, joy in God\'s city, no text',
-        'hopeful ending illustration: tree of life with throne and Lamb in background, no text'
+        'bright cartoon for kids: pure river of life flowing from throne, clear and sparkling, no text',
+        'fun kid illustration: tree of life on both sides of river, twelve fruits, no text',
+        'colorful Bible scene for children: leaves of the tree for healing of the nations, no text',
+        'exciting cartoon: no more curse, servants serving God, no text',
+        'hopeful ending illustration: eternal life, fruit and healing forever, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'The tree of life bears fruit every month!',
+      hintAboveQuiz: 'Tree of life — fruit every month, healing for all!',
       quizHeading: 'Tree of Life Questions',
       questions: [
         {
-          question: 'Where did the tree of life grow?',
-          choices: ['On a mountain only', 'In the midst of the street and on either side of the river', 'Under the sea', 'Only in Eden'],
+          question: 'Where does the river of life flow from?',
+          choices: ['A mountain', 'The throne of God and of the Lamb', 'The sea', 'A spring'],
           correctIndex: 1,
-          correctFeedback: 'Yes! In the midst… and on either side of the river, was there the tree of life.',
+          correctFeedback: 'Yes! From the throne of God and of the Lamb.',
+          wrongFeedback: 'A pure river of water of life… proceeding out of the throne of God and of the Lamb (Revelation 22:1).'
+        },
+        {
+          question: 'Where is the tree of life?',
+          choices: ['Only on one side', 'In the midst of the street and on either side of the river', 'In the sky', 'In the temple'],
+          correctIndex: 1,
+          correctFeedback: 'Right! In the midst and on either side.',
           wrongFeedback: 'In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2).'
         },
         {
-          question: 'How many manner of fruits did the tree bear?',
-          choices: ['One', 'Three', 'Twelve', 'Seven'],
-          correctIndex: 2,
-          correctFeedback: 'Right! Twelve manner of fruits — every month.',
-          wrongFeedback: 'The tree of life bare twelve manner of fruits, and yielded her fruit every month (Revelation 22:2).'
+          question: 'How many kinds of fruit does the tree bear?',
+          choices: ['One', 'Twelve', 'Seven', 'Three'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Twelve manner of fruits.',
+          wrongFeedback: 'Which bare twelve manner of fruits (Revelation 22:2).'
         },
         {
-          question: 'What were the leaves for?',
-          choices: ['Decoration only', 'For the healing of the nations', 'Nothing', 'Food only'],
+          question: 'What are the leaves for?',
+          choices: ['Decoration', 'Healing of the nations', 'Food', 'Shade'],
           correctIndex: 1,
-          correctFeedback: 'Yes! The leaves were for the healing of the nations (Revelation 22:2).',
+          correctFeedback: 'Yes! Healing of the nations.',
           wrongFeedback: 'The leaves of the tree were for the healing of the nations (Revelation 22:2).'
         },
         {
-          question: 'Who has right to the tree of life?',
-          choices: ['Anyone who steals', 'They that do his commandments — blessed to enter by the gates', 'No one', 'Animals only'],
-          correctIndex: 1,
-          correctFeedback: 'Blessed are they that do his commandments… that they may have right to the tree of life (Revelation 22:14).',
-          wrongFeedback: 'Blessed are they that do his commandments… that they may have right to the tree of life (Revelation 22:14).'
-        },
-        {
           question: 'What can we learn from the tree of life?',
-          choices: ['God stops healing', 'God keeps plenty for His people — healing and fruit forever', 'Trees are useless', 'Hope ends'],
+          choices: ['Life is scarce', 'Eternal life and healing in God’s presence', 'Never eat fruit', 'Doubt God'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! God supplies forever in His new creation.',
-          wrongFeedback: 'There shall be no more curse: but the throne of God and of the Lamb shall be in it (Revelation 22:3).'
+          correctFeedback: 'Perfect! Eternal life and healing in God’s presence.',
+          wrongFeedback: 'Tree of life gives fruit and healing forever!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'You earned a star — God heals forever!',
-      takeaway: 'God’s tree of life brings healing and fruit that never end.',
-      prayer: 'God, thank You for the promise of new life. Help me obey Thee and hope in Thee. Amen.'
+      doneMessage: 'You earned a star — tree of life!',
+      takeaway: 'Eternal life and healing in God’s presence.',
+      prayer: 'God, thank You for the tree of life. Give us healing and life forever. Amen.'
     },
 
     treeFruit: {
       kjvRef: 'Revelation 22:2',
       paragraphs: [
-        'By the river of life stood the tree of life — and it was not a stingy tree.',
-        'The tree of life bare twelve manner of fruits, and yielded her fruit every month: every month God serves something fresh.',
-        'Think of it: twelve kinds of fruit, month after month — God’s table never runs empty for His people.',
-        'The leaves of the tree were for the healing of the nations — God’s kindness reaches families far away, not just one little group.',
-        'That is the heart of heaven’s garden: plenty to eat, plenty to heal, plenty of love for the whole world God made.'
+        'The tree of life stands in the midst of the street and on either side of the river of life.',
+        'It bears twelve kinds of fruit — one for each month of the year.',
+        'The leaves of the tree are for the healing of the nations.',
+        'No more curse in the city. God’s servants see His face and His name is on their foreheads.',
+        'The tree of life gives fruit every month — eternal provision and healing in God’s presence.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: tree of life with many colorful fruit clusters by crystal river, no text',
-        'fun kid illustration: calendar pages turning, fresh fruit each month, twelve kinds, no text',
-        'colorful Bible scene for children: happy people sharing fruit, abundance, no text',
-        'exciting cartoon: gentle leaves like blessings over many nations, maps, hope, no text',
-        'hopeful ending illustration: tree, river, Lamb light in distance, no text'
+        'bright cartoon for kids: tree of life in the street by the river, twelve kinds of fruit, no text',
+        'fun kid illustration: fruit on the tree every month, no text',
+        'colorful Bible scene for children: leaves for healing of the nations, no text',
+        'exciting cartoon: no curse, servants with God’s name, no text',
+        'hopeful ending illustration: eternal provision and healing, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'Twelve fruits every month — God keeps plenty!',
+      hintAboveQuiz: 'Tree of life — fruit every month, healing for all!',
       quizHeading: 'Tree Fruit Questions',
       questions: [
         {
-          question: 'How many manner of fruits did the tree bear?',
-          choices: ['Three', 'Seven', 'Twelve', 'One'],
-          correctIndex: 2,
-          correctFeedback: 'Yes! Twelve manner of fruits.',
-          wrongFeedback: 'The tree of life bare twelve manner of fruits, and yielded her fruit every month (Revelation 22:2).'
-        },
-        {
-          question: 'How often did the tree yield her fruit?',
-          choices: ['Once a year', 'Every month', 'Only at Passover', 'Never'],
+          question: 'Where does the tree of life stand?',
+          choices: ['In the sky', 'In the midst of the street and on either side of the river', 'In a garden', 'On a mountain'],
           correctIndex: 1,
-          correctFeedback: 'Right! It yielded her fruit every month.',
-          wrongFeedback: 'The tree… yielded her fruit every month (Revelation 22:2).'
-        },
-        {
-          question: 'What were the leaves for?',
-          choices: ['For the healing of the nations', 'Only for shade', 'To make paper', 'Nothing'],
-          correctIndex: 0,
-          correctFeedback: 'Yes! The leaves were for the healing of the nations.',
-          wrongFeedback: 'The leaves of the tree were for the healing of the nations (Revelation 22:2).'
-        },
-        {
-          question: 'Where did this tree grow?',
-          choices: ['Only in a desert', 'On either side of the river of life', 'Under the sea', 'Far from the city'],
-          correctIndex: 1,
-          correctFeedback: 'Yes! On either side of the river was there the tree of life (Revelation 22:2).',
+          correctFeedback: 'Yes! In the midst and on either side.',
           wrongFeedback: 'In the midst of the street of it, and on either side of the river, was there the tree of life (Revelation 22:2).'
         },
         {
-          question: 'What can we learn from the tree’s fruit?',
-          choices: ['God runs out of good things', 'God keeps plenty — healing and fruit for all He loves', 'Fruit is boring', 'Nations do not matter to God'],
+          question: 'How many kinds of fruit does it bear?',
+          choices: ['One', 'Twelve', 'Seven', 'Three'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! God’s goodness never runs out.',
-          wrongFeedback: 'God’s tree yields fruit every month and leaves for the nations — His mercy is wide!'
+          correctFeedback: 'Yes! Twelve kinds of fruit.',
+          wrongFeedback: 'Which bare twelve manner of fruits (Revelation 22:2).'
+        },
+        {
+          question: 'What are the leaves for?',
+          choices: ['Decoration', 'Healing of the nations', 'Food', 'Shade'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Healing of the nations.',
+          wrongFeedback: 'The leaves of the tree were for the healing of the nations (Revelation 22:2).'
+        },
+        {
+          question: 'What is gone in the city?',
+          choices: ['Light', 'Curse', 'Fruit', 'River'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! No more curse.',
+          wrongFeedback: 'There shall be no more curse (Revelation 22:3).'
+        },
+        {
+          question: 'What can we learn from the tree fruit?',
+          choices: ['No provision', 'Eternal provision and healing in God’s presence', 'Never eat fruit', 'Doubt God'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Eternal provision and healing in God’s presence.',
+          wrongFeedback: 'Tree of life gives fruit every month — eternal provision!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'You earned a star — God keeps plenty!',
-      takeaway: 'God’s tree yields fresh fruit and healing for the nations.',
-      prayer: 'God, thank You for never running out of goodness. Help me share Your love. Amen.'
+      doneMessage: 'You earned a star — eternal provision!',
+      takeaway: 'Eternal provision and healing in God’s presence.',
+      prayer: 'God, thank You for eternal provision. Feed us forever. Amen.'
     },
 
     noNight: {
@@ -8221,11 +8221,11 @@ module.exports = {
         'Open the door to Jesus — He wants to be with us always.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: Jesus standing at a door, knocking gently, no text',
+        'bright cartoon for kids: Jesus standing at a door, knocking gently, light around Him, no text',
         'fun kid illustration: person hearing Jesus’ voice, opening the door, no text',
         'colorful Bible scene for children: Jesus coming in, supping with the person, no text',
         'exciting cartoon: fellowship meal with Jesus, close friendship, no text',
-        'hopeful ending illustration: Jesus with us always, open door, no text'
+        'hopeful ending illustration: Jesus with us always, open door, light and joy, no text'
       ],
       readAlongImages: [],
       hintAboveQuiz: 'Jesus stands at the door and knocks!',
@@ -8251,13 +8251,6 @@ module.exports = {
           correctIndex: 1,
           correctFeedback: 'Yes! Sup with us — share close fellowship.',
           wrongFeedback: 'I will come in to him, and will sup with him, and he with me (Revelation 3:20).'
-        },
-        {
-          question: 'Which church heard this promise about the door?',
-          choices: ['Ephesus only', 'Laodicea', 'Jerusalem only', 'Rome'],
-          correctIndex: 1,
-          correctFeedback: 'Yes! These things saith the Amen… unto the church of the Laodiceans (Revelation 3:14–22).',
-          wrongFeedback: 'The letter to the church of the Laodiceans includes this promise (Revelation 3:14–22).'
         },
         {
           question: 'What can we learn from Jesus at the door?',

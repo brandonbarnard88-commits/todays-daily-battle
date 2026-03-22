@@ -19,6 +19,24 @@
     { id: 'brave-heart', label: 'Brave Heart', days: 14 }
   ];
 
+  function tdbPlainTextForUi(s) {
+    if (s == null || s === '') return '';
+    var str = String(s);
+    var prev;
+    for (var n = 0; n < 12; n++) {
+      prev = str;
+      str = str.replace(/&amp;/g, '&');
+      if (str === prev) break;
+    }
+    try {
+      var t = document.createElement('textarea');
+      t.innerHTML = str;
+      var out = t.value;
+      if (typeof out === 'string') return out;
+    } catch (_) {}
+    return str;
+  }
+
   function getStreakData() {
     try {
       const raw = localStorage.getItem(KIDS_STREAK_KEY);
@@ -260,7 +278,7 @@
         section.insertBefore(thoughtEl, grid);
       }
       var dateStr = reflection.date ? new Date(reflection.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'today';
-      thoughtEl.textContent = "Kid's Thought on " + dateStr + ": " + (reflection.text || '') + (reflection.verse ? ' (' + reflection.verse + ')' : '');
+      thoughtEl.textContent = "Kid's Thought on " + dateStr + ': ' + tdbPlainTextForUi(reflection.text || '') + (reflection.verse ? ' (' + tdbPlainTextForUi(reflection.verse) + ')' : '');
       thoughtEl.classList.remove('hidden');
     }
     fetchKidReflectionsFromSupabase(function (fromSupabase) {
@@ -285,10 +303,10 @@
       const card = document.createElement('a');
       card.href = 'corner.html';
       card.className = 'kids-parent-favorite-card';
-      card.setAttribute('aria-label', 'View ' + title + ' in Library');
+      card.setAttribute('aria-label', 'View ' + tdbPlainTextForUi(title) + ' in Library');
       card.innerHTML = '<img src="' + thumb + '" alt="" loading="lazy">' +
-        '<span class="kids-parent-favorite-title">' + escapeHtml(title) + '</span>' +
-        '<span class="kids-parent-favorite-talk">Talk about: ' + escapeHtml(apply) + '</span>';
+        '<span class="kids-parent-favorite-title">' + escapeHtml(tdbPlainTextForUi(title)) + '</span>' +
+        '<span class="kids-parent-favorite-talk">Talk about: ' + escapeHtml(tdbPlainTextForUi(apply)) + '</span>';
       grid.appendChild(card);
     });
   }

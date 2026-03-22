@@ -24,6 +24,25 @@
     while (el.firstChild) el.removeChild(el.firstChild);
   }
 
+  /** Collapse &amp; chains and decode one layer of entities so innerHTML + escapeHtml does not show &amp;amp; */
+  function tdbPlainTextForUi(s) {
+    if (s == null || s === '') return '';
+    var str = String(s);
+    var prev;
+    for (var n = 0; n < 12; n++) {
+      prev = str;
+      str = str.replace(/&amp;/g, '&');
+      if (str === prev) break;
+    }
+    try {
+      var t = document.createElement('textarea');
+      t.innerHTML = str;
+      var out = t.value;
+      if (typeof out === 'string') return out;
+    } catch (_) {}
+    return str;
+  }
+
   // Shared with Kids Coloring (coloring.html) — hub for all kid stuff; one streak across both
   const KIDS_STREAK_KEY = 'kidsStreak';
   const KIDS_DOODLE_KEY = 'kidsDoodle';
@@ -5679,14 +5698,14 @@
     if (cartoon.type === 'carousel') {
       var story = bibleStories[cartoon.story];
       var panelsHtml = (story.panels || []).map(function (p) {
-        return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtml(p.alt || '') + '" class="comic-panel" width="200" height="160">';
+        return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtmlPlain(p.alt || '') + '" class="comic-panel" width="200" height="160">';
       }).join('');
-      var videoTitle = escapeHtml(story.videoTitle || '');
+      var videoTitle = escapeHtmlPlain(story.videoTitle || '');
       var safeVideoId = safeYouTubeId(story.videoId);
       var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-      tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>');
+      tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
     } else {
-      tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>');
+      tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
     }
     if (!q) {
       try {
@@ -5977,12 +5996,12 @@
         opts.forEach(function (opt, j) {
           var label = document.createElement('label');
           label.className = 'kids-quiz-option';
-          tdbSetHtml(label, '<input type="radio" name="quiz-q' + i + '" value="' + j + '" aria-label="' + escapeHtml(opt || '') + '"> <span>' + escapeHtml(opt || '') + '</span>');
+          tdbSetHtml(label, '<input type="radio" name="quiz-q' + i + '" value="' + j + '" aria-label="' + escapeHtmlPlain(opt || '') + '"> <span>' + escapeHtmlPlain(opt || '') + '</span>');
           wrap.appendChild(label);
         });
         var title = document.createElement('p');
         title.className = 'kids-quiz-q-title';
-        title.textContent = (i + 1) + '. ' + (q.question || '');
+        title.textContent = (i + 1) + '. ' + tdbPlainTextForUi(q.question || '');
         wrap.insertBefore(title, wrap.firstChild);
         questionsEl.appendChild(wrap);
       });
@@ -6529,7 +6548,7 @@
     FAITH_TRAIL_STOPS.forEach(function (stop) {
       var span = document.createElement('span');
       span.className = 'kids-trail-stop' + (streak >= stop.day ? ' unlocked' : ' locked');
-      tdbSetHtml(span, '<span class="kids-trail-icon">' + escapeHtml(stop.icon) + '</span><span class="kids-trail-label">' + escapeHtml(stop.label) + '</span>');
+      tdbSetHtml(span, '<span class="kids-trail-icon">' + escapeHtmlPlain(stop.icon) + '</span><span class="kids-trail-label">' + escapeHtmlPlain(stop.label) + '</span>');
       span.title = streak >= stop.day ? 'Completed!' : 'Unlock at day ' + stop.day;
       board.appendChild(span);
     });
@@ -6751,9 +6770,9 @@
     if (!ctxEl) return;
     var ctx = getKidContext(ref, verseText);
     ctxEl.classList.remove('hidden');
-    tdbSetHtml(ctxEl, '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtml(ctx.who || '') + '</p>' +
-      '<p class="kids-context-to"><strong>To whom:</strong> ' + escapeHtml(ctx.to || '') + '</p>' +
-      '<p class="kids-context-apply"><strong>For you:</strong> ' + escapeHtml(ctx.apply || '') + '</p>');
+    tdbSetHtml(ctxEl, '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtmlPlain(ctx.who || '') + '</p>' +
+      '<p class="kids-context-to"><strong>To whom:</strong> ' + escapeHtmlPlain(ctx.to || '') + '</p>' +
+      '<p class="kids-context-apply"><strong>For you:</strong> ' + escapeHtmlPlain(ctx.apply || '') + '</p>');
   }
 
   function setMainVerse(index) {
@@ -6774,14 +6793,14 @@
       if (cartoon.type === 'carousel') {
         var story = bibleStories[cartoon.story];
         var panelsHtml = (story.panels || []).map(function (p) {
-          return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtml(p.alt || '') + '" class="comic-panel" width="200" height="160">';
+          return '<img src="' + escapeHtml(p.src || '') + '" alt="' + escapeHtmlPlain(p.alt || '') + '" class="comic-panel" width="200" height="160">';
         }).join('');
-        var videoTitle = escapeHtml(story.videoTitle || '');
+        var videoTitle = escapeHtmlPlain(story.videoTitle || '');
         var safeVideoId = safeYouTubeId(story.videoId);
         var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-        tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtml(story.caption || '') + '</p>' + btnHtml + '</div>');
+        tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
       } else {
-        tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtml(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtml(cartoon.caption || '') + '</p></div>');
+        tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
       }
     }
   }
@@ -6822,6 +6841,10 @@
     return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
   }
 
+  function escapeHtmlPlain(s) {
+    return escapeHtml(tdbPlainTextForUi(s));
+  }
+
   function safeYouTubeId(id) {
     var s = String(id || '').trim();
     return /^[A-Za-z0-9_-]{11}$/.test(s) ? s : '';
@@ -6843,7 +6866,7 @@
       var v = KIDS_VERSES[idx];
       var text = String((v && v.text) || '').trim();
       var snippet = text.length > 80 ? (text.slice(0, 77) + '...') : text;
-      return '<li><strong>' + escapeHtml(v.ref || '') + '</strong> — ' + escapeHtml(snippet) + '</li>';
+      return '<li><strong>' + escapeHtmlPlain(v.ref || '') + '</strong> — ' + escapeHtmlPlain(snippet) + '</li>';
     }).join('');
     var strongestVerse = KIDS_VERSES[indices[0]];
     var strongestCtx = getKidContext(strongestVerse.ref, strongestVerse.text);
@@ -6851,11 +6874,11 @@
     html += '<div class="kids-result-card kids-search-summary">' +
       '<span class="kids-result-context kids-summary-kicker"><strong>KJV matches:</strong></span>' +
       '<ul class="kids-search-summary-list">' + topMatches + '</ul>' +
-      '<span class="kids-result-context kids-summary-age"><strong>Age fit:</strong> ' + escapeHtml(strongestBreakdown.ageLabel || 'Preteens') + '</span>' +
-      '<span class="kids-result-ref kids-summary-ref">' + escapeHtml(strongestVerse.ref || '') + '</span>' +
-      '<span class="kids-result-text kids-summary-text">"' + escapeHtml(strongestVerse.text || '') + '"</span>' +
-      '<span class="kids-result-context kids-summary-breakdown">' + escapeHtml(strongestBreakdown.breakdown) + '</span>' +
-      '<span class="kids-result-context kids-summary-application"><strong>Try this today:</strong> ' + escapeHtml(strongestBreakdown.apply) + '</span>' +
+      '<span class="kids-result-context kids-summary-age"><strong>Age fit:</strong> ' + escapeHtmlPlain(strongestBreakdown.ageLabel || 'Preteens') + '</span>' +
+      '<span class="kids-result-ref kids-summary-ref">' + escapeHtmlPlain(strongestVerse.ref || '') + '</span>' +
+      '<span class="kids-result-text kids-summary-text">"' + escapeHtmlPlain(strongestVerse.text || '') + '"</span>' +
+      '<span class="kids-result-context kids-summary-breakdown">' + escapeHtmlPlain(strongestBreakdown.breakdown) + '</span>' +
+      '<span class="kids-result-context kids-summary-application"><strong>Try this today:</strong> ' + escapeHtmlPlain(strongestBreakdown.apply) + '</span>' +
       '</div>';
     for (var i = 0; i < Math.min(indices.length, maxShow); i++) {
       var idx = indices[i];
@@ -6863,11 +6886,11 @@
       var p = KIDS_PRAYERS[idx];
       var kidText = getKidText(v.ref) || v.text;
       var ctx = getKidContext(v.ref, kidText || v.text);
-      var refEsc = escapeHtml(v.ref);
-      var textEsc = escapeHtml(kidText);
-      var whoEsc = escapeHtml(ctx.who);
-      var toEsc = escapeHtml(ctx.to);
-      var applyEsc = escapeHtml(ctx.apply);
+      var refEsc = escapeHtmlPlain(v.ref);
+      var textEsc = escapeHtmlPlain(kidText);
+      var whoEsc = escapeHtmlPlain(ctx.who);
+      var toEsc = escapeHtmlPlain(ctx.to);
+      var applyEsc = escapeHtmlPlain(ctx.apply);
       html += '<button type="button" class="kids-result-card" data-index="' + idx + '">' +
         '<span class="kids-result-ref">' + refEsc + '</span>' +
         '<span class="kids-result-text">"' + textEsc + '"</span>' +
@@ -7099,10 +7122,10 @@
     if (!story) return;
     var panels = story.panels || [];
     var thumbSrc = panels[0] ? panels[0].src : 'panel-david-1.svg';
-    var thumbAlt = panels[0] && panels[0].alt ? panels[0].alt : (story.title || key);
-    var caption = (story.caption || 'Swipe in Kids Story Library to see!').replace(/<[^>]+>/g, '');
+    var thumbAlt = tdbPlainTextForUi(panels[0] && panels[0].alt ? panels[0].alt : (story.title || key));
+    var caption = tdbPlainTextForUi((story.caption || 'Swipe in Kids Story Library to see!').replace(/<[^>]+>/g, ''));
     if (thumb) { thumb.src = thumbSrc; thumb.alt = thumbAlt; }
-    if (titleEl) titleEl.textContent = story.title || key;
+    if (titleEl) titleEl.textContent = tdbPlainTextForUi(story.title || key);
     if (captionEl) captionEl.textContent = caption;
     if (link) link.href = 'corner.html?story=' + encodeURIComponent(key);
   }

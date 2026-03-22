@@ -8351,16 +8351,16 @@ function renderFamilyStoriesTab() {
     card.setAttribute('role', 'listitem');
     card.innerHTML =
       '<span class="kids-corner-jewel kids-corner-jewel-' + attrEscape(safeJewel) + '" aria-hidden="true"></span>' +
-      '<h3 class="kids-corner-card-title">' + escapeHtml(s.title) + '</h3>' +
-      '<p class="kids-corner-card-summary">' + escapeHtml(s.summary) + '</p>' +
-      '<p class="kids-corner-armor-hint section-note">' + escapeHtml(s.armorHint) + '</p>' +
+      '<h3 class="kids-corner-card-title">' + escapeHtmlPlain(s.title) + '</h3>' +
+      '<p class="kids-corner-card-summary">' + escapeHtmlPlain(s.summary) + '</p>' +
+      '<p class="kids-corner-armor-hint section-note">' + escapeHtmlPlain(s.armorHint) + '</p>' +
       '<div class="kids-corner-card-actions">' +
         '<button type="button" class="btn btn-pray-now kids-btn-pray" aria-label="Pray for ' + attrEscape(s.prayIntent) + '" data-pray-intent="' + attrEscape(s.prayIntent) + '"><span class="icon-cross" aria-hidden="true">✝</span> Pray Now</button>' +
         '<a href="' + attrEscape(verseUrl) + '" class="btn btn-secondary" aria-label="Read the verse: ' + attrEscape(s.verseRef) + '">Read the Verse</a>' +
         '<a href="' + attrEscape(colorUrl) + '" class="btn btn-secondary" aria-label="Color this story">Color This</a>' +
         '<button type="button" class="btn btn-secondary kids-btn-activity" aria-label="Show activity details" aria-expanded="false">Activity</button>' +
       '</div>' +
-      '<p class="kids-activity-text family-story-activity-text section-note hidden" aria-live="polite">' + escapeHtml(s.activity) + '</p>';
+      '<p class="kids-activity-text family-story-activity-text section-note hidden" aria-live="polite">' + escapeHtmlPlain(s.activity) + '</p>';
     var prayBtn = card.querySelector('.kids-btn-pray');
     var activityBtn = card.querySelector('.kids-btn-activity');
     var activityText = card.querySelector('.family-story-activity-text');
@@ -8370,7 +8370,7 @@ function renderFamilyStoriesTab() {
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-prayer');
       var modal = document.getElementById('family-armor-stories-modal');
       if (modal) modal.classList.add('hidden');
-      if (quickInput && s.prayIntent) quickInput.value = 'Pray for ' + s.prayIntent;
+      if (quickInput && s.prayIntent) quickInput.value = 'Pray for ' + tdbPlainTextForUi(s.prayIntent);
       if (quickWrap && typeof quickWrap.scrollIntoView === 'function') {
         quickWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
@@ -11487,8 +11487,7 @@ if (c && c.ref) {
     var readerUrl = buildReaderUrl(battle.ref);
     var basePath = (window.location.pathname || '/').replace(/\/[^/]*$/, '') || '/';
     var searchUrl = basePath + '?q=' + encodeURIComponent(String(topicOfDay).toLowerCase());
-    function attrEscape(s) { return String(s).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-    nextStepsEl.innerHTML = '<a href="' + attrEscape(readerUrl) + '">Read full chapter</a> &middot; <a href="' + attrEscape(searchUrl) + '">More verses on ' + escapeHtml(topicOfDay) + '</a>' +
+    nextStepsEl.innerHTML = '<a href="' + attrEscape(readerUrl) + '">Read full chapter</a> &middot; <a href="' + attrEscape(searchUrl) + '">More verses on ' + escapeHtmlPlain(topicOfDay) + '</a>' +
       '<p class="daily-battle-suggest section-note">Next: <a href="' + basePath + '?q=anxiety">Anxiety</a>? <a href="' + basePath + '?q=hope">Hope</a>? <a href="' + basePath + '?q=spiritual%20warfare">Spiritual Warfare</a>?</p>';
   }
   var testimonyEl = document.getElementById('daily-battle-testimony');
@@ -11521,14 +11520,14 @@ if (c && c.ref) {
   var questionEl = document.getElementById('daily-battle-question');
   if (topicEl) {
     topicEl.textContent = '';
-    topicEl.innerHTML = '<strong>Topic of the day:</strong> ' + escapeHtml(getTopicOfDay());
+    topicEl.innerHTML = '<strong>Topic of the day:</strong> ' + escapeHtmlPlain(getTopicOfDay());
   }
   if (questionEl) {
     questionEl.textContent = '';
-    questionEl.innerHTML = '<strong>Reflection question:</strong> ' + escapeHtml(getBattleQuestionOfDay());
+    questionEl.innerHTML = '<strong>Reflection question:</strong> ' + escapeHtmlPlain(getBattleQuestionOfDay());
   }
-  if (reflectionEl) reflectionEl.textContent = battle.reflection ? 'Reflection: ' + battle.reflection : '';
-  if (prayerEl) prayerEl.textContent = battle.prayer ? 'Prayer: ' + battle.prayer : '';
+  if (reflectionEl) reflectionEl.textContent = battle.reflection ? 'Reflection: ' + tdbPlainTextForUi(battle.reflection) : '';
+  if (prayerEl) prayerEl.textContent = battle.prayer ? 'Prayer: ' + tdbPlainTextForUi(battle.prayer) : '';
   if (redLetterEl) {
     redLetterEl.textContent = isRedLetterLike(battle.ref, verseText)
       ? 'Red letters show the words spoken by Jesus—direct from our Savior.'
@@ -12851,6 +12850,34 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+/** Collapse repeated entity encoding so escapeHtml does not show literal &amp;amp; in the UI. */
+function tdbPlainTextForUi(s) {
+  if (s == null || s === '') return '';
+  var str = String(s);
+  var prev;
+  for (var n = 0; n < 12; n++) {
+    prev = str;
+    str = str.replace(/&amp;/g, '&');
+    if (str === prev) break;
+  }
+  try {
+    var t = document.createElement('textarea');
+    t.innerHTML = str;
+    var out = t.value;
+    if (typeof out === 'string') return out;
+  } catch (_) {}
+  return str;
+}
+
+function escapeHtmlPlain(str) {
+  return escapeHtml(tdbPlainTextForUi(str));
+}
+
+/** Attribute values for double-quoted HTML attributes (href, aria-label, data-*). */
+function attrEscape(str) {
+  return escapeHtml(str);
 }
 
 /** Use for innerHTML when content may be user/API-sourced. Prefer textContent when no HTML needed. */

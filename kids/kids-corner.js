@@ -3547,8 +3547,13 @@
       .replace(/'/g, '&#39;');
   }
 
+  /** Story/caption strings may carry HTML entities; decode once then escape so UI never shows &amp;amp; */
+  function escHtmlPlain(value) {
+    return escHtml(tdbPlainTextForUi(value));
+  }
+
   function escAttr(value) {
-    return escHtml(value).replace(/`/g, '&#96;');
+    return escHtml(tdbPlainTextForUi(value)).replace(/`/g, '&#96;');
   }
 
   function safeYouTubeId(value) {
@@ -3624,7 +3629,7 @@
       } else {
         var key = keys[next];
         var title = (getStories()[key] && getStories()[key].title) ? getStories()[key].title : 'Next story';
-        journeyStatusEl.textContent = 'Journey progress: ' + next + '/' + total + '. Next: ' + title + '.';
+        journeyStatusEl.textContent = 'Journey progress: ' + next + '/' + total + '. Next: ' + tdbPlainTextForUi(title) + '.';
       }
     }
     if (journeyStartBtn) journeyStartBtn.disabled = total === 0;
@@ -3868,14 +3873,16 @@
     var applyText = (s.kidContext && s.kidContext.apply) ? s.kidContext.apply : '';
     var themeSnippet = applyText ? (applyText.split(/[.!?]/)[0] || applyText).trim().substring(0, 60) : (s.title || '');
     var panelsHtml = panels.map(function (p) {
-      var baseAlt = p.alt || (s.title + ' illustration');
-      var fullAlt = themeSnippet ? baseAlt + ' – ' + themeSnippet : baseAlt + ' – ' + (s.kjvRef || s.title);
+      var baseAlt = tdbPlainTextForUi(p.alt || (s.title + ' illustration'));
+      var fullAlt = themeSnippet
+        ? baseAlt + ' – ' + tdbPlainTextForUi(themeSnippet)
+        : baseAlt + ' – ' + tdbPlainTextForUi(s.kjvRef || s.title);
       return '<img src="' + escAttr(p.src || '') + '" alt="' + escAttr(fullAlt) + '" class="comic-panel" width="200" height="160">';
     }).join('');
     var fullMedia = getFullStoryMediaForKey(key);
     var hasFullVideo = !!(fullMedia && (fullMedia.mp4 || fullMedia.webm));
     var safeVideoId = safeYouTubeId(s.videoId);
-    var videoTitle = escAttr(s.videoTitle || '');
+    var videoTitle = escAttr(tdbPlainTextForUi(s.videoTitle || ''));
     var btnHtml = '';
     if (safeVideoId) {
       if (!hasFullVideo) {
@@ -3898,17 +3905,17 @@
       mountFullStoryPlayer(modalVideo, key, s.title || key, fullMedia);
     }
     if (modalCarousel) {
-      tdbSetHtml(modalCarousel, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtml(s.caption || '') + '</p>' + speakBtnHtml + btnHtml + shareBtnHtml + '</div>');
+      tdbSetHtml(modalCarousel, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escHtmlPlain(s.caption || '') + '</p>' + speakBtnHtml + btnHtml + shareBtnHtml + '</div>');
     }
     if (modalContext) {
       var ctx = s.kidContext;
       var ref = s.kjvRef;
       var parts = [];
       if (ctx && (ctx.who || ctx.to || ctx.apply)) {
-        if (ctx.who) parts.push('<p><strong>Who:</strong> ' + escHtml(ctx.who) + '</p>');
-        if (ctx.apply) parts.push('<p><strong>For you:</strong> ' + escHtml(ctx.apply) + '</p>');
+        if (ctx.who) parts.push('<p><strong>Who:</strong> ' + escHtmlPlain(ctx.who) + '</p>');
+        if (ctx.apply) parts.push('<p><strong>For you:</strong> ' + escHtmlPlain(ctx.apply) + '</p>');
       }
-      if (ref) parts.push('<p class="kids-kjv-ref">' + escHtml(ref) + '</p>');
+      if (ref) parts.push('<p class="kids-kjv-ref">' + escHtmlPlain(ref) + '</p>');
       if (parts.length) {
         tdbSetHtml(modalContext, parts.join(''));
         modalContext.classList.remove('hidden');

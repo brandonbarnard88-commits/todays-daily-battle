@@ -85,6 +85,66 @@
   const KID_QUIZ_DONE_KEY = 'kidQuizDone';
   const KID_MEMORY_DONE_KEY = 'kidMemoryDone';
 
+  /** One Supabase client per page; deferred init reduces Story Library TBT unless user needs it immediately. */
+  var kidSupabaseClient = null;
+  var kidSupabaseDeferResolve = null;
+  var kidSupabaseDeferredPromise = null;
+
+  function getKidSupabaseClient(immediate) {
+    var cfg = window.TDB_CONFIG || {};
+    var supabaseUrl = cfg.SUPABASE_URL;
+    var supabaseKey = cfg.SUPABASE_ANON_KEY;
+    if (!supabaseUrl || !supabaseKey) {
+      return Promise.resolve(null);
+    }
+    var lib = window.supabase && window.supabase.createClient ? window.supabase : (typeof supabase !== 'undefined' ? supabase : null);
+    if (!lib || !lib.createClient) {
+      return Promise.resolve(null);
+    }
+    if (kidSupabaseClient) {
+      return Promise.resolve(kidSupabaseClient);
+    }
+    if (immediate) {
+      try {
+        kidSupabaseClient = lib.createClient(supabaseUrl, supabaseKey);
+      } catch (e) {
+        kidSupabaseClient = null;
+      }
+      if (kidSupabaseDeferResolve) {
+        var resImm = kidSupabaseDeferResolve;
+        kidSupabaseDeferResolve = null;
+        kidSupabaseDeferredPromise = null;
+        resImm(kidSupabaseClient);
+      }
+      return Promise.resolve(kidSupabaseClient);
+    }
+    if (kidSupabaseDeferredPromise) {
+      return kidSupabaseDeferredPromise;
+    }
+    kidSupabaseDeferredPromise = new Promise(function (resolve) {
+      kidSupabaseDeferResolve = resolve;
+      var run = function () {
+        if (!kidSupabaseClient) {
+          try {
+            kidSupabaseClient = lib.createClient(supabaseUrl, supabaseKey);
+          } catch (e) {
+            kidSupabaseClient = null;
+          }
+        }
+        var c = kidSupabaseClient;
+        kidSupabaseDeferResolve = null;
+        kidSupabaseDeferredPromise = null;
+        resolve(c);
+      };
+      if (typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(run, { timeout: 1200 });
+      } else {
+        setTimeout(run, 400);
+      }
+    });
+    return kidSupabaseDeferredPromise;
+  }
+
   const KID_QUIZ_QUESTIONS = {
     '1 samuel 17': [
       { question: 'Who did David fight?', options: ['Goliath', 'A lion', 'A bear', 'King Saul'], correct: 0 },
@@ -5928,33 +5988,36 @@
       kidReflectionQueue.push(item);
       return;
     }
-    try {
-      var supabase = window.supabase && window.supabase.createClient ? window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY) : null;
-      if (!supabase) return;
-      supabase.rpc('upsert_kid_reflection', item)
+    getKidSupabaseClient(false).then(function (client) {
+      if (!client) return;
+      client.rpc('upsert_kid_reflection', item)
         .then(function (res) {
           if (res.error) { kidReflectionQueue.push(item); return; }
           showKidReflectionSaved(true);
         })
         .catch(function () { kidReflectionQueue.push(item); });
-    } catch (e) { kidReflectionQueue.push(item); }
+    }).catch(function () { kidReflectionQueue.push(item); });
   }
 
   function flushKidReflectionQueue() {
     if (kidReflectionQueue.length === 0 || !navigator.onLine) return;
     var cfg = window.TDB_CONFIG || {};
     if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) return;
-    try {
-      var supabase = window.supabase && window.supabase.createClient ? window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY) : null;
-      if (!supabase) return;
-      var items = kidReflectionQueue.splice(0);
-      kidReflectionQueue = [];
+    var items = kidReflectionQueue.splice(0);
+    kidReflectionQueue = [];
+    getKidSupabaseClient(false).then(function (client) {
+      if (!client) {
+        kidReflectionQueue = items.concat(kidReflectionQueue);
+        return;
+      }
       items.forEach(function (item) {
-        supabase.rpc('upsert_kid_reflection', item)
+        client.rpc('upsert_kid_reflection', item)
           .then(function (res) { if (res && res.error) kidReflectionQueue.push(item); })
           .catch(function () { kidReflectionQueue.push(item); });
       });
-    } catch (e) {}
+    }).catch(function () {
+      kidReflectionQueue = items.concat(kidReflectionQueue);
+    });
   }
 
   function wireKidReflection() {
@@ -6370,16 +6433,16 @@
       var supabaseUrl = cfg.SUPABASE_URL;
       var supabaseKey = cfg.SUPABASE_ANON_KEY;
       if (!supabaseUrl || !supabaseKey) return;
-      var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
-      if (!supabase || !supabase.createClient) return;
       var kidName = getKidName() || 'Kiddo';
       var safeName = kidName.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 20);
       var path = 'doodles/' + familyCode + '/' + safeName + '-' + Date.now() + '.png';
       fetch(canvas.toDataURL('image/png'))
         .then(function (r) { return r.blob(); })
         .then(function (blob) {
-          var client = supabase.createClient(supabaseUrl, supabaseKey);
-          return client.storage.from('kid-doodles').upload(path, blob, { contentType: 'image/png', upsert: false });
+          return getKidSupabaseClient(true).then(function (client) {
+            if (!client) return Promise.reject(new Error('no client'));
+            return client.storage.from('kid-doodles').upload(path, blob, { contentType: 'image/png', upsert: false });
+          });
         })
         .then(function (res) {
           if (res.error) return;
@@ -7066,13 +7129,10 @@
     var data = getStreakData();
     var streak = Math.ceil(Number(data.count || 0));
     var lastDay = data.lastKey || getDailyKey();
-    try {
-      var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
-      if (supabase && supabase.createClient) {
-        var client = supabase.createClient(supabaseUrl, supabaseKey);
-        client.rpc('upsert_kid_streak', { p_code: code, p_streak_count: streak, p_last_day: lastDay }).catch(function () {});
-      }
-    } catch (e) {}
+    getKidSupabaseClient(false).then(function (client) {
+      if (!client) return;
+      client.rpc('upsert_kid_streak', { p_code: code, p_streak_count: streak, p_last_day: lastDay }).catch(function () {});
+    }).catch(function () {});
   }
 
   function notifyParentOnRedeem(code) {
@@ -7128,13 +7188,11 @@
         return;
       }
 
-      try {
-        var supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
-        if (!supabase || !supabase.createClient) {
+      getKidSupabaseClient(true).then(function (client) {
+        if (!client) {
           showCodeError('Something went wrong. Please try again.');
           return;
         }
-        var client = supabase.createClient(supabaseUrl, supabaseKey);
         client.rpc('redeem_invite_code', { code: code }).then(function (res) {
           if (res.error) {
             showCodeError('Something went wrong. Please try again.');
@@ -7157,9 +7215,9 @@
         }).catch(function () {
           showCodeError('Something went wrong. Please try again.');
         });
-      } catch (err) {
+      }).catch(function () {
         showCodeError('Something went wrong. Please try again.');
-      }
+      });
     });
   }
 

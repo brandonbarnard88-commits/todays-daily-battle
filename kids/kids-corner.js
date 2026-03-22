@@ -3265,6 +3265,59 @@
     return abs;
   }
 
+  /** When true, grid thumbs use a picture stack: /assets/panels/*.avif, *.webp, SVG fallback (add rasters first). */
+  function panelRasterEnabled() {
+    return typeof window !== 'undefined' && window.TDB_PANEL_RASTER === true;
+  }
+
+  /**
+   * Story grid card thumbnail: optional AVIF/WebP + SVG fallback for LCP when raster assets exist.
+   */
+  function buildLibraryCardThumb(thumbSrc, plainAlt, isFirstCard) {
+    var raw = String(thumbSrc || '').trim();
+    var absSvg = safeKidsPanelSvgAbsFromRel(raw);
+    if (!absSvg) {
+      var img0 = document.createElement('img');
+      img0.src = raw;
+      img0.alt = plainAlt;
+      if (isFirstCard) {
+        img0.loading = 'eager';
+        try { img0.fetchPriority = 'high'; } catch (_) {}
+      }
+      return img0;
+    }
+    var baseName = raw.indexOf('/') === -1 ? raw : raw.split('/').pop() || '';
+    if (!panelRasterEnabled() || !/^panel-[a-zA-Z0-9._-]+\.svg$/i.test(baseName)) {
+      var img1 = document.createElement('img');
+      img1.src = absSvg;
+      img1.alt = plainAlt;
+      if (isFirstCard) {
+        img1.loading = 'eager';
+        try { img1.fetchPriority = 'high'; } catch (_) {}
+      }
+      return img1;
+    }
+    var stem = baseName.replace(/\.svg$/i, '');
+    var pic = document.createElement('picture');
+    var avSrc = document.createElement('source');
+    avSrc.type = 'image/avif';
+    avSrc.srcset = '/assets/panels/' + stem + '.avif';
+    var wpSrc = document.createElement('source');
+    wpSrc.type = 'image/webp';
+    wpSrc.srcset = '/assets/panels/' + stem + '.webp';
+    var img2 = document.createElement('img');
+    img2.src = absSvg;
+    img2.alt = plainAlt;
+    if (isFirstCard) {
+      img2.loading = 'eager';
+      try { img2.fetchPriority = 'high'; } catch (_) {}
+    }
+    pic.appendChild(avSrc);
+    pic.appendChild(wpSrc);
+    pic.appendChild(img2);
+    return pic;
+  }
+
   /**
    * Shuffle multiple-choice labels for display; returns { labels, correctIndex } for this render only.
    * Does not mutate the source pack (TDB_KIDS_READ_QUIZ is shared).
@@ -3809,14 +3862,7 @@
       card.setAttribute('role', 'button');
       card.setAttribute('tabindex', '0');
 
-      var img = document.createElement('img');
-      img.src = thumb;
-      img.alt = plainAlt;
-      if (i === 0) {
-        img.loading = 'eager';
-        try { img.fetchPriority = 'high'; } catch (_) {}
-      }
-      card.appendChild(img);
+      card.appendChild(buildLibraryCardThumb(thumb, plainAlt, i === 0));
 
       var titleSpan = document.createElement('span');
       titleSpan.className = 'kids-library-card-title';

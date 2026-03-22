@@ -26,8 +26,9 @@ export const STORY_HTML_MARKERS = [
   'pdf-export',
   'aria-describedby="pdf-export-count-hint pdf-export-hint"',
   'story-library-fonts.css?v=1',
-  'kids-corner.js?v=70',
-  'kids-battle.js?v=70'
+  'kids-corner.js?v=72',
+  'kids-battle.js?v=71',
+  'TDB_PANEL_RASTER'
 ];
 
 export const OG_ASSET_PATHS = [

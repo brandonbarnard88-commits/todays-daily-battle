@@ -68,9 +68,22 @@ if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder/i.test
 /** Bump with HTML og:image ?v= when replacing share art (cache-bust). */
 const SHARE_OG_V = '20260322';
 
+/** Service worker registration token — keep in sync with repo root SW-VERSION. */
+let SW_REG_VERSION = '20260324-sw-v102';
+try {
+  const swVerPath = join(root, 'SW-VERSION');
+  if (existsSync(swVerPath)) {
+    const line = readFileSync(swVerPath, 'utf8').trim().split(/\r?\n/)[0];
+    if (line) SW_REG_VERSION = line;
+  }
+} catch (_) {}
+
 /** Paths appended to https://DOMAIN for post–share-image deploys */
 const SOCIAL_PURGE_PATHS = [
   '/',
+  '/sw.js',
+  '/service-worker.js',
+  '/sw.js?v=' + SW_REG_VERSION,
   '/calm.html',
   '/mobius.html',
   '/shop.html',

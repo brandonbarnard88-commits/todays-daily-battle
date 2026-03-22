@@ -1,14 +1,23 @@
 #!/usr/bin/env node
 /**
  * Purge Cloudflare cache via API.
- * Run: npm run purge:cloudflare (reads CF_API_TOKEN from .env)
+ *
+ * Modes:
+ *   (default)     Purge entire zone — npm run purge:cloudflare
+ *   --social      Purge key HTML + OG JPEG URLs after deploy (recommended for 9c85246-style updates)
+ *   CF_PURGE_FILES  Comma/space-separated full URLs (overrides --social if set)
+ *
+ * Run: npm run purge:cloudflare
  * Or:  CF_API_TOKEN=yyy npm run purge:cloudflare
+ * Or:  npm run purge:cloudflare:social
  *
  * Add to .env (gitignored):
  *   CF_API_TOKEN=your_token_from_cloudflare
  *
  * If CF_ZONE_ID is missing, auto-discovers zone for todaysdailybattle.com.
  * Token: My Profile → API Tokens → Create Token → "Edit zone cache" (include Zone Resources: todaysdailybattle.com)
+ *
+ * API: files[] batches of ≤30 URLs per request (Cloudflare limit).
  */
 import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
@@ -53,6 +62,36 @@ if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder/i.test
   process.exit(1);
 }
 
+/** Paths appended to https://DOMAIN for post–share-image deploys */
+const SOCIAL_PURGE_PATHS = [
+  '/',
+  '/calm.html',
+  '/mobius.html',
+  '/shop.html',
+  '/testimonials.html',
+  '/index.html',
+  '/sitemap.xml',
+  '/assets/share/home-og.jpg',
+  '/assets/share/calm-og.jpg',
+  '/assets/share/mobius-og.jpg',
+  '/assets/share/shop-og.jpg',
+  '/assets/share/testimonials-og.jpg'
+];
+
+const CHUNK = 30;
+
+function getUrlsToPurge() {
+  const env = (process.env.CF_PURGE_FILES || '').trim();
+  if (env) {
+    return env.split(/[\s,]+/).map((s) => s.trim()).filter(Boolean);
+  }
+  if (process.argv.includes('--social')) {
+    const base = `https://${DOMAIN}`;
+    return SOCIAL_PURGE_PATHS.map((p) => (p === '/' ? base + '/' : base + p));
+  }
+  return null;
+}
+
 async function findZoneId() {
   const res = await fetch(`https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}`, { headers });
   const data = await res.json().catch(() => ({}));
@@ -62,13 +101,28 @@ async function findZoneId() {
   return null;
 }
 
-async function purge(zoneId) {
+async function purgeEverything(zoneId) {
   const res = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, {
     method: 'POST',
     headers,
     body: JSON.stringify({ purge_everything: true })
   });
   return { res, data: await res.json().catch(() => ({})) };
+}
+
+async function purgeFiles(zoneId, urls) {
+  const out = [];
+  for (let i = 0; i < urls.length; i += CHUNK) {
+    const chunk = urls.slice(i, i + CHUNK);
+    const res = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ files: chunk })
+    });
+    const data = await res.json().catch(() => ({}));
+    out.push({ res, data, chunk });
+  }
+  return out;
 }
 
 (async () => {
@@ -83,21 +137,47 @@ async function purge(zoneId) {
       console.log(`Found zone: ${ZONE_ID}`);
     }
 
-    let { res, data } = await purge(ZONE_ID);
+    const urls = getUrlsToPurge();
+
+    if (urls && urls.length) {
+      console.log(`Purging ${urls.length} URL(s) (targeted):`);
+      urls.forEach((u) => console.log('  ', u));
+      let results = await purgeFiles(ZONE_ID, urls);
+
+      if (results[0] && results[0].data && results[0].data.errors && results[0].data.errors[0] && results[0].data.errors[0].code === 7003) {
+        console.log('CF_ZONE_ID invalid (7003). Looking up zone...');
+        const found = await findZoneId();
+        if (found && found !== ZONE_ID) {
+          ZONE_ID = found;
+          results = await purgeFiles(ZONE_ID, urls);
+        }
+      }
+
+      const failed = results.filter((r) => !r.data.success);
+      if (failed.length) {
+        console.error('Purge failed for one or more batches. HTTP', failed[0].res.status);
+        console.error('Response:', JSON.stringify(failed[0].data, null, 2));
+        process.exit(1);
+      }
+      console.log('Targeted purge successful. Wait 30–60s, then view-source + Facebook/X validators.');
+      return;
+    }
+
+    let { res, data } = await purgeEverything(ZONE_ID);
 
     if (!data.success && data.errors && data.errors[0] && data.errors[0].code === 7003) {
       console.log('CF_ZONE_ID invalid (7003). Looking up zone...');
       const found = await findZoneId();
       if (found && found !== ZONE_ID) {
         ZONE_ID = found;
-        const retry = await purge(ZONE_ID);
+        const retry = await purgeEverything(ZONE_ID);
         res = retry.res;
         data = retry.data;
       }
     }
 
     if (data.success) {
-      console.log('Purge successful. Wait 30–60s, then test in incognito.');
+      console.log('Full-zone purge successful. Wait 30–60s, then test in incognito.');
       return;
     }
 

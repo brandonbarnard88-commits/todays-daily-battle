@@ -509,13 +509,76 @@ const header = `/**
  */
 `;
 
+/** Same decode-first behavior as kids-battle.js tdbPlainTextForUi — run once at load on all packs. */
+const READ_QUIZ_NORMALIZE_UI = `
+  function _tdbPlainTextForUiReadQuiz(s) {
+    if (s == null || s === '') return '';
+    var str = String(s);
+    var prev;
+    for (var n = 0; n < 12; n++) {
+      prev = str;
+      str = str.replace(/&amp;/g, '&');
+      if (str === prev) break;
+    }
+    try {
+      var t = document.createElement('textarea');
+      t.innerHTML = str;
+      var out = t.value;
+      if (typeof out === 'string') return out;
+    } catch (_) {}
+    return str;
+  }
+  function _normalizeTdbKidsReadQuizInPlace(rq) {
+    if (!rq || typeof rq !== 'object') return;
+    var rk = Object.keys(rq);
+    for (var ri = 0; ri < rk.length; ri++) {
+      var pack = rq[rk[ri]];
+      if (!pack || typeof pack !== 'object') continue;
+      if (pack.kjvRef != null) pack.kjvRef = _tdbPlainTextForUiReadQuiz(pack.kjvRef);
+      if (pack.hintAboveQuiz != null) pack.hintAboveQuiz = _tdbPlainTextForUiReadQuiz(pack.hintAboveQuiz);
+      if (pack.quizHeading != null) pack.quizHeading = _tdbPlainTextForUiReadQuiz(pack.quizHeading);
+      if (pack.doneHeading != null) pack.doneHeading = _tdbPlainTextForUiReadQuiz(pack.doneHeading);
+      if (pack.doneMessage != null) pack.doneMessage = _tdbPlainTextForUiReadQuiz(pack.doneMessage);
+      if (pack.takeaway != null) pack.takeaway = _tdbPlainTextForUiReadQuiz(pack.takeaway);
+      if (pack.prayer != null) pack.prayer = _tdbPlainTextForUiReadQuiz(pack.prayer);
+      if (Array.isArray(pack.paragraphs)) {
+        for (var pj = 0; pj < pack.paragraphs.length; pj++) {
+          pack.paragraphs[pj] = _tdbPlainTextForUiReadQuiz(pack.paragraphs[pj]);
+        }
+      }
+      if (Array.isArray(pack.imagePrompts)) {
+        for (var ip = 0; ip < pack.imagePrompts.length; ip++) {
+          pack.imagePrompts[ip] = _tdbPlainTextForUiReadQuiz(pack.imagePrompts[ip]);
+        }
+      }
+      if (Array.isArray(pack.questions)) {
+        for (var qi = 0; qi < pack.questions.length; qi++) {
+          var q = pack.questions[qi];
+          if (!q || typeof q !== 'object') continue;
+          if (q.question != null) q.question = _tdbPlainTextForUiReadQuiz(q.question);
+          if (q.correctFeedback != null) q.correctFeedback = _tdbPlainTextForUiReadQuiz(q.correctFeedback);
+          if (q.wrongFeedback != null) q.wrongFeedback = _tdbPlainTextForUiReadQuiz(q.wrongFeedback);
+          if (Array.isArray(q.choices)) {
+            for (var ci = 0; ci < q.choices.length; ci++) {
+              q.choices[ci] = _tdbPlainTextForUiReadQuiz(q.choices[ci]);
+            }
+          }
+        }
+      }
+    }
+  }
+  _normalizeTdbKidsReadQuizInPlace(global.TDB_KIDS_READ_QUIZ);
+`;
+
 const file =
   header +
   `(function (global) {
   'use strict';
 
   global.TDB_KIDS_READ_QUIZ = ${jsonBody};
-})(typeof window !== 'undefined' ? window : this);
+` +
+  READ_QUIZ_NORMALIZE_UI +
+  `})(typeof window !== 'undefined' ? window : this);
 `;
 
 writeFileSync(outPath, file, 'utf8');

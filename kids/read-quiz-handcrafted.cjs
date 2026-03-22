@@ -6537,6 +6537,68 @@ module.exports = {
       prayer: 'Jesus, thank You for being alive forever. Come soon! Amen.'
     },
 
+    revelation: {
+      kjvRef: 'Revelation 1–22',
+      paragraphs: [
+        'John saw Jesus in glory on the island of Patmos. Jesus said, "I am Alpha and Omega, the beginning and the ending… I was dead; and, behold, I am alive for evermore." He holds the keys of death and hell.',
+        'John was in the Spirit on the Lord’s day and saw a door opened in heaven. A voice said, "Come up hither, and I will shew thee things which must be hereafter." He saw the throne of God, the Lamb, and worship all around.',
+        'The Lamb took the book sealed with seven seals and opened it. The four beasts and elders sang a new song: "Thou art worthy… for thou wast slain, and hast redeemed us to God by thy blood."',
+        'John saw a new heaven and a new earth. The holy city, new Jerusalem, came down from God. God said, "Behold, I make all things new." He wiped away all tears — no more death, sorrow, crying, or pain.',
+        'The river of life flows from the throne of God and the Lamb. The tree of life bears fruit every month, leaves for the healing of the nations. "Behold, I come quickly." Jesus promises to return — come, Lord Jesus!'
+      ],
+      imagePrompts: [
+        'bright cartoon for kids: Jesus in glory on Patmos, holding keys of death and hell, no text',
+        'fun kid illustration: John in the Spirit, door opened in heaven, throne and worship, no text',
+        'colorful Bible scene for children: Lamb taking the sealed book, elders and beasts singing, no text',
+        'exciting cartoon: new heaven and new earth, holy city coming down like a bride, no text',
+        'hopeful ending illustration: river of life, tree of life with fruit, "Behold, I come quickly", no text'
+      ],
+      readAlongImages: [],
+      hintAboveQuiz: 'Revelation — Jesus is coming again, all things new!',
+      quizHeading: 'Revelation Questions',
+      questions: [
+        {
+          question: 'Who did John see in glory on Patmos?',
+          choices: ['An angel', 'Jesus, alive forever, holding keys of death and hell', 'The elders', 'The beasts'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! Jesus, alive forever, holding keys of death and hell.',
+          wrongFeedback: 'Jesus said "I am alive for evermore… I have the keys of hell and of death" (Revelation 1:18).'
+        },
+        {
+          question: 'What did the voice from heaven say?',
+          choices: ['Stay below', 'Come up hither, I will shew thee things to come', 'Fear greatly', 'Be quiet'],
+          correctIndex: 1,
+          correctFeedback: 'Right! "Come up hither, and I will shew thee things which must be hereafter."',
+          wrongFeedback: 'A voice said "Come up hither, and I will shew thee things which must be hereafter" (Revelation 4:1).'
+        },
+        {
+          question: 'Who was worthy to open the sealed book?',
+          choices: ['John', 'The Lamb that was slain', 'The elders', 'The beasts'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! The Lamb that was slain.',
+          wrongFeedback: 'The Lion of the tribe of Juda… hath prevailed to open the book (Revelation 5:5).'
+        },
+        {
+          question: 'What did God say about the future?',
+          choices: ['Nothing new', 'Behold, I make all things new', 'The old stays', 'More sorrow'],
+          correctIndex: 1,
+          correctFeedback: 'Yes! "Behold, I make all things new."',
+          wrongFeedback: 'He that sat upon the throne said "Behold, I make all things new" (Revelation 21:5).'
+        },
+        {
+          question: 'What can we learn from Revelation?',
+          choices: ['Jesus is not coming', 'Jesus is coming again — new heaven, new earth, no more tears', 'Never hope', 'Fear the future'],
+          correctIndex: 1,
+          correctFeedback: 'Perfect! Jesus is coming again — new heaven, new earth, no more tears.',
+          wrongFeedback: 'Revelation shows Jesus victorious, all things new, no more pain!'
+        }
+      ],
+      doneHeading: 'Great Job!',
+      doneMessage: 'You earned a star — Jesus is coming again!',
+      takeaway: 'Jesus is coming again — new heaven, new earth, no more tears.',
+      prayer: 'Jesus, thank You for the promise of new things. Come quickly, Lord Jesus! Amen.'
+    },
+
     revelationThrone: {
       kjvRef: 'Revelation 4',
       paragraphs: [
@@ -6664,26 +6726,26 @@ module.exports = {
     fourHorsemen: {
       kjvRef: 'Revelation 6:1–8',
       paragraphs: [
-        'John saw the Lamb open the first seal. One of the four beasts said, "Come and see." A white horse went forth; the rider had a bow and a crown.',
-        'The second seal: a red horse, its rider given power to take peace from the earth, that they should kill one another.',
-        'The third seal: a black horse, its rider had a pair of balances, saying "A measure of wheat for a penny, and three measures of barley for a penny."',
-        'The fourth seal: a pale horse, its rider was Death, and Hell followed with him. Power given over a fourth part of the earth.',
-        'The four horsemen show God’s judgment — but the Lamb is still on the throne, worthy to open the seals.'
+        'The Lamb opened the first seal. A white horse went forth; its rider had a bow and a crown, conquering.',
+        'The second seal: a red horse, its rider given power to take peace from the earth.',
+        'The third seal: a black horse, its rider had balances, saying "A measure of wheat for a penny, and three measures of barley for a penny."',
+        'The fourth seal: a pale horse, its rider was Death, and Hell followed. Power over a fourth part of the earth.',
+        'The four horsemen show God’s judgment — but the Lamb is on the throne, worthy to open every seal.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: Lamb opening first seal, white horse with rider holding bow and crown, no text',
-        'fun kid illustration: red horse, rider bringing conflict, no text',
-        'colorful Bible scene for children: black horse, rider with balances, no text',
-        'exciting cartoon: pale horse, Death and Hell following, no text',
-        'hopeful ending illustration: Lamb on throne, worthy to open seals, no text'
+        'bright cartoon for kids: Lamb opening first seal, white horse with bow and crown, light and glory, no text',
+        'fun kid illustration: red horse bringing conflict, Lamb still on throne, no text',
+        'colorful Bible scene for children: black horse with balances, Lamb worthy, no text',
+        'exciting cartoon: pale horse, Death and Hell following, Lamb reigning, no text',
+        'hopeful ending illustration: Lamb on throne, worthy to open all seals, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'The four horsemen — God’s judgment, but the Lamb is worthy!',
+      hintAboveQuiz: 'The four horsemen — but the Lamb is worthy!',
       quizHeading: 'Four Horsemen Questions',
       questions: [
         {
           question: 'Who opened the first seal?',
-          choices: ['An angel', 'The Lamb', 'John', 'The elders'],
+          choices: ['John', 'The Lamb', 'An angel', 'The elders'],
           correctIndex: 1,
           correctFeedback: 'Yes! The Lamb opened the first seal.',
           wrongFeedback: 'The Lamb opened the first seal (Revelation 6:1).'
@@ -7098,125 +7160,125 @@ module.exports = {
     noNight: {
       kjvRef: 'Revelation 21:23–25; 22:5',
       paragraphs: [
-        'John saw the holy city, new Jerusalem — and the city had no need of the sun, neither of the moon, to shine in it.',
-        'Why? For the glory of God did lighten it, and the Lamb is the light thereof.',
-        'The nations of them which are saved shall walk in the light of it — not a flashlight kind of light, but God’s own brightness.',
-        'The gates were never shut for fear — for there shall be no night there.',
-        'And there shall be no night there; they need no candle, neither light of the sun; for the Lord God giveth them light — forever safe, forever bright.'
+        'The city had no need of the sun or moon to shine in it: the glory of God did lighten it, and the Lamb is the light thereof.',
+        'The nations of them which are saved shall walk in the light of it: and the kings of the earth do bring their glory and honour into it.',
+        'The gates shall not be shut at all by day: for there shall be no night there.',
+        'There shall be no night there; and they need no candle, neither light of the sun; for the Lord God giveth them light.',
+        'No night in the city — God and the Lamb are the light forever.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: golden city lit from within by God’s glory, no sun or moon needed, no text',
-        'fun kid illustration: Lamb as warm light, streets bright and peaceful, no text',
-        'colorful Bible scene for children: people walking in light, many nations, no text',
-        'exciting cartoon: open gates, no scary darkness, no text',
-        'hopeful ending illustration: Lord God giving light, calm forever, no text'
+        'bright cartoon for kids: city with no sun or moon, glory of God shining, no text',
+        'fun kid illustration: nations walking in God’s light, kings bringing glory, no text',
+        'colorful Bible scene for children: gates open day and night, no darkness, no text',
+        'exciting cartoon: no need for candles or sun, Lord God gives light, no text',
+        'hopeful ending illustration: eternal light from God and Lamb, no night forever, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'No night — the Lamb is the light!',
+      hintAboveQuiz: 'No night in the city — God and the Lamb are the light!',
       quizHeading: 'No Night Questions',
       questions: [
         {
-          question: 'Why did the city not need the sun or moon?',
-          choices: ['They were broken', 'The glory of God lightened it, and the Lamb is the light', 'It was always cloudy', 'There was no city'],
+          question: 'What lights the city?',
+          choices: ['Sun and moon', 'Glory of God and the Lamb', 'Candles', 'Stars'],
           correctIndex: 1,
-          correctFeedback: 'Yes! The glory of God did lighten it, and the Lamb is the light thereof.',
-          wrongFeedback: 'The city had no need of the sun, neither of the moon… for the glory of God did lighten it, and the Lamb is the light thereof (Revelation 21:23).'
+          correctFeedback: 'Yes! Glory of God and the Lamb.',
+          wrongFeedback: 'The city had no need of the sun… the Lamb is the light thereof (Revelation 21:23).'
         },
         {
-          question: 'Who shall walk in the light of the city?',
-          choices: ['Only angels', 'The nations of them which are saved', 'No one', 'Only kings of Rome'],
+          question: 'What do the nations do?',
+          choices: ['Hide', 'Walk in the light of it', 'Sleep', 'Fight'],
           correctIndex: 1,
-          correctFeedback: 'Right! The nations of them which are saved shall walk in the light of it.',
+          correctFeedback: 'Right! Walk in the light of it.',
           wrongFeedback: 'The nations of them which are saved shall walk in the light of it (Revelation 21:24).'
         },
         {
-          question: 'What did John say about night in that city?',
-          choices: ['Night lasted longer', 'There shall be no night there', 'Night was louder', 'Night was best'],
+          question: 'Are the gates ever shut?',
+          choices: ['Always shut', 'Never shut — no night there', 'Shut at night', 'Broken'],
           correctIndex: 1,
-          correctFeedback: 'Yes! There shall be no night there.',
-          wrongFeedback: 'The gates… shall not be shut at all by day: for there shall be no night there (Revelation 21:25).'
+          correctFeedback: 'Yes! Never shut — no night there.',
+          wrongFeedback: 'The gates shall not be shut at all by day: for there shall be no night there (Revelation 21:25).'
         },
         {
-          question: 'What light do they need in the end?',
-          choices: ['Candles and lamps only', 'The Lord God giveth them light', 'Moonlight only', 'No light at all'],
+          question: 'What gives light instead of sun?',
+          choices: ['Moon', 'Lord God giveth them light', 'Candles', 'Fire'],
           correctIndex: 1,
-          correctFeedback: 'They need no candle, neither light of the sun; for the Lord God giveth them light (Revelation 22:5).',
-          wrongFeedback: 'They need no candle… for the Lord God giveth them light (Revelation 22:5).'
+          correctFeedback: 'Yes! Lord God gives light.',
+          wrongFeedback: 'They need no candle, neither light of the sun; for the Lord God giveth them light (Revelation 22:5).'
         },
         {
-          question: 'What can we learn from “no night”?',
-          choices: ['God’s light is temporary', 'God’s light lasts — we never need to fear the dark with Him', 'Light does not matter', 'God stays far away'],
+          question: 'What can we learn from no night?',
+          choices: ['Darkness forever', 'God and the Lamb are eternal light', 'Never sleep', 'Fear night'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! God’s glory is our forever light.',
-          wrongFeedback: 'The Lamb is the light; there shall be no night there — God keeps His children in light!'
+          correctFeedback: 'Perfect! God and the Lamb are eternal light.',
+          wrongFeedback: 'No night — God’s glory and the Lamb light the city forever!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'You earned a star — God’s light never ends!',
-      takeaway: 'In God’s city the Lamb is the light — no night, no fear.',
-      prayer: 'Lord God, thank You for being our light. Help me walk in Thee today. Amen.'
+      doneMessage: 'You earned a star — eternal light!',
+      takeaway: 'God and the Lamb are eternal light — no night forever.',
+      prayer: 'God, thank You for eternal light. Shine on us forever. Amen.'
     },
 
     newEarth: {
       kjvRef: 'Revelation 21:1; 21:4–5',
       paragraphs: [
-        'John looked: he saw a new heaven and a new earth — the first heaven and the first earth were passed away.',
-        'This is the home God always meant to finish: not a broken world forever, but a remade one under His good rule.',
+        'John saw a new heaven and a new earth: the first heaven and the first earth were passed away; there was no more sea.',
         'God shall wipe away all tears from their eyes; there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain.',
-        'He that sat upon the throne said, Behold, I make all things new. God signed His promise with those words.',
-        'The best earth is coming — not fake, not gray: new, true, and full of God’s love forever.'
+        'The former things are passed away. He that sat upon the throne said, "Behold, I make all things new."',
+        'Write: these words are true and faithful.',
+        'God promises a perfect new earth — no pain, no tears, all things new.'
       ],
       imagePrompts: [
-        'bright cartoon for kids: fresh green earth under peaceful sky, new creation, no text',
-        'fun kid illustration: throne voice “I make all things new,” soft light, no text',
-        'colorful Bible scene for children: tears wiped away, smiles, comfort, no text',
-        'exciting cartoon: old faded world fading, bright new land ahead, no text',
-        'hopeful ending illustration: holy city and renewed earth, joy, no text'
+        'bright cartoon for kids: new heaven and new earth, old passed away, light and beauty, no text',
+        'fun kid illustration: God wiping tears, no more death or sorrow, no text',
+        'colorful Bible scene for children: "Behold, I make all things new", throne of glory, no text',
+        'exciting cartoon: former things passed away, perfect future, no text',
+        'hopeful ending illustration: new earth, all things new, joy forever, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'Behold — God makes all things new!',
+      hintAboveQuiz: 'New earth — no more tears, all things new!',
       quizHeading: 'New Earth Questions',
       questions: [
         {
-          question: 'What happened to the first heaven and earth?',
-          choices: ['They grew bigger', 'They were passed away — John saw new ones', 'They stayed the same', 'They hid'],
+          question: 'What did John see?',
+          choices: ['Old heaven', 'A new heaven and a new earth', 'A city only', 'A sea'],
           correctIndex: 1,
-          correctFeedback: 'Yes! The first heaven and the first earth were passed away.',
-          wrongFeedback: 'John saw a new heaven and a new earth: for the first heaven and the first earth were passed away (Revelation 21:1).'
+          correctFeedback: 'Yes! A new heaven and a new earth.',
+          wrongFeedback: 'John saw a new heaven and a new earth (Revelation 21:1).'
         },
         {
           question: 'What will God wipe away?',
-          choices: ['Only rain', 'All tears from their eyes', 'Only dirt', 'Joy'],
+          choices: ['Nothing', 'All tears, no more death, sorrow, crying, pain', 'Joy', 'Light'],
           correctIndex: 1,
-          correctFeedback: 'God shall wipe away all tears from their eyes.',
-          wrongFeedback: 'God shall wipe away all tears from their eyes (Revelation 21:4).'
+          correctFeedback: 'Yes! All tears — no more death, sorrow, crying, pain.',
+          wrongFeedback: 'God shall wipe away all tears… there shall be no more death… (Revelation 21:4).'
         },
         {
-          question: 'What will be no more?',
-          choices: ['Only birds', 'Death, sorrow, crying, and pain', 'Only night', 'Only rivers'],
+          question: 'What did God say from the throne?',
+          choices: ['Nothing new', 'Behold, I make all things new', 'Keep the old', 'More pain'],
           correctIndex: 1,
-          correctFeedback: 'There shall be no more death, neither sorrow, nor crying, neither shall there be any more pain.',
-          wrongFeedback: 'There shall be no more death, neither sorrow, nor crying, neither shall there be any more pain (Revelation 21:4).'
+          correctFeedback: 'Yes! "Behold, I make all things new."',
+          wrongFeedback: 'He that sat upon the throne said "Behold, I make all things new" (Revelation 21:5).'
         },
         {
-          question: 'What did He that sat on the throne say?',
-          choices: ['I will leave everything old', 'Behold, I make all things new', 'Do not hope', 'Stop praying'],
+          question: 'What are these words?',
+          choices: ['False', 'True and faithful', 'Old', 'Temporary'],
           correctIndex: 1,
-          correctFeedback: 'Behold, I make all things new (Revelation 21:5).',
-          wrongFeedback: 'He that sat upon the throne said, Behold, I make all things new (Revelation 21:5).'
+          correctFeedback: 'Yes! True and faithful.',
+          wrongFeedback: 'Write: these words are true and faithful (Revelation 21:5).'
         },
         {
-          question: 'What can we learn from the new earth?',
-          choices: ['God gives up on creation', 'God makes all things new — the best home is still ahead', 'Pain wins forever', 'Earth does not matter'],
+          question: 'What can we learn from new earth?',
+          choices: ['God keeps old things', 'God makes all things new — perfect future', 'Never hope', 'Fear change'],
           correctIndex: 1,
-          correctFeedback: 'Perfect! God’s new creation is worth hoping for.',
-          wrongFeedback: 'He makes all things new — trust His promise of life with Him!'
+          correctFeedback: 'Perfect! God makes all things new — perfect future.',
+          wrongFeedback: 'No more pain or tears — all things new!'
         }
       ],
       doneHeading: 'Great Job!',
-      doneMessage: 'You earned a star — God makes all things new!',
-      takeaway: 'God promises a remade world — no more pain, all things new.',
-      prayer: 'God, thank You for wiping tears and making all things new. Help me hope in Thee. Amen.'
+      doneMessage: 'You earned a star — all things new!',
+      takeaway: 'God makes all things new — perfect future with no pain.',
+      prayer: 'God, thank You for making all things new. Help me hope in Your promise. Amen.'
     },
 
     jesusGreatCommission: {

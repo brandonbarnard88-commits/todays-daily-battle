@@ -2610,6 +2610,7 @@
     philipChariot: 'philipChariot',
     paulShip: 'paulShip',
     johnPatmos: 'revelationThrone',
+    revelation: 'revelationThrone',
     revelationThrone: 'revelationThrone',
     revelationThroneRoom: 'revelationThrone',
     heavenPromise: 'newHeaven',

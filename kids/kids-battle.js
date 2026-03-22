@@ -43,6 +43,37 @@
     return str;
   }
 
+  /**
+   * Mutate bibleStories once so every consumer (Kids Corner, battle UI, coloring) sees plain text,
+   * not double-encoded entities from bad source or legacy data.
+   */
+  function normalizeBibleStoriesForUi(stories) {
+    if (!stories || typeof stories !== 'object') return;
+    var sk = Object.keys(stories);
+    for (var si = 0; si < sk.length; si++) {
+      var s = stories[sk[si]];
+      if (!s || typeof s !== 'object') continue;
+      if (s.title != null) s.title = tdbPlainTextForUi(s.title);
+      if (s.caption != null) s.caption = tdbPlainTextForUi(s.caption);
+      if (s.kjvRef != null) s.kjvRef = tdbPlainTextForUi(s.kjvRef);
+      if (s.videoTitle != null) s.videoTitle = tdbPlainTextForUi(s.videoTitle);
+      if (s.narration != null) s.narration = tdbPlainTextForUi(s.narration);
+      var ctx = s.kidContext;
+      if (ctx && typeof ctx === 'object') {
+        if (ctx.who != null) ctx.who = tdbPlainTextForUi(ctx.who);
+        if (ctx.to != null) ctx.to = tdbPlainTextForUi(ctx.to);
+        if (ctx.apply != null) ctx.apply = tdbPlainTextForUi(ctx.apply);
+      }
+      var panels = s.panels;
+      if (Array.isArray(panels)) {
+        for (var pi = 0; pi < panels.length; pi++) {
+          var pan = panels[pi];
+          if (pan && pan.alt != null) pan.alt = tdbPlainTextForUi(String(pan.alt));
+        }
+      }
+    }
+  }
+
   // Shared with Kids Coloring (coloring.html) — hub for all kid stuff; one streak across both
   const KIDS_STREAK_KEY = 'kidsStreak';
   const KIDS_DOODLE_KEY = 'kidsDoodle';
@@ -4664,6 +4695,20 @@
       kjvRef: 'Revelation 1',
       kidContext: { who: 'Jesus', to: 'John (and us)', apply: 'Jesus meets His people in lonely places—He is first, last, and alive forever.' }
     },
+    revelation: {
+      title: 'Revelation: Jesus Is Coming Again',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'John sees Jesus in glory—keys of death and hell' },
+        { src: 'panel-noah-2.svg', alt: 'Door opened in heaven—the Lamb and worship round the throne' },
+        { src: 'panel-noah-3.svg', alt: 'River of life, tree of life—Come, Lord Jesus!' }
+      ],
+      caption: 'Swipe through the big story of Revelation—Jesus wins, all things new! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['revelation', 'patmos', 'lamb', 'new jerusalem', 'come quickly', 'jesus return', 'new heaven'],
+      kjvRef: 'Revelation 1–22',
+      kidContext: { who: 'Jesus', to: 'John (and us)', apply: 'The Bible ends with hope: Jesus is coming again—and He makes all things new.' }
+    },
     revelationThrone: {
       title: 'The Throne in Heaven',
       panels: [
@@ -5440,7 +5485,7 @@
       'prayerKnock', 'worryBirds', 'forgive70x7', 'widowMite', 'richYoungRuler',
       'maryAnoint',
       /* Week 9 */
-      'stephenMartyr', 'philipEthiopian', 'stephenStones', 'philipChariot', 'paulShip', 'johnPatmos', 'revelationThrone', 'revelationThroneRoom', 'fourHorsemen',
+      'stephenMartyr', 'philipEthiopian', 'stephenStones', 'philipChariot', 'paulShip', 'johnPatmos', 'revelation', 'revelationThrone', 'revelationThroneRoom', 'fourHorsemen',
       'alphaOmega', 'newHeaven', 'revelationNewHeaven', 'treeOfLife', 'riverOfLife', 'lambBook',
       'dragonFight', 'beastMark',
       /* Week 10 */
@@ -7359,6 +7404,7 @@
     /* Week 9 */
     stephenMartyr: 'Protection', philipEthiopian: 'Obedience', stephenStones: 'Protection', philipChariot: 'Obedience', paulShip: 'Protection',
     johnPatmos: 'Protection',
+    revelation: 'Love',
     revelationThrone: 'Miracles', revelationThroneRoom: 'Miracles', fourHorsemen: 'Protection', alphaOmega: 'Obedience',
     newHeaven: 'Love', revelationNewHeaven: 'Love', treeOfLife: 'Love', riverOfLife: 'Love', lambBook: 'Obedience',
     dragonFight: 'Protection', beastMark: 'Obedience',
@@ -7380,6 +7426,7 @@
   };
 
   if (typeof window !== 'undefined') {
+    normalizeBibleStoriesForUi(bibleStories);
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     window.TDB_STORY_THEMES = STORY_THEMES;

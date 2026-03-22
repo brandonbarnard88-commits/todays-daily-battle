@@ -124,6 +124,7 @@
     johnFirstLetter: 115,
     johnSecondThirdLetters: 115,
     johnPatmos: 115,
+    revelation: 115,
     jonah: 3,
     malachiMessage: 61,
     jonahVine: 53,

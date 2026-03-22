@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (273 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (281 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -27,10 +27,20 @@
       webm: '/media/kids-stories/abraham-isaac.webm',
       captionsVtt: '/media/kids-stories/abraham-isaac.vtt'
     },
+    actsApollosPriscilla: {
+      mp4: '/media/kids-stories/acts-apollos-priscilla.mp4',
+      webm: '/media/kids-stories/acts-apollos-priscilla.webm',
+      captionsVtt: '/media/kids-stories/acts-apollos-priscilla.vtt'
+    },
     actsPaulBeforeAgrippa: {
       mp4: '/media/kids-stories/acts-paul-before-agrippa.mp4',
       webm: '/media/kids-stories/acts-paul-before-agrippa.webm',
       captionsVtt: '/media/kids-stories/acts-paul-before-agrippa.vtt'
+    },
+    actsPaulMarsHill: {
+      mp4: '/media/kids-stories/acts-paul-mars-hill.mp4',
+      webm: '/media/kids-stories/acts-paul-mars-hill.webm',
+      captionsVtt: '/media/kids-stories/acts-paul-mars-hill.vtt'
     },
     actsPaulMelita: {
       mp4: '/media/kids-stories/acts-paul-melita.mp4',
@@ -126,6 +136,11 @@
       mp4: '/media/kids-stories/cain-abel.mp4',
       webm: '/media/kids-stories/cain-abel.webm',
       captionsVtt: '/media/kids-stories/cain-abel.vtt'
+    },
+    colossiansChristSupreme: {
+      mp4: '/media/kids-stories/colossians-christ-supreme.mp4',
+      webm: '/media/kids-stories/colossians-christ-supreme.webm',
+      captionsVtt: '/media/kids-stories/colossians-christ-supreme.vtt'
     },
     comeLordJesus: {
       mp4: '/media/kids-stories/come-lord-jesus.mp4',
@@ -737,6 +752,11 @@
       webm: '/media/kids-stories/lois-timothy.webm',
       captionsVtt: '/media/kids-stories/lois-timothy.vtt'
     },
+    lostCoin: {
+      mp4: '/media/kids-stories/lost-coin.mp4',
+      webm: '/media/kids-stories/lost-coin.webm',
+      captionsVtt: '/media/kids-stories/lost-coin.vtt'
+    },
     lostSheep: {
       mp4: '/media/kids-stories/lost-sheep.mp4',
       webm: '/media/kids-stories/lost-sheep.webm',
@@ -1027,6 +1047,11 @@
       webm: '/media/kids-stories/philip-ethiopian.webm',
       captionsVtt: '/media/kids-stories/philip-ethiopian.vtt'
     },
+    philippiansJoy: {
+      mp4: '/media/kids-stories/philippians-joy.mp4',
+      webm: '/media/kids-stories/philippians-joy.webm',
+      captionsVtt: '/media/kids-stories/philippians-joy.vtt'
+    },
     phoebeDeacon: {
       mp4: '/media/kids-stories/phoebe-deacon.mp4',
       webm: '/media/kids-stories/phoebe-deacon.webm',
@@ -1091,6 +1116,11 @@
       mp4: '/media/kids-stories/resurrection.mp4',
       webm: '/media/kids-stories/resurrection.webm',
       captionsVtt: '/media/kids-stories/resurrection.vtt'
+    },
+    revelation: {
+      mp4: '/media/kids-stories/revelation.mp4',
+      webm: '/media/kids-stories/revelation.webm',
+      captionsVtt: '/media/kids-stories/revelation.vtt'
     },
     revelationBabylonFall: {
       mp4: '/media/kids-stories/revelation-babylon-fall.mp4',
@@ -1317,10 +1347,20 @@
       webm: '/media/kids-stories/ten-virgins.webm',
       captionsVtt: '/media/kids-stories/ten-virgins.vtt'
     },
+    thessaloniansHope: {
+      mp4: '/media/kids-stories/thessalonians-hope.mp4',
+      webm: '/media/kids-stories/thessalonians-hope.webm',
+      captionsVtt: '/media/kids-stories/thessalonians-hope.vtt'
+    },
     thomasDoubt: {
       mp4: '/media/kids-stories/thomas-doubt.mp4',
       webm: '/media/kids-stories/thomas-doubt.webm',
       captionsVtt: '/media/kids-stories/thomas-doubt.vtt'
+    },
+    timothyYouthExample: {
+      mp4: '/media/kids-stories/timothy-youth-example.mp4',
+      webm: '/media/kids-stories/timothy-youth-example.webm',
+      captionsVtt: '/media/kids-stories/timothy-youth-example.vtt'
     },
     tombEmpty: {
       mp4: '/media/kids-stories/tomb-empty.mp4',

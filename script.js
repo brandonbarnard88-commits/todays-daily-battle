@@ -8334,9 +8334,24 @@ var FAMILY_STORIES_DATA = [
   { id: 'baby-jesus', title: 'Baby Jesus: God Sent His Son', summary: 'Jesus was born in Bethlehem; Mary laid Him in a manger.', verseRef: 'Luke 2:1-20', verseQuery: 'Luke 2', prayIntent: 'for the world', jewel: 'amethyst', activity: 'Draw the manger scene. Or sing a Christmas hymn together.', armorHint: 'Pray for the world — adds to Breastplate of Righteousness.' }
 ];
 
+var _familyStoriesPlainNormalized = false;
+
 function renderFamilyStoriesTab() {
   var grid = document.getElementById('family-stories-grid');
   if (!grid || !FAMILY_STORIES_DATA) return;
+  if (!_familyStoriesPlainNormalized && typeof tdbPlainTextForUi === 'function') {
+    _familyStoriesPlainNormalized = true;
+    for (var ni = 0; ni < FAMILY_STORIES_DATA.length; ni++) {
+      var raw = FAMILY_STORIES_DATA[ni];
+      raw.title = tdbPlainTextForUi(raw.title);
+      raw.summary = tdbPlainTextForUi(raw.summary);
+      raw.activity = tdbPlainTextForUi(raw.activity || '');
+      raw.armorHint = tdbPlainTextForUi(raw.armorHint || '');
+      raw.verseRef = tdbPlainTextForUi(raw.verseRef || '');
+      raw.prayIntent = tdbPlainTextForUi(raw.prayIntent || '');
+      raw.verseQuery = tdbPlainTextForUi(raw.verseQuery || '');
+    }
+  }
   var quickWrap = document.getElementById('quick-pray-wrap');
   var quickInput = document.getElementById('quick-pray');
   grid.innerHTML = '';
@@ -8378,7 +8393,7 @@ function renderFamilyStoriesTab() {
       if (quickInput && typeof quickInput.focus === 'function') {
         setTimeout(function () { quickInput.focus(); }, 120);
       }
-      if (typeof showEliteToast === 'function') showEliteToast('Prayer loaded from story: ' + s.prayIntent + '.');
+      if (typeof showEliteToast === 'function') showEliteToast('Prayer loaded from story: ' + tdbPlainTextForUi(s.prayIntent) + '.');
     });
     if (activityBtn) activityBtn.addEventListener('click', function () {
       if (typeof addHouseholdArmorPiece === 'function') addHouseholdArmorPiece('kids-activity');

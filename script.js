@@ -735,7 +735,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   }
 
   function renderGrid() {
-    grid.innerHTML = '';
+    while (grid.firstChild) grid.removeChild(grid.firstChild);
     var fragment = document.createDocumentFragment();
     unlockedLoops.forEach(function (loop, idx) {
       fragment.appendChild(buildCard(loop, idx === 0));
@@ -1065,7 +1065,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         var kids = (r && r.data) || [];
         if (!kids.length) return;
         wrap.classList.remove('hidden');
-        sel.innerHTML = '<option value="">This device</option>';
+        while (sel.firstChild) sel.removeChild(sel.firstChild);
+        var opt0 = document.createElement('option');
+        opt0.value = '';
+        opt0.textContent = 'This device';
+        sel.appendChild(opt0);
         kids.forEach(function (k) {
           var opt = document.createElement('option');
           opt.value = k.id;
@@ -8476,7 +8480,7 @@ function renderFamilyStoriesTab() {
   }
   var quickWrap = document.getElementById('quick-pray-wrap');
   var quickInput = document.getElementById('quick-pray');
-  grid.innerHTML = '';
+  while (grid.firstChild) grid.removeChild(grid.firstChild);
   var origin = '';
   try {
     origin = typeof window !== 'undefined' && window.location && window.location.origin ? window.location.origin : '';

@@ -15,7 +15,7 @@ export const LOOP_HTML_MARKERS = [
   'Download loop progress (PDF)',
   'loop-pdf-export',
   'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"',
-  '20260323lcp-loop',
+  '20260323tt-loop-grid',
   'kids-corner.css?v=7'
 ];
 

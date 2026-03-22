@@ -5,8 +5,8 @@
  */
 (function () {
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
-  if (window.trustedTypes.defaultPolicy) return;
   try {
+    if (!window.trustedTypes.defaultPolicy) {
     window.trustedTypes.createPolicy('default', {
       createHTML: function (i) {
         var x = String(i || '');
@@ -52,7 +52,8 @@
         return null;
       }
     });
-    if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig) {
+    }
+    if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && window.trustedTypes.defaultPolicy) {
       DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: window.trustedTypes.defaultPolicy });
     }
     (function () {

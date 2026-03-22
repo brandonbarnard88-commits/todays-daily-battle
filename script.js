@@ -8319,6 +8319,7 @@ function renderArmorModal() {
   }
 }
 
+/** Bible story cards for the Family Armor modal (homepage `#family-armor-stories-modal`). Not the `kids-corner.html` loop library. Cards render only when the modal opens. */
 var FAMILY_STORIES_DATA = [
   { id: 'noah', title: 'Noah\'s Ark: God Saved Him from the Flood', summary: 'God told Noah to build a boat to save his family and the animals from the flood.', verseRef: 'Genesis 6:9-22', verseQuery: 'Genesis 6', prayIntent: 'for protection', jewel: 'sapphire', activity: 'Draw your family in the ark. Or build a boat with blocks.', armorHint: 'Pray for protection — adds to Shield of Faith.' },
   { id: 'david', title: 'David & Goliath: God Gave Him Courage', summary: 'David trusted God and faced the giant with a sling and five stones.', verseRef: '1 Samuel 17:45-50', verseQuery: '1 Samuel 17', prayIntent: 'for courage', jewel: 'ruby', activity: 'Draw five stones. Or act out the story with a parent.', armorHint: 'Pray for courage — adds to Breastplate of Righteousness.' },
@@ -8355,10 +8356,19 @@ function renderFamilyStoriesTab() {
   var quickWrap = document.getElementById('quick-pray-wrap');
   var quickInput = document.getElementById('quick-pray');
   grid.innerHTML = '';
-  var base = typeof window !== 'undefined' && window.location ? (window.location.origin + '/') : '';
+  var origin = '';
+  try {
+    origin = typeof window !== 'undefined' && window.location && window.location.origin ? window.location.origin : '';
+  } catch (e) {}
+  var base = origin ? origin + '/' : '';
   FAMILY_STORIES_DATA.forEach(function (s) {
     var verseUrl = base + (s.verseQuery ? '?q=' + encodeURIComponent(s.verseQuery) + '&focus=search' : '') + '#main-search';
-    var colorUrl = base + (base.indexOf('kids-corner') !== -1 ? '' : '') + 'coloring.html?story=' + s.id;
+    var colorUrl = '';
+    try {
+      colorUrl = origin ? new URL('/coloring.html?story=' + encodeURIComponent(s.id), origin).href : 'coloring.html?story=' + encodeURIComponent(s.id);
+    } catch (e2) {
+      colorUrl = base + 'coloring.html?story=' + encodeURIComponent(s.id);
+    }
     var safeJewel = String(s.jewel || 'hope').replace(/[^a-z0-9_-]/gi, '');
     var card = document.createElement('article');
     card.className = 'kids-corner-card card-gold-inner';
@@ -18228,7 +18238,7 @@ function sanitizeNudgeElements() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260320', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260322-family-armor-v99', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {
@@ -18293,7 +18303,7 @@ function sanitizeNudgeElements() {
   wireFooterFridaySignup();
   wireSoundEchoToggle();
   wireBlessSessionBtn();
-  wireArmorBuilderModal();
+  if (document.getElementById('family-armor-stories-modal')) wireArmorBuilderModal();
   wireFamilyNameModal();
   wireHeaderFamilyQuickLinks();
   wireAuthDailyVerseBreakdown();

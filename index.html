@@ -81,7 +81,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260322verse-breakdown-lazy">
+  <link rel="modulepreload" href="script.js?v=20260322family-armor-scope">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -6049,7 +6049,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260322-kids-normalize", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260322-family-armor-v99", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });
@@ -8140,7 +8140,7 @@
         <button type="button" id="tab-armor" class="family-armor-tab" role="tab" aria-selected="false" aria-controls="family-armor-panel">Armor</button>
       </div>
       <div id="family-stories-panel" class="family-armor-tab-panel" role="tabpanel" aria-labelledby="tab-stories">
-        <div id="family-stories-grid" class="kids-corner-grid"></div>
+        <div id="family-stories-grid" class="family-stories-grid"></div>
       </div>
       <div id="family-armor-panel" class="family-armor-tab-panel hidden" role="tabpanel" aria-labelledby="tab-armor">
         <p id="armor-welcome-msg" class="armor-welcome-msg" style="display:none"></p>
@@ -8295,6 +8295,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-    <script type="module" src="script.js?v=20260322verse-breakdown-lazy" data-cfasync="false" fetchpriority="high"></script>
+    <script type="module" src="script.js?v=20260322family-armor-scope" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

@@ -173,7 +173,8 @@ a.nav-kids-corner:hover .nav-kids-icon {
 
 /* Mobile: stack vertical, full width, swipeable list */
 @media (max-width: 768px) {
-  .kids-corner-grid {
+  .kids-corner-grid,
+  .family-stories-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
     overflow-x: auto;

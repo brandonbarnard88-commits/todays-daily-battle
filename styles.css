@@ -5395,10 +5395,11 @@ h1 {
   box-shadow: var(--shadow-card-hover), 0 0 28px rgba(59, 130, 246, 0.12), 0 0 32px rgba(212, 175, 55, 0.08);
 }
 
-/* Kids' Corner */
+/* Kids' Corner + Family Armor story grid (homepage modal uses .family-stories-grid; shared card styles) */
 .kids-corner-hero .hero-sub { font-family: var(--font-body); color: var(--text-muted); }
 .kids-corner-icon { opacity: 0.9; }
-.kids-corner-grid {
+.kids-corner-grid,
+.family-stories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
@@ -8874,7 +8875,9 @@ body.red-letter-off .red-letter-card {
 #family-stories-grid { max-height: 60vh; overflow-y: auto; margin-top: 0.75rem; }
 #family-stories-grid .kids-corner-card { margin-bottom: 1rem; }
 #family-stories-grid .kids-corner-grid,
-#family-stories-grid.kids-corner-grid {
+#family-stories-grid.kids-corner-grid,
+#family-stories-grid .family-stories-grid,
+#family-stories-grid.family-stories-grid {
   grid-template-columns: 1fr;
 }
 #family-stories-grid .kids-corner-card-actions {

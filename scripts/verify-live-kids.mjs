@@ -4,42 +4,27 @@
  * Run after deploy: node scripts/verify-live-kids.mjs
  * Optional: LIVE_BASE=https://www.todaysdailybattle.com node scripts/verify-live-kids.mjs
  */
+import { LOOP_HTML_MARKERS, STORY_HTML_MARKERS, OG_ASSET_PATHS } from './kids-verify-markers.mjs';
+
 const BASE = (process.env.LIVE_BASE || 'https://todaysdailybattle.com').replace(/\/$/, '');
 
-const checks = [
-  {
-    name: 'OG JPEG (loop)',
-    url: `${BASE}/assets/share/kids-loop-og.jpg`,
-    expectStatus: 200,
-    expectType: 'image/jpeg'
-  },
-  {
-    name: 'OG JPEG (story library)',
-    url: `${BASE}/assets/share/kids-story-library-og.jpg`,
-    expectStatus: 200,
-    expectType: 'image/jpeg'
-  }
-];
+const checks = OG_ASSET_PATHS.map((rel) => ({
+  name: `OG JPEG (${rel.includes('loop') ? 'loop' : 'story'})`,
+  url: `${BASE}/${rel}`,
+  expectStatus: 200,
+  expectType: 'image/jpeg'
+}));
 
 const htmlChecks = [
   {
     name: 'Loop Library HTML',
     url: `${BASE}/kids-corner`,
-    mustInclude: [
-      'kids-loop-og.jpg',
-      'Download loop progress (PDF)',
-      'summary_large_image',
-      '20260322loop-pdf-summary'
-    ]
+    mustInclude: LOOP_HTML_MARKERS
   },
   {
     name: 'Story Library HTML',
     url: `${BASE}/kids/corner`,
-    mustInclude: [
-      'kids-story-library-og.jpg',
-      'Download Story Library List (PDF)',
-      'summary_large_image'
-    ]
+    mustInclude: STORY_HTML_MARKERS
   }
 ];
 

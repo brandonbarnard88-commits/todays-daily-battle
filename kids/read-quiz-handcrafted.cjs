@@ -16958,12 +16958,12 @@ module.exports = {
       imagePrompts: [
         'bright cartoon for kids: shepherds keeping watch over flock by night, no text',
         'fun kid illustration: angel appearing, glory shining, shepherds afraid, no text',
-        'colorful Bible scene for children: angel saying "Fear not… unto you is born a Saviour", no text',
+        'colorful Bible scene for children: angel saying "Fear not… good tidings of great joy", no text',
         'exciting cartoon: heavenly host praising God, shepherds going to Bethlehem, no text',
         'hopeful ending illustration: shepherds finding Jesus in manger, glorifying God, no text'
       ],
       readAlongImages: [],
-      hintAboveQuiz: 'Angels to shepherds — good tidings of great joy!',
+      hintAboveQuiz: 'Shepherds saw the star and angel — good tidings of great joy!',
       quizHeading: 'Shepherds and the Star Questions',
       questions: [
         {
@@ -16995,8 +16995,8 @@ module.exports = {
           wrongFeedback: 'The shepherds said "Let us now go even unto Bethlehem" (Luke 2:15).'
         },
         {
-          question: 'What can we learn from the shepherds at Bethlehem?',
-          choices: ['Fear angels', 'Good tidings of great joy — Jesus is born Saviour', 'Never listen to God', 'Doubt angels'],
+          question: 'What can we learn from the shepherds and the star?',
+          choices: ['Fear angels', 'Good tidings of great joy — Jesus is born Saviour', 'Never follow stars', 'Doubt angels'],
           correctIndex: 1,
           correctFeedback: 'Perfect! Good tidings of great joy — Jesus is born Saviour.',
           wrongFeedback: 'The angel brought good tidings — shepherds went, saw, and praised God!'

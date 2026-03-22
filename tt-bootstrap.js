@@ -90,6 +90,28 @@
           configurable: true,
           enumerable: d.enumerable
         });
+        var od = Object.getOwnPropertyDescriptor(proto, 'outerHTML');
+        if (od && od.set) {
+          var origOuter = od.set;
+          Object.defineProperty(proto, 'outerHTML', {
+            set: function (v) {
+              if (isTrustedHTMLValue(v)) {
+                return origOuter.call(this, v);
+              }
+              var s = v == null ? '' : (typeof v === 'string' ? v : String(v));
+              var trusted = v;
+              if (createHTML) {
+                try { trusted = s ? createHTML(s) : createHTML(''); } catch (_) {
+                  try { trusted = createHTML(s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')); } catch (e2) { trusted = createHTML(''); }
+                }
+              }
+              return origOuter.call(this, trusted);
+            },
+            get: od.get,
+            configurable: true,
+            enumerable: od.enumerable
+          });
+        }
         var ia = proto.insertAdjacentHTML;
         if (typeof ia === 'function') {
           proto.insertAdjacentHTML = function (pos, html) {
@@ -121,7 +143,18 @@
       try {
         el.innerHTML = pol.createHTML(s);
         return;
-      } catch (_) {}
+      } catch (_) {
+        try {
+          var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
+            ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
+            : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+          el.innerHTML = pol.createHTML(wash);
+          return;
+        } catch (_) {
+          try { el.innerHTML = pol.createHTML(''); } catch (__) {}
+          return;
+        }
+      }
     }
     el.innerHTML = s;
   };

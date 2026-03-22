@@ -16,7 +16,8 @@ const script = fs.readFileSync(scriptPath, 'utf8');
 const CHECKS = [
   { name: 'parseReference space format (john 3 16)', pattern: /Space format.*john 3 16/ },
   { name: 'Loose-match fallback (any word 3+ chars)', pattern: /looseTokens|looseRegex/ },
-  { name: 'Topic fallback (hope, love, peace, strength, faith)', pattern: /\[.hope., .love., .peace., .strength., .faith.\]/ },
+  // Replaced legacy five-topic array with DEFAULT_VERSES (curated breakdown verses)
+  { name: 'No-match fallback (DEFAULT_VERSES)', pattern: /var DEFAULT_VERSES = \[/ },
   { name: 'John 3:16 absolute last resort', pattern: /bible\[.John 3:16.\]/ },
   { name: 'Bundled fallback for offline', pattern: /BUNDLED_DAILY_VERSE_FALLBACKS/ },
   { name: 'Render-time emergency verses', pattern: /emergencyRefs|Philippians 4:6.*Isaiah 41:10/ },

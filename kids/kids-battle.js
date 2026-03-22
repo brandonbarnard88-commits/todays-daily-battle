@@ -46,10 +46,19 @@
       if (str === prev) break;
     }
     try {
-      var t = document.createElement('textarea');
-      t.innerHTML = str;
-      var out = t.value;
-      if (typeof out === 'string') return out;
+      var div = document.createElement('div');
+      tdbSetHtml(div, str);
+      var decoded = div.textContent;
+      if (typeof decoded === 'string') return decoded;
+    } catch (_) {}
+    try {
+      var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+      if (pol && typeof pol.createHTML === 'function') {
+        var t = document.createElement('textarea');
+        t.innerHTML = pol.createHTML(str);
+        var out = t.value;
+        if (typeof out === 'string') return out;
+      }
     } catch (_) {}
     return str;
   }

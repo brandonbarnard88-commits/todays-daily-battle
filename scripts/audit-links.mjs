@@ -55,7 +55,9 @@ const checked = new Set();
 
 for (const file of htmlFiles) {
   const body = fs.readFileSync(file, 'utf8');
-  const htmlOnly = body.replace(/<script\b[\s\S]*?<\/script>/gi, '');
+  let htmlOnly = body.replace(/<script\b[\s\S]*?<\/script>/gi, '');
+  // Ignore hrefs inside HTML comments (e.g. optional preload templates)
+  htmlOnly = htmlOnly.replace(/<!--[\s\S]*?-->/g, '');
   const matches = htmlOnly.matchAll(/href=["']([^"']+)["']/g);
   for (const m of matches) {
     const href = (m[1] || '').trim();

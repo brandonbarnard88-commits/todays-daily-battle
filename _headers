@@ -48,6 +48,11 @@
 /logo-shield-600.png
   Cache-Control: public, max-age=31536000, immutable
 
+# Minimal deny body for blocked routes (see _redirects → blocked.html)
+/blocked.html
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow, noarchive
+
 # Internal / debug / templates: noindex (matches robots.txt + extensionless routes)
 /mystudy.html
   X-Robots-Tag: noindex, nofollow

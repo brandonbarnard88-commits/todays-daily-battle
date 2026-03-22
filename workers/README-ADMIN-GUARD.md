@@ -1,5 +1,7 @@
 # Admin route guard (Cloudflare Worker)
 
+**Note:** Production static hosting maps `/admin` and `/admin.html` to **404** via `_redirects` (no public admin HTML). Use Supabase Dashboard for moderation. Deploy this Worker only if you **re-enable** a protected admin route and need header-based access on top of Cloudflare Access.
+
 Protects `/admin` and `/admin.html` so only requests that include the secret header are allowed.
 
 ## Setup

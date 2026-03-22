@@ -82,8 +82,8 @@
   }
 
   function isSensitiveRoute() {
-    var p = currentPath().toLowerCase();
-    return p === '/admin' || p === '/admin.html' || p === '/debug' || p === '/debug.html';
+    // /admin* and /debug* are hard-blocked at the edge (blocked.html). Do not redirect guests to login — that leaked recon text.
+    return false;
   }
 
   function hasSensitiveParams() {

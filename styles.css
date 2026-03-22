@@ -13070,3 +13070,18 @@ a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
   outline: none;
 }
 
+/* Performance mode: set on <html> via localStorage tdb_perf_mode=1 or prefers-reduced-motion (see script.js, profile.html) */
+html.tdb-perf-mode .sky-stars-parallax,
+html.tdb-perf-mode .sky-aurora,
+html.tdb-perf-mode .sky-aurora-veil,
+html.tdb-perf-mode .sky-shooter {
+  display: none !important;
+  animation: none !important;
+}
+html.tdb-perf-mode .sky-star,
+html.tdb-perf-mode .sky-bird,
+html.tdb-perf-mode .sky-sun,
+html.tdb-perf-mode .sky-cloud {
+  animation: none !important;
+}
+

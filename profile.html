@@ -8,7 +8,10 @@
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+  (function(){try{var m=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var o=localStorage.getItem('tdb_perf_mode')==='1';if(m||o){document.documentElement.classList.add('tdb-perf-mode');}}catch(e){}})();
+  </script>
   <title>Account • Today's Daily Battle</title>
   <meta name="description" content="Manage your family, Bible study groups, and church connection. Kids profiles, groups, and more.">
   <meta name="robots" content="noindex, nofollow">
@@ -182,6 +185,16 @@
           <p id="church-status" class="profile-status" aria-live="polite"></p>
         </section>
 
+        <section class="profile-section" id="section-perf" aria-labelledby="perf-heading">
+          <h3 id="perf-heading">Device &amp; display</h3>
+          <p>Reduce animated backgrounds and heavy motion on this device (helps battery and focus). Reload applies everywhere the site loads <code>script.js</code>.</p>
+          <div style="display:flex;align-items:flex-start;gap:0.75rem;padding:0.65rem 0.85rem;border-radius:10px;border:1px solid var(--line, rgba(255,255,255,0.08));background:rgba(255,255,255,0.03);">
+            <input type="checkbox" id="perf-mode-toggle" style="width:1.15rem;height:1.15rem;margin-top:0.15rem;flex-shrink:0;" aria-describedby="perf-heading">
+            <label for="perf-mode-toggle" style="cursor:pointer;margin:0;line-height:1.45;">Performance mode (quieter visuals)</label>
+          </div>
+          <p id="perf-mode-status" class="profile-status" aria-live="polite"></p>
+        </section>
+
         <section class="profile-section" id="section-export">
           <h3>Your Data</h3>
           <p>Download a copy of your profile data (kids, groups, church, synced prayers, streaks, badges). For your records or to move elsewhere.</p>
@@ -206,6 +219,6 @@
       </div>
     </main>
   </div>
-  <script src="profile.js?v=20260315" defer></script>
+  <script src="profile.js?v=20260322" defer></script>
 </body>
 </html>

@@ -116,6 +116,14 @@ if (!securityTxt.includes('Contact:') || !securityTxt.includes('Expires:')) {
   ok('security.txt present with Contact and Expires');
 }
 
+// 3b. Internal routes blocked at the edge (Cloudflare Pages _redirects)
+const redirects = read('_redirects');
+if (!redirects.includes('/admin /blocked.html') || !redirects.includes('/admin.html /blocked.html')) {
+  fail('_redirects: production must map /admin and /admin.html to blocked.html (404, minimal body — see SECURITY.md)');
+} else {
+  ok('_redirects: admin URLs return minimal blocked.html in production');
+}
+
 // 4. DOMPurify loaded (XSS defense)
 if (!index.includes('purify') && !index.includes('dompurify')) {
   fail('index.html: DOMPurify not loaded (XSS mitigation)');

@@ -449,7 +449,29 @@
     if (btn) btn.disabled = false;
   }
 
+  function wirePerfToggle() {
+    var cb = document.getElementById('perf-mode-toggle');
+    if (!cb) return;
+    try {
+      cb.checked = localStorage.getItem('tdb_perf_mode') === '1';
+    } catch (e) {
+      cb.checked = false;
+    }
+    cb.addEventListener('change', function () {
+      try {
+        if (cb.checked) localStorage.setItem('tdb_perf_mode', '1');
+        else localStorage.removeItem('tdb_perf_mode');
+      } catch (e) {
+        setStatus('perf-mode-status', 'Could not save preference.', true);
+        return;
+      }
+      setStatus('perf-mode-status', 'Saved — reloading…', false);
+      window.setTimeout(function () { window.location.reload(); }, 200);
+    });
+  }
+
   function wire() {
+    wirePerfToggle();
     var addKidBtn = document.getElementById('add-kid-btn');
     if (addKidBtn) addKidBtn.addEventListener('click', addKid);
     var createGroupBtn = document.getElementById('create-group-btn');

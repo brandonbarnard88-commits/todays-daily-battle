@@ -1,4 +1,23 @@
 # Test 20260309
+# --- Production: block internal / dev HTML (minimal body — blocked.html, no auth hints) ---
+# Use Supabase Dashboard + RLS for moderation; optional Worker: workers/admin-guard.js
+/admin /blocked.html 404
+/admin/ /blocked.html 404
+/admin/* /blocked.html 404
+/admin.html /blocked.html 404
+/test-search-diagnosis.html /blocked.html 404
+/test-search-diagnosis /blocked.html 404
+/stats.html /blocked.html 404
+/stats /blocked.html 404
+/secrets.html /blocked.html 404
+/secrets /blocked.html 404
+/mystudy.html /blocked.html 404
+/mystudy /blocked.html 404
+/kids/kids-beta.html /blocked.html 404
+/kids/kids-beta /blocked.html 404
+/debug /blocked.html 404
+/debug.html /blocked.html 404
+
 # Force clean URLs for topics (Cloudflare Pages: must be in dist/ root)
 /topic-anxiety /topic-anxiety.html 200!
 /topic-hope /topic-hope.html 200!
@@ -45,8 +64,6 @@
 
 # Auth routes
 /login /login.html 200!
-/admin /admin.html 200!
-/debug /login.html 302
 
 # Block package.json from public (security)
 /package.json  /404.html  404

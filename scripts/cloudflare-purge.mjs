@@ -82,11 +82,15 @@ const SOCIAL_PURGE_PATHS = [
   '/assets/share/mobius-og.jpg',
   '/assets/share/shop-og.jpg',
   '/assets/share/testimonials-og.jpg',
+  '/assets/share/verse-share.jpg',
+  '/bible-tool.html',
+  '/reading-plan.html',
   '/assets/share/home-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/calm-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/mobius-og.jpg?v=' + SHARE_OG_V,
   '/assets/share/shop-og.jpg?v=' + SHARE_OG_V,
-  '/assets/share/testimonials-og.jpg?v=' + SHARE_OG_V
+  '/assets/share/testimonials-og.jpg?v=' + SHARE_OG_V,
+  '/assets/share/verse-share.jpg?v=' + SHARE_OG_V
 ];
 
 const CHUNK = 30;

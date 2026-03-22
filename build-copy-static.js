@@ -383,7 +383,7 @@ if (!fs.existsSync(path.join(dist, 'verse-cards', 'index.html'))) {
   console.error('BUILD FAIL: verse-cards/index.html missing in dist/. Pinterest gallery will 404 on /verse-cards/.');
   process.exit(1);
 }
-const SHARE_OG = ['home-og.jpg', 'calm-og.jpg', 'mobius-og.jpg', 'shop-og.jpg', 'testimonials-og.jpg'];
+const SHARE_OG = ['home-og.jpg', 'calm-og.jpg', 'mobius-og.jpg', 'shop-og.jpg', 'testimonials-og.jpg', 'verse-share.jpg'];
 for (let i = 0; i < SHARE_OG.length; i++) {
   const p = path.join(dist, 'assets', 'share', SHARE_OG[i]);
   if (!fs.existsSync(p)) {

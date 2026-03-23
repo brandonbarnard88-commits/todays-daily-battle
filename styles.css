@@ -605,10 +605,10 @@ body {
 .tdb-global-nav a {
   color: rgba(226, 232, 240, 0.85);
   text-decoration: none;
-  padding: 0.22rem 0.45rem;
+  padding: 0.28rem 0.5rem;
   border-radius: 6px;
   white-space: nowrap;
-  min-height: 40px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   -webkit-tap-highlight-color: transparent;
@@ -640,8 +640,8 @@ body {
   .tdb-global-nav::-webkit-scrollbar { display: none; }
   .tdb-global-nav a {
     flex-shrink: 0;
-    padding: 0.28rem 0.5rem;
-    min-height: 40px;
+    padding: 0.3rem 0.55rem;
+    min-height: 44px;
   }
 }
 

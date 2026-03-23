@@ -41,7 +41,8 @@
   <script nonce="tdb2025s">window.TDB_PANEL_RASTER = false;</script>
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=19">
+  <link rel="stylesheet" href="kids-battle.css?v=20">
+  <link rel="stylesheet" href="kids-page-sky.css?v=20260331">
   <link rel="stylesheet" href="canvas.css?v=1">
   <style>
     .kids-library-grid {
@@ -441,7 +442,44 @@
     }
   </style>
 </head>
-<body class="dark-mode kids-battle-page">
+<body class="dark-mode kids-battle-page kids-sky-enabled">
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer">
+      <div class="sky-stars-parallax" aria-hidden="true"></div>
+      <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
+        <div class="sky-aurora-veil" aria-hidden="true"></div>
+      </div>
+      <div class="sky-viewport" id="sky-celestial-plane">
+        <div class="sky-sun" id="sky-sun"></div>
+        <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
+          <svg class="sky-moon-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
+                <stop offset="60%" stop-color="rgba(200,210,230,0.88)"/>
+                <stop offset="100%" stop-color="rgba(140,160,190,0.72)"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
+            <ellipse cx="36" cy="40" rx="7" ry="5" fill="#090918" opacity="0.22"/>
+            <ellipse cx="58" cy="48" rx="9" ry="6" fill="#0a0a1c" opacity="0.18"/>
+            <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
+            <ellipse cx="64" cy="54" rx="6.5" ry="5" fill="#080818" opacity="0.38"/>
+            <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
+            <ellipse cx="70" cy="34" rx="5" ry="3.5" fill="#0a0a1f" opacity="0.42"/>
+            <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
+            <ellipse cx="54" cy="44" rx="4" ry="3" fill="#080818" opacity="0.34"/>
+            <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
+            <ellipse cx="74" cy="60" rx="3" ry="2" fill="#0a0a1f" opacity="0.26"/>
+            <circle cx="48" cy="30" r="2" fill="#0b0b22" opacity="0.24"/>
+            <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
+            <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
+          </svg>
+          <span class="sky-moon-label" id="sky-moon-label"></span>
+        </div>
+      </div>
+    </div>
+  </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar kids-battle-header kids-header-unified">
@@ -454,12 +492,22 @@
         <a href="corner.html" aria-current="page">Bible Story Library</a>
         <a href="parent.html">Parent Dashboard</a>
       </nav>
+      <p class="kids-header-site-link-wrap">
+        <a href="/" class="kids-bc-whole-site">Today’s Daily Battle — whole site home</a>
+      </p>
       <a href="parent.html" class="kids-parent-link-mobile" aria-label="Parent Dashboard">Parents</a>
     </header>
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
         <span class="kids-corner-explorer-badge" aria-label="Corner Explorer badge">📚 Corner Explorer</span>
+        <nav class="kids-breadcrumb kids-corner-breadcrumb" aria-label="You are here">
+          <a href="/" class="kids-bc-whole-site">Whole site</a>
+          <span class="kids-bc-sep" aria-hidden="true">›</span>
+          <a href="/kids/">Kids home</a>
+          <span class="kids-bc-sep" aria-hidden="true">›</span>
+          <span aria-current="page">Story library</span>
+        </nav>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Bible Story Library</h1>
           <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Pick a story and go.</p>
@@ -572,7 +620,19 @@
 
   <div id="kids-story-modal" class="kids-video-modal hidden" role="dialog" aria-modal="true" aria-labelledby="kids-story-modal-title" aria-describedby="kids-story-modal-hint">
     <div class="kids-video-modal-content kids-library-modal">
-      <button type="button" class="kids-video-modal-close" id="kids-story-modal-close" aria-label="Close story">×</button>
+      <div class="kids-library-modal-top">
+        <div class="kids-story-modal-head">
+          <button type="button" class="kids-modal-back-library-btn" id="kids-story-modal-back-library" aria-label="Back to story library grid">← Back to library</button>
+          <button type="button" class="kids-video-modal-close" id="kids-story-modal-close" aria-label="Close story">×</button>
+        </div>
+        <nav class="kids-breadcrumb kids-story-modal-breadcrumb" aria-label="You are here">
+          <a href="/kids/">Kids home</a>
+          <span class="kids-bc-sep" aria-hidden="true">›</span>
+          <span id="kids-bc-lib-segment">Story library</span>
+          <span id="kids-bc-story-sep" class="kids-bc-sep" aria-hidden="true" hidden>›</span>
+          <span id="kids-bc-story-title" class="kids-bc-current" hidden></span>
+        </nav>
+      </div>
       <p id="kids-story-modal-hint" class="sr-only">Comic panels, KJV notes, optional short video, read-and-quiz when available, and share.</p>
       <h2 id="kids-story-modal-title" class="kids-video-modal-title"></h2>
       <div id="kids-story-modal-carousel"></div>
@@ -655,8 +715,8 @@
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-story-fuse-search.js?v=20260323fuse" defer></script>
-  <script src="kids-corner.js?v=20260331kidsdeeplink" defer></script>
+  <script src="kids-story-fuse-search.js?v=20260331fuse" defer></script>
+  <script src="kids-corner.js?v=20260331kidsnav" defer></script>
   <script type="module" src="../script.js?v=20260326clean" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->
@@ -860,5 +920,6 @@
       cursor: default;
     }
   </style>
+  <script src="kids-page-sky.js?v=20260331" defer></script>
 </body>
 </html>

@@ -13,7 +13,8 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=19">
+  <link rel="stylesheet" href="kids-battle.css?v=20">
+  <link rel="stylesheet" href="kids-page-sky.css?v=20260331">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .kids-all-stories-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
@@ -96,7 +97,44 @@
     }
   </style>
 </head>
-<body class="dark-mode kids-battle-page">
+<body class="dark-mode kids-battle-page kids-sky-enabled">
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer">
+      <div class="sky-stars-parallax" aria-hidden="true"></div>
+      <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
+        <div class="sky-aurora-veil" aria-hidden="true"></div>
+      </div>
+      <div class="sky-viewport" id="sky-celestial-plane">
+        <div class="sky-sun" id="sky-sun"></div>
+        <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
+          <svg class="sky-moon-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
+                <stop offset="60%" stop-color="rgba(200,210,230,0.88)"/>
+                <stop offset="100%" stop-color="rgba(140,160,190,0.72)"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
+            <ellipse cx="36" cy="40" rx="7" ry="5" fill="#090918" opacity="0.22"/>
+            <ellipse cx="58" cy="48" rx="9" ry="6" fill="#0a0a1c" opacity="0.18"/>
+            <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
+            <ellipse cx="64" cy="54" rx="6.5" ry="5" fill="#080818" opacity="0.38"/>
+            <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
+            <ellipse cx="70" cy="34" rx="5" ry="3.5" fill="#0a0a1f" opacity="0.42"/>
+            <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
+            <ellipse cx="54" cy="44" rx="4" ry="3" fill="#080818" opacity="0.34"/>
+            <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
+            <ellipse cx="74" cy="60" rx="3" ry="2" fill="#0a0a1f" opacity="0.26"/>
+            <circle cx="48" cy="30" r="2" fill="#0b0b22" opacity="0.24"/>
+            <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
+            <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
+          </svg>
+          <span class="sky-moon-label" id="sky-moon-label"></span>
+        </div>
+      </div>
+    </div>
+  </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar kids-battle-header kids-header-unified">
@@ -109,12 +147,22 @@
         <a href="corner.html">Bible Story Library</a>
         <a href="parent.html">Parent Dashboard</a>
       </nav>
+      <p class="kids-header-site-link-wrap">
+        <a href="/" class="kids-bc-whole-site">Today’s Daily Battle — whole site home</a>
+      </p>
       <a href="parent.html" class="kids-parent-link-mobile" aria-label="Parent Dashboard">Parents</a>
     </header>
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
         <header class="kids-battle-hero">
+          <nav class="kids-breadcrumb util-mb-0_5" aria-label="You are here">
+            <a href="/" class="kids-bc-whole-site">Whole site</a>
+            <span class="kids-bc-sep" aria-hidden="true">›</span>
+            <a href="/kids/">Kids home</a>
+            <span class="kids-bc-sep" aria-hidden="true">›</span>
+            <span aria-current="page">All stories A–Z</span>
+          </nav>
           <p class="util-mb-0_5"><a href="/kids/" class="kids-all-stories-back-link">← Back to Kids Home</a></p>
           <p class="kids-all-stories-hero-line"><span id="kids-all-stories-hero-badge" class="kids-all-stories-badge kids-all-stories-hero-kicker">281 Stories – Browse All</span></p>
           <h1 class="kids-battle-title">All Bible Stories</h1>
@@ -125,6 +173,13 @@
 
         <section class="kids-search-section glass" role="region" aria-label="Search all stories">
           <h2 class="kids-section-title">Find &amp; sort</h2>
+          <div id="kids-all-stories-theme-tabs" class="kids-all-stories-theme-tabs" role="tablist" aria-label="Filter by story theme">
+            <button type="button" role="tab" class="kids-theme-tab is-active" data-theme="" id="kids-theme-tab-all" aria-selected="true" aria-controls="kids-all-stories-tbody">All</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Love" id="kids-theme-tab-love" aria-selected="false" aria-controls="kids-all-stories-tbody">Love</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Obedience" id="kids-theme-tab-obedience" aria-selected="false" aria-controls="kids-all-stories-tbody">Obedience</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Miracles" id="kids-theme-tab-miracles" aria-selected="false" aria-controls="kids-all-stories-tbody">Miracles</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Protection" id="kids-theme-tab-protection" aria-selected="false" aria-controls="kids-all-stories-tbody">Protection</button>
+          </div>
           <div class="kids-all-stories-toolbar">
             <input type="search" id="kids-all-stories-search" class="kids-search-input" placeholder="Type story, character, or theme (typos ok!)" autocomplete="off" aria-label="Filter stories" aria-controls="kids-all-fuse-suggest">
             <button type="button" id="kids-all-stories-sort" class="btn btn-secondary" aria-pressed="true" aria-label="Toggle sort order">Sort Z–A</button>
@@ -182,7 +237,8 @@
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
   <script src="kids-story-fuse-search.js?v=20260323fuse" defer></script>
-  <script src="kids-all-stories.js?v=20260331kidsfuzzy" defer></script>
+  <script src="kids-all-stories.js?v=20260331kidsthemes" defer></script>
   <script type="module" src="../script.js?v=20260326clean" data-cfasync="false" defer></script>
+  <script src="kids-page-sky.js?v=20260331" defer></script>
 </body>
 </html>

@@ -3229,6 +3229,7 @@
   var modalVideo = document.getElementById('kids-story-modal-video');
   var modalReadQuiz = document.getElementById('kids-story-modal-read-quiz');
   var modalClose = document.getElementById('kids-story-modal-close');
+  var modalBackLibrary = document.getElementById('kids-story-modal-back-library');
   var randomBtn = document.getElementById('kids-library-random-btn');
   var pdfExportBtn = document.getElementById('pdf-export');
   var themeSelect = document.getElementById('kids-library-theme');
@@ -4309,6 +4310,15 @@
     if (!param || typeof param !== 'string') return null;
     var raw = param.trim();
     if (!raw) return null;
+    var phraseToKey = {
+      'giant boy sling': 'david',
+      'giant boy': 'david',
+      'seven seals lamb': 'revelationSeals',
+      'seven seals and lamb': 'revelationSeals',
+      'lamb and seven seals': 'revelationSeals'
+    };
+    var spacedPhrase = raw.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (phraseToKey[spacedPhrase]) raw = phraseToKey[spacedPhrase];
     var stories = getStories();
     if (stories[raw]) return raw;
     var aliases = {
@@ -4655,7 +4665,10 @@
     kind: ['samaritan', 'neighbor', 'help', 'love'],
     giant: ['goliath', 'david', 'stone', 'slingshot', 'brave'],
     'giant boy': ['david', 'goliath', 'slingshot', 'shepherd'],
-    sling: ['david', 'goliath', 'stone']
+    sling: ['david', 'goliath', 'stone'],
+    seals: ['revelation', 'revelationSeals', 'lamb', 'scroll'],
+    'seven seals': ['revelationSeals', 'revelation', 'lamb', 'scroll'],
+    lamb: ['passover', 'revelationSeals', 'jesus', 'john']
   };
 
   function expandKidsQuery(q) {
@@ -4966,6 +4979,31 @@
     } catch (eMeta) {}
   }
 
+  function syncModalStoryBreadcrumb(plainTitle) {
+    var sep = document.getElementById('kids-bc-story-sep');
+    var tit = document.getElementById('kids-bc-story-title');
+    var lib = document.getElementById('kids-bc-lib-segment');
+    if (!sep || !tit) return;
+    var t = plainTitle ? String(plainTitle).trim() : '';
+    if (t) {
+      tit.textContent = t;
+      tit.removeAttribute('hidden');
+      tit.classList.remove('hidden');
+      tit.setAttribute('aria-current', 'page');
+      sep.removeAttribute('hidden');
+      sep.classList.remove('hidden');
+      if (lib) lib.removeAttribute('aria-current');
+    } else {
+      tit.textContent = '';
+      tit.setAttribute('hidden', 'hidden');
+      tit.classList.add('hidden');
+      tit.removeAttribute('aria-current');
+      sep.setAttribute('hidden', 'hidden');
+      sep.classList.add('hidden');
+      if (lib) lib.setAttribute('aria-current', 'page');
+    }
+  }
+
   function openStory(key) {
     clearReadQuizModal();
     var stories = getStories();
@@ -4986,6 +5024,7 @@
     pushRecentStoryKey(key);
     updateDocumentStoryMeta(key, s);
     if (modalTitle) modalTitle.textContent = tdbPlainTextForUi(s.title || key);
+    syncModalStoryBreadcrumb(tdbPlainTextForUi(s.title || key));
     clearStoryVideoContainer(modalVideo);
     if (hasFullVideo && fullMedia) {
       mountFullStoryPlayer(modalVideo, key, s.title || key, fullMedia);
@@ -5122,12 +5161,20 @@
       if (firstBtn) firstBtn.focus();
     }
     scrollKidsReadQuizIntoViewAfterLayout();
+    try {
+      requestAnimationFrame(function () {
+        if (modal && !modal.classList.contains('hidden')) {
+          modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    } catch (_) {}
     syncStoryNavButtons();
     advanceJourneyFromStory(key);
   }
 
   function closeStoryModal() {
     if (!modal) return;
+    syncModalStoryBreadcrumb(null);
     clearReadQuizModal();
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
@@ -5493,6 +5540,19 @@
       return;
     }
     window._kidsLibraryInitAttempts = 0;
+    window.addEventListener('tdb-kids-bible-stories-ready', function () {
+      try {
+        migrateStoryMasterFromLegacyViewed();
+        renderStoryMaster();
+        updatePdfExportCountHint();
+      } catch (eSk) {}
+    });
+    window.addEventListener('load', function () {
+      try {
+        renderStoryMaster();
+        updatePdfExportCountHint();
+      } catch (eLd) {}
+    });
     migrateStoryMasterFromLegacyViewed();
     try {
       refreshKidsPreferredNarrationVoice();
@@ -5799,6 +5859,7 @@
     }
 
     if (modalClose) modalClose.addEventListener('click', closeStoryModal);
+    if (modalBackLibrary) modalBackLibrary.addEventListener('click', closeStoryModal);
     if (modal) modal.addEventListener('click', function (e) {
       if (e.target === modal) closeStoryModal();
     });

@@ -196,8 +196,8 @@
     var hasStories = window.TDB_BIBLE_STORIES && Object.keys(window.TDB_BIBLE_STORIES).length;
     var hasIndex = Array.isArray(window.TDB_BIBLE_STORY_TOOL_INDEX) && window.TDB_BIBLE_STORY_TOOL_INDEX.length;
     if (!hasStories && !hasIndex) return;
-    /* Corner: kids-corner.js calls tdbKidsFuseSearchTop5() for the listbox (single source of truth). */
     wireAllStories();
+    wireCorner();
   }
 
   function schedule() {

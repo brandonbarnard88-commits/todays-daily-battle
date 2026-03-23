@@ -2823,3 +2823,146 @@
   color: #94a3b8;
   margin-top: 0.12rem;
 }
+
+/* Kids navigation: whole-site link, breadcrumbs, all-stories theme tabs, modal back */
+.kids-header-site-link-wrap {
+  margin: 0.15rem 0 0;
+  width: 100%;
+  flex-basis: 100%;
+  text-align: center;
+}
+@media (min-width: 721px) {
+  .kids-header-site-link-wrap {
+    text-align: left;
+    flex-basis: auto;
+    width: auto;
+    margin-top: 0.35rem;
+  }
+}
+.kids-bc-whole-site {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--kids-yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.kids-bc-whole-site:focus-visible {
+  outline: 2px solid var(--kids-yellow);
+  outline-offset: 2px;
+}
+
+.kids-breadcrumb {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  line-height: 1.45;
+  flex-wrap: wrap;
+}
+.kids-breadcrumb a {
+  color: var(--kids-yellow);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 700;
+}
+.kids-breadcrumb a:focus-visible {
+  outline: 2px solid var(--kids-yellow);
+  outline-offset: 2px;
+}
+.kids-bc-sep {
+  margin: 0 0.35rem;
+  color: #64748b;
+  font-weight: 600;
+}
+.kids-bc-current {
+  color: #e2e8f0;
+  font-weight: 700;
+}
+.kids-corner-breadcrumb {
+  margin: 0.35rem 0 0.5rem;
+  max-width: 40rem;
+}
+
+.kids-all-stories-theme-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin: 0 0 1rem;
+}
+.kids-theme-tab {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.84rem;
+  min-height: 44px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 217, 61, 0.45);
+  background: rgba(30, 41, 59, 0.55);
+  color: #e2e8f0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.kids-theme-tab:hover {
+  border-color: var(--kids-yellow);
+  color: #fef9c3;
+}
+.kids-theme-tab:focus-visible {
+  outline: 2px solid var(--kids-yellow);
+  outline-offset: 2px;
+}
+.kids-theme-tab[aria-selected='true'],
+.kids-theme-tab.is-active {
+  border-color: var(--kids-yellow);
+  background: rgba(255, 217, 61, 0.18);
+  color: var(--kids-yellow);
+}
+
+.kids-library-modal-top {
+  padding: 0.35rem 0 0;
+}
+.kids-story-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+.kids-library-modal .kids-video-modal-close {
+  position: static;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+.kids-modal-back-library-btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  min-height: 44px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 2px solid var(--kids-yellow);
+  background: rgba(255, 217, 61, 0.12);
+  color: var(--kids-yellow);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.kids-modal-back-library-btn:hover {
+  background: rgba(255, 217, 61, 0.22);
+  color: #fef9c3;
+}
+.kids-modal-back-library-btn:focus-visible {
+  outline: 2px solid var(--kids-yellow);
+  outline-offset: 2px;
+}
+.kids-story-modal-breadcrumb {
+  padding: 0.25rem 0.75rem 0.15rem;
+  margin: 0;
+}
+.kids-library-modal .kids-video-modal-title {
+  padding-top: 0.35rem;
+}

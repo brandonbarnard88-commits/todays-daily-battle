@@ -5591,6 +5591,15 @@
     normalizeBibleStoriesForUi(bibleStories);
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
+    try {
+      if (typeof window.dispatchEvent === 'function' && typeof CustomEvent === 'function') {
+        window.dispatchEvent(
+          new CustomEvent('tdb-kids-bible-stories-ready', {
+            detail: { count: (window.TDB_BIBLE_STORY_KEYS && window.TDB_BIBLE_STORY_KEYS.length) || 0 }
+          })
+        );
+      }
+    } catch (eReady) {}
     window.TDB_STORY_MASTER_TIERS = [
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
@@ -8094,5 +8103,28 @@
 
   if (typeof window !== 'undefined') {
     window.TDB_STORY_THEMES = STORY_THEMES;
+  }
+
+  /** After “We battle. He wins.” on pages that load this bundle (kids + overlap). Skips Spanish + custom lines. */
+  if (typeof document !== 'undefined') {
+    function tdbExtendFooterHumility() {
+      try {
+        document.querySelectorAll('.footer-humility').forEach(function (p) {
+          if (!p || p.querySelector('.footer-humility-follow')) return;
+          if (p.getAttribute('lang') === 'es') return;
+          var t = (p.textContent || '').replace(/\s+/g, ' ').trim();
+          if (t !== 'We battle. He wins.') return;
+          var s = document.createElement('span');
+          s.className = 'footer-humility-follow';
+          s.textContent = " We're not perfect; He is.";
+          p.appendChild(s);
+        });
+      } catch (eHum) {}
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', tdbExtendFooterHumility);
+    } else {
+      tdbExtendFooterHumility();
+    }
   }
 })();

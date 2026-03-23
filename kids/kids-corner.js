@@ -4331,7 +4331,11 @@
       'thesevenseals': 'revelationSeals',
       'revelation-seals': 'revelationSeals',
       'revelationseals': 'revelationSeals',
-      'noaharkstory': 'noah'
+      'noaharkstory': 'noah',
+      davd: 'david',
+      daveed: 'david',
+      goliat: 'david',
+      golieth: 'david'
     };
     var rawLower = raw.toLowerCase();
     if (aliases[rawLower]) {
@@ -4648,13 +4652,21 @@
     happy: ['rejoice', 'party', 'joy', 'celebration'],
     brave: ['david', 'lion', 'daniel', 'courage', 'esther'],
     strong: ['samson', 'david', 'strength', 'power'],
-    kind: ['samaritan', 'neighbor', 'help', 'love']
+    kind: ['samaritan', 'neighbor', 'help', 'love'],
+    giant: ['goliath', 'david', 'stone', 'slingshot', 'brave'],
+    'giant boy': ['david', 'goliath', 'slingshot', 'shepherd'],
+    sling: ['david', 'goliath', 'stone']
   };
 
   function expandKidsQuery(q) {
     var terms = [q];
     var word = q.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').toLowerCase();
     if (KIDS_SEMANTIC_MAP[word]) terms = terms.concat(KIDS_SEMANTIC_MAP[word]);
+    var parts = word.split(/\s+/).filter(Boolean);
+    for (var pi = 0; pi < parts.length; pi++) {
+      var pw = parts[pi];
+      if (pw.length >= 4 && KIDS_SEMANTIC_MAP[pw]) terms = terms.concat(KIDS_SEMANTIC_MAP[pw]);
+    }
     if (typeof window.resolveSemanticWithScore === 'function') {
       var sem = window.resolveSemanticWithScore(q);
       if (sem && sem.topic && sem.score >= 0.6) {
@@ -4751,6 +4763,53 @@
     return out;
   }
 
+  /**
+   * Fuse.js over the current theme-filtered key list — catches multi-word / loose
+   * queries when uFuzzy returns nothing (e.g. “giant boy”, “seals lamb”).
+   */
+  function fuseRankStoryKeysSubset(orderedKeys, needle) {
+    var raw = String(needle || '').trim();
+    if (raw.length < 2 || !orderedKeys || !orderedKeys.length) return null;
+    var Fu = typeof Fuse !== 'undefined' ? Fuse : typeof window !== 'undefined' ? window.Fuse : null;
+    if (!Fu) return null;
+    var stories = getStories();
+    try {
+      var rows = [];
+      for (var fj = 0; fj < orderedKeys.length; fj++) {
+        var fk = orderedKeys[fj];
+        var fst = stories[fk];
+        if (!fst) continue;
+        rows.push({
+          key: fk,
+          title: String(fst.title || ''),
+          kjvRef: String(fst.kjvRef || ''),
+          hay: [fk, fst.title || '', fst.kjvRef || '', (fst.keywords || []).join(' '), (fst.kidContext && fst.kidContext.apply) || ''].join(' ')
+        });
+      }
+      if (!rows.length) return null;
+      var fuse = new Fu(rows, {
+        keys: ['title', 'kjvRef', 'key', 'hay'],
+        threshold: 0.45,
+        ignoreLocation: true,
+        minMatchCharLength: 2,
+        includeScore: true
+      });
+      var fhits = fuse.search(raw);
+      if (!fhits || !fhits.length) return [];
+      var out = [];
+      var seen = {};
+      for (var hi = 0; hi < fhits.length; hi++) {
+        var it = fhits[hi] && fhits[hi].item;
+        if (!it || !it.key || seen[it.key]) continue;
+        seen[it.key] = 1;
+        out.push(it.key);
+      }
+      return out;
+    } catch (eFuseLib) {
+      return null;
+    }
+  }
+
   function filterStories(query, theme) {
     var stories = getStories();
     var themes = getStoryThemes();
@@ -4768,6 +4827,9 @@
 
     var fuzzyKeys = fuzzyRankLibraryKeys(themed, qRaw);
     if (fuzzyKeys !== null && fuzzyKeys.length > 0) return fuzzyKeys;
+
+    var fuseKeys = fuseRankStoryKeysSubset(themed, qRaw);
+    if (fuseKeys !== null && fuseKeys.length > 0) return fuseKeys;
 
     var searchTerms = expandKidsQuery(qLower);
     return themed.filter(function (key) {
@@ -5438,37 +5500,48 @@
         window.speechSynthesis.onvoiceschanged = refreshKidsPreferredNarrationVoice;
       }
     } catch (_) {}
+    var pendingStoryUrlParam = null;
     try {
       var params = new URLSearchParams(location.search);
       var q = params.get('q');
       if (q && searchInput) searchInput.value = q;
       var storyParamRaw = params.get('story');
       if (storyParamRaw && String(storyParamRaw).trim()) {
-        var deepTries = 0;
-        function tryOpenFromStoryParam() {
-          var sk = resolveStoryKey(storyParamRaw);
-          if (sk) {
-            openStory(sk);
-            try {
-              var u = new URL(location.href);
-              if (String(u.searchParams.get('story') || '') !== sk) {
-                u.searchParams.set('story', sk);
-                history.replaceState({}, '', u.pathname + (u.search ? u.search : '') + location.hash);
-              }
-            } catch (eUrl) {}
-            return;
-          }
-          deepTries += 1;
-          if (deepTries < 45) {
-            setTimeout(tryOpenFromStoryParam, 120);
-          } else {
-            showToast('That story link did not open—scripts may still be loading. Try again or hard-refresh.');
-          }
-        }
-        setTimeout(tryOpenFromStoryParam, 80);
+        pendingStoryUrlParam = String(storyParamRaw).trim();
       }
     } catch (e) {}
     renderGrid(applyFilters());
+    if (pendingStoryUrlParam) {
+      var deepTries = 0;
+      var storyParamForOpen = pendingStoryUrlParam;
+      function tryOpenFromStoryParam() {
+        var sk = resolveStoryKey(storyParamForOpen);
+        if (sk) {
+          openStory(sk);
+          try {
+            var u = new URL(location.href);
+            if (String(u.searchParams.get('story') || '') !== sk) {
+              u.searchParams.set('story', sk);
+              history.replaceState({}, '', u.pathname + (u.search ? u.search : '') + location.hash);
+            }
+          } catch (eUrl) {}
+          return;
+        }
+        deepTries += 1;
+        if (deepTries < 70) {
+          setTimeout(tryOpenFromStoryParam, 100);
+        } else {
+          showToast('That story link did not open—scripts may still be loading. Try again or hard-refresh.');
+        }
+      }
+      window.addEventListener('tdb-kids-bible-stories-ready', tryOpenFromStoryParam, { once: true });
+      /* After grid paint: avoids racing a heavy 280+ card render on low-end devices. */
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          tryOpenFromStoryParam();
+        });
+      });
+    }
     updatePdfExportCountHint();
     renderStoryMaster();
     wireGlobalQuizChallengeButton();

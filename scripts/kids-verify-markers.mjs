@@ -26,7 +26,7 @@ export const STORY_HTML_MARKERS = [
   'pdf-export',
   'aria-describedby="pdf-export-count-hint pdf-export-hint"',
   'story-library-fonts.css?v=1',
-  'kids-corner.js?v=20260331kidsfuzzy',
+  'kids-corner.js?v=20260331kidsdeeplink',
   'uFuzzy.iife.min.js',
   'kids-battle.js?v=20260330kidslib',
   'TDB_PANEL_RASTER',

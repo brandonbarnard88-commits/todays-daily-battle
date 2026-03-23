@@ -130,6 +130,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/kids-corner.js',
   '/kids/kids-corner.js?v=20260330kidslib',
   '/kids/kids-corner.js?v=20260331kidsfuzzy',
+  '/kids/kids-corner.js?v=20260331kidsdeeplink',
   '/kids/kids-all-stories.js?v=20260331kidsfuzzy',
   '/vendor/uFuzzy.iife.min.js',
   '/kids/kids-read-quiz-data.js',

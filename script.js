@@ -23283,6 +23283,21 @@ function wireRandomBattleVerseHero() {
     }
   }
 
+  (function tdbExtendFooterHumilityLine() {
+    try {
+      document.querySelectorAll('.footer-humility').forEach(function (p) {
+        if (!p || p.querySelector('.footer-humility-follow')) return;
+        if (p.getAttribute('lang') === 'es') return;
+        var t = (p.textContent || '').replace(/\s+/g, ' ').trim();
+        if (t !== 'We battle. He wins.') return;
+        var s = document.createElement('span');
+        s.className = 'footer-humility-follow';
+        s.textContent = " We're not perfect; He is.";
+        p.appendChild(s);
+      });
+    } catch (eHumF) {}
+  })();
+
   // ── Daily midnight nudge toast (off homepage only; #daily-nudge injected by ensureDailyNudgeToast) ──
   (function initDailyNudge() {
     if (isTdbHomePage()) return;

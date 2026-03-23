@@ -771,13 +771,24 @@
       border-radius: 999px;
     }
     .tdb-moat-banner-kicker {
-      margin: 1.05rem 0 0.5rem;
+      margin: 1.05rem 0 0.45rem;
       padding: 0;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
+      text-transform: none;
       font-weight: 600;
       color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
+    }
+    .tdb-moat-banner-footnote {
+      margin: 0.5rem 0 0;
+      padding: 0;
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: color-mix(in srgb, var(--muted) 94%, var(--gold) 6%);
+      text-align: center;
+      max-width: 34rem;
+      margin-left: auto;
+      margin-right: auto;
     }
     .tdb-moat-banner-plans {
       list-style: none;
@@ -830,7 +841,10 @@
       color: rgba(26, 31, 46, 0.94);
     }
     :root[data-theme="light"] .tdb-moat-banner-kicker {
-      color: rgba(90, 72, 40, 0.75);
+      color: rgba(90, 72, 40, 0.78);
+    }
+    :root[data-theme="light"] .tdb-moat-banner-footnote {
+      color: rgba(70, 62, 48, 0.82);
     }
     :root[data-theme="light"] .tdb-moat-banner-plans li {
       color: rgba(40, 48, 62, 0.88);
@@ -871,7 +885,7 @@
       .site-top-links { font-size: 0.8rem; margin-top: 0.45rem; padding: 0.35rem 0.5rem; }
       .site-top-links a { margin: 0 0.28rem; }
       .tdb-moat-banner { padding: 0.85rem 0.9rem 1rem; }
-      .tdb-moat-banner-kicker { letter-spacing: 0.16em; margin-top: 0.85rem; }
+      .tdb-moat-banner-kicker { letter-spacing: 0.03em; margin-top: 0.85rem; }
       .tdb-moat-banner-plans { gap: 0.38rem; }
       .tdb-moat-banner-plans li { font-size: 0.84rem; }
     }
@@ -4498,14 +4512,15 @@
           <p id="tdb-moat-lead" class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</p>
           <a class="tdb-moat-banner-cta" href="why-not-ai.html">Why not AI?</a>
         </div>
-        <p id="tdb-moat-kicker" class="tdb-moat-banner-kicker">Seven-day paths</p>
-        <ul class="tdb-moat-banner-plans" aria-labelledby="tdb-moat-kicker">
-          <li>When fear or anxiety spikes, try <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>&mdash;seven days in Scripture.</li>
-          <li>When your mind won&rsquo;t stop running tomorrow, try <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>&mdash;seven days in Scripture.</li>
-          <li>When heat or frustration runs the day, try <a class="tdb-moat-banner-link" href="plans.html?plan=angerpeace" aria-label="Open Anger to Peace, a 7-day KJV reading plan">Anger → Peace</a>&mdash;seven days in Scripture.</li>
-          <li>When questions crowd out confidence, try <a class="tdb-moat-banner-link" href="plans.html?plan=doubtassurance" aria-label="Open Doubt to Assurance, a 7-day KJV reading plan">Doubt → Assurance</a>&mdash;seven days in Scripture.</li>
-          <li>When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>&mdash;seven days in Scripture.</li>
+        <p id="tdb-moat-kicker" class="tdb-moat-banner-kicker">When one week in the Word might help</p>
+        <ul class="tdb-moat-banner-plans" aria-labelledby="tdb-moat-kicker" aria-describedby="tdb-moat-plans-note">
+          <li>When fear or anxiety spikes, try <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>.</li>
+          <li>When your mind won&rsquo;t stop running tomorrow, try <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>.</li>
+          <li>When heat or frustration runs the day, try <a class="tdb-moat-banner-link" href="plans.html?plan=angerpeace" aria-label="Open Anger to Peace, a 7-day KJV reading plan">Anger → Peace</a>.</li>
+          <li>When questions crowd out confidence, try <a class="tdb-moat-banner-link" href="plans.html?plan=doubtassurance" aria-label="Open Doubt to Assurance, a 7-day KJV reading plan">Doubt → Assurance</a>.</li>
+          <li>When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>.</li>
         </ul>
+        <p id="tdb-moat-plans-note" class="tdb-moat-banner-footnote">Each link opens a seven-day KJV plan; progress stays on your device.</p>
       </div>
     </div>
 

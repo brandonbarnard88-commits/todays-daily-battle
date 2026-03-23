@@ -37,7 +37,7 @@ PAGES = [
     ("/resources.html", "Pastor Resources", ["Resources", "id=\"auth-section\""]),
     ("/message.html", "Message Board", ["Message", "id=\"auth-section\""]),
     ("/reading-plan.html", "Reading Plan", ["Reading", "id=\"auth-section\""]),
-    ("/bible-tool.html", "Bible Tool", ["Bible Tool", "id=\"lookup-btn\"", "id=\"daily-ref\"", "Read full chapter", "verse-image.html"]),
+    ("/bible-tool.html", "Bible Tool", ["Bible Tool", "Bible stories", "bible-story-tool-index.js", "Featured this week", "corner.html?story=davidGoliath", "id=\"lookup-btn\"", "id=\"daily-ref\"", "Read full chapter", "verse-image.html"]),
     ("/verse-image.html", "Verse image generator", ["Verse image generator", "verse-image-canvas", "Supporter", "recent-gens", "data-verse-store", "verse-image-text-color", "cross"]),
     ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "id=\"auth-section\""]),

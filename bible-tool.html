@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bible Tool • Today's Daily Battle</title>
-  <meta name="description" content="Look up verses, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
+  <meta name="description" content="Look up verses, browse every Kids Bible story with Scripture and “for you” lines, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/bible-tool.html">
   <meta property="og:title" content="Bible Tool • Today's Daily Battle">
@@ -82,6 +82,143 @@
     .bible-tool .prayer-box { padding: 0.75rem; border-radius: 8px; background: rgba(109,40,217,0.1); border-left: 3px solid #6d28d9; font-size: 1rem; font-style: italic; }
     .bible-tool .people-btn { border: 2px solid #d4af37; color: #d4af37; }
     .bible-tool .people-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212,175,55,0.3); }
+    /* Kids Bible Story index — matches verse-card rhythm */
+    .bible-tool .bible-story-tool-controls { align-items: flex-end; margin-bottom: 0.35rem; }
+    .bible-tool .bible-story-tool-search {
+      flex: 1;
+      min-width: 12rem;
+      min-height: 44px;
+      padding: 0.45rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.3);
+      background: rgba(15,23,42,0.8);
+      color: #e2e8f0;
+      font-size: 1rem;
+    }
+    .bible-tool .bible-story-tool-search:focus { outline: 2px solid rgba(212, 175, 55, 0.55); outline-offset: 2px; }
+    .bible-tool .bible-story-tool-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: min(55vh, 480px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.14);
+      background: rgba(10, 14, 22, 0.45);
+    }
+    .bible-tool .bible-story-tool-list > li {
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+      padding: 0.85rem 1rem;
+    }
+    .bible-tool .bible-story-tool-list > li:last-child { border-bottom: none; }
+    .bible-tool .bible-story-tool-title {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .bible-tool .bible-story-tool-title a {
+      color: #e2e8f0;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+    }
+    .bible-tool .bible-story-tool-title a:hover { color: #f8fafc; border-bottom-color: #d4af37; }
+    .bible-tool .bible-story-tool-k {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #d4af37;
+      margin-right: 0.35rem;
+    }
+    .bible-tool .bible-story-tool-line {
+      margin: 0.25rem 0 0;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #cbd5e1;
+    }
+    .bible-tool .bible-story-tool-theme-badge {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+    .bible-tool .bible-story-tool-theme-badge--obedience {
+      background: #2c5282;
+      color: #f1f5f9;
+      border-color: rgba(44, 82, 130, 0.9);
+    }
+    .bible-tool .bible-story-tool-theme-badge--love {
+      background: #c53030;
+      color: #fff;
+      border-color: rgba(197, 48, 48, 0.95);
+    }
+    .bible-tool .bible-story-tool-theme-badge--miracles {
+      background: #6b46c1;
+      color: #f5f3ff;
+      border-color: rgba(107, 70, 193, 0.95);
+    }
+    .bible-tool .bible-story-tool-theme-badge--protection {
+      background: #38a169;
+      color: #f0fff4;
+      border-color: rgba(56, 161, 105, 0.95);
+    }
+    .bible-tool .bible-story-tool-actions { margin: 0.35rem 0 0.5rem; }
+    .bible-tool .bible-story-tool-random-btn { min-height: 44px; }
+    .bible-tool .bible-story-tool-no-results {
+      display: none;
+      text-align: center;
+      padding: 1.75rem 1rem;
+      color: #94a3b8;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      border-radius: 12px;
+      border: 1px dashed rgba(148,163,184,0.28);
+      background: rgba(15, 23, 42, 0.35);
+    }
+    .bible-tool .bible-story-tool-no-results:not(.hidden) { display: block; }
+    .bible-tool .bible-story-tool-empty {
+      padding: 1rem;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    .bible-tool .bible-story-tool-lead-count {
+      font-weight: 700;
+      color: #d4af37;
+      font-variant-numeric: tabular-nums;
+    }
+    .bible-tool .bible-story-tool-featured {
+      margin: 0.65rem 0 1rem;
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.42);
+      background: rgba(15, 23, 42, 0.55);
+    }
+    .bible-tool .bible-story-tool-featured-heading {
+      margin: 0 0 0.35rem;
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #d4af37;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+    }
+    .bible-tool .bible-story-tool-featured-meta {
+      margin: 0 0 0.5rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.45;
+    }
+    .bible-tool .bible-story-tool-featured-ref {
+      margin: 0 0 0.65rem;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
     .bible-tool .people-card { border-left: 4px solid #d4af37; animation: peopleFadeIn 0.6s ease-out forwards; }
     @keyframes peopleFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     .bible-tool .people-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
@@ -419,6 +556,41 @@
             </select>
           </div>
           <p id="bible-tool-verse-mode-note" class="section-note util-mb-0"></p>
+        </section>
+
+        <!-- Kids Bible stories — full index (same breakdown fields as verse tool: Scripture, Who, To, For you) -->
+        <section class="verse-card glass border-gold" aria-label="Bible stories library" id="bible-story-tool-section">
+          <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><circle cx="12" cy="9" r="1"/><path d="M10 14h4"/></svg>Bible stories</h2>
+          <p id="bible-story-tool-lead-ok" class="section-note util-mb-0_5">Quick breakdowns of <span id="bible-story-tool-lead-count" class="bible-story-tool-lead-count">—</span> timeless Bible stories — key Scripture, who it is for, and how it applies today. Tap a title for the full story, comics, and quiz in Kids Corner.</p>
+          <p id="bible-story-tool-lead-err" class="section-note util-mb-0_5 hidden" role="alert"></p>
+          <p class="section-note util-mb-0_5" style="font-size:0.95rem;opacity:0.88;">Same scannable shape as verse cards above: <strong>Scripture</strong>, <strong>Who</strong>, <strong>To</strong>, <strong>For you</strong>, plus theme.</p>
+          <aside class="bible-story-tool-featured" aria-labelledby="bible-story-tool-featured-heading">
+            <h3 id="bible-story-tool-featured-heading" class="bible-story-tool-featured-heading">Featured this week: David &amp; Goliath</h3>
+            <p class="bible-story-tool-featured-ref bible-story-tool-line"><span class="bible-story-tool-k">Scripture:</span> 1 Samuel 17</p>
+            <p class="bible-story-tool-featured-meta">Theme: <span class="bible-story-tool-theme-badge bible-story-tool-theme-badge--protection">Protection</span></p>
+            <p class="util-mb-0">
+              <a id="bible-story-tool-featured-link" href="/kids/corner.html?story=davidGoliath" class="bible-tool-gold-link">Open read-along, comics, and quiz in Kids Corner</a>
+            </p>
+          </aside>
+          <div class="lookup-controls bible-story-tool-controls">
+            <label for="bible-story-tool-search" class="sr-only">Filter Bible stories by title or reference</label>
+            <input type="search" id="bible-story-tool-search" class="bible-story-tool-search" placeholder="Search title, book, or keyword…" autocomplete="off" aria-label="Filter Bible stories by title or reference" />
+            <label for="bible-story-tool-theme" class="section-note util-mb-0">Theme</label>
+            <select id="bible-story-tool-theme" aria-label="Filter Bible stories by theme">
+              <option value="">All themes</option>
+            </select>
+          </div>
+          <div class="bible-story-tool-actions" role="group" aria-label="Story shortcuts">
+            <button type="button" id="bible-story-tool-random" class="btn btn-secondary bible-story-tool-random-btn" aria-describedby="bible-story-tool-random-status">Surprise me — random story</button>
+            <p id="bible-story-tool-random-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+          </div>
+          <p id="bible-story-tool-count" class="section-note util-mb-0_5" aria-live="polite"></p>
+          <ul id="bible-story-tool-list" class="bible-story-tool-list" role="list"></ul>
+          <div id="bible-story-tool-no-results" class="bible-story-tool-no-results hidden" role="status" aria-live="polite" tabindex="-1">
+            No stories match your search or filter.<br />
+            Try a different theme or keyword.
+          </div>
+          <p class="section-note util-mt-1 util-mb-0"><a href="/kids/corner.html" class="bible-tool-gold-link">Open Kids Story Library</a> for the full experience.</p>
         </section>
 
         <!-- Daily verse -->
@@ -1553,6 +1725,210 @@
 
   // Ask the Word — wired by inline bootstrap script (runs before this block)
 })();
+  </script>
+  <script src="kids/bible-story-tool-index.js?v=1"></script>
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+    function themeBadgeClass(theme) {
+      var t = String(theme || '').trim();
+      if (t === 'Obedience') return 'bible-story-tool-theme-badge bible-story-tool-theme-badge--obedience';
+      if (t === 'Love') return 'bible-story-tool-theme-badge bible-story-tool-theme-badge--love';
+      if (t === 'Miracles') return 'bible-story-tool-theme-badge bible-story-tool-theme-badge--miracles';
+      if (t === 'Protection') return 'bible-story-tool-theme-badge bible-story-tool-theme-badge--protection';
+      return 'bible-story-tool-theme-badge';
+    }
+    function shortTitleHint(r) {
+      var bits = [];
+      if (r.kjvRef) bits.push('Scripture: ' + r.kjvRef);
+      if (r.who) bits.push('Who: ' + r.who);
+      var s = bits.join(' · ');
+      return s.length > 120 ? s.slice(0, 117) + '…' : s;
+    }
+    function populateThemeSelect(all) {
+      var sel = document.getElementById('bible-story-tool-theme');
+      if (!sel) return;
+      var seen = {};
+      for (var i = 0; i < all.length; i++) {
+        var t = all[i].theme;
+        if (t) seen[t] = true;
+      }
+      var keys = Object.keys(seen).sort(function (a, b) { return a.localeCompare(b); });
+      while (sel.options.length > 1) sel.remove(1);
+      for (var j = 0; j < keys.length; j++) {
+        var opt = document.createElement('option');
+        opt.value = keys[j];
+        opt.textContent = keys[j];
+        sel.appendChild(opt);
+      }
+    }
+    function buildStoryList(rows, totalAll) {
+      var ul = document.getElementById('bible-story-tool-list');
+      var countEl = document.getElementById('bible-story-tool-count');
+      var noRes = document.getElementById('bible-story-tool-no-results');
+      if (!ul || !countEl) return;
+      while (ul.firstChild) ul.removeChild(ul.firstChild);
+      if (!rows.length && totalAll > 0) {
+        ul.classList.add('hidden');
+        if (noRes) {
+          noRes.classList.remove('hidden');
+          try {
+            noRes.focus();
+          } catch (e) {}
+        }
+        countEl.textContent = 'Showing 0 of ' + totalAll + ' Bible stories.';
+        return;
+      }
+      if (noRes) noRes.classList.add('hidden');
+      ul.classList.remove('hidden');
+      countEl.textContent = 'Showing ' + rows.length + ' of ' + totalAll + ' Bible stories.';
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var li = document.createElement('li');
+        li.setAttribute('data-story-key', r.key);
+        li.setAttribute('data-theme', r.theme || '');
+        var art = document.createElement('article');
+        art.setAttribute('aria-label', r.title);
+        var h3 = document.createElement('h3');
+        h3.className = 'bible-story-tool-title';
+        var a = document.createElement('a');
+        a.href = '/kids/corner.html?story=' + encodeURIComponent(r.key);
+        a.textContent = r.title;
+        a.setAttribute('aria-label', 'Open ' + r.title + ' in Kids Story Library');
+        var hint = shortTitleHint(r);
+        if (hint) a.title = hint;
+        h3.appendChild(a);
+        art.appendChild(h3);
+        function addLine(label, val) {
+          if (!val) return;
+          var p = document.createElement('p');
+          p.className = 'bible-story-tool-line';
+          var sp = document.createElement('span');
+          sp.className = 'bible-story-tool-k';
+          sp.textContent = label;
+          p.appendChild(sp);
+          p.appendChild(document.createTextNode(' ' + String(val)));
+          art.appendChild(p);
+        }
+        addLine('Scripture:', r.kjvRef);
+        addLine('Who:', r.who);
+        addLine('To:', r.to);
+        addLine('For you:', r.apply);
+        if (r.theme) {
+          var tb = document.createElement('span');
+          tb.className = themeBadgeClass(r.theme);
+          tb.textContent = r.theme;
+          art.appendChild(tb);
+        }
+        li.appendChild(art);
+        ul.appendChild(li);
+      }
+    }
+    function filterRows() {
+      var all = window.TDB_BIBLE_STORY_TOOL_INDEX;
+      if (!all || !all.length) return;
+      var totalAll = all.length;
+      var q = (document.getElementById('bible-story-tool-search') && document.getElementById('bible-story-tool-search').value || '').trim().toLowerCase();
+      var th = (document.getElementById('bible-story-tool-theme') && document.getElementById('bible-story-tool-theme').value) || '';
+      var out = [];
+      for (var j = 0; j < all.length; j++) {
+        var r = all[j];
+        if (th && r.theme !== th) continue;
+        if (!q) {
+          out.push(r);
+          continue;
+        }
+        var hay = (r.title + ' ' + r.kjvRef + ' ' + r.kw + ' ' + r.key + ' ' + r.who + ' ' + r.to + ' ' + r.apply).toLowerCase();
+        if (hay.indexOf(q) !== -1) out.push(r);
+      }
+      buildStoryList(out, totalAll);
+    }
+    function initBibleStoryToolIndex() {
+      var all = window.TDB_BIBLE_STORY_TOOL_INDEX;
+      var ul = document.getElementById('bible-story-tool-list');
+      var c = document.getElementById('bible-story-tool-count');
+      var leadOk = document.getElementById('bible-story-tool-lead-ok');
+      var leadErr = document.getElementById('bible-story-tool-lead-err');
+      var leadCount = document.getElementById('bible-story-tool-lead-count');
+      var noRes = document.getElementById('bible-story-tool-no-results');
+      if (!all || !all.length) {
+        if (c) c.textContent = 'Story list did not load. Refresh when you are online.';
+        if (leadOk) leadOk.classList.add('hidden');
+        if (leadErr) {
+          leadErr.classList.remove('hidden');
+          leadErr.textContent = 'Stories are temporarily unavailable — check back soon, or open Kids Corner below for the full Story Library.';
+        }
+        if (ul) {
+          ul.classList.remove('hidden');
+          while (ul.firstChild) ul.removeChild(ul.firstChild);
+          var li = document.createElement('li');
+          li.className = 'bible-story-tool-empty';
+          li.textContent = 'Stories list did not load. Try again when you are online, or use Kids Story Library in Kids Corner.';
+          ul.appendChild(li);
+        }
+        if (noRes) noRes.classList.add('hidden');
+        return;
+      }
+      if (leadErr) {
+        leadErr.classList.add('hidden');
+        leadErr.textContent = '';
+      }
+      if (leadOk) leadOk.classList.remove('hidden');
+      if (leadCount) leadCount.textContent = String(all.length);
+      populateThemeSelect(all);
+      var search = document.getElementById('bible-story-tool-search');
+      var theme = document.getElementById('bible-story-tool-theme');
+      var randBtn = document.getElementById('bible-story-tool-random');
+      var randStatus = document.getElementById('bible-story-tool-random-status');
+      filterRows();
+      if (search) search.addEventListener('input', filterRows);
+      if (theme) theme.addEventListener('change', filterRows);
+      if (ul) {
+        ul.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a');
+          if (!a || !ul.contains(a)) return;
+          var li = a.closest('li');
+          if (!li) return;
+          var key = li.getAttribute('data-story-key') || '';
+          var thm = li.getAttribute('data-theme') || '';
+          if (typeof trackEvent === 'function') {
+            try {
+              trackEvent('bible_story_clicked', { story_key: key, theme: thm });
+            } catch (err) {}
+          }
+        });
+      }
+      if (randBtn) {
+        randBtn.addEventListener('click', function () {
+          if (!all.length) return;
+          var pick = all[Math.floor(Math.random() * all.length)];
+          if (randStatus) randStatus.textContent = 'Heading to a random story…';
+          if (typeof trackEvent === 'function') {
+            try {
+              trackEvent('bible_story_random', { story_key: pick.key, theme: pick.theme || '' });
+            } catch (err2) {}
+          }
+          var dest = '/kids/corner.html?story=' + encodeURIComponent(pick.key);
+          window.setTimeout(function () {
+            window.location.href = dest;
+          }, 120);
+        });
+      }
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initBibleStoryToolIndex);
+    else initBibleStoryToolIndex();
+    (function wireFeaturedStoryLink() {
+      var fe = document.getElementById('bible-story-tool-featured-link');
+      if (!fe) return;
+      fe.addEventListener('click', function () {
+        if (typeof trackEvent === 'function') {
+          try {
+            trackEvent('bible_story_featured_click', { story_key: 'davidGoliath', theme: 'Protection' });
+          } catch (e) {}
+        }
+      });
+    })();
+  })();
   </script>
 </body>
 </html>

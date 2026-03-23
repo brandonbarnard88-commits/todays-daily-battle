@@ -113,6 +113,10 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/corner',
   '/kids/index.html',
   '/kids/',
+  /** Keep ?v= in sync with kids/index.html <script src="kids-battle.js?v=…"> */
+  '/kids/kids-battle.js',
+  '/kids/kids-battle.js?v=30',
+  '/kids/kids-battle.css',
   '/assets/share/kids-loop-og.jpg',
   '/assets/share/kids-story-library-og.jpg',
   '/bible-tool.html',

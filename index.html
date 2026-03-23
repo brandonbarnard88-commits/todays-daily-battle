@@ -202,8 +202,15 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: min(30vh, 420px);
-      background: linear-gradient(to bottom, transparent, var(--bg, #000818));
+      /* Taller + stronger so long pages still read as “bright sky up top, quiet floor at the footer” */
+      height: min(52vh, 580px);
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        color-mix(in srgb, var(--bg, #0f1218) 18%, transparent) 32%,
+        color-mix(in srgb, var(--bg, #0f1218) 62%, transparent) 58%,
+        var(--bg, #0f1218) 100%
+      );
       pointer-events: none;
       z-index: 3;
     }
@@ -279,10 +286,11 @@
     /* Night: lift sky above .mood-overlay (z-index 1) so aurora and stars aren’t blended away */
     body.sky-night .sky { z-index: 2; }
     /* Time-of-day backgrounds */
-    body.sky-dawn  .sky { background: linear-gradient(180deg, #060410 0%, #1a0428 15%, #5c0a2a 36%, #8b1a0a 56%, #c84000 75%, #e86010 88%, #ff8c28 100%); }
-    body.sky-day   .sky { background: linear-gradient(180deg, #060e28 0%, #0d2a5e 28%, #1a58a0 55%, #4080c0 78%, #80b8d8 100%); }
-    body.sky-dusk  .sky { background: linear-gradient(180deg, #080314 0%, #2a0830 20%, #700820 42%, #b83008 65%, #d85510 82%, #ff8020 100%); }
-    body.sky-night .sky { background: linear-gradient(180deg, #02030e 0%, #06091a 20%, #0a0e2a 48%, #0c1030 72%, #0e0a20 88%, #120818 100%); }
+    /* Gradients: lighter toward the top (hero / sun), deepening toward the page bottom so the footer stays readable */
+    body.sky-dawn  .sky { background: linear-gradient(180deg, #ff8c28 0%, #e05018 14%, #b02818 34%, #700820 52%, #3a0828 70%, #12041a 88%, #060410 100%); }
+    body.sky-day   .sky { background: linear-gradient(180deg, #7eb8d8 0%, #4a88c0 20%, #245a92 42%, #143a62 62%, #0c2438 78%, #0a1828 90%, #0f1218 100%); }
+    body.sky-dusk  .sky { background: linear-gradient(180deg, #ff8020 0%, #c84810 18%, #881018 40%, #500818 58%, #280820 74%, #100418 90%, #080314 100%); }
+    body.sky-night .sky { background: linear-gradient(180deg, #02030e 0%, #06091a 20%, #0a0e2a 48%, #0c1030 62%, #0a0c22 78%, #070a18 90%, #0f1218 100%); }
 
     /* Parallax starfield — night only, slow strafe */
     .sky-stars-parallax {

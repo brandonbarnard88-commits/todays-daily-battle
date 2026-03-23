@@ -247,8 +247,8 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 2rem 1rem 1.75rem;
-      margin-bottom: 1.75rem;
+      padding: 2rem 1rem 1.5rem;
+      margin-bottom: 1.2rem;
       position: relative;
       z-index: 2;
       overflow: hidden;
@@ -945,12 +945,12 @@
     .site-top-links .auth-avatar { background: rgba(234, 179, 8, 0.35); color: rgba(255,255,255,0.95); border-radius: 50%; width: 26px; height: 26px; line-height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; vertical-align: middle; margin-right: 0.5rem; }
     .landing-privacy-teaser {
       text-align: center;
-      margin: 1rem auto;
+      margin: 0.35rem auto 0.25rem;
       max-width: 36rem;
       font-size: 0.88rem;
       line-height: 1.55;
       color: var(--muted);
-      padding: 0.85rem 1rem;
+      padding: 0.65rem 0.9rem;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background: color-mix(in srgb, var(--card) 88%, var(--bg) 12%);
@@ -970,7 +970,7 @@
       text-align: center;
       font-size: 0.82rem;
       color: var(--muted);
-      margin: 0.35rem auto 0;
+      margin: 0.15rem auto 0;
       max-width: 36rem;
       line-height: 1.5;
     }
@@ -987,7 +987,7 @@
       text-align: center;
       font-size: 0.82rem;
       color: var(--muted);
-      margin: 0.15rem auto 0;
+      margin: 0.1rem auto 0;
       max-width: 36rem;
       line-height: 1.5;
     }
@@ -1004,14 +1004,14 @@
     #main-content {
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.5rem;
     }
     .hero-daily-path {
       font-size: 0.84rem;
       line-height: 1.45;
       color: var(--muted);
-      margin: 0 0 1rem;
-      padding: 0.75rem 1rem;
+      margin: 0 0 0.55rem;
+      padding: 0.65rem 0.9rem;
       border-radius: 14px;
       border: 1px solid color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
       background: linear-gradient(180deg, color-mix(in srgb, var(--card) 92%, #1a2230) 0%, color-mix(in srgb, var(--bg-soft) 70%, var(--card)) 100%);
@@ -1118,7 +1118,7 @@
     /* ── Main: single column on mobile ── */
     main {
       display: grid !important;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     /* ── Desktop: two-column layout + all scaling ── */
@@ -1132,8 +1132,8 @@
       }
       main {
         grid-template-columns: 1fr 360px !important;
-        column-gap: 2rem !important;
-        row-gap: 1.5rem !important;
+        column-gap: 1.5rem !important;
+        row-gap: 1.05rem !important;
         align-items: start;
       }
       #hero-verse-wrap    { grid-column: 1 !important; grid-row: 1 / 4 !important; }
@@ -1156,7 +1156,7 @@
       main > .card:not(#verseCard):not(#plan-progress-card):not(#plans-teaser):not(#feel-section) {
         grid-column: 1 / -1 !important;
       }
-      .card              { padding: 2rem 2.25rem; }
+      .card              { padding: 1.5rem 1.65rem; }
       #heroVerse         { font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1.35; }
       #heroRef           { font-size: 1.25rem; }
       #heroBreakdown li  { font-size: 1.15rem; margin: 0.65rem 0; }
@@ -1165,7 +1165,7 @@
       #feel-search       { font-size: 1.1rem; padding: 0.95rem 1.1rem; }
       .quick-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
-        gap: 0.75rem !important;
+        gap: 0.55rem !important;
       }
     }
 
@@ -1174,7 +1174,7 @@
       background: linear-gradient(160deg, color-mix(in srgb, var(--card) 94%, #fff 6%), var(--card));
       border-radius: 20px;
       box-shadow: var(--shadow), inset 0 1px 0 color-mix(in srgb, #fff 5%, transparent);
-      padding: 1.5rem 1.4rem;
+      padding: 1.2rem 1.15rem;
     }
 
     /*
@@ -1182,8 +1182,8 @@
       explicit dimensions SVGs use the HTML default (~300×150px) — reads as a giant “logo.”
     */
     h2.section-divider {
-      margin: 0 0 0.85rem;
-      padding-bottom: 0.75rem;
+      margin: 0 0 0.6rem;
+      padding-bottom: 0.55rem;
       border-bottom: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
       box-shadow: 0 1px 0 color-mix(in srgb, var(--gold) 35%, transparent);
       font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif;
@@ -1729,9 +1729,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 0.75rem 1rem;
-      margin: 0 0 1rem;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      margin: 0 0 0.55rem;
       background: color-mix(in srgb, var(--gold) 8%, transparent);
       border: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
       border-radius: 12px;
@@ -1765,7 +1765,7 @@
     .armor-teaser-text { line-height: 1.35; }
 
     /* ── Fear → Faith Loop (Möbius) ── */
-    .mobius-loop-row { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.25rem; margin-bottom: 1rem; }
+    .mobius-loop-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; margin-bottom: 0.55rem; }
     .mobius-loop-full-link { font-size: 0.8rem; color: #bcc5d6; text-decoration: none; }
     .mobius-loop-full-link:hover { color: var(--gold-soft); }
     .mobius-loop-chip {
@@ -2398,7 +2398,7 @@
     a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
 
     /* ── Need Him right now? Single entry (calm flow) ── */
-    .calm-cta-wrap { margin-bottom: 0.75rem; }
+    .calm-cta-wrap { margin-bottom: 0.45rem; }
     .calm-cta-note { margin: 0.35rem 0 0; font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
     .calm-crisis-card {
       display: flex; align-items: center; gap: 0.6rem;
@@ -2452,7 +2452,34 @@
 
     .pwa-nudge-icon { font-size: 1.25rem; flex-shrink: 0; }
 
-    /* ── Daily Verse Image Card ── */
+    /* PWA install: index has no styles.css — hide until script adds .show */
+    .install-cta {
+      display: none;
+      margin: 0 0 0.65rem;
+      padding: 0.75rem 1rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 18%);
+      background: color-mix(in srgb, var(--card) 94%, transparent);
+      box-sizing: border-box;
+    }
+    .install-cta.show {
+      display: block;
+    }
+    .install-cta .section-note {
+      margin: 0 0 0.5rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    :root[data-theme="light"] .install-cta {
+      background: color-mix(in srgb, var(--card) 98%, transparent);
+      border-color: color-mix(in srgb, var(--line) 90%, #9e7625 10%);
+    }
+
+    /* ── Daily Verse Image Card (share uses canvas; this preview isn’t shown — keep out of layout) ── */
+    #verseImgCard.verse-img-card {
+      display: none !important;
+    }
     .verse-img-card {
       grid-column: 1 / -1;
       position: relative;
@@ -2932,7 +2959,7 @@
 
     /* ── Mood title (feel search heading) ── */
     .mood-title {
-      margin: 0 0 14px;
+      margin: 0 0 10px;
       font-size: 1rem;
       font-weight: 600;
       color: var(--gold-soft);
@@ -3213,7 +3240,7 @@
     #verseCard { cursor: pointer; }
 
     /* ── 7-Day Plan Progress ── */
-    .plan-progress-card { padding: 0.85rem 1rem; }
+    .plan-progress-card { padding: 0.7rem 0.9rem; }
     .plan-progress-header {
       display: flex;
       justify-content: space-between;
@@ -3801,14 +3828,14 @@
       background: var(--card);
       border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
       border-radius: 14px;
-      padding: 1.1rem 1.15rem;
+      padding: 0.95rem 1rem;
       margin-bottom: 0;
     }
     .plans-teaser-header {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;
     }
     .plans-teaser-thesis {
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.5rem;
       font-size: 0.84rem;
       color: var(--muted);
       line-height: 1.45;
@@ -3817,7 +3844,7 @@
     .plans-teaser-explore { font-size: 0.8rem; color: var(--gold); text-decoration: none; }
     .plans-teaser-explore:hover { text-decoration: underline; }
     .plans-teaser-banner {
-      display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;
       padding: 0.5rem 0.75rem; border-radius: 10px;
       background: color-mix(in srgb, var(--gold) 18%, transparent);
       border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
@@ -3913,8 +3940,8 @@
     .quick-grid {
       display: grid !important;
       grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important;
-      gap: 0.6rem;
-      margin: 0.85rem 0 0;
+      gap: 0.5rem;
+      margin: 0.55rem 0 0;
     }
     .quick-grid .quick-topic {
       min-height: 52px;
@@ -3947,8 +3974,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      margin: 0.1rem 0 0.6rem;
+      gap: 0.4rem;
+      margin: 0.05rem 0 0.45rem;
     }
     .share-verse-actions {
       display: flex;
@@ -3989,9 +4016,9 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 1rem 1.5rem;
-      padding: 0.65rem 0 1.1rem;
-      margin: 0 0 0.25rem;
+      gap: 0.75rem 1.25rem;
+      padding: 0.5rem 0 0.75rem;
+      margin: 0 0 0.15rem;
       border-bottom: 1px solid color-mix(in srgb, var(--line) 85%, var(--gold) 15%);
     }
     .header-sub-toolbar .share-verse-row {
@@ -4062,7 +4089,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      margin: 0.5rem 0 0.25rem;
+      margin: 0.3rem 0 0.15rem;
     }
     .verse-feedback-label {
       font-size: 0.8rem;
@@ -4089,7 +4116,7 @@
     }
     .read-chapter-row {
       text-align: center;
-      margin: 0 0 0.9rem;
+      margin: 0 0 0.35rem;
     }
     .read-chapter-link {
       display: inline-flex; align-items: center; gap: 0.35rem;
@@ -4108,7 +4135,7 @@
     }
     .explore-hero-row {
       text-align: center;
-      margin: 0 0 1.1rem;
+      margin: 0 0 0.45rem;
     }
     .explore-hero-link {
       display: inline-flex; align-items: center; gap: 0.35rem;

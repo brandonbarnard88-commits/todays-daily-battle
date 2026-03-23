@@ -69,7 +69,7 @@ if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder/i.test
 const SHARE_OG_V = '20260322';
 
 /** Service worker registration token — keep in sync with repo root SW-VERSION. */
-let SW_REG_VERSION = '20260324-sw-v103';
+let SW_REG_VERSION = '20260324-sw-v104';
 try {
   const swVerPath = join(root, 'SW-VERSION');
   if (existsSync(swVerPath)) {
@@ -84,6 +84,10 @@ const SOCIAL_PURGE_PATHS = [
   '/sw.js',
   '/service-worker.js',
   '/sw.js?v=' + SW_REG_VERSION,
+  '/assets/perf-hint.js',
+  '/verse-breakdown.js',
+  '/loops.json',
+  '/loops.json?v=20260324v7',
   '/calm.html',
   '/mobius.html',
   '/shop.html',

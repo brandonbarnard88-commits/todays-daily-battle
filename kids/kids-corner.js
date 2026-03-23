@@ -3183,6 +3183,7 @@
   var LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
   var LIBRARY_STORY_MASTER_KEY = 'kidsLibraryStoryMasterProgress';
   var LIBRARY_JOURNEY_KEY = 'kidsLibraryStoryJourneyState';
+  var LIBRARY_RECENT_KEYS = 'kidsLibraryRecentStoryKeys';
   var STORY_MASTER_THRESHOLD = 7;
   var currentOpenStoryKey = null;
   var currentVisibleKeys = [];
@@ -3574,20 +3575,50 @@
       wrap.appendChild(p);
     });
 
+    var qList = pack.questions || [];
+    var qIndex = { v: 0 };
+
+    var quizBanner = document.createElement('div');
+    quizBanner.className = 'kids-read-quiz-quiz-banner';
     var qh = document.createElement('h4');
-    qh.className = 'kids-read-quiz-h4';
-    qh.textContent = tdbPlainTextForUi(pack.quizHeading || 'Quiz');
-    wrap.appendChild(qh);
+    qh.className = 'kids-read-quiz-h4 kids-read-quiz-quiz-title';
+    qh.textContent = tdbPlainTextForUi(pack.quizHeading || 'Quiz Time!');
+    var progEl = document.createElement('div');
+    progEl.className = 'kids-read-quiz-progress';
+    progEl.setAttribute('role', 'status');
+    progEl.setAttribute('aria-live', 'polite');
+    progEl.textContent = '0 / ' + qList.length + ' answered';
+
+    var printBtn = document.createElement('button');
+    printBtn.type = 'button';
+    printBtn.className = 'btn btn-secondary kids-read-quiz-print-btn';
+    printBtn.setAttribute('aria-label', 'Print quiz sheet for ' + tdbPlainTextForUi(storyTitle));
+    printBtn.textContent = 'Print Q&A sheet';
+    printBtn.addEventListener('click', function () {
+      openKidsReadQuizPrintSheet(key, pack, storyTitle);
+    });
+
+    quizBanner.appendChild(qh);
+    quizBanner.appendChild(progEl);
+    quizBanner.appendChild(printBtn);
+    wrap.appendChild(quizBanner);
 
     var quizHost = document.createElement('div');
     quizHost.className = 'kids-read-quiz-host';
     wrap.appendChild(quizHost);
 
-    var qList = pack.questions;
-    var qIndex = { v: 0 };
+    function updateQuizProgressUi() {
+      if (!progEl || !qList.length) return;
+      if (qIndex.v >= qList.length) {
+        progEl.textContent = qList.length + ' / ' + qList.length + ' answered';
+      } else {
+        progEl.textContent = qIndex.v + ' / ' + qList.length + ' answered';
+      }
+    }
 
     function renderQuestion() {
       tdbClearHtml(quizHost);
+      updateQuizProgressUi();
       if (qIndex.v >= qList.length) {
         var done = document.createElement('div');
         done.className = 'kids-read-quiz-done';
@@ -3659,6 +3690,10 @@
       chk.type = 'button';
       chk.className = 'btn kids-btn-primary kids-read-quiz-check';
       chk.textContent = 'Check my answer';
+      chk.setAttribute(
+        'aria-label',
+        'Check answer for question ' + (qIndex.v + 1) + ' of ' + qList.length + ' — ' + tdbPlainTextForUi(storyTitle)
+      );
 
       var fb = document.createElement('div');
       fb.className = 'kids-read-quiz-feedback';
@@ -3686,6 +3721,9 @@
           Array.prototype.forEach.call(fs.querySelectorAll('input'), function (inp) { inp.disabled = true; });
           chk.classList.add('hidden');
           nxt.classList.remove('hidden');
+          setTimeout(function () {
+            try { nxt.focus(); } catch (e) {}
+          }, 0);
         } else {
           fb.textContent = tdbPlainTextForUi(qd.wrongFeedback || 'Try again—reread the story if you need a clue.');
           fb.className = 'kids-read-quiz-feedback feedback-wrong';
@@ -3737,6 +3775,44 @@
   /** Story/caption strings may carry HTML entities; decode once then escape so UI never shows &amp;amp; */
   function escHtmlPlain(value) {
     return escHtml(tdbPlainTextForUi(value));
+  }
+
+  function openKidsReadQuizPrintSheet(storyKey, pack, storyTitlePlain) {
+    try {
+      var w = window.open('', '_blank', 'noopener,noreferrer');
+      if (!w) {
+        showToast('Allow pop-ups to print your sheet.');
+        return;
+      }
+      var questions = (pack && pack.questions) ? pack.questions : [];
+      var html = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>' + escHtmlPlain(storyTitlePlain || storyKey) + '</title>';
+      html += '<style>body{font-family:system-ui,sans-serif;padding:1rem;line-height:1.45;color:#111}h1{font-size:1.15rem}p{margin:0.45rem 0}details{margin:0.45rem 0}.hint{font-size:0.85rem;color:#444}summary{cursor:pointer}</style></head><body>';
+      html += '<h1>' + escHtmlPlain(storyTitlePlain || storyKey) + '</h1>';
+      if (pack && pack.kjvRef) html += '<p><strong>Scripture:</strong> ' + escHtmlPlain(pack.kjvRef) + '</p>';
+      for (var pi = 0; pi < questions.length; pi++) {
+        var qd = questions[pi];
+        html += '<p><strong>Q' + (pi + 1) + '.</strong> ' + escHtmlPlain(qd.question) + '</p>';
+        var hintTxt = qd.wrongFeedback ? String(qd.wrongFeedback).substring(0, 240) : '';
+        if (hintTxt) html += '<p class="hint">Hint: ' + escHtmlPlain(hintTxt) + '</p>';
+        var correctLabel = (qd.choices && qd.correctIndex != null && qd.choices[qd.correctIndex]) ? qd.choices[qd.correctIndex] : '';
+        html += '<details><summary>Show answer</summary><p>' + escHtmlPlain(correctLabel) + '</p></details>';
+      }
+      html += '</body></html>';
+      var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      var u = URL.createObjectURL(blob);
+      w.location.href = u;
+      setTimeout(function () {
+        try {
+          w.focus();
+          w.print();
+        } catch (e) {}
+        try {
+          URL.revokeObjectURL(u);
+        } catch (e2) {}
+      }, 450);
+    } catch (e) {
+      showToast('Could not open print.');
+    }
   }
 
   function escAttr(value) {
@@ -3901,11 +3977,50 @@
     } catch (e) { return []; }
   }
 
+  function pushRecentStoryKey(key) {
+    if (!key) return;
+    try {
+      var raw = localStorage.getItem(LIBRARY_RECENT_KEYS);
+      var arr = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(arr)) arr = [];
+      arr = arr.filter(function (k) { return k !== key; });
+      arr.unshift(key);
+      if (arr.length > 32) arr = arr.slice(0, 32);
+      localStorage.setItem(LIBRARY_RECENT_KEYS, JSON.stringify(arr));
+    } catch (e) {}
+  }
+
+  function tierFromStoryCount(n, total) {
+    var t = Math.max(1, total || 1);
+    if (n >= t) return 'platinum';
+    if (n >= 100) return 'gold';
+    if (n >= 30) return 'silver';
+    if (n >= STORY_MASTER_THRESHOLD) return 'bronze';
+    return 'none';
+  }
+
+  function tierStoryRank(name) {
+    return { none: 0, bronze: 1, silver: 2, gold: 3, platinum: 4 }[name] || 0;
+  }
+
   function addStoryMasterProgress(key) {
     var list = getStoryMasterList();
-    if (list.indexOf(key) === -1) {
-      list.push(key);
-      try { localStorage.setItem(LIBRARY_STORY_MASTER_KEY, JSON.stringify(list)); } catch (e) {}
+    if (list.indexOf(key) !== -1) {
+      renderStoryMaster();
+      return;
+    }
+    var total = getStoryKeys().length;
+    var beforeTier = tierFromStoryCount(list.length, total);
+    list.push(key);
+    try { localStorage.setItem(LIBRARY_STORY_MASTER_KEY, JSON.stringify(list)); } catch (e) {}
+    var afterTier = tierFromStoryCount(list.length, total);
+    if (tierStoryRank(afterTier) > tierStoryRank(beforeTier)) {
+      try {
+        document.body.classList.add('kids-tier-confetti-burst');
+        setTimeout(function () {
+          document.body.classList.remove('kids-tier-confetti-burst');
+        }, 2600);
+      } catch (e) {}
     }
     renderStoryMaster();
   }
@@ -3917,8 +4032,21 @@
 
   function renderStoryMaster() {
     if (!storyMasterEl) return;
+    migrateStoryMasterFromLegacyViewed();
     var done = getStoryMasterList();
-    storyMasterEl.classList.toggle('hidden', done.length < STORY_MASTER_THRESHOLD);
+    var total = Math.max(1, getStoryKeys().length);
+    var n = done.length;
+    var pct = Math.min(100, Math.round((n / total) * 1000) / 10);
+    var t = tierFromStoryCount(n, total);
+    var labels = { none: 'Getting started', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
+    var next = '';
+    if (n < STORY_MASTER_THRESHOLD) next = ' Next tier: Bronze at ' + STORY_MASTER_THRESHOLD + ' stories finished.';
+    else if (n < 30) next = ' Next tier: Silver at 30.';
+    else if (n < 100) next = ' Next tier: Gold at 100.';
+    else if (n < total) next = ' Next tier: Platinum when you finish all ' + total + '.';
+    else next = ' You finished the whole library!';
+    storyMasterEl.textContent = '🏆 Story Master — ' + labels[t] + ' • ' + pct + '% (' + n + '/' + total + ').' + next;
+    storyMasterEl.classList.remove('hidden');
   }
 
   var KIDS_SEMANTIC_MAP = {
@@ -4082,6 +4210,7 @@
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
+    pushRecentStoryKey(key);
     if (modalTitle) modalTitle.textContent = tdbPlainTextForUi(s.title || key);
     clearStoryVideoContainer(modalVideo);
     if (hasFullVideo && fullMedia) {
@@ -4283,6 +4412,172 @@
       || pool.find(function (v) { return /samantha|allison|aaron|zoe|nicky|susan/i.test(v.name || ''); })
       || pool[0];
     kidsPreferredNarrationVoice = pick || null;
+  }
+
+  function shuffleChallengePool(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+    }
+    return a;
+  }
+
+  function removeQuizChallengeOverlay() {
+    var ov = document.getElementById('kids-quiz-challenge-overlay');
+    if (ov && ov.parentNode) ov.parentNode.removeChild(ov);
+  }
+
+  function startQuizChallenge() {
+    var rq = window.TDB_KIDS_READ_QUIZ || {};
+    var pool = [];
+    var allKeys = getStoryKeys();
+    for (var i = 0; i < allKeys.length; i++) {
+      var k = allKeys[i];
+      var pk = rq[k];
+      if (pk && pk.questions && pk.questions.length) pool.push(k);
+    }
+    if (pool.length < 5) {
+      showToast('Quiz bundle still loading—refresh and try again.');
+      return;
+    }
+    pool = shuffleChallengePool(pool);
+    var picked = pool.slice(0, 5);
+    removeQuizChallengeOverlay();
+
+    var overlay = document.createElement('div');
+    overlay.id = 'kids-quiz-challenge-overlay';
+    overlay.className = 'kids-quiz-challenge-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Quiz challenge');
+    overlay.setAttribute('tabindex', '-1');
+
+    var state = { keys: picked, correct: 0, idx: 0 };
+
+    function renderChStep() {
+      tdbClearHtml(overlay);
+      if (state.idx >= state.keys.length) {
+        var xp = 5 + state.correct * 3;
+        try {
+          var prevXp = parseInt(localStorage.getItem('kidsQuizChallengeXp') || '0', 10) || 0;
+          localStorage.setItem('kidsQuizChallengeXp', String(prevXp + xp));
+        } catch (e) {}
+        if (typeof window.trackEvent === 'function') {
+          try { window.trackEvent('kids_quiz_challenge_complete', { score: String(state.correct) }); } catch (e) {}
+        }
+        var doneSheet = document.createElement('div');
+        doneSheet.className = 'kids-quiz-challenge-sheet';
+        var h2 = document.createElement('h2');
+        h2.id = 'kids-quiz-challenge-title';
+        h2.textContent = 'Challenge complete!';
+        var p1 = document.createElement('p');
+        p1.textContent = 'You got ' + state.correct + ' of ' + picked.length + ' on the first try.';
+        var p2 = document.createElement('p');
+        p2.className = 'kids-quiz-challenge-xp';
+        p2.textContent = '+' + xp + ' challenge points';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn kids-btn-primary';
+        btn.id = 'kids-quiz-challenge-close';
+        btn.textContent = 'Done';
+        btn.addEventListener('click', function () { removeQuizChallengeOverlay(); });
+        doneSheet.appendChild(h2);
+        doneSheet.appendChild(p1);
+        doneSheet.appendChild(p2);
+        doneSheet.appendChild(btn);
+        overlay.appendChild(doneSheet);
+        showToast('Challenge complete!');
+        try { btn.focus(); } catch (e) {}
+        return;
+      }
+      var key = state.keys[state.idx];
+      var pk = rq[key];
+      var st = getStories()[key] || {};
+      var title = tdbPlainTextForUi(st.title || key);
+      var qd = pk.questions[0];
+      var shuffled = shuffleReadQuizChoices(qd.choices, qd.correctIndex);
+      var sheet = document.createElement('div');
+      sheet.className = 'kids-quiz-challenge-sheet';
+      var h = document.createElement('h2');
+      h.textContent = 'Quiz challenge';
+      var sub = document.createElement('p');
+      sub.className = 'kids-quiz-challenge-sub';
+      sub.textContent = 'Story ' + (state.idx + 1) + ' of ' + picked.length + ': ' + title;
+      var qP = document.createElement('p');
+      qP.textContent = tdbPlainTextForUi(qd.question);
+      var fs = document.createElement('fieldset');
+      var gname = 'chq-' + state.idx;
+      var leg = document.createElement('legend');
+      leg.className = 'sr-only';
+      leg.textContent = tdbPlainTextForUi(qd.question);
+      fs.appendChild(leg);
+      shuffled.labels.forEach(function (lbl, ci) {
+        var id = gname + '-c' + ci;
+        var row = document.createElement('div');
+        row.className = 'kids-read-quiz-choice';
+        var inp = document.createElement('input');
+        inp.type = 'radio';
+        inp.name = gname;
+        inp.id = id;
+        inp.value = String(ci);
+        var lab = document.createElement('label');
+        lab.setAttribute('for', id);
+        lab.textContent = tdbPlainTextForUi(lbl);
+        row.appendChild(inp);
+        row.appendChild(lab);
+        fs.appendChild(row);
+      });
+      var chk = document.createElement('button');
+      chk.type = 'button';
+      chk.className = 'btn kids-btn-primary';
+      chk.setAttribute('aria-label', 'Check answer for this challenge question');
+      chk.textContent = 'Check';
+      var fb = document.createElement('div');
+      fb.className = 'kids-read-quiz-feedback';
+      fb.setAttribute('aria-live', 'polite');
+      chk.addEventListener('click', function () {
+        var sel = fs.querySelector('input[name="' + gname + '"]:checked');
+        if (!sel) {
+          fb.textContent = 'Pick an answer first.';
+          return;
+        }
+        var pickedIdx = parseInt(sel.value, 10);
+        if (pickedIdx === shuffled.correctIndex) {
+          state.correct += 1;
+          fb.textContent = tdbPlainTextForUi(qd.correctFeedback || 'Yes!');
+          state.idx += 1;
+          setTimeout(function () { renderChStep(); }, 420);
+        } else {
+          fb.textContent = tdbPlainTextForUi(qd.wrongFeedback || 'Try again—or open the story for a hint.');
+        }
+      });
+      var skip = document.createElement('button');
+      skip.type = 'button';
+      skip.className = 'btn btn-secondary';
+      skip.textContent = 'Exit quiz challenge';
+      skip.addEventListener('click', function () { removeQuizChallengeOverlay(); });
+      sheet.appendChild(h);
+      sheet.appendChild(sub);
+      sheet.appendChild(qP);
+      sheet.appendChild(fs);
+      sheet.appendChild(chk);
+      sheet.appendChild(fb);
+      sheet.appendChild(skip);
+      overlay.appendChild(sheet);
+      try { chk.focus(); } catch (e) {}
+    }
+
+    document.body.appendChild(overlay);
+    overlay.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') {
+        ev.preventDefault();
+        removeQuizChallengeOverlay();
+      }
+    });
+    renderChStep();
   }
 
   function init() {
@@ -4639,6 +4934,17 @@
         continueJourney();
       } else if (randomParam === '1' && currentVisibleKeys.length) {
         openStory(currentVisibleKeys[Math.floor(Math.random() * currentVisibleKeys.length)]);
+      }
+    } catch (e) {}
+
+    try {
+      var pEnd = new URLSearchParams(location.search);
+      var skCh = resolveStoryKey(pEnd.get('story'));
+      if (pEnd.get('challenge') === '1' && !skCh) {
+        pEnd.delete('challenge');
+        var qsCh = pEnd.toString();
+        history.replaceState({}, '', location.pathname + (qsCh ? '?' + qsCh : '') + location.hash);
+        setTimeout(function () { startQuizChallenge(); }, 700);
       }
     } catch (e) {}
   }

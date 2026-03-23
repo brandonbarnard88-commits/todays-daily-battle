@@ -120,6 +120,8 @@
   const KIDS_VERSE_INDEX_KEY = 'kidsVerseIndex';
   const KIDS_FAMILY_CODE_KEY = 'familyCode';
   const KIDS_LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
+  const KIDS_LIB_STORY_MASTER_KEY = 'kidsLibraryStoryMasterProgress';
+  const KIDS_LIB_RECENT_KEYS = 'kidsLibraryRecentStoryKeys';
   const KID_NAME_KEY = 'kidName';
   const KID_REFLECTION_KEY = 'kidReflection';
   const KID_QUIZ_DONE_KEY = 'kidQuizDone';
@@ -7448,6 +7450,96 @@
     });
   }
 
+  function tierFromStoryCountHome(n, total) {
+    var t = Math.max(1, total || 1);
+    if (n >= t) return 'platinum';
+    if (n >= 100) return 'gold';
+    if (n >= 30) return 'silver';
+    if (n >= 7) return 'bronze';
+    return 'none';
+  }
+
+  function renderKidsCornerHomeExtras() {
+    var panel = document.getElementById('kids-home-story-master');
+    var barEl = document.getElementById('kids-home-story-master-bar');
+    var fill = document.getElementById('kids-home-story-master-bar-fill');
+    var carEl = document.getElementById('kids-continue-carousel');
+    if (!panel && !carEl) return;
+    var stories = window.TDB_BIBLE_STORIES || {};
+    var total = (window.TDB_BIBLE_STORY_KEYS && window.TDB_BIBLE_STORY_KEYS.length) || Object.keys(stories).length;
+    if (!total) return;
+    var countBadge = document.getElementById('kids-home-story-count-badge');
+    if (countBadge) countBadge.textContent = total + ' Bible stories';
+    var done = [];
+    try {
+      var raw = localStorage.getItem(KIDS_LIB_STORY_MASTER_KEY);
+      done = raw ? JSON.parse(raw) : [];
+    } catch (e) {}
+    if (!Array.isArray(done)) done = [];
+    var doneSet = {};
+    for (var di = 0; di < done.length; di++) doneSet[done[di]] = true;
+    var n = done.length;
+    var pct = Math.min(100, Math.round((n / total) * 1000) / 10);
+    var tier = tierFromStoryCountHome(n, total);
+    var labels = { none: 'Getting started', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
+    if (panel) {
+      panel.textContent = 'Story Master: ' + labels[tier] + ' • ' + pct + '% (' + n + '/' + total + ' stories finished).';
+    }
+    if (barEl && fill) {
+      barEl.setAttribute('aria-valuenow', String(Math.round(pct)));
+      barEl.setAttribute('aria-valuemax', '100');
+      barEl.setAttribute('aria-valuemin', '0');
+      barEl.setAttribute('aria-label', 'Story library progress ' + pct + ' percent');
+      fill.style.width = pct + '%';
+    }
+    if (!carEl) return;
+    tdbClearHtml(carEl);
+    var recent = [];
+    try {
+      var r2 = localStorage.getItem(KIDS_LIB_RECENT_KEYS);
+      recent = r2 ? JSON.parse(r2) : [];
+    } catch (e) {}
+    if (!Array.isArray(recent)) recent = [];
+    var picks = [];
+    for (var j = 0; j < recent.length && picks.length < 5; j++) {
+      var kj = recent[j];
+      if (stories[kj] && !doneSet[kj]) picks.push(kj);
+    }
+    if (picks.length === 0) {
+      var feat = ['david', 'noah', 'jesus', 'daniel', 'jonah'];
+      for (var f = 0; f < feat.length && picks.length < 5; f++) {
+        if (stories[feat[f]]) picks.push(feat[f]);
+      }
+    }
+    var h3 = document.createElement('h3');
+    h3.className = 'kids-continue-carousel-title';
+    h3.textContent = 'Continue reading';
+    carEl.appendChild(h3);
+    var row = document.createElement('div');
+    row.className = 'kids-continue-carousel-row';
+    if (picks.length === 0) {
+      var empty = document.createElement('p');
+      empty.className = 'section-note';
+      empty.textContent = 'Open stories in the Library to see picks here.';
+      row.appendChild(empty);
+    } else {
+      for (var pi = 0; pi < picks.length; pi++) {
+        var pk = picks[pi];
+        var st = stories[pk];
+        var card = document.createElement('a');
+        card.href = 'corner.html?story=' + encodeURIComponent(pk);
+        card.className = 'kids-continue-card';
+        var tt = document.createElement('span');
+        tt.className = 'kids-continue-card-title';
+        tt.textContent = tdbPlainTextForUi(st.title || pk);
+        card.appendChild(tt);
+        card.setAttribute('aria-label', 'Continue reading: ' + tdbPlainTextForUi(st.title || pk));
+        row.appendChild(card);
+      }
+    }
+    carEl.appendChild(row);
+  }
+
   function renderStoryOfDay() {
     var el = document.getElementById('kids-story-of-day');
     var thumb = document.getElementById('kids-story-of-day-thumb');
@@ -7566,6 +7658,7 @@
       function () { renderComeBackNudge(); },
       function () { renderBadges(); },
       function () { renderStoryOfDay(); },
+      function () { renderKidsCornerHomeExtras(); },
       function () { updateKidGreeting(); },
       function () { showKidNameModalIfNeeded(); },
       function () { wireKidNameModal(); },

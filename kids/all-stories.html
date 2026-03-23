@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260326clean"></script>
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Bible Stories A–Z • Kids Battle • Today's Daily Battle</title>
+  <meta name="description" content="Browse every Kids Bible story A–Z: title, KJV reference, theme, and a one-line “For you” teaser. Tap through to read-aloud and quizzes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/all-stories.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260309p">
+  <link rel="stylesheet" href="kids-battle.css?v=15">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .kids-all-stories-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+    .kids-all-stories-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+    .kids-all-stories-table th,
+    .kids-all-stories-table td {
+      padding: 0.55rem 0.65rem;
+      border-bottom: 1px solid rgba(255, 217, 61, 0.15);
+      text-align: left;
+      vertical-align: top;
+    }
+    .kids-all-stories-table th {
+      font-family: 'Bangers', cursive;
+      color: var(--kids-yellow);
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+    }
+    .kids-all-stories-table a {
+      color: var(--kids-yellow);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .kids-all-stories-table a:focus-visible {
+      outline: 2px solid var(--kids-yellow);
+      outline-offset: 2px;
+    }
+    .kids-all-stories-teaser {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      line-height: 1.35;
+      max-width: 28rem;
+    }
+    .kids-all-stories-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .kids-all-stories-toolbar .kids-search-input { flex: 1 1 220px; min-width: 0; }
+    .kids-all-stories-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid var(--kids-yellow);
+      background: rgba(255, 217, 61, 0.12);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #fef08a;
+    }
+    @media (max-width: 720px) {
+      .kids-all-stories-table .kids-col-theme { display: none; }
+    }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
+        <a href="/kids/">Kids Battle Home</a>
+        <a href="corner.html">Bible Story Library</a>
+        <a href="parent.html">Parent Dashboard</a>
+      </nav>
+      <a href="parent.html" class="kids-parent-link-mobile" aria-label="Parent Dashboard">Parents</a>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner kids-battle-inner">
+        <header class="kids-battle-hero">
+          <h1 class="kids-battle-title">All Bible Stories</h1>
+          <p class="sr-only">Each story opens at corner.html?story= followed by the story key.</p>
+          <p class="kids-battle-tagline">Every title in the library—A–Z—with one-line “For you” teasers. Tap a row to open read-aloud, pictures, and quizzes.</p>
+          <p id="kids-all-stories-count" class="section-note util-mb-0_25" aria-live="polite"></p>
+        </header>
+
+        <section class="kids-search-section glass" role="region" aria-label="Search all stories">
+          <h2 class="kids-section-title">Find &amp; sort</h2>
+          <div class="kids-all-stories-toolbar">
+            <span id="kids-all-stories-total-badge" class="kids-all-stories-badge" aria-label="Total story count">Story count: —</span>
+            <input type="search" id="kids-all-stories-search" class="kids-search-input" placeholder="Search title, reference, theme, or keyword…" autocomplete="off" aria-label="Filter stories">
+            <button type="button" id="kids-all-stories-sort" class="btn btn-secondary" aria-pressed="true" aria-label="Toggle sort order">Sort Z–A</button>
+          </div>
+          <p class="section-note util-mb-0_5">The full title list PDF lives on the <a href="corner.html">Bible Story Library</a> page (Download Story Library List).</p>
+          <div class="kids-reflection-buttons">
+            <a href="corner.html" class="btn kids-btn-primary">Open Story Library</a>
+            <button type="button" id="kids-all-stories-random" class="btn kids-btn-memory">Random Story</button>
+            <a href="/kids/" class="btn btn-secondary">← Kids Battle Home</a>
+          </div>
+        </section>
+
+        <section class="glass kids-all-stories-wrap" role="region" aria-label="All stories A–Z">
+          <h2 class="kids-section-title">A–Z list</h2>
+          <table class="kids-all-stories-table">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Scripture</th>
+                <th scope="col" class="kids-col-theme">Theme</th>
+                <th scope="col">For you (teaser)</th>
+              </tr>
+            </thead>
+            <tbody id="kids-all-stories-tbody"></tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+
+    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p>© 2026 Kids Battle – Faith Trail for Kids</p>
+      <a href="/privacy.html">Privacy</a>
+    </footer>
+
+    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+      <a href="/kids/">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span class="kids-bottom-nav-label">Home</span>
+      </a>
+      <a href="corner.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖼️</span>
+        <span class="kids-bottom-nav-label">Corner</span>
+      </a>
+      <a href="parent.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
+        <span class="kids-bottom-nav-label">Parent</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="bible-story-tool-index.js?v=20260327kidsmax"></script>
+  <script src="kids-all-stories.js?v=20260327kidsmax" defer></script>
+  <script type="module" src="../script.js?v=20260326clean" data-cfasync="false" defer></script>
+</body>
+</html>

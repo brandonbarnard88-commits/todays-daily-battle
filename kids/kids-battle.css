@@ -2416,3 +2416,157 @@
     font-size: 0.88rem;
   }
 }
+
+/* Kids Corner — full-library browse, quiz banner, challenge overlay, home progress */
+.kids-read-quiz-quiz-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.75rem 0 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  border: 2px solid rgba(250, 204, 21, 0.35);
+  background: rgba(15, 23, 42, 0.6);
+}
+.kids-read-quiz-quiz-title {
+  margin: 0;
+  flex: 1 1 140px;
+}
+.kids-read-quiz-progress {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fef08a;
+}
+.kids-read-quiz-print-btn {
+  min-height: 44px;
+}
+.kids-tier-confetti-burst {
+  animation: kids-tier-confetti-burst-anim 2.4s ease-out forwards;
+}
+@keyframes kids-tier-confetti-burst-anim {
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(250, 204, 21, 0);
+  }
+  25% {
+    box-shadow: inset 0 0 80px 0 rgba(250, 204, 21, 0.25);
+  }
+  100% {
+    box-shadow: inset 0 0 0 0 rgba(250, 204, 21, 0);
+  }
+}
+.kids-quiz-challenge-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 850;
+  background: rgba(8, 11, 18, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.kids-quiz-challenge-sheet {
+  max-width: 420px;
+  width: 100%;
+  background: #131926;
+  border: 2px solid var(--kids-yellow);
+  border-radius: 16px;
+  padding: 1.25rem 1.1rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+.kids-quiz-challenge-sheet h2 {
+  font-family: 'Bangers', cursive;
+  color: var(--kids-yellow);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.04em;
+}
+.kids-quiz-challenge-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin: 0 0 0.75rem;
+}
+.kids-quiz-challenge-xp {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: #fef08a;
+}
+.kids-library-home-progress .kids-story-count-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 2px solid var(--kids-yellow);
+  background: rgba(255, 217, 61, 0.12);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #fef08a;
+}
+.kids-home-story-master {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin: 0.5rem 0 0.35rem;
+  line-height: 1.4;
+}
+.kids-home-story-master-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin: 0.5rem 0 1rem;
+}
+.kids-home-story-master-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--kids-orange), var(--kids-yellow));
+  transition: width 0.35s ease;
+}
+.kids-continue-carousel {
+  margin-top: 0.25rem;
+}
+.kids-continue-carousel-title {
+  font-family: 'Bangers', cursive;
+  font-size: 1.1rem;
+  color: var(--kids-yellow);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.03em;
+}
+.kids-continue-carousel-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  padding-bottom: 0.35rem;
+  scroll-snap-type: x proximity;
+}
+.kids-continue-card {
+  flex: 0 0 auto;
+  min-width: 140px;
+  max-width: 200px;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  border: 2px solid rgba(250, 204, 21, 0.45);
+  background: rgba(15, 23, 42, 0.85);
+  text-decoration: none;
+  color: #fef08a;
+  scroll-snap-align: start;
+}
+.kids-continue-card:focus-visible {
+  outline: 2px solid var(--kids-yellow);
+  outline-offset: 2px;
+}
+.kids-continue-card-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}

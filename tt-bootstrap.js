@@ -235,3 +235,19 @@
     return window.tdbCleanForPlainDisplay(s);
   };
 })();
+
+/** Subtle site-wide humility line — appended once per page (pages that load tt-bootstrap.js). */
+(function tdbHumilityFooterOnce() {
+  if (typeof document === 'undefined') return;
+  function place() {
+    if (document.querySelector('.tdb-site-humility')) return;
+    if (!document.body) return;
+    var p = document.createElement('p');
+    p.className = 'tdb-site-humility';
+    p.setAttribute('role', 'note');
+    p.textContent = "We're not perfect. He is. Hand it over.";
+    document.body.appendChild(p);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', place);
+  else place();
+})();

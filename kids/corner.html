@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bible Story Library • Kids Battle • Today's Daily Battle</title>
-  <meta name="description" content="Kids Bible Story Library—cartoon panels, KJV verse hooks, read-and-quiz, optional video, and Color Me. Starter stories load in-page; full grid needs JavaScript.">
+  <meta name="description" id="tdb-kids-story-meta-desc" content="Kids Bible Story Library—cartoon panels, KJV verse hooks, read-and-quiz, optional video, and Color Me. Starter stories load in-page; full grid needs JavaScript.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/corner.html">
   <meta property="og:site_name" content="Today's Daily Battle">
@@ -41,7 +41,7 @@
   <script nonce="tdb2025s">window.TDB_PANEL_RASTER = false;</script>
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=17">
+  <link rel="stylesheet" href="kids-battle.css?v=19">
   <link rel="stylesheet" href="canvas.css?v=1">
   <style>
     .kids-library-grid {
@@ -469,11 +469,12 @@
 
         <section class="kids-search-section glass" role="region" aria-label="Search stories">
           <h2 class="kids-section-title">Find a story</h2>
-          <form id="kids-library-search-form" class="kids-search-form" action="#" novalidate>
-            <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Try titles, typos, or a short description (e.g. giant david, fish jonah)…" autocomplete="off" aria-describedby="kids-library-search-hint">
+          <form id="kids-library-search-form" class="kids-search-form kids-library-search-form-wrap" action="#" novalidate>
+            <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Type story, character, or theme (typos ok!)" autocomplete="off" aria-describedby="kids-library-search-hint" aria-autocomplete="list" aria-controls="kids-library-search-suggest" aria-expanded="false">
             <button type="submit" class="btn kids-btn-primary kids-search-btn">Search</button>
+            <div id="kids-library-search-suggest" class="kids-library-search-suggest hidden" role="listbox" aria-label="Top story matches"></div>
           </form>
-          <p id="kids-library-search-hint" class="section-note util-mb-0_5">Search is fuzzy: reordered words and small typos usually still find the right story.</p>
+          <p id="kids-library-search-hint" class="section-note util-mb-0_5">Search is fuzzy: reordered words and small typos usually still find the right story. Story loading… if a link feels stuck, hard-refresh once.</p>
           <div class="kids-library-filters">
             <label for="kids-library-theme" class="kids-library-theme-label">Theme</label>
             <select id="kids-library-theme" class="kids-library-theme-select" aria-label="Filter by theme">
@@ -540,6 +541,7 @@
     </noscript>
 
     <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-humility util-mb-0_25">We&apos;re not perfect. He is. Hand it over.</p>
       <p class="footer-humility">We battle. He wins.</p>
       <div id="kids-corner-story-master-footer" class="kids-corner-story-master-footer" role="region" aria-label="Story Master progress">
         <span class="kids-corner-story-master-label">Story Master:</span>
@@ -586,6 +588,7 @@
         <button type="button" id="kids-story-next-btn" class="btn kids-btn-primary">Next Story →</button>
       </div>
       <div id="kids-library-toast" class="kids-library-toast hidden" role="status" aria-live="polite"></div>
+      <p class="kids-story-modal-footnote section-note util-mt-0_75">We&rsquo;re not perfect&mdash;He&rsquo;s got it.</p>
     </div>
   </div>
 
@@ -648,10 +651,12 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="kids-read-quiz-data.js?v=20260330kidslib"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
-  <script src="kids-battle.js?v=20260330kidslib" defer></script>
+  <script src="kids-battle.js?v=20260323kidslib" defer></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=20260331kidsfuzzy" defer></script>
+  <script src="kids-story-fuse-search.js?v=20260323fuse" defer></script>
+  <script src="kids-corner.js?v=20260323kidslib" defer></script>
   <script type="module" src="../script.js?v=20260326clean" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

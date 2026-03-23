@@ -12908,6 +12908,31 @@ const coloringStories = [
     `
   },
   {
+    id: 'jesus',
+    title: 'Jesus and the Little Children (Mark 10)',
+    svg: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600">
+        <rect width="900" height="600" fill="white"/>
+        <circle cx="460" cy="220" r="52" fill="none" stroke="black" stroke-width="4"/>
+        <line x1="460" y1="272" x2="460" y2="400" stroke="black" stroke-width="4"/>
+        <line x1="460" y1="320" x2="380" y2="360" stroke="black" stroke-width="4"/>
+        <line x1="460" y1="320" x2="540" y2="360" stroke="black" stroke-width="4"/>
+        <line x1="460" y1="400" x2="420" y2="480" stroke="black" stroke-width="4"/>
+        <line x1="460" y1="400" x2="500" y2="480" stroke="black" stroke-width="4"/>
+        <circle cx="320" cy="300" r="36" fill="none" stroke="black" stroke-width="3"/>
+        <line x1="320" y1="336" x2="320" y2="420" stroke="black" stroke-width="3"/>
+        <line x1="320" y1="360" x2="280" y2="390" stroke="black" stroke-width="3"/>
+        <line x1="320" y1="360" x2="360" y2="390" stroke="black" stroke-width="3"/>
+        <circle cx="600" cy="300" r="34" fill="none" stroke="black" stroke-width="3"/>
+        <line x1="600" y1="334" x2="600" y2="410" stroke="black" stroke-width="3"/>
+        <line x1="600" y1="360" x2="565" y2="385" stroke="black" stroke-width="3"/>
+        <line x1="600" y1="360" x2="635" y2="385" stroke="black" stroke-width="3"/>
+        <path d="M200 120 Q450 40 700 120" fill="none" stroke="black" stroke-width="3"/>
+        <text x="40" y="560" font-size="26" font-family="Arial" fill="black">Suffer the little children to come unto me. (Mark 10:14)</text>
+      </svg>
+    `
+  },
+  {
     id: 'storm',
     title: 'Jesus Calms the Storm (Mark 4)',
     svg: `
@@ -15991,6 +16016,41 @@ function populateColoringStories() {
     opt.textContent = story.title;
     select.appendChild(opt);
   });
+  buildColoringSheetGrid();
+}
+
+/** Big tap targets on coloring.html — pairs with #story-select + canvas. */
+function buildColoringSheetGrid() {
+  const grid = document.getElementById('coloring-sheet-grid');
+  if (!grid) return;
+  grid.textContent = '';
+  coloringStories.forEach(function (story) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'coloring-sheet-card';
+    btn.setAttribute('data-story-id', story.id);
+    btn.setAttribute('aria-label', 'Open coloring sheet: ' + String(story.title || story.id));
+    const title = document.createElement('span');
+    title.className = 'coloring-sheet-card-title';
+    title.textContent = String(story.title || story.id);
+    btn.appendChild(title);
+    const hint = document.createElement('span');
+    hint.className = 'coloring-sheet-card-hint';
+    hint.textContent = 'Tap — then paint below';
+    btn.addEventListener('click', function () {
+      const sel = document.getElementById('story-select');
+      if (sel) {
+        sel.value = story.id;
+        sel.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      loadStoryIntoCanvas(getStoryById(story.id));
+      const sec = document.getElementById('coloring-stories');
+      if (sec && typeof sec.scrollIntoView === 'function') {
+        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+    grid.appendChild(btn);
+  });
 }
 
 function getStoryById(id) {
@@ -16009,8 +16069,21 @@ function loadStoryIntoCanvas(story) {
   const svgBlob = new Blob([story.svg], { type: 'image/svg+xml' });
   const url = URL.createObjectURL(svgBlob);
   img.onload = () => {
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    URL.revokeObjectURL(url);
+    try {
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  };
+  img.onerror = () => {
+    try {
+      URL.revokeObjectURL(url);
+    } catch (e) {}
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#1e293b';
+    ctx.font = '22px sans-serif';
+    ctx.fillText('This sheet did not load. Try another story or refresh the page.', 32, 72);
   };
   img.src = url;
 }
@@ -16037,12 +16110,13 @@ function setupColoringCanvas() {
 
   function startPaint(evt) {
     painting = true;
-    draw(evt);
+    const p = getPos(evt);
+    ctx.beginPath();
+    ctx.moveTo(p.x, p.y);
   }
 
   function endPaint() {
     painting = false;
-    ctx.beginPath();
   }
 
   function draw(evt) {
@@ -16050,6 +16124,7 @@ function setupColoringCanvas() {
     const { x, y } = getPos(evt);
     ctx.lineWidth = Number(sizeInput.value);
     ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     ctx.strokeStyle = colorInput.value;
     ctx.lineTo(x, y);
     ctx.stroke();
@@ -16064,12 +16139,12 @@ function setupColoringCanvas() {
 
   canvas.addEventListener('touchstart', (evt) => {
     evt.preventDefault();
-    startPaint(evt.touches[0]);
+    if (evt.touches && evt.touches[0]) startPaint(evt.touches[0]);
   }, { passive: false });
   canvas.addEventListener('touchend', endPaint);
   canvas.addEventListener('touchmove', (evt) => {
     evt.preventDefault();
-    draw(evt.touches[0]);
+    if (evt.touches && evt.touches[0]) draw(evt.touches[0]);
   }, { passive: false });
 }
 
@@ -21078,7 +21153,8 @@ function sanitizeNudgeElements() {
   setupColoringCanvas();
   const storySelect = document.getElementById('story-select');
   if (storySelect) {
-    var storyParam = (typeof URLSearchParams !== 'undefined' && window.location.search) ? new URLSearchParams(window.location.search).get('story') : null;
+    var _colorParams = (typeof URLSearchParams !== 'undefined' && window.location.search) ? new URLSearchParams(window.location.search) : null;
+    var storyParam = _colorParams ? (_colorParams.get('story') || _colorParams.get('theme')) : null;
     var storyToLoad = storyParam && coloringStories.some(function (s) { return s.id === storyParam; })
       ? getStoryById(storyParam)
       : getStoryById(storySelect.value);
@@ -22784,6 +22860,18 @@ function wireRandomBattleVerseHero() {
 }
 
 (function runTdbAndFooter() {
+  (function injectTdbHumilityLine() {
+    try {
+      if (document.querySelector('.tdb-site-humility')) return;
+      if (!document.body) return;
+      var p = document.createElement('p');
+      p.className = 'tdb-site-humility';
+      p.setAttribute('role', 'note');
+      p.textContent = "We're not perfect. He is. Hand it over.";
+      document.body.appendChild(p);
+    } catch (eHum) {}
+  })();
+
   function wireCriticalControlFallbacks() {
     if (typeof window !== 'undefined' && window.__tdbCriticalFallbacksWired) return;
     if (typeof window !== 'undefined') window.__tdbCriticalFallbacksWired = true;
@@ -23087,6 +23175,17 @@ function wireRandomBattleVerseHero() {
     document.addEventListener('DOMContentLoaded', runTdbAndFooter);
     return;
   }
+  (function injectTdbHumilityLineEarly() {
+    try {
+      if (document.querySelector('.tdb-site-humility')) return;
+      if (!document.body) return;
+      var p = document.createElement('p');
+      p.className = 'tdb-site-humility';
+      p.setAttribute('role', 'note');
+      p.textContent = "We're not perfect. He is. Hand it over.";
+      document.body.appendChild(p);
+    } catch (eHum2) {}
+  })();
   var init = typeof window !== 'undefined' && window.tdbInit;
   if (init) {
     try {

@@ -42,6 +42,21 @@
   </script>
 </head>
 <body class="dark-mode" aria-label="Bible Loop Library - short kids Bible story loops">
+  <script nonce="tdb2025s">
+    (function () {
+      try {
+        var p = new URLSearchParams(location.search);
+        var st = p.get('story');
+        if (st && String(st).trim()) {
+          location.replace('/kids/corner.html' + location.search);
+          return;
+        }
+        if (p.get('random') === '1' || p.get('journey') === '1' || p.get('challenge') === '1') {
+          location.replace('/kids/corner.html' + location.search);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="tdb-global-nav" aria-label="Main site navigation">
     <a href="/">Home</a>
@@ -177,6 +192,16 @@
           <strong>Something look off?</strong> Use <em>Report mismatch</em> on a card. New loops most Sundays.
         </div>
 
+        <section class="glass card-gold loop-coloring-cta" aria-label="Printable coloring pages">
+          <h2 class="section-divider kids-section-divider">Color &amp; create</h2>
+          <p class="section-note util-mb-0_5">Want crayons instead of cartoons? Open printable Bible outlines—tap a story, paint on screen, then print.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="coloring.html">Open Kids Coloring</a>
+            <a class="btn btn-secondary" href="/kids/corner.html">Bible Story Library</a>
+            <a class="btn btn-secondary" href="/kids/">Kids Battle home</a>
+          </div>
+        </section>
+
         <section class="glass card-gold loop-progress-wrap" aria-label="Story star progress">
           <div id="loop-kid-selector-wrap" class="loop-kid-selector-wrap hidden" aria-label="Select child for progress">
             <label for="loop-kid-select" class="loop-kid-select-label">Track progress for:</label>
@@ -205,6 +230,7 @@
         </section>
 
         <section class="glass card-gold loop-library-wrap" aria-label="Bible Loop Library infinite grid">
+          <p class="section-note loop-quick-calm-kicker util-mb-0_5"><strong>Quick calm loops</strong> — 10–15s cartoons with verse audio (no quizzes here). For read-aloud words, comic panels, and gentle quizzes, open the <a href="/kids/corner.html">Bible Story Library</a>.</p>
           <h2 class="section-divider kids-section-divider">Starter 12 Loops</h2>
           <div id="loop-static-starter" class="loop-static-starter" aria-label="First twelve cartoon loops in the roadmap">
             <p class="section-note loop-static-starter-lead">These twelve ship in week 0 of the library—short cartoons, KJV verse audio, no quizzes here. For read-and-quiz <strong>stories</strong>, open <a href="/kids/corner.html">Bible Story Library</a>.</p>

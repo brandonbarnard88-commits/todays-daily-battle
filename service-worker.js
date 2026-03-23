@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v113-20260330-kidspush';
+const CACHE_NAME = 'tdb-v114-20260323-kidsfuse';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -132,6 +132,7 @@ const CORE_ASSETS = [
   '/assets/fonts/bangers-latin.woff2',
   '/kids/kids-corner.js',
   '/kids/kids-read-quiz-data.js',
+  '/kids/kids-story-fuse-search.js',
   '/kids/bible-story-tool-index.js',
   '/kids/kids-read-quiz-loop-posters.js',
   '/kids/kids-beta.html',
@@ -169,6 +170,8 @@ const CORE_ASSETS = [
   '/people-verse-map.js',
   '/daily-verses.js'
 ];
+
+const CDN_FUSE_JS = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
 
 var AUDIO_ASSETS = [
   '/audio/psalm-23-1.mp3',
@@ -230,6 +233,7 @@ self.addEventListener('install', (event) => {
       .then(function (cache) {
         return cache.addAll(CORE_ASSETS).then(function () {
           return Promise.all([
+            cache.add(CDN_FUSE_JS).catch(function () {}),
             cache.addAll(AUDIO_ASSETS).catch(function () {}),
             seedVerseCache()
           ]);
@@ -444,6 +448,22 @@ self.addEventListener('fetch', (event) => {
             return cached;
           }
           return net;
+        });
+      })
+    );
+    return;
+  }
+
+  // Fuse.js for offline kids search (CDN — cache-first when precache succeeded)
+  if (url.origin === 'https://cdn.jsdelivr.net' && /\/fuse\.min\.js$/i.test(url.pathname)) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function (cache) {
+        return cache.match(event.request).then(function (hit) {
+          if (hit) return hit;
+          return fetch(event.request).then(function (res) {
+            if (res && res.ok) cache.put(event.request, res.clone()).catch(function () {});
+            return res;
+          });
         });
       })
     );

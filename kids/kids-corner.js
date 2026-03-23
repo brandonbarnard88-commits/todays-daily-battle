@@ -90,6 +90,56 @@
     return finishPlain(str);
   }
 
+  /**
+   * Maps Bible Story Library keys to coloring.html ?story= ids (see script.js coloringStories).
+   * Returns '' when no close match — avoids sending kids to the wrong outline.
+   */
+  function tdbColoringSlugForLibraryKey(storyKey) {
+    if (!storyKey) return '';
+    var k = String(storyKey);
+    var map = {
+      david: 'david',
+      davidGoliath: 'david',
+      davidSheep: 'david',
+      davidHarp: 'david',
+      davidAnointed: 'david',
+      davidCave: 'david',
+      davidSaul: 'david',
+      davidSaulJealousy: 'david',
+      davidJonathan: 'david',
+      davidJonathanFriendship: 'david',
+      goliathChallenge: 'david',
+      noah: 'noah',
+      jonah: 'jonah',
+      jonahVine: 'jonah',
+      daniel: 'daniel',
+      danielLionsDen: 'daniel',
+      danielPray: 'daniel',
+      jesus: 'jesus',
+      jesusCalmsStorm: 'storm',
+      jesusCallingDisciples: 'storm',
+      moses: 'moses',
+      redSea: 'moses',
+      redSeaCrossing: 'moses',
+      mosesBush: 'moses',
+      mosesBaby: 'moses',
+      creation: 'creation',
+      goodSamaritan: 'samaritan'
+    };
+    if (map[k]) return map[k];
+    var low = k.toLowerCase();
+    if (low.indexOf('david') >= 0 || low.indexOf('goliath') >= 0) return 'david';
+    if (low.indexOf('noah') >= 0) return 'noah';
+    if (low.indexOf('jonah') >= 0) return 'jonah';
+    if (low.indexOf('daniel') >= 0) return 'daniel';
+    if (low.indexOf('jesus') >= 0) return 'jesus';
+    if (low.indexOf('moses') >= 0 || low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses';
+    if (low.indexOf('creation') >= 0 || low.indexOf('adam') >= 0) return 'creation';
+    if (low.indexOf('samaritan') >= 0) return 'samaritan';
+    if (low.indexOf('storm') >= 0 || low.indexOf('calms') >= 0) return 'storm';
+    return '';
+  }
+
   /* ────────────────────────────────────────────────────
    * COLORING MODULE — self-contained, no server needed
    * ──────────────────────────────────────────────────── */
@@ -3530,7 +3580,7 @@
 
   /** Safe /kids/panel-*.svg or /media/kids-stories/* for read-along section art. */
   /** Default humility nudge after a wrong MC answer (story modal + optional per-pack override). */
-  var KIDS_READ_QUIZ_WRONG_HUMILITY_DEFAULT = "We don't win alone—He does.";
+  var KIDS_READ_QUIZ_WRONG_HUMILITY_DEFAULT = 'Close—take another slow look at the story above. He is with you in the retry.';
 
   function fillKidsReadQuizWrongFeedback(fbEl, mainWrongText, pack, qd) {
     if (!fbEl) return;
@@ -3564,10 +3614,189 @@
     return safeKidsPanelSvgAbsFromRel(s);
   }
 
+  var RUNTIME_SILLY = [
+    'A spaceship landed in the parking lot.',
+    'Everyone decided to never sleep again.',
+    'A talking toaster became king of the city.',
+    'People only ate dessert for forty years.',
+    'The river turned into grape juice forever.'
+  ];
+  var RUNTIME_WRONG_LESSONS = [
+    'God never hears when kids pray.',
+    'The Bible is only pretend stories.',
+    'We should hide from God when we mess up.',
+    'Being kind only matters on birthdays.'
+  ];
+
+  function runtimeHashSeed(str) {
+    var h = 0;
+    var st = String(str || '');
+    for (var i = 0; i < st.length; i++) {
+      h = (Math.imul(31, h) + st.charCodeAt(i)) | 0;
+    }
+    return h >>> 0;
+  }
+
+  function runtimeShuffleFour(correct, wrongs, seedStr) {
+    var pool = [correct].concat(wrongs || []);
+    var w = 0;
+    while (pool.length < 4 && w < 20) {
+      pool.push(RUNTIME_SILLY[w % RUNTIME_SILLY.length]);
+      w++;
+    }
+    pool = pool.slice(0, 4);
+    var order = [0, 1, 2, 3];
+    for (var s = 3; s > 0; s--) {
+      var j = runtimeHashSeed(seedStr + String(s)) % (s + 1);
+      var t = order[s];
+      order[s] = order[j];
+      order[j] = t;
+    }
+    var choices = order.map(function (ix) {
+      return pool[ix];
+    });
+    var correctIndex = choices.indexOf(correct);
+    if (correctIndex < 0) correctIndex = 0;
+    return { choices: choices, correctIndex: correctIndex };
+  }
+
+  function runtimeParagraphsFromStory(s, key) {
+    var title = tdbPlainTextForUi(s.title || key);
+    var kjvRefRaw = s.kjvRef ? String(s.kjvRef) : 'the Bible';
+    var narration = (s.narration && String(s.narration).trim()) ? String(s.narration).trim() : '';
+    var apply = (s.kidContext && s.kidContext.apply) ? tdbPlainTextForUi(s.kidContext.apply) : '';
+    var alts = [];
+    if (Array.isArray(s.panels)) {
+      for (var pi = 0; pi < s.panels.length; pi++) {
+        if (s.panels[pi] && s.panels[pi].alt) alts.push(tdbPlainTextForUi(s.panels[pi].alt));
+      }
+    }
+    var body = narration;
+    if (!body) {
+      var chunks = [title + ' (' + kjvRefRaw + ').'];
+      for (var ai = 0; ai < alts.length; ai++) chunks.push(alts[ai]);
+      if (apply) chunks.push(apply);
+      body = chunks.join(' ');
+    }
+    body = String(body).replace(/\s+/g, ' ').trim();
+    var split = body.split(/\.\s+/);
+    var sentences = [];
+    for (var si = 0; si < split.length; si++) {
+      var seg = split[si].trim();
+      if (seg.length < 4) continue;
+      if (!/[.!?]$/.test(seg)) seg = seg + '.';
+      sentences.push(seg);
+    }
+    if (sentences.length === 0) sentences = [title + ' (' + kjvRefRaw + ').'];
+    var paras = [];
+    var target = Math.min(5, Math.max(2, sentences.length));
+    var per = Math.max(1, Math.ceil(sentences.length / target));
+    for (var pj = 0; pj < sentences.length && paras.length < target; pj += per) {
+      paras.push(sentences.slice(pj, pj + per).join(' ').trim());
+    }
+    if (paras.length < 2) {
+      paras = [title + ' (' + kjvRefRaw + ').', apply || 'God teaches us through His true Word.'];
+    }
+    return paras;
+  }
+
+  /**
+   * Client-side read-quiz pack when TDB_KIDS_READ_QUIZ entry is missing (offline gap).
+   * Same shape as generated packs; no invented facts beyond story metadata.
+   */
+  function buildRuntimeReadQuizPack(key) {
+    var s = getStories()[key];
+    if (!s) return null;
+    var title = tdbPlainTextForUi(s.title || key);
+    var kjvRefRaw = s.kjvRef ? String(s.kjvRef) : 'the Bible';
+    var kjvRefDisp = tdbPlainTextForUi(kjvRefRaw);
+    var apply = (s.kidContext && s.kidContext.apply) ? tdbPlainTextForUi(s.kidContext.apply) : '';
+    var who = (s.kidContext && s.kidContext.who) ? tdbPlainTextForUi(s.kidContext.who) : '';
+    var alts = [];
+    if (Array.isArray(s.panels)) {
+      for (var pi = 0; pi < s.panels.length; pi++) {
+        if (s.panels[pi] && s.panels[pi].alt) alts.push(tdbPlainTextForUi(s.panels[pi].alt));
+      }
+    }
+    var paras = runtimeParagraphsFromStory(s, key);
+    var lesson = apply || (paras.length ? paras[paras.length - 1] : title);
+    var detail = alts[0] || (paras[1] || paras[0] || title);
+    var seed = String(key) + '-rt';
+    var refPool = ['Psalm 23', 'John 3:16', 'Genesis 1:1', 'Romans 8:28'].filter(function (r) {
+      return r !== kjvRefDisp;
+    });
+    var whoMain = who || 'God';
+    var whoPool = ['David', 'Jesus', 'Moses', 'Mary'].filter(function (w) {
+      return w !== whoMain;
+    });
+    var q1 = runtimeShuffleFour(kjvRefDisp, refPool, seed + '1');
+    var q2 = runtimeShuffleFour(whoMain, whoPool, seed + '2');
+    var q3 = runtimeShuffleFour(lesson, RUNTIME_WRONG_LESSONS, seed + '3');
+    var q4 = runtimeShuffleFour(detail, RUNTIME_SILLY.slice(0, 3), seed + '4');
+    var q5 = runtimeShuffleFour(apply || lesson, RUNTIME_WRONG_LESSONS.slice(0, 2).concat([paras[0] || title]), seed + '5');
+    return {
+      kjvRef: kjvRefDisp,
+      hintAboveQuiz: 'Use the comic pictures above while you read.',
+      paragraphs: paras,
+      readAlongTitle: 'Read the story',
+      quizHeading: 'Quiz — think it through',
+      quizWrongHumilityHint: 'We battle. He wins.',
+      questions: [
+        {
+          question: 'Where is this story found in the Bible?',
+          choices: q1.choices,
+          correctIndex: q1.correctIndex,
+          correctFeedback: 'Yes—that matches this story\'s place in God\'s Word.',
+          wrongFeedback: 'Skim the Scripture line with the title, or the first paragraph.',
+          wrongHumilityHint: 'Close—check the Bible reference beside the title.'
+        },
+        {
+          question: 'Who do we mainly learn from or watch in this story?',
+          choices: q2.choices,
+          correctIndex: q2.correctIndex,
+          correctFeedback: 'Right—keep that in mind as you think about God.',
+          wrongFeedback: 'Look for who the story follows first.',
+          wrongHumilityHint: 'Close—remember who God is spotlighting here.'
+        },
+        {
+          question: 'Which choice sounds most like what this story teaches?',
+          choices: q3.choices,
+          correctIndex: q3.correctIndex,
+          correctFeedback: 'Exactly—that lines up with God\'s kindness and truth.',
+          wrongFeedback: 'Reread the last paragraph slowly.',
+          wrongHumilityHint: 'Almost—match the “For you” heart of the story.'
+        },
+        {
+          question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+          choices: q4.choices,
+          correctIndex: q4.correctIndex,
+          correctFeedback: 'Yes—that detail comes from the story God gave us.',
+          wrongFeedback: 'Cross out the joke answers.',
+          wrongHumilityHint: 'Close—look at the comic pictures or the read-aloud lines.'
+        },
+        {
+          question: 'What is one good way to respond to God after this story?',
+          choices: q5.choices,
+          correctIndex: q5.correctIndex,
+          correctFeedback: 'Beautiful—that honors God with trust and kindness.',
+          wrongFeedback: 'Pick the choice that shows trust or saying sorry to God.',
+          wrongHumilityHint: 'Close—think prayer, trust, or kindness.'
+        }
+      ],
+      doneHeading: 'You did it!',
+      doneMessage: 'Great job reading ' + title + ' with God\'s Word today.',
+      takeaway: lesson,
+      prayer: 'God, thank You for the Bible. Help me remember what You showed me in ' + title + '. Amen.'
+    };
+  }
+
   function mountReadQuizForStory(key) {
     clearReadQuizModal();
     if (!modalReadQuiz) return;
     var pack = (window.TDB_KIDS_READ_QUIZ || {})[key];
+    if (!pack || !pack.questions || !pack.questions.length) {
+      pack = buildRuntimeReadQuizPack(key);
+    }
     if (!pack || !pack.questions || !pack.questions.length) {
       showReadQuizUnavailable(key);
       return;
@@ -3763,6 +3992,9 @@
       } else {
         progEl.textContent = qIndex.v + ' / ' + qList.length + ' answered';
       }
+      try {
+        localStorage.setItem('kidsReadQuizProgress:' + key, String(Math.min(qIndex.v, qList.length)) + '/' + qList.length);
+      } catch (eProg) {}
     }
 
     function renderQuestion() {
@@ -3791,6 +4023,17 @@
           pr.className = 'kids-read-quiz-prayer';
           pr.textContent = tdbPlainTextForUi(pack.prayer);
           done.appendChild(pr);
+        }
+        var colorSlug = tdbColoringSlugForLibraryKey(key);
+        if (colorSlug) {
+          var colorWrap = document.createElement('p');
+          colorWrap.className = 'kids-read-quiz-color-wrap';
+          var colorA = document.createElement('a');
+          colorA.href = '/coloring.html?story=' + encodeURIComponent(colorSlug);
+          colorA.className = 'btn kids-btn-primary kids-read-quiz-color-link';
+          colorA.textContent = 'Color this story!';
+          colorWrap.appendChild(colorA);
+          done.appendChild(colorWrap);
         }
         quizHost.appendChild(done);
         try {
@@ -3887,6 +4130,9 @@
       });
       nxt.addEventListener('click', function () {
         qIndex.v += 1;
+        try {
+          localStorage.setItem('kidsReadQuizProgress:' + key, String(qIndex.v) + '/' + qList.length);
+        } catch (eN) {}
         renderQuestion();
       });
       step.appendChild(chk);
@@ -3896,6 +4142,10 @@
     }
 
     renderQuestion();
+    var winFoot = document.createElement('p');
+    winFoot.className = 'kids-read-quiz-mission-foot';
+    winFoot.textContent = 'We battle. He wins.';
+    wrap.appendChild(winFoot);
     modalReadQuiz.appendChild(wrap);
     wirePrintQaSheetButton(key, pack, storyTitle);
   }
@@ -3949,19 +4199,25 @@
         if (kidApply.length === 280) kidApply += '…';
       }
       var questions = (pack && pack.questions) ? pack.questions : [];
-      var title = escHtmlPlain(storyTitlePlain || storyKey) + ' — Quiz';
+      var paras = (pack && pack.paragraphs) ? pack.paragraphs : [];
+      var title = escHtmlPlain(storyTitlePlain || storyKey) + ' — Story & Quiz';
       var css =
         'body{font-family:Helvetica Neue,Arial,sans-serif;padding:1.25rem;line-height:1.5;color:#111;max-width:48rem;margin:0 auto}' +
         '.hdr{border-bottom:1px solid #ccc;padding-bottom:0.75rem;margin-bottom:1rem}' +
         'h1{font-size:1.35rem;margin:0 0 0.35rem}' +
+        'h2{font-size:1.1rem;margin:1rem 0 0.5rem}' +
         '.kicker{font-size:0.9rem;color:#333;margin:0.25rem 0}' +
         '.for-you{font-size:0.92rem;color:#1a3a2a;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:0.65rem 0.75rem;margin:0.6rem 0}' +
         '.hint-above{font-size:0.88rem;color:#444;margin:0.5rem 0}' +
+        '.story-para{font-size:1rem;margin:0.45rem 0;line-height:1.55}' +
+        '.page-break{page-break-before:always;break-before:page;margin-top:2rem;padding-top:1rem;border-top:2px solid #ccc}' +
         '.qblock{margin:1rem 0;padding:0.75rem 0;border-top:1px solid #e5e5e5}' +
         '.qblock:first-of-type{border-top:none}' +
         '.qnum{color:#0f766e;font-weight:700}' +
         '.hint{font-size:0.88rem;color:#444;margin:0.35rem 0 0.5rem}' +
         '.choices{font-size:0.85rem;color:#222;margin:0.35rem 0 0.5rem;line-height:1.4}' +
+        '.answer-key{font-size:0.92rem;font-weight:600;color:#0f172a;margin-top:0.35rem}' +
+        '.mission{font-size:0.85rem;color:#444;margin-top:1rem;font-style:italic;text-align:center}' +
         'details{border:1px solid #d1d5db;border-radius:4px;padding:0.4rem 0.6rem;background:#fafafa;margin-top:0.35rem}' +
         'summary{cursor:pointer;font-weight:600;color:#0a5c52}' +
         '@media print{' +
@@ -3975,12 +4231,21 @@
       var html = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + title + '</title>';
       html += '<style>' + css + '</style></head><body>';
       html += '<header class="hdr"><h1>' + escHtmlPlain(storyTitlePlain || storyKey) + '</h1>';
-      html += '<p class="kicker"><strong>Quiz worksheet</strong> · Today\'s Daily Battle · Kids Bible Story Library</p>';
+      html += '<p class="kicker"><strong>Page 1 — Read-along</strong> · Today\'s Daily Battle · Kids Bible Story Library</p>';
       if (pack && pack.kjvRef) html += '<p class="kicker"><strong>Scripture:</strong> ' + escHtmlPlain(pack.kjvRef) + '</p>';
       if (kidApply) html += '<p class="for-you"><strong>For you:</strong> ' + escHtmlPlain(kidApply) + '</p>';
       if (pack && pack.hintAboveQuiz) html += '<p class="hint-above"><em>Note:</em> ' + escHtmlPlain(pack.hintAboveQuiz) + '</p>';
-      html += '<p class="no-print" style="font-size:0.8rem;color:#666">Screen: use <strong>Reveal answer</strong> to check. Print: answers appear below.</p>';
-      html += '</header>';
+      html += '<h2>Story</h2>';
+      if (paras.length) {
+        for (var pj = 0; pj < paras.length; pj++) {
+          html += '<p class="story-para">' + escHtmlPlain(paras[pj]) + '</p>';
+        }
+      } else {
+        html += '<p class="story-para">Open this story on the site for the full read-along.</p>';
+      }
+      html += '<p class="mission">We battle. He wins.</p>';
+      html += '<div class="page-break"><h2>Page 2 — Questions &amp; answers</h2>';
+      html += '<p class="no-print kicker" style="font-size:0.8rem;color:#666">On screen: tap <strong>Reveal answer</strong>. When you print, answers show automatically.</p></div>';
       for (var pi = 0; pi < questions.length; pi++) {
         var qd = questions[pi];
         html += '<section class="qblock">';
@@ -3988,16 +4253,17 @@
         var hintTxt = qd.wrongFeedback ? String(qd.wrongFeedback).substring(0, 320) : '';
         if (hintTxt) html += '<p class="hint"><strong>Hint:</strong> ' + escHtmlPlain(hintTxt) + '</p>';
         if (qd.choices && qd.choices.length) {
-          var parts = [];
+          var parts2 = [];
           for (var ci = 0; ci < qd.choices.length; ci++) {
-            parts.push(String.fromCharCode(65 + ci) + '. ' + escHtmlPlain(qd.choices[ci]));
+            parts2.push(String.fromCharCode(65 + ci) + '. ' + escHtmlPlain(qd.choices[ci]));
           }
-          html += '<p class="choices"><strong>Choices:</strong> ' + parts.join(' &nbsp;·&nbsp; ') + '</p>';
+          html += '<p class="choices"><strong>Choices:</strong> ' + parts2.join(' &nbsp;·&nbsp; ') + '</p>';
         }
         var correctLabel = (qd.choices && qd.correctIndex != null && qd.choices[qd.correctIndex]) ? qd.choices[qd.correctIndex] : '';
-        html += '<details><summary>Reveal answer</summary><p class="answer-body"><strong>Answer:</strong> ' + escHtmlPlain(correctLabel) + '</p></details>';
+        html += '<details><summary>Reveal answer</summary><p class="answer-body answer-key"><strong>Answer:</strong> ' + escHtmlPlain(correctLabel) + '</p></details>';
         html += '</section>';
       }
+      html += '<p class="mission">We\'re not perfect. He is. Hand it over.</p>';
       html += '<script>(function(){function openAll(){document.querySelectorAll("details").forEach(function(d){d.open=true;});}try{window.addEventListener("beforeprint",openAll);}catch(e){}})();<\/script>';
       html += '</body></html>';
       var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
@@ -4038,7 +4304,7 @@
     return window.TDB_STORY_THEMES || {};
   }
 
-  /** Resolve URL story param to canonical key. Handles aliases and case-insensitivity. */
+  /** Resolve URL story param to canonical key. Handles aliases, slug/case variants, and fuzzy title match. */
   function resolveStoryKey(param) {
     if (!param || typeof param !== 'string') return null;
     var raw = param.trim();
@@ -4051,10 +4317,21 @@
       'david-goliath': 'david',
       'davidgoliath': 'david',
       'davidandgoliath': 'david',
+      'davdgoliath': 'david',
+      'davdgolaith': 'david',
       'noahs-ark': 'noah',
       'noahark': 'noah',
+      'noahsark': 'noah',
+      'noah-ark': 'noah',
       'good-shepherd': 'jesus',
-      'goodshepherd': 'jesus'
+      'goodshepherd': 'jesus',
+      'seven-seals': 'revelationSeals',
+      'sevenseels': 'revelationSeals',
+      'sevenseals': 'revelationSeals',
+      'thesevenseals': 'revelationSeals',
+      'revelation-seals': 'revelationSeals',
+      'revelationseals': 'revelationSeals',
+      'noaharkstory': 'noah'
     };
     var rawLower = raw.toLowerCase();
     if (aliases[rawLower]) {
@@ -4062,7 +4339,7 @@
       return stories[ak] ? ak : null;
     }
     var slug = rawLower.replace(/[^a-z0-9]/g, '');
-    if (slug && slug !== rawLower && aliases[slug]) {
+    if (slug && aliases[slug]) {
       var ak2 = aliases[slug];
       return stories[ak2] ? ak2 : null;
     }
@@ -4070,6 +4347,52 @@
     var keys = Object.keys(stories);
     for (var i = 0; i < keys.length; i++) {
       if (keys[i].toLowerCase() === lower) return keys[i];
+    }
+    /* CamelCase URL keys from all-stories / Bible Tool (e.g. davidGoliath, revelationSeals) */
+    for (var j = 0; j < keys.length; j++) {
+      var kj = keys[j];
+      if (String(kj).replace(/[^a-z0-9]/gi, '').toLowerCase() === slug) return kj;
+    }
+    /* Fuzzy: typos and descriptions ("davd golith", "giant sling") */
+    if (raw.length >= 2 && typeof window.tdbFuzzyRankStoryKeys === 'function') {
+      var allK = getStoryKeys();
+      var ranked = window.tdbFuzzyRankStoryKeys(allK, raw, 12);
+      if (ranked && ranked.length) {
+        if (ranked.length === 1) return ranked[0];
+        for (var r = 0; r < ranked.length; r++) {
+          var rk = ranked[r];
+          if (String(rk).toLowerCase().replace(/[^a-z0-9]/g, '') === slug) return rk;
+        }
+        return ranked[0];
+      }
+    }
+    var Fu = typeof Fuse !== 'undefined' ? Fuse : window.Fuse;
+    if (Fu && raw.length >= 2 && keys.length) {
+      try {
+        var rows = [];
+        for (var fj = 0; fj < keys.length; fj++) {
+          var fk = keys[fj];
+          var fst = stories[fk];
+          if (!fst) continue;
+          rows.push({
+            key: fk,
+            title: String(fst.title || ''),
+            kjvRef: String(fst.kjvRef || ''),
+            hay: [fk, fst.title || '', fst.kjvRef || '', (fst.kidContext && fst.kidContext.apply) || '', (fst.keywords || []).join(' ')].join(' ')
+          });
+        }
+        var fuse = new Fu(rows, {
+          keys: ['title', 'kjvRef', 'key', 'hay'],
+          threshold: 0.4,
+          ignoreLocation: true,
+          minMatchCharLength: 2,
+          includeScore: true
+        });
+        var fhits = fuse.search(raw.trim());
+        if (fhits.length && fhits[0] && fhits[0].item && fhits[0].item.key) {
+          return fhits[0].item.key;
+        }
+      } catch (eFuse) {}
     }
     return null;
   }
@@ -4396,6 +4719,10 @@
   function fuzzyRankLibraryKeys(orderedKeys, needle) {
     var raw = String(needle || '').trim();
     if (!raw) return orderedKeys.slice();
+    if (typeof window.tdbFuzzyRankStoryKeys === 'function') {
+      var ext = window.tdbFuzzyRankStoryKeys(orderedKeys, raw, 1000);
+      if (ext !== null) return ext;
+    }
     var uf = getKidsLibraryUFuzzy();
     if (!uf || typeof uf.search !== 'function') return null;
     var sig = kidsLibraryFuzzyHaySig(orderedKeys);
@@ -4560,6 +4887,23 @@
     el.textContent = total + ' titles in this PDF • full library (ignores search/filter)';
   }
 
+  function updateDocumentStoryMeta(storyKey, storyObj) {
+    try {
+      var t = tdbPlainTextForUi((storyObj && storyObj.title) || storyKey);
+      var ref = tdbPlainTextForUi((storyObj && storyObj.kjvRef) || '');
+      document.title = t + ' | Kids Bible Story + Quiz | Today\'s Daily Battle';
+      var md = document.getElementById('tdb-kids-story-meta-desc') || document.querySelector('meta[name="description"]');
+      if (md && md.setAttribute) {
+        md.setAttribute(
+          'content',
+          'Read-along, gentle quiz, and comic panels for ' + t + (ref ? ' (' + ref + ')' : '') + ' — KJV — todaysdailybattle.com'
+        );
+      }
+      var og = document.querySelector('meta[property="og:title"]');
+      if (og) og.setAttribute('content', t + ' | Kids Bible Story + Quiz');
+    } catch (eMeta) {}
+  }
+
   function openStory(key) {
     clearReadQuizModal();
     var stories = getStories();
@@ -4578,6 +4922,7 @@
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
     pushRecentStoryKey(key);
+    updateDocumentStoryMeta(key, s);
     if (modalTitle) modalTitle.textContent = tdbPlainTextForUi(s.title || key);
     clearStoryVideoContainer(modalVideo);
     if (hasFullVideo && fullMedia) {
@@ -4678,9 +5023,8 @@
       try { console.error('Kids read-quiz mount failed', key, err); } catch (_) {}
       try { showReadQuizUnavailable(key); } catch (__) {}
     }
-    if (!storyHasReadQuizPack(key)) {
-      addStoryMasterProgress(key);
-    }
+    /* Count every opened story toward library progress (idempotent; quiz completion also calls). */
+    addStoryMasterProgress(key);
     if (modal) {
       modal.classList.remove('hidden');
       modalPreviousFocus = document.activeElement;
@@ -4726,6 +5070,16 @@
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = null;
+    if (document.getElementById('kids-library-grid')) {
+      document.title = 'Bible Story Library • Kids Battle • Today\'s Daily Battle';
+      var mdc = document.getElementById('tdb-kids-story-meta-desc');
+      if (mdc) {
+        mdc.setAttribute(
+          'content',
+          'Kids Bible Story Library—cartoon panels, KJV verse hooks, read-and-quiz, optional video, and Color Me. Starter stories load in-page; full grid needs JavaScript.'
+        );
+      }
+    }
     if (modalFocusTrapHandler) {
       modal.removeEventListener('keydown', modalFocusTrapHandler);
       modalFocusTrapHandler = null;
@@ -5095,6 +5449,13 @@
           var sk = resolveStoryKey(storyParamRaw);
           if (sk) {
             openStory(sk);
+            try {
+              var u = new URL(location.href);
+              if (String(u.searchParams.get('story') || '') !== sk) {
+                u.searchParams.set('story', sk);
+                history.replaceState({}, '', u.pathname + (u.search ? u.search : '') + location.hash);
+              }
+            } catch (eUrl) {}
             return;
           }
           deepTries += 1;
@@ -5136,19 +5497,115 @@
     wireColoringControls();
     wireColorMeButtons();
 
+    var searchSuggestEl = document.getElementById('kids-library-search-suggest');
+    var searchSuggestTimer = null;
+    function hideLibrarySearchSuggest() {
+      if (!searchSuggestEl) return;
+      searchSuggestEl.classList.add('hidden');
+      tdbClearHtml(searchSuggestEl);
+      if (searchInput) searchInput.setAttribute('aria-expanded', 'false');
+    }
+    function updateLibrarySearchSuggest() {
+      if (!searchSuggestEl || !searchInput) return;
+      var q = String(searchInput.value || '').trim();
+      if (q.length < 2) {
+        hideLibrarySearchSuggest();
+        return;
+      }
+      var theme = themeSelect ? String(themeSelect.value || '').trim() : '';
+      var fuseRows =
+        !theme && typeof window.tdbKidsFuseSearchTop5 === 'function' ? window.tdbKidsFuseSearchTop5(q) : null;
+      var keys = [];
+      if (fuseRows && fuseRows.length) {
+        for (var fi = 0; fi < fuseRows.length; fi++) {
+          if (fuseRows[fi] && fuseRows[fi].key) keys.push(fuseRows[fi]);
+        }
+      }
+      if (!keys.length) {
+        var fk = filterStories(q, theme).slice(0, 5);
+        for (var gi = 0; gi < fk.length; gi++) {
+          var gk = fk[gi];
+          var gst = getStories()[gk];
+          keys.push({
+            key: gk,
+            title: tdbPlainTextForUi((gst && gst.title) ? gst.title : gk),
+            preview: '',
+            kjvRef: gst && gst.kjvRef ? tdbPlainTextForUi(gst.kjvRef) : ''
+          });
+        }
+      }
+      if (!keys.length) {
+        hideLibrarySearchSuggest();
+        return;
+      }
+      tdbClearHtml(searchSuggestEl);
+      for (var si = 0; si < keys.length; si++) {
+        var row = keys[si];
+        var sk = row.key;
+        var lab = row.title || tdbPlainTextForUi(sk);
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'kids-fuse-suggest-item';
+        btn.setAttribute('role', 'option');
+        btn.setAttribute('id', 'kids-lib-suggest-' + si);
+        btn.setAttribute('aria-label', 'Open story: ' + lab);
+        var tSpan = document.createElement('span');
+        tSpan.className = 'kids-fuse-suggest-title';
+        tSpan.textContent = lab;
+        btn.appendChild(tSpan);
+        if (row.preview) {
+          var pSpan = document.createElement('span');
+          pSpan.className = 'kids-fuse-suggest-preview';
+          pSpan.textContent = row.preview;
+          btn.appendChild(pSpan);
+        }
+        if (row.kjvRef) {
+          var rSpan = document.createElement('span');
+          rSpan.className = 'kids-fuse-suggest-ref';
+          rSpan.textContent = row.kjvRef;
+          btn.appendChild(rSpan);
+        }
+        btn.addEventListener('click', function (key) {
+          return function () {
+            hideLibrarySearchSuggest();
+            openStory(key);
+          };
+        }(sk));
+        searchSuggestEl.appendChild(btn);
+      }
+      searchSuggestEl.classList.remove('hidden');
+      searchInput.setAttribute('aria-expanded', 'true');
+    }
+    function scheduleLibrarySearchSuggest() {
+      if (searchSuggestTimer) clearTimeout(searchSuggestTimer);
+      searchSuggestTimer = setTimeout(updateLibrarySearchSuggest, 200);
+    }
+    document.addEventListener('click', function (ev) {
+      if (!searchSuggestEl || searchSuggestEl.classList.contains('hidden')) return;
+      var t = ev.target;
+      if (t === searchInput) return;
+      if (searchForm && searchForm.contains && searchForm.contains(t)) return;
+      hideLibrarySearchSuggest();
+    });
     if (searchForm && searchInput) {
       searchForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        hideLibrarySearchSuggest();
         renderGrid(applyFilters());
       });
       searchInput.addEventListener('input', function () {
         renderGrid(applyFilters());
+        scheduleLibrarySearchSuggest();
+      });
+      searchInput.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape') hideLibrarySearchSuggest();
       });
     }
 
     if (themeSelect) {
       themeSelect.addEventListener('change', function () {
         renderGrid(applyFilters());
+        scheduleLibrarySearchSuggest();
       });
     }
 
@@ -5449,6 +5906,10 @@
   } else {
     init();
   }
+
+  window.openKidsStoryByKey = function (k) {
+    openStory(String(k || ''));
+  };
 
   // ── Parent code lock ─────────────────────────────────────────────────────
   // Key stored in localStorage: 'kid-lock-code' (4-digit string).

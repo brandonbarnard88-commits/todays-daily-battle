@@ -5597,6 +5597,88 @@
       { name: 'Gold', min: 100, color: '#ffd700' },
       { name: 'Platinum', min: 281, color: '#e5e4e2' }
     ];
+
+    /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
+    var _tdbStoryFuzzyHay = null;
+    var _tdbStoryFuzzyHaySig = '';
+    function tdbKidsStoryFuzzyHaySig(orderedKeys) {
+      if (!orderedKeys || !orderedKeys.length) return '0';
+      return orderedKeys.length + '\n' + orderedKeys.join('\n');
+    }
+    function tdbBuildKidsStorySearchHaystack(orderedKeys) {
+      var stories = bibleStories;
+      var hay = [];
+      for (var i = 0; i < orderedKeys.length; i++) {
+        var key = orderedKeys[i];
+        var s = stories[key];
+        if (!s) {
+          hay.push(String(key).replace(/([A-Z])/g, ' $1').trim());
+          continue;
+        }
+        var parts = [];
+        parts.push(s.title || '', s.kjvRef || '', s.caption || '');
+        if (Array.isArray(s.keywords)) parts.push(s.keywords.join(' '));
+        var ctx = s.kidContext || {};
+        parts.push(ctx.who || '', ctx.to || '', ctx.apply || '');
+        if (Array.isArray(s.panels)) {
+          for (var pi = 0; pi < s.panels.length; pi++) {
+            var pan = s.panels[pi];
+            if (pan && pan.alt) parts.push(pan.alt);
+          }
+        }
+        parts.push(String(key).replace(/([A-Z])/g, ' $1').trim());
+        hay.push(parts.join(' '));
+      }
+      return hay;
+    }
+    function tdbGetUFuzzyCtor() {
+      try {
+        var Fn = typeof uFuzzy !== 'undefined' ? uFuzzy : typeof window !== 'undefined' ? window.uFuzzy : null;
+        return typeof Fn === 'function' ? Fn : null;
+      } catch (eU) {
+        return null;
+      }
+    }
+    /**
+     * @param {string[]} orderedKeys
+     * @param {string} needle
+     * @param {number} [maxResults]
+     * @returns {string[]|null} ranked keys, [] if no match, null if uFuzzy unavailable
+     */
+    function tdbFuzzyRankStoryKeys(orderedKeys, needle, maxResults) {
+      var raw = String(needle || '').trim();
+      if (!raw) return orderedKeys.slice();
+      var Fn = tdbGetUFuzzyCtor();
+      if (!Fn) return null;
+      var uf = new Fn({ intraMode: 1 });
+      if (!uf || typeof uf.search !== 'function') return null;
+      var cap = typeof maxResults === 'number' && maxResults > 0 ? maxResults : 1000;
+      var sig = tdbKidsStoryFuzzyHaySig(orderedKeys);
+      if (!_tdbStoryFuzzyHay || _tdbStoryFuzzyHaySig !== sig) {
+        _tdbStoryFuzzyHay = tdbBuildKidsStorySearchHaystack(orderedKeys);
+        _tdbStoryFuzzyHaySig = sig;
+      }
+      var pack = uf.search(_tdbStoryFuzzyHay, raw, 1, cap);
+      var idxs = pack && pack[0];
+      if (idxs === null) return null;
+      if (!idxs || idxs.length === 0) return [];
+      var info = pack[1];
+      var order = pack[2];
+      var out = [];
+      if (order && order.length && info && info.idx) {
+        for (var oi = 0; oi < order.length; oi++) {
+          var hi = info.idx[order[oi]];
+          if (hi >= 0 && hi < orderedKeys.length) out.push(orderedKeys[hi]);
+        }
+        if (out.length) return out;
+      }
+      for (var j = 0; j < idxs.length; j++) {
+        var ix = idxs[j];
+        if (ix >= 0 && ix < orderedKeys.length) out.push(orderedKeys[ix]);
+      }
+      return out;
+    }
+    window.tdbFuzzyRankStoryKeys = tdbFuzzyRankStoryKeys;
   }
 
   function getCartoonForVerse(ref, text, index) {
@@ -7272,9 +7354,66 @@
     container.appendChild(frag);
   }
 
+  function renderKidsHubStoryMatches(queryRaw) {
+    var host = document.getElementById('kids-hub-story-matches');
+    if (!host) return;
+    var q = String(queryRaw || '').trim();
+    if (q.length < 2) {
+      host.classList.add('hidden');
+      tdbClearHtml(host);
+      return;
+    }
+    var keysOrdered = window.TDB_BIBLE_STORY_KEYS || Object.keys(window.TDB_BIBLE_STORIES || {});
+    var ranked = typeof window.tdbFuzzyRankStoryKeys === 'function' ? window.tdbFuzzyRankStoryKeys(keysOrdered, q, 8) : null;
+    if (ranked === null) {
+      ranked = [];
+      var low = q.toLowerCase();
+      for (var ki = 0; ki < keysOrdered.length && ranked.length < 8; ki++) {
+        var kk = keysOrdered[ki];
+        var st = (window.TDB_BIBLE_STORIES || {})[kk];
+        var hay = ((st && st.title) ? st.title : kk) + ' ' + (st && st.kjvRef ? st.kjvRef : '');
+        if (hay.toLowerCase().indexOf(low) !== -1) ranked.push(kk);
+      }
+    }
+    if (!ranked.length) {
+      host.classList.add('hidden');
+      tdbClearHtml(host);
+      return;
+    }
+    tdbClearHtml(host);
+    var title = document.createElement('p');
+    title.className = 'kids-hub-story-matches-title';
+    title.textContent = 'Bible Story Library matches';
+    host.appendChild(title);
+    var ul = document.createElement('ul');
+    for (var ri = 0; ri < ranked.length; ri++) {
+      var key = ranked[ri];
+      var story = (window.TDB_BIBLE_STORIES || {})[key];
+      var tlab = tdbPlainTextForUi((story && story.title) ? story.title : key);
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = 'corner.html?story=' + encodeURIComponent(key);
+      a.textContent = tlab;
+      a.setAttribute('aria-label', 'Open in library: ' + tlab);
+      li.appendChild(a);
+      ul.appendChild(li);
+    }
+    host.appendChild(ul);
+    host.classList.remove('hidden');
+  }
+
   function wireKidsSearch() {
     var form = document.getElementById('kids-search-form');
     var input = document.getElementById('kids-search-input');
+    var hubStoryTimer = null;
+    if (input) {
+      input.addEventListener('input', function () {
+        clearTimeout(hubStoryTimer);
+        hubStoryTimer = setTimeout(function () {
+          renderKidsHubStoryMatches(input.value);
+        }, 220);
+      });
+    }
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -7288,6 +7427,7 @@
       if (q && input) {
         input.value = q;
         renderFilteredResults(q);
+        renderKidsHubStoryMatches(q);
       }
     } catch (e) {}
     document.addEventListener('click', function (e) {

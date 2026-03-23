@@ -13,7 +13,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=17">
+  <link rel="stylesheet" href="kids-battle.css?v=19">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .kids-all-stories-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
@@ -126,10 +126,11 @@
         <section class="kids-search-section glass" role="region" aria-label="Search all stories">
           <h2 class="kids-section-title">Find &amp; sort</h2>
           <div class="kids-all-stories-toolbar">
-            <input type="search" id="kids-all-stories-search" class="kids-search-input" placeholder="Search title, reference, theme, or keyword…" autocomplete="off" aria-label="Filter stories">
+            <input type="search" id="kids-all-stories-search" class="kids-search-input" placeholder="Type story, character, or theme (typos ok!)" autocomplete="off" aria-label="Filter stories" aria-controls="kids-all-fuse-suggest">
             <button type="button" id="kids-all-stories-sort" class="btn btn-secondary" aria-pressed="true" aria-label="Toggle sort order">Sort Z–A</button>
           </div>
-          <p class="section-note util-mb-0_5">The full title list PDF lives on the <a href="corner.html">Bible Story Library</a> page (Download Story Library List).</p>
+          <div id="kids-all-fuse-suggest" class="kids-fuse-suggest" role="listbox" aria-label="Top story matches" hidden></div>
+          <p class="section-note util-mb-0_5">The full title list PDF lives on the <a href="corner.html">Bible Story Library</a> page (Download Story Library List). Top matches (typos OK) appear above while you type.</p>
           <div class="kids-reflection-buttons">
             <a href="corner.html" class="btn kids-btn-primary">Open Story Library</a>
             <button type="button" id="kids-all-stories-random" class="btn kids-btn-memory">Random Story</button>
@@ -155,6 +156,7 @@
     </main>
 
     <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-humility util-mb-0_25">We&apos;re not perfect. He is. Hand it over.</p>
       <p class="footer-humility">We battle. He wins.</p>
       <p>© 2026 Kids Battle – Faith Trail for Kids</p>
       <a href="/privacy.html">Privacy</a>
@@ -178,6 +180,8 @@
 
   <script src="bible-story-tool-index.js?v=20260327kidsmax"></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
+  <script src="kids-story-fuse-search.js?v=20260323fuse" defer></script>
   <script src="kids-all-stories.js?v=20260331kidsfuzzy" defer></script>
   <script type="module" src="../script.js?v=20260326clean" data-cfasync="false" defer></script>
 </body>

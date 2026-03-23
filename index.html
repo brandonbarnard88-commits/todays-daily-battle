@@ -675,6 +675,29 @@
       line-height: 1.45;
       color: rgba(226, 232, 240, 0.92);
     }
+    /* Below hero: edge-to-edge inside padded .app (was body child above sky — blocked sun/moon band) */
+    .app > .tdb-moat-banner {
+      z-index: 12;
+      width: calc(100% + 2.5rem);
+      max-width: none;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+      box-sizing: border-box;
+    }
+    @media (min-width: 600px) {
+      .app > .tdb-moat-banner {
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+        margin-right: -2rem;
+      }
+    }
+    @media (min-width: 900px) {
+      .app > .tdb-moat-banner {
+        width: calc(100% + 7rem);
+        margin-left: -3.5rem;
+        margin-right: -3.5rem;
+      }
+    }
     .tdb-moat-banner-text {
       margin: 0 auto;
       max-width: 52rem;
@@ -4222,17 +4245,6 @@
     <a href="/bible-tool.html">Tools</a>
     <a href="/story.html">Story</a>
   </nav>
-  <div class="tdb-moat-banner" role="region" aria-label="How this site differs from AI chat tools, and seven-day reading plans">
-    <p class="tdb-moat-banner-text">
-      <span class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</span>
-      <a class="tdb-moat-banner-link" href="why-not-ai.html">Why not AI?</a>
-      <span class="tdb-moat-banner-sub">When fear or anxiety spikes, try <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>&mdash;seven days in Scripture.</span>
-      <span class="tdb-moat-banner-sub">When your mind won&rsquo;t stop running tomorrow, try <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>&mdash;seven days in Scripture.</span>
-      <span class="tdb-moat-banner-sub">When heat or frustration runs the day, try <a class="tdb-moat-banner-link" href="plans.html?plan=angerpeace" aria-label="Open Anger to Peace, a 7-day KJV reading plan">Anger → Peace</a>&mdash;seven days in Scripture.</span>
-      <span class="tdb-moat-banner-sub">When questions crowd out confidence, try <a class="tdb-moat-banner-link" href="plans.html?plan=doubtassurance" aria-label="Open Doubt to Assurance, a 7-day KJV reading plan">Doubt → Assurance</a>&mdash;seven days in Scripture.</span>
-      <span class="tdb-moat-banner-sub">When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>&mdash;seven days in Scripture.</span>
-    </p>
-  </div>
   <!-- Full-page sky/stars (absolute on body — scrolls with page); tiles sit above in .app -->
   <div class="sky-page-backdrop" aria-hidden="true">
     <div class="sky" aria-hidden="true" id="sky-layer">
@@ -4333,6 +4345,18 @@
         <a href="terms.html" aria-label="Terms of service">Terms</a>
       </nav>
     </header>
+
+    <div class="tdb-moat-banner" role="region" aria-label="How this site differs from AI chat tools, and seven-day reading plans">
+      <p class="tdb-moat-banner-text">
+        <span class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</span>
+        <a class="tdb-moat-banner-link" href="why-not-ai.html">Why not AI?</a>
+        <span class="tdb-moat-banner-sub">When fear or anxiety spikes, try <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>&mdash;seven days in Scripture.</span>
+        <span class="tdb-moat-banner-sub">When your mind won&rsquo;t stop running tomorrow, try <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>&mdash;seven days in Scripture.</span>
+        <span class="tdb-moat-banner-sub">When heat or frustration runs the day, try <a class="tdb-moat-banner-link" href="plans.html?plan=angerpeace" aria-label="Open Anger to Peace, a 7-day KJV reading plan">Anger → Peace</a>&mdash;seven days in Scripture.</span>
+        <span class="tdb-moat-banner-sub">When questions crowd out confidence, try <a class="tdb-moat-banner-link" href="plans.html?plan=doubtassurance" aria-label="Open Doubt to Assurance, a 7-day KJV reading plan">Doubt → Assurance</a>&mdash;seven days in Scripture.</span>
+        <span class="tdb-moat-banner-sub">When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>&mdash;seven days in Scripture.</span>
+      </p>
+    </div>
 
     <div class="header-sub-toolbar" role="region" aria-label="Share today’s verse and reading plans">
       <div class="share-verse-row">

@@ -595,7 +595,7 @@ body {
   border-bottom: 1px solid rgba(227, 188, 103, 0.25);
   position: sticky;
   top: 0;
-  z-index: 200;
+  z-index: 201;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   font-size: 0.88rem;
@@ -10102,7 +10102,7 @@ body.has-promo-banner .header-search-sticky {
 .header-search-modal {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 220;
   display: flex;
   align-items: flex-start;
   justify-content: center;

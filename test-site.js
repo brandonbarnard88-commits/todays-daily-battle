@@ -25,6 +25,7 @@ const pages = [
   { path: '/sermon.html', name: 'Sermon', mustInclude: ['Sermon'] },
   { path: '/reading-plan.html', name: 'Reading plan', mustInclude: ['Reading', 'assets/share/verse-share.jpg'] },
   { path: '/faq.html', name: 'FAQ', mustInclude: ['FAQ'] },
+  { path: '/why-not-ai.html', name: 'Why not AI', mustInclude: ['Why not AI?', 'Honest comparison', 'What real readers say', 'privacy.html', 'plans.html', 'message.html'] },
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },

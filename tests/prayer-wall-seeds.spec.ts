@@ -29,7 +29,7 @@ async function waitForPrayerWallSeeds(page: Page, testInfo?: { attach: (name: st
   /* Post button wiring runs late in tdbInit (after Bible load); don’t interact before ready */
   await page.waitForSelector('#prayer-wall-list[data-prayer-wall-ready="1"]', { timeout: 25000 });
   try {
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(15, { timeout: 15000 });
+    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23, { timeout: 15000 });
   } catch (e) {
     const diag = await page.evaluate(() => {
       const list = document.getElementById('prayer-wall-list');
@@ -56,17 +56,17 @@ test.describe('Prayer Wall seeds', () => {
   test('seeds render when localStorage is empty', async ({ page }) => {
     await waitForPrayerWallSeeds(page, test.info());
     const items = page.locator('#prayer-wall-list li.prayer-wall-item');
-    await expect(items).toHaveCount(15);
-    await expect(page.locator('#prayer-wall-list').getByText(/heal our land|Thank you for this day|Guide my steps|help my unbelief|anxious thoughts|When fear overwhelms|carrying this grief|Calm the storm|afraid of what comes next|This loss is heavy/i).first()).toBeVisible();
+    await expect(items).toHaveCount(23);
+    await expect(page.locator('#prayer-wall-list').getByText(/heal our land|Thank you for this day|Guide my steps|help my unbelief|anxious thoughts|When fear overwhelms|carrying this grief|Calm the storm|afraid of what comes next|This loss is heavy|Fear to Faith|walks with me in the unknowns|quieter\. Thanks for praying|quiet moments\. Grateful for the Amens/i).first()).toBeVisible();
     await expect(page.locator('#prayerTodayLabel')).toContainText('0 prayers today');
   });
 
   test('seeds still listed after going offline (same session)', async ({ page, context }) => {
     await waitForPrayerWallSeeds(page, test.info());
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(15);
+    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23);
     await context.setOffline(true);
     /* Offline full reload is flaky in headless (uncached shell); keep user-respecting check */
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(15);
+    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23);
   });
 
   test('posting a prayer adds it to the list', async ({ page }) => {

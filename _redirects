@@ -62,6 +62,10 @@
 /plans /plans.html 200!
 /plans/ /plans.html 200!
 
+# Why not AI (moat page — clean URL + trailing slash)
+/why-not-ai /why-not-ai.html 200!
+/why-not-ai/ /why-not-ai.html 200!
+
 # Auth routes
 /login /login.html 200!
 

@@ -23,6 +23,7 @@ const PAGES = [
   '/reader.html',
   '/about.html',
   '/faq.html',
+  '/why-not-ai.html',
   '/pricing.html',
   '/privacy.html',
   '/terms.html',

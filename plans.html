@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <script nonce="tdb2025s" type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Reading Plans • Today's Daily Battle","url":"https://todaysdailybattle.com/plans.html","description":"7–30 day KJV reading plans: battle distraction, gratitude, strength, marriage, peace. Offline-first. No login needed.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"},"mainEntity":{"@type":"ItemList","name":"Battle Plans","description":"KJV reading plans for spiritual growth","numberOfItems":17,"itemListElement":[{"@type":"ListItem","name":"Battle Distraction","url":"https://todaysdailybattle.com/plans.html?plan=battle"},{"@type":"ListItem","name":"Gratitude","url":"https://todaysdailybattle.com/plans.html?plan=gratitude"},{"@type":"ListItem","name":"30-Day Strength","url":"https://todaysdailybattle.com/plans.html?plan=strength"},{"@type":"ListItem","name":"7-Day Peace","url":"https://todaysdailybattle.com/plans.html?plan=peace"},{"@type":"ListItem","name":"Healing from Grief","url":"https://todaysdailybattle.com/plans.html?plan=grief"}]}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"Reading Plans • Today's Daily Battle","url":"https://todaysdailybattle.com/plans.html","description":"7–30 day KJV reading plans: battle distraction, gratitude, strength, marriage, peace, fear to faith, worry to trust. Offline-first. No login needed.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"},"mainEntity":{"@type":"ItemList","name":"Battle Plans","description":"KJV reading plans for spiritual growth","numberOfItems":20,"itemListElement":[{"@type":"ListItem","name":"Battle Distraction","url":"https://todaysdailybattle.com/plans.html?plan=battle"},{"@type":"ListItem","name":"Gratitude","url":"https://todaysdailybattle.com/plans.html?plan=gratitude"},{"@type":"ListItem","name":"30-Day Strength","url":"https://todaysdailybattle.com/plans.html?plan=strength"},{"@type":"ListItem","name":"7-Day Peace","url":"https://todaysdailybattle.com/plans.html?plan=peace"},{"@type":"ListItem","name":"Fear to Faith","url":"https://todaysdailybattle.com/plans.html?plan=fearfaith"},{"@type":"ListItem","name":"Worry to Trust","url":"https://todaysdailybattle.com/plans.html?plan=worrytrust"},{"@type":"ListItem","name":"Healing from Grief","url":"https://todaysdailybattle.com/plans.html?plan=grief"}]}}
   </script>
   <style>
     :root {
@@ -327,6 +327,47 @@
     .plan-complete-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .plan-complete-title { font-size: 1.3rem; font-weight: 800; color: var(--gold); margin: 0 0 0.4rem; }
     .plan-complete-sub { font-size: 0.9rem; color: var(--muted); margin: 0 0 1.25rem; }
+    .plan-complete-related { margin-top: 0.25rem; margin-bottom: 1.25rem; text-align: left; }
+    .plan-complete-related[hidden] { display: none !important; }
+    .plan-complete-related-heading {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin: 0 0 0.65rem; text-align: center;
+    }
+    .plan-complete-related-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 0.65rem;
+    }
+    .plan-complete-related-card {
+      display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-start;
+      padding: 0.75rem 0.85rem; border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+      background: var(--card); color: var(--text); text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+      min-height: 44px; box-sizing: border-box;
+    }
+    .plan-complete-related-card:hover, .plan-complete-related-card:focus-visible {
+      border-color: var(--gold); color: var(--text); outline: none;
+    }
+    .plan-complete-related-card:focus-visible {
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 50%, transparent);
+    }
+    .plan-complete-related-icon { font-size: 1.15rem; line-height: 1; }
+    .plan-complete-related-label { font-size: 0.82rem; font-weight: 700; color: var(--gold-soft); line-height: 1.3; }
+    .plan-complete-related-teaser { font-size: 0.78rem; color: var(--muted); line-height: 1.35; }
+    .plan-complete-related-board {
+      margin: 1rem 0 0; padding-top: 0.75rem;
+      border-top: 1px solid color-mix(in srgb, var(--gold) 18%, transparent);
+      font-size: 0.85rem; color: var(--muted); line-height: 1.5; text-align: center;
+    }
+    .plan-complete-related-board-link {
+      color: var(--gold-soft); font-weight: 600; text-decoration: underline; text-underline-offset: 2px;
+      min-height: 44px; display: inline-flex; align-items: center; padding: 0.2rem 0.1rem;
+      box-sizing: border-box;
+    }
+    .plan-complete-related-board-link:hover, .plan-complete-related-board-link:focus-visible { color: var(--gold); }
+    .plan-complete-related-board-link:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      outline-offset: 2px; border-radius: 4px;
+    }
     .btn-extend {
       background: linear-gradient(135deg, var(--gold-soft), var(--gold));
       color: #1a1000; font-weight: 800;
@@ -363,6 +404,24 @@
     .recent-plan-label { font-size: 0.85rem; font-weight: 600; }
     .recent-plan-progress { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
     .recent-plan-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); transition: width 0.3s; }
+
+    .plan-extra-panel {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+      background: color-mix(in srgb, var(--card) 96%, var(--gold));
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .plan-extra-panel[hidden] { display: none !important; }
+    .plan-extra-panel h3 { margin: 0 0 0.5rem; font-size: 0.98rem; color: var(--gold); font-weight: 700; }
+    .plan-extra-panel ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+    .plan-extra-panel li { margin-bottom: 0.4rem; }
+    .plan-extra-panel p { margin: 0.65rem 0 0; }
+    .plan-extra-panel a { color: var(--gold-soft); text-decoration: underline; text-underline-offset: 2px; }
+    .plan-extra-panel a:hover, .plan-extra-panel a:focus-visible { color: var(--gold); }
   </style>
 </head>
 <body>
@@ -451,6 +510,16 @@
           <div class="plan-row-info"><h2>7-Day Victory Over Loneliness</h2><p>Finding God's companionship in isolation. He is near when you feel alone.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-loneliness">Not started</span></div>
         </a>
+        <a href="plans.html?plan=fearfaith" class="plan-row" data-plan="fearfaith" role="listitem" aria-label="Fear to Faith — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🛡️</span>
+          <div class="plan-row-info"><h2>Fear to Faith</h2><p>Short, daily KJV steps when &ldquo;what ifs&rdquo; won&rsquo;t stop—structure without overwhelm. For a longer rhythm, open <strong>21-Day Battle</strong> in this list, or use Win the Day &rarr; fear in the Bible Tool.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-fearfaith">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=worrytrust" class="plan-row" data-plan="worrytrust" role="listitem" aria-label="Worry to Trust — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">☁️</span>
+          <div class="plan-row-info"><h2>Worry to Trust</h2><p>Seven days to hand tomorrow back to God—casting care, praying specifics, and letting trust do the heavy lifting. Pairs with <strong>Fear to Faith</strong> and <strong>7-Day Peace</strong> in this list.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-worrytrust">Not started</span></div>
+        </a>
         <a href="plans.html?plan=battle10" class="plan-row" data-plan="battle10" role="listitem" aria-label="10-Day Battle — 10 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
           <div class="plan-row-info"><h2>10-Day Battle</h2><p>Cut through the noise. One focused verse a day for 10 days.</p></div>
@@ -506,11 +575,13 @@
         <div class="plan-complete-icon">🏆</div>
         <p class="plan-complete-title" id="planCompleteTitle">Plan Complete!</p>
         <p class="plan-complete-sub" id="planCompleteSub"></p>
+        <div id="planCompleteRelated" class="plan-complete-related" hidden aria-label="Related reading plans"></div>
         <button type="button" class="btn-share" id="btnShareComplete" aria-label="Share plan completion">Share</button>
         <button type="button" class="btn-extend" id="btnExtend" aria-label="Do this plan again from day one">Do it again</button>
         <button type="button" class="btn-restart" id="btnRestart" aria-label="Restart this plan from day one">Start Over</button>
       </div>
       <div id="dayCardContainer"></div>
+      <div id="planExtraPanel" class="plan-extra-panel" hidden aria-label="Extra verses for fear and anxiety"></div>
     </div>
 
   </main>
@@ -817,6 +888,106 @@
             speaker: 'The Preacher — on the value of companionship', plain: 'Two are better than one. God is your other. He lifts you up.', today: 'When you fall, He lifts you.', action: 'Name one thing you\'ve fallen in. Ask Him to lift you.', prayer: 'Lord, when I fall, You lift me. Amen.' },
           { title: 'Victory in His presence', ref: 'Psalm 16:11', text: 'Thou wilt shew me the path of life: in thy presence is fulness of joy; at thy right hand there are pleasures for evermore.',
             speaker: 'David — on the path of life', plain: 'In His presence is fulness of joy. You\'re not alone. You\'re in His presence.', today: 'After 7 days — what does His presence feel like?', action: 'Write one sentence. Offer it to Him. Receive the joy.', prayer: 'Lord, in Thy presence is fulness of joy. I receive it. Amen.' }
+        ]
+      },
+
+      fearfaith: {
+        id: 'fearfaith', icon: '\uD83D\uDEE1\uFE0F', label: 'Fear to Faith',
+        desc: 'When the what-ifs will not stop—a 7-day walk from panic toward peace, one KJV verse at a time. Progress saves on your device.',
+        key: 'tdb-plan-fearfaith-day', max: 7,
+        days: [
+          { title: 'God did not give you fear', ref: '2 Timothy 1:7', text: 'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.',
+            speaker: 'Paul, writing to his young friend Timothy from a Roman prison cell.',
+            plain: 'Fear feels so real it convinces you it is from God. It is not. Paul is saying fear is a spirit that steals your power, love, and clear thinking—and God never sent it.',
+            today: 'That racing heart, the worst-case scenarios looping in your head—those are not God\'s voice. He is offering power instead.',
+            action: 'Say the verse out loud three times. Then pray: "Lord, replace this fear with Your power, love, and sound mind."',
+            prayer: 'Lord, You did not give me a spirit of fear. Fill me with power, love, and a sound mind. Amen.' },
+          { title: 'You are not alone', ref: 'Isaiah 41:10', text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
+            speaker: 'God Himself, speaking through the prophet Isaiah to His scared people.',
+            plain: 'God does not just say "stop being afraid." He gives five reasons why you do not have to be—starting with "I am with thee."',
+            today: 'You feel alone in the fight. God says He is right there holding you up with the same hand that carried His people.',
+            action: 'Write or type the five promises ("I am with thee… I will strengthen…") on a note and keep it where you will see it when fear hits.',
+            prayer: 'Lord, I am not alone. Strengthen me, help me, uphold me. Amen.' },
+          { title: 'Trust beats terror', ref: 'Psalm 56:3', text: 'What time I am afraid, I will trust in thee.',
+            speaker: 'David, on the run from Saul and hiding in enemy territory.',
+            plain: 'David does not say he is never afraid. He says when he is afraid, he chooses trust anyway.',
+            today: 'Fear and faith can exist in the same moment. The difference is which one you hand the steering wheel to.',
+            action: 'Next time fear spikes today, speak this verse out loud and name one specific thing you are handing to God right now.',
+            prayer: 'Lord, when I am afraid, I will trust in You. Amen.' },
+          { title: 'Worry has an expiration date', ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+            speaker: 'Paul, again from prison, to the church at Philippi.',
+            plain: '"Be careful for nothing" means stop letting anxiety run the show over every detail. Paul does not deny the problems—he gives the antidote: pray everything out (supplication means specific requests), then add thanksgiving even before answers come. Why thanksgiving? It moves your mind off the threat and onto God\'s track record of faithfulness. Without it, prayer can stay stuck in panic mode. The result is not fake calm; it is a peace from God that guards your heart and thoughts like a sentry when nothing else makes sense.',
+            today: 'Your brain is wired to rehearse disasters. This verse interrupts the loop: hand over the worry list item by item, thank God for who He is (faithful, near, sovereign), and let His peace stand guard. It will not erase tomorrow\'s unknowns, but it can keep your heart from being crushed by them right now. Many believers find this the turning point—worry loses its grip when gratitude enters the fight.',
+            action: 'Write down the one thing you are most worried about. Pray the verse over it word-for-word. Then thank God for three specific things (big or small) that show He has already been good. Keep the list visible for when anxiety creeps back.',
+            prayer: 'Father, I bring every request with thanksgiving. Let Your peace guard my heart and mind in Christ Jesus. Amen.' },
+          { title: 'Jesus steps into your storm', ref: 'Matthew 14:27', text: 'Be of good cheer; it is I; be not afraid.',
+            speaker: 'Jesus, walking on water toward terrified disciples in the middle of a storm.',
+            plain: 'The disciples thought He was a ghost. Jesus\' first words were not "stop panicking"—they were "It is I." His presence changes everything.',
+            today: 'Your storm feels out of control. Jesus is already walking toward you in the middle of it.',
+            action: 'Close your eyes for 60 seconds and picture Jesus saying your name plus "It is I; be not afraid."',
+            prayer: 'Jesus, it is You—be with me in this storm. Amen.' },
+          { title: 'No shadow too dark', ref: 'Psalm 23:4', text: 'Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.',
+            speaker: 'David, the shepherd-king who faced lions, giants, and betrayal.',
+            plain: 'He does not say the valley will not come. He says when it does, fear has no power because "thou art with me."',
+            today: 'The darkest seasons still have a Shepherd walking right beside you—closer than the shadow.',
+            action: 'Read all of Psalm 23 out loud slowly. Underline or highlight "thou art with me."',
+            prayer: 'Lord, Thou art with me; I will fear no evil. Comfort me with Thy rod and staff. Amen.' },
+          { title: 'Faith is the victory', ref: 'Hebrews 11:1', text: 'Now faith is the substance of things hoped for, the evidence of things not seen.',
+            speaker: 'The writer of Hebrews, encouraging persecuted believers.',
+            plain: 'Fear demands visible proof. Faith treats God\'s promises as real substance—even when you cannot see the outcome yet. After six days of choosing trust over terror, you have your own small evidence: moments God showed up, peace that came, fears that did not win the day.',
+            today: 'You started scared. You are ending with a short track record of God\'s faithfulness in real time. That is the substance faith builds on for the next battle.',
+            action: 'Write one honest sentence starting with: "Because of these seven days, I now believe God will…" (for example: "…be with me in the unknowns," or "…replace my fear with His peace next time"). Then, if you are comfortable, share one short anonymous line from that sentence on the Message Board. No pressure—the reflection alone still strengthens faith. Revisit this plan when the what-ifs return.',
+            prayer: 'Lord, thank You for these seven days. Build my faith on what is true in You. Amen.' }
+        ]
+      },
+
+      worrytrust: {
+        id: 'worrytrust', icon: '\u2601\uFE0F', label: 'Worry to Trust',
+        desc: 'When your mind runs tomorrow before today is done—seven KJV days to cast care, pray honestly, and lean on God\'s strength instead of your what-ifs.',
+        key: 'tdb-plan-worrytrust-day', max: 7,
+        days: [
+          { title: 'Hand Him the weight', ref: '1 Peter 5:7', text: 'Casting all your care upon him; for he careth for you.',
+            speaker: 'Peter, to believers who knew pressure and exile.',
+            plain: 'Worry pretends you are the only one holding the problem. Peter says cast—all of it—because God cares. Not indifferent. Not distant. He cares for you.',
+            today: 'What care have you been carrying like it was yours alone to fix?',
+            action: 'Name one care out loud. Say: "I cast this on You." Then leave it with Him for the next hour—no rehearsing the worst case.',
+            prayer: 'Lord, I cast my care on You. You care for me. Amen.' },
+          { title: 'Trade panic for prayer', ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+            speaker: 'Paul, writing from chains to friends under stress.',
+            plain: '"Be careful for nothing" is old English for do not stay stuck in anxiety over everything. The trade is prayer plus thanks—not denial, but direction. Tell God the real request.',
+            today: 'What are you "careful" about on loop today?',
+            action: 'Write one sentence: the request you need God to hear. Pray it. Add one thank-you for something true about Him—even if the situation has not shifted yet.',
+            prayer: 'Father, I make my request known to You with thanksgiving. Amen.' },
+          { title: 'Stayed mind, steady peace', ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.',
+            speaker: 'Isaiah, speaking God\'s promise to a shaken people.',
+            plain: 'Perfect peace is not the absence of trouble. It is God keeping the heart that stays on Him—because trust is anchored there, not in the forecast.',
+            today: 'Where does your mind drift when you are not "staying" on Him?',
+            action: 'Set a two-minute timer. Breathe slowly and say this verse once. Each time your mind runs ahead, return to His name.',
+            prayer: 'Lord, keep me in peace; my mind stays on You. Amen.' },
+          { title: 'Today has enough', ref: 'Matthew 6:34', text: 'Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.',
+            speaker: 'Jesus, finishing His teaching on anxiety and provision.',
+            plain: 'Tomorrow will bring its own load. Borrowing trouble from tomorrow crushes today. Jesus limits the assignment: enough for today—deal with today\'s piece with Him.',
+            today: 'What "tomorrow" are you living in your head right now?',
+            action: 'Write tomorrow\'s worry on paper, fold it, and say: "God owns tomorrow—I will obey today." Open the Word or pray for today only before bed.',
+            prayer: 'Jesus, I will not take thought for the morrow alone. You are sufficient for this day. Amen.' },
+          { title: 'Cast the burden once', ref: 'Psalm 55:22', text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+            speaker: 'David, overwhelmed—and honest about it.',
+            plain: 'Casting is an act of transfer. Sustain means He holds you up when the burden would have dropped you. He does not promise zero weight; He promises support.',
+            today: 'What burden did you cast yesterday and pick back up this morning?',
+            action: 'Physically open your hands while you pray this verse. Leave the burden named. If it returns, cast it again—same God, same promise.',
+            prayer: 'Lord, I cast my burden on You. Sustain me. Amen.' },
+          { title: 'Commit the path', ref: 'Psalm 37:5', text: 'Commit thy way unto the LORD; trust also in him; and he shall bring it to pass.',
+            speaker: 'David, teaching the quiet heart before God.',
+            plain: 'Commit means roll it onto Him—your way, your plan, your timing. Trust is the other hand on the plow. He brings it to pass in His wisdom, not your panic.',
+            today: 'What part of "your way" are you still white-knuckling?',
+            action: 'Finish this sentence aloud: "I commit __ to the Lord and I trust Him with the outcome."',
+            prayer: 'Lord, I commit my way to You. I trust You to bring it to pass. Amen.' },
+          { title: 'Wait on God alone', ref: 'Psalm 62:5', text: 'My soul, wait thou only upon God; for my expectation is from him.',
+            speaker: 'David, when circumstances were loud and solutions were few.',
+            plain: 'Worry looks everywhere for relief at once. The soul that waits only on God sets expectation on Him—not on the perfect email, test result, or conversation.',
+            today: 'After seven days, where is your expectation resting?',
+            action: 'Write: "Because of these seven days, I will wait on God for __." If you want company, share one short anonymous line on the Message Board. No pressure—the sentence alone is obedience.',
+            prayer: 'Lord, my soul waits only on You. My expectation is from You. Amen.' }
         ]
       },
 
@@ -1279,7 +1450,83 @@
         completeCard.classList.remove('show');
       }
 
+      updatePlanCompleteRelated(plan, progress);
+
       renderDayCard();
+    }
+
+    var PLAN_COMPLETE_RELATED = {
+      fearfaith: {
+        rows: [
+          { planId: 'loneliness', teaser: 'When isolation hits hard\u2026' },
+          { planId: 'trust', teaser: 'When the path is not clear\u2026' },
+          { planId: 'grief', teaser: 'Healing one day at a time\u2026' },
+          { planId: 'battle30', teaser: 'Build strength for the long fight\u2026' }
+        ],
+        showBoard: true
+      },
+      worrytrust: {
+        rows: [
+          { planId: 'fearfaith', teaser: 'When fear is louder than worry\u2026' },
+          { planId: 'peace', teaser: 'When you need stillness\u2026' },
+          { planId: 'trust', teaser: 'When the future feels unstable\u2026' },
+          { planId: 'battle21', teaser: 'A longer daily rhythm\u2026' }
+        ],
+        showBoard: true
+      }
+    };
+
+    function updatePlanCompleteRelated(plan, progress) {
+      var el = document.getElementById('planCompleteRelated');
+      if (!el) return;
+      el.replaceChildren();
+      el.hidden = true;
+      if (!plan || progress < plan.max) return;
+      var cfg = PLAN_COMPLETE_RELATED[plan.id];
+      if (!cfg) return;
+      el.hidden = false;
+      var h = document.createElement('h3');
+      h.className = 'plan-complete-related-heading';
+      h.textContent = 'Keep going \u2014 related plans';
+      el.appendChild(h);
+      var grid = document.createElement('div');
+      grid.className = 'plan-complete-related-grid';
+      cfg.rows.forEach(function (row) {
+        var p = PLANS[row.planId];
+        if (!p) return;
+        var a = document.createElement('a');
+        a.className = 'plan-complete-related-card';
+        a.href = 'plans.html?plan=' + encodeURIComponent(p.id);
+        var ic = document.createElement('span');
+        ic.className = 'plan-complete-related-icon';
+        ic.setAttribute('aria-hidden', 'true');
+        ic.textContent = p.icon;
+        var lb = document.createElement('span');
+        lb.className = 'plan-complete-related-label';
+        lb.textContent = p.label;
+        var te = document.createElement('span');
+        te.className = 'plan-complete-related-teaser';
+        te.textContent = row.teaser;
+        a.appendChild(ic);
+        a.appendChild(lb);
+        a.appendChild(te);
+        a.setAttribute('aria-label', p.label + '. ' + row.teaser);
+        grid.appendChild(a);
+      });
+      el.appendChild(grid);
+      if (cfg.showBoard) {
+        var boardP = document.createElement('p');
+        boardP.className = 'plan-complete-related-board';
+        boardP.appendChild(document.createTextNode('Encouraged? Share a quick thought anonymously on the '));
+        var boardA = document.createElement('a');
+        boardA.href = 'message.html';
+        boardA.className = 'plan-complete-related-board-link';
+        boardA.setAttribute('aria-label', 'Go to Message Board to share a quick anonymous thought');
+        boardA.textContent = 'Message Board';
+        boardP.appendChild(boardA);
+        boardP.appendChild(document.createTextNode(' \u2192'));
+        el.appendChild(boardP);
+      }
     }
 
     function renderDayCard() {
@@ -1292,7 +1539,10 @@
       var plan     = currentPlan;
       var progress = getDayProgress(plan);
       var dayData  = plan.days[currentDay];
-      if (!dayData) return;
+      if (!dayData) {
+        updatePlanExtraPanel();
+        return;
+      }
       var isDone   = (currentDay < progress);
 
       var container = document.getElementById('dayCardContainer');
@@ -1325,6 +1575,87 @@
       document.getElementById('btnShareDay').addEventListener('click', shareDay);
       var readAloudBtn = document.getElementById('btnReadAloud');
       if (readAloudBtn) readAloudBtn.addEventListener('click', function () { readDayAloud(dayData, readAloudBtn); });
+      updatePlanExtraPanel();
+    }
+
+    function updatePlanExtraPanel() {
+      var el = document.getElementById('planExtraPanel');
+      if (!el || !currentPlan) return;
+      el.replaceChildren();
+      var pid = currentPlan.id;
+      if (pid !== 'fearfaith' && pid !== 'worrytrust') {
+        el.hidden = true;
+        return;
+      }
+      el.hidden = false;
+      if (pid === 'fearfaith') {
+        el.setAttribute('aria-label', 'Extra verses for fear and anxiety');
+        var h3f = document.createElement('h3');
+        h3f.textContent = 'If fear lingers, more KJV anchors';
+        el.appendChild(h3f);
+        var introf = document.createElement('p');
+        introf.textContent = 'Fear does not always lift in a week. These verses pair with the plan—bookmark them or come back when the thoughts start racing again.';
+        el.appendChild(introf);
+        var ulf = document.createElement('ul');
+        var itemsF = [
+          ['Casting all your care upon him; for he careth for you.', '1 Peter 5:7'],
+          ['Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.', 'John 14:27'],
+          ['I sought the LORD, and he heard me, and delivered me from all my fears.', 'Psalm 34:4'],
+          ['The LORD is my light and my salvation; whom shall I fear? the LORD is the strength of my life; of whom shall I be afraid?', 'Psalm 27:1'],
+          ['Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.', 'Isaiah 26:3'],
+          ['Be strong and of a good courage, fear not, nor be afraid of them: for the LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.', 'Deuteronomy 31:6'],
+          ['Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.', 'Psalm 55:22']
+        ];
+        itemsF.forEach(function (pair) {
+          var li = document.createElement('li');
+          li.textContent = '\u201c' + pair[0] + '\u201d \u2014 ' + pair[1];
+          ulf.appendChild(li);
+        });
+        el.appendChild(ulf);
+        var moref = document.createElement('p');
+        var t1f = document.createTextNode('Keep fighting: On the home page, search \u201cfear\u201d, \u201canxiety\u201d, or \u201cworry\u201d\u2014or open the ');
+        var af = document.createElement('a');
+        af.href = 'bible-tool.html';
+        af.textContent = 'Bible Tool';
+        var t2f = document.createTextNode(' and try Win the Day \u2192 fear.');
+        moref.appendChild(t1f);
+        moref.appendChild(af);
+        moref.appendChild(t2f);
+        el.appendChild(moref);
+        return;
+      }
+      el.setAttribute('aria-label', 'Extra verses for worry and trust');
+      var h3w = document.createElement('h3');
+      h3w.textContent = 'If worry keeps circling, more KJV anchors';
+      el.appendChild(h3w);
+      var introw = document.createElement('p');
+      introw.textContent = 'Seven days does not erase every habit of the mind. These verses pair with the plan—return when you start rehearsing tomorrow again.';
+      el.appendChild(introw);
+      var ulw = document.createElement('ul');
+      var itemsW = [
+        ['Therefore I say unto you, Take no thought for your life, what ye shall eat, or what ye shall drink; nor yet for your body, what ye shall put on. Is not the life more than meat, and the body than raiment?', 'Matthew 6:25'],
+        ['Blessed is the man that trusteth in the LORD, and whose hope the LORD is.', 'Jeremiah 17:7'],
+        ['The LORD is good, a strong hold in the day of trouble; and he knoweth them that trust in him.', 'Nahum 1:7'],
+        ['Humble yourselves therefore under the mighty hand of God, that he may exalt you in due time: Casting all your care upon him; for he careth for you.', '1 Peter 5:6-7'],
+        ['Trust in the LORD with all thine heart; and lean not unto thine own understanding.', 'Proverbs 3:5'],
+        ['Come unto me, all ye that labour and are heavy laden, and I will give you rest.', 'Matthew 11:28']
+      ];
+      itemsW.forEach(function (pair) {
+        var liw = document.createElement('li');
+        liw.textContent = '\u201c' + pair[0] + '\u201d \u2014 ' + pair[1];
+        ulw.appendChild(liw);
+      });
+      el.appendChild(ulw);
+      var morew = document.createElement('p');
+      var t1w = document.createTextNode('Keep going: On the home page, search \u201cworry\u201d or \u201canxiety\u201d\u2014or open the ');
+      var aw = document.createElement('a');
+      aw.href = 'bible-tool.html';
+      aw.textContent = 'Bible Tool';
+      var t2w = document.createTextNode(' for Win the Day topics that fit what you carry.');
+      morew.appendChild(t1w);
+      morew.appendChild(aw);
+      morew.appendChild(t2w);
+      el.appendChild(morew);
     }
 
     function readDayAloud(dayData, listenBtn) {
@@ -1521,6 +1852,11 @@
       if (list) list.setAttribute('aria-busy', 'true');
       var params = new URLSearchParams(window.location.search);
       var planParam = params.get('plan');
+      try {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('tdb-debug-plans') === '1' && typeof console !== 'undefined' && console.log) {
+          console.log('[TDB plans] planParam=', planParam, 'hasEntry=', !!(planParam && PLANS[planParam]), 'fearfaith=', !!PLANS.fearfaith, 'worrytrust=', !!PLANS.worrytrust);
+        }
+      } catch (dbgErr) {}
       if (planParam && PLANS[planParam]) {
         renderIndex();
         openPlan(planParam);

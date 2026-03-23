@@ -221,7 +221,15 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must contain plan-list and Battle Distraction. Plan cards are required.');
       process.exit(1);
     }
-    console.log('Copied plans.html (10 battle plans)');
+    if (!content.includes('fearfaith') || !content.includes('tdb-plan-fearfaith-day')) {
+      console.error('BUILD FAIL: plans.html must include Fear to Faith plan (fearfaith / tdb-plan-fearfaith-day).');
+      process.exit(1);
+    }
+    if (!content.includes('worrytrust') || !content.includes('tdb-plan-worrytrust-day')) {
+      console.error('BUILD FAIL: plans.html must include Worry to Trust plan (worrytrust / tdb-plan-worrytrust-day).');
+      process.exit(1);
+    }
+    console.log('Copied plans.html (battle plans library)');
   }
   if (f === 'privacy.html') {
     if (!content.includes('Privacy') || !content.includes('Supabase')) {
@@ -357,7 +365,7 @@ fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 // Verify critical pages exist (fail build if missing)
 const CRITICAL_PAGES = [
   'index.html', 'bible-tool.html', 'pastor-toolkit.html', 'sermon.html', 'plans.html',
-  'testimonials.html',
+  'testimonials.html', 'why-not-ai.html',
   'pastor/index.html', 'bible/index.html', 'script.js'
 ];
 const missing = CRITICAL_PAGES.filter(function (f) { return !fs.existsSync(path.join(dist, f)); });
@@ -396,6 +404,12 @@ for (let i = 0; i < SHARE_OG.length; i++) {
 console.log('Verified: sitemap.xml + robots.txt in dist/, verse-cards/index.html + Spanish URLs in sitemap.');
 console.log('Verified: assets/share OG JPEGs (1200×630) for social previews.');
 
+const amenSignalPath = path.join(dist, 'assets', 'data', 'community-amen-signal.json');
+if (!fs.existsSync(amenSignalPath)) {
+  console.error('BUILD FAIL: assets/data/community-amen-signal.json missing in dist/. Required for optional aggregate Amen line.');
+  process.exit(1);
+}
+
 // Verify donation redirects in _redirects (required for bot-probe cleanup)
 const redirectsPath = path.join(dist, '_redirects');
 if (!fs.existsSync(redirectsPath)) {
@@ -418,6 +432,10 @@ const missingRedirects = DONATION_REDIRECTS.filter(function (r) {
 if (missingRedirects.length) {
   console.error('BUILD FAIL: _redirects missing required donation rules:');
   missingRedirects.forEach(function (r) { console.error('  - ' + r.desc); });
+  process.exit(1);
+}
+if (!/^\/why-not-ai\s+\/why-not-ai\.html\s+200!/m.test(redirectsContent)) {
+  console.error('BUILD FAIL: _redirects must map /why-not-ai → /why-not-ai.html (200!) for Cloudflare Pages.');
   process.exit(1);
 }
 console.log('Verified: donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');

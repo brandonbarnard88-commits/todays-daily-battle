@@ -14,7 +14,7 @@
   <script nonce="tdb2025s" src="/tt-bootstrap.js"></script>
 
   <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
-  <meta name="description" content="Bible verses for when you feel heartbroken, anxious, or alone. KJV comfort, mood-based search, and prayer wall. Offline-ready. Daily habit, two minutes.">
+  <meta name="description" content="KJV when anxiety, grief, or fear hit: one curated verse, battle plans with on-device progress, and a prayer wall with real Amens. Offline-ready. Daily flow is not an AI chat—privacy-first.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -27,7 +27,7 @@
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
     "logo": "https://todaysdailybattle.com/logo-shield-600.png",
-    "description": "A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise."
+    "description": "A quiet, daily KJV verse, mood-based search, prayer wall, and battle plans—mobile-first, offline-ready, privacy-first. Human-curated rhythm, not an AI chat."
   }
   </script>
   <script nonce="tdb2025s" type="application/ld+json">
@@ -36,7 +36,7 @@
     "@type": "WebSite",
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
-    "description": "One verse. One moment. Every day. Less scroll, more soul.",
+    "description": "One verse. One moment. Every day. Curated KJV, real community on the prayer wall, battle plans that stick—less scroll, more soul.",
     "publisher": { "@id": "https://todaysdailybattle.com/#organization" },
     "potentialAction": {
       "@type": "SearchAction",
@@ -62,7 +62,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Today's Daily Battle">
-  <meta property="og:description" content="One verse. One moment. Every day. Less scroll, more soul.">
+  <meta property="og:description" content="One verse. One moment. Every day. Curated KJV, prayer wall, battle plans—offline-ready. Less scroll, more soul.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/home-og.jpg?v=20260322">
   <meta property="og:image:width" content="1200">
@@ -72,7 +72,7 @@
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today's Daily Battle">
-  <meta name="twitter:description" content="One verse. One moment. Every day. Less scroll, more soul.">
+  <meta name="twitter:description" content="One verse. One moment. Every day. Curated KJV, prayer wall, battle plans—offline-ready. Less scroll, more soul.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/home-og.jpg?v=20260322">
   <!-- Caveat + Cormorant (display=swap). Stylesheet only — avoids preload-not-used warning when CSS applies after paint. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -577,6 +577,65 @@
       .tdb-global-nav::-webkit-scrollbar { display: none; }
       .tdb-global-nav a { flex-shrink: 0; padding: 0.5rem 0.65rem; }
     }
+
+    /* ── Moat banner (curated habit vs. endless chat) ── */
+    .tdb-moat-banner {
+      margin: 0;
+      padding: 0.65rem 1rem;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.95), rgba(23, 32, 52, 0.98), rgba(15, 23, 42, 0.95));
+      border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: rgba(226, 232, 240, 0.92);
+    }
+    .tdb-moat-banner-text {
+      margin: 0 auto;
+      max-width: 52rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem 0.75rem;
+    }
+    .tdb-moat-banner-lead { flex: 1 1 16rem; text-align: center; }
+    .tdb-moat-banner-sub {
+      flex: 1 1 100%;
+      text-align: center;
+      font-size: 0.88em;
+      line-height: 1.4;
+      color: rgba(226, 232, 240, 0.82);
+      margin: 0.1rem 0 0;
+    }
+    .tdb-moat-banner-link {
+      flex-shrink: 0;
+      color: var(--gold, #e3bc67);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+      padding: 0.35rem 0.25rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .tdb-moat-banner-link:hover { color: #f2dc98; border-bottom-color: rgba(242, 220, 152, 0.5); }
+    .tdb-moat-banner-link:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.75);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    :root[data-theme="light"] .tdb-moat-banner {
+      background: linear-gradient(90deg, #f0ebe0, #faf6ed, #f0ebe0);
+      color: #1a1f2e;
+      border-bottom-color: color-mix(in srgb, #9e7625 35%, var(--line));
+    }
+    :root[data-theme="light"] .tdb-moat-banner-link {
+      color: #7a5818;
+      border-bottom-color: color-mix(in srgb, #7a5818 40%, transparent);
+    }
+    :root[data-theme="light"] .tdb-moat-banner-link:hover { color: #5c410f; }
+    :root[data-theme="light"] .tdb-moat-banner-sub { color: rgba(26, 31, 46, 0.78); }
 
     /* Small-phone tightening — 400px and under */
     @media (max-width: 400px) {
@@ -2793,6 +2852,23 @@
       line-height: 1.45;
     }
     .prayer-wall-community-line a { color: var(--gold-soft, #c9a84c); text-decoration: underline; text-underline-offset: 2px; }
+    .prayer-amen-signal {
+      margin: 0.35rem 0 0.25rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted);
+      max-width: 28rem;
+    }
+    .prayer-amen-signal.hidden { display: none !important; }
+    .prayer-amen-signal-link {
+      color: var(--gold-soft, #c9a84c);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .prayer-amen-signal-link:hover,
+    .prayer-amen-signal-link:focus-visible {
+      color: var(--gold, #e3bc67);
+    }
     .prayer-export-hint {
       margin: 0.35rem 0 0;
       font-size: 0.78rem;
@@ -3945,6 +4021,14 @@
               "@type": "Answer",
               "text": "No. Everything works without signing in. Your notes and prayer list save to your device locally."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this an AI chat or Bible bot?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The daily rhythm—verse of the day, mood search, prayer wall, battle plans—is not an AI chat. The Bible Tool page includes an optional Ask the Word box that may use server-assisted answers; it is labeled there. For an honest comparison with typical AI tools, see https://todaysdailybattle.com/why-not-ai.html"
+            }
           }
         ]
       },
@@ -3974,6 +4058,14 @@
     <a href="/bible-tool.html">Tools</a>
     <a href="/story.html">Story</a>
   </nav>
+  <div class="tdb-moat-banner" role="region" aria-label="How this site differs from AI chat tools, and seven-day reading plans">
+    <p class="tdb-moat-banner-text">
+      <span class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</span>
+      <a class="tdb-moat-banner-link" href="why-not-ai.html">Why not AI?</a>
+      <span class="tdb-moat-banner-sub">When fear or anxiety spikes, try <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>&mdash;seven days in Scripture.</span>
+      <span class="tdb-moat-banner-sub">When your mind won&rsquo;t stop running tomorrow, try <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>&mdash;seven days in Scripture.</span>
+    </p>
+  </div>
   <div class="app">
 
     <header class="site-header">
@@ -4066,6 +4158,7 @@
         </span>
         <a href="about.html" aria-label="About Today's Daily Battle">About</a>
         <a href="faq.html" aria-label="FAQ">FAQ</a>
+        <a href="why-not-ai.html" aria-label="Why we are not an AI chat tool">Why not AI?</a>
         <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
         <a href="terms.html" aria-label="Terms of service">Terms</a>
       </nav>
@@ -4227,7 +4320,7 @@
           <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
         </div>
       </div>
-      <div class="landing-privacy-teaser">No ads. No personal tracking. Minimal anonymous stats only (no prayers or searches logged). Everything stays between you and God. <a href="privacy.html">Privacy</a>.</div>
+      <div class="landing-privacy-teaser">No ads. No personal tracking. Minimal anonymous stats only&mdash;we never log your prayers or raw searches for analytics. Offline when you need it. <a href="privacy.html">Privacy</a> &middot; <a href="why-not-ai.html">Why not AI?</a></div>
       <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
       <p class="site-plan-nudge">Want a longer rhythm? <a href="plans.html">Battle Plans</a> — 7–40 days, progress saved on your device.</p>
       <!-- ── Read full chapter ── -->
@@ -4278,6 +4371,8 @@
           <button type="button" class="plan-chip" data-plan="strength" aria-label="30-Day Strength"><span aria-hidden="true">💪</span> 30-Day Strength<span class="plan-chip-days" id="planChip-strength"></span></button>
           <button type="button" class="plan-chip" data-plan="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage<span class="plan-chip-days" id="planChip-marriage"></span></button>
           <button type="button" class="plan-chip" data-plan="peace" aria-label="7-Day Peace"><span aria-hidden="true">🕊️</span> 7-Day Peace<span class="plan-chip-days" id="planChip-peace"></span></button>
+          <button type="button" class="plan-chip" data-plan="fearfaith" aria-label="Fear to Faith"><span aria-hidden="true">🛡️</span> Fear to Faith<span class="plan-chip-days" id="planChip-fearfaith"></span></button>
+          <button type="button" class="plan-chip" data-plan="worrytrust" aria-label="Worry to Trust"><span aria-hidden="true">☁️</span> Worry to Trust<span class="plan-chip-days" id="planChip-worrytrust"></span></button>
           <button type="button" class="plan-chip" data-plan="easter" aria-label="Resurrection Hope"><span aria-hidden="true">✨</span> Resurrection Hope<span class="plan-chip-days" id="planChip-easter"></span></button>
         </div>
         <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
@@ -4444,6 +4539,7 @@
           <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
         </div>
         <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">20</span></p>
+        <p class="prayer-amen-signal hidden" id="prayerAmenSignal" aria-live="polite"></p>
         <p class="prayer-social-proof hidden" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
         <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
         <button class="silent-amen-btn" type="button" id="silentAmenBtn" aria-label="Add a silent amen">
@@ -4538,7 +4634,7 @@
       </section>
       <section class="card" id="newsletter" aria-label="Join the Battle Plan">
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Get Daily Verse + Prayer Nudge</h2>
-        <p class="section-note newsletter-thesis">One email&mdash;Friday recap or daily verse. Daily bread for today&rsquo;s daily battle. No spam.</p>
+        <p class="section-note newsletter-thesis">One email&mdash;Friday recap or daily verse. Daily bread, not a buffet: one rhythm you can keep. No spam. <a href="why-not-ai.html">Why not AI?</a></p>
         <div class="newsletter-form">
           <input id="newsletter-name" type="text" placeholder="Name" aria-label="Your name" autocomplete="name">
           <input id="newsletter-email" type="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
@@ -4564,6 +4660,7 @@
         <a href="about.html">About</a>
         <a href="pricing.html">Plans</a>
         <a href="faq.html">FAQ</a>
+        <a href="why-not-ai.html">Why not AI?</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="security.html">Security</a>
@@ -4623,6 +4720,7 @@
             <a href="shop.html">Shop</a>
             <a href="story.html">Story</a>
             <a href="approach.html">How we respond</a>
+            <a href="why-not-ai.html">Why not AI?</a>
             <a href="curriculum.html">Curriculum</a>
             <a href="verse-cards/">Verse cards</a>
             <a href="contact.html">Contact</a>
@@ -4633,7 +4731,7 @@
       <p class="site-footer-copy">© Todays Daily Battle 2026</p>
       <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
       <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
-        <p class="footer-friday-signup-label">Want one verse + prayer every Friday? No spam.</p>
+        <p class="footer-friday-signup-label">One verse + prayer on Fridays—steady rhythm, not noise. No spam.</p>
         <div class="footer-friday-signup-row">
           <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
           <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
@@ -6424,6 +6522,8 @@
         strength: { label: '\uD83D\uDCAA 30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
         marriage: { label: '\uD83D\uDC8D Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
         peace:    { label: '\uD83D\uDD4A\uFE0F 7-Day Peace',   key: 'tdb-plan-peace-day',     max: 7  },
+        fearfaith:{ label: '\uD83D\uDEE1\uFE0F Fear to Faith', key: 'tdb-plan-fearfaith-day', max: 7  },
+        worrytrust:{ label: '\u2601\uFE0F Worry to Trust', key: 'tdb-plan-worrytrust-day', max: 7  },
         battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
         battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
         battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
@@ -6553,6 +6653,8 @@
       strength: { label: '\uD83D\uDCAA 30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
       marriage: { label: '\uD83D\uDC8D Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
       peace:    { label: '\uD83D\uDD4A\uFE0F 7-Day Peace',   key: 'tdb-plan-peace-day',     max: 7  },
+      fearfaith:{ label: '\uD83D\uDEE1\uFE0F Fear to Faith', key: 'tdb-plan-fearfaith-day', max: 7  },
+      worrytrust:{ label: '\u2601\uFE0F Worry to Trust', key: 'tdb-plan-worrytrust-day', max: 7  },
       battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
       battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
       battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },

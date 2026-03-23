@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Not AI? • Honest Comparison • Today's Daily Battle</title>
+  <meta name="description" content="Today's Daily Battle is not an AI Bible chat. Here is a calm, honest comparison: curated KJV, offline privacy, real prayer wall, and battle plans—versus typical AI tools.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/why-not-ai.html">
+  <meta property="og:title" content="Why Not AI? • Today's Daily Battle">
+  <meta property="og:description" content="Curated KJV, offline privacy, and real community—not an endless chat loop. An honest comparison.">
+  <meta property="og:url" content="https://todaysdailybattle.com/why-not-ai.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Not AI? • Today's Daily Battle">
+  <meta name="twitter:description" content="Curated KJV, offline privacy, real prayer wall—an honest comparison with typical AI tools.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style nonce="tdb2025s">
+    .tdb-compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0.5rem 0 1rem; }
+    .tdb-compare-table {
+      width: 100%;
+      min-width: 280px;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .tdb-compare-table caption {
+      text-align: left;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text, #f5f7fb);
+    }
+    .tdb-compare-table th,
+    .tdb-compare-table td {
+      border: 1px solid color-mix(in srgb, var(--line, #2a3344) 80%, transparent);
+      padding: 0.65rem 0.75rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    .tdb-compare-table thead th {
+      background: color-mix(in srgb, var(--card, #1b212d) 92%, var(--gold, #e3bc67));
+      font-weight: 600;
+    }
+    .tdb-compare-table tbody th[scope="row"] {
+      font-weight: 600;
+      background: color-mix(in srgb, var(--card, #1b212d) 96%, transparent);
+      white-space: nowrap;
+    }
+    body.dark-mode .tdb-compare-table caption { color: var(--text, #f5f7fb); }
+    .tdb-moat-voice {
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 0.85rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .tdb-moat-voice:last-of-type { margin-bottom: 0; }
+    .tdb-moat-voice blockquote {
+      margin: 0;
+      padding: 0;
+      border: none;
+      font-style: italic;
+      color: var(--muted, #94a3b8);
+      line-height: 1.55;
+      font-size: 0.98rem;
+    }
+    .tdb-moat-voice figcaption {
+      margin-top: 0.6rem;
+      font-size: 0.82rem;
+      color: var(--gold-soft, #c9a84c);
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Honest comparison—not a rant</span>
+      </div>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <div id="auth-section" class="auth-inline auth-compact">
+        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
+        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
+        <button id="signup-btn" type="button">Sign Up</button>
+        <button id="login-btn" type="button">Log In</button>
+        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
+        <button id="logout-btn" class="hidden" type="button">Log Out</button>
+      </div>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="plans.html" data-section="plans" data-icon="BP">Battle Plans</a>
+        <a href="message.html" data-section="message-board" data-icon="MB">Prayer Wall</a>
+        <a href="why-not-ai.html" data-section="why-not-ai" data-icon="AI" aria-current="page">Why not AI?</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="privacy.html" data-section="privacy" data-icon="PR">Privacy</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner">
+          <h1>Why not AI?</h1>
+          <p class="hero-tagline">Plenty of tools can answer fast. We built for something quieter: one trustworthy KJV rhythm, privacy when life is heavy, and real people on the <a href="message.html">prayer wall</a>&mdash;not a pretend conversation.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/">Today&rsquo;s verse</a>
+            <a class="btn btn-secondary" href="plans.html">Battle plans</a>
+            <a class="btn btn-secondary" href="privacy.html">Privacy</a>
+          </div>
+        </header>
+
+        <section class="glass">
+          <h2 class="section-divider">What we are not saying</h2>
+          <p class="section-note">We are not here to mock anyone who uses AI for study notes, images, or research. Many Christians use those tools wisely. This page explains what <em>this site</em> chooses to be: curated Scripture, structure, and community&mdash;by design, not by accident.</p>
+          <p class="section-note">Full transparency: the <a href="bible-tool.html">Bible Tool</a> includes an optional &ldquo;Ask the Word&rdquo; question box. It may call a server function to draft an answer and is labeled on that page with a &ldquo;not a pastor&rdquo; disclaimer. Your home daily verse, Calm flow, and prayer wall are not that pattern.</p>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Honest comparison</h2>
+          <p class="section-note">Typical AI chat experiences vary by product. The column below describes common patterns, not one named app.</p>
+          <div class="tdb-compare-wrap">
+            <table class="tdb-compare-table">
+              <caption>Today&rsquo;s Daily Battle vs. typical AI Bible chat</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Area</th>
+                  <th scope="col">Typical AI chat</th>
+                  <th scope="col">Today&rsquo;s Daily Battle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Scripture</th>
+                  <td>May blend translations, smooth edges, or fill gaps with generated text. Quality depends on the model and prompt.</td>
+                  <td><strong>KJV only</strong>, with a fixed daily verse and human-edited breakdown fields where provided&mdash;no &ldquo;invented&rdquo; verse text.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Privacy</th>
+                  <td>Often needs the internet; prompts may be stored or trained on by the provider. Policies differ.</td>
+                  <td><a href="privacy.html">Privacy-first by design</a>: core prayers and notes stay on your device unless you opt into sync. <a href="offline.html">Offline</a>-capable as a PWA.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Community</th>
+                  <td>Feels personal, but it is still you and code&mdash;not another believer beside you.</td>
+                  <td><a href="message.html">Prayer wall</a> and anonymous Amens: real people, aggregate signals only (see <a href="faq.html">FAQ</a>).</td>
+                </tr>
+                <tr>
+                  <th scope="row">Pace</th>
+                  <td>Open-ended: you can chase endless threads and tabs.</td>
+                  <td><strong>Daily bread, not a buffet</strong>: one verse rhythm plus <a href="plans.html">7&ndash;40 day battle plans</a> with progress saved on-device.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Crisis use</th>
+                  <td>When the network drops or you distrust data collection, the tool may not feel safe.</td>
+                  <td>Built for airplane mode, waiting rooms, and hard nights&mdash;see the home page offline banner and <a href="calm.html">Calm</a>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="glass" aria-labelledby="moat-voices-heading">
+          <h2 class="section-divider" id="moat-voices-heading">What real readers say</h2>
+          <p class="section-note">Same anonymized notes as <a href="testimonials.html">Reader stories</a>&mdash;here because they match this page&rsquo;s promise: offline, quiet, human.</p>
+          <figure class="tdb-moat-voice">
+            <blockquote>&ldquo;Offline mode mattered. Rural signal, sick kid, long night&mdash;the verse was already there.&rdquo;</blockquote>
+            <figcaption>Night-shift worker, 2024</figcaption>
+          </figure>
+          <figure class="tdb-moat-voice">
+            <blockquote>&ldquo;The mood search said what I could not. I did not need a lecture&mdash;just Scripture that matched my ache.&rdquo;</blockquote>
+            <figcaption>Parent of three, 2025</figcaption>
+          </figure>
+          <figure class="tdb-moat-voice">
+            <blockquote>&ldquo;The prayer wall is quiet. I can say what I am carrying without performing.&rdquo;</blockquote>
+            <figcaption>Anonymous, 2025</figcaption>
+          </figure>
+          <p class="section-note" style="margin-bottom:0"><a href="testimonials.html">More reader stories</a></p>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Where to go next</h2>
+          <ul class="section-note" style="margin-left:1.25rem;">
+            <li><a href="message.html">Prayer wall</a> &mdash; post or read requests; Amens stay anonymous.</li>
+            <li><a href="plans.html">Battle plans</a> &mdash; structured days instead of an endless chat.</li>
+            <li><a href="privacy.html">Privacy policy</a> &mdash; what we collect and what we never put in analytics.</li>
+            <li><a href="testimonials.html">Reader stories</a> &mdash; real words from the field.</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day.</p>
+      <nav class="footer-quick-links" aria-label="Quick links">
+        <a href="/">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="faq.html">FAQ</a>
+        <a href="why-not-ai.html" aria-current="page">Why not AI?</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the work — Buy me a coffee">Support</a>
+      </nav>
+      <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
+      <p class="footer-copyright">© 2026 Todays Daily Battle. All rights reserved.</p>
+      <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+    </footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260320reader-sk" data-cfasync="false"></script>
+</body>
+</html>

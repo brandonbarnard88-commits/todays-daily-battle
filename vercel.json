@@ -5,6 +5,7 @@
     { "source": "/privacy", "destination": "/privacy.html", "permanent": true },
     { "source": "/about", "destination": "/about.html", "permanent": true },
     { "source": "/faq", "destination": "/faq.html", "permanent": true },
+    { "source": "/why-not-ai", "destination": "/why-not-ai.html", "permanent": true },
     { "source": "/shop", "destination": "/shop.html", "permanent": true },
     { "source": "/pricing", "destination": "/pricing.html", "permanent": true },
     { "source": "/security", "destination": "/security.html", "permanent": true },

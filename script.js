@@ -6364,11 +6364,66 @@ function wirePrayerWallGraceDismiss() {
   }
 }
 
+/** Optional homepage line: site-wide aggregate silent Amens (integer only). Source: /assets/data/community-amen-signal.json (ops-updated). Hidden when null/offline/invalid. */
+function wireCommunityAmenSignal() {
+  var wrap = document.getElementById('prayerAmenSignal');
+  if (!wrap) return;
+  function clear() {
+    wrap.classList.add('hidden');
+    while (wrap.firstChild) wrap.removeChild(wrap.firstChild);
+  }
+  function render(n) {
+    if (typeof n !== 'number' || !isFinite(n) || n < 1) {
+      clear();
+      return;
+    }
+    clear();
+    var lead = n === 1 ? '1 silent Amen site-wide today (' : n.toLocaleString() + ' silent Amens site-wide today (';
+    wrap.appendChild(document.createTextNode(lead));
+    var aPriv = document.createElement('a');
+    aPriv.href = 'privacy.html';
+    aPriv.className = 'prayer-amen-signal-link';
+    aPriv.textContent = 'aggregate';
+    aPriv.setAttribute('aria-label', 'Privacy — how anonymous aggregate counts work');
+    wrap.appendChild(aPriv);
+    wrap.appendChild(document.createTextNode(' count only). '));
+    var aWall = document.createElement('a');
+    aWall.href = 'message.html';
+    aWall.className = 'prayer-amen-signal-link';
+    aWall.textContent = 'Prayer wall';
+    aWall.setAttribute('aria-label', 'Open prayer wall');
+    wrap.appendChild(aWall);
+    wrap.appendChild(document.createTextNode('.'));
+    wrap.classList.remove('hidden');
+  }
+  function load() {
+    if (!navigator.onLine) {
+      clear();
+      return;
+    }
+    fetch('/assets/data/community-amen-signal.json', { cache: 'no-store', credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (data) {
+        if (!data || typeof data.amenTapsToday !== 'number') {
+          clear();
+          return;
+        }
+        render(data.amenTapsToday);
+      });
+  }
+  load();
+  window.addEventListener('online', load);
+  if (typeof tdbIsPerfMode === 'function' && tdbIsPerfMode()) return;
+  setInterval(load, 120000);
+}
+
 function wirePrayerCounter() {
   wireRealPrayerCounter();
   wirePrayerRealtimeCounter();
   wirePrayerRetrySync();
   wirePrayerWallGraceDismiss();
+  wireCommunityAmenSignal();
 }
 
 function wireKidsBetaCount() {
@@ -17916,7 +17971,10 @@ function sanitizeNudgeElements() {
       { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
       { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
       { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
-      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true }
+      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true },
+      { id: 'seed-21', text: 'After Fear to Faith day 7: I believe God walks with me in the unknowns. Grateful for Amens here.', hearts: 0, seed: true },
+      { id: 'seed-22', text: 'Finished the Fear to Faith plan — fear still visits, but quieter. Thanks for praying with me.', hearts: 0, seed: true },
+      { id: 'seed-23', text: 'Fear to Faith day 7 reflection: God\'s peace shows up in the quiet moments. Grateful for the Amens lifting others too.', hearts: 0, seed: true }
     ];
     function shuffle(a, seedStr) {
       var s = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
@@ -20664,7 +20722,10 @@ function sanitizeNudgeElements() {
       { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
       { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
       { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
-      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true }
+      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true },
+      { id: 'seed-21', text: 'After Fear to Faith day 7: I believe God walks with me in the unknowns. Grateful for Amens here.', hearts: 0, seed: true },
+      { id: 'seed-22', text: 'Finished the Fear to Faith plan — fear still visits, but quieter. Thanks for praying with me.', hearts: 0, seed: true },
+      { id: 'seed-23', text: 'Fear to Faith day 7 reflection: God\'s peace shows up in the quiet moments. Grateful for the Amens lifting others too.', hearts: 0, seed: true }
     ];
     function updateFeaturedPrayerHighlight() {
       var featuredEl = document.getElementById('featured-prayer');
@@ -21883,6 +21944,20 @@ function sanitizeNudgeElements() {
     { ref: 'Matthew 10:28', theme: 'Fear him which is able to destroy' },
     { ref: 'Psalm 94:19', theme: 'In the multitude of my thoughts within me' }
   ];
+  const themedPlanFear7 = document.getElementById('themed-plan-fear-7');
+  if (themedPlanFear7) {
+    themedPlanFear7.addEventListener('click', () => {
+      window.location.href = 'plans.html?plan=fearfaith';
+    });
+  }
+
+  const themedPlanWorry7 = document.getElementById('themed-plan-worry-7');
+  if (themedPlanWorry7) {
+    themedPlanWorry7.addEventListener('click', () => {
+      window.location.href = 'plans.html?plan=worrytrust';
+    });
+  }
+
   const themedPlanFear21 = document.getElementById('themed-plan-fear-21');
   if (themedPlanFear21) {
     themedPlanFear21.addEventListener('click', () => {

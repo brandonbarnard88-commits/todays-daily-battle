@@ -11,24 +11,33 @@
     if (!el) return;
     var s = html == null ? '' : String(html);
     var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+    var nativeSet = window.__tdbNativeInnerHTMLSet;
+    function applyTrusted(trusted) {
+      if (nativeSet) nativeSet.call(el, trusted);
+      else el.innerHTML = trusted;
+    }
     if (pol && typeof pol.createHTML === 'function') {
       try {
-        el.innerHTML = pol.createHTML(s);
+        applyTrusted(pol.createHTML(s));
         return;
       } catch (_) {
         try {
           var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
             ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
             : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-          el.innerHTML = pol.createHTML(wash);
+          applyTrusted(pol.createHTML(wash));
           return;
-        } catch (_) {
-          try { el.innerHTML = pol.createHTML(''); } catch (__) {}
+        } catch (__) {
+          try { applyTrusted(pol.createHTML('')); } catch (___) {}
           return;
         }
       }
     }
-    el.innerHTML = s;
+    if (nativeSet) {
+      try { nativeSet.call(el, s); } catch (____) { try { el.textContent = ''; } catch (_____) {} }
+    } else {
+      el.innerHTML = s;
+    }
   }
   function tdbClearHtml(el) {
     if (!el) return;
@@ -55,7 +64,9 @@
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
       if (pol && typeof pol.createHTML === 'function') {
         var t = document.createElement('textarea');
-        t.innerHTML = pol.createHTML(str);
+        var nativeSetT = window.__tdbNativeInnerHTMLSet;
+        if (nativeSetT) nativeSetT.call(t, pol.createHTML(str));
+        else t.innerHTML = pol.createHTML(str);
         var out = t.value;
         if (typeof out === 'string') return out;
       }
@@ -7160,11 +7171,19 @@
   function renderKidsTopicButtons() {
     var container = document.getElementById('kids-topic-buttons');
     if (!container || !Array.isArray(KIDS_TOPICS) || KIDS_TOPICS.length === 0) return;
-    var html = '';
+    tdbClearHtml(container);
+    var frag = document.createDocumentFragment();
     KIDS_TOPICS.forEach(function (item) {
-      html += '<button type="button" class="kids-topic-btn" data-topic="' + (item.topic || '').replace(/"/g, '&quot;') + '">' + (item.label || item.topic) + '</button>';
+      var topic = String(item.topic || '').trim();
+      if (!topic) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'kids-topic-btn';
+      btn.setAttribute('data-topic', topic);
+      btn.textContent = String(item.label != null ? item.label : item.topic);
+      frag.appendChild(btn);
     });
-    tdbSetHtml(container, html);
+    container.appendChild(frag);
   }
 
   function wireKidsSearch() {

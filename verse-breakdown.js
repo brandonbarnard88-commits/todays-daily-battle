@@ -74,7 +74,9 @@
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
       if (pol && typeof pol.createHTML === 'function') {
         var ta = document.createElement('textarea');
-        ta.innerHTML = pol.createHTML(s);
+        var nativeSet = window.__tdbNativeInnerHTMLSet;
+        if (nativeSet) nativeSet.call(ta, pol.createHTML(s));
+        else ta.innerHTML = pol.createHTML(s);
         var out = ta.value;
         if (typeof out === 'string') return out;
       }

@@ -40,7 +40,9 @@
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
       if (pol && typeof pol.createHTML === 'function') {
         var t = document.createElement('textarea');
-        t.innerHTML = pol.createHTML(str);
+        var ns = window.__tdbNativeInnerHTMLSet;
+        if (ns) ns.call(t, pol.createHTML(str));
+        else t.innerHTML = pol.createHTML(str);
         var out = t.value;
         if (typeof out === 'string') return out;
       }

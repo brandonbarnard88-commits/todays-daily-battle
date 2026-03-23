@@ -33,6 +33,10 @@
     var pol = window.trustedTypes.defaultPolicy;
     var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
     if (createHTML && typeof document !== 'undefined') {
+      if (!window.__tdbNativeInnerHTMLSet && typeof Element !== 'undefined' && Element.prototype) {
+        var _innerDesc0 = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+        if (_innerDesc0 && _innerDesc0.set) window.__tdbNativeInnerHTMLSet = _innerDesc0.set;
+      }
       var protos = [Element.prototype];
       if (typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype) protos.push(DocumentFragment.prototype);
       if (typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype) protos.push(ShadowRoot.prototype);
@@ -40,6 +44,9 @@
       function isTrustedHTMLValue(v) {
         if (v == null || typeof v !== 'object') return false;
         if (typeof TrustedHTML !== 'undefined' && v instanceof TrustedHTML) return true;
+        try {
+          if (Object.prototype.toString.call(v) === '[object TrustedHTML]') return true;
+        } catch (_) {}
         return !!(v.constructor && v.constructor.name === 'TrustedHTML');
       }
       protos.forEach(function (proto) {

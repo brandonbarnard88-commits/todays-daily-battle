@@ -60,9 +60,16 @@
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
       var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
       if (!createHTML) return;
+      if (!window.__tdbNativeInnerHTMLSet && typeof Element !== 'undefined' && Element.prototype) {
+        var _innerDesc = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+        if (_innerDesc && _innerDesc.set) window.__tdbNativeInnerHTMLSet = _innerDesc.set;
+      }
       function isTrustedHTMLValue(v) {
         if (v == null || typeof v !== 'object') return false;
         if (typeof TrustedHTML !== 'undefined' && v instanceof TrustedHTML) return true;
+        try {
+          if (Object.prototype.toString.call(v) === '[object TrustedHTML]') return true;
+        } catch (_) {}
         return !!(v.constructor && v.constructor.name === 'TrustedHTML');
       }
       /** DOMPurify and other libs assign to DocumentFragment/ShadowRoot innerHTML — separate sinks from Element (CSP require-trusted-types-for). */
@@ -139,24 +146,33 @@
     if (!el) return;
     var s = html == null ? '' : String(html);
     var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+    var nativeSet = window.__tdbNativeInnerHTMLSet;
+    function applyTrusted(trusted) {
+      if (nativeSet) nativeSet.call(el, trusted);
+      else el.innerHTML = trusted;
+    }
     if (pol && typeof pol.createHTML === 'function') {
       try {
-        el.innerHTML = pol.createHTML(s);
+        applyTrusted(pol.createHTML(s));
         return;
       } catch (_) {
         try {
           var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
             ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
             : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-          el.innerHTML = pol.createHTML(wash);
+          applyTrusted(pol.createHTML(wash));
           return;
-        } catch (_) {
-          try { el.innerHTML = pol.createHTML(''); } catch (__) {}
+        } catch (__) {
+          try { applyTrusted(pol.createHTML('')); } catch (___) {}
           return;
         }
       }
     }
-    el.innerHTML = s;
+    if (nativeSet) {
+      try { nativeSet.call(el, s); } catch (_) { try { el.textContent = ''; } catch (____) {} }
+    } else {
+      el.innerHTML = s;
+    }
   };
   window.tdbClearHtml = function (el) {
     if (!el) return;

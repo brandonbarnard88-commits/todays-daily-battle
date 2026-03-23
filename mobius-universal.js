@@ -10,10 +10,15 @@
   function safeSetHTML(el, html) {
     if (!el) return;
     var s = html == null ? '' : String(html);
+    var nativeSet = window.__tdbNativeInnerHTMLSet;
+    function applyTrusted(trusted) {
+      if (nativeSet) nativeSet.call(el, trusted);
+      else el.innerHTML = trusted;
+    }
     try {
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
       if (pol && typeof pol.createHTML === 'function') {
-        el.innerHTML = pol.createHTML(s);
+        applyTrusted(pol.createHTML(s));
         return;
       }
     } catch (_) {}
@@ -21,7 +26,11 @@
       try { el.textContent = ''; } catch (e2) {}
       return;
     }
-    el.innerHTML = s;
+    if (nativeSet) {
+      try { nativeSet.call(el, s); } catch (e3) {}
+    } else {
+      el.innerHTML = s;
+    }
   }
 
   var CONTAINER_ID = 'mobius-universal-viz';

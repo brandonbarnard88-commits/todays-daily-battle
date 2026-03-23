@@ -11,24 +11,33 @@
     if (!el) return;
     var s = html == null ? '' : String(html);
     var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
+    var nativeSet = window.__tdbNativeInnerHTMLSet;
+    function applyTrusted(trusted) {
+      if (nativeSet) nativeSet.call(el, trusted);
+      else el.innerHTML = trusted;
+    }
     if (pol && typeof pol.createHTML === 'function') {
       try {
-        el.innerHTML = pol.createHTML(s);
+        applyTrusted(pol.createHTML(s));
         return;
       } catch (_) {
         try {
           var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
             ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
             : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-          el.innerHTML = pol.createHTML(wash);
+          applyTrusted(pol.createHTML(wash));
           return;
-        } catch (_) {
-          try { el.innerHTML = pol.createHTML(''); } catch (__) {}
+        } catch (__) {
+          try { applyTrusted(pol.createHTML('')); } catch (___) {}
           return;
         }
       }
     }
-    el.innerHTML = s;
+    if (nativeSet) {
+      try { nativeSet.call(el, s); } catch (____) { try { el.textContent = ''; } catch (_____) {} }
+    } else {
+      el.innerHTML = s;
+    }
   }
   function tdbClearHtml(el) {
     if (!el) return;

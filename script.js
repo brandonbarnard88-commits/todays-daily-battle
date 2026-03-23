@@ -25,15 +25,32 @@
     if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && domPurifyTtPolicy) {
       DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: domPurifyTtPolicy });
     }
+    function tdbTrustedHtmlFromString(str) {
+      var s = String(str || '');
+      if (domPurifyTtPolicy && typeof domPurifyTtPolicy.createHTML === 'function') {
+        return domPurifyTtPolicy.createHTML(s);
+      }
+      return s;
+    }
+    function tdbIsTrustedHtmlObject(v) {
+      if (v == null || typeof v !== 'object') return false;
+      if (typeof TrustedHTML !== 'undefined' && v instanceof TrustedHTML) return true;
+      try {
+        if (Object.prototype.toString.call(v) === '[object TrustedHTML]') return true;
+      } catch (_) {}
+      return !!(v.constructor && v.constructor.name === 'TrustedHTML');
+    }
     window.trustedTypes.createPolicy('default', {
       createHTML: function (input) {
         var x = String(input || '');
         try {
           if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: !!domPurifyTtPolicy });
+            var out = DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: !!domPurifyTtPolicy });
+            if (tdbIsTrustedHtmlObject(out)) return out;
+            return tdbTrustedHtmlFromString(typeof out === 'string' ? out : String(out || ''));
           }
         } catch (_) {}
-        return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        return tdbTrustedHtmlFromString(x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
       }
     });
     if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && domPurifyTtPolicy) {

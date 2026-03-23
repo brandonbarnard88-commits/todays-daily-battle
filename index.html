@@ -10,8 +10,8 @@
 
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="high">
-  <script src="/vendor/dompurify.min.js"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260326clean"></script>
+  <script nonce="tdb2025s" src="/vendor/dompurify.min.js"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260331tt"></script>
 
   <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
   <meta name="description" content="KJV when anxiety, grief, or fear hit: one curated verse, battle plans with on-device progress, and a prayer wall with real Amens. Offline-ready. Daily flow is not an AI chat—privacy-first.">
@@ -179,10 +179,12 @@
       min-height: 100vh !important;
       box-sizing: border-box !important;
       position: relative;
+      /* Above .sky-page-backdrop (7); otherwise title, crest, and top links sit under the sky layer */
+      z-index: 8;
       background: transparent !important;
     }
 
-    /* Full-page sky — z-index 7 (under main at 12; sticky nav stays 201). Sun/moon drift in .sky-viewport */
+    /* Full-page sky — z-index 7 (under .app at 8 and main/toolbar at 12; sticky nav stays 201). Sun/moon drift in .sky-viewport */
     .sky-page-backdrop {
       position: absolute;
       top: 0;
@@ -8670,7 +8672,7 @@
 
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script type="module" src="config.js"></script>
-    <script type="module" src="script.js?v=20260326clean" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="config.js"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260326clean" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

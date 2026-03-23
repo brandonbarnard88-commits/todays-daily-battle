@@ -28,6 +28,24 @@
       DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: domPurifyTtPolicy });
     }
 
+    function tdbTrustedHtmlFromString(str) {
+      var s = String(str || '');
+      /* WebKit + require-trusted-types-for: plain strings from createHTML break innerHTML sinks.
+         Always emit TrustedHTML via the pass-through `dompurify` policy when available. */
+      if (domPurifyTtPolicy && typeof domPurifyTtPolicy.createHTML === 'function') {
+        return domPurifyTtPolicy.createHTML(s);
+      }
+      return s;
+    }
+    function tdbIsTrustedHtmlObject(v) {
+      if (v == null || typeof v !== 'object') return false;
+      if (typeof TrustedHTML !== 'undefined' && v instanceof TrustedHTML) return true;
+      try {
+        if (Object.prototype.toString.call(v) === '[object TrustedHTML]') return true;
+      } catch (_) {}
+      return !!(v.constructor && v.constructor.name === 'TrustedHTML');
+    }
+
     if (!window.trustedTypes.defaultPolicy) {
     window.trustedTypes.createPolicy('default', {
       createHTML: function (i) {
@@ -37,10 +55,12 @@
             /* RETURN_TRUSTED_TYPE true must use the separate `dompurify` policy (see above).
                If that policy is missing (broken CSP), use false so DOMPurify never re-enters
                default.createHTML and entity-escapes the whole fragment. */
-            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: !!domPurifyTtPolicy });
+            var out = DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: !!domPurifyTtPolicy });
+            if (tdbIsTrustedHtmlObject(out)) return out;
+            return tdbTrustedHtmlFromString(typeof out === 'string' ? out : String(out || ''));
           }
         } catch (_) {}
-        return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        return tdbTrustedHtmlFromString(x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
       },
       createScript: function (i) {
         var s = String(i || '');

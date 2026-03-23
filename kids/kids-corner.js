@@ -3296,6 +3296,21 @@
     hidePrintQaSheetWrap();
   }
 
+  /** Scroll read-quiz into view inside the modal (must run after modal is visible; overflow is on .kids-video-modal-content). */
+  function scrollKidsReadQuizIntoViewAfterLayout() {
+    try {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          try {
+            var mq = document.getElementById('kids-story-modal-read-quiz');
+            if (!mq || mq.classList.contains('hidden')) return;
+            mq.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } catch (_) {}
+        });
+      });
+    } catch (_) {}
+  }
+
   /**
    * Loads the canonical /kids/kids-read-quiz-data.js (no query) when the inline script failed
    * (SW/cache glitch, offline stub, or bad first response). Safe to call multiple times.
@@ -3329,7 +3344,10 @@
             showToast('Read-aloud and quiz are ready now.');
           }
         } catch (e) {}
-        if (currentOpenStoryKey) mountReadQuizForStory(currentOpenStoryKey);
+        if (currentOpenStoryKey) {
+          mountReadQuizForStory(currentOpenStoryKey);
+          scrollKidsReadQuizIntoViewAfterLayout();
+        }
         if (typeof done === 'function') done(true);
       } else {
         if (typeof done === 'function') done(false);
@@ -4594,6 +4612,7 @@
       });
       if (firstBtn) firstBtn.focus();
     }
+    scrollKidsReadQuizIntoViewAfterLayout();
     syncStoryNavButtons();
     advanceJourneyFromStory(key);
   }
@@ -4911,6 +4930,18 @@
   }
 
   function wireKidsCornerSharedOnly() {
+    try {
+      var p = new URLSearchParams(location.search);
+      var storyRaw = p.get('story');
+      if (storyRaw && String(storyRaw).trim()) {
+        location.replace('corner.html' + location.search);
+        return;
+      }
+      if (p.get('random') === '1' || p.get('journey') === '1' || p.get('challenge') === '1') {
+        location.replace('corner.html' + location.search);
+        return;
+      }
+    } catch (eHub) {}
     migrateStoryMasterFromLegacyViewed();
     renderStoryMaster();
     wireGlobalQuizChallengeButton();
@@ -4954,9 +4985,23 @@
       var params = new URLSearchParams(location.search);
       var q = params.get('q');
       if (q && searchInput) searchInput.value = q;
-      var storyKey = resolveStoryKey(params.get('story'));
-      if (storyKey) {
-        setTimeout(function () { openStory(storyKey); }, 300);
+      var storyParamRaw = params.get('story');
+      if (storyParamRaw && String(storyParamRaw).trim()) {
+        var deepTries = 0;
+        function tryOpenFromStoryParam() {
+          var sk = resolveStoryKey(storyParamRaw);
+          if (sk) {
+            openStory(sk);
+            return;
+          }
+          deepTries += 1;
+          if (deepTries < 45) {
+            setTimeout(tryOpenFromStoryParam, 120);
+          } else {
+            showToast('That story link did not open—scripts may still be loading. Try again or hard-refresh.');
+          }
+        }
+        setTimeout(tryOpenFromStoryParam, 80);
       }
     } catch (e) {}
     renderGrid(applyFilters());

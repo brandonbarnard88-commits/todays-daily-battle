@@ -1,14 +1,18 @@
 /**
  * Universal Möbius Loop — One endless journey. Any mood connects; 2 Timothy 1:7 as central pivot.
- * "One journey, infinite turns—everything connects back to Him."
+ * KJV-only on-page: graph + text modes; Deep Walk is Scripture-grounded (see mobius.html).
  * Vanilla JS, D3 v7, offline-first.
- * Deployed 2026-03-18: streak phrases, toggle toast, aria-describedby prayer.
  */
 (function () {
   'use strict';
 
+  /** Prefer tt-bootstrap tdbSetHtml — it retries with DOMPurify if createHTML throws (CSP Trusted Types). */
   function safeSetHTML(el, html) {
     if (!el) return;
+    if (typeof window.tdbSetHtml === 'function') {
+      window.tdbSetHtml(el, html);
+      return;
+    }
     var s = html == null ? '' : String(html);
     var nativeSet = window.__tdbNativeInnerHTMLSet;
     function applyTrusted(trusted) {
@@ -635,34 +639,35 @@
         var n = parseInt(sessionStorage.getItem('mobiusTraceCount') || '0', 10);
         n++;
         sessionStorage.setItem('mobiusTraceCount', String(n));
-        if (n >= 3 && !sessionStorage.getItem('mobiusEnochTeaserShown')) {
-          sessionStorage.setItem('mobiusEnochTeaserShown', '1');
+        if (n >= 3 && !sessionStorage.getItem('mobiusDeepWalkTeaserShown')) {
+          sessionStorage.setItem('mobiusDeepWalkTeaserShown', '1');
           var wrap = document.createElement('div');
-          wrap.className = 'mobius-enoch-teaser';
+          wrap.className = 'mobius-deep-walk-teaser';
           wrap.setAttribute('role', 'status');
           wrap.setAttribute('aria-live', 'polite');
-          safeSetHTML(wrap, '<p class="mobius-enoch-teaser-msg">You\'ve walked the loop thrice—want a glimpse of ancient wonders?</p><p class="mobius-enoch-teaser-cta">Switch to Hidden Scrolls…</p>');
+          safeSetHTML(wrap, '<p class="mobius-deep-walk-teaser-msg">You\'ve walked the loop thrice—ready to go deeper?</p><p class="mobius-deep-walk-teaser-cta">Scroll to the KJV Deep Walk below…</p>');
           wrap.style.cursor = 'pointer';
           wrap.setAttribute('role', 'button');
           wrap.setAttribute('tabindex', '0');
-          wrap.setAttribute('aria-label', 'Switch to Hidden Scrolls tab');
-          wrap.addEventListener('click', function () {
-            var tab = document.getElementById('mobius-tab-enoch');
-            if (tab && !tab.classList.contains('canon-hidden')) tab.click();
-            wrap.classList.add('mobius-enoch-teaser-fade');
+          wrap.setAttribute('aria-label', 'Scroll to Möbius Deep Walk section');
+          function goDeepWalk() {
+            var dw = document.getElementById('mobius-deep-walk');
+            if (dw) dw.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            wrap.classList.add('mobius-deep-walk-teaser-fade');
             setTimeout(function () { wrap.remove(); }, 400);
-          });
+          }
+          wrap.addEventListener('click', goDeepWalk);
           wrap.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              wrap.click();
+              goDeepWalk();
             }
           });
           document.body.appendChild(wrap);
           setTimeout(function () {
-            wrap.classList.add('mobius-enoch-teaser-fade');
+            wrap.classList.add('mobius-deep-walk-teaser-fade');
             setTimeout(function () { wrap.remove(); }, 400);
-          }, 4000);
+          }, 5000);
         }
       } catch (e) {}
     });

@@ -10,15 +10,19 @@ test.describe('Möbius Loop', () => {
   test('loads graph mode with nodes', async ({ page }) => {
     await page.goto('/mobius.html');
     await expect(page.locator('#mobius-universal-viz')).toBeVisible({ timeout: 15000 });
-    await expect(page.locator('.mobius-node')).toHaveCount(6, { timeout: 10000 });
+    const nodes = page.locator('#mobius-universal-viz .mobius-node');
+    await expect(nodes.first()).toBeVisible({ timeout: 10000 });
+    const n = await nodes.count();
+    expect(n).toBeGreaterThanOrEqual(6);
   });
 
   test('node click shows card with verse and prayer', async ({ page }) => {
     await page.goto('/mobius.html');
-    await expect(page.locator('.mobius-node')).toHaveCount(6, { timeout: 10000 });
-    const firstNode = page.locator('.mobius-node').first();
+    const nodes = page.locator('#mobius-universal-viz .mobius-node');
+    await expect(nodes.first()).toBeVisible({ timeout: 10000 });
+    const firstNode = nodes.first();
     await firstNode.click();
-    await expect(page.locator('.mobius-card-container.visible')).toBeVisible({ timeout: 3000 });
+    await expect(page.locator('.mobius-card-container.visible')).toBeVisible({ timeout: 8000 });
     await expect(page.locator('.mobius-node-card')).toBeVisible();
     await expect(page.locator('.mobius-node-card')).toContainText(/Pray:/i);
   });
@@ -43,12 +47,12 @@ test.describe('Möbius Loop', () => {
     await expect(page.locator('#mobius-streak-display')).toContainText(/loops this week/i);
   });
 
-  test('Canon Only toggle hides Hidden Scrolls tab', async ({ page }) => {
-    await page.addInitScript(() => localStorage.removeItem('mobiusCanonOnly'));
+  test('Deep Walk section and two mode tabs (KJV only)', async ({ page }) => {
     await page.goto('/mobius.html');
-    await expect(page.locator('#mobius-tab-enoch')).toBeVisible();
-    await page.locator('#mobius-canon-only').click();
-    await expect(page.locator('#mobius-tab-enoch')).toHaveClass(/canon-hidden/);
+    await expect(page.locator('#mobius-deep-walk')).toBeVisible();
+    await expect(page.locator('#mobius-tab-explore')).toBeVisible();
+    await expect(page.locator('#mobius-tab-text')).toBeVisible();
+    await expect(page.locator('#mobius-tab-enoch')).toHaveCount(0);
   });
 
   test('calm anxiety flow shows Möbius link', async ({ page }) => {

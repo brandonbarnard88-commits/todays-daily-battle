@@ -19,6 +19,12 @@
     var s = String(str);
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
+  /** CSP require-trusted-types-for: use default policy (tt-bootstrap tdbSetHtml). */
+  function setHtml(el, html) {
+    if (!el) return;
+    if (typeof window.tdbSetHtml === 'function') window.tdbSetHtml(el, html);
+    else el.innerHTML = html;
+  }
 
   var PRAISE_VERSES = [
     { ref: 'Psalm 150:6', text: 'Let every thing that hath breath praise the LORD. Praise ye the LORD.' },
@@ -57,7 +63,7 @@
       wrap.className = 'easter-seven-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
       wrap.setAttribute('role', 'status');
       wrap.setAttribute('aria-live', 'polite');
-      wrap.innerHTML = '<p class="easter-seven-msg">7 clicks for the perfect number!</p><p class="easter-seven-verse">"' + escapeHtml(BLESSING_VERSE.text) + '" (' + escapeHtml(BLESSING_VERSE.ref) + ')</p>';
+      setHtml(wrap, '<p class="easter-seven-msg">7 clicks for the perfect number!</p><p class="easter-seven-verse">"' + escapeHtml(BLESSING_VERSE.text) + '" (' + escapeHtml(BLESSING_VERSE.ref) + ')</p>');
       document.body.appendChild(wrap);
       setTimeout(function () {
         wrap.classList.add('easter-seven-fade');
@@ -134,7 +140,7 @@
       if (!/^nothing can stop (you|me|us)$/.test(val)) return false;
       var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
       if (out) {
-        out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee.</p><p class="easter-still-ref">(Isaiah 43:2)</p><p class="easter-still-verse" style="margin-top:1rem;">For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God.</p><p class="easter-still-ref">(Romans 8:38–39)</p><p style="margin-top:1rem;font-style:italic;opacity:0.95;">Nothing can stop you. He is with you.</p></div>';
+        setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee.</p><p class="easter-still-ref">(Isaiah 43:2)</p><p class="easter-still-verse" style="margin-top:1rem;">For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God.</p><p class="easter-still-ref">(Romans 8:38–39)</p><p style="margin-top:1rem;font-style:italic;opacity:0.95;">Nothing can stop you. He is with you.</p></div>');
         out.style.display = '';
         out.classList.remove('hidden');
         out.classList.add('easter-still-glow', 'has-results');
@@ -335,7 +341,7 @@
       if (val !== 'abide') return false;
       var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
       if (out) {
-        out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.</p><p class="easter-still-ref">(John 15:4)</p></div>';
+        setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.</p><p class="easter-still-ref">(John 15:4)</p></div>');
         out.style.display = '';
         out.classList.remove('hidden');
         out.classList.add('easter-still-glow', 'has-results');
@@ -421,7 +427,7 @@
       wrap.className = 'easter-hallelujah-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
       wrap.setAttribute('role', 'status');
       wrap.setAttribute('aria-live', 'polite');
-      wrap.innerHTML = '<div class="easter-hallelujah-bg"></div><p class="easter-hallelujah-text">Hallelujah! Praise the Lord!</p><p class="easter-hallelujah-verse">"' + escapeHtml(v.text) + '" — ' + escapeHtml(v.ref) + '</p>';
+      setHtml(wrap, '<div class="easter-hallelujah-bg"></div><p class="easter-hallelujah-text">Hallelujah! Praise the Lord!</p><p class="easter-hallelujah-verse">"' + escapeHtml(v.text) + '" — ' + escapeHtml(v.ref) + '</p>');
       if (!reducedMotion()) {
         var dove = document.createElement('span');
         dove.className = 'easter-hallelujah-dove';
@@ -603,7 +609,7 @@
     function showStill() {
       var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output') || document.getElementById('lookup-result');
       if (out) {
-        out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>';
+        setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>');
         out.style.display = '';
         out.classList.remove('hidden');
         out.classList.add('easter-still-glow', 'has-results');
@@ -681,7 +687,7 @@
       var crossWrap = document.createElement('div');
       crossWrap.className = 'easter-cross-float' + (reducedMotion() ? ' easter-no-motion' : '');
       crossWrap.setAttribute('aria-hidden', 'true');
-      crossWrap.innerHTML = '\u271D\uFE0F<br><small style="font-size:0.8rem;opacity:0.95;">The cross was the key.</small>';
+      setHtml(crossWrap, '\u271D\uFE0F<br><small style="font-size:0.8rem;opacity:0.95;">The cross was the key.</small>');
       document.body.appendChild(crossWrap);
       setTimeout(function () { crossWrap.remove(); }, 6000);
     }
@@ -1063,7 +1069,7 @@
       var angel = document.createElement('div');
       angel.className = 'easter-angel-number' + (reducedMotion() ? ' easter-no-motion' : '');
       angel.setAttribute('aria-hidden', 'true');
-      angel.innerHTML = '<span class="easter-angel-num">' + escapeHtml(num) + '</span><span class="easter-angel-msg">He\'s speaking.</span>';
+      setHtml(angel, '<span class="easter-angel-num">' + escapeHtml(num) + '</span><span class="easter-angel-msg">He\'s speaking.</span>');
       document.body.appendChild(angel);
       setTimeout(function () {
         angel.classList.add('easter-angel-fade');
@@ -1152,7 +1158,7 @@
           wrap.className = 'easter-konami-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
           wrap.setAttribute('role', 'status');
           wrap.setAttribute('aria-live', 'polite');
-          wrap.innerHTML = '<div class="easter-konami-cross" aria-hidden="true">✝</div><p class="easter-konami-text">You found a hidden blessing!</p><p class="easter-konami-verse">"' + escapeHtml(v.text || '') + '" — ' + escapeHtml(v.ref || '') + '</p>';
+          setHtml(wrap, '<div class="easter-konami-cross" aria-hidden="true">✝</div><p class="easter-konami-text">You found a hidden blessing!</p><p class="easter-konami-verse">"' + escapeHtml(v.text || '') + '" — ' + escapeHtml(v.ref || '') + '</p>');
           document.body.appendChild(wrap);
           setTimeout(function () {
             wrap.classList.add('easter-konami-fade');
@@ -1328,7 +1334,7 @@
       if (val !== 'still') return false;
       var out = document.getElementById('qa-result') || document.getElementById('lookup-result') || document.getElementById('feelCards') || document.getElementById('output');
       if (!out) return false;
-      out.innerHTML = '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>';
+      setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>');
       out.classList.remove('hidden');
       out.style.display = '';
       out.classList.add('easter-still-glow', 'has-results');
@@ -1398,7 +1404,6 @@
       });
     }
     wireShareLoopTripleTap(document.getElementById('mobius-text-share'));
-    wireShareLoopTripleTap(document.getElementById('mobius-enoch-share'));
 
     // Double-tap Möbius viz background — tracer reverses for one cycle
     var mobiusViz = document.getElementById('mobius-universal-viz');

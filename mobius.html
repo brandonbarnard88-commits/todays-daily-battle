@@ -8,12 +8,12 @@
   <script src="/vendor/dompurify.min.js"></script>
   <script nonce="tdb2025s" src="/tt-bootstrap.js"></script>
   <title>Möbius Loop • Today's Daily Battle</title>
-  <meta name="description" content="One journey, three modes. Graph (canon), Text (meditation), or Hidden Scrolls—ancient apocryphal texts. Reflect, don't rely.">
+  <meta name="description" content="One journey, two modes: Graph (KJV mood cycle) and Text (meditation). Deep Walk: one ribbon, real trials, Scripture for what is ahead—full Bible, KJV only.">
   <link rel="canonical" href="https://todaysdailybattle.com/mobius.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Möbius Loop • Today's Daily Battle">
-  <meta property="og:description" content="Canon graph, text meditation, or optional scrolls—reflect with Scripture at the center.">
+  <meta property="og:description" content="Graph the loop, breathe the text, walk the Deep Walk—KJV verses, one continuous ribbon, preparation for real battles.">
   <meta property="og:url" content="https://todaysdailybattle.com/mobius.html">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/mobius-og.jpg?v=20260322">
   <meta property="og:image:width" content="1200">
@@ -21,10 +21,10 @@
   <meta property="og:image:alt" content="Möbius Loop — Scripture at the center">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Möbius Loop • Today's Daily Battle">
-  <meta name="twitter:description" content="One journey, three modes—reflect with Scripture at the center.">
+  <meta name="twitter:description" content="KJV mood loop, text meditation, and Deep Walk steps—one ribbon, Scripture only.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/mobius-og.jpg?v=20260322">
   <script nonce="tdb2025s" type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Möbius Loop • Today's Daily Battle","url":"https://todaysdailybattle.com/mobius.html","description":"Canon graph, text meditation, or optional scrolls—reflect with Scripture at the center.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"Möbius Loop • Today's Daily Battle","url":"https://todaysdailybattle.com/mobius.html","description":"KJV Möbius loop: graph any mood through 2 Timothy 1:7, text meditation, and Deep Walk with full-Bible verses.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
@@ -73,19 +73,12 @@
     .mobius-mantra-text.warm { color: #ffcc99; }
     .mobius-mantra-text.warm.active { color: #ffd9b3; text-shadow: 0 0 12px rgba(255, 204, 153, 0.4); }
     .mobius-mantra-heartbeat { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); font-size: 1.2rem; opacity: 0.6; }
-    #mobius-mantra-start, #mobius-enoch-start { padding: 1rem 2rem; font-size: 1.25rem; }
-    .mobius-enoch-share-wrap { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); }
-    .mobius-enoch-footer-note { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); width: min(90%, 480px); font-size: 0.75rem; color: var(--tool-muted); text-align: center; line-height: 1.4; }
-    .mobius-enoch-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); padding: 1rem; }
-    .mobius-enoch-modal[hidden] { display: none; }
-    .mobius-enoch-modal-inner { max-width: 420px; padding: 1.5rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; }
-    .mobius-enoch-modal-inner h2 { margin: 0 0 0.75rem; font-size: 1.1rem; color: var(--tool-gold-soft); }
-    .mobius-enoch-modal-inner p { margin: 0 0 1rem; font-size: 0.9rem; color: var(--tool-muted); line-height: 1.5; }
-    .mobius-enoch-footer-disclaimer { font-size: 0.8rem; color: var(--tool-muted); margin-bottom: 0.5rem; max-width: 480px; margin-left: auto; margin-right: auto; text-align: center; }
-    .mobius-enoch-teaser { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 50; padding: 1rem 1.25rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-gold); border-radius: 12px; box-shadow: 0 0 20px rgba(227,188,103,0.2); max-width: 90%; animation: mobius-teaser-in 0.6s ease; }
-    .mobius-enoch-teaser-msg { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--tool-gold-soft); }
-    .mobius-enoch-teaser-cta { margin: 0; font-size: 0.85rem; color: var(--tool-muted); }
-    .mobius-enoch-teaser-fade { animation: mobius-teaser-out 0.4s ease forwards; }
+    #mobius-mantra-start { padding: 1rem 2rem; font-size: 1.25rem; }
+    .mobius-mantra-share-wrap { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); }
+    .mobius-deep-walk-teaser { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 50; padding: 1rem 1.25rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-gold); border-radius: 12px; box-shadow: 0 0 20px rgba(227,188,103,0.2); max-width: 90%; animation: mobius-teaser-in 0.6s ease; }
+    .mobius-deep-walk-teaser-msg { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--tool-gold-soft); }
+    .mobius-deep-walk-teaser-cta { margin: 0; font-size: 0.85rem; color: var(--tool-muted); }
+    .mobius-deep-walk-teaser-fade { animation: mobius-teaser-out 0.4s ease forwards; }
     @keyframes mobius-teaser-in { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
     @keyframes mobius-teaser-out { from { opacity: 1; } to { opacity: 0; } }
     .mobius-tracer-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--tool-gold-soft); background: var(--tool-bg-soft); border: 1px solid var(--tool-gold); border-radius: 8px; z-index: 60; animation: mobius-teaser-in 0.3s ease; }
@@ -137,14 +130,6 @@
     .easter-share-spin { animation: easter-share-spin 0.6s ease; }
     @keyframes easter-share-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .easter-share-glow { box-shadow: 0 0 16px rgba(227,188,103,0.5) !important; }
-    .mobius-canon-toggle { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
-    .mobius-canon-label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--tool-muted); cursor: pointer; user-select: none; }
-    .mobius-canon-switch { position: relative; width: 44px; height: 24px; background: var(--tool-line); border-radius: 999px; cursor: pointer; transition: background 0.2s; }
-    .mobius-canon-switch:focus-visible { outline: 2px solid var(--tool-gold); outline-offset: 2px; }
-    .mobius-canon-switch[aria-pressed="true"] { background: rgba(227, 188, 103, 0.4); }
-    .mobius-canon-switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: var(--tool-text); border-radius: 50%; transition: transform 0.2s; }
-    .mobius-canon-switch[aria-pressed="true"]::after { transform: translateX(20px); }
-    .mobius-tab-enoch.canon-hidden { display: none !important; }
   </style>
 </head>
 <body class="tool-page-shell">
@@ -167,24 +152,16 @@
 
   <main class="tool-page-main" id="main-content" role="main">
     <header class="mobius-hero">
-      <p class="mobius-kjv-banner" role="note">This site’s Bible text is <strong>KJV only</strong>. “Hidden Scrolls” is optional non-canonical material for reflection—<strong>not Scripture</strong>, not mixed with the reader or daily verse.</p>
+      <p class="mobius-kjv-banner" role="note">This page is <strong>KJV only</strong> for Scripture and practice: the graph, the text loop, and the Deep Walk below all draw from the same Word—no apocrypha, no mixed sources.</p>
       <h1>Möbius Loop</h1>
-      <p>One journey, three modes. Graph (canon), Text (meditation), or Hidden Scrolls—ancient apocryphal texts.</p>
+      <p>One journey, two modes: <strong>Graph</strong> (trace the mood cycle) and <strong>Text</strong> (line-by-line meditation). The <strong>Deep Walk</strong> lives on the same page—one ribbon, real trials, verses for what is ahead.</p>
     </header>
 
-    <div class="mobius-canon-toggle" role="group" aria-label="Canon only preference">
-      <label class="mobius-canon-label">
-        <span>Canon only</span>
-        <button type="button" id="mobius-canon-only" class="mobius-canon-switch" role="switch" aria-pressed="false" aria-label="Hide Hidden Scrolls tab—show only Graph and Text modes"></button>
-      </label>
+    <div class="mobius-mode-tabs" role="tablist" aria-label="Möbius Loop mode (graph or text)">
+      <button type="button" class="mobius-mode-tab active" role="tab" aria-selected="true" aria-controls="mobius-panel-explore" id="mobius-tab-explore" data-mode="explore">Graph (KJV loop)</button>
+      <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-text" id="mobius-tab-text" data-mode="text">Text mode</button>
     </div>
-
-    <div class="mobius-mode-tabs" role="tablist" aria-label="Möbius Loop mode">
-      <button type="button" class="mobius-mode-tab active" role="tab" aria-selected="true" aria-controls="mobius-panel-explore" id="mobius-tab-explore" data-mode="explore">Graph (Canon)</button>
-      <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-text" id="mobius-tab-text" data-mode="text">Text Mode</button>
-      <button type="button" class="mobius-mode-tab" role="tab" aria-selected="false" aria-controls="mobius-panel-enoch" id="mobius-tab-enoch" data-mode="hidden">Hidden Scrolls</button>
-    </div>
-    <div class="mode-label" role="status" aria-live="polite">Hidden Scrolls: apocryphal reflections</div>
+    <div class="mode-label" role="status" aria-live="polite" hidden></div>
 
     <div id="mobius-panel-explore" class="mobius-panel active" role="tabpanel" aria-labelledby="mobius-tab-explore">
       <div class="mobius-controls">
@@ -287,44 +264,16 @@
           <div class="mobius-mantra-text stronger" data-idx="12">You made it.</div>
           <div class="mobius-mantra-text warm" data-idx="13">♡ The loop continues.</div>
         </div>
-        <div class="mobius-enoch-share-wrap"><button type="button" id="mobius-text-share" class="tool-btn" aria-label="Share this loop">Share this loop</button></div>
+        <div class="mobius-mantra-share-wrap"><button type="button" id="mobius-text-share" class="tool-btn" aria-label="Share this loop">Share this loop</button></div>
         <div id="mobius-text-heartbeat" class="mobius-mantra-heartbeat" aria-hidden="true">♡</div>
       </div>
     </div>
 
-    <div id="mobius-panel-enoch" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-enoch" hidden>
-      <div class="mobius-mantra-wrap">
-        <div id="mobius-enoch-container" class="mobius-mantra-container" role="status" aria-live="polite" aria-atomic="true">
-          <button type="button" id="mobius-enoch-start" class="tool-btn" aria-label="Enter the loop">ENTER THE LOOP</button>
-          <div class="mobius-mantra-text" data-idx="0">The Watchers descended to earth... and took wives among the daughters of men.</div>
-          <div class="mobius-mantra-text" data-idx="1">They taught forbidden arts: swords, metals, enchantments, and the signs of the stars.</div>
-          <div class="mobius-mantra-text" data-idx="2">Giants were born... and the earth filled with violence because of them.</div>
-          <div class="mobius-mantra-text" data-idx="3">I, Enoch, was taken up... and beheld the great sea above the clouds.</div>
-          <div class="mobius-mantra-text" data-idx="4">In the second heaven, prisoners hung in darkness... awaiting boundless judgment.</div>
-          <div class="mobius-mantra-text" data-idx="5">I saw fiery troops, archangels, cherubim, seraphim... and thrones of light.</div>
-          <div class="mobius-mantra-text" data-idx="6">The Holy One made me a throne... like the throne of glory itself.</div>
-          <div class="mobius-mantra-text" data-idx="7">Metatron stands before the Throne... voice of the Lord, scribe of secrets.</div>
-          <div class="mobius-mantra-text" data-idx="8">The heavens remember... the loop closes, yet the judgment comes.</div>
-          <div class="mobius-mantra-text" data-idx="9">All shall quake... but the righteous shall inherit light and peace.</div>
-        </div>
-        <div class="mobius-enoch-share-wrap"><button type="button" id="mobius-enoch-share" class="tool-btn" aria-label="Share this loop">Share this loop</button></div>
-        <p id="mobius-enoch-disclaimer" class="mobius-enoch-footer-note" aria-live="polite">Hidden Scrolls: apocryphal texts (1–3 Enoch)—not Bible canon. Ancient writings for reflection only. Not Scripture.</p>
-      </div>
-    </div>
   </main>
-
-  <div id="mobius-enoch-modal" class="mobius-enoch-modal" role="dialog" aria-labelledby="mobius-enoch-modal-title" aria-describedby="mobius-enoch-modal-desc" aria-modal="true" hidden>
-    <div class="mobius-enoch-modal-inner">
-      <h2 id="mobius-enoch-modal-title">Hidden Scrolls</h2>
-      <p id="mobius-enoch-modal-desc">Hidden Scrolls uses apocryphal texts—not Bible canon. Ancient writings for reflection only. Not Scripture. Close to continue.</p>
-      <button type="button" id="mobius-enoch-modal-ok" class="tool-btn">Close</button>
-    </div>
-  </div>
 
   <audio id="mobius-guided-audio" src="/audio/mobius-guided-10min.mp3" preload="metadata" aria-label="10-minute guided meditation"></audio>
 
   <footer class="tool-page-footer" role="contentinfo">
-    <p id="mobius-enoch-footer-disclaimer" class="mobius-enoch-footer-disclaimer" hidden>Hidden Scrolls: apocryphal texts—not Bible canon. Reflect, don't rely.</p>
     <p class="tool-footer-share-wrap" style="margin: 0 0 0.5rem;"><button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button></p>
     <p class="tool-footer-tagline">No ads • No tracking • Works offline</p>
     <nav class="tool-footer-links" aria-label="Footer links">
@@ -340,7 +289,7 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260320reader-sk" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260318p" defer></script>
+  <script src="mobius-universal.js?v=20260324dw" defer></script>
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025s">
@@ -348,186 +297,50 @@
       function runMobiusMode() {
       var tabExplore = document.getElementById('mobius-tab-explore');
       var tabText = document.getElementById('mobius-tab-text');
-      var tabEnoch = document.getElementById('mobius-tab-enoch');
       var panelExplore = document.getElementById('mobius-panel-explore');
       var panelText = document.getElementById('mobius-panel-text');
-      var panelEnoch = document.getElementById('mobius-panel-enoch');
-      var startBtn = document.getElementById('mobius-enoch-start');
-      var container = document.getElementById('mobius-enoch-container');
-      var texts = container ? container.querySelectorAll('.mobius-mantra-text') : [];
-      var modal = document.getElementById('mobius-enoch-modal');
-      var modalOk = document.getElementById('mobius-enoch-modal-ok');
-      var footerDisclaimer = document.getElementById('mobius-enoch-footer-disclaimer');
-      var DISCLAIMER_KEY = 'seenHiddenDisclaimer';
-      var CANON_ONLY_KEY = 'mobiusCanonOnly';
-      var DELAY_PER_LINE = 1800;
-      var DELAY_AT_END = 2000;
-
-      function isCanonOnly() {
-        try { return localStorage.getItem(CANON_ONLY_KEY) === '1'; } catch (e) { return false; }
-      }
-      function setCanonOnly(on) {
-        try { localStorage.setItem(CANON_ONLY_KEY, on ? '1' : '0'); } catch (e) {}
-        var btn = document.getElementById('mobius-canon-only');
-        if (btn) { btn.setAttribute('aria-pressed', on ? 'true' : 'false'); }
-        if (tabEnoch) tabEnoch.classList.toggle('canon-hidden', on);
-      }
-      function applyCanonOnly() {
-        var on = isCanonOnly();
-        var btn = document.getElementById('mobius-canon-only');
-        if (btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-        if (tabEnoch) tabEnoch.classList.toggle('canon-hidden', on);
-      }
 
       function setMode(mode) {
+        if (mode !== 'text') mode = 'explore';
         var isExplore = mode === 'explore';
         var isText = mode === 'text';
-        var isEnoch = mode === 'hidden' || mode === 'enoch';
         if (tabExplore) { tabExplore.classList.toggle('active', isExplore); tabExplore.setAttribute('aria-selected', isExplore); }
         if (tabText) { tabText.classList.toggle('active', isText); tabText.setAttribute('aria-selected', isText); }
-        if (tabEnoch) { tabEnoch.classList.toggle('active', isEnoch); tabEnoch.setAttribute('aria-selected', isEnoch); }
         if (panelExplore) { panelExplore.classList.toggle('active', isExplore); panelExplore.hidden = !isExplore; }
         if (panelText) { panelText.classList.toggle('active', isText); panelText.hidden = !isText; }
-        if (panelEnoch) { panelEnoch.classList.toggle('active', isEnoch); panelEnoch.hidden = !isEnoch; }
-        if (footerDisclaimer) footerDisclaimer.hidden = !isEnoch;
         var modeLabel = document.querySelector('.mode-label');
         if (modeLabel) {
-          if (isEnoch) {
+          if (isText) {
+            modeLabel.removeAttribute('hidden');
             modeLabel.style.display = 'block';
             modeLabel.classList.add('visible');
+            modeLabel.textContent = 'Text mode: one line at a time';
           } else {
             modeLabel.classList.remove('visible');
+            modeLabel.setAttribute('hidden', '');
             setTimeout(function () { modeLabel.style.display = 'none'; }, 400);
           }
         }
         try {
           var url = new URL(window.location.href);
-          var normMode = (mode === 'enoch' || mode === 'hidden') ? 'hidden' : mode;
-          url.searchParams.set('mode', normMode);
+          url.searchParams.set('mode', mode);
           if (window.location.search !== url.search) {
             window.history.replaceState(null, '', url.toString());
-            if (mode === 'enoch' && typeof console !== 'undefined' && console.log) console.log('Legacy enoch param normalized to hidden');
           }
         } catch (e) {}
-        if (isEnoch) {
-          if (typeof console !== 'undefined' && console.log) console.log('Hidden Scrolls mode activated');
-          try {
-            var n = parseInt(localStorage.getItem('hiddenModeUses') || '0', 10);
-            localStorage.setItem('hiddenModeUses', String(n + 1));
-          } catch (e) {}
-          if (!localStorage.getItem(DISCLAIMER_KEY)) {
-            if (modal) { modal.hidden = false; modal.removeAttribute('hidden'); }
-          } else if (!localStorage.getItem('seenRenameToast')) {
-            try {
-              localStorage.setItem('seenRenameToast', '1');
-              var toast = document.createElement('div');
-              toast.textContent = 'Mode renamed to Hidden Scrolls — same content, updated disclaimer.';
-              toast.style.cssText = 'position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #1f2937; color: #e5e7eb; padding: 0.8rem 1.5rem; border: 1px solid #e3bc67; border-radius: 8px; font-size: 0.9rem; z-index: 1000; opacity: 0; transition: opacity 0.5s;';
-              toast.setAttribute('role', 'status');
-              toast.setAttribute('aria-live', 'polite');
-              document.body.appendChild(toast);
-              setTimeout(function () { toast.style.opacity = '1'; }, 100);
-              setTimeout(function () {
-                toast.style.opacity = '0';
-                setTimeout(function () { toast.remove(); }, 500);
-              }, 4000);
-            } catch (e) {}
-          }
-        }
       }
 
       function initFromUrl() {
         try {
           var m = new URLSearchParams(window.location.search).get('mode');
-          if (isCanonOnly() && (m === 'enoch' || m === 'hidden')) { setMode('explore'); return; }
-          if (m === 'enoch' || m === 'hidden') setMode('hidden');
-          else if (m === 'text') setMode('text');
+          if (m === 'text') setMode('text');
+          else setMode('explore');
         } catch (e) {}
-      }
-
-      function showCanonToast(msg) {
-        var t = document.createElement('div');
-        t.className = 'mobius-tracer-toast';
-        t.textContent = msg;
-        t.setAttribute('role', 'status');
-        t.setAttribute('aria-live', 'polite');
-        document.body.appendChild(t);
-        setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2500);
-      }
-      applyCanonOnly();
-      var canonBtn = document.getElementById('mobius-canon-only');
-      if (canonBtn) {
-        canonBtn.addEventListener('click', function () {
-          var next = !isCanonOnly();
-          setCanonOnly(next);
-          if (next) {
-            var isEnoch = tabEnoch && tabEnoch.classList.contains('active');
-            if (isEnoch) setMode('explore');
-            showCanonToast('Canon view active—Hidden Scrolls hidden.');
-          } else {
-            showCanonToast('Hidden Scrolls tab visible.');
-          }
-        });
       }
 
       if (tabExplore) tabExplore.addEventListener('click', function () { setMode('explore'); });
       if (tabText) tabText.addEventListener('click', function () { setMode('text'); });
-      if (tabEnoch) tabEnoch.addEventListener('click', function () { setMode('hidden'); });
       initFromUrl();
-
-      if (modalOk) modalOk.addEventListener('click', function () {
-        try { localStorage.setItem(DISCLAIMER_KEY, '1'); } catch (e) {}
-        if (modal) { modal.hidden = true; modal.setAttribute('hidden', ''); }
-      });
-
-      var enochShareBtn = document.getElementById('mobius-enoch-share');
-      if (enochShareBtn) {
-        enochShareBtn.addEventListener('click', function () {
-          var url = window.location.href;
-          var shareData = { title: 'Möbius Loop on Today\'s Daily Battle', text: 'Hidden Scrolls—ancient apocryphal texts. Reflect, don\'t rely. One endless loop.', url: url };
-          try {
-            if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
-              navigator.share(shareData).then(function () {
-                try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {}
-              }).catch(function () {
-                navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
-              });
-            } else {
-              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
-            }
-          } catch (e) {
-            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
-          }
-        });
-      }
-
-      if (!startBtn || !texts.length) {} else {
-        var index = 0;
-        var timer = null;
-        function nextLayer() {
-          if (timer) clearTimeout(timer);
-          if (index >= texts.length) {
-            if (typeof window.bumpMobiusLoopStreak === 'function') window.bumpMobiusLoopStreak();
-            texts.forEach(function (t) { t.classList.remove('active'); });
-            timer = setTimeout(function () {
-              texts[0].classList.add('active');
-              index = 0;
-              timer = setTimeout(nextLayer, DELAY_PER_LINE);
-            }, DELAY_AT_END);
-            return;
-          }
-          texts.forEach(function (t) { t.classList.remove('active'); });
-          texts[index].classList.add('active');
-          index++;
-          timer = setTimeout(nextLayer, DELAY_PER_LINE);
-        }
-        startBtn.addEventListener('click', function () {
-          startBtn.style.display = 'none';
-          if (container) container.style.background = 'transparent';
-          index = 0;
-          nextLayer();
-        });
-      }
 
       var textStartBtn = document.getElementById('mobius-text-start');
       var textContainer = document.getElementById('mobius-text-container');
@@ -684,26 +497,11 @@
 
       function migrateAndInit() {
         try {
-          if (localStorage.getItem('seenEnochDisclaimer')) {
-            localStorage.setItem('seenHiddenDisclaimer', '1');
-            localStorage.removeItem('seenEnochDisclaimer');
-            if (typeof console !== 'undefined' && console.log) console.log('Migrated seenEnochDisclaimer to seenHiddenDisclaimer');
-          }
-          if (localStorage.getItem('enochModeUses')) {
-            var uses = parseInt(localStorage.getItem('enochModeUses') || '0', 10);
-            var hiddenUses = parseInt(localStorage.getItem('hiddenModeUses') || '0', 10) + uses;
-            localStorage.setItem('hiddenModeUses', String(hiddenUses));
-            localStorage.removeItem('enochModeUses');
-            if (typeof console !== 'undefined' && console.log) console.log('Migrated enochModeUses to hiddenModeUses');
-          }
-        } catch (e) {}
-        try {
           var m = new URLSearchParams(window.location.search).get('mode');
-          if (m === 'enoch') {
+          if (m === 'enoch' || m === 'hidden') {
             var u = new URL(window.location.href);
-            u.searchParams.set('mode', 'hidden');
+            u.searchParams.set('mode', 'explore');
             window.history.replaceState(null, '', u.toString());
-            if (typeof console !== 'undefined' && console.log) console.log('Legacy enoch param normalized to hidden');
           }
         } catch (e) {}
         runMobiusMode();

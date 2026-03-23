@@ -28,6 +28,19 @@
       return d.innerHTML;
     }
 
+    /** Plain answer line for Ask the Word (see tt-bootstrap tdbCleanForPlainDisplay). */
+    function plainAnswerText(s) {
+      if (typeof window.tdbCleanForPlainDisplay === 'function') {
+        return window.tdbCleanForPlainDisplay(s);
+      }
+      if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
+        return window.tdbStripAngleMarkupForPlainText(s);
+      }
+      var str = String(s || '').trim();
+      if (!str) return '';
+      return str.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
     function getCache() {
       try {
         var r = localStorage.getItem(CACHE_KEY);
@@ -136,7 +149,7 @@
       var src = Array.isArray(data.sources) && data.sources.length
         ? data.sources.map(verseLink).join(', ')
         : '';
-      result.innerHTML = '<p class="qa-answer">' + escapeHtml(data.answer) + '</p>' +
+      result.innerHTML = '<p class="qa-answer">' + escapeHtml(plainAnswerText(data.answer)) + '</p>' +
         (src ? '<p class="qa-sources">Sources: ' + src + '</p>' : '');
       result.classList.remove('hidden');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

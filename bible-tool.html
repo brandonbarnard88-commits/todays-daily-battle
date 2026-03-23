@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=20260326clean"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -164,9 +164,19 @@
       border-color: rgba(107, 70, 193, 0.95);
     }
     .bible-tool .bible-story-tool-theme-badge--protection {
-      background: #38a169;
-      color: #f0fff4;
-      border-color: rgba(56, 161, 105, 0.95);
+      background: #276749;
+      color: #ffffff;
+      border-color: rgba(39, 103, 73, 0.95);
+    }
+    /* Inline “Scripture / Who / To …” labels — not verse titles; skip .verse-card strong (purple hero text) */
+    .bible-tool #bible-story-tool-section > p.section-note strong {
+      display: inline;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 700;
+      color: #e3bc67;
+      margin-bottom: 0;
+      letter-spacing: normal;
     }
     .bible-tool .bible-story-tool-actions { margin: 0.35rem 0 0.5rem; }
     .bible-tool .bible-story-tool-random-btn { min-height: 44px; }
@@ -346,17 +356,18 @@
       border-radius: 8px;
       padding: 0.35rem 0.5rem;
     }
+    /* Beat browser default :link blue in dark shell (axe color-contrast) */
     .bible-tool a.bible-tool-gold-link {
-      color: #e3bc67;
+      color: #e3bc67 !important;
       text-decoration: underline;
       text-underline-offset: 2px;
     }
     .bible-tool a.bible-tool-gold-link:hover,
     .bible-tool a.bible-tool-gold-link:focus-visible {
-      color: #f0d28a;
+      color: #f0d28a !important;
     }
     .bible-tool-footer-links a {
-      color: #e3bc67;
+      color: #e3bc67 !important;
       text-decoration: none;
     }
     .bible-tool-footer-links a:hover,
@@ -542,7 +553,7 @@
           </div>
           <p class="qa-disclaimer">This is not a pastor—just a tool. For deep questions, talk to someone real.</p>
         </section>
-        <script src="ask-the-word.js?v=20260313" defer></script>
+        <script src="ask-the-word.js?v=20260325clean" defer></script>
 
         <section class="verse-card glass" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Verse Mode</h2>
@@ -702,13 +713,13 @@
           <div id="battle-ready-result" class="hidden util-mt-1" aria-live="polite"></div>
         </section>
 
-        <p class="section-note util-mt-1 bible-tool-footer-links"><a href="/">← Back to Home</a> · <a href="explore.html">Explore</a> · <a href="verse-image.html">Verse image generator</a> · <a href="verse.html">Verse of the Day</a> · <a href="reading-plan.html">7-Day Plan</a> · <a href="study.html">Study Workspace</a></p>
+        <p class="section-note util-mt-1 bible-tool-footer-links"><a class="bible-tool-gold-link" href="/">← Back to Home</a> · <a class="bible-tool-gold-link" href="explore.html">Explore</a> · <a class="bible-tool-gold-link" href="verse-image.html">Verse image generator</a> · <a class="bible-tool-gold-link" href="verse.html">Verse of the Day</a> · <a class="bible-tool-gold-link" href="reading-plan.html">7-Day Plan</a> · <a class="bible-tool-gold-link" href="study.html">Study Workspace</a></p>
       </div>
     </main>
   </div>
 
-  <script type="module" src="script.js?v=20260320reader-sk"></script>
-  <script src="verse-breakdown.js?v=20260322-ui-decode"></script>
+  <script type="module" src="script.js?v=20260326clean"></script>
+  <script src="verse-breakdown.js?v=20260325clean"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
   <script nonce="tdb2025s">

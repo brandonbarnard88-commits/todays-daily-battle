@@ -57,11 +57,13 @@ const headers = {
 };
 
 if (!headers.Authorization && !headers['X-Auth-Email']) {
-  console.error('Missing CF_API_TOKEN. Get from Cloudflare → My Profile → API Tokens → "Edit zone cache" template.');
+  console.error('Missing CF_API_TOKEN. Add to project .env (gitignored):');
+  console.error('  CF_API_TOKEN=<token from Cloudflare → My Profile → API Tokens → Create → use "Edit zone cache" template, zone: todaysdailybattle.com>');
   process.exit(1);
 }
-if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder/i.test(API_TOKEN) || API_TOKEN.length < 30)) {
-  console.error('CF_API_TOKEN looks like a placeholder. Use your real token from Cloudflare.');
+if (API_TOKEN && (/your_token|paste_your|actual_token|example|placeholder|changeme|replace_me/i.test(API_TOKEN) || API_TOKEN.length < 30)) {
+  console.error('CF_API_TOKEN is missing or still a placeholder. Edit .env in the repo root and paste a real API token (not the string "your_token").');
+  console.error('Cloudflare → My Profile → API Tokens → Create Token → "Edit zone cache" → include Zone: todaysdailybattle.com');
   process.exit(1);
 }
 
@@ -100,7 +102,8 @@ const SOCIAL_PURGE_PATHS = [
   '/why-not-ai.html',
   '/message.html',
   '/script.js',
-  '/script.js?v=20260322family-armor-scope',
+  '/script.js?v=20260326clean',
+  '/tt-bootstrap.js?v=20260326clean',
   '/sitemap.xml',
   '/assets/share/home-og.jpg',
   '/assets/share/calm-og.jpg',
@@ -116,7 +119,7 @@ const SOCIAL_PURGE_PATHS = [
   '/kids/',
   /** Keep ?v= in sync with kids/index.html <script src="kids-battle.js?v=…"> */
   '/kids/kids-battle.js',
-  '/kids/kids-battle.js?v=30',
+  '/kids/kids-battle.js?v=20260326clean',
   '/kids/kids-battle.css',
   '/assets/share/kids-loop-og.jpg',
   '/assets/share/kids-story-library-og.jpg',

@@ -20,6 +20,15 @@
   ];
 
   function tdbPlainTextForUi(s) {
+    function finishPlain(t) {
+      if (typeof window.tdbCleanForPlainDisplay === 'function') {
+        return window.tdbCleanForPlainDisplay(t);
+      }
+      if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
+        return window.tdbStripAngleMarkupForPlainText(t);
+      }
+      return String(t || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
     if (s == null || s === '') return '';
     var str = String(s);
     var prev;
@@ -33,7 +42,7 @@
       if (typeof window.tdbSetHtml === 'function') {
         window.tdbSetHtml(div, str);
         var decoded = div.textContent;
-        if (typeof decoded === 'string') return decoded;
+        if (typeof decoded === 'string') return finishPlain(decoded);
       }
     } catch (_) {}
     try {
@@ -44,10 +53,10 @@
         if (ns) ns.call(t, pol.createHTML(str));
         else t.innerHTML = pol.createHTML(str);
         var out = t.value;
-        if (typeof out === 'string') return out;
+        if (typeof out === 'string') return finishPlain(out);
       }
     } catch (_) {}
-    return str;
+    return finishPlain(str);
   }
 
   function getStreakData() {

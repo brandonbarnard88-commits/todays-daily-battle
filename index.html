@@ -11,7 +11,7 @@
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="high">
   <script src="/vendor/dompurify.min.js"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260326clean"></script>
 
   <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
   <meta name="description" content="KJV when anxiety, grief, or fear hit: one curated verse, battle plans with on-device progress, and a prayer wall with real Amens. Offline-ready. Daily flow is not an AI chat—privacy-first.">
@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260322family-armor-scope">
+  <link rel="modulepreload" href="script.js?v=20260326clean">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -209,6 +209,18 @@
       width: 100%;
       height: 100%;
       min-height: 100vh;
+    }
+    /* Celestial bodies + JS stars/shooters use %/top — must be relative to ~viewport height, not full document */
+    .sky-viewport {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      max-height: 100dvh;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
     }
 
     @media (min-width: 600px) {
@@ -758,14 +770,15 @@
       background: color-mix(in srgb, var(--card) 88%, var(--bg) 12%);
       border-radius: 12px;
     }
+    /* WCAG AA: ≥4.5:1 on cream #fefcf5 — keep darker than gold accent */
     .landing-privacy-teaser a {
-      color: #5c3d0f;
+      color: #2d1f0a !important;
       text-decoration: underline;
       text-underline-offset: 2px;
     }
     .landing-privacy-teaser a:hover,
     .landing-privacy-teaser a:focus-visible {
-      color: #3d2808;
+      color: #1a1206 !important;
     }
     .site-feedback-hint {
       text-align: center;
@@ -4133,6 +4146,7 @@
       <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
         <div class="sky-aurora-veil" aria-hidden="true"></div>
       </div>
+      <div class="sky-viewport" id="sky-celestial-plane">
       <div class="sky-sun" id="sky-sun"></div>
       <!-- Moon (night only): same header slot as sun — accurate phase via SunCalc-style illumination -->
       <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
@@ -4163,6 +4177,7 @@
         <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
       </svg>
       <span class="sky-moon-label" id="sky-moon-label"></span>
+      </div>
       </div>
     </div>
   </div>
@@ -7820,9 +7835,16 @@
       return getSkyClassFixed(h);
     }
 
+    function getSkyCelestialPlane(layer) {
+      if (!layer || !layer.querySelector) return layer;
+      var plane = layer.querySelector('#sky-celestial-plane');
+      return plane || layer;
+    }
+
     function clearDynamicSkyDecor(layer) {
-      if (!layer) return;
-      var dyn = layer.querySelectorAll('.sky-star, .sky-shooter, .sky-cloud, .sky-bird');
+      var plane = getSkyCelestialPlane(layer);
+      if (!plane) return;
+      var dyn = plane.querySelectorAll('.sky-star, .sky-shooter, .sky-cloud, .sky-bird');
       for (var ei = dyn.length - 1; ei >= 0; ei--) dyn[ei].remove();
     }
 
@@ -7835,6 +7857,8 @@
 
     function paintSkyDecorations(layer, r, skyClass) {
       if (!layer) return;
+      var plane = getSkyCelestialPlane(layer);
+      if (!plane) return;
       var isMobile = window.innerWidth < 600;
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var isNightSky = skyClass === 'sky-night';
@@ -7864,7 +7888,7 @@
             'animation-delay:-' + (r() * 5) + 's;';
           var cv = r();
           st.style.background = cv > 0.65 ? 'rgba(220,228,255,1)' : cv > 0.3 ? 'rgba(255,248,230,1)' : '#fff';
-          layer.appendChild(st);
+          plane.appendChild(st);
         }
         if (!isMobile) {
           for (var si = 0; si < 2; si++) {
@@ -7881,7 +7905,7 @@
                   'width:' + (90 + r() * 80) + 'px;' +
                   '--shoot-angle:' + angle.toFixed(1) + 'deg;' +
                   'animation-duration:' + dur.toFixed(2) + 's;';
-                layer.appendChild(sh);
+                plane.appendChild(sh);
                 setTimeout(function() { sh.remove(); }, (dur + 0.5) * 1000);
                 setTimeout(fire, 9000 + r() * 12000);
               }, delay);
@@ -7920,7 +7944,7 @@
             'animation-duration:' + cd.dur + 's;' +
             'animation-delay:' + delay.toFixed(1) + 's;' +
             'animation-timing-function:' + timings[idx % timings.length] + ';';
-          layer.appendChild(cl);
+          plane.appendChild(cl);
         });
         var birdCount = isMobile ? 4 : 7 + Math.floor(r() * 4);
         for (var bi = 0; bi < birdCount; bi++) {
@@ -7939,7 +7963,7 @@
             '--bx1:' + (108 + r() * 5) + 'vw;' +
             'animation-duration:' + bdur + 's;' +
             'animation-delay:' + bdelay.toFixed(1) + 's;';
-          layer.appendChild(bd);
+          plane.appendChild(bd);
         }
       }
 
@@ -8553,6 +8577,6 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-    <script type="module" src="script.js?v=20260322family-armor-scope" data-cfasync="false" fetchpriority="high"></script>
+    <script type="module" src="script.js?v=20260326clean" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

@@ -54,6 +54,18 @@
 
   /** Collapse &amp; chains and decode one layer so UI never shows &amp;amp; (matches script.js / kids-corner pattern). */
   function tdbPlainTextForUi(str) {
+    function finishPlain(t) {
+      if (typeof window.tdbCleanForPlainDisplay === 'function') {
+        return window.tdbCleanForPlainDisplay(t);
+      }
+      if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
+        return window.tdbStripAngleMarkupForPlainText(t);
+      }
+      return String(t || '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
     if (str == null || str === '') return '';
     var s = String(str);
     var prev;
@@ -67,21 +79,21 @@
         var div = document.createElement('div');
         window.tdbSetHtml(div, s);
         var decoded = div.textContent;
-        if (typeof decoded === 'string') return decoded;
+        if (typeof decoded === 'string') return finishPlain(decoded);
       } catch (e) {}
     }
+    /* Prefer native innerHTML on a div (not textarea)—WebKit can expose textarea sinks separately from Element TT patches. */
     try {
-      var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
-      if (pol && typeof pol.createHTML === 'function') {
-        var ta = document.createElement('textarea');
-        var nativeSet = window.__tdbNativeInnerHTMLSet;
-        if (nativeSet) nativeSet.call(ta, pol.createHTML(s));
-        else ta.innerHTML = pol.createHTML(s);
-        var out = ta.value;
-        if (typeof out === 'string') return out;
+      var pol2 = window.trustedTypes && window.trustedTypes.defaultPolicy;
+      var nativeSet2 = window.__tdbNativeInnerHTMLSet;
+      if (pol2 && typeof pol2.createHTML === 'function' && nativeSet2) {
+        var div2 = document.createElement('div');
+        nativeSet2.call(div2, pol2.createHTML(s));
+        var out2 = div2.textContent;
+        if (typeof out2 === 'string') return finishPlain(out2);
       }
     } catch (e2) {}
-    return s;
+    return finishPlain(s);
   }
 
   function escapeHtmlPlain(str) {
@@ -379,6 +391,9 @@
       document.body.appendChild(modal);
     }
     buildVerseModalDom(modal);
+    if (!modal.querySelector('.verse-modal-close') || !modal.querySelector('.verse-modal-ref')) {
+      buildVerseModalDom(modal);
+    }
     function closeModal() {
       var ref = modal.getAttribute('data-ref') || '';
       if (typeof window.trackEvent === 'function') window.trackEvent('verse_breakdown_close', { ref: ref.slice(0, 32) });

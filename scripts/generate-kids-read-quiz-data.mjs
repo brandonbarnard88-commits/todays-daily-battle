@@ -2,7 +2,7 @@
 /**
  * Generates kids/kids-read-quiz-data.js from kids/kids-battle.js bibleStories
  * (same unique keys as bibleStories in kids-battle.js / animation queue).
- * Hand-tuned packs live in kids/read-quiz-handcrafted.cjs (david, noah, jonah, daniel).
+ * Optional overrides: kids/read-quiz-handcrafted.cjs (only shared Jericho pack for jerichoWalls + fallOfJericho).
  */
 import { readFileSync, writeFileSync } from 'fs';
 import { createRequire } from 'module';
@@ -19,7 +19,8 @@ const outPath = join(root, 'kids', 'kids-read-quiz-data.js');
 
 const s = readFileSync(battlePath, 'utf8');
 const startTag = 'var bibleStories = {';
-const endTag = '\n  };\n\n  function getCartoonForVerse';
+const endTag =
+  '\n  };\n\n  /** Export stories before any init() so defer + sync-ready pages always have window.TDB_BIBLE_STORIES (Kids Corner, coloring, RPC helpers). */';
 const si = s.indexOf(startTag);
 const ei = s.indexOf(endTag);
 if (si < 0 || ei < 0) {
@@ -223,46 +224,122 @@ function shortenWho(w) {
   return cut.length > 42 ? cut.slice(0, 39) + '…' : cut;
 }
 
+/** Letter-letter apostrophe (God's, don't) — not a dialogue quote toggle. */
+function isMidWordApostrophe(s, i) {
+  if (s[i] !== "'") return false;
+  const prev = s[i - 1] || '';
+  const next = s[i + 1] || '';
+  return /[A-Za-z]/.test(prev) && /[A-Za-z]/.test(next);
+}
+
+/**
+ * Split on . ! ? only when **outside** single-quoted dialogue (… said, '…').
+ * Prevents breaking lines like: He said, 'Who is this? The Lord … hand.'
+ */
 function splitSentences(text) {
   const t = text.replace(/\s+/g, ' ').trim();
   if (!t) return [];
-  const parts = t.split(/(?<=[.!?])\s+/).filter((x) => x.length > 2);
-  return parts.length ? parts : [t];
+  const out = [];
+  let buf = '';
+  let quoteDepth = 0;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (c === "'" && !isMidWordApostrophe(t, i)) {
+      quoteDepth = (quoteDepth + 1) % 2;
+    }
+    buf += c;
+    if (quoteDepth === 0 && (c === '.' || c === '!' || c === '?')) {
+      const after = i + 1 < t.length ? t[i + 1] : '';
+      if (after === '' || after === ' ') {
+        const s = buf.trim();
+        if (s.length > 2) out.push(s);
+        buf = '';
+        if (after === ' ') i++;
+      }
+    }
+  }
+  const last = buf.trim();
+  if (last.length > 2) out.push(last);
+  return out.length ? out : [t];
 }
 
-function buildParagraphs(title, kjvRef, narration, apply, who, to) {
-  let body = (narration || '').trim();
-  if (!body) {
-    body =
-      `${title}. We read about this in ${kjvRef}. ` +
-      (apply ||
-        "God's Word shows us who He is and how we can trust Him every day.") +
-      (who && to
-        ? ` We learn from ${shortenWho(who)} and how God cares for ${shortenWho(to)}.`
-        : '');
+/**
+ * Split long sentences on ; or — so kids get shorter beats. Does not add new facts.
+ */
+function expandLongSentences(sentences) {
+  const maxLen = 120;
+  const maxWords = 28;
+  const out = [];
+  for (const raw of sentences) {
+    const s = String(raw || '').trim();
+    if (!s) continue;
+    const words = s.split(/\s+/).length;
+    if (s.length <= maxLen && words <= maxWords) {
+      out.push(s);
+      continue;
+    }
+    const chunks = s.split(/\s*;\s*|\s+—\s+/).map((x) => x.trim()).filter(Boolean);
+    if (chunks.length > 1) {
+      for (const c of chunks) {
+        const piece = /[.!?]$/.test(c) ? c : c + '.';
+        out.push(piece);
+      }
+    } else {
+      out.push(s);
+    }
   }
+  return out;
+}
+
+function applyOverlapsAlt(apply, alts) {
+  const ap = String(apply || '').trim();
+  if (!ap || !alts.length) return false;
+  const head = ap.slice(0, 18);
+  return alts.some((a) => {
+    const t = String(a || '').trim();
+    return t.length > 12 && (t.includes(head) || ap.includes(t.slice(0, 14)));
+  });
+}
+
+/**
+ * Kid-level read-aloud: short beats, plain order. No generic filler sentences.
+ * When narration is missing, use comic panel alts + apply (from bibleStories) only.
+ */
+function buildParagraphs(title, kjvRef, narration, apply, who, to, panelAlts) {
+  const alts = (panelAlts || []).map((a) => String(a || '').trim()).filter(Boolean);
+  let body = (narration || '').trim();
+
+  if (!body) {
+    const chunks = [];
+    chunks.push(`${title} (${kjvRef}).`);
+    for (let i = 0; i < alts.length; i++) {
+      chunks.push(alts[i]);
+    }
+    const ap = (apply || '').trim();
+    if (ap && !applyOverlapsAlt(ap, alts)) {
+      chunks.push(ap);
+    }
+    body = chunks.join(' ');
+  }
+
   body = body.replace(/\s+/g, ' ').trim();
   let sentences = splitSentences(body);
-  if (sentences.length < 6) {
-    const extra = splitSentences(
-      apply ||
-        'We can talk to God in prayer. We can remember what the Bible says is true. God is good and He keeps His promises.'
-    );
-    sentences = [...sentences, ...extra.filter((x) => !sentences.includes(x))];
+  sentences = expandLongSentences(sentences);
+
+  if (sentences.length === 0) {
+    const ap = (apply || '').trim();
+    sentences = ap ? [`${title} (${kjvRef}).`, ap] : [`${title} (${kjvRef}).`];
   }
-  if (sentences.length < 5) {
-    sentences.push(
-      'Even when we feel small, God sees us and loves us.',
-      'Praying helps our hearts remember what is true.',
-      'We can obey God one step at a time with His help.'
-    );
-  }
-  const target = 5;
+
+  const n = sentences.length;
+  let paraCount;
+  if (n <= 5) paraCount = n;
+  else paraCount = 5;
+
   const paras = [];
   let idx = 0;
-  const n = sentences.length;
-  for (let p = 0; p < target; p++) {
-    const remaining = target - p;
+  for (let p = 0; p < paraCount; p++) {
+    const remaining = paraCount - p;
     const take = Math.max(1, Math.ceil((n - idx) / remaining));
     const part = sentences.slice(idx, idx + take).join(' ');
     paras.push(part.trim());
@@ -374,7 +451,7 @@ function buildPack(key, chunk, meta) {
   const { who, to, apply } = parseKidContextBlock(chunk);
   const keywords = extractKeywords(chunk);
   const panelAlts = extractPanelAlts(chunk);
-  const paragraphs = buildParagraphs(title, kjvRef, narration, apply, who, to);
+  const paragraphs = buildParagraphs(title, kjvRef, narration, apply, who, to, panelAlts);
   const fy = forYouPart(narration);
   const lessonLine = truncate(apply || fy || 'God loves us and we can trust Him.', 140);
   const appLine = truncate(
@@ -505,7 +582,10 @@ const header = `/**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
  * Keys match TDB_BIBLE_STORIES (${keys.length} stories).
  * Regenerate: npm run kids:generate-read-quiz
- * Hand-tuned packs: kids/read-quiz-handcrafted.cjs (david, noah, jonah, daniel).
+ * Overrides: kids/read-quiz-handcrafted.cjs (Jericho only — two cards, one story).
+ *
+ * Paragraph style: short beats for kids—split sentences, no generic filler lines.
+ * Missing narration uses panel alts + apply only (faithful; no invented story beats).
  */
 `;
 

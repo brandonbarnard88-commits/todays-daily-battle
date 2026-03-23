@@ -19,6 +19,9 @@
 
   function stripHtml(s) {
     if (s == null) return '';
+    if (typeof window.tdbCleanForPlainDisplay === 'function') {
+      return window.tdbCleanForPlainDisplay(s);
+    }
     return String(s).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   }
 

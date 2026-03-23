@@ -46,6 +46,15 @@
 
   /** Collapse &amp; chains and decode one layer of entities so innerHTML + escapeHtml does not show &amp;amp; */
   function tdbPlainTextForUi(s) {
+    function finishPlain(t) {
+      if (typeof window.tdbCleanForPlainDisplay === 'function') {
+        return window.tdbCleanForPlainDisplay(t);
+      }
+      if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
+        return window.tdbStripAngleMarkupForPlainText(t);
+      }
+      return String(t || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
     if (s == null || s === '') return '';
     var str = String(s);
     var prev;
@@ -58,7 +67,7 @@
       var div = document.createElement('div');
       tdbSetHtml(div, str);
       var decoded = div.textContent;
-      if (typeof decoded === 'string') return decoded;
+      if (typeof decoded === 'string') return finishPlain(decoded);
     } catch (_) {}
     try {
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
@@ -68,10 +77,10 @@
         if (nativeSetT) nativeSetT.call(t, pol.createHTML(str));
         else t.innerHTML = pol.createHTML(str);
         var out = t.value;
-        if (typeof out === 'string') return out;
+        if (typeof out === 'string') return finishPlain(out);
       }
     } catch (_) {}
-    return str;
+    return finishPlain(str);
   }
 
   /**

@@ -41,7 +41,7 @@ PAGES = [
     ("/verse-image.html", "Verse image generator", ["Verse image generator", "verse-image-canvas", "Supporter", "recent-gens", "data-verse-store", "verse-image-text-color", "cross"]),
     ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "id=\"auth-section\""]),
-    ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Story Stars", "loop-grid", "20260324loops-v7", "kids-corner.css?v=7"]),
+    ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Story Stars", "loop-grid", "script.js?v=20260326clean", "kids-corner.css?v=7"]),
     ("/kids/corner.html", "Bible Story Library", ["kids-story-library-og.jpg", "Download Story Library List (PDF)", "Bible Story Library", 'aria-describedby="pdf-export-count-hint pdf-export-hint"', "story-library-fonts.css?v=1", "kids-battle.js?v=78", "kids-corner.js?v=78", "TDB_PANEL_RASTER", "nunito-latin.woff2", "panel-david-1.svg"]),
     ("/kids-activities-print.html", "Kids Activities Print", ["activities", "Print"]),
     ("/kids-coloring-pack.html", "Kids Coloring Pack", ["Coloring"]),

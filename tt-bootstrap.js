@@ -201,4 +201,37 @@
     if (!el) return;
     while (el.firstChild) el.removeChild(el.firstChild);
   };
+  /**
+   * Master cleaner for plain-text UI: entities, HTML tags, markdown noise, whitespace.
+   * Tag strip uses /< after optional slash, then a letter — so "x < y" is not treated as markup.
+   * tdbCleanForPlainDisplay tested against: "<p>Hello</p> **bold**", "&lt;p&gt;", "x < y", "line\nbreak", "[a](url)"
+   */
+  window.tdbCleanForPlainDisplay = function (text) {
+    if (text == null) return '';
+    var clean = String(text);
+    if (!clean.trim()) return '';
+    var prev;
+    var n;
+    for (n = 0; n < 12; n++) {
+      prev = clean;
+      clean = clean.replace(/&amp;/g, '&');
+      if (clean === prev) break;
+    }
+    clean = clean.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/gi, ' ');
+    clean = clean.replace(/\u00a0/g, ' ');
+    clean = clean.replace(/<\/?[a-zA-Z][^>]*>/g, ' ');
+    clean = clean.replace(/(\*\*|__|~~|`|#{1,6}\s*|\[.*?\]\(.*?\))/g, '');
+    clean = clean.replace(/(\*\*|__|\*|_|`|~~|#)/g, '');
+    clean = clean.replace(/<\/?[a-zA-Z][^>]*>/g, ' ');
+    /* Malformed or exotic tags (e.g. "< p >") — broad strip only if anything angle-shaped remains */
+    if (/<[^>]+>/.test(clean)) {
+      clean = clean.replace(/<[^>]+>/g, ' ');
+    }
+    clean = clean.replace(/\s+/g, ' ').trim();
+    return clean;
+  };
+  /** @deprecated Use tdbCleanForPlainDisplay — kept for older call sites. */
+  window.tdbStripAngleMarkupForPlainText = function (s) {
+    return window.tdbCleanForPlainDisplay(s);
+  };
 })();

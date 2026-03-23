@@ -8329,7 +8329,7 @@ function wireGodModePrayerEcho() {
         li.appendChild(candle);
         var textSpan = document.createElement('span');
         textSpan.className = 'prayer-echo-text';
-        textSpan.textContent = pre + who + ' just prayed: ' + intent;
+        textSpan.textContent = pre + tdbPlainTextForUi(who) + ' just prayed: ' + tdbPlainTextForUi(intent);
         textSpan.title = 'A household prayed this.';
         li.appendChild(textSpan);
         var amenWrap = document.createElement('span');
@@ -10668,11 +10668,11 @@ function buildVerseContextHtml(ref, openByDefault) {
   if (ctx) {
     var openAttr = openByDefault ? ' open' : '';
     var html = '<details class="verse-context-accordion" aria-label="Context and application"' + openAttr + '><summary class="verse-context-summary">Context &amp; Application</summary><ul class="verse-context-list">' +
-      '<li><strong>Speaker:</strong> ' + escapeHtml(ctx.speaker || '') + '</li>' +
-      '<li><strong>To whom:</strong> ' + escapeHtml(ctx.audience || '') + '</li>' +
-      '<li><strong>How it applies today:</strong> ' + escapeHtml(ctx.application || '') + '</li>';
-    if (ctx.reflection) html += '<li><strong>Reflection:</strong> ' + escapeHtml(ctx.reflection) + '</li>';
-    if (ctx.prayer) html += '<li><strong>Prayer:</strong> ' + escapeHtml(ctx.prayer) + '</li>';
+      '<li><strong>Speaker:</strong> ' + escapeHtmlPlain(ctx.speaker || '') + '</li>' +
+      '<li><strong>To whom:</strong> ' + escapeHtmlPlain(ctx.audience || '') + '</li>' +
+      '<li><strong>How it applies today:</strong> ' + escapeHtmlPlain(ctx.application || '') + '</li>';
+    if (ctx.reflection) html += '<li><strong>Reflection:</strong> ' + escapeHtmlPlain(ctx.reflection) + '</li>';
+    if (ctx.prayer) html += '<li><strong>Prayer:</strong> ' + escapeHtmlPlain(ctx.prayer) + '</li>';
     html += '</ul></details>';
     return html;
   }
@@ -13169,9 +13169,15 @@ function tdbPlainTextForUi(s) {
       'text/html'
     );
     var ta = doc.querySelector('textarea');
-    if (ta && typeof ta.value === 'string') return ta.value;
+    if (ta && typeof ta.value === 'string') str = ta.value;
   } catch (_) {}
-  return str;
+  if (typeof window.tdbCleanForPlainDisplay === 'function') {
+    return window.tdbCleanForPlainDisplay(str);
+  }
+  if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
+    return window.tdbStripAngleMarkupForPlainText(str);
+  }
+  return String(str).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 function escapeHtmlPlain(str) {
@@ -18303,16 +18309,8 @@ function sanitizeNudgeElements() {
       var ul = document.getElementById('prayer-wall-list') || listEl;
       if (ul && ul.lastElementChild) ul.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
-    var prayerWallCard = document.getElementById('prayer-wall');
-    if (prayerWallCard) {
-      prayerWallCard.addEventListener('click', function (ev) {
-        if (!ev.target || !ev.target.closest) return;
-        if (!ev.target.closest('#prayer-wall-add')) return;
-        postPrayerWallFromInput();
-      });
-    } else if (addBtn) {
-      addBtn.addEventListener('click', postPrayerWallFromInput);
-    }
+    /* Direct listener: delegation on #prayer-wall misses the click if a child stops propagation before bubble reaches the section */
+    if (addBtn) addBtn.addEventListener('click', postPrayerWallFromInput);
     var inputForEnter = document.getElementById('prayer-wall-input');
     if (inputForEnter) {
       inputForEnter.addEventListener('keydown', function (e) {

@@ -4,7 +4,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=20260326clean"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -613,6 +613,17 @@
   <script nonce="tdb2025s">
   (function () {
     'use strict';
+
+    function cleanPlanPlain(s) {
+      if (s == null || s === '') return '';
+      if (typeof window.tdbCleanForPlainDisplay === 'function') {
+        return window.tdbCleanForPlainDisplay(s);
+      }
+      if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
+        return window.tdbStripAngleMarkupForPlainText(s);
+      }
+      return String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
 
     // ── Plan data ──────────────────────────────────────────────────────────────
     var PLANS = {
@@ -1763,7 +1774,7 @@
         pl.textContent = label;
         var pt = document.createElement('p');
         pt.className = 'day-bp-text';
-        pt.textContent = text == null ? '' : String(text);
+        pt.textContent = cleanPlanPlain(text);
         div.appendChild(pl);
         div.appendChild(pt);
         parent.appendChild(div);
@@ -1788,19 +1799,19 @@
       numSpan.textContent = 'Day ' + (currentDay + 1);
       var titleSpan = document.createElement('span');
       titleSpan.className = 'day-card-title';
-      titleSpan.textContent = dayData.title == null ? '' : String(dayData.title);
+      titleSpan.textContent = cleanPlanPlain(dayData.title == null ? '' : String(dayData.title));
       header.appendChild(numSpan);
       header.appendChild(titleSpan);
       card.appendChild(header);
 
       var refP = document.createElement('p');
       refP.className = 'day-card-verse-ref';
-      refP.textContent = (dayData.ref == null ? '' : String(dayData.ref)) + ' (KJV)';
+      refP.textContent = cleanPlanPlain(dayData.ref == null ? '' : String(dayData.ref)) + ' (KJV)';
       card.appendChild(refP);
 
       var verseP = document.createElement('p');
       verseP.className = 'day-card-verse-text';
-      verseP.textContent = '\u201c' + (dayData.text == null ? '' : String(dayData.text)) + '\u201d';
+      verseP.textContent = '\u201c' + cleanPlanPlain(dayData.text == null ? '' : String(dayData.text)) + '\u201d';
       card.appendChild(verseP);
 
       var breakdown = document.createElement('div');

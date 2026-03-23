@@ -130,6 +130,7 @@ const CORE_ASSETS = [
   '/assets/fonts/bangers-latin.woff2',
   '/kids/kids-corner.js',
   '/kids/kids-read-quiz-data.js',
+  '/kids/bible-story-tool-index.js',
   '/kids/kids-read-quiz-loop-posters.js',
   '/kids/kids-beta.html',
   '/church/',

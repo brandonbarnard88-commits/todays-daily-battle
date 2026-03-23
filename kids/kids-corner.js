@@ -52,6 +52,15 @@
    *   (which would show literal &lt; on screen).
    */
   function tdbPlainTextForUi(s) {
+    function finishPlain(t) {
+      if (typeof window.tdbCleanForPlainDisplay === 'function') {
+        return window.tdbCleanForPlainDisplay(t);
+      }
+      if (typeof window.tdbStripAngleMarkupForPlainText === 'function') {
+        return window.tdbStripAngleMarkupForPlainText(t);
+      }
+      return String(t || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
     if (s == null || s === '') return '';
     var str = String(s);
     var prev;
@@ -64,9 +73,9 @@
       var span = document.createElement('span');
       tdbSetHtml(span, str);
       var out = span.textContent;
-      if (typeof out === 'string') return out;
+      if (typeof out === 'string') return finishPlain(out);
     } catch (_) {}
-    return str;
+    return finishPlain(str);
   }
 
   /* ────────────────────────────────────────────────────

@@ -13,13 +13,9 @@
     var x = d || new Date();
     return x.getUTCFullYear() + '-' + String(x.getUTCMonth() + 1).padStart(2, '0') + '-' + String(x.getUTCDate()).padStart(2, '0');
   }
-  function escapeHtml(str) {
-    return String(str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+  function clearChildren(el) {
+    if (!el) return;
+    while (el.firstChild) el.removeChild(el.firstChild);
   }
   function hashFNV1a(str) {
     var h = 2166136261;
@@ -154,9 +150,12 @@
     byId('church-share-link').value = base;
 
     var avatars = byId('church-avatar-line');
-    avatars.innerHTML = '';
+    clearChildren(avatars);
     if (!group.members.length) {
-      avatars.innerHTML = '<span class="section-note">No members have joined this group yet.</span>';
+      var emptyAv = document.createElement('span');
+      emptyAv.className = 'section-note';
+      emptyAv.textContent = 'No members have joined this group yet.';
+      avatars.appendChild(emptyAv);
     } else {
       group.members.forEach(function (m) {
         var chip = document.createElement('div');
@@ -167,11 +166,16 @@
     }
 
     var boardList = byId('church-board-list');
-    boardList.innerHTML = '';
+    clearChildren(boardList);
     (group.board || []).slice(0, 80).forEach(function (item) {
       var li = document.createElement('li');
       li.className = 'church-board-item';
-      li.innerHTML = '<strong>' + escapeHtml(item.type === 'prayer' ? 'Prayer' : 'Note') + ' • ' + escapeHtml(item.authorLabel || 'Brother') + '</strong><p>' + escapeHtml(item.text || '') + '</p>';
+      var bStrong = document.createElement('strong');
+      bStrong.textContent = (item.type === 'prayer' ? 'Prayer' : 'Note') + ' • ' + (item.authorLabel || 'Brother');
+      var bP = document.createElement('p');
+      bP.textContent = item.text || '';
+      li.appendChild(bStrong);
+      li.appendChild(bP);
       boardList.appendChild(li);
     });
 
@@ -183,11 +187,17 @@
     chatWrap.classList.toggle('hidden', !group.chatEnabled);
 
     var chatList = byId('church-chat-list');
-    chatList.innerHTML = '';
+    clearChildren(chatList);
     (group.chat || []).slice(0, 120).forEach(function (msg) {
       var li = document.createElement('li');
       li.className = 'church-chat-item';
-      li.innerHTML = '<strong class="' + (msg.anonymous ? 'church-chat-item-anon' : '') + '">' + escapeHtml(msg.authorLabel || 'Anonymous') + '</strong><p>' + escapeHtml(msg.text || '') + '</p>';
+      var cStrong = document.createElement('strong');
+      if (msg.anonymous) cStrong.className = 'church-chat-item-anon';
+      cStrong.textContent = msg.authorLabel || 'Anonymous';
+      var cP = document.createElement('p');
+      cP.textContent = msg.text || '';
+      li.appendChild(cStrong);
+      li.appendChild(cP);
       chatList.appendChild(li);
     });
   }

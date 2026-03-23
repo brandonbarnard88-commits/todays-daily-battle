@@ -93,6 +93,18 @@
     return div.innerHTML;
   }
 
+  /** Model/JSON verse copy — same pipeline as tdbPlainTextForUi tail (tt-bootstrap). */
+  function plainForCard(s) {
+    if (s == null || s === '') return '';
+    if (typeof window.tdbPlainTextForUi === 'function') {
+      return window.tdbPlainTextForUi(s);
+    }
+    if (typeof window.tdbCleanForPlainDisplay === 'function') {
+      return window.tdbCleanForPlainDisplay(s);
+    }
+    return String(s).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+
   function buildNode(key, startKey, preferred) {
     var topics = getTopicData();
     var smart = getSmartDict();
@@ -284,19 +296,19 @@
     var card = document.createElement('div');
     card.className = 'mobius-node-card';
     card.setAttribute('role', 'dialog');
-    card.setAttribute('aria-label', 'Node details: ' + escapeHtml(node.label));
+    card.setAttribute('aria-label', 'Node details: ' + escapeHtml(plainForCard(node.label)));
     card.setAttribute('aria-describedby', 'mobius-card-prayer');
-    var html = '<h3 class="mobius-card-title">' + escapeHtml(node.label) + '</h3>';
-    if (node.verseRef) html += '<p class="mobius-card-ref">' + escapeHtml(node.verseRef) + ' (KJV)</p>';
-    if (node.verseText) html += '<p class="mobius-card-verse">' + escapeHtml(node.verseText) + '</p>';
-    if (node.crossRef) html += '<p class="mobius-card-crossref">See also ' + escapeHtml(node.crossRef) + '</p>';
+    var html = '<h3 class="mobius-card-title">' + escapeHtml(plainForCard(node.label)) + '</h3>';
+    if (node.verseRef) html += '<p class="mobius-card-ref">' + escapeHtml(plainForCard(node.verseRef)) + ' (KJV)</p>';
+    if (node.verseText) html += '<p class="mobius-card-verse">' + escapeHtml(plainForCard(node.verseText)) + '</p>';
+    if (node.crossRef) html += '<p class="mobius-card-crossref">See also ' + escapeHtml(plainForCard(node.crossRef)) + '</p>';
     if (node.breakdown && node.breakdown.length) {
       html += '<ul class="mobius-card-breakdown">';
-      node.breakdown.forEach(function (b) { html += '<li>' + escapeHtml(b) + '</li>'; });
+      node.breakdown.forEach(function (b) { html += '<li>' + escapeHtml(plainForCard(b)) + '</li>'; });
       html += '</ul>';
     }
-    if (node.guidance) html += '<p class="mobius-card-guidance">' + escapeHtml(node.guidance) + '</p>';
-    html += '<p id="mobius-card-prayer" class="mobius-card-prayer"><strong>Pray:</strong> ' + escapeHtml(node.prayerPrompt) + '</p>';
+    if (node.guidance) html += '<p class="mobius-card-guidance">' + escapeHtml(plainForCard(node.guidance)) + '</p>';
+    html += '<p id="mobius-card-prayer" class="mobius-card-prayer"><strong>Pray:</strong> ' + escapeHtml(plainForCard(node.prayerPrompt)) + '</p>';
     safeSetHTML(card, html);
     container.appendChild(card);
   }

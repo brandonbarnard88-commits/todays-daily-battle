@@ -5924,18 +5924,7 @@
       var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
       var container = document.getElementById('kids-cartoon-container');
       if (!container) return;
-      if (cartoon.type === 'carousel') {
-        var story = bibleStories[cartoon.story];
-        var panelsHtml = (story.panels || []).map(function (pan) {
-          return '<img src="' + escapeHtml(pan.src || '') + '" alt="' + escapeHtmlPlain(pan.alt || '') + '" class="comic-panel" width="200" height="160">';
-        }).join('');
-        var videoTitle = escapeHtmlPlain(story.videoTitle || '');
-        var safeVideoId = safeYouTubeId(story.videoId);
-        var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-        tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
-      } else {
-        tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
-      }
+      fillKidsCartoonContainer(container, cartoon);
       if (!q) {
         try {
           localStorage.setItem(KIDS_VERSE_INDEX_KEY, String((index + 1) % KIDS_VERSES.length));
@@ -5948,7 +5937,7 @@
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          tdbSetHtml(ctn, '<p class="kids-cartoon-fallback-msg section-note" role="alert">We could not finish loading today\'s comic area. Your verse is still above—try a refresh.</p>');
+          appendKidsCartoonFallbackMsg(ctn, 'We could not finish loading today\'s comic area. Your verse is still above—try a refresh.');
         } catch (e2) {}
       }
     }
@@ -7007,14 +6996,102 @@
     return 'Ask God to help you live this verse today, one brave step at a time.';
   }
 
+  /** Verse context + carousel: DOM only — avoids Trusted Types innerHTML fallback that entity-escapes full markup as visible text. */
+  function fillKidsVerseContextEl(ctxEl, ctx) {
+    if (!ctxEl || !ctx) return;
+    tdbClearHtml(ctxEl);
+    function row(cls, label, val) {
+      var p = document.createElement('p');
+      p.className = cls;
+      var st = document.createElement('strong');
+      st.textContent = label;
+      p.appendChild(st);
+      p.appendChild(document.createTextNode(' ' + tdbPlainTextForUi(val || '')));
+      ctxEl.appendChild(p);
+    }
+    row('kids-context-who', 'Who said it:', ctx.who);
+    row('kids-context-to', 'To whom:', ctx.to);
+    row('kids-context-apply', 'For you:', ctx.apply);
+  }
+
+  function safeCartoonAnimClass(anim) {
+    var a = String(anim || '').trim();
+    return /^cartoon-slide-[a-z0-9-]+$/i.test(a) ? a : '';
+  }
+
+  function appendComicCarouselDom(container, story) {
+    var wrap = document.createElement('div');
+    wrap.className = 'comic-carousel';
+    var panelsC = document.createElement('div');
+    panelsC.className = 'panels-container';
+    (story.panels || []).forEach(function (pan) {
+      var img = document.createElement('img');
+      img.src = String(pan.src || '');
+      img.alt = tdbPlainTextForUi(pan.alt || '');
+      img.className = 'comic-panel';
+      img.setAttribute('width', '200');
+      img.setAttribute('height', '160');
+      panelsC.appendChild(img);
+    });
+    wrap.appendChild(panelsC);
+    var cap = document.createElement('p');
+    cap.className = 'comic-caption';
+    cap.textContent = tdbPlainTextForUi(story.caption || '');
+    wrap.appendChild(cap);
+    var vid = safeYouTubeId(story.videoId);
+    if (vid) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'watch-video-btn';
+      btn.setAttribute('data-video-id', vid);
+      btn.setAttribute('data-title', tdbPlainTextForUi(story.videoTitle || ''));
+      btn.textContent = '\uD83C\uDFA5 Watch the story move! (2 min)';
+      wrap.appendChild(btn);
+    }
+    container.appendChild(wrap);
+  }
+
+  function fillKidsCartoonContainer(container, cartoon) {
+    if (!container) return;
+    tdbClearHtml(container);
+    if (cartoon.type === 'carousel') {
+      var story = bibleStories[cartoon.story];
+      if (story) appendComicCarouselDom(container, story);
+      return;
+    }
+    var animExtra = safeCartoonAnimClass(cartoon.anim);
+    var div = document.createElement('div');
+    div.className = 'bible-cartoon' + (animExtra ? ' ' + animExtra : '');
+    var img = document.createElement('img');
+    img.src = String(cartoon.src || '');
+    img.alt = tdbPlainTextForUi(cartoon.alt || '');
+    img.className = 'cartoon-img';
+    img.setAttribute('width', '200');
+    img.setAttribute('height', '160');
+    var cap = document.createElement('p');
+    cap.className = 'cartoon-caption';
+    cap.textContent = tdbPlainTextForUi(cartoon.caption || '');
+    div.appendChild(img);
+    div.appendChild(cap);
+    container.appendChild(div);
+  }
+
+  function appendKidsCartoonFallbackMsg(container, msg) {
+    if (!container) return;
+    tdbClearHtml(container);
+    var p = document.createElement('p');
+    p.className = 'kids-cartoon-fallback-msg section-note';
+    p.setAttribute('role', 'alert');
+    p.textContent = msg;
+    container.appendChild(p);
+  }
+
   function renderKidContext(ref, verseText) {
     var ctxEl = document.getElementById('kids-verse-context');
     if (!ctxEl) return;
     var ctx = getKidContext(ref, verseText);
     ctxEl.classList.remove('hidden');
-    tdbSetHtml(ctxEl, '<p class="kids-context-who"><strong>Who said it:</strong> ' + escapeHtmlPlain(ctx.who || '') + '</p>' +
-      '<p class="kids-context-to"><strong>To whom:</strong> ' + escapeHtmlPlain(ctx.to || '') + '</p>' +
-      '<p class="kids-context-apply"><strong>For you:</strong> ' + escapeHtmlPlain(ctx.apply || '') + '</p>');
+    fillKidsVerseContextEl(ctxEl, ctx);
   }
 
   function setMainVerse(index) {
@@ -7033,20 +7110,7 @@
       renderKidContext(v.ref, kidText || v.text);
       var cartoon = resolveKidsCartoon(getCartoonForVerse(v.ref, v.text, index), index);
       var container = document.getElementById('kids-cartoon-container');
-      if (container) {
-        if (cartoon.type === 'carousel') {
-          var story = bibleStories[cartoon.story];
-          var panelsHtml = (story.panels || []).map(function (pan) {
-            return '<img src="' + escapeHtml(pan.src || '') + '" alt="' + escapeHtmlPlain(pan.alt || '') + '" class="comic-panel" width="200" height="160">';
-          }).join('');
-          var videoTitle = escapeHtmlPlain(story.videoTitle || '');
-          var safeVideoId = safeYouTubeId(story.videoId);
-          var btnHtml = safeVideoId ? '<button type="button" class="watch-video-btn" data-video-id="' + safeVideoId + '" data-title="' + videoTitle + '">🎥 Watch the story move! (2 min)</button>' : '';
-          tdbSetHtml(container, '<div class="comic-carousel"><div class="panels-container">' + panelsHtml + '</div><p class="comic-caption">' + escapeHtmlPlain(story.caption || '') + '</p>' + btnHtml + '</div>');
-        } else {
-          tdbSetHtml(container, '<div class="bible-cartoon ' + escapeHtml(cartoon.anim || '') + '"><img src="' + escapeHtml(cartoon.src || '') + '" alt="' + escapeHtmlPlain(cartoon.alt || '') + '" class="cartoon-img" width="200" height="160"><p class="cartoon-caption">' + escapeHtmlPlain(cartoon.caption || '') + '</p></div>');
-        }
-      }
+      if (container) fillKidsCartoonContainer(container, cartoon);
     } catch (err) {
       if (typeof console !== 'undefined' && console.warn) {
         console.warn('Kids Battle setMainVerse:', err);
@@ -7054,7 +7118,7 @@
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          tdbSetHtml(ctn, '<p class="kids-cartoon-fallback-msg section-note" role="alert">Could not update the comic area. Try a refresh.</p>');
+          appendKidsCartoonFallbackMsg(ctn, 'Could not update the comic area. Try a refresh.');
         } catch (e2) {}
       }
     }

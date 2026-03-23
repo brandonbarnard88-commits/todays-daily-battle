@@ -1006,6 +1006,17 @@
   margin-bottom: 1rem;
 }
 
+.kids-cartoon-library-cta {
+  text-align: center;
+  margin: 0.75rem 0 0;
+}
+
+.kids-cartoon-library-cta .kids-cartoon-link {
+  color: var(--kids-yellow, #ffd93d);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .bible-cartoon {
   display: flex;
   flex-direction: column;

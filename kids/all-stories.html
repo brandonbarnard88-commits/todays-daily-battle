@@ -13,7 +13,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=15">
+  <link rel="stylesheet" href="kids-battle.css?v=16">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .kids-all-stories-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
@@ -76,6 +76,24 @@
     @media (max-width: 720px) {
       .kids-all-stories-table .kids-col-theme { display: none; }
     }
+    .kids-all-stories-back-link {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--kids-yellow);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .kids-all-stories-back-link:focus-visible {
+      outline: 2px solid var(--kids-yellow);
+      outline-offset: 2px;
+    }
+    .kids-all-stories-hero-line {
+      margin-bottom: 0.5rem;
+    }
+    .kids-all-stories-hero-kicker {
+      font-size: 0.92rem;
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page">
@@ -97,6 +115,8 @@
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
         <header class="kids-battle-hero">
+          <p class="util-mb-0_5"><a href="/kids/" class="kids-all-stories-back-link">← Back to Kids Home</a></p>
+          <p class="kids-all-stories-hero-line"><span id="kids-all-stories-hero-badge" class="kids-all-stories-badge kids-all-stories-hero-kicker">281 Stories – Browse All</span></p>
           <h1 class="kids-battle-title">All Bible Stories</h1>
           <p class="sr-only">Each story opens at corner.html?story= followed by the story key.</p>
           <p class="kids-battle-tagline">Every title in the library—A–Z—with one-line “For you” teasers. Tap a row to open read-aloud, pictures, and quizzes.</p>
@@ -106,7 +126,6 @@
         <section class="kids-search-section glass" role="region" aria-label="Search all stories">
           <h2 class="kids-section-title">Find &amp; sort</h2>
           <div class="kids-all-stories-toolbar">
-            <span id="kids-all-stories-total-badge" class="kids-all-stories-badge" aria-label="Total story count">Story count: —</span>
             <input type="search" id="kids-all-stories-search" class="kids-search-input" placeholder="Search title, reference, theme, or keyword…" autocomplete="off" aria-label="Filter stories">
             <button type="button" id="kids-all-stories-sort" class="btn btn-secondary" aria-pressed="true" aria-label="Toggle sort order">Sort Z–A</button>
           </div>

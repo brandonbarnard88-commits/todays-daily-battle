@@ -89,8 +89,12 @@
           ? 'Showing all ' + all.length + ' stories.'
           : 'Showing ' + filtered.length + ' of ' + all.length + ' stories.';
     }
-    var badgeEl = document.getElementById('kids-all-stories-total-badge');
-    if (badgeEl) badgeEl.textContent = 'Story count: ' + all.length;
+    var heroBadge = document.getElementById('kids-all-stories-hero-badge');
+    if (heroBadge) {
+      var label = all.length + ' Stories – Browse All';
+      heroBadge.textContent = label;
+      heroBadge.setAttribute('aria-label', label);
+    }
   }
 
   function wire() {

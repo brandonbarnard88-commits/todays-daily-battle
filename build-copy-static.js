@@ -229,6 +229,14 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include Worry to Trust plan (worrytrust / tdb-plan-worrytrust-day).');
       process.exit(1);
     }
+    if (!content.includes('angerpeace') || !content.includes('tdb-plan-angerpeace-day')) {
+      console.error('BUILD FAIL: plans.html must include Anger → Peace plan (angerpeace / tdb-plan-angerpeace-day).');
+      process.exit(1);
+    }
+    if (!content.includes('doubtassurance') || !content.includes('tdb-plan-doubtassurance-day')) {
+      console.error('BUILD FAIL: plans.html must include Doubt → Assurance plan (doubtassurance / tdb-plan-doubtassurance-day).');
+      process.exit(1);
+    }
     console.log('Copied plans.html (battle plans library)');
   }
   if (f === 'privacy.html') {

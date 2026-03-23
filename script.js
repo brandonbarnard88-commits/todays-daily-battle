@@ -21958,6 +21958,20 @@ function sanitizeNudgeElements() {
     });
   }
 
+  const themedPlanAngerPeace = document.getElementById('themed-plan-anger-peace');
+  if (themedPlanAngerPeace) {
+    themedPlanAngerPeace.addEventListener('click', () => {
+      window.location.href = 'plans.html?plan=angerpeace';
+    });
+  }
+
+  const themedPlanDoubtAssurance = document.getElementById('themed-plan-doubt-assurance');
+  if (themedPlanDoubtAssurance) {
+    themedPlanDoubtAssurance.addEventListener('click', () => {
+      window.location.href = 'plans.html?plan=doubtassurance';
+    });
+  }
+
   const themedPlanFear21 = document.getElementById('themed-plan-fear-21');
   if (themedPlanFear21) {
     themedPlanFear21.addEventListener('click', () => {

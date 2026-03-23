@@ -20,7 +20,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=16">
+  <link rel="stylesheet" href="kids-battle.css?v=17">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +64,7 @@
             </a>
             <a href="corner.html" class="kids-path-card kids-path-card-stories">
               <span class="kids-path-card-label">Full Bible stories</span>
-              <span class="kids-path-card-hint">Read stories, answer quizzes with gentle hints, pictures—and full video when we ship it.</span>
+              <span class="kids-path-card-hint">Read stories, answer quizzes with gentle hints, pictures—and full video when we ship it. We battle; He wins what we can&rsquo;t.</span>
             </a>
           </div>
         </section>
@@ -72,7 +72,14 @@
         <section class="kids-library-home-progress glass" role="region" aria-label="Bible story library progress">
           <h2 class="kids-section-title">Bible Story Library</h2>
           <p class="section-note util-mb-0_5"><span id="kids-home-story-count-badge" class="kids-story-count-badge">281 Bible stories</span> — read, listen, and quiz in the Library.</p>
+          <p class="section-note util-mb-0_5 kids-lib-cache-hint">If a story opens without read-along words or quiz, hard-refresh (pull down on your phone, or Ctrl+Shift+R / Cmd+Shift+R on a computer) so the newest library loads.</p>
           <p id="kids-home-story-master" class="kids-home-story-master" aria-live="polite"></p>
+          <div id="story-master-dashboard" class="kids-story-master-dashboard" role="group" aria-label="Story Master tier and library progress">
+            <span class="kids-story-master-dashboard-label">Story Master:</span>
+            <span id="tier-badge" class="kids-tier-badge"></span>
+            <progress id="story-progress" max="281" value="0" aria-label="Story library progress toward Story Master tiers"></progress>
+            <span id="story-percent" class="kids-story-percent">0%</span>
+          </div>
           <div id="kids-home-story-master-bar" class="kids-home-story-master-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story library completion">
             <span id="kids-home-story-master-bar-fill" class="kids-home-story-master-bar-fill"></span>
           </div>
@@ -80,7 +87,7 @@
           <div class="kids-reflection-buttons">
             <a href="all-stories.html" class="btn kids-btn-primary">Browse All 281 Stories</a>
             <a href="corner.html?random=1" class="btn kids-btn-memory">Random Story</a>
-            <a href="corner.html?challenge=1" class="btn btn-secondary">Quiz Challenge</a>
+            <button type="button" id="global-quiz-challenge" class="btn btn-secondary">Quiz Challenge (5 Questions)</button>
           </div>
         </section>
 
@@ -219,6 +226,7 @@
     </main>
 
     <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-humility">We battle. He wins.</p>
       <p>© 2026 Kids Battle – Faith Trail for Kids</p>
       <a href="../explore.html">Explore</a>
       <a href="/privacy.html">Privacy</a>
@@ -566,7 +574,10 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="../inline-bootstrap.js"></script>
   <script src="../verse-breakdown.js?v=20260325clean" defer></script>
-  <script src="kids-battle.js?v=20260327kidsmax" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="kids-battle.js?v=20260325kidslib" defer></script>
+  <script src="kids-read-quiz-data.js?v=20260325kidslib" defer></script>
+  <script src="kids-corner.js?v=20260325kidslib" defer></script>
   <script type="module" src="../script.js?v=20260326clean" data-cfasync="false"></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
 </body>

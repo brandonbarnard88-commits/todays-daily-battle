@@ -6,37 +6,35 @@
 (function () {
   'use strict';
 
-  /** CSP require-trusted-types-for: assign through default policy when available. */
+  /**
+   * Set element HTML. Always assign via el.innerHTML so tt-bootstrap's patched setter runs.
+   * Do not use __tdbNativeInnerHTMLSet with raw strings — that bypasses the patch and breaks Trusted Types.
+   */
   function tdbSetHtml(el, html) {
     if (!el) return;
     var s = html == null ? '' : String(html);
     var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
-    var nativeSet = window.__tdbNativeInnerHTMLSet;
-    function applyTrusted(trusted) {
-      if (nativeSet) nativeSet.call(el, trusted);
-      else el.innerHTML = trusted;
-    }
     if (pol && typeof pol.createHTML === 'function') {
       try {
-        applyTrusted(pol.createHTML(s));
+        el.innerHTML = pol.createHTML(s);
         return;
       } catch (_) {
         try {
           var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
             ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
             : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-          applyTrusted(pol.createHTML(wash));
+          el.innerHTML = pol.createHTML(wash);
           return;
         } catch (__) {
-          try { applyTrusted(pol.createHTML('')); } catch (___) {}
+          try { el.innerHTML = pol.createHTML(''); } catch (___) {}
           return;
         }
       }
     }
-    if (nativeSet) {
-      try { nativeSet.call(el, s); } catch (____) { try { el.textContent = ''; } catch (_____) {} }
-    } else {
+    try {
       el.innerHTML = s;
+    } catch (____) {
+      try { el.textContent = String(s).replace(/<[^>]+>/g, ' '); } catch (_____) {}
     }
   }
   function tdbClearHtml(el) {
@@ -44,12 +42,38 @@
     while (el.firstChild) el.removeChild(el.firstChild);
   }
 
+  /** Decode common HTML entities without innerHTML (Trusted Types / require-trusted-types-for safe). */
+  function tdbDecodeEntitiesForPlainUi(str) {
+    if (str == null || str === '') return '';
+    var out = String(str);
+    var prev;
+    var n;
+    for (n = 0; n < 12; n++) {
+      prev = out;
+      out = out.replace(/&amp;/g, '&');
+      if (out === prev) break;
+    }
+    out = out
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#0*39;/g, "'")
+      .replace(/&apos;/g, "'")
+      .replace(/&nbsp;/g, '\u00a0');
+    out = out.replace(/&#(\d{1,7});/g, function (_, num) {
+      var c = parseInt(num, 10);
+      return c >= 0 && c <= 0x10ffff ? String.fromCharCode(c) : '';
+    });
+    out = out.replace(/&#x([0-9a-fA-F]{1,6});/g, function (_, hex) {
+      var c = parseInt(hex, 16);
+      return c >= 0 && c <= 0x10ffff ? String.fromCharCode(c) : '';
+    });
+    return out;
+  }
+
   /**
    * Plain text for UI (textContent / attributes that expect human text).
-   * - Collapse repeated &amp; → & until stable (fixes double-encoded "David &amp;amp; Goliath").
-   * - Decode common HTML entities via a textarea so strings that were escaped once
-   *   (e.g. "&lt;div …&gt;" or "&quot;") do not get escaped again when building innerHTML
-   *   (which would show literal &lt; on screen).
+   * Collapses repeated &amp; and decodes entities without innerHTML (Trusted Types safe).
    */
   function tdbPlainTextForUi(s) {
     function finishPlain(t) {
@@ -62,19 +86,7 @@
       return String(t || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
     }
     if (s == null || s === '') return '';
-    var str = String(s);
-    var prev;
-    for (var n = 0; n < 12; n++) {
-      prev = str;
-      str = str.replace(/&amp;/g, '&');
-      if (str === prev) break;
-    }
-    try {
-      var span = document.createElement('span');
-      tdbSetHtml(span, str);
-      var out = span.textContent;
-      if (typeof out === 'string') return finishPlain(out);
-    } catch (_) {}
+    var str = tdbDecodeEntitiesForPlainUi(String(s));
     return finishPlain(str);
   }
 
@@ -3155,7 +3167,8 @@
   }
 
   /* ── End of coloring module ── */
-  var grid = document.getElementById('kids-library-grid');
+  /** Resolved in init() on Bible Story Library pages so the grid always exists before handlers run. */
+  var grid = null;
   var searchForm = document.getElementById('kids-library-search-form');
   var searchInput = document.getElementById('kids-library-search-input');
   var noMatch = document.getElementById('kids-library-no-match');
@@ -3255,10 +3268,32 @@
     return true;
   }
 
+  function hidePrintQaSheetWrap() {
+    var wrap = document.getElementById('kids-print-qa-sheet-wrap');
+    if (wrap) wrap.classList.add('hidden');
+  }
+
+  function wirePrintQaSheetButton(storyKey, pack, storyTitlePlain) {
+    var wrap = document.getElementById('kids-print-qa-sheet-wrap');
+    var btn = document.getElementById('print-qa-btn');
+    if (!wrap || !btn) return;
+    wrap.classList.remove('hidden');
+    btn.onclick = function () {
+      try {
+        if (typeof window.trackEvent === 'function') {
+          window.trackEvent('kids_print_qa_sheet', { story_key: String(storyKey || '') });
+        }
+      } catch (_) {}
+      openKidsReadQuizPrintSheet(storyKey, pack, storyTitlePlain);
+    };
+    btn.setAttribute('aria-label', 'Print quiz worksheet for ' + tdbPlainTextForUi(storyTitlePlain || storyKey));
+  }
+
   function clearReadQuizModal() {
     if (!modalReadQuiz) return;
     tdbClearHtml(modalReadQuiz);
     modalReadQuiz.classList.add('hidden');
+    hidePrintQaSheetWrap();
   }
 
   /**
@@ -3316,6 +3351,7 @@
    */
   function showReadQuizUnavailable(key) {
     if (!modalReadQuiz) return;
+    hidePrintQaSheetWrap();
     var rq = window.TDB_KIDS_READ_QUIZ;
     var globalMissing = !rq || typeof rq !== 'object' || Object.keys(rq).length < 10;
     tdbClearHtml(modalReadQuiz);
@@ -3474,6 +3510,42 @@
     return { labels: labels, correctIndex: shuffledCorrect };
   }
 
+  /** Safe /kids/panel-*.svg or /media/kids-stories/* for read-along section art. */
+  /** Default humility nudge after a wrong MC answer (story modal + optional per-pack override). */
+  var KIDS_READ_QUIZ_WRONG_HUMILITY_DEFAULT = "We don't win alone—He does.";
+
+  function fillKidsReadQuizWrongFeedback(fbEl, mainWrongText, pack, qd) {
+    if (!fbEl) return;
+    tdbClearHtml(fbEl);
+    var main = document.createElement('p');
+    main.className = 'kids-read-quiz-feedback-main';
+    main.textContent = tdbPlainTextForUi(mainWrongText || 'Try again—reread the story if you need a clue.');
+    fbEl.appendChild(main);
+    var humSrc =
+      qd && qd.wrongHumilityHint != null && String(qd.wrongHumilityHint).trim() !== ''
+        ? String(qd.wrongHumilityHint).trim()
+        : pack && pack.quizWrongHumilityHint != null && String(pack.quizWrongHumilityHint).trim() !== ''
+          ? String(pack.quizWrongHumilityHint).trim()
+          : KIDS_READ_QUIZ_WRONG_HUMILITY_DEFAULT;
+    var hum = document.createElement('p');
+    hum.className = 'kids-read-quiz-feedback-humility';
+    hum.textContent = tdbPlainTextForUi(humSrc);
+    fbEl.appendChild(hum);
+    fbEl.className = 'kids-read-quiz-feedback feedback-wrong';
+  }
+
+  function resolveReadAlongSectionImageSrc(raw) {
+    if (typeof raw !== 'string') return '';
+    var s = raw.trim();
+    if (!s) return '';
+    if (isSafeReadAlongImagePath(s)) return s;
+    if (s.charAt(0) === '/') {
+      if (/^\/kids\/panel-[a-zA-Z0-9._-]+\.svg$/i.test(s)) return s;
+      return '';
+    }
+    return safeKidsPanelSvgAbsFromRel(s);
+  }
+
   function mountReadQuizForStory(key) {
     clearReadQuizModal();
     if (!modalReadQuiz) return;
@@ -3482,14 +3554,16 @@
       showReadQuizUnavailable(key);
       return;
     }
-    if (!Array.isArray(pack.paragraphs)) {
+    var hasSections = Array.isArray(pack.readAlongSections) && pack.readAlongSections.length > 0;
+    var hasParas = Array.isArray(pack.paragraphs) && pack.paragraphs.length > 0;
+    if (!hasSections && !hasParas) {
       showReadQuizUnavailable(key);
       return;
     }
     modalReadQuiz.classList.remove('hidden');
 
     var wrap = document.createElement('div');
-    wrap.className = 'kids-read-quiz-wrap';
+    wrap.className = 'kids-read-quiz-wrap' + (hasSections ? ' kids-read-quiz-wrap--sections' : '');
 
     if (pack.kjvRef) {
       var refP = document.createElement('p');
@@ -3497,83 +3571,150 @@
       refP.textContent = tdbPlainTextForUi(pack.kjvRef);
       wrap.appendChild(refP);
     }
+    if (pack.verseExcerpt) {
+      var ve = document.createElement('p');
+      ve.className = 'kids-read-quiz-verse-excerpt';
+      ve.textContent = tdbPlainTextForUi(pack.verseExcerpt);
+      wrap.appendChild(ve);
+    }
 
-    var imgs = pack.readAlongImages;
     var stMeta = (window.TDB_BIBLE_STORIES || {})[key] || {};
     var storyTitle = stMeta.title || key;
-    var imageSources = [];
-    if (imgs && imgs.length) {
-      for (var im = 0; im < imgs.length; im++) {
-        var srcM = imgs[im];
-        if (isSafeReadAlongImagePath(srcM)) imageSources.push(String(srcM));
-      }
-    }
-    if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
-      var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
-      var lid = posters[key];
-      if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 160) {
-        var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
-        if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
-      }
-    }
-    if (!imageSources.length) {
-      var panelsMeta = stMeta.panels || [];
-      var rel0 = panelsMeta[0] && panelsMeta[0].src;
-      var panelAbs = safeKidsPanelSvgAbsFromRel(String(rel0 || ''));
-      if (panelAbs) imageSources.push(panelAbs);
-    }
-    if (imageSources.length) {
-      var imgRow = document.createElement('div');
-      imgRow.className = 'kids-read-quiz-images';
-      imgRow.setAttribute('role', 'group');
-      imgRow.setAttribute(
-        'aria-label',
-        'Pictures for this story'
-      );
-      for (var ix = 0; ix < imageSources.length; ix++) {
-        var srcOne = imageSources[ix];
-        var elImg = document.createElement('img');
-        elImg.src = srcOne;
-        var panelAlt0 = (stMeta.panels && stMeta.panels[0] && stMeta.panels[0].alt) ? String(stMeta.panels[0].alt) : '';
-        var isPanelThumb = /^\/kids\/panel-[a-zA-Z0-9._-]+\.svg$/i.test(srcOne);
-        elImg.alt =
-          ix === 0 && isPanelThumb && panelAlt0
-            ? panelAlt0 + ' — ' + storyTitle
-            : 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
-        elImg.className = 'kids-read-quiz-panel-img';
-        elImg.setAttribute('loading', 'lazy');
-        elImg.setAttribute('decoding', 'async');
-        (function (imgEl) {
-          imgEl.addEventListener('error', function onReadQuizImgErr() {
-            imgEl.removeEventListener('error', onReadQuizImgErr);
-            var row = imgEl.parentNode;
-            if (row) row.removeChild(imgEl);
-            if (row && !row.childNodes.length && row.parentNode) row.parentNode.removeChild(row);
-          });
-        })(elImg);
-        imgRow.appendChild(elImg);
-      }
-      if (imgRow.childNodes.length) wrap.appendChild(imgRow);
-    }
 
-    var readH = document.createElement('h4');
-    readH.className = 'kids-read-quiz-h4';
-    readH.textContent = 'Read the story';
-    wrap.appendChild(readH);
+    if (hasSections) {
+      var readHSec = document.createElement('h4');
+      readHSec.className = 'kids-read-quiz-h4';
+      readHSec.textContent = tdbPlainTextForUi(pack.readAlongTitle || 'Read along');
+      wrap.appendChild(readHSec);
+      if (pack.hintAboveQuiz) {
+        var hint0 = document.createElement('p');
+        hint0.className = 'kids-read-quiz-hint';
+        hint0.textContent = tdbPlainTextForUi(pack.hintAboveQuiz);
+        wrap.appendChild(hint0);
+      }
+      var panelList = stMeta.panels || [];
+      pack.readAlongSections.forEach(function (sec, si) {
+        if (!sec || typeof sec !== 'object') return;
+        var block = document.createElement('div');
+        block.className = 'kids-read-quiz-section';
+        block.setAttribute('role', 'group');
+        block.setAttribute('aria-label', 'Story part ' + (si + 1));
+        var imgSrc = resolveReadAlongSectionImageSrc(sec.image || '');
+        var ph = sec.placeholder ? String(sec.placeholder).trim() : '';
+        if (imgSrc) {
+          var fig = document.createElement('figure');
+          fig.className = 'kids-read-quiz-section-fig';
+          var im = document.createElement('img');
+          im.className = 'kids-read-quiz-panel-img';
+          im.src = imgSrc;
+          var panAlt = panelList.length && panelList[si % panelList.length]
+            ? String(panelList[si % panelList.length].alt || '')
+            : '';
+          im.alt = panAlt
+            ? tdbPlainTextForUi(panAlt) + ' — ' + tdbPlainTextForUi(storyTitle)
+            : 'Story picture ' + (si + 1) + ' — ' + tdbPlainTextForUi(storyTitle);
+          im.setAttribute('loading', si < 2 ? 'eager' : 'lazy');
+          im.setAttribute('decoding', 'async');
+          fig.appendChild(im);
+          if (sec.caption) {
+            var cap = document.createElement('figcaption');
+            cap.className = 'kids-read-quiz-section-caption';
+            cap.textContent = tdbPlainTextForUi(sec.caption);
+            fig.appendChild(cap);
+          }
+          block.appendChild(fig);
+        } else if (ph) {
+          var pl = document.createElement('p');
+          pl.className = 'kids-read-quiz-section-placeholder';
+          pl.textContent = tdbPlainTextForUi(ph);
+          block.appendChild(pl);
+        }
+        if (sec.text) {
+          var pt = document.createElement('p');
+          pt.className = 'kids-read-quiz-para';
+          pt.textContent = tdbPlainTextForUi(sec.text);
+          block.appendChild(pt);
+        }
+        wrap.appendChild(block);
+      });
+    } else {
+      var imgs = pack.readAlongImages;
+      var imageSources = [];
+      if (imgs && imgs.length) {
+        for (var im = 0; im < imgs.length; im++) {
+          var srcM = imgs[im];
+          if (isSafeReadAlongImagePath(srcM)) imageSources.push(String(srcM));
+        }
+      }
+      if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
+        var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
+        var lid = posters[key];
+        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 160) {
+          var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
+          if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
+        }
+      }
+      if (!imageSources.length) {
+        var panelsMeta = stMeta.panels || [];
+        for (var pi = 0; pi < panelsMeta.length; pi++) {
+          var relP = panelsMeta[pi] && panelsMeta[pi].src;
+          var panelAbs2 = safeKidsPanelSvgAbsFromRel(String(relP || ''));
+          if (panelAbs2) imageSources.push(panelAbs2);
+        }
+      }
+      if (imageSources.length) {
+        var imgRow = document.createElement('div');
+        imgRow.className = 'kids-read-quiz-images';
+        imgRow.setAttribute('role', 'group');
+        imgRow.setAttribute(
+          'aria-label',
+          'Pictures for this story'
+        );
+        for (var ix = 0; ix < imageSources.length; ix++) {
+          var srcOne = imageSources[ix];
+          var elImg = document.createElement('img');
+          elImg.src = srcOne;
+          var panelAltIx = (stMeta.panels && stMeta.panels[ix] && stMeta.panels[ix].alt) ? String(stMeta.panels[ix].alt) : '';
+          var isPanelThumb = /^\/kids\/panel-[a-zA-Z0-9._-]+\.svg$/i.test(srcOne);
+          elImg.alt =
+            isPanelThumb && panelAltIx
+              ? panelAltIx + ' — ' + storyTitle
+              : 'Story picture ' + (ix + 1) + ' — ' + storyTitle;
+          elImg.className = 'kids-read-quiz-panel-img';
+          elImg.setAttribute('loading', 'lazy');
+          elImg.setAttribute('decoding', 'async');
+          (function (imgEl) {
+            imgEl.addEventListener('error', function onReadQuizImgErr() {
+              imgEl.removeEventListener('error', onReadQuizImgErr);
+              var row = imgEl.parentNode;
+              if (row) row.removeChild(imgEl);
+              if (row && !row.childNodes.length && row.parentNode) row.parentNode.removeChild(row);
+            });
+          })(elImg);
+          imgRow.appendChild(elImg);
+        }
+        if (imgRow.childNodes.length) wrap.appendChild(imgRow);
+      }
 
-    if (pack.hintAboveQuiz) {
-      var hint = document.createElement('p');
-      hint.className = 'kids-read-quiz-hint';
-      hint.textContent = tdbPlainTextForUi(pack.hintAboveQuiz);
-      wrap.appendChild(hint);
+      var readH = document.createElement('h4');
+      readH.className = 'kids-read-quiz-h4';
+      readH.textContent = tdbPlainTextForUi(pack.readAlongTitle || 'Read the story');
+      wrap.appendChild(readH);
+
+      if (pack.hintAboveQuiz) {
+        var hint = document.createElement('p');
+        hint.className = 'kids-read-quiz-hint';
+        hint.textContent = tdbPlainTextForUi(pack.hintAboveQuiz);
+        wrap.appendChild(hint);
+      }
+
+      (pack.paragraphs || []).forEach(function (para) {
+        var p = document.createElement('p');
+        p.className = 'kids-read-quiz-para';
+        p.textContent = tdbPlainTextForUi(para);
+        wrap.appendChild(p);
+      });
     }
-
-    (pack.paragraphs || []).forEach(function (para) {
-      var p = document.createElement('p');
-      p.className = 'kids-read-quiz-para';
-      p.textContent = tdbPlainTextForUi(para);
-      wrap.appendChild(p);
-    });
 
     var qList = pack.questions || [];
     var qIndex = { v: 0 };
@@ -3589,18 +3730,8 @@
     progEl.setAttribute('aria-live', 'polite');
     progEl.textContent = '0 / ' + qList.length + ' answered';
 
-    var printBtn = document.createElement('button');
-    printBtn.type = 'button';
-    printBtn.className = 'btn btn-secondary kids-read-quiz-print-btn';
-    printBtn.setAttribute('aria-label', 'Print quiz sheet for ' + tdbPlainTextForUi(storyTitle));
-    printBtn.textContent = 'Print Q&A sheet';
-    printBtn.addEventListener('click', function () {
-      openKidsReadQuizPrintSheet(key, pack, storyTitle);
-    });
-
     quizBanner.appendChild(qh);
     quizBanner.appendChild(progEl);
-    quizBanner.appendChild(printBtn);
     wrap.appendChild(quizBanner);
 
     var quizHost = document.createElement('div');
@@ -3644,6 +3775,9 @@
           done.appendChild(pr);
         }
         quizHost.appendChild(done);
+        try {
+          localStorage.setItem('kidsStoryReadQuizDone:' + key, String(Date.now()));
+        } catch (eLs) {}
         addStoryMasterProgress(key);
         return;
       }
@@ -3725,8 +3859,12 @@
             try { nxt.focus(); } catch (e) {}
           }, 0);
         } else {
-          fb.textContent = tdbPlainTextForUi(qd.wrongFeedback || 'Try again—reread the story if you need a clue.');
-          fb.className = 'kids-read-quiz-feedback feedback-wrong';
+          fillKidsReadQuizWrongFeedback(
+            fb,
+            qd.wrongFeedback || 'Try again—reread the story if you need a clue.',
+            pack,
+            qd
+          );
         }
       });
       nxt.addEventListener('click', function () {
@@ -3741,6 +3879,7 @@
 
     renderQuestion();
     modalReadQuiz.appendChild(wrap);
+    wirePrintQaSheetButton(key, pack, storyTitle);
   }
 
   var STORY_JOURNEY_ORDER = [
@@ -3784,19 +3923,64 @@
         showToast('Allow pop-ups to print your sheet.');
         return;
       }
+      var stMeta = (window.TDB_BIBLE_STORIES || {})[storyKey] || {};
+      var kidApply = stMeta.kidContext && stMeta.kidContext.apply ? String(stMeta.kidContext.apply) : '';
+      if (kidApply.length > 280) {
+        kidApply = kidApply.split(/[.!?]/)[0] || kidApply;
+        kidApply = kidApply.trim().substring(0, 280);
+        if (kidApply.length === 280) kidApply += '…';
+      }
       var questions = (pack && pack.questions) ? pack.questions : [];
-      var html = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>' + escHtmlPlain(storyTitlePlain || storyKey) + '</title>';
-      html += '<style>body{font-family:system-ui,sans-serif;padding:1rem;line-height:1.45;color:#111}h1{font-size:1.15rem}p{margin:0.45rem 0}details{margin:0.45rem 0}.hint{font-size:0.85rem;color:#444}summary{cursor:pointer}</style></head><body>';
-      html += '<h1>' + escHtmlPlain(storyTitlePlain || storyKey) + '</h1>';
-      if (pack && pack.kjvRef) html += '<p><strong>Scripture:</strong> ' + escHtmlPlain(pack.kjvRef) + '</p>';
+      var title = escHtmlPlain(storyTitlePlain || storyKey) + ' — Quiz';
+      var css =
+        'body{font-family:Helvetica Neue,Arial,sans-serif;padding:1.25rem;line-height:1.5;color:#111;max-width:48rem;margin:0 auto}' +
+        '.hdr{border-bottom:1px solid #ccc;padding-bottom:0.75rem;margin-bottom:1rem}' +
+        'h1{font-size:1.35rem;margin:0 0 0.35rem}' +
+        '.kicker{font-size:0.9rem;color:#333;margin:0.25rem 0}' +
+        '.for-you{font-size:0.92rem;color:#1a3a2a;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:0.65rem 0.75rem;margin:0.6rem 0}' +
+        '.hint-above{font-size:0.88rem;color:#444;margin:0.5rem 0}' +
+        '.qblock{margin:1rem 0;padding:0.75rem 0;border-top:1px solid #e5e5e5}' +
+        '.qblock:first-of-type{border-top:none}' +
+        '.qnum{color:#0f766e;font-weight:700}' +
+        '.hint{font-size:0.88rem;color:#444;margin:0.35rem 0 0.5rem}' +
+        '.choices{font-size:0.85rem;color:#222;margin:0.35rem 0 0.5rem;line-height:1.4}' +
+        'details{border:1px solid #d1d5db;border-radius:4px;padding:0.4rem 0.6rem;background:#fafafa;margin-top:0.35rem}' +
+        'summary{cursor:pointer;font-weight:600;color:#0a5c52}' +
+        '@media print{' +
+        'body{padding:0.75in;margin:0}' +
+        '.no-print{display:none!important}' +
+        'summary{display:none!important}' +
+        'details{border:none;background:transparent;padding:0}' +
+        '.answer-body{display:block!important}' +
+        'a{color:#000}' +
+        '}';
+      var html = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' + title + '</title>';
+      html += '<style>' + css + '</style></head><body>';
+      html += '<header class="hdr"><h1>' + escHtmlPlain(storyTitlePlain || storyKey) + '</h1>';
+      html += '<p class="kicker"><strong>Quiz worksheet</strong> · Today\'s Daily Battle · Kids Bible Story Library</p>';
+      if (pack && pack.kjvRef) html += '<p class="kicker"><strong>Scripture:</strong> ' + escHtmlPlain(pack.kjvRef) + '</p>';
+      if (kidApply) html += '<p class="for-you"><strong>For you:</strong> ' + escHtmlPlain(kidApply) + '</p>';
+      if (pack && pack.hintAboveQuiz) html += '<p class="hint-above"><em>Note:</em> ' + escHtmlPlain(pack.hintAboveQuiz) + '</p>';
+      html += '<p class="no-print" style="font-size:0.8rem;color:#666">Screen: use <strong>Reveal answer</strong> to check. Print: answers appear below.</p>';
+      html += '</header>';
       for (var pi = 0; pi < questions.length; pi++) {
         var qd = questions[pi];
-        html += '<p><strong>Q' + (pi + 1) + '.</strong> ' + escHtmlPlain(qd.question) + '</p>';
-        var hintTxt = qd.wrongFeedback ? String(qd.wrongFeedback).substring(0, 240) : '';
-        if (hintTxt) html += '<p class="hint">Hint: ' + escHtmlPlain(hintTxt) + '</p>';
+        html += '<section class="qblock">';
+        html += '<p><span class="qnum">Q' + (pi + 1) + '.</span> ' + escHtmlPlain(qd.question) + '</p>';
+        var hintTxt = qd.wrongFeedback ? String(qd.wrongFeedback).substring(0, 320) : '';
+        if (hintTxt) html += '<p class="hint"><strong>Hint:</strong> ' + escHtmlPlain(hintTxt) + '</p>';
+        if (qd.choices && qd.choices.length) {
+          var parts = [];
+          for (var ci = 0; ci < qd.choices.length; ci++) {
+            parts.push(String.fromCharCode(65 + ci) + '. ' + escHtmlPlain(qd.choices[ci]));
+          }
+          html += '<p class="choices"><strong>Choices:</strong> ' + parts.join(' &nbsp;·&nbsp; ') + '</p>';
+        }
         var correctLabel = (qd.choices && qd.correctIndex != null && qd.choices[qd.correctIndex]) ? qd.choices[qd.correctIndex] : '';
-        html += '<details><summary>Show answer</summary><p>' + escHtmlPlain(correctLabel) + '</p></details>';
+        html += '<details><summary>Reveal answer</summary><p class="answer-body"><strong>Answer:</strong> ' + escHtmlPlain(correctLabel) + '</p></details>';
+        html += '</section>';
       }
+      html += '<script>(function(){function openAll(){document.querySelectorAll("details").forEach(function(d){d.open=true;});}try{window.addEventListener("beforeprint",openAll);}catch(e){}})();<\/script>';
       html += '</body></html>';
       var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
       var u = URL.createObjectURL(blob);
@@ -3809,7 +3993,7 @@
         try {
           URL.revokeObjectURL(u);
         } catch (e2) {}
-      }, 450);
+      }, 500);
     } catch (e) {
       showToast('Could not open print.');
     }
@@ -3843,9 +4027,28 @@
     if (!raw) return null;
     var stories = getStories();
     if (stories[raw]) return raw;
-    var aliases = { 'jesus-children': 'jesus', 'jesuschildren': 'jesus' };
-    if (aliases[raw]) return stories[aliases[raw]] ? aliases[raw] : null;
-    var lower = raw.toLowerCase();
+    var aliases = {
+      'jesus-children': 'jesus',
+      'jesuschildren': 'jesus',
+      'david-goliath': 'david',
+      'davidgoliath': 'david',
+      'davidandgoliath': 'david',
+      'noahs-ark': 'noah',
+      'noahark': 'noah',
+      'good-shepherd': 'jesus',
+      'goodshepherd': 'jesus'
+    };
+    var rawLower = raw.toLowerCase();
+    if (aliases[rawLower]) {
+      var ak = aliases[rawLower];
+      return stories[ak] ? ak : null;
+    }
+    var slug = rawLower.replace(/[^a-z0-9]/g, '');
+    if (slug && slug !== rawLower && aliases[slug]) {
+      var ak2 = aliases[slug];
+      return stories[ak2] ? ak2 : null;
+    }
+    var lower = rawLower;
     var keys = Object.keys(stories);
     for (var i = 0; i < keys.length; i++) {
       if (keys[i].toLowerCase() === lower) return keys[i];
@@ -3972,6 +4175,9 @@
 
   function getStoryMasterList() {
     try {
+      if (typeof window.tdbStoryMasterReadListMerged === 'function') {
+        return window.tdbStoryMasterReadListMerged();
+      }
       var raw = localStorage.getItem(LIBRARY_STORY_MASTER_KEY);
       return raw ? JSON.parse(raw) : [];
     } catch (e) { return []; }
@@ -3991,6 +4197,9 @@
   }
 
   function tierFromStoryCount(n, total) {
+    if (typeof window.tdbTierFromEffectiveCount === 'function') {
+      return window.tdbTierFromEffectiveCount(n, total);
+    }
     var t = Math.max(1, total || 1);
     if (n >= t) return 'platinum';
     if (n >= 100) return 'gold';
@@ -4003,50 +4212,87 @@
     return { none: 0, bronze: 1, silver: 2, gold: 3, platinum: 4 }[name] || 0;
   }
 
+  function fireStoryMasterTierConfetti() {
+    try {
+      if (typeof window.confetti === 'function') {
+        window.confetti({ particleCount: 160, spread: 76, origin: { y: 0.62 }, scalar: 1.05 });
+      }
+    } catch (e) {}
+    try {
+      document.body.classList.add('kids-tier-confetti-burst');
+      setTimeout(function () {
+        try { document.body.classList.remove('kids-tier-confetti-burst'); } catch (_) {}
+      }, 2600);
+    } catch (e2) {}
+  }
+
   function addStoryMasterProgress(key) {
+    migrateStoryMasterFromLegacyViewed();
     var list = getStoryMasterList();
     if (list.indexOf(key) !== -1) {
       renderStoryMaster();
       return;
     }
-    var total = getStoryKeys().length;
-    var beforeTier = tierFromStoryCount(list.length, total);
+    var beforeS = typeof window.tdbComputeStoryMasterState === 'function' ? window.tdbComputeStoryMasterState() : null;
+    var beforeTier = beforeS ? beforeS.tier : tierFromStoryCount(list.length, getStoryKeys().length);
     list.push(key);
-    try { localStorage.setItem(LIBRARY_STORY_MASTER_KEY, JSON.stringify(list)); } catch (e) {}
-    var afterTier = tierFromStoryCount(list.length, total);
+    if (typeof window.tdbStoryMasterWriteListMerged === 'function') {
+      window.tdbStoryMasterWriteListMerged(list);
+    } else {
+      try { localStorage.setItem(LIBRARY_STORY_MASTER_KEY, JSON.stringify(list)); } catch (e) {}
+      try { localStorage.setItem('completedStories', JSON.stringify(list)); } catch (e2) {}
+    }
+    var afterS = typeof window.tdbComputeStoryMasterState === 'function' ? window.tdbComputeStoryMasterState() : null;
+    var afterTier = afterS ? afterS.tier : tierFromStoryCount(list.length, getStoryKeys().length);
     if (tierStoryRank(afterTier) > tierStoryRank(beforeTier)) {
-      try {
-        document.body.classList.add('kids-tier-confetti-burst');
-        setTimeout(function () {
-          document.body.classList.remove('kids-tier-confetti-burst');
-        }, 2600);
-      } catch (e) {}
+      fireStoryMasterTierConfetti();
+      if (afterS) showToast('You unlocked ' + afterS.tierLabel + '!');
     }
     renderStoryMaster();
+    if (typeof window.renderKidsCornerHomeExtras === 'function') {
+      try { window.renderKidsCornerHomeExtras(); } catch (e) {}
+    }
   }
 
   function storyHasReadQuizPack(key) {
     var pack = (window.TDB_KIDS_READ_QUIZ || {})[key];
-    return !!(pack && Array.isArray(pack.paragraphs) && pack.questions && pack.questions.length);
+    if (!pack || !pack.questions || !pack.questions.length) return false;
+    var hasBody = (Array.isArray(pack.paragraphs) && pack.paragraphs.length) ||
+      (Array.isArray(pack.readAlongSections) && pack.readAlongSections.length);
+    return !!hasBody;
   }
 
   function renderStoryMaster() {
-    if (!storyMasterEl) return;
+    if (!storyMasterEl && !document.getElementById('corner-tier-badge')) return;
     migrateStoryMasterFromLegacyViewed();
-    var done = getStoryMasterList();
-    var total = Math.max(1, getStoryKeys().length);
-    var n = done.length;
-    var pct = Math.min(100, Math.round((n / total) * 1000) / 10);
-    var t = tierFromStoryCount(n, total);
-    var labels = { none: 'Getting started', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
-    var next = '';
-    if (n < STORY_MASTER_THRESHOLD) next = ' Next tier: Bronze at ' + STORY_MASTER_THRESHOLD + ' stories finished.';
-    else if (n < 30) next = ' Next tier: Silver at 30.';
-    else if (n < 100) next = ' Next tier: Gold at 100.';
-    else if (n < total) next = ' Next tier: Platinum when you finish all ' + total + '.';
-    else next = ' You finished the whole library!';
-    storyMasterEl.textContent = '🏆 Story Master — ' + labels[t] + ' • ' + pct + '% (' + n + '/' + total + ').' + next;
-    storyMasterEl.classList.remove('hidden');
+    var st = typeof window.tdbComputeStoryMasterState === 'function' ? window.tdbComputeStoryMasterState() : null;
+    if (!st) return;
+    if (storyMasterEl) {
+      storyMasterEl.textContent = '🏆 ' + st.summaryLine;
+      storyMasterEl.classList.remove('hidden');
+    }
+    var cb = document.getElementById('corner-tier-badge');
+    var cp = document.getElementById('corner-story-progress');
+    var cpc = document.getElementById('corner-story-percent');
+    if (cb) {
+      cb.textContent = st.tierLabel;
+      var tiers = window.TDB_STORY_MASTER_TIERS || [];
+      var col = '#cbd5e1';
+      for (var ti = 0; ti < tiers.length; ti++) {
+        if (String(tiers[ti].name).toLowerCase() === String(st.tier)) {
+          col = tiers[ti].color || col;
+          break;
+        }
+      }
+      cb.style.color = col;
+    }
+    if (cp) {
+      cp.max = st.total;
+      cp.value = Math.min(st.total, st.effective);
+      cp.setAttribute('aria-valuemax', String(st.total));
+      cp.setAttribute('aria-valuenow', String(Math.min(st.total, st.effective)));
+    }
+    if (cpc) cpc.textContent = st.pct + '%';
   }
 
   var KIDS_SEMANTIC_MAP = {
@@ -4305,7 +4551,12 @@
         modalContext.classList.add('hidden');
       }
     }
-    mountReadQuizForStory(key);
+    try {
+      mountReadQuizForStory(key);
+    } catch (err) {
+      try { console.error('Kids read-quiz mount failed', key, err); } catch (_) {}
+      try { showReadQuizUnavailable(key); } catch (__) {}
+    }
     if (!storyHasReadQuizPack(key)) {
       addStoryMasterProgress(key);
     }
@@ -4352,6 +4603,7 @@
     clearReadQuizModal();
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
     kidsStorySpeakBtn = null;
+    currentOpenStoryKey = null;
     if (modalFocusTrapHandler) {
       modal.removeEventListener('keydown', modalFocusTrapHandler);
       modalFocusTrapHandler = null;
@@ -4364,22 +4616,35 @@
     }
   }
 
-  function currentStoryIndexInVisible() {
-    if (!currentOpenStoryKey) return -1;
-    if (!currentVisibleKeys || !currentVisibleKeys.length) return -1;
-    return currentVisibleKeys.indexOf(currentOpenStoryKey);
+  /**
+   * Prev/Next should never be a dead end: if search/filter left zero visible cards, or the open
+   * story came from a URL while the grid is filtered, fall back to the full library order.
+   */
+  function getKeysForStoryNav() {
+    var all = getStoryKeys();
+    if (!currentVisibleKeys || !currentVisibleKeys.length) return all;
+    if (currentOpenStoryKey && currentVisibleKeys.indexOf(currentOpenStoryKey) === -1) return all;
+    return currentVisibleKeys;
+  }
+
+  function storyIndexInNavKeys() {
+    var keys = getKeysForStoryNav();
+    if (!keys || !keys.length || !currentOpenStoryKey) return -1;
+    return keys.indexOf(currentOpenStoryKey);
   }
 
   function openAdjacentStory(step) {
-    if (!currentVisibleKeys || !currentVisibleKeys.length) return;
-    var idx = currentStoryIndexInVisible();
+    var keys = getKeysForStoryNav();
+    if (!keys || !keys.length) return;
+    var idx = storyIndexInNavKeys();
     if (idx < 0) idx = 0;
-    var next = (idx + step + currentVisibleKeys.length) % currentVisibleKeys.length;
-    openStory(currentVisibleKeys[next]);
+    var next = (idx + step + keys.length) % keys.length;
+    openStory(keys[next]);
   }
 
   function syncStoryNavButtons() {
-    var hasStories = !!(currentVisibleKeys && currentVisibleKeys.length);
+    var keys = getKeysForStoryNav();
+    var hasStories = !!(keys && keys.length);
     if (prevStoryBtn) prevStoryBtn.disabled = !hasStories;
     if (nextStoryBtn) nextStoryBtn.disabled = !hasStories;
   }
@@ -4458,6 +4723,16 @@
     var state = { keys: picked, correct: 0, idx: 0 };
 
     function renderChStep() {
+      try {
+        renderChStepInner();
+      } catch (err) {
+        try { console.error('Kids quiz challenge step failed', err); } catch (_) {}
+        removeQuizChallengeOverlay();
+        showToast('Quiz challenge hit a snag—try again, or refresh the page.');
+      }
+    }
+
+    function renderChStepInner() {
       tdbClearHtml(overlay);
       if (state.idx >= state.keys.length) {
         var xp = 5 + state.correct * 3;
@@ -4465,8 +4740,27 @@
           var prevXp = parseInt(localStorage.getItem('kidsQuizChallengeXp') || '0', 10) || 0;
           localStorage.setItem('kidsQuizChallengeXp', String(prevXp + xp));
         } catch (e) {}
+        var bonusPts = Math.floor((state.correct / picked.length) * 2);
+        if (bonusPts > 0 && typeof window.tdbStoryMasterBonusAdd === 'function') {
+          var beforeCh = window.tdbComputeStoryMasterState ? window.tdbComputeStoryMasterState() : null;
+          window.tdbStoryMasterBonusAdd(bonusPts);
+          var afterCh = window.tdbComputeStoryMasterState ? window.tdbComputeStoryMasterState() : null;
+          if (beforeCh && afterCh && tierStoryRank(afterCh.tier) > tierStoryRank(beforeCh.tier)) {
+            fireStoryMasterTierConfetti();
+            showToast('You unlocked ' + afterCh.tierLabel + '!');
+          }
+          renderStoryMaster();
+          if (typeof window.renderKidsCornerHomeExtras === 'function') {
+            try { window.renderKidsCornerHomeExtras(); } catch (e) {}
+          }
+        }
         if (typeof window.trackEvent === 'function') {
-          try { window.trackEvent('kids_quiz_challenge_complete', { score: String(state.correct) }); } catch (e) {}
+          try {
+            window.trackEvent('kids_quiz_challenge_complete', {
+              score: String(state.correct),
+              bonus_story_points: String(bonusPts)
+            });
+          } catch (e) {}
         }
         var doneSheet = document.createElement('div');
         doneSheet.className = 'kids-quiz-challenge-sheet';
@@ -4478,6 +4772,12 @@
         var p2 = document.createElement('p');
         p2.className = 'kids-quiz-challenge-xp';
         p2.textContent = '+' + xp + ' challenge points';
+        var pBonus = null;
+        if (bonusPts > 0) {
+          pBonus = document.createElement('p');
+          pBonus.className = 'kids-quiz-challenge-bonus';
+          pBonus.textContent = '+' + bonusPts + ' Story Master progress (bonus for finishing strong!)';
+        }
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'btn kids-btn-primary';
@@ -4487,6 +4787,7 @@
         doneSheet.appendChild(h2);
         doneSheet.appendChild(p1);
         doneSheet.appendChild(p2);
+        if (pBonus) doneSheet.appendChild(pBonus);
         doneSheet.appendChild(btn);
         overlay.appendChild(doneSheet);
         showToast('Challenge complete!');
@@ -4495,9 +4796,16 @@
       }
       var key = state.keys[state.idx];
       var pk = rq[key];
+      if (!pk || !pk.questions || !pk.questions.length) {
+        state.idx += 1;
+        setTimeout(function () { renderChStep(); }, 0);
+        return;
+      }
       var st = getStories()[key] || {};
       var title = tdbPlainTextForUi(st.title || key);
-      var qd = pk.questions[0];
+      var qList = pk.questions || [];
+      var qi = qList.length ? Math.floor(Math.random() * qList.length) : 0;
+      var qd = qList[qi] || {};
       var shuffled = shuffleReadQuizChoices(qd.choices, qd.correctIndex);
       var sheet = document.createElement('div');
       sheet.className = 'kids-quiz-challenge-sheet';
@@ -4508,6 +4816,12 @@
       sub.textContent = 'Story ' + (state.idx + 1) + ' of ' + picked.length + ': ' + title;
       var qP = document.createElement('p');
       qP.textContent = tdbPlainTextForUi(qd.question);
+      var hintP = null;
+      if (qd.hint) {
+        hintP = document.createElement('p');
+        hintP.className = 'kids-quiz-challenge-hint section-note';
+        hintP.textContent = 'Hint: ' + tdbPlainTextForUi(qd.hint);
+      }
       var fs = document.createElement('fieldset');
       var gname = 'chq-' + state.idx;
       var leg = document.createElement('legend');
@@ -4533,8 +4847,8 @@
       var chk = document.createElement('button');
       chk.type = 'button';
       chk.className = 'btn kids-btn-primary';
-      chk.setAttribute('aria-label', 'Check answer for this challenge question');
-      chk.textContent = 'Check';
+      chk.setAttribute('aria-label', 'Submit answer for this challenge question');
+      chk.textContent = 'Submit';
       var fb = document.createElement('div');
       fb.className = 'kids-read-quiz-feedback';
       fb.setAttribute('aria-live', 'polite');
@@ -4551,7 +4865,12 @@
           state.idx += 1;
           setTimeout(function () { renderChStep(); }, 420);
         } else {
-          fb.textContent = tdbPlainTextForUi(qd.wrongFeedback || 'Try again—or open the story for a hint.');
+          fillKidsReadQuizWrongFeedback(
+            fb,
+            qd.wrongFeedback || 'Try again—or open the story for a hint.',
+            pk,
+            qd
+          );
         }
       });
       var skip = document.createElement('button');
@@ -4562,6 +4881,7 @@
       sheet.appendChild(h);
       sheet.appendChild(sub);
       sheet.appendChild(qP);
+      if (hintP) sheet.appendChild(hintP);
       sheet.appendChild(fs);
       sheet.appendChild(chk);
       sheet.appendChild(fb);
@@ -4580,7 +4900,30 @@
     renderChStep();
   }
 
+  function wireGlobalQuizChallengeButton() {
+    var btn = document.getElementById('global-quiz-challenge');
+    if (btn && !btn.dataset.wired) {
+      btn.dataset.wired = '1';
+      btn.addEventListener('click', function () {
+        if (typeof startQuizChallenge === 'function') startQuizChallenge();
+      });
+    }
+  }
+
+  function wireKidsCornerSharedOnly() {
+    migrateStoryMasterFromLegacyViewed();
+    renderStoryMaster();
+    wireGlobalQuizChallengeButton();
+  }
+
   function init() {
+    if (!document.getElementById('kids-library-grid')) {
+      wireKidsCornerSharedOnly();
+      return;
+    }
+    grid = document.getElementById('kids-library-grid');
+    if (!grid) return;
+    removeQuizChallengeOverlay();
     var keys = getStoryKeys();
     if (keys.length === 0) {
       if (typeof window._kidsLibraryInitAttempts !== 'number') window._kidsLibraryInitAttempts = 0;
@@ -4619,6 +4962,7 @@
     renderGrid(applyFilters());
     updatePdfExportCountHint();
     renderStoryMaster();
+    wireGlobalQuizChallengeButton();
     syncJourneyUi();
 
     try {
@@ -4932,8 +5276,11 @@
       var randomParam = new URLSearchParams(location.search).get('random');
       if (journeyParam === '1') {
         continueJourney();
-      } else if (randomParam === '1' && currentVisibleKeys.length) {
-        openStory(currentVisibleKeys[Math.floor(Math.random() * currentVisibleKeys.length)]);
+      } else if (randomParam === '1') {
+        var poolRand = getKeysForStoryNav();
+        if (poolRand.length) {
+          openStory(poolRand[Math.floor(Math.random() * poolRand.length)]);
+        }
       }
     } catch (e) {}
 

@@ -2,7 +2,7 @@
 /**
  * Generates kids/kids-read-quiz-data.js from kids/kids-battle.js bibleStories
  * (same unique keys as bibleStories in kids-battle.js / animation queue).
- * Optional overrides: kids/read-quiz-handcrafted.cjs (only shared Jericho pack for jerichoWalls + fallOfJericho).
+ * Optional overrides: kids/read-quiz-handcrafted.cjs (Jericho; David + davidGoliath from read-quiz-david-pack.cjs).
  */
 import { readFileSync, writeFileSync } from 'fs';
 import { createRequire } from 'module';
@@ -582,7 +582,7 @@ const header = `/**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
  * Keys match TDB_BIBLE_STORIES (${keys.length} stories).
  * Regenerate: npm run kids:generate-read-quiz
- * Overrides: kids/read-quiz-handcrafted.cjs (Jericho only — two cards, one story).
+ * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath read-along sections).
  *
  * Paragraph style: short beats for kids—split sentences, no generic filler lines.
  * Missing narration uses panel alts + apply only (faithful; no invented story beats).
@@ -615,6 +615,9 @@ const READ_QUIZ_NORMALIZE_UI = `
       var pack = rq[rk[ri]];
       if (!pack || typeof pack !== 'object') continue;
       if (pack.kjvRef != null) pack.kjvRef = _tdbPlainTextForUiReadQuiz(pack.kjvRef);
+      if (pack.verseExcerpt != null) pack.verseExcerpt = _tdbPlainTextForUiReadQuiz(pack.verseExcerpt);
+      if (pack.readAlongTitle != null) pack.readAlongTitle = _tdbPlainTextForUiReadQuiz(pack.readAlongTitle);
+      if (pack.quizWrongHumilityHint != null) pack.quizWrongHumilityHint = _tdbPlainTextForUiReadQuiz(pack.quizWrongHumilityHint);
       if (pack.hintAboveQuiz != null) pack.hintAboveQuiz = _tdbPlainTextForUiReadQuiz(pack.hintAboveQuiz);
       if (pack.quizHeading != null) pack.quizHeading = _tdbPlainTextForUiReadQuiz(pack.quizHeading);
       if (pack.doneHeading != null) pack.doneHeading = _tdbPlainTextForUiReadQuiz(pack.doneHeading);
@@ -624,6 +627,16 @@ const READ_QUIZ_NORMALIZE_UI = `
       if (Array.isArray(pack.paragraphs)) {
         for (var pj = 0; pj < pack.paragraphs.length; pj++) {
           pack.paragraphs[pj] = _tdbPlainTextForUiReadQuiz(pack.paragraphs[pj]);
+        }
+      }
+      if (Array.isArray(pack.readAlongSections)) {
+        for (var rs = 0; rs < pack.readAlongSections.length; rs++) {
+          var sec = pack.readAlongSections[rs];
+          if (!sec || typeof sec !== 'object') continue;
+          if (sec.text != null) sec.text = _tdbPlainTextForUiReadQuiz(sec.text);
+          if (sec.caption != null) sec.caption = _tdbPlainTextForUiReadQuiz(sec.caption);
+          if (sec.placeholder != null) sec.placeholder = _tdbPlainTextForUiReadQuiz(sec.placeholder);
+          if (sec.image != null) sec.image = _tdbPlainTextForUiReadQuiz(sec.image);
         }
       }
       if (Array.isArray(pack.imagePrompts)) {
@@ -638,6 +651,7 @@ const READ_QUIZ_NORMALIZE_UI = `
           if (q.question != null) q.question = _tdbPlainTextForUiReadQuiz(q.question);
           if (q.correctFeedback != null) q.correctFeedback = _tdbPlainTextForUiReadQuiz(q.correctFeedback);
           if (q.wrongFeedback != null) q.wrongFeedback = _tdbPlainTextForUiReadQuiz(q.wrongFeedback);
+          if (q.wrongHumilityHint != null) q.wrongHumilityHint = _tdbPlainTextForUiReadQuiz(q.wrongHumilityHint);
           if (Array.isArray(q.choices)) {
             for (var ci = 0; ci < q.choices.length; ci++) {
               q.choices[ci] = _tdbPlainTextForUiReadQuiz(q.choices[ci]);

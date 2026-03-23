@@ -6,37 +6,35 @@
 (function () {
   'use strict';
 
-  /** CSP require-trusted-types-for: assign through default policy when available. */
+  /**
+   * Set element HTML. Always assign via el.innerHTML so tt-bootstrap's patched setter runs.
+   * Do not use __tdbNativeInnerHTMLSet with raw strings — that bypasses the patch and breaks Trusted Types.
+   */
   function tdbSetHtml(el, html) {
     if (!el) return;
     var s = html == null ? '' : String(html);
     var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
-    var nativeSet = window.__tdbNativeInnerHTMLSet;
-    function applyTrusted(trusted) {
-      if (nativeSet) nativeSet.call(el, trusted);
-      else el.innerHTML = trusted;
-    }
     if (pol && typeof pol.createHTML === 'function') {
       try {
-        applyTrusted(pol.createHTML(s));
+        el.innerHTML = pol.createHTML(s);
         return;
       } catch (_) {
         try {
           var wash = typeof DOMPurify !== 'undefined' && DOMPurify.sanitize
             ? DOMPurify.sanitize(s, { RETURN_TRUSTED_TYPE: false })
             : s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-          applyTrusted(pol.createHTML(wash));
+          el.innerHTML = pol.createHTML(wash);
           return;
         } catch (__) {
-          try { applyTrusted(pol.createHTML('')); } catch (___) {}
+          try { el.innerHTML = pol.createHTML(''); } catch (___) {}
           return;
         }
       }
     }
-    if (nativeSet) {
-      try { nativeSet.call(el, s); } catch (____) { try { el.textContent = ''; } catch (_____) {} }
-    } else {
+    try {
       el.innerHTML = s;
+    } catch (____) {
+      try { el.textContent = String(s).replace(/<[^>]+>/g, ' '); } catch (_____) {}
     }
   }
   function tdbClearHtml(el) {
@@ -44,7 +42,35 @@
     while (el.firstChild) el.removeChild(el.firstChild);
   }
 
-  /** Collapse &amp; chains and decode one layer of entities so innerHTML + escapeHtml does not show &amp;amp; */
+  /** Decode common HTML entities without innerHTML (Trusted Types / require-trusted-types-for safe). */
+  function tdbDecodeEntitiesForPlainUi(str) {
+    if (str == null || str === '') return '';
+    var out = String(str);
+    var prev;
+    var n;
+    for (n = 0; n < 12; n++) {
+      prev = out;
+      out = out.replace(/&amp;/g, '&');
+      if (out === prev) break;
+    }
+    out = out
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#0*39;/g, "'")
+      .replace(/&apos;/g, "'")
+      .replace(/&nbsp;/g, '\u00a0');
+    out = out.replace(/&#(\d{1,7});/g, function (_, num) {
+      var c = parseInt(num, 10);
+      return c >= 0 && c <= 0x10ffff ? String.fromCharCode(c) : '';
+    });
+    out = out.replace(/&#x([0-9a-fA-F]{1,6});/g, function (_, hex) {
+      var c = parseInt(hex, 16);
+      return c >= 0 && c <= 0x10ffff ? String.fromCharCode(c) : '';
+    });
+    return out;
+  }
+
   function tdbPlainTextForUi(s) {
     function finishPlain(t) {
       if (typeof window.tdbCleanForPlainDisplay === 'function') {
@@ -56,30 +82,7 @@
       return String(t || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
     }
     if (s == null || s === '') return '';
-    var str = String(s);
-    var prev;
-    for (var n = 0; n < 12; n++) {
-      prev = str;
-      str = str.replace(/&amp;/g, '&');
-      if (str === prev) break;
-    }
-    try {
-      var div = document.createElement('div');
-      tdbSetHtml(div, str);
-      var decoded = div.textContent;
-      if (typeof decoded === 'string') return finishPlain(decoded);
-    } catch (_) {}
-    try {
-      var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;
-      if (pol && typeof pol.createHTML === 'function') {
-        var t = document.createElement('textarea');
-        var nativeSetT = window.__tdbNativeInnerHTMLSet;
-        if (nativeSetT) nativeSetT.call(t, pol.createHTML(str));
-        else t.innerHTML = pol.createHTML(str);
-        var out = t.value;
-        if (typeof out === 'string') return finishPlain(out);
-      }
-    } catch (_) {}
+    var str = tdbDecodeEntitiesForPlainUi(String(s));
     return finishPlain(str);
   }
 
@@ -121,6 +124,8 @@
   const KIDS_FAMILY_CODE_KEY = 'familyCode';
   const KIDS_LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
   const KIDS_LIB_STORY_MASTER_KEY = 'kidsLibraryStoryMasterProgress';
+  const KIDS_STORY_MASTER_BONUS_KEY = 'kidsStoryMasterBonus';
+  const KIDS_COMPLETED_STORIES_SYNC_KEY = 'completedStories';
   const KIDS_LIB_RECENT_KEYS = 'kidsLibraryRecentStoryKeys';
   const KID_NAME_KEY = 'kidName';
   const KID_REFLECTION_KEY = 'kidReflection';
@@ -1469,7 +1474,7 @@
       videoId: 'QuLN7IWFJNY',
       videoTitle: 'David and Goliath – Animated!',
       keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot'],
-      kjvRef: '1 Samuel 17',
+      kjvRef: '1 Samuel 17:45–50',
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord\'s!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you." },
       narration: "David and Goliath – 1 Samuel 17. Goliath was a huge giant. He shouted at God's army every day. Everyone was scared—except David. David was young and small, but he knew God. He said, 'Who is this giant? The Lord will deliver him into my hand.' David ran toward Goliath with a sling and five stones. He swung once—and the stone hit Goliath. The giant fell. God gave David the victory! For you: Your giants might be fear, worry, or someone who hurts you. God is bigger. Trust Him and be brave."
     },
@@ -5586,6 +5591,12 @@
     normalizeBibleStoriesForUi(bibleStories);
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
+    window.TDB_STORY_MASTER_TIERS = [
+      { name: 'Bronze', min: 7, color: '#cd7f32' },
+      { name: 'Silver', min: 30, color: '#c0c0c0' },
+      { name: 'Gold', min: 100, color: '#ffd700' },
+      { name: 'Platinum', min: 281, color: '#e5e4e2' }
+    ];
   }
 
   function getCartoonForVerse(ref, text, index) {
@@ -6001,7 +6012,7 @@
           localStorage.setItem(KIDS_REMIND_OPTED_KEY, '1');
           renderComeBackNudge();
           if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js?v=20260325-sw-v108').then(function () {
+            navigator.serviceWorker.register('/sw.js?v=20260325-sw-v110').then(function () {
               return navigator.serviceWorker.ready;
             }).then(function (reg) {
               if (reg.pushManager && window.TDB_CONFIG && window.TDB_CONFIG.VAPID_PUBLIC_KEY) {
@@ -7450,13 +7461,106 @@
     });
   }
 
-  function tierFromStoryCountHome(n, total) {
-    var t = Math.max(1, total || 1);
-    if (n >= t) return 'platinum';
+  function tdbStoryMasterReadListMerged() {
+    var keys = {};
+    function addFrom(raw) {
+      try {
+        var arr = raw ? JSON.parse(raw) : [];
+        if (!Array.isArray(arr)) return;
+        for (var i = 0; i < arr.length; i++) {
+          var k = arr[i];
+          if (typeof k === 'string' && k) keys[k] = true;
+        }
+      } catch (e) {}
+    }
+    try {
+      addFrom(localStorage.getItem(KIDS_LIB_STORY_MASTER_KEY));
+    } catch (e) {}
+    try {
+      addFrom(localStorage.getItem(KIDS_COMPLETED_STORIES_SYNC_KEY));
+    } catch (e) {}
+    return Object.keys(keys);
+  }
+
+  function tdbStoryMasterWriteListMerged(arr) {
+    var clean = [];
+    var seen = {};
+    for (var i = 0; i < arr.length; i++) {
+      var k = arr[i];
+      if (typeof k !== 'string' || !k || seen[k]) continue;
+      seen[k] = true;
+      clean.push(k);
+    }
+    var json = JSON.stringify(clean);
+    try { localStorage.setItem(KIDS_LIB_STORY_MASTER_KEY, json); } catch (e) {}
+    try { localStorage.setItem(KIDS_COMPLETED_STORIES_SYNC_KEY, json); } catch (e) {}
+  }
+
+  function tdbStoryMasterBonusRead() {
+    try {
+      var b = parseInt(localStorage.getItem(KIDS_STORY_MASTER_BONUS_KEY) || '0', 10);
+      return isFinite(b) && b >= 0 ? b : 0;
+    } catch (e) { return 0; }
+  }
+
+  function tdbStoryMasterBonusAdd(delta) {
+    var d = Math.floor(Number(delta) || 0);
+    if (d <= 0) return tdbStoryMasterBonusRead();
+    var n = tdbStoryMasterBonusRead() + d;
+    try { localStorage.setItem(KIDS_STORY_MASTER_BONUS_KEY, String(n)); } catch (e) {}
+    return n;
+  }
+
+  function tdbTierFromEffectiveCount(n, total) {
+    total = Math.max(1, total || 1);
+    n = Math.max(0, n);
+    if (n >= total) return 'platinum';
     if (n >= 100) return 'gold';
     if (n >= 30) return 'silver';
     if (n >= 7) return 'bronze';
     return 'none';
+  }
+
+  function tdbComputeStoryMasterState() {
+    var stories = window.TDB_BIBLE_STORIES || {};
+    var total = (window.TDB_BIBLE_STORY_KEYS && window.TDB_BIBLE_STORY_KEYS.length) || Object.keys(stories).length;
+    if (!total) total = 1;
+    var list = tdbStoryMasterReadListMerged();
+    var bonus = tdbStoryMasterBonusRead();
+    var effective = Math.min(total, list.length + bonus);
+    var tier = tdbTierFromEffectiveCount(effective, total);
+    var pct = Math.min(100, Math.round((effective / total) * 1000) / 10);
+    var labels = { none: 'Getting started', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
+    var next = '';
+    if (effective < 7) next = ' Next tier: Bronze at 7.';
+    else if (effective < 30) next = ' Next tier: Silver at 30.';
+    else if (effective < 100) next = ' Next tier: Gold at 100.';
+    else if (effective < total) next = ' Next tier: Platinum when you finish all ' + total + '.';
+    else next = ' You finished the whole library!';
+    return {
+      list: list,
+      listLen: list.length,
+      bonus: bonus,
+      effective: effective,
+      total: total,
+      tier: tier,
+      tierLabel: labels[tier] || tier,
+      pct: pct,
+      summaryLine: 'Story Master: ' + labels[tier] + ' • ' + pct + '% (' + effective + '/' + total + ').' + next
+    };
+  }
+
+  if (typeof window !== 'undefined') {
+    window.tdbStoryMasterReadListMerged = tdbStoryMasterReadListMerged;
+    window.tdbStoryMasterWriteListMerged = tdbStoryMasterWriteListMerged;
+    window.tdbStoryMasterBonusRead = tdbStoryMasterBonusRead;
+    window.tdbStoryMasterBonusAdd = tdbStoryMasterBonusAdd;
+    window.tdbComputeStoryMasterState = tdbComputeStoryMasterState;
+    window.tdbTierFromEffectiveCount = tdbTierFromEffectiveCount;
+  }
+
+  function tierFromStoryCountHome(n, total) {
+    return tdbTierFromEffectiveCount(n, total);
   }
 
   function renderKidsCornerHomeExtras() {
@@ -7470,21 +7574,39 @@
     if (!total) return;
     var countBadge = document.getElementById('kids-home-story-count-badge');
     if (countBadge) countBadge.textContent = total + ' Bible stories';
-    var done = [];
-    try {
-      var raw = localStorage.getItem(KIDS_LIB_STORY_MASTER_KEY);
-      done = raw ? JSON.parse(raw) : [];
-    } catch (e) {}
-    if (!Array.isArray(done)) done = [];
+    var st = tdbComputeStoryMasterState();
+    var done = st.list;
     var doneSet = {};
     for (var di = 0; di < done.length; di++) doneSet[done[di]] = true;
-    var n = done.length;
-    var pct = Math.min(100, Math.round((n / total) * 1000) / 10);
-    var tier = tierFromStoryCountHome(n, total);
+    var n = st.effective;
+    var pct = st.pct;
+    var tier = st.tier;
     var labels = { none: 'Getting started', bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
     if (panel) {
-      panel.textContent = 'Story Master: ' + labels[tier] + ' • ' + pct + '% (' + n + '/' + total + ' stories finished).';
+      panel.textContent = st.summaryLine;
     }
+    var badgeEl = document.getElementById('tier-badge');
+    if (badgeEl) {
+      badgeEl.textContent = labels[tier] || st.tierLabel;
+      var tiers = window.TDB_STORY_MASTER_TIERS || [];
+      var col = '#cbd5e1';
+      for (var ti = 0; ti < tiers.length; ti++) {
+        if (tiers[ti].name.toLowerCase() === String(tier)) {
+          col = tiers[ti].color || col;
+          break;
+        }
+      }
+      badgeEl.style.color = col;
+    }
+    var progEl = document.getElementById('story-progress');
+    if (progEl) {
+      progEl.max = st.total;
+      progEl.value = Math.min(st.total, st.effective);
+      progEl.setAttribute('aria-valuemax', String(st.total));
+      progEl.setAttribute('aria-valuenow', String(Math.min(st.total, st.effective)));
+    }
+    var pctSpan = document.getElementById('story-percent');
+    if (pctSpan) pctSpan.textContent = pct + '%';
     if (barEl && fill) {
       barEl.setAttribute('aria-valuenow', String(Math.round(pct)));
       barEl.setAttribute('aria-valuemax', '100');
@@ -7538,6 +7660,10 @@
       }
     }
     carEl.appendChild(row);
+  }
+
+  if (typeof window !== 'undefined') {
+    window.renderKidsCornerHomeExtras = renderKidsCornerHomeExtras;
   }
 
   function renderStoryOfDay() {

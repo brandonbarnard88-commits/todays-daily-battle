@@ -4811,6 +4811,7 @@
       </details>
       <p class="site-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
       <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
+      <p class="footer-humility">We battle. He wins.</p>
       <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
         <p class="footer-friday-signup-label">One verse + prayer on Fridays—steady rhythm, not noise. No spam.</p>
         <div class="footer-friday-signup-row">
@@ -6300,7 +6301,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260325-sw-v108", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260325-sw-v110", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

@@ -4942,6 +4942,19 @@ body:has(.pricing-grid) .section-divider {
   margin-left: auto;
   margin-right: auto;
 }
+/* Quiet thesis line — present on main + topic footers; same class on Kids hub */
+.footer-humility {
+  margin: 0 0 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: center;
+  color: rgba(226, 232, 240, 0.88);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  max-width: 28em;
+  margin-left: auto;
+  margin-right: auto;
+}
 .footer-friday-signup {
   margin: 1rem 0 1.25rem;
   max-width: 28em;
@@ -7107,6 +7120,15 @@ body.red-letter-off .red-letter-card {
 
 .dark-mode .section-note {
   color: #e0e0e0;
+}
+
+/* Quiet humility line (e.g. why-not-AI) — not a second footer */
+.tdb-thesis-whisper {
+  font-style: italic;
+  opacity: 0.95;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-privacy-note {

@@ -18838,7 +18838,7 @@ function sanitizeNudgeElements() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260325-sw-v108', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260325-sw-v110', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

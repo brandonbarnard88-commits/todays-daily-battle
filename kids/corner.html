@@ -41,7 +41,7 @@
   <script nonce="tdb2025s">window.TDB_PANEL_RASTER = false;</script>
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
-  <link rel="stylesheet" href="kids-battle.css?v=16">
+  <link rel="stylesheet" href="kids-battle.css?v=17">
   <link rel="stylesheet" href="canvas.css?v=1">
   <style>
     .kids-library-grid {
@@ -216,6 +216,43 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
+    .kids-read-quiz-wrap.kids-read-quiz-wrap--sections {
+      max-height: min(65vh, 560px);
+    }
+    .kids-read-quiz-verse-excerpt {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      line-height: 1.45;
+      color: #cbd5e1;
+      margin: 0 0 0.75rem;
+      padding: 0.65rem 0.75rem;
+      border-left: 3px solid rgba(250, 204, 21, 0.45);
+      background: rgba(250, 204, 21, 0.06);
+      border-radius: 0 10px 10px 0;
+    }
+    .kids-read-quiz-section {
+      margin: 0 0 1rem;
+    }
+    .kids-read-quiz-section-fig {
+      margin: 0 0 0.35rem;
+      text-align: center;
+    }
+    .kids-read-quiz-section-caption {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fde68a;
+      margin: 0.35rem 0 0.5rem;
+      line-height: 1.35;
+    }
+    .kids-read-quiz-section-placeholder {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      color: #94a3b8;
+      font-style: italic;
+      margin: 0 0 0.5rem;
+    }
     .kids-read-quiz-ref {
       font-family: 'Nunito', sans-serif;
       font-size: 0.85rem;
@@ -318,6 +355,21 @@
       color: #cbd5e1;
       border: 2px solid rgba(148, 163, 184, 0.35);
     }
+    .kids-read-quiz-feedback-main {
+      margin: 0;
+      font-family: 'Comic Neue', cursive;
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+    .kids-read-quiz-feedback-humility {
+      margin: 0.45rem 0 0;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: #cbd5e1;
+      font-style: italic;
+      opacity: 0.95;
+    }
     .kids-read-quiz-done-title {
       font-family: 'Bangers', cursive;
       font-size: 1.25rem;
@@ -411,6 +463,7 @@
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Bible Story Library</h1>
           <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Pick a story and go.</p>
+          <p class="section-note util-mb-0_25 kids-lib-cache-hint">If a story opens without read-along words or quiz, hard-refresh (pull down on your phone, or Ctrl+Shift+R / Cmd+Shift+R on a computer) so the newest library loads.</p>
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
@@ -440,6 +493,7 @@
           </div>
           <p id="kids-journey-status" class="section-note util-mb-0_25" aria-live="polite"></p>
           <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
+          <button type="button" id="global-quiz-challenge" class="btn btn-secondary kids-library-random-btn" style="margin-top: 0.5rem;">Quiz Challenge (5 Questions)</button>
           <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;" aria-describedby="pdf-export-count-hint pdf-export-hint" aria-label="Generate PDF of the full Kids Bible Story Library titles and references">📄 Download Story Library List (PDF)</button>
           <p id="pdf-export-count-hint" class="kids-pdf-hint" aria-live="polite"></p>
           <p id="pdf-export-hint" class="kids-pdf-hint">Each download lists every title in the library (not the 10–15s loops on Kids Corner home). Search filters only change the grid—the PDF stays the full list. If the first tap does nothing, wait a second for the PDF helper to load, then try again.</p>
@@ -485,6 +539,13 @@
     </noscript>
 
     <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-humility">We battle. He wins.</p>
+      <div id="kids-corner-story-master-footer" class="kids-corner-story-master-footer" role="region" aria-label="Story Master progress">
+        <span class="kids-corner-story-master-label">Story Master:</span>
+        <span id="corner-tier-badge" class="kids-tier-badge"></span>
+        <progress id="corner-story-progress" max="281" value="0" aria-label="Story library progress toward Story Master tiers"></progress>
+        <span id="corner-story-percent" class="kids-story-percent">0%</span>
+      </div>
       <p>© 2026 Kids Battle – Faith Trail for Kids</p>
       <p>Powered by Supabase</p>
       <a href="/privacy.html">Privacy</a>
@@ -513,6 +574,10 @@
       <h2 id="kids-story-modal-title" class="kids-video-modal-title"></h2>
       <div id="kids-story-modal-carousel"></div>
       <div id="kids-story-modal-read-quiz" class="hidden" aria-live="polite"></div>
+      <div id="kids-print-qa-sheet-wrap" class="kids-print-qa-sheet-wrap hidden" role="region" aria-label="Printable quiz worksheet">
+        <button type="button" id="print-qa-btn" class="btn btn-secondary kids-print-qa-sheet-btn">Print Q&amp;A Sheet</button>
+        <p class="kids-print-qa-sheet-hint">Opens a clean page with questions and hints; answers stay behind “Reveal” on screen and expand for printing.</p>
+      </div>
       <div id="kids-story-modal-video"></div>
       <div id="kids-story-modal-context" class="kids-ctx-block hidden"></div>
       <div class="kids-reflection-buttons util-mt-0_5" role="group" aria-label="Story navigation">
@@ -579,11 +644,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="../inline-bootstrap.js"></script>
   <script src="kids-full-story-assets.js"></script>
-  <script src="kids-read-quiz-data.js?v=20260327kidsmax"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="kids-read-quiz-data.js?v=20260325kidslib"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
-  <script src="kids-battle.js?v=20260327kidsmax" defer></script>
+  <script src="kids-battle.js?v=20260325kidslib" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=20260327kidsmax" defer></script>
+  <script src="kids-corner.js?v=20260325kidslib" defer></script>
   <script type="module" src="../script.js?v=20260326clean" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

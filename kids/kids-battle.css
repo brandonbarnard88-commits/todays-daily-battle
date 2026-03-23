@@ -1,5 +1,13 @@
 /* Kids Battle — comic-book inspired, bold colors, speech bubbles, playful fonts */
 
+/* Cache recovery hint (hub + story library) */
+.kids-lib-cache-hint {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.45;
+  max-width: 36rem;
+}
+
 .kids-battle-page {
   --kids-yellow: #ffd93d;
   --kids-orange: #ff9f43;
@@ -2442,6 +2450,33 @@
 .kids-read-quiz-print-btn {
   min-height: 44px;
 }
+
+/* Printable Q&A — lives under story modal, wired when read-and-quiz is active */
+.kids-print-qa-sheet-wrap {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 2px solid rgba(34, 197, 94, 0.55);
+  background: rgba(20, 83, 45, 0.15);
+}
+.kids-print-qa-sheet-btn {
+  min-height: 44px;
+  border-color: #22c55e !important;
+  color: #bbf7d0 !important;
+  font-weight: 700;
+}
+.kids-print-qa-sheet-btn:hover,
+.kids-print-qa-sheet-btn:focus-visible {
+  border-color: #4ade80 !important;
+  color: #fff !important;
+}
+.kids-print-qa-sheet-hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: #94a3b8;
+  max-width: 36rem;
+}
 .kids-tier-confetti-burst {
   animation: kids-tier-confetti-burst-anim 2.4s ease-out forwards;
 }
@@ -2527,6 +2562,37 @@
   border-radius: 999px;
   background: linear-gradient(90deg, var(--kids-orange), var(--kids-yellow));
   transition: width 0.35s ease;
+}
+.kids-story-master-dashboard,
+.kids-corner-story-master-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.75rem;
+  margin: 0.35rem 0 0.65rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  color: #e2e8f0;
+}
+.kids-corner-story-master-footer {
+  margin: 0 0 0.75rem;
+  justify-content: center;
+  text-align: center;
+}
+.kids-story-master-dashboard #story-progress,
+.kids-corner-story-master-footer #corner-story-progress {
+  flex: 1 1 min(100%, 200px);
+  min-width: 120px;
+  height: 14px;
+  accent-color: var(--kids-yellow);
+}
+.kids-tier-badge {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.kids-story-percent {
+  font-variant-numeric: tabular-nums;
+  min-width: 2.75rem;
 }
 .kids-continue-carousel {
   margin-top: 0.25rem;

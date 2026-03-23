@@ -46,9 +46,19 @@
         var _innerDesc0 = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
         if (_innerDesc0 && _innerDesc0.set) window.__tdbNativeInnerHTMLSet = _innerDesc0.set;
       }
-      var protos = [Element.prototype];
-      if (typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype) protos.push(DocumentFragment.prototype);
-      if (typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype) protos.push(ShadowRoot.prototype);
+      var protos = [];
+      [
+        typeof Element !== 'undefined' && Element.prototype,
+        typeof SVGElement !== 'undefined' && SVGElement.prototype,
+        typeof SVGGraphicsElement !== 'undefined' && SVGGraphicsElement.prototype,
+        typeof MathMLElement !== 'undefined' && MathMLElement.prototype,
+        typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype,
+        typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype
+      ].forEach(function (proto) {
+        if (!proto || protos.indexOf(proto) !== -1) return;
+        var d0 = Object.getOwnPropertyDescriptor(proto, 'innerHTML');
+        if (d0 && d0.set) protos.push(proto);
+      });
       var anyPatched = false;
       function isTrustedHTMLValue(v) {
         if (v == null || typeof v !== 'object') return false;
@@ -4376,10 +4386,14 @@ function updatePrayerWallStreakBadge() {
   // Detect a broken streak: had past entries but current streak is 0 today
   var graceKey = 'tdb_pw_grace_shown_' + getDailyKey();
   var hadPastActivity = false;
+  var days = [];
   try {
-    var days = JSON.parse(localStorage.getItem(PRAYER_WALL_STREAK_KEY) || '[]');
-    hadPastActivity = Array.isArray(days) && days.length > 0;
-  } catch (e) {}
+    days = JSON.parse(localStorage.getItem(PRAYER_WALL_STREAK_KEY) || '[]');
+    if (!Array.isArray(days)) days = [];
+    hadPastActivity = days.length > 0;
+  } catch (e) {
+    days = [];
+  }
 
   // Show one-time grace message when streak broke (had history, streak=0, not shown today)
   var graceEl = document.getElementById('prayerWallGraceMsg');
@@ -7053,7 +7067,8 @@ function wirePrayerMap() {
     }
   }
   function render() {
-    markersGroup.innerHTML = '';
+    /** SVG <g> innerHTML can bypass Element.prototype TT patch in WebKit; replaceChildren avoids the HTML sink. */
+    markersGroup.replaceChildren();
     var now = Date.now();
     var justPrayed = 0;
     try { justPrayed = parseInt(sessionStorage.getItem('tdb_just_prayed') || '0', 10); } catch (e) {}
@@ -17955,10 +17970,11 @@ function sanitizeNudgeElements() {
   (function initPrayerWallEarly() {
     var listEl = document.getElementById('prayer-wall-list');
     if (!listEl) return;
+    var items = [];
     try {
       var raw = localStorage.getItem(PRAYER_WALL_KEY) || '[]';
       var arr = JSON.parse(raw);
-      var items = Array.isArray(arr) ? arr : [];
+      items = Array.isArray(arr) ? arr : [];
     } catch (e) { items = []; }
     var SEEDS = [
       { id: 'seed-1', text: 'Lord, calm my anxious thoughts today — Phil 4:6-7', hearts: 0, seed: true },
@@ -17996,7 +18012,7 @@ function sanitizeNudgeElements() {
     }
     var display = items.filter(function (it) { return it && (it.text || '').trim().length > 0; }).length > 0 ? items : shuffle(SEEDS.slice(), new Date().toISOString().slice(0, 10));
     if (display.length === 0) display = shuffle(SEEDS.slice(), new Date().toISOString().slice(0, 10));
-    listEl.innerHTML = '';
+    listEl.replaceChildren();
     display.forEach(function (item, idx) {
       var li = document.createElement('li');
       li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '') + (item.seed ? ' prayer-wall-seed' : '');
@@ -18009,6 +18025,310 @@ function sanitizeNudgeElements() {
       listEl.appendChild(li);
     });
     listEl.setAttribute('data-prayer-wall-rendered', '1');
+  })();
+  (function initPrayerWall() {
+    var listEl = document.getElementById('prayer-wall-list');
+    var addBtn = document.getElementById('prayer-wall-add');
+    if (!listEl) return;
+
+    // ── Storage helpers ──────────────────────────────────────────────────────
+    function getItems() {
+      try {
+        var raw = localStorage.getItem(PRAYER_WALL_KEY) || '[]';
+        var arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr : [];
+      } catch (e) { return []; }
+    }
+    function getHearts() {
+      try { return JSON.parse(localStorage.getItem(PRAYER_WALL_HEARTS_KEY) || '{}'); } catch (e) { return {}; }
+    }
+    function saveItems(items) {
+      try {
+        var json = JSON.stringify(Array.isArray(items) ? items : []);
+        localStorage.setItem(PRAYER_WALL_KEY, json);
+      } catch (e) {
+        if (typeof console !== 'undefined' && console.warn) console.warn('Prayer Wall save failed:', e);
+      }
+    }
+    function saveHearts(hearts) {
+      try { localStorage.setItem(PRAYER_WALL_HEARTS_KEY, JSON.stringify(hearts)); } catch (e) {}
+    }
+
+    // ── Sync helpers ─────────────────────────────────────────────────────────
+    var SYNC_KEY = 'prayer_wall';
+
+    // Push current items to Supabase (no-op when guest/offline)
+    function pushToCloud(items) {
+      if (typeof setSyncData === 'function' && typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && currentUserId) {
+        setSyncData(SYNC_KEY, items);
+      }
+    }
+
+    // Pull cloud items, merge with local (newest wins per id), save, render
+    async function pullFromCloud() {
+      if (typeof getSyncData !== 'function' || typeof canUseSupabase !== 'function' || !canUseSupabase() || typeof currentUserId === 'undefined' || !currentUserId) return;
+      updateNoteEl(null, 'syncing');
+      try {
+        var remote = await getSyncData(SYNC_KEY);
+        if (!Array.isArray(remote)) { updateNoteEl(false); return; }
+        var local = getItems();
+        // Merge: remote items that aren't in local get added; hearts are max-merged
+        var byId = {};
+        local.forEach(function(it) { byId[String(it.id)] = it; });
+        remote.forEach(function(it) {
+          var k = String(it.id);
+          if (!byId[k]) {
+            byId[k] = it;
+          } else {
+            // keep higher heart count between devices
+            byId[k].hearts = Math.max(byId[k].hearts || 0, it.hearts || 0);
+          }
+        });
+        var merged = Object.values(byId).filter(function(it) { return it && it.text; });
+        saveItems(merged);
+        render();
+        updateNoteEl(true);
+      } catch (_) {
+        updateNoteEl(false, 'failed');
+      }
+    }
+
+    // Update the sync-status note element (synced: true|false|null, state: 'syncing'|'failed'|undefined)
+    function updateNoteEl(synced, state) {
+      var noteEl = document.querySelector('.prayer-wall-note');
+      if (!noteEl) return;
+      if (state === 'syncing') { noteEl.textContent = 'Syncing…'; noteEl.dataset.syncState = 'syncing'; return; }
+      if (state === 'failed') {
+        noteEl.innerHTML = 'Sync failed. <button type="button" class="link-button prayer-wall-sync-retry" aria-label="Retry sync">Retry</button>';
+        noteEl.dataset.syncState = 'failed';
+        var retryBtn = noteEl.querySelector('.prayer-wall-sync-retry');
+        if (retryBtn) retryBtn.addEventListener('click', function () { pullFromCloud(); });
+        return;
+      }
+      noteEl.textContent = synced ? 'Synced across devices.' : 'Saved on this device.';
+      noteEl.dataset.syncState = synced ? 'synced' : 'local';
+    }
+
+    // ── Render ────────────────────────────────────────────────────────────────
+    var SEED_PRAYERS = [
+      { id: 'seed-1', text: 'Lord, calm my anxious thoughts today — Phil 4:6-7', hearts: 0, seed: true },
+      { id: 'seed-2', text: 'Healing for my marriage — Eph 5:25', hearts: 0, seed: true },
+      { id: 'seed-3', text: 'Strength to parent with grace', hearts: 0, seed: true },
+      { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
+      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
+      { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
+      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true },
+      { id: 'seed-8', text: 'Lord, help my unbelief in this storm.', hearts: 0, seed: true },
+      { id: 'seed-9', text: 'Peace for my anxious thoughts today.', hearts: 0, seed: true },
+      { id: 'seed-10', text: 'Calm my fear—I know You are near.', hearts: 0, seed: true },
+      { id: 'seed-11', text: 'When fear overwhelms—hold me, Lord.', hearts: 0, seed: true },
+      { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
+      { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
+      { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
+      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true },
+      { id: 'seed-16', text: 'Lord, give me patience with my kids when I\'m exhausted', hearts: 0, seed: true },
+      { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
+      { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
+      { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
+      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true },
+      { id: 'seed-21', text: 'After Fear to Faith day 7: I believe God walks with me in the unknowns. Grateful for Amens here.', hearts: 0, seed: true },
+      { id: 'seed-22', text: 'Finished the Fear to Faith plan — fear still visits, but quieter. Thanks for praying with me.', hearts: 0, seed: true },
+      { id: 'seed-23', text: 'Fear to Faith day 7 reflection: God\'s peace shows up in the quiet moments. Grateful for the Amens lifting others too.', hearts: 0, seed: true }
+    ];
+    function updateFeaturedPrayerHighlight() {
+      var featuredEl = document.getElementById('featured-prayer');
+      if (!featuredEl) return;
+      if (!SEED_PRAYERS.length) return;
+      var dayKey = typeof getDailyKey === 'function' ? getDailyKey() : '';
+      var h = 0;
+      for (var fi = 0; fi < dayKey.length; fi++) {
+        h = ((h << 5) - h) + dayKey.charCodeAt(fi);
+      }
+      var fidx = Math.abs(h) % SEED_PRAYERS.length;
+      var featured = SEED_PRAYERS[fidx];
+      featuredEl.textContent = '';
+      var card = document.createElement('div');
+      card.className = 'featured-prayer-card';
+      card.setAttribute('role', 'region');
+      card.setAttribute('aria-labelledby', 'featured-prayer-heading');
+      var h3 = document.createElement('h3');
+      h3.id = 'featured-prayer-heading';
+      h3.className = 'featured-prayer-heading';
+      h3.textContent = 'Featured quiet prayer today';
+      var pText = document.createElement('p');
+      pText.className = 'featured-prayer-text';
+      pText.textContent = (featured.text || '') + ' — Anonymous';
+      var note = document.createElement('p');
+      note.className = 'featured-prayer-note section-note';
+      note.textContent = 'One of the starter prayers below—rotates daily.';
+      card.appendChild(h3);
+      card.appendChild(pText);
+      card.appendChild(note);
+      featuredEl.appendChild(card);
+    }
+    function seededShuffle(arr, seedStr) {
+      var a = arr.slice();
+      var seed = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
+      for (var i = a.length - 1; i > 0; i--) {
+        seed = (seed * 9301 + 49297) % 233280;
+        var j = Math.floor((seed / 233280) * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+    function render() {
+      var items = (getItems() || []).filter(function (it) { return it && (it.text || '').trim().length > 0; });
+      var hearts = getHearts();
+      var dayKey = typeof getDailyKey === 'function' ? getDailyKey() : new Date().toISOString().slice(0, 10);
+      var displayItems = items.length > 0 ? items : seededShuffle(SEED_PRAYERS, dayKey);
+      if (displayItems.length === 0) displayItems = seededShuffle(SEED_PRAYERS, dayKey);
+      displayItems = displayItems.slice();
+      displayItems.sort(function (a, b) { return (b.hearts || 0) - (a.hearts || 0); });
+      listEl.replaceChildren();
+      displayItems.forEach(function (item, idx) {
+        var isSeed = item.seed === true;
+        var li = document.createElement('li');
+        li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '') + (isSeed ? ' prayer-wall-seed' : '');
+        var iHearted = !isSeed && hearts[item.id];
+        var heartBtn = document.createElement('button');
+        heartBtn.type = 'button';
+        heartBtn.className = 'prayer-wall-heart ' + (iHearted ? 'hearted' : '');
+        heartBtn.setAttribute('data-id', String(item.id));
+        heartBtn.setAttribute('aria-label', 'Pray');
+        heartBtn.textContent = '\u2665';
+        if (isSeed) heartBtn.setAttribute('aria-hidden', 'true');
+        var countSpan = document.createElement('span');
+        countSpan.className = 'prayer-wall-count';
+        countSpan.textContent = String(item.hearts || 0);
+        var textSpan = document.createElement('span');
+        textSpan.className = 'prayer-wall-text';
+        textSpan.textContent = (item.text || '') + (isSeed ? ' — Anonymous' : '');
+        li.appendChild(heartBtn);
+        li.appendChild(document.createTextNode(' '));
+        li.appendChild(countSpan);
+        li.appendChild(document.createTextNode(' '));
+        li.appendChild(textSpan);
+        var shareBtn = document.createElement('button');
+        shareBtn.type = 'button';
+        shareBtn.className = 'share-btn prayer-wall-share';
+        shareBtn.textContent = 'Share';
+        shareBtn.setAttribute('aria-label', 'Share this prayer');
+        shareBtn.addEventListener('click', function () {
+          var text = (item.text || '').substring(0, 100) + ((item.text || '').length > 100 ? '...' : '');
+          var shareText = text + '\n— todaysdailybattle.com';
+          if (navigator.share && navigator.canShare && navigator.canShare({ text: shareText })) {
+            navigator.share({ text: shareText, url: window.location.href, title: 'Prayer from Today\'s Daily Battle' }).catch(function () {
+              navigator.clipboard.writeText(shareText).then(function () { shareBtn.textContent = 'Copied'; setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000); }).catch(function () {});
+            });
+          } else {
+            navigator.clipboard.writeText(shareText).then(function () { shareBtn.textContent = 'Copied'; setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000); }).catch(function () {});
+          }
+        });
+        li.appendChild(shareBtn);
+        if (!isSeed) {
+          var reportBtn = document.createElement('button');
+          reportBtn.type = 'button';
+          reportBtn.className = 'share-btn prayer-wall-report';
+          reportBtn.textContent = 'Report';
+          reportBtn.setAttribute('aria-label', 'Report this prayer as unsafe or spam');
+          reportBtn.addEventListener('click', function () {
+            reportPrayerWallItem(item).then(function (ok) {
+              if (ok) {
+                reportBtn.textContent = 'Reported';
+                reportBtn.disabled = true;
+                if (typeof showEliteToast === 'function') showEliteToast('Thanks—we review reports.');
+              } else if (typeof showEliteToast === 'function') showEliteToast('Could not report. Try contact.');
+            });
+          });
+          li.appendChild(reportBtn);
+        }
+        listEl.appendChild(li);
+      });
+      try {
+        updateFeaturedPrayerHighlight();
+      } catch (fe) {
+        if (typeof console !== 'undefined' && console.warn) console.warn('TDB: featured prayer highlight', fe);
+      }
+      listEl.setAttribute('data-prayer-wall-rendered', '1');
+      listEl.querySelectorAll('.prayer-wall-heart').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = this.getAttribute('data-id');
+          var items = getItems();
+          var hearts = getHearts();
+          var item = items.find(function (i) { return String(i.id) === String(id); });
+          if (!item) return;
+          if (hearts[id]) {
+            delete hearts[id];
+            item.hearts = (item.hearts || 0) - 1;
+          } else {
+            hearts[id] = true;
+            item.hearts = (item.hearts || 0) + 1;
+          }
+          saveHearts(hearts);
+          saveItems(items);
+          pushToCloud(getItems());
+          render();
+        });
+      });
+      /* E2E / a11y: mark list painted even if add controls are missing; posting still requires wired handlers below */
+      listEl.setAttribute('data-prayer-wall-ready', '1');
+      try {
+        if (typeof window !== 'undefined') window.__tdbPrayerWallInitDone = true;
+      } catch (e) {}
+    }
+
+    // ── Add handler (delegation on #prayer-wall + live input lookup — survives odd init order / automation)
+    function postPrayerWallFromInput() {
+      var inp = document.getElementById('prayer-wall-input');
+      if (!inp) return;
+      var raw = typeof sanitizeUserInput === 'function'
+        ? sanitizeUserInput((inp.value || '').trim())
+        : String((inp.value || '').trim()).slice(0, 120);
+      if (!raw) return;
+      var core = raw.slice(0, 106);
+      var text = ('Facing ' + core + ' today').slice(0, 120);
+      var items = getItems();
+      items.push({ id: Date.now(), text: text, hearts: 0 });
+      saveItems(items);
+      pushToCloud(items);
+      inp.value = '';
+      render();
+      if (typeof recordPrayerWallDay === 'function') recordPrayerWallDay();
+      if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
+      if (typeof dismissPrayerWallGrace === 'function') dismissPrayerWallGrace();
+      var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
+      updateNoteEl(isSynced);
+      if (typeof showEliteToast === 'function') showEliteToast(isSynced ? 'Prayer added—synced.' : 'Prayer added—saved locally.');
+      if (typeof trackEvent === 'function') trackEvent('prayer_wall_add', { battle_prompt: true });
+      var ul = document.getElementById('prayer-wall-list') || listEl;
+      if (ul && ul.lastElementChild) ul.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    var prayerWallCard = document.getElementById('prayer-wall');
+    if (prayerWallCard) {
+      prayerWallCard.addEventListener('click', function (ev) {
+        if (!ev.target || !ev.target.closest) return;
+        if (!ev.target.closest('#prayer-wall-add')) return;
+        postPrayerWallFromInput();
+      });
+    } else if (addBtn) {
+      addBtn.addEventListener('click', postPrayerWallFromInput);
+    }
+    var inputForEnter = document.getElementById('prayer-wall-input');
+    if (inputForEnter) {
+      inputForEnter.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') postPrayerWallFromInput();
+      });
+    }
+
+    // ── Initial load: local first, then pull cloud if signed in ──────────────
+    render();
+    // Render streak badge on page open (so returning users see their current streak immediately)
+    if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
+    // Determine initial sync state and update note
+    var isSignedIn = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
+    updateNoteEl(isSignedIn);
+    // Pull cloud items after a short delay to avoid blocking initial render
+    setTimeout(function() { pullFromCloud(); }, 800);
   })();
   sanitizeNudgeElements();
   wirePrayerQueueHealthDebug();
@@ -20626,294 +20946,6 @@ function sanitizeNudgeElements() {
     });
   }
 
-  (function initPrayerWall() {
-    var listEl = document.getElementById('prayer-wall-list');
-    var inputEl = document.getElementById('prayer-wall-input');
-    var addBtn = document.getElementById('prayer-wall-add');
-    if (!listEl) return;
-
-    // ── Storage helpers ──────────────────────────────────────────────────────
-    function getItems() {
-      try {
-        var raw = localStorage.getItem(PRAYER_WALL_KEY) || '[]';
-        var arr = JSON.parse(raw);
-        return Array.isArray(arr) ? arr : [];
-      } catch (e) { return []; }
-    }
-    function getHearts() {
-      try { return JSON.parse(localStorage.getItem(PRAYER_WALL_HEARTS_KEY) || '{}'); } catch (e) { return {}; }
-    }
-    function saveItems(items) {
-      try {
-        var json = JSON.stringify(Array.isArray(items) ? items : []);
-        localStorage.setItem(PRAYER_WALL_KEY, json);
-      } catch (e) {
-        if (typeof console !== 'undefined' && console.warn) console.warn('Prayer Wall save failed:', e);
-      }
-    }
-    function saveHearts(hearts) {
-      try { localStorage.setItem(PRAYER_WALL_HEARTS_KEY, JSON.stringify(hearts)); } catch (e) {}
-    }
-
-    // ── Sync helpers ─────────────────────────────────────────────────────────
-    var SYNC_KEY = 'prayer_wall';
-
-    // Push current items to Supabase (no-op when guest/offline)
-    function pushToCloud(items) {
-      if (typeof setSyncData === 'function' && typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && currentUserId) {
-        setSyncData(SYNC_KEY, items);
-      }
-    }
-
-    // Pull cloud items, merge with local (newest wins per id), save, render
-    async function pullFromCloud() {
-      if (typeof getSyncData !== 'function' || typeof canUseSupabase !== 'function' || !canUseSupabase() || typeof currentUserId === 'undefined' || !currentUserId) return;
-      updateNoteEl(null, 'syncing');
-      try {
-        var remote = await getSyncData(SYNC_KEY);
-        if (!Array.isArray(remote)) { updateNoteEl(false); return; }
-        var local = getItems();
-        // Merge: remote items that aren't in local get added; hearts are max-merged
-        var byId = {};
-        local.forEach(function(it) { byId[String(it.id)] = it; });
-        remote.forEach(function(it) {
-          var k = String(it.id);
-          if (!byId[k]) {
-            byId[k] = it;
-          } else {
-            // keep higher heart count between devices
-            byId[k].hearts = Math.max(byId[k].hearts || 0, it.hearts || 0);
-          }
-        });
-        var merged = Object.values(byId).filter(function(it) { return it && it.text; });
-        saveItems(merged);
-        render();
-        updateNoteEl(true);
-      } catch (_) {
-        updateNoteEl(false, 'failed');
-      }
-    }
-
-    // Update the sync-status note element (synced: true|false|null, state: 'syncing'|'failed'|undefined)
-    function updateNoteEl(synced, state) {
-      var noteEl = document.querySelector('.prayer-wall-note');
-      if (!noteEl) return;
-      if (state === 'syncing') { noteEl.textContent = 'Syncing…'; noteEl.dataset.syncState = 'syncing'; return; }
-      if (state === 'failed') {
-        noteEl.innerHTML = 'Sync failed. <button type="button" class="link-button prayer-wall-sync-retry" aria-label="Retry sync">Retry</button>';
-        noteEl.dataset.syncState = 'failed';
-        var retryBtn = noteEl.querySelector('.prayer-wall-sync-retry');
-        if (retryBtn) retryBtn.addEventListener('click', function () { pullFromCloud(); });
-        return;
-      }
-      noteEl.textContent = synced ? 'Synced across devices.' : 'Saved on this device.';
-      noteEl.dataset.syncState = synced ? 'synced' : 'local';
-    }
-
-    // ── Render ────────────────────────────────────────────────────────────────
-    var SEED_PRAYERS = [
-      { id: 'seed-1', text: 'Lord, calm my anxious thoughts today — Phil 4:6-7', hearts: 0, seed: true },
-      { id: 'seed-2', text: 'Healing for my marriage — Eph 5:25', hearts: 0, seed: true },
-      { id: 'seed-3', text: 'Strength to parent with grace', hearts: 0, seed: true },
-      { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
-      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
-      { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
-      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true },
-      { id: 'seed-8', text: 'Lord, help my unbelief in this storm.', hearts: 0, seed: true },
-      { id: 'seed-9', text: 'Peace for my anxious thoughts today.', hearts: 0, seed: true },
-      { id: 'seed-10', text: 'Calm my fear—I know You are near.', hearts: 0, seed: true },
-      { id: 'seed-11', text: 'When fear overwhelms—hold me, Lord.', hearts: 0, seed: true },
-      { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
-      { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
-      { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
-      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true },
-      { id: 'seed-16', text: 'Lord, give me patience with my kids when I\'m exhausted', hearts: 0, seed: true },
-      { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
-      { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
-      { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
-      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true },
-      { id: 'seed-21', text: 'After Fear to Faith day 7: I believe God walks with me in the unknowns. Grateful for Amens here.', hearts: 0, seed: true },
-      { id: 'seed-22', text: 'Finished the Fear to Faith plan — fear still visits, but quieter. Thanks for praying with me.', hearts: 0, seed: true },
-      { id: 'seed-23', text: 'Fear to Faith day 7 reflection: God\'s peace shows up in the quiet moments. Grateful for the Amens lifting others too.', hearts: 0, seed: true }
-    ];
-    function updateFeaturedPrayerHighlight() {
-      var featuredEl = document.getElementById('featured-prayer');
-      if (!featuredEl) return;
-      if (!SEED_PRAYERS.length) return;
-      var dayKey = typeof getDailyKey === 'function' ? getDailyKey() : '';
-      var h = 0;
-      for (var fi = 0; fi < dayKey.length; fi++) {
-        h = ((h << 5) - h) + dayKey.charCodeAt(fi);
-      }
-      var fidx = Math.abs(h) % SEED_PRAYERS.length;
-      var featured = SEED_PRAYERS[fidx];
-      featuredEl.textContent = '';
-      var card = document.createElement('div');
-      card.className = 'featured-prayer-card';
-      card.setAttribute('role', 'region');
-      card.setAttribute('aria-labelledby', 'featured-prayer-heading');
-      var h3 = document.createElement('h3');
-      h3.id = 'featured-prayer-heading';
-      h3.className = 'featured-prayer-heading';
-      h3.textContent = 'Featured quiet prayer today';
-      var pText = document.createElement('p');
-      pText.className = 'featured-prayer-text';
-      pText.textContent = (featured.text || '') + ' — Anonymous';
-      var note = document.createElement('p');
-      note.className = 'featured-prayer-note section-note';
-      note.textContent = 'One of the starter prayers below—rotates daily.';
-      card.appendChild(h3);
-      card.appendChild(pText);
-      card.appendChild(note);
-      featuredEl.appendChild(card);
-    }
-    function seededShuffle(arr, seedStr) {
-      var a = arr.slice();
-      var seed = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
-      for (var i = a.length - 1; i > 0; i--) {
-        seed = (seed * 9301 + 49297) % 233280;
-        var j = Math.floor((seed / 233280) * (i + 1));
-        var t = a[i]; a[i] = a[j]; a[j] = t;
-      }
-      return a;
-    }
-    function render() {
-      var items = (getItems() || []).filter(function (it) { return it && (it.text || '').trim().length > 0; });
-      var hearts = getHearts();
-      var dayKey = typeof getDailyKey === 'function' ? getDailyKey() : new Date().toISOString().slice(0, 10);
-      var displayItems = items.length > 0 ? items : seededShuffle(SEED_PRAYERS, dayKey);
-      if (displayItems.length === 0) displayItems = seededShuffle(SEED_PRAYERS, dayKey);
-      displayItems = displayItems.slice();
-      displayItems.sort(function (a, b) { return (b.hearts || 0) - (a.hearts || 0); });
-      listEl.innerHTML = '';
-      displayItems.forEach(function (item, idx) {
-        var isSeed = item.seed === true;
-        var li = document.createElement('li');
-        li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '') + (isSeed ? ' prayer-wall-seed' : '');
-        var iHearted = !isSeed && hearts[item.id];
-        var heartBtn = document.createElement('button');
-        heartBtn.type = 'button';
-        heartBtn.className = 'prayer-wall-heart ' + (iHearted ? 'hearted' : '');
-        heartBtn.setAttribute('data-id', String(item.id));
-        heartBtn.setAttribute('aria-label', 'Pray');
-        heartBtn.textContent = '\u2665';
-        if (isSeed) heartBtn.setAttribute('aria-hidden', 'true');
-        var countSpan = document.createElement('span');
-        countSpan.className = 'prayer-wall-count';
-        countSpan.textContent = String(item.hearts || 0);
-        var textSpan = document.createElement('span');
-        textSpan.className = 'prayer-wall-text';
-        textSpan.textContent = (item.text || '') + (isSeed ? ' — Anonymous' : '');
-        li.appendChild(heartBtn);
-        li.appendChild(document.createTextNode(' '));
-        li.appendChild(countSpan);
-        li.appendChild(document.createTextNode(' '));
-        li.appendChild(textSpan);
-        var shareBtn = document.createElement('button');
-        shareBtn.type = 'button';
-        shareBtn.className = 'share-btn prayer-wall-share';
-        shareBtn.textContent = 'Share';
-        shareBtn.setAttribute('aria-label', 'Share this prayer');
-        shareBtn.addEventListener('click', function () {
-          var text = (item.text || '').substring(0, 100) + ((item.text || '').length > 100 ? '...' : '');
-          var shareText = text + '\n— todaysdailybattle.com';
-          if (navigator.share && navigator.canShare && navigator.canShare({ text: shareText })) {
-            navigator.share({ text: shareText, url: window.location.href, title: 'Prayer from Today\'s Daily Battle' }).catch(function () {
-              navigator.clipboard.writeText(shareText).then(function () { shareBtn.textContent = 'Copied'; setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000); }).catch(function () {});
-            });
-          } else {
-            navigator.clipboard.writeText(shareText).then(function () { shareBtn.textContent = 'Copied'; setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000); }).catch(function () {});
-          }
-        });
-        li.appendChild(shareBtn);
-        if (!isSeed) {
-          var reportBtn = document.createElement('button');
-          reportBtn.type = 'button';
-          reportBtn.className = 'share-btn prayer-wall-report';
-          reportBtn.textContent = 'Report';
-          reportBtn.setAttribute('aria-label', 'Report this prayer as unsafe or spam');
-          reportBtn.addEventListener('click', function () {
-            reportPrayerWallItem(item).then(function (ok) {
-              if (ok) {
-                reportBtn.textContent = 'Reported';
-                reportBtn.disabled = true;
-                if (typeof showEliteToast === 'function') showEliteToast('Thanks—we review reports.');
-              } else if (typeof showEliteToast === 'function') showEliteToast('Could not report. Try contact.');
-            });
-          });
-          li.appendChild(reportBtn);
-        }
-        listEl.appendChild(li);
-      });
-      updateFeaturedPrayerHighlight();
-      listEl.setAttribute('data-prayer-wall-rendered', '1');
-      listEl.querySelectorAll('.prayer-wall-heart').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var id = this.getAttribute('data-id');
-          var items = getItems();
-          var hearts = getHearts();
-          var item = items.find(function (i) { return String(i.id) === String(id); });
-          if (!item) return;
-          if (hearts[id]) {
-            delete hearts[id];
-            item.hearts = (item.hearts || 0) - 1;
-          } else {
-            hearts[id] = true;
-            item.hearts = (item.hearts || 0) + 1;
-          }
-          saveHearts(hearts);
-          saveItems(items);
-          pushToCloud(getItems());
-          render();
-        });
-      });
-    }
-
-    // ── Add handler ──────────────────────────────────────────────────────────
-    if (addBtn && inputEl) {
-      addBtn.addEventListener('click', function () {
-        var raw = typeof sanitizeUserInput === 'function'
-          ? sanitizeUserInput((inputEl.value || '').trim())
-          : String((inputEl.value || '').trim()).slice(0, 120);
-        if (!raw) return;
-        var core = raw.slice(0, 106);
-        var text = ('Facing ' + core + ' today').slice(0, 120);
-        var items = getItems();
-        items.push({ id: Date.now(), text: text, hearts: 0 });
-        saveItems(items);
-        pushToCloud(items);
-        inputEl.value = '';
-        render();
-        // Record today on the prayer wall streak and update the badge
-        if (typeof recordPrayerWallDay === 'function') recordPrayerWallDay();
-        if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
-        // Posting today dismisses any visible grace message
-        if (typeof dismissPrayerWallGrace === 'function') dismissPrayerWallGrace();
-        // Show "Saved to cloud" vs "Saved locally" toast-style on note element
-        var isSynced = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
-        updateNoteEl(isSynced);
-        if (typeof showEliteToast === 'function') showEliteToast(isSynced ? 'Prayer added—synced.' : 'Prayer added—saved locally.');
-        if (typeof trackEvent === 'function') trackEvent('prayer_wall_add', { battle_prompt: true });
-        // Scroll new item into view
-        if (listEl && listEl.lastElementChild) listEl.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-      // Also allow Enter key to submit
-      inputEl.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') { addBtn.click(); }
-      });
-      listEl.setAttribute('data-prayer-wall-ready', '1');
-    }
-
-    // ── Initial load: local first, then pull cloud if signed in ──────────────
-    render();
-    // Render streak badge on page open (so returning users see their current streak immediately)
-    if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
-    // Determine initial sync state and update note
-    var isSignedIn = typeof canUseSupabase === 'function' && canUseSupabase() && typeof currentUserId !== 'undefined' && !!currentUserId;
-    updateNoteEl(isSignedIn);
-    // Pull cloud items after a short delay to avoid blocking initial render
-    setTimeout(function() { pullFromCloud(); }, 800);
-  })();
 
   const resetForm = document.getElementById('reset-form');
   if (resetForm) {

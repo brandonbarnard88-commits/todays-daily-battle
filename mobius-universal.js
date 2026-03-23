@@ -813,7 +813,8 @@
     attempt = attempt || 0;
     var d3Ready = !!window.d3;
     var dataReady = (getTopicData() && Object.keys(getTopicData()).length > 0) || !!window.TDB_TOPIC_DATA;
-    if ((d3Ready && dataReady) || attempt >= 5) {
+    /* Local /vendor/d3 loads with defer; script.js may still be filling TDB_TOPIC_DATA — wait longer than a few frames. */
+    if ((d3Ready && dataReady) || attempt >= 45) {
       init();
       return;
     }

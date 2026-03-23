@@ -18,9 +18,15 @@ test.describe('core smoke (dist)', () => {
   test('home: Hope topic shows verse cards', async ({ page }) => {
     await page.goto('/');
     await dismissFirstVisitIfPresent(page);
-    await page.getByRole('button', { name: 'Hope', exact: true }).click();
-    /* Quick-topic “Hope” uses renderSmartResult → .smart-card; full search uses .verse-card */
-    const result = page.locator('#feel-results .smart-card, #feel-results .verse-card').first();
+    /* Chip can sit below the fold on mobile viewports — scroll before click so the tap hits Hope, not chrome. */
+    const hopeBtn = page.locator('#quickTopics .quick-topic[data-topic="hope"]');
+    await hopeBtn.scrollIntoViewIfNeeded();
+    await hopeBtn.click();
+    /* Inline wireFeelSearch debounces (~300ms) into #feelCards .feel-verse-card; script.js may also use #feel-results .smart-card */
+    await page.waitForTimeout(450);
+    const result = page.locator(
+      '#feel-results .smart-card, #feel-results .verse-card, #feelCards .feel-verse-card'
+    ).first();
     await expect(result).toBeVisible({ timeout: 25000 });
   });
 

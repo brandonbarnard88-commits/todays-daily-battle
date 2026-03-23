@@ -15,6 +15,7 @@
     "test:mobile:local": "node scripts/mobile-test-local.mjs",
     "audit:paranoid": "node scripts/audit-paranoid.mjs",
     "qa:smoke": "node scripts/qa-smoke.mjs",
+    "free:8080": "node scripts/free-port.mjs 8080",
     "test:playwright": "playwright test",
     "test:playwright:calm": "playwright test tests/calm.spec.ts",
     "test:playwright:seeds": "QA_URL= playwright test tests/prayer-wall-seeds.spec.ts",

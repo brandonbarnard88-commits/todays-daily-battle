@@ -84,10 +84,21 @@
         } catch (_) {}
         return !!(v.constructor && v.constructor.name === 'TrustedHTML');
       }
-      /** DOMPurify and other libs assign to DocumentFragment/ShadowRoot innerHTML — separate sinks from Element (CSP require-trusted-types-for). */
-      var protos = [Element.prototype];
-      if (typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype) protos.push(DocumentFragment.prototype);
-      if (typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype) protos.push(ShadowRoot.prototype);
+      /** DOMPurify and other libs assign to DocumentFragment/ShadowRoot innerHTML — separate sinks from Element (CSP require-trusted-types-for).
+       * WebKit/Safari may expose innerHTML on SVG/MathML prototypes separately from Element; patch each that defines an own setter. */
+      var protos = [];
+      [
+        typeof Element !== 'undefined' && Element.prototype,
+        typeof SVGElement !== 'undefined' && SVGElement.prototype,
+        typeof SVGGraphicsElement !== 'undefined' && SVGGraphicsElement.prototype,
+        typeof MathMLElement !== 'undefined' && MathMLElement.prototype,
+        typeof DocumentFragment !== 'undefined' && DocumentFragment.prototype,
+        typeof ShadowRoot !== 'undefined' && ShadowRoot.prototype
+      ].forEach(function (proto) {
+        if (!proto || protos.indexOf(proto) !== -1) return;
+        var d0 = Object.getOwnPropertyDescriptor(proto, 'innerHTML');
+        if (d0 && d0.set) protos.push(proto);
+      });
       protos.forEach(function (proto) {
         var d = Object.getOwnPropertyDescriptor(proto, 'innerHTML');
         if (!d || !d.set) return;

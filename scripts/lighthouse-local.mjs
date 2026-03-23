@@ -9,6 +9,7 @@ import { readFileSync, existsSync, statSync } from 'fs';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { dirname, join, extname } from 'path';
+import { freePort } from './free-port.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -20,6 +21,7 @@ async function main() {
   execSync('npm run build', { cwd: root, stdio: 'inherit' });
 
   console.log('Starting serve on port 8080...');
+  await freePort(8080);
   const server = createServer((req, res) => {
     let p = req.url === '/' ? '/index.html' : req.url;
     p = join(dist, p.replace(/\?.*/, '').replace(/^\/+/, ''));

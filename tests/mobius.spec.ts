@@ -54,10 +54,9 @@ test.describe('Möbius Loop', () => {
   test('calm anxiety flow shows Möbius link', async ({ page }) => {
     await page.goto('/calm.html');
     await page.getByRole('button', { name: /Anxious or afraid/i }).click();
-    await expect(page.locator('#calm-mobius-cta')).toBeVisible();
-    await expect(page.getByRole('link', { name: /Walk the Möbius Loop/i })).toHaveAttribute(
-      'href',
-      /mobius\.html\?mood=fear/
-    );
+    /* Desktop (Playwright default viewport) updates #desktop-mobius-cta; narrow viewports use #calm-mobius-cta. */
+    const mobiusLink = page.getByRole('link', { name: /Walk the Möbius Loop/i });
+    await expect(mobiusLink).toBeVisible();
+    await expect(mobiusLink).toHaveAttribute('href', /mobius\.html\?mood=fear/);
   });
 });

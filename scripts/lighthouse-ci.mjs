@@ -9,6 +9,7 @@ import { spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { dirname, join, extname } from 'path';
 import { chromium } from 'playwright';
+import { freePort } from './free-port.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -53,6 +54,7 @@ const server = createServer((req, res) => {
   res.end(readFileSync(p));
 });
 
+await freePort(8080);
 await new Promise((resolve, reject) => {
   server.listen(8080, '127.0.0.1', (err) => (err ? reject(err) : resolve()));
 });

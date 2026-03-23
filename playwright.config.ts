@@ -1,5 +1,13 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// Cursor/agent sandboxes sometimes set PLAYWRIGHT_BROWSERS_PATH to an incomplete cache; drop it so Playwright uses a real install.
+if (
+  typeof process.env.PLAYWRIGHT_BROWSERS_PATH === 'string' &&
+  process.env.PLAYWRIGHT_BROWSERS_PATH.includes('cursor-sandbox-cache')
+) {
+  delete process.env.PLAYWRIGHT_BROWSERS_PATH;
+}
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -16,7 +24,7 @@ export default defineConfig({
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
   ],
   webServer: process.env.QA_URL ? undefined : {
-    command: 'npx -y serve dist -p 8080',
+    command: 'node scripts/free-port.mjs 8080 && npx -y serve dist -p 8080',
     url: 'http://localhost:8080',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

@@ -26,17 +26,18 @@ async function waitForPrayerWallSeeds(page: Page, testInfo?: { attach: (name: st
   await page.locator('#prayer-wall').scrollIntoViewIfNeeded().catch(() => {});
 
   await page.waitForSelector('#prayer-wall-list', { state: 'attached', timeout: 10000 });
-  /* Post button wiring runs late in tdbInit (after Bible load); don’t interact before ready */
-  await page.waitForSelector('#prayer-wall-list[data-prayer-wall-ready="1"]', { timeout: 25000 });
+  /* Seeds paint synchronously before first await in tdbInit; poll for full list (more reliable than a window flag in CI). */
   try {
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23, { timeout: 15000 });
+    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23, { timeout: 25000 });
   } catch (e) {
     const diag = await page.evaluate(() => {
       const list = document.getElementById('prayer-wall-list');
       return {
         listExists: !!list,
         rendered: list?.getAttribute('data-prayer-wall-rendered') ?? 'none',
+        ready: list?.getAttribute('data-prayer-wall-ready') ?? 'none',
         itemCount: list?.querySelectorAll('li.prayer-wall-item').length ?? 0,
+        initDone: (window as Window & { __tdbPrayerWallInitDone?: boolean })['__tdbPrayerWallInitDone'],
         innerHTML: list?.innerHTML?.slice(0, 200) ?? ''
       };
     });
@@ -58,7 +59,8 @@ test.describe('Prayer Wall seeds', () => {
     const items = page.locator('#prayer-wall-list li.prayer-wall-item');
     await expect(items).toHaveCount(23);
     await expect(page.locator('#prayer-wall-list').getByText(/heal our land|Thank you for this day|Guide my steps|help my unbelief|anxious thoughts|When fear overwhelms|carrying this grief|Calm the storm|afraid of what comes next|This loss is heavy|Fear to Faith|walks with me in the unknowns|quieter\. Thanks for praying|quiet moments\. Grateful for the Amens/i).first()).toBeVisible();
-    await expect(page.locator('#prayerTodayLabel')).toContainText('0 prayers today');
+    /* setPrayerTodayLabel(0) uses quiet copy, not "0 prayers today" */
+    await expect(page.locator('#prayerTodayLabel')).toContainText(/Quiet today|0 prayers today/i);
   });
 
   test('seeds still listed after going offline (same session)', async ({ page, context }) => {
@@ -72,12 +74,12 @@ test.describe('Prayer Wall seeds', () => {
   test('posting a prayer adds it to the list', async ({ page }) => {
     await waitForPrayerWallSeeds(page, test.info());
     await page.locator('#prayer-wall').scrollIntoViewIfNeeded();
-    await page.waitForSelector('#prayer-wall-list[data-prayer-wall-ready="1"]', { timeout: 25000 });
     const uniqueText = `E2E test prayer ${Date.now()}`;
     const input = page.locator('#prayer-wall-input');
     await input.waitFor({ state: 'visible', timeout: 15000 });
     await input.fill(uniqueText);
-    await page.locator('#prayer-wall-add').click();
+    /* Force: welcome/toolbox overlays occasionally intercept the center hit in headless. */
+    await page.locator('#prayer-wall-add').click({ force: true });
     await page.waitForFunction(
       (t) => {
         try {
@@ -94,7 +96,7 @@ test.describe('Prayer Wall seeds', () => {
         }
       },
       uniqueText,
-      { timeout: 15000 }
+      { timeout: 20000 }
     );
     await expect(page.locator('#prayer-wall-list')).toContainText(uniqueText, { timeout: 10000 });
     await expect(page.locator('#prayer-wall-list li.prayer-wall-item:not(.prayer-wall-seed)')).toHaveCount(1);

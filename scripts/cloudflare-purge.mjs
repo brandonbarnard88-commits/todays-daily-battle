@@ -94,6 +94,8 @@ const SOCIAL_PURGE_PATHS = [
   '/testimonials.html',
   '/index.html',
   '/plans.html',
+  '/why-not-ai',
+  '/why-not-ai/',
   '/why-not-ai.html',
   '/message.html',
   '/script.js',

@@ -91,12 +91,43 @@
     .mobius-tracer-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); padding: 0.5rem 1rem; font-size: 0.85rem; color: var(--tool-gold-soft); background: var(--tool-bg-soft); border: 1px solid var(--tool-gold); border-radius: 8px; z-index: 60; animation: mobius-teaser-in 0.3s ease; }
     .mobius-node-seen circle { filter: drop-shadow(0 0 8px var(--tool-gold)); }
     .mobius-tracer-toast-fade { opacity: 0; transition: opacity 0.4s; }
-    .mobius-deep-walk { margin-top: 2rem; max-width: 560px; text-align: center; padding: 1.5rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; }
-    .mobius-deep-walk h2 { font-size: 1.25rem; margin: 0 0 1rem; color: var(--tool-gold-soft); font-weight: 600; }
-    .mobius-deep-walk .mobius-deep-intro { font-style: italic; color: var(--tool-muted); line-height: 1.6; margin-bottom: 1rem; }
-    .mobius-deep-walk ol { text-align: left; margin: 1.25rem auto; padding-left: 1.5rem; max-width: 480px; line-height: 1.7; color: var(--tool-text); }
-    .mobius-deep-walk ol li { margin-bottom: 0.6rem; }
-    .mobius-deep-walk .mobius-deep-echo { font-size: 0.85rem; color: var(--tool-muted); margin-top: 1.5rem; font-style: italic; }
+    .mobius-section { margin-top: 2rem; max-width: 560px; text-align: center; padding: 1.5rem; background: var(--tool-bg-soft); border: 1px solid var(--tool-line); border-radius: 12px; }
+    .mobius-section h2 { font-size: 1.25rem; margin: 0 0 1rem; color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-section h3 { font-size: 1.05rem; margin: 1.5rem 0 0.75rem; color: var(--tool-gold-soft); font-weight: 600; text-align: left; }
+    .mobius-section .verse-lead { font-style: italic; color: var(--tool-muted); line-height: 1.6; margin: 0 0 1rem; }
+    .mobius-section .core-truth { text-align: left; line-height: 1.65; color: var(--tool-text); margin: 0 0 0.5rem; }
+    .mobius-section .core-truth strong { color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-visual { width: min(280px, 72vw); height: min(280px, 72vw); margin: 1.25rem auto 1.5rem; perspective: 1000px; position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.75rem; }
+    .mobius-ribbon { width: 100%; height: 100%; max-width: 280px; max-height: 280px; border-radius: 50%; transform-style: preserve-3d; animation: mobius-rotate 25s linear infinite; box-shadow: 0 0 40px rgba(74, 112, 67, 0.45), inset 0 0 24px rgba(0, 0, 0, 0.25); background: linear-gradient(135deg, rgba(74, 112, 67, 0.95), rgba(143, 188, 143, 0.85), rgba(74, 112, 67, 0.95)); position: relative; }
+    .mobius-ribbon::before { content: ''; position: absolute; inset: 12%; border-radius: 50%; border: 3px solid rgba(227, 188, 103, 0.35); transform: rotateX(60deg); box-shadow: inset 0 0 20px rgba(227, 188, 103, 0.15); }
+    .mobius-ribbon::after { content: ''; position: absolute; inset: 22%; border-radius: 50%; border: 2px dashed rgba(245, 247, 251, 0.12); animation: mobius-rotate 18s linear infinite reverse; }
+    @keyframes mobius-rotate { from { transform: rotateX(45deg) rotateY(0deg); } to { transform: rotateX(45deg) rotateY(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .mobius-ribbon, .mobius-ribbon::after { animation: none; }
+      .mobius-ribbon { transform: rotateX(45deg) rotateY(20deg); opacity: 0.95; }
+    }
+    .mobius-section .visual-placeholder { margin: 0; font-size: 0.88rem; color: var(--tool-muted); line-height: 1.45; max-width: 22rem; }
+    .mobius-section ol.deep-walk-steps { text-align: left; margin: 1rem auto 1.25rem; padding-left: 1.5rem; max-width: 100%; line-height: 1.65; color: var(--tool-text); counter-reset: step; list-style: decimal; }
+    .mobius-section ol.deep-walk-steps > li { margin-bottom: 1rem; }
+    .mobius-section ol.deep-walk-steps ul { margin: 0.5rem 0 0; padding-left: 1.25rem; list-style: disc; color: var(--tool-text); }
+    .mobius-section ol.deep-walk-steps ul li { margin-bottom: 0.45rem; }
+    .mobius-section .daily-carry, .mobius-section .when-heavy { text-align: left; margin-top: 1.25rem; padding: 1rem 1.1rem; border: 1px solid var(--tool-line); border-radius: 10px; background: rgba(26, 33, 45, 0.35); }
+    .mobius-section .daily-carry p, .mobius-section .when-heavy p { margin: 0 0 0.75rem; line-height: 1.6; color: var(--tool-text); font-size: 0.92rem; }
+    .mobius-section .mobius-journal-prompts-label { margin: 0 0 0.85rem; font-size: 0.88rem; line-height: 1.5; color: var(--tool-muted); text-align: left; }
+    .mobius-section .daily-carry h3, .mobius-section .when-heavy h3 { margin-top: 0; }
+    .mobius-section .mobius-deep-walk-verse-btn { margin-top: 0.25rem; min-height: 44px; transition: border-color 0.18s, color 0.18s, box-shadow 0.18s; }
+    .mobius-section .mobius-deep-walk-verse-btn:hover, .mobius-section .mobius-deep-walk-verse-btn:focus-visible { box-shadow: 0 0 0 2px rgba(227, 188, 103, 0.35); }
+    .mobius-section .verse-box { margin-top: 0.85rem; min-height: 2.5rem; padding: 0.75rem 0.9rem; text-align: left; font-size: 0.9rem; line-height: 1.55; color: var(--tool-muted); border-left: 3px solid rgba(227, 188, 103, 0.45); background: rgba(0, 0, 0, 0.15); border-radius: 0 8px 8px 0; }
+    .mobius-section .verse-box strong { color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-section .echo { font-size: 0.88rem; color: var(--tool-muted); margin: 1.5rem 0 0; font-style: italic; line-height: 1.5; }
+    .mobius-diy-details { margin-top: 1.25rem; text-align: left; border: 1px solid var(--tool-line); border-radius: 10px; padding: 0 1rem 0.75rem; background: rgba(26, 33, 45, 0.25); }
+    .mobius-diy-details summary { cursor: pointer; padding: 0.85rem 0; font-size: 1.05rem; color: var(--tool-gold-soft); font-weight: 600; list-style: none; min-height: 44px; display: flex; align-items: center; }
+    .mobius-diy-details summary::-webkit-details-marker { display: none; }
+    .mobius-diy-details summary::after { content: '▸'; margin-left: auto; font-size: 0.75rem; opacity: 0.7; transition: transform 0.2s; }
+    .mobius-diy-details[open] summary::after { transform: rotate(90deg); }
+    .mobius-diy-details ol { margin: 0 0 0.75rem; padding-left: 1.5rem; line-height: 1.65; color: var(--tool-text); }
+    .mobius-diy-details ol li { margin-bottom: 0.45rem; }
+    .mobius-diy-details + p { text-align: left; margin-top: 0.75rem; font-size: 0.9rem; color: var(--tool-muted); }
     .mobius-timer-display { font-size: 2.5rem; font-variant-numeric: tabular-nums; color: var(--tool-gold-soft); text-align: center; margin: 1.5rem 0; min-height: 3rem; }
     .tool-btn-muted { color: var(--tool-muted); border-color: var(--tool-line); }
     .tool-btn-muted:hover, .tool-btn-muted:focus-visible { color: var(--tool-text); border-color: var(--tool-muted); }
@@ -170,20 +201,70 @@
       <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>
       <p id="mobius-streak-display" class="mobius-streak-display" role="status" aria-live="polite"></p>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
-      <section id="mobius-deep-walk" class="mobius-deep-walk" aria-labelledby="mobius-deep-walk-title">
-        <h2 id="mobius-deep-walk-title">Hidden Scrolls: Deep Walk</h2>
-        <p class="mobius-deep-intro">"Enoch walked with God: and he was not; for God took him." — Genesis 5:24<br>One ribbon. No separation. Fear turns… faith turns… presence remains.</p>
-        <p>Begin here. Sit still. Breathe slow. Let the loop carry you.</p>
-        <ol>
-          <li>Close your eyes. Picture the Möbius: one surface, twisting forever.</li>
-          <li>Inhale: "I walk…" (feel the step into the unknown, like Enoch into heaven).</li>
-          <li>Exhale: "…with God." (release fear—the watchers fell, but the path didn't break).</li>
-          <li>Repeat softly for 5–10 breaths. No forcing. Just motion.</li>
-          <li>When thoughts come (doubt, giants, watchers), notice: they're on the same side. Let them flip past.</li>
-          <li>Rest in the silence. Enoch didn't strive—he walked until he was taken. You're already on the path.</li>
-          <li>Open eyes when ready. Carry the loop: one journey, endless turns.</li>
+      <section id="mobius-deep-walk" class="mobius-section" aria-labelledby="mobius-deep-walk-title">
+        <h2 id="mobius-deep-walk-title">Möbius Deep Walk</h2>
+        <p class="verse-lead">“Thy word is a lamp unto my feet, and a light unto my path.” — Psalm 119:105 KJV</p>
+
+        <div class="mobius-visual">
+          <div class="mobius-ribbon" aria-hidden="true"></div>
+          <p class="visual-placeholder">One continuous ribbon. One surface. Endless forward motion.</p>
+        </div>
+
+        <p class="core-truth">
+          This is not an escape. This is training for the long war.<br>
+          The Möbius has only one side and one endless edge. There is no “other side.”<br>
+          Whatever life throws at you — the crushing pressure, the temptation that keeps circling back, the grief that returns, the exhaustion, the sudden attack, the doubt that won’t quit — lives on the <strong>same continuous ribbon</strong> as God’s strength, His peace, and His victory.<br><br>
+          The twist in the ribbon is the Cross. What feels like reversal or defeat actually propels you forward. Every trial is preparation. Every loop forges endurance, character, and hope that does not disappoint. God is not pulling you off the battlefield. He is forging you <strong>on</strong> it — on one single, unbreakable surface that never ends.
+        </p>
+
+        <h3>Enter the Loop — Face Reality</h3>
+        <ol class="deep-walk-steps">
+          <li><strong>Physical</strong> — Make or hold a real Möbius ribbon (see DIY below). Trace it slowly with your finger. Feel the truth in your body: one surface, endless path.</li>
+          <li><strong>Breathe the Hard Truth</strong><br>
+            Inhale slowly and honestly: “This battle is real. It hurts. It will come around again…” (Name the exact weight — be brutally specific.)<br>
+            Exhale: “…but it stays on the same ribbon. God is with me here. His Word equips me for what’s ahead.”<br>
+            Repeat 12–20 breaths. Don’t rush past the discomfort. Let it sit on the ribbon with you.
+          </li>
+          <li><strong>When the Trial Loops Back</strong> (because in real life it does) — Pause and declare out loud: “Still the same ribbon. Still the same God. This is preparing me for what’s coming.”</li>
+          <li><strong>Activate Scripture — Your Endless Arsenal</strong><br>
+            Use any verse or teaching from the full Bible. Speak it over the named battle:
+            <ul>
+              <li>Fear &amp; anxiety: “Peace I leave with you… Let not your heart be troubled…” (John 14:27) + “Be careful for nothing… And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.” (Philippians 4:6–7)</li>
+              <li>Weariness: “They that wait upon the LORD shall renew their strength…” (Isaiah 40:31)</li>
+              <li>Temptation that returns: “God is faithful, who will not suffer you to be tempted above that ye are able…” (1 Corinthians 10:13)</li>
+              <li>Suffering feels pointless: “Tribulation worketh patience; and patience, experience; and experience, hope…” (Romans 5:3–5) + “Our light affliction, which is but for a moment, worketh for us a far more exceeding and eternal weight of glory…” (2 Corinthians 4:17–18)</li>
+              <li>Attacked or opposed: “The LORD is my light and my salvation; whom shall I fear?” (Psalm 27:1)</li>
+            </ul>
+          </li>
+          <li><strong>Rest in the Flow</strong> — Sit in the silence. Ask the Holy Spirit to burn one verse deep into your spirit for the battles ahead this week.</li>
+          <li><strong>Carry It Forward</strong> — Open your eyes and declare: “I am not walking two paths. I am on one continuous ribbon with my God. I am being prepared.”</li>
         </ol>
-        <p class="mobius-deep-echo">Echo from Enoch: "I saw the Ancient of Days… His head white like wool." (1 Enoch 46)<br>Sit longer if called. The text waits in the flip.</p>
+
+        <div class="daily-carry">
+          <h3>Carry the Ribbon Today</h3>
+          <p>Every step, every conversation, every moment of pressure is another lap on the same surface. The battles will return — but so will His faithfulness. You were never meant to escape the fight. You were meant to overcome on the very ribbon where the fight lives.</p>
+          <p class="mobius-journal-prompts-label"><strong>Journal (optional):</strong> Name the weight without softening it. Write one verse you will speak when this loops back.</p>
+          <button type="button" class="tool-btn mobius-deep-walk-verse-btn" id="mobius-deep-walk-verse" aria-controls="mobius-deep-walk-verse-output" aria-label="Pull a random verse for today’s battle">Pull a Verse for Today’s Battle</button>
+          <div id="mobius-deep-walk-verse-output" class="verse-box" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="when-heavy">
+          <h3>When the Ribbon Feels Heavy</h3>
+          <p>Come back to this page. Trace the ribbon again. Breathe. Speak the truth. The surface never changes. Neither does God.</p>
+        </div>
+
+        <details class="mobius-diy-details">
+          <summary>Make Your Own Physical Möbius (5 minutes)</summary>
+          <ol>
+            <li>Take a strip of paper (any length).</li>
+            <li>Give one end a half-twist (180°).</li>
+            <li>Tape the ends together.</li>
+            <li>Draw a line down the middle — it will go all the way around and meet itself without ever crossing an edge. That’s the one-surface truth.</li>
+          </ol>
+        </details>
+        <p>Keep it in your pocket or on your desk. It is your daily reminder.</p>
+
+        <p class="echo">The ribbon never breaks. Neither does His faithfulness. Walk on.</p>
       </section>
     </div>
 
@@ -564,6 +645,41 @@
           }
         });
       }
+
+      var deepWalkVerseBtn = document.getElementById('mobius-deep-walk-verse');
+      var deepWalkVerseOut = document.getElementById('mobius-deep-walk-verse-output');
+      var MOBIUS_DEEP_VERSES = [
+        'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid. — John 14:27',
+        'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus. — Philippians 4:6–7',
+        'They that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint. — Isaiah 40:31',
+        'There hath no temptation taken you but such as is common to man: but God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape, that ye may be able to bear it. — 1 Corinthians 10:13',
+        'And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; and patience, experience; and experience, hope: and hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us. — Romans 5:3–5',
+        'For our light affliction, which is but for a moment, worketh for us a far more exceeding and eternal weight of glory; while we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal. — 2 Corinthians 4:17–18',
+        'The LORD is my light and my salvation; whom shall I fear? the LORD is the strength of my life; of whom shall I be afraid? — Psalm 27:1',
+        'In this world ye shall have tribulation: but be of good cheer; I have overcome the world. — John 16:33',
+        'Thy word is a lamp unto my feet, and a light unto my path. — Psalm 119:105',
+        'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind. — 2 Timothy 1:7',
+        'Blessed is the man that endureth temptation: for when he is tried, he shall receive the crown of life, which the Lord hath promised to them that love him. — James 1:12',
+        'What shall we then say to these things? If God be for us, who can be against us? — Romans 8:31',
+        'I can do all things through Christ which strengtheneth me. — Philippians 4:13',
+        'Casting all your care upon him; for he careth for you. — 1 Peter 5:7',
+        'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness. — Isaiah 41:10'
+      ];
+      function wireMobiusDeepWalkVerse() {
+        if (!deepWalkVerseBtn || !deepWalkVerseOut) return;
+        deepWalkVerseBtn.addEventListener('click', function () {
+          var pick = MOBIUS_DEEP_VERSES[Math.floor(Math.random() * MOBIUS_DEEP_VERSES.length)];
+          deepWalkVerseOut.textContent = '';
+          var lead = document.createElement('strong');
+          lead.textContent = 'For today\'s battle: ';
+          deepWalkVerseOut.appendChild(lead);
+          deepWalkVerseOut.appendChild(document.createTextNode(pick));
+          try {
+            if (typeof window.trackEvent === 'function') window.trackEvent('mobius_deep_walk_verse', { source: 'button' });
+          } catch (e) {}
+        });
+      }
+      wireMobiusDeepWalkVerse();
       }
 
       function migrateAndInit() {

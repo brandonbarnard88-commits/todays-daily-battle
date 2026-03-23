@@ -21972,6 +21972,13 @@ function sanitizeNudgeElements() {
     });
   }
 
+  const themedPlanGriefHope = document.getElementById('themed-plan-grief-hope');
+  if (themedPlanGriefHope) {
+    themedPlanGriefHope.addEventListener('click', () => {
+      window.location.href = 'plans.html?plan=griefhope';
+    });
+  }
+
   const themedPlanFear21 = document.getElementById('themed-plan-fear-21');
   if (themedPlanFear21) {
     themedPlanFear21.addEventListener('click', () => {

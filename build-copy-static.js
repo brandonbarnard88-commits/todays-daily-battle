@@ -237,6 +237,10 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include Doubt → Assurance plan (doubtassurance / tdb-plan-doubtassurance-day).');
       process.exit(1);
     }
+    if (!content.includes('griefhope') || !content.includes('tdb-plan-griefhope-day')) {
+      console.error('BUILD FAIL: plans.html must include Grief → Hope plan (griefhope / tdb-plan-griefhope-day).');
+      process.exit(1);
+    }
     console.log('Copied plans.html (battle plans library)');
   }
   if (f === 'privacy.html') {

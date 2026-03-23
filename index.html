@@ -662,20 +662,31 @@
       .tdb-global-nav a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
     }
 
-    /* ── Moat banner (curated habit vs. endless chat) ── */
+    /* ── Moat banner (curated habit vs. endless chat) — below hero, glass band ── */
     .tdb-moat-banner {
       margin: 0;
-      padding: 0.65rem 1rem;
+      padding: 1rem 1.15rem 1.15rem;
       text-align: center;
       position: relative;
       z-index: 20;
-      background: linear-gradient(90deg, rgba(15, 23, 42, 0.95), rgba(23, 32, 52, 0.98), rgba(15, 23, 42, 0.95));
-      border-bottom: 1px solid rgba(227, 188, 103, 0.22);
-      font-size: 0.92rem;
-      line-height: 1.45;
-      color: rgba(226, 232, 240, 0.92);
+      background: linear-gradient(
+        165deg,
+        color-mix(in srgb, var(--card) 78%, transparent) 0%,
+        color-mix(in srgb, var(--bg-soft) 86%, transparent) 48%,
+        color-mix(in srgb, var(--card) 80%, transparent) 100%
+      );
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, var(--gold) 12%);
+      box-shadow:
+        0 1px 0 color-mix(in srgb, var(--gold) 12%, transparent),
+        0 12px 32px rgba(0, 0, 0, 0.14);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--muted) 94%, var(--text) 6%);
     }
-    /* Below hero: edge-to-edge inside padded .app (was body child above sky — blocked sun/moon band) */
+    /* Below hero: edge-to-edge inside padded .app */
     .app > .tdb-moat-banner {
       z-index: 12;
       width: calc(100% + 2.5rem);
@@ -697,54 +708,158 @@
         margin-left: -3.5rem;
         margin-right: -3.5rem;
       }
+      .tdb-moat-banner {
+        padding: 1.15rem 1.5rem 1.25rem;
+      }
     }
-    .tdb-moat-banner-text {
+    .tdb-moat-banner-inner {
       margin: 0 auto;
-      max-width: 52rem;
+      max-width: 46rem;
+    }
+    .tdb-moat-banner-top {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .tdb-moat-banner-top {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.85rem 1.25rem;
+      }
+    }
+    .tdb-moat-banner-lead {
+      margin: 0;
+      max-width: 36rem;
+      text-align: center;
+      font-size: clamp(0.92rem, 2.4vw, 1.02rem);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: color-mix(in srgb, var(--text) 92%, var(--muted) 8%);
+      text-wrap: balance;
+    }
+    .tdb-moat-banner-cta {
+      flex-shrink: 0;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.35rem 0.75rem;
+      min-height: 44px;
+      padding: 0.42rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--gold) 42%, transparent);
+      background: color-mix(in srgb, var(--gold) 9%, transparent);
+      color: var(--gold-soft, #f2dc98);
+      font-weight: 600;
+      font-size: 0.87rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
     }
-    .tdb-moat-banner-lead { flex: 1 1 16rem; text-align: center; }
-    .tdb-moat-banner-sub {
-      flex: 1 1 100%;
+    .tdb-moat-banner-cta:hover {
+      background: color-mix(in srgb, var(--gold) 16%, transparent);
+      border-color: color-mix(in srgb, var(--gold) 58%, transparent);
+      color: #fff8e8;
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 15%, transparent);
+    }
+    .tdb-moat-banner-cta:focus-visible {
+      outline: 2px solid rgba(227, 188, 103, 0.8);
+      outline-offset: 3px;
+      border-radius: 999px;
+    }
+    .tdb-moat-banner-kicker {
+      margin: 1.05rem 0 0.5rem;
+      padding: 0;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
+    }
+    .tdb-moat-banner-plans {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.45rem 1.5rem;
       text-align: center;
-      font-size: 0.88em;
-      line-height: 1.4;
-      color: rgba(226, 232, 240, 0.82);
-      margin: 0.1rem 0 0;
+    }
+    @media (min-width: 720px) {
+      .tdb-moat-banner-plans {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        column-gap: 2rem;
+        row-gap: 0.4rem;
+      }
+    }
+    .tdb-moat-banner-plans li {
+      margin: 0;
+      padding: 0.2rem 0;
+      font-size: 0.86rem;
+      line-height: 1.48;
+      color: color-mix(in srgb, var(--muted) 96%, var(--text) 4%);
     }
     .tdb-moat-banner-link {
-      flex-shrink: 0;
       color: var(--gold, #e3bc67);
       font-weight: 600;
       text-decoration: none;
-      border-bottom: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
-      padding: 0.35rem 0.25rem;
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      box-sizing: border-box;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 40%, transparent);
+      padding: 0.15rem 0;
+      transition: color 0.15s ease, border-color 0.15s ease;
     }
-    .tdb-moat-banner-link:hover { color: #f2dc98; border-bottom-color: rgba(242, 220, 152, 0.5); }
+    .tdb-moat-banner-link:hover {
+      color: #f2dc98;
+      border-bottom-color: rgba(242, 220, 152, 0.55);
+    }
     .tdb-moat-banner-link:focus-visible {
       outline: 2px solid rgba(227, 188, 103, 0.75);
       outline-offset: 3px;
       border-radius: 4px;
     }
     :root[data-theme="light"] .tdb-moat-banner {
-      background: linear-gradient(90deg, #f0ebe0, #faf6ed, #f0ebe0);
-      color: #1a1f2e;
-      border-bottom-color: color-mix(in srgb, #9e7625 35%, var(--line));
+      background: linear-gradient(165deg, rgba(255, 253, 248, 0.92), rgba(250, 246, 237, 0.96), rgba(255, 252, 245, 0.94));
+      color: rgba(45, 52, 68, 0.9);
+      border-top-color: color-mix(in srgb, #9e7625 32%, var(--line));
+      border-bottom-color: color-mix(in srgb, var(--line) 82%, #9e7625 14%);
+      box-shadow: 0 1px 0 color-mix(in srgb, #9e7625 14%, transparent), 0 10px 28px rgba(64, 41, 8, 0.08);
+    }
+    :root[data-theme="light"] .tdb-moat-banner-lead {
+      color: rgba(26, 31, 46, 0.94);
+    }
+    :root[data-theme="light"] .tdb-moat-banner-kicker {
+      color: rgba(90, 72, 40, 0.75);
+    }
+    :root[data-theme="light"] .tdb-moat-banner-plans li {
+      color: rgba(40, 48, 62, 0.88);
+    }
+    :root[data-theme="light"] .tdb-moat-banner-cta {
+      color: #6b4f16;
+      border-color: color-mix(in srgb, #7a5818 45%, transparent);
+      background: color-mix(in srgb, #9e7625 10%, transparent);
+    }
+    :root[data-theme="light"] .tdb-moat-banner-cta:hover {
+      color: #4a3a12;
+      border-color: color-mix(in srgb, #7a5818 60%, transparent);
+      background: color-mix(in srgb, #9e7625 16%, transparent);
+      box-shadow: none;
     }
     :root[data-theme="light"] .tdb-moat-banner-link {
       color: #7a5818;
-      border-bottom-color: color-mix(in srgb, #7a5818 40%, transparent);
+      border-bottom-color: color-mix(in srgb, #7a5818 38%, transparent);
     }
-    :root[data-theme="light"] .tdb-moat-banner-link:hover { color: #5c410f; }
-    :root[data-theme="light"] .tdb-moat-banner-sub { color: rgba(26, 31, 46, 0.78); }
+    :root[data-theme="light"] .tdb-moat-banner-link:hover {
+      color: #5c410f;
+      border-bottom-color: color-mix(in srgb, #5c410f 45%, transparent);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tdb-moat-banner-cta,
+      .tdb-moat-banner-link {
+        transition: none;
+      }
+    }
 
     /* Small-phone tightening — 400px and under */
     @media (max-width: 400px) {
@@ -755,6 +870,10 @@
       .site-title-underline { width: 110px; }
       .site-top-links { font-size: 0.8rem; margin-top: 0.45rem; padding: 0.35rem 0.5rem; }
       .site-top-links a { margin: 0 0.28rem; }
+      .tdb-moat-banner { padding: 0.85rem 0.9rem 1rem; }
+      .tdb-moat-banner-kicker { letter-spacing: 0.16em; margin-top: 0.85rem; }
+      .tdb-moat-banner-plans { gap: 0.38rem; }
+      .tdb-moat-banner-plans li { font-size: 0.84rem; }
     }
 
     .site-title {
@@ -4346,16 +4465,21 @@
       </nav>
     </header>
 
-    <div class="tdb-moat-banner" role="region" aria-label="How this site differs from AI chat tools, and seven-day reading plans">
-      <p class="tdb-moat-banner-text">
-        <span class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</span>
-        <a class="tdb-moat-banner-link" href="why-not-ai.html">Why not AI?</a>
-        <span class="tdb-moat-banner-sub">When fear or anxiety spikes, try <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>&mdash;seven days in Scripture.</span>
-        <span class="tdb-moat-banner-sub">When your mind won&rsquo;t stop running tomorrow, try <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>&mdash;seven days in Scripture.</span>
-        <span class="tdb-moat-banner-sub">When heat or frustration runs the day, try <a class="tdb-moat-banner-link" href="plans.html?plan=angerpeace" aria-label="Open Anger to Peace, a 7-day KJV reading plan">Anger → Peace</a>&mdash;seven days in Scripture.</span>
-        <span class="tdb-moat-banner-sub">When questions crowd out confidence, try <a class="tdb-moat-banner-link" href="plans.html?plan=doubtassurance" aria-label="Open Doubt to Assurance, a 7-day KJV reading plan">Doubt → Assurance</a>&mdash;seven days in Scripture.</span>
-        <span class="tdb-moat-banner-sub">When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>&mdash;seven days in Scripture.</span>
-      </p>
+    <div class="tdb-moat-banner" role="region" aria-labelledby="tdb-moat-lead">
+      <div class="tdb-moat-banner-inner">
+        <div class="tdb-moat-banner-top">
+          <p id="tdb-moat-lead" class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</p>
+          <a class="tdb-moat-banner-cta" href="why-not-ai.html">Why not AI?</a>
+        </div>
+        <p id="tdb-moat-kicker" class="tdb-moat-banner-kicker">Seven-day paths</p>
+        <ul class="tdb-moat-banner-plans" aria-labelledby="tdb-moat-kicker">
+          <li>When fear or anxiety spikes, try <a class="tdb-moat-banner-link" href="plans.html?plan=fearfaith" aria-label="Open Fear to Faith, a 7-day KJV reading plan">Fear to Faith</a>&mdash;seven days in Scripture.</li>
+          <li>When your mind won&rsquo;t stop running tomorrow, try <a class="tdb-moat-banner-link" href="plans.html?plan=worrytrust" aria-label="Open Worry to Trust, a 7-day KJV reading plan">Worry to Trust</a>&mdash;seven days in Scripture.</li>
+          <li>When heat or frustration runs the day, try <a class="tdb-moat-banner-link" href="plans.html?plan=angerpeace" aria-label="Open Anger to Peace, a 7-day KJV reading plan">Anger → Peace</a>&mdash;seven days in Scripture.</li>
+          <li>When questions crowd out confidence, try <a class="tdb-moat-banner-link" href="plans.html?plan=doubtassurance" aria-label="Open Doubt to Assurance, a 7-day KJV reading plan">Doubt → Assurance</a>&mdash;seven days in Scripture.</li>
+          <li>When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>&mdash;seven days in Scripture.</li>
+        </ul>
+      </div>
     </div>
 
     <div class="header-sub-toolbar" role="region" aria-label="Share today’s verse and reading plans">

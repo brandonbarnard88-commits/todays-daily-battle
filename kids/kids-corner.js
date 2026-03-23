@@ -4342,21 +4342,123 @@
     return terms;
   }
 
+  /** uFuzzy haystack rows aligned with orderedKeys; invalidated when key list signature changes. */
+  var _kidsLibFuzzyHay = null;
+  var _kidsLibFuzzyHaySig = '';
+
+  function kidsLibraryFuzzyHaySig(orderedKeys) {
+    if (!orderedKeys || !orderedKeys.length) return '0';
+    return orderedKeys.length + '\n' + orderedKeys.join('\n');
+  }
+
+  function buildKidsLibraryFuzzyHaystack(orderedKeys) {
+    var stories = getStories();
+    var hay = [];
+    for (var i = 0; i < orderedKeys.length; i++) {
+      var key = orderedKeys[i];
+      var s = stories[key];
+      if (!s) {
+        hay.push(String(key).replace(/([A-Z])/g, ' $1').trim());
+        continue;
+      }
+      var parts = [];
+      parts.push(s.title || '', s.kjvRef || '', s.caption || '');
+      if (Array.isArray(s.keywords)) parts.push(s.keywords.join(' '));
+      var ctx = s.kidContext || {};
+      parts.push(ctx.who || '', ctx.to || '', ctx.apply || '');
+      if (Array.isArray(s.panels)) {
+        for (var pi = 0; pi < s.panels.length; pi++) {
+          var pan = s.panels[pi];
+          if (pan && pan.alt) parts.push(pan.alt);
+        }
+      }
+      parts.push(String(key).replace(/([A-Z])/g, ' $1').trim());
+      hay.push(parts.join(' '));
+    }
+    return hay;
+  }
+
+  function getKidsLibraryUFuzzy() {
+    try {
+      var Fn = typeof uFuzzy !== 'undefined' ? uFuzzy : typeof window !== 'undefined' ? window.uFuzzy : null;
+      if (typeof Fn !== 'function') return null;
+      return new Fn({ intraMode: 1 });
+    } catch (eUf) {
+      return null;
+    }
+  }
+
+  /**
+   * @param {string[]} orderedKeys — already theme-filtered
+   * @param {string} needle — raw trimmed query (uFuzzy is case-insensitive)
+   * @returns {string[]|null} ranked keys; [] if uFuzzy ran and found nothing; null if library missing
+   */
+  function fuzzyRankLibraryKeys(orderedKeys, needle) {
+    var raw = String(needle || '').trim();
+    if (!raw) return orderedKeys.slice();
+    var uf = getKidsLibraryUFuzzy();
+    if (!uf || typeof uf.search !== 'function') return null;
+    var sig = kidsLibraryFuzzyHaySig(orderedKeys);
+    if (!_kidsLibFuzzyHay || _kidsLibFuzzyHaySig !== sig) {
+      _kidsLibFuzzyHay = buildKidsLibraryFuzzyHaystack(orderedKeys);
+      _kidsLibFuzzyHaySig = sig;
+    }
+    var pack = uf.search(_kidsLibFuzzyHay, raw, 1, 1000);
+    var idxs = pack && pack[0];
+    if (idxs === null) return null;
+    if (!idxs || idxs.length === 0) return [];
+    var info = pack[1];
+    var order = pack[2];
+    var out = [];
+    if (order && order.length && info && info.idx) {
+      for (var oi = 0; oi < order.length; oi++) {
+        var hi = info.idx[order[oi]];
+        if (hi >= 0 && hi < orderedKeys.length) out.push(orderedKeys[hi]);
+      }
+      if (out.length) return out;
+    }
+    for (var j = 0; j < idxs.length; j++) {
+      var ix = idxs[j];
+      if (ix >= 0 && ix < orderedKeys.length) out.push(orderedKeys[ix]);
+    }
+    return out;
+  }
+
   function filterStories(query, theme) {
     var stories = getStories();
     var themes = getStoryThemes();
     var keys = getStoryKeys();
-    var q = (query || '').trim().toLowerCase();
+    var qRaw = (query || '').trim();
+    var qLower = qRaw.toLowerCase();
     var themeVal = (theme || '').trim();
-    var searchTerms = q ? expandKidsQuery(q) : [];
-    return keys.filter(function (key) {
+    var themed = keys.filter(function (key) {
       var s = stories[key];
       if (!s) return false;
       if (themeVal && themes[key] !== themeVal) return false;
-      if (!q) return true;
+      return true;
+    });
+    if (!qRaw) return themed;
+
+    var fuzzyKeys = fuzzyRankLibraryKeys(themed, qRaw);
+    if (fuzzyKeys !== null && fuzzyKeys.length > 0) return fuzzyKeys;
+
+    var searchTerms = expandKidsQuery(qLower);
+    return themed.filter(function (key) {
+      var s = stories[key];
+      if (!s) return false;
       var title = (s.title || '').toLowerCase();
       var keywords = (s.keywords || []).join(' ').toLowerCase();
-      var haystack = title + ' ' + keywords;
+      var ctx = s.kidContext || {};
+      var apply = (ctx.apply || '').toLowerCase();
+      var who = (ctx.who || '').toLowerCase();
+      var to = (ctx.to || '').toLowerCase();
+      var haystack = title + ' ' + keywords + ' ' + apply + ' ' + who + ' ' + to;
+      if (Array.isArray(s.panels)) {
+        for (var pi = 0; pi < s.panels.length; pi++) {
+          if (s.panels[pi] && s.panels[pi].alt) haystack += ' ' + String(s.panels[pi].alt).toLowerCase();
+        }
+      }
+      haystack += ' ' + String(key).toLowerCase();
       for (var i = 0; i < searchTerms.length; i++) {
         if (haystack.indexOf(searchTerms[i]) !== -1) return true;
       }
@@ -4420,7 +4522,8 @@
     if (noMatch) {
       noMatch.classList.toggle('hidden', keys.length > 0);
       if (keys.length === 0) {
-        noMatch.textContent = 'No stories match that search yet. Try a broader word, or switch the theme back to "All themes."';
+        noMatch.textContent =
+          'No stories match that search yet. Try other words (small typos are OK), set theme to All themes, or open a starter link below—e.g. David & Goliath, Noah\'s Ark, Jonah.';
       }
     }
     updateLibraryCount(keys.length);

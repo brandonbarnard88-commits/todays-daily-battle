@@ -470,9 +470,10 @@
         <section class="kids-search-section glass" role="region" aria-label="Search stories">
           <h2 class="kids-section-title">Find a story</h2>
           <form id="kids-library-search-form" class="kids-search-form" action="#" novalidate>
-            <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Type a word (e.g. lion, rainbow, brave)…" autocomplete="off">
+            <input type="search" id="kids-library-search-input" class="kids-search-input" placeholder="Try titles, typos, or a short description (e.g. giant david, fish jonah)…" autocomplete="off" aria-describedby="kids-library-search-hint">
             <button type="submit" class="btn kids-btn-primary kids-search-btn">Search</button>
           </form>
+          <p id="kids-library-search-hint" class="section-note util-mb-0_5">Search is fuzzy: reordered words and small typos usually still find the right story.</p>
           <div class="kids-library-filters">
             <label for="kids-library-theme" class="kids-library-theme-label">Theme</label>
             <select id="kids-library-theme" class="kids-library-theme-select" aria-label="Filter by theme">
@@ -648,8 +649,9 @@
   <script src="kids-read-quiz-data.js?v=20260330kidslib"></script>
   <script src="kids-read-quiz-loop-posters.js"></script>
   <script src="kids-battle.js?v=20260330kidslib" defer></script>
+  <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-corner.js?v=20260330kidslib" defer></script>
+  <script src="kids-corner.js?v=20260331kidsfuzzy" defer></script>
   <script type="module" src="../script.js?v=20260326clean" data-cfasync="false" defer></script>
 
   <!-- ── Parent code lock ── -->

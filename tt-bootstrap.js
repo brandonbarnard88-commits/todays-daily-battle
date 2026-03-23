@@ -6,29 +6,41 @@
 (function () {
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
   try {
+    /**
+     * DOMPurify must NOT use the default policy for RETURN_TRUSTED_TYPE wrapping: that re-enters
+     * default.createHTML with already-sanitized HTML and hits the __ttDepth escape path, which
+     * entity-escapes tags so the whole fragment renders as visible "<div>…" text site-wide.
+     * CSP allowlists `dompurify` for this pass-through policy (see _headers).
+     */
+    var domPurifyTtPolicy = null;
+    try {
+      domPurifyTtPolicy = window.trustedTypes.createPolicy('dompurify', {
+        createHTML: function (i) {
+          return String(i || '');
+        }
+      });
+    } catch (_) {
+      try {
+        if (window.trustedTypes.getPolicy) domPurifyTtPolicy = window.trustedTypes.getPolicy('dompurify');
+      } catch (__) {}
+    }
+    if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && domPurifyTtPolicy) {
+      DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: domPurifyTtPolicy });
+    }
+
     if (!window.trustedTypes.defaultPolicy) {
     window.trustedTypes.createPolicy('default', {
       createHTML: function (i) {
         var x = String(i || '');
-        /* Nested call: DOMPurify's RETURN_TRUSTED_TYPE path invokes policy.createHTML(sanitized).
-           Must not return a raw string (TT violation) or recurse with RETURN_TRUSTED_TYPE: true. */
-        if (window.__ttDepth) {
-          if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: false });
-          }
-          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        }
-        window.__ttDepth = 1;
         try {
           if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: true });
+            /* RETURN_TRUSTED_TYPE true must use the separate `dompurify` policy (see above).
+               If that policy is missing (broken CSP), use false so DOMPurify never re-enters
+               default.createHTML and entity-escapes the whole fragment. */
+            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: !!domPurifyTtPolicy });
           }
-          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        } catch (_) {
-          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        } finally {
-          delete window.__ttDepth;
-        }
+        } catch (_) {}
+        return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
       },
       createScript: function (i) {
         var s = String(i || '');
@@ -53,8 +65,8 @@
       }
     });
     }
-    if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && window.trustedTypes.defaultPolicy) {
-      DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: window.trustedTypes.defaultPolicy });
+    if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && domPurifyTtPolicy) {
+      DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: domPurifyTtPolicy });
     }
     (function () {
       var pol = window.trustedTypes && window.trustedTypes.defaultPolicy;

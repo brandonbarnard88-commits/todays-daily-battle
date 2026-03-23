@@ -6225,7 +6225,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v107", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260325-sw-v108", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

@@ -10,26 +10,35 @@
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
   if (window.trustedTypes.defaultPolicy) return;
   try {
+    var domPurifyTtPolicy = null;
+    try {
+      domPurifyTtPolicy = window.trustedTypes.createPolicy('dompurify', {
+        createHTML: function (i) {
+          return String(i || '');
+        }
+      });
+    } catch (_) {
+      try {
+        if (window.trustedTypes.getPolicy) domPurifyTtPolicy = window.trustedTypes.getPolicy('dompurify');
+      } catch (__) {}
+    }
+    if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && domPurifyTtPolicy) {
+      DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: domPurifyTtPolicy });
+    }
     window.trustedTypes.createPolicy('default', {
       createHTML: function (input) {
         var x = String(input || '');
-        if (window.__ttDepth) {
-          if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: false });
-          }
-          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        }
-        window.__ttDepth = 1;
         try {
           if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
-            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: true });
+            return DOMPurify.sanitize(x, { RETURN_TRUSTED_TYPE: !!domPurifyTtPolicy });
           }
-          return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        } finally {
-          delete window.__ttDepth;
-        }
+        } catch (_) {}
+        return x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
       }
     });
+    if (typeof DOMPurify !== 'undefined' && DOMPurify.setConfig && domPurifyTtPolicy) {
+      DOMPurify.setConfig({ TRUSTED_TYPES_POLICY: domPurifyTtPolicy });
+    }
     var pol = window.trustedTypes.defaultPolicy;
     var createHTML = pol && typeof pol.createHTML === 'function' ? pol.createHTML.bind(pol) : null;
     if (createHTML && typeof document !== 'undefined') {
@@ -18511,7 +18520,7 @@ function sanitizeNudgeElements() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260324-sw-v107', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260325-sw-v108', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

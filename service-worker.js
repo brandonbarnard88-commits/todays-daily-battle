@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v107-20260324-strict-csp-perf';
+const CACHE_NAME = 'tdb-v108-20260325-tt-bootstrap-network-first';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -60,6 +60,7 @@ const CORE_ASSETS = [
   '/ask-the-word.js',
   '/share-page.js',
   '/vendor/dompurify.min.js',
+  '/tt-bootstrap.js',
   '/easter-eggs.js',
   '/mobius-loop.js',
   '/mobius-universal.js',
@@ -448,6 +449,27 @@ self.addEventListener('fetch', (event) => {
 
   // Only cache same-origin GETs; let cross-origin (analytics, third-party CDN) load normally
   if (!sameOrigin) return;
+
+  // tt-bootstrap.js: network-first so Trusted Types / DOMPurify wiring updates deploy immediately;
+  // precache (CORE_ASSETS) still seeds offline. Avoids stale innerHTML policy stuck in CACHE_NAME.
+  if (url.pathname.endsWith('/tt-bootstrap.js')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          if (res && res.ok) {
+            const clone = res.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
+          }
+          return res;
+        })
+        .catch(() => matchCachedSameOriginAsset(CACHE_NAME, event.request, url).then((hit) => {
+          if (hit) return hit;
+          return new Response('Offline — refresh when you are back online.', { status: 503, headers: { 'content-type': 'text/plain; charset=utf-8' } });
+        }))
+    );
+    return;
+  }
+
   // Never cache script.js or config.js so deployments take effect immediately
   if (url.pathname.endsWith('script.js') || url.pathname.endsWith('config.js')) return;
 

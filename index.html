@@ -4290,7 +4290,7 @@
             <span class="read-aloud-label">Listen</span>
           </button>
         </div>
-        <p class="verse-ref" id="heroRef">Philippians 4:6 (KJV)</p>
+        <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&rsquo;s daily battle.</p>
         <div class="hero-streak-wrapper">
           <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
@@ -4728,7 +4728,7 @@
           </div>
         </div>
       </details>
-      <p class="site-footer-copy">© Todays Daily Battle 2026</p>
+      <p class="site-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
       <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
       <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
         <p class="footer-friday-signup-label">One verse + prayer on Fridays—steady rhythm, not noise. No spam.</p>
@@ -4855,14 +4855,14 @@
     // These are pre-loaded into the page so no fetch is ever needed for a fallback.
     const OFFLINE_PACK = [
       {
-        ref: "Philippians 4:6",
-        text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.",
-        lines: ["You do not carry this alone.", "Prayer moves panic into trust.", "Thanksgiving holds the door open."],
-        app: "Pause, name your fear to God, and thank Him once.",
-        speaker: "Paul writing from prison to a church he loved — and to you",
-        plain: "Stop hoarding worry. Literally take everything — every single thing — and hand it to God in prayer, and mix thanks into it.",
-        today: "That thing looping in your head at 2 AM? That's the one. Take it to Him right now.",
-        action: "Name it out loud. Then say: 'I'm giving this to You.' That's a real prayer."
+        ref: "Philippians 4:6-7",
+        text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+        lines: ["Prayer + supplication + thanksgiving—not silent panic.", "Peace stands guard over heart and mind.", "Write it, pray it, thank three."],
+        app: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small).",
+        speaker: "Paul, writing from prison to the church at Philippi.",
+        plain: "Stop letting worry control every detail. Pray it all out + thank God anyway. Peace then stands guard over your heart and mind.",
+        today: "Your thoughts are racing ahead to disasters. This verse interrupts the loop — hand it over, give thanks, receive supernatural peace.",
+        action: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small)."
       },
       {
         ref: "Matthew 11:28",
@@ -4935,14 +4935,14 @@
         action: "Receive it like it's personal: 'God loved me. He gave for me. I believe.'"
       },
       {
-        ref: "Psalm 34:18",
-        text: "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
-        lines: ["God moves toward the brokenhearted.", "Grief doesn't push Him away—it draws Him close.", "He saves the crushed, not just the composed."],
-        app: "Tell God exactly what hurts. He can handle it.",
-        speaker: "David — writing after a humiliating, desperate escape — and calling you into the same refuge",
-        plain: "When your heart is shattered, God doesn't step back to give you space. He steps toward you. He's closest when you're most broken.",
-        today: "You don't have to hold it together for God. The broken version of you is who He's running toward.",
-        action: "Tell Him what broke you. Don't clean it up first. Just say it."
+        ref: "Matthew 5:4",
+        text: "Blessed are they that mourn: for they shall be comforted.",
+        lines: ["Mourning is named, not shamed.", "Comfort is promised—personally.", "Jesus blesses the honest ache."],
+        app: "Name one loss to God. Ask Him for the comfort He promised.",
+        speaker: "Jesus—to everyone who grieves openly and quietly",
+        plain: "He doesn't rush past sorrow. Blessing and mourning belong in the same sentence because He is coming with comfort.",
+        today: "Whatever you're carrying alone today—He spoke this beatitude for people exactly in your shoes.",
+        action: "Say one true sentence of grief in prayer. Wait. Let Him answer gentle."
       },
       {
         ref: "2 Timothy 1:7",
@@ -4960,10 +4960,10 @@
     const VERSES = [
       {
         mood: "anxious",
-        ref: "Philippians 4:6",
-        text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.",
-        lines: ["You do not carry this alone.", "Prayer moves panic into trust.", "Thanksgiving holds the door open."],
-        app: "Pause, name your fear to God, and thank Him once."
+        ref: "Philippians 4:6-7",
+        text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+        lines: ["Prayer + supplication + thanksgiving—not silent panic.", "Peace stands guard over heart and mind.", "Write it, pray it, thank three."],
+        app: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small)."
       },
       {
         mood: "tired",
@@ -5002,10 +5002,10 @@
       },
       {
         mood: "sad",
-        ref: "Psalm 34:18",
-        text: "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
-        lines: ["God moves toward the brokenhearted.", "Grief doesn't push Him away—it draws Him close.", "He saves the crushed, not just the composed."],
-        app: "Tell God exactly what hurts. He can handle it."
+        ref: "Matthew 5:4",
+        text: "Blessed are they that mourn: for they shall be comforted.",
+        lines: ["Mourning is named, not shamed.", "Comfort is promised—personally.", "Jesus blesses the honest ache."],
+        app: "Name one loss to God. Ask Him for the comfort He promised."
       },
       {
         mood: "lonely",
@@ -5022,12 +5022,12 @@
         label: "anxious",
         verses: [
           {
-            ref: "Philippians 4:6",
-            speaker: "Paul to a worried church—and to you, today",
-            text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.",
-            plain: "Don't let worry pile up. Take every single concern to God—and mix in thanks while you're at it.",
-            today: "That thing circling your mind right now? That's exactly what this verse is talking about.",
-            action: "Write it down. Tell God one worry and one thing you're thankful for—right now."
+            ref: "Philippians 4:6-7",
+            speaker: "Paul, writing from prison to the church at Philippi.",
+            text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+            plain: "Stop letting worry control every detail. Pray it all out + thank God anyway. Peace then stands guard over your heart and mind.",
+            today: "Your thoughts are racing ahead to disasters. This verse interrupts the loop — hand it over, give thanks, receive supernatural peace.",
+            action: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small)."
           },
           {
             ref: "Psalm 56:3",
@@ -5253,11 +5253,11 @@
           },
           {
             ref: "Philippians 4:6-7",
-            speaker: "Paul—the most peaceful prisoner in history, writing from chains",
+            speaker: "Paul, writing from prison to the church at Philippi.",
             text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
-            plain: "Pray it out, give thanks while you're at it, and a peace that makes no sense stands guard at your heart.",
-            today: "That worry circling your mind right now? It becomes a prayer. Then let the peace arrive.",
-            action: "Name the thing causing unrest. Turn it into a prayer. Thank Him before you see the answer."
+            plain: "Stop letting worry control every detail. Pray it all out + thank God anyway. Peace then stands guard over your heart and mind.",
+            today: "Your thoughts are racing ahead to disasters. This verse interrupts the loop — hand it over, give thanks, receive supernatural peace.",
+            action: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small)."
           },
           {
             ref: "Isaiah 26:3",
@@ -5534,9 +5534,13 @@
         });
       });
 
-      // Pick verse by day seed (deterministic per day, variety across days)
+      // Pick verse by day seed (deterministic per day, variety across days).
+      // Bump HERO_DAILY_VERSE_ROTATION_EPOCH when intentionally resetting which ref is "day 0" (keep in sync with SW-VERSION ship days).
+      // First UTC day when pool index 0 = Philippians 4:6–7. Example: 8:45 PM CDT March 22 → UTC March 23 (20535).
+      const HERO_DAILY_VERSE_ROTATION_EPOCH = 20535; // 2026-03-23 UTC (bump with SW-VERSION when resetting day-0 verse)
       const daySeed = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
-      const idx = daySeed % heroPool.length;
+      const poolLen = heroPool.length;
+      const idx = poolLen ? ((daySeed - HERO_DAILY_VERSE_ROTATION_EPOCH) % poolLen + poolLen) % poolLen : 0;
       const verseData = heroPool[idx];
       localStorage.setItem('tdb-hero-last-ref', verseData.ref);
 
@@ -6215,7 +6219,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v104", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v107", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });
@@ -7494,6 +7498,7 @@
       'Psalm 46:10':        'God says \u201cbe still\u201d\u2014not do nothing, just trust. Stop striving; He\u2019s already moving.',
       'John 14:27':         'This peace isn\u2019t calm circumstances\u2014it\u2019s Jesus himself staying inside the storm with you.',
       'Isaiah 41:10':       '\u201cBe not dismayed\u201d is an order to the fear, not a suggestion to you. He\u2019s commanding it away.',
+      'Philippians 4:6-7':  'Worry wants every detail; prayer with thanks hands it to God\u2014then His peace stands guard over heart and mind.',
       'Philippians 4:7':    'The peace that \u201cpasseth understanding\u201d means it doesn\u2019t make sense to the mind\u2014it\u2019s given, not earned.',
       'Romans 8:28':        'Not \u201call things are good\u201d\u2014but all things work together for good. The mess is in the mix.',
       'Psalm 34:18':        'Brokenhearted isn\u2019t far from God\u2014it\u2019s right next to Him. He\u2019s drawn to the cracked places.',

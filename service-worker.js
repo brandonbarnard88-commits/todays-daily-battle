@@ -1,17 +1,17 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v106-20260322-strict-csp-perf';
+const CACHE_NAME = 'tdb-v107-20260324-strict-csp-perf';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
 const YESTERDAY_VERSE_URL = '/yesterday-kjv-verse.json';
 const DAILY_KJV_POOL = [
   {
-    ref: 'Philippians 4:6',
-    text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
-    lines: ['You do not carry this alone.', 'Prayer moves panic into trust.'],
-    app: 'Pause, name your fear to God, and thank Him once.'
+    ref: 'Philippians 4:6-7',
+    text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+    lines: ['Prayer + supplication + thanksgiving—not silent panic.', 'Peace stands guard over heart and mind.', 'Write it, pray it, thank three.'],
+    app: 'Write down the one thing you\'re most worried about. Pray the verse over it. Thank God for 3 things (big or small).'
   },
   {
     ref: 'Matthew 11:28',

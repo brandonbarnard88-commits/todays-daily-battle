@@ -27,7 +27,7 @@ Tool pages (e.g. `/mobius.html`) share a consistent look with the main site. Use
       <a href="message.html">Prayer Wall</a>
       <a href="/">Home</a>
     </nav>
-    <p class="tool-footer-copy">© Todays Daily Battle 2026</p>
+    <p class="tool-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
   </footer>
 </body>
 ```

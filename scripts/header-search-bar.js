@@ -36,7 +36,7 @@
     { ref: 'Nehemiah 8:10', text: 'The joy of the Lord is your strength.' },
     { ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.' },
     { ref: '1 Peter 5:7', text: 'Casting all your care upon him; for he careth for you.' },
-    { ref: 'Psalm 34:18', text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.' },
+    { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' },
     { ref: 'Matthew 5:4', text: 'Blessed are they that mourn: for they shall be comforted.' },
     { ref: '2 Corinthians 1:3', text: 'Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort;' },
     { ref: 'Psalm 16:11', text: 'Thou wilt shew me the path of life: in thy presence is fulness of joy; at thy right hand there are pleasures for evermore.' },

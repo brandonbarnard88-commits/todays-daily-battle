@@ -4706,10 +4706,10 @@ var DAILY_VERSE_SAFE_REFS = [
 
 /** Rotating hero verses — shown on index.html hero card, one per page load, no repeats until all 83 shown. */
 var ROTATING_HERO_VERSES = [
-  { ref: 'Philippians 4:6',        text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',                                                                       breakdown: ["Don't worry—just pray.", "God's listening.", "Thank Him, let go."],                       app: 'Name one worry. Pray it out.' },
+  { ref: 'Philippians 4:6-7',      text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.', breakdown: ['Prayer + supplication + thanksgiving—not silent panic.', 'Peace stands guard over heart and mind.', 'Write it, pray it, thank three.'], app: 'Write down the one thing you\'re most worried about. Pray the verse over it. Thank God for 3 things (big or small).' },
   { ref: 'Matthew 11:28',          text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',                                                                                                                           breakdown: ["You're carrying a lot.", 'Come rest.', 'No performance required.'],                       app: "Breathe: 'Jesus, I come as I am.'" },
   { ref: 'Isaiah 41:10',           text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',                    breakdown: ["You're not alone.", "He's right here.", 'Dismay ends where God is.'],                     app: "Feel scared? Say 'With me.'" },
-  { ref: 'Psalm 34:18',            text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',                                                                                                        breakdown: ['Tears are okay.', "He's near.", 'Broken is where He works.'],                             app: 'Cry—let Him hold it.' },
+  { ref: 'Matthew 5:4',            text: 'Blessed are they that mourn: for they shall be comforted.',                                                                                                                                               breakdown: ['Mourning is named, not shamed.', 'Comfort is promised—personally.', 'Jesus blesses the honest ache.'], app: 'Name one loss to God. Ask Him for the comfort He promised.' },
   { ref: 'John 3:16',              text: 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.',                                                            breakdown: ['Love like that.', 'For you.', 'Given freely.'],                                           app: 'Thank Him for love.' },
   { ref: 'Psalm 23:1',             text: 'The Lord is my shepherd; I shall not want.',                                                                                                                                                               breakdown: ["He's shepherd.", 'No lack.', 'Guided safe.'],                                             app: "Say 'My shepherd'—feel it." },
   { ref: 'Ephesians 4:26',         text: 'Be ye angry, and sin not: let not the sun go down upon your wrath.',                                                                                                                                        breakdown: ['Anger real.', "Don't sin.", 'Let go before bed.'],                                        app: 'Forgive one person—now.' },
@@ -7678,7 +7678,7 @@ var FIRST_VISIT_READ_MODAL_ID = 'first-visit-read-modal';
 function getDailyVerseReadPayload() {
   var fallback = (typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' && DAILY_VERSE_BUNDLED_FALLBACK)
     ? DAILY_VERSE_BUNDLED_FALLBACK
-    : { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' };
+    : { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' };
   var ref = (currentDailyBattle && currentDailyBattle.ref) || getDailyVerseRef() || fallback.ref;
   var verse = '';
   if (currentDailyBattle && currentDailyBattle.verse) verse = String(currentDailyBattle.verse);
@@ -10980,7 +10980,7 @@ function buildAutoQuickPrayText() {
 
 function renderDailyVerse() {
   const card = document.getElementById('daily-verse-card');
-  var fb = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Philippians 4:6', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.' };
+  var fb = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' };
   if (!card) {
     var fallbackRef = getDailyVerseRef();
     var fallbackText = (fallbackRef && bible[fallbackRef]) ? bible[fallbackRef] : (fb.text || '');
@@ -11440,8 +11440,8 @@ function getBattleQuestionOfDay() {
 /** Bundled fallback for daily verse when fetch fails or times out (>3s). No network needed. */
 var BUNDLED_DAILY_VERSE_FALLBACKS = [
   {
-    ref: 'Philippians 4:6',
-    text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+    ref: 'Philippians 4:6-7',
+    text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
     reflection: 'When the battle feels heavy today, remember God is near and faithful.',
     prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.'
   },
@@ -11537,9 +11537,9 @@ var DEFAULT_VERSES = [
     ref: 'Philippians 4:6-7',
     text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
     breakdown: {
-      context: 'Paul writing to Philippi—pray instead of worry.',
-      realTalk: 'Anxiety screams; prayer quiets. God\'s peace guards your heart.',
-      doThis: 'Before you spiral, tell God one thing you\'re carrying—then breathe.'
+      context: 'Paul, writing from prison to the church at Philippi.',
+      realTalk: 'Stop letting worry control every detail. Pray it all out + thank God anyway. Peace then stands guard over your heart and mind.',
+      doThis: 'Write down the one thing you\'re most worried about. Pray the verse over it. Thank God for 3 things (big or small).'
     }
   },
   {
@@ -11557,8 +11557,8 @@ function pickBundledDailyFallback() {
   var list = Array.isArray(BUNDLED_DAILY_VERSE_FALLBACKS) ? BUNDLED_DAILY_VERSE_FALLBACKS : [];
   if (!list.length) {
     return {
-      ref: 'Philippians 4:6',
-      text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+      ref: 'Philippians 4:6-7',
+      text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
       reflection: 'When the battle feels heavy today, remember God is near and faithful.',
       prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.'
     };
@@ -11639,8 +11639,8 @@ async function renderDailyBattleCard() {
     if (dailyBattleFallbackTimeoutId) { clearTimeout(dailyBattleFallbackTimeoutId); dailyBattleFallbackTimeoutId = null; }
     card.classList.remove('hero-verse-card-skeleton');
     var offlineFb = DAILY_VERSE_BUNDLED_FALLBACK || {
-      ref: 'Philippians 4:6',
-      text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+      ref: 'Philippians 4:6-7',
+      text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
       reflection: 'When the battle feels heavy today, remember God is near and faithful.',
       prayer: 'Lord, steady my heart and lead me with Your Word today. Amen.'
     };
@@ -18511,7 +18511,7 @@ function sanitizeNudgeElements() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260324-sw-v104', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260324-sw-v107', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

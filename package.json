@@ -44,6 +44,7 @@
     "kids:generate-full-story-assets": "node scripts/generate-kids-full-story-assets.js",
     "kids:generate-animation-queue": "node scripts/generate-kids-animation-queue.mjs",
     "kids:generate-read-quiz": "node scripts/generate-kids-read-quiz-data.mjs",
+    "kids:audit-read-quiz-sources": "node scripts/audit-kids-read-quiz-sources.mjs",
     "kids:generate-story-index": "node scripts/generate-bible-story-tool-index.mjs",
     "purge:cloudflare": "node scripts/cloudflare-purge.mjs",
     "purge:cloudflare:social": "node scripts/cloudflare-purge.mjs --social",

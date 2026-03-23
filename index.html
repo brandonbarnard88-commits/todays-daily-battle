@@ -138,6 +138,15 @@
       color: #120e18;
     }
 
+    /* Light theme: cream page like before — hide full-page night sky layer */
+    :root[data-theme="light"] html,
+    :root[data-theme="light"] body {
+      background: radial-gradient(circle at top, rgba(227, 188, 103, 0.1), transparent 40%), var(--bg);
+    }
+    :root[data-theme="light"] .sky-page-backdrop {
+      display: none;
+    }
+
     * { box-sizing: border-box; }
 
     html, body {
@@ -148,13 +157,16 @@
       min-height: 100%;
       font-family: ui-rounded, "Avenir Next", "Segoe UI", "Inter", sans-serif;
       font-size: 16px !important; /* override styles.css 20px which bloats everything */
-      background: radial-gradient(circle at top, rgba(227, 188, 103, 0.1), transparent 40%), var(--bg);
+      /* Base matches sky edge; full sky/stars layer is .sky-page-backdrop (absolute, scrolls with page) */
+      background: #000818;
       color: var(--text);
     }
 
     body {
       font-size: 1rem;
       line-height: 1.65;
+      position: relative;
+      isolation: isolate;
     }
 
     .app {
@@ -164,6 +176,39 @@
       padding: 0 1.25rem 120px !important;
       min-height: 100vh !important;
       box-sizing: border-box !important;
+      position: relative;
+      background: transparent !important;
+    }
+
+    /* Full-page sky/stars — scrolls with document (not fixed); cards sit above via z-index */
+    .sky-page-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      bottom: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .sky-page-backdrop::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: min(30vh, 420px);
+      background: linear-gradient(to bottom, transparent, var(--bg, #000818));
+      pointer-events: none;
+      z-index: 3;
+    }
+    .sky-page-backdrop .sky {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
     }
 
     @media (min-width: 600px) {
@@ -185,8 +230,9 @@
       padding: 2rem 1rem 1.75rem;
       margin-bottom: 1.75rem;
       position: relative;
+      z-index: 2;
       overflow: hidden;
-      background: #000818;
+      background: transparent;
       border-bottom: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
       min-height: clamp(320px, 55vw, 520px);
       justify-content: center;
@@ -583,6 +629,8 @@
       margin: 0;
       padding: 0.65rem 1rem;
       text-align: center;
+      position: relative;
+      z-index: 20;
       background: linear-gradient(90deg, rgba(15, 23, 42, 0.95), rgba(23, 32, 52, 0.98), rgba(15, 23, 42, 0.95));
       border-bottom: 1px solid rgba(227, 188, 103, 0.22);
       font-size: 0.92rem;
@@ -3896,6 +3944,14 @@
       transition: background 1.4s ease;
       mix-blend-mode: overlay;
     }
+
+    .header-sub-toolbar,
+    main,
+    .site-footer,
+    .app > section.sr-only {
+      position: relative;
+      z-index: 2;
+    }
     @media (prefers-reduced-motion: reduce) {
       .mood-overlay { transition: none; }
     }
@@ -4069,51 +4125,52 @@
       <span class="tdb-moat-banner-sub">When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>&mdash;seven days in Scripture.</span>
     </p>
   </div>
-  <div class="app">
-
-    <header class="site-header">
-      <!-- CSS-animated sky system (no canvas) -->
-      <div class="sky" aria-hidden="true" id="sky-layer">
-        <!-- Parallax starfield (night only) — subtle tiling dots, slow strafe -->
-        <div class="sky-stars-parallax" aria-hidden="true"></div>
-        <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
-          <div class="sky-aurora-veil" aria-hidden="true"></div>
-        </div>
-        <div class="sky-sun" id="sky-sun"></div>
-        <!-- Moon (night only): same header slot as sun — accurate phase via SunCalc-style illumination -->
-        <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
-        <svg class="sky-moon-svg" viewBox="0 0 100 100" aria-hidden="true">
-          <defs>
-            <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
-              <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
-              <stop offset="60%" stop-color="rgba(200,210,230,0.88)"/>
-              <stop offset="100%" stop-color="rgba(140,160,190,0.72)"/>
-            </radialGradient>
-          </defs>
-          <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
-          <!-- Craters + maria — soft ellipses (lit side reads like texture, not stickers) -->
-          <ellipse cx="36" cy="40" rx="7" ry="5" fill="#090918" opacity="0.22"/>
-          <ellipse cx="58" cy="48" rx="9" ry="6" fill="#0a0a1c" opacity="0.18"/>
-          <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
-          <ellipse cx="64" cy="54" rx="6.5" ry="5" fill="#080818" opacity="0.38"/>
-          <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
-          <ellipse cx="70" cy="34" rx="5" ry="3.5" fill="#0a0a1f" opacity="0.42"/>
-          <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
-          <ellipse cx="54" cy="44" rx="4" ry="3" fill="#080818" opacity="0.34"/>
-          <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
-          <ellipse cx="74" cy="60" rx="3" ry="2" fill="#0a0a1f" opacity="0.26"/>
-          <circle cx="48" cy="30" r="2" fill="#0b0b22" opacity="0.24"/>
-          <!-- Phase shadow overlay -->
-          <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
-          <!-- Soft glow halo -->
-          <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
-        </svg>
-        <span class="sky-moon-label" id="sky-moon-label"></span>
-        </div>
+  <!-- Full-page sky/stars (absolute on body — scrolls with page); tiles sit above in .app -->
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer">
+      <!-- Parallax starfield (night only) — subtle tiling dots, slow strafe -->
+      <div class="sky-stars-parallax" aria-hidden="true"></div>
+      <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
+        <div class="sky-aurora-veil" aria-hidden="true"></div>
       </div>
-      <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
-      <div class="mood-overlay" aria-hidden="true"></div>
+      <div class="sky-sun" id="sky-sun"></div>
+      <!-- Moon (night only): same header slot as sun — accurate phase via SunCalc-style illumination -->
+      <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
+      <svg class="sky-moon-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
+            <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
+            <stop offset="60%" stop-color="rgba(200,210,230,0.88)"/>
+            <stop offset="100%" stop-color="rgba(140,160,190,0.72)"/>
+          </radialGradient>
+        </defs>
+        <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
+        <!-- Craters + maria — soft ellipses (lit side reads like texture, not stickers) -->
+        <ellipse cx="36" cy="40" rx="7" ry="5" fill="#090918" opacity="0.22"/>
+        <ellipse cx="58" cy="48" rx="9" ry="6" fill="#0a0a1c" opacity="0.18"/>
+        <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
+        <ellipse cx="64" cy="54" rx="6.5" ry="5" fill="#080818" opacity="0.38"/>
+        <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
+        <ellipse cx="70" cy="34" rx="5" ry="3.5" fill="#0a0a1f" opacity="0.42"/>
+        <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
+        <ellipse cx="54" cy="44" rx="4" ry="3" fill="#080818" opacity="0.34"/>
+        <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
+        <ellipse cx="74" cy="60" rx="3" ry="2" fill="#0a0a1f" opacity="0.26"/>
+        <circle cx="48" cy="30" r="2" fill="#0b0b22" opacity="0.24"/>
+        <!-- Phase shadow overlay -->
+        <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
+        <!-- Soft glow halo -->
+        <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
+      </svg>
+      <span class="sky-moon-label" id="sky-moon-label"></span>
+      </div>
+    </div>
+  </div>
+  <!-- Mood colour overlay — tints sky on mood tap, pointer-events: none -->
+  <div class="mood-overlay" aria-hidden="true"></div>
 
+  <div class="app">
+    <header class="site-header">
       <div class="site-logo-wrap" aria-hidden="true">
         <!-- Inline SVG cross — clean, crisp, dark-mode native. No image bleed. -->
         <svg class="site-crest-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

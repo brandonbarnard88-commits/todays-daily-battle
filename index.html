@@ -5,9 +5,7 @@
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script nonce="tdb2025s">
-  (function(){try{var m=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var o=localStorage.getItem('tdb_perf_mode')==='1';if(m||o){document.documentElement.classList.add('tdb-perf-mode');}}catch(e){}})();
-  </script>
+  <script nonce="tdb2025s" src="/assets/perf-hint.js"></script>
 
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="high">
@@ -20,7 +18,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
   <!-- Schema.org: Organization + WebSite -->
-  <script type="application/ld+json">
+  <script nonce="tdb2025s" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -31,7 +29,7 @@
     "description": "A quiet, daily KJV verse, mood-based search, and prayer wall. Mobile-first. No noise."
   }
   </script>
-  <script type="application/ld+json">
+  <script nonce="tdb2025s" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -3841,7 +3839,7 @@
     .trust-badge { font-size: 0.75rem; color: var(--muted); margin: 0.5rem 0 0; opacity: 0.85; }
   </style>
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
-  <script type="application/ld+json">
+  <script nonce="tdb2025s" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -6118,7 +6116,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v103", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v104", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

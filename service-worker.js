@@ -71,6 +71,7 @@ const CORE_ASSETS = [
   '/tool-pages.css',
   '/reader.html',
   '/study.html',
+  '/my-verses.html',
   '/sermon.html',
   '/message.html',
   '/wins-report.html',

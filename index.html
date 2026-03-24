@@ -2602,6 +2602,7 @@
     .prayer-social-proof { font-size: 0.85rem; color: var(--muted); margin: 0.35rem 0 0; }
     .streak-milestone-card { margin-top: 0.75rem; padding: 0.6rem 1rem; background: rgba(227,188,103,0.12); border-radius: 10px; font-size: 0.9rem; color: var(--gold-soft); }
     .streak-milestone-card.hidden { display: none !important; }
+    .challenge-resume-nudge { margin-top: 0.65rem; margin-bottom: 0; }
 
     /* ── PWA nudge ── */
     .pwa-nudge {
@@ -4653,6 +4654,7 @@
         <a href="/mobius.html">Möbius</a>
         <a href="/plans.html">Plans</a>
         <a href="/#quick-actions-hero">Topics</a>
+        <a href="/explore.html#topics-es" lang="es" hreflang="es" aria-label="Spanish language topics: anxiety, strength, and peace">Español</a>
         <a href="/kids/?v=hub20260321">Kids</a>
         <a href="/bible-tool.html">Tools</a>
         <a href="/story.html">Story</a>
@@ -4811,6 +4813,7 @@
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&rsquo;s daily battle.</p>
         <div class="hero-streak-wrapper">
+          <span id="daily-battle-streak" class="sr-only" aria-live="polite"></span>
           <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
         </div>
         <div id="streak-milestone-card" class="streak-milestone-card hidden" role="status" aria-live="polite" aria-label="Streak milestone"></div>
@@ -5007,6 +5010,17 @@
         </a>
       </section>
 
+      <section class="card tool-teaser-card" aria-label="My Verses">
+        <a href="my-verses.html" class="tool-teaser-link" aria-label="My Verses — verses you saved">
+          <span class="tool-teaser-icon" aria-hidden="true">📌</span>
+          <div>
+            <p class="tool-teaser-label">My Verses</p>
+            <p class="tool-teaser-sub">Verses you kept from search and the Bible Tool—one calm list, on your device.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
       <!-- ── Verse image generator (Supporters) ── -->
       <section class="card tool-teaser-card" aria-label="Verse image generator">
         <a href="verse-image.html" class="tool-teaser-link" aria-label="Verse image generator — Supporters">
@@ -5065,6 +5079,15 @@
         <p class="prayer-amen-signal hidden" id="prayerAmenSignal" aria-live="polite"></p>
         <p class="prayer-social-proof hidden" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
         <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
+        <div id="prayer-echo" class="prayer-echo" aria-labelledby="prayer-echo-heading">
+          <h3 id="prayer-echo-heading" class="prayer-echo-heading">Whispers in the room right now</h3>
+          <p class="prayer-echo-sub section-note">Anonymous intents from the table—no names, just hearts. <a href="privacy.html">Privacy</a></p>
+          <p id="prayer-echo-sacred" class="prayer-echo-sacred hidden" hidden>Live whispers rest while sacred silence is on.</p>
+          <p id="prayer-echo-loading" class="prayer-echo-loading section-note">Gathering the latest hushed prayers…</p>
+          <p id="prayer-echo-presence" class="prayer-echo-presence hidden" aria-live="polite"></p>
+          <ul id="prayer-echo-list" class="prayer-echo-list" aria-label="Recent anonymous prayer intents"></ul>
+          <button type="button" id="prayer-echo-join" class="link-button prayer-echo-join hidden" aria-label="Copy a short invite to pray with this site">Copy a humble invite</button>
+        </div>
         <button class="silent-amen-btn" type="button" id="silentAmenBtn" aria-label="Add a silent amen">
           Silent Amen
         </button>
@@ -5140,6 +5163,7 @@
         <p class="section-note">Stay consistent. One verse, one day at a time.</p>
         <p class="plan-start-note">One tap — progress saved automatically.</p>
         <button type="button" id="challenge-start-day-1" class="btn btn-secondary" aria-label="Start Day 1">Start Day 1</button>
+        <p id="daily-battle-reset-nudge" class="section-note challenge-resume-nudge hidden" role="status" aria-live="polite"></p>
       </section>
       <section class="card quick-pray-wrap" id="quick-pray-wrap" aria-label="Invite / Share">
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Invite &amp; Share</h2>
@@ -5183,6 +5207,7 @@
   </p>
   <nav class="site-footer-nav" aria-label="Footer navigation">
     <a href="/explore.html">Explore</a>
+    <a href="/explore.html#topics-es" lang="es" hreflang="es" aria-label="Spanish language topics: anxiety, strength, and peace">Español</a>
     <a href="/about.html">About</a>
     <a href="/pricing.html">Plans</a>
     <a href="/faq.html">FAQ</a>
@@ -5214,11 +5239,19 @@
         <a href="/topic-overwhelmed.html">Overwhelmed</a>
         <a href="/topic-worthless.html">Worth / identity</a>
       </div>
+      <div class="footer-sitemap-col" lang="es">
+        <h3>Español</h3>
+        <a href="/ansiedad.html" hreflang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
       <div class="footer-sitemap-col">
         <h3>Tools</h3>
         <a href="/verse.html">Verse of the Day</a>
         <a href="/reader.html">Chapter reader</a>
         <a href="/bible-tool.html">Bible tool</a>
+        <a href="/my-verses.html">My Verses</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
         <a href="/plans.html">Battle plans</a>
@@ -5299,6 +5332,7 @@
       <ul class="nav-more-list">
         <li><a href="calm.html#night-prayer" aria-label="Night prayer with Psalm 4:8">🌙 Night Prayer</a></li>
         <li><a href="bible-tool.html">📚 Bible Tool</a></li>
+        <li><a href="my-verses.html">📌 My Verses</a></li>
         <li><a href="verse-image.html">🖼 Verse image</a></li>
         <li><a href="kids/index.html?v=hub20260321">🧒 Kids Corner</a></li>
         <li><a href="coloring.html">🎨 Kids Coloring</a></li>
@@ -5328,6 +5362,14 @@
         <li><a href="topic-guilt.html">💭 Guilt</a></li>
         <li><a href="topic-overwhelmed.html">🌊 Overwhelmed</a></li>
         <li><a href="topic-parenting.html">👨‍👩‍👧 Parenting</a></li>
+      </ul>
+      <h2 class="nav-more-title" style="margin-top:1.2rem;" lang="es">Español</h2>
+      <p class="section-note nav-more-es-note" style="margin:0 0 0.5rem;font-size:0.85rem;opacity:0.85;">KJV con ayuda breve en español.</p>
+      <ul class="nav-more-list">
+        <li><a href="ansiedad.html" hreflang="es" lang="es" aria-label="Ansiedad — versículos y ánimo">Ansiedad</a></li>
+        <li><a href="fuerza.html" hreflang="es" lang="es" aria-label="Fuerza — versículos y descanso">Fuerza</a></li>
+        <li><a href="paz.html" hreflang="es" lang="es" aria-label="Paz — la paz de Dios">Paz</a></li>
+        <li><a href="explore.html#topics-es" hreflang="es" aria-label="Ver todos los temas en español en Explore">Explore (español) →</a></li>
       </ul>
       <button type="button" id="nav-more-close" class="nav-more-close" aria-label="Close menu">Done</button>
     </div>

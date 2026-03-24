@@ -29,6 +29,7 @@ PAGES = [
     ("/verse.html", "Verse of the Day", ["Verse", "id=\"auth-section\"", "verse-page-share", "verse-page-copy"]),
     ("/calm.html", "Need a verse now", ["God", "Psalm", "Isaiah", "Matthew", "Philippians", "Another verse"]),
     ("/study.html", "Study", ["Study", "notes", "id=\"auth-section\"", "study-note-status"]),
+    ("/my-verses.html", "My Verses", ["My Verses", "id=\"saved-verses\"", "id=\"my-verses-panel\"", "bible-tool.html", "Study workspace", "footer-humility", "We battle. He wins."]),
     ("/reader.html", "Chapter Reader", ["Reader", "Chapter", "id=\"auth-section\""]),
     ("/church.html", "Church Center", ["Church", "id=\"auth-section\""]),
     ("/sermon.html", "Sermon Builder", ["Sermon", "id=\"auth-section\""]),

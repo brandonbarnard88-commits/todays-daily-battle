@@ -19,6 +19,7 @@ const pages = [
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
   { path: '/study.html', name: 'Study', mustInclude: ['Study', 'notes'] },
+  { path: '/my-verses.html', name: 'My Verses', mustInclude: ['My Verses', 'id="saved-verses"', 'id="my-verses-panel"', 'bible-tool.html', 'Study workspace', 'footer-humility', 'We battle. He wins.'] },
   { path: '/verse.html', name: 'Verse of the Day', mustInclude: ['Verse'] },
   { path: '/calm.html', name: 'Need a verse now', mustInclude: ['God', 'Another verse', 'Back to home'] },
   { path: '/church.html', name: 'Church', mustInclude: ['Church'] },

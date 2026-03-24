@@ -3,16 +3,23 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js"></script>
+  <script src="/tt-bootstrap.js?v=20260326clean"></script>
 
-  <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reset Password • Today's Daily Battle</title>
-  <meta name="description" content="Reset your password for Today's Daily Battle.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://todaysdailybattle.com/reset.html">
+  <title>My Verses • Today's Daily Battle</title>
+  <meta name="description" content="Verses you saved from search and the Bible Tool—KJV text on your device. Collections and export live in Study workspace.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/my-verses.html">
+  <meta property="og:title" content="My Verses • Today's Daily Battle">
+  <meta property="og:description" content="Your saved KJV verses—private on this device unless you sign in to sync.">
+  <meta property="og:url" content="https://todaysdailybattle.com/my-verses.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Verses • Today's Daily Battle">
+  <meta name="twitter:description" content="Your saved KJV verses—same data as Study workspace, calmer view.">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="manifest" href="manifest.json">
@@ -20,69 +27,45 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"My Verses • Today's Daily Battle","url":"https://todaysdailybattle.com/my-verses.html","description":"Saved KJV verses from search and Bible Tool—stored on your device.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  </script>
 </head>
-<body class="dark-mode">
+<body class="dark-mode my-verses-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <div class="app-shell">
-    <header class="top-bar">
-      <div class="brand">
-        <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Reset your password</span>
+  <nav class="tdb-global-nav" aria-label="Main site navigation">
+    <a href="/">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="calm.html">Calm</a>
+    <a href="mobius.html">Möbius</a>
+    <a href="plans.html">Plans</a>
+    <a href="/#quick-actions-hero">Topics</a>
+    <a href="explore.html#topics-es" lang="es" hreflang="es" aria-label="Spanish language topics: anxiety, strength, and peace">Español</a>
+    <a href="kids-corner.html">Kids</a>
+    <a href="bible-tool.html">Tools</a>
+    <a href="my-verses.html" aria-current="page">My Verses</a>
+    <a href="story.html">Story</a>
+  </nav>
+
+  <main id="main-content" class="my-verses-main content-inner" role="main">
+    <header class="hero-banner util-mb-1">
+      <h1>My Verses</h1>
+      <p class="privacy-line">Same list as <a href="study.html#study-tools">Study workspace</a>—just the verses, less clutter. Everything stays on this device unless you sign in elsewhere to sync.</p>
+      <div class="cta-group util-mt-1">
+        <a class="btn btn-primary" href="bible-tool.html">Bible Tool</a>
+        <a class="btn btn-secondary" href="/#quick-search-hero">Search topics</a>
+        <a class="btn btn-secondary" href="study.html#study-tools">Collections &amp; export</a>
       </div>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
     </header>
 
-    <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Site navigation">
-        <a href="/" data-section="search" data-icon="SR">Search</a>
-        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
-        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
-        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
-        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
-        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
-        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
-        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
-        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
-        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
-        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
-        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
-        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
-        <a href="about.html" data-section="about" data-icon="AB">About</a>
-        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
-      </nav>
-      <div class="sidebar-options">
-        <label class="inline-toggle">
-          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
-          Red letters
-        </label>
-      </div>
-    </aside>
+    <section id="my-verses-panel" class="glass my-verses-panel" aria-labelledby="my-verses-heading">
+      <h2 id="my-verses-heading" class="section-divider">Saved here</h2>
+      <p class="section-note util-mb-1">Tap a reference to open it in the Bible Tool. Copy or remove with the buttons on each card. Need a new verse? Use search or the Bible Tool, then save from there.</p>
+      <div id="saved-verses" class="list my-verses-saved-list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
+    </section>
+  </main>
 
-    <main class="app-content" id="main-content">
-      <div class="content-inner">
-        <header class="hero-banner">
-          <h1>Reset Password</h1>
-          <p>Enter a new password below to finish resetting your account.</p>
-        </header>
-        <section class="glass">
-          <form id="reset-form" class="reset-form">
-            <div id="auth-section" class="auth-status-reset"><div id="auth-status" class="auth-status-message" aria-live="polite" role="status"></div></div>
-            <label class="section-note" for="reset-password">New password</label>
-            <input id="reset-password" type="password" autocomplete="new-password" placeholder="New password" aria-label="New password">
-            <label class="section-note" for="reset-password-confirm">Confirm password</label>
-            <input id="reset-password-confirm" type="password" autocomplete="new-password" placeholder="Confirm password" aria-label="Confirm new password">
-            <button class="btn btn-primary" type="submit" aria-label="Update password">Update Password</button>
-            <p id="reset-status" class="section-note"></p>
-          </form>
-          <p class="section-note">If the link expired, request a new reset from the login bar.</p>
-        </section>
-      </div>
-    </main>
-
-    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
   <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
   </p>
@@ -188,10 +171,8 @@
   <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
   <p class="site-footer-story">Built solo by Brandon during hospital recovery — needed real Scripture help without the noise. <a href="/story.html">The story</a> · <a href="/about.html">About</a>.</p>
 </footer>
-  </div>
 
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260326clean" data-cfasync="false"></script>
 </body>

@@ -7461,6 +7461,35 @@ body.red-letter-off .red-letter-card {
   border-color: var(--border-subtle);
 }
 
+/* My Verses page — reuses #saved-verses list from script.js */
+body.my-verses-page .my-verses-main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+@media (min-width: 700px) {
+  body.my-verses-page .my-verses-main {
+    padding: 1.75rem 1.5rem 4rem;
+  }
+}
+body.my-verses-page .my-verses-panel .item-actions button {
+  min-height: 44px;
+}
+a.my-verses-ref-link {
+  color: var(--gold, #e3bc67);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 42%, transparent);
+}
+a.my-verses-ref-link:hover,
+a.my-verses-ref-link:focus-visible {
+  color: var(--gold-soft, #c9a84c);
+  border-bottom-color: var(--gold, #e3bc67);
+}
+a.my-verses-ref-link:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  outline-offset: 2px;
+}
+
 /* Base card for consistent panels (verse cards, prayer list, progress blocks) */
 .card {
   background: var(--card-light);
@@ -9634,7 +9663,24 @@ body.red-letter-off .red-letter-card {
 .footer-links a { white-space: nowrap; }
 .footer-links-sep { color: rgba(186, 198, 212, 0.72); padding: 0 0.15rem; font-weight: 400; pointer-events: none; user-select: none; }
 .hero-collective-intent { margin-top: 0.5rem; }
-.prayer-echo { margin-top: 1rem; padding: 1rem; }
+.prayer-echo {
+  margin-top: 0.85rem;
+  padding: 0.85rem 1rem 1rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 70%, transparent);
+  background: color-mix(in srgb, var(--card, #1b212d) 94%, transparent);
+}
+.prayer-wall-card .prayer-echo { margin-top: 1rem; }
+.prayer-echo-heading {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text, #f5f7fb);
+}
+.prayer-echo-sub { margin: 0 0 0.65rem !important; font-size: 0.82rem !important; opacity: 0.88; }
+.prayer-echo-local .prayer-echo-text { opacity: 0.95; }
+.prayer-echo-join { margin-top: 0.35rem; }
 .prayer-echo-sacred { margin: 0; font-style: italic; }
 .prayer-echo-loading { margin: 0 0 0.5rem; }
 .prayer-echo-presence { margin: 0 0 0.5rem; font-size: 0.9rem; }

@@ -4724,7 +4724,7 @@ function updateStreakReminderNudge() {
     count = Number(d.count || 0) || (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
   } catch (e) {}
   if (count >= 2) {
-    el.innerHTML = 'Day ' + escapeHtml(String(count)) + '—don\'t break it! <a href="#hero-verse-wrap">Tap to pray.</a>';
+    el.innerHTML = 'Day ' + escapeHtml(String(count)) + '—finish today gently. <a href="#hero-verse-wrap">Open today&rsquo;s verse.</a>';
     el.classList.remove('hidden');
   } else { el.classList.add('hidden'); el.textContent = ''; }
 }
@@ -8303,7 +8303,13 @@ function wireGodModePrayerEcho() {
       var n = (res && res.data != null) ? res.data : 0;
       if (presenceEl) {
         presenceEl.textContent = n <= 0 ? '' : 'Right now: ' + n + ' person' + (n === 1 ? '' : 's') + ' here';
-        presenceEl.style.display = n > 0 ? 'block' : 'none';
+        if (n > 0) {
+          presenceEl.style.display = 'block';
+          presenceEl.classList.remove('hidden');
+        } else {
+          presenceEl.style.display = 'none';
+          presenceEl.classList.add('hidden');
+        }
       }
     } catch (e) {
       setPrayersApiUnavailable();
@@ -8312,24 +8318,106 @@ function wireGodModePrayerEcho() {
   var sacredEl = document.getElementById('prayer-echo-sacred');
   function isSacredSilence() { try { return localStorage.getItem(SACRED_SILENCE_KEY) === 'true'; } catch (e) { return false; } }
   var FLAME_SVG = '<svg viewBox="0 0 24 28" aria-hidden="true"><path fill="#f59e0b" d="M12 2c0 2-2 4-2 6 0 2 1 4 2 6 1-2 2-4 2-6 0-2-2-4-2-6z"/><path fill="#fbbf24" d="M12 8c-1 2-1 5 0 8 1-3 1-6 0-8z"/><ellipse cx="12" cy="22" rx="3" ry="2" fill="#1e293b"/></svg>';
+  function renderLocalWallWhispers() {
+    if (!listEl) return false;
+    try {
+      var raw = localStorage.getItem(PRAYER_WALL_KEY) || '[]';
+      var arr = JSON.parse(raw);
+      if (!Array.isArray(arr)) arr = [];
+      var wall = arr.filter(function (it) {
+        if (!it || !(it.text || '').trim()) return false;
+        if (it.seed === true) return false;
+        if (String(it.id).indexOf('seed') === 0) return false;
+        return true;
+      });
+      wall.sort(function (a, b) { return Number(b.id) - Number(a.id); });
+      var top = wall.slice(0, 3);
+      if (top.length === 0) return false;
+      if (loadingEl) loadingEl.style.display = 'none';
+      listEl.style.display = 'block';
+      listEl.innerHTML = '';
+      top.forEach(function (row, i) {
+        var li = document.createElement('li');
+        li.className = 'prayer-echo-item prayer-echo-local';
+        var candle = document.createElement('span');
+        candle.className = 'prayer-echo-candle' + (i === 0 ? ' flicker' : '');
+        candle.setAttribute('aria-hidden', 'true');
+        candle.innerHTML = FLAME_SVG;
+        li.appendChild(candle);
+        var textSpan = document.createElement('span');
+        textSpan.className = 'prayer-echo-text';
+        var t = String(row.text || '').trim().slice(0, 120);
+        textSpan.textContent = 'On this device: ' + tdbPlainTextForUi(t);
+        textSpan.title = 'Saved on this phone or browser only.';
+        li.appendChild(textSpan);
+        listEl.appendChild(li);
+      });
+      if (joinBtn) {
+        joinBtn.style.display = 'none';
+        joinBtn.classList.add('hidden');
+      }
+      if (presenceEl) {
+        presenceEl.textContent = '';
+        presenceEl.style.display = 'none';
+        presenceEl.classList.add('hidden');
+      }
+      return true;
+    } catch (e2) {
+      return false;
+    }
+  }
   async function fetchAndRenderEcho() {
     if (isSacredSilence()) {
       if (loadingEl) loadingEl.style.display = 'none';
       if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
-      if (presenceEl) presenceEl.style.display = 'none';
-      if (joinBtn) joinBtn.style.display = 'none';
-      if (sacredEl) sacredEl.style.display = 'block';
+      if (presenceEl) { presenceEl.style.display = 'none'; presenceEl.classList.add('hidden'); }
+      if (joinBtn) {
+        joinBtn.style.display = 'none';
+        joinBtn.classList.add('hidden');
+      }
+      if (sacredEl) {
+        sacredEl.removeAttribute('hidden');
+        sacredEl.classList.remove('hidden');
+        sacredEl.style.display = 'block';
+      }
       return;
     }
-    if (sacredEl) sacredEl.style.display = 'none';
+    if (sacredEl) {
+      sacredEl.style.display = 'none';
+      sacredEl.setAttribute('hidden', 'hidden');
+      sacredEl.classList.add('hidden');
+    }
     if (!supabaseClient) {
+      if (renderLocalWallWhispers()) return;
       if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
-      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Connect to see recent prayers.'; }
+      if (loadingEl) {
+        loadingEl.style.display = 'block';
+        loadingEl.textContent = 'Share a line on the wall below—this device keeps it private until you sync or sign in. When you\'re online, other hushed prayers can show here too.';
+      }
+      return;
+    }
+    if (!navigator.onLine) {
+      if (renderLocalWallWhispers()) {
+        if (loadingEl) loadingEl.style.display = 'none';
+        return;
+      }
+      if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
+      if (loadingEl) {
+        loadingEl.style.display = 'block';
+        loadingEl.textContent = 'Offline—whispers from other devices pause. Your saved lines still live in the list below.';
+      }
       return;
     }
     if (!isPrayersApiAvailable()) {
+      if (renderLocalWallWhispers()) {
+        if (loadingEl) loadingEl.style.display = 'none';
+        return;
+      }
       if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
-      if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
+      if (loadingEl) {
+        loadingEl.style.display = 'block';
+        loadingEl.textContent = 'When the prayer line is reachable, fresh anonymous intents land here—still no names, just hearts.';
+      }
       return;
     }
     if (listEl) {
@@ -8345,18 +8433,25 @@ function wireGodModePrayerEcho() {
       }
     }, 4000);
     try {
-      var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count, family_name').order('created_at', { ascending: false }).limit(5);
+      var res = await supabaseClient.from('prayers').select('id, intent, created_at, amen_count, family_name').order('created_at', { ascending: false }).limit(3);
       clearTimeout(echoTimeout);
       if (res && is404Like(res)) {
         setPrayersApiUnavailable();
+        if (renderLocalWallWhispers()) {
+          if (loadingEl) loadingEl.style.display = 'none';
+          return;
+        }
         if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
         if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
         return;
       }
       if (loadingEl) loadingEl.style.display = 'none';
       if (listEl) listEl.style.display = 'block';
-      if (joinBtn) joinBtn.style.display = 'inline-block';
-      var rows = (res && res.data) ? res.data : [];
+      if (joinBtn) {
+        joinBtn.style.display = 'inline-block';
+        joinBtn.classList.remove('hidden');
+      }
+      var rows = (res && res.data) ? res.data.slice(0, 3) : [];
       if (rows.length === 0) {
         var todayIso = new Date().toISOString();
         rows = [
@@ -8426,27 +8521,30 @@ function wireGodModePrayerEcho() {
     } catch (e) {
       setPrayersApiUnavailable();
       clearTimeout(echoTimeout);
+      if (renderLocalWallWhispers()) {
+        if (loadingEl) loadingEl.style.display = 'none';
+        return;
+      }
       if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
       if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'Recent prayers could not be loaded right now.'; }
     }
   }
   window.__refreshPrayerEcho = fetchAndRenderEcho;
-  if (!isPrayersApiAvailable()) {
-    if (listEl) { listEl.innerHTML = ''; listEl.style.display = 'none'; }
-    if (loadingEl) { loadingEl.style.display = 'block'; loadingEl.textContent = 'When you\'re online, recent prayers appear here.'; }
-  } else {
-    fetchAndRenderEcho();
-    // 0–5 min: every 15s → 5–7 min: every 60s → 7 min+: every 2 min
+  fetchAndRenderEcho();
+  // 0–5 min: every 15s → 5–7 min: every 60s → 7 min+: every 2 min
+  if (!tdbIsPerfMode()) {
     adaptiveInterval(fetchAndRenderEcho, [
       { after: 0,      every: 15000  },
       { after: 300000, every: 60000  },
       { after: 420000, every: 120000 }
     ]);
-    adaptiveInterval(fetchPresence, [
-      { after: 0,      every: 15000  },
-      { after: 300000, every: 60000  },
-      { after: 420000, every: 120000 }
-    ]);
+    if (supabaseClient) {
+      adaptiveInterval(fetchPresence, [
+        { after: 0,      every: 15000  },
+        { after: 300000, every: 60000  },
+        { after: 420000, every: 120000 }
+      ]);
+    }
   }
   if (joinBtn) {
     joinBtn.addEventListener('click', function () {
@@ -9528,16 +9626,15 @@ function updateChallengeBannerState() {
   var started = false;
   try { started = localStorage.getItem(CHALLENGE_30_STARTED_KEY) === '1'; } catch (e) {}
   if (started && count >= 1) {
-    cta.textContent = count <= 30 ? 'Day ' + count + '/30 - stay consistent.' : 'Day ' + count + ' - stay consistent.';
+    cta.textContent = count <= 30 ? 'Day ' + count + '/30 — one day at a time.' : 'Day ' + count + ' — same gentle pace.';
     cta.disabled = true;
-    cta.setAttribute('aria-label', 'Challenge in progress');
+    cta.setAttribute('aria-label', '30-day plan in progress, day ' + count);
   }
 }
 
 function updateDailyBattleStreak() {
   const streakEl = document.getElementById('daily-battle-streak');
   const calendarEl = document.getElementById('daily-battle-calendar');
-  if (!streakEl) return;
   const today = getDailyKey();
   let data = {};
   try {
@@ -9562,10 +9659,10 @@ function updateDailyBattleStreak() {
   var label = familyName ? ((familyName.match(/s$/i) ? familyName + "'" : familyName + "'s") + ' streak') : 'Streak';
   var streakText = nextCount >= 1
     ? (nextCount <= 30
-        ? (nextCount === 1 ? label + ': Day 1/30 - started.' : label + ': Day ' + nextCount + '/30 - in progress.')
-        : (nextCount === 1 ? label + ': Day 1 - started.' : label + ': Day ' + nextCount + ' - in progress.'))
-    : (familyName ? label + ': 0 days' : 'Streak: 0 days');
-  streakEl.textContent = streakText;
+        ? (nextCount === 1 ? label + ': Day 1/30 — you\'ve begun.' : label + ': Day ' + nextCount + '/30 — keep today\'s rhythm.')
+        : (nextCount === 1 ? label + ': Day 1 — you\'ve begun.' : label + ': Day ' + nextCount + ' — keep today\'s rhythm.'))
+    : (familyName ? label + ': 0 — pick up anytime; no guilt.' : 'Streak: 0 — you\'re not behind with God. Tap the plan below when you\'re ready.');
+  if (streakEl) streakEl.textContent = streakText;
   var shareStreakWrap = document.getElementById('share-streak-wrap');
   if (shareStreakWrap) shareStreakWrap.style.display = nextCount >= 1 ? 'flex' : 'none';
   var shareStreakCard = document.getElementById('share-streak-card');
@@ -9574,11 +9671,11 @@ function updateDailyBattleStreak() {
   if (shareStreakBtn) shareStreakBtn.style.display = nextCount >= 1 ? 'inline-block' : 'none';
   const milestoneEl = document.getElementById('daily-battle-milestone');
   if (milestoneEl) {
-    if (nextCount >= 60) milestoneEl.textContent = 'Sixty days. Still here.';
-    else if (nextCount >= 30) milestoneEl.textContent = 'Thirty days straight.';
-    else if (nextCount >= 14) milestoneEl.textContent = '14-day milestone reached. Two strong weeks.';
-    else if (nextCount >= 7) milestoneEl.textContent = 'Seven days in a row. Keep your rhythm.';
-    else if (nextCount >= 3) milestoneEl.textContent = 'One verse a day keeps the streak alive. Don\'t break the chain!';
+    if (nextCount >= 60) milestoneEl.textContent = 'Sixty days. Still showing up—that counts.';
+    else if (nextCount >= 30) milestoneEl.textContent = 'Thirty days straight. Still here with Him.';
+    else if (nextCount >= 14) milestoneEl.textContent = 'Two weeks in the Word. Miss a day? Start again gently.';
+    else if (nextCount >= 7) milestoneEl.textContent = 'Seven days—a week in the Word. Keep the rhythm.';
+    else if (nextCount >= 3) milestoneEl.textContent = 'Three days in a row—a quiet rhythm is forming.';
     else milestoneEl.textContent = '';
   }
   if (calendarEl) renderStreakCalendar(calendarEl, nextDates);
@@ -9586,19 +9683,33 @@ function updateDailyBattleStreak() {
   if (nextCount === 7) emitEasterEgg('streak7_fist_bump', { streak: 7 });
   updateChallengeBannerState();
   var milestoneCard = document.getElementById('streak-milestone-card');
-  if (milestoneCard && [7, 30].indexOf(nextCount) >= 0) {
-    milestoneCard.textContent = nextCount === 7 ? "You've been here a week. That's a week in the Word." : "Thirty days straight. You're still here.";
-    milestoneCard.classList.remove('hidden');
-    setTimeout(function () { milestoneCard.classList.add('hidden'); }, 8000);
+  if (milestoneCard) {
+    var milestoneCardCopy = {
+      3: 'Three days in a row—a quiet rhythm is forming.',
+      7: "You've been here a week. That's a week in the Word.",
+      14: 'Two weeks strong. Miss a day? Grace—then begin again.',
+      30: "Thirty days straight. You're still here.",
+      60: 'Sixty days. Still showing up—that counts.'
+    };
+    var cardLine = milestoneCardCopy[nextCount];
+    if (cardLine) {
+      milestoneCard.textContent = cardLine;
+      milestoneCard.classList.remove('hidden');
+      if (milestoneCard._milestoneHideT) clearTimeout(milestoneCard._milestoneHideT);
+      milestoneCard._milestoneHideT = setTimeout(function () {
+        milestoneCard.classList.add('hidden');
+        milestoneCard._milestoneHideT = null;
+      }, 8000);
+    }
   }
   var milestoneToast = [3, 7, 14, 30, 60].indexOf(nextCount) >= 0;
   try {
     var lastMilestone = parseInt(localStorage.getItem('tdb_last_milestone_toast') || '0', 10);
     if (milestoneToast && nextCount > lastMilestone) {
       trackEvent('milestone_reached', { streak_days: nextCount });
-      if (nextCount === 3) showEliteToast('Badge unlocked: Faithful 3.');
+      if (nextCount === 3) showEliteToast('Three days—a faithful rhythm.');
       else if (nextCount === 7) showEliteToast('Seven days. That’s a week in the Word.');
-      else if (nextCount === 14) showEliteToast('Two-week milestone reached.');
+      else if (nextCount === 14) showEliteToast('Two weeks in the Word.');
       else if (nextCount === 30) {
         showEliteToast('Thirty days straight.');
         if (typeof window.tdbConfetti === 'function') window.tdbConfetti({ particleCount: 80, spread: 70 });
@@ -9617,11 +9728,9 @@ function updateDailyBattleStreak() {
     var started = false;
     try { started = localStorage.getItem(CHALLENGE_30_STARTED_KEY) === '1'; } catch (e) {}
     if (nextCount === 0 && started) {
-      resetNudgeEl.innerHTML = 'Streak paused—we didn\'t wipe your progress. Tap <button type="button" class="link-button" id="daily-battle-resume-btn">Resume</button> to start a new streak.';
+      resetNudgeEl.innerHTML = 'Streak paused—your plan is still here. When you\'re ready, tap <button type="button" class="link-button" id="daily-battle-resume-btn">Resume</button> to begin a fresh streak (no guilt).';
       resetNudgeEl.style.display = 'block';
       resetNudgeEl.classList.remove('hidden');
-      var resumeBtn = document.getElementById('daily-battle-resume-btn');
-      if (resumeBtn) resumeBtn.addEventListener('click', function () { if (typeof startChallenge === 'function') startChallenge(); });
     } else {
       resetNudgeEl.style.display = 'none';
       resetNudgeEl.classList.add('hidden');
@@ -9629,6 +9738,7 @@ function updateDailyBattleStreak() {
     }
   }
   if (typeof updateHomeStreakBadge === 'function') updateHomeStreakBadge(nextCount);
+  if (typeof updateHeaderStreakBadge === 'function') updateHeaderStreakBadge(nextCount);
   if (typeof updateStreakReminderNudge === 'function') updateStreakReminderNudge();
 }
 
@@ -9643,7 +9753,7 @@ function updateHomeStreakBadge(streakCount) {
     } catch (e) { streakCount = 0; }
   }
   if (streakCount >= 1) {
-    el.textContent = streakCount === 1 ? '1 day—keep going!' : streakCount + ' days—keep going!';
+    el.textContent = streakCount === 1 ? '1 day—steady and small.' : streakCount + ' days—one day at a time.';
     el.style.display = 'block';
     el.classList.add('streak-badge-pulse');
     clearTimeout(el._streakPulseTimer);
@@ -11028,16 +11138,19 @@ function updateHeaderStreakBadge(streakCount) {
   var label = n >= 1 ? ('Day ' + n + ' \uD83D\uDD25') : '';
   if (badge) {
     badge.textContent = n + ' day' + (n === 1 ? '' : 's');
-    badge.setAttribute('aria-label', 'Open streak details. Current streak: ' + n + ' days');
+    badge.setAttribute('aria-label', 'Open streak details. Day ' + n + '—rhythm, not perfection; grace when you miss.');
   }
   if (heroBadge) {
     if (n >= 1) {
       heroBadge.textContent = label;
       heroBadge.setAttribute('role', 'status');
-      heroBadge.removeAttribute('aria-label');
+      heroBadge.setAttribute('aria-label', 'Reading streak: day ' + n + '. Rhythm, not perfection—grace when you miss.');
+      heroBadge.title = 'Rhythm, not perfection—grace when you miss a day.';
       heroBadge.hidden = false;
     } else {
       heroBadge.removeAttribute('role');
+      heroBadge.removeAttribute('aria-label');
+      heroBadge.removeAttribute('title');
       heroBadge.hidden = true;
     }
   }
@@ -16399,6 +16512,25 @@ function renderSavedVerses() {
     });
     container.appendChild(section);
   });
+  if (container.closest('#my-verses-panel')) {
+    wrapMyVersesRefLinks(container);
+  }
+}
+
+function wrapMyVersesRefLinks(container) {
+  if (!container) return;
+  container.querySelectorAll('.list-item > div > strong').forEach(function (strong) {
+    var refText = (strong.textContent || '').trim();
+    if (!refText || refText.length > 120) return;
+    if (/^battle\s*log$/i.test(refText)) return;
+    if (strong.closest('a.my-verses-ref-link')) return;
+    var a = document.createElement('a');
+    a.href = 'bible-tool.html?ref=' + encodeURIComponent(refText);
+    a.className = 'my-verses-ref-link';
+    a.setAttribute('aria-label', 'Open ' + refText + ' in Bible Tool');
+    strong.parentNode.insertBefore(a, strong);
+    a.appendChild(strong);
+  });
 }
 
 function renderCollectionSelect() {
@@ -18385,6 +18517,9 @@ async function tdbInitImpl() {
       pushToCloud(items);
       inp.value = '';
       render();
+      if (typeof window.__refreshPrayerEcho === 'function') {
+        try { window.__refreshPrayerEcho(); } catch (eEcho) {}
+      }
       if (typeof recordPrayerWallDay === 'function') recordPrayerWallDay();
       if (typeof updatePrayerWallStreakBadge === 'function') updatePrayerWallStreakBadge();
       if (typeof dismissPrayerWallGrace === 'function') dismissPrayerWallGrace();
@@ -18965,14 +19100,17 @@ async function tdbInitImpl() {
   initImageLazyLoading();
   initVerseCardLazyLoading();
   hydrateCounterFallbacksFromLocal();
+  if (typeof updateDailyBattleStreak === 'function') updateDailyBattleStreak();
   (function () {
     var p = ensurePrayersApiProbed();
     p.then(function (available) {
       if (available === true && supabaseClient) {
         wireDailyVerseEcho();
-        wireGodModePrayerEcho();
       }
     });
+    if (document.getElementById('prayer-echo')) {
+      wireGodModePrayerEcho();
+    }
     wirePrayerCounter();
     wireKidsBetaCount();
   })();
@@ -19463,6 +19601,10 @@ async function tdbInitImpl() {
   wireOfflinePrefetch();
 
   document.body.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'daily-battle-resume-btn') {
+      e.preventDefault();
+      if (typeof startChallenge === 'function') startChallenge();
+    }
     if (e.target && e.target.id === 'daily-battle-try-again') {
       e.preventDefault();
       var btn = e.target;

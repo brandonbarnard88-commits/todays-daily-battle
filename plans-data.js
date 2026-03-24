@@ -1,7 +1,8 @@
 /**
  * Shared day rows for multi-length Battle plans (battle10/14/21/30/40).
  * Loaded by plans.html before the inline script. Single source — edit wording here.
- * Regenerate from plans.html if needed: see repo history or ask maintainers (line-sliced extract).
+ *
+ * Authoring new plans: see docs/BATTLE-PLAN-AUTHORING.md (markdown draft template + wiring checklist).
  */
 (function (global) {
   'use strict';

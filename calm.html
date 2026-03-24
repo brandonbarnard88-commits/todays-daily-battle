@@ -707,12 +707,19 @@
         if (!startBtn || !circle || !text || !complete) return;
 
         var tickId = null;
-        var TOTAL_MS = 60000;
-        var phases = [
-          { label: 'Inhala...', ms: 4000 },
-          { label: 'Retén...', ms: 2000 },
-          { label: 'Exhala...', ms: 6000 }
-        ];
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var TOTAL_MS = reduceMotion ? 72000 : 60000;
+        var phases = reduceMotion
+          ? [
+              { label: 'Inhala...', ms: 5200 },
+              { label: 'Retén...', ms: 2800 },
+              { label: 'Exhala...', ms: 7800 }
+            ]
+          : [
+              { label: 'Inhala...', ms: 4000 },
+              { label: 'Retén...', ms: 2000 },
+              { label: 'Exhala...', ms: 6000 }
+            ];
         var cycleMs = phases.reduce(function (a, p) { return a + p.ms; }, 0);
 
         function phaseLabelAt(elapsedMs) {

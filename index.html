@@ -5079,8 +5079,11 @@
           <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Share anonymously on the prayer wall">Share anonymously</button>
         </div>
         <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
-          <div class="today-count">
-            <strong><span id="prayer-count-today">0</span></strong> prayers today
+          <div class="today-count" id="prayer-device-today-block">
+            <span id="prayer-device-quiet" class="prayer-device-quiet">Quiet on this device today—Silent Amen still counts.</span>
+            <span id="prayer-device-count-wrap" class="prayer-device-count-wrap hidden" aria-live="polite">
+              <strong><span id="prayer-count-today">0</span></strong> prayers today on this device
+            </span>
           </div>
           <div id="recent-prayers" class="recent-prayers" aria-live="polite"></div>
         </div>
@@ -5882,7 +5885,6 @@
     }
 
     async function loadTodaysVerse() {
-      setVerseLoadingState(true);
       verseNote.hidden = true;
 
       // Build a combined rotation pool from both arrays (deduped by ref)
@@ -5911,12 +5913,17 @@
         if (typeof console !== 'undefined' && console.warn) console.warn('TDB: hero verse pool empty—check hero-daily-first-paint.js');
         return;
       }
+
+      var skipHeroRedraw = typeof window.__TDB_HERO_FIRST_PAINT_REF === 'string' && verseData.ref === window.__TDB_HERO_FIRST_PAINT_REF;
+      if (!skipHeroRedraw) {
+        setVerseLoadingState(true);
+      }
+
       localStorage.setItem('tdb-hero-last-ref', verseData.ref);
 
       // Remove the stale static-fetch cache so it can't override on future visits
       try { localStorage.removeItem('tdb-last-online-verse'); } catch (_) {}
 
-      var skipHeroRedraw = typeof window.__TDB_HERO_FIRST_PAINT_REF === 'string' && verseData.ref === window.__TDB_HERO_FIRST_PAINT_REF;
       if (!skipHeroRedraw) {
         renderVerseContent(verseData);
       } else {
@@ -6655,11 +6662,26 @@
     function renderPrayerCounter(count) {
       const badge = document.getElementById('prayerTodayBadge');
       const label = document.getElementById('prayerTodayLabel');
-      if (label) label.textContent = count === 1 ? '1 prayer today' : count + ' prayers today';
+      if (label) {
+        if (count === 0) label.textContent = 'Quiet today—open starters on the wall';
+        else if (count === 1) label.textContent = '1 prayer today';
+        else label.textContent = count + ' prayers today';
+      }
       if (badge) {
         badge.textContent = count > 0 ? String(count) : '';
         badge.classList.add('bump');
         setTimeout(() => badge.classList.remove('bump'), 250);
+      }
+      const quietEl = document.getElementById('prayer-device-quiet');
+      const countWrap = document.getElementById('prayer-device-count-wrap');
+      const todayEl = document.getElementById('prayer-count-today');
+      if (count > 0) {
+        if (quietEl) quietEl.classList.add('hidden');
+        if (countWrap) countWrap.classList.remove('hidden');
+        if (todayEl) todayEl.textContent = String(count);
+      } else {
+        if (quietEl) quietEl.classList.remove('hidden');
+        if (countWrap) countWrap.classList.add('hidden');
       }
     }
 

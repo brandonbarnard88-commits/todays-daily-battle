@@ -809,27 +809,37 @@
 
         <div class="toolkit-packs" lang="es" role="region" aria-labelledby="toolkit-packs-heading">
         <h2 id="toolkit-packs-heading">Paquetes listos para usar</h2>
-        <p class="quiet-note">Descarga estos packs como texto listo para imprimir. Perfectos para grupos pequeños, estudios bíblicos o para compartir con tu iglesia. (Se generan en tu dispositivo; no hace falta conexión.)</p>
+        <p class="quiet-note">Descarga cada pack como <strong>PDF</strong> listo para imprimir o como <strong>texto</strong>. Todo se genera en tu dispositivo; no hace falta conexión.</p>
 
         <div class="pack-grid">
           <div class="pack-card">
             <h3><span aria-hidden="true">📖</span> 7 Días de Gracia en el Dolor</h3>
             <p>Basado en el plan &ldquo;When Pain Won&rsquo;t Quit&rdquo;. Ideal para personas que están sufriendo físicamente.</p>
-            <button type="button" class="download-btn" id="tt-pack-pain-grace" aria-label="Descargar pack 7 días gracia en el dolor, archivo de texto">
-              Descargar pack (7 días, texto)
-            </button>
+            <div class="pack-download-row" role="group" aria-label="Descargas pack 7 días">
+              <button type="button" class="download-btn" id="tt-pack-pain-grace-pdf" aria-label="Descargar pack 7 días como PDF">
+                PDF (imprimir)
+              </button>
+              <button type="button" class="download-btn download-btn-secondary" id="tt-pack-pain-grace" aria-label="Descargar pack 7 días como archivo de texto">
+                Texto (.txt)
+              </button>
+            </div>
           </div>
 
           <div class="pack-card">
             <h3><span aria-hidden="true">⚔️</span> 14 Días de Batalla Espiritual</h3>
             <p>Versículos fuertes (KJV) + enfoque para cada día. Bueno para hombres, grupos de guerra espiritual o discipulado.</p>
-            <button type="button" class="download-btn" id="tt-pack-battle-14" aria-label="Descargar pack 14 días batalla espiritual, archivo de texto">
-              Descargar pack (14 días, texto)
-            </button>
+            <div class="pack-download-row" role="group" aria-label="Descargas pack 14 días">
+              <button type="button" class="download-btn" id="tt-pack-battle-14-pdf" aria-label="Descargar pack 14 días como PDF">
+                PDF (imprimir)
+              </button>
+              <button type="button" class="download-btn download-btn-secondary" id="tt-pack-battle-14" aria-label="Descargar pack 14 días como archivo de texto">
+                Texto (.txt)
+              </button>
+            </div>
           </div>
         </div>
 
-        <p class="note-small">Los archivos son texto plano con versículos KJV y pasos sencillos, generados aquí mismo. Sin agua de marketing. Sin anuncios. Sin seguimiento.</p>
+        <p class="note-small">PDF y texto usan versículos KJV y pasos sencillos, generados en el navegador. Sin marca de agua de marketing. Sin anuncios. Sin seguimiento.</p>
         </div>
       </div>
     </main>
@@ -2253,8 +2263,114 @@
       URL.revokeObjectURL(url);
     }
 
-    function generatePainGracePack() {
-      var content = [
+    function tdbAsciiForPdf(s) {
+      return String(s)
+        .replace(/\u2014/g, '--')
+        .replace(/\u2013/g, '-')
+        .replace(/\u2018|\u2019/g, "'")
+        .replace(/\u201c|\u201d/g, '"')
+        .replace(/[^\r\n\t\x20-\x7E]/g, '?');
+    }
+
+    function tdbPdfEscape(s) {
+      return tdbAsciiForPdf(s).replace(/\\/g, '\\\\').replace(/\(/g, '\\(').replace(/\)/g, '\\)');
+    }
+
+    function tdbWrapPdfLines(text, maxLen) {
+      var out = [];
+      String(text).split(/\r?\n/).forEach(function (raw) {
+        var line = raw;
+        while (line.length > maxLen) {
+          var cut = line.lastIndexOf(' ', maxLen);
+          if (cut < 24) cut = maxLen;
+          out.push(line.slice(0, cut));
+          line = line.slice(cut).replace(/^\s+/, '');
+        }
+        out.push(line);
+      });
+      return out;
+    }
+
+    /** Minimal ASCII PDF (Helvetica), multi-page — no external deps. */
+    function tdbBuildAsciiPdf(wrappedLines) {
+      var MARGIN_X = 56;
+      var START_Y = 722;
+      var LINES_PER_PAGE = 52;
+      var chunks = [];
+      var i;
+      for (i = 0; i < wrappedLines.length; i += LINES_PER_PAGE) {
+        chunks.push(wrappedLines.slice(i, i + LINES_PER_PAGE));
+      }
+      if (!chunks.length) chunks.push([' ']);
+      var n = chunks.length;
+      var fontId = 3 + 2 * n;
+      var o = [];
+      o[1] = '1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n';
+      var kids = [];
+      var pi;
+      for (pi = 0; pi < n; pi++) {
+        var cid = 3 + pi * 2;
+        var pid = 4 + pi * 2;
+        kids.push(pid + ' 0 R');
+        var chunk = chunks[pi];
+        var parts = ['BT', '/F1 10 Tf', MARGIN_X + ' ' + START_Y + ' Td'];
+        var li;
+        for (li = 0; li < chunk.length; li++) {
+          var rawLine = chunk[li];
+          var e = tdbPdfEscape(rawLine == null || rawLine === '' ? ' ' : String(rawLine));
+          if (li === 0) parts.push('(' + e + ') Tj');
+          else {
+            parts.push('T*');
+            parts.push('(' + e + ') Tj');
+          }
+        }
+        parts.push('ET');
+        var stream = parts.join('\n');
+        o[cid] = cid + ' 0 obj\n<< /Length ' + stream.length + ' >>\nstream\n' + stream + '\nendstream\nendobj\n';
+        o[pid] = pid + ' 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents ' + cid + ' 0 R /Resources << /Font << /F1 ' + fontId + ' 0 R >> >> >>\nendobj\n';
+      }
+      o[2] = '2 0 obj\n<< /Type /Pages /Kids [' + kids.join(' ') + '] /Count ' + n + ' >>\nendobj\n';
+      o[fontId] = fontId + ' 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n';
+
+      var header = '%PDF-1.4\n%\xE2\xE3\xCF\xD3\n';
+      var pdf = header;
+      var offsets = [];
+      offsets[0] = 0;
+      function pad10(num) {
+        return ('0000000000' + num).slice(-10);
+      }
+      var id;
+      for (id = 1; id <= fontId; id++) {
+        offsets[id] = pdf.length;
+        pdf += o[id];
+      }
+      var xrefStart = pdf.length;
+      pdf += 'xref\n0 ' + (fontId + 1) + '\n';
+      pdf += '0000000000 65535 f \n';
+      for (id = 1; id <= fontId; id++) {
+        pdf += pad10(offsets[id]) + ' 00000 n \n';
+      }
+      pdf += 'trailer\n<< /Size ' + (fontId + 1) + ' /Root 1 0 R >>\nstartxref\n' + xrefStart + '\n%%EOF';
+      return pdf;
+    }
+
+    function tdbDownloadPdf(filename, fullText) {
+      var lines = tdbWrapPdfLines(tdbAsciiForPdf(fullText), 88);
+      var pdfStr = tdbBuildAsciiPdf(lines);
+      var blob = new Blob([pdfStr], { type: 'application/pdf' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function getPainGracePackText() {
+      return [
         'When Pain Won\'t Quit — 7 Days of Grace (KJV)',
         'Today\'s Daily Battle — todaysdailybattle.com',
         '',
@@ -2305,10 +2421,17 @@
         'Built for the trenches.',
         ''
       ].join('\n');
-      tdbDownloadTextFile('pain-grace-7days.txt', content);
     }
 
-    function generateBattle14Pack() {
+    function generatePainGracePack() {
+      tdbDownloadTextFile('pain-grace-7days.txt', getPainGracePackText());
+    }
+
+    function generatePainGracePackPdf() {
+      tdbDownloadPdf('pain-grace-7days.pdf', getPainGracePackText());
+    }
+
+    function getBattle14PackText() {
       var days = [
         ['Day 1 — Stand in truth', 'Ephesians 6:14', 'Stand therefore, having your loins girt about with truth...'],
         ['Day 2 — Righteousness before God', 'Ephesians 6:14', '...and having on the breastplate of righteousness;'],
@@ -2333,22 +2456,34 @@
         '"Where do I need this truth today?"',
         ''
       ];
-      for (var i = 0; i < days.length; i++) {
-        lines.push(days[i][0]);
-        lines.push(days[i][1] + ' (KJV) — ' + days[i][2]);
+      for (var j = 0; j < days.length; j++) {
+        lines.push(days[j][0]);
+        lines.push(days[j][1] + ' (KJV) — ' + days[j][2]);
         lines.push('');
       }
       lines.push('---');
       lines.push('KJV only. For groups: read aloud, pray short, share one honest sentence.');
       lines.push('No ads. No tracking.');
       lines.push('');
-      tdbDownloadTextFile('battle-spiritual-14days.txt', lines.join('\n'));
+      return lines.join('\n');
+    }
+
+    function generateBattle14Pack() {
+      tdbDownloadTextFile('battle-spiritual-14days.txt', getBattle14PackText());
+    }
+
+    function generateBattle14PackPdf() {
+      tdbDownloadPdf('battle-spiritual-14days.pdf', getBattle14PackText());
     }
 
     var b1 = document.getElementById('tt-pack-pain-grace');
+    var b1p = document.getElementById('tt-pack-pain-grace-pdf');
     var b2 = document.getElementById('tt-pack-battle-14');
+    var b2p = document.getElementById('tt-pack-battle-14-pdf');
     if (b1) b1.addEventListener('click', generatePainGracePack);
+    if (b1p) b1p.addEventListener('click', generatePainGracePackPdf);
     if (b2) b2.addEventListener('click', generateBattle14Pack);
+    if (b2p) b2p.addEventListener('click', generateBattle14PackPdf);
   })();
   </script>
 </body>

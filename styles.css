@@ -367,6 +367,26 @@ button.download-btn:focus-visible {
   outline-offset: 3px;
 }
 
+.toolkit-packs .pack-download-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.toolkit-packs .download-btn-secondary {
+  background: transparent;
+  color: var(--gold-soft, #c9a66b);
+  border: 2px solid rgba(201, 166, 107, 0.55);
+}
+
+.toolkit-packs .download-btn-secondary:hover,
+.toolkit-packs .download-btn-secondary:focus-visible {
+  background: rgba(201, 166, 107, 0.1);
+}
+
 .util-mb-2 { margin-bottom: 2rem; }
 .util-mb-1_5 { margin-bottom: 1.5rem; }
 .util-mt-1 { margin-top: 1rem; }
@@ -410,6 +430,9 @@ button.download-btn:focus-visible {
   }
   .breathe-circle {
     animation: none !important;
+  }
+  .breathe-circle .inner-circle {
+    opacity: 0.88;
   }
 }
 
@@ -4150,6 +4173,22 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   font-size: 1.1rem;
   margin-bottom: 1rem;
   opacity: 0.9;
+}
+
+.prayer-device-quiet {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--muted, #94a3b8);
+}
+
+.prayer-device-quiet.hidden {
+  display: none !important;
+}
+
+.prayer-device-count-wrap.hidden {
+  display: none !important;
 }
 
 .prayer-wall-alive .recent-prayer {

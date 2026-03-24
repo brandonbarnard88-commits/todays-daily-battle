@@ -6377,6 +6377,8 @@ function wireRealPrayerCounter() {
     var proofZeroP = document.getElementById('prayerSocialProofZero');
     function applyCount(displayN) {
       var s = formatCount(displayN);
+      var quietEl = document.getElementById('prayer-device-quiet');
+      var deviceWrap = document.getElementById('prayer-device-count-wrap');
       if (displayN > 0) {
         if (todayEl) todayEl.textContent = s;
         if (wrapEl) wrapEl.classList.remove('hidden');
@@ -6385,6 +6387,8 @@ function wireRealPrayerCounter() {
         setPrayerTodayLabel(displayN);
         if (proofP) proofP.classList.remove('hidden');
         if (proofZeroP) proofZeroP.classList.add('hidden');
+        if (quietEl) quietEl.classList.add('hidden');
+        if (deviceWrap) deviceWrap.classList.remove('hidden');
       } else {
         if (wrapEl) wrapEl.classList.add('hidden');
         if (prayerOfDayEl) prayerOfDayEl.textContent = '0';
@@ -6392,6 +6396,8 @@ function wireRealPrayerCounter() {
         setPrayerTodayLabel(0);
         if (proofP) proofP.classList.add('hidden');
         if (proofZeroP) proofZeroP.classList.remove('hidden');
+        if (quietEl) quietEl.classList.remove('hidden');
+        if (deviceWrap) deviceWrap.classList.add('hidden');
       }
     }
     if (!supabaseClient) {

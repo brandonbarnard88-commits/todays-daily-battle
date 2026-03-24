@@ -4808,7 +4808,8 @@
         </div>
         <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
       </div>
-      <script src="hero-daily-first-paint.js?v=20260324"></script>
+      <script src="hero-daily-365-data.js?v=20260325b"></script>
+      <script src="hero-daily-first-paint.js?v=20260325b"></script>
       </div><!-- /#main-content -->
 
       <!-- ── How's this helping? (feedback for future priorities) ── -->
@@ -5376,9 +5377,10 @@
   
 
   <script nonce="tdb2025s">
-    // Hero verse pool lives in hero-daily-first-paint.js (blocking script right after #hero-verse-wrap).
+    // Hero verse: 365-day UTC list (hero-daily-365-data.js) + normalize in hero-daily-first-paint.js.
     const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];
     const VERSES = window.__TDB_HERO_VERSES || [];
+    const HERO_YEAR_365 = window.__TDB_HERO_DAILY_YEAR || [];
 
 
     // ── Feel Search — multi-verse groups ──
@@ -5754,8 +5756,21 @@
     }
 
     function normalizeVerse(data) {
+      if (typeof window.__TDB_normalizeHeroVerseFirstPaint === 'function') {
+        const v = window.__TDB_normalizeHeroVerseFirstPaint(data);
+        const lines = Array.isArray(v.lines) ? v.lines.map(function (ln) { return sanitizeText(ln); }) : [];
+        return {
+          ref:     sanitizeText(v.ref),
+          text:    sanitizeText(v.text),
+          lines:   lines,
+          app:     sanitizeText(v.app),
+          speaker: sanitizeText(v.speaker),
+          plain:   sanitizeText(v.plain),
+          today:   sanitizeText(v.today),
+          action:  sanitizeText(v.action)
+        };
+      }
       const fallback = VERSES.find((item) => item.ref === data.ref) || VERSES[0];
-      // Derive rich fields from legacy lines/app if not explicitly provided
       const lines   = Array.isArray(data.lines) && data.lines.length ? data.lines
                     : (Array.isArray(fallback.lines) ? fallback.lines : []);
       const appText = sanitizeText(data.app || fallback.app || '');
@@ -5874,6 +5889,14 @@
     function dailyVerseByOffset(offsetDays) {
       const date = new Date();
       date.setUTCDate(date.getUTCDate() + offsetDays);
+      if (HERO_YEAR_365.length) {
+        const y = date.getUTCFullYear();
+        const jan1 = Date.UTC(y, 0, 1);
+        const todayUtc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+        const dayOfYear = Math.floor((todayUtc - jan1) / 86400000) + 1;
+        const idx = (dayOfYear - 1) % HERO_YEAR_365.length;
+        return HERO_YEAR_365[idx];
+      }
       const daySeed = Math.floor(Date.UTC(
         date.getUTCFullYear(),
         date.getUTCMonth(),
@@ -5886,30 +5909,13 @@
     async function loadTodaysVerse() {
       verseNote.hidden = true;
 
-      // Build a combined rotation pool from both arrays (deduped by ref)
-      const seenRefs = new Set();
-      const heroPool = [];
-      [OFFLINE_PACK, VERSES].forEach(function (arr) {
-        arr.forEach(function (v) {
-          if (v && v.ref && !seenRefs.has(v.ref)) {
-            seenRefs.add(v.ref);
-            heroPool.push(v);
-          }
-        });
-      });
-
-      // Pick verse by day seed (deterministic per day, variety across days).
-      // Bump HERO_DAILY_VERSE_ROTATION_EPOCH when intentionally resetting which ref is "day 0" (keep in sync with SW-VERSION ship days).
-      // Must match hero-daily-first-paint.js (blocking script after #hero-verse-wrap).
-      // First UTC day when pool index 0 = Philippians 4:6–7. Example: 8:45 PM CDT March 22 → UTC March 23 (20535).
-      const HERO_DAILY_VERSE_ROTATION_EPOCH = 20535; // 2026-03-23 UTC (bump with SW-VERSION when resetting day-0 verse)
-      const daySeed = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
-      const poolLen = heroPool.length;
-      const idx = poolLen ? ((daySeed - HERO_DAILY_VERSE_ROTATION_EPOCH) % poolLen + poolLen) % poolLen : 0;
-      const verseData = heroPool[idx];
+      const pickFn = typeof window.__TDB_pickRawHeroByUtcDay === 'function' ? window.__TDB_pickRawHeroByUtcDay : null;
+      const verseData = pickFn ? pickFn() : null;
       if (!verseData || !verseData.ref) {
         setVerseLoadingState(false);
-        if (typeof console !== 'undefined' && console.warn) console.warn('TDB: hero verse pool empty—check hero-daily-first-paint.js');
+        if (typeof console !== 'undefined' && console.warn) {
+          console.warn('TDB: hero verse missing—check hero-daily-365-data.js + hero-daily-first-paint.js');
+        }
         return;
       }
 

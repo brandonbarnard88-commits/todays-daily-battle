@@ -1,6 +1,7 @@
 /**
  * Homepage hero: deterministic daily verse + breakdown before the rest of index.html parses.
- * Keep HERO_DAILY_VERSE_ROTATION_EPOCH in sync with loadTodaysVerse() in index.html.
+ * Primary: 365-verse UTC day-of-year list (__TDB_HERO_DAILY_YEAR from hero-daily-365-data.js).
+ * Fallback: small merged pool + HERO_DAILY_VERSE_ROTATION_EPOCH if the year list is missing.
  */
 (function () {
   'use strict';
@@ -175,31 +176,77 @@
     return String(value == null ? '' : value);
   }
 
-  function normalizeVerse(data) {
-    var fallback = null;
-    for (var fi = 0; fi < VERSES.length; fi++) {
-      if (VERSES[fi].ref === data.ref) {
-        fallback = VERSES[fi];
-        break;
-      }
+  function findOfflineByRef(ref) {
+    for (var oi = 0; oi < OFFLINE_PACK.length; oi++) {
+      if (OFFLINE_PACK[oi].ref === ref) return OFFLINE_PACK[oi];
     }
-    if (!fallback) fallback = VERSES[0];
-    var lines = Array.isArray(data.lines) && data.lines.length ? data.lines
-      : (Array.isArray(fallback.lines) ? fallback.lines : []);
-    var appText = sanitizeText(data.app || fallback.app || '');
+    return null;
+  }
+
+  function findMoodByRef(ref) {
+    for (var mi = 0; mi < VERSES.length; mi++) {
+      if (VERSES[mi].ref === ref) return VERSES[mi];
+    }
+    return null;
+  }
+
+  function defaultHeroEnrichment(ref, text) {
+    var body = sanitizeText(text);
+    var excerpt = body.length > 110 ? body.slice(0, 107).trim() + '\u2026' : body;
     return {
-      ref: sanitizeText(data.ref || fallback.ref),
-      text: sanitizeText(data.text || fallback.text),
+      lines: [
+        'Let the words land gently\u2014God is kind toward you in what He said.',
+        excerpt,
+        'Thank Him for one true thing in this verse; let gratitude lift the next step.'
+      ],
+      app: 'Read it twice, slowly. Smile once on purpose\u2014then tell God thank you for something specific in the verse.',
+      speaker: '',
+      plain: 'Nothing here is against you; Scripture is light for your path and food for today.',
+      today: 'You can receive this as encouragement without earning it\u2014that is how His words work.',
+      action: 'Share one line with someone you love (text or voice)\u2014blessing travels both ways.'
+    };
+  }
+
+  function normalizeVerse(data) {
+    var ref = sanitizeText(data.ref);
+    var text = sanitizeText(data.text);
+    function excerptLine(t) {
+      var s = sanitizeText(t);
+      return s.length > 120 ? s.slice(0, 117).trim() + '\u2026' : s;
+    }
+    var offline = findOfflineByRef(ref);
+    var mood = findMoodByRef(ref);
+    var gen = !offline ? defaultHeroEnrichment(ref, text) : null;
+
+    var lines = Array.isArray(data.lines) && data.lines.length ? data.lines
+      : (offline && Array.isArray(offline.lines) && offline.lines.length) ? offline.lines.slice()
+      : (mood && Array.isArray(mood.lines) && mood.lines.length) ? mood.lines.slice()
+      : (gen ? gen.lines : [excerptLine(text), 'Let it remind you that God is for you\u2014not distant, not harsh.', 'Give Him thanks for one clear gift in these words, then carry it kindly into your day.']);
+
+    var appText = sanitizeText(data.app || (offline && offline.app) || (mood && mood.app) || (gen && gen.app) || '');
+    return {
+      ref: ref || sanitizeText(offline && offline.ref) || sanitizeText(mood && mood.ref) || '',
+      text: text || sanitizeText(offline && offline.text) || sanitizeText(mood && mood.text) || '',
       lines: lines,
       app: appText,
-      speaker: sanitizeText(data.speaker || fallback.speaker || ''),
-      plain: sanitizeText(data.plain || fallback.plain || (lines[0] || '')),
-      today: sanitizeText(data.today || fallback.today || (lines[1] || '')),
-      action: sanitizeText(data.action || fallback.action || appText)
+      speaker: sanitizeText(data.speaker || (offline && offline.speaker) || ''),
+      plain: sanitizeText(data.plain || (offline && offline.plain) || (mood && mood.lines && mood.lines[0]) || (gen && gen.plain) || (lines[0] || '')),
+      today: sanitizeText(data.today || (offline && offline.today) || (mood && mood.lines && mood.lines[1]) || (gen && gen.today) || (lines[1] || '')),
+      action: sanitizeText(data.action || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText)
     };
   }
 
   function pickHeroVerseForToday() {
+    var YEAR365 = window.__TDB_HERO_DAILY_YEAR;
+    if (YEAR365 && YEAR365.length) {
+      var d = new Date();
+      var y = d.getUTCFullYear();
+      var jan1 = Date.UTC(y, 0, 1);
+      var todayUtc = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+      var dayOfYear = Math.floor((todayUtc - jan1) / 86400000) + 1;
+      var idx = (dayOfYear - 1) % YEAR365.length;
+      return YEAR365[idx];
+    }
     var seenRefs = Object.create(null);
     var heroPool = [];
     [OFFLINE_PACK, VERSES].forEach(function (arr) {
@@ -213,9 +260,12 @@
     });
     var daySeed = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
     var poolLen = heroPool.length;
-    var idx = poolLen ? ((daySeed - HERO_DAILY_VERSE_ROTATION_EPOCH) % poolLen + poolLen) % poolLen : 0;
-    return heroPool[idx];
+    var legacyIdx = poolLen ? ((daySeed - HERO_DAILY_VERSE_ROTATION_EPOCH) % poolLen + poolLen) % poolLen : 0;
+    return heroPool[legacyIdx];
   }
+
+  window.__TDB_pickRawHeroByUtcDay = pickHeroVerseForToday;
+  window.__TDB_normalizeHeroVerseFirstPaint = normalizeVerse;
 
   function applyHeroFirstPaint() {
     var heroVerse = document.getElementById('heroVerse');
@@ -223,6 +273,7 @@
     if (!heroVerse || !heroRef || !OFFLINE_PACK.length || !VERSES.length) return;
 
     var verseRaw = pickHeroVerseForToday();
+    if (!verseRaw || !verseRaw.ref) return;
     if (!verseRaw) return;
     var v = normalizeVerse(verseRaw);
 

@@ -251,7 +251,7 @@ for (const f of otherHtml) {
       process.exit(1);
     }
     if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
-      console.error('BUILD FAIL: plans.html must include Dealing with Cancer plan (cancercomfort / tdb-plan-cancercomfort-day).');
+      console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);
     }
     console.log('Copied plans.html (battle plans library)');

@@ -4872,6 +4872,7 @@
           <button type="button" class="quick-topic" data-topic="grace" aria-label="Grace"><span aria-hidden="true">🙏</span> Grace</button>
           <button type="button" class="quick-topic" data-topic="wisdom" aria-label="Wisdom"><span aria-hidden="true">📖</span> Wisdom</button>
           <button type="button" class="quick-topic" data-topic="grief" aria-label="Grief"><span aria-hidden="true">🕊️</span> Grief</button>
+          <button type="button" class="quick-topic" data-topic="cancer" aria-label="Cancer"><span aria-hidden="true">🎗️</span> Cancer</button>
           <button type="button" class="quick-topic" data-topic="anger" aria-label="Anger"><span aria-hidden="true">🔥</span> Anger</button>
           <button type="button" class="quick-topic" data-topic="loneliness" aria-label="Loneliness"><span aria-hidden="true">🤗</span> Loneliness</button>
           <button type="button" class="quick-topic" data-topic="guilt" aria-label="Guilt"><span aria-hidden="true">💭</span> Guilt</button>
@@ -4957,7 +4958,7 @@
           <button type="button" class="plan-chip" data-plan="doubtassurance" aria-label="Doubt to Assurance"><span aria-hidden="true">❓</span> Doubt → Assurance<span class="plan-chip-days" id="planChip-doubtassurance"></span></button>
           <button type="button" class="plan-chip" data-plan="griefhope" aria-label="Grief to Hope"><span aria-hidden="true">💔→🌅</span> Grief → Hope<span class="plan-chip-days" id="planChip-griefhope"></span></button>
           <button type="button" class="plan-chip" data-plan="painwontquit" aria-label="When Pain Won't Quit"><span aria-hidden="true">🕯️</span> When Pain Won&rsquo;t Quit<span class="plan-chip-days" id="planChip-painwontquit"></span></button>
-          <button type="button" class="plan-chip" data-plan="cancercomfort" aria-label="Dealing with Cancer — 7-day KJV plan"><span aria-hidden="true">🎗️</span> Dealing with Cancer<span class="plan-chip-days" id="planChip-cancercomfort"></span></button>
+          <button type="button" class="plan-chip" data-plan="cancercomfort" aria-label="Cancer Comfort — 7-day KJV plan"><span aria-hidden="true">🎗️</span> Cancer Comfort<span class="plan-chip-days" id="planChip-cancercomfort"></span></button>
           <button type="button" class="plan-chip" data-plan="easter" aria-label="Resurrection Hope"><span aria-hidden="true">✨</span> Resurrection Hope<span class="plan-chip-days" id="planChip-easter"></span></button>
         </div>
         <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
@@ -5684,14 +5685,14 @@
     };
 
     // ── Feel Search Mappings ──
-    // All 30 quick-topic buttons must resolve; add each data-topic to the right group.
+    // All quick-topic buttons must resolve; add each data-topic to the right group.
     const FEEL_MAP = [
       { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","scared","fear","afraid","fearful","dread","dreading","finances"], group: "anxious" },
       { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","sleep"], group: "tired" },
       { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
       { keys: ["lonely","alone","isolated","solitude","nobody","no one","nobody cares","nobody gets me","nobody understands","forgotten","invisible","loneliness"], group: "lonely" },
       { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","strength","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","god","jesus","christ","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
-      { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful","guilt","trauma","addiction","heartache"], group: "sad" },
+      { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful","guilt","trauma","addiction","heartache","cancer","chemo","oncology"], group: "sad" },
       { keys: ["peace","peaceful","calm","still","quiet","rest","restless","unsettled","unrest","serene","tranquil","settled"], group: "peace" },
       { keys: ["piece of shit","difficult person","coworker","toxic coworker","bad coworker","difficult boss","hate my boss","hate my coworker","difficult coworker","work with someone difficult","toxic boss"], group: "difficult" }
     ];
@@ -6965,7 +6966,7 @@
       doubtassurance:{ label: '\u2753 Doubt \u2192 Assurance', key: 'tdb-plan-doubtassurance-day', max: 7  },
       griefhope:{ label: '\uD83D\uDC94\u2192\uD83C\uDF05 Grief \u2192 Hope', key: 'tdb-plan-griefhope-day', max: 7  },
       painwontquit:{ label: '\uD83D\uDD6F\uFE0F When Pain Won\u2019t Quit', key: 'tdb-plan-painwontquit-day', max: 7  },
-      cancercomfort:{ label: '\uD83C\uDF97\uFE0F Dealing with Cancer', key: 'tdb-plan-cancercomfort-day', max: 7  },
+      cancercomfort:{ label: '\uD83C\uDF97\uFE0F Cancer Comfort', key: 'tdb-plan-cancercomfort-day', max: 7  },
       battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
       battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
       battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },

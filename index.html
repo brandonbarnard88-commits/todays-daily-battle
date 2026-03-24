@@ -2623,9 +2623,9 @@
       border-color: color-mix(in srgb, var(--line) 90%, #9e7625 10%);
     }
 
-    /* ── Daily Verse Image Card (share uses canvas; this preview isn’t shown — keep out of layout) ── */
-    #verseImgCard.verse-img-card {
-      display: none !important;
+    /* ── Daily Verse Image Card (preview under hero; Share uses canvas + same text/ref) ── */
+    #main-content .verse-img-card {
+      margin-top: 0.35rem;
     }
     .verse-img-card {
       grid-column: 1 / -1;
@@ -4734,16 +4734,6 @@
         </div>
       </div>
 
-      <!-- ── Daily Verse Image Card ── -->
-      <div class="verse-img-card" id="verseImgCard" aria-hidden="true">
-        <div class="verse-img-inner">
-          <p class="verse-img-text" id="verseImgText"></p>
-          <hr class="verse-img-rule">
-          <p class="verse-img-ref" id="verseImgRef"></p>
-        </div>
-        <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
-      </div>
-
       <!-- ── Hero Verse ── -->
       <div id="main-content" tabindex="-1">
       <nav class="hero-daily-path" aria-label="Today on this site">
@@ -4809,6 +4799,15 @@
         </div>
       </section>
       </div><!-- /#hero-verse-wrap -->
+      <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
+      <div class="verse-img-card" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image">
+        <div class="verse-img-inner">
+          <p class="verse-img-text" id="verseImgText"></p>
+          <hr class="verse-img-rule">
+          <p class="verse-img-ref" id="verseImgRef"></p>
+        </div>
+        <button class="verse-img-share" type="button" id="verseImgShare" aria-label="Share this verse image">Share ↗</button>
+      </div>
       <script src="hero-daily-first-paint.js?v=20260324"></script>
       </div><!-- /#main-content -->
 

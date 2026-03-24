@@ -670,10 +670,13 @@
     .tdb-home-main-nav a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.7); outline-offset: 2px; }
     .tdb-global-nav a[aria-current="page"],
     .tdb-home-main-nav a[aria-current="page"] { color: #e3bc67; font-weight: 600; }
-    /* Home: primary links below calm CTA (not sticky) */
+    /* Home: primary links in site header (below account / legal strip; not sticky) */
     .tdb-home-main-nav {
       display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
-      padding: 0.55rem 0.75rem; margin: 0.35rem 0 0.85rem;
+      padding: 0.55rem 0.75rem; margin: 0.55rem 0 0;
+      width: 100%;
+      max-width: 56rem;
+      justify-content: center;
       box-sizing: border-box;
       background: rgba(8, 12, 22, 0.42);
       border: 1px solid rgba(227, 188, 103, 0.22);
@@ -4701,6 +4704,17 @@
         <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
         <a href="terms.html" aria-label="Terms of service">Terms</a>
       </nav>
+      <nav class="tdb-home-main-nav" aria-label="Main site navigation">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/#quick-actions-hero">Topics</a>
+        <a href="/kids/?v=hub20260321">Kids</a>
+        <a href="/bible-tool.html">Tools</a>
+        <a href="/story.html">Story</a>
+      </nav>
     </header>
 
     <div class="tdb-moat-banner" role="region" aria-labelledby="tdb-moat-lead">
@@ -4762,17 +4776,6 @@
         </a>
         <p class="calm-cta-note">Not just one morning moment—use anytime anxiety, grief, or life hits.</p>
       </div>
-      <nav class="tdb-home-main-nav" aria-label="Main site navigation">
-        <a href="/" aria-current="page">Home</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/calm.html">Calm</a>
-        <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Plans</a>
-        <a href="/#quick-actions-hero">Topics</a>
-        <a href="/kids/?v=hub20260321">Kids</a>
-        <a href="/bible-tool.html">Tools</a>
-        <a href="/story.html">Story</a>
-      </nav>
 
       <!-- ── Offline banner (reassuring message when offline) ── -->
       <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>

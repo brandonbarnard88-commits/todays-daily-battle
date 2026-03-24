@@ -20,15 +20,20 @@ async function waitForPrayerWallSeeds(page: Page, testInfo?: { attach: (name: st
   });
   page.on('pageerror', (err) => logs.push(`[pageerror] ${err.message}`));
 
-  await page.goto('/#prayer-wall', { waitUntil: 'domcontentloaded' });
+  /* `domcontentloaded` can beat the module bundle; prayer wall needs tdbInit + render() for ready + handlers. */
+  await page.goto('/#prayer-wall', { waitUntil: 'load', timeout: 60000 });
   const skipBtn = page.locator('#welcome-intro-skip');
   if (await skipBtn.isVisible({ timeout: 5000 }).catch(() => false)) await skipBtn.click();
   await page.locator('#prayer-wall').scrollIntoViewIfNeeded().catch(() => {});
 
   await page.waitForSelector('#prayer-wall-list', { state: 'attached', timeout: 10000 });
-  /* Seeds paint synchronously before first await in tdbInit; poll for full list (more reliable than a window flag in CI). */
+  /* Static HTML already has 23 <li> seeds; wait until initPrayerWall render() sets ready — otherwise add handlers never ran. */
   try {
-    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23, { timeout: 25000 });
+    await page.waitForSelector('#prayer-wall-list[data-prayer-wall-ready="1"]', {
+      state: 'attached',
+      timeout: 25000,
+    });
+    await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23, { timeout: 10000 });
   } catch (e) {
     const diag = await page.evaluate(() => {
       const list = document.getElementById('prayer-wall-list');
@@ -58,7 +63,7 @@ test.describe('Prayer Wall seeds', () => {
     await waitForPrayerWallSeeds(page, test.info());
     const items = page.locator('#prayer-wall-list li.prayer-wall-item');
     await expect(items).toHaveCount(23);
-    await expect(page.locator('#prayer-wall-list').getByText(/heal our land|Thank you for this day|Guide my steps|help my unbelief|anxious thoughts|When fear overwhelms|carrying this grief|Calm the storm|afraid of what comes next|This loss is heavy|Fear to Faith|walks with me in the unknowns|quieter\. Thanks for praying|quiet moments\. Grateful for the Amens/i).first()).toBeVisible();
+    await expect(page.locator('#prayer-wall-list').getByText(/barely stand|hanging by a thread|won\u2019t let me sleep|money is tight|daddy\/husband|hurt me deep|never giving up on me|whatever today brings/i).first()).toBeVisible();
     /* setPrayerTodayLabel(0) uses quiet copy, not "0 prayers today" */
     await expect(page.locator('#prayerTodayLabel')).toContainText(/Quiet today|0 prayers today/i);
   });
@@ -71,8 +76,7 @@ test.describe('Prayer Wall seeds', () => {
     await expect(page.locator('#prayer-wall-list li.prayer-wall-item')).toHaveCount(23);
   });
 
-  /* FIXME: Headless dist run — Share click does not leave tdb_prayers_v1 (see __tdbPrayerWallHandlersWired). Live `npm run qa:smoke` covers post path. Re-enable after root-cause. */
-  test.fixme('posting a prayer adds it to the list', async ({ page }) => {
+  test('posting a prayer adds it to the list', async ({ page }) => {
     await waitForPrayerWallSeeds(page, test.info());
     await page.locator('#prayer-wall').scrollIntoViewIfNeeded();
     const uniqueText = `E2E test prayer ${Date.now()}`;

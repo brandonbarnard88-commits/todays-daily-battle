@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * Mobile Smoke Test for Today's Daily Battle
- * Tests core mobile UX flows on live site
- * 
- * Requirements: npm install playwright
- * Usage: node scripts/mobile-smoke-test.mjs
+ * Mobile smoke test (Playwright): core mobile UX on MOBILE_TEST_URL.
+ *
+ * Default URL is production. For local dist (no live CSP/GA noise), use:
+ *   npm run test:mobile   (build + scripts/mobile-test-local.mjs)
+ *   npm run test:mobile:live   (this script against www)
+ *
+ * Requirements: playwright (npm install)
  */
 
 import { chromium } from 'playwright';

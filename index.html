@@ -14,7 +14,7 @@
   <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260331tt"></script>
 
   <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
-  <meta name="description" content="KJV when anxiety, grief, or fear hit: one curated verse, battle plans with on-device progress, and a prayer wall with real Amens. Offline-ready. Daily flow is not an AI chat—privacy-first.">
+  <meta name="description" content="KJV when anxiety, grief, or fear hit: one real verse, search by how you feel, a quiet prayer wall, battle plans that stay on your device—all offline when you need it. No ads, no login, no mess. Built by hand, not an AI chat.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -27,7 +27,7 @@
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
     "logo": "https://todaysdailybattle.com/logo-shield-600.png",
-    "description": "A quiet, daily KJV verse, mood-based search, prayer wall, and battle plans—mobile-first, offline-ready, privacy-first. Human-curated rhythm, not an AI chat."
+    "description": "One quiet KJV verse a day, search by how you feel, prayer wall, battle plans—works great on your phone, offline when you need it. Built by hand, not an AI chat."
   }
   </script>
   <script nonce="tdb2025s" type="application/ld+json">
@@ -62,7 +62,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Today's Daily Battle">
-  <meta property="og:description" content="One verse. One moment. Every day. Curated KJV, prayer wall, battle plans—offline-ready. Less scroll, more soul.">
+  <meta property="og:description" content="One verse. One moment. Every day. KJV, prayer wall, battle plans—offline when you need them. Less scroll, more soul.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/home-og.jpg?v=20260322">
   <meta property="og:image:width" content="1200">
@@ -72,7 +72,7 @@
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today's Daily Battle">
-  <meta name="twitter:description" content="One verse. One moment. Every day. Curated KJV, prayer wall, battle plans—offline-ready. Less scroll, more soul.">
+  <meta name="twitter:description" content="One verse. One moment. Every day. KJV, prayer wall, battle plans—offline when you need them. Less scroll, more soul.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/home-og.jpg?v=20260322">
   <!-- Caveat + Cormorant (display=swap). Stylesheet only — avoids preload-not-used warning when CSS applies after paint. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -522,6 +522,22 @@
     html.tdb-perf-mode body.sky-night #sky-moon { animation: none !important; }
     html.tdb-perf-mode .sky-moon-svg { animation: none !important; }
 
+    /* Narrow viewports: calmer sky — fewer always-on animations (easier on battery/GPU on phones). */
+    @media (max-width: 600px) {
+      html:not(.tdb-perf-mode) .sky-stars-parallax,
+      html:not(.tdb-perf-mode) .sky-aurora-veil,
+      html:not(.tdb-perf-mode) .sky-aurora::before,
+      html:not(.tdb-perf-mode) .sky-aurora::after { animation: none !important; }
+      html:not(.tdb-perf-mode) .sky-star { animation: none !important; }
+      html:not(.tdb-perf-mode) body:not(.sky-night) .sky-sun { animation: none !important; }
+      html:not(.tdb-perf-mode) .sky-sun::after { animation: none !important; }
+      html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: none !important; }
+      html:not(.tdb-perf-mode) .sky-cloud { animation: none !important; }
+      html:not(.tdb-perf-mode) .sky-bird { animation: none !important; }
+      html:not(.tdb-perf-mode) .sky-bird::before,
+      html:not(.tdb-perf-mode) .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
+    }
+
     /* Stars — CSS animated, JS places them */
     .sky-star {
       position: absolute;
@@ -903,6 +919,10 @@
       color: #7a5818;
       border-bottom-color: color-mix(in srgb, #7a5818 38%, transparent);
     }
+    :root[data-theme="light"] .moat-banner {
+      color: rgba(70, 62, 48, 0.82);
+      border-bottom-color: color-mix(in srgb, var(--line, #2a3344) 65%, #9e7625 18%);
+    }
     :root[data-theme="light"] .tdb-moat-banner-link:hover {
       color: #5c410f;
       border-bottom-color: color-mix(in srgb, #5c410f 45%, transparent);
@@ -1134,7 +1154,7 @@
     .site-tagline {
       position: relative;
       z-index: 3;
-      margin: 0.55rem 0 0;
+      margin: 0.65rem 0 0.35rem;
       font-size: clamp(0.65rem, 2.5vw, 0.82rem);
       color: var(--muted);
       letter-spacing: 0.18em;
@@ -1193,12 +1213,18 @@
       #plan-progress-card { grid-column: 2 !important; grid-row: 1 !important; }
       #plans-teaser       { grid-column: 2 !important; grid-row: 2 !important; }
       .landing-privacy-teaser{ grid-column: 1 / -1 !important; grid-row: 4 !important; }
+      #quick-search-hero {
+        grid-column: 1 / -1 !important;
+        grid-row: 5 !important;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
       .site-feedback-hint,
       .site-plan-nudge        { grid-column: 1 / -1 !important; }
-      .site-feedback-hint    { grid-row: 5 !important; }
-      .site-plan-nudge       { grid-row: 6 !important; }
-      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 7 !important; }
-      #quick-search-hero     { grid-column: 1 / -1 !important; grid-row: 8 !important; }
+      .site-feedback-hint    { grid-row: 6 !important; }
+      .site-plan-nudge       { grid-row: 7 !important; }
+      .read-chapter-row      { grid-column: 1 / -1 !important; grid-row: 8 !important; }
       .verse-img-card,
       .calm-cta-wrap,
       .calm-crisis-card,
@@ -1951,13 +1977,19 @@
 
     .feel-no-match.visible { display: block; }
 
+    #quick-search-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
     .first-visit-hint {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
       padding: 0.65rem 0.9rem;
-      margin: 0 0 0.55rem;
+      margin: 0;
       background: color-mix(in srgb, var(--gold) 8%, transparent);
       border: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
       border-radius: 12px;
@@ -2531,97 +2563,7 @@
     .share-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); padding: 0.6rem 1.2rem; font-size: 0.9rem; color: var(--text); background: var(--bg-soft); border: 1px solid var(--gold); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.4); z-index: 9999; transition: opacity 0.3s; }
     .share-toast-fade { opacity: 0; }
 
-    /* ── Easter eggs ── */
-    .easter-konami-wrap { position: fixed; inset: 0; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); animation: easter-fade-in 0.6s ease; }
-    .easter-konami-wrap.easter-no-motion { animation: none; }
-    .easter-konami-cross { font-size: 4rem; color: var(--gold); opacity: 0; animation: easter-cross-in 1.2s ease 0.2s forwards; }
-    .easter-konami-wrap.easter-no-motion .easter-konami-cross { opacity: 1; }
-    .easter-konami-text { font-size: 1.1rem; color: var(--gold-soft); margin: 1rem 0 0.5rem; }
-    .easter-konami-verse { font-size: 1rem; color: var(--muted); max-width: 90%; text-align: center; line-height: 1.5; }
-    .easter-konami-fade { animation: easter-fade-out 0.5s ease forwards; }
-    .easter-seven-wrap { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 9999; padding: 1.25rem 1.5rem; background: var(--bg-soft); border: 1px solid var(--gold); border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); max-width: 90%; animation: easter-fade-in 0.5s ease; }
-    .easter-seven-msg { font-size: 1rem; color: var(--gold); margin: 0 0 0.5rem; }
-    .easter-seven-verse { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.5; }
-    .easter-seven-fade { animation: easter-fade-out 0.4s ease forwards; }
-    .easter-hallelujah-wrap { position: fixed; inset: 0; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; animation: easter-fade-in 0.5s ease; }
-    .easter-hallelujah-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%); background-size: 400% 400%; animation: easter-rainbow 4s ease infinite; opacity: 0.9; }
-    .easter-hallelujah-wrap.easter-no-motion .easter-hallelujah-bg { animation: none; }
-    .easter-hallelujah-text { position: relative; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; color: var(--gold); text-shadow: 0 0 20px rgba(227,188,103,0.8); margin: 0 0 0.5rem; z-index: 1; }
-    .easter-hallelujah-verse { position: relative; font-size: 1rem; color: rgba(0,0,0,0.8); max-width: 90%; text-align: center; z-index: 1; }
-    .easter-hallelujah-fade { animation: easter-fade-out 0.5s ease forwards; }
-    .easter-hallelujah-dove { position: absolute; bottom: 2rem; right: 2rem; font-size: 2rem; opacity: 0.7; animation: easter-dove-float 3s ease-in-out infinite; z-index: 2; }
-    .easter-dove-wing-flutter { animation: easter-dove-flutter 0.6s ease; }
-    .easter-amen-glow { box-shadow: 0 0 20px rgba(212,175,55,0.5) !important; border-color: rgba(212,175,55,0.6) !important; transition: box-shadow 0.4s, border-color 0.4s; }
-    .easter-amen-pulse { animation: easter-amen-pulse 0.8s ease; }
-    .easter-amen-corner { position: fixed; bottom: 1.5rem; right: 1.5rem; font-size: 1.2rem; color: var(--gold); opacity: 0; animation: easter-fade-in 0.5s ease 0.2s forwards; z-index: 9998; }
-    .easter-amen-fade { animation: easter-fade-out 0.5s ease forwards; }
-    @keyframes easter-amen-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.08); } }
-    .easter-hope-lift { transform: translateY(-4px); background: linear-gradient(135deg, rgba(255,200,100,0.15), rgba(150,200,255,0.1)) !important; transition: transform 0.3s, background 0.3s; }
-    .easter-forgive-spin { animation: easter-forgive-spin 0.6s ease; }
-    @keyframes easter-forgive-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .easter-footer-dove { display: inline-block; animation: easter-dove-fly-up 2s ease forwards; margin-left: 0.25rem; }
-    @keyframes easter-dove-fly-up { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-40px); } }
-    .easter-sunrise-bg { background: linear-gradient(180deg, rgba(255,180,80,0.12) 0%, transparent 30%) !important; transition: background 2s ease; }
-    @keyframes easter-dove-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.05); } }
-    @keyframes easter-dove-flutter { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.08) rotate(-3deg); } 75% { transform: scale(1.08) rotate(3deg); } }
-    .easter-god-sees { font-size: 0.85rem; color: rgba(227,188,103,0.7); margin: 0.5rem 0 0; animation: easter-pulse 2s ease infinite; }
-    .easter-hidden-dove { position: fixed; top: 0.5rem; right: 0.5rem; font-size: 1.2rem; opacity: 0.5; cursor: pointer; z-index: 9998; transition: opacity 0.3s; }
-    .easter-hidden-dove:hover, .easter-dove-hover { opacity: 1; }
-    .easter-dove-fade { opacity: 0; pointer-events: none; }
-    @keyframes easter-fade-in { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes easter-fade-out { from { opacity: 1; } to { opacity: 0; } }
-    @keyframes easter-cross-in { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
-    @keyframes easter-rainbow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-    @keyframes easter-pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
-    .easter-triple-toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); padding: 0.75rem 1.25rem; font-size: 0.95rem; color: var(--text); background: var(--bg-soft); border: 1px solid var(--gold); border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 9999; max-width: 90%; animation: easter-fade-in 0.4s ease; }
-    .easter-triple-fade { animation: easter-fade-out 0.4s ease forwards; }
-    .easter-still-result { padding: 1.5rem; text-align: center; }
-    .easter-still-verse { font-size: 1.4rem; color: var(--gold); margin: 0 0 0.25rem; font-style: italic; }
-    .easter-still-ref { font-size: 0.9rem; color: var(--muted); margin: 0; }
-    .easter-still-glow { box-shadow: 0 0 16px rgba(227,188,103,0.6) !important; border-color: var(--gold) !important; transition: box-shadow 0.3s, border-color 0.3s; }
-    .easter-peace-ripple { transform: scale(1.05); box-shadow: 0 0 12px rgba(227,188,103,0.3); transition: transform 0.3s, box-shadow 0.3s; }
-    .easter-peace-tooltip { display: block; margin-top: 0.5rem; font-size: 0.85rem; color: var(--gold-soft); font-style: italic; }
-    .easter-site-glow { filter: brightness(1.1) hue-rotate(10deg); transition: filter 0.5s; }
-    .easter-angel-number { position: fixed; bottom: 1rem; right: 1rem; font-size: 0.9rem; color: var(--gold); opacity: 0; animation: easter-fade-in 1s ease 0.5s forwards; z-index: 9997; }
-    .easter-angel-number.easter-no-motion { opacity: 1; }
-    .easter-angel-num { font-weight: 700; margin-right: 0.35rem; }
-    .easter-angel-msg { font-style: italic; opacity: 0.9; }
-    .easter-angel-fade { animation: easter-fade-out 0.6s ease forwards; }
-    .easter-footer-dove-trigger { cursor: default; display: inline-block; margin-left: 0.2rem; transition: transform 0.3s; }
-    .easter-footer-dove-trigger.easter-dove-flutter { animation: easter-dove-flutter 0.6s ease; }
-    .easter-jesus-brightness { filter: brightness(0.9); transition: filter 0.5s; }
-    .easter-grace-rain { position: fixed; inset: 0; pointer-events: none; z-index: 9998; overflow: hidden; }
-    .easter-grace-rain span { position: absolute; color: var(--gold); font-size: 1rem; opacity: 0.7; animation: easter-grace-fall 3s linear forwards; }
-    @keyframes easter-grace-fall { from { transform: translateY(-20px); opacity: 0.7; } to { transform: translateY(100vh); opacity: 0; } }
-    .easter-forgive-glow { box-shadow: 0 0 24px rgba(255,255,255,0.4) !important; border-color: rgba(255,255,255,0.5) !important; }
-    .easter-rest-float { transform: translateY(-6px) scale(1.02); transition: transform 0.3s; box-shadow: 0 0 12px rgba(227,188,103,0.4); }
-    .easter-joy-bounce { animation: easter-joy-bounce 0.6s ease; }
-    @keyframes easter-joy-bounce { 0%, 100% { transform: scale(1); } 30% { transform: scale(1.15); } 60% { transform: scale(0.95); } }
-    .easter-joy-particles { position: absolute; pointer-events: none; font-size: 0.9rem; opacity: 0.8; animation: easter-sun-fade 1.5s ease forwards; }
-    @keyframes easter-sun-fade { from { opacity: 0.8; transform: scale(1); } to { opacity: 0; transform: scale(1.5); } }
-    .easter-cross-float { position: fixed; top: 1rem; right: 1rem; font-size: 2rem; color: var(--gold); z-index: 9997; opacity: 0; animation: easter-fade-in 0.8s ease forwards, easter-fade-out 0.5s ease 5.5s forwards; }
-    .easter-cross-float.easter-no-motion { animation: none; opacity: 1; }
-    .easter-tomb-emoji { position: fixed; top: 1rem; right: 1rem; font-size: 1.8rem; z-index: 9998; opacity: 0; animation: easter-fade-in 0.4s ease forwards, easter-fade-out 0.4s ease 2.6s forwards; }
-    .easter-share-spin { animation: easter-forgive-spin 0.6s ease; }
-    .easter-share-glow { box-shadow: 0 0 16px rgba(227,188,103,0.5) !important; transition: box-shadow 0.3s; }
-    .easter-shabbat-dark { filter: brightness(0.9); transition: filter 0.5s; }
-    .easter-candle-flicker { animation: easter-candle-flicker 2.5s ease-in-out infinite; }
-    @keyframes easter-candle-flicker { 0%, 100% { filter: brightness(0.9); } 50% { filter: brightness(0.85); } }
-    .easter-sunday-bg { background: linear-gradient(180deg, rgba(255,200,120,0.08) 0%, transparent 25%) !important; transition: background 2s ease; }
-    .easter-sunday-morning { background: linear-gradient(180deg, rgba(255,180,80,0.18) 0%, rgba(255,200,120,0.1) 30%, transparent 50%) !important; }
-    .easter-toast-large { font-size: 1.05rem; padding: 1rem 1.5rem; }
-    .easter-risen-sunrise { background: linear-gradient(180deg, rgba(255,200,100,0.2) 0%, rgba(255,180,60,0.08) 40%, transparent 70%) !important; transition: background 0.6s ease; }
-    .easter-lamb-float { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; opacity: 0.8; animation: easter-lamb-pulse 2s ease-in-out infinite; z-index: 9997; pointer-events: none; }
-    @keyframes easter-lamb-pulse { 0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.08); } }
-    .easter-resurrection-glow { box-shadow: 0 0 28px rgba(255, 240, 200, 0.35) !important; border-color: rgba(255, 230, 180, 0.5) !important; }
-    .easter-do-this-pulse { animation: easter-do-this-pulse 2s ease; }
-    @keyframes easter-do-this-pulse { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.08); } }
-    .easter-cross-glow { position: relative; }
-    .easter-cross-glow::after { content: '\271D'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8rem; opacity: 0.06; color: var(--gold); pointer-events: none; z-index: 0; }
-    .easter-egg-badge { font-size: 0.8rem; color: var(--gold); opacity: 0.85; margin: 0.5rem 0 0; text-align: center; }
-    .easter-egg-badge.pulse-once { animation: easter-badge-pulse 1.2s ease; }
-    @keyframes easter-badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-    a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
+    /* Easter egg styles: easter-eggs.css (injected when easter-eggs.js loads). */
 
     /* ── Need Him right now? Single entry (calm flow) ── */
     .calm-cta-wrap { margin-bottom: 0.45rem; }
@@ -4484,7 +4426,7 @@
         "@id": "https://todaysdailybattle.com/#website",
         "name": "Today's Daily Battle",
         "url": "https://todaysdailybattle.com",
-        "description": "Offline-first KJV Bible companion — daily verse, smart feeling search, prayer wall, family tools. No ads, no login.",
+        "description": "KJV daily verse, search by how you feel, quiet prayer wall, family tools—offline when you need it. No ads, no login.",
         "inLanguage": "en-US",
         "potentialAction": {
           "@type": "SearchAction",
@@ -4519,7 +4461,7 @@
         "isPartOf": { "@id": "https://todaysdailybattle.com/#website" },
         "publisher": { "@id": "https://todaysdailybattle.com/#organization" },
         "inLanguage": "en-US",
-        "description": "One KJV verse every day, with a plain-language breakdown, mood-based search, prayer wall, and offline support. No account required.",
+        "description": "One KJV verse every day with a plain breakdown, search by mood, prayer wall, and offline support. No account required.",
         "dateModified": "2026-03-16"
       },
       {
@@ -4689,9 +4631,9 @@
           </defs>
         </svg>
       </div>
+      <p class="site-tagline">For God · For Country · For Family</p>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
-      <p class="site-tagline">For God · For Country · For Family</p>
       <nav class="site-top-links" aria-label="Account and site information">
         <span id="header-auth-links">
           <a href="login.html" aria-label="Sign In">Sign In</a>
@@ -4719,6 +4661,9 @@
 
     <div class="tdb-moat-banner" role="region" aria-labelledby="tdb-moat-lead">
       <div class="tdb-moat-banner-inner">
+        <div class="moat-banner" role="note">
+          No ads. No tracking. Your prayers and data stay on your device. Just you and God.
+        </div>
         <div class="tdb-moat-banner-top">
           <p id="tdb-moat-lead" class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</p>
           <a class="tdb-moat-banner-cta" href="why-not-ai.html">Why not AI?</a>
@@ -4730,6 +4675,7 @@
           <li>When heat or frustration runs the day, try <a class="tdb-moat-banner-link" href="plans.html?plan=angerpeace" aria-label="Open Anger to Peace, a 7-day KJV reading plan">Anger → Peace</a>.</li>
           <li>When questions crowd out confidence, try <a class="tdb-moat-banner-link" href="plans.html?plan=doubtassurance" aria-label="Open Doubt to Assurance, a 7-day KJV reading plan">Doubt → Assurance</a>.</li>
           <li>When loss cuts deep and the future feels dark, try <a class="tdb-moat-banner-link" href="plans.html?plan=griefhope" aria-label="Open Grief to Hope, a 7-day KJV reading plan">Grief → Hope</a>.</li>
+          <li>When pain won&rsquo;t hush, try <a class="tdb-moat-banner-link" href="plans.html?plan=painwontquit" aria-label="Open When Pain Won't Quit, a 7-day KJV reading plan">When Pain Won&rsquo;t Quit</a>.</li>
           <li>When your soul won&rsquo;t settle, try <a class="tdb-moat-banner-link" href="plans.html?plan=peace" aria-label="Open 7-Day Peace, a 7-day KJV reading plan">7-Day Peace</a>.</li>
         </ul>
         <p id="tdb-moat-plans-note" class="tdb-moat-banner-footnote">Each link opens a seven-day KJV plan; progress stays on your device.</p>
@@ -4743,7 +4689,7 @@
           <button type="button" class="share-verse-btn" id="shareVerseBtn" aria-label="Share this encouragement with a friend">Share</button>
         </div>
         <p class="share-verse-whisper">If this helped, tell a friend.</p>
-        <p class="trust-badge" aria-label="Privacy: no ads, no personal tracking; minimal anonymous usage stats. See Privacy policy.">Privacy-first · No ads · No personal tracking</p>
+        <p class="trust-badge" aria-label="King James Bible tools; works offline. How we handle data is in the Privacy policy.">King James Bible · Calm tools · Works offline</p>
       </div>
       <div class="header-battle-plans">
         <a href="plans.html" class="header-battle-plans-link" aria-label="Battle Plans — browse 7 to 40 day KJV reading plans" title="7–40 day plans, saved on your device. Daily bread for today’s daily battle — one verse, one day at a time.">
@@ -4756,7 +4702,7 @@
     <!-- Hidden search plumbing for script.js compatibility -->
     <!-- DO NOT REMOVE: #main-search, #quick-actions-hero are protected core tools — build fails if missing -->
     <section class="sr-only" aria-hidden="true" id="main-search">
-      <h2>Today's Daily Battle</h2>
+      <h2>Search and quick topics</h2>
       <p>V2 Command Deck</p>
       <p>Search by what you feel right now</p>
       <div id="quick-actions-hero"></div>
@@ -4882,6 +4828,7 @@
         </div>
       </section>
       </div><!-- /#hero-verse-wrap -->
+      <script src="hero-daily-first-paint.js?v=20260324"></script>
       </div><!-- /#main-content -->
 
       <!-- ── How's this helping? (feedback for future priorities) ── -->
@@ -4892,75 +4839,15 @@
           <button type="button" class="verse-feedback-btn verse-feedback-down" id="verseFeedbackDown" aria-label="Not today">👎</button>
         </div>
       </div>
-      <div class="landing-privacy-teaser">No ads. No personal tracking. Minimal anonymous stats only&mdash;we never log your prayers or raw searches for analytics. Offline when you need it. <a href="privacy.html">Privacy</a> &middot; <a href="why-not-ai.html">Why not AI?</a></div>
-      <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
-      <p class="site-plan-nudge">Want a longer rhythm? <a href="plans.html">Battle Plans</a> — 7–40 days, progress saved on your device.</p>
-      <!-- ── Read full chapter ── -->
-      <div class="read-chapter-row">
-        <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>
-      </div>
-      <div class="explore-hero-row">
-        <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore every page — topics, tools, plans</a>
-      </div>
+      <div class="landing-privacy-teaser">No ads. No tracking. Your prayers and data stay on your device. Just you and God. <a href="privacy.html">Privacy policy</a> &middot; <a href="why-not-ai.html">Why not AI?</a></div>
 
-      <!-- ── Battle Plan Progress (shows active plan with highest progress) ── -->
-      <section class="card plan-progress-card" id="plan-progress-card" aria-label="Battle Plan progress">
-        <div class="plan-progress-header">
-          <span class="plan-progress-title" id="planProgressTitle">🗓 Battle Plan</span>
-          <span class="plan-progress-label" id="planProgressLabel">Day 1 of 7 — keep going</span>
-        </div>
-        <div class="plan-progress-track" aria-hidden="true">
-          <div class="plan-progress-bar" id="planProgressBar" style="--plan-day:1"></div>
-        </div>
-        <a href="plans.html" class="plan-progress-link" id="planProgressLink" aria-label="View all plans">All plans →</a>
-      </section>
-
-      <!-- ── Notification Permission Card (shown after streak ≥3 or plan day ≥2) ── -->
-      <div class="notification-permission" id="notifPermCard" hidden role="status" aria-live="polite">
-        <p class="notif-perm-msg">📬 Daily verse at 9 AM — want it?</p>
-        <p class="notif-perm-sub">One notification a day. No promotions. Shut it off anytime in your device settings.</p>
-        <div class="notif-perm-btns">
-          <button type="button" class="notif-perm-yes" id="notifPermYes" aria-label="Allow daily verse notifications">Yes, send it</button>
-          <button type="button" class="notif-perm-no" id="notifPermNo" aria-label="Decline daily verse notifications">Not now</button>
-        </div>
-      </div>
-
-      <!-- ── Plans Library Teaser ── -->
-      <section class="card plans-teaser" id="plans-teaser" aria-label="Plans library">
-        <div class="plans-teaser-header">
-          <span class="plans-teaser-title">📋 Battle Plans</span>
-          <a href="plans.html" class="plans-teaser-explore" aria-label="All Plans">All Plans →</a>
-        </div>
-        <p class="plans-teaser-thesis section-note" role="text">Daily bread for today&rsquo;s daily battle — one verse, one day at a time.</p>
-        <a href="plans.html" class="plans-teaser-banner" aria-label="7–40 day plans — one tap to start">
-          <span class="plans-teaser-badge" aria-hidden="true">New</span>
-          <span>7–40 day plans — one tap to start, progress saved automatically.</span>
-          <span class="plans-teaser-arrow" aria-hidden="true">→</span>
-        </a>
-        <div class="plans-grid" id="plansGrid">
-          <button type="button" class="plan-chip" data-plan="battle" aria-label="Battle Distraction"><span aria-hidden="true">⚔️</span> Battle Distraction<span class="plan-chip-days" id="planChip-battle"></span></button>
-          <button type="button" class="plan-chip" data-plan="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙏</span> Gratitude<span class="plan-chip-days" id="planChip-gratitude"></span></button>
-          <button type="button" class="plan-chip" data-plan="strength" aria-label="30-Day Strength"><span aria-hidden="true">💪</span> 30-Day Strength<span class="plan-chip-days" id="planChip-strength"></span></button>
-          <button type="button" class="plan-chip" data-plan="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage<span class="plan-chip-days" id="planChip-marriage"></span></button>
-          <button type="button" class="plan-chip" data-plan="peace" aria-label="7-Day Peace"><span aria-hidden="true">🕊️</span> 7-Day Peace<span class="plan-chip-days" id="planChip-peace"></span></button>
-          <button type="button" class="plan-chip" data-plan="fearfaith" aria-label="Fear to Faith"><span aria-hidden="true">🛡️</span> Fear to Faith<span class="plan-chip-days" id="planChip-fearfaith"></span></button>
-          <button type="button" class="plan-chip" data-plan="worrytrust" aria-label="Worry to Trust"><span aria-hidden="true">☁️</span> Worry to Trust<span class="plan-chip-days" id="planChip-worrytrust"></span></button>
-          <button type="button" class="plan-chip" data-plan="angerpeace" aria-label="Anger to Peace"><span aria-hidden="true">🔥</span> Anger → Peace<span class="plan-chip-days" id="planChip-angerpeace"></span></button>
-          <button type="button" class="plan-chip" data-plan="doubtassurance" aria-label="Doubt to Assurance"><span aria-hidden="true">❓</span> Doubt → Assurance<span class="plan-chip-days" id="planChip-doubtassurance"></span></button>
-          <button type="button" class="plan-chip" data-plan="griefhope" aria-label="Grief to Hope"><span aria-hidden="true">💔→🌅</span> Grief → Hope<span class="plan-chip-days" id="planChip-griefhope"></span></button>
-          <button type="button" class="plan-chip" data-plan="easter" aria-label="Resurrection Hope"><span aria-hidden="true">✨</span> Resurrection Hope<span class="plan-chip-days" id="planChip-easter"></span></button>
-        </div>
-        <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
-      </section>
-
+      <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
+      <div id="quick-search-hero">
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
         <p class="first-visit-text">Type how you feel (e.g. anxious, tired) to find verses — or tap a topic below.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Got it">Got it</button>
       </div>
-
-      <!-- ── Feel Search (nav anchor: #quick-search-hero) ── -->
-      <div id="quick-search-hero">
       <section class="card" id="feel-section" aria-label="How are you feeling verse search">
         <h2 class="mood-title">How're you feeling?</h2>
         <div class="feel-search-wrap">
@@ -5034,6 +4921,67 @@
       </section>
       </div><!-- /#quick-search-hero -->
 
+      <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
+      <p class="site-plan-nudge">Want a longer rhythm? <a href="plans.html">Battle Plans</a> — 7–40 days, progress saved on your device.</p>
+      <!-- ── Read full chapter ── -->
+      <div class="read-chapter-row">
+        <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>
+      </div>
+      <div class="explore-hero-row">
+        <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore every page — topics, tools, plans</a>
+      </div>
+
+      <!-- ── Battle Plan Progress (shows active plan with highest progress) ── -->
+      <section class="card plan-progress-card" id="plan-progress-card" aria-label="Battle Plan progress">
+        <div class="plan-progress-header">
+          <span class="plan-progress-title" id="planProgressTitle">🗓 Battle Plan</span>
+          <span class="plan-progress-label" id="planProgressLabel">Day 1 of 7 — keep going</span>
+        </div>
+        <div class="plan-progress-track" aria-hidden="true">
+          <div class="plan-progress-bar" id="planProgressBar" style="--plan-day:1"></div>
+        </div>
+        <a href="plans.html" class="plan-progress-link" id="planProgressLink" aria-label="View all plans">All plans →</a>
+      </section>
+
+      <!-- ── Notification Permission Card (shown after streak ≥3 or plan day ≥2) ── -->
+      <div class="notification-permission" id="notifPermCard" hidden role="status" aria-live="polite">
+        <p class="notif-perm-msg">📬 Daily verse at 9 AM — want it?</p>
+        <p class="notif-perm-sub">One notification a day. No promotions. Shut it off anytime in your device settings.</p>
+        <div class="notif-perm-btns">
+          <button type="button" class="notif-perm-yes" id="notifPermYes" aria-label="Allow daily verse notifications">Yes, send it</button>
+          <button type="button" class="notif-perm-no" id="notifPermNo" aria-label="Decline daily verse notifications">Not now</button>
+        </div>
+      </div>
+
+      <!-- ── Plans Library Teaser ── -->
+      <section class="card plans-teaser" id="plans-teaser" aria-label="Plans library">
+        <div class="plans-teaser-header">
+          <span class="plans-teaser-title">📋 Battle Plans</span>
+          <a href="plans.html" class="plans-teaser-explore" aria-label="All Plans">All Plans →</a>
+        </div>
+        <p class="plans-teaser-thesis section-note" role="text">Daily bread for today&rsquo;s daily battle — one verse, one day at a time.</p>
+        <a href="plans.html" class="plans-teaser-banner" aria-label="Battle Plans — one tap to start, saved on your device">
+          <span class="plans-teaser-badge" aria-hidden="true">New</span>
+          <span>One tap to start &mdash; your progress stays on this device.</span>
+          <span class="plans-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+        <div class="plans-grid" id="plansGrid">
+          <button type="button" class="plan-chip" data-plan="battle" aria-label="Battle Distraction"><span aria-hidden="true">⚔️</span> Battle Distraction<span class="plan-chip-days" id="planChip-battle"></span></button>
+          <button type="button" class="plan-chip" data-plan="gratitude" aria-label="Gratitude"><span aria-hidden="true">🙏</span> Gratitude<span class="plan-chip-days" id="planChip-gratitude"></span></button>
+          <button type="button" class="plan-chip" data-plan="strength" aria-label="30-Day Strength"><span aria-hidden="true">💪</span> 30-Day Strength<span class="plan-chip-days" id="planChip-strength"></span></button>
+          <button type="button" class="plan-chip" data-plan="marriage" aria-label="Marriage"><span aria-hidden="true">💍</span> Marriage<span class="plan-chip-days" id="planChip-marriage"></span></button>
+          <button type="button" class="plan-chip" data-plan="peace" aria-label="7-Day Peace"><span aria-hidden="true">🕊️</span> 7-Day Peace<span class="plan-chip-days" id="planChip-peace"></span></button>
+          <button type="button" class="plan-chip" data-plan="fearfaith" aria-label="Fear to Faith"><span aria-hidden="true">🛡️</span> Fear to Faith<span class="plan-chip-days" id="planChip-fearfaith"></span></button>
+          <button type="button" class="plan-chip" data-plan="worrytrust" aria-label="Worry to Trust"><span aria-hidden="true">☁️</span> Worry to Trust<span class="plan-chip-days" id="planChip-worrytrust"></span></button>
+          <button type="button" class="plan-chip" data-plan="angerpeace" aria-label="Anger to Peace"><span aria-hidden="true">🔥</span> Anger → Peace<span class="plan-chip-days" id="planChip-angerpeace"></span></button>
+          <button type="button" class="plan-chip" data-plan="doubtassurance" aria-label="Doubt to Assurance"><span aria-hidden="true">❓</span> Doubt → Assurance<span class="plan-chip-days" id="planChip-doubtassurance"></span></button>
+          <button type="button" class="plan-chip" data-plan="griefhope" aria-label="Grief to Hope"><span aria-hidden="true">💔→🌅</span> Grief → Hope<span class="plan-chip-days" id="planChip-griefhope"></span></button>
+          <button type="button" class="plan-chip" data-plan="painwontquit" aria-label="When Pain Won't Quit"><span aria-hidden="true">🕯️</span> When Pain Won&rsquo;t Quit<span class="plan-chip-days" id="planChip-painwontquit"></span></button>
+          <button type="button" class="plan-chip" data-plan="easter" aria-label="Resurrection Hope"><span aria-hidden="true">✨</span> Resurrection Hope<span class="plan-chip-days" id="planChip-easter"></span></button>
+        </div>
+        <div class="plans-mini-bars" id="plansMiniBarsList" aria-hidden="true"></div>
+      </section>
+
       <!-- ── Sermon Builder teaser ── -->
       <div class="quick-links">
       <section class="card tool-teaser-card" aria-label="Sermon Builder">
@@ -5096,7 +5044,7 @@
       <section class="card prayer-wall-card" id="prayer-wall" aria-label="Prayer Wall">
         <div class="prayer-wall-header-row">
           <p class="prayer-wall-label"><svg class="section-divider-icon" style="display:inline-block;vertical-align:middle;margin-right:0.35rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Prayer Wall</p>
-          <span class="prayer-wall-badge">Post anonymously — no account needed</span>
+          <span class="prayer-wall-badge">Say it here quietly&mdash;no account, no name, just you and Him.</span>
           <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
         </div>
         <p class="prayer-wall-community-line section-note">Join others in quiet prayer—your silent amen counts. <a href="message.html#message-board">Full prayer board</a></p>
@@ -5106,14 +5054,14 @@
           <button type="button" id="prayerWallGraceDismiss" class="prayer-wall-grace-dismiss" aria-label="Dismiss message">&#x2715;</button>
         </p>
         <p class="prayer-wall-prompt">"Lord, keep me in truth today."</p>
-        <p id="prayerWallNudge" class="prayer-wall-nudge section-note" hidden aria-live="polite">Need to pray? Post anonymously.</p>
+        <p id="prayerWallNudge" class="prayer-wall-nudge section-note" hidden aria-live="polite">Need to pray? You can post without a name.</p>
         <div class="prayer-counter-row">
           <span class="prayer-today-label" id="prayerTodayLabel">Quiet today—open starters on the wall</span>
           <span class="prayer-today-badge" id="prayerTodayBadge" aria-live="polite" aria-atomic="true"></span>
           <span class="prayer-offline-notice hidden" id="prayerOfflineNotice">Saved locally—sync when back</span>
           <button type="button" id="prayerRetrySyncBtn" class="prayer-retry-sync-btn hidden" aria-label="Retry syncing prayers">Retry sync</button>
         </div>
-        <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">20</span></p>
+        <p class="prayer-counter"><span class="prayer-counter-label">Total prayers</span>: <span id="prayer-counter">23</span></p>
         <p class="prayer-amen-signal hidden" id="prayerAmenSignal" aria-live="polite"></p>
         <p class="prayer-social-proof hidden" id="prayerSocialProof" aria-live="polite"><span id="prayer-social-proof-num">0</span> prayed today—you're not alone.</p>
         <p class="prayer-social-proof prayer-social-proof-zero" id="prayerSocialProofZero" aria-live="polite">You're the first today—your prayer could encourage someone tomorrow.</p>
@@ -5130,36 +5078,36 @@
           <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Share anonymously on the prayer wall">Share anonymously</button>
         </div>
         <!-- Sync status note — updated by updateSyncStatusUI() -->
-        <p class="prayer-wall-note" aria-live="polite">Stays on this device until you sign in.</p>
+        <p class="prayer-wall-note" aria-live="polite">Stays right here on your phone or computer until you sign in.</p>
         <div class="prayer-export-row">
           <button type="button" id="prayer-export-btn" class="prayer-export-btn" aria-label="Export my prayers" aria-describedby="prayer-export-hint">Export my prayers</button>
           <p id="prayer-export-hint" class="prayer-export-hint section-note">Save as a text file—or share a verse anonymously with Share on any line.</p>
         </div>
         <div id="featured-prayer" class="featured-prayer-container" aria-live="polite"></div>
         <ul id="prayer-wall-list" class="prayer-wall-list" aria-label="Prayer wall entries" aria-live="polite" data-prayer-wall-rendered="1">
-          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, calm my anxious thoughts today — Phil 4:6-7 — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-2" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Healing for my marriage — Eph 5:25 — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-3" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Strength to parent with grace — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-4" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Give me strength to face this day. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-5" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Peace that passes understanding—I need it. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-6" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Thank you for this day—help me use it well. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-7" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Guide my steps and guard my heart. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-8" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, help my unbelief in this storm. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-9" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Peace for my anxious thoughts today. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-10" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Calm my fear—I know You are near. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-11" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">When fear overwhelms—hold me, Lord. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-12" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">I'm carrying this grief alone. Meet me here. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-13" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Calm the storm in my mind. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-14" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">I'm afraid of what comes next. Walk with me. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-15" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">This loss is heavy. Help me breathe. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-16" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, give me patience with my kids when I'm exhausted — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-17" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Healing for chronic pain that won't let up — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-18" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Wisdom for decisions I have to make alone — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-19" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Courage to keep going when I'm worn thin — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-20" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Grace for someone I love who is far from You — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-21" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">After Fear to Faith day 7: I believe God walks with me in the unknowns. Grateful for Amens here. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-22" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Finished the Fear to Faith plan — fear still visits, but quieter. Thanks for praying with me. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
-          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-23" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Fear to Faith day 7 reflection: God's peace shows up in the quiet moments. Grateful for the Amens lifting others too. — Anonymous</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this prayer">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-1" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, my legs hurt so bad today I can barely stand. Just help me make it through this hour. Amen.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-2" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I&rsquo;m tired of fighting the same battle every single day. Give me strength I don&rsquo;t have on my own.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-top prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-3" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, my marriage is hanging by a thread. Please heal what I can&rsquo;t fix.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-4" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, I messed up again last night. I&rsquo;m ashamed, but I&rsquo;m still here asking for another chance.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-5" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, my kids are struggling and I don&rsquo;t know how to help them. Show me what to say.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-6" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, the anxiety won&rsquo;t let me sleep. Calm my mind and let me rest in You tonight.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-7" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, I feel so alone even when the house is full. Remind me You&rsquo;re right here.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-8" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, money is tight again. I&rsquo;m scared. Please provide like You always have.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-9" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, the pain in my body is wearing me down. Give me joy anyway.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-10" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I&rsquo;ve been angry at You and I&rsquo;m sorry. Help me trust You again.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-11" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, my mom is sick and I&rsquo;m scared to lose her. Hold her close.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-12" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, I want to quit this habit so bad but I keep falling. Don&rsquo;t let me go.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-13" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, thank You for getting me through yesterday when I thought I couldn&rsquo;t.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-14" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I&rsquo;m trying to forgive someone who hurt me deep. It&rsquo;s hard &mdash; help me.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-15" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, my job is crushing my spirit. Give me purpose in it or open a new door.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-16" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, I feel worthless today. Speak Your truth over the lies in my head.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-17" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, my friend is lost and won&rsquo;t listen. Draw them to You somehow.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-18" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, I&rsquo;m so grateful for this quiet moment with You right now.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-19" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, the depression is heavy again. Be my light when I can&rsquo;t see.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-20" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Lord, help me be a better daddy/husband today than I was yesterday.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-21" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">God, I don&rsquo;t understand why this is happening, but I&rsquo;m choosing to trust You anyway.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-22" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Jesus, thank You for never giving up on me even when I give up on myself.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
+          <li class="prayer-wall-item prayer-wall-seed"><button type="button" class="prayer-wall-heart" data-id="seed-23" aria-label="Pray" aria-hidden="true">♥</button> <span class="prayer-wall-count">0</span> <span class="prayer-wall-text">Father, whatever today brings, don&rsquo;t let me face it without You.</span><button type="button" class="share-btn prayer-wall-share" aria-label="Share this line">Share</button></li>
         </ul>
         <div class="prayer-share-row" id="prayerShareRow" role="status" aria-live="polite">
           <button class="share-prayer-btn" type="button" id="share-prayer-btn" aria-label="Copy prayer to clipboard">Share this prayer?</button>
@@ -5307,7 +5255,8 @@
     </div>
   </details>
   <p class="site-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
-  <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
+  <p class="privacy-line">No ads. No tracking. Your prayers and data stay on your device. Just you and God.</p>
+  <p class="site-footer-tagline">Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
   <p class="footer-humility">We battle. He wins.</p>
   <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
     <p class="footer-friday-signup-label">One verse + prayer on Fridays—steady rhythm, not noise. No spam.</p>
@@ -5346,6 +5295,7 @@
         <button type="button" id="nav-more-x" class="nav-more-x" aria-label="Close menu">✕</button>
       </div>
       <h2 class="nav-more-title">Tools</h2>
+      <p class="privacy-line nav-more-privacy-line">No ads. No tracking. Your prayers and data stay on your device. Just you and God.</p>
       <ul class="nav-more-list">
         <li><a href="calm.html#night-prayer" aria-label="Night prayer with Psalm 4:8">🌙 Night Prayer</a></li>
         <li><a href="bible-tool.html">📚 Bible Tool</a></li>
@@ -5358,7 +5308,7 @@
         <li><a href="reading-plan.html">🗓 7-Day Plan</a></li>
         <li><a href="study.html">✏️ Study Workspace</a></li>
         <li><a href="message.html">💬 Message Board</a></li>
-        <li><a href="team-toolkit.html">⚔️ Team Toolkit <span class="nav-more-new-badge">New</span></a></li>
+        <li><a href="team-toolkit.html">⚔️ Team Toolkit</a></li>
         <li><a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the work — Buy me a coffee">☕ Support</a></li>
         <li><button type="button" id="about-link" class="nav-more-btn-item" aria-haspopup="true">❤️ About This App</button></li>
         <li><button type="button" id="settings-btn" class="nav-more-btn-item" aria-haspopup="true" aria-expanded="false">⚙️ Settings</button></li>
@@ -5387,170 +5337,10 @@
   
 
   <script nonce="tdb2025s">
-    // ── 10-verse offline pack — shown when network fails and localStorage is empty ──
-    // These are pre-loaded into the page so no fetch is ever needed for a fallback.
-    const OFFLINE_PACK = [
-      {
-        ref: "Philippians 4:6-7",
-        text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
-        lines: ["Prayer + supplication + thanksgiving—not silent panic.", "Peace stands guard over heart and mind.", "Write it, pray it, thank three."],
-        app: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small).",
-        speaker: "Paul, writing from prison to the church at Philippi.",
-        plain: "Stop letting worry control every detail. Pray it all out + thank God anyway. Peace then stands guard over your heart and mind.",
-        today: "Your thoughts are racing ahead to disasters. This verse interrupts the loop — hand it over, give thanks, receive supernatural peace.",
-        action: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small)."
-      },
-      {
-        ref: "Matthew 11:28",
-        text: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
-        lines: ["Jesus welcomes the worn-out.", "Rest starts with surrender.", "No performance required to come."],
-        app: "Breathe and pray: 'Jesus, I come as I am. Give me rest today.'",
-        speaker: "Jesus speaking to the exhausted crowds — and directly to you",
-        plain: "Jesus is not calling the put-together. He's calling the tired. The overloaded. The ones running on empty.",
-        today: "You don't have to fix yourself before you come to Him. You come broken, and He handles the rest.",
-        action: "Say it plain: 'Jesus, I'm tired. I come.' That's the whole prayer."
-      },
-      {
-        ref: "Isaiah 41:10",
-        text: "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
-        lines: ["Fear loosens when God is near.", "You are upheld, not abandoned.", "His righteousness holds you steady."],
-        app: "Say, 'God is with me,' three times before your next hard task.",
-        speaker: "God directly to Israel in a terrifying season — and to you in yours",
-        plain: "God says 'I will' five times in this verse. He's not maybe-ing you. He is with you, He's your God, He will strengthen, He will help, He will hold you up.",
-        today: "That situation where you feel alone and unsteady? This is God's answer to it.",
-        action: "Say out loud: 'Fear not — He is with me.' Say it until you mean it."
-      },
-      {
-        ref: "Psalm 23:1",
-        text: "The LORD is my shepherd; I shall not want.",
-        lines: ["He provides before you feel the lack.", "Wanting less is finding more of Him.", "A shepherd leads—not drives."],
-        app: "Name one thing you're trusting Him to provide today.",
-        speaker: "David — a real shepherd — writing about being one himself",
-        plain: "A shepherd doesn't ask the sheep to figure it out. He leads, feeds, protects. David knew this from experience and turned it into a confession of trust.",
-        today: "You don't have to scramble. You don't have to hustle God. He's already ahead of your need.",
-        action: "Say: 'You are my shepherd. I trust You with what I don't have yet.'"
-      },
-      {
-        ref: "Proverbs 3:5-6",
-        text: "Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
-        lines: ["Full trust means releasing the outcome.", "Your understanding has a ceiling—His doesn't.", "Acknowledge Him first; direction follows."],
-        app: "Before one decision today, say: 'I trust You with this.'",
-        speaker: "Solomon — the wisest man alive — admitting wisdom isn't enough on its own",
-        plain: "Even the smartest guy in the room says: don't trust your own read on things. Trust God with your whole heart and let Him steer.",
-        today: "That decision you keep overthinking? Stop leaning on your own analysis. Hand it to Him.",
-        action: "Before you decide anything big today, say: 'I acknowledge You first. Direct me.'"
-      },
-      {
-        ref: "Romans 8:28",
-        text: "And we know that all things work together for good to them that love God, to them who are the called according to his purpose.",
-        lines: ["All things—not just the easy ones.", "Good is God's definition, not yours.", "The called already have the promise."],
-        app: "Bring one hard thing to God and say: 'I believe You can turn this.'",
-        speaker: "Paul — who had been beaten, jailed, and shipwrecked — saying this anyway",
-        plain: "He doesn't say some things or good things. All things. Including the things that look like total disasters right now.",
-        today: "That thing you can't see any good in? God's 'all things' includes it. He's not finished with it yet.",
-        action: "Say: 'I don't see it yet, but I believe You're working it for good.'"
-      },
-      {
-        ref: "Psalm 46:1",
-        text: "God is our refuge and strength, a very present help in trouble.",
-        lines: ["He is present—not distant—in trouble.", "Refuge means you can actually run to Him.", "Strength comes from the same place as safety."],
-        app: "When pressure rises today, say: 'You are my refuge right now.'",
-        speaker: "The sons of Korah writing after surviving a national crisis",
-        plain: "Not a distant, theoretical God — a very present one. Right here. Right now. When things are falling apart, He's not watching from a distance.",
-        today: "In the middle of whatever is hitting you today, He is already there.",
-        action: "Run to Him like a shelter. Say: 'You are my refuge. I'm coming to You right now.'"
-      },
-      {
-        ref: "John 3:16",
-        text: "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
-        lines: ["Love this big required the costliest gift.", "Whosoever means no one is excluded.", "Belief is the door—He already opened it."],
-        app: "Receive this love as if you're hearing it for the first time today.",
-        speaker: "Jesus speaking to Nicodemus at night — and to you reading this right now",
-        plain: "God loved the world so much He gave what cost Him the most. Not rules. Not religion. His Son. And the only requirement is to believe.",
-        today: "You don't earn this. You don't deserve it more on good days. It's a gift — take it.",
-        action: "Receive it like it's personal: 'God loved me. He gave for me. I believe.'"
-      },
-      {
-        ref: "Matthew 5:4",
-        text: "Blessed are they that mourn: for they shall be comforted.",
-        lines: ["Mourning is named, not shamed.", "Comfort is promised—personally.", "Jesus blesses the honest ache."],
-        app: "Name one loss to God. Ask Him for the comfort He promised.",
-        speaker: "Jesus—to everyone who grieves openly and quietly",
-        plain: "He doesn't rush past sorrow. Blessing and mourning belong in the same sentence because He is coming with comfort.",
-        today: "Whatever you're carrying alone today—He spoke this beatitude for people exactly in your shoes.",
-        action: "Say one true sentence of grief in prayer. Wait. Let Him answer gentle."
-      },
-      {
-        ref: "2 Timothy 1:7",
-        text: "For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.",
-        lines: ["Fear is not from God—power is.", "Love and a sound mind come as a set.", "You already have what fear says you lack."],
-        app: "Replace one fearful thought today with: 'God gave me power for this.'",
-        speaker: "Paul to Timothy — a young, anxious leader who needed to hear this",
-        plain: "Fear is not your inheritance from God. Power is. Love is. A clear, steady mind is. When fear shows up, it's not coming from Him.",
-        today: "That anxiety spiraling in you right now? Not from God. Challenge it with what He actually gave you.",
-        action: "Every time fear rises today, say: 'That's not from God. He gave me power, love, and a sound mind.'"
-      }
-    ];
+    // Hero verse pool lives in hero-daily-first-paint.js (blocking script right after #hero-verse-wrap).
+    const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];
+    const VERSES = window.__TDB_HERO_VERSES || [];
 
-    // VERSES kept for hero daily rotation (needs .ref, .text, .lines, .app)
-    const VERSES = [
-      {
-        mood: "anxious",
-        ref: "Philippians 4:6-7",
-        text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
-        lines: ["Prayer + supplication + thanksgiving—not silent panic.", "Peace stands guard over heart and mind.", "Write it, pray it, thank three."],
-        app: "Write down the one thing you're most worried about. Pray the verse over it. Thank God for 3 things (big or small)."
-      },
-      {
-        mood: "tired",
-        ref: "Matthew 11:28",
-        text: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
-        lines: ["Jesus welcomes the worn-out.", "Rest starts with surrender.", "No performance required to come."],
-        app: "Breathe and pray: 'Jesus, I come as I am. Give me rest today.'"
-      },
-      {
-        mood: "afraid",
-        ref: "Isaiah 41:10",
-        text: "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
-        lines: ["Fear loosens when God is near.", "You are upheld, not alone.", "His righteousness holds you steady."],
-        app: "Say, 'God is with me,' three times before your next hard task."
-      },
-      {
-        mood: "grateful",
-        ref: "Psalm 118:24",
-        text: "This is the day which the LORD hath made; we will rejoice and be glad in it.",
-        lines: ["Today is God-given.", "Joy grows through gratitude.", "Gladness is a choice made in truth."],
-        app: "Write one thanks to God and carry it all day."
-      },
-      {
-        mood: "angry",
-        ref: "Ephesians 4:26",
-        text: "Be ye angry, and sin not: let not the sun go down upon your wrath:",
-        lines: ["Scripture names anger honestly.", "Sin is not in the feeling but the response.", "Resolve before the day closes."],
-        app: "Pray first, then send one peaceful message."
-      },
-      {
-        mood: "hopeful",
-        ref: "Romans 15:13",
-        text: "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
-        lines: ["Hope is Spirit-powered.", "Joy and peace grow in believing.", "Abundance here means overflow—not just enough."],
-        app: "Name one stuck place and ask God for fresh hope there."
-      },
-      {
-        mood: "sad",
-        ref: "Matthew 5:4",
-        text: "Blessed are they that mourn: for they shall be comforted.",
-        lines: ["Mourning is named, not shamed.", "Comfort is promised—personally.", "Jesus blesses the honest ache."],
-        app: "Name one loss to God. Ask Him for the comfort He promised."
-      },
-      {
-        mood: "lonely",
-        ref: "Isaiah 41:10",
-        text: "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
-        lines: ["God doesn't drift when people do.", "His presence is not dependent on circumstances.", "He holds you when no one else is there."],
-        app: "Sit quietly and say: 'You are with me.' Let that land."
-      }
-    ];
 
     // ── Feel Search — multi-verse groups ──
     const FEEL_GROUPS = {
@@ -5970,7 +5760,7 @@
         var title = 'Today\u2019s Daily Battle: ' + ref + ' \u2014 Daily KJV Verse';
         document.title = title;
         var metaDesc = document.querySelector('meta[name="description"]');
-        var desc = 'Today\u2019s verse: ' + ref + ' (KJV). Plain-language breakdown, mood search, prayer wall, and offline Bible tools. No noise, no login.';
+        var desc = 'Today\u2019s verse: ' + ref + ' (KJV). Search by how you\u2019re really feeling, quiet prayer wall, works offline. No ads, no login, no mess.';
         if (metaDesc) metaDesc.setAttribute('content', desc);
         // Sync OG + Twitter cards so shares reflect today's verse
         var og = ['og:title', 'twitter:title'];
@@ -6072,27 +5862,49 @@
 
       // Pick verse by day seed (deterministic per day, variety across days).
       // Bump HERO_DAILY_VERSE_ROTATION_EPOCH when intentionally resetting which ref is "day 0" (keep in sync with SW-VERSION ship days).
+      // Must match hero-daily-first-paint.js (blocking script after #hero-verse-wrap).
       // First UTC day when pool index 0 = Philippians 4:6–7. Example: 8:45 PM CDT March 22 → UTC March 23 (20535).
       const HERO_DAILY_VERSE_ROTATION_EPOCH = 20535; // 2026-03-23 UTC (bump with SW-VERSION when resetting day-0 verse)
       const daySeed = Math.floor(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()) / 86400000);
       const poolLen = heroPool.length;
       const idx = poolLen ? ((daySeed - HERO_DAILY_VERSE_ROTATION_EPOCH) % poolLen + poolLen) % poolLen : 0;
       const verseData = heroPool[idx];
+      if (!verseData || !verseData.ref) {
+        setVerseLoadingState(false);
+        if (typeof console !== 'undefined' && console.warn) console.warn('TDB: hero verse pool empty—check hero-daily-first-paint.js');
+        return;
+      }
       localStorage.setItem('tdb-hero-last-ref', verseData.ref);
 
       // Remove the stale static-fetch cache so it can't override on future visits
       try { localStorage.removeItem('tdb-last-online-verse'); } catch (_) {}
 
-      renderVerseContent(verseData);
+      var skipHeroRedraw = typeof window.__TDB_HERO_FIRST_PAINT_REF === 'string' && verseData.ref === window.__TDB_HERO_FIRST_PAINT_REF;
+      if (!skipHeroRedraw) {
+        renderVerseContent(verseData);
+      } else {
+        (function syncReadChapterFromRef() {
+          var link = document.getElementById('readChapterLink');
+          var refStr = typeof verseData.ref === 'string' ? verseData.ref : '';
+          if (!link || !refStr) return;
+          var m = refStr.match(/^(.+?)\s+(\d+):\d+/);
+          if (m) {
+            var book = encodeURIComponent(m[1].trim());
+            var chapter = encodeURIComponent(m[2]);
+            link.href = 'reader.html?book=' + book + '&chapter=' + chapter + '&ref=' + encodeURIComponent(refStr.trim().replace(/\s+/g, ' '));
+            link.setAttribute('aria-label', 'Read ' + m[1] + ' chapter ' + m[2] + ' in full context');
+          }
+        })();
+      }
       setVerseLoadingState(false);
       if (typeof showVerseFeedbackIfNeeded === 'function') showVerseFeedbackIfNeeded(verseData.ref);
 
       const verseRef = verseData.ref ? sanitizeText(verseData.ref) : '';
-      if (verseRef) {
+      if (verseRef && !skipHeroRedraw) {
         document.title = "Today\u2019s Daily Battle \u2013 " + verseRef + " KJV";
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-          metaDesc.setAttribute("content", "Today\u2019s KJV verse: " + verseRef + ". Search by feeling, save notes, pray together. Offline-first Bible companion.");
+          metaDesc.setAttribute("content", "Today\u2019s KJV verse: " + verseRef + ". Search by how you feel, save notes, pray together\u2014works offline when you need it.");
         }
       }
 
@@ -6843,14 +6655,36 @@
       window.addEventListener('offline', () => {
         if (getPrayersTodayCount() > 0) showPrayerOfflineNotice(true);
       });
-      // Midnight reset: check on next day boundary
-      const now = new Date();
-      const msToMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1).getTime() - Date.now();
-      setTimeout(function midnightReset() {
+      // Calendar-day refresh: single interval (no chained timers, safe for tabs open days/weeks)
+      let lastPrayerCounterDayKey = todayDateKey();
+      function checkPrayerWallCalendarDay() {
+        const keyNow = todayDateKey();
+        if (keyNow === lastPrayerCounterDayKey) return;
+        lastPrayerCounterDayKey = keyNow;
+        pruneOldPrayerCounts();
         renderPrayerCounter(getPrayersTodayCount());
         showPrayerOfflineNotice(false);
-        setTimeout(midnightReset, 24 * 60 * 60 * 1000);
-      }, msToMidnight);
+        if (typeof loadTodaysVerse === 'function') {
+          loadTodaysVerse().catch(function () {});
+        }
+        if (typeof updatePrayerWallStreakBadge === 'function') {
+          updatePrayerWallStreakBadge();
+        }
+        if (typeof updatePlanStreak === 'function') {
+          updatePlanStreak();
+        }
+        if (typeof updatePlanChips === 'function') {
+          updatePlanChips();
+        }
+        if (typeof console !== 'undefined' && console.log) {
+          console.log('%c✅ Midnight reset completed – new day', 'color:#c9a66b');
+        }
+        if (typeof showEliteToast === 'function') {
+          showEliteToast('New day, new mercy.', { gold: true, duration: 4000 });
+        }
+      }
+      checkPrayerWallCalendarDay();
+      setInterval(checkPrayerWallCalendarDay, 5 * 60 * 1000);
 
       // ── Export prayers to text file ──
       const exportBtn = document.getElementById('prayer-export-btn');
@@ -7054,26 +6888,29 @@
       });
     }
 
+    // ── Battle plan chip / progress config (single source for streak + library chips) ──
+    var PLAN_CONFIGS = {
+      battle:   { label: '\u2694\uFE0F Battle Distraction', key: 'tdb-plan-day',           max: 7  },
+      gratitude:{ label: '\uD83D\uDE4F Gratitude',           key: 'tdb-plan-gratitude-day', max: 7  },
+      strength: { label: '\uD83D\uDCAA 30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
+      marriage: { label: '\uD83D\uDC8D Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
+      peace:    { label: '\uD83D\uDD4A\uFE0F 7-Day Peace',   key: 'tdb-plan-peace-day',     max: 7  },
+      fearfaith:{ label: '\uD83D\uDEE1\uFE0F Fear to Faith', key: 'tdb-plan-fearfaith-day', max: 7  },
+      worrytrust:{ label: '\u2601\uFE0F Worry to Trust', key: 'tdb-plan-worrytrust-day', max: 7  },
+      angerpeace:{ label: '\uD83D\uDD25 Anger \u2192 Peace', key: 'tdb-plan-angerpeace-day', max: 7  },
+      doubtassurance:{ label: '\u2753 Doubt \u2192 Assurance', key: 'tdb-plan-doubtassurance-day', max: 7  },
+      griefhope:{ label: '\uD83D\uDC94\u2192\uD83C\uDF05 Grief \u2192 Hope', key: 'tdb-plan-griefhope-day', max: 7  },
+      painwontquit:{ label: '\uD83D\uDD6F\uFE0F When Pain Won\u2019t Quit', key: 'tdb-plan-painwontquit-day', max: 7  },
+      battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
+      battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
+      battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
+      battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
+      battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 },
+      easter:   { label: '\u2728 Resurrection Hope', key: 'tdb-plan-easter-day',   max: 7  }
+    };
+
     // ── Battle Plan Progress (shows plan with highest progress; streak flame when \u2265 2) ──
     function updatePlanStreak() {
-      var PLAN_CONFIGS = {
-        battle:   { label: '\u2694\uFE0F Battle Distraction', key: 'tdb-plan-day',           max: 7  },
-        gratitude:{ label: '\uD83D\uDE4F Gratitude',           key: 'tdb-plan-gratitude-day', max: 7  },
-        strength: { label: '\uD83D\uDCAA 30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
-        marriage: { label: '\uD83D\uDC8D Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
-        peace:    { label: '\uD83D\uDD4A\uFE0F 7-Day Peace',   key: 'tdb-plan-peace-day',     max: 7  },
-        fearfaith:{ label: '\uD83D\uDEE1\uFE0F Fear to Faith', key: 'tdb-plan-fearfaith-day', max: 7  },
-        worrytrust:{ label: '\u2601\uFE0F Worry to Trust', key: 'tdb-plan-worrytrust-day', max: 7  },
-        angerpeace:{ label: '\uD83D\uDD25 Anger \u2192 Peace', key: 'tdb-plan-angerpeace-day', max: 7  },
-        doubtassurance:{ label: '\u2753 Doubt \u2192 Assurance', key: 'tdb-plan-doubtassurance-day', max: 7  },
-        griefhope:{ label: '\uD83D\uDC94\u2192\uD83C\uDF05 Grief \u2192 Hope', key: 'tdb-plan-griefhope-day', max: 7  },
-        battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
-        battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
-        battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
-        battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
-        battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 },
-        easter:   { label: '\u2728 Resurrection Hope', key: 'tdb-plan-easter-day',   max: 7  }
-      };
       var best = { planId: null, day: 0, max: 7, label: '' };
       Object.keys(PLAN_CONFIGS).forEach(function (planId) {
         var cfg = PLAN_CONFIGS[planId];
@@ -7190,24 +7027,6 @@
     }
 
     // ── Plans Library chip tracker ──
-    var PLAN_CONFIGS = {
-      battle:   { label: '\u2694\uFE0F Battle Distraction', key: 'tdb-plan-day',           max: 7  },
-      gratitude:{ label: '\uD83D\uDE4F Gratitude',           key: 'tdb-plan-gratitude-day', max: 7  },
-      strength: { label: '\uD83D\uDCAA 30-Day Strength',     key: 'tdb-plan-strength-day',  max: 30 },
-      marriage: { label: '\uD83D\uDC8D Marriage',            key: 'tdb-plan-marriage-day',  max: 7  },
-      peace:    { label: '\uD83D\uDD4A\uFE0F 7-Day Peace',   key: 'tdb-plan-peace-day',     max: 7  },
-      fearfaith:{ label: '\uD83D\uDEE1\uFE0F Fear to Faith', key: 'tdb-plan-fearfaith-day', max: 7  },
-      worrytrust:{ label: '\u2601\uFE0F Worry to Trust', key: 'tdb-plan-worrytrust-day', max: 7  },
-      angerpeace:{ label: '\uD83D\uDD25 Anger \u2192 Peace', key: 'tdb-plan-angerpeace-day', max: 7  },
-      doubtassurance:{ label: '\u2753 Doubt \u2192 Assurance', key: 'tdb-plan-doubtassurance-day', max: 7  },
-      griefhope:{ label: '\uD83D\uDC94\u2192\uD83C\uDF05 Grief \u2192 Hope', key: 'tdb-plan-griefhope-day', max: 7  },
-      battle10: { label: '\u2694\uFE0F 10-Day Battle',       key: 'tdb-plan-battle10-day',  max: 10 },
-      battle14: { label: '\u2694\uFE0F 14-Day Battle',       key: 'tdb-plan-battle14-day',  max: 14 },
-      battle21: { label: '\u2694\uFE0F 21-Day Battle',       key: 'tdb-plan-battle21-day',  max: 21 },
-      battle30: { label: '\u2694\uFE0F 30-Day Battle',       key: 'tdb-plan-battle30-day',  max: 30 },
-      battle40: { label: '\uD83C\uDFD4\uFE0F 40-Day Wilderness', key: 'tdb-plan-battle40-day',  max: 40 },
-      easter:   { label: '\u2728 Resurrection Hope', key: 'tdb-plan-easter-day',   max: 7  }
-    };
     function updatePlanChips() {
       var barList = document.getElementById('plansMiniBarsList');
       if (barList) barList.replaceChildren();
@@ -8844,7 +8663,8 @@
 
       <p>I built this because I needed it. Not some shiny app with streaks and badges&#8212;just a quiet place to grab one verse when everything else was screaming. Scripture didn&#8217;t fix me overnight. It just kept showing up: &#8220;Be still,&#8221; &#8220;Cast it,&#8221; &#8220;You&#8217;re held.&#8221; And slowly, that was enough.</p>
 
-      <p>No ads. No login. Offline-first. Smart enough to hear &#8220;survival&#8221; and hand you Isaiah 43:2 like it&#8217;s waiting for you. Plans that say &#8220;Hey, 7 days? Let&#8217;s do 14&#8221; instead of &#8220;Start over.&#8221; Audio that reads it back&#8212;because some mornings, hearing beats reading.</p>
+      <p class="privacy-line">No ads. No tracking. Your prayers and data stay on your device. Just you and God.</p>
+      <p>No login required. Offline-first. Smart enough to hear &#8220;survival&#8221; and hand you Isaiah 43:2 like it&#8217;s waiting for you. Plans that say &#8220;Hey, 7 days? Let&#8217;s do 14&#8221; instead of &#8220;Start over.&#8221; Audio that reads it back&#8212;because some mornings, hearing beats reading.</p>
 
       <p>This isn&#8217;t about being perfect. It&#8217;s about showing up. If you&#8217;re fighting something right now&#8212;fear, grief, bills, loneliness&#8212;grab a verse. Breathe. You&#8217;re not solo. And if this helps even one person feel that? That&#8217;s why I keep building.</p>
 

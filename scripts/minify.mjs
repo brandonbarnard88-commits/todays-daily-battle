@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist');
 
-const JS_FILES = ['script.js', 'easter-eggs.js'];
+const JS_FILES = ['script.js', 'easter-eggs.js', 'plans-data.js'];
 const CSS_FILES = ['styles.css', 'tool-pages.css', 'church.css', 'loop-player.css', 'kids-corner.css', 'mystudy.css', 'kids/story-library-fonts.css'];
 
 async function minifyJs(filePath) {
@@ -19,8 +19,11 @@ async function minifyJs(filePath) {
   const code = fs.readFileSync(filePath, 'utf8');
   /* Multiple compress passes shrink the main bundle (~1–3% typical). Avoid unsafe_* flags here — DOM-heavy code + user data. */
   const result = await minify(code, {
-    compress: { passes: 3 },
-    mangle: true,
+    /* unused: false — required: default unused-drop can strip large chunks of tdbInitImpl
+       (e.g. prayer wall init / data-prayer-wall-ready) when call graph through async init is mis-analyzed. */
+    compress: { passes: 3, unused: false },
+    /* keep_fnames: window.tdbInit calls tdbInitImpl(); mangling the impl name without rewriting that call caused ReferenceError in production/E2E. */
+    mangle: { keep_fnames: /^tdbInitImpl$/ },
     format: { comments: false },
     sourceMap: false
   });

@@ -19,6 +19,8 @@ export default defineConfig({
   use: {
     baseURL: process.env.QA_URL || 'http://localhost:8080',
     trace: 'on-first-retry',
+    /* Avoid stale script.js from an old service worker cache (local `serve dist` + SW caused prayer-wall-ready flakes). */
+    serviceWorkers: 'block',
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

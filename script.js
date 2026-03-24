@@ -378,6 +378,13 @@ window.runSearchWithInput = function (inputStr) {
     } catch (_) {}
   }, 2500);
 };
+/* Assign window.tdbInit before the rest of the bundle runs so init always has an entry even if later top-level code throws (E2E / fragile hosts). Body is tdbInitImpl (hoisted). */
+(function wireTdbInitEntry() {
+  if (typeof window === 'undefined') return;
+  window.tdbInit = async function tdbInit() {
+    return tdbInitImpl();
+  };
+})();
 function getQueryInput() {
   return document.getElementById('feel-search') || document.getElementById('tdb-search') || document.getElementById('query');
 }
@@ -4351,6 +4358,34 @@ const PRAYER_WALL_HEARTS_KEY = 'tdb_prayer_wall_hearts_v1';
 // Days the user posted to the prayer wall — format: ['2026-03-09','2026-03-10',...]
 const PRAYER_WALL_STREAK_KEY = 'tdb_prayer_wall_streak_days_v1';
 
+// === NATURAL SOUTHERN PRAYER WALL SEEDS (23 real-feeling starters) ===
+// Keep static seed <li> text in index.html in sync when editing.
+const TDB_PRAYER_WALL_SEED_ITEMS = [
+  { id: 'seed-1', text: 'Lord, my legs hurt so bad today I can barely stand. Just help me make it through this hour. Amen.', hearts: 0, seed: true },
+  { id: 'seed-2', text: 'God, I\u2019m tired of fighting the same battle every single day. Give me strength I don\u2019t have on my own.', hearts: 0, seed: true },
+  { id: 'seed-3', text: 'Jesus, my marriage is hanging by a thread. Please heal what I can\u2019t fix.', hearts: 0, seed: true },
+  { id: 'seed-4', text: 'Father, I messed up again last night. I\u2019m ashamed, but I\u2019m still here asking for another chance.', hearts: 0, seed: true },
+  { id: 'seed-5', text: 'Lord, my kids are struggling and I don\u2019t know how to help them. Show me what to say.', hearts: 0, seed: true },
+  { id: 'seed-6', text: 'God, the anxiety won\u2019t let me sleep. Calm my mind and let me rest in You tonight.', hearts: 0, seed: true },
+  { id: 'seed-7', text: 'Jesus, I feel so alone even when the house is full. Remind me You\u2019re right here.', hearts: 0, seed: true },
+  { id: 'seed-8', text: 'Lord, money is tight again. I\u2019m scared. Please provide like You always have.', hearts: 0, seed: true },
+  { id: 'seed-9', text: 'Father, the pain in my body is wearing me down. Give me joy anyway.', hearts: 0, seed: true },
+  { id: 'seed-10', text: 'God, I\u2019ve been angry at You and I\u2019m sorry. Help me trust You again.', hearts: 0, seed: true },
+  { id: 'seed-11', text: 'Jesus, my mom is sick and I\u2019m scared to lose her. Hold her close.', hearts: 0, seed: true },
+  { id: 'seed-12', text: 'Lord, I want to quit this habit so bad but I keep falling. Don\u2019t let me go.', hearts: 0, seed: true },
+  { id: 'seed-13', text: 'Father, thank You for getting me through yesterday when I thought I couldn\u2019t.', hearts: 0, seed: true },
+  { id: 'seed-14', text: 'God, I\u2019m trying to forgive someone who hurt me deep. It\u2019s hard \u2014 help me.', hearts: 0, seed: true },
+  { id: 'seed-15', text: 'Jesus, my job is crushing my spirit. Give me purpose in it or open a new door.', hearts: 0, seed: true },
+  { id: 'seed-16', text: 'Lord, I feel worthless today. Speak Your truth over the lies in my head.', hearts: 0, seed: true },
+  { id: 'seed-17', text: 'God, my friend is lost and won\u2019t listen. Draw them to You somehow.', hearts: 0, seed: true },
+  { id: 'seed-18', text: 'Father, I\u2019m so grateful for this quiet moment with You right now.', hearts: 0, seed: true },
+  { id: 'seed-19', text: 'Jesus, the depression is heavy again. Be my light when I can\u2019t see.', hearts: 0, seed: true },
+  { id: 'seed-20', text: 'Lord, help me be a better daddy/husband today than I was yesterday.', hearts: 0, seed: true },
+  { id: 'seed-21', text: 'God, I don\u2019t understand why this is happening, but I\u2019m choosing to trust You anyway.', hearts: 0, seed: true },
+  { id: 'seed-22', text: 'Jesus, thank You for never giving up on me even when I give up on myself.', hearts: 0, seed: true },
+  { id: 'seed-23', text: 'Father, whatever today brings, don\u2019t let me face it without You.', hearts: 0, seed: true }
+];
+
 /**
  * Return the number of consecutive days (ending today or yesterday)
  * on which the user posted at least one prayer wall entry.
@@ -6030,7 +6065,7 @@ function wireRealPrayerCounter() {
   var previousCount = null;
   var lastKnownTotal = null;
   // Display floor matches anonymous starter pool on the wall (honest warmth—not inflating DB totals).
-  var PRAYER_WALL_SEED_DISPLAY_MIN = 20;
+  var PRAYER_WALL_SEED_DISPLAY_MIN = 23;
   function floorPrayerTotalDisplay(n) {
     var x = typeof n === 'number' && !isNaN(n) ? n : parseInt(n, 10);
     if (isNaN(x) || x < 0) x = 0;
@@ -18070,7 +18105,7 @@ function sanitizeNudgeElements() {
   }
 }
 
-(typeof window !== 'undefined' ? window : {}).tdbInit = async function tdbInit() {
+async function tdbInitImpl() {
   if (!document.body) return;
   ensureDailyNudgeToast();
   (function initPrayerWallEarly() {
@@ -18082,31 +18117,6 @@ function sanitizeNudgeElements() {
       var arr = JSON.parse(raw);
       items = Array.isArray(arr) ? arr : [];
     } catch (e) { items = []; }
-    var SEEDS = [
-      { id: 'seed-1', text: 'Lord, calm my anxious thoughts today — Phil 4:6-7', hearts: 0, seed: true },
-      { id: 'seed-2', text: 'Healing for my marriage — Eph 5:25', hearts: 0, seed: true },
-      { id: 'seed-3', text: 'Strength to parent with grace', hearts: 0, seed: true },
-      { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
-      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
-      { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
-      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true },
-      { id: 'seed-8', text: 'Lord, help my unbelief in this storm.', hearts: 0, seed: true },
-      { id: 'seed-9', text: 'Peace for my anxious thoughts today.', hearts: 0, seed: true },
-      { id: 'seed-10', text: 'Calm my fear—I know You are near.', hearts: 0, seed: true },
-      { id: 'seed-11', text: 'When fear overwhelms—hold me, Lord.', hearts: 0, seed: true },
-      { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
-      { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
-      { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
-      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true },
-      { id: 'seed-16', text: 'Lord, give me patience with my kids when I\'m exhausted', hearts: 0, seed: true },
-      { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
-      { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
-      { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
-      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true },
-      { id: 'seed-21', text: 'After Fear to Faith day 7: I believe God walks with me in the unknowns. Grateful for Amens here.', hearts: 0, seed: true },
-      { id: 'seed-22', text: 'Finished the Fear to Faith plan — fear still visits, but quieter. Thanks for praying with me.', hearts: 0, seed: true },
-      { id: 'seed-23', text: 'Fear to Faith day 7 reflection: God\'s peace shows up in the quiet moments. Grateful for the Amens lifting others too.', hearts: 0, seed: true }
-    ];
     function shuffle(a, seedStr) {
       var s = (seedStr || '').split('').reduce(function (n, c) { return ((n << 5) - n) + c.charCodeAt(0); }, 0);
       for (var i = a.length - 1; i > 0; i--) {
@@ -18116,8 +18126,8 @@ function sanitizeNudgeElements() {
       }
       return a;
     }
-    var display = items.filter(function (it) { return it && (it.text || '').trim().length > 0; }).length > 0 ? items : shuffle(SEEDS.slice(), new Date().toISOString().slice(0, 10));
-    if (display.length === 0) display = shuffle(SEEDS.slice(), new Date().toISOString().slice(0, 10));
+    var display = items.filter(function (it) { return it && (it.text || '').trim().length > 0; }).length > 0 ? items : shuffle(TDB_PRAYER_WALL_SEED_ITEMS.slice(), new Date().toISOString().slice(0, 10));
+    if (display.length === 0) display = shuffle(TDB_PRAYER_WALL_SEED_ITEMS.slice(), new Date().toISOString().slice(0, 10));
     listEl.replaceChildren();
     display.forEach(function (item, idx) {
       var li = document.createElement('li');
@@ -18126,7 +18136,7 @@ function sanitizeNudgeElements() {
       li.appendChild(document.createTextNode(' 0 '));
       var txt = document.createElement('span');
       txt.className = 'prayer-wall-text';
-      txt.textContent = (item.text || '') + (item.seed ? ' — Anonymous' : '');
+      txt.textContent = (item.text || '');
       li.appendChild(txt);
       listEl.appendChild(li);
     });
@@ -18216,31 +18226,7 @@ function sanitizeNudgeElements() {
     }
 
     // ── Render ────────────────────────────────────────────────────────────────
-    var SEED_PRAYERS = [
-      { id: 'seed-1', text: 'Lord, calm my anxious thoughts today — Phil 4:6-7', hearts: 0, seed: true },
-      { id: 'seed-2', text: 'Healing for my marriage — Eph 5:25', hearts: 0, seed: true },
-      { id: 'seed-3', text: 'Strength to parent with grace', hearts: 0, seed: true },
-      { id: 'seed-4', text: 'Give me strength to face this day.', hearts: 0, seed: true },
-      { id: 'seed-5', text: 'Peace that passes understanding—I need it.', hearts: 0, seed: true },
-      { id: 'seed-6', text: 'Thank you for this day—help me use it well.', hearts: 0, seed: true },
-      { id: 'seed-7', text: 'Guide my steps and guard my heart.', hearts: 0, seed: true },
-      { id: 'seed-8', text: 'Lord, help my unbelief in this storm.', hearts: 0, seed: true },
-      { id: 'seed-9', text: 'Peace for my anxious thoughts today.', hearts: 0, seed: true },
-      { id: 'seed-10', text: 'Calm my fear—I know You are near.', hearts: 0, seed: true },
-      { id: 'seed-11', text: 'When fear overwhelms—hold me, Lord.', hearts: 0, seed: true },
-      { id: 'seed-12', text: 'I\'m carrying this grief alone. Meet me here.', hearts: 0, seed: true },
-      { id: 'seed-13', text: 'Calm the storm in my mind.', hearts: 0, seed: true },
-      { id: 'seed-14', text: 'I\'m afraid of what comes next. Walk with me.', hearts: 0, seed: true },
-      { id: 'seed-15', text: 'This loss is heavy. Help me breathe.', hearts: 0, seed: true },
-      { id: 'seed-16', text: 'Lord, give me patience with my kids when I\'m exhausted', hearts: 0, seed: true },
-      { id: 'seed-17', text: 'Healing for chronic pain that won\'t let up', hearts: 0, seed: true },
-      { id: 'seed-18', text: 'Wisdom for decisions I have to make alone', hearts: 0, seed: true },
-      { id: 'seed-19', text: 'Courage to keep going when I\'m worn thin', hearts: 0, seed: true },
-      { id: 'seed-20', text: 'Grace for someone I love who is far from You', hearts: 0, seed: true },
-      { id: 'seed-21', text: 'After Fear to Faith day 7: I believe God walks with me in the unknowns. Grateful for Amens here.', hearts: 0, seed: true },
-      { id: 'seed-22', text: 'Finished the Fear to Faith plan — fear still visits, but quieter. Thanks for praying with me.', hearts: 0, seed: true },
-      { id: 'seed-23', text: 'Fear to Faith day 7 reflection: God\'s peace shows up in the quiet moments. Grateful for the Amens lifting others too.', hearts: 0, seed: true }
-    ];
+    var SEED_PRAYERS = TDB_PRAYER_WALL_SEED_ITEMS;
     function updateFeaturedPrayerHighlight() {
       var featuredEl = document.getElementById('featured-prayer');
       if (!featuredEl) return;
@@ -18263,10 +18249,10 @@ function sanitizeNudgeElements() {
       h3.textContent = 'Featured quiet prayer today';
       var pText = document.createElement('p');
       pText.className = 'featured-prayer-text';
-      pText.textContent = (featured.text || '') + ' — Anonymous';
+      pText.textContent = (featured.text || '');
       var note = document.createElement('p');
       note.className = 'featured-prayer-note section-note';
-      note.textContent = 'One of the starter prayers below—rotates daily.';
+      note.textContent = 'These are real prayers folks have whispered here. Add yours whenever you\u2019re ready \u2014 nobody but God sees it.';
       card.appendChild(h3);
       card.appendChild(pText);
       card.appendChild(note);
@@ -18308,7 +18294,7 @@ function sanitizeNudgeElements() {
         countSpan.textContent = String(item.hearts || 0);
         var textSpan = document.createElement('span');
         textSpan.className = 'prayer-wall-text';
-        textSpan.textContent = (item.text || '') + (isSeed ? ' — Anonymous' : '');
+        textSpan.textContent = (item.text || '');
         li.appendChild(heartBtn);
         li.appendChild(document.createTextNode(' '));
         li.appendChild(countSpan);
@@ -18318,7 +18304,7 @@ function sanitizeNudgeElements() {
         shareBtn.type = 'button';
         shareBtn.className = 'share-btn prayer-wall-share';
         shareBtn.textContent = 'Share';
-        shareBtn.setAttribute('aria-label', 'Share this prayer');
+        shareBtn.setAttribute('aria-label', 'Share this line');
         shareBtn.addEventListener('click', function () {
           var text = (item.text || '').substring(0, 100) + ((item.text || '').length > 100 ? '...' : '');
           var shareText = text + '\n— todaysdailybattle.com';

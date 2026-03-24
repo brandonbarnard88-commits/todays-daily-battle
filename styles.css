@@ -5007,6 +5007,46 @@ body:has(.pricing-grid) .section-divider {
   opacity: 0.42;
   margin: 0.75rem 0 0;
 }
+/* Canonical privacy whisper — header moat, home teaser, footer, modals */
+.privacy-line {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  text-align: center;
+  margin: 1.5rem 0 0.5rem;
+  font-style: italic;
+}
+.site-footer .privacy-line {
+  margin: 1rem auto 0.35rem;
+  max-width: 40em;
+}
+.moat-banner {
+  font-size: 0.88rem;
+  text-align: center;
+  color: var(--muted, #94a3b8);
+  padding: 0.5rem 1rem 0.65rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--line, #2a3344) 55%, transparent);
+  line-height: 1.45;
+  font-style: italic;
+}
+.hero-banner .privacy-line {
+  margin-top: 0.35rem;
+  margin-bottom: 0.65rem;
+}
+.nav-more-privacy-line {
+  text-align: left;
+  margin: 0.2rem 1rem 0.5rem;
+  padding: 0 0.15rem;
+  font-size: 0.82rem;
+}
+.about-modal-sheet .privacy-line {
+  margin: 0.75rem 0 1rem;
+}
+.tool-footer-privacy-line {
+  margin: 1rem 0 0.5rem;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 .site-footer-tagline {
   margin: 0.5rem 0 0;
   font-size: 0.875rem;
@@ -12865,6 +12905,10 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 
 #feel-results {
   margin-top: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .quick-grid {
@@ -13252,32 +13296,7 @@ main > .card {
   margin-bottom: 0.25rem;
 }
 
-/* Easter eggs — site-wide (Konami, toasts, still, etc.) */
-.easter-konami-wrap { position: fixed; inset: 0; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); animation: easter-fade-in 0.6s ease; }
-.easter-konami-wrap.easter-no-motion { animation: none; }
-.easter-konami-cross { font-size: 4rem; color: var(--elite-gold-solid, #d4af37); opacity: 0; animation: easter-cross-in 1.2s ease 0.2s forwards; }
-.easter-konami-wrap.easter-no-motion .easter-konami-cross { opacity: 1; }
-.easter-konami-text { font-size: 1.1rem; color: var(--elite-gold-solid, #d4af37); margin: 1rem 0 0.5rem; }
-.easter-konami-verse { font-size: 1rem; color: var(--text-muted, #bcc5d6); max-width: 90%; text-align: center; line-height: 1.5; }
-.easter-konami-fade { animation: easter-fade-out 0.5s ease forwards; }
-.easter-triple-toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); padding: 0.75rem 1.25rem; font-size: 0.95rem; color: var(--text-dark, #f0f2f7); background: rgba(12,18,30,0.95); border: 1px solid var(--elite-gold-solid, #d4af37); border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 9999; max-width: 90%; animation: easter-fade-in 0.4s ease; }
-.easter-triple-fade { animation: easter-fade-out 0.4s ease forwards; }
-.easter-egg-badge { font-size: 0.8rem; color: var(--elite-gold-solid, #d4af37); opacity: 0.85; margin: 0.5rem 0 0; text-align: center; }
-.easter-egg-badge.pulse-once { animation: easter-badge-pulse 1.2s ease; }
-@keyframes easter-badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-a.easter-egg-badge { text-decoration: none; color: inherit; }
-a.easter-egg-badge:hover { text-decoration: underline; opacity: 1; }
-.easter-still-result { padding: 1.5rem; text-align: center; }
-.easter-still-verse { font-size: 1.4rem; color: var(--elite-gold-solid, #d4af37); margin: 0 0 0.25rem; font-style: italic; }
-.easter-still-ref { font-size: 0.9rem; color: var(--text-muted, #bcc5d6); margin: 0; }
-.easter-still-glow { box-shadow: 0 0 16px rgba(212,175,55,0.6) !important; border-color: var(--elite-gold-solid, #d4af37) !important; transition: box-shadow 0.3s, border-color 0.3s; }
-@keyframes easter-fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes easter-fade-out { from { opacity: 1; } to { opacity: 0; } }
-@keyframes easter-cross-in { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
-.easter-hallelujah-dove { position: absolute; bottom: 2rem; right: 2rem; font-size: 2rem; opacity: 0.7; animation: easter-dove-float 3s ease-in-out infinite; z-index: 2; }
-@keyframes easter-dove-float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.05); } }
-.easter-dove-wing-flutter { animation: easter-dove-flutter 0.6s ease; }
-@keyframes easter-dove-flutter { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.08) rotate(-3deg); } 75% { transform: scale(1.08) rotate(3deg); } }
+/* Easter egg styles: easter-eggs.css (injected when easter-eggs.js loads). */
 
 /* ── Explore page (explore.html) + home callout ───────────────────────── */
 .explore-page .explore-section {

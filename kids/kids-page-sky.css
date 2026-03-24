@@ -328,6 +328,22 @@ html.tdb-perf-mode .sky-cloud { animation: none !important; }
 html.tdb-perf-mode body.sky-night #sky-moon { animation: none !important; }
 html.tdb-perf-mode .sky-moon-svg { animation: none !important; }
 
+/* Narrow viewports: calmer sky — fewer always-on animations (easier on battery/GPU on phones). */
+@media (max-width: 600px) {
+  html:not(.tdb-perf-mode) .sky-stars-parallax,
+  html:not(.tdb-perf-mode) .sky-aurora-veil,
+  html:not(.tdb-perf-mode) .sky-aurora::before,
+  html:not(.tdb-perf-mode) .sky-aurora::after { animation: none !important; }
+  html:not(.tdb-perf-mode) .sky-star { animation: none !important; }
+  html:not(.tdb-perf-mode) body:not(.sky-night) .sky-sun { animation: none !important; }
+  html:not(.tdb-perf-mode) .sky-sun::after { animation: none !important; }
+  html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: none !important; }
+  html:not(.tdb-perf-mode) .sky-cloud { animation: none !important; }
+  html:not(.tdb-perf-mode) .sky-bird { animation: none !important; }
+  html:not(.tdb-perf-mode) .sky-bird::before,
+  html:not(.tdb-perf-mode) .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
+}
+
 /* Stars — CSS animated, JS places them */
 .sky-star {
   position: absolute;

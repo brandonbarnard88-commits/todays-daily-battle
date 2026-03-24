@@ -83,6 +83,7 @@ const rootFiles = [
   'service-worker.js',
   'sw.js',
   'daily-verse-widget.js',
+  'hero-daily-first-paint.js',
   'inline-bootstrap.js',
   'ga-config.js',
   'tt-bootstrap.js',
@@ -103,6 +104,8 @@ const rootFiles = [
   'search-wire.js',
   'share-page.js',
   'easter-eggs.js',
+  'easter-eggs.css',
+  'plans-data.js',
   'verse-breakdown.js',
   'highlights.js',
   'streak.js',
@@ -239,6 +242,10 @@ for (const f of otherHtml) {
     }
     if (!content.includes('griefhope') || !content.includes('tdb-plan-griefhope-day')) {
       console.error('BUILD FAIL: plans.html must include Grief → Hope plan (griefhope / tdb-plan-griefhope-day).');
+      process.exit(1);
+    }
+    if (!content.includes('painwontquit') || !content.includes('tdb-plan-painwontquit-day')) {
+      console.error('BUILD FAIL: plans.html must include When Pain Won\'t Quit plan (painwontquit / tdb-plan-painwontquit-day).');
       process.exit(1);
     }
     console.log('Copied plans.html (battle plans library)');

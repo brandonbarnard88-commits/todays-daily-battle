@@ -6,6 +6,20 @@
 (function () {
   'use strict';
 
+  (function injectEasterCss() {
+    if (document.getElementById('tdb-easter-eggs-css')) return;
+    var href = '/easter-eggs.css?v=20260324';
+    try {
+      var sc = document.currentScript;
+      if (sc && sc.src) href = new URL('easter-eggs.css?v=20260324', sc.src).href;
+    } catch (e) { /* keep root default */ }
+    var link = document.createElement('link');
+    link.id = 'tdb-easter-eggs-css';
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  })();
+
   function enabled() {
     try {
       return localStorage.getItem('easterEggsEnabled') !== '0';

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Run mobile smoke test against local dist/ (more reliable than live site).
- * Usage: npm run build && npm run test:mobile:local
+ * Usage: npm run test:mobile  (build + this server), or npm run build && npm run test:mobile:local
  */
 import { spawn } from 'child_process';
 import { createServer } from 'http';

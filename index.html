@@ -98,7 +98,8 @@
       --accent: #8ba6d9;
       --shadow: 0 12px 34px rgba(0, 0, 0, 0.26);
       /* Sky starts below sticky global nav (~one row); tweak if nav height changes */
-      --tdb-sticky-nav-h: 52px;
+      /* No sticky strip on home — main links sit below “Need Him right now?” */
+      --tdb-sticky-nav-h: 0px;
     }
 
     :root[data-theme="light"] {
@@ -644,7 +645,8 @@
       background: rgba(255, 252, 245, 0.5);
       border-bottom-color: color-mix(in srgb, var(--gold) 30%, var(--line));
     }
-    :root[data-theme="light"] .tdb-global-nav a {
+    :root[data-theme="light"] .tdb-global-nav a,
+    :root[data-theme="light"] .tdb-home-main-nav a {
       color: rgba(35, 42, 58, 0.88);
     }
     :root[data-theme="light"] .site-top-links a {
@@ -654,20 +656,46 @@
     :root[data-theme="light"] .site-top-links .header-auth-sep {
       color: rgba(55, 62, 78, 0.82);
     }
-    .tdb-global-nav a {
+    .tdb-global-nav a,
+    .tdb-home-main-nav a {
       color: rgba(226, 232, 240, 0.85); text-decoration: none;
       padding: 0.3rem 0.5rem; border-radius: 6px; white-space: nowrap;
       min-height: 44px; display: inline-flex; align-items: center;
       -webkit-tap-highlight-color: transparent;
       transition: color 0.15s, background 0.15s;
     }
-    .tdb-global-nav a:hover { color: #e3bc67; background: rgba(227, 188, 103, 0.1); }
-    .tdb-global-nav a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.7); outline-offset: 2px; }
-    .tdb-global-nav a[aria-current="page"] { color: #e3bc67; font-weight: 600; }
+    .tdb-global-nav a:hover,
+    .tdb-home-main-nav a:hover { color: #e3bc67; background: rgba(227, 188, 103, 0.1); }
+    .tdb-global-nav a:focus-visible,
+    .tdb-home-main-nav a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.7); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"],
+    .tdb-home-main-nav a[aria-current="page"] { color: #e3bc67; font-weight: 600; }
+    /* Home: primary links below calm CTA (not sticky) */
+    .tdb-home-main-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.55rem 0.75rem; margin: 0.35rem 0 0.85rem;
+      box-sizing: border-box;
+      background: rgba(8, 12, 22, 0.42);
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      border-radius: 14px;
+      position: relative; z-index: 12;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-size: 0.86rem;
+    }
+    :root[data-theme="light"] .tdb-home-main-nav {
+      background: color-mix(in srgb, var(--card) 94%, #fff 6%);
+      border-color: color-mix(in srgb, var(--gold) 28%, var(--line));
+    }
     @media (max-width: 768px) {
       .tdb-global-nav { overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0.3rem 0.55rem; gap: 0.15rem; }
       .tdb-global-nav::-webkit-scrollbar { display: none; }
       .tdb-global-nav a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
+      .tdb-home-main-nav {
+        overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        padding: 0.45rem 0.55rem; gap: 0.15rem;
+      }
+      .tdb-home-main-nav::-webkit-scrollbar { display: none; }
+      .tdb-home-main-nav a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
     }
 
     /* ── Moat banner (curated habit vs. endless chat) — below hero, glass band ── */
@@ -1230,6 +1258,179 @@
     }
     #newsletter h2.section-divider {
       font-size: clamp(1.02rem, 2.9vw, 1.22rem);
+    }
+
+    /* Patriotic Scriptures & Hymns — index does not load styles.css; utils.js fills #patriotic-*-grid */
+    #patriotic-scriptures { padding-top: 1rem; }
+    #patriotic-scriptures h2:hover .section-divider-icon,
+    #patriotic-scriptures h2:active .section-divider-icon,
+    #patriotic-scriptures h2:focus-visible .section-divider-icon,
+    #patriotic-hymns h2:hover .section-divider-icon,
+    #patriotic-hymns h2:active .section-divider-icon,
+    #patriotic-hymns h2:focus-visible .section-divider-icon {
+      filter: brightness(1.2);
+      transition: filter 0.15s ease;
+    }
+    .patriotic-scriptures-layout,
+    .patriotic-hymns-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .patriotic-scriptures-more,
+    .patriotic-hymns-more {
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+      background: color-mix(in srgb, #000 82%, transparent);
+      overflow: hidden;
+    }
+    .patriotic-scriptures-more-summary,
+    .patriotic-hymns-more-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      min-height: 44px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold, #e3bc67);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      list-style: none;
+      user-select: none;
+    }
+    .patriotic-scriptures-more-summary::-webkit-details-marker,
+    .patriotic-hymns-more-summary::-webkit-details-marker { display: none; }
+    .patriotic-scriptures-more-summary::after,
+    .patriotic-hymns-more-summary::after {
+      content: '';
+      width: 0.45rem;
+      height: 0.45rem;
+      margin-top: -0.2rem;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      opacity: 0.9;
+    }
+    .patriotic-scriptures-more[open] > .patriotic-scriptures-more-summary::after,
+    .patriotic-hymns-more[open] > .patriotic-hymns-more-summary::after {
+      transform: rotate(-135deg);
+      margin-top: 0.15rem;
+    }
+    .patriotic-scriptures-more-summary:focus-visible,
+    .patriotic-hymns-more-summary:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 65%, transparent);
+      outline-offset: 2px;
+    }
+    .patriotic-scriptures-grid--more,
+    .patriotic-hymns-grid--more {
+      padding: 0 1rem 1rem;
+      margin: 0;
+    }
+    .patriotic-scriptures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .patriotic-scriptures-card {
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+      background: color-mix(in srgb, #000 80%, transparent);
+    }
+    .patriotic-scriptures-ref {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--gold, #e3bc67);
+      margin: 0 0 0.5rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .patriotic-scriptures-text {
+      margin: 0.5rem 0 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: color-mix(in srgb, var(--text) 94%, #fff 6%);
+      border-left: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+      padding-left: 0.75rem;
+    }
+    .patriotic-scriptures-note {
+      margin: 0.5rem 0 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .patriotic-scriptures-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .patriotic-scriptures-actions .btn { min-height: 36px; }
+    .patriotic-hymns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .patriotic-hymns-card {
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+      background: color-mix(in srgb, #000 80%, transparent);
+    }
+    .patriotic-hymns-card-title {
+      font-size: 1.1rem;
+      margin: 0 0 0.25rem;
+      color: var(--gold, #e3bc67);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .patriotic-hymns-card-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+    }
+    .patriotic-hymns-card-excerpt {
+      margin: 0.5rem 0 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: color-mix(in srgb, var(--text) 92%, #fff 8%);
+      border-left: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+      padding-left: 0.75rem;
+    }
+    .patriotic-hymns-card-note {
+      margin: 0.5rem 0 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .patriotic-hymns-card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .patriotic-hymns-card-actions .btn { min-height: 36px; }
+    .hymn-lyrics-modal-body {
+      white-space: pre-line;
+      max-height: 60vh;
+      overflow-y: auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--text) 94%, #fff 6%);
+      padding: 0.5rem 0;
+    }
+    .hymn-lyrics-modal-inner, #hymn-lyrics-modal .modal-inner { z-index: 10001; position: relative; }
+    #hymn-lyrics-modal { z-index: 10001; }
+    @media (max-width: 768px) {
+      .patriotic-scriptures-grid,
+      .patriotic-hymns-grid { grid-template-columns: 1fr; }
+      .patriotic-scriptures-actions .btn,
+      .patriotic-hymns-card-actions .btn { width: 100%; }
+      .hymn-lyrics-modal-inner { max-height: 85vh; overflow-y: auto; }
     }
 
     /* ── Hero Verse ── */
@@ -4402,17 +4603,6 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <nav class="tdb-global-nav" aria-label="Main site navigation">
-    <a href="/" aria-current="page">Home</a>
-    <a href="/explore.html">Explore</a>
-    <a href="/calm.html">Calm</a>
-    <a href="/mobius.html">Möbius</a>
-    <a href="/plans.html">Plans</a>
-    <a href="/#quick-actions-hero">Topics</a>
-    <a href="/kids/?v=hub20260321">Kids</a>
-    <a href="/bible-tool.html">Tools</a>
-    <a href="/story.html">Story</a>
-  </nav>
   <!-- Full-page sky/stars (absolute on body — scrolls with page); tiles sit above in .app -->
   <div class="sky-page-backdrop" aria-hidden="true">
     <div class="sky" aria-hidden="true" id="sky-layer">
@@ -4499,8 +4689,7 @@
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
       <p class="site-tagline">For God · For Country · For Family</p>
-      <nav class="site-top-links" aria-label="Site navigation and information">
-        <a href="calm.html" aria-label="Need Him right now? One-tap verse for whatever you're carrying">Need Him right now?</a>
+      <nav class="site-top-links" aria-label="Account and site information">
         <span id="header-auth-links">
           <a href="login.html" aria-label="Sign In">Sign In</a>
           <span aria-hidden="true"> · </span>
@@ -4573,6 +4762,17 @@
         </a>
         <p class="calm-cta-note">Not just one morning moment—use anytime anxiety, grief, or life hits.</p>
       </div>
+      <nav class="tdb-home-main-nav" aria-label="Main site navigation">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/#quick-actions-hero">Topics</a>
+        <a href="/kids/?v=hub20260321">Kids</a>
+        <a href="/bible-tool.html">Tools</a>
+        <a href="/story.html">Story</a>
+      </nav>
 
       <!-- ── Offline banner (reassuring message when offline) ── -->
       <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>
@@ -5027,146 +5227,103 @@
 
     <!-- ── Footer ── -->
     <footer class="site-footer" role="contentinfo" aria-label="Site footer">
-      <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
-        <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
-      </p>
-      <nav class="site-footer-nav" aria-label="Footer navigation">
-        <a href="explore.html">Explore</a>
-        <a href="about.html">About</a>
-        <a href="pricing.html">Plans</a>
-        <a href="faq.html">FAQ</a>
-        <a href="why-not-ai.html">Why not AI?</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="security.html">Security</a>
-        <a href="verse-cards/">Verse cards</a>
-        <a href="testimonials.html">Reader stories</a>
-        <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
-        <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
-        <span class="footer-lang-hint" aria-label="Spanish pages">Español: <a href="ansiedad.html">Ansiedad</a> · <a href="fuerza.html">Fuerza</a> · <a href="paz.html">Paz</a></span>
-      </nav>
-      <details class="footer-sitemap" open>
-        <summary>Explore all pages — topics, tools, church</summary>
-        <div class="footer-sitemap-grid">
-          <div class="footer-sitemap-col">
-            <h3>Topics</h3>
-            <a href="explore.html">Full list (all pages)</a>
-            <a href="topic-anxiety.html">Anxiety</a>
-            <a href="topic-fear.html">Fear</a>
-            <a href="topic-grief.html">Grief</a>
-            <a href="topic-hope.html">Hope</a>
-            <a href="topic-strength.html">Strength</a>
-            <a href="topic-parenting.html">Parenting</a>
-            <a href="topic-loneliness.html">Loneliness</a>
-            <a href="topic-forgiveness.html">Forgiveness</a>
-            <a href="topic-guilt.html">Guilt</a>
-            <a href="topic-overwhelmed.html">Overwhelmed</a>
-            <a href="topic-worthless.html">Worth / identity</a>
-          </div>
-          <div class="footer-sitemap-col">
-            <h3>Tools</h3>
-            <a href="verse.html">Verse of the Day</a>
-            <a href="reader.html">Chapter reader</a>
-            <a href="bible-tool.html">Bible tool</a>
-            <a href="calm.html">Calm</a>
-            <a href="mobius.html">Möbius</a>
-            <a href="plans.html">Battle plans</a>
-            <a href="reading-plan.html">7-day plan</a>
-            <a href="study.html">Study workspace</a>
-            <a href="wins.html">Wins</a>
-            <a href="progress.html">Progress</a>
-          </div>
-          <div class="footer-sitemap-col">
-            <h3>Church &amp; family</h3>
-            <a href="church.html">Church center</a>
-            <a href="church/">Church join hub</a>
-            <a href="team-toolkit.html">Team toolkit</a>
-            <a href="pastor-toolkit.html">Pastor toolkit</a>
-            <a href="pastor/">Pastor hub</a>
-            <a href="sermon.html">Sermon builder</a>
-            <a href="kids-corner.html">Kids corner</a>
-            <a href="kids/?v=hub20260321">Kids battle</a>
-            <a href="coloring.html">Kids coloring</a>
-          </div>
-          <div class="footer-sitemap-col">
-            <h3>More</h3>
-            <a href="message.html">Prayer wall</a>
-            <a href="bible-study.html">Bible studies</a>
-            <a href="shop.html">Shop</a>
-            <a href="story.html">Story</a>
-            <a href="approach.html">How we respond</a>
-            <a href="why-not-ai.html">Why not AI?</a>
-            <a href="curriculum.html">Curriculum</a>
-            <a href="verse-cards/">Verse cards</a>
-            <a href="contact.html">Contact</a>
-            <a href="security.html">Security</a>
-          </div>
-        </div>
-      </details>
-      <p class="site-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
-      <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
-      <p class="footer-humility">We battle. He wins.</p>
-      <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
-        <p class="footer-friday-signup-label">One verse + prayer on Fridays—steady rhythm, not noise. No spam.</p>
-        <div class="footer-friday-signup-row">
-          <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
-          <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
-          <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
-        </div>
-        <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
+  </p>
+  <nav class="site-footer-nav" aria-label="Footer navigation">
+    <a href="/explore.html">Explore</a>
+    <a href="/about.html">About</a>
+    <a href="/pricing.html">Plans</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/why-not-ai.html">Why not AI?</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/security.html">Security</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
+    <span class="footer-lang-hint" aria-label="Spanish pages">Español: <a href="/ansiedad.html">Ansiedad</a> · <a href="/fuerza.html">Fuerza</a> · <a href="/paz.html">Paz</a></span>
+  </nav>
+  <details class="footer-sitemap" open>
+    <summary>Explore all pages — topics, tools, church</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
       </div>
-      <p class="site-footer-social-proof" id="footerSocialProof" aria-live="polite">Join <span id="footerVisitsCount">26k+</span> monthly visitors finding daily KJV encouragement — verse by verse, win the day ⚔️</p>
-      <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
-      <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-      <p class="site-footer-updated">Last updated: <span id="last-updated">—</span></p>
-      <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
-      <p class="site-footer-story">Built solo by Brandon during hospital recovery — needed real Scripture help without the noise. <a href="story.html">The story</a> · <a href="about.html">About</a>.</p>
-    </footer>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/kids-corner.html">Kids corner</a>
+        <a href="/kids/?v=hub20260321">Kids battle</a>
+        <a href="/coloring.html">Kids coloring</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/message.html">Prayer wall</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+  <p class="site-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
+  <p class="site-footer-tagline">Encouragement first—your data stays yours. Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
+  <p class="footer-humility">We battle. He wins.</p>
+  <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">One verse + prayer on Fridays—steady rhythm, not noise. No spam.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+  <p class="site-footer-social-proof" id="footerSocialProof" aria-live="polite">Join <span id="footerVisitsCount">26k+</span> monthly visitors finding daily KJV encouragement — verse by verse, win the day ⚔️</p>
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
+  <p class="site-footer-story">Built solo by Brandon during hospital recovery — needed real Scripture help without the noise. <a href="/story.html">The story</a> · <a href="/about.html">About</a>.</p>
+</footer>
 
   </div>
-
-  <script nonce="tdb2025s">
-  (function() {
-    var moodEl = document.getElementById('footerMoodInsight');
-    if (!moodEl) return;
-    var byMonth = [
-      ['Peace', 'Strength', 'Anxiety'],
-      ['Hope', 'Fear', 'Grief'],
-      ['Rest', 'Courage', 'Worry'],
-      ['Forgiveness', 'Loneliness', 'Peace'],
-      ['Strength', 'Anxiety', 'Hope'],
-      ['Grief', 'Rest', 'Courage'],
-      ['Peace', 'Hope', 'Strength'],
-      ['Anxiety', 'Fear', 'Rest'],
-      ['Loneliness', 'Grief', 'Peace'],
-      ['Strength', 'Courage', 'Hope'],
-      ['Worry', 'Anxiety', 'Rest'],
-      ['Peace', 'Hope', 'Forgiveness']
-    ];
-    var month = 0;
-    try { month = new Date().getMonth(); } catch (e) {}
-    var set = byMonth[month] || byMonth[0];
-    moodEl.textContent = 'This month people searched most for: ' + set.join(' \u00B7 ') + '.';
-    moodEl.style.fontSize = '0.85rem';
-    moodEl.style.color = 'var(--muted, #94a3b8)';
-    moodEl.style.margin = '0 0 0.5rem';
-  })();
-  (function() {
-    var el = document.getElementById('last-updated');
-    if (!el) return;
-    function run() {
-      fetch('https://api.github.com/repos/brandonbarnard88-commits/todays-daily-battle')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          var date = data && data.pushed_at ? new Date(data.pushed_at) : null;
-          el.textContent = date ? date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Recent';
-        })
-        .catch(function() { el.textContent = 'Recent'; });
-    }
-    if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 3000 });
-    else setTimeout(run, 2500);
-  })();
-  </script>
 
   <!-- ── Bottom Nav ── -->
   <nav class="bottom-nav" aria-label="Primary tools">
@@ -8873,5 +9030,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260326clean" data-cfasync="false" fetchpriority="high"></script>
+  <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
+  <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
 </body>
 </html>

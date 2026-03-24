@@ -23308,6 +23308,32 @@ function wireRandomBattleVerseHero() {
     }
   }
 
+  (function tdbFooterMoodInsight() {
+    var moodEl = document.getElementById('footerMoodInsight');
+    if (!moodEl) return;
+    var byMonth = [
+      ['Peace', 'Strength', 'Anxiety'],
+      ['Hope', 'Fear', 'Grief'],
+      ['Rest', 'Courage', 'Worry'],
+      ['Forgiveness', 'Loneliness', 'Peace'],
+      ['Strength', 'Anxiety', 'Hope'],
+      ['Grief', 'Rest', 'Courage'],
+      ['Peace', 'Hope', 'Strength'],
+      ['Anxiety', 'Fear', 'Rest'],
+      ['Loneliness', 'Grief', 'Peace'],
+      ['Strength', 'Courage', 'Hope'],
+      ['Worry', 'Anxiety', 'Rest'],
+      ['Peace', 'Hope', 'Forgiveness']
+    ];
+    var month = 0;
+    try { month = new Date().getMonth(); } catch (eM) {}
+    var set = byMonth[month] || byMonth[0];
+    moodEl.textContent = 'This month people searched most for: ' + set.join(' \u00B7 ') + '.';
+    moodEl.style.fontSize = '0.85rem';
+    moodEl.style.color = 'var(--muted, #94a3b8)';
+    moodEl.style.margin = '0 0 0.5rem';
+  })();
+
   (function tdbExtendFooterHumilityLine() {
     try {
       document.querySelectorAll('.footer-humility').forEach(function (p) {

@@ -2,6 +2,7 @@
   "name": "todaysdailybattle-site",
   "private": true,
   "scripts": {
+    "sync:footer": "node scripts/sync-site-footer.mjs",
     "build": "node build-config.js && node build-copy-static.js && node scripts/minify.mjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",

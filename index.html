@@ -125,7 +125,6 @@
     :root[data-theme="light"] .plans-teaser-explore {
       color: #3a2e0f;
     }
-    :root[data-theme="light"] .plans-teaser-badge,
     :root[data-theme="light"] .plans-teaser-arrow {
       color: #3a2e0f;
     }
@@ -2419,17 +2418,6 @@
       border-color: var(--gold, #e3bc67);
       outline: none;
     }
-    /* "New" badge on individual list items */
-    .nav-more-new-badge {
-      margin-left: auto; flex-shrink: 0;
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background: var(--gold, #e3bc67);
-      color: #0a0e18;
-      padding: 0.1rem 0.38rem;
-      border-radius: 99px;
-      line-height: 1.5;
-    }
     .nav-more-close {
       display: block; width: 100%; margin-top: 1rem;
       padding: 0.7rem;
@@ -2442,17 +2430,6 @@
       transition: border-color 0.15s, color 0.15s;
     }
     .nav-more-close:hover { border-color: var(--gold, #e3bc67); color: var(--text); }
-    /* "New" badge on the More nav button */
-    .nav-more-btn-badge {
-      position: absolute; top: 4px; right: 4px;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gold, #e3bc67);
-      border: 1.5px solid var(--bg, #0a0e18);
-      display: none;
-    }
-    #nav-more-btn { position: relative; }
-    #nav-more-btn.has-new .nav-more-btn-badge { display: block; }
 
     /* ── Closing breath ── */
     .closing-breath {
@@ -4021,7 +3998,6 @@
       transition: background 0.15s ease;
     }
     .plans-teaser-banner:hover { background: color-mix(in srgb, var(--gold) 28%, transparent); }
-    .plans-teaser-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gold); }
     .plans-teaser-arrow { margin-left: auto; color: var(--gold); }
     .referral-share-blurb {
       margin: 0.85rem 0 0;
@@ -4964,7 +4940,6 @@
         </div>
         <p class="plans-teaser-thesis section-note" role="text">Daily bread for today&rsquo;s daily battle — one verse, one day at a time.</p>
         <a href="plans.html" class="plans-teaser-banner" aria-label="Battle Plans — one tap to start, saved on your device">
-          <span class="plans-teaser-badge" aria-hidden="true">New</span>
           <span>One tap to start &mdash; your progress stays on this device.</span>
           <span class="plans-teaser-arrow" aria-hidden="true">→</span>
         </a>
@@ -5100,6 +5075,12 @@
             placeholder="e.g. anxiety, caregiving, chronic pain" aria-label="Name your battle in a few words (posts anonymously)" autocomplete="off">
           <button type="button" id="prayer-wall-add" class="prayer-wall-add-btn" aria-label="Share anonymously on the prayer wall">Share anonymously</button>
         </div>
+        <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
+          <div class="today-count">
+            <strong><span id="prayer-count-today">0</span></strong> prayers today
+          </div>
+          <div id="recent-prayers" class="recent-prayers" aria-live="polite"></div>
+        </div>
         <!-- Sync status note — updated by updateSyncStatusUI() -->
         <p class="prayer-wall-note" aria-live="polite">Stays right here on your phone or computer until you sign in.</p>
         <div class="prayer-export-row">
@@ -5205,6 +5186,16 @@
   <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
   </p>
+  <nav class="bottom-nav">
+    <a href="/">Home</a>
+    <a href="/plans.html">Plans</a>
+    <a href="/calm.html">Calm</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids</a>
+    <a href="/ansiedad.html">Ansiedad</a>
+    <a href="/fuerza.html">Fuerza</a>
+    <a href="/paz.html">Paz</a>
+  </nav>
   <nav class="site-footer-nav" aria-label="Footer navigation">
     <a href="/explore.html">Explore</a>
     <a href="/explore.html#topics-es" lang="es" hreflang="es" aria-label="Spanish language topics: anxiety, strength, and peace">Español</a>
@@ -5306,6 +5297,7 @@
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
   <p class="site-footer-story">Built solo by Brandon during hospital recovery — needed real Scripture help without the noise. <a href="/story.html">The story</a> · <a href="/about.html">About</a>.</p>
+  <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
 </footer>
 
   </div>
@@ -5316,7 +5308,7 @@
     <a class="nav-link" href="reader.html" aria-label="Chapter Reader"><span>📖</span><span>Read</span></a>
     <a class="nav-link" href="#quick-search-hero" id="nav-search-btn" aria-label="Search Scripture"><span>🔍</span><span>Search</span></a>
     <a class="nav-link" href="#prayer-wall" aria-label="Prayer Wall"><span>🙏</span><span>Prayer</span></a>
-    <button type="button" id="nav-more-btn" class="nav-link nav-link-btn" aria-label="More tools" aria-haspopup="true" aria-expanded="false"><span>☰</span><span>More</span><span class="nav-more-btn-badge" aria-hidden="true"></span></button>
+    <button type="button" id="nav-more-btn" class="nav-link nav-link-btn" aria-label="More tools" aria-haspopup="true" aria-expanded="false"><span>☰</span><span>More</span></button>
   </nav>
 
   <!-- ── More drawer ── -->
@@ -8613,15 +8605,6 @@
       var backdrop = sheet && sheet.querySelector('.nav-more-backdrop');
       if (!sheet || !openBtn) return;
 
-      // ── "New" badge — show until user opens the drawer ──
-      var NEW_BADGE_KEY = 'tdb_more_new_seen';
-      function refreshBadge() {
-        var seen = !!localStorage.getItem(NEW_BADGE_KEY);
-        if (seen) { openBtn.classList.remove('has-new'); }
-        else       { openBtn.classList.add('has-new'); }
-      }
-      try { refreshBadge(); } catch(_) {}
-
       function open() {
         sheet.hidden = false;
         // rAF lets display:block settle before adding class (triggers CSS transition)
@@ -8629,8 +8612,6 @@
           sheet.classList.add('is-open');
         });
         openBtn.setAttribute('aria-expanded', 'true');
-        // Clear badge on first open
-        try { localStorage.setItem(NEW_BADGE_KEY, '1'); refreshBadge(); } catch(_) {}
         document.body.style.overflow = 'hidden';
         // Focus the X so screen readers announce the dialog
         setTimeout(function() { if (xBtn) xBtn.focus(); }, 60);

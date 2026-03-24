@@ -250,6 +250,24 @@
             <button type="button" class="calm-btn" id="desktop-back-categories" aria-label="Still heavy? Try another feeling">Still heavy? Try another feeling</button>
           </div>
         </div>
+        <div class="breathe-tool" lang="es" role="region" aria-labelledby="breathe-tool-heading">
+          <h2 id="breathe-tool-heading">Respira conmigo por 60 segundos</h2>
+          <p class="quiet-note">Cuando el dolor o la ansiedad aprieta fuerte, usa esto. Sin música, sin presión.</p>
+
+          <button type="button" id="start-breathe" class="big-calm-btn" aria-label="Empezar a respirar durante 60 segundos">
+            Empezar a respirar (60 segundos)
+          </button>
+
+          <div id="breathe-circle" class="breathe-circle hidden" aria-hidden="true">
+            <div class="inner-circle"></div>
+            <div id="breathe-text" class="breathe-text" role="status" aria-live="polite" aria-atomic="true">Inhala...</div>
+          </div>
+
+          <div id="breathe-complete" class="breathe-complete hidden" role="status" aria-live="polite">
+            <p>Lo hiciste.<br>Descansa un momento.</p>
+            <button type="button" id="restart-breathe" class="small-calm-btn" aria-label="Hacer el ejercicio de respiración otra vez">Hacerlo otra vez</button>
+          </div>
+        </div>
         <a href="/" class="calm-btn back-home" aria-label="Back to Today’s Daily Battle home">Back to home</a>
       </div>
     </main>
@@ -679,6 +697,80 @@
       if (window.location.hash === '#night-prayer') {
         showNightPrayer();
       }
+
+      function initBreatheTool() {
+        var startBtn = document.getElementById('start-breathe');
+        var circle = document.getElementById('breathe-circle');
+        var text = document.getElementById('breathe-text');
+        var complete = document.getElementById('breathe-complete');
+        var restartBtn = document.getElementById('restart-breathe');
+        if (!startBtn || !circle || !text || !complete) return;
+
+        var tickId = null;
+        var TOTAL_MS = 60000;
+        var phases = [
+          { label: 'Inhala...', ms: 4000 },
+          { label: 'Retén...', ms: 2000 },
+          { label: 'Exhala...', ms: 6000 }
+        ];
+        var cycleMs = phases.reduce(function (a, p) { return a + p.ms; }, 0);
+
+        function phaseLabelAt(elapsedMs) {
+          var t = elapsedMs % cycleMs;
+          var acc = 0;
+          for (var i = 0; i < phases.length; i++) {
+            acc += phases[i].ms;
+            if (t < acc) return phases[i].label;
+          }
+          return phases[phases.length - 1].label;
+        }
+
+        function stopBreathe() {
+          if (tickId != null) {
+            clearInterval(tickId);
+            tickId = null;
+          }
+        }
+
+        function startBreathing() {
+          stopBreathe();
+          startBtn.classList.add('hidden');
+          circle.classList.remove('hidden');
+          circle.setAttribute('aria-hidden', 'false');
+          complete.classList.add('hidden');
+          var startTime = Date.now();
+          var lastLabel = '';
+          function tick() {
+            var elapsed = Date.now() - startTime;
+            if (elapsed >= TOTAL_MS) {
+              stopBreathe();
+              circle.classList.add('hidden');
+              circle.setAttribute('aria-hidden', 'true');
+              complete.classList.remove('hidden');
+              if (typeof gtag === 'function') gtag('event', 'calm_breathe_complete', { duration_sec: 60 });
+              return;
+            }
+            var label = phaseLabelAt(elapsed);
+            if (label !== lastLabel) {
+              lastLabel = label;
+              text.textContent = label;
+            }
+          }
+          tick();
+          tickId = setInterval(tick, 200);
+          if (typeof gtag === 'function') gtag('event', 'calm_breathe_start', {});
+        }
+
+        startBtn.addEventListener('click', startBreathing);
+        if (restartBtn) {
+          restartBtn.addEventListener('click', function () {
+            complete.classList.add('hidden');
+            text.textContent = 'Inhala...';
+            startBreathing();
+          });
+        }
+      }
+      initBreatheTool();
     })();
   </script>
 </body>

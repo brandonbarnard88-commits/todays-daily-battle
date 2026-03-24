@@ -4526,6 +4526,70 @@ function dismissPrayerWallGrace() {
   if (graceEl) graceEl.hidden = true;
 }
 window.dismissPrayerWallGrace = dismissPrayerWallGrace;
+
+/** Posted time for prayer-wall rows (ms). Prefer `ts`; fall back to numeric `id` from Date.now(). */
+function getPrayerWallItemTimeMs(p) {
+  if (!p || p.seed === true) return null;
+  if (typeof p.ts === 'number' && isFinite(p.ts)) return p.ts;
+  if (typeof p.id === 'number' && isFinite(p.id) && p.id > 1e11 && p.id < 1e14) return p.id;
+  return null;
+}
+
+/**
+ * Homepage prayer wall: today's count + last few user prayers on this device (anonymous text only).
+ * Uses PRAYER_WALL_KEY — same store as the wall list. DOM-only output (no innerHTML on prayer text).
+ */
+function renderRecentPrayers() {
+  var container = document.getElementById('recent-prayers');
+  if (!container) return;
+  var prayers = [];
+  try {
+    prayers = JSON.parse(localStorage.getItem(PRAYER_WALL_KEY) || '[]');
+  } catch (e) { prayers = []; }
+  if (!Array.isArray(prayers)) prayers = [];
+
+  var userPrayers = prayers.filter(function (p) {
+    return p && p.seed !== true && String(p.text || '').trim().length > 0;
+  });
+
+  var now = new Date();
+  var todayCount = userPrayers.filter(function (p) {
+    var t = getPrayerWallItemTimeMs(p);
+    if (t == null) return false;
+    var d = new Date(t);
+    return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth() && d.getDate() === now.getDate();
+  }).length;
+
+  var countEl = document.getElementById('prayer-count-today');
+  if (countEl) countEl.textContent = String(todayCount);
+
+  var recent = userPrayers.slice(-3).reverse();
+  container.replaceChildren();
+  if (recent.length === 0) {
+    var emptyP = document.createElement('p');
+    emptyP.className = 'quiet-note';
+    emptyP.appendChild(document.createTextNode('No prayers yet today.'));
+    emptyP.appendChild(document.createElement('br'));
+    emptyP.appendChild(document.createTextNode('Be the first — it stays between you and God.'));
+    container.appendChild(emptyP);
+  } else {
+    recent.forEach(function (prayer) {
+      var wrap = document.createElement('div');
+      wrap.className = 'recent-prayer';
+      var pEl = document.createElement('p');
+      var q = document.createElement('q');
+      q.textContent = prayer.text || '';
+      pEl.appendChild(q);
+      wrap.appendChild(pEl);
+      var small = document.createElement('small');
+      var t = getPrayerWallItemTimeMs(prayer);
+      small.textContent = t ? new Date(t).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : '';
+      wrap.appendChild(small);
+      container.appendChild(wrap);
+    });
+  }
+}
+
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
 const LAST_NOTIFICATION_DATE_KEY = 'lastNotificationDate';
 const RED_LETTER_TOGGLE_KEY = 'redLetterEnabled';
@@ -18499,6 +18563,9 @@ async function tdbInitImpl() {
       try {
         if (typeof window !== 'undefined') window.__tdbPrayerWallInitDone = true;
       } catch (e) {}
+      try {
+        if (typeof renderRecentPrayers === 'function') renderRecentPrayers();
+      } catch (eRp) {}
     }
 
     // ── Add handler (delegation on #prayer-wall + live input lookup — survives odd init order / automation)
@@ -18512,7 +18579,8 @@ async function tdbInitImpl() {
       var core = raw.slice(0, 106);
       var text = ('Facing ' + core + ' today').slice(0, 120);
       var items = getItems();
-      items.push({ id: Date.now(), text: text, hearts: 0 });
+      var wallNow = Date.now();
+      items.push({ id: wallNow, ts: wallNow, text: text, hearts: 0 });
       saveItems(items);
       pushToCloud(items);
       inp.value = '';
@@ -18551,6 +18619,14 @@ async function tdbInitImpl() {
     updateNoteEl(isSignedIn);
     // Pull cloud items after a short delay to avoid blocking initial render
     setTimeout(function() { pullFromCloud(); }, 800);
+    function refreshRecentIfPrayerWallHash() {
+      var h = (window.location.hash || '').replace(/^#/, '');
+      if (h === 'prayer-wall') {
+        try { if (typeof renderRecentPrayers === 'function') renderRecentPrayers(); } catch (eH) {}
+      }
+    }
+    window.addEventListener('hashchange', refreshRecentIfPrayerWallHash);
+    refreshRecentIfPrayerWallHash();
   })();
   sanitizeNudgeElements();
   wirePrayerQueueHealthDebug();

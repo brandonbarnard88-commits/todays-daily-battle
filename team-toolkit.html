@@ -806,6 +806,31 @@
             </div>
           </div>
         </section>
+
+        <div class="toolkit-packs" lang="es" role="region" aria-labelledby="toolkit-packs-heading">
+        <h2 id="toolkit-packs-heading">Paquetes listos para usar</h2>
+        <p class="quiet-note">Descarga estos packs como texto listo para imprimir. Perfectos para grupos pequeños, estudios bíblicos o para compartir con tu iglesia. (Se generan en tu dispositivo; no hace falta conexión.)</p>
+
+        <div class="pack-grid">
+          <div class="pack-card">
+            <h3><span aria-hidden="true">📖</span> 7 Días de Gracia en el Dolor</h3>
+            <p>Basado en el plan &ldquo;When Pain Won&rsquo;t Quit&rdquo;. Ideal para personas que están sufriendo físicamente.</p>
+            <button type="button" class="download-btn" id="tt-pack-pain-grace" aria-label="Descargar pack 7 días gracia en el dolor, archivo de texto">
+              Descargar pack (7 días, texto)
+            </button>
+          </div>
+
+          <div class="pack-card">
+            <h3><span aria-hidden="true">⚔️</span> 14 Días de Batalla Espiritual</h3>
+            <p>Versículos fuertes (KJV) + enfoque para cada día. Bueno para hombres, grupos de guerra espiritual o discipulado.</p>
+            <button type="button" class="download-btn" id="tt-pack-battle-14" aria-label="Descargar pack 14 días batalla espiritual, archivo de texto">
+              Descargar pack (14 días, texto)
+            </button>
+          </div>
+        </div>
+
+        <p class="note-small">Los archivos son texto plano con versículos KJV y pasos sencillos, generados aquí mismo. Sin agua de marketing. Sin anuncios. Sin seguimiento.</p>
+        </div>
       </div>
     </main>
 
@@ -813,6 +838,16 @@
   <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
   </p>
+  <nav class="bottom-nav">
+    <a href="/">Home</a>
+    <a href="/plans.html">Plans</a>
+    <a href="/calm.html">Calm</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids</a>
+    <a href="/ansiedad.html">Ansiedad</a>
+    <a href="/fuerza.html">Fuerza</a>
+    <a href="/paz.html">Paz</a>
+  </nav>
   <nav class="site-footer-nav" aria-label="Footer navigation">
     <a href="/explore.html">Explore</a>
     <a href="/explore.html#topics-es" lang="es" hreflang="es" aria-label="Spanish language topics: anxiety, strength, and peace">Español</a>
@@ -914,6 +949,7 @@
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
   <p class="site-footer-story">Built solo by Brandon during hospital recovery — needed real Scripture help without the noise. <a href="/story.html">The story</a> · <a href="/about.html">About</a>.</p>
+  <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
 </footer>
   </div>
 
@@ -2199,6 +2235,120 @@
     renderChain();
     renderVpTodayVerse();
 
+  })();
+  </script>
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+    function tdbDownloadTextFile(filename, text) {
+      var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function generatePainGracePack() {
+      var content = [
+        'When Pain Won\'t Quit — 7 Days of Grace (KJV)',
+        'Today\'s Daily Battle — todaysdailybattle.com',
+        '',
+        'Day 1 — This pain is real',
+        '2 Corinthians 12:9 (KJV)',
+        'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me.',
+        'Real talk: Your pain is not proof God left. Grace meets you in it.',
+        'Do this: Say one sentence out loud: "Lord, Your strength in my weakness."',
+        '',
+        'Day 2 — I\'m still here',
+        'Lamentations 3:22-23 (KJV)',
+        'It is of the Lord\'s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',
+        'Real talk: Morning mercy is a reset, not a reward for feeling strong.',
+        'Do this: Thank God for one specific mercy from yesterday.',
+        '',
+        'Day 3 — One verse, one breath',
+        'Isaiah 41:10 (KJV)',
+        'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
+        'Real talk: He is with you before you feel brave.',
+        'Do this: Inhale, whisper the ref; exhale, whisper "with me."',
+        '',
+        'Day 4 — I\'m allowed to rest',
+        'Matthew 11:28 (KJV)',
+        'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+        'Real talk: Rest is not failure; it is obedience when He invites.',
+        'Do this: Name one burden you hand to Him before sleep.',
+        '',
+        'Day 5 — Others are hurting too',
+        'Galatians 6:2 (KJV)',
+        'Bear ye one another\'s burdens, and so fulfil the law of Christ.',
+        'Real talk: You are allowed to need help and to give help without fixing everything.',
+        'Do this: Text or call one person with a simple "I\'m praying for you."',
+        '',
+        'Day 6 — This won\'t last forever',
+        'Revelation 21:4 (KJV)',
+        'And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away.',
+        'Real talk: Hope is anchored in His promise, not in today\'s reading on pain.',
+        'Do this: Write one line of hope from this verse and keep it nearby.',
+        '',
+        'Day 7 — I\'m still fighting',
+        '2 Timothy 4:7 (KJV)',
+        'I have fought a good fight, I have finished my course, I have kept the faith:',
+        'Real talk: Faithfulness counts even when the body feels slow.',
+        'Do this: Thank God for one way He kept you this week.',
+        '',
+        '---',
+        'Printed and shared with love. No ads. No tracking.',
+        'Built for the trenches.',
+        ''
+      ].join('\n');
+      tdbDownloadTextFile('pain-grace-7days.txt', content);
+    }
+
+    function generateBattle14Pack() {
+      var days = [
+        ['Day 1 — Stand in truth', 'Ephesians 6:14', 'Stand therefore, having your loins girt about with truth...'],
+        ['Day 2 — Righteousness before God', 'Ephesians 6:14', '...and having on the breastplate of righteousness;'],
+        ['Day 3 — Peace as footwear', 'Ephesians 6:15', 'And your feet shod with the preparation of the gospel of peace;'],
+        ['Day 4 — Faith blocks the flame', 'Ephesians 6:16', 'Above all, taking the shield of faith...'],
+        ['Day 5 — Mind guarded', 'Ephesians 6:17', 'And take the helmet of salvation...'],
+        ['Day 6 — Word in hand', 'Ephesians 6:17', '...and the sword of the Spirit, which is the word of God:'],
+        ['Day 7 — Pray always', 'Ephesians 6:18', 'Praying always with all prayer and supplication in the Spirit...'],
+        ['Day 8 — Strong in the Lord', 'Ephesians 6:10', 'Finally, my brethren, be strong in the Lord, and in the power of his might.'],
+        ['Day 9 — Resist steadfast', 'James 4:7', 'Submit yourselves therefore to God. Resist the devil, and he will flee from you.'],
+        ['Day 10 — God is for you', 'Romans 8:31', 'What shall we then say to these things? If God be for us, who can be against us?'],
+        ['Day 11 — No weapon prospers', 'Isaiah 54:17', 'No weapon that is formed against thee shall prosper...'],
+        ['Day 12 — Greater is He', '1 John 4:4', '...greater is he that is in you, than he that is in the world.'],
+        ['Day 13 — Casting care', '1 Peter 5:7', 'Casting all your care upon him; for he careth for you.'],
+        ['Day 14 — Hold the line', '1 Corinthians 16:13', 'Watch ye, stand fast in the faith, quit you like men, be strong.']
+      ];
+      var lines = [
+        '14 Days — Spiritual Battle (KJV excerpts)',
+        'Today\'s Daily Battle — todaysdailybattle.com',
+        '',
+        'Each day: read the verse in full in your Bible, discuss one question:',
+        '"Where do I need this truth today?"',
+        ''
+      ];
+      for (var i = 0; i < days.length; i++) {
+        lines.push(days[i][0]);
+        lines.push(days[i][1] + ' (KJV) — ' + days[i][2]);
+        lines.push('');
+      }
+      lines.push('---');
+      lines.push('KJV only. For groups: read aloud, pray short, share one honest sentence.');
+      lines.push('No ads. No tracking.');
+      lines.push('');
+      tdbDownloadTextFile('battle-spiritual-14days.txt', lines.join('\n'));
+    }
+
+    var b1 = document.getElementById('tt-pack-pain-grace');
+    var b2 = document.getElementById('tt-pack-battle-14');
+    if (b1) b1.addEventListener('click', generatePainGracePack);
+    if (b2) b2.addEventListener('click', generateBattle14Pack);
   })();
   </script>
 </body>

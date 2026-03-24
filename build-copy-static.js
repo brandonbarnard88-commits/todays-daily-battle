@@ -88,6 +88,7 @@ const rootFiles = [
   'inline-bootstrap.js',
   'ga-config.js',
   'tt-bootstrap.js',
+  'team-toolkit-packs-pdf.js',
   'analytics-loader.js',
   'gsc-verify.js',
   'ask-the-word.js',

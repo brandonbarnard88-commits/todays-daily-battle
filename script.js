@@ -1976,6 +1976,7 @@ const TDB_TOPICS = [
   { topic: 'strength', label: 'Strength' },
   { topic: 'heartache', label: 'Heartache' },
   { topic: 'grief', label: 'Grief' },
+  { topic: 'cancer', label: 'Cancer' },
   { topic: 'anxiety', label: 'Anxiety' },
   { topic: 'forgiveness', label: 'Forgiveness' },
   { topic: 'patience', label: 'Patience' },
@@ -2061,7 +2062,7 @@ const TYPO_CORRECTION = {
   feer: 'fear', afriad: 'afraid', afraide: 'afraid', scard: 'scared', scaired: 'scared', fraid: 'afraid',
   fait: 'faith', fath: 'faith', hoep: 'hope', hoppe: 'hope', hop: 'hope',
   depresion: 'depression', deppresed: 'depressed', deppressed: 'depressed', depresed: 'depressed',
-  lonley: 'lonely', lonleyness: 'loneliness', greif: 'grief', greef: 'grief',
+  lonley: 'lonely', lonleyness: 'loneliness', greif: 'grief', greef: 'grief', canser: 'cancer',
   forgiv: 'forgive', forgivness: 'forgiveness', angrey: 'angry', angery: 'angry',
   woried: 'worried', wory: 'worry', jeleous: 'jealous', thankfull: 'thankful', joyfull: 'joyful',
   overwelmed: 'overwhelmed', overwelm: 'overwhelm', streanth: 'strength', strenght: 'strength',
@@ -2194,6 +2195,7 @@ const MEANING_MAP = {
   // 4D: domain expansion for KJV matching
   elation: ['rejoice', 'joy', 'glad', 'delight'],
   anguish: ['sorrow', 'grief', 'mourn', 'tears', 'comfort'],
+  cancer: ['fear', 'trust', 'heal', 'comfort', 'weak', 'strength', 'affliction', 'burden', 'hope'],
   fortitude: ['strength', 'endure', 'patience', 'bear'],
   resilience: ['renew', 'strength', 'weary', 'mount', 'eagle'],
   compulsion: ['temptation', 'flee', 'resist', 'escape'],
@@ -2416,6 +2418,10 @@ const QUERY_TO_TOPIC = {
   mourning: 'grief', mourn: 'grief', heartbroken: 'heartache', heartache: 'heartache', brokenhearted: 'grief',
   loss: 'grief', grieving: 'grief', grieve: 'grief', bereaved: 'grief', bereavement: 'grief',
   crying: 'grief', cry: 'grief', weeping: 'grief', weep: 'grief', devastated: 'grief',
+  // cancer / serious illness (spiritual fear, weariness — not medical advice)
+  cancer: 'cancer', cancers: 'cancer', chemo: 'cancer', chemotherapy: 'cancer', oncology: 'cancer',
+  tumor: 'cancer', tumour: 'cancer', malignant: 'cancer', oncologist: 'cancer', metastasis: 'cancer',
+  remission: 'cancer', biopsy: 'cancer', radiation: 'cancer', infusion: 'cancer',
   // loneliness
   lonely: 'loneliness', loneliness: 'loneliness', alone: 'loneliness', isolated: 'loneliness', abandoned: 'loneliness',
   friendless: 'loneliness', left: 'loneliness', forgotten: 'loneliness', invisible: 'loneliness',
@@ -2688,6 +2694,11 @@ const PHRASE_TO_TOKENS = {
   'lost someone': ['grief', 'comfort', 'hope'],
   'feeling hopeless': ['hope', 'grief', 'faith'],
   'no hope': ['hope', 'faith', 'grief'],
+  // cancer / serious illness (spiritual comfort — not medical)
+  'dealing with cancer': ['cancer', 'comfort', 'hope', 'fear'],
+  'verses about cancer': ['cancer', 'comfort', 'hope'],
+  'bible verses for cancer': ['cancer', 'comfort', 'hope'],
+  'scared of cancer': ['cancer', 'fear', 'comfort'],
   // anger
   'let go of anger': ['anger', 'forgiveness', 'peace'],
   'control my anger': ['anger', 'patience', 'peace'],
@@ -3192,6 +3203,21 @@ const topics = {
       teen: "Trauma is real, but so is God's comfort. He is near and He heals."
     }
   },
+  cancer: {
+    synonyms: ['cancer', 'chemo', 'chemotherapy', 'oncology', 'tumor', 'tumour', 'malignant', 'biopsy', 'radiation', 'infusion', 'oncologist', 'metastasis', 'remission', 'terminal illness'],
+    verses: ['Psalms 56:3', 'Psalms 73:26', 'Matthew 11:28', 'Philippians 4:6', 'Philippians 4:7', 'Galatians 6:2', 'Psalms 23:4', 'Romans 8:38', 'Romans 8:39', 'Isaiah 41:10', '2 Corinthians 12:9', 'Psalms 103:2', 'Psalms 103:3', 'Lamentations 3:22', 'Lamentations 3:23', '1 Peter 5:7', 'Psalms 34:18', '2 Corinthians 1:3'],
+    guidance: {
+      kid: "When your body hurts or the grown-ups look worried, God is still good—and still with you. You can tell Him you are scared; He is not mad at you for that.",
+      teen: "Bad news can make the future feel like a closed door. God does not ask you to be brave alone. He stays close on the days your mind runs ahead and your body feels weak.",
+      adult: "There is no spiritual prize for pretending this is small. If you are terrified, exhausted, angry, or numb—that is human. God meets you there: not with a slogan, but with presence, with people who can help carry the load, and with a love that death and disease cannot unhook from your life.",
+      pastor: "Walk gently. These verses comfort; they do not replace medicine or community. Avoid predicting outcomes. Point to Christ's nearness, the church's burden-bearing, and hope that does not depend on a report."
+    },
+    explain: {
+      kid: "God is with you on the scary days. He hears you, loves you, and does not leave when you cry.",
+      teen: "This is a lot to hold. You do not have to hold it alone—God is near, and it is okay to let someone you trust help you carry it.",
+      adult: "If you searched this while your mind was racing or your heart felt hollow—pause long enough to let that land: you are not a case file to God. He knows your name, your fear, your tired body, and the words you cannot say out loud. These verses are not a fix; they are a hand on your shoulder. Take the next breath, tell Him the truth, and let one verse be enough for today."
+    }
+  },
   faith: {
     synonyms: ['belief', 'trust', 'confidence', 'assurance'],
     verses: ['Hebrews 11:1', 'Matthew 17:20', 'Romans 10:17', 'Ephesians 2:8', '2 Corinthians 5:7'],
@@ -3221,7 +3247,7 @@ const topics = {
     }
   },
   suffering: {
-    synonyms: ['cancer', 'illness', 'sick', 'treatment', 'chemo', 'diagnosis', 'pain', 'affliction', 'chronic pain', 'arthritis', 'migraine', 'body hurts', 'postpartum depression', 'postpartum anxiety'],
+    synonyms: ['illness', 'sick', 'treatment', 'diagnosis', 'pain', 'affliction', 'chronic pain', 'arthritis', 'migraine', 'body hurts', 'postpartum depression', 'postpartum anxiety'],
     verses: ['Isaiah 41:10', 'Psalms 34:18', '2 Corinthians 12:9', 'Deuteronomy 31:6', 'Isaiah 40:31', 'Romans 8:38', 'Psalms 46:1', 'Revelation 21:4', 'Psalms 30:5', 'Isaiah 40:11'],
     guidance: {
       kid: "When you or someone you love is sick, God is close. He sees every tear and promises to help.",
@@ -5050,6 +5076,7 @@ var SMART_DICTIONARY = {
   grace:          { def: "Grace is enough\u2014always.",              action: "Admit one weakness.",       outcome: "Power perfected.",        verseRef: "2 Corinthians 12:9"  },
   wisdom:         { def: "Ask boldly\u2014He gives freely.",          action: "Pray \u2018Give me wisdom\u2019.", outcome: "Clarity follows.",  verseRef: "James 1:5"          },
   grief:          { def: "Grief is love with nowhere to go\u2014He holds both.", action: "Cry\u2014He collects.", outcome: "Comfort comes.", verseRef: "Psalm 34:18"         },
+  cancer:         { def: "If you typed this while your hands were shaking\u2014you are seen. This word does not surprise heaven.", action: "Say one honest sentence to Him, even if it is only \u2018I am afraid.\u2019", outcome: "He stays when the room spins.", verseRef: "Psalm 56:3"        },
   anger:          { def: "Anger is real\u2014don\u2019t let it own you.", action: "Feel it\u2014release.", outcome: "Peace stays.",           verseRef: "Ephesians 4:26"      },
   loneliness:     { def: "Lonely? He never leaves.",                  action: "Say \u2018You\u2019re here.\u2019", outcome: "Presence felt.", verseRef: "Hebrews 13:5"       },
   guilt:          { def: "No condemnation\u2014none.",                action: "Say \u2018No more.\u2019",  outcome: "Freedom starts.",         verseRef: "Romans 8:1"          },
@@ -5081,7 +5108,9 @@ var FEEL_TO_SMART = {
   anxious: 'anxiety', stressed: 'anxiety', overwhelmed: 'anxiety', burnout: 'rest', exhausted: 'rest',
   afraid: 'fear', scared: 'fear', panic: 'fear', worried: 'worry',
   hopeless: 'hope', sad: 'grief', sadness: 'grief', heartbroken: 'heartache', brokenhearted: 'heartache',
-  cancer: 'suffering', illness: 'suffering', chemo: 'suffering', diagnosis: 'suffering', terminal: 'grief',
+  cancer: 'cancer', chemo: 'cancer', oncology: 'cancer', tumor: 'cancer', tumour: 'cancer', malignant: 'cancer',
+  biopsy: 'cancer', radiation: 'cancer', infusion: 'cancer', remission: 'cancer',
+  illness: 'suffering', diagnosis: 'suffering', terminal: 'grief',
   caregiving: 'caregiver', caregiver: 'caregiver',
   broke: 'finances', poverty: 'finances', debt: 'finances', jobless: 'finances',
   war: 'trauma', refugee: 'trauma', displacement: 'trauma', fleeing: 'trauma',
@@ -5113,6 +5142,7 @@ var HEARTFELT_INQUIRY_MESSAGES = [
   { patterns: ['cancer diagnosis', 'fighting cancer', 'chemo sucks', 'stage 4 cancer', 'cancer treatment', 'cancer sucks', 'cancer why me', 'why god why cancer', 'hate cancer god'], message: "A cancer diagnosis shakes everything—fear, pain, unknowns. God sees every scan, every weary night, and promises to be your strength when yours runs out." },
   { patterns: ['caregiving cancer', 'spouse cancer caregiver', 'caregiving exhaustion', 'caregiver burnout', 'caregiving dad dying', 'caregiving mom'], message: "When you're the one fighting or the one carrying the load for someone you love, the exhaustion is real. God invites the weary to rest in Him and equips you to keep going." },
   { patterns: ['terminal illness', 'dying of cancer', 'end of life', 'hospice', 'mom dying cancer', 'dad dying cancer', 'lost mom to cancer', 'grieving husband cancer', 'cancer death grief', 'after cancer death'], message: "Facing the end or walking through loss after—death feels final, but Jesus conquered it. Hold to the hope that tears end and reunion waits." },
+  { patterns: ['cancer', 'chemo', 'chemotherapy', 'oncology', 'metastasis', 'malignant', 'tumor', 'tumour', 'biopsy', 'radiation therapy', 'infusion'], message: "Whatever this word means in your house tonight—waiting, treatment, weariness, or grief—it does not make you invisible. God already counted your tears; His strength is meant to meet you in weakness, and His love does not depend on a clean scan or a calm heart." },
   { patterns: ['no money left', 'cant pay bills', 'lost job', 'financial ruin', 'poverty depression', 'broke no money', 'cant afford food', 'debt crushing me', 'broke depressed', 'lost job hopeless', 'hungry god why'], message: "When money runs out and bills pile up, God sees every need. He promises to supply—and invites you to seek Him first, even when the numbers don't add up." },
   { patterns: ['war trauma', 'refugee fear', 'fleeing country', 'bombing scared', 'lost home war', 'displaced by war', 'violence trauma', 'running from war'], message: "When war or violence uproots everything—God is your refuge and strength. He is with you through every fire and flood, no matter where you are." },
   { patterns: ['climate doom', 'world ending climate', 'eco anxiety', 'planet dying', 'climate anxiety'], message: "When the world feels like it's ending—God is still Creator and Redeemer. He cares for creation and for you. Hold to hope that groans with purpose." },
@@ -5176,6 +5206,11 @@ var BLENDED_HEARTFELT_TEMPLATES = {
   'family,anger': "When family conflict and anger mix, God calls us to go to our brother privately, put away bitterness, and forgive as we've been forgiven—even when it feels impossible.",
   'family,grief': "When family pain and grief overlap—sibling fights, caregiving exhaustion, inheritance wounds—God sees every side and offers wisdom, comfort, and a path toward unity.",
   'suffering,caregiver': "When you're the one fighting or the one carrying the load for someone you love, the exhaustion is real. God invites the weary to rest in Him and equips you to keep going.",
+  'cancer,caregiver': "Whether you are in the chair or beside the bed, the load is heavy. God does not ask you to pretend you are fine—He asks you to come weary, and He carries what you cannot.",
+  'cancer,fear': "Cancer and fear often arrive together. You do not have to shame yourself for being afraid. Scripture makes room for fear and trust in the same breath—and God stays when both show up.",
+  'cancer,grief': "Illness and grief can overlap—hope interrupted, plans changed, goodbyes too close. God is near the brokenhearted; He does not rush your sorrow, and He does not leave you in it alone.",
+  'cancer,hope': "Hope with cancer is not pretending it is small. It is holding to Christ when the story feels unfinished—mercies new when you open your eyes, and a love that outlasts the longest night.",
+  'cancer,loneliness': "Even in a full waiting room you can feel alone with this. God sets the lonely in families; let one safe person help carry the weight, and let these verses remind you He has not stepped away.",
   'suffering,grief': "A diagnosis or serious illness brings fear and grief together. God sees every moment, promises to strengthen you, and holds you when yours runs out.",
   'caregiver,grief': "Caregiving and grief overlap—God sees the exhaustion and the loss. He invites you to rest and comforts the brokenhearted.",
   'finances,grief': "When money and grief mix—God sees every bill and every tear. He supplies and comforts; seek Him first.",
@@ -12590,6 +12625,95 @@ async function runAdminHealthChecks() {
   )).join('');
 }
 
+/** When fewer than this many real posts exist, merge static anonymous encouragements so the board does not feel empty. */
+var MESSAGE_BOARD_SEED_THRESHOLD = 5;
+
+function getMessageBoardSeedPrayers() {
+  return [
+    {
+      id: 'tdb-seed-prayer-01',
+      user_id: 'tdb-seed',
+      text: 'Father, my husband starts chemo Thursday. I am scared and trying to be strong for the kids. Hold us all. Give me words when I do not have them.',
+      display_name: 'Anonymous',
+      created_at: '2025-10-18T14:22:00.000Z',
+      hidden: false,
+      tdb_board_seed: true
+    },
+    {
+      id: 'tdb-seed-prayer-02',
+      user_id: 'tdb-seed',
+      text: 'Thank You for another clear scan. I do not take it for granted. Use me today to encourage someone else who is still waiting.',
+      display_name: 'Anonymous',
+      created_at: '2025-11-02T09:05:00.000Z',
+      hidden: false,
+      tdb_board_seed: true
+    },
+    {
+      id: 'tdb-seed-prayer-03',
+      user_id: 'tdb-seed',
+      text: 'Sitting in the car before the appointment. I need peace that holds even if the news is hard. Be with me in the waiting room.',
+      display_name: 'Anonymous',
+      created_at: '2025-11-19T16:40:00.000Z',
+      hidden: false,
+      tdb_board_seed: true
+    },
+    {
+      id: 'tdb-seed-prayer-04',
+      user_id: 'tdb-seed',
+      text: 'Lost my mom last year. Some days grief still doubles me over. Meet me in it, Lord. I do not need a speech—just You.',
+      display_name: 'Anonymous',
+      created_at: '2025-12-07T11:18:00.000Z',
+      hidden: false,
+      tdb_board_seed: true
+    },
+    {
+      id: 'tdb-seed-prayer-05',
+      user_id: 'tdb-seed',
+      text: 'Chronic pain for twelve years. Some days I can barely string a prayer together. Thank You for one verse at a time and sites that do not shout at me.',
+      display_name: 'A reader',
+      created_at: '2026-01-14T20:55:00.000Z',
+      hidden: false,
+      tdb_board_seed: true
+    },
+    {
+      id: 'tdb-seed-prayer-06',
+      user_id: 'tdb-seed',
+      text: 'Please pray for my prodigal son. I am not giving up. I am tired, but I am still asking You to draw him home.',
+      display_name: 'Anonymous',
+      created_at: '2026-02-03T07:30:00.000Z',
+      hidden: false,
+      tdb_board_seed: true
+    }
+  ];
+}
+
+function isMessageBoardSeedItem(item) {
+  if (!item || typeof item !== 'object') return false;
+  if (item.tdb_board_seed === true) return true;
+  var sid = String(item.id || '');
+  return sid.indexOf('tdb-seed-prayer-') === 0;
+}
+
+function mergeMessageBoardSeeds(data) {
+  var list = Array.isArray(data) ? data.slice() : [];
+  var realCount = list.filter(function (m) {
+    if (!m || typeof m !== 'object' || m.hidden || isMessageBoardSeedItem(m)) return false;
+    var t = m.text ?? m.message ?? m.body;
+    return typeof t === 'string' && t.trim().length > 0;
+  }).length;
+  if (realCount >= MESSAGE_BOARD_SEED_THRESHOLD) return list;
+  var seeds = getMessageBoardSeedPrayers();
+  var have = {};
+  for (var i = 0; i < list.length; i++) {
+    var m = list[i];
+    if (m && m.id != null) have[String(m.id)] = true;
+  }
+  for (var j = 0; j < seeds.length; j++) {
+    if (!have[seeds[j].id]) list.push(seeds[j]);
+  }
+  return list;
+}
+
 async function loadMessages() {
   let data = [];
   if (isSupabaseConfigured() && currentUserId) {
@@ -12609,6 +12733,7 @@ async function loadMessages() {
     }
   }
   if (!data.length) data = loadMessagesLocal();
+  data = mergeMessageBoardSeeds(data);
   return Array.isArray(data) ? data.map(item => item && typeof item === 'object' ? item : null).filter(Boolean) : [];
 }
 
@@ -12794,18 +12919,20 @@ function renderMessages(items, previewLimit) {
       }
     };
     actions.appendChild(shareBtn);
-    const reportBtn = document.createElement('button');
-    reportBtn.textContent = 'Report';
-    reportBtn.onclick = async () => {
-      const ok = await reportMessageItem(item);
-      if (ok) {
-        reportBtn.textContent = 'Reported';
-        reportBtn.disabled = true;
-      } else {
-        alert('Unable to report message.');
-      }
-    };
-    actions.appendChild(reportBtn);
+    if (!isMessageBoardSeedItem(item)) {
+      const reportBtn = document.createElement('button');
+      reportBtn.textContent = 'Report';
+      reportBtn.onclick = async () => {
+        const ok = await reportMessageItem(item);
+        if (ok) {
+          reportBtn.textContent = 'Reported';
+          reportBtn.disabled = true;
+        } else {
+          alert('Unable to report message.');
+        }
+      };
+      actions.appendChild(reportBtn);
+    }
     row.appendChild(actions);
     list.appendChild(row);
   });
@@ -13632,7 +13759,9 @@ var PHRASE_SEMANTIC_MAP = {
   'tired of pretending': 'grief', 'exhausted': 'anxiety', 'burnt out': 'anxiety',
   'god forgot about me': 'grief', 'god abandoned me': 'grief', 'where is god': 'faith',
   'cant forgive': 'guilt', 'cant forgive myself': 'guilt', 'dont deserve forgiveness': 'guilt',
-  'husband left': 'grief', 'wife left': 'grief', 'baby died': 'grief', 'lost someone': 'grief',
+  'husband left': 'grief', 'wife left': 'grief', 'baby died': 'grief',   'lost someone': 'grief',
+  'have cancer': 'cancer', 'i have cancer': 'cancer', 'cancer diagnosis': 'cancer', 'dealing with cancer': 'cancer',
+  'fighting cancer': 'cancer', 'cancer treatment': 'cancer', 'going through chemo': 'cancer',
   'work with a piece of shit': 'forgiveness', 'difficult coworker': 'forgiveness', 'hate my boss': 'forgiveness',
   'i feel alone': 'loneliness', 'all alone': 'loneliness', 'no one to talk to': 'loneliness',
   'cant take it anymore': 'anxiety', 'falling apart': 'anxiety', 'losing it': 'anxiety',
@@ -15238,6 +15367,7 @@ async function unhideMessageItem(item) {
 
 async function reportMessageItem(item) {
   if (!item) return false;
+  if (isMessageBoardSeedItem(item)) return false;
   const report = { id: item.id, text: item.text, created_at: new Date().toISOString() };
   try {
     const local = JSON.parse(localStorage.getItem('messageReports') || '[]');
@@ -17594,6 +17724,21 @@ function renderResults(results) {
     loopTeaser.appendChild(link);
     output.appendChild(loopTeaser);
   }
+  var cancerTopicIds = ['cancer'];
+  var isCancerTopicSearch = results.intent === 'topic' && cancerTopicIds.indexOf(results.topic) !== -1;
+  var isCancerKeywordSearch = results.intent === 'keyword' && /\b(cancer|cancers|chemo|chemotherapy|oncology|tumor|tumour|malignant|metastasis)\b/i.test(queryText);
+  if (isCancerTopicSearch || isCancerKeywordSearch) {
+    var cancerTeaser = document.createElement('div');
+    cancerTeaser.className = 'loop-teaser';
+    var cancerLink = document.createElement('a');
+    cancerLink.href = 'plans.html?plan=cancercomfort';
+    cancerLink.className = 'loop-teaser-link';
+    cancerLink.textContent = 'Open the 7-day Cancer Comfort plan →';
+    cancerLink.setAttribute('aria-label', 'Open Cancer Comfort, a seven-day KJV reading plan');
+    cancerTeaser.appendChild(document.createTextNode('Want a slow daily rhythm in the Word alongside this search? '));
+    cancerTeaser.appendChild(cancerLink);
+    output.appendChild(cancerTeaser);
+  }
   if (results.intent === 'keyword' && results.expandedForDisplay && results.expandedForDisplay.length > 0) {
     var expList = results.expandedForDisplay;
     var expTag = document.createElement('p');
@@ -18698,7 +18843,7 @@ async function tdbInitImpl() {
     })();
   } catch (_) {}
 
-  /* Wire search - hero has 30 chips hardcoded (never empty); accordion gets dynamic from TDB_TOPICS */
+  /* Wire search - hero has quick-topic chips hardcoded (never empty); accordion gets dynamic from TDB_TOPICS */
   try {
     renderQuickTopicButtons('quick-actions-accordion', false);
     var heroContainer = document.getElementById('quick-actions-hero');

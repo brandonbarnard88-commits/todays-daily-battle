@@ -17,6 +17,7 @@
   var BODY = [51, 65, 85];
   var MUTED = [100, 116, 139];
   var REF_BLUE = [37, 99, 235];
+  var LABEL = [71, 85, 105];
 
   var PAIN_DAYS = [
     {
@@ -311,6 +312,33 @@
     return writeLines(doc, y, wrapped, fontSize, lineHeight, rgb, fontStyle, state, continuedLabel);
   }
 
+  /** Small caps-style section label + body (printable pack layout). */
+  function writeLabeledBlock(doc, y, label, text, fontSize, lineHeight, rgb, fontStyle, state, continuedLabel) {
+    doc.setFontSize(7.5);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(LABEL[0], LABEL[1], LABEL[2]);
+    y = ensureSpace(doc, y, 16, state, continuedLabel);
+    doc.text(String(label || '').toUpperCase(), MARGIN + 6, y);
+    y += 11;
+    y = writeParagraph(doc, y, text, fontSize, lineHeight, rgb, fontStyle || 'normal', state, continuedLabel);
+    y += 4;
+    return y;
+  }
+
+  function drawDayDivider(doc, y) {
+    doc.setDrawColor(226, 232, 240);
+    doc.setLineWidth(0.4);
+    doc.line(MARGIN, y, PAGE_W - MARGIN, y);
+  }
+
+  function getCancerComfortPlanRows() {
+    try {
+      var sh = typeof window !== 'undefined' && window.TDB_PLANS_BATTLE_SHARED;
+      if (sh && Array.isArray(sh.cancerComfort7) && sh.cancerComfort7.length === 7) return sh.cancerComfort7;
+    } catch (e) {}
+    return null;
+  }
+
   function generatePainGracePackPdf() {
     var JsPDF = getJsPdfCtor();
     if (!JsPDF) {
@@ -329,16 +357,16 @@
     var y = 108;
     for (var d = 0; d < PAIN_DAYS.length; d++) {
       var day = PAIN_DAYS[d];
-      y += 4;
+      if (d > 0) {
+        y += 4;
+        drawDayDivider(doc, y);
+        y += 12;
+      }
       y = writeParagraph(doc, y, day.dayTitle, 12, 15, SLATE, 'bold', state, cont);
-      y += 2;
-      y = writeParagraph(doc, y, day.ref + ' (KJV)', 10, 13, REF_BLUE, 'bold', state, cont);
-      y += 2;
-      y = writeParagraph(doc, y, day.verse, 10, 13, BODY, 'normal', state, cont);
-      y += 2;
-      y = writeParagraph(doc, y, day.realTalk, 10, 13, MUTED, 'italic', state, cont);
-      y += 2;
-      y = writeParagraph(doc, y, day.doThis, 10, 13, SLATE, 'bold', state, cont);
+      y = writeLabeledBlock(doc, y, 'Reference', day.ref + ' (KJV)', 10, 13, REF_BLUE, 'bold', state, cont);
+      y = writeLabeledBlock(doc, y, 'Verse (KJV)', day.verse, 10, 13, BODY, 'normal', state, cont);
+      y = writeLabeledBlock(doc, y, 'Straight talk', day.realTalk, 10, 13, BODY, 'normal', state, cont);
+      y = writeLabeledBlock(doc, y, 'Step', day.doThis, 10, 13, SLATE, 'bold', state, cont);
       y += 6;
     }
     y = ensureSpace(doc, y, 24, state, cont);
@@ -363,6 +391,111 @@
     showPackToast('PDF downloaded.', true);
   }
 
+  function getCancerComfortPackText() {
+    var rows = getCancerComfortPlanRows();
+    var lines = [
+      'Cancer Comfort — 7 Days (KJV)',
+      "Today's Daily Battle — todaysdailybattle.com",
+      'Honest fear and Christ beside you. Not medical advice.',
+      ''
+    ];
+    if (!rows) {
+      lines.push('(Open this page online to generate the full pack from plans-data.js.)');
+      lines.push('');
+      return lines.join('\n');
+    }
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      lines.push('Day ' + (i + 1) + ' — ' + (r.title || ''));
+      lines.push('Reference: ' + (r.ref || '') + ' (KJV)');
+      lines.push(r.text || '');
+      lines.push('Straight talk: ' + (r.plain || ''));
+      lines.push('Today: ' + (r.today || ''));
+      lines.push('Step: ' + (r.action || ''));
+      lines.push('Prayer: ' + (r.prayer || ''));
+      lines.push('');
+    }
+    lines.push('---');
+    lines.push('Printed with care. No ads. No tracking.');
+    lines.push('');
+    return lines.join('\n');
+  }
+
+  function generateCancerComfortPack() {
+    downloadTextFile('cancer-comfort-7days.txt', getCancerComfortPackText());
+    trackPack('cancer_comfort_7', 'txt');
+    showPackToast('Text file downloaded.', true);
+  }
+
+  function generateCancerComfortPackPdf() {
+    var rows = getCancerComfortPlanRows();
+    if (!rows) {
+      showPackToast('Pack data did not load. Refresh and try again.', true);
+      return;
+    }
+    var JsPDF = getJsPdfCtor();
+    if (!JsPDF) {
+      showPackToast('PDF tools did not load. Refresh and try again.', true);
+      return;
+    }
+    var doc = new JsPDF({ unit: 'pt', format: 'letter', compress: true });
+    var state = { pageNum: 1 };
+    var cont = 'Cancer Comfort (continued)';
+    drawFirstHeader(doc, 'Cancer Comfort', '7 Days · KJV', "Today's Daily Battle · todaysdailybattle.com");
+    var y = 108;
+    y = writeParagraph(
+      doc,
+      y,
+      'Honest fear and Christ beside you. Not medical advice—spiritual encouragement alongside your doctors and loved ones.',
+      9,
+      12,
+      MUTED,
+      'italic',
+      state,
+      cont
+    );
+    y += 6;
+    for (var j = 0; j < rows.length; j++) {
+      var row = rows[j];
+      if (j > 0) {
+        y += 4;
+        drawDayDivider(doc, y);
+        y += 12;
+      }
+      y = writeParagraph(doc, y, 'Day ' + (j + 1) + ' — ' + (row.title || ''), 12, 15, SLATE, 'bold', state, cont);
+      if (row.speaker) {
+        y = writeParagraph(doc, y, row.speaker, 9, 12, MUTED, 'italic', state, cont);
+      }
+      y = writeLabeledBlock(doc, y, 'Reference', (row.ref || '') + ' (KJV)', 10, 13, REF_BLUE, 'bold', state, cont);
+      y = writeLabeledBlock(doc, y, 'Verse (KJV)', row.text || '', 10, 13, BODY, 'normal', state, cont);
+      y = writeLabeledBlock(doc, y, 'Straight talk', row.plain || '', 10, 13, BODY, 'normal', state, cont);
+      y = writeLabeledBlock(doc, y, 'Today', row.today || '', 10, 13, MUTED, 'italic', state, cont);
+      y = writeLabeledBlock(doc, y, 'Step', row.action || '', 10, 13, SLATE, 'bold', state, cont);
+      y = writeLabeledBlock(doc, y, 'Prayer', row.prayer || '', 10, 13, MUTED, 'italic', state, cont);
+      y += 6;
+    }
+    y = ensureSpace(doc, y, 24, state, cont);
+    doc.setDrawColor(GOLD[0], GOLD[1], GOLD[2]);
+    doc.setLineWidth(0.5);
+    doc.line(MARGIN, y, PAGE_W - MARGIN, y);
+    y += 14;
+    y = writeParagraph(
+      doc,
+      y,
+      'KJV only. For groups: read aloud, pray short, share one honest sentence. No ads. No tracking.',
+      9,
+      12,
+      MUTED,
+      'normal',
+      state,
+      cont
+    );
+    drawFooter(doc, state.pageNum);
+    doc.save('cancer-comfort-7days.pdf');
+    trackPack('cancer_comfort_7', 'pdf');
+    showPackToast('PDF downloaded.', true);
+  }
+
   function generateBattle14PackPdf() {
     var JsPDF = getJsPdfCtor();
     if (!JsPDF) {
@@ -379,10 +512,11 @@
       "Today's Daily Battle · todaysdailybattle.com"
     );
     var y = 108;
-    y = writeParagraph(
+    y = writeLabeledBlock(
       doc,
       y,
-      'Each day: read slowly together, then share one honest sentence.',
+      'How to use this pack',
+      'Each day: read slowly together, then share one honest sentence. Discussion question: "Where do I need this truth today?"',
       10,
       13,
       BODY,
@@ -390,35 +524,25 @@
       state,
       cont
     );
-    y = writeParagraph(
-      doc,
-      y,
-      'Discussion question: "Where do I need this truth today?"',
-      10,
-      13,
-      MUTED,
-      'italic',
-      state,
-      cont
-    );
-    y += 8;
+    y += 4;
     for (var j = 0; j < BATTLE_14_DAYS.length; j++) {
       var b = BATTLE_14_DAYS[j];
-      y += 4;
-      y = writeParagraph(doc, y, b.title, 11, 14, SLATE, 'bold', state, cont);
-      y += 2;
-      y = writeParagraph(doc, y, b.ref + ' (KJV)', 10, 13, REF_BLUE, 'bold', state, cont);
-      y += 2;
-      y = writeParagraph(doc, y, b.verse, 10, 13, BODY, 'normal', state, cont);
-      if (b.note) {
-        y += 2;
-        y = writeParagraph(doc, y, b.note, 9, 12, MUTED, 'italic', state, cont);
+      if (j > 0) {
+        y += 4;
+        drawDayDivider(doc, y);
+        y += 12;
       }
-      y += 2;
-      y = writeParagraph(
+      y = writeParagraph(doc, y, b.title, 11, 14, SLATE, 'bold', state, cont);
+      y = writeLabeledBlock(doc, y, 'Reference', b.ref + ' (KJV)', 10, 13, REF_BLUE, 'bold', state, cont);
+      y = writeLabeledBlock(doc, y, 'Verse (KJV)', b.verse, 10, 13, BODY, 'normal', state, cont);
+      if (b.note) {
+        y = writeLabeledBlock(doc, y, 'Linger', b.note, 9, 12, MUTED, 'italic', state, cont);
+      }
+      y = writeLabeledBlock(
         doc,
         y,
-        'Discuss: Where do I need this truth today?',
+        'Discuss',
+        'Where do I need this truth today?',
         10,
         13,
         SLATE,
@@ -467,10 +591,14 @@
     var b1p = document.getElementById('tt-pack-pain-grace-pdf');
     var b2 = document.getElementById('tt-pack-battle-14');
     var b2p = document.getElementById('tt-pack-battle-14-pdf');
+    var b3 = document.getElementById('tt-pack-cancer-comfort');
+    var b3p = document.getElementById('tt-pack-cancer-comfort-pdf');
     if (b1) b1.addEventListener('click', generatePainGracePack);
     if (b1p) b1p.addEventListener('click', generatePainGracePackPdf);
     if (b2) b2.addEventListener('click', generateBattle14Pack);
     if (b2p) b2p.addEventListener('click', generateBattle14PackPdf);
+    if (b3) b3.addEventListener('click', generateCancerComfortPack);
+    if (b3p) b3p.addEventListener('click', generateCancerComfortPackPdf);
   }
 
   if (document.readyState === 'loading') {

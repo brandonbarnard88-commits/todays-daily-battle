@@ -125,6 +125,7 @@
     :root[data-theme="light"] .plans-teaser-explore {
       color: #3a2e0f;
     }
+    :root[data-theme="light"] .plans-teaser-badge,
     :root[data-theme="light"] .plans-teaser-arrow {
       color: #3a2e0f;
     }
@@ -2271,8 +2272,8 @@
       animation: feel-more-in 0.6s ease both;
     }
 
-    /* ── Bottom Nav ── */
-    .bottom-nav {
+    /* ── Bottom Nav (homepage dock only — not footer .bottom-nav) ── */
+    .nav-bottom-dock {
       position: fixed;
       bottom: 10px;
       left: 50%;
@@ -3998,6 +3999,7 @@
       transition: background 0.15s ease;
     }
     .plans-teaser-banner:hover { background: color-mix(in srgb, var(--gold) 28%, transparent); }
+    .plans-teaser-badge { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gold); }
     .plans-teaser-arrow { margin-left: auto; color: var(--gold); }
     .referral-share-blurb {
       margin: 0.85rem 0 0;
@@ -4940,6 +4942,7 @@
         </div>
         <p class="plans-teaser-thesis section-note" role="text">Daily bread for today&rsquo;s daily battle — one verse, one day at a time.</p>
         <a href="plans.html" class="plans-teaser-banner" aria-label="Battle Plans — one tap to start, saved on your device">
+          <span class="plans-teaser-badge" aria-hidden="true">New</span>
           <span>One tap to start &mdash; your progress stays on this device.</span>
           <span class="plans-teaser-arrow" aria-hidden="true">→</span>
         </a>
@@ -5186,7 +5189,7 @@
   <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
   </p>
-  <nav class="bottom-nav">
+  <nav class="bottom-nav" aria-label="Quick links">
     <a href="/">Home</a>
     <a href="/plans.html">Plans</a>
     <a href="/calm.html">Calm</a>
@@ -5303,7 +5306,7 @@
   </div>
 
   <!-- ── Bottom Nav ── -->
-  <nav class="bottom-nav" aria-label="Primary tools">
+  <nav class="nav-bottom-dock" aria-label="Primary tools">
     <a class="nav-link nav-link--active" href="/" aria-label="Home"><span>🏠</span><span>Home</span></a>
     <a class="nav-link" href="reader.html" aria-label="Chapter Reader"><span>📖</span><span>Read</span></a>
     <a class="nav-link" href="#quick-search-hero" id="nav-search-btn" aria-label="Search Scripture"><span>🔍</span><span>Search</span></a>

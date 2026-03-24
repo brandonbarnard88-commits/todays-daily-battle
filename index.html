@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260326clean">
+  <link rel="modulepreload" href="script.js?v=20260328feelwire">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -4686,7 +4686,6 @@
       <p>V2 Command Deck</p>
       <p>Search by what you feel right now</p>
       <div id="quick-actions-hero"></div>
-      <div id="output"></div>
       <input id="tdb-search" type="search" value="">
       <button id="search-btn" type="button">Search</button>
     </section>
@@ -5687,10 +5686,10 @@
     // All 30 quick-topic buttons must resolve; add each data-topic to the right group.
     const FEEL_MAP = [
       { keys: ["anxious","anxiety","anxiousness","stress","stressed","worry","worried","worrying","nervous","panic","panicking","overwhelmed","overthinking","scared","fear","afraid","fearful","dread","dreading","finances"], group: "anxious" },
-      { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","strength","sleep"], group: "tired" },
+      { keys: ["tired","exhausted","weary","sleepy","drained","worn out","worn-out","fatigued","fatigue","burnt out","burnout","burn out","sleep"], group: "tired" },
       { keys: ["angry","mad","frustrated","frustration","furious","irritated","irritable","rage","fuming","livid","irate","anger"], group: "angry" },
       { keys: ["lonely","alone","isolated","solitude","nobody","no one","nobody cares","nobody gets me","nobody understands","forgotten","invisible","loneliness"], group: "lonely" },
-      { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","god","jesus","christ","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
+      { keys: ["hopeful","grateful","thankful","joyful","joy","blessed","glad","encouraged","optimistic","happy","good","hope","strength","love","forgiveness","patience","courage","grace","wisdom","gratitude","faith","god","jesus","christ","marriage","family","parenting","obedience","identity","purpose"], group: "hopeful" },
       { keys: ["sad","hurt","broken","heartbroken","crying","grief","grieving","depressed","depression","down","low","devastated","loss","numb","mourning","sorrowful","guilt","trauma","addiction","heartache"], group: "sad" },
       { keys: ["peace","peaceful","calm","still","quiet","rest","restless","unsettled","unrest","serene","tranquil","settled"], group: "peace" },
       { keys: ["piece of shit","difficult person","coworker","toxic coworker","bad coworker","difficult boss","hate my boss","hate my coworker","difficult coworker","work with someone difficult","toxic boss"], group: "difficult" }
@@ -6427,7 +6426,7 @@
           var tdb = document.getElementById("tdb-search");
           if (tdb) tdb.value = val;
           window.runSearchWithInput(val);
-          var out = document.getElementById("output");
+          var out = document.getElementById("feel-results") || document.getElementById("output");
           if (out) setTimeout(function () { out.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 200);
         } else if (!group) showNoMatch();
       }
@@ -8905,7 +8904,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260326clean" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260328feelwire" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
 </body>

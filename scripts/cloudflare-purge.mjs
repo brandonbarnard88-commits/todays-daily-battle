@@ -102,7 +102,7 @@ const SOCIAL_PURGE_PATHS = [
   '/why-not-ai.html',
   '/message.html',
   '/script.js',
-  '/script.js?v=20260326clean',
+  '/script.js?v=20260328feelwire',
   '/tt-bootstrap.js?v=20260326clean',
   '/sitemap.xml',
   '/assets/share/home-og.jpg',

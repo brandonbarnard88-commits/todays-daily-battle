@@ -17,7 +17,7 @@ OFFLINE = "--offline" in sys.argv
 
 # (path, name, list of strings that must appear in body)
 PAGES = [
-    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"output\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now", "Verse image generator"]),  # id="query" or id="tdb-search"
+    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"feel-results\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now", "Verse image generator"]),  # visible search results host (no hidden #output on home)
     ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\""]),
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
@@ -42,7 +42,7 @@ PAGES = [
     ("/verse-image.html", "Verse image generator", ["Verse image generator", "verse-image-canvas", "Supporter", "recent-gens", "data-verse-store", "verse-image-text-color", "cross"]),
     ("/bible-study.html", "Bible Study", ["Bible", "id=\"auth-section\""]),
     ("/coloring.html", "Coloring", ["Coloring", "Kids", "coloring-sheet-grid", "Pick a page", "id=\"auth-section\""]),
-    ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Quick calm loops", "Open Kids Coloring", "coloring.html", "Story Stars", "loop-grid", "script.js?v=20260326clean", "kids-corner.css?v=7", "kids/kids-page-sky.css?v=20260331", "kids/kids-page-sky.js?v=20260331"]),
+    ("/kids-corner.html", "Kids Corner", ["Bible Loop Library", "kids-loop-og.jpg", "Download loop progress (PDF)", "loop-pdf-export", 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', "Quick calm loops", "Open Kids Coloring", "coloring.html", "Story Stars", "loop-grid", "script.js?v=20260328feelwire", "kids-corner.css?v=7", "kids/kids-page-sky.css?v=20260331", "kids/kids-page-sky.js?v=20260331"]),
     ("/kids/index.html", "Kids Battle Home", ["Kids Battle", "Library deep links must hit corner.html", "location.replace('corner.html' + location.search)", "Read-along words, comic panels", "Color &amp; create", "coloring.html", "uFuzzy.iife.min.js", "kids-verses-365.js?v=20260325kidsmeans", "kids-battle.js?v=20260326kidshelpline", "kids-read-quiz-data.js?v=20260330kidslib", "kids-corner.js?v=20260331kidsnav", "kids-page-sky.css?v=20260331", "kids-page-sky.js?v=20260331", "kids-hub-story-matches", "kids-header-site-link-wrap", "footer-humility", "We battle. He wins."]),
     ("/kids/corner.html", "Bible Story Library", ["/kids/corner.html?story=noah", "kids-story-library-og.jpg", "Download Story Library List (PDF)", "Bible Story Library", 'aria-describedby="pdf-export-count-hint pdf-export-hint"', "story-library-fonts.css?v=1", "kids-page-sky.css?v=20260331", "kids-page-sky.js?v=20260331", "kids-library-search-hint", "uFuzzy.iife.min.js", "fuse.min.js", "kids-story-fuse-search.js?v=20260331fuse", "kids-library-search-suggest", "kids-verses-365.js?v=20260325kidsmeans", "kids-battle.js?v=20260326kidshelpline", "kids-read-quiz-data.js?v=20260330kidslib", "kids-corner.js?v=20260331kidsnav", "hard-refresh", "canvas-confetti", "global-quiz-challenge", "print-qa-btn", "kids-print-qa-sheet-wrap", "TDB_PANEL_RASTER", "nunito-latin.woff2", "panel-david-1.svg", "tdb-kids-story-meta-desc", "kids-story-modal-back-library", "kids-corner-breadcrumb"]),
     ("/kids/all-stories.html", "Kids All Stories A–Z", ["All Bible Stories", "bible-story-tool-index.js", "uFuzzy.iife.min.js", "fuse.min.js", "kids-story-fuse-search.js", "kids-all-stories.js?v=20260331kidsthemes", "kids-page-sky.css?v=20260331", "corner.html?story=", "kids-all-fuse-suggest", "kids-all-stories-theme-tabs", "kids-header-site-link-wrap"]),
@@ -153,6 +153,36 @@ def main():
             failed += 1
     except Exception as e:
         print("FAIL reading script.js", e)
+        failed += 1
+
+    # Homepage feel search wiring (same invariants as scripts/verify-homepage-search-wiring.mjs)
+    try:
+        with open("index.html", "r", encoding="utf-8") as f:
+            idx = f.read()
+        with open("script.js", "r", encoding="utf-8") as f:
+            scr = f.read()
+        hw_fail = False
+        if 'id="feel-results"' not in idx:
+            hw_fail = True
+        ms = idx.find('id="main-search"')
+        if ms != -1:
+            sec0 = idx.rfind("<section", 0, ms)
+            sec1 = idx.find("</section>", ms)
+            if sec0 != -1 and sec1 != -1 and sec1 > ms:
+                chunk = idx[sec0:sec1]
+                if 'id="output"' in chunk or "id='output'" in chunk:
+                    hw_fail = True
+        if "function getSearchOutputElement" not in scr:
+            hw_fail = True
+        if "getElementById('feelSuggestDropdown')" not in scr:
+            hw_fail = True
+        if hw_fail:
+            print("\nFAIL homepage search wiring guard (run: node scripts/verify-homepage-search-wiring.mjs)")
+            failed += 1
+        else:
+            print("OK   homepage search wiring guard")
+    except Exception as e:
+        print("\nFAIL homepage search wiring check", e)
         failed += 1
 
     # Internal links: collect all .html links from index and verify targets exist (file or URL)

@@ -15165,7 +15165,7 @@ function fetchProfileTier() {
 
 function setView(state) {
   const mainSearch = document.getElementById('main-search');
-  const output = document.getElementById('output');
+  const output = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
   const dashboard = document.getElementById('dashboard');
   const churchCenter = document.getElementById('church-center');
   const studyTools = document.getElementById('study-tools');
@@ -17456,8 +17456,15 @@ function executeQuery(parsed, tier, filters) {
   return results;
 }
 
+/** Homepage feel search uses #feel-results; Bible Tool and other pages use #output. Prefer the visible bucket first. */
+function getSearchOutputElement() {
+  var feel = document.getElementById('feel-results');
+  if (feel) return feel;
+  return document.getElementById('output');
+}
+
 function renderResults(results) {
-  var output = document.getElementById('output');
+  var output = getSearchOutputElement();
   if (!output) {
     var searchHero = document.getElementById('quick-search-hero') || document.getElementById('search-hero');
     if (searchHero) {
@@ -17478,9 +17485,11 @@ function renderResults(results) {
       }
     }
   }
-  // Homepage: #output is inside sr-only #main-search — use visible #feel-results instead (desktop + mobile)
+  // If a legacy hidden #output in sr-only still exists, show results in #feel-results instead
   if (output && output.closest && output.closest('.sr-only') && document.getElementById('feel-results')) {
     output = document.getElementById('feel-results');
+  }
+  if (output && output.id === 'feel-results') {
     output.classList.add('results');
     output.setAttribute('role', 'region');
     output.setAttribute('aria-live', 'polite');
@@ -18726,7 +18735,7 @@ async function tdbInitImpl() {
         if (searchAcc) searchAcc.setAttribute('open', '');
       }
       function ensureOutputElement() {
-        var el = document.getElementById('output');
+        var el = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
         if (el) return el;
         var searchHero = document.getElementById('quick-search-hero') || document.getElementById('search-hero');
         if (searchHero) {
@@ -18754,7 +18763,7 @@ async function tdbInitImpl() {
         return !!outEl.querySelector('.verse-card, .result-section, .empty');
       }
       function renderEmergencySearchResults(queryText) {
-        var out = document.getElementById('output') || ensureOutputElement();
+        var out = (typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : null) || ensureOutputElement();
         if (!out) return;
         var term = String(queryText || '').trim().toLowerCase();
         var picks = [];
@@ -18791,9 +18800,6 @@ async function tdbInitImpl() {
         var input = (inputStr != null && inputStr !== '') ? String(inputStr).trim() : '';
         ensureBattleSearchVisible();
         var outputEl = ensureOutputElement();
-        if (outputEl && outputEl.closest && outputEl.closest('.sr-only') && document.getElementById('feel-results')) {
-          outputEl = document.getElementById('feel-results');
-        }
         if (outputEl) outputEl.style.display = 'grid';
         try { if (typeof setView === 'function') setView('search'); } catch (_) {}
         var loadingEl = document.getElementById('loading');
@@ -18812,10 +18818,7 @@ async function tdbInitImpl() {
               await loadBible(currentVersion);
               try { if (typeof refreshBibleView === 'function') refreshBibleView(); } catch (_) {}
             }
-            var out = document.getElementById('output');
-            if (out && out.closest && out.closest('.sr-only') && document.getElementById('feel-results')) {
-              out = document.getElementById('feel-results');
-            }
+            var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
             if (Object.keys(bible).length === 0) {
               if (out) {
                 out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection. <button type="button" id="bible-search-retry-btn" class="btn btn-secondary" style="margin-top:0.5rem;">Retry</button></p>';
@@ -18877,8 +18880,7 @@ async function tdbInitImpl() {
             }
             try { await renderDailyBattleCard(); } catch (_) {}
           } catch (err) {
-            var out = document.getElementById('output');
-            if (out && out.closest && out.closest('.sr-only') && document.getElementById('feel-results')) out = document.getElementById('feel-results');
+            var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
             if (out) {
               renderEmergencySearchResults(input);
               if (!hasSearchCards(out)) {
@@ -18945,7 +18947,7 @@ async function tdbInitImpl() {
           onSelect: function (data) {
             if (data && data.ref && typeof runSearchWithInput === 'function') {
               runSearchWithInput(data.ref);
-              var out = document.getElementById('output');
+              var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
               if (out) setTimeout(function () { out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
             }
           }
@@ -19734,7 +19736,7 @@ async function tdbInitImpl() {
     dailyBtn.addEventListener('click', () => {
       setView('search');
       const loadingEl = document.getElementById('loading');
-      const outputEl = document.getElementById('output');
+      const outputEl = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
       if (loadingEl) loadingEl.style.display = 'block';
       if (outputEl) outputEl.innerHTML = '';
       setTimeout(async () => {
@@ -23485,8 +23487,12 @@ function wireRandomBattleVerseHero() {
     });
   }());
 
-  // ── Wire Smart Feel Search ────────────────────────────────────────────────
+  // ── Smart feel hook (homepage uses richer inline feel-search + runSearchWithInput) ──
   (function wireSmartSearch() {
+    // index.html: #feelSuggestDropdown + debounced input + FEEL_GROUPS + full executeQuery on Search.
+    // This legacy block duplicated listeners: on every 3+ chars it called runSearchWithInput (no debounce),
+    // raced inline logic, and replaced #feel-results with slim SMART_DICTIONARY cards—felt "dumb" vs real search.
+    if (document.getElementById('feelSuggestDropdown')) return;
     var feelInput = document.getElementById('feel-search');
     if (feelInput) {
       feelInput.addEventListener('input', function () {

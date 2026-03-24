@@ -7,7 +7,8 @@
 - **Reflect God, not trends:** Favor truth, clarity, humility, beauty, and usefulness over novelty or hype. Learn from human mistakes; do not repeat weak patterns.
 - **No throwaway wording:** Avoid cliché filler text and vague labels. Use meaningful, specific, calm language that serves users in hard moments.
 - **Quality gate before done:** Before marking work complete, verify: secure, accessible, mobile-friendly, visually coherent, and non-generic in tone and execution.
-- **Operational release gate (required):** No change is complete until relevant checks pass (`npm run test:security`, `npm run test`, `npm run test:site`) and any new warnings are addressed or documented.
+- **Operational release gate (required):** No change is complete until relevant checks pass (`npm run test:security`, `npm run test`, `npm run test:site`) and any new warnings are addressed or documented. **`npm run test` includes `scripts/verify-homepage-search-wiring.mjs`** — do not bypass it; it guards the homepage feel search from duplicate handlers and hidden `#output`.
+- **Homepage feel search:** Do not put `id="output"` inside sr-only `#main-search`. Do not add parallel `input`/`click` listeners on `#feel-search` or `#quickTopics` in `script.js` without the `feelSuggestDropdown` gate. See `.cursor/rules/homepage-feel-search.mdc` and `getSearchOutputElement()` in `script.js`.
 - **Security hardening default:** Prefer `textContent`/DOM APIs over `innerHTML`. If HTML injection is truly needed, sanitize and justify it.
 - **No silent regressions:** Preserve all existing tools/features and entry points. If relocating or renaming, keep discoverability and update links/UI so nothing becomes hidden.
 - **Mobile-first verification:** Every homepage/toolbox change must be reviewed at small-phone and standard-mobile widths; maintain readable text, proper spacing, and 44px+ tap targets.

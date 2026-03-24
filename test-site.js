@@ -40,7 +40,7 @@ const pages = [
   { path: '/pastor-toolkit.html', name: 'Pastor Toolkit', mustInclude: ['Pastor'] },
   { path: '/team-toolkit.html', name: 'Team Toolkit', mustInclude: ['Team'] },
   { path: '/coloring.html', name: 'Kids Coloring', mustInclude: ['Coloring', 'Kids', 'coloring-sheet-grid', 'Pick a page'] },
-  { path: '/kids-corner.html', name: 'Kids Corner', mustInclude: ['Bible Loop', 'Story Stars', 'loop-grid', 'kids-loop-og.jpg', 'summary_large_image', 'Download loop progress (PDF)', 'loop-pdf-export', 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', 'Quick calm loops', '/kids/corner.html', 'Open Kids Coloring', 'coloring.html', 'script.js?v=20260326clean', 'kids-corner.css?v=7', 'kids/kids-page-sky.css?v=20260331', 'kids/kids-page-sky.js?v=20260331'] },
+  { path: '/kids-corner.html', name: 'Kids Corner', mustInclude: ['Bible Loop', 'Story Stars', 'loop-grid', 'kids-loop-og.jpg', 'summary_large_image', 'Download loop progress (PDF)', 'loop-pdf-export', 'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"', 'Quick calm loops', '/kids/corner.html', 'Open Kids Coloring', 'coloring.html', 'script.js?v=20260328feelwire', 'kids-corner.css?v=7', 'kids/kids-page-sky.css?v=20260331', 'kids/kids-page-sky.js?v=20260331'] },
   { path: '/kids/index.html', name: 'Kids Battle Home', mustInclude: ['Kids Battle', 'Library deep links must hit corner.html', "location.replace('corner.html' + location.search)", 'Read-along words, comic panels', 'Color &amp; create', 'coloring.html', 'uFuzzy.iife.min.js', 'kids-verses-365.js?v=20260325kidsmeans', 'kids-battle.js?v=20260326kidshelpline', 'kids-read-quiz-data.js?v=20260330kidslib', 'kids-corner.js?v=20260331kidsnav', 'kids-page-sky.css?v=20260331', 'kids-page-sky.js?v=20260331', 'kids-hub-story-matches', 'kids-header-site-link-wrap', 'footer-humility', 'We battle. He wins.'] },
   { path: '/kids/corner.html', name: 'Bible Story Library', mustInclude: ['/kids/corner.html?story=noah', 'kids-story-library-og.jpg', 'summary_large_image', 'Download Story Library List (PDF)', 'pdf-export', 'aria-describedby="pdf-export-count-hint pdf-export-hint"', 'story-library-fonts.css?v=1', 'kids-page-sky.css?v=20260331', 'kids-page-sky.js?v=20260331', 'kids-library-search-hint', 'uFuzzy.iife.min.js', 'fuse.min.js', 'kids-story-fuse-search.js?v=20260331fuse', 'kids-library-search-suggest', 'kids-verses-365.js?v=20260325kidsmeans', 'kids-battle.js?v=20260326kidshelpline', 'kids-read-quiz-data.js?v=20260330kidslib', 'kids-corner.js?v=20260331kidsnav', 'hard-refresh', 'canvas-confetti', 'global-quiz-challenge', 'print-qa-btn', 'kids-print-qa-sheet-wrap', 'TDB_PANEL_RASTER', 'nunito-latin.woff2', 'panel-david-1.svg', 'Bible Story Library', 'tdb-kids-story-meta-desc', 'kids-story-modal-back-library', 'kids-corner-breadcrumb'] },
   { path: '/kids/all-stories.html', name: 'Kids All Stories A–Z', mustInclude: ['All Bible Stories', 'bible-story-tool-index.js', 'uFuzzy.iife.min.js', 'fuse.min.js', 'kids-story-fuse-search.js', 'kids-all-stories.js?v=20260331kidsthemes', 'kids-page-sky.css?v=20260331', 'corner.html?story=', 'kids-all-fuse-suggest', 'kids-all-stories-theme-tabs', 'kids-header-site-link-wrap'] },
@@ -129,6 +129,30 @@ function run() {
       failed++;
     } else {
       console.log('\nOK  search logic (phrase search, synonym expansion, fallback verses)');
+    }
+    // Homepage: one visible results bucket; no hidden #output in sr-only #main-search; no duplicate wireSmartSearch path
+    let homeBodyForSearch = '';
+    try {
+      const homeResSearch = OFFLINE ? readLocal('/') : await fetchHttp(BASE + '/');
+      homeBodyForSearch = homeResSearch.body || '';
+    } catch (e) { homeBodyForSearch = ''; }
+    const hasFeelResultsHost = homeBodyForSearch.indexOf('id="feel-results"') !== -1;
+    const mainSearchNoOutput = (function () {
+      const i = homeBodyForSearch.indexOf('id="main-search"');
+      if (i === -1) return true;
+      const start = homeBodyForSearch.lastIndexOf('<section', i);
+      const end = homeBodyForSearch.indexOf('</section>', i);
+      if (start === -1 || end === -1 || end < i) return true;
+      const chunk = homeBodyForSearch.slice(start, end);
+      return chunk.indexOf('id="output"') === -1 && chunk.indexOf("id='output'") === -1;
+    })();
+    const hasGetSearchOutputEl = script.includes('function getSearchOutputElement');
+    const hasFeelSuggestGate = script.includes("getElementById('feelSuggestDropdown')");
+    if (!hasFeelResultsHost || !mainSearchNoOutput || !hasGetSearchOutputEl || !hasFeelSuggestGate) {
+      console.log('\nFAIL homepage search wiring (feel-results, no #output inside #main-search, getSearchOutputElement, feelSuggestDropdown gate)');
+      failed++;
+    } else {
+      console.log('\nOK  homepage search wiring guard');
     }
     // Prayer counter: element present on home, script wires it and formats numbers
     let homeBody = '';

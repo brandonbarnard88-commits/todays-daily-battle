@@ -1,0 +1,27 @@
+---
+description: Protect homepage feel search — single wiring path, visible results host
+globs: index.html,script.js
+alwaysApply: false
+---
+
+# Homepage feel search (do not regress)
+
+The homepage **“How’re you feeling?”** flow is intentionally split:
+
+1. **Inline `index.html` script** — debounced `#feel-search` input, `#feelSuggestDropdown`, `FEEL_GROUPS` / `feelCards`, `runSearch` → `runSearchWithInput`.
+2. **`script.js`** — `wireSearchAndQuickTopics`, `executeQuery` / `renderResults`, `getSearchOutputElement()` → **`#feel-results`** (visible).
+
+## Never do this
+
+- Put **`id="output"` inside `#main-search` (sr-only)**. `getElementById('output')` returns the first match; a hidden node steals results from `#feel-results`.
+- Add a **second** `input` / `click` listener on `#feel-search` or `#quickTopics` in `script.js` without guarding out the homepage. **`wireSmartSearch`** must **return immediately** when `document.getElementById('feelSuggestDropdown')` exists.
+- Call **`runSearchWithInput` on every keystroke** without debounce from a parallel hook (it races inline logic and feels “broken”).
+
+## Always do this when touching search
+
+- Route homepage results through **`getSearchOutputElement()`** (prefers `#feel-results`, then `#output` on tool pages).
+- After changes, run **`npm run test`** (includes `scripts/verify-homepage-search-wiring.mjs`) and **`npm run test:site`**.
+
+## Verification
+
+- `npm run test:search-wiring` — fast guard on `index.html` + `script.js`.

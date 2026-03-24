@@ -1252,7 +1252,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260322-ui-decode');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260327-vod-breakdown');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;
@@ -11022,32 +11022,40 @@ function buildAutoQuickPrayText() {
 function renderDailyVerse() {
   const card = document.getElementById('daily-verse-card');
   var fb = typeof DAILY_VERSE_BUNDLED_FALLBACK !== 'undefined' ? DAILY_VERSE_BUNDLED_FALLBACK : { ref: 'Philippians 4:6-7', text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' };
-  if (!card) {
-    var fallbackRef = getDailyVerseRef();
-    var fallbackText = (fallbackRef && bible[fallbackRef]) ? bible[fallbackRef] : (fb.text || '');
-    updateDailyVerseWhispers(fallbackRef || fb.ref, fallbackText);
-    return;
-  }
-  card.classList.remove('verse-card-loading');
-  if (!Object.keys(bible).length) {
-    card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.</p>';
+  try {
+    if (!card) {
+      var fallbackRef = getDailyVerseRef();
+      var fallbackText = (fallbackRef && bible[fallbackRef]) ? bible[fallbackRef] : (fb.text || '');
+      updateDailyVerseWhispers(fallbackRef || fb.ref, fallbackText);
+      return;
+    }
+    card.classList.remove('verse-card-loading');
+    if (!Object.keys(bible).length) {
+      card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway. We\'ll sync when back online.</p>';
+      card.classList.add('verse-card-loaded');
+      updateDailyVerseWhispers(fb.ref, fb.text || '');
+      return;
+    }
+    const ref = getDailyVerseRef();
+    if (!ref || !bible[ref]) {
+      card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway.</p>';
+      card.classList.add('verse-card-loaded');
+      updateDailyVerseWhispers(fb.ref, fb.text || '');
+      return;
+    }
+    card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
+    var contextHtml = buildVerseContextHtml(ref);
+    if (contextHtml) card.insertAdjacentHTML('beforeend', contextHtml);
+    card.classList.remove('verse-card-loading');
     card.classList.add('verse-card-loaded');
-    updateDailyVerseWhispers(fb.ref, fb.text || '');
-    return;
+    updateDailyVerseWhispers(ref, bible[ref] || '');
+  } finally {
+    try {
+      if (typeof window.dispatchEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('tdb-daily-verse-updated'));
+      }
+    } catch (eVod) { /* non-fatal */ }
   }
-  const ref = getDailyVerseRef();
-  if (!ref || !bible[ref]) {
-    card.innerHTML = '<strong>' + escapeHtml(fb.ref) + '</strong><p>' + escapeHtml(fb.text || '') + '</p><p class="section-note">Offline? Here\'s today\'s verse anyway.</p>';
-    card.classList.add('verse-card-loaded');
-    updateDailyVerseWhispers(fb.ref, fb.text || '');
-    return;
-  }
-  card.innerHTML = '<strong>' + escapeHtml(ref) + '</strong><p>' + escapeHtml(bible[ref] || '') + '</p>';
-  var contextHtml = buildVerseContextHtml(ref);
-  if (contextHtml) card.insertAdjacentHTML('beforeend', contextHtml);
-  card.classList.remove('verse-card-loading');
-  card.classList.add('verse-card-loaded');
-  updateDailyVerseWhispers(ref, bible[ref] || '');
 }
 
 if (typeof window !== 'undefined') {

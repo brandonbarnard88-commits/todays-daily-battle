@@ -583,6 +583,8 @@
 
   function ensureActionRow(container) {
     if (!container || typeof container.querySelector !== 'function') return container;
+    /* Verse of the Day: share row is a sibling of #daily-verse-card — append button beside Share/Copy */
+    if (container.classList && container.classList.contains('verse-card-actions')) return container;
     var existing = container.querySelector('.card-actions, .mystudy-share-actions, .verse-actions, .cta-group, .tdb-verse-actions');
     if (existing) return existing;
     var row = document.createElement('div');
@@ -676,9 +678,24 @@
     return container.querySelector('.card-actions, .verse-actions, .mystudy-share-actions, .cta-group');
   }
 
+  function stripBreakdownInVerseOfDaySection() {
+    var section = document.getElementById('verse-of-day');
+    if (!section || !section.querySelectorAll) return;
+    section.querySelectorAll('.tdb-breakdown-btn').forEach(function (b) { b.remove(); });
+    section.querySelectorAll('.tdb-verse-actions').forEach(function (w) {
+      if (w.children.length === 0 && w.parentNode) w.remove();
+    });
+  }
+
   function enhanceVerseContainers(root) {
     var host = root && root.querySelectorAll ? root : document;
+    /* IDs before .verse-card so #daily-verse-card is not consumed first as a generic .verse-card */
     var selectors = [
+      '#daily-verse-card',
+      '#daily-battle-card',
+      '#church-daily-verse-card',
+      '#concordance-verse-card',
+      '#verse-maps-verse-card',
       '.verse-card',
       '.smart-card',
       '.verse-item',
@@ -688,12 +705,7 @@
       '.bible-study-verse-card',
       '.verse-of-week-panel',
       '.verse-maps-verse-item',
-      '.concordance-ref-item',
-      '#daily-battle-card',
-      '#daily-verse-card',
-      '#church-daily-verse-card',
-      '#concordance-verse-card',
-      '#verse-maps-verse-card'
+      '.concordance-ref-item'
     ];
     var seen = new Set();
     selectors.forEach(function (sel) {
@@ -703,7 +715,14 @@
         if (el.classList && el.classList.contains('daily-battle-loading')) return;
         var pair = extractRefAndText(el);
         if (!pair.ref || !pair.text) return;
-        var row = findActionRow(el) || el;
+        var row;
+        if (el.id === 'daily-verse-card') {
+          var vod = document.getElementById('verse-of-day');
+          var actions = vod && vod.querySelector('.verse-card-actions');
+          row = actions || findActionRow(el) || el;
+        } else {
+          row = findActionRow(el) || el;
+        }
         addButton(row, pair.ref, pair.text);
       });
     });
@@ -714,6 +733,11 @@
     window.__tdbVerseBreakdownAutoEnhanced = true;
     normalizeExistingBreakdownButtons(document);
     enhanceVerseContainers(document);
+    window.addEventListener('tdb-daily-verse-updated', function () {
+      stripBreakdownInVerseOfDaySection();
+      normalizeExistingBreakdownButtons(document);
+      enhanceVerseContainers(document);
+    });
     if (!document.body || typeof MutationObserver !== 'function') return;
     var queued = false;
     var observer = new MutationObserver(function () {

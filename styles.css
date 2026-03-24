@@ -9363,6 +9363,65 @@ body.red-letter-off .red-letter-card {
   filter: brightness(1.2);
   transition: filter 0.15s ease;
 }
+.patriotic-scriptures-layout,
+.patriotic-hymns-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.patriotic-scriptures-more,
+.patriotic-hymns-more {
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  background: rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+.patriotic-scriptures-more-summary,
+.patriotic-hymns-more-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  min-height: 44px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--elite-gold, #D4AF37);
+  font-family: var(--font-display, Georgia, serif);
+  list-style: none;
+  user-select: none;
+}
+.patriotic-scriptures-more-summary::-webkit-details-marker,
+.patriotic-hymns-more-summary::-webkit-details-marker { display: none; }
+.patriotic-scriptures-more-summary::after,
+.patriotic-hymns-more-summary::after {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: -0.2rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+.patriotic-scriptures-more[open] > .patriotic-scriptures-more-summary::after,
+.patriotic-hymns-more[open] > .patriotic-hymns-more-summary::after {
+  transform: rotate(-135deg);
+  margin-top: 0.15rem;
+}
+.patriotic-scriptures-more-summary:focus-visible,
+.patriotic-hymns-more-summary:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--elite-gold, #D4AF37) 70%, transparent);
+  outline-offset: 2px;
+}
+.patriotic-scriptures-grid--more,
+.patriotic-hymns-grid--more {
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
 .patriotic-scriptures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
 .patriotic-scriptures-card { padding: 1rem; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.25); background: rgba(0,0,0,0.2); }
 .patriotic-scriptures-ref { font-weight: 700; font-size: 0.95rem; color: var(--elite-gold, #D4AF37); margin: 0 0 0.5rem; }

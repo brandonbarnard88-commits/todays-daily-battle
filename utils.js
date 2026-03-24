@@ -23,65 +23,143 @@
     { title: 'God Bless America', author: 'Irving Berlin', year: 1938, excerpt: 'God bless America, land that I love. / Stand beside her, and guide her / Through the night with a light from above. / From the mountains, to the prairies, / To the oceans, white with foam; / God bless America, my home sweet home.', note: 'Prayer for God\'s blessing, guidance, and light upon the nation—home sweet home.', fullLyrics: 'God bless America, land that I love.\nStand beside her, and guide her\nThrough the night with a light from above.\nFrom the mountains, to the prairies,\nTo the oceans, white with foam;\nGod bless America, my home sweet home.\n\nGod bless America, land that I love.\nStand beside her, and guide her\nThrough the night with a light from above.\nFrom the mountains, to the prairies,\nTo the oceans, white with foam;\nGod bless America, my home sweet home.' }
   ];
 
+  function buildPatrioticScriptureCard(v) {
+    var card = document.createElement('div');
+    card.className = 'patriotic-scriptures-card';
+    var refEl = document.createElement('p');
+    refEl.className = 'patriotic-scriptures-ref';
+    refEl.textContent = v.ref;
+    var textEl = document.createElement('blockquote');
+    textEl.className = 'patriotic-scriptures-text';
+    textEl.textContent = v.text;
+    var noteEl = document.createElement('p');
+    noteEl.className = 'patriotic-scriptures-note';
+    noteEl.textContent = v.note;
+    var actions = document.createElement('div');
+    actions.className = 'patriotic-scriptures-actions';
+    var prayBtn = document.createElement('button');
+    prayBtn.type = 'button';
+    prayBtn.className = 'btn btn-secondary patriotic-pray-btn';
+    prayBtn.textContent = 'Pray this verse';
+    prayBtn.setAttribute('aria-label', 'Pray this verse — ' + v.ref);
+    prayBtn.onclick = function () {
+      if (typeof trackEvent === 'function') trackEvent('patriotic_pray', { ref: v.ref });
+      var input = document.getElementById('quick-pray');
+      var wrap = document.getElementById('quick-pray-wrap');
+      if (input) {
+        input.value = v.ref + ' — for our nation';
+        input.focus();
+        if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (typeof showEliteToast === 'function') showEliteToast('Verse added—tap Pray when ready.');
+        else { var fb = document.getElementById('quick-pray-feedback'); if (fb) { fb.textContent = 'Verse added—tap Pray when ready.'; fb.style.display = 'block'; setTimeout(function () { fb.style.display = 'none'; }, 2500); } }
+      }
+    };
+    var shareBtn = document.createElement('button');
+    shareBtn.type = 'button';
+    shareBtn.className = 'btn btn-secondary patriotic-share-btn';
+    shareBtn.textContent = 'Share';
+    shareBtn.setAttribute('aria-label', 'Share — ' + v.ref);
+    shareBtn.onclick = function () {
+      if (typeof trackEvent === 'function') trackEvent('patriotic_share', { ref: v.ref });
+      if (typeof shareVerse === 'function') shareVerse(v.ref, v.text);
+      else if (navigator.clipboard) navigator.clipboard.writeText(v.ref + '\n\n' + v.text).then(function () { if (typeof showEliteToast === 'function') showEliteToast('Copied.'); });
+    };
+    actions.appendChild(prayBtn);
+    actions.appendChild(shareBtn);
+    card.appendChild(refEl);
+    card.appendChild(textEl);
+    card.appendChild(noteEl);
+    card.appendChild(actions);
+    return card;
+  }
+
   function renderPatrioticScriptures() {
     var grid = document.getElementById('patriotic-scriptures-grid');
     if (!grid) return;
     grid.innerHTML = '';
-    PATRIOTIC_SCRIPTURES.forEach(function (v) {
-      var card = document.createElement('div');
-      card.className = 'patriotic-scriptures-card';
-      var refEl = document.createElement('p');
-      refEl.className = 'patriotic-scriptures-ref';
-      refEl.textContent = v.ref;
-      var textEl = document.createElement('blockquote');
-      textEl.className = 'patriotic-scriptures-text';
-      textEl.textContent = v.text;
-      var noteEl = document.createElement('p');
-      noteEl.className = 'patriotic-scriptures-note';
-      noteEl.textContent = v.note;
-      var actions = document.createElement('div');
-      actions.className = 'patriotic-scriptures-actions';
-      var prayBtn = document.createElement('button');
-      prayBtn.type = 'button';
-      prayBtn.className = 'btn btn-secondary patriotic-pray-btn';
-      prayBtn.textContent = 'Pray this verse';
-      prayBtn.setAttribute('aria-label', 'Pray this verse — ' + v.ref);
-      prayBtn.onclick = function () {
-        if (typeof trackEvent === 'function') trackEvent('patriotic_pray', { ref: v.ref });
-        var input = document.getElementById('quick-pray');
-        var wrap = document.getElementById('quick-pray-wrap');
-        if (input) {
-          input.value = v.ref + ' — for our nation';
-          input.focus();
-          if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          if (typeof showEliteToast === 'function') showEliteToast('Verse added—tap Pray when ready.');
-          else { var fb = document.getElementById('quick-pray-feedback'); if (fb) { fb.textContent = 'Verse added—tap Pray when ready.'; fb.style.display = 'block'; setTimeout(function () { fb.style.display = 'none'; }, 2500); } }
-        }
-      };
-      var shareBtn = document.createElement('button');
-      shareBtn.type = 'button';
-      shareBtn.className = 'btn btn-secondary patriotic-share-btn';
-      shareBtn.textContent = 'Share';
-      shareBtn.setAttribute('aria-label', 'Share — ' + v.ref);
-      shareBtn.onclick = function () {
-        if (typeof trackEvent === 'function') trackEvent('patriotic_share', { ref: v.ref });
-        if (typeof shareVerse === 'function') shareVerse(v.ref, v.text);
-        else if (navigator.clipboard) navigator.clipboard.writeText(v.ref + '\n\n' + v.text).then(function () { if (typeof showEliteToast === 'function') showEliteToast('Copied.'); });
-      };
-      actions.appendChild(prayBtn);
-      actions.appendChild(shareBtn);
-      card.appendChild(refEl);
-      card.appendChild(textEl);
-      card.appendChild(noteEl);
-      card.appendChild(actions);
-      grid.appendChild(card);
+    grid.className = 'patriotic-scriptures-layout';
+    var list = PATRIOTIC_SCRIPTURES;
+    if (!list.length) return;
+    grid.appendChild(buildPatrioticScriptureCard(list[0]));
+    if (list.length < 2) return;
+    var moreCount = list.length - 1;
+    var details = document.createElement('details');
+    details.className = 'patriotic-scriptures-more';
+    var summary = document.createElement('summary');
+    summary.className = 'patriotic-scriptures-more-summary';
+    var summaryLabel = document.createElement('span');
+    summaryLabel.className = 'patriotic-scriptures-more-label';
+    summaryLabel.textContent = 'Show ' + moreCount + ' more passage' + (moreCount === 1 ? '' : 's');
+    summary.appendChild(summaryLabel);
+    var innerGrid = document.createElement('div');
+    innerGrid.className = 'patriotic-scriptures-grid patriotic-scriptures-grid--more';
+    for (var i = 1; i < list.length; i++) {
+      innerGrid.appendChild(buildPatrioticScriptureCard(list[i]));
+    }
+    details.appendChild(summary);
+    details.appendChild(innerGrid);
+    grid.appendChild(details);
+    details.addEventListener('toggle', function () {
+      if (details.open && typeof trackEvent === 'function') {
+        trackEvent('patriotic_scriptures_expand', { count: moreCount });
+      }
     });
+  }
+
+  function buildPatrioticHymnCard(h, openHymnModal) {
+    var card = document.createElement('div');
+    card.className = 'patriotic-hymns-card';
+    var titleEl = document.createElement('h3');
+    titleEl.className = 'patriotic-hymns-card-title';
+    titleEl.textContent = h.title;
+    var metaEl = document.createElement('p');
+    metaEl.className = 'patriotic-hymns-card-meta';
+    metaEl.textContent = h.author + ', ' + h.year;
+    var excerptEl = document.createElement('blockquote');
+    excerptEl.className = 'patriotic-hymns-card-excerpt';
+    excerptEl.textContent = h.excerpt;
+    var noteEl = document.createElement('p');
+    noteEl.className = 'patriotic-hymns-card-note';
+    noteEl.textContent = h.note;
+    var actions = document.createElement('div');
+    actions.className = 'patriotic-hymns-card-actions';
+    var singBtn = document.createElement('button');
+    singBtn.type = 'button';
+    singBtn.className = 'btn btn-secondary patriotic-hymns-sing-btn';
+    singBtn.textContent = 'Sing with Me';
+    singBtn.setAttribute('aria-label', 'Sing with Me — ' + h.title);
+    singBtn.onclick = function () { openHymnModal(h); };
+    var prayBtn = document.createElement('button');
+    prayBtn.type = 'button';
+    prayBtn.className = 'btn btn-secondary patriotic-hymns-pray-btn';
+    prayBtn.textContent = 'Pray with This Hymn';
+    prayBtn.setAttribute('aria-label', 'Pray with This Hymn — ' + h.title);
+    prayBtn.onclick = function () {
+      var input = document.getElementById('quick-pray');
+      var wrap = document.getElementById('quick-pray-wrap');
+      if (input) {
+        input.value = h.title + ' — for our nation';
+        input.focus();
+        if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (typeof showEliteToast === 'function') showEliteToast('Hymn added—tap Pray when ready.');
+        else { var fb = document.getElementById('quick-pray-feedback'); if (fb) { fb.textContent = 'Hymn added—tap Pray when ready.'; fb.style.display = 'block'; setTimeout(function () { fb.style.display = 'none'; }, 2500); } }
+      }
+    };
+    actions.appendChild(singBtn);
+    actions.appendChild(prayBtn);
+    card.appendChild(titleEl);
+    card.appendChild(metaEl);
+    card.appendChild(excerptEl);
+    card.appendChild(noteEl);
+    card.appendChild(actions);
+    return card;
   }
 
   function renderPatrioticHymns() {
     var grid = document.getElementById('patriotic-hymns-grid');
     if (!grid) return;
     grid.innerHTML = '';
+    grid.className = 'patriotic-hymns-layout';
     var modal = document.getElementById('hymn-lyrics-modal');
     var modalTitle = document.getElementById('hymn-lyrics-modal-title');
     var modalBody = document.getElementById('hymn-lyrics-modal-body');
@@ -101,53 +179,31 @@
       modalClose.addEventListener('click', function () { if (window._tdbModalUntrap) { window._tdbModalUntrap(); window._tdbModalUntrap = null; } modal.classList.add('hidden'); });
       modal.addEventListener('click', function (e) { if (e.target === modal) { if (window._tdbModalUntrap) { window._tdbModalUntrap(); window._tdbModalUntrap = null; } modal.classList.add('hidden'); } });
     }
-    PATRIOTIC_HYMNS.forEach(function (h) {
-      var card = document.createElement('div');
-      card.className = 'patriotic-hymns-card';
-      var titleEl = document.createElement('h3');
-      titleEl.className = 'patriotic-hymns-card-title';
-      titleEl.textContent = h.title;
-      var metaEl = document.createElement('p');
-      metaEl.className = 'patriotic-hymns-card-meta';
-      metaEl.textContent = h.author + ', ' + h.year;
-      var excerptEl = document.createElement('blockquote');
-      excerptEl.className = 'patriotic-hymns-card-excerpt';
-      excerptEl.textContent = h.excerpt;
-      var noteEl = document.createElement('p');
-      noteEl.className = 'patriotic-hymns-card-note';
-      noteEl.textContent = h.note;
-      var actions = document.createElement('div');
-      actions.className = 'patriotic-hymns-card-actions';
-      var singBtn = document.createElement('button');
-      singBtn.type = 'button';
-      singBtn.className = 'btn btn-secondary patriotic-hymns-sing-btn';
-      singBtn.textContent = 'Sing with Me';
-      singBtn.setAttribute('aria-label', 'Sing with Me — ' + h.title);
-      singBtn.onclick = function () { openHymnModal(h); };
-      var prayBtn = document.createElement('button');
-      prayBtn.type = 'button';
-      prayBtn.className = 'btn btn-secondary patriotic-hymns-pray-btn';
-      prayBtn.textContent = 'Pray with This Hymn';
-      prayBtn.setAttribute('aria-label', 'Pray with This Hymn — ' + h.title);
-      prayBtn.onclick = function () {
-        var input = document.getElementById('quick-pray');
-        var wrap = document.getElementById('quick-pray-wrap');
-        if (input) {
-          input.value = h.title + ' — for our nation';
-          input.focus();
-          if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          if (typeof showEliteToast === 'function') showEliteToast('Hymn added—tap Pray when ready.');
-          else { var fb = document.getElementById('quick-pray-feedback'); if (fb) { fb.textContent = 'Hymn added—tap Pray when ready.'; fb.style.display = 'block'; setTimeout(function () { fb.style.display = 'none'; }, 2500); } }
-        }
-      };
-      actions.appendChild(singBtn);
-      actions.appendChild(prayBtn);
-      card.appendChild(titleEl);
-      card.appendChild(metaEl);
-      card.appendChild(excerptEl);
-      card.appendChild(noteEl);
-      card.appendChild(actions);
-      grid.appendChild(card);
+    var list = PATRIOTIC_HYMNS;
+    if (!list.length) return;
+    grid.appendChild(buildPatrioticHymnCard(list[0], openHymnModal));
+    if (list.length < 2) return;
+    var moreCount = list.length - 1;
+    var details = document.createElement('details');
+    details.className = 'patriotic-hymns-more';
+    var summary = document.createElement('summary');
+    summary.className = 'patriotic-hymns-more-summary';
+    var summaryLabel = document.createElement('span');
+    summaryLabel.className = 'patriotic-hymns-more-label';
+    summaryLabel.textContent = 'Show ' + moreCount + ' more hymn' + (moreCount === 1 ? '' : 's');
+    summary.appendChild(summaryLabel);
+    var innerGrid = document.createElement('div');
+    innerGrid.className = 'patriotic-hymns-grid patriotic-hymns-grid--more';
+    for (var i = 1; i < list.length; i++) {
+      innerGrid.appendChild(buildPatrioticHymnCard(list[i], openHymnModal));
+    }
+    details.appendChild(summary);
+    details.appendChild(innerGrid);
+    grid.appendChild(details);
+    details.addEventListener('toggle', function () {
+      if (details.open && typeof trackEvent === 'function') {
+        trackEvent('patriotic_hymns_expand', { count: moreCount });
+      }
     });
   }
 

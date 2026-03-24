@@ -18,8 +18,6 @@ const EXCLUDE = new Set([
   'ansiedad.html',
   'fuerza.html',
   'paz.html',
-  'curriculum.html',
-  'action-bible-workshop.html',
   'node_modules',
   'dist',
   '.git',

@@ -18417,6 +18417,9 @@ function sanitizeNudgeElements() {
         if (e.key === 'Enter') postPrayerWallFromInput();
       });
     }
+    try {
+      if (typeof window !== 'undefined') window.__tdbPrayerWallHandlersWired = true;
+    } catch (eWirePw) {}
 
     // ── Initial load: local first, then pull cloud if signed in ──────────────
     render();

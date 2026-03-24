@@ -29,7 +29,7 @@ export const STORY_HTML_MARKERS = [
   'kids-corner.js?v=20260331kidsnav',
   'kids-page-sky.css?v=20260331',
   'uFuzzy.iife.min.js',
-  'kids-battle.js?v=20260330kidslib',
+  'kids-battle.js?v=20260323kidslib',
   'TDB_PANEL_RASTER',
   'nunito-latin.woff2',
   '/kids/panel-david-1.svg'

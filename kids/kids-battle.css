@@ -172,10 +172,10 @@
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.4rem 0.5rem;
+  padding: 0.4rem 0.35rem;
   min-width: 0;
   flex: 1 1 0;
-  max-width: 5.5rem;
+  max-width: 4.75rem;
   text-decoration: none;
   color: rgba(226, 232, 240, 0.7);
   font-family: 'Nunito', sans-serif;
@@ -2702,6 +2702,9 @@
   margin: 0 0 0.75rem;
   justify-content: center;
   text-align: center;
+}
+.kids-footer .kids-corner-story-master-footer {
+  margin: 0.5rem 0 0.85rem;
 }
 .kids-story-master-dashboard #story-progress,
 .kids-corner-story-master-footer #corner-story-progress {

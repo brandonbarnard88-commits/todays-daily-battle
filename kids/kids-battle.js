@@ -5893,6 +5893,8 @@
     let ctx = canvas.getContext('2d');
     let drawing = false;
     let lastX = 0, lastY = 0;
+    let rafMove = null;
+    let pendingClient = null;
 
     function initCanvas() {
       ctx.fillStyle = '#ffffff';
@@ -5914,15 +5916,19 @@
       lastY = (e.clientY - rect.top) * scaleY;
     }
 
-    function draw(e) {
-      if (!drawing) return;
+    /** Coalesce move events to one stroke per frame (smoother on low-end phones). */
+    function flushDrawMove() {
+      rafMove = null;
+      if (!drawing || pendingClient == null) return;
+      const e = pendingClient;
+      pendingClient = null;
       const rect = canvas.getBoundingClientRect();
       const scaleX = canvas.width / rect.width;
       const scaleY = canvas.height / rect.height;
       const x = (e.clientX - rect.left) * scaleX;
       const y = (e.clientY - rect.top) * scaleY;
       ctx.strokeStyle = colorInput ? colorInput.value : '#000';
-      ctx.lineWidth = sizeInput ? sizeInput.value : 6;
+      ctx.lineWidth = sizeInput ? Number(sizeInput.value) : 6;
       ctx.lineCap = 'round';
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
@@ -5932,7 +5938,21 @@
       lastY = y;
     }
 
-    function stopDraw() { drawing = false; }
+    function scheduleDrawMove(e) {
+      if (!drawing) return;
+      pendingClient = { clientX: e.clientX, clientY: e.clientY };
+      if (rafMove == null) rafMove = requestAnimationFrame(flushDrawMove);
+    }
+
+    function stopDraw() {
+      if (rafMove != null) {
+        cancelAnimationFrame(rafMove);
+        rafMove = null;
+      }
+      if (drawing && pendingClient != null) flushDrawMove();
+      drawing = false;
+      pendingClient = null;
+    }
 
     function saveToLocal() {
       try {
@@ -5980,7 +6000,7 @@
     });
 
     canvas.addEventListener('mousedown', startDraw);
-    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mousemove', scheduleDrawMove);
     canvas.addEventListener('mouseup', stopDraw);
     canvas.addEventListener('mouseleave', stopDraw);
 
@@ -5992,7 +6012,7 @@
     canvas.addEventListener('touchmove', function (e) {
       e.preventDefault();
       const t = e.touches[0];
-      draw({ clientX: t.clientX, clientY: t.clientY });
+      scheduleDrawMove({ clientX: t.clientX, clientY: t.clientY });
     });
     canvas.addEventListener('touchend', stopDraw);
 

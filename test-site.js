@@ -14,7 +14,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', 'id="family-armor-stories-btn"', 'href="#armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'script.js?v=20260324armorflow'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', 'id="family-armor-stories-btn"', 'href="#armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'script.js?v=20260324armorflow', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
@@ -60,9 +60,9 @@ const pages = [
   { path: '/shop.html', name: 'Shop', mustInclude: ['Equip Your Battle', 'Battle Mug', 'Coming Soon'] },
   { path: '/progress.html', name: 'Progress', mustInclude: ['Progress', 'Current Streak'] },
   { path: '/wins.html', name: 'Wins', mustInclude: ['Battle Wins', 'Copy My Wins', 'Generate Share Graphic'] },
-  { path: '/ansiedad.html', name: 'Topic Ansiedad (ES)', mustInclude: ['Ansiedad', 'preocupación', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/ansiedad.html"', 'versículos KJV y oración cuando la preocupación'] },
-  { path: '/fuerza.html', name: 'Topic Fuerza (ES)', mustInclude: ['Fuerza', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/fuerza.html"', 'Fuerza en Cristo: versículos KJV'] },
-  { path: '/paz.html', name: 'Topic Paz (ES)', mustInclude: ['Paz', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/paz.html"', 'Paz de Dios: versículos KJV'] },
+  { path: '/ansiedad.html', name: 'Topic Ansiedad (ES)', mustInclude: ['Ansiedad', 'preocupación', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/ansiedad.html"', 'versículos KJV y oración cuando la preocupación', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'aria-label="Spanish topic: Ansiedad (anxiety)"'] },
+  { path: '/fuerza.html', name: 'Topic Fuerza (ES)', mustInclude: ['Fuerza', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/fuerza.html"', 'Fuerza en Cristo: versículos KJV', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'] },
+  { path: '/paz.html', name: 'Topic Paz (ES)', mustInclude: ['Paz', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/paz.html"', 'Paz de Dios: versículos KJV', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'] },
   { path: '/church/index.html', name: 'Church Join Hub', mustInclude: ['Church Join Hub', 'Join Hub'] },
 ];
 

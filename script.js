@@ -19639,7 +19639,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260424-sw-v122-tier2-cache-nav', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260326-sw-v123-es-mas-ayuda', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

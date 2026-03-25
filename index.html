@@ -6719,7 +6719,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260424-sw-v122-tier2-cache-nav", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260326-sw-v123-es-mas-ayuda", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

@@ -110,6 +110,8 @@ const SOCIAL_PURGE_PATHS = [
   '/fuerza',
   '/paz.html',
   '/paz',
+  '/styles.css',
+  '/styles.css?v=20260326es-mas-ayuda',
   '/study.html',
   '/study',
   '/reader.html',

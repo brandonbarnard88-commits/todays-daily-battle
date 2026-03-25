@@ -240,11 +240,12 @@ const purgeMjs = read('scripts/cloudflare-purge.mjs');
 if (
   !purgeMjs.includes("'/ansiedad.html'") ||
   !purgeMjs.includes("'/fuerza.html'") ||
-  !purgeMjs.includes("'/paz.html'")
+  !purgeMjs.includes("'/paz.html'") ||
+  !purgeMjs.includes("'/styles.css?v=20260326es-mas-ayuda'")
 ) {
-  fail('scripts/cloudflare-purge.mjs: Spanish topical paths missing from purge list');
+  fail('scripts/cloudflare-purge.mjs: Spanish/CSS purge paths missing from SOCIAL_PURGE_PATHS');
 } else {
-  ok('cloudflare-purge.mjs: Spanish topical purge paths present');
+  ok('cloudflare-purge.mjs: Spanish topical + ES styles purge paths present');
 }
 
 // 6. config.js not committed with secrets (recommend .gitignore)

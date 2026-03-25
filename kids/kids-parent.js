@@ -138,18 +138,29 @@
     } catch (e) { callback([]); }
   }
 
+  function clearGallery(gallery) {
+    while (gallery.firstChild) gallery.removeChild(gallery.firstChild);
+  }
+
   function renderDoodles() {
     const gallery = document.getElementById('parent-doodles-gallery');
     if (!gallery) return;
-    gallery.innerHTML = '<p class="kids-doodles-loading">Loading doodles…</p>';
+    clearGallery(gallery);
+    var loadingP = document.createElement('p');
+    loadingP.className = 'kids-doodles-loading';
+    loadingP.textContent = 'Loading doodles…';
+    gallery.appendChild(loadingP);
     var localItems = getDoodleGallery().map(function (item) {
       return { dataUrl: item.dataUrl, date: item.date, kidName: getKidName() || 'Kiddo', fromStorage: false };
     });
     fetchDoodlesFromStorage(function (storageItems) {
       var items = storageItems.length > 0 ? storageItems : localItems.slice(0, 5);
-      gallery.innerHTML = '';
+      clearGallery(gallery);
       if (items.length === 0) {
-        gallery.innerHTML = '<p class="kids-no-doodles">No doodles saved yet. Open Kids Battle and save a drawing to start your gallery.</p>';
+        var emptyP = document.createElement('p');
+        emptyP.className = 'kids-no-doodles';
+        emptyP.textContent = 'No doodles saved yet. Open Kids Battle and save a drawing to start your gallery.';
+        gallery.appendChild(emptyP);
         return;
       }
       items.forEach(function (item) {
@@ -266,7 +277,7 @@
     const row = document.getElementById('parent-library-badges');
     if (!row) return;
     const viewedCount = getViewedStories().length;
-    row.innerHTML = '';
+    while (row.firstChild) row.removeChild(row.firstChild);
     const badges = [
       { id: 'story-explorer', min: 10, icon: '🛡️', label: 'Story Explorer', text: '10 stories explored!' },
       { id: 'bible-champ', min: 20, icon: '👑', label: 'Bible Champ', text: '20 stories—wow!' }
@@ -276,7 +287,7 @@
         const span = document.createElement('span');
         span.className = 'kids-library-badge ' + b.id + ' kids-badge-fade-in';
         span.setAttribute('aria-label', b.label + ': ' + b.text);
-        span.innerHTML = escapeHtml(b.icon + ' ' + b.label + ' — ' + b.text);
+        span.textContent = b.icon + ' ' + b.label + ' — ' + b.text;
         row.appendChild(span);
       }
     });
@@ -310,9 +321,17 @@
     const viewed = getViewedStories();
     const stories = (typeof window !== 'undefined' && window.TDB_BIBLE_STORIES) ? window.TDB_BIBLE_STORIES : {};
     const last5 = viewed.slice(-5).reverse();
-    grid.innerHTML = '';
+    while (grid.firstChild) grid.removeChild(grid.firstChild);
     if (last5.length === 0) {
-      grid.innerHTML = '<p class="kids-no-favorites">No stories viewed yet. Explore one together in <a href="corner.html">Kids Story Library</a> and it will show up here.</p>';
+      var emptyFav = document.createElement('p');
+      emptyFav.className = 'kids-no-favorites';
+      emptyFav.appendChild(document.createTextNode('No stories viewed yet. Explore one together in '));
+      var libLink = document.createElement('a');
+      libLink.href = 'corner.html';
+      libLink.textContent = 'Kids Story Library';
+      emptyFav.appendChild(libLink);
+      emptyFav.appendChild(document.createTextNode(' and it will show up here.'));
+      grid.appendChild(emptyFav);
       return;
     }
     last5.forEach(function (key) {

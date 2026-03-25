@@ -77,6 +77,7 @@ const rootFiles = [
   'church.css',
   'loop-player.css',
   'kids-corner.css',
+  'kids-corner-daily-verse.js',
   'mystudy.css',
   'script.js',
   'script.js.map',

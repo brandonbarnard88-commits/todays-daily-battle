@@ -11359,6 +11359,9 @@ function renderDailyVerse() {
 if (typeof window !== 'undefined') {
   window.getDailyVerseRef = getDailyVerseRef;
   window.getBibleVerseText = getBibleVerseText;
+  window.getDailyKey = getDailyKey;
+  window.getDailyBattleFromSupabaseForKey = getDailyBattleFromSupabaseForKey;
+  window.getDailyBattleFallbackForKey = getDailyBattleFallbackForKey;
   Object.defineProperty(window, 'bible', { get: function () { return bible; }, configurable: true });
 }
 

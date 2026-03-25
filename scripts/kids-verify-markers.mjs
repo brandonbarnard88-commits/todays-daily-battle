@@ -16,7 +16,7 @@ export const LOOP_HTML_MARKERS = [
   'loop-pdf-export',
   'aria-describedby="loop-pdf-export-count-hint loop-pdf-export-hint"',
   'script.js?v=20260328feelwire',
-  'kids-corner.css?v=7'
+  'kids-corner.css?v=8'
 ];
 
 export const STORY_HTML_MARKERS = [

@@ -11,7 +11,6 @@ const url = (process.env.LIVE_SITE_URL || 'https://todaysdailybattle.com').repla
 
 const NEED = [
   { label: 'default-src self', re: /default-src\s+'self'/i },
-  { label: "require-trusted-types-for 'script'", re: /require-trusted-types-for\s+'script'/i },
   { label: 'trusted-types default dompurify', re: /trusted-types\s+[^;]*\bdefault\b[^;]*\bdompurify\b/i },
   { label: 'frame-ancestors', re: /frame-ancestors\s+'none'/i },
   { label: 'object-src', re: /object-src\s+'none'/i },
@@ -57,7 +56,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('verify-live-csp: OK', url, '→ CSP has Trusted Types + core directives');
+  console.log('verify-live-csp: OK', url, '→ CSP has trusted-types allowlist + core directives');
 }
 
 main();

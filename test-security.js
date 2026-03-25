@@ -79,10 +79,12 @@ if (!headersForCsp.includes('Content-Security-Policy')) {
 } else {
   ok('CSP present in _headers (HTTP header — correct)');
 }
-if (!headersForCsp.includes("require-trusted-types-for 'script'")) {
-  fail('_headers: CSP must require Trusted Types for script sinks');
+// require-trusted-types-for 'script' removed: strict sink enforcement breaks third-party scripts (e.g. GA/gtag)
+// that assign plain strings to HTML sinks; tt-bootstrap still wraps innerHTML via default + dompurify policies.
+if (headersForCsp.includes("require-trusted-types-for 'script'")) {
+  warn('CSP: require-trusted-types-for script is set — may cause TrustedHTML console violations with third-party JS');
 } else {
-  ok('CSP: require-trusted-types-for script');
+  ok('CSP: no require-trusted-types-for (third-party-safe; Trusted Types policies + tt-bootstrap sanitization remain)');
 }
 if (!headersForCsp.includes('trusted-types default dompurify')) {
   fail('_headers: CSP trusted-types must allow default and dompurify (DOMPurify internal policy)');

@@ -27,7 +27,7 @@ When deploying new seeds, Möbius enrichments (node cards/verses/prayers), Trust
 - [ ] Console: no TrustedHTML errors; `trustedTypes.defaultPolicy` returns object
 - [ ] Calm → anxiety input → verses + Möbius button
 
-**CSP header check:** `curl -sI https://todaysdailybattle.com | grep -i content-security-policy` — should include `require-trusted-types-for 'script'; trusted-types default dompurify`
+**CSP header check:** `curl -sI https://todaysdailybattle.com | grep -i content-security-policy` — should include `trusted-types default dompurify` (strict `require-trusted-types-for` is off so third-party scripts like GA do not throw TrustedHTML errors in the console)
 
 **Same check from repo:** `npm run test:live-csp` (fails if the live document has no CSP or Trusted Types fragment).
 

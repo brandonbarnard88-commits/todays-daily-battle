@@ -89,6 +89,7 @@ const rootFiles = [
   'inline-bootstrap.js',
   'ga-config.js',
   'tt-bootstrap.js',
+  'sky-ip-geo.js',
   'team-toolkit-packs-pdf.js',
   'analytics-loader.js',
   'gsc-verify.js',

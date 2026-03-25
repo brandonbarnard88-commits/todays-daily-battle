@@ -1,7 +1,7 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-v125-20260328-smart-feel-wire';
+const CACHE_NAME = 'tdb-v126-20260327-sky-ip-geo';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -64,6 +64,8 @@ const CORE_ASSETS = [
   '/share-page.js',
   '/vendor/dompurify.min.js',
   '/tt-bootstrap.js',
+  '/sky-ip-geo.js',
+  '/sky-ip-geo.js?v=20260327ipgeo',
   '/easter-eggs.js',
   '/easter-eggs.css',
   '/mobius-loop.js',
@@ -111,6 +113,7 @@ const CORE_ASSETS = [
   '/kids/kids-page-sky.css?v=20260326playful',
   '/kids/kids-page-sky.js',
   '/kids/kids-page-sky.js?v=20260326playful',
+  '/kids/kids-page-sky.js?v=20260327ipgeo',
   '/kids/kids-battle.js',
   '/kids/kids-verses-365.js',
   '/kids/kids-parent.js',
@@ -323,6 +326,12 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   const sameOrigin = url.origin === self.location.origin;
+
+  // Sky geolocation JSON — always network (edge IP must be current; do not cache in SW).
+  if (sameOrigin && url.pathname === '/api/sky-geo') {
+    event.respondWith(fetch(event.request));
+    return;
+  }
 
   if (sameOrigin && (url.pathname === TODAY_VERSE_URL || url.pathname === YESTERDAY_VERSE_URL)) {
     event.respondWith(

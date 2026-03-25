@@ -73,6 +73,22 @@ function skyClassFromSolar(now, t) {
   return 'sky-night';
 }
 
+function readSkyGeoForSolar() {
+  var todayStr = new Date().toDateString();
+  var keys = ['tdbSkyGeoGps', 'tdbSkyGeo', 'tdbSkyGeoIp'];
+  for (var ki = 0; ki < keys.length; ki++) {
+    try {
+      var raw = sessionStorage.getItem(keys[ki]);
+      if (!raw) continue;
+      var og = JSON.parse(raw);
+      if (!og || typeof og.lat !== 'number' || typeof og.lon !== 'number') continue;
+      if (og.saved !== todayStr) continue;
+      return { lat: og.lat, lon: og.lon };
+    } catch (e) {}
+  }
+  return null;
+}
+
 function getSkyClassFixed(h) {
   var isDawn  = h >= 5   && h < 7.5;
   var isDusk  = h >= 18.5 && h < 21;
@@ -83,18 +99,10 @@ function getSkyClassFixed(h) {
 function resolveSkyClassNow() {
   var now = new Date();
   try {
-    var rawGeo = sessionStorage.getItem('tdbSkyGeo');
-    if (rawGeo) {
-      var og = JSON.parse(rawGeo);
-      if (og && typeof og.lat === 'number' && typeof og.lon === 'number') {
-        var todayStr = now.toDateString();
-        if (og.saved !== todayStr) {
-          og.saved = todayStr;
-          try { sessionStorage.setItem('tdbSkyGeo', JSON.stringify(og)); } catch (e0) {}
-        }
-        var stFresh = tdbGetSunTimes(now, og.lat, og.lon);
-        if (tdbSkySolarValid(stFresh)) tdbSkySolarTimes = stFresh;
-      }
+    var coords = readSkyGeoForSolar();
+    if (coords) {
+      var stFresh = tdbGetSunTimes(now, coords.lat, coords.lon);
+      if (tdbSkySolarValid(stFresh)) tdbSkySolarTimes = stFresh;
     }
   } catch (eR) { /* keep existing tdbSkySolarTimes */ }
   var fromSun = skyClassFromSolar(now, tdbSkySolarTimes);
@@ -279,13 +287,10 @@ function updateSkyClass() {
 
 function initHeaderSky() {
   try {
-    var raw = sessionStorage.getItem('tdbSkyGeo');
-    if (raw) {
-      var o = JSON.parse(raw);
-      if (o && typeof o.lat === 'number' && typeof o.lon === 'number' && o.saved === new Date().toDateString()) {
-        var st = tdbGetSunTimes(new Date(), o.lat, o.lon);
-        if (tdbSkySolarValid(st)) tdbSkySolarTimes = st;
-      }
+    var coords0 = readSkyGeoForSolar();
+    if (coords0) {
+      var st0 = tdbGetSunTimes(new Date(), coords0.lat, coords0.lon);
+      if (tdbSkySolarValid(st0)) tdbSkySolarTimes = st0;
     }
   } catch (err) { tdbSkySolarTimes = null; }
 
@@ -315,10 +320,11 @@ function initHeaderSky() {
     navigator.geolocation.getCurrentPosition(
       function (pos) {
         var lat = pos.coords.latitude, lon = pos.coords.longitude;
+        var savedGps = new Date().toDateString();
+        var gpsPayload = JSON.stringify({ lat: lat, lon: lon, saved: savedGps });
         try {
-          sessionStorage.setItem('tdbSkyGeo', JSON.stringify({
-            lat: lat, lon: lon, saved: new Date().toDateString()
-          }));
+          sessionStorage.setItem('tdbSkyGeoGps', gpsPayload);
+          sessionStorage.setItem('tdbSkyGeo', gpsPayload);
         } catch (e2) {}
         var times = tdbGetSunTimes(new Date(), lat, lon);
         if (!tdbSkySolarValid(times)) return;
@@ -347,6 +353,22 @@ function initHeaderSky() {
     } else {
       setTimeout(requestSkyGeolocation, 2000);
     }
+  }
+
+  function refreshSkyAfterIpGeo() {
+    try {
+      var c = readSkyGeoForSolar();
+      if (c) {
+        var st = tdbGetSunTimes(new Date(), c.lat, c.lon);
+        if (tdbSkySolarValid(st)) tdbSkySolarTimes = st;
+      }
+    } catch (eIp) {}
+    updateSkyClass();
+  }
+  if (typeof window.tdbFetchSkyGeoFromIp === 'function') {
+    window.tdbFetchSkyGeoFromIp(function (changed) {
+      if (changed) refreshSkyAfterIpGeo();
+    });
   }
 }
 

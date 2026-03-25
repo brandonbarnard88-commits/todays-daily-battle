@@ -73,7 +73,7 @@
   <ul style="margin: 0.5rem 0 1rem 1.5rem;">
     <li>Prayers, notes, streaks, saved verses, and reading plans stay in <code>localStorage</code> on your device only.</li>
     <li>No data leaves your phone/computer unless you hit "sync" after signing in.</li>
-    <li>We do <strong>not</strong> ask for device GPS by default. The homepage sky uses simple time-of-day bands. If you deliberately turn on optional sunrise/sunset styling (a local browser preference), coordinates stay on your device only—they are never sent to us.</li>
+    <li>We do <strong>not</strong> ask for device GPS by default. The sky (homepage and kids) uses your browser clock plus a small same-site request that returns <strong>approximate</strong> latitude and longitude from our CDN&rsquo;s IP-based geolocation (so sunset timing matches your region better). That response is held in <code>sessionStorage</code> for the day only; we do not use it to build a profile. If you turn on optional precise GPS (a local browser preference), those coordinates stay on your device—they are never sent to us.</li>
   </ul>
   <p>This keeps your private moments truly private.</p>
 

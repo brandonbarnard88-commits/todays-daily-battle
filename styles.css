@@ -14035,6 +14035,81 @@ body.kids-battle-page .tdb-site-humility {
   outline-offset: 2px;
 }
 
+/* ES topic gloss: full width row behind one control at ≤320px */
+.site-footer nav.bottom-nav .bottom-nav-es-inline,
+.kids-footer nav.bottom-nav .bottom-nav-es-inline,
+.tool-page-footer nav.bottom-nav .bottom-nav-es-inline {
+  display: contents;
+}
+.site-footer nav.bottom-nav .bottom-nav-es-more,
+.kids-footer nav.bottom-nav .bottom-nav-es-more,
+.tool-page-footer nav.bottom-nav .bottom-nav-es-more {
+  display: none;
+}
+@media (max-width: 320px) {
+  .site-footer nav.bottom-nav .bottom-nav-es-inline,
+  .kids-footer nav.bottom-nav .bottom-nav-es-inline,
+  .tool-page-footer nav.bottom-nav .bottom-nav-es-inline {
+    display: none;
+  }
+  .site-footer nav.bottom-nav .bottom-nav-es-more,
+  .kids-footer nav.bottom-nav .bottom-nav-es-more,
+  .tool-page-footer nav.bottom-nav .bottom-nav-es-more {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0.2rem 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+  }
+  .site-footer nav.bottom-nav .bottom-nav-es-more summary,
+  .kids-footer nav.bottom-nav .bottom-nav-es-more summary,
+  .tool-page-footer nav.bottom-nav .bottom-nav-es-more summary {
+    list-style: none;
+    cursor: pointer;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text, #e2e8f0);
+    border-radius: 8px;
+    padding: 0.35rem 0.5rem;
+    box-sizing: border-box;
+  }
+  .site-footer nav.bottom-nav .bottom-nav-es-more summary::-webkit-details-marker,
+  .kids-footer nav.bottom-nav .bottom-nav-es-more summary::-webkit-details-marker,
+  .tool-page-footer nav.bottom-nav .bottom-nav-es-more summary::-webkit-details-marker {
+    display: none;
+  }
+  .site-footer nav.bottom-nav .bottom-nav-es-more-panel,
+  .kids-footer nav.bottom-nav .bottom-nav-es-more-panel,
+  .tool-page-footer nav.bottom-nav .bottom-nav-es-more-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.35rem 0.55rem;
+    padding: 0.4rem 0 0.15rem;
+  }
+  .site-footer nav.bottom-nav .bottom-nav-es-more-panel a,
+  .kids-footer nav.bottom-nav .bottom-nav-es-more-panel a,
+  .tool-page-footer nav.bottom-nav .bottom-nav-es-more-panel a {
+    font-size: 0.62rem;
+    padding: 0.42rem 0.2rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
 .last-updated {
   font-size: 0.75rem;
   opacity: 0.6;
@@ -14185,14 +14260,37 @@ body.kids-battle-page .tdb-site-humility {
   .site-footer nav.bottom-nav,
   .kids-footer nav.bottom-nav,
   .tool-page-footer nav.bottom-nav {
-    gap: 0.22rem 0.32rem;
-    padding: 0.45rem 0.28rem;
+    /* Favor two short rows over one cramped line on very narrow viewports */
+    gap: 0.38rem 0.22rem;
+    padding: 0.42rem 0.22rem;
+    align-content: center;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .site-footer nav.bottom-nav a,
   .kids-footer nav.bottom-nav a,
   .tool-page-footer nav.bottom-nav a {
-    font-size: 0.7rem;
-    padding: 0.42rem 0.08rem;
+    font-size: 0.66rem;
+    padding: 0.44rem 0.05rem;
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 320px) {
+  .site-footer nav.bottom-nav,
+  .kids-footer nav.bottom-nav,
+  .tool-page-footer nav.bottom-nav {
+    gap: 0.4rem 0.18rem;
+    padding: 0.38rem 0.18rem;
+  }
+  .site-footer nav.bottom-nav a,
+  .kids-footer nav.bottom-nav a,
+  .tool-page-footer nav.bottom-nav a {
+    font-size: 0.62rem;
+    letter-spacing: -0.022em;
+    padding: 0.42rem 0.04rem;
   }
 }
 

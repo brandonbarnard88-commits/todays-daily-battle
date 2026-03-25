@@ -70,10 +70,20 @@
     <a href="/calm.html">Calm</a>
     <a href="/explore.html">Explore</a>
     <a href="/kids/">Kids</a>
-    <!-- Fixed bar: English gloss for ES topic URLs (same on all locales). Devotional row above keeps Spanish link titles. -->
-    <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
-    <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
-    <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    <!-- ≥321px: inline gloss. ≤320px: single “ES topics” control (styles.css) -->
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish topical pages (KJV on page)">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
   </nav>
   <nav class="site-footer-nav" aria-label="Footer navigation">
     <a href="/explore.html">Explore</a>

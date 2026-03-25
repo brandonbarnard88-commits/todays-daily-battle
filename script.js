@@ -1531,6 +1531,8 @@ let lastMessageItems = [];
 const searchCache = new Map();
 const SAVED_COLLECTIONS_KEY = 'savedCollections';
 const SAVED_COLLECTION_ITEMS_KEY = 'savedCollectionItems';
+/** One-time merge of legacy hero/feel “Save to Notes” bucket into My Verses (savedCollectionItems). */
+const TDB_SAVED_NOTES_MIGRATED_KEY = 'tdb-saved-notes-migrated-v1';
 const PRAYER_LIST_KEY = 'tdb_prayer_list_v1';
 const QUICK_PRAY_DRAFT_KEY = 'tdb_quick_pray_draft';
 const QUICK_PRAY_COUNT_PREFIX = 'tdb_quick_pray_count_';
@@ -5437,20 +5439,21 @@ function renderSmartResult(query) {
   var saveBtn = document.createElement('button');
   saveBtn.type = 'button';
   saveBtn.className = 'smart-action-btn';
-  saveBtn.textContent = 'Save to Notes';
+  saveBtn.textContent = 'Save to My Verses';
   saveBtn.addEventListener('click', function() {
-    try {
-      var noteKey = 'tdb-saved-notes';
-      var existing = JSON.parse(localStorage.getItem(noteKey) || '[]');
-      var already = existing.some(function(n) { return n.ref === verse.ref; });
-      if (!already) {
-        existing.push({ ref: verse.ref, text: verse.text, savedAt: new Date().toISOString() });
-        localStorage.setItem(noteKey, JSON.stringify(existing));
-      }
-      saveBtn.textContent = 'Saved \u2713';
+    saveBtn.disabled = true;
+    saveDailyVerseToMyVerses(verse.ref, verse.text).then(function (res) {
+      saveBtn.textContent = res && res.ok ? (res.already ? 'Already saved \u2713' : 'Saved \u2713') : 'Save failed';
       saveBtn.classList.add('confirmed');
-      setTimeout(function() { saveBtn.textContent = 'Save to Notes'; saveBtn.classList.remove('confirmed'); }, 1500);
-    } catch (_) {}
+      setTimeout(function () {
+        saveBtn.textContent = 'Save to My Verses';
+        saveBtn.classList.remove('confirmed');
+        saveBtn.disabled = false;
+      }, 1600);
+    }).catch(function () {
+      saveBtn.textContent = 'Save failed';
+      setTimeout(function () { saveBtn.textContent = 'Save to My Verses'; saveBtn.disabled = false; }, 1600);
+    });
   });
 
   var shareBtn = document.createElement('button');
@@ -6196,6 +6199,8 @@ function wireOfflineBanner() {
     if (typeof flushPrayerOfflineQueue === 'function') flushPrayerOfflineQueue();
     if (typeof canUseSupabase === 'function' && canUseSupabase() && currentUserId && typeof syncUserData === 'function') {
       syncUserData().then(function() {
+        return typeof migrateLegacyTdbSavedNotesOnce === 'function' ? migrateLegacyTdbSavedNotesOnce() : Promise.resolve();
+      }).then(function() {
         if (typeof updateSyncStatusUI === 'function') updateSyncStatusUI();
         if (typeof showEliteToast === 'function') showEliteToast('Back online. Synced.');
       }).catch(function() {});
@@ -14876,6 +14881,7 @@ if (typeof window !== 'undefined') {
     var hasAuth = canUseSupabase() && !!currentUserId;
     if (!hasAuth) return { ok: false, reason: 'Not signed in or Supabase not ready.' };
     await syncUserData();
+    if (typeof migrateLegacyTdbSavedNotesOnce === 'function') await migrateLegacyTdbSavedNotesOnce();
     try {
       if (typeof window.__fetchPrayerCount === 'function') await window.__fetchPrayerCount();
     } catch (e) {}
@@ -16058,6 +16064,93 @@ async function saveDailyVerseToMyVerses(refRaw, textRaw) {
   }
 }
 if (typeof window !== 'undefined') window.tdbSaveDailyVerseToMyVerses = saveDailyVerseToMyVerses;
+
+function gatherLegacyTdbSavedNotes() {
+  var merged = [];
+  try {
+    var main = JSON.parse(localStorage.getItem('tdb-saved-notes') || '[]');
+    if (Array.isArray(main)) merged = merged.concat(main);
+  } catch (_) {}
+  try {
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (!k || k === 'tdb-saved-notes' || k.indexOf('tdb-saved-notes-') !== 0) continue;
+      var extra = JSON.parse(localStorage.getItem(k) || '[]');
+      if (Array.isArray(extra)) merged = merged.concat(extra);
+    }
+  } catch (_) {}
+  var seen = {};
+  var out = [];
+  merged.forEach(function (n) {
+    if (!n || !n.ref || !n.text) return;
+    var ref = String(n.ref).replace(/\s*\(KJV\)\s*$/i, '').trim();
+    var text = String(n.text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!ref || !text || seen[ref]) return;
+    seen[ref] = true;
+    out.push({ ref: ref, text: text });
+  });
+  return out;
+}
+
+function clearLegacyTdbSavedNotesKeys() {
+  try {
+    localStorage.setItem('tdb-saved-notes', '[]');
+  } catch (_) {}
+  try {
+    var toRemove = [];
+    for (var j = 0; j < localStorage.length; j++) {
+      var key = localStorage.key(j);
+      if (key && key.indexOf('tdb-saved-notes-') === 0) toRemove.push(key);
+    }
+    toRemove.forEach(function (rk) {
+      try { localStorage.removeItem(rk); } catch (_) {}
+    });
+  } catch (_) {}
+}
+
+/**
+ * Run after sync (signed-in) or on guest load — merges old tdb-saved-notes into My Verses, then clears legacy keys.
+ */
+async function migrateLegacyTdbSavedNotesOnce() {
+  try {
+    if (localStorage.getItem(TDB_SAVED_NOTES_MIGRATED_KEY) === '1') return;
+    var legacy = gatherLegacyTdbSavedNotes();
+    if (!legacy.length) {
+      localStorage.setItem(TDB_SAVED_NOTES_MIGRATED_KEY, '1');
+      return;
+    }
+    ensureDefaultCollection();
+    for (var i = 0; i < legacy.length; i++) {
+      await saveDailyVerseToMyVerses(legacy[i].ref, legacy[i].text);
+    }
+    clearLegacyTdbSavedNotesKeys();
+    localStorage.setItem(TDB_SAVED_NOTES_MIGRATED_KEY, '1');
+    if (typeof trackEvent === 'function') trackEvent('tdb_saved_notes_migrated', { count: legacy.length });
+    if (typeof renderSavedVerses === 'function') renderSavedVerses();
+  } catch (e) {
+    if (typeof console !== 'undefined' && console.warn) console.warn('TDB: saved-notes migration skipped', e);
+  }
+}
+
+/** Verse journal / export: My Verses first, then any unmigrated legacy notes (deduped by ref). */
+function gatherVersesForJournalExport() {
+  var seen = {};
+  var out = [];
+  function add(ref, text) {
+    var r = String(ref || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+    var t = String(text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!r || !t || seen[r]) return;
+    seen[r] = true;
+    out.push({ ref: r, text: t });
+  }
+  try {
+    var items = JSON.parse(localStorage.getItem(SAVED_COLLECTION_ITEMS_KEY) || '[]');
+    if (Array.isArray(items)) items.forEach(function (it) { if (it && it.ref && it.text) add(it.ref, it.text); });
+  } catch (_) {}
+  gatherLegacyTdbSavedNotes().forEach(function (n) { add(n.ref, n.text); });
+  return out;
+}
+if (typeof window !== 'undefined') window.tdbGatherVersesForJournalExport = gatherVersesForJournalExport;
 
 async function deleteCollectionItemFromSupabase(itemId) {
   if (!canUseSupabase() || !itemId) return;
@@ -19546,7 +19639,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260401-sw-v121-hero-save-visible', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260424-sw-v122-tier2-cache-nav', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {
@@ -19996,6 +20089,7 @@ async function tdbInitImpl() {
     const tierEl = document.getElementById('tier');
     if (tierEl) tierEl.value = userTier;
     await syncUserData();
+    await migrateLegacyTdbSavedNotesOnce();
     updateRoleViews();
     renderDashboard();
     setView(isMasterUser ? 'dashboard' : 'search');
@@ -20010,6 +20104,7 @@ async function tdbInitImpl() {
     if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
     applyRoleAccess();
     setView('search');
+    await migrateLegacyTdbSavedNotesOnce();
   }
 
   function isOnAdminPage() {
@@ -20041,6 +20136,7 @@ async function tdbInitImpl() {
       const tierEl = document.getElementById('tier');
       if (tierEl) tierEl.value = userTier;
       await syncUserData();
+      await migrateLegacyTdbSavedNotesOnce();
       updateRoleViews();
       renderDashboard();
       setView(isMasterUser ? 'dashboard' : 'search');

@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260401herovisible">
+  <link rel="modulepreload" href="script.js?v=20260425savednotes-migrate">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -4501,7 +4501,8 @@
         },
         "description": "A daily KJV Bible devotional app for people facing hard moments — fear, grief, anxiety, loneliness. One verse, every day. Free forever.",
         "sameAs": [
-          "https://todaysdailybattle.com/about.html"
+          "https://todaysdailybattle.com/about.html",
+          "https://buymeacoffee.com/todaysdailybattle"
         ]
       },
       {
@@ -5278,10 +5279,20 @@
     <a href="/calm.html">Calm</a>
     <a href="/explore.html">Explore</a>
     <a href="/kids/">Kids</a>
-    <!-- Fixed bar: English gloss for ES topic URLs (same on all locales). Devotional row above keeps Spanish link titles. -->
-    <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
-    <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
-    <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    <!-- ≥321px: inline gloss. ≤320px: single “ES topics” control (styles.css) -->
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish topical pages (KJV on page)">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
   </nav>
   <nav class="site-footer-nav" aria-label="Footer navigation">
     <a href="/explore.html">Explore</a>
@@ -6335,22 +6346,26 @@
         const saveBtn = document.createElement("button");
         saveBtn.type = "button";
         saveBtn.className = "fvc-action-btn";
-        saveBtn.textContent = "Save to Notes";
-        saveBtn.setAttribute("aria-label", "Save " + sanitizeText(entry.ref) + " to notes");
+        saveBtn.textContent = "Save to My Verses";
+        saveBtn.setAttribute("aria-label", "Save " + sanitizeText(entry.ref) + " to My Verses");
         saveBtn.addEventListener("click", () => {
-          try {
-            const key = "tdb-saved-notes";
-            const existing = JSON.parse(localStorage.getItem(key) || "[]");
-            const already = existing.some((n) => n.ref === entry.ref);
-            if (!already) {
-              existing.push({ ref: entry.ref, text: entry.text, savedAt: new Date().toISOString() });
-              localStorage.setItem(key, JSON.stringify(existing));
-            }
-            saveBtn.textContent = "Saved \u2713";
+          saveBtn.disabled = true;
+          const done = (ok, already) => {
+            saveBtn.textContent = ok ? (already ? "Already saved \u2713" : "Saved \u2713") : "Save failed";
             saveBtn.classList.add("confirmed");
-            setTimeout(() => { saveBtn.textContent = "Save to Notes"; saveBtn.classList.remove("confirmed"); }, 1500);
-          } catch (_) {}
-          if (typeof showEncouragementNudge === 'function') setTimeout(showEncouragementNudge, 800);
+            setTimeout(() => {
+              saveBtn.textContent = "Save to My Verses";
+              saveBtn.classList.remove("confirmed");
+              saveBtn.disabled = false;
+            }, 1600);
+            if (ok && typeof showEncouragementNudge === "function") setTimeout(showEncouragementNudge, 800);
+          };
+          const run = window.tdbSaveDailyVerseToMyVerses;
+          if (typeof run === "function") {
+            run(entry.ref, entry.text).then((res) => done(res && res.ok, res && res.already)).catch(() => done(false));
+          } else {
+            done(false);
+          }
         });
 
         const shareBtn = document.createElement("button");
@@ -6704,7 +6719,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260401-sw-v121-hero-save-visible", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260424-sw-v122-tier2-cache-nav", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });
@@ -7826,22 +7841,25 @@
       if (!exportBtn) return;
       exportBtn.addEventListener('click', function () {
         var notes = [];
-        try { notes = JSON.parse(localStorage.getItem('tdb-saved-notes') || '[]'); } catch (_) {}
-        // Also sweep any versioned keys (tdb-saved-notes-*)
-        try {
-          Object.keys(localStorage).forEach(function (k) {
-            if (k.startsWith('tdb-saved-notes-') && k !== 'tdb-saved-notes') {
-              var extra = JSON.parse(localStorage.getItem(k) || '[]');
-              notes = notes.concat(extra);
-            }
+        if (typeof window.tdbGatherVersesForJournalExport === 'function') {
+          try { notes = window.tdbGatherVersesForJournalExport(); } catch (_) { notes = []; }
+        }
+        if (!notes.length) {
+          try { notes = JSON.parse(localStorage.getItem('tdb-saved-notes') || '[]'); } catch (_) { notes = []; }
+          try {
+            Object.keys(localStorage).forEach(function (k) {
+              if (k.startsWith('tdb-saved-notes-') && k !== 'tdb-saved-notes') {
+                var extra = JSON.parse(localStorage.getItem(k) || '[]');
+                notes = notes.concat(extra);
+              }
+            });
+          } catch (_) {}
+          var seen = {};
+          notes = notes.filter(function (n) {
+            if (!n || !n.ref || seen[n.ref]) return false;
+            seen[n.ref] = true; return true;
           });
-        } catch (_) {}
-        // Deduplicate by ref
-        var seen = {};
-        notes = notes.filter(function (n) {
-          if (!n || !n.ref || seen[n.ref]) return false;
-          seen[n.ref] = true; return true;
-        });
+        }
         if (!notes.length) {
           exportBtn.textContent = 'No saved verses yet';
           setTimeout(function () { exportBtn.textContent = 'Export Journal'; }, 2000);
@@ -9065,7 +9083,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260401herovisible" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260425savednotes-migrate" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
 </body>

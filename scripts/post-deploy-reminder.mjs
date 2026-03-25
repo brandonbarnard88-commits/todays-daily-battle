@@ -11,7 +11,8 @@ Today's Daily Battle — after deploy
    Or full zone: npm run purge:cloudflare
 
 2. Spot-check in a private window (hard refresh once):
-     /  /verse.html  /explore.html  /plans.html  /my-verses.html  /bible-tool.html  /calm.html
+     /  /verse.html  /explore.html  /plans.html  /my-verses.html  /bible-tool.html
+     /study.html  /reader.html  /message.html  /calm.html
 
 3. PWA users: new service worker CACHE_NAME recaches shells on next visit;
    you can bump CACHE_NAME in service-worker.js anytime HTML feels sticky.

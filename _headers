@@ -24,7 +24,7 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
-# Explore, plans, My Verses, Bible Tool — high churn / user hubs (keep in sync with cloudflare-purge.mjs SOCIAL_PURGE_PATHS + SW CACHE_NAME)
+# Explore, plans, My Verses, Bible Tool, verse — high churn / user hubs (keep in sync with cloudflare-purge.mjs SOCIAL_PURGE_PATHS + SW CACHE_NAME; second tier: study / reader / message below)
 /explore.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
@@ -55,6 +55,26 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /verse
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Study workspace, chapter reader, prayer wall — second-tier churn (sync purge + SW CACHE_NAME)
+/study.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/study
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/reader.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/reader
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/message.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/message
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 

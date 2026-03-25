@@ -7249,10 +7249,6 @@ button:active {
   margin: 0;
 }
 
-.verse-save-block .btn {
-  min-height: 44px;
-}
-
 .tdb-breakdown-btn {
   border: 1px solid rgba(212, 175, 55, 0.45);
   background: linear-gradient(135deg, rgba(17, 24, 39, 0.94), rgba(51, 65, 85, 0.86));

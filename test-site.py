@@ -17,8 +17,8 @@ OFFLINE = "--offline" in sys.argv
 
 # (path, name, list of strings that must appear in body)
 PAGES = [
-    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"feel-results\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now", "Verse image generator", "sky-ip-geo.js?v=20260327ipgeo", "id=\"family-armor-stories-btn\"", "href=\"#armor-builder-btn\"", "id=\"family-armor-kids-library-link\"", "kids/corner.html", "script.js?v=20260324armorflow", "Anxiety (ES)", "Strength (ES)", "Peace (ES)"]),  # visible search results host (no hidden #output on home)
-    ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\"", "sky-ip-geo.js?v=20260327ipgeo", "script.js?v=20260324armorflow", "href=\"#armor-builder-btn\"", "Anxiety (ES)", "Strength (ES)", "Peace (ES)"]),
+    ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"feel-results\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now", "Verse image generator", "sky-ip-geo.js?v=20260327ipgeo", "id=\"family-armor-stories-btn\"", "href=\"#armor-builder-btn\"", "id=\"family-armor-kids-library-link\"", "kids/corner.html", "id=\"hero-save-my-verses\"", "script.js?v=20260331mysave", "Anxiety (ES)", "Strength (ES)", "Peace (ES)"]),  # visible search results host (no hidden #output on home)
+    ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\"", "sky-ip-geo.js?v=20260327ipgeo", "script.js?v=20260331mysave", "href=\"#armor-builder-btn\"", "id=\"hero-save-my-verses\"", "Anxiety (ES)", "Strength (ES)", "Peace (ES)"]),
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
     ("/pricing.html", "Pricing", ["Pricing", "Subscribe", "terms.html", "id=\"auth-section\"", "id=\"sidebar-toggle\""]),

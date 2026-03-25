@@ -9662,7 +9662,7 @@ function wirePrayThisWithMe() {
         btn.disabled = true;
         btn.setAttribute('aria-label', 'This verse is already in My Verses');
       } else {
-        btn.textContent = 'Save this verse';
+        btn.textContent = 'Save to My Verses';
         btn.disabled = false;
         btn.setAttribute('aria-label', 'Save today\'s verse to My Verses on this device');
       }
@@ -9730,6 +9730,103 @@ function wirePrayThisWithMe() {
       if (div) div.appendChild(btn);
     });
   }
+}
+
+/** Homepage hero: save today’s verse to My Verses (same storage path as verse.html / Bible tool). */
+function wireHeroSaveToMyVerses() {
+  var heroBtn = document.getElementById('hero-save-my-verses');
+  var menuSave = document.getElementById('heroMenuSave');
+  if (!heroBtn && !menuSave) return;
+
+  function heroGetRefAndPlainText() {
+    var refEl = document.getElementById('heroRef');
+    var verseEl = document.getElementById('heroVerse');
+    var ref = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+    var raw = verseEl ? String(verseEl.textContent || '') : '';
+    var text = raw.replace(/^[\s"\u201c]+|[\s"\u201d]+$/g, '').replace(/\s+/g, ' ').trim();
+    return { ref: ref, text: text };
+  }
+
+  function updateHeroSaveButtons() {
+    var v = heroGetRefAndPlainText();
+    var collectionId = getActiveCollectionId();
+    var exists = !!(v.ref && v.text && loadSavedCollectionItems().some(function (item) {
+      return item.ref === v.ref && item.collection_id === collectionId;
+    }));
+    if (heroBtn) {
+      if (!v.ref || !v.text) {
+        heroBtn.disabled = true;
+        heroBtn.textContent = 'Save to My Verses';
+        heroBtn.setAttribute('aria-label', 'Verse still loading');
+      } else if (exists) {
+        heroBtn.textContent = 'Saved';
+        heroBtn.disabled = true;
+        heroBtn.setAttribute('aria-label', 'This verse is already in My Verses');
+      } else {
+        heroBtn.textContent = 'Save to My Verses';
+        heroBtn.disabled = false;
+        heroBtn.setAttribute('aria-label', 'Save today\'s verse to My Verses on this device');
+      }
+    }
+    if (menuSave) {
+      if (!v.ref || !v.text) {
+        menuSave.textContent = '\uD83D\uDCBE Save';
+        menuSave.disabled = true;
+        menuSave.setAttribute('aria-label', 'Verse still loading');
+      } else if (exists) {
+        menuSave.textContent = 'Saved \u2713';
+        menuSave.disabled = true;
+        menuSave.setAttribute('aria-label', 'This verse is already in My Verses');
+      } else {
+        menuSave.textContent = '\uD83D\uDCBE My Verses';
+        menuSave.disabled = false;
+        menuSave.setAttribute('aria-label', 'Save today\'s verse to My Verses');
+      }
+    }
+  }
+
+  function runSave() {
+    var v = heroGetRefAndPlainText();
+    if (!v.ref || !v.text) return;
+    var statusEl = document.getElementById('hero-save-my-verses-status');
+    var targets = [heroBtn, menuSave].filter(Boolean);
+    targets.forEach(function (b) { b.disabled = true; });
+    saveDailyVerseToMyVerses(v.ref, v.text).then(function (res) {
+      if (res.ok && res.already) {
+        if (statusEl) statusEl.textContent = 'Already in My Verses.';
+        updateHeroSaveButtons();
+        if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
+      } else if (res.ok) {
+        if (statusEl) statusEl.textContent = 'Saved to My Verses on this device.';
+        if (typeof trackEvent === 'function') trackEvent('hero_save_my_verses', { verse_ref: v.ref });
+        updateHeroSaveButtons();
+        if (typeof showEncouragementNudge === 'function') showEncouragementNudge();
+      } else {
+        if (statusEl) statusEl.textContent = 'Could not save. Try again.';
+        targets.forEach(function (b) { b.disabled = false; });
+        if (heroBtn) heroBtn.textContent = 'Try again';
+        if (menuSave) menuSave.textContent = 'Try again';
+        setTimeout(function () { updateHeroSaveButtons(); }, 2200);
+      }
+    });
+  }
+
+  if (heroBtn) heroBtn.addEventListener('click', function (e) { e.stopPropagation(); runSave(); });
+  if (menuSave) {
+    menuSave.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var menu = document.getElementById('heroMiniMenu');
+      if (menu) {
+        menu.setAttribute('aria-hidden', 'true');
+        menu.classList.remove('hero-menu--open');
+      }
+      runSave();
+    });
+  }
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener('tdb-hero-verse-updated', updateHeroSaveButtons);
+  }
+  updateHeroSaveButtons();
 }
 
 function wireDawnDuskQuickPrayLabel() {
@@ -15960,6 +16057,7 @@ async function saveDailyVerseToMyVerses(refRaw, textRaw) {
     return { ok: false, reason: 'error' };
   }
 }
+if (typeof window !== 'undefined') window.tdbSaveDailyVerseToMyVerses = saveDailyVerseToMyVerses;
 
 async function deleteCollectionItemFromSupabase(itemId) {
   if (!canUseSupabase() || !itemId) return;
@@ -19448,7 +19546,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260324-sw-v114', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260331-sw-v120-mysave', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {
@@ -19529,6 +19627,7 @@ async function tdbInitImpl() {
   wireBreatheWithHim();
   wireQuickPrayAutocomplete();
   wirePrayThisWithMe();
+  wireHeroSaveToMyVerses();
   wireDawnDuskQuickPrayLabel();
   if (typeof updateSidebarStreak === 'function') updateSidebarStreak();
   updateFirstPrayerBadge();

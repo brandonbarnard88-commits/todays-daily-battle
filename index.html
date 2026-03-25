@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260324armorflow">
+  <link rel="modulepreload" href="script.js?v=20260331mysave">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -1495,6 +1495,35 @@
       letter-spacing: 0.01em;
     }
 
+    .hero-my-verses-row {
+      margin: 0.35rem 0 0.65rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.45rem;
+      max-width: 100%;
+    }
+    .hero-save-my-verses-btn {
+      min-height: 44px;
+      font-weight: 600;
+    }
+    .hero-my-verses-hint {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      max-width: 36rem;
+    }
+    .hero-my-verses-hint a {
+      color: var(--gold, #e3bc67);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .hero-my-verses-hint a:hover,
+    .hero-my-verses-hint a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+
     .breakdown {
       margin: 0;
       padding-left: 18px;
@@ -1549,6 +1578,7 @@
     /* ── Verse skeleton ── */
     .verse-card.is-loading .hero-verse,
     .verse-card.is-loading .verse-ref,
+    .verse-card.is-loading .hero-my-verses-row,
     .verse-card.is-loading .hero-daily-bread-line,
     .verse-card.is-loading .breakdown,
     .verse-card.is-loading .hero-breakdown-panels,
@@ -4813,6 +4843,11 @@
           </button>
         </div>
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
+        <div class="hero-my-verses-row" role="group" aria-label="Save today’s verse">
+          <button type="button" id="hero-save-my-verses" class="btn btn-secondary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
+          <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
+        </div>
+        <span id="hero-save-my-verses-status" class="sr-only" aria-live="polite"></span>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&rsquo;s daily battle.</p>
         <div class="hero-streak-wrapper">
           <span id="daily-battle-streak" class="sr-only" aria-live="polite"></span>
@@ -4826,7 +4861,7 @@
         <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
         <!-- ── Hero Click Mini-Menu ── -->
         <div class="hero-mini-menu" id="heroMiniMenu" aria-hidden="true" role="menu">
-          <button type="button" class="hero-menu-btn" id="heroMenuSave" role="menuitem" aria-label="Save verse to notes">💾 Save</button>
+          <button type="button" class="hero-menu-btn" id="heroMenuSave" role="menuitem" aria-label="Save today’s verse to My Verses">💾 My Verses</button>
           <button type="button" class="hero-menu-btn" id="heroMenuShare" role="menuitem" aria-label="Share verse to clipboard">📄 Share</button>
           <button type="button" class="hero-menu-btn" id="heroMenuListen" role="menuitem" aria-label="Listen to verse read aloud">🔊 Listen</button>
           <button type="button" class="hero-menu-btn" id="heroMenuImage" role="menuitem" aria-label="Create shareable verse image">🖼 Image</button>
@@ -5915,6 +5950,12 @@
 
       requestAnimationFrame(() => heroVerse.classList.add("is-visible"));
 
+      try {
+        if (typeof window.dispatchEvent === 'function') {
+          window.dispatchEvent(new CustomEvent('tdb-hero-verse-updated'));
+        }
+      } catch (eHeroUpd) { /* non-fatal */ }
+
       // ── Populate verse image card ──
       const imgText = document.getElementById('verseImgText');
       const imgRef  = document.getElementById('verseImgRef');
@@ -6656,7 +6697,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260324-sw-v114", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260331-sw-v120-mysave", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });
@@ -7075,7 +7116,7 @@
       const menu = document.getElementById('heroMiniMenu');
       if (!card || !menu) return;
       card.addEventListener('click', function (e) {
-        if (e.target.closest('#heroMiniMenu') || e.target.closest('.read-aloud-btn')) return;
+        if (e.target.closest('#heroMiniMenu') || e.target.closest('.read-aloud-btn') || e.target.closest('#hero-save-my-verses') || e.target.closest('.hero-my-verses-row')) return;
         const open = menu.getAttribute('aria-hidden') !== 'true';
         menu.setAttribute('aria-hidden', open ? 'true' : 'false');
         menu.classList.toggle('hero-menu--open', !open);
@@ -7085,23 +7126,6 @@
           menu.setAttribute('aria-hidden', 'true');
           menu.classList.remove('hero-menu--open');
         }
-      });
-      document.getElementById('heroMenuSave')?.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const ref  = document.getElementById('heroRef')?.textContent  || '';
-        const text = document.getElementById('heroVerse')?.textContent || '';
-        try {
-          const notes = JSON.parse(localStorage.getItem('tdb-saved-notes') || '[]');
-          if (!notes.some(function (n) { return n.ref === ref; })) {
-            notes.push({ ref: ref, text: text, savedAt: new Date().toISOString() });
-            localStorage.setItem('tdb-saved-notes', JSON.stringify(notes));
-          }
-          const btn = document.getElementById('heroMenuSave');
-          if (btn) { btn.textContent = 'Saved \u2713'; setTimeout(function () { btn.textContent = '\uD83D\uDCBE Save'; }, 1500); }
-        } catch (_) {}
-        menu.setAttribute('aria-hidden', 'true');
-        menu.classList.remove('hero-menu--open');
-        showEncouragementNudge();
       });
       document.getElementById('heroMenuShare')?.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -9034,7 +9058,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260324armorflow" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260331mysave" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
 </body>

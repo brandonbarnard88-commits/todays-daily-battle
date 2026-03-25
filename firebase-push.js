@@ -18,7 +18,7 @@
 
   function getReg() {
     if (!('serviceWorker' in navigator)) return Promise.resolve(null);
-    return navigator.serviceWorker.register('/sw.js?v=20260324-sw-v114').then(function (reg) { return reg; }).catch(function () { return null; });
+    return navigator.serviceWorker.register('/sw.js?v=20260331-sw-v120-mysave').then(function (reg) { return reg; }).catch(function () { return null; });
   }
 
   function requestPermission() {

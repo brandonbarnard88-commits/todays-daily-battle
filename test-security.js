@@ -110,6 +110,40 @@ if (headers.includes('X-Frame-Options') && headers.includes('Strict-Transport-Se
   ok('Security headers present in _headers');
 }
 
+// 2b. Cache hygiene — high-churn HTML must not stick at CDN (see _headers comment + cloudflare-purge.mjs)
+const headerLines = headers.split(/\r?\n/).map((l) => l.trim());
+const cacheHygienePaths = [
+  '/explore.html',
+  '/explore',
+  '/plans.html',
+  '/plans',
+  '/my-verses.html',
+  '/my-verses',
+  '/bible-tool.html',
+  '/bible-tool',
+];
+let cacheHygieneOk = true;
+for (const p of cacheHygienePaths) {
+  if (!headerLines.includes(p)) {
+    fail('_headers: cache hygiene block missing path line: ' + p);
+    cacheHygieneOk = false;
+  }
+}
+if (cacheHygieneOk) {
+  const probe = '/explore.html';
+  const i = headers.indexOf(probe);
+  if (i < 0) {
+    fail('_headers: /explore.html not found for cache probe');
+  } else {
+    const slice = headers.slice(i, i + 120);
+    if (!slice.includes('Cache-Control: no-cache') || !slice.includes('must-revalidate')) {
+      fail('_headers: /explore.html must have Cache-Control: no-cache, must-revalidate immediately after path');
+    } else {
+      ok('_headers: cache hygiene paths (explore, plans, my-verses, bible-tool) have no-cache');
+    }
+  }
+}
+
 // 3. security.txt
 const securityTxt = read('.well-known/security.txt');
 if (!securityTxt.includes('Contact:') || !securityTxt.includes('Expires:')) {

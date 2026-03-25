@@ -24,6 +24,32 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Explore, plans, My Verses, Bible Tool — high churn / user hubs (keep in sync with cloudflare-purge.mjs SOCIAL_PURGE_PATHS + SW CACHE_NAME)
+/explore.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/explore
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/plans.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/plans
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/my-verses.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/my-verses
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/bible-tool.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/bible-tool
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
 /kids/index.html
   Cache-Control: no-cache, must-revalidate

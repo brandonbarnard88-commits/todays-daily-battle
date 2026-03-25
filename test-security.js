@@ -181,19 +181,19 @@ if (!redirects.includes('/admin /blocked.html') || !redirects.includes('/admin.h
 }
 
 const esRewriteNeedles = [
-  '/ansiedad /ansiedad.html 200!',
-  '/fuerza /fuerza.html 200!',
-  '/paz /paz.html 200!',
+  '/ansiedad /ansiedad.html?tdb_cb=20260328esNav 302',
+  '/fuerza /fuerza.html?tdb_cb=20260328esNav 302',
+  '/paz /paz.html?tdb_cb=20260328esNav 302',
 ];
 let esRewriteOk = true;
 for (const n of esRewriteNeedles) {
   if (!redirects.includes(n)) {
-    fail('_redirects: Spanish clean URL rewrite missing: ' + n);
+    fail('_redirects: Spanish clean URL cache-bust redirect missing: ' + n);
     esRewriteOk = false;
   }
 }
 if (esRewriteOk) {
-  ok('_redirects: Spanish topical clean URLs rewrite to .html (200!)');
+  ok('_redirects: Spanish topical clean URLs 302 to ?tdb_cb= (edge cache-bust)');
 }
 
 const ansiedadHtml = read('ansiedad.html');
@@ -241,11 +241,12 @@ if (
   !purgeMjs.includes("'/ansiedad.html'") ||
   !purgeMjs.includes("'/fuerza.html'") ||
   !purgeMjs.includes("'/paz.html'") ||
-  !purgeMjs.includes("'/styles.css?v=20260326es-mas-ayuda'")
+  !purgeMjs.includes("'/ansiedad.html?tdb_cb=20260328esNav'") ||
+  !purgeMjs.includes("'/styles.css?v=20260328esNav'")
 ) {
   fail('scripts/cloudflare-purge.mjs: Spanish/CSS purge paths missing from SOCIAL_PURGE_PATHS');
 } else {
-  ok('cloudflare-purge.mjs: Spanish topical + ES styles purge paths present');
+  ok('cloudflare-purge.mjs: Spanish topical + ?tdb_cb + ES styles purge paths present');
 }
 
 // 6. config.js not committed with secrets (recommend .gitignore)

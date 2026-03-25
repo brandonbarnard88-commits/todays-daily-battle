@@ -298,8 +298,12 @@
 
   function renderFavorites() {
     const grid = document.getElementById('parent-favorites-grid');
+    const emptyFavCopy = document.getElementById('parent-favorites-empty-copy');
     const section = grid ? grid.closest('section') : null;
     if (!grid) return;
+    function setFavEmptyVisible(show) {
+      if (emptyFavCopy) emptyFavCopy.classList.toggle('hidden', !show);
+    }
     function showKidThought(reflection) {
       if (!section || !reflection || !reflection.text) {
         var thoughtEl = document.getElementById('parent-kid-thought');
@@ -326,17 +330,10 @@
     const last5 = viewed.slice(-5).reverse();
     while (grid.firstChild) grid.removeChild(grid.firstChild);
     if (last5.length === 0) {
-      var emptyFav = document.createElement('p');
-      emptyFav.className = 'kids-no-favorites';
-      emptyFav.appendChild(document.createTextNode('No stories viewed yet. Explore one together in '));
-      var libLink = document.createElement('a');
-      libLink.href = 'corner.html';
-      libLink.textContent = 'Kids Story Library';
-      emptyFav.appendChild(libLink);
-      emptyFav.appendChild(document.createTextNode(' and it will show up here.'));
-      grid.appendChild(emptyFav);
+      setFavEmptyVisible(true);
       return;
     }
+    setFavEmptyVisible(false);
     last5.forEach(function (key) {
       const s = stories[key];
       const title = (s && s.title) ? s.title : (key || 'Story');
@@ -348,18 +345,21 @@
       card.href = 'corner.html';
       card.className = 'kids-parent-favorite-card';
       card.setAttribute('aria-label', 'View ' + tdbPlainTextForUi(title) + ' in Library');
-      card.innerHTML = '<img src="' + thumb + '" alt="" loading="lazy">' +
-        '<span class="kids-parent-favorite-title">' + escapeHtml(tdbPlainTextForUi(title)) + '</span>' +
-        '<span class="kids-parent-favorite-talk">Talk about: ' + escapeHtml(tdbPlainTextForUi(apply)) + '</span>';
+      const img = document.createElement('img');
+      img.src = thumb;
+      img.alt = '';
+      img.loading = 'lazy';
+      const titleSpan = document.createElement('span');
+      titleSpan.className = 'kids-parent-favorite-title';
+      titleSpan.textContent = tdbPlainTextForUi(title);
+      const talkSpan = document.createElement('span');
+      talkSpan.className = 'kids-parent-favorite-talk';
+      talkSpan.textContent = 'Talk about: ' + tdbPlainTextForUi(apply);
+      card.appendChild(img);
+      card.appendChild(titleSpan);
+      card.appendChild(talkSpan);
       grid.appendChild(card);
     });
-  }
-
-  function escapeHtml(str) {
-    if (!str) return '';
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
   }
 
   function init() {

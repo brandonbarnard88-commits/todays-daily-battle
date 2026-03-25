@@ -2320,6 +2320,14 @@
   text-decoration: none;
 }
 
+#parent-favorites-empty-copy {
+  margin: 0 0 0.5rem;
+}
+
+#parent-favorites-empty-copy.hidden {
+  display: none !important;
+}
+
 /* Library badges row — Story Explorer (10), Bible Champ (20) */
 .kids-badges-row {
   display: flex;

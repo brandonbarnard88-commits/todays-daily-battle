@@ -10,6 +10,20 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# High-churn tool HTML (inline copy + scripts): must not stick at CDN — users saw stale Spanish after en copy shipped
+/calm.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/calm
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/team-toolkit.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/team-toolkit
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
 /kids/index.html
   Cache-Control: no-cache, must-revalidate

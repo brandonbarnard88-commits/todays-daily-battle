@@ -50,10 +50,11 @@
   --card-light: var(--card-dark);
   --color-accent: #4CAF50;
   --color-accent-hover: #43a047;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
+  /* Alias legacy --spacing-* to primary --space-* scale (single source of rhythm) */
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
   --font-heading: Georgia, serif;
   --border-radius: 8px;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -3791,7 +3792,7 @@ body:has(.search-hero-home) #search-hero {
   font-weight: 700;
   font-size: 1rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .promo-banner-headline { font-size: 0.95rem; line-height: 1.3; }
   .promo-banner-sub { font-size: 0.9rem; }
   .promo-banner-cta { font-size: 0.95rem; }
@@ -4802,7 +4803,7 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
 }
 
 /* Mobile: keep buttons readable and tappable (44px+ tap target, 16px+ text) */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .btn {
     font-size: 1rem;
     min-height: 48px;
@@ -5327,7 +5328,12 @@ body:has(.pricing-grid) .section-divider {
   color: color-mix(in srgb, var(--elite-gold, #e3bc67) 70%, var(--muted, #94a3b8));
   text-decoration: none;
   white-space: nowrap;
-  padding: 0.15rem 0.35rem;
+  padding: 0.35rem 0.5rem;
+  min-height: 44px;
+  line-height: 1.35;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
 }
 .site-footer-nav a:hover {
   text-decoration: underline;
@@ -5338,7 +5344,12 @@ body:has(.pricing-grid) .section-divider {
   color: color-mix(in srgb, var(--elite-gold, #e3bc67) 70%, var(--muted, #94a3b8));
   font: inherit;
   cursor: pointer;
-  padding: 0;
+  padding: 0.35rem 0.5rem;
+  min-height: 44px;
+  line-height: 1.35;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -13806,7 +13817,7 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 }
 
 /* Mobile touch targets — emoji chips need room */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .quick-grid {
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 0.5rem;
@@ -14071,7 +14082,11 @@ body.kids-battle-page .tdb-site-humility {
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  padding: 0.2rem 0.1rem;
+  padding: 0.45rem 0.65rem;
+  min-height: 44px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
   border-radius: 6px;
 }
 .kids-footer nav.kids-footer-exit a:hover,

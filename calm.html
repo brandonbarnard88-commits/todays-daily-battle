@@ -251,22 +251,22 @@
             <button type="button" class="calm-btn" id="desktop-back-categories" aria-label="Still heavy? Try another feeling">Still heavy? Try another feeling</button>
           </div>
         </div>
-        <div class="breathe-tool" lang="es" role="region" aria-labelledby="breathe-tool-heading">
-          <h2 id="breathe-tool-heading">Respira conmigo por 60 segundos</h2>
-          <p class="quiet-note">Cuando el dolor o la ansiedad aprieta fuerte, usa esto. Sin música, sin presión.</p>
+        <div class="breathe-tool" role="region" aria-labelledby="breathe-tool-heading">
+          <h2 id="breathe-tool-heading">Breathe with me for 60 seconds</h2>
+          <p class="quiet-note">When pain or anxiety tightens its grip, use this. No music, no pressure—just breath.</p>
 
           <button type="button" id="start-breathe" class="big-calm-btn" aria-label="Start 60-second guided breathing exercise">
-            Empezar a respirar (60 segundos)
+            Start breathing (60 seconds)
           </button>
 
           <div id="breathe-circle" class="breathe-circle hidden" role="img" aria-label="Breathing circle animation" aria-hidden="true">
             <div class="inner-circle"></div>
-            <div id="breathe-text" class="breathe-text" role="status" aria-live="polite" aria-atomic="true">Inhala...</div>
+            <div id="breathe-text" class="breathe-text" role="status" aria-live="polite" aria-atomic="true">Inhale…</div>
           </div>
 
           <div id="breathe-complete" class="breathe-complete hidden" role="status" aria-live="polite">
-            <p>Lo hiciste.<br>Descansa un momento.</p>
-            <button type="button" id="restart-breathe" class="small-calm-btn" aria-label="Hacer el ejercicio de respiración otra vez">Hacerlo otra vez</button>
+            <p>You did it.<br>Rest here for a moment.</p>
+            <button type="button" id="restart-breathe" class="small-calm-btn" aria-label="Run the 60-second breathing exercise again">Breathe again</button>
           </div>
         </div>
         <a href="/" class="calm-btn back-home" aria-label="Back to Today’s Daily Battle home">Back to home</a>
@@ -715,14 +715,14 @@
         var TOTAL_MS = reduceMotion ? 72000 : 60000;
         var phases = reduceMotion
           ? [
-              { label: 'Inhala...', ms: 5200 },
-              { label: 'Retén...', ms: 2800 },
-              { label: 'Exhala...', ms: 7800 }
+              { label: 'Inhale…', ms: 5200 },
+              { label: 'Hold…', ms: 2800 },
+              { label: 'Exhale…', ms: 7800 }
             ]
           : [
-              { label: 'Inhala...', ms: 4000 },
-              { label: 'Retén...', ms: 2000 },
-              { label: 'Exhala...', ms: 6000 }
+              { label: 'Inhale…', ms: 4000 },
+              { label: 'Hold…', ms: 2000 },
+              { label: 'Exhale…', ms: 6000 }
             ];
         var cycleMs = phases.reduce(function (a, p) { return a + p.ms; }, 0);
 
@@ -776,7 +776,7 @@
         if (restartBtn) {
           restartBtn.addEventListener('click', function () {
             complete.classList.add('hidden');
-            text.textContent = 'Inhala...';
+            text.textContent = 'Inhale…';
             startBreathing();
           });
         }

@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260331mysave">
+  <link rel="modulepreload" href="script.js?v=20260401herovisible">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -1503,6 +1503,14 @@
       gap: 0.45rem;
       max-width: 100%;
     }
+    /* Outside #verseCard: always visible (not hidden by .verse-card.is-loading) and not part of tap-to-open menu */
+    .hero-my-verses-row--below-card {
+      margin: 0.75rem 0 0;
+      padding: 0.85rem 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 85%, transparent);
+      width: 100%;
+      box-sizing: border-box;
+    }
     .hero-save-my-verses-btn {
       min-height: 44px;
       font-weight: 600;
@@ -1578,7 +1586,6 @@
     /* ── Verse skeleton ── */
     .verse-card.is-loading .hero-verse,
     .verse-card.is-loading .verse-ref,
-    .verse-card.is-loading .hero-my-verses-row,
     .verse-card.is-loading .hero-daily-bread-line,
     .verse-card.is-loading .breakdown,
     .verse-card.is-loading .hero-breakdown-panels,
@@ -4843,8 +4850,8 @@
           </button>
         </div>
         <p class="verse-ref" id="heroRef">Philippians 4:6-7 (KJV)</p>
-        <div class="hero-my-verses-row" role="group" aria-label="Save today’s verse">
-          <button type="button" id="hero-save-my-verses" class="btn btn-secondary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
+        <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Verses">
+          <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint" aria-label="Save today’s verse to My Verses on this device">Save to My Verses</button>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
         </div>
         <span id="hero-save-my-verses-status" class="sr-only" aria-live="polite"></span>
@@ -6697,7 +6704,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260331-sw-v120-mysave", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260401-sw-v121-hero-save-visible", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });
@@ -9058,7 +9065,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260331mysave" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260401herovisible" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
 </body>

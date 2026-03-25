@@ -118,6 +118,7 @@ const SOCIAL_PURGE_PATHS = [
   '/script.js?v=20260325calmen',
   '/script.js?v=20260324armorflow',
   '/script.js?v=20260331mysave',
+  '/script.js?v=20260401herovisible',
   '/tt-bootstrap.js?v=20260326clean',
   '/sitemap.xml',
   '/assets/share/home-og.jpg',

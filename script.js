@@ -19546,7 +19546,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260331-sw-v120-mysave', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260401-sw-v121-hero-save-visible', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

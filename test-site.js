@@ -14,7 +14,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', 'id="family-armor-stories-btn"', 'href="#armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'script.js?v=20260331mysave', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', 'id="family-armor-stories-btn"', 'href="#armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'script.js?v=20260401herovisible', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },

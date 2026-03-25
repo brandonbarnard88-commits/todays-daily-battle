@@ -18,7 +18,7 @@
 
   function getReg() {
     if (!('serviceWorker' in navigator)) return Promise.resolve(null);
-    return navigator.serviceWorker.register('/sw.js?v=20260331-sw-v120-mysave').then(function (reg) { return reg; }).catch(function () { return null; });
+    return navigator.serviceWorker.register('/sw.js?v=20260401-sw-v121-hero-save-visible').then(function (reg) { return reg; }).catch(function () { return null; });
   }
 
   function requestPermission() {

@@ -4209,6 +4209,38 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   font-style: italic;
 }
 
+.prayer-encouragement {
+  text-align: center;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+  background: rgba(201, 166, 107, 0.08);
+  border-radius: 12px;
+  font-style: italic;
+  border: 1px solid rgba(201, 166, 107, 0.12);
+}
+
+:root[data-theme="light"] .prayer-encouragement {
+  background: rgba(120, 90, 40, 0.06);
+  border-color: rgba(120, 90, 40, 0.12);
+}
+
+.gentle-encouragement {
+  color: var(--gold-soft, #c9a66b);
+  margin: 0;
+}
+
+.gentle-encouragement small {
+  display: block;
+  margin-top: 0.4rem;
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+
+.prayer-wall-alive .recent-prayer.seed-prayer {
+  opacity: 0.85;
+  font-style: italic;
+}
+
 .testimonials-carousel { margin-bottom: 0.75rem; }
 .testimonial-slides { position: relative; min-height: 100px; }
 .testimonial-slide {
@@ -13932,5 +13964,58 @@ body.kids-battle-page .tdb-site-humility {
   text-decoration: underline;
   outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
   outline-offset: 2px;
+}
+
+/* Final Accessibility Pass - March 2026 */
+.hero-content h1,
+.hero-content p,
+.moat-banner,
+.prayer-wall-alive,
+.breathe-text,
+.recent-prayer p {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.65);
+}
+
+:focus-visible {
+  outline: 3px solid #c9a66b;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Better contrast on sky gradients */
+.sky-text,
+.verse-card,
+.plan-card,
+.recent-prayer {
+  background: rgba(26, 26, 26, 0.75);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+}
+
+:root[data-theme="light"] .sky-text,
+:root[data-theme="light"] .verse-card,
+:root[data-theme="light"] .plan-card,
+:root[data-theme="light"] .recent-prayer {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Improve keyboard navigation on bottom nav */
+.bottom-nav a {
+  padding: 0.6rem 0.8rem;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Breathe tool - respect reduced motion more strictly */
+@media (prefers-reduced-motion: reduce) {
+  .breathe-circle {
+    animation: none !important;
+  }
+  .inner-circle {
+    transform: scale(1) !important;
+  }
 }
 

@@ -4564,6 +4564,7 @@ function getPrayerWallItemTimeMs(p) {
 /**
  * Homepage prayer wall: today's count + last few user prayers on this device (anonymous text only).
  * Uses PRAYER_WALL_KEY — same store as the wall list. DOM-only output (no innerHTML on prayer text).
+ * Warm seed lines fill in when there are fewer than three real rows; gentle encouragement ~35% per session.
  */
 function renderRecentPrayers() {
   var container = document.getElementById('recent-prayers');
@@ -4575,7 +4576,7 @@ function renderRecentPrayers() {
   if (!Array.isArray(prayers)) prayers = [];
 
   var userPrayers = prayers.filter(function (p) {
-    return p && p.seed !== true && String(p.text || '').trim().length > 0;
+    return p && p.seed !== true && String(p.text || '').trim().length > 5;
   });
 
   var now = new Date();
@@ -4589,31 +4590,75 @@ function renderRecentPrayers() {
   var countEl = document.getElementById('prayer-count-today');
   if (countEl) countEl.textContent = String(todayCount);
 
-  var recent = userPrayers.slice(-3).reverse();
+  var encouragementContainer = document.getElementById('prayer-encouragement');
+  if (encouragementContainer) {
+    var showEnc = false;
+    try {
+      var roll = sessionStorage.getItem('tdb_pw_encourage_roll');
+      if (roll == null) {
+        roll = Math.random() < 0.35 ? '1' : '0';
+        sessionStorage.setItem('tdb_pw_encourage_roll', roll);
+      }
+      showEnc = roll === '1';
+    } catch (eRoll) {
+      showEnc = Math.random() < 0.35;
+    }
+    if (showEnc) {
+      encouragementContainer.replaceChildren();
+      var encP = document.createElement('p');
+      encP.className = 'gentle-encouragement';
+      encP.appendChild(document.createTextNode('Someone prayed for you today.'));
+      encP.appendChild(document.createElement('br'));
+      var encSmall = document.createElement('small');
+      encSmall.textContent = 'You\u2019re not carrying this alone.';
+      encP.appendChild(encSmall);
+      encouragementContainer.appendChild(encP);
+      encouragementContainer.classList.remove('hidden');
+      encouragementContainer.hidden = false;
+    } else {
+      encouragementContainer.replaceChildren();
+      encouragementContainer.classList.add('hidden');
+      encouragementContainer.hidden = true;
+    }
+  }
+
+  var WARM_RECENT_SEEDS = [
+    'Lord, be with the one reading this right now. Give them strength for today.',
+    'Father, wrap Your arms around whoever is hurting tonight. Let them feel You close.',
+    'Jesus, I don\u2019t know their name, but You do. Hold them through this hard season.',
+    'God, remind the person who sees this that they are deeply loved by You.'
+  ];
+
+  var displayPrayers = userPrayers.slice(-4).reverse();
+  var w = 0;
+  while (displayPrayers.length < 3) {
+    displayPrayers.push({
+      text: WARM_RECENT_SEEDS[w % WARM_RECENT_SEEDS.length],
+      ts: Date.now() - (w + 1) * 3600000,
+      isSeed: true
+    });
+    w += 1;
+  }
+
   container.replaceChildren();
-  if (recent.length === 0) {
-    var emptyP = document.createElement('p');
-    emptyP.className = 'quiet-note';
-    emptyP.appendChild(document.createTextNode('No prayers yet today.'));
-    emptyP.appendChild(document.createElement('br'));
-    emptyP.appendChild(document.createTextNode('Be the first — it stays between you and God.'));
-    container.appendChild(emptyP);
-  } else {
-    recent.forEach(function (prayer) {
-      var wrap = document.createElement('div');
-      wrap.className = 'recent-prayer';
-      var pEl = document.createElement('p');
-      var q = document.createElement('q');
-      q.textContent = prayer.text || '';
-      pEl.appendChild(q);
-      wrap.appendChild(pEl);
-      var small = document.createElement('small');
+  displayPrayers.forEach(function (prayer) {
+    var wrap = document.createElement('div');
+    wrap.className = 'recent-prayer' + (prayer.isSeed ? ' seed-prayer' : '');
+    var pEl = document.createElement('p');
+    var q = document.createElement('q');
+    q.textContent = prayer.text || '';
+    pEl.appendChild(q);
+    wrap.appendChild(pEl);
+    var small = document.createElement('small');
+    if (prayer.isSeed) {
+      small.textContent = 'Quiet voice';
+    } else {
       var t = getPrayerWallItemTimeMs(prayer);
       small.textContent = t ? new Date(t).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : '';
-      wrap.appendChild(small);
-      container.appendChild(wrap);
-    });
-  }
+    }
+    wrap.appendChild(small);
+    container.appendChild(wrap);
+  });
 }
 
 const DAILY_REMINDER_KEY = 'dailyReminderEnabled';
@@ -23825,6 +23870,22 @@ function wireRandomBattleVerseHero() {
     if (typeof showEliteToast === 'function') showEliteToast(msg, { gold: true, duration: 7000 });
     try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
   }());
+
+  /** Final a11y helper: main H1 can receive programmatic focus (skip links / in-app nav). No auto-focus on load. */
+  function improveAccessibility() {
+    try {
+      var pageTitle = document.querySelector('.hero-content h1, main h1');
+      if (pageTitle && pageTitle.getAttribute('tabindex') == null) {
+        pageTitle.setAttribute('tabindex', '-1');
+      }
+    } catch (eAcc) {}
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', improveAccessibility);
+  } else {
+    improveAccessibility();
+  }
+  window.addEventListener('load', improveAccessibility);
 })();
 }  // Workaround: closes unclosed block (fixes "Unexpected end of script" parse error)
 //# sourceMappingURL=script.js.map

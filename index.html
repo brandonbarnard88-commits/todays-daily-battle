@@ -5086,7 +5086,8 @@
               <strong><span id="prayer-count-today">0</span></strong> prayers today on this device
             </span>
           </div>
-          <div id="recent-prayers" class="recent-prayers" aria-live="polite"></div>
+          <div id="prayer-encouragement" class="prayer-encouragement hidden" aria-live="polite"></div>
+          <div id="recent-prayers" class="recent-prayers" role="region" aria-label="Recent anonymous prayers" aria-live="polite"></div>
         </div>
         <!-- Sync status note — updated by updateSyncStatusUI() -->
         <p class="prayer-wall-note" aria-live="polite">Stays right here on your phone or computer until you sign in.</p>
@@ -5193,7 +5194,7 @@
   <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
     <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
   </p>
-  <nav class="bottom-nav" aria-label="Quick links">
+  <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
     <a href="/">Home</a>
     <a href="/plans.html">Plans</a>
     <a href="/calm.html">Calm</a>

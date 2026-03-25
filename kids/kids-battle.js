@@ -2607,7 +2607,8 @@
       videoTitle: '',
       keywords: ['isaiah', 'prophet', 'immanuel', 'jesus', 'isaiah 7', 'isaiah 9', 'isaiah 53', 'promise'],
       kjvRef: 'Isaiah 7:14; 9:6–7; 53:4–6',
-      kidContext: { who: 'God', to: 'us', apply: 'God said what He would do — and Jesus came. You can trust every promise in His Word.' }
+      kidContext: { who: 'God', to: 'us', apply: 'God said what He would do — and Jesus came. You can trust every promise in His Word.' },
+      narration: 'Isaiah was a prophet — someone who speaks God\'s truth to His people. Long before Jesus walked the earth, Isaiah wrote words from God about a coming King: a child who would be called Wonderful, Counsellor, the mighty God, the Prince of Peace. He also wrote about One who would carry our griefs and heal us by His suffering. Those words pointed to Jesus. For you: When God puts a promise in the Bible, He keeps it. You can trust Him with what worries you today.'
     },
     jeremiahWeeping: {
       title: 'Jeremiah the Weeping Prophet',
@@ -6675,6 +6676,11 @@
       btn.setAttribute('data-title', tdbPlainTextForUi(story.videoTitle || ''));
       btn.textContent = '\uD83C\uDFA5 Watch the story move! (2 min)';
       wrap.appendChild(btn);
+    } else if (story.videoId != null && String(story.videoId).trim() !== '') {
+      var vidSoon = document.createElement('p');
+      vidSoon.className = 'kids-video-coming-soon';
+      vidSoon.textContent = 'Animated clip coming soon — read the story above.';
+      wrap.appendChild(vidSoon);
     }
     container.appendChild(wrap);
   }
@@ -6800,9 +6806,14 @@
     return escapeHtml(tdbPlainTextForUi(s));
   }
 
+  /** Known-dead or disallowed embeds (player errors, removed, embed-off). */
+  var KIDS_RETIRED_YOUTUBE_IDS = { QuLN7IWFJNY: 1 };
+
   function safeYouTubeId(id) {
     var s = String(id || '').trim();
-    return /^[A-Za-z0-9_-]{11}$/.test(s) ? s : '';
+    if (!/^[A-Za-z0-9_-]{11}$/.test(s)) return '';
+    if (KIDS_RETIRED_YOUTUBE_IDS[s]) return '';
+    return s;
   }
 
   function renderFilteredResults(topicOrQuery) {
@@ -6999,6 +7010,50 @@
         var frame = document.getElementById('video-frame');
         if (modal) modal.classList.add('hidden');
         if (frame) frame.src = '';
+      }
+    });
+  }
+
+  /** Triple-tap Home (open book) on Kids bottom nav when already on Home — light confetti (canvas-confetti on page). */
+  function wireKidsBottomNavTripleConfetti() {
+    if (typeof window === 'undefined') return;
+    try {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    } catch (eR) {}
+    var nav = document.querySelector('nav.kids-bottom-nav');
+    if (!nav) return;
+    var homeA = nav.querySelector('a[href="/kids/"], a[href$="/kids/"], a[href="index.html"], a[href="./index.html"]');
+    if (!homeA || homeA.getAttribute('aria-current') !== 'page') return;
+    function burst() {
+      try {
+        if (typeof window.confetti === 'function') {
+          window.confetti({ particleCount: 88, spread: 64, startVelocity: 26, origin: { y: 0.9 }, ticks: 200 });
+        }
+      } catch (e) {}
+    }
+    var taps = [];
+    homeA.addEventListener('touchend', function (e) {
+      var now = Date.now();
+      taps = taps.filter(function (t) { return now - t < 480; });
+      taps.push(now);
+      if (taps.length >= 3) {
+        taps.length = 0;
+        e.preventDefault();
+        burst();
+      }
+    }, { passive: false });
+    var clicks = 0;
+    var clickTimer = null;
+    homeA.addEventListener('click', function (e) {
+      if (homeA.getAttribute('aria-current') !== 'page') return;
+      clicks++;
+      if (clickTimer) clearTimeout(clickTimer);
+      clickTimer = setTimeout(function () { clicks = 0; }, 480);
+      if (clicks >= 3) {
+        clicks = 0;
+        if (clickTimer) clearTimeout(clickTimer);
+        e.preventDefault();
+        burst();
       }
     });
   }
@@ -7488,7 +7543,8 @@
       function () { wireShareBtn(); },
       function () { wireShareStreak(); },
       function () { wireSidebar(); },
-      function () { wireVideoModal(); }
+      function () { wireVideoModal(); },
+      function () { wireKidsBottomNavTripleConfetti(); }
     ];
     for (var si = 0; si < steps.length; si++) {
       try {

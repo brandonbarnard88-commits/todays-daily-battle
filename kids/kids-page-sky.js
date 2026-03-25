@@ -129,6 +129,7 @@ function paintSkyDecorations(layer, r, skyClass) {
   if (!plane) return;
   var isMobile = window.innerWidth < 600;
   var kidsCalm = document.body.classList.contains('kids-sky-enabled');
+  var kidsPlayful = document.body.classList.contains('kids-sky-playful');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isNightSky = skyClass === 'sky-night';
 
@@ -141,6 +142,7 @@ function paintSkyDecorations(layer, r, skyClass) {
 
   if (isNightSky && !reduced) {
     var starCount = isMobile ? (kidsCalm ? 26 : 55) : (kidsCalm ? 72 : 110);
+    if (kidsPlayful) starCount = Math.max(12, Math.floor(starCount * 0.52));
     for (var i = 0; i < starCount; i++) {
       var st = document.createElement('div');
       st.className = 'sky-star' + (r() > 0.82 ? ' glow' : '');
@@ -192,6 +194,9 @@ function paintSkyDecorations(layer, r, skyClass) {
     if (kidsCalm && isMobile) {
       cloudDefs = cloudDefs.slice(0, 2);
     }
+    if (kidsPlayful && isMobile && cloudDefs.length > 1) {
+      cloudDefs = cloudDefs.slice(0, 1);
+    }
     if (!isMobile) cloudDefs.push(
       { w:110, h:40, top: 33, op: 0.60, dur: 75  },
       { w:160, h:50, top: 18, op: 0.40, dur: 110 }
@@ -201,7 +206,9 @@ function paintSkyDecorations(layer, r, skyClass) {
     cloudDefs.forEach(function(cd, idx) {
       var cl = document.createElement('div');
       cl.className = 'sky-cloud';
-      var durUse = kidsCalm ? Math.round(cd.dur * 1.65) : cd.dur;
+      var durUse = cd.dur;
+      if (kidsCalm) durUse = Math.round(durUse * 1.65);
+      if (kidsPlayful) durUse = Math.round(durUse * 1.28);
       var startX = -(cd.w + r() * 60);
       var delay = -(r() * durUse * 0.8);
       var base = warmTint ? 'rgba(255,' + Math.round(190 - r()*60) + ',' + Math.round(130 - r()*80) + ',' : 'rgba(255,255,255,';
@@ -220,12 +227,16 @@ function paintSkyDecorations(layer, r, skyClass) {
       plane.appendChild(cl);
     });
     var birdCount = isMobile ? (kidsCalm ? 2 : 4) : (kidsCalm ? 4 : 7 + Math.floor(r() * 4));
+    if (kidsPlayful) {
+      birdCount = isMobile ? Math.min(birdCount, 1) : Math.max(2, Math.floor(birdCount * 0.7));
+    }
     for (var bi = 0; bi < birdCount; bi++) {
       var bd = document.createElement('div');
       bd.className = 'sky-bird';
       var bsize = 8 + r() * 10;
       var bdur  = 28 + r() * 45;
       if (kidsCalm) bdur *= 1.45;
+      if (kidsPlayful) bdur *= 1.15;
       var btop  = birdCount <= 1 ? 18 : 12 + (bi / Math.max(birdCount - 1, 1)) * 28 + r() * 6;
       var bdelay = -(r() * bdur);
       var ftdur = 0.35 + r() * 0.4;

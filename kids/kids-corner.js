@@ -4288,9 +4288,23 @@
     return escHtml(tdbPlainTextForUi(value)).replace(/`/g, '&#96;');
   }
 
+  var KIDS_RETIRED_YOUTUBE_IDS = { QuLN7IWFJNY: 1 };
+
   function safeYouTubeId(value) {
     var id = String(value || '').trim();
-    return /^[A-Za-z0-9_-]{6,20}$/.test(id) ? id : '';
+    if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return '';
+    if (KIDS_RETIRED_YOUTUBE_IDS[id]) return '';
+    return id;
+  }
+
+  function splitKidsNarrationParagraphs(raw) {
+    var t = tdbPlainTextForUi(raw || '').trim();
+    if (!t) return [];
+    var fu = t.indexOf(' For you:');
+    if (fu >= 0) {
+      return [t.slice(0, fu).trim(), t.slice(fu + 1).trim()];
+    }
+    return [t];
   }
 
   function getStories() {
@@ -5057,6 +5071,21 @@
       cap.className = 'comic-caption';
       cap.textContent = tdbPlainTextForUi(s.caption || '');
       carouselRoot.appendChild(cap);
+      var narrRaw = s.narration && String(s.narration).trim();
+      if (narrRaw) {
+        var narrWrap = document.createElement('div');
+        narrWrap.className = 'kids-story-narration';
+        narrWrap.setAttribute('role', 'region');
+        narrWrap.setAttribute('aria-label', 'Read-aloud story');
+        var narrParas = splitKidsNarrationParagraphs(narrRaw);
+        for (var ni = 0; ni < narrParas.length; ni++) {
+          var np = document.createElement('p');
+          np.className = 'kids-story-narration-text';
+          np.textContent = narrParas[ni];
+          narrWrap.appendChild(np);
+        }
+        carouselRoot.appendChild(narrWrap);
+      }
       if (typeof window !== 'undefined' && 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance !== 'undefined') {
         var spk = document.createElement('button');
         spk.type = 'button';
@@ -5064,7 +5093,7 @@
         spk.setAttribute('data-story-key', key);
         spk.setAttribute('aria-label', 'Play story narration');
         spk.setAttribute('aria-pressed', 'false');
-        spk.textContent = '🔊 Tap to hear';
+        spk.textContent = '🔊 Read to me';
         carouselRoot.appendChild(spk);
       }
       if (safeVideoId) {
@@ -5075,6 +5104,11 @@
         yt.setAttribute('data-title', videoTitlePlain);
         yt.textContent = hasFullVideo ? '🎥 Short YouTube preview' : '🎥 Watch story (YouTube)';
         carouselRoot.appendChild(yt);
+      } else if (s.videoId != null && String(s.videoId).trim() !== '') {
+        var vidTeaser = document.createElement('p');
+        vidTeaser.className = 'kids-video-coming-soon';
+        vidTeaser.textContent = 'Animated clip coming soon — read the story above or tap Read to me.';
+        carouselRoot.appendChild(vidTeaser);
       }
       var shr = document.createElement('button');
       shr.type = 'button';

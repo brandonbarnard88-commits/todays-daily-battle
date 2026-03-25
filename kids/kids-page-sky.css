@@ -507,3 +507,20 @@ body.kids-sky-enabled.sky-dawn .sky,
 body.kids-sky-enabled.sky-dusk .sky {
   filter: saturate(1.05) brightness(1.04);
 }
+
+/* Playful kids layer — calmer night glam, brighter daytime wash */
+body.kids-sky-playful.sky-night .sky-aurora,
+body.kids-sky-playful.sky-night .sky-aurora-veil {
+  display: none !important;
+}
+body.kids-sky-playful .sky-stars-parallax {
+  animation-duration: 260s;
+  opacity: 0.2;
+}
+body.kids-sky-playful.sky-day .sky {
+  background: linear-gradient(180deg, #0c2244 0%, #1f5a9e 34%, #4a9fd4 62%, #8fd0ef 86%, #d4f0ff 100%);
+}
+body.kids-sky-playful.sky-dawn .sky,
+body.kids-sky-playful.sky-dusk .sky {
+  filter: saturate(1.12) brightness(1.06);
+}

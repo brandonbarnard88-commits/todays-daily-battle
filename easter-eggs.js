@@ -1206,11 +1206,11 @@
       var badge = document.createElement(unlocked ? 'a' : 'p');
       badge.id = EGG_BADGE_ID;
       badge.className = 'easter-egg-badge';
-      badge.textContent = '57 hidden moments';
-      badge.setAttribute('aria-label', unlocked ? 'View hints for 57 hidden moments' : '57 hidden moments to discover');
+      badge.textContent = '58 hidden moments';
+      badge.setAttribute('aria-label', unlocked ? 'View hints for 58 hidden moments' : '58 hidden moments to discover');
       if (unlocked) {
         badge.href = '/secrets.html';
-        badge.title = '57 hidden moments discovered';
+        badge.title = '58 hidden moments discovered';
       }
       footer.appendChild(badge);
       if (pulseFirst && !reducedMotion()) {

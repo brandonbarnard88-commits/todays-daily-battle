@@ -1239,6 +1239,17 @@
   outline-offset: 2px;
 }
 
+.kids-video-coming-soon {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--kids-text-muted, #94a3b8);
+  text-align: center;
+  margin: 0.75rem auto 0;
+  max-width: 22rem;
+  padding: 0 0.5rem;
+}
+
 /* Share story button — blue pill */
 .kids-share-btn {
   font-family: 'Nunito', sans-serif;

@@ -4066,6 +4066,22 @@
       object-fit: contain;
       background: color-mix(in srgb, var(--card) 90%, transparent);
     }
+    .quick-story-read-btn {
+      display: block;
+      width: 100%;
+      margin: 0.85rem 0 0;
+      min-height: 44px;
+      padding: 0.55rem 1rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--gold) 38%, transparent);
+      background: color-mix(in srgb, var(--gold) 12%, transparent);
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .quick-story-read-btn:hover { background: color-mix(in srgb, var(--gold) 20%, transparent); }
+    .quick-story-read-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
     .story-modal-link {
       display: block; text-align: center; margin-top: 1rem;
       color: var(--gold); font-size: 0.85rem; text-decoration: none;
@@ -5044,7 +5060,7 @@
           </span>
           <div>
             <p class="tool-teaser-label">Kids Corner</p>
-            <p class="tool-teaser-sub">David vs Goliath inside — Bible stories and games for kids</p>
+            <p class="tool-teaser-sub">Full read-aloud stories, Faith Trail, Story Library, and parent dashboard — built for kids, calm for grown-ups.</p>
           </div>
           <span class="tool-teaser-arrow" aria-hidden="true">→</span>
         </a>
@@ -7282,13 +7298,30 @@
       var btn   = document.getElementById('quickStoryBtn');
       var modal = document.getElementById('kidsStoryModal');
       var close = document.getElementById('storyModalClose');
+      var readBtn = document.getElementById('kidsStoryReadAloudBtn');
       if (!btn || !modal) return;
+      function getQuickStoryPlainText() {
+        var body = modal.querySelector('.story-body');
+        if (!body) return '';
+        return (body.innerText || body.textContent || '').replace(/\s+/g, ' ').trim();
+      }
+      function stopQuickStorySpeech() {
+        try {
+          if (window.speechSynthesis) window.speechSynthesis.cancel();
+        } catch (e) {}
+        if (readBtn) {
+          readBtn.textContent = 'Read to me';
+          readBtn.setAttribute('aria-pressed', 'false');
+        }
+      }
       function openModal() {
         modal.hidden = false;
         modal.setAttribute('aria-hidden', 'false');
+        stopQuickStorySpeech();
         if (close) close.focus();
       }
       function closeModal() {
+        stopQuickStorySpeech();
         modal.hidden = true;
         modal.setAttribute('aria-hidden', 'true');
         btn.focus();
@@ -7305,6 +7338,31 @@
       modal.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeModal();
       });
+      if (readBtn && window.speechSynthesis && typeof window.SpeechSynthesisUtterance !== 'undefined') {
+        readBtn.addEventListener('click', function () {
+          var synth = window.speechSynthesis;
+          if (synth.speaking || synth.pending) {
+            stopQuickStorySpeech();
+            return;
+          }
+          var text = getQuickStoryPlainText();
+          if (!text) return;
+          var u = new window.SpeechSynthesisUtterance(text);
+          u.rate = 0.88;
+          u.lang = 'en-US';
+          u.onstart = function () {
+            readBtn.textContent = 'Stop';
+            readBtn.setAttribute('aria-pressed', 'true');
+          };
+          u.onend = u.onerror = function () {
+            readBtn.textContent = 'Read to me';
+            readBtn.setAttribute('aria-pressed', 'false');
+          };
+          synth.speak(u);
+        });
+      } else if (readBtn) {
+        readBtn.hidden = true;
+      }
     }
 
     // ── Wire hero image button ──
@@ -8930,6 +8988,7 @@
         <p class="story-verse">&ldquo;The battle is the LORD&rsquo;s.&rdquo; &mdash; 1 Samuel 17:47 (KJV)</p>
         <p>Remember: <strong>No problem is too big when God is on your side.</strong></p>
       </div>
+      <button type="button" class="quick-story-read-btn" id="kidsStoryReadAloudBtn" aria-label="Read this story aloud">Read to me</button>
       <div class="story-modal-panels" aria-hidden="true">
         <img src="kids/panel-david-1.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async">
         <img src="kids/panel-david-2.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async">

@@ -251,6 +251,7 @@
             <button type="button" class="calm-btn" id="desktop-back-categories" aria-label="Still heavy? Try another feeling">Still heavy? Try another feeling</button>
           </div>
         </div>
+        <!-- tdb: calm breathe UI is English; if you see Spanish here, edge or SW cache is stale — hard-refresh or bump CACHE_NAME -->
         <div class="breathe-tool" role="region" aria-labelledby="breathe-tool-heading">
           <h2 id="breathe-tool-heading">Breathe with me for 60 seconds</h2>
           <p class="quiet-note">When pain or anxiety tightens its grip, use this. No music, no pressure—just breath.</p>
@@ -280,7 +281,7 @@
         if (document.querySelector('script[data-tdb-calm-app]')) return;
         var s = document.createElement('script');
         s.type = 'module';
-        s.src = 'script.js?v=20260328feelwire';
+        s.src = 'script.js?v=20260325calmen';
         s.setAttribute('data-tdb-calm-app', '1');
         document.head.appendChild(s);
       }

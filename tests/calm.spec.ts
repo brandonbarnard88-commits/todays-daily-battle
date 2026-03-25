@@ -42,11 +42,17 @@ test.describe('calm.html', () => {
   test('Night Prayer shows Psalm 4:8 and copy works', async ({ page }) => {
     await page.goto('/calm.html');
     await page.getByRole('button', { name: 'Night prayer with Psalm 4:8' }).click();
-    const container = page.locator('#night-prayer-container');
+    const container = page.locator('#night-prayer');
     await expect(container).toBeVisible();
     await expect(page.locator('#night-prayer-verse')).toContainText(/lay me down in peace/i);
     await expect(page.locator('#night-prayer-ref')).toContainText('Psalm 4:8');
     await page.getByRole('button', { name: 'Copy night prayer to clipboard' }).click();
     await expect(page.locator('#night-prayer-copy')).toHaveText('Copied', { timeout: 3000 });
+  });
+
+  test('deep link calm.html#night-prayer opens night prayer', async ({ page }) => {
+    await page.goto('/calm.html#night-prayer');
+    await expect(page.locator('#night-prayer')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('#night-prayer-ref')).toContainText('Psalm 4:8');
   });
 });

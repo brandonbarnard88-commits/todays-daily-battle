@@ -129,6 +129,7 @@
     .night-prayer-kids-title { font-size: 0.85rem; font-weight: 600; color: var(--gold, #e3bc67); margin-bottom: 0.5rem; }
     .night-prayer-kids-phrase { font-size: 0.95rem; color: var(--text, #e2e8f0); margin-bottom: 0.75rem; }
     .night-prayer-kids-prayer { font-size: 0.9rem; color: var(--muted, #94a3b8); line-height: 1.5; font-style: italic; }
+    #night-prayer.night-prayer-panel { scroll-margin-top: max(4.5rem, env(safe-area-inset-top)); }
     .calm-verse-container {
       min-height: 120px;
       opacity: 0;
@@ -190,7 +191,7 @@
           <button type="button" class="calm-btn" data-category="grief" aria-label="Grief or sadness">Grief / Sadness</button>
         </div>
         <p class="calm-prayer-wall-nudge calm-prayer-wall-nudge-always section-note">The <a href="index.html#prayer-wall">Prayer Wall</a> stays open—copy a verse below and paste there if you want, anonymous.</p>
-        <div id="night-prayer-container" class="verse-centered" style="display: none;">
+        <div id="night-prayer" class="verse-centered night-prayer-panel" style="display: none;">
           <div class="night-prayer-wrap">
             <p class="night-prayer-verse" id="night-prayer-verse" aria-live="polite">"Lord, I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety."</p>
             <p class="night-prayer-ref" id="night-prayer-ref">Psalm 4:8 (KJV)</p>
@@ -487,7 +488,7 @@
         document.getElementById('verse-container').style.display = 'none';
         var dv = document.getElementById('desktop-verse');
         if (dv) dv.style.display = 'none';
-        var np = document.getElementById('night-prayer-container');
+        var np = document.getElementById('night-prayer');
         if (np) {
           np.style.display = 'flex';
           np.classList.add('verse-reveal');
@@ -495,7 +496,8 @@
         }
       }
       function hideNightPrayer() {
-        document.getElementById('night-prayer-container').style.display = 'none';
+        var npHide = document.getElementById('night-prayer');
+        if (npHide) npHide.style.display = 'none';
         showCategories();
       }
       var nightPrayerBtn = document.getElementById('calm-night-prayer');
@@ -694,9 +696,11 @@
         }, 300));
       }
       wireCalmInput();
-      if (window.location.hash === '#night-prayer') {
-        showNightPrayer();
+      function calmApplyNightPrayerHash() {
+        if (window.location.hash === '#night-prayer') showNightPrayer();
       }
+      calmApplyNightPrayerHash();
+      window.addEventListener('hashchange', calmApplyNightPrayerHash);
 
       function initBreatheTool() {
         var startBtn = document.getElementById('start-breathe');

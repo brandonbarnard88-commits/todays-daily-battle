@@ -5367,6 +5367,11 @@ body:has(.pricing-grid) .section-divider {
   color: rgba(148, 163, 184, 0.85);
   margin-left: 0.25rem;
 }
+.footer-es-nav-label {
+  font-weight: 600;
+  margin-right: 0.35rem;
+  color: rgba(148, 163, 184, 0.92);
+}
 .footer-sitemap {
   margin: 1rem auto 0;
   max-width: 52rem;

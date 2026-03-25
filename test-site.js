@@ -30,7 +30,7 @@ const pages = [
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
-  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html'] },
+  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html', 'id="topics-es">Spanish topics', 'Spanish devotionals', '>Spanish topics</a>'] },
   { path: '/about.html', name: 'About', mustInclude: ['About', 'Daily Battle'] },
   { path: '/testimonials.html', name: 'Reader stories', mustInclude: ['Words from the field', 'Share yours', 'support@todaysdailybattle.com'] },
   { path: '/profile.html', name: 'Profile', mustInclude: ['Family', 'Account', 'Your Kids'] },

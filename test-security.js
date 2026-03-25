@@ -121,6 +121,8 @@ const cacheHygienePaths = [
   '/my-verses',
   '/bible-tool.html',
   '/bible-tool',
+  '/verse.html',
+  '/verse',
 ];
 let cacheHygieneOk = true;
 for (const p of cacheHygienePaths) {
@@ -130,17 +132,23 @@ for (const p of cacheHygienePaths) {
   }
 }
 if (cacheHygieneOk) {
-  const probe = '/explore.html';
-  const i = headers.indexOf(probe);
-  if (i < 0) {
-    fail('_headers: /explore.html not found for cache probe');
-  } else {
+  const probes = ['/explore.html', '/verse.html'];
+  for (const probe of probes) {
+    const i = headers.indexOf(probe);
+    if (i < 0) {
+      fail('_headers: ' + probe + ' not found for cache probe');
+      cacheHygieneOk = false;
+      break;
+    }
     const slice = headers.slice(i, i + 120);
     if (!slice.includes('Cache-Control: no-cache') || !slice.includes('must-revalidate')) {
-      fail('_headers: /explore.html must have Cache-Control: no-cache, must-revalidate immediately after path');
-    } else {
-      ok('_headers: cache hygiene paths (explore, plans, my-verses, bible-tool) have no-cache');
+      fail('_headers: ' + probe + ' must have Cache-Control: no-cache, must-revalidate immediately after path');
+      cacheHygieneOk = false;
+      break;
     }
+  }
+  if (cacheHygieneOk) {
+    ok('_headers: cache hygiene paths (explore, plans, my-verses, bible-tool, verse) have no-cache');
   }
 }
 

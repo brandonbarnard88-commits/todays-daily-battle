@@ -102,6 +102,8 @@ const SOCIAL_PURGE_PATHS = [
   '/my-verses',
   '/bible-tool.html',
   '/bible-tool',
+  '/verse.html',
+  '/verse',
   '/mobius.html',
   '/shop.html',
   '/testimonials.html',

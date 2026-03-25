@@ -50,6 +50,14 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Verse of the Day page — copy and hints update; precached by SW (bump CACHE_NAME when shell changes)
+/verse.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/verse
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
 /kids/index.html
   Cache-Control: no-cache, must-revalidate

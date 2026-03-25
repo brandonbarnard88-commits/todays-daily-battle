@@ -192,6 +192,26 @@ if (!script.includes('sanitizeUserInput')) {
 if (script.includes('escapeHtml') && script.includes('sanitizeUserInput')) {
   ok('script.js: escapeHtml and sanitizeUserInput present');
 }
+if (!script.includes('migrateLegacyTdbSavedNotesOnce') || !script.includes('tdb-saved-notes-migrated-v1')) {
+  fail('script.js: legacy saved-notes → My Verses migration missing');
+} else {
+  ok('script.js: legacy saved-notes migration helpers present');
+}
+if (!script.includes('tdbGatherVersesForJournalExport')) {
+  fail('script.js: tdbGatherVersesForJournalExport missing (journal export)');
+} else {
+  ok('script.js: journal export gather helper present');
+}
+const purgeMjs = read('scripts/cloudflare-purge.mjs');
+if (
+  !purgeMjs.includes("'/ansiedad.html'") ||
+  !purgeMjs.includes("'/fuerza.html'") ||
+  !purgeMjs.includes("'/paz.html'")
+) {
+  fail('scripts/cloudflare-purge.mjs: Spanish topical paths missing from purge list');
+} else {
+  ok('cloudflare-purge.mjs: Spanish topical purge paths present');
+}
 
 // 6. config.js not committed with secrets (recommend .gitignore)
 const gitignore = read('.gitignore');

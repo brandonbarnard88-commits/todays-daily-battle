@@ -14079,8 +14079,20 @@ body.kids-battle-page .tdb-site-humility {
     letter-spacing: -0.02em;
     color: var(--text, #e2e8f0);
     border-radius: 8px;
-    padding: 0.35rem 0.5rem;
+    padding: 0.42rem 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-sizing: border-box;
+  }
+  .site-footer nav.bottom-nav .bottom-nav-es-more summary:focus-visible,
+  .kids-footer nav.bottom-nav .bottom-nav-es-more summary:focus-visible,
+  .tool-page-footer nav.bottom-nav .bottom-nav-es-more summary:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+    outline-offset: 2px;
+  }
+  :root[data-theme="light"] .site-footer nav.bottom-nav .bottom-nav-es-more summary,
+  :root[data-theme="light"] .kids-footer nav.bottom-nav .bottom-nav-es-more summary,
+  :root[data-theme="light"] .tool-page-footer nav.bottom-nav .bottom-nav-es-more summary {
+    border-color: rgba(0, 0, 0, 0.12);
   }
   .site-footer nav.bottom-nav .bottom-nav-es-more summary::-webkit-details-marker,
   .kids-footer nav.bottom-nav .bottom-nav-es-more summary::-webkit-details-marker,

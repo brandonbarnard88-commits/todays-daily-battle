@@ -13,6 +13,9 @@ Today's Daily Battle — after deploy
 2. Spot-check in a private window (hard refresh once):
      /  /verse.html  /explore.html  /plans.html  /my-verses.html  /bible-tool.html
      /study.html  /reader.html  /message.html  /calm.html
+     Spanish (confirm “Más ayuda en el sitio” + tool links):
+     /ansiedad.html  /fuerza.html  /paz.html
+     Narrow phone (≤320px): footer “ES topics” details opens to Ansiedad / Fuerza / Paz
 
 3. PWA users: new service worker CACHE_NAME recaches shells on next visit;
    you can bump CACHE_NAME in service-worker.js anytime HTML feels sticky.

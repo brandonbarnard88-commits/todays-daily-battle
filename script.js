@@ -9637,6 +9637,69 @@ function wirePrayThisWithMe() {
       }
     });
   }
+  var versePageSave = document.getElementById('verse-page-save-my-verses');
+  if (versePageSave) {
+    function versePageGetCardRefAndText() {
+      var card = document.getElementById('daily-verse-card');
+      var refEl = card && card.querySelector('strong');
+      var p = card && (card.querySelector('strong + p') || card.querySelector('p'));
+      var r = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+      var body = '';
+      if (p) body = String(p.textContent || '').replace(/\s+/g, ' ').trim();
+      return { ref: r, text: body };
+    }
+    function updateVersePageSaveMyVersesState() {
+      var btn = document.getElementById('verse-page-save-my-verses');
+      if (!btn) return;
+      var v = versePageGetCardRefAndText();
+      if (!v.ref) return;
+      var collectionId = getActiveCollectionId();
+      var exists = loadSavedCollectionItems().some(function (item) {
+        return item.ref === v.ref && item.collection_id === collectionId;
+      });
+      if (exists) {
+        btn.textContent = 'Saved';
+        btn.disabled = true;
+        btn.setAttribute('aria-label', 'This verse is already in My Verses');
+      } else {
+        btn.textContent = 'Save this verse';
+        btn.disabled = false;
+        btn.setAttribute('aria-label', 'Save today\'s verse to My Verses on this device');
+      }
+    }
+    versePageSave.addEventListener('click', function () {
+      var v = versePageGetCardRefAndText();
+      if (!v.ref || !v.text) return;
+      var statusEl = document.getElementById('verse-page-save-status');
+      versePageSave.disabled = true;
+      saveDailyVerseToMyVerses(v.ref, v.text).then(function (res) {
+        if (res.ok && res.already) {
+          if (statusEl) statusEl.textContent = 'Already in My Verses.';
+          versePageSave.textContent = 'Saved';
+          versePageSave.disabled = true;
+          versePageSave.setAttribute('aria-label', 'This verse is already in My Verses');
+        } else if (res.ok) {
+          if (statusEl) statusEl.textContent = 'Saved to My Verses on this device.';
+          versePageSave.textContent = 'Saved';
+          versePageSave.disabled = true;
+          versePageSave.setAttribute('aria-label', 'Verse saved to My Verses');
+          if (typeof trackEvent === 'function') trackEvent('verse_page_save_my_verses', { verse_ref: v.ref });
+        } else {
+          versePageSave.disabled = false;
+          versePageSave.textContent = 'Try again';
+          versePageSave.setAttribute('aria-label', 'Save failed; tap to try again');
+          if (statusEl) statusEl.textContent = 'Could not save. Try again.';
+          setTimeout(function () {
+            updateVersePageSaveMyVersesState();
+          }, 2200);
+        }
+      });
+    });
+    if (typeof window !== 'undefined' && window.addEventListener) {
+      window.addEventListener('tdb-daily-verse-updated', updateVersePageSaveMyVersesState);
+    }
+    updateVersePageSaveMyVersesState();
+  }
   var dailyBtn = document.getElementById('pray-this-with-me-daily');
   if (dailyBtn) {
     dailyBtn.addEventListener('click', function () {
@@ -15869,6 +15932,35 @@ async function saveCollectionItemToSupabase(collectionId, verse) {
   return { id: data.id, ref: data.ref, text: data.text, collection_id: data.collection_id };
 }
 
+/**
+ * Save a verse ref + plain text into My Verses (default collection + optional Supabase).
+ * Mirrors Search / Bible tool save path (savedCollectionItems).
+ */
+async function saveDailyVerseToMyVerses(refRaw, textRaw) {
+  var ref = String(refRaw || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+  var text = String(textRaw || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!ref || !text) return { ok: false, reason: 'empty' };
+  var collectionId = getActiveCollectionId();
+  var existing = loadSavedCollectionItems().some(function (item) {
+    return item.ref === ref && item.collection_id === collectionId;
+  });
+  if (existing) return { ok: true, already: true };
+  try {
+    var saved = await saveCollectionItemToSupabase(collectionId, { ref: ref, text: text });
+    var next = loadSavedCollectionItems().filter(function (item) {
+      return item.ref !== ref || item.collection_id !== collectionId;
+    });
+    next.unshift(Object.assign({}, saved, { collection_id: collectionId }));
+    saveSavedCollectionItems(next);
+    if (typeof renderSavedVerses === 'function' && document.getElementById('saved-verses')) {
+      renderSavedVerses();
+    }
+    return { ok: true, already: false };
+  } catch (e) {
+    return { ok: false, reason: 'error' };
+  }
+}
+
 async function deleteCollectionItemFromSupabase(itemId) {
   if (!canUseSupabase() || !itemId) return;
   await supabaseClient.from('saved_verse_collections').delete().eq('id', itemId);
@@ -19356,7 +19448,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260330-sw-v113', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260324-sw-v114', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

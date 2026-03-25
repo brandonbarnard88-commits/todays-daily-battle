@@ -185,7 +185,11 @@
             <button type="button" id="verse-page-copy" class="btn btn-secondary" aria-label="Copy verse and link to clipboard">Copy</button>
             <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy verse and share link">Pray this with me</button>
           </div>
-          <p class="section-note verse-save-hint" style="margin-top:0.85rem;">Verses you save from Search or the <a href="/bible-tool.html">Bible tool</a> land in <a href="/my-verses.html">My Verses</a> on this device—same quiet list, easy to find later.</p>
+          <div class="verse-save-block">
+            <button type="button" id="verse-page-save-my-verses" class="btn btn-secondary" aria-describedby="verse-save-hint-text" aria-label="Save today's verse to My Verses on this device">Save this verse</button>
+            <p id="verse-save-hint-text" class="section-note verse-save-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
+          </div>
+          <span id="verse-page-save-status" class="sr-only" aria-live="polite"></span>
         </section>
       </div>
     </main>

@@ -20,7 +20,7 @@ const pages = [
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
   { path: '/study.html', name: 'Study', mustInclude: ['Study', 'notes'] },
   { path: '/my-verses.html', name: 'My Verses', mustInclude: ['My Verses', 'id="saved-verses"', 'id="my-verses-panel"', 'bible-tool.html', 'Study workspace', 'footer-humility', 'We battle. He wins.', 'tdb-cache-hygiene:'] },
-  { path: '/verse.html', name: 'Verse of the Day', mustInclude: ['Verse', 'verse-save-hint', 'My Verses', '/bible-tool.html', 'tdb-cache-hygiene:'] },
+  { path: '/verse.html', name: 'Verse of the Day', mustInclude: ['Verse', 'verse-save-hint', 'verse-page-save-my-verses', 'My Verses', '/bible-tool.html', 'tdb-cache-hygiene:'] },
   { path: '/calm.html', name: 'Need a verse now', mustInclude: ['God', 'Another verse', 'Back to home', 'Breathe with me for 60 seconds', 'script.js?v=20260325calmen', 'hreflang="x-default"', 'hreflang="es" href="https://todaysdailybattle.com/paz.html"'] },
   { path: '/church.html', name: 'Church', mustInclude: ['Church'] },
   { path: '/sermon.html', name: 'Sermon', mustInclude: ['Sermon'] },

@@ -7236,6 +7236,23 @@ button:active {
 
 .verse-card-actions .btn { min-height: 36px; }
 
+.verse-save-block {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.verse-save-block .verse-save-hint {
+  margin: 0;
+}
+
+.verse-save-block .btn {
+  min-height: 44px;
+}
+
 .tdb-breakdown-btn {
   border: 1px solid rgba(212, 175, 55, 0.45);
   background: linear-gradient(135deg, rgba(17, 24, 39, 0.94), rgba(51, 65, 85, 0.86));
@@ -14165,6 +14182,21 @@ body.kids-battle-page .tdb-site-humility {
     font-size: 0.74rem;
     padding: 0.45rem 0.12rem;
     letter-spacing: -0.012em;
+  }
+}
+
+@media (max-width: 340px) {
+  .site-footer nav.bottom-nav,
+  .kids-footer nav.bottom-nav,
+  .tool-page-footer nav.bottom-nav {
+    gap: 0.22rem 0.32rem;
+    padding: 0.45rem 0.28rem;
+  }
+  .site-footer nav.bottom-nav a,
+  .kids-footer nav.bottom-nav a,
+  .tool-page-footer nav.bottom-nav a {
+    font-size: 0.7rem;
+    padding: 0.42rem 0.08rem;
   }
 }
 

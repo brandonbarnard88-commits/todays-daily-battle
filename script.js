@@ -9057,8 +9057,18 @@ function wireArmorBuilderModal() {
       openModal(true);
     }, 300);
   }
+  function openArmorFromUrlHash() {
+    if ((window.location.hash || '') !== '#armor-builder-btn') return;
+    setTimeout(function () {
+      if (typeof renderArmorModal === 'function') renderArmorModal();
+      openModal(true);
+    }, 100);
+  }
+  openArmorFromUrlHash();
+  window.addEventListener('hashchange', openArmorFromUrlHash);
   if (btn) {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (e) {
+      if (e && typeof e.preventDefault === 'function') e.preventDefault();
       openModal(false);
     });
   }
@@ -9095,11 +9105,6 @@ function wireArmorBuilderModal() {
   if (toolboxFamilyArmor) toolboxFamilyArmor.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
   var navFamilyArmor = document.getElementById('nav-family-armor');
   if (navFamilyArmor) navFamilyArmor.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
-  if (window.location.hash === '#armor-builder-btn') {
-    setTimeout(function () {
-      openModal(true);
-    }, 100);
-  }
 }
 
 function wireFamilyNameModal() {

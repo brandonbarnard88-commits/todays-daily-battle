@@ -9463,6 +9463,16 @@ a.my-verses-ref-link:focus-visible {
   cursor: pointer;
   transition: box-shadow 0.25s, border-color 0.2s, transform 0.15s;
 }
+/* Real link CTA: keep button look, no default link underline or purple visited state */
+a.family-armor-stories-btn {
+  text-decoration: none;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+a.family-armor-stories-btn:visited {
+  color: rgba(212, 175, 55, 0.98);
+}
 .family-armor-stories-btn:hover {
   border-color: rgba(212, 175, 55, 0.8);
   box-shadow: 0 0 24px rgba(212, 175, 55, 0.4), 0 0 8px rgba(212, 175, 55, 0.25);

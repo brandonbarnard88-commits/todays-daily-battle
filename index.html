@@ -83,7 +83,7 @@
   <link rel="preconnect" href="https://plausible.io">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260328feelwire">
+  <link rel="modulepreload" href="script.js?v=20260331armorcta">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {
@@ -5180,7 +5180,7 @@
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Family Armor &amp; Stories</h2>
         <p class="section-note">Link your household, track progress, share stories. Each story adds a piece to your armor.</p>
         <div class="armor-progress-teaser" id="armorProgressTeaser" aria-live="polite" hidden></div>
-        <button type="button" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" aria-label="Open Family Armor">Open Family Armor</button>
+        <a href="#armor-builder-btn" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" role="button" aria-label="Open Family Armor and Bible stories">Open Family Armor</a>
       </section>
       <section class="card challenge-30-banner" id="challenge-30-banner" aria-label="30-Day Battle Plan">
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>30-Day Battle Plan</h2>
@@ -9028,7 +9028,7 @@
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s" type="module" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260328feelwire" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260331armorcta" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer></script>
 </body>

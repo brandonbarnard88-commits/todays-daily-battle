@@ -18,6 +18,8 @@ In **Cloudflare Dashboard** → **Workers & Pages** → your project → **Setti
 
 The repo has a `package.json` so `npm run build` runs the script that creates `config.js`. Without these settings, the build never runs and `config.js` is never created (404 on the live site).
 
+**Pages Functions (sky geolocation):** Keep the repo’s **`functions/`** folder at the **project root** (sibling of `dist/`). Cloudflare Pages deploys it automatically with the site; do not set the build output to the repo root in a way that omits `functions/`. The route **`GET /api/sky-geo`** serves approximate lat/lon for the header/kids sky. After deploy, check: `curl -sS https://YOUR_DOMAIN/api/sky-geo` → JSON with `lat`, `lon`, `source`. If that 404s, the sky still works using fixed time-of-day bands.
+
 ## 3. Environment variables
 
 In **Pages** → your project → **Settings** → **Environment variables** (or **Build** → **Environment variables**), add:
@@ -51,3 +53,5 @@ Once the build runs with the new command, it will write `config.js` from the env
 ## Quick check
 
 After a successful deploy, open your site and try **Sign in**. If the form appears and you can log in (or see “Invalid email or password” instead of “Sign-in is optional. Log in to save your streak…”), config is working.
+
+Optional: confirm **`/api/sky-geo`** returns JSON (see above) so sunset timing uses IP region instead of only fixed clock windows.

@@ -27,10 +27,10 @@ export const STORY_HTML_MARKERS = [
   'aria-describedby="pdf-export-count-hint pdf-export-hint"',
   'story-library-fonts.css?v=1',
   'kids-corner.js?v=20260331kidsnav',
-  'kids-page-sky.css?v=20260331',
+  'kids-page-sky.css?v=20260325calm',
   'uFuzzy.iife.min.js',
   'kids-verses-365.js?v=20260325kidsmeans',
-  'kids-battle.js?v=20260324doodleraf',
+  'kids-battle.js?v=20260325story',
   'TDB_PANEL_RASTER',
   'nunito-latin.woff2',
   '/kids/panel-david-1.svg'

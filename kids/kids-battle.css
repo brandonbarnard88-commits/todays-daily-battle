@@ -1185,6 +1185,31 @@
   animation: cartoonCaptionBounce 2s ease-in-out 0.5s both;
 }
 
+/* Read-aloud story under comic panels (matches bibleStories.narration) */
+.kids-story-narration {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--kids-card, #1e293b) 92%, #fff 8%);
+  border: 2px solid color-mix(in srgb, var(--kids-yellow) 35%, transparent);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kids-story-narration-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--kids-text, #f1f5f9);
+  margin: 0 0 0.7rem;
+  text-align: left;
+}
+
+.kids-story-narration-text:last-child {
+  margin-bottom: 0;
+}
+
 /* Phase 4: Watch video button — only on carousel days */
 .watch-video-btn {
   font-family: 'Nunito', sans-serif;

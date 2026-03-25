@@ -128,6 +128,7 @@ function paintSkyDecorations(layer, r, skyClass) {
   var plane = getSkyCelestialPlane(layer);
   if (!plane) return;
   var isMobile = window.innerWidth < 600;
+  var kidsCalm = document.body.classList.contains('kids-sky-enabled');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isNightSky = skyClass === 'sky-night';
 
@@ -139,7 +140,7 @@ function paintSkyDecorations(layer, r, skyClass) {
   var isDusk = skyClass === 'sky-dusk';
 
   if (isNightSky && !reduced) {
-    var starCount = isMobile ? 55 : 110;
+    var starCount = isMobile ? (kidsCalm ? 26 : 55) : (kidsCalm ? 72 : 110);
     for (var i = 0; i < starCount; i++) {
       var st = document.createElement('div');
       st.className = 'sky-star' + (r() > 0.82 ? ' glow' : '');
@@ -188,6 +189,9 @@ function paintSkyDecorations(layer, r, skyClass) {
       { w:140, h:45, top: 24, op: 0.55, dur: 95  },
       { w:220, h:65, top: 9,  op: 0.45, dur: 160 }
     ];
+    if (kidsCalm && isMobile) {
+      cloudDefs = cloudDefs.slice(0, 2);
+    }
     if (!isMobile) cloudDefs.push(
       { w:110, h:40, top: 33, op: 0.60, dur: 75  },
       { w:160, h:50, top: 18, op: 0.40, dur: 110 }
@@ -197,8 +201,9 @@ function paintSkyDecorations(layer, r, skyClass) {
     cloudDefs.forEach(function(cd, idx) {
       var cl = document.createElement('div');
       cl.className = 'sky-cloud';
+      var durUse = kidsCalm ? Math.round(cd.dur * 1.65) : cd.dur;
       var startX = -(cd.w + r() * 60);
-      var delay = -(r() * cd.dur * 0.8);
+      var delay = -(r() * durUse * 0.8);
       var base = warmTint ? 'rgba(255,' + Math.round(190 - r()*60) + ',' + Math.round(130 - r()*80) + ',' : 'rgba(255,255,255,';
       cl.style.cssText =
         'width:' + cd.w + 'px;height:' + cd.h + 'px;' +
@@ -209,18 +214,19 @@ function paintSkyDecorations(layer, r, skyClass) {
         'background:radial-gradient(ellipse 65% 55% at 40% 45%,' + base + '0.88) 0%,' + base + '0) 100%);' +
         'filter:blur(' + (r()*1.5) + 'px);' +
         '--drift:' + (window.innerWidth + cd.w + 80) + 'px;' +
-        'animation-duration:' + cd.dur + 's;' +
+        'animation-duration:' + durUse + 's;' +
         'animation-delay:' + delay.toFixed(1) + 's;' +
         'animation-timing-function:' + timings[idx % timings.length] + ';';
       plane.appendChild(cl);
     });
-    var birdCount = isMobile ? 4 : 7 + Math.floor(r() * 4);
+    var birdCount = isMobile ? (kidsCalm ? 2 : 4) : (kidsCalm ? 4 : 7 + Math.floor(r() * 4));
     for (var bi = 0; bi < birdCount; bi++) {
       var bd = document.createElement('div');
       bd.className = 'sky-bird';
       var bsize = 8 + r() * 10;
       var bdur  = 28 + r() * 45;
-      var btop  = 12 + r() * 35;
+      if (kidsCalm) bdur *= 1.45;
+      var btop  = birdCount <= 1 ? 18 : 12 + (bi / Math.max(birdCount - 1, 1)) * 28 + r() * 6;
       var bdelay = -(r() * bdur);
       var ftdur = 0.35 + r() * 0.4;
       bd.style.cssText =

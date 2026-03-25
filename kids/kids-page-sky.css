@@ -491,3 +491,19 @@ body.kids-sky-enabled .tdb-global-nav {
 body.kids-sky-enabled .kids-bottom-nav {
   z-index: 220;
 }
+
+/* Kids hub: softer motion + friendlier day sky (less “cosmic,” more open/playground) */
+body.kids-sky-enabled .sky-stars-parallax {
+  animation-duration: 200s;
+  opacity: 0.35;
+}
+body.kids-sky-enabled.sky-night .sky-stars-parallax {
+  opacity: 0.32;
+}
+body.kids-sky-enabled.sky-day .sky {
+  background: linear-gradient(180deg, #0a1834 0%, #1a4a82 38%, #3d8cc8 68%, #7ec0e8 88%, #b8dff4 100%);
+}
+body.kids-sky-enabled.sky-dawn .sky,
+body.kids-sky-enabled.sky-dusk .sky {
+  filter: saturate(1.05) brightness(1.04);
+}

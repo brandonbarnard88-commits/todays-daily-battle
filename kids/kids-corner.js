@@ -5877,7 +5877,7 @@
               var wrapDiv = document.createElement('div');
               wrapDiv.className = 'kids-video-wrapper';
               var iframe = document.createElement('iframe');
-              iframe.src = 'https://www.youtube.com/embed/' + escHtml(id) + '?rel=0&modestbranding=1&playsinline=1';
+              iframe.src = 'https://www.youtube-nocookie.com/embed/' + escHtml(id) + '?rel=0&modestbranding=1&playsinline=1';
               iframe.width = '100%';
               iframe.height = '100%';
               iframe.setAttribute('frameborder', '0');

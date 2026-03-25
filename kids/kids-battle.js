@@ -750,8 +750,8 @@
         { src: 'panel-david-3.svg', alt: "David wins with God's help – One stone, one faith" }
       ],
       caption: 'Swipe to see how God helped David be brave! ⚔️',
-      videoId: 'QuLN7IWFJNY',
-      videoTitle: 'David and Goliath – Animated!',
+      videoId: '',
+      videoTitle: '',
       keywords: ['david', 'goliath', 'brave', 'battle', 'shepherd', 'slingshot'],
       kjvRef: '1 Samuel 17:45–50',
       kidContext: { who: 'David', to: 'Goliath (and us)', apply: "David was small, but he trusted God. Goliath was a giant who made everyone afraid. David said, 'The battle is the Lord\'s!' He took five stones and his sling. One stone hit Goliath, and God gave the victory. When your giant feels too big—fear, worry, or a bully—remember: God is bigger. Be brave. He fights for you." },
@@ -2598,9 +2598,9 @@
     isaiahMessianic: {
       title: 'Isaiah\'s Messianic Prophecies',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Isaiah speaks God\'s word to Judah\'s king' },
-        { src: 'panel-david-2.svg', alt: 'A promised child — Immanuel, God with us' },
-        { src: 'panel-david-3.svg', alt: 'The suffering servant brings healing' }
+        { src: 'panel-jesus-1.svg', alt: 'God\'s prophet speaks — promises of the coming King' },
+        { src: 'panel-jesus-2.svg', alt: 'A promised child — Immanuel, God with us' },
+        { src: 'panel-jesus-3.svg', alt: 'The suffering servant brings healing and peace' }
       ],
       caption: 'Swipe to see God\'s promises that came true in Jesus! ✨',
       videoId: '',
@@ -6621,6 +6621,17 @@
     return /^cartoon-slide-[a-z0-9-]+$/i.test(a) ? a : '';
   }
 
+  /** Split read-aloud narration: main story + "For you:" application when present. */
+  function kidsNarrationToParagraphs(raw) {
+    var t = tdbPlainTextForUi(raw || '').trim();
+    if (!t) return [];
+    var fu = t.indexOf(' For you:');
+    if (fu >= 0) {
+      return [t.slice(0, fu).trim(), t.slice(fu + 1).trim()];
+    }
+    return [t];
+  }
+
   function appendComicCarouselDom(container, story) {
     var wrap = document.createElement('div');
     wrap.className = 'comic-carousel';
@@ -6640,6 +6651,21 @@
     cap.className = 'comic-caption';
     cap.textContent = tdbPlainTextForUi(story.caption || '');
     wrap.appendChild(cap);
+    var narrRaw = story.narration && String(story.narration).trim();
+    if (narrRaw) {
+      var narrWrap = document.createElement('div');
+      narrWrap.className = 'kids-story-narration';
+      narrWrap.setAttribute('role', 'region');
+      narrWrap.setAttribute('aria-label', 'Read-aloud story');
+      var paras = kidsNarrationToParagraphs(narrRaw);
+      for (var ni = 0; ni < paras.length; ni++) {
+        var np = document.createElement('p');
+        np.className = 'kids-story-narration-text';
+        np.textContent = paras[ni];
+        narrWrap.appendChild(np);
+      }
+      wrap.appendChild(narrWrap);
+    }
     var vid = safeYouTubeId(story.videoId);
     if (vid) {
       var btn = document.createElement('button');
@@ -6963,7 +6989,9 @@
         var frameEl = document.getElementById('video-frame');
         var modalEl = document.getElementById('video-modal');
         if (titleEl) titleEl.textContent = title;
-        if (frameEl) frameEl.src = 'https://www.youtube.com/embed/' + id + '?rel=0&modestbranding=1&playsinline=1';
+        if (frameEl) {
+          frameEl.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&modestbranding=1&playsinline=1';
+        }
         if (modalEl) modalEl.classList.remove('hidden');
       }
       if (e.target.id === 'video-modal' || (e.target.classList && e.target.classList.contains('kids-video-modal-close'))) {
@@ -7319,11 +7347,22 @@
     var captionEl = document.getElementById('kids-story-of-day-caption');
     var link = document.querySelector('.kids-story-of-day-link');
     if (!el || !bibleStories) return;
-    var keys = Object.keys(bibleStories);
-    if (keys.length === 0) return;
+    var featuredOrder = [
+      'david', 'noah', 'jesus', 'jonah', 'daniel', 'creation', 'adamEve', 'mosesBush',
+      'redSea', 'manna', 'esther', 'josephCoat', 'elijahFire', 'samson', 'towerBabel',
+      'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000', 'goodSamaritan', 'prodigalSon'
+    ];
+    var pool = [];
+    for (var fi = 0; fi < featuredOrder.length; fi++) {
+      if (bibleStories[featuredOrder[fi]]) pool.push(featuredOrder[fi]);
+    }
+    if (pool.length === 0) {
+      pool = Object.keys(bibleStories);
+    }
+    if (pool.length === 0) return;
     var weekMs = 7 * 24 * 60 * 60 * 1000;
-    var idx = Math.floor(Date.now() / weekMs) % keys.length;
-    var key = keys[idx];
+    var idx = Math.floor(Date.now() / weekMs) % pool.length;
+    var key = pool[idx];
     var story = bibleStories[key];
     if (!story) return;
     var panels = story.panels || [];

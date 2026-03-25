@@ -26,7 +26,7 @@ PAGES = [
     ("/about.html", "About", ["About", "Brandon", "contact.html"]),
     ("/contact.html", "Contact", ["Contact", "id=\"auth-section\"", "sidebar"]),
     ("/faq.html", "FAQ", ["FAQ", "pricing.html"]),
-    ("/verse.html", "Verse of the Day", ["Verse", "id=\"auth-section\"", "verse-page-share", "verse-page-copy"]),
+    ("/verse.html", "Verse of the Day", ["Verse", "id=\"auth-section\"", "verse-page-share", "verse-page-copy", "verse-save-hint", "My Verses", "/bible-tool.html"]),
     ("/calm.html", "Need a verse now", ["God", "Psalm", "Isaiah", "Matthew", "Philippians", "Another verse", "Breathe with me for 60 seconds", "script.js?v=20260325calmen"]),
     ("/study.html", "Study", ["Study", "notes", "id=\"auth-section\"", "study-note-status"]),
     ("/my-verses.html", "My Verses", ["My Verses", "id=\"saved-verses\"", "id=\"my-verses-panel\"", "bible-tool.html", "Study workspace", "footer-humility", "We battle. He wins.", "tdb-cache-hygiene:"]),

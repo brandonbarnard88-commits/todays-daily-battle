@@ -14144,6 +14144,30 @@ body.kids-battle-page .tdb-site-humility {
   box-sizing: border-box;
 }
 
+/* Fixed footer strip: light press feedback (no layout shift) */
+.site-footer nav.bottom-nav a:active,
+.kids-footer nav.bottom-nav a:active,
+.tool-page-footer nav.bottom-nav a:active {
+  opacity: 0.88;
+}
+
+/* Very small phones: tighter rhythm; keep min tap target from .bottom-nav a */
+@media (max-width: 380px) {
+  .site-footer nav.bottom-nav,
+  .kids-footer nav.bottom-nav,
+  .tool-page-footer nav.bottom-nav {
+    gap: 0.28rem 0.42rem;
+    padding: 0.5rem 0.35rem;
+  }
+  .site-footer nav.bottom-nav a,
+  .kids-footer nav.bottom-nav a,
+  .tool-page-footer nav.bottom-nav a {
+    font-size: 0.74rem;
+    padding: 0.45rem 0.12rem;
+    letter-spacing: -0.012em;
+  }
+}
+
 /* Breathe tool - respect reduced motion more strictly */
 @media (prefers-reduced-motion: reduce) {
   .breathe-circle {

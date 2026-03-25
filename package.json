@@ -10,6 +10,8 @@
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:security": "node test-security.js",
     "test:site": "node test-site.js --offline",
+    "release:check": "npm run build && npm run test && npm run test:site && npm run test:security",
+    "deploy:reminder": "node scripts/post-deploy-reminder.mjs",
     "test:authz-smoke": "bash scripts/authz-smoke.sh",
     "test:search-torture": "node scripts/search-torture-test.mjs",
     "test:search-torture-live": "node scripts/search-torture-live.mjs",

@@ -9048,6 +9048,11 @@ function wireArmorBuilderModal() {
     renderFamilyStoriesTab();
     if (toArmor) switchFamilyArmorTab('armor'); else switchFamilyArmorTab('stories');
     modal.classList.remove('hidden');
+    try {
+      modal.scrollTop = 0;
+      var innerScroll = modal.querySelector('.family-armor-stories-modal-inner');
+      if (innerScroll) innerScroll.scrollTop = 0;
+    } catch (eScroll) {}
     if (_tdbModalUntrap) _tdbModalUntrap();
     _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
   }
@@ -9105,6 +9110,13 @@ function wireArmorBuilderModal() {
   if (toolboxFamilyArmor) toolboxFamilyArmor.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
   var navFamilyArmor = document.getElementById('nav-family-armor');
   if (navFamilyArmor) navFamilyArmor.addEventListener('click', function (e) { e.preventDefault(); openModal(false); });
+  var kidsLibModal = document.getElementById('family-armor-kids-library-link');
+  var kidsLibCard = document.getElementById('family-armor-card-kids-link');
+  function trackKidsLibraryNav(src) {
+    if (typeof trackEvent === 'function') trackEvent('family_armor_kids_library_nav', { source: src });
+  }
+  if (kidsLibModal) kidsLibModal.addEventListener('click', function () { trackKidsLibraryNav('modal'); });
+  if (kidsLibCard) kidsLibCard.addEventListener('click', function () { trackKidsLibraryNav('home_card'); });
 }
 
 function wireFamilyNameModal() {

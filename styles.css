@@ -9499,7 +9499,8 @@ a.family-armor-stories-btn:visited {
 #family-armor-stories-modal {
   position: fixed;
   inset: 0;
-  z-index: 1100;
+  /* Above welcome overlay (10000) so the CTA is never a silent tap */
+  z-index: 10100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9553,6 +9554,50 @@ a.family-armor-stories-btn:visited {
 .family-armor-tab-panel { margin-top: 0; }
 .family-armor-tab-panel.hidden { display: none !important; }
 .family-armor-elite-note { color: rgba(226, 232, 240, 0.9); font-style: italic; margin-bottom: 0.5rem; }
+.family-armor-dest-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 0.85rem 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.45);
+}
+.family-armor-dest-row .family-armor-library-btn {
+  flex: 0 0 auto;
+  text-decoration: none;
+  text-align: center;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.family-armor-dest-copy {
+  margin: 0;
+  flex: 1 1 12rem;
+  color: rgba(203, 213, 225, 0.92);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.family-armor-card-more {
+  margin-top: 0.65rem;
+}
+.family-armor-card-more .family-armor-library-link {
+  color: rgba(212, 175, 55, 0.95);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+.family-armor-card-more .family-armor-library-link:visited {
+  color: rgba(212, 175, 55, 0.88);
+}
+.family-armor-card-more .family-armor-library-link:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.85);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
 #family-stories-grid { max-height: 60vh; overflow-y: auto; margin-top: 0.75rem; }
 #family-stories-grid .kids-corner-card { margin-bottom: 1rem; }
 #family-stories-grid .kids-corner-grid,

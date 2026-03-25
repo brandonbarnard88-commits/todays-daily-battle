@@ -103,7 +103,7 @@ const SOCIAL_PURGE_PATHS = [
   '/message.html',
   '/script.js',
   '/script.js?v=20260328feelwire',
-  '/script.js?v=20260331armorcta',
+  '/script.js?v=20260324armorflow',
   '/tt-bootstrap.js?v=20260326clean',
   '/sitemap.xml',
   '/assets/share/home-og.jpg',

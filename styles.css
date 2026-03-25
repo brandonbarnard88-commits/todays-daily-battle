@@ -6188,6 +6188,27 @@ body:has(.pricing-grid) .content-inner .glass:last-of-type {
   color: #eef1f6;
   text-decoration: none;
 }
+
+/* Más ayuda: semantic <nav> + forced layout so the row cannot collapse under stale or hostile CSS. */
+.content-inner section.es-mas-ayuda nav.es-mas-ayuda-tools.cta-group {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+  visibility: visible;
+  opacity: 1;
+  min-height: 2.75rem;
+}
+.content-inner section.es-mas-ayuda nav.es-mas-ayuda-tools.cta-group a.btn.btn-secondary,
+.content-inner section.es-mas-ayuda nav.es-mas-ayuda-tools.cta-group a.btn.btn-secondary:visited {
+  color: #eef1f6;
+  text-decoration: none;
+}
+.content-inner section.es-mas-ayuda nav.es-mas-ayuda-tools.cta-group a.btn.btn-secondary:hover,
+.content-inner section.es-mas-ayuda nav.es-mas-ayuda-tools.cta-group a.btn.btn-secondary:focus-visible {
+  color: #eef1f6;
+  text-decoration: none;
+}
 .hero-banner {
   text-align: center;
 }

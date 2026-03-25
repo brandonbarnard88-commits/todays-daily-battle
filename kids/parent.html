@@ -16,7 +16,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260324kidsfoot">
-  <link rel="stylesheet" href="kids-battle.css?v=21">
+  <link rel="stylesheet" href="kids-battle.css?v=20260326parentdoodle">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
@@ -59,6 +59,8 @@
         <section class="kids-parent-doodles glass" role="region" aria-label="Doodles gallery">
           <h2 class="kids-section-title">Doodles Gallery</h2>
           <p class="kids-doodle-gallery-desc">Drawings from each day's battle.</p>
+          <!-- Empty state lives in HTML so Trusted Types never turns it into visible markup text -->
+          <p id="parent-doodles-empty-copy" class="kids-no-doodles">No doodles saved yet. Open Kids Battle and save a drawing to start your gallery.</p>
           <div id="parent-doodles-gallery" class="kids-doodles-gallery"></div>
         </section>
 
@@ -125,6 +127,6 @@
   <script src="../inline-bootstrap.js"></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans"></script>
   <script src="kids-battle.js?v=20260324doodleraf"></script>
-  <script src="kids-parent.js?v=6" defer></script>
+  <script src="kids-parent.js?v=8" defer></script>
 </body>
 </html>

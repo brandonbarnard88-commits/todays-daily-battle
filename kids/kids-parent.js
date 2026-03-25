@@ -144,7 +144,12 @@
 
   function renderDoodles() {
     const gallery = document.getElementById('parent-doodles-gallery');
+    const emptyCopy = document.getElementById('parent-doodles-empty-copy');
     if (!gallery) return;
+    function setEmptyCopyVisible(show) {
+      if (emptyCopy) emptyCopy.classList.toggle('hidden', !show);
+    }
+    setEmptyCopyVisible(false);
     clearGallery(gallery);
     var loadingP = document.createElement('p');
     loadingP.className = 'kids-doodles-loading';
@@ -157,12 +162,10 @@
       var items = storageItems.length > 0 ? storageItems : localItems.slice(0, 5);
       clearGallery(gallery);
       if (items.length === 0) {
-        var emptyP = document.createElement('p');
-        emptyP.className = 'kids-no-doodles';
-        emptyP.textContent = 'No doodles saved yet. Open Kids Battle and save a drawing to start your gallery.';
-        gallery.appendChild(emptyP);
+        setEmptyCopyVisible(true);
         return;
       }
+      setEmptyCopyVisible(false);
       items.forEach(function (item) {
         const wrap = document.createElement('div');
         wrap.className = 'kids-doodle-gallery-item kids-doodle-polaroid';

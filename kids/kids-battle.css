@@ -2206,6 +2206,14 @@
   font-style: italic;
 }
 
+#parent-doodles-empty-copy {
+  margin: 0 0 0.25rem;
+}
+
+#parent-doodles-empty-copy.hidden {
+  display: none !important;
+}
+
 .kids-doodle-gallery-desc {
   font-family: 'Comic Neue', cursive;
   color: #94a3b8;

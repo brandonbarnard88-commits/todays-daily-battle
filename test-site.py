@@ -23,7 +23,7 @@ PAGES = [
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
     ("/pricing.html", "Pricing", ["Pricing", "Subscribe", "terms.html", "id=\"auth-section\"", "id=\"sidebar-toggle\""]),
     ("/explore.html", "Explore", ["Explore the site", "explore-link-list", "id=\"topics-es\">Spanish topics", "Spanish devotionals", ">Spanish topics</a>", "tdb-cache-hygiene:", "id=\"auth-section\""]),
-    ("/about.html", "About", ["About", "Brandon", "contact.html"]),
+    ("/about.html", "About", ["About", "Where this came from", "contact.html"]),
     ("/contact.html", "Contact", ["Contact", "id=\"auth-section\"", "sidebar"]),
     ("/faq.html", "FAQ", ["FAQ", "pricing.html"]),
     ("/verse.html", "Verse of the Day", ["Verse", "id=\"auth-section\"", "verse-page-share", "verse-page-copy", "verse-page-save-my-verses", "verse-save-hint", "My Verses", "/bible-tool.html", "tdb-cache-hygiene:"]),

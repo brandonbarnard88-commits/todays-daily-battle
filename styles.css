@@ -6176,6 +6176,18 @@ body:has(.pricing-grid) .content-inner .glass:last-of-type {
   outline-offset: 2px;
   color: var(--accent-hover);
 }
+
+/* Spanish “Más ayuda” tool chips: .content-inner .glass a outranks .btn-secondary (0,2,1 vs 0,2,0). */
+.content-inner section.es-mas-ayuda .cta-group a.btn.btn-secondary,
+.content-inner section.es-mas-ayuda .cta-group a.btn.btn-secondary:visited {
+  color: #eef1f6;
+  text-decoration: none;
+}
+.content-inner section.es-mas-ayuda .cta-group a.btn.btn-secondary:hover,
+.content-inner section.es-mas-ayuda .cta-group a.btn.btn-secondary:focus-visible {
+  color: #eef1f6;
+  text-decoration: none;
+}
 .hero-banner {
   text-align: center;
 }

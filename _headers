@@ -78,6 +78,26 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Spanish topical pages (copy + “Más ayuda” links churn; sync cloudflare-purge SOCIAL_PURGE_PATHS)
+/ansiedad.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ansiedad
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fuerza.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fuerza
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/paz.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/paz
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
 /kids/index.html
   Cache-Control: no-cache, must-revalidate

@@ -129,6 +129,12 @@ const cacheHygienePaths = [
   '/reader',
   '/message.html',
   '/message',
+  '/ansiedad.html',
+  '/ansiedad',
+  '/fuerza.html',
+  '/fuerza',
+  '/paz.html',
+  '/paz',
 ];
 let cacheHygieneOk = true;
 for (const p of cacheHygienePaths) {
@@ -138,7 +144,7 @@ for (const p of cacheHygienePaths) {
   }
 }
 if (cacheHygieneOk) {
-  const probes = ['/explore.html', '/verse.html', '/study.html'];
+  const probes = ['/explore.html', '/verse.html', '/study.html', '/ansiedad.html'];
   for (const probe of probes) {
     const i = headers.indexOf(probe);
     if (i < 0) {
@@ -154,7 +160,7 @@ if (cacheHygieneOk) {
     }
   }
   if (cacheHygieneOk) {
-    ok('_headers: cache hygiene paths (hubs + verse + study/reader/message) have no-cache');
+    ok('_headers: cache hygiene paths (hubs + verse + study/reader/message + ES topics) have no-cache');
   }
 }
 

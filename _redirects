@@ -30,6 +30,13 @@
 /topic-worthless /topic-worthless.html 200!
 /topic-guilt /topic-guilt.html 200!
 /topic-overwhelmed /topic-overwhelmed.html 200!
+# Spanish topical (clean URL → single HTML shell; avoids any split between /path and /path.html at the edge)
+/ansiedad /ansiedad.html 200!
+/ansiedad/ /ansiedad.html 200!
+/fuerza /fuerza.html 200!
+/fuerza/ /fuerza.html 200!
+/paz /paz.html 200!
+/paz/ /paz.html 200!
 # Kids Battle (reversible: everything in kids/ folder)
 /kids /kids/index.html 200!
 /kids/ /kids/index.html 200!

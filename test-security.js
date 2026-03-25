@@ -180,6 +180,33 @@ if (!redirects.includes('/admin /blocked.html') || !redirects.includes('/admin.h
   ok('_redirects: admin URLs return minimal blocked.html in production');
 }
 
+const esRewriteNeedles = [
+  '/ansiedad /ansiedad.html 200!',
+  '/fuerza /fuerza.html 200!',
+  '/paz /paz.html 200!',
+];
+let esRewriteOk = true;
+for (const n of esRewriteNeedles) {
+  if (!redirects.includes(n)) {
+    fail('_redirects: Spanish clean URL rewrite missing: ' + n);
+    esRewriteOk = false;
+  }
+}
+if (esRewriteOk) {
+  ok('_redirects: Spanish topical clean URLs rewrite to .html (200!)');
+}
+
+const ansiedadHtml = read('ansiedad.html');
+if (
+  !ansiedadHtml.includes('es-mas-ayuda') ||
+  !ansiedadHtml.includes('cta-group') ||
+  !ansiedadHtml.includes('Herramienta Biblia')
+) {
+  fail('ansiedad.html: Más ayuda block must include es-mas-ayuda, cta-group, and Herramienta Biblia link');
+} else {
+  ok('ansiedad.html: Más ayuda tool row markup present (source guard)');
+}
+
 // 4. DOMPurify loaded (XSS defense)
 if (!index.includes('purify') && !index.includes('dompurify')) {
   fail('index.html: DOMPurify not loaded (XSS mitigation)');

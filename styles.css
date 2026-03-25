@@ -3431,6 +3431,28 @@ body:has(.search-hero-home) #search-hero {
   .home-tagline, .hero-slogan-one-line { font-size: 1.15rem; }
 }
 
+/* Topic chips (#quick-actions-hero): uniform tiles on narrow viewports */
+@media (max-width: 768px) {
+  .quick-actions-hero,
+  #quick-actions-hero {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 8.75rem), 1fr));
+    gap: 0.5rem;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+  .quick-actions-hero .btn,
+  #quick-actions-hero .btn {
+    display: inline-flex !important;
+    align-items: center;
+    width: 100%;
+    min-width: 0 !important;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
 /* Home page accordions — keep verse first, rest below fold */
 .home-accordion {
   margin-top: var(--space-xl);
@@ -11281,6 +11303,9 @@ body.has-promo-banner .header-search-sticky {
   padding: clamp(0.9rem, 2vw, 1.25rem);
   border: 1px solid rgba(148, 163, 184, 0.22);
   background: linear-gradient(145deg, rgba(9, 15, 28, 0.96), rgba(20, 19, 44, 0.94));
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .daily-tile-kicker {
   text-transform: uppercase;
@@ -11292,7 +11317,11 @@ body.has-promo-banner .header-search-sticky {
   grid-template-columns: 140px 1fr;
   gap: 1rem;
   align-items: center;
-  min-height: clamp(340px, 62vh, 520px);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  /* svh/dvh: stable height on mobile; cap so tile + chrome still fits small screens */
+  min-height: clamp(280px, min(58svh, 62vh), 520px);
 }
 .daily-tile-avatar-wrap { display: grid; gap: 0.5rem; justify-items: center; }
 .daily-tile-avatar {
@@ -11401,6 +11430,11 @@ body.has-promo-banner .header-search-sticky {
     width: 96px;
     height: 96px;
     font-size: 1.65rem;
+  }
+  .daily-tile-hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -11907,12 +11941,16 @@ body.has-promo-banner .header-search-sticky {
 .tdb-cartoon-stage {
   width: min(100%, 1200px);
   margin: 0 auto;
-  padding: max(0.75rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-left: max(1rem, env(safe-area-inset-left));
   display: grid;
   grid-template-rows: auto auto 1fr auto auto;
   gap: 0.55rem;
-  max-height: 100dvh;
+  max-height: min(100dvh, 100svh);
   overflow-y: auto;
+  box-sizing: border-box;
 }
 .tdb-cartoon-header {
   display: flex;
@@ -11931,8 +11969,10 @@ body.has-promo-banner .header-search-sticky {
   background: rgba(15, 23, 42, 0.7);
   color: rgba(241, 245, 249, 0.94);
   border-radius: 999px;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   cursor: pointer;
   font-size: 1.5rem;
 }
@@ -11964,8 +12004,11 @@ body.has-promo-banner .header-search-sticky {
   overflow: hidden;
   border: 1px solid rgba(250, 204, 21, 0.22);
   background: #090f1c;
-  min-height: min(72vh, 620px);
+  min-height: clamp(280px, min(72vh, 68dvh), 620px);
   touch-action: pan-y;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .tdb-cartoon-panel {
   position: absolute;
@@ -12880,27 +12923,44 @@ body.has-promo-banner .header-search-sticky {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
-    min-height: clamp(300px, 66vh, 480px);
+    min-height: clamp(240px, min(54svh, calc(100dvh - 10rem)), 460px);
   }
   .daily-tile-watch-btn { width: 100%; max-width: 18rem; }
-  .tdb-cartoon-panels { min-height: 52vh; }
+  /* Leave room for HUD, road strip, and safe areas on short phones */
+  .tdb-cartoon-panels { min-height: clamp(200px, min(48svh, 52dvh), 420px); }
   .tdb-cinema-hud {
     display: block;
   }
-  .tdb-road-wrap { min-height: 170px; }
+  .tdb-road-wrap { min-height: clamp(140px, 22svh, 200px); }
   .family-armor-stories-modal-inner {
     width: 96vw;
-    max-height: 90dvh;
+    max-width: 36rem;
+    max-height: min(90dvh, 92svh);
   }
   .tdb-walkers {
-    gap: clamp(0.35rem, 2vw, 0.7rem);
-    padding: 0 0.45rem 8px;
+    gap: clamp(0.3rem, 1.5vw, 0.65rem);
+    padding: 0 max(0.35rem, env(safe-area-inset-left)) 8px max(0.35rem, env(safe-area-inset-right));
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .tdb-walker {
-    min-width: 106px;
-    max-width: 148px;
+    min-width: 92px;
+    max-width: 142px;
+    flex: 1 1 92px;
   }
-  .tdb-cartoon-character { width: 64px; height: 96px; margin-bottom: 0.3rem; }
+  .tdb-cartoon-character { width: clamp(56px, 17vw, 68px); height: clamp(80px, 25.5vw, 102px); margin-bottom: 0.3rem; }
+  .tdb-cartoon-panel {
+    padding: clamp(0.75rem, 3vw, 1.25rem);
+  }
+}
+@media (max-width: 480px) {
+  .daily-tile-hero {
+    min-height: clamp(220px, min(50svh, calc(100dvh - 8.5rem)), 400px);
+    gap: 0.75rem;
+  }
+  .tdb-cartoon-panels {
+    min-height: clamp(180px, min(44svh, 48dvh), 360px);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .tdb-panel-cinematic,

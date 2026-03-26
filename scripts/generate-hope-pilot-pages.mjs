@@ -896,7 +896,7 @@ pages.push({
     h3simple: "Kwa maneno rahisi",
     psimple: "Tumaini hapa si «tumaini la bahati nasibu»: ni Mungu wa tumaini anayejaza furaha na amani katika kuamini, kwa Roho.",
     h3sweet: "Neno jepesi",
-    psweet: "Warumi 5:5 inasema tumaini hili halikutahayarisha — linasimama wakati maisha yanapotikisa.",
+    psweet: "Warumi 5:5 inasema tumaini hili halituangushi — linasimama wakati maisha yanapotikisa.",
     h3why: "Kwa nini tumaini hili linasimama",
     pwhy: "Limejikita katika Mungu, si katika hisia zako. Ahadi ina Jina la kuaminika — unaweza kutenganisha hofu ya kesho na yeye aliye yeye. Mungu wa tumaini anapojaza moyo, hutoboi kubeba uthibitisho peke yako.",
     h3do: "Fanya sasa",

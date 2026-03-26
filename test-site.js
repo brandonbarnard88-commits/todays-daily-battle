@@ -30,7 +30,7 @@ const pages = [
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
-  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html', 'id="topics-es">Spanish topics', 'Spanish devotionals', '>Spanish topics</a>', 'tdb-cache-hygiene:'] },
+  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html', 'id="topics-es">Spanish topics', 'Spanish devotionals', '>Spanish topics</a>', 'id="languages"', 'Kecemasan', 'tdb-cache-hygiene:'] },
   { path: '/about.html', name: 'About', mustInclude: ['About', 'Daily Battle'] },
   { path: '/testimonials.html', name: 'Reader stories', mustInclude: ['Words from the field', 'Share yours', 'support@todaysdailybattle.com'] },
   { path: '/profile.html', name: 'Profile', mustInclude: ['Family', 'Account', 'Your Kids'] },
@@ -64,6 +64,7 @@ const pages = [
   { path: '/ansiedad.html', name: 'Topic Ansiedad (ES)', mustInclude: ['Ansiedad', 'preocupación', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/ansiedad.html"', 'versículos KJV y oración cuando la preocupación', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'aria-label="Spanish topic: Ansiedad (anxiety)"'] },
   { path: '/fuerza.html', name: 'Topic Fuerza (ES)', mustInclude: ['Fuerza', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/fuerza.html"', 'Fuerza en Cristo: versículos KJV', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'] },
   { path: '/paz.html', name: 'Topic Paz (ES)', mustInclude: ['Paz', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/paz.html"', 'Paz de Dios: versículos KJV', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'] },
+  { path: '/id/kecemasan.html', name: 'Topic Kecemasan (ID)', mustInclude: ['lang="id"', 'Kecemasan', 'KJV', 'Psalm 55:22', 'topic-anxiety.html', 'ansiedad.html', 'id-mas-ayuda'] },
   { path: '/church/index.html', name: 'Church Join Hub', mustInclude: ['Church Join Hub', 'Join Hub'] },
 ];
 

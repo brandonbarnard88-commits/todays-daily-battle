@@ -135,6 +135,8 @@ const cacheHygienePaths = [
   '/fuerza',
   '/paz.html',
   '/paz',
+  '/id/kecemasan.html',
+  '/id/kecemasan',
 ];
 let cacheHygieneOk = true;
 for (const p of cacheHygienePaths) {
@@ -241,6 +243,7 @@ if (
   !purgeMjs.includes("'/ansiedad.html'") ||
   !purgeMjs.includes("'/fuerza.html'") ||
   !purgeMjs.includes("'/paz.html'") ||
+  !purgeMjs.includes("'/id/kecemasan.html'") ||
   !purgeMjs.includes("'/ansiedad.html?tdb_cb=20260328esNav'") ||
   !purgeMjs.includes("'/styles.css?v=20260328esNav'")
 ) {

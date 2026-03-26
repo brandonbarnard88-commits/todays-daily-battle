@@ -105,6 +105,7 @@ const rootFiles = [
   'lazy-loader.js',
   'utils.js',
   'fallback-search.js',
+  'language-switcher.js',
   'search-wire.js',
   'share-page.js',
   'easter-eggs.js',
@@ -364,6 +365,11 @@ if (fs.existsSync(path.join(root, 'bible'))) {
   console.log('Copied bible/ folder (hub + tools)');
 }
 
+if (fs.existsSync(path.join(root, 'id'))) {
+  copyDir(path.join(root, 'id'), path.join(dist, 'id'));
+  console.log('Copied id/ folder (localized topical pilots)');
+}
+
 if (fs.existsSync(path.join(root, 'verse-cards'))) {
   copyDir(path.join(root, 'verse-cards'), path.join(dist, 'verse-cards'));
   console.log('Copied verse-cards/ folder (Pinterest verse images)');
@@ -410,6 +416,10 @@ if (!fs.existsSync(sitemapDist)) {
 const sitemapBody = fs.readFileSync(sitemapDist, 'utf8');
 if (!sitemapBody.includes('ansiedad.html') || !sitemapBody.includes('verse-cards')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Spanish pages and verse-cards (expected ansiedad + verse-cards).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('id/kecemasan.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Indonesian pilot topical (id/kecemasan.html).');
   process.exit(1);
 }
 if (!sitemapBody.includes('testimonials.html') || !sitemapBody.includes('calm.html') || !sitemapBody.includes('mobius.html')) {

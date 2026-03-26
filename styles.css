@@ -825,6 +825,112 @@ body {
   box-shadow: 0 1px 0 var(--elite-gold), 0 8px 40px rgba(0, 0, 0, 0.35);
 }
 
+/* ── Language switcher (English · Español · More) — text only, no flags ── */
+.tdb-lang-switcher {
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(226, 232, 240, 0.82);
+}
+.tdb-lang-switcher-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem 0.35rem;
+}
+.tdb-lang-switcher .tdb-lang-opt {
+  color: var(--gold, #e3bc67);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.45rem 0.55rem;
+  min-height: 44px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+}
+.tdb-lang-switcher .tdb-lang-opt:hover,
+.tdb-lang-switcher .tdb-lang-opt:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+.tdb-lang-switcher .tdb-lang-opt:focus-visible {
+  outline: 2px solid var(--gold, #e3bc67);
+  outline-offset: 2px;
+}
+.tdb-lang-switcher .tdb-lang-sep {
+  color: rgba(148, 163, 184, 0.45);
+  user-select: none;
+}
+.tdb-lang-switcher--footer {
+  margin: 0 auto 0.85rem;
+  padding: 0.5rem 0.65rem;
+  max-width: 40rem;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid rgba(227, 188, 103, 0.16);
+  background: rgba(8, 12, 22, 0.4);
+}
+.tdb-lang-switcher-header-wrap {
+  flex: 1 1 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0.35rem 0 0.15rem;
+  border-top: 1px solid rgba(227, 188, 103, 0.12);
+  box-sizing: border-box;
+  order: 10;
+}
+/* Keep language strip below brand + nav (switcher is injected first in DOM). */
+.top-bar .brand {
+  order: 1;
+}
+.top-bar .header-nav {
+  order: 2;
+}
+.top-bar .header-menu-link {
+  order: 3;
+}
+.top-bar #auth-section {
+  order: 4;
+}
+.tdb-lang-switcher--header .tdb-lang-switcher-inner {
+  justify-content: center;
+}
+.tdb-lang-switcher--home {
+  margin: 0.35rem auto 0.5rem;
+  padding: 0.4rem 0.5rem;
+  max-width: 28rem;
+  border-radius: 12px;
+  border: 1px solid rgba(227, 188, 103, 0.14);
+  background: rgba(8, 12, 22, 0.25);
+}
+
+/* Homepage: directly under “Today” strip, above the verse card */
+.tdb-lang-switcher--hero {
+  font-size: 0.78rem;
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 90%, #1a2230) 0%, color-mix(in srgb, var(--bg-soft) 65%, var(--card)) 100%);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 3%, transparent);
+}
+.tdb-lang-switcher--hero .tdb-lang-switcher-inner {
+  justify-content: center;
+}
+.tdb-lang-switcher--hero .tdb-lang-opt {
+  padding: 0.4rem 0.45rem;
+  min-height: 44px;
+  font-size: 0.78rem;
+}
+@media (max-width: 380px) {
+  .tdb-lang-switcher--hero .tdb-lang-opt {
+    padding: 0.38rem 0.35rem;
+    font-size: 0.72rem;
+  }
+}
+
 /* ── Persistent global nav (Home | Calm | Möbius | Plans | Topics | Kids | Tools | Story) ── */
 .tdb-global-nav {
   display: flex;
@@ -13898,6 +14004,20 @@ main > .card {
 /* ── Explore page (explore.html) + home callout ───────────────────────── */
 .explore-page .explore-section {
   margin-top: 1.25rem;
+}
+
+.explore-page .explore-start-here {
+  margin-top: 1.25rem;
+}
+
+.explore-page .explore-start-here-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.explore-page .explore-start-here-list li {
+  margin: 0.4rem 0;
+  line-height: 1.55;
 }
 
 .explore-link-list {

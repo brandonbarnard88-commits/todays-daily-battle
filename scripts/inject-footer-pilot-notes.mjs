@@ -28,6 +28,11 @@ const NOTES = [
       '  <p class="site-footer-pilot-note" lang="ar" dir="rtl">صفحة بالعربية. أدوات الموقع غالبًا بالإنجليزية؛ نص الكتاب في الأدوات عادة <abbr title="King James Version" lang="en">KJV</abbr> (ما عدا ما ذُكر هنا من فان دايك).</p>\n\n',
   },
   {
+    match: (rel) => rel.startsWith('hi/'),
+    html:
+      '  <p class="site-footer-pilot-note" lang="hi">हिन्दी पृष्ठ। साइट के ज़्यादातर औज़ार अंग्रेज़ी में हैं; बाइबल टूल में आमतौर पर <abbr title="King James Version" lang="en">KJV</abbr> दिखता है (इस पृष्ठ पर उद्धृत १८५१ हिंदी वचन को छोड़कर)।</p>\n\n',
+  },
+  {
     match: (rel) => ['ansiedad.html', 'fuerza.html', 'paz.html'].includes(rel),
     html:
       '  <p class="site-footer-pilot-note" lang="es">Página en español. La mayoría del sitio y las herramientas siguen en inglés; en pantalla suele verse la Biblia en <abbr title="King James Version">KJV</abbr>.</p>\n\n',
@@ -57,6 +62,9 @@ function main() {
     ...fs.readdirSync(path.join(root, 'zh')).map((f) => 'zh/' + f),
     ...(fs.existsSync(path.join(root, 'ar'))
       ? fs.readdirSync(path.join(root, 'ar')).map((f) => 'ar/' + f)
+      : []),
+    ...(fs.existsSync(path.join(root, 'hi'))
+      ? fs.readdirSync(path.join(root, 'hi')).map((f) => 'hi/' + f)
       : []),
   ].filter((rel) => rel.endsWith('.html'));
 

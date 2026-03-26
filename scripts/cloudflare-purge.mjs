@@ -123,6 +123,8 @@ const SOCIAL_PURGE_PATHS = [
   '/zh/jiaolv',
   '/ar/qalaq.html',
   '/ar/qalaq',
+  '/hi/chinta.html',
+  '/hi/chinta',
   '/fr/espoir.html',
   '/fr/espoir',
   '/zh/xiwang.html',

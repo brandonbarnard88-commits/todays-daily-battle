@@ -986,6 +986,18 @@ body {
 .ar-pilot-body .site-footer {
   font-family: "Noto Sans Arabic", "Segoe UI", "Arabic UI Text", system-ui, sans-serif;
 }
+
+/* Hindi pilot: readable Devanagari body; keep brand + switcher on Inter */
+.hi-pilot-body .brand-title,
+.hi-pilot-body .tdb-lang-switcher,
+.hi-pilot-body .header-nav,
+.hi-pilot-body .footer-quick-links a {
+  font-family: Inter, system-ui, sans-serif;
+}
+.hi-pilot-body .content-inner,
+.hi-pilot-body .site-footer {
+  font-family: "Noto Sans Devanagari", "Kohinoor Devanagari", "Nirmala UI", system-ui, sans-serif;
+}
 .tdb-lang-switcher--hero {
   font-size: 0.78rem;
   margin: 0;

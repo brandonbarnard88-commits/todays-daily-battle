@@ -138,6 +138,14 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Hindi anxiety pilot (hi/)
+/hi/chinta.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/chinta
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 /fr/espoir.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache

@@ -839,6 +839,29 @@ body {
   justify-content: center;
   gap: 0.25rem 0.35rem;
 }
+/* Visible “Language” row (header/footer + optional elsewhere) — easier to spot on small screens */
+.tdb-lang-switcher--labeled {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.65rem;
+}
+.tdb-lang-switcher-eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: color-mix(in srgb, var(--muted) 85%, var(--gold) 15%);
+  flex-shrink: 0;
+  line-height: 1.25;
+}
+.tdb-lang-switcher--labeled .tdb-lang-switcher-inner {
+  flex: 1 1 10rem;
+  justify-content: center;
+  min-width: 0;
+}
 .tdb-lang-switcher .tdb-lang-opt {
   color: var(--gold, #e3bc67);
   text-decoration: none;
@@ -872,14 +895,30 @@ body {
   border: 1px solid rgba(227, 188, 103, 0.16);
   background: rgba(8, 12, 22, 0.4);
 }
+.tdb-lang-switcher--footer.tdb-lang-switcher--labeled {
+  border-color: color-mix(in srgb, var(--line) 78%, var(--gold) 22%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 82%, #1a2230) 0%, rgba(8, 12, 22, 0.48) 100%);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 4%, transparent);
+}
 .tdb-lang-switcher-header-wrap {
   flex: 1 1 100%;
   width: 100%;
   margin: 0;
-  padding: 0.35rem 0 0.15rem;
-  border-top: 1px solid rgba(227, 188, 103, 0.12);
+  padding: 0.45rem 0.45rem 0.35rem;
+  border-top: 1px solid rgba(227, 188, 103, 0.14);
   box-sizing: border-box;
   order: 10;
+  background: rgba(8, 12, 22, 0.38);
+}
+.top-bar .tdb-lang-switcher--header.tdb-lang-switcher--labeled {
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.42rem 0.55rem;
+  border-radius: 11px;
+  border: 1px solid color-mix(in srgb, var(--line) 80%, var(--gold) 20%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 86%, #1a2230) 0%, rgba(8, 12, 22, 0.52) 100%);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 3%, transparent);
 }
 /* Keep language strip below brand + nav (switcher is injected first in DOM). */
 .top-bar .brand {
@@ -906,18 +945,41 @@ body {
   background: rgba(8, 12, 22, 0.25);
 }
 
-/* Homepage: directly under “Today” strip, above the verse card */
+/* Homepage: language strip (labeled) + optional second strip after Start here */
+.tdb-hero-lang-today-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.15rem;
+}
 .tdb-lang-switcher--hero {
   font-size: 0.78rem;
-  margin: 0 0 0.5rem;
-  padding: 0.5rem 0.65rem;
+  margin: 0;
+  padding: 0.55rem 0.75rem;
   border-radius: 14px;
   border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
   background: linear-gradient(180deg, color-mix(in srgb, var(--card) 90%, #1a2230) 0%, color-mix(in srgb, var(--bg-soft) 65%, var(--card)) 100%);
   box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 3%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem 0.85rem;
+}
+.tdb-lang-switcher--hero .hero-daily-path-label {
+  margin: 0;
 }
 .tdb-lang-switcher--hero .tdb-lang-switcher-inner {
   justify-content: center;
+  flex: 1 1 12rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.25rem;
+}
+.tdb-lang-switcher--hero-secondary {
+  margin-top: 0.35rem;
+  margin-bottom: 0.15rem;
 }
 .tdb-lang-switcher--hero .tdb-lang-opt {
   padding: 0.4rem 0.45rem;
@@ -925,9 +987,26 @@ body {
   font-size: 0.78rem;
 }
 @media (max-width: 380px) {
+  /* Keep hero language legible on very narrow phones (was easy to miss when text shrank). */
   .tdb-lang-switcher--hero .tdb-lang-opt {
-    padding: 0.38rem 0.35rem;
-    font-size: 0.72rem;
+    padding: 0.42rem 0.4rem;
+    font-size: 0.76rem;
+  }
+  .tdb-lang-switcher--hero .hero-daily-path-label {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 360px) {
+  .tdb-lang-switcher .tdb-lang-opt {
+    padding: 0.48rem 0.45rem;
+  }
+  .tdb-lang-switcher-eyebrow {
+    font-size: 0.7rem;
+    width: 100%;
+    text-align: center;
+  }
+  .tdb-lang-switcher--labeled .tdb-lang-switcher-inner {
+    flex-basis: 100%;
   }
 }
 

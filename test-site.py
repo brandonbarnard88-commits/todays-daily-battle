@@ -18,7 +18,7 @@ OFFLINE = "--offline" in sys.argv
 # (path, name, list of strings that must appear in body)
 PAGES = [
     ("/", "Home", ["id=\"search-btn\"", "Today's Daily Battle", "quick-actions-hero", "id=\"feel-results\"", "id=\"tdb-search\"", "What battle are you facing today?", "V2 Command Deck", "Search by what you feel right now", "Verse image generator", "sky-ip-geo.js?v=20260327ipgeo", "id=\"family-armor-stories-btn\"", "href=\"#armor-builder-btn\"", "id=\"family-armor-kids-library-link\"", "kids/corner.html", "id=\"hero-save-my-verses\"", "script.js?v=20260425savednotes-migrate", "Anxiety (ES)", "Strength (ES)", "Peace (ES)"]),  # visible search results host (no hidden #output on home)
-    ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\"", "sky-ip-geo.js?v=20260327ipgeo", "script.js?v=20260425savednotes-migrate", "href=\"#armor-builder-btn\"", "id=\"hero-save-my-verses\"", "Anxiety (ES)", "Strength (ES)", "Peace (ES)"]),
+    ("/index.html", "Home (index.html)", ["id=\"search-btn\"", "Today's Daily Battle", "id=\"tdb-search\"", "sky-ip-geo.js?v=20260327ipgeo", "script.js?v=20260425savednotes-migrate", "href=\"#armor-builder-btn\"", "id=\"hero-save-my-verses\"", "Anxiety (ES)", "Strength (ES)", "Peace (ES)", "tdb-hero-lang-today-stack", "id=\"tdb-hero-lang-label\"", "tdb-lang-switcher--hero-secondary"]),
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
     ("/pricing.html", "Pricing", ["Pricing", "Subscribe", "terms.html", "id=\"auth-section\"", "id=\"sidebar-toggle\""]),

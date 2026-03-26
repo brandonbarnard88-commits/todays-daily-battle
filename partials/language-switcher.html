@@ -8,8 +8,11 @@
 
   When editing link labels or structure, update the nav below and re-run:
     npm run sync:footer && npm run sync:lang-header
+  To refresh header/footer blocks already in HTML: node scripts/patch-lang-switcher-labeled.mjs
+  If headers still lack Bahasa / More#languages: node scripts/patch-lang-switcher-header-four.mjs
 -->
-<nav class="tdb-lang-switcher tdb-lang-switcher--footer" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+<nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+  <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
   <span class="tdb-lang-switcher-inner">
     <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
     <span class="tdb-lang-sep" aria-hidden="true">·</span>

@@ -1044,17 +1044,8 @@
       });
     })();
 
-    // 5l. Footer "Still. He's got it." double-click
-    var stillFooter = document.querySelector('.closing-breath') || document.querySelector('.tool-footer-tagline, .footer-tagline');
-    if (!stillFooter) {
-      var footers = document.querySelectorAll('p');
-      for (var i = 0; i < footers.length; i++) {
-        if (footers[i].textContent && footers[i].textContent.indexOf("Still") !== -1 && footers[i].textContent.indexOf("got it") !== -1) {
-          stillFooter = footers[i];
-          break;
-        }
-      }
-    }
+    // 5l. Tool / error-page footer tagline double-click ("He really does.")
+    var stillFooter = document.querySelector('.tool-footer-tagline, .footer-tagline');
     if (stillFooter) {
       var dblClickCount = 0;
       stillFooter.addEventListener('dblclick', function () {

@@ -74,11 +74,11 @@ Copy, tweak, and paste. Replace [LINK] with https://todaysdailybattle.com if nee
 
 ---
 
-## 6. Personal launch message (Brandon — email / LinkedIn / longer post)
+## 6. Personal launch message (email / LinkedIn / longer post)
 
 **Use for:** Email to list, LinkedIn post, or any channel where you want a personal, slightly longer intro.
 
-> Today's Daily Battle—I'm Brandon.
+> Today's Daily Battle — a quiet companion for real days.
 >
 > A free daily verse (James 1:5 today), streak tracking, prayer wall, offline access, and push reminders—no ads, no catch.
 >

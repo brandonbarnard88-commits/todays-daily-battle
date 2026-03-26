@@ -22,7 +22,7 @@ Concise summaries for site pages. Updated to reflect semantic search (FEELING_NE
 
 **Team Toolkit (team-toolkit.html)** — Local-only team tools: Calendar (events, repeat weekly), Attendance, Files (PDF), Prayer Chain, Verse Packs. Set Team ID to share workspace on same device. Church plan ($29–49/mo) adds team logins, branded exports.
 
-**About (about.html)** — Founded by Brandon during hospital season; mission: meet God in real life via applicable Scripture; free/Supporter/Church tiers; roadmap (Kids Battle Q2, Church Join Hub); contact support@todaysdailybattle.com.
+**About (about.html)** — Founded by someone during hospital season; mission: meet God in real life via applicable Scripture; free/Supporter/Church tiers; roadmap (Kids Battle Q2, Church Join Hub); contact support@todaysdailybattle.com.
 
 **Pricing (pricing.html)** — Free: search, daily verse, plans, notes, kids, prayer. Supporter: sync, custom plans, emails. Battle Pro: tracking, premium devotionals. Church/Team: team sharing, progress, branding. Stripe checkout; terms + privacy linked.
 

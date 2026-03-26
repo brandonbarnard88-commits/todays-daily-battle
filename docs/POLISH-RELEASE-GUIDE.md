@@ -155,7 +155,7 @@ Post-March 2026 polish features: offline widget, copy verse, pray feedback, caro
 
 ## 3. Promotion Ideas
 
-### Gentle X (Twitter) posts (@todaysdailybattle or @8randon8arnard)
+### Gentle X (Twitter) posts (@todaysdailybattle)
 
 **Verse-of-the-day (no hype):**
 - "One verse. One moment. KJV. todaysdailybattle.com"

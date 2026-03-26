@@ -57,7 +57,7 @@ PAGES = [
     ("/admin.html", "Admin", ["Admin", "id=\"auth-section\""]),
     ("/stats.html", "Stats", ["Stats"]),
     ("/reset.html", "Password Reset", ["Reset", "Password"]),
-    ("/topic-anxiety.html", "Topic Anxiety", ["Anxiety", "topic", "hreflang=\"ru\" href=\"https://todaysdailybattle.com/ru/trevoga.html\"", "hreflang=\"sv\" href=\"https://todaysdailybattle.com/sv/oro.html\"", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/ansiedade.html\"", "hreflang=\"bn\" href=\"https://todaysdailybattle.com/bn/chinta.html\"", "hreflang=\"sw\" href=\"https://todaysdailybattle.com/sw/wasiwasi.html\""]),
+    ("/topic-anxiety.html", "Topic Anxiety", ["Anxiety", "topic", "tdb-mood-door-kjv-banner", "hreflang=\"ru\" href=\"https://todaysdailybattle.com/ru/trevoga.html\"", "hreflang=\"sv\" href=\"https://todaysdailybattle.com/sv/oro.html\"", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/ansiedade.html\"", "hreflang=\"bn\" href=\"https://todaysdailybattle.com/bn/chinta.html\"", "hreflang=\"sw\" href=\"https://todaysdailybattle.com/sw/wasiwasi.html\""]),
     ("/topic-fear.html", "Topic Fear", ["Fear", "topic"]),
     ("/topic-forgiveness.html", "Topic Forgiveness", ["Forgiveness"]),
     ("/topic-grief.html", "Topic Grief", ["Grief"]),

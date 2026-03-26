@@ -909,6 +909,22 @@ body {
   box-sizing: border-box;
   order: 10;
   background: rgba(8, 12, 22, 0.38);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+/* Mood-door pilots: compact KJV vs on-page translation reminder (under header lang row) */
+.tdb-mood-door-kjv-banner {
+  font-size: 0.76rem;
+  line-height: 1.4;
+  text-align: center;
+  color: color-mix(in srgb, var(--muted) 84%, var(--gold) 16%);
+  margin: 0;
+  padding: 0 0.5rem 0.1rem;
+  max-width: 38rem;
+  font-family: Inter, system-ui, sans-serif;
+  text-wrap: balance;
 }
 .top-bar .tdb-lang-switcher--header.tdb-lang-switcher--labeled {
   margin: 0 auto;

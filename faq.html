@@ -257,7 +257,7 @@
       </div>
     </main>
 
-    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
     <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
     <span class="tdb-lang-switcher-inner">
@@ -276,16 +276,24 @@
       <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
     </span>
   </nav>
-  <p class="site-footer-share-wrap" style="margin: 0 0 0.75rem;">
-    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page ♾️</button>
-  </p>
-  <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
-    <a href="/">Home</a>
-    <a href="/plans.html">Plans</a>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/kids-corner.html">Kids Corner</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/message.html">Prayer Wall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">Calm</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
     <a href="/explore.html">Explore</a>
-    <a href="/kids/">Kids</a>
-    <!-- ≥321px: inline gloss. ≤320px: single “ES topics” control (styles.css) -->
+    <a href="/kids/">Kids Battle</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Spanish topical pages (KJV on page)">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
@@ -300,22 +308,21 @@
       </div>
     </details>
   </nav>
-  <nav class="site-footer-nav" aria-label="Footer navigation">
-    <a href="/explore.html">Explore</a>
-    <a href="/explore.html#topics-es" hreflang="es" aria-label="Browse Spanish-language topics on Explore (KJV with brief Spanish support)">Spanish topics</a>
-    <a href="/about.html">About</a>
-    <a href="/pricing.html">Plans</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/why-not-ai.html">Why not AI?</a>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
-    <a href="/security.html">Security</a>
-    <a href="/verse-cards/">Verse cards</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible-tool.html">Bible tool</a>
     <a href="/testimonials.html">Reader stories</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
     <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
-    <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support ☕</a>
-    <span class="footer-lang-hint" role="group" aria-labelledby="footer-es-devotional-label"><span id="footer-es-devotional-label" class="footer-es-nav-label">Spanish devotionals</span> <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a><span aria-hidden="true"> · </span><a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a><span aria-hidden="true"> · </span><a href="/paz.html" hreflang="es" lang="es">Paz</a></span>
+    <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener" aria-label="Support the site — Buy me a coffee">Support</a>
   </nav>
+
   <details class="footer-sitemap">
     <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
     <div class="footer-sitemap-grid">
@@ -382,12 +389,12 @@
       </div>
     </div>
   </details>
-  <p class="site-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
-  <p class="privacy-line">No ads. No tracking. Your prayers and data stay on your device. Just you and God.</p>
-  <p class="site-footer-tagline">Verse by verse, win the day. ⚔️ <span class="easter-footer-dove-trigger" aria-hidden="true" title="The Spirit descends like a dove">🕊️</span></p>
+
   <p class="footer-humility">We battle. He wins.</p>
-  <div class="footer-friday-signup" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
-    <p class="footer-friday-signup-label">One verse + prayer on Fridays—steady rhythm, not noise. No spam.</p>
+  <p class="site-footer-story">Built by hand, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday: one verse + short prayer. No spam.</p>
     <div class="footer-friday-signup-row">
       <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
       <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
@@ -395,13 +402,13 @@
     </div>
     <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
   </div>
-  <p class="site-footer-social-proof" id="footerSocialProof" aria-live="polite">Join <span id="footerVisitsCount">26k+</span> monthly visitors finding daily KJV encouragement — verse by verse, win the day ⚔️</p>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">No ads. No tracking. Just daily bread.</p>
+
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-  <p class="site-footer-support">Support the site? <a href="https://buymeacoffee.com/todaysdailybattle" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
-  <p class="site-footer-story">Built solo by someone who still needs real Scripture help every day without the noise. <a href="/story.html">The story</a> · <a href="/about.html">About</a>.</p>
-  <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
   <script defer src="/language-switcher.js"></script>
 </footer>
   </div>

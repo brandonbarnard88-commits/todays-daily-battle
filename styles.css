@@ -5526,6 +5526,59 @@ body:has(.pricing-grid) .section-divider {
 .site-footer-story a { color: var(--elite-gold, #d4af37); }
 .site-footer-story a:hover { text-decoration: underline; }
 
+/* Calmer canonical footer: one essentials row + optional pilot context */
+.site-footer--canonical {
+  padding-top: 1.75rem;
+}
+.site-footer-pilot-note {
+  margin: 0.35rem auto 0;
+  max-width: 38rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(148, 163, 184, 0.88);
+}
+.site-footer-essentials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.15rem 0.35rem;
+  margin: 0.85rem 0 0.25rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.site-footer-essentials a {
+  color: rgba(226, 232, 240, 0.92);
+  padding: 0.35rem 0.45rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.site-footer-ess-sep {
+  color: rgba(148, 163, 184, 0.45);
+  user-select: none;
+}
+.site-footer-trust-hook {
+  margin-top: 0.65rem !important;
+  font-style: normal;
+  opacity: 0.8 !important;
+}
+.site-footer-legal-line abbr {
+  text-decoration: none;
+  cursor: help;
+  border-bottom: 1px dotted color-mix(in srgb, var(--muted, #94a3b8) 55%, transparent);
+}
+.footer-friday-signup--compact {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid color-mix(in srgb, var(--border, #334155) 65%, transparent);
+}
+.footer-friday-signup--compact .footer-friday-signup-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+}
+
 /* Homepage-equivalent footer nav + sitemap (also used on tool/topic pages with styles.css) */
 .site-footer-nav {
   display: flex;

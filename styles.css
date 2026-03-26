@@ -952,6 +952,16 @@ body {
   gap: 0.4rem;
   margin-bottom: 0.15rem;
 }
+.tdb-hero-lang-hint {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--muted) 92%, var(--gold) 8%);
+  text-align: center;
+  margin: -0.1rem 0 0;
+  padding: 0 0.65rem;
+  max-width: 26rem;
+  align-self: center;
+}
 .tdb-lang-switcher--hero {
   font-size: 0.78rem;
   margin: 0;

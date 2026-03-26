@@ -27,8 +27,8 @@ const EXCLUDE_PREFIXES = ['lighthouse-'];
 
 function shouldSkip(rel) {
   if (EXCLUDE.has(rel)) return true;
-  /* Pilot / localized pages under id/ keep their own footers (not the full EN canonical block). */
-  if (rel.startsWith('id/')) return true;
+  /* Pilot / localized pages under id/ and tl/ keep their own footers (not the full EN canonical block). */
+  if (rel.startsWith('id/') || rel.startsWith('tl/')) return true;
   for (const p of EXCLUDE_PREFIXES) {
     if (rel.startsWith(p)) return true;
   }

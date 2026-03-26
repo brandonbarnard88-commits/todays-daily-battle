@@ -115,6 +115,8 @@ const SOCIAL_PURGE_PATHS = [
   '/paz.html?tdb_cb=20260328esNav',
   '/id/kecemasan.html',
   '/id/kecemasan',
+  '/tl/kabalisahan.html',
+  '/tl/kabalisahan',
   '/language-switcher.js',
   '/styles.css',
   '/styles.css?v=20260326es-mas-ayuda',

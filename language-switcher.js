@@ -1,5 +1,5 @@
 /**
- * Language switcher: EN · ES · ID + "More languages" hub.
+ * Language switcher: EN · ES · ID · TL + "More languages" hub.
  * Pairs topical pages; persists tdb_lang_pref on explicit picks. No third-party scripts.
  */
 (function () {
@@ -37,6 +37,27 @@
     'ansiedad.html': '/id/kecemasan.html'
   };
 
+  var TL_TO_EN = {
+    'kabalisahan.html': '/topic-anxiety.html'
+  };
+
+  var EN_TO_TL = {
+    'topic-anxiety.html': '/tl/kabalisahan.html',
+    'ansiedad.html': '/tl/kabalisahan.html'
+  };
+
+  var TL_TO_ES = {
+    'kabalisahan.html': '/ansiedad.html'
+  };
+
+  var TL_TO_ID = {
+    'kabalisahan.html': '/id/kecemasan.html'
+  };
+
+  var ID_TO_TL = {
+    'kecemasan.html': '/tl/kabalisahan.html'
+  };
+
   function baseFile() {
     var p = (window.location.pathname || '/').replace(/\/$/, '');
     var i = p.lastIndexOf('/');
@@ -62,9 +83,13 @@
     return baseFile() === 'kecemasan.html' || docLang() === 'id';
   }
 
+  function isTagalogTopical() {
+    return baseFile() === 'kabalisahan.html' || docLang() === 'tl';
+  }
+
   function isEnglishSurface() {
     var l = docLang().toLowerCase();
-    if (l === 'es' || l === 'id') return false;
+    if (l === 'es' || l === 'id' || l === 'tl') return false;
     return true;
   }
 
@@ -72,6 +97,7 @@
     var f = baseFile();
     if (ES_TO_EN[f]) return ES_TO_EN[f];
     if (ID_TO_EN[f]) return ID_TO_EN[f];
+    if (TL_TO_EN[f]) return TL_TO_EN[f];
     if (isEnglishSurface()) {
       var path = window.location.pathname || '/';
       path = path.split('?')[0];
@@ -86,20 +112,31 @@
     if (f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html') return '/' + f;
     if (EN_TO_ES[f]) return EN_TO_ES[f];
     if (ID_TO_ES[f]) return ID_TO_ES[f];
+    if (TL_TO_ES[f]) return TL_TO_ES[f];
     return '/explore.html#topics-es';
   }
 
   function idHref() {
     var f = baseFile();
     if (f === 'kecemasan.html') return '/id/kecemasan.html';
+    if (f === 'kabalisahan.html') return '/id/kecemasan.html';
     if (EN_TO_ID[f]) return EN_TO_ID[f];
     if (ES_TO_ID[f]) return ES_TO_ID[f];
     return '/id/kecemasan.html';
   }
 
+  function tlHref() {
+    var f = baseFile();
+    if (f === 'kabalisahan.html') return '/tl/kabalisahan.html';
+    if (EN_TO_TL[f]) return EN_TO_TL[f];
+    if (ID_TO_TL[f]) return ID_TO_TL[f];
+    return '/tl/kabalisahan.html';
+  }
+
   function moreHref() {
     if (isSpanishTopical()) return '/explore.html#topics-es';
     if (isIndonesianTopical()) return MORE_HUB;
+    if (isTagalogTopical()) return MORE_HUB;
     return MORE_HUB;
   }
 
@@ -110,10 +147,12 @@
       var en = root.querySelector('[data-tdb-pick="en"]');
       var es = root.querySelector('[data-tdb-pick="es"]');
       var id = root.querySelector('[data-tdb-pick="id"]');
+      var tl = root.querySelector('[data-tdb-pick="tl"]');
       var more = root.querySelector('.tdb-lang-more');
       if (en) en.setAttribute('href', enHref());
       if (es) es.setAttribute('href', esHref());
       if (id) id.setAttribute('href', idHref());
+      if (tl) tl.setAttribute('href', tlHref());
       if (more) more.setAttribute('href', moreHref());
     }
   }
@@ -121,15 +160,20 @@
   function applyAriaCurrent() {
     var spanish = isSpanishTopical();
     var indo = baseFile() === 'kecemasan.html';
+    var tagalog = baseFile() === 'kabalisahan.html';
     var nodes = document.querySelectorAll('[data-tdb-lang-switcher]');
     for (var i = 0; i < nodes.length; i++) {
       var en = nodes[i].querySelector('[data-tdb-pick="en"]');
       var es = nodes[i].querySelector('[data-tdb-pick="es"]');
       var id = nodes[i].querySelector('[data-tdb-pick="id"]');
+      var tl = nodes[i].querySelector('[data-tdb-pick="tl"]');
       if (en) en.removeAttribute('aria-current');
       if (es) es.removeAttribute('aria-current');
       if (id) id.removeAttribute('aria-current');
-      if (indo) {
+      if (tl) tl.removeAttribute('aria-current');
+      if (tagalog) {
+        if (tl) tl.setAttribute('aria-current', 'true');
+      } else if (indo) {
         if (id) id.setAttribute('aria-current', 'true');
       } else if (spanish) {
         if (es) es.setAttribute('aria-current', 'true');
@@ -146,7 +190,7 @@
       var t = e.target && e.target.closest ? e.target.closest('[data-tdb-pick]') : null;
       if (!t || !t.closest('[data-tdb-lang-switcher]')) return;
       var pick = t.getAttribute('data-tdb-pick');
-      if (pick !== 'en' && pick !== 'es' && pick !== 'id') return;
+      if (pick !== 'en' && pick !== 'es' && pick !== 'id' && pick !== 'tl') return;
       try {
         localStorage.setItem(STORAGE_KEY, pick);
       } catch (err) {}

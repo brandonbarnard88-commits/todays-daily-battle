@@ -106,6 +106,14 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Tagalog topical pilot (tl/)
+/tl/kabalisahan.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/tl/kabalisahan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
 /kids/index.html
   Cache-Control: no-cache, must-revalidate

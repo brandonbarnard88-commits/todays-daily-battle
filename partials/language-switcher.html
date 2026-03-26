@@ -10,6 +10,7 @@
     npm run sync:footer && npm run sync:lang-header
   To refresh header/footer blocks already in HTML: node scripts/patch-lang-switcher-labeled.mjs
   If headers still lack Bahasa / More#languages: node scripts/patch-lang-switcher-header-four.mjs
+  After adding Tagalog: node scripts/patch-lang-switcher-header-five.mjs
 -->
 <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
   <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
@@ -19,6 +20,8 @@
     <a class="tdb-lang-opt" href="/explore.html#topics-es" hreflang="es" data-tdb-pick="es">Español</a>
     <span class="tdb-lang-sep" aria-hidden="true">·</span>
     <a class="tdb-lang-opt" href="/id/kecemasan.html" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>
+    <span class="tdb-lang-sep" aria-hidden="true">·</span>
+    <a class="tdb-lang-opt" href="/tl/kabalisahan.html" hreflang="tl" data-tdb-pick="tl">Tagalog</a>
     <span class="tdb-lang-sep" aria-hidden="true">·</span>
     <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
   </span>

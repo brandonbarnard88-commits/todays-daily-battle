@@ -370,6 +370,11 @@ if (fs.existsSync(path.join(root, 'id'))) {
   console.log('Copied id/ folder (localized topical pilots)');
 }
 
+if (fs.existsSync(path.join(root, 'tl'))) {
+  copyDir(path.join(root, 'tl'), path.join(dist, 'tl'));
+  console.log('Copied tl/ folder (localized topical pilots)');
+}
+
 if (fs.existsSync(path.join(root, 'verse-cards'))) {
   copyDir(path.join(root, 'verse-cards'), path.join(dist, 'verse-cards'));
   console.log('Copied verse-cards/ folder (Pinterest verse images)');
@@ -420,6 +425,10 @@ if (!sitemapBody.includes('ansiedad.html') || !sitemapBody.includes('verse-cards
 }
 if (!sitemapBody.includes('id/kecemasan.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Indonesian pilot topical (id/kecemasan.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('tl/kabalisahan.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Tagalog pilot topical (tl/kabalisahan.html).');
   process.exit(1);
 }
 if (!sitemapBody.includes('testimonials.html') || !sitemapBody.includes('calm.html') || !sitemapBody.includes('mobius.html')) {

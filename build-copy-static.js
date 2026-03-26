@@ -383,12 +383,41 @@ if (fs.existsSync(path.join(root, 'fr'))) {
 if (fs.existsSync(path.join(root, 'zh'))) {
   copyDir(path.join(root, 'zh'), path.join(dist, 'zh'));
   console.log('Copied zh/ folder (Chinese topical pilots)');
+}
 
+if (fs.existsSync(path.join(root, 'ar'))) {
   copyDir(path.join(root, 'ar'), path.join(dist, 'ar'));
   console.log('Copied ar/ folder (Arabic topical pilots)');
+}
 
+if (fs.existsSync(path.join(root, 'hi'))) {
   copyDir(path.join(root, 'hi'), path.join(dist, 'hi'));
   console.log('Copied hi/ folder (Hindi topical pilots)');
+}
+
+if (fs.existsSync(path.join(root, 'ru'))) {
+  copyDir(path.join(root, 'ru'), path.join(dist, 'ru'));
+  console.log('Copied ru/ folder (Russian topical pilots)');
+}
+
+if (fs.existsSync(path.join(root, 'sv'))) {
+  copyDir(path.join(root, 'sv'), path.join(dist, 'sv'));
+  console.log('Copied sv/ folder (Swedish topical pilots)');
+}
+
+if (fs.existsSync(path.join(root, 'pt'))) {
+  copyDir(path.join(root, 'pt'), path.join(dist, 'pt'));
+  console.log('Copied pt/ folder (Portuguese topical pilots)');
+}
+
+if (fs.existsSync(path.join(root, 'bn'))) {
+  copyDir(path.join(root, 'bn'), path.join(dist, 'bn'));
+  console.log('Copied bn/ folder (Bengali topical pilots)');
+}
+
+if (fs.existsSync(path.join(root, 'sw'))) {
+  copyDir(path.join(root, 'sw'), path.join(dist, 'sw'));
+  console.log('Copied sw/ folder (Swahili topical pilots)');
 }
 
 if (fs.existsSync(path.join(root, 'verse-cards'))) {
@@ -461,6 +490,26 @@ if (!sitemapBody.includes('ar/qalaq.html')) {
 }
 if (!sitemapBody.includes('hi/chinta.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Hindi anxiety pilot (hi/chinta.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('ru/trevoga.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Russian anxiety pilot (ru/trevoga.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('sv/oro.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Swedish anxiety pilot (sv/oro.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('pt/ansiedade.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Portuguese anxiety pilot (pt/ansiedade.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('bn/chinta.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Bengali anxiety pilot (bn/chinta.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('sw/wasiwasi.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Swahili anxiety pilot (sw/wasiwasi.html).');
   process.exit(1);
 }
 if (!sitemapBody.includes('fr/espoir.html')) {

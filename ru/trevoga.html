@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ru">
 <head>
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js"></script>
 
-  <!-- Pilot: Simplified Chinese overwhelm; Scripture: 和合本 (CUV, 1919 union text, public domain). Paired EN topic-overwhelmed.html. Site tools remain English UI. -->
+  <!-- Pilot: Russian anxiety; Scripture: Synodal translation (1876 tradition, public domain). Paired topic-anxiety.html. Tools: English UI + KJV in Bible tool. -->
   <script defer src="/analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>太多：圣经话语（和合本，公有领域）与安息一步 | Today's Daily Battle</title>
-  <meta name="description" content="事情太多、扛不住：和合本经文（1919 联合译本，公有领域）、卸担与祷告的提醒。免费、无广告。">
+  <title>Тревога: Библейские слова (Синодальный перевод 1876) и тихий шаг | Today's Daily Battle</title>
+  <meta name="description" content="Когда тревога сжимает грудь: слова Писания (синодальный перевод, общественное достояние) и один спокойный шаг. Бесплатно, без рекламы.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/zh/taiduo.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://todaysdailybattle.com/zh/taiduo.html">
-  <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/topic-overwhelmed.html">
-  <link rel="alternate" hreflang="fr" href="https://todaysdailybattle.com/fr/deborde.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/ru/trevoga.html">
+  <link rel="alternate" hreflang="ru" href="https://todaysdailybattle.com/ru/trevoga.html">
+  <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/topic-anxiety.html">
+  <link rel="alternate" hreflang="es" href="https://todaysdailybattle.com/ansiedad.html">
+  <link rel="alternate" hreflang="id" href="https://todaysdailybattle.com/id/kecemasan.html">
+  <link rel="alternate" hreflang="tl" href="https://todaysdailybattle.com/tl/kabalisahan.html">
+  <link rel="alternate" hreflang="fr" href="https://todaysdailybattle.com/fr/anxiete.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://todaysdailybattle.com/zh/jiaolv.html">
+  <link rel="alternate" hreflang="ar" href="https://todaysdailybattle.com/ar/qalaq.html">
+  <link rel="alternate" hreflang="hi" href="https://todaysdailybattle.com/hi/chinta.html">
+  <link rel="alternate" hreflang="sv" href="https://todaysdailybattle.com/sv/oro.html">
+  <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/ansiedade.html">
+  <link rel="alternate" hreflang="bn" href="https://todaysdailybattle.com/bn/chinta.html">
+  <link rel="alternate" hreflang="sw" href="https://todaysdailybattle.com/sw/wasiwasi.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
-  <meta property="og:title" content="太多：和合本 | Today's Daily Battle">
-  <meta property="og:description" content="不堪重负时的中文经文（和合本公有领域文本）；无广告。">
-  <meta property="og:url" content="https://todaysdailybattle.com/zh/taiduo.html">
+  <meta property="og:title" content="Тревога: слова Писания и тихий шаг | Today's Daily Battle">
+  <meta property="og:description" content="Страница на русском; цитируемый текст — синодальный перевод (общественное достояние). Инструменты на английском.">
+  <meta property="og:url" content="https://todaysdailybattle.com/ru/trevoga.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
-  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css?v=20260305p">
@@ -29,33 +39,32 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&subset=cyrillic,latin&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script nonce="tdb2025s" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
-        "headline": "太多：和合本（公有领域）经文与中文陪伴",
-        "description": "不堪重负主题：和合本联合译本（1919）公开文本与中文说明。",
-        "url": "https://todaysdailybattle.com/zh/taiduo.html",
-        "dateModified": "2026-03-24",
+        "headline": "Тревога: Библейские слова (Синодальный 1876, общественное достояние)",
+        "url": "https://todaysdailybattle.com/ru/trevoga.html",
+        "dateModified": "2026-03-26",
         "publisher": { "@type": "Organization", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com", "logo": { "@type": "ImageObject", "url": "https://todaysdailybattle.com/logo-shield-600.png" } },
-        "inLanguage": "zh-CN",
-        "keywords": "太多, 压力, 圣经, 和合本, 马太福音11, 诗篇55"
+        "inLanguage": "ru",
+        "keywords": "тревога, Библия, Синодальный перевод, Псалом 55, 1 Петра 5"
       },
-      { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://todaysdailybattle.com/" }, { "@type": "ListItem", "position": 2, "name": "太多", "item": "https://todaysdailybattle.com/zh/taiduo.html" } ] }
+      { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://todaysdailybattle.com/" }, { "@type": "ListItem", "position": 2, "name": "Тревога", "item": "https://todaysdailybattle.com/ru/trevoga.html" } ] }
     ]
   }
   </script>
 </head>
-<body class="dark-mode zh-pilot-body">
-  <a href="#main-content" class="skip-link">跳到正文</a>
+<body class="dark-mode ru-pilot-body">
+  <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
   <div class="app-shell">
     <header class="top-bar">
       <div class="tdb-lang-switcher-header-wrap">
         <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
-          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">语言</span>
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Язык</span>
           <span class="tdb-lang-switcher-inner">
             <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
@@ -69,6 +78,20 @@
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt" href="/tl/kabalisahan.html" hreflang="tl" data-tdb-pick="tl">Tagalog</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/ar/qalaq.html" hreflang="ar" data-tdb-pick="ar">العربية</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/hi/chinta.html" hreflang="hi" data-tdb-pick="hi">हिन्दी</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/ru/trevoga.html" hreflang="ru" data-tdb-pick="ru">Русский</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/sv/oro.html" hreflang="sv" data-tdb-pick="sv">Svenska</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/ansiedade.html" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/bn/chinta.html" hreflang="bn" data-tdb-pick="bn">বাংলা</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/sw/wasiwasi.html" hreflang="sw" data-tdb-pick="sw">Kiswahili</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
           </span>
         </nav>
@@ -76,96 +99,107 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">凡劳苦担重担的人可以到我这里来，我就使你们得安息。 — 马太福音 11:28</span>
+        <span class="brand-subtitle">Отдай Ему. Он услышал раньше, чем ты выдохнул.</span>
       </div>
-      <nav class="header-nav tdb-global-nav" aria-label="主导航">
-        <a href="/">首页</a>
+      <nav class="header-nav tdb-global-nav" aria-label="Главная навигация">
+        <a href="/">Главная</a>
         <a href="/explore.html">Explore</a>
         <a href="/calm.html">Calm</a>
         <a href="/plans.html">Plans</a>
-        <a href="/#quick-actions-hero">主题</a>
-        <a href="/kids-corner.html">儿童</a>
-        <a href="/bible-tool.html">工具</a>
-        <a href="/story.html">故事</a>
+        <a href="/#quick-actions-hero">Темы</a>
+        <a href="/kids-corner.html">Детям</a>
+        <a href="/bible-tool.html">Инструменты</a>
+        <a href="/story.html">История</a>
       </nav>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="打开菜单"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">菜单</span></a>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Открыть меню"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Меню</span></a>
     </header>
 
     <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="站内导航">
-        <a href="/" data-section="search" data-icon="SR">搜索</a>
-        <a href="/verse.html" data-section="verse-of-day" data-icon="VD">今日经文</a>
-        <a href="/message.html" data-section="message-board" data-icon="MB">祷告墙</a>
-        <a href="/bible-tool.html" data-section="bible-tool" data-icon="BT">圣经</a>
-        <a href="/topic-overwhelmed.html" hreflang="en">英文版</a>
-        <a href="/fr/deborde.html" hreflang="fr">法语</a>
-        <a href="/zh/jiaolv.html" hreflang="zh-CN">焦虑（中文）</a>
+      <nav class="side-nav" aria-label="Навигация по сайту">
+        <a href="/" data-section="search" data-icon="SR">Поиск</a>
+        <a href="/verse.html" data-section="verse-of-day" data-icon="VD">Стих дня</a>
+        <a href="/message.html" data-section="message-board" data-icon="MB">Стена молитвы</a>
+        <a href="/bible-tool.html" data-section="bible-tool" data-icon="BT">Библия</a>
+        <a href="/topic-anxiety.html" hreflang="en">English</a>
       </nav>
     </aside>
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>当一切太多</h1>
-          <p class="real-talk">清单很长、声音很吵、肩膀很酸——你不必独自扛完。神邀请你先来祂这里，再面对这一天。</p>
-          <p class="section-note" style="margin-top:0.5rem;">经文引用：<strong>和合本</strong>（1919 联合译本，广泛视为<strong>公有领域</strong>）。站内工具界面多为英文。</p>
+          <h1>Когда тревога перехватывает дыхание</h1>
+          <p class="real-talk">Брат, я знаю это чувство: грудь сжата, мысли крутятся… ты не один.</p>
+          <p class="section-note" style="margin-top:0.5rem;">Цитируемый текст: <strong>Синодальный перевод</strong> (1876) — классическая русская Библия в <strong>общественном достоянии</strong>. Инструменты сайта чаще на английском; в справочнике обычно <abbr title="King James Version" lang="en">KJV</abbr>.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="/?q=overwhelmed">在首页搜索 — 输入 <span lang="en">overwhelmed</span>（英文）</a>
-            <a class="btn btn-secondary" href="/bible-tool.html">圣经工具（EN）</a>
-            <a class="btn btn-secondary" href="/message.html">祷告墙（EN）</a>
-            <a class="btn btn-secondary" href="/study.html">笔记（EN）</a>
+            <a class="btn btn-primary" href="/?q=anxiety">Поиск с главной — введите <span lang="en">anxiety</span> (англ.)</a>
+            <a class="btn btn-secondary" href="/bible-tool.html">Библия (EN)</a>
+            <a class="btn btn-secondary" href="/message.html">Стена молитвы (EN)</a>
+            <a class="btn btn-secondary" href="/study.html">Заметки (EN)</a>
           </div>
         </header>
 
-        <section class="glass zh-topic-breakdown" lang="zh-CN">
+        <section class="glass ru-topic-breakdown" lang="ru">
           <div class="breakdown">
-            <h2>今日的经文</h2>
-            <p class="verse">「凡劳苦担重担的人可以到我这里来，我就使你们得安息。」— 马太福音 11:28 <span class="section-note" style="display:inline;font-size:0.85em;">（和合本）</span></p>
+            <h2>Стих дня</h2>
+            <p class="verse">«Возложи на Господа заботы твои, и Он поддержит тебя; не даст Он на век поколебаться праведнику.» — Псалом 55:22 <span class="section-note" style="display:inline;font-size:0.85em;">(Синодальный перевод, 1876)</span></p>
 
-            <h3>用简单的话说</h3>
-            <p>耶稣不是说「你自己搞定」——祂说「来」。安息从靠近祂开始，哪怕只是一小步。</p>
+            <h3>Простыми словами</h3>
+            <p>Бог не просит нести всё в одиночку. Скажи Ему то, что крадёт сон, — прямо, без маски.</p>
 
-            <h3>今天可以怎样帮助你</h3>
-            <p>当每件事都喊「紧急」，这节经文把另一个声音放在你耳边：可以先在祂面前停一下，再撑下去。</p>
+            <h3>Что это значит сегодня</h3>
+            <p>Тревога шепчет, что всё держится на тебе. Этот стих напоминает: есть Тот, кто держит крепче твоих рук.</p>
 
-            <h3>为什么这节经文不一样</h3>
-            <p>「来」比「扛住」先出现：耶稣把安息放在关系里，不靠你把事做完。疲惫本身就可以是走向祂的理由，不是必须先挺到天亮才配靠近。祂常常先看重你愿意来，而不是你先整理完整张清单。</p>
+            <h3>Почему этот стих всё меняет</h3>
+            <p>Потому что «сбросить» — не приказ, а приглашение. Господь не говорит «будь сильнее», Он говорит «приди как есть».</p>
 
-            <h3>现在就这样做</h3>
-            <p>轻声说：「主啊，我扛不动了，我来你这里。」然后慢慢呼吸三次。你不必先理清一切才来。</p>
+            <h3>Сделай сейчас</h3>
+            <ol class="section-note" style="margin:0.5rem 0 0;padding-inline-start:1.25rem;line-height:1.65;">
+              <li>Дыши медленно три раза.</li>
+              <li>Скажи тихо: «Господи, вот моя ноша.»</li>
+              <li>Читай стих и дай ему войти.</li>
+            </ol>
           </div>
         </section>
 
-        <section class="glass" lang="zh-CN">
-          <h2 class="section-divider">另一节经文，若心里仍沉重</h2>
-          <p class="section-note">不是要否认压力，而是把担子交给祂。</p>
-          <p class="verse" style="margin-top:0.75rem;">「你要把你的重担卸给耶和华，他必抚养你；他永不叫义人动摇。」— 诗篇 55:22 <span class="section-note" style="display:inline;font-size:0.85em;">（和合本）</span></p>
-          <p class="verse" style="margin-top:0.75rem;">「应当一无挂虑，只要凡事藉着祷告、祈求，和感谢，将你们所要的告诉了神。神所赐、出人意外的平安必在基督耶稣里保守你们的心怀意念。」— 腓立比书 4:6-7 <span class="section-note" style="display:inline;font-size:0.85em;">（和合本）</span></p>
+        <section class="glass" lang="ru">
+          <h2 class="section-divider">Ещё один стих, если тяжесть не отпускает</h2>
+          <p class="section-note">Не чтобы отменить чувства, а чтобы слово Божье стояло рядом с твоим настоящим днём.</p>
+          <p class="verse" style="margin-top:0.75rem;">«Все заботы ваши возложите на Него, ибо Он печётся о вас.» — 1-е Петра 5:7 <span class="section-note" style="display:inline;font-size:0.85em;">(Синодальный перевод)</span></p>
+          <p class="section-note" style="margin-top:0.75rem;">«Возложить» — не притворяться сильным, а сказать Ему правду о том, что давно лежит на душе.</p>
         </section>
 
-        <section class="glass zh-mas-ayuda" lang="zh-CN">
-          <h2 class="section-divider">站内工具 — 界面为英文</h2>
-          <p class="section-note"><strong>简要说明：</strong>以下链接打开的页面多为<strong>英文</strong>界面；其中显示的圣经文本为<strong>KJV</strong>（英文），与英文主站一致。<strong>（EN）</strong>提醒你即将切换语言。</p>
-          <nav class="cta-group zh-mas-ayuda-tools" aria-label="工具 — 英文界面" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;visibility:visible;opacity:1;min-height:2.75rem;">
-            <a class="btn btn-secondary" href="/verse.html" hreflang="en">今日经文（EN）</a>
-            <a class="btn btn-secondary" href="/calm.html" hreflang="en">Calm 呼吸（EN）</a>
-            <a class="btn btn-secondary" href="/bible-tool.html" hreflang="en">圣经工具（EN）</a>
-            <a class="btn btn-secondary" href="/reader.html" hreflang="en">章节阅读（EN）</a>
-            <a class="btn btn-secondary" href="/my-verses.html" hreflang="en">我的经文（EN）</a>
-            <a class="btn btn-secondary" href="/study.html" hreflang="en">学习笔记（EN）</a>
-            <a class="btn btn-secondary" href="/plans.html" hreflang="en">读经计划（EN）</a>
-            <a class="btn btn-secondary" href="/message.html" hreflang="en">祷告墙（EN）</a>
-            <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Explore 语言（EN）</a>
+        <section class="glass ru-mas-ayuda" lang="ru">
+          <h2 class="section-divider">Инструменты сайта — экран на английском</h2>
+          <p class="section-note"><strong>Кратко:</strong> ссылки ниже открывают страницы преимущественно на <strong>английском</strong>; текст Библии в инструментах — <strong>KJV</strong>. Метка <strong lang="en">(EN)</strong> напоминает о смене языка.</p>
+          <nav class="cta-group ru-mas-ayuda-tools" aria-label="Инструменты — интерфейс EN" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;visibility:visible;opacity:1;min-height:2.75rem;">
+            <a class="btn btn-secondary" href="/verse.html" hreflang="en">Стих дня (EN)</a>
+            <a class="btn btn-secondary" href="/calm.html" hreflang="en">Calm — дыхание (EN)</a>
+            <a class="btn btn-secondary" href="/bible-tool.html" hreflang="en">Библия (EN)</a>
+            <a class="btn btn-secondary" href="/reader.html" hreflang="en">Читатель глав (EN)</a>
+            <a class="btn btn-secondary" href="/my-verses.html" hreflang="en">Мои стихи (EN)</a>
+            <a class="btn btn-secondary" href="/study.html" hreflang="en">Заметки (EN)</a>
+            <a class="btn btn-secondary" href="/plans.html" hreflang="en">Планы чтения (EN)</a>
+            <a class="btn btn-secondary" href="/message.html" hreflang="en">Стена молитвы (EN)</a>
+            <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Explore — языки (EN)</a>
           </nav>
         </section>
 
-        <section class="glass" lang="zh-CN">
-          <h2 class="section-divider">同一主题，其他语言</h2>
-          <p class="section-note">相同主题，不同语言入口：</p>
+        <section class="glass" lang="ru">
+          <h2 class="section-divider">Та же тема, другие языки</h2>
+          <p class="section-note">Один фокус — разные входы:</p>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
-            <a class="btn btn-secondary" href="/topic-overwhelmed.html" hreflang="en">Overwhelmed（EN）</a>
-            <a class="btn btn-secondary" href="/fr/deborde.html" hreflang="fr">Débordé（FR）</a>
-            <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">西班牙语主题（Explore）</a>
+            <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
+            <a class="btn btn-secondary" href="/ansiedad.html" hreflang="es">Ansiedad</a>
+            <a class="btn btn-secondary" href="/fr/anxiete.html" hreflang="fr">Anxiété (FR)</a>
+            <a class="btn btn-secondary" href="/zh/jiaolv.html" hreflang="zh-CN">焦虑</a>
+            <a class="btn btn-secondary" href="/id/kecemasan.html" hreflang="id">Kecemasan</a>
+            <a class="btn btn-secondary" href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan</a>
+            <a class="btn btn-secondary" href="/ar/qalaq.html" hreflang="ar">قلق</a>
+            <a class="btn btn-secondary" href="/hi/chinta.html" hreflang="hi">चिंता</a>
+            <a class="btn btn-secondary" href="/sv/oro.html" hreflang="sv">Oro</a>
+            <a class="btn btn-secondary" href="/pt/ansiedade.html" hreflang="pt">Ansiedade</a>
+            <a class="btn btn-secondary" href="/bn/chinta.html" hreflang="bn">চিন্তা</a>
+            <a class="btn btn-secondary" href="/sw/wasiwasi.html" hreflang="sw">Wasiwasi</a>
           </div>
         </section>
       </div>
@@ -205,7 +239,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="zh-CN">中文页面。站内工具多为英文；圣经文本在工具中为 <abbr title="King James Version">KJV</abbr>（本页引用的和合本除外）。</p>
+  <p class="site-footer-pilot-note" lang="ru">Страница на русском. Инструменты сайта чаще на английском; в Библии-инструменте обычно <abbr title="King James Version" lang="en">KJV</abbr> (кроме цитируемого здесь синодального текста).</p>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>

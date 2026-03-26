@@ -147,6 +147,16 @@ const cacheHygienePaths = [
   '/ar/qalaq',
   '/hi/chinta.html',
   '/hi/chinta',
+  '/ru/trevoga.html',
+  '/ru/trevoga',
+  '/sv/oro.html',
+  '/sv/oro',
+  '/pt/ansiedade.html',
+  '/pt/ansiedade',
+  '/bn/chinta.html',
+  '/bn/chinta',
+  '/sw/wasiwasi.html',
+  '/sw/wasiwasi',
   '/fr/espoir.html',
   '/fr/espoir',
   '/zh/xiwang.html',
@@ -275,6 +285,11 @@ if (
   !purgeMjs.includes("'/zh/jiaolv.html'") ||
   !purgeMjs.includes("'/ar/qalaq.html'") ||
   !purgeMjs.includes("'/hi/chinta.html'") ||
+  !purgeMjs.includes("'/ru/trevoga.html'") ||
+  !purgeMjs.includes("'/sv/oro.html'") ||
+  !purgeMjs.includes("'/pt/ansiedade.html'") ||
+  !purgeMjs.includes("'/bn/chinta.html'") ||
+  !purgeMjs.includes("'/sw/wasiwasi.html'") ||
   !purgeMjs.includes("'/fr/espoir.html'") ||
   !purgeMjs.includes("'/zh/xiwang.html'") ||
   !purgeMjs.includes("'/fr/solitude.html'") ||

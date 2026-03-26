@@ -146,6 +146,46 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Russian anxiety pilot (ru/)
+/ru/trevoga.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/trevoga
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Swedish anxiety pilot (sv/)
+/sv/oro.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/sv/oro
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Portuguese anxiety pilot (pt/)
+/pt/ansiedade.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/ansiedade
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Bengali anxiety pilot (bn/)
+/bn/chinta.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/bn/chinta
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Swahili anxiety pilot (sw/)
+/sw/wasiwasi.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/sw/wasiwasi
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 /fr/espoir.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache

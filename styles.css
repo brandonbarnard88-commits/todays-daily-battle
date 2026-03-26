@@ -998,6 +998,18 @@ body {
 .hi-pilot-body .site-footer {
   font-family: "Noto Sans Devanagari", "Kohinoor Devanagari", "Nirmala UI", system-ui, sans-serif;
 }
+
+/* Bengali pilot: readable Bangla body; keep brand + switcher on Inter */
+.bn-pilot-body .brand-title,
+.bn-pilot-body .tdb-lang-switcher,
+.bn-pilot-body .header-nav,
+.bn-pilot-body .footer-quick-links a {
+  font-family: Inter, system-ui, sans-serif;
+}
+.bn-pilot-body .content-inner,
+.bn-pilot-body .site-footer {
+  font-family: "Noto Sans Bengali", "Kohinoor Bangla", "Shonar Bangla", system-ui, sans-serif;
+}
 .tdb-lang-switcher--hero {
   font-size: 0.78rem;
   margin: 0;

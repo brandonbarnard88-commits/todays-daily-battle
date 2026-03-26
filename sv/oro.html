@@ -1,75 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js"></script>
 
-  <!-- GA4 lazy-loaded after interaction -->
-  <script defer src="analytics-loader.js"></script>
+  <!-- Pilot: Swedish anxiety; Scripture: Swedish Bible 1917 (public domain). Paired topic-anxiety.html. Tools: English UI + KJV. -->
+  <script defer src="/analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KJV Bible Verses on Forgiveness | Today's Daily Battle</title>
-  <meta name="description" content="King James Version verses on forgiving others and receiving forgiveness—grace, mercy, reconciliation.">
+  <title>Oro: Bibelns ord (1917 års översättning) och ett tyst steg | Today's Daily Battle</title>
+  <meta name="description" content="När ångesten tar plats i bröstet: 1917 års bibeltext (allmän egendom) och ett lugnt steg. Gratis, utan annonser.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/topic-forgiveness.html">
-  <meta property="og:title" content="KJV Bible Verses on Forgiveness | Today's Daily Battle">
-  <meta property="og:description" content="KJV verses on forgiveness—forgive as Christ forgave you.">
-  <meta property="og:url" content="https://todaysdailybattle.com/topic-forgiveness.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/sv/oro.html">
+  <link rel="alternate" hreflang="sv" href="https://todaysdailybattle.com/sv/oro.html">
+  <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/topic-anxiety.html">
+  <link rel="alternate" hreflang="es" href="https://todaysdailybattle.com/ansiedad.html">
+  <link rel="alternate" hreflang="id" href="https://todaysdailybattle.com/id/kecemasan.html">
+  <link rel="alternate" hreflang="tl" href="https://todaysdailybattle.com/tl/kabalisahan.html">
+  <link rel="alternate" hreflang="fr" href="https://todaysdailybattle.com/fr/anxiete.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://todaysdailybattle.com/zh/jiaolv.html">
+  <link rel="alternate" hreflang="ar" href="https://todaysdailybattle.com/ar/qalaq.html">
+  <link rel="alternate" hreflang="hi" href="https://todaysdailybattle.com/hi/chinta.html">
+  <link rel="alternate" hreflang="ru" href="https://todaysdailybattle.com/ru/trevoga.html">
+  <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/ansiedade.html">
+  <link rel="alternate" hreflang="bn" href="https://todaysdailybattle.com/bn/chinta.html">
+  <link rel="alternate" hreflang="sw" href="https://todaysdailybattle.com/sw/wasiwasi.html">
+  <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
+  <meta property="og:title" content="Oro: Bibelns ord och ett tyst steg | Today's Daily Battle">
+  <meta property="og:url" content="https://todaysdailybattle.com/sv/oro.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="KJV Bible Verses on Forgiveness | Today's Daily Battle">
-  <meta name="twitter:description" content="KJV verses on forgiveness—forgive as Christ forgave you.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta property="og:locale" content="sv_SE">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260305p">
-  <link rel="manifest" href="manifest.json">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=20260305p">
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script nonce="tdb2025s" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
-        "headline": "KJV Bible Verses on Forgiveness",
-        "description": "KJV Bible verses about forgiveness — forgiving others, receiving God's forgiveness, and letting go.",
-        "url": "https://todaysdailybattle.com/topic-forgiveness.html",
-        "dateModified": "2026-03-20",
+        "headline": "Oro: Bibelns ord (1917, allmän egendom)",
+        "url": "https://todaysdailybattle.com/sv/oro.html",
+        "dateModified": "2026-03-26",
         "publisher": { "@type": "Organization", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com", "logo": { "@type": "ImageObject", "url": "https://todaysdailybattle.com/logo-shield-600.png" } },
-        "inLanguage": "en-US",
-        "keywords": "bible verses for forgiveness, KJV forgiveness verses, 1 John 1:9, forgiving others scripture"
+        "inLanguage": "sv",
+        "keywords": "oro, Bibeln, 1917, Psaltaren 55, 1 Petrus 5"
       },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What does the Bible say about forgiveness?",
-            "acceptedAnswer": { "@type": "Answer", "text": "1 John 1:9 says 'If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.' Colossians 3:13 says 'Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye.' (KJV)" }
-          },
-          {
-            "@type": "Question",
-            "name": "How many times does the Bible say to forgive?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Matthew 18:22 records Jesus saying 'I say not unto thee, Until seven times: but, Until seventy times seven.' The point is not a specific count but a posture of continual, unlimited forgiveness. (KJV)" }
-          }
-        ]
-      },
-      { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://todaysdailybattle.com/" }, { "@type": "ListItem", "position": 2, "name": "Forgiveness", "item": "https://todaysdailybattle.com/topic-forgiveness.html" } ] }
+      { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://todaysdailybattle.com/" }, { "@type": "ListItem", "position": 2, "name": "Oro", "item": "https://todaysdailybattle.com/sv/oro.html" } ] }
     ]
   }
   </script>
 </head>
-<body class="dark-mode">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+<body class="dark-mode sv-pilot-body">
+  <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
   <div class="app-shell">
     <header class="top-bar">
       <div class="tdb-lang-switcher-header-wrap">
         <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
-          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Språk</span>
           <span class="tdb-lang-switcher-inner">
             <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
@@ -83,6 +77,20 @@
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt" href="/tl/kabalisahan.html" hreflang="tl" data-tdb-pick="tl">Tagalog</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/ar/qalaq.html" hreflang="ar" data-tdb-pick="ar">العربية</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/hi/chinta.html" hreflang="hi" data-tdb-pick="hi">हिन्दी</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/ru/trevoga.html" hreflang="ru" data-tdb-pick="ru">Русский</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/sv/oro.html" hreflang="sv" data-tdb-pick="sv">Svenska</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/ansiedade.html" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/bn/chinta.html" hreflang="bn" data-tdb-pick="bn">বাংলা</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/sw/wasiwasi.html" hreflang="sw" data-tdb-pick="sw">Kiswahili</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
           </span>
         </nav>
@@ -90,96 +98,106 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">As the Lord forgave you, so also do ye. — Col. 3:13</span>
+        <span class="brand-subtitle">Lägg det hos Honom. Han hörde dig innan du var tom.</span>
       </div>
-      <nav class="header-nav tdb-global-nav" aria-label="Main">
-        <a href="/">Home</a>
-        <a href="explore.html">Explore</a>
-        <a href="calm.html">Calm</a>
-        <a href="mobius.html">Möbius</a>
-        <a href="plans.html">Plans</a>
-        <a href="/#quick-actions-hero" aria-current="page">Topics</a>
-        <a href="explore.html#topics-es" hreflang="es" aria-label="Browse Spanish topics on Explore (Reina-Valera 1960 on Spanish pages; site Bible tool is KJV English)">Spanish topics</a>
-        <a href="kids-corner.html">Kids</a>
-        <a href="bible-tool.html">Tools</a>
-        <a href="story.html">Story</a>
+      <nav class="header-nav tdb-global-nav" aria-label="Huvudmeny">
+        <a href="/">Hem</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/#quick-actions-hero">Ämnen</a>
+        <a href="/kids-corner.html">Barn</a>
+        <a href="/bible-tool.html">Verktyg</a>
+        <a href="/story.html">Berättelsen</a>
       </nav>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
-      <div id="auth-section" class="auth-inline auth-compact">
-        <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
-        <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
-        <button id="signup-btn">Sign Up</button>
-        <button id="login-btn">Log In</button>
-        <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
-        <button id="logout-btn" class="hidden">Log Out</button>
-      </div>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Öppna meny"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Meny</span></a>
     </header>
 
     <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Site navigation">
-        <a href="/" data-section="search" data-icon="SR">Search</a>
-        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
-        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
-        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
-        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
-        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
-        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
-        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
-        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
-        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
-        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
-        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
-        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
-        <a href="about.html" data-section="about" data-icon="AB">About</a>
-        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      <nav class="side-nav" aria-label="Webbplatsnavigation">
+        <a href="/" data-section="search" data-icon="SR">Sök</a>
+        <a href="/verse.html" data-section="verse-of-day" data-icon="VD">Dagens vers</a>
+        <a href="/message.html" data-section="message-board" data-icon="MB">Bön vägg</a>
+        <a href="/bible-tool.html" data-section="bible-tool" data-icon="BT">Bibeln</a>
+        <a href="/topic-anxiety.html" hreflang="en">English</a>
       </nav>
-      <div class="sidebar-options">
-        <label class="inline-toggle">
-          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
-          Red letters
-        </label>
-      </div>
     </aside>
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Forgiveness</h1>
-          <p>Let go of grudges. Forgive as the Lord forgave you.</p>
+          <h1>När oron tar andan ur dig</h1>
+          <p class="real-talk">Broder, jag känner igen det: bröstet är tungt, tankarna snurrar… du är inte ensam.</p>
+          <p class="section-note" style="margin-top:0.5rem;">Citerad text: <strong>1917 års bibelöversättning</strong> (Sverige) i <strong>allmän egendom</strong>. Verktygen på sidan är oftast på engelska; bibeltext i verktyg är vanligtvis <abbr title="King James Version" lang="en">KJV</abbr>.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="/?q=forgiveness">Search Forgiveness</a>
-            <a class="btn btn-secondary" href="bible-tool.html">Bible Tool</a>
-            <a class="btn btn-secondary" href="message.html">Prayer Wall</a>
-            <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
+            <a class="btn btn-primary" href="/?q=anxiety">Sök från startsidan — skriv <span lang="en">anxiety</span> (engelska)</a>
+            <a class="btn btn-secondary" href="/bible-tool.html">Bibeln (EN)</a>
+            <a class="btn btn-secondary" href="/message.html">Bönvägg (EN)</a>
+            <a class="btn btn-secondary" href="/study.html">Anteckningar (EN)</a>
           </div>
-          <p class="section-note">For a daily rhythm: <a href="plans.html">Battle Plans</a> (7–40 days, KJV).</p>
         </header>
-        <section class="glass">
-          <h2 class="section-divider">Key Verses</h2>
-          <div class="list">
-            <div class="list-item"><div><strong>Ephesians 4:32</strong><p>And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.</p></div></div>
-            <div class="list-item"><div><strong>Matthew 6:14</strong><p>For if ye forgive men their trespasses, your heavenly Father will also forgive you.</p></div></div>
-            <div class="list-item"><div><strong>Colossians 3:13</strong><p>Forbearing one another, and forgiving one another, if any man have a quarrel against any.</p></div></div>
+
+        <section class="glass sv-topic-breakdown" lang="sv">
+          <div class="breakdown">
+            <h2>Dagens vers</h2>
+            <p class="verse">«Kasta din börda på Herren, och han skall hålla dig; han låter icke den rättfärdige vackla.» — Psaltaren 55:22 <span class="section-note" style="display:inline;font-size:0.85em;">(1917)</span></p>
+
+            <h3>Med enkla ord</h3>
+            <p>Gud ber dig inte bära allt själv. Lägg det du inte kan sova ifrån hos Honom — ärligt, utan mask.</p>
+
+            <h3>Vad det betyder idag</h3>
+            <p>Oron viskar att allt hänger på dig. Versen påminner: det finns en som bär starkare än du orkar.</p>
+
+            <h3>Varför den här versen förändrar allt</h3>
+            <p>För att «lägga av» inte är en order — det är en inbjudan. Herren säger inte «bli starkare», Han säger «kom som du är».</p>
+
+            <h3>Gör det nu</h3>
+            <ol class="section-note" style="margin:0.5rem 0 0;padding-inline-start:1.25rem;line-height:1.65;">
+              <li>Andas långsamt tre gånger.</li>
+              <li>Säg tyst: «Herre, här är min börda.»</li>
+              <li>Läs versen och låt den få plats.</li>
+            </ol>
           </div>
         </section>
-        <section class="glass">
-          <h2 class="section-divider">A Gentle Word</h2>
-          <p class="section-note">Forgiveness isn't saying it was fine. It's refusing to let it keep its grip on you.</p>
+
+        <section class="glass" lang="sv">
+          <h2 class="section-divider">En vers till om hjärtat fortfarande är tungt</h2>
+          <p class="section-note">Inte för att förneka känslan — utan för att Guds ord får stå bredvid din verkliga dag.</p>
+          <p class="verse" style="margin-top:0.75rem;">«Och kasta all eder omsorg på honom, ty han har omsorg om eder.» — 1 Petrus 5:7 <span class="section-note" style="display:inline;font-size:0.85em;">(1917)</span></p>
+          <p class="section-note" style="margin-top:0.75rem;">«Kasta» är inte att låtsas — det är att tala sant med Honom om det som legat tungt länge.</p>
         </section>
-        <section class="glass">
-          <h2 class="section-divider">Related Topics</h2>
-          <p class="section-note">More verses for today's battle:</p>
+
+        <section class="glass sv-mas-ayuda" lang="sv">
+          <h2 class="section-divider">Verktyg — engelsk skärm</h2>
+          <p class="section-note"><strong>Kort:</strong> länkarna öppnar sidor oftast på <strong>engelska</strong>; bibeltext i verktyg är <strong>KJV</strong>. <strong lang="en">(EN)</strong> påminner om språkbyte.</p>
+          <nav class="cta-group sv-mas-ayuda-tools" aria-label="Verktyg EN" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;visibility:visible;opacity:1;min-height:2.75rem;">
+            <a class="btn btn-secondary" href="/verse.html" hreflang="en">Dagens vers (EN)</a>
+            <a class="btn btn-secondary" href="/calm.html" hreflang="en">Calm (EN)</a>
+            <a class="btn btn-secondary" href="/bible-tool.html" hreflang="en">Bibeln (EN)</a>
+            <a class="btn btn-secondary" href="/reader.html" hreflang="en">Kapitelläsare (EN)</a>
+            <a class="btn btn-secondary" href="/my-verses.html" hreflang="en">Mina vers (EN)</a>
+            <a class="btn btn-secondary" href="/study.html" hreflang="en">Studieanteckningar (EN)</a>
+            <a class="btn btn-secondary" href="/plans.html" hreflang="en">Läsningsplaner (EN)</a>
+            <a class="btn btn-secondary" href="/message.html" hreflang="en">Bönvägg (EN)</a>
+            <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Explore — språk (EN)</a>
+          </nav>
+        </section>
+
+        <section class="glass" lang="sv">
+          <h2 class="section-divider">Samma tema, andra språk</h2>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
-            <a class="btn btn-secondary" href="topic-grief.html">Grief</a>
-            <a class="btn btn-secondary" href="topic-anxiety.html">Anxiety</a>
-            <a class="btn btn-secondary" href="topic-hope.html">Hope</a>
-            <a class="btn btn-secondary" href="/?q=peace">Search Peace</a>
-            <a class="btn btn-secondary" href="bible-tool.html">Bible Tool</a>
-            <a class="btn btn-secondary" href="message.html">Prayer Wall</a>
-            <a class="btn btn-secondary" href="bible-study.html">Bible Studies</a>
+            <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
+            <a class="btn btn-secondary" href="/ansiedad.html" hreflang="es">Ansiedad</a>
+            <a class="btn btn-secondary" href="/fr/anxiete.html" hreflang="fr">Anxiété</a>
+            <a class="btn btn-secondary" href="/zh/jiaolv.html" hreflang="zh-CN">焦虑</a>
+            <a class="btn btn-secondary" href="/id/kecemasan.html" hreflang="id">Kecemasan</a>
+            <a class="btn btn-secondary" href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan</a>
+            <a class="btn btn-secondary" href="/ar/qalaq.html" hreflang="ar">قلق</a>
+            <a class="btn btn-secondary" href="/hi/chinta.html" hreflang="hi">चिंता</a>
+            <a class="btn btn-secondary" href="/ru/trevoga.html" hreflang="ru">Тревога</a>
+            <a class="btn btn-secondary" href="/pt/ansiedade.html" hreflang="pt">Ansiedade</a>
+            <a class="btn btn-secondary" href="/bn/chinta.html" hreflang="bn">চিন্তা</a>
+            <a class="btn btn-secondary" href="/sw/wasiwasi.html" hreflang="sw">Wasiwasi</a>
           </div>
         </section>
       </div>
@@ -218,6 +236,8 @@
       <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
     </span>
   </nav>
+
+  <p class="site-footer-pilot-note" lang="sv">Sida på svenska. Webbplatsens verktyg är oftast på engelska; bibeltext i verktyget är vanligtvis <abbr title="King James Version" lang="en">KJV</abbr> (utom det citerade 1917-texten här).</p>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -355,9 +375,7 @@
 </footer>
   </div>
 
-  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
-  <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script type="module" src="/config.js"></script>
+  <script type="module" src="/script.js?v=20260328feelwire" data-cfasync="false"></script>
 </body>
 </html>

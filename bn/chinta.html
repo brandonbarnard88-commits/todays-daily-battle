@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="bn">
 <head>
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js"></script>
 
-  <!-- Pilot: Indonesian support around KJV text; EN pair topic-anxiety.html; ES pair ansiedad.html. -->
+  <!-- Pilot: Bengali anxiety; Scripture: Calcutta Bengali Bible 1909 tradition (public domain). Paired topic-anxiety.html. Tools: English UI + KJV. Hindi uses /hi/chinta.html — path disambiguated in language-switcher.js. -->
   <script defer src="/analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kecemasan: ayat KJV dan langkah tenang hari ini | Today's Daily Battle</title>
-  <meta name="description" content="Kecemasan dan khawatir: ayat King James Version (Inggris) dengan penjelasan singkat dalam bahasa Indonesia. Gratis, tanpa iklan. Satu langkah dengan Tuhan.">
+  <title>চিন্তা: বাইবেলের বাক্য (কলকাতা ১৯০৯) ও শান্তির এক ধাপ | Today's Daily Battle</title>
+  <meta name="description" content="যখন চিন্তা বুকটা চেপে ধরে: কলকাতা ১৯০৯ পদ্ধতির বাইবেল পাঠ (জনসাধারণের সম্পদ) ও একটা শান্ত পদক্ষেপ। বিনামূল্যে, বিজ্ঞাপন ছাড়া।">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/id/kecemasan.html">
-  <link rel="alternate" hreflang="id" href="https://todaysdailybattle.com/id/kecemasan.html">
+  <link rel="canonical" href="https://todaysdailybattle.com/bn/chinta.html">
+  <link rel="alternate" hreflang="bn" href="https://todaysdailybattle.com/bn/chinta.html">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/topic-anxiety.html">
   <link rel="alternate" hreflang="es" href="https://todaysdailybattle.com/ansiedad.html">
+  <link rel="alternate" hreflang="id" href="https://todaysdailybattle.com/id/kecemasan.html">
   <link rel="alternate" hreflang="tl" href="https://todaysdailybattle.com/tl/kabalisahan.html">
   <link rel="alternate" hreflang="fr" href="https://todaysdailybattle.com/fr/anxiete.html">
   <link rel="alternate" hreflang="zh-CN" href="https://todaysdailybattle.com/zh/jiaolv.html">
@@ -23,15 +24,14 @@
   <link rel="alternate" hreflang="ru" href="https://todaysdailybattle.com/ru/trevoga.html">
   <link rel="alternate" hreflang="sv" href="https://todaysdailybattle.com/sv/oro.html">
   <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/ansiedade.html">
-  <link rel="alternate" hreflang="bn" href="https://todaysdailybattle.com/bn/chinta.html">
   <link rel="alternate" hreflang="sw" href="https://todaysdailybattle.com/sw/wasiwasi.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
-  <meta property="og:title" content="Kecemasan: ayat KJV dan langkah tenang | Today's Daily Battle">
-  <meta property="og:description" content="Ayat KJV untuk hari yang berat; penjelasan ringkas dalam bahasa Indonesia. Tanpa iklan.">
-  <meta property="og:url" content="https://todaysdailybattle.com/id/kecemasan.html">
+  <meta property="og:title" content="চিন্তা: বাইবেলের বাক্য ও শান্তির এক ধাপ | Today's Daily Battle">
+  <meta property="og:description" content="বাংলা পৃষ্ঠা; উদ্ধৃত পাঠ কলকাতা ১৯০৯ ঐতিহ্য (জনসাধারণের সম্পদ)। সাইটের টুল ইংরেজিতে।">
+  <meta property="og:url" content="https://todaysdailybattle.com/bn/chinta.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
-  <meta property="og:locale" content="id_ID">
+  <meta property="og:locale" content="bn_BD">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css?v=20260305p">
@@ -39,33 +39,32 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script nonce="tdb2025s" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
-        "headline": "Kecemasan: ayat KJV dan langkah tenang hari ini",
-        "description": "Kecemasan: ayat KJV dengan dukungan singkat bahasa Indonesia.",
-        "url": "https://todaysdailybattle.com/id/kecemasan.html",
+        "headline": "চিন্তা: বাইবেলের বাক্য (কলকাতা ১৯০৯, জনসাধারণের সম্পদ)",
+        "url": "https://todaysdailybattle.com/bn/chinta.html",
         "dateModified": "2026-03-26",
         "publisher": { "@type": "Organization", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com", "logo": { "@type": "ImageObject", "url": "https://todaysdailybattle.com/logo-shield-600.png" } },
-        "inLanguage": "id-ID",
-        "keywords": "kecemasan, ayat firman, KJV, doa, khawatir"
+        "inLanguage": "bn",
+        "keywords": "চিন্তা, বাইবেল, গীতসংহিতা ৫৫, ১ পিতর ৫"
       },
-      { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://todaysdailybattle.com/" }, { "@type": "ListItem", "position": 2, "name": "Kecemasan", "item": "https://todaysdailybattle.com/id/kecemasan.html" } ] }
+      { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "হোম", "item": "https://todaysdailybattle.com/" }, { "@type": "ListItem", "position": 2, "name": "চিন্তা", "item": "https://todaysdailybattle.com/bn/chinta.html" } ] }
     ]
   }
   </script>
 </head>
-<body class="dark-mode">
-  <a href="#main-content" class="skip-link">Langsung ke isi</a>
+<body class="dark-mode bn-pilot-body">
+  <a href="#main-content" class="skip-link">মূল বিষয়বস্তুতে যান</a>
   <div class="app-shell">
     <header class="top-bar">
       <div class="tdb-lang-switcher-header-wrap">
         <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
-          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Bahasa</span>
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">ভাষা</span>
           <span class="tdb-lang-switcher-inner">
             <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
@@ -100,148 +99,106 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Satu ayat untuk hari yang berat.</span>
+        <span class="brand-subtitle">তাঁর ওপর ছেড়ে দিন। তিনি শুনেছেন—আপনি খালি হওয়ার আগেই।</span>
       </div>
-      <nav class="header-nav tdb-global-nav" aria-label="Utama">
-        <a href="/">Beranda</a>
+      <nav class="header-nav tdb-global-nav" aria-label="প্রধান নেভিগেশন">
+        <a href="/">হোম</a>
         <a href="/explore.html">Explore</a>
         <a href="/calm.html">Calm</a>
-        <a href="/plans.html">Rencana</a>
-        <a href="/#quick-actions-hero">Topik</a>
-        <a href="/kids-corner.html">Anak</a>
-        <a href="/bible-tool.html">Alkitab</a>
-        <a href="/story.html">Cerita</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/#quick-actions-hero">বিষয়</a>
+        <a href="/kids-corner.html">শিশু</a>
+        <a href="/bible-tool.html">টুল</a>
+        <a href="/story.html">গল্প</a>
       </nav>
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Buka menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="মেনু খুলুন"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">মেনু</span></a>
     </header>
 
     <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Navigasi">
-        <a href="/" data-section="search" data-icon="SR">Cari</a>
-        <a href="/verse.html" data-section="verse-of-day" data-icon="VD">Ayat hari ini</a>
-        <a href="/message.html" data-section="message-board" data-icon="MB">Dinding doa</a>
-        <a href="/bible-tool.html" data-section="bible-tool" data-icon="BT">Alkitab</a>
-        <a href="/topic-anxiety.html" hreflang="en">English version</a>
-        <a href="/ansiedad.html" hreflang="es">Versi bahasa Spanyol</a>
-        <a href="/tl/kabalisahan.html" hreflang="tl">Versi Tagalog (Kabalisahan)</a>
+      <nav class="side-nav" aria-label="সাইট নেভিগেশন">
+        <a href="/" data-section="search" data-icon="SR">খোঁজ</a>
+        <a href="/verse.html" data-section="verse-of-day" data-icon="VD">আজকের পদ</a>
+        <a href="/message.html" data-section="message-board" data-icon="MB">প্রার্থনা দেয়াল</a>
+        <a href="/bible-tool.html" data-section="bible-tool" data-icon="BT">বাইবেল</a>
+        <a href="/topic-anxiety.html" hreflang="en">English</a>
       </nav>
     </aside>
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Saat kecemasan mengepung</h1>
-          <p class="real-talk">Dada sesak, pikiran berputar, khawatir yang tak kunjung reda — Anda tidak sendirian. Allah sudah berfirman tentang ini sebelum hari Anda dimulai.</p>
+          <h1>যখন চিন্তা নিঃশ্বাস আটকে দেয়</h1>
+          <p class="real-talk">ভাই, আমি চিনি এই অনুভূতি: বুকটা চেপে ধরেছে, মাথায় একটার পর একটা… আপনি একা নন।</p>
+          <p class="section-note" style="margin-top:0.5rem;">উদ্ধৃত পাঠ: <strong>কলকাতা বাইবেল ১৯০৯</strong> ঐতিহ্য, <strong>জনসাধারণের সম্পদ</strong>। সাইটের টুল বেশিরভাগই <strong>ইংরেজিতে</strong>; বাইবেল টুলে সাধারণত <abbr title="King James Version" lang="en">KJV</abbr>। হিন্দি ভাষার একই শিরোনামের পৃষ্ঠা: <a href="/hi/chinta.html" hreflang="hi">/hi/chinta.html</a>।</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="/?q=anxiety">Cari topik di beranda — ketik <span lang="en">anxiety</span> (bahasa Inggris)</a>
-            <a class="btn btn-secondary" href="/bible-tool.html">Alat Alkitab (EN)</a>
-            <a class="btn btn-secondary" href="/message.html">Dinding doa (EN)</a>
-            <a class="btn btn-secondary" href="/study.html">Ruang catatan (EN)</a>
+            <a class="btn btn-primary" href="/?q=anxiety">হোম থেকে খুঁজুন — <span lang="en">anxiety</span> লিখুন (ইংরেজি)</a>
+            <a class="btn btn-secondary" href="/bible-tool.html">বাইবেল (EN)</a>
+            <a class="btn btn-secondary" href="/message.html">প্রার্থনা দেয়াল (EN)</a>
+            <a class="btn btn-secondary" href="/study.html">নোট (EN)</a>
           </div>
         </header>
 
-        <section class="glass id-start-here" lang="id" aria-labelledby="id-start-here-heading">
-          <h2 class="section-divider" id="id-start-here-heading">Mulai di sini</h2>
-          <p class="section-note">Situs ini lahir dalam bahasa Inggris; halaman ini membantu Anda memakai firman KJV tanpa meninggalkan bahasa Indonesia. Tombol ke alat lain sering membuka layar berbahasa Inggris — kami jelaskan di bawah supaya tidak kaget.</p>
-          <ul class="section-note util-mb-0_5" style="margin-top:0.75rem;padding-left:1.15rem;line-height:1.55;">
-            <li><a href="/">Beranda</a> — pencarian perasaan dan 30 topik cepat (petunjuk di layar dalam bahasa Inggris).</li>
-            <li><a href="/calm.html" hreflang="en">Tenang (Calm)</a> — satu ayat KJV dan irama napas; antarmuka Inggris, cocok saat dada sesak.</li>
-            <li><a href="/plans.html" hreflang="en">Rencana beberapa hari</a> — contoh judul rencana di perpustakaan: <span lang="en">Sleep</span>, <span lang="en">Hard day</span>, <span lang="en">Safe phrases</span> (nama paket dalam Inggris; isinya ayat KJV).</li>
-            <li><a href="/my-verses.html" hreflang="en">Ayat-ayat saya</a> — simpan ayat di perangkat Anda; label menu dalam bahasa Inggris.</li>
-            <li><a href="/message.html" hreflang="en">Dinding doa</a> — minta doa atau berdoa untuk orang lain; formulir dan status dalam bahasa Inggris.</li>
-            <li><a href="/explore.html#languages" hreflang="en">Bahasa &amp; topik</a> — ringkasan jalur bahasa Inggris, Spanyol, Indonesia, dan Tagalog.</li>
-          </ul>
-        </section>
-
-        <section class="glass id-napas-ringkas" lang="id" aria-labelledby="id-napas-heading">
-          <h2 class="section-divider" id="id-napas-heading">Napas singkat, di sini</h2>
-          <p class="section-note">Bukan pengganti tenaga medis — hanya cara menenangkan tubuh sebentar sambil menaruh hati pada Tuhan.</p>
-          <ol class="section-note util-mb-0_5" style="margin-top:0.65rem;padding-left:1.2rem;line-height:1.6;">
-            <li>Duduk atau berdiri santai; bahu tidak perlu mengencang.</li>
-            <li>Tarik napas perlahan hidung, hitung sampai empat (tidak harus tepat).</li>
-            <li>Hembus perlahan mulut, hitung sampai lima atau enam.</li>
-            <li>Ulangi tiga atau empat siklus. Lalu baca ayat di bawah sekali lagi dengan suara hati.</li>
-          </ol>
-          <p class="section-note" style="margin-top:0.75rem;">Untuk versi layar penuh dengan ayat dan ritme yang sama setiap hari, buka <a href="/calm.html" hreflang="en">Calm</a> <span class="section-note" style="display:inline;">(EN)</span>.</p>
-          <h3 class="section-divider" style="margin-top:1rem;font-size:1rem;">Jika Anda membuka Calm (semua teks menu bahasa Inggris)</h3>
-          <p class="section-note">Calm dirancang untuk satu sesi pendek: irama napas disertai satu ayat KJV di layar. Anda akan melihat hitungan waktu, ajakan seperti &ldquo;Breathe&rdquo; / &ldquo;Exhale&rdquo;, dan tombol untuk mendengarkan bacaan (jika perangkat Anda mendukung). Semua label itu dalam <strong>bahasa Inggris</strong>; isi ayat tetap <strong>KJV</strong>. Tidak perlu memahami setiap kata — cukup ikuti napas perlahan dan biarkan firman terbaca di mata Anda.</p>
-        </section>
-
-        <section class="glass id-why-kjv" lang="id" aria-labelledby="id-why-kjv-heading">
-          <h2 class="section-divider" id="id-why-kjv-heading">Mengapa KJV saja?</h2>
-          <p class="section-note">Situs ini sengaja memakai <strong>satu terjemahan Inggris yang stabil</strong> — King James Version — supaya ayat yang Anda baca hari ini sama dengan ayat yang dibagikan orang lain, tanpa menukar kata di belakang layar. Kami tidak menjanjikan &ldquo;versi yang paling mudah&rdquo; untuk semua orang, tetapi kami menjanjikan <strong>konsistensi</strong> dan <strong>ketenangan</strong> dari satu sumber yang jelas.</p>
-          <p class="section-note">Penjelasan di halaman ini (dan halaman bahasa lain) ditulis untuk membantu hati Anda menempel pada teks itu — bukan untuk mengganti Alkitab dengan ringkasan manusia. Jika Anda butuh terjemahan lain untuk studi mendalam, gunakan Alkitab cetak atau aplikasi yang Anda percayai; di sini kami tetap di KJV supaya langit tetap rendah dan firman tetap pusat.</p>
-        </section>
-
-        <section class="glass id-topic-breakdown" lang="id">
+        <section class="glass bn-topic-breakdown" lang="bn">
           <div class="breakdown">
-            <h2>Ayat hari ini (KJV)</h2>
-            <p class="verse">&ldquo;Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.&rdquo; &mdash; Psalm 55:22 <span class="section-note" style="display:inline;font-size:0.85em;">(KJV)</span></p>
+            <h2>আজকের পদ</h2>
+            <p class="verse">«তুমি তোমার ভার সদাপ্রভুর উপরে সমর্পণ কর; তিনি তোমাকে স্থির রাখবেন; তিনি ধার্ম্মিককে কখনও বিচলিত হতে দেবেন না।» — গীতসংহিতা ৫৫:২২ <span class="section-note" style="display:inline;font-size:0.85em;">(কলকাতা ১৯০৯ ঐতিহ্য)</span></p>
 
-            <h3>Dengan kata sederhana</h3>
-            <p>Allah tidak meminta Anda memikul semuanya sendiri. Serahkan beban yang mencuri tidur Anda kepada-Nya — bukan sebagai slogan, tetapi sebagai pengakuan jujur kepada Dia yang sudah menyangga Anda.</p>
+            <h3>সরল ভাষায়</h3>
+            <p>প্রভু চান না আপনি সব একা বয়ে চলুন। যা নিয়ে ঘুম ওড়ে—সেটা তাঁর কাছে সত্যি করে রাখুন, মুখোশ ছাড়াই।</p>
 
-            <h3>Bagaimana rasanya hari ini</h3>
-            <p>Kecemasan sering berbisik bahwa segalanya tergantung pada Anda. Ayat ini mengingatkan: ada yang menyangga Anda di luar kekuatan Anda sendiri.</p>
+            <h3>আজকের দিনের অর্থ</h3>
+            <p>চিন্তা ফিসফিস করে: সব আপনার ওপর। এই পদ মনে করিয়ে দেয়—এমন একজন আছেন যিনি আপনার চেয়ে বেশি বহন করতে পারেন।</p>
 
-            <h3>Mengapa ayat ini berbeda</h3>
-            <p>Menyerahkan beban bukan perintah keras untuk tampil kuat &mdash; itu undangan. TUHAN tidak menuntut Anda sempurna dulu; Ia menerima pengakuan jujur, lalu menyangga apa yang tidak lagi sanggup Anda pikul sendirian. TUHAN yang sama memanggil yang letih untuk datang &mdash; bukan untuk pamer ketahanan, melainkan untuk bersandar.</p>
+            <h3>কেন এই পদ সব বদলে দেয়</h3>
+            <p>কারণ «ফেলে দেওয়া» আদেশ নয়—আমন্ত্রণ। প্রভু বলেন না «আরও শক্ত হও», বলেন «যেমন আছ তেমনই এসো»।</p>
 
-            <h3>Lakukan ini sekarang</h3>
-            <p>Katakan pelan: &ldquo;Tuhan, ini beban saya. Saya letakkan di tangan-Mu.&rdquo; Lalu tarik napas perlahan tiga kali. Tidak perlu merasa &ldquo;sukses&rdquo; dulu — cukup jujur sebentar di hadapan-Nya.</p>
-
-            <h3>Jika malam masih panjang</h3>
-            <p>Kecemasan sering datang menjelang tidur. Ulangi pengakuan singkat itu; tidak apa-apa jika Anda hanya diam dan mengetahui bahwa Dia mendengar. Satu ayat KJV di atas cukup untuk malam ini — Anda boleh kembali besok tanpa harus &ldquo;memperbaiki&rdquo; diri dulu.</p>
+            <h3>এখনই করুন</h3>
+            <ol class="section-note" style="margin:0.5rem 0 0;padding-inline-start:1.25rem;line-height:1.65;">
+              <li>ধীরে তিনবার শ্বাস নিন।</li>
+              <li>চুপচাপ বলুন: «প্রভু, এটা আমার বোঝা।»</li>
+              <li>পদটি পড়ুন এবং ভিতরে ঢুকতে দিন।</li>
+            </ol>
           </div>
         </section>
 
-        <section class="glass" lang="id">
-          <h2 class="section-divider">Satu ayat lagi, jika dada masih berat</h2>
-          <p class="section-note">Ini bukan untuk mengecilkan perasaan Anda, tetapi untuk menempatkan firman-Nya di samping hari yang nyata.</p>
-          <p class="verse" style="margin-top:0.75rem;">&ldquo;Casting all your care upon him; for he careth for you.&rdquo; &mdash; 1 Peter 5:7 <span class="section-note" style="display:inline;font-size:0.85em;">(KJV)</span></p>
-          <p class="section-note" style="margin-top:0.75rem;">&ldquo;Menanggung&rdquo; di sini artinya menyerahkan dengan sungguh-sungguh — bukan pura-pura tidak peduli, melainkan berhenti memanggul sendiri apa yang sudah lama membebani hati.</p>
+        <section class="glass" lang="bn">
+          <h2 class="section-divider">আরেকটি পদ, যদি বোঝা এখনও ভারী থাকে</h2>
+          <p class="section-note">অনুভূতি অস্বীকার করার জন্য নয়—যেন ঈশ্বরের বাক্য আপনার সত্যিকারের দিনের পাশে দাঁড়ায়।</p>
+          <p class="verse" style="margin-top:0.75rem;">«তোমরা তোমাদের সকল উদ্বেগ তাঁর উপরে নিক্ষেপ কর, কারণ তিনি তোমাদের বিষয়ে যত্নশীল।» — ১ পিতর ৫:৭ <span class="section-note" style="display:inline;font-size:0.85em;">(কলকাতা ১৯০৯ ঐতিহ্য)</span></p>
+          <p class="section-note" style="margin-top:0.75rem;">«নিক্ষেপ» মানে ভান করা নয়—দীর্ঘদিনের ভার নিয়ে তাঁর সঙ্গে সত্যি কথা বলা।</p>
         </section>
 
-        <section class="glass id-my-verses-guide" lang="id" aria-labelledby="id-my-verses-heading">
-          <h2 class="section-divider" id="id-my-verses-heading">Ayat-ayat saya — ringkas cara memakainya</h2>
-          <p class="section-note"><a href="/my-verses.html" hreflang="en">My Verses</a> adalah satu daftar ayat yang <strong>tersimpan di perangkat Anda</strong> (bukan akun wajib). Ayat bisa masuk dari pencarian, kartu &ldquo;simpan&rdquo; di beranda, atau <a href="/bible-tool.html" hreflang="en">Alat Alkitab</a> — semuanya mengarah ke daftar yang sama.</p>
-          <ul class="section-note util-mb-0_5" style="margin-top:0.65rem;padding-left:1.15rem;line-height:1.55;">
-            <li>Label tombol dan petunjuk di layar dalam <strong>bahasa Inggris</strong>; teks ayat di daftar tetap <strong>KJV</strong>.</li>
-            <li>Anda bisa menandai ayat untuk dibaca ulang nanti atau menghapusnya dari daftar jika sudah tidak perlu.</li>
-            <li>Jika Anda login (opsional), beberapa perangkat bisa menyinkronkan daftar — tetap cek <a href="/privacy.html" hreflang="en">Privacy</a> <span class="section-note" style="display:inline;">(EN)</span> agar jelas apa yang keluar dari perangkat Anda.</li>
-          </ul>
-        </section>
-
-        <section class="glass id-mas-ayuda" lang="id">
-          <h2 class="section-divider">Alat lain — antarmuka Inggris, Alkitab KJV</h2>
-          <p class="section-note"><strong>Ringkas:</strong> setiap tombol membuka alat dengan teks menu bahasa Inggris. Ayat yang ditampilkan tetap <strong>KJV</strong> (Inggris), sama seperti di seluruh situs. Tanda <strong>(EN)</strong> mengingatkan sebelum layar berganti.</p>
-          <p class="section-note">Gunakan untuk mencari ayat, menyimpan favorit, membaca pasal utuh, mengikuti rencana beberapa hari, atau membuka peta situs.</p>
-          <nav class="cta-group id-mas-ayuda-tools" aria-label="Alat situs — antarmuka bahasa Inggris, teks Alkitab KJV" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;visibility:visible;opacity:1;min-height:2.75rem;">
-            <a class="btn btn-secondary" href="/verse.html" hreflang="en" title="Ayat hari ini — halaman bahasa Inggris">Ayat hari ini (EN)</a>
-            <a class="btn btn-secondary" href="/calm.html" hreflang="en" title="Satu ayat dan napas — halaman bahasa Inggris">Tenang — napas &amp; ayat (EN)</a>
-            <a class="btn btn-secondary" href="/bible-tool.html" hreflang="en" title="Alat Alkitab — halaman bahasa Inggris">Alat Alkitab (EN)</a>
-            <a class="btn btn-secondary" href="/reader.html" hreflang="en" title="Baca pasal — halaman bahasa Inggris">Baca pasal utuh (EN)</a>
-            <a class="btn btn-secondary" href="/my-verses.html" hreflang="en" title="Ayat tersimpan di perangkat — halaman bahasa Inggris">Ayat-ayat saya (EN)</a>
-            <a class="btn btn-secondary" href="/study.html" hreflang="en" title="Catatan studi — halaman bahasa Inggris">Ruang catatan (EN)</a>
-            <a class="btn btn-secondary" href="/plans.html" hreflang="en" title="Rencana beberapa hari — halaman bahasa Inggris">Rencana beberapa hari (EN)</a>
-            <a class="btn btn-secondary" href="/message.html" hreflang="en" title="Dinding doa — halaman bahasa Inggris">Dinding doa (EN)</a>
-            <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en" title="Bahasa dan topik — halaman bahasa Inggris">Bahasa &amp; topik di Explore (EN)</a>
+        <section class="glass bn-mas-ayuda" lang="bn">
+          <h2 class="section-divider">টুল — ইংরেজি স্ক্রিন</h2>
+          <p class="section-note"><strong>সংক্ষেপে:</strong> লিংকগুলো বেশিরভাগ <strong>ইংরেজি</strong> পৃষ্ঠা খোলে; টুলে বাইবেলের পাঠ <strong>KJV</strong>। <strong lang="en">(EN)</strong> ভাষা বদলের স্মরণ।</p>
+          <nav class="cta-group bn-mas-ayuda-tools" aria-label="টুল EN" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;visibility:visible;opacity:1;min-height:2.75rem;">
+            <a class="btn btn-secondary" href="/verse.html" hreflang="en">আজকের পদ (EN)</a>
+            <a class="btn btn-secondary" href="/calm.html" hreflang="en">Calm (EN)</a>
+            <a class="btn btn-secondary" href="/bible-tool.html" hreflang="en">বাইবেল (EN)</a>
+            <a class="btn btn-secondary" href="/reader.html" hreflang="en">অধ্যায় পাঠক (EN)</a>
+            <a class="btn btn-secondary" href="/my-verses.html" hreflang="en">আমার পদ (EN)</a>
+            <a class="btn btn-secondary" href="/study.html" hreflang="en">স্টাডি নোট (EN)</a>
+            <a class="btn btn-secondary" href="/plans.html" hreflang="en">পাঠ পরিকল্পনা (EN)</a>
+            <a class="btn btn-secondary" href="/message.html" hreflang="en">প্রার্থনা দেয়াল (EN)</a>
+            <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Explore — ভাষা (EN)</a>
           </nav>
         </section>
 
-        <section class="glass" lang="id">
-          <h2 class="section-divider">Topik terkait</h2>
-          <p class="section-note">Versi lain untuk hari yang sama:</p>
+        <section class="glass" lang="bn">
+          <h2 class="section-divider">একই বিষয়, অন্য ভাষা</h2>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
-            <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (English)</a>
-            <a class="btn btn-secondary" href="/ansiedad.html" hreflang="es">Ansiedad (ES)</a>
-            <a class="btn btn-secondary" href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan (TL)</a>
-            <a class="btn btn-secondary" href="/ar/qalaq.html" hreflang="ar">قلق (AR)</a>
+            <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
+            <a class="btn btn-secondary" href="/ansiedad.html" hreflang="es">Ansiedad</a>
+            <a class="btn btn-secondary" href="/fr/anxiete.html" hreflang="fr">Anxiété</a>
+            <a class="btn btn-secondary" href="/zh/jiaolv.html" hreflang="zh-CN">焦虑</a>
+            <a class="btn btn-secondary" href="/id/kecemasan.html" hreflang="id">Kecemasan</a>
+            <a class="btn btn-secondary" href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan</a>
+            <a class="btn btn-secondary" href="/ar/qalaq.html" hreflang="ar">قلق</a>
             <a class="btn btn-secondary" href="/hi/chinta.html" hreflang="hi">चिंता (HI)</a>
-            <a class="btn btn-secondary" href="/topic-fear.html" hreflang="en">Fear (EN)</a>
-            <a class="btn btn-secondary" href="/topic-hope.html" hreflang="en">Hope (EN)</a>
-            <a class="btn btn-secondary" href="/bible-tool.html">Alat Alkitab</a>
-            <a class="btn btn-secondary" href="/message.html">Dinding doa</a>
+            <a class="btn btn-secondary" href="/ru/trevoga.html" hreflang="ru">Тревога</a>
+            <a class="btn btn-secondary" href="/sv/oro.html" hreflang="sv">Oro</a>
+            <a class="btn btn-secondary" href="/pt/ansiedade.html" hreflang="pt">Ansiedade</a>
+            <a class="btn btn-secondary" href="/sw/wasiwasi.html" hreflang="sw">Wasiwasi</a>
           </div>
         </section>
       </div>
@@ -281,7 +238,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="id">Halaman Bahasa Indonesia. Sebagian besar situs dan alat tetap berbahasa Inggris; teks Alkitab di alat biasanya <abbr title="King James Version">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="bn">বাংলা পৃষ্ঠা। সাইটের বেশিরভাগ টুল ইংরেজিতে; বাইবেল টুলে সাধারণত <abbr title="King James Version" lang="en">KJV</abbr> (এ পৃষ্ঠায় উদ্ধৃত কলকাতা পাঠ বাদে)।</p>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>

@@ -89,6 +89,8 @@ const pages = [
   { path: '/zh/xiwang.html', name: 'Topic 盼望 (ZH)', mustInclude: ['lang="zh-CN"', '盼望', '和合本', '罗马书', 'topic-hope.html', 'fr/espoir.html', 'zh-hope-breakdown', 'data-tdb-pick="zh"', 'zh-pilot-body'] },
   { path: '/ru/nadezhda.html', name: 'Hope Надежда (RU)', mustInclude: ['lang="ru"', 'Надежда', 'topic-hope.html', 'data-tdb-pick="ru"', 'tdb-mood-door-kjv-banner'] },
   { path: '/pt/esperanca.html', name: 'Hope Esperança (PT)', mustInclude: ['lang="pt"', 'Esperança', 'topic-hope.html', 'data-tdb-pick="pt"', 'Almeida'] },
+  { path: '/bn/asha.html', name: 'Hope আশা (BN)', mustInclude: ['lang="bn"', 'bn-hope-breakdown', 'topic-hope.html', 'data-tdb-pick="bn"', 'tdb-mood-door-kjv-banner', 'আজ যা ধরে রাখতে পারেন', 'bn-hope-tools', 'কলকাতা'] },
+  { path: '/sw/tumaini.html', name: 'Hope Tumaini (SW)', mustInclude: ['lang="sw"', 'sw-hope-breakdown', 'topic-hope.html', 'data-tdb-pick="sw"', 'tdb-mood-door-kjv-banner', 'Leo kinachokushikilia', 'sw-hope-tools', 'Warumi 15'] },
   { path: '/fr/solitude.html', name: 'Topic Solitude (FR)', mustInclude: ['lang="fr"', 'solitude', 'Louis Segond', 'Hébreux 13:5', 'topic-loneliness.html', 'zh/gudu.html', 'fr-topic-breakdown', 'data-tdb-pick="fr"'] },
   { path: '/zh/gudu.html', name: 'Topic 孤独 (ZH)', mustInclude: ['lang="zh-CN"', '孤独', '和合本', '希伯来书', 'topic-loneliness.html', 'fr/solitude.html', 'zh-topic-breakdown', 'data-tdb-pick="zh"', 'zh-pilot-body'] },
   { path: '/fr/culpabilite.html', name: 'Topic Culpabilité (FR)', mustInclude: ['lang="fr"', 'culpabilité', 'Louis Segond', '1 Jean 1:9', 'topic-guilt.html', 'zh/neijiu.html', 'fr-topic-breakdown', 'data-tdb-pick="fr"'] },

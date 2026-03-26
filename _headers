@@ -144,6 +144,48 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+/fr/solitude.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/solitude
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/zh/gudu.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/gudu
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/fr/culpabilite.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/culpabilite
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/zh/neijiu.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/neijiu
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/fr/deborde.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/deborde
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+/zh/taiduo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/taiduo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
 /kids/index.html
   Cache-Control: no-cache, must-revalidate

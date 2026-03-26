@@ -457,6 +457,30 @@ if (!sitemapBody.includes('zh/xiwang.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Chinese hope pilot (zh/xiwang.html).');
   process.exit(1);
 }
+if (!sitemapBody.includes('fr/solitude.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list French loneliness pilot (fr/solitude.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('zh/gudu.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Chinese loneliness pilot (zh/gudu.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('fr/culpabilite.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list French guilt pilot (fr/culpabilite.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('zh/neijiu.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Chinese guilt pilot (zh/neijiu.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('fr/deborde.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list French overwhelm pilot (fr/deborde.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('zh/taiduo.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Chinese overwhelm pilot (zh/taiduo.html).');
+  process.exit(1);
+}
 if (!sitemapBody.includes('testimonials.html') || !sitemapBody.includes('calm.html') || !sitemapBody.includes('mobius.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list testimonials.html, calm.html, and mobius.html (SEO / discoverability).');
   process.exit(1);

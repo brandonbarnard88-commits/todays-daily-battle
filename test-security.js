@@ -147,6 +147,18 @@ const cacheHygienePaths = [
   '/fr/espoir',
   '/zh/xiwang.html',
   '/zh/xiwang',
+  '/fr/solitude.html',
+  '/fr/solitude',
+  '/zh/gudu.html',
+  '/zh/gudu',
+  '/fr/culpabilite.html',
+  '/fr/culpabilite',
+  '/zh/neijiu.html',
+  '/zh/neijiu',
+  '/fr/deborde.html',
+  '/fr/deborde',
+  '/zh/taiduo.html',
+  '/zh/taiduo',
 ];
 let cacheHygieneOk = true;
 for (const p of cacheHygienePaths) {
@@ -259,6 +271,12 @@ if (
   !purgeMjs.includes("'/zh/jiaolv.html'") ||
   !purgeMjs.includes("'/fr/espoir.html'") ||
   !purgeMjs.includes("'/zh/xiwang.html'") ||
+  !purgeMjs.includes("'/fr/solitude.html'") ||
+  !purgeMjs.includes("'/zh/gudu.html'") ||
+  !purgeMjs.includes("'/fr/culpabilite.html'") ||
+  !purgeMjs.includes("'/zh/neijiu.html'") ||
+  !purgeMjs.includes("'/fr/deborde.html'") ||
+  !purgeMjs.includes("'/zh/taiduo.html'") ||
   !purgeMjs.includes("'/ansiedad.html?tdb_cb=20260328esNav'") ||
   !purgeMjs.includes("'/styles.css?v=20260328esNav'")
 ) {

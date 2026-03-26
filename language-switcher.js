@@ -1,6 +1,6 @@
 /**
  * Language switcher: EN · ES · FR · 中文 · ID · TL + "More languages" hub.
- * Pairs anxiety cluster + hope cluster (FR/ZH pilots); persists tdb_lang_pref on explicit picks.
+ * Pairs topical FR/ZH pilots (anxiety, hope, loneliness, guilt, overwhelm); persists tdb_lang_pref on explicit picks.
  */
 (function () {
   'use strict';
@@ -95,6 +95,30 @@
     return pathnameNoQuery() === '/zh/xiwang.html';
   }
 
+  function isFrenchLonelinessPage() {
+    return pathnameNoQuery() === '/fr/solitude.html';
+  }
+
+  function isChineseLonelinessPage() {
+    return pathnameNoQuery() === '/zh/gudu.html';
+  }
+
+  function isFrenchGuiltPage() {
+    return pathnameNoQuery() === '/fr/culpabilite.html';
+  }
+
+  function isChineseGuiltPage() {
+    return pathnameNoQuery() === '/zh/neijiu.html';
+  }
+
+  function isFrenchOverwhelmPage() {
+    return pathnameNoQuery() === '/fr/deborde.html';
+  }
+
+  function isChineseOverwhelmPage() {
+    return pathnameNoQuery() === '/zh/taiduo.html';
+  }
+
   function isSpanishTopical() {
     var f = baseFile();
     return f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html';
@@ -125,9 +149,24 @@
     return baseFile() === 'topic-hope.html';
   }
 
+  function isLonelinessEquivalentBaseFile() {
+    return baseFile() === 'topic-loneliness.html';
+  }
+
+  function isGuiltEquivalentBaseFile() {
+    return baseFile() === 'topic-guilt.html';
+  }
+
+  function isOverwhelmEquivalentBaseFile() {
+    return baseFile() === 'topic-overwhelmed.html';
+  }
+
   function enHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/topic-anxiety.html';
     if (isFrenchHopePage() || isChineseHopePage()) return '/topic-hope.html';
+    if (isFrenchLonelinessPage() || isChineseLonelinessPage()) return '/topic-loneliness.html';
+    if (isFrenchGuiltPage() || isChineseGuiltPage()) return '/topic-guilt.html';
+    if (isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/topic-overwhelmed.html';
     var f = baseFile();
     if (ES_TO_EN[f]) return ES_TO_EN[f];
     if (ID_TO_EN[f]) return ID_TO_EN[f];
@@ -142,7 +181,10 @@
 
   function esHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/ansiedad.html';
-    if (isFrenchHopePage() || isChineseHopePage()) return '/explore.html#topics-es';
+    if (isFrenchHopePage() || isChineseHopePage() ||
+      isFrenchLonelinessPage() || isChineseLonelinessPage() ||
+      isFrenchGuiltPage() || isChineseGuiltPage() ||
+      isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/explore.html#topics-es';
     var f = baseFile();
     if (f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html') return '/' + f;
     if (EN_TO_ES[f]) return EN_TO_ES[f];
@@ -152,6 +194,15 @@
   }
 
   function frHref() {
+    if (isFrenchLonelinessPage()) return '/fr/solitude.html';
+    if (isChineseLonelinessPage()) return '/fr/solitude.html';
+    if (isLonelinessEquivalentBaseFile()) return '/fr/solitude.html';
+    if (isFrenchGuiltPage()) return '/fr/culpabilite.html';
+    if (isChineseGuiltPage()) return '/fr/culpabilite.html';
+    if (isGuiltEquivalentBaseFile()) return '/fr/culpabilite.html';
+    if (isFrenchOverwhelmPage()) return '/fr/deborde.html';
+    if (isChineseOverwhelmPage()) return '/fr/deborde.html';
+    if (isOverwhelmEquivalentBaseFile()) return '/fr/deborde.html';
     if (isFrenchHopePage()) return '/fr/espoir.html';
     if (isChineseHopePage()) return '/fr/espoir.html';
     if (isHopeEquivalentBaseFile()) return '/fr/espoir.html';
@@ -162,6 +213,15 @@
   }
 
   function zhHref() {
+    if (isChineseLonelinessPage()) return '/zh/gudu.html';
+    if (isFrenchLonelinessPage()) return '/zh/gudu.html';
+    if (isLonelinessEquivalentBaseFile()) return '/zh/gudu.html';
+    if (isChineseGuiltPage()) return '/zh/neijiu.html';
+    if (isFrenchGuiltPage()) return '/zh/neijiu.html';
+    if (isGuiltEquivalentBaseFile()) return '/zh/neijiu.html';
+    if (isChineseOverwhelmPage()) return '/zh/taiduo.html';
+    if (isFrenchOverwhelmPage()) return '/zh/taiduo.html';
+    if (isOverwhelmEquivalentBaseFile()) return '/zh/taiduo.html';
     if (isChineseHopePage()) return '/zh/xiwang.html';
     if (isFrenchHopePage()) return '/zh/xiwang.html';
     if (isHopeEquivalentBaseFile()) return '/zh/xiwang.html';
@@ -173,7 +233,10 @@
 
   function idHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/id/kecemasan.html';
-    if (isFrenchHopePage() || isChineseHopePage()) return '/id/kecemasan.html';
+    if (isFrenchHopePage() || isChineseHopePage() ||
+      isFrenchLonelinessPage() || isChineseLonelinessPage() ||
+      isFrenchGuiltPage() || isChineseGuiltPage() ||
+      isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/id/kecemasan.html';
     var f = baseFile();
     if (f === 'kecemasan.html') return '/id/kecemasan.html';
     if (f === 'kabalisahan.html') return '/id/kecemasan.html';
@@ -184,7 +247,10 @@
 
   function tlHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/tl/kabalisahan.html';
-    if (isFrenchHopePage() || isChineseHopePage()) return '/tl/kabalisahan.html';
+    if (isFrenchHopePage() || isChineseHopePage() ||
+      isFrenchLonelinessPage() || isChineseLonelinessPage() ||
+      isFrenchGuiltPage() || isChineseGuiltPage() ||
+      isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/tl/kabalisahan.html';
     var f = baseFile();
     if (f === 'kabalisahan.html') return '/tl/kabalisahan.html';
     if (EN_TO_TL[f]) return EN_TO_TL[f];
@@ -195,7 +261,10 @@
   function moreHref() {
     if (isSpanishTopical()) return '/explore.html#topics-es';
     if (isIndonesianTopical() || isTagalogTopical() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
-      isFrenchHopePage() || isChineseHopePage()) {
+      isFrenchHopePage() || isChineseHopePage() ||
+      isFrenchLonelinessPage() || isChineseLonelinessPage() ||
+      isFrenchGuiltPage() || isChineseGuiltPage() ||
+      isFrenchOverwhelmPage() || isChineseOverwhelmPage()) {
       return MORE_HUB;
     }
     return MORE_HUB;
@@ -230,6 +299,12 @@
     var chineseAnx = isChineseAnxietyPage();
     var frenchHope = isFrenchHopePage();
     var chineseHope = isChineseHopePage();
+    var frenchLone = isFrenchLonelinessPage();
+    var chineseLone = isChineseLonelinessPage();
+    var frenchGuilt = isFrenchGuiltPage();
+    var chineseGuilt = isChineseGuiltPage();
+    var frenchOver = isFrenchOverwhelmPage();
+    var chineseOver = isChineseOverwhelmPage();
     var nodes = document.querySelectorAll('[data-tdb-lang-switcher]');
     for (var i = 0; i < nodes.length; i++) {
       var en = nodes[i].querySelector('[data-tdb-pick="en"]');
@@ -247,6 +322,18 @@
       if (chineseHope) {
         if (zhPick) zhPick.setAttribute('aria-current', 'true');
       } else if (frenchHope) {
+        if (fr) fr.setAttribute('aria-current', 'true');
+      } else if (chineseLone) {
+        if (zhPick) zhPick.setAttribute('aria-current', 'true');
+      } else if (frenchLone) {
+        if (fr) fr.setAttribute('aria-current', 'true');
+      } else if (chineseGuilt) {
+        if (zhPick) zhPick.setAttribute('aria-current', 'true');
+      } else if (frenchGuilt) {
+        if (fr) fr.setAttribute('aria-current', 'true');
+      } else if (chineseOver) {
+        if (zhPick) zhPick.setAttribute('aria-current', 'true');
+      } else if (frenchOver) {
         if (fr) fr.setAttribute('aria-current', 'true');
       } else if (chineseAnx) {
         if (zhPick) zhPick.setAttribute('aria-current', 'true');

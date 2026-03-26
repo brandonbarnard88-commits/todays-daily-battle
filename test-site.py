@@ -22,7 +22,7 @@ PAGES = [
     ("/terms.html", "Terms", ["Terms of Service", "Acceptance", "terms.html"]),
     ("/privacy.html", "Privacy", ["Privacy", "terms.html"]),
     ("/pricing.html", "Pricing", ["Pricing", "Subscribe", "terms.html", "id=\"auth-section\"", "id=\"sidebar-toggle\""]),
-    ("/explore.html", "Explore", ["Explore the site", "explore-link-list", "id=\"topics-es\">Spanish topics", "Spanish devotionals", ">Spanish topics</a>", "fr/anxiete.html", "zh/jiaolv.html", "fr/espoir.html", "zh/xiwang.html", "fr/solitude.html", "zh/gudu.html", "fr/culpabilite.html", "zh/neijiu.html", "fr/deborde.html", "zh/taiduo.html", "Louis Segond", "tdb-cache-hygiene:", "id=\"auth-section\""]),
+    ("/explore.html", "Explore", ["Explore the site", "explore-link-list", "id=\"topics-es\">Spanish topics", "Spanish devotionals", ">Spanish topics</a>", "fr/anxiete.html", "zh/jiaolv.html", "fr/espoir.html", "zh/xiwang.html", "fr/solitude.html", "zh/gudu.html", "fr/culpabilite.html", "zh/neijiu.html", "fr/deborde.html", "zh/taiduo.html", "Louis Segond", "Reina-Valera 1960", "tdb-cache-hygiene:", "id=\"auth-section\""]),
     ("/about.html", "About", ["About", "Where this came from", "contact.html"]),
     ("/contact.html", "Contact", ["Contact", "id=\"auth-section\"", "sidebar"]),
     ("/faq.html", "FAQ", ["FAQ", "pricing.html"]),

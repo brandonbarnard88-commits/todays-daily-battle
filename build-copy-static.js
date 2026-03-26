@@ -375,6 +375,16 @@ if (fs.existsSync(path.join(root, 'tl'))) {
   console.log('Copied tl/ folder (localized topical pilots)');
 }
 
+if (fs.existsSync(path.join(root, 'fr'))) {
+  copyDir(path.join(root, 'fr'), path.join(dist, 'fr'));
+  console.log('Copied fr/ folder (French topical pilots)');
+}
+
+if (fs.existsSync(path.join(root, 'zh'))) {
+  copyDir(path.join(root, 'zh'), path.join(dist, 'zh'));
+  console.log('Copied zh/ folder (Chinese topical pilots)');
+}
+
 if (fs.existsSync(path.join(root, 'verse-cards'))) {
   copyDir(path.join(root, 'verse-cards'), path.join(dist, 'verse-cards'));
   console.log('Copied verse-cards/ folder (Pinterest verse images)');
@@ -429,6 +439,14 @@ if (!sitemapBody.includes('id/kecemasan.html')) {
 }
 if (!sitemapBody.includes('tl/kabalisahan.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Tagalog pilot topical (tl/kabalisahan.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('fr/anxiete.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list French anxiety pilot (fr/anxiete.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('zh/jiaolv.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Chinese anxiety pilot (zh/jiaolv.html).');
   process.exit(1);
 }
 if (!sitemapBody.includes('testimonials.html') || !sitemapBody.includes('calm.html') || !sitemapBody.includes('mobius.html')) {

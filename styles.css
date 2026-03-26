@@ -962,6 +962,18 @@ body {
   max-width: 26rem;
   align-self: center;
 }
+
+/* Simplified Chinese pilot: readable body; keep brand + switcher on Inter */
+.zh-pilot-body .brand-title,
+.zh-pilot-body .tdb-lang-switcher,
+.zh-pilot-body .header-nav,
+.zh-pilot-body .footer-quick-links a {
+  font-family: Inter, system-ui, sans-serif;
+}
+.zh-pilot-body .content-inner,
+.zh-pilot-body .site-footer {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 .tdb-lang-switcher--hero {
   font-size: 0.78rem;
   margin: 0;

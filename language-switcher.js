@@ -1,6 +1,6 @@
 /**
- * Language switcher: EN · ES · ID · TL + "More languages" hub.
- * Pairs topical pages; persists tdb_lang_pref on explicit picks. No third-party scripts.
+ * Language switcher: EN · ES · FR · 中文 · ID · TL + "More languages" hub.
+ * Pairs topical pages; persists tdb_lang_pref on explicit picks.
  */
 (function () {
   'use strict';
@@ -58,12 +58,17 @@
     'kecemasan.html': '/tl/kabalisahan.html'
   };
 
+  function pathnameNoQuery() {
+    var p = (window.location.pathname || '/').split('?')[0];
+    if (p.length > 1 && p.slice(-1) === '/') p = p.slice(0, -1);
+    return p || '/';
+  }
+
   function baseFile() {
-    var p = (window.location.pathname || '/').replace(/\/$/, '');
+    var p = pathnameNoQuery();
     var i = p.lastIndexOf('/');
     var f = i >= 0 ? p.slice(i + 1) : p;
-    f = (f || '').split('?')[0];
-    return f;
+    return (f || '').split('?')[0];
   }
 
   function docLang() {
@@ -72,6 +77,14 @@
     } catch (e) {
       return '';
     }
+  }
+
+  function isFrenchAnxietyPage() {
+    return pathnameNoQuery() === '/fr/anxiete.html';
+  }
+
+  function isChineseAnxietyPage() {
+    return pathnameNoQuery() === '/zh/jiaolv.html';
   }
 
   function isSpanishTopical() {
@@ -89,18 +102,25 @@
 
   function isEnglishSurface() {
     var l = docLang().toLowerCase();
-    if (l === 'es' || l === 'id' || l === 'tl') return false;
+    if (l === 'es' || l === 'id' || l === 'tl' || l === 'fr') return false;
+    if (l.indexOf('zh') === 0) return false;
     return true;
   }
 
+  function isAnxietyEquivalentBaseFile() {
+    var f = baseFile();
+    return f === 'topic-anxiety.html' || f === 'ansiedad.html' || f === 'kecemasan.html' ||
+      f === 'kabalisahan.html';
+  }
+
   function enHref() {
+    if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/topic-anxiety.html';
     var f = baseFile();
     if (ES_TO_EN[f]) return ES_TO_EN[f];
     if (ID_TO_EN[f]) return ID_TO_EN[f];
     if (TL_TO_EN[f]) return TL_TO_EN[f];
     if (isEnglishSurface()) {
-      var path = window.location.pathname || '/';
-      path = path.split('?')[0];
+      var path = pathnameNoQuery();
       if (path === '/' || path === '') return '/';
       return path;
     }
@@ -108,6 +128,7 @@
   }
 
   function esHref() {
+    if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/ansiedad.html';
     var f = baseFile();
     if (f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html') return '/' + f;
     if (EN_TO_ES[f]) return EN_TO_ES[f];
@@ -116,7 +137,22 @@
     return '/explore.html#topics-es';
   }
 
+  function frHref() {
+    if (isFrenchAnxietyPage()) return '/fr/anxiete.html';
+    if (isChineseAnxietyPage()) return '/fr/anxiete.html';
+    if (isAnxietyEquivalentBaseFile()) return '/fr/anxiete.html';
+    return MORE_HUB;
+  }
+
+  function zhHref() {
+    if (isChineseAnxietyPage()) return '/zh/jiaolv.html';
+    if (isFrenchAnxietyPage()) return '/zh/jiaolv.html';
+    if (isAnxietyEquivalentBaseFile()) return '/zh/jiaolv.html';
+    return MORE_HUB;
+  }
+
   function idHref() {
+    if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/id/kecemasan.html';
     var f = baseFile();
     if (f === 'kecemasan.html') return '/id/kecemasan.html';
     if (f === 'kabalisahan.html') return '/id/kecemasan.html';
@@ -126,6 +162,7 @@
   }
 
   function tlHref() {
+    if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/tl/kabalisahan.html';
     var f = baseFile();
     if (f === 'kabalisahan.html') return '/tl/kabalisahan.html';
     if (EN_TO_TL[f]) return EN_TO_TL[f];
@@ -135,8 +172,9 @@
 
   function moreHref() {
     if (isSpanishTopical()) return '/explore.html#topics-es';
-    if (isIndonesianTopical()) return MORE_HUB;
-    if (isTagalogTopical()) return MORE_HUB;
+    if (isIndonesianTopical() || isTagalogTopical() || isFrenchAnxietyPage() || isChineseAnxietyPage()) {
+      return MORE_HUB;
+    }
     return MORE_HUB;
   }
 
@@ -146,11 +184,15 @@
       var root = nodes[i];
       var en = root.querySelector('[data-tdb-pick="en"]');
       var es = root.querySelector('[data-tdb-pick="es"]');
+      var fr = root.querySelector('[data-tdb-pick="fr"]');
+      var zh = root.querySelector('[data-tdb-pick="zh"]');
       var id = root.querySelector('[data-tdb-pick="id"]');
       var tl = root.querySelector('[data-tdb-pick="tl"]');
       var more = root.querySelector('.tdb-lang-more');
       if (en) en.setAttribute('href', enHref());
       if (es) es.setAttribute('href', esHref());
+      if (fr) fr.setAttribute('href', frHref());
+      if (zh) zh.setAttribute('href', zhHref());
       if (id) id.setAttribute('href', idHref());
       if (tl) tl.setAttribute('href', tlHref());
       if (more) more.setAttribute('href', moreHref());
@@ -161,17 +203,27 @@
     var spanish = isSpanishTopical();
     var indo = baseFile() === 'kecemasan.html';
     var tagalog = baseFile() === 'kabalisahan.html';
+    var french = isFrenchAnxietyPage();
+    var chinese = isChineseAnxietyPage();
     var nodes = document.querySelectorAll('[data-tdb-lang-switcher]');
     for (var i = 0; i < nodes.length; i++) {
       var en = nodes[i].querySelector('[data-tdb-pick="en"]');
       var es = nodes[i].querySelector('[data-tdb-pick="es"]');
+      var fr = nodes[i].querySelector('[data-tdb-pick="fr"]');
+      var zhPick = nodes[i].querySelector('[data-tdb-pick="zh"]');
       var id = nodes[i].querySelector('[data-tdb-pick="id"]');
       var tl = nodes[i].querySelector('[data-tdb-pick="tl"]');
       if (en) en.removeAttribute('aria-current');
       if (es) es.removeAttribute('aria-current');
+      if (fr) fr.removeAttribute('aria-current');
+      if (zhPick) zhPick.removeAttribute('aria-current');
       if (id) id.removeAttribute('aria-current');
       if (tl) tl.removeAttribute('aria-current');
-      if (tagalog) {
+      if (chinese) {
+        if (zhPick) zhPick.setAttribute('aria-current', 'true');
+      } else if (french) {
+        if (fr) fr.setAttribute('aria-current', 'true');
+      } else if (tagalog) {
         if (tl) tl.setAttribute('aria-current', 'true');
       } else if (indo) {
         if (id) id.setAttribute('aria-current', 'true');
@@ -190,7 +242,7 @@
       var t = e.target && e.target.closest ? e.target.closest('[data-tdb-pick]') : null;
       if (!t || !t.closest('[data-tdb-lang-switcher]')) return;
       var pick = t.getAttribute('data-tdb-pick');
-      if (pick !== 'en' && pick !== 'es' && pick !== 'id' && pick !== 'tl') return;
+      if (pick !== 'en' && pick !== 'es' && pick !== 'fr' && pick !== 'zh' && pick !== 'id' && pick !== 'tl') return;
       try {
         localStorage.setItem(STORAGE_KEY, pick);
       } catch (err) {}

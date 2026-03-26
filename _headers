@@ -114,6 +114,22 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# French anxiety pilot (fr/)
+/fr/anxiete.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/anxiete
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Chinese anxiety pilot (zh/)
+/zh/jiaolv.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/jiaolv
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Kids Battle HTML: avoid stale hub/library at CDN (Pick a path, copy updates)
 /kids/index.html
   Cache-Control: no-cache, must-revalidate

@@ -14,7 +14,7 @@ const OFFLINE = process.argv.includes('--offline');
 const BASE = 'http://127.0.0.1:8765';
 const DIST = path.join(__dirname, 'dist');
 const pages = [
-  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', 'id="family-armor-stories-btn"', 'href="#armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'script.js?v=20260425savednotes-migrate', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'tl/kabalisahan.html', 'data-tdb-pick="tl"', 'tdb-hero-lang-today-stack', 'id="tdb-hero-lang-label"', 'tdb-lang-switcher--hero-secondary', 'id="tdb-start-lang-label"', 'id="tdb-hero-lang-hint"', 'First visit? Pick your language above'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
+  { path: '/', name: 'Home', mustInclude: ['id="search-btn"', 'Today\'s Daily Battle', 'id="prayer-counter"', 'Total prayers', 'What battle are you facing today?', 'V2 Command Deck', 'Search by what you feel right now', 'Verse image generator', 'sky-ip-geo.js?v=20260327ipgeo', 'id="family-armor-stories-btn"', 'href="#armor-builder-btn"', 'id="family-armor-kids-library-link"', 'kids/corner.html', 'id="hero-save-my-verses"', 'script.js?v=20260425savednotes-migrate', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)', 'tl/kabalisahan.html', 'data-tdb-pick="tl"', 'fr/anxiete.html', 'data-tdb-pick="fr"', 'zh/jiaolv.html', 'data-tdb-pick="zh"', 'tdb-hero-lang-today-stack', 'id="tdb-hero-lang-label"', 'tdb-lang-switcher--hero-secondary', 'id="tdb-start-lang-label"', 'id="tdb-hero-lang-hint"', 'First visit? Pick your language above'], mustIncludeOneOf: [['id="query"', 'id="tdb-search"']] },
   { path: '/terms.html', name: 'Terms', mustInclude: ['Terms of Service', 'Acceptance'] },
   { path: '/pricing.html', name: 'Pricing', mustInclude: ['Pricing', 'Subscribe', 'terms.html'] },
   { path: '/privacy.html', name: 'Privacy', mustInclude: ['Privacy', 'terms.html'] },
@@ -30,7 +30,7 @@ const pages = [
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
-  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html', 'id="topics-es">Spanish topics', 'Spanish devotionals', '>Spanish topics</a>', 'id="languages"', 'Kecemasan', 'Kabalisahan', 'tl/kabalisahan.html', 'data-tdb-pick="tl"', 'tdb-lang-switcher-eyebrow', 'tdb-cache-hygiene:'] },
+  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html', 'id="topics-es">Spanish topics', 'Spanish devotionals', '>Spanish topics</a>', 'id="languages"', 'Kecemasan', 'Kabalisahan', 'tl/kabalisahan.html', 'fr/anxiete.html', 'zh/jiaolv.html', 'Louis Segond', 'data-tdb-pick="tl"', 'tdb-lang-switcher-eyebrow', 'tdb-cache-hygiene:'] },
   { path: '/about.html', name: 'About', mustInclude: ['About', 'Daily Battle'] },
   { path: '/testimonials.html', name: 'Reader stories', mustInclude: ['Words from the field', 'Share yours', 'support@todaysdailybattle.com'] },
   { path: '/profile.html', name: 'Profile', mustInclude: ['Family', 'Account', 'Your Kids'] },
@@ -50,7 +50,7 @@ const pages = [
   { path: '/kids/all-stories.html', name: 'Kids All Stories A–Z', mustInclude: ['All Bible Stories', 'bible-story-tool-index.js', 'uFuzzy.iife.min.js', 'fuse.min.js', 'kids-story-fuse-search.js', 'kids-all-stories.js?v=20260331kidsthemes', 'kids-page-sky.css?v=20260326playful', 'sky-ip-geo.js?v=20260327ipgeo', 'kids-page-sky.js?v=20260327ipgeo', 'corner.html?story=', 'kids-all-fuse-suggest', 'kids-all-stories-theme-tabs', 'kids-header-site-link-wrap'] },
   { path: '/resources.html', name: 'Pastor Resources', mustInclude: ['Resources'] },
   { path: '/reader.html', name: 'Chapter Reader', mustInclude: ['Reader', 'Chapter'] },
-  { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety', 'hreflang="x-default"', 'hreflang="es" href="https://todaysdailybattle.com/ansiedad.html"'] },
+  { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety', 'hreflang="x-default"', 'hreflang="es" href="https://todaysdailybattle.com/ansiedad.html"', 'hreflang="fr" href="https://todaysdailybattle.com/fr/anxiete.html"', 'hreflang="zh-CN" href="https://todaysdailybattle.com/zh/jiaolv.html"'] },
   { path: '/topic-hope.html', name: 'Topic Hope', mustInclude: ['Hope'] },
   { path: '/topic-strength.html', name: 'Topic Strength', mustInclude: ['Strength', 'hreflang="x-default"', 'hreflang="es" href="https://todaysdailybattle.com/fuerza.html"'] },
   { path: '/verse-cards/index.html', name: 'Verse cards gallery', mustInclude: ['KJV verse cards', 'Philippians 4:13', 'verse-strength-philippians-4-13.png', 'Daily Battle'] },
@@ -66,6 +66,8 @@ const pages = [
   { path: '/paz.html', name: 'Topic Paz (ES)', mustInclude: ['Paz', 'hreflang="x-default"', 'rel="canonical" href="https://todaysdailybattle.com/paz.html"', 'Paz de Dios: versículos KJV', 'Anxiety (ES)', 'Strength (ES)', 'Peace (ES)'] },
   { path: '/id/kecemasan.html', name: 'Topic Kecemasan (ID)', mustInclude: ['lang="id"', 'Kecemasan', 'KJV', 'Psalm 55:22', 'topic-anxiety.html', 'ansiedad.html', 'tl/kabalisahan.html', 'id-mas-ayuda', 'Mulai di sini', 'Napas singkat', 'id-start-here', 'id-why-kjv', 'Mengapa KJV', 'id-my-verses-guide', 'Jika Anda membuka Calm', 'tdb-lang-switcher-eyebrow', '>Bahasa</span>'] },
   { path: '/tl/kabalisahan.html', name: 'Topic Kabalisahan (TL)', mustInclude: ['lang="tl"', 'Kabalisahan', 'KJV', 'Psalm 55:22', 'topic-anxiety.html', 'ansiedad.html', 'id/kecemasan.html', 'tl-mas-tulong', 'Simula dito', 'tl-start-here', 'tl-why-kjv', 'Bakit KJV', 'tl-my-verses-guide', 'Kung bubuksan mo ang Calm', 'data-tdb-pick="tl"', '>Wika</span>'] },
+  { path: '/fr/anxiete.html', name: 'Topic Anxiété (FR)', mustInclude: ['lang="fr"', 'anxiété', 'Louis Segond', 'Psaumes 55:22', 'topic-anxiety.html', 'zh/jiaolv.html', 'fr-mas-ayuda', 'data-tdb-pick="fr"', 'hreflang="zh-CN"'] },
+  { path: '/zh/jiaolv.html', name: 'Topic 焦虑 (ZH)', mustInclude: ['lang="zh-CN"', '焦虑', '和合本', '诗篇', 'topic-anxiety.html', 'fr/anxiete.html', 'zh-mas-ayuda', 'data-tdb-pick="zh"', 'zh-pilot-body'] },
   { path: '/church/index.html', name: 'Church Join Hub', mustInclude: ['Church Join Hub', 'Join Hub'] },
 ];
 

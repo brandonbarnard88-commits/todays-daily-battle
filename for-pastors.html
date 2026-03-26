@@ -31,7 +31,7 @@
   {"@context":"https://schema.org","@type":"WebPage","name":"For pastors and mobile ministers","url":"https://todaysdailybattle.com/for-pastors.html","description":"Curated hub linking printable verse cards, sermon tools, localized mood doors, and battle plans.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="stylesheet" href="styles.css?v=20260425pastorshub">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,13 +97,46 @@
     </aside>
 
     <main class="app-content" id="main-content">
-      <div class="content-inner">
-        <header class="hero-banner">
+      <div class="content-inner for-pastors-page">
+        <header class="hero-banner for-pastors-hero">
+          <p class="for-pastors-eyebrow">Curated links · same tools as the rest of the site</p>
           <h1>For pastors &amp; mobile ministers</h1>
           <p class="hero-tagline">Everything here is already on the site—gathered in one calm page so you can grab what you need on a travel day or a thin week. English tools use <abbr title="King James Version">KJV</abbr> on screen; localized &ldquo;mood door&rdquo; pages name their own public-domain text. No funnel, no signup wall for the tools themselves.</p>
         </header>
 
-        <section class="glass">
+        <section class="glass for-pastors-hub" id="for-pastors-hub" aria-labelledby="for-pastors-hub-heading">
+          <h2 class="section-divider for-pastors-hub-section-title" id="for-pastors-hub-heading">Jump to a block</h2>
+          <p class="section-note for-pastors-hub-lead util-mb-0_5">Same sections below—this row is a quick index for phone or pulpit prep.</p>
+          <ul class="for-pastors-hub-grid">
+            <li><a href="#fp-print" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Print</span>
+              <span class="for-pastors-hub-card-title">Room &amp; handouts</span>
+              <span class="for-pastors-hub-card-desc">Verse cards, images, daily line</span>
+            </a></li>
+            <li><a href="#fp-teach" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Teach</span>
+              <span class="for-pastors-hub-card-title">Prep &amp; Bible</span>
+              <span class="for-pastors-hub-card-desc">Sermon builder, pastor shelf</span>
+            </a></li>
+            <li><a href="#fp-care" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Care</span>
+              <span class="for-pastors-hub-card-title">Where people hurt</span>
+              <span class="for-pastors-hub-card-desc">Topics, Calm, prayer wall</span>
+            </a></li>
+            <li><a href="#fp-rhythm" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Rhythm</span>
+              <span class="for-pastors-hub-card-title">Plans &amp; groups</span>
+              <span class="for-pastors-hub-card-desc">Battle plans, teams, church</span>
+            </a></li>
+            <li><a href="#fp-voices" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Voices</span>
+              <span class="for-pastors-hub-card-title">Stories &amp; contact</span>
+              <span class="for-pastors-hub-card-desc">Reader notes, email, trust</span>
+            </a></li>
+          </ul>
+        </section>
+
+        <section class="glass" id="fp-print">
           <h2 class="section-divider">Print &amp; share in the room</h2>
           <ul class="explore-link-list">
             <li><a href="/verse-cards/">Verse cards gallery</a> — printable KJV cards.</li>
@@ -112,7 +145,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass" id="fp-teach">
           <h2 class="section-divider">Teach &amp; prep</h2>
           <ul class="explore-link-list">
             <li><a href="/sermon.html">Sermon Builder</a> — outline-friendly flow.</li>
@@ -122,13 +155,13 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass" id="fp-care">
           <h2 class="section-divider">Care where people hurt</h2>
           <p class="section-note">English hubs: <a href="/topic-anxiety.html">Anxiety</a>, <a href="/topic-hope.html">Hope</a>, <a href="/topic-loneliness.html">Loneliness</a>, <a href="/topic-grief.html">Grief</a>, <a href="/topic-guilt.html">Guilt</a>, <a href="/topic-overwhelmed.html">Overwhelmed</a> — and the full list on <a href="/explore.html">Explore</a>. Localized mood doors (many languages) live under <a href="/explore.html#languages">Languages on Explore</a> — good targets for a QR code on a handout.</p>
           <p class="section-note"><a href="/calm.html">Calm</a> — one verse and breath. <a href="/message.html">Prayer wall</a> — anonymous intents, no performance.</p>
         </section>
 
-        <section class="glass">
+        <section class="glass" id="fp-rhythm">
           <h2 class="section-divider">Rhythm &amp; groups</h2>
           <ul class="explore-link-list">
             <li><a href="/plans.html">Battle Plans</a> — multi-day tracks, offline-friendly.</li>
@@ -137,7 +170,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass" id="fp-voices">
           <h2 class="section-divider">Voices &amp; contact</h2>
           <p class="section-note">Real notes from readers: <a href="/testimonials.html">Reader stories</a>. Questions or a permission to reprint: <a href="/contact.html">Contact</a> or <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</p>
           <p class="section-note">All tools are private by design. Your data stays on your device unless you sign in to sync.</p>

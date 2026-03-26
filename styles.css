@@ -14515,6 +14515,141 @@ main > .card {
   }
 }
 
+/* For pastors hub (for-pastors.html) — same spirit as Explore tiles, tighter grid */
+.for-pastors-page.content-inner {
+  max-width: min(56rem, 100%);
+}
+
+.for-pastors-hero {
+  padding-bottom: 0.35rem;
+}
+
+.for-pastors-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold-soft, #f2dc98) 85%, transparent);
+  margin: 0 auto 0.55rem;
+  max-width: 42ch;
+  opacity: 0.94;
+}
+
+.for-pastors-hub {
+  margin-top: 0.35rem;
+}
+
+.for-pastors-hub-section-title {
+  margin-bottom: 0.2rem;
+}
+
+.for-pastors-hub-lead {
+  margin-top: 0 !important;
+}
+
+.for-pastors-hub-grid {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+@media (min-width: 480px) {
+  .for-pastors-hub-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 800px) {
+  .for-pastors-hub-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+.for-pastors-hub-grid > li {
+  margin: 0;
+  padding: 0;
+}
+
+.for-pastors-hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.2rem;
+  min-height: 4.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-sizing: border-box;
+  height: 100%;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, transparent);
+  background: color-mix(in srgb, var(--bg, #0f1218) 58%, transparent);
+  color: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.for-pastors-hub-card:hover,
+.for-pastors-hub-card:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 42%, transparent);
+  outline-offset: 2px;
+  transform: translateY(-1px);
+}
+
+.for-pastors-hub-card-label {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold-soft, #f2dc98) 90%, transparent);
+}
+
+.for-pastors-hub-card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark, #f1f5f9);
+  line-height: 1.28;
+}
+
+.for-pastors-hub-card-desc {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  line-height: 1.42;
+  color: var(--text-muted, #94a3b8);
+}
+
+:root[data-theme="light"] .for-pastors-hub-card {
+  background: color-mix(in srgb, var(--card) 94%, var(--gold) 5%);
+  border-color: color-mix(in srgb, var(--gold) 36%, var(--line));
+}
+
+:root[data-theme="light"] .for-pastors-hub-card-title {
+  color: var(--text, #191d26);
+}
+
+:root[data-theme="light"] .for-pastors-hub-card-desc {
+  color: var(--muted, #5f6877);
+}
+
+:root[data-theme="light"] .for-pastors-eyebrow {
+  color: color-mix(in srgb, var(--gold) 70%, #3d2f0f);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .for-pastors-hub-card:hover,
+  .for-pastors-hub-card:focus-visible {
+    transform: none;
+  }
+}
+
 .explore-page .explore-section .section-divider,
 .explore-page .explore-hub .section-divider {
   font-size: clamp(1.06rem, 2.4vw, 1.24rem);

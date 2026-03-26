@@ -946,20 +946,14 @@ body {
 }
 
 /* Homepage: language strip (labeled) + optional second strip after Start here */
-.tdb-hero-lang-today-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-bottom: 0.15rem;
-}
 .tdb-hero-lang-hint {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   line-height: 1.45;
-  color: color-mix(in srgb, var(--muted) 92%, var(--gold) 8%);
+  color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
   text-align: center;
-  margin: -0.1rem 0 0;
+  margin: -0.05rem 0 0;
   padding: 0 0.65rem;
-  max-width: 26rem;
+  max-width: 28rem;
   align-self: center;
 }
 
@@ -1010,12 +1004,30 @@ body {
 .bn-pilot-body .site-footer {
   font-family: "Noto Sans Bengali", "Kohinoor Bangla", "Shonar Bangla", system-ui, sans-serif;
 }
+/* Homepage: language strip should read as a first-class door, not footer clutter */
+.tdb-hero-lang-today-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  padding: 0.65rem 0.5rem 0.75rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 32%, var(--line, #2a3344));
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--card, #1b212d) 88%, rgba(227, 188, 103, 0.07)) 0%,
+    color-mix(in srgb, var(--bg-soft, #171c25) 94%, var(--card)) 100%
+  );
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--gold) 14%, transparent),
+    0 10px 28px rgba(0, 0, 0, 0.22);
+}
 .tdb-lang-switcher--hero {
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   margin: 0;
-  padding: 0.55rem 0.75rem;
+  padding: 0.6rem 0.85rem;
   border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+  border: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 18%);
   background: linear-gradient(180deg, color-mix(in srgb, var(--card) 90%, #1a2230) 0%, color-mix(in srgb, var(--bg-soft) 65%, var(--card)) 100%);
   box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 3%, transparent);
   display: flex;
@@ -1026,6 +1038,9 @@ body {
 }
 .tdb-lang-switcher--hero .hero-daily-path-label {
   margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--muted, #94a3b8) 70%, var(--gold, #e3bc67));
 }
 .tdb-lang-switcher--hero .tdb-lang-switcher-inner {
   justify-content: center;
@@ -1040,15 +1055,16 @@ body {
   margin-bottom: 0.15rem;
 }
 .tdb-lang-switcher--hero .tdb-lang-opt {
-  padding: 0.4rem 0.45rem;
+  padding: 0.42rem 0.5rem;
   min-height: 44px;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
+  font-weight: 500;
 }
 @media (max-width: 380px) {
   /* Keep hero language legible on very narrow phones (was easy to miss when text shrank). */
   .tdb-lang-switcher--hero .tdb-lang-opt {
     padding: 0.42rem 0.4rem;
-    font-size: 0.76rem;
+    font-size: 0.78rem;
   }
   .tdb-lang-switcher--hero .hero-daily-path-label {
     font-size: 0.7rem;

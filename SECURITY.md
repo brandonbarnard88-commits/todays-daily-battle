@@ -53,6 +53,23 @@
 
 - Search: we **never** send raw query text or user identity. Only anonymous topic counts via `trackSearchAnalytics()`. See PRIVACY-ANALYTICS.md.
 
+### Traffic anomalies (e.g. one country or path spiking bandwidth)
+
+Edge analytics (Cloudflare **Analytics & logs** → HTTP traffic, or **Security** → Events) sometimes show a country or “empty” content-type bucket out of proportion. That is usually **bots**, **prefetch**, **health checks**, or a **single asset** being hammered—not necessarily real readers.
+
+**When a region spikes (example: Netherlands + high MB):**
+
+1. In Cloudflare Dashboard, open **Traffic** or **Log Explorer** (if enabled), filter by **country** and **time range**, then sort by **URL** or **edge status code**.
+2. Note whether hits cluster on **`/`**, **`/kjv.json`**, **`/script.js`**, **`/assets/*`**, or a **single HTML** path. One path + steady interval often indicates a crawler.
+3. Compare **cached vs uncached** share: if most requests are **dynamic HTML** (`no-cache` hubs), low cache hit rate is expected; static assets use long `Cache-Control` in `_headers` (`/vendor/*`, `/*.css`, `/*.js`, images). After deploy, purge only what changed (`scripts/cloudflare-purge.mjs`).
+4. If the pattern is abusive (high 404 rate, same ASN), use **Security** → **WAF** / **Bots** (e.g. managed rules, rate limiting) or block by **ASN** after confirming it is not a CDN or partner.
+
+**“Empty” or unknown content-type in reports:** Often **204/304**, **HEAD**, **challenge** responses, or **favicon/manifest** before explicit headers. `_headers` sets **Content-Type** and **Cache-Control** for `manifest.json`, `icon.svg`, `favicon.ico`, `robots.txt`, `sitemap.xml`, and **`/.well-known/security.txt`** so common edge responses are typed.
+
+**Cached requests % vs cached bandwidth % (Cloudflare):** These often diverge. **HTML** for `/`, hubs, and topical pilots is **`no-cache`** by design—so **most request rows** are uncached even though each row is small. **JS, CSS, JSON, images, fonts, and media** are fewer requests but **most bytes**; when the CDN serves them from cache, **cached bandwidth** looks healthy (e.g. ~50–60%+) while **cached request count** can still be **under ~15%**. That is **not** a misconfiguration by itself; it reflects “many small fresh HTML hits + fewer large asset hits.”
+
+**High MB from one country with modest request count:** Divide **bandwidth ÷ requests** for that country vs the US. If the average is **much larger** (e.g. hundreds of KB per request vs tens of KB), suspect **repeated full downloads** of **large static files** (`kjv.json`, media, a single script without `?v=` cache bust) or **non-browser** clients—not only “popular in that country.” Confirm in **Log Explorer** by **URL** and **client ASN** before blocking.
+
 ---
 
 ## Checklist when adding features

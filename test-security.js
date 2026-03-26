@@ -202,6 +202,13 @@ if (cacheHygieneOk) {
   }
 }
 
+if (headers.includes('/manifest.json') && headers.includes('application/manifest+json') && headers.includes('/robots.txt')) {
+  ok('_headers: manifest + robots explicit Content-Type (edge analytics / MIME clarity)');
+}
+if (headers.includes('/.well-known/security.txt') && headers.includes('text/plain')) {
+  ok('_headers: security.txt explicit Content-Type');
+}
+
 // 3. security.txt
 const securityTxt = read('.well-known/security.txt');
 if (!securityTxt.includes('Contact:') || !securityTxt.includes('Expires:')) {

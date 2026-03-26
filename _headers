@@ -284,6 +284,47 @@
 /logo-shield-600.png
   Cache-Control: public, max-age=31536000, immutable
 
+# Explicit MIME + cache for PWA, icons, and crawlers (cuts “empty”/unknown-type noise in edge analytics)
+/manifest.json
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/icon.svg
+  Content-Type: image/svg+xml; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Content-Type: image/x-icon
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# Large static JSON (verse data, packs) — safe to cache; bump or purge when data ships
+/*.json
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Fonts (Kids story UI, etc.)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Media / audio (documentary, loops) — long TTL; filenames versioned when content changes
+/media/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/audio/*
+  Cache-Control: public, max-age=2592000, immutable
+
+# Crawl / discovery
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400, must-revalidate
+
 # Minimal deny body for blocked routes (see _redirects → blocked.html)
 /blocked.html
   Cache-Control: no-store

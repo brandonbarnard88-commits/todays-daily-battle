@@ -130,6 +130,14 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Arabic anxiety pilot (ar/)
+/ar/qalaq.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ar/qalaq
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 /fr/espoir.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache

@@ -23,6 +23,11 @@ const NOTES = [
       '  <p class="site-footer-pilot-note" lang="zh-CN">中文页面。站内工具多为英文；圣经文本在工具中为 <abbr title="King James Version">KJV</abbr>（本页引用的和合本除外）。</p>\n\n',
   },
   {
+    match: (rel) => rel.startsWith('ar/'),
+    html:
+      '  <p class="site-footer-pilot-note" lang="ar" dir="rtl">صفحة بالعربية. أدوات الموقع غالبًا بالإنجليزية؛ نص الكتاب في الأدوات عادة <abbr title="King James Version" lang="en">KJV</abbr> (ما عدا ما ذُكر هنا من فان دايك).</p>\n\n',
+  },
+  {
     match: (rel) => ['ansiedad.html', 'fuerza.html', 'paz.html'].includes(rel),
     html:
       '  <p class="site-footer-pilot-note" lang="es">Página en español. La mayoría del sitio y las herramientas siguen en inglés; en pantalla suele verse la Biblia en <abbr title="King James Version">KJV</abbr>.</p>\n\n',
@@ -50,6 +55,9 @@ function main() {
     'tl/kabalisahan.html',
     ...fs.readdirSync(path.join(root, 'fr')).map((f) => 'fr/' + f),
     ...fs.readdirSync(path.join(root, 'zh')).map((f) => 'zh/' + f),
+    ...(fs.existsSync(path.join(root, 'ar'))
+      ? fs.readdirSync(path.join(root, 'ar')).map((f) => 'ar/' + f)
+      : []),
   ].filter((rel) => rel.endsWith('.html'));
 
   let n = 0;

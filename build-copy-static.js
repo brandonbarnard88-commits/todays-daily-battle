@@ -383,6 +383,9 @@ if (fs.existsSync(path.join(root, 'fr'))) {
 if (fs.existsSync(path.join(root, 'zh'))) {
   copyDir(path.join(root, 'zh'), path.join(dist, 'zh'));
   console.log('Copied zh/ folder (Chinese topical pilots)');
+
+  copyDir(path.join(root, 'ar'), path.join(dist, 'ar'));
+  console.log('Copied ar/ folder (Arabic topical pilots)');
 }
 
 if (fs.existsSync(path.join(root, 'verse-cards'))) {
@@ -447,6 +450,10 @@ if (!sitemapBody.includes('fr/anxiete.html')) {
 }
 if (!sitemapBody.includes('zh/jiaolv.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Chinese anxiety pilot (zh/jiaolv.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('ar/qalaq.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Arabic anxiety pilot (ar/qalaq.html).');
   process.exit(1);
 }
 if (!sitemapBody.includes('fr/espoir.html')) {

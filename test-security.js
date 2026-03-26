@@ -143,6 +143,10 @@ const cacheHygienePaths = [
   '/fr/anxiete',
   '/zh/jiaolv.html',
   '/zh/jiaolv',
+  '/fr/espoir.html',
+  '/fr/espoir',
+  '/zh/xiwang.html',
+  '/zh/xiwang',
 ];
 let cacheHygieneOk = true;
 for (const p of cacheHygienePaths) {
@@ -253,6 +257,8 @@ if (
   !purgeMjs.includes("'/tl/kabalisahan.html'") ||
   !purgeMjs.includes("'/fr/anxiete.html'") ||
   !purgeMjs.includes("'/zh/jiaolv.html'") ||
+  !purgeMjs.includes("'/fr/espoir.html'") ||
+  !purgeMjs.includes("'/zh/xiwang.html'") ||
   !purgeMjs.includes("'/ansiedad.html?tdb_cb=20260328esNav'") ||
   !purgeMjs.includes("'/styles.css?v=20260328esNav'")
 ) {

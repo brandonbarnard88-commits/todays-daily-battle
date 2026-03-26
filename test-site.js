@@ -30,7 +30,7 @@ const pages = [
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['message', 'Prayer', 'Encouragement'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
-  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html', 'id="topics-es">Spanish topics', 'Spanish devotionals', '>Spanish topics</a>', 'id="languages"', 'Kecemasan', 'Kabalisahan', 'tl/kabalisahan.html', 'fr/anxiete.html', 'zh/jiaolv.html', 'Louis Segond', 'data-tdb-pick="tl"', 'tdb-lang-switcher-eyebrow', 'tdb-cache-hygiene:'] },
+  { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-link-list', 'topic-anxiety.html', 'verse-image.html', 'id="topics-es">Spanish topics', 'Spanish devotionals', '>Spanish topics</a>', 'id="languages"', 'Kecemasan', 'Kabalisahan', 'tl/kabalisahan.html', 'fr/anxiete.html', 'zh/jiaolv.html', 'fr/espoir.html', 'zh/xiwang.html', 'Louis Segond', 'data-tdb-pick="tl"', 'tdb-lang-switcher-eyebrow', 'tdb-cache-hygiene:'] },
   { path: '/about.html', name: 'About', mustInclude: ['About', 'Daily Battle'] },
   { path: '/testimonials.html', name: 'Reader stories', mustInclude: ['Words from the field', 'Share yours', 'support@todaysdailybattle.com'] },
   { path: '/profile.html', name: 'Profile', mustInclude: ['Family', 'Account', 'Your Kids'] },
@@ -51,7 +51,7 @@ const pages = [
   { path: '/resources.html', name: 'Pastor Resources', mustInclude: ['Resources'] },
   { path: '/reader.html', name: 'Chapter Reader', mustInclude: ['Reader', 'Chapter'] },
   { path: '/topic-anxiety.html', name: 'Topic Anxiety', mustInclude: ['anxiety', 'Anxiety', 'hreflang="x-default"', 'hreflang="es" href="https://todaysdailybattle.com/ansiedad.html"', 'hreflang="fr" href="https://todaysdailybattle.com/fr/anxiete.html"', 'hreflang="zh-CN" href="https://todaysdailybattle.com/zh/jiaolv.html"'] },
-  { path: '/topic-hope.html', name: 'Topic Hope', mustInclude: ['Hope'] },
+  { path: '/topic-hope.html', name: 'Topic Hope', mustInclude: ['Hope', 'hreflang="fr" href="https://todaysdailybattle.com/fr/espoir.html"', 'hreflang="zh-CN" href="https://todaysdailybattle.com/zh/xiwang.html"', 'fr/espoir.html', 'zh/xiwang.html'] },
   { path: '/topic-strength.html', name: 'Topic Strength', mustInclude: ['Strength', 'hreflang="x-default"', 'hreflang="es" href="https://todaysdailybattle.com/fuerza.html"'] },
   { path: '/verse-cards/index.html', name: 'Verse cards gallery', mustInclude: ['KJV verse cards', 'Philippians 4:13', 'verse-strength-philippians-4-13.png', 'Daily Battle'] },
   { path: '/action-bible.html', name: 'Action Bible Archive', mustInclude: ['Action Bible Documentary Archive', 'Documentary Controls', 'My witness profile', 'Play Selected Season', 'Continue Watching'] },
@@ -68,6 +68,8 @@ const pages = [
   { path: '/tl/kabalisahan.html', name: 'Topic Kabalisahan (TL)', mustInclude: ['lang="tl"', 'Kabalisahan', 'KJV', 'Psalm 55:22', 'topic-anxiety.html', 'ansiedad.html', 'id/kecemasan.html', 'tl-mas-tulong', 'Simula dito', 'tl-start-here', 'tl-why-kjv', 'Bakit KJV', 'tl-my-verses-guide', 'Kung bubuksan mo ang Calm', 'data-tdb-pick="tl"', '>Wika</span>'] },
   { path: '/fr/anxiete.html', name: 'Topic Anxiété (FR)', mustInclude: ['lang="fr"', 'anxiété', 'Louis Segond', 'Psaumes 55:22', 'topic-anxiety.html', 'zh/jiaolv.html', 'fr-mas-ayuda', 'data-tdb-pick="fr"', 'hreflang="zh-CN"'] },
   { path: '/zh/jiaolv.html', name: 'Topic 焦虑 (ZH)', mustInclude: ['lang="zh-CN"', '焦虑', '和合本', '诗篇', 'topic-anxiety.html', 'fr/anxiete.html', 'zh-mas-ayuda', 'data-tdb-pick="zh"', 'zh-pilot-body'] },
+  { path: '/fr/espoir.html', name: 'Topic Espoir (FR)', mustInclude: ['lang="fr"', 'espoir', 'Louis Segond', 'Romains 15:13', 'topic-hope.html', 'zh/xiwang.html', 'fr-hope-breakdown', 'data-tdb-pick="fr"'] },
+  { path: '/zh/xiwang.html', name: 'Topic 盼望 (ZH)', mustInclude: ['lang="zh-CN"', '盼望', '和合本', '罗马书', 'topic-hope.html', 'fr/espoir.html', 'zh-hope-breakdown', 'data-tdb-pick="zh"', 'zh-pilot-body'] },
   { path: '/church/index.html', name: 'Church Join Hub', mustInclude: ['Church Join Hub', 'Join Hub'] },
 ];
 

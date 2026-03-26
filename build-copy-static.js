@@ -449,6 +449,14 @@ if (!sitemapBody.includes('zh/jiaolv.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Chinese anxiety pilot (zh/jiaolv.html).');
   process.exit(1);
 }
+if (!sitemapBody.includes('fr/espoir.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list French hope pilot (fr/espoir.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('zh/xiwang.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Chinese hope pilot (zh/xiwang.html).');
+  process.exit(1);
+}
 if (!sitemapBody.includes('testimonials.html') || !sitemapBody.includes('calm.html') || !sitemapBody.includes('mobius.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list testimonials.html, calm.html, and mobius.html (SEO / discoverability).');
   process.exit(1);

@@ -1,6 +1,6 @@
 /**
  * Language switcher: EN · ES · FR · 中文 · ID · TL + "More languages" hub.
- * Pairs topical pages; persists tdb_lang_pref on explicit picks.
+ * Pairs anxiety cluster + hope cluster (FR/ZH pilots); persists tdb_lang_pref on explicit picks.
  */
 (function () {
   'use strict';
@@ -87,6 +87,14 @@
     return pathnameNoQuery() === '/zh/jiaolv.html';
   }
 
+  function isFrenchHopePage() {
+    return pathnameNoQuery() === '/fr/espoir.html';
+  }
+
+  function isChineseHopePage() {
+    return pathnameNoQuery() === '/zh/xiwang.html';
+  }
+
   function isSpanishTopical() {
     var f = baseFile();
     return f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html';
@@ -113,8 +121,13 @@
       f === 'kabalisahan.html';
   }
 
+  function isHopeEquivalentBaseFile() {
+    return baseFile() === 'topic-hope.html';
+  }
+
   function enHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/topic-anxiety.html';
+    if (isFrenchHopePage() || isChineseHopePage()) return '/topic-hope.html';
     var f = baseFile();
     if (ES_TO_EN[f]) return ES_TO_EN[f];
     if (ID_TO_EN[f]) return ID_TO_EN[f];
@@ -129,6 +142,7 @@
 
   function esHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/ansiedad.html';
+    if (isFrenchHopePage() || isChineseHopePage()) return '/explore.html#topics-es';
     var f = baseFile();
     if (f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html') return '/' + f;
     if (EN_TO_ES[f]) return EN_TO_ES[f];
@@ -138,6 +152,9 @@
   }
 
   function frHref() {
+    if (isFrenchHopePage()) return '/fr/espoir.html';
+    if (isChineseHopePage()) return '/fr/espoir.html';
+    if (isHopeEquivalentBaseFile()) return '/fr/espoir.html';
     if (isFrenchAnxietyPage()) return '/fr/anxiete.html';
     if (isChineseAnxietyPage()) return '/fr/anxiete.html';
     if (isAnxietyEquivalentBaseFile()) return '/fr/anxiete.html';
@@ -145,6 +162,9 @@
   }
 
   function zhHref() {
+    if (isChineseHopePage()) return '/zh/xiwang.html';
+    if (isFrenchHopePage()) return '/zh/xiwang.html';
+    if (isHopeEquivalentBaseFile()) return '/zh/xiwang.html';
     if (isChineseAnxietyPage()) return '/zh/jiaolv.html';
     if (isFrenchAnxietyPage()) return '/zh/jiaolv.html';
     if (isAnxietyEquivalentBaseFile()) return '/zh/jiaolv.html';
@@ -153,6 +173,7 @@
 
   function idHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/id/kecemasan.html';
+    if (isFrenchHopePage() || isChineseHopePage()) return '/id/kecemasan.html';
     var f = baseFile();
     if (f === 'kecemasan.html') return '/id/kecemasan.html';
     if (f === 'kabalisahan.html') return '/id/kecemasan.html';
@@ -163,6 +184,7 @@
 
   function tlHref() {
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/tl/kabalisahan.html';
+    if (isFrenchHopePage() || isChineseHopePage()) return '/tl/kabalisahan.html';
     var f = baseFile();
     if (f === 'kabalisahan.html') return '/tl/kabalisahan.html';
     if (EN_TO_TL[f]) return EN_TO_TL[f];
@@ -172,7 +194,8 @@
 
   function moreHref() {
     if (isSpanishTopical()) return '/explore.html#topics-es';
-    if (isIndonesianTopical() || isTagalogTopical() || isFrenchAnxietyPage() || isChineseAnxietyPage()) {
+    if (isIndonesianTopical() || isTagalogTopical() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
+      isFrenchHopePage() || isChineseHopePage()) {
       return MORE_HUB;
     }
     return MORE_HUB;
@@ -203,8 +226,10 @@
     var spanish = isSpanishTopical();
     var indo = baseFile() === 'kecemasan.html';
     var tagalog = baseFile() === 'kabalisahan.html';
-    var french = isFrenchAnxietyPage();
-    var chinese = isChineseAnxietyPage();
+    var frenchAnx = isFrenchAnxietyPage();
+    var chineseAnx = isChineseAnxietyPage();
+    var frenchHope = isFrenchHopePage();
+    var chineseHope = isChineseHopePage();
     var nodes = document.querySelectorAll('[data-tdb-lang-switcher]');
     for (var i = 0; i < nodes.length; i++) {
       var en = nodes[i].querySelector('[data-tdb-pick="en"]');
@@ -219,9 +244,13 @@
       if (zhPick) zhPick.removeAttribute('aria-current');
       if (id) id.removeAttribute('aria-current');
       if (tl) tl.removeAttribute('aria-current');
-      if (chinese) {
+      if (chineseHope) {
         if (zhPick) zhPick.setAttribute('aria-current', 'true');
-      } else if (french) {
+      } else if (frenchHope) {
+        if (fr) fr.setAttribute('aria-current', 'true');
+      } else if (chineseAnx) {
+        if (zhPick) zhPick.setAttribute('aria-current', 'true');
+      } else if (frenchAnx) {
         if (fr) fr.setAttribute('aria-current', 'true');
       } else if (tagalog) {
         if (tl) tl.setAttribute('aria-current', 'true');

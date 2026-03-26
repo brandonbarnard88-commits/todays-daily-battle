@@ -182,7 +182,7 @@ return document.getElementById('feel-search') || document.getElementById('tdb-se
 | .welcome-cross | Triple-click tomb | index.html (welcome flow) |
 | .plan-chip[data-plan="peace"] | Dove hover | index.html (plans section) |
 | .easter-footer-dove-trigger | 4s hover | index.html |
-| .closing-breath, .tool-footer-tagline | "Still. He's got it." dblclick | index.html, tool pages |
+| `.footer-tagline` (optional `.tool-footer-tagline`) | Double-click tagline → "He really does." + dove | `404.html`, `404-admin.html` (easter-eggs.js loaded); any page with tagline + eggs |
 
 **wrapRunSearch** runs before the early return, so search-triggered eggs (still, hallelujah, secrets, etc.) work on ALL pages with script.js + runSearchWithInput.
 
@@ -195,6 +195,7 @@ return document.getElementById('feel-search') || document.getElementById('tdb-se
 | Trigger | Behavior | Scope |
 |---------|----------|-------|
 | Konami ↑↑↓↓←→←→BA | Verse toast, sessionStorage.konamiFound | All pages |
+| Double-click `.footer-tagline` or `.tool-footer-tagline` | Toast "He really does.", brief dove on tagline | Wired when element exists (404 pages; homepage has no `.footer-tagline`) |
 
 ### initIndex (index.html only — requires verseCard)
 
@@ -216,7 +217,6 @@ return document.getElementById('feel-search') || document.getElementById('tdb-se
 | Ctrl+click Love chip | Heart particles |
 | Joy chip 4 fast clicks | Bounce, sun particles |
 | Footer dove 4s hover | "The Spirit descends like a dove" |
-| Double-click "Still. He's got it." | "He really does" |
 | Ctrl+Shift+P | Peace chip pulse, John 14:27 |
 | Ctrl+Shift+J | Joy chip pulse, 1 Thess 5:16 |
 | Alt+Shift+F | Faith chip glow, Hebrews 11:1 |
@@ -279,8 +279,9 @@ return document.getElementById('feel-search') || document.getElementById('tdb-se
 - Search "still", "amen", "hallelujah", "grace", "forgive", "jesus", "mercy", "shabbat", "risen", "lamb", "resurrection", "abide"
 - 7 clicks verse ref, triple-tap verse, double-tap "Do this", 10s privacy note, 7 clicks "No tracking"
 - Shift+hover Peace, triple-click chips for grace, Hope 4s hover, Forgiveness 5 clicks, Rest 5s hover
-- Joy 4 fast clicks, Ctrl+click Love, footer dove 4s hover, double-click "Still. He's got it."
-- Triple-click Forgiveness chip / welcome cross, Konami code, Ctrl+Shift+P/J, Alt+Shift+F, Ctrl+Alt+R
+- Joy 4 fast clicks, Ctrl+click Love, footer dove 4s hover (most pages with site footer)
+- Double-click the encouragement tagline on the 404 page (`secrets.html` tier-2)
+- Triple-click Forgiveness chip / welcome cross on homepage, Konami code, Ctrl+Shift+P/J, Alt+Shift+F, Ctrl+Alt+R
 - 1 in 30 cross, offline toast, Sunday reload, 5–7 AM sunrise, 2% angel number, fear mood toast
 - First suggestion toast, "nothing can stop you", Möbius triple-tap Share, Shift+click Trace Cycle
 - Möbius "eternal", "empty tomb", double-tap viz, Alt+click node

@@ -71,7 +71,7 @@ PAGES = [
     ("/action-bible.html", "Action Bible Archive", ["Action Bible Documentary Archive", "Documentary Controls", "My witness profile", "Play Selected Season", "Continue Watching"]),
     ("/action-bible-workshop.html", "Action Bible Workshop Toolkit", ["Worksheet + Class Toolkit", "Generate Worksheet", "Build Leader Dashboard Plan", "Load Weekly Pack", "Download Weekly JSON"]),
     ("/action-bible-weekly-packs.json", "Action Bible Weekly Packs", ["\"totalWeeks\"", "\"weeks\""]),
-    ("/404.html", "404 Page", ["not found", "Today's Daily Battle"]),
+    ("/404.html", "404 Page", ["not found", "Today's Daily Battle", "easter-eggs.js", "data-tdb-easter-eggs"]),
 ]
 
 # Auth buttons that script.js wires (must exist on pages with auth-section)

@@ -443,6 +443,19 @@ if (fs.existsSync(wellKnown)) {
   copyDir(wellKnown, path.join(dist, '.well-known'));
 }
 
+// Root HTML is replaced in the loops above; nested dirs use copyDir() and would still
+// ship TDB_BUILD_DATE. Replace in every dist/**/*.html so deploy matches build time.
+(function replaceTdbBuildDateUnderDist() {
+  let count = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    let html = fs.readFileSync(filePath, 'utf8');
+    if (!html.includes('TDB_BUILD_DATE')) return;
+    fs.writeFileSync(filePath, html.replace(/TDB_BUILD_DATE/g, BUILD_DATE_STR), 'utf8');
+    count++;
+  });
+  if (count) console.log('build-copy-static.js: TDB_BUILD_DATE → build stamp in ' + count + ' dist HTML file(s) (nested + any stragglers)');
+})();
+
 // Write build-date.txt so JS can fetch it as fallback if HTML replacement missed
 fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 

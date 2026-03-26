@@ -1044,29 +1044,6 @@
       });
     })();
 
-    // 5l. Tool / error-page footer tagline double-click ("He really does.")
-    var stillFooter = document.querySelector('.tool-footer-tagline, .footer-tagline');
-    if (stillFooter) {
-      var dblClickCount = 0;
-      stillFooter.addEventListener('dblclick', function () {
-        if (!enabled()) return;
-        stillFooter.classList.add('easter-still-glow');
-        setTimeout(function () { stillFooter.classList.remove('easter-still-glow'); }, 3000);
-        var toast = document.createElement('div');
-        toast.className = 'easter-triple-toast';
-        toast.textContent = 'He really does.';
-        toast.setAttribute('role', 'status');
-        document.body.appendChild(toast);
-        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
-        var dove = document.createElement('span');
-        dove.className = 'easter-footer-dove';
-        dove.textContent = '\uD83D\uDD4A\uFE0F';
-        dove.setAttribute('aria-hidden', 'true');
-        stillFooter.appendChild(dove);
-        setTimeout(function () { if (dove.parentNode) dove.remove(); }, 2500);
-      });
-    }
-
     // 5m. Angel number 2% on load (777, 333, 111)
     if (Math.random() < 0.02) {
       var nums = ['111', '333', '777'];
@@ -1172,6 +1149,28 @@
         }
       } else konamiIdx = 0;
     });
+
+    // Footer encouragement tagline double-click — "He really does." (404 / 404-admin; .tool-footer-tagline unused in HTML)
+    var stillFooter = document.querySelector('.tool-footer-tagline, .footer-tagline');
+    if (stillFooter) {
+      stillFooter.addEventListener('dblclick', function () {
+        if (!enabled()) return;
+        stillFooter.classList.add('easter-still-glow');
+        setTimeout(function () { stillFooter.classList.remove('easter-still-glow'); }, 3000);
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.textContent = 'He really does.';
+        toast.setAttribute('role', 'status');
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
+        var dove = document.createElement('span');
+        dove.className = 'easter-footer-dove';
+        dove.textContent = '\uD83D\uDD4A\uFE0F';
+        dove.setAttribute('aria-hidden', 'true');
+        stillFooter.appendChild(dove);
+        setTimeout(function () { if (dove.parentNode) dove.remove(); }, 2500);
+      });
+    }
   }
 
   var EGG_COUNT_KEY = 'tdb_eggCount';

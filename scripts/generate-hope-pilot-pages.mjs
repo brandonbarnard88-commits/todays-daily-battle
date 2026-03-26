@@ -303,7 +303,7 @@ function shell(html, lang, skip, brand, eyebrow, navLabel, main) {
     <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
   </div>
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
-  <p class="privacy-line site-footer-trust-hook">No ads. No tracking. Just daily bread.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>

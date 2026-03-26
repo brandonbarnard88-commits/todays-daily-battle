@@ -101,7 +101,21 @@
       html += '</div>';
       out.innerHTML = html;
       out.style.display = 'grid';
-      out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (typeof window.tdbScrollIntoView === 'function') {
+        window.tdbScrollIntoView(out, 'nearest', 'nearest');
+      } else {
+        var b = 'smooth';
+        try {
+          if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) b = 'auto';
+        } catch (e) {}
+        try {
+          out.scrollIntoView({ behavior: b, block: 'nearest', inline: 'nearest' });
+        } catch (err) {
+          try {
+            out.scrollIntoView(true);
+          } catch (e2) {}
+        }
+      }
     }).catch(function () {
       if (out) out.innerHTML = '<p style="text-align:center;color:#888;">Verses could not be loaded. Check your connection and retry.</p>';
     });

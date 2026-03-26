@@ -77,6 +77,8 @@ main, .app-content, .content-inner {
 html {
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
+  /* Anchor + scrollIntoView: keep targets clear of sticky header / chrome */
+  scroll-padding-top: 5rem;
 }
 body {
   max-width: 100%;
@@ -2733,6 +2735,7 @@ body:has(.search-hero-home) #search-hero {
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
 #search-hero, #quick-search-hero { scroll-margin-top: 5rem; }
+#feel-results { scroll-margin-top: 1rem; scroll-margin-bottom: 2rem; }
 #quick-search-hero { position: sticky; top: 0; z-index: 40; background: linear-gradient(180deg, rgba(10, 12, 20, 0.98) 0%, rgba(10, 12, 20, 0.95) 100%); padding-top: 0.5rem; padding-bottom: 0.75rem; margin-bottom: -0.25rem; }
 .quick-search-hero-wrap { text-align: center; margin: 20px 0; }
 .search-hero-input-inline { width: 80%; max-width: 500px; padding: 12px; border: 2px solid gold; border-radius: 8px; font-size: 16px; box-shadow: 0 0 8px rgba(212, 175, 55, 0.3); background: rgba(15, 20, 32, 0.95); color: #e2e8f0; }

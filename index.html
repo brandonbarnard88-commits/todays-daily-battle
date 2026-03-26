@@ -6529,9 +6529,8 @@
         if (typeof window.runSearchWithInput === "function") {
           var tdb = document.getElementById("tdb-search");
           if (tdb) tdb.value = val;
+          if (typeof window.tdbScrollSearchSurfaceIntoView === "function") window.tdbScrollSearchSurfaceIntoView();
           window.runSearchWithInput(val);
-          var out = document.getElementById("feel-results") || document.getElementById("output");
-          if (out) setTimeout(function () { out.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 200);
         } else if (!group) showNoMatch();
       }
 

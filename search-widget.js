@@ -63,10 +63,28 @@
       if (queryEl && searchBtn) {
         queryEl.value = trimmed;
         searchBtn.click();
-        var target = document.getElementById('output') || document.getElementById('main-search');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        setTimeout(function () {
+          if (typeof window.tdbScrollSearchResultsIntoView === 'function') {
+            window.tdbScrollSearchResultsIntoView();
+          } else {
+            var target =
+              document.getElementById('feel-results') ||
+              document.getElementById('output') ||
+              document.getElementById('main-search');
+            if (!target) return;
+            var behavior = 'smooth';
+            try {
+              if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) behavior = 'auto';
+            } catch (e) {}
+            try {
+              target.scrollIntoView({ behavior: behavior, block: 'start', inline: 'nearest' });
+            } catch (err) {
+              try {
+                target.scrollIntoView(true);
+              } catch (e2) {}
+            }
+          }
+        }, 120);
       } else {
         window.location.href = getBase() + 'index.html?q=' + encodeURIComponent(trimmed);
       }

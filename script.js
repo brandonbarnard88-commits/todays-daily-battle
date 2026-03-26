@@ -9374,7 +9374,7 @@ function wireAuthDailyVerseBreakdown() {
     if (!ref) return;
     if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(ref);
     var search = document.getElementById('main-search');
-    if (search && typeof search.scrollIntoView === 'function') search.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (search) tdbScrollIntoView(search, 'start', 'nearest');
     setOpen(false);
   });
 
@@ -14469,7 +14469,7 @@ function applySearchFromQuery() {
   setView('search');
   if (typeof searchCache !== 'undefined' && searchCache.clear) searchCache.clear();
   const mainSearch = document.getElementById('main-search');
-  if (mainSearch) mainSearch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (mainSearch) tdbScrollIntoView(mainSearch, 'start', 'nearest');
   searchBtn.click();
 }
 
@@ -17941,6 +17941,59 @@ function getSearchOutputElement() {
   return document.getElementById('output');
 }
 
+function tdbScrollBehavior() {
+  try {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 'auto';
+  } catch (_) {}
+  return 'smooth';
+}
+
+/**
+ * Shared scroll helper for user-facing scrollIntoView calls.
+ * Uses tdbScrollBehavior(): when the user has prefers-reduced-motion: reduce, behavior is 'auto'
+ * (instant positioning) instead of 'smooth', per WCAG / vestibular sensitivity. Prefer this over
+ * hard-coded { behavior: 'smooth' } anywhere scroll is tied to navigation or search feedback.
+ */
+function tdbScrollIntoView(el, block, inline) {
+  if (!el || typeof el.scrollIntoView !== 'function') return;
+  var behavior = tdbScrollBehavior();
+  var blk = block != null ? block : 'start';
+  var inl = inline != null ? inline : 'nearest';
+  try {
+    el.scrollIntoView({ behavior: behavior, block: blk, inline: inl });
+  } catch (_) {
+    try {
+      el.scrollIntoView(true);
+    } catch (__) {}
+  }
+}
+
+/** Primary search surface: homepage hero first, then legacy hero, then #main-search (other pages). */
+function scrollTdbSearchSurfaceIntoView() {
+  var el =
+    document.getElementById('quick-search-hero') ||
+    document.getElementById('search-hero') ||
+    document.getElementById('main-search');
+  if (!el) return;
+  tdbScrollIntoView(el, 'start', 'nearest');
+}
+
+/** Scroll the results bucket into view; homepage uses #feel-results (centered), other pages use #output. */
+function scrollTdbSearchResultsIntoView() {
+  var fr = document.getElementById('feel-results');
+  var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
+  var el = fr || out;
+  if (!el) return;
+  var block = fr ? 'center' : 'start';
+  tdbScrollIntoView(el, block, 'nearest');
+}
+
+try {
+  window.tdbScrollIntoView = tdbScrollIntoView;
+  window.tdbScrollSearchSurfaceIntoView = scrollTdbSearchSurfaceIntoView;
+  window.tdbScrollSearchResultsIntoView = scrollTdbSearchResultsIntoView;
+} catch (_) {}
+
 function renderResults(results) {
   var output = getSearchOutputElement();
   if (!output) {
@@ -19301,6 +19354,7 @@ async function tdbInitImpl() {
           outputEl.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Finding verses…</p>';
           outputEl.style.display = 'grid';
         }
+        scrollTdbSearchSurfaceIntoView();
         setTimeout(async function () {
           try {
             var tierEl = document.getElementById('tier');
@@ -19316,7 +19370,8 @@ async function tdbInitImpl() {
               if (out) {
                 out.innerHTML = '<p style="text-align:center; color:#888;">Bible data didn\'t load. Check your connection. <button type="button" id="bible-search-retry-btn" class="btn btn-secondary" style="margin-top:0.5rem;">Retry</button></p>';
                 out.style.display = 'grid';
-                out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                scrollTdbSearchSurfaceIntoView();
+                scrollTdbSearchResultsIntoView();
                 var retryBtn = document.getElementById('bible-search-retry-btn');
                 if (retryBtn) retryBtn.addEventListener('click', function () {
                   if (typeof loadBible === 'function') loadBible(currentVersion).then(function () {
@@ -19351,7 +19406,13 @@ async function tdbInitImpl() {
             if (out && !hasSearchCards(out)) {
               renderEmergencySearchResults(input);
             }
-            if (out) { out.style.display = 'grid'; out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+            if (out) {
+              out.style.display = 'grid';
+              scrollTdbSearchSurfaceIntoView();
+              setTimeout(function () {
+                scrollTdbSearchResultsIntoView();
+              }, 80);
+            }
             if (input) writeNbaSignal('tdb_nba_last_search_at');
             if (input && typeof trackSearchAnalytics === 'function') {
               var params = searchTopic ? { topic: searchTopic } : { search_type: 'keyword' };
@@ -19389,7 +19450,8 @@ async function tdbInitImpl() {
                   });
                 }
               }
-              out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              scrollTdbSearchSurfaceIntoView();
+              scrollTdbSearchResultsIntoView();
             }
             if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);
           } finally {
@@ -19441,7 +19503,7 @@ async function tdbInitImpl() {
             if (data && data.ref && typeof runSearchWithInput === 'function') {
               runSearchWithInput(data.ref);
               var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
-              if (out) setTimeout(function () { out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
+              if (out) setTimeout(function () { scrollTdbSearchResultsIntoView(); }, 300);
             }
           }
         });
@@ -19506,8 +19568,9 @@ async function tdbInitImpl() {
   if (isHomepage && document.getElementById('global-search-wrap')) {
     window.onVerseSelect = function (ref, text) {
       if (ref && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(ref);
-      var out = document.querySelector('#output');
-      if (out) out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      setTimeout(function () {
+        if (typeof scrollTdbSearchResultsIntoView === 'function') scrollTdbSearchResultsIntoView();
+      }, 120);
     };
   }
 

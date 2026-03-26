@@ -52,6 +52,10 @@
 /verse-cards /verse-cards/index.html 200!
 /verse-cards/ /verse-cards/index.html 200!
 
+# Short verse link (QR on verse cards)
+/v /v.html 200!
+/v/ /v.html 200!
+
 # Bible Hub (combined Bible Study + Tools)
 /bible /bible/index.html 200!
 /bible/ /bible/index.html 200!

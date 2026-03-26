@@ -146,6 +146,7 @@ const rootFiles = [
   'verse-rotator.js',
   'auth.js',
   'verse-image.js',
+  'verse-ref-slug.js',
   'profile.js',
   'loop-feedback-config.js',
   'loops.json',

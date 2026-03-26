@@ -236,9 +236,80 @@
     ctx.fillText('KJV', 72, h - 22);
   }
 
-  function saveCache(ref, text) {
+  /** Printed cards should open prod; local dev still makes scannable links. */
+  function verseShareBaseUrl() {
     try {
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ ref: ref, text: text, ts: Date.now() }));
+      var h = location.hostname || '';
+      if (h === 'todaysdailybattle.com' || h === 'www.todaysdailybattle.com') {
+        return location.origin;
+      }
+    } catch (e) {}
+    return 'https://todaysdailybattle.com';
+  }
+
+  /**
+   * Draw base card, then optional QR to /v?ref=… (async). Always invokes done().
+   */
+  function renderCardWithQr(canvas, ref, body, opts, done) {
+    drawCard(canvas, ref, body, opts);
+    var slug =
+      opts &&
+      opts.includeQr &&
+      window.TDB_VERSE_SLUG &&
+      typeof window.TDB_VERSE_SLUG.encode === 'function'
+        ? window.TDB_VERSE_SLUG.encode(ref)
+        : null;
+    var QRCode = window.QRCode;
+    if (
+      !slug ||
+      !QRCode ||
+      typeof QRCode.toCanvas !== 'function'
+    ) {
+      if (done) done();
+      return;
+    }
+    var link = verseShareBaseUrl() + '/v?ref=' + encodeURIComponent(slug);
+    var size = 118;
+    var pad = 18;
+    var x = canvas.width - size - pad;
+    var y = canvas.height - size - pad;
+    var qcv = document.createElement('canvas');
+    QRCode.toCanvas(
+      qcv,
+      link,
+      { width: size, margin: 1, color: { dark: '#0f172a', light: '#ffffff' } },
+      function (err) {
+        var ctx = canvas.getContext('2d');
+        if (!err && ctx && qcv.width) {
+          ctx.save();
+          var margin = 8;
+          var bx = x - margin;
+          var by = y - margin;
+          var bw = size + margin * 2;
+          var bh = size + margin * 2;
+          var rad = 6;
+          ctx.fillStyle = 'rgba(255,255,255,0.96)';
+          ctx.beginPath();
+          if (typeof ctx.roundRect === 'function') {
+            ctx.roundRect(bx, by, bw, bh, rad);
+          } else {
+            ctx.rect(bx, by, bw, bh);
+          }
+          ctx.fill();
+          ctx.drawImage(qcv, x, y, size, size);
+          ctx.restore();
+        }
+        if (done) done();
+      }
+    );
+  }
+
+  function saveCache(ref, text, includeQr) {
+    try {
+      localStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({ ref: ref, text: text, includeQr: !!includeQr, ts: Date.now() })
+      );
     } catch (e) {}
   }
 
@@ -323,6 +394,7 @@
     var bgEl = document.getElementById('verse-image-bg');
     var fontEl = document.getElementById('verse-image-font');
     var colorEl = document.getElementById('verse-image-text-color');
+    var qrEl = document.getElementById('verse-image-include-qr');
     var statusEl = document.getElementById('verse-image-status');
     var recentWrap = document.getElementById('recent-gens');
     var recentList = document.getElementById('recent-gens-list');
@@ -336,15 +408,21 @@
       return {
         bg: bgEl ? bgEl.value : 'dawn',
         font: fontEl ? fontEl.value : 'serif',
-        textColor: colorEl ? colorEl.value : 'ink'
+        textColor: colorEl ? colorEl.value : 'ink',
+        includeQr: qrEl ? qrEl.checked : true
       };
     }
 
+    var liveRedrawTimer = null;
     function maybeLiveRedraw() {
       var ref = normRef(refEl && refEl.value);
       var body = stripHtml(bodyEl && bodyEl.value);
       if (!ref || !body) return;
-      drawCard(canvas, ref, body, getCardOpts());
+      if (liveRedrawTimer) clearTimeout(liveRedrawTimer);
+      liveRedrawTimer = setTimeout(function () {
+        liveRedrawTimer = null;
+        renderCardWithQr(canvas, ref, body, getCardOpts(), function () {});
+      }, 320);
     }
 
     function renderRecentGens() {
@@ -385,11 +463,19 @@
               if (bgEl && row.bg) bgEl.value = row.bg;
               if (fontEl && row.font) fontEl.value = row.font;
               if (colorEl) colorEl.value = row.textColor || 'ink';
-              drawCard(canvas, normRef(row.ref), stripHtml(row.text), {
-                bg: (bgEl && row.bg) || 'dawn',
-                font: (fontEl && row.font) || 'serif',
-                textColor: (row.textColor) || 'ink'
-              });
+              if (qrEl) qrEl.checked = row.includeQr !== false;
+              renderCardWithQr(
+                canvas,
+                normRef(row.ref),
+                stripHtml(row.text),
+                {
+                  bg: (bgEl && row.bg) || 'dawn',
+                  font: (fontEl && row.font) || 'serif',
+                  textColor: row.textColor || 'ink',
+                  includeQr: qrEl ? qrEl.checked : true
+                },
+                function () {}
+              );
               setStatus('Loaded from Recent. Adjust if needed, then Update preview.');
             });
             li.appendChild(btn);
@@ -416,36 +502,40 @@
         return;
       }
       var opts = getCardOpts();
-      drawCard(canvas, ref, body, opts);
-      saveCache(ref, body);
+      setStatus('Updating preview…');
+      renderCardWithQr(canvas, ref, body, opts, function () {
+        saveCache(ref, body, opts.includeQr);
 
-      var dataURL = canvas.toDataURL('image/png');
-      var rec = {
-        id: newId(),
-        ref: ref,
-        text: body,
-        dataURL: dataURL,
-        timestamp: Date.now(),
-        bg: opts.bg,
-        font: opts.font,
-        textColor: opts.textColor
-      };
-      saveVerseGen(rec)
-        .then(function () {
-          renderRecentGens();
-        })
-        .catch(function () {
-          renderRecentGens();
+        var dataURL = canvas.toDataURL('image/png');
+        var rec = {
+          id: newId(),
+          ref: ref,
+          text: body,
+          dataURL: dataURL,
+          timestamp: Date.now(),
+          bg: opts.bg,
+          font: opts.font,
+          textColor: opts.textColor,
+          includeQr: opts.includeQr
+        };
+        saveVerseGen(rec)
+          .then(function () {
+            renderRecentGens();
+          })
+          .catch(function () {
+            renderRecentGens();
+          });
+
+        trackEvent('verse_image_generated', {
+          ref_len: ref.length,
+          bg: opts.bg,
+          font: opts.font,
+          color: opts.textColor,
+          qr: opts.includeQr ? 1 : 0
         });
-
-      trackEvent('verse_image_generated', {
-        ref_len: ref.length,
-        bg: opts.bg,
-        font: opts.font,
-        color: opts.textColor
+        trackEvent('verse_image_customized', { color: opts.textColor, bg: opts.bg });
+        setStatus('Preview updated. Download, share, or post on X when ready.');
       });
-      trackEvent('verse_image_customized', { color: opts.textColor, bg: opts.bg });
-      setStatus('Preview updated. Download, share, or post on X when ready.');
     }
 
     document.getElementById('verse-image-load').addEventListener('click', function () {
@@ -459,7 +549,7 @@
         if (data && data.text) {
           refEl.value = data.reference;
           bodyEl.value = data.text;
-          saveCache(data.reference, data.text);
+          saveCache(data.reference, data.text, qrEl ? qrEl.checked : true);
           setStatus('Loaded. Tap Update preview.');
         } else {
           var c = loadCache();
@@ -478,6 +568,7 @@
     if (bgEl) bgEl.addEventListener('change', maybeLiveRedraw);
     if (fontEl) fontEl.addEventListener('change', maybeLiveRedraw);
     if (colorEl) colorEl.addEventListener('change', maybeLiveRedraw);
+    if (qrEl) qrEl.addEventListener('change', maybeLiveRedraw);
 
     document.getElementById('verse-image-download-btn').addEventListener('click', function () {
       var ref = normRef(refEl.value);
@@ -486,28 +577,33 @@
         setStatus('Load a verse and update preview first.');
         return;
       }
-      drawCard(canvas, ref, body, getCardOpts());
-      canvas.toBlob(function (blob) {
-        var base = 'tdb-verse-' + ref.replace(/[^a-z0-9]+/gi, '-').slice(0, 40) + '.png';
-        if (!blob) {
-          try {
-            var a0 = document.createElement('a');
-            a0.download = base;
-            a0.href = canvas.toDataURL('image/png');
-            a0.click();
-            trackEvent('verse_image_downloaded', { ref_len: ref.length });
-          } catch (e) {
-            setStatus('Download failed in this browser.');
+      var optsDl = getCardOpts();
+      setStatus('Preparing download…');
+      renderCardWithQr(canvas, ref, body, optsDl, function () {
+        canvas.toBlob(function (blob) {
+          var base = 'tdb-verse-' + ref.replace(/[^a-z0-9]+/gi, '-').slice(0, 40) + '.png';
+          if (!blob) {
+            try {
+              var a0 = document.createElement('a');
+              a0.download = base;
+              a0.href = canvas.toDataURL('image/png');
+              a0.click();
+              trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0 });
+            } catch (e) {
+              setStatus('Download failed in this browser.');
+            }
+            setStatus('Download started.');
+            return;
           }
-          return;
-        }
-        var a = document.createElement('a');
-        a.download = base;
-        a.href = URL.createObjectURL(blob);
-        a.click();
-        URL.revokeObjectURL(a.href);
-        trackEvent('verse_image_downloaded', { ref_len: ref.length });
-      }, 'image/png');
+          var a = document.createElement('a');
+          a.download = base;
+          a.href = URL.createObjectURL(blob);
+          a.click();
+          URL.revokeObjectURL(a.href);
+          trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0 });
+          setStatus('Download started.');
+        }, 'image/png');
+      });
     });
 
     document.getElementById('verse-image-share-btn').addEventListener('click', function () {
@@ -517,30 +613,38 @@
         setStatus('Load a verse and update preview first.');
         return;
       }
-      drawCard(canvas, ref, body, getCardOpts());
-      canvas.toBlob(function (blob) {
-        if (!blob) {
-          setStatus('Share needs a supported browser.');
-          return;
-        }
-        var file = new File([blob], 'verse.png', { type: 'image/png' });
-        var go = function () {
-          if (!navigator.share) return Promise.reject(new Error('no share'));
-          try {
-            if (navigator.canShare && navigator.canShare({ files: [file] })) {
-              return navigator.share({ title: "Today's Daily Battle", text: ref + ' (KJV)', files: [file] });
-            }
-          } catch (e) {}
-          return navigator.share({ title: "Today's Daily Battle", text: ref + ' (KJV)', url: window.location.href });
-        };
-        go()
-          .then(function () {
-            trackEvent('verse_image_shared', { ref_len: ref.length, method: 'native_share' });
-          })
-          .catch(function () {
-            setStatus('Share not available — use Post on X or Download PNG.');
-          });
-      }, 'image/png');
+      var optsSh = getCardOpts();
+      setStatus('Preparing share…');
+      renderCardWithQr(canvas, ref, body, optsSh, function () {
+        canvas.toBlob(function (blob) {
+          if (!blob) {
+            setStatus('Share needs a supported browser.');
+            return;
+          }
+          var file = new File([blob], 'verse.png', { type: 'image/png' });
+          var go = function () {
+            if (!navigator.share) return Promise.reject(new Error('no share'));
+            try {
+              if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                return navigator.share({ title: "Today's Daily Battle", text: ref + ' (KJV)', files: [file] });
+              }
+            } catch (e) {}
+            return navigator.share({ title: "Today's Daily Battle", text: ref + ' (KJV)', url: window.location.href });
+          };
+          go()
+            .then(function () {
+              trackEvent('verse_image_shared', {
+                ref_len: ref.length,
+                method: 'native_share',
+                qr: optsSh.includeQr ? 1 : 0
+              });
+              setStatus('Shared.');
+            })
+            .catch(function () {
+              setStatus('Share not available — use Post on X or Download PNG.');
+            });
+        }, 'image/png');
+      });
     });
 
     document.getElementById('verse-image-tweet-btn').addEventListener('click', function () {
@@ -560,13 +664,15 @@
     if (cache && cache.ref && cache.text) {
       refEl.value = cache.ref;
       bodyEl.value = cache.text;
+      if (qrEl && cache.includeQr === false) qrEl.checked = false;
     }
     renderRecentGens();
-    drawCard(
+    renderCardWithQr(
       canvas,
       normRef(refEl.value) || 'Philippians 4:13',
       stripHtml(bodyEl.value) || 'I can do all things through Christ which strengtheneth me.',
-      getCardOpts()
+      getCardOpts(),
+      function () {}
     );
     setStatus('Adjust text, then Update preview.');
   }

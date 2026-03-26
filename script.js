@@ -10926,6 +10926,19 @@ function saveSupporterWaitlist(items) {
 }
 const templates = [
   {
+    title: 'The Peace That Guards',
+    theme: 'A ten-minute outline when the mind will not slow down — prayer, thanksgiving, and the peace that keeps the heart',
+    textRef: 'Philippians 4:6-7',
+    outline:
+      'I. Be careful for nothing — bring the burden to God (v.6)\nII. With thanksgiving — remembrance steadies the soul (v.6)\nIII. The peace of God — it keepeth heart and mind in Christ Jesus (v.7)',
+    points:
+      'Key text (KJV — read slowly):\n“Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.”\n\nTiming (~10 min): 2 min welcome + 2–3 min per point + 1–2 min application.',
+    application:
+      'Quiet moment: name one worry, speak it to God in prayer, then thank Him for one mercy you can name today.',
+    prayer:
+      'Father, we bring You what we carry. Let Your peace stand guard over our hearts and minds in Christ Jesus. Amen.'
+  },
+  {
     title: 'Gospel Clarity',
     theme: 'Salvation by grace through faith',
     textRef: 'Ephesians 2:8-9',

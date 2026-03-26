@@ -232,6 +232,14 @@
             </div>
           </div>
 
+          <div class="verse-image-controls" style="margin-top: 0.35rem; align-items: center;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; min-height: 44px; margin: 0;">
+              <input type="checkbox" id="verse-image-include-qr" checked aria-describedby="verse-image-qr-hint" />
+              <span>Include scan link (QR) on the card</span>
+            </label>
+            <p id="verse-image-qr-hint" class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">Points to a short link on this site so people can open the verse after a meeting. Handouts work best when someone has opened the site once before (cache helps).</p>
+          </div>
+
           <div class="cta-group" style="margin-top: 1rem; flex-wrap: wrap;">
             <button type="button" class="btn btn-primary" id="verse-image-preview-btn">Update preview</button>
             <button type="button" class="btn btn-secondary" id="verse-image-download-btn">Download PNG</button>
@@ -427,6 +435,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script type="module" src="script.js?v=20260328feelwire"></script>
+  <script src="verse-ref-slug.js"></script>
+  <script src="/vendor/qrcode.browser.min.js"></script>
   <script src="verse-image.js?v=20260325clean" defer></script>
 </body>
 </html>

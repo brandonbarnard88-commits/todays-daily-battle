@@ -447,6 +447,7 @@
           <!-- ── Enhanced Toolbar ── -->
           <div class="sb-enhance-toolbar" role="toolbar" aria-label="Sermon Builder tools">
             <span class="sb-toolbar-label">Tools</span>
+            <button type="button" id="sb-quick-preach-btn" class="sb-btn sb-btn--gold" aria-label="Load Quick Preach — ten minute outline from Philippians chapter 4 verses 6 and 7">⚡ Quick&nbsp;Preach</button>
             <button type="button" id="sb-quick-start-btn" class="sb-btn" aria-label="Quick Start — choose a sermon template" aria-haspopup="true">✦ Quick&nbsp;Start</button>
             <button type="button" id="sb-add-verse-btn"   class="sb-btn" aria-label="Add a verse to your sermon" aria-haspopup="true">📖 Add&nbsp;Verse</button>
             <button type="button" id="sb-compare-btn"     class="sb-btn" aria-label="Compare parallel passages" aria-haspopup="true">⇄ Compare</button>
@@ -766,6 +767,11 @@
 
     /* ── Shared data ── */
     var SB_TEMPLATES = [
+      { name: 'Quick Preach', icon: '⚡', ref: 'Philippians 4:6-7', title: 'The Peace That Guards', theme: 'A ten-minute outline when the mind will not slow down — prayer, thanksgiving, and the peace that keeps the heart',
+        outline: 'I. Be careful for nothing — bring the burden to God (v.6)\nII. With thanksgiving — remembrance steadies the soul (v.6)\nIII. The peace of God — it keepeth heart and mind in Christ Jesus (v.7)',
+        points: 'Key text (KJV — read slowly):\n“Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.”\n\nTiming (~10 min): 2 min welcome + 2–3 min per point + 1–2 min application.',
+        application: 'Quiet moment: name one worry, speak it to God in prayer, then thank Him for one mercy you can name today.',
+        prayer: 'Father, we bring You what we carry. Let Your peace stand guard over our hearts and minds in Christ Jesus. Amen.' },
       { name: 'Hope',         icon: '✨', ref: 'Romans 15:13',    title: 'The God of Hope',      theme: 'Hope that does not disappoint',
         outline: 'I. Hope defined — not wishful thinking, but confident expectation\nII. Hope\'s source — the God who fills\nIII. Hope\'s fruit — joy and peace in believing',
         points:  'Cross-refs: Hebrews 11:1, Jeremiah 29:11, Psalm 42:11\nIllustration: An anchor holds a ship in a storm — hope anchors the soul (Heb 6:19).',
@@ -832,6 +838,7 @@
       'Isaiah': ['John 14:27', 'Romans 8:28', 'Hebrews 11:1', 'Philippians 4:13'],
       'Matthew': ['Luke 15:20', 'Mark 12:30', 'Colossians 3:23', 'James 1:5'],
       'Ephesians': ['Colossians 3:15', 'Galatians 6:2', 'Romans 12:18', '2 Corinthians 4:16'],
+      'Philippians': ['Philippians 4:8', 'Colossians 3:15', 'Isaiah 26:3', 'John 14:27'],
       'default': ['John 3:16', 'Psalm 46:10', 'Isaiah 40:31', 'Romans 8:28', 'Proverbs 3:5-6']
     };
 
@@ -950,21 +957,32 @@
         btn.appendChild(nameEl);
         btn.appendChild(refEl);
         btn.addEventListener('click', function () {
-          var tf;
-          tf = getField('sermon-title');       if (tf) tf.value = t(tmpl.title);
-          tf = getField('sermon-theme');        if (tf) tf.value = t(tmpl.theme);
-          tf = getField('sermon-text-ref');     if (tf) tf.value = t(tmpl.ref);
-          tf = getField('sermon-outline');      if (tf) tf.value = t(tmpl.outline);
-          tf = getField('sermon-points');       if (tf) tf.value = t(tmpl.points);
-          tf = getField('sermon-application'); if (tf) tf.value = t(tmpl.application);
-          tf = getField('sermon-prayer');       if (tf) tf.value = t(tmpl.prayer);
-          sbAutoSaveNow();
-          sbUpdateCrossRefs(tmpl.ref);
+          sbApplyTemplate(tmpl);
           closeBackdrop('sbQuickStartBackdrop', 'sb-quick-start-btn');
         });
         qsGrid.appendChild(btn);
       });
     }
+
+    function sbApplyTemplate(tmpl) {
+      if (!tmpl) return;
+      var tf;
+      tf = getField('sermon-title');       if (tf) tf.value = t(tmpl.title);
+      tf = getField('sermon-theme');        if (tf) tf.value = t(tmpl.theme);
+      tf = getField('sermon-text-ref');     if (tf) tf.value = t(tmpl.ref);
+      tf = getField('sermon-outline');      if (tf) tf.value = t(tmpl.outline);
+      tf = getField('sermon-points');       if (tf) tf.value = t(tmpl.points);
+      tf = getField('sermon-application'); if (tf) tf.value = t(tmpl.application);
+      tf = getField('sermon-prayer');       if (tf) tf.value = t(tmpl.prayer);
+      sbAutoSaveNow();
+      sbUpdateCrossRefs(tmpl.ref);
+    }
+
+    document.getElementById('sb-quick-preach-btn')?.addEventListener('click', function () {
+      var qp = SB_TEMPLATES.find(function (t) { return t.name === 'Quick Preach'; });
+      if (!qp) return;
+      sbApplyTemplate(qp);
+    });
 
     document.getElementById('sb-quick-start-btn')?.addEventListener('click', function () {
       openBackdrop('sbQuickStartBackdrop', null);

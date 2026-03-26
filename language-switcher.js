@@ -1,6 +1,6 @@
 /**
  * Language switcher: EN · ES · FR · 中文 · ID · TL · AR · HI · RU · SV · PT · BN · SW + "More languages" hub.
- * Pairs topical pilots (anxiety in FR/ZH/AR/HI/RU/SV/PT/BN/SW + ES/ID/TL; hope/loneliness/guilt/overwhelm FR/ZH); persists tdb_lang_pref on explicit picks.
+ * Pairs topical pilots (anxiety + hope in AR/HI/RU/SV/PT/BN/SW/ID/TL + FR/ZH/EN; loneliness/guilt/overwhelm FR/ZH); persists tdb_lang_pref on explicit picks.
  */
 (function () {
   'use strict';
@@ -21,11 +21,13 @@
   };
 
   var ID_TO_EN = {
-    'kecemasan.html': '/topic-anxiety.html'
+    'kecemasan.html': '/topic-anxiety.html',
+    'harapan.html': '/topic-hope.html'
   };
 
   var EN_TO_ID = {
     'topic-anxiety.html': '/id/kecemasan.html',
+    'topic-hope.html': '/id/harapan.html',
     'ansiedad.html': '/id/kecemasan.html'
   };
 
@@ -38,11 +40,13 @@
   };
 
   var TL_TO_EN = {
-    'kabalisahan.html': '/topic-anxiety.html'
+    'kabalisahan.html': '/topic-anxiety.html',
+    'pagasa.html': '/topic-hope.html'
   };
 
   var EN_TO_TL = {
     'topic-anxiety.html': '/tl/kabalisahan.html',
+    'topic-hope.html': '/tl/pagasa.html',
     'ansiedad.html': '/tl/kabalisahan.html'
   };
 
@@ -153,11 +157,11 @@
   }
 
   function isIndonesianTopical() {
-    return baseFile() === 'kecemasan.html' || docLang() === 'id';
+    return baseFile() === 'kecemasan.html' || baseFile() === 'harapan.html' || docLang() === 'id';
   }
 
   function isTagalogTopical() {
-    return baseFile() === 'kabalisahan.html' || docLang() === 'tl';
+    return baseFile() === 'kabalisahan.html' || baseFile() === 'pagasa.html' || docLang() === 'tl';
   }
 
   function isEnglishSurface() {
@@ -182,6 +186,15 @@
     return baseFile() === 'topic-hope.html';
   }
 
+  /** Hope mood-door cluster: EN hub + FR/ZH + nine localized pilots. */
+  function isHopeEquivalentPath() {
+    var p = pathnameNoQuery();
+    return p === '/topic-hope.html' || p === '/fr/espoir.html' || p === '/zh/xiwang.html' ||
+      p === '/ar/rajaa.html' || p === '/hi/asha.html' || p === '/ru/nadezhda.html' ||
+      p === '/sv/hopp.html' || p === '/pt/esperanca.html' || p === '/bn/asha.html' ||
+      p === '/sw/tumaini.html' || p === '/id/harapan.html' || p === '/tl/pagasa.html';
+  }
+
   function isLonelinessEquivalentBaseFile() {
     return baseFile() === 'topic-loneliness.html';
   }
@@ -199,7 +212,7 @@
       isSwedishAnxietyPage() || isPortugueseAnxietyPage() || isBengaliAnxietyPage() ||
       isSwahiliAnxietyPage()) return '/topic-anxiety.html';
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/topic-anxiety.html';
-    if (isFrenchHopePage() || isChineseHopePage()) return '/topic-hope.html';
+    if (isHopeEquivalentPath() && pathnameNoQuery() !== '/topic-hope.html') return '/topic-hope.html';
     if (isFrenchLonelinessPage() || isChineseLonelinessPage()) return '/topic-loneliness.html';
     if (isFrenchGuiltPage() || isChineseGuiltPage()) return '/topic-guilt.html';
     if (isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/topic-overwhelmed.html';
@@ -220,7 +233,7 @@
       isSwedishAnxietyPage() || isPortugueseAnxietyPage() || isBengaliAnxietyPage() ||
       isSwahiliAnxietyPage()) return '/ansiedad.html';
     if (isFrenchAnxietyPage() || isChineseAnxietyPage()) return '/ansiedad.html';
-    if (isFrenchHopePage() || isChineseHopePage() ||
+    if (isHopeEquivalentPath() ||
       isFrenchLonelinessPage() || isChineseLonelinessPage() ||
       isFrenchGuiltPage() || isChineseGuiltPage() ||
       isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/explore.html#topics-es';
@@ -242,9 +255,7 @@
     if (isFrenchOverwhelmPage()) return '/fr/deborde.html';
     if (isChineseOverwhelmPage()) return '/fr/deborde.html';
     if (isOverwhelmEquivalentBaseFile()) return '/fr/deborde.html';
-    if (isFrenchHopePage()) return '/fr/espoir.html';
-    if (isChineseHopePage()) return '/fr/espoir.html';
-    if (isHopeEquivalentBaseFile()) return '/fr/espoir.html';
+    if (isHopeEquivalentPath()) return '/fr/espoir.html';
     if (isFrenchAnxietyPage()) return '/fr/anxiete.html';
     if (isChineseAnxietyPage()) return '/fr/anxiete.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isRussianAnxietyPage() ||
@@ -264,9 +275,7 @@
     if (isChineseOverwhelmPage()) return '/zh/taiduo.html';
     if (isFrenchOverwhelmPage()) return '/zh/taiduo.html';
     if (isOverwhelmEquivalentBaseFile()) return '/zh/taiduo.html';
-    if (isChineseHopePage()) return '/zh/xiwang.html';
-    if (isFrenchHopePage()) return '/zh/xiwang.html';
-    if (isHopeEquivalentBaseFile()) return '/zh/xiwang.html';
+    if (isHopeEquivalentPath()) return '/zh/xiwang.html';
     if (isChineseAnxietyPage()) return '/zh/jiaolv.html';
     if (isFrenchAnxietyPage()) return '/zh/jiaolv.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isRussianAnxietyPage() ||
@@ -277,11 +286,12 @@
   }
 
   function idHref() {
+    if (pathnameNoQuery() === '/id/harapan.html') return '/id/harapan.html';
+    if (isHopeEquivalentPath()) return '/id/harapan.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
       isRussianAnxietyPage() || isSwedishAnxietyPage() || isPortugueseAnxietyPage() ||
       isBengaliAnxietyPage() || isSwahiliAnxietyPage()) return '/id/kecemasan.html';
-    if (isFrenchHopePage() || isChineseHopePage() ||
-      isFrenchLonelinessPage() || isChineseLonelinessPage() ||
+    if (isFrenchLonelinessPage() || isChineseLonelinessPage() ||
       isFrenchGuiltPage() || isChineseGuiltPage() ||
       isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/id/kecemasan.html';
     var f = baseFile();
@@ -293,11 +303,12 @@
   }
 
   function tlHref() {
+    if (pathnameNoQuery() === '/tl/pagasa.html') return '/tl/pagasa.html';
+    if (isHopeEquivalentPath()) return '/tl/pagasa.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
       isRussianAnxietyPage() || isSwedishAnxietyPage() || isPortugueseAnxietyPage() ||
       isBengaliAnxietyPage() || isSwahiliAnxietyPage()) return '/tl/kabalisahan.html';
-    if (isFrenchHopePage() || isChineseHopePage() ||
-      isFrenchLonelinessPage() || isChineseLonelinessPage() ||
+    if (isFrenchLonelinessPage() || isChineseLonelinessPage() ||
       isFrenchGuiltPage() || isChineseGuiltPage() ||
       isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/tl/kabalisahan.html';
     var f = baseFile();
@@ -308,42 +319,56 @@
   }
 
   function arHref() {
+    if (pathnameNoQuery() === '/ar/rajaa.html') return '/ar/rajaa.html';
+    if (isHopeEquivalentPath()) return '/ar/rajaa.html';
     if (isArabicAnxietyPage()) return '/ar/qalaq.html';
     if (isAnxietyEquivalentPath()) return '/ar/qalaq.html';
     return MORE_HUB;
   }
 
   function hiHref() {
+    if (pathnameNoQuery() === '/hi/asha.html') return '/hi/asha.html';
+    if (isHopeEquivalentPath()) return '/hi/asha.html';
     if (isHindiAnxietyPage()) return '/hi/chinta.html';
     if (isAnxietyEquivalentPath()) return '/hi/chinta.html';
     return MORE_HUB;
   }
 
   function ruHref() {
+    if (pathnameNoQuery() === '/ru/nadezhda.html') return '/ru/nadezhda.html';
+    if (isHopeEquivalentPath()) return '/ru/nadezhda.html';
     if (isRussianAnxietyPage()) return '/ru/trevoga.html';
     if (isAnxietyEquivalentPath()) return '/ru/trevoga.html';
     return MORE_HUB;
   }
 
   function svHref() {
+    if (pathnameNoQuery() === '/sv/hopp.html') return '/sv/hopp.html';
+    if (isHopeEquivalentPath()) return '/sv/hopp.html';
     if (isSwedishAnxietyPage()) return '/sv/oro.html';
     if (isAnxietyEquivalentPath()) return '/sv/oro.html';
     return MORE_HUB;
   }
 
   function ptHref() {
+    if (pathnameNoQuery() === '/pt/esperanca.html') return '/pt/esperanca.html';
+    if (isHopeEquivalentPath()) return '/pt/esperanca.html';
     if (isPortugueseAnxietyPage()) return '/pt/ansiedade.html';
     if (isAnxietyEquivalentPath()) return '/pt/ansiedade.html';
     return MORE_HUB;
   }
 
   function bnHref() {
+    if (pathnameNoQuery() === '/bn/asha.html') return '/bn/asha.html';
+    if (isHopeEquivalentPath()) return '/bn/asha.html';
     if (isBengaliAnxietyPage()) return '/bn/chinta.html';
     if (isAnxietyEquivalentPath()) return '/bn/chinta.html';
     return MORE_HUB;
   }
 
   function swHref() {
+    if (pathnameNoQuery() === '/sw/tumaini.html') return '/sw/tumaini.html';
+    if (isHopeEquivalentPath()) return '/sw/tumaini.html';
     if (isSwahiliAnxietyPage()) return '/sw/wasiwasi.html';
     if (isAnxietyEquivalentPath()) return '/sw/wasiwasi.html';
     return MORE_HUB;
@@ -355,7 +380,7 @@
       isArabicAnxietyPage() || isHindiAnxietyPage() || isRussianAnxietyPage() ||
       isSwedishAnxietyPage() || isPortugueseAnxietyPage() || isBengaliAnxietyPage() ||
       isSwahiliAnxietyPage() ||
-      isFrenchHopePage() || isChineseHopePage() ||
+      isHopeEquivalentPath() ||
       isFrenchLonelinessPage() || isChineseLonelinessPage() ||
       isFrenchGuiltPage() || isChineseGuiltPage() ||
       isFrenchOverwhelmPage() || isChineseOverwhelmPage()) {
@@ -400,9 +425,10 @@
   }
 
   function applyAriaCurrent() {
+    var p = pathnameNoQuery();
     var spanish = isSpanishTopical();
-    var indo = baseFile() === 'kecemasan.html';
-    var tagalog = baseFile() === 'kabalisahan.html';
+    var indo = baseFile() === 'kecemasan.html' || baseFile() === 'harapan.html';
+    var tagalog = baseFile() === 'kabalisahan.html' || baseFile() === 'pagasa.html';
     var frenchAnx = isFrenchAnxietyPage();
     var chineseAnx = isChineseAnxietyPage();
     var arabicAnx = isArabicAnxietyPage();
@@ -448,7 +474,21 @@
       if (ptPick) ptPick.removeAttribute('aria-current');
       if (bnPick) bnPick.removeAttribute('aria-current');
       if (swPick) swPick.removeAttribute('aria-current');
-      if (chineseHope) {
+      if (p === '/ar/rajaa.html') {
+        if (arPick) arPick.setAttribute('aria-current', 'true');
+      } else if (p === '/hi/asha.html') {
+        if (hiPick) hiPick.setAttribute('aria-current', 'true');
+      } else if (p === '/ru/nadezhda.html') {
+        if (ruPick) ruPick.setAttribute('aria-current', 'true');
+      } else if (p === '/sv/hopp.html') {
+        if (svPick) svPick.setAttribute('aria-current', 'true');
+      } else if (p === '/pt/esperanca.html') {
+        if (ptPick) ptPick.setAttribute('aria-current', 'true');
+      } else if (p === '/bn/asha.html') {
+        if (bnPick) bnPick.setAttribute('aria-current', 'true');
+      } else if (p === '/sw/tumaini.html') {
+        if (swPick) swPick.setAttribute('aria-current', 'true');
+      } else if (chineseHope) {
         if (zhPick) zhPick.setAttribute('aria-current', 'true');
       } else if (frenchHope) {
         if (fr) fr.setAttribute('aria-current', 'true');

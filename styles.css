@@ -5647,6 +5647,53 @@ body:has(.pricing-grid) .section-divider {
   font-style: normal;
   opacity: 0.8 !important;
 }
+.site-footer-origin-line {
+  margin-top: 0.35rem !important;
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  opacity: 0.72;
+  color: var(--muted, #94a3b8);
+  font-style: italic;
+  text-align: center;
+}
+.tdb-pwa-nudge {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5.5rem;
+  width: min(calc(100% - 24px), 400px);
+  z-index: 45;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border, #334155) 80%, transparent);
+  background: color-mix(in srgb, var(--card, #1e293b) 94%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-sizing: border-box;
+}
+.tdb-pwa-nudge[hidden] {
+  display: none !important;
+}
+.tdb-pwa-nudge-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text, #e2e8f0);
+}
+.tdb-pwa-nudge-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+.tdb-pwa-nudge-btn {
+  min-height: 40px;
+  font-size: 0.85rem;
+}
 .site-footer-legal-line abbr {
   text-decoration: none;
   cursor: help;

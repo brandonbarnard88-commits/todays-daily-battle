@@ -8796,6 +8796,62 @@ function wireFooterFridaySignup() {
   });
 }
 
+/** One-time install hint when the browser fires beforeinstallprompt (Chrome/Android). */
+function wirePwaInstallNudge() {
+  var root = document.getElementById('tdb-pwa-nudge');
+  if (!root) return;
+  var dismissKey = 'tdb_pwa_nudge_v1';
+  try {
+    if (localStorage.getItem(dismissKey) === 'dismissed') return;
+  } catch (e) {}
+  if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return;
+  if (window.navigator && window.navigator.standalone === true) return;
+
+  var installBtn = document.getElementById('tdb-pwa-nudge-install');
+  var dismissBtn = document.getElementById('tdb-pwa-nudge-dismiss');
+  var deferredPrompt = null;
+
+  function hide() {
+    root.setAttribute('hidden', '');
+    root.setAttribute('aria-hidden', 'true');
+  }
+
+  function show() {
+    root.removeAttribute('hidden');
+    root.setAttribute('aria-hidden', 'false');
+  }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    try {
+      if (localStorage.getItem(dismissKey) === 'dismissed') return;
+    } catch (err) {}
+    show();
+  });
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function () {
+      try { localStorage.setItem(dismissKey, 'dismissed'); } catch (e2) {}
+      hide();
+    });
+  }
+
+  if (installBtn) {
+    installBtn.addEventListener('click', function () {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function () {
+        deferredPrompt = null;
+        try { localStorage.setItem(dismissKey, 'dismissed'); } catch (e3) {}
+        hide();
+      }).catch(function () {
+        deferredPrompt = null;
+      });
+    });
+  }
+}
+
 function wireSoundEchoToggle() {
   var cb = document.getElementById('sound-echo-toggle');
   if (!cb) return;
@@ -9621,6 +9677,10 @@ function wirePrayThisWithMe() {
   var versePageShare = document.getElementById('verse-page-share');
   if (versePageShare) {
     versePageShare.addEventListener('click', function () { shareDailyBattle(); });
+  }
+  var versePageShareEncourage = document.getElementById('verse-page-share-encourage');
+  if (versePageShareEncourage) {
+    versePageShareEncourage.addEventListener('click', function () { shareDailyBattleEncourage(); });
   }
   var versePageCopy = document.getElementById('verse-page-copy');
   if (versePageCopy) {
@@ -11582,6 +11642,48 @@ function buildDailyBattleShareText() {
   if (!ref) return '';
   var short = verse ? (verse.length > 120 ? verse.slice(0, 117) + '…' : verse) : ref;
   return 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle ⚔️';
+}
+
+/** Quiet pre-filled share for a friend (verse of the day page). No hype; link to verse hub. */
+function buildDailyBattleEncourageShareText() {
+  var ref = (currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : (typeof getDailyVerseRef === 'function' ? getDailyVerseRef() : '');
+  var verse = (currentDailyBattle && currentDailyBattle.verse) ? String(currentDailyBattle.verse || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : '';
+  if (!ref || !verse) {
+    var card = document.getElementById('daily-verse-card');
+    var refEl = card && card.querySelector('strong');
+    var p = card && (card.querySelector('strong + p') || card.querySelector('p'));
+    if (refEl) ref = String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+    if (p) verse = String(p.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+  var origin = (window.location && window.location.origin) ? window.location.origin : 'https://todaysdailybattle.com';
+  var verseUrl = origin.replace(/\/$/, '') + '/verse.html';
+  var lead = "Today's KJV verse brought me peace. Hope it helps you too.";
+  if (ref && verse) {
+    var short = verse.length > 100 ? verse.slice(0, 97) + '\u2026' : verse;
+    return lead + '\n\n' + ref + ' \u2014 ' + short + '\n' + verseUrl;
+  }
+  return lead + '\n' + verseUrl;
+}
+
+function shareDailyBattleEncourage() {
+  trackEvent('share_daily_battle_encourage');
+  var shareText = buildDailyBattleEncourageShareText();
+  if (!shareText) return;
+  emitEasterEgg('share_cape', { source: 'daily_battle_encourage' });
+  if (navigator.share) {
+    var shareUrl = (window.location && window.location.origin ? window.location.origin.replace(/\/$/, '') : 'https://todaysdailybattle.com') + '/verse.html';
+    navigator.share({ title: "Today's Daily Battle", text: shareText, url: shareUrl }).catch(function () {});
+    return;
+  }
+  var full = shareText.indexOf('http') === -1 ? shareText + '\n' + ((window.location && window.location.origin) || '') + '/verse.html' : shareText;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(full).then(function () {
+      if (typeof showEliteToast === 'function') showEliteToast('Copied — paste to send.');
+      else alert('Copied.');
+    }).catch(function () { alert('Copied.'); });
+  } else {
+    alert('Copied.');
+  }
 }
 function updateDailyBattleMetaDesc(verseRef) {
   if (!document.querySelector) return;
@@ -19781,6 +19883,7 @@ async function tdbInitImpl() {
   wireCollectiveIntention();
   wireFooterRotating();
   wireFooterFridaySignup();
+  if (isHome) wirePwaInstallNudge();
   wireSoundEchoToggle();
   wireBlessSessionBtn();
   if (document.getElementById('family-armor-stories-modal')) wireArmorBuilderModal();

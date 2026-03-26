@@ -143,9 +143,10 @@
 
     <div class="wins-actions">
       <button type="button" id="export-wins" class="wins-btn" aria-label="Copy my wins to clipboard">Copy My Wins</button>
+      <button type="button" id="wins-share-encourage" class="wins-btn" aria-label="Copy a quiet message to share the site with someone">Share for someone who needs it</button>
       <button type="button" id="share-graphic" class="wins-btn secondary" disabled aria-disabled="true" aria-label="Share graphic — not available yet">Generate Share Graphic</button>
     </div>
-    <p class="wins-share-graphic-note">Soon: a simple image you can share—your streak plus a favorite verse. For now, use <strong>Copy My Wins</strong>.</p>
+    <p class="wins-share-graphic-note">Soon: a simple image you can share—your streak plus a favorite verse. For now, use <strong>Copy My Wins</strong> or the quiet share line above.</p>
 
     <p style="text-align:center; margin-top:2rem;">
       <a href="plans.html" style="color:var(--gold);">Pick a plan →</a>
@@ -255,6 +256,24 @@
     }
 
     document.getElementById('export-wins').addEventListener('click', exportWins);
+
+    var ENCOURAGE_TEXT = "Today's KJV verse brought me peace. Hope it helps you too.\nhttps://todaysdailybattle.com/verse.html";
+
+    document.getElementById('wins-share-encourage').addEventListener('click', function () {
+      if (navigator.share) {
+        navigator.share({ text: ENCOURAGE_TEXT }).catch(function () {});
+        return;
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ENCOURAGE_TEXT).then(function () {
+          showToast('Copied — paste to send.');
+        }).catch(function () {
+          showToast('Copy failed');
+        });
+      } else {
+        showToast('Copy not available');
+      }
+    });
 
     loadWins();
   })();

@@ -4,36 +4,44 @@
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js"></script>
-  <!-- tdb-cache-hygiene: _headers no-cache /verse (+ /verse); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME — homepage / already no-cache -->
+  <!-- tdb-cache-hygiene: _headers no-cache tool pages; bump script query with substantive JS changes -->
 
-  <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Verse of the Day • Today's Daily Battle</title>
-  <meta name="description" content="One verse, every day. KJV. No account required.">
+  <title>For Pastors &amp; Mobile Ministers • Today's Daily Battle</title>
+  <meta name="description" content="Free, curated links for pastors and traveling ministers: printable KJV verse cards, sermon prep, mood-door QR paths, battle plans, and tools that stay honest about language and privacy.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/verse.html">
-  <meta property="og:title" content="Verse of the Day • Today's Daily Battle">
-  <meta property="og:description" content="One verse, every day. KJV. No account required.">
-  <meta property="og:url" content="https://todaysdailybattle.com/verse.html">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/for-pastors.html">
+  <meta property="og:title" content="For Pastors &amp; Mobile Ministers • Today's Daily Battle">
+  <meta property="og:description" content="Printable cards, sermon tools, mood doors in many languages, offline plans — no pitch, just what already exists.">
+  <meta property="og:url" content="https://todaysdailybattle.com/for-pastors.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Words from the field — reader stories">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Verse of the Day • Today's Daily Battle">
-  <meta name="twitter:description" content="One verse, every day. KJV. No account required.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
+  <meta name="twitter:title" content="For Pastors &amp; Mobile Ministers • Today's Daily Battle">
+  <meta name="twitter:description" content="Curated free tools: verse cards, sermon builder, mood doors, battle plans.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"For pastors and mobile ministers","url":"https://todaysdailybattle.com/for-pastors.html","description":"Curated hub linking printable verse cards, sermon tools, localized mood doors, and battle plans.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
+  </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260305p" as="style">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="application/ld+json" nonce="tdb2025s">
-    {"@context":"https://schema.org","@type":"WebPage","name":"Verse of the Day • Today's Daily Battle","url":"https://todaysdailybattle.com/verse.html","description":"Daily Bible verse for encouragement and hope from God's Word.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
-  </script>
+  <style>
+    .testimonial-page-card { border: 1px solid rgba(227,188,103,0.22); border-radius: 12px; padding: 1rem 1.15rem; margin-bottom: 1rem; background: rgba(255,255,255,0.02); }
+    .testimonial-page-card p { margin: 0; font-style: italic; color: var(--muted, #94a3b8); line-height: 1.55; }
+    .testimonial-page-meta { margin-top: 0.65rem; font-size: 0.82rem; color: var(--gold-soft, #c9a84c); }
+  </style>
 </head>
 <body class="dark-mode">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -62,156 +70,76 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Daily encouragement and strength</span>
+        <span class="brand-subtitle">For pastors &amp; mobile ministers</span>
       </div>
-      <nav class="header-nav header-nav-mega" aria-label="Main">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="/">Home</a></li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="/pastor/" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Pastor <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="/pastor/">Pastor Hub</a>
-                <a href="pastor/library.html">Library</a>
-                <a href="pastor/builder.html">Builder</a>
-                <a href="pastor/tools.html">Tools</a>
-                <a href="sermon.html">Sermon Builder</a>
-                <a href="pastor-toolkit.html">Pastor Toolkit</a>
-                <a href="message.html">Prayer &amp; Message Board</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="church.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Church &amp; Teams <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner nav-dropdown-grid">
-                <div class="nav-dropdown-col">
-                  <span class="nav-dropdown-label">Church</span>
-                  <a href="/church/">Church Join Hub</a>
-                  <a href="/church/">Join Hub</a>
-                  <a href="church/daily.html">Daily for Churches</a>
-                </div>
-                <div class="nav-dropdown-col">
-                  <span class="nav-dropdown-label">Ministries</span>
-                  <a href="church.html">Deacons <span class="nav-badge">visitation</span></a>
-                  <a href="/#patriotic-hymns">Music / Worship</a>
-                  <a href="bible-study.html">Sunday School</a>
-                  <a href="message.html">Women&apos;s Prayer</a>
-                  <a href="/?q=strength#quick-search-hero">Men&apos;s Groups</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="/" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Family <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="/#armor-builder-btn">Family Armor &amp; Stories</a>
-                <a href="/">Add Household</a>
-                <a href="/kids/">Kids Battle Home</a>
-                <a href="kids-corner.html">Family Activities</a>
-                <a href="coloring.html">Kids Coloring</a>
-                <a href="/#challenge-30-banner">Shared Streaks / 30-Day</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="bible-study.html" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Studies &amp; Growth <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="bible-study.html">Bible Studies</a>
-                <a href="study.html">Study Workspace</a>
-                <a href="/#quick-search-hero">Topic Search</a>
-                <a href="reading-plan.html">7-Day Plan</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-item-dropdown">
-            <a href="/#patriotic-scriptures" class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">Revival &amp; Outreach <span class="nav-chevron" aria-hidden="true">▾</span></a>
-            <div class="nav-dropdown-panel" aria-hidden="true">
-              <div class="nav-dropdown-inner">
-                <a href="/#patriotic-scriptures">Patriotic Scriptures</a>
-                <a href="/#patriotic-hymns">Patriotic Hymns</a>
-                <a href="/#hero-verse-wrap">Make America God&apos;s Again</a>
-                <a href="/#challenge-30-banner">30-Day Battle Plan</a>
-                <a href="/#quick-pray-wrap">Invite / Share</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item"><a href="bible-tool.html">Bible Tool</a></li>
-          <li class="nav-item"><a href="/#quick-search-hero">Search</a></li>
-          <li class="nav-item"><a href="pricing.html">Pricing</a></li>
-        </ul>
-      </nav>
       <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
       <div id="auth-section" class="auth-inline auth-compact">
         <input id="email" placeholder="Email" type="email" aria-label="Email" autocomplete="email">
         <input id="password" placeholder="Password" type="password" aria-label="Password" autocomplete="current-password">
-        <button id="signup-btn">Sign Up</button>
-        <button id="login-btn">Log In</button>
+        <button id="signup-btn" type="button">Sign Up</button>
+        <button id="login-btn" type="button">Log In</button>
         <button id="forgot-btn" class="link-button" type="button">Forgot password?</button>
-        <button id="logout-btn" class="hidden">Log Out</button>
+        <button id="logout-btn" class="hidden" type="button">Log Out</button>
       </div>
     </header>
 
     <aside id="sidebar" class="sidebar">
       <nav class="side-nav" aria-label="Site navigation">
-        <a href="/" data-section="search" data-icon="SR">Search</a>
-        <a href="bible-tool.html" data-section="bible-tool" data-icon="BT">Bible Tool</a>
-        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
-        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
-        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
-        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
-        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
-        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
-        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
-        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
-        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
-        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
-        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
-        <a href="message.html" data-section="message-board" data-icon="MB">Message Board</a>
-        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
-        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
-        <a href="about.html" data-section="about" data-icon="AB">About</a>
-        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+        <a href="/">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Stories</a>
+        <a href="for-pastors.html" aria-current="page">For pastors</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="pricing.html">Pricing</a>
       </nav>
-      <div class="sidebar-options">
-        <label class="inline-toggle">
-          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
-          Red letters
-        </label>
-      </div>
     </aside>
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Verse of the Day</h1>
-          <p class="hero-tagline">A fresh verse each day to steady your heart.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="bible-tool.html">Look up a verse</a>
-            <a class="btn btn-secondary" href="/">Search Scripture</a>
-            <a class="btn btn-secondary" href="study.html">Study Workspace</a>
-          </div>
+          <h1>For pastors &amp; mobile ministers</h1>
+          <p class="hero-tagline">Everything here is already on the site—gathered in one calm page so you can grab what you need on a travel day or a thin week. English tools use <abbr title="King James Version">KJV</abbr> on screen; localized &ldquo;mood door&rdquo; pages name their own public-domain text. No funnel, no signup wall for the tools themselves.</p>
         </header>
-        <section id="verse-of-day" class="verse-of-day glass" role="region" aria-live="polite" aria-label="Verse of the day">
-          <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>Verse of the Day</h2>
-          <p class="section-note">Updates daily at your local midnight.</p>
-          <div id="daily-verse-card" class="verse-card verse-card-loaded" aria-live="polite">
-            <strong>Philippians 4:6</strong><p>Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p>
-          </div>
-          <div class="verse-card-actions" aria-label="Verse actions: share, copy, save, pray">
-            <button type="button" id="verse-page-share" class="btn btn-primary">Share</button>
-            <button type="button" id="verse-page-share-encourage" class="btn btn-secondary">Share with someone who needs it</button>
-            <button type="button" id="verse-page-copy" class="btn btn-secondary" aria-label="Copy verse and link to clipboard">Copy</button>
-            <button type="button" id="verse-page-save-my-verses" class="btn btn-secondary" aria-describedby="verse-save-hint-text" aria-label="Save today's verse to My Verses on this device">Save to My Verses</button>
-            <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy verse and share link">Pray this with me</button>
-          </div>
-          <div class="verse-save-block">
-            <p id="verse-save-hint-text" class="section-note verse-save-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
-          </div>
-          <span id="verse-page-save-status" class="sr-only" aria-live="polite"></span>
+
+        <section class="glass">
+          <h2 class="section-divider">Print &amp; share in the room</h2>
+          <ul class="explore-link-list">
+            <li><a href="/verse-cards/">Verse cards gallery</a> — printable KJV cards.</li>
+            <li><a href="/verse-image.html">Verse image generator</a> — quiet graphics for slides or texts.</li>
+            <li><a href="/verse.html">Verse of the Day</a> — copy or share the daily line.</li>
+          </ul>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Teach &amp; prep</h2>
+          <ul class="explore-link-list">
+            <li><a href="/sermon.html">Sermon Builder</a> — outline-friendly flow.</li>
+            <li><a href="/pastor/builder.html">Pastor Builder</a> and <a href="/pastor/library.html">Pastor Library</a> — study and shelf.</li>
+            <li><a href="/pastor-toolkit.html">Pastor Toolkit</a> and <a href="/resources.html">Pastor Resources</a>.</li>
+            <li><a href="/bible-tool.html">Bible Tool</a> — search and read (KJV in tool).</li>
+          </ul>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Care where people hurt</h2>
+          <p class="section-note">English hubs: <a href="/topic-anxiety.html">Anxiety</a>, <a href="/topic-hope.html">Hope</a>, <a href="/topic-loneliness.html">Loneliness</a>, <a href="/topic-grief.html">Grief</a>, <a href="/topic-guilt.html">Guilt</a>, <a href="/topic-overwhelmed.html">Overwhelmed</a> — and the full list on <a href="/explore.html">Explore</a>. Localized mood doors (many languages) live under <a href="/explore.html#languages">Languages on Explore</a> — good targets for a QR code on a handout.</p>
+          <p class="section-note"><a href="/calm.html">Calm</a> — one verse and breath. <a href="/message.html">Prayer wall</a> — anonymous intents, no performance.</p>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Rhythm &amp; groups</h2>
+          <ul class="explore-link-list">
+            <li><a href="/plans.html">Battle Plans</a> — multi-day tracks, offline-friendly.</li>
+            <li><a href="/reading-plan.html">7-Day Plan</a> — short anchor.</li>
+            <li><a href="/team-toolkit.html">Team Toolkit</a> and <a href="/church/">Church Join Hub</a> — when you are equipping others.</li>
+          </ul>
+        </section>
+
+        <section class="glass">
+          <h2 class="section-divider">Voices &amp; contact</h2>
+          <p class="section-note">Real notes from readers: <a href="/testimonials.html">Reader stories</a>. Questions or a permission to reprint: <a href="/contact.html">Contact</a> or <a href="mailto:support@todaysdailybattle.com">support@todaysdailybattle.com</a>.</p>
         </section>
       </div>
     </main>
@@ -386,9 +314,8 @@
 </footer>
   </div>
 
-  <script src="inline-bootstrap.js"></script>
-  <script src="verse-breakdown.js?v=20260327-vod-breakdown" defer></script>
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260331mysave" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
 </body>
 </html>

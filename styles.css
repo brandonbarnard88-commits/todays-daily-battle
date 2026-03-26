@@ -945,6 +945,21 @@ body {
   background: rgba(8, 12, 22, 0.25);
 }
 
+/* Homepage: eyebrow above hero language row (clear KJV + mood-door intent) */
+.tdb-lang-eyebrow {
+  font-size: clamp(0.88rem, 2.6vw, 0.98rem);
+  line-height: 1.45;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: color-mix(in srgb, var(--gold, #e3bc67) 78%, #fff 22%);
+  margin: 0 0 0.15rem;
+  padding: 0 0.65rem;
+  max-width: 28rem;
+  align-self: center;
+  text-wrap: balance;
+}
+
 /* Homepage: language strip (labeled) + optional second strip after Start here */
 .tdb-hero-lang-hint {
   font-size: 0.82rem;

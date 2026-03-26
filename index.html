@@ -688,6 +688,12 @@
     :root[data-theme="light"] .site-top-links .header-auth-sep {
       color: rgba(55, 62, 78, 0.82);
     }
+    /* Cream page (sky hidden): tagline must read like body text, not faint sky-muted */
+    :root[data-theme="light"] .site-tagline {
+      color: rgba(38, 34, 30, 0.9);
+      text-shadow: none;
+      opacity: 1;
+    }
     .tdb-global-nav a,
     .tdb-home-main-nav a {
       color: rgba(226, 232, 240, 0.85); text-decoration: none;
@@ -1172,11 +1178,18 @@
       z-index: 3;
       margin: 0.65rem 0 0.35rem;
       font-size: clamp(0.65rem, 2.5vw, 0.82rem);
-      color: var(--muted);
+      /* Sky-aware: bright dawn/day/dusk tops swallow gray-muted; match title legibility */
+      color: rgba(255, 252, 248, 0.97);
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      opacity: 0.72;
       font-style: italic;
+      font-weight: 600;
+      line-height: 1.35;
+      text-shadow:
+        0 0 2px rgba(6, 10, 22, 0.95),
+        0 1px 4px rgba(4, 12, 28, 0.88),
+        0 0 22px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(180, 70, 10, 0.28);
     }
 
     /* Crest SVG — cross + sunrise, inline, dark-mode native */

@@ -42,6 +42,7 @@ const FILES = [
     "topic-parenting.html",
     "topic-strength.html",
     "topic-worthless.html",
+    "topic-worry.html",
   ].map((rel) => ({ rel, locale: "en" })),
   ...["ansiedad.html", "paz.html", "fuerza.html"].map((rel) => ({ rel, locale: "es" })),
   ...["fr/anxiete.html", "fr/espoir.html", "fr/solitude.html", "fr/culpabilite.html", "fr/deborde.html"].map((rel) => ({

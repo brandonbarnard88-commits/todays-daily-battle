@@ -42,6 +42,7 @@ const PAGES = [
   '/kids-activities-print.html',
   '/kids-coloring-pack.html',
   '/topic-anxiety.html',
+  '/topic-worry.html',
   '/topic-fear.html',
   '/topic-hope.html',
   '/topic-grief.html',

@@ -83,6 +83,7 @@ const CORE_ASSETS = [
   '/church.html',
   '/reading-plan.html',
   '/topic-anxiety.html',
+  '/topic-worry.html',
   '/topic-hope.html',
   '/topic-strength.html',
   '/topic-forgiveness.html',

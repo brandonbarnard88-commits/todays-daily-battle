@@ -179,7 +179,8 @@ const topics = [
   'topic-overwhelmed.html',
   'topic-parenting.html',
   'topic-strength.html',
-  'topic-worthless.html'
+  'topic-worthless.html',
+  'topic-worry.html'
 ];
 mkdir(dist);
 function formatBuildDate() {

@@ -156,6 +156,32 @@ const cacheHygienePaths = [
   '/pt/index.html',
   '/pt/ansiedade.html',
   '/pt/ansiedade',
+  '/pt/esperanca.html',
+  '/pt/esperanca',
+  '/pt/medo.html',
+  '/pt/medo',
+  '/pt/forca.html',
+  '/pt/forca',
+  '/pt/paz.html',
+  '/pt/paz',
+  '/pt/solidao.html',
+  '/pt/solidao',
+  '/pt/culpa.html',
+  '/pt/culpa',
+  '/pt/sobrecarga.html',
+  '/pt/sobrecarga',
+  '/pt/planos.html',
+  '/pt/planos',
+  '/pt/mural.html',
+  '/pt/mural',
+  '/pt/leitor.html',
+  '/pt/leitor',
+  '/pt/criancas.html',
+  '/pt/criancas',
+  '/pt/privacy.html',
+  '/pt/privacy',
+  '/pt/terms.html',
+  '/pt/terms',
   '/bn/chinta.html',
   '/bn/chinta',
   '/sw/wasiwasi.html',
@@ -300,6 +326,7 @@ if (
   !purgeMjs.includes("'/pt/'") ||
   !purgeMjs.includes("'/pt/index.html'") ||
   !purgeMjs.includes("'/pt/ansiedade.html'") ||
+  !purgeMjs.includes("'/pt/medo.html'") ||
   !purgeMjs.includes("'/bn/chinta.html'") ||
   !purgeMjs.includes("'/sw/wasiwasi.html'") ||
   !purgeMjs.includes("'/fr/espoir.html'") ||

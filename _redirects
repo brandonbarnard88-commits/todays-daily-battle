@@ -59,6 +59,35 @@
 # Portuguese hub (/pt/ → index; avoids 404 on folder URL)
 /pt /pt/index.html 200!
 /pt/ /pt/index.html 200!
+# Portuguese topical + shells (clean URLs → .html in dist/pt/)
+/pt/ansiedade /pt/ansiedade.html 200!
+/pt/ansiedade/ /pt/ansiedade.html 200!
+/pt/esperanca /pt/esperanca.html 200!
+/pt/esperanca/ /pt/esperanca.html 200!
+/pt/medo /pt/medo.html 200!
+/pt/medo/ /pt/medo.html 200!
+/pt/forca /pt/forca.html 200!
+/pt/forca/ /pt/forca.html 200!
+/pt/paz /pt/paz.html 200!
+/pt/paz/ /pt/paz.html 200!
+/pt/solidao /pt/solidao.html 200!
+/pt/solidao/ /pt/solidao.html 200!
+/pt/culpa /pt/culpa.html 200!
+/pt/culpa/ /pt/culpa.html 200!
+/pt/sobrecarga /pt/sobrecarga.html 200!
+/pt/sobrecarga/ /pt/sobrecarga.html 200!
+/pt/planos /pt/planos.html 200!
+/pt/planos/ /pt/planos.html 200!
+/pt/mural /pt/mural.html 200!
+/pt/mural/ /pt/mural.html 200!
+/pt/leitor /pt/leitor.html 200!
+/pt/leitor/ /pt/leitor.html 200!
+/pt/criancas /pt/criancas.html 200!
+/pt/criancas/ /pt/criancas.html 200!
+/pt/privacy /pt/privacy.html 200!
+/pt/privacy/ /pt/privacy.html 200!
+/pt/terms /pt/terms.html 200!
+/pt/terms/ /pt/terms.html 200!
 
 # Bible Hub (combined Bible Study + Tools)
 /bible /bible/index.html 200!

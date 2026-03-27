@@ -33,7 +33,7 @@
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=20260305p">
+  <link rel="stylesheet" href="/styles.css?v=20260324pthub">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,12 +127,80 @@
     </aside>
 
     <main class="app-content" id="main-content">
-      <div class="content-inner">
+      <!-- After locale deploys: if the hub looks stale at the edge, run npm run purge:cloudflare:social (see scripts/cloudflare-purge.mjs). -->
+      <div class="content-inner explore-page">
         <header class="hero-banner" id="pt-hub-hero">
           <h1>Bem-vindo. Você chegou em português.</h1>
           <p class="real-talk">Este canto existe para quem ora melhor na própria língua — sem pressa, sem barulho. Aqui há acolhida; o restante do site ainda é em inglês, e nós dizemos isso com clareza para você não se sentir enganado.</p>
           <p class="section-note" style="margin-top:0.5rem;">Texto bíblico em português nas páginas piloto: tradição <strong>Almeida</strong> (1819 e linhagem em domínio público), onde indicado.</p>
         </header>
+
+        <section class="glass explore-hub" lang="pt" id="pt-hub-doors" aria-labelledby="pt-doors-heading">
+          <h2 class="section-divider explore-hub-section-title" id="pt-doors-heading">Portas em português — toque no que pesa hoje</h2>
+          <p class="section-note explore-hub-lead util-mb-0_5">Cada página traz a Escritura em português (Almeida, domínio público) e um passo calmo. As ferramentas completas do site continuam em inglês, com KJV onde a tela mostra a Bíblia.</p>
+          <ul class="explore-hub-grid">
+            <li><a href="/pt/ansiedade.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Ansiedade</span>
+              <span class="explore-hub-card-desc">Quando o peito aperta e a mente não para</span>
+            </a></li>
+            <li><a href="/pt/esperanca.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Esperança</span>
+              <span class="explore-hub-card-desc">Quando o peito pede uma âncora</span>
+            </a></li>
+            <li><a href="/pt/medo.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Medo</span>
+              <span class="explore-hub-card-desc">Coragem com a Palavra — sem fingir força</span>
+            </a></li>
+            <li><a href="/pt/forca.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Força</span>
+              <span class="explore-hub-card-desc">Dias fracos; Ele perto</span>
+            </a></li>
+            <li><a href="/pt/paz.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Paz</span>
+              <span class="explore-hub-card-desc">Quando não há calma por dentro</span>
+            </a></li>
+            <li><a href="/pt/solidao.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Solidão</span>
+              <span class="explore-hub-card-desc">Quando parece que ninguém vê</span>
+            </a></li>
+            <li><a href="/pt/culpa.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Culpa</span>
+              <span class="explore-hub-card-desc">Verdade sem se afogar em vergonha</span>
+            </a></li>
+            <li><a href="/pt/sobrecarga.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Tema</span>
+              <span class="explore-hub-card-title">Sobrecarga</span>
+              <span class="explore-hub-card-desc">Quando tudo pesa ao mesmo tempo</span>
+            </a></li>
+            <li><a href="/pt/planos.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Ferramenta</span>
+              <span class="explore-hub-card-title">Planos de leitura</span>
+              <span class="explore-hub-card-desc">Capa em português — planos KJV em inglês</span>
+            </a></li>
+            <li><a href="/pt/mural.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Ferramenta</span>
+              <span class="explore-hub-card-title">Mural de oração</span>
+              <span class="explore-hub-card-desc">Capa em português — mural completo em inglês</span>
+            </a></li>
+            <li><a href="/pt/leitor.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Ferramenta</span>
+              <span class="explore-hub-card-title">Leitor de capítulos</span>
+              <span class="explore-hub-card-desc">Capa em português — leitura KJV em inglês</span>
+            </a></li>
+            <li><a href="/pt/criancas.html" class="explore-hub-card" hreflang="pt">
+              <span class="explore-hub-card-label">Família</span>
+              <span class="explore-hub-card-title">Crianças</span>
+              <span class="explore-hub-card-desc">Entrada em português — cantinho em inglês</span>
+            </a></li>
+          </ul>
+        </section>
 
         <section class="glass pt-topic-breakdown" lang="pt" aria-labelledby="pt-daily-heading">
           <div class="breakdown">

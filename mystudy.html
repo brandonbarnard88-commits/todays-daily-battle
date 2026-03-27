@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/mystudy.html">
   <meta name="theme-color" content="#0a0c14">
   <link rel="stylesheet" href="styles.css?v=20260314">
-  <link rel="stylesheet" href="mystudy.css?v=20260305">
+  <link rel="stylesheet" href="mystudy.css?v=20260327full">
 </head>
 <body class="dark-mode mystudy-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -77,7 +77,15 @@
 
       <section id="panel-note-library" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-note-library">
         <p class="section-note mystudy-library-lead">Verse notes saved from the <a href="bible-tool.html">Bible Tool</a> on this device. Open a row to continue studying that reference.</p>
+        <div id="mystudy-dash-stats" class="mystudy-dash-stats" role="status" aria-live="polite"></div>
+        <div class="mystudy-library-actions" role="group" aria-label="Library actions">
+          <button type="button" id="mystudy-print-notes" class="btn btn-secondary mystudy-print-btn">Print notes (PDF via browser)</button>
+        </div>
+        <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Memorize (lite)</h2>
+        <p class="section-note">Verses you mark on the Bible Tool. Spaced reminders: 1, 2, 4, 7, then 14 days after each review—device only.</p>
+        <ul id="mystudy-memorize-list" class="mystudy-memorize-list" aria-label="Memorize queue"></ul>
         <label for="mystudy-library-filter" class="mystudy-label">Filter by reference, tag, or note text</label>
+        <div id="mystudy-tag-pills" class="mystudy-tag-pills" role="group" aria-label="Filter by tag"></div>
         <input id="mystudy-library-filter" type="search" class="mystudy-library-filter" placeholder="e.g. Romans, fear, peace…" autocomplete="off" aria-label="Filter verse notes" />
         <p id="mystudy-library-status" class="section-note" aria-live="polite"></p>
         <ul id="mystudy-library-list" class="mystudy-library-list" aria-label="Saved verse notes"></ul>
@@ -119,8 +127,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="verse-breakdown.js?v=20260322-ui-decode" defer></script>
   <script src="highlights.js?v=20260305" defer></script>
-  <script src="bible-study-companion.js?v=20260327" defer></script>
-  <script src="mystudy.js?v=20260327studylib" defer></script>
+  <script src="bible-study-companion.js?v=20260328print" defer></script>
+  <script src="mystudy.js?v=20260327full" defer></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
 </body>

@@ -99,6 +99,98 @@
     if (isLib) renderNoteLibrary();
   }
 
+  function renderDashboardPanel(comp) {
+    var el = byId('mystudy-dash-stats');
+    if (!el || !comp.getDashboardStats) return;
+    var s = comp.getDashboardStats();
+    el.textContent =
+      'This month you updated ' +
+      s.notesTouchedThisMonth +
+      ' tagged note' +
+      (s.notesTouchedThisMonth === 1 ? '' : 's') +
+      '. ' +
+      s.versesWithNotes +
+      ' verse' +
+      (s.versesWithNotes === 1 ? '' : 's') +
+      ' with notes. ' +
+      s.readingPlanCheckmarks +
+      ' Bible Tool reading checkmark' +
+      (s.readingPlanCheckmarks === 1 ? '' : 's') +
+      '. ' +
+      s.memorizeVerses +
+      ' in memorize.';
+  }
+
+  function renderMemorizePanel(comp) {
+    var el = byId('mystudy-memorize-list');
+    if (!el || !comp.listMemorizeQueue) return;
+    el.innerHTML = '';
+    var q = comp.listMemorizeQueue();
+    if (!q.length) {
+      var empty = document.createElement('li');
+      empty.className = 'section-note';
+      empty.textContent = 'None yet. Look up a verse in the Bible Tool and tap Memorize.';
+      el.appendChild(empty);
+      return;
+    }
+    var now = Date.now();
+    q.forEach(function (row) {
+      var li = document.createElement('li');
+      li.className = 'mystudy-memorize-item';
+      var due = row.dueAt <= now;
+      var line = document.createElement('div');
+      line.className = 'mystudy-memorize-row';
+      var a = document.createElement('a');
+      a.href = 'bible-tool.html?ref=' + encodeURIComponent(row.ref);
+      a.className = 'mystudy-memorize-ref';
+      a.textContent = row.ref + (due ? ' (ready to review)' : '');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'btn btn-secondary mystudy-mem-reviewed';
+      btn.textContent = 'Reviewed today';
+      btn.setAttribute('aria-label', 'Mark ' + row.ref + ' reviewed for memory schedule');
+      btn.addEventListener('click', function () {
+        comp.markMemorizeReviewed(row.ref);
+        renderNoteLibrary();
+      });
+      line.appendChild(a);
+      line.appendChild(btn);
+      li.appendChild(line);
+      el.appendChild(li);
+    });
+  }
+
+  function renderTagPills(comp) {
+    var wrap = byId('mystudy-tag-pills');
+    var filterEl = byId('mystudy-library-filter');
+    if (!wrap || !comp.collectAllTags) return;
+    wrap.innerHTML = '';
+    var tags = comp.collectAllTags();
+    var cur = filterEl ? String(filterEl.value || '').trim().toLowerCase() : '';
+    var allBtn = document.createElement('button');
+    allBtn.type = 'button';
+    allBtn.className = 'mystudy-tag-pill';
+    allBtn.textContent = 'All';
+    allBtn.setAttribute('aria-pressed', !cur ? 'true' : 'false');
+    allBtn.addEventListener('click', function () {
+      if (filterEl) filterEl.value = '';
+      renderNoteLibrary();
+    });
+    wrap.appendChild(allBtn);
+    tags.slice(0, 24).forEach(function (t) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'mystudy-tag-pill';
+      b.textContent = t;
+      b.setAttribute('aria-pressed', cur === t ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        if (filterEl) filterEl.value = t;
+        renderNoteLibrary();
+      });
+      wrap.appendChild(b);
+    });
+  }
+
   function renderNoteLibrary() {
     var listEl = byId('mystudy-library-list');
     var recentEl = byId('mystudy-recent-chapters');
@@ -114,6 +206,9 @@
       listEl.appendChild(li);
       return;
     }
+    renderDashboardPanel(comp);
+    renderMemorizePanel(comp);
+    renderTagPills(comp);
     var q = filterEl ? String(filterEl.value || '').trim().toLowerCase() : '';
     var rows = comp.listVerseNotes();
     if (q) {
@@ -354,6 +449,13 @@
 
     byId('tab-my-study')?.addEventListener('click', function () { setTab('my'); });
     byId('tab-note-library')?.addEventListener('click', function () { setTab('library'); });
+    byId('mystudy-print-notes')?.addEventListener('click', function () {
+      if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.openPrintableNotes !== 'function') return;
+      var ok = window.TDBStudyCompanion.openPrintableNotes();
+      if (!ok && typeof window.showEliteToast === 'function') {
+        window.showEliteToast('Allow pop-ups to print, or use Export JSON on the Bible Tool.');
+      }
+    });
     byId('tab-highlights')?.addEventListener('click', function () { setTab('highlights'); });
     byId('tab-join-study')?.addEventListener('click', function () { setTab('join'); });
 

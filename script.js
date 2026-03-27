@@ -16729,6 +16729,51 @@ function renderReaderChapterFromVerses(output, book, chapter, verses) {
   }
 }
 
+function ensureBookIntrosLoaded() {
+  if (typeof globalThis !== 'undefined' && globalThis._tdbBookIntrosCache) {
+    return Promise.resolve(globalThis._tdbBookIntrosCache);
+  }
+  if (typeof globalThis !== 'undefined' && globalThis._tdbBookIntrosPromise) {
+    return globalThis._tdbBookIntrosPromise;
+  }
+  const p = fetch('book-intros.json', { credentials: 'same-origin' })
+    .then(res => (res.ok ? res.json() : null))
+    .then(data => {
+      const books = data && data.books && typeof data.books === 'object' ? data.books : {};
+      if (typeof globalThis !== 'undefined') globalThis._tdbBookIntrosCache = books;
+      return books;
+    })
+    .catch(() => {
+      const empty = {};
+      if (typeof globalThis !== 'undefined') globalThis._tdbBookIntrosCache = empty;
+      return empty;
+    });
+  if (typeof globalThis !== 'undefined') globalThis._tdbBookIntrosPromise = p;
+  return p;
+}
+
+function updateReaderBookIntro(book) {
+  const wrap = document.getElementById('reader-book-intro-wrap');
+  const body = document.getElementById('reader-book-intro-body');
+  if (!wrap || !body) return;
+  const b = String(book || '').trim();
+  if (!b) {
+    wrap.classList.add('hidden');
+    body.textContent = '';
+    return;
+  }
+  ensureBookIntrosLoaded().then(books => {
+    const text = books[b];
+    if (!text) {
+      wrap.classList.add('hidden');
+      body.textContent = '';
+      return;
+    }
+    body.textContent = text;
+    wrap.classList.remove('hidden');
+  });
+}
+
 function selectReaderChapter(book, chapter, highlightRef = '') {
   const bookSelect = document.getElementById('reader-book');
   const chapterSelect = document.getElementById('reader-chapter');
@@ -16737,6 +16782,7 @@ function selectReaderChapter(book, chapter, highlightRef = '') {
   populateReaderChapters(book);
   chapterSelect.value = String(chapter);
   renderReaderChapter(book, String(chapter));
+  updateReaderBookIntro(book);
   if (highlightRef) {
     const highlight = document.querySelector(`.context-line[data-ref="${highlightRef}"]`);
     if (highlight) {

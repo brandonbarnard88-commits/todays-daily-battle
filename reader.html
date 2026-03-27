@@ -38,6 +38,24 @@
       min-height: 14rem;
       box-sizing: border-box;
     }
+    .reader-book-intro {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(12, 18, 30, 0.45);
+    }
+    .reader-book-intro[open] { border-color: rgba(227, 188, 103, 0.35); }
+    .reader-book-intro-summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #e3bc67;
+      list-style: none;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .reader-book-intro-summary::-webkit-details-marker { display: none; }
     .reader-back-btn {
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.82rem; font-weight: 600;
@@ -161,6 +179,11 @@
               <p class="section-note util-mb-0 reader-audio-hint"><span id="reader-listen-hint">Listen uses your device voice. </span>KJV Audio opens the passage in a new tab.</p>
             </div>
           </div>
+          <details id="reader-book-intro-wrap" class="reader-book-intro hidden" aria-labelledby="reader-book-intro-summary-label">
+            <summary class="reader-book-intro-summary" id="reader-book-intro-summary-label">About this book</summary>
+            <p id="reader-book-intro-body" class="section-note util-mb-0"></p>
+            <p class="section-note util-mt-0_5 util-mb-0" style="font-size:0.9rem;opacity:0.85">KJV. One quiet line to frame your reading—not a full commentary.</p>
+          </details>
           <div id="reader-output" class="chapter-output reader-output-empty" role="region" aria-label="Chapter content" aria-live="polite">
             <p class="section-note empty">Choose a book above — chapter 1 will load automatically.</p>
           </div>

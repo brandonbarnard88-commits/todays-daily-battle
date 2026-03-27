@@ -355,6 +355,96 @@
   margin-bottom: 0.25rem;
 }
 
+.mystudy-dash-stats {
+  margin: 0.5rem 0 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.55);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+}
+
+.mystudy-library-actions {
+  margin: 0 0 0.75rem;
+}
+
+.mystudy-print-btn {
+  min-height: 44px;
+}
+
+.mystudy-h2-tight {
+  margin-top: 0.25rem;
+}
+
+.mystudy-memorize-list {
+  list-style: none;
+  margin: 0.4rem 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mystudy-memorize-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.mystudy-memorize-ref {
+  font-weight: 600;
+  color: #fbbf24;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mystudy-mem-reviewed {
+  min-height: 44px;
+}
+
+.mystudy-tag-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.35rem 0 0.5rem;
+  max-width: 100%;
+}
+
+.mystudy-tag-pill {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.75);
+  color: #e2e8f0;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 40px;
+}
+
+.mystudy-tag-pill:hover,
+.mystudy-tag-pill:focus-visible {
+  border-color: rgba(212, 175, 55, 0.55);
+  outline: none;
+}
+
+.mystudy-tag-pill[aria-pressed="true"] {
+  border-color: rgba(212, 175, 55, 0.75);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.2);
+  color: #fef3c7;
+}
+
 @media (max-width: 768px) {
   .mystudy-shell {
     padding: 0.8rem 0.6rem 1.4rem;

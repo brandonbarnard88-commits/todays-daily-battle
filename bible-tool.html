@@ -60,6 +60,8 @@
       min-height: 44px; box-sizing: border-box;
     }
     .bible-tool .bible-tool-tags-input:focus { outline: 2px solid rgba(167, 139, 250, 0.55); outline-offset: 2px; }
+    .bible-tool .bible-tool-kjv-words-ul { list-style: none; margin: 0; padding: 0; max-height: 14rem; overflow: auto; }
+    .bible-tool .bible-tool-kjv-words-ul li { margin-top: 0.35rem; line-height: 1.45; }
     .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; resize: vertical; min-height: 4rem; }
     .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 1rem; }
     .bible-tool .verse-ref { font-weight: 600; }
@@ -675,6 +677,7 @@
               <button type="button" id="breakdown-lookup" class="link-button" aria-label="Open verse breakdown">Breakdown</button>
               <button type="button" id="highlight-lookup" class="link-button" aria-label="Highlight this verse">Highlight</button>
               <button type="button" id="add-to-notes-lookup" class="link-button" aria-label="Add to battle log">Add to Notes</button>
+              <button type="button" id="memorize-lookup" class="link-button hidden" aria-pressed="false" aria-label="Add current verse to memorize queue">Memorize</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
               <a id="lookup-read-chapter" href="#" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
             </div>
@@ -700,6 +703,8 @@
                   <a class="btn btn-secondary" href="bible/tools.html?q=conversation">conversation</a>
                 </div>
                 <p class="section-note util-mt-0_75 util-mb-0"><strong>Curated cross-references</strong> load from <code class="bible-tool-code">cross-refs.json</code> (expandable under each lookup). The Hub concordance shows the same chains when you open a hit. Add your own links in the note box anytime.</p>
+                <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word notes</strong> — short glosses for words that read oddly today; the Hub lists every verse that uses the word.</p>
+                <ul id="kjv-word-notes-list" class="bible-tool-kjv-words-ul section-note util-mb-0" aria-label="KJV word notes"></ul>
                 <button type="button" id="export-study-json-btn" class="btn btn-secondary util-mt-0_5">Export verse notes + tags (JSON)</button>
                 <p id="export-study-status" class="section-note util-mt-0_5" aria-live="polite"></p>
               </div>
@@ -727,6 +732,9 @@
             <option value="family">Family (7 days)</option>
             <option value="john">Gospel of John (21 chapters)</option>
             <option value="ntsampler">New Testament sampler (14 readings)</option>
+            <option value="psalmscomfort">Psalms for comfort (7 readings)</option>
+            <option value="proverbs">Proverbs for wisdom (7 readings)</option>
+            <option value="gospels">Gospels sampler (30 readings)</option>
             <option value="custom">Custom (enter refs below)</option>
           </select>
           <div id="plan-progress-wrap" class="util-mt-1">
@@ -774,7 +782,7 @@
   </div>
 
   <script type="module" src="script.js?v=20260328feelwire"></script>
-  <script src="bible-study-companion.js?v=20260327"></script>
+  <script src="bible-study-companion.js?v=20260328print"></script>
   <script src="verse-breakdown.js?v=20260325clean"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
@@ -981,6 +989,14 @@
     '1 Corinthians 13:1', '2 Corinthians 5:1', 'Galatians 5:1', 'Ephesians 2:1',
     'Philippians 2:1', 'Colossians 3:1', '1 Thessalonians 4:1', 'Hebrews 11:1', 'James 1:1'
   ];
+  var PSALMS_COMFORT_PLAN = ['Psalm 23:1', 'Psalm 34:18', 'Psalm 46:1', 'Psalm 27:1', 'Psalm 91:1', 'Psalm 121:1', 'Psalm 139:1'];
+  var PROVERBS_WISDOM_PLAN = ['Proverbs 1:7', 'Proverbs 3:5', 'Proverbs 9:10', 'Proverbs 15:1', 'Proverbs 16:3', 'Proverbs 22:6', 'Proverbs 31:30'];
+  var GOSPELS_PLAN = [
+    'Matthew 5:1', 'Matthew 5:3', 'Matthew 5:6', 'Matthew 5:8', 'Matthew 5:16', 'Matthew 6:9', 'Matthew 6:33', 'Matthew 7:7', 'Matthew 11:28', 'Matthew 28:18',
+    'Mark 1:15', 'Mark 2:17', 'Mark 8:34', 'Mark 10:45', 'Mark 12:30', 'Mark 14:36',
+    'Luke 2:10', 'Luke 6:31', 'Luke 9:23', 'Luke 10:27', 'Luke 15:20', 'Luke 19:10', 'Luke 23:34',
+    'John 1:1', 'John 3:16', 'John 6:35', 'John 8:12', 'John 10:11', 'John 14:6', 'John 15:5'
+  ];
   var JOHN_REFLECTIONS = [];
   for (var _jr = 0; _jr < 21; _jr++) {
     JOHN_REFLECTIONS.push('In John ' + (_jr + 1) + ', what does Christ make plain about God or about you? What is one phrase to carry today?');
@@ -1002,17 +1018,91 @@
     'What trial of faith is named — and what is the promise?'
   ];
 
+  var PSALMS_COMFORT_REFLECTIONS = [
+    'Where do you need the Lord as shepherd today?',
+    'What ache are you bringing near to God — and what does he draw near to?',
+    'Where is God your refuge when trouble feels loud?',
+    'What fear shrinks when you remember the Lord is light and salvation?',
+    'How does resting under his shadow change the pace of your day?',
+    'Who holds your steps — and what one worry can you hand him?',
+    'What does it mean today that he formed you and knows you?'
+  ];
+  var PROVERBS_WISDOM_REFLECTIONS = [
+    'Where do you need the fear of the Lord more than human opinion?',
+    'What are you leaning on instead of trusting the Lord with all your heart?',
+    'How does wisdom begin for you in this season?',
+    'Where could a gentle answer serve someone you love?',
+    'What are you committing to the Lord before you move ahead?',
+    'What habit are you building in a child or in yourself?',
+    'Who receives honor in your home — and how does truth shape that?'
+  ];
+  var GOSPELS_REFLECTIONS = [
+    'What does Jesus open with on the mount — and what is he asking of you?',
+    'Where do you need poverty of spirit before God?',
+    'What does hunger for righteousness look like in one concrete choice?',
+    'Where does purity of heart matter in what you look at or say?',
+    'How can your light serve someone without drawing attention to you?',
+    'What line from this prayer can you carry into the day?',
+    'What does seeking God’s kingdom first change about your worry list?',
+    'What are you asking God for — and will you trust his answer?',
+    'What rest is Christ offering your labor today?',
+    'What authority does Jesus claim — and how do you respond?',
+    'What is Jesus calling you to turn toward today?',
+    'Who did Christ come to call — and does that include you?',
+    'What does taking up the cross look like in a small obedience?',
+    'What did the Son of Man come to do — and how does that steady you?',
+    'What does loving God with all the heart look like in one act?',
+    'What cup are you avoiding — and can you pray “thy will” with him?',
+    'What good news is announced here — and who needs to hear it?',
+    'How does the golden rule challenge one relationship today?',
+    'What does denying self mean in the next kind choice you make?',
+    'Who is your neighbor — and what mercy can you show?',
+    'What homecoming does the Father still offer?',
+    'What did the Son of Man come to seek — and what is lost in you?',
+    'What mercy did Jesus show from the cross — and who needs yours?',
+    'What does “in the beginning” tell you about Christ?',
+    'How does God’s love for the world land on your own soul?',
+    'Where do you need the bread of life instead of empty substitutes?',
+    'What darkness needs his light in your thoughts today?',
+    'Where do you hear the good Shepherd’s voice?',
+    'What does Jesus being the way change about how you pray?',
+    'What fruit does abiding in him ask for this week?'
+  ];
+
   var PLAN_REFLECTIONS = {
     armor: ['Where do you need the belt of truth most today?', 'How can you put on the breastplate of righteousness in one relationship?', 'Where do you need to stand firm with the gospel of peace?', 'When did you last hold up the shield of faith?', 'What step of obedience is God asking for today?', 'How will you pray in the Spirit today?', 'Name one way you will stand in the full armor tomorrow.'],
     strength: ['Where do you need Christ’s strength instead of your own?', 'What are you waiting on God for?', 'How can you celebrate God’s goodness today?', 'Where do you need God as your refuge?', 'Who needs you to be strong in the Lord?', 'What battle will you face in faith today?', 'How will you armor up for the week ahead?'],
     fear: ['What fear are you handing to God today?', 'How is God with you in this situation?', 'Where will you choose courage today?', 'What truth from Scripture can replace one lie?', 'When you are afraid, what will you do?', 'How does God’s Spirit remind you you’re not alone?', 'Who can you encourage with “fear not” this week?'],
     family: ['How will you serve the Lord in your home today?', 'When will you talk about Scripture with your household?', 'What habit do you want to pass on?', 'How can you avoid provoking and instead encourage?', 'What one way will you nurture your children in the Lord?', 'How are your children a heritage from the Lord?', 'What legacy of faith are you building?'],
     john: JOHN_REFLECTIONS,
-    ntsampler: NT_SAMPLER_REFLECTIONS
+    ntsampler: NT_SAMPLER_REFLECTIONS,
+    psalmscomfort: PSALMS_COMFORT_REFLECTIONS,
+    proverbs: PROVERBS_WISDOM_REFLECTIONS,
+    gospels: GOSPELS_REFLECTIONS
   };
 
-  var THEMED_PLANS = { armor: ARMOR_PLAN, strength: STRENGTH_PLAN, fear: FEAR_PLAN, family: FAMILY_PLAN, john: JOHN_PLAN, ntsampler: NT_SAMPLER };
-  var PLAN_NAMES = { armor: 'Armor of God', strength: 'Strength', fear: 'Victory Over Fear', family: 'Family', john: 'Gospel of John', ntsampler: 'NT Sampler' };
+  var THEMED_PLANS = {
+    armor: ARMOR_PLAN,
+    strength: STRENGTH_PLAN,
+    fear: FEAR_PLAN,
+    family: FAMILY_PLAN,
+    john: JOHN_PLAN,
+    ntsampler: NT_SAMPLER,
+    psalmscomfort: PSALMS_COMFORT_PLAN,
+    proverbs: PROVERBS_WISDOM_PLAN,
+    gospels: GOSPELS_PLAN
+  };
+  var PLAN_NAMES = {
+    armor: 'Armor of God',
+    strength: 'Strength',
+    fear: 'Victory Over Fear',
+    family: 'Family',
+    john: 'Gospel of John',
+    ntsampler: 'NT Sampler',
+    psalmscomfort: 'Psalms for comfort',
+    proverbs: 'Proverbs for wisdom',
+    gospels: 'Gospels sampler'
+  };
 
   var BOOKS = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
 
@@ -1152,6 +1242,21 @@
     }, 3000);
   }
 
+  function syncMemorizeLookupButton(ref) {
+    var btn = document.getElementById('memorize-lookup');
+    if (!btn) return;
+    if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.isMemorizing !== 'function') {
+      btn.classList.add('hidden');
+      return;
+    }
+    btn.classList.remove('hidden');
+    var r = normRef(ref);
+    var on = window.TDBStudyCompanion.isMemorizing(r);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.setAttribute('aria-label', on ? 'Remove ' + r + ' from memorize queue' : 'Add ' + r + ' to memorize queue');
+    btn.textContent = on ? 'In memorize queue' : 'Memorize';
+  }
+
   function renderLookup(data) {
     var block = document.getElementById('lookup-result');
     var refEl = document.getElementById('lookup-ref');
@@ -1189,6 +1294,7 @@
     var whosThisEl = document.getElementById('whos-this-inline');
     if (whosThisEl) { whosThisEl.classList.add('hidden'); whosThisEl.innerHTML = ''; }
     if (typeof window._whosThisForVerse === 'function') window._whosThisForVerse(data.reference, data.text);
+    syncMemorizeLookupButton(data.reference);
   }
 
   function renderLookupError(ref) {
@@ -1712,6 +1818,42 @@
         } else if (st) st.textContent = 'Clipboard not available in this browser.';
       });
     }
+    var memBtn = document.getElementById('memorize-lookup');
+    if (memBtn) {
+      memBtn.addEventListener('click', function () {
+        var ref = document.getElementById('note-input').dataset.currentRef;
+        if (!ref || !window.TDBStudyCompanion || typeof window.TDBStudyCompanion.toggleMemorize !== 'function') return;
+        window.TDBStudyCompanion.toggleMemorize(ref);
+        syncMemorizeLookupButton(ref);
+      });
+    }
+    (function loadKjvWordNotes() {
+      var ul = document.getElementById('kjv-word-notes-list');
+      if (!ul) return;
+      fetch('kjv-word-notes.json')
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('bad status')); })
+        .then(function (data) {
+          var words = (data && data.words) || [];
+          words.forEach(function (w) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = 'bible/tools.html?q=' + encodeURIComponent(w.concordance || w.word || '');
+            a.className = 'bible-tool-gold-link';
+            a.textContent = w.word || w.concordance || 'word';
+            li.appendChild(a);
+            var span = document.createElement('span');
+            span.textContent = ' — ' + (w.note || '');
+            li.appendChild(span);
+            ul.appendChild(li);
+          });
+        })
+        .catch(function () {
+          var li = document.createElement('li');
+          li.className = 'section-note';
+          li.textContent = 'Word notes load when you are online — open again when connected.';
+          ul.appendChild(li);
+        });
+    })();
   })();
 
   document.getElementById('plan-picker').addEventListener('change', function () {

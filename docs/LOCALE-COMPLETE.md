@@ -1,76 +1,95 @@
-# “Complete” standard for one language (Today’s Daily Battle)
+# Locale “complete” standard — Today’s Daily Battle
 
-Use this as the **release gate** before calling a locale “shipped.” Pilots may exist below this bar; label them honestly in copy and navigation.
+Use this as the **release gate** before calling a language **shipped** (not “pilot”). Anything below the bar must be labeled honestly on the hub.
 
-## One-page checklist (ship gate)
+---
+
+## Tiers
+
+| Tier | Meaning |
+|------|--------|
+| **Complete** | Meets every row in the ship gate for that locale. |
+| **Pilot** | One or more mood/tool pages exist; hub or depth incomplete — say so in copy. |
+| **Thin pilot** | Only anxiety/hope (or similar) entry points from Explore — no hub yet. |
+
+---
+
+## Ship gate (one page)
 
 | # | Area | Pass when |
 |---|------|-----------|
 | 1 | **Hub** | `/xx/` + `index.html`, `_redirects` `200!`, hero states what is in-language vs EN/KJV tools |
-| 2 | **Discovery** | Card grid (or equivalent) to every in-language mood page you claim |
-| 3 | **Depth** | Mood pages or explicit “not yet” / EN link — no silent 404 |
-| 4 | **Tools** | Shells or full UI; KJV disclaimer wherever English Bible shows |
+| 2 | **Discovery** | Card grid (or equivalent) links to **every** in-language page you claim (moods + tool shells) |
+| 3 | **Mood depth** | Core moods covered in local Scripture tradition, or explicit “not yet” + EN link — no silent 404 |
+| 4 | **Tool shells** | Same honesty as PT: Portuguese uses `/pt/planos`, `/pt/mural`, etc.; French uses `/fr/plans`, `/fr/mural`, …; Spanish uses root `planes.html`, `muro.html`, … |
 | 5 | **Legal** | Link to `privacy.html` / `terms.html` + short in-language note |
-| 6 | **SEO / edge** | `hreflang` reciprocal, `sitemap.xml`, `_headers` no-cache, purge paths |
-| 7 | **Switcher** | `language-switcher.js`: hubs get `aria-current`; default **Español** → `/es/`, **Français** → `/fr/`, **Português** → `/pt/` |
+| 6 | **SEO / edge** | Reciprocal `hreflang` where paired, `sitemap.xml`, `_headers` no-cache, `_redirects` clean URLs + `?tdb_cb` for Spanish-style cache bust, `cloudflare-purge.mjs` |
+| 7 | **Switcher** | `language-switcher.js`: hubs `aria-current`; **Español** → `/es/`, **Français** → `/fr/`, **Português** → `/pt/`; hope cluster → `/esperanza.html` (ES), not only Explore |
 | 8 | **Tests** | `npm run build`, `npm run test:site -- --offline`, `npm test`, `npm run test:security` |
 
-## 1. Hub
+---
 
-- **URL:** e.g. `/es/`, `/fr/`, `/pt/` — folder + `index.html`, `_redirects` clean paths.
-- **Above the fold:** Clear promise: what is in-language, what opens in **English** with **KJV** in Bible tools.
-- **Daily verse:** Honest path to `verse.html` (EN/KJV) plus optional fixed anchor verse in that locale’s Scripture tradition.
+## Reference depth (Mar 2026) — PT / FR / ES
 
-## 2. Mood / topic depth
+| Layer | Portuguese | French | Spanish |
+|--------|------------|--------|---------|
+| Hub | `/pt/` | `/fr/` | `/es/` |
+| Moods (tradition on-page) | ansiedade, esperança, medo, força, paz, solidão, culpa, sobrecarga (Almeida) | anxiété, espoir, peur, force, paix, solitude, culpabilité, débordé (Louis Segond) | ansiedad, esperanza, miedo, fuerza, paz, soledad, culpa, agobio (Reina-Valera 1960) |
+| Tool entry shells | `/pt/planos`, `mural`, `leitor`, `crianças` | `/fr/plans`, `mural`, `lecteur`, `enfants` | `/planes`, `muro`, `lector`, `ninos` (root) |
+| Legal summaries | `/pt/privacy`, `/pt/terms` | Link from hub to EN canonical | Link from hub to EN canonical |
 
-- For each **paired** English topic you want globally reachable: full in-language mood page (named tradition on-page), or explicit “not yet” / EN link — never a silent 404.
-- **No fake localization:** If the UI is English, say so (shell pattern).
+---
 
-## 3. Tool reality
+## Tone & Scripture (non-negotiable)
 
-- **Shell pages** in language linking to real EN tools, or fully localized tools (rare).
-- Same KJV disclaimer where tools show English Bible text.
+- **Pastoral, calm, specific** — quiet friend at dawn; no hype, no prosperity/politics framing.
+- **KJV** only where English product surfaces show English Bible text; label it.
+- **On-page Scripture** must name tradition + public-domain note where applicable (Almeida, Louis Segond, Reina-Valera 1960, etc.).
+- **No fake localization** — if the UI is English, the shell page must say so before the CTA.
 
-## 4. Legal & trust
+---
 
-- At minimum: link to `privacy.html` / `terms.html` with a short in-language explanation.
-- Prefer **summary + EN canonical** (`hreflang` + `x-default` on binding doc) until full translation is reviewed.
+## Switcher & maps (when you add a paired URL)
 
-## 5. SEO & edge
+1. Add or extend objects in **`language-switcher.js`**: `PT_TO_FR`, `PT_TO_ES`, `PT_TO_ZH`, `FR_TO_EN`, `FR_TO_ES`, `FR_TO_PT`, `ES_TO_FR`, `ES_TO_PT`, `ES_TO_EN`, `EN_TO_ES`, and hope-path `isHopeEquivalentPath()` if it is a hope door.
+2. Extend **`isSpanishTopical()`** for new **root** `lang="es"` pages (mood + shells).
+3. Add **`isFrenchToolShell()`** (or equivalent) when adding FR-only shells so `aria-current` and ID/TL defaults stay sane.
+4. Wire **`_redirects`**, **`_headers`**, **`sitemap.xml`**, **`scripts/cloudflare-purge.mjs`**, **`test-security.js`** (`cacheHygienePaths`, Spanish `302` needles, purge list), **`test-site.js`**.
 
-- **hreflang:** Reciprocal links only between URLs that exist.
-- **sitemap.xml:** Hub + every indexed locale page.
-- **`_headers`:** `no-cache` for high-churn HTML (keep in sync with `test-security.js` `cacheHygienePaths`).
-- **`_redirects`:** Clean URLs → `.html` where you use extensionless links.
-- **Post-deploy:** `npm run purge:cloudflare:social` (paths in `scripts/cloudflare-purge.mjs`).
+---
 
-## 6. Language switcher
+## Generators
 
-- **`language-switcher.js`:** `enHref` / sibling locales / `aria-current` on hubs (`isSpanishHub`, `isFrenchHub`, `isPortugueseHub`, `isLocaleHubCluster` for anxiety defaults).
+| Command | Output |
+|---------|--------|
+| `npm run render:fr-es-moods` | FR mood depth (`peur`, `force`, `paix`) + ES root moods (`miedo`, `soledad`, `culpa`, `agobio`) |
+| `npm run render:locale-parity` | `esperanza.html`, FR tool shells, ES tool shells |
+| `node scripts/write-pt-locale-pages.mjs` | Portuguese moods + shells + legal summaries |
 
-## 7. Tests
+Shared switcher row: **`scripts/lib/lang-switcher-inner.mjs`**.
 
-- **`test-site.js` / `test-site.py`:** Hub + sample mood pages.
+---
 
-## 8. Voice & Scripture
+## Hubs — daily verse (UX)
 
-- Pastoral, natural, non-hype; **KJV** only where the product is English KJV surfaces.
-- On-page Scripture: label tradition (Almeida, Louis Segond, Reina-Valera, etc.).
+- Canonical **daily** verse is always **`/verse.html`** (EN UI, KJV). Hubs keep a **fixed anchor verse** in the local tradition for warmth; they must **not** pretend to replace the calendar.
+- Stable section ids for deep links: `#pt-hub-daily-verse`, `#fr-hub-daily-verse`, `#es-hub-daily-verse`.
 
-## Reference implementations
+---
 
-- **Portuguese (deepest):** `pt/index.html`, `scripts/write-pt-locale-pages.mjs` (generator for mood + shells + legal summaries). Imports `scripts/lib/lang-switcher-inner.mjs` for switcher rows.
-- **Spanish hub:** `es/index.html` — links to root mood pages: `ansiedad`, `miedo`, `fuerza`, `paz`, `soledad`, `culpa`, `agobio` (Reina-Valera 1960 on-page); same honest EN tool pattern as FR/PT.
-- **French hub:** `fr/index.html` — links to `fr/*.html` mood pilots including `peur`, `force`, `paix` (Louis Segond on-page).
+## Fourth language — draft pick: **Bahasa Indonesia** (`id/`)
 
-## Infrastructure (next smooth step)
+**Why:** Large church presence, existing **`id/kecemasan.html`** + **`id/harapan.html`** pilots lower the cost of a hub.
 
-- **Generators:** `npm run render:fr-es-moods` → `scripts/render-fr-es-mood-pages.mjs` (FR depth + ES root moods; edit data in that file, re-run). `write-pt-locale-pages.mjs` remains the PT-specific writer.
-- **Switcher maps:** `language-switcher.js` — `PT_TO_FR`, `PT_TO_ES`, `PT_TO_ZH`, `FR_TO_EN`, `FR_TO_ES`, `FR_TO_PT`, `ES_TO_FR`, `ES_TO_PT` keep cross-links aligned when you add a paired page.
-- **Next:** Extract shared hub partials (hero + grid + daily verse block) only if a fourth hub repeats the same markup without drift.
+**Target URLs (draft):**
 
-## After PT / FR / ES feel solid — next locale candidates
+- Hub: `/id/` + `id/index.html`, `_redirects` same pattern as `/es/`, `/fr/`, `/pt/`.
+- Mood pages: extend beyond anxiety/hope using the same shell + breakdown pattern as ES/FR (pick one public-domain Indonesian Bible tradition and **name it on-page** — do not imply KJV where text is Indonesian).
+- Switcher: add `isIndonesianHub()`, maps parallel to `PT_TO_*` / `ES_TO_*` for paired paths.
+- **Do not ship** until the ship gate table is green for `id/`.
 
-Pick one when depth and switcher tests are green. Existing **anxiety + hope** pilots already lower the cost for: **Bahasa Indonesia** (`id/`), **Tagalog** (`tl/`), **Arabic**, **Hindi**, **Russian**, **Swedish**, **Bengali**, **Swahili** (see `explore.html#languages`). For a **fresh hub** at scale, **Indonesian** or **Arabic** often reach the most people still missing a calm front door; match the checklist above before calling it “complete.”
+Other strong candidates when you are ready: **Arabic**, **Tagalog**, **Hindi**, **Swahili**, **Russian** (see `explore.html#languages` for existing pilots).
 
-When a new language matches the **checklist**, call it **complete** at the current architecture. Anything less is a **pilot** or **phase 1** — say so on the hub.
+---
+
+When a locale matches the **ship gate**, call it **complete**. Anything less is **pilot** or **phase 1** — say so on the hub.

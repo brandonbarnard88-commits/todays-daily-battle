@@ -121,6 +121,36 @@
 /agobio
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/esperanza.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/esperanza
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/planes.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/planes
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/muro.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/muro
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/lector.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/lector
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ninos.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ninos
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 
 # Indonesian topical pilot (id/) — copy + tool links churn
 /id/kecemasan.html
@@ -183,6 +213,30 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /fr/paix
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/plans.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/plans
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/mural.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/mural
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/lecteur.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/lecteur
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/enfants.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/enfants
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 

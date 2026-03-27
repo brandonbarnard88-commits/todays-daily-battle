@@ -325,6 +325,8 @@ const frRelatedCore = `            <a class="btn btn-secondary" href="/fr/">Hub 
 
 const esRelatedCore = `            <a class="btn btn-secondary" href="/es/">Hub ES</a>
             <a class="btn btn-secondary" href="/ansiedad.html">Ansiedad</a>
+            <a class="btn btn-secondary" href="/esperanza.html">Esperanza</a>
+            <a class="btn btn-secondary" href="/miedo.html">Miedo</a>
             <a class="btn btn-secondary" href="/fuerza.html">Fuerza</a>
             <a class="btn btn-secondary" href="/paz.html">Paz</a>`;
 

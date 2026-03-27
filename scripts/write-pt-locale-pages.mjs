@@ -3,7 +3,7 @@
  * Run: node scripts/write-pt-locale-pages.mjs
  *
  * Release bar + hub patterns: docs/LOCALE-COMPLETE.md. Hubs: /es/, /fr/, /pt/ (hand-maintained HTML).
- * FR/ES mood depth: `npm run render:fr-es-moods` (scripts/render-fr-es-mood-pages.mjs). Switcher rows: ./lib/lang-switcher-inner.mjs.
+ * FR/ES mood depth: `npm run render:fr-es-moods`. Parity (esperanza + tool shells): `npm run render:locale-parity`. Switcher rows: ./lib/lang-switcher-inner.mjs.
  */
 import fs from 'fs';
 import path from 'path';

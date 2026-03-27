@@ -143,6 +143,16 @@ const cacheHygienePaths = [
   '/culpa',
   '/agobio.html',
   '/agobio',
+  '/esperanza.html',
+  '/esperanza',
+  '/planes.html',
+  '/planes',
+  '/muro.html',
+  '/muro',
+  '/lector.html',
+  '/lector',
+  '/ninos.html',
+  '/ninos',
   '/es/',
   '/es',
   '/es/index.html',
@@ -161,6 +171,14 @@ const cacheHygienePaths = [
   '/fr/force',
   '/fr/paix.html',
   '/fr/paix',
+  '/fr/plans.html',
+  '/fr/plans',
+  '/fr/mural.html',
+  '/fr/mural',
+  '/fr/lecteur.html',
+  '/fr/lecteur',
+  '/fr/enfants.html',
+  '/fr/enfants',
   '/zh/jiaolv.html',
   '/zh/jiaolv',
   '/ar/qalaq.html',
@@ -282,6 +300,11 @@ const esRewriteNeedles = [
   '/soledad /soledad.html?tdb_cb=20260328esNav 302',
   '/culpa /culpa.html?tdb_cb=20260328esNav 302',
   '/agobio /agobio.html?tdb_cb=20260328esNav 302',
+  '/esperanza /esperanza.html?tdb_cb=20260328esNav 302',
+  '/planes /planes.html?tdb_cb=20260328esNav 302',
+  '/muro /muro.html?tdb_cb=20260328esNav 302',
+  '/lector /lector.html?tdb_cb=20260328esNav 302',
+  '/ninos /ninos.html?tdb_cb=20260328esNav 302',
 ];
 let esRewriteOk = true;
 for (const n of esRewriteNeedles) {
@@ -372,6 +395,10 @@ if (
   !purgeMjs.includes("'/soledad.html'") ||
   !purgeMjs.includes("'/culpa.html'") ||
   !purgeMjs.includes("'/agobio.html'") ||
+  !purgeMjs.includes("'/esperanza.html'") ||
+  !purgeMjs.includes("'/planes.html'") ||
+  !purgeMjs.includes("'/fr/plans.html'") ||
+  !purgeMjs.includes("'/esperanza.html?tdb_cb=20260328esNav'") ||
   !purgeMjs.includes("'/miedo.html?tdb_cb=20260328esNav'") ||
   !purgeMjs.includes("'/ansiedad.html?tdb_cb=20260328esNav'") ||
   !purgeMjs.includes("'/styles.css?v=20260328esNav'")

@@ -1,7 +1,8 @@
 /**
- * Language switcher: EN · ES · FR · 中文 · ID · TL · AR · HI · RU · SV · PT · BN · SW + "More languages" hub.
+ * Language switcher: EN · ES · FR · 中文 · ID · TL · AR · HI · RU · SV · PT · BN · SW + "More languages" hub (hubs: /es/, /fr/, /pt/).
  * Portuguese hub: /pt/ and /pt/index.html — ptHref default for unpaired pages is /pt/.
  * French hub: /fr/ and /fr/index.html — frHref stays /fr/; same anxiety-cluster defaults as PT hub for other picks.
+ * Spanish hub: /es/ and /es/index.html — esHref stays /es/; links to root ansiedad/fuerza/paz pages.
  * Pairs topical pilots (anxiety + hope in AR/HI/RU/SV/PT/BN/SW/ID/TL + FR/ZH/EN; loneliness/guilt/overwhelm FR/ZH); persists tdb_lang_pref on explicit picks.
  */
 (function () {
@@ -156,9 +157,15 @@
     return p === '/fr' || p === '/fr/index.html';
   }
 
-  /** PT or FR hub: same cross-language defaults for anxiety-cluster locales. */
-  function isPortugueseOrFrenchHub() {
-    return isPortugueseHub() || isFrenchHub();
+  /** PT, FR, or ES hub: same cross-language defaults for anxiety-cluster locales. */
+  function isLocaleHubCluster() {
+    return isPortugueseHub() || isFrenchHub() || isSpanishHub();
+  }
+
+  /** Spanish landing hub (folder index). */
+  function isSpanishHub() {
+    var p = pathnameNoQuery();
+    return p === '/es' || p === '/es/index.html';
   }
 
   function isBengaliAnxietyPage() {
@@ -258,7 +265,7 @@
   }
 
   function enHref() {
-    if (isFrenchHub()) return '/';
+    if (isFrenchHub() || isSpanishHub()) return '/';
     var ptEq = PT_TO_EN[pathnameNoQuery()];
     if (ptEq) return ptEq;
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isRussianAnxietyPage() ||
@@ -283,7 +290,8 @@
 
   function esHref() {
     var pEs = pathnameNoQuery();
-    if (isFrenchHub()) return '/explore.html#topics-es';
+    if (isSpanishHub()) return '/es/';
+    if (isPortugueseHub() || isFrenchHub()) return '/es/';
     if (pEs === '/pt/paz.html') return '/paz.html';
     if (pEs === '/pt/forca.html') return '/fuerza.html';
     if (PT_TO_EN[pEs] && pEs.indexOf('/pt/') === 0) return '/explore.html#topics-es';
@@ -300,11 +308,13 @@
     if (EN_TO_ES[f]) return EN_TO_ES[f];
     if (ID_TO_ES[f]) return ID_TO_ES[f];
     if (TL_TO_ES[f]) return TL_TO_ES[f];
+    if (pEs === '/' || pEs === '/index.html') return '/es/';
     return '/explore.html#topics-es';
   }
 
   function frHref() {
     var pFr = pathnameNoQuery();
+    if (isSpanishHub()) return '/fr/';
     if (isFrenchHub()) return '/fr/';
     if (pFr === '/pt/solidao.html') return '/fr/solitude.html';
     if (pFr === '/pt/culpa.html') return '/fr/culpabilite.html';
@@ -337,7 +347,7 @@
     if (pZh === '/pt/culpa.html') return '/zh/neijiu.html';
     if (pZh === '/pt/sobrecarga.html') return '/zh/taiduo.html';
     if (PT_TO_EN[pZh] && pZh.indexOf('/pt/') === 0) return '/zh/jiaolv.html';
-    if (isPortugueseOrFrenchHub()) return '/zh/jiaolv.html';
+    if (isLocaleHubCluster()) return '/zh/jiaolv.html';
     if (isChineseLonelinessPage()) return '/zh/gudu.html';
     if (isFrenchLonelinessPage()) return '/zh/gudu.html';
     if (isLonelinessEquivalentBaseFile()) return '/zh/gudu.html';
@@ -359,7 +369,7 @@
 
   function idHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/id/kecemasan.html';
-    if (isFrenchHub()) return '/id/kecemasan.html';
+    if (isFrenchHub() || isSpanishHub()) return '/id/kecemasan.html';
     if (pathnameNoQuery() === '/id/harapan.html') return '/id/harapan.html';
     if (isHopeEquivalentPath()) return '/id/harapan.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
@@ -378,7 +388,7 @@
 
   function tlHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/tl/kabalisahan.html';
-    if (isFrenchHub()) return '/tl/kabalisahan.html';
+    if (isFrenchHub() || isSpanishHub()) return '/tl/kabalisahan.html';
     if (pathnameNoQuery() === '/tl/pagasa.html') return '/tl/pagasa.html';
     if (isHopeEquivalentPath()) return '/tl/pagasa.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
@@ -396,7 +406,7 @@
 
   function arHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/ar/qalaq.html';
-    if (isPortugueseOrFrenchHub()) return '/ar/qalaq.html';
+    if (isLocaleHubCluster()) return '/ar/qalaq.html';
     if (pathnameNoQuery() === '/ar/rajaa.html') return '/ar/rajaa.html';
     if (isHopeEquivalentPath()) return '/ar/rajaa.html';
     if (isArabicAnxietyPage()) return '/ar/qalaq.html';
@@ -406,7 +416,7 @@
 
   function hiHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/hi/chinta.html';
-    if (isPortugueseOrFrenchHub()) return '/hi/chinta.html';
+    if (isLocaleHubCluster()) return '/hi/chinta.html';
     if (pathnameNoQuery() === '/hi/asha.html') return '/hi/asha.html';
     if (isHopeEquivalentPath()) return '/hi/asha.html';
     if (isHindiAnxietyPage()) return '/hi/chinta.html';
@@ -416,7 +426,7 @@
 
   function ruHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/ru/trevoga.html';
-    if (isPortugueseOrFrenchHub()) return '/ru/trevoga.html';
+    if (isLocaleHubCluster()) return '/ru/trevoga.html';
     if (pathnameNoQuery() === '/ru/nadezhda.html') return '/ru/nadezhda.html';
     if (isHopeEquivalentPath()) return '/ru/nadezhda.html';
     if (isRussianAnxietyPage()) return '/ru/trevoga.html';
@@ -426,7 +436,7 @@
 
   function svHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/sv/oro.html';
-    if (isPortugueseOrFrenchHub()) return '/sv/oro.html';
+    if (isLocaleHubCluster()) return '/sv/oro.html';
     if (pathnameNoQuery() === '/sv/hopp.html') return '/sv/hopp.html';
     if (isHopeEquivalentPath()) return '/sv/hopp.html';
     if (isSwedishAnxietyPage()) return '/sv/oro.html';
@@ -436,7 +446,7 @@
 
   function ptHref() {
     var curPt = pathnameNoQuery();
-    if (isFrenchHub()) return '/pt/';
+    if (isFrenchHub() || isSpanishHub()) return '/pt/';
     if (isPortugueseHub()) return '/pt/';
     if (PT_TO_EN[curPt]) return curPt;
     if (curPt === '/pt/esperanca.html') return '/pt/esperanca.html';
@@ -449,7 +459,7 @@
 
   function bnHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/bn/chinta.html';
-    if (isPortugueseOrFrenchHub()) return '/bn/chinta.html';
+    if (isLocaleHubCluster()) return '/bn/chinta.html';
     if (pathnameNoQuery() === '/bn/asha.html') return '/bn/asha.html';
     if (isHopeEquivalentPath()) return '/bn/asha.html';
     if (isBengaliAnxietyPage()) return '/bn/chinta.html';
@@ -459,7 +469,7 @@
 
   function swHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/sw/wasiwasi.html';
-    if (isPortugueseOrFrenchHub()) return '/sw/wasiwasi.html';
+    if (isLocaleHubCluster()) return '/sw/wasiwasi.html';
     if (pathnameNoQuery() === '/sw/tumaini.html') return '/sw/tumaini.html';
     if (isHopeEquivalentPath()) return '/sw/tumaini.html';
     if (isSwahiliAnxietyPage()) return '/sw/wasiwasi.html';
@@ -469,7 +479,7 @@
 
   function moreHref() {
     if (isSpanishTopical()) return '/explore.html#topics-es';
-    if (isFrenchHub()) return MORE_HUB;
+    if (isFrenchHub() || isSpanishHub()) return MORE_HUB;
     if (isIndonesianTopical() || isTagalogTopical() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
       isArabicAnxietyPage() || isHindiAnxietyPage() || isRussianAnxietyPage() ||
       isSwedishAnxietyPage() || isPortugueseAnxietyPage() || isBengaliAnxietyPage() ||
@@ -582,6 +592,8 @@
         if (ptPick) ptPick.setAttribute('aria-current', 'true');
       } else if (isFrenchHub()) {
         if (fr) fr.setAttribute('aria-current', 'true');
+      } else if (isSpanishHub()) {
+        if (es) es.setAttribute('aria-current', 'true');
       } else if (PT_TO_EN[p]) {
         if (ptPick) ptPick.setAttribute('aria-current', 'true');
       } else if (p === '/bn/asha.html') {

@@ -1,6 +1,9 @@
 /**
  * One-shot generator: Portuguese mood + shell + legal pages (Tier 1–3a).
  * Run: node scripts/write-pt-locale-pages.mjs
+ *
+ * Release bar + hub patterns: docs/LOCALE-COMPLETE.md. Hubs: /es/, /fr/, /pt/ (hand-maintained HTML).
+ * For new mood depth in another language, copy this script or extract shared templates in a follow-up.
  */
 import fs from 'fs';
 import path from 'path';
@@ -11,9 +14,9 @@ const PT_DIR = path.join(__dirname, '..', 'pt');
 
 const LANG_SWITCHER_INNER = `            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt" href="/explore.html#topics-es" hreflang="es" data-tdb-pick="es">Español</a>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt" href="/fr/anxiete.html" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt" href="/zh/jiaolv.html" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>

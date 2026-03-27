@@ -114,6 +114,17 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Spanish hub (es/) — high churn like PT/FR hubs
+/es/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/es/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # French hub (fr/) — high churn like PT hub
 /fr/
   Cache-Control: no-cache, must-revalidate

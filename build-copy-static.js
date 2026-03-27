@@ -376,6 +376,11 @@ if (fs.existsSync(path.join(root, 'tl'))) {
   console.log('Copied tl/ folder (localized topical pilots)');
 }
 
+if (fs.existsSync(path.join(root, 'es'))) {
+  copyDir(path.join(root, 'es'), path.join(dist, 'es'));
+  console.log('Copied es/ folder (Spanish hub)');
+}
+
 if (fs.existsSync(path.join(root, 'fr'))) {
   copyDir(path.join(root, 'fr'), path.join(dist, 'fr'));
   console.log('Copied fr/ folder (French topical pilots)');
@@ -520,6 +525,10 @@ if (!sitemapBody.includes('todaysdailybattle.com/pt/</loc>')) {
 }
 if (!sitemapBody.includes('todaysdailybattle.com/fr/</loc>')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list French hub (https://todaysdailybattle.com/fr/).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('todaysdailybattle.com/es/</loc>')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Spanish hub (https://todaysdailybattle.com/es/).');
   process.exit(1);
 }
 if (!sitemapBody.includes('pt/ansiedade.html')) {

@@ -15378,3 +15378,56 @@ body.kids-battle-page .tdb-site-humility {
   }
 }
 
+/* Topic mood pages (template: topic-fear.html first) — calm hero, lighter related-topic grid */
+.tdb-topic-mood-page .topic-mood-hero {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+}
+
+.tdb-topic-mood-page .topic-mood-tagline {
+  max-width: 36rem;
+  margin: 0 auto 0.35rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text) 94%, var(--muted));
+}
+
+.tdb-topic-mood-page .topic-mood-subtle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0.5rem auto 1.35rem;
+  max-width: 28rem;
+}
+
+.tdb-topic-mood-page .topic-mood-cta {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tdb-topic-mood-page .topic-mood-footnote,
+.tdb-topic-mood-page .topic-mood-pair-note {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.tdb-topic-mood-page .topic-mood-pair-note {
+  margin-top: 0.65rem;
+  color: var(--text-muted, #94a3b8);
+}
+
+.tdb-topic-mood-page .topic-related-ctas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 0.5rem;
+  justify-content: stretch;
+}
+
+@media (max-width: 520px) {
+  .tdb-topic-mood-page .topic-related-ctas {
+    grid-template-columns: 1fr;
+  }
+}
+

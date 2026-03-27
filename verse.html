@@ -24,8 +24,8 @@
   <meta name="twitter:description" content="One verse, every day. KJV. No account required.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260305p" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="preload" href="styles.css?v=20260331vod" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260331vod">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
     {"@context":"https://schema.org","@type":"WebPage","name":"Verse of the Day • Today's Daily Battle","url":"https://todaysdailybattle.com/verse.html","description":"Daily Bible verse for encouragement and hope from God's Word.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
 </head>
-<body class="dark-mode">
+<body class="dark-mode tdb-verse-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
@@ -182,31 +182,28 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner verse-hero">
           <h1>Verse of the Day</h1>
-          <p class="hero-tagline">A fresh verse each day to steady your heart.</p>
-          <div class="cta-group">
-            <a class="btn btn-primary" href="bible-tool.html">Look up a verse</a>
-            <a class="btn btn-secondary" href="/">Search Scripture</a>
-            <a class="btn btn-secondary" href="study.html">Study Workspace</a>
+          <p class="hero-tagline">One quiet word from Scripture to steady your heart today.</p>
+          <p class="verse-hero-subtle">KJV. No pressure. Just a gentle anchor.</p>
+          <div class="cta-group verse-cta-group">
+            <a href="bible-tool.html" class="btn btn-secondary">Look up any verse</a>
+            <a href="/" class="btn btn-secondary">Back to Home</a>
           </div>
         </header>
         <section id="verse-of-day" class="verse-of-day glass" role="region" aria-live="polite" aria-label="Verse of the day">
-          <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>Verse of the Day</h2>
-          <p class="section-note">Updates daily at your local midnight.</p>
+          <h2 class="section-divider">Today&rsquo;s Verse</h2>
           <div id="daily-verse-card" class="verse-card verse-card-loaded" aria-live="polite">
             <strong>Philippians 4:6</strong><p>Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p>
           </div>
-          <div class="verse-card-actions" aria-label="Verse actions: share, copy, save, pray">
-            <button type="button" id="verse-page-share" class="btn btn-primary">Share</button>
+          <div class="verse-card-actions verse-actions calm-actions" aria-label="Verse actions: share, copy, save, pray">
+            <button type="button" id="verse-page-share" class="btn btn-primary">Share this verse</button>
             <button type="button" id="verse-page-share-encourage" class="btn btn-secondary">Share with someone who needs it</button>
-            <button type="button" id="verse-page-copy" class="btn btn-secondary" aria-label="Copy verse and link to clipboard">Copy</button>
-            <button type="button" id="verse-page-save-my-verses" class="btn btn-secondary" aria-describedby="verse-save-hint-text" aria-label="Save today's verse to My Verses on this device">Save to My Verses</button>
+            <button type="button" id="verse-page-copy" class="btn btn-secondary" aria-label="Copy verse and link to clipboard">Copy verse</button>
+            <button type="button" id="verse-page-save-my-verses" class="btn btn-secondary" aria-describedby="verse-save-hint-text" aria-label="Save today&apos;s verse to My Verses on this device">Save to My Verses</button>
             <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy verse and share link">Pray this with me</button>
           </div>
-          <div class="verse-save-block">
-            <p id="verse-save-hint-text" class="section-note verse-save-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/my-verses.html">Open My Verses</a>.</p>
-          </div>
+          <p id="verse-save-hint-text" class="section-note verse-save-hint">Saved verses appear in <a href="/my-verses.html">My Verses</a>—the same list as Search and the <a href="/bible-tool.html">Bible tool</a>. All verses are from the KJV.</p>
           <span id="verse-page-save-status" class="sr-only" aria-live="polite"></span>
         </section>
       </div>

@@ -15307,3 +15307,74 @@ body.kids-battle-page .tdb-site-humility {
   }
 }
 
+/* Verse page (verse.html): calmer hero, card, actions — scoped to .tdb-verse-page only */
+.tdb-verse-page .verse-hero {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+}
+
+.tdb-verse-page .verse-hero-subtle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.tdb-verse-page .verse-cta-group {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tdb-verse-page .verse-actions.calm-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.tdb-verse-page #verse-of-day #daily-verse-card.verse-card {
+  padding: 2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 1.18rem;
+  line-height: 1.65;
+}
+
+.tdb-verse-page #verse-of-day .section-divider {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-muted, rgba(226, 232, 240, 0.72));
+  justify-content: center;
+  border-bottom-color: rgba(148, 163, 184, 0.12);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--gold) 25%, transparent);
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.tdb-verse-page #verse-of-day .verse-save-hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted, #94a3b8);
+  text-align: center;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tdb-verse-page #verse-of-day .verse-save-hint a {
+  color: var(--gold-soft, #c9a84c);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+  .tdb-verse-page .verse-actions.calm-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .tdb-verse-page #verse-of-day #daily-verse-card.verse-card {
+    padding: 1.75rem 1.25rem;
+    font-size: 1.08rem;
+  }
+}
+

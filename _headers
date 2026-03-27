@@ -178,6 +178,84 @@
 /pt/ansiedade
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/pt/esperanca.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/esperanca
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/medo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/medo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/forca.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/forca
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/paz.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/paz
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/solidao.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/solidao
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/culpa.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/culpa
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/sobrecarga.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/sobrecarga
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/planos.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/planos
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/mural.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/mural
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/leitor.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/leitor
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/criancas.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/criancas
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/privacy.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/privacy
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/terms.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/terms
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 
 # Bengali anxiety pilot (bn/)
 /bn/chinta.html

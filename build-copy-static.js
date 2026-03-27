@@ -522,6 +522,18 @@ if (!sitemapBody.includes('pt/ansiedade.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Portuguese anxiety pilot (pt/ansiedade.html).');
   process.exit(1);
 }
+if (!sitemapBody.includes('pt/medo.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Portuguese fear pilot (pt/medo.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('pt/planos.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Portuguese plans shell (pt/planos.html).');
+  process.exit(1);
+}
+if (!sitemapBody.includes('pt/privacy.html')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Portuguese privacy summary (pt/privacy.html).');
+  process.exit(1);
+}
 if (!sitemapBody.includes('bn/chinta.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Bengali anxiety pilot (bn/chinta.html).');
   process.exit(1);

@@ -139,6 +139,9 @@ const cacheHygienePaths = [
   '/id/kecemasan',
   '/tl/kabalisahan.html',
   '/tl/kabalisahan',
+  '/fr/',
+  '/fr',
+  '/fr/index.html',
   '/fr/anxiete.html',
   '/fr/anxiete',
   '/zh/jiaolv.html',
@@ -317,6 +320,8 @@ if (
   !purgeMjs.includes("'/paz.html'") ||
   !purgeMjs.includes("'/id/kecemasan.html'") ||
   !purgeMjs.includes("'/tl/kabalisahan.html'") ||
+  !purgeMjs.includes("'/fr/'") ||
+  !purgeMjs.includes("'/fr/index.html'") ||
   !purgeMjs.includes("'/fr/anxiete.html'") ||
   !purgeMjs.includes("'/zh/jiaolv.html'") ||
   !purgeMjs.includes("'/ar/qalaq.html'") ||

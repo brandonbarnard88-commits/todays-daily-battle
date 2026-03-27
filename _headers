@@ -114,6 +114,17 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# French hub (fr/) — high churn like PT hub
+/fr/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # French anxiety pilot (fr/)
 /fr/anxiete.html
   Cache-Control: no-cache, must-revalidate

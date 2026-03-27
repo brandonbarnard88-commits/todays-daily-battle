@@ -22,13 +22,35 @@ const EXCLUDE = new Set([
 
 const EXCLUDE_PREFIXES = ['lighthouse-'];
 
+/** ES topical + tool shells at site root (Reina-Valera pilots): custom footer, pilot note, Spanish aria-labels. */
+const ES_ROOT_FOOTER_SKIP = new Set([
+  'agobio.html',
+  'ansiedad.html',
+  'culpa.html',
+  'duelo.html',
+  'esperanza.html',
+  'fuerza.html',
+  'ira.html',
+  'lector.html',
+  'miedo.html',
+  'muro.html',
+  'ninos.html',
+  'paz.html',
+  'perdon.html',
+  'planes.html',
+  'soledad.html',
+]);
+
 function shouldSkip(rel) {
   if (EXCLUDE.has(rel)) return true;
   for (const p of EXCLUDE_PREFIXES) {
     if (rel.startsWith(p)) return true;
   }
+  if (ES_ROOT_FOOTER_SKIP.has(rel)) return true;
+  /* Spanish hub and any future es/*.html */
+  if (rel.startsWith('es/')) return true;
   /* Localized topical pilots use custom footers (pilot note, essentials). Do not overwrite with global partial. */
-  if (/^(ar|bn|fr|hi|id|pt|ru|sv|sw|tl|zh)\/[^/]+\.html$/.test(rel)) {
+  if (/^(ar|bn|es|fr|hi|id|pt|ru|sv|sw|tl|zh)\/[^/]+\.html$/.test(rel)) {
     return true;
   }
   if (rel.startsWith('kids/')) {

@@ -14438,6 +14438,59 @@ main > .card {
   word-break: break-word;
 }
 
+.explore-hub-card--languages {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 46%, transparent);
+  background: color-mix(in srgb, var(--bg, #0f1218) 52%, transparent);
+}
+
+.explore-languages-lead {
+  max-width: 68ch;
+}
+
+.explore-languages-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.05rem;
+}
+
+.explore-lang-tier {
+  padding: 0.88rem 1.02rem 1.02rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line, #2a3140) 90%, transparent);
+  background: color-mix(in srgb, var(--bg, #0f1218) 72%, transparent);
+}
+
+.explore-lang-tier-title {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold-soft, #f2dc98) 90%, transparent);
+  margin: 0 0 0.5rem;
+}
+
+.explore-lang-tier-note {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 0.86rem;
+  line-height: 1.52;
+}
+
+.explore-lang-tier-list {
+  margin-top: 0.4rem !important;
+  margin-bottom: 0 !important;
+}
+
+.explore-lang-tier-list li {
+  margin-bottom: 0.55rem;
+}
+
+.explore-lang-tier-list li:last-child {
+  margin-bottom: 0;
+}
+
 [lang="zh-CN"] .explore-hub-card-title,
 [lang="zh-CN"] .explore-hub-card-desc,
 [lang="ru"] .explore-hub-card-title,
@@ -14480,6 +14533,20 @@ main > .card {
 
 :root[data-theme="light"] .explore-hub-card-desc {
   color: var(--muted, #5f6877);
+}
+
+:root[data-theme="light"] .explore-hub-card--languages {
+  border-color: color-mix(in srgb, var(--gold) 42%, var(--line));
+  background: color-mix(in srgb, var(--card) 92%, var(--gold) 5%);
+}
+
+:root[data-theme="light"] .explore-lang-tier {
+  border-color: color-mix(in srgb, var(--line) 94%, var(--gold) 6%);
+  background: color-mix(in srgb, var(--card) 96%, var(--gold) 3%);
+}
+
+:root[data-theme="light"] .explore-lang-tier-title {
+  color: color-mix(in srgb, var(--gold) 55%, var(--text, #191d26));
 }
 
 :root[data-theme="light"] .explore-page .explore-trust-line {

@@ -54,6 +54,12 @@
     .bible-tool .lookup-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
     .bible-tool .lookup-controls select, .bible-tool .lookup-controls input[type="number"], .bible-tool .lookup-controls input[type="text"] { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; }
     .bible-tool .lookup-controls input[type="number"] { width: 3.5rem; }
+    .bible-tool .bible-tool-tags-input {
+      width: 100%; max-width: 28rem; padding: 0.55rem 0.65rem; border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.85); color: #e2e8f0; font-size: 1rem;
+      min-height: 44px; box-sizing: border-box;
+    }
+    .bible-tool .bible-tool-tags-input:focus { outline: 2px solid rgba(167, 139, 250, 0.55); outline-offset: 2px; }
     .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; resize: vertical; min-height: 4rem; }
     .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 1rem; }
     .bible-tool .verse-ref { font-weight: 600; }
@@ -671,6 +677,25 @@
             </div>
             <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
             <div id="lookup-context" class="util-mt-0_5" aria-live="polite"></div>
+            <details class="home-accordion util-mt-1 bible-tool-study-pane" id="bible-tool-study-details">
+              <summary class="home-accordion-summary">Study companion — tags, concordance, export</summary>
+              <div class="bible-tool-study-pane-inner util-mt-0_5">
+                <label for="lookup-tags-input" class="section-note util-mb-0_5" style="display:block;">Tags for this verse (comma-separated)</label>
+                <input type="text" id="lookup-tags-input" class="bible-tool-tags-input" placeholder="e.g. fear, sermon, marriage" autocomplete="off" aria-label="Tags for current verse" maxlength="120" />
+                <p class="section-note util-mt-0_5 util-mb-0">Use tags to group notes later in <a href="mystudy.html" class="bible-tool-gold-link">My Study</a> → Note library.</p>
+                <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word search (concordance)</strong> — see every verse that uses a word.</p>
+                <div class="lookup-controls util-mt-0_5" role="group" aria-label="Concordance shortcuts">
+                  <a class="btn btn-secondary" href="bible/tools.html?q=faith">faith</a>
+                  <a class="btn btn-secondary" href="bible/tools.html?q=peace">peace</a>
+                  <a class="btn btn-secondary" href="bible/tools.html?q=charity">charity</a>
+                  <a class="btn btn-secondary" href="bible/tools.html?q=quick">quick</a>
+                  <a class="btn btn-secondary" href="bible/tools.html?q=conversation">conversation</a>
+                </div>
+                <p class="section-note util-mt-0_75 util-mb-0"><strong>Curated cross-references</strong> appear under the verse when we have them; tap a link to jump. For parallel Gospels and history, use the chapter reader and your own chain in the note box.</p>
+                <button type="button" id="export-study-json-btn" class="btn btn-secondary util-mt-0_5">Export verse notes + tags (JSON)</button>
+                <p id="export-study-status" class="section-note util-mt-0_5" aria-live="polite"></p>
+              </div>
+            </details>
           </div>
         </section>
 
@@ -679,6 +704,7 @@
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Notes</h2>
           <textarea id="note-input" placeholder="Add a note for the verse above (after you look one up)…" rows="2" aria-label="Note for current verse"></textarea>
           <p class="section-note util-mb-0">Saved on this device — no account needed to keep notes.</p>
+          <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.55rem 0.7rem;border-radius:8px;border:1px solid rgba(148,163,184,0.2);background:rgba(15,23,42,0.35);max-width:40rem;">Want deeper study tools? Tell us what would help: <a href="contact.html" class="bible-tool-gold-link">Contact</a> — we read every note.</p>
           <div id="notes-list" class="util-mt-1"></div>
         </section>
 
@@ -691,6 +717,8 @@
             <option value="strength">Strength (7 days)</option>
             <option value="fear">Victory Over Fear (7 days)</option>
             <option value="family">Family (7 days)</option>
+            <option value="john">Gospel of John (21 chapters)</option>
+            <option value="ntsampler">New Testament sampler (14 readings)</option>
             <option value="custom">Custom (enter refs below)</option>
           </select>
           <div id="plan-progress-wrap" class="util-mt-1">
@@ -704,7 +732,6 @@
           <div id="plan-custom" class="hidden util-mt-1">
             <input type="text" id="plan-refs" placeholder="e.g. John 1, John 2, Psalm 23 — separate with commas" aria-label="Custom verse references, comma separated" />
             <p class="section-note" style="margin-top:0.3rem;font-size:0.78rem;opacity:0.65;">Updates as you type — separate with commas.</p>
-          </div>
           </div>
         </section>
 
@@ -732,13 +759,14 @@
           <div id="battle-ready-result" class="hidden util-mt-1" aria-live="polite"></div>
         </section>
 
-        <p class="section-note util-mt-1 bible-tool-footer-links"><a class="bible-tool-gold-link" href="/">← Back to Home</a> · <a class="bible-tool-gold-link" href="explore.html">Explore</a> · <a class="bible-tool-gold-link" href="verse-image.html">Verse image generator</a> · <a class="bible-tool-gold-link" href="verse.html">Verse of the Day</a> · <a class="bible-tool-gold-link" href="reading-plan.html">7-Day Plan</a> · <a class="bible-tool-gold-link" href="study.html">Study Workspace</a></p>
+        <p class="section-note util-mt-1 bible-tool-footer-links"><a class="bible-tool-gold-link" href="/">← Back to Home</a> · <a class="bible-tool-gold-link" href="explore.html">Explore</a> · <a class="bible-tool-gold-link" href="mystudy.html">My Study</a> · <a class="bible-tool-gold-link" href="verse-image.html">Verse image generator</a> · <a class="bible-tool-gold-link" href="verse.html">Verse of the Day</a> · <a class="bible-tool-gold-link" href="reading-plan.html">7-Day Plan</a> · <a class="bible-tool-gold-link" href="study.html">Study Workspace</a></p>
         <p class="footer-humility util-mt-1" style="text-align: center; margin-bottom: 0;">We battle. He wins.</p>
       </div>
     </main>
   </div>
 
   <script type="module" src="script.js?v=20260328feelwire"></script>
+  <script src="bible-study-companion.js?v=20260327"></script>
   <script src="verse-breakdown.js?v=20260325clean"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
   <script src="highlights.js?v=20260305"></script>
@@ -790,8 +818,31 @@
 
   var CROSS_REFS = {
     'John 3:16': ['Romans 5:8', 'Romans 10:9', '1 John 4:9'],
-    'Colossians 3:23': ['Ephesians 6:7', '1 Corinthians 10:31'],
+    'John 1:1': ['Genesis 1:1', 'Colossians 1:16', 'Hebrews 1:3'],
+    'John 14:6': ['Acts 4:12', '1 Timothy 2:5', 'Hebrews 7:25'],
+    'Romans 3:23': ['Romans 3:10', 'Isaiah 53:6', '1 John 1:8'],
+    'Romans 6:23': ['Romans 5:12', 'John 3:16', 'Ephesians 2:8'],
+    'Romans 8:28': ['Romans 8:31', 'Jeremiah 29:11', 'Genesis 50:20'],
+    'Romans 12:1': ['Romans 6:13', '1 Corinthians 6:20', 'Hebrews 13:15'],
+    'Ephesians 2:8': ['Romans 3:24', 'Titus 3:5', 'Galatians 2:16'],
+    'Ephesians 2:10': ['Philippians 2:13', 'Matthew 5:16', 'Titus 2:14'],
+    'Philippians 4:6': ['Philippians 4:19', '1 Peter 5:7', 'Matthew 6:25'],
+    'Philippians 4:7': ['Isaiah 26:3', 'John 14:27', 'Colossians 3:15'],
     'Philippians 4:13': ['2 Timothy 4:17', 'Isaiah 40:31'],
+    'Colossians 3:23': ['Ephesians 6:7', '1 Corinthians 10:31'],
+    'Hebrews 11:1': ['Romans 4:20', '2 Corinthians 5:7', 'Hebrews 11:6'],
+    'Hebrews 12:1': ['Hebrews 10:36', '1 Corinthians 9:24', 'Philippians 3:14'],
+    'James 1:2': ['Romans 5:3', '1 Peter 1:6', 'James 1:12'],
+    'James 1:5': ['Proverbs 2:6', 'Matthew 7:7', 'James 3:17'],
+    '1 Peter 5:7': ['Psalm 55:22', 'Matthew 11:28', 'Philippians 4:6'],
+    'Isaiah 53:5': ['1 Peter 2:24', 'Matthew 8:17', 'Romans 4:25'],
+    'Matthew 11:28': ['Jeremiah 6:16', 'John 7:37', 'Isaiah 55:1'],
+    'Matthew 28:18': ['Daniel 7:14', 'Ephesians 1:20', 'Philippians 2:9'],
+    'Luke 23:34': ['Acts 7:60', 'Romans 12:14', '1 Peter 2:23'],
+    'Psalm 51:10': ['Ezekiel 36:26', '2 Corinthians 5:17', 'Psalm 32:5'],
+    'Psalm 119:105': ['Proverbs 6:23', '2 Peter 1:19', 'John 8:12'],
+    'Proverbs 3:5': ['Proverbs 3:6', 'Jeremiah 17:7', 'Psalm 37:5'],
+    'Genesis 1:1': ['John 1:1', 'Psalm 90:2', 'Hebrews 11:3'],
     'Ephesians 6:10': ['Ephesians 6:11', '2 Timothy 2:1'],
     'Romans 5:8': ['John 3:16', '1 John 4:10'],
     'Psalm 23:1': ['John 10:11', 'Isaiah 40:11'],
@@ -853,15 +904,45 @@
   var FEAR_PLAN = ['2 Timothy 1:7', 'Isaiah 41:10', 'Joshua 1:9', 'Psalm 27:1', 'Psalm 56:3', 'Romans 8:15', 'Psalm 34:4'];
   var FAMILY_PLAN = ['Joshua 24:15', 'Deuteronomy 6:6', 'Proverbs 22:6', 'Colossians 3:21', 'Ephesians 6:4', 'Psalm 127:3', 'Proverbs 17:6'];
 
+  var JOHN_PLAN = [];
+  for (var _jch = 1; _jch <= 21; _jch++) JOHN_PLAN.push('John ' + _jch + ':1');
+  var NT_SAMPLER = [
+    'Matthew 5:1', 'John 1:1', 'Acts 1:1', 'Romans 1:1', 'Romans 8:1',
+    '1 Corinthians 13:1', '2 Corinthians 5:1', 'Galatians 5:1', 'Ephesians 2:1',
+    'Philippians 2:1', 'Colossians 3:1', '1 Thessalonians 4:1', 'Hebrews 11:1', 'James 1:1'
+  ];
+  var JOHN_REFLECTIONS = [];
+  for (var _jr = 0; _jr < 21; _jr++) {
+    JOHN_REFLECTIONS.push('In John ' + (_jr + 1) + ', what does Christ make plain about God or about you? What is one phrase to carry today?');
+  }
+  var NT_SAMPLER_REFLECTIONS = [
+    'What does Jesus teach about the kingdom in this opening?',
+    'What is the Word made flesh doing here — and how does that steady you?',
+    'How does the early church depend on the Spirit?',
+    'What is the gospel stating plainly in Romans?',
+    'Where is "no condemnation" grounded?',
+    'How does charity redefine strength in this passage?',
+    'What does reconciliation cost and give?',
+    'What does freedom in the Spirit look like here?',
+    'What has God done before you ever added works?',
+    'How does humility show up in Christ\'s example?',
+    'What new life in Christ is Paul urging?',
+    'What hope does Paul hold out for those who grieve?',
+    'Why does faith please God in this chapter?',
+    'What trial of faith is named — and what is the promise?'
+  ];
+
   var PLAN_REFLECTIONS = {
     armor: ['Where do you need the belt of truth most today?', 'How can you put on the breastplate of righteousness in one relationship?', 'Where do you need to stand firm with the gospel of peace?', 'When did you last hold up the shield of faith?', 'What step of obedience is God asking for today?', 'How will you pray in the Spirit today?', 'Name one way you will stand in the full armor tomorrow.'],
     strength: ['Where do you need Christ’s strength instead of your own?', 'What are you waiting on God for?', 'How can you celebrate God’s goodness today?', 'Where do you need God as your refuge?', 'Who needs you to be strong in the Lord?', 'What battle will you face in faith today?', 'How will you armor up for the week ahead?'],
     fear: ['What fear are you handing to God today?', 'How is God with you in this situation?', 'Where will you choose courage today?', 'What truth from Scripture can replace one lie?', 'When you are afraid, what will you do?', 'How does God’s Spirit remind you you’re not alone?', 'Who can you encourage with “fear not” this week?'],
-    family: ['How will you serve the Lord in your home today?', 'When will you talk about Scripture with your household?', 'What habit do you want to pass on?', 'How can you avoid provoking and instead encourage?', 'What one way will you nurture your children in the Lord?', 'How are your children a heritage from the Lord?', 'What legacy of faith are you building?']
+    family: ['How will you serve the Lord in your home today?', 'When will you talk about Scripture with your household?', 'What habit do you want to pass on?', 'How can you avoid provoking and instead encourage?', 'What one way will you nurture your children in the Lord?', 'How are your children a heritage from the Lord?', 'What legacy of faith are you building?'],
+    john: JOHN_REFLECTIONS,
+    ntsampler: NT_SAMPLER_REFLECTIONS
   };
 
-  var THEMED_PLANS = { armor: ARMOR_PLAN, strength: STRENGTH_PLAN, fear: FEAR_PLAN, family: FAMILY_PLAN };
-  var PLAN_NAMES = { armor: 'Armor of God', strength: 'Strength', fear: 'Victory Over Fear', family: 'Family' };
+  var THEMED_PLANS = { armor: ARMOR_PLAN, strength: STRENGTH_PLAN, fear: FEAR_PLAN, family: FAMILY_PLAN, john: JOHN_PLAN, ntsampler: NT_SAMPLER };
+  var PLAN_NAMES = { armor: 'Armor of God', strength: 'Strength', fear: 'Victory Over Fear', family: 'Family', john: 'Gospel of John', ntsampler: 'NT Sampler' };
 
   var BOOKS = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
 
@@ -890,6 +971,12 @@
     var m = r.match(/^(.+?)\s+(\d+):(\d+)$/);
     if (!m) return null;
     return { book: m[1].trim(), chapter: m[2], verse: m[3] };
+  }
+
+  function readerHrefFromRef(ref) {
+    var p = parseRefToParts(ref);
+    if (!p || !p.book || !p.chapter) return '';
+    return 'reader.html?book=' + encodeURIComponent(p.book) + '&chapter=' + encodeURIComponent(p.chapter);
   }
 
   function setLookupForm(book, chapter, verse) {
@@ -1007,6 +1094,10 @@
     block.classList.remove('hidden');
     var noteInput = document.getElementById('note-input');
     if (noteInput) { noteInput.dataset.currentRef = data.reference; noteInput.value = (loadNotes()[data.reference] || '').trim(); }
+    var tagInput = document.getElementById('lookup-tags-input');
+    if (tagInput && window.TDBStudyCompanion) {
+      tagInput.value = window.TDBStudyCompanion.getTags(data.reference).join(', ');
+    }
     var prayBox = document.getElementById('lookup-prayer-box');
     if (prayBox) { prayBox.classList.add('hidden'); prayBox.innerHTML = ''; }
     var lookupContext = document.getElementById('lookup-context');
@@ -1513,6 +1604,35 @@
     renderNotes();
   });
 
+  (function wireStudyCompanionUi() {
+    var tagInputEl = document.getElementById('lookup-tags-input');
+    if (tagInputEl) {
+      tagInputEl.addEventListener('blur', function () {
+        var ref = document.getElementById('note-input').dataset.currentRef;
+        if (!ref || !window.TDBStudyCompanion) return;
+        window.TDBStudyCompanion.setTags(ref, window.TDBStudyCompanion.parseTagInput(tagInputEl.value));
+      });
+    }
+    var exportStudyBtn = document.getElementById('export-study-json-btn');
+    if (exportStudyBtn) {
+      exportStudyBtn.addEventListener('click', function () {
+        var st = document.getElementById('export-study-status');
+        if (!window.TDBStudyCompanion) {
+          if (st) st.textContent = 'Study tools did not load. Refresh and try again.';
+          return;
+        }
+        var payload = window.TDBStudyCompanion.exportJson();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(payload).then(function () {
+            if (st) st.textContent = 'Copied JSON to clipboard — paste into a safe file on your device.';
+          }).catch(function () {
+            if (st) st.textContent = 'Could not copy automatically — select and copy from your notes if needed.';
+          });
+        } else if (st) st.textContent = 'Clipboard not available in this browser.';
+      });
+    }
+  })();
+
   document.getElementById('plan-picker').addEventListener('change', function () {
     document.getElementById('plan-custom').classList.toggle('hidden', this.value !== 'custom');
     renderPlan();
@@ -1560,7 +1680,9 @@
     if (fillEl && total) fillEl.style.width = Math.round((completed / total) * 100) + '%';
     if (badgeEl) {
       badgeEl.classList.toggle('hidden', !isThemed);
-      badgeEl.textContent = completed >= total ? 'Day 7 of 7 — Complete!' : 'Day ' + (completed + 1) + ' of ' + total;
+      badgeEl.textContent = completed >= total
+        ? ('All ' + total + ' readings complete')
+        : ('Reading ' + (completed + 1) + ' of ' + total);
     }
     if (reflEl && isThemed) {
       reflEl.classList.remove('hidden');
@@ -1572,16 +1694,16 @@
     } else if (reflEl) reflEl.classList.add('hidden');
     if (completeEl && isThemed) {
       completeEl.classList.toggle('hidden', completed < total);
-      if (completed >= total) completeEl.textContent = '✓ Plan done. Share it with someone who needs it.';
+      if (completed >= total) completeEl.textContent = '\u2713 Plan done. Share it with someone who needs it.';
     }
     if (shareBtn) {
       shareBtn.classList.toggle('hidden', !isThemed);
       shareBtn.onclick = function () {
         var ticks = '';
-        for (var i = 0; i < completed; i++) ticks += '✓';
+        for (var i = 0; i < completed; i++) ticks += '\u2713';
         var text = completed >= total
-          ? planName + ' – Day 7/7 ✓✓✓✓✓✓✓ – Done. todaysdailybattle.com/bible-tool.html'
-          : planName + ' – Day ' + (completed + 1) + '/' + total + ' ' + ticks + ' todaysdailybattle.com/bible-tool.html';
+          ? planName + ' — finished ' + total + '/' + total + '. todaysdailybattle.com/bible-tool.html'
+          : planName + ' — ' + (completed + 1) + '/' + total + ' ' + ticks + ' todaysdailybattle.com/bible-tool.html';
         if (navigator.share) {
           navigator.share({ title: "Today's Daily Battle", text: text }).catch(function () {
             if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).catch(function () {});
@@ -1592,9 +1714,11 @@
       };
     }
 
-    progress.innerHTML = '<p class="section-note util-mb-0_5">Check off as you read</p>' + list.map(function (ref) {
+    progress.innerHTML = '<p class="section-note util-mb-0_5">Check off as you read. Use <strong>Read chapter</strong> for full KJV context in the chapter reader.</p>' + list.map(function (ref) {
       var done = saved[ref];
-      return '<label class="plan-progress label"><input type="checkbox" data-ref="' + escapeHtml(ref) + '" ' + (done ? 'checked' : '') + ' /> <span>' + escapeHtml(ref) + '</span></label>';
+      var rh = readerHrefFromRef(ref);
+      var readLink = rh ? ' <a class="cross-ref-link" href="' + escapeHtml(rh) + '">Read chapter</a>' : '';
+      return '<label class="plan-progress label"><input type="checkbox" data-ref="' + escapeHtml(ref) + '" ' + (done ? 'checked' : '') + ' /> <span>' + escapeHtml(ref) + '</span>' + readLink + '</label>';
     }).join('');
     progress.querySelectorAll('input[type=checkbox]').forEach(function (cb) {
       cb.addEventListener('change', function () {

@@ -448,6 +448,36 @@
     }
     .day-bp-text { font-size: 0.9rem; color: var(--text); margin: 0; line-height: 1.45; }
 
+    .day-inductive {
+      margin-bottom: 1rem;
+      border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      border-radius: 12px;
+      padding: 0.35rem 0.75rem;
+      background: color-mix(in srgb, var(--accent) 6%, var(--card));
+    }
+    .day-inductive > summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--muted);
+      list-style: none;
+      padding: 0.45rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .day-inductive > summary::-webkit-details-marker { display: none; }
+    .day-inductive[open] > summary { color: var(--gold-soft); margin-bottom: 0.35rem; }
+    .day-inductive-inner { display: grid; gap: 0.55rem; padding-bottom: 0.35rem; }
+    .day-inductive-q { margin: 0; font-size: 0.88rem; line-height: 1.45; color: var(--text); }
+    .day-inductive-q strong {
+      color: var(--gold);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-right: 0.35rem;
+    }
+
     /* Action row */
     .day-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; align-items: center; }
     .btn-complete {
@@ -1855,6 +1885,28 @@
         appendDayBp(breakdown, 'Prayer', dayData.prayer, 'prayer-panel');
       }
       card.appendChild(breakdown);
+
+      var inductive = document.createElement('details');
+      inductive.className = 'day-inductive';
+      var indSum = document.createElement('summary');
+      indSum.textContent = 'Go deeper (optional study)';
+      inductive.appendChild(indSum);
+      var indInner = document.createElement('div');
+      indInner.className = 'day-inductive-inner';
+      function appendInductiveQ(label, qtext) {
+        var p = document.createElement('p');
+        p.className = 'day-inductive-q';
+        var lab = document.createElement('strong');
+        lab.textContent = label;
+        p.appendChild(lab);
+        p.appendChild(document.createTextNode(qtext));
+        indInner.appendChild(p);
+      }
+      appendInductiveQ('See', ' What do these words actually say? Jot one observation in plain English.');
+      appendInductiveQ('Mean', ' What is God making clear about Himself, about people, or about what is true?');
+      appendInductiveQ('Live', ' What is one honest step you could take today in light of this verse—not performative, just faithful.');
+      inductive.appendChild(indInner);
+      card.appendChild(inductive);
 
       var actions = document.createElement('div');
       actions.className = 'day-actions';

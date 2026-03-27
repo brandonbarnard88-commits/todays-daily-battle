@@ -16675,6 +16675,11 @@ function renderReaderChapterFromApiData(output, book, chapter, key, list) {
   readNote.textContent = '~' + Math.max(1, Math.ceil(totalWords / 200)) + ' min read';
   readNote.setAttribute('aria-label', 'Estimated reading time');
   output.appendChild(readNote);
+  if (typeof globalThis !== 'undefined' && globalThis.TDBStudyCompanion && typeof globalThis.TDBStudyCompanion.recordRecentChapter === 'function') {
+    try {
+      globalThis.TDBStudyCompanion.recordRecentChapter(book, chapter);
+    } catch (e) {}
+  }
 }
 
 function renderReaderChapterFromVerses(output, book, chapter, verses) {
@@ -16717,6 +16722,11 @@ function renderReaderChapterFromVerses(output, book, chapter, verses) {
   readNote.textContent = '~' + Math.max(1, Math.ceil(totalWords / 200)) + ' min read';
   readNote.setAttribute('aria-label', 'Estimated reading time');
   output.appendChild(readNote);
+  if (typeof globalThis !== 'undefined' && globalThis.TDBStudyCompanion && typeof globalThis.TDBStudyCompanion.recordRecentChapter === 'function') {
+    try {
+      globalThis.TDBStudyCompanion.recordRecentChapter(book, chapter);
+    } catch (e) {}
+  }
 }
 
 function selectReaderChapter(book, chapter, highlightRef = '') {

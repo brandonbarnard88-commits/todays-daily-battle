@@ -72,24 +72,115 @@
 
   function setTab(tabName) {
     var myTab = byId('tab-my-study');
+    var libTab = byId('tab-note-library');
     var highlightsTab = byId('tab-highlights');
     var joinTab = byId('tab-join-study');
     var myPanel = byId('panel-my-study');
+    var libPanel = byId('panel-note-library');
     var highlightsPanel = byId('panel-highlights');
     var joinPanel = byId('panel-join-study');
     if (!myTab || !highlightsTab || !joinTab || !myPanel || !highlightsPanel || !joinPanel) return;
     var isMy = tabName === 'my';
+    var isLib = tabName === 'library';
     var isHighlights = tabName === 'highlights';
     var isJoin = tabName === 'join';
     myTab.classList.toggle('active', isMy);
+    if (libTab) libTab.classList.toggle('active', isLib);
     highlightsTab.classList.toggle('active', isHighlights);
     joinTab.classList.toggle('active', isJoin);
     myTab.setAttribute('aria-selected', isMy ? 'true' : 'false');
+    if (libTab) libTab.setAttribute('aria-selected', isLib ? 'true' : 'false');
     highlightsTab.setAttribute('aria-selected', isHighlights ? 'true' : 'false');
     joinTab.setAttribute('aria-selected', isJoin ? 'true' : 'false');
     myPanel.classList.toggle('hidden', !isMy);
+    if (libPanel) libPanel.classList.toggle('hidden', !isLib);
     highlightsPanel.classList.toggle('hidden', !isHighlights);
     joinPanel.classList.toggle('hidden', !isJoin);
+    if (isLib) renderNoteLibrary();
+  }
+
+  function renderNoteLibrary() {
+    var listEl = byId('mystudy-library-list');
+    var recentEl = byId('mystudy-recent-chapters');
+    var statusEl = byId('mystudy-library-status');
+    var filterEl = byId('mystudy-library-filter');
+    if (!listEl) return;
+    var comp = window.TDBStudyCompanion;
+    if (!comp || typeof comp.listVerseNotes !== 'function') {
+      listEl.innerHTML = '';
+      var li = document.createElement('li');
+      li.className = 'section-note';
+      li.textContent = 'Note library needs the study helper script. Refresh the page.';
+      listEl.appendChild(li);
+      return;
+    }
+    var q = filterEl ? String(filterEl.value || '').trim().toLowerCase() : '';
+    var rows = comp.listVerseNotes();
+    if (q) {
+      rows = rows.filter(function (row) {
+        var blob = (row.ref + ' ' + (row.preview || '') + ' ' + (row.tags || []).join(' ')).toLowerCase();
+        return blob.indexOf(q) !== -1;
+      });
+    }
+    if (statusEl) {
+      statusEl.textContent = rows.length
+        ? rows.length + ' note' + (rows.length === 1 ? '' : 's') + (q ? ' match your filter.' : ' saved from the Bible Tool.')
+        : q
+          ? 'No notes match that filter.'
+          : 'No verse notes yet. Look up a verse on the Bible Tool and add a note.';
+    }
+    listEl.innerHTML = '';
+    rows.forEach(function (row) {
+      var li = document.createElement('li');
+      li.className = 'mystudy-library-item';
+      var a = document.createElement('a');
+      a.className = 'mystudy-library-link';
+      a.href = 'bible-tool.html?ref=' + encodeURIComponent(row.ref);
+      a.setAttribute('aria-label', 'Open ' + row.ref + ' in Bible Tool');
+      var refStrong = document.createElement('strong');
+      refStrong.textContent = row.ref;
+      a.appendChild(refStrong);
+      if (row.tags && row.tags.length) {
+        var tagSpan = document.createElement('span');
+        tagSpan.className = 'mystudy-library-tags';
+        tagSpan.textContent = row.tags.join(' · ');
+        a.appendChild(document.createTextNode(' '));
+        a.appendChild(tagSpan);
+      }
+      var prev = document.createElement('p');
+      prev.className = 'mystudy-library-preview';
+      prev.textContent = row.preview || '';
+      li.appendChild(a);
+      li.appendChild(prev);
+      listEl.appendChild(li);
+    });
+
+    if (recentEl) {
+      recentEl.innerHTML = '';
+      var recent = typeof comp.getRecentChapters === 'function' ? comp.getRecentChapters() : [];
+      if (!recent.length) {
+        var empty = document.createElement('li');
+        empty.className = 'section-note';
+        empty.textContent = 'No recent chapters yet. Open any chapter in the reader.';
+        recentEl.appendChild(empty);
+      } else {
+        recent.forEach(function (item) {
+          var rli = document.createElement('li');
+          rli.className = 'mystudy-library-item';
+          var ra = document.createElement('a');
+          ra.className = 'mystudy-library-link';
+          ra.href =
+            'reader.html?book=' +
+            encodeURIComponent(item.book || '') +
+            '&chapter=' +
+            encodeURIComponent(String(item.chapter || ''));
+          ra.textContent = item.label || (item.book + ' ' + item.chapter);
+          ra.setAttribute('aria-label', 'Open ' + (item.label || '') + ' in chapter reader');
+          rli.appendChild(ra);
+          recentEl.appendChild(rli);
+        });
+      }
+    }
   }
 
   function renderSelectedVerse(study) {
@@ -262,8 +353,18 @@
     renderSharedList();
 
     byId('tab-my-study')?.addEventListener('click', function () { setTab('my'); });
+    byId('tab-note-library')?.addEventListener('click', function () { setTab('library'); });
     byId('tab-highlights')?.addEventListener('click', function () { setTab('highlights'); });
     byId('tab-join-study')?.addEventListener('click', function () { setTab('join'); });
+
+    var libFilter = byId('mystudy-library-filter');
+    if (libFilter) {
+      libFilter.addEventListener('input', function () {
+        if (byId('panel-note-library') && !byId('panel-note-library').classList.contains('hidden')) {
+          renderNoteLibrary();
+        }
+      });
+    }
 
     byId('mystudy-search-btn')?.addEventListener('click', function () { runSearch(study, { saveHighlight: saveHighlight }); });
     byId('mystudy-search')?.addEventListener('keydown', function (e) {

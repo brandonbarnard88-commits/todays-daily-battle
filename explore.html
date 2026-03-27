@@ -25,7 +25,7 @@
   <meta name="twitter:description" content="Every public page — topics, tools, plans, and more.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260426openbeta">
+  <link rel="stylesheet" href="styles.css?v=20260427explorelang">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,10 +130,10 @@
               <span class="explore-hub-card-title">English mood pages</span>
               <span class="explore-hub-card-desc">Anxiety, hope, grief — KJV with plain help</span>
             </a></li>
-            <li><a href="#languages" class="explore-hub-card">
+            <li><a href="#languages" class="explore-hub-card explore-hub-card--languages">
               <span class="explore-hub-card-label">Languages</span>
-              <span class="explore-hub-card-title">Localized &ldquo;mood doors&rdquo;</span>
-              <span class="explore-hub-card-desc">Spanish, French, Arabic, Hindi, and more pilots</span>
+              <span class="explore-hub-card-title">Localized pages</span>
+              <span class="explore-hub-card-desc">ES, FR, and PT hubs; other locales are pilots (mood pages or thin shells). Tools stay English; KJV in the Bible tool.</span>
             </a></li>
             <li><a href="#daily" class="explore-hub-card">
               <span class="explore-hub-card-label">Scripture</span>
@@ -217,69 +217,54 @@
           </details>
         </section>
 
-        <section class="glass explore-section" id="languages" aria-labelledby="languages-heading">
+        <section class="glass explore-section explore-languages" id="languages" aria-labelledby="languages-heading">
           <h2 class="section-divider" id="languages-heading">Languages</h2>
           <div class="tdb-open-beta-callout" role="region" aria-labelledby="open-beta-explore-heading">
             <h3 class="tdb-open-beta-callout-title" id="open-beta-explore-heading">Open beta &mdash; honest edges</h3>
-            <p class="section-note util-mb-0">Today&rsquo;s Daily Battle is <strong>live and useful</strong>, not pretend-finished. English and the four main hubs get the most care; many <strong>deep tools</strong> (reader, prayer wall, plans) still open in <strong>English</strong> under localized covers&mdash;on purpose, labeled on each page. Everything under &ldquo;More languages&rdquo; beyond those hubs is a <strong>pilot</strong>: sometimes one mood door, sometimes a thin hub&mdash;not the same depth as English or Portuguese. We ship in the open and improve without hiding the seams. <a href="/about.html#open-beta">What &ldquo;open beta&rdquo; means here</a> &middot; <a href="/contact.html">Tell us what felt off</a>.</p>
+            <p class="section-note util-mb-0">Today&rsquo;s Daily Battle is <strong>live and useful</strong>, not pretend-finished. The four locales in the site language row (English default plus Español, Français, Português) get the steadiest care. Heavy tools&mdash;reader, prayer wall, plans, study&mdash;often stay <strong>English UI</strong> on purpose; localized pages say so up front. Anything beyond those four is a <strong>pilot</strong>: one mood door, a thin hub, or a translated shell that hands off to English. Not lesser in heart&mdash;just not the same coverage yet. <a href="/about.html#open-beta">What &ldquo;open beta&rdquo; means here</a> &middot; <a href="/contact.html">Tell us what felt off</a>.</p>
           </div>
-          <p class="section-note util-mb-0_5"><strong>Supported hubs</strong> (where polish and depth land first): English (default), Español, Français, Português — same four as the site language row + More languages. <strong>Additional languages</strong> below stay online (URLs unchanged); many are thin pilots or single-topic doors. Localized pages are human-written; quoted Scripture may be KJV (English tools) or a named public-domain translation on that page — see each page’s note.</p>
-          <ul class="explore-link-list">
-            <li><a href="/">English (default)</a> — Home, daily verse, and full toolset.</li>
-            <li><a href="/es/" hreflang="es">Español — inicio (hub)</a> — Spanish landing: ansiedad, fuerza, paz (Reina-Valera 1960 on page) + honest EN tool shortcuts. Site tools stay English.</li>
-            <li><a href="explore.html#topics-es">Spanish topical pages (list)</a> — <a href="ansiedad.html" hreflang="es">Ansiedad</a>, <a href="fuerza.html" hreflang="es">Fuerza</a>, <a href="paz.html" hreflang="es">Paz</a> (Reina-Valera 1960 on page, public domain).</li>
-            <li><a href="/id/" hreflang="id">Bahasa Indonesia — hub (pilot)</a> — Entry + <a href="/id/kecemasan.html" hreflang="id">Kecemasan</a>, <a href="/id/harapan.html" hreflang="id">Harapan</a>, <a href="/id/ketakutan.html" hreflang="id">Ketakutan</a> (pairs <a href="topic-fear.html">topic-fear.html</a>); more ID depth when reviewed and ready.</li>
-            <li><a href="/tl/kabalisahan.html" hreflang="tl">Tagalog — Kabalisahan (pilot)</a> — Anxiety / worry topic; more Tagalog pages only when reviewed and ready.</li>
-            <li><a href="/fr/" hreflang="fr">Français — accueil (hub)</a> — French landing: mood pilots (Louis Segond on page) + honest EN tool shortcuts. Site tools stay English.</li>
-            <li><a href="/fr/anxiete.html" hreflang="fr">Français — Anxiété (pilot)</a> — Full page in French; Scripture: Louis Segond 1910 (public domain). Site tools stay English.</li>
-            <li><a href="/zh/" hreflang="zh-CN">中文 — hub（简体）</a> — Landing: daily verse split (KJV calendar + 和合本 rotation), mood pilots, honest EN tool links. Site tools stay English.</li>
-            <li><a href="/zh/jiaolv.html" hreflang="zh-CN">中文 — 焦虑（试点）</a> — Full page in simplified Chinese; Scripture: 和合本 (union text). Site tools stay English.</li>
-            <li><a href="/hi/" hreflang="hi">हिन्दी — hub</a> — Landing + mood pilots; Scripture traditions named on each page. Site tools stay English.</li>
-            <li><a href="/ru/" hreflang="ru">Русский — hub</a> — Landing + mood pilots; Synodal text on topical pages where noted. Site tools stay English.</li>
-            <li><a href="/ar/qalaq.html" hreflang="ar">العربية — قلق (pilot)</a> — Anxiety topic in Arabic; Scripture: Van Dyck (1865, public domain). Site tools stay English.</li>
-            <li><a href="/hi/chinta.html" hreflang="hi">हिन्दी — चिंता (pilot)</a> — Anxiety topic in Hindi; Scripture: 1851 Hindi Bible tradition (public domain). Site tools stay English.</li>
-            <li><a href="/ru/trevoga.html" hreflang="ru">Русский — тревога (pilot)</a> — Anxiety in Russian; Scripture: Synodal 1876 (public domain). Site tools stay English.</li>
-            <li><a href="/sv/oro.html" hreflang="sv">Svenska — oro (pilot)</a> — Anxiety in Swedish; Scripture: 1917 Bible (public domain). Site tools stay English.</li>
-            <li><a href="/pt/" hreflang="pt">Português — início (hub)</a> — Portuguese landing: daily verse (EN tool, KJV) + mood pages (Almeida on page) + honest PT shells for plans, prayer wall, reader, kids; legal summaries. Site tools stay English.</li>
-            <li><a href="/pt/ansiedade.html" hreflang="pt">Português — ansiedade (pilot)</a> — Anxiety in Portuguese; Scripture: Almeida tradition (public domain). Site tools stay English.</li>
-            <li><a href="/bn/chinta.html" hreflang="bn">বাংলা — চিন্তা (pilot)</a> — Anxiety in Bengali; Scripture: Calcutta 1909 tradition (public domain). Site tools stay English. (Hindi pilot: <a href="/hi/chinta.html" hreflang="hi">/hi/chinta.html</a>.)</li>
-            <li><a href="/sw/wasiwasi.html" hreflang="sw">Kiswahili — wasiwasi (pilot)</a> — Anxiety in Swahili; Scripture: public-domain Swahili tradition (early mission-era lineage). Site tools stay English.</li>
-            <li><a href="/fr/espoir.html" hreflang="fr">Français — Espoir (pilot)</a> — Hope topic; Louis Segond 1910 on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/zh/xiwang.html" hreflang="zh-CN">中文 — 盼望（试点）</a> — Hope topic; 和合本 on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/ar/rajaa.html" hreflang="ar">العربية — رجاء (pilot)</a> — Hope topic; Van Dyck tradition on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/hi/asha.html" hreflang="hi">हिन्दी — आशा (pilot)</a> — Hope topic; 1851 Hindi tradition on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/ru/nadezhda.html" hreflang="ru">Русский — надежда (pilot)</a> — Hope topic; Synodal 1876 on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/sv/hopp.html" hreflang="sv">Svenska — hopp (pilot)</a> — Hope topic; 1917 Bible on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/pt/esperanca.html" hreflang="pt">Português — esperança (pilot)</a> — Hope topic; Almeida tradition on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/pt/medo.html" hreflang="pt">Português — medo</a> — Fear / courage; Almeida on page. Pairs <a href="topic-fear.html">topic-fear.html</a>.</li>
-            <li><a href="/pt/forca.html" hreflang="pt">Português — força</a> — Strength; Almeida on page. Pairs <a href="topic-strength.html">topic-strength.html</a> (ES: <a href="/fuerza.html" hreflang="es">fuerza.html</a>).</li>
-            <li><a href="/pt/paz.html" hreflang="pt">Português — paz</a> — Peace; Almeida on page. Pairs <a href="calm.html">calm.html</a> (ES: <a href="/paz.html" hreflang="es">paz.html</a>).</li>
-            <li><a href="/pt/solidao.html" hreflang="pt">Português — solidão</a> — Loneliness; Almeida on page. Pairs <a href="topic-loneliness.html">topic-loneliness.html</a>.</li>
-            <li><a href="/pt/culpa.html" hreflang="pt">Português — culpa</a> — Guilt; Almeida on page. Pairs <a href="topic-guilt.html">topic-guilt.html</a>.</li>
-            <li><a href="/pt/sobrecarga.html" hreflang="pt">Português — sobrecarga</a> — Overwhelmed; Almeida on page. Pairs <a href="topic-overwhelmed.html">topic-overwhelmed.html</a>.</li>
-            <li><a href="/pt/raiva.html" hreflang="pt">Português — raiva</a> — Anger; Almeida on page. Pairs <a href="ira.html" hreflang="es">ira.html</a> (ES) and <a href="explore.html">explore.html</a> (EN hub).</li>
-            <li><a href="/pt/luto.html" hreflang="pt">Português — luto</a> — Grief; Almeida on page. Pairs <a href="topic-grief.html">topic-grief.html</a>.</li>
-            <li><a href="/pt/perdao.html" hreflang="pt">Português — perdão</a> — Forgiveness; Almeida on page. Pairs <a href="topic-forgiveness.html">topic-forgiveness.html</a>.</li>
-            <li><a href="/pt/planos.html" hreflang="pt">Português — planos (capa)</a> — Reading plans entry in Portuguese; full KJV plans UI in <a href="plans.html">plans.html</a>.</li>
-            <li><a href="/pt/mural.html" hreflang="pt">Português — mural (capa)</a> — Prayer wall entry in Portuguese; full board in <a href="message.html">message.html</a>.</li>
-            <li><a href="/pt/leitor.html" hreflang="pt">Português — leitor (capa)</a> — Chapter reader entry in Portuguese; full reader in <a href="reader.html">reader.html</a>.</li>
-            <li><a href="/pt/criancas.html" hreflang="pt">Português — crianças (capa)</a> — Kids corner entry in Portuguese; full loops/library in <a href="kids-corner.html">kids-corner.html</a>.</li>
-            <li><a href="/pt/privacy.html" hreflang="pt">Português — privacidade (resumo)</a> — Privacy summary; full policy in <a href="privacy.html">privacy.html</a>.</li>
-            <li><a href="/pt/terms.html" hreflang="pt">Português — termos (resumo)</a> — Terms summary; full terms in <a href="terms.html">terms.html</a>.</li>
-            <li><a href="/bn/asha.html" hreflang="bn">বাংলা — আশা (pilot)</a> — Hope topic; Calcutta 1909 tradition on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/sw/tumaini.html" hreflang="sw">Kiswahili — tumaini (pilot)</a> — Hope topic; public-domain Swahili tradition on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/id/harapan.html" hreflang="id">Bahasa Indonesia — Harapan (pilot)</a> — Hope topic; Indonesian public-domain translation tradition on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/tl/pagasa.html" hreflang="tl">Tagalog — Pag-asa (pilot)</a> — Hope topic; Tagalog public-domain tradition on page. Pairs <a href="topic-hope.html">topic-hope.html</a>.</li>
-            <li><a href="/fr/solitude.html" hreflang="fr">Français — Solitude (pilot)</a> — Loneliness topic; Louis Segond 1910 on page. Pairs <a href="topic-loneliness.html">topic-loneliness.html</a>.</li>
-            <li><a href="/zh/gudu.html" hreflang="zh-CN">中文 — 孤独（试点）</a> — Loneliness topic; 和合本 on page. Pairs <a href="topic-loneliness.html">topic-loneliness.html</a>.</li>
-            <li><a href="/fr/culpabilite.html" hreflang="fr">Français — Culpabilité (pilot)</a> — Guilt topic; Louis Segond 1910 on page. Pairs <a href="topic-guilt.html">topic-guilt.html</a>.</li>
-            <li><a href="/zh/neijiu.html" hreflang="zh-CN">中文 — 内疚（试点）</a> — Guilt topic; 和合本 on page. Pairs <a href="topic-guilt.html">topic-guilt.html</a>.</li>
-            <li><a href="/fr/deborde.html" hreflang="fr">Français — Débordé (pilot)</a> — Overwhelmed topic; Louis Segond 1910 on page. Pairs <a href="topic-overwhelmed.html">topic-overwhelmed.html</a>.</li>
-            <li><a href="/zh/taiduo.html" hreflang="zh-CN">中文 — 太多（试点）</a> — Overwhelmed topic; 和合本 on page. Pairs <a href="topic-overwhelmed.html">topic-overwhelmed.html</a>.</li>
-            <li><a href="/fr/pardon.html" hreflang="fr">Français — Pardon</a> — Forgiveness topic; Louis Segond 1910 on page. Pairs <a href="topic-forgiveness.html">topic-forgiveness.html</a>.</li>
-            <li><a href="/perdon.html" hreflang="es">Español — Perdón</a> — Forgiveness topic; Reina-Valera 1960 on page. Pairs <a href="topic-forgiveness.html">topic-forgiveness.html</a>.</li>
-            <li><a href="/id/ketakutan.html" hreflang="id">Bahasa Indonesia — Ketakutan (pilot)</a> — Fear / courage; KJV on page with Indonesian support copy. Pairs <a href="topic-fear.html">topic-fear.html</a>.</li>
-          </ul>
+          <p class="section-note explore-languages-lead util-mb-0_5"><strong>Supported hubs</strong> are the same four as the header row plus English (this site&rsquo;s home): full landing pages and honest links into tools. <strong>Additional languages</strong> are everything else on this list&mdash;pilots we keep online at stable URLs. Quoted Scripture is either KJV (English tools) or a named public-domain translation on that page.</p>
+
+          <div class="explore-languages-tiers">
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-en">English (default)</h3>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/">English home</a> &mdash; Daily verse, feel search, full toolset, topics.</li>
+              </ul>
+            </div>
+
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-row">Language-row hubs</h3>
+              <p class="section-note explore-lang-tier-note">On-page verses use the translation named on each page (<strong>Reina-Valera 1960</strong> for ES topical; <strong>Louis Segond</strong> 1910 tradition on FR mood pilots; <strong>Almeida</strong> tradition on PT mood pages). Tool screens stay English; Bible tool text stays KJV unless a page says otherwise.</p>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/es/" hreflang="es">Español — inicio (hub)</a> &mdash; Landing + shortcuts. Topical list: <a href="explore.html#topics-es">Spanish topics</a> (<a href="ansiedad.html" hreflang="es">Ansiedad</a>, <a href="fuerza.html" hreflang="es">Fuerza</a>, <a href="paz.html" hreflang="es">Paz</a>). Forgiveness: <a href="/perdon.html" hreflang="es">Perdón</a> &rarr; <a href="topic-forgiveness.html">Forgiveness (EN)</a>.</li>
+                <li><a href="/fr/" hreflang="fr">Français — accueil (hub)</a> &mdash; Landing + EN tool links. Mood pilots: <a href="/fr/anxiete.html" hreflang="fr">Anxiété</a>, <a href="/fr/espoir.html" hreflang="fr">Espoir</a>, <a href="/fr/solitude.html" hreflang="fr">Solitude</a>, <a href="/fr/culpabilite.html" hreflang="fr">Culpabilité</a>, <a href="/fr/deborde.html" hreflang="fr">Débordé</a>, <a href="/fr/pardon.html" hreflang="fr">Pardon</a> (each pairs an English topic page).</li>
+                <li><a href="/pt/" hreflang="pt">Português — início (hub)</a> &mdash; Landing, mood pages, and PT <em>shells</em> (cover pages) for tools: <a href="/pt/planos.html" hreflang="pt">planos</a>, <a href="/pt/mural.html" hreflang="pt">mural</a>, <a href="/pt/leitor.html" hreflang="pt">leitor</a>, <a href="/pt/criancas.html" hreflang="pt">crianças</a>, <a href="/pt/privacy.html" hreflang="pt">privacidade</a>, <a href="/pt/terms.html" hreflang="pt">termos</a>. Mood / topic: <a href="/pt/ansiedade.html" hreflang="pt">ansiedade</a>, <a href="/pt/medo.html" hreflang="pt">medo</a>, <a href="/pt/esperanca.html" hreflang="pt">esperança</a>, <a href="/pt/forca.html" hreflang="pt">força</a>, <a href="/pt/paz.html" hreflang="pt">paz</a>, <a href="/pt/solidao.html" hreflang="pt">solidão</a>, <a href="/pt/culpa.html" hreflang="pt">culpa</a>, <a href="/pt/sobrecarga.html" hreflang="pt">sobrecarga</a>, <a href="/pt/raiva.html" hreflang="pt">raiva</a> (ES pair <a href="/ira.html" hreflang="es">ira</a>), <a href="/pt/luto.html" hreflang="pt">luto</a>, <a href="/pt/perdao.html" hreflang="pt">perdão</a>.</li>
+              </ul>
+            </div>
+
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-landings">Landing hubs (pilots)</h3>
+              <p class="section-note explore-lang-tier-note">Real index pages plus mood doors; depth varies. <strong>Synodal</strong> 1876 tradition on RU pilots; <strong>1851 Hindi</strong> tradition on HI pilots; <strong>和合本</strong> (union) on ZH pilots where noted.</p>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/id/" hreflang="id">Bahasa Indonesia</a> &mdash; <a href="/id/kecemasan.html" hreflang="id">Kecemasan</a>, <a href="/id/harapan.html" hreflang="id">Harapan</a>, <a href="/id/ketakutan.html" hreflang="id">Ketakutan</a>.</li>
+                <li><a href="/zh/" hreflang="zh-CN">中文 — hub</a> &mdash; Split daily verse (KJV calendar on <a href="/verse.html" hreflang="en">verse.html</a> + rotating 和合本 anchors on the hub). Mood: <a href="/zh/jiaolv.html" hreflang="zh-CN">焦虑</a>, <a href="/zh/kongju.html" hreflang="zh-CN">恐惧</a>, <a href="/zh/liliang.html" hreflang="zh-CN">力量</a>, <a href="/zh/xiwang.html" hreflang="zh-CN">盼望</a>, <a href="/zh/gudu.html" hreflang="zh-CN">孤独</a>, <a href="/zh/neijiu.html" hreflang="zh-CN">内疚</a>, <a href="/zh/taiduo.html" hreflang="zh-CN">太多</a>, <a href="/zh/kuanshu.html" hreflang="zh-CN">宽恕</a>, <a href="/zh/heping.html" hreflang="zh-CN">平安</a> (Calm pair).</li>
+                <li><a href="/ru/" hreflang="ru">Русский — hub</a> &mdash; <a href="/ru/trevoga.html" hreflang="ru">тревога</a>, <a href="/ru/strakh.html" hreflang="ru">страх</a>, <a href="/ru/nadezhda.html" hreflang="ru">надежда</a>, <a href="/ru/proshchenie.html" hreflang="ru">Прощение</a>, <a href="/ru/sila.html" hreflang="ru">сила</a>, <a href="/ru/mir.html" hreflang="ru">мир</a>, <a href="/ru/odinochestvo.html" hreflang="ru">одиночество</a>.</li>
+                <li><a href="/hi/" hreflang="hi">हिन्दी — hub</a> &mdash; <a href="/hi/chinta.html" hreflang="hi">चिंता</a>, <a href="/hi/dar.html" hreflang="hi">डर</a>, <a href="/hi/asha.html" hreflang="hi">आशा</a>, <a href="/hi/kshama.html" hreflang="hi">क्षमा</a>, <a href="/hi/shakti.html" hreflang="hi">शक्ति</a>, <a href="/hi/shanti.html" hreflang="hi">शांति</a>, <a href="/hi/akelapan.html" hreflang="hi">अकेलापन</a>.</li>
+              </ul>
+            </div>
+
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-small">Single-locale pilots</h3>
+              <p class="section-note explore-lang-tier-note"><strong>Van Dyck</strong> (1865) on Arabic pages; <strong>1917</strong> Swedish Bible on SV; <strong>Calcutta 1909</strong> tradition on BN; <strong>Kiswahili</strong> public-domain tradition on SW. Tagalog: worry <a href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan</a> &middot; hope <a href="/tl/pagasa.html" hreflang="tl">Pag-asa</a>.</p>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/ar/qalaq.html" hreflang="ar">العربية — قلق</a> &middot; <a href="/ar/rajaa.html" hreflang="ar">رجاء</a></li>
+                <li><a href="/sv/oro.html" hreflang="sv">Svenska — oro</a> &middot; <a href="/sv/hopp.html" hreflang="sv">hopp</a></li>
+                <li><a href="/bn/chinta.html" hreflang="bn">বাংলা — চিন্তা</a> &middot; <a href="/bn/asha.html" hreflang="bn">আশা</a></li>
+                <li><a href="/sw/wasiwasi.html" hreflang="sw">Kiswahili — wasiwasi</a> &middot; <a href="/sw/tumaini.html" hreflang="sw">tumaini</a></li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section class="glass">

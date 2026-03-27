@@ -874,6 +874,16 @@
         });
       }
 
+      var urlQ = typeof URLSearchParams !== 'undefined' && location.search
+        ? new URLSearchParams(location.search).get('q')
+        : null;
+      if (urlQ && searchInput) {
+        searchInput.value = String(urlQ).trim();
+        doSearch();
+        var concSec = document.getElementById('concordance-section');
+        if (concSec) concSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
       var highlightBtn = document.getElementById('concordance-highlight-btn');
       if (highlightBtn) {
         highlightBtn.addEventListener('click', function () {

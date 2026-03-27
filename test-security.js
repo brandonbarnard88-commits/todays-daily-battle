@@ -157,6 +157,8 @@ const cacheHygienePaths = [
   '/ira',
   '/duelo.html',
   '/duelo',
+  '/perdon.html',
+  '/perdon',
   '/es/',
   '/es',
   '/es/index.html',
@@ -165,6 +167,8 @@ const cacheHygienePaths = [
   '/id/index.html',
   '/id/kecemasan.html',
   '/id/kecemasan',
+  '/id/ketakutan.html',
+  '/id/ketakutan',
   '/tl/kabalisahan.html',
   '/tl/kabalisahan',
   '/fr/',
@@ -190,6 +194,8 @@ const cacheHygienePaths = [
   '/fr/colere',
   '/fr/tristesse.html',
   '/fr/tristesse',
+  '/fr/pardon.html',
+  '/fr/pardon',
   '/zh/jiaolv.html',
   '/zh/jiaolv',
   '/ar/qalaq.html',
@@ -318,6 +324,7 @@ const esRewriteNeedles = [
   '/ninos /ninos.html?tdb_cb=20260328esNav 302',
   '/ira /ira.html?tdb_cb=20260328esNav 302',
   '/duelo /duelo.html?tdb_cb=20260328esNav 302',
+  '/perdon /perdon.html?tdb_cb=20260328esNav 302',
 ];
 let esRewriteOk = true;
 for (const n of esRewriteNeedles) {
@@ -408,8 +415,12 @@ if (
   !purgeMjs.includes("'/fr/paix.html'") ||
   !purgeMjs.includes("'/ira.html'") ||
   !purgeMjs.includes("'/duelo.html'") ||
+  !purgeMjs.includes("'/perdon.html'") ||
+  !purgeMjs.includes("'/perdon.html?tdb_cb=20260328esNav'") ||
   !purgeMjs.includes("'/fr/colere.html'") ||
   !purgeMjs.includes("'/fr/tristesse.html'") ||
+  !purgeMjs.includes("'/fr/pardon.html'") ||
+  !purgeMjs.includes("'/id/ketakutan.html'") ||
   !purgeMjs.includes("'/miedo.html'") ||
   !purgeMjs.includes("'/soledad.html'") ||
   !purgeMjs.includes("'/culpa.html'") ||

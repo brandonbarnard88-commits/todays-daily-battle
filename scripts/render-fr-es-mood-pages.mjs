@@ -323,7 +323,8 @@ const frRelatedCore = `            <a class="btn btn-secondary" href="/fr/">Hub 
             <a class="btn btn-secondary" href="/fr/culpabilite.html">Culpabilité</a>
             <a class="btn btn-secondary" href="/fr/deborde.html">Débordé</a>
             <a class="btn btn-secondary" href="/fr/colere.html">Colère</a>
-            <a class="btn btn-secondary" href="/fr/tristesse.html">Tristesse</a>`;
+            <a class="btn btn-secondary" href="/fr/tristesse.html">Tristesse</a>
+            <a class="btn btn-secondary" href="/fr/pardon.html">Pardon</a>`;
 
 const esRelatedCore = `            <a class="btn btn-secondary" href="/es/">Hub ES</a>
             <a class="btn btn-secondary" href="/ansiedad.html">Ansiedad</a>
@@ -332,7 +333,8 @@ const esRelatedCore = `            <a class="btn btn-secondary" href="/es/">Hub 
             <a class="btn btn-secondary" href="/fuerza.html">Fuerza</a>
             <a class="btn btn-secondary" href="/paz.html">Paz</a>
             <a class="btn btn-secondary" href="/ira.html">Ira</a>
-            <a class="btn btn-secondary" href="/duelo.html">Duelo</a>`;
+            <a class="btn btn-secondary" href="/duelo.html">Duelo</a>
+            <a class="btn btn-secondary" href="/perdon.html">Perdón</a>`;
 
 const frPages = [
   {
@@ -344,6 +346,7 @@ const frPages = [
     extraHreflang: [
       ['es', '/miedo.html'],
       ['pt', '/pt/medo.html'],
+      ['id', '/id/ketakutan.html'],
     ],
     h1: 'Quand la peur arrive avant les faits',
     lead: 'Le cœur s’accélère, l’imagination invente le pire — et vous respirez encore. Dieu ne vous demande pas de jouer au brave ; Il parle près de vous.',
@@ -464,6 +467,33 @@ const frPages = [
             <a class="btn btn-secondary" href="/fr/solitude.html">Solitude</a>`,
     sidebarEn: '/topic-grief.html',
   },
+  {
+    fileRel: 'fr/pardon.html',
+    title: "Pardon : Paroles bibliques (Louis Segond) | Today's Daily Battle",
+    desc: 'Donner et recevoir le pardon : Louis Segond (domaine public). Version anglaise topic-forgiveness.html ; outils en anglais, KJV.',
+    canonicalPath: '/fr/pardon.html',
+    enPath: '/topic-forgiveness.html',
+    extraHreflang: [
+      ['es', '/perdon.html'],
+      ['pt', '/pt/'],
+    ],
+    h1: 'Quand le cœur préfère garder la blessure',
+    lead: 'Pardonner n’est pas nier la douleur — c’est refuser d’y construire une prison. Dieu vous appelle à la vérité et à la liberté, à Son rythme.',
+    vTitle: 'Verset pour aujourd’hui',
+    v1: '&ldquo;Mais soyez bons les uns envers les autres, compatissants, vous pardonnant réciproquement, comme Dieu vous a pardonné en Christ.&rdquo; &mdash; Éphésiens 4:32 <span class="section-note" style="display:inline;font-size:0.85em;">(Louis Segond 1910)</span>',
+    simple: 'Le pardon qu’Il donne devient le modèle humble pour relâcher l’autre — sans forcer les sentiments à mentir.',
+    today: 'Quand le souvenir brûle encore, ce verset replace le centre : vous avez été pardonné — vous pouvez apprendre à lâcher prise devant Lui.',
+    why: '« Comme Dieu vous a pardonné » ancre la mesure : ce n’est pas une course à l’oubli immédiat, mais une direction vers Sa paix.',
+    doit: 'Dites : « Seigneur, je Te confie cette blessure — apprends-moi Ton pardon. » Une minute de silence. Pas besoin de tout résoudre avant de parler à Lui.',
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Supportez les uns les autres, et, si l\'un a des sujets de plainte contre l\'autre, pardonnez-vous réciproquement. Comme Christ vous a pardonnés, pardonnez-vous aussi les uns les autres.&rdquo; &mdash; Colossiens 3:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Louis Segond 1910)</span></p>`,
+    relatedBtns:
+      frRelatedCore +
+      `
+            <a class="btn btn-secondary" href="/fr/culpabilite.html">Culpabilité</a>
+            <a class="btn btn-secondary" href="/fr/colere.html">Colère</a>
+            <a class="btn btn-secondary" href="/fr/espoir.html">Espoir</a>`,
+    sidebarEn: '/topic-forgiveness.html',
+  },
 ];
 
 const esPages = [
@@ -476,6 +506,7 @@ const esPages = [
     extraHreflang: [
       ['fr', '/fr/peur.html'],
       ['pt', '/pt/medo.html'],
+      ['id', '/id/ketakutan.html'],
     ],
     h1: 'Cuando el miedo llega antes que los hechos',
     lead: 'El corazón acelera, la mente imagina lo peor — y tú sigues respirando. Dios no te pide fingir valentía; se acerca con Su Palabra.',
@@ -614,6 +645,31 @@ const esPages = [
       `
             <a class="btn btn-secondary" href="/esperanza.html">Esperanza</a>
             <a class="btn btn-secondary" href="/soledad.html">Soledad</a>`,
+  },
+  {
+    fileRel: 'perdon.html',
+    title: "Perdón: versículos (Reina-Valera 1960) | Today's Daily Battle",
+    desc: 'Perdonar y ser perdonado: Reina-Valera 1960 (dominio público). Par inglés: topic-forgiveness.html. Herramientas en inglés, KJV.',
+    canonicalPath: '/perdon.html',
+    enPath: '/topic-forgiveness.html',
+    extraHreflang: [
+      ['fr', '/fr/pardon.html'],
+      ['pt', '/pt/'],
+    ],
+    h1: 'Cuando el corazón quiere quedarse con el golpe',
+    lead: 'Perdonar no es fingir que no dolió — es no construir una celda con el resentimiento. Dios te llama a la verdad y a la libertad, a Su ritmo.',
+    v1: '&ldquo;Antes bien, sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.&rdquo; &mdash; Efesios 4:32 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    simple: 'El perdón que Él da enseña, con humildad, a soltar al otro — sin obligar a los sentimientos a mentir.',
+    feel: 'Cuando el recuerdo quema, este versículo recoloca el centro: fuiste perdonado — puedes aprender a soltar delante de Él.',
+    change: '«Como Dios os perdonó» fija la medida: no es carrera al olvido instantáneo, sino dirección hacia Su paz.',
+    doit: 'Di: «Señor, Te confío esta herida — enséñame Tu perdón.» Un minuto en silencio. No tienes que arreglarlo todo antes de hablar con Él.',
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Soportándoos unos a otros, y perdonándoos unos a otros si alguno tuviere queja contra otro. De la manera que Cristo os perdonó, así también hacedlo vosotros.&rdquo; &mdash; Colosenses 3:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    relatedBtns:
+      esRelatedCore +
+      `
+            <a class="btn btn-secondary" href="/culpa.html">Culpa</a>
+            <a class="btn btn-secondary" href="/ira.html">Ira</a>
+            <a class="btn btn-secondary" href="/esperanza.html">Esperanza</a>`,
   },
 ];
 

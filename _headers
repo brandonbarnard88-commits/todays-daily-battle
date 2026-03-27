@@ -163,6 +163,12 @@
 /duelo
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/perdon.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/perdon
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 
 # Indonesian topical pilot (id/) — copy + tool links churn
 /id/
@@ -178,6 +184,12 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /id/kecemasan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/ketakutan.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/ketakutan
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
@@ -270,6 +282,12 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /fr/tristesse
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/pardon.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/pardon
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 

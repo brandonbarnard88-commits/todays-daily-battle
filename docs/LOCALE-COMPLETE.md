@@ -34,7 +34,7 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 | Layer | Portuguese | French | Spanish |
 |--------|------------|--------|---------|
 | Hub | `/pt/` | `/fr/` | `/es/` |
-| Moods (tradition on-page) | ansiedade, esperança, medo, força, paz, solidão, culpa, sobrecarga (Almeida) | anxiété, espoir, peur, colère, tristesse, force, paix, solitude, culpabilité, débordé (Louis Segond) | ansiedad, esperanza, miedo, ira, duelo, fuerza, paz, soledad, culpa, agobio (Reina-Valera 1960) |
+| Moods (tradition on-page) | ansiedade, esperança, medo, força, paz, solidão, culpa, sobrecarga (Almeida) | anxiété, espoir, peur, colère, tristesse, pardon, force, paix, solitude, culpabilité, débordé (Louis Segond) | ansiedad, esperanza, miedo, ira, duelo, perdón, fuerza, paz, soledad, culpa, agobio (Reina-Valera 1960) |
 | Tool entry shells | `/pt/planos`, `mural`, `leitor`, `crianças` | `/fr/plans`, `mural`, `lecteur`, `enfants` | `/planes`, `muro`, `lector`, `ninos` (root) |
 | Legal summaries | `/pt/privacy`, `/pt/terms` | Link from hub to EN canonical | Link from hub to EN canonical |
 
@@ -58,11 +58,30 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 
 ---
 
+## Checklist: add one FR/ES mood page (generator)
+
+1. Edit **`scripts/render-fr-es-mood-pages.mjs`**: extend `frRelatedCore` / `esRelatedCore` if the new URL should appear on every mood grid; append a `frPages` / `esPages` entry (`enPath`, `extraHreflang`, Louis Segond / Reina-Valera quotes).
+2. Run **`npm run render:fr-es-moods`** (writes HTML from the script — do not hand-edit generated shells long-term).
+3. **`language-switcher.js`**: `FR_TO_EN`, `FR_TO_ES`, `FR_TO_PT`, `ES_TO_FR`, `ES_TO_PT`, `ES_TO_EN`, `EN_TO_ES`; extend **`isFrenchExtraMoodPilot()`** and **`isSpanishTopical()`**; add **`esHref()`** self-canonical basename if root ES.
+4. Reciprocal **`hreflang`** on the English topic page when a pair exists.
+5. **`_redirects`**: for root ES moods, add `/slug` → `/slug.html?tdb_cb=…` `302` (same `tdb_cb` generation as siblings).
+6. **`_headers`**: `no-cache` blocks for `/slug.html`, `/slug`, and `/fr/slug.html` + `/fr/slug` as applicable.
+7. **`sitemap.xml`**, **`scripts/cloudflare-purge.mjs`**, **`test-security.js`**, **`test-site.js`**, hub grids on **`fr/index.html`** / **`es/index.html`**, **`explore.html`** if it is a major entry point.
+
+## Checklist: add one ID pilot page (hand shell)
+
+1. Add **`id/nama.html`** using **`id/kecemasan.html`** (or **`id/harapan.html`**) as the structural template: KJV in the breakdown, honest “tools are EN” copy, `hreflang` to EN/ES/FR/PT (and others only when real pairs exist).
+2. **`language-switcher.js`**: `ID_TO_EN`, `EN_TO_ID`, `ID_TO_ES`, `ES_TO_ID` as needed; **`isIndonesianTopical()`** + **`applyAriaCurrent()`** `indo` branch; **`idHref()`** early return for the new path.
+3. **`_headers`** + **`sitemap.xml`** + **`cloudflare-purge.mjs`** + **`test-security.js`** (`cacheHygienePaths` + purge assertions) + **`test-site.js`**.
+4. **`id/index.html`** hub card + **`explore.html`** language list when discoverability matters.
+
+---
+
 ## Generators
 
 | Command | Output |
 |---------|--------|
-| `npm run render:fr-es-moods` | FR mood depth (`peur`, `force`, `paix`, `colere`, `tristesse`) + ES root moods (`miedo`, `soledad`, `culpa`, `agobio`, `ira`, `duelo`) |
+| `npm run render:fr-es-moods` | FR mood depth (`peur`, `force`, `paix`, `colere`, `tristesse`, `pardon`) + ES root moods (`miedo`, `soledad`, `culpa`, `agobio`, `ira`, `duelo`, `perdon`) |
 | `npm run render:locale-parity` | `esperanza.html`, FR tool shells, ES tool shells |
 | `node scripts/write-pt-locale-pages.mjs` | Portuguese moods + shells + legal summaries |
 
@@ -79,12 +98,12 @@ Shared switcher row: **`scripts/lib/lang-switcher-inner.mjs`**.
 
 ## Fourth language — **Bahasa Indonesia** (`id/`) — hub live (pilot)
 
-**Why:** Large church presence; **`id/kecemasan.html`** + **`id/harapan.html`** pilots anchor the hub.
+**Why:** Large church presence; **`id/kecemasan.html`**, **`id/harapan.html`**, and **`id/ketakutan.html`** (fear / courage, KJV on-page) anchor the hub.
 
 **Shipped (pilot, not “complete”):**
 
 - Hub: **`/id/`** + `id/index.html`, `_redirects` `200!` like other locale hubs; honest copy about KJV-on-pilot + English tools.
-- Mood pages: still **two** pilots (anxiety/hope); expand with the same shell + breakdown pattern when ready (name any Indonesian Scripture tradition on-page if not KJV).
+- Mood pages: **three** pilots (anxiety, hope, fear); expand with the same shell + breakdown pattern when ready (name any Indonesian Scripture tradition on-page if not KJV).
 - Switcher: **`isIndonesianHub()`**, default **Bahasa Indonesia** link → `/id/`; maps align with ES/FR/PT hubs for cross-picks.
 - **Not “complete”** until the ship gate grid matches PT depth (more moods, tool shells, local legal summaries if claimed).
 

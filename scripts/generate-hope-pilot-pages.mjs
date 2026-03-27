@@ -2,6 +2,8 @@
 /**
  * One-shot generator: 9 localized Hope mood-door pilots (AR, HI, RU, SV, PT, BN, SW, ID, TL).
  * Run from repo root: node scripts/generate-hope-pilot-pages.mjs
+ *
+ * Note: Chinese peace (Calm pair) lives at /zh/heping.html — PT /pt/paz.html maps there in language-switcher.js (not /zh/jiaolv.html).
  */
 import fs from "fs";
 import path from "path";

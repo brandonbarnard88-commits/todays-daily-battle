@@ -184,6 +184,8 @@ const cacheHygienePaths = [
   '/ru/mir',
   '/ru/odinochestvo.html',
   '/ru/odinochestvo',
+  '/ru/proshchenie.html',
+  '/ru/proshchenie',
   '/zh/',
   '/zh',
   '/zh/index.html',
@@ -206,6 +208,8 @@ const cacheHygienePaths = [
   '/hi/shanti',
   '/hi/akelapan.html',
   '/hi/akelapan',
+  '/hi/kshama.html',
+  '/hi/kshama',
   '/tl/kabalisahan.html',
   '/tl/kabalisahan',
   '/fr/',
@@ -235,6 +239,10 @@ const cacheHygienePaths = [
   '/fr/pardon',
   '/zh/jiaolv.html',
   '/zh/jiaolv',
+  '/zh/heping.html',
+  '/zh/heping',
+  '/zh/kuanshu.html',
+  '/zh/kuanshu',
   '/ar/qalaq.html',
   '/ar/qalaq',
   '/sv/oro.html',
@@ -468,6 +476,10 @@ if (
   !purgeMjs.includes("'/fr/colere.html'") ||
   !purgeMjs.includes("'/fr/tristesse.html'") ||
   !purgeMjs.includes("'/fr/pardon.html'") ||
+  !purgeMjs.includes("'/zh/heping.html'") ||
+  !purgeMjs.includes("'/zh/kuanshu.html'") ||
+  !purgeMjs.includes("'/ru/proshchenie.html'") ||
+  !purgeMjs.includes("'/hi/kshama.html'") ||
   !purgeMjs.includes("'/id/ketakutan.html'") ||
   !purgeMjs.includes("'/miedo.html'") ||
   !purgeMjs.includes("'/soledad.html'") ||

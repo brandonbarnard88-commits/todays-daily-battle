@@ -239,6 +239,12 @@
 /ru/odinochestvo
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/ru/proshchenie.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/proshchenie
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 
 # Chinese hub + pilots (zh/)
 /zh/
@@ -266,6 +272,18 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /zh/jiaolv
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/heping.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/heping
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kuanshu.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kuanshu
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
@@ -313,6 +331,12 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /hi/akelapan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/kshama.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/kshama
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 

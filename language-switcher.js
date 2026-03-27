@@ -85,7 +85,7 @@
     '/pt/esperanca.html': '/zh/xiwang.html',
     '/pt/medo.html': '/zh/kongju.html',
     '/pt/forca.html': '/zh/liliang.html',
-    '/pt/paz.html': '/zh/jiaolv.html',
+    '/pt/paz.html': '/zh/heping.html',
     '/pt/solidao.html': '/zh/gudu.html',
     '/pt/culpa.html': '/zh/neijiu.html',
     '/pt/sobrecarga.html': '/zh/taiduo.html',
@@ -104,6 +104,7 @@
     '/ru/strakh.html': '/topic-fear.html',
     '/ru/sila.html': '/topic-strength.html',
     '/ru/mir.html': '/calm.html',
+    '/ru/proshchenie.html': '/topic-forgiveness.html',
     '/ru/odinochestvo.html': '/topic-loneliness.html',
     '/zh/jiaolv.html': '/topic-anxiety.html',
     '/zh/xiwang.html': '/topic-hope.html',
@@ -112,12 +113,15 @@
     '/zh/taiduo.html': '/topic-overwhelmed.html',
     '/zh/kongju.html': '/topic-fear.html',
     '/zh/liliang.html': '/topic-strength.html',
+    '/zh/heping.html': '/calm.html',
+    '/zh/kuanshu.html': '/topic-forgiveness.html',
     '/hi/chinta.html': '/topic-anxiety.html',
     '/hi/asha.html': '/topic-hope.html',
     '/hi/dar.html': '/topic-fear.html',
     '/hi/shakti.html': '/topic-strength.html',
     '/hi/shanti.html': '/calm.html',
-    '/hi/akelapan.html': '/topic-loneliness.html'
+    '/hi/akelapan.html': '/topic-loneliness.html',
+    '/hi/kshama.html': '/topic-forgiveness.html'
   };
 
   var LOCALE_TO_ES = {
@@ -126,6 +130,7 @@
     '/ru/strakh.html': '/miedo.html',
     '/ru/sila.html': '/fuerza.html',
     '/ru/mir.html': '/paz.html',
+    '/ru/proshchenie.html': '/perdon.html',
     '/ru/odinochestvo.html': '/soledad.html',
     '/zh/jiaolv.html': '/ansiedad.html',
     '/zh/xiwang.html': '/esperanza.html',
@@ -134,12 +139,15 @@
     '/zh/taiduo.html': '/agobio.html',
     '/zh/kongju.html': '/miedo.html',
     '/zh/liliang.html': '/fuerza.html',
+    '/zh/heping.html': '/paz.html',
+    '/zh/kuanshu.html': '/perdon.html',
     '/hi/chinta.html': '/ansiedad.html',
     '/hi/asha.html': '/esperanza.html',
     '/hi/dar.html': '/miedo.html',
     '/hi/shakti.html': '/fuerza.html',
     '/hi/shanti.html': '/paz.html',
-    '/hi/akelapan.html': '/soledad.html'
+    '/hi/akelapan.html': '/soledad.html',
+    '/hi/kshama.html': '/perdon.html'
   };
 
   var LOCALE_TO_FR = {
@@ -148,6 +156,7 @@
     '/ru/strakh.html': '/fr/peur.html',
     '/ru/sila.html': '/fr/force.html',
     '/ru/mir.html': '/fr/paix.html',
+    '/ru/proshchenie.html': '/fr/pardon.html',
     '/ru/odinochestvo.html': '/fr/solitude.html',
     '/zh/jiaolv.html': '/fr/anxiete.html',
     '/zh/xiwang.html': '/fr/espoir.html',
@@ -156,12 +165,15 @@
     '/zh/taiduo.html': '/fr/deborde.html',
     '/zh/kongju.html': '/fr/peur.html',
     '/zh/liliang.html': '/fr/force.html',
+    '/zh/heping.html': '/fr/paix.html',
+    '/zh/kuanshu.html': '/fr/pardon.html',
     '/hi/chinta.html': '/fr/anxiete.html',
     '/hi/asha.html': '/fr/espoir.html',
     '/hi/dar.html': '/fr/peur.html',
     '/hi/shakti.html': '/fr/force.html',
     '/hi/shanti.html': '/fr/paix.html',
-    '/hi/akelapan.html': '/fr/solitude.html'
+    '/hi/akelapan.html': '/fr/solitude.html',
+    '/hi/kshama.html': '/fr/pardon.html'
   };
 
   var LOCALE_TO_PT = {
@@ -170,6 +182,7 @@
     '/ru/strakh.html': '/pt/medo.html',
     '/ru/sila.html': '/pt/forca.html',
     '/ru/mir.html': '/pt/paz.html',
+    '/ru/proshchenie.html': '/pt/',
     '/ru/odinochestvo.html': '/pt/solidao.html',
     '/zh/jiaolv.html': '/pt/ansiedade.html',
     '/zh/xiwang.html': '/pt/esperanca.html',
@@ -178,12 +191,15 @@
     '/zh/taiduo.html': '/pt/sobrecarga.html',
     '/zh/kongju.html': '/pt/medo.html',
     '/zh/liliang.html': '/pt/forca.html',
+    '/zh/heping.html': '/pt/paz.html',
+    '/zh/kuanshu.html': '/pt/',
     '/hi/chinta.html': '/pt/ansiedade.html',
     '/hi/asha.html': '/pt/esperanca.html',
     '/hi/dar.html': '/pt/medo.html',
     '/hi/shakti.html': '/pt/forca.html',
     '/hi/shanti.html': '/pt/paz.html',
-    '/hi/akelapan.html': '/pt/solidao.html'
+    '/hi/akelapan.html': '/pt/solidao.html',
+    '/hi/kshama.html': '/pt/'
   };
 
   var LOCALE_TO_ZH = {
@@ -191,14 +207,20 @@
     '/ru/nadezhda.html': '/zh/xiwang.html',
     '/ru/strakh.html': '/zh/kongju.html',
     '/ru/sila.html': '/zh/liliang.html',
-    '/ru/mir.html': '/zh/jiaolv.html',
+    '/ru/mir.html': '/zh/heping.html',
+    '/ru/proshchenie.html': '/zh/kuanshu.html',
     '/ru/odinochestvo.html': '/zh/gudu.html',
     '/hi/chinta.html': '/zh/jiaolv.html',
     '/hi/asha.html': '/zh/xiwang.html',
     '/hi/dar.html': '/zh/kongju.html',
     '/hi/shakti.html': '/zh/liliang.html',
-    '/hi/shanti.html': '/zh/jiaolv.html',
-    '/hi/akelapan.html': '/zh/gudu.html'
+    '/hi/shanti.html': '/zh/heping.html',
+    '/hi/kshama.html': '/zh/kuanshu.html',
+    '/hi/akelapan.html': '/zh/gudu.html',
+    '/paz.html': '/zh/heping.html',
+    '/fr/paix.html': '/zh/heping.html',
+    '/calm.html': '/zh/heping.html',
+    '/pt/paz.html': '/zh/heping.html'
   };
 
   var LOCALE_TO_RU = {
@@ -209,12 +231,17 @@
     '/zh/taiduo.html': '/ru/trevoga.html',
     '/zh/kongju.html': '/ru/strakh.html',
     '/zh/liliang.html': '/ru/sila.html',
+    '/zh/heping.html': '/ru/mir.html',
+    '/zh/kuanshu.html': '/ru/proshchenie.html',
     '/hi/chinta.html': '/ru/trevoga.html',
     '/hi/asha.html': '/ru/nadezhda.html',
     '/hi/dar.html': '/ru/strakh.html',
     '/hi/shakti.html': '/ru/sila.html',
     '/hi/shanti.html': '/ru/mir.html',
-    '/hi/akelapan.html': '/ru/odinochestvo.html'
+    '/hi/kshama.html': '/ru/proshchenie.html',
+    '/hi/akelapan.html': '/ru/odinochestvo.html',
+    '/paz.html': '/ru/mir.html',
+    '/fr/paix.html': '/ru/mir.html'
   };
 
   var LOCALE_TO_HI = {
@@ -223,6 +250,7 @@
     '/ru/strakh.html': '/hi/dar.html',
     '/ru/sila.html': '/hi/shakti.html',
     '/ru/mir.html': '/hi/shanti.html',
+    '/ru/proshchenie.html': '/hi/kshama.html',
     '/ru/odinochestvo.html': '/hi/akelapan.html',
     '/zh/jiaolv.html': '/hi/chinta.html',
     '/zh/xiwang.html': '/hi/asha.html',
@@ -230,7 +258,12 @@
     '/zh/neijiu.html': '/hi/chinta.html',
     '/zh/taiduo.html': '/hi/chinta.html',
     '/zh/kongju.html': '/hi/dar.html',
-    '/zh/liliang.html': '/hi/shakti.html'
+    '/zh/liliang.html': '/hi/shakti.html',
+    '/zh/heping.html': '/hi/shanti.html',
+    '/zh/kuanshu.html': '/hi/kshama.html',
+    '/ru/proshchenie.html': '/hi/kshama.html',
+    '/paz.html': '/hi/shanti.html',
+    '/fr/paix.html': '/hi/shanti.html'
   };
 
   var LOCALE_TO_ID = {
@@ -239,6 +272,7 @@
     '/ru/strakh.html': '/id/ketakutan.html',
     '/ru/sila.html': '/id/kecemasan.html',
     '/ru/mir.html': '/id/kecemasan.html',
+    '/ru/proshchenie.html': '/id/',
     '/ru/odinochestvo.html': '/id/kecemasan.html',
     '/zh/jiaolv.html': '/id/kecemasan.html',
     '/zh/xiwang.html': '/id/harapan.html',
@@ -247,12 +281,15 @@
     '/zh/taiduo.html': '/id/kecemasan.html',
     '/zh/kongju.html': '/id/ketakutan.html',
     '/zh/liliang.html': '/id/kecemasan.html',
+    '/zh/heping.html': '/id/kecemasan.html',
+    '/zh/kuanshu.html': '/id/',
     '/hi/chinta.html': '/id/kecemasan.html',
     '/hi/asha.html': '/id/harapan.html',
     '/hi/dar.html': '/id/ketakutan.html',
     '/hi/shakti.html': '/id/kecemasan.html',
     '/hi/shanti.html': '/id/kecemasan.html',
-    '/hi/akelapan.html': '/id/kecemasan.html'
+    '/hi/akelapan.html': '/id/kecemasan.html',
+    '/hi/kshama.html': '/id/'
   };
 
   /** French mood pilots → English equivalents. */
@@ -690,9 +727,19 @@
     return baseFile() === 'topic-overwhelmed.html';
   }
 
+  /** EN / ES / FR / ZH / RU / HI forgiveness pilots + topic page (cross-switcher parity). */
+  function isForgivenessEquivalentPath() {
+    var p = pathnameNoQuery();
+    return p === '/topic-forgiveness.html' || p === '/perdon.html' || p === '/fr/pardon.html' ||
+      p === '/zh/kuanshu.html' || p === '/ru/proshchenie.html' || p === '/hi/kshama.html';
+  }
+
   function enHref() {
     if (isFrenchHub() || isSpanishHub() || isIndonesianHub() || isRussianHub() || isChineseHub() ||
       isHindiHub()) return '/';
+    if (isForgivenessEquivalentPath() && pathnameNoQuery() !== '/topic-forgiveness.html') {
+      return '/topic-forgiveness.html';
+    }
     var ptEq = PT_TO_EN[pathnameNoQuery()];
     if (ptEq) return ptEq;
     var frEq = FR_TO_EN[pathnameNoQuery()];
@@ -723,6 +770,7 @@
     var pEs = pathnameNoQuery();
     var locEs = LOCALE_TO_ES[pEs];
     if (locEs) return locEs;
+    if (isForgivenessEquivalentPath() && pEs !== '/perdon.html') return '/perdon.html';
     if (isSpanishHub()) return '/es/';
     if (isPortugueseHub() || isFrenchHub() || isIndonesianHub() || isRussianHub() || isChineseHub() ||
       isHindiHub()) return '/es/';
@@ -755,6 +803,7 @@
     var pFr = pathnameNoQuery();
     var locFr = LOCALE_TO_FR[pFr];
     if (locFr) return locFr;
+    if (isForgivenessEquivalentPath() && pFr !== '/fr/pardon.html') return '/fr/pardon.html';
     if (isSpanishHub()) return '/fr/';
     if (isFrenchHub()) return '/fr/';
     if (isIndonesianHub() || isRussianHub() || isChineseHub() || isHindiHub()) return '/fr/';
@@ -798,6 +847,7 @@
     if (isChineseTopical()) return pZh;
     var locZh = LOCALE_TO_ZH[pZh];
     if (locZh) return locZh;
+    if (isForgivenessEquivalentPath() && pZh !== '/zh/kuanshu.html') return '/zh/kuanshu.html';
     if (isFrenchExtraMoodPilot() || isFrenchToolShell()) return '/zh/jiaolv.html';
     if (isLocaleHubCluster()) return '/zh/jiaolv.html';
     if (isChineseLonelinessPage()) return '/zh/gudu.html';
@@ -828,7 +878,7 @@
     if (PT_TO_EN[pId]) return '/id/';
     if (isFrenchHub() || isSpanishHub() || isRussianHub() || isChineseHub() || isHindiHub()) return '/id/';
     if (pId === '/id/ketakutan.html') return '/id/ketakutan.html';
-    if (pId === '/fr/pardon.html' || pId === '/perdon.html') return '/id/harapan.html';
+    if (isForgivenessEquivalentPath()) return '/id/';
     if (pId === '/id/harapan.html') return '/id/harapan.html';
     if (isHopeEquivalentPath()) return '/id/harapan.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
@@ -884,6 +934,7 @@
     if (isHindiTopical()) return pHi;
     var locHi = LOCALE_TO_HI[pHi];
     if (locHi) return locHi;
+    if (isForgivenessEquivalentPath() && pHi !== '/hi/kshama.html') return '/hi/kshama.html';
     if (isLocaleHubCluster()) return '/hi/chinta.html';
     if (pHi === '/hi/asha.html') return '/hi/asha.html';
     if (isHopeEquivalentPath()) return '/hi/asha.html';
@@ -899,6 +950,7 @@
     if (isRussianTopical()) return pRu;
     var locRu = LOCALE_TO_RU[pRu];
     if (locRu) return locRu;
+    if (isForgivenessEquivalentPath() && pRu !== '/ru/proshchenie.html') return '/ru/proshchenie.html';
     if (isLocaleHubCluster()) return '/ru/trevoga.html';
     if (pRu === '/ru/nadezhda.html') return '/ru/nadezhda.html';
     if (isHopeEquivalentPath()) return '/ru/nadezhda.html';
@@ -921,6 +973,7 @@
     var curPt = pathnameNoQuery();
     var locPt = LOCALE_TO_PT[curPt];
     if (locPt) return locPt;
+    if (isForgivenessEquivalentPath() && curPt !== '/pt/') return '/pt/';
     if (isFrenchHub() || isSpanishHub() || isIndonesianHub() || isRussianHub() || isChineseHub() ||
       isHindiHub()) return '/pt/';
     if (isPortugueseHub()) return '/pt/';
@@ -964,6 +1017,7 @@
       isSwedishAnxietyPage() || isPortugueseAnxietyPage() || isBengaliAnxietyPage() ||
       isSwahiliAnxietyPage() ||
       isHopeEquivalentPath() ||
+      isForgivenessEquivalentPath() ||
       isFrenchLonelinessPage() || isChineseLonelinessPage() ||
       isFrenchGuiltPage() || isChineseGuiltPage() ||
       isFrenchOverwhelmPage() || isChineseOverwhelmPage()) {

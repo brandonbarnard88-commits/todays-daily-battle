@@ -70,19 +70,75 @@
     try { localStorage.setItem(SHARED_KEY, JSON.stringify(items)); } catch (e) {}
   }
 
+  function getMemorizeQueueSnapshot(comp) {
+    var q = typeof comp.listMemorizeQueue === 'function' ? comp.listMemorizeQueue() : [];
+    var now = Date.now();
+    var dueNow = 0;
+    var i;
+    for (i = 0; i < q.length; i++) {
+      if (q[i].dueAt <= now) dueNow++;
+    }
+    var nextRow = null;
+    for (i = 0; i < q.length; i++) {
+      if (q[i].dueAt <= now) {
+        nextRow = q[i];
+        break;
+      }
+    }
+    if (!nextRow && q.length) nextRow = q[0];
+    return { n: q.length, dueNow: dueNow, nextRow: nextRow };
+  }
+
   function updateMemorizePill() {
+    var strip = byId('mystudy-memorize-strip');
     var el = byId('mystudy-memorize-pill');
-    if (!el || !window.TDBStudyCompanion || typeof window.TDBStudyCompanion.listMemorizeQueue !== 'function') return;
-    var n = window.TDBStudyCompanion.listMemorizeQueue().length;
-    el.classList.toggle('mystudy-memorize-pill--empty', !n);
-    if (!n) {
+    var btn = byId('mystudy-memorize-review-next');
+    if (!strip || !el) return;
+    if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.listMemorizeQueue !== 'function') {
+      strip.classList.add('mystudy-memorize-strip--empty');
       el.textContent = '';
+      if (btn) btn.classList.add('hidden');
       return;
     }
-    el.textContent =
+    var snap = getMemorizeQueueSnapshot(window.TDBStudyCompanion);
+    var n = snap.n;
+    strip.classList.toggle('mystudy-memorize-strip--empty', !n);
+    if (!n) {
+      el.textContent = '';
+      if (btn) btn.classList.add('hidden');
+      return;
+    }
+    var line =
       n === 1
-        ? 'Memorize queue: 1 verse on this device. Open Note library to review.'
-        : 'Memorize queue: ' + n + ' verses on this device. Open Note library to review.';
+        ? '1 verse in your memorize queue on this device'
+        : n + ' verses in your memorize queue on this device';
+    if (snap.dueNow > 0) {
+      line += snap.dueNow === 1 ? ' · 1 ready to review' : ' · ' + snap.dueNow + ' ready to review';
+    }
+    line += '. Open Note library for the full list.';
+    el.textContent = line;
+    if (btn) {
+      btn.classList.remove('hidden');
+      if (snap.nextRow && snap.nextRow.ref) {
+        btn.setAttribute('aria-label', 'Mark ' + snap.nextRow.ref + ' reviewed today for your memory schedule');
+      } else {
+        btn.setAttribute('aria-label', 'Mark the next verse reviewed today');
+      }
+    }
+  }
+
+  function markNextMemorizeReviewed() {
+    var comp = window.TDBStudyCompanion;
+    if (!comp || typeof comp.listMemorizeQueue !== 'function' || typeof comp.markMemorizeReviewed !== 'function') return;
+    var snap = getMemorizeQueueSnapshot(comp);
+    if (!snap.nextRow || !snap.nextRow.ref) return;
+    comp.markMemorizeReviewed(snap.nextRow.ref);
+    if (typeof window.showEliteToast === 'function') {
+      window.showEliteToast('Reviewed: ' + snap.nextRow.ref + '. Next reminder follows your schedule.');
+    }
+    updateMemorizePill();
+    var libPanel = byId('panel-note-library');
+    if (libPanel && !libPanel.classList.contains('hidden')) renderNoteLibrary();
   }
 
   function setTab(tabName) {
@@ -473,6 +529,9 @@
       if (!ok && typeof window.showEliteToast === 'function') {
         window.showEliteToast('Allow pop-ups to print, or use Export JSON on the Bible Tool.');
       }
+    });
+    byId('mystudy-memorize-review-next')?.addEventListener('click', function () {
+      markNextMemorizeReviewed();
     });
     byId('tab-highlights')?.addEventListener('click', function () { setTab('highlights'); });
     byId('tab-join-study')?.addEventListener('click', function () { setTab('join'); });

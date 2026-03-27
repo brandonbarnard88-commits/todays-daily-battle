@@ -16765,8 +16765,15 @@ function updateReaderBookIntro(book) {
   ensureBookIntrosLoaded().then(books => {
     const text = books[b];
     if (!text) {
-      wrap.classList.add('hidden');
-      body.textContent = '';
+      const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
+      if (offline) {
+        body.textContent =
+          'Offline — book note loads when you are back online. Chapter text may still be cached.';
+        wrap.classList.remove('hidden');
+      } else {
+        wrap.classList.add('hidden');
+        body.textContent = '';
+      }
       return;
     }
     body.textContent = text;

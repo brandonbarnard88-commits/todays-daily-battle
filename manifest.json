@@ -56,6 +56,12 @@
       "description": "Search and study scripture."
     },
     {
+      "name": "My Study",
+      "short_name": "Study",
+      "url": "/mystudy.html",
+      "description": "Notes, tags, memorize queue, and print — on this device."
+    },
+    {
       "name": "Möbius Loop",
       "short_name": "Loop",
       "url": "/mobius.html",

@@ -393,9 +393,9 @@ if (
   !ansiedadHtml.includes('es-mas-ayuda') ||
   !ansiedadHtml.includes('es-mas-ayuda-tools') ||
   !ansiedadHtml.includes('cta-group') ||
-  !ansiedadHtml.includes('Herramienta Biblia')
+  !ansiedadHtml.includes('Biblia (EN)')
 ) {
-  fail('ansiedad.html: Más ayuda block must include es-mas-ayuda, es-mas-ayuda-tools, cta-group, and Herramienta Biblia link');
+  fail('ansiedad.html: Más ayuda block must include es-mas-ayuda, es-mas-ayuda-tools, cta-group, and Biblia (EN) link');
 } else {
   ok('ansiedad.html: Más ayuda tool row markup present (source guard)');
 }

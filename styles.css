@@ -15431,3 +15431,53 @@ body.kids-battle-page .tdb-site-humility {
   }
 }
 
+/* Open beta — honest scope (Explore callout, About, canonical footer) */
+.tdb-open-beta-callout {
+  margin: 0 0 1rem;
+  padding: 1rem 1.15rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+  background: color-mix(in srgb, var(--card) 94%, var(--gold));
+}
+
+.tdb-open-beta-callout-title {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: color-mix(in srgb, var(--text) 90%, var(--muted));
+}
+
+.tdb-open-beta-callout .section-note {
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+.about-open-beta .section-note {
+  line-height: 1.58;
+}
+
+.site-footer-beta-note {
+  margin: 0.35rem auto 0;
+  max-width: 38rem;
+  padding: 0 0.75rem;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted, rgba(226, 232, 240, 0.72));
+}
+
+.site-footer-beta-note a {
+  color: var(--gold-soft, #c9a84c);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.site-footer-beta-note a:hover,
+.site-footer-beta-note a:focus-visible {
+  color: var(--gold);
+  outline: none;
+}
+

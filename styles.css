@@ -14573,6 +14573,54 @@ main > .card {
   line-height: 1.55;
 }
 
+/* Locale hubs (/es, /fr, /pt, Explore): small phones + notched devices */
+@media (max-width: 380px) {
+  .explore-page .content-inner {
+    padding-left: max(0.65rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.65rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+/* Hub daily verse: stack CTAs full-width on narrow viewports (44px+ tap targets) */
+@media (max-width: 719.98px) {
+  .tdb-hub-daily-split .cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tdb-hub-daily-split .cta-group .btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* EN home — companion block matches hub rhythm (button in index inline scope) */
+@media (max-width: 719.98px) {
+  .en-hub-daily-col-en--calendar > .btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explore-hub-card {
+    transition: none;
+  }
+
+  .explore-hub-card:hover,
+  .explore-hub-card:focus-visible {
+    transform: none;
+  }
+}
+
 .explore-start-here-essentials {
   margin-top: 0.5rem;
 }

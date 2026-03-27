@@ -997,3 +997,11 @@
 .verse-memory-review-item.wrong {
   color: #fca5a5;
 }
+
+.concordance-verse-actions,
+.verse-maps-verse-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}

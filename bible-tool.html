@@ -62,8 +62,6 @@
     .bible-tool .bible-tool-tags-input:focus { outline: 2px solid rgba(167, 139, 250, 0.55); outline-offset: 2px; }
     .bible-tool .bible-tool-kjv-words-ul { list-style: none; margin: 0; padding: 0; max-height: 14rem; overflow: auto; }
     .bible-tool .bible-tool-kjv-words-ul li { margin-top: 0.35rem; line-height: 1.45; }
-    .bible-tool #lookup-result.lookup-result--error .lookup-result-main { display: none !important; }
-    .bible-tool .lookup-fetch-error { margin-bottom: 0.35rem; }
     .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; resize: vertical; min-height: 4rem; }
     .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 1rem; }
     .bible-tool .verse-ref { font-weight: 600; }
@@ -670,11 +668,8 @@
           </div>
           <div id="people-result" class="hidden util-mt-1" role="region" aria-live="polite" aria-label="Bible person result"></div>
           <div id="lookup-result" class="hidden util-mt-1" role="region" aria-live="polite" aria-label="Lookup result">
-            <div id="lookup-fetch-error" class="lookup-fetch-error hidden" role="alert" aria-live="assertive">
-              <p class="empty util-mb-0_5" id="lookup-fetch-error-msg"></p>
-              <button type="button" id="lookup-retry" class="btn btn-secondary">Retry lookup</button>
-            </div>
-            <div id="lookup-result-main" class="lookup-result-main">
+            <div id="lookup-error-banner" class="hidden util-mt-0_5" role="alert" aria-live="assertive"></div>
+            <div id="lookup-result-body">
             <p class="verse-ref" id="lookup-ref"></p>
             <p id="lookup-text" class="util-mt-0_5"></p>
             <div id="whos-this-inline" class="hidden" role="region" aria-live="polite" aria-label="Who's this person?"></div>
@@ -1271,9 +1266,13 @@
     var textEl = document.getElementById('lookup-text');
     var readChapterLink = document.getElementById('lookup-read-chapter');
     if (!block || !data) return;
-    block.classList.remove('lookup-result--error');
-    var errBanner = document.getElementById('lookup-fetch-error');
-    if (errBanner) errBanner.classList.add('hidden');
+    var body = document.getElementById('lookup-result-body');
+    var banner = document.getElementById('lookup-error-banner');
+    if (body) body.classList.remove('hidden');
+    if (banner) {
+      banner.classList.add('hidden');
+      banner.innerHTML = '';
+    }
     refEl.textContent = data.reference;
     refEl.className = 'verse-ref';
     textEl.textContent = data.text;
@@ -1310,19 +1309,24 @@
 
   function renderLookupError(ref) {
     var block = document.getElementById('lookup-result');
-    if (!block) return;
+    var body = document.getElementById('lookup-result-body');
+    var banner = document.getElementById('lookup-error-banner');
+    if (!block || !body || !banner) return;
     block.classList.remove('hidden');
-    block.classList.add('lookup-result--error');
-    var errBanner = document.getElementById('lookup-fetch-error');
-    var errMsg = document.getElementById('lookup-fetch-error-msg');
-    if (errBanner) errBanner.classList.remove('hidden');
-    if (errMsg) {
-      errMsg.textContent =
-        'Verse unavailable right now — check your connection or try another reference.' +
-        (ref ? ' (' + ref + ')' : '');
-    }
-    var lookupContext = document.getElementById('lookup-context');
-    if (lookupContext) lookupContext.innerHTML = '';
+    body.classList.add('hidden');
+    banner.classList.remove('hidden');
+    banner.innerHTML = '';
+    var p = document.createElement('p');
+    p.className = 'empty';
+    p.textContent = 'Verse unavailable right now - check your connection or try another reference.';
+    var retryBtn = document.createElement('button');
+    retryBtn.type = 'button';
+    retryBtn.id = 'lookup-retry';
+    retryBtn.className = 'btn btn-secondary';
+    retryBtn.textContent = 'Retry lookup';
+    retryBtn.addEventListener('click', function () { doLookup(); });
+    banner.appendChild(p);
+    banner.appendChild(retryBtn);
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
@@ -1485,18 +1489,6 @@
   document.getElementById('lookup-btn').addEventListener('click', function () {
     doLookup();
   });
-
-  (function wireLookupRetry() {
-    var retryBtn = document.getElementById('lookup-retry');
-    if (!retryBtn) return;
-    retryBtn.addEventListener('click', function () {
-      var lr = document.getElementById('lookup-result');
-      var err = document.getElementById('lookup-fetch-error');
-      if (lr) lr.classList.remove('lookup-result--error');
-      if (err) err.classList.add('hidden');
-      doLookup();
-    });
-  })();
 
   (function wirePeopleLookup() {
     function escHtml(str) {

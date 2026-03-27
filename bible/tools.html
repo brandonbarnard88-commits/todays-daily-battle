@@ -17,7 +17,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
   <link rel="stylesheet" href="bible-hub.css?v=1">
-  <link rel="stylesheet" href="bible-tools.css?v=1">
+  <link rel="stylesheet" href="bible-tools.css?v=20260328hubmem">
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" integrity="sha384-0esPaJH+F9evp2lsJYN36SW7XkRbaYviuyF+PpnbjDXBC9i1CWGiJyGrXCyiyGqZ" crossorigin="anonymous" defer></script>
@@ -88,7 +88,10 @@
             <div id="verse-maps-verse-card" class="verse-maps-verse-card hidden" role="region" aria-label="Selected verse">
               <span id="verse-maps-verse-ref" class="verse-maps-verse-ref"></span>
               <p id="verse-maps-verse-text" class="verse-maps-verse-text"></p>
-              <button type="button" id="verse-maps-highlight-btn" class="verse-maps-highlight-btn">Highlight</button>
+              <div class="verse-maps-verse-actions util-mt-0_5" role="group" aria-label="Verse actions">
+                <button type="button" id="verse-maps-highlight-btn" class="verse-maps-highlight-btn">Highlight</button>
+                <button type="button" id="verse-maps-memorize-btn" class="verse-maps-highlight-btn" hidden aria-pressed="false">Memorize</button>
+              </div>
             </div>
           </div>
         </section>
@@ -121,7 +124,10 @@
               <span id="concordance-verse-ref" class="concordance-verse-ref"></span>
               <p id="concordance-verse-text" class="concordance-verse-text"></p>
               <div id="concordance-chain-refs" class="concordance-chain-refs hidden" aria-label="Curated cross references"></div>
-              <button type="button" id="concordance-highlight-btn" class="concordance-highlight-btn">Highlight</button>
+              <div class="concordance-verse-actions util-mt-0_5" role="group" aria-label="Verse actions">
+                <button type="button" id="concordance-highlight-btn" class="concordance-highlight-btn">Highlight</button>
+                <button type="button" id="concordance-memorize-btn" class="concordance-highlight-btn" hidden aria-pressed="false">Memorize</button>
+              </div>
             </div>
           </div>
         </section>
@@ -339,7 +345,8 @@
     </nav>
   </div>
   <script src="../verse-breakdown.js?v=20260322-ui-decode" defer></script>
-  <script src="bible-tools.js?v=1"></script>
+  <script src="../bible-study-companion.js?v=20260328print"></script>
+  <script src="bible-tools.js?v=20260328hubmem"></script>
   <script type="module" src="../script.js?v=20260328feelwire" defer></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
 </body>

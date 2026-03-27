@@ -289,6 +289,28 @@
     return refs;
   }
 
+  function syncHubMemorizeBtn(btnEl, ref) {
+    if (!btnEl) return;
+    var raw = (ref != null ? ref : btnEl.dataset.ref) || '';
+    if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.isMemorizing !== 'function') {
+      btnEl.classList.add('hidden');
+      return;
+    }
+    var r = typeof window.TDBStudyCompanion.normRef === 'function'
+      ? window.TDBStudyCompanion.normRef(raw)
+      : String(raw).replace(/\s+/g, ' ').trim();
+    if (!r) {
+      btnEl.classList.add('hidden');
+      return;
+    }
+    btnEl.dataset.ref = r;
+    btnEl.classList.remove('hidden');
+    var on = window.TDBStudyCompanion.isMemorizing(r);
+    btnEl.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btnEl.textContent = on ? 'In memorize queue' : 'Memorize';
+    btnEl.setAttribute('aria-label', on ? 'Remove ' + r + ' from memorize queue' : 'Add ' + r + ' to memorize queue');
+  }
+
   function renderConcordanceResults(refs, word) {
     var container = document.getElementById('concordance-results');
     var countEl = document.getElementById('concordance-count');
@@ -337,6 +359,8 @@
     btn.textContent = isHighlighted ? 'Edit note' : 'Highlight';
     btn.dataset.ref = ref;
     renderConcordanceChainRefs(ref);
+    var memBtn = document.getElementById('concordance-memorize-btn');
+    syncHubMemorizeBtn(memBtn, ref);
     card.classList.remove('hidden');
     card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
@@ -450,6 +474,8 @@
     textEl.textContent = text;
     btn.textContent = isHighlighted ? 'Edit note' : 'Highlight';
     btn.dataset.ref = ref;
+    var vmMemBtn = document.getElementById('verse-maps-memorize-btn');
+    syncHubMemorizeBtn(vmMemBtn, ref);
     card.classList.remove('hidden');
     card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
@@ -881,6 +907,24 @@
         if (memBtn) memBtn.disabled = true;
       }
       if (memBtn) memBtn.addEventListener('click', openMemoryModal);
+      var concMemBtn = document.getElementById('concordance-memorize-btn');
+      if (concMemBtn) {
+        concMemBtn.addEventListener('click', function () {
+          var r = concMemBtn.dataset.ref;
+          if (!r || !window.TDBStudyCompanion || typeof window.TDBStudyCompanion.toggleMemorize !== 'function') return;
+          window.TDBStudyCompanion.toggleMemorize(r);
+          syncHubMemorizeBtn(concMemBtn, r);
+        });
+      }
+      var vmMemBtn = document.getElementById('verse-maps-memorize-btn');
+      if (vmMemBtn) {
+        vmMemBtn.addEventListener('click', function () {
+          var r = vmMemBtn.dataset.ref;
+          if (!r || !window.TDBStudyCompanion || typeof window.TDBStudyCompanion.toggleMemorize !== 'function') return;
+          window.TDBStudyCompanion.toggleMemorize(r);
+          syncHubMemorizeBtn(vmMemBtn, r);
+        });
+      }
       var memNextBtn = document.getElementById('verse-memory-next');
       if (memNextBtn) memNextBtn.addEventListener('click', nextMemoryCard);
       var memCloseBtn = document.getElementById('verse-memory-close');

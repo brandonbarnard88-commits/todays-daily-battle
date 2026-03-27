@@ -24357,6 +24357,24 @@ function wireRandomBattleVerseHero() {
     try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
   }());
 
+  /** Locale hubs (PT/FR/ES/ID): show one of several fixed anchor verses per UTC day — not the calendar verse. */
+  (function initHubDailyAnchorRotate() {
+    try {
+      var root = document.querySelector('[data-tdb-hub-daily-rotate]');
+      if (!root) return;
+      var panels = root.querySelectorAll('.tdb-hub-daily-rotate-panel');
+      if (!panels.length) return;
+      var d = new Date();
+      var dayKey = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+      var idx = Math.floor(dayKey / 86400000) % panels.length;
+      for (var i = 0; i < panels.length; i++) {
+        var on = i === idx;
+        panels[i].hidden = !on;
+        panels[i].setAttribute('aria-hidden', on ? 'false' : 'true');
+      }
+    } catch (eHubRot) {}
+  }());
+
   /** Final a11y helper: main H1 can receive programmatic focus (skip links / in-app nav). No auto-focus on load. */
   function improveAccessibility() {
     try {

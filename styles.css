@@ -14446,6 +14446,73 @@ main > .card {
   color: color-mix(in srgb, var(--gold) 70%, #3d2f0f);
 }
 
+/* Locale hubs — daily verse: calendar CTA vs rotating anchor column */
+.tdb-hub-daily-split {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  align-items: start;
+}
+
+@media (min-width: 720px) {
+  .tdb-hub-daily-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .tdb-hub-daily-col--calendar {
+    padding-right: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  :root[data-theme="light"] .tdb-hub-daily-col--calendar {
+    border-right-color: rgba(15, 23, 42, 0.1);
+  }
+}
+
+@media (max-width: 719.98px) {
+  .tdb-hub-daily-col--calendar {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  :root[data-theme="light"] .tdb-hub-daily-col--calendar {
+    border-bottom-color: rgba(15, 23, 42, 0.1);
+  }
+}
+
+.tdb-hub-daily-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted, rgba(226, 232, 240, 0.55));
+  margin: 0 0 0.4rem 0;
+}
+
+:root[data-theme="light"] .tdb-hub-daily-eyebrow {
+  color: var(--muted, #5f6877);
+}
+
+.tdb-hub-daily-hint {
+  margin-top: 0.85rem !important;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.tdb-hub-daily-anchor-title {
+  margin-top: 0;
+  font-size: 1.02rem;
+}
+
+.tdb-hub-daily-anchor-intro {
+  margin-top: 0.35rem !important;
+  margin-bottom: 0.65rem !important;
+  font-size: 0.9em;
+  line-height: 1.55;
+}
+
 .explore-start-here-essentials {
   margin-top: 0.5rem;
 }

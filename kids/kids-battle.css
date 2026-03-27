@@ -809,14 +809,42 @@
   margin-bottom: 0.35rem;
 }
 
-.kids-memory-input {
+/* Modal-scoped so global `input { color: inherit }` on dark-mode body cannot wash out typed text */
+.kids-memory-modal input.kids-memory-input {
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
+  padding: 0.55rem 0.85rem;
+  font-size: 1.125rem;
+  font-weight: 600;
   font-family: 'Comic Neue', cursive;
-  border: 2px solid rgba(255,217,61,0.6);
+  border: 2px solid rgba(255,217,61,0.75);
   border-radius: 8px;
-  background: #fff;
+  background: #ffffff;
+  color: #020617;
+  caret-color: #020617;
+  -webkit-text-fill-color: #020617;
+}
+
+.kids-memory-modal input.kids-memory-input::placeholder {
+  color: #334155;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.kids-memory-modal input.kids-memory-input:focus {
+  color: #020617;
+  -webkit-text-fill-color: #020617;
+  outline: 2px solid rgba(15, 23, 42, 0.35);
+  outline-offset: 2px;
+}
+
+/* WebKit autofill must not revert to light “inherited” text on cream card */
+.kids-memory-modal input.kids-memory-input:-webkit-autofill,
+.kids-memory-modal input.kids-memory-input:-webkit-autofill:hover,
+.kids-memory-modal input.kids-memory-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #020617;
+  caret-color: #020617;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+  transition: background-color 99999s ease-out;
 }
 
 .kids-memory-hint {

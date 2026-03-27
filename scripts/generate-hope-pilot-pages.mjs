@@ -371,7 +371,7 @@ pages.push({
     heroNote: "Citações: tradição <strong>Almeida</strong> (linhagem de domínio público). O restante do site costuma estar em inglês; nas ferramentas, a Bíblia na tela é em geral <abbr title=\"King James Version\" lang=\"en\">KJV</abbr>.",
     btnSearch: `Buscar na página inicial — digite <span lang="en">hope</span> (inglês)`,
     btnBible: "Bíblia (EN)",
-    btnWall: "Mural de oração (EN)",
+    btnWall: "Mural completo (EN)",
     btnVerse: "Verso do dia (EN)",
     breakdownClass: "pt-hope-breakdown",
     contentLang: "pt",

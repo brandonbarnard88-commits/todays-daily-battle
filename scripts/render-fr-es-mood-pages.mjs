@@ -129,7 +129,7 @@ ${LANG_SWITCHER_INNER}
             <a class="btn btn-secondary" href="/verse.html" hreflang="en">Verset du jour (EN)</a>
             <a class="btn btn-secondary" href="/calm.html" hreflang="en">Calm (EN)</a>
             <a class="btn btn-secondary" href="/bible-tool.html" hreflang="en">Outil Bible (EN)</a>
-            <a class="btn btn-secondary" href="/message.html" hreflang="en">Mur de prière (EN)</a>
+            <a class="btn btn-secondary" href="/message.html" hreflang="en">Mur complet (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Langues (EN)</a>
           </nav>
         </section>

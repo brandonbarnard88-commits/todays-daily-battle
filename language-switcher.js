@@ -1,5 +1,6 @@
 /**
  * Language switcher: EN · ES · FR · 中文 · ID · TL · AR · HI · RU · SV · PT · BN · SW + "More languages" hub.
+ * Portuguese hub: /pt/ and /pt/index.html — ptHref default for unpaired pages is /pt/.
  * Pairs topical pilots (anxiety + hope in AR/HI/RU/SV/PT/BN/SW/ID/TL + FR/ZH/EN; loneliness/guilt/overwhelm FR/ZH); persists tdb_lang_pref on explicit picks.
  */
 (function () {
@@ -109,6 +110,12 @@
 
   function isPortugueseAnxietyPage() {
     return pathnameNoQuery() === '/pt/ansiedade.html';
+  }
+
+  /** Portuguese landing hub (not a mood-door pilot). */
+  function isPortugueseHub() {
+    var p = pathnameNoQuery();
+    return p === '/pt' || p === '/pt/index.html';
   }
 
   function isBengaliAnxietyPage() {
@@ -246,6 +253,7 @@
   }
 
   function frHref() {
+    if (isPortugueseHub()) return '/fr/anxiete.html';
     if (isFrenchLonelinessPage()) return '/fr/solitude.html';
     if (isChineseLonelinessPage()) return '/fr/solitude.html';
     if (isLonelinessEquivalentBaseFile()) return '/fr/solitude.html';
@@ -266,6 +274,7 @@
   }
 
   function zhHref() {
+    if (isPortugueseHub()) return '/zh/jiaolv.html';
     if (isChineseLonelinessPage()) return '/zh/gudu.html';
     if (isFrenchLonelinessPage()) return '/zh/gudu.html';
     if (isLonelinessEquivalentBaseFile()) return '/zh/gudu.html';
@@ -319,6 +328,7 @@
   }
 
   function arHref() {
+    if (isPortugueseHub()) return '/ar/qalaq.html';
     if (pathnameNoQuery() === '/ar/rajaa.html') return '/ar/rajaa.html';
     if (isHopeEquivalentPath()) return '/ar/rajaa.html';
     if (isArabicAnxietyPage()) return '/ar/qalaq.html';
@@ -327,6 +337,7 @@
   }
 
   function hiHref() {
+    if (isPortugueseHub()) return '/hi/chinta.html';
     if (pathnameNoQuery() === '/hi/asha.html') return '/hi/asha.html';
     if (isHopeEquivalentPath()) return '/hi/asha.html';
     if (isHindiAnxietyPage()) return '/hi/chinta.html';
@@ -335,6 +346,7 @@
   }
 
   function ruHref() {
+    if (isPortugueseHub()) return '/ru/trevoga.html';
     if (pathnameNoQuery() === '/ru/nadezhda.html') return '/ru/nadezhda.html';
     if (isHopeEquivalentPath()) return '/ru/nadezhda.html';
     if (isRussianAnxietyPage()) return '/ru/trevoga.html';
@@ -343,6 +355,7 @@
   }
 
   function svHref() {
+    if (isPortugueseHub()) return '/sv/oro.html';
     if (pathnameNoQuery() === '/sv/hopp.html') return '/sv/hopp.html';
     if (isHopeEquivalentPath()) return '/sv/hopp.html';
     if (isSwedishAnxietyPage()) return '/sv/oro.html';
@@ -351,14 +364,16 @@
   }
 
   function ptHref() {
+    if (isPortugueseHub()) return '/pt/';
     if (pathnameNoQuery() === '/pt/esperanca.html') return '/pt/esperanca.html';
     if (isHopeEquivalentPath()) return '/pt/esperanca.html';
     if (isPortugueseAnxietyPage()) return '/pt/ansiedade.html';
     if (isAnxietyEquivalentPath()) return '/pt/ansiedade.html';
-    return MORE_HUB;
+    return '/pt/';
   }
 
   function bnHref() {
+    if (isPortugueseHub()) return '/bn/chinta.html';
     if (pathnameNoQuery() === '/bn/asha.html') return '/bn/asha.html';
     if (isHopeEquivalentPath()) return '/bn/asha.html';
     if (isBengaliAnxietyPage()) return '/bn/chinta.html';
@@ -367,6 +382,7 @@
   }
 
   function swHref() {
+    if (isPortugueseHub()) return '/sw/wasiwasi.html';
     if (pathnameNoQuery() === '/sw/tumaini.html') return '/sw/tumaini.html';
     if (isHopeEquivalentPath()) return '/sw/tumaini.html';
     if (isSwahiliAnxietyPage()) return '/sw/wasiwasi.html';
@@ -483,6 +499,8 @@
       } else if (p === '/sv/hopp.html') {
         if (svPick) svPick.setAttribute('aria-current', 'true');
       } else if (p === '/pt/esperanca.html') {
+        if (ptPick) ptPick.setAttribute('aria-current', 'true');
+      } else if (isPortugueseHub()) {
         if (ptPick) ptPick.setAttribute('aria-current', 'true');
       } else if (p === '/bn/asha.html') {
         if (bnPick) bnPick.setAttribute('aria-current', 'true');

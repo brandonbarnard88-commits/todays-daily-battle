@@ -151,6 +151,9 @@ const cacheHygienePaths = [
   '/ru/trevoga',
   '/sv/oro.html',
   '/sv/oro',
+  '/pt/',
+  '/pt',
+  '/pt/index.html',
   '/pt/ansiedade.html',
   '/pt/ansiedade',
   '/bn/chinta.html',
@@ -294,6 +297,8 @@ if (
   !purgeMjs.includes("'/hi/chinta.html'") ||
   !purgeMjs.includes("'/ru/trevoga.html'") ||
   !purgeMjs.includes("'/sv/oro.html'") ||
+  !purgeMjs.includes("'/pt/'") ||
+  !purgeMjs.includes("'/pt/index.html'") ||
   !purgeMjs.includes("'/pt/ansiedade.html'") ||
   !purgeMjs.includes("'/bn/chinta.html'") ||
   !purgeMjs.includes("'/sw/wasiwasi.html'") ||

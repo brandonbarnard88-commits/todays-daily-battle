@@ -27,6 +27,10 @@ function shouldSkip(rel) {
   for (const p of EXCLUDE_PREFIXES) {
     if (rel.startsWith(p)) return true;
   }
+  /* Localized topical pilots use custom footers (pilot note, essentials). Do not overwrite with global partial. */
+  if (/^(ar|bn|fr|hi|id|pt|ru|sv|sw|tl|zh)\/[^/]+\.html$/.test(rel)) {
+    return true;
+  }
   if (rel.startsWith('kids/')) {
     if (
       rel === 'kids/kids-beta.html' ||

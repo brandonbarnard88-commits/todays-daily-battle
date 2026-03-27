@@ -162,7 +162,16 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
-# Portuguese anxiety pilot (pt/)
+# Portuguese hub + pilots (pt/)
+/pt/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/pt/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 /pt/ansiedade.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache

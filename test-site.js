@@ -36,7 +36,7 @@ const pages = [
   { path: '/testimonials.html', name: 'Reader stories', mustInclude: ['Words from the field', 'Share yours', 'support@todaysdailybattle.com'] },
   { path: '/profile.html', name: 'Profile', mustInclude: ['Family', 'Account', 'Your Kids'] },
   { path: '/bible-tool.html', name: 'Bible Tool', mustInclude: ['Bible Tool', 'Bible stories', 'bible-story-tool-index.js', 'Featured this week', 'corner.html?story=davidGoliath', 'Read full chapter', 'assets/share/verse-share.jpg', 'verse-image.html', 'footer-humility', 'We battle. He wins.', 'tdb-cache-hygiene:'] },
-  { path: '/plans.html', name: 'Battle Plans', mustInclude: ['Battle Plans', 'plan-list', 'planIndex', 'hreflang="pt" href="https://todaysdailybattle.com/pt/planos.html"', 'tdb-cache-hygiene:'] },
+  { path: '/plans.html', name: 'Battle Plans', mustInclude: ['Battle Plans', 'plan-list', 'planIndex', 'plans-start-here', 'Start here', 'id="all-plans"', 'hreflang="pt" href="https://todaysdailybattle.com/pt/planos.html"', 'tdb-cache-hygiene:'] },
   { path: '/verse-image.html', name: 'Verse image generator', mustInclude: ['Verse image generator', 'verse-image.js', 'verse-ref-slug.js', 'qrcode.browser.min.js', 'verse-image-include-qr', 'Include scan link (QR)', 'assets/share/verse-share.jpg', 'recent-gens', 'verse-image-tweet', 'data-verse-store="verseGens"', 'verse-image-text-color', 'value="cross"', 'Quiet field'] },
   { path: '/v.html', name: 'Verse short link', mustInclude: ['verse-ref-slug.js', 'bible-api.com', 'v-ref', 'v-text', 'Bible Tool'] },
   { path: '/bible-study.html', name: 'Bible Studies', mustInclude: ['Bible', 'Study'] },

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- tdb build 20260320g -->
+<!-- tdb build 20260330plansindex -->
 <html lang="en">
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
@@ -82,6 +82,11 @@
       padding: 2rem 1.25rem 6rem;
     }
     @media (min-width: 700px) { .plans-page { padding: 2.5rem 2.5rem 6rem; } }
+    @media (max-width: 420px) {
+      .plans-page { padding: 1.5rem 1rem 5.5rem; }
+      .plan-row { padding: 1.05rem 1rem; gap: 0.85rem; flex-wrap: wrap; }
+      .plan-row-meta { width: 100%; flex-direction: row; justify-content: flex-start; align-items: center; }
+    }
 
     /* ── Back link ── */
     .plans-back {
@@ -127,13 +132,126 @@
     }
     .plans-prayer-callout a:hover, .plans-prayer-callout a:focus-visible { color: var(--gold); outline: none; }
 
+    /* ── Start here (hurting / low capacity) ── */
+    .plans-start-here {
+      margin: 0 0 1.65rem;
+      padding: 1.2rem 1.1rem 1.3rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold) 26%, transparent);
+      background: color-mix(in srgb, var(--card) 92%, var(--gold));
+    }
+    .plans-start-here-title {
+      font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 0.4rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .plans-start-here-lead {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0 auto 1.05rem;
+      max-width: 34rem;
+      text-align: center;
+    }
+    .plans-start-here-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 600px) {
+      .plans-start-here-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 960px) {
+      .plans-start-here-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    }
+    .plans-start-here-card {
+      background: var(--card);
+      border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent);
+      border-radius: 14px;
+      padding: 0.95rem 1rem 1rem;
+    }
+    .plans-start-here-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--gold-soft);
+      margin: 0 0 0.55rem;
+      line-height: 1.35;
+    }
+    .plans-start-here-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .plans-start-here-links a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.4rem 0.45rem;
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.35;
+      transition: background 0.15s, color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .plans-start-here-links a:hover,
+    .plans-start-here-links a:focus-visible {
+      background: color-mix(in srgb, var(--gold) 10%, transparent);
+      color: var(--gold);
+      outline: none;
+    }
+    .plans-start-here-see-all {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--gold-soft);
+      text-decoration: none;
+      padding: 0.5rem;
+      min-height: 44px;
+      line-height: 1.4;
+    }
+    .plans-start-here-see-all:hover,
+    .plans-start-here-see-all:focus-visible {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      outline: none;
+    }
+
+    .plans-all-heading {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin: 0 0 0.35rem;
+    }
+    .plans-all-lead {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 0.85rem;
+      max-width: 40rem;
+    }
+
     /* ── Plan list (index view) ── */
-    .plan-list { display: grid; gap: 0.85rem; }
+    .plan-list { display: grid; gap: 1rem; }
     .plan-row {
       background: var(--card);
       border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
-      border-radius: 16px;
-      padding: 1.1rem 1.2rem;
+      border-radius: 18px;
+      padding: 1.2rem 1.25rem;
       display: flex; align-items: center; gap: 1rem;
       cursor: pointer;
       transition: border-color 0.15s, box-shadow 0.15s;
@@ -149,7 +267,7 @@
     .plan-row-icon { font-size: 1.8rem; flex-shrink: 0; }
     .plan-row-info { flex: 1; min-width: 0; }
     .plan-row-info h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem; color: var(--text); }
-    .plan-row-info p  { font-size: 0.82rem; color: var(--muted); margin: 0; }
+    .plan-row-info p  { font-size: 0.84rem; color: var(--muted); margin: 0; line-height: 1.5; }
     .plan-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
     .plan-badge {
       font-size: 0.7rem; font-weight: 700;
@@ -299,6 +417,9 @@
     }
     .btn-complete:hover { opacity: 0.9; transform: translateY(-1px); }
     .btn-complete:active { transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .btn-complete:hover, .btn-complete:active { transform: none; }
+    }
     .btn-complete.done {
       background: color-mix(in srgb, var(--green) 18%, var(--card));
       color: var(--green); border: 1px solid var(--green);
@@ -452,135 +573,183 @@
     <div class="plan-index" id="planIndex">
       <a href="index.html" class="plans-back" aria-label="Back to homepage">← Today's Battle</a>
       <div class="plans-hero">
-        <h1>📋 Battle Plans</h1>
-        <p>Pick a plan. One verse a day. Progress saves here — offline, always.</p>
-        <p class="plans-hero-hint">Verses, real talk, actions &amp; prayers. Tap to start.</p>
-        <p class="plans-prayer-callout">Join others praying quietly—<a href="index.html#prayer-wall">your silent amen</a> still matters.</p>
+        <h1>Battle Plans</h1>
+        <p>When your mind can only hold one thing, hold this: one short day in the Word. Each plan gives you a KJV verse, plain talk, a small step, and a prayer—progress stays on your device, even offline.</p>
+        <p class="plans-hero-hint">You are not behind. Open any day; pick up where you left off.</p>
+        <p class="plans-prayer-callout">Others are praying quietly too—<a href="message.html#message-board">the prayer wall</a> is there when you want company without noise.</p>
       </div>
+      <section class="plans-start-here" aria-labelledby="plans-start-here-title">
+        <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
+        <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>
+        <div class="plans-start-here-grid">
+          <div class="plans-start-here-card">
+            <h3>When fear is loud</h3>
+            <ul class="plans-start-here-links">
+              <li><a href="plans.html?plan=fearfaith">Fear to Faith</a></li>
+              <li><a href="plans.html?plan=worrytrust">Worry to Trust</a></li>
+              <li><a href="plans.html?plan=peace">7-Day Peace</a></li>
+            </ul>
+          </div>
+          <div class="plans-start-here-card">
+            <h3>When grief is heavy</h3>
+            <ul class="plans-start-here-links">
+              <li><a href="plans.html?plan=griefhope">Grief → Hope</a></li>
+              <li><a href="plans.html?plan=grief">Healing from Grief &amp; Loss</a></li>
+              <li><a href="plans.html?plan=painwontquit">When Pain Won&rsquo;t Quit</a></li>
+            </ul>
+          </div>
+          <div class="plans-start-here-card">
+            <h3>When anger rises</h3>
+            <ul class="plans-start-here-links">
+              <li><a href="plans.html?plan=angerpeace">Anger → Peace</a></li>
+              <li><a href="plans.html?plan=anger">Release from Anger &amp; Bitterness</a></li>
+            </ul>
+          </div>
+          <div class="plans-start-here-card">
+            <h3>When life feels shaky</h3>
+            <ul class="plans-start-here-links">
+              <li><a href="plans.html?plan=trust">Trust in Uncertainty</a></li>
+              <li><a href="plans.html?plan=doubtassurance">Doubt → Assurance</a></li>
+              <li><a href="plans.html?plan=loneliness">Victory Over Loneliness</a></li>
+            </ul>
+          </div>
+          <div class="plans-start-here-card">
+            <h3>Building steady habits</h3>
+            <ul class="plans-start-here-links">
+              <li><a href="plans.html?plan=battle">Battle Distraction</a></li>
+              <li><a href="plans.html?plan=gratitude">Gratitude</a></li>
+              <li><a href="plans.html?plan=battle21">21-Day Battle</a></li>
+            </ul>
+          </div>
+        </div>
+        <a class="plans-start-here-see-all" href="#all-plans">Browse every plan</a>
+      </section>
       <div class="easter-banner" id="easterBanner" role="region" aria-label="Easter plan">
         <p><a href="plans.html?plan=easter">✨ Resurrection Hope</a> — 7-day Easter plan. Death to life.</p>
         <button type="button" class="easter-banner-dismiss" id="easterBannerDismiss" aria-label="Dismiss Easter banner">×</button>
       </div>
       <div class="recent-plans-carousel" id="recentPlansCarousel" role="region" aria-label="Recently viewed plans" style="display:none;"></div>
+      <h2 id="all-plans" class="plans-all-heading">Every plan</h2>
+      <p class="plans-all-lead">The full library is below—same gentle rhythm: one verse a day, KJV on screen, saved locally.</p>
       <div class="plan-list" id="planList" role="list">
         <a href="plans.html?plan=battle" class="plan-row" data-plan="battle" role="listitem" aria-label="Battle Distraction — 7 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
-          <div class="plan-row-info"><h2>Battle Distraction</h2><p>Cut through the noise. One focused verse a day for 7 days.</p></div>
+          <div class="plan-row-info"><h2>Battle Distraction</h2><p>Seven days when distraction will not leave you alone.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-battle">Not started</span></div>
         </a>
         <a href="plans.html?plan=gratitude" class="plan-row" data-plan="gratitude" role="listitem" aria-label="Gratitude — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🙏</span>
-          <div class="plan-row-info"><h2>Gratitude</h2><p>Gratitude verses — from scarcity to enough. Psalm 100, 1 Thess. 5:18, and more.</p></div>
+          <div class="plan-row-info"><h2>Gratitude</h2><p>Thanksgiving in hard weeks—not pretending everything is fine.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-gratitude">Not started</span></div>
         </a>
         <a href="plans.html?plan=strength" class="plan-row" data-plan="strength" role="listitem" aria-label="30-Day Strength — 30 days">
           <span class="plan-row-icon" aria-hidden="true">💪</span>
-          <div class="plan-row-info"><h2>30-Day Strength</h2><p>Renewal-focused. For when the tank is empty and you need to rebuild.</p></div>
+          <div class="plan-row-info"><h2>30-Day Strength</h2><p>A gentle month when your strength feels gone.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">30 days</span><span class="plan-progress-pill" id="planPill-strength">Not started</span></div>
         </a>
         <a href="plans.html?plan=marriage" class="plan-row" data-plan="marriage" role="listitem" aria-label="Marriage — 7 days">
           <span class="plan-row-icon" aria-hidden="true">💍</span>
-          <div class="plan-row-info"><h2>Marriage</h2><p>Unity verses. For couples building something worth fighting for.</p></div>
+          <div class="plan-row-info"><h2>Marriage</h2><p>Unity and honesty for couples in the trenches.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-marriage">Not started</span></div>
         </a>
         <a href="plans.html?plan=peace" class="plan-row" data-plan="peace" role="listitem" aria-label="7-Day Peace — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🕊️</span>
-          <div class="plan-row-info"><h2>7-Day Peace</h2><p>Rest and stillness. His peace — not the world's version.</p></div>
+          <div class="plan-row-info"><h2>7-Day Peace</h2><p>His quiet when your insides will not hush.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-peace">Not started</span></div>
         </a>
         <a href="plans.html?plan=trust" class="plan-row" data-plan="trust" role="listitem" aria-label="7-Day Trust in Uncertainty — 7 days">
           <span class="plan-row-icon" aria-hidden="true">✨</span>
-          <div class="plan-row-info"><h2>7-Day Trust in Uncertainty</h2><p>For seasons of job uncertainty, health scares, or when the future feels shaky. Trust when you can't see the path.</p></div>
+          <div class="plan-row-info"><h2>7-Day Trust in Uncertainty</h2><p>When you cannot see the path—trust anyway, one day at a time.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-trust">Not started</span></div>
         </a>
         <a href="plans.html?plan=anger" class="plan-row" data-plan="anger" role="listitem" aria-label="7-Day Release from Anger & Bitterness — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🔥</span>
-          <div class="plan-row-info"><h2>7-Day Release from Anger & Bitterness</h2><p>Dealing with unresolved anger, resentment, or bitterness. Release through forgiveness and kindness.</p></div>
+          <div class="plan-row-info"><h2>7-Day Release from Anger & Bitterness</h2><p>When bitterness will not let go—honest steps toward kindness.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-anger">Not started</span></div>
         </a>
         <a href="plans.html?plan=grief" class="plan-row" data-plan="grief" role="listitem" aria-label="7-Day Healing from Grief & Loss — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🕊️</span>
-          <div class="plan-row-info"><h2>7-Day Healing from Grief & Loss</h2><p>Comfort in mourning. God's nearness and hope without rushing "moving on."</p></div>
+          <div class="plan-row-info"><h2>7-Day Healing from Grief & Loss</h2><p>Comfort in mourning—without rushing you to move on.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-grief">Not started</span></div>
         </a>
         <a href="plans.html?plan=forgiveness" class="plan-row" data-plan="forgiveness" role="listitem" aria-label="7-Day Forgiveness Journey — 7 days">
           <span class="plan-row-icon" aria-hidden="true">✝️</span>
-          <div class="plan-row-info"><h2>7-Day Forgiveness Journey</h2><p>Practical steps to forgive others and receive forgiveness. Address the heart barriers that keep you stuck.</p></div>
+          <div class="plan-row-info"><h2>7-Day Forgiveness Journey</h2><p>Forgive and be forgiven—without pretending the wound was small.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-forgiveness">Not started</span></div>
         </a>
         <a href="plans.html?plan=parenting" class="plan-row" data-plan="parenting" role="listitem" aria-label="7-Day Parenting in Faith — 7 days">
           <span class="plan-row-icon" aria-hidden="true">👨‍👩‍👧</span>
-          <div class="plan-row-info"><h2>7-Day Parenting in Faith</h2><p>Guidance and grace for parents—discipline, patience, modeling faith, worry about kids' futures.</p></div>
+          <div class="plan-row-info"><h2>7-Day Parenting in Faith</h2><p>Grace for parents when patience runs out first.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-parenting">Not started</span></div>
         </a>
         <a href="plans.html?plan=loneliness" class="plan-row" data-plan="loneliness" role="listitem" aria-label="7-Day Victory Over Loneliness — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🤗</span>
-          <div class="plan-row-info"><h2>7-Day Victory Over Loneliness</h2><p>Finding God's companionship in isolation. He is near when you feel alone.</p></div>
+          <div class="plan-row-info"><h2>7-Day Victory Over Loneliness</h2><p>His nearness when you feel unseen.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-loneliness">Not started</span></div>
         </a>
         <a href="plans.html?plan=fearfaith" class="plan-row" data-plan="fearfaith" role="listitem" aria-label="Fear to Faith — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🛡️</span>
-          <div class="plan-row-info"><h2>Fear to Faith</h2><p>Short, daily KJV steps when &ldquo;what ifs&rdquo; won&rsquo;t stop—structure without overwhelm. Pairs with <strong>Worry to Trust</strong>, <strong>Anger → Peace</strong>, <strong>Doubt → Assurance</strong>, and <strong>Grief → Hope</strong> in this list. For a longer rhythm, open <strong>21-Day Battle</strong>, or use Win the Day &rarr; fear in the Bible Tool.</p></div>
+          <div class="plan-row-info"><h2>Fear to Faith</h2><p>Small daily steps when &ldquo;what if&rdquo; will not quiet down.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-fearfaith">Not started</span></div>
         </a>
         <a href="plans.html?plan=worrytrust" class="plan-row" data-plan="worrytrust" role="listitem" aria-label="Worry to Trust — 7 days">
           <span class="plan-row-icon" aria-hidden="true">☁️</span>
-          <div class="plan-row-info"><h2>Worry to Trust</h2><p>Seven days to hand tomorrow back to God—casting care, praying specifics, and letting trust do the heavy lifting. Pairs with <strong>Fear to Faith</strong>, <strong>Anger → Peace</strong>, <strong>Doubt → Assurance</strong>, <strong>Grief → Hope</strong>, and <strong>7-Day Peace</strong> in this list.</p></div>
+          <div class="plan-row-info"><h2>Worry to Trust</h2><p>Hand tomorrow back—one verse, one day.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-worrytrust">Not started</span></div>
         </a>
         <a href="plans.html?plan=angerpeace" class="plan-row" data-plan="angerpeace" role="listitem" aria-label="Anger to Peace — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🔥</span>
-          <div class="plan-row-info"><h2>Anger → Peace</h2><p>When heat rises and words burn, seven KJV days trade rage for rest—no suppression, real release through Scripture. Pairs with <strong>Worry to Trust</strong>, <strong>Fear to Faith</strong>, <strong>Doubt → Assurance</strong>, <strong>Grief → Hope</strong>, and <strong>7-Day Release from Anger &amp; Bitterness</strong> in this list.</p></div>
+          <div class="plan-row-info"><h2>Anger → Peace</h2><p>When heat rises—Scripture toward rest, not pretense.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-angerpeace">Not started</span></div>
         </a>
         <a href="plans.html?plan=doubtassurance" class="plan-row" data-plan="doubtassurance" role="listitem" aria-label="Doubt to Assurance — 7 days">
           <span class="plan-row-icon" aria-hidden="true">❓</span>
-          <div class="plan-row-info"><h2>Doubt → Assurance</h2><p>When questions crowd out confidence, seven KJV days rebuild assurance—no easy answers, just promises you can stand on. Pairs with <strong>Trust in Uncertainty</strong>, <strong>Fear to Faith</strong>, <strong>Anger → Peace</strong>, <strong>Grief → Hope</strong>, and <strong>30-Day Battle</strong> in this list.</p></div>
+          <div class="plan-row-info"><h2>Doubt → Assurance</h2><p>Questions welcome—promises you can stand on anyway.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-doubtassurance">Not started</span></div>
         </a>
         <a href="plans.html?plan=griefhope" class="plan-row" data-plan="griefhope" role="listitem" aria-label="Grief to Hope — 7 days">
           <span class="plan-row-icon" aria-hidden="true">💔→🌅</span>
-          <div class="plan-row-info"><h2>Grief → Hope</h2><p>When loss cuts deep and the future feels dark—seven KJV days walk from sorrow to hope. No quick fixes; Scripture that has carried the brokenhearted for centuries. Pairs with <strong>Doubt → Assurance</strong>, <strong>Trust in Uncertainty</strong>, <strong>Fear to Faith</strong>, and <strong>30-Day Battle</strong> in this list.</p></div>
+          <div class="plan-row-info"><h2>Grief → Hope</h2><p>Loss, sorrow, and light that does not rush your healing.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-griefhope">Not started</span></div>
         </a>
         <a href="plans.html?plan=painwontquit" class="plan-row" data-plan="painwontquit" role="listitem" aria-label="When Pain Won't Quit — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🩹</span>
-          <div class="plan-row-info"><h2>When Pain Won&rsquo;t Quit</h2><p>For the days when your body screams and you still have to keep going—seven raw, honest KJV days: grace in weakness, new mercies, rest with Jesus, bearing others&rsquo; burdens, the end of pain, finishing well. Pairs with <strong>Grief → Hope</strong>, <strong>7-Day Peace</strong>, <strong>Fear to Faith</strong>, and <strong>40-Day Wilderness</strong> in this list.</p></div>
+          <div class="plan-row-info"><h2>When Pain Won&rsquo;t Quit</h2><p>For days the body keeps shouting—honest comfort, one day at a time.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-painwontquit">Not started</span></div>
         </a>
         <a href="plans.html?plan=cancercomfort" class="plan-row" data-plan="cancercomfort" role="listitem" aria-label="Cancer Comfort — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🕊️</span>
-          <div class="plan-row-info"><h2>Cancer Comfort</h2><p>When the word lands hard—seven trench-honest KJV days for fear, weariness, anger, and nights you want to disappear. Not medical advice; Christ beside you and your care team. Pairs with <strong>When Pain Won&rsquo;t Quit</strong>, <strong>Grief → Hope</strong>, <strong>7-Day Peace</strong>, and <strong>Worry to Trust</strong> in this list.</p></div>
+          <div class="plan-row-info"><h2>Cancer Comfort</h2><p>When the diagnosis steals your breath—spiritual comfort, not medical advice.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-cancercomfort">Not started</span></div>
         </a>
         <a href="plans.html?plan=battle10" class="plan-row" data-plan="battle10" role="listitem" aria-label="10-Day Battle — 10 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
-          <div class="plan-row-info"><h2>10-Day Battle</h2><p>Cut through the noise. One focused verse a day for 10 days.</p></div>
+          <div class="plan-row-info"><h2>10-Day Battle</h2><p>Ten days—one verse—to steady attention.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">10 days</span><span class="plan-progress-pill" id="planPill-battle10">Not started</span></div>
         </a>
         <a href="plans.html?plan=battle14" class="plan-row" data-plan="battle14" role="listitem" aria-label="14-Day Battle — 14 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
-          <div class="plan-row-info"><h2>14-Day Battle</h2><p>Two weeks of focused verses. Build the habit, hold the ground.</p></div>
+          <div class="plan-row-info"><h2>14-Day Battle</h2><p>Two weeks to build the habit.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">14 days</span><span class="plan-progress-pill" id="planPill-battle14">Not started</span></div>
         </a>
         <a href="plans.html?plan=battle21" class="plan-row" data-plan="battle21" role="listitem" aria-label="21-Day Battle — 21 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
-          <div class="plan-row-info"><h2>21-Day Battle</h2><p>Three weeks. One verse a day. Form the habit that sticks.</p></div>
+          <div class="plan-row-info"><h2>21-Day Battle</h2><p>Three weeks so the rhythm can stick.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">21 days</span><span class="plan-progress-pill" id="planPill-battle21">Not started</span></div>
         </a>
         <a href="plans.html?plan=battle30" class="plan-row" data-plan="battle30" role="listitem" aria-label="30-Day Battle — 30 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
-          <div class="plan-row-info"><h2>30-Day Battle</h2><p>A full month of focused verses. Cut through distraction, stand firm.</p></div>
+          <div class="plan-row-info"><h2>30-Day Battle</h2><p>A month of one-verse footholds.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">30 days</span><span class="plan-progress-pill" id="planPill-battle30">Not started</span></div>
         </a>
         <a href="plans.html?plan=battle40" class="plan-row" data-plan="battle40" role="listitem" aria-label="40-Day Wilderness — 40 days">
           <span class="plan-row-icon" aria-hidden="true">🏔️</span>
-          <div class="plan-row-info"><h2>40-Day Wilderness</h2><p>Trust, provision, temptation. The classic spiritual rhythm—Lent, wilderness seasons.</p></div>
+          <div class="plan-row-info"><h2>40-Day Wilderness</h2><p>Trust, provision, temptation—wilderness seasons.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">40 days</span><span class="plan-progress-pill" id="planPill-battle40">Not started</span></div>
         </a>
         <a href="plans.html?plan=easter" class="plan-row plan-row-easter" data-plan="easter" role="listitem" aria-label="Resurrection Hope — 7 days">
           <span class="plan-row-icon" aria-hidden="true">✨</span>
-          <div class="plan-row-info"><h2>Resurrection Hope</h2><p>7 days of resurrection verses. Death to life. Doubt to faith.</p></div>
+          <div class="plan-row-info"><h2>Resurrection Hope</h2><p>Seven days—from death answered to hope alive.</p></div>
           <div class="plan-row-meta"><span class="plan-badge plan-badge-easter">7 days</span><span class="plan-progress-pill" id="planPill-easter">Not started</span></div>
         </a>
       </div>

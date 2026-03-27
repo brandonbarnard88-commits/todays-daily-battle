@@ -11,24 +11,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://cdn.jsdelivr.net https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://plausible.io https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://unpkg.com https://cdn.jsdelivr.net; frame-src 'self' https://challenges.cloudflare.com;">
   <meta name="referrer" content="no-referrer">
-  <title>Message Board • Today's Daily Battle</title>
-  <meta name="description" content="Community message board for encouragement, prayer requests, and testimonies.">
+  <title>Prayer Wall • Today's Daily Battle</title>
+  <meta name="description" content="A quiet prayer wall: post a request, a praise, or a verse that held you up. Read others with care; sign in to share (free).">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/message.html">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/message.html">
   <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/mural.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
-  <meta property="og:title" content="Message Board • Today's Daily Battle">
-  <meta property="og:description" content="Community message board for encouragement, prayer requests, and testimonies.">
+  <meta property="og:title" content="Prayer Wall • Today's Daily Battle">
+  <meta property="og:description" content="A quiet wall for prayer, praise, and the verses that helped today. No performance—just honesty before God.">
   <meta property="og:url" content="https://todaysdailybattle.com/message.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Message Board • Today's Daily Battle">
-  <meta name="twitter:description" content="Community message board for encouragement, prayer requests, and testimonies.">
+  <meta name="twitter:title" content="Prayer Wall • Today's Daily Battle">
+  <meta name="twitter:description" content="A quiet wall for prayer, praise, and the verses that helped today.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260305p" nonce="tdb2025s">
+  <link rel="stylesheet" href="styles.css?v=20260330prayerwall" nonce="tdb2025s">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" nonce="tdb2025s" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,6 +46,71 @@
     }
     .message-board.glass .message-toolbar select {
       padding: 0.35rem 0.5rem;
+    }
+    /* Calmer posting flow + mobile tap targets */
+    .message-board .message-form textarea#message-text {
+      min-height: 6.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    .message-board .message-form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .message-board .message-form-actions .btn {
+      min-height: 44px;
+    }
+    @media (max-width: 520px) {
+      .message-board .message-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .message-board .message-form-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .message-list-empty {
+      padding: 1rem 0 0.25rem;
+      border-top: 1px solid color-mix(in srgb, var(--line, rgba(255,255,255,0.12)) 80%, transparent);
+      margin-top: 0.75rem;
+    }
+    .message-list-empty p {
+      margin: 0 0 0.5rem;
+      max-width: 38rem;
+    }
+    .message-list-empty .message-list-empty-lead {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: 1.05rem;
+      color: var(--text-dark, #f1f5f9);
+      line-height: 1.45;
+    }
+    details.message-page-verse-search {
+      margin-top: 1.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+      background: color-mix(in srgb, var(--bg, #0f1218) 70%, transparent);
+    }
+    details.message-page-verse-search summary {
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      padding: 0.35rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      color: var(--gold-soft, #f2dc98);
+    }
+    details.message-page-verse-search summary::-webkit-details-marker { display: none; }
+    details.message-page-verse-search .search-hero {
+      margin-top: 0.5rem;
+      border: none;
+      padding: 0;
+      background: transparent;
     }
   </style>
 </head>
@@ -72,7 +137,7 @@
 
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
-        <span class="brand-subtitle">Post a prayer, share a testimony, leave a word</span>
+        <span class="brand-subtitle">Prayer wall — quiet words, real people, God before us</span>
       </div>
       <nav class="header-nav header-nav-mega" aria-label="Main">
         <ul class="nav-list">
@@ -196,32 +261,18 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner">
-          <h1>Message Board</h1>
-          <p>Post a prayer, share a testimony, or leave a verse that got you through today.</p>
+          <h1>Prayer Wall</h1>
+          <p class="real-talk">You do not have to carry it alone in silence. Leave a short prayer, a praise, or the verse that steadied you—plain words are enough. Reading others is optional kindness; your Father already hears.</p>
           <div class="cta-group">
-            <a class="btn btn-primary" href="/">Find a Verse</a>
+            <a class="btn btn-primary" href="#message-text">Write something</a>
+            <a class="btn btn-secondary" href="/">Find a Verse</a>
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
           </div>
         </header>
 
-        <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
-          <label for="query" class="search-hero-label">Search by emotion or verse</label>
-          <div class="search-hero-row">
-            <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
-            <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
-          </div>
-          <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
-          <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
-          <details class="home-accordion util-mt-0_5">
-            <summary class="home-accordion-summary">More topics</summary>
-            <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
-          </details>
-          <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
-        </section>
-
         <section id="message-board" class="message-board glass" role="region" aria-labelledby="message-board-heading">
           <h2 class="section-divider" id="message-board-heading">Message Board</h2>
-          <p class="section-note" id="message-board-intro">Prayers, praise reports, verses that helped — this is the board. No noise, no performance. Prayers are seen by God.</p>
+          <p class="section-note" id="message-board-intro">This wall is for honesty, not polish. A name is optional. If you are not signed in yet, scroll to the top—free accounts can post; until then you can still read and pray quietly for others.</p>
           <div id="message-board-note" class="section-note"></div>
           <div class="message-toolbar">
             <div class="daily-encouragement" id="daily-encouragement"></div>
@@ -236,9 +287,9 @@
           <p id="message-board-privacy-note" class="section-note">Posts you share may appear for others when you are online; we do not use prayer content for ads or profiling. See <a href="privacy.html">Privacy</a>.</p>
           <div class="message-form">
             <input id="message-name" type="text" placeholder="Your name (optional)" aria-label="Your display name">
-            <textarea id="message-text" rows="3" placeholder="Share an encouragement, prayer request, or testimony..." aria-label="Your message" aria-describedby="message-board-intro message-board-privacy-note"></textarea>
+            <textarea id="message-text" rows="4" placeholder="A few honest lines are enough—prayer, thanks, or a verse that helped." aria-label="Your prayer or note" aria-describedby="message-board-intro message-board-privacy-note"></textarea>
             <div class="message-form-actions">
-              <button type="button" id="post-message" class="btn btn-primary">Post Message</button>
+              <button type="button" id="post-message" class="btn btn-primary">Post to the wall</button>
               <button type="button" id="voice-message-btn" class="btn btn-secondary voice-pray-btn" aria-label="Speak your message"><span class="voice-pray-icon" aria-hidden="true">🎤</span> Speak</button>
             </div>
           </div>
@@ -252,6 +303,24 @@
           </div>
           <p id="message-added-announce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
         </section>
+
+        <details class="message-page-verse-search">
+          <summary>Looking for a verse before you write?</summary>
+          <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
+            <label for="query" class="search-hero-label">Search by feeling or reference</label>
+            <div class="search-hero-row">
+              <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
+              <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
+            </div>
+            <p class="section-note quick-searches-label">Try a topic — tap any button to load verses</p>
+            <div class="quick-actions quick-actions-hero" id="quick-actions-hero" role="region" aria-label="Quick topic search"></div>
+            <details class="home-accordion util-mt-0_5">
+              <summary class="home-accordion-summary">More topics</summary>
+              <div class="quick-actions" id="quick-actions-accordion" aria-label="All quick topics"></div>
+            </details>
+            <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
+          </section>
+        </details>
       </div>
     </main>
 

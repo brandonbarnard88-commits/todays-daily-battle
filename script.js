@@ -13193,7 +13193,31 @@ function renderMessages(items, previewLimit) {
     return true;
   });
   if (!visible.length) {
-    list.innerHTML = '<p class="empty">Nothing posted yet.</p><p class="section-note">Start it: post a prayer, a praise report, or the verse that helped you today.</p><a href="#message-text" class="btn btn-secondary" style="margin-top:0.5rem;">Post</a>';
+    list.textContent = '';
+    const wrapEmpty = document.createElement('div');
+    wrapEmpty.className = 'message-list-empty';
+    const lead = document.createElement('p');
+    lead.className = 'message-list-empty-lead';
+    lead.textContent =
+      'The wall is quiet right now. That is not failure—it often means people are praying without posting. When you are ready, your few lines belong here too.';
+    const sub = document.createElement('p');
+    sub.className = 'section-note';
+    sub.textContent =
+      'You can still lift others silently, or scroll up and share a short prayer, a praise, or a verse that held you today.';
+    const jump = document.createElement('a');
+    jump.className = 'btn btn-secondary';
+    jump.style.marginTop = '0.65rem';
+    if (typeof currentUserId !== 'undefined' && currentUserId) {
+      jump.href = '#message-text';
+      jump.textContent = 'Jump to the writing box';
+    } else {
+      jump.href = '#auth-section';
+      jump.textContent = 'Sign in to post (free)';
+    }
+    wrapEmpty.appendChild(lead);
+    wrapEmpty.appendChild(sub);
+    wrapEmpty.appendChild(jump);
+    list.appendChild(wrapEmpty);
     if (seeMoreBtn) seeMoreBtn.style.display = 'none';
     return;
   }
@@ -23396,12 +23420,13 @@ async function tdbInitImpl() {
   const refreshMessageNote = () => {
     if (!messageNote || !postButton || !messageInput) return;
     if (!currentUserId) {
-      messageNote.textContent = 'Log in to post messages (free accounts can post).';
+      messageNote.textContent =
+        'Sign in above to post (free account). Until then, read slowly—you are still praying with us.';
       postButton.disabled = true;
       messageInput.disabled = true;
       return;
     }
-    messageNote.textContent = 'Posting as member (free accounts can post).';
+    messageNote.textContent = 'You are signed in—share a few honest lines when you are ready.';
     postButton.disabled = false;
     messageInput.disabled = false;
   };

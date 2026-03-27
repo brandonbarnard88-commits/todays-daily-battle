@@ -644,7 +644,25 @@ if (!/^\/why-not-ai\s+\/why-not-ai\.html\s+200!/m.test(redirectsContent)) {
   console.error('BUILD FAIL: _redirects must map /why-not-ai → /why-not-ai.html (200!) for Cloudflare Pages.');
   process.exit(1);
 }
+const LOCALE_HUB_REDIRECTS = [
+  { needle: '/ru /ru/index.html 200!', path: 'ru/index.html', slug: 'ru' },
+  { needle: '/zh /zh/index.html 200!', path: 'zh/index.html', slug: 'zh' },
+  { needle: '/hi /hi/index.html 200!', path: 'hi/index.html', slug: 'hi' }
+];
+for (let i = 0; i < LOCALE_HUB_REDIRECTS.length; i++) {
+  const h = LOCALE_HUB_REDIRECTS[i];
+  if (!redirectsContent.includes(h.needle)) {
+    console.error('BUILD FAIL: _redirects missing locale hub rewrite: ' + h.needle);
+    process.exit(1);
+  }
+  const hubHtml = path.join(dist, h.path);
+  if (!fs.existsSync(hubHtml)) {
+    console.error('BUILD FAIL: dist/' + h.path + ' missing — required for /' + h.slug + '/ (Cloudflare Pages).');
+    process.exit(1);
+  }
+}
 console.log('Verified: donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');
+console.log('Verified: RU / ZH / HI hub index.html + _redirects 200! rules in dist/.');
 
 // Trusted Types: every shipped HTML must load sync DOMPurify + tt-bootstrap before deferred scripts
 let ttPatched = 0;

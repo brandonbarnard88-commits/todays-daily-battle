@@ -92,6 +92,18 @@
 /id /id/index.html 200!
 /id/ /id/index.html 200!
 
+# Russian hub (/ru/ → index)
+/ru /ru/index.html 200!
+/ru/ /ru/index.html 200!
+
+# Chinese hub (/zh/ → index)
+/zh /zh/index.html 200!
+/zh/ /zh/index.html 200!
+
+# Hindi hub (/hi/ → index)
+/hi /hi/index.html 200!
+/hi/ /hi/index.html 200!
+
 # Portuguese hub (/pt/ → index; avoids 404 on folder URL)
 /pt /pt/index.html 200!
 /pt/ /pt/index.html 200!

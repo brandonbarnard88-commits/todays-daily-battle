@@ -193,6 +193,129 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
+# Russian hub + pilots (ru/)
+/ru/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/trevoga.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/trevoga
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/nadezhda.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/nadezhda
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/strakh.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/strakh
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/sila.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/sila
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/mir.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/mir
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/odinochestvo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ru/odinochestvo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Chinese hub + pilots (zh/)
+/zh/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kongju.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/kongju
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/liliang.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/liliang
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/jiaolv.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/zh/jiaolv
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
+# Hindi hub + pilots (hi/)
+/hi/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/chinta.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/chinta
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/asha.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/asha
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/dar.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/dar
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shakti.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shakti
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shanti.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/shanti
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/akelapan.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/hi/akelapan
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+
 # Tagalog topical pilot (tl/)
 /tl/kabalisahan.html
   Cache-Control: no-cache, must-revalidate
@@ -291,35 +414,11 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 
-# Chinese anxiety pilot (zh/)
-/zh/jiaolv.html
-  Cache-Control: no-cache, must-revalidate
-  Pragma: no-cache
-/zh/jiaolv
-  Cache-Control: no-cache, must-revalidate
-  Pragma: no-cache
-
 # Arabic anxiety pilot (ar/)
 /ar/qalaq.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /ar/qalaq
-  Cache-Control: no-cache, must-revalidate
-  Pragma: no-cache
-
-# Hindi anxiety pilot (hi/)
-/hi/chinta.html
-  Cache-Control: no-cache, must-revalidate
-  Pragma: no-cache
-/hi/chinta
-  Cache-Control: no-cache, must-revalidate
-  Pragma: no-cache
-
-# Russian anxiety pilot (ru/)
-/ru/trevoga.html
-  Cache-Control: no-cache, must-revalidate
-  Pragma: no-cache
-/ru/trevoga
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 

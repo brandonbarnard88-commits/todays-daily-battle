@@ -169,6 +169,43 @@ const cacheHygienePaths = [
   '/id/kecemasan',
   '/id/ketakutan.html',
   '/id/ketakutan',
+  '/ru/',
+  '/ru',
+  '/ru/index.html',
+  '/ru/trevoga.html',
+  '/ru/trevoga',
+  '/ru/nadezhda.html',
+  '/ru/nadezhda',
+  '/ru/strakh.html',
+  '/ru/strakh',
+  '/ru/sila.html',
+  '/ru/sila',
+  '/ru/mir.html',
+  '/ru/mir',
+  '/ru/odinochestvo.html',
+  '/ru/odinochestvo',
+  '/zh/',
+  '/zh',
+  '/zh/index.html',
+  '/zh/kongju.html',
+  '/zh/kongju',
+  '/zh/liliang.html',
+  '/zh/liliang',
+  '/hi/',
+  '/hi',
+  '/hi/index.html',
+  '/hi/chinta.html',
+  '/hi/chinta',
+  '/hi/asha.html',
+  '/hi/asha',
+  '/hi/dar.html',
+  '/hi/dar',
+  '/hi/shakti.html',
+  '/hi/shakti',
+  '/hi/shanti.html',
+  '/hi/shanti',
+  '/hi/akelapan.html',
+  '/hi/akelapan',
   '/tl/kabalisahan.html',
   '/tl/kabalisahan',
   '/fr/',
@@ -200,10 +237,6 @@ const cacheHygienePaths = [
   '/zh/jiaolv',
   '/ar/qalaq.html',
   '/ar/qalaq',
-  '/hi/chinta.html',
-  '/hi/chinta',
-  '/ru/trevoga.html',
-  '/ru/trevoga',
   '/sv/oro.html',
   '/sv/oro',
   '/pt/',
@@ -309,6 +342,16 @@ if (!redirects.includes('/admin /blocked.html') || !redirects.includes('/admin.h
   ok('_redirects: admin URLs return minimal blocked.html in production');
 }
 
+if (
+  !redirects.includes('/ru /ru/index.html 200!') ||
+  !redirects.includes('/zh /zh/index.html 200!') ||
+  !redirects.includes('/hi /hi/index.html 200!')
+) {
+  fail('_redirects: RU / ZH / HI hub folder URLs must rewrite to index.html (200!)');
+} else {
+  ok('_redirects: RU / ZH / HI hub rewrites present');
+}
+
 const esRewriteNeedles = [
   '/ansiedad /ansiedad.html?tdb_cb=20260328esNav 302',
   '/fuerza /fuerza.html?tdb_cb=20260328esNav 302',
@@ -394,7 +437,12 @@ if (
   !purgeMjs.includes("'/zh/jiaolv.html'") ||
   !purgeMjs.includes("'/ar/qalaq.html'") ||
   !purgeMjs.includes("'/hi/chinta.html'") ||
-  !purgeMjs.includes("'/ru/trevoga.html'") ||
+  !purgeMjs.includes("'/ru/'") ||
+  !purgeMjs.includes("'/ru/strakh.html'") ||
+  !purgeMjs.includes("'/zh/'") ||
+  !purgeMjs.includes("'/zh/kongju.html'") ||
+  !purgeMjs.includes("'/hi/'") ||
+  !purgeMjs.includes("'/hi/dar.html'") ||
   !purgeMjs.includes("'/sv/oro.html'") ||
   !purgeMjs.includes("'/pt/'") ||
   !purgeMjs.includes("'/pt/index.html'") ||

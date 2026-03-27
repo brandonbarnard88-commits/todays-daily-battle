@@ -798,6 +798,9 @@
   /** @deprecated read-only migration source; per-plan keys: tdb_bible_tool_plan_<id> */
   const STORAGE_PLAN_LEGACY = 'tdb_bible_tool_plan';
 
+  /** Last reference that failed to load — Retry re-fetches this string (URL ?ref=, odd parses, etc.). */
+  var lastFailedLookupRef = '';
+
   var KEY_VERSES = {
     'John 3:16': 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.',
     'Colossians 3:23': 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men;',
@@ -1273,6 +1276,7 @@
       banner.classList.add('hidden');
       banner.innerHTML = '';
     }
+    lastFailedLookupRef = '';
     refEl.textContent = data.reference;
     refEl.className = 'verse-ref';
     textEl.textContent = data.text;
@@ -1312,19 +1316,20 @@
     var body = document.getElementById('lookup-result-body');
     var banner = document.getElementById('lookup-error-banner');
     if (!block || !body || !banner) return;
+    lastFailedLookupRef = normRef(ref) || '';
     block.classList.remove('hidden');
     body.classList.add('hidden');
     banner.classList.remove('hidden');
     banner.innerHTML = '';
     var p = document.createElement('p');
     p.className = 'empty';
-    p.textContent = 'Verse unavailable right now - check your connection or try another reference.';
+    p.textContent = 'Could not load that verse. Check the reference or your connection, then try again.';
     var retryBtn = document.createElement('button');
     retryBtn.type = 'button';
     retryBtn.id = 'lookup-retry';
     retryBtn.className = 'btn btn-secondary';
-    retryBtn.textContent = 'Retry lookup';
-    retryBtn.addEventListener('click', function () { doLookup(); });
+    retryBtn.textContent = 'Try again';
+    retryBtn.addEventListener('click', function () { retryFailedOrFormLookup(); });
     banner.appendChild(p);
     banner.appendChild(retryBtn);
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -1692,6 +1697,19 @@
       }
     };
   })();
+
+  function retryFailedOrFormLookup() {
+    var r = lastFailedLookupRef;
+    if (r) {
+      var parts = parseRefToParts(r);
+      if (parts) setLookupForm(parts.book, parts.chapter, parts.verse);
+      fetchVerse(r, function (data) {
+        if (data) renderLookup(data); else renderLookupError(r);
+      });
+      return;
+    }
+    doLookup();
+  }
 
   function doLookup() {
     var bookEl = document.getElementById('book');

@@ -70,6 +70,21 @@
     try { localStorage.setItem(SHARED_KEY, JSON.stringify(items)); } catch (e) {}
   }
 
+  function updateMemorizePill() {
+    var el = byId('mystudy-memorize-pill');
+    if (!el || !window.TDBStudyCompanion || typeof window.TDBStudyCompanion.listMemorizeQueue !== 'function') return;
+    var n = window.TDBStudyCompanion.listMemorizeQueue().length;
+    el.classList.toggle('mystudy-memorize-pill--empty', !n);
+    if (!n) {
+      el.textContent = '';
+      return;
+    }
+    el.textContent =
+      n === 1
+        ? 'Memorize queue: 1 verse on this device. Open Note library to review.'
+        : 'Memorize queue: ' + n + ' verses on this device. Open Note library to review.';
+  }
+
   function setTab(tabName) {
     var myTab = byId('tab-my-study');
     var libTab = byId('tab-note-library');
@@ -97,6 +112,7 @@
     highlightsPanel.classList.toggle('hidden', !isHighlights);
     joinPanel.classList.toggle('hidden', !isJoin);
     if (isLib) renderNoteLibrary();
+    updateMemorizePill();
   }
 
   function renderDashboardPanel(comp) {
@@ -204,6 +220,7 @@
       li.className = 'section-note';
       li.textContent = 'Note library needs the study helper script. Refresh the page.';
       listEl.appendChild(li);
+      updateMemorizePill();
       return;
     }
     renderDashboardPanel(comp);
@@ -276,6 +293,7 @@
         });
       }
     }
+    updateMemorizePill();
   }
 
   function renderSelectedVerse(study) {
@@ -573,6 +591,8 @@
     if (window.TDBHighlights && typeof window.TDBHighlights.initMyStudyHighlights === 'function') {
       window.TDBHighlights.initMyStudyHighlights({ setTab: setTab });
     }
+
+    updateMemorizePill();
   }
 
   if (document.readyState === 'loading') {

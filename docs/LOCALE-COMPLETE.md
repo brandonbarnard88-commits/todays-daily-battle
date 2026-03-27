@@ -24,7 +24,7 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 | 4 | **Tool shells** | Same honesty as PT: Portuguese uses `/pt/planos`, `/pt/mural`, etc.; French uses `/fr/plans`, `/fr/mural`, …; Spanish uses root `planes.html`, `muro.html`, … |
 | 5 | **Legal** | Link to `privacy.html` / `terms.html` + short in-language note |
 | 6 | **SEO / edge** | Reciprocal `hreflang` where paired, `sitemap.xml`, `_headers` no-cache, `_redirects` clean URLs + `?tdb_cb` for Spanish-style cache bust, `cloudflare-purge.mjs` |
-| 7 | **Switcher** | `language-switcher.js`: hubs `aria-current`; **Español** → `/es/`, **Français** → `/fr/`, **Português** → `/pt/`; hope cluster → `/esperanza.html` (ES), not only Explore |
+| 7 | **Switcher** | `language-switcher.js`: hubs `aria-current`; **Español** → `/es/`, **Français** → `/fr/`, **Português** → `/pt/`, **Bahasa Indonesia** → `/id/`; hope cluster → `/esperanza.html` (ES), not only Explore |
 | 8 | **Tests** | `npm run build`, `npm run test:site -- --offline`, `npm test`, `npm run test:security` |
 
 ---
@@ -34,7 +34,7 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 | Layer | Portuguese | French | Spanish |
 |--------|------------|--------|---------|
 | Hub | `/pt/` | `/fr/` | `/es/` |
-| Moods (tradition on-page) | ansiedade, esperança, medo, força, paz, solidão, culpa, sobrecarga (Almeida) | anxiété, espoir, peur, force, paix, solitude, culpabilité, débordé (Louis Segond) | ansiedad, esperanza, miedo, fuerza, paz, soledad, culpa, agobio (Reina-Valera 1960) |
+| Moods (tradition on-page) | ansiedade, esperança, medo, força, paz, solidão, culpa, sobrecarga (Almeida) | anxiété, espoir, peur, colère, tristesse, force, paix, solitude, culpabilité, débordé (Louis Segond) | ansiedad, esperanza, miedo, ira, duelo, fuerza, paz, soledad, culpa, agobio (Reina-Valera 1960) |
 | Tool entry shells | `/pt/planos`, `mural`, `leitor`, `crianças` | `/fr/plans`, `mural`, `lecteur`, `enfants` | `/planes`, `muro`, `lector`, `ninos` (root) |
 | Legal summaries | `/pt/privacy`, `/pt/terms` | Link from hub to EN canonical | Link from hub to EN canonical |
 
@@ -62,7 +62,7 @@ Use this as the **release gate** before calling a language **shipped** (not “p
 
 | Command | Output |
 |---------|--------|
-| `npm run render:fr-es-moods` | FR mood depth (`peur`, `force`, `paix`) + ES root moods (`miedo`, `soledad`, `culpa`, `agobio`) |
+| `npm run render:fr-es-moods` | FR mood depth (`peur`, `force`, `paix`, `colere`, `tristesse`) + ES root moods (`miedo`, `soledad`, `culpa`, `agobio`, `ira`, `duelo`) |
 | `npm run render:locale-parity` | `esperanza.html`, FR tool shells, ES tool shells |
 | `node scripts/write-pt-locale-pages.mjs` | Portuguese moods + shells + legal summaries |
 
@@ -73,20 +73,20 @@ Shared switcher row: **`scripts/lib/lang-switcher-inner.mjs`**.
 ## Hubs — daily verse (UX)
 
 - Canonical **daily** verse is always **`/verse.html`** (EN UI, KJV). Hubs keep a **fixed anchor verse** in the local tradition for warmth; they must **not** pretend to replace the calendar.
-- Stable section ids for deep links: `#pt-hub-daily-verse`, `#fr-hub-daily-verse`, `#es-hub-daily-verse`.
+- Stable section ids for deep links: `#pt-hub-daily-verse`, `#fr-hub-daily-verse`, `#es-hub-daily-verse`, `#id-hub-daily-verse`.
 
 ---
 
-## Fourth language — draft pick: **Bahasa Indonesia** (`id/`)
+## Fourth language — **Bahasa Indonesia** (`id/`) — hub live (pilot)
 
-**Why:** Large church presence, existing **`id/kecemasan.html`** + **`id/harapan.html`** pilots lower the cost of a hub.
+**Why:** Large church presence; **`id/kecemasan.html`** + **`id/harapan.html`** pilots anchor the hub.
 
-**Target URLs (draft):**
+**Shipped (pilot, not “complete”):**
 
-- Hub: `/id/` + `id/index.html`, `_redirects` same pattern as `/es/`, `/fr/`, `/pt/`.
-- Mood pages: extend beyond anxiety/hope using the same shell + breakdown pattern as ES/FR (pick one public-domain Indonesian Bible tradition and **name it on-page** — do not imply KJV where text is Indonesian).
-- Switcher: add `isIndonesianHub()`, maps parallel to `PT_TO_*` / `ES_TO_*` for paired paths.
-- **Do not ship** until the ship gate table is green for `id/`.
+- Hub: **`/id/`** + `id/index.html`, `_redirects` `200!` like other locale hubs; honest copy about KJV-on-pilot + English tools.
+- Mood pages: still **two** pilots (anxiety/hope); expand with the same shell + breakdown pattern when ready (name any Indonesian Scripture tradition on-page if not KJV).
+- Switcher: **`isIndonesianHub()`**, default **Bahasa Indonesia** link → `/id/`; maps align with ES/FR/PT hubs for cross-picks.
+- **Not “complete”** until the ship gate grid matches PT depth (more moods, tool shells, local legal summaries if claimed).
 
 Other strong candidates when you are ready: **Arabic**, **Tagalog**, **Hindi**, **Swahili**, **Russian** (see `explore.html#languages` for existing pilots).
 

@@ -153,9 +153,16 @@ const cacheHygienePaths = [
   '/lector',
   '/ninos.html',
   '/ninos',
+  '/ira.html',
+  '/ira',
+  '/duelo.html',
+  '/duelo',
   '/es/',
   '/es',
   '/es/index.html',
+  '/id/',
+  '/id',
+  '/id/index.html',
   '/id/kecemasan.html',
   '/id/kecemasan',
   '/tl/kabalisahan.html',
@@ -179,6 +186,10 @@ const cacheHygienePaths = [
   '/fr/lecteur',
   '/fr/enfants.html',
   '/fr/enfants',
+  '/fr/colere.html',
+  '/fr/colere',
+  '/fr/tristesse.html',
+  '/fr/tristesse',
   '/zh/jiaolv.html',
   '/zh/jiaolv',
   '/ar/qalaq.html',
@@ -305,6 +316,8 @@ const esRewriteNeedles = [
   '/muro /muro.html?tdb_cb=20260328esNav 302',
   '/lector /lector.html?tdb_cb=20260328esNav 302',
   '/ninos /ninos.html?tdb_cb=20260328esNav 302',
+  '/ira /ira.html?tdb_cb=20260328esNav 302',
+  '/duelo /duelo.html?tdb_cb=20260328esNav 302',
 ];
 let esRewriteOk = true;
 for (const n of esRewriteNeedles) {
@@ -362,6 +375,8 @@ if (
   !purgeMjs.includes("'/ansiedad.html'") ||
   !purgeMjs.includes("'/fuerza.html'") ||
   !purgeMjs.includes("'/paz.html'") ||
+  !purgeMjs.includes("'/id/'") ||
+  !purgeMjs.includes("'/id/index.html'") ||
   !purgeMjs.includes("'/id/kecemasan.html'") ||
   !purgeMjs.includes("'/tl/kabalisahan.html'") ||
   !purgeMjs.includes("'/es/'") ||
@@ -391,6 +406,10 @@ if (
   !purgeMjs.includes("'/fr/peur.html'") ||
   !purgeMjs.includes("'/fr/force.html'") ||
   !purgeMjs.includes("'/fr/paix.html'") ||
+  !purgeMjs.includes("'/ira.html'") ||
+  !purgeMjs.includes("'/duelo.html'") ||
+  !purgeMjs.includes("'/fr/colere.html'") ||
+  !purgeMjs.includes("'/fr/tristesse.html'") ||
   !purgeMjs.includes("'/miedo.html'") ||
   !purgeMjs.includes("'/soledad.html'") ||
   !purgeMjs.includes("'/culpa.html'") ||

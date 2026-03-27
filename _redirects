@@ -55,6 +55,10 @@
 /lector/ /lector.html?tdb_cb=20260328esNav 302
 /ninos /ninos.html?tdb_cb=20260328esNav 302
 /ninos/ /ninos.html?tdb_cb=20260328esNav 302
+/ira /ira.html?tdb_cb=20260328esNav 302
+/ira/ /ira.html?tdb_cb=20260328esNav 302
+/duelo /duelo.html?tdb_cb=20260328esNav 302
+/duelo/ /duelo.html?tdb_cb=20260328esNav 302
 # Kids Battle (reversible: everything in kids/ folder)
 /kids /kids/index.html 200!
 /kids/ /kids/index.html 200!
@@ -81,6 +85,10 @@
 # French hub (/fr/ → index; avoids 404 on folder URL)
 /fr /fr/index.html 200!
 /fr/ /fr/index.html 200!
+
+# Indonesian hub (/id/ → index; pilots expand from here)
+/id /id/index.html 200!
+/id/ /id/index.html 200!
 
 # Portuguese hub (/pt/ → index; avoids 404 on folder URL)
 /pt /pt/index.html 200!

@@ -11,7 +11,7 @@ export const LANG_SWITCHER_INNER = `            <a class="tdb-lang-opt" href="/"
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt" href="/zh/jiaolv.html" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt" href="/id/kecemasan.html" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>
+            <a class="tdb-lang-opt" href="/id/" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
             <a class="tdb-lang-opt" href="/tl/kabalisahan.html" hreflang="tl" data-tdb-pick="tl">Tagalog</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>

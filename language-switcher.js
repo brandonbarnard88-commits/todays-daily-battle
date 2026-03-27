@@ -1,8 +1,9 @@
 /**
- * Language switcher: EN · ES · FR · 中文 · ID · TL · AR · HI · RU · SV · PT · BN · SW + "More languages" hub (hubs: /es/, /fr/, /pt/).
+ * Language switcher: EN · ES · FR · 中文 · ID · TL · AR · HI · RU · SV · PT · BN · SW + "More languages" hub (hubs: /es/, /fr/, /pt/, /id/).
  * Portuguese hub: /pt/ and /pt/index.html — ptHref default for unpaired pages is /pt/.
  * French hub: /fr/ and /fr/index.html — frHref stays /fr/; same anxiety-cluster defaults as PT hub for other picks.
- * Spanish hub: /es/ and /es/index.html — esHref stays /es/; root pages include mood doors + esperanza + tool shells (planes, muro, lector, ninos).
+ * Spanish hub: /es/ and /es/index.html — esHref stays /es/; root pages include mood doors + esperanza + ira + duelo + tool shells (planes, muro, lector, ninos).
+ * Indonesian hub: /id/ and /id/index.html — thin pilot vs PT; default id pick → /id/.
  * Pairs topical pilots (anxiety + hope in AR/HI/RU/SV/PT/BN/SW/ID/TL + FR/ZH/EN; loneliness/guilt/overwhelm FR/ZH); persists tdb_lang_pref on explicit picks.
  */
 (function () {
@@ -106,6 +107,8 @@
     '/fr/peur.html': '/topic-fear.html',
     '/fr/force.html': '/topic-strength.html',
     '/fr/paix.html': '/calm.html',
+    '/fr/colere.html': '/explore.html',
+    '/fr/tristesse.html': '/topic-grief.html',
     '/fr/plans.html': '/plans.html',
     '/fr/mural.html': '/message.html',
     '/fr/lecteur.html': '/reader.html',
@@ -122,6 +125,8 @@
     '/fr/peur.html': '/miedo.html',
     '/fr/force.html': '/fuerza.html',
     '/fr/paix.html': '/paz.html',
+    '/fr/colere.html': '/ira.html',
+    '/fr/tristesse.html': '/duelo.html',
     '/fr/plans.html': '/planes.html',
     '/fr/mural.html': '/muro.html',
     '/fr/lecteur.html': '/lector.html',
@@ -138,6 +143,8 @@
     '/fr/peur.html': '/pt/medo.html',
     '/fr/force.html': '/pt/forca.html',
     '/fr/paix.html': '/pt/paz.html',
+    '/fr/colere.html': '/pt/',
+    '/fr/tristesse.html': '/pt/esperanca.html',
     '/fr/plans.html': '/pt/planos.html',
     '/fr/mural.html': '/pt/mural.html',
     '/fr/lecteur.html': '/pt/leitor.html',
@@ -154,6 +161,8 @@
     '/fuerza.html': '/fr/force.html',
     '/paz.html': '/fr/paix.html',
     '/esperanza.html': '/fr/espoir.html',
+    '/ira.html': '/fr/colere.html',
+    '/duelo.html': '/fr/tristesse.html',
     '/planes.html': '/fr/plans.html',
     '/muro.html': '/fr/mural.html',
     '/lector.html': '/fr/lecteur.html',
@@ -170,6 +179,8 @@
     '/fuerza.html': '/pt/forca.html',
     '/paz.html': '/pt/paz.html',
     '/esperanza.html': '/pt/esperanca.html',
+    '/ira.html': '/pt/',
+    '/duelo.html': '/pt/esperanca.html',
     '/planes.html': '/pt/planos.html',
     '/muro.html': '/pt/mural.html',
     '/lector.html': '/pt/leitor.html',
@@ -185,6 +196,8 @@
     'culpa.html': '/topic-guilt.html',
     'agobio.html': '/topic-overwhelmed.html',
     'esperanza.html': '/topic-hope.html',
+    'ira.html': '/explore.html',
+    'duelo.html': '/topic-grief.html',
     'planes.html': '/plans.html',
     'muro.html': '/message.html',
     'lector.html': '/reader.html',
@@ -200,6 +213,7 @@
     'topic-guilt.html': '/culpa.html',
     'topic-overwhelmed.html': '/agobio.html',
     'topic-hope.html': '/esperanza.html',
+    'topic-grief.html': '/duelo.html',
     'plans.html': '/planes.html',
     'message.html': '/muro.html',
     'reader.html': '/lector.html',
@@ -214,6 +228,7 @@
   var EN_TO_ID = {
     'topic-anxiety.html': '/id/kecemasan.html',
     'topic-hope.html': '/id/harapan.html',
+    'topic-grief.html': '/id/harapan.html',
     'ansiedad.html': '/id/kecemasan.html'
   };
 
@@ -229,7 +244,9 @@
     'culpa.html': '/id/kecemasan.html',
     'agobio.html': '/id/kecemasan.html',
     'fuerza.html': '/id/kecemasan.html',
-    'paz.html': '/id/kecemasan.html'
+    'paz.html': '/id/kecemasan.html',
+    'ira.html': '/id/kecemasan.html',
+    'duelo.html': '/id/kecemasan.html'
   };
 
   var TL_TO_EN = {
@@ -331,15 +348,21 @@
     return p === '/fr' || p === '/fr/index.html';
   }
 
-  /** PT, FR, or ES hub: same cross-language defaults for anxiety-cluster locales. */
+  /** PT, FR, ES, or ID hub: same cross-language defaults for anxiety-cluster locales. */
   function isLocaleHubCluster() {
-    return isPortugueseHub() || isFrenchHub() || isSpanishHub();
+    return isPortugueseHub() || isFrenchHub() || isSpanishHub() || isIndonesianHub();
   }
 
   /** Spanish landing hub (folder index). */
   function isSpanishHub() {
     var p = pathnameNoQuery();
     return p === '/es' || p === '/es/index.html';
+  }
+
+  /** Indonesian landing hub (pilot expansion; mood pages still thin vs PT). */
+  function isIndonesianHub() {
+    var p = pathnameNoQuery();
+    return p === '/id' || p === '/id/index.html';
   }
 
   function isBengaliAnxietyPage() {
@@ -378,10 +401,11 @@
     return pathnameNoQuery() === '/fr/deborde.html';
   }
 
-  /** FR depth pilots: peur / force / paix (Louis Segond on-page). */
+  /** FR depth pilots: peur / force / paix / colère / tristesse (Louis Segond on-page). */
   function isFrenchExtraMoodPilot() {
     var p = pathnameNoQuery();
-    return p === '/fr/peur.html' || p === '/fr/force.html' || p === '/fr/paix.html';
+    return p === '/fr/peur.html' || p === '/fr/force.html' || p === '/fr/paix.html' ||
+      p === '/fr/colere.html' || p === '/fr/tristesse.html';
   }
 
   /** FR tool entry shells (parity with PT planos/mural/leitor/crianças). */
@@ -399,7 +423,8 @@
     var f = baseFile();
     return f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html' ||
       f === 'miedo.html' || f === 'soledad.html' || f === 'culpa.html' || f === 'agobio.html' ||
-      f === 'esperanza.html' || f === 'planes.html' || f === 'muro.html' || f === 'lector.html' ||
+      f === 'esperanza.html' || f === 'ira.html' || f === 'duelo.html' ||
+      f === 'planes.html' || f === 'muro.html' || f === 'lector.html' ||
       f === 'ninos.html';
   }
 
@@ -456,7 +481,7 @@
   }
 
   function enHref() {
-    if (isFrenchHub() || isSpanishHub()) return '/';
+    if (isFrenchHub() || isSpanishHub() || isIndonesianHub()) return '/';
     var ptEq = PT_TO_EN[pathnameNoQuery()];
     if (ptEq) return ptEq;
     var frEq = FR_TO_EN[pathnameNoQuery()];
@@ -484,7 +509,7 @@
   function esHref() {
     var pEs = pathnameNoQuery();
     if (isSpanishHub()) return '/es/';
-    if (isPortugueseHub() || isFrenchHub()) return '/es/';
+    if (isPortugueseHub() || isFrenchHub() || isIndonesianHub()) return '/es/';
     var frEs = FR_TO_ES[pEs];
     if (frEs) return frEs;
     if (pEs.indexOf('/pt/') === 0 && PT_TO_ES[pEs]) return PT_TO_ES[pEs];
@@ -499,7 +524,8 @@
     var f = baseFile();
     if (f === 'ansiedad.html' || f === 'fuerza.html' || f === 'paz.html' ||
       f === 'miedo.html' || f === 'soledad.html' || f === 'culpa.html' || f === 'agobio.html' ||
-      f === 'esperanza.html' || f === 'planes.html' || f === 'muro.html' || f === 'lector.html' ||
+      f === 'esperanza.html' || f === 'ira.html' || f === 'duelo.html' ||
+      f === 'planes.html' || f === 'muro.html' || f === 'lector.html' ||
       f === 'ninos.html') return '/' + f;
     if (EN_TO_ES[f]) return EN_TO_ES[f];
     if (ID_TO_ES[f]) return ID_TO_ES[f];
@@ -512,6 +538,7 @@
     var pFr = pathnameNoQuery();
     if (isSpanishHub()) return '/fr/';
     if (isFrenchHub()) return '/fr/';
+    if (isIndonesianHub()) return '/fr/';
     var esFr = ES_TO_FR[pFr];
     if (esFr) return esFr;
     if (pFr.indexOf('/pt/') === 0 && PT_TO_FR[pFr]) return PT_TO_FR[pFr];
@@ -539,6 +566,7 @@
     if (pFr === '/message.html') return '/fr/mural.html';
     if (pFr === '/reader.html') return '/fr/lecteur.html';
     if (pFr === '/kids-corner.html') return '/fr/enfants.html';
+    if (baseFile() === 'topic-grief.html') return '/fr/tristesse.html';
     if (pFr === '/' || pFr === '/index.html') return '/fr/';
     return MORE_HUB;
   }
@@ -569,8 +597,9 @@
   }
 
   function idHref() {
-    if (PT_TO_EN[pathnameNoQuery()]) return '/id/kecemasan.html';
-    if (isFrenchHub() || isSpanishHub()) return '/id/kecemasan.html';
+    if (isIndonesianHub()) return '/id/';
+    if (PT_TO_EN[pathnameNoQuery()]) return '/id/';
+    if (isFrenchHub() || isSpanishHub()) return '/id/';
     if (pathnameNoQuery() === '/id/harapan.html') return '/id/harapan.html';
     if (isHopeEquivalentPath()) return '/id/harapan.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
@@ -579,18 +608,18 @@
       isFrenchToolShell()) return '/id/kecemasan.html';
     if (isFrenchLonelinessPage() || isChineseLonelinessPage() ||
       isFrenchGuiltPage() || isChineseGuiltPage() ||
-      isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/id/kecemasan.html';
+      isFrenchOverwhelmPage() || isChineseOverwhelmPage()) return '/id/';
     var f = baseFile();
     if (f === 'kecemasan.html') return '/id/kecemasan.html';
-    if (f === 'kabalisahan.html') return '/id/kecemasan.html';
+    if (f === 'kabalisahan.html') return '/id/';
     if (EN_TO_ID[f]) return EN_TO_ID[f];
     if (ES_TO_ID[f]) return ES_TO_ID[f];
-    return '/id/kecemasan.html';
+    return '/id/';
   }
 
   function tlHref() {
     if (PT_TO_EN[pathnameNoQuery()]) return '/tl/kabalisahan.html';
-    if (isFrenchHub() || isSpanishHub()) return '/tl/kabalisahan.html';
+    if (isFrenchHub() || isSpanishHub() || isIndonesianHub()) return '/tl/kabalisahan.html';
     if (pathnameNoQuery() === '/tl/pagasa.html') return '/tl/pagasa.html';
     if (isHopeEquivalentPath()) return '/tl/pagasa.html';
     if (isArabicAnxietyPage() || isHindiAnxietyPage() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
@@ -650,7 +679,7 @@
 
   function ptHref() {
     var curPt = pathnameNoQuery();
-    if (isFrenchHub() || isSpanishHub()) return '/pt/';
+    if (isFrenchHub() || isSpanishHub() || isIndonesianHub()) return '/pt/';
     if (isPortugueseHub()) return '/pt/';
     if (FR_TO_PT[curPt]) return FR_TO_PT[curPt];
     if (ES_TO_PT[curPt]) return ES_TO_PT[curPt];
@@ -685,7 +714,7 @@
 
   function moreHref() {
     if (isSpanishTopical()) return '/explore.html#topics-es';
-    if (isFrenchHub() || isSpanishHub()) return MORE_HUB;
+    if (isFrenchHub() || isSpanishHub() || isIndonesianHub()) return MORE_HUB;
     if (isIndonesianTopical() || isTagalogTopical() || isFrenchAnxietyPage() || isChineseAnxietyPage() ||
       isArabicAnxietyPage() || isHindiAnxietyPage() || isRussianAnxietyPage() ||
       isSwedishAnxietyPage() || isPortugueseAnxietyPage() || isBengaliAnxietyPage() ||
@@ -800,6 +829,8 @@
         if (fr) fr.setAttribute('aria-current', 'true');
       } else if (isSpanishHub()) {
         if (es) es.setAttribute('aria-current', 'true');
+      } else if (isIndonesianHub()) {
+        if (id) id.setAttribute('aria-current', 'true');
       } else if (isFrenchExtraMoodPilot() || isFrenchToolShell()) {
         if (fr) fr.setAttribute('aria-current', 'true');
       } else if (PT_TO_EN[p]) {

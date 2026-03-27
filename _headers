@@ -151,8 +151,29 @@
 /ninos
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/ira.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/ira
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/duelo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/duelo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 
 # Indonesian topical pilot (id/) — copy + tool links churn
+/id/
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/id/index.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 /id/kecemasan.html
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
@@ -237,6 +258,18 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /fr/enfants
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/colere.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/colere
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/tristesse.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/tristesse
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 

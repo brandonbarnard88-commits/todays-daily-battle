@@ -321,14 +321,18 @@ const frRelatedCore = `            <a class="btn btn-secondary" href="/fr/">Hub 
             <a class="btn btn-secondary" href="/fr/espoir.html">Espoir</a>
             <a class="btn btn-secondary" href="/fr/solitude.html">Solitude</a>
             <a class="btn btn-secondary" href="/fr/culpabilite.html">Culpabilité</a>
-            <a class="btn btn-secondary" href="/fr/deborde.html">Débordé</a>`;
+            <a class="btn btn-secondary" href="/fr/deborde.html">Débordé</a>
+            <a class="btn btn-secondary" href="/fr/colere.html">Colère</a>
+            <a class="btn btn-secondary" href="/fr/tristesse.html">Tristesse</a>`;
 
 const esRelatedCore = `            <a class="btn btn-secondary" href="/es/">Hub ES</a>
             <a class="btn btn-secondary" href="/ansiedad.html">Ansiedad</a>
             <a class="btn btn-secondary" href="/esperanza.html">Esperanza</a>
             <a class="btn btn-secondary" href="/miedo.html">Miedo</a>
             <a class="btn btn-secondary" href="/fuerza.html">Fuerza</a>
-            <a class="btn btn-secondary" href="/paz.html">Paz</a>`;
+            <a class="btn btn-secondary" href="/paz.html">Paz</a>
+            <a class="btn btn-secondary" href="/ira.html">Ira</a>
+            <a class="btn btn-secondary" href="/duelo.html">Duelo</a>`;
 
 const frPages = [
   {
@@ -408,6 +412,57 @@ const frPages = [
             <a class="btn btn-secondary" href="/fr/peur.html">Peur</a>
             <a class="btn btn-secondary" href="/fr/force.html">Force</a>`,
     sidebarEn: '/calm.html',
+  },
+  {
+    fileRel: 'fr/colere.html',
+    title: "Colère : Paroles bibliques (Louis Segond) | Today's Daily Battle",
+    desc: 'Quand la colère monte : Louis Segond (domaine public). Version anglaise des thèmes sur explore.html ; outils en anglais, KJV.',
+    canonicalPath: '/fr/colere.html',
+    enPath: '/explore.html',
+    extraHreflang: [
+      ['es', '/ira.html'],
+    ],
+    h1: 'Quand la colère veut parler à votre place',
+    lead: 'Vous n’êtes pas condamné à la laisser décider. Dieu invite à dire vrai — sans vous brûler ni brûler les autres.',
+    vTitle: 'Verset pour aujourd’hui',
+    v1: '&ldquo;Si vous vous mettez en colère, ne péchez point; que le soleil ne se couche pas sur votre colère,&rdquo; &mdash; Éphésiens 4:26 <span class="section-note" style="display:inline;font-size:0.85em;">(Louis Segond 1910)</span>',
+    simple: 'La colère elle-même n’est pas le verdict : c’est ce qu’on en fait avant le coucher du soleil qui trace le chemin.',
+    today: 'Quand la chaleur monte, ce verset offre une limite humble : ne nourrissez pas la blessure toute la nuit.',
+    why: '« Ne péchez point » parle du cœur et des actes ; « soleil » parle du temps — Dieu accueille la vérité sans vous laisser enliser.',
+    doit: 'Dites : « Seigneur, elle est là — prends la main. » Une minute de silence. Si vous pouvez, écrivez une ligne honnête avant de répondre à quelqu’un.',
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Que tout homme soit prompt à écouter, lent à parler, lent à la colère.&rdquo; &mdash; Jacques 1:19 <span class="section-note" style="display:inline;font-size:0.85em;">(Louis Segond 1910)</span></p>`,
+    relatedBtns:
+      frRelatedCore +
+      `
+            <a class="btn btn-secondary" href="/fr/peur.html">Peur</a>
+            <a class="btn btn-secondary" href="/fr/force.html">Force</a>`,
+    sidebarEn: '/explore.html#topics-en',
+  },
+  {
+    fileRel: 'fr/tristesse.html',
+    title: "Tristesse et deuil : Paroles bibliques (Louis Segond) | Today's Daily Battle",
+    desc: 'Cœur lourd, perte, chagrin : Louis Segond (domaine public). Paires : version anglaise topic-grief.html ; outils en anglais, KJV.',
+    canonicalPath: '/fr/tristesse.html',
+    enPath: '/topic-grief.html',
+    extraHreflang: [
+      ['es', '/duelo.html'],
+      ['pt', '/pt/esperanca.html'],
+    ],
+    h1: 'Quand le chagrin pèse et que les mots manquent',
+    lead: 'Dieu ne vous demande pas d’« aller bien » sur commande. Il se rapproche des cœurs brisés avec douceur.',
+    vTitle: 'Verset pour aujourd’hui',
+    v1: '&ldquo;Heureux ceux qui pleurent, car ils seront consolés!&rdquo; &mdash; Matthieu 5:4 <span class="section-note" style="display:inline;font-size:0.85em;">(Louis Segond 1910)</span>',
+    simple: 'Jésus honore les larmes — ce n’est pas une faiblesse honteuse devant Lui.',
+    today: 'Quand la gorge serre, ce verset dit : votre peine est vue, pas jugée.',
+    why: 'Les Béatitudes nomment la réalité sans la minimiser ; la consolation vient de Lui, à Son temps, avec Sa présence.',
+    doit: 'Dites : « Seigneur, j’ai mal — reste avec moi. » Restez un moment sans vous forcer à expliquer.',
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;L\'Éternel est près de ceux qui ont le cœur brisé, Et il sauve ceux dont l\'esprit est abattu.&rdquo; &mdash; Psaume 34:18 <span class="section-note" style="display:inline;font-size:0.85em;">(Louis Segond 1910)</span></p>`,
+    relatedBtns:
+      frRelatedCore +
+      `
+            <a class="btn btn-secondary" href="/fr/espoir.html">Espoir</a>
+            <a class="btn btn-secondary" href="/fr/solitude.html">Solitude</a>`,
+    sidebarEn: '/topic-grief.html',
   },
 ];
 
@@ -512,6 +567,53 @@ const esPages = [
             <a class="btn btn-secondary" href="/miedo.html">Miedo</a>
             <a class="btn btn-secondary" href="/soledad.html">Soledad</a>
             <a class="btn btn-secondary" href="/culpa.html">Culpa</a>`,
+  },
+  {
+    fileRel: 'ira.html',
+    title: "Ira y enojo: versículos (Reina-Valera 1960) | Today's Daily Battle",
+    desc: 'Cuando sube el enojo: Reina-Valera 1960 (dominio público). En inglés, más temas en explore.html; herramientas en inglés, KJV.',
+    canonicalPath: '/ira.html',
+    enPath: '/explore.html',
+    extraHreflang: [
+      ['fr', '/fr/colere.html'],
+    ],
+    h1: 'Cuando la ira quiere hablar por ti',
+    lead: 'No estás condenado a dejarla mandar. Dios invita a decir verdad sin quemarte ni quemar a los demás.',
+    v1: '&ldquo;Estando enojados, no pecéis; no se ponga el sol sobre vuestro enojo.&rdquo; &mdash; Efesios 4:26 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    simple: 'La ira en sí no es la sentencia final: importa qué haces con ella antes de que caiga la noche.',
+    feel: 'Cuando sube el calor, este versículo da un límite humilde: no alimentes la herida toda la noche.',
+    change: '«No pecéis» habla del corazón y las acciones; «el sol» habla del tiempo — Dios acoge la verdad sin dejarte atascado.',
+    doit: 'Di: «Señor, está aquí — Tú guías la mano.» Un minuto en silencio. Si puedes, escribe una línea honesta antes de responder a alguien.',
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Todo hombre sea pronto para oír, tardo para hablar, tardo para airarse.&rdquo; &mdash; Santiago 1:19 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    relatedBtns:
+      esRelatedCore +
+      `
+            <a class="btn btn-secondary" href="/miedo.html">Miedo</a>
+            <a class="btn btn-secondary" href="/fuerza.html">Fuerza</a>`,
+  },
+  {
+    fileRel: 'duelo.html',
+    title: "Duelo y tristeza: versículos (Reina-Valera 1960) | Today's Daily Battle",
+    desc: 'Pérdida, pena, corazón pesado: Reina-Valera 1960 (dominio público). Par inglés: topic-grief.html. Herramientas en inglés, KJV.',
+    canonicalPath: '/duelo.html',
+    enPath: '/topic-grief.html',
+    extraHreflang: [
+      ['fr', '/fr/tristesse.html'],
+      ['pt', '/pt/esperanca.html'],
+    ],
+    h1: 'Cuando el dolor pesa y faltan palabras',
+    lead: 'Dios no te pide «estar bien» a la fuerza. Se acerca a los quebrantados con ternura.',
+    v1: '&ldquo;Bienaventurados los que lloran, porque ellos recibirán consolación.&rdquo; &mdash; Mateo 5:4 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span>',
+    simple: 'Jesús honra las lágrimas: no es una vergüenza delante de Él.',
+    feel: 'Cuando se cierra la garganta, este versículo dice: tu pena es vista, no juzgada a la ligera.',
+    change: 'Las Bienaventuranzas nombran la realidad sin menospreciarla; el consuelo viene de Él, en Su tiempo, con Su presencia.',
+    doit: 'Di: «Señor, me duele — quédate conmigo.» Quédate un momento sin obligarte a explicar todo.',
+    vExtra: `<p class="verse" style="margin-top:0.75rem;">&ldquo;Cercano está Jehová a los quebrantados de corazón; y salva a los contritos de espíritu.&rdquo; &mdash; Salmos 34:18 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>`,
+    relatedBtns:
+      esRelatedCore +
+      `
+            <a class="btn btn-secondary" href="/esperanza.html">Esperanza</a>
+            <a class="btn btn-secondary" href="/soledad.html">Soledad</a>`,
   },
 ];
 

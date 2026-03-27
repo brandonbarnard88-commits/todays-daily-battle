@@ -531,6 +531,10 @@ if (!sitemapBody.includes('todaysdailybattle.com/es/</loc>')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Spanish hub (https://todaysdailybattle.com/es/).');
   process.exit(1);
 }
+if (!sitemapBody.includes('todaysdailybattle.com/id/</loc>')) {
+  console.error('BUILD FAIL: dist/sitemap.xml must list Indonesian hub (https://todaysdailybattle.com/id/).');
+  process.exit(1);
+}
 if (!sitemapBody.includes('pt/ansiedade.html')) {
   console.error('BUILD FAIL: dist/sitemap.xml must list Portuguese anxiety pilot (pt/ansiedade.html).');
   process.exit(1);

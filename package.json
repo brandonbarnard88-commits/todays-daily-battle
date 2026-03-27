@@ -4,6 +4,7 @@
   "scripts": {
     "sync:footer": "node scripts/sync-site-footer.mjs",
     "sync:lang-header": "node scripts/sync-language-switcher-header.mjs",
+    "render:fr-es-moods": "node scripts/render-fr-es-mood-pages.mjs",
     "build": "node build-config.js && node build-copy-static.js && node scripts/minify.mjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",

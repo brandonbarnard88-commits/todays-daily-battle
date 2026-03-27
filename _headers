@@ -97,6 +97,30 @@
 /paz
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
+/miedo.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/miedo
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/soledad.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/soledad
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/culpa.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/culpa
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/agobio.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/agobio
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
 
 # Indonesian topical pilot (id/) — copy + tool links churn
 /id/kecemasan.html
@@ -141,6 +165,24 @@
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 /fr/anxiete
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/peur.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/peur
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/force.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/force
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/paix.html
+  Cache-Control: no-cache, must-revalidate
+  Pragma: no-cache
+/fr/paix
   Cache-Control: no-cache, must-revalidate
   Pragma: no-cache
 

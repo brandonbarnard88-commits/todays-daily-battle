@@ -59,13 +59,18 @@ Use this as the **release gate** before calling a locale “shipped.” Pilots m
 
 ## Reference implementations
 
-- **Portuguese (deepest):** `pt/index.html`, `scripts/write-pt-locale-pages.mjs` (generator for mood + shells + legal summaries).
-- **Spanish hub:** `es/index.html` — links to root `ansiedad.html`, `fuerza.html`, `paz.html`; same honest EN tool pattern as FR/PT.
-- **French hub:** `fr/index.html` — links to `fr/*.html` pilots; expand with generator or hand pages later.
+- **Portuguese (deepest):** `pt/index.html`, `scripts/write-pt-locale-pages.mjs` (generator for mood + shells + legal summaries). Imports `scripts/lib/lang-switcher-inner.mjs` for switcher rows.
+- **Spanish hub:** `es/index.html` — links to root mood pages: `ansiedad`, `miedo`, `fuerza`, `paz`, `soledad`, `culpa`, `agobio` (Reina-Valera 1960 on-page); same honest EN tool pattern as FR/PT.
+- **French hub:** `fr/index.html` — links to `fr/*.html` mood pilots including `peur`, `force`, `paix` (Louis Segond on-page).
 
 ## Infrastructure (next smooth step)
 
-- **Today:** Hubs are hand-authored HTML; `write-pt-locale-pages.mjs` is the only locale generator in-repo.
-- **Next:** Extract shared hub partials (hero + grid + daily verse block) or add `write-es-hub.mjs` / `write-fr-mood.mjs` only when you repeat the same markup a third time — avoid abstraction before the pattern stabilizes.
+- **Generators:** `npm run render:fr-es-moods` → `scripts/render-fr-es-mood-pages.mjs` (FR depth + ES root moods; edit data in that file, re-run). `write-pt-locale-pages.mjs` remains the PT-specific writer.
+- **Switcher maps:** `language-switcher.js` — `PT_TO_FR`, `PT_TO_ES`, `PT_TO_ZH`, `FR_TO_EN`, `FR_TO_ES`, `FR_TO_PT`, `ES_TO_FR`, `ES_TO_PT` keep cross-links aligned when you add a paired page.
+- **Next:** Extract shared hub partials (hero + grid + daily verse block) only if a fourth hub repeats the same markup without drift.
+
+## After PT / FR / ES feel solid — next locale candidates
+
+Pick one when depth and switcher tests are green. Existing **anxiety + hope** pilots already lower the cost for: **Bahasa Indonesia** (`id/`), **Tagalog** (`tl/`), **Arabic**, **Hindi**, **Russian**, **Swedish**, **Bengali**, **Swahili** (see `explore.html#languages`). For a **fresh hub** at scale, **Indonesian** or **Arabic** often reach the most people still missing a calm front door; match the checklist above before calling it “complete.”
 
 When a new language matches the **checklist**, call it **complete** at the current architecture. Anything less is a **pilot** or **phase 1** — say so on the hub.

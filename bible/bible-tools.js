@@ -6,6 +6,7 @@
 
   const HIGHLIGHTS_KEY = 'bibleHighlights';
   const CONCORDANCE_URL = '../concordance.json';
+  const CROSS_REFS_URL = '../cross-refs.json';
   const KJV_URL = '../kjv.json';
   const CHAPTERS_URL = '../chapters.json';
   const BIBLE_READ_STREAK_KEY = 'bibleReadStreak';
@@ -157,6 +158,7 @@
   };
 
   var concordance = {};
+  var crossRefsMap = {};
   var bible = {};
   var currentNoteRef = null;
   var currentSearchWord = '';
@@ -218,16 +220,65 @@
     return escapeHtml(text).replace(re, '<span class="concordance-word-highlight">$1</span>');
   }
 
+  function normChainRef(ref) {
+    return String(ref || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function getChainRefsForVerse(ref) {
+    var r = normChainRef(ref);
+    var arr = crossRefsMap[r];
+    return Array.isArray(arr) ? arr : [];
+  }
+
+  function renderConcordanceChainRefs(ref) {
+    var chainEl = document.getElementById('concordance-chain-refs');
+    if (!chainEl) return;
+    var chains = getChainRefsForVerse(ref);
+    var base = normChainRef(ref);
+    chainEl.innerHTML = '';
+    var ul = document.createElement('ul');
+    ul.className = 'concordance-chain-list';
+    chains.forEach(function (r) {
+      var rr = normChainRef(r);
+      if (!rr || rr === base) return;
+      var li = document.createElement('li');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'concordance-chain-btn';
+      btn.setAttribute('data-ref', rr);
+      btn.textContent = rr;
+      btn.setAttribute('aria-label', 'Open cross reference ' + rr);
+      btn.addEventListener('click', function () { showVerseCard(rr); });
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+    if (!ul.children.length) {
+      chainEl.classList.add('hidden');
+      return;
+    }
+    var title = document.createElement('p');
+    title.className = 'concordance-chain-title';
+    title.textContent = 'Curated chains';
+    chainEl.appendChild(title);
+    chainEl.appendChild(ul);
+    chainEl.classList.remove('hidden');
+  }
+
   function loadData() {
     return Promise.all([
       fetch(CONCORDANCE_URL).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }),
-      fetch(KJV_URL).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; })
+      fetch(KJV_URL).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; }),
+      fetch(CROSS_REFS_URL).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
     ]).then(function (results) {
       concordance = results[0] || {};
       bible = {};
       (results[1] || []).forEach(function (v) {
         if (v && v.ref && v.text) bible[v.ref] = v.text;
       });
+      var cr = results[2];
+      if (cr && cr.refs && typeof cr.refs === 'object') {
+        crossRefsMap = cr.refs;
+      }
     });
   }
 
@@ -285,6 +336,7 @@
     textEl.innerHTML = highlightWord(text, currentSearchWord);
     btn.textContent = isHighlighted ? 'Edit note' : 'Highlight';
     btn.dataset.ref = ref;
+    renderConcordanceChainRefs(ref);
     card.classList.remove('hidden');
     card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }

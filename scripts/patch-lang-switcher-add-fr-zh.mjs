@@ -1,5 +1,6 @@
 /**
- * Insert Français + 中文 between Español and Bahasa Indonesia in all lang switchers.
+ * Legacy one-off: insert Français + 中文 between Español and Bahasa Indonesia.
+ * Current site defaults: 中文 → /zh/ hub, Bahasa Indonesia → /id/ hub (see partials/site-footer.html).
  * Run: node scripts/patch-lang-switcher-add-fr-zh.mjs
  */
 import fs from 'fs';
@@ -11,7 +12,7 @@ const root = path.join(__dirname, '..');
 
 const INSERT = `            <a class="tdb-lang-opt" href="/fr/anxiete.html" hreflang="fr" data-tdb-pick="fr">Français</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt" href="/zh/jiaolv.html" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
+            <a class="tdb-lang-opt" href="/zh/" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
             <span class="tdb-lang-sep" aria-hidden="true">·</span>
 `;
 
@@ -31,7 +32,7 @@ const NEW_FOOT = `    <a class="tdb-lang-opt" href="/explore.html#topics-es" hre
     <span class="tdb-lang-sep" aria-hidden="true">·</span>
     <a class="tdb-lang-opt" href="/fr/anxiete.html" hreflang="fr" data-tdb-pick="fr">Français</a>
     <span class="tdb-lang-sep" aria-hidden="true">·</span>
-    <a class="tdb-lang-opt" href="/zh/jiaolv.html" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
+    <a class="tdb-lang-opt" href="/zh/" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
     <span class="tdb-lang-sep" aria-hidden="true">·</span>
     <a class="tdb-lang-opt" href="/id/kecemasan.html" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>`;
 
@@ -43,7 +44,7 @@ const NEW_HERO = `          <a class="tdb-lang-opt" href="/explore.html#topics-e
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt" href="/fr/anxiete.html" hreflang="fr" data-tdb-pick="fr">Français</a>
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/zh/jiaolv.html" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
+          <a class="tdb-lang-opt" href="/zh/" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt" href="/id/kecemasan.html" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>`;
 

@@ -18,20 +18,11 @@
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, prayer wall, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
-  <!-- SEO hreflang: English home ↔ localized worry/anxiety mood-door pilots (same language set as topic-anxiety.html). Use zh-CN (not bare zh) for simplified Chinese. Vietnamese: add rel="alternate" hreflang="vi" when /vi/… pilot ships. -->
+  <!-- SEO hreflang: homepage highlights four supported hubs (EN ES FR PT). Additional locales remain on their URLs; see explore.html#languages and per-page alternates. -->
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/">
   <link rel="alternate" hreflang="es" href="https://todaysdailybattle.com/es/">
-  <link rel="alternate" hreflang="id" href="https://todaysdailybattle.com/id/">
-  <link rel="alternate" hreflang="tl" href="https://todaysdailybattle.com/tl/kabalisahan.html">
   <link rel="alternate" hreflang="fr" href="https://todaysdailybattle.com/fr/">
-  <link rel="alternate" hreflang="zh-CN" href="https://todaysdailybattle.com/zh/">
-  <link rel="alternate" hreflang="ar" href="https://todaysdailybattle.com/ar/qalaq.html">
-  <link rel="alternate" hreflang="hi" href="https://todaysdailybattle.com/hi/">
-  <link rel="alternate" hreflang="ru" href="https://todaysdailybattle.com/ru/">
-  <link rel="alternate" hreflang="sv" href="https://todaysdailybattle.com/sv/oro.html">
   <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/">
-  <link rel="alternate" hreflang="bn" href="https://todaysdailybattle.com/bn/chinta.html">
-  <link rel="alternate" hreflang="sw" href="https://todaysdailybattle.com/sw/wasiwasi.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
 
   <!-- Schema.org: Organization + WebSite -->
@@ -1522,6 +1513,53 @@
       color: color-mix(in srgb, var(--muted) 92%, var(--gold) 8%);
       line-height: 1.45;
       letter-spacing: 0.01em;
+    }
+
+    /* Same two-part rhythm as locale hubs: official calendar + one rotating KJV anchor (script.js initHubDailyAnchorRotate) */
+    .en-hub-daily-companion {
+      margin: 0.85rem 0 0;
+      padding: 0.9rem 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 85%, transparent);
+    }
+    .en-hub-daily-companion-title {
+      margin: 0 0 0.35rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+    .en-hub-daily-companion-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    @media (min-width: 720px) {
+      .en-hub-daily-companion-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.1rem;
+        align-items: start;
+      }
+      .en-hub-daily-col-en--calendar {
+        padding-right: 0.85rem;
+        border-right: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 88%, transparent);
+      }
+    }
+    @media (max-width: 719.98px) {
+      .en-hub-daily-col-en--calendar {
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 88%, transparent);
+      }
+    }
+    .en-hub-daily-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin: 0 0 0.35rem;
+    }
+    .en-hub-daily-rotate-panel[hidden] {
+      display: none !important;
     }
 
     .hero-my-verses-row {
@@ -4829,7 +4867,7 @@
       <!-- ── Hero Verse ── -->
       <div id="main-content" tabindex="-1">
       <div class="tdb-hero-lang-today-stack" role="region" aria-label="Language and today">
-      <p class="tdb-lang-eyebrow" id="tdb-lang-eyebrow">Choose your language — each link opens a mood-door page in that language; Scripture on screen stays KJV English.</p>
+      <p class="tdb-lang-eyebrow" id="tdb-lang-eyebrow">English, Español, Français, and Português open full hubs here first — Explore → Languages lists 中文, हिन्दी, Русский, Bahasa Indonesia, Tagalog, and the rest.</p>
       <nav class="tdb-lang-switcher tdb-lang-switcher--hero" aria-labelledby="tdb-hero-lang-label" aria-describedby="tdb-lang-eyebrow" data-tdb-lang-switcher lang="en">
         <span class="hero-daily-path-label" id="tdb-hero-lang-label">Language</span>
         <span class="tdb-lang-switcher-inner">
@@ -4839,25 +4877,7 @@
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/zh/" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/ar/qalaq.html" hreflang="ar" data-tdb-pick="ar">العربية</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/hi/" hreflang="hi" data-tdb-pick="hi">हिन्दी</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/ru/" hreflang="ru" data-tdb-pick="ru">Русский</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/id/" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/tl/kabalisahan.html" hreflang="tl" data-tdb-pick="tl">Tagalog</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/sv/oro.html" hreflang="sv" data-tdb-pick="sv">Svenska</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/bn/chinta.html" hreflang="bn" data-tdb-pick="bn">বাংলা</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/sw/wasiwasi.html" hreflang="sw" data-tdb-pick="sw">Kiswahili</a>
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
         </span>
@@ -4913,6 +4933,29 @@
         </div>
         <span id="hero-save-my-verses-status" class="sr-only" aria-live="polite"></span>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&rsquo;s daily battle.</p>
+        <div class="en-hub-daily-companion" id="en-hub-daily-verse" lang="en" aria-labelledby="en-hub-daily-heading">
+          <h2 class="en-hub-daily-companion-title" id="en-hub-daily-heading">Verse of the day — same rhythm as every hub</h2>
+          <div class="en-hub-daily-companion-grid">
+            <div class="en-hub-daily-col-en--calendar">
+              <p class="en-hub-daily-eyebrow">Official calendar</p>
+              <p class="section-note" style="margin:0 0 0.65rem;font-size:0.88rem;line-height:1.5;">The verse above tracks the same calendar as <a href="/verse.html">verse.html</a> — always <abbr title="King James Version">KJV</abbr>. Spanish, French, and Portuguese hubs use the same split: one column for the real calendar, one for a gentle extra anchor in the local language.</p>
+              <a class="btn btn-secondary" href="/verse.html" style="margin-top:0.25rem;display:inline-block;">Open Verse of the Day</a>
+            </div>
+            <div data-tdb-hub-daily-rotate>
+              <p class="en-hub-daily-eyebrow">Extra anchor (KJV)</p>
+              <p class="section-note" style="margin:0 0 0.5rem;font-size:0.85rem;line-height:1.5;">One of three familiar verses per day (UTC) — not a second calendar.</p>
+              <div class="tdb-hub-daily-rotate-panel" data-tdb-rotate-index="0">
+                <p class="hero-verse" style="font-size:clamp(1.12rem, 3vw, 1.42rem);">&ldquo;Cast thy burden upon the Lord, and he shall sustain thee: he shall never suffer the righteous to be moved.&rdquo; &mdash; <span style="display:block;margin-top:0.35rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);">Psalm 55:22 (KJV)</span></p>
+              </div>
+              <div class="tdb-hub-daily-rotate-panel" hidden aria-hidden="true" data-tdb-rotate-index="1">
+                <p class="hero-verse" style="font-size:clamp(1.12rem, 3vw, 1.42rem);">&ldquo;Come unto me, all ye that labour and are heavy laden, and I will give you rest.&rdquo; &mdash; <span style="display:block;margin-top:0.35rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);">Matthew 11:28 (KJV)</span></p>
+              </div>
+              <div class="tdb-hub-daily-rotate-panel" hidden aria-hidden="true" data-tdb-rotate-index="2">
+                <p class="hero-verse" style="font-size:clamp(1.12rem, 3vw, 1.42rem);">&ldquo;Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee.&rdquo; &mdash; <span style="display:block;margin-top:0.35rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);">Isaiah 41:10 (KJV)</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="hero-streak-wrapper">
           <span id="daily-battle-streak" class="sr-only" aria-live="polite"></span>
           <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
@@ -4976,25 +5019,7 @@
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/zh/" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/ar/qalaq.html" hreflang="ar" data-tdb-pick="ar">العربية</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/hi/" hreflang="hi" data-tdb-pick="hi">हिन्दी</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/ru/" hreflang="ru" data-tdb-pick="ru">Русский</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/id/" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/tl/kabalisahan.html" hreflang="tl" data-tdb-pick="tl">Tagalog</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/sv/oro.html" hreflang="sv" data-tdb-pick="sv">Svenska</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/bn/chinta.html" hreflang="bn" data-tdb-pick="bn">বাংলা</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/sw/wasiwasi.html" hreflang="sw" data-tdb-pick="sw">Kiswahili</a>
           <span class="tdb-lang-sep" aria-hidden="true">·</span>
           <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
         </span>
@@ -5378,25 +5403,7 @@
       <span class="tdb-lang-sep" aria-hidden="true">·</span>
       <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
       <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/zh/" hreflang="zh-CN" data-tdb-pick="zh">中文</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/id/" hreflang="id" data-tdb-pick="id">Bahasa Indonesia</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/tl/kabalisahan.html" hreflang="tl" data-tdb-pick="tl">Tagalog</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/ar/qalaq.html" hreflang="ar" data-tdb-pick="ar">العربية</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/hi/" hreflang="hi" data-tdb-pick="hi">हिन्दी</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/ru/" hreflang="ru" data-tdb-pick="ru">Русский</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/sv/oro.html" hreflang="sv" data-tdb-pick="sv">Svenska</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
       <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/bn/chinta.html" hreflang="bn" data-tdb-pick="bn">বাংলা</a>
-      <span class="tdb-lang-sep" aria-hidden="true">·</span>
-      <a class="tdb-lang-opt" href="/sw/wasiwasi.html" hreflang="sw" data-tdb-pick="sw">Kiswahili</a>
       <span class="tdb-lang-sep" aria-hidden="true">·</span>
       <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
     </span>

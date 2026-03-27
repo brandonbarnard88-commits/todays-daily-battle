@@ -14363,6 +14363,17 @@ main > .card {
   }
 }
 
+@media (max-width: 519.98px) {
+  .explore-hub-grid {
+    gap: 0.72rem;
+  }
+
+  .explore-hub-card {
+    min-height: 5.85rem;
+    padding: 0.95rem 1.08rem;
+  }
+}
+
 .explore-hub-grid > li {
   margin: 0;
   padding: 0;
@@ -14374,8 +14385,8 @@ main > .card {
   align-items: flex-start;
   justify-content: center;
   gap: 0.22rem;
-  min-height: 5.5rem;
-  padding: 0.85rem 1rem;
+  min-height: 5.75rem;
+  padding: 0.9rem 1.05rem;
   border-radius: 12px;
   text-decoration: none;
   box-sizing: border-box;
@@ -14384,6 +14395,7 @@ main > .card {
   background: color-mix(in srgb, var(--bg, #0f1218) 58%, transparent);
   color: inherit;
   transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .explore-hub-card:hover,
@@ -14410,6 +14422,9 @@ main > .card {
   font-weight: 600;
   color: var(--text-dark, #f1f5f9);
   line-height: 1.28;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .explore-hub-card-desc {
@@ -14418,6 +14433,35 @@ main > .card {
   line-height: 1.45;
   color: var(--text-muted, #94a3b8);
   font-weight: 400;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+[lang="zh-CN"] .explore-hub-card-title,
+[lang="zh-CN"] .explore-hub-card-desc,
+[lang="ru"] .explore-hub-card-title,
+[lang="ru"] .explore-hub-card-desc,
+[lang="hi"] .explore-hub-card-title,
+[lang="hi"] .explore-hub-card-desc {
+  line-break: loose;
+}
+
+@media (max-width: 420px) {
+  .explore-hub-card-title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .explore-hub-card-desc {
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .explore-hub-card {
+    min-height: 5.25rem;
+    padding: 0.82rem 0.9rem;
+  }
 }
 
 :root[data-theme="light"] .explore-hub-card {
@@ -14478,6 +14522,22 @@ main > .card {
 
   :root[data-theme="light"] .tdb-hub-daily-col--calendar {
     border-bottom-color: rgba(15, 23, 42, 0.1);
+  }
+}
+
+@media (max-width: 420px) {
+  .tdb-hub-daily-split {
+    gap: 1rem;
+    margin-top: 0.55rem;
+  }
+
+  .tdb-hub-daily-anchor-title {
+    font-size: 0.98rem;
+    line-height: 1.35;
+  }
+
+  .tdb-hub-daily-eyebrow {
+    font-size: 0.64rem;
   }
 }
 

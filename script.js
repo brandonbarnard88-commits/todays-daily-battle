@@ -24357,7 +24357,7 @@ function wireRandomBattleVerseHero() {
     try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
   }());
 
-  /** Locale hubs (PT/FR/ES/ID): show one of several fixed anchor verses per UTC day — not the calendar verse. */
+  /** Locale hubs + EN home companion: show one of several fixed anchor verses per UTC day — not the calendar verse. */
   (function initHubDailyAnchorRotate() {
     try {
       var root = document.querySelector('[data-tdb-hub-daily-rotate]');

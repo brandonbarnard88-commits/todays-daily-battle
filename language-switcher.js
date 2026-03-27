@@ -1,5 +1,5 @@
 /**
- * Language switcher: EN · ES · FR · 中文 · ID · TL · AR · HI · RU · SV · PT · BN · SW + "More languages" hub (hubs: /es/, /fr/, /pt/, /id/, /ru/, /zh/, /hi/).
+ * Language switcher: main row is EN · ES · FR · PT + More → explore.html#languages. ID/RU/ZH/HI/AR/TL/SV/BN/SW pages stay live; pairing hrefs unchanged. Explore lists every additional entry.
  * Portuguese hub: /pt/ and /pt/index.html — ptHref default for unpaired pages is /pt/.
  * French hub: /fr/ and /fr/index.html — frHref stays /fr/; same anxiety-cluster defaults as PT hub for other picks.
  * Spanish hub: /es/ and /es/index.html — esHref stays /es/; root pages include mood doors + esperanza + ira + duelo + tool shells (planes, muro, lector, ninos).
@@ -89,12 +89,12 @@
     '/pt/solidao.html': '/zh/gudu.html',
     '/pt/culpa.html': '/zh/neijiu.html',
     '/pt/sobrecarga.html': '/zh/taiduo.html',
-    '/pt/planos.html': '/zh/jiaolv.html',
-    '/pt/mural.html': '/zh/jiaolv.html',
-    '/pt/leitor.html': '/zh/jiaolv.html',
-    '/pt/criancas.html': '/zh/jiaolv.html',
-    '/pt/privacy.html': '/zh/jiaolv.html',
-    '/pt/terms.html': '/zh/jiaolv.html'
+    '/pt/planos.html': '/zh/',
+    '/pt/mural.html': '/zh/',
+    '/pt/leitor.html': '/zh/',
+    '/pt/criancas.html': '/zh/',
+    '/pt/privacy.html': '/zh/',
+    '/pt/terms.html': '/zh/'
   };
 
   /** RU / ZH / HI topical pilots → English equivalents (hubs use separate hub returns). */
@@ -848,8 +848,8 @@
     var locZh = LOCALE_TO_ZH[pZh];
     if (locZh) return locZh;
     if (isForgivenessEquivalentPath() && pZh !== '/zh/kuanshu.html') return '/zh/kuanshu.html';
-    if (isFrenchExtraMoodPilot() || isFrenchToolShell()) return '/zh/jiaolv.html';
-    if (isLocaleHubCluster()) return '/zh/jiaolv.html';
+    if (isFrenchExtraMoodPilot() || isFrenchToolShell()) return '/zh/';
+    if (isLocaleHubCluster()) return '/zh/';
     if (isChineseLonelinessPage()) return '/zh/gudu.html';
     if (isFrenchLonelinessPage()) return '/zh/gudu.html';
     if (isLonelinessEquivalentBaseFile()) return '/zh/gudu.html';
@@ -866,7 +866,7 @@
       isSwedishAnxietyPage() || isPortugueseAnxietyPage() || isBengaliAnxietyPage() ||
       isSwahiliAnxietyPage()) return '/zh/jiaolv.html';
     if (isAnxietyEquivalentPath()) return '/zh/jiaolv.html';
-    if (isSpanishTopical()) return '/zh/jiaolv.html';
+    if (isSpanishTopical()) return '/zh/';
     return MORE_HUB;
   }
 
@@ -1061,6 +1061,38 @@
     }
   }
 
+  function isAdditionalLanguagePath(p) {
+    if (p.indexOf('/zh/') === 0) return true;
+    if (p.indexOf('/hi/') === 0) return true;
+    if (p.indexOf('/ru/') === 0) return true;
+    if (p.indexOf('/id/') === 0) return true;
+    if (p.indexOf('/ar/') === 0) return true;
+    if (p.indexOf('/tl/') === 0) return true;
+    if (p.indexOf('/sv/') === 0) return true;
+    if (p.indexOf('/bn/') === 0) return true;
+    if (p.indexOf('/sw/') === 0) return true;
+    return false;
+  }
+
+  function clearDemotedNavHint(root) {
+    var old = root.querySelector('[data-tdb-lang-demoted-hint]');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+  }
+
+  function ensureDemotedNavHint(root) {
+    var p = pathnameNoQuery();
+    clearDemotedNavHint(root);
+    if (!isAdditionalLanguagePath(p)) return;
+    if (root.querySelector('a[aria-current="true"]')) return;
+    var span = document.createElement('span');
+    span.className = 'sr-only';
+    span.setAttribute('data-tdb-lang-demoted-hint', 'true');
+    span.setAttribute('role', 'status');
+    span.textContent =
+      'This page is an additional language (beyond English, Español, Français, and Português). See Explore — Languages for the full list.';
+    root.appendChild(span);
+  }
+
   function applyAriaCurrent() {
     var p = pathnameNoQuery();
     var spanish = isSpanishTopical();
@@ -1195,6 +1227,7 @@
       } else {
         if (en) en.setAttribute('aria-current', 'true');
       }
+      ensureDemotedNavHint(nodes[i]);
     }
   }
 

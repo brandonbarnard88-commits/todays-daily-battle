@@ -18,7 +18,7 @@
 
   function getReg() {
     if (!('serviceWorker' in navigator)) return Promise.resolve(null);
-    return navigator.serviceWorker.register('/sw.js?v=20260326-sw-v123-es-mas-ayuda').then(function (reg) { return reg; }).catch(function () { return null; });
+    return navigator.serviceWorker.register('/sw.js?v=20260328-sermon-syntax-fix').then(function (reg) { return reg; }).catch(function () { return null; });
   }
 
   function requestPermission() {

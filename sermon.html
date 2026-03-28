@@ -23,7 +23,7 @@
   <meta name="twitter:description" content="Build sermon outlines, save drafts, and send them to your congregation or co-leaders.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="stylesheet" href="styles.css?v=20260328sermon-syntax-fix">
   <link rel="manifest" href="manifest.json">
   <script nonce="tdb2025s" type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Sermon Builder • Today's Daily Battle","url":"https://todaysdailybattle.com/sermon.html","description":"KJV sermon outlines, verse lookup, and study notes — built for pastors who lead from the Word.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
@@ -905,7 +905,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260328quickstart-polish" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260328sermon-syntax-fix" data-cfasync="false"></script>
 
   <!-- ── Quick Start Popover ── -->
   <div id="sbQuickStartBackdrop" class="sb-popover-backdrop" hidden role="dialog" aria-modal="true" aria-label="Quick Start sermon templates">
@@ -1688,7 +1688,7 @@
       if (draft.application) parts.push('Application. ' + draft.application);
       if (draft.prayer)      parts.push('Closing prayer. ' + draft.prayer);
       if (draft.notes)       parts.push('Scholar notes. ' + draft.notes);
-      if (draft.studyMaterials) parts.push('Supporting context. ' + draft.studyMaterials.replace(/\n/g, '. ');
+      if (draft.studyMaterials) parts.push('Supporting context. ' + draft.studyMaterials.replace(/\n/g, '. '));
       return parts.join(' ');
     }
 

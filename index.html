@@ -108,19 +108,27 @@
       /* Sky starts below sticky global nav (~one row); tweak if nav height changes */
       /* No sticky strip on home — main links sit below “Need Him right now?” */
       --tdb-sticky-nav-h: 0px;
+      --tdb-focus-ring: #e3bc67;
     }
 
     :root[data-theme="light"] {
       --bg: #f6f1e3;
       --bg-soft: #fff8e9;
       --card: #fffdf7;
-      --text: #191d26;
+      --text: #2f2f2f;
       --muted: #4d525c;
       --gold: #9e7625;
       --gold-soft: #b88d31;
       --line: #e6dcc1;
       --accent: #3f5f93;
       --shadow: 0 12px 28px rgba(64, 41, 8, 0.12);
+      --tdb-focus-ring: #0066cc;
+    }
+
+    /* Homepage does not load styles.css — match global keyboard focus ring */
+    :focus-visible {
+      outline: 3px solid var(--tdb-focus-ring);
+      outline-offset: 2px;
     }
 
     /* Light theme: WCAG AA contrast on cream cards (axe / prefers-color-scheme: light) */
@@ -6958,7 +6966,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260326-sw-v123-es-mas-ayuda", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260328-sermon-syntax-fix", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

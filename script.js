@@ -20080,7 +20080,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260326-sw-v123-es-mas-ayuda', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260328-sermon-syntax-fix', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

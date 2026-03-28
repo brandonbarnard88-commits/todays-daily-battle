@@ -92,6 +92,7 @@
     .bible-tool .people-btn { border: 2px solid #d4af37; color: #d4af37; }
     .bible-tool .people-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212,175,55,0.3); }
     .bible-tool .bible-tool-crossrefs-ul { list-style: none; margin: 0; padding: 0; }
+    .bible-tool .bible-tool-cross-refs-blurb { border-left: 3px solid rgba(212, 175, 55, 0.45); padding-left: 0.65rem; max-width: 40rem; }
     .bible-tool .bible-tool-crossref-li { margin: 0.35rem 0; padding: 0; }
     .bible-tool .bible-tool-crossref-li .cross-ref-link { font-weight: 600; }
     .bible-tool .bible-tool-code { font-size: 0.88em; opacity: 0.88; }
@@ -688,6 +689,7 @@
             <details id="lookup-cross-refs-details" class="home-accordion util-mt-0_5 bible-tool-crossrefs-details hidden">
               <summary class="home-accordion-summary" id="lookup-cross-refs-summary">Related verses (curated)</summary>
               <p class="section-note util-mb-0_5">Human-picked KJV links — tap a reference to look it up above.</p>
+              <p id="lookup-cross-refs-blurb" class="section-note util-mb-0_5 bible-tool-cross-refs-blurb hidden" aria-live="polite"></p>
               <ul id="lookup-cross-refs-list" class="bible-tool-crossrefs-ul section-note"></ul>
             </details>
             <details class="home-accordion util-mt-1 bible-tool-study-pane" id="bible-tool-study-details">
@@ -851,16 +853,27 @@
   };
 
   var CROSS_REFS_REMOTE = {};
+  var CROSS_CHAINS_REMOTE = {};
 
   function refreshLookupCrossRefsPanel(reference) {
     var crossDetails = document.getElementById('lookup-cross-refs-details');
     var crossList = document.getElementById('lookup-cross-refs-list');
+    var blurbEl = document.getElementById('lookup-cross-refs-blurb');
     if (!crossDetails || !crossList || !reference) return;
     var refs = getCrossRefs(reference);
     crossList.innerHTML = '';
+    if (blurbEl) {
+      blurbEl.textContent = '';
+      blurbEl.classList.add('hidden');
+    }
     if (!refs.length) {
       crossDetails.classList.add('hidden');
       return;
+    }
+    var blurb = findChainBlurbForRef(reference);
+    if (blurbEl && blurb) {
+      blurbEl.textContent = blurb;
+      blurbEl.classList.remove('hidden');
     }
     refs.forEach(function (r) {
       var li = document.createElement('li');
@@ -883,6 +896,9 @@
       .then(function (data) {
         if (data && data.refs && typeof data.refs === 'object') {
           CROSS_REFS_REMOTE = data.refs;
+        }
+        if (data && data.chains && typeof data.chains === 'object') {
+          CROSS_CHAINS_REMOTE = data.chains;
         }
         var refEl = document.getElementById('lookup-ref');
         var block = document.getElementById('lookup-result');
@@ -1131,6 +1147,21 @@
   }
 
   function normRef(ref) { return String(ref).replace(/\s+/g, ' ').trim(); }
+
+  function findChainBlurbForRef(reference) {
+    var r = normRef(reference);
+    if (!r || !CROSS_CHAINS_REMOTE || typeof CROSS_CHAINS_REMOTE !== 'object') return '';
+    var order = ['prayer-supplication', 'fear-trust', 'grief-hope'];
+    for (var oi = 0; oi < order.length; oi++) {
+      var c = CROSS_CHAINS_REMOTE[order[oi]];
+      if (!c || !Array.isArray(c.verses) || !c.blurb) continue;
+      if (normRef(c.anchor) === r) return c.blurb;
+      for (var j = 0; j < c.verses.length; j++) {
+        if (normRef(c.verses[j]) === r) return c.blurb;
+      }
+    }
+    return '';
+  }
 
   function parseRefToParts(ref) {
     var r = normRef(ref);

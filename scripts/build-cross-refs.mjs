@@ -189,10 +189,83 @@ add('Titus 3:5', ['Ephesians 2:8', 'John 3:5', 'Ezekiel 36:25']);
 add('Revelation 21:4', ['Isaiah 25:8', '1 Corinthians 15:54', 'John 16:22']);
 add('Revelation 22:17', ['Isaiah 55:1', 'John 7:37', 'Matthew 11:28']);
 
+// --- Curated battle-minded chains (fear / grief / prayer) — each verse links to the rest of its chain ---
+const fearTrust = [
+  'Psalm 56:3',
+  'Isaiah 41:10',
+  '2 Timothy 1:7',
+  'Philippians 4:6',
+  'Philippians 4:7',
+  'Psalm 34:4',
+  'Psalm 27:1',
+  '1 Peter 5:7'
+];
+fearTrust.forEach(function (k) {
+  add(k, fearTrust.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const griefHope = [
+  'Psalm 147:3',
+  'Revelation 21:4',
+  'Matthew 5:4',
+  '2 Corinthians 1:3',
+  '2 Corinthians 1:4',
+  'Psalm 34:18',
+  '1 Thessalonians 4:13',
+  '1 Thessalonians 4:14'
+];
+griefHope.forEach(function (k) {
+  add(k, griefHope.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const prayerSupplication = [
+  'Philippians 4:6',
+  'Ephesians 6:18',
+  '1 Thessalonians 5:17',
+  '1 Timothy 2:1',
+  'Psalm 55:22',
+  'Jeremiah 29:12'
+];
+prayerSupplication.forEach(function (k) {
+  add(k, prayerSupplication.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+/** Optional: theme blurbs for Bible Tool (verse in chain → show gentle note). Order: prayer checked before fear when a verse sits in two chains. */
+const chains = {
+  'prayer-supplication': {
+    title: 'Prayer & Supplication',
+    anchor: 'Philippians 4:6',
+    verses: prayerSupplication,
+    blurb:
+      'Prayer is not performance. These verses invite simple, honest bringing of every burden — with thanksgiving mixed in. One small step: turn one worry into a short prayer using the anchor wording.'
+  },
+  'fear-trust': {
+    title: 'Fear to Trust',
+    anchor: 'Psalm 56:3',
+    verses: fearTrust,
+    blurb:
+      'When fear feels loud, these verses remind you that trust is not a feeling — it is a choice to cast your care on the One who cares for you. One small step: speak the anchor verse out loud when anxiety rises.'
+  },
+  'grief-hope': {
+    title: 'Grief to Hope',
+    anchor: 'Psalm 147:3',
+    verses: griefHope,
+    blurb:
+      'Grief is heavy and real. These verses do not rush you — they point to the God who heals the brokenhearted and promises a day with no more tears. One small step: let one verse sit with you today without trying to fix everything.'
+  }
+};
+
 const payload = {
   version: 1,
   about: 'Human-curated KJV cross-references for Today\'s Daily Battle. Expand over time; JSON over inline script.',
-  refs
+  refs,
+  chains
 };
 
 fs.writeFileSync(out, JSON.stringify(payload, null, 0) + '\n', 'utf8');

@@ -150,6 +150,10 @@
 /church/ /church/index.html 200!
 /church/daily /church/daily.html 200!
 
+# Family Armor (dedicated page + workspace CTA on home)
+/family-armor /family-armor.html 200!
+/family-armor/ /family-armor.html 200!
+
 # Battle Plans
 /plans /plans.html 200!
 /plans/ /plans.html 200!

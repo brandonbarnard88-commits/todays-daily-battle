@@ -24681,7 +24681,7 @@ function wireRandomBattleVerseHero() {
         if (cta) {
           var armorBtn = document.getElementById('family-armor-stories-btn');
           if (armorBtn) armorBtn.click();
-          else if (typeof window !== 'undefined' && window.location) window.location.href = '/#armor-builder-btn';
+          else if (typeof window !== 'undefined' && window.location) window.location.href = '/family-armor.html';
           if (typeof trackEvent === 'function') trackEvent('daily_nudge_family_armor', {});
         }
         dismiss();

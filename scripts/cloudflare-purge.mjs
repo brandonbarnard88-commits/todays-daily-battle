@@ -294,6 +294,8 @@ const SOCIAL_PURGE_PATHS = [
   '/styles.css?v=20260328esNav',
   '/study.html',
   '/study',
+  '/family-armor.html',
+  '/family-armor',
   '/reader.html',
   '/reader',
   '/message',

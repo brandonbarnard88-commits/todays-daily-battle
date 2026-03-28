@@ -108,7 +108,8 @@
     var n = snap.n;
     strip.classList.toggle('mystudy-memorize-strip--empty', !n);
     if (!n) {
-      el.textContent = '';
+      el.textContent =
+        'Memorize queue is empty. Open the Bible Tool, look up a verse, and tap Memorize—reviews stay on this device.';
       if (btn) btn.classList.add('hidden');
       renderProgressSummary();
       return;
@@ -257,7 +258,7 @@
     if (!lines.length) {
       var p = document.createElement('p');
       p.className = 'mystudy-progress-summary-line mystudy-progress-summary-line--lead';
-      p.appendChild(document.createTextNode('Quiet start. Add a verse note in the '));
+      p.appendChild(document.createTextNode('Quiet start—nothing here is against you. When you are ready, add a verse note in the '));
       var aBt = document.createElement('a');
       aBt.href = 'bible-tool.html';
       aBt.className = 'mystudy-inline-tool-link';
@@ -269,7 +270,13 @@
       aRd.className = 'mystudy-inline-tool-link';
       aRd.textContent = 'chapter reader';
       p.appendChild(aRd);
-      p.appendChild(document.createTextNode(', or check off a reading-plan day—then you will see a simple rhythm here.'));
+      p.appendChild(document.createTextNode(', or check off a day in '));
+      var aPl = document.createElement('a');
+      aPl.href = 'plans.html';
+      aPl.className = 'mystudy-inline-tool-link';
+      aPl.textContent = 'Battle Plans';
+      p.appendChild(aPl);
+      p.appendChild(document.createTextNode('—this panel will show a simple rhythm. No rush.'));
       el.appendChild(p);
       return;
     }
@@ -289,13 +296,13 @@
     if (!q.length) {
       var empty = document.createElement('li');
       empty.className = 'section-note mystudy-empty-hint';
-      empty.appendChild(document.createTextNode('None yet. Look up a verse in the '));
+      empty.appendChild(document.createTextNode('Nothing here yet—that is fine. In the '));
       var emA = document.createElement('a');
       emA.href = 'bible-tool.html';
       emA.className = 'mystudy-inline-tool-link';
       emA.textContent = 'Bible Tool';
       empty.appendChild(emA);
-      empty.appendChild(document.createTextNode(' and tap Memorize.'));
+      empty.appendChild(document.createTextNode(', look up a verse and tap Memorize; we keep a gentle review schedule on this device.'));
       el.appendChild(empty);
       return;
     }
@@ -388,7 +395,7 @@
       elBt.className = 'mystudy-inline-tool-link';
       elBt.textContent = 'Bible Tool';
       empty.appendChild(elBt);
-      empty.appendChild(document.createTextNode(', add a comma-separated tag when you save a note—then it can surface here.'));
+      empty.appendChild(document.createTextNode(', add a comma-separated tag when you save a note—themes you care about can show up here.'));
       el.appendChild(empty);
       return;
     }
@@ -453,7 +460,8 @@
         statusEl.textContent =
           rows.length + ' note' + (rows.length === 1 ? '' : 's') + (q ? ' match your filter.' : ' saved from the Bible Tool.');
       } else if (q) {
-        statusEl.textContent = 'No notes match that filter.';
+        statusEl.textContent =
+          'No notes match that filter. Clear the box or tap All / another tag to widen the list.';
       } else {
         var emptyP = document.createElement('p');
         emptyP.className = 'section-note mystudy-empty-hint';
@@ -463,7 +471,11 @@
         stA.className = 'mystudy-inline-tool-link';
         stA.textContent = 'Bible Tool';
         emptyP.appendChild(stA);
-        emptyP.appendChild(document.createTextNode(' and add a note—it stays on this device.'));
+        emptyP.appendChild(
+          document.createTextNode(
+            ' and add a note—everything stays on this device. When you have notes, use Print notes or Print full bundle at the top of this tab to save a tidy copy.'
+          )
+        );
         statusEl.appendChild(emptyP);
       }
     }
@@ -512,7 +524,9 @@
         rA.className = 'mystudy-inline-tool-link';
         rA.textContent = 'chapter reader';
         empty.appendChild(rA);
-        empty.appendChild(document.createTextNode('.'));
+        empty.appendChild(
+          document.createTextNode('—your last few chapters will list here and can be included when you print the full bundle.')
+        );
         recentEl.appendChild(empty);
       } else {
         recent.forEach(function (item) {
@@ -539,7 +553,9 @@
     var refEl = byId('mystudy-verse-ref');
     var textEl = byId('mystudy-verse-text');
     if (!refEl || !textEl) return;
-    refEl.textContent = study.verseRef || 'No verse selected yet. Choose one from search to begin.';
+    refEl.textContent =
+      study.verseRef ||
+      'No verse selected. Search above, or open the Bible Tool and pick a reference to study here.';
     textEl.textContent = study.verseText || '';
   }
 
@@ -548,7 +564,8 @@
     if (!listEl) return;
     var items = loadShared();
     if (!items.length) {
-      listEl.innerHTML = '<p class="section-note">No shared studies joined yet. Paste a share code to add one.</p>';
+      listEl.innerHTML =
+        '<p class="section-note mystudy-empty-hint">No shared studies yet. Paste a code someone sent you, or generate one from My Study after you pick a verse.</p>';
       return;
     }
     listEl.innerHTML = '';

@@ -71,6 +71,11 @@
   color: #fde68a;
 }
 
+.mystudy-empty-hint {
+  line-height: 1.55;
+  color: #cbd5e1;
+}
+
 .mystudy-empty-hint a {
   color: #e3bc67;
   text-decoration: underline;

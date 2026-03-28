@@ -24479,18 +24479,35 @@ function wireRandomBattleVerseHero() {
     }
   }());
 
-  var el = document.getElementById('footer-date');
-  if (el && el.textContent === 'TDB_BUILD_DATE') {
-    fetch('/build-date.txt')
-      .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
-      .then(function (txt) { el.textContent = (txt && txt.trim()) || fallbackDate(); })
-      .catch(function () { el.textContent = fallbackDate(); });
+  (function tdbHydrateFooterBuildDate() {
     function fallbackDate() {
       var d = new Date();
       var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
       return m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
     }
-  }
+    function spanNeedsFix(el) {
+      if (!el) return false;
+      var raw = String(el.textContent == null ? '' : el.textContent).replace(/\u00a0/g, ' ').trim();
+      return !raw || raw === 'TDB_BUILD_DATE' || raw.indexOf('TDB_BUILD_DATE') !== -1;
+    }
+    var nodes = document.querySelectorAll('#footer-date');
+    if (!nodes.length) return;
+    var need = false;
+    for (var i = 0; i < nodes.length; i++) {
+      if (spanNeedsFix(nodes[i])) need = true;
+    }
+    if (!need) return;
+    function applyBuildStamp(txt) {
+      var v = (txt && String(txt).trim()) || fallbackDate();
+      for (var j = 0; j < nodes.length; j++) {
+        if (spanNeedsFix(nodes[j])) nodes[j].textContent = v;
+      }
+    }
+    fetch('/build-date.txt')
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+      .then(applyBuildStamp)
+      .catch(function () { applyBuildStamp(''); });
+  })();
 
   (function tdbFooterMoodInsight() {
     var moodEl = document.getElementById('footerMoodInsight');

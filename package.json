@@ -8,7 +8,7 @@
     "render:fr-es-moods": "node scripts/render-fr-es-mood-pages.mjs",
     "scaffold:id-pilot": "node scripts/scaffold-id-pilot.mjs",
     "render:locale-parity": "node scripts/render-locale-parity.mjs",
-    "build": "node scripts/sync-vercel-headers-from-headers.mjs && node build-config.js && node build-copy-static.js && node scripts/minify.mjs && node scripts/verify-dist-headers.mjs",
+    "build": "node scripts/sync-vercel-headers-from-headers.mjs && node build-config.js && node build-copy-static.js && node scripts/minify.mjs && node scripts/verify-dist-headers.mjs && node scripts/verify-dist-no-tdb-placeholder.mjs",
     "build:kjv-words": "node scripts/build-kjv-words.mjs",
     "build:book-intros": "node scripts/build-book-intros.mjs",
     "build:cross-refs": "node scripts/build-cross-refs.mjs",

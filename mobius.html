@@ -130,6 +130,30 @@
     .easter-share-spin { animation: easter-share-spin 0.6s ease; }
     @keyframes easter-share-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .easter-share-glow { box-shadow: 0 0 16px rgba(227,188,103,0.5) !important; }
+    .mobius-ff-bridge { max-width: 36rem; margin: 0 auto 1rem; padding: 0.75rem 1rem; border: 1px solid rgba(227,188,103,0.35); border-radius: 12px; background: rgba(26,33,45,0.5); text-align: center; }
+    .mobius-ff-bridge-inner { margin: 0; font-size: 0.88rem; color: var(--tool-muted); line-height: 1.5; }
+    .mobius-ff-bridge-link { color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-ribbon-slot { width: 100%; max-width: 420px; margin: 0 auto 0.75rem; text-align: center; }
+    .mobius-ribbon-svg { width: min(100%, 320px); height: auto; display: block; margin: 0 auto; }
+    .mobius-ribbon-cap { margin: 0.35rem 0 0; font-size: 0.78rem; color: var(--tool-muted); line-height: 1.4; }
+    @media (prefers-reduced-motion: reduce) {
+      .mobius-ribbon-dot { transition: none; }
+    }
+    .mobius-text-v2 { width: 100%; max-width: 28rem; margin: 0 auto; text-align: center; }
+    .mobius-text-v2-lead { font-size: 0.92rem; color: var(--tool-muted); line-height: 1.55; margin: 0 0 1rem; }
+    .mobius-v2-stage { min-height: 12rem; margin-top: 0.5rem; }
+    .mobius-v2-breathe, .mobius-v2-verse, .mobius-v2-done { padding: 0.5rem 0; }
+    .mobius-v2-phase-label { font-size: clamp(1.1rem, 3.8vw, 1.45rem); color: var(--tool-gold-soft); font-weight: 600; margin: 0 0 0.35rem; line-height: 1.35; }
+    .mobius-v2-phase-sub { font-size: 0.82rem; color: var(--tool-muted); margin: 0 0 0.5rem; }
+    .mobius-v2-countdown { font-size: 2rem; font-variant-numeric: tabular-nums; color: var(--tool-gold); margin: 0.5rem 0; min-height: 2.5rem; }
+    .mobius-v2-verse-text { font-size: clamp(0.95rem, 3.2vw, 1.05rem); font-style: italic; color: #e0e0e0; line-height: 1.55; margin: 0.75rem 0; text-align: left; }
+    .mobius-v2-rep-counter { font-size: 0.85rem; color: var(--tool-gold); margin: 0.25rem 0; }
+    .mobius-v2-rep-hint { font-size: 0.8rem; color: var(--tool-muted); margin: 0 0 0.75rem; line-height: 1.45; }
+    .mobius-v2-done-msg { font-size: 0.95rem; color: var(--tool-text); line-height: 1.55; margin: 0 0 1rem; }
+    .mobius-v2-session-text { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .mobius-legacy-text { max-width: 28rem; margin: 1.5rem auto 0; text-align: left; border: 1px solid var(--tool-line); border-radius: 12px; padding: 0 1rem 1rem; background: rgba(26,33,45,0.35); }
+    .mobius-legacy-text summary { cursor: pointer; padding: 0.85rem 0; font-size: 0.95rem; color: var(--tool-gold-soft); font-weight: 600; min-height: 44px; display: flex; align-items: center; list-style: none; }
+    .mobius-legacy-text summary::-webkit-details-marker { display: none; }
   </style>
 </head>
 <body class="tool-page-shell">
@@ -155,8 +179,10 @@
     <header class="mobius-hero">
       <p class="mobius-kjv-banner" role="note">This page is <strong>KJV only</strong> for Scripture and practice: the graph, the text loop, and the Deep Walk below all draw from the same Word—no apocrypha, no mixed sources.</p>
       <h1>Möbius Loop</h1>
-      <p>One journey, two modes: <strong>Graph</strong> (trace the mood cycle) and <strong>Text</strong> (line-by-line meditation). The <strong>Deep Walk</strong> lives on the same page—one ribbon, real trials, verses for what is ahead.</p>
+      <p>One journey, two modes: <strong>Graph</strong> (trace the mood cycle) and <strong>Text</strong> (breath + KJV anchor). The <strong>Deep Walk</strong> lives on the same page—one ribbon, real trials, verses for what is ahead.</p>
     </header>
+
+    <div id="mobius-ff-bridge" class="mobius-ff-bridge" role="region" aria-label="Fear to Faith reading plan" hidden></div>
 
     <div class="mobius-mode-tabs" role="tablist" aria-label="Möbius Loop mode (graph or text)">
       <button type="button" class="mobius-mode-tab active" role="tab" aria-selected="true" aria-controls="mobius-panel-explore" id="mobius-tab-explore" data-mode="explore">Graph (KJV loop)</button>
@@ -176,6 +202,7 @@
         <button type="button" class="tool-btn tool-btn-muted" id="mobius-timer-stop" aria-label="Stop meditation" hidden>Stop</button>
         <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
       </div>
+      <div id="mobius-ribbon-slot" class="mobius-ribbon-slot"></div>
       <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>
       <p id="mobius-streak-display" class="mobius-streak-display" role="status" aria-live="polite"></p>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
@@ -247,9 +274,35 @@
     </div>
 
     <div id="mobius-panel-text" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-text" hidden>
+      <div class="mobius-text-v2">
+        <p class="mobius-text-v2-lead">Calm path: three slow breathing rounds, then sixteen quiet repetitions of <strong>2 Timothy 1:7</strong> (KJV). Nothing leaves your device.</p>
+        <button type="button" id="mobius-v2-start" class="tool-btn" aria-label="Begin calm path with breathing and verse">Begin calm path</button>
+        <div id="mobius-v2-stage" class="mobius-v2-stage">
+          <div id="mobius-v2-breathe" class="mobius-v2-breathe" hidden>
+            <p id="mobius-v2-phase-label" class="mobius-v2-phase-label" role="status"></p>
+            <p id="mobius-v2-phase-sub" class="mobius-v2-phase-sub"></p>
+            <div id="mobius-v2-countdown" class="mobius-v2-countdown" aria-live="polite"></div>
+          </div>
+          <div id="mobius-v2-verse" class="mobius-v2-verse" hidden>
+            <p id="mobius-v2-rep-counter" class="mobius-v2-rep-counter"></p>
+            <p id="mobius-v2-verse-text" class="mobius-v2-verse-text"></p>
+            <p id="mobius-v2-rep-hint" class="mobius-v2-rep-hint"></p>
+            <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-verse-next">Next verse</button>
+          </div>
+          <div id="mobius-v2-done" class="mobius-v2-done" hidden>
+            <p class="mobius-v2-done-msg">The loop continues — same ribbon, same God. Your weekly count just grew.</p>
+            <p class="mobius-v2-done-msg"><a href="plans.html?plan=fearfaith">Continue Fear to Faith</a> when you are ready.</p>
+            <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-copy-summary">Copy session summary</button>
+            <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-print">Print summary</button>
+            <pre id="mobius-v2-session-text" class="mobius-v2-session-text" aria-hidden="true"></pre>
+          </div>
+        </div>
+      </div>
+      <details class="mobius-legacy-text">
+        <summary>Original line-by-line meditation</summary>
       <div class="mobius-mantra-wrap">
         <div id="mobius-text-container" class="mobius-mantra-container" role="status" aria-live="polite" aria-atomic="true">
-          <button type="button" id="mobius-text-start" class="tool-btn" aria-label="Enter the loop">ENTER THE LOOP</button>
+          <button type="button" id="mobius-text-start" class="tool-btn" aria-label="Enter the original line loop">ENTER THE LOOP</button>
           <div class="mobius-mantra-text" data-idx="0">You're not ready.</div>
           <div class="mobius-mantra-text" data-idx="1">But you're not alone.</div>
           <div class="mobius-mantra-text stronger" data-idx="2">Power. Love. Sound mind.</div>
@@ -268,6 +321,7 @@
         <div class="mobius-mantra-share-wrap"><button type="button" id="mobius-text-share" class="tool-btn" aria-label="Share this loop">Share this loop</button></div>
         <div id="mobius-text-heartbeat" class="mobius-mantra-heartbeat" aria-hidden="true">♡</div>
       </div>
+      </details>
     </div>
 
   </main>
@@ -288,7 +342,7 @@
       <a href="/fuerza.html">Fuerza</a>
       <a href="/paz.html">Paz</a>
     </nav>
-    <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
+    <p class="last-updated">Last updated: March 28, 2026 • Built in the trenches of Memphis</p>
     <nav class="tool-footer-links" aria-label="Footer links">
       <a href="explore.html">Explore</a>
       <a href="privacy.html">Privacy</a>
@@ -302,7 +356,8 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260325clean" defer></script>
+  <script src="mobius-universal.js?v=20260328mobius2" defer></script>
+  <script src="mobius-text-v2.js?v=20260328mobius2" defer></script>
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025s">
@@ -327,7 +382,7 @@
             modeLabel.removeAttribute('hidden');
             modeLabel.style.display = 'block';
             modeLabel.classList.add('visible');
-            modeLabel.textContent = 'Text mode: one line at a time';
+            modeLabel.textContent = 'Text mode: breath + KJV anchor (original line loop in “More”)';
           } else {
             modeLabel.classList.remove('visible');
             modeLabel.setAttribute('hidden', '');

@@ -122,6 +122,7 @@ const rootFiles = [
   'bible-progress.js',
   'mobius-loop.js',
   'mobius-universal.js',
+  'mobius-text-v2.js',
   '_redirects',
   '_headers',
   'robots.txt',

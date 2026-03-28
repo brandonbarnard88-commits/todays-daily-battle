@@ -55,6 +55,19 @@ test.describe('Möbius Loop', () => {
     await expect(page.locator('#mobius-tab-enoch')).toHaveCount(0);
   });
 
+  test('Text mode shows calm path and Fear to Faith bridge', async ({ page }) => {
+    await page.goto('/mobius.html');
+    await page.getByRole('tab', { name: /Text mode/i }).click();
+    await expect(page.locator('#mobius-v2-start')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#mobius-ff-bridge')).toContainText(/Fear to Faith/i);
+  });
+
+  test('Graph mode shows ribbon slot near viz', async ({ page }) => {
+    await page.goto('/mobius.html');
+    await expect(page.locator('#mobius-ribbon-slot')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#mobius-ribbon-slot svg')).toBeVisible({ timeout: 10000 });
+  });
+
   test('calm anxiety flow shows Möbius link', async ({ page }) => {
     await page.goto('/calm.html');
     await page.getByRole('button', { name: /Anxious or afraid/i }).click();

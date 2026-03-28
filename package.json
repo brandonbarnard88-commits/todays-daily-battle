@@ -46,6 +46,7 @@
     "qa:smoke:local": "node scripts/qa-smoke-local.mjs",
     "quality:gate:full": "npm run quality:gate && npm run qa:smoke:local",
     "quality:gate:browser": "npm run build && npx playwright install chromium && npx playwright test tests/a11y-critical.spec.ts tests/smoke-core.spec.ts tests/calm.spec.ts tests/prayer-wall-seeds.spec.ts && npm run test:live-csp",
+    "quality:gate:browser:core": "npm run build && npx playwright install chromium && npx playwright test tests/smoke-core.spec.ts tests/calm.spec.ts",
     "validate:prod": "node scripts/prod-validation.mjs",
     "verify:live-kids": "node scripts/verify-live-kids.mjs",
     "verify:kids-dist": "node scripts/verify-kids-dist.mjs",

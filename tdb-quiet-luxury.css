@@ -1,0 +1,176 @@
+/**
+ * Quiet luxury surfaces — warm rose-gold, dial-like depth, guilloché texture.
+ * Opt in with class `tdb-lux-page` on <body>. Respects prefers-reduced-motion.
+ * Complements existing --gold / --card tokens; does not replace them site-wide.
+ */
+
+:root {
+  --tdb-lux-rose: #c9a227;
+  --tdb-lux-rose-deep: #9a7b1c;
+  --tdb-lux-rose-glow: rgba(201, 162, 39, 0.35);
+  --tdb-lux-velvet: #0a0c12;
+  --tdb-lux-enamel: rgba(248, 244, 235, 0.97);
+  --tdb-lux-bevel-light: rgba(255, 255, 255, 0.06);
+  --tdb-lux-bevel-dark: rgba(0, 0, 0, 0.45);
+  --tdb-lux-guilloche: repeating-linear-gradient(
+      105deg,
+      transparent 0,
+      transparent 3px,
+      rgba(227, 188, 103, 0.035) 3px,
+      rgba(227, 188, 103, 0.035) 4px
+    ),
+    repeating-linear-gradient(
+      -105deg,
+      transparent 0,
+      transparent 3px,
+      rgba(227, 188, 103, 0.028) 3px,
+      rgba(227, 188, 103, 0.028) 4px
+    );
+  --tdb-lux-transition: 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+  --tdb-lux-shadow-card: 0 10px 28px var(--tdb-lux-bevel-dark), 0 0 0 1px rgba(227, 188, 103, 0.12),
+    inset 0 1px 0 var(--tdb-lux-bevel-light);
+  --tdb-lux-shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(227, 188, 103, 0.22),
+    0 0 28px rgba(201, 162, 39, 0.12), inset 0 1px 0 var(--tdb-lux-bevel-light);
+}
+
+/* Ambient “lamp on velvet” — very subtle */
+body.tdb-lux-page {
+  background-color: var(--color-bg, var(--bg-dark, #080c14));
+  background-image: radial-gradient(ellipse 100% 55% at 50% -8%, rgba(201, 162, 39, 0.075), transparent 50%),
+    radial-gradient(ellipse 80% 50% at 50% 108%, rgba(201, 162, 39, 0.04), transparent 45%);
+}
+
+body.tdb-lux-page.dark-mode .app-shell {
+  background-image: radial-gradient(ellipse 100% 50% at 50% -5%, rgba(201, 162, 39, 0.07), transparent 48%);
+}
+
+/* Display line — inscription tone */
+.tdb-lux-inscription {
+  font-family: var(--font-display, 'Playfair Display', Georgia, 'Times New Roman', serif);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--gold-soft, #f2dc98);
+  line-height: 1.35;
+}
+
+/* Optional wrapper: guilloché + bezel */
+.tdb-lux-dial-surface {
+  background-color: var(--card, rgba(12, 18, 30, 0.94));
+  background-image: var(--tdb-lux-guilloche);
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 28%, var(--line, #2a3344));
+  border-radius: var(--radius-md, 18px);
+  box-shadow: var(--tdb-lux-shadow-card);
+  transition: box-shadow var(--tdb-lux-transition), border-color var(--tdb-lux-transition), transform var(--tdb-lux-transition);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tdb-lux-dial-surface:hover {
+    box-shadow: var(--tdb-lux-shadow-card-hover);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 42%, var(--line, #2a3344));
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tdb-lux-dial-surface:hover {
+    box-shadow: var(--tdb-lux-shadow-card-hover);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 38%, var(--line, #2a3344));
+  }
+}
+
+/* —— Family hub —— */
+body.tdb-lux-page .family-verse-card {
+  background-color: var(--card, rgba(12, 18, 30, 0.94));
+  background-image: var(--tdb-lux-guilloche);
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 32%, var(--line, #2a3344));
+  box-shadow: var(--tdb-lux-shadow-card);
+  transition: box-shadow var(--tdb-lux-transition), border-color var(--tdb-lux-transition), transform var(--tdb-lux-transition);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.tdb-lux-page .family-verse-card:hover {
+    box-shadow: var(--tdb-lux-shadow-card-hover);
+    transform: translateY(-1px);
+  }
+}
+
+body.tdb-lux-page .family-hub-card {
+  background-image: var(--tdb-lux-guilloche);
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 22%, var(--line, #2a3344));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(227, 188, 103, 0.1);
+  transition: box-shadow var(--tdb-lux-transition), border-color var(--tdb-lux-transition), transform var(--tdb-lux-transition);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.tdb-lux-page .family-hub-card:hover,
+  body.tdb-lux-page .family-hub-card:focus-visible {
+    box-shadow: var(--tdb-lux-shadow-card-hover);
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 40%, var(--line, #2a3344));
+    outline: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.tdb-lux-page .family-hub-card:hover,
+  body.tdb-lux-page .family-hub-card:focus-visible {
+    box-shadow: var(--tdb-lux-shadow-card-hover);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 36%, var(--line, #2a3344));
+    outline: none;
+  }
+}
+
+body.tdb-lux-page .family-month-stat {
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 20%, var(--line, #2a3344));
+  box-shadow: inset 0 1px 0 var(--tdb-lux-bevel-light);
+}
+
+/* —— For pastors —— */
+body.tdb-lux-page .testimonial-page-card {
+  background-image: var(--tdb-lux-guilloche);
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 26%, rgba(227, 188, 103, 0.22));
+  box-shadow: var(--tdb-lux-shadow-card);
+}
+
+body.tdb-lux-page .fp-oia-example-block {
+  background-image: var(--tdb-lux-guilloche);
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 18%, rgba(148, 163, 184, 0.2));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32), inset 0 1px 0 var(--tdb-lux-bevel-light);
+}
+
+/* —— Mission / outreach (screen only; print unchanged) —— */
+@media screen {
+  body.tdb-lux-page .mo-print-sheet {
+    background-image: var(--tdb-lux-guilloche);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 24%, var(--line, #2a3344));
+    box-shadow: var(--tdb-lux-shadow-card);
+  }
+
+  body.tdb-lux-page .mo-print-verse {
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 30%, var(--line, #2a3344));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* Slow “lume” pulse — decorative only; opt-in class */
+@keyframes tdb-lux-lume {
+  0%,
+  100% {
+    opacity: 0.88;
+    filter: drop-shadow(0 0 10px rgba(201, 162, 39, 0.25));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(201, 162, 39, 0.38));
+  }
+}
+
+.tdb-lux-lume {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tdb-lux-lume {
+    animation: tdb-lux-lume 10s ease-in-out infinite;
+  }
+}

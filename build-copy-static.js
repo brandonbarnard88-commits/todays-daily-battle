@@ -73,6 +73,7 @@ const rootFiles = [
   'logo-crest.jpg',
   'world-map-source.svg',
   'styles.css',
+  'tdb-quiet-luxury.css',
   'tool-pages.css',
   'church.css',
   'loop-player.css',

@@ -1,6 +1,8 @@
 .mystudy-body {
   min-height: 100vh;
-  background: #0a0c14;
+  background: radial-gradient(ellipse 100% 55% at 50% -8%, rgba(201, 162, 39, 0.075), transparent 50%),
+    radial-gradient(ellipse 85% 48% at 50% 102%, rgba(201, 162, 39, 0.045), transparent 48%),
+    #0d0d0d;
   color: #e2e8f0;
 }
 
@@ -14,7 +16,7 @@
 .mystudy-home-link {
   display: inline-block;
   margin-bottom: 0.75rem;
-  color: #cbd5e1;
+  color: var(--muted-readable, #c8d3e3);
   text-decoration: none;
 }
 

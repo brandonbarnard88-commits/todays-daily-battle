@@ -29,10 +29,10 @@
   --link-content-hover: #b3d7ff;
   --verse-size: 20px;
   /* Placeholders & soft labels on dark fields — meets ~4.5:1 vs #0f141f / #0d0d0d for axe color-contrast */
-  --input-placeholder-on-dark: #b8c5d4;
-  /* Secondary body copy on dark — slightly above slate-400 for AA comfort */
-  --muted: #aab8c9;
-  --muted-readable: #b8c5d4;
+  --input-placeholder-on-dark: #c4cedc;
+  /* Secondary body copy on dark — nudged for AA comfort on #0d0d0d / card panels */
+  --muted: #b3c1d3;
+  --muted-readable: #c8d3e3;
   /* Super elite: refined radii & space */
   --radius-sm: 14px;
   --radius-md: 18px;

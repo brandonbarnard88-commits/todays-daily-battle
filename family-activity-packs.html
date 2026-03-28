@@ -14,24 +14,45 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <style nonce="tdb2025s">
     .fam-print-wrap { max-width: 42rem; margin: 0 auto; padding: 1rem 1.1rem 2.5rem; }
     .fam-print-toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.75rem 0 1rem; }
     .fam-print-toolbar button { padding: 0.55rem 0.95rem; border-radius: 10px; cursor: pointer; min-height: 44px; }
+    body.fam-print-luxe {
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(227, 188, 103, 0.05), transparent 50%),
+        linear-gradient(178deg, #06080e 0%, #0c1018 45%, #080a12 100%);
+      min-height: 100vh;
+    }
     .fam-print-sheet {
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 1.15rem 1.2rem 1.35rem;
       line-height: 1.5;
+      border: 1px solid rgba(201, 162, 107, 0.18);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 248, 235, 0.04);
+      background: rgba(10, 14, 22, 0.45);
     }
     .fam-print-sheet h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
     .fam-print-meta { font-size: 0.88rem; color: var(--muted); margin: 0 0 0.75rem; }
     .fam-print-verse-ref { font-weight: 700; color: var(--gold); margin: 0 0 0.35rem; }
     .fam-print-verse {
-      font-size: 1.12rem;
-      line-height: 1.55;
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.52;
+      letter-spacing: 0.02em;
       margin: 0 0 1rem;
-      padding: 0.75rem 0.85rem;
-      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(201, 162, 107, 0.45);
+      background:
+        radial-gradient(ellipse 85% 70% at 50% 20%, rgba(227, 188, 103, 0.08), transparent 55%),
+        rgba(6, 8, 14, 0.65);
+      box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.06), 0 0 20px rgba(227, 188, 103, 0.06);
+      color: var(--text);
     }
     .fam-print-block { margin: 0 0 0.85rem; }
     .fam-print-block h3 {
@@ -54,9 +75,14 @@
     .fam-print-index a { color: var(--gold-soft); font-weight: 600; }
     @media print {
       .fam-print-toolbar, .tdb-global-nav, .skip-link { display: none !important; }
-      .fam-print-sheet { border: none; background: #fff; color: #111; }
-      body { background: #fff !important; }
-      .fam-print-verse { border-color: #ccc; background: #fafafa; }
+      .fam-print-sheet { border: none; background: #fff; color: #111; box-shadow: none; }
+      body, body.fam-print-luxe { background: #fff !important; }
+      .fam-print-verse {
+        border: 2px solid #a67c3a;
+        background: #fffef8;
+        color: #1a1a1a;
+        box-shadow: none;
+      }
     }
     @media (prefers-color-scheme: light) {
       @media print {
@@ -65,7 +91,7 @@
     }
   </style>
 </head>
-<body>
+<body class="fam-print-luxe">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="tdb-global-nav" aria-label="Main site navigation">
     <a href="/">Home</a>

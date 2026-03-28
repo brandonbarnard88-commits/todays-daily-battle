@@ -14,6 +14,9 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260305p">
   <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <script nonce="tdb2025s" type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"For Families & Parents","url":"https://todaysdailybattle.com/family.html","description":"Family hub: KJV verse of the day, family reading plans, printables, teen OIA journal, device-local prayer list.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
@@ -48,23 +51,59 @@
       font-size: 0.96rem;
       line-height: 1.55;
       color: var(--text);
-      background: rgba(12, 16, 26, 0.55);
-      border: 1px solid rgba(227, 188, 103, 0.14);
-      box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.04);
+      background:
+        radial-gradient(ellipse 85% 80% at 50% 0%, rgba(227, 188, 103, 0.07), transparent 55%),
+        rgba(12, 16, 26, 0.58);
+      border: 1px solid rgba(201, 162, 107, 0.22);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.05),
+        0 14px 40px rgba(0, 0, 0, 0.28);
     }
     .family-month-stat strong { color: var(--gold-soft); font-weight: 700; }
     .family-month-note { display: block; font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.45; }
     .family-verse-card {
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 1.15rem 1.2rem 1.25rem;
       margin-bottom: 1.4rem;
-      background: rgba(10, 14, 22, 0.65);
-      border: 1px solid rgba(227, 188, 103, 0.16);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 248, 235, 0.05);
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(227, 188, 103, 0.06), transparent 50%),
+        rgba(8, 11, 18, 0.72);
+      border: 1px solid rgba(201, 162, 107, 0.2);
+      box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 248, 235, 0.06),
+        0 0 40px rgba(227, 188, 103, 0.06);
     }
-    .family-verse-card h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(227, 188, 103, 0.75); margin: 0 0 0.55rem; }
-    .family-verse-quote { font-size: clamp(1.08rem, 3.2vw, 1.22rem); line-height: 1.55; margin: 0 0 0.5rem; color: var(--text); }
-    .family-verse-ref { font-size: 0.92rem; color: var(--muted); margin: 0; }
+    .family-verse-card h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(227, 188, 103, 0.78); margin: 0 0 0.65rem; }
+    .family-verse-frame {
+      border-radius: 14px;
+      padding: 1.05rem 1.15rem 1.1rem;
+      border: 1px solid rgba(201, 162, 107, 0.42);
+      background:
+        radial-gradient(ellipse 90% 75% at 50% 25%, rgba(227, 188, 103, 0.09), transparent 58%),
+        linear-gradient(165deg, rgba(22, 18, 14, 0.55) 0%, rgba(6, 8, 14, 0.85) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.08),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 0 28px rgba(227, 188, 103, 0.1);
+    }
+    .family-verse-quote {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-weight: 500;
+      font-size: clamp(1.22rem, 3.8vw, 1.42rem);
+      line-height: 1.52;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.45rem;
+      color: #f2ebe3;
+    }
+    .family-verse-ref {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: rgba(227, 188, 103, 0.88);
+      margin: 0;
+      letter-spacing: 0.04em;
+    }
     .family-verse-foot { margin: 0.85rem 0 0; font-size: 0.86rem; color: var(--muted); line-height: 1.45; }
     .family-verse-foot a { color: var(--gold-soft); font-weight: 600; }
     .family-plan-hint {
@@ -168,15 +207,24 @@
       border-radius: 16px;
       padding: 1.05rem 1.1rem;
       min-height: 44px;
-      background: rgba(10, 14, 22, 0.5);
-      border: 1px solid rgba(227, 188, 103, 0.12);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 0%, rgba(227, 188, 103, 0.05), transparent 52%),
+        rgba(10, 14, 22, 0.58);
+      border: 1px solid rgba(201, 162, 107, 0.22);
+      box-shadow:
+        0 10px 32px rgba(0, 0, 0, 0.26),
+        inset 0 1px 0 rgba(255, 248, 235, 0.04);
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
     }
     .family-hub-card:hover,
     .family-hub-card:focus-visible {
-      border-color: rgba(227, 188, 103, 0.35);
-      box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.12);
+      border-color: rgba(227, 188, 103, 0.48);
+      box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.32),
+        0 0 32px rgba(227, 188, 103, 0.14),
+        inset 0 1px 0 rgba(255, 248, 235, 0.07);
       outline: none;
+      transform: translateY(-1px);
     }
     .family-hub-card-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(227, 188, 103, 0.75); margin: 0 0 0.3rem; }
     .family-hub-card-title { font-size: 1.03rem; font-weight: 700; margin: 0 0 0.35rem; color: var(--text); }
@@ -279,6 +327,9 @@
     .family-hub-d4 { animation-delay: 0.24s; }
     @media (prefers-reduced-motion: reduce) {
       .family-hub-animate { opacity: 1; transform: none; animation: none; }
+      .family-hub-card { transition: none; }
+      .family-hub-card:hover,
+      .family-hub-card:focus-visible { transform: none; }
     }
   </style>
 </head>
@@ -309,8 +360,10 @@
 
     <section class="family-verse-card family-hub-animate family-hub-d2" id="family-daily-verse-root" aria-labelledby="family-daily-verse-heading">
       <h2 id="family-daily-verse-heading">Today&rsquo;s family verse</h2>
-      <p class="family-verse-quote" id="family-daily-verse-text" aria-live="polite">Loading today&rsquo;s verse&hellip;</p>
-      <p class="family-verse-ref" id="family-daily-verse-ref"></p>
+      <div class="family-verse-frame">
+        <p class="family-verse-quote" id="family-daily-verse-text" aria-live="polite">Loading today&rsquo;s verse&hellip;</p>
+        <p class="family-verse-ref" id="family-daily-verse-ref"></p>
+      </div>
       <p class="family-verse-foot">Same pick as the home page today (KJV). Full page: <a href="verse.html">Verse of the Day</a>.</p>
       <div class="family-plan-hint" id="family-plan-context" hidden></div>
     </section>
@@ -334,23 +387,23 @@
       <div class="family-hub-grid">
         <a class="family-hub-card" href="plans.html?plan=familyworship">
           <p class="family-hub-card-label">Worship</p>
-          <p class="family-hub-card-title">Start family worship</p>
+          <p class="family-hub-card-title">Start Family Worship</p>
           <p class="family-hub-card-desc">Open <em>Family Worship in the Trenches</em>—Christ at the table, real rooms, short steps.</p>
         </a>
         <a class="family-hub-card" href="family-activity-packs.html">
           <p class="family-hub-card-label">Print</p>
-          <p class="family-hub-card-title">Printable activity packs</p>
+          <p class="family-hub-card-title">Printable Activity Packs</p>
           <p class="family-hub-card-desc">Large-print verse, drawing space, ages 5–8 / 9–12 / teens, talk-together and prayer.</p>
         </a>
         <a class="family-hub-card" href="family-youth-journal.html">
           <p class="family-hub-card-label">Teens</p>
-          <p class="family-hub-card-title">Teen OIA journal sheet</p>
+          <p class="family-hub-card-title">Teen OIA Journal</p>
           <p class="family-hub-card-desc">See &rarr; Understand &rarr; Live on one page—pairs with family plans or Galatians.</p>
         </a>
         <a class="family-hub-card" href="#family-prayer-wall">
           <p class="family-hub-card-label">Pray</p>
-          <p class="family-hub-card-title">Household prayer list</p>
-          <p class="family-hub-card-desc">A simple, local list for your family—add names and needs; nothing is uploaded.</p>
+          <p class="family-hub-card-title">Family Prayer Wall</p>
+          <p class="family-hub-card-desc">A simple, local list for your household on this device—add names and needs; nothing is uploaded.</p>
         </a>
         <a class="family-hub-card" href="plans.html">
           <p class="family-hub-card-label">Browse</p>

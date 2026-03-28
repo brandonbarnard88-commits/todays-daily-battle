@@ -129,6 +129,36 @@
       color: #cbd5e1;
       line-height: 1.3;
     }
+    /* Preview first on narrow screens; side-by-side on wide */
+    .verse-image-workspace {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .verse-image-editor {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .verse-image-page .verse-image-workspace .verse-image-preview-wrap {
+      margin-top: 0;
+    }
+    @media (min-width: 900px) {
+      .verse-image-workspace {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+        gap: 1.25rem;
+        align-items: start;
+        flex-direction: row;
+      }
+      .verse-image-workspace .verse-image-preview-wrap {
+        position: sticky;
+        top: 0.75rem;
+      }
+    }
+    .verse-image-actions .btn {
+      min-height: 44px;
+    }
   </style>
 </head>
 <body class="dark-mode verse-image-page">
@@ -163,7 +193,7 @@
       <div class="content-inner bible-tool">
         <header class="hero-banner">
           <h1>Verse image generator</h1>
-          <p class="hero-tagline">Build a calm, share-ready KJV card—reference, verse text, background, and type. Export PNG on your device; no upload required.</p>
+          <p class="hero-tagline">Build a calm, share-ready KJV card—pick a serene background, layout, and type. Export PNG or share from your device; no upload required.</p>
         </header>
 
         <section id="verse-image-locked" class="glass verse-image-locked" aria-labelledby="verse-image-locked-h">
@@ -178,8 +208,10 @@
 
         <section id="verse-image-app" class="glass" aria-label="Verse image controls" hidden data-verse-idb="tdb_verse_image_v1" data-verse-store="verseGens">
           <h2 class="section-divider util-mt-0">Your card</h2>
-          <p class="section-note">Enter a KJV reference (e.g. Philippians 4:13) and load the text, or paste text yourself. Preview updates when you tap <strong>Update preview</strong>.</p>
+          <p class="section-note">Enter a KJV reference (e.g. Philippians 4:13) and load the text, or paste text yourself. On phones, the preview sits up top so you can see the card first. Tap <strong>Update preview</strong> when you change styles.</p>
 
+          <div class="verse-image-workspace">
+          <div class="verse-image-editor">
           <div class="verse-image-controls">
             <div style="flex: 1 1 12rem;">
               <label for="verse-image-ref">Reference</label>
@@ -207,6 +239,18 @@
                 <option value="still">Still night</option>
                 <option value="cross">Subtle cross</option>
                 <option value="field">Quiet field</option>
+                <option value="mist">Silver mist</option>
+                <option value="candle">Warm candle</option>
+                <option value="seashore">Seashore calm</option>
+                <option value="linen">Linen paper</option>
+              </select>
+            </div>
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-layout">Card layout</label>
+              <select id="verse-image-layout" aria-label="Text layout on the image">
+                <option value="classic" selected>Classic — top left</option>
+                <option value="balanced">Balanced — more breathing room</option>
+                <option value="centered">Centered — calm focus</option>
               </select>
             </div>
             <div style="flex: 1 1 10rem;">
@@ -236,7 +280,7 @@
             <p id="verse-image-qr-hint" class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">Points to a short link on this site so people can open the verse after a meeting. Handouts work best when someone has opened the site once before (cache helps).</p>
           </div>
 
-          <div class="cta-group" style="margin-top: 1rem; flex-wrap: wrap;">
+          <div class="cta-group verse-image-actions" style="margin-top: 1rem; flex-wrap: wrap;">
             <button type="button" class="btn btn-primary" id="verse-image-preview-btn">Update preview</button>
             <button type="button" class="btn btn-secondary" id="verse-image-download-btn">Download PNG</button>
             <button type="button" class="btn btn-secondary" id="verse-image-share-btn">Share image</button>
@@ -249,10 +293,12 @@
             <p id="recent-gens-empty" class="section-note" style="margin: 0 0 0.5rem;">No saved previews yet. Update preview to store one here (saved on this device).</p>
             <ul class="recent-gens-grid" id="recent-gens-list" role="list"></ul>
           </div>
+          </div><!-- /.verse-image-editor -->
 
-          <div class="verse-image-preview-wrap">
+          <div class="verse-image-preview-wrap" id="verse-image-preview-panel">
             <canvas id="verse-image-canvas" width="1200" height="630" role="img" aria-label="Preview of your verse image"></canvas>
           </div>
+          </div><!-- /.verse-image-workspace -->
         </section>
 
         <p class="section-note util-mt-1"><a href="/">← Home</a> · <a href="bible-tool.html">Bible Tool</a> · <a href="explore.html">Explore</a> · <a href="pricing.html">Pricing</a></p>
@@ -416,6 +462,6 @@
   <script type="module" src="script.js?v=20260328feelwire"></script>
   <script src="verse-ref-slug.js"></script>
   <script src="/vendor/qrcode.browser.min.js"></script>
-  <script src="verse-image.js?v=20260325clean" defer></script>
+  <script src="verse-image.js?v=20260328verseimg" defer></script>
 </body>
 </html>

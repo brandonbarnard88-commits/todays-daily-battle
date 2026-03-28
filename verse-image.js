@@ -127,6 +127,31 @@
     if (line) ctx.fillText(line, x, y + offsetY);
   }
 
+  /** Center-aligned paragraph for calm “focus” layout. Returns total height used. */
+  function wrapCanvasTextCentered(ctx, text, cx, startY, maxWidth, lineHeight) {
+    var words = String(text || '').split(/\s+/).filter(Boolean);
+    var line = '';
+    var offsetY = 0;
+    for (var i = 0; i < words.length; i++) {
+      var word = words[i];
+      var test = line ? line + ' ' + word : word;
+      if (ctx.measureText(test).width > maxWidth && line) {
+        var lw = ctx.measureText(line).width;
+        ctx.fillText(line, cx - lw / 2, startY + offsetY);
+        line = word;
+        offsetY += lineHeight;
+      } else {
+        line = test;
+      }
+    }
+    if (line) {
+      var lw2 = ctx.measureText(line).width;
+      ctx.fillText(line, cx - lw2 / 2, startY + offsetY);
+      offsetY += lineHeight;
+    }
+    return offsetY;
+  }
+
   /** Preset keys for analytics (no raw hex in events beyond these fixed keys). */
   var TEXT_COLOR_HEX = {
     ink: '#111827',
@@ -159,6 +184,69 @@
     ctx.restore();
   }
 
+  /** Soft silver mist — readable with ink or navy text. */
+  function drawMistBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#475569');
+    gr.addColorStop(0.45, '#94a3b8');
+    gr.addColorStop(1, '#cbd5e1');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var v = ctx.createRadialGradient(w * 0.5, h * 0.35, 0, w * 0.5, h * 0.35, h * 0.75);
+    v.addColorStop(0, 'rgba(255, 255, 255, 0.2)');
+    v.addColorStop(1, 'rgba(15, 23, 42, 0.2)');
+    ctx.fillStyle = v;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  /** Warm amber glow — serene, not flashy. */
+  function drawCandleBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#1c1917');
+    gr.addColorStop(0.4, '#44403c');
+    gr.addColorStop(0.75, '#78350f');
+    gr.addColorStop(1, '#a16207');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var rg = ctx.createRadialGradient(w * 0.5, h * 0.18, 0, w * 0.5, h * 0.18, h * 0.55);
+    rg.addColorStop(0, 'rgba(254, 243, 199, 0.28)');
+    rg.addColorStop(1, 'rgba(254, 243, 199, 0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  /** Deep water calm — cool teal with a soft horizon line. */
+  function drawSeashoreBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#0c4a6e');
+    gr.addColorStop(0.48, '#155e75');
+    gr.addColorStop(0.52, '#134e4a');
+    gr.addColorStop(1, '#0f766e');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(226, 232, 240, 0.14)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, h * 0.42);
+    ctx.lineTo(w, h * 0.42);
+    ctx.stroke();
+  }
+
+  /** Warm paper — pair with ink or navy verse color. */
+  function drawLinenBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#fafaf9');
+    gr.addColorStop(0.5, '#f5f5f4');
+    gr.addColorStop(1, '#e7e5e4');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var rg = ctx.createRadialGradient(w * 0.25, h * 0.2, 0, w * 0.25, h * 0.2, w * 0.9);
+    rg.addColorStop(0, 'rgba(255, 255, 255, 0.65)');
+    rg.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, w, h);
+  }
+
   function drawCrossWatermark(ctx, w, h) {
     ctx.save();
     ctx.globalAlpha = 0.1;
@@ -181,6 +269,22 @@
   function drawSceneBackground(ctx, w, h, bg) {
     if (bg === 'field') {
       drawFieldBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'mist') {
+      drawMistBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'candle') {
+      drawCandleBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'seashore') {
+      drawSeashoreBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'linen') {
+      drawLinenBackground(ctx, w, h);
       return;
     }
     var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
@@ -206,6 +310,7 @@
     var w = canvas.width;
     var h = canvas.height;
     var bg = (opts && opts.bg) || 'dawn';
+    var layout = (opts && opts.layout) || 'classic';
     drawSceneBackground(ctx, w, h, bg);
 
     var tc = resolveTextColor(opts);
@@ -213,6 +318,13 @@
     var refPx = serif ? 52 : 48;
     var bodyPx = body.length > 420 ? (serif ? 22 : 21) : (serif ? 28 : 26);
     var lh = body.length > 420 ? 32 : 36;
+    var pad = 72;
+    if (layout === 'balanced') {
+      pad = 88;
+      refPx = Math.round(refPx * 0.94);
+      bodyPx = Math.round(bodyPx * 0.96);
+      lh += 2;
+    }
     var refFont = serif
       ? '700 ' + refPx + 'px "Cormorant Garamond", Georgia, serif'
       : '700 ' + refPx + 'px Inter, system-ui, sans-serif';
@@ -220,20 +332,45 @@
       ? '400 ' + bodyPx + 'px "Cormorant Garamond", Georgia, serif'
       : '400 ' + bodyPx + 'px Inter, system-ui, sans-serif';
 
+    var footMuted = tc.key === 'paper' ? '#475569' : 'rgba(148, 163, 184, 0.92)';
+
+    if (layout === 'centered') {
+      var cx = w / 2;
+      ctx.textAlign = 'center';
+      ctx.fillStyle = tc.main;
+      ctx.font = refFont;
+      ctx.fillText(ref, cx, 108);
+
+      ctx.fillStyle = tc.main;
+      ctx.font = bodyFont;
+      var maxW = w - 160;
+      var bodyStart = 168;
+      wrapCanvasTextCentered(ctx, body, cx, bodyStart, maxW, lh);
+
+      ctx.fillStyle = footMuted;
+      ctx.font = '600 24px Inter, system-ui, sans-serif';
+      ctx.fillText("Today's Daily Battle", cx, h - 48);
+      ctx.fillStyle = '#d4af37';
+      ctx.font = '600 20px Inter, system-ui, sans-serif';
+      ctx.fillText('KJV', cx, h - 22);
+      ctx.textAlign = 'left';
+      return;
+    }
+
     ctx.fillStyle = tc.main;
     ctx.font = refFont;
-    ctx.fillText(ref, 72, 88);
+    ctx.fillText(ref, pad, 88);
 
     ctx.fillStyle = tc.main;
     ctx.font = bodyFont;
-    wrapCanvasText(ctx, body, 72, 150, w - 144, lh);
+    wrapCanvasText(ctx, body, pad, 150, w - pad * 2, lh);
 
-    ctx.fillStyle = tc.key === 'paper' ? '#475569' : 'rgba(148, 163, 184, 0.92)';
+    ctx.fillStyle = footMuted;
     ctx.font = '600 24px Inter, system-ui, sans-serif';
-    ctx.fillText("Today's Daily Battle", 72, h - 48);
+    ctx.fillText("Today's Daily Battle", pad, h - 48);
     ctx.fillStyle = '#d4af37';
     ctx.font = '600 20px Inter, system-ui, sans-serif';
-    ctx.fillText('KJV', 72, h - 22);
+    ctx.fillText('KJV', pad, h - 22);
   }
 
   /** Printed cards should open prod; local dev still makes scannable links. */
@@ -395,6 +532,7 @@
     var fontEl = document.getElementById('verse-image-font');
     var colorEl = document.getElementById('verse-image-text-color');
     var qrEl = document.getElementById('verse-image-include-qr');
+    var layoutEl = document.getElementById('verse-image-layout');
     var statusEl = document.getElementById('verse-image-status');
     var recentWrap = document.getElementById('recent-gens');
     var recentList = document.getElementById('recent-gens-list');
@@ -409,7 +547,8 @@
         bg: bgEl ? bgEl.value : 'dawn',
         font: fontEl ? fontEl.value : 'serif',
         textColor: colorEl ? colorEl.value : 'ink',
-        includeQr: qrEl ? qrEl.checked : true
+        includeQr: qrEl ? qrEl.checked : true,
+        layout: layoutEl ? layoutEl.value : 'classic'
       };
     }
 
@@ -464,6 +603,7 @@
               if (fontEl && row.font) fontEl.value = row.font;
               if (colorEl) colorEl.value = row.textColor || 'ink';
               if (qrEl) qrEl.checked = row.includeQr !== false;
+              if (layoutEl && row.layout) layoutEl.value = row.layout;
               renderCardWithQr(
                 canvas,
                 normRef(row.ref),
@@ -472,7 +612,8 @@
                   bg: (bgEl && row.bg) || 'dawn',
                   font: (fontEl && row.font) || 'serif',
                   textColor: row.textColor || 'ink',
-                  includeQr: qrEl ? qrEl.checked : true
+                  includeQr: qrEl ? qrEl.checked : true,
+                  layout: (layoutEl && row.layout) || 'classic'
                 },
                 function () {}
               );
@@ -516,7 +657,8 @@
           bg: opts.bg,
           font: opts.font,
           textColor: opts.textColor,
-          includeQr: opts.includeQr
+          includeQr: opts.includeQr,
+          layout: opts.layout || 'classic'
         };
         saveVerseGen(rec)
           .then(function () {
@@ -531,9 +673,10 @@
           bg: opts.bg,
           font: opts.font,
           color: opts.textColor,
-          qr: opts.includeQr ? 1 : 0
+          qr: opts.includeQr ? 1 : 0,
+          layout: opts.layout || 'classic'
         });
-        trackEvent('verse_image_customized', { color: opts.textColor, bg: opts.bg });
+        trackEvent('verse_image_customized', { color: opts.textColor, bg: opts.bg, layout: opts.layout || 'classic' });
         setStatus('Preview updated. Download, share, or post on X when ready.');
       });
     }
@@ -569,6 +712,7 @@
     if (fontEl) fontEl.addEventListener('change', maybeLiveRedraw);
     if (colorEl) colorEl.addEventListener('change', maybeLiveRedraw);
     if (qrEl) qrEl.addEventListener('change', maybeLiveRedraw);
+    if (layoutEl) layoutEl.addEventListener('change', maybeLiveRedraw);
 
     document.getElementById('verse-image-download-btn').addEventListener('click', function () {
       var ref = normRef(refEl.value);

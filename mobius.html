@@ -150,7 +150,7 @@
       width: 100%;
       max-width: min(100%, 520px);
       height: auto;
-      aspect-ratio: 600 / 320;
+      aspect-ratio: 400 / 220;
     }
     .mobius-ribbon-cap { margin: 0.35rem 0 0; font-size: 0.78rem; color: var(--tool-muted); line-height: 1.4; }
     @keyframes mobius-ribbon-breathe {
@@ -158,17 +158,31 @@
       50% { stroke-opacity: 0.78; }
     }
     @keyframes mobius-weekly-ribbon-shimmer {
-      to { stroke-dashoffset: -160; }
+      to { stroke-dashoffset: -128; }
     }
     @keyframes mobius-ribbon-halo-filter {
-      0%, 100% { filter: drop-shadow(0 0 18px rgba(227, 188, 103, 0.45)); }
-      50% { filter: drop-shadow(0 0 28px rgba(227, 188, 103, 0.65)); }
+      0%, 100% {
+        filter: drop-shadow(0 0 16px rgba(227, 188, 103, 0.48)) drop-shadow(0 0 32px rgba(227, 188, 103, 0.22)) brightness(1.03);
+      }
+      50% {
+        filter: drop-shadow(0 0 26px rgba(242, 220, 152, 0.55)) drop-shadow(0 0 48px rgba(227, 188, 103, 0.28)) brightness(1.09);
+      }
+    }
+    @keyframes mobius-weekly-dot-pulse {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; }
     }
     #mobius-ribbon-svg #ribbon-main {
-      filter: drop-shadow(0 0 18px rgba(227, 188, 103, 0.45));
+      filter: drop-shadow(0 0 16px rgba(227, 188, 103, 0.48)) drop-shadow(0 0 34px rgba(227, 188, 103, 0.2)) brightness(1.03);
     }
     .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) #ribbon-main {
-      animation: mobius-ribbon-breathe 8s ease-in-out infinite, mobius-weekly-ribbon-shimmer 9s linear infinite, mobius-ribbon-halo-filter 8s ease-in-out infinite;
+      animation: mobius-ribbon-breathe 8s ease-in-out infinite, mobius-weekly-ribbon-shimmer 9s linear infinite, mobius-ribbon-halo-filter 7s ease-in-out infinite;
+    }
+    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-weekly-ribbon-main {
+      stroke-dasharray: 96 32;
+    }
+    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-ribbon-dot {
+      animation: mobius-weekly-dot-pulse 5.5s ease-in-out infinite;
     }
     .mobius-ribbon-svg--reduced-motion .mobius-weekly-ribbon-main { stroke-opacity: 0.58; stroke-dasharray: none; }
     .mobius-ribbon-svg--reduced-motion #ribbon-main {
@@ -205,7 +219,8 @@
       animation: mobius-pivot-arm-breathe 6s ease-in-out infinite;
     }
     @media (prefers-reduced-motion: reduce) {
-      .mobius-ribbon-dot { transition: none; }
+      .mobius-ribbon-dot { transition: none; animation: none !important; }
+      .mobius-weekly-particles { display: none !important; }
       #mobius-ribbon-svg #ribbon-main {
         filter: drop-shadow(0 0 14px rgba(227, 188, 103, 0.32)) !important;
       }

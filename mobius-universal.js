@@ -557,10 +557,9 @@
   var mobiusRibbonTraceAnimating = false;
   var mobiusWeeklyPivotCross = null;
 
-  /** True lemniscate (Bernoulli) in viewBox 0 0 200 100 — smooth ∞ for weekly progress dot. */
-  /** Weekly schematic ribbon — wide figure-eight (quadratic), viewBox 0 0 600 320. */
+  /** Weekly schematic ribbon — cubic ∞, velvet field viewBox 0 0 400 220. */
   var MOBIUS_WEEKLY_RIBBON_D =
-    'M80 160 Q200 60 320 160 Q440 260 520 160 Q440 60 320 160 Q200 260 80 160 Z';
+    'M50 100 C100 0 300 0 350 100 C300 200 100 200 50 100 Z';
 
   function prefersReducedMotionRibbon() {
     try {
@@ -624,7 +623,7 @@
 
     var svg = document.createElementNS(ns, 'svg');
     svg.setAttribute('id', 'mobius-ribbon-svg');
-    svg.setAttribute('viewBox', '0 0 600 320');
+    svg.setAttribute('viewBox', '0 0 400 220');
     svg.setAttribute('width', '100%');
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     svg.setAttribute(
@@ -647,6 +646,13 @@
       grad.appendChild(s);
     });
     defs.appendChild(grad);
+    var motionPathDef = document.createElementNS(ns, 'path');
+    motionPathDef.setAttribute('id', 'mobius-weekly-particle-path');
+    motionPathDef.setAttribute('d', d);
+    motionPathDef.setAttribute('fill', 'none');
+    motionPathDef.setAttribute('stroke', 'none');
+    motionPathDef.setAttribute('visibility', 'hidden');
+    defs.appendChild(motionPathDef);
     appendSvgGlowFilter(defs, 'mobius-slot-weekly-dot-glow', 2.2);
     svg.appendChild(defs);
 
@@ -654,7 +660,7 @@
     bgPath.setAttribute('class', 'mobius-weekly-ribbon-bg');
     bgPath.setAttribute('fill', 'none');
     bgPath.setAttribute('stroke', '#141b2a');
-    bgPath.setAttribute('stroke-width', '26');
+    bgPath.setAttribute('stroke-width', '22');
     bgPath.setAttribute('stroke-linecap', 'round');
     bgPath.setAttribute('stroke-linejoin', 'round');
     bgPath.setAttribute('opacity', '0.5');
@@ -664,7 +670,7 @@
     var mainPath = document.createElementNS(ns, 'path');
     mainPath.setAttribute('fill', 'none');
     mainPath.setAttribute('stroke', 'url(#mobius-slot-weekly-grad)');
-    mainPath.setAttribute('stroke-width', '15');
+    mainPath.setAttribute('stroke-width', '13');
     mainPath.setAttribute('stroke-linecap', 'round');
     mainPath.setAttribute('stroke-linejoin', 'round');
     mainPath.setAttribute('pointer-events', 'none');
@@ -687,18 +693,18 @@
     twistG.setAttribute('class', 'mobius-ribbon-twist mobius-pivot-cross');
     twistG.setAttribute('pointer-events', 'none');
     var crossV = document.createElementNS(ns, 'line');
-    crossV.setAttribute('x1', '320');
-    crossV.setAttribute('y1', '148');
-    crossV.setAttribute('x2', '320');
-    crossV.setAttribute('y2', '172');
+    crossV.setAttribute('x1', '200');
+    crossV.setAttribute('y1', '88');
+    crossV.setAttribute('x2', '200');
+    crossV.setAttribute('y2', '112');
     crossV.setAttribute('stroke', 'rgba(227,188,103,0.24)');
     crossV.setAttribute('stroke-width', '1.25');
     crossV.setAttribute('stroke-linecap', 'round');
     var crossH = document.createElementNS(ns, 'line');
-    crossH.setAttribute('x1', '306');
-    crossH.setAttribute('y1', '160');
-    crossH.setAttribute('x2', '334');
-    crossH.setAttribute('y2', '160');
+    crossH.setAttribute('x1', '186');
+    crossH.setAttribute('y1', '100');
+    crossH.setAttribute('x2', '214');
+    crossH.setAttribute('y2', '100');
     crossH.setAttribute('stroke', 'rgba(227,188,103,0.24)');
     crossH.setAttribute('stroke-width', '1.25');
     crossH.setAttribute('stroke-linecap', 'round');
@@ -713,9 +719,35 @@
     dot.setAttribute('class', 'mobius-ribbon-dot');
     if (!reduced) dot.setAttribute('filter', 'url(#mobius-slot-weekly-dot-glow)');
 
+    var particleG = null;
+    if (!reduced) {
+      var xlinkNs = 'http://www.w3.org/1999/xlink';
+      particleG = document.createElementNS(ns, 'g');
+      particleG.setAttribute('class', 'mobius-weekly-particles');
+      particleG.setAttribute('pointer-events', 'none');
+      var pi, pc, panim, pmp;
+      for (pi = 0; pi < 7; pi++) {
+        pc = document.createElementNS(ns, 'circle');
+        pc.setAttribute('r', String(1.15 + (pi % 3) * 0.5));
+        pc.setAttribute('fill', pi % 2 === 0 ? '#e3bc67' : '#f2dc98');
+        pc.setAttribute('opacity', String(0.3 + (pi % 5) * 0.05));
+        panim = document.createElementNS(ns, 'animateMotion');
+        panim.setAttribute('dur', String(11 + pi * 0.85 + (pi % 3) * 0.5) + 's');
+        panim.setAttribute('repeatCount', 'indefinite');
+        panim.setAttribute('calcMode', 'linear');
+        panim.setAttribute('begin', String(pi * 0.4) + 's');
+        pmp = document.createElementNS(ns, 'mpath');
+        pmp.setAttributeNS(xlinkNs, 'xlink:href', '#mobius-weekly-particle-path');
+        panim.appendChild(pmp);
+        pc.appendChild(panim);
+        particleG.appendChild(pc);
+      }
+    }
+
     svg.appendChild(bgPath);
     svg.appendChild(mainPath);
     if (slotShimmerEl) svg.appendChild(slotShimmerEl);
+    if (particleG) svg.appendChild(particleG);
     svg.appendChild(twistG);
     svg.appendChild(dot);
     var cap = document.createElement('p');

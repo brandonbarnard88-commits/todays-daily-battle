@@ -11,7 +11,7 @@
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="high">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260331tt"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260327theme"></script>
 
   <title>Bible Verses for Anxiety, Fear & Loneliness – KJV Comfort | Today's Daily Battle</title>
   <meta name="description" content="KJV when anxiety, grief, or fear hit: one real verse, search by how you feel, a quiet prayer wall, battle plans that stay on your device—all offline when you need it. No ads, no login, no mess. Built by hand, not an AI chat.">
@@ -6798,15 +6798,29 @@
     }
 
     function applyTheme(theme) {
-      document.documentElement.dataset.theme = theme;
-      localStorage.setItem("tdb-theme", theme);
+      if (typeof window.tdbApplyTheme === "function") {
+        window.tdbApplyTheme(theme);
+      } else {
+        document.documentElement.dataset.theme = theme;
+        try { localStorage.setItem("tdb-theme", theme); } catch (e) {}
+        if (document.body) {
+          document.body.classList.toggle("light", theme === "light");
+          document.body.classList.toggle("dark-mode", theme === "dark");
+        }
+      }
       syncThemeBtn();
     }
 
     function initTheme() {
-      const saved = localStorage.getItem("tdb-theme");
-      const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-      applyTheme(saved || (prefersLight ? "light" : "dark"));
+      if (typeof window.tdbInitThemeFromStorage === "function") {
+        window.tdbInitThemeFromStorage();
+      } else {
+        const saved = localStorage.getItem("tdb-theme");
+        const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        applyTheme(saved || (prefersLight ? "light" : "dark"));
+        return;
+      }
+      syncThemeBtn();
     }
 
     // Settings popover theme button

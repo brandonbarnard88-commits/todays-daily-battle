@@ -19533,8 +19533,12 @@ async function tdbInitImpl() {
   })();
   sanitizeNudgeElements();
   wirePrayerQueueHealthDebug();
-  document.body.classList.remove('light');
-  document.body.classList.add('dark-mode');
+  if (typeof window.tdbSyncBodyTheme === 'function') {
+    window.tdbSyncBodyTheme();
+  } else {
+    document.body.classList.remove('light');
+    document.body.classList.add('dark-mode');
+  }
   initMobileAuthDisclosure();
   if (document.getElementById('header-auth-links')) updateHeaderAuth();
   try { localStorage.removeItem('tdb_theme'); } catch (_) {}
@@ -24470,6 +24474,122 @@ function wireRandomBattleVerseHero() {
         p.appendChild(s);
       });
     } catch (eHumF) {}
+  })();
+
+  /** Footer “Appearance” on tool pages: dialog to match home theme (localStorage tdb-theme). */
+  (function wireFooterAppearanceModal() {
+    var footerBtn = document.getElementById('footer-open-settings');
+    if (!footerBtn || footerBtn.getAttribute('data-tdb-appearance-wired') === '1') return;
+    var settingsBtn = document.getElementById('settings-btn');
+    var popover = document.getElementById('settings-popover');
+    if (settingsBtn && popover) return;
+    footerBtn.setAttribute('data-tdb-appearance-wired', '1');
+
+    var dialogEl = document.getElementById('tdb-appearance-dialog');
+    var darkBtn;
+    var lightBtn;
+
+    function refreshPressed() {
+      if (!darkBtn || !lightBtn) return;
+      var t = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      darkBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+      lightBtn.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false');
+    }
+
+    function pickTheme(theme) {
+      if (typeof window.tdbApplyTheme === 'function') {
+        window.tdbApplyTheme(theme);
+      } else {
+        try {
+          document.documentElement.dataset.theme = theme;
+          localStorage.setItem('tdb-theme', theme);
+          if (document.body) {
+            document.body.classList.toggle('light', theme === 'light');
+            document.body.classList.toggle('dark-mode', theme === 'dark');
+          }
+        } catch (e) {}
+      }
+      refreshPressed();
+      if (typeof trackEvent === 'function') trackEvent('appearance_theme_select', { theme: theme });
+    }
+
+    if (!dialogEl) {
+      dialogEl = document.createElement('dialog');
+      dialogEl.id = 'tdb-appearance-dialog';
+      dialogEl.className = 'tdb-appearance-dialog';
+      dialogEl.setAttribute('aria-modal', 'true');
+      dialogEl.setAttribute('aria-labelledby', 'tdb-appearance-title');
+
+      var h2 = document.createElement('h2');
+      h2.id = 'tdb-appearance-title';
+      h2.textContent = 'Appearance';
+
+      var lead = document.createElement('p');
+      lead.className = 'tdb-appearance-lead';
+      lead.textContent = 'Calm cream or quiet night—saved on this device.';
+
+      var row = document.createElement('div');
+      row.className = 'tdb-appearance-toggle-row';
+
+      darkBtn = document.createElement('button');
+      darkBtn.type = 'button';
+      darkBtn.className = 'tdb-appearance-opt';
+      darkBtn.setAttribute('data-theme-choice', 'dark');
+      darkBtn.setAttribute('aria-pressed', 'false');
+      darkBtn.textContent = 'Quiet night';
+
+      lightBtn = document.createElement('button');
+      lightBtn.type = 'button';
+      lightBtn.className = 'tdb-appearance-opt';
+      lightBtn.setAttribute('data-theme-choice', 'light');
+      lightBtn.setAttribute('aria-pressed', 'false');
+      lightBtn.textContent = 'Daylight';
+
+      var actions = document.createElement('div');
+      actions.className = 'tdb-appearance-dialog-actions';
+      var closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.className = 'tdb-appearance-close btn btn-secondary';
+      closeBtn.textContent = 'Close';
+
+      row.appendChild(darkBtn);
+      row.appendChild(lightBtn);
+      actions.appendChild(closeBtn);
+
+      dialogEl.appendChild(h2);
+      dialogEl.appendChild(lead);
+      dialogEl.appendChild(row);
+      dialogEl.appendChild(actions);
+      document.body.appendChild(dialogEl);
+
+      darkBtn.addEventListener('click', function () { pickTheme('dark'); });
+      lightBtn.addEventListener('click', function () { pickTheme('light'); });
+      closeBtn.addEventListener('click', function () {
+        if (typeof dialogEl.showModal === 'function' && dialogEl.open) dialogEl.close();
+        else dialogEl.hidden = true;
+      });
+      dialogEl.addEventListener('close', function () {
+        try { footerBtn.focus(); } catch (eF) {}
+      });
+      window.addEventListener('tdb-theme-change', refreshPressed);
+      refreshPressed();
+    }
+
+    footerBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var d = document.getElementById('tdb-appearance-dialog');
+      if (!d) return;
+      if (typeof d.showModal === 'function') {
+        try {
+          d.showModal();
+        } catch (eShow) {
+          d.hidden = false;
+        }
+      } else {
+        d.hidden = false;
+      }
+      if (typeof trackEvent === 'function') trackEvent('footer_appearance_open', {});
+    });
   })();
 
   // ── Daily midnight nudge toast (off homepage only; #daily-nudge injected by ensureDailyNudgeToast) ──

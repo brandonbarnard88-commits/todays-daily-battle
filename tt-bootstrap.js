@@ -271,3 +271,64 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', place);
   else place();
 })();
+
+/** Theme: read localStorage + prefers-color-scheme, set html[data-theme] early; body sync when DOM ready. */
+(function tdbThemeEarlyAndApi() {
+  if (typeof document === 'undefined') return;
+
+  function tdbReadTheme() {
+    try {
+      var saved = localStorage.getItem('tdb-theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+    } catch (e) {}
+    return 'dark';
+  }
+
+  function tdbSyncBodyTheme() {
+    if (!document.body) return;
+    try {
+      var theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      document.body.classList.toggle('light', theme === 'light');
+      document.body.classList.toggle('dark-mode', theme === 'dark');
+    } catch (e) {}
+  }
+
+  function tdbApplyTheme(theme) {
+    if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+    try {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem('tdb-theme', theme);
+    } catch (e) {}
+    tdbSyncBodyTheme();
+    try {
+      if (typeof window !== 'undefined' && window.dispatchEvent) {
+        window.dispatchEvent(new CustomEvent('tdb-theme-change', { detail: { theme: theme } }));
+      }
+    } catch (eEv) {}
+  }
+
+  function tdbInitThemeFromStorage() {
+    tdbApplyTheme(tdbReadTheme());
+  }
+
+  try {
+    document.documentElement.dataset.theme = tdbReadTheme();
+  } catch (eEarly) {}
+
+  if (typeof window !== 'undefined') {
+    window.tdbReadTheme = tdbReadTheme;
+    window.tdbApplyTheme = tdbApplyTheme;
+    window.tdbSyncBodyTheme = tdbSyncBodyTheme;
+    window.tdbInitThemeFromStorage = tdbInitThemeFromStorage;
+  }
+
+  function onDomReady() {
+    tdbSyncBodyTheme();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onDomReady);
+  } else {
+    onDomReady();
+  }
+})();

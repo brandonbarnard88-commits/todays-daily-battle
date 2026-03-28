@@ -84,20 +84,171 @@ body {
   max-width: 100%;
 }
 
-/* Hard lock: dark mode only */
-html, body, .app-shell {
+/* Default: serene dark — html[data-theme] set early in tt-bootstrap.js (tdb-theme + prefers-color-scheme) */
+html[data-theme="dark"] body,
+html:not([data-theme]) body,
+html[data-theme="dark"] .app-shell,
+html:not([data-theme]) .app-shell {
   background: #0d0d0d !important;
   color: #e0e0e0 !important;
 }
+
+html[data-theme="light"] body,
+html[data-theme="light"] .app-shell {
+  background: #f6f1e3 !important;
+  color: #1a2234 !important;
+}
+
+:root[data-theme="light"] {
+  --text: #1a2234;
+  --color-text: #1a2234;
+  --color-bg: #f6f1e3;
+  --muted-readable: #5f6877;
+  --input-placeholder-on-dark: #64748b;
+  --card-light: rgba(255, 253, 247, 0.96);
+  --border-subtle: rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="light"] .app-shell::after {
+  background: linear-gradient(168deg, rgba(246, 241, 227, 0.97) 0%, rgba(255, 252, 245, 0.95) 45%, rgba(240, 234, 220, 0.96) 100%);
+}
+html[data-theme="light"] .app-shell::before {
+  opacity: 0.2;
+}
+
+html[data-theme="light"] .top-bar {
+  background: linear-gradient(180deg, rgba(255, 253, 247, 0.98) 0%, rgba(246, 241, 227, 0.96) 100%);
+  border-bottom-color: rgba(158, 118, 37, 0.35);
+  box-shadow: 0 1px 0 rgba(158, 118, 37, 0.25), 0 8px 28px rgba(64, 41, 8, 0.08);
+}
+html[data-theme="light"] .tdb-lang-switcher {
+  color: rgba(25, 29, 38, 0.88);
+}
+html[data-theme="light"] .brand-title,
+html[data-theme="light"] .brand-subtitle {
+  color: #1a2234;
+}
+html[data-theme="light"] .header-nav a {
+  color: #1a2234;
+}
+html[data-theme="light"] .sidebar {
+  background: rgba(255, 253, 247, 0.96);
+  border-right-color: rgba(15, 23, 42, 0.1);
+}
+html[data-theme="light"] .side-nav a {
+  color: #1a2234;
+  background: rgba(15, 23, 42, 0.04);
+}
+html[data-theme="light"] .side-nav a:hover {
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
 button, .btn {
   background: #1a1a1a !important;
   color: #e0e0e0 !important;
   border-color: #2a2a2a !important;
   min-height: 48px;
   min-width: 48px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+html[data-theme="light"] button:not(.tdb-appearance-opt):not(.footer-appearance-link):not(.share-page-btn):not(.link-button),
+html[data-theme="light"] .btn {
+  background: #fffdf7 !important;
+  color: #1a2234 !important;
+  border-color: #e6dcc1 !important;
+}
+
+/* Legacy duplicate theme toggles — keep hidden; Appearance lives in footer / home settings */
 .theme-toggle, #theme-toggle, #light-mode-toggle, #dark-mode-toggle {
   display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button, .btn, summary {
+    transition: none !important;
+  }
+}
+
+details.bottom-nav-es-more summary {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Footer Appearance dialog (non-index pages; script.js injects #tdb-appearance-dialog) */
+.tdb-appearance-dialog {
+  max-width: min(92vw, 22rem);
+  padding: 0;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: var(--radius-lg);
+  background: var(--card-dark);
+  color: var(--text, #e2e8f0);
+  box-shadow: var(--shadow-deep);
+}
+.tdb-appearance-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+:root[data-theme="light"] .tdb-appearance-dialog {
+  background: #fffdf7;
+  color: #1a2234;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+.tdb-appearance-dialog-form {
+  padding: 1.25rem 1.35rem 1.25rem;
+  margin: 0;
+}
+.tdb-appearance-dialog h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+}
+.tdb-appearance-lead {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted-readable, #94a3b8);
+}
+:root[data-theme="light"] .tdb-appearance-lead {
+  color: #5f6877;
+}
+.tdb-appearance-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+.tdb-appearance-opt {
+  flex: 1 1 8rem;
+  min-height: 48px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+}
+.tdb-appearance-opt[aria-pressed="true"] {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+.tdb-appearance-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+.tdb-appearance-close {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+}
+
+.tdb-appearance-dialog .tdb-appearance-opt {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--text, #e2e8f0) !important;
+  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+}
+:root[data-theme="light"] .tdb-appearance-dialog .tdb-appearance-opt {
+  background: #ffffff !important;
+  color: #1a2234 !important;
+  border-color: rgba(15, 23, 42, 0.14) !important;
 }
 
 /* Full-width with centered content, no left-bias */

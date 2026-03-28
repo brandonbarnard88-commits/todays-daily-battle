@@ -1,5 +1,6 @@
 *.txt
 !.well-known/security.txt
+!CLOUDFLARE-CSP-COPY-PASTE.txt
 token*
 *.key
 .env

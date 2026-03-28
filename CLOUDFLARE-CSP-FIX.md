@@ -139,3 +139,48 @@ If you added a Transform Rule to **set** Content-Security-Policy but the site is
    **Note:** `cdn-cgi/challenge-platform` and **`static.cloudflareinsights.com`** are expected when Cloudflare challenges or Web Analytics run; they are already allowed in this repo’s CSP when the edge sends the same policy as `_headers`.
 
    **Going forward:** Prefer **one** enforced CSP (this repo: **`_headers`** on Pages, or **`CLOUDFLARE-CSP-COPY-PASTE.txt`** if a Transform Rule must override). Do **not** leave a stale **`Content-Security-Policy-Report-Only`** at the edge unless it is **byte-for-byte identical** to the enforced policy—otherwise DevTools will keep showing harmless `[Report Only]` noise for same-origin scripts and workers. After any CSP edit: **purge cache**, verify with `curl -sI https://todaysdailybattle.com/ | grep -i content-security-policy`.
+
+---
+
+## 9. Where to remove or sync `Content-Security-Policy-Report-Only` (dashboard)
+
+Repo cannot change Cloudflare; do this in the zone for **todaysdailybattle.com**:
+
+1. **Cloudflare Dashboard** → select the site → **Rules** → **Transform Rules** → **Modify response header** (or **HTTP Response Headers**).
+2. Open **each** rule that applies to `*` or HTML. Look for:
+   - Header name **`Content-Security-Policy-Report-Only`** (report-only), or  
+   - A second rule that **sets** CSP differently from **`_headers`**.
+3. **Preferred:** **Delete** the Transform Rule row that sets **`Content-Security-Policy-Report-Only`**, so only **Pages `_headers`** (and one enforced CSP) apply.
+4. **Alternative:** Set **`Content-Security-Policy-Report-Only`** to the **exact same** single-line value as **`Content-Security-Policy`** (copy from **`CLOUDFLARE-CSP-COPY-PASTE.txt`** — must match **`_headers`**).
+5. If nothing appears under Transform Rules, check **Rules** → **Page Rules** (legacy) and **Security** → **Settings** for anything mentioning CSP; disable or align.
+6. **Caching** → **Purge Everything**. Hard-refresh the site (Cmd+Shift+R / Ctrl+Shift+R).
+7. Confirm:  
+   `curl -sI https://todaysdailybattle.com/ | grep -i content-security`  
+   You should see **`Content-Security-Policy:`** with `trusted-types default dompurify`. Ideally **no** separate Report-Only header, or it matches the enforced value.
+
+---
+
+## 10. Enforced CSP reference (same as `_headers` `/*` block)
+
+**Single line to paste** (Transform Rule value or diff check): see **`CLOUDFLARE-CSP-COPY-PASTE.txt`** in the repo root — it is kept in sync with **`_headers`** line under `# Apply to all paths` / `/*`.
+
+**Human-readable breakdown** (not a second policy — comments only):
+
+| Directive | Role |
+|-----------|------|
+| `default-src 'self'` | Fallback: same origin. |
+| `base-uri 'self'` | Limit `<base>` targets. |
+| `object-src 'none'` | Block plugins/objects. |
+| `frame-ancestors 'none'` | Clickjacking: no embedding. |
+| `form-action` | Forms + Stripe checkout/hooks. |
+| `trusted-types default dompurify` | Allow default + DOMPurify policies (`tt-bootstrap.js`). |
+| `script-src` / `script-src-elem` | Same-origin + `nonce-tdb2025s` + CDNs (gstatic, jsdelivr, cdnjs, unpkg), Cloudflare, Supabase, GTM, Stripe, Plausible, etc. |
+| `style-src` | Same-origin + `unsafe-inline` + fonts + Stripe/challenge/insights. |
+| `font-src` | `'self'`, Google Fonts. |
+| `img-src` | `'self'`, data/blob, Unsplash, broad `https:`. |
+| `connect-src` | API calls: Supabase, GA, Plausible, Stripe, GitHub, bible-api, CDNs, `challenges.cloudflare.com`. |
+| `worker-src` | Service worker + `blob:` + apex/www host. |
+| `frame-src` | Turnstile/challenge, Stripe. |
+| `upgrade-insecure-requests` | Prefer HTTPS for mixed content. |
+
+If you add a new script host or API, extend the matching directive in **`_headers`**, mirror **`CLOUDFLARE-CSP-COPY-PASTE.txt`**, deploy, purge cache, and smoke-test the homepage + one tool page.

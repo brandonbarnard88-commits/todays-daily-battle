@@ -127,6 +127,23 @@
   speaker: 'Paul — at the end of his race', plain: 'You\'re still here — still showing up. That\'s fighting the good fight. God sees every small step you take through the hurt.', today: 'Look back at the last 7 days. See the small wins. Be proud of them.', action: 'Add this plan to your streak and tell someone (or just tell God) you finished it.', prayer: 'Lord, I\'m still in the trench. Thank You for every day I kept going. I want to finish well. Amen.' }
   ];
   // Cancer Comfort — 7-day plan (trench-honest; not medical advice; plans.html id cancercomfort; key tdb-plan-cancercomfort-day)
+  // Psalms of Comfort — 7-day plan (same verse order as Bible Tool PSALMS_COMFORT_PLAN; plans.html id psalmscomfort; key tdb-plan-psalmscomfort-day)
+  var psalmsComfort7 = [
+{ title: 'The Lord is my shepherd', ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.',
+  speaker: 'David — the shepherd-king, before the dark valley', plain: 'Comfort begins with belonging. You are not self-led in the noise—you have a Shepherd who does not lose sheep.', today: 'What are you trying to supply for yourself that He already names as His job?', action: 'Whisper the first line of this psalm once before you touch your phone today.', prayer: 'Lord, be my Shepherd. Teach my soul to stop grasping and start following. Amen.' },
+{ title: 'Near the broken heart', ref: 'Psalm 34:18', text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
+  speaker: 'David — after fear, after deliverance', plain: 'God does not wait for you to glue your heart back together. He draws near while it is still cracked.', today: 'Where does it feel like your spirit is crushed—and can you tell Him without fixing your tone first?', action: 'Write one honest sentence of grief or anxiety and end it with: "You are nigh."', prayer: 'Lord, my heart is broken. Draw near. Save me in the contrite place. Amen.' },
+{ title: 'Refuge when trouble is loud', ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.',
+  speaker: 'The sons of Korah — a song for shaky ground', plain: 'Trouble is not proof He left. He is not a distant refuge—He is present help while the ground still moves.', today: 'What trouble is trying to name itself as "God is gone"?', action: 'Name the trouble out loud, then say: "Very present help." Pause five seconds.', prayer: 'God, be my refuge and strength today—not someday. Right now. Amen.' },
+{ title: 'Light when fear names the room', ref: 'Psalm 27:1', text: 'The LORD is my light and my salvation; whom shall I fear? the LORD is the strength of my life; of whom shall I be afraid?',
+  speaker: 'David — when enemies were real, not imagined', plain: 'Fear shrinks when you remember who lights the path and who holds your life—not your nerves.', today: 'Which fear is loudest—and what truth from this verse answers it without shouting?', action: 'Replace one "what if" today with: "The Lord is my light and my salvation."', prayer: 'Lord, be my light. Let fear step back when You step in. Amen.' },
+{ title: 'Rest under His shadow', ref: 'Psalm 91:1', text: 'He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty.',
+  speaker: 'A song of shelter — for the one who stays close', plain: 'Comfort is not always a feeling. Sometimes it is shadow—cover you did not earn, shade because you stayed near.', today: 'Where are you living exposed—trying to be your own cover?', action: 'Sit for two minutes without solving anything. Abide: stay in one place with Him.', prayer: 'Most High, let me dwell in Your secret place. I want Your shadow, not my strain. Amen.' },
+{ title: 'Where help comes from', ref: 'Psalm 121:1', text: 'I will lift up mine eyes unto the hills, from whence cometh my help.',
+  speaker: 'A pilgrim song — for the journey you did not choose', plain: 'Help is not invented inside your chest. It comes from the Lord who keeps your going out and your coming in.', today: 'What hill are you staring at—diagnosis, silence, money, pain—and can you lift your eyes past it to Him?', action: 'Look out a window or at the sky once and pray one sentence: "My help comes from You."', prayer: 'Lord, I lift my eyes. My help comes from You—not from the size of the hill. Amen.' },
+{ title: 'Known all the way through', ref: 'Psalm 139:1', text: 'O LORD, thou hast searched me, and known me.',
+  speaker: 'David — before the wonder of being formed and seen', plain: 'You are not a problem to figure out alone. The God who searches you is not gathering evidence against you—He already knows, and He stays.', today: 'What part of you feels hidden, ashamed, or too much—and what changes if He knows it and still draws near?', action: 'Finish this line on paper: "Because You know me, I can tell You __________."', prayer: 'Lord, You have searched me and known me. Thank You for love that knows all of me. Amen.' }
+  ];
   var cancerComfort7 = [
 { title: 'The word just hit', ref: 'Psalm 56:3', text: 'What time I am afraid, I will trust in thee.',
   speaker: 'David — afraid and still talking to God', plain: 'That moment the doctor said it\u2026 everything went quiet and loud at the same time. Your hands shook. Your mind started running every worst-case scenario. You don\'t have to pretend you\'re strong right now.', today: 'God doesn\'t shame you for being afraid. He asks you to bring the fear to Him\u2014even if it\'s ugly, even if it\'s screaming.', action: 'First: Right now, say out loud or whisper: \u201cLord, I\'m afraid.\u201d Don\'t dress it up. Just say it. Second: Write the word cancer on a piece of paper, then write But God\u2026 underneath. Leave it somewhere you\'ll see it today.', prayer: 'Jesus, the word cancer just wrecked me. I\'m scared. I don\'t know what to do with all this fear. I\'m trusting You with it anyway. Amen.' },
@@ -160,6 +177,7 @@
     preCap30: preCap30,
     wilderness11: wilderness11,
     painWontQuit7: painWontQuit7,
+    psalmsComfort7: psalmsComfort7,
     cancerComfort7: cancerComfort7
   };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <script nonce="tdb2025s" type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Battle Plans • Today's Daily Battle","url":"https://todaysdailybattle.com/plans.html","description":"Short KJV reading plans (7–40 days): one verse a day, plain encouragement, saved on your device offline. No login required.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"},"mainEntity":{"@type":"ItemList","name":"Battle Plans","description":"KJV reading plans—gentle daily steps in Scripture","numberOfItems":25,"itemListElement":[{"@type":"ListItem","name":"Battle Distraction","url":"https://todaysdailybattle.com/plans.html?plan=battle"},{"@type":"ListItem","name":"Gratitude","url":"https://todaysdailybattle.com/plans.html?plan=gratitude"},{"@type":"ListItem","name":"30-Day Strength","url":"https://todaysdailybattle.com/plans.html?plan=strength"},{"@type":"ListItem","name":"7-Day Peace","url":"https://todaysdailybattle.com/plans.html?plan=peace"},{"@type":"ListItem","name":"Fear to Faith","url":"https://todaysdailybattle.com/plans.html?plan=fearfaith"},{"@type":"ListItem","name":"Worry to Trust","url":"https://todaysdailybattle.com/plans.html?plan=worrytrust"},{"@type":"ListItem","name":"Anger to Peace","url":"https://todaysdailybattle.com/plans.html?plan=angerpeace"},{"@type":"ListItem","name":"Doubt to Assurance","url":"https://todaysdailybattle.com/plans.html?plan=doubtassurance"},{"@type":"ListItem","name":"Grief to Hope","url":"https://todaysdailybattle.com/plans.html?plan=griefhope"},{"@type":"ListItem","name":"When Pain Won't Quit","url":"https://todaysdailybattle.com/plans.html?plan=painwontquit"},{"@type":"ListItem","name":"Cancer Comfort","url":"https://todaysdailybattle.com/plans.html?plan=cancercomfort"},{"@type":"ListItem","name":"Healing from Grief","url":"https://todaysdailybattle.com/plans.html?plan=grief"}]}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"Battle Plans • Today's Daily Battle","url":"https://todaysdailybattle.com/plans.html","description":"Short KJV reading plans (7–40 days): one verse a day, plain encouragement, saved on your device offline. No login required.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"},"mainEntity":{"@type":"ItemList","name":"Battle Plans","description":"KJV reading plans—gentle daily steps in Scripture","numberOfItems":26,"itemListElement":[{"@type":"ListItem","name":"Battle Distraction","url":"https://todaysdailybattle.com/plans.html?plan=battle"},{"@type":"ListItem","name":"Gratitude","url":"https://todaysdailybattle.com/plans.html?plan=gratitude"},{"@type":"ListItem","name":"30-Day Strength","url":"https://todaysdailybattle.com/plans.html?plan=strength"},{"@type":"ListItem","name":"7-Day Peace","url":"https://todaysdailybattle.com/plans.html?plan=peace"},{"@type":"ListItem","name":"Fear to Faith","url":"https://todaysdailybattle.com/plans.html?plan=fearfaith"},{"@type":"ListItem","name":"Worry to Trust","url":"https://todaysdailybattle.com/plans.html?plan=worrytrust"},{"@type":"ListItem","name":"Anger to Peace","url":"https://todaysdailybattle.com/plans.html?plan=angerpeace"},{"@type":"ListItem","name":"Doubt to Assurance","url":"https://todaysdailybattle.com/plans.html?plan=doubtassurance"},{"@type":"ListItem","name":"Grief to Hope","url":"https://todaysdailybattle.com/plans.html?plan=griefhope"},{"@type":"ListItem","name":"When Pain Won't Quit","url":"https://todaysdailybattle.com/plans.html?plan=painwontquit"},{"@type":"ListItem","name":"Cancer Comfort","url":"https://todaysdailybattle.com/plans.html?plan=cancercomfort"},{"@type":"ListItem","name":"Healing from Grief","url":"https://todaysdailybattle.com/plans.html?plan=grief"},{"@type":"ListItem","name":"Psalms of Comfort","url":"https://todaysdailybattle.com/plans.html?plan=psalmscomfort"}]}}
   </script>
   <style>
     :root {
@@ -667,6 +667,7 @@
             <h3>When grief is heavy</h3>
             <ul class="plans-start-here-links">
               <li><a href="plans.html?plan=griefhope">Grief → Hope</a></li>
+              <li><a href="plans.html?plan=psalmscomfort">Psalms of Comfort</a></li>
               <li><a href="plans.html?plan=grief">Healing from Grief &amp; Loss</a></li>
               <li><a href="plans.html?plan=painwontquit">When Pain Won&rsquo;t Quit</a></li>
             </ul>
@@ -797,6 +798,11 @@
           <span class="plan-row-icon" aria-hidden="true">🕊️</span>
           <div class="plan-row-info"><h2>Cancer Comfort</h2><p>When the diagnosis steals your breath—spiritual comfort, not medical advice.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-cancercomfort">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=psalmscomfort" class="plan-row" data-plan="psalmscomfort" role="listitem" aria-label="Psalms of Comfort — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">📜</span>
+          <div class="plan-row-info"><h2>Psalms of Comfort</h2><p>Seven Psalms when your heart is heavy—same readings you can track in the Bible Tool, with daily prayer and study prompts here.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-psalmscomfort">Not started</span></div>
         </a>
         <a href="plans.html?plan=battle10" class="plan-row" data-plan="battle10" role="listitem" aria-label="10-Day Battle — 10 days">
           <span class="plan-row-icon" aria-hidden="true">⚔️</span>
@@ -1435,6 +1441,13 @@
         days: B ? B.cancerComfort7 : []
       },
 
+      psalmscomfort: {
+        id: 'psalmscomfort', icon: '\uD83D\uDCDC', label: 'Psalms of Comfort',
+        desc: 'Seven Psalms when grief, fear, or weariness run the hour\u2014shepherd care, nearness to the broken, refuge, light, shadow, help, and the God who knows you. Same seven readings as the Bible Tool \u201cPsalms for comfort\u201d checklist; here you get plain talk, prayer, and optional See / Mean / Live.',
+        key: 'tdb-plan-psalmscomfort-day', max: 7,
+        days: B ? B.psalmsComfort7 : []
+      },
+
       battle10: {
         id: 'battle10', icon: '⚔️', label: '10-Day Battle',
         desc: 'Cut through the noise. One focused verse a day for 10 days.',
@@ -1729,10 +1742,21 @@
       },
       griefhope: {
         rows: [
+          { planId: 'psalmscomfort', teaser: 'Seven Psalms beside you in the ache\u2026' },
           { planId: 'doubtassurance', teaser: 'When questions crowd out confidence\u2026' },
           { planId: 'trust', teaser: 'When the path is not clear\u2026' },
           { planId: 'fearfaith', teaser: 'When fear and sorrow tangle\u2026' },
           { planId: 'battle30', teaser: 'Build strength for the long road\u2026' }
+        ],
+        showBoard: true
+      },
+      psalmscomfort: {
+        rows: [
+          { planId: 'griefhope', teaser: 'When loss needs hope without hurry\u2026' },
+          { planId: 'peace', teaser: 'When your soul won\u2019t settle\u2026' },
+          { planId: 'worrytrust', teaser: 'When tomorrow keeps stealing today\u2026' },
+          { planId: 'painwontquit', teaser: 'When the body keeps shouting\u2026' },
+          { planId: 'battle21', teaser: 'A longer daily rhythm\u2026' }
         ],
         showBoard: true
       },
@@ -1949,7 +1973,7 @@
       if (!el || !currentPlan) return;
       el.replaceChildren();
       var pid = currentPlan.id;
-      if (pid !== 'fearfaith' && pid !== 'worrytrust' && pid !== 'angerpeace' && pid !== 'doubtassurance' && pid !== 'griefhope' && pid !== 'painwontquit' && pid !== 'cancercomfort') {
+      if (pid !== 'fearfaith' && pid !== 'worrytrust' && pid !== 'angerpeace' && pid !== 'doubtassurance' && pid !== 'griefhope' && pid !== 'painwontquit' && pid !== 'cancercomfort' && pid !== 'psalmscomfort') {
         el.hidden = true;
         return;
       }
@@ -2163,6 +2187,47 @@
         morec.appendChild(ac);
         morec.appendChild(t2c);
         el.appendChild(morec);
+        return;
+      }
+      if (pid === 'psalmscomfort') {
+        el.setAttribute('aria-label', 'More Psalms and tools when comfort needs to go deeper');
+        var h3ps = document.createElement('h3');
+        h3ps.textContent = 'When seven days is a start, not a finish';
+        el.appendChild(h3ps);
+        var introps = document.createElement('p');
+        introps.textContent = 'These Psalms pair with what you just read—bookmark them or open them in the Bible Tool. The same seven references appear under Reading plan \u2192 Psalms for comfort (checkboxes there; this Battle Plan adds prayer and study prompts).';
+        el.appendChild(introps);
+        var ulps = document.createElement('ul');
+        var itemsPs = [
+          ['Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.', 'Psalm 23:4'],
+          ['Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.', 'Psalm 42:11'],
+          ['Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.', 'Psalm 55:22'],
+          ['He healeth the broken in heart, and bindeth up their wounds.', 'Psalm 147:3'],
+          ['The LORD shall preserve thy going out and thy coming in from this time forth, and even for evermore.', 'Psalm 121:8'],
+          ['But thou, O LORD, art a shield for me; my glory, and the lifter up of mine head.', 'Psalm 3:3']
+        ];
+        itemsPs.forEach(function (pair) {
+          var lips = document.createElement('li');
+          lips.textContent = '\u201c' + pair[0] + '\u201d \u2014 ' + pair[1];
+          ulps.appendChild(lips);
+        });
+        el.appendChild(ulps);
+        var moreps = document.createElement('p');
+        var t1ps = document.createTextNode('Open the ');
+        var aPs = document.createElement('a');
+        aPs.href = 'bible-tool.html';
+        aPs.textContent = 'Bible Tool';
+        var t2ps = document.createTextNode(' \u2192 Reading plan \u2192 Psalms for comfort to check off the same week; use the ');
+        var aRead = document.createElement('a');
+        aRead.href = 'reader.html?book=Psalm&chapter=23';
+        aRead.textContent = 'chapter reader';
+        var t3ps = document.createTextNode(' to sit in a full Psalm when you have longer.');
+        moreps.appendChild(t1ps);
+        moreps.appendChild(aPs);
+        moreps.appendChild(t2ps);
+        moreps.appendChild(aRead);
+        moreps.appendChild(t3ps);
+        el.appendChild(moreps);
         return;
       }
       el.setAttribute('aria-label', 'Extra verses for worry and trust');

@@ -1157,6 +1157,38 @@
       flex-shrink: 0;
       user-select: none;
     }
+    /* One-line discovery for study-depth upgrades (dated; link to About for detail) */
+    .tdb-whats-new-hint {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      max-width: 52rem;
+      align-self: center;
+      text-align: center;
+    }
+    .tdb-whats-new-hint a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .tdb-whats-new-hint a:hover,
+    .tdb-whats-new-hint a:focus-visible {
+      color: var(--gold-soft);
+    }
+    .tdb-whats-new-hint strong { font-weight: 600; color: color-mix(in srgb, var(--text) 88%, var(--muted)); }
+    .tdb-whats-new-label {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.65rem;
+      color: color-mix(in srgb, var(--muted) 90%, var(--gold) 10%);
+    }
+    .tdb-whats-new-date { font-style: italic; opacity: 0.92; }
     @media (max-width: 400px) {
       .hero-daily-path-links { gap: 0.35rem 0.75rem; }
       .hero-daily-path-links a { padding: 0.45rem 0.6rem; min-width: 56px; }
@@ -4906,6 +4938,7 @@
         </span>
       </nav>
       </div>
+      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Mar 2026)</span> &mdash; Study tools grew together: more <a href="bible/tools.html#book-intros">book intros</a>, themed chains in the <a href="bible-tool.html">Bible Tool</a>, <a href="mystudy.html">My Study</a> with <strong>Print full bundle</strong>, and calmer empty states. <a href="about.html#whats-new-study">A bit more</a>.</p>
       <div id="hero-verse-wrap" class="hero-verse-wrap">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>

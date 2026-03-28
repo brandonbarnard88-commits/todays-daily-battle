@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- tdb-cache-hygiene: _headers no-cache tool pages -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Activity Packs (Print) • Today's Daily Battle</title>
+  <meta name="description" content="Printable family activity sheets: large-print KJV verse, drawing prompt, age-banded OIA questions, and family prayer—device-local.">
+  <link rel="canonical" href="https://todaysdailybattle.com/family-activity-packs.html">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="manifest" href="manifest.json">
+  <style nonce="tdb2025s">
+    .fam-print-wrap { max-width: 42rem; margin: 0 auto; padding: 1rem 1.1rem 2.5rem; }
+    .fam-print-toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.75rem 0 1rem; }
+    .fam-print-toolbar button { padding: 0.55rem 0.95rem; border-radius: 10px; cursor: pointer; min-height: 44px; }
+    .fam-print-sheet {
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 1.15rem 1.2rem 1.35rem;
+      line-height: 1.5;
+    }
+    .fam-print-sheet h2 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+    .fam-print-meta { font-size: 0.88rem; color: var(--muted); margin: 0 0 0.75rem; }
+    .fam-print-verse-ref { font-weight: 700; color: var(--gold); margin: 0 0 0.35rem; }
+    .fam-print-verse {
+      font-size: 1.12rem;
+      line-height: 1.55;
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+      background: color-mix(in srgb, var(--card) 92%, var(--gold));
+    }
+    .fam-print-block { margin: 0 0 0.85rem; }
+    .fam-print-block h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--gold);
+      margin: 0 0 0.3rem;
+    }
+    .fam-print-block p { margin: 0; font-size: 0.95rem; color: var(--text); }
+    .fam-print-age { margin-top: 0.5rem; padding-left: 0.65rem; border-left: 2px solid var(--line); }
+    .fam-print-draw {
+      min-height: 140px;
+      border: 1px dashed color-mix(in srgb, var(--gold) 35%, var(--line));
+      border-radius: 12px;
+      margin-top: 0.35rem;
+    }
+    .fam-print-index ul { list-style: none; padding: 0; margin: 0; }
+    .fam-print-index li { margin-bottom: 0.4rem; }
+    .fam-print-index a { color: var(--gold-soft); font-weight: 600; }
+    @media print {
+      .fam-print-toolbar, .tdb-global-nav, .skip-link { display: none !important; }
+      .fam-print-sheet { border: none; background: #fff; color: #111; }
+      body { background: #fff !important; }
+      .fam-print-verse { border-color: #ccc; background: #fafafa; }
+    }
+    @media (prefers-color-scheme: light) {
+      @media print {
+        .fam-print-sheet { color: #111; }
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="tdb-global-nav" aria-label="Main site navigation">
+    <a href="/">Home</a>
+    <a href="family.html">Family hub</a>
+    <a href="plans.html">Plans</a>
+    <a href="kids-corner.html">Kids</a>
+  </nav>
+  <main id="main-content" class="fam-print-wrap">
+    <a href="family.html" class="plans-back" style="display:inline-block;margin-bottom:0.75rem;">← Family hub</a>
+    <h1 class="section-divider">Printable family activity packs</h1>
+    <p class="section-note" style="margin-top:0.35rem;">Large-print KJV, a calm drawing prompt, age-banded questions, and space to pray. Stays on your device until you print.</p>
+    <div class="fam-print-toolbar">
+      <button type="button" id="fam-print-btn" class="btn btn-secondary" aria-label="Print this sheet">Print this sheet</button>
+      <a class="btn btn-secondary" href="family-activity-packs.html">All days index</a>
+    </div>
+    <div id="fam-print-root"></div>
+  </main>
+  <script src="plans-data.js"></script>
+  <script nonce="tdb2025s">
+    (function () {
+      var B = window.TDB_PLANS_BATTLE_SHARED || {};
+      var FW = B.familyWorshipTrenches7 || [];
+      var PCF = B.psalmsComfortFamily7 || [];
+
+      function qs(name) {
+        try {
+          return new URLSearchParams(location.search).get(name);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text != null) n.textContent = text;
+        return n;
+      }
+
+      function block(h3, body) {
+        var sec = el('div', 'fam-print-block');
+        sec.appendChild(el('h3', null, h3));
+        var p = el('p', null, body);
+        sec.appendChild(p);
+        return sec;
+      }
+
+      function renderSheet(planId, dayNum, row, planTitle) {
+        var root = document.getElementById('fam-print-root');
+        root.replaceChildren();
+        var sheet = el('article', 'fam-print-sheet');
+        sheet.setAttribute('aria-label', planTitle + ', day ' + dayNum);
+
+        sheet.appendChild(el('h2', null, planTitle + ' — Day ' + dayNum));
+        sheet.appendChild(el('p', 'fam-print-meta', row.title));
+        sheet.appendChild(el('p', 'fam-print-verse-ref', row.ref + ' (KJV)'));
+        var vq = el('p', 'fam-print-verse', '\u201c' + row.text + '\u201d');
+        sheet.appendChild(vq);
+
+        sheet.appendChild(block('Drawing prompt', row.drawPrompt || 'Draw something this verse makes you think about.'));
+        sheet.appendChild(block('See — What stands out?', row.familySee || ''));
+        sheet.appendChild(block('Understand — What does this tell us about God?', row.familyUnderstand || ''));
+        sheet.appendChild(block('Live — One step together', row.familyLive || ''));
+
+        var ages = el('div', 'fam-print-block');
+        ages.appendChild(el('h3', null, 'Parent guide — OIA by age'));
+        var band58 = el('div', 'fam-print-age');
+        band58.appendChild(el('p', null, 'Ages 5–8: ' + (row.oia58 || '')));
+        ages.appendChild(band58);
+        var band912 = el('div', 'fam-print-age');
+        band912.appendChild(el('p', null, 'Ages 9–12: ' + (row.oia912 || '')));
+        ages.appendChild(band912);
+        var bandT = el('div', 'fam-print-age');
+        bandT.appendChild(el('p', null, 'Teens: ' + (row.oiaTeens || '')));
+        ages.appendChild(bandT);
+        sheet.appendChild(ages);
+
+        sheet.appendChild(block('Talk together', row.talkTogether || ''));
+        sheet.appendChild(block('Family prayer prompt', row.prayer || ''));
+
+        var drawBox = el('div', 'fam-print-block');
+        drawBox.appendChild(el('h3', null, 'Space to draw'));
+        drawBox.appendChild(el('div', 'fam-print-draw', ''));
+        sheet.appendChild(drawBox);
+
+        root.appendChild(sheet);
+        document.title = planTitle + ' — Day ' + dayNum + ' (print) • Today\'s Daily Battle';
+      }
+
+      function renderIndex() {
+        var root = document.getElementById('fam-print-root');
+        root.replaceChildren();
+        var idx = el('div', 'fam-print-index');
+        idx.appendChild(el('h2', 'section-divider', 'Choose a day'));
+        var p = el('p', 'section-note', 'Family Worship in the Trenches — seven printables.');
+        idx.appendChild(p);
+        var ul = el('ul', null, null);
+        for (var i = 0; i < FW.length; i++) {
+          var li = el('li', null, null);
+          var a = el('a', null, 'Day ' + (i + 1) + ' — ' + FW[i].title);
+          a.href = 'family-activity-packs.html?plan=familyworship&day=' + (i + 1);
+          li.appendChild(a);
+          ul.appendChild(li);
+        }
+        idx.appendChild(ul);
+
+        idx.appendChild(el('h2', 'section-divider', 'Psalms of Comfort (Family Edition)'));
+        idx.appendChild(el('p', 'section-note', 'Same seven KJV readings; family prompts and print layout match the Family Edition plan (separate progress from the classic Psalms of Comfort plan).'));
+        var ul2 = el('ul', null, null);
+        for (var j = 0; j < PCF.length; j++) {
+          var li2 = el('li', null, null);
+          var a2 = el('a', null, 'Day ' + (j + 1) + ' — ' + PCF[j].title);
+          a2.href = 'family-activity-packs.html?plan=psalmscomfortfamily&day=' + (j + 1);
+          li2.appendChild(a2);
+          ul2.appendChild(li2);
+        }
+        idx.appendChild(ul2);
+
+        var p1 = el('p', 'section-note', null);
+        p1.appendChild(document.createTextNode('Open '));
+        var openPlan = el('a', null, 'Family Worship plan');
+        openPlan.href = 'plans.html?plan=familyworship';
+        p1.appendChild(openPlan);
+        p1.appendChild(document.createTextNode(', '));
+        var aFam = el('a', null, 'Psalms of Comfort (Family Edition)');
+        aFam.href = 'plans.html?plan=psalmscomfortfamily';
+        p1.appendChild(aFam);
+        p1.appendChild(document.createTextNode(', or the '));
+        var aP = el('a', null, 'classic Psalms of Comfort');
+        aP.href = 'plans.html?plan=psalmscomfort';
+        p1.appendChild(aP);
+        p1.appendChild(document.createTextNode(' track in Battle Plans.'));
+        idx.appendChild(p1);
+
+        root.appendChild(idx);
+      }
+
+      var plan = (qs('plan') || '').toLowerCase();
+      var dayStr = qs('day');
+      var dayNum = dayStr ? parseInt(dayStr, 10) : NaN;
+
+      var toolbar = document.querySelector('.fam-print-toolbar');
+      if ((plan === 'familyworship' || plan === 'psalmscomfortfamily') && dayNum >= 1 && dayNum <= 7) {
+        if (plan === 'familyworship') {
+          var r = FW[dayNum - 1];
+          if (r) renderSheet('familyworship', dayNum, r, 'Family Worship in the Trenches');
+          else renderIndex();
+        } else {
+          var pd = PCF[dayNum - 1];
+          if (pd) renderSheet('psalmscomfortfamily', dayNum, pd, 'Psalms of Comfort (Family Edition)');
+          else renderIndex();
+        }
+      } else {
+        renderIndex();
+        if (toolbar) toolbar.style.display = 'none';
+      }
+
+      var btn = document.getElementById('fam-print-btn');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,11 +1,22 @@
 /**
  * Kids Loop Library — verse of the day (same calendar key + Supabase/offline/fallback as main site).
  * Depends on script.js (window.getDailyKey, getDailyBattleFallbackForKey, getBibleVerseText, bible).
+ * Optional: set window.TDB_DAILY_VERSE_ROOT_ID, TDB_DAILY_VERSE_TEXT_ID, TDB_DAILY_VERSE_REF_ID before load (e.g. Family hub).
  */
 (function () {
   'use strict';
 
   var OFFLINE_PREFIX = 'tdb_offline_battle_';
+
+  function rootId() {
+    return window.TDB_DAILY_VERSE_ROOT_ID || 'kids-daily-verse-root';
+  }
+  function textId() {
+    return window.TDB_DAILY_VERSE_TEXT_ID || 'kids-daily-verse-text';
+  }
+  function refId() {
+    return window.TDB_DAILY_VERSE_REF_ID || 'kids-daily-verse-ref';
+  }
 
   function byId(id) {
     return document.getElementById(id);
@@ -20,8 +31,8 @@
   }
 
   function showError(msg) {
-    var t = byId('kids-daily-verse-text');
-    var r = byId('kids-daily-verse-ref');
+    var t = byId(textId());
+    var r = byId(refId());
     if (t) t.textContent = msg || 'Could not load today\u2019s verse. Try again when you\u2019re online.';
     if (r) r.textContent = '';
   }
@@ -59,8 +70,8 @@
   }
 
   async function paint() {
-    var t = byId('kids-daily-verse-text');
-    var r = byId('kids-daily-verse-ref');
+    var t = byId(textId());
+    var r = byId(refId());
     if (!t || !r) return;
     try {
       var battle = await resolveBattle();
@@ -70,7 +81,7 @@
       }
       var verse = plainVerse(window.getBibleVerseText(battle.ref) || battle.verse || '');
       if (!verse) {
-        t.textContent = 'Verse text is still loading. Wait a moment and refresh\u2014or ask a grown-up to open the full verse page.';
+        t.textContent = 'Verse text is still loading. Wait a moment and refresh\u2014or open the full verse page.';
         r.textContent = battle.ref + ' (KJV)';
         return;
       }
@@ -78,7 +89,8 @@
       r.textContent = battle.ref + ' (KJV)';
       if (typeof window.trackEvent === 'function') {
         try {
-          window.trackEvent('kids_corner_daily_verse', { ref: battle.ref });
+          var ev = rootId() === 'family-daily-verse-root' ? 'family_hub_daily_verse' : 'kids_corner_daily_verse';
+          window.trackEvent(ev, { ref: battle.ref });
         } catch (e3) { /* ignore */ }
       }
     } catch (e) {
@@ -87,7 +99,7 @@
   }
 
   function tick() {
-    if (!byId('kids-daily-verse-root')) return;
+    if (!byId(rootId())) return;
     if (ready()) {
       paint();
       return;

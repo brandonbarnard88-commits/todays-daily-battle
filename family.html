@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- tdb-cache-hygiene: _headers no-cache tool pages; bump script query with substantive JS changes -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Families &amp; Parents • Today's Daily Battle</title>
+  <meta name="description" content="Parent dashboard: today’s family verse, plan progress on-device, Family Worship and Psalms of Comfort (Family Edition), printable packs, teen OIA journal—KJV.">
+  <link rel="canonical" href="https://todaysdailybattle.com/family.html">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260305p">
+  <link rel="manifest" href="manifest.json">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"For Families & Parents","url":"https://todaysdailybattle.com/family.html","description":"Parent dashboard for KJV worship rhythms, family plans, printables, and teen journaling—saved on your device.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  </script>
+  <style nonce="tdb2025s">
+    .family-hub-page { max-width: 46rem; margin: 0 auto; padding: 1rem 1.1rem 3rem; }
+    .family-hub-hero h1 { font-size: clamp(1.45rem, 4vw, 1.85rem); margin-bottom: 0.5rem; }
+    .family-hub-lead { color: var(--muted); line-height: 1.55; margin: 0 0 1.25rem; }
+    .family-month-stat {
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 0.85rem 1rem 0.95rem;
+      margin-bottom: 1.15rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .family-month-stat strong { color: var(--gold-soft); font-weight: 700; }
+    .family-month-note { display: block; font-size: 0.82rem; color: var(--muted); margin-top: 0.35rem; }
+    .family-verse-card {
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+      background: color-mix(in srgb, var(--card) 94%, var(--gold));
+      padding: 1rem 1.15rem 1.15rem;
+      margin-bottom: 1.35rem;
+    }
+    .family-verse-card h2 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); margin: 0 0 0.5rem; }
+    .family-verse-quote { font-size: 1.05rem; line-height: 1.5; margin: 0 0 0.5rem; }
+    .family-verse-ref { font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .family-verse-foot { margin: 0.75rem 0 0; font-size: 0.88rem; color: var(--muted); }
+    .family-plan-hint {
+      margin-top: 0.65rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .family-plan-hint a { color: var(--gold-soft); }
+    .family-hub-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 560px) {
+      .family-hub-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .family-hub-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 1rem 1.1rem;
+      min-height: 44px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .family-hub-card:hover, .family-hub-card:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 45%, transparent);
+      outline: none;
+    }
+    .family-hub-card-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 0 0 0.35rem; }
+    .family-hub-card-title { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.35rem; }
+    .family-hub-card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.45; margin: 0; }
+    .family-empty {
+      border-radius: 14px;
+      border: 1px dashed color-mix(in srgb, var(--gold) 35%, var(--line));
+      padding: 1rem 1.1rem;
+      margin-bottom: 1.25rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .family-empty p { margin: 0 0 0.65rem; }
+    .family-empty ul { margin: 0.35rem 0 0; padding-left: 1.15rem; }
+    .family-empty a { color: var(--gold-soft); font-weight: 600; }
+    .family-active-plans { margin-bottom: 1.25rem; }
+    .family-active-plans h2 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin: 0 0 0.5rem; }
+    .family-active-list { list-style: none; padding: 0; margin: 0; }
+    .family-active-list li { margin-bottom: 0.45rem; }
+    .family-active-list a { color: var(--gold-soft); font-weight: 600; }
+    .family-kids-tie { font-size: 0.9rem; color: var(--muted); line-height: 1.5; margin-top: 1.5rem; }
+    .family-kids-tie a { color: var(--gold-soft); }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="tdb-global-nav" aria-label="Main site navigation">
+    <a href="/">Home</a>
+    <a href="explore.html">Explore</a>
+    <a href="calm.html">Calm</a>
+    <a href="plans.html">Plans</a>
+    <a href="kids-corner.html">Kids</a>
+    <a href="bible-tool.html">Tools</a>
+  </nav>
+  <main id="main-content" class="family-hub-page">
+    <a href="explore.html" class="plans-back" style="display:inline-block;margin-bottom:0.75rem;">← Explore</a>
+    <header class="family-hub-hero">
+      <h1>For Families &amp; Parents</h1>
+      <p class="family-hub-lead">A calm dashboard for home: today&rsquo;s verse, how many plan days you&rsquo;ve walked this month on this device, two family plans (worship + Psalms of comfort), printables, and a teen journal sheet. No accounts—progress stays local unless you print.</p>
+    </header>
+
+    <p class="family-month-stat" id="family-month-stat" role="status" aria-live="polite"></p>
+
+    <section class="family-verse-card" id="family-daily-verse-root" aria-labelledby="family-daily-verse-heading">
+      <h2 id="family-daily-verse-heading">Today&rsquo;s family verse</h2>
+      <p class="family-verse-quote" id="family-daily-verse-text" aria-live="polite">Loading today&rsquo;s verse&hellip;</p>
+      <p class="family-verse-ref" id="family-daily-verse-ref"></p>
+      <p class="family-verse-foot">Same pick as the home page today (KJV). Full page: <a href="verse.html">Verse of the Day</a>.</p>
+      <div class="family-plan-hint" id="family-plan-context" hidden></div>
+    </section>
+
+    <div id="family-empty-wrap"></div>
+    <div class="family-active-plans" id="family-active-wrap" hidden>
+      <h2>Family plans on this device</h2>
+      <ul class="family-active-list" id="family-active-list"></ul>
+    </div>
+
+    <section aria-labelledby="family-quick-heading">
+      <h2 class="section-divider" id="family-quick-heading">Start here</h2>
+      <div class="family-hub-grid">
+        <a class="family-hub-card" href="plans.html?plan=familyworship">
+          <p class="family-hub-card-label">Plan</p>
+          <p class="family-hub-card-title">Family Worship in the Trenches</p>
+          <p class="family-hub-card-desc">Seven days—short KJV verses, See / Understand / Live, parent prompts and kid questions, one family prayer.</p>
+        </a>
+        <a class="family-hub-card" href="plans.html?plan=psalmscomfortfamily">
+          <p class="family-hub-card-label">Plan</p>
+          <p class="family-hub-card-title">Psalms of Comfort (Family Edition)</p>
+          <p class="family-hub-card-desc">Seven comforting Psalms—same readings as the classic comfort track, reframed for the table with family discussion.</p>
+        </a>
+        <a class="family-hub-card" href="family-activity-packs.html">
+          <p class="family-hub-card-label">Print</p>
+          <p class="family-hub-card-title">Printable activity packs</p>
+          <p class="family-hub-card-desc">One tap per day—large-print verse, drawing prompt, age-banded questions, talk together, family prayer.</p>
+        </a>
+        <a class="family-hub-card" href="family-youth-journal.html">
+          <p class="family-hub-card-label">Teens</p>
+          <p class="family-hub-card-title">Youth OIA journal sheet</p>
+          <p class="family-hub-card-desc">See &rarr; Understand &rarr; Live, notes, and one memory verse—works with these plans and Galatians.</p>
+        </a>
+      </div>
+    </section>
+
+    <p class="family-kids-tie"><a href="kids-corner.html">Kids Corner</a> stays the younger-child space (loops &amp; stories). <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a> pairs well with teens. Coloring: <a href="coloring.html">coloring pages</a>.</p>
+  </main>
+  <script nonce="tdb2025s">
+    (function () {
+      function prog(key) {
+        try { return parseInt(localStorage.getItem(key) || '0', 10); } catch (e) { return 0; }
+      }
+      var now = new Date();
+      var mo = now.getMonth() + 1;
+      var monthKey = 'tdb-family-plan-days-' + now.getFullYear() + '-' + (mo < 10 ? '0' : '') + mo;
+      var monthCount = prog(monthKey);
+      var statEl = document.getElementById('family-month-stat');
+      if (statEl) {
+        statEl.replaceChildren();
+        statEl.appendChild(document.createTextNode('Your family has walked '));
+        var strong = document.createElement('strong');
+        strong.textContent = String(monthCount);
+        statEl.appendChild(strong);
+        statEl.appendChild(document.createTextNode(' plan day' + (monthCount === 1 ? '' : 's') + ' this month on this device.'));
+        var note = document.createElement('span');
+        note.className = 'family-month-note';
+        note.textContent = 'Counts when you tap Mark complete on Family Worship or Psalms of Comfort (Family Edition). Resets with the calendar month.';
+        statEl.appendChild(note);
+      }
+
+      var plans = [
+        { key: 'tdb-plan-familyworship-day', max: 7, href: 'plans.html?plan=familyworship', label: 'Family Worship in the Trenches' },
+        { key: 'tdb-plan-psalmscomfortfamily-day', max: 7, href: 'plans.html?plan=psalmscomfortfamily', label: 'Psalms of Comfort (Family Edition)' },
+        { key: 'tdb-plan-parenting-day', max: 7, href: 'plans.html?plan=parenting', label: 'Parenting in Faith' },
+        { key: 'tdb-plan-galatiansfreedom-day', max: 7, href: 'plans.html?plan=galatiansfreedom', label: 'Galatians: Freedom in Christ' },
+        { key: 'tdb-plan-psalmscomfort-day', max: 7, href: 'plans.html?plan=psalmscomfort', label: 'Psalms of Comfort (classic)' }
+      ];
+      var any = false;
+      var list = document.getElementById('family-active-list');
+      var wrap = document.getElementById('family-active-wrap');
+      var emptyWrap = document.getElementById('family-empty-wrap');
+      var ctx = document.getElementById('family-plan-context');
+      plans.forEach(function (p) {
+        var n = prog(p.key);
+        if (n <= 0) return;
+        any = true;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = p.href;
+        if (n >= p.max) {
+          a.textContent = p.label + ' — finished (open to revisit)';
+        } else {
+          a.textContent = p.label + ' — day ' + (n + 1) + ' of ' + p.max;
+        }
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      if (any) {
+        wrap.hidden = false;
+      } else {
+        var empty = document.createElement('div');
+        empty.className = 'family-empty';
+        empty.setAttribute('role', 'status');
+        var ep = document.createElement('p');
+        ep.textContent = 'No family plans started on this device yet—that\'s okay. Pick one:';
+        empty.appendChild(ep);
+        var ul = document.createElement('ul');
+        var l1 = document.createElement('li');
+        var a1 = document.createElement('a');
+        a1.href = 'plans.html?plan=familyworship';
+        a1.textContent = 'Family Worship in the Trenches';
+        l1.appendChild(a1);
+        ul.appendChild(l1);
+        var l2 = document.createElement('li');
+        var a2 = document.createElement('a');
+        a2.href = 'plans.html?plan=psalmscomfortfamily';
+        a2.textContent = 'Psalms of Comfort (Family Edition)';
+        l2.appendChild(a2);
+        ul.appendChild(l2);
+        empty.appendChild(ul);
+        var ep2 = document.createElement('p');
+        ep2.textContent = 'Or begin with today\'s verse above.';
+        empty.appendChild(ep2);
+        emptyWrap.appendChild(empty);
+      }
+      var fw = prog('tdb-plan-familyworship-day');
+      var pcf = prog('tdb-plan-psalmscomfortfamily-day');
+      if (ctx && ((fw > 0 && fw < 7) || (pcf > 0 && pcf < 7))) {
+        ctx.hidden = false;
+        ctx.replaceChildren();
+        function lineFor(progress, planName, planId) {
+          if (progress <= 0 || progress >= 7) return;
+          var sheetDay = progress + 1;
+          var p = document.createElement('p');
+          p.className = 'family-plan-hint-line';
+          p.appendChild(document.createTextNode('You are on ' + planName + ' — day ' + sheetDay + ' of 7. '));
+          var la = document.createElement('a');
+          la.href = 'plans.html?plan=' + planId;
+          la.textContent = 'Open today\'s reading';
+          p.appendChild(la);
+          p.appendChild(document.createTextNode(' or '));
+          var pa = document.createElement('a');
+          pa.href = 'family-activity-packs.html?plan=' + planId + '&day=' + sheetDay;
+          pa.textContent = 'print today\'s sheet';
+          p.appendChild(pa);
+          p.appendChild(document.createTextNode('.'));
+          ctx.appendChild(p);
+        }
+        lineFor(fw, 'Family Worship in the Trenches', 'familyworship');
+        lineFor(pcf, 'Psalms of Comfort (Family Edition)', 'psalmscomfortfamily');
+      }
+    })();
+  </script>
+  <script nonce="tdb2025s">
+    window.TDB_DAILY_VERSE_ROOT_ID = 'family-daily-verse-root';
+    window.TDB_DAILY_VERSE_TEXT_ID = 'family-daily-verse-text';
+    window.TDB_DAILY_VERSE_REF_ID = 'family-daily-verse-ref';
+  </script>
+  <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
+  <script src="kids-corner-daily-verse.js?v=2" defer></script>
+</body>
+</html>

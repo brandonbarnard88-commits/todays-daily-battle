@@ -132,3 +132,8 @@ If you added a Transform Rule to **set** Content-Security-Policy but the site is
 
 7. **Verify the CSP sent** — Run: `curl -sI https://todaysdailybattle.com | grep -i content-security-policy`
    - The output must include `trusted-types default dompurify`. If it shows only `trusted-types default`, the Transform Rule still has the old value.
+
+8. **`[Report Only]` CSP violations in the console (scripts still run)**  
+   If DevTools shows **`[Report Only] Refused to load …`** for same-origin scripts (`/script.js`, `/vendor/dompurify.min.js`, `/sw.js`, etc.), **`connect-src`** to `/api/…` or `/kjv.json`, or Cloudflare **challenge** / **RUM** URLs, **`Content-Security-Policy` is not blocking them** — the browser is only evaluating a **separate** **`Content-Security-Policy-Report-Only`** header (or a managed “report-only” policy) that is **out of date** or **stricter** than your real CSP (e.g. missing `'self'` in `script-src`, `connect-src`, or `worker-src`).  
+   **Fix:** In Cloudflare **Rules → Transform Rules** (and **Security → Settings** if any CSP feature is enabled), **find and remove** a duplicate **`Content-Security-Policy-Report-Only`** header, **or** set it to the **same** policy string as your enforced CSP in **`_headers`** / **`CLOUDFLARE-CSP-COPY-PASTE.txt`** so reports match reality. **Purging cache** after changes.  
+   **Note:** `cdn-cgi/challenge-platform` and **`static.cloudflareinsights.com`** are expected when Cloudflare challenges or Web Analytics run; they are already allowed in this repo’s CSP when the edge sends the same policy as `_headers`.

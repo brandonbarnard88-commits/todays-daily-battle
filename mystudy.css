@@ -483,6 +483,10 @@
 
 .mystudy-library-actions {
   margin: 0 0 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .mystudy-print-btn {

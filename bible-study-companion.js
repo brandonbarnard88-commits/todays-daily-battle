@@ -13,6 +13,29 @@
   var MEM_INTERVALS_DAYS = [1, 2, 4, 7, 14];
   var DAY_MS = 86400000;
 
+  /** Shared print / PDF-friendly styles for openPrintableNotes and openPrintableStudyBundle (blob window; no external CSS). */
+  var PRINT_BUNDLE_CSS =
+    'body{font-family:Georgia,Palatino Linotype,Book Antiqua,serif;max-width:42rem;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;line-height:1.55;color:#1a1a1a;background:#f8f9fb}' +
+    '.tdb-print-header{border-bottom:2px solid #c5a059;padding-bottom:0.85rem;margin-bottom:1.1rem}' +
+    '.tdb-print-brand{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#7a6a4a;font-weight:600}' +
+    '.tdb-print-title{font-size:1.4rem;font-weight:600;margin:0.4rem 0 0;line-height:1.25;color:#111}' +
+    '.tdb-print-meta,.tdb-print-lead{font-size:0.88rem;color:#4a5568;margin:0.45rem 0 0}' +
+    '.tdb-print-lead{margin-bottom:1rem;line-height:1.5}' +
+    'main h1{font-size:1.15rem;font-weight:600;margin:0 0 0.75rem}' +
+    'h2{font-size:1.05rem;font-weight:600;margin:1.45rem 0 0.5rem;color:#222;border-bottom:1px solid #e2e8f0;padding-bottom:0.3rem}' +
+    '.tdb-print-section{page-break-inside:avoid;margin-bottom:0.25rem}' +
+    '.ref{font-weight:700;margin-top:1rem;font-size:0.98rem;color:#111}' +
+    '.tdb-print-entry .ref:first-child{margin-top:0.65rem}' +
+    '.note{margin:0.35rem 0 0.95rem;white-space:pre-wrap}' +
+    '.tag{font-size:0.82rem;color:#4a5568;margin:0.2rem 0 0.2rem}' +
+    'ul{margin:0.3rem 0 0.85rem;padding-left:1.15rem}' +
+    'li{margin:0.28rem 0}' +
+    '.tdb-print-footer{margin-top:2rem;padding-top:0.85rem;border-top:1px solid #cbd5e1;font-size:0.78rem;color:#64748b;line-height:1.45}' +
+    '.tdb-print-footer strong{color:#475569}' +
+    '@media print{body{background:#fff;padding:0.4in 0.45in;max-width:none}' +
+    '.tdb-print-header{border-bottom-color:#94a3b8} h2{page-break-after:avoid}' +
+    '.tdb-print-entry{page-break-inside:avoid} .tdb-print-section{page-break-inside:avoid}}';
+
   function normRef(ref) {
     return String(ref || '').replace(/\s+/g, ' ').trim();
   }
@@ -295,30 +318,51 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
     };
+    var now = new Date();
+    var dateLong = now.toLocaleDateString(undefined, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
     var html =
-      '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>My verse notes</title>' +
-      '<style>body{font-family:Georgia,serif;max-width:40rem;margin:1.5rem auto;line-height:1.45;color:#111}' +
-      'h1{font-size:1.25rem} .ref{font-weight:700;margin-top:1rem} .note{margin:0.25rem 0 0.5rem;white-space:pre-wrap}' +
-      '.tag{font-size:0.85rem;color:#444} footer{margin-top:2rem;font-size:0.8rem;color:#666}</style></head><body>' +
-      '<h1>Verse notes (KJV)</h1><p>Today&rsquo;s Daily Battle &mdash; printed from your device.</p>';
+      '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Verse notes &mdash; Today\'s Daily Battle</title>' +
+      '<style>' +
+      PRINT_BUNDLE_CSS +
+      '</style></head><body>' +
+      '<header class="tdb-print-header" role="banner">' +
+      '<div class="tdb-print-brand">Today&rsquo;s Daily Battle</div>' +
+      '<h1 class="tdb-print-title">Verse notes (KJV)</h1>' +
+      '<p class="tdb-print-meta">' +
+      esc(dateLong) +
+      '</p>' +
+      '</header>' +
+      '<p class="tdb-print-lead">Saved on this device. Use your browser&rsquo;s print dialog to save as PDF. Scripture is King James Version.</p>' +
+      '<main>';
+    if (!rows.length) {
+      html += '<p class="note">No verse notes saved yet. Add notes in the Bible Tool, then print again.</p>';
+    }
     rows.forEach(function (row) {
       var body = String(notes[row.ref] || '').trim();
       var tg = (row.tags || []).join(', ');
       html +=
+        '<article class="tdb-print-entry">' +
         '<div class="ref">' +
         esc(row.ref) +
         '</div>' +
         (tg ? '<div class="tag">Tags: ' + esc(tg) + '</div>' : '') +
         '<div class="note">' +
         esc(body) +
-        '</div>';
+        '</div></article>';
     });
     html +=
-      '<footer>' +
-      esc(new Date().toLocaleString()) +
+      '</main><footer class="tdb-print-footer" role="contentinfo">' +
+      '<strong>todaysdailybattle.com</strong> &mdash; private KJV study export<br>' +
+      esc(now.toLocaleString()) +
       ' &mdash; ' +
       rows.length +
-      ' verse(s)</footer></body></html>';
+      ' verse note(s)</footer></body></html>';
     var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
     var url = URL.createObjectURL(blob);
     var w = window.open(url, '_blank', 'noopener,noreferrer');
@@ -353,6 +397,132 @@
     return true;
   }
 
+  function openPrintableStudyBundle() {
+    var rows = listVerseNotes();
+    var notes = {};
+    try {
+      notes = JSON.parse(localStorage.getItem(NOTES_KEY) || '{}');
+    } catch (e) {}
+    var memQ = listMemorizeQueue();
+    var recent = getRecentChapters();
+    var esc = function (s) {
+      return String(s || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    };
+    var now = new Date();
+    var dateLong = now.toLocaleDateString(undefined, {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    var html =
+      '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>My Study bundle &mdash; Today\'s Daily Battle</title>' +
+      '<style>' +
+      PRINT_BUNDLE_CSS +
+      '</style></head><body>' +
+      '<header class="tdb-print-header" role="banner">' +
+      '<div class="tdb-print-brand">Today&rsquo;s Daily Battle</div>' +
+      '<h1 class="tdb-print-title">My Study bundle (KJV)</h1>' +
+      '<p class="tdb-print-meta">' +
+      esc(dateLong) +
+      '</p>' +
+      '</header>' +
+      '<p class="tdb-print-lead">Verse notes, memorize queue, and recent chapters from this device. Print or save as PDF from your browser. Scripture is King James Version.</p>';
+
+    html += '<section class="tdb-print-section" aria-labelledby="h-notes"><h2 id="h-notes">Verse notes</h2>';
+    if (!rows.length) {
+      html += '<p class="note">No saved verse notes yet.</p>';
+    }
+    rows.forEach(function (row) {
+      var body = String(notes[row.ref] || '').trim();
+      var tg = (row.tags || []).join(', ');
+      html +=
+        '<article class="tdb-print-entry">' +
+        '<div class="ref">' +
+        esc(row.ref) +
+        '</div>' +
+        (tg ? '<div class="tag">Tags: ' + esc(tg) + '</div>' : '') +
+        '<div class="note">' +
+        esc(body) +
+        '</div></article>';
+    });
+    html += '</section>';
+
+    html += '<section class="tdb-print-section" aria-labelledby="h-mem"><h2 id="h-mem">Memorize queue</h2>';
+    if (!memQ.length) {
+      html += '<p class="note">No verses in the memorize queue.</p>';
+    } else {
+      html += '<ul>';
+      memQ.forEach(function (row) {
+        html += '<li>' + esc(row.ref) + '</li>';
+      });
+      html += '</ul>';
+    }
+    html += '</section>';
+
+    html += '<section class="tdb-print-section" aria-labelledby="h-ch"><h2 id="h-ch">Recent chapters</h2>';
+    if (!recent.length) {
+      html += '<p class="note">No recent chapters yet.</p>';
+    } else {
+      html += '<ul>';
+      recent.forEach(function (item) {
+        var lab = item && item.label ? String(item.label) : '';
+        if (lab) html += '<li>' + esc(lab) + '</li>';
+      });
+      html += '</ul>';
+    }
+    html += '</section>';
+
+    html +=
+      '<footer class="tdb-print-footer" role="contentinfo">' +
+      '<strong>todaysdailybattle.com</strong> &mdash; private KJV study export<br>' +
+      esc(now.toLocaleString()) +
+      ' &mdash; ' +
+      rows.length +
+      ' note(s), ' +
+      memQ.length +
+      ' memorize, ' +
+      recent.length +
+      ' recent chapter(s)</footer></body></html>';
+    var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var w = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!w) {
+      try {
+        URL.revokeObjectURL(url);
+      } catch (e) {}
+      return false;
+    }
+    var revoked = false;
+    function revokeLater() {
+      if (revoked) return;
+      revoked = true;
+      try {
+        URL.revokeObjectURL(url);
+      } catch (e) {}
+    }
+    var printed = false;
+    function tryPrint() {
+      if (printed) return;
+      printed = true;
+      try {
+        w.print();
+      } catch (e) {}
+      setTimeout(revokeLater, 120000);
+    }
+    w.addEventListener('load', function onBundleLoad() {
+      w.removeEventListener('load', onBundleLoad);
+      setTimeout(tryPrint, 250);
+    });
+    setTimeout(tryPrint, 900);
+    return true;
+  }
+
   global.TDBStudyCompanion = {
     normRef: normRef,
     getTags: getTags,
@@ -368,6 +538,7 @@
     listMemorizeQueue: listMemorizeQueue,
     collectAllTags: collectAllTags,
     getDashboardStats: getDashboardStats,
-    openPrintableNotes: openPrintableNotes
+    openPrintableNotes: openPrintableNotes,
+    openPrintableStudyBundle: openPrintableStudyBundle
   };
 })(typeof window !== 'undefined' ? window : this);

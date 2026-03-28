@@ -152,6 +152,31 @@ const EXTENDED = {
     fight: 'Jesus is Lord over empire, fear, and the final lie—so hold fast until He comes.',
     anchors: ['Revelation 1:1', 'Revelation 3:20', 'Revelation 5:9', 'Revelation 19:16', 'Revelation 22:20'],
     step: 'Read one letter to the churches in Revelation 2–3; ask what Jesus says to small, tired congregations.'
+  },
+  Galatians: {
+    fight: 'Freedom in Christ versus slavery to law-as-performance—faith working through love, not scoring points.',
+    anchors: ['Galatians 2:20', 'Galatians 3:26', 'Galatians 4:6', 'Galatians 5:1', 'Galatians 6:9'],
+    step: 'Galatians 5:22–23—circle one fruit you need the Spirit to grow this week; pray for it morning and night.'
+  },
+  Isaiah: {
+    fight: 'Holy judgment and tender comfort in one voice—light to the nations, a Servant who bears what we cannot.',
+    anchors: ['Isaiah 6:8', 'Isaiah 40:31', 'Isaiah 53:5', 'Isaiah 55:1', 'Isaiah 61:1'],
+    step: 'Read Isaiah 53 once slowly; write one line you need Jesus to carry for you today.'
+  },
+  Job: {
+    fight: 'Suffering without a tidy verdict—friends miss God; God answers out of the storm, not the courtroom.',
+    anchors: ['Job 1:21', 'Job 13:15', 'Job 19:25', 'Job 23:10', 'Job 42:5'],
+    step: 'Job 13:15—finish the sentence in your own words: “Though He slay me, yet will I __________ in Him.”'
+  },
+  Colossians: {
+    fight: 'Fullness in Christ versus empty philosophy—your life is hidden in Him; put on love which binds peace.',
+    anchors: ['Colossians 1:18', 'Colossians 2:10', 'Colossians 3:1', 'Colossians 3:14', 'Colossians 3:23'],
+    step: 'Colossians 3:12–14—pick one “put on” and one “put off” for this week; keep it small and honest.'
+  },
+  Mark: {
+    fight: 'The Servant who moves with urgency—cross before crown; who do you say the suffering Son of Man is?',
+    anchors: ['Mark 1:15', 'Mark 8:34', 'Mark 9:24', 'Mark 10:45', 'Mark 16:15'],
+    step: 'Read Mark 8:34–38 in one sitting; ask what “deny himself” looks like in one concrete area of your day.'
   }
 };
 
@@ -166,7 +191,7 @@ const order = [
 ];
 
 const payload = {
-  version: 4,
+  version: 5,
   about:
     'Book introductions: short orientation, optional “fight,” anchor verses, and a small step. KJV-only site; human tone.',
   bookOrder: order,

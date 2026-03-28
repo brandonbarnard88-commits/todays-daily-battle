@@ -195,6 +195,23 @@
 { title: 'Written that ye might believe', ref: 'John 20:31', text: 'But these are written, that ye might believe that Jesus is the Christ, the Son of God; and that believing ye might have life through his name.',
   speaker: 'John — stating why he wrote', plain: 'This Gospel is for faith that turns into life—not information that stays on the page.', today: 'After seven days in John, what do you believe more clearly about Jesus—and what life does that ask of you?', action: 'Tell God one sentence of thanks for something you saw in John this week.', prayer: 'Lord, I believe Jesus is the Christ, the Son of God. Give me life through His name. Amen.' }
   ];
+  // Galatians: Freedom in Christ — 7-day plan (plans.html id galatiansfreedom; key tdb-plan-galatiansfreedom-day)
+  var galatiansFreedom7 = [
+{ title: 'Delivered for His will', ref: 'Galatians 1:4', text: 'Who gave himself for our sins, that he might deliver us from this present evil world, according to the will of God and our Father:',
+  speaker: 'Paul — opening shot: grace before rules', plain: 'Christ gave Himself—first—to deliver you from a world system that trains you to perform. The will of God starts with rescue, not scorekeeping.', today: 'Where do you still feel measured instead of loved?', action: 'Say slowly: "He gave Himself for my sins—to deliver me." Let it land.', prayer: 'Lord, deliver me from performance religion. I receive Your will. Amen.' },
+{ title: 'Crucified with Christ', ref: 'Galatians 2:20', text: 'I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.',
+  speaker: 'Paul — the center of Christian identity', plain: 'Your old self-justifying life ended at the cross. What lives now is Christ in you—by faith, not flexing.', today: 'Where are you still trying to be "I" instead of letting Christ live?', action: 'Write one sentence: "Not I—but Christ in me—in __________."', prayer: 'Jesus, I am crucified with You. Live in me where I keep grabbing the wheel. Amen.' },
+{ title: 'Redeemed from the curse', ref: 'Galatians 3:13', text: 'Christ hath redeemed us from the curse of the law, being made a curse for us: for it is written, Cursed is every one that hangeth on a tree:',
+  speaker: 'Paul — explaining the cross in plain terms', plain: 'The curse the law pronounces—Christ carried it. You are not buying your way back; you are redeemed.', today: 'What guilt still sounds like a curse—and needs the tree?', action: 'Read the verse once, then thank God for one specific mercy you could not earn.', prayer: 'Lord, You were made a curse for me. Thank You. Amen.' },
+{ title: 'Abba, Father', ref: 'Galatians 4:6', text: 'And because ye are sons, God hath sent forth the Spirit of his Son into your hearts, crying, Abba, Father.',
+  speaker: 'Paul — adoption, not orphan fear', plain: 'The Spirit does not coach you from the sidelines—He cries from inside you toward a Father who receives you.', today: 'When did you last pray "Abba" like a child—not like a defendant?', action: 'Pray one sentence starting with "Abba" about what you need today.', prayer: 'Abba, Father, I am Yours. Receive me again. Amen.' },
+{ title: 'Stand fast in liberty', ref: 'Galatians 5:1', text: 'Stand fast therefore in the liberty wherewith Christ hath made us free, and be not entangled again with the yoke of bondage.',
+  speaker: 'Paul — liberty as a posture, not chaos', plain: 'Freedom is not "do whatever." It is standing—unshaken—in what Christ won. Watch what tries to yoke you again.', today: 'What old yoke is knocking—approval, addiction to control, fear of man?', action: 'Name one yoke. Say: "I stand fast in liberty." Mean it once.', prayer: 'Lord, I stand fast in liberty. Do not let me go back to bondage. Amen.' },
+{ title: 'Walk in the Spirit', ref: 'Galatians 5:25', text: 'If we live in the Spirit, let us also walk in the Spirit.',
+  speaker: 'Paul — after the fruit of the Spirit', plain: 'Life in the Spirit is not a mood; it is a walk—daily, step by step—when feelings rise and fall.', today: 'Where does your walk look like the flesh winning today—and what would one Spirit step look like?', action: 'Before your next hard conversation, whisper: "Walk in the Spirit."', prayer: 'Spirit of God, I live in You—teach my feet to walk with You today. Amen.' },
+{ title: 'Do not lose heart', ref: 'Galatians 6:9', text: 'And let us not be weary in well doing: for in due season we shall reap, if we faint not.',
+  speaker: 'Paul — closing a letter about freedom and love', plain: 'Freedom produces fruit that takes time. Weariness is not failure—fainting is quitting what love started.', today: 'What "well doing" feels unrewarded—and needs patience, not proof?', action: 'Finish seven days by writing one line of encouragement to yourself from this letter.', prayer: 'Lord, I am weary but I faint not in You. In due season, let me reap. Amen.' }
+  ];
   // Suffering & Endurance — 7-day plan (plans.html id sufferendure; key tdb-plan-sufferendure-day); not a Bible Tool checklist
   var sufferingEndure7 = [
 { title: 'Glory in tribulation', ref: 'Romans 5:3-4', text: 'And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; And patience, experience; and experience, hope:',
@@ -266,6 +283,7 @@
     proverbsWisdom7: proverbsWisdom7,
     hopeUncertainty7: hopeUncertainty7,
     gospelJohn7: gospelJohn7,
+    galatiansFreedom7: galatiansFreedom7,
     sufferingEndure7: sufferingEndure7,
     psalmsPraise7: psalmsPraise7,
     cancerComfort7: cancerComfort7

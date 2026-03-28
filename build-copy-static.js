@@ -112,6 +112,8 @@ const rootFiles = [
   'easter-eggs.css',
   'plans-data.js',
   'verse-breakdown.js',
+  'bible-study-companion.js',
+  'mystudy.js',
   'highlights.js',
   'streak.js',
   'family-hierarchy.js',

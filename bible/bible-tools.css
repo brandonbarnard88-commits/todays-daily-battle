@@ -168,6 +168,75 @@
   margin-bottom: 1rem;
 }
 
+/* KJV word helps (Hub) — same data as Bible Tool study pane */
+.kjv-word-helps-section {
+  margin-bottom: 1.25rem;
+}
+
+.kjv-word-helps-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  max-height: min(55vh, 22rem);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.kjv-word-helps-item {
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.kjv-word-helps-item:last-child {
+  border-bottom: none;
+}
+
+.kjv-word-helps-row {
+  line-height: 1.45;
+  font-size: 0.92rem;
+  color: #e2e8f0;
+}
+
+.kjv-word-helps-headlink {
+  font-weight: 700;
+  color: var(--bible-gold);
+  text-decoration: none;
+}
+
+.kjv-word-helps-headlink:hover,
+.kjv-word-helps-headlink:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.kjv-word-helps-snippet {
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.kjv-word-helps-examples {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  font-size: 0.82rem;
+}
+
+.kjv-word-helps-ref {
+  color: #93c5fd;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(147, 197, 253, 0.35);
+}
+
+.kjv-word-helps-ref:hover,
+.kjv-word-helps-ref:focus-visible {
+  color: #bfdbfe;
+  outline: none;
+}
+
 .concordance-chain-refs {
   margin-bottom: 0.85rem;
   padding-top: 0.25rem;

@@ -9,6 +9,7 @@
   const CROSS_REFS_URL = '../cross-refs.json';
   const KJV_URL = '../kjv.json';
   const CHAPTERS_URL = '../chapters.json';
+  const KJV_WORD_NOTES_URL = '../kjv-word-notes.json';
   /** Loaded from cross-refs.json; used for chain blurbs in Hub concordance. */
   var crossChainsRemote = null;
   const BIBLE_READ_STREAK_KEY = 'bibleReadStreak';
@@ -889,8 +890,59 @@
     if (hint) hint.textContent = 'Fill in the blank. From today\'s chapter or this week\'s theme.';
   }
 
+  function loadKjvWordHelpsPanel() {
+    var ul = document.getElementById('kjv-word-helps-list');
+    if (!ul) return;
+    fetch(KJV_WORD_NOTES_URL)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('bad status')); })
+      .then(function (data) {
+        var words = (data && data.words) || [];
+        ul.innerHTML = '';
+        words.forEach(function (w) {
+          var li = document.createElement('li');
+          li.className = 'kjv-word-helps-item';
+          var row = document.createElement('div');
+          row.className = 'kjv-word-helps-row';
+          var a = document.createElement('a');
+          a.href = 'tools.html?q=' + encodeURIComponent(w.concordance || w.word || '');
+          a.className = 'kjv-word-helps-headlink';
+          a.textContent = w.word || w.concordance || 'word';
+          a.setAttribute('aria-label', 'Search Hub concordance for ' + (w.concordance || w.word));
+          var note = document.createElement('span');
+          note.className = 'kjv-word-helps-snippet';
+          var nt = String(w.note || '');
+          if (nt.length > 140) nt = nt.slice(0, 137) + '\u2026';
+          note.textContent = ' — ' + nt;
+          row.appendChild(a);
+          row.appendChild(note);
+          li.appendChild(row);
+          var exWrap = document.createElement('div');
+          exWrap.className = 'kjv-word-helps-examples';
+          (w.examples || []).slice(0, 3).forEach(function (ref) {
+            var ra = document.createElement('a');
+            ra.href = '../bible-tool.html?ref=' + encodeURIComponent(ref);
+            ra.className = 'kjv-word-helps-ref';
+            ra.textContent = ref;
+            ra.setAttribute('aria-label', 'Open ' + ref + ' in Bible Tool');
+            exWrap.appendChild(ra);
+            exWrap.appendChild(document.createTextNode(' '));
+          });
+          li.appendChild(exWrap);
+          ul.appendChild(li);
+        });
+      })
+      .catch(function () {
+        ul.innerHTML = '';
+        var li = document.createElement('li');
+        li.className = 'section-note';
+        li.textContent = 'Word helps load when you are online — open again when connected.';
+        ul.appendChild(li);
+      });
+  }
+
   function init() {
     loadData().then(function () {
+      loadKjvWordHelpsPanel();
       renderConcordanceResults([], '');
       var searchInput = document.getElementById('concordance-search-input');
       var searchBtn = document.getElementById('concordance-search-btn');

@@ -60,8 +60,15 @@
       min-height: 44px; box-sizing: border-box;
     }
     .bible-tool .bible-tool-tags-input:focus { outline: 2px solid rgba(167, 139, 250, 0.55); outline-offset: 2px; }
-    .bible-tool .bible-tool-kjv-words-ul { list-style: none; margin: 0; padding: 0; max-height: 14rem; overflow: auto; }
-    .bible-tool .bible-tool-kjv-words-ul li { margin-top: 0.35rem; line-height: 1.45; }
+    .bible-tool .bible-tool-kjv-words-ul { list-style: none; margin: 0; padding: 0; max-height: min(70vh, 28rem); overflow: auto; -webkit-overflow-scrolling: touch; }
+    .bible-tool .bible-tool-kjv-word-item { margin-top: 0.65rem; padding-bottom: 0.55rem; border-bottom: 1px solid rgba(148,163,184,0.15); line-height: 1.45; }
+    .bible-tool .bible-tool-kjv-word-item:first-child { margin-top: 0; }
+    .bible-tool .bible-tool-kjv-word-head { font-weight: 600; }
+    .bible-tool .bible-tool-kjv-conc { font-weight: 400; color: #94a3b8; font-size: 0.88rem; }
+    .bible-tool .bible-tool-kjv-note { font-size: 0.95rem; color: #e2e8f0; margin: 0.25rem 0 0; }
+    .bible-tool .bible-tool-kjv-step { font-size: 0.9rem; color: #cbd5e1; margin: 0.25rem 0 0; padding-left: 0.55rem; border-left: 2px solid rgba(212, 175, 55, 0.4); }
+    .bible-tool .bible-tool-kjv-examples { list-style: none; margin: 0.35rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 0.65rem; }
+    .bible-tool .bible-tool-kjv-examples li { margin: 0; font-size: 0.88rem; }
     .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; resize: vertical; min-height: 4rem; }
     .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 1rem; }
     .bible-tool .verse-ref { font-weight: 600; }
@@ -707,8 +714,8 @@
                   <a class="btn btn-secondary" href="bible/tools.html?q=conversation">conversation</a>
                 </div>
                 <p class="section-note util-mt-0_75 util-mb-0"><strong>Curated cross-references</strong> load from <code class="bible-tool-code">cross-refs.json</code> (expandable under each lookup). The Hub concordance shows the same chains when you open a hit. Add your own links in the note box anytime.</p>
-                <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word notes</strong> — short glosses for words that read oddly today; the Hub lists every verse that uses the word.</p>
-                <ul id="kjv-word-notes-list" class="bible-tool-kjv-words-ul section-note util-mb-0" aria-label="KJV word notes"></ul>
+                <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word helps</strong> — short glosses, example verses, and one small step. Same list appears on <a href="bible/tools.html#kjv-word-helps" class="bible-tool-gold-link">Bible Hub → Tools</a> next to the concordance.</p>
+                <ul id="kjv-word-notes-list" class="bible-tool-kjv-words-ul section-note util-mb-0" aria-label="KJV word helps"></ul>
                 <button type="button" id="export-study-json-btn" class="btn btn-secondary util-mt-0_5">Export verse notes + tags (JSON)</button>
                 <p id="export-study-status" class="section-note util-mt-0_5" aria-live="polite"></p>
               </div>
@@ -1917,21 +1924,51 @@
           var words = (data && data.words) || [];
           words.forEach(function (w) {
             var li = document.createElement('li');
-            var a = document.createElement('a');
-            a.href = 'bible/tools.html?q=' + encodeURIComponent(w.concordance || w.word || '');
-            a.className = 'bible-tool-gold-link';
-            a.textContent = w.word || w.concordance || 'word';
-            li.appendChild(a);
-            var span = document.createElement('span');
-            span.textContent = ' — ' + (w.note || '');
-            li.appendChild(span);
+            li.className = 'bible-tool-kjv-word-item';
+            var head = document.createElement('div');
+            head.className = 'bible-tool-kjv-word-head';
+            var hub = document.createElement('a');
+            hub.href = 'bible/tools.html?q=' + encodeURIComponent(w.concordance || w.word || '');
+            hub.className = 'bible-tool-gold-link';
+            hub.textContent = w.word || w.concordance || 'word';
+            hub.setAttribute('aria-label', 'Search concordance for ' + (w.concordance || w.word));
+            var conc = document.createElement('span');
+            conc.className = 'bible-tool-kjv-conc';
+            conc.textContent = ' (Hub search: ' + (w.concordance || w.word) + ')';
+            head.appendChild(hub);
+            head.appendChild(conc);
+            li.appendChild(head);
+            var noteP = document.createElement('p');
+            noteP.className = 'bible-tool-kjv-note util-mb-0_35';
+            noteP.textContent = w.note || '';
+            li.appendChild(noteP);
+            if (w.step) {
+              var stepP = document.createElement('p');
+              stepP.className = 'bible-tool-kjv-step util-mb-0_35';
+              stepP.textContent = 'Small step: ' + w.step;
+              li.appendChild(stepP);
+            }
+            var exUl = document.createElement('ul');
+            exUl.className = 'bible-tool-kjv-examples';
+            exUl.setAttribute('aria-label', 'Example verses for ' + (w.word || ''));
+            (w.examples || []).forEach(function (ref) {
+              var exLi = document.createElement('li');
+              var ra = document.createElement('a');
+              ra.href = 'bible-tool.html?ref=' + encodeURIComponent(ref);
+              ra.className = 'bible-tool-gold-link';
+              ra.textContent = ref;
+              ra.setAttribute('aria-label', 'Look up ' + ref + ' in Bible Tool');
+              exLi.appendChild(ra);
+              exUl.appendChild(exLi);
+            });
+            li.appendChild(exUl);
             ul.appendChild(li);
           });
         })
         .catch(function () {
           var li = document.createElement('li');
           li.className = 'section-note';
-          li.textContent = 'Word notes load when you are online — open again when connected.';
+          li.textContent = 'Word helps load when you are online — open again when connected.';
           ul.appendChild(li);
         });
     })();

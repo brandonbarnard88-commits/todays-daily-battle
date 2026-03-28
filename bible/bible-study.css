@@ -54,9 +54,29 @@
 
 .bible-study-hint {
   font-family: 'Nunito', sans-serif;
-  color: rgba(226, 232, 240, 0.7);
+  color: rgba(226, 232, 240, 0.82);
   font-size: 0.95rem;
   margin: 0;
+}
+
+.bible-study-workshop-bridge {
+  margin: 0.55rem auto 0;
+  max-width: 36rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.88);
+}
+
+.bible-study-workshop-bridge a {
+  color: #e8cf7a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.bible-study-workshop-bridge a:hover,
+.bible-study-workshop-bridge a:focus-visible {
+  color: #f5e3aa;
 }
 
 .bible-study-verses {

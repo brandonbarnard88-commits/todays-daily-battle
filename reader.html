@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Read full Bible chapters in context with the chapter reader.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260320reader-cls-pane">
+  <link rel="stylesheet" href="styles.css?v=20260328reader-meta">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,6 +62,15 @@
       color: rgba(226, 232, 240, 0.92);
     }
     .reader-book-intro-body .reader-book-intro-anchors li { margin: 0.2rem 0; }
+    .reader-book-intro-meta {
+      font-size: 0.9rem;
+      color: rgba(226, 232, 240, 0.9);
+    }
+    .reader-book-intro-meta a {
+      color: #e8cf7a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     .reader-back-btn {
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.82rem; font-weight: 600;
@@ -188,8 +197,8 @@
           <details id="reader-book-intro-wrap" class="reader-book-intro hidden" aria-labelledby="reader-book-intro-summary-label">
             <summary class="reader-book-intro-summary" id="reader-book-intro-summary-label">About this book</summary>
             <div id="reader-book-intro-body" class="reader-book-intro-body section-note util-mb-0"></div>
-            <p class="section-note util-mt-0_5 util-mb-0" style="font-size:0.9rem;opacity:0.85">Browse every introduction in <a href="/bible/tools.html#book-intros">Study workshop</a> (Bible Hub → Tools).</p>
-            <p class="section-note util-mt-0_35 util-mb-0" style="font-size:0.9rem;opacity:0.85">KJV. One quiet line to frame your reading—not a full commentary.</p>
+            <p class="section-note util-mt-0_5 util-mb-0 reader-book-intro-meta">Browse every introduction in <a href="/bible/tools.html#book-intros">Study workshop</a> (Bible Hub → Tools).</p>
+            <p class="section-note util-mt-0_35 util-mb-0 reader-book-intro-meta">KJV. One quiet line to frame your reading—not a full commentary.</p>
           </details>
           <div id="reader-output" class="chapter-output reader-output-empty" role="region" aria-label="Chapter content" aria-live="polite">
             <p class="section-note empty">Choose a book above — chapter 1 will load automatically.</p>
@@ -251,7 +260,9 @@
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
     <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
     <a href="/bible-tool.html">Bible tool</a>
     <a href="/testimonials.html">Reader stories</a>
     <a href="/verse-cards/">Verse cards</a>
@@ -289,6 +300,7 @@
         <h3>Tools</h3>
         <a href="/verse.html">Verse of the Day</a>
         <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
         <a href="/bible-tool.html">Bible tool</a>
         <a href="/my-verses.html">My Verses</a>
         <a href="/calm.html">Calm</a>

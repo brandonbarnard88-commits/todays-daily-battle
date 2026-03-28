@@ -30,6 +30,8 @@
   --verse-size: 20px;
   /* Placeholders & soft labels on dark fields — meets ~4.5:1 vs #0f141f / #0d0d0d for axe color-contrast */
   --input-placeholder-on-dark: #b8c5d4;
+  /* Secondary body copy on dark — slightly above slate-400 for AA comfort */
+  --muted: #aab8c9;
   --muted-readable: #b8c5d4;
   /* Super elite: refined radii & space */
   --radius-sm: 14px;
@@ -114,6 +116,7 @@ html[data-theme="light"] .app-shell {
   --tdb-focus-ring: #0066cc;
   --link-content: #0066cc;
   --link-content-hover: #004a99;
+  --muted: #5a6578;
   /* Secondary copy on cream — WCAG AA (~7:1 vs warm white) */
   --muted-readable: #4d525c;
   /* Placeholders on light fields — darker than slate-500 for legibility */
@@ -1108,7 +1111,7 @@ body {
   outline-offset: 2px;
 }
 .tdb-lang-switcher .tdb-lang-sep {
-  color: rgba(148, 163, 184, 0.45);
+  color: rgba(203, 213, 225, 0.55);
   user-select: none;
 }
 .tdb-lang-switcher--footer {
@@ -3104,6 +3107,30 @@ body {
   line-height: 1.6;
   max-width: 54ch;
   letter-spacing: 0.02em;
+}
+
+.study-workspace-page .study-workspace-bridge {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.58;
+  border: 1px solid rgba(227, 188, 103, 0.16);
+  background: rgba(12, 18, 30, 0.52);
+  text-align: center;
+}
+
+.study-workspace-page .study-workspace-bridge a {
+  color: var(--link-content);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.study-workspace-page .study-workspace-bridge a:hover,
+.study-workspace-page .study-workspace-bridge a:focus-visible {
+  color: var(--link-content-hover);
 }
 
 /* Spanish topic pages (ansiedad, fuerza, paz): warm lead + structured breakdown */

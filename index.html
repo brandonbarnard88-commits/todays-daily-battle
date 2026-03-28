@@ -4998,7 +4998,7 @@
         </span>
       </nav>
       </div>
-      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Mar 2026)</span> &mdash; Study tools grew together: more <a href="bible/tools.html#book-intros">book intros</a>, themed chains in the <a href="bible-tool.html">Bible Tool</a>, <a href="mystudy.html">My Study</a> with <strong>Print full bundle</strong>, and calmer empty states. <a href="about.html#whats-new-study">A bit more</a>.</p>
+      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Mar 2026)</span> &mdash; <a href="explore.html#start-here">New here?</a> Five-minute path on Explore. Study layer: <a href="about.html#whats-new-study">what changed</a> · <a href="bible/tools.html">study workshop</a>.</p>
       <div id="hero-verse-wrap" class="hero-verse-wrap">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -5217,6 +5217,7 @@
 
       <p class="site-feedback-hint">How is this helping you today? <a href="contact.html">Send a note</a>—we read every message.</p>
       <p class="site-plan-nudge">Want a longer rhythm? <a href="plans.html">Battle Plans</a> — 7–40 days, progress saved on your device. KJV only — saves and prayers stay on this device unless you choose to share.</p>
+      <p class="site-family-mission-nudge section-note">Home rhythms: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a> for bedside, grief, jail, and workers abroad.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row">
         <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>
@@ -5278,7 +5279,7 @@
       </section>
 
       <!-- ── Sermon Builder teaser ── -->
-      <p class="tdb-more-tools-lead">Search and topics stay up top. For maps, memory, book intros, and the full word-help index, open the study workshop; for verse lookup and notes, use the Bible Tool. Sermon Builder, My Verses, verse images, and Kids Corner stay one tap away.</p>
+      <p class="tdb-more-tools-lead">More below—workshop, sermon prep, saved verses, images, and Kids. Tap a row; each card says where it goes.</p>
       <div class="quick-links">
       <section class="card tool-teaser-card" aria-label="Study workshop">
         <a href="bible/tools.html" class="tool-teaser-link" aria-label="Study workshop — Bible Hub Tools">
@@ -5567,7 +5568,9 @@
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
     <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
     <a href="/bible-tool.html">Bible tool</a>
     <a href="/testimonials.html">Reader stories</a>
     <a href="/verse-cards/">Verse cards</a>
@@ -5583,7 +5586,6 @@
         <h3>Topics</h3>
         <a href="/explore.html">Full list (all pages)</a>
         <a href="/topic-anxiety.html">Anxiety</a>
-        <a href="/topic-worry.html">Worry</a>
         <a href="/topic-fear.html">Fear</a>
         <a href="/topic-grief.html">Grief</a>
         <a href="/topic-hope.html">Hope</a>
@@ -5606,6 +5608,7 @@
         <h3>Tools</h3>
         <a href="/verse.html">Verse of the Day</a>
         <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
         <a href="/bible-tool.html">Bible tool</a>
         <a href="/my-verses.html">My Verses</a>
         <a href="/calm.html">Calm</a>
@@ -5625,8 +5628,6 @@
         <a href="/pastor/">Pastor hub</a>
         <a href="/sermon.html">Sermon builder</a>
         <a href="/kids-corner.html">Kids corner</a>
-        <a href="/family.html">Family hub</a>
-        <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a>
         <a href="/kids/?v=hub20260321">Kids battle</a>
         <a href="/coloring.html">Kids coloring</a>
       </div>
@@ -7012,7 +7013,7 @@
     function registerServiceWorker() {
       if (!("serviceWorker" in navigator)) return;
       var doReg = function () {
-        navigator.serviceWorker.register("/sw.js?v=20260329-family-bible", { scope: "/" }).catch(function () {});
+        navigator.serviceWorker.register("/sw.js?v=20260328-gaps-close", { scope: "/" }).catch(function () {});
       };
       if ("requestIdleCallback" in window) {
         requestIdleCallback(doReg, { timeout: 2000 });

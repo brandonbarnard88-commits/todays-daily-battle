@@ -20105,7 +20105,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260329-family-bible', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260328-gaps-close', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

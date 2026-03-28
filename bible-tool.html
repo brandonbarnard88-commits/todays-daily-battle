@@ -1151,7 +1151,14 @@
   function findChainBlurbForRef(reference) {
     var r = normRef(reference);
     if (!r || !CROSS_CHAINS_REMOTE || typeof CROSS_CHAINS_REMOTE !== 'object') return '';
-    var order = ['prayer-supplication', 'fear-trust', 'grief-hope'];
+    var order = [
+      'prayer-supplication',
+      'fear-trust',
+      'grief-hope',
+      'anger-peace',
+      'grace-faith',
+      'suffering-endurance'
+    ];
     for (var oi = 0; oi < order.length; oi++) {
       var c = CROSS_CHAINS_REMOTE[order[oi]];
       if (!c || !Array.isArray(c.verses) || !c.blurb) continue;

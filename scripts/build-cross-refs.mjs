@@ -236,7 +236,60 @@ prayerSupplication.forEach(function (k) {
   }));
 });
 
-/** Optional: theme blurbs for Bible Tool (verse in chain → show gentle note). Order: prayer checked before fear when a verse sits in two chains. */
+// --- Batch 2: anger/peace, suffering/endurance, grace/faith ---
+const angerPeace = [
+  'Ephesians 4:26',
+  'Ephesians 4:31',
+  'Ephesians 4:32',
+  'James 1:19',
+  'James 1:20',
+  'Proverbs 15:1',
+  'Proverbs 16:32',
+  'Colossians 3:8',
+  'Colossians 3:13'
+];
+angerPeace.forEach(function (k) {
+  add(k, angerPeace.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const sufferingEndurance = [
+  'Romans 5:3',
+  'Romans 5:4',
+  'Romans 5:5',
+  'James 1:2',
+  'James 1:3',
+  'James 1:4',
+  '2 Corinthians 12:9',
+  '2 Corinthians 12:10',
+  'Hebrews 12:1',
+  '1 Peter 5:10'
+];
+sufferingEndurance.forEach(function (k) {
+  add(k, sufferingEndurance.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+const graceFaith = [
+  'Ephesians 2:8',
+  'Ephesians 2:9',
+  'Romans 5:1',
+  'Romans 5:2',
+  'Hebrews 11:1',
+  'James 2:17',
+  'Titus 2:11',
+  'Titus 2:12',
+  '2 Corinthians 12:9'
+];
+graceFaith.forEach(function (k) {
+  add(k, graceFaith.filter(function (x) {
+    return x !== k;
+  }));
+});
+
+/** Optional: theme blurbs for Bible Tool (verse in chain → show gentle note). Priority: prayer > fear > grief > anger > grace > suffering (grace before suffering for 2 Cor 12:9 overlap). */
 const chains = {
   'prayer-supplication': {
     title: 'Prayer & Supplication',
@@ -258,6 +311,27 @@ const chains = {
     verses: griefHope,
     blurb:
       'Grief is heavy and real. These verses do not rush you — they point to the God who heals the brokenhearted and promises a day with no more tears. One small step: let one verse sit with you today without trying to fix everything.'
+  },
+  'anger-peace': {
+    title: 'Anger to Peace',
+    anchor: 'Ephesians 4:26',
+    verses: angerPeace,
+    blurb:
+      'Anger is real and can flare quickly, but these verses give you permission to be angry without sin — and a path back to peace through quick forgiveness. One small step: when heat rises, pause and speak the anchor verse before you respond.'
+  },
+  'grace-faith': {
+    title: 'Grace and Faith',
+    anchor: 'Ephesians 2:8',
+    verses: graceFaith,
+    blurb:
+      'Salvation and daily strength come by grace through faith — not earned, but received. These verses keep the balance: grace is free, yet real faith shows itself in action. One small step: rest in the anchor verse when you feel you must perform to be accepted.'
+  },
+  'suffering-endurance': {
+    title: 'Suffering to Endurance',
+    anchor: 'Romans 5:3',
+    verses: sufferingEndurance,
+    blurb:
+      'Pain and trials test us deeply. These verses do not minimize the hurt — they show how God uses it to build endurance, character, and deeper hope. One small step: hold one verse today and ask the Lord to sustain you in the middle of it.'
   }
 };
 

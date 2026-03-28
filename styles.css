@@ -6126,7 +6126,9 @@ body:has(.pricing-grid) .section-divider {
 .site-footer-updated {
   margin: 0.6rem 0 0;
   font-size: 0.82rem;
-  color: rgba(148, 163, 184, 0.7);
+  font-weight: 500;
+  color: var(--muted-readable, #c8d3e3);
+  letter-spacing: 0.01em;
 }
 .site-footer-social-proof {
   font-size: 0.85rem;

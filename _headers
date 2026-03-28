@@ -704,6 +704,11 @@
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400, must-revalidate
 
+# Build stamp for footer (avoid stale CDN empty/missing responses)
+/build-date.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: no-cache, must-revalidate
+
 # Minimal deny body for blocked routes (see _redirects → blocked.html)
 /blocked.html
   Cache-Control: no-store

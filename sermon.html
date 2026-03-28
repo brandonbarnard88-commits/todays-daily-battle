@@ -56,6 +56,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
+      min-height: 44px;
       padding: 0.45rem 0.85rem;
       font-size: 0.82rem;
       font-weight: 600;
@@ -134,10 +135,15 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.6rem;
+      max-height: min(70vh, 28rem);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 0.2rem;
     }
     .sb-template-btn {
       display: flex; flex-direction: column; align-items: flex-start;
       gap: 0.2rem;
+      min-height: 44px;
       padding: 0.75rem 0.85rem;
       background: var(--bg-soft, #171c25);
       border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 30%, transparent);
@@ -145,6 +151,10 @@
       cursor: pointer;
       transition: border-color 0.14s, background 0.14s;
       text-align: left;
+    }
+    .sb-template-btn--starter {
+      border-color: color-mix(in srgb, var(--gold, #e3bc67) 50%, transparent);
+      background: color-mix(in srgb, var(--gold, #e3bc67) 14%, transparent);
     }
     .sb-template-btn:hover { border-color: var(--gold, #e3bc67); background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent); }
     .sb-template-name { font-size: 0.88rem; font-weight: 700; color: var(--text, #f5f7fb); }
@@ -203,6 +213,26 @@
       border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, transparent);
       background: color-mix(in srgb, var(--card, #1b212d) 96%, transparent);
     }
+    :root[data-theme="light"] .sb-workspace-wrap {
+      background: color-mix(in srgb, var(--card, #fff) 94%, transparent);
+      border-color: color-mix(in srgb, var(--gold, #b8860b) 35%, transparent);
+    }
+    :root[data-theme="light"] .sb-oia-point {
+      background: var(--bg-soft, #f8fafc);
+      border-color: color-mix(in srgb, var(--gold, #b8860b) 28%, transparent);
+    }
+    :root[data-theme="light"] .sb-oia-point-title,
+    :root[data-theme="light"] #sb-verse-collector,
+    :root[data-theme="light"] #sb-study-materials {
+      background: #fff;
+      color: var(--text, #1e293b);
+      border-color: color-mix(in srgb, var(--gold, #b8860b) 32%, transparent);
+    }
+    :root[data-theme="light"] #sb-live-preview {
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(148, 163, 184, 0.35);
+      color: var(--text, #334155);
+    }
     .sb-workspace-intro {
       font-size: 0.88rem;
       line-height: 1.5;
@@ -216,7 +246,14 @@
       gap: 1.15rem;
     }
     @media (min-width: 900px) {
-      .sb-workspace-grid { grid-template-columns: 1fr 320px; align-items: start; }
+      .sb-workspace-grid { grid-template-columns: 1fr minmax(280px, 340px); align-items: start; }
+    }
+    @media (max-width: 599px) {
+      .sb-workspace-grid { gap: 1rem; }
+      #sb-live-preview {
+        min-height: 10rem;
+        max-height: min(50vh, 20rem);
+      }
     }
     .sb-oia-points-wrap h3,
     .sb-side-stack h3 {
@@ -255,6 +292,8 @@
     }
     .sb-oia-remove {
       flex-shrink: 0;
+      min-height: 44px;
+      min-width: 44px;
       padding: 0.4rem 0.55rem;
       font-size: 0.75rem;
       border-radius: 7px;
@@ -298,6 +337,8 @@
     .sb-add-point-btn {
       margin-top: 0.35rem;
       align-self: flex-start;
+      min-height: 44px;
+      padding: 0.5rem 0.85rem;
     }
     .sb-side-stack {
       display: flex;
@@ -619,7 +660,7 @@
 
           <div class="sb-workspace-wrap" id="sb-workspace-wrap" aria-labelledby="sb-workspace-heading">
             <h3 id="sb-workspace-heading" class="sr-only">Structured outline with observation, interpretation, and application</h3>
-            <p class="sb-workspace-intro">Each main point uses a calm <strong>OIA rhythm</strong> (Observation → Interpretation → Application). Add verses in the collector; they stay on this device. Use <strong>Add Verse</strong> in the toolbar, then <strong>Add OIA scaffold</strong> on a result to drop text into the first point’s Observation (you can move it after).</p>
+            <p class="sb-workspace-intro">Each main point uses a calm <strong>OIA rhythm</strong> (Observation → Interpretation → Application). Tap <strong>Quick Start</strong> for Expository, Topical, or Devotional talk starters with OIA blocks and verse lines. Add more verses in the collector; use <strong>Add Verse</strong> → <strong>Add OIA scaffold</strong> to drop text into the first point’s Observation. <a href="for-pastors.html#fp-workflow">How people use this</a> · <a href="for-pastors.html#fp-oia-examples">KJV examples &amp; SOAP</a>.</p>
             <div class="sb-workspace-grid">
               <div class="sb-oia-points-wrap">
                 <h3>Main points (OIA)</h3>
@@ -864,14 +905,14 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260328lesson-pack-oia" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260328quickstart-polish" data-cfasync="false"></script>
 
   <!-- ── Quick Start Popover ── -->
   <div id="sbQuickStartBackdrop" class="sb-popover-backdrop" hidden role="dialog" aria-modal="true" aria-label="Quick Start sermon templates">
     <div class="sb-popover">
       <button type="button" class="sb-popover-close" id="sbQuickStartClose" aria-label="Close Quick Start">✕</button>
       <h3 class="sb-popover-title">✦ Quick Start</h3>
-      <p class="sb-popover-sub">Pick a starting passage — your outline fills in. Change anything.</p>
+      <p class="sb-popover-sub">Pick a teaching shape—starters load OIA blocks, verse lines, and optional supporting-context hints. Edit everything.</p>
       <div class="sb-template-grid" id="sbTemplateGrid">
         <!-- populated by JS -->
       </div>
@@ -938,6 +979,41 @@
 
     /* ── Shared data ── */
     var SB_TEMPLATES = [
+      { starter: true, name: 'Expository', icon: '📜', ref: 'Romans 8:1-4', title: 'No Condemnation — Life in the Spirit (Romans 8)', theme: 'Verse-by-verse through a short passage: freedom, the Spirit\'s rule, walking after the Spirit',
+        outline: 'I. Romans 8:1 — no condemnation for those in Christ Jesus\nII. Romans 8:2–3 — the law of the Spirit vs. sin and death\nIII. Romans 8:4 — righteousness of the law fulfilled in us who walk after the Spirit',
+        points: 'Read the full passage aloud before teaching. Add cross-references in Key Points (e.g. Romans 7:25; 2 Corinthians 3:17; Galatians 5:16–25).',
+        application: 'Where does the Spirit need to lead you this week—name one relationship or habit honestly.',
+        prayer: 'Father, thank You for no condemnation in Christ. Lead us by Your Spirit. Amen.',
+        verseCollector: 'Romans 8:1\nRomans 8:2\nRomans 8:3\nRomans 8:4',
+        studyMaterials: 'Paste a short line or two from the Romans book intro in Bible Tool if it helps. Add cross-reference chain notes from the lookup panel when you open each verse.',
+        oiaPoints: [
+          { title: 'I. Romans 8:1 — no condemnation', observation: 'Who is "there is therefore" answering? What changes for the person who is "in Christ Jesus"?', interpretation: 'Paul states the verdict: no condemnation for those united to Christ—see Romans 5:1; 8:33–34 for the courtroom language.', application: 'I will bring one self-accusation to God and leave it at the cross this week.' },
+          { title: 'II. Romans 8:2–3 — Spirit vs. sin and death', observation: 'Two "laws" are named. What could the law in the flesh not do? What did God do in sending His Son?', interpretation: 'The Spirit\'s rule brings life; sin\'s power held us under death. In Christ\'s flesh sin is condemned so we can walk in newness.', application: 'I will ask each morning whom I am walking by—flesh or Spirit—and pray for one concrete choice.' },
+          { title: 'III. Romans 8:4 — walk after the Spirit', observation: 'What is "fulfilled" in us? How is "walk" different from a single feeling?', interpretation: 'God\'s righteous requirement is met in those who live in step with the Spirit—not by self-made merit.', application: 'I will take one small obedience step that matches the Spirit\'s direction, not performance.' }
+        ] },
+      { starter: true, name: 'Topical', icon: '🧭', ref: 'Philippians 4:6-7', title: 'Peace Through Prayer (Philippians 4)', theme: 'A theme from the text: turn worry into prayer and thanksgiving; God\'s peace stands guard',
+        outline: 'I. Be careful for nothing — bring every burden to God\nII. By prayer and supplication with thanksgiving — make requests known\nIII. The peace of God — keeps heart and mind in Christ Jesus',
+        points: 'Use Bible Tool topic search and chains for related verses (e.g. Matthew 6:25–34; 1 Peter 5:7). Pull word helps for "careful," "supplication," "peace" from Hub tools.',
+        application: 'Name one worry you will hand to God today with thanks for one mercy you already have.',
+        prayer: 'Lord, we cast our cares on You. Let Your peace guard our hearts and minds in Christ Jesus. Amen.',
+        verseCollector: 'Philippians 4:6\nPhilippians 4:7\nMatthew 6:34',
+        studyMaterials: 'Paste 1–2 lines from cross-reference chains after you look up Philippians 4:6–7. Optional: one short gloss from KJV word helps for "careful" or "peace."',
+        oiaPoints: [
+          { title: 'I. The command — be careful for nothing', observation: 'What is commanded negatively? What is the alternative ("but in every thing")?', interpretation: 'Paul does not deny trouble; he redirects the heart from anxious spinning to structured prayer with thanks.', application: 'When worry rises, I will stop and name the request before God with one thanksgiving.' },
+          { title: 'II. Prayer with thanksgiving', observation: 'What three words describe how we come (prayer, supplication, thanksgiving)?', interpretation: 'Thanksgiving steadies faith before the answer arrives; it aligns the heart with God\'s past faithfulness.', application: 'I will write one gratitude line beside one request each evening this week.' },
+          { title: 'III. The peace of God', observation: 'What does "passeth all understanding" imply? What two things does peace "keep"?', interpretation: 'This peace is not rational calm only—it is God-given and sentinels heart and mind in Christ.', application: 'I will ask for that guard when my thoughts race, and speak one verse aloud.' }
+        ] },
+      { starter: true, name: 'Devotional talk', icon: '🕯️', ref: 'John 14:1', title: 'Let Not Your Heart Be Troubled', theme: 'A shorter encouragement — good for a brief visit, mid-week gathering, or beside a bed',
+        outline: 'I. The command — let not your heart be troubled\nII. Believe — God the Father and Christ our hope',
+        points: 'Aim for 8–12 minutes: read the verse twice; one illustration at most; end with prayer.',
+        application: 'Who near you needs a calm word this week? Offer one verse and one hour of presence.',
+        prayer: 'Lord, still our hearts. Help us believe You. Amen.',
+        verseCollector: 'John 14:1\nJohn 14:27',
+        studyMaterials: 'Optional: paste one sentence from the John book intro in Bible Tool when you open John 14:1.',
+        oiaPoints: [
+          { title: 'I. "Let not your heart be troubled"', observation: 'Who is speaking? To whom? What emotion does Jesus address first?', interpretation: 'Jesus speaks peace before explaining everything—faith rests on His person, not on full understanding.', application: 'I will admit one trouble to Christ out loud today and sit in silence for one minute.' },
+          { title: 'II. Believe in God; believe also in Christ', observation: 'What is doubled? What is the relationship between trust in the Father and the Son?', interpretation: 'The ground of peace is belief in who God is and who Christ is—parallel trust.', application: 'I will speak one line of trust aloud when fear rises: "I believe in You." ' }
+        ] },
       { name: 'Quick Preach', icon: '⚡', ref: 'Philippians 4:6-7', title: 'The Peace That Guards', theme: 'A ten-minute outline when the mind will not slow down — prayer, thanksgiving, and the peace that keeps the heart',
         outline: 'I. Be careful for nothing — bring the burden to God (v.6)\nII. With thanksgiving — remembrance steadies the soul (v.6)\nIII. The peace of God — it keepeth heart and mind in Christ Jesus (v.7)',
         points: 'Key text (KJV — read slowly):\n“Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.”\n\nTiming (~10 min): 2 min welcome + 2–3 min per point + 1–2 min application.',
@@ -1175,6 +1251,27 @@
       sbUpdateLivePreview();
     }
 
+    /* Avoid painting from localStorage when ?load=1 will apply the same draft from script.js (prevents flash/overwrite). */
+    function sbBootstrapOiaWorkspace() {
+      var skipStorage = false;
+      try {
+        var p = new URLSearchParams(window.location.search || '');
+        if (p.get('load') === '1') {
+          var raw = localStorage.getItem('sermonDraft');
+          var d = raw ? JSON.parse(raw) : {};
+          if (d && (d.title || d.textRef || d.outline || d.studyMaterials || d.verseCollector || (d.oiaPoints && d.oiaPoints.length))) {
+            skipStorage = true;
+          }
+        }
+      } catch (e) {}
+      if (skipStorage) {
+        sbRenderOiaPoints([{ id: sbNewPointId(), title: '', observation: '', interpretation: '', application: '' }]);
+        sbUpdateLivePreview();
+        return;
+      }
+      sbInitOiaFromStorage();
+    }
+
     function sbFirstOiaObservationTa() {
       var root = document.getElementById('sb-oia-points');
       if (!root) return null;
@@ -1300,6 +1397,7 @@
           sbApplyTemplate(tmpl);
           closeBackdrop('sbQuickStartBackdrop', 'sb-quick-start-btn');
         });
+        if (tmpl.starter) btn.classList.add('sb-template-btn--starter');
         qsGrid.appendChild(btn);
       });
     }
@@ -1314,6 +1412,27 @@
       tf = getField('sermon-points');       if (tf) tf.value = t(tmpl.points);
       tf = getField('sermon-application'); if (tf) tf.value = t(tmpl.application);
       tf = getField('sermon-prayer');       if (tf) tf.value = t(tmpl.prayer);
+      if (tmpl.oiaPoints && Array.isArray(tmpl.oiaPoints) && tmpl.oiaPoints.length) {
+        var mapped = tmpl.oiaPoints.map(function (p) {
+          return {
+            id: sbNewPointId(),
+            title: t(p.title),
+            observation: t(p.observation),
+            interpretation: t(p.interpretation),
+            application: t(p.application)
+          };
+        });
+        sbRenderOiaPoints(mapped);
+      }
+      if (tmpl.verseCollector != null) {
+        tf = getField('sb-verse-collector');
+        if (tf) tf.value = t(tmpl.verseCollector);
+      }
+      if (tmpl.studyMaterials != null) {
+        tf = getField('sb-study-materials');
+        if (tf) tf.value = t(tmpl.studyMaterials);
+      }
+      sbUpdateLivePreview();
       sbAutoSaveNow();
       sbUpdateCrossRefs(tmpl.ref);
     }
@@ -2046,7 +2165,7 @@
       sbUpdateLivePreview();
     };
 
-    sbInitOiaFromStorage();
+    sbBootstrapOiaWorkspace();
 
     try {
       var params = new URLSearchParams(window.location.search || '');

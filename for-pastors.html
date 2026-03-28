@@ -43,6 +43,52 @@
     .testimonial-page-meta { margin-top: 0.65rem; font-size: 0.82rem; color: var(--gold-soft, #c9a84c); }
     .fp-pastors-cta { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; margin-top: 0.5rem; }
     .fp-pastors-cta .btn { min-height: 44px; }
+    .fp-oia-examples-wrap { margin-top: 0.35rem; }
+    .fp-oia-example-block {
+      margin: 1rem 0 0;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(0, 0, 0, 0.12);
+    }
+    .fp-oia-example-block h3 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--gold-soft, #e3bc67); }
+    .fp-oia-example-block .fp-kjv-quote {
+      margin: 0 0 0.65rem;
+      padding-left: 0.75rem;
+      border-left: 3px solid rgba(227, 188, 103, 0.45);
+      font-style: italic;
+      color: var(--text, #e2e8f0);
+      line-height: 1.55;
+    }
+    .fp-oia-example-block dl { margin: 0; }
+    .fp-oia-example-block dt { font-weight: 700; font-size: 0.82rem; margin-top: 0.5rem; color: var(--muted, #94a3b8); text-transform: uppercase; letter-spacing: 0.04em; }
+    .fp-oia-example-block dt:first-child { margin-top: 0; }
+    .fp-oia-example-block dd { margin: 0.25rem 0 0; padding: 0; line-height: 1.55; color: var(--text, #e2e8f0); }
+    .fp-oia-table-wrap { overflow-x: auto; margin: 0.65rem 0; -webkit-overflow-scrolling: touch; }
+    .fp-oia-compare-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 280px; }
+    .fp-oia-compare-table th, .fp-oia-compare-table td { border: 1px solid rgba(148, 163, 184, 0.25); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+    .fp-oia-compare-table th { background: rgba(0, 0, 0, 0.2); color: var(--gold-soft, #e3bc67); font-weight: 600; }
+    .fp-workflow-list { margin: 0.5rem 0 0; padding-left: 1.2rem; line-height: 1.55; color: var(--text, #e2e8f0); }
+    .fp-workflow-list li { margin: 0.35rem 0; }
+    .fp-workflow-list code { font-size: 0.85em; }
+    .fp-sample-pre {
+      margin: 0.65rem 0 0;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(0, 0, 0, 0.22);
+      font-size: 0.78rem;
+      line-height: 1.45;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--text, #e2e8f0);
+    }
+    :root[data-theme="light"] .fp-sample-pre {
+      background: #f1f5f9;
+      border-color: rgba(148, 163, 184, 0.35);
+      color: var(--text, #334155);
+    }
   </style>
 </head>
 <body class="dark-mode">
@@ -102,21 +148,164 @@
           <p class="hero-tagline">Everything here is already on the site—gathered in one calm page so you can grab what you need on a travel day or a thin week. English tools use <abbr title="King James Version">KJV</abbr> on screen; localized &ldquo;mood door&rdquo; pages name their own public-domain text. No funnel, no signup wall for the tools themselves.</p>
         </header>
 
+        <section class="glass fp-workflow" id="fp-workflow" aria-labelledby="fp-workflow-heading">
+          <h2 class="section-divider" id="fp-workflow-heading">How people use this</h2>
+          <ol class="fp-workflow-list">
+            <li>Collect verses—Bible Tool, Battle Plans, or open <a href="sermon.html">Sermon Builder</a> with <code>?ref=Book%201:1</code> in the URL.</li>
+            <li>Paste short lines into <strong>Supporting context</strong> (book intros, cross-reference chains, word helps)—optional but rich.</li>
+            <li>Fill <strong>Observation</strong>, <strong>Interpretation</strong>, and <strong>Application</strong> for each main point (same rhythm as plans&rsquo; See / Mean / Live).</li>
+            <li>Export PDF, handout, or lesson pack; drafts stay on your device until you share.</li>
+          </ol>
+          <div class="fp-pastors-cta util-mt-0_75" role="group" aria-label="Teaching entry points">
+            <a class="btn btn-primary" href="sermon.html">Start Sermon workspace</a>
+            <a class="btn btn-secondary" href="bible/tools.html#book-intros">Browse book intros for teaching</a>
+            <a class="btn btn-secondary" href="plans.html">Find plans for small groups</a>
+          </div>
+        </section>
+
         <section class="glass fp-oia-teach" id="fp-oia-teach" aria-labelledby="fp-oia-heading">
           <h2 class="section-divider" id="fp-oia-heading">Teach from the text (OIA)</h2>
-          <p class="section-note"><strong>Observation</strong> &rarr; <strong>Interpretation</strong> &rarr; <strong>Application</strong> is the same inductive rhythm as Battle Plans&rsquo; optional &ldquo;Go deeper&rdquo; lines (See / Mean / Live)—spelled out for outlines, lessons, and small groups in the <a href="sermon.html">Sermon Builder</a>.</p>
-          <div class="fp-pastors-cta" role="group" aria-label="Quick links for teaching">
-            <a class="btn btn-primary" href="sermon.html">Sermon workspace</a>
-            <a class="btn btn-secondary" href="bible/tools.html#book-intros">Browse book intros</a>
-            <a class="btn btn-secondary" href="plans.html">Plans for teaching</a>
+          <p class="section-note"><strong>Observation</strong> &rarr; <strong>Interpretation</strong> &rarr; <strong>Application</strong> matches Battle Plans&rsquo; optional &ldquo;Go deeper&rdquo; lines—spelled out in <a href="sermon.html">Sermon Builder</a>. Use <strong>Quick Start</strong> there for calm starters (Expository, Topical, Devotional talk) with OIA blocks already laid out.</p>
+          <p class="section-note util-mb-0">Verse collection, live preview, and exports stay on your device: PDF, larger-type handout, and a <strong>lesson pack</strong> with discussion prompts from your application notes—plus optional supporting excerpts. <a href="#fp-oia-examples">Worked examples (KJV) and OIA vs. SOAP</a> are below; <a href="#fp-sample-lesson">sample Galatians sketch</a> shows a light lesson-pack shape.</p>
+        </section>
+
+        <section class="glass fp-oia-examples-wrap" id="fp-oia-examples" aria-labelledby="fp-oia-examples-heading">
+          <h2 class="section-divider" id="fp-oia-examples-heading">OIA in practice (KJV)</h2>
+          <p class="section-note"><strong>Observation</strong> &rarr; <strong>Interpretation</strong> &rarr; <strong>Application</strong> is the inductive rhythm built into <a href="plans.html">Battle Plans</a> (&ldquo;Go deeper&rdquo;) and <a href="sermon.html">Sermon Builder</a>. It keeps the text in front: look carefully, understand in context, then live it. Below are three full examples—psalm, epistle, doctrine—so you can see each step plainly.</p>
+
+          <article class="fp-oia-example-block" aria-labelledby="fp-ex1-h">
+            <h3 id="fp-ex1-h">Example 1: Psalm 23:1&ndash;2 (comfort, poetry)</h3>
+            <p class="fp-kjv-quote">&ldquo;The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters.&rdquo;</p>
+            <dl>
+              <dt>Observation</dt>
+              <dd>Speaker: David, writing as one who knew sheep and shepherds. Metaphor: God as shepherd, the believer as sheep. Repeated ideas: care and provision (&ldquo;my shepherd,&rdquo; &ldquo;I shall not want,&rdquo; &ldquo;maketh me,&rdquo; &ldquo;leadeth me&rdquo;). Verbs: he <em>maketh</em> me lie down (rest); he <em>leadeth</em> me (gentle guidance). Imagery: green pastures (food and rest), still waters (peace, refreshment). Tone: quiet confidence. Structure: two short declarations.</dd>
+              <dt>Interpretation</dt>
+              <dd>In the world of the Psalms, a shepherd guarded, fed, and led the flock; the sheep depended on him for everything. &ldquo;I shall not want&rdquo; is not a promise of every desire, but that the believer will not lack what God knows is needed under his care. The waters are <em>still</em>—safe to drink—not chaotic. See also Psalm 95:7, Ezekiel 34, John 10:11 for the same picture.</dd>
+              <dt>Application</dt>
+              <dd>When anxiety or lack feels loud, pause and say aloud that the Lord is my Shepherd. One small step: speak Psalm 23:1&ndash;2 once in the morning and again when worry rises; then rest in his care instead of striving alone.</dd>
+            </dl>
+          </article>
+
+          <article class="fp-oia-example-block" aria-labelledby="fp-ex2-h">
+            <h3 id="fp-ex2-h">Example 2: James 1:2&ndash;4 (epistle, trials)</h3>
+            <p class="fp-kjv-quote">&ldquo;My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience. But let patience have her perfect work, that ye may be perfect and entire, wanting nothing.&rdquo;</p>
+            <dl>
+              <dt>Observation</dt>
+              <dd>Speaker: James, to believers scattered and under pressure. Command: <em>count</em> it all joy—an act of the mind, not a command to pretend feelings. Contrast: you <em>fall into</em> trials (often sudden) with <em>knowing this</em> (God&rsquo;s purpose can be named). Chain: trials test faith &rarr; patience &rarr; maturity (&ldquo;perfect and entire, wanting nothing&rdquo;). Key words: patience, perfect, wanting nothing. Tone: honest about pain, still forward-looking.</dd>
+              <dt>Interpretation</dt>
+              <dd>&ldquo;Divers temptations&rdquo; means various trials—not only inward sin temptation. James does not call evil good; he says God produces something good <em>through</em> testing: endurance that completes faith. &ldquo;Perfect and entire, wanting nothing&rdquo; is wholeness of character, not ease. This fits the letter&rsquo;s theme: faith that shows up in real life.</dd>
+              <dt>Application</dt>
+              <dd>When a trial lands this week, I will <em>count</em> it joy by rehearsing that God is forming patience and maturity—not by denying grief. One small step: write James 1:2&ndash;4 on a card; read it aloud when the trial feels heavy; pray that patience would finish its work.</dd>
+            </dl>
+          </article>
+
+          <article class="fp-oia-example-block" aria-labelledby="fp-ex3-h">
+            <h3 id="fp-ex3-h">Example 3: Ephesians 2:8&ndash;9 (doctrine, grace)</h3>
+            <p class="fp-kjv-quote">&ldquo;For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.&rdquo;</p>
+            <dl>
+              <dt>Observation</dt>
+              <dd>Contrast: &ldquo;by grace &hellip; through faith&rdquo; set against &ldquo;not of yourselves&rdquo; and &ldquo;not of works.&rdquo; Emphasis doubled on &ldquo;not of&rdquo;; salvation is a <em>gift</em>. Structure: means (grace), instrument (faith), negations (not self, not works), purpose (no boasting). Tone: firm, clear.</dd>
+              <dt>Interpretation</dt>
+              <dd>Salvation is God&rsquo;s gift, not wages. Faith is the empty hand that receives; grace is the giver. Works are excluded as the ground of acceptance before God, so no one can boast (see Romans 3:27&ndash;28; Titus 3:5). The text guards both humility and assurance.</dd>
+              <dt>Application</dt>
+              <dd>When I feel I must perform to earn God&rsquo;s favor, I will speak this verse and remember: received, not earned. One small step: when guilt or pressure rises, say Ephesians 2:8&ndash;9 aloud and rest in grace rather than striving.</dd>
+            </dl>
+          </article>
+
+          <h3 class="section-divider util-mt-1" id="fp-soap-compare">OIA and SOAP (choose what fits the day)</h3>
+          <p class="section-note"><strong>SOAP</strong> = Scripture, Observation, Application, Prayer. It is common in devotional habits because it ends in prayer and moves quickly. <strong>OIA</strong> keeps a full <strong>Interpretation</strong> step—context, meaning, cross-references—before application, which helps teaching and guards against reading our own ideas into the text.</p>
+          <div class="fp-oia-table-wrap" role="region" aria-label="Comparison of OIA and SOAP steps">
+            <table class="fp-oia-compare-table">
+              <caption class="sr-only">OIA and SOAP compared by step</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Step</th>
+                  <th scope="col">OIA (this site)</th>
+                  <th scope="col">SOAP (common devotional)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Scripture</th>
+                  <td>Read and observe closely before meaning.</td>
+                  <td>Write out the verse.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Observation</th>
+                  <td>Words, structure, tone, who speaks to whom.</td>
+                  <td>Often brief facts only.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Interpretation</th>
+                  <td>Context, original sense, Scripture with Scripture.</td>
+                  <td>Often light or skipped.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Application</th>
+                  <td>Specific, personal, obedient &ldquo;I will.&rdquo;</td>
+                  <td>Personal insight and response.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Prayer</th>
+                  <td>Natural close after application (not a separate box on the page).</td>
+                  <td>Fixed final step; often the longest.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <p class="section-note util-mt-0_75 util-mb-0">Verse collection, live preview, and exports stay on your device: PDF, larger-type handout, and a <strong>lesson pack</strong> with discussion prompts drawn from your application notes—plus optional supporting excerpts you paste from book intros, cross-reference chains, or word helps.</p>
+          <p class="section-note"><strong>Same verse (James 1:2&ndash;4), SOAP-style sketch:</strong> <em>Scripture:</em> (write the verses). <em>Observation:</em> God uses trials to produce patience. <em>Application:</em> I will complain less and ask God to grow my patience in a specific situation. <em>Prayer:</em> Lord, help me count trials as joy today; give patience in [name the circumstance].</p>
+          <p class="section-note"><strong>When SOAP helps:</strong> very tired days, new believers, a short quiet time. <strong>When OIA goes deeper:</strong> sermon or lesson prep, long-term growth, and whenever you want the text itself to lead. Here, OIA stays the default in plans and Sermon Builder; you can still end any study with prayer.</p>
+        </section>
+
+        <section class="glass fp-sample-lesson" id="fp-sample-lesson" aria-labelledby="fp-sample-lesson-h">
+          <h2 class="section-divider" id="fp-sample-lesson-h">Sample lesson outline (Galatians — static sketch)</h2>
+          <p class="section-note">A light example of what a <strong>lesson pack</strong> can hold—copy into Sermon Builder and replace every line with your own study. Not prescriptive; just a shape.</p>
+          <pre class="fp-sample-pre" tabindex="0">LESSON PACK (KJV) — Galatians: no other gospel (sketch)
+Primary text: Galatians 1:6-9
+Aim: Warn the church—do not turn from the One who called you.
+
+MAIN POINTS (OIA)
+
+1. I marvel that ye are so soon removed (v.6)
+Observation: Who is addressed? What is “another gospel”?
+Interpretation: “Removed” implies a turn from the true message; compare 1:7.
+Application: I will name one teaching I need to test against Christ crucified.
+
+2. Would pervert the gospel of Christ (v.7)
+Observation: Who troubles you? What is “not another” yet corrupts?
+Interpretation: Not always a different book—sometimes a twist on grace.
+Application: Our group will read the passage twice slowly, then pray for discernment.
+
+VERSE COLLECTOR
+Galatians 1:6-7
+Galatians 1:8-9
+
+SUPPORTING CONTEXT
+(Paste from Bible Tool → Galatians book intro; add chain verses from lookup.)
+
+WHOLE-GROUP APPLICATION
+Pray together: one person names a pressure to “add” to the gospel; thank God for Christ alone.</pre>
         </section>
 
         <section class="glass for-pastors-hub" id="for-pastors-hub" aria-labelledby="for-pastors-hub-heading">
           <h2 class="section-divider for-pastors-hub-section-title" id="for-pastors-hub-heading">Jump to a block</h2>
           <p class="section-note for-pastors-hub-lead util-mb-0_5">Same sections below—this row is a quick index for phone or pulpit prep.</p>
           <ul class="for-pastors-hub-grid">
+            <li><a href="#fp-workflow" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Start</span>
+              <span class="for-pastors-hub-card-title">How people use this</span>
+              <span class="for-pastors-hub-card-desc">Workflow + entry points</span>
+            </a></li>
+            <li><a href="#fp-oia-examples" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Study</span>
+              <span class="for-pastors-hub-card-title">OIA examples</span>
+              <span class="for-pastors-hub-card-desc">Worked texts, SOAP compare</span>
+            </a></li>
+            <li><a href="#fp-sample-lesson" class="for-pastors-hub-card">
+              <span class="for-pastors-hub-card-label">Sample</span>
+              <span class="for-pastors-hub-card-title">Galatians sketch</span>
+              <span class="for-pastors-hub-card-desc">Lesson-pack shape</span>
+            </a></li>
             <li><a href="#fp-print" class="for-pastors-hub-card">
               <span class="for-pastors-hub-card-label">Print</span>
               <span class="for-pastors-hub-card-title">Room &amp; handouts</span>
@@ -157,7 +346,7 @@
         <section class="glass" id="fp-teach">
           <h2 class="section-divider">Teach &amp; prep</h2>
           <ul class="explore-link-list">
-            <li><a href="/sermon.html">Sermon Builder</a> — workspace for outlines, notes, PDF, larger-type handouts, and a small-group lesson pack (observation · interpretation · application). All stay on your device until you export or share.</li>
+            <li><a href="/sermon.html">Sermon Builder</a> — Quick Start templates (Expository, Topical, Devotional talk) with OIA blocks; PDF, handouts, and lesson pack. Stays on your device until you export or share.</li>
             <li><a href="/pastor/builder.html">Pastor Builder</a> and <a href="/pastor/library.html">Pastor Library</a> — study and shelf.</li>
             <li><a href="/pastor-toolkit.html">Pastor Toolkit</a> and <a href="/resources.html">Pastor Resources</a>.</li>
             <li><a href="/bible-tool.html">Bible Tool</a> — search and read (KJV in tool).</li>

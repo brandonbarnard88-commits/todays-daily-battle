@@ -312,6 +312,8 @@ const SOCIAL_PURGE_PATHS = [
   '/script.js?v=20260324armorflow',
   '/script.js?v=20260331mysave',
   '/script.js?v=20260328footer-date',
+  '/footer-build-stamp.js',
+  '/footer-build-stamp.js?v=20260328stamp',
   '/tt-bootstrap.js?v=20260326clean',
   '/sitemap.xml',
   '/assets/share/home-og.jpg',

@@ -82,6 +82,7 @@ const rootFiles = [
   'mystudy.css',
   'script.js',
   'script.js.map',
+  'footer-build-stamp.js',
   'service-worker.js',
   'sw.js',
   'daily-verse-widget.js',
@@ -467,6 +468,31 @@ if (fs.existsSync(wellKnown)) {
     count++;
   });
   if (count) console.log('build-copy-static.js: TDB_BUILD_DATE → build stamp in ' + count + ' dist HTML file(s) (nested + any stragglers)');
+})();
+
+// Classic deferred script: fills #footer-date without waiting for script.js (module cache / CSP / order).
+(function injectFooterBuildStampScript() {
+  var SNIPPET = '\n  <script defer src="/footer-build-stamp.js?v=20260328stamp"></script>';
+  function ensure(html) {
+    if (html.indexOf('footer-build-stamp.js') !== -1) return html;
+    if (!/id\s*=\s*["']footer-date["']/.test(html)) return html;
+    if (!/<head[^>]*>/i.test(html)) return html;
+    return html.replace(/<head([^>]*)>/i, function (m) {
+      return m + SNIPPET;
+    });
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected footer-build-stamp.js in ' + injected + ' dist HTML file(s)');
+  }
 })();
 
 // Write build-date.txt so JS can fetch it as fallback if HTML replacement missed

@@ -20105,7 +20105,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260328-gaps-close', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260328-footer-stamp', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {
@@ -24064,65 +24064,7 @@ function wireRandomBattleVerseHero() {
     });
 }
 
-/** Footer build stamp: must not depend on runTdbAndFooter’s loading/return path (DOMContentLoaded races). */
-(function tdbBootstrapFooterBuildDate() {
-  if (typeof window !== 'undefined' && window.__tdbFooterBuildDateBootstrapped) return;
-  if (typeof window !== 'undefined') window.__tdbFooterBuildDateBootstrapped = true;
-
-  function fallbackDate() {
-    var d = new Date();
-    var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    return m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
-  }
-  function spanNeedsFix(el) {
-    if (!el) return false;
-    var raw = String(el.textContent == null ? '' : el.textContent).replace(/\u00a0/g, ' ').trim();
-    return !raw || raw === 'TDB_BUILD_DATE' || raw.indexOf('TDB_BUILD_DATE') !== -1;
-  }
-  function buildDateFetchUrl() {
-    try {
-      var baseEl = document.querySelector('base[href]');
-      if (baseEl && baseEl.href) {
-        var u = new URL('build-date.txt', baseEl.href);
-        return u.pathname + (u.search || '');
-      }
-    } catch (eB) {}
-    return '/build-date.txt';
-  }
-  function tryHydrate() {
-    if (typeof window !== 'undefined' && window.__tdbFooterBuildDateHydrated) return;
-    var nodes = document.querySelectorAll('#footer-date');
-    if (!nodes.length) return;
-    var need = false;
-    for (var i = 0; i < nodes.length; i++) {
-      if (spanNeedsFix(nodes[i])) need = true;
-    }
-    if (!need) {
-      if (typeof window !== 'undefined') window.__tdbFooterBuildDateHydrated = true;
-      return;
-    }
-    function applyBuildStamp(txt) {
-      var v = (txt && String(txt).trim()) || fallbackDate();
-      for (var j = 0; j < nodes.length; j++) {
-        if (spanNeedsFix(nodes[j])) nodes[j].textContent = v;
-      }
-      if (typeof window !== 'undefined') window.__tdbFooterBuildDateHydrated = true;
-    }
-    var url = buildDateFetchUrl();
-    fetch(url, { cache: 'no-store', credentials: 'same-origin' })
-      .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
-      .then(applyBuildStamp)
-      .catch(function () { applyBuildStamp(''); });
-  }
-  function schedule() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', tryHydrate, { once: true });
-    } else {
-      tryHydrate();
-    }
-  }
-  schedule();
-})();
+/* Footer #footer-date: see footer-build-stamp.js (injected in dist <head> by build-copy-static.js). */
 
 (function runTdbAndFooter() {
   (function injectTdbHumilityLine() {

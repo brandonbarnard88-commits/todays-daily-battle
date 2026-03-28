@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * One short battle-minded line per KJV book (human tone, no hype).
+ * Book introductions — battle-minded summary + optional fight / anchor verses / small step.
  * Run: node scripts/build-book-intros.mjs
+ * Consumed by reader.html, bible-tool.html, bible/tools.html (via book-intros.json).
  */
 import fs from 'fs';
 import path from 'path';
@@ -10,7 +11,8 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const out = path.join(__dirname, '..', 'book-intros.json');
 
-const intros = {
+/** One-line orientation for every book (required). */
+const SUMMARY = {
   Genesis: 'Creation, fall, and promise: God keeps covenant when people fail. The long war between faith and self-rule starts here.',
   Exodus: 'Rescue and law: God hears the cry of the burdened and teaches a freed people how to walk with Him.',
   Leviticus: 'Holiness in daily life: sacrifice, purity, and nearness to God—grace and boundary for a camp at war with sin.',
@@ -79,6 +81,50 @@ const intros = {
   Revelation: 'Jesus wins: letters, seals, trumpets, King of kings—no more curse; come, Lord Jesus.'
 };
 
+/** Richer entries (first wave): fight, anchors, small step — same tone as word helps. */
+const EXTENDED = {
+  Genesis: {
+    fight: 'Who is God, who are we, and what promise outlasts the fall? The fight is faith versus self-rule.',
+    anchors: ['Genesis 1:1', 'Genesis 3:15', 'Genesis 12:1', 'Genesis 15:6', 'Genesis 50:20'],
+    step: 'Trace one promise from Genesis 12 to Genesis 50 in a single sitting—watch God’s covenant stay steadier than His people.'
+  },
+  Psalm: {
+    fight: 'How to talk with God when you are afraid, angry, glad, or numb—training for real life with Him.',
+    anchors: ['Psalm 23:1', 'Psalm 27:1', 'Psalm 34:18', 'Psalm 55:22', 'Psalm 121:1'],
+    step: 'Pick one psalm that fits your mood today, read it aloud slowly, then pray one line back to God.'
+  },
+  Romans: {
+    fight: 'Who is right with God, and how does that change the way we walk? Paul speaks to the conscience.',
+    anchors: ['Romans 1:16', 'Romans 3:23', 'Romans 5:1', 'Romans 8:1', 'Romans 12:1'],
+    step: 'Read Romans 5:1–11 and underline every “we” or “us” that speaks of union with Christ.'
+  },
+  Ephesians: {
+    fight: 'From dead in sins to seated with Christ—unity in the body and armor for the long war.',
+    anchors: ['Ephesians 1:3', 'Ephesians 2:8', 'Ephesians 4:1', 'Ephesians 6:10', 'Ephesians 6:11'],
+    step: 'Memorize one short phrase from Ephesians 6:10–18 this week; say it before a hard conversation.'
+  },
+  John: {
+    fight: 'Believing Jesus is the Christ—life in His name instead of a religion you manufacture.',
+    anchors: ['John 1:12', 'John 3:16', 'John 14:6', 'John 14:27', 'John 20:31'],
+    step: 'Read John 3–4 and notice who believes; ask the Lord to show you one person to pray for by name.'
+  },
+  James: {
+    fight: 'Faith that shows in the tongue, the pocket, and the widow’s row—not empty words.',
+    anchors: ['James 1:2', 'James 1:5', 'James 2:17', 'James 4:7', 'James 5:16'],
+    step: 'James 1:5—ask God for wisdom for one concrete decision you face this week.'
+  },
+  Proverbs: {
+    fight: 'The fear of the Lord first—then wisdom for mouth, money, and neighbor in a loud world.',
+    anchors: ['Proverbs 1:7', 'Proverbs 3:5', 'Proverbs 15:1', 'Proverbs 18:10', 'Proverbs 22:6'],
+    step: 'Read the Proverbs chapter that matches today’s date; circle one verse to obey before sunset.'
+  },
+  Philippians: {
+    fight: 'Joy under pressure—Christ magnified when plans break and the gospel still advances.',
+    anchors: ['Philippians 1:21', 'Philippians 2:5', 'Philippians 4:6-7', 'Philippians 4:13', 'Philippians 4:19'],
+    step: 'Philippians 4:6–7—turn one named worry into prayer with thanks.'
+  }
+};
+
 const order = [
   'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth',
   '1 Samuel', '2 Samuel', '1 Kings', '2 Kings', '1 Chronicles', '2 Chronicles', 'Ezra', 'Nehemiah', 'Esther', 'Job',
@@ -89,10 +135,28 @@ const order = [
   'Hebrews', 'James', '1 Peter', '2 Peter', '1 John', '2 John', '3 John', 'Jude', 'Revelation'
 ];
 
-const payload = { version: 1, about: 'Short book intros for chapter reader — KJV site, battle-minded tone.', books: {} };
+const payload = {
+  version: 2,
+  about:
+    'Book introductions: short orientation, optional “fight,” anchor verses, and a small step. KJV-only site; human tone.',
+  bookOrder: order,
+  books: {}
+};
+
 for (const b of order) {
-  payload.books[b] = intros[b] || 'God speaks in this book; read slowly and ask what truth He means for your fight today.';
+  const summary = SUMMARY[b] || 'God speaks in this book; read slowly and ask what truth He means for your fight today.';
+  const extra = EXTENDED[b];
+  if (extra) {
+    payload.books[b] = {
+      summary,
+      fight: extra.fight,
+      anchors: extra.anchors,
+      step: extra.step
+    };
+  } else {
+    payload.books[b] = { summary };
+  }
 }
 
-fs.writeFileSync(out, JSON.stringify(payload, null, 0) + '\n', 'utf8');
-console.log('Wrote', out, Object.keys(payload.books).length, 'books');
+fs.writeFileSync(out, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+console.log('Wrote', out, Object.keys(payload.books).length, 'books (v' + payload.version + ')');

@@ -1085,3 +1085,32 @@
   gap: 0.5rem;
   align-items: center;
 }
+
+/* Book introductions (Hub Tools) */
+.book-intros-section .hub-book-intro-controls {
+  padding: 0 1.25rem 0.35rem;
+}
+
+.hub-book-intro-select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 0.5rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--bible-blue-dim);
+  background: rgba(15, 23, 42, 0.65);
+  color: #e2e8f0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+}
+
+.hub-book-intro-body .reader-book-intro-anchors {
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.hub-book-intro-body .reader-book-intro-anchors li {
+  margin: 0.2rem 0;
+}

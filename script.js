@@ -16752,6 +16752,114 @@ function ensureBookIntrosLoaded() {
   return p;
 }
 
+function normalizeBookIntroEntry(raw) {
+  if (raw == null) return null;
+  if (typeof raw === 'string') {
+    const s = raw.trim();
+    return s ? { summary: s, fight: '', anchors: [], step: '' } : null;
+  }
+  if (typeof raw === 'object' && raw.summary) {
+    const anchors = Array.isArray(raw.anchors)
+      ? raw.anchors.map((r) => String(r).replace(/\s+/g, ' ').trim()).filter(Boolean)
+      : [];
+    return {
+      summary: String(raw.summary).trim(),
+      fight: raw.fight ? String(raw.fight).trim() : '',
+      anchors,
+      step: raw.step ? String(raw.step).trim() : ''
+    };
+  }
+  return null;
+}
+
+/** Fill a container with book intro blocks; linkPrefix is '' from site root, '../' from bible/. */
+function renderBookIntroIntoContainer(container, normalized, linkPrefix, readerBookName) {
+  if (!container || !normalized || !normalized.summary) return;
+  container.textContent = '';
+  const pre = linkPrefix || '';
+  const p = document.createElement('p');
+  p.className = 'section-note util-mb-0_5';
+  p.textContent = normalized.summary;
+  container.appendChild(p);
+  if (normalized.fight) {
+    const f = document.createElement('p');
+    f.className = 'section-note util-mb-0_5';
+    const strong = document.createElement('strong');
+    strong.textContent = 'What fight is this book? ';
+    f.appendChild(strong);
+    f.appendChild(document.createTextNode(normalized.fight));
+    container.appendChild(f);
+  }
+  if (normalized.anchors.length) {
+    const ul = document.createElement('ul');
+    ul.className = 'reader-book-intro-anchors util-mb-0_5';
+    ul.setAttribute('aria-label', 'Key verses for daily battles');
+    normalized.anchors.forEach((ref) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `${pre}bible-tool.html?ref=${encodeURIComponent(ref)}`;
+      a.className = 'bible-tool-gold-link';
+      a.textContent = ref;
+      a.setAttribute('aria-label', `Look up ${ref} in Bible Tool`);
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    container.appendChild(ul);
+  }
+  if (normalized.step) {
+    const s = document.createElement('p');
+    s.className = 'section-note util-mb-0_5';
+    const st = document.createElement('strong');
+    st.textContent = 'Small step: ';
+    s.appendChild(st);
+    s.appendChild(document.createTextNode(normalized.step));
+    container.appendChild(s);
+  }
+  if (readerBookName) {
+    const r = document.createElement('p');
+    r.className = 'section-note util-mb-0';
+    const ra = document.createElement('a');
+    ra.href = `${pre}reader.html?book=${encodeURIComponent(readerBookName)}&chapter=1`;
+    ra.className = 'bible-tool-gold-link';
+    ra.textContent = 'Open chapter 1 in chapter reader';
+    ra.setAttribute('aria-label', `Open ${readerBookName} chapter 1 in chapter reader`);
+    r.appendChild(ra);
+    container.appendChild(r);
+  }
+}
+
+function updateBibleToolBookIntroPanel(bookName) {
+  const panel = document.getElementById('bible-tool-book-intro-panel');
+  const body = document.getElementById('bible-tool-book-intro-body');
+  if (!panel || !body) return;
+  const b = String(bookName || '').trim();
+  if (!b) {
+    panel.classList.add('hidden');
+    body.textContent = '';
+    return;
+  }
+  ensureBookIntrosLoaded().then((books) => {
+    const normalized = normalizeBookIntroEntry(books[b]);
+    if (!normalized || !normalized.summary) {
+      const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
+      if (offline) {
+        body.textContent = '';
+        const p = document.createElement('p');
+        p.className = 'section-note util-mb-0';
+        p.textContent = 'Offline — book introduction loads when you are back online.';
+        body.appendChild(p);
+        panel.classList.remove('hidden');
+      } else {
+        panel.classList.add('hidden');
+        body.textContent = '';
+      }
+      return;
+    }
+    renderBookIntroIntoContainer(body, normalized, '', b);
+    panel.classList.remove('hidden');
+  });
+}
+
 function updateReaderBookIntro(book) {
   const wrap = document.getElementById('reader-book-intro-wrap');
   const body = document.getElementById('reader-book-intro-body');
@@ -16762,13 +16870,16 @@ function updateReaderBookIntro(book) {
     body.textContent = '';
     return;
   }
-  ensureBookIntrosLoaded().then(books => {
-    const text = books[b];
-    if (!text) {
+  ensureBookIntrosLoaded().then((books) => {
+    const normalized = normalizeBookIntroEntry(books[b]);
+    if (!normalized || !normalized.summary) {
       const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
       if (offline) {
-        body.textContent =
-          'Offline — book note loads when you are back online. Chapter text may still be cached.';
+        body.textContent = '';
+        const p = document.createElement('p');
+        p.className = 'section-note util-mb-0';
+        p.textContent = 'Offline — book note loads when you are back online. Chapter text may still be cached.';
+        body.appendChild(p);
         wrap.classList.remove('hidden');
       } else {
         wrap.classList.add('hidden');
@@ -16776,9 +16887,18 @@ function updateReaderBookIntro(book) {
       }
       return;
     }
-    body.textContent = text;
+    renderBookIntroIntoContainer(body, normalized, '', null);
     wrap.classList.remove('hidden');
   });
+}
+
+if (typeof globalThis !== 'undefined') {
+  globalThis.TDBBookIntro = {
+    ensureLoaded: ensureBookIntrosLoaded,
+    normalize: normalizeBookIntroEntry,
+    fillContainer: renderBookIntroIntoContainer,
+    updateToolPanel: updateBibleToolBookIntroPanel
+  };
 }
 
 function selectReaderChapter(book, chapter, highlightRef = '') {

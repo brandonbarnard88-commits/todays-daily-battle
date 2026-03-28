@@ -10,6 +10,7 @@
   const KJV_URL = '../kjv.json';
   const CHAPTERS_URL = '../chapters.json';
   const KJV_WORD_NOTES_URL = '../kjv-word-notes.json';
+  const BOOK_INTROS_URL = '../book-intros.json';
   /** Loaded from cross-refs.json; used for chain blurbs in Hub concordance. */
   var crossChainsRemote = null;
   const BIBLE_READ_STREAK_KEY = 'bibleReadStreak';
@@ -890,6 +891,127 @@
     if (hint) hint.textContent = 'Fill in the blank. From today\'s chapter or this week\'s theme.';
   }
 
+  function normalizeBookIntroEntryHub(raw) {
+    if (raw == null) return null;
+    if (typeof raw === 'string') {
+      var s = String(raw).trim();
+      return s ? { summary: s, fight: '', anchors: [], step: '' } : null;
+    }
+    if (typeof raw === 'object' && raw.summary) {
+      var anchors = Array.isArray(raw.anchors)
+        ? raw.anchors.map(function (r) { return String(r).replace(/\s+/g, ' ').trim(); }).filter(Boolean)
+        : [];
+      return {
+        summary: String(raw.summary).trim(),
+        fight: raw.fight ? String(raw.fight).trim() : '',
+        anchors: anchors,
+        step: raw.step ? String(raw.step).trim() : ''
+      };
+    }
+    return null;
+  }
+
+  function fillHubBookIntroBody(container, n, bookName) {
+    if (!container || !n || !n.summary) return;
+    container.textContent = '';
+    var p = document.createElement('p');
+    p.className = 'section-note util-mb-0_5';
+    p.textContent = n.summary;
+    container.appendChild(p);
+    if (n.fight) {
+      var f = document.createElement('p');
+      f.className = 'section-note util-mb-0_5';
+      var strong = document.createElement('strong');
+      strong.textContent = 'What fight is this book? ';
+      f.appendChild(strong);
+      f.appendChild(document.createTextNode(n.fight));
+      container.appendChild(f);
+    }
+    if (n.anchors.length) {
+      var ul = document.createElement('ul');
+      ul.className = 'reader-book-intro-anchors util-mb-0_5';
+      ul.setAttribute('aria-label', 'Key verses for daily battles');
+      n.anchors.forEach(function (ref) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '../bible-tool.html?ref=' + encodeURIComponent(ref);
+        a.className = 'kjv-word-helps-ref';
+        a.textContent = ref;
+        a.setAttribute('aria-label', 'Open ' + ref + ' in Bible Tool');
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      container.appendChild(ul);
+    }
+    if (n.step) {
+      var s = document.createElement('p');
+      s.className = 'section-note util-mb-0_5';
+      var st = document.createElement('strong');
+      st.textContent = 'Small step: ';
+      s.appendChild(st);
+      s.appendChild(document.createTextNode(n.step));
+      container.appendChild(s);
+    }
+    if (bookName) {
+      var r = document.createElement('p');
+      r.className = 'section-note util-mb-0';
+      var ra = document.createElement('a');
+      ra.href = '../reader.html?book=' + encodeURIComponent(bookName) + '&chapter=1';
+      ra.className = 'kjv-word-helps-ref';
+      ra.textContent = 'Open chapter 1 in chapter reader';
+      ra.setAttribute('aria-label', 'Open ' + bookName + ' chapter 1 in chapter reader');
+      r.appendChild(ra);
+      container.appendChild(r);
+    }
+  }
+
+  function loadBookIntrosPanel() {
+    var sel = document.getElementById('hub-book-intro-select');
+    var body = document.getElementById('hub-book-intro-body');
+    if (!sel || !body) return;
+    fetch(BOOK_INTROS_URL)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('bad status')); })
+      .then(function (data) {
+        var order = (data && data.bookOrder) || [];
+        var books = (data && data.books) || {};
+        sel.innerHTML = '';
+        var opt0 = document.createElement('option');
+        opt0.value = '';
+        opt0.textContent = 'Select a book…';
+        sel.appendChild(opt0);
+        order.forEach(function (name) {
+          var o = document.createElement('option');
+          o.value = name;
+          o.textContent = name;
+          sel.appendChild(o);
+        });
+        function showBook(name) {
+          body.textContent = '';
+          if (!name) {
+            var hint = document.createElement('p');
+            hint.className = 'section-note util-mb-0';
+            hint.textContent = 'Pick a book to see orientation, key verses, and a small step.';
+            body.appendChild(hint);
+            return;
+          }
+          var n = normalizeBookIntroEntryHub(books[name]);
+          if (!n) return;
+          fillHubBookIntroBody(body, n, name);
+        }
+        sel.addEventListener('change', function () {
+          showBook(sel.value);
+        });
+        showBook('');
+      })
+      .catch(function () {
+        body.textContent = '';
+        var err = document.createElement('p');
+        err.className = 'section-note';
+        err.textContent = 'Book introductions load when you are online — open again when connected.';
+        body.appendChild(err);
+      });
+  }
+
   function loadKjvWordHelpsPanel() {
     var ul = document.getElementById('kjv-word-helps-list');
     if (!ul) return;
@@ -942,6 +1064,7 @@
 
   function init() {
     loadData().then(function () {
+      loadBookIntrosPanel();
       loadKjvWordHelpsPanel();
       renderConcordanceResults([], '');
       var searchInput = document.getElementById('concordance-search-input');

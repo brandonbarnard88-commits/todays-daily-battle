@@ -56,6 +56,12 @@
       align-items: center;
     }
     .reader-book-intro-summary::-webkit-details-marker { display: none; }
+    .reader-book-intro-body .reader-book-intro-anchors {
+      margin: 0.35rem 0 0;
+      padding-left: 1.15rem;
+      color: rgba(226, 232, 240, 0.92);
+    }
+    .reader-book-intro-body .reader-book-intro-anchors li { margin: 0.2rem 0; }
     .reader-back-btn {
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.82rem; font-weight: 600;
@@ -181,7 +187,7 @@
           </div>
           <details id="reader-book-intro-wrap" class="reader-book-intro hidden" aria-labelledby="reader-book-intro-summary-label">
             <summary class="reader-book-intro-summary" id="reader-book-intro-summary-label">About this book</summary>
-            <p id="reader-book-intro-body" class="section-note util-mb-0"></p>
+            <div id="reader-book-intro-body" class="reader-book-intro-body section-note util-mb-0"></div>
             <p class="section-note util-mt-0_5 util-mb-0" style="font-size:0.9rem;opacity:0.85">KJV. One quiet line to frame your reading—not a full commentary.</p>
           </details>
           <div id="reader-output" class="chapter-output reader-output-empty" role="region" aria-label="Chapter content" aria-live="polite">

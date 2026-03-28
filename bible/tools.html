@@ -17,7 +17,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260309p">
   <link rel="stylesheet" href="bible-hub.css?v=1">
-  <link rel="stylesheet" href="bible-tools.css?v=20260329kjvwords">
+  <link rel="stylesheet" href="bible-tools.css?v=20260327bookintros">
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" integrity="sha384-0esPaJH+F9evp2lsJYN36SW7XkRbaYviuyF+PpnbjDXBC9i1CWGiJyGrXCyiyGqZ" crossorigin="anonymous" defer></script>
@@ -106,6 +106,18 @@
           <h2 class="bible-quiz-title">Today's Quiz</h2>
           <p class="bible-quiz-hint" id="bible-quiz-hint">Test your knowledge of today's chapter.</p>
           <button type="button" id="take-quiz-btn" class="take-quiz-btn">Take Today's Quiz</button>
+        </section>
+
+        <section id="book-intros" class="concordance-section glass book-intros-section" role="region" aria-labelledby="book-intros-title">
+          <div class="concordance-section-header">
+            <h2 id="book-intros-title" class="concordance-section-title">Book introductions</h2>
+            <p class="concordance-hint">Short orientation for each book: what fight it serves, a few anchor verses, and one small step. The same text appears in the <a href="../reader.html">chapter reader</a> and in <a href="../bible-tool.html">Bible Tool</a> when you look up a verse.</p>
+          </div>
+          <div class="hub-book-intro-controls">
+            <label for="hub-book-intro-select" class="section-note util-mb-0_5" style="display:block;">Choose a book</label>
+            <select id="hub-book-intro-select" class="hub-book-intro-select" aria-label="Book for introduction"></select>
+          </div>
+          <div id="hub-book-intro-body" class="hub-book-intro-body section-note util-mt-0_75 util-mb-1" aria-live="polite"></div>
         </section>
 
         <section id="kjv-word-helps" class="concordance-section glass kjv-word-helps-section" role="region" aria-labelledby="kjv-word-helps-title">
@@ -355,7 +367,7 @@
   </div>
   <script src="../verse-breakdown.js?v=20260322-ui-decode" defer></script>
   <script src="../bible-study-companion.js?v=20260328print"></script>
-  <script src="bible-tools.js?v=20260329kjvwords"></script>
+  <script src="bible-tools.js?v=20260327bookintros"></script>
   <script type="module" src="../script.js?v=20260328feelwire" defer></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
 </body>

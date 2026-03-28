@@ -69,6 +69,10 @@
     .bible-tool .bible-tool-kjv-step { font-size: 0.9rem; color: #cbd5e1; margin: 0.25rem 0 0; padding-left: 0.55rem; border-left: 2px solid rgba(212, 175, 55, 0.4); }
     .bible-tool .bible-tool-kjv-examples { list-style: none; margin: 0.35rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 0.65rem; }
     .bible-tool .bible-tool-kjv-examples li { margin: 0; font-size: 0.88rem; }
+    .bible-tool .bible-tool-book-intro-panel { padding: 0.65rem 0.75rem; border-radius: 10px; border: 1px solid rgba(148,163,184,0.22); background: rgba(12,18,30,0.35); }
+    .bible-tool .bible-tool-book-intro-panel h3 { font-size: 0.95rem; color: #e3bc67; margin: 0 0 0.35rem; font-weight: 600; }
+    .bible-tool .bible-tool-book-intro-body .reader-book-intro-anchors { margin: 0.35rem 0 0; padding-left: 1.15rem; color: #e2e8f0; }
+    .bible-tool .bible-tool-book-intro-body .reader-book-intro-anchors li { margin: 0.2rem 0; }
     .bible-tool textarea { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid rgba(148,163,184,0.3); background: rgba(15,23,42,0.8); color: #e2e8f0; font-size: 1rem; resize: vertical; min-height: 4rem; }
     .bible-tool label.plan-progress { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 1rem; }
     .bible-tool .verse-ref { font-weight: 600; }
@@ -705,6 +709,11 @@
                 <label for="lookup-tags-input" class="section-note util-mb-0_5" style="display:block;">Tags for this verse (comma-separated)</label>
                 <input type="text" id="lookup-tags-input" class="bible-tool-tags-input" placeholder="e.g. fear, sermon, marriage" autocomplete="off" aria-label="Tags for current verse" maxlength="120" />
                 <p class="section-note util-mt-0_5 util-mb-0">Use tags to group notes later in <a href="mystudy.html" class="bible-tool-gold-link">My Study</a> → Note library.</p>
+                <div id="bible-tool-book-intro-panel" class="bible-tool-book-intro-panel hidden" role="region" aria-labelledby="bible-tool-book-intro-h">
+                  <h3 id="bible-tool-book-intro-h" class="section-note util-mb-0_5 util-mt-0">About this book</h3>
+                  <div id="bible-tool-book-intro-body" class="bible-tool-book-intro-body"></div>
+                  <p class="section-note util-mt-0_5 util-mb-0"><a href="reader.html" class="bible-tool-gold-link">Chapter reader</a> · <a href="bible/tools.html#book-intros" class="bible-tool-gold-link">Browse every book in Hub Tools</a></p>
+                </div>
                 <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word search (concordance)</strong> — see every verse that uses a word.</p>
                 <div class="lookup-controls util-mt-0_5" role="group" aria-label="Concordance shortcuts">
                   <a class="btn btn-secondary" href="bible/tools.html?q=faith">faith</a>
@@ -793,7 +802,7 @@
     </main>
   </div>
 
-  <script type="module" src="script.js?v=20260328feelwire"></script>
+  <script type="module" src="script.js?v=20260327bookintro"></script>
   <script src="bible-study-companion.js?v=20260328print"></script>
   <script src="verse-breakdown.js?v=20260325clean"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
@@ -1358,6 +1367,9 @@
     if (whosThisEl) { whosThisEl.classList.add('hidden'); whosThisEl.innerHTML = ''; }
     if (typeof window._whosThisForVerse === 'function') window._whosThisForVerse(data.reference, data.text);
     syncMemorizeLookupButton(data.reference);
+    if (parts && parts.book && typeof window.TDBBookIntro !== 'undefined' && window.TDBBookIntro && typeof window.TDBBookIntro.updateToolPanel === 'function') {
+      window.TDBBookIntro.updateToolPanel(parts.book);
+    }
   }
 
   function renderLookupError(ref) {
@@ -1382,6 +1394,9 @@
     banner.appendChild(p);
     banner.appendChild(retryBtn);
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (typeof window.TDBBookIntro !== 'undefined' && window.TDBBookIntro && typeof window.TDBBookIntro.updateToolPanel === 'function') {
+      window.TDBBookIntro.updateToolPanel('');
+    }
   }
 
   function escapeHtml(s) {

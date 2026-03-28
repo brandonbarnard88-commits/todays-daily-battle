@@ -159,6 +159,8 @@ const rootFiles = [
   'bible-character-avatars.json',
   'family-lineage.json',
   'tree.json',
+  'book-intros.json',
+  'kjv-word-notes.json',
   // 'bell.mp3' – add to project root if you want a custom bell; otherwise Web Audio beep is used
 ];
 const scriptFiles = ['scripts/header-search-bar.js'];

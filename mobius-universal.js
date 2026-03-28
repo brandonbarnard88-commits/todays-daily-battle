@@ -555,6 +555,7 @@
   var mobiusRibbonPath = null;
   var mobiusRibbonDot = null;
   var mobiusRibbonTraceAnimating = false;
+  var mobiusWeeklyPivotCross = null;
 
   /** True lemniscate (Bernoulli) in viewBox 0 0 200 100 — smooth ∞ for weekly progress dot. */
   /** Weekly schematic ribbon — wide figure-eight (quadratic), viewBox 0 0 600 320. */
@@ -622,6 +623,7 @@
     var d = MOBIUS_WEEKLY_RIBBON_D;
 
     var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('id', 'mobius-ribbon-svg');
     svg.setAttribute('viewBox', '0 0 600 320');
     svg.setAttribute('width', '100%');
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
@@ -645,7 +647,6 @@
       grad.appendChild(s);
     });
     defs.appendChild(grad);
-    appendSvgGlowFilter(defs, 'mobius-slot-weekly-ribbon-glow', 3.2);
     appendSvgGlowFilter(defs, 'mobius-slot-weekly-dot-glow', 2.2);
     svg.appendChild(defs);
 
@@ -666,9 +667,9 @@
     mainPath.setAttribute('stroke-width', '15');
     mainPath.setAttribute('stroke-linecap', 'round');
     mainPath.setAttribute('stroke-linejoin', 'round');
-    mainPath.setAttribute('filter', 'url(#mobius-slot-weekly-ribbon-glow)');
     mainPath.setAttribute('pointer-events', 'none');
     mainPath.setAttribute('d', d);
+    mainPath.setAttribute('id', 'ribbon-main');
     mainPath.setAttribute('class', 'mobius-ribbon-track mobius-ribbon-track-main mobius-weekly-ribbon-main');
 
     var slotShimmerEl = null;
@@ -683,7 +684,7 @@
     }
 
     var twistG = document.createElementNS(ns, 'g');
-    twistG.setAttribute('class', 'mobius-ribbon-twist');
+    twistG.setAttribute('class', 'mobius-ribbon-twist mobius-pivot-cross');
     twistG.setAttribute('pointer-events', 'none');
     var crossV = document.createElementNS(ns, 'line');
     crossV.setAttribute('x1', '320');
@@ -724,7 +725,17 @@
     wrap.appendChild(cap);
     mobiusRibbonPath = mainPath;
     mobiusRibbonDot = dot;
+    mobiusWeeklyPivotCross = twistG;
     updateMobiusRibbonDot();
+  }
+
+  function flashWeeklyPivotCrossHighlight() {
+    if (!mobiusWeeklyPivotCross || prefersReducedMotionRibbon()) return;
+    var g = mobiusWeeklyPivotCross;
+    g.classList.add('highlight');
+    setTimeout(function () {
+      g.classList.remove('highlight');
+    }, 1400);
   }
 
   function initMobiusRibbonTrace() {
@@ -749,6 +760,7 @@
           btn.removeAttribute('aria-busy');
           btn.disabled = false;
           updateMobiusRibbonDot();
+          flashWeeklyPivotCrossHighlight();
           return;
         }
         var pt = mobiusRibbonPath.getPointAtLength(totalLen * t);

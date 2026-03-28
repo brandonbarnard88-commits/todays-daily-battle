@@ -160,11 +160,29 @@
     @keyframes mobius-weekly-ribbon-shimmer {
       to { stroke-dashoffset: -160; }
     }
-    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) .mobius-weekly-ribbon-main {
-      stroke-dasharray: 120 40;
-      animation: mobius-ribbon-breathe 8s ease-in-out infinite, mobius-weekly-ribbon-shimmer 9s linear infinite;
+    @keyframes mobius-ribbon-halo-filter {
+      0%, 100% { filter: drop-shadow(0 0 18px rgba(227, 188, 103, 0.45)); }
+      50% { filter: drop-shadow(0 0 28px rgba(227, 188, 103, 0.65)); }
+    }
+    #mobius-ribbon-svg #ribbon-main {
+      filter: drop-shadow(0 0 18px rgba(227, 188, 103, 0.45));
+    }
+    .mobius-ribbon-svg:not(.mobius-ribbon-svg--reduced-motion) #ribbon-main {
+      animation: mobius-ribbon-breathe 8s ease-in-out infinite, mobius-weekly-ribbon-shimmer 9s linear infinite, mobius-ribbon-halo-filter 8s ease-in-out infinite;
     }
     .mobius-ribbon-svg--reduced-motion .mobius-weekly-ribbon-main { stroke-opacity: 0.58; stroke-dasharray: none; }
+    .mobius-ribbon-svg--reduced-motion #ribbon-main {
+      filter: drop-shadow(0 0 14px rgba(227, 188, 103, 0.32));
+    }
+    .mobius-pivot-cross {
+      transition: filter 1s ease-out;
+    }
+    .mobius-pivot-cross.highlight {
+      filter: drop-shadow(0 0 22px rgba(227, 188, 103, 0.58));
+    }
+    .mobius-pivot-cross.highlight line {
+      stroke: rgba(242, 220, 152, 0.88);
+    }
     @keyframes mobius-viz-shimmer-travel {
       to { stroke-dashoffset: -120; }
     }
@@ -188,10 +206,18 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .mobius-ribbon-dot { transition: none; }
+      #mobius-ribbon-svg #ribbon-main {
+        filter: drop-shadow(0 0 14px rgba(227, 188, 103, 0.32)) !important;
+      }
       .mobius-weekly-ribbon-main {
         animation: none !important;
         stroke-dasharray: none !important;
         stroke-opacity: 0.58 !important;
+      }
+      .mobius-pivot-cross.highlight,
+      .mobius-pivot-cross.highlight line {
+        filter: none !important;
+        stroke: rgba(227, 188, 103, 0.24) !important;
       }
       #mobius-universal-viz .mobius-viz-ribbon-shimmer {
         animation: none !important;

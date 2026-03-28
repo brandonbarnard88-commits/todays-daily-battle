@@ -7,11 +7,11 @@
 
   var KJV_2TIM =
     'For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.';
+  var STUDY_KEY = 'tdb_my_study_v1';
   var BREATH_ROUNDS = 3;
   var INHALE_MS = 4000;
   var HOLD_MS = 2000;
   var EXHALE_MS = 6000;
-  var VERSE_REPS = 16;
   var VERSE_AUTO_MS = 5200;
 
   function $(id) {
@@ -30,6 +30,14 @@
     if (!el) return;
     if (on) el.removeAttribute('hidden');
     else el.setAttribute('hidden', '');
+  }
+
+  function getRepCount() {
+    var sel = $('mobius-v2-rep-count');
+    if (!sel) return 16;
+    var n = parseInt(sel.value, 10);
+    if (n === 12 || n === 16 || n === 20) return n;
+    return 16;
   }
 
   function setPhaseLabel(phaseLabel, title, sub) {
@@ -81,8 +89,7 @@
     return chain;
   }
 
-  function runVerseReps(verseEl, counterEl, repHint, reduced) {
-    var n = VERSE_REPS;
+  function runVerseReps(n, verseEl, counterEl, repHint, reduced) {
     var delay = reduced ? Math.min(VERSE_AUTO_MS, 3500) : VERSE_AUTO_MS;
     var chain = Promise.resolve();
     for (var i = 1; i <= n; i++) {
@@ -110,7 +117,49 @@
     return chain;
   }
 
-  function finishSession(doneEl, startBtn) {
+  function appendMobiusSessionToMyStudy(text) {
+    var raw = localStorage.getItem(STUDY_KEY);
+    var study;
+    try {
+      study = raw ? JSON.parse(raw) : null;
+    } catch (e) {
+      study = null;
+    }
+    if (!study || typeof study !== 'object') {
+      study = {
+        verseRef: '',
+        verseText: '',
+        notes: '',
+        prayer: '',
+        showName: false,
+        displayName: '',
+      };
+    }
+    var block = '\n\n—— Möbius Loop —— ' + new Date().toLocaleString() + '\n' + String(text || '');
+    study.notes = (study.notes || '') + block;
+    try {
+      localStorage.setItem(STUDY_KEY, JSON.stringify(study));
+    } catch (e) {}
+  }
+  window.TDB_appendMobiusSessionToMyStudy = appendMobiusSessionToMyStudy;
+
+  function setDoneFearFaithLink() {
+    var a = $('mobius-v2-done-ff-link');
+    if (!a) return;
+    var pr = 0;
+    try {
+      pr = parseInt(localStorage.getItem('tdb-plan-fearfaith-day') || '0', 10);
+    } catch (e) {}
+    if (pr >= 7) {
+      a.setAttribute('href', 'plans.html?plan=fearfaith');
+    } else if (pr <= 0) {
+      a.setAttribute('href', 'plans.html?plan=fearfaith&day=1');
+    } else {
+      a.setAttribute('href', 'plans.html?plan=fearfaith&day=' + String(Math.min(pr + 1, 7)));
+    }
+  }
+
+  function finishSession(doneEl, startBtn, repCount) {
     setVisible($('mobius-v2-breathe'), false);
     setVisible($('mobius-v2-verse'), false);
     setVisible(doneEl, true);
@@ -130,9 +179,17 @@
       'Breathing rounds: ' +
       BREATH_ROUNDS +
       '\nVerse repetitions: ' +
-      VERSE_REPS;
+      repCount;
     var pre = $('mobius-v2-session-text');
     if (pre) pre.textContent = summary;
+
+    setDoneFearFaithLink();
+
+    var saveStatus = $('mobius-v2-save-status');
+    if (saveStatus) {
+      saveStatus.textContent = '';
+      saveStatus.hidden = true;
+    }
 
     try {
       if (typeof window.trackEvent === 'function') {
@@ -153,10 +210,12 @@
     var repHint = $('mobius-v2-rep-hint');
     var copyBtn = $('mobius-v2-copy-summary');
     var printBtn = $('mobius-v2-print');
+    var saveStudyBtn = $('mobius-v2-save-mystudy');
 
     if (!start) return;
 
     start.addEventListener('click', function () {
+      var repCount = getRepCount();
       start.setAttribute('hidden', '');
       setVisible(done, false);
       setVisible(breathe, true);
@@ -168,10 +227,10 @@
         .then(function () {
           setVisible(breathe, false);
           setVisible(verse, true);
-          return runVerseReps(verseText, repCounter, repHint, reduced);
+          return runVerseReps(repCount, verseText, repCounter, repHint, reduced);
         })
         .then(function () {
-          finishSession(done, start);
+          finishSession(done, start, repCount);
         })
         .catch(function (e) {
           if (typeof console !== 'undefined' && console.warn) console.warn('mobius-text-v2', e);
@@ -180,6 +239,20 @@
           start.removeAttribute('hidden');
         });
     });
+
+    if (saveStudyBtn) {
+      saveStudyBtn.addEventListener('click', function () {
+        var pre = $('mobius-v2-session-text');
+        var t = pre ? pre.textContent : '';
+        if (!t) return;
+        appendMobiusSessionToMyStudy(t);
+        var st = $('mobius-v2-save-status');
+        if (st) {
+          st.hidden = false;
+          st.textContent = 'Saved to My Study on this device. Open Study to see your notes.';
+        }
+      });
+    }
 
     if (copyBtn) {
       copyBtn.addEventListener('click', function () {

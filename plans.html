@@ -2967,6 +2967,18 @@
       if (planParam && PLANS[planParam]) {
         renderIndex();
         openPlan(planParam);
+        var dayParam = params.get('day');
+        if (dayParam && currentPlan) {
+          var d1 = parseInt(dayParam, 10);
+          if (!isNaN(d1) && d1 >= 1) {
+            var prog = getDayProgress(currentPlan);
+            var maxIdx = prog >= currentPlan.max ? currentPlan.max - 1 : prog;
+            var targetIdx = Math.min(d1 - 1, maxIdx);
+            if (targetIdx < 0) targetIdx = 0;
+            currentDay = Math.min(targetIdx, currentPlan.max - 1);
+            renderDetail();
+          }
+        }
       } else {
         renderIndex();
       }

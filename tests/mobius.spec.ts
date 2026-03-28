@@ -68,6 +68,25 @@ test.describe('Möbius Loop', () => {
     await expect(page.locator('#mobius-ribbon-slot svg')).toBeVisible({ timeout: 10000 });
   });
 
+  test('ribbon trace control and text mode rep selector', async ({ page }) => {
+    await page.goto('/mobius.html');
+    await expect(page.locator('#mobius-ribbon-trace')).toBeVisible({ timeout: 15000 });
+    await page.getByRole('tab', { name: /Text mode/i }).click();
+    await expect(page.locator('#mobius-v2-rep-count')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#mobius-v2-save-mystudy')).toBeHidden();
+    await page.locator('#mobius-v2-rep-count').selectOption('20');
+  });
+
+  test('plans fearfaith day param opens detail capped by progress', async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem('tdb-plan-fearfaith-day', '0');
+    });
+    /* Use /plans?… not /plans.html?… — local `serve dist` 301s to /plans and drops the query string. */
+    await page.goto('/plans?plan=fearfaith&day=3');
+    await expect(page.locator('#planDetail.active')).toBeVisible({ timeout: 20000 });
+    await expect(page.locator('.day-card-num').first()).toContainText('Day 1');
+  });
+
   test('calm anxiety flow shows Möbius link', async ({ page }) => {
     await page.goto('/calm.html');
     await page.getByRole('button', { name: /Anxious or afraid/i }).click();

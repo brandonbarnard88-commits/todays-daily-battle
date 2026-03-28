@@ -133,13 +133,17 @@
     .mobius-ff-bridge { max-width: 36rem; margin: 0 auto 1rem; padding: 0.75rem 1rem; border: 1px solid rgba(227,188,103,0.35); border-radius: 12px; background: rgba(26,33,45,0.5); text-align: center; }
     .mobius-ff-bridge-inner { margin: 0; font-size: 0.88rem; color: var(--tool-muted); line-height: 1.5; }
     .mobius-ff-bridge-link { color: var(--tool-gold-soft); font-weight: 600; }
-    .mobius-ribbon-slot { width: 100%; max-width: 420px; margin: 0 auto 0.75rem; text-align: center; }
+    .mobius-ribbon-slot { width: 100%; max-width: 420px; margin: 0 auto 0.35rem; text-align: center; }
+    .mobius-ribbon-actions { display: flex; justify-content: center; margin-bottom: 0.75rem; }
     .mobius-ribbon-svg { width: min(100%, 320px); height: auto; display: block; margin: 0 auto; }
     .mobius-ribbon-cap { margin: 0.35rem 0 0; font-size: 0.78rem; color: var(--tool-muted); line-height: 1.4; }
     @media (prefers-reduced-motion: reduce) {
       .mobius-ribbon-dot { transition: none; }
     }
     .mobius-text-v2 { width: 100%; max-width: 28rem; margin: 0 auto; text-align: center; }
+    .mobius-v2-presets { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-bottom: 1rem; }
+    .mobius-v2-label { font-size: 0.85rem; color: var(--tool-muted); }
+    .mobius-v2-save-status { font-size: 0.8rem; color: var(--tool-muted); margin: 0.5rem 0 0; line-height: 1.45; max-width: 22rem; margin-left: auto; margin-right: auto; }
     .mobius-text-v2-lead { font-size: 0.92rem; color: var(--tool-muted); line-height: 1.55; margin: 0 0 1rem; }
     .mobius-v2-stage { min-height: 12rem; margin-top: 0.5rem; }
     .mobius-v2-breathe, .mobius-v2-verse, .mobius-v2-done { padding: 0.5rem 0; }
@@ -203,6 +207,9 @@
         <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
       </div>
       <div id="mobius-ribbon-slot" class="mobius-ribbon-slot"></div>
+      <div class="mobius-ribbon-actions">
+        <button type="button" id="mobius-ribbon-trace" class="tool-btn tool-btn-muted" aria-label="Trace the ribbon once">Trace ribbon</button>
+      </div>
       <div id="mobius-timer-display" class="mobius-timer-display" role="status" aria-live="polite" aria-atomic="true"></div>
       <p id="mobius-streak-display" class="mobius-streak-display" role="status" aria-live="polite"></p>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle—every battle passes through 2 Timothy 1:7 and connects back"></div>
@@ -275,7 +282,15 @@
 
     <div id="mobius-panel-text" class="mobius-panel" role="tabpanel" aria-labelledby="mobius-tab-text" hidden>
       <div class="mobius-text-v2">
-        <p class="mobius-text-v2-lead">Calm path: three slow breathing rounds, then sixteen quiet repetitions of <strong>2 Timothy 1:7</strong> (KJV). Nothing leaves your device.</p>
+        <p class="mobius-text-v2-lead">Calm path: three slow breathing rounds, then twelve to twenty quiet repetitions of <strong>2 Timothy 1:7</strong> (KJV)—you choose. Nothing leaves your device.</p>
+        <div class="mobius-v2-presets">
+          <label for="mobius-v2-rep-count" class="mobius-v2-label">KJV repetitions (2 Timothy 1:7)</label>
+          <select id="mobius-v2-rep-count" class="mobius-mood-select" aria-label="Number of verse repetitions">
+            <option value="12">12</option>
+            <option value="16" selected>16</option>
+            <option value="20">20</option>
+          </select>
+        </div>
         <button type="button" id="mobius-v2-start" class="tool-btn" aria-label="Begin calm path with breathing and verse">Begin calm path</button>
         <div id="mobius-v2-stage" class="mobius-v2-stage">
           <div id="mobius-v2-breathe" class="mobius-v2-breathe" hidden>
@@ -291,7 +306,10 @@
           </div>
           <div id="mobius-v2-done" class="mobius-v2-done" hidden>
             <p class="mobius-v2-done-msg">The loop continues — same ribbon, same God. Your weekly count just grew.</p>
-            <p class="mobius-v2-done-msg"><a href="plans.html?plan=fearfaith">Continue Fear to Faith</a> when you are ready.</p>
+            <p class="mobius-v2-done-msg"><a href="plans.html?plan=fearfaith&amp;day=1" id="mobius-v2-done-ff-link">Continue Fear to Faith</a> when you are ready.</p>
+            <button type="button" class="tool-btn" id="mobius-v2-save-mystudy">Save to My Study</button>
+            <a href="study.html" class="tool-btn tool-btn-muted" id="mobius-v2-open-study">Open My Study</a>
+            <p id="mobius-v2-save-status" class="mobius-v2-save-status" role="status" aria-live="polite" hidden></p>
             <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-copy-summary">Copy session summary</button>
             <button type="button" class="tool-btn tool-btn-muted" id="mobius-v2-print">Print summary</button>
             <pre id="mobius-v2-session-text" class="mobius-v2-session-text" aria-hidden="true"></pre>
@@ -356,8 +374,8 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260328feelwire" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
-  <script src="mobius-universal.js?v=20260328mobius2" defer></script>
-  <script src="mobius-text-v2.js?v=20260328mobius2" defer></script>
+  <script src="mobius-universal.js?v=20260328mobius3" defer></script>
+  <script src="mobius-text-v2.js?v=20260328mobius3" defer></script>
   <script src="share-page.js" defer></script>
   <script src="easter-eggs.js" defer></script>
   <script nonce="tdb2025s">

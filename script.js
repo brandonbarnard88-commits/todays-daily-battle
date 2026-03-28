@@ -20080,7 +20080,7 @@ async function tdbInitImpl() {
     (function () {
       function registerSW() {
         return new Promise(function (resolve, reject) {
-          navigator.serviceWorker.register('/sw.js?v=20260328-mobius-loop-2', { scope: '/' })
+          navigator.serviceWorker.register('/sw.js?v=20260328-mobius-mobius3', { scope: '/' })
             .then(function (reg) {
               if (!reg) { resolve(null); return; }
               navigator.serviceWorker.getRegistration('/').then(function (fresh) {

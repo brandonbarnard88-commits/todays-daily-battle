@@ -519,6 +519,19 @@
   var STREAK_KEY_PREFIX = 'mobiusLoops_';
   var mobiusRibbonPath = null;
   var mobiusRibbonDot = null;
+  var mobiusRibbonTraceAnimating = false;
+
+  /** Figure-eight (lemniscate-style) ribbon; viewBox 0 0 200 100 — matches weekly progress dot. */
+  var MOBIUS_RIBBON_PATH_D =
+    'M 100 50 C 30 50 30 10 100 10 C 170 10 170 50 100 50 C 30 50 30 90 100 90 C 170 90 170 50 100 50';
+
+  function prefersReducedMotionRibbon() {
+    try {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {
+      return false;
+    }
+  }
 
   function getRibbonProgress() {
     try {
@@ -555,10 +568,8 @@
     path.setAttribute('stroke', 'rgba(227,188,103,0.45)');
     path.setAttribute('stroke-width', '2');
     path.setAttribute('stroke-linecap', 'round');
-    path.setAttribute(
-      'd',
-      'M 100 50 m -45 0 a 45 45 0 1 1 90 0 a 45 45 0 1 1 -90 0'
-    );
+    path.setAttribute('stroke-linejoin', 'round');
+    path.setAttribute('d', MOBIUS_RIBBON_PATH_D);
     var dot = document.createElementNS(ns, 'circle');
     dot.setAttribute('r', '5');
     dot.setAttribute('fill', '#e3bc67');
@@ -575,6 +586,39 @@
     updateMobiusRibbonDot();
   }
 
+  function initMobiusRibbonTrace() {
+    var btn = document.getElementById('mobius-ribbon-trace');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (prefersReducedMotionRibbon()) {
+        showTracerToast('Reduced motion is on — trace skipped.');
+        return;
+      }
+      if (mobiusRibbonTraceAnimating || !mobiusRibbonPath || !mobiusRibbonDot) return;
+      mobiusRibbonTraceAnimating = true;
+      btn.setAttribute('aria-busy', 'true');
+      btn.disabled = true;
+      var totalLen = mobiusRibbonPath.getTotalLength();
+      var start = performance.now();
+      var dur = 2600;
+      function step(now) {
+        var t = (now - start) / dur;
+        if (t >= 1) {
+          mobiusRibbonTraceAnimating = false;
+          btn.removeAttribute('aria-busy');
+          btn.disabled = false;
+          updateMobiusRibbonDot();
+          return;
+        }
+        var pt = mobiusRibbonPath.getPointAtLength(totalLen * t);
+        mobiusRibbonDot.setAttribute('cx', String(pt.x));
+        mobiusRibbonDot.setAttribute('cy', String(pt.y));
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
   function initFearFaithBridge() {
     var el = document.getElementById('mobius-ff-bridge');
     if (!el) return;
@@ -587,21 +631,23 @@
     var p = document.createElement('p');
     p.className = 'mobius-ff-bridge-inner';
     var a = document.createElement('a');
-    a.href = 'plans.html?plan=fearfaith';
     a.className = 'mobius-ff-bridge-link';
     if (day <= 0) {
       p.appendChild(document.createTextNode('Fear to Faith — '));
       a.textContent = 'open the 7-day KJV plan';
+      a.setAttribute('href', 'plans.html?plan=fearfaith&day=1');
       p.appendChild(a);
       p.appendChild(document.createTextNode(' (progress stays on this device).'));
     } else if (day >= 7) {
       p.appendChild(document.createTextNode('Fear to Faith — '));
       a.textContent = 'plan complete — revisit or walk the loop again';
+      a.setAttribute('href', 'plans.html?plan=fearfaith');
       p.appendChild(a);
       p.appendChild(document.createTextNode('.'));
     } else {
       p.appendChild(document.createTextNode('Fear to Faith — through day ' + day + ' of 7. '));
       a.textContent = 'Continue the plan';
+      a.setAttribute('href', 'plans.html?plan=fearfaith&day=' + String(Math.min(day + 1, 7)));
       p.appendChild(a);
       p.appendChild(document.createTextNode('.'));
     }
@@ -893,6 +939,7 @@
     refreshMobiusStreakDisplay();
     initFearFaithBridge();
     initMobiusRibbonSvg();
+    initMobiusRibbonTrace();
 
     if (container) doMount();
 

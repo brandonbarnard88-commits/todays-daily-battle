@@ -1,6 +1,6 @@
 {
-  "version": 5,
-  "about": "Book introductions: short orientation, optional “fight,” anchor verses, and a small step. KJV-only site; human tone.",
+  "version": 6,
+  "about": "Book introductions: short orientation, optional “fight,” anchor verses, and a small step. KJV-only site; human tone. v6 adds Luke, Acts, 1 Samuel, Daniel; refreshes Romans.",
   "bookOrder": [
     "Genesis",
     "Exodus",
@@ -104,7 +104,16 @@
       "summary": "Loyalty and redemption: ordinary faithfulness in famine; God weaves a Moabitess into the line of the King."
     },
     "1 Samuel": {
-      "summary": "Kingship begins: God’s prophet, a flawed king, and the search for a heart after God."
+      "summary": "Kingship begins: God’s prophet, a flawed king, and the search for a heart after God.",
+      "fight": "The turbulent transition from judges to kings, exposing the human heart’s demand for a visible leader while God raises a man after His own heart — teaching us to trust God’s timing and choice over our own.",
+      "anchors": [
+        "1 Samuel 8:7",
+        "1 Samuel 13:14",
+        "1 Samuel 15:22",
+        "1 Samuel 16:7",
+        "1 Samuel 17:45"
+      ],
+      "step": "When you feel pressure to choose a “king” (quick fix, strong personality, or visible solution), pause and speak one anchor verse, asking God to search your heart and give you His perspective."
     },
     "2 Samuel": {
       "summary": "David’s reign: triumph, sin, and consequence—grace that does not erase accountability."
@@ -194,7 +203,16 @@
       "summary": "Glory and exile: visions of God’s presence leaving and returning; hearts of stone to hearts of flesh."
     },
     "Daniel": {
-      "summary": "Faith in empire: prayer when law forbids it; God rules the beasts and the years."
+      "summary": "Faith in empire: prayer when law forbids it; God rules the beasts and the years.",
+      "fight": "Faithful obedience and bold witness while living as exiles under hostile empires — showing that God is sovereign over kings, lions, and fiery trials, and that He delivers and reveals His plans to those who stand firm.",
+      "anchors": [
+        "Daniel 1:8",
+        "Daniel 2:20",
+        "Daniel 3:17",
+        "Daniel 6:10",
+        "Daniel 9:19"
+      ],
+      "step": "Choose one area where compromise feels easy this week and resolve, like Daniel, to stay faithful in the small daily discipline — then watch how God honors that stand."
     },
     "Hosea": {
       "summary": "Unfaithful love: God’s steadfastness to a people who play the harlot; mercy over sacrifice."
@@ -257,7 +275,16 @@
       "step": "Read Mark 8:34–38 in one sitting; ask what “deny himself” looks like in one concrete area of your day."
     },
     "Luke": {
-      "summary": "Son of Man for outsiders: mercy, meals, and a journey to Jerusalem for the world’s life."
+      "summary": "Son of Man for outsiders: mercy, meals, and a journey to Jerusalem for the world’s life.",
+      "fight": "The careful, compassionate record of Jesus reaching the outsider, the broken, and the lost — showing that the Kingdom belongs to the least and the lowly.",
+      "anchors": [
+        "Luke 4:18",
+        "Luke 5:31",
+        "Luke 15:20",
+        "Luke 19:10",
+        "Luke 23:43"
+      ],
+      "step": "Read the parable or story attached to one anchor today and notice who Jesus is reaching — then bring one “outsider” situation in your own life to Him in prayer."
     },
     "John": {
       "summary": "Believe: signs point to the Word made flesh; life in His name for those who trust.",
@@ -272,19 +299,28 @@
       "step": "Read John 3–4 and notice who believes; ask the Lord to show you one person to pray for by name."
     },
     "Acts": {
-      "summary": "Witness in power: the Spirit spreads the church from Jerusalem to Rome—doors open, stones fly."
+      "summary": "Witness in power: the Spirit spreads the church from Jerusalem to Rome—doors open, stones fly.",
+      "fight": "The explosive spread of the gospel through ordinary, Spirit-filled people facing opposition, persecution, and cultural clash — proving the church is built by God, not human strategy.",
+      "anchors": [
+        "Acts 1:8",
+        "Acts 2:42",
+        "Acts 4:31",
+        "Acts 8:4",
+        "Acts 28:31"
+      ],
+      "step": "Pick one anchor and ask the Lord to fill you with the same boldness and dependence the early believers showed, even in small, everyday moments."
     },
     "Romans": {
       "summary": "Gospel unpacked: wrath, grace, union with Christ, one body—obedience from faith for all nations.",
-      "fight": "Who is right with God, and how does that change the way we walk? Paul speaks to the conscience.",
+      "fight": "The deep diagnosis of sin and the glorious announcement of justification by faith alone, giving believers solid ground to stand on in every battle against guilt, shame, and the flesh.",
       "anchors": [
-        "Romans 1:16",
         "Romans 3:23",
         "Romans 5:1",
+        "Romans 6:14",
         "Romans 8:1",
-        "Romans 12:1"
+        "Romans 8:28"
       ],
-      "step": "Read Romans 5:1–11 and underline every “we” or “us” that speaks of union with Christ."
+      "step": "Meditate on one anchor verse slowly; let it remind you that your standing with God rests on Christ’s finished work, not your daily performance."
     },
     "1 Corinthians": {
       "summary": "Church in a city: cross-shaped wisdom, body life, love that never fails.",

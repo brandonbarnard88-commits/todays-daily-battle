@@ -9,15 +9,15 @@
   <script defer src="../analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tools • Bible Hub • Today's Daily Battle</title>
-  <meta name="description" content="KJV concordance, verse maps, book intros, word helps, memory and quiz—quiet tools for deeper study.">
+  <title>Study workshop (Tools) • Bible Hub • Today's Daily Battle</title>
+  <meta name="description" content="KJV concordance, verse maps, book intros, full word-help index, memory and quiz—one calm workshop for deeper study.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/bible/tools.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260329tools-hub">
   <link rel="stylesheet" href="bible-hub.css?v=1">
-  <link rel="stylesheet" href="bible-tools.css?v=20260329tools-grid">
+  <link rel="stylesheet" href="bible-tools.css?v=20260328workshop">
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" integrity="sha384-0esPaJH+F9evp2lsJYN36SW7XkRbaYviuyF+PpnbjDXBC9i1CWGiJyGrXCyiyGqZ" crossorigin="anonymous" defer></script>
@@ -61,11 +61,15 @@
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner bible-hub-inner bible-tools-inner">
         <header class="bible-hub-hero bible-tools-hero">
+          <p class="bible-tools-eyebrow">Study workshop</p>
           <h1>Tools</h1>
-          <p class="bible-hub-tagline">A calm workshop for the King James Bible—search, map, memorize, and go deeper.</p>
-          <p class="bible-tools-intro">Quiet tools to help you search, understand, and teach the KJV. Everything here is built to stay light and fast; open each tool once while online so it is ready when you need it offline.</p>
+          <p class="bible-hub-tagline">A calm workshop for the King James Bible—map, memorize, browse context, and search the text.</p>
+          <p class="bible-tools-intro">Quiet tools to help you understand and teach the KJV. Everything here is built to stay light and fast; open each tool once while online so it is ready when you need it offline.</p>
         </header>
 
+        <p class="bible-tools-hub-bridge">Verse lookup, topic search, and Ask the Word stay in the <a href="../bible-tool.html">Bible Tool</a>. This page is the shelf for maps, memory, book intros, the full word-help index, and concordance. Notes and your queue live in <a href="../mystudy.html">My Study</a>.</p>
+
+        <div class="bible-tools-overview-shell">
         <nav class="bible-tools-overview" aria-label="Jump to a tool">
           <p class="bible-tools-overview-label" id="bible-tools-overview-label">At a glance</p>
           <ul class="bible-tools-overview-grid" aria-labelledby="bible-tools-overview-label">
@@ -107,6 +111,7 @@
             </li>
           </ul>
         </nav>
+        </div>
 
         <section class="bible-tools-group" aria-labelledby="bible-tools-group-place">
           <h2 id="bible-tools-group-place" class="bible-tools-group-title">Maps &amp; place</h2>
@@ -168,7 +173,7 @@
         <section id="book-intros" class="concordance-section glass book-intros-section" role="region" aria-labelledby="book-intros-title">
           <div class="concordance-section-header">
             <h3 id="book-intros-title" class="concordance-section-title">Book introductions</h3>
-            <p class="concordance-hint">Short orientation for each book: what fight it serves, a few anchor verses, and one small step. The same text appears in the <a href="../reader.html">chapter reader</a> and in <a href="../bible-tool.html">Bible Tool</a> when you look up a verse. Battle Plans: <a href="../plans.html?plan=psalmscomfort">Psalms of Comfort</a>, <a href="../plans.html?plan=psalmspraise">Psalms of Praise</a>, <a href="../plans.html?plan=proverbswisdom">Proverbs Wisdom</a>, <a href="../plans.html?plan=hopeuncertain">Hope in Uncertainty</a>, <a href="../plans.html?plan=gospeljohn">John sampler</a>, <a href="../plans.html?plan=sufferendure">Suffering &amp; Endurance</a>.</p>
+            <p class="concordance-hint">Short orientation for each book: what fight it serves, a few anchor verses, and one small step. The same text appears in the <a href="../reader.html">chapter reader</a> and in <a href="../bible-tool.html">Bible Tool</a> after a lookup—this grid is the place to browse them all. Plan tie-ins live on <a href="../plans.html">Battle Plans</a>.</p>
           </div>
           <div class="hub-book-intro-controls">
             <label for="hub-book-intro-select" class="section-note util-mb-0_5 bible-hub-tools-label">Choose a book</label>
@@ -180,8 +185,7 @@
         <section id="kjv-word-helps" class="concordance-section glass kjv-word-helps-section" role="region" aria-labelledby="kjv-word-helps-title">
           <div class="concordance-section-header">
             <h3 id="kjv-word-helps-title" class="concordance-section-title">KJV word helps</h3>
-            <p class="concordance-hint">Short glosses for wording that often misleads modern readers. Tap the headword to search the concordance below; tap a verse to open it in the Bible Tool.</p>
-            <p class="section-note util-mb-0_5"><a href="../bible-tool.html#bible-tool-study-details">Open the full study list</a> in the Bible Tool (scrollable, with a small step line on each entry).</p>
+            <p class="concordance-hint">Short glosses for wording that often misleads modern readers. Tap the headword to search the concordance below; tap a verse to open it in the Bible Tool. After a lookup, the Tool&rsquo;s study companion can show glosses for words in <em>that</em> verse only—<strong>this</strong> list is the full A&ndash;Z index.</p>
           </div>
           <ul id="kjv-word-helps-list" class="kjv-word-helps-list" aria-label="KJV word help entries"></ul>
         </section>

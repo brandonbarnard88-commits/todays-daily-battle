@@ -1117,6 +1117,27 @@
 }
 
 /* ── Tools hub layout: intro, jump grid, grouped sections (Mar 2026) ── */
+.bible-tools-hero {
+  margin-bottom: 0.35rem;
+  padding: 1.2rem 1rem 1.45rem;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse 115% 85% at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 55%),
+    rgba(15, 23, 42, 0.42);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-sizing: border-box;
+}
+
+.bible-tools-eyebrow {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.88);
+  margin: 0 auto 0.45rem;
+}
+
 .bible-tools-hero .bible-hub-tagline {
   max-width: 36rem;
   margin-left: auto;
@@ -1134,8 +1155,42 @@
   text-align: center;
 }
 
+.bible-tools-hub-bridge {
+  max-width: 38rem;
+  margin: 0 auto 1.35rem;
+  padding: 0.85rem 1.05rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.58;
+  color: rgba(226, 232, 240, 0.88);
+  text-align: center;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.38);
+}
+
+.bible-tools-hub-bridge a {
+  color: #e8cf7a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.bible-tools-hub-bridge a:hover,
+.bible-tools-hub-bridge a:focus-visible {
+  color: #f5e3aa;
+}
+
+.bible-tools-overview-shell {
+  margin: 0 0 2.5rem;
+  padding: 1.15rem 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(15, 23, 42, 0.32);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.14);
+}
+
 .bible-tools-overview {
-  margin: 1.75rem 0 2.25rem;
+  margin: 0;
   padding: 0;
 }
 

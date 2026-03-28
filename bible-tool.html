@@ -403,6 +403,23 @@
     .prayer-prompt.hidden { display: none; }
     .prayer-prompt .copy-btn { background: none; border: none; color: #d4af37; cursor: pointer; font-style: normal; }
     .prayer-prompt .copy-btn:hover { text-decoration: underline; }
+    .bible-tool-workshop-strip {
+      max-width: 42rem;
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      background: rgba(212, 175, 55, 0.07);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: rgba(226, 232, 240, 0.9);
+    }
+    .bible-tool-workshop-strip-inner { margin: 0; }
+    .bible-tool-workshop-strip-label {
+      font-weight: 700;
+      color: #e3bc67;
+      letter-spacing: 0.02em;
+    }
   </style>
 </head>
 <body class="dark-mode">
@@ -561,6 +578,10 @@
         <p class="tdb-offline-trust">Still here when the signal isn&rsquo;t.</p>
         <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if a verse or panel didn&rsquo;t load.</span></div>
         <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.65rem 0.85rem;border-radius:10px;border:1px solid rgba(212,175,55,0.28);background:rgba(212,175,55,0.06);max-width:42rem;"><strong>Supporters:</strong> <a href="verse-image.html" class="bible-tool-gold-link">Create a custom verse image</a> — pick a verse, style the card, export PNG or share.</p>
+
+        <div class="bible-tool-workshop-strip" role="navigation" aria-label="Study workshop">
+          <p class="bible-tool-workshop-strip-inner"><span class="bible-tool-workshop-strip-label">Study workshop</span> — Book intros, the full KJV word-help index, verse memory, maps, and concordance live in one shelf: <a class="bible-tool-gold-link" href="bible/tools.html">Bible Hub → Tools</a>. This page stays focused on search, lookup, stories, and notes.</p>
+        </div>
 
         <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
           <label for="query" class="search-hero-label">Search by emotion or verse</label>
@@ -723,7 +744,7 @@
                 <li><a class="bible-tool-gold-link" href="bible-tool.html?ref=2%20Corinthians%205:17">Identity in Christ</a> — 2 Corinthians 5:17</li>
                 <li><a class="bible-tool-gold-link" href="bible-tool.html?ref=Ephesians%205:25">Marriage &amp; Parenting</a> — Ephesians 5:25</li>
               </ul>
-              <p class="section-note util-mt-0_75 util-mb-0">Same links back reading plans and book intros: e.g. <a href="plans.html?plan=proverbswisdom" class="bible-tool-gold-link">Proverbs Wisdom</a> with <strong>Wisdom &amp; fear of the Lord</strong>, <a href="plans.html?plan=sufferendure" class="bible-tool-gold-link">Suffering &amp; Endurance</a> with <strong>Endurance in suffering</strong>, <a href="plans.html?plan=galatiansfreedom" class="bible-tool-gold-link">Galatians: Freedom in Christ</a> with <strong>Grace and Faith</strong> / <strong>Union with Christ</strong>. One calm thread—verse lookup, Hub concordance, or a week on a plan.</p>
+              <p class="section-note util-mt-0_75 util-mb-0">Many chains echo tracks on <a href="plans.html" class="bible-tool-gold-link">Battle Plans</a>—same thread, different pace.</p>
             </details>
             <details class="home-accordion util-mt-1 bible-tool-study-pane" id="bible-tool-study-details">
               <summary class="home-accordion-summary">Study companion — tags, concordance, export</summary>
@@ -734,7 +755,7 @@
                 <div id="bible-tool-book-intro-panel" class="bible-tool-book-intro-panel hidden" role="region" aria-labelledby="bible-tool-book-intro-h">
                   <h3 id="bible-tool-book-intro-h" class="section-note util-mb-0_5 util-mt-0">About this book</h3>
                   <div id="bible-tool-book-intro-body" class="bible-tool-book-intro-body"></div>
-                  <p class="section-note util-mt-0_5 util-mb-0"><a href="reader.html" class="bible-tool-gold-link">Chapter reader</a> · <a href="bible/tools.html#book-intros" class="bible-tool-gold-link">Browse every book in Hub Tools</a> · You can also open <a href="sermon.html" class="bible-tool-gold-link">Sermon Builder</a> with <code class="bible-tool-code">?ref=</code> in the URL; when an intro loads above, use <strong>Build a sermon or lesson</strong> for a prefilled passage.</p>
+                  <p class="section-note util-mt-0_5 util-mb-0"><a href="reader.html" class="bible-tool-gold-link">Chapter reader</a> · <a href="bible/tools.html#book-intros" class="bible-tool-gold-link">Browse every book in the workshop</a> · <a href="sermon.html" class="bible-tool-gold-link">Sermon Builder</a> accepts <code class="bible-tool-code">?ref=</code> when you want a prefilled passage.</p>
                 </div>
                 <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word search (concordance)</strong> — see every verse that uses a word.</p>
                 <div class="lookup-controls util-mt-0_5" role="group" aria-label="Concordance shortcuts">
@@ -744,8 +765,8 @@
                   <a class="btn btn-secondary" href="bible/tools.html?q=quick">quick</a>
                   <a class="btn btn-secondary" href="bible/tools.html?q=conversation">conversation</a>
                 </div>
-                <p class="section-note util-mt-0_75 util-mb-0"><strong>Curated cross-references</strong> load from <code class="bible-tool-code">cross-refs.json</code> (expandable under each lookup). The Hub concordance shows the same chains when you open a hit. Add your own links in the note box anytime.</p>
-                <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word helps</strong> — short glosses, example verses, and one small step. Same list appears on <a href="bible/tools.html#kjv-word-helps" class="bible-tool-gold-link">Bible Hub → Tools</a> next to the concordance.</p>
+                <p class="section-note util-mt-0_75 util-mb-0"><strong>Curated cross-references</strong> load from <code class="bible-tool-code">cross-refs.json</code> (expandable under each lookup). The workshop concordance shows the same chains when you open a hit. Add your own links in the note box anytime.</p>
+                <p class="section-note util-mt-0_75 util-mb-0_5"><strong>KJV word helps for this verse</strong> — the list below refreshes when you look up a passage. The <a href="bible/tools.html#kjv-word-helps" class="bible-tool-gold-link">full A&ndash;Z glossary</a> lives in the study workshop.</p>
                 <ul id="kjv-word-notes-list" class="bible-tool-kjv-words-ul section-note util-mb-0" aria-label="KJV word helps"></ul>
                 <button type="button" id="export-study-json-btn" class="btn btn-secondary util-mt-0_5">Export verse notes + tags (JSON)</button>
                 <p id="export-study-status" class="section-note util-mt-0_5" aria-live="polite"></p>

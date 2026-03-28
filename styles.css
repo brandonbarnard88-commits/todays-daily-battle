@@ -1,3 +1,5 @@
+@import url("tdb-quiet-luxury.css");
+
 :root {
   /* Purple — Easter, royalty, Jesus */
   --primary: #6d28d9;
@@ -93,13 +95,15 @@ html[data-theme="dark"] body,
 html:not([data-theme]) body,
 html[data-theme="dark"] .app-shell,
 html:not([data-theme]) .app-shell {
-  background: #0d0d0d !important;
+  background: radial-gradient(ellipse 100% 55% at 50% -8%, rgba(201, 162, 39, 0.075), transparent 50%),
+    radial-gradient(ellipse 85% 48% at 50% 102%, rgba(201, 162, 39, 0.045), transparent 48%), #0d0d0d !important;
   color: #e5e5e5 !important;
 }
 
 html[data-theme="light"] body,
 html[data-theme="light"] .app-shell {
-  background: #f6f1e3 !important;
+  background: radial-gradient(ellipse 100% 52% at 50% -10%, rgba(201, 162, 39, 0.078), transparent 52%),
+    radial-gradient(ellipse 80% 42% at 50% 108%, rgba(154, 123, 28, 0.048), transparent 45%), #f6f1e3 !important;
   color: #2f2f2f !important;
 }
 

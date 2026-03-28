@@ -1,7 +1,8 @@
 /**
- * Quiet luxury surfaces — warm rose-gold, dial-like depth, guilloché texture.
- * Opt in with class `tdb-lux-page` on <body>. Respects prefers-reduced-motion.
- * Complements existing --gold / --card tokens; does not replace them site-wide.
+ * Quiet luxury — warm rose-gold, dial-like depth, guilloché texture.
+ * Loaded via @import in styles.css (all non-home pages that use styles.css).
+ * plans.html links this file after its inline <style> (no styles.css).
+ * Respects prefers-reduced-motion. Screen-only rules use @media screen where needed.
  */
 
 :root {
@@ -31,17 +32,6 @@
     inset 0 1px 0 var(--tdb-lux-bevel-light);
   --tdb-lux-shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(227, 188, 103, 0.22),
     0 0 28px rgba(201, 162, 39, 0.12), inset 0 1px 0 var(--tdb-lux-bevel-light);
-}
-
-/* Ambient “lamp on velvet” — very subtle */
-body.tdb-lux-page {
-  background-color: var(--color-bg, var(--bg-dark, #080c14));
-  background-image: radial-gradient(ellipse 100% 55% at 50% -8%, rgba(201, 162, 39, 0.075), transparent 50%),
-    radial-gradient(ellipse 80% 50% at 50% 108%, rgba(201, 162, 39, 0.04), transparent 45%);
-}
-
-body.tdb-lux-page.dark-mode .app-shell {
-  background-image: radial-gradient(ellipse 100% 50% at 50% -5%, rgba(201, 162, 39, 0.07), transparent 48%);
 }
 
 /* Display line — inscription tone */
@@ -78,32 +68,33 @@ body.tdb-lux-page.dark-mode .app-shell {
   }
 }
 
-/* —— Family hub —— */
-body.tdb-lux-page .family-verse-card {
-  background-color: var(--card, rgba(12, 18, 30, 0.94));
+/* —— Family hub (scoped classes; inline keeps spacing only) —— */
+.family-verse-card {
+  background-color: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 94%, var(--gold, #e3bc67));
   background-image: var(--tdb-lux-guilloche);
-  border-color: color-mix(in srgb, var(--tdb-lux-rose) 32%, var(--line, #2a3344));
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 32%, var(--line, #2a3344));
   box-shadow: var(--tdb-lux-shadow-card);
   transition: box-shadow var(--tdb-lux-transition), border-color var(--tdb-lux-transition), transform var(--tdb-lux-transition);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  body.tdb-lux-page .family-verse-card:hover {
+  .family-verse-card:hover {
     box-shadow: var(--tdb-lux-shadow-card-hover);
     transform: translateY(-1px);
   }
 }
 
-body.tdb-lux-page .family-hub-card {
+.family-hub-card {
+  background-color: var(--card, rgba(12, 18, 30, 0.94));
   background-image: var(--tdb-lux-guilloche);
-  border-color: color-mix(in srgb, var(--tdb-lux-rose) 22%, var(--line, #2a3344));
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 22%, var(--line, #2a3344));
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(227, 188, 103, 0.1);
   transition: box-shadow var(--tdb-lux-transition), border-color var(--tdb-lux-transition), transform var(--tdb-lux-transition);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  body.tdb-lux-page .family-hub-card:hover,
-  body.tdb-lux-page .family-hub-card:focus-visible {
+  .family-hub-card:hover,
+  .family-hub-card:focus-visible {
     box-shadow: var(--tdb-lux-shadow-card-hover);
     transform: translateY(-2px);
     border-color: color-mix(in srgb, var(--tdb-lux-rose) 40%, var(--line, #2a3344));
@@ -112,47 +103,251 @@ body.tdb-lux-page .family-hub-card {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body.tdb-lux-page .family-hub-card:hover,
-  body.tdb-lux-page .family-hub-card:focus-visible {
+  .family-hub-card:hover,
+  .family-hub-card:focus-visible {
     box-shadow: var(--tdb-lux-shadow-card-hover);
     border-color: color-mix(in srgb, var(--tdb-lux-rose) 36%, var(--line, #2a3344));
     outline: none;
   }
 }
 
-body.tdb-lux-page .family-month-stat {
-  border-color: color-mix(in srgb, var(--tdb-lux-rose) 20%, var(--line, #2a3344));
+.family-month-stat {
+  background-color: var(--card, rgba(12, 18, 30, 0.94));
+  background-image: var(--tdb-lux-guilloche);
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 20%, var(--line, #2a3344));
   box-shadow: inset 0 1px 0 var(--tdb-lux-bevel-light);
 }
 
-/* —— For pastors —— */
-body.tdb-lux-page .testimonial-page-card {
+/* —— Testimonials + for-pastors cards —— */
+.testimonial-page-card {
+  background-color: rgba(255, 255, 255, 0.02);
   background-image: var(--tdb-lux-guilloche);
-  border-color: color-mix(in srgb, var(--tdb-lux-rose) 26%, rgba(227, 188, 103, 0.22));
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 26%, rgba(227, 188, 103, 0.22));
   box-shadow: var(--tdb-lux-shadow-card);
 }
 
-body.tdb-lux-page .fp-oia-example-block {
+.fp-oia-example-block {
+  background-color: rgba(0, 0, 0, 0.12);
   background-image: var(--tdb-lux-guilloche);
-  border-color: color-mix(in srgb, var(--tdb-lux-rose) 18%, rgba(148, 163, 184, 0.2));
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 18%, rgba(148, 163, 184, 0.2));
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32), inset 0 1px 0 var(--tdb-lux-bevel-light);
 }
 
-/* —— Mission / outreach (screen only; print unchanged) —— */
+/* —— Bible Tools overview grid (beats .bible-tools-overview-card via specificity) —— */
 @media screen {
-  body.tdb-lux-page .mo-print-sheet {
+  .bible-tools-overview-grid a.bible-tools-overview-card {
+    background-color: rgba(15, 23, 42, 0.55);
     background-image: var(--tdb-lux-guilloche);
-    border-color: color-mix(in srgb, var(--tdb-lux-rose) 24%, var(--line, #2a3344));
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 24%, rgba(148, 163, 184, 0.22));
+    box-shadow: var(--tdb-lux-shadow-card);
+    transition: border-color var(--tdb-lux-transition), box-shadow var(--tdb-lux-transition), transform var(--tdb-lux-transition);
+  }
+
+  .bible-tools-overview-grid a.bible-tools-overview-card:hover {
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 48%, rgba(212, 175, 55, 0.45));
+    box-shadow: var(--tdb-lux-shadow-card-hover);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bible-tools-overview-grid a.bible-tools-overview-card:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* —— Explore hub tiles (beat base .explore-hub-card) —— */
+@media screen {
+  .explore-page .explore-hub-grid a.explore-hub-card {
+    background-color: color-mix(in srgb, var(--bg, #0f1218) 58%, transparent);
+    background-image: var(--tdb-lux-guilloche);
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 28%, transparent);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.28), inset 0 1px 0 var(--tdb-lux-bevel-light);
+    transition: border-color var(--tdb-lux-transition), background-color var(--tdb-lux-transition), box-shadow var(--tdb-lux-transition),
+      transform var(--tdb-lux-transition);
+  }
+
+  .explore-page .explore-hub-grid a.explore-hub-card:hover,
+  .explore-page .explore-hub-grid a.explore-hub-card:focus-visible {
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 52%, transparent);
+    background-color: color-mix(in srgb, var(--gold, #e3bc67) 12%, var(--bg, #0f1218));
+    box-shadow: var(--tdb-lux-shadow-card-hover);
+    outline: 2px solid color-mix(in srgb, var(--tdb-lux-rose) 42%, transparent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .explore-page .explore-hub-grid a.explore-hub-card:hover,
+    .explore-page .explore-hub-grid a.explore-hub-card:focus-visible {
+      transform: translateY(-2px);
+    }
+  }
+
+  .explore-page .explore-hub-grid a.explore-hub-card--languages {
+    background-color: color-mix(in srgb, var(--bg, #0f1218) 52%, transparent);
+  }
+
+  :root[data-theme="light"] .explore-page .explore-hub-grid a.explore-hub-card {
+    background-color: color-mix(in srgb, var(--card-light, #fff) 94%, var(--gold, #b8860b));
+    background-image: var(--tdb-lux-guilloche);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 22%, rgba(15, 23, 42, 0.12));
+    box-shadow: 0 6px 22px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  :root[data-theme="light"] .explore-page .explore-hub-grid a.explore-hub-card:hover,
+  :root[data-theme="light"] .explore-page .explore-hub-grid a.explore-hub-card:focus-visible {
+    background-color: color-mix(in srgb, var(--gold, #b8860b) 8%, var(--card-light, #fff));
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 38%, rgba(15, 23, 42, 0.15));
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(201, 162, 39, 0.2);
+  }
+}
+
+/* —— Sermon Builder workspace (inline keeps layout only) —— */
+.sb-enhance-toolbar {
+  background-color: color-mix(in srgb, var(--gold, #e3bc67) 8%, transparent);
+  background-image: var(--tdb-lux-guilloche);
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 32%, transparent);
+  box-shadow: inset 0 1px 0 var(--tdb-lux-bevel-light);
+}
+
+.sb-workspace-wrap {
+  background-color: color-mix(in srgb, var(--card, #1b212d) 96%, transparent);
+  background-image: var(--tdb-lux-guilloche);
+  border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 26%, transparent);
+  box-shadow: var(--tdb-lux-shadow-card);
+}
+
+:root[data-theme="light"] .sb-workspace-wrap {
+  background-color: color-mix(in srgb, var(--card, #fff) 94%, transparent);
+  background-image: var(--tdb-lux-guilloche);
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 30%, rgba(184, 134, 11, 0.35));
+}
+
+.dark-mode .sermon-builder.glass,
+.dark-mode .sermons-dashboard.glass {
+  background-color: var(--card-dark, rgba(12, 18, 30, 0.94));
+  background-image: var(--tdb-lux-guilloche);
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 22%, rgba(148, 163, 184, 0.14));
+  box-shadow: var(--tdb-lux-shadow-card), 0 0 0 1px rgba(227, 188, 103, 0.08);
+}
+
+:root[data-theme="light"] .sermon-builder.glass,
+:root[data-theme="light"] .sermons-dashboard.glass {
+  background-image: var(--tdb-lux-guilloche);
+  border-color: color-mix(in srgb, var(--tdb-lux-rose) 18%, rgba(15, 23, 42, 0.12));
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* —— My Study —— */
+@media screen {
+  .mystudy-body.dark-mode .mystudy-card.glass {
+    background-color: var(--card-dark, rgba(12, 18, 30, 0.94));
+    background-image: var(--tdb-lux-guilloche);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 22%, rgba(148, 163, 184, 0.14));
     box-shadow: var(--tdb-lux-shadow-card);
   }
 
-  body.tdb-lux-page .mo-print-verse {
-    border-color: color-mix(in srgb, var(--tdb-lux-rose) 30%, var(--line, #2a3344));
+  .mystudy-body .mystudy-tab.active {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tdb-lux-rose) 35%, transparent), 0 0 18px rgba(201, 162, 39, 0.08);
+  }
+}
+
+/* —— Mission / outreach (screen only) —— */
+@media screen {
+  .mo-print-sheet {
+    background-color: var(--card, rgba(12, 18, 30, 0.94));
+    background-image: var(--tdb-lux-guilloche);
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 24%, var(--line, #2a3344));
+    box-shadow: var(--tdb-lux-shadow-card);
+  }
+
+  .mo-print-verse {
+    background-color: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 92%, var(--gold, #e3bc67));
+    background-image: var(--tdb-lux-guilloche);
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 30%, var(--line, #2a3344));
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 }
 
-/* Slow “lume” pulse — decorative only; opt-in class */
+/* —— Battle Plans (standalone page; link after inline style) —— */
+@media screen {
+  body:has(.plans-page) {
+    background-color: #0d1117;
+    background-image: radial-gradient(ellipse 100% 55% at 50% -8%, rgba(201, 162, 39, 0.072), transparent 50%),
+      radial-gradient(ellipse 85% 48% at 50% 102%, rgba(201, 162, 39, 0.042), transparent 48%);
+  }
+
+  .plans-page .plans-start-here {
+    background-image: var(--tdb-lux-guilloche);
+    background-color: color-mix(in srgb, var(--card, #161c26) 92%, var(--gold, #e3bc67));
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 28%, transparent);
+    box-shadow: var(--tdb-lux-shadow-card);
+  }
+
+  .plans-page .plans-start-here-card {
+    background-color: color-mix(in srgb, var(--card, #161c26) 94%, var(--gold, #e3bc67));
+    background-image: var(--tdb-lux-guilloche);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 22%, var(--line, #242d3d));
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28), inset 0 1px 0 var(--tdb-lux-bevel-light);
+    transition: border-color var(--tdb-lux-transition), box-shadow var(--tdb-lux-transition), transform var(--tdb-lux-transition);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .plans-page .plans-start-here-card:hover {
+      border-color: color-mix(in srgb, var(--tdb-lux-rose) 42%, var(--line, #242d3d));
+      box-shadow: var(--tdb-lux-shadow-card-hover);
+      transform: translateY(-1px);
+    }
+  }
+
+  .plans-page .recent-plan-card {
+    background-image: var(--tdb-lux-guilloche);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(227, 188, 103, 0.1);
+  }
+
+  .plans-page .plans-hero h1 {
+    font-family: var(--font-display, 'Playfair Display', Georgia, serif);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 32%, transparent);
+    display: inline-block;
+    padding-bottom: 0.35rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* —— Kids Loop Library: subtle warm bezel (keeps sky playful) —— */
+@media screen {
+  .kids-corner-page.loop-library-page .kids-corner-card {
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 24%, rgba(148, 163, 184, 0.18));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(227, 188, 103, 0.08);
+  }
+}
+
+/* —— Möbius text mode —— */
+@media screen {
+  .tool-page-shell .mobius-text-v2 {
+    padding: 1.25rem 1.1rem 1.35rem;
+    border-radius: 18px;
+    border: 1px solid color-mix(in srgb, var(--tdb-lux-rose) 20%, var(--tool-line, #2a3344));
+    background-color: rgba(8, 12, 22, 0.45);
+    background-image: var(--tdb-lux-guilloche);
+    box-shadow: var(--tdb-lux-shadow-card);
+  }
+
+  .tool-page-shell .mobius-mantra-text {
+    font-family: var(--font-display, 'Playfair Display', Georgia, 'Times New Roman', serif);
+    font-weight: 500;
+  }
+
+  .tool-page-shell .mobius-weekly-viz-wrapper {
+    background-image: var(--tdb-lux-guilloche);
+    border-color: color-mix(in srgb, var(--tdb-lux-rose) 18%, rgba(227, 188, 103, 0.12));
+    box-shadow: var(--tdb-lux-shadow-card);
+  }
+}
+
+/* Slow “lume” pulse — decorative; opt-in class */
 @keyframes tdb-lux-lume {
   0%,
   100% {
@@ -165,6 +360,16 @@ body.tdb-lux-page .fp-oia-example-block {
   }
 }
 
+@keyframes tdb-lux-gold-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.28), 0 0 14px rgba(201, 162, 39, 0.14);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.42), 0 0 22px rgba(201, 162, 39, 0.22);
+  }
+}
+
 .tdb-lux-lume {
   animation: none;
 }
@@ -172,5 +377,9 @@ body.tdb-lux-page .fp-oia-example-block {
 @media (prefers-reduced-motion: no-preference) {
   .tdb-lux-lume {
     animation: tdb-lux-lume 10s ease-in-out infinite;
+  }
+
+  .sb-btn--gold {
+    animation: tdb-lux-gold-glow 11s ease-in-out infinite;
   }
 }

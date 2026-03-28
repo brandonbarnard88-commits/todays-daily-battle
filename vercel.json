@@ -1,43 +1,165 @@
 {
   "redirects": [
-    { "source": "/contact", "destination": "/contact.html", "permanent": true },
-    { "source": "/terms", "destination": "/terms.html", "permanent": true },
-    { "source": "/privacy", "destination": "/privacy.html", "permanent": true },
-    { "source": "/about", "destination": "/about.html", "permanent": true },
-    { "source": "/faq", "destination": "/faq.html", "permanent": true },
-    { "source": "/why-not-ai", "destination": "/why-not-ai.html", "permanent": true },
-    { "source": "/shop", "destination": "/shop.html", "permanent": true },
-    { "source": "/pricing", "destination": "/pricing.html", "permanent": true },
-    { "source": "/security", "destination": "/security.html", "permanent": true },
-    { "source": "/story", "destination": "/story.html", "permanent": true },
-    { "source": "/verse", "destination": "/verse.html", "permanent": true },
-    { "source": "/reader", "destination": "/reader.html", "permanent": true },
-    { "source": "/plans", "destination": "/plans.html", "permanent": true },
-    { "source": "/calm", "destination": "/calm.html", "permanent": true },
-    { "source": "/mobius", "destination": "/mobius.html", "permanent": true },
-    { "source": "/anxiety", "destination": "/about.html", "permanent": true },
-    { "source": "/our-approach", "destination": "/about.html", "permanent": true },
-    { "source": "/contract", "destination": "/faq.html", "permanent": true },
-    { "source": "/donate", "destination": "https://buymeacoffee.com/todaysdailybattle", "permanent": true },
-    { "source": "/stripe", "destination": "https://buymeacoffee.com/todaysdailybattle", "permanent": true },
-    { "source": "/support", "destination": "https://buymeacoffee.com/todaysdailybattle", "permanent": true },
-    { "source": "/donations", "destination": "https://buymeacoffee.com/todaysdailybattle", "permanent": true },
-    { "source": "/donations/:path*", "destination": "https://buymeacoffee.com/todaysdailybattle", "permanent": true }
+    {
+      "source": "/contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html",
+      "permanent": true
+    },
+    {
+      "source": "/why-not-ai",
+      "destination": "/why-not-ai.html",
+      "permanent": true
+    },
+    {
+      "source": "/shop",
+      "destination": "/shop.html",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html",
+      "permanent": true
+    },
+    {
+      "source": "/security",
+      "destination": "/security.html",
+      "permanent": true
+    },
+    {
+      "source": "/story",
+      "destination": "/story.html",
+      "permanent": true
+    },
+    {
+      "source": "/verse",
+      "destination": "/verse.html",
+      "permanent": true
+    },
+    {
+      "source": "/reader",
+      "destination": "/reader.html",
+      "permanent": true
+    },
+    {
+      "source": "/plans",
+      "destination": "/plans.html",
+      "permanent": true
+    },
+    {
+      "source": "/calm",
+      "destination": "/calm.html",
+      "permanent": true
+    },
+    {
+      "source": "/mobius",
+      "destination": "/mobius.html",
+      "permanent": true
+    },
+    {
+      "source": "/anxiety",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-approach",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/contract",
+      "destination": "/faq.html",
+      "permanent": true
+    },
+    {
+      "source": "/donate",
+      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "permanent": true
+    },
+    {
+      "source": "/stripe",
+      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "permanent": true
+    },
+    {
+      "source": "/support",
+      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "permanent": true
+    },
+    {
+      "source": "/donations",
+      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "permanent": true
+    },
+    {
+      "source": "/donations/:path*",
+      "destination": "https://buymeacoffee.com/todaysdailybattle",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "no-referrer" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
-        { "key": "Permissions-Policy", "value": "geolocation=(self), microphone=(), camera=(), payment=(), usb=()" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin-allow-popups" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
-        { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
-        { "key": "Origin-Agent-Cluster", "value": "?1" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(self), microphone=(), camera=(), payment=(), usb=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin-allow-popups"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "X-Permitted-Cross-Domain-Policies",
+          "value": "none"
+        },
+        {
+          "key": "Origin-Agent-Cluster",
+          "value": "?1"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
         {
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://checkout.stripe.com https://hooks.stripe.com; trusted-types default dompurify; script-src 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com; script-src-elem 'self' 'nonce-tdb2025s' https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://*.supabase.co https://todaysdailybattle.com https://todaysdailybattle.org https://www.todaysdailybattle.com https://plausible.io https://www.googletagmanager.com https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com https://js.stripe.com https://*.stripe.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://images.unsplash.com https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://challenges.cloudflare.com https://plausible.io https://www.google-analytics.com https://api.stripe.com https://api.github.com https://bible-api.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; worker-src 'self' blob: https://todaysdailybattle.com https://www.todaysdailybattle.com; frame-src 'self' https://challenges.cloudflare.com https://js.stripe.com https://hooks.stripe.com; upgrade-insecure-requests"

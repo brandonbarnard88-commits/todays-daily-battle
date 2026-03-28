@@ -9,6 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const ROOT = __dirname;
 let failed = 0;
@@ -97,41 +98,16 @@ if (!headersForCsp.includes("default-src 'self'") && !headersForCsp.includes('de
   warn('CSP may be weak: default-src should include self');
 }
 
-// 1b. Vercel reads vercel.json only — not dist/_headers. CSP must match _headers /* line or production drifts.
-(function verifyVercelCspMatchesHeaders() {
-  const vercelRaw = read('vercel.json');
-  if (!vercelRaw) {
-    warn('vercel.json: missing — skip Vercel CSP parity check');
-    return;
-  }
-  let vercel;
-  try {
-    vercel = JSON.parse(vercelRaw);
-  } catch (e) {
-    fail('vercel.json: invalid JSON');
-    return;
-  }
-  const blocks = vercel.headers;
-  if (!Array.isArray(blocks) || !blocks[0] || !Array.isArray(blocks[0].headers)) {
-    fail('vercel.json: expected headers[0].headers array');
-    return;
-  }
-  const cspEntry = blocks[0].headers.find(function (h) {
-    return h && h.key === 'Content-Security-Policy';
+// 1b. vercel.json catch-all headers are generated from _headers (see scripts/sync-vercel-headers-from-headers.mjs)
+try {
+  execSync('node scripts/sync-vercel-headers-from-headers.mjs --check', {
+    cwd: ROOT,
+    stdio: 'pipe',
   });
-  const fromHeaders = headersForCsp.match(/Content-Security-Policy:\s*([^\r\n]+)/);
-  const expected = fromHeaders ? fromHeaders[1].trim() : '';
-  const actual = cspEntry && cspEntry.value ? String(cspEntry.value).trim() : '';
-  if (!expected) {
-    fail('_headers: could not parse Content-Security-Policy line for parity check');
-    return;
-  }
-  if (actual !== expected) {
-    fail('vercel.json Content-Security-Policy must match _headers /* Content-Security-Policy exactly (Vercel does not use _headers)');
-  } else {
-    ok('vercel.json CSP matches _headers (Vercel parity)');
-  }
-})();
+  ok('vercel.json in sync with _headers /* catch-all (Vercel parity)');
+} catch (e) {
+  fail('vercel.json out of sync with _headers — run npm run sync:vercel-headers (or npm run build)');
+}
 
 // 2. Security headers (_headers)
 const index = read('index.html');

@@ -48,7 +48,7 @@ PAGES = [
     "Verse of the day",
     "kids-family-hub-banner", "Open Family hub", "For parents",
     "kids-daily-verse-root", "family.html", "kids/kids-page-sky.css?v=20260326playful", "sky-ip-geo.js?v=20260327ipgeo", "kids/kids-page-sky.js?v=20260327ipgeo"]),
-    ("/family.html", "Family hub", ["For Families", "family-daily-verse-root", "family-activity-packs.html", "family-youth-journal.html", "plans.html?plan=familyworship", "plans.html?plan=psalmscomfortfamily", "Your family has walked", "stays the younger-child space", "tdb-cache-hygiene:"]),
+    ("/family.html", "Family hub", ["For Families", "family-daily-verse-root", "family-plan-cards", 'id="family-prayer-wall"', "A quiet place for your family", "family-activity-packs.html", "family-youth-journal.html", "plans.html?plan=familyworship", "plans.html?plan=psalmscomfortfamily", "Your family has walked", "stays the younger-child space", "tdb-cache-hygiene:"]),
     ("/family-activity-packs.html", "Family activity packs", ["Printable family activity", "plans-data.js", "familyworship", "psalmscomfortfamily", "Psalms of Comfort (Family Edition)", "fam-print-btn"]),
     ("/family-youth-journal.html", "Family teen journal", ["Teen journal", "See — What stands out?", "galatiansfreedom", "family-activity-packs.html"]),
     ("/mission-outreach-packs.html", "Mission outreach packs", ["Mission &amp; outreach packs", "mission-outreach-data.js", "mo-pack-themes", "hospital &amp; bedside", "prison &amp; jail", "mo-print-btn", "tdb-cache-hygiene:"]),

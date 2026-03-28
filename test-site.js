@@ -43,7 +43,7 @@ const pages = [
   { path: '/pastor-toolkit.html', name: 'Pastor Toolkit', mustInclude: ['Pastor'] },
   { path: '/team-toolkit.html', name: 'Team Toolkit', mustInclude: ['Team', 'Ready-to-use packs'] },
   { path: '/coloring.html', name: 'Kids Coloring', mustInclude: ['Coloring', 'Kids', 'coloring-sheet-grid', 'Pick a page'] },
-  { path: '/family.html', name: 'Family hub', mustInclude: ['For Families', 'family-daily-verse-root', 'family-activity-packs.html', 'family-youth-journal.html', 'plans.html?plan=familyworship', 'plans.html?plan=psalmscomfortfamily', 'Your family has walked', 'stays the younger-child space', 'tdb-cache-hygiene:'] },
+  { path: '/family.html', name: 'Family hub', mustInclude: ['For Families', 'family-daily-verse-root', 'family-plan-cards', 'id="family-prayer-wall"', 'A quiet place for your family', 'family-activity-packs.html', 'family-youth-journal.html', 'plans.html?plan=familyworship', 'plans.html?plan=psalmscomfortfamily', 'Your family has walked', 'stays the younger-child space', 'tdb-cache-hygiene:'] },
   { path: '/family-activity-packs.html', name: 'Family activity packs', mustInclude: ['Printable family activity', 'plans-data.js', 'familyworship', 'psalmscomfortfamily', 'Psalms of Comfort (Family Edition)', 'fam-print-btn'] },
   { path: '/family-youth-journal.html', name: 'Family teen journal', mustInclude: ['Teen journal', 'See — What stands out?', 'galatiansfreedom', 'family-activity-packs.html'] },
   { path: '/mission-outreach-packs.html', name: 'Mission outreach packs', mustInclude: ['Mission &amp; outreach packs', 'mission-outreach-data.js', 'mo-pack-themes', 'hospital &amp; bedside', 'grief &amp; funeral', 'prison &amp; jail', 'mo-print-btn', 'tdb-cache-hygiene:'] },
